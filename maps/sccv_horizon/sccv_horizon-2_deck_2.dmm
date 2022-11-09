@@ -1548,19 +1548,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
-"aGH" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "sorting";
-	layer = 2.9;
-	reversed = 1
-	},
-/obj/structure/plasticflaps,
-/turf/simulated/floor/plating,
-/area/operations/mail_room)
 "aHj" = (
 /obj/machinery/computer/sentencing/courtroom{
 	pixel_x = -29
@@ -2453,12 +2440,12 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
@@ -7609,16 +7596,18 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "sorting";
-	layer = 2.9;
 	reversed = 1
 	},
-/turf/simulated/floor/plating,
+/obj/structure/sign/drop{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
 "dLo" = (
 /obj/machinery/bodyscanner,
@@ -8253,7 +8242,13 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/structure/table/standard,
+/obj/item/device/hand_labeler,
+/obj/item/device/destTagger,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -9407,6 +9402,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "eMi" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/brown,
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "eMl" = (
@@ -12070,9 +12067,6 @@
 /area/turbolift/scc_ship/robotics_lift)
 "gao" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "gax" = (
@@ -14145,6 +14139,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
+"gVh" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/maintenance/disposal)
 "gVl" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -15474,13 +15475,12 @@
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "sorting";
-	layer = 2.9;
 	reversed = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
 "hCo" = (
 /obj/structure/window/reinforced,
@@ -17813,11 +17813,11 @@
 "iOR" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "sorting";
-	pixel_x = -6;
-	pixel_y = 10
+	pixel_x = -13;
+	pixel_y = 22
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
@@ -18453,14 +18453,17 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "jhZ" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations - Mail Sorting";
-	dir = 1
+	dir = 8
 	},
 /obj/machinery/firealarm/east,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "jib" = (
@@ -20284,6 +20287,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
+/obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "kaQ" = (
@@ -24400,6 +24404,9 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "mlD" = (
@@ -26539,10 +26546,6 @@
 /area/operations/qm)
 "nkb" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -28469,6 +28472,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
+"opx" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/open,
+/area/maintenance/disposal)
 "opF" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -31582,12 +31592,22 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/xenobiology)
 "pPO" = (
-/obj/structure/table/rack,
 /obj/item/stack/wrapping_paper,
-/obj/item/stack/packageWrap,
-/obj/item/stack/packageWrap,
-/obj/item/device/hand_labeler,
-/obj/item/device/destTagger,
+/obj/structure/table/standard,
+/obj/item/stack/wrapping_paper,
+/obj/item/stack/packageWrap{
+	pixel_y = 8
+	},
+/obj/item/stack/packageWrap{
+	pixel_y = 8
+	},
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
+	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "pQg" = (
@@ -36015,26 +36035,15 @@
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "rXD" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "sorting";
-	layer = 2.9;
-	reversed = 1
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/structure/plasticflaps,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "rXJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -39487,18 +39496,10 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/trunk,
-/obj/structure/window/reinforced{
-	layer = 5;
-	name = "adjusted reinforced window"
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
+/obj/structure/railing/mapped,
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
 "tQA" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -40669,6 +40670,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
@@ -42247,6 +42251,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/kitchen)
+"vgt" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/disposaloutlet{
+	dir = 1
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/maintenance/disposal)
 "vgz" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
@@ -42781,10 +42795,10 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Mail Sorting";
-	req_access = list(50)
+	req_one_access = list(26,31,67)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/operations/mail_room)
 "vxK" = (
 /obj/machinery/door/firedoor,
@@ -43869,16 +43883,14 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "vVF" = (
-/obj/machinery/conveyor{
-	dir = 10;
-	id = "sorting";
-	layer = 2.9;
-	reversed = 1
+/obj/machinery/disposal/deliveryChute{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
+/obj/structure/disposalpipe/trunk,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/railing/mapped,
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
 "vVL" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -44617,7 +44629,6 @@
 /area/horizon/exterior)
 "wkN" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
-/obj/structure/disposalpipe/segment,
 /obj/machinery/firealarm/west,
 /obj/structure/sign/drop{
 	pixel_x = 32;
@@ -44625,6 +44636,10 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
@@ -44788,19 +44803,11 @@
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "wnW" = (
-/obj/structure/disposalpipe/trunk,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/disposal/deliveryChute{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "woe" = (
 /obj/structure/railing/mapped{
@@ -45738,9 +45745,9 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Mail Sorting";
-	req_access = list(50)
+	req_one_access = list(26,31,67)
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/operations/mail_room)
 "wLg" = (
 /obj/structure/cable/green{
@@ -62424,7 +62431,7 @@ vVF
 rXD
 wnW
 kaP
-rCR
+iuP
 ien
 rZh
 gvG
@@ -62626,7 +62633,7 @@ hCj
 iOR
 gao
 usd
-rCR
+iuP
 gbk
 oad
 hDg
@@ -63026,11 +63033,11 @@ nQm
 nQm
 nQm
 iuP
-aGH
+hCj
 upn
 eMi
 jhZ
-rCR
+iuP
 dzc
 dDq
 kbc
@@ -63232,7 +63239,7 @@ tQk
 eew
 pPO
 iuP
-rCR
+iuP
 rCR
 rCR
 jUP
@@ -67233,8 +67240,8 @@ gNQ
 bHW
 iSx
 eVm
-eVm
-eVm
+opx
+gVh
 iSx
 jsA
 lBj
@@ -67436,7 +67443,7 @@ gsz
 iSx
 xZI
 xZI
-xZI
+vgt
 iSx
 jsA
 uyq
