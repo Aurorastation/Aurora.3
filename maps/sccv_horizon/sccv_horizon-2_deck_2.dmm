@@ -4029,6 +4029,7 @@
 	name_tag = "Master"
 	},
 /obj/effect/floor_decal/corner/yellow/full,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "bPH" = (
@@ -4670,6 +4671,9 @@
 	dir = 8
 	},
 /obj/machinery/meter,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
@@ -15239,8 +15243,6 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
 "hwI" = (
@@ -16230,17 +16232,8 @@
 	name = "Disposals and Recycling";
 	req_one_access = list(26,67)
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
 /turf/simulated/floor/plating,
-/area/engineering/engine_waste)
+/area/maintenance/disposal)
 "hXW" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
@@ -16858,6 +16851,9 @@
 /area/engineering/engine_monitoring)
 "ioS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "ioW" = (
@@ -17020,10 +17016,10 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Substation and Disposals Maintenance";
+	name = "Engineering Substation";
 	req_one_access = list(11,24)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/maintenance/substation/engineering)
 "iwd" = (
 /obj/structure/table/standard,
@@ -21488,7 +21484,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/engineering/smes)
 "kOz" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -21830,7 +21826,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/engineering/smes)
 "kXm" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -23706,7 +23702,7 @@
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "lSV" = (
@@ -30566,13 +30562,15 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
 "pnF" = (
-/obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
+/obj/machinery/door/airlock/glass_engineering{
+	name = "Engineering Hallway";
+	req_access = list(10)
+	},
+/turf/simulated/floor/tiled/full,
 /area/hallway/engineering/tesla)
 "pnY" = (
 /obj/structure/cable/green{
@@ -34116,11 +34114,15 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "rcU" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
 	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_room)
+/obj/structure/closet/walllocker/firecloset{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/turf/simulated/floor/tiled,
+/area/hallway/engineering/tesla)
 "rdi" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -34250,7 +34252,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/engineering/smes)
 "rgH" = (
 /obj/machinery/hologram/holopad,
@@ -40902,11 +40904,11 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Substation and Disposals Maintenance";
+	name = "Engineering Substation";
 	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/maintenance/substation/engineering)
 "uxp" = (
 /obj/machinery/atmospherics/unary/heater{
@@ -46343,6 +46345,9 @@
 "wYS" = (
 /obj/machinery/atmospherics/binary/pump{
 	name = "Reactor to Scrubbers"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -69451,7 +69456,7 @@ bSK
 xVu
 vbc
 lMD
-lnv
+rcU
 gci
 ulg
 fnn

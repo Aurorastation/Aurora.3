@@ -15887,6 +15887,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
+"mmG" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/dark/full,
+/area/maintenance/disposal)
 "mnr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -21467,7 +21472,7 @@
 /obj/structure/lattice,
 /obj/structure/grille,
 /obj/effect/landmark/entry_point/aft{
-	name = "aft, dioxide tank"
+	name = "aft, carbon dioxide tank"
 	},
 /turf/space/dynamic,
 /area/horizon/exterior)
@@ -49037,7 +49042,7 @@ oxT
 rOV
 pNf
 kvq
-joz
+mmG
 aJB
 iXY
 mlw
