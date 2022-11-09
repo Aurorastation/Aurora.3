@@ -11,8 +11,7 @@
 /obj/effect/landmark/tramp_freighter_secret_cargo_landmark
 	name = "tramp_freighter_secret_cargo_landmark"
 
-/obj/effect/landmark/tramp_freighter_secret_cargo_landmark/Initialize()
-	. = ..()
+/obj/effect/landmark/tramp_freighter_secret_cargo_landmark/New()
 	place_dungeon_spawns_generic("maps/away/ships/tramp_freighter/secret_cargo/", loc)
 	qdel(src)
 
