@@ -42,6 +42,12 @@ var/datum/controller/subsystem/atlas/SSatlas
 			"fore" = WEST,
 			"aft" = EAST
 		),
+		"4" = list(
+			"starboard" = NORTH,
+			"port" = SOUTH,
+			"fore" = WEST,
+			"aft" = EAST
+		),
 		"8" = list(
 			"starboard" = SOUTH,
 			"port" = NORTH,
@@ -52,28 +58,84 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	var/list/headings_to_naval = list(
 		"1" = list(
-			"8" = "starboard",
-			"4" = "port",
+			"1" = "aft",
 			"2" = "fore",
-			"1" = "aft"
+			"4" = "port",
+			"5" = "port",
+			"6" = "port",
+			"8" = "starboard",
+			"9" = "starboard",
+			"10" = "starboard"
 		),
 		"2" = list(
-			"4" = "starboard",
-			"8" = "port",
 			"1" = "fore",
-			"2" = "aft"
+			"2" = "aft",
+			"4" = "starboard",
+			"5" = "starboard",
+			"6" = "starboard",
+			"8" = "port",
+			"9" = "port",
+			"10" = "port"
 		),
 		"4" = list(
 			"1" = "starboard",
 			"2" = "port",
+			"4" = "aft",
+			"5" = "starboard",
+			"6" = "port",
 			"8" = "fore",
-			"4" = "aft"  
+			"9" = "starboard",
+			"10" = "port"
+		),
+		"5" = list( //northeast
+			"1" = "starboard",
+			"2" = "port",
+			"4" = "port",
+			"5" = "aft",
+			"6" = "port",
+			"8" = "starboard",
+			"9" = "starboard",
+			"10" = "fore"
+		),
+		"6" = list( //southeast
+			"1" = "starboard",
+			"2" = "port",
+			"4" = "starboard",
+			"5" = "starboard",
+			"6" = "aft",
+			"8" = "port",
+			"9" = "fore",
+			"10" = "port"
 		),
 		"8" = list(
-			"2" = "starboard",
 			"1" = "port",
+			"2" = "starboard",
 			"4" = "fore",
-			"8" = "aft"
+			"5" = "port",
+			"6" = "starboard",
+			"8" = "aft",
+			"9" = "port",
+			"10" = "starboard"
+		),
+		"9" = list(  //northwest
+			"1" = "port",
+			"2" = "starboard",
+			"4" = "port",
+			"5" = "port",
+			"6" = "fore",
+			"8" = "starboard",
+			"9" = "aft",
+			"10" = "starboard"
+		),
+		"10" = list( //southwest
+			"1" = "port",
+			"2" = "starboard",
+			"4" = "starboard",
+			"5" = "fore",
+			"6" = "starboard",
+			"8" = "port",
+			"9" = "port",
+			"10" = "aft"
 		)
 	)
 

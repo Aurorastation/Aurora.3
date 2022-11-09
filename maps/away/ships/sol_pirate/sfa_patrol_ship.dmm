@@ -36,6 +36,10 @@
 "acx" = (
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "aej" = (
@@ -50,14 +54,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "agg" = (
-/obj/item/modular_computer/console/preset/civilian{
-	dir = 1
-	},
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/red/full,
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "ahU" = (
@@ -204,9 +208,8 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
 	},
-/obj/effect/decal/cleanable/cobweb,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -351,6 +354,9 @@
 /area/ship/sfa_patrol_ship)
 "buM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "bxR" = (
@@ -388,14 +394,10 @@
 /turf/space/transit/north,
 /area/space)
 "bOZ" = (
-/obj/machinery/constructable_frame/temp_deco,
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/item/cannonframe{
-	name = "cannon breechs"
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/holofloor/tiled/ramp,
 /area/ship/sfa_patrol_ship)
 "ccm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -471,7 +473,8 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, weapons control"
 	},
-/turf/unsimulated/wall/fakepdoor,
+/obj/structure/viewport,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "dHE" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -1005,7 +1008,7 @@
 /obj/structure/closet,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/storage/belt/security,
+/obj/item/storage/belt/security/full,
 /obj/item/storage/belt/security,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -1182,11 +1185,17 @@
 /area/ship/sfa_patrol_ship)
 "hZe" = (
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (rifles)";
 	req_access = list(203)
 	},
-/obj/item/gun/energy/taser,
-/obj/item/gun/energy/taser,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/grenade/frag,
+/obj/item/storage/box/flashshells,
+/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shotgunshells,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/item/ammo_magazine/c762/sol,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "hZq" = (
@@ -1295,7 +1304,8 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/ramp/bottom,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "iJB" = (
 /obj/machinery/computer/shuttle_control/explore/sfa_shuttle{
@@ -1389,6 +1399,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
+"jkg" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/template_noop,
+/area/space)
 "jmA" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/plasmacutter{
@@ -1574,6 +1590,10 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/sfa_shuttle)
+"kCw" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/wall/shuttle/raider,
+/area/ship/sfa_patrol_ship)
 "kFu" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -1632,6 +1652,12 @@
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship)
+"kXS" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, workshop"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/sfa_patrol_ship)
 "kYY" = (
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship)
@@ -1660,7 +1686,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "lit" = (
-/obj/structure/bed/stool,
+/obj/machinery/ammunition_loader/grauwolf{
+	weapon_id = "SFA Grauwolf Flak Battery"
+	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "llg" = (
@@ -1731,6 +1759,14 @@
 /area/ship/sfa_patrol_ship)
 "lNz" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "sfa bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "lOH" = (
@@ -1762,7 +1798,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/item/receivergun{
-	desc = "A reliable assault rifle manufactured by Zavodskoi Interstellar, the M469 is the standard service rifle of the Solarian Armed Forces, most commonly associated with its ground forces. Though the design is old, it continues to see widespread use in the Alliance and its breakaway states and likely will for years to come. Chambered in 7.62mm. This one's been broken awhile, only thing useful on it now is the reciever.";
+	desc = "A reliable assault rifle manufactured by Zavodskoi Interstellar, the M469 is the standard service rifle of the Solarian Armed Forces, most commonly associated with its ground forces. Though the design is old, it continues to see widespread use in the Alliance and its breakaway states and likely will for years to come. Chambered in 7.62mm. This one's been broken awhile, only thing useful on it now is the receiver.";
 	drop_sound = 'sound/items/drop/gun.ogg';
 	icon = 'icons/obj/guns/sol_rifle.dmi';
 	icon_state = "battlerifle";
@@ -1838,9 +1874,16 @@
 /area/ship/sfa_patrol_ship)
 "mDh" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "sfa bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
@@ -1877,6 +1920,12 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "sfa bridge blast";
+	name = "Bridge Lockdown";
+	pixel_x = -28;
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "mLa" = (
@@ -1900,6 +1949,12 @@
 "nit" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, equipment room"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/sfa_patrol_ship)
+"niu" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, weapons control"
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship)
@@ -2066,6 +2121,7 @@
 /area/ship/sfa_patrol_ship)
 "oRr" = (
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (LTL)";
 	req_access = list(203)
 	},
 /obj/item/storage/box/zipties,
@@ -2077,6 +2133,11 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/smokebomb,
+/obj/item/gun/energy/taser,
+/obj/item/gun/energy/taser,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "oSU" = (
@@ -2109,11 +2170,26 @@
 /area/ship/sfa_patrol_ship)
 "phQ" = (
 /obj/effect/decal/cleanable/blood/oil,
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor,
+/area/ship/sfa_patrol_ship)
+"pwZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "pBY" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "sfa bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/structure/grille,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "pIa" = (
@@ -2178,9 +2254,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "qcp" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/device/flashlight/heavy,
-/turf/simulated/floor,
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/red,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship)
 "qcz" = (
 /obj/structure/table/steel,
@@ -2249,6 +2326,14 @@
 /area/ship/sfa_patrol_ship)
 "qyG" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "sfa bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship)
 "qBC" = (
@@ -2316,9 +2401,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "rCw" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 1
-	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -2326,6 +2408,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/machinery/computer/ship/targeting,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "rNp" = (
@@ -2358,12 +2441,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
+"syL" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/space)
 "sAC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/suit/space/void/sol/sfa,
+/obj/item/clothing/head/helmet/space/void/sol/sfa,
 /obj/machinery/light{
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "sBA" = (
@@ -2485,13 +2577,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
-"tHO" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/obj/item/storage/toolbox/mechanical,
-/turf/simulated/floor,
-/area/ship/sfa_patrol_ship)
 "tKM" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -2504,11 +2589,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
-"tWH" = (
-/obj/machinery/constructable_frame/temp_deco,
-/obj/item/stack/cable_coil,
-/turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "tYU" = (
 /obj/effect/floor_decal/spline/plain,
@@ -2526,6 +2606,10 @@
 	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
+"ufa" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/ship/sfa_patrol_ship)
 "uBC" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -2573,6 +2657,16 @@
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship)
+"vcM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/ship_weapon_dummy,
+/obj/machinery/ship_weapon/grauwolf{
+	pixel_x = -32;
+	pixel_y = -192;
+	weapon_id = "SFA Grauwolf Flak Battery"
+	},
+/turf/simulated/floor,
+/area/ship/sfa_patrol_ship)
 "vcN" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, armoury"
@@ -2604,15 +2698,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "vmq" = (
-/obj/machinery/constructable_frame/temp_deco,
-/obj/item/material/wirerod,
-/obj/item/stack/cable_coil,
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
-/obj/structure/cable{
-	dir = 8
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "vns" = (
@@ -2637,7 +2726,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/ramp,
+/turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "vwF" = (
 /obj/machinery/telecomms/allinone/ship,
@@ -2654,15 +2743,28 @@
 /obj/item/folder/blue,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sfa_patrol_ship)
+"vyZ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/turf/simulated/floor,
+/area/ship/sfa_patrol_ship)
 "vAi" = (
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (SMGs)";
 	req_access = list(203)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/flashshells,
-/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/gun/projectile/automatic/c20r/sol,
+/obj/item/gun/projectile/automatic/c20r/sol,
+/obj/item/gun/projectile/automatic/c20r/sol,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "vCD" = (
@@ -2706,7 +2808,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "vMF" = (
-/obj/item/trash/spitwad,
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "vOB" = (
@@ -2780,10 +2882,6 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/item/device/multitool,
-/obj/structure/cable{
-	dir = 4
-	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "wrJ" = (
@@ -2826,6 +2924,7 @@
 /area/ship/sfa_patrol_ship)
 "wTJ" = (
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (sidearms)";
 	req_access = list(203)
 	},
 /obj/item/gun/projectile/pistol/sol,
@@ -2834,6 +2933,11 @@
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/gun/projectile/pistol/sol,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
@@ -2880,6 +2984,7 @@
 	icon_state = "bridge_legion"
 	},
 /obj/item/clothing/suit/storage/hazardvest/fsf,
+/obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "xdk" = (
@@ -30894,10 +30999,10 @@ yjk
 yjk
 yjk
 yjk
-pBY
-pBY
-pBY
-pBY
+lNz
+lNz
+lNz
+lNz
 xRX
 xRX
 xRX
@@ -31154,7 +31259,7 @@ bgD
 kMV
 hBs
 ftq
-pBY
+lNz
 xRX
 xRX
 xRX
@@ -31923,8 +32028,8 @@ sBA
 sBA
 bfg
 ldz
-pBY
-pBY
+lNz
+lNz
 xRX
 xRX
 xRX
@@ -32179,8 +32284,8 @@ qgw
 yjk
 yjk
 yjk
-pBY
-pBY
+lNz
+lNz
 xRX
 xRX
 xRX
@@ -32421,7 +32526,7 @@ vfY
 lwj
 sBA
 lwj
-lwj
+sAC
 yjk
 sBA
 shH
@@ -32678,7 +32783,7 @@ sBA
 sBA
 sBA
 sBA
-sAC
+shH
 yjk
 fva
 shH
@@ -32931,7 +33036,7 @@ heP
 jGx
 aGW
 yjk
-akP
+qcp
 sBA
 sSs
 sBA
@@ -32939,7 +33044,7 @@ sBA
 nTM
 shH
 sBA
-buM
+vyZ
 taa
 yjk
 ehK
@@ -37833,12 +37938,12 @@ loX
 yjk
 yjk
 yjk
-pBY
-pBY
-pBY
-pBY
-xRX
-xRX
+yjk
+yjk
+kCw
+kCw
+syL
+syL
 xRX
 xRX
 xRX
@@ -38091,11 +38196,11 @@ yjk
 aLo
 vtl
 iIT
-yjW
+vcM
 vMF
-uaE
-xRX
-xRX
+ufa
+jkg
+syL
 xRX
 xRX
 xRX
@@ -38348,11 +38453,11 @@ yjk
 shH
 bOZ
 vmq
-tWH
+vMF
 phQ
-uaE
-xRX
-xRX
+ufa
+syL
+syL
 xRX
 xRX
 xRX
@@ -38602,7 +38707,7 @@ aac
 sBA
 sBA
 wfy
-shH
+pwZ
 agg
 woR
 lit
@@ -38861,10 +38966,10 @@ hjH
 yjk
 xbK
 rCw
-tHO
+woR
 iOD
-qcp
-uaE
+yjW
+yjk
 xRX
 xRX
 xRX
@@ -39112,16 +39217,16 @@ pBY
 yjk
 yjk
 yjk
+kXS
 yjk
 yjk
 yjk
 yjk
 yjk
+niu
 yjk
-pBY
-pBY
-pBY
-pBY
+yjk
+yjk
 xRX
 xRX
 xRX
