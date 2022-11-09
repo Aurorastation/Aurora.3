@@ -9295,9 +9295,6 @@
 /obj/item/material/stool/chair/folding{
 	pixel_y = 22
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "eGS" = (
@@ -9737,9 +9734,6 @@
 "eVm" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 1
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/effect/floor_decal/industrial/warning{
@@ -26583,9 +26577,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "nkd" = (
@@ -33069,6 +33060,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
+"qCs" = (
+/obj/structure/railing/mapped{
+	icon_state = "railing0-0";
+	density = 0
+	},
+/turf/simulated/open,
+/area/maintenance/disposal)
 "qCy" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
@@ -42286,11 +42284,6 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 1;
-	icon_state = "railing0-0";
-	density = 0
-	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -45716,6 +45709,12 @@
 /obj/structure/closet/toolcloset,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
+"wIz" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/maintenance/disposal)
 "wIA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -46758,6 +46757,13 @@
 "xhj" = (
 /turf/simulated/wall,
 /area/medical/surgery)
+"xho" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/open,
+/area/maintenance/disposal)
 "xhs" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, ballast aft"
@@ -67283,8 +67289,8 @@ omQ
 gNQ
 bHW
 iSx
-xZI
-xZI
+wIz
+xho
 eVm
 iSx
 jsA
@@ -67486,7 +67492,7 @@ boU
 gsz
 iSx
 xZI
-xZI
+qCs
 vgt
 iSx
 jsA
