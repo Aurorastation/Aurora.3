@@ -189,7 +189,7 @@
 /obj/effect/landmark/costume/waiter/New()
 	new /obj/item/clothing/under/waiter(src.loc)
 	new /obj/item/clothing/head/rabbitears(src.loc)
-	new /obj/item/clothing/suit/apron(src.loc)
+	new /obj/item/clothing/accessory/apron(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/pirate/New()

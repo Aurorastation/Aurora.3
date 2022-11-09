@@ -2,7 +2,7 @@
 	name = "Masked Killer"
 
 	uniform = /obj/item/clothing/under/overalls
-	suit = /obj/item/clothing/suit/apron
+	suit = /obj/item/clothing/accessory/apron
 	shoes = /obj/item/clothing/shoes/white
 	gloves = /obj/item/clothing/gloves/latex
 	mask = /obj/item/clothing/mask/surgical

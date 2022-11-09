@@ -1,16 +1,10 @@
 // Suit slot
 /datum/gear/suit
-	display_name = "apron, botanist"
-	path = /obj/item/clothing/suit/apron
+	display_name = "san colette bridge crew jacket"
+	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc/sancol
 	slot = slot_wear_suit
 	sort_category = "Suits and Overwear"
 	cost = 1
-
-/datum/gear/suit/colorapron
-	display_name = "apron, multipurpose"
-	path = /obj/item/clothing/suit/apron/colored
-	slot = slot_wear_suit
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 datum/gear/suit/colorvest
 	display_name = "colorable vest"
@@ -57,10 +51,6 @@ datum/gear/suit/colorvest
 
 	gear_tweaks += new /datum/gear_tweak/path(jackets)
 
-/datum/gear/suit/sancolette
-	display_name = "san colette bridge crew jacket"
-	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc/sancol
-
 /datum/gear/suit/hazard_vest
 	display_name = "hazard vest selection"
 	path = /obj/item/clothing/suit/storage/hazardvest
@@ -104,7 +94,7 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/surgeryapron
 	display_name = "surgical apron"
-	path = /obj/item/clothing/suit/apron/surgery
+	path = /obj/item/clothing/accessory/apron/surgery
 	cost = 1
 	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
 
@@ -427,3 +417,8 @@ datum/gear/suit/colorvest
 	gadpathur_coat["gadpathurian leather coat"] = /obj/item/clothing/suit/storage/toggle/trench/gadpathur/leather
 	gadpathur_coat["thermal coat"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/gadpathur
 	gear_tweaks += new /datum/gear_tweak/path(gadpathur_coat)
+
+/datum/gear/suit/apron_colourable
+	display_name = "apron (colourable)"
+	path = /obj/item/clothing/accessory/apron/coloured
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

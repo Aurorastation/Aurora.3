@@ -1,41 +1,6 @@
 /*
  * Job related
  */
-
-//Botonist
-/obj/item/clothing/suit/apron
-	name = "botanist apron"
-	desc = "A basic blue apron meant for botanists."
-	icon_state = "blueapron"
-	item_state = "blueapron"
-	blood_overlay_type = "armor"
-	body_parts_covered = 0
-	no_overheat = TRUE
-	allowed = list (/obj/item/reagent_containers/spray/plantbgone,/obj/item/device/analyzer/plant_analyzer,/obj/item/seeds,/obj/item/reagent_containers/glass/fertilizer,/obj/item/material/minihoe)
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-
-obj/item/clothing/suit/apron/colored
-	name = "multipurpose apron"
-	desc = "A multipurpose apron that comes in many colors."
-	icon_state = "apron"
-	item_state = "apron"
-	allowed = list (/obj/item/reagent_containers/food/drinks/shaker,/obj/item/material/kitchen/utensil, /obj/item/reagent_containers/food/condiment/, /obj/item/reagent_containers/food/drinks/bottle/)
-
-/obj/item/clothing/suit/apron/surgery
-	name = "surgical apron"
-	desc = "To keep their blood off while you knife them."
-	icon_state = "surgeon"
-	item_state = "surgeon"
-	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
-	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
-
-/obj/item/clothing/suit/apron/surgery/zeng
-	name = "zeng-hu vinyl apron"
-	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. As a result \
-	they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
-	icon_state = "zeng_apron"
-	item_state = "zeng_apron"
-
 //Chaplain
 /obj/item/clothing/suit/chaplain_hoodie
 	name = "chaplain hoodie"

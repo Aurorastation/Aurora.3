@@ -132,7 +132,7 @@
 		/obj/item/clothing/gloves/botanic_leather = 3,
 		/obj/item/clothing/head/hardhat/red = 3,
 		/obj/item/clothing/mask/gas = 3,
-		/obj/item/clothing/suit/apron = 3,
+		/obj/item/clothing/accessory/apron = 3,
 		/obj/item/clothing/suit/storage/toggle/bomber = 3,
 		/obj/item/clothing/suit/storage/toggle/brown_jacket = 3,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie = 3,

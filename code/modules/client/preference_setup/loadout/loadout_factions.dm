@@ -397,7 +397,7 @@
 
 /datum/gear/faction/zenghu_apron
 	display_name = "zeng-hu vinyl apron"
-	path = /obj/item/clothing/suit/apron/surgery/zeng
+	path = /obj/item/clothing/accessory/apron/surgery/zeng
 	slot = slot_wear_suit
 	faction = "Zeng-Hu Pharmaceuticals"
 
