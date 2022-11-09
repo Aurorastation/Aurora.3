@@ -765,9 +765,7 @@
 /turf/simulated/floor,
 /area/shuttle/ranger_shuttle)
 "dfe" = (
-/obj/machinery/computer/shuttle_control/explore/freighter_shuttle{
-	dir = 4
-	},
+/obj/machinery/computer/shuttle_control/explore/ranger_shuttle,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/ranger_shuttle)
 "dgC" = (
@@ -1046,7 +1044,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
 "ewW" = (
-/obj/effect/shuttle_landmark/ranger_corvette/nav2,
+/obj/effect/shuttle_landmark/ranger_shuttle/hangar,
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
 "exc" = (
@@ -2493,6 +2491,10 @@
 "lJr" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/crew)
+"lLY" = (
+/obj/effect/shuttle_landmark/ranger_corvette/nav2,
+/turf/simulated/floor,
+/area/ship/ranger_corvette)
 "lTl" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4;
@@ -4669,7 +4671,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "wrJ" = (
-/obj/effect/shuttle_landmark/ee_shuttle/transit,
+/obj/effect/shuttle_landmark/ranger_shuttle/transit,
 /area/space)
 "wsT" = (
 /obj/structure/sign/directions/com{
@@ -4946,7 +4948,7 @@
 /area/ship/ranger_corvette/crew)
 "xNN" = (
 /obj/machinery/hologram/holopad/long_range,
-/obj/effect/overmap/visitable/ship/landable/freighter_shuttle,
+/obj/effect/overmap/visitable/ship/landable/ranger_shuttle,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/ranger_shuttle)
 "xPJ" = (
@@ -39357,7 +39359,7 @@ nkz
 ghq
 ghq
 ewW
-rCs
+lLY
 aqg
 aHt
 fNZ
