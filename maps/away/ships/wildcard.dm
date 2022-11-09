@@ -3,17 +3,10 @@
 	description = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space. This one's transponder identifies it as an independent vessel."
 	suffix = "ships/tramp_freighter.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ)
-	spawn_weight = 100000
+	spawn_weight = 1
 	spawn_cost = 1
 	id = "tramp_freighter"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freighter_shuttle)
-
-/obj/effect/landmark/tramp_freighter_secret_cargo_landmark
-	name = "tramp_freighter_secret_cargo_landmark"
-
-/obj/effect/landmark/tramp_freighter_secret_cargo_landmark/New()
-	place_dungeon_spawns_generic("maps/away/ships/tramp_freighter/secret_cargo/", loc)
-	qdel(src)
 
 /decl/submap_archetype/tramp_freighter
 	map = "Tramp Freighter"

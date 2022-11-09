@@ -82,6 +82,16 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"aoJ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "atj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -182,6 +192,17 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"aMB" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/reagent_containers/inhaler/soporific,
+/obj/item/reagent_containers/inhaler/soporific,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/structure/closet/crate/medical,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "aSi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
@@ -468,6 +489,11 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"ddV" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/closet/crate,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "dex" = (
@@ -798,7 +824,8 @@
 /area/ship/tramp_freighter)
 "fty" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/landmark/tramp_freighter_secret_cargo_landmark,
+/obj/structure/bed,
+/obj/item/device/flashlight,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "fva" = (
@@ -954,6 +981,12 @@
 "gzH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/largecrate/animal/adhomai/schlorrgo,
+/obj/item/device/radio{
+	icon_state = "radio";
+	pixel_x = -1;
+	pixel_y = 16
+	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "gAS" = (
@@ -1176,6 +1209,11 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/freighter_shuttle)
+"iaK" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/closet/crate,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "iaS" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
@@ -1323,6 +1361,20 @@
 "lfq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
+"lgd" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/closet/crate,
+/obj/item/clothing/accessory/badge/passport/sol,
+/obj/item/clothing/accessory/badge/passport/elyra,
+/obj/item/clothing/accessory/badge/passport/dominia,
+/obj/item/clothing/accessory/badge/passport/coc,
+/obj/item/clothing/accessory/badge/passport,
+/obj/item/stamp/sol,
+/obj/item/stamp/biesel,
+/obj/item/stamp/denied,
+/obj/item/stamp,
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "lgo" = (
 /obj/structure/railing/mapped{
@@ -1824,6 +1876,11 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"uWk" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/reagent_containers/glass/bucket,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "uYP" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -1939,6 +1996,21 @@
 "yjk" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"ylI" = (
+/obj/structure/closet/crate/medical{
+	name = "IAC crate"
+	},
+/obj/item/clothing/shoes/iac,
+/obj/item/clothing/under/rank/iacjumpsuit,
+/obj/item/clothing/suit/storage/hazardvest/iac,
+/obj/item/clothing/mask/balaclava/iac,
+/obj/item/clothing/accessory/armband/iac,
+/obj/item/clothing/head/softcap/iac,
+/obj/item/gun/launcher/syringe,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/clothing/gloves/latex/nitrile,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "ylV" = (
@@ -31083,7 +31155,7 @@ xRX
 xRX
 xRX
 ylV
-pzo
+uWk
 pzo
 eTq
 fty
@@ -31340,10 +31412,10 @@ ylV
 ylV
 ylV
 ylV
-gab
+ddV
+lgd
 pzo
-pzo
-pzo
+aoJ
 ylV
 fkL
 bci
@@ -31597,8 +31669,8 @@ ktN
 qHm
 xto
 ylV
-pzo
-gab
+iaK
+ylI
 pzo
 pzo
 aHt
@@ -31855,7 +31927,7 @@ aac
 vCZ
 ylV
 gzH
-pzo
+aMB
 pzo
 gab
 xok
