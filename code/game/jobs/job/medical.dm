@@ -319,11 +319,12 @@
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
+	alt_titles = list("Medic Trainee", "Surgical Resident")
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#15903a"
-	access = list(access_medical, access_surgery, access_medical_equip)
+	access = list(access_medical, access_surgery, access_medical_equip, access_first_responder)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
