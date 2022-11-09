@@ -27,6 +27,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
+"abh" = (
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/turf/simulated/floor/tiled/dark,
+/area/ship/militia_ship)
 "ajL" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/space_ship/mercenary{
@@ -348,6 +360,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
+"dWR" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/template_noop,
+/area/ship/militia_ship)
 "eiL" = (
 /obj/machinery/washing_machine{
 	pixel_x = -9
@@ -411,6 +429,10 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/ship/militia_ship)
+"eNs" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/ship/militia_ship)
 "eTH" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/electrical,
@@ -451,9 +473,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "fCv" = (
-/obj/machinery/computer/ship/engines{
-	dir = 1
-	},
+/obj/machinery/computer/ship/targeting,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "fJL" = (
@@ -478,6 +498,32 @@
 /obj/item/flag/coalition,
 /obj/item/flag/coalition/l,
 /obj/item/gun/projectile/revolver/detective,
+/obj/item/spacecash/c100,
+/obj/item/spacecash/c100,
+/obj/item/spacecash/c100,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c20,
+/obj/item/spacecash/c20,
+/obj/item/grenade/smokebomb,
+/obj/item/ammo_magazine/c762,
+/obj/item/gun/projectile/automatic/rifle/shorty,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "fQq" = (
@@ -524,17 +570,18 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 30
 	},
-/obj/item/ammo_casing/a762,
-/obj/item/ammo_casing/a762,
-/obj/item/ammo_casing/shotgun/pellet,
-/obj/item/ammo_casing/shotgun/pellet,
-/obj/item/ammo_casing/shotgun/pellet,
-/obj/item/ammo_casing/shotgun/pellet,
-/obj/item/storage/box/beanbags,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
 /obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/material/knife/trench,
-/obj/item/material/knife/trench,
+/obj/item/storage/box/beanbags,
+/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/flashshells,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "goI" = (
@@ -663,6 +710,12 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
+/obj/item/melee/classic_baton,
+/obj/item/melee/baton/cattleprod,
+/obj/item/handcuffs/cable/random,
+/obj/item/handcuffs/cable/random,
+/obj/item/handcuffs/cable/random,
+/obj/item/gun/energy/taser,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "hWh" = (
@@ -861,9 +914,6 @@
 /area/ship/militia_ship)
 "lwj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
@@ -916,8 +966,9 @@
 /turf/simulated/floor/plating,
 /area/ship/militia_ship)
 "mwP" = (
-/obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "mxc" = (
@@ -964,11 +1015,17 @@
 /area/ship/militia_ship)
 "mZJ" = (
 /obj/effect/landmark/entry_point/starboard{
-	name = "starboard, hallway"
+	name = "starboard, weapon"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary{
 	name = "military hull"
 	},
+/area/ship/militia_ship)
+"nmZ" = (
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Militia Francisca Rotary Gun"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "ntt" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1011,6 +1068,15 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
+"nPr" = (
+/obj/structure/ship_weapon_dummy,
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "Militia Francisca Rotary Gun"
+	},
+/turf/template_noop,
+/area/ship/militia_ship)
 "nSy" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/remains/rat{
@@ -1051,6 +1117,11 @@
 	pixel_y = 31
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/militia_ship)
+"ome" = (
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor,
 /area/ship/militia_ship)
 "pdv" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -1151,6 +1222,11 @@
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/ship/militia_ship)
+"qcd" = (
+/obj/structure/ship_weapon_dummy,
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/ship/militia_ship)
 "qil" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1286,16 +1362,27 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
 	},
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
 /obj/item/ammo_magazine/mc10mm/leyon,
 /obj/item/ammo_magazine/mc10mm/leyon,
 /obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/energy/blaster/revolver,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/pistol,
 /obj/item/ammo_magazine/mc10mm,
-/obj/item/gun/projectile/leyon,
-/obj/item/gun/projectile/leyon,
-/obj/item/gun/projectile/leyon,
+/obj/item/ammo_magazine/mc10mm,
+/obj/item/ammo_magazine/mc10mm,
+/obj/item/ammo_magazine/mc10mm,
 /obj/item/gun/projectile/tanto,
-/obj/item/material/knife/trench,
-/obj/item/material/knife/trench,
+/obj/item/gun/projectile/tanto,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "tCH" = (
@@ -1335,6 +1422,17 @@
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
+/obj/structure/table/rack,
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "uNN" = (
@@ -1373,6 +1471,19 @@
 	req_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/ship/militia_ship)
+"voc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "vwF" = (
 /turf/unsimulated/wall/fakepdoor,
@@ -31284,11 +31395,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+eNs
+qcd
+eNs
+eNs
+dWR
 xRX
 xRX
 xRX
@@ -31541,8 +31652,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+nPr
+eNs
 xRX
 xRX
 xRX
@@ -31797,8 +31908,8 @@ yjk
 yjk
 yjk
 yjk
-yjk
-yjk
+mhS
+nmZ
 mZJ
 yjk
 yjk
@@ -33322,9 +33433,9 @@ yjk
 vxN
 mkb
 yjk
-vRq
+abh
 wmd
-vRq
+ome
 yjk
 yjk
 iGK
@@ -33579,7 +33690,7 @@ yjk
 vLp
 mkb
 yjk
-iDc
+voc
 wLs
 iDc
 vTv

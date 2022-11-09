@@ -3041,10 +3041,14 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/item/gun/energy/gun,
-/obj/item/gun/energy/gun,
 /obj/item/gun/energy/pistol,
 /obj/item/gun/energy/pistol,
+/obj/item/gun/energy/pistol,
+/obj/item/gun/energy/pistol,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/rifle,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "vFS" = (

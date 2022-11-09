@@ -452,14 +452,14 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(206)
 	},
-/obj/item/ammo_magazine/mc9mm/flash,
-/obj/item/ammo_magazine/mc9mm/flash,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm/flash,
 /obj/item/ammo_magazine/mc9mm/flash,
 /obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shotgunshells,
 /obj/item/storage/box/beanbags,
 /obj/item/gun/projectile/pistol/detective{
 	magazine_type = /obj/item/ammo_magazine/mc9mm
@@ -467,7 +467,6 @@
 /obj/item/gun/projectile/pistol/detective{
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	},
-/obj/item/gun/projectile/shotgun/pump,
 /obj/item/gun/projectile/shotgun/pump,
 /obj/machinery/light{
 	dir = 4;
@@ -475,6 +474,8 @@
 	},
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/clothing/accessory/holster/thigh,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/ammo_magazine/a556/carbine,
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
 "bKn" = (
@@ -752,6 +753,26 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
+"eMo" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/turf/simulated/floor/plating,
+/area/civilian_station)
 "eTH" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -866,6 +887,11 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
+/area/civilian_station)
+"fWY" = (
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor/tiled/dark,
 /area/civilian_station)
 "fZJ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1174,6 +1200,21 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
+/area/civilian_station)
+"iRG" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/turf/simulated/floor/plating,
 /area/civilian_station)
 "iSh" = (
 /obj/structure/closet/walllocker/medical{
@@ -1530,6 +1571,21 @@
 /obj/structure/table/steel,
 /obj/item/material/ashtray/glass,
 /turf/simulated/floor/tiled/white,
+/area/civilian_station)
+"myL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/turf/simulated/floor/plating,
 /area/civilian_station)
 "mEc" = (
 /obj/effect/floor_decal/spline/plain{
@@ -2288,6 +2344,21 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
+"wlf" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/turf/simulated/floor/plating,
+/area/civilian_station)
 "wtR" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/light{
@@ -2442,6 +2513,14 @@
 "xRX" = (
 /turf/template_noop,
 /area/space)
+"xWf" = (
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1"
+	},
+/obj/machinery/autolathe,
+/turf/simulated/floor/tiled/dark,
+/area/civilian_station)
 "xYB" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -39118,7 +39197,7 @@ jaL
 ndF
 jaL
 ndF
-jaL
+eMo
 ygr
 sth
 tnT
@@ -39375,7 +39454,7 @@ jcK
 ndF
 jcK
 ndF
-jcK
+wlf
 ygr
 taa
 taa
@@ -39632,7 +39711,7 @@ jcK
 ndF
 jcK
 ndF
-jcK
+iRG
 ygr
 tbV
 ygr
@@ -39889,10 +39968,10 @@ jcK
 ndF
 jcK
 ndF
-jcK
+myL
 ygr
 ndF
-ndF
+fWY
 ygr
 xRX
 xRX
@@ -40660,7 +40739,7 @@ jcK
 ygr
 wPT
 ndF
-skw
+xWf
 ygr
 ygr
 ygr
