@@ -6,7 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "ranger_corvette"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/Ranger_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ranger_shuttle)
 
 /decl/submap_archetype/ranger_corvette
 	map = "Ranger Gunboat"
@@ -115,7 +115,7 @@
 	base_turf = /turf/space/transit/north
 
 //shuttle stuff
-/obj/effect/overmap/visitable/ship/landable/Ranger_shuttle
+/obj/effect/overmap/visitable/ship/landable/ranger_shuttle
 	name = "Ranger Shuttle"
 	class = "FPBS"
 	designation = "Pony"
@@ -127,11 +127,11 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/Ranger_shuttle
+/obj/machinery/computer/shuttle_control/explore/ranger_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Ranger Shuttle"
 
-/datum/shuttle/autodock/overmap/Ranger_shuttle
+/datum/shuttle/autodock/overmap/ranger_shuttle
 	name = "Ranger Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/ranger_shuttle)
@@ -142,7 +142,7 @@
 	logging_home_tag = "nav_hangar_ranger"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/Ranger_shuttle/hangar
+/obj/effect/shuttle_landmark/ranger_shuttle/hangar
 	name = "Ranger Shuttle Hangar"
 	landmark_tag = "nav_hangar_ranger"
 	docking_controller = "ranger_shuttle_dock"
@@ -150,7 +150,7 @@
 	base_turf = /turf/space/dynamic
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/shuttle_landmark/Ranger_shuttle/transit
+/obj/effect/shuttle_landmark/ranger_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_ranger_shuttle"
 	base_turf = /turf/space/transit/north

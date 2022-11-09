@@ -1046,7 +1046,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
 "ewW" = (
-/obj/effect/shuttle_landmark/freighter_shuttle/hangar,
+/obj/effect/shuttle_landmark/ranger_corvette/nav2,
 /turf/simulated/floor,
 /area/ship/ranger_corvette)
 "exc" = (
