@@ -116,16 +116,6 @@
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/cryotube
 
-/datum/design/circuit/machine/crystelpod
-	name = "Crystal Therapy Pod"
-	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
-	build_path = /obj/item/circuitboard/crystelpod
-
-/datum/design/circuit/machine/crystelpodconsole
-	name = "Crystal Therapy Pod"
-	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
-	build_path = /obj/item/circuitboard/crystelpodconsole
-
 /datum/design/circuit/machine/stove
 	name = "Stove"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
