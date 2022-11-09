@@ -330,7 +330,6 @@
 	amount_per_transfer_from_this = 15
 	reagents_to_add = list(/decl/reagent/bicaridine = 15)
 
-
 /obj/item/reagent_containers/hypospray/autoinjector/kelotane
 	name = "kelotane autoinjector"
 	desc = "An autoinjector loaded with kelotane, a chemical used to treat burnt tissue."
