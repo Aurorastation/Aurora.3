@@ -468,14 +468,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/lobby)
 "amt" = (
-/obj/machinery/atmospherics/binary/pump{
-	name = "Reactor to Scrubbers";
-	target_pressure = 15000
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/unary/freezer{
+	icon_state = "freezer";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "amz" = (
@@ -13867,13 +13867,11 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "gNQ" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4;
-	name = "Reactor to Mix";
-	target_pressure = 15000
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
