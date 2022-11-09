@@ -16232,7 +16232,7 @@
 	name = "Disposals and Recycling";
 	req_one_access = list(26,67)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/maintenance/disposal)
 "hXW" = (
 /obj/effect/floor_decal/corner/blue{
