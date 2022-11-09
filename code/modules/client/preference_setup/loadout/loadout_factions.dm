@@ -128,6 +128,8 @@
 	zavodskoi_headwear["zavodskoi beret, alt"] = /obj/item/clothing/head/beret/corporate/zavod/alt
 	zavodskoi_headwear["zavodskoi cap"] = /obj/item/clothing/head/softcap/zavod
 	zavodskoi_headwear["zavodskoi cap, alt"] = /obj/item/clothing/head/softcap/zavod/alt
+	zavodskoi_headwear["zavodskoi warden hat"] = /obj/item/clothing/head/warden/zavod
+	zavodskoi_headwear["zavodskoi warden hat, alt"] = /obj/item/clothing/head/warden/zavod/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoi_headwear)
 
 /datum/gear/faction/zavod_sec_uniforms
@@ -175,6 +177,8 @@
 	var/list/zavod_sec_coat = list()
 	zavod_sec_coat["zavodskoi security coat"] = /obj/item/clothing/suit/storage/security/officer/zav
 	zavod_sec_coat["zavodskoi security coat, alt"] = /obj/item/clothing/suit/storage/security/officer/zav/alt
+	zavod_sec_coat["zavodskoi warden coat"] = /obj/item/clothing/suit/storage/toggle/warden/zavod
+	zavod_sec_coat["zavodskoi warden coat, alt"] = /obj/item/clothing/suit/storage/toggle/warden/zavod/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sec_coat)
 
 /datum/gear/faction/zavod_sunglasses
