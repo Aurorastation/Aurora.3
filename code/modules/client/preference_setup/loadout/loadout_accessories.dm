@@ -165,34 +165,6 @@
 	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-// Overalls Selection
-/datum/gear/accessory/overalls
-	display_name = "overalls selection (colourable)"
-	path = /obj/item/clothing/accessory/overalls
-	cost = 1
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/accessory/overalls/New()
-	..()
-	var/list/overalls = list()
-
-	// Overalls
-	overalls["overalls"] = /obj/item/clothing/accessory/overalls
-	overalls["overalls, high back"] = /obj/item/clothing/accessory/overalls/high_back
-	overalls["overalls, x-shaped back"] = /obj/item/clothing/accessory/overalls/x_shaped_back
-
-	// Overall Shorts
-	overalls["overall shorts"] = /obj/item/clothing/accessory/overalls/shorts
-	overalls["overall shorts, high back"] = /obj/item/clothing/accessory/overalls/shorts/high_back
-	overalls["overall shorts, x-shaped back"] = /obj/item/clothing/accessory/overalls/shorts/x_shaped_back
-
-	// Overall Skirts
-	overalls["overall skirt"] = /obj/item/clothing/accessory/overalls/skirt
-	overalls["overall skirt, high back"] = /obj/item/clothing/accessory/overalls/skirt/high_back
-	overalls["overall skirt, x-shaped back"] = /obj/item/clothing/accessory/overalls/skirt/x_shaped_back
-
-	gear_tweaks += new /datum/gear_tweak/path(overalls)
-
 /datum/gear/accessory/overalls_engineer
 	display_name = "overalls, engineering"
 	path = /obj/item/clothing/accessory/storage/overalls/engineer

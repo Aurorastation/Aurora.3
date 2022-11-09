@@ -418,7 +418,35 @@ datum/gear/suit/colorvest
 	gadpathur_coat["thermal coat"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/gadpathur
 	gear_tweaks += new /datum/gear_tweak/path(gadpathur_coat)
 
+// Apron
 /datum/gear/suit/apron_colourable
 	display_name = "apron (colourable)"
 	path = /obj/item/clothing/accessory/apron/coloured
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+// Overalls Selection
+/datum/gear/suit/overalls
+	display_name = "overalls selection (colourable)"
+	path = /obj/item/clothing/accessory/overalls
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/overalls/New()
+	..()
+	var/list/overalls = list()
+
+	// Overalls
+	overalls["overalls"] = /obj/item/clothing/accessory/overalls
+	overalls["overalls, high back"] = /obj/item/clothing/accessory/overalls/high_back
+	overalls["overalls, x-shaped back"] = /obj/item/clothing/accessory/overalls/x_shaped_back
+
+	// Overall Shorts
+	overalls["overall shorts"] = /obj/item/clothing/accessory/overalls/shorts
+	overalls["overall shorts, high back"] = /obj/item/clothing/accessory/overalls/shorts/high_back
+	overalls["overall shorts, x-shaped back"] = /obj/item/clothing/accessory/overalls/shorts/x_shaped_back
+
+	// Overall Skirts
+	overalls["overall skirt"] = /obj/item/clothing/accessory/overalls/skirt
+	overalls["overall skirt, high back"] = /obj/item/clothing/accessory/overalls/skirt/high_back
+	overalls["overall skirt, x-shaped back"] = /obj/item/clothing/accessory/overalls/skirt/x_shaped_back
+
+	gear_tweaks += new /datum/gear_tweak/path(overalls)
