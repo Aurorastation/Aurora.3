@@ -16,6 +16,54 @@
 /area/ship/ranger_corvette
 	name = "Ranger Corvette"
 
+/area/ship/ranger_corvette/bridge
+	name = "Ranger Corvette Bridge"
+
+/area/ship/ranger_corvette/janitor
+	name = "Ranger Corvette Custodial Closet"
+
+/area/ship/ranger_corvette/crew
+	name = "Ranger Corvette Crew Quarters"
+
+/area/ship/ranger_corvette/leader
+	name = "Ranger Corvette Leader's Quarters"
+
+/area/ship/ranger_corvette/foyer
+	name = "Ranger Corvette Foyer"
+
+/area/ship/ranger_corvette/telecomms
+	name = "Ranger Corvette Telecomms"
+
+/area/ship/ranger_corvette/brig
+	name = "Ranger Corvette Brig"
+
+/area/ship/ranger_corvette/medbay
+	name = "Ranger Corvette Medbay"
+
+/area/ship/ranger_corvette/munitions
+	name = "Ranger Corvette Munition Storage"
+
+/area/ship/ranger_corvette/gunnery
+	name = "Ranger Corvette Gunnery Room"
+
+/area/ship/ranger_corvette/bathroom
+	name = "Ranger Corvette Bathroom"
+
+/area/ship/ranger_corvette/cryo
+	name = "Ranger Corvette Cryogenics"
+
+/area/ship/ranger_corvette/engine1
+	name = "Ranger Corvette Engine One"
+
+/area/ship/ranger_corvette/engine2
+	name = "Ranger Corvette Engine Two"
+
+/area/ship/ranger_corvette/voidsuits
+	name = "Ranger Corvette Suit Storage"
+
+/area/ship/ranger_corvette/atmospherics
+	name = "Ranger Corvette Atmospherics"
+
 /area/shuttle/Ranger_shuttle
 	name = "Ranger Shuttle"
 	icon_state = "shuttle2"
@@ -43,7 +91,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/ranger_corvette/New()
-	designation = "[pick("Xanu Prime", "Vysoka", "Gadpathur", "Assunzione", "Konyang", "Himeo", "Burzsia", "Kamoga", "Jagalaw", "Dalakyhr", "Gurmori", "Ohdker", "Dainshu", "Boch-Zivir", "Kill Emperor Boleslaw", "Expletive Sol", "Letter of Marque", "Free Fisanduh", "Gaucho", "Treaty of Xansan", "Pirates Beware", "Moroz Here We Come!", "This Ship Kills Privateers", "Lower The Black Flag", "Frontier Spirit", "Freedom", "Independence", "Self-Determination", "Let's Have A Second Collapse", "Send More Solarians", "You Can Run But You Can't Hide", "Frontier Alliance", "Here's To You, Governor Hawkins", "Remember Jamestown", "Good Riddance to Kambiz Entezam", "We're Coming For You In Hell, Terrence Hopper", "Warpway Safari Company", "Badlands Gun Club", "Light's Edge Light Foot", "Now Entering Free Xanu", "Weeping Stars, Weep No More", "Rebel's Reach Outreach Program", "Rugged Individualism", "Don't Tread On Me", "Snake In The Grass", "Crosk Plains Yacht Club", "Ranger Ship")]"
+	designation = "[pick("Argia sa Mar", "Kuenoi", "Xansan", "Greentree", "Rautakaivos Kaupunki", "Dorshafen", "Inverkeithing", "Uusi Viipuri", "Horner Station", "Commander Ashia Patvardhan", "Sevaschaiv", "Rahe", "Czsari", "Suwon", "Kamoga", "Jagalaw", "Dalakyhr", "Gurmori", "Ohdker", "Dainshu", "Boch-Zivir", "Kill Emperor Boleslaw", "Expletive Sol", "Letter of Marque", "Free Fisanduh", "Gaucho", "Treaty of Xansan", "Pirates Beware", "Moroz Here We Come!", "This Ship Kills Privateers", "Lower The Black Flag", "Frontier Spirit", "Freedom", "Independence", "Self-Determination", "Let's Have A Second Collapse", "Send More Solarians", "You Can Run But You Can't Hide", "Frontier Alliance", "Here's To You, Governor Hawkins", "Remember Jamestown", "Good Riddance to Kambiz Entezam", "We're Coming For You In Hell, Terrence Hopper", "Warpway Safari Company", "Badlands Gun Club", "Light's Edge Light Foot", "Now Entering Free Xanu", "Weeping Stars, Weep No More", "Rebel's Reach Outreach Program", "Rugged Individualism", "Don't Tread On Me", "Snake In The Grass", "Konyang Yacht Club", "Ranger Ship")]"
 	..()
 
 /obj/effect/shuttle_landmark/ranger_corvette/nav1
@@ -66,8 +114,8 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/Ranger_shuttle
 	name = "Ranger Shuttle"
-	designation = "BLV"
-	class = "Stake"
+	class = "FPBS"
+	designation = "Pony"
 	desc = "A large and unusually-shaped shuttle, the Hydrus-class is deceptively fast and is designed to operate out of a Cetus-class corvette's rear hangar bay, interdicting targets that its mothership intercepts. This one's transponder identifies it as a Tau Ceti Foreign Legion shuttle, and as a Velite-class Interceptor - the Ranger designation for this design."
 	shuttle = "Ranger Shuttle"
 	max_speed = 1/(3 SECONDS)
