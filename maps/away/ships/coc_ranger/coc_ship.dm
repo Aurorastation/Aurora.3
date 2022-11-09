@@ -85,7 +85,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_restricted_waypoints = list(
-		"Ranger Shuttle" = list("nav_hangar_Ranger")
+		"Ranger Shuttle" = list("nav_hangar_ranger")
 	)
 
 	initial_generic_waypoints = list(
@@ -147,7 +147,7 @@
 	landmark_tag = "nav_hangar_ranger"
 	docking_controller = "ranger_shuttle_dock"
 	base_area = /area/ship/ranger_corvette
-	base_turf = /turf/space/dynamic
+	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/ranger_shuttle/transit

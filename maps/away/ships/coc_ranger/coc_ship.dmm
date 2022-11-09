@@ -60,6 +60,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
+"alr" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/machinery/iff_beacon,
+/turf/simulated/floor/airless,
+/area/ship/ranger_corvette)
 "aou" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1150,10 +1158,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
-"eOE" = (
-/obj/effect/shuttle_landmark/ranger_corvette/nav2,
-/turf/simulated/floor,
-/area/ship/ranger_corvette)
 "eTH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/sign/directions/cryo{
@@ -2366,7 +2370,7 @@
 	},
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
-	req_access = list(201)
+	req_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3282,14 +3286,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
-"pyo" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/obj/machinery/iff_beacon,
-/turf/simulated/floor/airless,
-/area/ship/ranger_corvette)
 "pzF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -3809,6 +3805,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
+"rST" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/airless,
+/area/ship/ranger_corvette)
 "rWO" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -4277,14 +4281,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/leader)
-"uGW" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/machinery/shipsensors/weak,
-/turf/simulated/floor/airless,
-/area/ship/ranger_corvette)
 "uHi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/coffee/free,
@@ -36321,7 +36317,7 @@ bRR
 bRR
 cfy
 cfy
-pyo
+alr
 xRX
 xRX
 xRX
@@ -38891,7 +38887,7 @@ syl
 syl
 arU
 arU
-uGW
+rST
 xRX
 xRX
 xRX
@@ -39377,7 +39373,7 @@ nkz
 ghq
 ghq
 ewW
-eOE
+rCs
 aqg
 aHt
 fNZ
