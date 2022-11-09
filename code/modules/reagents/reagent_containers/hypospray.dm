@@ -345,5 +345,4 @@
 	desc = "An autoinjector loaded with peridaxon, a chemical used to treat minor organ damage."
 	volume = 10
 	amount_per_transfer_from_this = 10
-
 	reagents_to_add = list(/decl/reagent/peridaxon = 10)
