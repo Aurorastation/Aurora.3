@@ -335,7 +335,6 @@
 	desc = "An autoinjector loaded with kelotane, a chemical used to treat burnt tissue."
 	volume = 15
 	amount_per_transfer_from_this = 15
-
 	reagents_to_add = list(/decl/reagent/kelotane = 15)
 
 /obj/item/reagent_containers/hypospray/autoinjector/peridaxon
