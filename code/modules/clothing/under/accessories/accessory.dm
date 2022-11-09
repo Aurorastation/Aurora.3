@@ -964,6 +964,7 @@
 	icon_state = "overalls"
 	item_state = "overalls"
 	contained_sprite = TRUE
+	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS
 
 /obj/item/clothing/accessory/overalls/random/Initialize() // Random colour.
@@ -1022,6 +1023,6 @@
 /obj/item/clothing/accessory/overalls/skirt/x_shaped_back
 	name = "\improper X-shaped back overall skirt"
 	desc = "A denim overall skirt with a high back."
-	icon_state = "overall_shorts_x"
-	item_state = "overall_shorts_x"
+	icon_state = "overall_skirt_x"
+	item_state = "overall_skirt_x"
 /********** Overalls End **********/
