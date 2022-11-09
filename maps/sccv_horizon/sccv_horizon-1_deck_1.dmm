@@ -1710,15 +1710,14 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "btw" = (
-/obj/effect/floor_decal/corner/yellow,
-/obj/effect/floor_decal/corner/blue{
-	dir = 8
+/obj/effect/floor_decal/corner/green{
+	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos)
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "buc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 10
@@ -1940,6 +1939,9 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -22877,7 +22879,6 @@
 	name = "Workshop Maintenance";
 	req_access = list(29)
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -24061,7 +24062,6 @@
 	req_one_access = list(12,26)
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -26751,7 +26751,6 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_one_access = list(12,26,29)
 	},
@@ -28160,7 +28159,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_one_access = list(12,26)
 	},
@@ -29945,15 +29943,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
-"xQI" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
 "xQU" = (
 /obj/structure/shuttle/engine/heater{
 	dir = 1
@@ -30072,7 +30061,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/janitor)
 "xVn" = (
 /obj/structure/anomaly_container,
@@ -50659,12 +50648,12 @@ pZd
 wIO
 lRH
 eNU
-btw
+vTT
 oDB
 sWB
 slH
-xQI
 slH
+btw
 slH
 slH
 rco

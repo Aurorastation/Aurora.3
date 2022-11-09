@@ -16236,7 +16236,6 @@
 "hXN" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/service{
 	name = "Disposals and Recycling";
 	req_one_access = list(26,67)
@@ -47062,9 +47061,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "xqk" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Supermatter Reactor Waste Management";
 	req_one_access = list(11,24)
