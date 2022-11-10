@@ -967,19 +967,23 @@
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS
 
+// Random Colour Overalls
 /obj/item/clothing/accessory/overalls/random/Initialize() // Random colour.
 	. = ..()
 	color = get_random_colour(lower = 150)
 
+// Hydroponics Overalls
 /obj/item/clothing/accessory/overalls/blue // Used for hydroponics.
 	color = "#3429d1"
 
+// High Back Overalls
 /obj/item/clothing/accessory/overalls/high_back
 	name = "high back overalls"
 	desc = "A set of denim overalls with a high back."
 	icon_state = "overalls_high"
 	item_state = "overalls_high"
 
+// X-shaped Back Overalls
 /obj/item/clothing/accessory/overalls/x_shaped_back
 	name = "\improper X-shaped back overalls"
 	desc = "A set of denim overalls with a high back."
@@ -994,12 +998,14 @@
 	item_state = "overall_shorts"
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO
 
+// High Back Overall Shorts
 /obj/item/clothing/accessory/overalls/shorts/high_back
 	name = "high back overall shorts"
 	desc = "A set of denim overall shorts with a high back."
 	icon_state = "overall_shorts_high"
 	item_state = "overall_shorts_high"
 
+// X-shaped Back Overall Shorts
 /obj/item/clothing/accessory/overalls/shorts/x_shaped_back
 	name = "\improper X-shaped back overall shorts"
 	desc = "A set of denim overall shorts with a high back."
@@ -1014,12 +1020,14 @@
 	item_state = "overall_skirt"
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO
 
+// High Back Overall Skirt
 /obj/item/clothing/accessory/overalls/skirt/high_back
 	name = "high back overall skirt"
 	desc = "A denim overall skirt with a high back."
 	icon_state = "overall_skirt_high"
 	item_state = "overall_skirt_high"
 
+// X-shaped Back Overall Skirt
 /obj/item/clothing/accessory/overalls/skirt/x_shaped_back
 	name = "\improper X-shaped back overall skirt"
 	desc = "A denim overall skirt with a high back."
@@ -1028,7 +1036,7 @@
 /********** Overalls End **********/
 
 /********** Aprons Start **********/
-// Aprons
+// Apron
 /obj/item/clothing/accessory/apron
 	name = "apron"
 	desc = "An apron."
@@ -1037,7 +1045,7 @@
 	item_state = "apron"
 	contained_sprite = TRUE
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
-	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO
 	no_overheat = TRUE
 	allowed = list(
 		/obj/item/reagent_containers/food/drinks/shaker,
@@ -1046,10 +1054,12 @@
 		/obj/item/reagent_containers/food/drinks/bottle
 	)
 
+// Random Colour Apron
 /obj/item/clothing/accessory/apron/random/Initialize() // Random colour.
 	. = ..()
 	color = get_random_colour(lower = 150)
 
+// Hydroponics Apron
 /obj/item/clothing/accessory/apron/blue // Used for hydroponics.
 	color = "#3429d1"
 	allowed = list(
@@ -1060,6 +1070,7 @@
 		/obj/item/material/minihoe
 	)
 
+// Surgical Apron
 /obj/item/clothing/accessory/apron/surgery
 	name = "surgical apron"
 	desc = "A surgical apron."
@@ -1078,10 +1089,21 @@
 		/obj/item/reagent_containers/blood
 	)
 
+// Zeng-Hu Surgical Apron
 /obj/item/clothing/accessory/apron/surgery/zeng
 	name = "zeng-hu vinyl apron"
 	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. \
 	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
 	icon_state = "apron_surgeon_zeng"
 	item_state = "apron_surgeon_zeng"
+
+// Chef Apron
+/obj/item/clothing/accessory/apron/chef
+	name = "chef's apron"
+	desc = "A basic, dull, white chef's apron."
+	icon_state = "apron_chef"
+	item_state = "apron_chef"
+	allowed = list(
+		/obj/item/material/knife
+	)
 /********** Aprons End **********/

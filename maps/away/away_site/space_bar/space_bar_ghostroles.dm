@@ -74,7 +74,7 @@
 	name = "Space Bar Chef"
 
 	uniform = /obj/item/clothing/under/rank/chef/idris
-	suit = /obj/item/clothing/suit/chef/idris
+	suit = /obj/item/clothing/suit/chef_jacket/idris
 	head = /obj/item/clothing/head/chefhat/idris
 	shoes = /obj/item/clothing/shoes/brown
 	species_shoes = list(

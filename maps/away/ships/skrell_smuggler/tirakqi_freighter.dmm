@@ -1194,7 +1194,7 @@
 /area/ship/tirakqi_freighter)
 "kwe" = (
 /obj/structure/table/skrell,
-/obj/item/clothing/suit/chef/classic{
+/obj/item/clothing/accessory/apron/chef{
 	pixel_y = -6
 	},
 /obj/random/pizzabox,

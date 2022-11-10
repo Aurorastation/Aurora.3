@@ -116,7 +116,7 @@
 	name = "Chef - Idris"
 
 	uniform = /obj/item/clothing/under/rank/chef/idris
-	suit = /obj/item/clothing/suit/chef/idris
+	suit = /obj/item/clothing/suit/chef_jacket/idris
 	head = /obj/item/clothing/head/chefhat/idris
 	id = /obj/item/card/id/idris
 

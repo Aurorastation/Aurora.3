@@ -1096,7 +1096,7 @@
 "ian" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/clothing/suit/chef,
+/obj/item/clothing/suit/chef_jacket,
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
 "ibp" = (

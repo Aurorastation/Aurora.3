@@ -20,41 +20,33 @@
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
 
-//Chef
-/obj/item/clothing/suit/chef
-	name = "chef's apron"
-	desc = "An apron used by a high class chef."
+/********** Chef/Cook Start **********/
+// Chef Jacket
+/obj/item/clothing/suit/chef_jacket
+	name = "chef jacket"
+	desc = "A jacket typically used by chefs when cooking."
 	icon_state = "chef"
 	item_state = "chef"
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	allowed = list (/obj/item/material/knife)
+	allowed = list(
+		/obj/item/material/knife
+	)
 
-/obj/item/clothing/suit/chef/nt
+// NanoTrasen Chef Jacket
+/obj/item/clothing/suit/chef_jacket/nt
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
-	contained_sprite = TRUE
 	icon_state = "nt_chef_jacket"
 	item_state = "nt_chef_jacket"
 
-/obj/item/clothing/suit/chef/idris
+// Idris Chef Jacket
+/obj/item/clothing/suit/chef_jacket/idris
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
-	contained_sprite = TRUE
 	icon_state = "idris_chef_jacket"
 	item_state = "idris_chef_jacket"
+/********** Chef/Cook End **********/
 
-//Chef
-/obj/item/clothing/suit/chef/classic
-	name = "classic chef's apron"
-	desc = "A basic, dull, white chef's apron."
-	icon_state = "apronchef"
-	item_state = "apronchef"
-	blood_overlay_type = "armor"
-	body_parts_covered = 0
-	no_overheat = TRUE
-
-//Security
-
+// Security
 /obj/item/clothing/suit/storage/security/officer
 	name = "corporate security jacket"
 	desc = "This jacket is for those special occasions when corporate security actually feels safe."

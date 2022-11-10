@@ -72,7 +72,7 @@
 	jobtype = /datum/job/chef
 
 	uniform = /obj/item/clothing/under/rank/chef/nt
-	suit = /obj/item/clothing/suit/chef/nt
+	suit = /obj/item/clothing/suit/chef_jacket/nt
 	head = /obj/item/clothing/head/chefhat/nt
 	shoes = /obj/item/clothing/shoes/black
 

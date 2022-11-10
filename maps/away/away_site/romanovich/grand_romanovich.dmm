@@ -3509,9 +3509,9 @@
 "iN" = (
 /obj/structure/closet/wardrobe,
 /obj/item/clothing/head/chefhat,
-/obj/item/clothing/suit/chef,
+/obj/item/clothing/suit/chef_jacket,
 /obj/item/clothing/under/rank/chef,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/accessory/apron/chef,
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
 "iO" = (
