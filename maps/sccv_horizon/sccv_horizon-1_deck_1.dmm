@@ -7718,6 +7718,21 @@
 	},
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
+"fRe" = (
+/obj/structure/ladder/up{
+	pixel_y = 16
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/open/airless,
+/area/template_noop)
 "fRj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
@@ -15271,6 +15286,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
+"lPI" = (
+/obj/structure/ladder/up{
+	pixel_y = 16
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/open/airless,
+/area/template_noop)
 "lPL" = (
 /obj/item/modular_computer/console/preset/ai,
 /obj/machinery/light/small/emergency{
@@ -22187,6 +22217,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
+"rpB" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/item/material/stool/chair/folding,
+/turf/simulated/open/airless,
+/area/template_noop)
 "rpK" = (
 /obj/machinery/camera/network/service{
 	c_tag = "Custodial - Main Storage";
@@ -28881,6 +28920,14 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
+"wKE" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/open/airless,
+/area/template_noop)
 "wKW" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -65220,7 +65267,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+fRe
 eSV
 eSV
 eSV
@@ -65422,7 +65469,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+wKE
 eSV
 eSV
 eSV
@@ -65624,7 +65671,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+wKE
 eSV
 eSV
 eSV
@@ -65826,7 +65873,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+wKE
 eSV
 eSV
 eSV
@@ -66028,7 +66075,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+rpB
 eSV
 eSV
 eSV
@@ -66230,7 +66277,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+wKE
 eSV
 eSV
 eSV
@@ -66432,7 +66479,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+lPI
 eSV
 eSV
 eSV

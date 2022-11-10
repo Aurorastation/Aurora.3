@@ -267,7 +267,12 @@
 	desc = "Station Network"
 	region = ACCESS_REGION_RESEARCH
 
-// /var/const/free_access_id = 43
+/var/const/access_leviathan = 43
+/datum/access/leviathan
+	id = access_leviathan
+	desc = "Leviathan"
+	region = ACCESS_REGION_COMMAND
+
 // /var/const/free_access_id = 44
 
 /var/const/access_surgery = 45
