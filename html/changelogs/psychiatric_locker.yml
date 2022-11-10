@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Adds a proper psychiatric supplies locker to the psychiatric office."
