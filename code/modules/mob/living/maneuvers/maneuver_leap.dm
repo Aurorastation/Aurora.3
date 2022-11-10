@@ -95,5 +95,10 @@
 /decl/maneuver/leap/industrial
 	cooldown = 8 SECONDS
 
+/decl/maneuver/leap/zenghu
+	cooldown = 4 SECONDS
+	charge_cost = 1500
+
+
 /decl/maneuver/leap/bulwark
 	cooldown = 10 SECONDS //bigger than industrials = more cooldown

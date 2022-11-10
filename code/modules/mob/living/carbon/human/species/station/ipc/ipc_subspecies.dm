@@ -455,6 +455,9 @@
 		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
+	maneuvers = list(
+		/decl/maneuver/leap/zenghu
+	)
 
 
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
