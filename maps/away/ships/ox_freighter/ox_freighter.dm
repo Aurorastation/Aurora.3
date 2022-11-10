@@ -42,5 +42,5 @@
 /obj/effect/dungeon_generic_landmark/ox_freighter_container
 	name = "Orion Express Freighter Container Dungeon Landmark"
 	spawn_chance = 100
-	unique = FALSE
+	unique = TRUE
 	map_files = "maps/away/ships/ox_freighter/containers/"
