@@ -1099,8 +1099,8 @@
 
 // Chef Apron
 /obj/item/clothing/accessory/apron/chef
-	name = "chef's apron"
-	desc = "A basic, dull, white chef's apron."
+	name = "chef apron"
+	desc = "A basic, dull, white chef apron."
 	icon_state = "apron_chef"
 	item_state = "apron_chef"
 	allowed = list(
