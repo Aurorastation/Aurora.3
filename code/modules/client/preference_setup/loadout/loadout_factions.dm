@@ -128,8 +128,6 @@
 	zavodskoi_headwear["zavodskoi beret, alt"] = /obj/item/clothing/head/beret/corporate/zavod/alt
 	zavodskoi_headwear["zavodskoi cap"] = /obj/item/clothing/head/softcap/zavod
 	zavodskoi_headwear["zavodskoi cap, alt"] = /obj/item/clothing/head/softcap/zavod/alt
-	zavodskoi_headwear["zavodskoi warden hat"] = /obj/item/clothing/head/warden/zavod
-	zavodskoi_headwear["zavodskoi warden hat, alt"] = /obj/item/clothing/head/warden/zavod/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoi_headwear)
 
 /datum/gear/faction/zavod_sec_uniforms
