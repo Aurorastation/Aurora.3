@@ -43,6 +43,8 @@
 
 	l_ear = /obj/item/device/radio/headset/ship
 
+	id = /obj/item/card/id
+
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 
 /datum/outfit/admin/tajaran_scrapper/get_id_access()

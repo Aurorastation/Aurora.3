@@ -15,6 +15,11 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "am" = (
@@ -43,6 +48,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scrapper_ship/atmos)
+"aV" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/scrapper_ship/power_station)
 "aX" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -54,9 +74,6 @@
 /area/scrapper_base)
 "be" = (
 /obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
@@ -66,6 +83,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
@@ -100,14 +122,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "by" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/blue{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
@@ -145,6 +169,8 @@
 /area/space)
 "bT" = (
 /obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
@@ -157,6 +183,15 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"cA" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/effect/floor_decal/twin_suns{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "cD" = (
@@ -403,6 +438,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/extinguisher_cabinet{
+	layer = 3.3;
+	pixel_x = -27;
+	pixel_y = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scrapper_ship/power_station)
 "fQ" = (
@@ -454,6 +494,8 @@
 	dir = 8
 	},
 /obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -480,7 +522,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, port storage"
 	},
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/shuttle/scrapper_ship/storage)
 "gW" = (
 /turf/simulated/floor/plating,
@@ -608,6 +650,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/light/small,
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
 "jj" = (
@@ -673,6 +716,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
+/obj/item/toy/desk/fan,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "ku" = (
@@ -1240,14 +1284,16 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scrapper_ship/atmos)
 "sE" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
@@ -1276,12 +1322,14 @@
 /area/scrapper_base/quarters)
 "sR" = (
 /obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
@@ -1304,11 +1352,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "te" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 5
+/obj/structure/lattice/catwalk,
+/obj/effect/floor_decal/twin_suns{
+	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/scrapper_ship/bridge)
+/turf/template_noop,
+/area/space)
 "tf" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/blue{
 	dir = 1
@@ -1448,16 +1497,14 @@
 /turf/simulated/floor/plating,
 /area/scrapper_base)
 "vj" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/structure/extinguisher_cabinet{
+	layer = 3.3;
+	pixel_x = 24;
+	pixel_y = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "vl" = (
@@ -1591,16 +1638,14 @@
 /area/scrapper_base/quarters)
 "wH" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "tajara_scrapper";
-	name = "Docking controller";
-	pixel_x = 6;
-	pixel_y = 28;
-	tag_door = "tajara_scrapper_shuttle_out"
-	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "tajara_scrapper";
+	pixel_y = 24;
+	tag_door = "tajara_scrapper_hatch"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
@@ -1643,6 +1688,9 @@
 "xL" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 1
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 25
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
@@ -1725,6 +1773,15 @@
 	},
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
+"yP" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/effect/floor_decal/twin_suns{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
 "yS" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/plating,
@@ -1734,6 +1791,8 @@
 /area/shuttle/scrapper_ship/bridge)
 "ze" = (
 /obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
@@ -1765,19 +1824,14 @@
 /turf/simulated/floor/plating,
 /area/scrapper_base/atmos)
 "zu" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24;
-	req_access = list(113)
+/obj/machinery/light/small,
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
 	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/scrapper_ship/power_station)
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
 "zx" = (
 /obj/effect/shuttle_landmark/tajara_scrapper/nav1,
 /turf/template_noop,
@@ -1802,11 +1856,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "zT" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/scrapper_base/solars)
@@ -1911,7 +1967,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/scrapper_base/quarters)
 "Cd" = (
-/obj/machinery/computer/ship/navigation,
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "Cn" = (
@@ -1954,9 +2010,13 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scrapper_ship/storage)
 "CM" = (
-/obj/machinery/shipsensors/weak,
-/turf/simulated/floor/airless,
-/area/scrapper_base/solars)
+/obj/structure/extinguisher_cabinet{
+	layer = 3.3;
+	pixel_x = 24;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
 "CN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/plating,
@@ -2075,6 +2135,10 @@
 /area/scrapper_base/solars)
 "Fs" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scrapper_ship/power_station)
 "FL" = (
@@ -2213,6 +2277,8 @@
 	dir = 4
 	},
 /obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2317,16 +2383,15 @@
 /area/shuttle/scrapper_ship/workshop)
 "Ig" = (
 /obj/machinery/door/firedoor/noid,
+/obj/effect/landmark/entry_point/aft,
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
 	icon_state = "door_locked";
-	id_tag = "tajara_scrapper_shuttle_out";
+	id_tag = "tajara_scrapper_hatch";
 	layer = 2.8;
 	name = "Ship External Access";
-	open_layer = 2.8;
-	req_access = list(110)
+	open_layer = 2.8
 	},
-/obj/effect/landmark/entry_point/aft,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "Im" = (
@@ -2466,15 +2531,19 @@
 /area/scrapper_base/atmos)
 "JO" = (
 /obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
@@ -2543,6 +2612,18 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"KU" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk,
+/obj/effect/floor_decal/twin_suns{
+	pixel_y = 32
+	},
+/turf/template_noop,
 /area/scrapper_base)
 "La" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2639,14 +2720,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "LV" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
@@ -2673,6 +2756,8 @@
 	dir = 4
 	},
 /obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2770,15 +2855,12 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scrapper_ship/workshop)
 "NJ" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "tajara_scrapper_shuttle_out";
-	layer = 2.8;
-	name = "Ship External Access";
-	open_layer = 2.8;
-	req_access = list(110)
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/vending/wallmed2{
+	pixel_y = 32;
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
@@ -2894,6 +2976,9 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/north,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scrapper_ship/power_station)
 "PD" = (
@@ -2920,6 +3005,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/extinguisher_cabinet{
+	layer = 3.3;
+	pixel_x = 24;
+	pixel_y = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scrapper_ship/atmos)
 "Qp" = (
@@ -2939,7 +3029,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
 	icon_state = "door_locked";
-	id_tag = "tajara_scrapper_shuttle_out";
+	id_tag = "tajara_scrapper_hatch";
 	layer = 2.8;
 	name = "Ship External Access";
 	open_layer = 2.8
@@ -3059,8 +3149,15 @@
 /turf/simulated/floor/airless,
 /area/shuttle/scrapper_ship/storage)
 "Rz" = (
-/obj/machinery/light/small{
-	dir = 8
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24;
+	req_access = list(113)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scrapper_ship/power_station)
@@ -3190,6 +3287,8 @@
 	icon_state = "1-8"
 	},
 /obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
@@ -3246,15 +3345,17 @@
 /area/scrapper_base/atmos)
 "UB" = (
 /obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/blue,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "UF" = (
@@ -3453,7 +3554,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, starboard storage"
 	},
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/shuttle/scrapper_ship/workshop)
 "XG" = (
 /obj/machinery/button/distress{
@@ -3461,6 +3562,14 @@
 	pixel_y = -32
 	},
 /obj/effect/floor_decal/corner/beige/full,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(202)
+	},
+/obj/item/gun/projectile/shotgun/pump/rifle/obrez,
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/contender,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "XL" = (
@@ -3492,7 +3601,7 @@
 "XU" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1337;
-	id_tag = "tajaran_smuggler_shuttle_dock";
+	id_tag = "tajaran_scrapper_shuttle_dock";
 	pixel_y = -28;
 	tag_door = "scrapper_station_door"
 	},
@@ -3583,14 +3692,16 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scrapper_ship/starboard_engines)
 "ZL" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
@@ -16780,7 +16891,7 @@ Uk
 OZ
 vS
 EC
-yc
+vj
 Pr
 yc
 yc
@@ -17797,7 +17908,7 @@ Kn
 bT
 Kn
 Kn
-CM
+WA
 Ip
 Ip
 Ip
@@ -18062,7 +18173,7 @@ Yl
 mU
 Gq
 cq
-vj
+UB
 mx
 JU
 Ng
@@ -18091,7 +18202,7 @@ pX
 lo
 lo
 pX
-Ng
+te
 Kn
 Kn
 Kn
@@ -20380,7 +20491,7 @@ mx
 JU
 us
 yT
-te
+yP
 Jd
 fb
 dG
@@ -20631,12 +20742,12 @@ ei
 Fl
 GO
 JJ
-Uk
+cA
 LV
 NK
 NK
 jV
-NJ
+Qx
 fb
 Jd
 fb
@@ -21398,7 +21509,7 @@ Kn
 bT
 JJ
 Cd
-ei
+CM
 uf
 ei
 JJ
@@ -21922,9 +22033,9 @@ mx
 JU
 Ng
 yT
-te
+NJ
 Jd
-kp
+zu
 yT
 yT
 Kn
@@ -23215,7 +23326,7 @@ nn
 pT
 OL
 NC
-Xp
+aV
 Am
 QX
 Mi
@@ -23459,7 +23570,7 @@ PD
 BR
 vi
 cq
-vj
+UB
 mx
 JU
 Ng
@@ -23471,7 +23582,7 @@ nx
 rs
 nb
 My
-zu
+CB
 fm
 CB
 Sl
@@ -23745,7 +23856,7 @@ MJ
 gW
 gW
 MJ
-nm
+KU
 Kn
 Kn
 Kn
@@ -25518,7 +25629,7 @@ oX
 yc
 yc
 EC
-yc
+vj
 yc
 yc
 yc

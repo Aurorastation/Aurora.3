@@ -56,6 +56,10 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
+/obj/effect/overmap/visitable/ship/landable/tajara_scrapper/New()
+	designation = "[pick("Space Scavenger", "Cheap Repair", "Adhomian Handyman", "Iron Rafama", "Wreck Wrecker", "Messa's Mechanic", "Grease Farwa", "Cold Gears", "Scrap's Bane")]"
+	..()
+
 /obj/machinery/computer/shuttle_control/explore/tajara_scrapper
 	name = "shuttle control console"
 	shuttle_tag = "Scrapper Ship"
