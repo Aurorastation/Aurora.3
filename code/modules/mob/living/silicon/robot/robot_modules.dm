@@ -1042,6 +1042,7 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/mining_drone
 	name = "mining drone module"
 	no_slip = TRUE
+	channels = list(CHANNEL_SUPPLY = TRUE)
 	networks = list(NETWORK_MINE)
 
 /obj/item/robot_module/mining_drone/Initialize(mapload, mob/living/silicon/robot/R)
