@@ -15,6 +15,10 @@
 	if(!I)
 		to_chat(usr, SPAN_WARNING("You don't have anything in your hands to give to \the [target]."))
 		return
+	
+	if(I.too_heavy_to_throw())
+		to_chat(src, SPAN_WARNING("You can barely lift \the [I] up, how do you expect to hand it over to someone?"))
+		return FALSE
 
 	usr.visible_message(SPAN_NOTICE("\The [usr] holds out \the [I] to \the [target]."), SPAN_NOTICE("You hold out \the [I] to \the [target], waiting for them to accept it."))
 

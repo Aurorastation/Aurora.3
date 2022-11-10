@@ -178,7 +178,8 @@ var/list/gear_datums = list()
 	. += "<tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
 
-	var/available_items_html = "" // to be added to the top/beginning of the list
+	var/ticked_items_html = "" // to be added to the top/beginning of the list
+	var/available_items_html = "" // to be added to the middle of the list
 	var/unavailable_items_html = "" // to be added to the end/bottom of the list
 
 	var/list/player_valid_gear_choices = valid_gear_choices()
@@ -189,7 +190,10 @@ var/list/gear_datums = list()
 		
 		var/temp_html = ""
 		var/datum/job/job = pref.return_chosen_high_job()
-		var/available = (G.check_faction(pref.faction) && (job && G.check_role(job.title)) && G.check_culture(pref.culture) && G.check_origin(pref.origin))
+		var/available = (G.check_faction(pref.faction) \
+			&& (job && G.check_role(job.title)) \
+			&& G.check_culture(text2path(pref.culture)) \
+			&& G.check_origin(text2path(pref.origin)))
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
 		
@@ -243,11 +247,15 @@ var/list/gear_datums = list()
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
 				temp_html += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
 			temp_html += "</td></tr>"
-		if(!available)
+		
+		if(ticked) 
+			ticked_items_html += temp_html
+		else if(!available)
 			available_items_html += temp_html
 		else
 			unavailable_items_html += temp_html
 	
+	. += ticked_items_html
 	. += unavailable_items_html
 	. += available_items_html
 	. += "</table>"
@@ -396,21 +404,25 @@ var/list/gear_datums = list()
 		return FALSE
 	return TRUE
 
+// arg should be a faction name string
 /datum/gear/proc/check_faction(var/faction_)
 	if((faction && faction_ && faction_ != "None" && faction_ != "Stellar Corporate Conglomerate") && (faction != faction_))
 		return FALSE
 	return TRUE
 
+// arg should be a role name string
 /datum/gear/proc/check_role(var/role)
 	if(role && allowed_roles && !(role in allowed_roles))
 		return FALSE
 	return TRUE
 
+// arg should be a culture path
 /datum/gear/proc/check_culture(var/culture)
 	if(culture && culture_restriction && !(culture in culture_restriction))
 		return FALSE
 	return TRUE
 
+// arg should be a origin path
 /datum/gear/proc/check_origin(var/origin)
 	if(origin && origin_restriction && !(origin in origin_restriction))
 		return FALSE

@@ -5,10 +5,10 @@
 
 
 /decl/surgery_step/fix_vein
-	name = "Repair arterial bleeding"
+	name = "Repair Arterial Bleeding"
 	priority = 3
 	allowed_tools = list(
-	/obj/item/surgery/FixOVein = 100, \
+	/obj/item/surgery/fix_o_vein = 100, \
 	/obj/item/stack/cable_coil = 75
 	)
 	can_infect = TRUE
@@ -50,8 +50,8 @@
 		SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
 	affected.take_damage(5, 0)
 
-/decl/surgery_step/internal/fix_dead_tissue		//Debridement
-	name = "Debride damaged tissue"
+/decl/surgery_step/internal/fix_dead_tissue //Debridement
+	name = "Debride Damaged Tissue"
 	priority = 4
 	allowed_tools = list(
 		/obj/item/surgery/scalpel = 100,
@@ -114,7 +114,7 @@
 	affected.sever_artery()
 
 /decl/surgery_step/treat_necrosis
-	name = "Treat necrosis"
+	name = "Treat Necrosis"
 	priority = 4
 	allowed_tools = list(
 		/obj/item/reagent_containers/dropper = 100,
@@ -184,10 +184,10 @@
 	//no damage or anything, just wastes medicine
 
 /decl/surgery_step/fix_tendon
-	name = "Repair tendons"
+	name = "Repair Tendons"
 	priority = 2
 	allowed_tools = list(
-		/obj/item/surgery/FixOVein = 100, \
+		/obj/item/surgery/fix_o_vein = 100, \
 		/obj/item/stack/cable_coil = 75
 	)
 	can_infect = TRUE
@@ -224,7 +224,7 @@
 	target.apply_damage(15, PAIN)
 
 /decl/surgery_step/hardsuit
-	name = "Remove hardsuit"
+	name = "Remove Hardsuit"
 	allowed_tools = list(
 		/obj/item/weldingtool = 80,
 		/obj/item/surgery/circular_saw = 60,
@@ -263,7 +263,7 @@
 		SPAN_NOTICE("You have cut through the support systems of [target]'s [rig] with \the [tool]."))
 
 /decl/surgery_step/amputate
-	name = "Amputate limb"
+	name = "Amputate Limb"
 	allowed_tools = list(
 	/obj/item/surgery/circular_saw = 100,
 	/obj/item/melee/energy = 100,
