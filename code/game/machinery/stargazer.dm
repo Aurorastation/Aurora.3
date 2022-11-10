@@ -2,7 +2,8 @@
 	name = "stargazer system"
 	icon = 'icons/obj/machines/stargazer.dmi'
 	icon_state = "stargazer_off"
-	layer = ABOVE_ALL_MOB_LAYER
+	anchored = TRUE
+	density = TRUE
 	pixel_x = -32
 	pixel_y = -32
 	var/image/star_system_image
