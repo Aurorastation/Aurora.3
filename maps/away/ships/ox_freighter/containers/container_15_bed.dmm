@@ -5,13 +5,13 @@
 "c" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/steel,
-/obj/item/pizzabox/vegetable{
-	pixel_y = 9;
-	pixel_x = -6
-	},
 /obj/item/reagent_containers/food/drinks/pitcher{
 	pixel_y = 9;
 	pixel_x = 2
+	},
+/obj/item/pizzabox/vegetable{
+	pixel_y = 9;
+	pixel_x = -6
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
@@ -63,6 +63,10 @@
 "W" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/stool/chair/sofa/left/violet,
+/obj/random/plushie{
+	pixel_y = 2;
+	pixel_x = -10
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "Z" = (

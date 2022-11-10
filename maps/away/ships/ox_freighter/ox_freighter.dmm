@@ -4,7 +4,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "bg" = (
 /obj/random/dirt/chance_10,
 /turf/simulated/floor/plating,
@@ -24,7 +24,11 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
+"bH" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/spine)
 "cF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -33,38 +37,43 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "cT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "dp" = (
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/padded/orange,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "dD" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "dJ" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1
 	},
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
+"dK" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor,
+/area/shuttle/ox_container_ship/hallway)
 "dQ" = (
 /obj/structure/janitorialcart,
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "ej" = (
 /obj/structure/table/steel,
 /obj/random/glowstick,
@@ -78,7 +87,7 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "ez" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -94,7 +103,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "ft" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
@@ -102,29 +111,33 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "fu" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/random/dirt,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 2
 	},
-/obj/random/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "gg" = (
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "gi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "gu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "gx" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp{
@@ -136,7 +149,7 @@
 "gB" = (
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "gV" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
 	dir = 4
@@ -145,7 +158,7 @@
 /obj/random/dirt,
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "gZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -158,7 +171,7 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/ox_container_ship)
 "hp" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/ox_container_ship)
 "hS" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -166,7 +179,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "hZ" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light{
@@ -175,24 +188,24 @@
 	},
 /obj/random/dirt/chance_20,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "ie" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "iw" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "iQ" = (
 /obj/machinery/light/small{
 	dir = 2
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "iS" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
@@ -204,12 +217,12 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "jo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "jp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -218,7 +231,7 @@
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/tiled/full,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "jD" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
@@ -226,7 +239,7 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "jG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -236,10 +249,10 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/full,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "jV" = (
 /turf/simulated/wall,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "jZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -248,7 +261,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "kb" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -257,7 +270,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "kg" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -265,18 +278,28 @@
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/random/dirt,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "kj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
+"kl" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor,
+/area/shuttle/ox_container_ship/engineering)
 "kp" = (
 /obj/random/dirt/chance_10,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "kv" = (
 /obj/effect/overmap/visitable/ship/ox_freighter,
 /obj/random/dirt,
@@ -287,12 +310,12 @@
 /obj/machinery/light/small/emergency,
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "kS" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "li" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 1
@@ -307,7 +330,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "lw" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -316,12 +339,17 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
+"lK" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor,
+/area/shuttle/ox_container_ship/living)
 "mu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "mD" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 1
@@ -334,13 +362,13 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "mL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "mM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -353,7 +381,7 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "mV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -361,29 +389,34 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "nc" = (
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
 /obj/random/dirt,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "nI" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "nQ" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/sink/kitchen{
 	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "pZ" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 4
@@ -391,13 +424,20 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "qe" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
+"qg" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/random/dirt,
+/turf/simulated/floor/tiled/full,
+/area/shuttle/ox_container_ship/spine)
 "ql" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/plate/bowl,
@@ -422,28 +462,28 @@
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "qq" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/random/dirt,
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2
 	},
-/obj/random/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "qu" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "sa" = (
 /obj/effect/floor_decal/corner/orange,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "sz" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
@@ -457,12 +497,12 @@
 	pixel_y = -5
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "td" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/random/dirt/chance_20,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "tk" = (
 /turf/simulated/wall/shuttle/palepurple/cardinal,
 /area/shuttle/ox_container_ship/container)
@@ -482,11 +522,11 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "tz" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "tQ" = (
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -496,13 +536,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "tT" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 2
 	},
 /turf/simulated/floor/tiled/full,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "uh" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -518,7 +558,7 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "uq" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 8
@@ -529,8 +569,11 @@
 "us" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/bed/stool/padded/orange,
+/obj/machinery/alarm{
+	pixel_y = 25
+	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "uy" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -538,7 +581,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "uH" = (
 /obj/structure/table/steel,
 /obj/item/wrench{
@@ -551,13 +594,19 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
+"wh" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/spine)
 "wn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "xg" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1
@@ -580,13 +629,13 @@
 	pixel_x = -1
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "xl" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "xx" = (
 /obj/structure/closet,
 /obj/effect/floor_decal/industrial/warning{
@@ -594,6 +643,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/machinery/alarm{
+	pixel_y = 25
 	},
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/ox_container_ship)
@@ -607,7 +659,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/full,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "xI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -618,15 +670,15 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "xS" = (
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "xW" = (
 /obj/structure/closet,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "yj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -634,23 +686,28 @@
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "yH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "zg" = (
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "zD" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
 /obj/structure/reagent_dispensers/watertank,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "zN" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -660,7 +717,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "AA" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
@@ -673,7 +730,7 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "Be" = (
 /obj/effect/floor_decal/industrial/outline/medical,
 /obj/structure/closet/walllocker/medical{
@@ -686,7 +743,7 @@
 /obj/random/medical,
 /obj/random/medical,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "Bm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -695,12 +752,12 @@
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "BJ" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/random/dirt/chance_20,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "BP" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
@@ -712,11 +769,11 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "BR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Cd" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -724,22 +781,22 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Cl" = (
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "Cm" = (
 /obj/machinery/atmospherics/binary/pump,
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Cv" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "Cz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -747,21 +804,34 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "De" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
+"Dr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/spine)
 "DI" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
 /obj/machinery/vending/vendors,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "DP" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -775,18 +845,18 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Ea" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "Eb" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "Ej" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -804,19 +874,32 @@
 	},
 /obj/random/dirt/chance_10,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
+"Fu" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/engineering)
+"FS" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt,
+/turf/simulated/floor/tiled,
+/area/shuttle/ox_container_ship/hallway)
 "Gd" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "Gi" = (
 /turf/template_noop,
 /area/space)
 "Gj" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "Gt" = (
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 4
@@ -828,14 +911,26 @@
 	},
 /obj/random/dirt/chance_10,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
+"Gv" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/random/dirt,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/spine)
 "GX" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "Hi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -845,27 +940,30 @@
 /obj/random/dirt,
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Ho" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
 	},
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
+"Ht" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/ox_container_ship/living)
 "Hx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Hy" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled/full,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "HL" = (
 /obj/machinery/light{
 	dir = 1;
@@ -895,7 +993,7 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/closet/secure_closet/freezer/fridge,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "Iy" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -905,7 +1003,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
+"JA" = (
+/obj/random/dirt,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/hallway)
 "JE" = (
 /obj/structure/toilet{
 	dir = 4
@@ -914,35 +1016,35 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "JL" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/firecloset/full,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "JM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "JN" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "JQ" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "Ko" = (
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "Kw" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
 	dir = 4
@@ -953,14 +1055,14 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "KK" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "KN" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -970,11 +1072,11 @@
 	},
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "KS" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "KZ" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin,
@@ -990,7 +1092,7 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "Ls" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 4;
@@ -1009,12 +1111,12 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "MQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "MY" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/random/dirt,
@@ -1028,7 +1130,10 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
+"Oa" = (
+/turf/simulated/wall,
+/area/shuttle/ox_container_ship/spine)
 "Ok" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/lime/full{
@@ -1043,20 +1148,23 @@
 	pixel_x = 2
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "Ol" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
+"On" = (
+/turf/simulated/wall,
+/area/shuttle/ox_container_ship/engineering)
 "Oq" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/lime{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Or" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/shuttle/dark_blue,
@@ -1070,13 +1178,16 @@
 	icon_state = "tube1"
 	},
 /obj/random/dirt/chance_10,
+/obj/machinery/alarm{
+	pixel_y = 25
+	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "OU" = (
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "Pe" = (
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
@@ -1088,26 +1199,31 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "Pq" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "PM" = (
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "Qi" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Qp" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -1119,7 +1235,7 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "Qq" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
@@ -1128,7 +1244,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "Qr" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/lime/full{
@@ -1142,7 +1258,7 @@
 	pixel_x = 1
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "QL" = (
 /obj/structure/sink{
 	dir = 4;
@@ -1155,7 +1271,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "RA" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -1170,7 +1286,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Sr" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -1182,13 +1298,20 @@
 /obj/random/dirt,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/ox_container_ship)
+"Sv" = (
+/obj/random/dirt,
+/obj/machinery/alarm{
+	pixel_y = 25
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/ox_container_ship/hallway)
 "Sy" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "SA" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 2
@@ -1201,13 +1324,16 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
+"SO" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/ox_container_ship/hallway)
 "SW" = (
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "TX" = (
 /obj/effect/dungeon_generic_landmark/ox_freighter_container,
 /turf/simulated/wall/shuttle/palepurple/cardinal,
@@ -1220,10 +1346,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "UC" = (
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/living)
+"UF" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor,
 /area/shuttle/ox_container_ship)
 "UI" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/supply,
@@ -1232,13 +1363,13 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Vc" = (
 /obj/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "Vo" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1247,18 +1378,18 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Vp" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "Vu" = (
 /obj/random/dirt/chance_10,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "VI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -1269,7 +1400,7 @@
 /obj/item/clothing/head/helmet/space/void/mining/fluff,
 /obj/item/clothing/head/helmet/space/void/mining/fluff,
 /turf/simulated/floor/tiled/full,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "VV" = (
 /obj/effect/floor_decal/corner/orange,
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
@@ -1277,7 +1408,7 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "Wj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1290,7 +1421,7 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "WM" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/visible/supply{
@@ -1301,14 +1432,14 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Xb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/random/dirt,
 /turf/simulated/floor/tiled/full,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "Yd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/visible/supply{
@@ -1316,24 +1447,24 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Yh" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "YA" = (
 /obj/random/dirt,
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/hallway)
 "YK" = (
 /obj/machinery/light/small{
 	dir = 2
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "YR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -1343,7 +1474,7 @@
 	},
 /obj/random/dirt/chance_10,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/living)
 "YU" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1352,6 +1483,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
+"YW" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/ox_container_ship/engineering)
 "Zb" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/meter,
@@ -1360,12 +1494,12 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "Zh" = (
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/spine)
 "Zm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1386,7 +1520,7 @@
 	},
 /obj/random/dirt,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "ZJ" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -1394,7 +1528,7 @@
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship)
+/area/shuttle/ox_container_ship/engineering)
 "ZV" = (
 /obj/random/dirt/chance_10,
 /obj/random/dirt/chance_20,
@@ -32358,7 +32492,7 @@ uh
 jV
 Gj
 Gj
-hp
+SO
 uh
 uh
 uh
@@ -32615,7 +32749,7 @@ uh
 jV
 qe
 Yh
-hp
+dK
 Gi
 Gi
 Gi
@@ -32872,18 +33006,18 @@ Gi
 jV
 lk
 Yh
-hp
+dK
 Gi
 Gi
-hp
-hp
-tz
-hp
-hp
-hp
-tz
-hp
-hp
+Ht
+Ht
+lK
+Ht
+Ht
+Ht
+lK
+Ht
+Ht
 Gi
 Gi
 Gi
@@ -33090,12 +33224,12 @@ Gi
 Gi
 uh
 uh
-hp
-hp
-hp
-hp
-hp
-hp
+YW
+YW
+YW
+kl
+YW
+YW
 Gi
 Gi
 uh
@@ -33129,23 +33263,23 @@ Gi
 jV
 qu
 Gj
-hp
-hp
-hp
-hp
+SO
+SO
+Ht
+Ht
 OD
 Cv
 Ok
-hp
+Ht
 iw
 ts
 ql
-hp
-hp
-hp
-tz
-tz
-tz
+Ht
+Ht
+Ht
+UF
+UF
+UF
 Gi
 Gi
 Gi
@@ -33352,57 +33486,57 @@ KN
 Po
 ZJ
 OU
-hp
-hp
-hp
-hp
-jV
-jV
-jV
-jV
-jV
-Gj
+YW
+YW
+YW
+YW
+On
+On
+Oa
+Oa
+Oa
+bH
 tz
-jV
-jV
-jV
+Oa
+Oa
+Oa
 tz
-Gj
-jV
-jV
-jV
-jV
-jV
-Gj
+bH
+Oa
+Oa
+Oa
+Oa
+Oa
+bH
 tz
-jV
-jV
-jV
+Oa
+Oa
+Oa
 tz
-Gj
-jV
-jV
-jV
+bH
+Oa
+Oa
+Oa
 jV
 Ol
 KS
 Iy
-hp
+SO
 Vc
 Vc
 Ff
 Vu
 lw
-hp
+Ht
 nQ
 td
 hZ
-hp
+Ht
 JE
-hp
+Ht
 Ls
 Or
-tz
+UF
 Gi
 Gi
 Gi
@@ -33609,31 +33743,31 @@ Vp
 Cz
 Zt
 iQ
-jV
+On
 uH
 ej
-hp
-hp
-jV
+YW
+YW
+On
 sz
 xk
 DP
 cT
 dJ
 zN
-jV
+Oa
 JM
 gi
 gu
 Hx
 yH
-jV
+Oa
 Qr
 kb
 gu
 Zh
 dD
-jV
+Oa
 gi
 JM
 gu
@@ -33641,25 +33775,25 @@ jp
 VI
 xG
 jV
-zg
+Sv
 gg
 jo
-hp
+SO
 GX
 kp
 tT
 YR
 wn
-hp
+Ht
 us
 BJ
 JQ
 UC
 QL
-hp
+Ht
 uq
 xg
-tz
+UF
 Gi
 Gi
 Gi
@@ -33878,45 +34012,45 @@ UI
 BR
 Cm
 RG
-jV
+Oa
 mu
 cF
 xS
 Cd
 JM
-jV
+Oa
 Oq
 Hy
 xS
-Xb
+qg
 gB
-jV
+Oa
 JM
 De
 xS
-Xb
+qg
 gB
 YK
 jV
 Sy
 zg
 fd
-hp
+SO
 xW
 xW
 dp
 jZ
 Gt
-hp
+Ht
 Nz
 BJ
 Iw
-hp
-hp
-hp
+Ht
+Ht
+Ht
 HL
 KZ
-tz
+UF
 Gi
 Gi
 Gi
@@ -34123,31 +34257,31 @@ Zb
 Zt
 fu
 VV
-tz
+Fu
 Uz
 zD
-hp
-hp
-jV
+YW
+YW
+On
 Ho
 DI
 bh
 yj
 kS
 Qi
-SW
-uy
+wh
+Dr
 Yd
 Hi
 Kw
 hS
-SW
+wh
 uy
 WM
 Hi
 gV
-hS
-SW
+Gv
+wh
 kg
 Yd
 Vo
@@ -34158,22 +34292,22 @@ SW
 mM
 Xb
 jG
-hp
-hp
-hp
-hp
+SO
+Ht
+Ht
+Ht
 tQ
-hp
-hp
-hp
+Ht
+Ht
+Ht
 UC
-hp
-hp
+Ht
+Ht
 xx
 gZ
 kv
 gx
-tz
+UF
 Gi
 Gi
 Gi
@@ -34380,37 +34514,37 @@ Mq
 nc
 Ll
 iS
-hp
-hp
-hp
-hp
-jV
-jV
-jV
-jV
-jV
-Gj
+YW
+YW
+YW
+YW
+On
+On
+Oa
+Oa
+Oa
+bH
 tz
-jV
-jV
-jV
+Oa
+Oa
+Oa
 tz
-Gj
-jV
-jV
-jV
-jV
-jV
-Gj
+bH
+Oa
+Oa
+Oa
+Oa
+Oa
+bH
 tz
-jV
-jV
-jV
+Oa
+Oa
+Oa
 tz
-Gj
-jV
-jV
-jV
+bH
+Oa
+Oa
+Oa
 jV
 Wj
 mV
@@ -34422,15 +34556,15 @@ un
 AA
 ft
 BP
-ft
-ft
+FS
+FS
 mD
 Ko
 Zm
 Sr
 MY
 li
-tz
+UF
 Gi
 Gi
 Gi
@@ -34632,12 +34766,12 @@ Gi
 Gi
 uh
 uh
-hp
-hp
-hp
-hp
-hp
-hp
+YW
+YW
+YW
+YW
+YW
+YW
 Gi
 Gi
 uh
@@ -34670,11 +34804,11 @@ Gi
 Gi
 jV
 YA
-xS
-hp
-hp
-hp
-hp
+JA
+SO
+SO
+SO
+SO
 Be
 Eb
 ie
@@ -34682,12 +34816,12 @@ JL
 SA
 Gd
 Pq
+SO
 hp
 hp
-hp
-tz
-tz
-tz
+UF
+UF
+UF
 Gi
 Gi
 Gi
@@ -34927,19 +35061,19 @@ TX
 Gi
 jV
 KK
-xS
-hp
+JA
+SO
 Gi
 Gi
-hp
-hp
-tz
-tz
-tz
-hp
+SO
+SO
+dK
+dK
+dK
+SO
 Gj
 qu
-hp
+SO
 Gi
 Gi
 Gi
@@ -35185,7 +35319,7 @@ uh
 jV
 dQ
 Cl
-hp
+SO
 Gi
 Gi
 uh
@@ -35193,10 +35327,10 @@ Gi
 Gi
 Gi
 Gi
-hp
+dK
 MQ
 kQ
-hp
+dK
 Gi
 Gi
 Gi
@@ -35440,9 +35574,9 @@ bg
 tk
 uh
 jV
-hp
-hp
-hp
+SO
+SO
+SO
 uh
 uh
 uh
@@ -35450,10 +35584,10 @@ uh
 uh
 uh
 uh
-hp
+dK
 MQ
 JN
-hp
+dK
 uh
 uh
 uh
@@ -35707,10 +35841,10 @@ Gi
 Gi
 Gi
 Gi
-hp
+SO
 Gj
 Gj
-hp
+SO
 Gi
 Gi
 Gi

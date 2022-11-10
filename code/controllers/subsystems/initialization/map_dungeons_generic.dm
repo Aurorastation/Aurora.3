@@ -71,20 +71,24 @@ proc/place_dungeons_generic()
 
 // -------------------------------------------------------------------
 
-// NOTES:
+// This is used to spawn "dungeons" on a map. Meaning, at map/z-level load, a sub-map is spawned on this landmark, ideally randomly picked from a list.
+// The landmark is the bottom-left corner spawned dungeon.
 // The loaded dungeon does not "replace" the part of map it is loaded into - it spawns on top of it.
 // It only "replaces" turfs (walls, floors, etc) as a tile can have only one turf. Machines, items, objects, doors, etc, are not replaced.
 /obj/effect/dungeon_generic_landmark
 	name = "Generic Dungeon Landmark (blank)"
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x2"
-	// Percent chance for it to actually spawn a dungeon
+	// Percent chance for it to actually spawn a dungeon.
 	var/spawn_chance = 100
-	// If true, blacklists the spawned dungeon from ever spawning again
+	// If true, blacklists the spawned dungeon from ever spawning again.
+	// If false, a single dungeon can be spawned at multiple landmarks potentially.
+	// This setting does not work retroactively - if one landmark first spawns a dungeon with unique==FALSE, another with unique==TRUE will not un-spawn the first one.
 	var/unique = FALSE
 	// Either a list of dungeon map paths, or a path to a directory containing the maps; for example either:
 	// - map_files = list("maps/away/ships/ox_freighter/containers/container_1.dmm", "maps/away/ships/ox_freighter/containers/container_2.dmm")
 	// - map_files = "maps/away/ships/ox_freighter/containers/"
+	// In case of a directory, all files in that directory will be considered for spawning.
 	var/map_files = ""
 
 /obj/effect/dungeon_generic_landmark/New()
