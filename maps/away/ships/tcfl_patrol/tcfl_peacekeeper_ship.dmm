@@ -1080,6 +1080,14 @@
 	dir = 1
 	},
 /area/shuttle/tcfl_shuttle)
+"haL" = (
+/obj/machinery/light/small,
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/combatripley{
+	h_r_hand = /obj/item/mecha_equipment/clamp
+	},
+/turf/simulated/floor,
+/area/ship/tcfl_peacekeeper_ship)
 "hdb" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -1643,6 +1651,12 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
+"jQY" = (
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "TCFL Francisca Rotary Gun"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "jRX" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -2814,12 +2828,39 @@
 	},
 /area/ship/tcfl_peacekeeper_ship)
 "rkM" = (
-/obj/machinery/light/small,
-/obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/combatripley{
-	h_r_hand = /obj/item/mecha_equipment/clamp
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 5
 	},
-/turf/simulated/floor,
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
+"rlW" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/template_noop,
 /area/ship/tcfl_peacekeeper_ship)
 "rrF" = (
 /obj/structure/bed/stool,
@@ -3022,6 +3063,15 @@
 	id_tag = "tcfl_peacekeeper_ship_in"
 	},
 /turf/simulated/floor,
+/area/ship/tcfl_peacekeeper_ship)
+"sJV" = (
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "TCFL Francisca Rotary Gun"
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/ship/tcfl_peacekeeper_ship)
 "sKP" = (
 /obj/effect/floor_decal/corner/blue{
@@ -24332,11 +24382,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+hSW
+hSW
+hSW
+hSW
+rlW
 xRX
 xRX
 xRX
@@ -24589,8 +24639,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+sJV
+hSW
 xRX
 xRX
 xRX
@@ -24846,7 +24896,7 @@ yjk
 yjk
 yjk
 qtX
-yjk
+jQY
 yjk
 xRX
 xRX
@@ -25103,7 +25153,7 @@ pPl
 yjk
 dCR
 mxc
-rkM
+bYX
 yjk
 xRX
 xRX
@@ -26644,7 +26694,7 @@ urq
 rYF
 arF
 xji
-jWO
+haL
 hRT
 qtX
 xRX
@@ -32803,7 +32853,7 @@ jWO
 jWO
 jWO
 jWO
-ghV
+rkM
 yjk
 hRJ
 iWp

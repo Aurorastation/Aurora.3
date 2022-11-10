@@ -94,6 +94,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
+/obj/machinery/vending/sovietsoda{
+	name = "Soda Water Machine"
+	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "atj" = (
@@ -142,6 +145,12 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/reinforced/full,
+/obj/item/tape_roll,
+/obj/item/tape_roll,
+/obj/item/storage/box/lights/mixed,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/tank/phoron/shuttle,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "aBb" = (
@@ -401,11 +410,30 @@
 /area/ship/sfa_patrol_ship)
 "ccm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/obj/item/tank/phoron/shuttle,
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/box/lights/mixed,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "ccO" = (
@@ -1150,6 +1178,9 @@
 /obj/structure/closet/toolcloset,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "hBs" = (
@@ -2356,11 +2387,13 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship)
 "rdB" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/vending/sovietsoda{
-	name = "Soda Water Machine"
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "SFA Francisca Rotary Gun"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/ship/sfa_patrol_ship)
 "rgA" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -2609,6 +2642,13 @@
 /area/ship/sfa_patrol_ship)
 "ufa" = (
 /obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/ship/sfa_patrol_ship)
+"uii" = (
+/obj/structure/ship_weapon_dummy,
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
 /turf/template_noop,
 /area/ship/sfa_patrol_ship)
 "uBC" = (
@@ -2908,6 +2948,12 @@
 	req_access = list(203)
 	},
 /obj/item/folder/blue,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
+"wEB" = (
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "SFA Francisca Rotary Gun"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "wMs" = (
@@ -30473,11 +30519,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+ufa
+ufa
+ufa
+ufa
+uii
 xRX
 xRX
 xRX
@@ -30730,8 +30776,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+rdB
+ufa
 xRX
 xRX
 xRX
@@ -30987,7 +31033,7 @@ nit
 yjk
 yjk
 yjk
-yjk
+wEB
 yjk
 yjk
 yjk
@@ -31244,7 +31290,7 @@ sBA
 nsN
 yjk
 pXP
-rdB
+aCd
 yjk
 akP
 aMB

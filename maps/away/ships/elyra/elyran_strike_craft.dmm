@@ -1503,6 +1503,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"pkE" = (
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "Elyran Francisca Rotary Gun"
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/ship/elyran_strike_craft)
 "pue" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -1542,6 +1551,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"pFg" = (
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Elyran Francisca Rotary Gun"
+	},
+/turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
@@ -1734,6 +1749,34 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"rMJ" = (
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "rWk" = (
 /obj/effect/floor_decal/corner/beige/full{
@@ -2202,6 +2245,12 @@
 /obj/item/reagent_containers/food/snacks/redcurry,
 /obj/item/reagent_containers/food/snacks/yellowcurry,
 /turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"xlK" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/template_noop,
 /area/ship/elyran_strike_craft)
 "xpv" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -33521,11 +33570,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+qEp
+qEp
+qEp
+qEp
+xlK
 xRX
 xRX
 xRX
@@ -33778,8 +33827,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+pkE
+qEp
 xRX
 xRX
 xRX
@@ -34035,7 +34084,7 @@ lxP
 lxP
 lxP
 lxP
-lxP
+pFg
 lxP
 lxP
 xRX
@@ -36077,7 +36126,7 @@ pZC
 atj
 aHa
 vOv
-pcX
+rMJ
 geX
 spD
 dVy

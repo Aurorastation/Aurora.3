@@ -131,6 +131,12 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/reinforced/full,
+/obj/item/tape_roll,
+/obj/item/tape_roll,
+/obj/item/storage/box/lights/mixed,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/tank/phoron/shuttle,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "aBb" = (
@@ -382,13 +388,30 @@
 /area/ship/fsf_patrol_ship)
 "ccm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/obj/item/tank/phoron/shuttle,
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/box/lights/mixed,
-/obj/item/tape_roll,
-/obj/item/tape_roll,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "cdD" = (
@@ -1007,6 +1030,12 @@
 	},
 /turf/simulated/floor/carpet/blue,
 /area/ship/fsf_patrol_ship)
+"gYW" = (
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "FSF Francisca Rotary Gun"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
 "hdb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
@@ -1116,6 +1145,9 @@
 /obj/structure/closet/toolcloset,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "hBs" = (
@@ -2311,6 +2343,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
+"swZ" = (
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "FSF Francisca Rotary Gun"
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/ship/fsf_patrol_ship)
 "sBv" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, armoury"
@@ -2549,6 +2590,12 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
+"vgt" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/template_noop,
 /area/ship/fsf_patrol_ship)
 "vmq" = (
 /obj/effect/floor_decal/spline/plain/corner{
@@ -30330,11 +30377,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+lBQ
+lBQ
+lBQ
+lBQ
+vgt
 xRX
 xRX
 xRX
@@ -30587,8 +30634,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+swZ
+lBQ
 xRX
 xRX
 xRX
@@ -30844,7 +30891,7 @@ qfj
 yjk
 yjk
 yjk
-yjk
+gYW
 yjk
 yjk
 yjk
