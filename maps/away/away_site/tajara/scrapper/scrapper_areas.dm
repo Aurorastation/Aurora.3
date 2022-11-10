@@ -1,88 +1,56 @@
-/datum/ghostspawner/human/tajaran_migrant
-	short_name = "tajaran_migrant"
-	name = "Tajaran Migrant"
-	desc = "Survive and try to reach Tau Ceti."
-	tags = list("External")
+/area/scrapper_base
+	name = "Scrapper Outpost"
+	icon_state = "bluenew"
+	requires_power = 1
+	dynamic_lighting = 1
+	no_light_control = 0
+	base_turf = /turf/space
+	flags = RAD_SHIELDED
 
-	spawnpoints = list("tajaran_migrant")
-	max_count = 4
+/area/scrapper_base/quarters
+	name = "Scrapper Outpost Crew Quarters"
+	icon_state = "crew_quarters"
 
-	outfit = /datum/outfit/admin/tajaran_migrant
-	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+/area/scrapper_base/atmos
+	name = "Scrapper Outpost Atmospherics"
+	icon_state = "atmos"
 
-	assigned_role = "Tajaran Migrant"
-	special_role = "Tajaran Migrant"
-	respawn_flag = null
+/area/scrapper_base/solars
+	name = "Scrapper Outpost Atmospherics"
+	icon_state = "SolarcontrolS"
 
-	uses_species_whitelist = FALSE
+/area/scrapper_base/storage
+	name = "Scrapper Outpost Storage"
+	icon_state = "primarystorage"
 
-/datum/outfit/admin/tajaran_migrant
-	name = "Tajaran Migrant"
+//Shuttle
+/area/shuttle/scrapper_ship
+	requires_power = TRUE
 
-	uniform = list(
-				/obj/item/clothing/under/tajaran,
-				/obj/item/clothing/under/tajaran/nt,
-				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
-	)
+/area/shuttle/scrapper_ship/bridge
+	name = "Scrapper Bridge"
+	icon_state = "bridge_stairs"
 
-	shoes = list(
-				/obj/item/clothing/shoes/tajara/footwraps,
-				/obj/item/clothing/shoes/tajara/jackboots,
-				/obj/item/clothing/shoes/tajara/workboots,
-				/obj/item/clothing/shoes/tajara/workboots/adhomian_boots
-	)
+/area/shuttle/scrapper_ship/port_engines
+	name = "Scrapper Port Engines"
+	icon_state = "east"
 
-	back = list(
-		/obj/item/storage/backpack,
-		/obj/item/storage/backpack/satchel,
-		/obj/item/storage/backpack/satchel/leather,
-		/obj/item/storage/backpack/duffel
-	)
+/area/shuttle/scrapper_ship/starboard_engines
+	name = "Scrapper Starboard Engines"
+	icon_state = "west"
 
-	id = null
+/area/shuttle/scrapper_ship/atmos
+	name = "Scrapper Atmospherics"
+	icon_state = "atmos"
 
-	l_ear = null
+/area/shuttle/scrapper_ship/power_station
+	name = "Scrapper Power Station"
+	icon_state = "substation"
 
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
+/area/shuttle/scrapper_ship/workshop
+	name = "Scrapper Workshop"
+	icon_state = "workshop"
 
-
-/datum/ghostspawner/human/tajara_revolutionary_army_agent
-	short_name = "tajara_revolutionary_army_agent"
-	name = "Tajaran Revolutionary Army Agent"
-	desc = "Protect the Tajaran migrants."
-	tags = list("External")
-
-	spawnpoints = list("tajara_revolutionary_army_agent")
-	max_count = 2
-
-	outfit = /datum/outfit/admin/tajara_revolutionary_army_agent
-	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-
-	assigned_role = "Tajara Revolutionary Army Agent"
-	special_role = "Tajara Revolutionary Army Agent"
-	respawn_flag = null
-
-/datum/outfit/admin/tajara_revolutionary_army_agent
-	name = "Tajara Revolutionary Army Agent"
-
-	uniform = list(
-				/obj/item/clothing/under/syndicate,
-				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
-	)
-
-	shoes = list(
-				/obj/item/clothing/shoes/tajara/footwraps,
-				/obj/item/clothing/shoes/tajara/jackboots
-	)
-
-	back = /obj/item/storage/backpack/duffel
-
-	id = null
-
-	l_ear = /obj/item/device/radio/headset/ship
-
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/gun/projectile/silenced = 1, /obj/item/ammo_magazine/c45m = 2)
+/area/shuttle/scrapper_ship/storage
+	name = "Scrapper Storage"
+	icon_state = "red"

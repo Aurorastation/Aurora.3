@@ -6,6 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "tajara_scrapper"
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_scrapper)
 
 /decl/submap_archetype/tajara_scrapper
@@ -15,9 +16,31 @@
 /obj/effect/overmap/visitable/sector/tajara_scrapper
 	name = "adhomian scrapper outpost"
 	desc = "An outpost used by Tajaran scrapper. It offers repair and scrapping services."
+	initial_generic_waypoints = list(
+		"nav_tajara_scrapper_1",
+		"nav_tajara_scrapper_2",
+		"nav_tajara_scrapper_3"
+	)
 	initial_restricted_waypoints = list(
 		"Scrapper Ship" = list("nav_hangar_tajara_scrapper")
 	)
+
+/obj/effect/shuttle_landmark/tajara_scrapper
+	base_turf = /turf/space
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/tajara_scrapper/nav1
+	name = "Scrapper Outpost Navpoint #1"
+	landmark_tag = "nav_tajara_scrapper_1"
+
+/obj/effect/shuttle_landmark/tajara_scrapper/nav2
+	name = "Scrapper Outpost Navpoint #2"
+	landmark_tag = "nav_tajara_scrapper_2"
+
+/obj/effect/shuttle_landmark/tajara_scrapper/nav3
+	name = "Scrapper Outpost Navpoint #3"
+	landmark_tag = "nav_tajara_scrapper_3"
+
 
 //ship stuff
 /obj/effect/overmap/visitable/ship/landable/tajara_scrapper
@@ -40,7 +63,9 @@
 /datum/shuttle/autodock/overmap/tajara_scrapper
 	name = "Scrapper Ship"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/tajara_safehouse_shuttle)
+	shuttle_area = list(/area/shuttle/scrapper_ship/bridge, /area/shuttle/scrapper_ship/port_engines, /area/shuttle/scrapper_ship/starboard_engines,
+						/area/shuttle/scrapper_ship/atmos, /area/shuttle/scrapper_ship/power_station, /area/shuttle/scrapper_ship/workshop, /area/shuttle/scrapper_ship/storage)
+	dock_target = "tajara_scrapper"
 	current_location = "nav_hangar_tajara_scrapper"
 	landmark_transition = "nav_transit_tajara_scrapper"
 	range = 1
@@ -51,9 +76,9 @@
 /obj/effect/shuttle_landmark/tajara_scrapper/hangar
 	name = "Scrapper Ship Hangar"
 	landmark_tag = "nav_hangar_tajara_scrapper"
-	docking_controller = "tajara_tajara_scrapper"
-	base_area = /area/tajara_safehouse/hangar
-	base_turf = /turf/simulated/floor/plating
+	docking_controller = "tajaran_scrapper_shuttle_dock"
+	base_area = /area/space
+	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/tajara_scrapper/transit

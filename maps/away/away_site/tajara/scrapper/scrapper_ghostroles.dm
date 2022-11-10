@@ -1,30 +1,30 @@
-/datum/ghostspawner/human/tajaran_migrant
-	short_name = "tajaran_migrant"
-	name = "Tajaran Migrant"
-	desc = "Survive and try to reach Tau Ceti."
+/datum/ghostspawner/human/tajaran_scrapper
+	short_name = "tajaran_scrapper"
+	name = "Tajaran Scrapper"
+	desc = "Crew the Tajaran Scrapper ship."
 	tags = list("External")
 
-	spawnpoints = list("tajaran_migrant")
-	max_count = 4
+	spawnpoints = list("tajaran_scrapper")
+	max_count = 3
 
-	outfit = /datum/outfit/admin/tajaran_migrant
+	outfit = /datum/outfit/admin/tajaran_scrapper
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Tajaran Migrant"
-	special_role = "Tajaran Migrant"
+	assigned_role = "Tajaran Scrapper"
+	special_role = "Tajaran Scrapper"
 	respawn_flag = null
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/tajaran_migrant
-	name = "Tajaran Migrant"
+/datum/outfit/admin/tajaran_scrapper
+	name = "Tajaran Scrapper"
 
 	uniform = list(
+				/obj/item/clothing/under/serviceoveralls,
+				/obj/item/clothing/under/tajaran/mechanic,
 				/obj/item/clothing/under/tajaran,
-				/obj/item/clothing/under/tajaran/nt,
-				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
+				/obj/item/clothing/under/overalls
 	)
 
 	shoes = list(
@@ -41,48 +41,9 @@
 		/obj/item/storage/backpack/duffel
 	)
 
-	id = null
-
-	l_ear = null
+	l_ear = /obj/item/device/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 
-
-/datum/ghostspawner/human/tajara_revolutionary_army_agent
-	short_name = "tajara_revolutionary_army_agent"
-	name = "Tajaran Revolutionary Army Agent"
-	desc = "Protect the Tajaran migrants."
-	tags = list("External")
-
-	spawnpoints = list("tajara_revolutionary_army_agent")
-	max_count = 2
-
-	outfit = /datum/outfit/admin/tajara_revolutionary_army_agent
-	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-
-	assigned_role = "Tajara Revolutionary Army Agent"
-	special_role = "Tajara Revolutionary Army Agent"
-	respawn_flag = null
-
-/datum/outfit/admin/tajara_revolutionary_army_agent
-	name = "Tajara Revolutionary Army Agent"
-
-	uniform = list(
-				/obj/item/clothing/under/syndicate,
-				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
-	)
-
-	shoes = list(
-				/obj/item/clothing/shoes/tajara/footwraps,
-				/obj/item/clothing/shoes/tajara/jackboots
-	)
-
-	back = /obj/item/storage/backpack/duffel
-
-	id = null
-
-	l_ear = /obj/item/device/radio/headset/ship
-
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/gun/projectile/silenced = 1, /obj/item/ammo_magazine/c45m = 2)
+/datum/outfit/admin/tajaran_scrapper/get_id_access()
+	return list(access_generic_away_site, access_external_airlocks)
