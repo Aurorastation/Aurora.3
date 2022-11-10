@@ -22,7 +22,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "aal" = (
 /obj/machinery/light/small{
@@ -55,10 +55,10 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "aaq" = (
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "aau" = (
 /obj/structure/shuttle_part/ert{
@@ -83,7 +83,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "aay" = (
 /turf/simulated/wall/shuttle/unique/ert{
@@ -91,7 +91,7 @@
 	},
 /area/shuttle/specops)
 "aaB" = (
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "aaJ" = (
 /obj/item/gun/energy/pistol{
@@ -244,7 +244,7 @@
 /area/shuttle/transport1)
 "aii" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "ait" = (
 /obj/structure/lattice,
@@ -9327,7 +9327,7 @@
 /area/centcom/control)
 "kfW" = (
 /obj/effect/shuttle_landmark/emergency/interim,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "kgc" = (
 /obj/structure/sign/vacuum,
@@ -13560,7 +13560,7 @@
 /area/centcom/evac)
 "pKM" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "pKR" = (
 /obj/structure/closet/gimmick{
@@ -14255,7 +14255,7 @@
 /area/centcom/ferry)
 "qSa" = (
 /obj/effect/shuttle_landmark/arrival/interim,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "qSn" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,

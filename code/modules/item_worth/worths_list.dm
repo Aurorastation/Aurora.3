@@ -868,5 +868,15 @@ var/list/worths = list(
 					/obj/machinery/wish_granter = - 1000000,
 					/obj/machinery = -1000,
 					/obj/vehicle/bike = 1500,
-					/obj/vehicle = 1000
+					/obj/vehicle = 1000,
+					//Ammunition
+					/obj/item/warhead/longbow/ap = 15000,
+					/obj/item/warhead/longbow/bunker = 25000,
+					/obj/item/warhead/longbow = 10000,
+					/obj/item/ship_ammunition/longbow = 2500,
+					/obj/item/primer/low = 2000,
+					/obj/item/primer/high = 9500,
+					/obj/item/primer = 5500,
+					/obj/item/ship_ammunition/grauwolf_bundle/ap = 12000,
+					/obj/item/ship_ammunition/grauwolf_bundle = 10000
 					) //Must be in descending order. Child before parents, otherwise it doesn't work.,
