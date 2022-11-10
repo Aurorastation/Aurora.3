@@ -241,6 +241,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/structure/closet/firecloset/full,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "aLo" = (
@@ -838,6 +839,12 @@
 /obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "fore, port engines"
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"grH" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -25
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -1979,6 +1986,12 @@
 /obj/effect/shuttle_landmark/elyran_strike_craft/transit,
 /turf/space/transit/north,
 /area/space)
+"uHF" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
 "uNI" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, office"
@@ -2053,6 +2066,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
@@ -2135,6 +2151,9 @@
 	},
 /obj/structure/table/steel,
 /obj/item/clothing/ears/earmuffs,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -25
+	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "wqn" = (
@@ -34327,7 +34346,7 @@ jCz
 xdP
 atj
 vOv
-pcX
+grH
 pcX
 pes
 ipy
@@ -36381,7 +36400,7 @@ moG
 vOv
 xrq
 atj
-atj
+uHF
 vOv
 pcX
 pcX
