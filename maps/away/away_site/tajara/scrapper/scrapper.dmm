@@ -1779,7 +1779,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scrapper_ship/power_station)
 "zx" = (
-/obj/effect/shuttle_landmark/intrepid/hangar,
+/obj/effect/shuttle_landmark/tajara_scrapper/nav1,
 /turf/template_noop,
 /area/space)
 "zE" = (
