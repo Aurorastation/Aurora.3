@@ -84,6 +84,9 @@
 	SSshuttle.clear_init_queue() // We will flush the queue unless there were other blockers, in which case they will do it.
 
 /datum/map_template/proc/init_atoms(var/list/atoms)
+	. = map_template_init_atoms(atoms, subtemplates_to_spawn, template_flags)
+
+/proc/map_template_init_atoms(var/list/atoms, var/list/subtemplates_to_spawn, var/template_flags)
 	if (SSatoms.initialized == INITIALIZATION_INSSATOMS)
 		return // let proper initialisation handle it later
 

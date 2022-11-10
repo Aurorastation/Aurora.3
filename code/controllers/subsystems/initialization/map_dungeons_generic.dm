@@ -56,9 +56,8 @@ proc/place_dungeons_generic()
 			continue
 		
 		log_ss("map_finalization","Loading generic dungeon '[chosen_dungeon]' at coordinates [spawn_location.x], [spawn_location.y], [spawn_location.z].")
-		maploader.load_map(map_file, spawn_location.x, spawn_location.y, spawn_location.z)
-		// /datum/map_template/proc/init_atoms(var/list/atoms) /// ???
-		// var/datum/controller/subsystem/atlas/SSatlas // ???
+		var/datum/map_load_metadata/map_load_metadata =  maploader.load_map(map_file, spawn_location.x, spawn_location.y, spawn_location.z)
+		map_template_init_atoms(map_load_metadata.atoms_to_initialise)
 		dungeons_placed += 1
 		
 		if(landmark.unique)

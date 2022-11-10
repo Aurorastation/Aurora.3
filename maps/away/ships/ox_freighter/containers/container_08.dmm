@@ -19,10 +19,6 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
-"u" = (
-/obj/machinery/mineral/equipment_vendor,
-/turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship/container)
 "C" = (
 /obj/structure/table/rack,
 /obj/item/wrench,
@@ -63,21 +59,21 @@ J
 "}
 (2,1,1) = {"
 J
-u
+T
 X
 s
 J
 "}
 (3,1,1) = {"
 J
-T
+S
 X
 X
 J
 "}
 (4,1,1) = {"
 J
-S
+T
 X
 X
 J
