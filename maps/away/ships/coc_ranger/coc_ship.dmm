@@ -2005,6 +2005,12 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/ranger_shuttle)
+"jYf" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/template_noop,
+/area/ship/ranger_corvette/engine1)
 "kaR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2949,7 +2955,7 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
-/area/space)
+/area/ship/ranger_corvette/engine1)
 "plP" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
@@ -4474,6 +4480,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
+"uFD" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/ship/ranger_corvette/engine1)
 "uGk" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -33561,11 +33571,11 @@ xRX
 xRX
 xRX
 xRX
-lhJ
-lhJ
-lhJ
-lhJ
-sXv
+uFD
+uFD
+uFD
+uFD
+jYf
 xRX
 xRX
 xRX
@@ -33819,7 +33829,7 @@ xRX
 xRX
 xRX
 pia
-lhJ
+uFD
 xRX
 xRX
 xRX
