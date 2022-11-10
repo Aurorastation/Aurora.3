@@ -16,25 +16,33 @@
 	vessel_mass = 3000
 	max_speed = 1/(2 SECONDS)
 	initial_generic_waypoints = list(
+		"nav_ox_freighter_0",
 		"nav_ox_freighter_1",
 		"nav_ox_freighter_2",
 		"nav_ox_freighter_3",
+	)
+	initial_restricted_waypoints = list(
+		"Intrepid" = list("nav_ox_freighter_0"),
 	)
 
 /obj/effect/overmap/visitable/ship/ox_freighter/New()
 	designation = "[pick("Messenger", "Traveler", "Highspeed", "Punctual", "Unstoppable", "Pony Express", "Courier", "Telegram", "Carrier Pigeon", "Fuel Stop", "Convenience")]"
 	..()
 
+/obj/effect/shuttle_landmark/ox_freighter
+	name = "Orion Express Freighter Intrepid Dock"
+	landmark_tag = "nav_ox_freighter_0"
+
 /obj/effect/shuttle_landmark/ox_freighter/nav1
-	name = "Orion Express Freighter Navpoint #1"
+	name = "Orion Express Freighter Navpoint Starboard"
 	landmark_tag = "nav_ox_freighter_1"
 
 /obj/effect/shuttle_landmark/ox_freighter/nav2
-	name = "Orion Express Freighter Navpoint #2"
+	name = "Orion Express Freighter Navpoint Port"
 	landmark_tag = "nav_ox_freighter_2"
 
 /obj/effect/shuttle_landmark/ox_freighter/nav3
-	name = "Orion Express Freighter Navpoint #3"
+	name = "Orion Express Freighter Navpoint Fore"
 	landmark_tag = "nav_ox_freighter_3"
 
 /obj/effect/dungeon_generic_landmark/ox_freighter_container
