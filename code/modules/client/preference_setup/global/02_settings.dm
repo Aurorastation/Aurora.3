@@ -6,7 +6,7 @@
 	S["lastchangelog"]    >> pref.lastchangelog
 	S["default_slot"]     >> pref.default_slot
 	S["toggles"]          >> pref.toggles
-	S["asfx_togs"]        >> pref.asfx_togs
+	S["sfx_toggles"]        >> pref.sfx_toggles
 	S["motd_hash"]        >> pref.motd_hash
 	S["memo_hash"]        >> pref.memo_hash
 	S["toggles_secondary"] >> pref.toggles_secondary
@@ -15,7 +15,7 @@
 	S["lastchangelog"]    << pref.lastchangelog
 	S["default_slot"]     << pref.default_slot
 	S["toggles"]          << pref.toggles
-	S["asfx_togs"]        << pref.asfx_togs
+	S["sfx_toggles"]        << pref.sfx_toggles
 	S["motd_hash"]        << pref.motd_hash
 	S["memo_hash"]        << pref.memo_hash
 	S["toggles_secondary"] << pref.toggles_secondary
@@ -27,7 +27,7 @@
 				"lastchangelog",
 				"current_character",
 				"toggles",
-				"asfx_togs",
+				"sfx_toggles",
 				"lastmotd" = "motd_hash",
 				"lastmemo" = "memo_hash",
 				"toggles_secondary"
@@ -45,7 +45,7 @@
 			"lastchangelog",
 			"current_character",
 			"toggles",
-			"asfx_togs",
+			"sfx_toggles",
 			"lastmotd",
 			"lastmemo",
 			"ckey" = 1,
@@ -59,7 +59,7 @@
 		"lastchangelog" = pref.lastchangelog,
 		"current_character" = pref.current_character,
 		"toggles" = pref.toggles,
-		"asfx_togs" = pref.asfx_togs,
+		"sfx_toggles" = pref.sfx_toggles,
 		"lastmotd" = pref.motd_hash,
 		"lastmemo" = pref.memo_hash,
 		"toggles_secondary" = pref.toggles_secondary
@@ -73,7 +73,7 @@
 	pref.lastchangelog  = sanitize_text(pref.lastchangelog, initial(pref.lastchangelog))
 	pref.default_slot   = sanitize_integer(text2num(pref.default_slot), 1, config.character_slots, initial(pref.default_slot))
 	pref.toggles        = sanitize_integer(text2num(pref.toggles), 0, BITFIELDMAX, initial(pref.toggles))
-	pref.asfx_togs      = sanitize_integer(text2num(pref.asfx_togs), 0, BITFIELDMAX, initial(pref.toggles))
+	pref.sfx_toggles      = sanitize_integer(text2num(pref.sfx_toggles), 0, BITFIELDMAX, initial(pref.toggles))
 	pref.motd_hash      = sanitize_text(pref.motd_hash, initial(pref.motd_hash))
 	pref.memo_hash      = sanitize_text(pref.memo_hash, initial(pref.memo_hash))
 	pref.toggles_secondary  = sanitize_integer(text2num(pref.toggles_secondary), 0, BITFIELDMAX, initial(pref.toggles_secondary))

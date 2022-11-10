@@ -574,7 +574,7 @@
 	mind.assigned_role = "Juggernaut"
 	mind.special_role = "Cultist"
 
-/mob/living/silicon/robot/syndicate/mind_initialize()
+/mob/living/silicon/robot/combat/mind_initialize()
 	..()
-	mind.assigned_role = "Syndicate Robot"
+	mind.assigned_role = "Combat Robot"
 	mind.special_role = "Mercenary"

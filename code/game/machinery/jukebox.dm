@@ -187,9 +187,7 @@ datum/track/New(var/title_name, var/audio)
 	var/area/main_area = get_area(src)
 	// Always kill the current sound
 	for(var/mob/living/M in mobs_in_area(main_area))
-		M << sound(null, channel = 1)
-
-		main_area.forced_ambience = null
+		M << sound(null, channel = 4)
 	playing = 0
 	update_use_power(POWER_USE_IDLE)
 	update_icon()
@@ -201,10 +199,10 @@ datum/track/New(var/title_name, var/audio)
 		return
 
 	var/area/main_area = get_area(src)
-	main_area.forced_ambience = list(current_track.sound)
+	main_area.music = list(current_track.sound)
 	for(var/mob/living/M in mobs_in_area(main_area))
 		if(M.mind)
-			main_area.play_ambience(M)
+			main_area.play_music(M)
 
 	playing = 1
 	update_use_power(POWER_USE_ACTIVE)

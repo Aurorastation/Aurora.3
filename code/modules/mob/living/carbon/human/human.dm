@@ -300,10 +300,6 @@
 		return 1
 	return 0
 
-/mob/living/carbon/human/var/co2overloadtime = null
-/mob/living/carbon/human/var/temperature_resistance = T0C+75
-
-
 /mob/living/carbon/human/show_inv(mob/user as mob)
 	if(user.incapacitated() || !user.Adjacent(src))
 		return

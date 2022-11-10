@@ -139,7 +139,7 @@
 	if (required_preferences && (client.prefs.toggles & required_preferences) != required_preferences)
 		return FALSE
 
-	if (required_asfx_toggles && (client.prefs.asfx_togs & required_asfx_toggles) != required_asfx_toggles)
+	if (required_asfx_toggles && (client.prefs.sfx_toggles & required_asfx_toggles) != required_asfx_toggles)
 		return FALSE
 
 	return TRUE
@@ -851,3 +851,75 @@
 		'sound/items/tools/shovel2.ogg',
 		'sound/items/tools/shovel3.ogg'
 	)
+
+/decl/sound_category/supermatter_calm
+	sounds = list('sound/machines/sm/accent/normal/1.ogg',
+				  'sound/machines/sm/accent/normal/2.ogg',
+				  'sound/machines/sm/accent/normal/3.ogg',
+				  'sound/machines/sm/accent/normal/4.ogg',
+				  'sound/machines/sm/accent/normal/5.ogg',
+				  'sound/machines/sm/accent/normal/6.ogg',
+				  'sound/machines/sm/accent/normal/7.ogg',
+				  'sound/machines/sm/accent/normal/8.ogg',
+				  'sound/machines/sm/accent/normal/9.ogg',
+				  'sound/machines/sm/accent/normal/10.ogg',
+				  'sound/machines/sm/accent/normal/11.ogg',
+				  'sound/machines/sm/accent/normal/12.ogg',
+				  'sound/machines/sm/accent/normal/13.ogg',
+				  'sound/machines/sm/accent/normal/14.ogg',
+				  'sound/machines/sm/accent/normal/15.ogg',
+				  'sound/machines/sm/accent/normal/16.ogg',
+				  'sound/machines/sm/accent/normal/17.ogg',
+				  'sound/machines/sm/accent/normal/18.ogg',
+				  'sound/machines/sm/accent/normal/19.ogg',
+				  'sound/machines/sm/accent/normal/20.ogg',
+				  'sound/machines/sm/accent/normal/21.ogg',
+				  'sound/machines/sm/accent/normal/22.ogg',
+				  'sound/machines/sm/accent/normal/23.ogg',
+				  'sound/machines/sm/accent/normal/24.ogg',
+				  'sound/machines/sm/accent/normal/25.ogg',
+				  'sound/machines/sm/accent/normal/26.ogg',
+				  'sound/machines/sm/accent/normal/27.ogg',
+				  'sound/machines/sm/accent/normal/28.ogg',
+				  'sound/machines/sm/accent/normal/29.ogg',
+				  'sound/machines/sm/accent/normal/30.ogg',
+				  'sound/machines/sm/accent/normal/31.ogg',
+				  'sound/machines/sm/accent/normal/32.ogg',
+				  'sound/machines/sm/accent/normal/33.ogg'
+				  )
+
+/decl/sound_category/supermatter_delam
+	sounds = list('sound/machines/sm/accent/delam/1.ogg',
+				  'sound/machines/sm/accent/delam/2.ogg',
+				  'sound/machines/sm/accent/delam/3.ogg',
+				  'sound/machines/sm/accent/delam/4.ogg',
+				  'sound/machines/sm/accent/delam/5.ogg',
+				  'sound/machines/sm/accent/delam/6.ogg',
+				  'sound/machines/sm/accent/delam/7.ogg',
+				  'sound/machines/sm/accent/delam/8.ogg',
+				  'sound/machines/sm/accent/delam/9.ogg',
+				  'sound/machines/sm/accent/delam/10.ogg',
+				  'sound/machines/sm/accent/delam/11.ogg',
+				  'sound/machines/sm/accent/delam/12.ogg',
+				  'sound/machines/sm/accent/delam/13.ogg',
+				  'sound/machines/sm/accent/delam/14.ogg',
+				  'sound/machines/sm/accent/delam/15.ogg',
+				  'sound/machines/sm/accent/delam/16.ogg',
+				  'sound/machines/sm/accent/delam/17.ogg',
+				  'sound/machines/sm/accent/delam/18.ogg',
+				  'sound/machines/sm/accent/delam/19.ogg',
+				  'sound/machines/sm/accent/delam/20.ogg',
+				  'sound/machines/sm/accent/delam/21.ogg',
+				  'sound/machines/sm/accent/delam/22.ogg',
+				  'sound/machines/sm/accent/delam/23.ogg',
+				  'sound/machines/sm/accent/delam/24.ogg',
+				  'sound/machines/sm/accent/delam/25.ogg',
+				  'sound/machines/sm/accent/delam/26.ogg',
+				  'sound/machines/sm/accent/delam/27.ogg',
+				  'sound/machines/sm/accent/delam/28.ogg',
+				  'sound/machines/sm/accent/delam/29.ogg',
+				  'sound/machines/sm/accent/delam/30.ogg',
+				  'sound/machines/sm/accent/delam/31.ogg',
+				  'sound/machines/sm/accent/delam/32.ogg',
+				  'sound/machines/sm/accent/delam/33.ogg'
+				  )

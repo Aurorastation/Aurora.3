@@ -40,6 +40,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 	var/overmap_range = 2 //OVERMAP: Number of sectors out we can communicate
 
+	///Looping sounds for any servers
+//	var/datum/looping_sound/server/soundloop
 
 /obj/machinery/telecomms/proc/relay_information(datum/signal/signal, filter, copysig, amount = 20)
 	// relay signal to all linked machinery that are of type [filter]. If signal has been sent [amount] times, stop sending
@@ -109,13 +111,13 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 //OVERMAP: Since telecomms is subspace, limit how far it goes. This prevents double-broadcasts across the entire overmap, and gives the ability to intrude on comms range of other ships
 /obj/machinery/telecomms/proc/check_receive_sector(datum/signal/signal)
-	if(isAdminLevel(z) || isAdminLevel(signal.data["level"])) //Messages to and from centcomm levels are not sector-restricted. 
+	if(isAdminLevel(z) || isAdminLevel(signal.data["level"])) //Messages to and from centcomm levels are not sector-restricted.
 		return TRUE
 	if(current_map.use_overmap)
 		if(!linked) //If we're using overmap and not associated with a sector, doesn't work.
 			return FALSE
 		var/obj/effect/overmap/visitable/S = signal.data["sector"]
-		if(istype(S)) //If our signal isn't sending a sector, it's something associated with telecomms_process_active(), which has their own limits. 
+		if(istype(S)) //If our signal isn't sending a sector, it's something associated with telecomms_process_active(), which has their own limits.
 			if(S != linked) //If we're not the same ship, check range
 				if(get_dist(S, linked) > overmap_range && !(S in view(overmap_range, linked)))
 					return FALSE
@@ -127,7 +129,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/Initialize()
 	. = ..()
-
+//	soundloop = new(list(src), on)
 	if(autolinkers.len)
 		// Links nearby machines
 		if(!long_range_link)
@@ -151,6 +153,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 			attempt_hook_up(my_sector)
 
 /obj/machinery/telecomms/Destroy()
+//	QDEL_NULL(soundloop)
 	telecomms_list -= src
 	for(var/obj/machinery/telecomms/comm in telecomms_list)
 		comm.links -= src
@@ -175,14 +178,16 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	icon_state = state
 
 /obj/machinery/telecomms/proc/update_power()
-
 	if(toggled)
 		if(stat & (BROKEN|NOPOWER|EMPED) || integrity <= 0) // if powered, on. if not powered, off. if too damaged, off
-			on = 0
+			on = FALSE
+//			soundloop.stop(src)
 		else
-			on = 1
+			on = TRUE
+//			soundloop.start(src)
 	else
-		on = 0
+		on = FALSE
+//		soundloop.stop(src)
 
 /obj/machinery/telecomms/process()
 	update_power()

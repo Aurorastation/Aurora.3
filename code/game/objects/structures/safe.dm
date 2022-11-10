@@ -54,6 +54,7 @@ FLOOR SAFES
 
 /obj/structure/safe/Destroy()
 	if(drill)
+		drill.soundloop.stop()
 		drill.forceMove(loc)
 		drill = null
 	return ..()
@@ -118,6 +119,7 @@ FLOOR SAFES
 					if(broken)
 						return
 					last_drill_time = world.time
+					drill.soundloop.start()
 					START_PROCESSING(SSprocessing, src)
 					update_icon()
 			if("Turn Off")
@@ -126,6 +128,7 @@ FLOOR SAFES
 				if(do_after(user, 2 SECONDS))
 					if(!drill || !isprocessing)
 						return
+					drill.soundloop.stop()
 					STOP_PROCESSING(SSprocessing, src)
 					update_icon()
 			if("Remove Drill")
@@ -287,3 +290,22 @@ FLOOR SAFES
 	new /obj/random/highvalue(src)
 	new /obj/random/highvalue(src)
 	new /obj/random/highvalue(src)
+
+/obj/structure/safe/cash
+	name = "credit safe"
+
+/obj/structure/safe/cash/Initialize()
+	. = ..()
+	new /obj/random/highvalue/cash(src)
+	new /obj/random/highvalue/cash(src)
+	new /obj/random/highvalue/cash(src)
+
+/obj/structure/safe/highvalue
+	name = "valuables safe"
+
+/obj/structure/safe/highvalue/Initialize()
+	. = ..()
+	new /obj/random/highvalue/no_weapon(src)
+	new /obj/random/highvalue/no_weapon(src)
+	new /obj/random/highvalue/no_weapon(src)
+	new /obj/random/highvalue/no_weapon(src)

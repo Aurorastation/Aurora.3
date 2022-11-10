@@ -17,7 +17,7 @@
 	var/language
 	var/death_msg = "lets out a waning guttural screech, green blood bubbling from its maw."
 	var/meat_amount = 0
-	var/meat_type
+	var/meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
 
 /mob/living/carbon/alien/Initialize()
 	. = ..()

@@ -497,6 +497,9 @@
 	if(do_set_light)
 		set_light(2, 0.5, COLOR_SUN)
 
+/obj/machinery/door/firedoor/noid
+	req_one_access = null
+
 //These are playing merry hell on ZAS.  Sorry fellas :(
 
 /*/obj/machinery/door/firedoor/border_only

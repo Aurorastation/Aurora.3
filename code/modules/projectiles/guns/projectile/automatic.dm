@@ -46,7 +46,10 @@
 
 /obj/item/gun/projectile/automatic/c20r
 	name = "submachine gun"
-	desc = "The C-20r is a lightweight and rapid firing SMG, for when you REALLY need someone dead. Uses 10mm rounds. Has a 'Scarborough Arms - Per falcis, per pravitas' buttstamp."
+	desc = "A conventional bullpup submachine gun with an extendable stock. Loads from 9mm magazines."
+	desc_fluff = "The Colettish Armaments Model 25 SMG is a typical product of the San Colette Interstellar Armaments Company (CAISC). Rejected by the Solarian military due to competition with the Zavodskoi M470-L, the CA-M25 was repurposed \
+	into the Colettish Armaments Model 25 Export (CA-25E) and has found reasonable success in mercenary groups across the Orion Spur. Recently many have found their ways into the hands of violent non-state actors in the Corporate Reconstruction Zone, where \
+	they contribute to the further destabilization of the region. Curiously, these models typically have a filed-off serial number or no serial number at all."
 	icon = 'icons/obj/guns/c20r.dmi'
 	icon_state = "c20r"
 	item_state = "c20r"
@@ -217,6 +220,8 @@
 	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, chambered in the same 5.56 caliber but only capable of accepting smaller magazines. It lacks the integral grenade launcher and the burst fire of the Bulldog."
 	desc_fluff = "It makes you feel like a corporate goon when you hold it."
 	icon = 'icons/obj/guns/civcarbine.dmi'
+	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine, /obj/item/ammo_magazine/a556/carbine/polymer)
 	icon_state = "civcarbine"
 	item_state = "civcarbine"
 	can_bayonet = FALSE
@@ -353,7 +358,9 @@
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"
-	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armory- 2431' engraved on the receiver"
+	desc = "A squad machine gun with a clunky, outdated loading mechanism. Loads from 7.62mm ammunition boxes. Gentlemen, lock and load."
+	desc_fluff = "Created by the San Colette Interstellar Armaments Company (CAISC) explicitly for export, the Colettish Armaments Model 75 Export machine gun is a cheap yet outdated method of providing large amounts of firepower to a squad. \
+	The CA-75E is not used by San Colette’s Civil Guard and is typically sold to mercenary groups or other Solarian systems. Since the Solarian Collapse more and more CA-75Es have found themselves in the hands of pirates and rebels in the Corporate Reconstruction Zone, and captured models curiously often have no serial number."
 	icon = 'icons/obj/guns/l6.dmi'
 	icon_state = "l6closed100"
 	item_state = "l6closedmag"

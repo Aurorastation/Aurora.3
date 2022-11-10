@@ -35,13 +35,13 @@
 	name = "Engineering Substation - Lower Deck"
 
 /area/hallway/engineering
-	name = "Engineering hallway"
+	name = "Engineering - Main Hallway"
 	icon_state = "engineering"
 	ambience = AMBIENCE_ENGINEERING
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/hallway/engineering/tesla
-	name = "Tesla hallway"
+	name = "Engineering - Tesla Hallway"
 
 //Medical
 
@@ -99,8 +99,8 @@
 /area/rnd/conference
 	name = "Research - Conference Room"
 
-/area/maintenance/substation/xenoarcheology
-	name = "Xenoarcheology Substation"
+/area/maintenance/substation/xenoarchaeology
+	name = "Xenoarchaeology Substation"
 
 //Hangar
 
@@ -184,6 +184,9 @@
 	icon_state = "quart"
 	sound_env = SMALL_SOFTFLOOR
 
+/area/operations/flak
+	name = "Flak Gun"
+
 //Wings
 
 /area/maintenance/substation/wing_starboard
@@ -246,6 +249,10 @@
 	name = "Bridge Helm"
 	icon_state = "bridge_helm"
 
+/area/bridge/longbow_compartment
+	name = "Longbow Compartment"
+	icon_state = "bridge_weapon"
+
 /area/crew_armory
 	name = "Crew Armory"
 	icon_state = "crew_armory"
@@ -300,6 +307,8 @@
 	name = "Atmos Compartment"
 /area/shuttle/intrepid/cockpit 
 	name = "Cockpit"
+/area/shuttle/intrepid/rotary
+	name = "Intrepid Armament"
 
 //
 // Areas for the SCCV Horizon Map
@@ -593,4 +602,17 @@
 	name = "Horizon - Bar"
 	icon_state = "bar"
 	allow_nightmode = FALSE
+
+// ZTA
+/area/horizon/zta
+	name = "Horizon - Primary Armament Hold"
+	icon_state = "zta"
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_SINGULARITY
+
+// Secure Ammunition Storage
+/area/horizon/secure_ammunition_storage
+	name = "Horizon - Secure Ammunition Storage"
+	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_FOREBODING
 /********** Unique End **********/
