@@ -271,10 +271,10 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/ranger_shuttle)
 "boM" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, engines"
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Ranger Francisca Rotary Gun"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
 "brx" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -753,11 +753,11 @@
 	},
 /area/ship/ranger_corvette/telecomms)
 "dYC" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, engines"
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engines"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
-/area/ship/ranger_corvette/engine2)
+/area/ship/ranger_corvette/engine1)
 "ebD" = (
 /obj/item/storage/pill_bottle/dice/gaming,
 /obj/structure/table/wood/gamblingtable,
@@ -2739,6 +2739,12 @@
 /obj/item/stack/material/glass/reinforced/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
+"omu" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, engines"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/area/ship/ranger_corvette/engine2)
 "ori" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2935,6 +2941,15 @@
 /obj/structure/bed/stool/padded,
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
+"pia" = (
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "Ranger Francisca Rotary Gun"
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/space)
 "plP" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
@@ -3567,6 +3582,7 @@
 /obj/machinery/door/window/eastright{
 	dir = 1
 	},
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/reinforced,
@@ -4987,11 +5003,34 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
 	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "xuX" = (
@@ -33522,11 +33561,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+lhJ
+lhJ
+lhJ
+lhJ
+sXv
 xRX
 xRX
 xRX
@@ -33779,8 +33818,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+pia
+lhJ
 xRX
 xRX
 xRX
@@ -34031,10 +34070,10 @@ xRX
 xRX
 tWh
 tWh
-boM
 tWh
 tWh
 tWh
+dYC
 tWh
 boM
 nAQ
@@ -40199,12 +40238,12 @@ xRX
 xRX
 pPC
 pPC
-dYC
 pPC
 pPC
 pPC
+omu
 pPC
-dYC
+pPC
 gJZ
 gJZ
 xRX
