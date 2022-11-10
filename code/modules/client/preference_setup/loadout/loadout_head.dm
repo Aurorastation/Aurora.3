@@ -110,7 +110,9 @@
 /datum/gear/head/warden/New()
 	..()
 	var/list/wardenhead = list()
-	wardenhead["warden hat, zavod"] = /obj/item/clothing/head/warden
+	wardenhead["warden hat"] = /obj/item/clothing/head/warden
+	wardenhead["warden hat, zavod"] = /obj/item/clothing/head/warden/zavod
+	wardenhead["warden hat, zavod alt"] = /obj/item/clothing/head/warden/zavod/alt
 	wardenhead["warden hat, idris"] = /obj/item/clothing/head/warden/idris
 	wardenhead["warden hat, pmc"] = /obj/item/clothing/head/warden/pmc
 	wardenhead["warden beret"] = /obj/item/clothing/head/beret/security/warden
