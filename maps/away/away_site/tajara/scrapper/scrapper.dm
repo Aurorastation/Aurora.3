@@ -4,9 +4,8 @@
 	suffix = "away_site/tajara/scrapper/scrapper.dmm"
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
-	spawn_cost = 2
+	spawn_cost = 1
 	id = "tajara_scrapper"
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_scrapper)
 
 /decl/submap_archetype/tajara_scrapper
@@ -87,5 +86,5 @@
 
 /obj/effect/shuttle_landmark/tajara_scrapper/transit
 	name = "In transit"
-	landmark_tag = "nav_transit_tajara_safehouse"
+	landmark_tag = "nav_transit_tajara_scrapper"
 	base_turf = /turf/space/transit/north
