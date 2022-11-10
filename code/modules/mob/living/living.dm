@@ -23,7 +23,7 @@ var/mob/living/next_point_time = 0
 
 /mob/living/drop_from_inventory(var/obj/item/W, var/atom/target)
 	. = ..(W, target)
-	if(istype(W, /obj/item/card/id) || istype(W, /obj/item/modular_computer))
+	if(W.GetID())
 		BITSET(hud_updateflag, ID_HUD) //If we drop our ID, update ID HUD
 
 /*one proc, four uses

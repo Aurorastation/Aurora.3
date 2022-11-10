@@ -135,7 +135,6 @@ var/const/NO_EMAG_ACT = -50
 	. = ..(user, slot)
 	BITSET(user.hud_updateflag, ID_HUD) //Update ID HUD if an ID is ever moved
 
-
 /obj/item/card/id/proc/prevent_tracking()
 	return 0
 
