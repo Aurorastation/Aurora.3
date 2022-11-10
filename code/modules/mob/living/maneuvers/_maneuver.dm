@@ -4,6 +4,7 @@
 	var/cooldown = 5 SECONDS
 	var/stamina_cost = 10
 	var/reflexive_modifier = 1
+	var/charge_cost = 0 //Charge cost for robot species.
 
 /decl/maneuver/proc/can_be_used_by(var/mob/living/user, var/atom/target, var/silent = FALSE)
 	if(!istype(user) || !user.can_do_maneuver(src, silent))
@@ -24,10 +25,11 @@
 		if(!silent)
 			to_chat(user, SPAN_WARNING("You cannot maneuver again for another [Floor((user.last_special - world.time)*0.1)] second\s."))
 		return FALSE
-	if(user.stamina < stamina_cost)
-		if(!silent)
-			to_chat(user, SPAN_WARNING("You are too exhausted to maneuver right now."))
-		return FALSE
+	if(!isipc(user))
+		if(user.stamina < stamina_cost)
+			if(!silent)
+				to_chat(user, SPAN_WARNING("You are too exhausted to maneuver right now."))
+			return FALSE
 	if (target && user.z != target.z)
 		if (!silent)
 			to_chat(user, SPAN_WARNING("You cannot maneuver to a different z-level!"))
@@ -47,3 +49,8 @@
 			user.last_special = world.time + cooldown
 		if(stamina_cost)
 			user.stamina -= stamina_cost
+		if(isipc(user))
+			var/mob/living/carbon/human/H = user
+			var/obj/item/cell/C = H.internal_organs_by_name[BP_CELL]
+			if(C)
+				C.use(charge_cost)
