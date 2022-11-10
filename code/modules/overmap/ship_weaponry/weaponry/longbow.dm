@@ -20,6 +20,8 @@
 /obj/item/projectile/ship_ammo/longbow/launch_projectile(atom/target, target_zone, mob/user, params, angle_override, forced_spread)
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_AP)
 		penetrating = 1
+	if(ammo.impact_type == SHIP_AMMO_IMPACT_BUNKERBUSTER)
+		penetrating = 3
 	. = ..()
 
 /obj/item/projectile/ship_ammo/longbow/on_hit(atom/target, blocked, def_zone, is_landmark_hit)

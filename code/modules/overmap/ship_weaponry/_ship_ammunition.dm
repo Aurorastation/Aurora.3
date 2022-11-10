@@ -33,6 +33,13 @@
 	. = ..()
 	update_status()
 
+/obj/item/ship_ammunition/Destroy()
+	origin = null
+	overmap_target = null
+	entry_point = null
+	original_projectile = null
+	return ..()
+
 /obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
 	if(I.ispen())
 		var/obj/item/pen/P = I
