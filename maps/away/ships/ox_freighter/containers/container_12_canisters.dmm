@@ -2,12 +2,44 @@
 "a" = (
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
+"g" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"i" = (
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"r" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"z" = (
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
 "F" = (
 /obj/machinery/door/airlock/palepurple,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "J" = (
 /turf/simulated/wall/shuttle/palepurple/cardinal,
+/area/shuttle/ox_container_ship/container)
+"S" = (
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"V" = (
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"Y" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 
 (1,1,1) = {"
@@ -19,44 +51,44 @@ J
 "}
 (2,1,1) = {"
 J
+g
 a
-a
-a
+i
 J
 "}
 (3,1,1) = {"
 J
+Y
 a
-a
-a
+V
 J
 "}
 (4,1,1) = {"
 J
+r
 a
-a
-a
+r
 J
 "}
 (5,1,1) = {"
 J
+z
 a
-a
-a
+z
 J
 "}
 (6,1,1) = {"
 J
+z
 a
-a
-a
+z
 J
 "}
 (7,1,1) = {"
 J
+S
 a
-a
-a
+S
 J
 "}
 (8,1,1) = {"

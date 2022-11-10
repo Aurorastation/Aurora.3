@@ -2,12 +2,57 @@
 "a" = (
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
+"j" = (
+/obj/random/junk{
+	pixel_x = -6;
+	pixel_y = -2
+	},
+/obj/random/junk{
+	pixel_x = 7
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"l" = (
+/obj/random/junk,
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"v" = (
+/obj/structure/trash_pile,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"z" = (
+/obj/random/junk,
+/obj/random/junk{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"B" = (
+/obj/random/junk,
+/obj/random/junk{
+	pixel_x = 13;
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
 "F" = (
 /obj/machinery/door/airlock/palepurple,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "J" = (
 /turf/simulated/wall/shuttle/palepurple/cardinal,
+/area/shuttle/ox_container_ship/container)
+"R" = (
+/obj/random/junk{
+	pixel_x = 7
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "Z" = (
 /obj/structure/trash_pile,
@@ -23,44 +68,44 @@ J
 "}
 (2,1,1) = {"
 J
-Z
+v
 a
-Z
+v
 J
 "}
 (3,1,1) = {"
 J
-Z
+z
 a
 Z
 J
 "}
 (4,1,1) = {"
 J
-Z
+v
 a
-Z
+j
 J
 "}
 (5,1,1) = {"
 J
-Z
+B
 a
-Z
+v
 J
 "}
 (6,1,1) = {"
 J
-Z
+l
 a
 Z
 J
 "}
 (7,1,1) = {"
 J
-Z
+v
 a
-Z
+R
 J
 "}
 (8,1,1) = {"

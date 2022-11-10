@@ -1,41 +1,46 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/structure/table/rack,
-/obj/item/wirecutters,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
-"b" = (
+"c" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/steel,
-/obj/item/stack/rods/full,
-/turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship/container)
-"d" = (
-/obj/structure/table/steel,
-/obj/item/stack/material/steel/full,
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = 1;
-	pixel_x = 10
+/obj/item/pizzabox/vegetable{
+	pixel_y = 9;
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/food/drinks/pitcher{
+	pixel_y = 9;
+	pixel_x = 2
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
-"i" = (
-/obj/structure/table/rack,
-/obj/item/device/multitool,
+"d" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/bed/stool/chair/sofa/right/violet,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
-"l" = (
-/obj/structure/table/rack,
-/obj/item/crowbar,
+"e" = (
+/obj/structure/bed,
+/obj/item/bedsheet/random,
+/turf/simulated/floor/carpet,
+/area/shuttle/ox_container_ship/container)
+"n" = (
+/obj/structure/bed/stool/chair/padded/green{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
-"s" = (
-/obj/item/material/twohanded/fireaxe,
-/obj/structure/table/rack,
+"x" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
-"C" = (
-/obj/structure/table/rack,
-/obj/item/wrench,
+"A" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/pj/red,
+/obj/item/clothing/shoes/slippers{
+	pixel_y = -8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "F" = (
@@ -43,24 +48,28 @@
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "H" = (
-/obj/structure/table/rack,
-/obj/item/pipewrench,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet,
 /area/shuttle/ox_container_ship/container)
 "J" = (
 /turf/simulated/wall/shuttle/palepurple/cardinal,
 /area/shuttle/ox_container_ship/container)
-"S" = (
-/obj/machinery/vending/tool,
-/turf/simulated/floor/plating,
-/area/shuttle/ox_container_ship/container)
-"T" = (
-/obj/machinery/vending/vendors{
-	req_access = null
+"R" = (
+/obj/structure/bedsheetbin{
+	pixel_y = 12
 	},
+/obj/structure/table/steel,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
-"X" = (
+"W" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/bed/stool/chair/sofa/left/violet,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"Z" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/bookcase/libraryspawn/nonfiction{
+	name = "bookcase"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 
@@ -73,44 +82,44 @@ J
 "}
 (2,1,1) = {"
 J
-T
-X
-s
+R
+a
+n
 J
 "}
 (3,1,1) = {"
 J
-S
-X
-d
+c
+a
+x
 J
 "}
 (4,1,1) = {"
 J
-T
-X
-b
+Z
+H
+H
 J
 "}
 (5,1,1) = {"
 J
-S
-X
-l
+d
+H
+e
 J
 "}
 (6,1,1) = {"
 J
-i
-X
+W
+H
 H
 J
 "}
 (7,1,1) = {"
 J
+A
 a
-X
-C
+a
 J
 "}
 (8,1,1) = {"

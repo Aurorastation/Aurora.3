@@ -1349,6 +1349,24 @@
 
 	)
 
+/obj/random/dirt
+	name = "random dirt 50%"
+	desc = "percent chance of dirt to spawn on this tile"
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "dirt"
+	spawn_nothing_percentage = 50
+	spawnlist = list(
+		/obj/effect/decal/cleanable/dirt
+	)
+
+/obj/random/dirt/chance_20
+	name = "random dirt 20%"
+	spawn_nothing_percentage = 80
+
+/obj/random/dirt/chance_10
+	name = "random dirt 10%"
+	spawn_nothing_percentage = 90
+
 //Sometimes the chef will have spare oil in storage.
 //Sometimes they wont, and will need to order it from cargo
 //Variety is the spice of life!
@@ -1358,7 +1376,6 @@
 	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "oiltank"
 	spawn_nothing_percentage = 50
-
 	spawnlist = list(
 		/obj/structure/reagent_dispensers/cookingoil
 	)

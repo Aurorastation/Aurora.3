@@ -2,12 +2,74 @@
 "a" = (
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
+"b" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"h" = (
+/obj/structure/kitchenspike,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"v" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"x" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"D" = (
+/obj/structure/reagent_dispensers/cookingoil,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
 "F" = (
 /obj/machinery/door/airlock/palepurple,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "J" = (
 /turf/simulated/wall/shuttle/palepurple/cardinal,
+/area/shuttle/ox_container_ship/container)
+"K" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"O" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"T" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"W" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 
 (1,1,1) = {"
@@ -19,44 +81,44 @@ J
 "}
 (2,1,1) = {"
 J
+W
 a
-a
-a
+x
 J
 "}
 (3,1,1) = {"
 J
+h
 a
-a
-a
+D
 J
 "}
 (4,1,1) = {"
 J
+O
 a
-a
-a
+D
 J
 "}
 (5,1,1) = {"
 J
+O
 a
-a
-a
+T
 J
 "}
 (6,1,1) = {"
 J
+O
 a
-a
-a
+K
 J
 "}
 (7,1,1) = {"
 J
+v
 a
-a
-a
+b
 J
 "}
 (8,1,1) = {"

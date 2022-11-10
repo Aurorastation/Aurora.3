@@ -2,6 +2,10 @@
 "a" = (
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
+"i" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
 "F" = (
 /obj/machinery/door/airlock/palepurple,
 /turf/simulated/floor/plating,
@@ -33,9 +37,9 @@ J
 "}
 (2,1,1) = {"
 J
-U
 a
-U
+a
+a
 J
 "}
 (3,1,1) = {"
@@ -68,9 +72,9 @@ J
 "}
 (7,1,1) = {"
 J
-U
 a
-L
+a
+i
 J
 "}
 (8,1,1) = {"

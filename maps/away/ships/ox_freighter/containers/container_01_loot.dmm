@@ -10,6 +10,11 @@
 "p" = (
 /turf/simulated/wall/shuttle/palepurple/cardinal,
 /area/shuttle/ox_container_ship/container)
+"B" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
 "S" = (
 /obj/machinery/door/airlock/palepurple,
 /turf/simulated/floor/plating,
@@ -31,7 +36,7 @@ p
 "}
 (3,1,1) = {"
 p
-m
+B
 a
 m
 p
@@ -47,14 +52,14 @@ p
 p
 m
 a
-m
+B
 p
 "}
 (6,1,1) = {"
 p
 m
 a
-m
+B
 p
 "}
 (7,1,1) = {"

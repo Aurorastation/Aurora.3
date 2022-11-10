@@ -4,12 +4,19 @@
 /area/shuttle/ox_container_ship/container)
 "e" = (
 /obj/structure/closet/crate/hydroponics,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "r" = (
 /obj/structure/closet/secure_closet/hydroponics{
 	req_access = null
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"s" = (
+/obj/machinery/vending/hydronutrients,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "F" = (
@@ -19,12 +26,24 @@
 "J" = (
 /turf/simulated/wall/shuttle/palepurple/cardinal,
 /area/shuttle/ox_container_ship/container)
+"N" = (
+/obj/machinery/vending/hydroseeds,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
 "R" = (
 /obj/structure/closet/crate/hydroponics/prespawned,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"Y" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "Z" = (
 /obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 
@@ -37,14 +56,14 @@ J
 "}
 (2,1,1) = {"
 J
-Z
+s
 d
-Z
+Y
 J
 "}
 (3,1,1) = {"
 J
-Z
+N
 d
 Z
 J

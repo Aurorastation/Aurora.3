@@ -18,6 +18,11 @@
 "J" = (
 /turf/simulated/wall/shuttle/palepurple/cardinal,
 /area/shuttle/ox_container_ship/container)
+"P" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
 
 (1,1,1) = {"
 J
@@ -51,7 +56,7 @@ J
 J
 l
 a
-l
+P
 J
 "}
 (6,1,1) = {"

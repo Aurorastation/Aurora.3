@@ -71,7 +71,9 @@ proc/place_dungeons_generic()
 
 // -------------------------------------------------------------------
 
-//
+// NOTES:
+// The loaded dungeon does not "replace" the part of map it is loaded into - it spawns on top of it.
+// It only "replaces" turfs (walls, floors, etc) as a tile can have only one turf. Machines, items, objects, doors, etc, are not replaced.
 /obj/effect/dungeon_generic_landmark
 	name = "Generic Dungeon Landmark (blank)"
 	icon = 'icons/mob/screen/generic.dmi'

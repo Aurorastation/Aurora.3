@@ -2,9 +2,41 @@
 "a" = (
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
+"b" = (
+/obj/structure/closet,
+/obj/item/clothing/suit/wizard_costume,
+/obj/item/clothing/head/wizard,
+/obj/item/toy/figure/wizard,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"c" = (
+/obj/structure/closet,
+/obj/item/clothing/suit/marisa_costume,
+/obj/item/clothing/head/marisa_hat,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"e" = (
+/obj/structure/closet,
+/obj/item/clothing/suit/carp_costume,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
 "f" = (
 /obj/structure/table/rack,
 /obj/item/toy/katana,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"g" = (
+/obj/structure/closet,
+/obj/item/clothing/suit/skeleton_costume,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"h" = (
+/obj/structure/closet,
+/obj/item/clothing/suit/lobster_costume,
+/obj/item/clothing/head/lobster_hat,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "k" = (
@@ -18,11 +50,18 @@
 /obj/item/toy/ammo/crossbow,
 /obj/item/toy/ammo/crossbow,
 /obj/item/toy/ammo/crossbow,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "y" = (
 /obj/structure/table/rack,
 /obj/item/toy/cultsword,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"E" = (
+/obj/machinery/vending/coffee/free,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "F" = (
@@ -35,6 +74,7 @@
 "K" = (
 /obj/structure/table/rack,
 /obj/item/toy/crossbow,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 "O" = (
@@ -46,6 +86,7 @@
 	pixel_y = 8
 	},
 /obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
 
@@ -58,16 +99,16 @@ J
 "}
 (2,1,1) = {"
 J
+g
 a
-a
-a
+b
 J
 "}
 (3,1,1) = {"
 J
 O
 a
-a
+e
 J
 "}
 (4,1,1) = {"
@@ -86,16 +127,16 @@ J
 "}
 (6,1,1) = {"
 J
-k
+E
 a
-a
+h
 J
 "}
 (7,1,1) = {"
 J
 k
 a
-a
+c
 J
 "}
 (8,1,1) = {"
