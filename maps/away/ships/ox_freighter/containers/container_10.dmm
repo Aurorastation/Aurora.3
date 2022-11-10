@@ -1,73 +1,72 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/simulated/floor/plating,
-/area/space)
-"m" = (
-/obj/structure/closet/crate/loot,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
-/area/space)
-"p" = (
-/turf/simulated/wall/shuttle/palepurple/cardinal,
-/area/space)
-"S" = (
+/area/shuttle/ox_container_ship/container)
+"F" = (
 /obj/machinery/door/airlock/palepurple,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
+"J" = (
+/turf/simulated/wall/shuttle/palepurple/cardinal,
+/area/shuttle/ox_container_ship/container)
+"Z" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
 
 (1,1,1) = {"
-p
-p
-S
-p
-p
+J
+J
+F
+J
+J
 "}
 (2,1,1) = {"
-p
-m
+J
+Z
 a
-m
-p
+Z
+J
 "}
 (3,1,1) = {"
-p
-m
+J
+Z
 a
-m
-p
+Z
+J
 "}
 (4,1,1) = {"
-p
-m
+J
+Z
 a
-m
-p
+Z
+J
 "}
 (5,1,1) = {"
-p
-m
+J
+Z
 a
-m
-p
+Z
+J
 "}
 (6,1,1) = {"
-p
-m
+J
+Z
 a
-m
-p
+Z
+J
 "}
 (7,1,1) = {"
-p
-m
+J
+Z
 a
-m
-p
+Z
+J
 "}
 (8,1,1) = {"
-p
-p
-S
-p
-p
+J
+J
+F
+J
+J
 "}

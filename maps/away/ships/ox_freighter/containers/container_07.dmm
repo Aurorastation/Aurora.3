@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "d" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/storage/firstaid/combat,
@@ -9,7 +9,7 @@
 /obj/item/storage/firstaid/o2,
 /obj/structure/closet/crate/medical,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "e" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/storage/firstaid/surgery,
@@ -19,12 +19,12 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "j" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/iv_drip,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "q" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/roller,
@@ -32,12 +32,12 @@
 	pixel_y = 16
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "r" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/roller,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "E" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/storage/firstaid/adv,
@@ -45,11 +45,11 @@
 /obj/item/storage/firstaid/regular,
 /obj/structure/closet/crate/medical,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "F" = (
 /obj/machinery/door/airlock/palepurple,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "G" = (
 /obj/structure/closet/crate/medical,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -64,10 +64,10 @@
 /obj/random/medical,
 /obj/random/medical,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "J" = (
 /turf/simulated/wall/shuttle/palepurple/cardinal,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "R" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/deployable_kit/surgery_table,
@@ -77,7 +77,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "Z" = (
 /obj/structure/closet/crate/medical,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -96,7 +96,7 @@
 	pixel_x = 5
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 
 (1,1,1) = {"
 J

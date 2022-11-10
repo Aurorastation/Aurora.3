@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "f" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
@@ -12,17 +12,15 @@
 	dir = 1
 	},
 /obj/item/clothing/accessory/arm_guard/ballistic,
-/obj/item/clothing/accessory/arm_guard/ballistic,
 /obj/item/clothing/accessory/leg_guard/ballistic,
-/obj/item/clothing/accessory/leg_guard/ballistic,
-/obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/suit/armor/carrier/ballistic,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "k" = (
 /obj/structure/table/steel,
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/zavod,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "s" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
@@ -33,16 +31,13 @@
 	dir = 1
 	},
 /obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/head/helmet/ballistic,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "v" = (
 /obj/structure/closet/crate,
-/obj/structure/sign/flag/zavodskoi{
-	pixel_y = -32
-	},
+/obj/item/shield/riot,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "z" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
@@ -51,34 +46,40 @@
 /obj/structure/closet/crate/secure,
 /obj/structure/window/reinforced,
 /obj/item/ammo_magazine/gauss,
-/obj/item/ammo_magazine/gauss,
 /obj/item/ammo_magazine/gauss{
-	pixel_x = -6
-	},
-/obj/item/ammo_magazine/gauss{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "F" = (
 /obj/machinery/door/airlock/palepurple,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "J" = (
 /turf/simulated/wall/shuttle/palepurple/cardinal,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "K" = (
 /obj/structure/closet/crate,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/item/shield/riot,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "L" = (
 /obj/structure/closet/secure_closet,
+/obj/item/clothing/head/beret/corporate/zavod{
+	pixel_y = 4
+	},
+/obj/item/clothing/head/beret/corporate/zavod/alt,
+/obj/item/clothing/head/softcap/zavod{
+	pixel_y = -2
+	},
+/obj/item/clothing/head/softcap/zavod/alt{
+	pixel_y = -5
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "M" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -96,7 +97,7 @@
 	pixel_x = -4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "N" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
@@ -108,29 +109,26 @@
 	pixel_y = -3
 	},
 /obj/item/gun/projectile/gauss/carbine{
-	pixel_y = -3
-	},
-/obj/item/gun/projectile/gauss/carbine{
-	pixel_y = 4
-	},
-/obj/item/gun/projectile/gauss/carbine{
 	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "V" = (
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/table/steel,
+/obj/item/clothing/head/warden/zavod{
+	pixel_y = 1;
+	pixel_x = 12
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "X" = (
 /obj/structure/sign/flag/zavodskoi{
 	pixel_y = 32
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/under/rank/security/zavod,
 /obj/item/clothing/under/rank/warden/zavod{
 	pixel_x = -4;
 	pixel_y = 4
@@ -140,7 +138,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 "Z" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -155,7 +153,7 @@
 	pixel_x = -4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/ox_container_ship/container)
 
 (1,1,1) = {"
 J

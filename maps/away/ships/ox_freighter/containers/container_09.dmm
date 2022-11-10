@@ -1,0 +1,107 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"f" = (
+/obj/structure/table/rack,
+/obj/item/toy/katana,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"k" = (
+/obj/machinery/vending/coffee/free,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"v" = (
+/obj/structure/table/rack,
+/obj/item/toy/ammo/crossbow,
+/obj/item/toy/ammo/crossbow,
+/obj/item/toy/ammo/crossbow,
+/obj/item/toy/ammo/crossbow,
+/obj/item/toy/ammo/crossbow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"y" = (
+/obj/structure/table/rack,
+/obj/item/toy/cultsword,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"F" = (
+/obj/machinery/door/airlock/palepurple,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"J" = (
+/turf/simulated/wall/shuttle/palepurple/cardinal,
+/area/shuttle/ox_container_ship/container)
+"K" = (
+/obj/structure/table/rack,
+/obj/item/toy/crossbow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"O" = (
+/obj/item/toy/comic/inspector,
+/obj/item/toy/comic/outlandish_tales{
+	pixel_y = 3
+	},
+/obj/item/toy/comic/stormman{
+	pixel_y = 8
+	},
+/obj/structure/table/rack,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+
+(1,1,1) = {"
+J
+J
+F
+J
+J
+"}
+(2,1,1) = {"
+J
+a
+a
+a
+J
+"}
+(3,1,1) = {"
+J
+O
+a
+a
+J
+"}
+(4,1,1) = {"
+J
+y
+a
+v
+J
+"}
+(5,1,1) = {"
+J
+K
+a
+f
+J
+"}
+(6,1,1) = {"
+J
+k
+a
+a
+J
+"}
+(7,1,1) = {"
+J
+k
+a
+a
+J
+"}
+(8,1,1) = {"
+J
+J
+F
+J
+J
+"}

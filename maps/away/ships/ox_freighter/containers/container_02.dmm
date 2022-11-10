@@ -1,0 +1,77 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"k" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"l" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"F" = (
+/obj/machinery/door/airlock/palepurple,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"J" = (
+/turf/simulated/wall/shuttle/palepurple/cardinal,
+/area/shuttle/ox_container_ship/container)
+
+(1,1,1) = {"
+J
+J
+F
+J
+J
+"}
+(2,1,1) = {"
+J
+k
+a
+l
+J
+"}
+(3,1,1) = {"
+J
+l
+a
+l
+J
+"}
+(4,1,1) = {"
+J
+k
+a
+k
+J
+"}
+(5,1,1) = {"
+J
+l
+a
+l
+J
+"}
+(6,1,1) = {"
+J
+l
+a
+k
+J
+"}
+(7,1,1) = {"
+J
+k
+a
+l
+J
+"}
+(8,1,1) = {"
+J
+J
+F
+J
+J
+"}

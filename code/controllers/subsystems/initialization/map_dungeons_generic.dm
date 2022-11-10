@@ -36,11 +36,14 @@ proc/place_dungeons_generic()
 			for(var/file in flist(landmark.map_files))
 				files += "[landmark.map_files][file]"
 		
-		if(!istype(files) || files == 0)
+		if(!istype(files) || files.len == 0)
 			continue
 
 		for(var/blacklisted in blacklisted_map_files)
 			files -= blacklisted
+
+		if(files.len == 0)
+			continue
 
 		var/chosen_dungeon = pick(files)
 

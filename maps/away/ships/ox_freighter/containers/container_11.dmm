@@ -1,0 +1,86 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"d" = (
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"e" = (
+/obj/structure/closet/crate/hydroponics,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"r" = (
+/obj/structure/closet/secure_closet/hydroponics{
+	req_access = null
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"F" = (
+/obj/machinery/door/airlock/palepurple,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"J" = (
+/turf/simulated/wall/shuttle/palepurple/cardinal,
+/area/shuttle/ox_container_ship/container)
+"R" = (
+/obj/structure/closet/crate/hydroponics/prespawned,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+"Z" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
+
+(1,1,1) = {"
+J
+J
+F
+J
+J
+"}
+(2,1,1) = {"
+J
+Z
+d
+Z
+J
+"}
+(3,1,1) = {"
+J
+Z
+d
+Z
+J
+"}
+(4,1,1) = {"
+J
+e
+d
+Z
+J
+"}
+(5,1,1) = {"
+J
+R
+d
+Z
+J
+"}
+(6,1,1) = {"
+J
+r
+d
+Z
+J
+"}
+(7,1,1) = {"
+J
+Z
+d
+Z
+J
+"}
+(8,1,1) = {"
+J
+J
+F
+J
+J
+"}
