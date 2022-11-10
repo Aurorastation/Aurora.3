@@ -185,15 +185,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
-"cA" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 5
-	},
-/obj/effect/floor_decal/twin_suns{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/scrapper_base)
 "cD" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1352,12 +1343,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "te" = (
-/obj/structure/lattice/catwalk,
-/obj/effect/floor_decal/twin_suns{
-	pixel_y = 32
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
 	},
-/turf/template_noop,
-/area/space)
+/obj/effect/decal/fake_object{
+	color = "#8bbbd5";
+	icon = 'icons/obj/decals.dmi';
+	icon_state = "twin_suns";
+	name = "Twins Suns Symbol";
+	pixel_y = 32;
+	desc = "An ancient icon representing Adhomai's suns."
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
 "tf" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/blue{
 	dir = 1
@@ -1773,15 +1771,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/scrapper_base/solars)
-"yP" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 5
-	},
-/obj/effect/floor_decal/twin_suns{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/scrapper_ship/bridge)
 "yS" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/plating,
@@ -2612,18 +2601,6 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/scrapper_base)
-"KU" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk,
-/obj/effect/floor_decal/twin_suns{
-	pixel_y = 32
-	},
-/turf/template_noop,
 /area/scrapper_base)
 "La" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -18202,7 +18179,7 @@ pX
 lo
 lo
 pX
-te
+Ng
 Kn
 Kn
 Kn
@@ -20491,7 +20468,7 @@ mx
 JU
 us
 yT
-yP
+te
 Jd
 fb
 dG
@@ -20742,7 +20719,7 @@ ei
 Fl
 GO
 JJ
-cA
+Uk
 LV
 NK
 NK
@@ -23856,7 +23833,7 @@ MJ
 gW
 gW
 MJ
-KU
+nm
 Kn
 Kn
 Kn

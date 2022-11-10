@@ -723,5 +723,3 @@
 	icon = 'icons/turf/flooring/scc_decals.dmi'
 	icon_state = "0,0"
 
-/obj/effect/floor_decal/twin_suns
-	icon_state = "twin_suns"
