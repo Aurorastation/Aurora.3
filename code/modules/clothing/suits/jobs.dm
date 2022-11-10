@@ -212,7 +212,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "zav_warden_coat"
 	item_state = "zav_warden_coat"
 	
-/obj/item/clothing/suit/storage/toggle/warden/zavod_alt
+/obj/item/clothing/suit/storage/toggle/warden/zavod/alt
 	icon_state = "zav_warden_coat_alt"
 	item_state = "zav_warden_coat_alt"
 
