@@ -147,6 +147,10 @@
 	icon_state = "pmc_phys"
 	item_state = "pmc_phys"
 
+/obj/item/clothing/under/rank/medical/pmc/alt
+	icon_state = "pmc_alt_phys"
+	item_state = "pmc_alt_phys"
+
 // Intern
 
 /obj/item/clothing/under/rank/medical/intern
@@ -162,6 +166,10 @@
 /obj/item/clothing/under/rank/medical/intern/pmc
 	icon_state = "pmc_intern"
 	item_state = "pmc_intern"
+
+/obj/item/clothing/under/rank/medical/intern/pmc/alt
+	icon_state = "pmc_alt_intern"
+	item_state = "pmc_alt_intern"
 
 // First Responder
 
@@ -179,9 +187,17 @@
 	icon_state = "pmc_emt"
 	item_state = "pmc_emt"
 
-/obj/item/clothing/under/rank/medical/first_responder/pmc/epmc // Note: Item Icon placeholder
+/obj/item/clothing/under/rank/medical/first_responder/pmc/alt
+	icon_state = "pmc_emt"
+	item_state = "pmc_emt"
+
+/obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
 	icon_state = "epmc_emt"
 	item_state = "epmc_emt"
+
+/obj/item/clothing/under/rank/medical/first_responder/pmc/sekh
+	icon_state = "sekh_emt"
+	item_state = "sekh_emt"
 
 // Surgeon
 /obj/item/clothing/under/rank/medical/surgeon
@@ -198,6 +214,10 @@
 /obj/item/clothing/under/rank/medical/surgeon/pmc
 	icon_state = "pmc_surgeon"
 	item_state = "pmc_surgeon"
+
+/obj/item/clothing/under/rank/medical/surgeon/pmc/alt
+	icon_state = "pmc_alt_surgeon"
+	item_state = "pmc_alt_surgeon"
 
 // Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
@@ -225,6 +245,10 @@
 	icon_state = "pmc_psych"
 	item_state = "pmc_psych"
 
+/obj/item/clothing/under/rank/medical/psych/pmc/alt
+	icon_state = "pmc_alt_psych"
+	item_state = "pmc_alt_psych"
+
 // Pharmacist
 
 /obj/item/clothing/under/rank/medical/pharmacist
@@ -238,5 +262,9 @@
 	item_state = "zeng_chemist"
 
 /obj/item/clothing/under/rank/medical/pharmacist/pmc
+	icon_state = "pmc_chemist"
+	item_state = "pmc_chemist"
+
+/obj/item/clothing/under/rank/medical/pharmacist/pmc/alt
 	icon_state = "pmc_chemist"
 	item_state = "pmc_chemist"

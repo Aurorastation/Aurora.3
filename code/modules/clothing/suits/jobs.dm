@@ -104,49 +104,42 @@ obj/item/clothing/suit/apron/overalls/blue
 //Security
 
 /obj/item/clothing/suit/storage/security/officer
-	name = "security officer's jacket"
-	desc = "This jacket is for those special occasions when a security officer actually feels safe."
-	icon_state = "officerjacket"
-	item_state = "officerjacket"
+	name = "corporate security jacket"
+	desc = "This jacket is for those special occasions when corporate security actually feels safe."
+	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	contained_sprite = TRUE
+	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/storage/security/officer/blue
-	icon_state = "officerbluejacket"
-	item_state = "officerbluejacket"
+/obj/item/clothing/suit/storage/security/officer/zav
+	icon_state = "zav_jacket"
+	item_state = "zav_jacket"
 
-/obj/item/clothing/suit/storage/security/officer/dnavy
-	icon_state = "officerdnavyjacket"
-	item_state = "officerdnavyjacket"
+/obj/item/clothing/suit/storage/security/officer/zav/alt
+	icon_state = "zav_jacket_alt"
+	item_state = "zav_jacket_alt"
 
-/obj/item/clothing/suit/storage/security/warden
-	name = "warden's jacket"
-	desc = "Perfectly suited for the warden that wants to leave an impression of style on those who visit the brig."
-	icon_state = "wardenjacket"
-	item_state = "wardenjacket"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+/obj/item/clothing/suit/storage/security/officer/idris
+	icon_state = "idris_jacket"
+	item_state = "idris_jacket"
 
-/obj/item/clothing/suit/storage/security/warden/blue
-	icon_state = "wardenbluejacket"
-	item_state = "wardenbluejacket"
+/obj/item/clothing/suit/storage/security/officer/idris/alt
+	icon_state = "idris_jacket_alt"
+	item_state = "idris_jacket_alt"
 
-/obj/item/clothing/suit/storage/security/warden/dnavy
-	icon_state = "wardendnavyjacket"
-	item_state = "wardendnavyjacket"
+/obj/item/clothing/suit/storage/security/officer/pmc
+	icon_state = "pmc_jacket"
+	item_state = "pmc_jacket"
 
-/obj/item/clothing/suit/storage/security/hos
+/obj/item/clothing/suit/storage/security/officer/pmc/alt
+	icon_state = "pmc_jacket_alt"
+	item_state = "pmc_jacket_alt"
+
+/obj/item/clothing/suit/storage/security/officer/hos
 	name = "head of security's jacket"
 	desc = "This piece of clothing was specifically designed for asserting superior authority."
-	icon_state = "hosjacket"
-	item_state = "hosjacket"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-
-/obj/item/clothing/suit/storage/security/hos/blue
-	icon_state = "hosbluejacket"
-	item_state = "hosbluejacket"
-
-/obj/item/clothing/suit/storage/security/hos/dnavy
-	icon_state = "hosdnavyjacket"
-	item_state = "hosdnavyjacket"
+	icon_state = "hos_jacket"
+	item_state = "hos_jacket"
 
 //Detective
 
@@ -322,6 +315,10 @@ obj/item/clothing/suit/apron/overalls/blue
 	desc = "A first responder jacket in the classic black and blue of the PMCG."
 	icon_state = "pmc_emt_jacket"
 	item_state = "pmc_emt_jacket"
+
+/obj/item/clothing/suit/storage/toggle/fr_jacket/pmc/alt
+	icon_state = "pmc_alt_emt_jacket"
+	item_state = "pmc_alt_emt_jacket"
 
 
 /obj/item/clothing/suit/storage/medical_chest_rig

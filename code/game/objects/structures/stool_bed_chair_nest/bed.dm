@@ -28,6 +28,7 @@
 	buckle_lying = 1
 	build_amt = 2
 	var/material/padding_material
+	var/override_material_color = FALSE //If set, material colour won't override the colour.
 
 	var/base_icon = "bed"
 	var/material_alteration = MATERIAL_ALTERATION_ALL
@@ -95,7 +96,7 @@
 		cache_key += "-[cache_type]"
 		if(painted_colour && apply_painted_colour)
 			cache_key += "-[painted_colour]"
-		else if(overlay_material.icon_colour)
+		else if(overlay_material.icon_colour && !override_material_color)
 			cache_key += "-[overlay_material.icon_colour]"
 	if(!furniture_cache[cache_key]) // Check for cache key. Generate if image does not exist yet.
 		var/cache_icon_state = cache_type ? "[base_icon]_[cache_type]" : "[base_icon]" // Modularized. Just change cache_type when calling the proc if you ever wanted to add a different overlay. Not like you'd need to.
@@ -103,7 +104,7 @@
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			if(painted_colour && apply_painted_colour) // apply_painted_color, when you only want the padding to be painted, NOT the chair itself.
 				I.color = painted_colour
-			else if(overlay_material.icon_colour) // Either that, or just fall back on the regular material color.
+			else if(overlay_material.icon_colour && !override_material_color) // Either that, or just fall back on the regular material color.
 				I.color = overlay_material.icon_colour
 		furniture_cache[cache_key] = I
 	add_overlay(furniture_cache[cache_key]) // Use image from cache key!

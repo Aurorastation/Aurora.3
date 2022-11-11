@@ -7,8 +7,8 @@
 /area/kataphract_chapter/bridge)
 "ac" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
+	dir = 4;
+	icon_state = "warning"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -26,7 +26,8 @@
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "ah" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/trading_area)
 "ai" = (
@@ -34,26 +35,27 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "aj" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/structure/table/glass,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "ak" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/door/airlock/maintenance{
 	name = "Propulsion";
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "al" = (
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/engine_compartment)
@@ -65,13 +67,12 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "an" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 8;
-	id = "egg_blastdoors"
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/kataphract_shuttle/main_compartment)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/brig)
 "ao" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin,
@@ -117,12 +118,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "au" = (
 /obj/effect/step_trigger/teleporter,
-/turf/template_noop,
+/turf/space/transit/east,
 /area/space)
 "av" = (
 /obj/structure/cable{
@@ -153,15 +154,15 @@
 /area/kataphract_chapter/hangar)
 "ay" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "az" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -169,7 +170,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -205,7 +206,7 @@
 "aE" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "aF" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 4;
@@ -216,19 +217,19 @@
 "aG" = (
 /obj/structure/flora/pottedplant,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "aH" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -238,25 +239,26 @@
 /area/kataphract_chapter/bridge)
 "aJ" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 4
+	dir = 4;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "aK" = (
 /obj/structure/flora/pottedplant,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "aL" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/cafeteria)
 "aM" = (
@@ -266,8 +268,8 @@
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "aN" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -277,8 +279,8 @@
 /area/kataphract_chapter/bridge)
 "aP" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -320,8 +322,8 @@
 /area/kataphract_chapter/bridge)
 "aV" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -330,16 +332,16 @@
 /area/kataphract_chapter/bridge)
 "aW" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "aX" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -355,8 +357,8 @@
 /area/kataphract_chapter/bridge)
 "aZ" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -367,15 +369,15 @@
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "bb" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bc" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -384,8 +386,8 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
+	dir = 8;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/holofloor/desert,
 /area/kataphract_chapter/bridge)
@@ -397,8 +399,8 @@
 /area/kataphract_chapter/bridge)
 "bf" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -411,8 +413,8 @@
 /area/kataphract_chapter/bridge)
 "bh" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
@@ -425,8 +427,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -449,12 +451,8 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
 "bk" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "bn" = (
@@ -467,16 +465,16 @@
 /area/kataphract_chapter/medical)
 "bp" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bq" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
+	dir = 8;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/holofloor/desert,
 /area/kataphract_chapter/bridge)
@@ -486,15 +484,15 @@
 /area/kataphract_chapter/bridge)
 "bs" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/holofloor/desert,
 /area/kataphract_chapter/bridge)
 "bt" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -508,8 +506,8 @@
 /area/kataphract_chapter/bridge)
 "bv" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -532,10 +530,21 @@
 /obj/item/clothing/glasses/sunglasses,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
+"by" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, solars aft side"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/starboard_solars_array)
 "bz" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -546,8 +555,8 @@
 /area/kataphract_chapter/bridge)
 "bA" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -556,8 +565,8 @@
 /area/kataphract_chapter/bridge)
 "bB" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
+	dir = 8;
+	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/holofloor/desert,
@@ -568,8 +577,8 @@
 /area/kataphract_chapter/bridge)
 "bD" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/holofloor/desert,
@@ -591,7 +600,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "bH" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
@@ -736,21 +745,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/bridge)
-"bX" = (
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
-"bY" = (
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25;
 	req_one_access = list(113)
 	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/bridge)
+"bX" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
+"bY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
 	pixel_y = 0
@@ -765,22 +774,28 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/portpropulsion)
 "ca" = (
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "cb" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge Glass Airlock";
 	req_access = list(113);
 	req_one_access = null
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "cc" = (
@@ -791,12 +806,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge Glass Airlock";
 	req_access = list(113);
 	req_one_access = null
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "cd" = (
@@ -805,16 +820,15 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "ce" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_command{
-	name = "Bridge Glass Airlock";
-	req_access = list(113);
-	req_one_access = null
+/obj/structure/bed/padded,
+/obj/machinery/alarm{
+	pixel_y = 25;
+	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/bridge)
+/area/kataphract_chapter/brig)
 "cf" = (
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -830,8 +844,8 @@
 /area/kataphract_chapter/main_ring)
 "ci" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -863,8 +877,9 @@
 	name = "Propulsion";
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "cn" = (
 /turf/simulated/wall,
 /area/kataphract_chapter/toilets)
@@ -876,8 +891,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -902,8 +917,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -927,8 +942,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -950,8 +965,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -976,8 +991,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -999,8 +1014,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1051,6 +1066,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
 "cB" = (
@@ -1099,8 +1115,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1130,7 +1146,7 @@
 "cH" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "cI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1140,21 +1156,33 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "cJ" = (
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
 "cK" = (
 /obj/structure/bed/padded,
 /turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/office)
+/area/kataphract_chapter/brig)
 "cL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/office)
+/area/kataphract_chapter/brig)
 "cM" = (
 /obj/structure/sink{
-	icon_state = "sink";
 	dir = 8;
+	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -1164,7 +1192,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
 "cN" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "cO" = (
@@ -1175,13 +1203,13 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "map-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -1215,8 +1243,8 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4;
+	icon_state = "rwindow";
 	name = "HYDROGEN FUEL"
 	},
 /obj/item/tank/hydrogen,
@@ -1239,9 +1267,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "cX" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/office)
+/area/kataphract_chapter/brig)
 "cY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1278,12 +1307,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "dd" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Residential Area";
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "de" = (
@@ -1295,12 +1324,12 @@
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -1309,8 +1338,8 @@
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -1320,24 +1349,24 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "di" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "dj" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -1347,58 +1376,58 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "dl" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/machinery/computer/arcade/orion_trail,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "dm" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/machinery/computer/arcade/battle,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "dn" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "do" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "dp" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -1426,7 +1455,8 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "du" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/sparring_chamber)
 "dv" = (
@@ -1441,6 +1471,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
 "dx" = (
@@ -1512,12 +1543,13 @@
 /area/kataphract_chapter/main_ring)
 "dF" = (
 /turf/space,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/port_solars_array)
 "dG" = (
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 25;
-	pixel_y = 0
+	pixel_y = 0;
+	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -1530,8 +1562,8 @@
 	pixel_y = 0
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -1613,12 +1645,12 @@
 /area/kataphract_chapter/commissary)
 "dP" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
@@ -1631,21 +1663,21 @@
 /area/kataphract_chapter/commissary)
 "dR" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
-	dir = 4
+	dir = 4;
+	icon_state = "map_scrubber_on"
 	},
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22;
+	pixel_x = -24;
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "dS" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
@@ -1659,8 +1691,8 @@
 /area/kataphract_chapter/commissary)
 "dU" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
-	dir = 4
+	dir = 4;
+	icon_state = "map_scrubber_on"
 	},
 /obj/machinery/alarm{
 	dir = 4;
@@ -1711,10 +1743,10 @@
 /obj/machinery/button/remote/blast_door{
 	id = "egg_blastdoors";
 	name = "Blast doors";
-	req_access = list(113);
-	req_one_access = null;
 	pixel_x = -4;
-	pixel_y = 4
+	pixel_y = 4;
+	req_access = list(113);
+	req_one_access = null
 	},
 /obj/item/device/binoculars/high_power,
 /turf/simulated/floor/tiled/dark,
@@ -1750,14 +1782,12 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance"
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/starboardpropulsion)
 "ec" = (
 /obj/machinery/power/solar,
 /obj/structure/cable/yellow{
@@ -1765,16 +1795,14 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/port_solars_array)
 "ed" = (
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Cafeteria and Knight's Office";
 	req_access = null;
 	req_one_access = list(113)
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/medical)
 "ee" = (
@@ -1789,8 +1817,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -1806,11 +1834,11 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/port_solars_array)
 "eh" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
+	dir = 8;
+	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1826,8 +1854,8 @@
 /area/kataphract_chapter/sparring_chamber)
 "ej" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1851,7 +1879,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/starboard_solars_array)
 "en" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1868,8 +1896,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -1887,17 +1915,17 @@
 /area/kataphract_chapter/hangar)
 "er" = (
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "es" = (
 /obj/machinery/door/airlock/glass{
 	name = "Canisters and Supplies";
 	req_one_access = list(113)
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "et" = (
@@ -1939,7 +1967,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/port_solars_array)
 "ez" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1956,9 +1984,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -1969,6 +1994,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "eB" = (
@@ -1983,8 +2009,8 @@
 /area/kataphract_chapter/sparring_chamber)
 "eC" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
+	dir = 8;
+	icon_state = "rwindow"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/reinforced,
@@ -1994,23 +2020,23 @@
 /area/kataphract_chapter/sparring_chamber)
 "eE" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/sparring_chamber)
 "eF" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "eG" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/machinery/power/apc{
 	dir = 8;
@@ -2036,15 +2062,15 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "eJ" = (
 /obj/machinery/alarm{
 	pixel_y = 25;
 	req_one_access = list(113)
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -2059,8 +2085,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -2085,8 +2111,16 @@
 	name = "Brig";
 	req_access = list(113)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/office)
+/area/kataphract_chapter/brig)
 "eN" = (
 /obj/structure/cable/yellow{
 	d1 = 2;
@@ -2104,7 +2138,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/starboard_solars_array)
 "eO" = (
 /obj/effect/shuttle_landmark/nav_kataphract_ship/nav2,
 /turf/template_noop,
@@ -2122,8 +2156,8 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -2136,8 +2170,8 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -2156,8 +2190,8 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2176,8 +2210,8 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -2202,8 +2236,8 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2221,7 +2255,6 @@
 "eV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2232,17 +2265,16 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
 "eW" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Cafeteria and Knight's Office";
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "eX" = (
@@ -2256,14 +2288,12 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
 "eY" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /obj/machinery/door/airlock/glass{
 	name = "Quartermaster";
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "eZ" = (
@@ -2294,24 +2324,25 @@
 /area/kataphract_chapter/sparring_chamber)
 "fc" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "fd" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22
+	pixel_x = -22;
+	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -2333,8 +2364,8 @@
 /area/kataphract_chapter/hangar)
 "fg" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
-	dir = 4
+	dir = 4;
+	icon_state = "map_scrubber_on"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
@@ -2369,10 +2400,9 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2389,6 +2419,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "fl" = (
@@ -2400,8 +2431,8 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2429,8 +2460,8 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -2444,28 +2475,21 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "fo" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 4
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	id = "egg_blastdoors"
 	},
-/obj/effect/floor_decal/corner/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/yellow,
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "fp" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -2475,8 +2499,8 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -2488,18 +2512,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "fq" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/yellow,
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/wall/r_wall,
 /area/kataphract_chapter/main_ring)
 "fr" = (
 /obj/machinery/light{
@@ -2536,8 +2549,13 @@
 /area/kataphract_chapter/main_ring)
 "fw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/portpropulsion)
 "fx" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2547,12 +2565,12 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "fy" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	name = "Chapter Toilets";
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
 "fz" = (
@@ -2578,15 +2596,15 @@
 /area/kataphract_chapter/sparring_chamber)
 "fB" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
+	dir = 8;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/sparring_chamber)
 "fC" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/sparring_chamber)
@@ -2606,6 +2624,7 @@
 /obj/item/device/gps,
 /obj/item/device/gps,
 /obj/item/device/gps,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "fE" = (
@@ -2623,10 +2642,10 @@
 /area/kataphract_chapter/cafeteria)
 "fG" = (
 /obj/machinery/door/airlock/hatch,
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "fH" = (
@@ -2652,7 +2671,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "fM" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2664,6 +2682,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "fN" = (
@@ -2675,16 +2694,16 @@
 	},
 /obj/structure/cable/green,
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "fO" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
+	dir = 8;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/sparring_chamber)
@@ -2695,8 +2714,8 @@
 "fQ" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/sparring_chamber)
@@ -2709,8 +2728,8 @@
 "fT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "map-scrubbers"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -2725,8 +2744,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -2755,8 +2774,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2838,14 +2857,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /obj/machinery/door/airlock/glass{
 	name = "Sparring Chamber";
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "gi" = (
@@ -2859,14 +2876,12 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "gk" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /obj/machinery/door/airlock/glass{
 	name = "Sparring Chamber";
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "gl" = (
@@ -2900,8 +2915,8 @@
 	req_access = list(113)
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -2965,7 +2980,8 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "gu" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/commissary)
 "gv" = (
@@ -2981,11 +2997,11 @@
 	name = "Pod Bay";
 	req_one_access = list(113)
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "gx" = (
@@ -3022,8 +3038,8 @@
 "gB" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
+	dir = 4;
+	icon_state = "warning"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -3042,11 +3058,8 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/machinery/door/firedoor{
-	dir = 8
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3064,6 +3077,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "gD" = (
@@ -3106,8 +3120,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3131,8 +3145,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/structure/cable/green{
@@ -3144,8 +3158,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "map-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -3170,8 +3184,8 @@
 "gM" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -3183,8 +3197,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/structure/cable/green{
@@ -3207,8 +3221,8 @@
 /area/kataphract_chapter/main_ring)
 "gO" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
-	dir = 4
+	dir = 4;
+	icon_state = "map_scrubber_on"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3236,9 +3250,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "gS" = (
@@ -3247,7 +3261,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "gT" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -3323,18 +3337,18 @@
 /area/kataphract_chapter/cafeteria)
 "hc" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "kata_armoury";
 	name = "Armoury Entrance Control";
 	pixel_x = 25;
-	req_one_access = list(115,113)
+	req_one_access = list(113)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
@@ -3392,15 +3406,15 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/aft_hall)
 "hl" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/reagent_containers/food/snacks/bacon_flatbread,
@@ -3411,8 +3425,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -3422,8 +3436,8 @@
 /area/kataphract_chapter/main_ring)
 "hp" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
@@ -3433,8 +3447,8 @@
 /area/kataphract_chapter/cafeteria)
 "hq" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
@@ -3448,12 +3462,12 @@
 "hs" = (
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
@@ -3465,8 +3479,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3490,8 +3504,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -3520,6 +3534,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "hw" = (
@@ -3530,8 +3545,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3604,12 +3619,12 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "hI" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	name = "Chapter Dormitory";
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "hJ" = (
@@ -3666,14 +3681,13 @@
 /turf/simulated/floor/lino,
 /area/kataphract_chapter/cafeteria)
 "hT" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/starboard_solars_array)
 "hU" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -3691,35 +3705,35 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/starboard_solars_array)
 "hV" = (
-/obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/starboard_solars_array)
 "hW" = (
 /turf/simulated/wall/r_wall,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/cafeteria)
 "hX" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable/yellow{
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, solars central side"
+	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/space)
 "hY" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /obj/machinery/door/airlock/glass{
 	name = "Sparring Chamber";
 	req_access = null;
 	req_one_access = list(113)
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -3729,19 +3743,22 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, solars central"
+	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/port_solars_array)
 "ia" = (
 /turf/simulated/wall,
 /area/kataphract_chapter/engineering)
 "ib" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "ic" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -3750,7 +3767,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "id" = (
 /obj/structure/sign/securearea{
 	pixel_y = -32
@@ -3778,13 +3795,13 @@
 	id_tag = "kataphract_shuttle";
 	layer = 3.3;
 	master_tag = "kataphract_transport";
+	pixel_x = 27;
 	pixel_y = -2;
 	tag_airpump = "kataphract_shuttle_pump";
 	tag_chamber_sensor = "kataphract_shuttle_sensor";
 	tag_exterior_door = "kataphract_shuttle_out";
 	tag_exterior_sensor = "kataphract_shuttle_exterior_sensor";
-	tag_interior_door = "kataphract_shuttle_in";
-	pixel_x = 27
+	tag_interior_door = "kataphract_shuttle_in"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -3840,8 +3857,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3859,23 +3876,24 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "in" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Cafeteria";
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "io" = (
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22
+	pixel_x = -22;
+	req_one_access = list(113)
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -3903,13 +3921,13 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -3919,19 +3937,19 @@
 	},
 /obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "is" = (
 /obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
+	dir = 1;
+	icon_state = "term"
 	},
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
@@ -3951,7 +3969,7 @@
 	name = "Trading Desk";
 	req_one_access = list(114,116)
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "iu" = (
@@ -3961,9 +3979,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "iv" = (
-/obj/effect/step_trigger/teleporter,
-/obj/effect/step_trigger/teleporter,
-/turf/template_noop,
+/obj/effect/shuttle_landmark/kataphract_transport/transit,
+/turf/space/transit/east,
 /area/space)
 "iw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4018,8 +4035,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -4038,8 +4055,8 @@
 /area/kataphract_chapter/engineering)
 "iF" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/item/reagent_containers/food/snacks/grilled_carp_slice,
 /obj/structure/table/standard,
@@ -4070,17 +4087,24 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "iJ" = (
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/power/apc/high{
+	dir = 4;
+	name = "north bump";
+	pixel_x = 24;
+	req_access = list(113)
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "iK" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "iL" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4122,7 +4146,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "iP" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -4140,8 +4164,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "map-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -4150,16 +4174,16 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "iR" = (
 /turf/simulated/wall,
 /area/kataphract_chapter/warehouse)
@@ -4171,8 +4195,12 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/machinery/alarm{
+	pixel_y = 28;
+	req_one_access = list(113)
+	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "iT" = (
 /obj/structure/cable{
 	d2 = 2;
@@ -4181,15 +4209,15 @@
 	},
 /obj/machinery/power/smes/buildable/autosolars,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "iU" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4200,11 +4228,11 @@
 /area/kataphract_chapter/engineering)
 "iV" = (
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/kataphract_chapter/brig)
 "iW" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4215,8 +4243,8 @@
 /area/kataphract_chapter/engineering)
 "iX" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -4227,8 +4255,8 @@
 /area/kataphract_chapter/engineering)
 "iY" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -4242,8 +4270,8 @@
 /area/kataphract_chapter/engineering)
 "iZ" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -4257,8 +4285,8 @@
 /area/kataphract_chapter/engineering)
 "ja" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -4272,8 +4300,8 @@
 /area/kataphract_chapter/engineering)
 "jb" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4286,17 +4314,12 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "jc" = (
-/obj/structure/cable/yellow{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/turf/simulated/wall,
+/area/kataphract_chapter/entry)
 "jd" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4313,8 +4336,8 @@
 /area/kataphract_chapter/engineering)
 "je" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4326,7 +4349,6 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "jf" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -4343,11 +4365,12 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "jg" = (
 /turf/simulated/wall/r_wall,
-/area/kataphract_chapter/hull)
+/area/kataphract_chapter/toilets)
 "jh" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -4365,7 +4388,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/port_solars_array)
 "ji" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1983;
@@ -4378,8 +4401,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, airlock"
+	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "jj" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
@@ -4391,23 +4417,22 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "jk" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/starboard_solars_array)
 "jl" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 8
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "jm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -4424,16 +4449,15 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "jn" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/starboard_solars_array)
 "jo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -4449,7 +4473,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "jp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4463,9 +4487,10 @@
 	},
 /obj/machinery/power/smes/buildable/autosolars,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "jr" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bridge)
 "js" = (
@@ -4479,13 +4504,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "jt" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
+	dir = 8;
+	icon_state = "warning"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4498,14 +4523,13 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "jv" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/port_solars_array)
 "jw" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -4514,16 +4538,20 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/machinery/alarm{
+	pixel_y = 28;
+	req_one_access = list(113)
+	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "jx" = (
 /obj/machinery/button/remote/airlock{
 	id = "kataofficedoor";
 	name = "Door Bolt Control";
 	pixel_x = -36;
 	pixel_y = 0;
-	specialfunctions = 4;
-	req_one_access = list(114)
+	req_one_access = list(114);
+	specialfunctions = 4
 	},
 /obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/carpet,
@@ -4566,7 +4594,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/portpropulsion)
 "jD" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -4586,10 +4614,12 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "jF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
+	dir = 8;
 	id = "egg_blastdoors"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "jG" = (
@@ -4598,7 +4628,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/portpropulsion)
 "jH" = (
 /obj/structure/sign/electricshock{
 	pixel_y = 32
@@ -4615,14 +4645,14 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "jJ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4636,9 +4666,8 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "jK" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -4649,6 +4678,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "jL" = (
@@ -4667,7 +4697,7 @@
 	tag_interior_door = "chapter_port_interior"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "jM" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -4687,13 +4717,12 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "jO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/warehouse)
 "jP" = (
@@ -4714,7 +4743,8 @@
 	req_one_access = list(113)
 	},
 /obj/machinery/door/firedoor/multi_tile{
-	dir = 1
+	dir = 1;
+	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
@@ -4733,7 +4763,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "jR" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1984;
@@ -4750,7 +4780,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "jS" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
@@ -4762,7 +4792,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "jT" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1984;
@@ -4775,8 +4805,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, airlock"
+	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "jU" = (
 /obj/machinery/door/window{
 	dir = 4;
@@ -4787,19 +4820,19 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
+	dir = 1;
+	icon_state = "rwindow"
 	},
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "jV" = (
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "jW" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 1;
@@ -4816,53 +4849,53 @@
 	tag_interior_door = "chapter_starboard_interior"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "jX" = (
-/obj/machinery/access_button/airlock_exterior{
-	frequency = 1984;
-	master_tag = "chapter_starboard_airlock";
-	pixel_x = -28
-	},
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/turf/simulated/wall/r_wall,
+/area/space)
 "jY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/portpropulsion)
 "jZ" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "ka" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/medical)
 "kb" = (
 /obj/structure/cable/yellow,
 /obj/machinery/power/solar_control/autostart,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "kc" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "kd" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
+	dir = 1;
+	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window{
@@ -4874,7 +4907,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "ke" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
@@ -4885,12 +4918,12 @@
 	pixel_y = 0
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -4899,22 +4932,22 @@
 /area/kataphract_chapter/engineering)
 "kf" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "kg" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "kh" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -4923,8 +4956,8 @@
 /area/kataphract_chapter/engineering)
 "ki" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4933,8 +4966,8 @@
 /area/kataphract_chapter/engineering)
 "kj" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4943,8 +4976,8 @@
 /area/kataphract_chapter/engineering)
 "kk" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -4953,12 +4986,12 @@
 /area/kataphract_chapter/engineering)
 "kl" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -4979,6 +5012,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 6
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "ko" = (
@@ -4996,23 +5034,23 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "map-scrubbers"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "kp" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -5020,7 +5058,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "kq" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5041,7 +5079,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "kv" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -5049,23 +5087,23 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "kw" = (
 /turf/simulated/wall/r_wall,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "kx" = (
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/coffee/full,
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "ky" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -5078,13 +5116,13 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5092,7 +5130,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "kz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5100,13 +5138,13 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5114,13 +5152,13 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "kA" = (
 /obj/structure/sign/securearea{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "kB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5128,13 +5166,13 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5142,7 +5180,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "kC" = (
 /obj/machinery/vending/engivend{
 	req_access = null;
@@ -5190,19 +5228,24 @@
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "kI" = (
 /obj/machinery/firealarm/west,
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "kJ" = (
 /turf/simulated/wall/r_wall,
 /area/kataphract_chapter/warehouse)
 "kK" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "egg_blastdoors"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -5211,20 +5254,20 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "map-scrubbers"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5237,7 +5280,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "kN" = (
 /turf/simulated/wall,
 /area/kataphract_chapter/hangar)
@@ -5254,7 +5297,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "kP" = (
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
@@ -5290,7 +5333,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/aft_hall)
 "kU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -5309,8 +5352,8 @@
 /obj/structure/table/reinforced/steel,
 /obj/machinery/recharger,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -5328,7 +5371,7 @@
 	},
 /obj/structure/cable,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "kX" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5345,35 +5388,36 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
 "kY" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "kZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "la" = (
 /turf/simulated/wall,
 /area/kataphract_chapter/trading_area)
 "lb" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "lc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 10
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "ld" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "map-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5473,7 +5517,12 @@
 	name = "Pod Bay";
 	req_one_access = list(113)
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "lp" = (
@@ -5498,7 +5547,6 @@
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "lt" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Trading Desk";
 	req_one_access = list(113)
@@ -5509,6 +5557,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "lu" = (
@@ -5547,11 +5596,11 @@
 /area/kataphract_chapter/medical)
 "lz" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "lA" = (
 /obj/structure/sign/securearea{
 	pixel_x = 32
@@ -5560,31 +5609,31 @@
 /area/kataphract_chapter/hangar)
 "lB" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "lC" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/machinery/computer/guestpass{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "lD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "map-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "lE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -5593,18 +5642,24 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "lF" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
 	pixel_y = 0
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "lG" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -5613,11 +5668,10 @@
 /area/kataphract_chapter/trading_area)
 "lH" = (
 /turf/simulated/floor,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "lI" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/hangar)
+/turf/simulated/wall,
+/area/kataphract_chapter/brig)
 "lJ" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -5628,26 +5682,26 @@
 "lK" = (
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/aft_hall)
 "lL" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "lM" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "lN" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "lO" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/loot,
@@ -5668,8 +5722,8 @@
 "lR" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -5681,7 +5735,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "lT" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 8
@@ -5689,25 +5743,21 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "lU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "lV" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /obj/machinery/door/window{
 	dir = 1;
@@ -5765,12 +5815,12 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -5791,12 +5841,12 @@
 /area/kataphract_chapter/trading_area)
 "me" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "map-supply"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "map-scrubbers"
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
@@ -5805,15 +5855,26 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "mg" = (
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "mh" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/bed/handrail{
@@ -5823,20 +5884,20 @@
 /area/shuttle/kataphract_shuttle/main_compartment)
 "mi" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "mj" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -5875,23 +5936,22 @@
 /area/kataphract_chapter/trading_area)
 "mp" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "mq" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "ms" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 1;
@@ -5900,6 +5960,8 @@
 	name = "Bridge Blast Door";
 	opacity = 0
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bridge)
 "mt" = (
@@ -5922,7 +5984,7 @@
 	req_access = list(113)
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "mv" = (
 /obj/machinery/bodyscanner{
 	dir = 8
@@ -5942,16 +6004,16 @@
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Trading Area"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "my" = (
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Trading Area"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "mz" = (
@@ -5967,13 +6029,13 @@
 /area/kataphract_chapter/warehouse)
 "mB" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -6002,15 +6064,15 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "mE" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "mF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -6024,15 +6086,15 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/aft_hall)
 "mG" = (
 /obj/machinery/light/spot{
 	dir = 4
@@ -6048,7 +6110,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "mJ" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -6070,9 +6132,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "mM" = (
@@ -6098,8 +6158,8 @@
 "mO" = (
 /obj/machinery/firealarm/west,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -6108,16 +6168,16 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "mP" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -6132,14 +6192,19 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
 "mQ" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "mR" = (
 /obj/structure/bed,
 /obj/item/bedsheet/orange,
@@ -6166,7 +6231,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/port_solars_array)
 "mT" = (
 /obj/structure/bed,
 /obj/item/bedsheet/orange,
@@ -6185,17 +6250,7 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
-"mV" = (
-/obj/machinery/door/airlock/glass{
-	name = "Chapter Engineering and Hangar";
-	req_access = null;
-	req_one_access = list(113)
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
 "mW" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -6207,21 +6262,22 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Engineering and Hangar";
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "mX" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -6234,27 +6290,22 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/starboard_solars_array)
 "mY" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 1;
-	icon_state = "pdoor0";
-	id = "katashroud";
-	name = "Sensor Shroud";
-	opacity = 0
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "katashroud"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/bridge)
 "mZ" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/port_solars_array)
 "na" = (
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
@@ -6265,16 +6316,16 @@
 	},
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "nb" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Engineering and Hangar";
 	req_access = null;
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "nc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6297,8 +6348,9 @@
 /area/kataphract_chapter/hangar)
 "ne" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "nf" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 8
@@ -6311,9 +6363,10 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/portpropulsion)
 "nh" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/medical)
 "ni" = (
@@ -6324,8 +6377,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -6352,16 +6405,16 @@
 	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "nk" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -6386,21 +6439,22 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "kata_ship_out"
+	id_tag = "kata_ship_out";
+	locked = 1
 	},
 /obj/effect/shuttle_landmark/nav_kataphract_ship/starboarddock,
 /turf/simulated/floor,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "no" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/purple/full,
 /obj/item/storage/box/mousetraps,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "np" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
@@ -6420,8 +6474,8 @@
 /area/kataphract_chapter/medical)
 "nr" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "map-supply"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -6430,29 +6484,29 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "ns" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 8000.63
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "nt" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "nu" = (
 /obj/machinery/computer/ship/helm{
-	req_access = list(204);
-	dir = 4
+	dir = 4;
+	req_access = list(204)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -6467,22 +6521,24 @@
 	opacity = 0
 	},
 /obj/machinery/recharger,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "nw" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
 	id = "kataoffice"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/office)
 "nx" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
@@ -6502,8 +6558,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -6525,8 +6581,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6536,7 +6592,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "nB" = (
@@ -6547,8 +6603,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -6568,7 +6624,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "nD" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -6591,11 +6647,11 @@
 "nM" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "nW" = (
 /obj/machinery/door/airlock/silver{
 	id_tag = "kataofficedoor";
@@ -6609,20 +6665,20 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
 "op" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "ou" = (
 /turf/simulated/wall/r_wall,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "oC" = (
 /obj/structure/closet/firecloset,
 /obj/machinery/light{
@@ -6644,13 +6700,13 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/machinery/door/window{
 	dir = 8;
-	req_one_access = list(113);
-	name = "HYDROGEN FUEL"
+	name = "HYDROGEN FUEL";
+	req_one_access = list(113)
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
@@ -6668,8 +6724,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -6678,11 +6734,11 @@
 /area/kataphract_chapter/commissary)
 "pf" = (
 /turf/simulated/wall/r_wall,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "pg" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
@@ -6698,6 +6754,27 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
+"pj" = (
+/obj/effect/landmark/entry_point/east{
+	name = "aft, atmospherics"
+	},
+/turf/simulated/wall/r_wall,
+/area/kataphract_chapter/hangar)
+"po" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	is_critical = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24;
+	req_access = list(113)
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/trading_area)
 "pp" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -6707,7 +6784,17 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "px" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/brig)
+"pF" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	id = "egg_blastdoors"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "aft, bridge"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "pH" = (
@@ -6730,7 +6817,7 @@
 	name = "Trading Desk";
 	req_one_access = list(114,116)
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "pM" = (
@@ -6767,13 +6854,17 @@
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "pX" = (
-/turf/template_noop,
-/area/kataphract_chapter/hangar)
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/starboardpropulsion)
 "qd" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "kata_ship_out"
+	id_tag = "kata_ship_out";
+	locked = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -6783,8 +6874,11 @@
 	pixel_x = 8;
 	pixel_y = -24
 	},
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, airlock"
+	},
 /turf/simulated/floor,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "qm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -6802,33 +6896,40 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
+"qq" = (
+/turf/simulated/wall/r_wall,
+/area/kataphract_chapter/janitorial)
 "qt" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "kata_ship_in"
+	id_tag = "kata_ship_in";
+	locked = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "qA" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Cell";
 	req_access = list(113)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/office)
+/area/kataphract_chapter/brig)
 "qK" = (
 /obj/effect/shuttle_landmark/kataphract_transport/hangar,
 /turf/simulated/floor/plating,
@@ -6839,11 +6940,14 @@
 	req_one_access = list(113)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/machinery/door/firedoor{
-	dir = 8
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/portpropulsion)
 "qW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6862,7 +6966,8 @@
 	req_one_access = list(113)
 	},
 /obj/machinery/door/firedoor/multi_tile{
-	dir = 1
+	dir = 1;
+	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
@@ -6879,19 +6984,31 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "rm" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/trading_area)
+"rp" = (
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "egg_blastdoors"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
+/obj/effect/landmark/entry_point/south{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "rq" = (
 /obj/structure/sign/securearea{
 	pixel_x = 32
@@ -6919,19 +7036,24 @@
 /obj/machinery/door/airlock/glass_security{
 	name = "Hangar and Pod Bay"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "rv" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6942,15 +7064,23 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
+"rA" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/starboard_solars_array)
 "rM" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "rN" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/item/reagent_containers/food/snacks/meatsteak,
 /obj/structure/table/standard,
@@ -6967,8 +7097,8 @@
 /area/kataphract_chapter/engineering)
 "rZ" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -6997,12 +7127,12 @@
 /area/kataphract_chapter/commissary)
 "sB" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "sC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -7012,6 +7142,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
+"sG" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/high{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = list(113)
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/portpropulsion)
 "sX" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -7028,25 +7175,18 @@
 /area/kataphract_chapter/engineering)
 "th" = (
 /turf/simulated/wall/r_wall,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "tk" = (
 /obj/machinery/door/airlock/glass{
 	name = "Canisters and Supplies";
 	req_one_access = list(113)
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "tu" = (
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24;
-	req_one_access = list(113)
-	},
-/obj/machinery/portable_atmospherics/powered/pump/filled,
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/engineering)
+/turf/simulated/wall/r_wall,
+/area/kataphract_chapter/dorms)
 "tw" = (
 /obj/item/reagent_containers/food/snacks/hatchling_suprise,
 /obj/structure/table/standard,
@@ -7056,12 +7196,18 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Telecommunications"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/medical)
 "tH" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -7073,8 +7219,13 @@
 	brightness_color = "#FA8282";
 	dir = 1
 	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/portpropulsion)
 "ud" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
@@ -7087,7 +7238,6 @@
 	name = "Propulsion";
 	req_one_access = list(113)
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7096,14 +7246,25 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "uh" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
+"ul" = (
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/aft_hall)
+"un" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/aft_hall)
 "uy" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 32
@@ -7121,7 +7282,8 @@
 	child_tags_txt = "kataphract_shuttle";
 	frequency = 1380;
 	id_tag = "kataphract_transport";
-	pixel_y = 35
+	pixel_x = -26;
+	pixel_y = 39
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -7140,7 +7302,7 @@
 	name = "Trading Desk Shutters";
 	opacity = 0
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "uN" = (
@@ -7157,11 +7319,11 @@
 /area/kataphract_chapter/medical)
 "uR" = (
 /turf/simulated/wall,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "vf" = (
 /obj/effect/floor_decal/corner/purple,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "vj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -7187,7 +7349,25 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/aft_hall)
+"vL" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/starboard_solars_array)
 "vQ" = (
 /obj/machinery/power/apc{
 	dir = 2;
@@ -7211,11 +7391,25 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
+"wf" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10;
+	icon_state = "corner_white"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "wh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7240,17 +7434,40 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
+"wl" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/aft_hall)
 "wp" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 1
 	},
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/engine_compartment)
+"wv" = (
+/obj/effect/step_trigger/teleporter,
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/east,
+/area/space)
+"wz" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/hangar)
+"wB" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, cargo fore side"
+	},
+/turf/simulated/wall/r_wall,
+/area/kataphract_chapter/warehouse)
 "wI" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/photocopier/faxmachine{
@@ -7262,8 +7479,8 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -7294,12 +7511,40 @@
 /obj/item/storage/pill_bottle/dylovene,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"xm" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, solars fore side"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/starboard_solars_array)
+"xr" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
+"xB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/portpropulsion)
 "xC" = (
 /obj/structure/table/wood,
 /obj/machinery/button/switch/windowtint{
+	id = "kataoffice";
 	pixel_x = 5;
-	pixel_y = -1;
-	id = "kataoffice"
+	pixel_y = -1
 	},
 /turf/simulated/floor/carpet,
 /area/kataphract_chapter/office)
@@ -7310,6 +7555,25 @@
 /obj/item/extinguisher,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
+"xH" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, solars fore side"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/port_solars_array)
+"xT" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, cargo central side"
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/warehouse)
 "xW" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -7317,7 +7581,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/aft_hall)
 "xX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -7326,8 +7590,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -7341,8 +7605,8 @@
 /area/shuttle/kataphract_shuttle/main_compartment)
 "yi" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
@@ -7350,7 +7614,7 @@
 	},
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "yj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -7381,33 +7645,31 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/medical)
 "yr" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "yw" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "yy" = (
 /obj/structure/flora/pottedplant,
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/structure/sign/flag/hegemony{
 	pixel_y = 32
@@ -7416,12 +7678,12 @@
 /area/kataphract_chapter/bridge)
 "yD" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "yE" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7436,6 +7698,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
+"yM" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/port_solars_array)
 "yO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -7475,7 +7745,7 @@
 	pixel_y = 23
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "zI" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -7483,7 +7753,7 @@
 	id_tag = "kata_ship_pump"
 	},
 /turf/simulated/floor,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "zL" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -7527,8 +7797,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "map-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -7538,12 +7808,29 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/aft_hall)
+"Ah" = (
+/obj/effect/landmark/entry_point/east{
+	name = "aft, bridge starboard side"
+	},
+/turf/simulated/wall/r_wall,
+/area/shuttle/kataphract_shuttle/main_compartment)
+"Ak" = (
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -7557,23 +7844,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Aq" = (
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24
-	},
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/aft_hall)
 "Av" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 8000.63
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "Aw" = (
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
@@ -7623,7 +7905,7 @@
 	name = "Trading Desk";
 	req_one_access = list(114,116)
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "AY" = (
@@ -7651,12 +7933,25 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "Bi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
+"Bp" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/hangar)
 "Bv" = (
 /obj/effect/shuttle_landmark/nav_kataphract_ship/nav4,
 /turf/template_noop,
@@ -7671,6 +7966,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
+"BL" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, cargo aft side"
+	},
+/turf/simulated/wall/r_wall,
+/area/kataphract_chapter/warehouse)
 "BN" = (
 /obj/structure/table/wood,
 /obj/machinery/door/blast/shutters{
@@ -7686,7 +7987,7 @@
 	name = "Trading Desk";
 	req_one_access = list(114,116)
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "BV" = (
@@ -7707,7 +8008,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "BY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
@@ -7724,10 +8025,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
+"Ck" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/brig)
+"Cm" = (
+/obj/effect/landmark/entry_point/east{
+	name = "aft, bridge port side"
+	},
+/turf/simulated/wall/r_wall,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "Cp" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "Cx" = (
 /obj/effect/shuttle_landmark/nav_kataphract_ship/dockintrepid,
 /turf/template_noop,
@@ -7752,17 +8066,17 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/aft_hall)
 "CS" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -7803,23 +8117,27 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "kata_ship_in"
+	id_tag = "kata_ship_in";
+	locked = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "Dm" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113);
-	name = "detainment gear"
+	name = "detainment gear";
+	req_access = list(113)
 	},
 /obj/item/melee/baton/stunrod,
 /obj/item/melee/baton/stunrod,
 /obj/item/storage/box/zipties,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/office)
+/area/kataphract_chapter/brig)
 "Dx" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -7832,25 +8150,33 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
+"DC" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/port_solars_array)
 "DE" = (
 /obj/structure/cable/yellow,
 /obj/machinery/power/solar_control/autostart,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "DG" = (
 /obj/machinery/button/remote/blast_door{
 	id = "kataqmblast";
 	name = "Shutter Control";
 	pixel_x = -27;
-	req_one_access = list(115)
+	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "DX" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -7866,17 +8192,20 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "Ea" = (
 /turf/simulated/wall,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "Ef" = (
 /obj/structure/closet/crate/trashcart,
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "Eg" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -7898,9 +8227,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
+"En" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/hangar)
 "Er" = (
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
@@ -7909,7 +8253,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/office)
+/area/kataphract_chapter/brig)
 "Ew" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/spacecash/c50{
@@ -7922,9 +8266,16 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Janitorial"
 	},
-/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "EG" = (
 /obj/machinery/computer/guestpass{
 	pixel_y = 32
@@ -7936,8 +8287,12 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "EP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7950,9 +8305,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "Fc" = (
@@ -7960,8 +8313,11 @@
 /obj/structure/flora/pottedplant/random{
 	pixel_y = 5
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/office)
+/area/kataphract_chapter/brig)
 "Fd" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 8
@@ -7975,14 +8331,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
+"Fn" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, hangar central side"
+	},
+/turf/unsimulated/wall/fakepdoor,
+/area/kataphract_chapter/hangar)
 "FC" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -7990,7 +8352,6 @@
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Trading Area"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -7998,12 +8359,27 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/aft_hall)
 "FK" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/medical)
+"FL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/brig)
 "FS" = (
 /obj/structure/janitorialcart/full,
 /obj/effect/floor_decal/corner/purple/full{
@@ -8011,11 +8387,27 @@
 	},
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "FX" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
+"Ga" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, port engines"
+	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/portpropulsion)
+"Gi" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/hangar)
 "Gj" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -8046,6 +8438,19 @@
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
+"Gw" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/port_solars_array)
 "Gx" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
@@ -8060,6 +8465,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"GG" = (
+/obj/effect/landmark/entry_point/south{
+	name = "starboard, atmospherics"
+	},
+/turf/simulated/wall/r_wall,
+/area/shuttle/kataphract_shuttle/engine_compartment)
 "GO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -8077,7 +8488,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "GV" = (
@@ -8085,6 +8496,7 @@
 	name = "Quartermaster";
 	req_one_access = list(115,113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "GW" = (
@@ -8092,24 +8504,18 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "GX" = (
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24;
-	req_one_access = list(24,11,55)
+/obj/effect/floor_decal/corner/red{
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/machinery/vending/cola,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "GZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -8119,6 +8525,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
+"Hh" = (
+/turf/simulated/wall,
+/area/kataphract_chapter/starboardpropulsion)
+"Ho" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "katabridgeshutter"
+	},
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge central"
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/bridge)
 "Hr" = (
 /obj/machinery/alarm{
 	pixel_y = 25;
@@ -8128,7 +8549,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "Ht" = (
 /obj/effect/overmap/visitable/ship/kataphract_ship,
 /obj/machinery/hologram/holopad/long_range,
@@ -8145,7 +8566,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "HS" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/plating,
@@ -8171,7 +8592,18 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
+"Is" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/starboardpropulsion)
 "Iw" = (
 /obj/effect/shuttle_landmark/nav_kataphract_ship/nav3,
 /turf/template_noop,
@@ -8194,6 +8626,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
+"II" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/starboardpropulsion)
 "IJ" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
@@ -8209,12 +8648,25 @@
 /area/kataphract_chapter/bridge)
 "Jg" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
+"Jr" = (
+/obj/machinery/door/airlock/glass{
+	name = "Chapter Trading Area"
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/aft_hall)
+"Jv" = (
+/obj/effect/landmark/entry_point/west{
+	name = "aft, engines"
+	},
+/turf/simulated/wall/r_wall,
+/area/shuttle/kataphract_shuttle/engine_compartment)
 "Jy" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -8228,8 +8680,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -8239,10 +8691,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
+"JF" = (
+/turf/simulated/wall/r_wall,
+/area/kataphract_chapter/portpropulsion)
 "JI" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
+	dir = 4;
+	icon_state = "warning"
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -8261,7 +8716,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/aft_hall)
 "JW" = (
 /obj/effect/decal/fake_object{
 	desc = "An SUPB Pod, also know as a Single Use Personal Boarding Pod. These pods are utilized across the Spur for interdictions and hostile boarding actions across the Spur.";
@@ -8279,8 +8734,13 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/portpropulsion)
 "Ka" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -8293,7 +8753,7 @@
 	tag_interior_door = "kata_ship_in"
 	},
 /turf/simulated/floor,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "Kd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -8304,7 +8764,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "Kg" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -8318,14 +8778,19 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
-"Ko" = (
-/obj/machinery/door/airlock/glass{
-	name = "Chapter Trading Area"
+/area/kataphract_chapter/starboardpropulsion)
+"Kq" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "katabridgeshutter"
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge port"
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/bridge)
 "Ks" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
@@ -8337,7 +8802,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "Kw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -8361,8 +8826,8 @@
 /area/kataphract_chapter/engineering)
 "KK" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -8402,7 +8867,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "KT" = (
 /obj/effect/shuttle_landmark/nav_kataphract_ship/nav5,
 /turf/template_noop,
@@ -8412,8 +8877,12 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
+/obj/machinery/alarm{
+	pixel_y = 25;
+	req_one_access = list(113)
+	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "Ll" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -8423,7 +8892,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/black,
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "LD" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -8432,8 +8901,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -8443,8 +8912,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window{
@@ -8456,6 +8925,15 @@
 /obj/item/reagent_containers/food/snacks/koissteak,
 /turf/simulated/floor/lino,
 /area/kataphract_chapter/cafeteria)
+"LH" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, starboard engines"
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/starboardpropulsion)
 "LS" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -8473,15 +8951,26 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
+"LV" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, solars aft side"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/port_solars_array)
 "Mk" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -8499,7 +8988,7 @@
 /obj/machinery/door/airlock/glass_security{
 	name = "Hangar and Pod Bay"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "MD" = (
@@ -8521,14 +9010,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "MH" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "MP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "MT" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -8536,6 +9036,12 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
+/area/kataphract_chapter/hangar)
+"MZ" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, hangar aft side"
+	},
+/turf/unsimulated/wall/fakepdoor,
 /area/kataphract_chapter/hangar)
 "Nd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8552,13 +9058,12 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "Nh" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "Ni" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -8571,15 +9076,16 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/area/kataphract_chapter/aft_hall)
 "Nl" = (
 /obj/structure/sign/securearea{
 	pixel_y = -32
@@ -8593,26 +9099,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "Nq" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "map-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -8622,8 +9123,13 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/aft_hall)
 "Nv" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/bed/handrail{
@@ -8658,16 +9164,46 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
+"NR" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/port_solars_array)
 "NU" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
+"NV" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "katabridgeshutter"
+	},
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge starboard"
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/bridge)
 "Oa" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -8677,16 +9213,38 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
+"Od" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/trading_area)
 "Oh" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
+"Oi" = (
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/janitorial)
 "Os" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/cable{
@@ -8701,13 +9259,14 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "Ou" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/office)
+/area/kataphract_chapter/brig)
 "OA" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -8732,20 +9291,10 @@
 "OJ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "OT" = (
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
-	req_access = list(113)
-	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/aft_hall)
 "OY" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/crate,
@@ -8754,15 +9303,29 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
 "Pb" = (
-/obj/machinery/access_button/airlock_exterior{
-	frequency = 1983;
-	master_tag = "chapter_port_airlock";
-	pixel_x = 21;
-	pixel_y = -22
-	},
-/obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/area/kataphract_chapter/port_solars_array)
+"Pg" = (
+/obj/effect/landmark/entry_point/north{
+	name = "port, atmospherics"
+	},
+/turf/simulated/wall/r_wall,
+/area/shuttle/kataphract_shuttle/engine_compartment)
+"Pl" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "Pm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -8775,7 +9338,7 @@
 "Pr" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black,
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "Ps" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8783,24 +9346,41 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "PD" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable/yellow{
+/obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light,
-/turf/simulated/floor/airless,
-/area/kataphract_chapter/port_solars)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 8;
+	icon_state = "corner_white"
+	},
+/obj/effect/floor_decal/corner/yellow,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 1;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/aft_hall)
 "PG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "PI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8814,15 +9394,41 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/hangar)
+/area/kataphract_chapter/aft_hall)
+"PJ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 1;
+	icon_state = "corner_white"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "PO" = (
 /obj/structure/cable/yellow{
 	d1 = 2;
@@ -8836,10 +9442,9 @@
 	pixel_y = 23
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/port_solars_array)
+/area/kataphract_chapter/starboard_solars)
 "PW" = (
-/obj/effect/shuttle_landmark/kataphract_transport/transit,
-/turf/template_noop,
+/turf/space/transit/east,
 /area/space)
 "Qh" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -8848,12 +9453,12 @@
 "QD" = (
 /obj/structure/flora/pottedplant,
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/structure/sign/flag/hegemony{
 	pixel_y = 32
@@ -8873,14 +9478,14 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "QF" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "QT" = (
 /obj/machinery/firealarm/east,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8916,6 +9521,12 @@
 /obj/machinery/photocopier,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
+"Ro" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, hangar fore side"
+	},
+/turf/unsimulated/wall/fakepdoor,
+/area/kataphract_chapter/hangar)
 "Ru" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/table/rack,
@@ -8932,6 +9543,9 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"Rz" = (
+/turf/space,
+/area/kataphract_chapter/starboard_solars_array)
 "RA" = (
 /obj/machinery/computer/ship/sensors,
 /obj/structure/window/reinforced{
@@ -8966,8 +9580,9 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/bar/padded,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/office)
+/area/kataphract_chapter/brig)
 "RY" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/bed/handrail{
@@ -8976,8 +9591,8 @@
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
 	id_tag = "kataphract_shuttle_sensor";
-	pixel_y = 7;
-	pixel_x = 25
+	pixel_x = 25;
+	pixel_y = 7
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -9039,21 +9654,21 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "Sx" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/machinery/alarm{
 	pixel_y = 25;
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "Sy" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	frequency = 1983;
@@ -9069,13 +9684,31 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
+/area/kataphract_chapter/port_solars)
 "Sz" = (
 /obj/structure/sign/flag/hegemony/left{
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
+"SG" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/starboard_solars_array)
+"SJ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/hangar)
 "SZ" = (
 /obj/structure/table/rack,
 /obj/item/stack/rods,
@@ -9092,27 +9725,41 @@
 "Td" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "Th" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24;
+	req_access = list(113)
+	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "Tp" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1380;
-	id_tag = "militia_ship_pump"
+	id_tag = "kata_ship_pump"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
 	id_tag = "kata_ship_sensor";
-	pixel_y = -23;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = -23
 	},
 /turf/simulated/floor,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "Tt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 6
@@ -9140,6 +9787,25 @@
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
+"TJ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/power/apc{
+	dir = 2;
+	is_critical = 1;
+	name = "south bump";
+	pixel_y = -24;
+	req_access = list(113)
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/brig)
 "TN" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots/hegemony,
@@ -9154,8 +9820,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -9172,6 +9838,9 @@
 	icon_state = "door_locked";
 	id_tag = "kataphract_shuttle_out";
 	locked = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "port, airlock"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -9206,24 +9875,38 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
 "UC" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "UE" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/item/modular_computer/handheld/pda,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
+"UM" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/starboard_solars_array)
 "UT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black,
 /turf/simulated/wall/r_wall,
@@ -9236,6 +9919,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"Ve" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/alarm{
+	pixel_y = 25;
+	req_one_access = list(113)
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/portpropulsion)
 "Vj" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/kataphract,
@@ -9246,15 +9940,15 @@
 /area/kataphract_chapter/commissary)
 "VG" = (
 /obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "katashroud";
 	name = "Sensor Shroud";
+	pixel_x = 27;
 	req_access = list(113);
-	req_one_access = null;
-	pixel_x = 27
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -9262,23 +9956,44 @@
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/lino,
 /area/kataphract_chapter/cafeteria)
+"VN" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/hangar)
 "VU" = (
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "VZ" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "Wi" = (
 /obj/item/pipewrench,
 /obj/random/tech_supply,
+/obj/machinery/alarm{
+	pixel_y = 25;
+	req_one_access = list(113)
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
+"Wl" = (
+/obj/effect/landmark/entry_point/north{
+	name = "aft, central"
+	},
+/turf/simulated/wall/r_wall,
+/area/kataphract_chapter/starboardpropulsion)
 "Wr" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
@@ -9295,6 +10010,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
+"Wt" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/aft_hall)
+"Wx" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard janitorial"
+	},
+/turf/simulated/wall/r_wall,
+/area/kataphract_chapter/janitorial)
 "WG" = (
 /obj/machinery/firealarm/east,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9322,11 +10054,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "WV" = (
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
@@ -9353,11 +10085,24 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "Xf" = (
 /turf/simulated/wall,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/janitorial)
+"Xy" = (
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -25;
+	req_one_access = list(113)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/bridge)
 "XI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -9371,17 +10116,41 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/trading_area)
+/area/kataphract_chapter/entry)
 "XZ" = (
 /obj/machinery/autolathe,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
+"Ya" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "Yb" = (
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24;
+	req_one_access = list(113)
+	},
 /turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/office)
+/area/kataphract_chapter/brig)
 "Yg" = (
 /obj/machinery/light/spot{
 	dir = 1
@@ -9397,7 +10166,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/propulsion)
+/area/kataphract_chapter/starboardpropulsion)
 "Yo" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -9414,8 +10183,8 @@
 	dir = 5
 	},
 /obj/machinery/alarm{
-	pixel_x = -28;
 	dir = 4;
+	pixel_x = -28;
 	req_one_access = list(113)
 	},
 /obj/structure/cable{
@@ -9436,6 +10205,27 @@
 /obj/item/clothing/glasses/sunglasses,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
+"YP" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "katabridgeshutter"
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/bridge)
+"YQ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/hangar)
 "YT" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/spacecash/c200,
@@ -9446,7 +10236,6 @@
 /area/kataphract_chapter/dorms)
 "YX" = (
 /obj/machinery/door/airlock/hatch,
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -9455,6 +10244,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "Ze" = (
@@ -9465,8 +10255,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9487,11 +10277,32 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
+"Zf" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/high{
+	name = "south bump";
+	pixel_y = -24
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/hangar)
 "Zz" = (
 /obj/item/reagent_containers/food/snacks/meatsteak,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
+"ZO" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/alarm{
+	pixel_y = 25;
+	req_one_access = list(113)
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 
 (1,1,1) = {"
 iB
@@ -9624,36 +10435,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (2,1,1) = {"
 iB
@@ -9786,36 +10597,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (3,1,1) = {"
 iB
@@ -9948,36 +10759,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (4,1,1) = {"
 iB
@@ -10110,36 +10921,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (5,1,1) = {"
 iB
@@ -10272,36 +11083,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (6,1,1) = {"
 iB
@@ -10434,36 +11245,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (7,1,1) = {"
 iB
@@ -10596,36 +11407,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (8,1,1) = {"
 iB
@@ -10758,36 +11569,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (9,1,1) = {"
 iB
@@ -10920,36 +11731,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (10,1,1) = {"
 iB
@@ -11082,36 +11893,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (11,1,1) = {"
 iB
@@ -11244,36 +12055,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (12,1,1) = {"
 iB
@@ -11406,36 +12217,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (13,1,1) = {"
 iB
@@ -11568,36 +12379,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (14,1,1) = {"
 iB
@@ -11730,36 +12541,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 PW
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+iv
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (15,1,1) = {"
 iB
@@ -11892,36 +12703,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (16,1,1) = {"
 iB
@@ -12054,36 +12865,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (17,1,1) = {"
 iB
@@ -12216,36 +13027,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (18,1,1) = {"
 iB
@@ -12378,36 +13189,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (19,1,1) = {"
 iB
@@ -12540,36 +13351,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (20,1,1) = {"
 iB
@@ -12702,36 +13513,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (21,1,1) = {"
 iB
@@ -12864,36 +13675,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (22,1,1) = {"
 iB
@@ -13026,36 +13837,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (23,1,1) = {"
 iB
@@ -13188,36 +13999,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (24,1,1) = {"
 iB
@@ -13350,36 +14161,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (25,1,1) = {"
 iB
@@ -13512,36 +14323,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (26,1,1) = {"
 iB
@@ -13674,36 +14485,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (27,1,1) = {"
 iB
@@ -13836,36 +14647,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (28,1,1) = {"
 iB
@@ -13998,36 +14809,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (29,1,1) = {"
 iB
@@ -14160,36 +14971,36 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
 au
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 "}
 (30,1,1) = {"
 iB
@@ -14322,10 +15133,10 @@ iB
 iB
 iB
 iB
-iv
-au
-au
-au
+iB
+iB
+iB
+wv
 au
 au
 au
@@ -15394,15 +16205,15 @@ ec
 dF
 ec
 dF
-ec
+xH
 dF
 ec
 dF
-jc
+yM
 dF
 ec
 dF
-ec
+LV
 dF
 ec
 dF
@@ -15554,11 +16365,11 @@ iB
 iB
 eg
 ey
-eN
+NR
 ey
-eN
+NR
 ey
-eN
+NR
 ey
 jh
 ey
@@ -15568,7 +16379,7 @@ mS
 ey
 mS
 ey
-mX
+Gw
 iB
 iB
 iB
@@ -15714,23 +16525,23 @@ iB
 iB
 iB
 iB
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-jc
+yM
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 iB
 iB
 iB
@@ -15884,7 +16695,7 @@ dF
 dF
 dF
 dF
-jc
+yM
 dF
 dF
 dF
@@ -16046,7 +16857,7 @@ ec
 dF
 ec
 dF
-jc
+yM
 dF
 ec
 dF
@@ -16202,11 +17013,11 @@ iB
 iB
 eg
 ey
-eN
+NR
 ey
-eN
+NR
 ey
-eN
+NR
 ey
 jh
 ey
@@ -16216,7 +17027,7 @@ mS
 ey
 mS
 ey
-mX
+Gw
 iB
 iB
 iB
@@ -16362,23 +17173,23 @@ iB
 iB
 iB
 iB
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-jc
+yM
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 iB
 iB
 iB
@@ -16532,7 +17343,7 @@ dF
 dF
 dF
 dF
-jc
+yM
 dF
 dF
 dF
@@ -16694,7 +17505,7 @@ ec
 dF
 ec
 dF
-jc
+yM
 dF
 ec
 dF
@@ -16850,11 +17661,11 @@ iB
 iB
 eg
 ey
-eN
+NR
 ey
-eN
+NR
 ey
-eN
+NR
 ey
 jh
 ey
@@ -16864,7 +17675,7 @@ mS
 ey
 mS
 ey
-mX
+Gw
 iB
 iB
 iB
@@ -17010,23 +17821,23 @@ iB
 iB
 iB
 iB
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-jc
+yM
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 iB
 iB
 iB
@@ -17180,7 +17991,7 @@ dF
 dF
 dF
 dF
-jc
+yM
 dF
 dF
 dF
@@ -17342,7 +18153,7 @@ ec
 dF
 ec
 dF
-jc
+yM
 dF
 ec
 dF
@@ -17498,11 +18309,11 @@ iB
 iB
 eg
 ey
-eN
+NR
 ey
-eN
+NR
 ey
-eN
+NR
 ey
 jh
 ey
@@ -17512,7 +18323,7 @@ mS
 ey
 mS
 ey
-mX
+Gw
 iB
 iB
 iB
@@ -17658,23 +18469,23 @@ iB
 iB
 iB
 iB
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-jc
+yM
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 iB
 iB
 iB
@@ -17828,7 +18639,7 @@ dF
 dF
 dF
 dF
-jc
+yM
 dF
 dF
 dF
@@ -17990,7 +18801,7 @@ ec
 dF
 ec
 dF
-jc
+yM
 dF
 ec
 dF
@@ -18146,11 +18957,11 @@ iB
 iB
 eg
 ey
-eN
+NR
 ey
-eN
+NR
 ey
-eN
+NR
 ey
 jh
 ey
@@ -18160,7 +18971,7 @@ mS
 ey
 mS
 ey
-mX
+Gw
 iB
 iB
 iB
@@ -18306,23 +19117,23 @@ iB
 iB
 iB
 iB
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-jc
+yM
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 dF
-em
+DC
 iB
 iB
 iB
@@ -18476,7 +19287,7 @@ iB
 iB
 iB
 iB
-jc
+yM
 iB
 iB
 iB
@@ -18638,7 +19449,7 @@ iB
 iB
 iB
 iB
-jk
+yM
 iB
 iB
 iB
@@ -18799,9 +19610,9 @@ iB
 iB
 iB
 iB
-hV
-jk
-hV
+Pb
+yM
+Pb
 iB
 iB
 iB
@@ -18961,19 +19772,19 @@ iB
 iB
 iB
 iB
-hV
+Pb
 jv
-mQ
-mQ
-mQ
-mQ
-mQ
-mQ
-mQ
-PD
-mQ
-mQ
-mQ
+ey
+ey
+ey
+ey
+ey
+ey
+ey
+ey
+ey
+ey
+ey
 mZ
 iB
 iB
@@ -19123,20 +19934,20 @@ jg
 jg
 jg
 jg
-hW
-hW
-hW
-hW
-hW
-hW
-hW
-hW
-hW
-hW
-hW
-hW
-hW
-jk
+fq
+fq
+fq
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+yM
 iB
 iB
 iB
@@ -19297,8 +20108,8 @@ fK
 fK
 fK
 fK
-hW
-jk
+tu
+yM
 iB
 iB
 iB
@@ -19459,8 +20270,8 @@ fZ
 mR
 ge
 fK
-hW
-jk
+tu
+yM
 iB
 iB
 iB
@@ -19621,8 +20432,8 @@ ge
 ge
 hF
 fK
-hW
-jk
+tu
+yM
 iB
 iB
 iB
@@ -19631,18 +20442,18 @@ kr
 ig
 ig
 ig
+Ro
+ig
+ig
+Fn
 ig
 ig
 ig
-ig
-ig
-ig
-ig
-ig
+MZ
 ig
 ig
 kr
-pX
+iB
 iB
 iB
 iB
@@ -19783,12 +20594,12 @@ ge
 ge
 Gk
 fK
-hW
+tu
 jv
-mQ
+ey
 mZ
-hV
-iB
+Pb
+jX
 kr
 aa
 aa
@@ -19945,22 +20756,22 @@ pH
 ge
 hH
 fK
-hW
-hV
-hV
-jk
+tu
 Pb
-iB
+Pb
+yM
+Pb
+jX
 kr
 Yg
 aa
 aa
 aa
-jF
-jF
-jF
-jF
-jF
+fo
+fo
+pF
+fo
+fo
 aa
 aa
 aa
@@ -20117,13 +20928,13 @@ kr
 aa
 aa
 bH
-ae
+Ah
 ae
 aF
 nu
 Ul
 ae
-ae
+Cm
 Jy
 aa
 aa
@@ -20457,7 +21268,7 @@ kr
 kr
 kr
 kr
-kr
+pj
 kr
 kr
 iB
@@ -20603,7 +21414,7 @@ ia
 aa
 ae
 ae
-ae
+xr
 ae
 ME
 Af
@@ -20622,7 +21433,7 @@ kr
 kr
 kr
 kr
-th
+JF
 iB
 iB
 iB
@@ -20763,7 +21574,7 @@ kW
 Ea
 ia
 aa
-an
+jF
 JD
 LD
 iC
@@ -20774,7 +21585,7 @@ HK
 kK
 sn
 pW
-px
+jF
 aa
 eq
 Nl
@@ -20784,8 +21595,8 @@ zT
 lL
 Nh
 kr
-th
-th
+JF
+JF
 iB
 iB
 iB
@@ -20925,7 +21736,7 @@ kd
 Ea
 ia
 aa
-an
+rp
 xX
 bi
 bi
@@ -20946,10 +21757,10 @@ iw
 ff
 zm
 kr
-th
-th
-th
-th
+JF
+JF
+JF
+JF
 iB
 iB
 iB
@@ -21087,7 +21898,7 @@ Ea
 Ea
 ia
 aa
-an
+jF
 mc
 fU
 eo
@@ -21108,8 +21919,8 @@ iz
 ff
 pi
 kr
-th
-th
+JF
+JF
 jG
 bZ
 iB
@@ -21270,10 +22081,10 @@ oC
 cT
 oX
 kr
-th
-th
+JF
+JF
 ng
-th
+JF
 iB
 iB
 iB
@@ -21375,7 +22186,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 aG
 aN
 bb
@@ -21411,7 +22222,7 @@ kf
 XZ
 ia
 Yg
-al
+GG
 rM
 Os
 Ys
@@ -21432,10 +22243,10 @@ kr
 kr
 kr
 kr
-th
-th
-nC
-bZ
+JF
+JF
+Ve
+Ga
 iB
 iB
 iB
@@ -21537,7 +22348,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aO
 bc
@@ -21546,7 +22357,7 @@ bc
 bI
 aC
 ab
-cf
+cj
 cp
 cf
 cN
@@ -21594,10 +22405,10 @@ TH
 iM
 dR
 kr
-th
-th
+JF
+JF
 jC
-th
+JF
 iB
 iB
 iB
@@ -21699,7 +22510,7 @@ iB
 iB
 iB
 iB
-ms
+Kq
 ay
 aP
 bd
@@ -21743,7 +22554,7 @@ Si
 ar
 Wr
 lJ
-al
+Pg
 aa
 aa
 Kw
@@ -21756,9 +22567,9 @@ aw
 ix
 yE
 kr
-th
-th
-nC
+JF
+JF
+sG
 bZ
 iB
 iB
@@ -21861,7 +22672,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aQ
 be
@@ -21911,17 +22722,17 @@ WY
 iP
 Iz
 hJ
-hJ
+Zf
 kr
 JW
 RL
 iM
 iw
 kr
-th
-th
-ng
-th
+JF
+JF
+xB
+JF
 iB
 iB
 iB
@@ -22073,7 +22884,7 @@ ax
 nd
 Iz
 hJ
-Nl
+Ak
 kr
 aw
 aw
@@ -22192,9 +23003,9 @@ bb
 bt
 bb
 bJ
-aC
+Xy
 ab
-cj
+cf
 cp
 cf
 du
@@ -22232,20 +23043,20 @@ dM
 aa
 aa
 ax
-nd
-Iz
-hJ
-hJ
+YQ
+VN
+wz
+Bp
 lo
-ff
-ff
+Gi
+Gi
 Xe
 kn
 qS
 jY
-th
-th
-th
+JF
+JF
+JF
 iB
 iB
 iB
@@ -22345,7 +23156,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 FC
 bJ
 aI
@@ -22388,7 +23199,7 @@ aa
 aa
 dM
 al
-al
+Jv
 dM
 aa
 aa
@@ -22404,8 +23215,8 @@ kQ
 Pm
 mw
 kr
-th
-th
+JF
+JF
 iB
 iB
 iB
@@ -22507,7 +23318,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aC
 aC
@@ -22566,8 +23377,8 @@ gZ
 lk
 Eg
 kr
-th
-iB
+JF
+JF
 iB
 iB
 iB
@@ -22669,7 +23480,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 hm
 aC
 aC
@@ -22698,7 +23509,7 @@ cf
 cp
 cf
 ia
-tu
+ih
 WG
 iL
 je
@@ -22718,7 +23529,7 @@ aa
 aa
 rq
 eq
-dW
+En
 hJ
 lA
 zL
@@ -22729,7 +23540,7 @@ CE
 iA
 kr
 th
-iB
+th
 iB
 iB
 iB
@@ -22831,7 +23642,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aC
 aC
@@ -22870,28 +23681,28 @@ ia
 ia
 kN
 kN
-kN
-kN
 bk
-lI
-lI
-lI
-lI
-lI
+bk
+SJ
+bk
+bk
+bk
+bk
+bk
 kN
 GP
 ru
 MC
-la
-la
-la
-la
-la
+kN
+kN
+kN
+kN
+kN
 kN
 eb
 kr
 th
-iB
+th
 iB
 iB
 iB
@@ -22993,7 +23804,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 ay
 aC
 aC
@@ -23021,39 +23832,39 @@ cP
 cf
 cp
 cf
-mV
-cf
-ep
+nb
+OT
+wl
 iK
 jJ
 kp
 kA
 kH
 kI
-cf
-cf
-cf
-cN
+OT
+OT
+OT
+un
 xW
-hJ
-hJ
+OT
+OT
 kT
-hJ
-hJ
-hJ
-hJ
-dW
-hJ
-Ko
-kP
-kP
+OT
+OT
+OT
+OT
+kO
+OT
+Jr
+FX
+FX
 mi
-Xf
-Xf
+Hh
+Hh
 mI
 MP
 th
-iB
+th
 iB
 iB
 iB
@@ -23155,7 +23966,7 @@ iB
 iB
 iB
 iB
-ms
+Ho
 az
 aC
 aI
@@ -23184,8 +23995,8 @@ EG
 ni
 iq
 mW
-iq
-iq
+PD
+PD
 iQ
 ko
 ky
@@ -23210,12 +24021,12 @@ FJ
 cI
 QE
 mp
-Xf
+Hh
 Av
 MP
 ai
 th
-iB
+Wl
 iB
 iB
 iB
@@ -23317,7 +24128,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 ay
 aC
 aC
@@ -23327,7 +24138,7 @@ aC
 aC
 aC
 bV
-ce
+cb
 cf
 cp
 cf
@@ -23346,38 +24157,38 @@ cf
 cp
 cf
 nb
-cf
-iJ
-gt
-cf
+OT
+Aq
+Wt
+OT
 kp
-cf
-cf
-iJ
-cf
+OT
+OT
+Aq
+OT
 kO
-cf
-cN
-hJ
-hJ
-hJ
+OT
+un
+OT
+iJ
+OT
 vJ
-hJ
-hJ
-hJ
+OT
+OT
+ul
 Aq
 OT
 lK
-Ko
-kP
-kS
+Jr
+FX
+mQ
 mi
-Xf
+Hh
 gS
 Pr
 lS
 th
-iB
+th
 iB
 iB
 iB
@@ -23479,7 +24290,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aC
 aC
@@ -23526,20 +24337,20 @@ la
 ah
 ah
 ah
-la
-la
-la
-la
-la
+jc
+jc
+jc
+jc
+jc
 lM
 nr
 mq
-Xf
+Hh
 aE
 Pr
 ai
 th
-iB
+th
 iB
 iB
 iB
@@ -23641,7 +24452,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 hm
 aC
 aC
@@ -23688,20 +24499,20 @@ AP
 lW
 lG
 lG
-la
+jc
 kx
 lB
 Oh
 mO
 lN
-kS
+mQ
 mi
-Xf
+Hh
 jV
 Lq
 WR
 th
-iB
+th
 iB
 iB
 iB
@@ -23803,7 +24614,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aC
 aC
@@ -23850,12 +24661,12 @@ BN
 lX
 lp
 mo
-la
+jc
 aj
-kP
-kP
-kP
-kP
+FX
+FX
+FX
+FX
 KQ
 rv
 ue
@@ -23863,7 +24674,7 @@ bF
 Ks
 Kg
 th
-iB
+th
 iB
 iB
 iB
@@ -23965,7 +24776,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 Mk
 bI
 aI
@@ -24013,20 +24824,20 @@ lY
 md
 lp
 mx
-kP
-kP
-kP
-kP
-kP
-kS
+FX
+FX
+FX
+FX
+FX
+mQ
 mi
-Xf
+Hh
 Hr
 lc
 Pr
 th
 th
-iV
+th
 iB
 iB
 iB
@@ -24182,7 +24993,7 @@ kZ
 kZ
 lU
 mE
-Xf
+Hh
 AZ
 er
 mI
@@ -24336,22 +25147,22 @@ uA
 ma
 ml
 mo
-la
+jc
 yi
 lE
-kP
-kP
-kP
+FX
+FX
+FX
 ca
 mi
-Xf
+Hh
 ns
 HR
 ns
 th
 Yi
 jl
-bZ
+pX
 iB
 iB
 iB
@@ -24453,7 +25264,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aQ
 be
@@ -24489,8 +25300,8 @@ ly
 MD
 la
 la
-kP
-kS
+po
+Od
 la
 yO
 nc
@@ -24498,7 +25309,7 @@ at
 mb
 QT
 gT
-la
+jc
 jZ
 mf
 kv
@@ -24507,12 +25318,12 @@ XS
 mg
 mp
 Xf
-th
-th
-th
-th
-th
-ng
+qq
+qq
+qq
+qq
+qq
+II
 th
 iB
 iB
@@ -24615,7 +25426,7 @@ iB
 iB
 iB
 iB
-ms
+NV
 ay
 aP
 bf
@@ -24660,22 +25471,22 @@ la
 la
 la
 la
-la
+jc
 GX
 lF
 DX
 ic
 bX
-kP
+ca
 mi
 Xf
 Uz
 Sw
 no
-th
-th
+qq
+qq
 nC
-bZ
+pX
 iB
 iB
 iB
@@ -24777,7 +25588,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aR
 bb
@@ -24822,21 +25633,21 @@ rm
 rm
 rm
 rm
-la
-la
-la
-la
-la
+jc
+jc
+jc
+jc
+jc
 yD
-yr
+Ya
 VZ
 Xf
 na
-MH
+Oi
 BX
-th
-th
-jC
+qq
+qq
+Is
 th
 iB
 iB
@@ -24939,7 +25750,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 aK
 aZ
 bc
@@ -24974,7 +25785,7 @@ uN
 ly
 fm
 fm
-la
+iR
 iR
 lh
 qW
@@ -24987,19 +25798,19 @@ iR
 iR
 iR
 iR
-la
-la
+jc
+jc
 lz
-kP
+ca
 mi
 Xf
 KX
-MH
+Oi
 ku
-th
-th
+qq
+qq
 nC
-bZ
+LH
 iB
 iB
 iB
@@ -25116,7 +25927,7 @@ cf
 cN
 cf
 cf
-cf
+dG
 cf
 fl
 cf
@@ -25136,7 +25947,7 @@ jM
 ly
 fm
 fm
-kJ
+iR
 iR
 lh
 lf
@@ -25149,18 +25960,18 @@ mA
 lh
 mA
 lh
-la
-la
+jc
+jc
 lC
-kP
+ca
 mp
 Xf
 EJ
-MH
-MH
-MH
+Oi
+Oi
+Oi
 cm
-ng
+II
 th
 iB
 iB
@@ -25271,7 +26082,7 @@ iB
 iB
 mY
 ks
-cv
+ab
 cu
 cu
 nw
@@ -25298,7 +26109,7 @@ jN
 uR
 uR
 fm
-kJ
+iR
 iR
 lh
 lf
@@ -25311,19 +26122,19 @@ mA
 lP
 mA
 lh
-la
-la
+jc
+jc
 UC
-kP
-mi
+Pl
+wf
 Ez
 MH
-MH
+Oi
 ku
-th
-th
+qq
+qq
 cd
-bZ
+pX
 iB
 iB
 iB
@@ -25433,7 +26244,7 @@ iB
 iB
 ab
 ab
-cv
+ab
 cv
 cu
 xC
@@ -25459,8 +26270,8 @@ jq
 mD
 jU
 uR
-pf
-kJ
+uR
+iR
 iR
 bj
 qm
@@ -25473,17 +26284,17 @@ mj
 mP
 vV
 mC
-la
-la
+jc
+jc
 Sx
-kP
+FX
 nM
 Xf
 Th
 vf
 Ne
-th
-th
+qq
+qq
 th
 th
 iB
@@ -25621,8 +26432,8 @@ jw
 eI
 mu
 uR
-pf
-kJ
+uR
+iR
 iR
 lh
 lh
@@ -25635,17 +26446,17 @@ mA
 mk
 mA
 lh
-la
-la
+jc
+jc
 lz
-kP
+FX
 mi
 Xf
 Ef
 FS
-th
-th
-th
+qq
+qq
+qq
 iB
 iB
 iB
@@ -25783,8 +26594,8 @@ PO
 jQ
 kb
 uR
-pf
-kJ
+uR
+iR
 iR
 NU
 li
@@ -25797,16 +26608,16 @@ mA
 lh
 mA
 lh
-la
-la
+jc
+jc
 QF
-kP
+FX
 mp
 Xf
-th
-th
-th
-th
+qq
+qq
+qq
+qq
 iB
 iB
 iB
@@ -25953,21 +26764,21 @@ kJ
 kJ
 jO
 jO
-jO
+xT
 jO
 jO
 kJ
-kJ
+BL
 kJ
 kw
 kw
 op
 yr
 sB
-th
-th
-th
-th
+qq
+qq
+qq
+Wx
 iB
 iB
 iB
@@ -26109,6 +26920,9 @@ jW
 pf
 pf
 kJ
+kJ
+wB
+kJ
 iB
 iB
 iB
@@ -26116,19 +26930,16 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
+kJ
+kJ
 kw
 Cp
-kP
-kP
-kP
+FX
+FX
+FX
 Cp
 kw
-iB
+kw
 iB
 iB
 iB
@@ -26252,7 +27063,7 @@ dx
 mM
 cu
 cf
-fo
+fl
 cf
 in
 gz
@@ -26282,15 +27093,15 @@ iB
 iB
 iB
 iB
-iB
+kJ
 kw
 ir
-kP
-kP
-kP
+FX
+FX
+FX
 ib
 kw
-iB
+kw
 iB
 iB
 iB
@@ -26406,15 +27217,15 @@ iB
 iB
 iB
 iB
-cv
-cu
-cu
-cu
-cu
-cu
-cu
-cg
-fo
+iV
+lI
+lI
+lI
+lI
+lI
+lI
+ZO
+fl
 CX
 fW
 go
@@ -26429,7 +27240,7 @@ hW
 hV
 hV
 jk
-jX
+hV
 iB
 iB
 iB
@@ -26444,7 +27255,7 @@ iB
 iB
 iB
 iB
-iB
+kJ
 kw
 zF
 PG
@@ -26452,7 +27263,7 @@ Td
 Td
 LS
 kw
-iB
+kw
 iB
 iB
 iB
@@ -26568,16 +27379,16 @@ iB
 iB
 iB
 iB
-cv
-cK
+iV
+ce
 cK
 cX
 Et
 cL
 eM
-ch
-fp
-cD
+cC
+PJ
+cf
 fW
 np
 tw
@@ -26589,7 +27400,7 @@ hQ
 fW
 hW
 hT
-mQ
+SG
 jn
 hV
 iB
@@ -26608,10 +27419,10 @@ iB
 iB
 iB
 kw
-FX
+ne
 Dl
 qt
-FX
+ne
 kw
 kw
 iB
@@ -26731,15 +27542,15 @@ iB
 iB
 iB
 cX
-cL
-cL
+px
+px
 cX
-cL
-cL
+px
+FL
 Ou
-cf
-fq
-cf
+ch
+fp
+cD
 fW
 dS
 fF
@@ -26892,13 +27703,13 @@ iB
 iB
 iB
 iB
-cv
+iV
 RR
-cL
+Ck
 qA
-cL
-cL
-cu
+an
+TJ
+lI
 iD
 fr
 VU
@@ -27054,13 +27865,13 @@ iB
 iB
 iB
 iB
-cv
-cv
+iV
+iV
 Fc
 cX
 Yb
 Dm
-cu
+lI
 eu
 eu
 eu
@@ -27217,15 +28028,15 @@ iB
 iB
 iB
 iB
-cv
-cv
-cv
-cv
-cv
-cv
-hW
-hW
-hW
+iV
+iV
+iV
+iV
+iV
+iV
+fq
+fq
+fq
 hW
 hW
 hW
@@ -27380,24 +28191,24 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
+iV
+iV
+iV
+iV
 iB
 hV
 hT
-mQ
-mQ
-mQ
-mQ
-mQ
-mQ
-mQ
-mQ
-mQ
-mQ
-mQ
+SG
+SG
+SG
+SG
+SG
+SG
+SG
+SG
+SG
+SG
+SG
 jn
 iB
 iB
@@ -27872,7 +28683,7 @@ iB
 iB
 iB
 iB
-jc
+jk
 iB
 iB
 iB
@@ -28026,23 +28837,23 @@ iB
 iB
 iB
 iB
-ec
-dF
-ec
-dF
-ec
-dF
-ec
-dF
-jc
-dF
-ec
-dF
-ec
-dF
-ec
-dF
-ec
+rA
+Rz
+rA
+Rz
+rA
+Rz
+rA
+Rz
+jk
+Rz
+rA
+Rz
+rA
+Rz
+rA
+Rz
+rA
 iB
 iB
 iB
@@ -28188,22 +28999,22 @@ iB
 iB
 iB
 iB
-eg
-ey
+UM
+SG
 eN
-ey
+SG
 eN
-ey
+SG
 eN
-ey
+SG
 hU
-ey
-mS
-ey
-mS
-ey
-mS
-ey
+SG
+vL
+SG
+vL
+SG
+vL
+SG
 mX
 iB
 iB
@@ -28351,21 +29162,21 @@ iB
 iB
 iB
 em
-dF
+Rz
 em
-dF
+Rz
 em
-dF
+Rz
 em
-dF
-jc
-dF
+Rz
+jk
+Rz
 em
-dF
+Rz
 em
-dF
+Rz
 em
-dF
+Rz
 em
 iB
 iB
@@ -28512,23 +29323,23 @@ iB
 iB
 iB
 iB
-dF
-dF
-dF
-dF
-dF
-dF
-dF
-dF
-jc
-dF
-dF
-dF
-dF
-dF
-dF
-dF
-dF
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+jk
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
 iB
 iB
 iB
@@ -28674,23 +29485,23 @@ iB
 iB
 iB
 iB
-ec
-dF
-ec
-dF
-ec
-dF
-ec
-dF
-jc
-dF
-ec
-dF
-ec
-dF
-ec
-dF
-ec
+rA
+Rz
+rA
+Rz
+rA
+Rz
+rA
+Rz
+jk
+Rz
+rA
+Rz
+rA
+Rz
+rA
+Rz
+rA
 iB
 iB
 iB
@@ -28836,22 +29647,22 @@ iB
 iB
 iB
 iB
-eg
-ey
+UM
+SG
 eN
-ey
+SG
 eN
-ey
+SG
 eN
-ey
+SG
 hU
-ey
-mS
-ey
-mS
-ey
-mS
-ey
+SG
+vL
+SG
+vL
+SG
+vL
+SG
 mX
 iB
 iB
@@ -28999,21 +29810,21 @@ iB
 iB
 iB
 em
-dF
+Rz
 em
-dF
+Rz
 em
-dF
+Rz
 em
-dF
-jc
-dF
+Rz
+jk
+Rz
 em
-dF
+Rz
 em
-dF
+Rz
 em
-dF
+Rz
 em
 iB
 iB
@@ -29160,23 +29971,23 @@ iB
 iB
 iB
 iB
-dF
-dF
-dF
-dF
-dF
-dF
-dF
-dF
-jc
-dF
-dF
-dF
-dF
-dF
-dF
-dF
-dF
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+jk
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
 iB
 iB
 iB
@@ -29322,23 +30133,23 @@ iB
 iB
 iB
 iB
-ec
-dF
-ec
-dF
-ec
-dF
-ec
-dF
-jc
-dF
-ec
-dF
-ec
-dF
-ec
-dF
-ec
+rA
+Rz
+rA
+Rz
+rA
+Rz
+rA
+Rz
+jk
+Rz
+rA
+Rz
+rA
+Rz
+rA
+Rz
+rA
 iB
 iB
 iB
@@ -29484,22 +30295,22 @@ iB
 iB
 iB
 iB
-eg
-ey
+UM
+SG
 eN
-ey
+SG
 eN
-ey
+SG
 eN
-ey
+SG
 hU
-ey
-mS
-ey
-mS
-ey
-mS
-ey
+SG
+vL
+SG
+vL
+SG
+vL
+SG
 mX
 iB
 iB
@@ -29647,21 +30458,21 @@ iB
 iB
 iB
 em
-dF
+Rz
 em
-dF
+Rz
 em
-dF
+Rz
 em
-dF
-jc
-dF
+Rz
+jk
+Rz
 em
-dF
+Rz
 em
-dF
+Rz
 em
-dF
+Rz
 em
 iB
 iB
@@ -29808,23 +30619,23 @@ iB
 iB
 iB
 iB
-dF
-dF
-dF
-dF
-dF
-dF
-dF
-dF
-jc
-dF
-dF
-dF
-dF
-dF
-dF
-dF
-dF
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+jk
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
 iB
 iB
 iB
@@ -29970,23 +30781,23 @@ iB
 iB
 iB
 iB
-ec
-dF
-ec
-dF
-ec
-dF
-ec
-dF
-jc
-dF
-ec
-dF
-ec
-dF
-ec
-dF
-ec
+rA
+Rz
+rA
+Rz
+rA
+Rz
+rA
+Rz
+jk
+Rz
+rA
+Rz
+rA
+Rz
+rA
+Rz
+rA
 iB
 iB
 iB
@@ -30132,22 +30943,22 @@ iB
 iB
 iB
 iB
-eg
-ey
+UM
+SG
 eN
-ey
+SG
 eN
-ey
+SG
 eN
-ey
+SG
 hU
-ey
-mS
-ey
-mS
-ey
-mS
-ey
+SG
+vL
+SG
+vL
+SG
+vL
+SG
 mX
 iB
 iB
@@ -30295,21 +31106,21 @@ iB
 iB
 iB
 em
-dF
+Rz
 em
-dF
+Rz
 em
-dF
+Rz
 em
-dF
-jc
-dF
+Rz
+jk
+Rz
 em
-dF
+Rz
 em
-dF
+Rz
 em
-dF
+Rz
 em
 iB
 iB
@@ -30456,23 +31267,23 @@ iB
 iB
 iB
 iB
-dF
-dF
-dF
-dF
-dF
-dF
-dF
-dF
-jc
-dF
-dF
-dF
-dF
-dF
-dF
-dF
-dF
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+jk
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
+Rz
 iB
 iB
 iB
@@ -30618,23 +31429,23 @@ iB
 iB
 iB
 iB
-ec
-dF
-ec
-dF
-ec
-dF
-ec
-dF
-jc
-dF
-ec
-dF
-ec
-dF
-ec
-dF
-ec
+rA
+Rz
+rA
+Rz
+rA
+Rz
+rA
+Rz
+jk
+Rz
+rA
+Rz
+rA
+Rz
+rA
+Rz
+rA
 iB
 iB
 iB
@@ -30780,22 +31591,22 @@ iB
 iB
 iB
 iB
-eg
-ey
+UM
+SG
 eN
-ey
+SG
 eN
-ey
+SG
 eN
-ey
+SG
 hU
-ey
-mS
-ey
-mS
-ey
-mS
-ey
+SG
+vL
+SG
+vL
+SG
+vL
+SG
 mX
 iB
 iB
@@ -30943,21 +31754,21 @@ iB
 iB
 iB
 em
-dF
+Rz
+xm
+Rz
 em
-dF
+Rz
 em
-dF
+Rz
+jk
+Rz
 em
-dF
-jc
-dF
+Rz
 em
-dF
-em
-dF
-em
-dF
+Rz
+by
+Rz
 em
 iB
 iB

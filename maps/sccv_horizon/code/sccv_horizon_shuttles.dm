@@ -29,7 +29,7 @@
 /obj/effect/shuttle_landmark/burglar_ship/interim
 	name = "In Transit"
 	landmark_tag = "nav_burglar_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/burglar_ship/hangar
 	name = "Port Hangar"
@@ -79,7 +79,7 @@
 /obj/effect/shuttle_landmark/skipjack_ship/interim
 	name = "In Transit"
 	landmark_tag = "nav_skipjack_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/skipjack_ship/third_deck
 	name = "Third Deck"
@@ -129,7 +129,7 @@
 /obj/effect/shuttle_landmark/merc_ship/interim
 	name = "In Transit"
 	landmark_tag = "nav_merc_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/merc_ship/dock
 	name = "Third Deck Dock"
@@ -156,7 +156,7 @@
 /datum/shuttle/autodock/overmap/intrepid
 	name = "Intrepid"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/intrepid/crew_compartment, /area/shuttle/intrepid/cargo_bay, /area/shuttle/intrepid/medical_compartment, /area/shuttle/intrepid/engine_compartment, /area/shuttle/intrepid/atmos_compartment, /area/shuttle/intrepid/cockpit)
+	shuttle_area = list(/area/shuttle/intrepid/crew_compartment, /area/shuttle/intrepid/cargo_bay, /area/shuttle/intrepid/medical_compartment, /area/shuttle/intrepid/engine_compartment, /area/shuttle/intrepid/atmos_compartment, /area/shuttle/intrepid/cockpit, /area/shuttle/intrepid/rotary)
 	dock_target = "intrepid_shuttle"
 	current_location = "nav_hangar_intrepid"
 	landmark_transition = "nav_transit_intrepid"
@@ -174,11 +174,11 @@
 /obj/effect/shuttle_landmark/intrepid/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_intrepid"
-	base_turf = /turf/space/transit
+	base_turf = /turf/space/transit/north
 
 // Mining Shuttle
 /datum/shuttle/autodock/overmap/mining
-	name = "Mining Shuttle"
+	name = "Spark"
 	move_time = 20
 	shuttle_area = /area/shuttle/mining
 	dock_target = "mining_shuttle_controller"
@@ -198,3 +198,24 @@
 /obj/effect/shuttle_landmark/mining/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_mining"
+
+// Cargo Shuttle
+/datum/shuttle/autodock/ferry/supply/horizon
+	name = "Horizon Cargo Shuttle"
+	location = 1
+	shuttle_area = /area/supply/dock
+	dock_target = "cargo_shuttle"
+	waypoint_station = "nav_cargo_shuttle_dock"
+	waypoint_offsite = "nav_cargo_shuttle_start"
+
+/obj/effect/shuttle_landmark/supply/horizon/start
+	name = "Horizon Cargo Shuttle Central Command Dock"
+	landmark_tag = "nav_cargo_shuttle_start"
+	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/centcom
+
+/obj/effect/shuttle_landmark/supply/horizon/dock
+	name = "Horizon Cargo Shuttle Dock"
+	landmark_tag = "nav_cargo_shuttle_dock"
+	docking_controller = "cargo_shuttle_dock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET

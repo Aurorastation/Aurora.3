@@ -222,8 +222,17 @@
 
 /obj/item/clothing/head/feathertrilby
 	name = "feather trilby"
+	icon = 'icons/contained_items/clothing/headwear/feather_trilby.dmi'
 	icon_state = "feather_trilby"
+	item_state = "feather_trilby"
+	contained_sprite = TRUE
 	desc = "A sharp, stylish hat with a feather."
+
+/obj/item/clothing/head/feathertrilby/colourable
+	icon_state = "feather_trilby_grayscale"
+	item_state = "feather_trilby_grayscale"
+	build_from_parts = TRUE
+	worn_overlay = "feather"
 
 /obj/item/clothing/head/fez
 	name = "fez"

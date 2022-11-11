@@ -56,7 +56,7 @@
 
 /obj/item/clothing/head/caphat/bridge_crew/alt
 	name = "bridge crew cap"
-	desc = " A more formal in a Colettish style, authorized for the bridge crew of SCC vessels."
+	desc = "A more formal hat in a Colettish style, authorized for the bridge crew of SCC vessels."
 	desc_fluff = "Designed to allow the wearer to wear both a peaked cap and a radio headset, Colettish 'crusher' caps are prized throughout the Alliance and Republic for their comfort."
 	icon = 'icons/contained_items/clothing/hats/bridge_crew_cap_alt.dmi'
 	contained_sprite = TRUE
@@ -104,6 +104,10 @@
 /obj/item/clothing/head/surgery/pmc
 	icon_state = "surgcap_pmc"
 	item_state = "surgcap_pmc"
+
+/obj/item/clothing/head/surgery/pmc/alt
+	icon_state = "surgcap_pmc_alt"
+	item_state = "surgcap_pmc_alt"
 
 // Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
