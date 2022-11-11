@@ -23566,28 +23566,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
-"lOH" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/maintenance/aft)
 "lOO" = (
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -23732,6 +23710,12 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/cee,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/structure/cable{
+	icon_state = "12-0"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "lSo" = (
@@ -27136,12 +27120,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_two/fore)
 "nAz" = (
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/obj/structure/cable{
-	icon_state = "12-0"
-	},
 /obj/structure/disposalpipe/up{
 	dir = 4
 	},
@@ -33275,6 +33253,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -71626,7 +71607,7 @@ tJB
 nlG
 nlG
 nAz
-lOH
+vmv
 aUB
 rbf
 hDr
