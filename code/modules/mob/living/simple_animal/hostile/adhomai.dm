@@ -25,7 +25,7 @@
 
 	environment_smash = 1
 
-	faction = "sham'tyr"
+	faction = "Adhomai"
 	flying = TRUE
 	butchering_products = list(/obj/item/stack/material/animalhide = 1)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai

@@ -103,7 +103,6 @@
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
 	generated_name = FALSE
-	habitability_class = HABITABILITY_IDEAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_habitability()
 	return HABITABILITY_IDEAL
@@ -129,7 +128,8 @@
 	water_level_max = 3
 	land_type = /turf/simulated/floor/exoplanet/snow
 	water_type = /turf/simulated/floor/exoplanet/ice
-	fauna_types = list(/mob/living/simple_animal/ice_tunneler, /mob/living/simple_animal/fatshouter, /mob/living/simple_animal/hostile/retaliate/rafama)
+	fauna_types = list(/mob/living/simple_animal/ice_tunneler, /mob/living/simple_animal/fatshouter, /mob/living/simple_animal/hostile/retaliate/rafama, /mob/living/simple_animal/hostile/wind_devil,
+					/mob/living/carbon/human/farwa)
 
 /datum/random_map/noise/exoplanet/snow/adhomai/generate_flora()
 	for(var/i = 1 to flora_diversity)

@@ -14,6 +14,7 @@
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	hunger_enabled = FALSE
 	canbrush = TRUE
+	faction = "Adhomai"
 	var/eggsleft = 0
 
 /mob/living/simple_animal/ice_tunneler/attackby(var/obj/item/O as obj, var/mob/user as mob)
@@ -73,7 +74,7 @@
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	butchering_products = list(/obj/item/stack/material/animalhide = 5, /obj/item/reagent_containers/food/snacks/spreads/lard = 5)
-
+	faction = "Adhomai"
 
 /mob/living/simple_animal/hostile/retaliate/rafama
 	name = "steed of Mata'ke"
@@ -105,3 +106,4 @@
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 5)
 	meat_amount = 8
+	faction = "Adhomai"
