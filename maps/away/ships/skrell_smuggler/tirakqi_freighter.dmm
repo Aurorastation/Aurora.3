@@ -416,6 +416,8 @@
 /obj/item/clothing/head/helmet/security/skrell,
 /obj/item/clothing/head/helmet/security/skrell,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "eKc" = (
@@ -1312,6 +1314,8 @@
 /obj/item/clothing/head/helmet/security/skrell,
 /obj/item/clothing/head/helmet/security/skrell,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "lAV" = (
@@ -1496,11 +1500,10 @@
 /area/ship/tirakqi_freighter)
 "oJg" = (
 /obj/structure/closet/crate,
-/obj/random/vault_weapon,
-/obj/random/projectile,
-/obj/random/ammo,
-/obj/random/ammo,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/weapon_and_ammo/concealable,
+/obj/random/weapon_and_ammo/concealable,
+/obj/random/weapon_and_ammo/concealable,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "oLC" = (
