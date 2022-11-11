@@ -24,7 +24,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar
 	name = "Az'Mar"
 	desc = "A small planet with a caustic shale crust. The surface is extremely hot and dense."
-	color = "#B1A69B"
+	color = "#4a3f41"
 	color = "#dcdcdc"
 	planetary_area = /area/exoplanet/adhomai
 	rock_colors = null
