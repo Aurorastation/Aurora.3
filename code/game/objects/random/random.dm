@@ -1983,7 +1983,6 @@
 		/obj/item/gun/projectile/tanto,
 		/obj/item/gun/projectile/automatic/x9,
 		/obj/item/gun/energy/disruptorpistol,
-		/obj/item/gun/energy/plasmacutter,
 		/obj/item/gun/energy/retro,
 	)
 
@@ -2042,5 +2041,6 @@
 		/obj/item/gun/custom_ka/frame04/illegal,
 		/obj/item/gun/projectile/automatic/lebman,
 		/obj/item/gun/projectile/pistol/super_heavy,
-		/obj/item/gun/projectile/deagle
+		/obj/item/gun/projectile/deagle,
+		/obj/item/gun/custom_ka/frame01/illegal
 	)
