@@ -417,7 +417,7 @@
 /obj/item/clothing/suit/armor/material/makeshift/plasteel,
 /obj/item/clothing/suit/armor/material/makeshift/trenchcoat,
 /obj/item/storage/box/shotgunshells,
-/obj/item/gun/energy/gun/qukala,
+/obj/random/civgun/rifle,
 /obj/random/civgun/rifle,
 /obj/random/civgun/rifle,
 /turf/simulated/floor/shuttle/skrell,
