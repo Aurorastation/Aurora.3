@@ -36,6 +36,7 @@ var/list/gear_datums = list()
 	sort_order = 1
 	var/current_tab = "General"
 	var/gear_reset = FALSE
+	var/search_input_value = ""
 
 /datum/category_item/player_setup_item/loadout/load_character(var/savefile/S)
 	S["gear"] >> pref.gear
@@ -174,8 +175,23 @@ var/list/gear_datums = list()
 	. += "</b></center></td></tr>"
 
 	var/datum/loadout_category/LC = loadout_categories[current_tab]
+
 	. += "<tr><td colspan=3><hr></td></tr>"
-	. += "<tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
+	. += "<tr><td colspan=3>"
+	. += "<div style='left:0;position:absolute;width:10%;margin-left:45%;'><b><center>[LC.category]</center></b></div>"
+	. += "<span style='float:left;'>"
+	. += "<script>function search_onchange() { \
+		var val = document.getElementById('search_input').value; \
+		document.getElementById('search_refresh_link').href='?src=\ref[src];search_input_refresh=' + encodeURIComponent(val) + ''; \
+		document.getElementById('search_refresh_link').click(); \
+		}</script>"
+	. += "Search: "
+	. += "<input type='text' id='search_input' name='search_input' \
+			onchange='search_onchange()' value='[search_input_value]'>";
+	. += "<a href='#' onclick='search_onchange()'>Refresh</a>"
+	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Clear</a>"
+	. += "</span>"
+	. += "</td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
 
 	var/ticked_items_html = "" // to be added to the top/beginning of the list
@@ -196,7 +212,18 @@ var/list/gear_datums = list()
 			&& G.check_origin(text2path(pref.origin)))
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
-		
+
+		var/found_searched_text = FALSE
+		if(findtext(G.display_name, search_input_value))
+			found_searched_text = TRUE
+		for(var/datum/gear_tweak/tweak in G.gear_tweaks)
+			var/datum/gear_tweak/path/path = tweak
+			if(path && istype(path) && path.valid_paths)
+				for(var/x in path.valid_paths)
+					if(findtext(x, search_input_value))
+						found_searched_text = TRUE
+		available = available && found_searched_text
+
 		if(!available)
 			style = "style='color: #B1B1B1;'"
 		if(ticked)
@@ -332,6 +359,9 @@ var/list/gear_datums = list()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	else if(href_list["clear_loadout"])
 		pref.gear.Cut()
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+	else if(href_list["search_input_refresh"] != null) // empty str is false
+		search_input_value = sanitize(href_list["search_input_refresh"], 100)
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	return ..()
 
