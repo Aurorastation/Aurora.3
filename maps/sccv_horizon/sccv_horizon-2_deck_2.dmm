@@ -18238,6 +18238,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
+"jaq" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/open/airless,
+/area/template_noop)
 "jaD" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -34208,8 +34212,18 @@
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
+/obj/structure/ladder/up{
+	pixel_y = 16
+	},
 /turf/simulated/open/airless,
 /area/template_noop)
+"rdZ" = (
+/obj/machinery/alarm{
+	pixel_x = 28;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/zta)
 "rec" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -83568,7 +83582,7 @@ ern
 hrN
 jHd
 jHd
-jHd
+jaq
 jHd
 jHd
 jHd
@@ -83770,7 +83784,7 @@ eUs
 ovu
 jHd
 jHd
-jHd
+jaq
 jHd
 jHd
 jHd
@@ -83972,7 +83986,7 @@ eUs
 ovu
 jHd
 jHd
-jHd
+jaq
 jHd
 jHd
 jHd
@@ -84174,7 +84188,7 @@ eUs
 ovu
 jHd
 jHd
-jHd
+jaq
 jHd
 jHd
 jHd
@@ -84376,7 +84390,7 @@ ern
 oxN
 jHd
 jHd
-jHd
+jaq
 jHd
 jHd
 jHd
@@ -84762,7 +84776,7 @@ aPN
 hkt
 yjr
 aPN
-qSN
+rdZ
 qSN
 reZ
 vFr

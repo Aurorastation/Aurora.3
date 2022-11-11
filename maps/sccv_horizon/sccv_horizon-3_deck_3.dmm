@@ -1855,6 +1855,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"buz" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/open/airless,
+/area/template_noop)
 "bvE" = (
 /obj/machinery/light{
 	dir = 4
@@ -2706,6 +2714,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/changing)
+"coC" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "cqp" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -8943,6 +8956,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
+"hnx" = (
+/obj/structure/ladder{
+	pixel_y = 16
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/open/airless,
+/area/template_noop)
 "hol" = (
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 4
@@ -11948,6 +11970,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/selfdestruct)
+"jSd" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/item/hullbeacon/red,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "jSs" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 6
@@ -12052,6 +12088,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
+"jYu" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "jYJ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -14352,6 +14402,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
+"lIf" = (
+/obj/structure/ladder{
+	pixel_y = 16
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open/airless,
+/area/template_noop)
 "lIv" = (
 /obj/machinery/power/apc/super{
 	dir = 4;
@@ -14445,6 +14504,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/crew_quarters/fitness/pool)
+"lKo" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "lKs" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -16373,6 +16439,14 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/lounge)
+"nrr" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open/airless,
+/area/template_noop)
 "nsq" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -21946,6 +22020,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"rSL" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "rTd" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -22569,6 +22653,17 @@
 "soE" = (
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/captain)
+"soL" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/item/hullbeacon/red,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "soS" = (
 /obj/machinery/light{
 	dir = 8
@@ -25637,6 +25732,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"uHl" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/item/hullbeacon/red,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "uHM" = (
 /obj/machinery/light{
 	dir = 1
@@ -26011,6 +26117,14 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
+"uUA" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/open/airless,
+/area/template_noop)
 "uUQ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -29680,6 +29794,16 @@
 "xJx" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/break_room)
+"xJG" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "xJP" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/blue{
@@ -63549,11 +63673,11 @@ vkb
 dSF
 dSF
 dSF
-dSF
-dSF
-dSF
-dSF
-dSF
+slH
+slH
+slH
+slH
+slH
 dSF
 dSF
 dSF
@@ -63748,16 +63872,16 @@ wGH
 wGH
 wGH
 vkb
-dSF
-dSF
-dSF
-dSF
+slH
+slH
+slH
+slH
 hBa
 otI
 opC
-dSF
-dSF
-dSF
+slH
+slH
+slH
 dSF
 dSF
 dSF
@@ -63959,7 +64083,7 @@ wGH
 vBY
 opC
 dSF
-dSF
+slH
 dSF
 dSF
 dSF
@@ -64161,7 +64285,7 @@ wGH
 wGH
 vkb
 dSF
-dSF
+slH
 dSF
 dSF
 dSF
@@ -64362,10 +64486,10 @@ wGH
 wGH
 wGH
 lhO
-dSF
-dSF
-dSF
-dSF
+iqb
+gVY
+slH
+slH
 dSF
 dSF
 dSF
@@ -64564,10 +64688,10 @@ wGH
 wGH
 wGH
 vkb
-dSF
-dSF
-dSF
-dSF
+lIf
+nrr
+slH
+slH
 dSF
 dSF
 dSF
@@ -64765,20 +64889,20 @@ wGH
 wGH
 wGH
 wGH
-vBY
-otI
-otI
-otI
-otI
-otI
-otI
-otI
-otI
-otI
-otI
-otI
-otI
-opC
+vkb
+jSd
+xJG
+uFC
+uFC
+uFC
+uFC
+uFC
+uFC
+uFC
+uFC
+uFC
+uFC
+soL
 dSF
 dSF
 dSF
@@ -64967,21 +65091,21 @@ wGH
 wGH
 wGH
 wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
 vkb
-dSF
+lKo
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+vBY
+soL
 dSF
 dSF
 dSF
@@ -65169,21 +65293,21 @@ wGH
 wGH
 wGH
 wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
 vkb
-dSF
+lKo
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+coC
 dSF
 dSF
 dSF
@@ -65371,21 +65495,21 @@ wGH
 wGH
 wGH
 wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
-wGH
 vkb
-dSF
+lKo
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+bEW
+uHl
 dSF
 dSF
 dSF
@@ -65573,20 +65697,20 @@ wGH
 wGH
 wGH
 wGH
-bEW
-leE
-leE
-leE
-leE
-leE
-leE
-leE
-leE
-leE
-leE
-leE
-leE
-kMe
+vkb
+jYu
+rSL
+whh
+whh
+whh
+whh
+whh
+whh
+whh
+whh
+whh
+whh
+uHl
 dSF
 dSF
 dSF
@@ -65776,10 +65900,10 @@ wGH
 wGH
 wGH
 vkb
-dSF
-dSF
-dSF
-dSF
+hnx
+buz
+slH
+slH
 dSF
 dSF
 dSF
@@ -65978,10 +66102,10 @@ wGH
 wGH
 wGH
 vkb
-dSF
-dSF
-dSF
-dSF
+rcF
+uUA
+slH
+slH
 dSF
 dSF
 dSF
@@ -66181,7 +66305,7 @@ wGH
 wGH
 vkb
 dSF
-dSF
+slH
 dSF
 dSF
 dSF
@@ -66383,7 +66507,7 @@ wGH
 wGH
 vkb
 dSF
-dSF
+slH
 dSF
 dSF
 dSF
@@ -66585,7 +66709,7 @@ wGH
 wGH
 vkb
 dSF
-dSF
+slH
 dSF
 dSF
 dSF
@@ -66786,8 +66910,8 @@ leE
 leE
 leE
 hip
-dSF
-dSF
+slH
+slH
 dSF
 dSF
 dSF
