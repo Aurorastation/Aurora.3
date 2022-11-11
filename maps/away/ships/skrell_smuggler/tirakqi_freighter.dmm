@@ -416,13 +416,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/suit/armor/material/makeshift/plasteel,
 /obj/item/clothing/suit/armor/material/makeshift/trenchcoat,
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun,
-/obj/item/ammo_magazine/a556/makeshift,
-/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
-/obj/item/storage/box/shotgunshells,
 /obj/item/storage/box/shotgunshells,
 /obj/item/gun/energy/gun/qukala,
-/obj/item/gun/custom_ka/frame01/illegal,
+/obj/random/civgun/rifle,
+/obj/random/civgun/rifle,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "eKc" = (
@@ -1315,12 +1312,9 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/suit/armor/carrier/generic,
 /obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/gun/projectile/improvised_handgun/loaded,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/gun/energy/plasmacutter,
-/obj/item/gun/energy/plasmacutter,
-/obj/item/gun/energy/blaster,
+/obj/random/civgun,
+/obj/random/civgun,
+/obj/random/civgun,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "lAV" = (
