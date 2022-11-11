@@ -122,4 +122,4 @@
 	if(!chilled_occupant)
 		chill_occupant(occupant)
 
-	occupant.SetStasis(15)
+	occupant.SetStasis(10)

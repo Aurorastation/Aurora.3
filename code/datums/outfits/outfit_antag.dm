@@ -8,7 +8,7 @@
 	back = null
 	backpack = /obj/item/storage/backpack/syndie
 	satchel = /obj/item/storage/backpack/satchel/syndie
-	satchel_alt = /obj/item/storage/backpack/satchel
+	satchel_alt = /obj/item/storage/backpack/satchel/leather
 	dufflebag = /obj/item/storage/backpack/duffel/syndie
 	messengerbag = /obj/item/storage/backpack/messenger/syndie
 	belt = /obj/item/storage/belt/utility/full
@@ -271,7 +271,7 @@
 		/obj/item/clothing/shoes/laceup/all_species,
 		/obj/item/clothing/shoes/combat,
 		/obj/item/clothing/shoes/cowboy,
-		/obj/item/clothing/shoes/jackboots/cavalry,
+		/obj/item/clothing/shoes/jackboots/knee,
 		/obj/item/clothing/shoes/lyodsuit,
 		/obj/item/clothing/shoes/winter,
 		/obj/item/clothing/shoes/hitops/black,

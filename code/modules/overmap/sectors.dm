@@ -12,8 +12,6 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/obfuscated_desc = "This object is not displaying its IFF signature."
 	var/obfuscated = FALSE //Whether we hide our name and class or not.
 
-	var/list/map_z = list()
-
 	var/list/initial_generic_waypoints //store landmark_tag of landmarks that should be added to the actual lists below on init.
 	var/list/initial_restricted_waypoints //For use with non-automatic landmarks (automatic ones add themselves).
 
@@ -28,6 +26,11 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	var/has_called_distress_beacon = FALSE
 	var/image/applied_distress_overlay
+
+	var/list/obj/machinery/ship_weapon/ship_weapons
+	var/list/obj/effect/landmark/entry_points
+	var/obj/effect/overmap/targeting
+	var/obj/machinery/leviathan_safeguard/levi_safeguard
 
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
@@ -60,6 +63,14 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	for(var/obj/machinery/telecomms/T in telecomms_list)
 		if(T.linked == src)
 			T.linked = null
+	if(entry_points)
+		entry_points.Cut()
+	for(var/obj/machinery/ship_weapon/SW in ship_weapons)
+		SW.linked = null
+	if(ship_weapons)
+		ship_weapons.Cut()
+	targeting = null
+	levi_safeguard = null
 	. = ..()
 
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.

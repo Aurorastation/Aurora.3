@@ -11,6 +11,8 @@
 	lobby_transitions = 10 SECONDS
 	allowed_spawns = list()
 
+	use_overmap = TRUE
+
 	excluded_test_types = list(
 		/datum/unit_test/zas_area_test,
 		/datum/unit_test/foundation/step_shall_return_true_on_success

@@ -132,7 +132,7 @@
 /datum/gear/head/hardhat
 	display_name = "hard hat selection"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Operations Manager", "Hangar Technician", "Shaft Miner")
+	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Operations Manager", "Hangar Technician", "Shaft Miner", "Xenoarchaeologist")
 
 /datum/gear/head/hardhat/New()
 	..()
@@ -200,27 +200,42 @@
 	hats["hat, flatcap"] = /obj/item/clothing/head/flatcap
 	gear_tweaks += new /datum/gear_tweak/path(hats)
 
+/datum/gear/head/hats_colourable
+	display_name = "hat selection (colourable)"
+	description = "A selection of hats."
+	path = /obj/item/clothing/head/flatcap/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/hats_colourable/New()
+	..()
+	var/list/hats_colourable = list()
+	hats_colourable["hat, flatcap"] = /obj/item/clothing/head/flatcap/colourable
+	hats_colourable["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby/colourable
+	gear_tweaks += new /datum/gear_tweak/path(hats_colourable)
+
 /datum/gear/head/hijab
 	display_name = "hijab selection"
 	path = /obj/item/clothing/head/hijab
+	slot = slot_r_ear
 
 /datum/gear/head/hijab/New()
 	..()
 	var/list/hijab = list()
-	hijab["black hijab"] = /obj/item/clothing/head/hijab
+	hijab["white hijab"] = /obj/item/clothing/head/hijab
 	hijab["grey hijab"] = /obj/item/clothing/head/hijab/grey
 	hijab["red hijab"] = /obj/item/clothing/head/hijab/red
 	hijab["brown hijab"] = /obj/item/clothing/head/hijab/brown
 	hijab["green hijab"] = /obj/item/clothing/head/hijab/green
 	hijab["blue hijab"] = /obj/item/clothing/head/hijab/blue
-	hijab["white hijab"] = /obj/item/clothing/head/hijab/white
+	hijab["black hijab"] = /obj/item/clothing/head/hijab/black
 
 	gear_tweaks += new /datum/gear_tweak/path(hijab)
 
 /datum/gear/head/hijab_colorable
 	display_name = "colorable hijab"
-	path = /obj/item/clothing/head/hijab/white
+	path = /obj/item/clothing/head/hijab
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	slot = slot_r_ear
 
 /datum/gear/head/turban
 	display_name = "turban selection"
@@ -252,6 +267,7 @@
 	surgical["surgical cap, nanotrasen navy blue"] = /obj/item/clothing/head/surgery
 	surgical["surgical cap, zeng-hu purple"] = /obj/item/clothing/head/surgery/zeng
 	surgical["surgical cap, PMCG blue"] = /obj/item/clothing/head/surgery/pmc
+	surgical["surgical cap, PMCG grey"] = /obj/item/clothing/head/surgery/pmc/alt
 	surgical["surgical cap, zavodskoi black"] = /obj/item/clothing/head/surgery/zavod
 	surgical["surgical cap, idris green"] = /obj/item/clothing/head/surgery/idris
 	gear_tweaks += new /datum/gear_tweak/path(surgical)
@@ -313,6 +329,7 @@
 	display_name = "himean cap"
 	path = /obj/item/clothing/head/softcap/himeo
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/himeo, /decl/origin_item/origin/ipc_himeo, /decl/origin_item/origin/free_council)
 
 /datum/gear/head/vysoka
 	display_name = "vysokan fur cap"
@@ -323,6 +340,11 @@
 	display_name = "bucket hat"
 	path = /obj/item/clothing/head/buckethat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/bridge_crew_cap_alt
+	display_name = "san colettish bridge crew cap"
+	path = /obj/item/clothing/head/caphat/bridge_crew/alt
+	allowed_roles = list("Bridge Crew", "Captain", "Executive Officer")
 
 /datum/gear/head/gadpathur
 	display_name = "gadpathurian headgear selection"

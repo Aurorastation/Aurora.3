@@ -8,8 +8,9 @@
 /datum/gear/shoes/tajara/boots/New()
 	..()
 	var/list/boots = list()
-	boots["jackboots"] = /obj/item/clothing/shoes/tajara/jackboots
-	boots["cavalry boots"] = /obj/item/clothing/shoes/tajara/jackboots/cavalry
+	boots["black boots, short"] = /obj/item/clothing/shoes/tajara/jackboots
+	boots["black boots, knee"] = /obj/item/clothing/shoes/tajara/jackboots/knee
+	boots["black boots, thigh"] = /obj/item/clothing/shoes/tajara/jackboots/thigh
 	boots["brown workboots"] = /obj/item/clothing/shoes/tajara/workboots
 	boots["grey workboots"] = /obj/item/clothing/shoes/tajara/workboots/grey
 	boots["dark workboots"] = /obj/item/clothing/shoes/tajara/workboots/dark

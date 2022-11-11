@@ -75,7 +75,7 @@ As a Traitor, you can manufacture and recycle revolver bullets at a hacked autol
 As a Traitor, you may sometimes hunt other traitors, and in turn be hunted by them.
 As a Traitor, the syndicate encryption key is very useful for coordinating plans with your fellow traitors -- or, of course, betraying them.
 As a Mercenary, communication is key! Use your radio to speak to your fellow operatives and coordinate an attack plan.
-As a Mercenary, you should look into purchasing a syndicate cyborg, as they can provide heavy fire support, are immune to conventional stuns, and can easily take down any enemy.
+As a Mercenary, you should look into purchasing a Combat Robot, as they can provide fire support, are immune to conventional stuns, and can take down most enemies.
 As a Mercenary, stick together! While your equipment is robust, your fellow operatives are much better at saving your life: they can drag you away from danger while stunned and provide cover fire.
 As a Mercenary, you might end up in a situation where the AI has bolted you into a room. Having some spare C4 in your pocket can save your life.
 As a Monkey, you can crawl through air vents by alt+left clicking them. You must drop everything you are wearing and holding to do this, however.

@@ -11,36 +11,36 @@
 #define RUIN_MAP_EDGE_PAD 15
 
 // Invisibility constants.
-#define INVISIBILITY_LIGHTING             20
-#define INVISIBILITY_LEVEL_ONE            35
-#define INVISIBILITY_LEVEL_TWO            45
-#define INVISIBILITY_OBSERVER             60
-#define INVISIBILITY_EYE		          61
+#define INVISIBILITY_LIGHTING		20
+#define INVISIBILITY_LEVEL_ONE		35
+#define INVISIBILITY_LEVEL_TWO		45
+#define INVISIBILITY_OBSERVER		60
+#define INVISIBILITY_EYE			61
+#define INVISIBILITY_SYSTEM			99
 
-#define SEE_INVISIBLE_LIVING              25
-#define SEE_INVISIBLE_NOLIGHTING 15
-#define SEE_INVISIBLE_LEVEL_ONE           35
-#define SEE_INVISIBLE_LEVEL_TWO           45
-#define SEE_INVISIBLE_CULT		          60
-#define SEE_INVISIBLE_OBSERVER            61
+#define SEE_INVISIBLE_LIVING		25
+#define SEE_INVISIBLE_NOLIGHTING	15
+#define SEE_INVISIBLE_LEVEL_ONE		35
+#define SEE_INVISIBLE_LEVEL_TWO		45
+#define SEE_INVISIBLE_CULT			60
+#define SEE_INVISIBLE_OBSERVER		61
+#define SEE_INVISIBLE_SYSTEM		99
 
-#define SEE_INVISIBLE_MINIMUM 5
-#define INVISIBILITY_MAXIMUM 100
-#define INVISIBILITY_ABSTRACT 101	// Special invis value that can never be seen by see_invisible.
+#define SEE_IN_DARK_DEFAULT			2
+
+#define SEE_INVISIBLE_MINIMUM		5
+#define INVISIBILITY_MAXIMUM		100
+#define INVISIBILITY_ABSTRACT		101	// Special invis value that can never be seen by see_invisible.
 
 // Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
 #define PROCESS_KILL 26 // Used to trigger removal from a processing list.
-
-// Age limits on a character.
-#define AGE_MIN 17
-#define AGE_MAX 85
 
 #define MAX_GEAR_COST 15 // Used in chargen for accessory loadout limit.
 
 // Preference toggles.
 #define SOUND_ADMINHELP 0x1
 #define SOUND_MIDI      0x2
-#define SOUND_AMBIENCE  0x4
+// 0x4 is free.
 #define SOUND_LOBBY     0x8
 #define CHAT_OOC        0x10
 #define CHAT_DEAD       0x20
@@ -56,7 +56,8 @@
 #define CHAT_NOICONS    0x8000
 #define CHAT_GHOSTLOOC	0x10000
 
-//Note that 0x1 and 0x2 are free. Use those!
+// 0x1 is free.
+// 0x2 is free.
 #define PROGRESS_BARS  0x4
 #define PARALLAX_IS_STATIC 0x8
 #define FLOATING_MESSAGES 0x10
@@ -64,9 +65,10 @@
 #define FULLSCREEN_MODE 0x40
 #define ACCENT_TAG_TEXT 0x80
 
-#define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC|CHAT_GHOSTLOOC)
+#define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | SOUND_LOBBY | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
 
-//Sound effects toggles
+// ASFX and SFX Toggles
+// (ASFX = Ambient Sound Effects; SFX = Sound Effects)
 #define ASFX_AMBIENCE	1
 #define ASFX_FOOTSTEPS	2
 #define ASFX_VOTE		4
@@ -75,8 +77,10 @@
 #define ASFX_ARCADE		32
 #define ASFX_RADIO		64
 #define ASFX_INSTRUMENT 128
+#define ASFX_HUM 256
+#define ASFX_MUSIC 512
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE|ASFX_RADIO|ASFX_INSTRUMENT)
+#define ASFX_DEFAULT (ASFX_AMBIENCE | ASFX_FOOTSTEPS | ASFX_VOTE | ASFX_VOX | ASFX_DROPSOUND | ASFX_ARCADE | ASFX_RADIO | ASFX_INSTRUMENT | ASFX_HUM | ASFX_MUSIC)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line reading the pulse.

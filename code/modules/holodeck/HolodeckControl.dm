@@ -297,9 +297,9 @@
 		holo_obj.alpha *= 0.8 //give holodeck objs a slight transparency
 
 	if(HP.ambience)
-		linkedholodeck.forced_ambience = HP.ambience
+		linkedholodeck.music = HP.ambience
 	else
-		linkedholodeck.forced_ambience = list()
+		linkedholodeck.music = list()
 
 	for(var/mob/living/M in mobs_in_area(linkedholodeck))
 		if(M.mind)

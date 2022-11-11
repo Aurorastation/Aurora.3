@@ -1,5 +1,9 @@
 //CCIAA's tape recorder
 /obj/item/device/taperecorder/cciaa
+	name = "Human Resources Recorder"
+	desc = "A modified recorder used for interviews by human resources personnel around the galaxy."
+	desc_fluff = "This recorder is a modified version of a standard universal recorder. It features additional audit-proof records keeping, access controls and is tied to a central management system."
+	desc_info = "This recorder records the fingerprints of the interviewee, to do so, interact with this recorder when asked."
 	w_class = ITEMSIZE_TINY
 	timestamp = list()	//This actually turns timestamp into a string later on
 
@@ -22,6 +26,7 @@
 	var/antag_involvement_text = null
 
 	var/datum/ccia_report/selected_report = null
+	var/interviewer_id = null
 	var/interviewee_id = null
 	var/interviewee_name = null
 	var/date_string = null
@@ -40,7 +45,7 @@
 	set name = "Start Recording"
 	set category = "Recorder"
 
-	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 	if(use_check_and_message(usr))
@@ -79,6 +84,9 @@
 				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 				return
 			selected_report = new(report_id, time2text(world.realtime, "YYYY_MM_DD"), report_name)
+		var/mob/living/carbon/human/H = usr
+		if(istype(H))
+			interviewer_id = H.character_id
 		return
 	//If we are ready to record, but no interviewee is selected
 	else if(selected_report && !interviewee_id)
@@ -124,7 +132,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 	if(!recording)
@@ -183,7 +191,7 @@
 	set name = "Reset Recorder"
 	set category = "Recorder"
 
-	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 
@@ -225,7 +233,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user\".</span>")
 		return
 	if(recording)
@@ -243,7 +251,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user\".</span>")
 		return
 	if(!recording)
@@ -266,7 +274,7 @@
 
 /obj/item/device/taperecorder/cciaa/attack_self(mob/user)
 	//If we are a ccia agent, then always go to the record function (to prompt for the report or start the recording)
-	if(check_rights(R_CCIAA,FALSE) && !user.character_id)
+	if(check_rights(R_CCIAA,FALSE) && !selected_report)
 		record()
 		return
 
@@ -279,6 +287,10 @@
 		var/mob/living/carbon/human/H = user
 		if(!H.character_id)
 			to_chat(user,"<span class='notice'>The device beeps and flashes \"Fingerprint is not recognized\".</span>")
+			return
+
+		if(H.character_id == interviewer_id)
+			to_chat(user,"<span class='notice'>You need to pass the recorder to the interviewee to scan their fingerprint.</span>")
 			return
 
 		//Sync the intervieweee_id and interviewee_name

@@ -33,7 +33,8 @@
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/shoes/jackboots/cavalry(src)
+	new /obj/item/clothing/shoes/jackboots/knee(src)
+	new /obj/item/clothing/shoes/jackboots/knee(src)
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
 
 	return
@@ -166,9 +167,13 @@
 	new /obj/item/clothing/head/hardhat/red(src)
 	new /obj/item/clothing/head/hardhat/green(src)
 	new /obj/item/clothing/head/beret/engineering(src)
+	new /obj/item/clothing/head/beret/corporate/heph(src)
+	new /obj/item/clothing/head/beret/corporate/zavod(src)
 	new /obj/item/clothing/head/bandana/atmos(src)
+	new /obj/item/clothing/suit/storage/hazardvest/green(src)
+	new /obj/item/clothing/suit/storage/hazardvest/red(src)
+	new /obj/item/clothing/suit/storage/hazardvest/blue/atmos(src)
 	return
-
 
 
 /obj/structure/closet/wardrobe/engineering_yellow
@@ -190,10 +195,14 @@
 	new /obj/item/clothing/head/hardhat/green(src)
 	new /obj/item/clothing/head/beret/engineering(src)
 	new /obj/item/clothing/head/beret/engineering(src)
+	new /obj/item/clothing/head/beret/corporate/heph(src)
+	new /obj/item/clothing/head/beret/corporate/zavod(src)
 	new /obj/item/clothing/head/bandana/engineering(src)
 	new /obj/item/clothing/head/bandana/engineering(src)
 	new /obj/item/clothing/suit/storage/toggle/highvis(src)
 	new /obj/item/clothing/suit/storage/toggle/highvis(src)
+	new /obj/item/clothing/suit/storage/hazardvest/green(src)
+	new /obj/item/clothing/suit/storage/hazardvest/red(src)
 
 
 /obj/structure/closet/wardrobe/white
@@ -250,23 +259,6 @@
 	new /obj/item/clothing/head/bandana/science(src)
 	new /obj/item/clothing/head/bandana/science(src)
 	return
-
-/obj/structure/closet/wardrobe/machinist
-	name = "machinist wardrobe"
-	icon_door = "black"
-
-/obj/structure/closet/wardrobe/robotics_black/fill()
-	..()
-	new /obj/item/clothing/under/rank/machinist/orion(src)
-	new /obj/item/clothing/under/rank/machinist/heph(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/shoes/black(src)
-	new /obj/item/clothing/shoes/black(src)
-	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/gloves/black(src)
-	return
-
 
 /obj/structure/closet/wardrobe/pharmacy_white
 	name = "pharmacy wardrobe"

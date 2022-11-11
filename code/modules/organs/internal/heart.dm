@@ -8,6 +8,7 @@
 	toxin_type = CE_CARDIOTOXIC
 
 	max_damage = 45
+	min_broken_damage = 25
 	relative_size = 5
 	damage_reduction = 0.7
 

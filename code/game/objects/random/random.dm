@@ -206,7 +206,8 @@
 		/obj/item/seeds/ambrosiadeusseed = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
-		/obj/item/reagent_containers/inhaler/space_drugs = 2
+		/obj/item/reagent_containers/inhaler/space_drugs = 2,
+		/obj/item/reagent_containers/inhaler/xuxigas = 1
 	)
 
 /obj/random/smokable
@@ -434,7 +435,7 @@
 		/obj/item/storage/backpack/cloak = 2,
 		/obj/item/storage/backpack/syndie = 1,
 		/obj/item/storage/backpack/satchel = 3,
-		/obj/item/storage/backpack/satchel/norm = 3,
+		/obj/item/storage/backpack/satchel/leather = 3,
 		/obj/item/storage/backpack/satchel/eng = 3,
 		/obj/item/storage/backpack/satchel/med = 3,
 		/obj/item/storage/backpack/satchel/pharm = 3,
@@ -897,6 +898,24 @@
 		/obj/item/clothing/under/color/darkred
 	)
 
+/obj/random/suit
+	name = "random suit"
+	desc = "This is a random suit."
+	icon = 'icons/obj/clothing/uniforms.dmi'
+	icon_state = "checkered_suit"
+	spawnlist = list(
+		/obj/item/clothing/under/suit_jacket/charcoal,
+		/obj/item/clothing/under/suit_jacket/navy,
+		/obj/item/clothing/under/suit_jacket/burgundy,
+		/obj/item/clothing/under/suit_jacket/checkered,
+		/obj/item/clothing/under/suit_jacket/tan,
+		/obj/item/clothing/under/sl_suit,
+		/obj/item/clothing/under/suit_jacket,
+		/obj/item/clothing/under/suit_jacket/really_black,
+		/obj/item/clothing/under/suit_jacket/red,
+		/obj/item/clothing/under/suit_jacket/white
+	)
+
 /obj/random/loot
 	name = "random maintenance loot items"
 	desc = "Stuff for the maint-dwellers."
@@ -1134,7 +1153,7 @@
 /obj/random/hoodie
 	name = "random winter coat"
 	desc = "This is a random winter coat."
-	icon = 'icons/obj/hoodies.dmi'
+	icon = 'icons/obj/clothing/hoodies.dmi'
 	icon_state = "coatwinter"
 	problist = list(
 		/obj/item/clothing/suit/storage/hooded/wintercoat = 5,
@@ -1236,7 +1255,7 @@
 		/obj/item/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/rig/military = 0.5,
 		/obj/item/rig/unathi/fancy = 0.5,
-		/obj/item/rig/vaurca/minimal = 0.5,
+		/obj/item/rig/vaurca = 0.5,
 		/obj/item/anomaly_core = 0.5,
 		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = 0.1
 	)
@@ -1250,6 +1269,7 @@
 		/obj/item/anomaly_core = 0.5,
 		/obj/item/rig/military = 0.2,
 		/obj/item/rig/unathi/fancy = 0.2,
+		/obj/item/rig/vaurca = 0.2,
 		/obj/item/stack/material/phoron/full = 0.1,
 		/obj/item/stack/material/plasteel/full = 0.8,
 		/obj/random/voidsuit = 1,
@@ -1259,6 +1279,12 @@
 		/obj/item/device/personal_shield = 0.1,
 		/obj/item/storage/secure/briefcase/money = 0.1
 		)
+
+/obj/random/highvalue/cash
+	problist = list(
+	/obj/item/storage/secure/briefcase/money = 1,
+	/obj/item/stack/material/phoron/full = 0.1
+	)
 
 /obj/random/junk
 	name = "random trash"
@@ -1650,8 +1676,8 @@
 		/obj/item/flag/hegemony/l,
 		/obj/item/flag/heph,
 		/obj/item/flag/heph/l,
-		/obj/item/flag/jargon,
-		/obj/item/flag/jargon/l,
+		/obj/item/flag/nralakk,
+		/obj/item/flag/nralakk/l,
 		/obj/item/flag/nanotrasen,
 		/obj/item/flag/nanotrasen/l,
 		/obj/item/flag/nka,

@@ -4,7 +4,7 @@
 /obj/item/inflatable_dispenser
 	name = "inflatables dispenser"
 	desc = "Small device which allows rapid deployment and removal of inflatables."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/contained_items/items/inflatables_dispenser.dmi'
 	icon_state = "inf_deployer"
 	w_class = ITEMSIZE_NORMAL
 	var/deploying = FALSE

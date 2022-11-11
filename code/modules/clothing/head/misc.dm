@@ -177,9 +177,16 @@
 
 /obj/item/clothing/head/flatcap
 	name = "flat cap"
-	desc = "A working man's cap."
+	desc = "A working man's hat."
+	icon = 'icons/contained_items/clothing/headwear/flat_cap.dmi'
 	icon_state = "flat_cap"
+	item_state = "flat_cap"
+	contained_sprite = TRUE
 	siemens_coefficient = 0.9
+
+/obj/item/clothing/head/flatcap/colourable
+	icon_state = "flat_cap_greyscale"
+	item_state = "flat_cap_greyscale"
 
 /obj/item/clothing/head/pirate
 	name = "pirate hat"
@@ -215,8 +222,17 @@
 
 /obj/item/clothing/head/feathertrilby
 	name = "feather trilby"
+	icon = 'icons/contained_items/clothing/headwear/feather_trilby.dmi'
 	icon_state = "feather_trilby"
+	item_state = "feather_trilby"
+	contained_sprite = TRUE
 	desc = "A sharp, stylish hat with a feather."
+
+/obj/item/clothing/head/feathertrilby/colourable
+	icon_state = "feather_trilby_grayscale"
+	item_state = "feather_trilby_grayscale"
+	build_from_parts = TRUE
+	worn_overlay = "feather"
 
 /obj/item/clothing/head/fez
 	name = "fez"
@@ -270,8 +286,8 @@
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
 	icon = 'icons/obj/clothing/hijabs.dmi'
-	icon_state = "hijab_black"
-	item_state = "hijab_black"
+	icon_state = "hijab_white"
+	item_state = "hijab_white"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 	contained_sprite = 1
@@ -305,10 +321,10 @@
 	icon_state = "hijab_blue"
 	item_state = "hijab_blue"
 
-/obj/item/clothing/head/hijab/white
-	name = "white hijab"
-	icon_state = "hijab_white"
-	item_state = "hijab_white"
+/obj/item/clothing/head/hijab/black
+	name = "black hijab"
+	icon_state = "hijab_black"
+	item_state = "hijab_black"
 
 /obj/item/clothing/head/cowboy
 	name = "cowboy hat"
