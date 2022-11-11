@@ -41,3 +41,4 @@ changes:
   - maptweak: "Grauwolf-armed third party ships now have francisca rotary guns as backup weapons. Fire extinguishers have been added to some relevant ships."
   - tweak: "Third party ships have a more consistent naming scheme."
   - tweak: "Certain third party ships can now spawn in the Badlands."
+  - rscadd: "The militia ship, freighter, and Skrell smugglers now have randomized guns in lieu of pre-selected weapons, for greater variety. Skrell and OX ships now have armor that they were missing."
