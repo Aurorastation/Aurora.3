@@ -610,3 +610,8 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_skrell
 	id = access_skrell
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_pra = 209
+/datum/access/access_pra
+	id = access_pra
+	access_type = ACCESS_TYPE_CENTCOM
