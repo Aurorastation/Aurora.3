@@ -10492,6 +10492,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
+"fnd" = (
+/obj/structure/foamedmetal,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "fnh" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -84151,8 +84155,8 @@ qgN
 qgN
 tVu
 tVu
-duk
-duk
+fnd
+fnd
 fuu
 ueH
 jAo
@@ -84352,9 +84356,9 @@ qgN
 qgN
 qgN
 tVu
-duk
-duk
-duk
+fnd
+fnd
+fnd
 fuu
 ueH
 lBd
@@ -84554,9 +84558,9 @@ qgN
 qgN
 qgN
 tVu
-duk
-duk
-duk
+fnd
+fnd
+fnd
 fuu
 eFS
 oNE
@@ -84756,9 +84760,9 @@ qgN
 qgN
 qgN
 tVu
-duk
-duk
-duk
+fnd
+fnd
+fnd
 fuu
 ueH
 lBd
@@ -84959,8 +84963,8 @@ qgN
 qgN
 tVu
 tVu
-duk
-duk
+fnd
+fnd
 fuu
 upl
 afe
