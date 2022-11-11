@@ -1859,6 +1859,15 @@
 	},
 /turf/simulated/open/airless,
 /area/template_noop)
+"buA" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
 "bvE" = (
 /obj/machinery/light{
 	dir = 4
@@ -2718,12 +2727,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "csI" = (
@@ -2989,6 +2994,9 @@
 	dir = 9
 	},
 /obj/machinery/firealarm/west,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "cGu" = (
@@ -4323,6 +4331,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
+"dOH" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
 "dOU" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -9701,12 +9720,12 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "hQm" = (
@@ -17388,9 +17407,6 @@
 /area/lawoffice/consular)
 "ofk" = (
 /obj/effect/floor_decal/corner/blue/full,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
@@ -24214,6 +24230,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
+"two" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
 "twp" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -25930,9 +25957,10 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "uMv" = (
@@ -56639,7 +56667,7 @@ rLv
 mqh
 jvo
 cGm
-jvo
+buA
 oUr
 kjX
 pWN
@@ -56840,8 +56868,8 @@ dal
 cim
 mhj
 gEp
-gOz
-gOz
+two
+dOH
 bqQ
 gOz
 dal
