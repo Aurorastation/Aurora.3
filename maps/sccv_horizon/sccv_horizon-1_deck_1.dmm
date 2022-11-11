@@ -30949,10 +30949,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
-"yfK" = (
-/obj/structure/window/shuttle/scc,
-/turf/simulated/floor/plating,
-/area/shuttle/intrepid/cockpit)
 "ygx" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 9
@@ -51758,7 +51754,7 @@ aFx
 uSZ
 huW
 gwA
-yfK
+con
 iRC
 iRC
 cLV
@@ -51960,7 +51956,7 @@ dnX
 cfY
 wOC
 nyl
-yfK
+con
 iRC
 iRC
 cLV
@@ -52161,8 +52157,8 @@ aEw
 jWI
 wjM
 kAX
-yfK
-yfK
+con
+con
 iRC
 iRC
 cLV
