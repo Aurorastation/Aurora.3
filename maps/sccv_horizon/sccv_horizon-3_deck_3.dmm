@@ -23263,9 +23263,6 @@
 	})
 "sHU" = (
 /obj/machinery/firealarm/south,
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
 	name = "Deck 3 Port Hallway"
