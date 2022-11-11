@@ -1,7 +1,0 @@
-
-author: DreamySkrell
-
-delete-after: True
-
-changes:
-  - rscadd: "Search box in the loadout. Looks up loadout item names, and also names of sub-items in the selection."
