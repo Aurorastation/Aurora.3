@@ -497,7 +497,6 @@
 /obj/item/flag/biesel/l,
 /obj/item/flag/coalition,
 /obj/item/flag/coalition/l,
-/obj/item/gun/projectile/revolver/detective,
 /obj/item/spacecash/c100,
 /obj/item/spacecash/c100,
 /obj/item/spacecash/c100,
@@ -522,8 +521,6 @@
 /obj/item/spacecash/c20,
 /obj/item/spacecash/c20,
 /obj/item/grenade/smokebomb,
-/obj/item/ammo_magazine/c762,
-/obj/item/gun/projectile/automatic/rifle/shorty,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "fQq" = (
@@ -582,6 +579,11 @@
 /obj/item/storage/box/shotgunshells,
 /obj/item/storage/box/shotgunshells,
 /obj/item/storage/box/flashshells,
+/obj/item/ammo_magazine/mc10mm,
+/obj/item/ammo_magazine/mc10mm,
+/obj/item/gun/projectile/tanto,
+/obj/item/gun/projectile/automatic/rifle/carbine,
+/obj/item/ammo_magazine/a556/carbine,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "goI" = (
@@ -1372,17 +1374,13 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/gun/projectile/leyon,
-/obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/projectile/leyon,
 /obj/item/gun/projectile/pistol,
-/obj/item/ammo_magazine/mc10mm,
-/obj/item/ammo_magazine/mc10mm,
-/obj/item/ammo_magazine/mc10mm,
-/obj/item/ammo_magazine/mc10mm,
-/obj/item/gun/projectile/tanto,
-/obj/item/gun/projectile/tanto,
 /obj/item/ammo_magazine/mc10mm/leyon,
 /obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/gun/projectile/revolver/detective,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "tCH" = (

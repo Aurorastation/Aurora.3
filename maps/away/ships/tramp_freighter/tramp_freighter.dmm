@@ -663,13 +663,8 @@
 /obj/item/storage/box/flashshells,
 /obj/item/storage/box/shotgunshells,
 /obj/item/gun/projectile/shotgun/pump/rifle/pipegun,
-/obj/item/ammo_casing/a556,
-/obj/item/ammo_casing/a556,
-/obj/item/ammo_casing/a556,
-/obj/item/ammo_casing/a556,
-/obj/item/ammo_casing/a556,
-/obj/item/ammo_casing/a556,
-/obj/item/ammo_casing/a556,
+/obj/item/ammo_magazine/a556/makeshift,
+/obj/item/gun/custom_ka/frame01/illegal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
 "eiL" = (
@@ -954,6 +949,7 @@
 /obj/item/spacecash/c50,
 /obj/structure/closet,
 /obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/clothing/suit/armor/material/makeshift/plasteel,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
 "fXG" = (
@@ -1320,7 +1316,6 @@
 /obj/item/gun/projectile/revolver/detective,
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
-/obj/item/gun/energy/pistol,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
 "jgW" = (
@@ -1963,6 +1958,7 @@
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
+/obj/item/clothing/suit/armor/material/makeshift/plasteel,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
 "uDF" = (

@@ -290,6 +290,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/firecloset/full,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "dTw" = (
@@ -408,16 +409,20 @@
 /obj/machinery/light/skrell{
 	dir = 4
 	},
-/obj/item/gun/energy/blaster/carbine,
-/obj/item/gun/energy/blaster/carbine,
-/obj/item/gun/energy/pistol,
 /obj/item/clothing/accessory/holster/hip/brown,
 /obj/item/clothing/accessory/holster/hip/brown,
 /obj/item/clothing/head/helmet/security/skrell,
 /obj/item/clothing/head/helmet/security/skrell,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/material/makeshift/plasteel,
+/obj/item/clothing/suit/armor/material/makeshift/trenchcoat,
+/obj/item/gun/projectile/shotgun/pump/rifle/pipegun,
+/obj/item/ammo_magazine/a556/makeshift,
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
+/obj/item/gun/energy/gun/qukala,
+/obj/item/gun/custom_ka/frame01/illegal,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "eKc" = (
@@ -774,10 +779,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
-"hfR" = (
-/obj/item/clothing/head/collectable/petehat,
-/turf/simulated/floor/plating,
-/area/ship/tirakqi_freighter)
 "hsG" = (
 /obj/structure/table/rack,
 /obj/item/clothing/ears/skrell/band,
@@ -911,6 +912,7 @@
 /area/ship/tirakqi_freighter)
 "hUJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/firecloset/full,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "hXr" = (
@@ -1306,16 +1308,19 @@
 /area/ship/tirakqi_freighter)
 "lwj" = (
 /obj/structure/closet/skrell,
-/obj/item/gun/energy/blaster/carbine,
-/obj/item/gun/energy/blaster/carbine,
-/obj/item/gun/energy/pistol,
 /obj/item/clothing/accessory/holster/hip/brown,
 /obj/item/clothing/accessory/holster/hip/brown,
 /obj/item/clothing/head/helmet/security/skrell,
-/obj/item/clothing/head/helmet/security/skrell,
+/obj/item/clothing/head/hardhat/dblue,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/suit/armor/carrier/generic,
 /obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/gun/projectile/improvised_handgun/loaded,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/blaster,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "lAV" = (
@@ -1501,9 +1506,10 @@
 "oJg" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/weapon_and_ammo/concealable,
-/obj/random/weapon_and_ammo/concealable,
-/obj/random/weapon_and_ammo/concealable,
+/obj/item/melee/telebaton/nlom,
+/obj/item/material/knife/butterfly,
+/obj/item/material/knife/butterfly/switchblade,
+/obj/item/material/twohanded/baseballbat/metal,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "oLC" = (
@@ -35135,7 +35141,7 @@ xRX
 xRX
 kfX
 dQZ
-hfR
+dQZ
 gTr
 krH
 eDP
