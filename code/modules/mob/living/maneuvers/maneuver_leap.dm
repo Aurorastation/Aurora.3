@@ -99,6 +99,14 @@
 	cooldown = 4 SECONDS
 	charge_cost = 1500
 
-
 /decl/maneuver/leap/bulwark
 	cooldown = 10 SECONDS //bigger than industrials = more cooldown
+
+/decl/maneuver/leap/tajara
+	cooldown = 4 SECONDS
+	delay = 2 SECONDS
+	stamina_cost = 25
+
+/decl/maneuver/leap/tajara/msai
+	delay = 1 SECOND
+	cooldown = 4 SECONDS
