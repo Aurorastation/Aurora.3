@@ -36,6 +36,7 @@
 	surface_color = "#4a3f41"
 	generated_name = FALSE
 	ring_chance = 0
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/get_surface_color()
 	return "#4a3f41"
 
