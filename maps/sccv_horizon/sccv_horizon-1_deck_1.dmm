@@ -10839,20 +10839,8 @@
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod/pod4)
 "ifX" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/fake_object{
-	name = "Horizon - Residential Deck Stairwell Air Alarm";
-	icon = 'icons/obj/monitors.dmi';
-	icon_state = "alarm0";
-	desc = "A device that controls the local air regulation machinery and informs you when you're breathing vacuum.";
-	dir = 8;
-	pixel_x = 28
-	},
-/turf/simulated/floor/tiled,
+/obj/structure/foamedmetal,
+/turf/simulated/floor/plating,
 /area/horizon/stairwell/central)
 "igj" = (
 /obj/machinery/conveyor{
@@ -10954,11 +10942,10 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "ikP" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/fake_object{
-	name = "Residential Deck Stairwell Security Shutter";
+	name = "Residential Deck Stairwell Shutter";
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
-	icon_state = "shutter0";
+	icon_state = "shutter1";
 	density = 1;
 	desc = "That looks like it doesn't open easily."
 	},
@@ -13242,15 +13229,6 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
-"klD" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/effect/floor_decal/industrial/loading/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/status_display{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/stairwell/central)
 "klR" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -13924,21 +13902,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "kGf" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/fake_object{
-	name = "Residential Deck Stairwell Security Shutter";
+	name = "Residential Deck Stairwell Shutter";
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
-	icon_state = "shutter0";
+	icon_state = "shutter1";
 	density = 1;
-	desc = "That looks like it doesn't open easily."
-	},
-/obj/effect/decal/fake_object{
-	name = "Residential Deck Stairwell";
-	icon = 'icons/obj/doors/Door2x1glass.dmi';
-	icon_state = "door_closed";
-	density = 1;
-	desc = "It opens and closes.";
-	dir = 4
+	desc = "That looks like it doesn't open easily.";
+	opacity = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
@@ -31078,15 +31048,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
-"ycp" = (
-/obj/effect/decal/fake_object{
-	name = "stairs";
-	icon = 'icons/obj/stairs.dmi';
-	icon_state = "solid";
-	desc = "Stairs leading to another floor. Not too useful if the gravity goes out."
-	},
-/turf/simulated/floor/plating,
-/area/horizon/stairwell/central)
 "ycu" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -48723,9 +48684,9 @@ vat
 okA
 xAf
 xmc
-fhF
-ycp
-klD
+ifX
+ifX
+ifX
 kGf
 lOn
 okw
@@ -48925,8 +48886,8 @@ nnw
 qio
 vqU
 xmc
-fhF
-ycp
+ifX
+ifX
 ifX
 ikP
 rau
