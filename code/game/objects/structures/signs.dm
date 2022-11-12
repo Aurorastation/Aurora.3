@@ -1155,6 +1155,7 @@
 	name = "president Hadii portrait"
 	desc = "A portrait of President Hadii. An essential item in any Hadiist household."
 	icon_state = "hadii_painting"
+	sign_state = "hadii_painting"
 	desc_fluff = "A state-endorsed cult of personality has been established around President Hadii. Through a robust propaganda system, republican citizens are informed daily about Malik's \
 	achievements and how only through his guidance the Republican can prosper. Portraits of President Hadii can be found in most Hadiist homes and government buildings. Njadrasanukii is known for \
 	his speeches praising his own administration and the bravery of his people; his voice can be heard frequently on the radio. While many admire him as a strong leader, others fear his ruthless \
@@ -1172,6 +1173,7 @@
 	name = "supreme commander Nated portrait"
 	desc = "A portrait of Supreme Ccommander Nated. Commonly seen in junta controlled territories."
 	icon_state = "nated_painting"
+	sign_state = "nated_painting"
 	desc_fluff = "For a decade, Halkiikijr led the Liberation Army as an effective opposing force against the People's Republic and the New Kingdom. He favored the extensive use of irregular \
 	warfare coupled with the deployment of the army to secure decisive battles. A cult of personality formed around Halkiikijr; extremists claimed that he was a prophet sent by the Gods. The \
 	Supreme Commander took advantage of this belief to cultivate undying loyalty and fanaticism among his followers."
@@ -1191,6 +1193,7 @@
 	name = "President Harrlala portrait"
 	desc = "A portrait of President Almrah Harrlala. The current leader of the Al'mariist civilian government."
 	icon_state = "harrlala_painting"
+	sign_state = "harrlala_painting"
 	desc_fluff = "Following the Armistice, President Almrah Harrlala continued with her internal policies while maintaining a strong stance against foreign dominance. Under her rule, schools to \
 	preserve local cultures and languages were established, Gakal’zaal was liberated from the Unathi rule, and the DPRA developed its nuclear program. Her status as one of the first female rulers \
 	in modern Tajaran history has inspired many women to engage in DPRA politics. However, her regime is plagued with deep issues. The ghost of separatism lingers over the nation after the Amohdan \
@@ -1207,6 +1210,7 @@
 	name = "president Al'mari portrait"
 	desc = "A portrait of President Al'mari Hadii. An idol to Hadiist and Al'mariists."
 	icon_state = "almarii_painting"
+	sign_state = "almarii_painting"
 
 /obj/structure/sign/painting_frame/vahzirthaamro
 	name = "king Vahzirthaamro portrait"
@@ -1222,6 +1226,7 @@
 	name = "king Vahzirthaamro portrait"
 	desc = "A portrait of King Vahzirthaamro Azunja. Even after his death, the King remains an important figure."
 	icon_state = "vahzirthaamro_painting"
+	sign_state = "vahzirthaamro_painting"
 	desc_fluff = "In 2449, in the middle of the night, Vahzirthaamro was released in secret along with the entirety of his retinue, as they quickly spread from town to town, asking for assistance \
 	from newly appointed officials and workers. Before long, the reminiscent families of the Kaltir region were happy to rejoin their flock. By 2450 his claim to rule had spread to all of Northern \
 	Harr'masir, and the New Kingdom of Adhomai officially seceded as an independent nation under the newly declared King Vahzirthaamro Azunja. He then led the Kingdom for the next decade, \
@@ -1240,6 +1245,7 @@
 	name = "queen Shumaila portrait"
 	desc = "A portrait of Queen Shumaila Azunja. Despite her short reign, she already has attacted a loyal following."
 	icon_state = "shumaila_painting"
+	sign_state = "shumaila_painting"
 	desc_fluff = "Since entering the public eye in 2459, Shumaila enjoys much support from the women of Kaltir. Many look to her as an inspiration, buying military style jackets to emulate her \
 	look, given that Shumaila became one of the few Tajara women to lead a nation. However, this fame has also led to calls from the nobility and her family to choose a husband. Shumaila retains \
 	that her marriage comes after her coronation. She was finally crowned in 2463 after King Azunja passed away. Outside of continuing her uncle's legacy, her plans to the Kingdom are still unclear to the wide public."
