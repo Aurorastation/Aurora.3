@@ -447,7 +447,7 @@
 /datum/gear/accessory/tajaran_portraits
 	display_name = "tajaran leader portrait selection"
 	description = "A selection of tajaran leaders portraits."
-	path = /obj/structure/sign/painting_frame/hadii/loadout
+	path = /obj/item/sign/painting_frame/hadii
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
@@ -455,10 +455,10 @@
 /datum/gear/accessory/tajaran_portraits/New()
 	..()
 	var/list/portrait = list()
-	portrait["president hadii portrait"] = /obj/structure/sign/painting_frame/hadii/loadout
-	portrait["president almari portrait"] = /obj/structure/sign/painting_frame/almari/loadout
-	portrait["supreme commander nated portrait"] = /obj/structure/sign/painting_frame/nated/loadout
-	portrait["president harrlala portrait"] = /obj/structure/sign/painting_frame/harrlala/loadout
-	portrait["king vahzirthaamro portrait"] = /obj/structure/sign/painting_frame/vahzirthaamro/loadout
-	portrait["queen shumaila portrait"] = /obj/structure/sign/painting_frame/shumaila/loadout
+	portrait["president hadii portrait"] = /obj/item/sign/painting_frame/hadii
+	portrait["president almari portrait"] = /obj/item/sign/painting_frame/almari
+	portrait["supreme commander nated portrait"] = /obj/item/sign/painting_frame/nated
+	portrait["president harrlala portrait"] = /obj/item/sign/painting_frame/harrlala
+	portrait["king vahzirthaamro portrait"] = /obj/item/sign/painting_frame/vahzirthaamro
+	portrait["queen shumaila portrait"] = /obj/item/sign/painting_frame/shumaila
 	gear_tweaks += new /datum/gear_tweak/path(portrait)
