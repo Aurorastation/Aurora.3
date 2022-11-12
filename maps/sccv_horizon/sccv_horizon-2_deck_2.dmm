@@ -18810,6 +18810,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/lobby)
+"jnh" = (
+/obj/structure/closet/secure_closet/contraband,
+/turf/simulated/floor/tiled/dark,
+/area/security/armory)
 "jno" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -77320,7 +77324,7 @@ noZ
 rKv
 oiD
 noZ
-noZ
+jnh
 vaj
 dYr
 bIi

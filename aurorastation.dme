@@ -2713,7 +2713,7 @@
 #include "code\modules\projectiles\guns\energy\blaster.dm"
 #include "code\modules\projectiles\guns\energy\crank.dm"
 #include "code\modules\projectiles\guns\energy\cult.dm"
-#include "code\modules\projectiles\guns\energy\disrupter.dm"
+#include "code\modules\projectiles\guns\energy\disruptor.dm"
 #include "code\modules\projectiles\guns\energy\freezeray.dm"
 #include "code\modules\projectiles\guns\energy\laser.dm"
 #include "code\modules\projectiles\guns\energy\lawgiver.dm"
