@@ -9734,16 +9734,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"eUH" = (
-/obj/machinery/door/airlock/glass,
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_two/fore)
 "eUT" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
@@ -28401,8 +28391,15 @@
 /area/security/checkpoint2)
 "ojY" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/glass{
+	name = "Deck 2 Communal Area"
+	},
+/turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
 "okk" = (
 /obj/machinery/light/small{
@@ -42886,11 +42883,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"vvt" = (
-/obj/machinery/door/airlock/glass,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_two/fore)
 "vvS" = (
 /obj/machinery/door/airlock/service{
 	name = "Auxiliary Custodial Closet";
@@ -68844,7 +68836,7 @@ xjC
 uej
 luo
 vXs
-vvt
+ePC
 dTI
 adw
 rNs
@@ -69248,7 +69240,7 @@ sZT
 sZT
 neZ
 vXs
-eUH
+ePC
 dTI
 oPM
 cUZ
