@@ -46,6 +46,7 @@
 /obj/item/clothing/head/beret/scc
 	name = "\improper SCC beret"
 	desc = "A corporate beret in the colours of the Stellar Corporate Conglomerate."
+	desc_fluff = "The Stellar Corporate Conglomerate, also known as the Chainlink, is a joint alliance between the NanoTrasen, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals, and Zavodskoi Interstellar corporations to exercise an undisputed economic dominance over the Orion Spur."
 	icon = 'icons/obj/contained_items/scc.dmi'
 	icon_state = "scc_beret"
 	item_state = "scc_beret"

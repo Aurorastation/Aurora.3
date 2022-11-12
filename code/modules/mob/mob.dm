@@ -689,6 +689,19 @@
 		var/datum/browser/flavor_win = new(usr, name, capitalize_first_letters(name), 500, 250)
 		flavor_win.set_content(replacetext(flavor_text, "\n", "<BR>"))
 		flavor_win.open()
+
+	if(href_list["accent_tag"])
+		var/datum/accent/accent = SSrecords.accents[href_list["accent_tag"]]
+		if(accent && istype(accent))
+			var/datum/browser/accent_win = new(usr, accent.name, capitalize_first_letters(accent.name), 500, 250)
+			var/html = "[accent.description]<br>"
+			var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+			html += "[S.css_tag()]<br>"
+			html += {"[S.icon_tag(accent.tag_icon)]<br>"}
+			html += "([accent.text_tag])<br>"
+			accent_win.set_content(html)
+			accent_win.open()
+
 	if(href_list["flavor_change"])
 		update_flavor_text()
 
@@ -845,7 +858,7 @@
 			stat("Current Space Sector", SSatlas.current_sector.name)
 			var/current_month = text2num(time2text(world.realtime, "MM"))
 			var/current_day = text2num(time2text(world.realtime, "DD"))
-			stat("Current Date", "[current_day]/[current_month]/[game_year]")
+			stat("Current Date", "[game_year]-[current_month]-[current_day]")
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", get_round_duration_formatted())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")

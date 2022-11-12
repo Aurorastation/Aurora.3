@@ -39,7 +39,6 @@
 /datum/gear/accessory/armband/New()
 	..()
 	var/list/armbands = list()
-	armbands["Stellar Corporate Conglomerate armband"] = /obj/item/clothing/accessory/armband/scc
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["operations armband"] = /obj/item/clothing/accessory/armband/operations
@@ -60,7 +59,8 @@
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer")
+	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer",
+		"Chief Engineer", "Chief Medical Officer", "Research Director", "Operations Manager")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -344,11 +344,6 @@
 	path = /obj/item/clothing/accessory/sleevepatch
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/scc_patch
-	display_name = "stellar corporate conglomerate sleeve patch"
-	path = /obj/item/clothing/accessory/sleevepatch/scc
-	flags = 0
-
 /datum/gear/accessory/whalebone
 	display_name = "europan bone charm"
 	path = /obj/item/clothing/accessory/whalebone
@@ -539,6 +534,7 @@
 	flagpatch_national["flagpatch, visegrad"] = /obj/item/clothing/accessory/flagpatch/visegrad
 	flagpatch_national["flagpatch, silversun"] = /obj/item/clothing/accessory/flagpatch/silversun
 	flagpatch_national["flagpatch, callisto"] = /obj/item/clothing/accessory/flagpatch/callisto
+	flagpatch_national["flagpatch, venus"] = /obj/item/clothing/accessory/flagpatch/venus
 	flagpatch_national["flagpatch, konyang"] = /obj/item/clothing/accessory/flagpatch/konyang
 	flagpatch_national["flagpatch, elyra"] = /obj/item/clothing/accessory/flagpatch/elyra
 	flagpatch_national["flagpatch, coalition"] = /obj/item/clothing/accessory/flagpatch/coalition
