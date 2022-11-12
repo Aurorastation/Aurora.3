@@ -22129,7 +22129,7 @@
 /area/rnd/research)
 "lbN" = (
 /obj/machinery/door/airlock/medical{
-	name = "Psychiatrist's Office";
+	name = "Psychiatric Office";
 	req_access = list(64)
 	},
 /obj/machinery/door/firedoor,
@@ -35475,20 +35475,12 @@
 /area/horizon/zta)
 "rIP" = (
 /obj/machinery/firealarm/south,
-/obj/structure/closet/secure_closet{
-	name = "Psychiatrist's Locker";
-	req_access = list(64)
-	},
-/obj/item/clothing/suit/straight_jacket,
-/obj/item/clothing/suit/straight_jacket,
-/obj/item/reagent_containers/syringe,
-/obj/item/mesmetron,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/obj/item/reagent_containers/food/drinks/teapot,
 /obj/machinery/light,
+/obj/structure/closet/secure_closet/psychiatric,
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "rIZ" = (
@@ -39931,7 +39923,7 @@
 "tZL" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
-	name = "Psychiatrist's Office";
+	name = "Psychiatric Office";
 	req_access = list(64)
 	},
 /obj/effect/map_effect/door_helper/unres{
@@ -48134,7 +48126,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/medical{
-	name = "Psychiatrist's Office";
+	name = "Psychiatric Office";
 	req_access = list(64)
 	},
 /obj/effect/map_effect/door_helper/unres,
