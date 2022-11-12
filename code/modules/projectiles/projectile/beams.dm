@@ -21,8 +21,6 @@
 	name = "laser"
 	damage = 5
 	damage_type = PAIN
-	no_attack_log = 1
-	check_armor = "laser"
 	eyeblur = 0
 
 /obj/item/projectile/beam/pistol
