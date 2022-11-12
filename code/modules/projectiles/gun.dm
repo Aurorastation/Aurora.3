@@ -548,9 +548,9 @@
 	var/mob/living/carbon/human/M = user
 
 	mouthshoot = TRUE
-	M.visible_message(SPAN_DANGER("\The [user] sticks \the [src] in their mouth, finger ready to pull the trigger..."))
+	M.visible_message(SPAN_DANGER("\The [user] sticks the [src] in their mouth, their finger ready to pull the trigger..."))
 	if(!do_after(user, 40))
-		M.visible_message(SPAN_GOOD("\The [user] takes x\the [src] out of their mouth."))
+		M.visible_message(SPAN_GOOD("\The [user] takes the [src] out of their mouth."))
 		mouthshoot = FALSE
 		return
 	var/obj/item/projectile/in_chamber = consume_next_projectile()
@@ -580,11 +580,12 @@
 			mouthshoot = FALSE
 			return
 		else if(in_chamber.damage_type == PAIN)
-			user.apply_effect(110, PAIN, 0)
+			user.apply_damage(in_chamber.damage * 2, PAIN, BP_HEAD)
 		else
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src].")
-			user.apply_damage(in_chamber.damage * 10, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
-			user.apply_effect(100, PAIN, 0)
+			user.apply_damage(in_chamber.damage * 20, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
+			user.Sleeping(5)
+			user.apply_effect(30 SECONDS, PARALYZE)
 
 		handle_post_fire(user, user, FALSE, FALSE, FALSE)
 		mouthshoot = FALSE
