@@ -654,7 +654,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		..()
 
-/obj/item/fluff/tokash_spear/MouseDrop(mob/user as mob)
+/obj/item/fluff/tokash_spear/MouseDrop(mob/user)
 	if((user == usr && (!( usr.restrained() ) && (!( usr.stat ) && (usr.contents.Find(src) || in_range(src, usr))))))
 		if(!istype(usr, /mob/living/carbon/slime) && !istype(usr, /mob/living/simple_animal))
 			if( !usr.get_active_hand() )		//if active hand is empty
