@@ -638,7 +638,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/tokash_spear/attack_hand(var/mob/user)
 	if(has_spear)
-		to_chat(user, "<span class='notice'>You remove the spearhead from \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You remove the spearhead from \the [src]."))
 		var/obj/item/fluff/tokash_spearhead/piece = new(get_turf(user))
 		user.put_in_hands(piece)
 		has_spear = FALSE
