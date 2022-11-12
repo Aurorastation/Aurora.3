@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Thruster Bay";
+	name = "Thruster Bay/Backup Controls";
 	req_access = list(207)
 	},
 /turf/simulated/floor,
@@ -391,6 +391,13 @@
 /obj/item/folder/yellow,
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/ship/elyran_strike_craft)
+"cdF" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "clm" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
@@ -424,7 +431,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
@@ -510,6 +516,11 @@
 /obj/item/gun/projectile/plasma/bolter,
 /obj/item/ammo_magazine/plasma/light,
 /turf/simulated/floor/carpet,
+/area/ship/elyran_strike_craft)
+"dqM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "dBa" = (
 /obj/structure/railing/mapped,
@@ -675,16 +686,11 @@
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "eWN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/structure/table/steel,
 /obj/item/tank/phoron/shuttle,
 /obj/item/tank/phoron/shuttle{
 	pixel_y = 5
-	},
-/obj/machinery/light/small/emergency{
-	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -857,6 +863,12 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/elyran_shuttle)
+"gye" = (
+/obj/machinery/computer/ship/targeting{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "gzu" = (
 /obj/effect/shuttle_landmark/elyran_strike_craft/nav1,
 /turf/template_noop,
@@ -1144,6 +1156,11 @@
 	temperature = 278
 	},
 /area/ship/elyran_strike_craft)
+"kTB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "kVo" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/spline/plain{
@@ -1428,9 +1445,9 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "ofY" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light/small/emergency{
-	dir = 8
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/ship/sensors{
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -1715,8 +1732,9 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "rmm" = (
-/obj/machinery/computer/ship/engines{
-	dir = 4
+/obj/machinery/computer/ship/helm{
+	dir = 1;
+	req_access = null
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -1854,6 +1872,7 @@
 "tcC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "tjN" = (
@@ -32284,9 +32303,9 @@ xRX
 xRX
 rtf
 czo
-rmm
+pcX
 gjP
-ofY
+ipy
 vOv
 vFY
 sTj
@@ -32543,7 +32562,7 @@ czF
 eIk
 aou
 wZf
-pue
+ofY
 vOv
 aab
 sTj
@@ -32800,7 +32819,7 @@ rtf
 efi
 pcX
 tcC
-dQs
+rmm
 vOv
 aaI
 sTj
@@ -33054,10 +33073,10 @@ xRX
 xRX
 xRX
 rtf
-eWN
-dQs
+ete
 pcX
-dQs
+pcX
+gye
 vOv
 afz
 aoJ
@@ -36410,14 +36429,14 @@ pcX
 tGD
 cGq
 pcX
-pue
-pcX
+kTB
+dQs
 jCO
 jCO
 jCO
-pue
-pcX
-kbf
+dqM
+dQs
+cdF
 lxP
 xRX
 xRX
@@ -38194,7 +38213,7 @@ xRX
 xRX
 xRX
 grj
-efi
+eWN
 eys
 vOv
 evN

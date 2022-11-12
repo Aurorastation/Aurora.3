@@ -220,8 +220,9 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/structure/table/steel,
-/obj/item/toy/desk/fan,
+/obj/machinery/computer/ship/targeting{
+	dir = 8
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -354,7 +355,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "bFk" = (
-/obj/item/modular_computer/console/preset/civilian{
+/obj/machinery/computer/ship/targeting{
 	dir = 1
 	},
 /obj/structure/railing/mapped,
@@ -488,7 +489,7 @@
 /area/ship/fsf_patrol_ship)
 "dLJ" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms/Aux CIC"
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
@@ -725,9 +726,10 @@
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "fqb" = (
-/obj/structure/bed/stool/chair/office/dark{
+/obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -1633,8 +1635,10 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/fsf_shuttle)
 "lmO" = (
-/obj/structure/table/steel,
-/obj/item/folder/red,
+/obj/machinery/computer/ship/helm{
+	dir = 8;
+	req_access = list(203)
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -2374,6 +2378,14 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
 /area/space)
+"sOy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/ship/sensors,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/ship/fsf_patrol_ship)
 "sSs" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2512,6 +2524,13 @@
 /area/ship/fsf_patrol_ship)
 "uaE" = (
 /turf/unsimulated/wall/fakepdoor,
+/area/ship/fsf_patrol_ship)
+"ubV" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
 /area/ship/fsf_patrol_ship)
 "udB" = (
 /obj/machinery/door/airlock/glass_security{
@@ -31895,13 +31914,13 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+yjk
+yjk
+yjk
+yjk
+dYf
+yjk
+yjk
 yjk
 yjk
 yjk
@@ -32156,7 +32175,7 @@ yjk
 yjk
 yjk
 yjk
-dYf
+yjk
 yjk
 yjk
 yjk
@@ -33437,9 +33456,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
+yjk
+yjk
+yjk
 yjk
 sSs
 vQR
@@ -36521,9 +36540,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
+yjk
+yjk
+yjk
 yjk
 sSs
 bci
@@ -37043,7 +37062,7 @@ yjW
 yjk
 kFu
 xoc
-xoc
+ubV
 yjk
 ajL
 kWZ
@@ -37298,7 +37317,7 @@ aJd
 oJN
 quc
 yjk
-xoc
+sOy
 fqb
 fUw
 yjk
@@ -37810,7 +37829,7 @@ yjk
 yjk
 yjk
 yjk
-gpq
+yjk
 yjk
 yjk
 yjk
@@ -38063,13 +38082,13 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+yjk
+yjk
+yjk
+yjk
+gpq
+yjk
+yjk
 yjk
 yjk
 yjk

@@ -156,6 +156,12 @@
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"aTI" = (
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/tcfl_peacekeeper_ship)
 "aUf" = (
 /obj/structure/closet/crate/medical,
 /obj/item/storage/firstaid/regular,
@@ -1081,12 +1087,11 @@
 	},
 /area/shuttle/tcfl_shuttle)
 "haL" = (
-/obj/machinery/light/small,
-/obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/combatripley{
-	h_r_hand = /obj/item/mecha_equipment/clamp
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/ship/sensors{
+	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "hdb" = (
 /obj/machinery/light/small{
@@ -1245,6 +1250,14 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
+"hLc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/ship/helm{
+	dir = 8;
+	req_access = list(204)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "hLR" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -1287,6 +1300,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "hRT" = (
 /obj/machinery/vending/tool,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "hSW" = (
@@ -1462,6 +1476,9 @@
 /area/space)
 "iVq" = (
 /obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/combatripley{
+	h_r_hand = /obj/item/mecha_equipment/clamp
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "iWp" = (
@@ -1704,6 +1721,9 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "kgR" = (
@@ -1810,6 +1830,13 @@
 	dir = 10
 	},
 /obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
+"kyw" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/ship/targeting{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "kzm" = (
@@ -3144,7 +3171,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "tis" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Maintenance";
+	name = "Maintenance/Aux CIC";
 	req_access = list(204)
 	},
 /obj/machinery/door/firedoor,
@@ -25149,7 +25176,7 @@ pPl
 hZq
 oYH
 hZq
-pPl
+aTI
 yjk
 dCR
 mxc
@@ -26694,9 +26721,9 @@ urq
 rYF
 arF
 xji
-haL
+xji
 hRT
-qtX
+yjk
 xRX
 xRX
 xRX
@@ -34913,9 +34940,9 @@ sBA
 gxW
 hWh
 jbQ
-jWO
-jWO
-jWO
+haL
+hLc
+kyw
 yjk
 sOz
 xji
