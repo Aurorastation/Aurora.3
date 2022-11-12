@@ -267,7 +267,12 @@
 	desc = "Station Network"
 	region = ACCESS_REGION_RESEARCH
 
-// /var/const/free_access_id = 43
+/var/const/access_leviathan = 43
+/datum/access/leviathan
+	id = access_leviathan
+	desc = "Leviathan"
+	region = ACCESS_REGION_COMMAND
+
 // /var/const/free_access_id = 44
 
 /var/const/access_surgery = 45
@@ -604,4 +609,9 @@ var/const/access_kataphract_knight = 114
 /var/const/access_skrell = 208
 /datum/access/access_skrell
 	id = access_skrell
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_pra = 209
+/datum/access/access_pra
+	id = access_pra
 	access_type = ACCESS_TYPE_CENTCOM
