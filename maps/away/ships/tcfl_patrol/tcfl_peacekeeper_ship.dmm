@@ -923,6 +923,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/legion,
 /area/shuttle/tcfl_shuttle)
+"gaY" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "gcq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -2092,6 +2096,9 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "mnC" = (
@@ -2461,6 +2468,12 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
+"pcu" = (
+/obj/machinery/light/small/emergency,
+/obj/structure/table/steel,
+/obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "pfg" = (
@@ -3311,6 +3324,20 @@
 	name = "starboard, armoury"
 	},
 /turf/simulated/floor/plating,
+/area/ship/tcfl_peacekeeper_ship)
+"tTZ" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "tUb" = (
 /obj/effect/floor_decal/corner/blue{
@@ -33430,7 +33457,7 @@ hNy
 hNy
 hNy
 lmS
-cwQ
+pcu
 yjk
 xRX
 xRX
@@ -33687,7 +33714,7 @@ xji
 xji
 xji
 xji
-xji
+tTZ
 yjk
 xRX
 xRX
@@ -34971,7 +34998,7 @@ hLc
 kyw
 yjk
 sOz
-xji
+gaY
 cwQ
 yjk
 xRX
