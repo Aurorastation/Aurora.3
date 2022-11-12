@@ -443,3 +443,22 @@
 	card["zbrojny badge"] = /obj/item/clothing/accessory/tajaran/zbrojny_badge
 	card["golden sun pin"] = /obj/item/clothing/accessory/tajaran/tanker_pin
 	gear_tweaks += new /datum/gear_tweak/path(card)
+
+/datum/gear/accessory/tajaran_portraits
+	display_name = "tajaran leader portrait selection"
+	description = "A selection of tajaran leaders portraits."
+	path = /obj/structure/sign/painting_frame/hadii/loadout
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajaran_portraits/New()
+	..()
+	var/list/portrait = list()
+	portrait["president hadii portrait"] = /obj/structure/sign/painting_frame/hadii/loadout
+	portrait["president almari portrait"] = /obj/structure/sign/painting_frame/almari/loadout
+	portrait["supreme commander nated portrait"] = /obj/structure/sign/painting_frame/nated/loadout
+	portrait["president harrlala portrait"] = /obj/structure/sign/painting_frame/harrlala/loadout
+	portrait["king vahzirthaamro portrait"] = /obj/structure/sign/painting_frame/vahzirthaamro/loadout
+	portrait["queen shumaila portrait"] = /obj/structure/sign/painting_frame/shumaila/loadout
+	gear_tweaks += new /datum/gear_tweak/path(portrait)
