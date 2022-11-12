@@ -1015,6 +1015,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
 "aOF" = (
@@ -2878,6 +2880,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
 "cAK" = (
@@ -4469,6 +4475,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/security/investigations)
 "dUB" = (
@@ -4917,6 +4926,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -10507,19 +10519,31 @@
 	name = "Weaponry (Practice Ammunition)";
 	req_access = list(1)
 	},
-/obj/item/ammo_magazine/c45m/practice,
-/obj/item/ammo_magazine/c45m/practice,
-/obj/item/ammo_magazine/c45m/practice,
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/item/ammo_magazine/c45m/practice,
-/obj/item/ammo_magazine/c45m/practice,
-/obj/item/ammo_magazine/c45m/practice,
-/obj/item/storage/box/practiceshells,
-/obj/item/storage/box/practiceshells,
-/obj/item/storage/box/practiceshells,
 /obj/item/device/radio/intercom{
 	dir = 4;
 	pixel_x = -24
+	},
+/obj/item/storage/box/practiceshells,
+/obj/item/storage/box/practiceshells,
+/obj/item/storage/box/practiceshells,
+/obj/item/ammo_magazine/c45m/practice{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/c45m/practice{
+	pixel_x = -4
+	},
+/obj/item/ammo_magazine/c45m/practice{
+	pixel_x = -4
+	},
+/obj/item/ammo_magazine/c45m/practice{
+	pixel_x = -4
+	},
+/obj/item/ammo_magazine/c45m/practice{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/c45m/practice{
+	pixel_x = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
@@ -17411,7 +17435,10 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/junction{
+	dir = 2;
+	icon_state = "pipe-j2"
+	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "oez" = (
@@ -20463,14 +20490,18 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/item/gun/energy/laser/practice,
-/obj/item/gun/energy/laser/practice,
-/obj/item/gun/energy/laser/practice,
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
+	},
+/obj/item/gun/energy/laser/practice{
+	pixel_y = -4
+	},
+/obj/item/gun/energy/laser/practice,
+/obj/item/gun/energy/laser/practice{
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
