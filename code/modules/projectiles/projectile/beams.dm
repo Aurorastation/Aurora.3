@@ -19,13 +19,11 @@
 
 /obj/item/projectile/beam/practice
 	name = "laser"
-	icon_state = "laser"
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
-	damage = 0
-	damage_type = BURN
+	damage = 5
+	damage_type = PAIN
 	no_attack_log = 1
 	check_armor = "laser"
-	eyeblur = 2
+	eyeblur = 0
 
 /obj/item/projectile/beam/pistol
 	damage = 25
