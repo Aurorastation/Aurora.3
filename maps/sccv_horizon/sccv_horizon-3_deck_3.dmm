@@ -5638,9 +5638,7 @@
 "eSk" = (
 /obj/machinery/light,
 /obj/machinery/computer/ship/navigation{
-	dir = 1;
-	density = 0;
-	pixel_y = -32
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -10544,6 +10542,22 @@
 	},
 /obj/item/ammo_magazine/c45m/practice{
 	pixel_x = 4
+	},
+/obj/item/ammo_magazine/a556/carbine/practice{
+	pixel_y = 9;
+	pixel_x = -5
+	},
+/obj/item/ammo_magazine/a556/carbine/practice{
+	pixel_y = 9;
+	pixel_x = 7
+	},
+/obj/item/ammo_magazine/a556/carbine/practice{
+	pixel_y = 9;
+	pixel_x = -5
+	},
+/obj/item/ammo_magazine/a556/carbine/practice{
+	pixel_y = 9;
+	pixel_x = 7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
@@ -20496,11 +20510,11 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
 	},
-/obj/item/gun/energy/laser/practice{
+/obj/item/gun/energy/rifle/laser/practice{
 	pixel_y = -4
 	},
-/obj/item/gun/energy/laser/practice,
-/obj/item/gun/energy/laser/practice{
+/obj/item/gun/energy/rifle/laser/practice,
+/obj/item/gun/energy/rifle/laser/practice{
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
