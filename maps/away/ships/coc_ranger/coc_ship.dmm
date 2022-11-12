@@ -67,6 +67,7 @@
 "aqk" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/table/steel,
+/obj/item/clothing/head/helmet/pilot,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "asD" = (
@@ -190,6 +191,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/computer/ship/engines{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine1)
 "aYE" = (
@@ -208,7 +212,7 @@
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/helm{
 	dir = 1;
-	req_access = list(203)
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
@@ -599,7 +603,6 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/office/bridge/pilot,
-/obj/item/clothing/head/helmet/pilot,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -721,8 +724,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "dMX" = (
-/obj/structure/table/steel,
-/obj/item/clipboard,
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
@@ -736,21 +737,17 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/obj/machinery/computer/ship/targeting{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
-/area/ship/ranger_corvette/telecomms)
+/area/space)
 "dNG" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/telecomms)
 "dUu" = (
-/obj/structure/plasticflaps/airtight,
-/obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
-	},
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/telecomms)
 "dYC" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -2888,11 +2885,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "oTC" = (
-/obj/item/modular_computer/console/preset/civilian{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/grey/full,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/ship/helm{
+	dir = 4;
+	req_access = null
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/telecomms)
 "oTH" = (
@@ -3340,10 +3338,11 @@
 "qQd" = (
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
 	},
+/obj/machinery/computer/ship/sensors,
+/turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/telecomms)
 "qRJ" = (
 /obj/machinery/door/airlock/silver{
@@ -4101,7 +4100,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "tBK" = (
-/obj/structure/bed/stool/chair/office/dark{
+/obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey{
@@ -4268,11 +4267,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/leader)
 "tYR" = (
-/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
-	dir = 4
+	dir = 8
 	},
-/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped,
+/obj/machinery/iff_beacon,
 /turf/simulated/floor/airless,
 /area/ship/ranger_corvette)
 "udj" = (
@@ -4417,10 +4416,11 @@
 /area/ship/ranger_corvette/gunnery)
 "uvJ" = (
 /obj/machinery/telecomms/allinone/ship,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/telecomms)
 "uwG" = (
 /obj/structure/urinal{
@@ -4693,7 +4693,7 @@
 /area/ship/ranger_corvette/foyer)
 "vZn" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecommunications"
+	name = "Telecommunications/Aux CIC"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4776,11 +4776,11 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/ship/ranger_corvette/cryo)
 "wmz" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/structure/railing/mapped,
-/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/shipsensors/weak,
 /turf/simulated/floor/airless,
 /area/ship/ranger_corvette)
 "wmN" = (
@@ -5063,9 +5063,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/bathroom)
 "xzq" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/telecomms)
 "xBz" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -35660,7 +35662,7 @@ brx
 oQn
 hdp
 hdp
-xRX
+tYR
 xRX
 xRX
 xRX
@@ -35924,7 +35926,7 @@ kKC
 kKC
 eGi
 eGi
-wmz
+xRX
 xRX
 xRX
 xRX
@@ -38494,7 +38496,7 @@ jCF
 jCF
 ehv
 ehv
-tYR
+xRX
 xRX
 xRX
 xRX
@@ -38744,7 +38746,7 @@ euV
 xJk
 wbK
 ehv
-xRX
+wmz
 xRX
 xRX
 xRX
