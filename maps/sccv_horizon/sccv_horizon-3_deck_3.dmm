@@ -7235,6 +7235,9 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "fXn" = (
@@ -8798,6 +8801,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
+"hie" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/port)
 "hig" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cookiesnack,
@@ -16887,6 +16900,8 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "nGE" = (
@@ -28740,7 +28755,6 @@
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "wPW" = (
-/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/port)
 "wQI" = (
@@ -54448,7 +54462,7 @@ uKi
 iCO
 vOV
 wPW
-jEj
+hie
 oWZ
 qzF
 mKP

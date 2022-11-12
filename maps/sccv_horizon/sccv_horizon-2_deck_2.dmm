@@ -232,12 +232,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/horizon/library)
-"aeR" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
 "afe" = (
 /obj/machinery/light/small/red{
 	dir = 4
@@ -2656,13 +2650,8 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/computer/shuttle_control/lift/wall{
-	dir = 4;
-	pixel_x = -32;
-	shuttle_tag = "Robotics Lift"
-	},
 /turf/simulated/floor/tiled/dark,
-/area/assembly/chargebay)
+/area/hallway/primary/central_one)
 "bhR" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -6756,16 +6745,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
-"doI" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/mauve,
-/obj/effect/floor_decal/corner/brown{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "doW" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 8;
@@ -8878,7 +8857,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/area/assembly/chargebay)
 "evU" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -10353,9 +10332,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/lobby)
-"fhU" = (
-/turf/simulated/floor/tiled/full,
-/area/hallway/primary/central_two)
 "fjc" = (
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -12605,7 +12581,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "gmo" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice,
@@ -22190,22 +22166,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
-"lcL" = (
-/obj/machinery/button/remote/blast_door{
-	desc = "It controls the Mech Bay's shutters.";
-	dir = 8;
-	id = "MechBayShutter";
-	name = "Mech Bay Access Shutters";
-	pixel_x = 24;
-	pixel_y = 7;
-	req_one_access = list(29,47)
-	},
-/obj/effect/floor_decal/corner/brown{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/mauve,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "ldk" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -22263,13 +22223,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
-"len" = (
-/obj/effect/floor_decal/corner/mauve,
-/obj/effect/floor_decal/corner/brown{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "leU" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -24105,10 +24058,10 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
 "mbE" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "mbH" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -25015,7 +24968,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "mzS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/powered/scrubber,
@@ -25562,7 +25515,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "mNN" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -26299,7 +26252,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/full,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "nfz" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -27435,7 +27388,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "nGS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -33454,7 +33407,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "qGH" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin{
@@ -33506,7 +33459,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "qIA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -33524,7 +33477,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "qJr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -42830,13 +42783,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"vtM" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/mauve,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "vtX" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -42991,7 +42937,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "vye" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/spline/plain{
@@ -47087,7 +47033,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "xmF" = (
 /obj/item/modular_computer/console/preset/command/teleporter,
 /obj/machinery/light,
@@ -48583,7 +48529,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "xZI" = (
 /turf/simulated/open,
 /area/maintenance/disposal)
@@ -48942,7 +48888,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "ygu" = (
 /obj/effect/floor_decal/spline/plain/cee,
 /turf/simulated/floor/carpet/rubber,
@@ -49124,7 +49070,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "ykA" = (
 /obj/effect/shuttle_landmark/lift/morgue_top,
 /obj/effect/floor_decal/industrial/warning{
@@ -49145,7 +49091,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
+/area/hallway/primary/central_one)
 "ylu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/meter,
@@ -70295,13 +70241,13 @@ ayF
 uRe
 aFd
 mCE
-aeR
-aeR
-aeR
-aeR
-aeR
-aeR
-aeR
+vIt
+vIt
+vIt
+vIt
+vIt
+vIt
+vIt
 mUC
 lng
 qLT
@@ -70692,8 +70638,8 @@ iVp
 iVp
 nUN
 wgL
-aeR
-aeR
+vIt
+vIt
 cIr
 eHG
 xhg
@@ -72518,11 +72464,11 @@ avz
 aKr
 qIJ
 ejU
-aeR
+vIt
 vrd
-aeR
+vIt
 qIJ
-aeR
+vIt
 qIr
 mXJ
 ogV
@@ -72717,14 +72663,14 @@ gPM
 lFE
 ulB
 iWV
-vXs
+pdv
 qav
 qav
 doW
 qav
 qav
 qav
-fhU
+eHG
 qGp
 ayF
 ayF
@@ -72928,7 +72874,7 @@ jow
 qav
 nGI
 aNp
-nkF
+mbE
 dyZ
 mye
 tXR
@@ -73330,7 +73276,7 @@ cxi
 cxi
 quT
 mQW
-hEF
+xhg
 mzL
 ayF
 ayF
