@@ -931,7 +931,7 @@
 	dir = 5
 	},
 /obj/structure/reagent_dispensers/peppertank/spacecleaner{
-	pixel_y = 24
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
@@ -2399,10 +2399,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
-"bNT" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
 "bNW" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3569,7 +3565,9 @@
 	pixel_y = -28
 	},
 /obj/machinery/light,
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/green/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "cMu" = (
@@ -14989,17 +14987,6 @@
 /obj/item/folder/purple,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
-"lBY" = (
-/obj/machinery/iff_beacon/horizon,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/reinforced,
-/area/shuttle/intrepid/cockpit)
 "lCv" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -15557,16 +15544,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "lVN" = (
-/obj/structure/shuttle_part{
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "mlw1";
-	opacity = 1
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 4
 	},
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, atmos compartment"
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/intrepid/atmos_compartment)
+/turf/simulated/floor/wood,
+/area/hallway/primary/aft)
 "lVQ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/external{
@@ -20118,13 +20103,11 @@
 	c_tag = "First Deck - Hangar Entrance";
 	dir = 1
 	},
-/obj/structure/bed/stool/chair/padded/brown{
-	can_buckle = 0;
-	dir = 8;
-	name = "old chair"
-	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
+	},
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/hallway/primary/aft)
@@ -22212,9 +22195,7 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/atmos/air)
 "riM" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
+/obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "rjr" = (
@@ -30084,7 +30065,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "xqj" = (
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/intrepid/rotary)
@@ -51756,7 +51737,7 @@ tny
 jvl
 wLL
 vhY
-lFr
+lVN
 pYa
 xtH
 fuL
@@ -52361,8 +52342,8 @@ rHK
 kuh
 bec
 wLL
-riM
-bNT
+waN
+xej
 dWt
 oYC
 cZw
