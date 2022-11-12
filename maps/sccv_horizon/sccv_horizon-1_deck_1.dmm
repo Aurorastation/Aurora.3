@@ -2510,8 +2510,6 @@
 	dir = 1
 	},
 /obj/machinery/firealarm/east,
-/obj/effect/floor_decal/spline/plain,
-/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "bSo" = (
@@ -4929,6 +4927,9 @@
 /area/hangar/auxiliary)
 "dUK" = (
 /obj/structure/table/steel,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/white/full{
 	dir = 1
 	},
@@ -4941,9 +4942,6 @@
 	},
 /obj/item/device/integrated_electronics/wirer{
 	pixel_x = -6
-	},
-/obj/structure/railing/mapped{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
@@ -7028,12 +7026,12 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "fqU" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
 /obj/machinery/disposal/small/east,
 /obj/effect/floor_decal/corner/white{
 	dir = 9
-	},
-/obj/structure/disposalpipe/trunk{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
@@ -8713,18 +8711,18 @@
 /area/engineering/atmos/air)
 "gzI" = (
 /obj/structure/table/reinforced/steel,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /obj/item/reagent_containers/glass/beaker/sulphuric,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
-/obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/spline/plain{
-	dir = 9
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -10376,9 +10374,16 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "hPD" = (
-/turf/simulated/floor/tiled/ramp{
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 5
+	},
+/obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
+/turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "hQr" = (
 /obj/effect/floor_decal/corner/blue{
@@ -11187,12 +11192,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Workshop";
 	req_access = list(29)
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "iAs" = (
 /obj/structure/railing/mapped{
@@ -13944,8 +13950,8 @@
 /obj/machinery/button/remote/blast_door{
 	id = "machinistworkshop";
 	name = "Conveyor Belt Shutter";
-	pixel_x = 25;
-	pixel_y = 25
+	pixel_x = 24;
+	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 6
@@ -18661,9 +18667,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/ramp{
+/obj/effect/floor_decal/corner/white/full{
 	dir = 4
 	},
+/turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "ozx" = (
 /obj/effect/floor_decal/corner/purple{
@@ -24072,22 +24079,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "sJJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /obj/effect/floor_decal/corner/white/full{
 	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
 	},
 /obj/structure/sink/kitchen{
 	dir = 4;
 	name = "sink";
 	pixel_x = -21
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 5
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
@@ -25174,12 +25179,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
-"tzp" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/operations/lower/machinist)
 "tAP" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "warehousetomail";
@@ -25301,7 +25300,8 @@
 	name = "Workshop";
 	req_access = list(29)
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/white/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "tGU" = (
 /obj/effect/floor_decal/corner/purple{
@@ -26657,13 +26657,6 @@
 /obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
-"uIJ" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled/white,
-/area/operations/lower/machinist)
 "uIL" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
@@ -27354,7 +27347,7 @@
 	name = "Workshop";
 	req_access = list(29)
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "vjW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
@@ -50084,7 +50077,7 @@ qks
 sfr
 pYD
 hPD
-tzp
+ycX
 ycX
 dsT
 mey
@@ -50286,7 +50279,7 @@ rTF
 rTF
 taF
 gzI
-uIJ
+ycX
 aPV
 eaw
 jEf
