@@ -584,8 +584,7 @@
 		else
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src].")
 			user.apply_damage(in_chamber.damage * 20, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
-			user.Sleeping(5)
-			user.apply_effect(30 SECONDS, PARALYZE)
+			user.death()
 
 		handle_post_fire(user, user, FALSE, FALSE, FALSE)
 		mouthshoot = FALSE
