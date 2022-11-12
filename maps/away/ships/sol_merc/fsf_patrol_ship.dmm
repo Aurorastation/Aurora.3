@@ -90,6 +90,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "atj" = (
@@ -137,6 +138,11 @@
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
 /obj/item/tank/phoron/shuttle,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/stack/material/glass/full,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "aBb" = (
@@ -190,6 +196,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "aJd" = (
@@ -233,6 +240,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "aSm" = (
@@ -369,6 +377,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "bLq" = (
@@ -1340,7 +1349,7 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
-/obj/item/clothing/under/rank/medical,
+/obj/item/clothing/under/rank/medical/surgeon,
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical/w,
 /obj/machinery/light{
@@ -2314,6 +2323,14 @@
 	},
 /obj/machinery/computer/ship/targeting,
 /turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
+"rCG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "rNp" = (
 /obj/structure/bed/stool/chair/office/dark,
@@ -37055,7 +37072,7 @@ xRX
 xRX
 xRX
 aaI
-oJN
+rCG
 aSi
 quc
 yjW

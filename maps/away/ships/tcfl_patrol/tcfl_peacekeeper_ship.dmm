@@ -1097,6 +1097,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "hdd" = (
@@ -2150,6 +2151,10 @@
 /obj/item/stack/material/glass/full,
 /obj/item/stack/material/glass/reinforced/full,
 /obj/structure/lattice/catwalk/indoor,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "mEc" = (
@@ -2280,6 +2285,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "nsw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ntt" = (
@@ -2792,6 +2798,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"qXd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/portable_atmospherics/powered/scrubber/huge,
+/turf/simulated/floor,
+/area/ship/tcfl_peacekeeper_ship)
 "qXw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/access_button{
@@ -3143,6 +3157,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
+"sTl" = (
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
+/area/ship/tcfl_peacekeeper_ship)
 "sWY" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
@@ -3171,7 +3189,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "tis" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Maintenance/Aux CIC";
+	name = "Maintenance/Backup Controls";
 	req_access = list(204)
 	},
 /obj/machinery/door/firedoor,
@@ -3471,6 +3489,14 @@
 	name = "Cockpit Defense Shutters"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
+"vjD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "vnW" = (
 /obj/structure/railing/mapped{
@@ -25171,8 +25197,8 @@ xRX
 xRX
 xRX
 sBA
-qds
-pPl
+vjD
+sTl
 hZq
 oYH
 hZq
@@ -25685,9 +25711,9 @@ xRX
 xRX
 xRX
 sBA
-gxW
+qXd
 hdb
-pPl
+sTl
 pPl
 xFD
 sfQ
