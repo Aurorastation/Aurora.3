@@ -636,9 +636,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		icon_state = "stand"
 
-/obj/item/fluff/tokash_spear/attack_self(var/mob/user)
+/obj/item/fluff/tokash_spear/attack_hand(var/mob/user)
 	if(has_spear)
-		to_chat(user, "<span class='notice'>You remove the spearhead from \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You remove the spearhead from \the [src]."))
 		var/obj/item/fluff/tokash_spearhead/piece = new(get_turf(user))
 		user.put_in_hands(piece)
 		has_spear = FALSE
@@ -654,6 +654,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		..()
 
+/obj/item/fluff/tokash_spear/MouseDrop(mob/user)
+	if((user == usr && (!(usr.restrained()) && (!(usr.stat) && (usr.contents.Find(src) || in_range(src, usr))))))
+		if(!istype(usr, /mob/living/carbon/slime) && !istype(usr, /mob/living/simple_animal))
+			if(!usr.get_active_hand()) // If active hand is empty.
+				var/mob/living/carbon/human/H = user
+				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
+
+				if(H.hand)
+					temp = H.organs_by_name[BP_L_HAND]
+				if(temp && !temp.is_usable())
+					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+					return
+
+				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
+				user.put_in_hands(src)
+	return
+
 /obj/item/fluff/tokash_spearhead
 	name = "ancestral spearhead"
 	desc = "An aged and worn spearhead. It seems to be made of bronze or composite metal."
@@ -661,7 +678,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "spearhead"
 	w_class = ITEMSIZE_SMALL
-
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/fluff/naomi_coat //Reishi Queen Winter Coat - Naomi Marlowe - smifboy78
 	name = "reishi queen winter coat"
