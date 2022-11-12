@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Non-asteroid exoplanets now correctly have a chance to have ambient lighting."
+  - bugfix: "Exoplanet theming (rock coloration, etc.) now correctly applies to all exoplanet turfs."
