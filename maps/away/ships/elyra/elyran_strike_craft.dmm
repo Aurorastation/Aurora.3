@@ -241,7 +241,11 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/structure/closet/firecloset/full,
+/obj/structure/table/steel,
+/obj/item/tank/phoron/shuttle,
+/obj/item/tank/phoron/shuttle{
+	pixel_y = 5
+	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "aLo" = (
@@ -433,6 +437,9 @@
 	},
 /obj/machinery/light/small/emergency{
 	dir = 8
+	},
+/obj/machinery/computer/ship/sensors{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -686,12 +693,13 @@
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "eWN" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/structure/table/steel,
-/obj/item/tank/phoron/shuttle,
-/obj/item/tank/phoron/shuttle{
-	pixel_y = 5
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/structure/closet/firecloset/full,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "eXC" = (
@@ -1445,9 +1453,8 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "ofY" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/ship/sensors{
-	dir = 1
+/obj/machinery/computer/ship/engines{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -32303,7 +32310,7 @@ xRX
 xRX
 rtf
 czo
-pcX
+ofY
 gjP
 ipy
 vOv
@@ -32562,7 +32569,7 @@ czF
 eIk
 aou
 wZf
-ofY
+pue
 vOv
 aab
 sTj
@@ -33073,7 +33080,7 @@ xRX
 xRX
 xRX
 rtf
-ete
+eWN
 pcX
 pcX
 gye
@@ -38213,7 +38220,7 @@ xRX
 xRX
 xRX
 grj
-eWN
+efi
 eys
 vOv
 evN
