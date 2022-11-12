@@ -664,7 +664,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 				if(H.hand)
 					temp = H.organs_by_name[BP_L_HAND]
 				if(temp && !temp.is_usable())
-					to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
 
 				to_chat(user, "<span class='notice'>You pick up the [src].</span>")
