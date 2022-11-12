@@ -3607,6 +3607,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/green/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "dhj" = (
@@ -3771,7 +3774,8 @@
 /area/horizon/crew_quarters/cryo/dormitories)
 "dnw" = (
 /obj/structure/morgue{
-	dir = 2
+	dir = 2;
+	name = "investigations morgue B"
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
@@ -5628,6 +5632,18 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/central)
+"eTq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/full{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
@@ -8032,13 +8048,13 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "gGN" = (
-/obj/structure/closet{
-	name = "Evidence Closet"
-	},
 /obj/effect/floor_decal/corner/blue/full,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/structure/closet/secure_closet/evidence{
+	name = "evidence storage locker C"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations_storage)
@@ -9273,7 +9289,6 @@
 	req_access = null;
 	req_one_access = list(4,68)
 	},
-/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/security/investigations_storage)
@@ -17242,13 +17257,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
 "nWA" = (
-/obj/structure/closet{
-	name = "Evidence Closet"
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/secure_closet/evidence{
+	name = "evidence storage locker B"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations_storage)
 "nXf" = (
@@ -20602,7 +20617,8 @@
 /area/maintenance/bridge)
 "qIl" = (
 /obj/structure/morgue{
-	dir = 2
+	dir = 2;
+	name = "investigations morgue A"
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -22383,6 +22399,16 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/crew_quarters/fitness/pool)
+"scO" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/secure_closet/evidence{
+	name = "evidence storage locker A"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/investigations_storage)
 "sdp" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -28242,11 +28268,10 @@
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "wtM" = (
-/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/security{
 	name = "Evidence Storage";
 	req_access = null;
-	req_one_access = list(4,68)
+	req_one_access = list(2,3,4,68)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -53827,7 +53852,7 @@ ofY
 aLd
 bfx
 ejB
-aBC
+eTq
 dfX
 lrF
 tLV
@@ -55849,7 +55874,7 @@ hxQ
 ePK
 ptT
 kJE
-nWA
+scO
 hSz
 gJb
 ofl
