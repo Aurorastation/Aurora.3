@@ -2570,7 +2570,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
-/area/security/investigations)
+/area/maintenance/security_starboard)
 "cfB" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -6079,7 +6079,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/security/investigations)
+/area/maintenance/security_starboard)
 "fhs" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/bed/stool/chair/padded/brown{
@@ -6248,6 +6248,9 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
+"fll" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/security_starboard)
 "fmg" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -7268,6 +7271,9 @@
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/deck_three/cafeteria)
+"fXr" = (
+/turf/simulated/wall,
+/area/maintenance/security_starboard)
 "fXt" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -12117,7 +12123,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/security/investigations)
+/area/maintenance/security_starboard)
 "jUp" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/bed/stool/padded/black,
@@ -15572,7 +15578,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/security/investigations)
+/area/maintenance/security_starboard)
 "mtE" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -15592,6 +15598,9 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
+"muG" = (
+/turf/simulated/wall/r_wall,
+/area/maintenance/security_starboard)
 "muO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -15865,7 +15874,7 @@
 /obj/structure/reagent_dispensers/extinguisher,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/security/investigations)
+/area/maintenance/security_starboard)
 "mOc" = (
 /obj/machinery/door/airlock/glass{
 	name = "Deck 3 Port Docks"
@@ -18408,7 +18417,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/security/investigations)
+/area/maintenance/security_starboard)
 "oLM" = (
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/corner/paleblue{
@@ -20553,7 +20562,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/security/investigations)
+/area/maintenance/security_starboard)
 "qBz" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -22134,7 +22143,7 @@
 /obj/item/material/shard,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/security/investigations)
+/area/maintenance/security_starboard)
 "rRk" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -25403,7 +25412,7 @@
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/security/investigations)
+/area/maintenance/security_starboard)
 "ulh" = (
 /obj/item/trash/koisbar,
 /obj/machinery/alarm{
@@ -25415,7 +25424,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/security/investigations)
+/area/maintenance/security_starboard)
 "uly" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -26172,7 +26181,7 @@
 	dir = 1
 	},
 /turf/simulated/open,
-/area/security/investigations)
+/area/maintenance/security_starboard)
 "uQk" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -57551,7 +57560,7 @@ sNN
 qdz
 dqT
 sGQ
-ofl
+muG
 uks
 msr
 jUg
@@ -57753,13 +57762,13 @@ nbR
 nbR
 fWH
 tni
-ofl
+muG
 mNY
 rRe
 oLG
 fho
 ulh
-ioQ
+fXr
 vhh
 shI
 ert
@@ -57955,13 +57964,13 @@ gTO
 nbR
 dAI
 pbx
-fQJ
-fQJ
-fQJ
-fQJ
-fQJ
-fQJ
-fQJ
+fll
+fll
+fll
+fll
+fll
+fll
+fll
 lwt
 dkM
 lwt
