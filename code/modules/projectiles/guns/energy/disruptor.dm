@@ -32,7 +32,7 @@
 	projectile_type = /obj/item/projectile/energy/disruptorstun/practice
 	secondary_projectile_type = /obj/item/projectile/energy/blaster/disruptor/practice
 	firemodes = list(
-		list(mode_name="stun (practice)", projectile_type=/obj/item/projectile/energy/disruptorstun/practice, modifystate="disruptorpistolstun", fire_sound = 'sound/weapons/gunshot/bolter.ogg')
+		list(mode_name="stun (practice)", projectile_type=/obj/item/projectile/energy/disruptorstun/practice, modifystate="disruptorpistolstun", fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
 		list(mode_name="lethal (practice)", projectile_type=/obj/item/projectile/energy/blaster/disruptor/practice, modifystate="disruptorpistolkill", recoil = 1, fire_sound = 'sound/weapons/gunshot/bolter.ogg')
 	)
 
