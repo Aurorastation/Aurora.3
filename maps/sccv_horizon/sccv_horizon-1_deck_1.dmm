@@ -7588,7 +7588,6 @@
 "fMM" = (
 /obj/machinery/door/airlock/multi_tile/glass,
 /obj/machinery/door/firedoor/multi_tile,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/hangar/intrepid/interstitial)
 "fOC" = (
@@ -8661,7 +8660,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/hangar/intrepid/interstitial)
 "gyj" = (
@@ -12364,7 +12362,6 @@
 	id = "hangarlockdown";
 	name = "Hangar Lockdown"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/hangar/intrepid)
 "jxt" = (
@@ -28798,7 +28795,6 @@
 	id = "hangarlockdown";
 	name = "Hangar Lockdown"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/hangar/intrepid)
 "wsA" = (
