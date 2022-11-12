@@ -1,0 +1,9 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a per-uplink item limit mechanism."
+  - rscadd: "One free medkit can be claimed from an uplink."
+  - tweak: "Personal shield can only be bought once from an uplink."
