@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Fixes some mapping oversights in security on deck 3."
+  - bugfix: "Fixes some mapping oversights on deck 3."
