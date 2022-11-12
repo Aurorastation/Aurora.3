@@ -10944,16 +10944,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
-"ikP" = (
-/obj/effect/decal/fake_object{
-	name = "Residential Deck Stairwell Shutter";
-	icon = 'icons/obj/doors/rapid_pdoor.dmi';
-	icon_state = "shutter1";
-	density = 1;
-	desc = "That looks like it doesn't open easily."
-	},
-/turf/simulated/floor/tiled/full,
-/area/horizon/stairwell/central)
 "ikV" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
@@ -48889,7 +48879,7 @@ xmc
 ifX
 ifX
 ifX
-ikP
+kGf
 rau
 aOh
 ivF
