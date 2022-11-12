@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - maptweak: "Grauwolf-armed third party ships now have francisca rotary guns as backup weapons. Fire extinguishers have been added to some relevant ships."
+  - maptweak: "Survivability of military third party ships has been improved. They now have backup controls, portable air pumps, backup weapons, and more."
   - tweak: "Third party ships have a more consistent naming scheme."
   - tweak: "Certain third party ships can now spawn in the Badlands."
   - rscadd: "The militia ship, freighter, and Skrell smugglers now have randomized guns in lieu of pre-selected weapons, for greater variety. Skrell and OX ships now have armor that they were missing."
