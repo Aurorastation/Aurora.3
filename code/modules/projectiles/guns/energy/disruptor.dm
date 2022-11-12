@@ -1,5 +1,3 @@
-
-
 /obj/item/gun/energy/disruptorpistol
 	name = "disruptor pistol"
 	desc = "A NanoTrasen designed blaster pistol with two settings: stun and lethal."
@@ -14,7 +12,7 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/item/projectile/energy/disruptorstun
-	secondary_projectile_type = /obj/item/projectile/energy/blaster
+	secondary_projectile_type = /obj/item/projectile/energy/blaster/disruptor
 	max_shots = 10
 	charge_cost = 150
 	accuracy = 1
@@ -24,9 +22,19 @@
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/disruptorstun, modifystate="disruptorpistolstun", fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster/disruptor, modifystate="disruptorpistolkill", recoil = 1, fire_sound = 'sound/weapons/gunshot/bolter.ogg')
-		)
+	)
 	required_firemode_auth = list(WIRELESS_PIN_STUN, WIRELESS_PIN_LETHAL)
 	var/selectframecheck = FALSE
+
+/obj/item/gun/energy/disruptorpistol/practice
+	name = "practice disruptor pistol"
+	desc = "A variant of the NT DP-7. It fires less concentrated energy bolts that are visible, but ultimately harmless, designed for target practice."
+	projectile_type = /obj/item/projectile/energy/disruptorstun/practice
+	secondary_projectile_type = /obj/item/projectile/energy/blaster/disruptor/practice
+	firemodes = list(
+		list(mode_name="stun (practice)", projectile_type=/obj/item/projectile/energy/disruptorstun/practice, modifystate="disruptorpistolstun", fire_sound = 'sound/weapons/gunshot/bolter.ogg')
+		list(mode_name="lethal (practice)", projectile_type=/obj/item/projectile/energy/blaster/disruptor/practice, modifystate="disruptorpistolkill", recoil = 1, fire_sound = 'sound/weapons/gunshot/bolter.ogg')
+	)
 
 /obj/item/gun/energy/disruptorpistol/security
 	pin = /obj/item/device/firing_pin/wireless

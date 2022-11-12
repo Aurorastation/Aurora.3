@@ -20510,6 +20510,13 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
 	},
+/obj/item/gun/energy/disruptorpistol/practice{
+	pixel_y = -4
+	},
+/obj/item/gun/energy/disruptorpistol/practice,
+/obj/item/gun/energy/disruptorpistol/practice{
+	pixel_y = 4
+	},
 /obj/item/gun/energy/rifle/laser/practice{
 	pixel_y = -4
 	},
