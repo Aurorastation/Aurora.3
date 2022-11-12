@@ -134,3 +134,11 @@
 				to_chat(user, SPAN_NOTICE("You insert the power cell."))
 		return TRUE
 	update_icon()
+
+/obj/machinery/floodlight/randomcharge
+	// Intentionally left empty as it's the same as the parent, but the cell is randomized.
+
+/obj/machinery/floodlight/randomcharge/Initialize()
+	. = ..()
+	if(cell)
+		cell.charge = rand(1, cell.maxcharge)

@@ -49,7 +49,7 @@
 				health -= 25
 	healthcheck()
 
-/obj/structure/gore/hitby(atom/movable/AM)
+/obj/structure/gore/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
 	. = ..()
 	visible_message(SPAN_WARNING("\The [src] was hit by \the [AM]."))
 	playsound(loc, 'sound/effects/attackblob.ogg', 100, TRUE)

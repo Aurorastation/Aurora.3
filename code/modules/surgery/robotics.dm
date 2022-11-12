@@ -185,7 +185,7 @@
 		SPAN_WARNING("Your [tool.name] slips, failing to close the hatch on [target]'s [affected.name]."))
 
 /decl/surgery_step/robotics/repair_brute
-	name = "Repair damage"
+	name = "Repair Damage"
 	allowed_tools = list(
 		/obj/item/weldingtool = 100,
 		/obj/item/gun/energy/plasmacutter = 50
@@ -230,7 +230,7 @@
 	target.apply_damage(rand(5,10), BURN, affected)
 
 /decl/surgery_step/robotics/repair_burn
-	name = "Repair burns"
+	name = "Repair Burns"
 	allowed_tools = list(
 		/obj/item/stack/cable_coil = 100,
 		/obj/item/stack/cable_coil/cyborg = 100
@@ -274,7 +274,7 @@
 	target.apply_damage(rand(5,10), BURN, affected)
 
 /decl/surgery_step/robotics/detach_organ_robotic
-	name = "Detach robotic organ"
+	name = "Detach Robotic Organ"
 	allowed_tools = list(
 	/obj/item/device/multitool = 100
 	)
@@ -324,7 +324,7 @@
 	SPAN_WARNING("Your hand slips, disconnecting \the [tool]."))
 
 /decl/surgery_step/robotics/attach_organ_robotic
-	name = "Attach robotic organ"
+	name = "Attach Robotic Organ"
 	allowed_tools = list(
 		SCREWDRIVER = 100
 	)
