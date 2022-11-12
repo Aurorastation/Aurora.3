@@ -548,9 +548,9 @@
 	var/mob/living/carbon/human/M = user
 
 	mouthshoot = TRUE
-	M.visible_message(SPAN_DANGER("\The [user] sticks the [src] in their mouth, their finger ready to pull the trigger..."))
+	M.visible_message(SPAN_DANGER("\The [user] sticks \the [src] in their mouth, their finger ready to pull the trigger..."))
 	if(!do_after(user, 40))
-		M.visible_message(SPAN_GOOD("\The [user] takes the [src] out of their mouth."))
+		M.visible_message(SPAN_GOOD("\The [user] takes \the [src] out of their mouth."))
 		mouthshoot = FALSE
 		return
 	var/obj/item/projectile/in_chamber = consume_next_projectile()
