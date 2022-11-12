@@ -100,7 +100,7 @@
 	rock_colors = null
 	plant_colors = null
 	possible_themes = list(/datum/exoplanet_theme/mountains/adhomai)
-	map_generators = list(/datum/random_map/noise/exoplanet/snow/adhomai, /datum/random_map/noise/ore)
+	map_generators = list(/datum/random_map/noise/exoplanet/snow/adhomai, /datum/random_map/noise/ore/rich)
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
 	generated_name = FALSE
@@ -126,11 +126,11 @@
 	descriptor = "Adhomai"
 	smoothing_iterations = 1
 	flora_prob = 5
-	water_level_max = 3
+	water_level_max = 2
 	land_type = /turf/simulated/floor/exoplanet/snow
 	water_type = /turf/simulated/floor/exoplanet/ice
 	fauna_types = list(/mob/living/simple_animal/ice_tunneler, /mob/living/simple_animal/fatshouter, /mob/living/simple_animal/hostile/retaliate/rafama, /mob/living/simple_animal/hostile/wind_devil,
-					/mob/living/carbon/human/farwa)
+					/mob/living/carbon/human/farwa/adhomai)
 
 /datum/random_map/noise/exoplanet/snow/adhomai/generate_flora()
 	for(var/i = 1 to flora_diversity)

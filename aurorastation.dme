@@ -2056,6 +2056,7 @@
 #include "code\modules\maps\planet_types\jungle.dm"
 #include "code\modules\maps\planet_types\lava.dm"
 #include "code\modules\maps\planet_types\snow.dm"
+#include "code\modules\maps\planet_types\lore\srandmarr.dm"
 #include "code\modules\martial_arts\gunkata.dm"
 #include "code\modules\martial_arts\martial.dm"
 #include "code\modules\martial_arts\plasma_fist.dm"

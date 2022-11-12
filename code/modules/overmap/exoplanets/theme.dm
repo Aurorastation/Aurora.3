@@ -42,6 +42,9 @@
 /datum/exoplanet_theme/mountains/breathable
 	cave_path = /datum/random_map/automata/cave_system/mountains/breathable
 
+/datum/exoplanet_theme/mountains/adhomai
+	cave_path = /datum/random_map/automata/cave_system/mountains/adhomai
+
 /datum/random_map/automata/cave_system/mountains
 	iterations = 2
 	descriptor = "space mountains"
@@ -60,6 +63,13 @@
 	floor_type = /turf/simulated/floor/exoplanet/mineral
 	use_area = FALSE
 
+/datum/random_map/automata/cave_system/mountains/adhomai
+	wall_type = /turf/simulated/mineral/adhomai
+	mineral_sparse =  /turf/simulated/mineral/random/adhomai
+	mineral_rich = /turf/simulated/mineral/random/high_chance/adhomai
+	floor_type = /turf/simulated/floor/exoplanet/mineral/adhomai
+	use_area = FALSE
+
 /datum/random_map/automata/cave_system/mountains/New(var/seed, var/tx, var/ty, var/tz, var/tlx, var/tly, var/do_not_apply, var/do_not_announce, var/never_be_priority = 0, var/used_area, var/datum/exoplanet_theme/_theme)
 	if(_theme)
 		planet_theme = _theme
@@ -69,3 +79,4 @@
 
 /datum/random_map/automata/cave_system/mountains/get_additional_spawns(value, turf/T)
 	planet_theme.on_turf_generation(T, use_area)
+

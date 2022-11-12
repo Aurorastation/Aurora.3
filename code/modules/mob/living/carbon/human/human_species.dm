@@ -46,6 +46,9 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/farwa/Initialize(mapload)
 	. = ..(mapload, SPECIES_MONKEY_TAJARA)
 
+/mob/living/carbon/human/farwa/adhomai
+	faction = "Adhomai"
+
 /mob/living/carbon/human/neaera/Initialize(mapload)
 	. = ..(mapload, SPECIES_MONKEY_SKRELL)
 
