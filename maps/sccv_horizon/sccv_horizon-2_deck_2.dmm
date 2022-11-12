@@ -2650,7 +2650,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bhR" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -6745,15 +6745,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
-"doW" = (
-/obj/machinery/door/blast/shutters/open{
-	dir = 8;
-	id = "shutters_mechbaywindows";
-	name = "Window Shutter"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/tiled/dark/full,
-/area/assembly/chargebay)
 "dpj" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/shield_diffuser,
@@ -15910,10 +15901,6 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_room)
 "hME" = (
-/obj/machinery/door/blast/shutters/open{
-	id = "shutters_mechbaywindows";
-	name = "Window Shutter"
-	},
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/assembly/chargebay)
@@ -24061,7 +24048,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "mbH" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -25714,7 +25701,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/assembly/chargebay)
 "mRi" = (
 /obj/structure/cable/green{
@@ -26200,12 +26187,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "shutters_mechbaywindows";
-	name = "Window Shutters";
-	pixel_y = -32
 	},
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
@@ -36150,15 +36131,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/operations/mail_room)
-"rXJ" = (
-/obj/machinery/door/blast/shutters/open{
-	id = "shutters_mechbaywindows";
-	name = "Window Shutter";
-	dir = 2
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/tiled/dark/full,
-/area/assembly/chargebay)
 "rYx" = (
 /obj/item/stack/cable_coil{
 	pixel_x = -3;
@@ -48528,7 +48500,7 @@
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "xZI" = (
 /turf/simulated/open,
@@ -49069,7 +49041,7 @@
 	req_access = list(12)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "ykA" = (
 /obj/effect/shuttle_landmark/lift/morgue_top,
@@ -72666,7 +72638,7 @@ iWV
 pdv
 qav
 qav
-doW
+hME
 qav
 qav
 qav
@@ -73073,7 +73045,7 @@ xlK
 kGl
 xlK
 osJ
-rXJ
+hME
 vyd
 gGI
 mNn
@@ -73477,7 +73449,7 @@ tlX
 tlX
 tlX
 evJ
-rXJ
+hME
 gma
 bhJ
 xZy
