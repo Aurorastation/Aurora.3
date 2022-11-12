@@ -4,6 +4,7 @@
 	desc_info = "You can alt-click this to toggle it on or off."
 	icon = 'icons/obj/stasis_bed.dmi'
 	icon_state = "stasis"
+	anchored = 1
 
 	buckle_lying = TRUE
 	can_buckle = list(/mob/living/carbon/human)
