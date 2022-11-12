@@ -1015,7 +1015,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Ship Flak Munitions Bay";
-	req_one_access = list(19,11,31)
+	req_one_access = list(10,60,20,31)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -3569,8 +3569,8 @@
 	name = "Primary Armament Exterior Bolts";
 	pixel_x = 22;
 	pixel_y = 22;
-	specialfunctions = 4;
-	req_one_access = list(19,43)
+	req_one_access = list(19,43);
+	specialfunctions = 4
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4098,8 +4098,8 @@
 	pixel_x = 24
 	},
 /obj/machinery/camera/network/command{
-	dir = 8;
-	c_tag = "Command - Deck 2 - Secure Ammunition Storage"
+	c_tag = "Command - Deck 2 - Secure Ammunition Storage";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
@@ -10290,7 +10290,7 @@
 	id_tag = "airlocks_deck2_ammostorage_fore";
 	locked = 1;
 	name = "Secure Ammunition Storage";
-	req_one_access = list(10,19,20,36,74)
+	req_one_access = list(10,60,20,31)
 	},
 /obj/machinery/door/blast/regular{
 	dir = 8;
@@ -10310,7 +10310,7 @@
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = -7;
-	req_one_access = list(10,19,20,31,74);
+	req_one_access = list(10,60,20,31);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -10319,7 +10319,7 @@
 	name = "Blast Door Control";
 	pixel_x = 25;
 	pixel_y = 7;
-	req_one_access = list(10,19,20,31,74)
+	req_one_access = list(10,60,20,31)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/secure_ammunition_storage)
@@ -11779,7 +11779,7 @@
 	id_tag = "airlocks_deck2_ammostorage_aft";
 	locked = 1;
 	name = "Secure Ammunition Storage";
-	req_one_access = list(10,19,20,36,74)
+	req_one_access = list(10,60,20,31)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
@@ -11795,7 +11795,7 @@
 	name = "Door Bolt Control";
 	pixel_x = -25;
 	pixel_y = 7;
-	req_one_access = list(10,19,20,31,74);
+	req_one_access = list(10,60,20,31);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -11804,7 +11804,7 @@
 	name = "Blast Door Control";
 	pixel_x = -25;
 	pixel_y = -7;
-	req_one_access = list(10,19,20,31,74)
+	req_one_access = list(10,60,20,31)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/secure_ammunition_storage)
@@ -12270,8 +12270,8 @@
 	pixel_y = 12
 	},
 /obj/item/storage/box/freezer/organcooler{
-	pixel_y = 3;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -39027,8 +39027,8 @@
 	pixel_y = -1
 	},
 /obj/item/storage/box/bodybags{
-	pixel_y = 4;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)

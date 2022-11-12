@@ -83,10 +83,11 @@
 
 /obj/machinery/ship_weapon/leviathan/disable()
 	firing = FALSE
-	for(var/mob/living/L in living_mob_list)
-		if(get_area(L) == get_area(src))
-			sound_to(L, 'sound/effects/ship_weapons/leviathan_powerdown.ogg')
 	visible_message(SPAN_DANGER("<font size=4>\The [src]'s humming comes to an abrupt halt.</font>"))
+	for(var/mob/living/L in living_mob_list)
+		if(AreConnectedZLevels(L.z, z))
+			sound_to(L, 'sound/effects/ship_weapons/leviathan_powerdown.ogg')
+			to_chat(L, SPAN_WARNING("The ground below you settles down, no longer vibrating."))
 	update_use_power(POWER_USE_OFF)
 	icon_state = "weapon_off"
 
@@ -95,10 +96,11 @@
 	if(!smes)
 		visible_message(SPAN_DANGER("\The [src] doesn't light up at all! Its maintenance display indicates there is no SMES to draw power from."))
 		return
-	for(var/mob/living/L in living_mob_list)
-		if(get_area(L) == get_area(src))
-			sound_to(L, 'sound/effects/ship_weapons/leviathan_powerup.ogg')
 	visible_message(SPAN_DANGER("<font size=4>\The [src] lights up with a powerful hum...</font>"))
+	for(var/mob/living/L in living_mob_list)
+		if(AreConnectedZLevels(L.z, z))
+			sound_to(L, 'sound/effects/ship_weapons/leviathan_powerup.ogg')
+			to_chat(L, SPAN_WARNING("The ground below you starts vibrating with a slight hum..."))
 	update_use_power(POWER_USE_IDLE)
 	icon_state = "weapon_on"
 
