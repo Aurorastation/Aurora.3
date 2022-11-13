@@ -711,6 +711,7 @@
 /obj/item/handcuffs/cable/random,
 /obj/item/handcuffs/cable/random,
 /obj/item/gun/energy/taser,
+/obj/item/cell/high,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "hWh" = (

@@ -1651,7 +1651,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "iCX" = (
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
@@ -2278,19 +2280,9 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -10
 	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "lWH" = (
@@ -2620,7 +2612,7 @@
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/emergency{
-	pixel_y = 8
+	pixel_y = 11
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
@@ -2954,7 +2946,9 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/vending/engineering,
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine2)
 "oZS" = (
@@ -4359,8 +4353,8 @@
 /obj/item/grenade/smokebomb,
 /obj/item/storage/belt/security,
 /obj/item/storage/belt/security,
-/obj/item/cell,
-/obj/item/cell,
+/obj/item/cell/high,
+/obj/item/cell/high,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "uty" = (
