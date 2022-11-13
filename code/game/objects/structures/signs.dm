@@ -293,6 +293,11 @@
 	desc = "A danger sign which reads \"DANGER: VACUUM\"."
 	icon_state = "vacuum"
 
+/obj/structure/sign/crush
+	name = "\improper DANGER: CRUSH HAZARD sign"
+	desc = "A danger sign which reads \"DANGER: CRUSH HAZARD\" and \"AUTOMATIC EQUIPMENT STARTS AND STOPS AUTOMATICALLY\"."
+	icon_state = "crush"
+
 //
 // Emergency Signs
 //

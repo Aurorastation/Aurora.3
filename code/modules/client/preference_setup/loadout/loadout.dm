@@ -178,7 +178,7 @@ var/list/gear_datums = list()
 
 	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3>"
-	. += "<div style='left:0;position:absolute;width:10%;margin-left:45%;'><b><center>[LC.category]</center></b></div>"
+	. += "<div style='left:0;position:absolute;width:10%;margin-left:45%;white-space: nowrap;'><b><center>[LC.category]</center></b></div>"
 	. += "<span style='float:left;'>"
 	. += "<script>function search_onchange() { \
 		var val = document.getElementById('search_input').value; \
@@ -187,9 +187,9 @@ var/list/gear_datums = list()
 		}</script>"
 	. += "Search: "
 	. += "<input type='text' id='search_input' name='search_input' \
-			onchange='search_onchange()' value='[search_input_value]'>";
-	. += "<a href='#' onclick='search_onchange()'>Refresh</a>"
-	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Clear</a>"
+			onchange='search_onchange()' value='[search_input_value]'> "
+	. += "<a href='#' onclick='search_onchange()'>Refresh</a> "
+	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Clear</a> "
 	. += "</span>"
 	. += "</td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"

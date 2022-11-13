@@ -428,3 +428,6 @@
 
 /atom/movable/proc/too_heavy_to_throw()
 	return FALSE
+
+/atom/movable/proc/begin_falling(var/lastloc, var/below)
+	return

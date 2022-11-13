@@ -1,20 +1,20 @@
 /datum/map_template/ruin/away_site/sfa_patrol_ship
-	name = "SFA Patrol Ship"
-	description = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew. This one's transponder identifies it as belonging to the Southern Fleet Administration, an all-but-defunct Solarian warlord state."
+	name = "SFA Corvette"
+	description = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew."
 	suffix = "ships/sol_pirate/sfa_patrol_ship.dmm"
-	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
+	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "sfa_patrol_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/sfa_shuttle)
 
 /decl/submap_archetype/sfa_patrol_ship
-	map = "SFA Patrol Ship"
-	descriptor = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew. This one's transponder identifies it as belonging to the Southern Fleet Administration, an all-but-defunct Solarian warlord state."
+	map = "SFA Corvette"
+	descriptor = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew."
 
 //areas
 /area/ship/sfa_patrol_ship
-	name = "SFA Patrol Ship"
+	name = "SFA Corvette"
 
 /area/shuttle/sfa_shuttle
 	name = "SFA Shuttle"
@@ -23,9 +23,9 @@
 //ship stuff
 
 /obj/effect/overmap/visitable/ship/sfa_patrol_ship
-	name = "SFA Patrol Ship"
+	name = "SFA Corvette"
 	class = "SFAV"
-	desc = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew. This one's transponder identifies it as belonging to the Southern Fleet Administration, an all-but-defunct Solarian warlord state."
+	desc = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	max_speed = 1/(2 SECONDS)
@@ -47,13 +47,13 @@
 	..()
 
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav1
-	name = "SFA Patrol Ship - Port Side"
+	name = "SFA Corvette - Port Side"
 	landmark_tag = "nav_sfa_patrol_ship_1"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav2
-	name = "SFA Patrol Ship - Port Airlock"
+	name = "SFA Corvette - Port Airlock"
 	landmark_tag = "nav_sfa_patrol_ship_2"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
@@ -68,7 +68,7 @@
 	name = "SFA Shuttle"
 	class = "SFAV"
 	designation = "Pickford"
-	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one's transponder identifies it as belonging to the Southern Fleet Administration, an all-but-defunct Solarian warlord state."
+	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus."
 	shuttle = "SFA Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
