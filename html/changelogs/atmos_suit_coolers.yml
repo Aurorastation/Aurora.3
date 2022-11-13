@@ -3,4 +3,5 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - rscadd: "Adds suit coolers to the atmos technician suit storages."
+  - bugfix: "Adds suit coolers to the atmos technician suit storages."
+  - bugfix: "Moves the heavy flashlight in engineering's locker room to the Engineer locker."
