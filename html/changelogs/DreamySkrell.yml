@@ -1,0 +1,7 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Ghosts can now follow mobs on the crew manifest."
