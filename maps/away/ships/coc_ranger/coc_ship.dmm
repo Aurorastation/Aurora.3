@@ -1991,7 +1991,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/ranger_corvette/engine1)
 "kaR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2987,7 +2987,7 @@
 	weapon_id = "Ranger Francisca Rotary Gun"
 	},
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/ranger_corvette/engine1)
 "plP" = (
 /turf/simulated/floor/tiled/dark,
@@ -3560,10 +3560,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
-"rNJ" = (
-/obj/effect/floor_decal/corner_wide/blue/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/telecomms)
 "rQB" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -4466,7 +4462,7 @@
 /area/ship/ranger_corvette/foyer)
 "uFD" = (
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/ranger_corvette/engine1)
 "uGk" = (
 /obj/machinery/door/airlock/external{
