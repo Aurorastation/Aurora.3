@@ -27808,9 +27808,9 @@
 	name = "Hangar Lockdown"
 	},
 /obj/machinery/door/airlock/glass_mining{
-	name = "Cargo Bay";
+	name = "Mining Equipment";
 	req_access = null;
-	req_one_access = list(12,26,31,48,67)
+	req_one_access = list(12,26,29,31,48,67)
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
