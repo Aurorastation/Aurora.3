@@ -2941,6 +2941,9 @@
 /obj/item/reagent_containers/food/drinks/shaker,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
+"cCp" = (
+/turf/simulated/wall/r_wall,
+/area/bridge/longbow_compartment)
 "cEy" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/medical/washroom)
@@ -26345,8 +26348,8 @@
 "uQt" = (
 /obj/machinery/door/airlock/command{
 	id_tag = null;
-	name = "Direct Fire Artillery Systems";
-	req_one_access = list(19,38)
+	name = "Direct Fire Artillery System";
+	req_one_access = list(10,19,31)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -56725,7 +56728,7 @@ oUm
 oUm
 oUm
 oUm
-nsP
+cCp
 nsP
 nsP
 kJB
@@ -56927,7 +56930,7 @@ iQa
 gJA
 bqN
 dcJ
-nsP
+cCp
 rZn
 xlA
 wqn
@@ -57331,7 +57334,7 @@ qmG
 qVj
 otx
 oEV
-nsP
+cCp
 aih
 kqx
 akQ
@@ -57533,7 +57536,7 @@ lJu
 xfj
 oWu
 xAy
-nsP
+cCp
 iUf
 rLM
 akQ
@@ -57735,7 +57738,7 @@ jEj
 xfj
 oWu
 eFa
-nsP
+cCp
 rbM
 xgz
 llN
@@ -57937,7 +57940,7 @@ wpK
 baQ
 gGH
 mNG
-nsP
+cCp
 cMt
 jlN
 fom
