@@ -41,6 +41,7 @@
 		P.forceMove(src)
 		var/image/OL = image(P.icon, P.primer_state, layer = layer - 0.01)
 		add_overlay(OL)
+	update_status()
 
 /obj/item/ship_ammunition/longbow/proc/add_warhead(var/obj/item/warhead/W)
 	if(W && !QDELETED(W))
@@ -54,20 +55,23 @@
 		cookoff_devastation = warhead.cookoff_devastation
 		cookoff_heavy = warhead.cookoff_heavy
 		cookoff_light = warhead.cookoff_light
+	update_status()
 
 /obj/item/ship_ammunition/longbow/update_status()
 	desc = initial(desc)
+	desc += "<br>"
 	if(primer && !warhead)
 		desc += "It is loaded with [primer], but no warhead."
 		name = "longbow casing"
 		ammunition_flags = initial(ammunition_flags)
 	else if(warhead && !primer)
 		desc += "It has a [warhead], but no primer."
-		name = "longbow casing"
+		name = "[warhead.warhead_type] longbow casing"
 	else if(warhead && primer)
 		desc += "It has a [warhead] and is loaded with [primer]! It's ready to go."
-		name = "longbow shell"
+		name = "[warhead.warhead_type] longbow shell"
 	else
+		name = "longbow casing"
 		desc += "It isn't loaded with a warhead and has no primer."
 		ammunition_flags = initial(ammunition_flags)
 
@@ -182,7 +186,6 @@
 	add_primer(P)
 	var/obj/item/warhead/longbow/W = new()
 	add_warhead(W)
-	update_status()
 
 /obj/item/ship_ammunition/longbow/preset_ap/Initialize()
 	. = ..()
@@ -190,7 +193,6 @@
 	add_primer(P)
 	var/obj/item/warhead/longbow/ap/W = new()
 	add_warhead(W)
-	update_status()
 
 /obj/item/ship_ammunition/longbow/preset_bb/Initialize()
 	. = ..()
@@ -198,4 +200,3 @@
 	add_primer(P)
 	var/obj/item/warhead/longbow/bunker/W = new()
 	add_warhead(W)
-	update_status()

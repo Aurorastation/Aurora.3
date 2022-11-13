@@ -43,3 +43,6 @@ changes:
   - tweak: "Lowered the sound of most guns."
   - tweak: "Ammunition loaders no longer instantly explode and die when hit."
   - bugfix: "Fixes ship weapons not being anchored."
+  - bugfix: "Fixes projectiles not deleting when they reach the Overmap edge area. They now wrap around and delete after a certain amount of steps (30 for leviathan shots, 10 for normal shots)."
+  - tweak: "Finished longbow shells will now have the impact type in the name."
+  - tweak: "Leviathan projectiles have been sped up."
