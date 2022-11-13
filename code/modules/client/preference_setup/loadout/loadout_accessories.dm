@@ -168,7 +168,7 @@
 /datum/gear/accessory/overalls_mining
 	display_name = "overalls, mining"
 	path = /obj/item/clothing/accessory/storage/overalls/mining
-	allowed_roles = list("Shaft Miner, Xenoarchaeologist")
+	allowed_roles = list("Shaft Miner", "Xenoarchaeologist")
 	cost = 2
 
 /datum/gear/accessory/overalls_engineer
