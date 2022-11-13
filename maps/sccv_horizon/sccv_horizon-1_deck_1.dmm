@@ -13058,6 +13058,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
+"jVI" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, port 2"
+	},
+/turf/space/dynamic,
+/area/engineering/atmos/propulsion)
 "jWE" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 9
@@ -45709,7 +45715,7 @@ eSV
 eSV
 eSV
 eSV
-mNU
+rrD
 szM
 bxJ
 fBs
@@ -46718,7 +46724,7 @@ eSV
 eSV
 eSV
 eSV
-mNU
+unS
 szM
 bxJ
 fBs
@@ -47729,7 +47735,7 @@ eSV
 eSV
 eSV
 eSV
-mNU
+qOO
 szM
 bxJ
 fBs
@@ -51972,7 +51978,7 @@ eSV
 eSV
 eSV
 eSV
-sPo
+qNr
 aZd
 qZc
 tBT
@@ -54799,7 +54805,7 @@ eSV
 eSV
 eSV
 eSV
-wjY
+aAV
 fWs
 iFH
 jFb
@@ -55808,7 +55814,7 @@ eSV
 eSV
 eSV
 eSV
-wjY
+jVI
 fWs
 iFH
 jFb
@@ -56819,7 +56825,7 @@ eSV
 eSV
 eSV
 eSV
-wjY
+jRT
 fWs
 iFH
 jFb
