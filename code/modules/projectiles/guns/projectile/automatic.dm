@@ -220,6 +220,8 @@
 	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, chambered in the same 5.56 caliber but only capable of accepting smaller magazines. It lacks the integral grenade launcher and the burst fire of the Bulldog."
 	desc_extended = "It makes you feel like a corporate goon when you hold it."
 	icon = 'icons/obj/guns/civcarbine.dmi'
+	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine, /obj/item/ammo_magazine/a556/carbine/polymer)
 	icon_state = "civcarbine"
 	item_state = "civcarbine"
 	can_bayonet = FALSE

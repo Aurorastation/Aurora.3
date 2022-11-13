@@ -60,6 +60,11 @@
 	firemodes = list()
 	modifystate = null
 
+/obj/item/gun/energy/rifle/laser/practice
+	name = "practice laser rifle"
+	desc = "A modified version of the NT LR-6. It fires less concentrated laser beams that are visible, but ultimately harmless, designed for target practice."
+	projectile_type = /obj/item/projectile/beam/practice
+
 /obj/item/gun/energy/rifle/laser/noctiluca
 	name = "combat laser rifle"
 	desc = "The Noctiluca XM/24 is a brand new model of laser rifle, developed entirely by Kumar Arms, a Zavodskoi Interstellar subsidiary. Easy to handle for users with minimal training, reliable and with a reasonable form factor, it is poised to become the new standard for laser weaponry."

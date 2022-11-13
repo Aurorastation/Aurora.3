@@ -59,7 +59,7 @@
 	accessory = /obj/item/clothing/accessory/hadii_pin
 	belt = /obj/item/gun/projectile/deagle/adhomai
 	belt_contents = null
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
 						/obj/item/ammo_magazine/a50 = 2,
 						/obj/item/material/knife/trench = 1,

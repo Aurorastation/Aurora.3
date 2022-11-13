@@ -322,3 +322,24 @@
 	amount_per_transfer_from_this = 20
 
 	reagents_to_add = list(/decl/reagent/sanasomnum = 20)
+
+/obj/item/reagent_containers/hypospray/autoinjector/bicaridine
+	name = "bicaridine autoinjector"
+	desc = "An autoinjector loaded with bicaridine, a chemical used to treat physical trauma."
+	volume = 15
+	amount_per_transfer_from_this = 15
+	reagents_to_add = list(/decl/reagent/bicaridine = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/kelotane
+	name = "kelotane autoinjector"
+	desc = "An autoinjector loaded with kelotane, a chemical used to treat burnt tissue."
+	volume = 15
+	amount_per_transfer_from_this = 15
+	reagents_to_add = list(/decl/reagent/kelotane = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/peridaxon
+	name = "peridaxon autoinjector"
+	desc = "An autoinjector loaded with peridaxon, a chemical used to treat minor organ damage."
+	volume = 10
+	amount_per_transfer_from_this = 10
+	reagents_to_add = list(/decl/reagent/peridaxon = 10)

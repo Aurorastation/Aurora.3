@@ -44,6 +44,12 @@
 	their commanders follow the principles of Hadiism. Their duties are not only limited to enforcing the republican ideals among the troops and reporting possible subversive elements, \
 	they are expected to display bravery in combat and lead by example."
 
+/obj/item/clothing/head/tajaran/orbital_captain
+	name = "orbital fleet captain hat"
+	desc = "A cap used by the Orbital Fleet captains."
+	icon_state = "orbital_captain_hat"
+	item_state = "orbital_captain_hat"
+
 /obj/item/clothing/head/tajaran/raskara
 	name = "raskariim mask"
 	desc = "A face concealing mask worn by the members of the cult of Raskara."

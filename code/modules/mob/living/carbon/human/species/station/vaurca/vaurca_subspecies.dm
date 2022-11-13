@@ -12,6 +12,7 @@
 	burn_mod = 1.2
 	oxy_mod = 1
 	radiation_mod = 0.5
+	standing_jump_range = 3
 
 	grab_mod = 1.25
 	resist_mod = 1.75
@@ -217,6 +218,9 @@
 	slowdown = 2
 
 	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
+	maneuvers = list(
+		/decl/maneuver/leap/bulwark
+	)
 
 	natural_armor = list(
 		melee = ARMOR_MELEE_SMALL

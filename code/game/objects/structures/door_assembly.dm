@@ -17,7 +17,7 @@
 	var/obj/item/airlock_electronics/electronics = null
 	var/airlock_type = "" //the type path of the airlock once completed
 	var/glass_type = "/glass"
-	var/glass = 0 // 0 = glass can be installed. -1 = glass can't be installed. 1 = glass is already installed. Text = mineral plating is installed instead.
+	var/glass = FALSE // 0 = glass can be installed. -1 = glass can't be installed. 1 = glass is already installed. Text = mineral plating is installed instead.
 	var/created_name = null
 	var/width = 1
 
@@ -321,12 +321,12 @@
 		var/material_name = S.get_material_name()
 		if(S)
 			if(S.get_amount() >= 1)
-				if(material_name == "rglass")
-					user.visible_message("<b>[user]</b> starts installing [S] into the airlock assembly.", "You start installing [S] into the airlock assembly.")
+				if(material_name == MATERIAL_GLASS_REINFORCED)
+					user.visible_message("<b>[user]</b> starts installing \the [S] into the airlock assembly.", "You start installing \the [S] into the airlock assembly.")
 					if(W.use_tool(src, user, 40, volume = 50) && !glass)
 						if(S.use(1))
 							to_chat(user, SPAN_NOTICE("You install reinforced glass windows into the airlock assembly."))
-							glass = 1
+							glass = TRUE
 				else if(material_name)
 					// Ugly hack, will suffice for now. Need to fix it upstream as well, may rewrite mineral walls. ~Z
 					if(!(material_name in list("gold", "silver", "diamond", "uranium", "phoron", "sandstone")))
@@ -354,7 +354,7 @@
 			var/path
 			if(istext(glass))
 				path = text2path("/obj/machinery/door/airlock/[glass]")
-			else if (glass == 1)
+			else if (glass == TRUE)
 				path = text2path("/obj/machinery/door/airlock[glass_type]")
 			else
 				path = text2path("/obj/machinery/door/airlock[airlock_type]")
@@ -397,7 +397,7 @@
 	return (ChainSawVar.powered)
 
 /obj/structure/door_assembly/proc/update_state()
-	icon_state = "door_as_[glass == 1 ? "g" : ""][istext(glass) ? glass : base_icon_state][state]"
+	icon_state = "door_as_[glass == TRUE ? "g" : ""][istext(glass) ? glass : base_icon_state][state]"
 	name = ""
 	switch (state)
 		if(STATE_UNWIRED)
@@ -406,7 +406,7 @@
 			name = "Wired "
 		if(STATE_ELECTRONICS_INSTALLED)
 			name = "Near-finished "
-	name += "[glass == 1 ? "Window " : ""][istext(glass) ? "[glass] Airlock" : base_name] Assembly"
+	name += "[glass == TRUE ? "Window " : ""][istext(glass) ? "[glass] Airlock" : base_name] Assembly"
 	if(created_name)
 		name += " ([created_name])"
 
