@@ -1,0 +1,7 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes mining overalls broken roles restrictions."
