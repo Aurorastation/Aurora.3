@@ -1,7 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - tweak: "All roles should now use the correct security HUD icon."
-  - tweak: "Security HUDs now read IDs in the same manner as airlocks."
