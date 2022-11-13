@@ -142,10 +142,10 @@
 /area/exoplanet/adhomai
 	name = "Adhomian Wilderness"
 	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')
-	base_turf = /turf/simulated/floor/exoplanet/snow
+	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/floor/exoplanet/mineral/adhomai
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "asteroid"
 	temperature = T0C - 5
-
+	has_edge_icon = FALSE
