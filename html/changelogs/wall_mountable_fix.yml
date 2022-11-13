@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Removes duplicate requests console in medical."
+  - bugfix: "Removes a duplicate requests console in medical."
