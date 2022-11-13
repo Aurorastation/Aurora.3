@@ -727,7 +727,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "aqZ" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1026,7 +1026,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "avu" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -1518,7 +1518,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "aFE" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4818,7 +4818,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "ckc" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -5006,7 +5006,7 @@
 /area/turret_protected/ai_upload_foyer)
 "cpl" = (
 /turf/simulated/wall/r_wall,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "cpW" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -5860,7 +5860,7 @@
 /area/engineering/storage_hard)
 "cRE" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "cRN" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
@@ -7726,7 +7726,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "dMG" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/disposalpipe/down{
@@ -8303,7 +8303,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "efz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -9571,7 +9571,7 @@
 "ePO" = (
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "eQg" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
@@ -11264,7 +11264,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "fIi" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
@@ -12857,7 +12857,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "gqy" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -13237,7 +13237,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "gzg" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Examination Room Maintenance";
@@ -14373,7 +14373,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "hal" = (
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /obj/effect/floor_decal/industrial/warning{
@@ -15720,7 +15720,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "hGj" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -16298,7 +16298,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "hYk" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -16423,7 +16423,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "idy" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -17684,7 +17684,7 @@
 	weapon_id = "Grauwolf Flak Battery"
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "iKV" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -19748,7 +19748,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "jJW" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ramp,
@@ -22522,7 +22522,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "llI" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -22627,7 +22627,7 @@
 	weapon_id = "Grauwolf Flak Battery"
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "lpu" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/window/reinforced{
@@ -24507,7 +24507,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "mmS" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/junk,
@@ -25448,7 +25448,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "mLw" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -26574,7 +26574,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "njl" = (
 /obj/structure/bed/stool/chair/plastic{
 	dir = 1
@@ -27532,7 +27532,7 @@
 /area/rnd/xenobiology/xenoflora)
 "nKA" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/ladder{
+/obj/structure/ladder/up{
 	pixel_y = 16
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -28258,7 +28258,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "ohs" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/research/rd,
@@ -30127,7 +30127,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "pax" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
@@ -32111,7 +32111,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "qbl" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -32146,7 +32146,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "qcc" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/mauve/full{
@@ -33088,7 +33088,7 @@
 	name = "fore, grauwolf compartment"
 	},
 /turf/simulated/floor/plating,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "qBt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -36290,7 +36290,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "sci" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -39218,7 +39218,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "tHv" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -39430,7 +39430,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "tLp" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -39470,7 +39470,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "tND" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
@@ -39531,7 +39531,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "tOE" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -41180,7 +41180,7 @@
 /area/security/checkpoint2)
 "uBx" = (
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "uBK" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
@@ -41599,7 +41599,7 @@
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "uLh" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/light,
@@ -42442,7 +42442,7 @@
 /area/maintenance/substation/engineering)
 "vig" = (
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "viR" = (
 /obj/structure/closet/secure_closet/RD,
 /obj/item/clothing/mask/gas/half,
@@ -42467,7 +42467,7 @@
 /obj/machinery/light/small,
 /obj/effect/floor_decal/corner/blue/full,
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "vjN" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -45252,7 +45252,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "wtC" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Starboard Wing Substation"
@@ -47628,11 +47628,11 @@
 "xDC" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "xDF" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "xDI" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -47775,7 +47775,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "xHv" = (
 /obj/structure/table/reinforced,
 /obj/item/material/minihoe,
@@ -47896,7 +47896,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "xKI" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -48727,7 +48727,7 @@
 "ydh" = (
 /obj/structure/viewport/zavod,
 /turf/template_noop,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "ydi" = (
 /obj/structure/table/standard,
 /obj/random/tech_supply,
@@ -48962,7 +48962,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "yiA" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 10

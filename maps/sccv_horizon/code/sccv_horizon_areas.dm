@@ -184,9 +184,6 @@
 	icon_state = "quart"
 	sound_env = SMALL_SOFTFLOOR
 
-/area/operations/flak
-	name = "Flak Gun"
-
 //Wings
 
 /area/maintenance/substation/wing_starboard
@@ -248,10 +245,6 @@
 /area/bridge/helm
 	name = "Bridge Helm"
 	icon_state = "bridge_helm"
-
-/area/bridge/longbow_compartment
-	name = "Longbow Compartment"
-	icon_state = "bridge_weapon"
 
 //Crew quarters
 
@@ -562,13 +555,6 @@
 	name = "Horizon - Holodeck - Chessboard"
 /********** Holodeck End **********/
 
-/********** Decks Start **********/
-// Cafeteria
-/area/horizon/deck_three/cafeteria
-	name = "Horizon - Deck 3 - Cafeteria"
-	icon_state = "cafeteria"
-/********** Decks End **********/
-
 /********** Unique Start **********/
 // Hydroponics
 /area/horizon/hydroponics
@@ -607,18 +593,10 @@
 	icon_state = "bar"
 	allow_nightmode = FALSE
 
-// ZTA
-/area/horizon/zta
-	name = "Horizon - Primary Armament Hold"
-	icon_state = "zta"
-	sound_env = LARGE_ENCLOSED
-	ambience = AMBIENCE_SINGULARITY
-
-// Secure Ammunition Storage
-/area/horizon/secure_ammunition_storage
-	name = "Horizon - Secure Ammunition Storage"
-	sound_env = SMALL_ENCLOSED
-	ambience = AMBIENCE_FOREBODING
+// Cafeteria
+/area/horizon/cafeteria
+	name = "Horizon - Deck 3 Center - Cafeteria"
+	icon_state = "cafeteria"
 
 // Crew Armoury
 /area/horizon/crew_armoury
@@ -635,3 +613,31 @@
 	sound_env = SMALL_ENCLOSED
 	ambience = AMBIENCE_FOREBODING
 /********** Unique End **********/
+
+/********** Weapon Systems Start **********/
+// ZTA
+/area/horizon/zta
+	name = "Horizon - ZTA Weapon System"
+	icon_state = "zta"
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_SINGULARITY
+
+// Longbow
+/area/horizon/longbow
+	name = "Horizon - Longbow Weapon System"
+	icon_state = "bridge_weapon"
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
+
+/area/horizon/grauwolf
+	name = "Horizon - Grauwolf Weapon System"
+	icon_state = "bridge_weapon"
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
+
+// Secure Ammunition Storage
+/area/horizon/secure_ammunition_storage
+	name = "Horizon - Secure Ammunitions Storage"
+	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_FOREBODING
+/********** Weapon Systems End **********/
