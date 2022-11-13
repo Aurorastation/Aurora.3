@@ -51,11 +51,11 @@
 /obj/machinery/ship_weapon/ex_act(severity)
 	switch(severity)
 		if(1)
-			add_damage(250)
+			add_damage(50)
 		if(2)
-			add_damage(100)
+			add_damage(25)
 		if(3)
-			add_damage(75)
+			add_damage(10)
 
 /obj/machinery/ship_weapon/proc/add_damage(var/amount)
 	damage = max(0, min(damage + amount, max_damage))
@@ -136,12 +136,18 @@
 		for(var/mob/living/carbon/human/H in player_list)
 			if(H.z in connected_z_levels)
 				playsound(H, heavy_firing_sound, 100)
+				if(H.is_listening())
+					H.adjustEarDamage(rand(0, 5), 2, TRUE)
 	else if(firing_effects & FIRING_EFFECT_FLAG_SILENT)
 		for(var/mob/living/carbon/human/H in get_area(src))
 			playsound(H, heavy_firing_sound, 100)
+			if(H.is_listening())
+				H.adjustEarDamage(rand(0, 5), 2, TRUE)
 	else
 		for(var/mob/living/carbon/human/H in get_area(src))
 			playsound(H, heavy_firing_sound, 100)
+			if (H.is_listening())
+				H.adjustEarDamage(rand(0, 5), 2, TRUE)
 		var/list/connected_z_levels = GetConnectedZlevels(z)
 		for(var/mob/living/carbon/human/H in player_list)
 			if(H.z in connected_z_levels)
@@ -265,8 +271,13 @@
 /obj/structure/ship_weapon_dummy/attackby(obj/item/W, mob/user)
 	connected.attackby(W, user)
 
-/obj/structure/ship_weapon_dummy/hitby(atom/movable/AM)
+/obj/structure/ship_weapon_dummy/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
 	connected.hitby(AM)
+	if(ismob(AM))
+		if(isliving(AM))
+			var/mob/living/M = AM
+			M.turf_collision(src, speed)
+			return
 
 /obj/structure/ship_weapon_dummy/bullet_act(obj/item/projectile/P, def_zone)
 	connected.bullet_act(P)

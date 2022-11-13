@@ -13944,6 +13944,7 @@
 	name = "Forward Docking Hatch";
 	req_access = list(13)
 	},
+/obj/effect/shuttle_landmark/ert/start,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
 "aHn" = (
@@ -13982,7 +13983,6 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
 "aHq" = (
-/obj/effect/shuttle_landmark/ert/start,
 /obj/machinery/computer/shuttle_control/specops{
 	dir = 1
 	},
@@ -21017,11 +21017,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/legion)
-"aZc" = (
-/obj/effect/shuttle_landmark/legion/start,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/shuttle/legion)
 "aZd" = (
 /obj/machinery/door/window/brigdoor/westright{
 	name = "cockpit";
@@ -21711,6 +21706,7 @@
 	name = "Starboard Blast Door"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/shuttle_landmark/legion/start,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
 "baA" = (
@@ -96417,7 +96413,7 @@ aUZ
 aXw
 aYa
 aYa
-aZc
+aYa
 aYa
 aYa
 baz

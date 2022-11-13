@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Thruster Bay";
+	name = "Thruster Bay/Backup Controls";
 	req_access = list(207)
 	},
 /turf/simulated/floor,
@@ -33,6 +33,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"aaE" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "aaI" = (
 /obj/structure/closet/walllocker/medical/secure{
@@ -136,6 +143,9 @@
 	name = "SUPB lauching panel"
 	},
 /obj/structure/railing/mapped,
+/obj/structure/sign/fire{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "auY" = (
@@ -240,6 +250,11 @@
 	},
 /obj/machinery/light/small/emergency{
 	dir = 8
+	},
+/obj/structure/table/steel,
+/obj/item/tank/phoron/shuttle,
+/obj/item/tank/phoron/shuttle{
+	pixel_y = 5
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -390,6 +405,13 @@
 /obj/item/folder/yellow,
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/ship/elyran_strike_craft)
+"cdF" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "clm" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
@@ -423,9 +445,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /obj/machinery/light/small/emergency{
 	dir = 8
+	},
+/obj/machinery/computer/ship/sensors{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -448,7 +472,7 @@
 /area/ship/elyran_strike_craft)
 "cGq" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/vehicle/train/cargo/engine,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "cQc" = (
@@ -510,6 +534,11 @@
 /obj/item/ammo_magazine/plasma/light,
 /turf/simulated/floor/carpet,
 /area/ship/elyran_strike_craft)
+"dqM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "dBa" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain,
@@ -522,7 +551,7 @@
 "dIZ" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "dJo" = (
 /obj/machinery/access_button{
@@ -584,6 +613,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/powered/scrubber/huge,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "etL" = (
@@ -654,7 +684,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "eNl" = (
 /obj/effect/floor_decal/corner/beige{
@@ -677,14 +707,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/obj/structure/table/steel,
-/obj/item/tank/phoron/shuttle,
-/obj/item/tank/phoron/shuttle{
-	pixel_y = 5
-	},
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/structure/closet/firecloset/full,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "eXC" = (
@@ -841,6 +867,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
+"grH" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -25
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "gxW" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
@@ -850,6 +882,12 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/elyran_shuttle)
+"gye" = (
+/obj/machinery/computer/ship/targeting{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "gzu" = (
 /obj/effect/shuttle_landmark/elyran_strike_craft/nav1,
 /turf/template_noop,
@@ -944,11 +982,10 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "iqt" = (
-/obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "iuw" = (
 /obj/machinery/light/small/emergency{
@@ -1041,7 +1078,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "jCO" = (
-/obj/structure/closet/crate/loot,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "jFf" = (
@@ -1136,6 +1173,11 @@
 	name = "cooled floor";
 	temperature = 278
 	},
+/area/ship/elyran_strike_craft)
+"kTB" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "kVo" = (
 /obj/structure/bed/stool/chair,
@@ -1232,6 +1274,10 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
+/area/ship/elyran_strike_craft)
+"lLP" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "lMU" = (
 /obj/machinery/atmospherics/unary/engine{
@@ -1421,9 +1467,8 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "ofY" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light/small/emergency{
-	dir = 8
+/obj/machinery/computer/ship/engines{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -1503,6 +1548,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"pkE" = (
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "Elyran Francisca Rotary Gun"
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/ship/elyran_strike_craft)
 "pue" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -1542,6 +1596,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"pFg" = (
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Elyran Francisca Rotary Gun"
+	},
+/turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
@@ -1618,7 +1678,7 @@
 	weapon_id = "Elyran Grauwolf Flak Battery"
 	},
 /obj/effect/floor_decal/corner/beige/diagonal,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "qvs" = (
 /obj/structure/sink{
@@ -1679,6 +1739,10 @@
 /obj/structure/grille,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
+"rau" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "rbA" = (
 /obj/machinery/computer/ship/helm{
 	req_access = null
@@ -1693,8 +1757,9 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "rmm" = (
-/obj/machinery/computer/ship/engines{
-	dir = 4
+/obj/machinery/computer/ship/helm{
+	dir = 1;
+	req_access = null
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -1708,6 +1773,18 @@
 	name = "port, briefing room"
 	},
 /turf/simulated/wall/shuttle/space_ship,
+/area/ship/elyran_strike_craft)
+"ryr" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/shoes/magboots/rig,
+/obj/item/tank/oxygen,
+/obj/item/clothing/suit/space/void/valkyrie,
+/obj/item/clothing/head/helmet/space/void/valkyrie,
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "rBF" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -1734,6 +1811,34 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"rMJ" = (
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "rWk" = (
 /obj/effect/floor_decal/corner/beige/full{
@@ -1801,9 +1906,14 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
+"tbG" = (
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "tcC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "tjN" = (
@@ -1830,14 +1940,14 @@
 	},
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "txR" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/computer/ship/targeting{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "tAW" = (
 /obj/effect/floor_decal/corner/beige{
@@ -1852,8 +1962,15 @@
 /area/ship/elyran_strike_craft)
 "tGD" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/vehicle/train/cargo/trolley,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"tKK" = (
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "tLt" = (
 /obj/structure/curtain/open/shower,
@@ -1889,7 +2006,7 @@
 	dir = 8
 	},
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "tWS" = (
 /obj/machinery/door/airlock/security{
@@ -1897,7 +2014,7 @@
 	req_access = list(207)
 	},
 /obj/effect/floor_decal/corner/beige/diagonal,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "uih" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -1936,6 +2053,12 @@
 /obj/effect/shuttle_landmark/elyran_strike_craft/transit,
 /turf/space/transit/north,
 /area/space)
+"uHF" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
 "uNI" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, office"
@@ -2011,6 +2134,9 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
 "vNs" = (
@@ -2055,7 +2181,7 @@
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/grenade/chem_grenade/metalfoam,
-/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/stack/material/steel/full,
 /obj/item/melee/telebaton,
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -2085,6 +2211,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"wnX" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/ship/elyran_strike_craft)
 "woT" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/light/small/emergency{
@@ -2092,14 +2221,17 @@
 	},
 /obj/structure/table/steel,
 /obj/item/clothing/ears/earmuffs,
-/turf/simulated/floor/tiled,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -25
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "wqn" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "wrJ" = (
 /obj/effect/shuttle_landmark/elyran_shuttle/transit,
@@ -2202,6 +2334,12 @@
 /obj/item/reagent_containers/food/snacks/redcurry,
 /obj/item/reagent_containers/food/snacks/yellowcurry,
 /turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"xlK" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/template_noop,
 /area/ship/elyran_strike_craft)
 "xpv" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -32216,9 +32354,9 @@ xRX
 xRX
 rtf
 czo
-rmm
-gjP
 ofY
+gjP
+aaE
 vOv
 vFY
 sTj
@@ -32732,7 +32870,7 @@ rtf
 efi
 pcX
 tcC
-dQs
+rmm
 vOv
 aaI
 sTj
@@ -32987,9 +33125,9 @@ xRX
 xRX
 rtf
 eWN
-dQs
 pcX
-dQs
+pcX
+gye
 vOv
 afz
 aoJ
@@ -33521,11 +33659,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+qEp
+qEp
+qEp
+qEp
+xlK
 xRX
 xRX
 xRX
@@ -33778,8 +33916,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+pkE
+qEp
 xRX
 xRX
 xRX
@@ -34035,7 +34173,7 @@ lxP
 lxP
 lxP
 lxP
-lxP
+pFg
 lxP
 lxP
 xRX
@@ -34278,7 +34416,7 @@ jCz
 xdP
 atj
 vOv
-pcX
+grH
 pcX
 pes
 ipy
@@ -34792,7 +34930,7 @@ eLi
 atj
 rEs
 vOv
-pcX
+tbG
 aTV
 uYO
 mXz
@@ -35049,7 +35187,7 @@ atj
 atj
 lpY
 vOv
-pcX
+tbG
 aTV
 pcX
 hvT
@@ -36077,7 +36215,7 @@ pZC
 atj
 aHa
 vOv
-pcX
+rMJ
 geX
 spD
 dVy
@@ -36332,24 +36470,24 @@ moG
 vOv
 xrq
 atj
-atj
+uHF
 vOv
 pcX
 pcX
 jZJ
 kbf
-pcX
+rau
 tGD
-cGq
+tGD
 pcX
 pue
 pcX
 jCO
-jCO
-jCO
-pue
-pcX
-kbf
+dQs
+dQs
+dqM
+dQs
+cdF
 lxP
 xRX
 xRX
@@ -38126,7 +38264,7 @@ xRX
 xRX
 xRX
 grj
-efi
+kTB
 eys
 vOv
 evN
@@ -38408,7 +38546,7 @@ dBa
 lxP
 woT
 txR
-aAY
+lLP
 tVw
 qEp
 aPk
@@ -38663,7 +38801,7 @@ mOy
 fLL
 ajL
 lxP
-aAY
+lLP
 wqn
 tsx
 dIZ
@@ -38920,8 +39058,8 @@ jPG
 aBb
 atP
 lxP
-aAY
-aAY
+lLP
+lLP
 dIZ
 dIZ
 pwt
@@ -39177,10 +39315,10 @@ aOo
 jab
 aOo
 tWS
-aAY
-aAY
+lLP
+lLP
 qve
-aAY
+wnX
 eXC
 xRX
 xRX
@@ -39432,11 +39570,11 @@ cQX
 mgE
 cQX
 mgE
-cQX
+ryr
 lxP
 eNh
-aAY
-aAY
+lLP
+tKK
 iqt
 lxP
 xRX

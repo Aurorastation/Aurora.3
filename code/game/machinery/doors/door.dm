@@ -261,9 +261,7 @@
 
 
 /obj/machinery/door/hitby(AM as mob|obj, var/speed=5)
-
 	..()
-	visible_message("<span class='danger'>[src.name] was hit by [AM].</span>")
 	var/tforce = 0
 	if(ismob(AM))
 		tforce = 15 * (speed/5)
