@@ -784,7 +784,7 @@
 	autoclose = 0;
 	dir = 2;
 	name = "Warehouse Elevator";
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -2025,7 +2025,7 @@
 /area/hallway/engineering)
 "aSB" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -6233,7 +6233,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Break Room";
 	req_access = null;
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -6641,7 +6641,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Operations Bay";
 	req_access = null;
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -7149,7 +7149,7 @@
 /area/horizon/zta)
 "dyU" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -13614,7 +13614,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Operations Bay";
 	req_access = null;
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -14806,8 +14806,7 @@
 /area/engineering/storage_hard)
 "hlM" = (
 /obj/machinery/door/airlock/mining{
-	name = "Showers";
-	req_one_access = list(26,31,48,67)
+	name = "Showers"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -16963,7 +16962,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Operations Bay";
 	req_access = null;
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -20819,8 +20818,7 @@
 /area/turret_protected/ai)
 "krl" = (
 /obj/machinery/door/airlock/mining{
-	name = "Washroom and Showers";
-	req_one_access = list(26,31,48,67)
+	name = "Washroom and Showers"
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
@@ -21943,7 +21941,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -33607,8 +33605,7 @@
 /area/horizon/maintenance/deck_two/fore/port)
 "qPn" = (
 /obj/machinery/door/airlock/mining{
-	name = "Washroom";
-	req_one_access = list(26,31,48,67)
+	name = "Washroom"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -35090,7 +35087,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	autoclose = 0;
 	name = "Warehouse Elevator";
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/dark,

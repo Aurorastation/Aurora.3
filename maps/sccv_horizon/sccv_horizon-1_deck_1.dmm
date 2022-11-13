@@ -2810,7 +2810,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/storage)
@@ -3620,7 +3620,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
 	req_access = null;
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -12293,7 +12293,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Passthrough";
-	req_one_access = list(12,26,31,48,67)
+	req_one_access = list(12,26,29,31,48,67)
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
@@ -18138,7 +18138,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/loading)
@@ -22980,7 +22980,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Warehouse";
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/door_helper/unres{
@@ -25319,7 +25319,7 @@
 	autoclose = 0;
 	dir = 1;
 	name = "Warehouse Elevator";
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
@@ -25939,7 +25939,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	autoclose = 0;
 	name = "Warehouse Elevator";
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/dark,
@@ -26216,7 +26216,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Warehouse";
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
@@ -26924,7 +26924,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Passthrough";
-	req_one_access = list(12,26,31,48,67)
+	req_one_access = list(12,26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -27007,7 +27007,7 @@
 "vdZ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/storage)
