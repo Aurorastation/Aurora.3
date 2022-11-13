@@ -73,6 +73,7 @@
 	new /obj/item/storage/belt/utility(src)
 	new /obj/item/device/gps/engineering(src)
 	new /obj/item/pipewrench(src)
+	new /obj/item/device/flashlight/heavy(src)
 
 	// Painters
 	new /obj/item/device/floor_painter(src)
@@ -89,7 +90,6 @@
 	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/clothing/suit/fire/atmos(src)
 	new /obj/item/clothing/head/hardhat/atmos(src)
-	new /obj/item/device/flashlight(src)
 	new /obj/item/extinguisher(src)
 	new /obj/item/device/radio/headset/headset_eng(src)
 	new /obj/item/device/radio/headset/headset_eng/alt(src)

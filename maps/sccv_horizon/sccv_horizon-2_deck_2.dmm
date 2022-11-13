@@ -2647,11 +2647,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
 "bhR" = (
-/obj/effect/floor_decal/corner_wide/yellow{
+/obj/structure/closet/secure_closet/engineering_personal,
+/obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/structure/closet/secure_closet/engineering_personal,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "bhT" = (
@@ -4451,6 +4451,7 @@
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/atmos,
+/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "bZD" = (
@@ -4502,10 +4503,8 @@
 /area/server)
 "caB" = (
 /obj/structure/table/standard,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/effect/floor_decal/corner_wide/yellow{
+/obj/item/storage/bag/circuits/basic,
+/obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -5355,14 +5354,14 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 9
-	},
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/device/hand_labeler,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "cDE" = (
@@ -8816,12 +8815,11 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_two/fore)
 "eui" = (
+/obj/machinery/disposal/small/south,
+/obj/structure/disposalpipe/trunk,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/machinery/disposal/small/south,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "euT" = (
@@ -9389,11 +9387,9 @@
 /area/operations/break_room)
 "eIU" = (
 /obj/machinery/firealarm/south,
-/obj/effect/floor_decal/corner_wide/yellow{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/structure/closet/secure_closet/engineering_personal,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "eJl" = (
@@ -12993,12 +12989,10 @@
 	pixel_x = -24
 	},
 /obj/structure/cable/green,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "gtn" = (
@@ -13307,6 +13301,7 @@
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/atmos,
+/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "gAN" = (
@@ -18704,7 +18699,7 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "jlP" = (
@@ -19415,13 +19410,12 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "jBu" = (
-/obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/storage/bag/circuits/basic,
-/obj/item/device/flashlight/heavy,
-/obj/effect/floor_decal/corner_wide/yellow/full,
+/obj/structure/closet/wardrobe/engineering_yellow,
+/obj/effect/floor_decal/corner/yellow/full,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "jBw" = (
@@ -19696,7 +19690,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "jIf" = (
-/obj/effect/floor_decal/corner_wide/yellow{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -25827,7 +25821,7 @@
 	req_access = list(11)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/full,
 /area/engineering/locker_room)
 "mUz" = (
 /obj/structure/cable/green{
@@ -29769,11 +29763,11 @@
 	pixel_x = 24
 	},
 /obj/structure/cable/green,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/secure_closet/engineering_personal,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "oTK" = (
@@ -32207,15 +32201,19 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /obj/machinery/door/window/northright{
 	name = "Engineering Voidsuit Access";
 	req_access = list(11)
 	},
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_eva)
 "qen" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -32458,13 +32456,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "qkF" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 9
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
 	},
-/obj/structure/closet/wardrobe/engineering_yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/engineering/locker_room)
+/area/engineering/storage_eva)
 "qld" = (
 /obj/structure/closet/crate{
 	name = "Emergency Fuel"
@@ -41738,15 +41734,15 @@
 /area/horizon/kitchen/hallway)
 "uOT" = (
 /obj/structure/table/standard,
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 9
-	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Locker Room";
 	dir = 4
 	},
 /obj/item/hoist_kit,
 /obj/item/ladder_mobile,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "uOV" = (
@@ -42080,6 +42076,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "uYW" = (
@@ -45135,10 +45134,10 @@
 /area/maintenance/wing/port/far)
 "wrA" = (
 /obj/structure/closet/secure_closet/engineering_personal,
-/obj/effect/floor_decal/corner_wide/yellow{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "wrK" = (
@@ -46622,11 +46621,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "xbv" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 6
-	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
@@ -46788,8 +46787,8 @@
 	c_tag = "Engineering - Equipment Storage";
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
@@ -63756,7 +63755,7 @@ hal
 laB
 cDD
 uOT
-qkF
+bhR
 bhR
 jIf
 jBu
@@ -64971,7 +64970,7 @@ jNp
 iMG
 irF
 wTU
-mfE
+qkF
 iVO
 kxP
 fsf
@@ -65173,7 +65172,7 @@ xeT
 hVu
 mfE
 wTU
-mfE
+qkF
 ibx
 kxP
 fsf
@@ -65375,7 +65374,7 @@ xeT
 knH
 mfE
 wTU
-mfE
+qkF
 ilB
 kxP
 hvm
