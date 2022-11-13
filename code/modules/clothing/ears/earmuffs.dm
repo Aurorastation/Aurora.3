@@ -12,7 +12,7 @@
 /obj/item/clothing/ears/earmuffs/earphones
 	name = "earphones"
 	desc = "A pair of wired earphones. Good luck trying to find a headphone jack."
-	desc_fluff = "Has a tendency to snag itself on whatever furniture it can find at the most inopportune of times."
+	desc_extended = "Has a tendency to snag itself on whatever furniture it can find at the most inopportune of times."
 	icon_state = "earphones"
 	item_state = "earphones"
 	build_from_parts = TRUE
@@ -45,7 +45,7 @@
 /obj/item/clothing/ears/earmuffs/earphones/headphones
 	name = "headphones"
 	desc = "A pair of headphones. Cushioned and sound-cancelling."
-	desc_fluff = "Unce unce unce unce."
+	desc_extended = "Unce unce unce unce."
 	icon_state = "headphones"
 	item_state = "headphones"
 
@@ -56,6 +56,6 @@
 /obj/item/clothing/ears/earmuffs/earphones/earbuds
 	name = "earbuds"
 	desc = "A pair of wireless earbuds. Don't lose them."
-	desc_fluff = "Oh god, he can't hear us! He's got earbuds on!"
+	desc_extended = "Oh god, he can't hear us! He's got earbuds on!"
 	icon_state = "earbuds"
 	item_state = "earbuds"
