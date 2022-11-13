@@ -188,6 +188,16 @@
 		return STATUS_INTERACTIVE
 	return ..()
 
+/datum/controller/subsystem/records/Topic(href, href_list)
+	if(href_list["action"] == "follow")
+		var/mob/abstract/observer/O = usr
+		if(istype(O))
+			for(var/mob/living/carbon/human/H in human_mob_list)
+				if(istype(H) && H.real_name == href_list["name"])
+					O.ManualFollow(H)
+					break
+	. = ..()
+
 /datum/controller/subsystem/records/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data || list()

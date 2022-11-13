@@ -9,6 +9,7 @@
           <td>{{ entry.name }}</td>
           <td>{{ entry.rank }}</td>
           <td>{{ entry.active }}</td>
+          <td><vui-button :params="{ action: 'follow', data: entry.name }">Follow</vui-button></td>
         </tr>
       </table>
     </div>
