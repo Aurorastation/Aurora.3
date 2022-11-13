@@ -103,6 +103,7 @@
 	scrubs["scrubs, nanotrasen navy blue"] = /obj/item/clothing/under/rank/medical/surgeon
 	scrubs["scrubs, zeng-hu purple"] = /obj/item/clothing/under/rank/medical/surgeon/zeng
 	scrubs["scrubs, PMCG blue"] = /obj/item/clothing/under/rank/medical/surgeon/pmc
+	scrubs["scrubs, PMCG grey"] = /obj/item/clothing/under/rank/medical/surgeon/pmc/alt
 	scrubs["scrubs, zavodskoi black"] = /obj/item/clothing/under/rank/medical/surgeon/zavod
 	scrubs["scrubs, idris green"] = /obj/item/clothing/under/rank/medical/surgeon/idris
 
@@ -138,6 +139,20 @@
 	display_name = "uniform, captain dress"
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
+
+/datum/gear/uniform/bridge_crew
+	display_name = "bridge crew uniform selection"
+	path = /obj/item/clothing/under/rank/bridge_crew/alt
+	allowed_roles = list("Bridge Crew", "Captain", "Executive Officer")
+
+/datum/gear/uniform/bridge_crew/New()
+	..()
+	var/list/bridgecrew = list()
+	bridgecrew["bridge crew uniform, skirt"] = /obj/item/clothing/under/rank/bridge_crew/alt
+	bridgecrew["bridge crew uniform, skirt, white"] = /obj/item/clothing/under/rank/bridge_crew/alt/white
+	bridgecrew["bridge crew uniform, san colettish"] = /obj/item/clothing/under/rank/bridge_crew/sancolette
+	bridgecrew["bridge crew uniform, san colettish, blue"] = /obj/item/clothing/under/rank/bridge_crew/sancolette/alt
+	gear_tweaks += new /datum/gear_tweak/path(bridgecrew)
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"

@@ -13,10 +13,15 @@
 
 	slowdown = -0.8 //As opposed to -1 for Base tajara
 	sprint_speed_factor = 0.55 // As opposed to 0.65
+	standing_jump_range = 2
 	stamina = 100 // As opposed to 90
 	brute_mod = 1.1 // Less Brute Damage
 	ethanol_resistance = 1 // Default value
 	climb_coeff = 1.1
+
+	maneuvers = list(
+		/decl/maneuver/leap
+	)
 
 	resist_mod = 1.5 // ZHAN POWERRRRRR
 
@@ -52,9 +57,14 @@
 
 	slowdown = -1.2 //As opposed to -1 for Base tajara
 	sprint_speed_factor = 0.75 // As opposed to 0.65
+	standing_jump_range = 3
 	stamina = 80 // As opposed to 90
 	brute_mod = 1.3 // More Brute Damage
 	ethanol_resistance = 0.6 // Species Default 0.8
+
+	maneuvers = list(
+		/decl/maneuver/leap/tajara/msai
+	)
 
 	cold_level_1 = 220 //RaceDefault 200 Default 260
 	cold_level_2 = 160 //RaceDefault 140 Default 200

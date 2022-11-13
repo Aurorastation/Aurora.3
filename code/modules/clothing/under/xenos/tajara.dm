@@ -62,6 +62,12 @@
 	they are expected to display bravery in combat and lead by example."
 	starting_accessories = (/obj/item/clothing/accessory/holster/hip)
 
+/obj/item/clothing/under/tajaran/cosmonaut/captain
+	name = "orbital fleet captain uniform"
+	desc = "A military uniform used by a captain of the People's Republic of Adhomai orbital fleet."
+	icon_state = "orbital_captain"
+	item_state = "orbital_captain"
+
 /obj/item/clothing/under/tajaran/summer
 	name = "adhomian summerwear"
 	desc = "A simple piece of adhomian summerwear made with linen."

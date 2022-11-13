@@ -365,7 +365,6 @@
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 10,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 10,
 		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 10,
-		/obj/item/reagent_containers/food/drinks/cans/koispunch = 5,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 10,
 		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 10,
 		/obj/item/reagent_containers/food/drinks/small_milk = 10,
@@ -373,7 +372,8 @@
 		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 10
 	)
 	contraband = list(
-		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5
+		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
+		/obj/item/reagent_containers/food/drinks/cans/koispunch = 3
 	)
 	premium = list(
 		/obj/item/reagent_containers/food/drinks/bottle/cola = 2,
@@ -521,7 +521,7 @@
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 4,
 		/obj/item/reagent_containers/glass/bottle/perconol = 3,
 		/obj/item/reagent_containers/glass/bottle/toxin = 1,
-		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
+		/obj/item/reagent_containers/glass/bottle/coagzolug = 2,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/syringe = 12,
 		/obj/item/device/healthanalyzer = 5,
@@ -1017,8 +1017,9 @@
 	products = list(
 		/obj/item/device/multitool = 4,
 		/obj/item/powerdrill = 2,
+		/obj/item/taperoll/engineering = 4,
 		/obj/item/clothing/glasses/safety/goggles = 4,
-		/obj/item/airlock_electronics = 10,
+		/obj/item/airlock_electronics = 20,
 		/obj/item/module/power_control = 10,
 		/obj/item/airalarm_electronics = 10,
 		/obj/item/firealarm_electronics = 10,
@@ -1098,24 +1099,25 @@
 	req_access = list(access_engine_equip)
 	vend_id = "tools"
 	products = list(
-		/obj/item/clothing/under/rank/chief_engineer = 4,
-		/obj/item/clothing/under/rank/engineer = 4,
-		/obj/item/clothing/shoes/orange = 4,
 		/obj/item/clothing/head/hardhat = 4,
-		/obj/item/storage/belt/utility = 4,
+		/obj/item/storage/belt/utility = 5,
 		/obj/item/clothing/glasses/safety/goggles = 4,
 		/obj/item/clothing/gloves/yellow = 4,
-		/obj/item/screwdriver = 12,
-		/obj/item/crowbar = 12,
-		/obj/item/wirecutters = 12,
-		/obj/item/device/multitool = 12,
-		/obj/item/wrench = 12,
-		/obj/item/device/t_scanner = 12,
-		/obj/item/stack/cable_coil/heavyduty = 8,
-		/obj/item/cell = 8,
+		/obj/item/screwdriver = 8,
+		/obj/item/crowbar = 8,
+		/obj/item/wirecutters = 8,
+		/obj/item/device/multitool = 8,
+		/obj/item/wrench = 8,
+		/obj/item/powerdrill = 4,
+		/obj/item/device/t_scanner = 8,
+		/obj/item/stack/cable_coil/random = 10,
+		/obj/item/cell = 5,
+		/obj/item/device/analyzer = 5,
+		/obj/item/cell/high = 2,
 		/obj/item/weldingtool = 8,
 		/obj/item/clothing/head/welding = 8,
 		/obj/item/light/tube = 10,
+		/obj/item/clothing/head/hardhat/firefighter = 4,
 		/obj/item/clothing/suit/fire = 4,
 		/obj/item/stock_parts/scanning_module = 5,
 		/obj/item/stock_parts/micro_laser = 5,
@@ -1124,11 +1126,9 @@
 		/obj/item/stock_parts/console_screen = 5,
 		/obj/item/tape_roll = 5
 	)
-	// There was an incorrect entry (cablecoil/power).  I improvised to cablecoil/heavyduty.
-	// Another invalid entry, /obj/item/circuitry.  I don't even know what that would translate to, removed it.
-	// The original products list wasn't finished.  The ones without given quantities became quantity 5.  -Sayu
+
 	restock_blocked_items = list(
-		/obj/item/stack/cable_coil/heavyduty,
+		/obj/item/stack/cable_coil,
 		/obj/item/weldingtool,
 		/obj/item/light/tube
 	)

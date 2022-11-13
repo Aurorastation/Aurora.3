@@ -57,7 +57,7 @@
 	//Supply
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/storage/box/ids(src)
-	new /obj/item/storage/box/fancy/keypouch/cargo(src)
+	new /obj/item/storage/box/fancy/keypouch/sec(src)
 	new /obj/item/storage/box/fancy/keypouch/service(src)
 	//Appearance
 	new /obj/item/clothing/glasses/sunglasses(src)
@@ -82,11 +82,14 @@
 /obj/structure/closet/secure_closet/xo2/fill()
 	..()
 	new /obj/item/clothing/under/rank/xo(src)
-	new /obj/item/clothing/under/lawyer/red(src)
+	new /obj/random/suit(src)
+	new /obj/random/suit(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)
 	new /obj/item/clothing/shoes/white(src)
+	new /obj/item/clothing/head/caphat/cap/beret/xo(src)
+	new /obj/item/clothing/gloves/captain/white/xo(src)
 
 /obj/structure/closet/secure_closet/hos
 	name = "head of security's locker"
@@ -108,9 +111,9 @@
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/head/helmet/hos(src)
-	new /obj/item/clothing/suit/storage/security/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
 	new /obj/item/clothing/gloves/black_leather(src)
+	new /obj/item/clothing/suit/storage/security/officer/hos(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
@@ -148,7 +151,6 @@
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/head/helmet/hos(src)
-	new /obj/item/clothing/suit/storage/security/hos(src)
 	//Tools
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/device/radio/headset/heads/hos(src)
@@ -179,7 +181,6 @@
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/head/helmet/security(src)
-	new	/obj/item/clothing/suit/storage/security/warden(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/mask/gas/alt(src)
@@ -243,7 +244,6 @@
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/head/helmet/security(src)
-	new /obj/item/clothing/suit/storage/security/officer(src)
 	new /obj/item/clothing/accessory/badge/officer(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
@@ -269,7 +269,7 @@
 
 /obj/structure/closet/secure_closet/investigator/fill()
 	//Appearance
-	new /obj/item/storage/backpack/satchel/leather(src)
+	new /obj/item/storage/backpack/satchel/leather/recolorable(src)
 	new /obj/item/clothing/suit/storage/det_jacket(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/under/det(src)
@@ -309,7 +309,8 @@
 /obj/structure/closet/secure_closet/brig
 	name = "brig locker"
 	req_access = list(access_brig)
-	anchored = 1
+	anchored = TRUE
+	canbemoved = TRUE
 	var/id = null
 
 /obj/structure/closet/secure_closet/brig/Initialize()
@@ -357,3 +358,17 @@
 	new /obj/item/device/radio/headset/headset_com/alt(src)
 	new /obj/item/device/radio/off(src)
 	new /obj/item/device/gps(src)
+
+// Evidence Storage Locker
+/obj/structure/closet/secure_closet/evidence
+	name = "evidence storage locker"
+	anchored = TRUE
+	canbemoved = TRUE
+	req_one_access = list(access_brig, access_armory, access_forensics_lockers, access_detective)
+
+// Contraband Storage Locker
+/obj/structure/closet/secure_closet/contraband
+	name = "contraband weapons and ammunition storage locker"
+	anchored = TRUE
+	canbemoved = TRUE
+	req_access = list(access_armory)

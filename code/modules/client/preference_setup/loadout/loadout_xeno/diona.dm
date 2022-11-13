@@ -259,7 +259,7 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 	
-/datum/gear/suit/unathi_robe/kilt
+/datum/gear/suit/unathi_robe/kilt/diona
 	display_name = "dionae wasteland kilt"
 	path = /obj/item/clothing/suit/unathi/robe/kilt
 	origin_restriction = list(/decl/origin_item/origin/dionae_wasteland)
@@ -294,7 +294,7 @@
 	origin_restriction = list(/decl/origin_item/origin/dionae_wasteland)
 	sort_category = "Xenowear - Diona"
 	
-/datum/gear/uniform/unathi/zozo
+/datum/gear/uniform/diona/zozo
 	display_name = "dionae zozo top"
 	path = /obj/item/clothing/under/unathi/zozo
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)

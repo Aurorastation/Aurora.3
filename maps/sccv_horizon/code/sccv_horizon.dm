@@ -36,7 +36,7 @@
 
 	use_overmap = TRUE
 	num_exoplanets = 2
-	overmap_event_areas = 20
+	overmap_event_areas = 34
 	planet_size = list(255,255)
 
 	away_site_budget = 3
@@ -98,7 +98,7 @@
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod2,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod4,
-		/datum/shuttle/autodock/ferry/supply/aurora,
+		/datum/shuttle/autodock/ferry/supply/horizon,
 		/datum/shuttle/autodock/ferry/specops/ert_aurora,
 		/datum/shuttle/autodock/multi/antag/skipjack_ship,
 		/datum/shuttle/autodock/multi/antag/burglar_ship,
