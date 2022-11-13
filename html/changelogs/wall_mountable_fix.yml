@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes double-mapped wall mountables in medical."
