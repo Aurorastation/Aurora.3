@@ -56,6 +56,6 @@
 /obj/item/clothing/ears/earmuffs/earphones/earbuds
 	name = "earbuds"
 	desc = "A pair of wireless earbuds. Don't lose them."
-	desc_extended = "Oh god, he can't hear us! He's got earbuds on!"
+	desc_extended = "Oh god, they can't hear us! They've got earbuds on!"
 	icon_state = "earbuds"
 	item_state = "earbuds"
