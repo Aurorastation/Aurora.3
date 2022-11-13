@@ -1,7 +1,8 @@
 /obj/item/gun/projectile/colt
 	name = ".45 combat pistol"
-	desc = "A robust metal-framed .45-caliber handgun of a type descended from old-Earth designs, manufactured in many factories across \
-	human-inhabited space. Used by all manners of factions across the Spur."
+	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette.  Uses .45 rounds."
+	desc_fluff = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
+	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	icon = 'icons/obj/guns/colt.dmi'
@@ -44,9 +45,9 @@
 
 /obj/item/gun/projectile/colt/super
 	name = "ornamental .45 combat pistol"
-	desc = "A robust metal-framed .45-caliber handgun of a type descended from old-Earth designs, manufactured in many factories across \
-	human-inhabited space. This example sports a short slide, wood-paneled grips, and few signs of use, likely belonging to someone of higher stature."
-	desc_fluff = "Whoever did this is a professional, no question. This thing could shoot a one-hole at 25 yards in a machine rest."
+	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette.  Uses .45 rounds. This example sports a short slide, wood-paneled grips, and few signs of use, likely belonging to someone of higher stature."
+	desc_fluff = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
+	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
 	magazine_type = /obj/item/ammo_magazine/c45m/stendo
 	icon = 'icons/obj/guns/coltsuper.dmi'
 	icon_state = "coltsuper"
@@ -61,8 +62,9 @@
 
 /obj/item/gun/projectile/automatic/lebman
 	name = "automatic .45 combat pistol"
-	desc = "A robust metal-framed .45-caliber handgun of a type descended from old-Earth designs, manufactured in many factories across \
-	human-inhabited space. This example has been modified to allow fully-automatic fire, and sports a prominent vertical grip and muzzle compensator to aid in control."
+	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette.  Uses .45 rounds. This example has been modified to allow fully-automatic fire, and sports a prominent vertical grip and muzzle compensator to aid in control."
+	desc_fluff = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
+	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
 	magazine_type = /obj/item/ammo_magazine/c45m/lebman
 	icon = 'icons/obj/guns/coltauto.dmi'
 	icon_state = "coltauto"
@@ -86,7 +88,7 @@
 		icon_state = "coltauto-e"
 
 /obj/item/gun/projectile/sec
-	name = ".45 pistol"
+	name = "\improper .45 pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. Uses .45 rounds."
 	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun.dmi'
@@ -116,9 +118,9 @@
 	magazine_type = /obj/item/ammo_magazine/c45m/flash
 
 /obj/item/gun/projectile/sec/wood
+	name = "custom .45 pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip. Uses .45 rounds."
 	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
-	name = "custom .45 Pistol"
 	icon = 'icons/obj/guns/secgun_wood.dmi'
 	icon_state = "secgunwood"
 	item_state = "secgunwood"
@@ -304,7 +306,7 @@
 	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip. Uses 9mm rounds."
 	desc_fluff = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by NanoTrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in 9mm caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - 9mm in such a small package can be unpleasant for the average shooter."
 	name = "compact 9mm pistol"
-	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
+	magazine_type = /obj/item/ammo_magazine/mc9mm
 	icon = 'icons/obj/guns/detgun.dmi'
 	icon_state = "detgun"
 	item_state = "detgun"

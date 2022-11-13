@@ -4,7 +4,7 @@
 	possible_origins = list(
 		/decl/origin_item/origin/coc_wildborn
 	)
-	
+
 /decl/origin_item/origin/coc_grown
 	name = "CoC Grown"
 	desc = "Dionae who were originally grown in and influenced by a planet within the Coalition of Colonies "

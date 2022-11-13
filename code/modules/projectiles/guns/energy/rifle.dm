@@ -60,6 +60,11 @@
 	firemodes = list()
 	modifystate = null
 
+/obj/item/gun/energy/rifle/laser/practice
+	name = "practice laser rifle"
+	desc = "A modified version of the NT LR-6. It fires less concentrated laser beams that are visible, but ultimately harmless, designed for target practice."
+	projectile_type = /obj/item/projectile/beam/practice
+
 /obj/item/gun/energy/rifle/laser/noctiluca
 	name = "combat laser rifle"
 	desc = "The Noctiluca XM/24 is a brand new model of laser rifle, developed entirely by Kumar Arms, a Zavodskoi Interstellar subsidiary. Easy to handle for users with minimal training, reliable and with a reasonable form factor, it is poised to become the new standard for laser weaponry."
@@ -225,3 +230,13 @@
 	use_external_power = 1
 	recharge_time = 10
 	can_turret = 0
+
+/obj/item/gun/energy/rifle/laser/qukala
+	name = "geop cannon"
+	desc = "An advanced weapon of Skrell design, this Geop Cannon uses a tiny warp accelerator to super heat particles."
+	desc_fluff = ""
+	icon = 'icons/obj/contained_items/skrell/skrell_weaponry.dmi'
+	icon_state = "qukala_heavy"
+	item_state = "qukala_heavy"
+	max_shots = 10
+	projectile_type = /obj/item/projectile/beam/midlaser/skrell/heavy

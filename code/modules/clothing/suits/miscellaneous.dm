@@ -296,6 +296,15 @@
 	item_state = "scc_jacket"
 	contained_sprite = TRUE
 
+/obj/item/clothing/suit/storage/toggle/brown_jacket/scc/sancol
+	name = "bridge crew jacket"
+	desc = "A more formal jacket for bridge staff. Designed in a typical Colettish style."
+	desc_fluff= "While not a true Colettish uniform the aiguillette and cuff tabs of this one are obviously based on the real thing. \
+	An actual Civil Guard uniform, commonly known as a rayadillo, is generally of a darker blue and features the wearer’s ranks on the collar."
+	icon = 'icons/contained_items/clothing/topwear/bridge_crew_jacket_sancol.dmi'
+	icon_state = "bridge_crew_jacket_sancol"
+	item_state = "bridge_crew_jacket_sancol"
+
 /obj/item/clothing/suit/storage/toggle/flannel
 	name = "green flannel shirt"
 	desc = "A flannel shirt, for all your space hipster needs."
@@ -376,6 +385,15 @@
 	icon = 'icons/clothing/suits/highvis.dmi'
 	icon_state = "highvis"
 	item_state = "highvis"
+	body_parts_covered = UPPER_TORSO|ARMS
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/highvis_alt
+	name = "high visibility jacket"
+	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering, and sometimes even law enforcement in cold and poor weather or when visibility is low."
+	icon = 'icons/clothing/suits/highvis.dmi'
+	icon_state = "highvis_alt"
+	item_state = "highvis_alt"
 	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
 

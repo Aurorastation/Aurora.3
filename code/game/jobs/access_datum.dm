@@ -267,7 +267,12 @@
 	desc = "Station Network"
 	region = ACCESS_REGION_RESEARCH
 
-// /var/const/free_access_id = 43
+/var/const/access_leviathan = 43
+/datum/access/leviathan
+	id = access_leviathan
+	desc = "Leviathan"
+	region = ACCESS_REGION_COMMAND
+
 // /var/const/free_access_id = 44
 
 /var/const/access_surgery = 45
@@ -534,16 +539,6 @@ var/const/access_kataphract_knight = 114
 	id = access_kataphract_knight
 	desc = "Kataphract Knight Access"
 
-var/const/access_kataphract_quartermaster = 115
-/datum/access/kataphract/quartermaster
-	id = access_kataphract_quartermaster
-	desc = "Kataphract Quartermaster Access"
-
-var/const/access_kataphract_trader = 116
-/datum/access/kataphract/trader
-	id = access_kataphract_trader
-	desc = "Kataphract Trader Access"
-
 /***************
 * Antag access *
 ***************/
@@ -609,4 +604,14 @@ var/const/access_kataphract_trader = 116
 /var/const/access_elyran_naval_infantry_ship = 207
 /datum/access/access_elyran_naval_infantry_ship
 	id = access_elyran_naval_infantry_ship
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_skrell = 208
+/datum/access/access_skrell
+	id = access_skrell
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_pra = 209
+/datum/access/access_pra
+	id = access_pra
 	access_type = ACCESS_TYPE_CENTCOM

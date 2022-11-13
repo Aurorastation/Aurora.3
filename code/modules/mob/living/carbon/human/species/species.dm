@@ -74,6 +74,9 @@
 		/datum/unarmed_attack/bite
 		)
 	var/list/unarmed_attacks = null          // For empty hand harm-intent attack
+	var/standing_jump_range = 2
+	var/list/maneuvers = list(/decl/maneuver/leap)
+
 	var/pain_mod =      1                    // Pain multiplier
 	var/brute_mod =     1                    // Physical damage multiplier.
 	var/burn_mod =      1                    // Burn damage multiplier.

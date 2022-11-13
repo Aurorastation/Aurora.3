@@ -110,7 +110,6 @@
 		/datum/unarmed_attack/bite/strong)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/leap,
 		/mob/living/carbon/human/proc/self_diagnostics
 		)
 
@@ -160,6 +159,10 @@
 
 	flags = IS_IPC | ACCEPTS_COOLER
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
+
+	maneuvers = list(
+		/decl/maneuver/leap/industrial
+	)
 
 	heat_level_1 = 800
 	heat_level_2 = 1600
@@ -423,6 +426,7 @@
 	sprint_speed_factor = 0.6
 	sprint_cost_factor = 2
 	move_charge_factor = 2
+	standing_jump_range = 3
 
 	grab_mod = 1.1 // Smooth, fast
 	resist_mod = 4 // Not super strong, but still rather strong
@@ -451,6 +455,9 @@
 		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
+	maneuvers = list(
+		/decl/maneuver/leap/zenghu
+	)
 
 
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)

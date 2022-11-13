@@ -79,6 +79,7 @@
 		// its new destination this cycle. Immediately invokes fall_impact and
 		// fall_collateral if the next turf is not open space.
 		if (isopenturf(victim.loc) && victim.loc:is_hole)
+			victim.begin_falling(victim.loc, below)
 			victim.forceMove(below)
 			if(victim.pulledby && victim.pulledby.z != victim.z)
 				var/mob/M = victim.pulledby
