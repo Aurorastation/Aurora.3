@@ -27,7 +27,7 @@
 #################################
 
 # Your name.
-author: ChangeMe
+author: MattAtlas
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -40,4 +40,6 @@ delete-after: True
 changes:
   - tweak: "Bridge crew no longer have access to the flak cannon or to ammunition storage."
   - tweak: "Leviathan powerup is now a global effect."
+  - tweak: "Lowered the sound of most guns."
+  - tweak: "Ammunition loaders no longer instantly explode and die when hit."
   - bugfix: "Fixes ship weapons not being anchored."
