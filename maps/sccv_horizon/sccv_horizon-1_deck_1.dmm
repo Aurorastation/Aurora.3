@@ -4090,14 +4090,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "diJ" = (
-/obj/structure/disposalpipe/sortjunction/flipped{
-	dir = 1;
-	name = "Workshop";
-	sortType = "Workshop"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
 "diR" = (
@@ -5080,15 +5076,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/deck1)
-"eaO" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/hangar/intrepid/interstitial)
 "eaS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/toolcloset,
@@ -7844,9 +7831,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "fXS" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
@@ -50778,7 +50762,7 @@ waN
 bDv
 fMM
 nPK
-eaO
+ftn
 erk
 ftn
 ftn
