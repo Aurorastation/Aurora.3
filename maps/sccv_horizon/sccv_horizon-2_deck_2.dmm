@@ -4018,19 +4018,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
-"bQW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	name = "Station Intercom (General)";
-	pixel_x = 24
-	},
-/obj/machinery/camera/network/command{
-	c_tag = "Command - Deck 2 - Secure Ammunition Storage";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/secure_ammunition_storage)
 "bRe" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -10887,7 +10874,6 @@
 	dir = 4
 	},
 /obj/machinery/recharger,
-/obj/structure/particle_accelerator/fuel_chamber,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "fEE" = (
