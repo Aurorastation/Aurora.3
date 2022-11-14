@@ -17909,8 +17909,12 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod4)
 "obM" = (
-/obj/structure/trash_pile,
-/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "ock" = (
@@ -22257,9 +22261,6 @@
 /turf/simulated/floor/tiled/airless,
 /area/hangar/operations)
 "rLm" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -25792,9 +25793,9 @@
 	},
 /area/maintenance/research_port)
 "usF" = (
-/turf/simulated/floor/tiled/ramp{
-	dir = 8
-	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "usP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -28819,19 +28820,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
-"wVB" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/plating,
-/area/maintenance/engineering)
 "wVE" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -46710,7 +46698,7 @@ qlv
 qlv
 oNv
 xYW
-obM
+nBK
 edm
 mMR
 nyY
@@ -46912,7 +46900,7 @@ qWf
 lAU
 aJA
 xYW
-nBK
+usF
 nNE
 mMR
 nyY
@@ -47313,9 +47301,9 @@ rNR
 dgT
 dgT
 dgT
-dgT
-dgT
 teb
+dgT
+dgT
 fBg
 nNE
 rQC
@@ -47723,9 +47711,9 @@ ulQ
 ulQ
 ebK
 tqT
-wVB
-usF
 wqs
+ulQ
+obM
 ulQ
 rLm
 bVc
