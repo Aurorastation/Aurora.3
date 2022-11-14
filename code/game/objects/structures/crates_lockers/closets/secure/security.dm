@@ -309,7 +309,8 @@
 /obj/structure/closet/secure_closet/brig
 	name = "brig locker"
 	req_access = list(access_brig)
-	anchored = 1
+	anchored = TRUE
+	canbemoved = TRUE
 	var/id = null
 
 /obj/structure/closet/secure_closet/brig/Initialize()
@@ -357,3 +358,17 @@
 	new /obj/item/device/radio/headset/headset_com/alt(src)
 	new /obj/item/device/radio/off(src)
 	new /obj/item/device/gps(src)
+
+// Evidence Storage Locker
+/obj/structure/closet/secure_closet/evidence
+	name = "evidence storage locker"
+	anchored = TRUE
+	canbemoved = TRUE
+	req_one_access = list(access_brig, access_armory, access_forensics_lockers, access_detective)
+
+// Contraband Storage Locker
+/obj/structure/closet/secure_closet/contraband
+	name = "contraband weapons and ammunition storage locker"
+	anchored = TRUE
+	canbemoved = TRUE
+	req_access = list(access_armory)
