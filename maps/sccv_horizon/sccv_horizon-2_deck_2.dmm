@@ -2576,15 +2576,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
-"bhT" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 6
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/hallway)
 "bib" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/structure/cable/yellow{
@@ -11652,13 +11643,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"fVA" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/rnd/hallway)
 "fVL" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -17929,7 +17913,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "iWV" = (
-/obj/effect/floor_decal/corner/mauve{
+/obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -29243,14 +29227,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/rnd/hallway)
 "oPh" = (
 /obj/structure/cable/green{
@@ -73896,7 +73876,7 @@ cyZ
 otf
 kgT
 gce
-bhT
+jIL
 gax
 jko
 jIL
@@ -75517,7 +75497,7 @@ cer
 cer
 vBO
 oOi
-fVA
+gUA
 kGX
 iic
 dkr
