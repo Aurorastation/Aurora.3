@@ -28,6 +28,7 @@
 	new /obj/item/grenade/chem_grenade/large/phoroncleaner(src)
 	new /obj/item/crowbar/rescue_axe/red(src)
 	new /obj/item/device/radio/eng/off(src)
+	new /obj/item/grenade/chem_grenade/antifuel(src)
 
 // Chief Engineer - Clothing Satchel
 // This satchel is used nowhere except in conjunction with the locker above,
@@ -74,6 +75,7 @@
 	new /obj/item/device/gps/engineering(src)
 	new /obj/item/pipewrench(src)
 	new /obj/item/device/flashlight/heavy(src)
+	new /obj/item/grenade/chem_grenade/antifuel(src)
 
 	// Painters
 	new /obj/item/device/floor_painter(src)
@@ -106,6 +108,7 @@
 	new /obj/item/pipewrench(src)
 	new /obj/item/crowbar/rescue_axe(src)
 	new /obj/item/device/flashlight/heavy(src)
+	new /obj/item/grenade/chem_grenade/antifuel(src)
 
 	// Painters
 	new /obj/item/device/floor_painter(src)
