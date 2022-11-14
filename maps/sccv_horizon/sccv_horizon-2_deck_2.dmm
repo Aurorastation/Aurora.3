@@ -6994,18 +6994,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
 "dwy" = (
-/obj/item/device/binoculars,
+/obj/item/device/binoculars{
+	pixel_y = 3
+	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
-	},
-/obj/item/clothing/head/hardhat/white{
-	pixel_y = -5
-	},
-/obj/item/clothing/head/hardhat/white{
-	pixel_y = -5
-	},
-/obj/item/clothing/head/hardhat/white{
-	pixel_y = -5
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -7017,6 +7010,7 @@
 	dir = 4
 	},
 /obj/structure/table/steel,
+/obj/item/storage/box/fancy/donut,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "dwK" = (
@@ -19088,10 +19082,9 @@
 /area/horizon/zta)
 "jsS" = (
 /obj/machinery/recharger{
-	pixel_y = 4
+	pixel_y = 1
 	},
 /obj/effect/floor_decal/corner/blue/full,
-/obj/item/storage/box/fancy/donut,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
@@ -26600,18 +26593,9 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "nkM" = (
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/pen{
-	pixel_x = -3;
-	pixel_y = 7
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/item/paper_scanner,
 /obj/item/device/flash,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
