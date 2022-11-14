@@ -25919,10 +25919,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"uDJ" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/wall/shuttle/scc/cardinal,
-/area/shuttle/intrepid/cockpit)
 "uEJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
@@ -51054,7 +51050,7 @@ aEw
 kEg
 cjK
 ula
-uDJ
+ock
 con
 con
 iRC
