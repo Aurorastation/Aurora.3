@@ -4299,16 +4299,14 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
 /obj/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/door/window/eastright,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/rotary)
 "duN" = (
@@ -10904,11 +10902,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "iwX" = (
-/obj/machinery/door/window/westleft,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/window/westright,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/medical_compartment)
 "ixm" = (
@@ -11217,7 +11215,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/hangar/intrepid)
+/area/shuttle/intrepid/cockpit)
 "iMg" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -13170,8 +13168,8 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -13308,7 +13306,6 @@
 /area/maintenance/disposal)
 "kxl" = (
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/westright,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -13316,6 +13313,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/window/westleft,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/medical_compartment)
 "kyq" = (
@@ -13526,6 +13524,10 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	pixel_x = 7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "kDE" = (
@@ -13593,10 +13595,6 @@
 	frequency = 1380;
 	id_tag = "intrepid_shuttle";
 	pixel_y = 33
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	pixel_x = -25
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -20315,9 +20313,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/door/window/eastright{
-	req_access = list(73)
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -20325,6 +20320,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/door/window/eastleft,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/rotary)
 "qmn" = (
@@ -28369,7 +28365,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/hangar/intrepid)
+/area/shuttle/intrepid/cockpit)
 "wGn" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled,
