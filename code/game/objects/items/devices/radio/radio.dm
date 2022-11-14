@@ -71,7 +71,6 @@ var/global/list/default_medbay_channels = list(
 		radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 
 /obj/item/device/radio/Destroy()
-	listening_objects -= src
 	QDEL_NULL(announcer)
 	QDEL_NULL(wires)
 	if(SSradio)
@@ -85,7 +84,7 @@ var/global/list/default_medbay_channels = list(
 
 	wires = new(src)
 	internal_channels = default_internal_channels.Copy()
-	listening_objects += src
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 	if(frequency < RADIO_LOW_FREQ || frequency > RADIO_HIGH_FREQ)
 		frequency = sanitize_frequency(frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)

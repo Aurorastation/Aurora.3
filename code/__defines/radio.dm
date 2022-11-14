@@ -113,6 +113,8 @@ var/list/DEPT_FREQS_ASSOC = list(
 #define TRANSMISSION_RADIO       1
 #define TRANSMISSION_SUBSPACE    2
 
+#define RADIO_NO_Z_LEVEL_RESTRICTION 0
+
 /* filters */
 //When devices register with the radio controller, they might register under a certain filter.
 //Other devices can then choose to send signals to only those devices that belong to a particular filter.

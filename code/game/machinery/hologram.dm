@@ -68,7 +68,7 @@ Possible to do for anyone motivated enough:
 	desc += " Its ID is '[holopad_id]'"
 
 	SSmachinery.all_holopads += src
-	listening_objects += src
+	become_hearing_sensitive()
 
 	light_color = long_range ? rgb(225, 173, 125) : rgb(125, 180, 225)
 
@@ -481,7 +481,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(connected_pad)
 		end_call()
 	clear_holos(TRUE)
-	listening_objects -= src
 	SSmachinery.all_holopads -= src
 	linked_pdas.Cut()
 	return ..()

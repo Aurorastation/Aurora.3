@@ -138,7 +138,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 
 /obj/effect/map_effect/portal/master/Initialize()
 	LAZYADD(all_portal_masters, src)
-	LAZYADD(listening_objects, src)
+	become_hearing_sensitive()
 	find_lines()
 	..()
 	return INITIALIZE_HINT_LATELOAD
@@ -150,7 +150,6 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 
 /obj/effect/map_effect/portal/master/Destroy()
 	LAZYREMOVE(all_portal_masters, src)
-	LAZYREMOVE(listening_objects, src)
 	for(var/thing in portal_lines)
 		qdel(thing)
 	return ..()

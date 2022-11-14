@@ -79,6 +79,8 @@
 	if (!ckey && mob_thinks)
 		MOB_START_THINKING(src)
 
+	become_hearing_sensitive()
+
 /mob/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
 	if(!client)	return

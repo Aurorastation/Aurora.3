@@ -23,11 +23,7 @@
 	..()
 	radio = new(src)
 	camera = new(src)
-	listening_objects += src
-
-/obj/item/device/spy_bug/Destroy()
-	listening_objects -= src
-	return ..()
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 /obj/item/device/spy_bug/examine(mob/user)
 	. = ..(user, 0)
@@ -70,11 +66,7 @@
 
 /obj/item/device/spy_monitor/New()
 	radio = new(src)
-	listening_objects += src
-
-/obj/item/device/spy_monitor/Destroy()
-	listening_objects -= src
-	return ..()
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 /obj/item/device/spy_monitor/examine(mob/user)
 	. = ..(user, 1)

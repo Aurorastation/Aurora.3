@@ -104,7 +104,6 @@
 	for(var/obj/item/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
 		qdel(CH)
-	listening_objects -= src
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(listener)
 	QDEL_NULL(soundloop)
