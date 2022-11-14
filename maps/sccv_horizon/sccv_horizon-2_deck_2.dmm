@@ -2185,6 +2185,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
+/obj/structure/plasticflaps,
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
 "aXf" = (
@@ -6718,6 +6719,7 @@
 	dir = 6
 	},
 /obj/machinery/light,
+/obj/structure/plasticflaps,
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
 "drB" = (
@@ -10332,11 +10334,10 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/processing_secondary)
 "fqa" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "Robocompo"
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
 	},
-/obj/structure/plasticflaps,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
@@ -20485,6 +20486,16 @@
 	},
 /turf/space/dynamic,
 /area/template_noop)
+"knA" = (
+/obj/machinery/light,
+/obj/machinery/alarm{
+	pixel_y = -28;
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/operations/lower/machinist)
 "knH" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -40466,6 +40477,7 @@
 	id = "Robocompo"
 	},
 /obj/effect/floor_decal/spline/plain,
+/obj/structure/plasticflaps,
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
 "uxi" = (
@@ -47360,16 +47372,11 @@
 /turf/simulated/floor/tiled,
 /area/security/main)
 "xMm" = (
-/obj/machinery/light,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
 /obj/effect/floor_decal/corner/black{
 	dir = 10
-	},
-/obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
@@ -73900,7 +73907,7 @@ qFg
 goQ
 aCP
 xMm
-uTr
+knA
 uTr
 uTr
 guh
