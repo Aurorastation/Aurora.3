@@ -3544,9 +3544,6 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
@@ -17912,15 +17909,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
-"iWV" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "iXI" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -22875,6 +22863,9 @@
 /obj/item/storage/bag/circuits/basic,
 /obj/item/device/integrated_electronics/debugger,
 /obj/item/device/integrated_electronics/wirer,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "lFP" = (
@@ -34500,8 +34491,16 @@
 /turf/simulated/wall,
 /area/medical/main_storage)
 "rvf" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 2;
+	name = "Research Hallway";
+	req_one_access = null
+	},
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 2
+	},
 /turf/simulated/floor/tiled/full,
-/area/rnd/hallway)
+/area/hallway/primary/central_one)
 "rvC" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -38233,8 +38232,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "txy" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
 "txP" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -72061,9 +72059,9 @@ etv
 aBr
 gPM
 lFE
-ulB
-iWV
-pdv
+jTQ
+eHG
+rvf
 uTr
 uTr
 bQE
@@ -72263,9 +72261,9 @@ oGR
 aBr
 lWQ
 bGj
-jTQ
-rvf
-gUA
+ulB
+kXY
+rnA
 uTr
 hEx
 rDh

@@ -5652,7 +5652,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "exw" = (
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -5663,6 +5662,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "exV" = (
@@ -9404,10 +9404,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
-"hhI" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
 "hhO" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -11517,6 +11513,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "iXq" = (
@@ -15993,7 +15990,6 @@
 	},
 /area/shuttle/intrepid/engine_compartment)
 "mDd" = (
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -16004,6 +16000,7 @@
 /obj/machinery/atmospherics/pipe/cap/hidden/supply{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "mDt" = (
@@ -20167,7 +20164,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "qbC" = (
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -20182,6 +20178,7 @@
 	},
 /obj/random/junk,
 /obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "qbK" = (
@@ -26553,10 +26550,10 @@
 /area/engineering/atmos)
 "vbD" = (
 /obj/effect/floor_decal/corner_wide/purple{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner_wide/purple{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -58637,7 +58634,7 @@ erL
 erL
 clb
 erL
-hhI
+jrJ
 vbD
 gWC
 lrC
@@ -58839,7 +58836,7 @@ erL
 erL
 erL
 erL
-hhI
+jrJ
 vbD
 sgI
 cWk
