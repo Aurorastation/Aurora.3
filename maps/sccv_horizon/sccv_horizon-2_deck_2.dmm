@@ -3470,8 +3470,8 @@
 	name = "Primary Armament Exterior Bolts";
 	pixel_x = 22;
 	pixel_y = 22;
-	specialfunctions = 4;
-	req_one_access = list(19,43)
+	req_one_access = list(19,43);
+	specialfunctions = 4
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4018,6 +4018,19 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
+"bQW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 24
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Command - Deck 2 - Secure Ammunition Storage";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/secure_ammunition_storage)
 "bRe" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -12008,8 +12021,8 @@
 	pixel_y = 12
 	},
 /obj/item/storage/box/freezer/organcooler{
-	pixel_y = 3;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -38527,8 +38540,8 @@
 	pixel_y = -1
 	},
 /obj/item/storage/box/bodybags{
-	pixel_y = 4;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
@@ -41271,6 +41284,22 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "uRu" = (
