@@ -2813,7 +2813,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "cjK" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/window/westright,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
