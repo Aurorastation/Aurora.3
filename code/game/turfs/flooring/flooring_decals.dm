@@ -726,3 +726,4 @@
 /obj/effect/floor_decal/scc
 	icon = 'icons/turf/flooring/scc_decals.dmi'
 	icon_state = "0,0"
+
