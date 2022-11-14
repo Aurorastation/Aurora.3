@@ -403,7 +403,8 @@ var/list/asset_datums = list()
 		"loading.gif" = 'html/images/loading.gif',
 		"ie-truth.min.js" = 'html/iestats/ie-truth.min.js',
 		"conninfo.min.js" = 'html/iestats/conninfo.min.js',
-		"copyright_infrigement.png" = 'html/copyright_infrigement.png'
+		"copyright_infrigement.png" = 'html/images/copyright_infrigement.png',
+		"88x31.png" = 'html/images/88x31.png'
 	)
 
 /datum/asset/simple/paper

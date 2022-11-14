@@ -61,6 +61,13 @@
 	item_cost = 1
 	path = /obj/item/storage/firstaid/regular
 
+/datum/uplink_item/item/medical/firstaid
+	name = "Standard First-Aid Kit (Free)"
+	item_cost = 0
+	item_limit = 1
+	path = /obj/item/storage/firstaid/regular
+	desc = "You can claim this first-aid kit only once."
+
 /datum/uplink_item/item/medical/advfirstaid
 	name = "Advanced First-Aid Kit"
 	item_cost = 1
