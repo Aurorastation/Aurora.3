@@ -459,7 +459,7 @@
 	name = "nuclear reactor"
 	desc = "The RT7-0, an industrial all-in-one nuclear power plant by Hephaestus. It uses uranium as a fuel source and relies on coolant to keep the reactor cool. Rated for 150 kW max safe output."
 	power_gen =  125000	
-	icon_state = "reactoron"
+	icon_state = "reactor"
 	base_icon = "reactor"
 	max_safe_output = 5
 	max_power_output = 8	//The maximum power setting without emagging.
