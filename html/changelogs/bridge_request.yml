@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - rscadd: "Adds a navigation console to the bridge."
+  - bugfix: "Adds a navigation console to the bridge."
