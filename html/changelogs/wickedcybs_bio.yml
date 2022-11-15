@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a small biogenerator to the public garden."
