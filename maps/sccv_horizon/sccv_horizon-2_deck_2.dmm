@@ -12359,6 +12359,7 @@
 /obj/structure/toilet/noose{
 	dir = 4
 	},
+/obj/structure/bed/handrail,
 /turf/simulated/floor/tiled/freezer,
 /area/security/prison)
 "ggC" = (
@@ -24571,6 +24572,9 @@
 	specialfunctions = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/horizon/crew_quarters/washroom/central)
 "mqR" = (
@@ -30256,6 +30260,9 @@
 	pixel_y = 32;
 	specialfunctions = 4
 	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "pfp" = (
@@ -34174,6 +34181,9 @@
 	specialfunctions = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/horizon/crew_quarters/washroom/central)
 "rck" = (
@@ -35593,6 +35603,9 @@
 	name = "Door Bolt Control";
 	pixel_y = 32;
 	specialfunctions = 4
+	},
+/obj/structure/bed/handrail{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)

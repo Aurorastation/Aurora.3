@@ -1498,6 +1498,9 @@
 /obj/structure/toilet{
 	dir = 4
 	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
 "bfx" = (
@@ -3576,6 +3579,9 @@
 	specialfunctions = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/washroom)
 "dfr" = (
@@ -6154,6 +6160,9 @@
 	specialfunctions = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/washroom)
 "fis" = (
