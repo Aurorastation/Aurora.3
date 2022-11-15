@@ -1,16 +1,16 @@
 /datum/map_template/ruin/away_site/ox_freighter
 	name = "Orion Express Freighter"
 	id = "ox_freighter"
-	description = "The XYZ-class freighter is a standardized container carrier ship, with the carrying capacity of eight medium size containers. This one's transponder identifies it as an Orion Express freighter, although the signal is very faint, and the ship appears to be mostly cold."
+	description = "The XYZ-Caravel freighter is a standardized container carrier ship, with the carrying capacity of eight medium size containers. This one's transponder identifies it as an Orion Express freighter, although the signal is very faint, and the ship appears to be mostly cold."
 	suffix = "ships/ox_freighter/ox_freighter.dmm"
 	spawn_cost = 1
-	spawn_weight = 1000000
+	spawn_weight = 1
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
 /obj/effect/overmap/visitable/ship/ox_freighter
 	name = "Orion Express Freighter"
 	class = "OEV"
-	desc = "The XYZ-class freighter is a standardized container carrier ship, with the carrying capacity of eight medium size containers. This one's transponder identifies it as an Orion Express freighter, although the signal is very faint, and the ship appears to be mostly cold."
+	desc = "The XYZ-Caravel freighter is a standardized container carrier ship, with the carrying capacity of eight medium size containers. This one's transponder identifies it as an Orion Express freighter, although the signal is very faint, and the ship appears to be mostly cold."
 	icon_state = "ship"
 	moving_state = "ship_moving"
 	vessel_mass = 3000
@@ -27,7 +27,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/ox_freighter/New()
-	designation = "[pick("Messenger", "Traveler", "Highspeed", "Punctual", "Unstoppable", "Express", "Courier", "Speed", "Delivery", "Speedy Delivery", "Freighter", "Carrier", "Heavy Cargo", "Transgalactic", "Peregrine", "Franklin")]"
+	designation = "[pick("Traveler", "Highspeed", "Punctual", "Unstoppable", "Express", "Courier", "Speed", "Delivery", "Speedy Delivery", "Freighter", "Carrier", "Heavy Cargo", "Transgalactic", "Peregrine", "Franklin", "Krantz", "Faulkner")]"
 	..()
 
 /obj/effect/shuttle_landmark/ox_freighter

@@ -1,0 +1,8 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Generic dungeons mechanism."
+  - rscadd: "Orion Express Freighter away site. Randomized containers, no ghost roles."
