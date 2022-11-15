@@ -35,12 +35,12 @@
 	return list(access_pra, access_external_airlocks)
 
 /datum/ghostspawner/human/peoples_station_crew/captain
-	short_name = "peoples_station_crew_captain"
+	short_name = "peoples_station_captain"
 	name = "People's Space Station Captain"
 	desc = "Command the People's Space Station."
 	tags = list("External")
 
-	spawnpoints = list("peoples_station_crew_captain")
+	spawnpoints = list("peoples_station_captain")
 	max_count = 1
 	uses_species_whitelist = TRUE
 
