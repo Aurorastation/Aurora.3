@@ -21,8 +21,6 @@
 
 	if(config.dungeon_chance > 0)
 		place_dungeon_spawns()
-	
-	// place_dungeons_generic()
 
 	if(config.generate_asteroid)
 		time = world.time
