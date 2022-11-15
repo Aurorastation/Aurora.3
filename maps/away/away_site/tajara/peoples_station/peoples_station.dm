@@ -20,6 +20,21 @@
 		"Intrepid" = list("nav_peoples_station_dockintrepid")
 	)
 
+/obj/effect/overmap/visitable/sector/peoples_station/dockintrepid // restricted for the intrepid only or else other ships will be able to use this point, and not properly dock
+	name = "People's Space Station Intrepid Docking"
+	landmark_tag = "nav_peoples_station_dockintrepid"
+
+/obj/effect/shuttle_landmark/nav_kataphract_ship/nav1
+	name = "Kataphract Ship Navpoint #1"
+	landmark_tag = "nav_kataphract_ship_1"
+
+/obj/effect/shuttle_landmark/nav_kataphract_ship/nav2
+	name = "Kataphract Ship Navpoint #2"
+	landmark_tag = "nav_kataphract_ship_2"
+
+/obj/effect/shuttle_landmark/nav_kataphract_ship/nav3
+	name = "Kataphract Ship Navpoint #3"
+	landmark_tag = "nav_kataphract_ship_3"
 
 //fang ship
 /obj/effect/overmap/visitable/ship/landable/peoples_station_fang
