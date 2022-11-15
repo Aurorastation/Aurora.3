@@ -57,7 +57,13 @@ proc/place_dungeons_generic()
 
 		log_ss("map_finalization","Loading generic dungeon '[chosen_dungeon]' at coordinates [spawn_location.x], [spawn_location.y], [spawn_location.z].")
 		var/datum/map_load_metadata/map_load_metadata =  maploader.load_map(map_file, spawn_location.x, spawn_location.y, spawn_location.z)
-		map_template_init_atoms(map_load_metadata.atoms_to_initialise)
+
+		var/list/atoms_to_initialise = map_load_metadata.atoms_to_initialise
+		for(var/atom/atom in atoms_to_initialise)
+			if(atom.initialized)
+				atoms_to_initialise -= atom
+		map_template_init_atoms(atoms_to_initialise)
+
 		dungeons_placed += 1
 
 		if(landmark.unique)
