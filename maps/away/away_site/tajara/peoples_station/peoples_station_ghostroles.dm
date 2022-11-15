@@ -1,88 +1,96 @@
-/datum/ghostspawner/human/tajaran_migrant
-	short_name = "tajaran_migrant"
-	name = "Tajaran Migrant"
-	desc = "Survive and try to reach Tau Ceti."
+/datum/ghostspawner/human/peoples_station_crew
+	short_name = "peoples_station_crew"
+	name = "People's Space Station Crewmember"
+	desc = "Crew the People's Space Station."
 	tags = list("External")
 
-	spawnpoints = list("tajaran_migrant")
-	max_count = 4
-
-	outfit = /datum/outfit/admin/tajaran_migrant
-	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-
-	assigned_role = "Tajaran Migrant"
-	special_role = "Tajaran Migrant"
-	respawn_flag = null
-
+	spawnpoints = list("peoples_station_crew")
+	req_perms = null
+	max_count = 5
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/tajaran_migrant
-	name = "Tajaran Migrant"
-
-	uniform = list(
-				/obj/item/clothing/under/tajaran,
-				/obj/item/clothing/under/tajaran/nt,
-				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
-	)
-
-	shoes = list(
-				/obj/item/clothing/shoes/tajara/footwraps,
-				/obj/item/clothing/shoes/tajara/jackboots,
-				/obj/item/clothing/shoes/tajara/workboots,
-				/obj/item/clothing/shoes/tajara/workboots/adhomian_boots
-	)
-
-	back = list(
-		/obj/item/storage/backpack,
-		/obj/item/storage/backpack/satchel,
-		/obj/item/storage/backpack/satchel/leather,
-		/obj/item/storage/backpack/duffel
-	)
-
-	id = null
-
-	l_ear = null
-
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
-
-
-/datum/ghostspawner/human/tajara_revolutionary_army_agent
-	short_name = "tajara_revolutionary_army_agent"
-	name = "Tajaran Revolutionary Army Agent"
-	desc = "Protect the Tajaran migrants."
-	tags = list("External")
-
-	spawnpoints = list("tajara_revolutionary_army_agent")
-	max_count = 2
-
-	outfit = /datum/outfit/admin/tajara_revolutionary_army_agent
-	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
+	outfit = /datum/outfit/admin/peoples_station_crew
+	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Tajara Revolutionary Army Agent"
-	special_role = "Tajara Revolutionary Army Agent"
-	respawn_flag = null
+	assigned_role = "People's Space Station Crewmember"
+	special_role = "People's Space Station Crewmember"
+	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
-/datum/outfit/admin/tajara_revolutionary_army_agent
-	name = "Tajara Revolutionary Army Agent"
+/datum/outfit/admin/peoples_station_crew
+	name = "People's Space Station Crewmember"
 
-	uniform = list(
-				/obj/item/clothing/under/syndicate,
-				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
-	)
+	id = /obj/item/card/id
+	shoes = /obj/item/clothing/shoes/tajara/jackboots
 
-	shoes = list(
-				/obj/item/clothing/shoes/tajara/footwraps,
-				/obj/item/clothing/shoes/tajara/jackboots
-	)
-
-	back = /obj/item/storage/backpack/duffel
-
-	id = null
-
+	uniform = /obj/item/clothing/under/tajaran/cosmonaut
 	l_ear = /obj/item/device/radio/headset/ship
 
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/gun/projectile/silenced = 1, /obj/item/ammo_magazine/c45m = 2)
+	belt = /obj/item/storage/belt/military
+
+	accessory = /obj/item/clothing/accessory/badge/hadii_card
+	r_pocket = /obj/item/storage/wallet/random
+
+/datum/outfit/admin/ert/headmaster_kosmostrelki/get_id_access()
+	return list(access_pra, access_external_airlocks)
+
+/datum/ghostspawner/human/peoples_station_crew/captain
+	short_name = "peoples_station_crew_captain"
+	name = "People's Space Station Captain"
+	desc = "Command the People's Space Station."
+	tags = list("External")
+
+	spawnpoints = list("peoples_station_crew_captain")
+	max_count = 1
+	uses_species_whitelist = TRUE
+
+	outfit = /datum/outfit/admin/peoples_station_crew/captain
+	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "People's Space Station Captain"
+	special_role = "People's Space Station Captain"
+
+/datum/outfit/admin/peoples_station_crew/captain
+	name = "People's Space Station Captain"
+
+	head = /obj/item/clothing/head/tajaran/orbital_captain
+	uniform = /obj/item/clothing/under/tajaran/cosmonaut/captain
+	belt = /obj/item/storage/belt/military
+	belt_contents = list(
+						/obj/item/ammo_magazine/mc9mm = 1,
+						/obj/item/gun/projectile/pistol/adhomai = 1
+						)
+
+
+/datum/ghostspawner/human/peoples_station_crew/commissar
+	short_name = "peoples_station_commissar"
+	name = "People's Space Station Party Commissar"
+	desc = "Ensure that the People's Space Station's crew follow the principles of Hadiism."
+
+	max_count = 1
+	spawnpoints = list("peoples_station_commissar")
+
+	assigned_role = "Party Commissar"
+	special_role = "Party Commissar"
+	uses_species_whitelist = TRUE
+
+	outfit = /datum/outfit/admin/peoples_station_crew/commissar
+	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
+
+/datum/outfit/admin/peoples_station_crew/commissar
+	name = "Party Commissar"
+
+	uniform = /obj/item/clothing/under/tajaran/cosmonaut/commissar
+	head = /obj/item/clothing/head/tajaran/cosmonaut_commissar
+	accessory = /obj/item/clothing/accessory/hadii_pin
+	belt = /obj/item/gun/projectile/deagle/adhomai
+	belt_contents = null
+	back = /obj/item/storage/backpack/satchel/leather
+	backpack_contents = list(
+						/obj/item/ammo_magazine/a50 = 2,
+						/obj/item/material/knife/trench = 1,
+						/obj/item/storage/box/hadii_manifesto = 1,
+						/obj/item/storage/box/hadii_card = 1
+						)
+	l_hand = /obj/item/device/megaphone
