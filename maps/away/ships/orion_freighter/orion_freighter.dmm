@@ -33,7 +33,7 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/ox_container_ship/spine)
 "bI" = (
-/obj/effect/shuttle_landmark/ox_freighter/nav3,
+/obj/effect/shuttle_landmark/orion_freighter/nav3,
 /turf/template_noop,
 /area/space)
 "cl" = (
@@ -44,7 +44,7 @@
 /turf/template_noop,
 /area/space)
 "cy" = (
-/obj/effect/shuttle_landmark/ox_freighter/nav2,
+/obj/effect/shuttle_landmark/orion_freighter/nav2,
 /turf/template_noop,
 /area/space)
 "cF" = (
@@ -362,7 +362,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ox_container_ship/living)
 "kv" = (
-/obj/effect/overmap/visitable/ship/ox_freighter,
+/obj/effect/overmap/visitable/ship/orion_freighter,
 /obj/random/dirt,
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/ox_container_ship)
@@ -871,7 +871,7 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/ox_container_ship/hallway)
 "AL" = (
-/obj/effect/shuttle_landmark/ox_freighter,
+/obj/effect/shuttle_landmark/orion_freighter,
 /turf/template_noop,
 /area/space)
 "Be" = (
@@ -1483,7 +1483,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/living)
 "Ra" = (
-/obj/effect/shuttle_landmark/ox_freighter/nav1,
+/obj/effect/shuttle_landmark/orion_freighter/nav1,
 /turf/template_noop,
 /area/space)
 "RA" = (
@@ -1540,7 +1540,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/spine)
 "TX" = (
-/obj/effect/dungeon_generic_landmark/ox_freighter_container,
+/obj/effect/dungeon_generic_landmark/orion_freighter_container,
 /turf/simulated/wall/shuttle/palepurple/cardinal,
 /area/shuttle/ox_container_ship/container)
 "Uz" = (
@@ -1707,7 +1707,7 @@
 /area/shuttle/ox_container_ship/spine)
 "YQ" = (
 /obj/machinery/door/airlock/external,
-/obj/effect/shuttle_landmark/ox_freighter/nav4,
+/obj/effect/shuttle_landmark/orion_freighter/nav4,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/hallway)
 "YR" = (

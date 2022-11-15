@@ -22,7 +22,7 @@ proc/place_dungeons_generic()
 
 		if(!istype(landmark))
 			continue
-		
+
 		var/turf/spawn_location = landmark.loc
 		if(!istype(spawn_location) || !spawn_location)
 			continue
@@ -35,7 +35,7 @@ proc/place_dungeons_generic()
 			files = list()
 			for(var/file in flist(landmark.map_files))
 				files += "[landmark.map_files][file]"
-		
+
 		if(!istype(files) || files.len == 0)
 			continue
 
@@ -54,12 +54,12 @@ proc/place_dungeons_generic()
 
 		if(!isfile(map_file))
 			continue
-		
+
 		log_ss("map_finalization","Loading generic dungeon '[chosen_dungeon]' at coordinates [spawn_location.x], [spawn_location.y], [spawn_location.z].")
 		var/datum/map_load_metadata/map_load_metadata =  maploader.load_map(map_file, spawn_location.x, spawn_location.y, spawn_location.z)
 		map_template_init_atoms(map_load_metadata.atoms_to_initialise)
 		dungeons_placed += 1
-		
+
 		if(landmark.unique)
 			blacklisted_map_files += chosen_dungeon
 
@@ -86,8 +86,8 @@ proc/place_dungeons_generic()
 	// This setting does not work retroactively - if one landmark first spawns a dungeon with unique==FALSE, another with unique==TRUE will not un-spawn the first one.
 	var/unique = FALSE
 	// Either a list of dungeon map paths, or a path to a directory containing the maps; for example either:
-	// - map_files = list("maps/away/ships/ox_freighter/containers/container_1.dmm", "maps/away/ships/ox_freighter/containers/container_2.dmm")
-	// - map_files = "maps/away/ships/ox_freighter/containers/"
+	// - map_files = list("maps/away/ships/orion_freighter/containers/container_1.dmm", "maps/away/ships/orion_freighter/containers/container_2.dmm")
+	// - map_files = "maps/away/ships/orion_freighter/containers/"
 	// In case of a directory, all files in that directory will be considered for spawning.
 	var/map_files = ""
 
@@ -100,4 +100,4 @@ proc/place_dungeons_generic()
 	. = ..()
 	place_dungeons_generic()
 
-	
+
