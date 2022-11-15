@@ -549,6 +549,14 @@
 "ry" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/ox_container_ship/hallway)
+"rG" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/machinery/floodlight/randomcharge,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/engineering)
 "sa" = (
 /obj/effect/floor_decal/corner/orange,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
@@ -560,7 +568,10 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/sleeper.dmi';
 	icon_state = 'body_scanner-closed';
-	dir = 4
+	dir = 4;
+	density = 1;
+	name = "cryogenic freezer";
+	desc = "A man-sized pod for entering suspended animation. This one appears to be occupied, but also closed shut, the temperature reading near absolute zero. Whoever is inside, is not coming out."
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ox_container_ship/living)
@@ -1200,6 +1211,9 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/trashcart,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/hallway)
 "KN" = (
@@ -1536,7 +1550,10 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/sleeper.dmi';
 	icon_state = 'body_scanner-broken-closed';
-	dir = 4
+	dir = 4;
+	density = 1;
+	name = "cryogenic freezer";
+	desc = "A man-sized pod for entering suspended animation. This one appears to be occupied, but also closed shut, the temperature reading near absolute zero. The glass window is cracked, but still solid. Whoever is inside, is not coming out."
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ox_container_ship/living)
@@ -1651,9 +1668,10 @@
 "YA" = (
 /obj/random/dirt,
 /obj/structure/table/steel,
+/obj/item/stack/rods/full,
 /obj/item/reagent_containers/spray/cleaner{
-	pixel_x = 3;
-	pixel_y = 7
+	pixel_x = -4;
+	pixel_y = 12
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/hallway)
@@ -28340,7 +28358,7 @@ Gi
 Gi
 Gi
 Gi
-Gi
+Ra
 Gi
 Gi
 Gi
@@ -29106,7 +29124,7 @@ Gi
 Gi
 Gi
 Gi
-Ra
+Gi
 Gi
 Gi
 Gi
@@ -31189,7 +31207,7 @@ Gi
 Gi
 Gi
 Gi
-Gi
+bI
 Gi
 Gi
 Gi
@@ -31700,7 +31718,7 @@ Gi
 Gi
 Gi
 Gi
-bI
+Gi
 Gi
 Gi
 Gi
@@ -33946,7 +33964,7 @@ Gi
 Gi
 Gi
 Ea
-Vp
+rG
 Cz
 Zt
 iQ
@@ -39135,7 +39153,7 @@ Gi
 Gi
 Gi
 Gi
-cy
+Gi
 Gi
 Gi
 Gi
@@ -40933,7 +40951,7 @@ Gi
 Gi
 Gi
 Gi
-Gi
+cy
 Gi
 Gi
 Gi

@@ -7,6 +7,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/container)
+"z" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/container)
 "B" = (
 /obj/random/animal_crate,
 /turf/simulated/floor/plating,
@@ -35,14 +39,14 @@ J
 "}
 (3,1,1) = {"
 J
-u
+z
 a
-u
+z
 J
 "}
 (4,1,1) = {"
 J
-u
+z
 a
 u
 J
@@ -51,14 +55,14 @@ J
 J
 u
 a
-u
+z
 J
 "}
 (6,1,1) = {"
 J
-u
+z
 a
-u
+z
 J
 "}
 (7,1,1) = {"
