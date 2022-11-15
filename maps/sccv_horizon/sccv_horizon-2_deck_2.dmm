@@ -771,7 +771,7 @@
 	autoclose = 0;
 	dir = 2;
 	name = "Warehouse Elevator";
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -1997,7 +1997,7 @@
 /area/hallway/engineering)
 "aSB" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3531,8 +3531,8 @@
 	name = "Primary Armament Exterior Bolts";
 	pixel_x = 22;
 	pixel_y = 22;
-	specialfunctions = 4;
-	req_one_access = list(19,43)
+	req_one_access = list(19,43);
+	specialfunctions = 4
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4064,8 +4064,8 @@
 	pixel_x = 24
 	},
 /obj/machinery/camera/network/command{
-	dir = 8;
-	c_tag = "Command - Deck 2 - Secure Ammunition Storage"
+	c_tag = "Command - Deck 2 - Secure Ammunition Storage";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
@@ -6197,7 +6197,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Break Room";
 	req_access = null;
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -6605,7 +6605,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Operations Bay";
 	req_access = null;
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -7099,7 +7099,7 @@
 /area/horizon/zta)
 "dyU" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -12237,8 +12237,8 @@
 	pixel_y = 12
 	},
 /obj/item/storage/box/freezer/organcooler{
-	pixel_y = 3;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -13566,7 +13566,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Operations Bay";
 	req_access = null;
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -14769,8 +14769,7 @@
 /area/engineering/storage_hard)
 "hlM" = (
 /obj/machinery/door/airlock/mining{
-	name = "Showers";
-	req_one_access = list(26,31,48,67)
+	name = "Showers"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -16912,7 +16911,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Operations Bay";
 	req_access = null;
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -20780,8 +20779,7 @@
 /area/turret_protected/ai)
 "krl" = (
 /obj/machinery/door/airlock/mining{
-	name = "Washroom and Showers";
-	req_one_access = list(26,31,48,67)
+	name = "Washroom and Showers"
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
@@ -21891,7 +21889,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -33608,8 +33606,7 @@
 /area/horizon/maintenance/deck_two/fore/port)
 "qPn" = (
 /obj/machinery/door/airlock/mining{
-	name = "Washroom";
-	req_one_access = list(26,31,48,67)
+	name = "Washroom"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -35076,7 +35073,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	autoclose = 0;
 	name = "Warehouse Elevator";
-	req_one_access = list(26,31,48,67)
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/dark,
@@ -39011,8 +39008,8 @@
 	pixel_y = -1
 	},
 /obj/item/storage/box/bodybags{
-	pixel_y = 4;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
@@ -41800,6 +41797,22 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "uRu" = (

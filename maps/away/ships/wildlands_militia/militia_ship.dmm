@@ -364,7 +364,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/militia_ship)
 "eiL" = (
 /obj/machinery/washing_machine{
@@ -431,7 +431,7 @@
 /area/ship/militia_ship)
 "eNs" = (
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/militia_ship)
 "eTH" = (
 /obj/structure/table/steel,
@@ -711,6 +711,7 @@
 /obj/item/handcuffs/cable/random,
 /obj/item/handcuffs/cable/random,
 /obj/item/gun/energy/taser,
+/obj/item/cell/high,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "hWh" = (
@@ -1070,7 +1071,7 @@
 	pixel_y = -162;
 	weapon_id = "Militia Francisca Rotary Gun"
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/militia_ship)
 "nSy" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -1221,7 +1222,7 @@
 "qcd" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/militia_ship)
 "qil" = (
 /obj/effect/decal/cleanable/dirt,

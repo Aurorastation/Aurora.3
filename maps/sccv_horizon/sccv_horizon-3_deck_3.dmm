@@ -3858,6 +3858,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
+"dre" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "drh" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -10468,6 +10477,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "iAY" = (
@@ -16957,6 +16969,9 @@
 	pixel_y = 24;
 	pixel_x = -10
 	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "nGc" = (
@@ -20685,6 +20700,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "qHx" = (
@@ -22992,6 +23010,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/full,
 /area/journalistoffice)
 "stN" = (
@@ -23406,6 +23427,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
@@ -24405,6 +24429,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "tzY" = (
@@ -24853,6 +24878,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "tQA" = (
@@ -55769,7 +55797,7 @@ jEj
 dQu
 oWu
 eBw
-isH
+dre
 iQH
 eHB
 pTx
