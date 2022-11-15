@@ -11834,7 +11834,6 @@
 /obj/structure/table/standard,
 /obj/item/book/manual/hydroponics_beekeeping,
 /obj/item/toy/figure/gardener,
-/obj/machinery/biogenerator/small/west,
 /turf/simulated/floor/wood,
 /area/horizon/hydroponics/garden)
 "fVo" = (
@@ -26977,6 +26976,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/machinery/biogenerator/small/west,
 /turf/simulated/floor/wood,
 /area/horizon/hydroponics/garden)
 "nxz" = (
