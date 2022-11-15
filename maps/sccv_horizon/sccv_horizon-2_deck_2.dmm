@@ -9951,6 +9951,11 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "fai" = (
+/obj/structure/bed/handrail{
+	dir = 8;
+	buckle_dir = 8;
+	pixel_x = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "fak" = (
@@ -30104,6 +30109,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "paL" = (
+/obj/structure/bed/handrail{
+	dir = 4;
+	buckle_dir = 4;
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "pbM" = (
