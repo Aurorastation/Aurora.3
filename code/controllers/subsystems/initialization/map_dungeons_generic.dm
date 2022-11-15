@@ -59,10 +59,11 @@ proc/place_dungeons_generic()
 		var/datum/map_load_metadata/map_load_metadata =  maploader.load_map(map_file, spawn_location.x, spawn_location.y, spawn_location.z)
 
 		var/list/atoms_to_initialise = map_load_metadata.atoms_to_initialise
+		var/list/atoms_to_initialise_actually = list()
 		for(var/atom/atom in atoms_to_initialise)
-			if(atom.initialized)
-				atoms_to_initialise -= atom
-		map_template_init_atoms(atoms_to_initialise)
+			if(atom!=null && istype(atom) && !atom.initialized)
+				atoms_to_initialise_actually += atom
+		map_template_init_atoms(atoms_to_initialise_actually)
 
 		dungeons_placed += 1
 
