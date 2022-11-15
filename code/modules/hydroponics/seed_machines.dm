@@ -142,9 +142,7 @@
 
 	var/list/data = list()
 
-	var/list/geneMasks[0]
-	for(var/gene_tag in SSplants.gene_tag_masks)
-		geneMasks.Add(list(list("tag" = gene_tag, "mask" = SSplants.gene_tag_masks[gene_tag])))
+	var/list/geneMasks = SSPlants.gene_masked_list
 	data["geneMasks"] = geneMasks
 
 	data["activity"] = active

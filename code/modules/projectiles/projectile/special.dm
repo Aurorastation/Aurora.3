@@ -140,6 +140,14 @@
 	nodamage = 1
 	check_armor = "energy"
 
+/obj/item/projectile/energy/floramut/gene
+	name = "gamma somatoray"
+	icon_state = "energy2"
+	damage = 0
+	damage_type = TOX
+	nodamage = 1
+	var/decl/plantgene/gene = null
+
 /obj/item/projectile/energy/floramut/on_hit(var/atom/target, var/blocked = 0)
 	var/mob/living/M = target
 	if(ishuman(target))
