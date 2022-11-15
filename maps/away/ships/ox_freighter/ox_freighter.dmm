@@ -665,6 +665,10 @@
 "uq" = (
 /obj/random/dirt,
 /obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/machinery/button/distress{
+	dir = 2;
+	pixel_y = 32
+	},
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/ox_container_ship)
 "us" = (
@@ -1701,6 +1705,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/ox_container_ship/spine)
+"YQ" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/shuttle_landmark/ox_freighter/nav4,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/hallway)
 "YR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -36087,7 +36096,7 @@ Gi
 Gi
 Gi
 ry
-ai
+YQ
 ai
 ry
 Gi

@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/ox_freighter
 	name = "Orion Express Freighter"
 	id = "ox_freighter"
-	description = "The XYZ-class freighter is a standardized container carrier ship, with the carrying capacity of eight medium size containers. This one's transponder identifies it as an Orion Express freighter."
+	description = "The XYZ-class freighter is a standardized container carrier ship, with the carrying capacity of eight medium size containers. This one's transponder identifies it as an Orion Express freighter, although the signal is very faint, and the ship appears to be mostly cold."
 	suffix = "ships/ox_freighter/ox_freighter.dmm"
 	spawn_cost = 1
 	spawn_weight = 1000000
@@ -10,7 +10,7 @@
 /obj/effect/overmap/visitable/ship/ox_freighter
 	name = "Orion Express Freighter"
 	class = "OEV"
-	desc = "The XYZ-class freighter is a standardized container carrier ship, with the carrying capacity of eight medium size containers. This one's transponder identifies it as an Orion Express freighter."
+	desc = "The XYZ-class freighter is a standardized container carrier ship, with the carrying capacity of eight medium size containers. This one's transponder identifies it as an Orion Express freighter, although the signal is very faint, and the ship appears to be mostly cold."
 	icon_state = "ship"
 	moving_state = "ship_moving"
 	vessel_mass = 3000
@@ -20,17 +20,18 @@
 		"nav_ox_freighter_1",
 		"nav_ox_freighter_2",
 		"nav_ox_freighter_3",
+		"nav_ox_freighter_4"
 	)
 	initial_restricted_waypoints = list(
 		"Intrepid" = list("nav_ox_freighter_0"),
 	)
 
 /obj/effect/overmap/visitable/ship/ox_freighter/New()
-	designation = "[pick("Messenger", "Traveler", "Highspeed", "Punctual", "Unstoppable", "Pony Express", "Courier", "Telegram", "Carrier Pigeon", "Fuel Stop", "Convenience")]"
+	designation = "[pick("Messenger", "Traveler", "Highspeed", "Punctual", "Unstoppable", "Express", "Courier", "Speed", "Delivery", "Speedy Delivery", "Freighter", "Carrier", "Heavy Cargo", "Transgalactic", "Peregrine", "Franklin")]"
 	..()
 
 /obj/effect/shuttle_landmark/ox_freighter
-	name = "Intrepid Dock"
+	name = "Starboard Dock Intrepid"
 	landmark_tag = "nav_ox_freighter_0"
 
 /obj/effect/shuttle_landmark/ox_freighter/nav1
@@ -44,6 +45,10 @@
 /obj/effect/shuttle_landmark/ox_freighter/nav3
 	name = "Navpoint Fore"
 	landmark_tag = "nav_ox_freighter_3"
+
+/obj/effect/shuttle_landmark/ox_freighter/nav4
+	name = "Starboard Dock"
+	landmark_tag = "nav_ox_freighter_4"
 
 /obj/effect/dungeon_generic_landmark/ox_freighter_container
 	name = "Orion Express Freighter Container Dungeon Landmark"
