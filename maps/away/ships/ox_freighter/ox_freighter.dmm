@@ -575,7 +575,7 @@
 "sh" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/sleeper.dmi';
-	icon_state = 'body_scanner-closed';
+	icon_state = "body_scanner-closed";
 	dir = 4;
 	density = 1;
 	name = "cryogenic freezer";
@@ -1569,7 +1569,7 @@
 "Vc" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/sleeper.dmi';
-	icon_state = 'body_scanner-broken-closed';
+	icon_state = "body_scanner-broken-closed";
 	dir = 4;
 	density = 1;
 	name = "cryogenic freezer";
