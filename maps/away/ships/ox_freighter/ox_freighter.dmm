@@ -57,6 +57,14 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/spine)
+"cJ" = (
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship)
 "cP" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge/quarters"
@@ -1066,6 +1074,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/ox_container_ship/living)
+"GG" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/living)
 "GL" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
@@ -1328,6 +1344,10 @@
 /area/shuttle/ox_container_ship/spine)
 "Or" = (
 /obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer{
+	pixel_y = 11;
+	pixel_x = -4
+	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/ox_container_ship)
 "OD" = (
@@ -31207,7 +31227,7 @@ Gi
 Gi
 Gi
 Gi
-bI
+Gi
 Gi
 Gi
 Gi
@@ -32235,7 +32255,7 @@ Gi
 Gi
 Gi
 Gi
-Gi
+bI
 Gi
 Gi
 Gi
@@ -33243,7 +33263,7 @@ Kj
 GL
 Kj
 Kj
-Gi
+GG
 Gi
 Gi
 Gi
@@ -35299,7 +35319,7 @@ ry
 ai
 qu
 ry
-Gi
+cJ
 Gi
 Gi
 uh

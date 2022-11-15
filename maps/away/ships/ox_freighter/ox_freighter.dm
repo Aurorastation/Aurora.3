@@ -30,19 +30,19 @@
 	..()
 
 /obj/effect/shuttle_landmark/ox_freighter
-	name = "Orion Express Freighter Intrepid Dock"
+	name = "Intrepid Dock"
 	landmark_tag = "nav_ox_freighter_0"
 
 /obj/effect/shuttle_landmark/ox_freighter/nav1
-	name = "Orion Express Freighter Navpoint Starboard"
+	name = "Navpoint Starboard"
 	landmark_tag = "nav_ox_freighter_1"
 
 /obj/effect/shuttle_landmark/ox_freighter/nav2
-	name = "Orion Express Freighter Navpoint Port"
+	name = "Navpoint Port"
 	landmark_tag = "nav_ox_freighter_2"
 
 /obj/effect/shuttle_landmark/ox_freighter/nav3
-	name = "Orion Express Freighter Navpoint Fore"
+	name = "Navpoint Fore"
 	landmark_tag = "nav_ox_freighter_3"
 
 /obj/effect/dungeon_generic_landmark/ox_freighter_container
