@@ -18909,22 +18909,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/tesla)
-"jpi" = (
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = 12
-	},
-/obj/structure/mirror{
-	pixel_x = 28;
-	pixel_y = -3
-	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
-/turf/simulated/floor/tiled/white,
-/area/operations/break_room)
 "jpB" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Secure Armory Section";
@@ -22755,6 +22739,7 @@
 	},
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "luT" = (
@@ -24727,6 +24712,9 @@
 /obj/structure/mirror{
 	pixel_x = 28;
 	pixel_y = -3
+	},
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
@@ -29621,14 +29609,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"oQZ" = (
-/obj/structure/urinal{
-	dir = 8;
-	pixel_x = 32;
-	pixel_y = 13
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/security/prison)
 "oRc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
@@ -33498,6 +33478,9 @@
 /obj/machinery/door/window/southleft{
 	name = "Shower"
 	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/operations/break_room)
 "qKK" = (
@@ -34914,6 +34897,9 @@
 	},
 /obj/structure/curtain/open/shower,
 /obj/random/soap,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/security/prison)
 "ruv" = (
@@ -35553,7 +35539,9 @@
 /turf/simulated/floor/plating,
 /area/horizon/zta)
 "rKJ" = (
-/obj/machinery/light/small/red,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/security/prison)
 "rLg" = (
@@ -39072,6 +39060,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/bed/handrail{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
@@ -43393,6 +43384,9 @@
 	name = "Shower"
 	},
 /obj/structure/curtain/open/shower,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/operations/break_room)
 "vJv" = (
@@ -48807,6 +48801,9 @@
 	},
 /obj/machinery/power/apc{
 	pixel_y = -24
+	},
+/obj/structure/bed/handrail{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
@@ -59530,7 +59527,7 @@ fQn
 rqA
 muO
 cgP
-jpi
+vYK
 rqA
 awH
 cgP
@@ -76524,7 +76521,7 @@ brZ
 dbd
 aac
 bxZ
-oQZ
+lrQ
 lVZ
 lrQ
 pSv
