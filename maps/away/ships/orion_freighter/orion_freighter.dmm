@@ -63,7 +63,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/ox_container_ship)
 "cP" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -1084,7 +1084,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/ox_container_ship/living)
 "GL" = (
 /obj/structure/grille,
