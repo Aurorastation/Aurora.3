@@ -249,6 +249,13 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/ox_container_ship/living)
+"iG" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 2;
+	pixel_y = 0
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/shuttle/ox_container_ship)
 "iQ" = (
 /obj/machinery/light/small{
 	dir = 2
@@ -355,6 +362,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/light/small/emergency,
 /obj/random/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/hallway)
 "kS" = (
@@ -375,6 +385,10 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/random/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/hallway)
 "lw" = (
@@ -487,6 +501,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/random/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/hallway)
 "ql" = (
@@ -538,6 +556,14 @@
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ox_container_ship/engineering)
+"sh" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/sleeper.dmi';
+	icon_state = 'body_scanner-closed';
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/ox_container_ship/living)
 "sz" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
@@ -546,9 +572,6 @@
 /obj/item/storage/toolbox/emergency{
 	pixel_x = 3;
 	pixel_y = 9
-	},
-/obj/item/device/binoculars{
-	pixel_y = -5
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/ox_container_ship/spine)
@@ -621,10 +644,8 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/ox_container_ship/hallway)
 "uq" = (
-/obj/structure/bed/stool/chair/office/bridge/pilot{
-	dir = 8
-	},
 /obj/random/dirt,
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/ox_container_ship)
 "us" = (
@@ -779,6 +800,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/engineering)
+"yW" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/random/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/hallway)
 "zg" = (
 /obj/random/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -1017,6 +1046,13 @@
 	icon_state = "tube1"
 	},
 /obj/random/dirt/chance_10,
+/obj/item/clothing/suit/storage/toggle/dominia/bomber,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white{
+	pixel_y = -4
+	},
+/obj/item/clothing/shoes/workboots{
+	pixel_y = -9
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/ox_container_ship/living)
 "GL" = (
@@ -1108,6 +1144,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/random/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/living)
 "JL" = (
@@ -1127,6 +1164,9 @@
 	dir = 9
 	},
 /obj/random/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/hallway)
 "JQ" = (
@@ -1199,13 +1239,15 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/ox_container_ship/engineering)
 "Ls" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 4;
-	pixel_y = 0;
-	pixel_x = -10
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
 	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/ox_container_ship)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/random/dirt,
+/turf/simulated/floor/plating,
+/area/shuttle/ox_container_ship/hallway)
 "Mq" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
@@ -1220,6 +1262,9 @@
 "MQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/random/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/hallway)
 "MY" = (
@@ -1379,6 +1424,10 @@
 	pixel_y = 11;
 	pixel_x = 1
 	},
+/obj/item/reagent_containers/food/drinks/cans/root_beer{
+	pixel_y = 3;
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/ox_container_ship/spine)
 "QL" = (
@@ -1392,6 +1441,7 @@
 	pixel_x = 24;
 	pixel_y = 4
 	},
+/obj/random/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/living)
 "Ra" = (
@@ -1483,7 +1533,9 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/ox_container_ship/spine)
 "Vc" = (
-/obj/machinery/cryopod{
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/sleeper.dmi';
+	icon_state = 'body_scanner-broken-closed';
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1583,6 +1635,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/random/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/hallway)
 "Ys" = (
@@ -1595,6 +1651,10 @@
 "YA" = (
 /obj/random/dirt,
 /obj/structure/table/steel,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = 3;
+	pixel_y = 7
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/ox_container_ship/hallway)
 "YK" = (
@@ -33152,7 +33212,7 @@ tk
 Gi
 FD
 lk
-Yh
+Ls
 WE
 Gi
 Gi
@@ -33670,7 +33730,7 @@ KS
 Iy
 ry
 Vc
-Vc
+sh
 Ff
 Vu
 lw
@@ -33681,8 +33741,8 @@ hZ
 Kj
 JE
 Kj
-Ls
 Or
+iG
 UF
 Gi
 Gi
@@ -35732,7 +35792,7 @@ uh
 uh
 uh
 WE
-MQ
+yW
 JN
 WE
 uh
