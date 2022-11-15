@@ -293,6 +293,11 @@
 	desc = "A danger sign which reads \"DANGER: VACUUM\"."
 	icon_state = "vacuum"
 
+/obj/structure/sign/crush
+	name = "\improper DANGER: CRUSH HAZARD sign"
+	desc = "A danger sign which reads \"DANGER: CRUSH HAZARD\" and \"AUTOMATIC EQUIPMENT STARTS AND STOPS AUTOMATICALLY\"."
+	icon_state = "crush"
+
 //
 // Emergency Signs
 //
@@ -1129,3 +1134,14 @@
 
 /obj/structure/sign/flag/konyang/right
 	icon_state = "konyang_r"
+
+/obj/structure/sign/painting_frame
+	name = "empty frame"
+	desc = "An empty painting frame."
+	icon_state = "painting_frame"
+	w_class = ITEMSIZE_SMALL
+
+/obj/structure/sign/painting_frame/hadii
+	name = "President Hadii portrait"
+	desc = "A portrait of President Hadii. An essential item in any Hadiist household ."
+	icon_state = "hadii_painting"

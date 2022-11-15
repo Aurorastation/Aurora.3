@@ -156,6 +156,12 @@
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"aTI" = (
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/tcfl_peacekeeper_ship)
 "aUf" = (
 /obj/structure/closet/crate/medical,
 /obj/item/storage/firstaid/regular,
@@ -917,6 +923,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/legion,
 /area/shuttle/tcfl_shuttle)
+"gaY" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "gcq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -1080,10 +1090,18 @@
 	dir = 1
 	},
 /area/shuttle/tcfl_shuttle)
+"haL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/ship/sensors{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "hdb" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "hdd" = (
@@ -1237,6 +1255,14 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
+"hLc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/ship/helm{
+	dir = 8;
+	req_access = list(204)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "hLR" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -1279,6 +1305,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "hRT" = (
 /obj/machinery/vending/tool,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "hSW" = (
@@ -1454,6 +1481,9 @@
 /area/space)
 "iVq" = (
 /obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/combatripley{
+	h_r_hand = /obj/item/mecha_equipment/clamp
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "iWp" = (
@@ -1643,6 +1673,12 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
+"jQY" = (
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "TCFL Francisca Rotary Gun"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "jRX" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -1690,6 +1726,9 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "kgR" = (
@@ -1796,6 +1835,13 @@
 	dir = 10
 	},
 /obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
+"kyw" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/ship/targeting{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "kzm" = (
@@ -2050,6 +2096,9 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "mnC" = (
@@ -2109,6 +2158,10 @@
 /obj/item/stack/material/glass/full,
 /obj/item/stack/material/glass/reinforced/full,
 /obj/structure/lattice/catwalk/indoor,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "mEc" = (
@@ -2239,6 +2292,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "nsw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ntt" = (
@@ -2414,6 +2468,12 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
+"pcu" = (
+/obj/machinery/light/small/emergency,
+/obj/structure/table/steel,
+/obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "pfg" = (
@@ -2724,6 +2784,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"qIC" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
+/area/ship/tcfl_peacekeeper_ship)
 "qMx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool,
@@ -2750,6 +2814,14 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
+"qXd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/portable_atmospherics/powered/scrubber/huge,
+/turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "qXw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -2814,12 +2886,39 @@
 	},
 /area/ship/tcfl_peacekeeper_ship)
 "rkM" = (
-/obj/machinery/light/small,
-/obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/combatripley{
-	h_r_hand = /obj/item/mecha_equipment/clamp
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 5
 	},
-/turf/simulated/floor,
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 5
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
+"rlW" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/simulated/floor/airless,
 /area/ship/tcfl_peacekeeper_ship)
 "rrF" = (
 /obj/structure/bed/stool,
@@ -3023,6 +3122,15 @@
 	},
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
+"sJV" = (
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "TCFL Francisca Rotary Gun"
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
+/area/ship/tcfl_peacekeeper_ship)
 "sKP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -3066,6 +3174,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
+"sTl" = (
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
+/area/ship/tcfl_peacekeeper_ship)
 "sWY" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
@@ -3094,7 +3206,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "tis" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Maintenance";
+	name = "Maintenance/Backup Controls";
 	req_access = list(204)
 	},
 /obj/machinery/door/firedoor,
@@ -3216,6 +3328,20 @@
 	name = "starboard, armoury"
 	},
 /turf/simulated/floor/plating,
+/area/ship/tcfl_peacekeeper_ship)
+"tTZ" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "tUb" = (
 /obj/effect/floor_decal/corner/blue{
@@ -3394,6 +3520,14 @@
 	name = "Cockpit Defense Shutters"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
+"vjD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "vnW" = (
 /obj/structure/railing/mapped{
@@ -24332,11 +24466,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+qIC
+qIC
+qIC
+qIC
+rlW
 xRX
 xRX
 xRX
@@ -24589,8 +24723,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+sJV
+qIC
 xRX
 xRX
 xRX
@@ -24846,7 +24980,7 @@ yjk
 yjk
 yjk
 qtX
-yjk
+jQY
 yjk
 xRX
 xRX
@@ -25094,16 +25228,16 @@ xRX
 xRX
 xRX
 sBA
-qds
-pPl
+vjD
+sTl
 hZq
 oYH
 hZq
-pPl
+aTI
 yjk
 dCR
 mxc
-rkM
+bYX
 yjk
 xRX
 xRX
@@ -25608,9 +25742,9 @@ xRX
 xRX
 xRX
 sBA
-gxW
+qXd
 hdb
-pPl
+sTl
 pPl
 xFD
 sfQ
@@ -26644,9 +26778,9 @@ urq
 rYF
 arF
 xji
-jWO
+xji
 hRT
-qtX
+yjk
 xRX
 xRX
 xRX
@@ -32803,7 +32937,7 @@ jWO
 jWO
 jWO
 jWO
-ghV
+rkM
 yjk
 hRJ
 iWp
@@ -33327,7 +33461,7 @@ hNy
 hNy
 hNy
 lmS
-cwQ
+pcu
 yjk
 xRX
 xRX
@@ -33584,7 +33718,7 @@ xji
 xji
 xji
 xji
-xji
+tTZ
 yjk
 xRX
 xRX
@@ -34863,12 +34997,12 @@ sBA
 gxW
 hWh
 jbQ
-jWO
-jWO
-jWO
+haL
+hLc
+kyw
 yjk
 sOz
-xji
+gaY
 cwQ
 yjk
 xRX

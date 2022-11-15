@@ -139,7 +139,7 @@
 
 /datum/outfit/job/doctor/surgeon
 	name = "Surgeon"
-	jobtype = /datum/job/doctor
+	jobtype = /datum/job/surgeon
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt

@@ -200,7 +200,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the service managaer"
+	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
 	minimum_character_age = list(
@@ -456,7 +456,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the supply manager"
+	supervisors = "the operations manager"
 	selection_color = "#7B431C"
 
 	minimum_character_age = list(
@@ -496,7 +496,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the supply manager"
+	supervisors = "the operations manager"
 	selection_color = "#7B431C"
 	economic_modifier = 5
 
@@ -548,7 +548,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "operations manager"
+	supervisors = "the operations manager"
 	selection_color = "#7B431C"
 	economic_modifier = 5
 
@@ -558,8 +558,8 @@
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research, access_mailsorting)
-	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_mailsorting)
+	access = list(access_robotics, access_tech_storage, access_mailsorting)
+	minimal_access = list(access_robotics, access_tech_storage, access_mailsorting)
 
 	minimal_player_age = 7
 

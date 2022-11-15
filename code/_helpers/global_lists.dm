@@ -62,7 +62,7 @@ var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER, PLURAL)
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook")
 var/global/list/backbagstyles = list("Job-specific", "Generic", "Faction-specific")
 var/global/list/backbagcolors = list("None", "Blue", "Green", "Navy", "Tan", "Khaki", "Black", "Olive", "Auburn", "Brown")
-var/global/list/backbagstrap = list("Hidden", "Normal", "Thick")
+var/global/list/backbagstrap = list("Hidden", "Thin", "Normal", "Thick")
 var/global/list/exclude_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/merchant)
 
 //PDA choice

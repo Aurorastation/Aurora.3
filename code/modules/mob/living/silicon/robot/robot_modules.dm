@@ -788,6 +788,7 @@ var/global/list/robot_modules = list(
 	. = ..()
 	modules += new /obj/item/portable_destructive_analyzer(src)
 	modules += new /obj/item/gripper/research(src)
+	modules += new /obj/item/robot_harvester(src)
 	modules += new /obj/item/gripper/no_use/loader(src)
 	modules += new /obj/item/device/robotanalyzer(src)
 	modules += new /obj/item/card/robot(src)
@@ -1042,6 +1043,7 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/mining_drone
 	name = "mining drone module"
 	no_slip = TRUE
+	channels = list(CHANNEL_SUPPLY = TRUE)
 	networks = list(NETWORK_MINE)
 
 /obj/item/robot_module/mining_drone/Initialize(mapload, mob/living/silicon/robot/R)

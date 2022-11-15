@@ -1428,7 +1428,6 @@
 /area/ship/tajaran_smuggler)
 "srj" = (
 /obj/machinery/computer/ship/helm{
-	dir = 1;
 	req_access = null
 	},
 /turf/simulated/floor/carpet/art,
