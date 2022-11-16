@@ -1,0 +1,8 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - maptweak: "Moves the machinist workshop to deck 2, where the mech bay- and recharging station used to be."
+  - maptweak: "Moves the mech bay- and recharging station, teleporter, and tech storage to deck 1 where the machinist workshop used to be."
+  - maptweak: "Moves the secure ammunition storage to the other side of where it lies currently to reduce risk of collateral damage."

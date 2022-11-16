@@ -619,7 +619,12 @@
 	icon_state = "janitor"
 	allow_nightmode = FALSE
 	sound_env = LARGE_ENCLOSED
-	ambience = AMBIENCE_FOREBODING
+	ambience = list(AMBIENCE_FOREBODING, AMBIENCE_ENGINEERING)
+
+/area/horizon/custodial/disposals
+	name = "Horizon - Disposals and Recycling"
+	icon_state = "disposal"
+	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS) // Industrial sounds.
 
 /area/horizon/custodial/auxiliary
 	name = "Horizon - Auxiliary Custodial Closet"
