@@ -25711,11 +25711,11 @@
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "mRr" = (
-/obj/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/ecmo,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "mRv" = (
