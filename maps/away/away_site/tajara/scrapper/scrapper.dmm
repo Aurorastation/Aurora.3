@@ -23,7 +23,7 @@
 	name = "waste canister"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "aK" = (
@@ -36,7 +36,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "aR" = (
@@ -46,7 +46,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "aV" = (
@@ -63,7 +63,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "aX" = (
@@ -106,7 +106,7 @@
 "bp" = (
 /obj/effect/shuttle_landmark/tajara_scrapper/nav3,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base)
 "br" = (
@@ -153,7 +153,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "bO" = (
@@ -230,14 +230,14 @@
 	id = "scrapper_bridge"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/bridge)
 "db" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan,
 /obj/machinery/meter,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "dj" = (
@@ -267,7 +267,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "dv" = (
@@ -282,7 +282,7 @@
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "dG" = (
@@ -303,7 +303,7 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "dJ" = (
@@ -316,7 +316,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "dS" = (
@@ -342,14 +342,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "dW" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "ei" = (
@@ -364,7 +364,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "es" = (
@@ -372,19 +372,19 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "et" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "ev" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "eX" = (
@@ -418,7 +418,7 @@
 /area/shuttle/scrapper_ship/starboard_engines)
 "fm" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "fn" = (
@@ -427,7 +427,7 @@
 	target_pressure = 250
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "fo" = (
@@ -436,7 +436,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "fq" = (
@@ -455,7 +455,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "fG" = (
@@ -477,7 +477,7 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "fQ" = (
@@ -508,7 +508,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "ge" = (
@@ -516,20 +516,20 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "gz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "gE" = (
 /obj/machinery/power/terminal,
 /obj/structure/cable/green,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "gI" = (
@@ -555,7 +555,7 @@
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "gU" = (
@@ -568,12 +568,12 @@
 	name = "fore, port storage"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "gW" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "gY" = (
@@ -595,14 +595,14 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "ht" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "hz" = (
@@ -618,7 +618,7 @@
 	},
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "hB" = (
@@ -636,7 +636,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "hG" = (
@@ -649,7 +649,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "hZ" = (
@@ -662,7 +662,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "ib" = (
@@ -680,7 +680,7 @@
 "ih" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "iw" = (
@@ -703,7 +703,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "iE" = (
@@ -721,7 +721,7 @@
 "jj" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "jF" = (
@@ -747,7 +747,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "jK" = (
@@ -760,7 +760,7 @@
 	name = "fore, bridge"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/bridge)
 "jV" = (
@@ -782,7 +782,7 @@
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "kp" = (
@@ -801,7 +801,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "kz" = (
@@ -816,7 +816,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "kM" = (
@@ -826,7 +826,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "kN" = (
@@ -843,14 +843,14 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/red,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "lc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/radiation,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "lk" = (
@@ -860,12 +860,12 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "lo" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "lw" = (
@@ -881,7 +881,7 @@
 /obj/effect/map_effect/airlock/s_to_n,
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "lM" = (
@@ -926,7 +926,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "mx" = (
@@ -944,7 +944,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "mG" = (
@@ -960,7 +960,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "mI" = (
@@ -976,7 +976,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "mR" = (
@@ -993,7 +993,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "mT" = (
@@ -1006,7 +1006,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "mU" = (
@@ -1034,7 +1034,7 @@
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "ni" = (
@@ -1069,7 +1069,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "nr" = (
@@ -1085,7 +1085,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "nv" = (
@@ -1097,7 +1097,7 @@
 "nx" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "nB" = (
@@ -1111,7 +1111,7 @@
 	},
 /obj/machinery/power/solar_control/autostart,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "nW" = (
@@ -1134,7 +1134,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "ob" = (
@@ -1173,7 +1173,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "oC" = (
@@ -1192,7 +1192,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "oD" = (
@@ -1218,13 +1218,13 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "oP" = (
 /obj/machinery/pipedispenser,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "oR" = (
@@ -1234,7 +1234,7 @@
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow/specialt,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "oX" = (
@@ -1250,7 +1250,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "pl" = (
@@ -1259,7 +1259,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "pn" = (
@@ -1269,7 +1269,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "pT" = (
@@ -1288,7 +1288,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "pX" = (
@@ -1312,7 +1312,7 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "qn" = (
@@ -1320,7 +1320,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "qy" = (
@@ -1337,7 +1337,7 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "rl" = (
@@ -1349,7 +1349,7 @@
 /area/space)
 "rs" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "rz" = (
@@ -1357,7 +1357,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "rD" = (
@@ -1412,14 +1412,14 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "ss" = (
 /obj/effect/map_effect/airlock/w_to_e/long/square,
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base)
 "st" = (
@@ -1431,7 +1431,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "sE" = (
@@ -1455,7 +1455,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "sJ" = (
@@ -1533,7 +1533,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "tw" = (
@@ -1569,7 +1569,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "tQ" = (
@@ -1616,7 +1616,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "uH" = (
@@ -1630,7 +1630,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "uW" = (
@@ -1666,7 +1666,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base)
 "vj" = (
@@ -1694,12 +1694,12 @@
 	req_access = null
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "vA" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "vD" = (
@@ -1720,7 +1720,7 @@
 	icon_state = "map_scrubber_on"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "vO" = (
@@ -1730,7 +1730,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base)
 "vQ" = (
@@ -1743,7 +1743,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "vS" = (
@@ -1782,7 +1782,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "wn" = (
@@ -1790,7 +1790,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "wt" = (
@@ -1812,7 +1812,7 @@
 "ww" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base)
 "wx" = (
@@ -1855,7 +1855,7 @@
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "xH" = (
@@ -1914,7 +1914,7 @@
 	level = 2
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "xU" = (
@@ -1922,7 +1922,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "yc" = (
@@ -1938,7 +1938,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "yC" = (
@@ -1975,7 +1975,7 @@
 "yS" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "yT" = (
@@ -1988,7 +1988,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "zf" = (
@@ -2009,7 +2009,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "zk" = (
@@ -2018,7 +2018,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "zu" = (
@@ -2039,7 +2039,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "zF" = (
@@ -2048,7 +2048,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "zQ" = (
@@ -2067,7 +2067,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "zU" = (
@@ -2084,7 +2084,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "Af" = (
@@ -2092,7 +2092,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "Ag" = (
@@ -2113,7 +2113,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "Ap" = (
@@ -2128,7 +2128,7 @@
 	target_pressure = 250
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Be" = (
@@ -2140,7 +2140,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "BF" = (
@@ -2168,7 +2168,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "Cb" = (
@@ -2210,7 +2210,7 @@
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "CB" = (
@@ -2220,7 +2220,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "CH" = (
@@ -2229,7 +2229,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "CM" = (
@@ -2243,7 +2243,7 @@
 "CN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "CO" = (
@@ -2258,7 +2258,7 @@
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "CX" = (
@@ -2274,7 +2274,7 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "Dr" = (
@@ -2284,7 +2284,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "Ea" = (
@@ -2316,7 +2316,7 @@
 	name = "waste canister"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "EC" = (
@@ -2332,7 +2332,7 @@
 	},
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "Fh" = (
@@ -2340,7 +2340,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Fk" = (
@@ -2354,7 +2354,7 @@
 	pixel_x = -26
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "Fl" = (
@@ -2363,7 +2363,7 @@
 /area/scrapper_base/quarters)
 "Fo" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base)
 "Fr" = (
@@ -2381,7 +2381,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "FL" = (
@@ -2412,7 +2412,7 @@
 	},
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "FN" = (
@@ -2432,7 +2432,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "FS" = (
@@ -2453,19 +2453,19 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "Gk" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "Gn" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/meter,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "Gp" = (
@@ -2476,7 +2476,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "Gq" = (
@@ -2496,7 +2496,7 @@
 "Gr" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "Gw" = (
@@ -2553,7 +2553,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "GU" = (
@@ -2599,7 +2599,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "Hp" = (
@@ -2619,7 +2619,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "HA" = (
@@ -2641,13 +2641,13 @@
 "HM" = (
 /obj/effect/shuttle_landmark/tajara_scrapper/nav2,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base)
 "HP" = (
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "Ig" = (
@@ -2679,7 +2679,7 @@
 	id = "scrapper_cargo"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "Ip" = (
@@ -2693,7 +2693,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "IB" = (
@@ -2703,7 +2703,7 @@
 	name = "aft engines, starboard"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "II" = (
@@ -2719,7 +2719,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "IL" = (
@@ -2727,7 +2727,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base)
 "IV" = (
@@ -2764,7 +2764,7 @@
 	name = "aft engines, port"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "JF" = (
@@ -2809,7 +2809,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "JO" = (
@@ -2836,7 +2836,7 @@
 "JV" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/quarters)
 "JX" = (
@@ -2882,7 +2882,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "KK" = (
@@ -2914,7 +2914,7 @@
 	icon_state = "map-scrubbers"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "Lp" = (
@@ -2922,7 +2922,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "Lq" = (
@@ -2934,14 +2934,14 @@
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "LA" = (
 /obj/effect/map_effect/airlock/long/square,
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base)
 "LB" = (
@@ -2989,7 +2989,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "LT" = (
@@ -3023,7 +3023,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "Mi" = (
@@ -3037,7 +3037,7 @@
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "Mn" = (
@@ -3085,7 +3085,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Ng" = (
@@ -3111,7 +3111,7 @@
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "NC" = (
@@ -3130,7 +3130,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "NH" = (
@@ -3148,7 +3148,7 @@
 /obj/item/stack/rods,
 /obj/item/storage/box/lights/bulbs,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "NJ" = (
@@ -3171,7 +3171,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "Oc" = (
@@ -3213,7 +3213,7 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "OW" = (
@@ -3234,7 +3234,7 @@
 	icon_state = "map_scrubber_on"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "OZ" = (
@@ -3250,7 +3250,7 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Pm" = (
@@ -3275,7 +3275,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base)
 "Pz" = (
@@ -3287,7 +3287,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "PD" = (
@@ -3296,7 +3296,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "Qh" = (
@@ -3322,7 +3322,7 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Qp" = (
@@ -3366,7 +3366,7 @@
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "QL" = (
@@ -3399,7 +3399,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "QV" = (
@@ -3410,7 +3410,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "QW" = (
@@ -3426,7 +3426,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "QX" = (
@@ -3440,7 +3440,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "Rf" = (
@@ -3459,7 +3459,7 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "Rl" = (
@@ -3485,7 +3485,7 @@
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "RJ" = (
@@ -3519,7 +3519,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "Se" = (
@@ -3544,7 +3544,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "Sz" = (
@@ -3552,13 +3552,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "SE" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Tb" = (
@@ -3631,7 +3631,7 @@
 "TU" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "TV" = (
@@ -3639,7 +3639,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "Ua" = (
@@ -3668,7 +3668,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "Uk" = (
@@ -3683,7 +3683,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "UB" = (
@@ -3705,7 +3705,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /obj/machinery/meter,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "UL" = (
@@ -3745,7 +3745,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "Wc" = (
@@ -3760,7 +3760,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/solars)
 "Wm" = (
@@ -3768,14 +3768,14 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "Wq" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Wr" = (
@@ -3794,7 +3794,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Wx" = (
@@ -3829,7 +3829,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "WM" = (
@@ -3843,7 +3843,7 @@
 	req_access = list(113)
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "WR" = (
@@ -3863,7 +3863,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "Xc" = (
@@ -3871,7 +3871,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "Xg" = (
@@ -3895,7 +3895,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "Xi" = (
@@ -3915,7 +3915,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
 "Xr" = (
@@ -3923,7 +3923,7 @@
 	name = "fore, starboard storage"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "XG" = (
@@ -3956,7 +3956,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/workshop)
 "XT" = (
@@ -4010,7 +4010,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "Yw" = (
@@ -4018,7 +4018,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/atmos)
 "YV" = (
@@ -4030,7 +4030,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "Ze" = (
@@ -4038,7 +4038,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "Zi" = (
@@ -4052,7 +4052,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/storage)
 "Zx" = (
@@ -4068,14 +4068,14 @@
 	},
 /obj/machinery/atmospherics/pipe/tank,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/scrapper_base/atmos)
 "ZI" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
 "ZL" = (
