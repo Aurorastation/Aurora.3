@@ -2370,6 +2370,18 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_one)
+"bax" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 2;
+	tag_north = 1;
+	tag_south = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/engine_waste)
 "baJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
@@ -2812,21 +2824,12 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
 "boR" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	dir = 8
-	},
 /obj/machinery/meter,
-/obj/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for the engine control room blast doors.";
-	id = "EngineEmitterPortWest";
-	name = "Supermatter Reactor Room Blast Doors";
-	pixel_x = -25;
-	req_one_access = list(11,24)
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/manifold4w/visible/cyan,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "boU" = (
@@ -2987,10 +2990,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "bsK" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "bsM" = (
@@ -11410,14 +11413,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "fQa" = (
-/obj/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for the engine control room blast doors.";
-	id = "EngineEmitterPortWest";
-	name = "Supermatter Reactor Room Blast Doors";
-	pixel_x = 25;
-	req_one_access = list(11,24)
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -12948,6 +12944,13 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8
 	},
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the engine control room blast doors.";
+	id = "EngineEmitterPortWest";
+	name = "Supermatter Reactor Room Blast Doors";
+	pixel_x = -25;
+	req_one_access = list(11,24)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "gwZ" = (
@@ -13719,10 +13722,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "gON" = (
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "gPs" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -14341,7 +14345,7 @@
 	id = "EngineVent";
 	name = "Supermatter Reactor Emergency Ventilatory Control";
 	pixel_x = -25;
-	req_one_access = list(11,24)
+	req_access = list(10)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
@@ -16644,6 +16648,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "ioW" = (
@@ -17011,15 +17016,18 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "iBC" = (
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the engine control room blast doors.";
+	id = "EngineEmitterPortWest";
+	name = "Supermatter Reactor Room Blast Doors";
+	pixel_x = -25;
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
@@ -18210,7 +18218,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "jfp" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
@@ -21396,6 +21404,18 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
+"kQz" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room)
 "kQA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -21752,14 +21772,14 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/rnd/xenobiology/xenoflora)
 "kZr" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -23260,6 +23280,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "lMT" = (
@@ -24625,7 +24648,8 @@
 	id = "enginecore";
 	name = "Supermatter Reactor Emergency Crystal Ejection";
 	pixel_x = -8;
-	pixel_y = -34
+	pixel_y = -34;
+	req_access = list(10)
 	},
 /obj/item/modular_computer/console/preset/engineering/ce{
 	dir = 1
@@ -25960,13 +25984,11 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "ndD" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "neT" = (
@@ -26816,13 +26838,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "nzf" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "nzn" = (
@@ -29083,10 +29103,11 @@
 /turf/simulated/floor/tiled/full,
 /area/medical/surgery)
 "oJM" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "oKf" = (
 /obj/structure/table/stone/marble,
@@ -30814,6 +30835,13 @@
 	name = "Powernet Sensor - Supermatter Output";
 	name_tag = "SM Output"
 	},
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the engine control room blast doors.";
+	id = "EngineEmitterPortWest";
+	name = "Supermatter Reactor Room Blast Doors";
+	pixel_x = 25;
+	req_one_access = list(11,24)
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "pFe" = (
@@ -31371,6 +31399,18 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/chapel/main)
+"pSS" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room)
 "pTn" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -35065,9 +35105,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "rJu" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "rJR" = (
@@ -35128,6 +35166,12 @@
 	pixel_x = -32;
 	pixel_y = 32
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "rLn" = (
@@ -35182,6 +35226,18 @@
 /obj/structure/lattice,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
+"rME" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room)
 "rNe" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d2-1-f"
@@ -35322,8 +35378,26 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
+"rPu" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room)
 "rPY" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
@@ -35331,12 +35405,6 @@
 	id = "EngineEmitterPortWest";
 	layer = 3.3;
 	name = "Supermatter Reactor Waste Management Blast Door"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/engine_waste)
@@ -36170,7 +36238,8 @@
 	dir = 8;
 	id = "enginecore";
 	name = "Supermatter Reactor Emergency Crystal Ejection";
-	pixel_x = 23
+	pixel_x = 23;
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
@@ -38940,6 +39009,12 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "tMp" = (
@@ -39090,9 +39165,12 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/machinery/firealarm/east,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
@@ -47176,6 +47254,13 @@
 /obj/machinery/light/spot/weak{
 	dir = 4
 	},
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the engine control room blast doors.";
+	id = "EngineEmitterPortWest";
+	name = "Supermatter Reactor Room Blast Doors";
+	pixel_x = 25;
+	req_one_access = list(11,24)
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "xGW" = (
@@ -47977,12 +48062,14 @@
 /turf/simulated/open,
 /area/operations/office)
 "yag" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
 /obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -63982,7 +64069,7 @@ nVY
 fDF
 hMy
 lMQ
-mOI
+oJM
 rrK
 rAd
 flS
@@ -64183,8 +64270,8 @@ sLy
 ijJ
 uoj
 srn
-lMQ
-mOI
+pSS
+gON
 mwv
 pfb
 sSY
@@ -64587,8 +64674,8 @@ xUK
 kQY
 oCk
 srn
-lMQ
-mOI
+rPu
+gON
 mwv
 dPM
 dZY
@@ -64789,8 +64876,8 @@ qjm
 wpc
 qjm
 hMy
-lMQ
-mOI
+rME
+oJM
 vsM
 dPM
 dZY
@@ -65193,7 +65280,7 @@ vrC
 qvx
 vrC
 vrC
-vrC
+kQz
 lIz
 rTZ
 dPM
@@ -65595,12 +65682,12 @@ hMy
 sNe
 xGT
 kZr
-gON
-gON
+rJu
+rJu
 fQa
 rJu
-sSY
-oJM
+rJu
+jUH
 pER
 qYF
 gsT
@@ -65799,7 +65886,7 @@ gsz
 rPY
 xQp
 xQp
-gsz
+jfp
 xQp
 xQp
 jfp
@@ -65999,7 +66086,7 @@ gsz
 xVz
 gwP
 pLA
-gXu
+bax
 bsK
 boR
 bsK
