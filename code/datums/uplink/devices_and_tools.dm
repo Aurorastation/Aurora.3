@@ -70,8 +70,10 @@
 
 /datum/uplink_item/item/tools/personal_shield
 	name = "Personal Shield"
-	desc = "A personal shield that, when kept in your hand and activated, will protect its user from five projectile shots."
+	desc = "A personal shield that, when kept in your hand and activated, will protect its user from five projectile shots. \
+	        This can only be bought once."
 	item_cost = 1
+	item_limit = 1
 	path = /obj/item/device/personal_shield
 
 /datum/uplink_item/item/tools/hacking_tool
@@ -99,8 +101,10 @@
 
 /datum/uplink_item/item/tools/ai_module
 	name = "Hacked AI Upload Module"
-	item_cost = 4
+	item_cost = 2
 	path = /obj/item/aiModule/syndicate
+	desc = "A hacked AI law module able to subvert a shipbound intelligence when appropriately configured. It must be installed through a special upload console \
+			-- a circuitboard for which can be found in the secure technical storage areas of most SCC facilities."
 
 /datum/uplink_item/item/tools/supply_beacon
 	name = "Hacked Supply Beacon (DANGER!)"

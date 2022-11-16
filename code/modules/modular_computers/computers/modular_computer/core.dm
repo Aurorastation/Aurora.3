@@ -499,3 +499,7 @@
 	silent = !silent
 	for (var/datum/computer_file/program/P in hard_drive.stored_files)
 		P.event_silentmode()
+
+/obj/item/modular_computer/on_slotmove(var/mob/living/user, slot)
+	. = ..(user, slot)
+	BITSET(user.hud_updateflag, ID_HUD) //Same reasoning as for IDs

@@ -90,6 +90,8 @@
 		sync_organ_dna()
 	make_blood()
 
+	available_maneuvers = species.maneuvers.Copy()
+
 	pixel_x = species.icon_x_offset
 	pixel_y = species.icon_y_offset
 

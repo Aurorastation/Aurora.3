@@ -364,7 +364,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/militia_ship)
 "eiL" = (
 /obj/machinery/washing_machine{
@@ -431,7 +431,7 @@
 /area/ship/militia_ship)
 "eNs" = (
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/militia_ship)
 "eTH" = (
 /obj/structure/table/steel,
@@ -497,7 +497,6 @@
 /obj/item/flag/biesel/l,
 /obj/item/flag/coalition,
 /obj/item/flag/coalition/l,
-/obj/item/gun/projectile/revolver/detective,
 /obj/item/spacecash/c100,
 /obj/item/spacecash/c100,
 /obj/item/spacecash/c100,
@@ -522,8 +521,6 @@
 /obj/item/spacecash/c20,
 /obj/item/spacecash/c20,
 /obj/item/grenade/smokebomb,
-/obj/item/ammo_magazine/c762,
-/obj/item/gun/projectile/automatic/rifle/shorty,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "fQq" = (
@@ -572,16 +569,14 @@
 	},
 /obj/item/material/knife/trench,
 /obj/item/material/knife/trench,
+/obj/item/storage/box/shotgunshells,
+/obj/random/civgun/rifle,
+/obj/random/civgun/rifle,
+/obj/item/gun/projectile/shotgun/pump,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
-/obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/flashshells,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "goI" = (
@@ -716,18 +711,19 @@
 /obj/item/handcuffs/cable/random,
 /obj/item/handcuffs/cable/random,
 /obj/item/gun/energy/taser,
+/obj/item/cell/high,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "hWh" = (
 /obj/structure/table/rack,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/tank/jetpack/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/staff_only{
 	pixel_x = -32
 	},
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "hZq" = (
@@ -1075,7 +1071,7 @@
 	pixel_y = -162;
 	weapon_id = "Militia Francisca Rotary Gun"
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/militia_ship)
 "nSy" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -1226,7 +1222,7 @@
 "qcd" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/militia_ship)
 "qil" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1364,23 +1360,14 @@
 	},
 /obj/item/material/knife/trench,
 /obj/item/material/knife/trench,
-/obj/item/ammo_magazine/mc10mm/leyon,
-/obj/item/ammo_magazine/mc10mm/leyon,
-/obj/item/ammo_magazine/mc10mm/leyon,
-/obj/item/ammo_magazine/mc10mm/leyon,
-/obj/item/ammo_magazine/mc10mm/leyon,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
+/obj/random/civgun,
+/obj/random/civgun,
 /obj/item/gun/projectile/leyon,
-/obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/projectile/leyon,
-/obj/item/gun/projectile/pistol,
-/obj/item/ammo_magazine/mc10mm,
-/obj/item/ammo_magazine/mc10mm,
-/obj/item/ammo_magazine/mc10mm,
-/obj/item/ammo_magazine/mc10mm,
-/obj/item/gun/projectile/tanto,
-/obj/item/gun/projectile/tanto,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
 /obj/item/ammo_magazine/mc10mm/leyon,
 /obj/item/ammo_magazine/mc10mm/leyon,
 /turf/simulated/floor/tiled/dark,
@@ -31632,7 +31619,7 @@ aaI
 aou
 aHw
 eCV
-mkb
+eMT
 yjk
 yjk
 yjk
@@ -36258,7 +36245,7 @@ aaI
 aHv
 aSJ
 hdb
-mkb
+eMT
 yjk
 vwF
 vwF
