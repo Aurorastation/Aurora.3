@@ -1008,7 +1008,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Ship Flak Munitions Bay";
-	req_one_access = list(19,11,31)
+	req_one_access = list(10,60,20,31)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -10279,7 +10279,7 @@
 	id_tag = "airlocks_deck2_ammostorage_fore";
 	locked = 1;
 	name = "Secure Ammunition Storage";
-	req_one_access = list(10,19,20,36,74)
+	req_one_access = list(10,60,20,31)
 	},
 /obj/machinery/door/blast/regular{
 	dir = 8;
@@ -10299,7 +10299,7 @@
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = -7;
-	req_one_access = list(10,19,20,31,74);
+	req_one_access = list(10,60,20,31);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -10308,7 +10308,7 @@
 	name = "Blast Door Control";
 	pixel_x = 25;
 	pixel_y = 7;
-	req_one_access = list(10,19,20,31,74)
+	req_one_access = list(10,60,20,31)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/secure_ammunition_storage)
@@ -11750,7 +11750,7 @@
 	id_tag = "airlocks_deck2_ammostorage_aft";
 	locked = 1;
 	name = "Secure Ammunition Storage";
-	req_one_access = list(10,19,20,36,74)
+	req_one_access = list(10,60,20,31)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
@@ -11766,7 +11766,7 @@
 	name = "Door Bolt Control";
 	pixel_x = -25;
 	pixel_y = 7;
-	req_one_access = list(10,19,20,31,74);
+	req_one_access = list(10,60,20,31);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -11775,7 +11775,7 @@
 	name = "Blast Door Control";
 	pixel_x = -25;
 	pixel_y = -7;
-	req_one_access = list(10,19,20,31,74)
+	req_one_access = list(10,60,20,31)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/secure_ammunition_storage)
