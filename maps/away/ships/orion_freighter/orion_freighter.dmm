@@ -1372,10 +1372,6 @@
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ox_container_ship/engineering)
-"Pe" = (
-/obj/effect/dungeon_generic_landmark/orion_freighter_container,
-/turf/template_noop,
-/area/space)
 "Po" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 4
@@ -29649,7 +29645,7 @@ Gi
 Gi
 Gi
 Gi
-Pe
+Gi
 Gi
 Gi
 Gi
