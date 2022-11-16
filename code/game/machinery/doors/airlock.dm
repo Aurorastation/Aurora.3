@@ -556,6 +556,18 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 /obj/machinery/door/airlock/skrell/grey
 	icon = 'icons/obj/doors/grey_skrell_door.dmi'
 
+/obj/machinery/door/airlock/diona
+	name = "biomass airlock"
+	icon = 'icons/obj/doors/Door_dionae_airlock.dmi'
+	explosion_resistance = 20
+	secured_wires = TRUE
+	maxhealth = 600
+	insecure = 0
+	hashatch = FALSE
+
+/obj/machinery/door/airlock/diona/external
+	icon = 'icons/obj/doors/Door_dionae_external.dmi'
+
 //---Uranium doors
 /obj/machinery/door/airlock/uranium
 	name = "Uranium Airlock"
