@@ -410,6 +410,8 @@
 	var/datum/vueui/ui = href_list["vueui"]
 	if(!istype(ui))
 		return
+	if(..())
+		return
 
 	playsound(src, clicksound, clickvol)
 	
