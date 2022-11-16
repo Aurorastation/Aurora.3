@@ -21377,9 +21377,12 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "kFa" = (
-/obj/structure/disposalpipe/segment,
 /obj/machinery/keycard_auth{
 	pixel_x = -28
+	},
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hos)
@@ -25846,18 +25849,18 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/command{
-	desc = "It opens and closes. It does not look very robust.";
-	id_tag = "HoSdoor";
-	name = "Head of Security's Office";
-	req_access = list(58)
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/machinery/door/airlock/security{
+	id_tag = "HoSdoor";
+	name = "Head of Security's Office";
+	req_access = list(58);
+	secured_wires = 1
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/hos)
@@ -38750,6 +38753,7 @@
 /obj/machinery/suit_cycler/hos,
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/spline/plain/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hos)
 "tux" = (
@@ -42950,10 +42954,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/lounge/bar)
 "vuo" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/machinery/disposal/small/east,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -24
 	},
