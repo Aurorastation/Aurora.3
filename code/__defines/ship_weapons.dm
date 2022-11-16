@@ -10,8 +10,9 @@
 #define NO_PROJECTILE "no projectile"
 #define SHIP_HAZARD_TARGET "Automatic Hazard Targeting"
 
-#define SHIP_AMMO_CAN_HIT_HAZARDS 1
-#define SHIP_AMMO_CAN_HIT_SHIPS 2
+#define SHIP_AMMO_CAN_HIT_HAZARDS    1
+#define SHIP_AMMO_CAN_HIT_VISITABLES 2
+#define SHIP_AMMO_CAN_HIT_PLANETS    4
 
 #define SHIP_AMMO_IMPACT_HE "high explosive"
 #define SHIP_AMMO_IMPACT_FMJ "full metal jacket"
@@ -45,3 +46,7 @@
 #define OVERMAP_PROJECTILE_RANGE_MEDIUMHIGH 15
 #define OVERMAP_PROJECTILE_RANGE_HIGH 25
 #define OVERMAP_PROJECTILE_RANGE_ULTRAHIGH 30
+
+//Targeting flags for overmap effects.
+#define TARGETING_FLAG_GENERIC_WAYPOINTS 1
+#define TARGETING_FLAG_ENTRYPOINTS       2
