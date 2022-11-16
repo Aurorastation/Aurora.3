@@ -85,7 +85,7 @@ proc/place_dungeons_generic()
 /obj/effect/dungeon_generic_landmark
 	name = "Generic Dungeon Landmark (blank)"
 	icon = 'icons/mob/screen/generic.dmi'
-	icon_state = "x2"
+	icon_state = "x3"
 	// Percent chance for it to actually spawn a dungeon.
 	var/spawn_chance = 100
 	// If true, blacklists the spawned dungeon from ever spawning again.
