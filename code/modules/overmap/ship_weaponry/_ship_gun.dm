@@ -439,15 +439,16 @@
 		if(usr)
 			viewing_overmap(usr) ? unlook(usr) : look(usr)
 
-/obj/machinery/computer/ship/targeting/proc/copy_entrypoints(var/z_level_filter = 0)
+/obj/machinery/computer/overmap/targeting/proc/copy_entrypoints(var/z_level_filter = 0)
 	. = list()
 	if(istype(connected.targeting, /obj/effect/overmap/visitable))
 		var/obj/effect/overmap/visitable/V = linked.targeting
-		for(var/obj/effect/O in V.entry_points)
-			if(!z_level_filter || (z_level_filter && O.z == z_level_filter))
-				. += capitalize_first_letters(O.name)
-				names_to_entries[capitalize_first_letters(O.name)] = O
-		if(!istype(connected.targeting, /obj/effect/overmap/visitable/ship))
+		if(V.targeting_flags & TARGETING_FLAG_ENTRYPOINTS)
+			for(var/obj/effect/O in V.entry_points)
+				if(!z_level_filter || (z_level_filter && O.z == z_level_filter))
+					. += capitalize_first_letters(O.name)
+					names_to_entries[capitalize_first_letters(O.name)] = O
+		if(V.targeting_flags & TARGETING_FLAG_GENERIC_WAYPOINTS)
 			for(var/obj/effect/O in V.generic_waypoints)
 				. += capitalize_first_letters(O.name)
 				names_to_entries[capitalize_first_letters(O.name)] = O
