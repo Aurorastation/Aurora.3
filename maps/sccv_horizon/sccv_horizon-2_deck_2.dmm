@@ -4947,7 +4947,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "cre" = (
-/obj/machinery/lapvend,
+/obj/machinery/papershredder,
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "crn" = (
@@ -29212,10 +29212,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "oNS" = (
-/obj/machinery/vending/battlemonsters,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/machinery/lapvend,
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "oOi" = (
