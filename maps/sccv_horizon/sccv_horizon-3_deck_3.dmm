@@ -24415,12 +24415,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
-"tHb" = (
-/obj/machinery/computer/cryopod{
-	pixel_y = -33
-	},
-/turf/simulated/floor,
-/area/maintenance/bridge)
 "tHh" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
@@ -48507,7 +48501,7 @@ enn
 aqc
 aoA
 aoA
-tHb
+aoA
 agp
 lKs
 dnk
