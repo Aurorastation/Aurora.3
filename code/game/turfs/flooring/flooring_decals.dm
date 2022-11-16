@@ -528,6 +528,10 @@
 /obj/effect/floor_decal/industrial/loading/grey
 	color = COLOR_GRAY
 
+/obj/effect/floor_decal/industrial/loading/security
+	name = "security blue loading area"
+	color = COLOR_BLUE_GRAY
+
 /obj/effect/floor_decal/plaque
 	name = "plaque"
 	icon_state = "plaque"
@@ -722,3 +726,4 @@
 /obj/effect/floor_decal/scc
 	icon = 'icons/turf/flooring/scc_decals.dmi'
 	icon_state = "0,0"
+

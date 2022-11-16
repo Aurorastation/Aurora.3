@@ -83,11 +83,13 @@
 
 /obj/machinery/ship_weapon/leviathan/disable()
 	firing = FALSE
-	for(var/mob/living/L in living_mob_list)
-		if(get_area(L) == get_area(src))
-			sound_to(L, 'sound/effects/ship_weapons/leviathan_powerdown.ogg')
-	visible_message(SPAN_DANGER("<font size=4>\The [src]'s humming comes to an abrupt halt.</font>"))
-	update_use_power(POWER_USE_OFF)
+	if(use_power != POWER_USE_OFF)
+		visible_message(SPAN_DANGER("<font size=4>\The [src]'s humming comes to an abrupt halt.</font>"))
+		for(var/mob/living/L in living_mob_list)
+			if(AreConnectedZLevels(L.z, z))
+				sound_to(L, 'sound/effects/ship_weapons/leviathan_powerdown.ogg')
+				to_chat(L, SPAN_WARNING("The ground below you settles down, no longer vibrating."))
+		update_use_power(POWER_USE_OFF)
 	icon_state = "weapon_off"
 
 /obj/machinery/ship_weapon/leviathan/enable()
@@ -95,10 +97,11 @@
 	if(!smes)
 		visible_message(SPAN_DANGER("\The [src] doesn't light up at all! Its maintenance display indicates there is no SMES to draw power from."))
 		return
-	for(var/mob/living/L in living_mob_list)
-		if(get_area(L) == get_area(src))
-			sound_to(L, 'sound/effects/ship_weapons/leviathan_powerup.ogg')
 	visible_message(SPAN_DANGER("<font size=4>\The [src] lights up with a powerful hum...</font>"))
+	for(var/mob/living/L in living_mob_list)
+		if(AreConnectedZLevels(L.z, z))
+			sound_to(L, 'sound/effects/ship_weapons/leviathan_powerup.ogg')
+			to_chat(L, SPAN_WARNING("The ground below you starts vibrating with a slight hum..."))
 	update_use_power(POWER_USE_IDLE)
 	icon_state = "weapon_on"
 
@@ -121,6 +124,7 @@
 /obj/item/ship_ammunition/leviathan
 	name = "zero-point artillery beam"
 	desc = "A beam of pure energy."
+	range = OVERMAP_PROJECTILE_RANGE_ULTRAHIGH
 	caliber = SHIP_CALIBER_ZTA
 	impact_type = SHIP_AMMO_IMPACT_ZTA
 	overmap_icon_state = "heavy_pulse"
@@ -128,6 +132,9 @@
 /obj/item/ship_ammunition/leviathan/Initialize()
 	. = ..()
 	set_light(3, 3, LIGHT_COLOR_PURPLE)
+
+/obj/item/ship_ammunition/leviathan/get_speed()
+	return 2
 
 /obj/item/projectile/ship_ammo/leviathan
 	name = "zero-point artillery beam"
@@ -137,6 +144,7 @@
 	armor_penetration = 1000
 	penetrating = 100
 	hitscan = TRUE
+	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
 
 	muzzle_type = /obj/effect/projectile/muzzle/pulse
 	tracer_type = /obj/effect/projectile/tracer/pulse
@@ -304,7 +312,9 @@
 	icon_state = "safeguard_open"
 
 /obj/machinery/leviathan_safeguard/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/leviathan_key) && !key && !stat && !locked)
+	if(!opened || locked)
+		return
+	if(istype(I, /obj/item/leviathan_key) && !key && !stat)
 		var/obj/item/leviathan_key/LK = I
 		if(use_check_and_message(user))
 			return
@@ -316,7 +326,7 @@
 			playsound(src, 'sound/effects/ship_weapons/levi_key_insert.ogg')
 
 /obj/machinery/leviathan_safeguard/attack_hand(mob/user)
-	if(key && !stat && !locked)
+	if(key && !stat && opened && !locked)
 		if(use_check_and_message(user))
 			return
 		if(do_after(user, 1 SECOND))
@@ -368,12 +378,15 @@
 					possible_entry_points[O.name] = O
 				for(var/obj/effect/O in V.entry_points)
 					possible_entry_points[O.name] = O
+				possible_entry_points = sortList(possible_entry_points)
+			if(istype(linked.targeting, /obj/effect/overmap/event))
+				possible_entry_points += SHIP_HAZARD_TARGET
 			var/targeted_landmark = input(user, "Select an entry point.", "Leviathan Control") as null|anything in possible_entry_points
 			if(!targeted_landmark && length(possible_entry_points))
 				return
 			var/obj/effect/landmark
-			if(length(possible_entry_points))
-			 landmark = possible_entry_points[targeted_landmark]
+			if(length(possible_entry_points) && !(targeted_landmark == SHIP_HAZARD_TARGET))
+				landmark = possible_entry_points[targeted_landmark]
 			if(do_after(user, 1 SECOND) && !use_check_and_message(user))
 				playsound(src, 'sound/effects/ship_weapons/levi_button_press.ogg')
 				visible_message(SPAN_DANGER("[user] presses \the [src]!"))

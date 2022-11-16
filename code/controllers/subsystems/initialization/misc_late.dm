@@ -14,6 +14,8 @@
 		if (area_turfs.len) // Check the area is mapped
 			ghostteleportlocs += AR.name
 			ghostteleportlocs[AR.name] = AR
+	if(current_map.use_overmap)
+		ghostteleportlocs[map_overmap.name] = map_overmap
 
 	sortTim(ghostteleportlocs, /proc/cmp_text_asc)
 

@@ -14,7 +14,7 @@
 		var/mob/living/carbon/human/H = user
 		if(istype(I, /obj/item/primer) && !primer)
 			var/obj/item/primer/P = I
-			visible_message(SPAN_NOTICE("You start connecting \the [P] to the casing..."), SPAN_NOTICE("[H] starts connecting \the [P] to the casing..."))
+			user.visible_message(SPAN_NOTICE("[H] starts connecting \the [P] to the casing..."), SPAN_NOTICE("You start connecting \the [P] to the casing..."))
 			if(do_after(H, 3 SECONDS))
 				visible_message(SPAN_NOTICE("You connect \the [P] to the casing!"), SPAN_NOTICE("[H] connects \the [P] to the casing!"))
 				H.drop_from_inventory(P)
@@ -22,7 +22,7 @@
 				playsound(src, 'sound/machines/rig/rig_deploy.ogg')
 		if(istype(I, /obj/item/warhead) && !warhead)
 			var/obj/item/warhead/W = I
-			visible_message(SPAN_NOTICE("You start connecting \the [W] to the casing..."), SPAN_NOTICE("[H] starts connecting \the [W] to the casing..."))
+			user.visible_message( SPAN_NOTICE("[H] starts connecting \the [W] to the casing..."), SPAN_NOTICE("You start connecting \the [W] to the casing..."))
 			if(do_after(H, 5 SECONDS))
 				visible_message(SPAN_NOTICE("You connect \the [W] to the casing!"), SPAN_NOTICE("[H] connects \the [W] to the casing!"))
 				H.drop_from_inventory(W)
@@ -41,6 +41,7 @@
 		P.forceMove(src)
 		var/image/OL = image(P.icon, P.primer_state, layer = layer - 0.01)
 		add_overlay(OL)
+	update_status()
 
 /obj/item/ship_ammunition/longbow/proc/add_warhead(var/obj/item/warhead/W)
 	if(W && !QDELETED(W))
@@ -54,20 +55,23 @@
 		cookoff_devastation = warhead.cookoff_devastation
 		cookoff_heavy = warhead.cookoff_heavy
 		cookoff_light = warhead.cookoff_light
+	update_status()
 
 /obj/item/ship_ammunition/longbow/update_status()
 	desc = initial(desc)
+	desc += "<br>"
 	if(primer && !warhead)
 		desc += "It is loaded with [primer], but no warhead."
 		name = "longbow casing"
 		ammunition_flags = initial(ammunition_flags)
 	else if(warhead && !primer)
 		desc += "It has a [warhead], but no primer."
-		name = "longbow casing"
+		name = "[warhead.warhead_type] longbow casing"
 	else if(warhead && primer)
 		desc += "It has a [warhead] and is loaded with [primer]! It's ready to go."
-		name = "longbow shell"
+		name = "[warhead.warhead_type] longbow shell"
 	else
+		name = "longbow casing"
 		desc += "It isn't loaded with a warhead and has no primer."
 		ammunition_flags = initial(ammunition_flags)
 
@@ -87,6 +91,7 @@
 	desc = "This is a medium power primer for Longbow warheads."
 	icon = 'icons/obj/guns/ship/ship_ammo_longarm.dmi'
 	icon_state = "primer_med_obj"
+	w_class = ITEMSIZE_HUGE
 	var/primer_state = "primer_med" //This is the overlay state when it gets applied to the projectile.
 	var/speed = 30 //Somewhat of a misleading name. This is the lag in world ticks between each walk() called by the overmap projectile. Lower is better.
 
@@ -109,6 +114,7 @@
 	desc = "This is a generic warhead. Not for use."
 	icon = 'icons/obj/guns/ship/ship_ammo_longarm.dmi'
 	icon_state = "generic_warhead_obj"
+	w_class = ITEMSIZE_HUGE
 	var/warhead_state = "generic_warhead" //This is the overlay state when it gets applied to the projectile.
 	var/caliber
 	var/warhead_type
@@ -122,8 +128,8 @@
 	warhead_type = SHIP_AMMO_IMPACT_HE
 	slowdown = 2
 	var/drop_counter = 0
-	var/cookoff_devastation = 2
-	var/cookoff_heavy = 2
+	var/cookoff_devastation = 0
+	var/cookoff_heavy = 3
 	var/cookoff_light = 4
 
 /obj/item/warhead/longbow/too_heavy_to_throw()
@@ -162,7 +168,7 @@
 	icon_state = "armor_piercing_obj"
 	warhead_state = "armor_piercing"
 	warhead_type = SHIP_AMMO_IMPACT_AP
-	cookoff_devastation = 1
+	cookoff_devastation = 0
 	cookoff_heavy = 2
 	cookoff_light = 6
 
@@ -182,7 +188,6 @@
 	add_primer(P)
 	var/obj/item/warhead/longbow/W = new()
 	add_warhead(W)
-	update_status()
 
 /obj/item/ship_ammunition/longbow/preset_ap/Initialize()
 	. = ..()
@@ -190,7 +195,6 @@
 	add_primer(P)
 	var/obj/item/warhead/longbow/ap/W = new()
 	add_warhead(W)
-	update_status()
 
 /obj/item/ship_ammunition/longbow/preset_bb/Initialize()
 	. = ..()
@@ -198,4 +202,3 @@
 	add_primer(P)
 	var/obj/item/warhead/longbow/bunker/W = new()
 	add_warhead(W)
-	update_status()

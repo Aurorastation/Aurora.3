@@ -54,6 +54,9 @@
 			var/obj/machinery/computer/ship/targeting/GS = H.machine
 			if(GS.targeting)
 				return
+			if(!istype(GS.connected.loc, /turf/unsimulated/map))
+				to_chat(H, SPAN_WARNING("The safeties won't let you target while you're not on the Overmap!"))
+				return
 			var/my_sector = map_sectors["[H.z]"]
 			if(istype(my_sector, /obj/effect/overmap/visitable))
 				var/obj/effect/overmap/visitable/V = my_sector
@@ -96,7 +99,8 @@
 		C.targeting = FALSE
 
 /obj/effect/overmap/visitable/proc/detarget(var/obj/effect/overmap/O,  var/obj/machinery/computer/C)
-	playsound(C, 'sound/items/rfd_interrupt.ogg')
+	if(C)
+		playsound(C, 'sound/items/rfd_interrupt.ogg')
 	if(O)
 		O.cut_overlay(O.targeted_overlay)
 		O.maptext = null

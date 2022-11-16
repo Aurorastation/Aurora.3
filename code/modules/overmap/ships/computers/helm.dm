@@ -224,7 +224,7 @@
 		var/ndir = text2num(href_list["roll"])
 		if(ishuman(usr))
 			var/mob/living/carbon/human/H = usr
-			visible_message(SPAN_DANGER("[H] starts tilting the yoke all the way to the [ndir == WEST ? "right" : "left"]!"))
+			visible_message(SPAN_DANGER("[H] starts tilting the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 			if(do_after(H, 1 SECOND))
 				connected.combat_roll(ndir)
 
@@ -232,7 +232,7 @@
 		var/ndir = text2num(href_list["turn"])
 		if(ishuman(usr))
 			var/mob/living/carbon/human/H = usr
-			visible_message(SPAN_DANGER("[H] starts twisting the yoke all the way to the [ndir == WEST ? "right" : "left"]!"))
+			visible_message(SPAN_DANGER("[H] starts twisting the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 			if(do_after(H, 1 SECOND))
 				connected.combat_turn(ndir)
 

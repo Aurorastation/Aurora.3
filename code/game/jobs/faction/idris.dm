@@ -46,6 +46,8 @@
 		"Hydroponicist" = /datum/outfit/job/hydro/idris,
 		"Janitor" = /datum/outfit/job/janitor/idris,
 		"Librarian" = /datum/outfit/job/librarian/idris,
+		"Curator" = /datum/outfit/job/librarian/idris/curator,
+		"Tech Support" = /datum/outfit/job/librarian/idris/tech_support,
 		"Corporate Liaison" = /datum/outfit/job/representative/idris
 	)
 
@@ -157,6 +159,23 @@
 	satchel_faction = /obj/item/storage/backpack/satchel/idris
 	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
 	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
+
+/datum/outfit/job/librarian/idris/curator
+	name = "Curator - Idris"
+	jobtype = /datum/job/librarian
+
+	r_pocket = /obj/item/device/price_scanner
+	l_hand = null
+
+/datum/outfit/job/librarian/idris/tech_support
+	name = "Tech Support - Idris"
+	jobtype = /datum/job/librarian
+
+	l_pocket = /obj/item/modular_computer/handheld/preset
+	r_pocket = /obj/item/card/tech_support
+	r_hand = /obj/item/storage/bag/circuits/basic
+	l_hand = /obj/item/modular_computer/laptop/preset
+	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
 /datum/outfit/job/representative/idris
 	name = "Idris Corporate Liaison"

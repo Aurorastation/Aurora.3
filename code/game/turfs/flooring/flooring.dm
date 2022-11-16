@@ -137,6 +137,7 @@
 	name = "full steel tile"
 	desc = "A full steel floor tile."
 	icon_base = "steel_full"
+	has_damage_range = FALSE
 	build_type = /obj/item/stack/tile/floor/full
 
 /decl/flooring/tiling/asteroid
@@ -225,7 +226,7 @@
 	name = "plasteel tiles"
 	desc = "A set of plasteel floor tiles."
 	icon_base = "dark"
-	has_damage_range = null
+	has_damage_range = FALSE
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_dark
 
