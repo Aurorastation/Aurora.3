@@ -1,4 +1,4 @@
-datum/map_template/ruin/away_site/tajaran_smuggler
+/datum/map_template/ruin/away_site/tajaran_smuggler
 	name = "Adhomian Freighter"
 	description = "Built with reliability in mind, the Zhsram Freighter is one of the most common Adhomian designs. This vessel is cheap and has a sizeable cargo storage. It is frequently used by Tajaran traders and smugglers."
 	suffix = "ships/taj_smuggler/tajaran_smuggler.dmm"

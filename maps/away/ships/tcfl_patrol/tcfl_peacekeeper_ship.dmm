@@ -2784,6 +2784,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"qIC" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
+/area/ship/tcfl_peacekeeper_ship)
 "qMx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool,
@@ -2914,7 +2918,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/tcfl_peacekeeper_ship)
 "rrF" = (
 /obj/structure/bed/stool,
@@ -3125,7 +3129,7 @@
 	weapon_id = "TCFL Francisca Rotary Gun"
 	},
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/tcfl_peacekeeper_ship)
 "sKP" = (
 /obj/effect/floor_decal/corner/blue{
@@ -24462,10 +24466,10 @@ xRX
 xRX
 xRX
 xRX
-hSW
-hSW
-hSW
-hSW
+qIC
+qIC
+qIC
+qIC
 rlW
 xRX
 xRX
@@ -24720,7 +24724,7 @@ xRX
 xRX
 xRX
 sJV
-hSW
+qIC
 xRX
 xRX
 xRX

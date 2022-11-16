@@ -310,6 +310,7 @@
 	name = "Horizon (PARENT AREA - DON'T USE)"
 	icon_state = "unknown"
 	station_area = TRUE
+	ambience = AMBIENCE_GENERIC
 
 // Exterior
 /area/horizon/exterior
@@ -321,6 +322,7 @@
 	has_gravity = FALSE
 	no_light_control = TRUE
 	allow_nightmode = FALSE
+	ambience = AMBIENCE_SPACE
 
 /********** Maintenance Start **********/
 // Maintenance
@@ -387,6 +389,7 @@
 	name = "Horizon - Bridge Stairwell"
 	icon_state = "bridge_stairs"
 	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
 /********** Stairwells End **********/
 
 /********** Crew Quarters Start **********/
@@ -606,6 +609,21 @@
 	name = "Horizon - Bar"
 	icon_state = "bar"
 	allow_nightmode = FALSE
+
+/area/horizon/bar/backroom
+	name = "Horizon - Bar - Backroom"
+
+// Custodial
+/area/horizon/custodial
+	name = "Horizon - Custodial Closet"
+	icon_state = "janitor"
+	allow_nightmode = FALSE
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_FOREBODING
+
+/area/horizon/custodial/auxiliary
+	name = "Horizon - Auxiliary Custodial Closet"
+	sound_env = SMALL_ENCLOSED
 
 // ZTA
 /area/horizon/zta
