@@ -4133,6 +4133,15 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass_mining{
+	name = "Operations Hangar";
+	req_access = null;
+	req_one_access = list(26,29,31,48,67)
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
 "doK" = (
@@ -23193,14 +23202,16 @@
 /turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos/air)
 "soT" = (
-/obj/machinery/door/firedoor/multi_tile{
-	dir = 1
-	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 1;
-	name = "Operations Hangar"
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass_mining{
+	name = "Operations Hangar";
+	req_access = null;
+	req_one_access = list(26,29,31,48,67)
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
 "spL" = (
