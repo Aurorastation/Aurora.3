@@ -344,7 +344,7 @@
 	ui.open()
 
 /obj/machinery/computer/ship/targeting/proc/build_gun_lists()
-	for(var/obj/machinery/ship_weapon/SW in connected.ship_weapons)
+	for(var/obj/machinery/ship_weapon/SW in linked.ship_weapons)
 		if(!SW.special_firing_mechanism)
 			var/gun_name = capitalize_first_letters(SW.weapon_id)
 			names_to_guns[gun_name] = SW
@@ -365,10 +365,10 @@
 		data["show_z_list"] = FALSE
 		data["selected_z"] = 0
 	data["power"] = stat & (NOPOWER|BROKEN) ? FALSE : TRUE
-	data["linked"] = connected ? TRUE : FALSE
+	data["linked"] = linked ? TRUE : FALSE
 
-	if(connected)
-		data["is_targeting"] = connected.targeting ? TRUE : FALSE
+	if(linked)
+		data["is_targeting"] = linked.targeting ? TRUE : FALSE
 		data["ship_weapons"] = list()
 		for(var/name in names_to_guns)
 			data["ship_weapons"] += name //Literally do not even ask me why the FUCK this is needed. I have ZERO, **ZERO** FUCKING CLUE why
@@ -385,22 +385,22 @@
 				ammunition_type = capitalize_first_letters(SA.impact_type)
 			data["ammunition"] = length(cannon.ammunition) ? "[ammunition_type] Loaded, [length(cannon.ammunition)] shot(s) left" : "Unloaded"
 			data["caliber"] = cannon.caliber
-		if(connected.targeting)
+		if(linked.targeting)
 			data["target"] = ""
 			if(istype(connected.targeting, /obj/effect/overmap/visitable))
-				var/obj/effect/overmap/visitable/V = connected.targeting
+				var/obj/effect/overmap/visitable/V = linked.targeting
 				if(V.class && V.designation)
 					data["target"] = "[V.class] [V.designation]"
 				else
-					data["target"] = capitalize_first_letters(connected.targeting.name)
+					data["target"] = capitalize_first_letters(linked.targeting.name)
 				if(length(V.map_z) > 1)
 					data["show_z_list"] = TRUE
 					data["z_levels"] = V.map_z.Copy()
 				else
 					data["selected_z"] = 0
 			else
-				data["target"] = capitalize_first_letters(connected.targeting.name)
-			data["dist"] = get_dist(connected, connected.targeting)
+				data["target"] = capitalize_first_letters(linked.targeting.name)
+			data["dist"] = get_dist(linked, linked.targeting)
 			data["entry_points"] = copy_entrypoints(data["selected_z"])
 			if(data["entry_point"])
 				selected_entrypoint = data["entry_point"]
@@ -417,7 +417,7 @@
 		var/obj/effect/landmark/LM
 		if(!selected_entrypoint)
 			return
-		if(!istype(connected.loc, /turf/unsimulated/map))
+		if(!istype(linked.loc, /turf/unsimulated/map))
 			to_chat(usr, SPAN_WARNING("The safeties are engaged! You need to be undocked in order to fire."))
 			return
 		if(selected_entrypoint == SHIP_HAZARD_TARGET || !selected_entrypoint)
@@ -441,7 +441,7 @@
 
 /obj/machinery/computer/ship/targeting/proc/copy_entrypoints(var/z_level_filter = 0)
 	. = list()
-	if(istype(connected.targeting, /obj/effect/overmap/visitable))
+	if(istype(linked.targeting, /obj/effect/overmap/visitable))
 		var/obj/effect/overmap/visitable/V = linked.targeting
 		if(V.targeting_flags & TARGETING_FLAG_ENTRYPOINTS)
 			for(var/obj/effect/O in V.entry_points)
