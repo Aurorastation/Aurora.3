@@ -76,7 +76,7 @@
 	new /obj/item/clothing/head/hardhat(src)
 
 /obj/structure/closet/excavation
-	name = "xenoarchaeology excavation tools"
+	name = "excavation tools"
 	icon_state = "eng"
 	icon_door = "eng_tool"
 
@@ -96,6 +96,10 @@
 	new /obj/item/storage/bag/fossils(src)
 	new /obj/item/device/hand_labeler(src)
 	new /obj/item/ore_detector(src)
+
+	// 2 Drills
+	new /obj/item/pickaxe/drill(src)
+	new /obj/item/pickaxe/drill(src)
 
 //---- Isolation room air alarms
 
