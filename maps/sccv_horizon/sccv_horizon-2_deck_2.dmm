@@ -5570,11 +5570,8 @@
 /area/engineering/smes/tesla)
 "cKJ" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/atmospherics/portables_connector,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/port)
 "cKP" = (
@@ -5678,15 +5675,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "cNz" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -5694,7 +5682,12 @@
 	dir = 8
 	},
 /obj/machinery/light/small/emergency,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/port)
 "cNU" = (
@@ -14823,17 +14816,19 @@
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "hmX" = (
-/obj/structure/railing/mapped,
 /obj/structure/lattice,
 /obj/structure/cable/green{
-	icon_state = "11-8"
+	icon_state = "11-2"
 	},
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
+/obj/machinery/atmospherics/pipe/zpipe/down/supply,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	dir = 8
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/horizon/maintenance/deck_two/fore/port)
 "hne" = (
@@ -32538,16 +32533,17 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "qnl" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -40785,10 +40781,9 @@
 "urP" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/port)
 "usd" = (
@@ -43960,21 +43955,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "vTN" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/lattice,
-/obj/structure/railing/mapped,
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/simulated/open,
+/turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/port)
 "vTP" = (
 /obj/structure/lattice,
