@@ -1160,9 +1160,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_two/fore)
 "ayv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
@@ -1174,8 +1171,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -5495,11 +5492,11 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
+/obj/structure/closet/secure_closet/custodial,
+/obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/newscaster{
 	pixel_y = -32
 	},
-/obj/structure/closet/secure_closet/custodial,
-/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "cJU" = (
@@ -7247,17 +7244,21 @@
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 4
 	},
-/obj/machinery/light/small,
-/obj/structure/janitorialcart/full,
-/obj/item/reagent_containers/glass/bucket,
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = 12
+/obj/machinery/alarm{
+	pixel_x = 28;
+	dir = 8
+	},
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
 /obj/structure/reagent_dispensers/peppertank/spacecleaner{
 	pixel_y = -32
 	},
-/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "dCK" = (
@@ -9964,13 +9965,18 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
-/obj/structure/closet/crate/trashcart,
-/obj/machinery/disposal/small/north,
-/obj/structure/disposalpipe/trunk{
+/obj/structure/table/steel,
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Auxiliary Custodial Closet";
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/custodial,
-/obj/machinery/firealarm/south,
+/obj/item/storage/box/lights/mixed,
+/obj/machinery/requests_console{
+	department = "Custodial";
+	departmentType = 1;
+	name = "\improper Custodial Requests Console";
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "fan" = (
@@ -17091,7 +17097,7 @@
 	pixel_x = -27
 	},
 /obj/machinery/light/small{
-	dir = 1
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
@@ -19407,8 +19413,7 @@
 /area/horizon/crew_quarters/lounge/bar)
 "jCL" = (
 /obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -23233,8 +23238,6 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/obj/structure/table/steel,
-/obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "lJp" = (
@@ -23807,13 +23810,18 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "lWg" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/machinery/door/blast/shutters{
-	id = "shutters_deck2_auxcustwindow";
-	name = "Window Shutter"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/custodial/auxiliary)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled/full,
+/area/hallway/primary/central_two)
 "lWB" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -28944,13 +28952,13 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "ozz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_auxcustwindow";
+	name = "Window Shutter";
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial/auxiliary)
 "ozE" = (
 /obj/structure/cable/green{
@@ -29421,13 +29429,13 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/obj/machinery/light_switch{
-	dir = 8;
-	pixel_x = 24;
-	pixel_y = -23
+/obj/structure/closet/crate/trashcart,
+/obj/machinery/disposal/small/west,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
@@ -30410,26 +30418,24 @@
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 1
 	},
+/obj/machinery/light_switch{
+	pixel_x = -9;
+	pixel_y = 24
+	},
+/obj/structure/janitorialcart/full{
+	dir = 4
+	},
+/obj/item/reagent_containers/glass/bucket,
+/obj/structure/sink{
+	dir = 1;
+	pixel_y = 26;
+	pixel_x = 8
+	},
+/obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/light/small{
-	dir = 1
+	dir = 4
 	},
-/obj/structure/table/steel,
-/obj/item/storage/toolbox/mechanical,
-/obj/machinery/camera/network/service{
-	c_tag = "Service - Auxiliary Custodial Closet";
-	dir = 8
-	},
-/obj/machinery/requests_console{
-	department = "Custodial";
-	departmentType = 1;
-	name = "\improper Custodial Requests Console";
-	pixel_y = 32
-	},
-/obj/machinery/alarm{
-	pixel_x = 28;
-	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "piY" = (
@@ -36146,19 +36152,20 @@
 /area/engineering/storage/tech)
 "rYM" = (
 /obj/effect/floor_decal/corner/purple/full,
-/obj/machinery/light/small,
-/obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
-	pixel_y = -24;
-	dir = 1
-	},
 /obj/structure/closet/l3closet/janitor,
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/power/apc{
 	dir = 8;
 	pixel_x = -24
 	},
-/obj/structure/cable/green,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/item/device/radio/intercom{
+	name = "Station Intercom (General)";
+	pixel_y = -24;
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "rYW" = (
@@ -67422,7 +67429,7 @@ fOp
 fOp
 jrH
 hEF
-hBL
+lWg
 lcy
 wMP
 wMP
@@ -67830,7 +67837,7 @@ sbI
 vXs
 oWm
 iKF
-ozz
+jCL
 cJI
 wMP
 obi
@@ -68030,7 +68037,7 @@ uyd
 hEF
 luo
 fyH
-lWg
+mDa
 lJi
 jCL
 fak
@@ -68436,7 +68443,7 @@ luo
 uGv
 wMP
 wMP
-mDa
+ozz
 wMP
 wMP
 bGH
