@@ -1163,15 +1163,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
@@ -1179,6 +1170,15 @@
 	dir = 4;
 	pixel_x = -24;
 	pixel_y = 23
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
@@ -5492,17 +5492,14 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "cJI" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
-/obj/item/storage/box/lights/mixed,
-/obj/machinery/requests_console{
-	department = "Custodial";
-	departmentType = 1;
-	name = "\improper Custodial Requests Console";
+/obj/machinery/newscaster{
 	pixel_y = -32
 	},
+/obj/structure/closet/secure_closet/custodial,
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "cJU" = (
@@ -7247,13 +7244,18 @@
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
 "dCa" = (
-/obj/structure/closet/l3closet/janitor,
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_x = 28;
-	dir = 8
+/obj/machinery/light/small,
+/obj/structure/janitorialcart/full,
+/obj/item/reagent_containers/glass/bucket,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/structure/reagent_dispensers/peppertank/spacecleaner{
+	pixel_y = -32
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
@@ -9959,17 +9961,16 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "fak" = (
-/obj/machinery/disposal/small/north,
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
+/obj/structure/closet/crate/trashcart,
+/obj/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/obj/structure/closet/crate/trashcart,
-/obj/machinery/newscaster{
-	pixel_y = -32
-	},
+/obj/effect/floor_decal/industrial/outline/custodial,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "fan" = (
@@ -12737,6 +12738,11 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/south,
+/obj/item/device/radio/intercom{
+	name = "Station Intercom (General)";
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "goC" = (
@@ -17076,9 +17082,18 @@
 	pixel_y = 8
 	},
 /obj/item/device/hand_labeler,
-/obj/machinery/light/small{
-	dir = 8
+/obj/machinery/ringer{
+	department = "Auxiliary Custodial";
+	id = "ringers_custodialaux";
+	name = "\improper Auxiliary Custodial Ringer Terminal";
+	req_access = list(26);
+	pixel_y = 5;
+	pixel_x = -27
 	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "iwF" = (
@@ -17634,6 +17649,13 @@
 	id = "shutters_deck2_auxcustdesk";
 	name = "Auxiliary Custodial Closet Desk Shutter";
 	pixel_x = -25;
+	pixel_y = 25;
+	req_access = list(26)
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "shutters_deck2_auxcustwindow";
+	name = "Auxiliary Custodial Closet Window Shutter";
+	pixel_x = -36;
 	pixel_y = 25;
 	req_access = list(26)
 	},
@@ -19388,11 +19410,8 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
@@ -23214,6 +23233,8 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
+/obj/structure/table/steel,
+/obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "lJp" = (
@@ -23786,11 +23807,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "lWg" = (
-/obj/machinery/door/airlock/service{
-	name = "Auxiliary Custodial Closet";
-	req_access = list(26)
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_auxcustwindow";
+	name = "Window Shutter"
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial/auxiliary)
 "lWB" = (
 /obj/effect/floor_decal/corner/green{
@@ -24995,6 +25017,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
+"mDa" = (
+/obj/machinery/door/airlock/service{
+	name = "Auxiliary Custodial Closet";
+	req_access = list(26)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/full,
+/area/horizon/custodial/auxiliary)
 "mDh" = (
 /obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/reinforced,
@@ -28914,17 +28944,11 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "ozz" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
@@ -29394,24 +29418,16 @@
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "oKH" = (
-/obj/structure/closet/secure_closet/custodial,
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 24
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = 24;
+	pixel_y = -23
 	},
-/obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/obj/machinery/camera/network/service{
-	c_tag = "Service - Auxiliary Custodial Closet";
-	dir = 8
-	},
-/obj/machinery/light/small{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
@@ -29811,8 +29827,9 @@
 	},
 /obj/machinery/door/blast/shutters{
 	id = "shutters_deck2_auxcustdesk";
-	name = "Auxiliary Custodial Closet Desk Shutter"
+	name = "Desk Shutter"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial/auxiliary)
 "oWu" = (
@@ -30393,30 +30410,26 @@
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 1
 	},
-/obj/structure/reagent_dispensers/peppertank/spacecleaner{
-	pixel_x = 32
+/obj/machinery/light/small{
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/janitorialcart/full{
-	dir = 4
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical,
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Auxiliary Custodial Closet";
+	dir = 8
 	},
-/obj/structure/sink/kitchen{
-	dir = 8;
-	pixel_x = 20
+/obj/machinery/requests_console{
+	department = "Custodial";
+	departmentType = 1;
+	name = "\improper Custodial Requests Console";
+	pixel_y = 32
 	},
-/obj/item/reagent_containers/glass/bucket,
-/obj/machinery/light_switch{
-	pixel_x = -9;
-	pixel_y = 24
+/obj/machinery/alarm{
+	pixel_x = 28;
+	dir = 8
 	},
-/obj/machinery/ringer{
-	department = "Auxiliary Custodial";
-	id = "ringers_custodialaux";
-	name = "\improper Auxiliary Custodial Ringer Terminal";
-	pixel_x = 5;
-	req_access = list(26);
-	pixel_y = 28
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "piY" = (
@@ -36132,18 +36145,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "rYM" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/corner/purple/full,
-/obj/item/storage/toolbox/mechanical,
-/obj/machinery/firealarm/west,
+/obj/machinery/light/small,
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_y = -24;
 	dir = 1
 	},
-/obj/machinery/light/small{
-	dir = 8
+/obj/structure/closet/l3closet/janitor,
+/obj/effect/floor_decal/industrial/outline/custodial,
+/obj/machinery/power/apc{
+	dir = 8;
+	pixel_x = -24
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "rYW" = (
@@ -42877,6 +42892,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/horizon/custodial/auxiliary)
 "vwc" = (
@@ -68420,7 +68436,7 @@ luo
 uGv
 wMP
 wMP
-wMP
+mDa
 wMP
 wMP
 bGH
