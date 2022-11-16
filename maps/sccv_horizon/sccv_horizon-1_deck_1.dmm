@@ -24767,6 +24767,9 @@
 /area/hangar/operations)
 "tNx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "tPr" = (
@@ -27887,7 +27890,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
 	name = "Hangar";
-	req_one_access = list(12, 26)
+	req_one_access = list(12,26)
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
