@@ -439,7 +439,7 @@
 		if(usr)
 			viewing_overmap(usr) ? unlook(usr) : look(usr)
 
-/obj/machinery/computer/overmap/targeting/proc/copy_entrypoints(var/z_level_filter = 0)
+/obj/machinery/computer/ship/targeting/proc/copy_entrypoints(var/z_level_filter = 0)
 	. = list()
 	if(istype(connected.targeting, /obj/effect/overmap/visitable))
 		var/obj/effect/overmap/visitable/V = linked.targeting
