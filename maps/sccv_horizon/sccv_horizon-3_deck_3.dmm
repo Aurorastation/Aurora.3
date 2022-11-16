@@ -2546,6 +2546,14 @@
 	req_access = list(63)
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Security Lockdown";
+	name = "Security Blast Door";
+	opacity = 0;
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/security_starboard)
 "cfB" = (
@@ -11766,14 +11774,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0;
-	dir = 8
-	},
 /turf/simulated/floor/tiled/full,
 /area/security/investigations)
 "jJH" = (
@@ -15270,9 +15270,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "mkC" = (
@@ -15479,6 +15476,9 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "mtE" = (
@@ -22018,6 +22018,13 @@
 "rRe" = (
 /obj/item/material/shard,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/power/apc{
+	dir = 4;
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "rRk" = (
@@ -27471,20 +27478,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/hallway)
-"vTb" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc{
-	pixel_y = 24;
-	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor,
-/area/maintenance/security_starboard)
 "vTx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -54959,7 +54952,7 @@ rtu
 apJ
 mbV
 qgA
-vTb
+bXZ
 ofl
 ofl
 ofl

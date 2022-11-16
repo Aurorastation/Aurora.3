@@ -159,6 +159,14 @@
 /area/engineering/locker_room)
 "acz" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Security Lockdown";
+	name = "Security Blast Door";
+	opacity = 0;
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/lobby)
 "acA" = (
@@ -3499,7 +3507,7 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/port/far)
 "bDo" = (
-/turf/simulated/wall,
+/turf/simulated/wall/r_wall,
 /area/security/lobby)
 "bDv" = (
 /obj/machinery/camera/network/research{
@@ -5817,14 +5825,11 @@
 /obj/structure/cable/green{
 	icon_state = "12-0"
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
-/area/maintenance/wing/port)
+/area/maintenance/security_starboard)
 "cRs" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -7803,6 +7808,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled,
 /area/security/brig/processing)
 "dQZ" = (
@@ -10499,8 +10505,8 @@
 /turf/simulated/wall,
 /area/engineering/atmos/storage)
 "fns" = (
-/obj/structure/reagent_dispensers/watertank,
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "fnP" = (
@@ -10534,6 +10540,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
+/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled,
 /area/security/brig/processing_secondary)
 "fpQ" = (
@@ -13846,16 +13853,17 @@
 /area/maintenance/wing/starboard/far)
 "gKt" = (
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	name = "Security Maintenance";
+	req_access = list(63)
+	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
-	opacity = 0
-	},
-/obj/machinery/door/airlock/maintenance{
-	name = "Security Maintenance";
-	req_access = list(63)
+	opacity = 0;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
 /area/security/brig)
@@ -15044,10 +15052,8 @@
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
 "hps" = (
-/obj/structure/reagent_dispensers/extinguisher,
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port)
+/turf/simulated/wall/r_wall,
+/area/security/investigations)
 "hpw" = (
 /obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - SMES Room 1";
@@ -16679,10 +16685,23 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard)
 "ijc" = (
-/obj/structure/trash_pile,
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port)
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Security Maintenance";
+	req_access = list(63)
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Security Lockdown";
+	name = "Security Blast Door";
+	opacity = 0;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/maintenance/security_starboard)
 "iji" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
@@ -18248,6 +18267,11 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/turret_protected/ai)
+"iYf" = (
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/full,
+/area/maintenance/wing/port)
 "iYn" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
@@ -19941,6 +19965,14 @@
 	name = "Security Lobby"
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Security Lockdown";
+	name = "Security Blast Door";
+	opacity = 0;
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/security/lobby)
 "jNd" = (
@@ -20595,6 +20627,9 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/horizon/crew_quarters/lounge/bar)
+"keZ" = (
+/turf/simulated/wall,
+/area/security/brig)
 "kfE" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -20803,6 +20838,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"kjO" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "kkb" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
@@ -21739,10 +21779,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
 "kQA" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance_hatch,
-/turf/simulated/floor/tiled/full,
-/area/maintenance/wing/port)
+/turf/simulated/wall,
+/area/security/brig/processing)
 "kQS" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -21917,13 +21955,6 @@
 /area/template_noop)
 "kUp" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
-	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Security Maintenance";
 	req_access = list(63)
@@ -21939,6 +21970,14 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Security Lockdown";
+	name = "Security Blast Door";
+	opacity = 0;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
 /area/security/brig)
@@ -24262,14 +24301,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
-	},
 /obj/machinery/door/airlock/glass_security{
 	id_tag = "BrigFoyer";
 	name = "Security Wing";
@@ -24848,8 +24879,11 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
-/area/maintenance/wing/port)
+/area/maintenance/security_starboard)
 "msO" = (
 /obj/machinery/recharger/wallcharger{
 	layer = 3.3;
@@ -31139,8 +31173,8 @@
 /turf/simulated/floor/tiled/full,
 /area/engineering/engine_airlock)
 "pyV" = (
-/obj/random/junk,
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "pzc" = (
@@ -34392,7 +34426,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/wing/port)
+/area/maintenance/security_starboard)
 "reZ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -42119,7 +42153,7 @@
 "uUR" = (
 /obj/structure/trash_pile,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
@@ -43282,14 +43316,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Security Maintenance";
@@ -43298,7 +43324,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/full,
-/area/maintenance/wing/port)
+/area/maintenance/security_starboard)
 "vCQ" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -43971,12 +43997,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "vRt" = (
-/obj/structure/closet,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port)
+/turf/simulated/wall,
+/area/security/security_office)
 "vRT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
@@ -45523,9 +45545,8 @@
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "wAm" = (
-/obj/structure/lattice/catwalk/indoor/grate/damaged,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port)
+/turf/simulated/wall/r_wall,
+/area/maintenance/security_starboard)
 "wAT" = (
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -48182,9 +48203,11 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/research_port)
 "xNJ" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm{
 	pixel_y = 28
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
@@ -72014,7 +72037,7 @@ dLu
 pTQ
 txW
 lZu
-vsS
+keZ
 jOv
 wvn
 efA
@@ -72822,7 +72845,7 @@ gny
 dkp
 tWx
 mLN
-nxz
+vRt
 fLB
 rBL
 efA
@@ -73828,11 +73851,11 @@ nfs
 uoU
 cHM
 ibU
-ibU
-ibU
-ibU
-ibU
-vsS
+kQA
+kQA
+kQA
+kQA
+keZ
 eIt
 iye
 blC
@@ -74033,7 +74056,7 @@ ibU
 dLe
 dQR
 bkn
-ibU
+kQA
 lFP
 feO
 tue
@@ -75238,9 +75261,9 @@ dYe
 dzI
 uxf
 uTr
-wsW
-mDi
-wsW
+kjO
+kaT
+mia
 vNG
 xMV
 fpj
@@ -75440,10 +75463,10 @@ xQg
 twc
 drw
 uTr
-ijc
-wAm
-sGm
-sEk
+wsW
+mDi
+hps
+vNG
 sEk
 sEk
 sEk
@@ -75644,7 +75667,7 @@ kGX
 kGX
 pyV
 kaT
-sGm
+hps
 elh
 qPI
 kOz
@@ -75846,7 +75869,7 @@ rgR
 kGX
 fns
 kaT
-sGm
+hps
 elh
 qPI
 aAp
@@ -76046,9 +76069,9 @@ cdv
 nOJ
 smn
 kGX
+wsW
+iYf
 hps
-kaT
-sGm
 sGm
 sGm
 sGm
@@ -76248,9 +76271,9 @@ cdv
 sHY
 smn
 kGX
-wsW
-kQA
-wsW
+wUS
+kaT
+wAm
 cRr
 mst
 reL
@@ -76452,10 +76475,10 @@ vLu
 kGX
 xNJ
 kaT
-kaT
-kaT
-kaT
-uXV
+wAm
+wAm
+wAm
+ijc
 vsS
 jUq
 mvM
@@ -76653,8 +76676,8 @@ kGX
 kGX
 kGX
 kaT
-vRt
-wsW
+kaT
+kaT
 kaT
 kaT
 uUz
