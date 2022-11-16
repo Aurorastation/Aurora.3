@@ -8,7 +8,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "ah" = (
@@ -27,7 +27,7 @@
 	},
 /obj/machinery/atmospherics/pipe/tank,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "ao" = (
@@ -36,7 +36,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "ax" = (
@@ -45,13 +45,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "ay" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "aB" = (
@@ -90,7 +90,7 @@
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "aD" = (
@@ -98,19 +98,19 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "aF" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "aM" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "aP" = (
@@ -121,7 +121,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "aQ" = (
@@ -140,13 +140,13 @@
 	},
 /obj/machinery/power/terminal,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "aX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "aY" = (
@@ -155,7 +155,7 @@
 	name = "waste canister"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "aZ" = (
@@ -166,7 +166,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "ba" = (
@@ -183,7 +183,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "bg" = (
@@ -194,7 +194,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "bi" = (
@@ -203,7 +203,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "bj" = (
@@ -216,7 +216,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "bo" = (
@@ -234,7 +234,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "bq" = (
@@ -242,7 +242,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "bs" = (
@@ -254,7 +254,7 @@
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "bt" = (
@@ -263,7 +263,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "bw" = (
@@ -278,7 +278,7 @@
 /obj/machinery/iff_beacon,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "bC" = (
@@ -286,12 +286,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "bD" = (
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "bF" = (
@@ -303,7 +303,7 @@
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "bG" = (
@@ -319,7 +319,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "bK" = (
@@ -332,7 +332,7 @@
 "bL" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "bO" = (
@@ -343,7 +343,7 @@
 	},
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "bP" = (
@@ -351,7 +351,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "bS" = (
@@ -367,7 +367,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "bV" = (
@@ -378,7 +378,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "bW" = (
@@ -386,13 +386,13 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "bX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "bZ" = (
@@ -400,7 +400,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "ch" = (
@@ -412,7 +412,7 @@
 	},
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "ck" = (
@@ -426,7 +426,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "cm" = (
@@ -438,7 +438,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "co" = (
@@ -459,7 +459,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "cr" = (
@@ -467,13 +467,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "cs" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "cu" = (
@@ -491,7 +491,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "cw" = (
@@ -501,7 +501,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "cy" = (
@@ -518,7 +518,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "cE" = (
@@ -547,7 +547,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "cJ" = (
@@ -565,14 +565,14 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "cT" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "cZ" = (
@@ -583,7 +583,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "dc" = (
@@ -591,7 +591,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "df" = (
@@ -602,12 +602,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "dg" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "di" = (
@@ -617,7 +617,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "dk" = (
@@ -632,12 +632,12 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "dr" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "dt" = (
@@ -657,7 +657,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "dw" = (
@@ -701,7 +701,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "dD" = (
@@ -717,13 +717,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "dI" = (
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "dJ" = (
@@ -735,7 +735,7 @@
 "dK" = (
 /obj/effect/floor_decal/corner/red,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "dN" = (
@@ -747,7 +747,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "dP" = (
@@ -767,13 +767,13 @@
 /area/peoples_station/visitor)
 "dR" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "dU" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "dW" = (
@@ -789,7 +789,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "dX" = (
@@ -797,7 +797,7 @@
 /obj/item/mop,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "dY" = (
@@ -806,7 +806,7 @@
 	anchored = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "dZ" = (
@@ -820,7 +820,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "ed" = (
@@ -839,7 +839,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "ee" = (
@@ -847,7 +847,7 @@
 /obj/machinery/light,
 /obj/structure/cable/green,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "eh" = (
@@ -887,7 +887,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "er" = (
@@ -898,12 +898,12 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
 "eu" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "ey" = (
@@ -912,7 +912,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "eB" = (
@@ -920,13 +920,13 @@
 /obj/item/material/ashtray/bronze,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra,
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "eC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "eH" = (
@@ -946,7 +946,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "eM" = (
@@ -957,7 +957,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "eO" = (
@@ -973,7 +973,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "eQ" = (
@@ -992,7 +992,7 @@
 /obj/structure/table/steel,
 /obj/machinery/door/window/brigdoor/westleft,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "eS" = (
@@ -1012,7 +1012,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "eX" = (
@@ -1026,7 +1026,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "eY" = (
@@ -1037,7 +1037,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "eZ" = (
@@ -1045,7 +1045,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "fa" = (
@@ -1059,7 +1059,7 @@
 	},
 /mob/living/simple_animal/hostile/republicon,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "fb" = (
@@ -1070,7 +1070,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "fe" = (
@@ -1090,7 +1090,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "fg" = (
@@ -1105,7 +1105,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "fi" = (
@@ -1119,14 +1119,14 @@
 	},
 /mob/living/simple_animal/hostile/republicon/ranged,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "fq" = (
 /obj/structure/table/steel,
 /obj/item/device/multitool,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "fs" = (
@@ -1136,7 +1136,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "fv" = (
@@ -1148,7 +1148,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "fy" = (
@@ -1163,7 +1163,7 @@
 	},
 /obj/machinery/porta_turret/ballistic,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "fB" = (
@@ -1174,7 +1174,7 @@
 /obj/item/clothing/head/helmet/tank/olive,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "fC" = (
@@ -1188,13 +1188,13 @@
 	},
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "fD" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "fE" = (
@@ -1215,7 +1215,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "fH" = (
@@ -1234,13 +1234,13 @@
 	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "fK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "fM" = (
@@ -1251,7 +1251,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "fQ" = (
@@ -1262,13 +1262,13 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "fS" = (
 /obj/effect/shuttle_landmark/nav_peoples_station/dockintrepid,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "fY" = (
@@ -1281,7 +1281,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "fZ" = (
@@ -1294,7 +1294,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "gc" = (
@@ -1304,7 +1304,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "ge" = (
@@ -1313,13 +1313,13 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "gl" = (
 /obj/machinery/light,
 /turf/simulated/floor/reinforced{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "gn" = (
@@ -1328,7 +1328,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "gr" = (
@@ -1336,7 +1336,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "gs" = (
@@ -1345,7 +1345,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "gD" = (
@@ -1358,7 +1358,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "gJ" = (
@@ -1366,7 +1366,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "gN" = (
@@ -1383,7 +1383,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "gQ" = (
@@ -1392,7 +1392,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "gU" = (
@@ -1413,7 +1413,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "gV" = (
@@ -1427,7 +1427,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "gW" = (
@@ -1435,13 +1435,13 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "gX" = (
 /obj/machinery/computer/ship/targeting,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "gY" = (
@@ -1459,7 +1459,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "gZ" = (
@@ -1475,7 +1475,7 @@
 	tag_door = "fang_hatch"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "hc" = (
@@ -1504,7 +1504,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "hl" = (
@@ -1512,14 +1512,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "hn" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "hp" = (
@@ -1530,7 +1530,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "hs" = (
@@ -1548,7 +1548,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
 "hv" = (
@@ -1559,7 +1559,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "hw" = (
@@ -1567,7 +1567,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "hz" = (
@@ -1576,7 +1576,7 @@
 "hE" = (
 /obj/effect/shuttle_landmark/nav_peoples_station/nav1,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "hH" = (
@@ -1585,7 +1585,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "hJ" = (
@@ -1602,13 +1602,13 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "hZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "ic" = (
@@ -1619,7 +1619,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "id" = (
@@ -1638,7 +1638,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "ig" = (
@@ -1646,7 +1646,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "ik" = (
@@ -1655,7 +1655,7 @@
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "ip" = (
@@ -1665,7 +1665,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "ir" = (
@@ -1676,7 +1676,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "is" = (
@@ -1685,7 +1685,7 @@
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "iv" = (
@@ -1694,12 +1694,12 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "iw" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "iy" = (
@@ -1707,14 +1707,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "iz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /obj/machinery/meter,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "iB" = (
@@ -1726,13 +1726,13 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "iD" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "iE" = (
@@ -1741,7 +1741,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "iF" = (
@@ -1749,7 +1749,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "iI" = (
@@ -1773,7 +1773,7 @@
 	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "iO" = (
@@ -1782,7 +1782,7 @@
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "iR" = (
@@ -1802,7 +1802,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "iT" = (
@@ -1819,7 +1819,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "ja" = (
@@ -1828,7 +1828,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "jg" = (
@@ -1843,7 +1843,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "jj" = (
@@ -1852,7 +1852,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "jl" = (
@@ -1862,14 +1862,14 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "jn" = (
 /obj/machinery/appliance/cooker/grill,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "jo" = (
@@ -1878,7 +1878,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "js" = (
@@ -1886,7 +1886,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "jt" = (
@@ -1902,7 +1902,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "jv" = (
@@ -1917,7 +1917,7 @@
 /obj/item/storage/box/fancy/cigarettes/pra,
 /obj/item/storage/box/fancy/cigarettes/pra,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "jw" = (
@@ -1926,7 +1926,7 @@
 	},
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "jH" = (
@@ -1935,7 +1935,7 @@
 	name = "igs - peoples_station_crew"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "jL" = (
@@ -1950,7 +1950,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "jM" = (
@@ -1967,7 +1967,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "jN" = (
@@ -1986,7 +1986,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "jO" = (
@@ -2007,13 +2007,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "jR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "jU" = (
@@ -2027,13 +2027,13 @@
 /area/peoples_station/visitor)
 "jZ" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "kb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "kc" = (
@@ -2044,7 +2044,7 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "kd" = (
@@ -2057,7 +2057,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "kg" = (
@@ -2069,13 +2069,13 @@
 	},
 /obj/machinery/porta_turret/ballistic,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "kh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "kk" = (
@@ -2083,7 +2083,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "ko" = (
@@ -2092,7 +2092,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "kp" = (
@@ -2109,7 +2109,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "kq" = (
@@ -2129,7 +2129,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "ku" = (
@@ -2164,7 +2164,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "kB" = (
@@ -2178,7 +2178,7 @@
 	},
 /obj/effect/shuttle_landmark/peoples_station_fang/hangar,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "kC" = (
@@ -2195,7 +2195,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "kD" = (
@@ -2204,13 +2204,13 @@
 	name = "pump to waste"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "kE" = (
 /obj/effect/floor_decal/corner_wide/black,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "kG" = (
@@ -2230,7 +2230,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "kH" = (
@@ -2248,7 +2248,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/item/holomenu,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "kQ" = (
@@ -2261,7 +2261,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "kS" = (
@@ -2269,7 +2269,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "kT" = (
@@ -2290,7 +2290,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "kW" = (
@@ -2306,7 +2306,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "kX" = (
@@ -2315,7 +2315,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "kY" = (
@@ -2341,7 +2341,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "lf" = (
@@ -2353,7 +2353,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "lg" = (
@@ -2369,7 +2369,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "ll" = (
@@ -2380,7 +2380,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "lq" = (
@@ -2389,7 +2389,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "ls" = (
@@ -2397,7 +2397,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "lt" = (
@@ -2415,7 +2415,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "lu" = (
@@ -2429,13 +2429,13 @@
 	target_pressure = 250
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "lw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "lx" = (
@@ -2443,7 +2443,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "ly" = (
@@ -2454,7 +2454,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "lA" = (
@@ -2464,7 +2464,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "lG" = (
@@ -2485,13 +2485,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "lH" = (
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "lI" = (
@@ -2499,7 +2499,7 @@
 /area/peoples_station/hangar)
 "lJ" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
 "lO" = (
@@ -2512,7 +2512,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "lS" = (
@@ -2520,7 +2520,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "md" = (
@@ -2532,7 +2532,7 @@
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "me" = (
@@ -2543,13 +2543,13 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "mh" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "ml" = (
@@ -2567,7 +2567,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "mp" = (
@@ -2587,7 +2587,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "mt" = (
@@ -2604,7 +2604,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "mw" = (
@@ -2623,7 +2623,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "mF" = (
@@ -2632,7 +2632,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "mH" = (
@@ -2650,7 +2650,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "mK" = (
@@ -2658,7 +2658,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "mL" = (
@@ -2666,13 +2666,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
 "mN" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "mO" = (
@@ -2682,7 +2682,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "mR" = (
@@ -2691,7 +2691,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "mS" = (
@@ -2710,7 +2710,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "nf" = (
@@ -2725,7 +2725,7 @@
 /obj/item/stack/material/wood/full,
 /obj/item/storage/box/lights/bulbs,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "nj" = (
@@ -2739,7 +2739,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "nm" = (
@@ -2748,7 +2748,7 @@
 	},
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "no" = (
@@ -2766,12 +2766,12 @@
 /obj/item/paper_bin,
 /obj/item/pen/fountain,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "nz" = (
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "nC" = (
@@ -2781,7 +2781,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "nF" = (
@@ -2795,7 +2795,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "nI" = (
@@ -2804,7 +2804,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "nL" = (
@@ -2815,7 +2815,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "nO" = (
@@ -2831,7 +2831,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "nR" = (
@@ -2842,7 +2842,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "nU" = (
@@ -2857,7 +2857,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "nY" = (
@@ -2871,7 +2871,7 @@
 	icon_state = "pdoor0"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "nZ" = (
@@ -2881,7 +2881,7 @@
 /obj/machinery/media/jukebox/phonograph,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "oc" = (
@@ -2889,7 +2889,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "of" = (
@@ -2902,7 +2902,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "os" = (
@@ -2910,7 +2910,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "ot" = (
@@ -2919,7 +2919,7 @@
 	target_pressure = 250
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "ow" = (
@@ -2930,7 +2930,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "ox" = (
@@ -2969,7 +2969,7 @@
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/merc,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "oB" = (
@@ -2980,7 +2980,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "oE" = (
@@ -2998,7 +2998,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "oJ" = (
@@ -3014,7 +3014,7 @@
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "oL" = (
@@ -3031,7 +3031,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "oO" = (
@@ -3043,13 +3043,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "oU" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "oV" = (
@@ -3057,7 +3057,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "oW" = (
@@ -3073,7 +3073,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "pe" = (
@@ -3084,7 +3084,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "pg" = (
@@ -3099,7 +3099,7 @@
 	},
 /obj/machinery/porta_turret/ballistic,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "pi" = (
@@ -3114,7 +3114,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "pp" = (
@@ -3136,7 +3136,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "pw" = (
@@ -3152,7 +3152,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "px" = (
@@ -3169,7 +3169,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "py" = (
@@ -3181,13 +3181,13 @@
 /obj/item/reagent_containers/toothbrush/red,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "pz" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "pA" = (
@@ -3198,7 +3198,7 @@
 /obj/item/target,
 /obj/item/target,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "pB" = (
@@ -3206,7 +3206,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "pF" = (
@@ -3217,7 +3217,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "pL" = (
@@ -3237,7 +3237,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "pP" = (
@@ -3247,7 +3247,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "pW" = (
@@ -3260,13 +3260,13 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "pZ" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "qa" = (
@@ -3275,7 +3275,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "qc" = (
@@ -3283,7 +3283,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "qd" = (
@@ -3292,7 +3292,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "qg" = (
@@ -3308,7 +3308,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "qh" = (
@@ -3316,7 +3316,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "qo" = (
@@ -3324,7 +3324,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "qq" = (
@@ -3342,7 +3342,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "qw" = (
@@ -3357,7 +3357,7 @@
 "qB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "qC" = (
@@ -3369,7 +3369,7 @@
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "qH" = (
@@ -3379,14 +3379,14 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "qI" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "qK" = (
@@ -3396,7 +3396,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "qL" = (
@@ -3404,7 +3404,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "qS" = (
@@ -3412,7 +3412,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "qT" = (
@@ -3427,14 +3427,14 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "qV" = (
 /obj/structure/foamedmetal,
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "rb" = (
@@ -3453,7 +3453,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "rj" = (
@@ -3480,7 +3480,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "rl" = (
@@ -3492,7 +3492,7 @@
 /area/space)
 "rw" = (
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "rz" = (
@@ -3506,7 +3506,7 @@
 "rA" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "rC" = (
@@ -3522,7 +3522,7 @@
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "rF" = (
@@ -3530,14 +3530,14 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "rG" = (
 /obj/structure/foamedmetal,
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
 "rH" = (
@@ -3562,7 +3562,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "rL" = (
@@ -3579,7 +3579,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "rN" = (
@@ -3589,7 +3589,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "rO" = (
@@ -3601,7 +3601,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "rQ" = (
@@ -3612,7 +3612,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "rS" = (
@@ -3630,7 +3630,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "rW" = (
@@ -3641,7 +3641,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "rY" = (
@@ -3650,7 +3650,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "sa" = (
@@ -3679,7 +3679,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "sd" = (
@@ -3688,7 +3688,7 @@
 	},
 /obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "sf" = (
@@ -3704,7 +3704,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "sk" = (
@@ -3713,7 +3713,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "sm" = (
@@ -3741,7 +3741,7 @@
 "su" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
 "sv" = (
@@ -3758,7 +3758,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "sA" = (
@@ -3777,7 +3777,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "sC" = (
@@ -3790,12 +3790,12 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "sE" = (
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "sH" = (
@@ -3823,7 +3823,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "sU" = (
@@ -3834,7 +3834,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "ta" = (
@@ -3855,7 +3855,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "td" = (
@@ -3869,7 +3869,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "tg" = (
@@ -3885,7 +3885,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "th" = (
@@ -3895,7 +3895,7 @@
 /area/peoples_station/hangar)
 "tk" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "tm" = (
@@ -3911,7 +3911,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "to" = (
@@ -3919,7 +3919,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "tp" = (
@@ -3931,7 +3931,7 @@
 	},
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "tu" = (
@@ -3943,7 +3943,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "tv" = (
@@ -3951,7 +3951,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "tw" = (
@@ -3965,7 +3965,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "tx" = (
@@ -3984,7 +3984,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "tz" = (
@@ -4001,7 +4001,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "tH" = (
@@ -4009,7 +4009,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "tI" = (
@@ -4022,12 +4022,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "tK" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "tM" = (
@@ -4038,7 +4038,7 @@
 "tS" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "tU" = (
@@ -4052,7 +4052,7 @@
 	},
 /obj/item/clothing/accessory/badge/pra_passport,
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "tV" = (
@@ -4060,13 +4060,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "uj" = (
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "um" = (
@@ -4081,7 +4081,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "un" = (
@@ -4107,7 +4107,7 @@
 	},
 /obj/item/storage/toolbox/electrical,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "uz" = (
@@ -4120,14 +4120,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "uC" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "uD" = (
@@ -4135,7 +4135,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "uJ" = (
@@ -4143,7 +4143,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "uL" = (
@@ -4155,7 +4155,7 @@
 	},
 /obj/effect/floor_decal/corner/black,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "uN" = (
@@ -4189,7 +4189,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "uR" = (
@@ -4210,7 +4210,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "uV" = (
@@ -4218,14 +4218,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "uY" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "va" = (
@@ -4238,7 +4238,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "vm" = (
@@ -4255,7 +4255,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "vr" = (
@@ -4270,13 +4270,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "vx" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "vz" = (
@@ -4295,7 +4295,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "vB" = (
@@ -4303,7 +4303,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "vF" = (
@@ -4316,7 +4316,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "vR" = (
@@ -4354,14 +4354,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "vX" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "wb" = (
@@ -4369,7 +4369,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "wc" = (
@@ -4377,7 +4377,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "wd" = (
@@ -4398,7 +4398,7 @@
 "wj" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "wt" = (
@@ -4407,7 +4407,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "wz" = (
@@ -4428,7 +4428,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "wI" = (
@@ -4439,7 +4439,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "wJ" = (
@@ -4448,7 +4448,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "wM" = (
@@ -4458,7 +4458,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "wT" = (
@@ -4468,7 +4468,7 @@
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "wU" = (
@@ -4499,21 +4499,21 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "xb" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "xe" = (
 /obj/machinery/cryopod/living_quarters,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "xf" = (
@@ -4521,7 +4521,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "xh" = (
@@ -4529,7 +4529,7 @@
 /area/shuttle/fang/engine)
 "xi" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "xk" = (
@@ -4551,7 +4551,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "xo" = (
@@ -4567,7 +4567,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "xp" = (
@@ -4583,7 +4583,7 @@
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "xu" = (
@@ -4595,7 +4595,7 @@
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "xA" = (
@@ -4622,7 +4622,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "xB" = (
@@ -4636,7 +4636,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "xF" = (
@@ -4644,14 +4644,14 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "xL" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "xM" = (
@@ -4661,7 +4661,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "xP" = (
@@ -4670,13 +4670,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "xQ" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "xT" = (
@@ -4687,13 +4687,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "xX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "yb" = (
@@ -4708,7 +4708,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "yd" = (
@@ -4723,7 +4723,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "yj" = (
@@ -4739,7 +4739,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
 "yq" = (
@@ -4748,7 +4748,7 @@
 	name = "Restroom"
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "ys" = (
@@ -4756,20 +4756,20 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "yu" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "yv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "yw" = (
@@ -4780,7 +4780,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "yx" = (
@@ -4796,19 +4796,19 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "yz" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "yE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "yF" = (
@@ -4818,7 +4818,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "yJ" = (
@@ -4829,7 +4829,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "yK" = (
@@ -4840,7 +4840,7 @@
 /obj/structure/window/reinforced,
 /obj/machinery/chemical_dispenser/coffeemaster,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "yT" = (
@@ -4852,7 +4852,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "yU" = (
@@ -4876,7 +4876,7 @@
 "yV" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "yY" = (
@@ -4907,7 +4907,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "zc" = (
@@ -4927,13 +4927,13 @@
 /obj/item/device/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "zg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "zh" = (
@@ -4949,7 +4949,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "zj" = (
@@ -4960,7 +4960,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "zk" = (
@@ -4976,7 +4976,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "zl" = (
@@ -4986,7 +4986,7 @@
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "zn" = (
@@ -4999,7 +4999,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "zp" = (
@@ -5013,7 +5013,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "zs" = (
@@ -5021,7 +5021,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "zv" = (
@@ -5032,12 +5032,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "zw" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "zA" = (
@@ -5046,7 +5046,7 @@
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "zB" = (
@@ -5057,7 +5057,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "zH" = (
@@ -5071,13 +5071,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "zI" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "zJ" = (
@@ -5088,7 +5088,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "zP" = (
@@ -5096,7 +5096,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "zU" = (
@@ -5111,7 +5111,7 @@
 	},
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "zV" = (
@@ -5121,7 +5121,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "zX" = (
@@ -5130,7 +5130,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "zY" = (
@@ -5152,7 +5152,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "zZ" = (
@@ -5169,13 +5169,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Ab" = (
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Ae" = (
@@ -5185,7 +5185,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "Ai" = (
@@ -5196,7 +5196,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "Aj" = (
@@ -5206,13 +5206,13 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "Ao" = (
 /obj/effect/floor_decal/corner/red,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Ax" = (
@@ -5227,7 +5227,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "Ay" = (
@@ -5238,7 +5238,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "AB" = (
@@ -5252,7 +5252,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "AD" = (
@@ -5267,7 +5267,7 @@
 	},
 /obj/machinery/porta_turret/ballistic,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "AL" = (
@@ -5279,7 +5279,7 @@
 /obj/effect/floor_decal/corner/red/full,
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "AP" = (
@@ -5293,7 +5293,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "AT" = (
@@ -5304,7 +5304,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "AV" = (
@@ -5315,7 +5315,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Bh" = (
@@ -5339,7 +5339,7 @@
 	},
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "Bj" = (
@@ -5356,7 +5356,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Bq" = (
@@ -5372,7 +5372,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "Br" = (
@@ -5382,7 +5382,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "Bu" = (
@@ -5392,7 +5392,7 @@
 /area/peoples_station/living_quarters)
 "Bx" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "Bz" = (
@@ -5408,7 +5408,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "BE" = (
@@ -5427,7 +5427,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "BF" = (
@@ -5436,7 +5436,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "BJ" = (
@@ -5449,7 +5449,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "BN" = (
@@ -5457,7 +5457,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "BO" = (
@@ -5465,7 +5465,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "BQ" = (
@@ -5473,7 +5473,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "BS" = (
@@ -5481,7 +5481,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "BT" = (
@@ -5489,7 +5489,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "BU" = (
@@ -5498,27 +5498,27 @@
 	start_pressure = 5066.26
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "BZ" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "Ca" = (
 /obj/effect/map_effect/airlock/e_to_w,
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "Cf" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "Ci" = (
@@ -5542,7 +5542,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Cu" = (
@@ -5550,7 +5550,7 @@
 	name = "aft, fang airlock"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "Cx" = (
@@ -5562,7 +5562,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "Cy" = (
@@ -5581,7 +5581,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "Cz" = (
@@ -5589,7 +5589,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "CB" = (
@@ -5601,7 +5601,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "CI" = (
@@ -5615,7 +5615,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "CO" = (
@@ -5633,7 +5633,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "CQ" = (
@@ -5652,7 +5652,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "CR" = (
@@ -5674,7 +5674,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Dc" = (
@@ -5694,7 +5694,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Dk" = (
@@ -5704,7 +5704,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "Dl" = (
@@ -5718,7 +5718,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "Do" = (
@@ -5731,7 +5731,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "Dq" = (
@@ -5742,7 +5742,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Dr" = (
@@ -5760,7 +5760,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Dv" = (
@@ -5769,7 +5769,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "Dx" = (
@@ -5786,7 +5786,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "Dy" = (
@@ -5794,7 +5794,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "Dz" = (
@@ -5802,7 +5802,7 @@
 /obj/effect/floor_decal/corner/orange/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "DA" = (
@@ -5811,7 +5811,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/full,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "DI" = (
@@ -5825,12 +5825,12 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "DJ" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "DK" = (
@@ -5843,7 +5843,7 @@
 "DM" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "DN" = (
@@ -5862,7 +5862,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "DY" = (
@@ -5872,7 +5872,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Eg" = (
@@ -5893,7 +5893,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "Ei" = (
@@ -5903,7 +5903,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "Ej" = (
@@ -5913,7 +5913,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "El" = (
@@ -5923,7 +5923,7 @@
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "En" = (
@@ -5932,7 +5932,7 @@
 	},
 /obj/structure/target_stake,
 /turf/simulated/floor/reinforced{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "Eo" = (
@@ -5941,7 +5941,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "Eq" = (
@@ -5952,7 +5952,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Ey" = (
@@ -5963,13 +5963,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Ez" = (
 /obj/machinery/door/window/brigdoor/westleft,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "EA" = (
@@ -5988,7 +5988,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "EB" = (
@@ -6007,7 +6007,7 @@
 "EI" = (
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "EJ" = (
@@ -6017,7 +6017,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "EN" = (
@@ -6025,7 +6025,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "EU" = (
@@ -6042,7 +6042,7 @@
 /area/peoples_station/hangar)
 "EX" = (
 /turf/simulated/floor/reinforced{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "Fa" = (
@@ -6057,13 +6057,13 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "Fe" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Ff" = (
@@ -6071,7 +6071,7 @@
 /obj/item/clothing/ears/earmuffs,
 /obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "Fs" = (
@@ -6084,7 +6084,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Fv" = (
@@ -6094,7 +6094,7 @@
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "Fx" = (
@@ -6107,7 +6107,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "Fy" = (
@@ -6118,7 +6118,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "FA" = (
@@ -6127,7 +6127,7 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "FC" = (
@@ -6136,7 +6136,7 @@
 	},
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "FF" = (
@@ -6154,7 +6154,7 @@
 	id = "peoples_station_armory"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "FH" = (
@@ -6175,7 +6175,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "FJ" = (
@@ -6184,7 +6184,7 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "FN" = (
@@ -6199,7 +6199,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "FT" = (
@@ -6213,7 +6213,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "Gd" = (
@@ -6231,7 +6231,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "Ge" = (
@@ -6242,7 +6242,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "Gf" = (
@@ -6264,7 +6264,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "Gk" = (
@@ -6273,7 +6273,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Gl" = (
@@ -6281,7 +6281,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "Gn" = (
@@ -6295,7 +6295,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Gq" = (
@@ -6306,7 +6306,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Gw" = (
@@ -6316,13 +6316,13 @@
 "Gz" = (
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "GA" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "GG" = (
@@ -6331,7 +6331,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "GH" = (
@@ -6348,7 +6348,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "GJ" = (
@@ -6356,13 +6356,13 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "GK" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "GL" = (
@@ -6372,7 +6372,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "GM" = (
@@ -6381,7 +6381,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "GT" = (
@@ -6397,13 +6397,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "GU" = (
 /obj/effect/floor_decal/corner/black,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "GY" = (
@@ -6411,7 +6411,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "Hc" = (
@@ -6444,7 +6444,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "Hf" = (
@@ -6453,7 +6453,7 @@
 	name = "Fuel Tank to Thrusters"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "Hg" = (
@@ -6465,7 +6465,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "Hh" = (
@@ -6476,7 +6476,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Hj" = (
@@ -6492,7 +6492,7 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Hn" = (
@@ -6503,7 +6503,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "Hp" = (
@@ -6513,7 +6513,7 @@
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Hr" = (
@@ -6530,7 +6530,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "Hv" = (
@@ -6544,7 +6544,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "HE" = (
@@ -6552,13 +6552,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "HH" = (
 /obj/effect/floor_decal/corner_wide/black/full,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "HI" = (
@@ -6567,28 +6567,28 @@
 	},
 /obj/structure/target_stake,
 /turf/simulated/floor/reinforced{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "HJ" = (
 /obj/structure/table/glass,
 /obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "HK" = (
 /obj/machinery/optable,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "HP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "HR" = (
@@ -6606,7 +6606,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "Ia" = (
@@ -6614,13 +6614,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "Ie" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "Ig" = (
@@ -6629,7 +6629,7 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "Ih" = (
@@ -6637,14 +6637,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "Ii" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Io" = (
@@ -6660,7 +6660,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "Iq" = (
@@ -6673,7 +6673,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "Iu" = (
@@ -6684,7 +6684,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Iz" = (
@@ -6694,7 +6694,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/cups,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "IB" = (
@@ -6705,7 +6705,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "IG" = (
@@ -6722,7 +6722,7 @@
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/bar_alc/full,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "IL" = (
@@ -6733,7 +6733,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "IU" = (
@@ -6744,7 +6744,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "IZ" = (
@@ -6754,7 +6754,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "Jd" = (
@@ -6766,14 +6766,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "Je" = (
 /obj/machinery/power/portgen/basic/advanced,
 /obj/structure/cable/green,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "Ji" = (
@@ -6784,7 +6784,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "Jj" = (
@@ -6800,7 +6800,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "Jn" = (
@@ -6808,7 +6808,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "Jp" = (
@@ -6820,7 +6820,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Jx" = (
@@ -6829,7 +6829,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "Jz" = (
@@ -6840,14 +6840,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "JB" = (
 /obj/structure/table/steel,
 /obj/item/device/binoculars,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "JD" = (
@@ -6855,7 +6855,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "JG" = (
@@ -6871,7 +6871,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "JI" = (
@@ -6881,7 +6881,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "JJ" = (
@@ -6896,7 +6896,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "JK" = (
@@ -6904,7 +6904,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "JL" = (
@@ -6912,7 +6912,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "JN" = (
@@ -6924,7 +6924,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "JO" = (
@@ -6935,7 +6935,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "JQ" = (
@@ -6955,13 +6955,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "JS" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "JX" = (
@@ -6970,7 +6970,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "JZ" = (
@@ -6982,7 +6982,7 @@
 	},
 /obj/machinery/porta_turret/ballistic,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Ka" = (
@@ -7013,7 +7013,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "KB" = (
@@ -7022,7 +7022,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "KG" = (
@@ -7046,7 +7046,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/red,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "KK" = (
@@ -7057,7 +7057,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "KN" = (
@@ -7068,14 +7068,14 @@
 /obj/item/reagent_containers/toothpaste,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "KZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Lb" = (
@@ -7087,13 +7087,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Lc" = (
 /obj/effect/shuttle_landmark/nav_peoples_station/nav2,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Lf" = (
@@ -7102,7 +7102,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Lh" = (
@@ -7110,7 +7110,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Lk" = (
@@ -7131,7 +7131,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "Lq" = (
@@ -7152,7 +7152,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Lv" = (
@@ -7160,7 +7160,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "Lw" = (
@@ -7176,7 +7176,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "LA" = (
@@ -7187,7 +7187,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "LE" = (
@@ -7199,13 +7199,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "LH" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "LI" = (
@@ -7213,7 +7213,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "LK" = (
@@ -7223,7 +7223,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "LT" = (
@@ -7239,7 +7239,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "LW" = (
@@ -7253,7 +7253,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Ma" = (
@@ -7262,7 +7262,7 @@
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Mb" = (
@@ -7271,7 +7271,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Mc" = (
@@ -7293,7 +7293,7 @@
 	name = "igs - peoples_station_crew"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Ml" = (
@@ -7303,7 +7303,7 @@
 /obj/structure/table/wood,
 /obj/item/deck/cards,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "Mr" = (
@@ -7318,12 +7318,12 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Ms" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Mt" = (
@@ -7337,7 +7337,7 @@
 	name = "igs - peoples_station_crew"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "My" = (
@@ -7356,7 +7356,7 @@
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
 "Mz" = (
@@ -7382,7 +7382,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "MJ" = (
@@ -7390,7 +7390,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "MM" = (
@@ -7414,7 +7414,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "MS" = (
@@ -7422,7 +7422,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "MT" = (
@@ -7437,7 +7437,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "MY" = (
@@ -7457,7 +7457,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Ni" = (
@@ -7467,7 +7467,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Nj" = (
@@ -7477,7 +7477,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "No" = (
@@ -7489,7 +7489,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Np" = (
@@ -7508,7 +7508,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Nu" = (
@@ -7516,7 +7516,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "Nv" = (
@@ -7524,7 +7524,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "NE" = (
@@ -7541,7 +7541,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "NH" = (
@@ -7555,7 +7555,7 @@
 "NK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "NL" = (
@@ -7569,7 +7569,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "NU" = (
@@ -7577,7 +7577,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "Od" = (
@@ -7591,7 +7591,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "Oi" = (
@@ -7602,7 +7602,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Oj" = (
@@ -7635,7 +7635,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "Oo" = (
@@ -7652,7 +7652,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Ox" = (
@@ -7660,7 +7660,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "OB" = (
@@ -7668,7 +7668,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "OF" = (
@@ -7676,7 +7676,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "OG" = (
@@ -7684,7 +7684,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "OI" = (
@@ -7693,13 +7693,13 @@
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "OJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "OL" = (
@@ -7707,7 +7707,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "ON" = (
@@ -7729,7 +7729,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "OO" = (
@@ -7743,7 +7743,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "OP" = (
@@ -7755,7 +7755,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "OW" = (
@@ -7763,7 +7763,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "OX" = (
@@ -7772,7 +7772,7 @@
 	},
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "OY" = (
@@ -7781,13 +7781,13 @@
 	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "OZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "Pb" = (
@@ -7795,7 +7795,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "Pd" = (
@@ -7811,12 +7811,12 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "Pe" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "Pg" = (
@@ -7832,7 +7832,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "Pj" = (
@@ -7846,7 +7846,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "Pl" = (
@@ -7857,7 +7857,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "Pp" = (
@@ -7868,26 +7868,26 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "Pq" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "Pu" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "Py" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "PA" = (
@@ -7899,7 +7899,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "PC" = (
@@ -7907,7 +7907,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "PG" = (
@@ -7922,7 +7922,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "PH" = (
@@ -7939,7 +7939,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
 "PM" = (
@@ -7950,7 +7950,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "PN" = (
@@ -7963,12 +7963,12 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
 "PR" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "PT" = (
@@ -7981,7 +7981,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "PU" = (
@@ -7992,7 +7992,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "PV" = (
@@ -8006,12 +8006,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "PX" = (
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "PY" = (
@@ -8025,7 +8025,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Qg" = (
@@ -8036,7 +8036,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "Qh" = (
@@ -8060,7 +8060,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "Qm" = (
@@ -8071,7 +8071,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "Qo" = (
@@ -8079,7 +8079,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "Qz" = (
@@ -8095,7 +8095,7 @@
 	name = "Bridge"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "QC" = (
@@ -8113,7 +8113,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "QG" = (
@@ -8127,7 +8127,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "QJ" = (
@@ -8136,7 +8136,7 @@
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "QK" = (
@@ -8144,7 +8144,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "QN" = (
@@ -8152,7 +8152,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "QQ" = (
@@ -8172,13 +8172,13 @@
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/merc,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "QR" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "QX" = (
@@ -8186,7 +8186,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "Rd" = (
@@ -8197,7 +8197,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Rf" = (
@@ -8213,7 +8213,7 @@
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
 "Rg" = (
@@ -8232,7 +8232,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "Ri" = (
@@ -8241,7 +8241,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "Rk" = (
@@ -8250,7 +8250,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "Rm" = (
@@ -8260,7 +8260,7 @@
 	name = "igs - peoples_station_crew"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Rq" = (
@@ -8271,7 +8271,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Rw" = (
@@ -8280,7 +8280,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "Rx" = (
@@ -8297,13 +8297,13 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Ry" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "RB" = (
@@ -8313,7 +8313,7 @@
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "RC" = (
@@ -8322,7 +8322,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "RF" = (
@@ -8336,7 +8336,7 @@
 	name = "igs - peoples_station_crew"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "RI" = (
@@ -8348,13 +8348,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "RM" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "RO" = (
@@ -8367,7 +8367,7 @@
 /obj/item/stack/cable_coil/random,
 /obj/item/weldingtool/hugetank,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "RQ" = (
@@ -8381,7 +8381,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "RS" = (
@@ -8392,7 +8392,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "RT" = (
@@ -8416,7 +8416,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "Se" = (
@@ -8427,7 +8427,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "Sl" = (
@@ -8439,7 +8439,7 @@
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "So" = (
@@ -8452,7 +8452,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "Sp" = (
@@ -8461,7 +8461,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "Ss" = (
@@ -8475,7 +8475,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "St" = (
@@ -8496,14 +8496,14 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "Sw" = (
 /obj/machinery/pipedispenser/disposal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "SD" = (
@@ -8511,7 +8511,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "SE" = (
@@ -8520,7 +8520,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "SH" = (
@@ -8536,7 +8536,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "SK" = (
@@ -8546,7 +8546,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "SL" = (
@@ -8555,7 +8555,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "SN" = (
@@ -8570,12 +8570,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "SO" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "SQ" = (
@@ -8585,7 +8585,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "ST" = (
@@ -8596,13 +8596,13 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "SU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "SW" = (
@@ -8620,7 +8620,7 @@
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
 "Tc" = (
@@ -8632,7 +8632,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "Tf" = (
@@ -8650,7 +8650,7 @@
 	open_layer = 2.8
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "Th" = (
@@ -8660,7 +8660,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Tl" = (
@@ -8671,7 +8671,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "Tr" = (
@@ -8683,7 +8683,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "Tt" = (
@@ -8711,7 +8711,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "Tw" = (
@@ -8734,7 +8734,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "TB" = (
@@ -8743,7 +8743,7 @@
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "TC" = (
@@ -8771,7 +8771,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "TF" = (
@@ -8788,7 +8788,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "TN" = (
@@ -8814,7 +8814,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "TS" = (
@@ -8825,7 +8825,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "TT" = (
@@ -8846,7 +8846,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "TV" = (
@@ -8857,7 +8857,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "TY" = (
@@ -8874,7 +8874,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "Uc" = (
@@ -8888,7 +8888,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "Ud" = (
@@ -8909,7 +8909,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "Uf" = (
@@ -8921,7 +8921,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Uk" = (
@@ -8932,7 +8932,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Ul" = (
@@ -8949,7 +8949,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "Um" = (
@@ -8963,7 +8963,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Ur" = (
@@ -8971,7 +8971,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "Ux" = (
@@ -8992,7 +8992,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "UF" = (
@@ -9006,7 +9006,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "UH" = (
@@ -9026,7 +9026,7 @@
 "UN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "UO" = (
@@ -9035,13 +9035,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "UP" = (
 /obj/effect/overmap/visitable/sector/peoples_station,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "UQ" = (
@@ -9065,12 +9065,12 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "UW" = (
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "UX" = (
@@ -9081,7 +9081,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "UY" = (
@@ -9089,7 +9089,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "UZ" = (
@@ -9109,7 +9109,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Vb" = (
@@ -9117,7 +9117,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Vc" = (
@@ -9129,7 +9129,7 @@
 /area/peoples_station/mess_hall)
 "Vf" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "Vl" = (
@@ -9137,7 +9137,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Vr" = (
@@ -9147,7 +9147,7 @@
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "Vt" = (
@@ -9159,13 +9159,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "VG" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "VQ" = (
@@ -9176,7 +9176,7 @@
 	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "VT" = (
@@ -9194,12 +9194,12 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/barracks)
 "VV" = (
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "Wf" = (
@@ -9211,7 +9211,7 @@
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "Wi" = (
@@ -9229,21 +9229,21 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "Wm" = (
 /obj/structure/table/standard,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Wn" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
 "Wp" = (
@@ -9259,7 +9259,7 @@
 /obj/item/flame/lighter/adhomai,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Wy" = (
@@ -9274,7 +9274,7 @@
 	},
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "WD" = (
@@ -9288,7 +9288,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "WE" = (
@@ -9305,13 +9305,13 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "WF" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "WG" = (
@@ -9323,7 +9323,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "WK" = (
@@ -9336,7 +9336,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "WM" = (
@@ -9344,7 +9344,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "WO" = (
@@ -9359,7 +9359,7 @@
 	},
 /obj/machinery/porta_turret/ballistic,
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "WT" = (
@@ -9367,14 +9367,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "WV" = (
 /obj/machinery/pipedispenser,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "WY" = (
@@ -9384,7 +9384,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
 "WZ" = (
@@ -9395,7 +9395,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "Xj" = (
@@ -9409,7 +9409,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/solars)
 "Xl" = (
@@ -9420,7 +9420,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "Xo" = (
@@ -9441,7 +9441,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "Xp" = (
@@ -9458,7 +9458,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Xs" = (
@@ -9491,7 +9491,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/bridge)
 "XD" = (
@@ -9521,7 +9521,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "XF" = (
@@ -9543,7 +9543,7 @@
 "XK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/commissar_quarters)
 "XP" = (
@@ -9563,7 +9563,7 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "XR" = (
@@ -9575,7 +9575,7 @@
 	pixel_y = 34
 	},
 /turf/simulated/floor/tiled/freezer{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/restroom)
 "XV" = (
@@ -9591,7 +9591,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "Ye" = (
@@ -9599,7 +9599,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "Yf" = (
@@ -9611,7 +9611,7 @@
 	name = "igs - peoples_station_crew"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "Yj" = (
@@ -9622,14 +9622,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Ym" = (
 /obj/structure/bed/roller,
 /obj/structure/curtain/open/medical,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "Yn" = (
@@ -9643,13 +9643,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Yo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "Yy" = (
@@ -9664,7 +9664,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "YA" = (
@@ -9681,7 +9681,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "YD" = (
@@ -9697,13 +9697,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "YG" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "YI" = (
@@ -9715,7 +9715,7 @@
 	},
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "YM" = (
@@ -9731,7 +9731,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/visitor)
 "YN" = (
@@ -9740,7 +9740,7 @@
 	},
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "YP" = (
@@ -9753,7 +9753,7 @@
 /obj/item/clothing/glasses/safety/goggles,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "YS" = (
@@ -9777,7 +9777,7 @@
 /obj/item/pen/black,
 /obj/effect/floor_decal/corner_wide/red,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/bridge)
 "YW" = (
@@ -9794,7 +9794,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "YX" = (
@@ -9802,7 +9802,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "YZ" = (
@@ -9823,7 +9823,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "Zd" = (
@@ -9837,7 +9837,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
 "Zh" = (
@@ -9856,7 +9856,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "Zi" = (
@@ -9872,14 +9872,14 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/fang/engine)
 "Zq" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "Zr" = (
@@ -9887,7 +9887,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/atmos)
 "Zw" = (
@@ -9908,7 +9908,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "ZD" = (
@@ -9925,13 +9925,13 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/range)
 "ZE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "ZH" = (
@@ -9942,13 +9942,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/hangar)
 "ZJ" = (
 /obj/structure/curtain/medical,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "ZL" = (
@@ -9959,7 +9959,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
 "ZM" = (
@@ -9970,7 +9970,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 "ZP" = (
@@ -9979,7 +9979,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/defenses)
 "ZS" = (
@@ -9998,7 +9998,7 @@
 /obj/structure/table/glass,
 /obj/item/storage/box/bodybags,
 /turf/simulated/floor/tiled/white{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station/medbay)
 "ZY" = (
@@ -10019,7 +10019,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/peoples_station)
 
