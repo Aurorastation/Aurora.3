@@ -10148,47 +10148,6 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/tesla)
-"fhq" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/highsecurity{
-	icon_state = "door_locked";
-	id_tag = "airlocks_deck2_ammostorage_fore";
-	locked = 1;
-	name = "Secure Ammunition Storage";
-	req_one_access = list(10,60,20,31)
-	},
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "shutters_deck1_ammostorage_fore";
-	name = "Secure Ammunition Storage Blast Door"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/button/remote/airlock/screamer{
-	channel = "Command";
-	dir = 8;
-	id = "airlocks_deck2_ammostorage_fore";
-	message = "The secure ammunition storage fore door bolts have been activated or deactivated.";
-	name = "Door Bolt Control";
-	pixel_x = 25;
-	pixel_y = -7;
-	req_one_access = list(10,60,20,31);
-	specialfunctions = 4
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 8;
-	id = "shutters_deck1_ammostorage_fore";
-	name = "Blast Door Control";
-	pixel_x = 25;
-	pixel_y = 7;
-	req_one_access = list(10,60,20,31)
-	},
-/turf/simulated/floor/tiled/full,
-/area/horizon/secure_ammunition_storage)
 "fht" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/reagent_dispensers/fueltank,
@@ -11628,42 +11587,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
-"fTo" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/highsecurity{
-	icon_state = "door_locked";
-	id_tag = "airlocks_deck2_ammostorage_aft";
-	locked = 1;
-	name = "Secure Ammunition Storage";
-	req_one_access = list(10,60,20,31)
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "shutters_deck1_ammostorage_aft";
-	name = "Secure Ammunition Storage Blast Door"
-	},
-/obj/machinery/button/remote/airlock/screamer{
-	channel = "Command";
-	dir = 4;
-	id = "airlocks_deck2_ammostorage_aft";
-	message = "The secure ammunition storage aft door bolts have been activated or deactivated.";
-	name = "Door Bolt Control";
-	pixel_x = -25;
-	pixel_y = 7;
-	req_one_access = list(10,60,20,31);
-	specialfunctions = 4
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "shutters_deck1_ammostorage_aft";
-	name = "Blast Door Control";
-	pixel_x = -25;
-	pixel_y = -7;
-	req_one_access = list(10,60,20,31)
-	},
-/turf/simulated/floor/tiled/full,
-/area/horizon/secure_ammunition_storage)
 "fTZ" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
