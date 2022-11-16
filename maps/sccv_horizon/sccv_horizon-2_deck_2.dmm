@@ -24636,6 +24636,9 @@
 	pixel_x = -28;
 	dir = 4
 	},
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "mqR" = (
@@ -30078,7 +30081,6 @@
 "pac" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/firealarm/south,
-/obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -30087,6 +30089,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/bed/handrail{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
@@ -32527,6 +32532,9 @@
 	specialfunctions = 4
 	},
 /obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/bed/handrail{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -43000,6 +43008,10 @@
 "vyg" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/recharge_station,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "vyk" = (
@@ -44136,6 +44148,9 @@
 	specialfunctions = 4
 	},
 /obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/bed/handrail{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
