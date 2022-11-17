@@ -204,6 +204,11 @@
 	desc = "A direction sign, pointing out which way the medical department is."
 	icon_state = "direction_med"
 
+/obj/structure/sign/directions/custodial
+	name = "\improper CUSTODIAL CLOSET sign"
+	desc = "A direction sign, pointing out which way a custodial closet is."
+	icon_state = "direction_custodial"
+
 /obj/structure/sign/directions/evac
 	name = "\improper ESCAPE DOCK sign"
 	desc = "A direction sign, pointing out which way the escape dock is."
