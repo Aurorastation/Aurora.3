@@ -140,8 +140,6 @@
 	if(tank)
 		if(istype(tank, /obj/item/tank/oxygen))
 			tank_type = "oxy"
-		else if(istype(tank, /obj/item/tank/anesthetic))
-			tank_type = "anest"
 		else if(istype(tank, /obj/item/tank/phoron))
 			tank_type = "phoron"
 		else
@@ -197,7 +195,6 @@
 			return
 
 		if(valve_open)
-			var/obj/item/organ/internal/lungs/L = breather.internal_organs_by_name[BP_LUNGS]
 			var/obj/item/organ/internal/brain/B = breather.internal_organs_by_name[BP_BRAIN]
 
 			if(B.damage <= 35)
@@ -208,6 +205,8 @@
 				playsound(src, 'sound/machines/buzz-two.ogg', 50)
 				breath_mask_rip()
 				return
+
+			tank.remove_air(50) //Not sure what amount those things have, but the ECMO should consume a significant amount of air and must be balanced this way for the sense of urgency
 
 			update_icon()
 
@@ -226,10 +225,9 @@
 		if(attached.species.flags & NO_BLOOD)
 			return
 
-		if(toggle_stop) // Automatically detaches if the blood volume is at 100% (guard clause)
+		if(toggle_stop) // Do not add blood if the blood volume is at 100% (guard clause)
 			if((beaker.reagents.has_reagent(/decl/reagent/blood) || beaker.reagents.has_reagent(/decl/reagent/saline)) && attached.get_blood_volume() >= 100)
 				update_icon()
-				return
 			else
 				if(beaker.reagents.total_volume > 0)
 					beaker.reagents.trans_to_mob(attached, transfer_amount, CHEM_BLOOD)
@@ -277,7 +275,7 @@
 				return
 			if("Artery Line")
 				if(!breath_mask)
-					to_chat(usr, SPAN_NOTICE("There is no breath mask installed into \the [src]!"))
+					to_chat(usr, SPAN_NOTICE("There is no artery line installed into \the [src]!"))
 					return
 				if(breather)
 					visible_message("[usr] removes [breather]'s mask.[valve_open ? " \The [tank]'s valve automatically closes." : ""]")
@@ -285,7 +283,7 @@
 					return
 				breather = over_object
 
-				visible_message("<b>[usr]</b> secures the mask over \the <b>[breather]'s</b> face.")
+				visible_message("<b>[usr]</b> connects the artery line to \the <b>[breather]</b>.")
 				playsound(breather, 'sound/effects/buckle.ogg', 50)
 				breath_mask.forceMove(breather.loc)
 				breather.equip_to_slot(breath_mask, slot_wear_mask)
@@ -433,8 +431,6 @@
 			toggle_stop()
 		if("Toggle Valve")
 			toggle_valve()
-		if("Toggle EPP")
-			toggle_epp()
 
 /obj/machinery/ecmo/proc/do_crash()
 	cut_overlays()
@@ -577,23 +573,6 @@
 	playsound(src, 'sound/effects/internals.ogg', 100)
 	tank_off()
 
-/obj/machinery/ecmo/verb/toggle_epp()
-	set category = "Object"
-	set name = "Toggle EPP"
-	set src in view(1)
-
-	if(use_check_and_message(usr))
-		return
-	if(epp_active)
-		var/response = alert(usr, "Are you sure you want to turn off the Emergency Positive Pressure system? It is currently active!", "Toggle EPP", "Yes", "No")
-		if(response == "No")
-			return
-		epp_active = FALSE
-		update_icon()
-	epp = !epp
-	usr.visible_message("<b>[usr]</b> toggles \the [src]'s Emergency Positive Pressure system [epp ? "on" : "off"].", SPAN_NOTICE("You toggle \the [src]'s Emergency Positive Pressure system [epp ? "on" : "off"]."))
-	playsound(usr, 'sound/machines/click.ogg', 50)
-
 /obj/machinery/ecmo/verb/transfer_rate()
 	set category = "Object"
 	set name = "Set Transfer Rate"
@@ -616,8 +595,7 @@
 	..(user)
 	if(!(user in viewers(2, src)))
 		return
-	to_chat(user, SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]. The Emergency Positive Pressure \
-	system is [epp ? "on" : "off"]."))
+	to_chat(user, SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]."))
 	if(attached)
 		to_chat(user, SPAN_NOTICE("\The [src] is attached to [attached]'s [vein.name]."))
 	if(beaker)
