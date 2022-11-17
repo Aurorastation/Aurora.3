@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/headmaster_kosmostrelki
 	short_name = "headmaster_kosmostrelki"
 	name = "Headmaster Ship Kosmostrelki"
-	desc = "Crew the Orbital Fleet ship."
+	desc = "Crew an Orbital Fleet ship."
 	tags = list("External")
 
 	spawnpoints = list("headmaster_kosmostrelki")
@@ -37,7 +37,7 @@
 /datum/ghostspawner/human/headmaster_kosmostrelki/captain
 	short_name = "headmaster_captain"
 	name = "Headmaster Ship Captain"
-	desc = "Crew the Orbital Fleet ship."
+	desc = "Command an Orbital Fleet ship."
 	tags = list("External")
 
 	spawnpoints = list("headmaster_captain")
