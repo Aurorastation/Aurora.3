@@ -617,7 +617,7 @@
 	icon_state = "0-8"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
@@ -6700,11 +6700,6 @@
 /turf/simulated/floor/bluegrid,
 /area/rnd/isolation_b)
 "fhF" = (
-/obj/structure/closet/crate/bin,
-/obj/random/loot,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/horizon/stairwell/central)
 "fhZ" = (
@@ -17914,6 +17909,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/closet/crate/bin,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "nYx" = (
@@ -24704,6 +24701,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/structure/closet/crate/bin,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "txT" = (
