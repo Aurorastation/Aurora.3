@@ -1,0 +1,7 @@
+
+author: anconfuzedrock
+
+delete-after: True
+
+changes:
+  - rscadd: "Away site hangars have more transit spots, so ships are more likely to be able to land in them."
