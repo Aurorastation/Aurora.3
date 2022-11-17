@@ -8,6 +8,37 @@
 	temperature = 278,15
 	},
 /area/space)
+"aE" = (
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 4;
+	target_pressure = 250
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"aQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/alarm/freezer{
+	pixel_y = 32;
+	req_one_access = list(202)
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
 "be" = (
 /obj/machinery/iff_beacon/name_change,
 /obj/structure/railing/mapped{
@@ -35,6 +66,13 @@
 	pixel_y = -24;
 	req_access = list(202)
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278,15
 	},
@@ -51,8 +89,31 @@
 	dir = 1;
 	pixel_y = -32
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278,15
+	},
+/area/space)
+"df" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"et" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
 /area/space)
 "eX" = (
@@ -60,6 +121,16 @@
 /turf/simulated/floor/tiled/steel{
 	temperature = 278,15
 	},
+/area/space)
+"fG" = (
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8;
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "gd" = (
 /obj/structure/table/standard,
@@ -77,6 +148,39 @@
 	temperature = 278,15
 	},
 /area/space)
+"hb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"hi" = (
+/obj/effect/map_effect/airlock/e_to_w,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"hl" = (
+/obj/machinery/power/terminal{
+	dir = 8;
+	icon_state = "term"
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
 "iE" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -85,10 +189,75 @@
 	temperature = 278,15
 	},
 /area/space)
+"iN" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"jP" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
 "jV" = (
 /obj/machinery/computer/shuttle_control/explore/tajara_mining_jack,
 /turf/simulated/floor/tiled/steel{
 	temperature = 278,15
+	},
+/area/space)
+"lN" = (
+/obj/machinery/telecomms/allinone/ship,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"mk" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"mN" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 9
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"nb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"oR" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"pQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
 /area/space)
 "qy" = (
@@ -99,12 +268,47 @@
 	temperature = 278,15
 	},
 /area/space)
+"qH" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
+	dir = 1
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
 "rl" = (
 /turf/space/transit/north,
 /area/space)
 "rr" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
+/area/space)
+"rs" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"sp" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Telecomms"
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/space)
+"sI" = (
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/space)
 "sJ" = (
 /obj/machinery/computer/ship/helm{
@@ -124,10 +328,46 @@
 	temperature = 278.15
 	},
 /area/space)
+"ug" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"uH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
 "vA" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/steel{
 	temperature = 278,15
+	},
+/area/space)
+"vP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
 /area/space)
 "wc" = (
@@ -138,6 +378,30 @@
 "ww" = (
 /turf/simulated/wall/shuttle/raider,
 /area/space)
+"wD" = (
+/obj/machinery/power/apc{
+	dir = 2;
+	is_critical = 1;
+	name = "south bump";
+	pixel_y = -24;
+	req_access = list(202)
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"xi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 278,15
+	},
+/area/space)
 "xK" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
@@ -146,9 +410,38 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
 /area/space)
+"yF" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"zX" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating,
+/area/space)
 "Be" = (
 /obj/effect/shuttle_landmark/tajara_scrapper/transit,
 /turf/space/transit/north,
+/area/space)
+"Cl" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/space)
 "CN" = (
 /obj/structure/table/standard,
@@ -163,6 +456,40 @@
 	temperature = 278,15
 	},
 /area/space)
+"Du" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"DN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 278,15
+	},
+/area/space)
+"DS" = (
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
 "FN" = (
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
@@ -171,10 +498,26 @@
 /obj/effect/shuttle_landmark/automatic,
 /turf/template_noop,
 /area/space)
+"HL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
 "JU" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
 	name = "Solars"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278,15
@@ -182,6 +525,53 @@
 /area/space)
 "Kn" = (
 /turf/template_noop,
+/area/space)
+"KQ" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"Lw" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"NC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"NK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"NO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 278,15
+	},
 /area/space)
 "Oc" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
@@ -193,12 +583,53 @@
 	temperature = 278.15
 	},
 /area/space)
+"TQ" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
 "TS" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278,15
+	},
+/area/space)
+"Wd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 278,15
+	},
+/area/space)
+"WM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"Xt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/space)
+"ZZ" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
 /area/space)
 
@@ -29854,12 +30285,12 @@ Kn
 Kn
 Kn
 bw
-wc
+vP
 ww
 Kn
-Kn
-Kn
-Kn
+jP
+wc
+hi
 Kn
 Kn
 Kn
@@ -30111,12 +30542,12 @@ Kn
 Kn
 Kn
 bw
-wc
+sI
 ww
 Kn
-Kn
-Kn
-Kn
+jP
+wc
+jP
 Kn
 Kn
 Kn
@@ -30368,12 +30799,12 @@ Kn
 Kn
 Kn
 ww
+WM
+ww
+ww
+jP
 wc
-ww
-ww
-ww
-ww
-ww
+jP
 ww
 ww
 Oc
@@ -30625,13 +31056,13 @@ Kn
 Kn
 Kn
 ww
+ZZ
 wc
-wc
-wc
-wc
-wc
-wc
-wc
+fG
+DS
+Xt
+TQ
+zX
 ww
 gI
 ww
@@ -30882,13 +31313,13 @@ Kn
 Kn
 Kn
 ww
+NC
+wc
+ZZ
 wc
 wc
-wc
-wc
-wc
-wc
-wc
+qH
+mN
 ww
 iE
 cq
@@ -31139,16 +31570,16 @@ Kn
 Kn
 Kn
 ww
+mk
 wc
+oR
 wc
-wc
-wc
-wc
-wc
+Du
+oR
 wc
 ww
 br
-br
+Wd
 gd
 jV
 sW
@@ -31396,16 +31827,16 @@ Kn
 Kn
 Kn
 ww
-wc
-wc
-wc
-wc
-wc
-wc
-wc
+ww
+KQ
+hb
+et
+hb
+aE
+ug
 JU
-br
-br
+xi
+DN
 vA
 sJ
 sW
@@ -31653,16 +32084,16 @@ Kn
 Kn
 Kn
 ww
-wc
-wc
-wc
-wc
-wc
-wc
-wc
+yF
+hl
+nb
+HL
+pQ
+Cl
+uH
 ww
 am
-br
+NO
 CN
 eX
 sW
@@ -31910,13 +32341,13 @@ Kn
 Kn
 Kn
 ww
-wc
-wc
-wc
-wc
-wc
-wc
-wc
+aQ
+rs
+df
+NK
+wD
+ww
+sp
 ww
 qy
 by
@@ -32167,13 +32598,13 @@ Kn
 Kn
 Kn
 ww
+Lw
 wc
 wc
+iN
 wc
-wc
-wc
-wc
-wc
+ww
+lN
 ww
 TS
 ww
@@ -32424,11 +32855,11 @@ Kn
 Kn
 Kn
 ww
+WM
+ww
 wc
 ww
-ww
-ww
-ww
+wc
 ww
 ww
 ww
@@ -32681,7 +33112,7 @@ Kn
 Kn
 Kn
 bw
-wc
+sI
 ww
 Kn
 Kn
@@ -32938,7 +33369,7 @@ Kn
 Kn
 Kn
 bw
-wc
+Xt
 ww
 Kn
 Kn
