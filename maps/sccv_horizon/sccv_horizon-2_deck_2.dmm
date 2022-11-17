@@ -30104,9 +30104,6 @@
 	pixel_x = -9;
 	pixel_y = 24
 	},
-/obj/structure/janitorialcart/full{
-	dir = 4
-	},
 /obj/item/reagent_containers/glass/bucket,
 /obj/structure/sink{
 	dir = 1;
@@ -30118,6 +30115,9 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/east,
+/obj/structure/janitorialcart{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "piY" = (
