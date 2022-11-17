@@ -16,6 +16,7 @@
 	var/obj/item/reagent_containers/beaker = null
 	var/transfer_amount = 5
 	var/transfer_limit = 10
+	var/brain_damage_pinner = 160 // Brain damage amount to keep the patient at/above
 	var/mode = TRUE // TRUE is injecting, FALSE is taking blood.
 	var/toggle_stop = TRUE
 	var/blood_message_sent = FALSE
@@ -32,8 +33,6 @@
 	var/list/tank_blacklist = list(/obj/item/tank/emergency_oxygen, /obj/item/tank/jetpack)
 	var/valve_open = FALSE
 	var/tank_active = FALSE
-	var/epp = TRUE // Emergency Positive Pressure system. Can be toggled if you want to turn it off
-	var/epp_active = FALSE
 
 	var/list/mask_blacklist = list(
 		/obj/item/clothing/mask/breath/vaurca,
@@ -161,8 +160,6 @@
 			add_overlay("mask_on[tipped ? "_tipped" : ""]")
 		else
 			add_overlay("mask_off[tipped ? "_tipped" : ""]")
-		if(epp_active)
-			add_overlay("light_blue[tipped ? "_tipped" : ""]")
 	if(panel_open)
 		add_overlay("panel_open[tipped ? "_tipped" : ""]")
 
@@ -197,8 +194,8 @@
 		if(valve_open)
 			var/obj/item/organ/internal/brain/B = breather.internal_organs_by_name[BP_BRAIN]
 
-			if(B.damage <= 35)
-				B.damage = 35
+			if(B.damage >= brain_damage_pinner)
+				B.damage = brain_damage_pinner
 
 			if(tank.air_contents.return_pressure() <= 300)
 				src.visible_message(SPAN_WARNING("\The [src] buzzes, automatically deactivating due to the lack of tank pressure."))
@@ -206,7 +203,7 @@
 				breath_mask_rip()
 				return
 
-			tank.remove_air(50) //Not sure what amount those things have, but the ECMO should consume a significant amount of air and must be balanced this way for the sense of urgency
+			tank.remove_air(0.05) //Not sure what amount those things have, but the ECMO should consume a significant amount of air and must be balanced this way for the sense of urgency
 
 			update_icon()
 
@@ -300,7 +297,7 @@
 	var/list/options = list(
 		"Infusion Rate" = image('icons/mob/screen/radial.dmi', "radial_transrate"),
 		"Remove Container" = image('icons/mob/screen/radial.dmi', "iv_beaker"),
-		"Remove Tank" = image('icons/mob/screen/radial.dmi', "iv_tank")
+		"Remove Tank" = image('icons/mob/screen/radial.dmi', "iv_tank"))
 	var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 	if(!chosen_action)
 		return
@@ -415,18 +412,14 @@
 		return
 	var/list/options = list(
 		"Transfer Rate" = image('icons/mob/screen/radial.dmi', "radial_transrate"),
-		"Toggle Mode" = image('icons/mob/screen/radial.dmi', "iv_mode"),
 		"Toggle Stop" = image('icons/mob/screen/radial.dmi', "iv_stop"),
-		"Toggle Valve" = image('icons/mob/screen/radial.dmi', "iv_valve"),
-		"Toggle EPP" = image('icons/mob/screen/radial.dmi', "iv_epp"))
+		"Toggle Valve" = image('icons/mob/screen/radial.dmi', "iv_valve"))
 	var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 	if(!chosen_action)
 		return
 	switch(chosen_action)
 		if("Transfer Rate")
 			transfer_rate()
-		if("Toggle Mode")
-			toggle_mode()
 		if("Toggle Stop")
 			toggle_stop()
 		if("Toggle Valve")
@@ -473,7 +466,6 @@
 				breather.internal = null
 				valve_open = FALSE
 				tank_active = FALSE
-				epp_active = FALSE
 		else
 			src.visible_message("\The [tank] rattles, but remains firmly secured to \the [src].")
 
@@ -514,19 +506,6 @@
 	breather.internal = null
 	tank_active = FALSE
 	valve_open = FALSE
-	epp_active = FALSE
-	update_icon()
-
-/obj/machinery/ecmo/verb/toggle_mode()
-	set category = "Object"
-	set name = "Toggle Mode"
-	set src in view(1)
-
-	if(use_check_and_message(usr))
-		return
-	mode = !mode
-	usr.visible_message("<b>[usr]</b> toggles \the [src] to [mode ? "inject" : "take blood"].", SPAN_NOTICE("You set \the [src] to [mode ? "injecting" : "taking blood"]."))
-	playsound(usr, 'sound/machines/buttonbeep.ogg', 50)
 	update_icon()
 
 /obj/machinery/ecmo/verb/toggle_stop()
@@ -564,11 +543,7 @@
 		valve_open = TRUE
 		update_icon()
 		return
-	if(epp_active)
-		var/response = alert(usr, "Are you sure you want to close \the [tank]'s valve? The Emergency Positive Pressure system is currently active!", "Toggle Valve", "Yes", "No")
-		if(response == "No")
-			return
-		epp_active = FALSE
+
 	usr.visible_message("<b>[usr]</b> closes \the [tank]'s valve.", SPAN_NOTICE("You close \the [tank]'s valve."))
 	playsound(src, 'sound/effects/internals.ogg', 100)
 	tank_off()
@@ -621,7 +596,7 @@
 	var/scanner = 0
 	adv_scan = FALSE
 	armor_check = TRUE
-	transfer_limit = 4
+	transfer_limit = 9
 	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismanipulator(P))
 			manip += P.rating
