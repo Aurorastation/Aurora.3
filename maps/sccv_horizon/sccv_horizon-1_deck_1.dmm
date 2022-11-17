@@ -954,8 +954,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "aOv" = (
-/obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "aOC" = (
@@ -1219,18 +1221,6 @@
 /obj/structure/tank_wall/oxygen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"aYu" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/deck1)
 "aYY" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -8054,9 +8044,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
 "ghn" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -8069,6 +8056,9 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "ghw" = (
@@ -10686,18 +10676,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"ikm" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/deck1)
 "ikF" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -12630,13 +12608,6 @@
 	},
 /turf/space/dynamic,
 /area/engineering/atmos/propulsion)
-"jSn" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/deck1)
 "jSF" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -15947,6 +15918,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "mDt" = (
@@ -19793,6 +19765,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "pMo" = (
@@ -23374,6 +23347,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "sxy" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "sxP" = (
@@ -25815,6 +25791,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "uss" = (
@@ -27332,10 +27309,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "vFp" = (
-/obj/structure/railing/mapped,
-/turf/simulated/floor/tiled/ramp{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
+/turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "vFu" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -27671,7 +27648,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "vUe" = (
-/obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -29157,6 +29133,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "xfL" = (
@@ -29415,7 +29392,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "xlS" = (
-/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "xlX" = (
@@ -29659,7 +29636,7 @@
 "xsN" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -57899,7 +57876,7 @@ qZp
 qZp
 nEl
 qZp
-qZp
+rUd
 mkW
 rso
 fYt
@@ -58101,7 +58078,7 @@ eSV
 eSV
 eSV
 xiH
-xiH
+pdC
 dEe
 rMf
 oFy
@@ -58303,7 +58280,7 @@ eSV
 eSV
 eSV
 xiH
-xiH
+pdC
 dEe
 xgc
 lEN
@@ -58505,10 +58482,10 @@ eSV
 eSV
 eSV
 xiH
-xiH
-xiH
-xiH
-xiH
+pdC
+pdC
+pdC
+pdC
 pdC
 hrb
 erL
@@ -59137,8 +59114,8 @@ jLo
 pwA
 pyQ
 xtK
-sxy
-jSn
+iNi
+iNi
 iUg
 lPW
 rAb
@@ -59542,8 +59519,8 @@ iTD
 pJx
 jPp
 vUe
-sxy
-aYu
+suT
+qvT
 lPW
 syN
 mbp
@@ -59744,7 +59721,7 @@ iTD
 koi
 jPp
 xlS
-sxy
+vFp
 urO
 lPW
 syN
@@ -59945,7 +59922,7 @@ rBj
 iTD
 kTW
 jPp
-vFp
+suT
 pLU
 mDd
 lPW
@@ -60147,8 +60124,8 @@ uwm
 uwm
 uwm
 jPp
-iNi
-ikm
+suT
+iUg
 oGK
 lPW
 syN
