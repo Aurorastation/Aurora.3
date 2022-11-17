@@ -623,9 +623,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, starboard"
 	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/ship/tajaran_smuggler)
 "fji" = (
 /obj/structure/closet/cabinet,
@@ -1222,9 +1220,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, port"
 	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/ship/tajaran_smuggler)
 "kpn" = (
 /obj/structure/table/stone/marble,
@@ -1309,9 +1305,7 @@
 "lmO" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/ship/tajaran_smuggler)
 "lFg" = (
 /obj/structure/lattice/catwalk/indoor/grate,

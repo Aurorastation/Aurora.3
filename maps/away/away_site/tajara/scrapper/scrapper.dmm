@@ -378,9 +378,7 @@
 "et" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/shuttle/scrapper_ship/starboard_engines)
 "ev" = (
 /turf/simulated/floor/plating{
@@ -1854,9 +1852,7 @@
 "xm" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/shuttle/scrapper_ship/port_engines)
 "xH" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -2702,9 +2698,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, starboard"
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/shuttle/scrapper_ship/starboard_engines)
 "II" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2763,9 +2757,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, port"
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/shuttle/scrapper_ship/port_engines)
 "JF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{

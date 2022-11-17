@@ -210,9 +210,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, port"
 	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/headmaster_ship/engine)
 "aD" = (
 /obj/machinery/light/small/emergency{
@@ -912,9 +910,7 @@
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft,
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/headmaster_ship/engine)
 "cK" = (
 /obj/machinery/light_switch{
@@ -3880,9 +3876,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, starboard"
 	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/headmaster_ship/engine)
 "ms" = (
 /obj/structure/table/glass,
@@ -5046,9 +5040,7 @@
 "Ci" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/headmaster_ship/engine)
 "Ck" = (
 /obj/structure/window/reinforced,
