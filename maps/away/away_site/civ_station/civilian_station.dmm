@@ -373,6 +373,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
+"aTn" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/shuttle_landmark/automatic{
+	name = "Hangar Navpoint"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/civilian_station/hangar)
 "aVe" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1039,6 +1048,12 @@
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
 /area/civilian_station)
+"hlr" = (
+/obj/effect/shuttle_landmark/automatic{
+	name = "Hangar Navpoint"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/civilian_station/hangar)
 "hmL" = (
 /obj/structure/bed,
 /obj/item/bedsheet/random,
@@ -26865,7 +26880,7 @@ xRX
 xRX
 jiW
 hBd
-aVe
+aTn
 hBd
 hBd
 hBd
@@ -26887,7 +26902,7 @@ hBd
 hBd
 hBd
 hBd
-hBd
+hlr
 hNl
 pRm
 xRX
@@ -30720,7 +30735,7 @@ xRX
 xRX
 jiW
 hBd
-aVe
+aTn
 hBd
 hBd
 hBd
@@ -30742,7 +30757,7 @@ hBd
 hBd
 hBd
 qmJ
-hBd
+hlr
 hNl
 pRm
 xRX

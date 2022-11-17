@@ -934,6 +934,11 @@
 /obj/item/deck/cards,
 /turf/simulated/floor/carpet/rubber,
 /area/space_bar)
+"nDO" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/shuttle_landmark/automatic,
+/turf/simulated/floor/tiled/steel,
+/area/space_bar/hangar)
 "nGj" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 1
@@ -1171,6 +1176,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
+"sMP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/shuttle_landmark/automatic,
+/turf/simulated/floor/tiled/steel,
+/area/space_bar/hangar)
 "taa" = (
 /obj/structure/table/stone/marble,
 /obj/item/holomenu{
@@ -27111,7 +27123,7 @@ xRX
 xRX
 jiW
 hBd
-aVe
+sMP
 hBd
 hBd
 hBd
@@ -27134,7 +27146,7 @@ hBd
 hBd
 hBd
 hBd
-hNl
+nDO
 pRm
 xRX
 xRX
@@ -29681,7 +29693,7 @@ xRX
 xRX
 jiW
 hBd
-aVe
+sMP
 hBd
 hBd
 hBd
@@ -29704,7 +29716,7 @@ hBd
 hBd
 qmJ
 hBd
-hNl
+nDO
 pRm
 xRX
 xRX
