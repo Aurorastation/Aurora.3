@@ -2133,9 +2133,6 @@
 /obj/item/gun/projectile/heavysniper/unathi{
 	pixel_y = 4
 	},
-/obj/item/gun/projectile/heavysniper/unathi{
-	pixel_y = -6
-	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "eM" = (
@@ -7715,6 +7712,10 @@
 /obj/item/reagent_containers/hypospray,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/belt/medical/first_responder,
+/obj/item/auto_cpr{
+	pixel_x = 6;
+	pixel_y = -1
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "xm" = (
@@ -8736,9 +8737,6 @@
 	pixel_x = -32;
 	req_access = list(113)
 	},
-/obj/item/reagent_containers/blood/OMinus{
-	pixel_x = -7
-	},
 /obj/item/reagent_containers/spray/cleaner{
 	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
 	icon_state = "sterilesprayblue";
@@ -8750,6 +8748,9 @@
 /obj/item/storage/box/masks{
 	pixel_x = 4;
 	pixel_y = 4
+	},
+/obj/item/reagent_containers/blood/OMinus{
+	pixel_x = -7
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
@@ -8909,16 +8910,16 @@
 	pixel_y = -4
 	},
 /obj/item/reagent_containers/hypospray/autoinjector/survival{
-	pixel_y = -12;
-	pixel_x = -3
+	pixel_y = 5;
+	pixel_x = 18
 	},
 /obj/item/reagent_containers/hypospray/autoinjector/survival{
-	pixel_y = -12;
-	pixel_x = -3
+	pixel_y = 5;
+	pixel_x = 18
 	},
 /obj/item/reagent_containers/hypospray/autoinjector/survival{
-	pixel_y = -12;
-	pixel_x = -3
+	pixel_y = 5;
+	pixel_x = 18
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
@@ -9968,7 +9969,7 @@
 	id = "katasurgery"
 	},
 /obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/medical)
 "Rz" = (
 /turf/space,
