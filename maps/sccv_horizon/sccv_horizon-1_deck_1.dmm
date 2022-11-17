@@ -986,7 +986,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_command{
 	name = "Expedition EVA Storage";
-	req_access = list(18)
+	req_one_access = list(18,47)
 	},
 /turf/simulated/floor/tiled/full,
 /area/storage/eva)
@@ -8624,6 +8624,15 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
+/area/storage/eva)
+"gCe" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_command{
+	name = "EVA Storage";
+	req_one_access = list(18,47)
+	},
+/turf/simulated/floor/tiled/full,
 /area/storage/eva)
 "gCN" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -21976,7 +21985,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	name = "EVA Storage";
-	req_access = list(18)
+	req_one_access = list(18,47)
 	},
 /turf/simulated/floor/tiled/full,
 /area/storage/eva)
@@ -24233,7 +24242,7 @@
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Expedition EVA Storage";
-	req_one_access = list(18,47)
+	req_one_access = list(18,29,47)
 	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/eva)
@@ -29779,7 +29788,7 @@
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Expedition EVA Storage";
-	req_one_access = list(18,47)
+	req_one_access = list(18,29,47)
 	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/eva)
@@ -51425,7 +51434,7 @@ iyV
 fUG
 wRE
 wRE
-dWt
+gCe
 rrX
 wRE
 hdi
@@ -51827,7 +51836,7 @@ bec
 wLL
 ovg
 qio
-dWt
+gCe
 oYC
 cZw
 gzQ
