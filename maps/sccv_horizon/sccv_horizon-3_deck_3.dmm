@@ -533,7 +533,6 @@
 	c_tag = "Bridge - Center 1";
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 1
 	},
@@ -2776,6 +2775,12 @@
 	dir = 5
 	},
 /obj/structure/bed/stool/chair,
+/obj/machinery/requests_console{
+	department = "Bridge";
+	departmentType = 5;
+	name = "Bridge RC";
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "cvQ" = (
@@ -5889,7 +5894,7 @@
 	dir = 5
 	},
 /obj/machinery/case_button/shuttle{
-	pixel_x = 30
+	pixel_x = 32
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
@@ -13008,14 +13013,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
-"kAz" = (
-/obj/effect/floor_decal/spline/fancy,
-/obj/effect/floor_decal/spline/fancy{
-	dir = 1
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/carpet/rubber,
-/area/bridge/controlroom)
 "kAB" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -15939,11 +15936,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
 "mVg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/bridge/controlroom)
 "mVs" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -17586,20 +17580,11 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "omA" = (
-/obj/machinery/case_button/shuttle{
-	pixel_y = -32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 4
-	},
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/machinery/disposal/small/north{
-	pixel_y = -18
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -18138,7 +18123,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/effect/floor_decal/plaque{
 	desc = "The Stellar Corporate Conglomerate Logo Engraved in bronze.";
-	desc_fluff = "The unbreakable chainklink, the one thing holding the Orion Spur together...";
+	desc_extended = "The unbreakable chainlink, the one thing holding the Orion Spur together...";
 	name = "Commemorative SCC Plaque"
 	},
 /turf/simulated/floor/wood,
@@ -20694,14 +20679,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue,
 /obj/machinery/hologram/holopad,
-/obj/machinery/requests_console{
-	department = "Bridge";
-	departmentType = 5;
-	name = "Bridge RC";
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "qMs" = (
@@ -20973,16 +20951,6 @@
 	},
 /turf/simulated/open/airless,
 /area/template_noop)
-"rcI" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/junction{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/bridge/controlroom)
 "rdm" = (
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
@@ -21654,6 +21622,7 @@
 	},
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/o2,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "rCw" = (
@@ -26283,9 +26252,6 @@
 /obj/item/modular_computer/console/preset/command{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "uZE" = (
@@ -29297,8 +29263,10 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/blue/full,
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "xon" = (
@@ -50345,10 +50313,10 @@ tDn
 fhB
 asO
 eAV
-rcI
-kAz
+wVS
+gyt
 avY
-mVg
+mbb
 omA
 xnC
 eFH
@@ -50549,7 +50517,7 @@ mim
 vcu
 wVS
 cTN
-asO
+mVg
 qMa
 lGT
 uZD
