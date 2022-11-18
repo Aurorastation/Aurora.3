@@ -252,6 +252,11 @@
 	to_chat(src, SPAN_DANGER(FONT_LARGE("You are set on fire!")))
 	set_light(3, 2, LIGHT_COLOR_FIRE)
 
+/mob/living/proc/extinguish_fire()
+	on_fire = FALSE
+	to_chat(src, SPAN_GOOD(FONT_LARGE("You are no longer on fire.")))
+	set_light(0)
+
 /mob/living/proc/ExtinguishMob(var/fire_stacks_to_remove = 0)
 	if(fire_stacks_to_remove)
 		adjust_fire_stacks(-fire_stacks_to_remove)
@@ -262,11 +267,6 @@
 		return TRUE
 
 	return FALSE
-
-/mob/living/proc/extinguish_fire()
-	on_fire = FALSE
-	to_chat(src, SPAN_GOOD(FONT_LARGE("You are no longer on fire.")))
-	set_light(light_range, light_power, light_color)
 
 /mob/living/proc/ExtinguishMobCompletely()
 	return ExtinguishMob(fire_stacks)
