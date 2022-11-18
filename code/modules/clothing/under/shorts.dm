@@ -10,50 +10,6 @@
 	icon = 'icons/contained_items/clothing/bottomwear/shorts.dmi'
 	contained_sprite = TRUE
 
-/********** Athletic Shorts Start **********/
-// Athletic Shorts
-/obj/item/clothing/under/shorts/athletic
-	name = "athletic shorts parent item"
-	desc = DESC_PARENT_ITEM
-
-/obj/item/clothing/under/shorts/athletic/colourable
-	name = "athletic shorts"
-	icon_state = "shorts_athletic_colourable"
-	item_state = "shorts_athletic_colourable"
-
-/obj/item/clothing/under/shorts/athletic/black
-	name = "black athletic shorts"
-	icon_state = "shorts_athletic_black"
-	item_state = "shorts_athletic_black"
-
-/obj/item/clothing/under/shorts/athletic/red
-	name = "red athletic shorts"
-	icon_state = "shorts_athletic_red"
-	item_state = "shorts_athletic_red"
-
-/obj/item/clothing/under/shorts/athletic/green
-	name = "green athletic shorts"
-	icon_state = "shorts_athletic_green"
-	item_state = "shorts_athletic_green"
-
-/obj/item/clothing/under/shorts/athletic/blue
-	name = "blue athletic shorts"
-	icon_state = "shorts_athletic_blue"
-	item_state = "shorts_athletic_blue"
-
-/obj/item/clothing/under/shorts/athletic/grey
-	name = "grey athletic shorts"
-	icon_state = "shorts_athletic_grey"
-	item_state = "shorts_athletic_grey"
-
-/obj/item/clothing/under/shorts/athletic/scc
-	name = "\improper Stellar Corporate Conglomerate athletic shorts"
-	desc = "Shorts displaying the wearer's pride in their assigned corporate entity."
-	desc_extended = "The Stellar Corporate Conglomerate, also known as the Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals, and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
-	icon_state = "shorts_athletic_scc"
-	item_state = "shorts_athletic_scc"
-/********** Athletic Shorts End **********/
-
 /********** Shorts Start **********/
 // Shorts
 /obj/item/clothing/under/shorts/black
@@ -142,3 +98,47 @@
 	icon_state = "shorts_s_jeans_grey"
 	item_state = "shorts_s_jeans_grey"
 /********** Jeans Shorts End **********/
+
+/********** Athletic Shorts Start **********/
+// Athletic Shorts
+/obj/item/clothing/under/shorts/athletic
+	name = "athletic shorts parent item"
+	desc = DESC_PARENT_ITEM
+
+/obj/item/clothing/under/shorts/athletic/colourable
+	name = "athletic shorts"
+	icon_state = "shorts_athletic_colourable"
+	item_state = "shorts_athletic_colourable"
+
+/obj/item/clothing/under/shorts/athletic/black
+	name = "black athletic shorts"
+	icon_state = "shorts_athletic_black"
+	item_state = "shorts_athletic_black"
+
+/obj/item/clothing/under/shorts/athletic/red
+	name = "red athletic shorts"
+	icon_state = "shorts_athletic_red"
+	item_state = "shorts_athletic_red"
+
+/obj/item/clothing/under/shorts/athletic/green
+	name = "green athletic shorts"
+	icon_state = "shorts_athletic_green"
+	item_state = "shorts_athletic_green"
+
+/obj/item/clothing/under/shorts/athletic/blue
+	name = "blue athletic shorts"
+	icon_state = "shorts_athletic_blue"
+	item_state = "shorts_athletic_blue"
+
+/obj/item/clothing/under/shorts/athletic/grey
+	name = "grey athletic shorts"
+	icon_state = "shorts_athletic_grey"
+	item_state = "shorts_athletic_grey"
+
+/obj/item/clothing/under/shorts/athletic/scc
+	name = "\improper Stellar Corporate Conglomerate athletic shorts"
+	desc = "Shorts displaying the wearer's pride in their assigned corporate entity."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as the Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals, and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	icon_state = "shorts_athletic_scc"
+	item_state = "shorts_athletic_scc"
+/********** Athletic Shorts End **********/
