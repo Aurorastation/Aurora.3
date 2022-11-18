@@ -1,7 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - tweak: "Renames the \"desc_fluff\" variable on objects to \"desc_extended\" to better reflect its intended purpose."
-  - tweak: "Merges \"desc_cult\" with \"desc_antag\". Removes the \"desc_cult\" variable."
