@@ -16227,10 +16227,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/requests_console{
-	department = "Medical Bay";
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 1
 	},
