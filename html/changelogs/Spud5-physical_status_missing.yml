@@ -1,0 +1,9 @@
+
+author: Spud2
+
+
+delete-after: True
+
+
+changes:
+  - rscadd: "Adds '*missing*' as a possible physical status."
