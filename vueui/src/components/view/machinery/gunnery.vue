@@ -45,6 +45,13 @@
             <div><span class="text">Status:</span> <span class="normal">{{status}}</span></div>
             <div><span class="text">Ammunition:</span> <span class="normal">{{ammunition}}</span></div>
             <div><span class="text">Caliber:</span> <span class="normal">{{caliber}}</span></div>
+            <div v-if="mobile_platform">
+              <div><span class="text">Mobile Platform Direction: </span>
+              <select v-model="$root.$data.state.platform_direction">
+                <option v-for="i in directions" :key="i" :value="i">{{ i }}</option>
+              </select>
+              </div>
+            </div>
           </div>
           <vui-button class="danger" icon="exclamation-triangle" :params="{ fire: 1 }">FIRE</vui-button>
         </div>

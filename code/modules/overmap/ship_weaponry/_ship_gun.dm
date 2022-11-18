@@ -23,6 +23,7 @@
 	var/screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 	var/firing = FALSE //Helper variable in case we need to track if we're firing or not. Must be set manually. Used for the Leviathan.
 	var/load_time = 5 SECONDS
+	var/mobile_platform = FALSE //When toggled, targeting computers will be able to force ammunition heading direction. Used for guns on visitables.
 
 	var/weapon_id //Used to identify a gun in the targeting consoles and connect weapon systems to the relevant ammunition loader. Must be unique!
 	var/list/obj/structure/ship_weapon_dummy/connected_dummies = list()
@@ -128,8 +129,8 @@
 		qdel(dummy)
 	connected_dummies.Cut()
 
-/obj/machinery/ship_weapon/proc/pre_fire(var/atom/target, var/obj/effect/landmark/landmark) //We can fire, so what do we do before that? Think like a laser charging up.
-	fire(target, landmark)
+/obj/machinery/ship_weapon/proc/pre_fire(var/atom/target, var/obj/effect/landmark/landmark, var/direction_override) //We can fire, so what do we do before that? Think like a laser charging up.
+	fire(target, landmark, direction_override)
 	on_fire()
 	return TRUE
 
@@ -204,16 +205,16 @@
 	else
 		return FALSE
 
-/obj/machinery/ship_weapon/proc/firing_command(var/atom/target, var/obj/landmark)
+/obj/machinery/ship_weapon/proc/firing_command(var/atom/target, var/obj/landmark, var/direction_override)
 	if(firing_checks())
-		var/result = pre_fire(target, landmark)
+		var/result = pre_fire(target, landmark, direction_override)
 		if(result)
 			use_power_oneoff(active_power_usage)
 			return SHIP_GUN_FIRING_SUCCESSFUL
 	else
 		return SHIP_GUN_ERROR_NO_AMMO
 
-/obj/machinery/ship_weapon/proc/fire(var/atom/overmap_target, var/obj/landmark)
+/obj/machinery/ship_weapon/proc/fire(var/atom/overmap_target, var/obj/landmark, var/direction_override)
 	var/obj/item/ship_ammunition/SA = consume_ammo()
 	if(!barrel)
 		crash_with("No barrel found for [src] at [x] [y] [z]! Cannot fire!")
@@ -234,6 +235,8 @@
 	if(istype(linked, /obj/effect/overmap/visitable/ship))
 		var/obj/effect/overmap/visitable/ship/SH = linked
 		SA.heading = SH.dir
+	else if(direction_override)
+		SA.heading = direction_override
 	else
 		SA.heading = barrel.dir
 	SA.forceMove(projectile)
@@ -317,6 +320,7 @@
 	light_color = LIGHT_COLOR_CYAN
 	var/obj/machinery/ship_weapon/cannon
 	var/selected_entrypoint
+	var/platform_direction
 	var/list/names_to_guns = list()
 	var/list/names_to_entries = list()
 
@@ -327,7 +331,7 @@
 /obj/machinery/computer/ship/targeting/LateInitialize()
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
-		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
+		if(istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
 /obj/machinery/computer/ship/targeting/Destroy()
@@ -363,6 +367,8 @@
 		data["entry_points"] = list()
 		data["entry_point"] = null
 		data["show_z_list"] = FALSE
+		data["mobile_platform"] = FALSE
+		data["platform_direction"] = 0
 		data["selected_z"] = 0
 	data["power"] = stat & (NOPOWER|BROKEN) ? FALSE : TRUE
 	data["linked"] = linked ? TRUE : FALSE
@@ -385,9 +391,13 @@
 				ammunition_type = capitalize_first_letters(SA.impact_type)
 			data["ammunition"] = length(cannon.ammunition) ? "[ammunition_type] Loaded, [length(cannon.ammunition)] shot(s) left" : "Unloaded"
 			data["caliber"] = cannon.caliber
+			if(cannon.mobile_platform)
+				data["mobile_platform"] = TRUE
+				data["directions"] = list("NORTH", "SOUTH", "WEST", "EAST")
+				platform_direction = data["platform_direction"]
 		if(linked.targeting)
 			data["target"] = ""
-			if(istype(connected.targeting, /obj/effect/overmap/visitable))
+			if(istype(linked.targeting, /obj/effect/overmap/visitable))
 				var/obj/effect/overmap/visitable/V = linked.targeting
 				if(V.class && V.designation)
 					data["target"] = "[V.class] [V.designation]"
@@ -426,7 +436,7 @@
 			LM = null
 		else
 			LM = names_to_entries[selected_entrypoint]
-		var/result = cannon.firing_command(linked.targeting, LM)
+		var/result = cannon.firing_command(linked.targeting, LM, platform_direction ? text2dir(platform_direction) : 0)
 		if(isliving(usr) && !isAI(usr) && usr.Adjacent(src))
 			visible_message(SPAN_WARNING("[usr] presses the fire button!"))
 			playsound(src, 'sound/machines/compbeep1.ogg')
