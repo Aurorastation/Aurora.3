@@ -197,7 +197,7 @@
 /obj/item/clothing/accessory/holster/utility/custodial
 	name = "custodial holster"
 	desc = "A custodial holster."
-	desc_fluff = "In a universe where various utility firearms and tools have become more common for diverse applications, it is important that there are ways to store them where \
+	desc_extended = "In a universe where various utility firearms and tools have become more common for diverse applications, it is important that there are ways to store them where \
 		they are kept safe from wear and tear as well as from misuse. Thus as an alternative to regular firearm holsters, specialized utility firearm and tool holsters exist, which \
 		allow non-standard firearms to be stored inside, whilst at the same time keeping individuals from storing actual firearms in one."
 	allowed_items = list(

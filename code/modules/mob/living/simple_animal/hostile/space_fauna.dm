@@ -3,7 +3,7 @@
 /mob/living/simple_animal/hostile/carp
 	name = "space carp"
 	desc = "A ferocious, fang-bearing creature that resembles a fish."
-	desc_fluff = "This specimen is a native to the Romanovich Cloud, and possesses a shimmering appearance to its scales. Much like other Cloud-faring creatures, this primarily thrives off of a \
+	desc_extended = "This specimen is a native to the Romanovich Cloud, and possesses a shimmering appearance to its scales. Much like other Cloud-faring creatures, this primarily thrives off of a \
 	diet consisting of raw ores and rock."
 	icon_state = "carp"
 	icon_living = "carp"
@@ -255,7 +255,7 @@
 /mob/living/simple_animal/hostile/gnat
 	name = "gnat"
 	desc = "A small, obnoxious looking specimen. This is a renowned wire-chewing menace in the Romanovich Cloud, similarly insufferable as an Earth insect."
-	desc_fluff = "This specimen is a native to the Romanovich Cloud, and possesses a shimmering appearance to its scales. Much like other Cloud-faring creatures, this primarily thrives off of a \
+	desc_extended = "This specimen is a native to the Romanovich Cloud, and possesses a shimmering appearance to its scales. Much like other Cloud-faring creatures, this primarily thrives off of a \
 	diet consisting of raw ores and rock."
 	icon_state = "gnat"
 	icon_living = "gnat"

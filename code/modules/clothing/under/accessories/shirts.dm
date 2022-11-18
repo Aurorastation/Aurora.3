@@ -6,7 +6,7 @@
 /obj/item/clothing/accessory/sweater
 	name = "sweater"
 	desc = "A warm, knit sweater."
-	desc_fluff = "Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
+	desc_extended = "Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
 	icon = 'icons/contained_items/clothing/topwear/sweaters.dmi'
 	icon_state = "sweater"
 	item_state = "sweater"
@@ -87,7 +87,7 @@
 /obj/item/clothing/accessory/sweater_vest
 	name = "sweater vest"
 	desc = "A warm, knit sweater vest."
-	desc_fluff = "Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
+	desc_extended = "Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
 	icon = 'icons/contained_items/clothing/topwear/sweaters.dmi'
 	icon_state = "sweater_vest"
 	item_state = "sweater_vest"
@@ -97,7 +97,7 @@
 /obj/item/clothing/accessory/argyle_sweater_vest
 	name = "argyle sweater vest"
 	desc = "A warm, knit sweater vest with an argyle pattern."
-	desc_fluff = "Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
+	desc_extended = "Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
 	icon = 'icons/contained_items/clothing/topwear/sweaters.dmi'
 	icon_state = "argyle_sweater_vest"
 	item_state = "argyle_sweater_vest"

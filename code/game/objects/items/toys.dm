@@ -107,7 +107,7 @@
 /obj/item/toy/balloon
 	name = "balloon"
 	desc_info = "You can fill it up with gas using a tank."
-	desc_fluff = "Thanks to the joint effort of the Research and Atmospherics teams, station enviroments have been set to allow balloons to float without helium. Look, it was the end of the month and we went under budget."
+	desc_extended = "Thanks to the joint effort of the Research and Atmospherics teams, station enviroments have been set to allow balloons to float without helium. Look, it was the end of the month and we went under budget."
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	w_class = ITEMSIZE_HUGE
@@ -228,25 +228,25 @@
 /obj/item/toy/balloon/bat
 	name = "giant bat balloon"
 	desc = "A large, kitschy balloon in the shape of a spooky bat with orange eyes."
-	desc_fluff = "There's a tag that reads: \"Apparition Halloween LLC.\""
+	desc_extended = "There's a tag that reads: \"Apparition Halloween LLC.\""
 	icon_state = "batballoon"
 
 /obj/item/toy/balloon/ghost
 	name = "giant ghost balloon"
 	desc = "Oh no, it's a ghost! Oh wait, it's just a kitschy balloon. Phew!"
-	desc_fluff = "There's a tag that reads: \"Apparition Halloween LLC.\""
+	desc_extended = "There's a tag that reads: \"Apparition Halloween LLC.\""
 	icon_state = "ghostballoon"
 
 /obj/item/toy/balloon/xmastree
 	name = "giant christmas tree balloon"
 	desc = "Mandatory at inter-generational christmas gatherings and office parties."
-	desc_fluff = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
+	desc_extended = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
 	icon_state = "xmastreeballoon"
 
 /obj/item/toy/balloon/candycane
 	name = "giant candy cane balloon"
 	desc = "Kris Kringle ain't got nothing on this candied confection."
-	desc_fluff = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
+	desc_extended = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
 	icon_state = "candycaneballoon"
 
 /obj/item/toy/balloon/color /// To color it, VV the 'color' var with a hex color code with the # included.
@@ -327,7 +327,7 @@
 	desc = "A magazine specialized in publishing Tajaran Otherworldly Literature stories. The periodical magazine features texts submitted by amateur and established writers alike. \
 	Since it is printed using cheap, recycled paper, outlandish tales is sold for a couple of credits on the streets of Little Adhomai. The magazine also has a section dedicated to \
 	exploring the urban legends and mysteries of Mendell City."
-	desc_fluff = "Influenced by recent events and the growing interest in urban legends, Little Adhomai became the birthplace of Tajaran Otherworldly Literature. This literary genre combines \
+	desc_extended = "Influenced by recent events and the growing interest in urban legends, Little Adhomai became the birthplace of Tajaran Otherworldly Literature. This literary genre combines \
 	aspects of fantasy, horror, and speculative fiction alongside Adhomian paranormal elements, frequently reimagining mythological creatures and events. Tajaran Otherworldly texts are usually \
 	published in magazines or on extranet sites."
 	icon_state = "comicoutlandish"
@@ -1052,7 +1052,7 @@
 /obj/item/toy/plushie/ipc
 	name = "Aphy plushie"
 	desc = "A plushie of an old Hephaestus mascot, Aphy."
-	desc_fluff = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. While the original Aphy is on display in Hephaestus' Mars headquarters, the unit has become a cutesy mascot in recent years."
+	desc_extended = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. While the original Aphy is on display in Hephaestus' Mars headquarters, the unit has become a cutesy mascot in recent years."
 	icon_state = "ipcplushie"
 	phrase = "Bwoop!"
 
@@ -1165,25 +1165,25 @@
 /obj/item/toy/desk/newtoncradle
 	name = "\improper Newton's cradle"
 	desc = "A ancient 21th century super-weapon model demonstrating that Sir Isaac Newton is the deadliest sonuvabitch in space."
-	desc_fluff = "Aside from car radios, Eridanian Dregs are reportedly notorious for stealing these things. It is often theorized that the very same ball bearings are used in black-market cybernetics."
+	desc_extended = "Aside from car radios, Eridanian Dregs are reportedly notorious for stealing these things. It is often theorized that the very same ball bearings are used in black-market cybernetics."
 	icon_state = "newtoncradle"
 
 /obj/item/toy/desk/fan
 	name = "office fan"
 	desc = "Your greatest fan."
-	desc_fluff = "For weeks, the atmospherics department faced a conundrum on how to lower temperatures in a localized area through complicated pipe channels and ventilation systems. The problem was promptly solved by ordering several desk fans."
+	desc_extended = "For weeks, the atmospherics department faced a conundrum on how to lower temperatures in a localized area through complicated pipe channels and ventilation systems. The problem was promptly solved by ordering several desk fans."
 	icon_state = "fan"
 
 /obj/item/toy/desk/officetoy
 	name = "office toy"
 	desc = "A generic microfusion powered office desk toy. Only generates magnetism and ennui."
-	desc_fluff = "The mechanism inside is a Hephasteus trade secret. No peeking!"
+	desc_extended = "The mechanism inside is a Hephasteus trade secret. No peeking!"
 	icon_state = "desktoy"
 
 /obj/item/toy/desk/dippingbird
 	name = "dipping bird toy"
 	desc = "Engineers marvel at this scale model of a primitive thermal engine. It's highly debated why the majority of owners were in low-level bureaucratic jobs."
-	desc_fluff = "One of the key essentials for every Eridanian suit - it's practically a rite of passage to own one of these things."
+	desc_extended = "One of the key essentials for every Eridanian suit - it's practically a rite of passage to own one of these things."
 	icon_state = "dippybird"
 
 /obj/item/toy/partypopper
