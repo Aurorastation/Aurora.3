@@ -27251,6 +27251,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/machinery/biogenerator/small/west,
 /turf/simulated/floor/wood,
 /area/horizon/hydroponics/garden)
 "nxz" = (
