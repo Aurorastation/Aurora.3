@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Adds a navigation console to the bridge."
