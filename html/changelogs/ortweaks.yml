@@ -1,0 +1,7 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the ability to buckle patients to operating tables. Click and drag as normal to buckle, click on the table on any intent other than help to unbuckle."
+  - maptweak: "Added a handrail to the operating theatres, so surgeons can stay upright during maneuvers."
