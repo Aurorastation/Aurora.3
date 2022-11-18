@@ -2790,19 +2790,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"cjr" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/machinery/firealarm/north,
-/obj/item/modular_computer/console/preset/command{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hangar/control)
 "cjK" = (
 /obj/machinery/door/window/westright,
 /obj/machinery/door/firedoor,
@@ -13152,26 +13139,6 @@
 "kpJ" = (
 /turf/simulated/floor/plating,
 /area/space)
-"kpX" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/head/helmet/space/void/mining,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/westleft{
-	name = "Mining Voidsuit";
-	req_access = list(48)
-	},
-/obj/effect/floor_decal/industrial/outline,
-/obj/item/stack/flag/purple,
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/refinery)
 "kqk" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -25436,6 +25403,13 @@
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
