@@ -393,7 +393,7 @@
 			data["caliber"] = cannon.caliber
 			if(cannon.mobile_platform)
 				data["mobile_platform"] = TRUE
-				data["directions"] = list("NORTH", "SOUTH", "WEST", "EAST")
+				data["directions"] = list("NORTH", "NORTHEAST", "EAST", "SOUTHEAST", "SOUTH", "SOUTHWEST", "WEST", "NORTHWEST")
 				platform_direction = data["platform_direction"]
 		if(linked.targeting)
 			data["target"] = ""
