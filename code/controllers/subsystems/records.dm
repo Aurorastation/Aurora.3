@@ -188,11 +188,22 @@
 		return STATUS_INTERACTIVE
 	return ..()
 
+/datum/controller/subsystem/records/Topic(href, href_list)
+	if(href_list["action"] == "follow") // from manifest.vue
+		var/mob/abstract/observer/O = usr
+		if(istype(O))
+			for(var/mob/living/carbon/human/H in human_mob_list)
+				if(istype(H) && H.real_name == href_list["name"])
+					O.ManualFollow(H)
+					break
+	. = ..()
+
 /datum/controller/subsystem/records/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data || list()
 
 	VUEUI_SET_CHECK_LIST(data["manifest"], SSrecords.get_manifest_list(), ., data)
+	VUEUI_SET_CHECK(data["allow_follow"], isobserver(usr), ., data)
 
 /datum/controller/subsystem/records/proc/open_manifest_vueui(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
