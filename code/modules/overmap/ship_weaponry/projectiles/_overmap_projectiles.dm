@@ -155,5 +155,5 @@
 
 /obj/effect/overmap/projectile/Bump(var/atom/A)
 	if(istype(A,/turf/unsimulated/map/edge))
-		qdel(src)
+		handle_wraparound()
 	..()
