@@ -6,4 +6,4 @@ delete-after: True
 
 
 changes:
-  - rscadd: "Adds '*missing*' as a possible physical status."
+  - rscadd: "Adds '*Missing*' as a possible physical status."
