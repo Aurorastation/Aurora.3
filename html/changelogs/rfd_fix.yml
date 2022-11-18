@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes the RFD being unable to construct nor deconstruct full windows and their frames."
