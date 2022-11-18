@@ -76,9 +76,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
 "acp" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 8
-	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "acq" = (
@@ -556,6 +555,9 @@
 /obj/structure/curtain/open/shower,
 /obj/machinery/door/window/southleft{
 	name = "Shower"
+	},
+/obj/structure/bed/handrail{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/horizon/crew_quarters/fitness/showers)
@@ -1429,6 +1431,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/bridge/bridge_crew)
 "bdI" = (
@@ -1474,7 +1477,11 @@
 /obj/structure/toilet{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "bfx" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -2450,9 +2457,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "ccQ" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/button/remote/airlock{
 	dir = 8;
 	id = "deck2_medicaltoilet";
@@ -2464,7 +2468,8 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/freezer,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "cdh" = (
 /obj/structure/grille,
@@ -3519,6 +3524,9 @@
 	specialfunctions = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/washroom)
 "dfr" = (
@@ -4079,11 +4087,14 @@
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "dGU" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/personal,
-/turf/simulated/floor/tiled/white,
+/obj/structure/table/rack,
+/obj/item/towel,
+/obj/random/soap,
+/turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
 "dHr" = (
 /obj/machinery/door/firedoor,
@@ -4903,13 +4914,11 @@
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "eny" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -4999,6 +5008,13 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_three/primary/port)
+"erx" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/washroom)
 "erV" = (
 /turf/simulated/floor/tiled/ramp,
 /area/bridge/meeting_room)
@@ -6070,6 +6086,9 @@
 	specialfunctions = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/washroom)
 "fis" = (
@@ -7597,7 +7616,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/freezer,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "gqH" = (
 /obj/structure/grille,
@@ -8529,8 +8549,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "hdq" = (
-/obj/machinery/door/window/southleft,
-/turf/simulated/floor/tiled/freezer,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "hed" = (
 /obj/structure/cable/green{
@@ -9644,7 +9664,7 @@
 	name = "Locker Room"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/fitness/changing)
 "hPV" = (
 /obj/effect/floor_decal/corner/green{
@@ -11388,13 +11408,13 @@
 	},
 /obj/machinery/door/airlock/medical{
 	id_tag = "deck2_medicaltoilet";
-	name = "Staff Hygiene Facilities";
+	name = "Washroom Stall";
 	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/full,
 /area/medical/washroom)
 "jvA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -11535,7 +11555,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/full,
 /area/bridge/bridge_crew)
 "jzb" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -12177,7 +12197,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/fitness/showers)
 "kau" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -13098,7 +13118,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/full,
 /area/medical/ward/isolation)
 "kEH" = (
 /obj/effect/floor_decal/corner_wide/blue{
@@ -14820,7 +14840,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/fitness/washroom)
 "lXH" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -16111,6 +16131,9 @@
 	name = "Shower"
 	},
 /obj/structure/curtain/open/shower,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/horizon/crew_quarters/fitness/showers)
 "nao" = (
@@ -17478,7 +17501,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/fitness/changing)
 "oir" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -17654,9 +17677,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
 "ooA" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -17670,6 +17690,8 @@
 	name = "south bump";
 	pixel_y = -24
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "ooU" = (
@@ -17690,15 +17712,14 @@
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "opw" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 8
-	},
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
-/obj/machinery/recharge_station,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "opC" = (
@@ -18207,10 +18228,9 @@
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "oIL" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 8
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "oIT" = (
@@ -18255,7 +18275,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/bridge/bridge_crew)
 "oLh" = (
 /obj/structure/table/standard,
@@ -18434,13 +18454,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "oRM" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 8
-	},
-/obj/structure/closet/wardrobe/medic_white,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "oSn" = (
@@ -20819,7 +20835,7 @@
 	name = "Bridge Officer Preparation";
 	req_access = list(19)
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/bridge/bridge_crew)
 "qUt" = (
 /turf/simulated/wall/r_wall,
@@ -21047,6 +21063,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering_ladder)
+"rhm" = (
+/obj/structure/curtain/open/shower,
+/obj/machinery/door/window/westright,
+/obj/machinery/shower{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/medical/washroom)
 "rhT" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -22039,15 +22063,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/engineering_ladder)
 "rTk" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 8
-	},
-/obj/structure/table/rack,
-/obj/item/towel,
-/obj/item/towel,
-/obj/item/towel{
-	pixel_y = 6
-	},
 /obj/structure/mirror{
 	pixel_x = 28;
 	pixel_y = 6
@@ -22057,9 +22072,9 @@
 	pixel_x = 23;
 	pixel_y = -9
 	},
-/obj/random/soap,
-/obj/random/soap,
-/obj/random/soap,
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "rTr" = (
@@ -22526,6 +22541,9 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/firealarm/west,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/washroom)
 "slc" = (
@@ -22886,13 +22904,9 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/bridge/aibunker)
 "svx" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 8
-	},
 /obj/structure/closet/secure_closet/personal,
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "svL" = (
@@ -24026,10 +24040,11 @@
 /obj/structure/toilet{
 	dir = 8
 	},
-/obj/structure/window/reinforced/tinted/frosted,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/bed/handrail,
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/bridge/bridge_crew)
 "tra" = (
@@ -24519,6 +24534,12 @@
 /area/template_noop)
 "tJS" = (
 /obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/towel,
+/obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
 "tKk" = (
@@ -24813,6 +24834,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/light/small,
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/bridge/bridge_crew)
 "tWA" = (
@@ -26769,7 +26792,7 @@
 	name = "Bridge Officer Preparation";
 	req_access = list(19)
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/bridge/bridge_crew)
 "vuK" = (
 /obj/structure/bed/stool/chair/padded/brown,
@@ -26993,12 +27016,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "vBl" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/bridge/bridge_crew)
 "vBQ" = (
@@ -27541,8 +27562,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch,
-/turf/simulated/floor,
+/obj/machinery/door/airlock/hatch{
+	locked = 1;
+	lights = 0;
+	name = "Maintenance Hatch"
+	},
+/turf/simulated/floor/tiled/full,
 /area/medical/ward/isolation)
 "vWS" = (
 /obj/structure/disposalpipe/segment{
@@ -27578,8 +27603,9 @@
 /area/bridge/meeting_room)
 "vXo" = (
 /obj/structure/curtain/open/shower,
+/obj/machinery/door/window/eastleft,
 /obj/machinery/shower{
-	pixel_y = 21
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
@@ -27816,11 +27842,10 @@
 	name = "Security - Investigations Office"
 	})
 "wim" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 8
-	},
-/obj/machinery/washing_machine,
 /obj/machinery/firealarm/south,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/washing_machine,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "wiJ" = (
@@ -28171,11 +28196,9 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "wus" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "wuW" = (
@@ -29273,7 +29296,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "xoR" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -29486,7 +29513,7 @@
 	id_tag = "main_unit_1";
 	name = "Unit 1"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/fitness/washroom)
 "xxi" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
@@ -29515,7 +29542,7 @@
 	id_tag = "main_unit_2";
 	name = "Unit 2"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/fitness/washroom)
 "xyr" = (
 /obj/structure/closet/secure_closet/personal,
@@ -43416,7 +43443,7 @@ vLH
 vLY
 vXo
 tJS
-dGU
+svx
 svx
 oRM
 wim
@@ -43616,7 +43643,7 @@ qUP
 mcf
 aLV
 vLY
-vXo
+erx
 hdq
 acp
 oIL
@@ -43818,8 +43845,8 @@ wfV
 jvq
 kdj
 vLY
-vXo
-tJS
+rhm
+dGU
 opw
 rTk
 ooA

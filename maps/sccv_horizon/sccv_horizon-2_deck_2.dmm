@@ -19069,22 +19069,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/tesla)
-"jpi" = (
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = 12
-	},
-/obj/structure/mirror{
-	pixel_x = 28;
-	pixel_y = -3
-	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
-/turf/simulated/floor/tiled/white,
-/area/operations/break_room)
 "jpB" = (
 /obj/structure/closet/bombclosetsecurity,
 /obj/effect/floor_decal/corner/paleblue{
@@ -24992,6 +24976,9 @@
 	pixel_x = 28;
 	pixel_y = -3
 	},
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "muQ" = (
@@ -30513,6 +30500,9 @@
 	pixel_y = 32;
 	specialfunctions = 4
 	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "pfp" = (
@@ -33677,6 +33667,9 @@
 /obj/machinery/door/window/southleft{
 	name = "Shower"
 	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/operations/break_room)
 "qKK" = (
@@ -35817,6 +35810,9 @@
 	name = "Door Bolt Control";
 	pixel_y = 32;
 	specialfunctions = 4
+	},
+/obj/structure/bed/handrail{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
@@ -39321,6 +39317,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/bed/handrail{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
@@ -43656,6 +43655,9 @@
 	name = "Shower"
 	},
 /obj/structure/curtain/open/shower,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/operations/break_room)
 "vJw" = (
@@ -59784,7 +59786,7 @@ fQn
 rqA
 muO
 cgP
-jpi
+vYK
 rqA
 awH
 cgP
