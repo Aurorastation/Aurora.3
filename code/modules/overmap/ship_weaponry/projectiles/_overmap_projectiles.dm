@@ -8,7 +8,7 @@
 	var/obj/item/ship_ammunition/ammunition
 	var/atom/target //The target is the actual overmap object we're hitting.
 	var/obj/entry_target //The entry target is where the projectile itself is going to spawn in world.
-	var/range = OVERMAP_PROJECTILE_RANGE_ULTRAHIGH
+	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
 	var/current_range_counter = 0
 	var/speed = 0 //A projectile with 0 speed does not move. Note that this is the 'lag' variable on walk_towards! Lower speed is better.
 	
@@ -24,13 +24,34 @@
 
 /obj/effect/overmap/projectile/Bump(var/atom/A)
 	if(istype(A, /turf/unsimulated/map/edge))
-		QDEL_NULL(ammunition)
-		qdel(src)
+		handle_wraparound()
 	..()
+
+/obj/effect/overmap/projectile/proc/handle_wraparound()
+	var/nx = x
+	var/ny = y
+	var/low_edge = 1
+	var/high_edge = current_map.overmap_size - 1
+
+	if((dir & WEST) && x == low_edge)
+		nx = high_edge
+	else if((dir & EAST) && x == high_edge)
+		nx = low_edge
+	if((dir & SOUTH)  && y == low_edge)
+		ny = high_edge
+	else if((dir & NORTH) && y == high_edge)
+		ny = low_edge
+	if((x == nx) && (y == ny))
+		return //we're not flying off anywhere
+	if(!check_entry())
+		var/turf/T = locate(nx,ny,z)
+		if(T)
+			forceMove(T)
 
 /obj/effect/overmap/projectile/Move()
 	if(!check_entry())
 		. = ..()
+		handle_wraparound()
 	current_range_counter++
 	if(current_range_counter >= range)
 		qdel(src)

@@ -18,7 +18,7 @@
 
 	is_wieldable = TRUE
 
-	desc_fluff = "The adhomian hand cannon was created due the shortage of weapons that happened in the New Kingdom of Adhomai during the second civil war. Old naval culverins \
+	desc_extended = "The adhomian hand cannon was created due the shortage of weapons that happened in the New Kingdom of Adhomai during the second civil war. Old naval culverins \
 	found in museums and forgotten warehouses were adapted into portable weapons, combining modern and ancient tajaran technology. This weapon is usually found in the hands of the \
 	sailors and marines of the Royal Navy."
 
@@ -50,7 +50,7 @@
 
 	is_wieldable = TRUE
 
-	desc_fluff = "The People's Republic of Adhomai is the first Adhomian faction able to master the nuclear fission. Atomic weapons were used before in the tajaran civil war, \
+	desc_extended = "The People's Republic of Adhomai is the first Adhomian faction able to master the nuclear fission. Atomic weapons were used before in the tajaran civil war, \
 	causing the annihilation of the military base of Quizosa. The nuclear launcher was created by republican scientists as way to deploy this destructive force while on the field."
 
 /obj/item/gun/projectile/nuke/update_icon()
