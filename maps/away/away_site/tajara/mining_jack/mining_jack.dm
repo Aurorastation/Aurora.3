@@ -13,8 +13,8 @@
 	descriptor = "An outpost used by the crew of mining jacks."
 
 /obj/effect/overmap/visitable/sector/tajara_mining_jack
-	name = "adhomian mining"
-	desc = "An outpost used by the crew of mining jacks."
+	name = "adhomian mining outpost"
+	desc = "An outpost used by the crew of adhomian mining jacks."
 	initial_generic_waypoints = list(
 		"nav_tajara_mining_jack_1",
 		"nav_tajara_mining_jack_2",
@@ -45,7 +45,7 @@
 /obj/effect/overmap/visitable/ship/landable/tajara_mining_jack
 	name = "Mining Jack"
 	class = "ACV"
-	desc = "A modified skipjack used by Tajaran miners."
+	desc = "A modified skipjack used by Tajaran miners. These models have been modified to mine as much as possible with a small crew. Due to its limited fuel supply, it usually does not go too far from its home base."
 	shuttle = "Mining Jack"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
@@ -66,7 +66,7 @@
 /datum/shuttle/autodock/overmap/tajara_mining_jack
 	name = "Mining Jack"
 	move_time = 20
-	shuttle_area = list()
+	shuttle_area = list(/area/shuttle/mining_jack/bridge, /area/shuttle/mining_jack/engines)
 	dock_target = "tajara_mining_jack"
 	current_location = "nav_hangar_tajara_mining_jack"
 	landmark_transition = "nav_transit_tajara_mining_jack"
@@ -79,8 +79,8 @@
 	name = "Mining Jack Hangar"
 	landmark_tag = "nav_hangar_tajara_mining_jack"
 	docking_controller = "tajara_mining_jack_shuttle_dock"
-	base_area = /area/space
-	base_turf = /turf/space
+	base_area = /area/mining_jack_outpost/hangar
+	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/tajara_mining_jack/transit
