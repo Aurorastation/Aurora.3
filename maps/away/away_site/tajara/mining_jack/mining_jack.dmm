@@ -16,7 +16,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "aE" = (
@@ -63,7 +63,7 @@
 /area/mining_jack_outpost/hangar)
 "aN" = (
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "aO" = (
@@ -75,7 +75,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "aQ" = (
@@ -117,7 +117,7 @@
 /area/mining_jack_outpost/hangar)
 "br" = (
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "bw" = (
@@ -152,7 +152,7 @@
 	},
 /obj/item/pickaxe,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "bS" = (
@@ -164,7 +164,7 @@
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "cq" = (
@@ -181,7 +181,7 @@
 	pixel_x = -25
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "cw" = (
@@ -207,14 +207,14 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "da" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "df" = (
@@ -264,7 +264,7 @@
 /obj/item/storage/belt/mining,
 /obj/item/storage/belt/mining,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "ea" = (
@@ -276,7 +276,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "eg" = (
@@ -333,7 +333,7 @@
 "eX" = (
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "eZ" = (
@@ -354,7 +354,7 @@
 /area/shuttle/mining_jack/bridge)
 "fm" = (
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "fv" = (
@@ -362,7 +362,7 @@
 /obj/item/gun/energy/plasmacutter,
 /obj/item/gun/energy/plasmacutter,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "fG" = (
@@ -429,7 +429,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "gn" = (
@@ -453,7 +453,7 @@
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "gu" = (
@@ -462,7 +462,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "gI" = (
@@ -470,7 +470,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "gY" = (
@@ -557,7 +557,7 @@
 	level = 2
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "hX" = (
@@ -593,7 +593,7 @@
 	layer = 2.9
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "in" = (
@@ -607,7 +607,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "iE" = (
@@ -619,7 +619,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "iN" = (
@@ -666,7 +666,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "jP" = (
@@ -678,7 +678,7 @@
 "jV" = (
 /obj/machinery/computer/shuttle_control/explore/tajara_mining_jack,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "kt" = (
@@ -695,7 +695,7 @@
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "kA" = (
@@ -712,7 +712,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "kP" = (
@@ -767,7 +767,7 @@
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "lb" = (
@@ -804,7 +804,7 @@
 /obj/item/plastique/seismic,
 /obj/item/plastique/seismic,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "lu" = (
@@ -832,7 +832,7 @@
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "lN" = (
@@ -877,7 +877,7 @@
 	name = "igs - tajara_mining_jack"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "mb" = (
@@ -886,7 +886,7 @@
 /obj/item/shovel,
 /obj/item/shovel,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "mk" = (
@@ -905,7 +905,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "mF" = (
@@ -1018,7 +1018,7 @@
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "py" = (
@@ -1026,7 +1026,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "pQ" = (
@@ -1049,7 +1049,7 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "qw" = (
@@ -1069,7 +1069,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "qA" = (
@@ -1092,7 +1092,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "rl" = (
@@ -1121,7 +1121,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "sp" = (
@@ -1145,7 +1145,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "sO" = (
@@ -1186,12 +1186,12 @@
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "tJ" = (
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "tN" = (
@@ -1221,7 +1221,7 @@
 	name = "igs - tajara_mining_jack"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "ug" = (
@@ -1252,7 +1252,7 @@
 "uw" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "uH" = (
@@ -1310,7 +1310,7 @@
 "vA" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "vB" = (
@@ -1325,7 +1325,7 @@
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "vF" = (
@@ -1363,7 +1363,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "wq" = (
@@ -1423,7 +1423,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "xK" = (
@@ -1486,7 +1486,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "yq" = (
@@ -1496,7 +1496,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "yr" = (
@@ -1557,7 +1557,7 @@
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "zX" = (
@@ -1610,7 +1610,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "AY" = (
@@ -1688,7 +1688,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "CS" = (
@@ -1704,7 +1704,7 @@
 	name = "Atmospherics"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/atmos)
 "Dj" = (
@@ -1739,7 +1739,7 @@
 /obj/effect/overmap/visitable/ship/landable/tajara_mining_jack,
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "DS" = (
@@ -1758,7 +1758,7 @@
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "Ec" = (
@@ -1837,7 +1837,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "FN" = (
@@ -1924,7 +1924,7 @@
 	},
 /obj/effect/overmap/visitable/sector/tajara_mining_jack,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "HE" = (
@@ -1959,7 +1959,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/drill,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "JU" = (
@@ -1975,7 +1975,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "Km" = (
@@ -2046,7 +2046,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "Ma" = (
@@ -2080,7 +2080,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "ME" = (
@@ -2151,7 +2151,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "Oc" = (
@@ -2217,7 +2217,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "Qk" = (
@@ -2246,14 +2246,14 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "Rm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "Rw" = (
@@ -2262,7 +2262,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "Rz" = (
@@ -2298,7 +2298,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "Tu" = (
@@ -2329,7 +2329,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "UJ" = (
@@ -2344,7 +2344,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "Vh" = (
@@ -2369,7 +2369,7 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "VB" = (
@@ -2395,7 +2395,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "Wd" = (
@@ -2403,7 +2403,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
 "Wr" = (
@@ -2440,7 +2440,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "Xt" = (
@@ -2502,7 +2502,7 @@
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "YW" = (
@@ -2537,7 +2537,7 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "ZC" = (
@@ -2570,7 +2570,7 @@
 	name = "igs - tajara_mining_jack"
 	},
 /turf/simulated/floor/tiled/steel{
-	temperature = 278,15
+	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "ZT" = (
