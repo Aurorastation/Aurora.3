@@ -1023,7 +1023,8 @@
 		/obj/item/module/power_control = 10,
 		/obj/item/airalarm_electronics = 10,
 		/obj/item/firealarm_electronics = 10,
-		/obj/item/cell/high = 10
+		/obj/item/cell/high = 10,
+		/obj/item/grenade/chem_grenade/antifuel = 5
 	)
 	contraband = list(
 		/obj/item/cell/potato = 3

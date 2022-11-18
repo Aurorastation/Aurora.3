@@ -8,34 +8,53 @@
 	var/obj/item/ship_ammunition/ammunition
 	var/atom/target //The target is the actual overmap object we're hitting.
 	var/obj/entry_target //The entry target is where the projectile itself is going to spawn in world.
-	var/range = OVERMAP_PROJECTILE_RANGE_ULTRAHIGH
+	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
+	var/current_range_counter = 0
 	var/speed = 0 //A projectile with 0 speed does not move. Note that this is the 'lag' variable on walk_towards! Lower speed is better.
 	
 	var/moving = FALSE //Is the projectile actively moving on the overmap?
+	var/entering = FALSE //Are we entering an entry point?
 
 /obj/effect/overmap/projectile/Initialize(var/maploading, var/sx, var/sy)
 	. = ..()
 	x = sx
 	y = sy
 	z = current_map.overmap_z
-	START_PROCESSING(SSprocessing, src)
+	addtimer(CALLBACK(src, .proc/move_to), 1)
 
 /obj/effect/overmap/projectile/Bump(var/atom/A)
 	if(istype(A, /turf/unsimulated/map/edge))
-		QDEL_NULL(ammunition)
-		qdel(src)
+		handle_wraparound()
 	..()
 
-/obj/effect/overmap/projectile/process()
-	if(target)
-		move_to()
-	if(!moving)
-		check_entry()
+/obj/effect/overmap/projectile/proc/handle_wraparound()
+	var/nx = x
+	var/ny = y
+	var/low_edge = 1
+	var/high_edge = current_map.overmap_size - 1
+
+	if((dir & WEST) && x == low_edge)
+		nx = high_edge
+	else if((dir & EAST) && x == high_edge)
+		nx = low_edge
+	if((dir & SOUTH)  && y == low_edge)
+		ny = high_edge
+	else if((dir & NORTH) && y == high_edge)
+		ny = low_edge
+	if((x == nx) && (y == ny))
+		return //we're not flying off anywhere
+	if(!check_entry())
+		var/turf/T = locate(nx,ny,z)
+		if(T)
+			forceMove(T)
 
 /obj/effect/overmap/projectile/Move()
-	. = ..()
-	if(.)
-		check_entry()
+	if(!check_entry())
+		. = ..()
+		handle_wraparound()
+	current_range_counter++
+	if(current_range_counter >= range)
+		qdel(src)
 
 /obj/effect/overmap/projectile/Destroy()
 	ammunition = null
@@ -43,7 +62,13 @@
 	entry_target = null
 	return ..()
 
+/obj/effect/overmap/projectile/proc/prepare_for_entry()
+	moving = FALSE
+	entering = FALSE
+	walk(src, 0)
+
 /obj/effect/overmap/projectile/proc/check_entry()
+	. = FALSE
 	if(!ammunition)
 		return
 	var/turf/T = get_turf(src)
@@ -54,10 +79,9 @@
 			var/obj/effect/overmap/visitable/V = A
 			if((V.check_ownership(entry_target)) || (V == target)) //Target spotted!
 				if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
-					//Manually stopping & going invisible because this proc needs to sleep for a bit.
-					STOP_PROCESSING(SSprocessing, src) //Also, don't sleep in process().
-					invisibility = 100
-					moving = FALSE
+					. = TRUE
+					//Manually stopping because this proc needs to sleep for a bit.
+					prepare_for_entry()
 					var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 					widowmaker.ammo = ammunition
 					qdel(ammunition.original_projectile) //No longer needed.
@@ -74,12 +98,14 @@
 					qdel(widowmaker)
 					qdel(src)
 				else if(istype(V, /obj/effect/overmap/visitable) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
+					. = TRUE
 					if(istype(V, /obj/effect/overmap/visitable/ship))
 						var/obj/effect/overmap/visitable/ship/VS = V
 						if(istype(ammunition.origin, /obj/effect/overmap/visitable/ship))
 							var/naval_heading = SSatlas.headings_to_naval["[VS.dir]"]["[ammunition.heading]"]
 							var/corrected_heading = SSatlas.naval_to_dir["[VS.fore_dir]"][naval_heading]
 							ammunition.heading = corrected_heading
+					prepare_for_entry()
 					var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 					widowmaker.ammo = ammunition
 					qdel(ammunition.original_projectile) //No longer needed.
@@ -99,6 +125,7 @@
 		if(istype(A, /obj/effect/overmap/event))
 			var/obj/effect/overmap/event/EV = A
 			if(EV.can_be_destroyed && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_HAZARDS))
+				. = TRUE
 				qdel(EV)
 				qdel(src)
 
@@ -107,18 +134,12 @@
 		walk(src, 0)
 		moving = FALSE
 		return
-	if(!moving)
+	if(!moving && !entering)
 		if(ammunition.ammunition_behaviour == SHIP_AMMO_BEHAVIOUR_DUMBFIRE)
 			walk(src, ammunition.heading, speed)
 		else if(ammunition.ammunition_behaviour == SHIP_AMMO_BEHAVIOUR_GUIDED)
 			walk_towards(src, target, speed)
-	moving = TRUE
-
-/obj/effect/overmap/projectile/Destroy()
-	if(!QDELETED(ammunition))
-		QDEL_NULL(ammunition)
-	ammunition = null
-	return ..()
+		moving = TRUE
 
 /obj/effect/overmap/projectile/get_scan_data(mob/user)
 	. = ..()

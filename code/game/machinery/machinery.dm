@@ -526,3 +526,12 @@ Class Procs:
 
 /obj/machinery/proc/set_emergency_state(var/new_security_level)
 	return
+
+/obj/machinery/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+	. = ..()
+	if(isliving(AM))
+		var/mob/living/M = AM
+		M.turf_collision(src, speed)
+		return
+	else
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))

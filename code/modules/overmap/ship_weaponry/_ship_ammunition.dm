@@ -23,6 +23,7 @@
 	var/obj/entry_point
 	var/obj/item/projectile/original_projectile
 	var/heading = SOUTH
+	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
 
 	//Cookoff variables.
 	var/cookoff_devastation = 0
@@ -32,6 +33,13 @@
 /obj/item/ship_ammunition/Initialize()
 	. = ..()
 	update_status()
+
+/obj/item/ship_ammunition/Destroy()
+	origin = null
+	overmap_target = null
+	entry_point = null
+	original_projectile = null
+	return ..()
 
 /obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
 	if(I.ispen())
@@ -170,6 +178,7 @@
 	P.desc = desc
 	P.ammunition = src
 	P.target = overmap_target
+	P.range = range
 	if(istype(origin, /obj/effect/overmap/visitable/ship))
 		var/obj/effect/overmap/visitable/ship/S = origin
 		P.dir = S.dir

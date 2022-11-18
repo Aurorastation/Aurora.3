@@ -224,7 +224,7 @@
 /obj/item/clothing/suit/storage/toggle/suitjacket/blazer
 	name = "blazer"
 	desc = "A charming jacket."
-	desc_fluff = "for when you want to play ball sports like an aristocrat."
+	desc_extended = "for when you want to play ball sports like an aristocrat."
 	icon_state = "blazer"
 	item_state = "blazer"
 	opened = TRUE
@@ -232,7 +232,7 @@
 /obj/item/clothing/suit/storage/toggle/suitjacket/blazer/long
 	name = "long blazer"
 	desc = "A charming long jacket."
-	desc_fluff = "For when you want to play ball sports like an aristocrat."
+	desc_extended = "For when you want to play ball sports like an aristocrat."
 	icon_state = "longblazer"
 	item_state = "longblazer"
 	opened = TRUE
