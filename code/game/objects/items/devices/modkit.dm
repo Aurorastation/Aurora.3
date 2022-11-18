@@ -141,14 +141,14 @@
 	icon_state = "himeo_kit"
 	item_state = "himeo_kit"
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit."
-	desc_fluff = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
+	desc_extended = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
 	for use by miners originating from the planet. Most of these suits are assembled in Cannington and painstakingly optimized on-site by their\
 	individual operator leading to a large trail of red tape as NanoTrasen is forced to inspect these suits to ensure their safety."
 
 /obj/item/voidsuit_modkit/himeo/tajara
 	name = "tajaran himeo voidsuit kit"
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit fitted for Tajara."
-	desc_fluff = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
+	desc_extended = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
 	for use by miners and engineers originating from the planet. Most of these suits are assembled in Cannington and painstakingly optimized on-site by their\
 	individual operator leading to a large trail of red tape as NanoTrasen is forced to inspect these suits to ensure their safety."
 	suit_options = list(
