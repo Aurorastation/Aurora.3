@@ -103,6 +103,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
+"bm" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
 "bp" = (
 /obj/effect/shuttle_landmark/tajara_scrapper/nav3,
 /turf/simulated/floor/plating{
@@ -122,6 +128,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
+"bt" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
 "bw" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -193,6 +205,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "cD" = (
@@ -517,6 +532,23 @@
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/starboard_engines)
+"gr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
 "gz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating{
@@ -1609,6 +1641,27 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/space)
+"uC" = (
+/obj/effect/floor_decal/corner/beige/full,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/window/reinforced{
+	dir = 8;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window{
+	dir = 1;
+	pixel_x = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
 "uD" = (
 /obj/structure/fuel_port/hydrogen{
 	pixel_x = -32
@@ -2051,6 +2104,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/beige,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "zT" = (
@@ -2497,6 +2551,7 @@
 /area/scrapper_base/solars)
 "Gw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "GF" = (
@@ -2890,6 +2945,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "La" = (
@@ -3069,6 +3127,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Nf" = (
@@ -3270,6 +3329,13 @@
 	temperature = 278.15
 	},
 /area/scrapper_base)
+"Px" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
 "Pz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -3384,6 +3450,9 @@
 "QQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
@@ -3501,6 +3570,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
@@ -33761,8 +33833,8 @@ Fo
 Fo
 IL
 Fo
-NK
-tc
+Px
+uC
 JU
 Kn
 Kn
@@ -34018,7 +34090,7 @@ bp
 Fo
 Fo
 Fo
-NK
+Uk
 mx
 JU
 Kn
@@ -37369,7 +37441,7 @@ yc
 yc
 yc
 yc
-NK
+bm
 Fo
 Fo
 Fo
@@ -40178,7 +40250,7 @@ JU
 Ng
 yT
 xI
-Jd
+gr
 XG
 yT
 ob
@@ -41201,11 +41273,11 @@ GO
 JJ
 Uk
 LV
-NK
-NK
+oc
+tc
 jV
 Qx
-fb
+bt
 Jd
 fb
 vT
@@ -41459,10 +41531,10 @@ sJ
 cq
 UB
 NK
-NK
+mx
 xM
 Ig
-fb
+bt
 VM
 Ue
 HA
@@ -41715,11 +41787,11 @@ mc
 JJ
 Uk
 LV
-NK
-NK
+vS
+bm
 jV
 Qx
-fb
+bt
 Jd
 fb
 Hg
@@ -45850,7 +45922,7 @@ NK
 NK
 NK
 zQ
-NK
+bm
 Fo
 Fo
 Fo
@@ -46097,7 +46169,7 @@ yc
 yc
 Pr
 yc
-NK
+yc
 KQ
 LM
 Pr
