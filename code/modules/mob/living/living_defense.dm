@@ -247,17 +247,13 @@
 
 	return FALSE
 
-#define MOB_FIRE_LIGHT_RANGE  3  //These control the intensity and range of light given off by a mob which is on fire
-#define MOB_FIRE_LIGHT_POWER  2
-
 /mob/living/proc/set_on_fire()
-	to_chat(src, SPAN_DANGER(FONT_LARGE("You're set on fire!")))
 	on_fire = TRUE
-	set_light(light_range + MOB_FIRE_LIGHT_RANGE, light_power + MOB_FIRE_LIGHT_POWER)
+	to_chat(src, SPAN_DANGER(FONT_LARGE("You are set on fire!")))
+	set_light(3, 2, LIGHT_COLOR_FIRE)
 
 /mob/living/proc/ExtinguishMob(var/fire_stacks_to_remove = 0)
-
-	if (fire_stacks_to_remove)
+	if(fire_stacks_to_remove)
 		adjust_fire_stacks(-fire_stacks_to_remove)
 
 	if(fire_stacks <= 0 && on_fire)
@@ -268,9 +264,9 @@
 	return FALSE
 
 /mob/living/proc/extinguish_fire()
-	to_chat(src, SPAN_GOOD(FONT_LARGE("You are no longer on fire.")))
 	on_fire = FALSE
-	set_light(max(0, light_range - MOB_FIRE_LIGHT_RANGE), max(0, light_power - MOB_FIRE_LIGHT_POWER))
+	to_chat(src, SPAN_GOOD(FONT_LARGE("You are no longer on fire.")))
+	set_light(light_range, light_power, light_color)
 
 /mob/living/proc/ExtinguishMobCompletely()
 	return ExtinguishMob(fire_stacks)
@@ -388,6 +384,3 @@
 			hud_used.hide_actions_toggle.screen_loc = hud_used.ButtonNumberToScreenCoords(button_number+1)
 			//hud_used.SetButtonCoords(hud_used.hide_actions_toggle,button_number+1)
 		client.screen += hud_used.hide_actions_toggle
-
-#undef	MOB_FIRE_LIGHT_RANGE  //These control the intensity and range of light given off by a mob which is on fire
-#undef	MOB_FIRE_LIGHT_POWER
