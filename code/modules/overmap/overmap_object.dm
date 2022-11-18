@@ -86,9 +86,9 @@
 				O.maptext += SMALL_FONTS(6, " [class] [designation]")
 		else
 			if(!O.maptext)
-				O.maptext = SMALL_FONTS(6, "[name]")
+				O.maptext = SMALL_FONTS(6, "[capitalize_first_letters(name)]")
 			else
-				O.maptext = SMALL_FONTS(6, " [name]")
+				O.maptext = SMALL_FONTS(6, " [capitalize_first_letters(name)]")
 		O.maptext_y = 32
 		O.maptext_x = -10
 		O.maptext_width = 72
