@@ -204,7 +204,7 @@
 		/obj/item/clothing/under/pants/jeans,
 		/obj/item/clothing/under/pants/camo,
 		/obj/item/clothing/under/pants/khaki,
-		/obj/item/clothing/under/pants/musthang,
+		/obj/item/clothing/under/pants/mustang,
 		/obj/item/clothing/under/rank/bartender,
 		/obj/item/clothing/under/rank/hangar_technician/heph,
 		/obj/item/clothing/under/rank/chef,

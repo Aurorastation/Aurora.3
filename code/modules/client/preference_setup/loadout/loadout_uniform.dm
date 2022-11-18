@@ -164,7 +164,7 @@
 	var/list/pants = list()
 	pants["jeans"] = /obj/item/clothing/under/pants/jeans
 	pants["classic jeans"] = /obj/item/clothing/under/pants/classic
-	pants["must hang jeans"] = /obj/item/clothing/under/pants/musthang
+	pants["must hang jeans"] = /obj/item/clothing/under/pants/mustang
 	pants["black jeans"] = /obj/item/clothing/under/pants/jeansblack
 	pants["young folks jeans"] = /obj/item/clothing/under/pants/youngfolksjeans
 	pants["white pants"] = /obj/item/clothing/under/pants/white
@@ -224,7 +224,7 @@
 	colorpants["dress pants, with belt"] = /obj/item/clothing/under/pants/dress/belt
 	colorpants["striped pants"] = /obj/item/clothing/under/pants/striped
 	colorpants["tailored jeans"] = /obj/item/clothing/under/pants/tailoredjeans
-	colorpants["mustang jeans"] = /obj/item/clothing/under/pants/musthangcolour
+	colorpants["mustang jeans"] = /obj/item/clothing/under/pants/mustang/colourable
 	colorpants["athletic shorts"] = /obj/item/clothing/under/shorts/athletic/colourable
 	colorpants["flared pants"] = /obj/item/clothing/under/pants/flared
 	gear_tweaks += new /datum/gear_tweak/path(colorpants)
