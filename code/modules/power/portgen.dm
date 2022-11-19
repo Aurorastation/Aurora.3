@@ -467,6 +467,7 @@
 	max_temperature = 450
 	time_per_sheet = 400
 	anchored = TRUE
+	flags = OPENCONTAINER
 	var/coolant_volume = 360
 	var/coolant_use = 0.2
 	var/coolant_reagent = /decl/reagent/coolant
@@ -477,14 +478,14 @@
 
 /obj/machinery/power/portgen/basic/super/nuclear_reactor/examine(mob/user)
 	. = ..()
-	to_chat(user, "Auxilary tank shows [reagents.total_volume]u of liquid in it.")
+	to_chat(user, "The auxilary tank shows [reagents.total_volume]u of liquid in it.")
 
 /obj/machinery/power/portgen/basic/super/nuclear_reactor/UseFuel()
 	if(reagents.has_reagent(coolant_reagent))
 		temperature_gain = 60
 		reagents.remove_any(coolant_use)
 		if(prob(2))
-			audible_message("<span class='notice'>[src] churns happily</span>")
+			audible_message("<span class='notice'>[src] churns happily.</span>")
 	else
 		temperature_gain = initial(temperature_gain)
 	..()
@@ -502,12 +503,12 @@
 /obj/machinery/power/portgen/basic/super/nuclear_reactor/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/reagent_containers))
 		var/obj/item/reagent_containers/R = O
-		if(R.standard_pour_into(src,user))
-			if(reagents.has_reagent("coolant"))
-				audible_message("<span class='notice'>[src] blips happily</span>")
+		if(R.standard_pour_into(user, src))
+			if(reagents.has_reagent(/decl/reagent/coolant))
+				audible_message("<span class='notice'>[src] blips happily!</span>")
 				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
 			else
-				audible_message("<span class='warning'>[src] blips in disappointment</span>")
+				audible_message("<span class='warning'>[src] blips in disappointment!</span>")
 				playsound(get_turf(src), 'sound/machines/synth_no.ogg', 50, 0)
 		return
 	..()
