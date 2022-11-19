@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - bugfix: "Fixes a missing APC wire."
+  - bugfix: "Fixes pilot's room object placement."
