@@ -1,7 +1,7 @@
 /area/mining_jack_outpost
 	name = "Mining Jack Outpost"
 	icon_state = "bluenew"
-	requires_power = 1
+	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/space
