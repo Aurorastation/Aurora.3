@@ -615,3 +615,8 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_pra
 	id = access_pra
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_unathi_pirate = 210
+/datum/access/access_unathi_pirate
+	id = access_unathi_pirate
+	access_type = ACCESS_TYPE_CENTCOM

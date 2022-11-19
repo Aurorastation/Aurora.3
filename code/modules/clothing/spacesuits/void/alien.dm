@@ -162,3 +162,66 @@
 	protection from NanoTrasen and the Sol Alliance in order to defend their orbit from raiders. However, the Republican Navy has striven to become independent. With the help of \
 	contracted engineers, access to higher education abroad and training from Sol Alliance naval advisers, the People's Republic has been able to commission and crew some of its own \
 	ships. The Republican Navy's space-arm primarily conducts counter piracy operations in conjunction with fending off raiders."
+
+/obj/item/clothing/head/helmet/space/void/unathi_pirate
+	name = "unathi raider helmet"
+	desc = "A cheap but effective helmet made to fit with a larger combat assembly."
+	icon_state = "rig0-unathipirate"
+	item_state = "rig0-unathipirate"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+	light_overlay = "helmet_light_dual_low"
+	brightness_on = 6
+	species_restricted = list(BODYTYPE_UNATHI)
+	refittable = FALSE
+
+/obj/item/clothing/suit/space/void/unathi_pirate
+	name = "unathi raider voidsuit"
+	desc = "A well-balanced combat voidsuit made by and for Unathi. The cheap but effective design makes it a popular choice amongst pirates and the likes."
+	icon_state = "rig-unathipirate"
+	item_state = "rig-unathipirate"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/material/sword,/obj/item/melee/hammer,/obj/item/melee/energy)
+	species_restricted = list(BODYTYPE_UNATHI)
+	refittable = FALSE
+
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/captain
+	name = "unathi raider captain helmet"
+	desc = "A decent helmet made to fit with a larger combat assembly."
+	icon_state = "rig0-unathipiratecaptain"
+	item_state = "rig0-unathipiratecaptain"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_PISTOL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+
+/obj/item/clothing/suit/space/void/unathi_pirate/captain
+	name = "unathi raider captain voidsuit"
+	desc = "A well-balanced combat voidsuit made by and for Unathi. This one features several improvements and extra adornments, making it fit for a Captain, or some kind of high-ranking crew member."
+	icon_state = "rig-unathipiratecaptain"
+	item_state = "rig-unathipiratecaptain"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_PISTOL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
