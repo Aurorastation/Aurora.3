@@ -2,8 +2,8 @@
 	name = "\improper ECMO"
 	desc = "An Extra-Corporeal Membrane Oxygenator."
 	desc_info = "ECMO must be supplied with a blood pack and an oxygen tank."
-	icon = 'icons/obj/iv_drip.dmi'
-	icon_state = "iv_stand"
+	icon = 'icons/obj/ecmo.dmi'
+	icon_state = "ecmo_stand"
 	anchored = 0
 	density = FALSE
 	var/tipped = FALSE
@@ -16,7 +16,7 @@
 	var/obj/item/reagent_containers/beaker = null
 	var/transfer_amount = 5
 	var/transfer_limit = 10
-	var/brain_damage_pinner = 160 // Brain damage amount to keep the patient at/above
+	var/brain_damage_pinner = 140 // Brain damage amount to keep the patient at/above
 	var/rip_vein_damage = 30 // The damage to apply to the vein when the vein or the artery line are ripped out
 	var/mode = TRUE // TRUE is injecting, FALSE is taking blood.
 	var/toggle_stop = TRUE
@@ -158,9 +158,9 @@
 		add_overlay("[tank.gauge_icon][tank_level][tipped ? "_tipped" : ""]")
 	if(breath_mask)
 		if(breather)
-			add_overlay("mask_on[tipped ? "_tipped" : ""]")
+			add_overlay("arterial_line_on[tipped ? "_tipped" : ""]")
 		else
-			add_overlay("mask_off[tipped ? "_tipped" : ""]")
+			add_overlay("arterial_line_off[tipped ? "_tipped" : ""]")
 	if(panel_open)
 		add_overlay("panel_open[tipped ? "_tipped" : ""]")
 
@@ -194,9 +194,13 @@
 
 		if(valve_open && attached)
 			var/obj/item/organ/internal/brain/B = breather.internal_organs_by_name[BP_BRAIN]
+			var/obj/item/organ/internal/lungs/L = breather.internal_organs_by_name[BP_LUNGS]
 
 			if(B.damage >= brain_damage_pinner && breather.get_brain_result())
 				B.damage = brain_damage_pinner
+
+			if(L.get_oxygen_deprivation() >= 70)
+				L.remove_oxygen_deprivation(10)
 
 			if(tank.air_contents.return_pressure() <= 300)
 				src.visible_message(SPAN_WARNING("\The [src] buzzes, automatically deactivating due to the lack of tank pressure."))
@@ -336,12 +340,16 @@
 
 
 /obj/machinery/ecmo/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/reagent_containers/blood/ripped))
-		to_chat(user, "You can't use a ripped bloodpack.")
-		return TRUE
 	if(istype(W, /obj/item/reagent_containers))
-		if(beaker)
-			to_chat(user, "There is already a reagent container loaded!")
+		if(istype(W, /obj/item/reagent_containers/blood/ripped))
+			to_chat(user, "You can't use a ripped bloodpack.")
+			return TRUE
+		if(istype(W, /obj/item/reagent_containers))
+			if(beaker)
+				to_chat(user, "There is already a reagent container loaded!")
+				return TRUE
+		if(!istype(W, /obj/item/reagent_containers/blood))
+			to_chat(user, "The ECMO only accepts blood packs.")
 			return TRUE
 		user.drop_from_inventory(W, src)
 		beaker = W
@@ -367,10 +375,9 @@
 		if(tank)
 			to_chat(user, "There is already a tank installed!")
 			return TRUE
-		if(istype(W, /obj/item/tank/phoron))
-			if(tipped)
-				to_chat(user, "You're not sure how to place \the [W] in the fallen [src].")
-				return TRUE
+		if(!istype(W, /obj/item/tank/oxygen))
+			to_chat(user, "The ECMO only accepts oxygen tanks.")
+			return TRUE
 		user.drop_from_inventory(W, src)
 		tank = W
 		user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
@@ -379,9 +386,6 @@
 	if(W.iswrench())
 		if(!tank)
 			to_chat(user, "There isn't a tank installed for you to secure!")
-			return TRUE
-		if(tank_type == "phoron")
-			to_chat(user, "You can't properly secure this type of tank to \the [src]!")
 			return TRUE
 		user.visible_message(
 			SPAN_NOTICE("[user] [is_loose ? "tightens" : "loosens"] the nuts on [src]."),
@@ -433,11 +437,11 @@
 /obj/machinery/ecmo/proc/do_crash()
 	cut_overlays()
 	visible_message(SPAN_WARNING("\The [src] falls over with a buzz, spilling out it's contents!"))
-	flick("iv_crash[is_loose ? "" : "_tank_[tank_type]"]", src)
+	flick("ecmo_crash[is_loose ? "" : "_tank_[tank_type]"]", src)
 	playsound(src, 'sound/items/drop/prosthetic.ogg', 50)
 	spill()
 	tipped = TRUE
-	icon_state = "iv_stand_tipped"
+	icon_state = "ecmo_stand_tipped"
 	update_icon()
 
 /obj/machinery/ecmo/proc/spill()
