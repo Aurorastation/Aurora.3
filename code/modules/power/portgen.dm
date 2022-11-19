@@ -435,7 +435,7 @@
 //
 /obj/machinery/power/portgen/basic/super
 	name = "super portable generator"
-	desc = "An advanced portable generator that runs on tritium. Runs even more efficiently than the uranium-driven model due to the higher energy density of tritium. " + SPAN_WARNING("Rated for 500 kW max safe output.")
+	desc = "An advanced portable generator that runs on tritium. Runs even more efficiently than the uranium-driven model due to the higher energy density of tritium. " + SPAN_WARNING("Rated for 400 kW max safe output.")
 	icon_state = "portgen2_0"
 	base_icon = "portgen2"
 	portgen_lightcolour = "#476ACC"
@@ -444,21 +444,21 @@
 	sheet_path = /obj/item/stack/material/tritium
 	board_path = "/obj/item/circuitboard/portgen/super"
 
-	power_gen = 90000 // 500 kW = safe max, 750 kW = unsafe max
-	max_power_output = 10
-	max_safe_output = 8
+	power_gen = 80000 // 400 kW = safe max, 640 kW = unsafe max
+	max_power_output = 8
+	max_safe_output = 5
 	time_per_sheet = 576
 	max_temperature = 720
-	temperature_gain = 80
+	temperature_gain = 90
 
 /obj/machinery/power/portgen/basic/super/explode()
 	explosion(loc, 3, 6, 12, 16, 1) // No special effects, but the explosion is pretty big (same as a supermatter shard).
 	qdel(src)
 
-/obj/machinery/power/portgen/basic/super/nuclear_reactor
-	name = "nuclear reactor"
-	desc = "The RT7-0, an industrial all-in-one nuclear power plant by Hephaestus. It uses uranium as a fuel source and relies on coolant to keep the reactor cool. Rated for 150 kW max safe output."
-	power_gen =  125000	
+/obj/machinery/power/portgen/basic/super/fusion_reactor
+	name = "minature fusion reactor"
+	desc = "The RT7-0, an industrial all-in-one nuclear fusion power plant created by Hephaestus. It uses uranium as a fuel source and relies on coolant to keep the reactor cool. Rated for 500 kW max safe output."
+	power_gen =  100000	
 	icon_state = "reactor"
 	base_icon = "reactor"
 	max_safe_output = 5
@@ -472,15 +472,15 @@
 	var/coolant_use = 0.2
 	var/coolant_reagent = /decl/reagent/coolant
 
-/obj/machinery/power/portgen/basic/super/nuclear_reactor/New()
+/obj/machinery/power/portgen/basic/super/fusion_reactor/New()
 	create_reagents(coolant_volume)
 	..()
 
-/obj/machinery/power/portgen/basic/super/nuclear_reactor/examine(mob/user)
+/obj/machinery/power/portgen/basic/super/fusion_reactor/examine(mob/user)
 	. = ..()
 	to_chat(user, "The auxilary tank shows [reagents.total_volume]u of liquid in it.")
 
-/obj/machinery/power/portgen/basic/super/nuclear_reactor/UseFuel()
+/obj/machinery/power/portgen/basic/super/fusion_reactor/UseFuel()
 	if(reagents.has_reagent(coolant_reagent))
 		temperature_gain = 60
 		reagents.remove_any(coolant_use)
@@ -494,13 +494,13 @@
 			L.apply_damage(1, IRRADIATE, damage_flags = DAM_DISPERSED) //should amount to ~5 rads per minute at max safe power
 	..()
 
-/obj/machinery/power/portgen/basic/super/nuclear_reactor/update_icon()
+/obj/machinery/power/portgen/basic/super/fusion_reactor/update_icon()
 	if(..())
 		return 1
 	if(power_output > max_safe_output)
 		icon_state = "reactordanger"
 
-/obj/machinery/power/portgen/basic/super/nuclear_reactor/attackby(var/obj/item/O, var/mob/user)
+/obj/machinery/power/portgen/basic/super/fusion_reactor/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/reagent_containers))
 		var/obj/item/reagent_containers/R = O
 		if(R.standard_pour_into(user, src))
