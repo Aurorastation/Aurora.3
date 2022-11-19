@@ -8,7 +8,12 @@
 			. -= limb.status & ORGAN_SPLINTED ? 0.25 : 0.5
 
 /mob/living/carbon/human/get_jump_distance()
-	return species.standing_jump_range
+	. = species.standing_jump_range
+	
+	var/obj/item/organ/internal/augment/suspension/suspension = internal_organs_by_name[BP_AUG_SUSPENSION]
+
+	if(suspension && . < 3)
+		. = max(. + suspension.jump_bonus, 3) 
 
 /mob/living/carbon/human/can_do_maneuver(var/decl/maneuver/maneuver, var/silent = FALSE)
 	. = ..()
