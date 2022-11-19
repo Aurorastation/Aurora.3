@@ -36,7 +36,7 @@
 	if (prob(50))
 		designation = "Hadii"
 	else
-		designation = "[pick("")]"
+		designation = "[pick("Pursuer of Knowledge", "Guiding Light", "Pioneer of the Dawn", "Party's Vanguard", "Hadiist Adventurer", "First Step", "Maker of the Future", "Indomitable Hadiist Spirit")]"
 	..()
 
 /obj/effect/shuttle_landmark/database_freighter
