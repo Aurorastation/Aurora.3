@@ -262,8 +262,6 @@
 	icon = 'icons/obj/guns/dom_rifle.dmi'
 	icon_state = "acr"
 	item_state = "acr"
-	auto_eject = TRUE
-	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 /obj/item/gun/projectile/automatic/rifle/dom/update_icon()
 	..()
