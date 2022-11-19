@@ -34,7 +34,15 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/obj/machinery/computer/ship/navigation,
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/head/helmet/pilot{
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/pilot,
+/obj/item/clothing/head/helmet/pilot{
+	pixel_y = -4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "acw" = (
@@ -1868,9 +1876,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "byS" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "1-4"
+/obj/structure/closet/crate/bin,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
@@ -2169,6 +2177,20 @@
 	name = "Station Intercom (General)";
 	pixel_x = 24;
 	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "hangarlockdown";
+	name = "Hangar Lockdown";
+	pixel_y = -25;
+	dir = 1
+	},
+/obj/machinery/light/small,
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 9;
+	pixel_y = 1
+	},
+/obj/machinery/papershredder{
+	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
@@ -2884,7 +2906,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "con" = (
@@ -4334,13 +4358,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"dxv" = (
-/obj/structure/closet/crate/bin,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
 "dzg" = (
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/machinery/door/window/westright,
@@ -5253,11 +5270,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "ekT" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/hangar/control)
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/port)
 "elI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/floodlight,
@@ -7839,6 +7857,12 @@
 	name = "Pilots' Room Requests Console";
 	pixel_y = -32
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "gal" = (
@@ -8176,9 +8200,10 @@
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "goQ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "gpw" = (
@@ -8347,11 +8372,11 @@
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
 "gua" = (
-/obj/item/modular_computer/console/preset/civilian{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
+	},
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
@@ -8890,11 +8915,11 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "gOe" = (
-/obj/item/modular_computer/console/preset/command{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
+	},
+/obj/item/modular_computer/console/preset/command{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
@@ -9767,9 +9792,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/structure/table/steel,
-/obj/item/paper_bin,
-/obj/item/pen,
+/obj/machinery/computer/ship/navigation{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "hyD" = (
@@ -10117,10 +10142,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "hOC" = (
-/obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
+/obj/machinery/light/small/emergency{
+	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "hPn" = (
@@ -13269,10 +13294,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/aft)
 "kuH" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "kuQ" = (
@@ -15688,10 +15713,10 @@
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "mqy" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
-	icon_state = "4-8"
+	icon_state = "1-4"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "mqI" = (
@@ -16912,6 +16937,8 @@
 	pixel_x = -24;
 	dir = 4
 	},
+/obj/machinery/light/small,
+/obj/machinery/photocopier,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "nmP" = (
@@ -17124,17 +17151,12 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/head/helmet/pilot{
-	pixel_x = -4;
-	pixel_y = -4
+/obj/machinery/light/small{
+	dir = 1
 	},
-/obj/item/clothing/head/helmet/pilot,
-/obj/item/clothing/head/helmet/pilot{
-	pixel_x = 4;
-	pixel_y = 4
-	},
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "nvV" = (
@@ -18451,12 +18473,6 @@
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
-"oCE" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hangar/control)
 "oCT" = (
 /obj/structure/shuttle/engine/propulsion/burst/left{
 	dir = 8
@@ -18838,15 +18854,6 @@
 "oYQ" = (
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/escape_pod/pod4)
-"oYU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hangar/control)
 "oZj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -22299,18 +22306,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/machinery/papershredder{
-	pixel_x = -6
-	},
-/obj/structure/filingcabinet/filingcabinet{
-	pixel_x = 9;
-	pixel_y = 1
-	},
 /obj/machinery/alarm{
 	pixel_y = 28
+	},
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
@@ -24031,11 +24031,11 @@
 /turf/simulated/floor/tiled/full,
 /area/tcommsat/mainlvl_tcomms__relay)
 "tbP" = (
-/obj/item/modular_computer/console/preset/civilian{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
+	},
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
@@ -24534,11 +24534,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
 "ttc" = (
-/obj/item/modular_computer/console/preset/command{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
+	},
+/obj/item/modular_computer/console/preset/command{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
@@ -25493,9 +25493,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "ucG" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
@@ -26681,7 +26680,6 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/photocopier,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -26725,8 +26723,10 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/machinery/light/small,
 /obj/machinery/firealarm/south,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "vcF" = (
@@ -27494,12 +27494,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/machinery/light/small,
-/obj/machinery/button/remote/blast_door{
-	id = "hangarlockdown";
-	name = "Hangar Lockdown";
-	pixel_y = -25;
-	dir = 1
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
@@ -28072,11 +28068,11 @@
 /turf/simulated/floor/tiled,
 /area/security/checkpoint)
 "wjp" = (
-/obj/structure/table/steel,
-/obj/item/paper_bin,
-/obj/item/pen,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
+	},
+/obj/machinery/computer/ship/navigation{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
@@ -30779,9 +30775,8 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod3)
 "yff" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "2-4"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
@@ -53594,13 +53589,13 @@ gOe
 wjp
 tbP
 nmF
-bHV
-wcz
+aWP
+byS
 kuH
 yff
+yff
 ucG
-ucG
-byS
+wcz
 kcE
 nRy
 nRy
@@ -53792,15 +53787,15 @@ xgP
 cBF
 aWP
 vai
+tKi
 oEp
-oCE
-oEp
+tKi
 vJe
-aWP
-dxv
+bHV
+wcz
 hOC
-mqy
-gwQ
+ekT
+goQ
 goQ
 mqy
 eYl
@@ -53995,8 +53990,8 @@ qgi
 gnn
 pYu
 eev
-oYU
-tKi
+eev
+eev
 fZX
 aWP
 htq
@@ -54196,9 +54191,9 @@ xgP
 weO
 aWP
 rEl
+tKi
 iCI
-ekT
-iCI
+tKi
 vcp
 aWP
 vyD
