@@ -3,7 +3,7 @@
 	icon_state = "bluenew"
 	requires_power = 1
 	dynamic_lighting = 1
-	no_light_control = 0
+	no_light_control = FALSE
 	base_turf = /turf/space
 	flags = RAD_SHIELDED
 
