@@ -328,6 +328,10 @@
 /obj/structure/bed/stool/chair/sofa/red{
 	dir = 1
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "database_freighter_crew";
+	name = "igs - database_freighter_crew"
+	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -1043,6 +1047,10 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "database_freighter_crew";
+	name = "igs - database_freighter_crew"
 	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
@@ -1823,6 +1831,10 @@
 /obj/structure/bed/stool/chair/sofa/right/red{
 	dir = 1
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "database_freighter_crew";
+	name = "igs - database_freighter_crew"
+	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -2462,6 +2474,20 @@
 	temperature = 278.15
 	},
 /area/database_freighter/barracks)
+"mr" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/machinery/door/blast/regular{
+	dir = 8;
+	id = "database_bridge";
+	icon_state = "pdoor0"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/database_freighter/bridge)
 "ms" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/structure/sign/flag/pra{
@@ -2810,6 +2836,12 @@
 	temperature = 278.15
 	},
 /area/database_freighter)
+"rd" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, laboratory"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/database_freighter/laboratory)
 "rg" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/database_freighter_shuttle)
@@ -3618,6 +3650,12 @@
 	temperature = 278.15
 	},
 /area/database_freighter/captain_quarters)
+"DR" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, storage"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/database_freighter/storage)
 "DX" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -4028,6 +4066,14 @@
 	temperature = 278.15
 	},
 /area/database_freighter/engine)
+"LA" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, starboard"
+	},
+/turf/simulated/floor/airless,
+/area/database_freighter/engine)
 "LB" = (
 /obj/machinery/light{
 	dir = 8
@@ -4237,6 +4283,10 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "database_freighter_captain";
+	name = "igs - database_freighter_captain"
+	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -4359,6 +4409,20 @@
 	temperature = 278.15
 	},
 /area/database_freighter)
+"Rg" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/machinery/door/blast/regular{
+	dir = 8;
+	id = "database_bridge";
+	icon_state = "pdoor0"
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, hull"
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/database_freighter)
 "Rt" = (
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4416,6 +4480,12 @@
 	temperature = 278.15
 	},
 /area/database_freighter)
+"SW" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, hangar"
+	},
+/turf/unsimulated/wall/fakepdoor,
+/area/database_freighter/hangar)
 "Td" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -4440,6 +4510,12 @@
 	temperature = 278.15
 	},
 /area/database_freighter/engineering)
+"Tv" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, barracks"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/database_freighter/barracks)
 "TB" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -4490,6 +4566,14 @@
 	temperature = 278.15
 	},
 /area/database_freighter/captain_quarters)
+"Vk" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, port"
+	},
+/turf/simulated/floor/airless,
+/area/database_freighter/engine)
 "Vm" = (
 /obj/machinery/door/airlock/mining{
 	name = "Hangar";
@@ -4673,6 +4757,12 @@
 	temperature = 278.15
 	},
 /area/database_freighter/hangar)
+"YR" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engine"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/database_freighter/engine)
 "YW" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -10785,7 +10875,7 @@ gn
 jd
 KA
 xw
-xw
+YR
 Az
 Az
 Az
@@ -10943,7 +11033,7 @@ iB
 iB
 iB
 iB
-gn
+LA
 YC
 zh
 jd
@@ -11120,7 +11210,7 @@ wQ
 wQ
 wQ
 wQ
-wQ
+Tv
 wQ
 wQ
 wQ
@@ -11458,7 +11548,7 @@ iB
 mb
 Zq
 Zq
-Zq
+Rg
 Zq
 mb
 iB
@@ -12114,7 +12204,7 @@ hg
 ai
 qt
 bE
-mk
+mr
 iB
 iB
 iB
@@ -13732,7 +13822,7 @@ zi
 zi
 aD
 nm
-Kf
+rd
 iB
 iB
 iB
@@ -14993,7 +15083,7 @@ iB
 iB
 iB
 iB
-gn
+Vk
 YC
 zh
 uY
@@ -15006,7 +15096,7 @@ gQ
 gQ
 gQ
 gQ
-gQ
+SW
 gQ
 gQ
 gQ
@@ -15342,7 +15432,7 @@ iB
 iB
 Cd
 Cd
-Cd
+DR
 Cd
 iB
 iB

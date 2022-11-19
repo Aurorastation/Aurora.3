@@ -39,7 +39,7 @@
 	desc = "Command the Orbital Fleet Database Freighter in its mission of surveying nearby planets."
 	tags = list("External")
 
-	spawnpoints = list("headmaster_captain")
+	spawnpoints = list("database_freighter_captain")
 	max_count = 1
 	uses_species_whitelist = TRUE
 

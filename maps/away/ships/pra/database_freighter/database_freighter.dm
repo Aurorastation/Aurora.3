@@ -29,7 +29,7 @@
 		"nav_database_freighter_4"
 	)
 	initial_restricted_waypoints = list(
-		"Database Freighter Shuttle" = list("nav_hangar_database_freighter_shuttle")
+		"Database Freighter Shuttle" = list("nav_database_freighter_shuttle")
 	)
 
 /obj/effect/overmap/visitable/ship/database_freighter/New()
