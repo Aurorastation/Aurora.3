@@ -42,7 +42,9 @@
 	/obj/item/ship_ammunition/bruiser/he = 1,
 	/obj/item/clothing/accessory/badge/passport/dominia = 1,
 	/obj/item/clothing/accessory/badge/passport/coc = 1,
-	/obj/item/spacecash/bundle{worth = 5000} = 1
+	/obj/item/spacecash/c1000 = 1
+	/obj/item/spacecash/c200 = 1
+	/obj/item/spacecah/c20 = 1
 	)
 
 /obj/machinery/vending/boozeomat/unathi_pirate
