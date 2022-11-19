@@ -1,97 +1,58 @@
-/datum/ghostspawner/human/headmaster_kosmostrelki
-	short_name = "headmaster_kosmostrelki"
-	name = "Headmaster Ship Kosmostrelki"
-	desc = "Crew the Orbital Fleet ship."
+/datum/ghostspawner/human/database_freighter_crew
+	short_name = "database_freighter_crew"
+	name = "Database Freighter Surveyor"
+	desc = "Crew the Orbital Fleet Database Freighter and survey nearby planets."
 	tags = list("External")
 
-	spawnpoints = list("headmaster_kosmostrelki")
+	spawnpoints = list("database_freighter_crew")
 	req_perms = null
-	max_count = 4
+	max_count = 3
 	uses_species_whitelist = FALSE
 
 	outfit = /datum/outfit/admin/headmaster_kosmostrelki
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Headmaster Kosmostrelki"
-	special_role = "Headmaster Kosmostrelki"
+	assigned_role = "Database Freighter Surveyor"
+	special_role = "Database Freighter Surveyor"
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
-/datum/outfit/admin/headmaster_kosmostrelki
-	name = "Kosmostrelki"
+/datum/outfit/admin/database_freighter_crew
+	name = "Database Freighter Surveyor"
 
 	id = /obj/item/card/id
 	shoes = /obj/item/clothing/shoes/tajara/jackboots
 
-	uniform = /obj/item/clothing/under/tajaran/cosmonaut
+	uniform = /obj/item/clothing/under/tajaran/database_freighter
 	l_ear = /obj/item/device/radio/headset/ship
-
-	belt = /obj/item/storage/belt/military
+	back = /obj/item/storage/backpack/duffel/eng
 
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/ert/headmaster_kosmostrelki/get_id_access()
+/datum/outfit/admin/ert/database_freighter_crew/get_id_access()
 	return list(access_pra, access_external_airlocks)
 
-/datum/ghostspawner/human/headmaster_kosmostrelki/captain
-	short_name = "headmaster_captain"
-	name = "Headmaster Ship Captain"
-	desc = "Crew the Orbital Fleet ship."
+/datum/ghostspawner/human/database_freighter_crew/captain
+	short_name = "database_freighter_captain"
+	name = "Database Head Surveyor"
+	desc = "Command the Orbital Fleet Database Freighter in its mission of surveying nearby planets."
 	tags = list("External")
 
 	spawnpoints = list("headmaster_captain")
 	max_count = 1
 	uses_species_whitelist = TRUE
 
-	outfit = /datum/outfit/admin/headmaster_kosmostrelki/captain
+	outfit = /datum/outfit/admin/database_freighter_crew/captain
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Kosmostrelki Captain"
-	special_role = "Kosmostrelki Captain"
+	assigned_role = "Database Freighter Surveyor"
+	special_role = "Database Freighter Surveyor"
 
-/datum/outfit/admin/headmaster_kosmostrelki/captain
-	name = "Kosmostrelki Captain"
+/datum/outfit/admin/database_freighter_crew/captain
+	name = "Database Freighter Surveyor"
 
-	head = /obj/item/clothing/head/tajaran/orbital_captain
-	uniform = /obj/item/clothing/under/tajaran/cosmonaut/captain
-	belt = /obj/item/storage/belt/military
-	belt_contents = list(
-						/obj/item/ammo_magazine/mc9mm = 1,
-						/obj/item/gun/projectile/pistol/adhomai = 1
-						)
-
-
-/datum/ghostspawner/human/headmaster_kosmostrelki/commissar
-	short_name = "headmaster_commissar"
-	name = "Headmaster Party Commissar"
-	desc = "Ensure that the Kosmostrelki follow the principles of Hadiism."
-
-	max_count = 1
-	spawnpoints = list("headmaster_commissar")
-
-	assigned_role = "Party Commissar"
-	special_role = "Party Commissar"
-	uses_species_whitelist = TRUE
-
-	outfit = /datum/outfit/admin/headmaster_kosmostrelki/commissar
-	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
-
-/datum/outfit/admin/headmaster_kosmostrelki/commissar
-
-	name = "Party Commissar"
-
-	uniform = /obj/item/clothing/under/tajaran/cosmonaut/commissar
-	head = /obj/item/clothing/head/tajaran/cosmonaut_commissar
+	uniform = /obj/item/clothing/under/tajaran/database_freighter/captain
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	accessory = /obj/item/clothing/accessory/hadii_pin
-	belt = /obj/item/gun/projectile/deagle/adhomai
-	belt_contents = null
-	back = /obj/item/storage/backpack/satchel/leather
-	backpack_contents = list(
-						/obj/item/ammo_magazine/a50 = 2,
-						/obj/item/material/knife/trench = 1,
-						/obj/item/storage/box/hadii_manifesto = 1,
-						/obj/item/storage/box/hadii_card = 1
-						)
-	l_hand = /obj/item/device/megaphone

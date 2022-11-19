@@ -1,56 +1,52 @@
-/area/headmaster_ship
-	name = "Headmaster Ship"
+/area/database_freighter
+	name = "Database Freighter"
 	icon_state = "bluenew"
-	requires_power = 1
-	dynamic_lighting = 1
-	no_light_control = 0
+	requires_power = TRUE
+	dynamic_lighting = TRUE
+	no_light_control = FALSE
 	base_turf = /turf/space
 	flags = RAD_SHIELDED
 
-/area/headmaster_ship/bridge
-	name = "Headmaster Ship Bridge"
+/area/database_freighter/bridge
+	name = "Database Freighter Bridge"
 	icon_state = "bridge"
 
-/area/headmaster_ship/mess_hall
-	name = "Headmaster Ship Mess Hall"
-	icon_state = "bar"
-
-/area/headmaster_ship/hangar
-	name = "Headmaster Ship Hangar"
+/area/database_freighter/hangar
+	name = "Database Freighter Hangar"
 	icon_state = "quartloading"
 
-/area/headmaster_ship/gun_deck
-	name = "Headmaster Ship Gun Deck"
-	icon_state = "Tactical"
-
-/area/headmaster_ship/barracks
-	name = "Headmaster Barracks"
+/area/database_freighter/barracks
+	name = "Database Freighter Barracks"
 	icon_state = "crew_quarters"
 
-/area/headmaster_ship/captain_quarters
-	name = "Headmaster Ship Captain Quarters"
+/area/database_freighter/captain_quarters
+	name = "Database Freighter Captain Quarters"
 	icon_state = "captain"
 
-/area/headmaster_ship/commissar_quarters
-	name = "Headmaster Ship Commissar Quarters"
-	icon_state = "Warden"
-
-/area/headmaster_ship/medbay
-	name = "Headmaster Ship Medbay"
-	icon_state = "medbay"
-
-/area/headmaster_ship/engineering
-	name = "Headmaster Ship Engineering"
+/area/database_freighter/engineering
+	name = "Database Freighter Atmospherics"
 	icon_state = "engineering"
 
-/area/headmaster_ship/engine
-	name = "Headmaster Ship Engine"
+/area/database_freighter/engine
+	name = "Database Freighter Engine"
 	icon_state = "engine"
 
-/area/headmaster_ship/armory
-	name = "Headmaster Ship Armory"
-	icon_state = "armory"
+/area/database_freighter/storage
+	name = "Database Freighter Equipment Storage"
+	icon_state = "storage"
+
+/area/database_freighter/eva
+	name = "Database Freighter EVA"
+	icon_state = "engine_eva"
+
+/area/database_freighter/laboratory
+	name = "Database Freighter Laboratory"
+	icon_state = "research"
+
+/area/database_freighter/checkpoint
+	name = "Database Freighter Checkpoint"
+	icon_state = "Warden"
 
 //Shuttle
-/area/shuttle/headmaster_shuttle
-	name = "\improper Orbital Fleet Shuttle"
+/area/shuttle/database_freighter_shuttle
+	name = "\improper Database Freighter Shuttle"
