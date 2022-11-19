@@ -2,7 +2,7 @@
 	name = "Mining Jack Outpost"
 	icon_state = "bluenew"
 	requires_power = 1
-	dynamic_lighting = 1
+	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/space
 	flags = RAD_SHIELDED
