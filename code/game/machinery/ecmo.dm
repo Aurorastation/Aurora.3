@@ -17,6 +17,7 @@
 	var/transfer_amount = 5
 	var/transfer_limit = 10
 	var/brain_damage_pinner = 160 // Brain damage amount to keep the patient at/above
+	var/rip_vein_damage = 30 // The damage to apply to the vein when the vein or the artery line are ripped out
 	var/mode = TRUE // TRUE is injecting, FALSE is taking blood.
 	var/toggle_stop = TRUE
 	var/blood_message_sent = FALSE
@@ -173,28 +174,28 @@
 			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps back into \the [src]!"))
 			breath_mask_rip()
 			return
-		var/mask_check = breath_mask.get_equip_slot()
-		if(mask_check != slot_wear_mask)
-			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
-			breath_mask_rip()
-			return
-		if(breath_mask.hanging)
-			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
-			breath_mask_rip()
-			return
-		if(breath_mask.loc != breather)
-			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
-			breath_mask_rip()
-			return
+		// var/mask_check = breath_mask.get_equip_slot()
+		// if(mask_check != slot_wear_mask)
+		// 	src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
+		// 	breath_mask_rip()
+		// 	return
+		// if(breath_mask.hanging)
+		// 	src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
+		// 	breath_mask_rip()
+		// 	return
+		// if(breath_mask.loc != breather)
+		// 	src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
+		// 	breath_mask_rip()
+		// 	return
 		if(!tank)
 			return
 		if(breather.species.flags & NO_BREATHE)
 			return
 
-		if(valve_open)
+		if(valve_open && attached)
 			var/obj/item/organ/internal/brain/B = breather.internal_organs_by_name[BP_BRAIN]
 
-			if(B.damage >= brain_damage_pinner)
+			if(B.damage >= brain_damage_pinner && breather.get_brain_result())
 				B.damage = brain_damage_pinner
 
 			if(tank.air_contents.return_pressure() <= 300)
@@ -222,8 +223,8 @@
 		if(attached.species.flags & NO_BLOOD)
 			return
 
-		if(toggle_stop) // Do not add blood if the blood volume is at 100% (guard clause)
-			if((beaker.reagents.has_reagent(/decl/reagent/blood) || beaker.reagents.has_reagent(/decl/reagent/saline)) && attached.get_blood_volume() >= 100)
+		if(toggle_stop)
+			if((beaker.reagents.has_reagent(/decl/reagent/blood) || beaker.reagents.has_reagent(/decl/reagent/saline)) && attached.get_blood_volume() >= 100) // Do not add blood if the blood volume is >= 100%
 				update_icon()
 			else
 				if(beaker.reagents.total_volume > 0)
@@ -275,16 +276,20 @@
 					to_chat(usr, SPAN_NOTICE("There is no artery line installed into \the [src]!"))
 					return
 				if(breather)
-					visible_message("[usr] removes [breather]'s mask.[valve_open ? " \The [tank]'s valve automatically closes." : ""]")
+					visible_message("[usr] removes the artery line from [breather].[valve_open ? " \The [tank]'s valve automatically closes." : ""]")
 					breath_mask_rip()
+					return
+
+				if(!attached)
+					to_chat(usr, SPAN_NOTICE("There is no vein line attached to [over_object]!"))
 					return
 				breather = over_object
 
 				visible_message("<b>[usr]</b> connects the artery line to \the <b>[breather]</b>.")
 				playsound(breather, 'sound/effects/buckle.ogg', 50)
-				breath_mask.forceMove(breather.loc)
-				breather.equip_to_slot(breath_mask, slot_wear_mask)
-				breather.update_inv_wear_mask()
+				// breath_mask.forceMove(breather.loc)
+				// breather.equip_to_slot(breath_mask, slot_wear_mask)
+				// breather.update_inv_wear_mask()
 				update_icon()
 				return
 
@@ -444,7 +449,8 @@
 			breath_mask.SpinAnimation(4, 2)
 			breath_mask = null
 		else
-			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps away from \the [breather], retracting back into \the [src]!"), SPAN_WARNING("\The [breath_mask] snaps away from you, retracting back into \the [src]!"))
+			src.visible_message(SPAN_WARNING("\The artery line is ripped out from [breather], retracting back into \the [src]!"), SPAN_WARNING("\The artery line rips out of you, retracting back into \the [src]!"))
+			vein.take_damage(brute = rip_vein_damage, damage_flags = DAM_SHARP)
 			breath_mask_rip()
 	if(beaker)
 		beaker.forceMove(dropspot)
@@ -471,7 +477,7 @@
 
 /obj/machinery/ecmo/proc/iv_rip()
 	attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [vein.name]."), SPAN_DANGER("The needle <B>painfully</B> rips out of your [vein.name]."))
-	vein.take_damage(brute = 30, damage_flags = DAM_SHARP)
+	vein.take_damage(brute = rip_vein_damage, damage_flags = DAM_SHARP)
 	vein = null
 	attached = null
 
@@ -570,7 +576,7 @@
 	..(user)
 	if(!(user in viewers(2, src)))
 		return
-	to_chat(user, SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]."))
+	to_chat(user, SPAN_NOTICE("[src] is transfusing at a rate of [src.transfer_amount] u/sec."))
 	if(attached)
 		to_chat(user, SPAN_NOTICE("\The [src] is attached to [attached]'s [vein.name]."))
 	if(beaker)
@@ -588,7 +594,7 @@
 	if(breath_mask)
 		to_chat(user, SPAN_NOTICE("\The [src] has [icon2html(breath_mask, user)] \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."))
 	else
-		to_chat(user, SPAN_NOTICE("No breath mask installed."))
+		to_chat(user, SPAN_NOTICE("No artery line installed."))
 
 /obj/machinery/ecmo/RefreshParts()
 	..()
