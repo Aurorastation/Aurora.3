@@ -5,9 +5,9 @@
 	tags = list("External")
 
 	spawnpoints = list("database_freighter_crew")
-	req_perms = null
 	max_count = 3
 	uses_species_whitelist = FALSE
+	respawn_flag = null
 
 	outfit = /datum/outfit/admin/headmaster_kosmostrelki
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
@@ -30,7 +30,7 @@
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/ert/database_freighter_crew/get_id_access()
+/datum/outfit/admin/database_freighter_crew/get_id_access()
 	return list(access_pra, access_external_airlocks)
 
 /datum/ghostspawner/human/database_freighter_crew/captain
@@ -45,13 +45,12 @@
 
 	outfit = /datum/outfit/admin/database_freighter_crew/captain
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Database Freighter Surveyor"
-	special_role = "Database Freighter Surveyor"
+	assigned_role = "Database Freighter Head Surveyor"
+	special_role = "Database Freighter Head Surveyor"
 
 /datum/outfit/admin/database_freighter_crew/captain
-	name = "Database Freighter Surveyor"
+	name = "Database Freighter Head Surveyor"
 
 	uniform = /obj/item/clothing/under/tajaran/database_freighter/captain
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
