@@ -27497,6 +27497,22 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "mining_dock";
+	name = "mining docking hatch controller";
+	pixel_x = -39;
+	pixel_y = -25;
+	req_one_access = list(31,48,67)
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "intrepid_dock";
+	name = "intrepid docking port controller";
+	pixel_x = -26;
+	pixel_y = -25;
+	req_one_access = list(31,48,67)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "vJy" = (
