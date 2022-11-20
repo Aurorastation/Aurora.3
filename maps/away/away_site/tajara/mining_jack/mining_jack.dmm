@@ -1680,7 +1680,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "mining_jack_bridge";
 	name = "Bridge Shutters";
-	req_access = list(113);
+	req_access = list(202);
 	req_one_access = null;
 	dir = 1
 	},
