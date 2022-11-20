@@ -67,7 +67,7 @@
 	moving_state = "shuttle_grey_moving"
 	class = "PRAMV"
 	designation = "Yve'kha"
-	shuttle = "Orbital Fleet Shuttle"
+	shuttle = "Database Freighter Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
