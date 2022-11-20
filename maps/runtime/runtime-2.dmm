@@ -96,7 +96,7 @@
 	},
 /area/tcommsat/chamber)
 "el" = (
-/obj/machinery/message_server,
+/obj/machinery/telecomms/message_server,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278

@@ -54,6 +54,30 @@ var/list/radiochannels = list(
 	"Ship"			= SHIP_FREQ
 )
 
+var/list/reverseradiochannels = list(
+	PUB_FREQ	= "Common",
+	SCI_FREQ	= "Science",
+	COMM_FREQ	= "Command",
+	MED_FREQ	= "Medical",
+	ENG_FREQ	= "Engineering",
+	SEC_FREQ 	= "Security",
+	PEN_FREQ	= "Penal",
+	ERT_FREQ	= "Response Team",
+	DTH_FREQ	= "Special Ops",
+	SYND_FREQ	= "Mercenary",
+	NINJ_FREQ	= "Ninja",
+	BLSP_FREQ	= "Bluespace",
+	BURG_FREQ	= "Burglar",
+	RAID_FREQ	= "Raider",
+	SUP_FREQ	= "Operations",
+	SRV_FREQ	= "Service",
+	AI_FREQ		= "AI Private",
+	ENT_FREQ	= "Entertainment",
+	MED_I_FREQ	= "Medical (I)",
+	SEC_I_FREQ	= "Security (I)",
+	SHIP_FREQ	= "Ship"
+)
+
 // The assoc variants are separate lists because they need the keys to be strings, but some code expects numbers.
 
 // central command channels, i.e deathsquid & response teams
@@ -110,8 +134,9 @@ var/list/DEPT_FREQS_ASSOC = list(
 )
 
 #define TRANSMISSION_WIRE        0 // Wired transmission, unused at the moment
-#define TRANSMISSION_RADIO       1
-#define TRANSMISSION_SUBSPACE    2
+#define TRANSMISSION_RADIO       1 // Default radiowave transmission
+#define TRANSMISSION_SUBSPACE    2 // Subspace transmission (headsets)
+#define TRANSMISSION_SUPERSPACE  3 // Independent / CentCom radios only
 
 #define RADIO_NO_Z_LEVEL_RESTRICTION 0
 

@@ -184,7 +184,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	testing("Building overmap...")
 	world.maxz++
 	current_map.overmap_z = world.maxz
-	
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
+
 	testing("Putting overmap on [current_map.overmap_z]")
 	var/area/overmap/A = new
 	global.map_overmap = A

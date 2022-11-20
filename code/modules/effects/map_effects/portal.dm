@@ -231,12 +231,9 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	if(!counterpart)
 		return
 	var/turf/T = counterpart.get_focused_turf()
-	var/list/mobs_to_relay = list()
-	var/list/objs = list()
-	get_mobs_or_objs_in_view(T, world.view, mobs_to_relay, objs)
+	var/list/mobs_to_relay = get_hearers_in_view(world.view, T)
 
-	for(var/thing in mobs_to_relay)
-		var/mob/mob = thing
+	for(var/mob/mob in mobs_to_relay)
 		var/rendered = span("message", "[text]")
 		mob.show_message(rendered)
 
@@ -248,12 +245,9 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 		return
 	var/rendered = span("message", "[msg]")
 	var/turf/T = counterpart.get_focused_turf()
-	var/list/mobs_to_relay = list()
-	var/list/objs = list()
-	get_mobs_or_objs_in_view(T, world.view, mobs_to_relay, objs)
+	var/list/mobs_to_relay = get_hearers_in_view(world.view, T)
 
-	for(var/thing in mobs_to_relay)
-		var/mob/mob = thing
+	for(var/mob/mob in mobs_to_relay)
 		mob.show_message(rendered)
 
 	..()
@@ -263,12 +257,9 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	if(!counterpart)
 		return
 	var/turf/T = counterpart.get_focused_turf()
-	var/list/mobs_to_relay = list()
-	var/list/objs = list()
-	get_mobs_or_objs_in_view(T, world.view, mobs_to_relay, objs)
+	var/list/mobs_to_relay = get_hearers_in_view(world.view, T)
 
-	for(var/thing in mobs_to_relay)
-		var/mob/mob = thing
+	for(var/mob/mob in mobs_to_relay)
 		var/accent_icon = M.get_accent_icon(speaking, src)
 		var/name_used = M.GetVoice()
 		var/rendered = null

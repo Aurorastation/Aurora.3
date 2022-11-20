@@ -23625,7 +23625,7 @@
 	},
 /area/cruise/hangar)
 "sXc" = (
-/obj/machinery/message_server,
+/obj/machinery/telecomms/message_server,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},

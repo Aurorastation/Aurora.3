@@ -26885,7 +26885,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "vmO" = (
-/obj/machinery/message_server,
+/obj/machinery/telecomms/message_server,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "vmT" = (

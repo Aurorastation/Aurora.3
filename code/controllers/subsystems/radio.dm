@@ -136,6 +136,17 @@ var/datum/controller/subsystem/radio/SSradio
 
 	return 1
 
+/datum/controller/subsystem/radio/proc/remove_object_all(obj/device)
+	for(var/freq in frequencies)
+		SSradio.remove_object(device, text2num(freq))
+
+/datum/controller/subsystem/radio/proc/get_devices(freq, filter = RADIO_DEFAULT)
+	var/datum/radio_frequency/frequency = frequencies[num2text(freq)]
+	if(!frequency)
+		return
+
+	return frequency.devices["[filter]"]
+
 /datum/controller/subsystem/radio/proc/return_frequency(new_frequency)
 	var/f_text = num2text(new_frequency)
 	var/datum/radio_frequency/frequency = frequencies[f_text]

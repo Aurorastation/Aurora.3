@@ -14,20 +14,21 @@
 #define SS_INIT_PIPENET     12	// Initial pipenet build.
 #define SS_INIT_MACHINERY   11	// Machinery prune and powernet build.
 #define SS_INIT_AIR         10	// Air setup and pre-bake.
-#define SS_INIT_NIGHT       9	// Nightmode controller. Will trigger lighting updates.
-#define SS_INIT_SMOOTHING   8	// Object icon smoothing. Creates overlays.
-#define SS_INIT_ICON_UPDATE 7	// Icon update queue flush. Should run before overlays.
-#define SS_INIT_AO          6	// Wall AO neighbour build.
-#define SS_INIT_OVERLAY     5	// Overlay flush.
-#define SS_INIT_AWAY_MAPS   4   // Note: away maps (ruins, exoplanets, ...) must initialize before ghost roles in order for their spawnpoints to work.
-#define SS_INIT_GHOSTROLES  3   // Ghost roles must initialize before SS_INIT_MISC due to some roles (matriarch drones) relying on the assumption that this SS is initialized.
-#define SS_INIT_MISC        2	// Subsystems without an explicitly set initialization order start here.
-#define SS_INIT_SUNLIGHT    1	// Sunlight setup. Creates lots of lighting & SSzcopy updates.
-#define SS_INIT_LIGHTING    0	// Generation of lighting overlays and pre-bake. May cause openturf updates, should initialize before SSzcopy.
-#define SS_INIT_ZCOPY      -1	// Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
-#define SS_INIT_XENOARCH   -2   // Xenoarch is this far below because it can infinite loop if placed in SS_INIT_MISC as it was before, due to some subsystems spawning stuff there.
-#define SS_INIT_LOBBY      -3	// Lobby timer starts here. The lobby timer won't actually start going down until the MC starts ticking, so you probably want this last
-#define SS_INIT_CHAT       -4	// To ensure chat remains smooth during init.
+#define SS_INIT_GRID		9
+#define SS_INIT_NIGHT       8	// Nightmode controller. Will trigger lighting updates.
+#define SS_INIT_SMOOTHING   7	// Object icon smoothing. Creates overlays.
+#define SS_INIT_ICON_UPDATE 6	// Icon update queue flush. Should run before overlays.
+#define SS_INIT_AO          5	// Wall AO neighbour build.
+#define SS_INIT_OVERLAY     4	// Overlay flush.
+#define SS_INIT_AWAY_MAPS   3   // Note: away maps (ruins, exoplanets, ...) must initialize before ghost roles in order for their spawnpoints to work.
+#define SS_INIT_GHOSTROLES  2   // Ghost roles must initialize before SS_INIT_MISC due to some roles (matriarch drones) relying on the assumption that this SS is initialized.
+#define SS_INIT_MISC        1	// Subsystems without an explicitly set initialization order start here.
+#define SS_INIT_SUNLIGHT    0	// Sunlight setup. Creates lots of lighting & SSzcopy updates.
+#define SS_INIT_LIGHTING   -1	// Generation of lighting overlays and pre-bake. May cause openturf updates, should initialize before SSzcopy.
+#define SS_INIT_ZCOPY      -2	// Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
+#define SS_INIT_XENOARCH   -3   // Xenoarch is this far below because it can infinite loop if placed in SS_INIT_MISC as it was before, due to some subsystems spawning stuff there.
+#define SS_INIT_LOBBY      -4	// Lobby timer starts here. The lobby timer won't actually start going down until the MC starts ticking, so you probably want this last
+#define SS_INIT_CHAT       -5	// To ensure chat remains smooth during init.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.

@@ -88,6 +88,9 @@
 		winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5")
 	MOB_STOP_THINKING(src)
 
+	clear_important_client_contents(client)
+	enable_client_mobs_in_contents(client)
+
 	update_client_color()
 	add_click_catcher()
 

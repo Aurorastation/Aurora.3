@@ -71,6 +71,9 @@ var/list/mineral_can_smooth_with = list(
 
 	turfs += src
 
+	if (isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -196,6 +199,9 @@ var/list/mineral_can_smooth_with = list(
 	initialized = TRUE
 
 	turfs += src
+
+	if (isStationLevel(z))
+		station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -637,6 +643,9 @@ var/list/asteroid_floor_smooth = list(
 	base_name = name
 
 	turfs += src
+
+	if (isStationLevel(z))
+		station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0

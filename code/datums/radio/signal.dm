@@ -35,17 +35,11 @@
 
 	var/datum/signal/newsign = new
 	var/obj/machinery/telecomms/server/S = data["server"]
-	var/obj/item/device/radio/hradio = S.server_radio
-
-	if(!hradio)
-		error("[src] has no radio.")
-		return
 
 	if((!message || message == "") && message != 0)
 		message = "*beep*"
 	if(!source)
 		source = "[html_encode(uppertext(S.id))]"
-		hradio = new // sets the hradio as a radio intercom
 	if(!freq)
 		freq = PUB_FREQ
 	if(findtext(num2text(freq), ".")) // if the frequency has been set as a decimal
@@ -78,7 +72,6 @@
 	newsign.data["connection"] = connection
 
 
-	newsign.data["radio"] = hradio
 	newsign.data["vmessage"] = message
 	newsign.data["vname"] = source
 	newsign.data["vmask"] = 0

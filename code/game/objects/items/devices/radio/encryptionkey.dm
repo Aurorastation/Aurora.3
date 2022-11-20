@@ -9,6 +9,7 @@
 	var/translate_binary = FALSE
 	var/translate_hivenet = FALSE
 	var/syndie = FALSE // Signifies that it de-crypts Syndicate transmissions
+	var/independent = FALSE // Signifies that it lets you talk on the spicy channel
 	var/list/channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE)
 	var/list/additional_channels = list()
 

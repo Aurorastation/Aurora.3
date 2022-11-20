@@ -41,8 +41,18 @@
 		crash_with("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
 	..()*/
 
-/atom/movable/Destroy()
+/atom/movable/Initialize()
 	. = ..()
+	moved_event.register(src, src, /atom/movable/proc/update_grid_location)
+
+/atom/movable/Destroy()
+	if (important_recursive_contents && (important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS]) || important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE])
+		SSspatial_grid.force_remove_from_cell(src)
+
+	LAZYCLEARLIST(contained_mobs)
+	LAZYCLEARLIST(important_recursive_contents)
+	. = ..()
+
 	for(var/atom/movable/AM in contents)
 		qdel(AM)
 	loc = null
@@ -58,8 +68,6 @@
 	if(virtual_mob && !ispath(virtual_mob))
 		qdel(virtual_mob)
 		virtual_mob = null
-
-	LAZYCLEARLIST(important_recursive_contents)
 
 // This is called when this atom is prevented from moving by atom/A.
 /atom/movable/proc/Collide(atom/A)
@@ -354,6 +362,24 @@
 			if (bound_overlay.dir != dir)
 				bound_overlay.set_dir(dir)
 
+/atom/movable/proc/update_grid_location(var/atom/movable/am, var/old_loc, var/new_loc)
+	var/turf/old_turf = get_turf(old_loc)
+	var/turf/new_turf = get_turf(src)
+
+	if(HAS_SPATIAL_GRID_CONTENTS(src))
+		if(old_turf && new_turf && (old_turf.z != new_turf.z \
+			|| ROUND_UP(old_turf.x / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.x / SPATIAL_GRID_CELLSIZE) \
+			|| ROUND_UP(old_turf.y / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.y / SPATIAL_GRID_CELLSIZE)))
+
+			SSspatial_grid.exit_cell(src, old_turf)
+			SSspatial_grid.enter_cell(src, new_turf)
+
+		else if(old_turf && !new_turf)
+			SSspatial_grid.exit_cell(src, old_turf)
+
+		else if(new_turf && !old_turf)
+			SSspatial_grid.enter_cell(src, new_turf)
+
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
 
@@ -375,31 +401,82 @@
 //allows this movable to hear and adds itself to the important_recursive_contents list of itself and every movable loc its in
 /atom/movable/proc/become_hearing_sensitive(trait_source = TRAIT_GENERIC)
 	if(!HAS_TRAIT(src, TRAIT_HEARING_SENSITIVE))
-		RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_HEARING_SENSITIVE), .proc/on_hearing_sensitive_trait_loss)
 		for (var/atom/movable/location as anything in get_nested_locs(src) + src)
 			LAZYADDASSOCLIST(location.important_recursive_contents, RECURSIVE_CONTENTS_HEARING_SENSITIVE, src)
+
+		var/turf/our_turf = get_turf(src)
+		if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
+			SSspatial_grid.enter_cell(src, our_turf)
+
+		else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)//SSspatial_grid isnt init'd yet, add ourselves to the queue
+			SSspatial_grid.enter_pre_init_queue(src, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
 	ADD_TRAIT(src, TRAIT_HEARING_SENSITIVE, trait_source)
 
+/**
+ * removes the hearing sensitivity channel from the important_recursive_contents list of this and all nested locs containing us if there are no more sources of the trait left
+ * since RECURSIVE_CONTENTS_HEARING_SENSITIVE is also a spatial grid content type, removes us from the spatial grid if the trait is removed
+ *
+ * * trait_source - trait source define or ALL, if ALL, force removes hearing sensitivity. if a trait source define, removes hearing sensitivity only if the trait is removed
+ */
+/atom/movable/proc/lose_hearing_sensitivity(trait_source = TRAIT_GENERIC)
+	if(!HAS_TRAIT(src, TRAIT_HEARING_SENSITIVE))
+		return
+	REMOVE_TRAIT(src, TRAIT_HEARING_SENSITIVE, trait_source)
+	if(HAS_TRAIT(src, TRAIT_HEARING_SENSITIVE))
+		return
+
+	var/turf/our_turf = get_turf(src)
+	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
+		SSspatial_grid.exit_cell(src, our_turf)
+	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
+		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+
+	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		LAZYREMOVEASSOC(location.important_recursive_contents, RECURSIVE_CONTENTS_HEARING_SENSITIVE, src)
+
+///allows this movable to know when it has "entered" another area no matter how many movable atoms its stuffed into, uses important_recursive_contents
 /atom/movable/proc/become_area_sensitive(trait_source = TRAIT_GENERIC)
 	if(!HAS_TRAIT(src, TRAIT_AREA_SENSITIVE))
-		RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_AREA_SENSITIVE), .proc/on_area_sensitive_trait_loss)
 		for (var/atom/movable/location as anything in get_nested_locs(src) + src)
 			LAZYADDASSOCLIST(location.important_recursive_contents, RECURSIVE_CONTENTS_AREA_SENSITIVE, src)
 	ADD_TRAIT(src, TRAIT_AREA_SENSITIVE, trait_source)
 
-/atom/movable/proc/on_area_sensitive_trait_loss()
-	SIGNAL_HANDLER
+///removes the area sensitive channel from the important_recursive_contents list of this and all nested locs containing us if there are no more source of the trait left
+/atom/movable/proc/lose_area_sensitivity(trait_source = TRAIT_GENERIC)
+	if(!HAS_TRAIT(src, TRAIT_AREA_SENSITIVE))
+		return
+	REMOVE_TRAIT(src, TRAIT_AREA_SENSITIVE, trait_source)
+	if(HAS_TRAIT(src, TRAIT_AREA_SENSITIVE))
+		return
 
-	UnregisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_AREA_SENSITIVE))
 	for (var/atom/movable/location as anything in get_nested_locs(src) + src)
 		LAZYREMOVE(location.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE], src)
 
-/atom/movable/proc/on_hearing_sensitive_trait_loss()
-	SIGNAL_HANDLER
+///propogates new_client's mob through our nested contents, similar to other important_recursive_contents procs
+///main difference is that client contents need to possibly duplicate recursive contents for the clients mob AND its eye
+/atom/movable/proc/enable_client_mobs_in_contents(client/new_client)
+	var/turf/our_turf = get_turf(src)
 
-	UnregisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_HEARING_SENSITIVE))
-	for (var/atom/movable/location as anything in get_nested_locs(src) + src)
-		LAZYREMOVE(location.important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE], src)
+	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
+		SSspatial_grid.enter_cell(src, our_turf, RECURSIVE_CONTENTS_CLIENT_MOBS)
+	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
+		SSspatial_grid.enter_pre_init_queue(src, RECURSIVE_CONTENTS_CLIENT_MOBS)
+
+	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
+		LAZYORASSOCLIST(movable_loc.important_recursive_contents, RECURSIVE_CONTENTS_CLIENT_MOBS, new_client.mob)
+
+///Clears the clients channel of this movables important_recursive_contents list and all nested locs
+/atom/movable/proc/clear_important_client_contents(client/former_client)
+
+	var/turf/our_turf = get_turf(src)
+
+	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
+		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_CLIENT_MOBS)
+	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
+		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_CLIENT_MOBS)
+
+	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
+		LAZYREMOVEASSOC(movable_loc.important_recursive_contents, RECURSIVE_CONTENTS_CLIENT_MOBS, former_client.mob)
 
 /atom/movable/proc/do_simple_ranged_interaction(var/mob/user)
 	return FALSE
@@ -486,4 +563,7 @@
 	return FALSE
 
 /atom/movable/proc/begin_falling(var/lastloc, var/below)
+	return
+
+/atom/movable/proc/show_message(msg, type, alt, alt_type) //Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 	return

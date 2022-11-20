@@ -275,7 +275,7 @@
 
 					else
 						for(var/obj/machinery/telecomms/T in links)
-							T.links.Remove(src)
+							remove_link(T)
 
 						network = newnet
 						links = list()
@@ -303,27 +303,17 @@
 
 		if(text2num(href_list["unlink"]) <= length(links))
 			var/obj/machinery/telecomms/T = links[text2num(href_list["unlink"])]
-			temp = "<font color = #666633>-% Removed \ref[T] [T.name] from linked entities. %-</font>"
-
-			// Remove link entries from both T and src.
-
-			if(src in T.links)
-				T.links.Remove(src)
-			links.Remove(T)
+			if(T)
+				temp = "<font color = #666633>-% Removed \ref[T] [T.name] from linked entities. %-</font>"
+				remove_link(T)
 
 	if(href_list["link"])
 
 		if(P)
 			var/obj/machinery/telecomms/device = P.get_buffer()
-			if(istype(device) && device != src)
-				if(!(src in device.links))
-					device.links.Add(src)
-
-				if(!(device in src.links))
-					src.links.Add(device)
-
+			if(device)
+				add_new_link(device)
 				temp = "<font color = #666633>-% Successfully linked with \ref[device] [device.name] %-</font>"
-
 			else
 				temp = "<font color = #666633>-% Unable to acquire buffer %-</font>"
 
@@ -345,6 +335,37 @@
 	src.add_fingerprint(usr)
 
 	updateDialog()
+
+// Adds new_connection to src's links list AND vice versa. also updates links_by_telecomms_type
+/obj/machinery/telecomms/proc/add_new_link(obj/machinery/telecomms/new_connection)
+	if (!istype(new_connection) || new_connection == src)
+		return FALSE
+
+	if ((new_connection in links) && (src in new_connection.links))
+		return FALSE
+
+	links |= new_connection
+	new_connection.links |= src
+
+	LAZYADDASSOCLIST(links_by_telecomms_type, new_connection.telecomms_type, new_connection)
+	LAZYADDASSOCLIST(new_connection.links_by_telecomms_type, telecomms_type, src)
+
+	return TRUE
+
+// Removes old_connection from src's links list AND vice versa. also updates links_by_telecomms_type
+/obj/machinery/telecomms/proc/remove_link(obj/machinery/telecomms/old_connection)
+	if (!istype(old_connection) || old_connection == src)
+		return FALSE
+
+	if (old_connection in links)
+		links -= old_connection
+		LAZYREMOVEASSOC(links_by_telecomms_type, old_connection.telecomms_type, old_connection)
+
+	if (src in old_connection.links)
+		old_connection.links -= src
+		LAZYREMOVEASSOC(old_connection.links_by_telecomms_type, telecomms_type, src)
+
+	return TRUE
 
 /obj/machinery/telecomms/proc/canAccess(var/mob/user)
 	if(issilicon(user) || in_range(user, src))

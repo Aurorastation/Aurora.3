@@ -286,6 +286,7 @@
 	SearchVar(ghostteleportlocs)
 	SearchVar(centcom_areas)
 	SearchVar(the_station_areas)
+	SearchVar(station_turfs)
 	SearchVar(implants)
 	SearchVar(turfs)
 	SearchVar(all_species)

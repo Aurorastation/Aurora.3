@@ -36,20 +36,19 @@
 	return freq_text
 
 /datum/reception
-	var/obj/machinery/message_server/message_server = null
+	var/obj/machinery/telecomms/message_server/message_server = null
 	var/telecomms_reception = TELECOMMS_RECEPTION_NONE
 	var/message = ""
 
 /datum/receptions
-	var/obj/machinery/message_server/message_server = null
+	var/obj/machinery/telecomms/message_server/message_server = null
 	var/sender_reception = TELECOMMS_RECEPTION_NONE
 	var/list/receiver_reception = new
 
 /proc/get_message_server()
-	if(message_servers)
-		for (var/obj/machinery/message_server/MS in message_servers)
-			if(MS.active && !within_jamming_range(MS))
-				return MS
+	for (var/obj/machinery/telecomms/message_server/MS in telecomms_list)
+		if(MS.toggled && !within_jamming_range(MS))
+			return MS
 	return null
 
 /proc/check_signal(var/datum/signal/signal)

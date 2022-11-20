@@ -51,12 +51,24 @@
 	else
 		return null
 
-// Will return the contents of an atom recursively to a depth of "searchDepth".
-/atom/proc/GetAllContents(searchDepth = 5, checkClient = 1, checkSight = 1, includeMobs = 1, includeObjects = 1)
-	var/list/L = list()
-	recursive_content_check(src, L, searchDepth, checkClient, checkSight, includeMobs, includeObjects)
+// Returns src and all recursive contents in a list.
+/atom/proc/GetAllContents()
+	. = list(src)
+	var/i = 0
+	while(i < length(.))
+		var/atom/A = .[++i]
+		. += A.contents
 
-	return L
+// identical to GetAllContents but returns a list of atoms of the type passed in the argument
+/atom/proc/get_all_contents_of_type(type)
+	var/list/processing_list = list(src)
+	. = list()
+	while(length(processing_list))
+		var/atom/A = processing_list[1]
+		processing_list.Cut(1, 2)
+		processing_list += A.contents
+		if(istype(A, type))
+			. += A
 
 // Returns a list of all locations (except the area) the movable is within
 /proc/get_nested_locs(atom/movable/atom_on_location, include_turf = FALSE)
@@ -571,24 +583,18 @@
 // "blind_message" (optional) is what blind people will hear e.g. "You hear something!"
 /atom/proc/visible_message(var/message, var/blind_message, var/range = world.view, var/intent_message = null, var/intent_range = 7)
 	set waitfor = FALSE
-	var/turf/T = get_turf(src)
-	var/list/mobs = list()
-	var/list/objs = list()
-	get_mobs_or_objs_in_view(T,range, mobs, objs, ONLY_GHOSTS_IN_VIEW)
+	var/list/hearers = get_hearers_in_view(range, src)
 
-	for(var/o in objs)
-		var/obj/O = o
-		O.show_message(message,1,blind_message,2)
-
-	for(var/m in mobs)
-		var/mob/M = m
-		if(M.see_invisible >= invisibility)
-			M.show_message(message,1,blind_message,2)
-		else if(blind_message)
-			M.show_message(blind_message, 2)
+	for(var/atom/movable/AM as anything in hearers)
+		if(ismob(AM))
+			var/mob/M = AM
+			if(M.see_invisible < invisibility)
+				M.show_message(blind_message, 2)
+				continue
+		AM.show_message(message, 1, blind_message, 2)
 
 	if(intent_message)
-		intent_message(intent_message, intent_range, mobs) // pass our mobs list through to intent_message so it doesn't have to call get_mobs_or_objs_in_view again
+		intent_message(intent_message, intent_range, hearers) // pass our hearers list through to intent_message so it doesn't have to call get_hearers again
 
 // Show a message to all mobs and objects in earshot of this atom.
 // Use for objects performing audible actions.
@@ -597,32 +603,25 @@
 // "hearing_distance" (optional) is the range, how many tiles away the message can be heard.
 /atom/proc/audible_message(var/message, var/deaf_message, var/hearing_distance, var/intent_message = null, var/intent_range = 7)
 	set waitfor = FALSE
-	var/range = world.view
-	if(hearing_distance)
-		range = hearing_distance
-	var/turf/T = get_turf(src)
-	var/list/mobs = list()
-	var/list/objs = list()
-	get_mobs_or_objs_in_view(T,range, mobs, objs, ONLY_GHOSTS_IN_VIEW)
 
-	for(var/m in mobs)
-		var/mob/M = m
-		M.show_message(message,2,deaf_message,1)
-	for(var/o in objs)
-		var/obj/O = o
-		O.show_message(message,2,deaf_message,1)
+	if(!hearing_distance)
+		hearing_distance = world.view
+
+	var/list/hearers = get_hearers_in_view(hearing_distance, src)
+
+	for(var/atom/movable/AM as anything in hearers)
+		AM.show_message(message, 2, deaf_message, 1)
 
 	if(intent_message)
-		intent_message(intent_message, intent_range, mobs) // pass our mobs list through to intent_message so it doesn't have to call get_mobs_or_objs_in_view again
+		intent_message(intent_message, intent_range, hearers) // pass our hearers list through to intent_message so it doesn't have to call get_hearers again
 
-/atom/proc/intent_message(var/message, var/range = 7, var/list/mobs = list())
+/atom/proc/intent_message(var/message, var/range = 7, var/list/hearers = list())
 	set waitfor = FALSE
 	if(air_sound(src))
-		var/turf/T = get_turf(src)
-		if(!mobs.len)
-			get_mobs_or_objs_in_view(T, range, mobs, checkghosts = ONLY_GHOSTS_IN_VIEW)
+		if(!hearers.len)
+			hearers = get_hearers_in_view(range, src)
 		for(var/mob/living/carbon/human/H as anything in intent_listener)
-			if(!(H in mobs))
+			if(!(H in hearers))
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)
 

@@ -120,7 +120,7 @@
 		var/turf/T = get_turf(H)
 
 		if(T)
-			var/list/hear = hear(7, T)
+			var/list/hear = get_hear(7, T)
 			var/list/hearturfs = list()
 
 			for(var/I in hear)

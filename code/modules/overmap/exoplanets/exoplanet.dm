@@ -71,6 +71,7 @@
 
 	world.maxz++
 	forceMove(locate(1,1,world.maxz))
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
 	if(LAZYLEN(possible_themes))
 		var/datum/exoplanet_theme/T = pick(possible_themes)

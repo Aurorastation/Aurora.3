@@ -277,7 +277,6 @@ proc/get_radio_key_from_channel(var/channel)
 			sound_vol *= 0.5
 
 	var/list/listening = list()
-	var/list/listening_obj = list()
 	var/turf/T = get_turf(src)
 
 	if(whisper)
@@ -296,14 +295,14 @@ proc/get_radio_key_from_channel(var/channel)
 				italics = 1
 				sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		get_mobs_or_objs_in_view(T, message_range, listening, listening_obj, ghost_hearing)
+		listening = get_hearers_in_view(message_range, src)
 
 	var/list/hear_clients = list()
-	for(var/m in listening)
-		var/mob/M = m
+	for(var/mob/M in listening)
 		var/heard_say = M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol, get_font_size_modifier())
 		if(heard_say && M.client)
 			hear_clients += M.client
+		listening -= M
 
 	var/speech_bubble_test = say_test(message)
 	var/image/speech_bubble = image(get_talk_bubble(),src,"h[speech_bubble_test]")
@@ -313,7 +312,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/bypass_listen_obj = (speaking && (speaking.flags & PASSLISTENOBJ))
 	if(!bypass_listen_obj)
-		for(var/obj/O as anything in listening_obj)
+		for(var/obj/O as anything in listening)
 			if(O) //It's possible that it could be deleted in the meantime.
 				INVOKE_ASYNC(O, /obj/.proc/hear_talk, src, message, verb, speaking)
 

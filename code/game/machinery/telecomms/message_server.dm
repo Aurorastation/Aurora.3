@@ -1,31 +1,48 @@
 #define MESSAGE_SERVER_SPAM_REJECT 1
 #define MESSAGE_SERVER_DEFAULT_SPAM_LIMIT 10
 
-var/global/list/obj/machinery/message_server/message_servers = list()
-
+// Log datums stored by the message server.
 /datum/data_pda_msg
-	var/recipient = "Unspecified" //name of the person
-	var/sender = "Unspecified" //name of the sender
-	var/message = "Blank" //transferred message
+	var/sender = "Unspecified"
+	var/recipient = "Unspecified"
+	var/message = "Blank"  // transferred message
+	var/icon/photo  // attached photo
 
-/datum/data_pda_msg/New(var/param_rec = "",var/param_sender = "",var/param_message = "")
-
+/datum/data_pda_msg/New(param_rec, param_sender, param_message, param_photo)
 	if(param_rec)
 		recipient = param_rec
 	if(param_sender)
 		sender = param_sender
 	if(param_message)
 		message = param_message
+	if(param_photo)
+		photo = param_photo
+
+/datum/data_pda_msg/proc/get_photo_ref()
+	if(photo)
+		return "<a href='byond://?src=["\ref[src]"];photo=1'>(Photo)</a>"
+	return ""
+
+/datum/data_pda_msg/Topic(href,href_list)
+	..()
+	if(href_list["photo"])
+		var/mob/M = usr
+		M << browse_rsc(photo, "pda_photo.png")
+		M << browse("<html><head><title>PDA Photo</title></head>" \
+		+ "<body style='overflow:hidden;margin:0;text-align:center'>" \
+		+ "<img src='pda_photo.png' width='192' style='-ms-interpolation-mode:nearest-neighbor' />" \
+		+ "</body></html>", "window=pdaphoto;size=192x192")
+		onclose(M, "pdaphoto")
 
 /datum/data_rc_msg
-	var/rec_dpt = "Unspecified" //name of the person
-	var/send_dpt = "Unspecified" //name of the sender
-	var/message = "Blank" //transferred message
+	var/rec_dpt = "Unspecified"  // receiving department
+	var/send_dpt = "Unspecified"  // sending department
+	var/message = "Blank"
 	var/stamp = "Unstamped"
 	var/id_auth = "Unauthenticated"
 	var/priority = "Normal"
 
-/datum/data_rc_msg/New(var/param_rec = "",var/param_sender = "",var/param_message = "",var/param_stamp = "",var/param_id_auth = "",var/param_priority)
+/datum/data_rc_msg/New(param_rec, param_sender, param_message, param_stamp, param_id_auth, param_priority)
 	if(param_rec)
 		rec_dpt = param_rec
 	if(param_sender)
@@ -47,18 +64,19 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 			else
 				priority = "Undetermined"
 
-/obj/machinery/message_server
+/obj/machinery/telecomms/message_server
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "server"
 	name = "messaging server"
-	density = 1
-	anchored = 1.0
+	desc = "A machine that processes and routes request console messages."
+	telecomms_type = /obj/machinery/telecomms/message_server
+	density = TRUE
+	anchored = TRUE
 	idle_power_usage = 10
 	active_power_usage = 100
 
-	var/list/datum/data_pda_msg/pda_msgs = list()
+	var/list/datum/data_pda_msg/pda_msgs = list() // TODO: actually re-link modular PDAs to the message servers
 	var/list/datum/data_rc_msg/rc_msgs = list()
-	var/active = 1
 	var/decryptkey = "password"
 
 	//Spam filtering stuff
@@ -67,19 +85,13 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 			//Messages having theese tokens will be rejected by server. Case sensitive
 	var/spamfilter_limit = MESSAGE_SERVER_DEFAULT_SPAM_LIMIT	//Maximal amount of tokens
 
-/obj/machinery/message_server/New()
-	message_servers += src
-	decryptkey = GenerateKey()
-	send_pda_message("System Administrator", "system", "This is an automated message. The messaging system is functioning correctly.")
-	..()
-	return
+/obj/machinery/telecomms/message_server/Initialize()
+	. = ..()
+	if(!decryptkey)
+		decryptkey = GenerateKey()
+	// send_pda_message("System Administrator", "system", "This is an automated message. The messaging system is functioning correctly.")
 
-/obj/machinery/message_server/Destroy()
-	message_servers -= src
-
-	return ..()
-
-/obj/machinery/message_server/proc/GenerateKey()
+/obj/machinery/telecomms/message_server/proc/GenerateKey()
 	//Feel free to move to Helpers.
 	var/newKey
 	newKey += pick("the", "if", "of", "as", "in", "a", "you", "from", "to", "an", "too", "little", "snow", "dead", "drunk", "rosebud", "duck", "al", "le")
@@ -87,25 +99,27 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 	newKey += pick("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
 	return newKey
 
-/obj/machinery/message_server/process()
+/obj/machinery/telecomms/message_server/process()
 	//if(decryptkey == "password")
 	//	decryptkey = generateKey()
-	if(active && (stat & (BROKEN|NOPOWER)))
-		active = 0
-		return
+	if(toggled && (stat & (BROKEN|NOPOWER)))
+		toggled = FALSE
 	update_icon()
-	return
 
-/obj/machinery/message_server/proc/send_pda_message(var/recipient = "",var/sender = "",var/message = "")
-	var/result
-	for (var/token in spamfilter)
-		if (findtextEx(message,token))
-			message = "<font color=\"red\">[message]</font>"	//Rejected messages will be indicated by red color.
-			result = token										//Token caused rejection (if there are multiple, last will be chosen)
-	pda_msgs += new/datum/data_pda_msg(recipient,sender,message)
-	return result
+/obj/machinery/telecomms/message_server/receive_information(datum/signal/subspace/pda/signal, obj/machinery/telecomms/machine_from)
+	// can't log non-PDA signals
+	if(!istype(signal) || !signal.data["message"] || !toggled)
+		return
 
-/obj/machinery/message_server/proc/send_rc_message(var/recipient = "",var/sender = "",var/message = "",var/stamp = "", var/id_auth = "", var/priority = 1)
+	// log the signal
+	pda_msgs += new /datum/data_pda_msg(signal.format_target(), "[signal.data["name"]] ([signal.data["job"]])", signal.data["message"], signal.data["photo"])
+	signal.data -= "reject"  // only gets through if it's logged
+
+	// pass it along to either the hub or the broadcaster
+	if(!relay_information(signal, /obj/machinery/telecomms/hub))
+		relay_information(signal, /obj/machinery/telecomms/broadcaster)
+
+/obj/machinery/telecomms/message_server/proc/send_rc_message(var/recipient = "",var/sender = "",var/message = "",var/stamp = "", var/id_auth = "", var/priority = 1)
 	rc_msgs += new/datum/data_rc_msg(recipient,sender,message,stamp,id_auth)
 	var/authmsg = "[message]<br>"
 	if (id_auth)
@@ -140,16 +154,16 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 			Console.set_light(2)
 
 
-/obj/machinery/message_server/attack_hand(user as mob)
+/obj/machinery/telecomms/message_server/attack_hand(user as mob)
 //	to_chat(user, "\blue There seem to be some parts missing from this server. They should arrive on the station in a few days, give or take a few CentCom delays.")
-	to_chat(user, "You toggle request console message passing from [active ? "On" : "Off"] to [active ? "Off" : "On"]")
-	active = !active
+	to_chat(user, "You toggle request console message passing from [toggled ? "On" : "Off"] to [toggled ? "Off" : "On"]")
+	toggled = !toggled
 	update_icon()
 
 	return
 
-/obj/machinery/message_server/attackby(obj/item/O as obj, mob/living/user as mob)
-	if (active && !(stat & (BROKEN|NOPOWER)) && (spamfilter_limit < MESSAGE_SERVER_DEFAULT_SPAM_LIMIT*2) && \
+/obj/machinery/telecomms/message_server/attackby(obj/item/O as obj, mob/living/user as mob)
+	if (toggled && !(stat & (BROKEN|NOPOWER)) && (spamfilter_limit < MESSAGE_SERVER_DEFAULT_SPAM_LIMIT*2) && \
 		istype(O,/obj/item/circuitboard/message_monitor))
 		spamfilter_limit += round(MESSAGE_SERVER_DEFAULT_SPAM_LIMIT / 2)
 		user.drop_from_inventory(O,get_turf(src))
@@ -158,13 +172,57 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 	else
 		..(O, user)
 
-/obj/machinery/message_server/update_icon()
+/obj/machinery/telecomms/message_server/update_icon()
 	if((stat & (BROKEN|NOPOWER)))
 		icon_state = "server-nopower"
-	else if (!active)
+	else if (!toggled)
 		icon_state = "server-off"
 	else
 		icon_state = "server-on"
+
+/datum/signal/subspace/pda
+	frequency = PUB_FREQ
+	server_type = /obj/machinery/telecomms/message_server
+
+/datum/signal/subspace/pda/New(source, data)
+	src.source = source
+	src.data = data
+	var/turf/T = get_turf(source)
+	levels = list(T.z)
+	data["reject"] = TRUE  // set to FALSE if a messaging server logs it
+
+/datum/signal/subspace/pda/copy()
+	var/datum/signal/subspace/pda/copy = new(source, data.Copy())
+	copy.original = src
+	copy.levels = levels
+	return copy
+
+/datum/signal/subspace/pda/proc/format_target()
+	if (length(data["targets"]) > 1)
+		return "Everyone"
+	return data["targets"][1]
+
+/datum/signal/subspace/pda/proc/format_message()
+	if (data["photo"])
+		return "[data["message"]] <a href='byond://?src=["\ref[src]"];photo=1'>(Photo)</a>"
+	return data["message"]
+
+/datum/signal/subspace/pda/broadcast()
+	// TODO: need an iterable list of available PDAs
+	// for (var/obj/item/modular_computer in SSmachinery.machinery)
+	// 	if ("[P.owner] ([P.ownjob])" in data["targets"])
+	// 		P.receive_message(src)
+
+/datum/signal/subspace/pda/Topic(href, href_list)
+	..()
+	if (href_list["photo"])
+		var/mob/M = usr
+		M << browse_rsc(data["photo"], "pda_photo.png")
+		M << browse("<html><head><title>PDA Photo</title></head>" \
+		+ "<body style='overflow:hidden;margin:0;text-align:center'>" \
+		+ "<img src='pda_photo.png' width='192' style='-ms-interpolation-mode:nearest-neighbor' />" \
+		+ "</body></html>", "window=pdaphoto;size=192x192")
+		onclose(M, "pdaphoto")
 
 var/obj/machinery/blackbox_recorder/blackbox
 
@@ -172,8 +230,8 @@ var/obj/machinery/blackbox_recorder/blackbox
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "blackbox"
 	name = "blackbox recorder"
-	density = 1
-	anchored = 1.0
+	density = TRUE
+	anchored = TRUE
 	idle_power_usage = 10
 	active_power_usage = 100
 

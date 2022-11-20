@@ -29,12 +29,26 @@
 		keyslot1 = new ks1type(src)
 	if(ks2type)
 		keyslot2 = new ks2type(src)
+	set_listening(TRUE)
 	recalculateChannels(TRUE)
+	possibly_deactivate_in_loc()
+	moved_event.register(src, src, /obj/item/device/radio/headset/proc/possibly_deactivate_in_loc)
+
+/obj/item/device/radio/headset/proc/possibly_deactivate_in_loc()
+	if(ismob(loc))
+		set_listening(should_be_listening)
+	else
+		set_listening(FALSE, actual_setting = FALSE)
 
 /obj/item/device/radio/headset/Destroy()
 	QDEL_NULL(keyslot1)
 	QDEL_NULL(keyslot2)
 	return ..()
+
+/obj/item/device/radio/headset/set_listening(new_listening, actual_setting = TRUE)
+	. = ..()
+	if(listening && on)
+		recalculateChannels()
 
 /obj/item/device/radio/headset/list_channels(var/mob/user)
 	return list_secure_channels()
@@ -64,16 +78,16 @@
 
 	return ..()
 
-/obj/item/device/radio/headset/receive_range(freq, level, aiOverride = 0)
+/obj/item/device/radio/headset/can_receive(input_frequency, level, aiOverride = FALSE)
 	if (aiOverride)
-		return ..(freq, level)
+		return ..(input_frequency, level)
 	if(ishuman(src.loc))
 		var/mob/living/carbon/human/H = src.loc
 		if(H.l_ear == src || H.r_ear == src)
-			return ..(freq, level)
+			return ..(input_frequency, level)
 	if(!EarSound)
-		return ..(freq, level)
-	return -1
+		return ..(input_frequency, level)
+	return FALSE
 
 /obj/item/device/radio/headset/attack_hand(mob/user)
 	if(ishuman(user))
@@ -127,10 +141,10 @@
 
 
 /obj/item/device/radio/headset/proc/recalculateChannels(var/setDescription = FALSE)
-	src.channels = list()
-	src.translate_binary = FALSE
-	src.translate_hivenet = FALSE
-	src.syndie = FALSE
+	channels = list()
+	translate_binary = FALSE
+	translate_hivenet = FALSE
+	syndie = FALSE
 
 	for(var/keyslot in list(keyslot1, keyslot2))
 		if(!keyslot)
@@ -138,31 +152,28 @@
 		var/obj/item/device/encryptionkey/K = keyslot
 
 		for(var/ch_name in K.channels)
-			if(ch_name in src.channels)
+			if(ch_name in channels)
 				continue
-			src.channels[ch_name] = K.channels[ch_name]
+			LAZYSET(channels, ch_name, K.channels[ch_name])
 
 		for(var/ch_name in K.additional_channels)
-			if(ch_name in src.channels)
+			if(ch_name in channels)
 				continue
-			src.channels[ch_name] = K.additional_channels[ch_name]
+			LAZYSET(channels, ch_name, K.additional_channels[ch_name])
 
 		if(K.translate_binary)
-			src.translate_binary = TRUE
+			translate_binary = TRUE
 
 		if(K.translate_hivenet)
-			src.translate_hivenet = TRUE
+			translate_hivenet = TRUE
 
 		if(K.syndie)
-			src.syndie = TRUE
+			syndie = TRUE
+
+		if(K.independent)
+			independent = TRUE
 
 	for (var/ch_name in channels)
-		if(!SSradio)
-			sleep(30) // Waiting for the SSradio to be created.
-		if(!SSradio)
-			src.name = "broken radio headset"
-			return
-
 		secure_radio_connections[ch_name] = SSradio.add_object(src, radiochannels[ch_name], RADIO_CHAT)
 
 	if(setDescription)
@@ -724,10 +735,8 @@
 	var/myAi = null    // Atlantis: Reference back to the AI which has this radio.
 	var/disabledAi = 0 // Atlantis: Used to manually disable AI's integrated radio via intellicard menu.
 
-/obj/item/device/radio/headset/heads/ai_integrated/receive_range(freq, level)
-	if (disabledAi)
-		return -1 //Transciever Disabled.
-	return ..(freq, level, 1)
+/obj/item/device/radio/headset/heads/ai_integrated/can_receive(input_frequency, level)
+	return ..(input_frequency, level, !disabledAi)
 
 /obj/item/device/radio/headset/heads/ai_integrated/Destroy()
 	myAi = null

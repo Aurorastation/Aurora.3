@@ -1,5 +1,9 @@
-// Allows you to monitor messages that passes the server.
+/*
+	Monitoring computer for the messaging server.
+	Lets you read request console messages.
+*/
 
+// The monitor itself.
 /obj/machinery/computer/message_monitor
 	name = "messaging monitor console"
 	desc = "Used to access and maintain data on messaging servers. Allows you to view requests console messages."
@@ -9,7 +13,7 @@
 	var/hack_icon = "error"
 	circuit = /obj/item/circuitboard/message_monitor
 	//Server linked to.
-	var/obj/machinery/message_server/linkedServer = null
+	var/obj/machinery/telecomms/message_server/linkedServer = null
 	//Sparks effect - For emag
 	var/datum/effect_system/sparks/spark_system
 	//Messages - Saves me time if I want to change something.
@@ -54,18 +58,18 @@
 	// Will create sparks and print out the console's password. You will then have to wait a while for the console to be back online.
 	// It'll take more time if there's more characters in the password..
 	if(!emag && operable())
-		if(!isnull(src.linkedServer))
-			emag = 1
+		if(!isnull(linkedServer))
+			emag = TRUE
 			screen = 2
-			src.spark_system.queue()
+			spark_system.queue()
 			var/obj/item/paper/monitorkey/MK = new/obj/item/paper/monitorkey
-			MK.forceMove(src.loc)
+			MK.forceMove(loc)
 			// Will help make emagging the console not so easy to get away with.
 			MK.info += "<br><br><span class='warning'>£%@%(*$%&(£&?*(%&£/{}</span>"
 			addtimer(CALLBACK(src, .proc/UnmagConsole), 100 * length(linkedServer.decryptkey))
 			message = rebootmsg
 			update_icon()
-			return 1
+			return TRUE
 		else
 			to_chat(user, "<span class='notice'>A no server error appears on the screen.</span>")
 
@@ -77,11 +81,15 @@
 	..()
 
 /obj/machinery/computer/message_monitor/Initialize()
-	. = ..()
-	//Is the server isn't linked to a server, and there's a server available, default it to the first one in the list.
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/message_monitor/LateInitialize()
+	//If the server isn't linked to a server, and there's a server available, default it to the first one in the list.
 	if(!linkedServer)
-		if(message_servers && message_servers.len > 0)
-			linkedServer = message_servers[1]
+		for(var/obj/machinery/telecomms/message_server/S in telecomms_list)
+			linkedServer = S
+			break
 
 /obj/machinery/computer/message_monitor/attack_hand(var/mob/living/user as mob)
 	if(stat & (NOPOWER|BROKEN))
@@ -97,10 +105,10 @@
 
 	if(auth)
 		dat += "<h4><dd><A href='?src=\ref[src];auth=1'>&#09;<font color='green'>\[Authenticated\]</font></a>&#09;/"
-		dat += " Server Power: <A href='?src=\ref[src];active=1'>[src.linkedServer && src.linkedServer.active ? "<font color='green'>\[On\]</font>":"<span class='warning'>\[Off\]</span>"]</a></h4>"
+		dat += " Server Power: <A href='?src=\ref[src];active=1'>[src.linkedServer && src.linkedServer.toggled ? "<font color='green'>\[On\]</font>":"<span class='warning'>\[Off\]</span>"]</a></h4>"
 	else
 		dat += "<h4><dd><A href='?src=\ref[src];auth=1'>&#09;<span class='warning'>\[Unauthenticated\]</span></a>&#09;/"
-		dat += " Server Power: <u>[src.linkedServer && src.linkedServer.active ? "<font color='green'>\[On\]</font>":"<span class='warning'>\[Off\]</span>"]</u></h4>"
+		dat += " Server Power: <u>[src.linkedServer && src.linkedServer.toggled ? "<font color='green'>\[On\]</font>":"<span class='warning'>\[Off\]</span>"]</u></h4>"
 
 	if(hacking || emag)
 		screen = 2
@@ -272,13 +280,17 @@
 
 	//Turn the server on/off.
 	if (href_list["active"])
-		if(auth) linkedServer.active = !linkedServer.active
+		if(auth) linkedServer.toggled = !linkedServer.toggled
 	//Find a server
 	if (href_list["find"])
-		if(message_servers && message_servers.len > 1)
-			src.linkedServer = input(usr,"Please select a server.", "Select a server.", null) as null|anything in message_servers
+		var/list/message_servers = list()
+		for(var/obj/machinery/telecomms/message_server/M in telecomms_list)
+			message_servers += M
+
+		if(message_servers.len > 1)
+			linkedServer = input(usr,"Please select a server.", "Select a server.", null) as null|anything in message_servers
 			message = "<span class='alert'>NOTICE: Server selected.</span>"
-		else if(message_servers && message_servers.len > 0)
+		else if(message_servers.len > 0)
 			linkedServer = message_servers[1]
 			message =  "<span class='notice'>NOTICE: Only Single Server Detected - Server selected.</span>"
 		else
@@ -403,18 +415,17 @@
 /obj/item/paper/monitorkey
 	//..()
 	name = "Monitor Decryption Key"
-	var/obj/machinery/message_server/server = null
+	var/obj/machinery/telecomms/message_server/server = null
 
 /obj/item/paper/monitorkey/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/item/paper/monitorkey/LateInitialize()
-	if(message_servers)
-		for(var/obj/machinery/message_server/server in message_servers)
-			if(!isnull(server))
-				if(!isnull(server.decryptkey))
-					info = "<center><h2>Daily Key Reset</h2></center><br>The new message monitor key is '[server.decryptkey]'.<br>Please keep this a secret and away from unauthorized personnel.<br>If necessary, change the password to a more secure one."
-					info_links = info
-					icon_state = "paper_words"
-					break
+	for(var/obj/machinery/telecomms/message_server/server in telecomms_list)
+		if(!isnull(server))
+			if(!isnull(server.decryptkey))
+				info = "<center><h2>Daily Key Reset</h2></center><br>The new message monitor key is '[server.decryptkey]'.<br>Please keep this a secret and away from unauthorized personnel.<br>If necessary, change the password to a more secure one."
+				info_links = info
+				icon_state = "paper_words"
+				break
