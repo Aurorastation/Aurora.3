@@ -1202,6 +1202,13 @@
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1,
+/obj/item/clothing/accessory/armband/gadpathur,
+/obj/item/clothing/under/uniform/gadpathur,
+/obj/item/clothing/suit/storage/toggle/himeo/grey,
+/obj/item/clothing/accessory/assunzione,
+/obj/item/clothing/under/konyang/male/shortsleeve,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/leader)
 "gkq" = (
@@ -1633,6 +1640,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
+"itk" = (
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -32;
+	req_one_access = null
+	},
+/turf/simulated/floor/holofloor/reinforced,
+/area/ship/ranger_corvette/munitions)
 "itr" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1951,7 +1966,7 @@
 	},
 /obj/item/reagent_containers/food/drinks/pitcher{
 	pixel_x = -5;
-	reagents_to_add = list(/decl/reagent/drink/coffee = 30)
+	reagents_to_add = list(/decl/reagent/drink/coffee=30)
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
 	pixel_x = 6
@@ -2729,6 +2744,12 @@
 /obj/item/grenade/chem_grenade/metalfoam,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
+"okk" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, munitions bay, armory"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/munitions)
 "omu" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, engines"
@@ -4477,10 +4498,8 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/ship/ranger_corvette/voidsuits)
 "uVR" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, munitions bay, armory"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/holofloor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "uWT" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -4509,7 +4528,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/firealarm/west,
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "vfX" = (
@@ -4774,11 +4792,6 @@
 "wpk" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
-	},
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -32;
-	req_one_access = null
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
@@ -33819,12 +33832,12 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+sTK
+sTK
+okk
+sTK
+sTK
+sTK
 xRX
 xRX
 xRX
@@ -34077,10 +34090,10 @@ xRX
 xRX
 xRX
 sTK
-sTK
+rVo
 uVR
-rrQ
-rrQ
+itk
+rVo
 rrQ
 tLA
 tLA
