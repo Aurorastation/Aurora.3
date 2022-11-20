@@ -1,7 +1,7 @@
 /obj/machinery/ship_weapon
 	name = "ship weapon"
 	desc = "You shouldn't be seeing this."
-	icon = 'icons/obj/machines/ship_guns/longbow.dmi'
+	icon = 'icons/obj/machinery/ship_guns/longbow.dmi'
 	idle_power_usage = 1500
 	active_power_usage = 50000
 	anchored = TRUE
@@ -14,7 +14,7 @@
 	var/special_firing_mechanism = FALSE //If set to TRUE, the gun won't show up on normal controls.
 	var/charging_sound //The sound played when the gun is charging up.
 	var/caliber = SHIP_CALIBER_NONE
-	var/use_ammunition = TRUE //If we use physical ammo or not. Note that the creation of ammunition in pre_fire() is still REQUIRED! 
+	var/use_ammunition = TRUE //If we use physical ammo or not. Note that the creation of ammunition in pre_fire() is still REQUIRED!
 							  //This just skips the initial check for ammunition.
 	var/list/obj/item/ship_ammunition/ammunition = list()
 	var/ammo_per_shot = 1
@@ -107,7 +107,7 @@
 	if(istype(W, /obj/item/weldingtool) && damage)
 		var/obj/item/weldingtool/WT = W
 		if(WT.get_fuel() >= 20)
-			user.visible_message(SPAN_NOTICE("[user] starts slowly welding kinks and holes in \the [src] back to working shape..."), 
+			user.visible_message(SPAN_NOTICE("[user] starts slowly welding kinks and holes in \the [src] back to working shape..."),
 								SPAN_NOTICE("You start welding kinks and holes back to working shape. This'll take a long while..."))
 			if(do_after(user, 15 SECONDS))
 				add_damage(-max_damage)
@@ -255,7 +255,7 @@
 //What kind of dinky ass gun is only 32x32?
 /obj/structure/ship_weapon_dummy
 	name = "ship weapon"
-	icon = 'icons/obj/machines/ship_guns/ship_weapon_attachments.dmi'
+	icon = 'icons/obj/machinery/ship_guns/ship_weapon_attachments.dmi'
 	icon_state = "dummy"
 	mouse_opacity = 2
 	layer = OBJ_LAYER+0.1 //Higher than the gun itself.
@@ -412,7 +412,7 @@
 		return
 
 	playsound(src, clicksound, clickvol)
-	
+
 	if(href_list["fire"])
 		var/obj/effect/landmark/LM
 		if(!selected_entrypoint)
@@ -434,7 +434,7 @@
 			if(SHIP_GUN_FIRING_SUCCESSFUL)
 				to_chat(usr, SPAN_WARNING("The console shows a positive message: firing sequence successful!"))
 				log_and_message_admins("[usr] has fired [cannon] with target [linked.targeting] and entry point [LM]!", location = get_turf(usr))
-	
+
 	if(href_list["viewing"])
 		if(usr)
 			viewing_overmap(usr) ? unlook(usr) : look(usr)

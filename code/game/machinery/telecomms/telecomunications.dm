@@ -16,7 +16,7 @@
 var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms
-	icon = 'icons/obj/machines/telecomms.dmi'
+	icon = 'icons/obj/machinery/telecomms.dmi'
 
 	var/list/links = list() // list of machines this machine is linked to
 	var/traffic = 0 // value increases as traffic increases

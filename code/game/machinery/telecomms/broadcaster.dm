@@ -186,7 +186,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 //Regular telecomms machines cannot listen to broadcasts coming from non-station z-levels. If we did this, comms would be receiving a substantial amount of duplicated messages.
 /obj/machinery/telecomms/allinone/ship/station_relay
 	name = "External Signal Receiver"
-	icon = 'icons/obj/machines/telecomms.dmi'
+	icon = 'icons/obj/machinery/telecomms.dmi'
 	icon_state = "ntnet"
 	desc = "This device allows nearby third-party ships to maintain radio contact with their crew that are aboard the %STATIONNAME."
 	desc_info = "This device does not need to be linked to other telecommunications equipment; it will receive and broadcast on its own. It only needs to be powered."
