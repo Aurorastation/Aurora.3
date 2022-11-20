@@ -127,7 +127,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 		return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/telecomms/LateInitialize()
-	. = ..()
 	for(var/obj/machinery/telecomms/T in (long_range_link ? telecomms_list : orange(20, src)))
 		add_automatic_link(T)
 
@@ -315,11 +314,11 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 	if(istype(machine_from, /obj/machinery/telecomms/receiver))
 		//If the signal is compressed, send it to the bus.
-		relay_information(signal, "/obj/machinery/telecomms/bus", TRUE) // ideally relay the copied information to bus units
+		relay_information(signal, /obj/machinery/telecomms/bus, TRUE) // ideally relay the copied information to bus units
 	else
 		// Get a list of relays that we're linked to, then send the signal to their levels.
-		relay_information(signal, "/obj/machinery/telecomms/relay", TRUE)
-		relay_information(signal, "/obj/machinery/telecomms/broadcaster", TRUE) // Send it to a broadcaster.
+		relay_information(signal, /obj/machinery/telecomms/relay, TRUE)
+		relay_information(signal, /obj/machinery/telecomms/broadcaster, TRUE) // Send it to a broadcaster.
 
 
 /*
@@ -525,9 +524,9 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	Program.retrieve_messages(CALLBACK(src, .proc/finish_receive_information, signal))
 
 /obj/machinery/telecomms/server/proc/finish_receive_information(datum/signal/signal)
-	var/can_send = relay_information(signal, "/obj/machinery/telecomms/hub")
+	var/can_send = relay_information(signal, /obj/machinery/telecomms/hub)
 	if(!can_send)
-		relay_information(signal, "/obj/machinery/telecomms/broadcaster")
+		relay_information(signal, /obj/machinery/telecomms/broadcaster)
 
 /obj/machinery/telecomms/server/process()
 	. = ..()

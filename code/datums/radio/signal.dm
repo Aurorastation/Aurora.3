@@ -78,6 +78,6 @@
 	newsign.data["level"] = list()
 	newsign.data["verb"] = verb
 
-	var/pass = S.relay_information(newsign, "/obj/machinery/telecomms/hub")
+	var/pass = S.relay_information(newsign, /obj/machinery/telecomms/hub)
 	if(!pass)
-		S.relay_information(newsign, "/obj/machinery/telecomms/broadcaster") // send this simple message to broadcasters
+		S.relay_information(newsign, /obj/machinery/telecomms/broadcaster) // send this simple message to broadcasters

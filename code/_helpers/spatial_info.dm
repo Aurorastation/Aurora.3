@@ -19,6 +19,9 @@
  * named because the idea was first made by oranges and i didnt know what else to call it (note that this system was originally made for get_hearers_in_view())
  */
 /mob/abstract/oranges_ear
+	icon_state = null
+	invisibility = 0
+	mouse_opacity = 0
 	faction = null
 	screens = null
 

@@ -334,7 +334,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	var/compression = data["compression"]
 
-	for (var/mob/hearer as anything in receive)
+	for (var/mob/hearer in receive)
 		if(!hearer)
 			crash_with("null found in the hearers list returned by the spatial grid")
 			continue

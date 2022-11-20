@@ -55,27 +55,27 @@ var/list/radiochannels = list(
 )
 
 var/list/reverseradiochannels = list(
-	PUB_FREQ	= "Common",
-	SCI_FREQ	= "Science",
-	COMM_FREQ	= "Command",
-	MED_FREQ	= "Medical",
-	ENG_FREQ	= "Engineering",
-	SEC_FREQ 	= "Security",
-	PEN_FREQ	= "Penal",
-	ERT_FREQ	= "Response Team",
-	DTH_FREQ	= "Special Ops",
-	SYND_FREQ	= "Mercenary",
-	NINJ_FREQ	= "Ninja",
-	BLSP_FREQ	= "Bluespace",
-	BURG_FREQ	= "Burglar",
-	RAID_FREQ	= "Raider",
-	SUP_FREQ	= "Operations",
-	SRV_FREQ	= "Service",
-	AI_FREQ		= "AI Private",
-	ENT_FREQ	= "Entertainment",
-	MED_I_FREQ	= "Medical (I)",
-	SEC_I_FREQ	= "Security (I)",
-	SHIP_FREQ	= "Ship"
+	"[PUB_FREQ]"	= "Common",
+	"[SCI_FREQ]"	= "Science",
+	"[COMM_FREQ]"	= "Command",
+	"[MED_FREQ]"	= "Medical",
+	"[ENG_FREQ]"	= "Engineering",
+	"[SEC_FREQ]" 	= "Security",
+	"[PEN_FREQ]"	= "Penal",
+	"[ERT_FREQ]"	= "Response Team",
+	"[DTH_FREQ]"	= "Special Ops",
+	"[SYND_FREQ]"	= "Mercenary",
+	"[NINJ_FREQ]"	= "Ninja",
+	"[BLSP_FREQ]"	= "Bluespace",
+	"[BURG_FREQ]"	= "Burglar",
+	"[RAID_FREQ]"	= "Raider",
+	"[SUP_FREQ]"	= "Operations",
+	"[SRV_FREQ]"	= "Service",
+	"[AI_FREQ]"		= "AI Private",
+	"[ENT_FREQ]"	= "Entertainment",
+	"[MED_I_FREQ]"	= "Medical (I)",
+	"[SEC_I_FREQ]"	= "Security (I)",
+	"[SHIP_FREQ]"	= "Ship"
 )
 
 // The assoc variants are separate lists because they need the keys to be strings, but some code expects numbers.

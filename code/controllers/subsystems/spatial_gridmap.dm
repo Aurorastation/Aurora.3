@@ -97,7 +97,6 @@
 
 /datum/controller/subsystem/spatial_grid
 	name = "Spatial Grid"
-	init_order = SS_INIT_GRID
 	flags = SS_NO_FIRE
 
 	///list of the spatial_grid_cell datums per z level, arranged in the order of y index then x index
@@ -115,6 +114,9 @@
 	var/list/mob/abstract/oranges_ear/pregenerated_oranges_ears = list()
 	///how many pregenerated /mob/abstract/oranges_ear instances currently exist. this should hopefully never exceed its starting value
 	var/number_of_oranges_ears = NUMBER_OF_PREGENERATED_ORANGES_EARS
+
+/datum/controller/subsystem/spatial_grid/New()
+	NEW_SS_GLOBAL(SSspatial_grid)
 
 /datum/controller/subsystem/spatial_grid/Initialize(start_timeofday)
 	. = ..()
@@ -295,6 +297,9 @@
 	//cache for sanic speeds
 	var/cells_on_y_axis = src.cells_on_y_axis
 	var/cells_on_x_axis = src.cells_on_x_axis
+
+	if(grids_by_z_level.len < center_turf.z)
+		return
 
 	//technically THIS list only contains lists, but inside those lists are grid cell datums and we can go without a SINGLE var init if we do this
 	var/list/datum/spatial_grid_cell/grid_level = grids_by_z_level[center_turf.z]

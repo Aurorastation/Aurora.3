@@ -46,7 +46,7 @@
 	moved_event.register(src, src, /atom/movable/proc/update_grid_location)
 
 /atom/movable/Destroy()
-	if (important_recursive_contents && (important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS]) || important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE])
+	if (important_recursive_contents && (important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS] || important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))
 		SSspatial_grid.force_remove_from_cell(src)
 
 	LAZYCLEARLIST(contained_mobs)
