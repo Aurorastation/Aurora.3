@@ -4101,7 +4101,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/wall/shuttle/raider,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
 /area/database_freighter/eva)
 "LV" = (
 /obj/machinery/light/small{
