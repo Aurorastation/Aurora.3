@@ -17,7 +17,7 @@
 // 	special_role = "SCCV XYZ Crew"
 // 	respawn_flag = null
 
-/datum/ghostspawner/human/scc_scout_ship_crew/captain
+/datum/ghostspawner/human/scc_scout_ship_crew_captain
 	short_name = "scc_scout_ship_captain"
 	name = "SCCV XYZ Scout Ship Captain"
 	desc = "You are the captain. Pilot the ship, lead your crew, start expeditions, explore worlds."
@@ -34,6 +34,15 @@
 	special_role = "SCCV XYZ Captain"
 	respawn_flag = null
 
+/datum/ghostspawner/human/scc_scout_ship_crew/cant_spawn(mob/user)
+	if((SSghostroles.spawners["scc_scout_ship_heph"].count \
+		+ SSghostroles.spawners["scc_scout_ship_zeng"].count \
+		+ SSghostroles.spawners["scc_scout_ship_nanotrasen"].count \
+		+ SSghostroles.spawners["scc_scout_ship_zavod"].count) \
+	>= 4)
+		return "SCC Scout Ship already has max crew, which is 4."
+	. = ..()
+
 /datum/ghostspawner/human/scc_scout_ship_crew/heph
 	short_name = "scc_scout_ship_heph"
 	name = "SCCV XYZ Scout Ship Hephaestus Crewman"
@@ -41,7 +50,7 @@
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_heph")
-	max_count = 1
+	max_count = 4
 
 	outfit = /datum/outfit/admin/scc_scout_ship_crew/heph
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
@@ -58,7 +67,7 @@
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_zeng")
-	max_count = 1
+	max_count = 4
 
 	outfit = /datum/outfit/admin/scc_scout_ship_crew/zeng
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
@@ -75,7 +84,7 @@
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_nanotrasen")
-	max_count = 1
+	max_count = 4
 
 	outfit = /datum/outfit/admin/scc_scout_ship_crew/nanotrasen
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
@@ -92,7 +101,7 @@
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_zavod")
-	max_count = 1
+	max_count = 4
 
 	outfit = /datum/outfit/admin/scc_scout_ship_crew/zavod
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL,SPECIES_SKRELL_AXIORI)
