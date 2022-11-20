@@ -249,8 +249,8 @@
 	if(brainmob.stat)//Only the brainmob will trigger these so no further check is necessary.
 		to_chat(brainmob, "Can't do that while incapacitated or dead.")
 
-	radio.set_broadcasting(!radio.broadcasting)
-	to_chat(brainmob, SPAN_NOTICE("Radio is [radio.broadcasting ? "now" : "no longer"] broadcasting."))
+	radio.set_broadcasting(!radio.get_broadcasting())
+	to_chat(brainmob, SPAN_NOTICE("Radio is [radio.get_broadcasting() ? "now" : "no longer"] broadcasting."))
 
 /obj/item/device/mmi/radio_enabled/verb/Toggle_Listening()
 	set name = "Toggle Listening"
@@ -262,8 +262,8 @@
 	if(brainmob.stat)
 		to_chat(brainmob, "Can't do that while incapacitated or dead.")
 
-	radio.set_listening(!radio.listening)
-	to_chat(brainmob, SPAN_NOTICE("Radio is [radio.listening ? "now" : "no longer"] receiving broadcast."))
+	radio.set_listening(!radio.get_listening())
+	to_chat(brainmob, SPAN_NOTICE("Radio is [radio.get_listening() ? "now" : "no longer"] receiving broadcast."))
 
 /obj/item/device/mmi/emp_act(severity)
 	if(!brainmob)

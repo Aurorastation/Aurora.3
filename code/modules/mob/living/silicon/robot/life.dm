@@ -136,9 +136,9 @@
 
 	if(common_radio)
 		if(!is_component_functioning("radio"))
-			common_radio.on = FALSE
+			common_radio.set_on(FALSE)
 		else
-			common_radio.on = TRUE
+			common_radio.set_on(TRUE)
 
 	if(is_component_functioning("camera"))
 		blinded = FALSE

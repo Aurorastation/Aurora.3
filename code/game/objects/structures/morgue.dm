@@ -252,7 +252,7 @@
 		update_icon()
 		var/desperation = 0
 
-		var/list/searching = GetAllContents(searchDepth = 3, checkClient = 0)
+		var/list/searching = get_all_contents_of_type(/mob/living)
 		for(var/mob/living/M in searching)
 			admin_attack_log(A, M, "Began cremating their victim.", "Has begun being cremated.", "began cremating")
 			if(iscarbon(M))

@@ -16,14 +16,14 @@ var/const/WIRE_TRANSMIT = 4
 	var/obj/item/device/radio/R = holder
 	switch(index)
 		if(WIRE_SIGNAL)
-			R.set_listening(!R.listening && !IsIndexCut(WIRE_RECEIVE))
-			R.set_broadcasting(R.listening && !IsIndexCut(WIRE_TRANSMIT))
+			R.set_listening(!R.get_listening() && !IsIndexCut(WIRE_RECEIVE))
+			R.set_broadcasting(R.get_listening() && !IsIndexCut(WIRE_TRANSMIT))
 
 		if(WIRE_RECEIVE)
-			R.set_listening(!R.listening && !IsIndexCut(WIRE_SIGNAL))
+			R.set_listening(!R.get_listening() && !IsIndexCut(WIRE_SIGNAL))
 
 		if(WIRE_TRANSMIT)
-			R.set_broadcasting(!R.broadcasting && !IsIndexCut(WIRE_SIGNAL))
+			R.set_broadcasting(!R.get_broadcasting() && !IsIndexCut(WIRE_SIGNAL))
 	SSnanoui.update_uis(holder)
 
 /datum/wires/radio/UpdateCut(var/index, var/mended)
