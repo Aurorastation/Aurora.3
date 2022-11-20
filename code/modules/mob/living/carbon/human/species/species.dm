@@ -56,11 +56,6 @@
 	var/short_sighted
 	var/bald = 0
 
-	// Light
-	var/light_range = null
-	var/light_power = null
-	var/light_color = null
-
 	// Language/culture vars.
 	var/default_language = "Ceti Basic"		 // Default language is used when 'say' is used without modifiers.
 	var/language = "Ceti Basic"        		 // Default racial language, if any.
