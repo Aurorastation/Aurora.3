@@ -406,7 +406,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "scrapper_bridge";
 	name = "Bridge Shutters";
-	req_access = list(113);
+	req_access = list(202);
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner/beige{
@@ -799,7 +799,7 @@
 	icon_state = "door_locked";
 	id_tag = "scrapper_station_door";
 	locked = 1;
-	req_access = list(110)
+	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
@@ -1942,7 +1942,7 @@
 	icon_state = "door_locked";
 	id_tag = "scrapper_station_door";
 	locked = 1;
-	req_access = list(110)
+	req_access = list(202)
 	},
 /obj/effect/shuttle_landmark/tajara_scrapper/hangar,
 /turf/simulated/floor/tiled/dark,
@@ -3904,7 +3904,7 @@
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list(113)
+	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -4161,7 +4161,7 @@
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list(113)
+	req_access = list(202)
 	},
 /obj/structure/cable/green{
 	d2 = 4;
