@@ -258,7 +258,6 @@
 /obj/item/ship_ammunition/bruiser/flechette,
 /obj/item/ship_ammunition/bruiser/flechette,
 /obj/item/ship_ammunition/bruiser/flechette,
-/obj/item/ship_ammunition/bruiser/flechette,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "hq" = (
@@ -1341,9 +1340,6 @@
 	icon_state = "map-scrubbers"
 	},
 /obj/structure/table/rack,
-/obj/item/ship_ammunition/bruiser,
-/obj/item/ship_ammunition/bruiser,
-/obj/item/ship_ammunition/bruiser,
 /obj/item/ship_ammunition/bruiser,
 /obj/item/ship_ammunition/bruiser,
 /obj/item/ship_ammunition/bruiser,
