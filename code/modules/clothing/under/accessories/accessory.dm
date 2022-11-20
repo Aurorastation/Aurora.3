@@ -638,8 +638,7 @@
 	desc_extended = "A cloak given to senior level doctors and researchers for Zeng-Hu who has \
 	in the past been given the privilege of working within or in collaboration with the Nralakk Federation\
 	 as a show of goodwill between the corporation and federation."
-	icon = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
-	icon_override = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
+	icon = 'icons/obj/item/clothing/accessory/ZH_cape.dmi'
 	icon_state = "ZH_cape"
 	item_state = "ZH_cape"
 	flippable = FALSE
@@ -875,7 +874,7 @@
 
 /obj/item/clothing/accessory/tie/corporate
 	name = "corporate tie"
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_tie"
 	item_state = "nt_tie"
 	contained_sprite = TRUE
@@ -907,7 +906,7 @@
 /obj/item/clothing/accessory/pin/corporate
 	name = "corporate badge"
 	desc = "A shiny button which reads, <i>'NanoTrasen - The leader in all things Phoron!'</i>"
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_liaison_badge"
 	item_state = "nt_liaison_badge"
 	drop_sound = 'sound/items/drop/ring.ogg'
@@ -954,4 +953,3 @@
 	contained_sprite = TRUE
 	icon_override = null
 	body_parts_covered = UPPER_TORSO
-

@@ -178,7 +178,7 @@
 /obj/item/clothing/head/flatcap
 	name = "flat cap"
 	desc = "A working man's hat."
-	icon = 'icons/contained_items/clothing/headwear/flat_cap.dmi'
+	icon = 'icons/obj/item/clothing/head/flat_cap.dmi'
 	icon_state = "flat_cap"
 	item_state = "flat_cap"
 	contained_sprite = TRUE
@@ -222,7 +222,7 @@
 
 /obj/item/clothing/head/feathertrilby
 	name = "feather trilby"
-	icon = 'icons/contained_items/clothing/headwear/feather_trilby.dmi'
+	icon = 'icons/obj/item/clothing/head/feather_trilby.dmi'
 	icon_state = "feather_trilby"
 	item_state = "feather_trilby"
 	contained_sprite = TRUE
