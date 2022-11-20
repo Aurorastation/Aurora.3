@@ -69,6 +69,8 @@
 		qdel(virtual_mob)
 		virtual_mob = null
 
+	moved_event.unregister(src, src, /atom/movable/proc/update_grid_location)
+
 // This is called when this atom is prevented from moving by atom/A.
 /atom/movable/proc/Collide(atom/A)
 	if(airflow_speed > 0 && airflow_dest)
