@@ -232,11 +232,11 @@
 	SA.overmap_target = overmap_target
 	SA.entry_point = landmark
 	SA.origin = linked
-	if(istype(linked, /obj/effect/overmap/visitable/ship))
+	if(direction_override)
+		SA.heading = direction_override
+	else if(istype(linked, /obj/effect/overmap/visitable/ship))
 		var/obj/effect/overmap/visitable/ship/SH = linked
 		SA.heading = SH.dir
-	else if(direction_override)
-		SA.heading = direction_override
 	else
 		SA.heading = barrel.dir
 	SA.forceMove(projectile)
