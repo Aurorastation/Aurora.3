@@ -1536,7 +1536,7 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
-	req_access = list(113)
+	req_access = list(209)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -4954,7 +4954,7 @@
 "yr" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
-	req_access = list(113);
+	req_access = list(209);
 	pixel_y = 32
 	},
 /obj/item/reagent_containers/blood/OMinus,
