@@ -90,7 +90,7 @@
 	name = "Izharshan Freighter"
 	move_time = 35
 	range = 2
-	fuel_consumption = 5
+	fuel_consumption = 6
 	shuttle_area = list(/area/shuttle/unathi_pirate_izharshan/operations, /area/shuttle/unathi_pirate_izharshan/dorms, /area/shuttle/unathi_pirate_izharshan/helm)
 	current_location = "nav_start_unathi_pirate_izharshan"
 	dock_target = "unathi_pirate_izharshan"

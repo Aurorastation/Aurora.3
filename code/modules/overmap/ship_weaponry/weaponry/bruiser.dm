@@ -42,7 +42,7 @@
 /obj/item/ship_ammunition/bruiser/he
 	name = "bruiser explosive shell"
 	name_override = "flechette burst"
-	desc = "An expensive shell actually designed for a bruiser cannon. This one is HEDP."
+	desc = "An expensive shell actually designed for a bruiser cannon. This one is HE."
 	icon_state = "shell_he"
 	impact_type = SHIP_AMMO_IMPACT_HE
 	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE

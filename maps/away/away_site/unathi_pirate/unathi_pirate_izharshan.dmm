@@ -257,6 +257,8 @@
 /obj/item/ship_ammunition/bruiser/flechette,
 /obj/item/ship_ammunition/bruiser/flechette,
 /obj/item/ship_ammunition/bruiser/flechette,
+/obj/item/ship_ammunition/bruiser/flechette,
+/obj/item/ship_ammunition/bruiser/flechette,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "hq" = (
@@ -407,7 +409,8 @@
 /area/space)
 "ou" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
-	dir = 8
+	dir = 8;
+	start_pressure = 4000
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/operations)
@@ -496,7 +499,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/tank/air{
-	dir = 4
+	dir = 4;
+	start_pressure = 4000
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/operations)
@@ -535,6 +539,10 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "sW" = (
@@ -814,7 +822,7 @@
 	},
 /obj/item/material/sword/axe,
 /obj/item/melee/hammer/powered{
-	pixel_y = 11;
+	pixel_y = 2;
 	pixel_x = 1
 	},
 /obj/item/melee/energy/sword/pirate{
@@ -1065,13 +1073,12 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "KZ" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/vending/engivend{
 	req_access = list(210)
+	},
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/operations)
@@ -1270,7 +1277,8 @@
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Sr" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
-	dir = 1
+	dir = 1;
+	start_pressure = 4000
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -1339,6 +1347,13 @@
 /obj/item/ship_ammunition/bruiser,
 /obj/item/ship_ammunition/bruiser,
 /obj/item/ship_ammunition/bruiser,
+/obj/item/ship_ammunition/bruiser,
+/obj/item/ship_ammunition/bruiser,
+/obj/item/ship_ammunition/bruiser,
+/obj/item/ship_ammunition/bruiser,
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "UF" = (
@@ -1540,7 +1555,7 @@
 	},
 /obj/item/clothing/head/pirate,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/unathi_pirate_izharshan/operations)
+/area/shuttle/unathi_pirate_izharshan/dorms)
 "YU" = (
 /obj/structure/viewport/unathi,
 /turf/simulated/floor,
@@ -1588,7 +1603,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
-	dir = 4
+	dir = 4;
+	start_pressure = 4000
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/operations)
@@ -32305,7 +32321,7 @@ yN
 ZU
 SS
 xp
-ZU
+xF
 xF
 xF
 pg
