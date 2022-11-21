@@ -29,7 +29,6 @@
 	var/mob/living/carbon/human/breather = null
 	var/obj/item/clothing/mask/breath/breath_mask = null
 	var/obj/item/tank/tank = null
-	var/tank_type = null
 	var/is_loose = TRUE
 	var/list/tank_blacklist = list(/obj/item/tank/emergency_oxygen, /obj/item/tank/jetpack)
 	var/valve_open = FALSE
@@ -138,13 +137,7 @@
 		else
 			add_overlay("iv_out[tipped ? "_tipped" : ""]")
 	if(tank)
-		if(istype(tank, /obj/item/tank/oxygen))
-			tank_type = "oxy"
-		else if(istype(tank, /obj/item/tank/phoron))
-			tank_type = "phoron"
-		else
-			tank_type = "other"
-		add_overlay("tank_[tank_type][tipped ? "_tipped" : ""]")
+		add_overlay("tank_oxy[tipped ? "_tipped" : ""]")
 
 		var/tank_level = 2
 		switch(tank.percent())
@@ -243,8 +236,8 @@
 		return
 	if(in_range(src, usr) && ishuman(over_object) && in_range(over_object, src))
 		var/list/options = list(
-			"Vein Line" = image('icons/mob/screen/radial.dmi', "iv_drip"),
-			"Artery Line" = image('icons/mob/screen/radial.dmi', "iv_mask"))
+			"Vein Line" = image('icons/mob/screen/ecmo_radial.dmi', "vein"),
+			"Artery Line" = image('icons/mob/screen/ecmo_radial.dmi', "artery"))
 		var/chosen_action = show_radial_menu(usr, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 		if(!chosen_action)
 			return
@@ -305,7 +298,7 @@
 		return
 	var/list/options = list(
 		"Infusion Rate" = image('icons/mob/screen/radial.dmi', "radial_transrate"),
-		"Remove Container" = image('icons/mob/screen/radial.dmi', "iv_beaker"),
+		"Remove Container" = image('icons/mob/screen/ecmo_radial.dmi', "iv_beaker"),
 		"Remove Tank" = image('icons/mob/screen/radial.dmi', "iv_tank"))
 	var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 	if(!chosen_action)
@@ -421,23 +414,20 @@
 		return
 	var/list/options = list(
 		"Transfer Rate" = image('icons/mob/screen/radial.dmi', "radial_transrate"),
-		"Toggle Stop" = image('icons/mob/screen/radial.dmi', "iv_stop"),
-		"Toggle Valve" = image('icons/mob/screen/radial.dmi', "iv_valve"))
+		"Toggle Valve" = image('icons/mob/screen/ecmo_radial.dmi', "iv_valve"))
 	var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 	if(!chosen_action)
 		return
 	switch(chosen_action)
 		if("Transfer Rate")
 			transfer_rate()
-		if("Toggle Stop")
-			toggle_stop()
 		if("Toggle Valve")
 			toggle_valve()
 
 /obj/machinery/ecmo/proc/do_crash()
 	cut_overlays()
 	visible_message(SPAN_WARNING("\The [src] falls over with a buzz, spilling out it's contents!"))
-	flick("ecmo_crash[is_loose ? "" : "_tank_[tank_type]"]", src)
+	flick("ecmo_crash[is_loose ? "" : "_tank_oxy"]", src)
 	playsound(src, 'sound/items/drop/prosthetic.ogg', 50)
 	spill()
 	tipped = TRUE
@@ -469,7 +459,6 @@
 			tank.tumble(rand(1,2))
 			tank.SpinAnimation(4, 2)
 			tank = null
-			tank_type = null
 			if(breather)
 				if(breather.internals)
 					breather.internals.icon_state = "internal0"
@@ -480,7 +469,7 @@
 			src.visible_message("\The [tank] rattles, but remains firmly secured to \the [src].")
 
 /obj/machinery/ecmo/proc/iv_rip()
-	attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [vein.name]."), SPAN_DANGER("The needle <B>painfully</B> rips out of your [vein.name]."))
+	attached.visible_message(SPAN_WARNING("The vein line is ripped out of [attached]'s [vein.name]."), SPAN_DANGER("The vein line <B>painfully</B> rips out of your [vein.name]."))
 	vein.take_damage(brute = rip_vein_damage, damage_flags = DAM_SHARP)
 	vein = null
 	attached = null
@@ -517,17 +506,6 @@
 	tank_active = FALSE
 	valve_open = FALSE
 	update_icon()
-
-/obj/machinery/ecmo/verb/toggle_stop()
-	set category = "Object"
-	set name = "Toggle Stop"
-	set src in view(1)
-
-	if(use_check_and_message(usr))
-		return
-	toggle_stop = !toggle_stop
-	usr.visible_message("<b>[usr]</b> toggles \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"].", SPAN_NOTICE("You toggle \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"]."))
-	playsound(usr, 'sound/machines/click.ogg', 50)
 
 /obj/machinery/ecmo/verb/toggle_valve()
 	set category = "Object"
