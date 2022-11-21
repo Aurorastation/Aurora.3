@@ -3732,7 +3732,8 @@
 	req_access = list(13)
 	},
 /obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "cWd" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6767,8 +6768,7 @@
 	dir = 10
 	},
 /obj/structure/railing/mapped,
-/obj/machinery/iff_beacon/horizon,
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "fjS" = (
 /obj/structure/ladder/up{
@@ -7262,7 +7262,8 @@
 	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "fFf" = (
 /obj/structure/railing/mapped{
@@ -10113,7 +10114,7 @@
 	dir = 6
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "hMr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -11554,15 +11555,15 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /obj/machinery/computer/shuttle_control/explore/mining_shuttle,
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/airless,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "iZk" = (
 /obj/machinery/door/blast/regular/open{
@@ -13813,7 +13814,8 @@
 	req_access = list(13)
 	},
 /obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "kKz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
@@ -13930,7 +13932,8 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "kOJ" = (
 /obj/machinery/camera/network/supply{
@@ -17353,7 +17356,8 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "nBK" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -18241,6 +18245,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"osc" = (
+/obj/machinery/iff_beacon/horizon,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/mining)
 "otX" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/green{
@@ -18515,7 +18524,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "oDv" = (
 /obj/machinery/conveyor{
@@ -18746,7 +18755,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "oSD" = (
 /obj/effect/shuttle_landmark/merc_ship/first_deck,
@@ -21213,7 +21222,7 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "mining_shuttle_dock";
-	name = "mining shuttle hatch controller";
+	name = "\improper Spark docking port controller";
 	pixel_x = 6;
 	pixel_y = -25;
 	req_one_access = list(31,48,67);
@@ -23117,7 +23126,8 @@
 	tag_exterior_door = "mining_shuttle_external";
 	tag_interior_door = "mining_shuttle_internal"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "soD" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -23415,7 +23425,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "sxT" = (
 /obj/structure/sign/directions/cryo{
@@ -23945,7 +23955,7 @@
 /area/storage/eva)
 "sVu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "sVZ" = (
 /obj/effect/landmark/entry_point/aft{
@@ -24448,7 +24458,7 @@
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
 "tqs" = (
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "tqT" = (
 /obj/structure/cable{
@@ -25250,18 +25260,15 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "tVI" = (
-/obj/machinery/door/window/northleft{
-	name = "Mining Shuttle Maintenance Exterior";
-	req_access = list(48)
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/bed/handrail{
+	dir = 1;
+	pixel_y = 8
 	},
-/obj/machinery/door/window/southleft{
-	name = "Mining Shuttle Maintenance Interior";
-	req_access = list(48)
-	},
-/obj/structure/disposalpipe/segment,
-/obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled,
-/area/hangar/operations)
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/mining)
 "tWc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/structure/cable/green{
@@ -26478,7 +26485,8 @@
 	id_tag = "mining_shuttle_internal";
 	req_access = list(13)
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "uUZ" = (
 /obj/machinery/light{
@@ -26826,7 +26834,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "vht" = (
 /obj/machinery/door/blast/regular/open{
@@ -27438,7 +27446,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "vIF" = (
 /obj/structure/shuttle_part{
@@ -27472,19 +27480,19 @@
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	id_tag = "mining_dock";
-	name = "mining docking hatch controller";
+	id_tag = "mining_shuttle_dock";
+	name = "\improper Spark docking port controller";
 	pixel_x = -39;
 	pixel_y = -25;
-	req_one_access = list(31,48,67)
+	req_one_access = list(74)
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "intrepid_dock";
-	name = "intrepid docking port controller";
+	name = "\improper Intrepid docking port controller";
 	pixel_x = -26;
 	pixel_y = -25;
-	req_one_access = list(31,48,67)
+	req_one_access = list(74)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
@@ -27841,7 +27849,8 @@
 	req_access = list(13)
 	},
 /obj/effect/shuttle_landmark/mining/hangar,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "vZT" = (
 /obj/machinery/light/spot/weak{
@@ -28881,16 +28890,13 @@
 /area/engineering/atmos)
 "wSS" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/window/northright{
-	name = "Mining Shuttle Maintenance Exterior";
-	req_access = list(48)
-	},
-/obj/machinery/door/window/southright{
-	name = "Mining Shuttle Maintenance Interior";
-	req_access = list(48)
-	},
 /obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled,
+/obj/machinery/door/airlock/glass_mining{
+	name = "Spark Dock Maintenance Access";
+	req_access = list(48)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "wTM" = (
 /obj/machinery/alarm{
@@ -29639,7 +29645,7 @@
 "xpX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/handrail,
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "xqe" = (
 /obj/structure/cable/green,
@@ -45878,7 +45884,7 @@ wkD
 wos
 rcA
 oXD
-tVI
+wSS
 ixU
 pgW
 gyo
@@ -46292,7 +46298,7 @@ qqS
 ePy
 xpX
 tqs
-sxP
+tVI
 tNp
 jCg
 tNp
@@ -46694,7 +46700,7 @@ aNO
 uNw
 rAa
 ePy
-xpX
+osc
 tqs
 vhg
 tNp
@@ -47100,7 +47106,7 @@ mWV
 ePy
 xpX
 tqs
-sxP
+tVI
 tNp
 jCg
 tNp
@@ -48698,11 +48704,11 @@ wuD
 nyV
 wuD
 wuD
-qju
-qju
-qju
-qju
-qju
+xmc
+xmc
+xmc
+xmc
+xmc
 wKW
 mBx
 qju
