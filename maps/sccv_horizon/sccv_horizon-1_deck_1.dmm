@@ -25295,13 +25295,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hangar/auxiliary)
-"tFM" = (
-/obj/structure/ladder/up{
-	pixel_y = 13
-	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/space/dynamic,
-/area/horizon/exterior)
 "tFO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -25929,6 +25922,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "ucs" = (
@@ -52444,7 +52438,7 @@ eMK
 lzc
 iMg
 oDB
-tFM
+pYB
 wup
 pYB
 hWb
