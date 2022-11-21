@@ -455,32 +455,50 @@
 	explosion(loc, 3, 6, 12, 16, 1) // No special effects, but the explosion is pretty big (same as a supermatter shard).
 	qdel(src)
 
-/obj/machinery/power/portgen/basic/super/fusion_reactor
+/obj/machinery/power/portgen/basic/fusion
 	name = "minature fusion reactor"
 	desc = "The RT7-0, an industrial all-in-one nuclear fusion power plant created by Hephaestus. It uses uranium as a fuel source and relies on coolant to keep the reactor cool. Rated for 500 kW max safe output."
 	power_gen =  100000	
 	icon_state = "reactor"
 	base_icon = "reactor"
+	portgen_lightcolour = "#458943"
 	max_safe_output = 5
 	max_power_output = 8	//The maximum power setting without emagging.
 	temperature_gain = 70	//how much the temperature increases per power output level, in degrees per level
 	max_temperature = 450
 	time_per_sheet = 400
+
+	sheet_name = "tritium sheets"
+	sheet_path = /obj/item/stack/material/tritium
+	board_path = "/obj/item/circuitboard/portgen/fusion"
+
 	anchored = TRUE
 	flags = OPENCONTAINER
+	
 	var/coolant_volume = 360
 	var/coolant_use = 0.2
 	var/coolant_reagent = /decl/reagent/coolant
 
-/obj/machinery/power/portgen/basic/super/fusion_reactor/New()
+/obj/machinery/power/portgen/basic/fusion/explode()
+	//a nice burst of radiation
+	var/rads = 50 + (sheets + sheet_left)*1.5
+	for (var/mob/living/L in range(src, 10))
+		//should really fall with the square of the distance, but that makes the rads value drop too fast
+		//I dunno, maybe physics works different when you live in 2D -- SM radiation also works like this, apparently
+		L.apply_damage(max(20, round(rads/get_dist(L,src))), IRRADIATE, damage_flags = DAM_DISPERSED)
+
+	explosion(loc, 3, 6, 12, 16, 1)
+	qdel(src)
+
+/obj/machinery/power/portgen/basic/fusion/New()
 	create_reagents(coolant_volume)
 	..()
 
-/obj/machinery/power/portgen/basic/super/fusion_reactor/examine(mob/user)
+/obj/machinery/power/portgen/basic/fusion/examine(mob/user)
 	. = ..()
 	to_chat(user, "The auxilary tank shows [reagents.total_volume]u of liquid in it.")
 
-/obj/machinery/power/portgen/basic/super/fusion_reactor/UseFuel()
+/obj/machinery/power/portgen/basic/fusion/UseFuel()
 	if(reagents.has_reagent(coolant_reagent))
 		temperature_gain = 60
 		reagents.remove_any(coolant_use)
@@ -494,13 +512,13 @@
 			L.apply_damage(1, IRRADIATE, damage_flags = DAM_DISPERSED) //should amount to ~5 rads per minute at max safe power
 	..()
 
-/obj/machinery/power/portgen/basic/super/fusion_reactor/update_icon()
+/obj/machinery/power/portgen/basic/fusion/update_icon()
 	if(..())
 		return 1
 	if(power_output > max_safe_output)
 		icon_state = "reactordanger"
 
-/obj/machinery/power/portgen/basic/super/fusion_reactor/attackby(var/obj/item/O, var/mob/user)
+/obj/machinery/power/portgen/basic/fusion/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/reagent_containers))
 		var/obj/item/reagent_containers/R = O
 		if(R.standard_pour_into(user, src))
