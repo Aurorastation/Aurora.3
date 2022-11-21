@@ -35,12 +35,6 @@
 	"deck_three_aft_of_horizon"
 	)
 
-
-/obj/machinery/computer/shuttle_control/explore/intrepid
-	name = "Intrepid control console"
-	shuttle_tag = "Intrepid"
-	req_access = list(access_intrepid)
-
 /obj/effect/overmap/visitable/ship/landable/intrepid
 	name = "Intrepid"
 	class = "SCCV"
@@ -53,6 +47,11 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+
+/obj/machinery/computer/shuttle_control/explore/intrepid
+	name = "\improper Intrepid control console"
+	shuttle_tag = "Intrepid"
+	req_access = list(access_intrepid)
 
 /obj/effect/overmap/visitable/ship/landable/mining_shuttle
 	name = "Spark"
@@ -67,7 +66,7 @@
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/mining_shuttle
-	name = "pickaxe control console"
+	name = "\improper Spark control console"
 	shuttle_tag = "Spark"
 	req_access = list(access_mining)
 

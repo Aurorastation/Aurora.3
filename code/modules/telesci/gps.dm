@@ -310,6 +310,7 @@ var/list/GPS_list = list()
 	compass_color = "#EAD152"
 	gpstag = "MAROON0"
 
+/********** Static GPS Start **********/
 // Static GPS
 /obj/item/device/gps/stationary
 	name = "static GPS"
@@ -353,15 +354,16 @@ var/list/GPS_list = list()
 /obj/item/device/gps/stationary/attack_hand() // Don't let users pick it up.
 	return
 
+// Spark
 /obj/item/device/gps/stationary/mining_shuttle
-	name = "static GPS (mining shuttle)"
+	name = "static GPS (SCCV Spark)"
 	desc = "A static global positioning system helpful for finding your way back to the mining shuttle."
 	icon_state = "gps-min"
-	layer = 2.1
 	gps_prefix = "MIN"
 	compass_color = "#5F4519"
-	gpstag = "MINSHUT"
+	gpstag = "SPARK"
 
+// Intrepid
 /obj/item/device/gps/stationary/sccv_intrepid
 	name = "static GPS (SCCV Intrepid)"
 	desc = "A static global positioning system helpful for finding your way back to the SCCV Intrepid."
@@ -369,3 +371,4 @@ var/list/GPS_list = list()
 	gps_prefix = "COM"
 	compass_color = "#193A7A"
 	gpstag = "INTREPID"
+/********** Static GPS End **********/
