@@ -1,0 +1,8 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - maptweak: "Moves the shield generator to where the deck 2 engineering substation used to be."
+  - maptweak: "Moves the deck 2 engineering substation to behind the engineering locker room."
+  - maptweak: "Adds a ladder in the engineering hard storage that leads to the engineering storage on deck 1."
