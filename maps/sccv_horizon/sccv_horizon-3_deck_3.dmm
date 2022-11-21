@@ -16548,6 +16548,14 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
+"nyJ" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/standard,
+/obj/structure/bedsheetbin{
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/ward/isolation)
 "nzb" = (
 /obj/structure/table,
 /obj/random/junk,
@@ -27276,13 +27284,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/hallway)
 "vVZ" = (
-/obj/structure/table/standard,
-/obj/structure/bedsheetbin{
-	pixel_y = 5
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/medical/ward/isolation)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "vWS" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -42754,7 +42763,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+iUA
 wGH
 wGH
 wGH
@@ -43557,7 +43566,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+iUA
 wGH
 wGH
 wGH
@@ -44365,7 +44374,7 @@ uMG
 uMG
 uMG
 uMG
-wGH
+vVZ
 sQE
 wRH
 jxS
@@ -44769,7 +44778,7 @@ xyc
 kyL
 xwI
 uMG
-wGH
+iUA
 rnX
 stP
 tNW
@@ -45173,7 +45182,7 @@ wbQ
 tVQ
 qwV
 lbm
-vVZ
+byu
 byu
 byu
 byu
@@ -45375,7 +45384,7 @@ kyL
 lWU
 kyL
 lbm
-wAi
+nyJ
 lWE
 wAi
 wld

@@ -30912,7 +30912,7 @@
 "pmQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/disposalpipe/trunk,
-/obj/machinery/disposal,
+/obj/machinery/disposal/small/east,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "pmU" = (
