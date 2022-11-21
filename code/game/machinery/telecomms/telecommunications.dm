@@ -49,11 +49,12 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 //	var/datum/looping_sound/server/soundloop
 
 /obj/machinery/telecomms/proc/get_service_area()
-	. = list(z)
-	var/turf/above = GetAbove(src)
-	var/turf/below = GetBelow(src)
-	if(above) . += above.z
-	if(below) . += below.z
+	if(current_map.use_overmap)
+		. = list()
+		for(var/obj/effect/overmap/visitable/V in range(overmap_range, linked))
+			. |= V.map_z
+	else
+		return GetConnectedZlevels(z)
 
 /obj/machinery/telecomms/proc/check_service_area(list/levels)
 	var/valid_levels = get_service_area()

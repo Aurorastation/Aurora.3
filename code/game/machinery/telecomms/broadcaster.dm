@@ -37,9 +37,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	if(original && ("compression" in signal.data))
 		original.data["compression"] = signal.data["compression"]
 
-	var/turf/T = get_turf(src)
-	if (T)
-		signal.levels |= T.z
+	signal.levels = get_service_area()
 
 	var/signal_message = "[signal.frequency]:[signal.data["message"]]:[signal.data["realname"]]"
 	if(signal_message in recentmessages)
@@ -98,7 +96,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	if(!istype(signal) || signal.transmission_method != TRANSMISSION_SUBSPACE)
 		return
 
-	if(!on || !(z in signal.levels) || !is_freq_listening(signal))
+	if(!on || !check_service_area(signal.levels) || !is_freq_listening(signal))
 		return
 
 	if(!check_receive_sector(signal) && !intercept) //Too far on the overmap to receive. Antag (intercept) don't care about sector checks.
@@ -106,6 +104,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	if(!(signal.frequency in listening_freqs) && !intercept)
 		return
+
+	signal.levels = get_service_area()
 
 	// Decompress the signal, mark it received
 	signal.data["compression"] = 0
@@ -269,7 +269,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 /datum/signal/subspace/vocal/broadcast()
 	set waitfor = FALSE
 
-	var/message = copytext(data["message"], 1, MAX_BROADCAST_LEN)
+	var/message = copytext(data["message"], 1, MAX_MESSAGE_LEN)
 	if(!message || message == "")
 		return
 

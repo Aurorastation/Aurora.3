@@ -140,7 +140,7 @@ var/global/list/default_medbay_channels = list(
 		should_be_listening = listening
 
 	if(listening && on)
-		SSradio.add_object(src, frequency)
+		SSradio.add_object(src, frequency, RADIO_CHAT)
 	else if(!listening)
 		SSradio.remove_object_all(src)
 
