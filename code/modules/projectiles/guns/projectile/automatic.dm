@@ -253,6 +253,20 @@
 /datum/firemode/z8
 	var/use_launcher = 0
 
+/obj/item/gun/projectile/automatic/rifle/dom
+	name = "dominian assault rifle"
+	desc = "The standard issue rifle of the Empire of Dominia’s Imperial Army. With its sleek lines and ruggedized faux wood furniture, the MPR-24/5 \
+	is as elegant as it is deadly, proving itself in service during Dominia's numerous colonial conflicts."
+	desc_extended = "The Moroz Pattern Rifle, Year of 2424 has been the standard issue rifle of the Imperial Army for decades thanks to its durable construction and ease of use. \
+	The Imperial Army has repeatedly modernized and updated the MPR-24 over the past 40 years, and the rifle is now in its fifth modernization: one that they hope will keep it competitive well into the 2470s."
+	icon = 'icons/obj/guns/dom_rifle.dmi'
+	icon_state = "acr"
+	item_state = "acr"
+
+/obj/item/gun/projectile/automatic/rifle/dom/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "acr" : "acr-empty"
+
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
 	desc = "The ZI Bulldog bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle. Uses 5.56mm rounds."
