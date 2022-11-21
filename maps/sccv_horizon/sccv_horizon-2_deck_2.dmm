@@ -27794,13 +27794,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
-"nHY" = (
-/obj/machinery/power/apc/super/critical{
-	dir = 8;
-	pixel_x = -24
-	},
-/turf/simulated/wall/r_wall,
-/area/engineering/aft_airlock)
 "nIi" = (
 /turf/simulated/wall,
 /area/hallway/medical)
@@ -72287,7 +72280,7 @@ jeT
 cQS
 cQS
 cQS
-nHY
+cQS
 wfD
 iHq
 twC
