@@ -69,7 +69,7 @@
 	// Modules and active items
 	var/mod_type = "Default"
 	var/spawn_module // Which module does this robot use when it spawns in?
-	var/selecting_module = 0 //whether the borg is in process of selecting its module or not.
+	var/selecting_module = FALSE //whether the borg is in process of selecting its module or not.
 	var/obj/item/robot_module/module
 	var/obj/item/module_active
 	var/obj/item/module_state_1
@@ -108,6 +108,8 @@
 	var/key_type
 	var/scrambled_codes = FALSE // When true, doesn't show up on robotics console.
 
+	id_card_type = /obj/item/card/id/synthetic/cyborg
+
 	// Alerts
 	var/view_alerts = FALSE
 
@@ -118,7 +120,7 @@
 	var/killswitch_time = 60
 
 	// Weapon lock
-	var/weapon_lock = 0
+	var/weapon_lock = FALSE
 	var/weapon_lock_time = 120
 
 	// Verbs
@@ -201,6 +203,22 @@
 	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 
+/mob/living/silicon/robot/proc/update_access()
+	if (emagged || malf_AI_module || crisis)
+		id_card.access = get_all_station_access() + access_synth // Give full station access
+		return
+
+	id_card = new id_card_type()
+
+	if (module)
+		if (istype(module, /obj/item/robot_module/combat))
+			id_card.access = get_all_station_access() + access_synth // Give full station access
+			return
+
+		var/datum/job/job = new module.specialized_access_type()
+		to_chat(src, SPAN_NOTICE("Access initialized to be similiar to the job '[job.title]'."))
+		id_card.access |= job.access
+
 /mob/living/silicon/robot/proc/recalculate_synth_capacities()
 	if(!module?.synths)
 		return
@@ -211,6 +229,8 @@
 		M.set_multiplier(mult)
 	for(var/obj/item/stack/SM in module.modules)
 		SM.update_icon()
+
+	update_access()
 
 /mob/living/silicon/robot/proc/init()
 	ai_camera = new /obj/item/device/camera/siliconcam/robot_camera(src)
@@ -1204,6 +1224,7 @@
 			clear_supplied_laws()
 			clear_inherent_laws()
 			laws = new /datum/ai_laws/syndicate_override
+			id_card.access = get_all_station_access() + access_synth // Give full station access
 			var/time = time2text(world.realtime, "hh:mm:ss")
 			lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 			set_zeroth_law("Only [user.real_name] and people they designate as being such are operatives.")

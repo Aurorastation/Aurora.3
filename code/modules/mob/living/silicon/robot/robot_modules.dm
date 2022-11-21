@@ -1,6 +1,6 @@
 var/global/list/robot_modules = list(
-	"Service" 		= /obj/item/robot_module/clerical/butler,
-	"Clerical" 		= /obj/item/robot_module/clerical/general,
+	"Service" 		= /obj/item/robot_module/service/butler,
+	"Clerical" 		= /obj/item/robot_module/service/general,
 	"Research" 		= /obj/item/robot_module/research,
 	"Mining" 		= /obj/item/robot_module/miner,
 	"Rescue" 		= /obj/item/robot_module/medical/rescue,
@@ -50,6 +50,7 @@ var/global/list/robot_modules = list(
 	// Bookkeeping
 	var/list/original_languages = list()
 	var/list/added_networks = list()
+	var/specialized_access_type = /datum/job/assistant // an job we take access from. Used to mirror job's IDs for specific borg modules.
 
 /obj/item/robot_module/Initialize(mapload, var/mob/living/silicon/robot/R)
 	. = ..()
@@ -209,6 +210,7 @@ var/global/list/robot_modules = list(
 		"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_medi", ROBOT_PANEL = "coolermaster_medi", ROBOT_EYES = "coolermaster"),
 		"Phage" =          list(ROBOT_CHASSIS = "phage_medi", ROBOT_PANEL = "phage_medi", ROBOT_EYES = "phage")
 	)
+	specialized_access_type = /datum/job/doctor
 
 /obj/item/robot_module/medical/general/Initialize()
 	. = ..()
@@ -270,6 +272,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/medical/rescue
 	name = "rescue robot module"
+	specialized_access_type = /datum/job/med_tech
 // If anyone wants to make custom rescue robot sprites, be my guest.
 
 /obj/item/robot_module/medical/rescue/Initialize()
@@ -353,6 +356,7 @@ var/global/list/robot_modules = list(
 		"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_engi", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
 		"Phage" =          list(ROBOT_CHASSIS = "phage_engi", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 	)
+	specialized_access_type = /datum/job/engineer
 
 /obj/item/robot_module/engineering/construction
 	name = "construction robot module"
@@ -551,6 +555,7 @@ var/global/list/robot_modules = list(
 	)
 
 	var/mopping = FALSE
+	specialized_access_type = /datum/job/janitor
 
 /obj/item/robot_module/janitor/Initialize()
 	. = ..()
@@ -578,7 +583,7 @@ var/global/list/robot_modules = list(
 		var/obj/item/reagent_containers/spray/S = emag
 		S.reagents.add_reagent(/decl/reagent/lube, 2 * amount)
 
-/obj/item/robot_module/clerical
+/obj/item/robot_module/service
 	name = "service robot module"
 	channels = list(CHANNEL_SERVICE = TRUE)
 	networks = list(NETWORK_SERVICE)
@@ -621,7 +626,9 @@ var/global/list/robot_modules = list(
 		"Phage" =          list(ROBOT_CHASSIS = "phage_serv", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 	)
 
-/obj/item/robot_module/clerical/butler/Initialize()
+	specialized_access_type = /datum/job/janitor
+
+/obj/item/robot_module/service/butler/Initialize()
 	. = ..()
 	modules += new /obj/item/gripper/service(src)
 	modules += new /obj/item/reagent_containers/glass/bucket(src)
@@ -667,12 +674,12 @@ var/global/list/robot_modules = list(
 	RG.add_reagent(/decl/reagent/polysomnine/beer2, 50)
 	emag.name = "Mickey Finn's Special Brew"
 
-/obj/item/robot_module/clerical/general
+/obj/item/robot_module/service/general
 	name = "clerical robot module"
 	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_COMMAND = TRUE)
 	networks = list(NETWORK_MINE)
 
-/obj/item/robot_module/clerical/general/Initialize()
+/obj/item/robot_module/service/general/Initialize()
 	. = ..()
 	modules += new /obj/item/pen/robopen(src)
 	modules += new /obj/item/form_printer(src)
