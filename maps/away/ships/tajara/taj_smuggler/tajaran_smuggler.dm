@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/tajaran_smuggler
 	name = "Adhomian Freighter"
 	description = "Built with reliability in mind, the Zhsram Freighter is one of the most common Adhomian designs. This vessel is cheap and has a sizeable cargo storage. It is frequently used by Tajaran traders and smugglers."
-	suffix = "ships/taj_smuggler/tajaran_smuggler.dmm"
+	suffix = "ships/tajara/taj_smuggler/tajaran_smuggler.dmm"
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
 	spawn_cost = 1
