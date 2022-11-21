@@ -1368,6 +1368,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
+"aCw" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/storage_hard)
 "aCP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -5742,6 +5749,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
+"cOM" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/engineering/storage_hard)
 "cOU" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/vending/cola,
@@ -6966,6 +6984,12 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
@@ -10384,6 +10408,24 @@
 /obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/wood,
 /area/rnd/conference)
+"fkH" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/ladder{
+	pixel_y = 16
+	},
+/turf/simulated/open/chasm,
+/area/engineering/storage_hard)
 "fkZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -14711,6 +14753,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "hhY" = (
@@ -15334,6 +15379,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
+"hwC" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/storage_hard)
 "hwH" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -16442,6 +16494,16 @@
 /obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/wood,
 /area/horizon/library)
+"ico" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/tiled,
+/area/engineering/storage_hard)
 "icZ" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/green/full{
@@ -24809,6 +24871,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "mpN" = (
@@ -28607,6 +28672,12 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
@@ -63284,9 +63355,9 @@ wFX
 nlr
 pmU
 pmU
-qUL
+ico
 oiX
-doE
+hwC
 wZn
 dHG
 ajI
@@ -63486,9 +63557,9 @@ eMH
 nlr
 pZu
 pZu
-qUL
-oiX
-doE
+cOM
+fkH
+aCw
 ikb
 kiK
 urs
