@@ -13,6 +13,7 @@
 	// Blood Stuff
 	var/mob/living/carbon/human/attached = null
 	var/obj/item/organ/external/vein = null
+	var/obj/item/organ/external/artery = null
 	var/obj/item/reagent_containers/beaker = null
 	var/transfer_amount = 5
 	var/transfer_limit = 10
@@ -164,7 +165,7 @@
 /obj/machinery/ecmo/proc/breather_process()
 	if(breather)
 		if(!breather.Adjacent(src))
-			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps back into \the [src]!"))
+			src.visible_message(SPAN_WARNING("\The artery line snaps back into \the [src]!"))
 			breath_mask_rip()
 			return
 		// var/mask_check = breath_mask.get_equip_slot()
@@ -185,9 +186,15 @@
 		if(breather.species.flags & NO_BREATHE)
 			return
 
+		if(!vein)
+			src.visible_message(SPAN_WARNING("The loop is open (no vein line), disconnecting the artery line!"))
+			breath_mask_rip(TRUE)
+			return
+
 		if(valve_open && attached)
 			var/obj/item/organ/internal/brain/B = breather.internal_organs_by_name[BP_BRAIN]
 			var/obj/item/organ/internal/lungs/L = breather.internal_organs_by_name[BP_LUNGS]
+			var/obj/item/organ/internal/heart/H = breather.internal_organs_by_name[BP_HEART]
 
 			if(B.damage >= brain_damage_pinner && breather.get_brain_result())
 				B.damage = brain_damage_pinner
@@ -195,10 +202,13 @@
 			if(L.get_oxygen_deprivation() >= 70)
 				L.remove_oxygen_deprivation(10)
 
+			if(H.pulse <= PULSE_SLOW)
+				H.pulse = PULSE_SLOW
+
 			if(tank.air_contents.return_pressure() <= 300)
-				src.visible_message(SPAN_WARNING("\The [src] buzzes, automatically deactivating due to the lack of tank pressure."))
+				src.visible_message(SPAN_WARNING("\The [src] buzzes, automatically closing the valve due to the lack of tank pressure."))
 				playsound(src, 'sound/machines/buzz-two.ogg', 50)
-				breath_mask_rip()
+				valve_open = FALSE
 				return
 
 			tank.remove_air(0.05) //Not sure what amount those things have, but the ECMO should consume a significant amount of air and must be balanced this way for the sense of urgency
@@ -274,6 +284,7 @@
 					return
 				if(breather)
 					visible_message("[usr] removes the artery line from [breather].[valve_open ? " \The [tank]'s valve automatically closes." : ""]")
+					artery = null
 					breath_mask_rip()
 					return
 
@@ -281,6 +292,7 @@
 					to_chat(usr, SPAN_NOTICE("There is no vein line attached to [over_object]!"))
 					return
 				breather = over_object
+				artery = breather.get_organ(usr.zone_sel.selecting)
 
 				visible_message("<b>[usr]</b> connects the artery line to \the <b>[breather]</b>.")
 				playsound(breather, 'sound/effects/buckle.ogg', 50)
@@ -474,7 +486,9 @@
 	vein = null
 	attached = null
 
-/obj/machinery/ecmo/proc/breath_mask_rip()
+/obj/machinery/ecmo/proc/breath_mask_rip(var/safe_ripped = FALSE)
+	if(artery && !safe_ripped)
+		artery.take_damage(brute = rip_vein_damage, damage_flags = DAM_SHARP)
 	if(valve_open)
 		tank_off()
 	if(breath_mask.hanging)
@@ -484,17 +498,11 @@
 		var/loc_check = breath_mask.loc
 		if(ismob(loc_check))
 			var/mob/living/carbon/human/holder = loc_check
-			holder.remove_from_mob(breath_mask)
-			holder.update_inv_wear_mask()
 			holder.update_inv_l_hand()
 			holder.update_inv_r_hand()
-		breath_mask.forceMove(src)
 		breather = null
 		update_icon()
 		return
-	breather.remove_from_mob(breath_mask)
-	breather.update_inv_wear_mask()
-	breath_mask.forceMove(src)
 	breather = null
 	update_icon()
 
@@ -574,7 +582,7 @@
 	else
 		to_chat(user, SPAN_NOTICE("No gas tank installed."))
 	if(breath_mask)
-		to_chat(user, SPAN_NOTICE("\The [src] has [icon2html(breath_mask, user)] \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."))
+		to_chat(user, SPAN_NOTICE("\The [src] has \an artery line installed. [breather ? breather : "No one"] has it attached."))
 	else
 		to_chat(user, SPAN_NOTICE("No artery line installed."))
 
