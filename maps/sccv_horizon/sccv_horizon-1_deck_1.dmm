@@ -3031,6 +3031,9 @@
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/item/device/gps/stationary/sccv_intrepid{
+	pixel_x = 32
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "cty" = (
@@ -14086,6 +14089,9 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/device/gps/stationary/mining_shuttle{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "kVv" = (
@@ -25463,7 +25469,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/item/device/gps/stationary/mining_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "ucG" = (

@@ -314,6 +314,9 @@ var/list/GPS_list = list()
 /obj/item/device/gps/stationary
 	name = "static GPS"
 	desc = "A static global positioning system."
+	anchored = TRUE
+	unacidable = TRUE
+	layer = 2.1
 	gpstag = "STAT0"
 
 /obj/item/device/gps/stationary/Initialize()
@@ -354,8 +357,15 @@ var/list/GPS_list = list()
 	name = "static GPS (mining shuttle)"
 	desc = "A static global positioning system helpful for finding your way back to the mining shuttle."
 	icon_state = "gps-min"
-	anchored = TRUE
 	layer = 2.1
 	gps_prefix = "MIN"
 	compass_color = "#5F4519"
 	gpstag = "MINSHUT"
+
+/obj/item/device/gps/stationary/sccv_intrepid
+	name = "static GPS (SCCV Intrepid)"
+	desc = "A static global positioning system helpful for finding your way back to the SCCV Intrepid."
+	icon_state = "gps-com"
+	gps_prefix = "COM"
+	compass_color = "#193A7A"
+	gpstag = "INTREPID"
