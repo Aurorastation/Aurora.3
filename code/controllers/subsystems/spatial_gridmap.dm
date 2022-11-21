@@ -390,6 +390,12 @@
  * * exclusive_type - either null or a valid contents channel. if you just want to remove a single type from the grid cell then use this
  */
 /datum/controller/subsystem/spatial_grid/proc/exit_cell(atom/movable/old_target, turf/target_turf, exclusive_type)
+	if(init_state != SS_INITSTATE_DONE)
+		return
+
+	if(QDELETED(old_target))
+		CRASH("qdeleted or null target trying to enter the spatial grid")
+
 	if(!target_turf || !old_target?.important_recursive_contents)
 		CRASH("/datum/controller/subsystem/spatial_grid/proc/exit_cell() was given null arguments or a new_target without important_recursive_contents!")
 

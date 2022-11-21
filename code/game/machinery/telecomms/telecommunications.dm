@@ -48,6 +48,20 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	///Looping sounds for any servers
 //	var/datum/looping_sound/server/soundloop
 
+/obj/machinery/telecomms/proc/get_service_area()
+	. = list(z)
+	var/turf/above = GetAbove(src)
+	var/turf/below = GetBelow(src)
+	if(above) . += above.z
+	if(below) . += below.z
+
+/obj/machinery/telecomms/proc/check_service_area(list/levels)
+	var/valid_levels = get_service_area()
+	for(var/check_z in levels)
+		if(check_z in valid_levels)
+			return TRUE
+	return FALSE
+
 // relay signal to all linked machinery that are of type [filter]. If signal has been sent [amount] times, stop sending
 /obj/machinery/telecomms/proc/relay_information(datum/signal/subspace/signal, filter, copysig, amount = 20)
 
@@ -100,13 +114,17 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	return signal && (!freq_listening.len || (signal.frequency in freq_listening))
 
 //OVERMAP: Since telecomms is subspace, limit how far it goes. This prevents double-broadcasts across the entire overmap, and gives the ability to intrude on comms range of other ships
-/obj/machinery/telecomms/proc/check_receive_sector(datum/signal/signal)
-	if(isAdminLevel(z) || isAdminLevel(signal.data["level"])) //Messages to and from centcomm levels are not sector-restricted.
+/obj/machinery/telecomms/proc/check_receive_sector(datum/signal/subspace/signal)
+	if(isAdminLevel(z)) //Messages to and from centcomm levels are not sector-restricted.
 		return TRUE
+	for(var/check_z in signal.levels)
+		if(isAdminLevel(check_z))
+			return TRUE
+
 	if(current_map.use_overmap)
 		if(!linked) //If we're using overmap and not associated with a sector, doesn't work.
 			return FALSE
-		var/obj/effect/overmap/visitable/S = signal.data["sector"]
+		var/obj/effect/overmap/visitable/S = signal.sector
 		if(istype(S)) //If our signal isn't sending a sector, it's something associated with telecomms_process_active(), which has their own limits.
 			if(S != linked) //If we're not the same ship, check range
 				if(get_dist(S, linked) > overmap_range && !(S in view(overmap_range, linked)))
@@ -264,7 +282,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	circuitboard = "/obj/item/circuitboard/telecomms/receiver"
 
 /obj/machinery/telecomms/receiver/receive_signal(datum/signal/subspace/signal)
-	if(!on || !istype(signal) || !check_receive_level(signal) || signal.transmission_method != TRANSMISSION_SUBSPACE)
+	if(!on || !istype(signal) || !check_receive_level(signal) || !check_receive_sector(signal) || signal.transmission_method != TRANSMISSION_SUBSPACE)
 		return
 
 	if(!is_freq_listening(signal))
@@ -279,9 +297,13 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	if (z in signal.levels)
 		return TRUE
 
+	for (var/attached_z in get_service_area())
+		if (attached_z in signal.levels)
+			return TRUE
+
 	for (var/obj/machinery/telecomms/hub/H in links)
 		for (var/obj/machinery/telecomms/relay/R in H.links)
-			if(R.can_receive(signal) && (R.z in signal.levels))
+			if(R.can_receive(signal) && (R.check_service_area(signal.levels)))
 				return TRUE
 
 	return FALSE
@@ -345,10 +367,9 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	var/receiving = TRUE
 
 /obj/machinery/telecomms/relay/receive_information(datum/signal/subspace/signal, obj/machinery/telecomms/machine_from)
-	// Add our level and send it back
-	var/turf/T = get_turf(src)
-	if(can_send(signal) && T)
-		signal.levels |= T.z
+	// Add our levels and send it back
+	if(can_send(signal))
+		signal.levels |= get_service_area()
 
 // Checks to see if it can send/receive.
 

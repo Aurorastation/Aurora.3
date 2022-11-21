@@ -104,6 +104,9 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	if(!check_receive_sector(signal) && !intercept) //Too far on the overmap to receive. Antag (intercept) don't care about sector checks.
 		return
 
+	if(!(signal.frequency in listening_freqs) && !intercept)
+		return
+
 	// Decompress the signal, mark it received
 	signal.data["compression"] = 0
 	signal.mark_done()
@@ -192,9 +195,12 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	var/server_type = /obj/machinery/telecomms/server
 	var/datum/signal/subspace/original
 	var/list/levels
+	var/obj/effect/overmap/visitable/sector
 
 /datum/signal/subspace/New(data)
 	src.data = data || list()
+	if(current_map.use_overmap)
+		sector = map_sectors["[source.z]"]
 
 /datum/signal/subspace/proc/copy()
 	var/datum/signal/subspace/copy = new
@@ -204,6 +210,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	copy.frequency = frequency
 	copy.server_type = server_type
 	copy.transmission_method = transmission_method
+	copy.sector = sector
 	copy.data = data.Copy()
 	return copy
 
@@ -237,6 +244,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	var/turf/T = get_turf(source)
 	levels = list(T.z)
+	if(current_map.use_overmap)
+		sector = map_sectors["[source.z]"]
 
 	var/mob/M = speaker.resolve()
 
