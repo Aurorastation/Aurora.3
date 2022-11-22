@@ -256,8 +256,8 @@
 
 	gear_tweaks += new /datum/gear_tweak/path(turbans)
 
-/datum/gear/head/turban_colorable
-	display_name = "turban (colorable)"
+/datum/gear/head/turban_colourable
+	display_name = "turban (colourable)"
 	path = /obj/item/clothing/head/turban/white
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
