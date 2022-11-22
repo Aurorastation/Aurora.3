@@ -618,6 +618,6 @@ var/const/access_kataphract_knight = 114
 
 /var/const/access_ship_weapons = 210
 /datum/access/access_ship_weapons
-	id = access_pra
+	id = access_ship_weapons
 	desc = "Ship Weapons"
 	region = ACCESS_REGION_SUPPLY
