@@ -155,12 +155,7 @@ obj/item/clothing/suit/apron/overalls/blue
 		/obj/item/device/flashlight,
 		/obj/item/gun/energy,
 		/obj/item/gun/projectile,
-		/obj/item/ammo_magazine,
-		/obj/item/ammo_casing,
 		/obj/item/melee/baton,
-		/obj/item/handcuffs,
-		/obj/item/storage/box/fancy/cigarettes,
-		/obj/item/flame/lighter,
 		/obj/item/device/taperecorder,
 		/obj/item/clothing/accessory/badge/investigator
 	)

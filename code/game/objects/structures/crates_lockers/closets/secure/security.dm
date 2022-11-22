@@ -275,7 +275,6 @@
 /obj/structure/closet/secure_closet/investigator/fill()
 	//Appearance
 	new /obj/item/storage/backpack/satchel/leather/recolorable(src)
-	new /obj/item/clothing/suit/storage/security/investigator(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/under/det(src)
 	new /obj/item/clothing/under/det/idris(src)
