@@ -27,7 +27,7 @@ sound/weapons/reloads/pistol_metal_slide1.ogg to 6
 sound/weapons/reloads/pistol_polymer_slide1.ogg to 3
 sound/weapons/reloads/reload_shell.ogg to 4
 sound/weapons/reloads/revolver_reload.ogg
-sound/weapons/reloads/rifle_slide.ogg to 5
+sound/weapons/reloads/rifle_slide.ogg to 9
 sound/weapons/reloads/shotgun_pump.ogg to 6
 
 All sounds listed above in this section part of "Valhalla", licensed under CC0 1.0 Universal (CC0 1.0). Obtained from https://freesound.org/people/FilmmakersManual
