@@ -143,7 +143,7 @@ obj/item/clothing/suit/apron/overalls/blue
 
 /obj/item/clothing/suit/storage/security/investigator
 	name = "investigator jacket"
-	desc = "A investigator jacket. Stylish, professional, yet comfortable."
+	desc = "An investigator jacket. Stylish, professional, yet comfortable."
 	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
 	icon_state = "nt_invest_coat"
 	item_state = "nt_invest_coat"
