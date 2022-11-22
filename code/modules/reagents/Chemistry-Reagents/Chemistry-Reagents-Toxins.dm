@@ -166,6 +166,7 @@
 	taste_description = "cherry"
 	conflicting_reagent = /decl/reagent/toxin/phoron
 	strength = 1
+	touch_mul = 0.75
 
 /decl/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
@@ -796,21 +797,20 @@
 	strength = 0
 	taste_description = "danger"
 
+/decl/reagent/toxin/dextrotoxin/initial_effect(mob/living/carbon/M)
+	to_chat(M, SPAN_WARNING("Your limbs start to feel <b>numb</b> and <b>weak</b>, and your legs wobble as it becomes hard to stand!"))
+
 /decl/reagent/toxin/dextrotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
-	if (!(CE_UNDEXTROUS in M.chem_effects))
-		to_chat(M, SPAN_WARNING("Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
-		M.confused = max(M.confused, 250)
 	M.add_chemical_effect(CE_UNDEXTROUS, 1)
 	if(M.chem_doses[type] > 0.2)
 		M.Weaken(10)
 
-/decl/reagent/toxin/dextrotoxin/final_effect(mob/living/carbon/M, datum/reagents/holder)
-	to_chat(M, SPAN_WARNING("You can feel sensation creeping back into your limbs..."))
-	return ..()
+/decl/reagent/toxin/dextrotoxin/final_effect(mob/living/carbon/M)
+	to_chat(M, SPAN_GOOD("You can feel sensation creeping back into your limbs!"))
 
 /decl/reagent/toxin/coagulated_blood
 	name = "Hemoglobin"

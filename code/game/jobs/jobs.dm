@@ -17,6 +17,7 @@ var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
 var/const/BRIDGE_CREW		=(1<<12)
 var/const/OPERATIONS_MANAGER =(1<<13)
+var/const/HRA              =(1<<14)
 
 // MEDSCI
 var/const/MEDSCI			=(1<<1)
@@ -68,6 +69,13 @@ var/list/command_positions = list(
 	"Operations Manager"
 )
 
+var/list/command_support_positions = list(
+	"Human Resources Assistant",
+	"Corporate Liaison",
+	"Consular Officer",
+	"Bridge Crew"
+)
+
 var/list/engineering_positions = list(
 	"Chief Engineer",
 	"Engineer",
@@ -103,16 +111,13 @@ var/list/cargo_positions = list(
 
 var/list/service_positions = list(
 	"Executive Officer",
-	"Corporate Liaison",
-	"Consular Officer",
 	"Bartender",
 	"Gardener",
 	"Chef",
 	"Janitor",
 	"Librarian",
 	"Corporate Reporter",
-	"Chaplain",
-	"Bridge Crew"
+	"Chaplain"
 )
 
 var/list/civilian_positions = list(

@@ -4437,12 +4437,12 @@
 	name = "The Third Incident"
 	color = "#1936a0"
 	strength = 10
-	description = "A controversial drink popular with the punk youth of the Jargon Federation. Represents blood, eggs, and tears."
+	description = "A controversial drink popular with the punk youth of the Nralakk Federation. Represents blood, eggs, and tears."
 	taste_description = "genophage sadness"
 
 	glass_icon_state = "thirdincident"
 	glass_name = "glass of the Third Incident"
-	glass_desc = "A controversial drink popular with the punk youth of the Jargon Federation. Represents blood, eggs, and tears."
+	glass_desc = "A controversial drink popular with the punk youth of the Nralakk Federation. Represents blood, eggs, and tears."
 
 /decl/reagent/drink/upsidedowncup
 	name = "Upside-Down Cup"

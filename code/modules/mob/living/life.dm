@@ -146,7 +146,7 @@
 		if(viewflags < 0)
 			reset_view(null, 0)
 		else if(viewflags)
-			sight |= viewflags
+			set_sight(viewflags)
 	else if(eyeobj)
 		if(eyeobj.owner != src)
 			reset_view(null)

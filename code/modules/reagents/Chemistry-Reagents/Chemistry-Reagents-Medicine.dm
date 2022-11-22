@@ -739,10 +739,10 @@
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 /decl/reagent/thetamycin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/8) // chance per 2 second tick to cause vomiting
 	M.add_chemical_effect(CE_ANTIBIOTIC, M.chem_doses[type]) // strength of antibiotics; amount absorbed, need >5u dose to begin to be effective which'll take ~5 minutes to metabolise. need >10u dose if administered orally.
 
 /decl/reagent/thetamycin/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/8) // chance per 2 second tick to cause vomiting
 	M.dizziness = max(150, M.dizziness)
 	M.make_dizzy(5)
 
@@ -1316,6 +1316,9 @@
 	taste_description = "blood"
 	specific_heat = 1
 
+/decl/reagent/sanasomnum/initial_effect(mob/living/carbon/M)
+	to_chat(M, SPAN_WARNING("Your limbs start to feel <b>numb</b> and <b>weak</b>, and your legs wobble as it becomes hard to stand!"))
+
 /decl/reagent/sanasomnum/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(.)
@@ -1341,10 +1344,7 @@
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
-	if (!(CE_UNDEXTROUS in M.chem_effects))
-		to_chat(M, SPAN_WARNING("Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
-		M.confused = max(M.confused, 250)
-		M.eye_blurry = max(M.eye_blurry, 250)
+	M.add_chemical_effect(CE_UNDEXTROUS, 1)
 	if(M.chem_doses[type] > 0.2)
 		M.Weaken(10)
 	if(M.chem_doses[type] > 5)
@@ -1359,6 +1359,9 @@
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & TENDON_CUT && prob(10))
 				E.status &= ~TENDON_CUT
+
+/decl/reagent/sanasomnum/final_effect(mob/living/carbon/M)
+	to_chat(M, SPAN_GOOD("You can feel sensation creeping back into your limbs!"))
 
 /decl/reagent/verunol
 	name = "Verunol Syrup"

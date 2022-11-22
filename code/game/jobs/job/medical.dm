@@ -20,11 +20,11 @@
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research, access_mining, access_mailsorting,
-			access_first_responder, access_maint_tunnels, access_intrepid)
+			access_first_responder, access_maint_tunnels, access_intrepid, access_teleporter)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research, access_mining, access_mailsorting,
-			access_first_responder, access_maint_tunnels, access_intrepid)
+			access_first_responder, access_maint_tunnels, access_intrepid, access_teleporter)
 
 	minimal_player_age = 10
 	ideal_character_age = list(
@@ -56,10 +56,10 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
 	tablet = /obj/item/modular_computer/handheld/preset/medical/cmo
 
-	backpack = /obj/item/storage/backpack/medic
-	satchel = /obj/item/storage/backpack/satchel/med
-	dufflebag = /obj/item/storage/backpack/duffel/med
-	messengerbag = /obj/item/storage/backpack/messenger/med
+	backpack = /obj/item/storage/backpack/cmo
+	satchel = /obj/item/storage/backpack/satchel/cmo
+	dufflebag = /obj/item/storage/backpack/duffel/cmo
+	messengerbag = /obj/item/storage/backpack/messenger/cmo
 
 /datum/job/doctor
 	title = "Physician"
@@ -129,13 +129,17 @@
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 
 	backpack = /obj/item/storage/backpack/medic
+	backpack_faction = /obj/item/storage/backpack/nt
 	satchel = /obj/item/storage/backpack/satchel/med
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
 	dufflebag = /obj/item/storage/backpack/duffel/med
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag = /obj/item/storage/backpack/messenger/med
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/outfit/job/doctor/surgeon
 	name = "Surgeon"
-	jobtype = /datum/job/doctor
+	jobtype = /datum/job/surgeon
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
@@ -187,9 +191,13 @@
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 
 	backpack = /obj/item/storage/backpack/pharmacy
+	backpack_faction = /obj/item/storage/backpack/nt
 	satchel = /obj/item/storage/backpack/satchel/pharm
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag = /obj/item/storage/backpack/messenger/pharm
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/job/psychiatrist
 	title = "Psychiatrist"
@@ -235,10 +243,14 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
 	tablet = /obj/item/modular_computer/handheld/preset/medical/psych
 
-	backpack = /obj/item/storage/backpack/medic
-	satchel = /obj/item/storage/backpack/satchel/med
-	dufflebag = /obj/item/storage/backpack/duffel/med
-	messengerbag = /obj/item/storage/backpack/messenger/med
+	backpack = /obj/item/storage/backpack/psychiatrist
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel = /obj/item/storage/backpack/satchel/psych
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag = /obj/item/storage/backpack/duffel/psych
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag = /obj/item/storage/backpack/messenger/psych
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/outfit/job/psychiatrist/psycho
 	name = "Psychologist"
@@ -288,10 +300,14 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 
-	backpack = /obj/item/storage/backpack/medic
-	satchel = /obj/item/storage/backpack/satchel/med
-	dufflebag = /obj/item/storage/backpack/duffel/med
-	messengerbag = /obj/item/storage/backpack/messenger/med
+	backpack = /obj/item/storage/backpack/emt
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel = /obj/item/storage/backpack/satchel/emt
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag = /obj/item/storage/backpack/duffel/emt
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag = /obj/item/storage/backpack/messenger/emt
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	backpack_contents = list(
 		/obj/item/storage/firstaid/adv = 1
@@ -329,9 +345,13 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/med
 
 	backpack = /obj/item/storage/backpack/medic
+	backpack_faction = /obj/item/storage/backpack/nt
 	satchel = /obj/item/storage/backpack/satchel/med
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
 	dufflebag = /obj/item/storage/backpack/duffel/med
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag = /obj/item/storage/backpack/messenger/med
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical

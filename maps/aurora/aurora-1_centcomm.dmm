@@ -22,7 +22,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "aac" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -84,7 +84,7 @@
 /area/antag/wizard)
 "aag" = (
 /obj/structure/table/wood,
-/obj/item/storage/backpack/satchel/withwallet,
+/obj/item/storage/backpack/satchel/leather/withwallet,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -187,10 +187,10 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "aaq" = (
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "aar" = (
 /obj/machinery/librarycomp,
@@ -257,7 +257,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "aay" = (
 /turf/simulated/wall/shuttle/unique/ert{
@@ -291,7 +291,7 @@
 	},
 /area/antag/wizard)
 "aaB" = (
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "aaC" = (
 /obj/machinery/computer/cryopod{
@@ -465,9 +465,9 @@
 /obj/structure/table/rack,
 /obj/item/storage/backpack,
 /obj/item/storage/backpack/messenger,
-/obj/item/storage/backpack/satchel/withwallet,
+/obj/item/storage/backpack/satchel/leather/withwallet,
 /obj/item/storage/backpack/duffel,
-/obj/item/storage/backpack/satchel/norm,
+/obj/item/storage/backpack/satchel,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/circuit.dmi';
 	icon_state = "bcircuit"
@@ -1612,7 +1612,7 @@
 /area/holodeck/source_courtroom)
 "aen" = (
 /obj/effect/step_trigger/thrower/shuttle/northwest,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "aeq" = (
 /obj/structure/shuttle_part/mercenary/small{
@@ -2374,7 +2374,7 @@
 /area/centcom/bar)
 "ahf" = (
 /obj/effect/shuttle_landmark/merchant/interim,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "ahp" = (
 /obj/effect/floor_decal/corner/green{
@@ -2402,7 +2402,7 @@
 /area/centcom/holding)
 "ahv" = (
 /obj/effect/shuttle_landmark/distress/interim,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "ahA" = (
 /obj/effect/shuttle_landmark/ccia/start,
@@ -2411,7 +2411,7 @@
 "ahC" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
 /obj/effect/step_trigger/thrower/shuttle/south,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "ahD" = (
 /obj/structure/window/basic{
@@ -2479,7 +2479,7 @@
 /area/template_noop)
 "aii" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "aik" = (
 /obj/structure/grille,
@@ -2537,7 +2537,7 @@
 /area/tdome/tdomeobserve)
 "aiA" = (
 /obj/effect/shuttle_landmark/escape_pod/transit/pod2,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "aiE" = (
 /turf/unsimulated/floor{
@@ -2618,11 +2618,11 @@
 /area/antag/ninja)
 "ajw" = (
 /obj/effect/shuttle_landmark/escape_pod/transit/pod1,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "ajz" = (
 /obj/effect/shuttle_landmark/escape_pod/transit/pod3,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "ajI" = (
 /obj/effect/shuttle_landmark/escape_pod/out/pod3,
@@ -2803,7 +2803,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,
 /obj/item/storage/box/drinkingglasses,
-/obj/item/storage/backpack/satchel,
+/obj/item/storage/backpack/satchel/leather,
 /obj/item/clothing/shoes/jackboots/toeless,
 /obj/item/clothing/glasses/sunglasses/aviator,
 /obj/item/flag/biesel/l{
@@ -3570,10 +3570,10 @@
 /obj/item/storage/backpack/satchel/syndie,
 /obj/item/storage/backpack/syndie,
 /obj/item/storage/backpack/syndie,
-/obj/item/storage/backpack/satchel/norm,
-/obj/item/storage/backpack/satchel/norm,
-/obj/item/storage/backpack/satchel/norm,
-/obj/item/storage/backpack/satchel/norm,
+/obj/item/storage/backpack/satchel/leather,
+/obj/item/storage/backpack/satchel/leather,
+/obj/item/storage/backpack/satchel/leather,
+/obj/item/storage/backpack/satchel/leather,
 /obj/item/storage/backpack/satchel,
 /obj/item/storage/backpack/satchel,
 /obj/item/storage/backpack/satchel,
@@ -7805,7 +7805,7 @@
 /area/centcom/legion/hangar5)
 "bkL" = (
 /obj/effect/step_trigger/thrower/shuttle/east,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "bld" = (
 /obj/machinery/door/window/eastleft{
@@ -12199,7 +12199,7 @@
 /area/shuttle/skipjack)
 "eaA" = (
 /obj/effect/step_trigger/thrower/shuttle/northeast,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "eaK" = (
 /obj/structure/window/reinforced/crescent,
@@ -16220,7 +16220,7 @@
 /area/shuttle/legion)
 "gyi" = (
 /obj/effect/step_trigger/thrower/shuttle/east,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "gyj" = (
 /obj/machinery/door/blast/shutters{
@@ -16558,7 +16558,7 @@
 /area/shuttle/skipjack)
 "gIs" = (
 /obj/effect/step_trigger/thrower/shuttle/southwest,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "gJO" = (
 /obj/effect/floor_decal/spline/plain{
@@ -20317,7 +20317,7 @@
 /area/merchant_station/warehouse)
 "iZt" = (
 /obj/effect/shuttle_landmark/legion/interim,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "iZP" = (
 /obj/machinery/vending/wallmed1{
@@ -21303,7 +21303,7 @@
 /area/centcom/control)
 "jMb" = (
 /obj/effect/step_trigger/thrower/shuttle/west,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "jMg" = (
 /obj/structure/shuttle_part/ert{
@@ -21879,7 +21879,7 @@
 /area/antag/burglar)
 "kfW" = (
 /obj/effect/shuttle_landmark/emergency/interim,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "kgc" = (
 /obj/structure/sign/vacuum,
@@ -22286,7 +22286,7 @@
 /area/antag/raider)
 "ktj" = (
 /obj/effect/shuttle_landmark/research/interim,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "kuA" = (
 /obj/structure/shuttle_part/hapt{
@@ -23175,7 +23175,7 @@
 /area/antag/ninja)
 "kYR" = (
 /obj/effect/step_trigger/thrower/shuttle/northeast,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "kYV" = (
 /obj/machinery/status_display{
@@ -23479,7 +23479,7 @@
 /area/shuttle/escape)
 "lkC" = (
 /obj/effect/step_trigger/thrower/shuttle/north,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "lkN" = (
 /obj/structure/shuttle_part/transfer{
@@ -24277,7 +24277,7 @@
 /area/centcom/specops)
 "lLs" = (
 /obj/effect/step_trigger/thrower/shuttle/north,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "lLw" = (
 /obj/structure/window/reinforced{
@@ -24614,7 +24614,7 @@
 /area/centcom/legion/hangar5)
 "lVU" = (
 /obj/effect/shuttle_landmark/burglar/interim,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "lVY" = (
 /obj/structure/sign/directions/tram{
@@ -26174,7 +26174,7 @@
 /area/shuttle/mercenary)
 "mSy" = (
 /obj/effect/step_trigger/thrower/shuttle/northwest,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "mSF" = (
 /obj/effect/decal/fake_object{
@@ -30672,7 +30672,7 @@
 /area/centcom/evac)
 "pKM" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "pKR" = (
 /obj/structure/closet/gimmick{
@@ -32199,7 +32199,7 @@
 /area/centcom/shared_dream)
 "qSa" = (
 /obj/effect/shuttle_landmark/arrival/interim,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "qSn" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
@@ -33108,7 +33108,7 @@
 /area/centcom/specops)
 "rCI" = (
 /obj/effect/shuttle_landmark/merc/interim,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "rDb" = (
 /obj/structure/table/wood{
@@ -37214,7 +37214,7 @@
 /area/centcom/suppy)
 "utk" = (
 /obj/effect/step_trigger/thrower/shuttle/southwest,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "utl" = (
 /turf/simulated/floor/tiled/ramp/bottom,
@@ -37633,7 +37633,7 @@
 /area/centcom/spawning)
 "uMB" = (
 /obj/effect/step_trigger/thrower/shuttle/southeast,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "uMX" = (
 /turf/simulated/wall/shuttle/unique/transfer{
@@ -37985,7 +37985,7 @@
 /area/shuttle/syndicate_elite)
 "uTI" = (
 /obj/effect/shuttle_landmark/skipjack/interim,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "uTK" = (
 /obj/structure/table/standard,
@@ -39630,7 +39630,7 @@
 /area/antag/mercenary)
 "wap" = (
 /obj/effect/step_trigger/thrower/shuttle/southeast,
-/turf/space/transit/west,
+/turf/space/transit/bluespace/west,
 /area/template_noop)
 "waR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -39881,7 +39881,7 @@
 /area/centcom/legion)
 "whm" = (
 /obj/effect/step_trigger/thrower/shuttle/west,
-/turf/space/transit/south,
+/turf/space/transit/bluespace/south,
 /area/template_noop)
 "whV" = (
 /obj/structure/table/wood,

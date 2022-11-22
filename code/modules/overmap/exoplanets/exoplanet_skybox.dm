@@ -11,7 +11,7 @@
 
 	skybox_image.overlays += get_base_image()
 
-	for (var/datum/exoplanet_theme/theme in themes)
+	if(istype(theme))
 		skybox_image.overlays += theme.get_planet_image_extra()
 
 	if (water_color) //TODO: move water levels out of randommap into exoplanet

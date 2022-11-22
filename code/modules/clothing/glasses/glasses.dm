@@ -223,6 +223,11 @@ BLIND     // can't see anything
 	item_flags = AIRTIGHT|THICKMATERIAL
 	unacidable = 1
 
+/obj/item/clothing/glasses/safety/prescription
+	name = "prescription safety glasses"
+	desc = "A simple pair of safety glasses. Thinner than their goggle counterparts and comes with a prescription overlay."
+	prescription = 7
+
 /obj/item/clothing/glasses/safety/goggles
 	name = "safety goggles"
 	desc = "A simple pair of safety goggles. It's general chemistry all over again."
@@ -259,6 +264,11 @@ BLIND     // can't see anything
 	update_clothing_icon()
 	update_icon()
 	usr.update_action_buttons()
+
+/obj/item/clothing/glasses/safety/goggles/prescription
+	name = "prescription safety goggles"
+	desc = "A simple pair of safety goggles. It's general chemistry all over again. Comes with a prescription overlay."
+	prescription = 7
 
 /obj/item/clothing/glasses/safety/goggles/wasteland
 	name = "wasteland goggles"
@@ -665,10 +675,16 @@ BLIND     // can't see anything
 	desc = "Sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "sunhud_pmcg"
 
+/obj/item/clothing/glasses/sunglasses/sechud/pmc/alt
+	icon_state = "sunhud_pmcg_alt"
+
 /obj/item/clothing/glasses/sunglasses/sechud/big/pmc
 	name = "fat PMCG HUDsunglasses"
 	desc = "Fat sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "bigsunglasses_hud_pmcg"
+
+/obj/item/clothing/glasses/sunglasses/sechud/big/pmc/alt
+	icon_state = "bigsunglasses_hud_pmcg_alt"
 
 /obj/item/clothing/glasses/sunglasses/sechud/idris
 	name = "Idris HUDsunglasses"
@@ -761,6 +777,10 @@ BLIND     // can't see anything
 	desc = "PMCG security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "aviator_sec_pmcg"
 	off_state = "aviator_sec_pmcg_off"
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc/alt
+	icon_state = "aviator_sec_pmcg_alt"
+	off_state = "aviator_sec_pmcg_alt_off"
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
 	name = "Idris HUD aviators"

@@ -74,11 +74,11 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/safe,
 /obj/item/reagent_containers/pill/cyanide,
 /obj/item/gun/energy/captain,
 /obj/effect/spider/stickyweb,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/safe/highvalue,
 /turf/simulated/floor/wood/coloured/walnut,
 /area/shuttle/yacht/bridge)
 "ar" = (
@@ -598,8 +598,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light_switch{
-	pixel_x = 25;
 	dir = 8;
+	pixel_x = 25;
 	pixel_y = -8
 	},
 /obj/machinery/power/apc/empty{
@@ -763,6 +763,9 @@
 /obj/effect/decal/cleanable/blood/oil/streak,
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/molten_item,
+/obj/effect/landmark/entry_point/east{
+	name = "port, solars central"
+	},
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
@@ -898,6 +901,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, atmospherics"
+	},
 /turf/simulated/wall/titanium,
 /area/shuttle/yacht/engine)
 "cK" = (
@@ -986,8 +992,8 @@
 /area/shuttle/yacht/living)
 "df" = (
 /obj/structure/window/shuttle{
-	maxhealth = 150;
-	health = 150
+	health = 150;
+	maxhealth = 150
 	},
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -1174,25 +1180,12 @@
 /obj/item/gun/energy/blaster,
 /turf/simulated/floor/wood/coloured/walnut,
 /area/shuttle/yacht/living)
-"fb" = (
-/obj/machinery/access_button/airlock_exterior{
-	frequency = 1439;
-	master_tag = "yacht_airlock";
-	pixel_x = 24
-	},
-/turf/template_noop,
-/area/space)
 "gb" = (
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/access_button/airlock_interior{
-	frequency = 1439;
-	master_tag = "yacht_airlock";
-	pixel_x = -24
-	},
 /obj/structure/computerframe,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
@@ -1252,7 +1245,21 @@
 	locked = 1;
 	name = "External Access"
 	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1439;
+	master_tag = "yacht_airlock";
+	name = "exterior access button";
+	pixel_x = -9;
+	pixel_y = 23
+	},
 /turf/simulated/floor/airless,
+/area/shuttle/yacht/engine)
+"jT" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, maintenance"
+	},
+/turf/simulated/wall/titanium,
 /area/shuttle/yacht/engine)
 "kb" = (
 /obj/structure/cable{
@@ -1286,9 +1293,10 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "lb" = (
@@ -1307,6 +1315,14 @@
 	id_tag = "yacht_inner";
 	locked = 1;
 	name = "External Access"
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1439;
+	master_tag = "yacht_airlock";
+	name = "interior access button";
+	pixel_x = 7;
+	pixel_y = 23
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
@@ -1351,8 +1367,8 @@
 /area/shuttle/yacht/engine)
 "mL" = (
 /obj/structure/window/shuttle{
-	maxhealth = 150;
-	health = 150
+	health = 150;
+	maxhealth = 150
 	},
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -1404,6 +1420,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
+"qE" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "north, starboard engines"
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/yacht/engine)
 "sb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1418,6 +1443,14 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating,
+/area/shuttle/yacht/engine)
+"tT" = (
+/obj/structure/cable,
+/obj/machinery/power/solar,
+/obj/effect/landmark/entry_point/east{
+	name = "port, solars aft side"
+	},
+/turf/simulated/floor/airless,
 /area/shuttle/yacht/engine)
 "ub" = (
 /obj/structure/closet/secure_closet/freezer/meat,
@@ -1453,6 +1486,18 @@
 "wm" = (
 /turf/simulated/wall/titanium,
 /area/shuttle/yacht/bridge)
+"wX" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, cabin"
+	},
+/turf/simulated/wall/titanium,
+/area/shuttle/yacht/living)
+"xL" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, living quarters"
+	},
+/turf/simulated/wall/titanium,
+/area/shuttle/yacht/living)
 "yf" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/coloured/walnut,
@@ -1464,19 +1509,54 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
+"Bb" = (
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/solar,
+/obj/effect/landmark/entry_point/east{
+	name = "port, solars fore side"
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/yacht/engine)
 "Be" = (
 /obj/structure/window/shuttle{
-	maxhealth = 150;
-	health = 150
+	health = 150;
+	maxhealth = 150
 	},
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
+"DP" = (
+/obj/structure/window/shuttle{
+	health = 150;
+	maxhealth = 150
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, luxury cabin"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/yacht/living)
 "Fv" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
+"Ge" = (
+/obj/structure/window/shuttle{
+	health = 150;
+	maxhealth = 150
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/yacht/bridge)
 "Hj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
@@ -1493,6 +1573,18 @@
 	},
 /turf/simulated/floor/wood/coloured/yew,
 /area/shuttle/yacht/living)
+"Jw" = (
+/obj/structure/window/shuttle{
+	health = 150;
+	maxhealth = 150
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew quarters"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/yacht/living)
 "MX" = (
 /obj/effect/spider/stickyweb,
 /obj/machinery/alarm{
@@ -1503,8 +1595,8 @@
 "Nb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/wallmed1{
-	req_access = null;
-	pixel_y = 30
+	pixel_y = 30;
+	req_access = null
 	},
 /obj/machinery/alarm{
 	dir = 8;
@@ -1524,11 +1616,26 @@
 	icon_state = "dmg2"
 	},
 /area/shuttle/yacht/bridge)
+"RV" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, port engines"
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/yacht/engine)
 "Ty" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/coloured/yew,
+/area/shuttle/yacht/living)
+"Wl" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, bathroom"
+	},
+/turf/simulated/wall/titanium,
 /area/shuttle/yacht/living)
 "Wr" = (
 /obj/structure/bookcase/libraryspawn/reference{
@@ -3744,9 +3851,9 @@ aa
 aa
 aa
 aa
-cc
+Bb
 cq
-cL
+tT
 aa
 aa
 aa
@@ -5784,7 +5891,7 @@ aa
 aa
 aa
 aa
-fb
+aa
 cu
 aa
 aa
@@ -6094,7 +6201,7 @@ aB
 lb
 aB
 aB
-aB
+jT
 aa
 aa
 aa
@@ -6187,7 +6294,7 @@ aa
 aO
 aO
 mL
-mL
+Jw
 mL
 aO
 aB
@@ -6285,7 +6392,7 @@ aa
 aa
 aO
 aO
-aO
+wX
 aO
 aO
 bl
@@ -6384,7 +6491,7 @@ aa
 aa
 wm
 aO
-aO
+Wl
 aO
 bP
 aT
@@ -6507,7 +6614,7 @@ di
 do
 dw
 dA
-dE
+RV
 aa
 aa
 aa
@@ -6786,7 +6893,7 @@ aa
 aa
 aa
 ab
-df
+Ge
 ai
 ak
 an
@@ -7119,7 +7226,7 @@ dk
 dt
 dw
 dC
-dE
+qE
 aa
 aa
 aa
@@ -7304,7 +7411,7 @@ aa
 aA
 aa
 aO
-aO
+xL
 aO
 aO
 aO
@@ -7412,7 +7519,7 @@ aO
 aO
 aO
 mL
-mL
+DP
 aO
 bR
 cb

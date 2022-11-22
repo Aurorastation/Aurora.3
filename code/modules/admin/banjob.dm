@@ -341,6 +341,28 @@ var/list/jobban_keylist = list() // Global jobban list.
 			counter = 0
 	jobs += "</tr></table>"
 
+	//Command Support
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_support_positions)]'><a href='?src=\ref[src];jobban_job=commandsupportdept;jobban_tgt=[ckey]'>Command Support Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in command_support_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = SSjobs.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 6) //So things dont get squiiiiished!
+			jobs += "</tr><tr>"
+			counter = 0
+	jobs += "</tr></table>"
+
 	//Security
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
@@ -609,6 +631,14 @@ var/list/jobban_keylist = list() // Global jobban list.
 	switch (job)
 		if ("commanddept")
 			for (var/jobPos in command_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
+		if ("commandsupportdept")
+			for (var/jobPos in command_support_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)

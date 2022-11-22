@@ -74,6 +74,9 @@
 		/datum/unarmed_attack/bite
 		)
 	var/list/unarmed_attacks = null          // For empty hand harm-intent attack
+	var/standing_jump_range = 2
+	var/list/maneuvers = list(/decl/maneuver/leap)
+
 	var/pain_mod =      1                    // Pain multiplier
 	var/brute_mod =     1                    // Physical damage multiplier.
 	var/burn_mod =      1                    // Burn damage multiplier.
@@ -510,21 +513,19 @@
 		H.sight &= ~(H.equipment_vision_flags)
 		H.sight &= ~(vision[1])
 	else
-		H.sight |= get_vision_flags(H)
-		H.sight |= H.equipment_vision_flags
-		H.sight |= vision[1]
+		H.set_sight(H.sight|get_vision_flags(H)|H.equipment_vision_flags|vision[1])
 
 	if(H.stat == DEAD)
 		return 1
 
 	if(!H.druggy)
-		H.see_in_dark = (H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(darksight + H.equipment_darkness_modifier, 8)
+		H.set_see_in_dark((H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(darksight + H.equipment_darkness_modifier, 8))
 		if(H.seer)
 			var/obj/effect/rune/R = locate(/obj/effect/rune) in get_turf(H)
 			if(R && R.type == /datum/rune/see_invisible)
-				H.see_invisible = SEE_INVISIBLE_CULT
+				H.set_see_invisible(SEE_INVISIBLE_CULT)
 		if(H.see_invisible != SEE_INVISIBLE_CULT && H.equipment_see_invis)
-			H.see_invisible = min(H.see_invisible, H.equipment_see_invis)
+			H.set_see_invisible(min(H.see_invisible, H.equipment_see_invis))
 
 	if(H.equipment_tint_total >= TINT_BLIND)
 		H.eye_blind = max(H.eye_blind, 1)

@@ -517,6 +517,13 @@
 	required_reagents = list(/decl/reagent/ammonia = 1, /decl/reagent/water = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/antifuel
+	name = "Antifuel"
+	id = "antifuel"
+	result = /decl/reagent/antifuel
+	required_reagents = list(/decl/reagent/spacecleaner = 1, /decl/reagent/sodium = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/plantbgone
 	name = "Plant-B-Gone"
 	id = "plantbgone"

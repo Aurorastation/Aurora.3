@@ -48,6 +48,10 @@
 	if (bound_overlay)
 		QDEL_NULL(bound_overlay)
 
+	if(virtual_mob && !ispath(virtual_mob))
+		qdel(virtual_mob)
+		virtual_mob = null
+
 // This is called when this atom is prevented from moving by atom/A.
 /atom/movable/proc/Collide(atom/A)
 	if(airflow_speed > 0 && airflow_dest)
@@ -421,3 +425,9 @@
 
 /atom/movable/proc/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	return TRUE
+
+/atom/movable/proc/too_heavy_to_throw()
+	return FALSE
+
+/atom/movable/proc/begin_falling(var/lastloc, var/below)
+	return

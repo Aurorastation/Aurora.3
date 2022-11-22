@@ -7,8 +7,8 @@
 #define FIREDOOR_ALERT_COLD     2
 
 /obj/machinery/door/firedoor
-	name = "\improper emergency shutter"
-	desc = "Emergency air-tight shutter, capable of sealing off breached areas."
+	name = "emergency shutter"
+	desc = "An airtight emergency shutter. Capable of sealing off breached areas."
 	icon = 'icons/obj/doors/DoorHazard.dmi'
 	icon_state = "door_open"
 	req_one_access = list(access_atmospherics, access_engine_equip, access_first_responder)
@@ -496,6 +496,9 @@
 
 	if(do_set_light)
 		set_light(2, 0.5, COLOR_SUN)
+
+/obj/machinery/door/firedoor/noid
+	req_one_access = null
 
 //These are playing merry hell on ZAS.  Sorry fellas :(
 

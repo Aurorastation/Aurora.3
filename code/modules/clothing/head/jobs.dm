@@ -54,6 +54,15 @@
 	icon_state = "bridge_crew_cap"
 	item_state = "bridge_crew_cap"
 
+/obj/item/clothing/head/caphat/bridge_crew/alt
+	name = "bridge crew cap"
+	desc = "A more formal hat in a Colettish style, authorized for the bridge crew of SCC vessels."
+	desc_extended = "Designed to allow the wearer to wear both a peaked cap and a radio headset, Colettish 'crusher' caps are prized throughout the Alliance and Republic for their comfort."
+	icon = 'icons/contained_items/clothing/hats/bridge_crew_cap_alt.dmi'
+	contained_sprite = TRUE
+	icon_state = "bridge_crew_cap_alt"
+	item_state = "bridge_crew_cap_alt"
+
 //Chaplain
 /obj/item/clothing/head/chaplain_hood
 	name = "chaplain's hood"
@@ -73,7 +82,7 @@
 /obj/item/clothing/head/headmirror
 	name = "otolaryngologist's mirror"
 	desc = "Turn your head and cough."
-	desc_fluff = "That's an Ear, Nose and/or Throat surgeon to you, mister."
+	desc_extended = "That's an Ear, Nose and/or Throat surgeon to you, mister."
 	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
 	contained_sprite = TRUE
 	icon_state = "headmirror"
@@ -95,6 +104,10 @@
 /obj/item/clothing/head/surgery/pmc
 	icon_state = "surgcap_pmc"
 	item_state = "surgcap_pmc"
+
+/obj/item/clothing/head/surgery/pmc/alt
+	icon_state = "surgcap_pmc_alt"
+	item_state = "surgcap_pmc_alt"
 
 // Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
@@ -161,7 +174,7 @@
 /obj/item/clothing/head/flatcap/bartender
 	name = "bartender flatcap"
 	desc = "A simple hat issued to bartenders to protect their eyes from the glare of crappy neo-contemporary hipster light installations."
-	desc_fluff = "The hat once associated with the chimney sweeps and coal miners of yesteryear. \
+	desc_extended = "The hat once associated with the chimney sweeps and coal miners of yesteryear. \
 	Now resigned to sit on the heads of snooty upper-class bartenders and baristas. \
 	You consider the irony. The service industry is equally as soul-crushing, just with minimum wage. \
 	Worker's rights tentatively grace your grey matter before you return to your job. \
