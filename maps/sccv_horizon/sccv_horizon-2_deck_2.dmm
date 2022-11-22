@@ -3584,7 +3584,8 @@
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
 	id_tag = "cell_2";
-	name = "Cell B"
+	name = "Cell B";
+	req_access = list(2)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
@@ -9603,7 +9604,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	id = "Cell 1";
+	id = "shutters_deck1_security_cell_4";
 	name = "Cell Door"
 	},
 /obj/machinery/door/firedoor,
@@ -19463,7 +19464,8 @@
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
 	id_tag = "cell_3";
-	name = "Cell C"
+	name = "Cell C";
+	req_access = list(2)
 	},
 /turf/simulated/floor/tiled/full,
 /area/security/prison)
@@ -20196,7 +20198,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/full,
 /area/security/brig)
 "jUs" = (
 /obj/machinery/atmospherics/unary/freezer{
@@ -23562,7 +23564,8 @@
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
 	id_tag = "cell_4";
-	name = "Cell D"
+	name = "Cell D";
+	req_access = list(2)
 	},
 /turf/simulated/floor/tiled/full,
 /area/security/prison)
@@ -23704,7 +23707,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/full,
 /area/security/brig)
 "lNb" = (
 /obj/effect/floor_decal/corner/green{
@@ -24184,8 +24187,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	id = "Cell 4";
-	name = "Cell Door"
+	id = "shutters_deck1_security_cell_1";
+	name = "Cell A Blast Door"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -24242,18 +24245,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics)
-"mbh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/security/prison)
 "mbi" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
@@ -27951,6 +27942,18 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/research)
+"nRF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "nSO" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 4
@@ -42150,7 +42153,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	id = "Cell 2";
+	id = "shutters_deck1_security_cell_3";
 	name = "Cell Door"
 	},
 /obj/machinery/door/firedoor,
@@ -45734,29 +45737,29 @@
 /area/security/brig)
 "wDa" = (
 /obj/machinery/button/remote/blast_door{
-	id = "Cell 1";
-	name = "Cell 1 Door";
+	id = "shutters_deck1_security_cell_1";
+	name = "Cell A Blast Door";
 	pixel_x = -4;
 	pixel_y = 35;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "Cell 2";
-	name = "Cell 2 Door";
+	id = "shutters_deck1_security_cell_2";
+	name = "Cell B Blast Door";
 	pixel_x = 7;
 	pixel_y = 35;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "Cell 3";
-	name = "Cell 3 Door";
+	id = "shutters_deck1_security_cell_3";
+	name = "Cell C Blast Door";
 	pixel_x = -4;
 	pixel_y = 25;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "Cell 4";
-	name = "Cell 4 Door";
+	id = "shutters_deck1_security_cell_4";
+	name = "Cell D Blast Door";
 	pixel_x = 7;
 	pixel_y = 25;
 	req_access = list(3)
@@ -45891,7 +45894,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	id = "Cell 3";
+	id = "shutters_deck1_security_cell_2";
 	name = "Cell Door"
 	},
 /obj/machinery/door/firedoor,
@@ -47665,7 +47668,8 @@
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
 	id_tag = "cell_1";
-	name = "Cell A"
+	name = "Cell A";
+	req_access = list(2)
 	},
 /turf/simulated/floor/tiled/full,
 /area/security/prison)
@@ -74761,11 +74765,11 @@ qaw
 nWZ
 aaa
 dlR
-mbh
+nRF
 dKi
 jfH
 dKi
-mbh
+nRF
 oYH
 pSv
 jki
