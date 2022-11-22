@@ -921,8 +921,7 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/security{
 	name = "Evidence Storage";
-	req_access = null;
-	req_one_access = list(4,68)
+	req_access = list(4)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1276,8 +1275,7 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/security{
 	name = "Evidence Storage";
-	req_access = null;
-	req_one_access = list(4,68)
+	req_access = list(4)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4026,7 +4024,7 @@
 "ahO" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(4,68)
+	req_access = list(4)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
