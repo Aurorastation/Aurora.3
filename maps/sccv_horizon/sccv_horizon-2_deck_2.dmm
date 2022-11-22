@@ -345,7 +345,7 @@
 	id_tag = "airlocks_deck2_ammostorage";
 	locked = 1;
 	name = "Secure Ammunition Storage";
-	req_one_access = list(10,20,34,60,74)
+	req_one_access = list(210)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
@@ -986,7 +986,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Ship Flak Munitions Bay";
-	req_one_access = list(10,60,20,31)
+	req_one_access = list(210)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -14268,7 +14268,7 @@
 	id_tag = "airlocks_deck2_ammostorage";
 	locked = 1;
 	name = "Secure Ammunition Storage";
-	req_one_access = list(10,20,34,60,74)
+	req_one_access = list(210)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{

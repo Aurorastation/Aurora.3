@@ -108,11 +108,11 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	outfit = /datum/outfit/job/xo
 
-	access = list(access_sec_doors, access_medical, access_engine, access_change_ids, access_eva, access_heads,
+	access = list(access_sec_doors, access_medical, access_engine, access_ship_weapons, access_change_ids, access_eva, access_heads,
 			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction,
 			            access_crematorium, access_kitchen, access_hydroponics,access_chapel_office, access_library, access_research, access_mining, access_mailsorting,
 			            access_janitor, access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid, access_teleporter)
-	minimal_access = list(access_sec_doors, access_medical, access_engine, access_change_ids, access_eva, access_heads,
+	minimal_access = list(access_sec_doors, access_medical, access_ship_weapons, access_engine, access_change_ids, access_eva, access_heads,
 			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction,
 			            access_crematorium, access_kitchen, access_hydroponics, access_chapel_office, access_library, access_research, access_mining, access_mailsorting,
 			            access_janitor,   access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid, access_teleporter)
@@ -170,8 +170,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	outfit = /datum/outfit/job/bridge_crew
 
-	access = list(access_eva, access_heads, access_maint_tunnels, access_weapons, access_bridge_crew, access_intrepid, access_teleporter)
-	minimal_access = list(access_heads, access_eva, access_gateway, access_weapons, access_bridge_crew, access_intrepid, access_teleporter)
+	access = list(access_eva, access_heads, access_maint_tunnels, access_weapons, access_ship_weapons, access_bridge_crew, access_intrepid, access_teleporter)
+	minimal_access = list(access_heads, access_eva, access_gateway, access_weapons, access_bridge_crew, access_ship_weapons, access_intrepid, access_teleporter)
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 

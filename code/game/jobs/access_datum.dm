@@ -615,3 +615,9 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_pra
 	id = access_pra
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_ship_weapons = 210
+/datum/access/access_ship_weapons
+	id = access_pra
+	desc = "Ship Weapons"
+	region = ACCESS_REGION_SUPPLY
