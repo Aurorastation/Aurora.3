@@ -109,6 +109,35 @@
 		message_admins("[key_name_admin(usr)] [target.lock_charge ? "locked down" : "released"] [target.name]!")
 		log_game("[key_name(usr)] [target.lock_charge ? "locked down" : "released"] [target.name]!",ckey=key_name(usr))
 		to_chat(target, (target.lock_charge ? "You have been locked down!" : "Your lockdown has been lifted!"))
+	
+	// Changes borg's access
+	else if (href_list["access"])
+		var/mob/living/silicon/robot/target = get_cyborg_by_name(href_list["access"])
+		if(!target || !istype(target))
+			return
+
+		if(isAI(user) && (target.connected_ai != user))
+			to_chat(user, "Access Denied. This robot is not linked to you.")
+			return
+
+		if(isrobot(user) || target.emagged)
+			to_chat(user, "Access Denied.")
+			return
+
+		if(!target || !istype(target))
+			return
+
+		if(!target.module)
+			to_chat(user, "Unit's access protocols are immutable.")
+			return
+		
+		target.module.all_access = !target.module.all_access
+		target.update_access()
+		
+		var/log_message = "[key_name_admin(usr)] changed [target.name] access to [target.module.all_access ? "all access" : "role specific"]!"
+		message_admins(log_message)
+		log_game(log_message,ckey=key_name(usr))
+		to_chat(target, ("Your access was changed to: [target.module.all_access ? " all access" : "role specific"]!"))
 
 	// Remotely hacks the cyborg. Only antag AIs can do this and only to linked cyborgs.
 	else if (href_list["hack"])
@@ -205,6 +234,7 @@
 		robot["module"] = R.module ? R.module.name : "None"
 		robot["master_ai"] = R.connected_ai ? R.connected_ai.name : "None"
 		robot["hackable"] = 0
+		robot["access"] = R.module ? R.module.all_access : FALSE
 		// Antag AIs know whether linked cyborgs are hacked or not.
 		if(operator && istype(operator, /mob/living/silicon/ai) && (R.connected_ai == operator) && (operator.mind.special_role && operator.mind.original == operator))
 			robot["hacked"] = R.emagged ? 1 : 0
