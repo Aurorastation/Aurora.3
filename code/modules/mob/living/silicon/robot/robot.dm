@@ -211,13 +211,15 @@
 	id_card = new id_card_type()
 
 	if (module)
-		if (istype(module, /obj/item/robot_module/combat))
+		if (module.all_access)
 			id_card.access = get_all_station_access() + access_synth // Give full station access
 			return
 
-		var/datum/job/job = new module.specialized_access_type()
-		to_chat(src, SPAN_NOTICE("Access initialized to be similiar to the job '[job.title]'."))
-		id_card.access |= job.access
+		for (var/job_type in module.specialized_access_types)
+			var/datum/job/job = new job_type()
+			id_card.access |= job.access
+
+		to_chat(src, SPAN_NOTICE("Access set specialized to the department role belongs to."))
 
 /mob/living/silicon/robot/proc/recalculate_synth_capacities()
 	if(!module?.synths)
