@@ -24245,19 +24245,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics)
-"mbh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/effect/floor_decal/sign/d,
-/turf/simulated/floor/tiled,
-/area/security/prison)
 "mbi" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
@@ -27965,7 +27952,6 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/obj/effect/floor_decal/sign/c,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "nSO" = (
@@ -74783,7 +74769,7 @@ nRF
 dKi
 jfH
 dKi
-mbh
+nRF
 oYH
 pSv
 jki
