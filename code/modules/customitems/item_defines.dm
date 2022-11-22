@@ -87,6 +87,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ana_jacket"
 	item_state = "ana_jacket"
 	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO | ARMS
 
 /obj/item/clothing/accessory/badge/old/fluff/ana_badge //Faded Badge - Ana Roh'hi'tin - suethecake
 	name = "faded badge"

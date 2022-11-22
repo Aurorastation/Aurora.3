@@ -141,28 +141,39 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "hos_jacket"
 	item_state = "hos_jacket"
 
-//Detective
-
-/obj/item/clothing/suit/storage/det_jacket
-	name = "detective's jacket"
-	desc = "Stylish yet comfortable professional jacket manufactured by CL corporation for detectives."
+/obj/item/clothing/suit/storage/security/investigator
+	name = "investigator jacket"
+	desc = "A investigator jacket. Stylish, professional, yet comfortable."
 	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
 	icon_state = "nt_invest_coat"
 	item_state = "nt_invest_coat"
 	contained_sprite = TRUE
 	blood_overlay_type = "coat"
-	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
+	body_parts_covered = UPPER_TORSO | ARMS
+	allowed = list(
+		/obj/item/tank/emergency_oxygen,
+		/obj/item/device/flashlight,
+		/obj/item/gun/energy,
+		/obj/item/gun/projectile,
+		/obj/item/ammo_magazine,
+		/obj/item/ammo_casing,
+		/obj/item/melee/baton,
+		/obj/item/handcuffs,
+		/obj/item/storage/box/fancy/cigarettes,
+		/obj/item/flame/lighter,
+		/obj/item/device/taperecorder,
+		/obj/item/clothing/accessory/badge/investigator
+	)
 
-/obj/item/clothing/suit/storage/det_jacket/zavod
+/obj/item/clothing/suit/storage/security/investigator/zavod
 	icon_state = "zav_invest_coat"
 	item_state = "zav_invest_coat"
 
-/obj/item/clothing/suit/storage/det_jacket/pmc
+/obj/item/clothing/suit/storage/security/investigator/pmc
 	icon_state = "pmc_invest_coat"
 	item_state = "pmc_invest_coat"
 
-/obj/item/clothing/suit/storage/det_jacket/idris
+/obj/item/clothing/suit/storage/security/investigator/idris
 	icon_state = "idris_invest_coat"
 	item_state = "idris_invest_coat"
 
@@ -178,23 +189,6 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/toggle/det_trench/black
 	name = "black trenchcoat"
 	icon_state = "detective2"
-
-//Forensics
-/obj/item/clothing/suit/storage/toggle/forensics
-	name = "forensic technician's jacket"
-	desc = "A jacket for the slick, on the beat sleuth."
-	icon_state = "forensics"
-	item_state = "forensics"
-	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
-
-/obj/item/clothing/suit/storage/toggle/forensics/blue
-	icon_state = "forensicsblue"
-	item_state = "forensicsblue"
-
-/obj/item/clothing/suit/storage/toggle/forensics/dnavy
-	icon_state = "forensicsdnavy"
-	item_state = "forensicsdnavy"
 
 //Corporate
 

@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Removes the redundant and unused investigator jacket code. Repaths the actually used detective jacket to investigator."
