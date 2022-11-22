@@ -1,0 +1,8 @@
+author: GeneralCamo
+
+delete-after: True
+
+changes:
+  - tweak: "Changed the in-game Sol Alliance flag to reflect the flag in canon."
+  - tweak: "Purged all references to \"SolGov"\, as this is now considered a non-canon remnant from Baystation."
+  - tweak: "Updated the descriptions for Sol Alliance citizenship, and Hephaestus Industries membership."
