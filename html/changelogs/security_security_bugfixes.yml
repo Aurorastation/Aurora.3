@@ -1,7 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes the security cells' doors having no access requirements."
-  - bugfix: "Fixes the security cells' blast doors and blast door buttons being labelled and wired incorrectly."
