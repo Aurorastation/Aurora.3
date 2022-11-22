@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Fixes the security cell doors having no access requirements. Fixes the cells' blast doors being labelled and wired incorrectly.
