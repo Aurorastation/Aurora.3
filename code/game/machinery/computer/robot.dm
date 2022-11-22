@@ -137,7 +137,7 @@
 		var/log_message = "[key_name_admin(usr)] changed [target.name] access to [target.module.all_access ? "all access" : "role specific"]!"
 		message_admins(log_message)
 		log_game(log_message,ckey=key_name(usr))
-		to_chat(target, ("Your access was changed to: [target.module.all_access ? " all access" : "role specific"]!"))
+		to_chat(target, ("Your access was changed to: [target.module.all_access ? "all access" : "role specific"]!"))
 
 	// Remotely hacks the cyborg. Only antag AIs can do this and only to linked cyborgs.
 	else if (href_list["hack"])

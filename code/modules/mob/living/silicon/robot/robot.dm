@@ -548,11 +548,18 @@
 	else
 		stat(null, text("No Cell Inserted!"))
 
+/mob/living/silicon/robot/proc/show_access()
+	if (!module)
+		stat(null, text("Access type: assistant level access"))
+	else
+		stat(null, text("Access type: [module.all_access ? "all access" : "role specific"]"))
+
 // update the status screen display
 /mob/living/silicon/robot/Stat()
 	..()
 	if(statpanel("Status"))
 		show_cell_power()
+		show_access()
 		show_jetpack_pressure()
 		stat(null, text("Lights: [lights_on ? "ON" : "OFF"]"))
 		if(module)
