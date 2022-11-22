@@ -104,8 +104,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/turf/simulated/floor,
+/obj/machinery/autolathe{
+	hacked = 1;
+	name = "Modified Autolathe"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "dD" = (
 /obj/structure/table/stone/marble,
@@ -251,7 +254,6 @@
 	dir = 10
 	},
 /obj/structure/table/rack,
-/obj/item/ship_ammunition/bruiser/flechette,
 /obj/item/ship_ammunition/bruiser/flechette,
 /obj/item/ship_ammunition/bruiser/flechette,
 /obj/item/ship_ammunition/bruiser/flechette,
@@ -859,6 +861,7 @@
 	dir = 8;
 	icon_state = "warning"
 	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "Db" = (
@@ -1035,10 +1038,13 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/autolathe{
-	hacked = 1;
-	name = "Modified Autolathe"
-	},
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/bruiser,
+/obj/item/ship_ammunition/bruiser,
+/obj/item/ship_ammunition/bruiser,
+/obj/item/ship_ammunition/bruiser,
+/obj/item/ship_ammunition/bruiser,
+/obj/item/ship_ammunition/bruiser,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "JT" = (
@@ -1340,7 +1346,6 @@
 	icon_state = "map-scrubbers"
 	},
 /obj/structure/table/rack,
-/obj/item/ship_ammunition/bruiser,
 /obj/item/ship_ammunition/bruiser,
 /obj/item/ship_ammunition/bruiser,
 /obj/item/ship_ammunition/bruiser,

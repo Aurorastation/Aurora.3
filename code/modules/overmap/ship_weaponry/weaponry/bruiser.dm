@@ -35,21 +35,8 @@
 	name_override = "flechette burst"
 	desc = "A rough shell that should fit in a bruiser cannon. This one is filled with projectiles that easily get through the hull, but do little damage."
 	icon_state = "shell_flechette"
-	impact_type = SHIP_AMMO_IMPACT_AP
 	burst = 9
 	projectile_type_override = /obj/item/projectile/ship_ammo/bruiser/flechette
-
-/obj/item/ship_ammunition/bruiser/he
-	name = "bruiser explosive shell"
-	name_override = "flechette burst"
-	desc = "An expensive shell actually designed for a bruiser cannon. This one is HE."
-	icon_state = "shell_he"
-	impact_type = SHIP_AMMO_IMPACT_HE
-	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE
-	burst = 0
-	cookoff_heavy = 2
-	overmap_icon_state = "missile"
-	projectile_type_override = /obj/item/projectile/ship_ammo/bruiser/he
 
 /obj/item/projectile/ship_ammo/bruiser
 	name = "canister shot pellet"
@@ -64,15 +51,3 @@
 	damage = 20
 	armor_penetration = 50
 	penetrating = 5
-
-/obj/item/projectile/ship_ammo/bruiser/he
-	name = "135mm shell"
-	icon_state = "heavy"
-	damage = 350
-	armor_penetration = 350
-	penetrating = 0
-
-/obj/item/projectile/ship_ammo/bruiser/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
-	. = ..()
-	if(ammo.impact_type == SHIP_AMMO_IMPACT_HE)
-		explosion(target, 1, 3, 5)
