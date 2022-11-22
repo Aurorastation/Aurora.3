@@ -673,6 +673,12 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/unathi_pirate_izharshan/helm)
+"xX" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/simulated/floor/carpet,
+/area/shuttle/unathi_pirate_izharshan/helm)
 "yo" = (
 /obj/structure/grille,
 /turf/simulated/floor/airless,
@@ -33098,7 +33104,7 @@ nB
 DI
 VS
 bQ
-UF
+xX
 By
 Db
 Sl
