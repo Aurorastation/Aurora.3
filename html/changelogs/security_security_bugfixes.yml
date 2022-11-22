@@ -3,5 +3,5 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Fixes the security cell doors having no access requirements."
+  - bugfix: "Fixes the security cells' doors having no access requirements."
   - bugfix: "Fixes the security cells' blast door and blast door button being labelled and wired incorrectly."
