@@ -9072,7 +9072,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Research Hallway";
-	req_access = list(47)
+	req_access = list(16,47)
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /obj/effect/map_effect/door_helper/unres{
@@ -9217,10 +9217,10 @@
 	layer = 4;
 	pixel_y = 32
 	},
-/mob/living/simple_animal/hostile/commanded/dog/columbo,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/mob/living/simple_animal/hostile/commanded/dog/columbo,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "eEx" = (
@@ -12433,10 +12433,10 @@
 	name = "Ginny's Cage Access";
 	req_access = list(56)
 	},
-/mob/living/simple_animal/carp/fluff/ginny,
 /obj/machinery/light{
 	dir = 1
 	},
+/mob/living/simple_animal/carp/fluff/ginny,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "ghX" = (
@@ -24669,10 +24669,10 @@
 "mmm" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark,
 /area/operations/flak)
 "mmS" = (
@@ -44107,7 +44107,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine Core")
+	sensors = list("engine_sensor" = "Engine Core")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
