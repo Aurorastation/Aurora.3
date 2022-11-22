@@ -19,6 +19,7 @@ var/datum/controller/subsystem/xenoarch/SSxenoarch
 
 /datum/controller/subsystem/xenoarch/Initialize(timeofday)
 	//create digsites
+	set background = 1
 	for(var/turf/simulated/mineral/M in turfs)
 		CHECK_TICK
 
