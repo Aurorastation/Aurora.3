@@ -1,0 +1,7 @@
+author: WickedCybs, MattAtlas
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a minature fusion reactor. These are similar to portable generators in functionality but scaled up to provide consistent power for the ships you see running around on the overmap. They also have an additional mechanic that involves adding coolant."
+  - tweak: "Generators have some really high power values that had to be scaled down. It's still too high probably but further adjustments need some planning."
