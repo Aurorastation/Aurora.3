@@ -454,7 +454,7 @@
 	desc = "A can of fermented fatshouters milk, imported from Adhomai."
 
 	center_of_mass = list("x"=16, "y"=10)
-	desc_fluff = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
+	desc_extended = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
 
 	reagents_to_add = list(/decl/reagent/drink/milk/adhomai/fermented = 33)
 
@@ -483,7 +483,7 @@
 /obj/item/reagent_containers/food/drinks/cans/hrozamal_soda
 	name = "Hro'zamal Soda"
 	desc = "A can of Hro'zamal Soda. Made with Hro'zamal Ras'Nifs powder and canned in the People's Republic of Adhomai."
-	desc_fluff = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as a herbal tea by the \
+	desc_extended = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as a herbal tea by the \
 	colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university \
 	students because of its stimulant effect."
 
@@ -494,7 +494,7 @@
 /obj/item/reagent_containers/food/drinks/cans/peach_soda
 	name = "Xanu Rush!"
 	desc = "Made from the NEW Xanu Prime peaches."
-	desc_fluff = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush! Is the number one Coalition soda, despite its dull taste."
+	desc_extended = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush! Is the number one Coalition soda, despite its dull taste."
 	icon_state = "xanu_rush"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/peach_soda = 33)
@@ -563,9 +563,6 @@
 	desc = "A can of..." + SPAN_ITALIC(" sludge?") + " It smells kind of pleasant either way. Royal jelly is a nutritious concentrated substance commonly created by Caretaker Vaurca in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
 
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/jelly = 50)
-
-#undef CLOSED
-#undef OPEN
 
 #undef LETHAL_FUEL_CAPACITY
 #undef FUSELENGTH_MAX
