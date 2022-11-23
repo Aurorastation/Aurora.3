@@ -2218,17 +2218,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/pool)
 "bQk" = (
+/obj/item/device/healthanalyzer{
+	pixel_x = -2;
+	pixel_y = 3
+	},
 /obj/structure/table/glass,
-/obj/item/storage/box/masks{
-	layer = 2.8;
+/obj/machinery/light,
+/obj/item/storage/box/gloves{
 	pixel_x = 7;
 	pixel_y = 1
 	},
-/obj/item/device/healthanalyzer{
+/obj/item/storage/box/masks{
+	layer = 2.8;
 	pixel_x = 7;
-	pixel_y = 16
+	pixel_y = 8
 	},
-/obj/machinery/light,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
