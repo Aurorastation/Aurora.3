@@ -17,6 +17,7 @@
 	desc = "A bundle of high-explosive flak shells."
 	icon = 'icons/obj/guns/ship/ship_ammo_flakbox.dmi'
 	icon_state = "bundle_he"
+	overmap_icon_state = "flak"
 	caliber = SHIP_CALIBER_90MM
 	ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE
 	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf

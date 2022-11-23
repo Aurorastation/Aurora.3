@@ -99,7 +99,8 @@
 		C.targeting = FALSE
 
 /obj/effect/overmap/visitable/proc/detarget(var/obj/effect/overmap/O,  var/obj/machinery/computer/C)
-	playsound(C, 'sound/items/rfd_interrupt.ogg')
+	if(C)
+		playsound(C, 'sound/items/rfd_interrupt.ogg')
 	if(O)
 		O.cut_overlay(O.targeted_overlay)
 		O.maptext = null

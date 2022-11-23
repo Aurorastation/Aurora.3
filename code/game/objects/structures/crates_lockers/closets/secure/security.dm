@@ -167,7 +167,6 @@
 
 /obj/structure/closet/secure_closet/warden/fill()
 	//Supply
-	new /obj/item/storage/box/holobadge(src)
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/storage/box/teargas(src)
@@ -194,8 +193,14 @@
 	new /obj/item/gun/energy/disruptorpistol(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
-	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/storage/belt/security/full(src)
+	// Utility
+	new /obj/item/device/radio/sec(src)
+	new /obj/item/crowbar(src)
+	new /obj/item/device/flashlight/maglight(src)
+	new /obj/item/wrench(src)
+	new /obj/item/device/multitool(src)
 
 
 /obj/structure/closet/secure_closet/security_cadet
@@ -364,7 +369,7 @@
 	name = "evidence storage locker"
 	anchored = TRUE
 	canbemoved = TRUE
-	req_one_access = list(access_brig, access_armory, access_forensics_lockers, access_detective)
+	req_one_access = list(access_brig, access_armory, access_forensics_lockers)
 
 // Contraband Storage Locker
 /obj/structure/closet/secure_closet/contraband

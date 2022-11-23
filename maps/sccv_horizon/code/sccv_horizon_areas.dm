@@ -303,6 +303,7 @@
 	name = "Horizon (PARENT AREA - DON'T USE)"
 	icon_state = "unknown"
 	station_area = TRUE
+	ambience = AMBIENCE_GENERIC
 
 // Exterior
 /area/horizon/exterior
@@ -314,6 +315,7 @@
 	has_gravity = FALSE
 	no_light_control = TRUE
 	allow_nightmode = FALSE
+	ambience = AMBIENCE_SPACE
 
 /********** Maintenance Start **********/
 // Maintenance
@@ -380,6 +382,7 @@
 	name = "Horizon - Bridge Stairwell"
 	icon_state = "bridge_stairs"
 	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
 /********** Stairwells End **********/
 
 /********** Crew Quarters Start **********/
@@ -544,7 +547,7 @@
 
 /area/horizon/holodeck/source_space
 	name = "Horizon - Holodeck - Space"
-	has_gravity = 0
+	has_gravity = FALSE
 	sound_env = SPACE
 
 /area/horizon/holodeck/source_battlemonsters
@@ -593,10 +596,43 @@
 	icon_state = "bar"
 	allow_nightmode = FALSE
 
+/area/horizon/bar/backroom
+	name = "Horizon - Bar - Backroom"
+
 // Cafeteria
 /area/horizon/cafeteria
-	name = "Horizon - Deck 3 Center - Cafeteria"
+	name = "Horizon - Deck 3 Cafeteria"
 	icon_state = "cafeteria"
+
+// Custodial
+/area/horizon/custodial
+	name = "Horizon - Custodial Closet"
+	icon_state = "janitor"
+	allow_nightmode = FALSE
+	sound_env = LARGE_ENCLOSED
+	ambience = list(AMBIENCE_FOREBODING, AMBIENCE_ENGINEERING)
+
+/area/horizon/custodial/disposals
+	name = "Horizon - Disposals and Recycling"
+	icon_state = "disposal"
+	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS) // Industrial sounds.
+
+/area/horizon/custodial/auxiliary
+	name = "Horizon - Auxiliary Custodial Closet"
+	sound_env = SMALL_ENCLOSED
+
+// ZTA
+/area/horizon/zta
+	name = "Horizon - Primary Armament Hold"
+	icon_state = "zta"
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_SINGULARITY
+
+// Secure Ammunition Storage
+/area/horizon/secure_ammunition_storage
+	name = "Horizon - Secure Ammunition Storage"
+	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_FOREBODING
 
 // Crew Armoury
 /area/horizon/crew_armoury
