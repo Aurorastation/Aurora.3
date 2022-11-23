@@ -1,0 +1,14 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Adds more reinforced armour layers where it could be easily fit on the Kataphract ship."
+  - tweak: "The Kataphract armoury now includes their flags. These act as flamboyant yet effective spears."
+  - tweak: "The Kataphract armoury now includes Hegemony sluggers. These are crude and very heavy projectile weapons."
+  - rscadd: "Adds a CIC to the Kataphract ship. It's a safer place to control the ship if it ends up being fired on. You can find it in the hallway that leads to the warehouse."
+  - tweak: "Adds a carbon dioxide holding tank to the Kataphract ship to eliminate any reliance on filling and removing cans from the fuel line. It's unlikely they will run out of fuel during a round."
+  - tweak: "The Kataphract medical room has an operating theater and some more medical supplies. This includes a nanomed."
+  - tweak: "The Kataphract Quartermaster role has been renamed to 'Kataphract Specialist'."
+  - tweak: "Some more props were added to the map. A few water fountains and punching bags among other things."
+  - tweak: "The Kataphract body armour had its ballistic protection increased. The voidsuit has had its ballistic and laser protection increased. It's on the level of the average merc voidsuit now."
