@@ -404,11 +404,7 @@
 	desc = "First Responder Equipment"
 	region = ACCESS_REGION_MEDBAY
 
-/var/const/access_detective = 68
-/datum/access/access_detective
-	id = access_detective
-	desc = "Detective Equipment"
-	region = ACCESS_REGION_SECURITY
+// /var/const/free_access_id = 68
 
 /var/const/access_weapons = 69
 /datum/access/access_weapons

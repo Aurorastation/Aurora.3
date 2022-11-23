@@ -4,6 +4,8 @@
 	icon = 'icons/obj/machines/ship_guns/longbow.dmi'
 	idle_power_usage = 1500
 	active_power_usage = 50000
+	anchored = TRUE
+	density = TRUE
 	var/damage = 0
 	var/max_damage = 1000
 	var/heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg' //The sound in the immediate firing area. Very loud.
@@ -124,6 +126,7 @@
 	for(var/A in connected_dummies)
 		var/obj/structure/ship_weapon_dummy/dummy = A
 		qdel(dummy)
+	connected_dummies.Cut()
 
 /obj/machinery/ship_weapon/proc/pre_fire(var/atom/target, var/obj/effect/landmark/landmark) //We can fire, so what do we do before that? Think like a laser charging up.
 	fire(target, landmark)
@@ -135,39 +138,43 @@
 		var/list/connected_z_levels = GetConnectedZlevels(z)
 		for(var/mob/living/carbon/human/H in player_list)
 			if(H.z in connected_z_levels)
-				playsound(H, heavy_firing_sound, 100)
+				sound_to(H, sound(heavy_firing_sound, volume = 50))
 				if(H.is_listening())
 					H.adjustEarDamage(rand(0, 5), 2, TRUE)
 	else if(firing_effects & FIRING_EFFECT_FLAG_SILENT)
-		for(var/mob/living/carbon/human/H in get_area(src))
-			playsound(H, heavy_firing_sound, 100)
-			if(H.is_listening())
-				H.adjustEarDamage(rand(0, 5), 2, TRUE)
+		for(var/mob/living/carbon/human/H in human_mob_list)
+			if(get_area(H) == get_area(src))
+				sound_to(H, sound(heavy_firing_sound, volume = 50))
+				if(H.is_listening())
+					H.adjustEarDamage(rand(0, 5), 2, TRUE)
 	else
-		for(var/mob/living/carbon/human/H in get_area(src))
-			playsound(H, heavy_firing_sound, 100)
-			if (H.is_listening())
-				H.adjustEarDamage(rand(0, 5), 2, TRUE)
-		var/list/connected_z_levels = GetConnectedZlevels(z)
-		for(var/mob/living/carbon/human/H in player_list)
-			if(H.z in connected_z_levels)
-				playsound(H, light_firing_sound, 50)
+		for(var/mob/living/carbon/human/H in human_mob_list)
+			var/list/connected_z_levels = GetConnectedZlevels(z)
+			if(get_area(H) == get_area(src))
+				sound_to(H, sound(heavy_firing_sound, volume = 50))
+				if (H.is_listening())
+					H.adjustEarDamage(rand(0, 5), 2, TRUE)
+			else
+				if(H.z in connected_z_levels)
+					sound_to(H, sound(light_firing_sound, volume = 50))
 	if(screenshake_type == SHIP_GUN_SCREENSHAKE_ALL_MOBS)
 		var/list/connected_z_levels = GetConnectedZlevels(z)
-		for(var/mob/living/H in living_mob_list)
+		for(var/mob/living/carbon/human/H in human_mob_list)
 			if(H.z in connected_z_levels)
 				to_chat(H, SPAN_DANGER("<font size=4>Your legs buckle as the ground shakes beneath you!</font>"))
 				shake_camera(H, 10, 5)
 	else if(screenshake_type == SHIP_GUN_SCREENSHAKE_SCREEN)
-		for(var/mob/living/carbon/human/H in get_area(src))
-			if(!H.buckled_to)
-				to_chat(H, SPAN_DANGER("<font size=4>Your legs buckle as the ground shakes beneath you!</font>"))
-				shake_camera(H, 10, 5)
+		for(var/mob/living/carbon/human/H in human_mob_list)
+			if(get_area(H) == get_area(src))
+				if(!H.buckled_to)
+					to_chat(H, SPAN_DANGER("<font size=4>Your legs buckle as the ground shakes beneath you!</font>"))
+					shake_camera(H, 10, 5)
 	if(firing_effects & FIRING_EFFECT_FLAG_THROW_MOBS)
 		var/list/connected_z_levels = GetConnectedZlevels(z)
 		for(var/mob/M in living_mob_list)
 			if(M.z in connected_z_levels)
-				M.throw_at_random(FALSE, 7, 10)
+				if(!M.Check_Shoegrip() && !M.buckled_to)
+					M.throw_at_random(FALSE, 7, 10)
 	flick("weapon_firing", src)
 	return TRUE
 
@@ -252,6 +259,7 @@
 	icon_state = "dummy"
 	mouse_opacity = 2
 	layer = OBJ_LAYER+0.1 //Higher than the gun itself.
+	anchored = TRUE
 	density = TRUE
 	opacity = FALSE
 	atmos_canpass = CANPASS_DENSITY

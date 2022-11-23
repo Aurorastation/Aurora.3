@@ -43,13 +43,11 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	min_speed = round(min_speed, SHIP_MOVE_RESOLUTION)
 	max_speed = round(max_speed, SHIP_MOVE_RESOLUTION)
 	SSshuttle.ships += src
-	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/overmap/visitable/ship/find_z_levels(var/fore_direction)
 	. = ..(fore_dir)
 
 /obj/effect/overmap/visitable/ship/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
 	SSshuttle.ships -= src
 	for(var/obj/machinery/computer/ship/S in SSmachinery.machinery)
 		if(S.linked == src)
@@ -146,6 +144,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 			adjust_speed(0, -acceleration)
 
 /obj/effect/overmap/visitable/ship/process()
+	..()
 	if(!halted && !is_still())
 		var/list/deltas = list(0,0)
 		for(var/i = 1 to 2)

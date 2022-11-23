@@ -47,7 +47,7 @@
 /obj/item/gun/projectile/automatic/c20r
 	name = "submachine gun"
 	desc = "A conventional bullpup submachine gun with an extendable stock. Loads from 9mm magazines."
-	desc_fluff = "The Colettish Armaments Model 25 SMG is a typical product of the San Colette Interstellar Armaments Company (CAISC). Rejected by the Solarian military due to competition with the Zavodskoi M470-L, the CA-M25 was repurposed \
+	desc_extended = "The Colettish Armaments Model 25 SMG is a typical product of the San Colette Interstellar Armaments Company (CAISC). Rejected by the Solarian military due to competition with the Zavodskoi M470-L, the CA-M25 was repurposed \
 	into the Colettish Armaments Model 25 Export (CA-25E) and has found reasonable success in mercenary groups across the Orion Spur. Recently many have found their ways into the hands of violent non-state actors in the Corporate Reconstruction Zone, where \
 	they contribute to the further destabilization of the region. Curiously, these models typically have a filed-off serial number or no serial number at all."
 	icon = 'icons/obj/guns/c20r.dmi'
@@ -150,7 +150,7 @@
 /obj/item/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
 	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. Uses 7.62mm rounds. It is unmarked."
-	desc_fluff = "The STS35 is a durable, reliable and cheap to buy fully automatic assault rifle with many licensed manufacturers across \
+	desc_extended = "The STS35 is a durable, reliable and cheap to buy fully automatic assault rifle with many licensed manufacturers across \
 	the galaxy. It comes in different versions and calibres, this one uses 7.62 rounds. The manufacturer markings have been filed off."
 	can_bayonet = TRUE
 	knife_x_offset = 23
@@ -166,7 +166,7 @@
 	Key changes include significant shortening of the barrel and the addition of an improvised vertical foregrip, \
 	condensing heavy firepower into a relatively small and maneuverable package intended for close-in \
 	fighting aboard ships and space stations. Affectionately referred to as the \"Shorty\" in some circles. Uses 7.62mm rounds."
-	desc_fluff = "The STS35 is a durable, reliable, and cheap fully-automatic assault rifle with many licensed manufacturers across \
+	desc_extended = "The STS35 is a durable, reliable, and cheap fully-automatic assault rifle with many licensed manufacturers across \
 	the galaxy. It comes in many different versions and calibres; this one uses 7.62mm rounds. This example has been heavily modified and is illegal in some jurisdictions. \
 	Much of the barrel has been lopped off to decrease overall length, while a pistol grip from another STS35 has been clamped on below what remains of the handguard \
 	to improve handling. The fire control group has been altered as well, sacrificing the burst-fire function in favor of a smoother trigger pull. Born from \
@@ -195,7 +195,7 @@
 	name = "ballistic carbine"
 	desc = "A durable, rugged looking semi-automatic weapon of a make popular on the frontier worlds. Uses 5.56mm rounds and does not accept large \
 	capacity magazines. It is unmarked."
-	desc_fluff = "The ST24 is often considered the little brother of its larger and fully automatic counterpart, the STS35. It is a \
+	desc_extended = "The ST24 is often considered the little brother of its larger and fully automatic counterpart, the STS35. It is a \
 	reliable and cheap to buy carbine with many licensed manufacturers across the galaxy. It comes in different versions and calibres, \
 	some even boasting select fire functionality. This one uses 5.56 rounds and is semi-automatic. The manufacturer markings have been filed off."
 	icon = 'icons/obj/guns/bcarbine.dmi'
@@ -218,7 +218,7 @@
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine
 	name = "bullpup carbine"
 	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, chambered in the same 5.56 caliber but only capable of accepting smaller magazines. It lacks the integral grenade launcher and the burst fire of the Bulldog."
-	desc_fluff = "It makes you feel like a corporate goon when you hold it."
+	desc_extended = "It makes you feel like a corporate goon when you hold it."
 	icon = 'icons/obj/guns/civcarbine.dmi'
 	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
 	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine, /obj/item/ammo_magazine/a556/carbine/polymer)
@@ -253,10 +253,24 @@
 /datum/firemode/z8
 	var/use_launcher = 0
 
+/obj/item/gun/projectile/automatic/rifle/dom
+	name = "dominian assault rifle"
+	desc = "The standard issue rifle of the Empire of Dominia’s Imperial Army. With its sleek lines and ruggedized faux wood furniture, the MPR-24/5 \
+	is as elegant as it is deadly, proving itself in service during Dominia's numerous colonial conflicts."
+	desc_extended = "The Moroz Pattern Rifle, Year of 2424 has been the standard issue rifle of the Imperial Army for decades thanks to its durable construction and ease of use. \
+	The Imperial Army has repeatedly modernized and updated the MPR-24 over the past 40 years, and the rifle is now in its fifth modernization: one that they hope will keep it competitive well into the 2470s."
+	icon = 'icons/obj/guns/dom_rifle.dmi'
+	icon_state = "acr"
+	item_state = "acr"
+
+/obj/item/gun/projectile/automatic/rifle/dom/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "acr" : "acr-empty"
+
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
 	desc = "The ZI Bulldog bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle. Uses 5.56mm rounds."
-	desc_fluff = "It makes you feel like a corporate commando when you hold it."
+	desc_extended = "It makes you feel like a corporate commando when you hold it."
 	icon = 'icons/obj/guns/carbine.dmi'
 	icon_state = "carbine"
 	item_state = "carbine"
@@ -328,7 +342,7 @@
 /obj/item/gun/projectile/automatic/rifle/jingya
 	name = "burst rifle"
 	desc = "The Jingya A-1 is the first of a new line of NanoTrasen rifles, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. They are made to be sleek, easy to use by users with minimal training and cheap to mass produce while still being reliable."
-	desc_fluff = "The Jingya A-1 won a hard-fought victory in the ballistic side of the SCC Future Firearms contest hosted in 2463, which was also its first unveiling: this rifle is made to function where laser weaponry may be either too risky or not functional for the engagement at hand. It is slated to be deployed for trial usage by a select few special TCFL regiments in Mictlan."
+	desc_extended = "The Jingya A-1 won a hard-fought victory in the ballistic side of the SCC Future Firearms contest hosted in 2463, which was also its first unveiling: this rifle is made to function where laser weaponry may be either too risky or not functional for the engagement at hand. It is slated to be deployed for trial usage by a select few special TCFL regiments in Mictlan."
 	icon = 'icons/obj/guns/crew_rifle.dmi'
 	icon_state = "arifle"
 	item_state = "arifle"
@@ -359,7 +373,7 @@
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"
 	desc = "A squad machine gun with a clunky, outdated loading mechanism. Loads from 7.62mm ammunition boxes. Gentlemen, lock and load."
-	desc_fluff = "Created by the San Colette Interstellar Armaments Company (CAISC) explicitly for export, the Colettish Armaments Model 75 Export machine gun is a cheap yet outdated method of providing large amounts of firepower to a squad. \
+	desc_extended = "Created by the San Colette Interstellar Armaments Company (CAISC) explicitly for export, the Colettish Armaments Model 75 Export machine gun is a cheap yet outdated method of providing large amounts of firepower to a squad. \
 	The CA-75E is not used by San Colette’s Civil Guard and is typically sold to mercenary groups or other Solarian systems. Since the Solarian Collapse more and more CA-75Es have found themselves in the hands of pirates and rebels in the Corporate Reconstruction Zone, and captured models curiously often have no serial number."
 	icon = 'icons/obj/guns/l6.dmi'
 	icon_state = "l6closed100"
@@ -439,7 +453,7 @@
 	item_state = "tsarrayut"
 	contained_sprite = TRUE
 
-	desc_fluff = "People's Republic military hardware is the most advanced among the Tajaran nations. Laser weapons, alongside simple ballistic guns, are used by high ranking soldiers or \
+	desc_extended = "People's Republic military hardware is the most advanced among the Tajaran nations. Laser weapons, alongside simple ballistic guns, are used by high ranking soldiers or \
 	special operatives. The majority of military is still equipped with simple bolt action rifles, that are being slowly replaced by the Tsarrayut'yan rifle; a select-fire, crew-served \
 	automatic rifle. Regardless of advances in the small arms field, artillery is the Republican army's main weapon and pride."
 

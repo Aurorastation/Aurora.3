@@ -23,7 +23,7 @@
 	name = "tribunalist purification rod"
 	desc = "A holy Symbol often carried by female Tribunalist clergy, the obsidian encased in the wooden handle is intended to ward off malevolent spirits and bless followers of the Goddess. The ornament on top depicts 'The Eye'\
 	Moroz Holy Tribunal."
-	desc_fluff = "With origins in House Zhao, Tribunalist purification rods are a common sight throughout the Empire of Dominia. Intended to ward off malevolent entities and bless the \
+	desc_extended = "With origins in House Zhao, Tribunalist purification rods are a common sight throughout the Empire of Dominia. Intended to ward off malevolent entities and bless the \
 	faithful a Tribunalist priestess is nothing without her rod, which is typically granted upon promotion to full priestess. This particular example has been built around an obsidian \
 	core in the shaft, and is heavier than it seems."
 	icon_state = "tribunalrod"
@@ -52,7 +52,7 @@
 /obj/item/nullrod/charm
 	name = "obsidian charm"
 	desc = "A tajaran charm created from obsidian created to ward off the supernatural and bring good fortune."
-	desc_fluff = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off raskara and other evils."
+	desc_extended = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off raskara and other evils."
 	icon = 'icons/obj/tajara_items.dmi'
 	contained_sprite = TRUE
 	item_icons = null
@@ -210,7 +210,7 @@
 /obj/item/assunzioneorb
 	name = "warding sphere"
 	desc = "A religious artefact commonly associated with Luceism, this transparent globe gives off a faint ghostly white light at all times."
-	desc_fluff = "Luceian warding spheres are made on the planet of Assunzione in the great domed city of Guelma, and are carried by followers of the faith heading abroad. \
+	desc_extended = "Luceian warding spheres are made on the planet of Assunzione in the great domed city of Guelma, and are carried by followers of the faith heading abroad. \
 	Constructed out of glass and a luce vine bulb these spheres can burn for years upon years, and it is said that the lights in the truly faithful's warding sphere will always \
 	point towards Assunzione. It is considered extremely bad luck to have one's warding sphere break, to extinguish its flame, or to relinquish it (permanently) to an unbeliever."
 	icon = 'icons/obj/weapons.dmi'

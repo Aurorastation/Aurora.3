@@ -13,7 +13,7 @@
 			if("Floors and Walls")
 				R.mode = RFD_FLOORS_AND_WALL
 			if("Windows and Grille")
-				R.mode = RFD_WINDOWS_AND_GRILLE
+				R.mode = RFD_WINDOW_AND_FRAME
 			if("Airlock")
 				R.mode = RFD_AIRLOCK
 			if("Deconstruct")
