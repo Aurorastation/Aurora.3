@@ -23,6 +23,7 @@
 	var/screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 	var/firing = FALSE //Helper variable in case we need to track if we're firing or not. Must be set manually. Used for the Leviathan.
 	var/load_time = 5 SECONDS
+	var/mobile_platform = FALSE //When toggled, targeting computers will be able to force ammunition heading direction. Used for guns on visitables.
 
 	var/weapon_id //Used to identify a gun in the targeting consoles and connect weapon systems to the relevant ammunition loader. Must be unique!
 	var/list/obj/structure/ship_weapon_dummy/connected_dummies = list()
@@ -128,8 +129,8 @@
 		qdel(dummy)
 	connected_dummies.Cut()
 
-/obj/machinery/ship_weapon/proc/pre_fire(var/atom/target, var/obj/effect/landmark/landmark) //We can fire, so what do we do before that? Think like a laser charging up.
-	fire(target, landmark)
+/obj/machinery/ship_weapon/proc/pre_fire(var/atom/target, var/obj/effect/landmark/landmark, var/direction_override) //We can fire, so what do we do before that? Think like a laser charging up.
+	fire(target, landmark, direction_override)
 	on_fire()
 	return TRUE
 
@@ -204,16 +205,16 @@
 	else
 		return FALSE
 
-/obj/machinery/ship_weapon/proc/firing_command(var/atom/target, var/obj/landmark)
+/obj/machinery/ship_weapon/proc/firing_command(var/atom/target, var/obj/landmark, var/direction_override)
 	if(firing_checks())
-		var/result = pre_fire(target, landmark)
+		var/result = pre_fire(target, landmark, direction_override)
 		if(result)
 			use_power_oneoff(active_power_usage)
 			return SHIP_GUN_FIRING_SUCCESSFUL
 	else
 		return SHIP_GUN_ERROR_NO_AMMO
 
-/obj/machinery/ship_weapon/proc/fire(var/atom/overmap_target, var/obj/landmark)
+/obj/machinery/ship_weapon/proc/fire(var/atom/overmap_target, var/obj/landmark, var/direction_override)
 	var/obj/item/ship_ammunition/SA = consume_ammo()
 	if(!barrel)
 		crash_with("No barrel found for [src] at [x] [y] [z]! Cannot fire!")
@@ -231,7 +232,9 @@
 	SA.overmap_target = overmap_target
 	SA.entry_point = landmark
 	SA.origin = linked
-	if(istype(linked, /obj/effect/overmap/visitable/ship))
+	if(direction_override)
+		SA.heading = direction_override
+	else if(istype(linked, /obj/effect/overmap/visitable/ship))
 		var/obj/effect/overmap/visitable/ship/SH = linked
 		SA.heading = SH.dir
 	else
@@ -317,6 +320,7 @@
 	light_color = LIGHT_COLOR_CYAN
 	var/obj/machinery/ship_weapon/cannon
 	var/selected_entrypoint
+	var/platform_direction
 	var/list/names_to_guns = list()
 	var/list/names_to_entries = list()
 
@@ -327,7 +331,7 @@
 /obj/machinery/computer/ship/targeting/LateInitialize()
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
-		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
+		if(istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
 /obj/machinery/computer/ship/targeting/Destroy()
@@ -344,7 +348,7 @@
 	ui.open()
 
 /obj/machinery/computer/ship/targeting/proc/build_gun_lists()
-	for(var/obj/machinery/ship_weapon/SW in connected.ship_weapons)
+	for(var/obj/machinery/ship_weapon/SW in linked.ship_weapons)
 		if(!SW.special_firing_mechanism)
 			var/gun_name = capitalize_first_letters(SW.weapon_id)
 			names_to_guns[gun_name] = SW
@@ -363,12 +367,14 @@
 		data["entry_points"] = list()
 		data["entry_point"] = null
 		data["show_z_list"] = FALSE
+		data["mobile_platform"] = FALSE
+		data["platform_direction"] = 0
 		data["selected_z"] = 0
 	data["power"] = stat & (NOPOWER|BROKEN) ? FALSE : TRUE
-	data["linked"] = connected ? TRUE : FALSE
+	data["linked"] = linked ? TRUE : FALSE
 
-	if(connected)
-		data["is_targeting"] = connected.targeting ? TRUE : FALSE
+	if(linked)
+		data["is_targeting"] = linked.targeting ? TRUE : FALSE
 		data["ship_weapons"] = list()
 		for(var/name in names_to_guns)
 			data["ship_weapons"] += name //Literally do not even ask me why the FUCK this is needed. I have ZERO, **ZERO** FUCKING CLUE why
@@ -385,22 +391,26 @@
 				ammunition_type = capitalize_first_letters(SA.impact_type)
 			data["ammunition"] = length(cannon.ammunition) ? "[ammunition_type] Loaded, [length(cannon.ammunition)] shot(s) left" : "Unloaded"
 			data["caliber"] = cannon.caliber
-		if(connected.targeting)
+			if(cannon.mobile_platform)
+				data["mobile_platform"] = TRUE
+				data["directions"] = list("NORTH", "NORTHEAST", "EAST", "SOUTHEAST", "SOUTH", "SOUTHWEST", "WEST", "NORTHWEST")
+				platform_direction = data["platform_direction"]
+		if(linked.targeting)
 			data["target"] = ""
-			if(istype(connected.targeting, /obj/effect/overmap/visitable))
-				var/obj/effect/overmap/visitable/V = connected.targeting
+			if(istype(linked.targeting, /obj/effect/overmap/visitable))
+				var/obj/effect/overmap/visitable/V = linked.targeting
 				if(V.class && V.designation)
 					data["target"] = "[V.class] [V.designation]"
 				else
-					data["target"] = capitalize_first_letters(connected.targeting.name)
+					data["target"] = capitalize_first_letters(linked.targeting.name)
 				if(length(V.map_z) > 1)
 					data["show_z_list"] = TRUE
 					data["z_levels"] = V.map_z.Copy()
 				else
 					data["selected_z"] = 0
 			else
-				data["target"] = capitalize_first_letters(connected.targeting.name)
-			data["dist"] = get_dist(connected, connected.targeting)
+				data["target"] = capitalize_first_letters(linked.targeting.name)
+			data["dist"] = get_dist(linked, linked.targeting)
 			data["entry_points"] = copy_entrypoints(data["selected_z"])
 			if(data["entry_point"])
 				selected_entrypoint = data["entry_point"]
@@ -410,6 +420,8 @@
 	var/datum/vueui/ui = href_list["vueui"]
 	if(!istype(ui))
 		return
+	if(..())
+		return
 
 	playsound(src, clicksound, clickvol)
 	
@@ -417,14 +429,14 @@
 		var/obj/effect/landmark/LM
 		if(!selected_entrypoint)
 			return
-		if(!istype(connected.loc, /turf/unsimulated/map))
+		if(!istype(linked.loc, /turf/unsimulated/map))
 			to_chat(usr, SPAN_WARNING("The safeties are engaged! You need to be undocked in order to fire."))
 			return
 		if(selected_entrypoint == SHIP_HAZARD_TARGET || !selected_entrypoint)
 			LM = null
 		else
 			LM = names_to_entries[selected_entrypoint]
-		var/result = cannon.firing_command(linked.targeting, LM)
+		var/result = cannon.firing_command(linked.targeting, LM, platform_direction ? text2dir(platform_direction) : 0)
 		if(isliving(usr) && !isAI(usr) && usr.Adjacent(src))
 			visible_message(SPAN_WARNING("[usr] presses the fire button!"))
 			playsound(src, 'sound/machines/compbeep1.ogg')
@@ -441,13 +453,14 @@
 
 /obj/machinery/computer/ship/targeting/proc/copy_entrypoints(var/z_level_filter = 0)
 	. = list()
-	if(istype(connected.targeting, /obj/effect/overmap/visitable))
+	if(istype(linked.targeting, /obj/effect/overmap/visitable))
 		var/obj/effect/overmap/visitable/V = linked.targeting
-		for(var/obj/effect/O in V.entry_points)
-			if(!z_level_filter || (z_level_filter && O.z == z_level_filter))
-				. += capitalize_first_letters(O.name)
-				names_to_entries[capitalize_first_letters(O.name)] = O
-		if(!istype(connected.targeting, /obj/effect/overmap/visitable/ship))
+		if(V.targeting_flags & TARGETING_FLAG_ENTRYPOINTS)
+			for(var/obj/effect/O in V.entry_points)
+				if(!z_level_filter || (z_level_filter && O.z == z_level_filter))
+					. += capitalize_first_letters(O.name)
+					names_to_entries[capitalize_first_letters(O.name)] = O
+		if(V.targeting_flags & TARGETING_FLAG_GENERIC_WAYPOINTS)
 			for(var/obj/effect/O in V.generic_waypoints)
 				. += capitalize_first_letters(O.name)
 				names_to_entries[capitalize_first_letters(O.name)] = O

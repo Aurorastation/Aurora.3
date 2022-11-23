@@ -2855,6 +2855,13 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
+"qtV" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/shuttle_landmark/automatic{
+	name = "Hangar Navpoint"
+	},
+/turf/simulated/floor,
+/area/cursed/hangar)
 "qwO" = (
 /obj/structure/table/stone/marble,
 /obj/item/towel/random,
@@ -37886,7 +37893,7 @@ xRX
 xRX
 xRX
 qqY
-iui
+wkw
 iui
 iui
 iui
@@ -37914,7 +37921,7 @@ iui
 iui
 iui
 lqi
-qAz
+qtV
 qAz
 xbU
 qAz

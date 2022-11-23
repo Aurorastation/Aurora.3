@@ -1,17 +1,17 @@
 /datum/ghostspawner/human/headmaster_kosmostrelki
 	short_name = "headmaster_kosmostrelki"
 	name = "Headmaster Ship Kosmostrelki"
-	desc = "Crew the Orbital Fleet ship."
+	desc = "Crew an Orbital Fleet ship."
 	tags = list("External")
 
 	spawnpoints = list("headmaster_kosmostrelki")
-	req_perms = null
 	max_count = 4
 	uses_species_whitelist = FALSE
 
 	outfit = /datum/outfit/admin/headmaster_kosmostrelki
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	respawn_flag = null
 
 	assigned_role = "Headmaster Kosmostrelki"
 	special_role = "Headmaster Kosmostrelki"
@@ -31,13 +31,13 @@
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/ert/headmaster_kosmostrelki/get_id_access()
+/datum/outfit/admin/headmaster_kosmostrelki/get_id_access()
 	return list(access_pra, access_external_airlocks)
 
 /datum/ghostspawner/human/headmaster_kosmostrelki/captain
 	short_name = "headmaster_captain"
 	name = "Headmaster Ship Captain"
-	desc = "Crew the Orbital Fleet ship."
+	desc = "Command an Orbital Fleet ship."
 	tags = list("External")
 
 	spawnpoints = list("headmaster_captain")
