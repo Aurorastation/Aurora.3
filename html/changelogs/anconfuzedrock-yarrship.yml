@@ -1,0 +1,8 @@
+
+author: Anconfuzedrock, Kyres1, CneGecko
+delete-after: True
+
+changes:
+  - rscadd: "Adds a new Izharshan Pirate ship to most badlands regions, alongside new pirate voidsuits."
+  - tweak: "Moves one of the deck 3 starboard docks more starboard so wider ships can dock with it."
+  - rscadd: "Above ship includes the Bruiser cannon, a weak unathi ship weapon that rarely has decent ammo, but can be loaded by hand."
