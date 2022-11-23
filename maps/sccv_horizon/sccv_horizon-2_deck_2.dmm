@@ -7370,7 +7370,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "dEz" = (
 /turf/simulated/wall,
 /area/maintenance/wing/starboard/far)
@@ -19356,7 +19356,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "jvV" = (
 /turf/simulated/wall,
 /area/engineering/storage_eva)
@@ -32976,7 +32976,7 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "quV" = (
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -39920,7 +39920,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "tTM" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/warning{
@@ -45725,7 +45725,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "wCZ" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
