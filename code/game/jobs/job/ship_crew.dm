@@ -45,11 +45,15 @@
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/visitor
-	name = "Visitor"
+	name = "Off-Duty Crew Member"
 	jobtype = /datum/job/visitor
 
 	uniform = /obj/item/clothing/under/color/black
 	shoes = /obj/item/clothing/shoes/black
+
+/datum/outfit/job/visitor/passenger
+	name = "Passenger"
+	jobtype = /datum/job/passenger
 
 /datum/job/passenger
 	title = "Passenger"
@@ -64,6 +68,6 @@
 	economic_modifier = 1
 	access = list()
 	minimal_access = list()
-	outfit = /datum/outfit/job/visitor
+	outfit = /datum/outfit/job/visitor/passenger
 	blacklisted_species = null
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)

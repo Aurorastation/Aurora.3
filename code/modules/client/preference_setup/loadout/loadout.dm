@@ -36,6 +36,7 @@ var/list/gear_datums = list()
 	sort_order = 1
 	var/current_tab = "General"
 	var/gear_reset = FALSE
+	var/search_input_value = ""
 
 /datum/category_item/player_setup_item/loadout/load_character(var/savefile/S)
 	S["gear"] >> pref.gear
@@ -174,11 +175,27 @@ var/list/gear_datums = list()
 	. += "</b></center></td></tr>"
 
 	var/datum/loadout_category/LC = loadout_categories[current_tab]
+
 	. += "<tr><td colspan=3><hr></td></tr>"
-	. += "<tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
+	. += "<tr><td colspan=3>"
+	. += "<div style='left:0;position:absolute;width:10%;margin-left:45%;white-space: nowrap;'><b><center>[LC.category]</center></b></div>"
+	. += "<span style='float:left;'>"
+	. += "<script>function search_onchange() { \
+		var val = document.getElementById('search_input').value; \
+		document.getElementById('search_refresh_link').href='?src=\ref[src];search_input_refresh=' + encodeURIComponent(val) + ''; \
+		document.getElementById('search_refresh_link').click(); \
+		}</script>"
+	. += "Search: "
+	. += "<input type='text' id='search_input' name='search_input' \
+			onchange='search_onchange()' value='[search_input_value]'> "
+	. += "<a href='#' onclick='search_onchange()'>Refresh</a> "
+	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Clear</a> "
+	. += "</span>"
+	. += "</td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
 
-	var/available_items_html = "" // to be added to the top/beginning of the list
+	var/ticked_items_html = "" // to be added to the top/beginning of the list
+	var/available_items_html = "" // to be added to the middle of the list
 	var/unavailable_items_html = "" // to be added to the end/bottom of the list
 
 	var/list/player_valid_gear_choices = valid_gear_choices()
@@ -189,10 +206,24 @@ var/list/gear_datums = list()
 		
 		var/temp_html = ""
 		var/datum/job/job = pref.return_chosen_high_job()
-		var/available = (G.check_faction(pref.faction) && (job && G.check_role(job.title)) && G.check_culture(pref.culture) && G.check_origin(pref.origin))
+		var/available = (G.check_faction(pref.faction) \
+			&& (job && G.check_role(job.title)) \
+			&& G.check_culture(text2path(pref.culture)) \
+			&& G.check_origin(text2path(pref.origin)))
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
-		
+
+		var/found_searched_text = FALSE
+		if(findtext(G.display_name, search_input_value))
+			found_searched_text = TRUE
+		for(var/datum/gear_tweak/tweak in G.gear_tweaks)
+			var/datum/gear_tweak/path/path = tweak
+			if(path && istype(path) && path.valid_paths)
+				for(var/x in path.valid_paths)
+					if(findtext(x, search_input_value))
+						found_searched_text = TRUE
+		available = available && found_searched_text
+
 		if(!available)
 			style = "style='color: #B1B1B1;'"
 		if(ticked)
@@ -243,11 +274,15 @@ var/list/gear_datums = list()
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
 				temp_html += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
 			temp_html += "</td></tr>"
-		if(!available)
+		
+		if(ticked) 
+			ticked_items_html += temp_html
+		else if(!available)
 			available_items_html += temp_html
 		else
 			unavailable_items_html += temp_html
 	
+	. += ticked_items_html
 	. += unavailable_items_html
 	. += available_items_html
 	. += "</table>"
@@ -325,6 +360,9 @@ var/list/gear_datums = list()
 	else if(href_list["clear_loadout"])
 		pref.gear.Cut()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
+	else if(href_list["search_input_refresh"] != null) // empty str is false
+		search_input_value = sanitize(href_list["search_input_refresh"], 100)
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 	return ..()
 
 /datum/gear
@@ -396,21 +434,25 @@ var/list/gear_datums = list()
 		return FALSE
 	return TRUE
 
+// arg should be a faction name string
 /datum/gear/proc/check_faction(var/faction_)
 	if((faction && faction_ && faction_ != "None" && faction_ != "Stellar Corporate Conglomerate") && (faction != faction_))
 		return FALSE
 	return TRUE
 
+// arg should be a role name string
 /datum/gear/proc/check_role(var/role)
 	if(role && allowed_roles && !(role in allowed_roles))
 		return FALSE
 	return TRUE
 
+// arg should be a culture path
 /datum/gear/proc/check_culture(var/culture)
 	if(culture && culture_restriction && !(culture in culture_restriction))
 		return FALSE
 	return TRUE
 
+// arg should be a origin path
 /datum/gear/proc/check_origin(var/origin)
 	if(origin && origin_restriction && !(origin in origin_restriction))
 		return FALSE

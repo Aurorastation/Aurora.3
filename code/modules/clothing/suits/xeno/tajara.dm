@@ -4,7 +4,7 @@
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "medcoat"
 	item_state = "medcoat"
-	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
+	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
@@ -17,7 +17,7 @@
 	icon_state = "zhan_coat"
 	item_state = "zhan_coat"
 	contained_sprite = TRUE
-	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
+	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
@@ -29,7 +29,7 @@
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "raakti_shariim_coat"
 	item_state = "raakti_shariim_coat"
-	desc_fluff = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \
+	desc_extended = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \
 		peacekeeping force, working closely with both the Royal Constabulary and the Royal Ministry of Intelligence to \
 		seek out internal threats to the Kingdom such as spies, terrorists, and other domestic enemies to the crown. \
 		The Raakti Shariim's uniforms incorporate a dark, navy blue paired with a lilac accent and pale-gold twin-sun \
@@ -42,7 +42,7 @@
 	icon_state = "navalcoat"
 	item_state = "navalcoat"
 	contained_sprite = TRUE
-	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
+	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
@@ -56,7 +56,7 @@
 	item_state = "messarobes"
 	contained_sprite = TRUE
 	no_overheat = TRUE
-	desc_fluff = "The official religious body of the S'rendarr & Messa religion  is reffered to as \"Parivara\" or roughly translated \"Family\". This branch is further split into \
+	desc_extended = "The official religious body of the S'rendarr & Messa religion  is reffered to as \"Parivara\" or roughly translated \"Family\". This branch is further split into \
 	the female Sun Sisters and male Priest's of S'rendarr. Currently their main role is to act as mediator and to remain out of political matters, there is however a certain unspoken \
 	agitation about the religion of Mata'ke and S'rrendars position within that pantheon. Further the Parivara has called multiple summits over the courses of war, which usually result \
 	in temporary cease-fires from all sides."
@@ -70,7 +70,7 @@
 	item_state = "matakecoat"
 	contained_sprite = TRUE
 	no_overheat = TRUE
-	desc_fluff = "The priesthood of Mata'ke is comprised of only men and strangely enough, hunters. Like their patron, all priests of Mata'ke must prove themselves capable, \
+	desc_extended = "The priesthood of Mata'ke is comprised of only men and strangely enough, hunters. Like their patron, all priests of Mata'ke must prove themselves capable, \
 	practical, strong and masters of Adhomai wilderness. Every clan and temple of Mata'ke has a different way of testing its applicants and these tests are always kept as a strict \
 	secret, the only thing known is that the majority of applicants never return. After they're accepted, priests of Mata'ke dress in furs and carry silver \
 	weapons, usually daggers for ease of transport and to simulate Mata'ke's sword. There is a remarkably low amount of Njarir'Akhran in the Mata'ke priesthood."
@@ -84,7 +84,7 @@
 	item_state = "azubarre"
 	contained_sprite = TRUE
 	no_overheat = TRUE
-	desc_fluff = "The priests of Azubarre are often adored and many aspire to become one, their large flowing robes and beautiful faces often accompany carnivals, marriages, \
+	desc_extended = "The priests of Azubarre are often adored and many aspire to become one, their large flowing robes and beautiful faces often accompany carnivals, marriages, \
 	birthdays, births and many other social events making them the epitome of life. However, the selection for such priests is considered by most to be very shallow, as only those \
 	beautiful and joyous enough are selected as priests. "
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
@@ -99,7 +99,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list(BODYTYPE_TAJARA)
-	desc_fluff =  "Raskariim, commonly known as The Cult of Raskara are a prolific cult on Adhomai. The religion has been created on Adhomai but with the free commerce, a few human \
+	desc_extended =  "Raskariim, commonly known as The Cult of Raskara are a prolific cult on Adhomai. The religion has been created on Adhomai but with the free commerce, a few human \
 	members have been recorded. While Raskara may seem like a single deity it is in fact split into three aspects, each one leading down a different path and seemingly every path \
 	subverting something S'rendarr and Messa stands for."
 
@@ -112,7 +112,7 @@
 	contained_sprite = TRUE
 	flags_inv = HIDETAIL
 	no_overheat = TRUE
-	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
+	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
@@ -127,7 +127,7 @@
 	contained_sprite = TRUE
 	flags_inv = 0
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
-	desc_fluff = "The official religious body of the S'rendarr & Messa religion  is reffered to as \"Parivara\" or roughly translated \"Family\". This branch is further split into \
+	desc_extended = "The official religious body of the S'rendarr & Messa religion  is reffered to as \"Parivara\" or roughly translated \"Family\". This branch is further split into \
 	the female Sun Sisters and male Priest's of S'rendarr. Currently their main role is to act as mediator and to remain out of political matters, there is however a certain unspoken \
 	agitation about the religion of Mata'ke and S'rrendars position within that pantheon. Further the Parivara has called multiple summits over the courses of war, which usually result \
 	in temporary cease-fires from all sides."
@@ -144,7 +144,7 @@
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
 	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
 	species_restricted = list(BODYTYPE_TAJARA)
-	desc_fluff = null
+	desc_extended = null
 
 /obj/item/clothing/head/winterhood/hoodie/taj_scrubs
 	name = "adhomian surgeon mask"
@@ -160,7 +160,7 @@
 	desc = "Originally used by the Amohdan swordsmen before the First Revolution, this cloak is now commonly worn by the island population."
 	icon_state = "amohda_cloak"
 	item_state = "amohda_cloak"
-	desc_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
+	desc_extended = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
 	single combat in their quests to become the greatest swordsman. Modern Amohda is under the control of the DPRA's Adhomai Liberation Army, further solidified after the defeat \
 	of a Nationalist revolt vying for a truly independent Amohda. The region is still beset by trouble within and without as a deeply divided Amohdan people continue to struggle in the \
 	bloody conflict to stamp out Nationalistic and to a lesser extent, divided Monarchistic sentiments while their rivals from the New Kingdom of Adhomai watch from the seas they rule \
@@ -179,7 +179,7 @@
 	desc = "An Adhomian cloak with an asymmetric design. The symbol of the New Kingdom of Adhomai is at its back."
 	icon_state = "royalist_cloak"
 	item_state = "royalist_cloak"
-	desc_fluff = "The New Kingdom of Adhomai culture is characterized as traditional; instead of trying to change the Tajaran caste system, those divisions are seen as a natural \
+	desc_extended = "The New Kingdom of Adhomai culture is characterized as traditional; instead of trying to change the Tajaran caste system, those divisions are seen as a natural \
 	part of the Adhomian way of life. While the government makes no effort in enforcing this separation, there is a great societal expectation that each Tajara will attempt to stay in \
 	their customary roles related to their ethnicity."
 	flags_inv = 0
@@ -217,7 +217,7 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.35
-	desc_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
+	desc_extended = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
 	single combat in their quests to become the greatest swordsman. Modern Amohda is under the control of the DPRA's Adhomai Liberation Army, further solidified after the defeat \
 	of a Nationalist revolt vying for a truly independent Amohda. The region is still beset by trouble within and without as a deeply divided Amohdan people continue to struggle in the \
 	bloody conflict to stamp out Nationalistic and to a lesser extent, divided Monarchistic sentiments while their rivals from the New Kingdom of Adhomai watch from the seas they rule \

@@ -35,13 +35,13 @@
 	name = "Engineering Substation - Lower Deck"
 
 /area/hallway/engineering
-	name = "Engineering hallway"
+	name = "Engineering - Main Hallway"
 	icon_state = "engineering"
 	ambience = AMBIENCE_ENGINEERING
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/hallway/engineering/tesla
-	name = "Tesla hallway"
+	name = "Engineering - Tesla Hallway"
 
 //Medical
 
@@ -184,6 +184,9 @@
 	icon_state = "quart"
 	sound_env = SMALL_SOFTFLOOR
 
+/area/operations/flak
+	name = "Flak Gun"
+
 //Wings
 
 /area/maintenance/substation/wing_starboard
@@ -246,12 +249,9 @@
 	name = "Bridge Helm"
 	icon_state = "bridge_helm"
 
-/area/crew_armory
-	name = "Crew Armory"
-	icon_state = "crew_armory"
-	no_light_control = TRUE
-	station_area = TRUE
-	holomap_color = HOLOMAP_AREACOLOR_COMMAND
+/area/bridge/longbow_compartment
+	name = "Longbow Compartment"
+	icon_state = "bridge_weapon"
 
 //Crew quarters
 
@@ -300,6 +300,8 @@
 	name = "Atmos Compartment"
 /area/shuttle/intrepid/cockpit 
 	name = "Cockpit"
+/area/shuttle/intrepid/rotary
+	name = "Intrepid Armament"
 
 //
 // Areas for the SCCV Horizon Map
@@ -308,6 +310,7 @@
 	name = "Horizon (PARENT AREA - DON'T USE)"
 	icon_state = "unknown"
 	station_area = TRUE
+	ambience = AMBIENCE_GENERIC
 
 // Exterior
 /area/horizon/exterior
@@ -319,6 +322,7 @@
 	has_gravity = FALSE
 	no_light_control = TRUE
 	allow_nightmode = FALSE
+	ambience = AMBIENCE_SPACE
 
 /********** Maintenance Start **********/
 // Maintenance
@@ -347,12 +351,23 @@
 	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 	emergency_lights = TRUE
 
+/area/horizon/hallway/deck_three/primary/central
+	name = "Horizon - Deck 3 - Central Primary Hallway"
+	icon_state = "hallC"
+
 /area/horizon/hallway/deck_three/primary/starboard
 	name = "Horizon - Deck 3 - Starboard Primary Hallway"
 	icon_state = "hallS"
 
 /area/horizon/hallway/deck_three/primary/starboard/docks
 	name = "Horizon - Deck 3 - Starboard Primary Hallway - Docks"
+
+/area/horizon/hallway/deck_three/primary/port
+	name = "Horizon - Deck 3 - Port Primary Hallway"
+	icon_state = "hallP"
+
+/area/horizon/hallway/deck_three/primary/port/docks
+	name = "Horizon - Deck 3 - Port Primary Hallway - Docks"
 
 /area/horizon/hallway/deck_two/fore
 	name = "Horizon - Deck 2 - Fore Hallway"
@@ -374,6 +389,7 @@
 	name = "Horizon - Bridge Stairwell"
 	icon_state = "bridge_stairs"
 	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
 /********** Stairwells End **********/
 
 /********** Crew Quarters Start **********/
@@ -593,4 +609,52 @@
 	name = "Horizon - Bar"
 	icon_state = "bar"
 	allow_nightmode = FALSE
+
+/area/horizon/bar/backroom
+	name = "Horizon - Bar - Backroom"
+
+// Custodial
+/area/horizon/custodial
+	name = "Horizon - Custodial Closet"
+	icon_state = "janitor"
+	allow_nightmode = FALSE
+	sound_env = LARGE_ENCLOSED
+	ambience = list(AMBIENCE_FOREBODING, AMBIENCE_ENGINEERING)
+
+/area/horizon/custodial/disposals
+	name = "Horizon - Disposals and Recycling"
+	icon_state = "disposal"
+	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS) // Industrial sounds.
+
+/area/horizon/custodial/auxiliary
+	name = "Horizon - Auxiliary Custodial Closet"
+	sound_env = SMALL_ENCLOSED
+
+// ZTA
+/area/horizon/zta
+	name = "Horizon - Primary Armament Hold"
+	icon_state = "zta"
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_SINGULARITY
+
+// Secure Ammunition Storage
+/area/horizon/secure_ammunition_storage
+	name = "Horizon - Secure Ammunition Storage"
+	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_FOREBODING
+
+// Crew Armoury
+/area/horizon/crew_armoury
+	name = "Horizon - Crew Armoury"
+	icon_state = "crew_armoury"
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
+	allow_nightmode = FALSE
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
+
+/area/horizon/crew_armoury/foyer
+	name = "Horizon - Crew Armoury - Foyer"
+	icon_state = "crew_armoury_foyer"
+	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_FOREBODING
 /********** Unique End **********/

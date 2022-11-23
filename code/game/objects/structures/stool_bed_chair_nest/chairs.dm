@@ -441,3 +441,4 @@
 	buckle_dir = FALSE
 	buckle_lying = FALSE
 	can_dismantle = FALSE
+	override_material_color = TRUE

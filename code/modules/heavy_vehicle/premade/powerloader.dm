@@ -18,6 +18,9 @@
 /mob/living/heavy_vehicle/premade/ripley/cargo
 	h_back = /obj/item/mecha_equipment/autolathe
 
+/mob/living/heavy_vehicle/premade/ripley/loader
+	h_l_hand = /obj/item/mecha_equipment/clamp
+
 /mob/living/heavy_vehicle/premade/ripley/janitorial
 	name = "janitorial power loader"
 	desc = "A standard cargo-handling power loader converted into a cleaning machine."

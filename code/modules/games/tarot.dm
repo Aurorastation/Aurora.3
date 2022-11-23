@@ -45,7 +45,7 @@
 
 /obj/item/deck/tarot/adhomai/generate_deck()
 	var/datum/playingcard/P
-	for(var/name in list("D'as'ral Massacre","Mystic","Suns' Sister","Queen","King","Father of the Parivara","S'rendal'Matir","Tank","Royal Grenadier","Kraszarrumalkarii","Hand of Fate","Great Revolution","Assassin","Assassination","Dymtris Line",
+	for(var/name in list("D'as'ral Massacre","Mystic","Suns' Sister","Queen","King","Father of the Parivara","S'rendal'Matir","Tank","Enforcer","Kraszarrumalkarii","Rredouane's Dice","Great Revolution","Assassin","Assassination","Dymtris Line",
 	"Rrak'narrr","Steeple","Messa","Raskara","S'rendarr","Kazarrhaldiye","Adhomai"))
 		P = new()
 		P.name = "[name]"
@@ -111,7 +111,7 @@
 			if("Nioh")
 				suit = "aweiji"
 				P.desc = "One of the local constellations on the planet Aweiji. It is associated with Trust. Reliance. Perseverance. Survival."
-		P.card_icon = "[suit]_[lowertext(name)]" 
+		P.card_icon = "[suit]_[lowertext(name)]"
 		P.back_icon = "card_off_[suit]"
 		cards += P
 

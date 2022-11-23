@@ -12,6 +12,7 @@
 	burn_mod = 1.2
 	oxy_mod = 1
 	radiation_mod = 0.5
+	standing_jump_range = 3
 
 	grab_mod = 1.25
 	resist_mod = 1.75
@@ -144,7 +145,6 @@
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	blood_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
-	onfire_overlay = 'icons/mob/OnFire_large.dmi'
 
 
 	stamina = 200
@@ -209,7 +209,6 @@
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
 	blood_mask = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
-	onfire_overlay = 'icons/mob/OnFire_bulwark.dmi'
 
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
 	eyes = "bulwark_eyes"
@@ -217,6 +216,9 @@
 	slowdown = 2
 
 	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
+	maneuvers = list(
+		/decl/maneuver/leap/bulwark
+	)
 
 	natural_armor = list(
 		melee = ARMOR_MELEE_SMALL

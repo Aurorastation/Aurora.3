@@ -81,6 +81,8 @@
 		return TRUE
 	if(!istype(mover) || mover.checkpass(PASSRAILING))
 		return TRUE
+	if(mover.throwing)
+		return TRUE
 	if(get_dir(loc, target) == dir)
 		return !density
 	return TRUE

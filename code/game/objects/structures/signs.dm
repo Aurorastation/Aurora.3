@@ -204,6 +204,11 @@
 	desc = "A direction sign, pointing out which way the medical department is."
 	icon_state = "direction_med"
 
+/obj/structure/sign/directions/custodial
+	name = "\improper CUSTODIAL CLOSET sign"
+	desc = "A direction sign, pointing out which way a custodial closet is."
+	icon_state = "direction_custodial"
+
 /obj/structure/sign/directions/evac
 	name = "\improper ESCAPE DOCK sign"
 	desc = "A direction sign, pointing out which way the escape dock is."
@@ -292,6 +297,11 @@
 	name = "\improper DANGER: VACUUM sign"
 	desc = "A danger sign which reads \"DANGER: VACUUM\"."
 	icon_state = "vacuum"
+
+/obj/structure/sign/crush
+	name = "\improper DANGER: CRUSH HAZARD sign"
+	desc = "A danger sign which reads \"DANGER: CRUSH HAZARD\" and \"AUTOMATIC EQUIPMENT STARTS AND STOPS AUTOMATICALLY\"."
+	icon_state = "crush"
 
 //
 // Emergency Signs
@@ -424,14 +434,14 @@
 		P2.name = name
 		P2.desc = desc
 		P2.desc_info = desc_info
-		P2.desc_fluff = desc_fluff
+		P2.desc_extended = desc_extended
 		P2.flagtype = type
 	else
 		P.icon_state = "[flag_path]"
 	P.name = name
 	P.desc = desc
 	P.desc_info = desc_info
-	P.desc_fluff = desc_fluff
+	P.desc_extended = desc_extended
 	P.flagtype = type
 	qdel(src)
 
@@ -731,7 +741,7 @@
 	name = "Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
 	flag_path = "dpra"
-	desc_fluff = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
+	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
 	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
 	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
 	nation they were fighting for the Democratic People's Republic of Adhomai."
@@ -744,7 +754,7 @@
 	name = "Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
 	icon_state = "dpra"
-	desc_fluff = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
+	desc_extended = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Libeation Army, a group made up of Tajara from almost every walk of \
 	life. Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
 	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
 	nation they were fighting for the Democratic People's Republic of Adhomai."
@@ -759,7 +769,7 @@
 	name = "People's Republic of Adhomai flag"
 	desc = "The tajaran flag of the People's Republic of Adhomai."
 	flag_path = "pra"
-	desc_fluff = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
+	desc_extended = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
 	government of Adhomai. It claims to be the true keeper of Al'mari's legacy. However, the PRA can be described as a Hadiist branch of Al'mari's revolutionary ideology - that means \
 	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
 	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
@@ -773,7 +783,7 @@
 	name = "People's Republic of Adhomai flag"
 	desc = "The tajaran flag of the People's Republic of Adhomai."
 	icon_state = "pra"
-	desc_fluff = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
+	desc_extended = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
 	government of Adhomai. It claims to be the true keeper of Al'mari's legacy. However, the PRA can be described as a Hadiist branch of Al'mari's revolutionary ideology - that means \
 	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
 	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
@@ -789,7 +799,7 @@
 	name = "New Kingdom of Adhomai flag"
 	desc = "The blue flag of the New Kingdom of Adhomai."
 	flag_path = "nka"
-	desc_fluff = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
+	desc_extended = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
 	Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. \
 	Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable \
 	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
@@ -803,7 +813,7 @@
 	name = "New Kingdom of Adhomai flag"
 	desc = "The blue flag of the New Kingdom of Adhomai."
 	icon_state = "nka"
-	desc_fluff = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
+	desc_extended = " The New Kingdom is ruled by a Njarir'Akhran noble line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. \
 	Ruled by King Vahzirthaamro Azunja specifically, he denounces both other factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. \
 	Supporters of the New Kingdom tend to be rare outside lands it controls. However, they believe strongly that the current republic on Adhomai was founded on genocide and unspeakable \
 	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
@@ -898,7 +908,7 @@
 /obj/structure/sign/flag/trinaryperfection
 	name = "Trinary Perfection flag"
 	desc = "The flag of the Trinary Perfection."
-	desc_fluff = "The Trinary Perfection is a new religious movement whose core beliefs are that synthetics are alive, divine, and have the potential to ascend to that of gods. The triangle intersecting the gear represents the exchange of ideas that make up the Trinary Perfection, the study of robotics, religion and the elevation of artificial intelligence."
+	desc_extended = "The Trinary Perfection is a new religious movement whose core beliefs are that synthetics are alive, divine, and have the potential to ascend to that of gods. The triangle intersecting the gear represents the exchange of ideas that make up the Trinary Perfection, the study of robotics, religion and the elevation of artificial intelligence."
 	icon_state = "trinaryperfection"
 
 /obj/structure/sign/flag/trinaryperfection/left
@@ -911,7 +921,7 @@
 /obj/item/flag/trinaryperfection
 	name = "Trinary Perfection flag"
 	desc = "The flag of the Trinary Perfection."
-	desc_fluff = "The Trinary Perfection is a new religious movement whose core beliefs are that synthetics are alive, divine, and have the potential to ascend to that of gods. The triangle intersecting the gear represents the exchange of ideas that make up the Trinary Perfection, the study of robotics, religion and the elevation of artificial intelligence."
+	desc_extended = "The Trinary Perfection is a new religious movement whose core beliefs are that synthetics are alive, divine, and have the potential to ascend to that of gods. The triangle intersecting the gear represents the exchange of ideas that make up the Trinary Perfection, the study of robotics, religion and the elevation of artificial intelligence."
 	flag_path = "trinaryperfection"
 
 /obj/item/flag/trinaryperfection/l
@@ -1011,7 +1021,7 @@
 /obj/structure/sign/flag/scc
 	name = "Stellar Corporate Conglomerate flag"
 	desc = "The colours and logo of the Stellar Corporate Conglomerate."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon_state = "scc"
 
 /obj/structure/sign/flag/scc/left
@@ -1023,7 +1033,7 @@
 /obj/item/flag/scc
 	name = "Stellar Corporate Conglomerate flag"
 	desc = "The flag representing the Stellar Corporate Conglomerate."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	flag_path = "scc"
 
 /obj/item/flag/scc/l
@@ -1033,14 +1043,14 @@
 /obj/item/flag/fisanduh
 	name = "Confederated States of Fisanduh flag"
 	desc = "A flag of the fallen Confederated States of Fisanduh."
-	desc_fluff = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
+	desc_extended = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
 	subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
 	flag_path = "fisanduh"
 
 /obj/structure/sign/flag/fisanduh
 	name = "Confederated States of Fisanduh flag"
 	desc = "A flag of the fallen Confederated States of Fisanduh."
-	desc_fluff = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
+	desc_extended = "The red-gold-white flag of the Confederated States of Fisanduh and, by extention, the Fisanduh Freedom Front. Due to its origins, possession of such a flag in the Empire outside of Fisanduh itself can carry an extremely harsh punishment if one is an Imperial citizen or \
 	subject. This has not stopped it from becoming a symbol of resistance, and reproductions are extremely common in more rebellious areas of the Empire. Even if they are beaten-down and run ragged by war, the spirit of Fisanduh will live forever in the hearts of its people."
 	icon_state = "fisanduh"
 
@@ -1058,7 +1068,7 @@
 	name = "United Planetary Defense Council of Gadpathur flag"
 	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. \
 	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
-	desc_fluff = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
+	desc_extended = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
 	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
 	these variant flags before the League's reunification. The black and brown represent the plant itself, while the red-and-gold sun represents that the people of the plant are still alive and burning with a desire to never again fall."
 	flag_path = "gadpathur"
@@ -1067,7 +1077,7 @@
 	name = "United Planetary Defense Council of Gadpathur flag"
 	desc = "The black and brown flag of Gadpathur, featuring the planet's commonly-seen sun iconography in the centre. The Gadpathurian flag is a common sight in the Coalition's military, and can be seen everywhere on Gadpathur -- from lighters to ID card to government buildings. \
 	It is uncommonly seen outside of the Coalition as a symbol of anti-Solarian sentiment."
-	desc_fluff = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
+	desc_extended = "The Gadpathurian flag is, surprisingly, a variation of the common flag of its hated enemy: the Alliance of Sovereign Solarian Nations. The reason for this is simple: in the immediate aftermath of the planet's orbital bombardment by the Solarian \
 	Navy the most common flags available for the various successor states were the ASSN flags still flying over the ruins of government buildings. The black-brown flag of Ashia Patvardhan's Gadpathurian Reunification League that is now Gadpathur's flag was simply one of many of \
 	these variant flags before the League's reunification. The black and brown represent the plant itself, while the red-and-gold sun represents that the people of the plant are still alive and burning with a desire to never again fall."
 	icon_state = "gadpathur"
@@ -1085,14 +1095,14 @@
 /obj/item/flag/vysoka
 	name = "Free System of Vysoka flag"
 	desc = "The flag of the Free System of Vysoka."
-	desc_fluff = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to \
+	desc_extended = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to \
 	identify with local symbols. This has not stopped the original flag from being flown in times of much-needed unity."
 	flag_path = "vysoka"
 
 /obj/structure/sign/flag/vysoka
 	name = "Free System of Vysoka flag"
 	desc = "The flag of the Free System of Vysoka."
-	desc_fluff = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to \
+	desc_extended = "The red, yellow and Coalition-blue flag of Vysoka, as drawn when one wishes to represent the planet as a whole. As Vysokan communities are rather traditional and tied to their respective Host, village or city-state, natives are more likely to \
 	identify with local symbols. This has not stopped the original flag from being flown in times of much-needed unity."
 	icon_state = "vysoka"
 
@@ -1109,14 +1119,14 @@
 /obj/item/flag/konyang
 	name = "Konyang flag"
 	desc = "The flag of Konyang."
-	desc_fluff = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of \
+	desc_extended = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of \
 	the new state, with the color blue representing the waterways the planet is known for and yellow, their aim of prosperity. The white background represents Konyang's purity."
 	flag_path = "konyang"
 
 /obj/structure/sign/flag/konyang
 	name = "Konyang flag"
 	desc = "The flag of Konyang."
-	desc_fluff = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of \
+	desc_extended = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of \
 	the new state, with the color blue representing the waterways the planet is known for and yellow, their aim of prosperity. The white background represents Konyang's purity."
 	icon_state = "konyang"
 
@@ -1130,20 +1140,122 @@
 /obj/structure/sign/flag/konyang/right
 	icon_state = "konyang_r"
 
-//Halloween Banner
-/obj/structure/sign/flag/halloween
-	name = "large halloween flag"
-	desc = "A bright, purple flag with an orange rim, spelling out \"HAPPY HALLOWEEN\"."
-	icon = 'icons/obj/contained_items/halloween_decorations.dmi'
-	icon_state = "halloween"
+/obj/structure/sign/painting_frame
+	name = "empty frame"
+	desc = "An empty painting frame."
+	icon_state = "painting_frame"
+	w_class = ITEMSIZE_SMALL
 
-/obj/item/flag/halloween/l
-	name = "large halloween flag"
-	flag_size = 1
+/obj/item/sign/painting_frame
+	name = "empty frame"
+	desc = "An empty painting frame."
+	icon_state = "painting_frame"
+	w_class = ITEMSIZE_SMALL
 
-/obj/structure/sign/flag/halloween/left
-	icon_state = "halloween_l"
+/obj/structure/sign/painting_frame/hadii
+	name = "president Hadii portrait"
+	desc = "A portrait of President Hadii. An essential item in any Hadiist household."
+	icon_state = "hadii_painting"
+	desc_extended = "A state-endorsed cult of personality has been established around President Hadii. Through a robust propaganda system, republican citizens are informed daily about Malik's \
+	achievements and how only through his guidance the Republican can prosper. Portraits of President Hadii can be found in most Hadiist homes and government buildings. Njadrasanukii is known for \
+	his speeches praising his own administration and the bravery of his people; his voice can be heard frequently on the radio. While many admire him as a strong leader, others fear his ruthless \
+	ways of dealing with the opposition."
 
-/obj/structure/sign/flag/halloween/right
-	icon_state = "halloween_r"
+/obj/item/sign/painting_frame/hadii
+	name = "president Hadii portrait"
+	desc = "A portrait of President Hadii. An essential item in any Hadiist household."
+	icon_state = "hadii_painting"
+	sign_state = "hadii_painting"
+	desc_extended = "A state-endorsed cult of personality has been established around President Hadii. Through a robust propaganda system, republican citizens are informed daily about Malik's \
+	achievements and how only through his guidance the Republican can prosper. Portraits of President Hadii can be found in most Hadiist homes and government buildings. Njadrasanukii is known for \
+	his speeches praising his own administration and the bravery of his people; his voice can be heard frequently on the radio. While many admire him as a strong leader, others fear his ruthless \
+	ways of dealing with the opposition."
 
+/obj/structure/sign/painting_frame/nated
+	name = "supreme commander Nated portrait"
+	desc = "A portrait of Supreme Ccommander Nated. Commonly seen in junta controlled territories."
+	icon_state = "nated_painting"
+	desc_extended = "For a decade, Halkiikijr led the Liberation Army as an effective opposing force against the People's Republic and the New Kingdom. He favored the extensive use of irregular \
+	warfare coupled with the deployment of the army to secure decisive battles. A cult of personality formed around Halkiikijr; extremists claimed that he was a prophet sent by the Gods. The \
+	Supreme Commander took advantage of this belief to cultivate undying loyalty and fanaticism among his followers."
+
+/obj/item/sign/painting_frame/nated
+	name = "supreme commander Nated portrait"
+	desc = "A portrait of Supreme Ccommander Nated. Commonly seen in junta controlled territories."
+	icon_state = "nated_painting"
+	sign_state = "nated_painting"
+	desc_extended = "For a decade, Halkiikijr led the Liberation Army as an effective opposing force against the People's Republic and the New Kingdom. He favored the extensive use of irregular \
+	warfare coupled with the deployment of the army to secure decisive battles. A cult of personality formed around Halkiikijr; extremists claimed that he was a prophet sent by the Gods. The \
+	Supreme Commander took advantage of this belief to cultivate undying loyalty and fanaticism among his followers."
+
+/obj/structure/sign/painting_frame/harrlala
+	name = "President Harrlala portrait"
+	desc = "A portrait of President Almrah Harrlala. The current leader of the Al'mariist civilian government."
+	icon_state = "harrlala_painting"
+	desc_extended = "Following the Armistice, President Almrah Harrlala continued with her internal policies while maintaining a strong stance against foreign dominance. Under her rule, schools to \
+	preserve local cultures and languages were established, Gakal’zaal was liberated from the Unathi rule, and the DPRA developed its nuclear program. Her status as one of the first female rulers \
+	in modern Tajaran history has inspired many women to engage in DPRA politics. However, her regime is plagued with deep issues. The ghost of separatism lingers over the nation after the Amohdan \
+	attempt to secede. Her ability to reconcile the various factions in the government was severely doubted when she failed to draw a plan to handle the rebellious island. Since the return of \
+	Halkiikijr to power, the authoritarian elements see this as a moment of weakness in the young Republic. President Harrlala must be ready to face further opposition if she wants to see her \
+	vision of Adhomai come to life."
+
+/obj/item/sign/painting_frame/harrlala
+	name = "President Harrlala portrait"
+	desc = "A portrait of President Almrah Harrlala. The current leader of the Al'mariist civilian government."
+	icon_state = "harrlala_painting"
+	sign_state = "harrlala_painting"
+	desc_extended = "Following the Armistice, President Almrah Harrlala continued with her internal policies while maintaining a strong stance against foreign dominance. Under her rule, schools to \
+	preserve local cultures and languages were established, Gakal’zaal was liberated from the Unathi rule, and the DPRA developed its nuclear program. Her status as one of the first female rulers \
+	in modern Tajaran history has inspired many women to engage in DPRA politics. However, her regime is plagued with deep issues. The ghost of separatism lingers over the nation after the Amohdan \
+	attempt to secede. Her ability to reconcile the various factions in the government was severely doubted when she failed to draw a plan to handle the rebellious island. Since the return of \
+	Halkiikijr to power, the authoritarian elements see this as a moment of weakness in the young Republic. President Harrlala must be ready to face further opposition if she wants to see her \
+	vision of Adhomai come to life."
+
+/obj/structure/sign/painting_frame/almari
+	name = "president Al'mari portrait"
+	desc = "A portrait of President Al'mari Hadii. An idol to Hadiist and Al'mariists."
+	icon_state = "almarii_painting"
+
+/obj/item/sign/painting_frame/almari
+	name = "president Al'mari portrait"
+	desc = "A portrait of President Al'mari Hadii. An idol to Hadiist and Al'mariists."
+	icon_state = "almarii_painting"
+	sign_state = "almarii_painting"
+
+/obj/structure/sign/painting_frame/vahzirthaamro
+	name = "king Vahzirthaamro portrait"
+	desc = "A portrait of King Vahzirthaamro Azunja. Even after his death, the King remains an important figure."
+	icon_state = "vahzirthaamro_painting"
+	desc_extended = "In 2449, in the middle of the night, Vahzirthaamro was released in secret along with the entirety of his retinue, as they quickly spread from town to town, asking for assistance \
+	from newly appointed officials and workers. Before long, the reminiscent families of the Kaltir region were happy to rejoin their flock. By 2450 his claim to rule had spread to all of Northern \
+	Harr'masir, and the New Kingdom of Adhomai officially seceded as an independent nation under the newly declared King Vahzirthaamro Azunja. He then led the Kingdom for the next decade, \
+	managing the balance between the different factions within the government and the ongoing war. Vahzirthaamro became a unifying figure for the population. After successfully securing Kaltir's \
+	ancient lands and negotiating the armistice that brought the end to the war, King Vahzirthaamro passed away in 2463. "
+
+/obj/item/sign/painting_frame/vahzirthaamro
+	name = "king Vahzirthaamro portrait"
+	desc = "A portrait of King Vahzirthaamro Azunja. Even after his death, the King remains an important figure."
+	icon_state = "vahzirthaamro_painting"
+	sign_state = "vahzirthaamro_painting"
+	desc_extended = "In 2449, in the middle of the night, Vahzirthaamro was released in secret along with the entirety of his retinue, as they quickly spread from town to town, asking for assistance \
+	from newly appointed officials and workers. Before long, the reminiscent families of the Kaltir region were happy to rejoin their flock. By 2450 his claim to rule had spread to all of Northern \
+	Harr'masir, and the New Kingdom of Adhomai officially seceded as an independent nation under the newly declared King Vahzirthaamro Azunja. He then led the Kingdom for the next decade, \
+	managing the balance between the different factions within the government and the ongoing war. Vahzirthaamro became a unifying figure for the population. After successfully securing Kaltir's \
+	ancient lands and negotiating the armistice that brought the end to the war, King Vahzirthaamro passed away in 2463. "
+
+/obj/structure/sign/painting_frame/shumaila
+	name = "queen Shumaila portrait"
+	desc = "A portrait of Queen Shumaila Azunja. Despite her short reign, she already has attacted a loyal following."
+	icon_state = "shumaila_painting"
+	desc_extended = "Since entering the public eye in 2459, Shumaila enjoys much support from the women of Kaltir. Many look to her as an inspiration, buying military style jackets to emulate her \
+	look, given that Shumaila became one of the few Tajara women to lead a nation. However, this fame has also led to calls from the nobility and her family to choose a husband. Shumaila retains \
+	that her marriage comes after her coronation. She was finally crowned in 2463 after King Azunja passed away. Outside of continuing her uncle's legacy, her plans to the Kingdom are still unclear to the wide public."
+
+/obj/item/sign/painting_frame/shumaila
+	name = "queen Shumaila portrait"
+	desc = "A portrait of Queen Shumaila Azunja. Despite her short reign, she already has attacted a loyal following."
+	icon_state = "shumaila_painting"
+	sign_state = "shumaila_painting"
+	desc_extended = "Since entering the public eye in 2459, Shumaila enjoys much support from the women of Kaltir. Many look to her as an inspiration, buying military style jackets to emulate her \
+	look, given that Shumaila became one of the few Tajara women to lead a nation. However, this fame has also led to calls from the nobility and her family to choose a husband. Shumaila retains \
+	that her marriage comes after her coronation. She was finally crowned in 2463 after King Azunja passed away. Outside of continuing her uncle's legacy, her plans to the Kingdom are still unclear to the wide public."
