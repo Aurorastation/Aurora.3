@@ -76,7 +76,7 @@
 // Sign language
 /datum/language/sign
 	name = LANGUAGE_SIGN
-	desc = "A signed version of Ceti Basic, though its intent is primarily to help out people who are deaf and mute."
+	desc = "A signed version of Tau Ceti Basic. It is primarily used by those who are deaf, hearing impaired, or mute."
 	speech_verb = list("signs")
 	signlang_verb = list("signs", "gestures")
 	sing_verb = null
