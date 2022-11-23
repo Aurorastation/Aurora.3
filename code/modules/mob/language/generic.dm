@@ -1,9 +1,9 @@
 // Noise "language", for audible emotes.
 /datum/language/noise
-	name = "Noise"
-	desc = "Noises"
+	name = LANGUAGE_NOISE
+	desc = "Noises."
 	key = ""
-	flags = RESTRICTED|NONGLOBAL|INNATE|NO_TALK_MSG|NO_STUTTER|TCOMSSIM
+	flags = RESTRICTED | NONGLOBAL | INNATE | NO_TALK_MSG | NO_STUTTER | TCOMSSIM
 	allow_accents = TRUE
 
 /datum/language/noise/format_message(message, verb)
@@ -76,13 +76,13 @@
 // Sign language
 /datum/language/sign
 	name = LANGUAGE_SIGN
-	desc = "A signed version of Ceti Basic, though its intent is primarily to help out people who are deaf and mute, "
+	desc = "A signed version of Ceti Basic, though its intent is primarily to help out people who are deaf and mute."
 	speech_verb = list("signs")
 	signlang_verb = list("signs", "gestures")
 	sing_verb = null
 	colour = "i"
 	key = "s"
-	flags = NO_STUTTER|SIGNLANG
+	flags = NO_STUTTER | SIGNLANG
 
 // Helper
 /proc/get_lang_name(var/datum/language/language)
