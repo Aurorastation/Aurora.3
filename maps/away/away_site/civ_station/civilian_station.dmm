@@ -374,9 +374,7 @@
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "aTn" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/shuttle_landmark/automatic{
 	name = "Hangar Navpoint"
 	},
@@ -26879,8 +26877,8 @@ xRX
 xRX
 xRX
 jiW
-hBd
-aTn
+hlr
+aVe
 hBd
 hBd
 hBd
@@ -26902,8 +26900,8 @@ hBd
 hBd
 hBd
 hBd
-hlr
-hNl
+hBd
+aTn
 pRm
 xRX
 xRX
@@ -30734,8 +30732,8 @@ xRX
 xRX
 xRX
 jiW
-hBd
-aTn
+hlr
+aVe
 hBd
 hBd
 hBd
@@ -30757,8 +30755,8 @@ hBd
 hBd
 hBd
 qmJ
-hlr
-hNl
+hBd
+aTn
 pRm
 xRX
 xRX

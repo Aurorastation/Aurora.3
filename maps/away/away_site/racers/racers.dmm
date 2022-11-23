@@ -1549,9 +1549,8 @@
 /turf/simulated/floor/tiled/steel,
 /area/racers)
 "hAq" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/floodlight,
 /obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/steel,
 /area/racers)
@@ -2209,6 +2208,7 @@
 /area/racers)
 "kFu" = (
 /obj/item/device/suit_cooling_unit,
+/obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/steel,
 /area/racers)
 "kFN" = (
@@ -25720,8 +25720,8 @@ xRX
 xRX
 xRX
 gbX
-ctn
-hAq
+rQw
+cLC
 ctn
 ctn
 ctn
@@ -25744,8 +25744,8 @@ ctn
 ctn
 ctn
 ctn
-rQw
-cBN
+ctn
+hAq
 huE
 xRX
 nfm
@@ -31922,8 +31922,8 @@ xjB
 nfm
 xRX
 huE
-ctn
-hAq
+rQw
+cLC
 ctn
 ctn
 ctn
@@ -35030,7 +35030,7 @@ ctn
 ctn
 lvc
 ctn
-pJZ
+gki
 gbX
 xRX
 xRX
