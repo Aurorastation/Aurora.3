@@ -61,7 +61,7 @@ proc/place_dungeons_generic()
 		var/list/atoms_to_initialise = map_load_metadata.atoms_to_initialise
 		var/list/atoms_to_initialise_actually = list()
 		for(var/atom/atom in atoms_to_initialise)
-			if(atom!=null && istype(atom) && !atom.initialized)
+			if(istype(atom) && !atom.initialized)
 				atoms_to_initialise_actually += atom
 		map_template_init_atoms(atoms_to_initialise_actually)
 
