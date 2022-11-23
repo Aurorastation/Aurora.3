@@ -336,7 +336,7 @@
 /obj/item/clothing/under/pants/track{
 	pixel_x = 5
 	},
-/obj/item/clothing/under/pants/musthang,
+/obj/item/clothing/under/pants/mustang,
 /obj/item/clothing/under/pants/classic{
 	pixel_x = -5
 	},
