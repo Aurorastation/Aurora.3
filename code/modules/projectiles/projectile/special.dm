@@ -145,7 +145,7 @@
 	icon_state = "energy2"
 	damage = 0
 	damage_type = TOX
-	nodamage = 1
+	nodamage = TRUE
 	var/decl/plantgene/gene = null
 
 /obj/item/projectile/energy/floramut/on_hit(var/atom/target, var/blocked = 0)

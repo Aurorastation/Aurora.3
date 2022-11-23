@@ -42,7 +42,22 @@
 		return
 	..()
 
+/obj/item/gun/energy/floragun/verb/select_gene()
+	set name = "Select Gene"
+	set category = "Object"
+	set src in view(1)
+
 	var/genemask = input("Choose a gene to modify.") as null|anything in SSplants.plant_gene_datums
+
+	if(!genemask)
+		return
+
+	gene = SSplants.plant_gene_datums[genemask]
+
+	to_chat(usr, SPAN_INFO("You set \the [src]\s targeted genetic area to [genemask]."))
+
+	return
+
 /obj/item/gun/energy/meteorgun
 	name = "meteor gun"
 	desc = "For the love of god, make sure you're aiming this the right way!"
