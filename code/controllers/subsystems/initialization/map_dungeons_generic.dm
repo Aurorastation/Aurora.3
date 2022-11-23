@@ -65,7 +65,7 @@ proc/place_dungeons_generic()
 				atoms_to_initialise_actually += atom
 		map_template_init_atoms(atoms_to_initialise_actually)
 
-		dungeons_placed += 1
+		dungeons_placed++
 
 		if(landmark.unique)
 			blacklisted_map_files += chosen_dungeon
