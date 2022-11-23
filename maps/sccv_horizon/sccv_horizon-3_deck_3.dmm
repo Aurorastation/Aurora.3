@@ -9244,8 +9244,7 @@
 "hxQ" = (
 /obj/machinery/door/airlock/security{
 	name = "Evidence Storage";
-	req_access = null;
-	req_one_access = list(4,68)
+	req_access = list(4)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -28161,7 +28160,7 @@
 /obj/machinery/door/airlock/security{
 	name = "Evidence Storage";
 	req_access = null;
-	req_one_access = list(2,3,4,68)
+	req_one_access = list(2,3,4)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{

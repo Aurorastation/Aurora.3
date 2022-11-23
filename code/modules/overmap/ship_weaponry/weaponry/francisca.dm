@@ -18,6 +18,7 @@
 	desc = "A box of FMJ bullets for use in a Francisca rotary gun."
 	icon = 'icons/obj/guns/ship/ship_ammo_rotary.dmi'
 	icon_state = "box_fmj"
+	overmap_icon_state = "cannon_salvo"
 	impact_type = SHIP_AMMO_IMPACT_FMJ
 	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY|SHIP_AMMO_FLAG_INFLAMMABLE
 	caliber = SHIP_CALIBER_40MM

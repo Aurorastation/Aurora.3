@@ -29,7 +29,7 @@
 		"nav_headmaster_ship_4"
 	)
 	initial_restricted_waypoints = list(
-		"Orbital Fleet Shuttle" = list("nav_hangar_headmaster_shuttle")
+		"Orbital Fleet Shuttle" = list("nav_headmaster_shuttle")
 	)
 
 /obj/effect/overmap/visitable/ship/headmaster_ship/New()

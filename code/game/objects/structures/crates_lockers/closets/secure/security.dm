@@ -369,7 +369,7 @@
 	name = "evidence storage locker"
 	anchored = TRUE
 	canbemoved = TRUE
-	req_one_access = list(access_brig, access_armory, access_forensics_lockers, access_detective)
+	req_one_access = list(access_brig, access_armory, access_forensics_lockers)
 
 // Contraband Storage Locker
 /obj/structure/closet/secure_closet/contraband
