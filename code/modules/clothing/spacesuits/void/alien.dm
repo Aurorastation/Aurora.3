@@ -166,8 +166,10 @@
 /obj/item/clothing/head/helmet/space/void/unathi_pirate
 	name = "unathi raider helmet"
 	desc = "A cheap but effective helmet made to fit with a larger combat assembly."
+	icon = 'icons/obj/clothing/voidsuit/unathi_pirate.dmi'
 	icon_state = "rig0-unathipirate"
 	item_state = "rig0-unathipirate"
+	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -184,8 +186,10 @@
 /obj/item/clothing/suit/space/void/unathi_pirate
 	name = "unathi raider voidsuit"
 	desc = "A well-balanced combat voidsuit made by and for Unathi. The cheap but effective design makes it a popular choice amongst pirates and the likes."
+	icon = 'icons/obj/clothing/voidsuit/unathi_pirate.dmi'
 	icon_state = "rig-unathipirate"
 	item_state = "rig-unathipirate"
+	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
