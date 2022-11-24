@@ -714,7 +714,8 @@
 /obj/machinery/ship_weapon/francisca{
 	pixel_x = -64;
 	pixel_y = -162;
-	weapon_id = "People's Station Rotary Gun"
+	weapon_id = "People's Station Rotary Gun";
+	mobile_platform = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -1507,7 +1508,9 @@
 	},
 /area/peoples_station/living_quarters)
 "gX" = (
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3310,6 +3313,19 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
+"pH" = (
+/obj/machinery/computer/ship/targeting{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/bridge)
 "pL" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/tajara/jackboots,
@@ -8105,7 +8121,7 @@
 "OP" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
-	req_access = list(113);
+	req_access = list(209);
 	pixel_y = 32
 	},
 /obj/item/reagent_containers/blood/OMinus,
@@ -8195,7 +8211,7 @@
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
 	department = "HMV Supreme";
-	req_access = list(114);
+	req_access = list(209);
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner_wide/red{
@@ -9143,11 +9159,13 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/fang/bridge)
 "TI" = (
-/obj/machinery/computer/ship/targeting,
 /obj/structure/window/reinforced,
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
+	},
+/obj/machinery/computer/ship/targeting{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -9392,7 +9410,9 @@
 	},
 /area/peoples_station/restroom)
 "UO" = (
-/obj/machinery/computer/ship/sensors,
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -10404,7 +10424,8 @@
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
-	weapon_id = "People's Station Grauwolf Flak Battery"
+	weapon_id = "People's Station Grauwolf Flak Battery";
+	mobile_platform = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -47551,7 +47572,7 @@ IZ
 yQ
 DJ
 YG
-TI
+pH
 iD
 Kn
 Kn
