@@ -113,7 +113,7 @@
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
 	new /obj/item/clothing/gloves/black_leather(src)
-	new /obj/item/clothing/suit/storage/security/officer/hos(src)
+	new /obj/item/clothing/suit/storage/security/hos(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
@@ -275,14 +275,12 @@
 /obj/structure/closet/secure_closet/investigator/fill()
 	//Appearance
 	new /obj/item/storage/backpack/satchel/leather/recolorable(src)
-	new /obj/item/clothing/suit/storage/det_jacket(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/under/det(src)
 	new /obj/item/clothing/under/det/idris(src)
 	new /obj/item/clothing/under/det/pmc(src)
 	new /obj/item/clothing/under/det/zavod(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
-	new /obj/item/clothing/suit/storage/toggle/forensics(src)
 	new /obj/item/clothing/gloves/black/forensic(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/laceup(src)
