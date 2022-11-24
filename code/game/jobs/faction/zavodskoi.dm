@@ -101,7 +101,7 @@
 
 	id = /obj/item/card/id/zavodskoi/sec
 	uniform = /obj/item/clothing/under/det/zavod
-	suit = /obj/item/clothing/suit/storage/det_jacket/zavod
+	suit = /obj/item/clothing/suit/storage/security/investigator/zavod
 
 	backpack_faction = /obj/item/storage/backpack/zavod
 	satchel_faction = /obj/item/storage/backpack/satchel/zavod
