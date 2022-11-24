@@ -20655,6 +20655,7 @@
 	c_tag = "Service - Deck 2 - Bar Preparation Room";
 	dir = 4
 	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice,
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
 "kga" = (
@@ -24553,11 +24554,11 @@
 /area/medical/reception)
 "miM" = (
 /obj/effect/floor_decal/corner/grey/full,
-/obj/structure/table/stone/marble,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
 	},
+/obj/machinery/chem_master/condimaster,
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
 "miP" = (
