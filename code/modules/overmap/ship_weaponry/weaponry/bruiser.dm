@@ -163,7 +163,7 @@
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_AP)
 		explosion(target, 0, 2, 4)
 
-/obj/item/projectile/ship_ammo/bruiser/real/beehive/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+/obj/item/projectile/ship_ammo/bruiser/real/beehive/on_hit(atom/movable/target, blocked, def_zone, is_landmark_hit)
 	if(istype(target))
 		var/throwdir = dir
 		target.throw_at(get_edge_target_turf(target, throwdir),9,8)
