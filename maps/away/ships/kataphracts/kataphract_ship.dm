@@ -10,7 +10,9 @@
 
 /obj/effect/overmap/visitable/ship/kataphract_ship
 	name = "kataphract chapter ship"
-	desc = "A large corvette manufactured by a Hephaestus sponsered Hegemonic Guild. This is a Kataphract Chapter ship of the venerable 'Voidbreaker' class, a relative of the more common 'Foundation' class used by their counterparts in the Hegemon's navy. These vessels are rarely seen together and strive for maximum self-suffiency as they are the homes and primary means of transportation for questing Kataphracts and their Hopefuls. They carry enough firepower to deter the common pirate as well as a set of boarding pods for offensive actions." 
+	desc = "A large corvette manufactured by a Hephaestus sponsered Hegemonic Guild. This is a heavily armoured Kataphract Chapter ship of the venerable 'Voidbreaker' class, a relative of the more common 'Foundation' \
+	class used by their counterparts in the Hegemony Navy. These vessels are rarely seen together and strive for maximum self-suffiency as they are the homes and primary means of transportation \
+	for questing Kataphracts and their followers. They usually carry enough firepower to deter the common pirate as well as a set of boarding pods for offensive actions. This ship however has no weapon hardpoints detected. It remains capable due to its sturdy design." 
 	class = "IHKV" //Izweski Hegemony Kataphract Vessel 
 	icon_state = "ship_green"
 	moving_state = "ship_green_moving"

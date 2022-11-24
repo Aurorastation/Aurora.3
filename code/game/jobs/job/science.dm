@@ -81,7 +81,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_intrepid)
+	access = list(access_tox, access_tox_storage, access_research, access_intrepid)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_intrepid)
 
 	minimal_player_age = 14
@@ -133,7 +133,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenoarch, access_intrepid)
+	access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_intrepid)
 	minimal_access = list(access_research, access_xenoarch, access_tox, access_tox_storage, access_intrepid)
 
 	minimal_player_age = 14
@@ -164,7 +164,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology)
+	access = list(access_tox, access_tox_storage, access_research, access_xenobiology)
 	minimal_access = list(access_research, access_xenobiology, access_tox_storage)
 
 	minimal_player_age = 14
@@ -196,7 +196,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_tox_storage, access_research, access_xenobotany, access_robotics, access_tox)
+	access = list(access_tox_storage, access_research, access_xenobotany, access_tox)
 	minimal_access = list(access_tox_storage, access_research, access_xenobotany)
 
 	minimal_player_age = 14

@@ -471,9 +471,8 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "cGq" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor,
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
 /area/ship/elyran_strike_craft)
 "cQc" = (
 /obj/machinery/door/airlock/hatch{
@@ -1555,7 +1554,7 @@
 	weapon_id = "Elyran Francisca Rotary Gun"
 	},
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/elyran_strike_craft)
 "pue" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2339,7 +2338,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/elyran_strike_craft)
 "xpv" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -33659,10 +33658,10 @@ xRX
 xRX
 xRX
 xRX
-qEp
-qEp
-qEp
-qEp
+cGq
+cGq
+cGq
+cGq
 xlK
 xRX
 xRX
@@ -33917,7 +33916,7 @@ xRX
 xRX
 xRX
 pkE
-qEp
+cGq
 xRX
 xRX
 xRX
@@ -34673,7 +34672,7 @@ tUL
 eLi
 atj
 vOv
-pcX
+kHe
 vPN
 crW
 iOh
@@ -35444,7 +35443,7 @@ hmO
 atj
 xkT
 vOv
-kHe
+aOc
 aTV
 pcX
 mXc
@@ -36215,7 +36214,7 @@ pZC
 atj
 aHa
 vOv
-rMJ
+rXd
 geX
 spD
 dVy
@@ -36472,7 +36471,7 @@ xrq
 atj
 uHF
 vOv
-pcX
+rMJ
 pcX
 jZJ
 kbf

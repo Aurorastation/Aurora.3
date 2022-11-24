@@ -1481,6 +1481,10 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/sfa_shuttle)
+"jwU" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
+/area/ship/sfa_patrol_ship)
 "jxF" = (
 /obj/structure/bed/roller,
 /obj/structure/curtain/open/medical,
@@ -2425,7 +2429,7 @@
 	weapon_id = "SFA Francisca Rotary Gun"
 	},
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "rgA" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -2681,7 +2685,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "uBC" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -30551,10 +30555,10 @@ xRX
 xRX
 xRX
 xRX
-ufa
-ufa
-ufa
-ufa
+jwU
+jwU
+jwU
+jwU
 uii
 xRX
 xRX
@@ -30809,7 +30813,7 @@ xRX
 xRX
 xRX
 rdB
-ufa
+jwU
 xRX
 xRX
 xRX
@@ -32099,7 +32103,7 @@ sBA
 ttG
 ttG
 sBA
-tKM
+tra
 yjk
 sBA
 sBA
@@ -32352,7 +32356,7 @@ yjk
 aCd
 aCd
 yjk
-tra
+yjk
 yjk
 yjk
 qgw
@@ -32608,8 +32612,8 @@ sAC
 yjk
 sBA
 shH
-yjk
-yjk
+buM
+aAY
 yjk
 vCZ
 ylV
@@ -33379,7 +33383,7 @@ iQt
 yjk
 aCd
 aCd
-ccm
+vyZ
 fkj
 yjk
 fDM
@@ -33636,7 +33640,7 @@ yjk
 yjk
 sBA
 shH
-aAY
+ccm
 fkj
 yjk
 eeP

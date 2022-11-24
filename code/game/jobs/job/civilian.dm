@@ -558,8 +558,8 @@
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research, access_mailsorting)
-	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_mailsorting)
+	access = list(access_robotics, access_tech_storage, access_mailsorting)
+	minimal_access = list(access_robotics, access_tech_storage, access_mailsorting)
 
 	minimal_player_age = 7
 

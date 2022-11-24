@@ -2034,6 +2034,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
+"oDy" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
+/area/ship/fsf_patrol_ship)
 "oFb" = (
 /obj/structure/table/rack,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2371,7 +2375,7 @@
 	weapon_id = "FSF Francisca Rotary Gun"
 	},
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/fsf_patrol_ship)
 "sBv" = (
 /obj/effect/landmark/entry_point/fore{
@@ -2631,7 +2635,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/fsf_patrol_ship)
 "vmq" = (
 /obj/effect/floor_decal/spline/plain/corner{
@@ -30413,10 +30417,10 @@ xRX
 xRX
 xRX
 xRX
-lBQ
-lBQ
-lBQ
-lBQ
+oDy
+oDy
+oDy
+oDy
 vgt
 xRX
 xRX
@@ -30671,7 +30675,7 @@ xRX
 xRX
 xRX
 swZ
-lBQ
+oDy
 xRX
 xRX
 xRX
@@ -31961,7 +31965,7 @@ sSs
 ttG
 ttG
 sSs
-tKM
+tra
 yjk
 fnS
 sSs
@@ -32214,7 +32218,7 @@ yjk
 aCd
 aCd
 yjk
-tra
+yjk
 yjk
 yjk
 qgw
@@ -32470,8 +32474,8 @@ eOW
 yjk
 sSs
 sSs
-yjk
-yjk
+fVv
+aAY
 yjk
 vCZ
 ylV
@@ -33241,7 +33245,7 @@ iQt
 yjk
 aCd
 aCd
-ccm
+qcp
 fkj
 yjk
 fDM
@@ -33498,7 +33502,7 @@ yjk
 yjk
 sSs
 sSs
-aAY
+ccm
 fkj
 yjk
 eeP
