@@ -1320,6 +1320,11 @@
 /obj/machinery/vending/cigarette/hacked,
 /turf/simulated/floor/tiled/steel,
 /area/racers)
+"gki" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/shuttle_landmark/automatic,
+/turf/simulated/floor/tiled/steel,
+/area/racers)
 "gkj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/blood/drip/oil,
@@ -1541,6 +1546,12 @@
 "hzI" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/tiled/steel,
+/area/racers)
+"hAq" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/floodlight,
+/obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/steel,
 /area/racers)
 "hAS" = (
@@ -2197,6 +2208,7 @@
 /area/racers)
 "kFu" = (
 /obj/item/device/suit_cooling_unit,
+/obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/steel,
 /area/racers)
 "kFN" = (
@@ -25708,7 +25720,7 @@ xRX
 xRX
 xRX
 gbX
-ctn
+rQw
 cLC
 ctn
 ctn
@@ -25733,7 +25745,7 @@ ctn
 ctn
 ctn
 ctn
-cBN
+hAq
 huE
 xRX
 nfm
@@ -31910,7 +31922,7 @@ xjB
 nfm
 xRX
 huE
-ctn
+rQw
 cLC
 ctn
 ctn
@@ -31934,7 +31946,7 @@ ctn
 ctn
 ctn
 ctn
-pJZ
+gki
 gbX
 xRX
 xRX
@@ -35018,7 +35030,7 @@ ctn
 ctn
 lvc
 ctn
-pJZ
+gki
 gbX
 xRX
 xRX

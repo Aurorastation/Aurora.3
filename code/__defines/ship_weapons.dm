@@ -3,6 +3,7 @@
 #define SHIP_CALIBER_40MM "40mm"
 #define SHIP_CALIBER_90MM "90mm"
 #define SHIP_CALIBER_ZTA "zero-point warp beam"
+#define SHIP_CALIBER_135MM "135mm"
 
 #define SHIP_GUN_FIRING_SUCCESSFUL "firing sequence completed"
 #define SHIP_GUN_ERROR_NO_AMMO "no ammunition loaded"
@@ -10,8 +11,9 @@
 #define NO_PROJECTILE "no projectile"
 #define SHIP_HAZARD_TARGET "Automatic Hazard Targeting"
 
-#define SHIP_AMMO_CAN_HIT_HAZARDS 1
-#define SHIP_AMMO_CAN_HIT_SHIPS 2
+#define SHIP_AMMO_CAN_HIT_HAZARDS    1
+#define SHIP_AMMO_CAN_HIT_VISITABLES 2
+#define SHIP_AMMO_CAN_HIT_PLANETS    4
 
 #define SHIP_AMMO_IMPACT_HE "high explosive"
 #define SHIP_AMMO_IMPACT_FMJ "full metal jacket"
@@ -45,3 +47,7 @@
 #define OVERMAP_PROJECTILE_RANGE_MEDIUMHIGH 15
 #define OVERMAP_PROJECTILE_RANGE_HIGH 25
 #define OVERMAP_PROJECTILE_RANGE_ULTRAHIGH 30
+
+//Targeting flags for overmap effects.
+#define TARGETING_FLAG_GENERIC_WAYPOINTS 1
+#define TARGETING_FLAG_ENTRYPOINTS       2
