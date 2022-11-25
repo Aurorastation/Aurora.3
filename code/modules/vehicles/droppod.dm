@@ -30,7 +30,7 @@
 	icon_state = "legion_pod"
 
 /obj/vehicle/droppod/syndie
-	desc = "A high-tech titanium pod, capable of transporting its passenger right into the action at considerable ranges. The metal foam dispensers lining the top prevent most hull breaches on station ingress."
+	desc = "A high-tech titanium pod, capable of transporting its passenger right into the action at considerable ranges. The metal foam dispensers lining the top prevent most hull breaches on vessel ingress."
 	icon_state = "syndie_pod"
 
 /obj/vehicle/droppod/MouseDrop()

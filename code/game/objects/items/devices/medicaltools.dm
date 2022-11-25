@@ -1,6 +1,6 @@
 /obj/item/device/handheld_medical
 	name = "hand-held suit sensor monitor"
-	desc = "A miniature machine that tracks suit sensors across the station."
+	desc = "A miniature machine that tracks suit sensors across the vessel."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "scanner"
 	w_class = ITEMSIZE_SMALL

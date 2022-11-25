@@ -382,7 +382,7 @@
 	use_power = POWER_USE_OFF // reason is because the holodeck already takes power so this can be powered as a result.
 
 /obj/machinery/readybutton/attack_ai(mob/user as mob)
-	to_chat(user, "The station AI is not to interact with these devices!")
+	to_chat(user, "The ship AI is not to interact with these devices!")
 	return
 
 /obj/machinery/readybutton/attackby(obj/item/W as obj, mob/user as mob)

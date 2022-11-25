@@ -1,5 +1,5 @@
 /obj/item/device/radio/intercom
-	name = "station intercom (General)"
+	name = "ship intercom (General)"
 	desc = "Talk through this."
 	icon_state = "intercom"
 	layer = 2.99
@@ -15,16 +15,16 @@
 	clickvol = 40
 
 /obj/item/device/radio/intercom/custom
-	name = "station intercom (Custom)"
+	name = "ship intercom (Custom)"
 	broadcasting = FALSE
 	listening = FALSE
 
 /obj/item/device/radio/intercom/interrogation
-	name = "station intercom (Interrogation)"
+	name = "ship intercom (Interrogation)"
 	frequency  = 1449
 
 /obj/item/device/radio/intercom/private
-	name = "station intercom (Private)"
+	name = "ship intercom (Private)"
 	frequency = AI_FREQ
 
 /obj/item/device/radio/intercom/specops
@@ -37,11 +37,11 @@
 	listening = TRUE
 
 /obj/item/device/radio/intercom/department/medbay
-	name = "station intercom (Medbay)"
+	name = "ship intercom (Medbay)"
 	frequency = MED_I_FREQ
 
 /obj/item/device/radio/intercom/department/security
-	name = "station intercom (Security)"
+	name = "ship intercom (Security)"
 	frequency = SEC_I_FREQ
 
 /obj/item/device/radio/intercom/entertainment

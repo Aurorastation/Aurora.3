@@ -83,7 +83,7 @@
 
 /obj/structure/sign/double/map
 	name = "station map"
-	desc = "A framed picture of the station."
+	desc = "A framed picture of a station."
 
 /obj/structure/sign/double/map/left
 	icon_state = "map-left"

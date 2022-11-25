@@ -29992,7 +29992,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_x = 21;
 	pixel_y = -13
 	},

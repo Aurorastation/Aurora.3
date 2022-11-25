@@ -39,7 +39,7 @@
 	name = "supermatter crystal"
 	desc = "A strangely translucent and iridescent crystal. <span class='warning'>You get headaches just from looking at it.</span>"
 	desc_info = "When energized by a laser (or something hitting it), it emits radiation and heat.  If the heat reaches above 7000 kelvin, it will send an alert and start taking damage. \
-	After integrity falls to zero percent, it will delaminate, causing a massive explosion, station-wide radiation spikes, and hallucinations. \
+	After integrity falls to zero percent, it will delaminate, causing a massive explosion, ship-wide radiation spikes, and hallucinations. \
 	Supermatter reacts badly to oxygen in the atmosphere.  It'll also heat up really quick if it is in vacuum.<br>\
 	<br>\
 	Supermatter cores are extremely dangerous to be close to, and requires protection to handle properly.  The protection you will need is:<br>\
@@ -48,7 +48,7 @@
 	<br>\
 	Touching the supermatter will result in *instant death*, with no corpse left behind!  You can drag the supermatter, but anything else will kill you."
 	desc_antag = "Always ahelp before sabotaging the supermatter, as it can potentially ruin the round. Exposing the supermatter to oxygen or vaccuum will cause it to start rapidly heating up.  \
-	Sabotaging the supermatter and making it explode will cause a period of lag as the explosion is processed by the server, as well as irradiating the entire station and causing hallucinations to happen.  \
+	Sabotaging the supermatter and making it explode will cause a period of lag as the explosion is processed by the server, as well as irradiating the entire ship and causing hallucinations to happen.  \
 	Wearing radiation equipment will protect you from most of the delamination effects sans explosion."
 	icon = 'icons/obj/supermatter.dmi'
 	icon_state = "supermatter"

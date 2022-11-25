@@ -310,7 +310,7 @@ datum
 				target = targeta
 				job = joba
 				weight = get_points(job)
-				explanation_text = "[target.current.real_name], the [target.assigned_role] is a [pick("relative of a","friend of a","") + pick("high ranking","important","well-liked")] mercenary [pick("Leader","Officer","Agent","sympathiser")].  Make sure they get off the station safely, while minimizing intervention."
+				explanation_text = "[target.current.real_name], the [target.assigned_role] is a [pick("relative of a","friend of a","") + pick("high ranking","important","well-liked")] mercenary [pick("Leader","Officer","Agent","sympathiser")].  Make sure they get off the ship safely, while minimizing intervention."
 
 			check_completion()
 				if(!evacuation_controller.round_over())
@@ -750,7 +750,7 @@ datum
 
 			blueprints
 				steal_target = /obj/item/blueprints
-				explanation_text = "Steal the station's blueprints."
+				explanation_text = "Steal the ship's blueprints."
 				weight = 20
 
 				get_points(var/job)
@@ -797,7 +797,7 @@ datum
 
 			nuke_disk
 				steal_target = /obj/item/disk/nuclear
-				explanation_text = "Steal the station's nuclear authentication disk."
+				explanation_text = "Steal the ship's nuclear authentication disk."
 				weight = 20
 
 				get_points(var/job)
@@ -1220,7 +1220,7 @@ datum
 
 
 		nuclear
-			explanation_text = "Destroy the station with a nuclear device."
+			explanation_text = "Destroy the ship with a nuclear device."
 
 
 		block
@@ -1452,7 +1452,7 @@ datum
 				return 1
 
 datum/objective/silence
-	explanation_text = "Do not allow anyone to escape the station.  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
+	explanation_text = "Do not allow anyone to escape the ship.  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
 
 	check_completion()
 		if(!evacuation_controller.round_over())

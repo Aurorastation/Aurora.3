@@ -14,7 +14,7 @@
 
 /datum/law/low_severity/petty_theft
 	name = "i102 - Petty Theft"
-	desc = "To take mundane items from areas one does not have access to, or to take items belonging to others or the station as a whole. Includes theft of credits up to 500cr. For higher amounts see i220 - Fraud."
+	desc = "To take mundane items from areas one does not have access to, or to take items belonging to others or the vessel as a whole. Includes theft of credits up to 500cr. For higher amounts see i220 - Fraud."
 	id = "i102"
 
 	min_brig_time = 3
@@ -135,7 +135,7 @@
 
 /datum/law/low_severity/vandalism
 	name = "i114 - Vandalism"
-	desc = "To deliberately damage or deface the station without malicious intent. To cause easily repairable damage to an owned IPC, up to and including disabling the chassis."
+	desc = "To deliberately damage or deface the ship without malicious intent. To cause easily repairable damage to an owned IPC, up to and including disabling the chassis."
 	id = "i114"
 
 	min_brig_time = 3

@@ -3,7 +3,7 @@
 	flag = CHIEF
 	departments = list(DEPARTMENT_ENGINEERING = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
@@ -77,7 +77,7 @@
 	flag = ENGINEER
 	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "the chief engineer"
@@ -135,7 +135,7 @@
 	flag = ATMOSTECH
 	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 3
 	spawn_positions = 2
 	intro_prefix = "an"
@@ -193,7 +193,7 @@
 	flag = INTERN_ENG
 	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 3
 	spawn_positions = 3
 	intro_prefix = "an"

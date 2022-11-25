@@ -43,7 +43,7 @@
         },
         "cciaescort": {
           "name": "CCIA Escort",
-          "desc": "Escort a CCIA Agent to the station, watch them annoy the crew and prevent them from throwing themselves under their own shuttle. (This spawner is not enabled.)",
+          "desc": "Escort a CCIA Agent to an installation, watch them annoy the crew and prevent them from throwing themselves under their own shuttle. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,

@@ -3,7 +3,7 @@
 	flag = BARTENDER
 	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
 	department_flag = SERVICE
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the executive officer"
@@ -49,7 +49,7 @@
 	flag = CHEF
 	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
 	department_flag = SERVICE
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the executive officer"
@@ -99,7 +99,7 @@
 	flag = BOTANIST
 	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
 	department_flag = SERVICE
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the executive officer"
@@ -159,7 +159,7 @@
 	flag = JANITOR
 	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
 	department_flag = SERVICE
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the executive officer"
@@ -197,7 +197,7 @@
 	flag = JOURNALIST
 	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
 	department_flag = SERVICE
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the executive officer"
@@ -263,7 +263,7 @@
 	flag = LIBRARIAN
 	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
 	department_flag = SERVICE
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the executive officer"
@@ -331,7 +331,7 @@
 	flag = CHAPLAIN
 	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
 	department_flag = SERVICE
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the executive officer"
@@ -395,7 +395,7 @@
 	flag = OPERATIONS_MANAGER
 	departments = list(DEPARTMENT_CARGO = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
@@ -453,7 +453,7 @@
 	flag = CARGOTECH
 	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = SERVICE
-	faction = "Station"
+	faction = "ship"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the operations manager"
@@ -493,7 +493,7 @@
 	flag = MINER
 	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = SERVICE
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the operations manager"
@@ -545,7 +545,7 @@
 	flag = ROBOTICIST
 	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the operations manager"

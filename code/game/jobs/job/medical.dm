@@ -3,7 +3,7 @@
 	flag = CMO
 	departments = list(DEPARTMENT_MEDICAL = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
@@ -66,7 +66,7 @@
 	flag = DOCTOR
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the chief medical officer"
@@ -89,7 +89,7 @@
 	flag = SURGEON
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	supervisors = "the chief medical officer"
 	selection_color = "#15903a"
 	economic_modifier = 7
@@ -154,7 +154,7 @@
 	flag = CHEMIST
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
@@ -204,7 +204,7 @@
 	flag = PSYCHIATRIST
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	economic_modifier = 5
@@ -261,7 +261,7 @@
 	flag = MED_TECH
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
@@ -318,7 +318,7 @@
 	flag = INTERN_MED
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Chief Medical Officer"

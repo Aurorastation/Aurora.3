@@ -5,7 +5,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	flag = CAPTAIN
 	departments = list(DEPARTMENT_COMMAND = JOBROLE_SUPERVISOR)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
@@ -86,7 +86,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	flag = XO
 	departments = list(DEPARTMENT_SERVICE = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = SERVICE
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
@@ -148,7 +148,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	flag = BRIDGE_CREW
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 3
 	spawn_positions = 3
 	intro_prefix = "the"

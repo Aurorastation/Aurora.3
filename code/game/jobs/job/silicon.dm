@@ -3,7 +3,7 @@
 	flag = AI
 	departments = list(DEPARTMENT_EQUIPMENT = JOBROLE_SUPERVISOR)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = null // Not used by AI, see get_total_positions and is_position_available below
 	spawn_positions = null // Not used by AI, see get_spawn_positions below
 	selection_color = "#6c5b73"
@@ -44,7 +44,7 @@
 	flag = CYBORG
 	departments = SIMPLEDEPT(DEPARTMENT_EQUIPMENT)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "your laws and the AI"	//Nodrak

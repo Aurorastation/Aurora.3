@@ -1,6 +1,6 @@
 /datum/job/hra
 	title = "Human Resources Assistant"
-	faction = "Station"
+	faction = "Ship"
 	flag = HRA
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = ENGSEC

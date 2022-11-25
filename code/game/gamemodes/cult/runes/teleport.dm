@@ -43,7 +43,7 @@
 /datum/rune/teleport/proc/teleport(mob/living/user, atom/movable/A)
 	var/turf/T = get_turf(user)
 	if(isNotStationLevel(T.z))
-		to_chat(user, SPAN_WARNING("You are too far from the station, Nar'sie is unable to reach you here."))
+		to_chat(user, SPAN_WARNING("You are too far from the ship, Nar'sie is unable to reach you here."))
 		return fizzle(user, A)
 
 	var/list/datum/rune/teleport/possible_runes = list()

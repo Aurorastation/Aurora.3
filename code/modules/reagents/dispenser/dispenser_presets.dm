@@ -136,7 +136,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/cream
 		)
 
-/obj/machinery/chemical_dispenser/bar_alc/full/space //Spacebar away site. Gets much more to make the best drinks, hassle-free. 
+/obj/machinery/chemical_dispenser/bar_alc/full/space //Spacebar away site. Gets much more to make the best drinks, hassle-free.
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime,
 			/obj/item/reagent_containers/chem_disp_cartridge/sugar,
@@ -195,7 +195,7 @@
 
 /obj/machinery/chemical_dispenser/coffee
 	name = "Coffee Machine"
-	desc = "The only thing that can get some workers though the day, the coffee maker is the stations most valuable resource."
+	desc = "The only thing that can get some workers though the day, the coffee maker is the vessels most valuable resource."
 	icon_state = "coffee_machine"
 	ui_title = "Morning Glory Coffee Mate"
 	icon_state_active = null

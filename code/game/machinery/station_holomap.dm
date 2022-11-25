@@ -1,6 +1,6 @@
 /obj/machinery/station_map
-	name = "station holomap"
-	desc = "A virtual map of the surrounding station."
+	name = "ship holomap"
+	desc = "A virtual map of the surrounding vessel."
 	icon = 'icons/obj/machines/stationmap.dmi'
 	icon_state = "station_map"
 	anchored = 1
@@ -101,7 +101,7 @@
 			if(bogus)
 				to_chat(user, "<span class='warning'>The holomap failed to initialize. This area of space cannot be mapped.</span>")
 			else
-				to_chat(user, "<span class='notice'>A hologram of the station appears before your eyes.</span>")
+				to_chat(user, "<span class='notice'>A hologram of the ship appears before your eyes.</span>")
 
 /obj/machinery/station_map/attack_ai(var/mob/living/silicon/robot/user)
 	return // TODO - Implement for AI ~Leshana

@@ -37,9 +37,9 @@
 	else
 		chargesa--
 		insistinga = 0
-		var/wish = input("You want...","Wish") as null|anything in list("I want to rule the station","I want to be rich","I want immortality","The station is corrupt, it must be destroyed","I want peace")
+		var/wish = input("You want...","Wish") as null|anything in list("I want to rule the ship","I want to be rich","I want immortality","The ship is corrupt, it must be destroyed","I want peace")
 		switch(wish)
-			if("I want to rule the station")
+			if("I want to rule the ship")
 				to_chat(user, "<B>Your wish is granted, but at a terrible cost...</B>")
 				to_chat(user, "The Wish Granter punishes you for your selfishness, claiming your soul and warping your body to match the darkness in your heart.")
 				if (!(HULK in user.mutations))
@@ -73,7 +73,7 @@
 				user.verbs += /mob/living/carbon/proc/immortality
 				user.set_species(SPECIES_SKELETON)
 				user.mind.special_role = "Avatar of the Wish Granter"
-			if("The station is corrupt, it must be destroyed")
+			if("The ship is corrupt, it must be destroyed")
 				to_chat(user, "<B>Your wish is granted, but at a terrible cost...</B>")
 				to_chat(user, "The Wish Granter punishes you for your wickedness, claiming your soul and slaving you to its own dark purposes.")
 				user.mind.special_role = "Avatar of the Wish Granter"
@@ -95,7 +95,7 @@
 					user.mind.store_memory("<B>Nuclear Bomb Code</B>: [N.r_code]", 0, 0)
 			if("I want peace")
 				to_chat(user, "<B>Your wish is granted...</B>")
-				to_chat(user, "Everything lies silently and then the station, its crew and troubles are gone in a blink of light. You found peace at last.")
+				to_chat(user, "Everything lies silently and then the ship, its crew and troubles are gone in a blink of light. You found peace at last.")
 				user.sdisabilities += BLIND
 				user.sdisabilities += DEAF
 				user.mind.special_role = "Avatar of the Wish Granter"

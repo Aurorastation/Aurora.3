@@ -191,7 +191,7 @@ var/datum/controller/subsystem/ticker/SSticker
 				else
 					feedback_set_details("end_proper","universe destroyed")
 				if(!delay_end)
-					to_world("<span class='notice'><b>Rebooting due to destruction of station in [restart_timeout/10] seconds</b></span>")
+					to_world("<span class='notice'><b>Rebooting due to destruction of world in [restart_timeout/10] seconds</b></span>")
 			else
 				feedback_set_details("end_proper","proper completion")
 				if(!delay_end)

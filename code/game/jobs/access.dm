@@ -177,7 +177,7 @@
 		if(ACCESS_REGION_COMMAND) //command
 			return "Command"
 		if(ACCESS_REGION_GENERAL) //station general
-			return "Station General"
+			return "Ship General"
 		if(ACCESS_REGION_SUPPLY) //supply
 			return "Operations"
 

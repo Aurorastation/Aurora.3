@@ -3,7 +3,7 @@
 	flag = RD
 	departments = list(DEPARTMENT_SCIENCE = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
@@ -68,7 +68,7 @@
 	flag = SCIENTIST
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the research director"
@@ -120,7 +120,7 @@
 	flag = XENOARCHEOLOGIST
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the research director"
@@ -151,7 +151,7 @@
 	flag = XENOBIOLOGIST
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the research director"
@@ -183,7 +183,7 @@
 	flag = XENOBOTANIST
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the research director"
@@ -216,7 +216,7 @@
 	flag = INTERN_SCI
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Research Director"

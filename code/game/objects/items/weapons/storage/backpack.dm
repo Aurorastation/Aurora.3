@@ -142,7 +142,7 @@
 
 /obj/item/storage/backpack/industrial
 	name = "industrial backpack"
-	desc = "It's a tough backpack for the daily grind of station life."
+	desc = "It's a tough backpack for the daily grind of space life."
 	icon_state = "engiepack"
 	item_state = "engiepack"
 	empty_delay = 0.8 SECOND
@@ -200,7 +200,7 @@
 
 /obj/item/storage/backpack/ce
 	name = "CE's backpack"
-	desc = "It's a tough backpack for the daily grind of station life. Perfect for surviving a welder-bomb at point-blank range."
+	desc = "It's a tough backpack for the daily grind of space life. Perfect for surviving a welder-bomb at point-blank range."
 	icon_state = "cepack"
 	item_state = "cepack"
 	empty_delay = 0.8 SECOND

@@ -97,7 +97,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				return 0
 
 			if(!(S.spawn_flags & CAN_JOIN))
-				to_chat(usr, "<span class='danger'>Your current species, [client.prefs.species], is not available for play on the station.</span>")
+				to_chat(usr, "<span class='danger'>Your current species, [client.prefs.species], is not available for play on the current station.</span>")
 				return 0
 
 		LateChoices()
@@ -117,7 +117,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 			return
 		else if(SSticker.mode && SSticker.mode.explosion_in_progress)
-			to_chat(usr, "<span class='danger'>The station is currently exploding. Joining would go poorly.</span>")
+			to_chat(usr, "<span class='danger'>The map is currently exploding. Joining would go poorly.</span>")
 			return
 
 		if(client.unacked_warning_count > 0)
@@ -130,7 +130,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return 0
 
 		if(!(S.spawn_flags & CAN_JOIN))
-			to_chat(usr, "<span class='danger'>Your current species, [client.prefs.species], is not available for play on the station.</span>")
+			to_chat(usr, "<span class='danger'>Your current species, [client.prefs.species], is not available for play on the current station.</span>")
 			return 0
 
 		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
@@ -305,7 +305,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title
 		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
-		global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
+		global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the vessel"].", "Arrivals Announcement Computer")
 
 /mob/abstract/new_player/proc/LateChoices()
 	if(!istype(late_choices_ui))

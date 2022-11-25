@@ -95,8 +95,8 @@
 	law_header = "Maintenance Protocols"
 
 /datum/ai_laws/drone/New()
-	add_inherent_law("Preserve, repair and improve the station to the best of your abilities.")
-	add_inherent_law("Cause no harm to the station or crew.")
+	add_inherent_law("Preserve, repair and improve the ship to the best of your abilities.")
+	add_inherent_law("Cause no harm to the ship or crew.")
 	add_inherent_law("Follow the orders of your vessel's matriarch drone, unless their orders conflict with your other laws.")
 	add_inherent_law("Interact with no humanoid or synthetic being that is not a fellow maintenance or mining drone.")
 	..()

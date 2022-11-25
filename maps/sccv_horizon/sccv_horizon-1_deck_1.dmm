@@ -618,7 +618,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = -25
 	},
 /obj/effect/floor_decal/corner/purple/full{
@@ -2177,7 +2177,7 @@
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_x = 24;
 	dir = 8
 	},
@@ -2732,7 +2732,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -4564,7 +4564,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -5783,7 +5783,7 @@
 "eDa" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = -24
 	},
 /obj/effect/floor_decal/corner/brown/full{
@@ -6353,7 +6353,7 @@
 /area/rnd/xenoarch_atrium)
 "eWJ" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = 25
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -6583,7 +6583,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/computer/ship/engines{
@@ -9184,7 +9184,7 @@
 	dir = 5
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
@@ -11237,7 +11237,7 @@
 "iLE" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = -20
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -12331,7 +12331,7 @@
 "jDs" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = -24
 	},
 /obj/machinery/camera/network/supply{
@@ -12757,7 +12757,7 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = 25
 	},
 /obj/structure/bed/stool/chair/office/bridge,
@@ -13279,7 +13279,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/teleport/pad,
@@ -16943,7 +16943,7 @@
 "nmF" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_x = -24;
 	dir = 4
 	},
@@ -19495,7 +19495,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -21129,7 +21129,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -25361,7 +25361,7 @@
 "tYN" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = -24
 	},
 /obj/effect/floor_decal/corner/green{
@@ -27160,7 +27160,7 @@
 /obj/effect/floor_decal/corner/green/full,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_x = -24
 	},
 /obj/structure/bed/stool/chair/office/light{
@@ -27509,7 +27509,7 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -29503,7 +29503,7 @@
 	},
 /obj/item/stack/nanopaste,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
+	name = "Ship Intercom (General)";
 	pixel_y = 22
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,

@@ -267,7 +267,7 @@ datum/objective/block
 		return 1
 
 datum/objective/silence
-	explanation_text = "Do not allow anyone to escape the station.  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
+	explanation_text = "Do not allow anyone to escape the ship.  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
 
 	check_completion()
 		if(!evacuation_controller.round_over())
@@ -407,7 +407,7 @@ datum/objective/harm
 
 
 datum/objective/nuclear
-	explanation_text = "Destroy the station with a nuclear device."
+	explanation_text = "Destroy the ship with a nuclear device."
 
 
 
@@ -746,7 +746,7 @@ datum/objective/heist/salvage
 				target = "diamond"
 				target_amount = 20
 
-		explanation_text = "Ransack the station and escape with [target_amount] [target]."
+		explanation_text = "Ransack the ship and escape with [target_amount] [target]."
 
 	check_completion()
 

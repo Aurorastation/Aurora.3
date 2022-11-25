@@ -65,8 +65,8 @@
 
 /datum/game_mode/malfunction/verb/ai_destroy_station()
 	set category = "Hardware"
-	set name = "Destroy Station"
-	set desc = "Activates or deactivates self destruct sequence of this station. Sequence takes two minutes, and if you are shut down before timer reaches zero it will be cancelled."
+	set name = "Destroy Ship"
+	set desc = "Activates or deactivates self destruct sequence of this ship. Sequence takes two minutes, and if you are shut down before timer reaches zero it will be cancelled."
 
 	var/mob/living/silicon/ai/user = usr
 	if(user.stat == DEAD)
@@ -98,7 +98,7 @@
 		user.bombing_station = 0
 		return
 
-	var/choice = alert("Really destroy station?", "Station self-destruct", "YES", "NO")
+	var/choice = alert("Really destroy ship?", "Ship self-destruct", "YES", "NO")
 	if(choice != "YES")
 		return
 	if(!ability_prechecks(user, 0, 0))
@@ -113,20 +113,20 @@
 		to_chat(user, "Self-destruct could not be initiated - No Self-Destruct Terminal available.")
 		return
 
-	to_chat(user, "***** STATION SELF-DESTRUCT SEQUENCE INITIATED *****")
+	to_chat(user, "***** SHIP SELF-DESTRUCT SEQUENCE INITIATED *****")
 	to_chat(user, "Self-destructing in [timer] seconds. Use this command again to abort.")
 	user.bombing_station = 1
 	set_security_level("delta")
 
 	if(timer > stage1)
-		radio.autosay("Critical: Brute force attempt on primary firewall detected.", "Station Authentication Control")
-		radio.autosay("Notice: Local override recommended.", "Station Authentication Control")
+		radio.autosay("Critical: Brute force attempt on primary firewall detected.", "Ship Authentication Control")
+		radio.autosay("Notice: Local override recommended.", "Ship Authentication Control")
 	else if(timer > stage2)
-		radio.autosay("Alert: Brute force attempt on backup firewall detected.", "Station Authentication Control")
-		radio.autosay("Notice: Local override with authentication disk recommended.", "Station Authentication Control")
+		radio.autosay("Alert: Brute force attempt on backup firewall detected.", "Ship Authentication Control")
+		radio.autosay("Notice: Local override with authentication disk recommended.", "Ship Authentication Control")
 	else
-		radio.autosay("Emergency: Self-destruct sequence has been activated. Self-destructing in [timer] seconds.", "Station Authentication Control")
-		radio.autosay("Notice: Deactivate using authentication disk in SAT-Chamber", "Station Authentication Control")
+		radio.autosay("Emergency: Self-destruct sequence has been activated. Self-destructing in [timer] seconds.", "Ship Authentication Control")
+		radio.autosay("Notice: Deactivate using authentication disk in SAT-Chamber", "Ship Authentication Control")
 
 
 	while(timer)
@@ -134,31 +134,31 @@
 		var/obj/machinery/nuclearbomb/station/N = nuke.resolve()
 		if(!user || !user.bombing_station || user.stat == DEAD || !N)
 			if(timer < stage2)
-				radio.autosay("Self-destruct sequence has been cancelled.", "Station Authentication Control")
+				radio.autosay("Self-destruct sequence has been cancelled.", "Ship Authentication Control")
 			else
-				radio.autosay("Brute force attempt has ceased.", "Station Authentication Control")
+				radio.autosay("Brute force attempt has ceased.", "Ship Authentication Control")
 			return
 		if(N.auth)
 			if(timer < stage2)
-				radio.autosay("Local Override Engaged - Self-Destruct cancelled.", "Station Authentication Control")
+				radio.autosay("Local Override Engaged - Self-Destruct cancelled.", "Ship Authentication Control")
 			else
-				radio.autosay("Local Override Engaged - Network connection disabled.", "Station Authentication Control")
+				radio.autosay("Local Override Engaged - Network connection disabled.", "Ship Authentication Control")
 			user.bombing_station = 0
 			return
 		if(timer == stage1+1)
 			radio.autosay("Alert: Primary firewall bypassed.")
 			radio.autosay("Alert: Brute force attempt on backup firewall detected.")
-			radio.autosay("Notice: Local Override with authentication disk recommended.", "Station Authentication Control")
+			radio.autosay("Notice: Local Override with authentication disk recommended.", "Ship Authentication Control")
 			user.bombing_time = stage1 //Further attempts will only take 900 seconds
 		if(timer == stage2+1)
 			radio.autosay("Emergency: Backup firewall failed.")
-			radio.autosay("Self-destruct sequence has been activated. Self-destructing in [timer] seconds.", "Station Authentication Control")
-			radio.autosay("Notice: Deactivate using authentication disk in SAT-Chamber", "Station Authentication Control")
+			radio.autosay("Self-destruct sequence has been activated. Self-destructing in [timer] seconds.", "Ship Authentication Control")
+			radio.autosay("Notice: Deactivate using authentication disk in SAT-Chamber", "Ship Authentication Control")
 			user.bombing_time = stage2 //Further attempts will only take 600 seconds
 		if(timer in list(2, 3, 4, 5, 10, 30, 60, 90, 120, 240, 300)) // Announcement times. "1" is not intentionally included!
-			radio.autosay("Self-destruct in [timer] seconds.", "Station Authentication Control")
+			radio.autosay("Self-destruct in [timer] seconds.", "Ship Authentication Control")
 		if(timer == 1)
-			radio.autosay("Self-destruct sequence initiated. Have a nice day", "Station Authentication Control")
+			radio.autosay("Self-destruct sequence initiated. Have a nice day", "Ship Authentication Control")
 		timer--
 
 	SSticker.station_explosion_cinematic(0,null)

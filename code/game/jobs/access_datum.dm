@@ -264,7 +264,7 @@
 /var/const/access_network = 42
 /datum/access/network
 	id = access_network
-	desc = "Station Network"
+	desc = "Ship Network"
 	region = ACCESS_REGION_RESEARCH
 
 /var/const/access_leviathan = 43

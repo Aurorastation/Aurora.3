@@ -1,6 +1,6 @@
 /datum/job/merchant
 	title = "Merchant"
-	faction = "Station"
+	faction = "Ship"
 	flag = MERCHANT
 	department_flag = SERVICE
 	total_positions = 0

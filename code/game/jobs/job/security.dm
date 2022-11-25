@@ -3,7 +3,7 @@
 	flag = HOS
 	departments = list(DEPARTMENT_SECURITY = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	intro_prefix = "the"
@@ -70,7 +70,7 @@
 	flag = WARDEN
 	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
@@ -123,7 +123,7 @@
 	flag = FORENSICS
 	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of security"
@@ -172,7 +172,7 @@
 	flag = OFFICER
 	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the head of security"
@@ -223,7 +223,7 @@
 	flag = INTERN_SEC
 	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
-	faction = "Station"
+	faction = "Ship"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Head of Security"

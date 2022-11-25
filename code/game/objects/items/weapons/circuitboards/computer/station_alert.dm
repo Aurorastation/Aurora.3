@@ -1,5 +1,5 @@
 /obj/item/circuitboard/stationalert
-	name = T_BOARD("station alert console")
+	name = T_BOARD("ship alert console")
 	build_path = /obj/machinery/computer/station_alert
 	var/list/alarm_handlers
 

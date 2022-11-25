@@ -322,7 +322,7 @@
 			if("rejected")
 				return "Rejected"
 			if("shipped")
-				return "Shipped to the Station"
+				return "Shipped to the Vessel"
 			if("delivered")
 				return "Delivered"
 			else

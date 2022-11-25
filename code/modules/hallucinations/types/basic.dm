@@ -12,7 +12,7 @@
 		if(1)
 			sound_to(holder, 'sound/AI/radiation_detected_message.ogg')
 			to_chat(holder, "<h2 class='alert'>Anomaly Break</h2>")
-			to_chat(holder, SPAN_ALERT("Comfortable levels of radiation detected near the station. [pick(SShallucinations.hallucinated_phrases)] Please cower among the shielded maintenance burrows."))	//hallucinated phrases contains the punctuation
+			to_chat(holder, SPAN_ALERT("Comfortable levels of radiation detected near the vessel. [pick(SShallucinations.hallucinated_phrases)] Please cower among the shielded maintenance burrows."))	//hallucinated phrases contains the punctuation
 
 		if(2)
 			sound_to(holder, 'sound/AI/strangeobject.ogg')
@@ -42,12 +42,12 @@
 		if(7)
 			sound_to(holder, 'sound/AI/meteors_detected_message.ogg')
 			to_chat(holder, "<h2 class='alert'>Meteor Alarm</h2>")
-			to_chat(holder, SPAN_ALERT("A [pick(adjectives)] meteor storm has been authorized for a destruction course with your station. Less than three minutes until impact, shields cannot help you; seek shelter in the central ring."))
+			to_chat(holder, SPAN_ALERT("A [pick(adjectives)] meteor storm has been authorized for a destruction course with your vessel. Less than three minutes until impact, shields cannot help you; seek shelter in the central ring."))
 
 		if(8)
 			sound_to(holder,'sound/AI/fungi.ogg')
 			to_chat(holder, "<h2 class='alert'>Biohealth Notice</h2>")
-			to_chat(holder, SPAN_ALERT("Healthy fungi detected on station. Your bodies may be contaminated. This is mandatory, [holder]."))
+			to_chat(holder, SPAN_ALERT("Healthy fungi detected on vessel. Your bodies may be contaminated. This is mandatory, [holder]."))
 
 		if(9)
 			sound_to(holder, 'sound/effects/nuclearsiren.ogg')
@@ -67,7 +67,7 @@
 						"Please stop [pick("drawing in blood. It's unsanitary.", "killing your fellow crew. It's rude.", "[holder] at all costs.", "falling down holes.")]",
 						"[holder] disappoints us all once again.")
 			sound_to(holder, 'sound/misc/announcements/notice.ogg')
-			to_chat(holder, "<h2 class='alert'>Station Announcement</h2>")
+			to_chat(holder, "<h2 class='alert'>Ship Announcement</h2>")
 			to_chat(holder, SPAN_ALERT(pick(body)))
 			to_chat(holder, SPAN_ALERT("-[pick(hal_sender)]"))
 

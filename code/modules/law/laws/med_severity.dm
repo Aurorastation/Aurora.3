@@ -103,7 +103,7 @@
 
 /datum/law/med_severity/sabotage
 	name = "i213 - Sabotage"
-	desc = "To hinder the efforts of the crew or station with malicious intent. To cause irreparable damage to the chassis or positronic brain of an owned IPC."
+	desc = "To hinder the efforts of the crew or ship with malicious intent. To cause irreparable damage to the chassis or positronic brain of an owned IPC."
 	id = "i213"
 
 	min_brig_time = 15

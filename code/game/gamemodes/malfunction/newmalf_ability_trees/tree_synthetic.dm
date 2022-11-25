@@ -217,7 +217,7 @@
 
 /datum/game_mode/malfunction/verb/synthetic_takeover()
 	set name = "Synthetic Takeover"
-	set desc = "450 CPU - Starts a takeover of the station enabling several abilities that relate to synthetic dominance."
+	set desc = "450 CPU - Starts a takeover of the ship enabling several abilities that relate to synthetic dominance."
 	set category = "Software"
 	var/price = 450
 

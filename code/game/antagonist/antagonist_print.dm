@@ -74,7 +74,7 @@
 			// they are either imprisoned, or handcuffed in an area that can't be considered a hideout
 			text += "apprehended"
 		else if(isNotStationLevel(M.z))
-			text += "fled the station"
+			text += "fled the ship"
 		else
 			text += "survived"
 		if(M.stat == UNCONSCIOUS)
@@ -133,7 +133,7 @@
 			if(ply.current.stat == DEAD)
 				text += "died"
 			else if(isNotStationLevel(ply.current.z))
-				text += "fled the station"
+				text += "fled the ship"
 			else
 				text += "survived"
 			if(ply.current.real_name != ply.name)

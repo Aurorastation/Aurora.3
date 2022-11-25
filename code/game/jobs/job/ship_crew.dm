@@ -3,7 +3,7 @@
 	flag = ASSISTANT
 	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = SERVICE
-	faction = "Station"
+	faction = "Ship"
 	total_positions = -1
 	spawn_positions = -1
 	intro_prefix = "an"
@@ -33,7 +33,7 @@
 	flag = VISITOR
 	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = SERVICE
-	faction = "Station"
+	faction = "Ship"
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "any authority figure"
@@ -60,7 +60,7 @@
 	flag = PASSENGER
 	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
 	department_flag = SERVICE
-	faction = "Station"
+	faction = "Ship"
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "any authority figure"

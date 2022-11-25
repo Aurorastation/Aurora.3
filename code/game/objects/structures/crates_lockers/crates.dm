@@ -437,7 +437,7 @@
 
 /obj/structure/closet/crate/secure/hydrosec
 	name = "secure hydroponics crate"
-	desc = "A crate with a lock on it, painted in the scheme of the station's botanists."
+	desc = "A crate with a lock on it, painted in the scheme of the ship's botanists."
 	icon_state = "hydro_secure_crate"
 	req_one_access = list(access_hydroponics, access_xenobotany)
 

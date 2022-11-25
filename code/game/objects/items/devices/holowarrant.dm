@@ -49,7 +49,7 @@
 	storedwarrant = list()
 	for(var/datum/record/warrant/W in SSrecords.warrants)
 		storedwarrant += W.name
-	to_chat(user, "<span class='notice'>The device hums faintly as it syncs with the station database</span>")
+	to_chat(user, "<span class='notice'>The device hums faintly as it syncs with the ships database</span>")
 
 /obj/item/device/holowarrant/proc/show_content(mob/user, forceshow)
 	if(activetype == "arrest")

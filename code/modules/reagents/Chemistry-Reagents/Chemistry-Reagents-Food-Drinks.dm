@@ -3133,7 +3133,7 @@
 
 	glass_icon_state = "gargleblasterglass"
 	glass_name = "glass of Pan-Galactic Gargle Blaster"
-	glass_desc = "Does... does this mean that Arthur and Ford are on the station? Oh joy."
+	glass_desc = "Does... does this mean that Arthur and Ford are on the ship? Oh joy."
 	glass_center_of_mass = list("x"=17, "y"=6)
 
 /decl/reagent/alcohol/gintonic
@@ -3303,7 +3303,7 @@
 
 /decl/reagent/alcohol/manhattan_proj
 	name = "Manhattan Project"
-	description = "A scientist's drink of choice, for pondering ways to blow up the station."
+	description = "A scientist's drink of choice, for pondering ways to blow up the ship."
 	color = "#ff3300"
 	strength = 30
 	druggy = 30
@@ -3311,7 +3311,7 @@
 
 	glass_icon_state = "proj_manhattanglass"
 	glass_name = "glass of Manhattan Project"
-	glass_desc = "A scientist's drink of choice, for thinking how to blow up the station."
+	glass_desc = "A scientist's drink of choice, for thinking how to blow up the ship."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
 /decl/reagent/alcohol/manly_dorf
@@ -3782,14 +3782,14 @@
 
 /decl/reagent/alcohol/specialwhiskey // I have no idea what this is and where it comes from
 	name = "Special Blend Whiskey"
-	description = "Just when you thought regular station whiskey was good... This silky, amber goodness has to come along and ruin everything."
+	description = "Just when you thought regular ship whiskey was good... This silky, amber goodness has to come along and ruin everything."
 	color = "#b5a288"
 	strength = 45
 	taste_description = "silky, amber goodness"
 
 	glass_icon_state = "whiskeyglass"
 	glass_name = "glass of special blend whiskey"
-	glass_desc = "Just when you thought regular station whiskey was good... This silky, amber goodness has to come along and ruin everything."
+	glass_desc = "Just when you thought regular ship whiskey was good... This silky, amber goodness has to come along and ruin everything."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 // Snowflake drinks

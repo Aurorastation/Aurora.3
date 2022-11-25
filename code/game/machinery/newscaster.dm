@@ -6,7 +6,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 /obj/machinery/newscaster
 	name = "newscaster"
-	desc = "A standard newsfeed handler for use on commercial space stations. All the news you absolutely have no use for, in one place!"
+	desc = "A standard newsfeed handler for use on commercial space stations or vessels. All the news you absolutely have no use for, in one place!"
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "newscaster"
 	anchored = TRUE
@@ -192,7 +192,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					dat+="<BR><A href='?src=\ref[src];menu_censor_channel=1'>Mark Feed Channel with [current_map.company_name] D-Notice</A>"
 				dat+="<BR><HR>The newscaster recognises you as: <span class='good'>[src.scanned_user]</span>"
 			if(1)
-				dat+= "Station Feed Channels<HR>"
+				dat+= "Ship Feed Channels<HR>"
 				if( isemptylist(SSnews.network_channels) )
 					dat+="<I>No active channels found...</I>"
 				else
@@ -275,7 +275,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			if(9)
 				dat+="<B>[src.viewing_channel.channel_name]: </B><FONT SIZE=1>\[created by: <span class='boldannounce'>[src.viewing_channel.author]</span>\]</font><HR>"
 				if(src.viewing_channel.censored)
-					dat+="<span class='warning'><B>ATTENTION:</B></span> This channel has been deemed as threatening to the welfare of the station, and marked with a [current_map.company_name] D-Notice.<BR>"
+					dat+="<span class='warning'><B>ATTENTION:</B></span> This channel has been deemed as threatening to the welfare of the vessel, and marked with a [current_map.company_name] D-Notice.<BR>"
 					dat+="No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>"
 				else
 					if( isemptylist(src.viewing_channel.messages) )
@@ -309,7 +309,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Cancel</A>"
 			if(11)
 				dat+="<B>[current_map.company_name] D-Notice Handler</B><HR>"
-				dat+="<FONT SIZE=1>A D-Notice is to be bestowed upon the channel if the handling Authority deems it as harmful for the station's"
+				dat+="<FONT SIZE=1>A D-Notice is to be bestowed upon the channel if the handling Authority deems it as harmful for the vessel's"
 				dat+="morale, integrity or disciplinary behaviour. A D-Notice will render a channel unable to be updated by anyone, without deleting any feed"
 				dat+="stories it might contain at the time. You can lift a D-Notice if you have the required access at any time.</font><HR>"
 				if(isemptylist(SSnews.network_channels))
@@ -334,9 +334,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<BR><A href='?src=\ref[src];setScreen=[10]'>Back</A>"
 			if(13)
 				dat+="<B>[src.viewing_channel.channel_name]: </B><FONT SIZE=1>\[ created by: <span class='boldannounce'>[src.viewing_channel.author]</span> \]</font><BR>"
-				dat+="Channel messages listed below. If you deem them dangerous to the station, you can <A href='?src=\ref[src];toggle_d_notice=\ref[src.viewing_channel]'>Bestow a D-Notice upon the channel</A>.<HR>"
+				dat+="Channel messages listed below. If you deem them dangerous to the vessel, you can <A href='?src=\ref[src];toggle_d_notice=\ref[src.viewing_channel]'>Bestow a D-Notice upon the channel</A>.<HR>"
 				if(src.viewing_channel.censored)
-					dat+="<span class='warning'><B>ATTENTION:</B></span> This channel has been deemed as threatening to the welfare of the station, and marked with a [current_map.company_name] D-Notice.<BR>"
+					dat+="<span class='warning'><B>ATTENTION:</B></span> This channel has been deemed as threatening to the welfare of the vessel, and marked with a [current_map.company_name] D-Notice.<BR>"
 					dat+="No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>"
 				else
 					if( isemptylist(src.viewing_channel.messages) )
@@ -387,7 +387,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<B>Wanted Issue successfully deleted from Circulation</B><BR>"
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Return</A><BR>"
 			if(18)
-				dat+="<B><span class='boldannounce'>-- STATIONWIDE WANTED ISSUE --</B></span><BR><FONT SIZE=2>\[Submitted by: <span class='good'>[SSnews.wanted_issue.backup_author]</span>\]</font><HR>"
+				dat+="<B><span class='boldannounce'>-- VESSELWIDE WANTED ISSUE --</B></span><BR><FONT SIZE=2>\[Submitted by: <span class='good'>[SSnews.wanted_issue.backup_author]</span>\]</font><HR>"
 				dat+="<B>Criminal</B>: [SSnews.wanted_issue.author]<BR>"
 				dat+="<B>Description</B>: [SSnews.wanted_issue.body]<BR>"
 				dat+="<B>Photo:</B>: "
@@ -876,7 +876,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				var/datum/feed_channel/C = src.news_content[src.curr_page]
 				dat+="<FONT SIZE=4><B>[C.channel_name]</B></font><FONT SIZE=1> \[created by: <span class='boldannounce'>[C.author]</span>\]</font><BR><BR>"
 				if(C.censored)
-					dat+="This channel was deemed dangerous to the general welfare of the station and therefore marked with a <B><span class='warning'>D-Notice</B></span>. Its contents were not transferred to the newspaper at the time of printing."
+					dat+="This channel was deemed dangerous to the general welfare of the vessel and therefore marked with a <B><span class='warning'>D-Notice</B></span>. Its contents were not transferred to the newspaper at the time of printing."
 				else
 					if(isemptylist(C.messages))
 						dat+="No Feed stories stem from this channel..."

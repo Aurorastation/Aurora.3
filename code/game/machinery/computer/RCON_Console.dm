@@ -6,7 +6,7 @@
 
 /obj/machinery/computer/rcon
 	name = "\improper RCON console"
-	desc = "Console used to remotely control machinery on the station."
+	desc = "Console used to remotely control machinery on the ship."
 
 	icon_screen = "ai-fixer"
 	icon_keyboard = "purple_key"

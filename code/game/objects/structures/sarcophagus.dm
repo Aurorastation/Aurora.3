@@ -72,7 +72,7 @@
 
 /obj/item/sarcophagus_key
 	name = "ancient key"
-	desc = "An archaic key, probably not used to open any airlock on station."
+	desc = "An archaic key, probably not used to open any airlock on an installation."
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "unknown1"
 	w_class = ITEMSIZE_SMALL

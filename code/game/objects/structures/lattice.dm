@@ -74,7 +74,7 @@
 
 // Special catwalk that can be placed on regular flooring.
 /obj/structure/lattice/catwalk/indoor
-	desc = "A floor-mounted catwalk designed to protect pipes & station wiring from passing feet."
+	desc = "A floor-mounted catwalk designed to protect pipes & vessel wiring from passing feet."
 	restrict_placement = FALSE
 	can_be_unanchored = TRUE
 	layer = 2.7	// Above wires.

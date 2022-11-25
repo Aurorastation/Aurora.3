@@ -210,7 +210,7 @@ var/list/ai_verbs_default = list(
 	return ..()
 
 /mob/living/silicon/ai/proc/on_mob_init()
-	to_chat(src, "<h3>You are playing the station's AI.</h3>")
+	to_chat(src, "<h3>You are playing the ship's AI.</h3>")
 	to_chat(src, "<strong><a href='?src=\ref[src];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
 
 	if(malf && !(mind in malf.current_antagonists))
@@ -350,13 +350,13 @@ var/list/ai_verbs_default = list(
 	var/radio_keys = jointext(src.get_radio_keys(), "<br>")
 	var/dat = "\
 		<h1>AI Basics</h1>\
-		<p>You are playing the station's AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</p>\
+		<p>You are playing the vessel's AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</p>\
 		<p>Familiarize yourself with the GUI buttons in world view. They are shortcuts to running commands for camera tracking, displaying alerts, moving up and down and such.</p>\
 		<p>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc. \
 			To use something, simply click on it.</p>\
 		<h2>AI Shell</h2>\
 		<p>As an AI, you have access to an unique, inhabitable AI shell that spawns behind your core.\
-			 This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the station.\
+			 This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the ship.\
 			 The shell is an extension of you, which means <strong>your laws apply to it aswell.</strong>\
 		</p>\
 		<h2>OOC Notes</h2>\
@@ -408,7 +408,7 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/var/message_cooldown = 0
 /mob/living/silicon/ai/proc/ai_announcement()
 	set category = "AI Commands"
-	set name = "Make Station Announcement"
+	set name = "Make Ship-wide Announcement"
 
 	if(check_unable(AI_CHECK_WIRELESS | AI_CHECK_RADIO))
 		return
@@ -416,7 +416,7 @@ var/list/ai_verbs_default = list(
 	if(message_cooldown)
 		to_chat(src, "Please allow one minute to pass between announcements.")
 		return
-	var/input = input(usr, "Please write a message to announce to the station crew.", "A.I. Announcement") as null|message
+	var/input = input(usr, "Please write a message to announce to the ship crew.", "A.I. Announcement") as null|message
 	if(!input)
 		return
 
