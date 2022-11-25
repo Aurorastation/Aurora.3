@@ -562,7 +562,7 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = 600
-	insecure = 0
+	insecure = FALSE
 	hashatch = FALSE
 
 /obj/machinery/door/airlock/diona/external
