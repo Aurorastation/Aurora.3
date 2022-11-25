@@ -1,6 +1,0 @@
-author: CinnySuccubus
-
-delete-after: True
-
-changes:
-  - tweak: "Removes minimum temperature limit (50K) from Xion frames, making them immune to the cold and allowing them to mine on ice planets and other environments below this limit."
