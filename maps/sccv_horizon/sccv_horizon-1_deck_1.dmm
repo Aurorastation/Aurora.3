@@ -6083,7 +6083,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/atmospherics/valve/digital{
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7433,7 +7433,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/machinery/atmospherics/valve/digital{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11497,6 +11497,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "iQR" = (
@@ -12805,6 +12806,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "jTl" = (
@@ -17194,7 +17196,6 @@
 	id = "port_prop_igni";
 	pixel_y = 26
 	},
-/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "nsg" = (
