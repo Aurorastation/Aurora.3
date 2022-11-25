@@ -1877,12 +1877,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"bwQ" = (
-/obj/machinery/atmospherics/binary/passive_gate{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "bxo" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
@@ -2064,14 +2058,6 @@
 "bCi" = (
 /turf/simulated/wall,
 /area/maintenance/hangar/port)
-"bCk" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/space,
-/area/horizon/exterior)
 "bCN" = (
 /obj/structure/stairs/west,
 /obj/structure/railing/mapped,
@@ -2669,15 +2655,6 @@
 /obj/effect/overmap/visitable/ship/landable/mining_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
-"bZF" = (
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 10
-	},
-/turf/space,
-/area/horizon/exterior)
 "bZR" = (
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations - Mining Shuttle Dock Fore Starboard";
@@ -4419,6 +4396,17 @@
 "dvT" = (
 /turf/simulated/wall,
 /area/assembly/chargebay)
+"dwr" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 10
+	},
+/obj/machinery/button/ignition{
+	id = "starboard_prop_igni";
+	pixel_y = 26
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion/starboard)
 "dwt" = (
 /obj/structure/window/shuttle/scc,
 /obj/machinery/door/firedoor,
@@ -5552,12 +5540,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
-"esJ" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 6
-	},
-/turf/space,
-/area/horizon/exterior)
 "esS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -9522,12 +9504,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
-"hhc" = (
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 10
-	},
-/turf/space,
-/area/horizon/exterior)
 "hhv" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -12351,6 +12327,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
+"jyY" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/turf/space,
+/area/horizon/exterior)
 "jzw" = (
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/escape_pod/pod1)
@@ -13153,6 +13137,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"kka" = (
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 6
+	},
+/turf/space,
+/area/horizon/exterior)
 "kki" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/airlock_sensor{
@@ -16033,13 +16023,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
-"myD" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/engineering/atmos/propulsion/starboard)
 "myR" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -18101,13 +18084,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"obF" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 8;
-	layer = 2.8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "obJ" = (
 /obj/structure/window/shuttle/scc,
 /obj/machinery/door/firedoor,
@@ -18589,6 +18565,12 @@
 "ozE" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/rnd/test_range)
+"ozF" = (
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 5
+	},
+/turf/space,
+/area/space)
 "oAi" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
 /turf/simulated/floor/plating,
@@ -22099,12 +22081,6 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/deck1)
-"roL" = (
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 5
-	},
-/turf/space,
-/area/space)
 "roX" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -22376,6 +22352,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
+"rzT" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8;
+	layer = 2.8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "rAa" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -26226,6 +26209,12 @@
 	roof_type = null
 	},
 /area/horizon/custodial/disposals)
+"uzj" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 6
+	},
+/turf/space,
+/area/horizon/exterior)
 "uzB" = (
 /turf/simulated/floor/plating,
 /area/operations/loading)
@@ -27886,6 +27875,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"vRX" = (
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 10
+	},
+/turf/space,
+/area/horizon/exterior)
 "vSF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -29140,6 +29138,12 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmos)
+"wSC" = (
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "wSS" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/plasticflaps/airtight,
@@ -30505,7 +30509,7 @@
 /area/engineering/atmos/propulsion)
 "xMk" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 6
+	dir = 10
 	},
 /turf/space,
 /area/horizon/exterior)
@@ -46332,7 +46336,7 @@ nFs
 iTW
 apQ
 awJ
-bwQ
+wSC
 wsO
 ekt
 sfF
@@ -47141,7 +47145,7 @@ awJ
 lEw
 awJ
 koH
-obF
+rzT
 sfF
 pzY
 awJ
@@ -47544,7 +47548,7 @@ fBs
 mqI
 lrd
 awJ
-myD
+dwr
 wuW
 mUj
 fTm
@@ -49964,7 +49968,7 @@ eSV
 eSV
 oam
 cpF
-esJ
+uzj
 etT
 onU
 qEq
@@ -51176,13 +51180,13 @@ eSV
 eSV
 sPo
 aZd
-xMk
+kka
 eRb
 qgu
 qgu
 qgu
 eRb
-bZF
+vRX
 cnx
 kid
 dzi
@@ -51384,7 +51388,7 @@ kna
 uAi
 wVU
 oDB
-hhc
+xMk
 lQF
 wEY
 hWb
@@ -52388,9 +52392,9 @@ eSV
 eSV
 sPo
 aZd
-hhc
+xMk
 kid
-roL
+ozF
 wEY
 wEY
 pYB
@@ -53404,8 +53408,8 @@ ukl
 eeb
 iES
 oDB
-esJ
-bCk
+uzj
+jyY
 vnK
 gCN
 aYt
