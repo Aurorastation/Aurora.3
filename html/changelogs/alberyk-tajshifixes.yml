@@ -1,0 +1,8 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed some mapping issues in some Tajaran ships."
+  - tweak: "The scrapper and the mining jack ghost roles now spawn inside the ship."
+  - tweak: "Added some food to the mining jack base."
