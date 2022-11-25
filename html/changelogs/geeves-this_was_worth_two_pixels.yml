@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - imageadd: "The piece of the Dominia cape that renders between your legs now gets hidden by tails or other clothes."
