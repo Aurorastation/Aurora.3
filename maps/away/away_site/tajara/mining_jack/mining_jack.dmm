@@ -502,13 +502,8 @@
 	},
 /area/mining_jack_outpost/atmos)
 "hb" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 10
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -532,8 +527,8 @@
 	},
 /area/mining_jack_outpost/smelter)
 "hi" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
-	dir = 1
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -805,14 +800,6 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/hangar)
-"le" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
 "lk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/meter,
@@ -953,8 +940,13 @@
 	},
 /area/shuttle/mining_jack/engines)
 "nb" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1850,6 +1842,14 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
+"Fo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/mining_jack/engines)
 "FJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2138,8 +2138,8 @@
 	},
 /area/mining_jack_outpost/smelter)
 "Nv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 1
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -33554,12 +33554,12 @@ wc
 NK
 YW
 mk
-nb
-hi
+hb
 Nv
+Fo
 Du
 oR
-le
+hi
 tc
 aN
 Wd
@@ -33813,7 +33813,7 @@ YW
 YW
 KQ
 Av
-hb
+nb
 OH
 aE
 ug
