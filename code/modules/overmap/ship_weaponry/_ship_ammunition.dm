@@ -16,13 +16,14 @@
 	var/ammunition_status = SHIP_AMMO_STATUS_GOOD //Currently unused, but will be relevant for chemical ammo.
 	var/ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
 	var/ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE //Not a bitfield!
-	var/overmap_behaviour = SHIP_AMMO_CAN_HIT_HAZARDS|SHIP_AMMO_CAN_HIT_SHIPS //Whether or not the ammo can hit hazards or ships, or both.
+	var/overmap_behaviour = SHIP_AMMO_CAN_HIT_HAZARDS|SHIP_AMMO_CAN_HIT_VISITABLES|SHIP_AMMO_CAN_HIT_PLANETS //Whether or not the ammo can hit hazards or ships, and so on.
 	var/overmap_icon_state = "cannon"
 	var/obj/effect/overmap/origin
 	var/atom/overmap_target
 	var/obj/entry_point
 	var/obj/item/projectile/original_projectile
 	var/heading = SOUTH
+	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
 
 	//Cookoff variables.
 	var/cookoff_devastation = 0
@@ -177,6 +178,7 @@
 	P.desc = desc
 	P.ammunition = src
 	P.target = overmap_target
+	P.range = range
 	if(istype(origin, /obj/effect/overmap/visitable/ship))
 		var/obj/effect/overmap/visitable/ship/S = origin
 		P.dir = S.dir

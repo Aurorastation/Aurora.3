@@ -27,6 +27,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/has_called_distress_beacon = FALSE
 	var/image/applied_distress_overlay
 
+	var/targeting_flags = TARGETING_FLAG_ENTRYPOINTS|TARGETING_FLAG_GENERIC_WAYPOINTS
 	var/list/obj/machinery/ship_weapon/ship_weapons
 	var/list/obj/effect/landmark/entry_points
 	var/obj/effect/overmap/targeting
@@ -54,7 +55,11 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	LAZYADD(SSshuttle.sectors_to_initialize, src) //Queued for further init. Will populate the waypoint lists; waypoints not spawned yet will be added in as they spawn.
 	SSshuttle.clear_init_queue()
+	START_PROCESSING(SSprocessing, src)
 
+/obj/effect/overmap/visitable/process()
+	if(get_dist(src, targeting) > 7)
+		detarget(targeting)
 
 /obj/effect/overmap/visitable/Destroy()
 	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
@@ -71,6 +76,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		ship_weapons.Cut()
 	targeting = null
 	levi_safeguard = null
+	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.

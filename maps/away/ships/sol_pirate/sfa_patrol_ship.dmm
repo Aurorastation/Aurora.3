@@ -94,6 +94,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
+/obj/machinery/vending/sovietsoda{
+	name = "Soda Water Machine"
+	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "atj" = (
@@ -142,6 +145,17 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/reinforced/full,
+/obj/item/tape_roll,
+/obj/item/tape_roll,
+/obj/item/storage/box/lights/mixed,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/tank/phoron/shuttle,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/stack/material/glass/full,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "aBb" = (
@@ -195,6 +209,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "aJd" = (
@@ -225,8 +240,9 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/structure/table/steel,
-/obj/item/toy/desk/fan,
+/obj/machinery/computer/ship/targeting{
+	dir = 8
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -237,6 +253,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "aSm" = (
@@ -373,7 +390,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "bFk" = (
-/obj/item/modular_computer/console/preset/civilian{
+/obj/machinery/computer/ship/targeting{
 	dir = 1
 	},
 /obj/structure/railing/mapped,
@@ -387,6 +404,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "bNj" = (
@@ -401,11 +419,30 @@
 /area/ship/sfa_patrol_ship)
 "ccm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/obj/item/tank/phoron/shuttle,
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/box/lights/mixed,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_y = 8
+	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "ccO" = (
@@ -482,7 +519,7 @@
 /area/ship/sfa_patrol_ship)
 "dLJ" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms/Aux CIC"
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
@@ -724,7 +761,7 @@
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "fqb" = (
-/obj/structure/bed/stool/chair/office/dark{
+/obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1150,6 +1187,9 @@
 /obj/structure/closet/toolcloset,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "hBs" = (
@@ -1161,6 +1201,14 @@
 	name = "aft, port side"
 	},
 /turf/simulated/wall/shuttle/raider,
+/area/ship/sfa_patrol_ship)
+"hKh" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/ship/sensors,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
 /area/ship/sfa_patrol_ship)
 "hQp" = (
 /obj/machinery/atmospherics/unary/engine,
@@ -1204,6 +1252,11 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/sfa_shuttle)
+"iiJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
+/area/ship/sfa_patrol_ship)
 "iiZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -1350,7 +1403,7 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
-/obj/item/clothing/under/rank/medical,
+/obj/item/clothing/under/rank/medical/surgeon,
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical/w,
 /obj/machinery/light{
@@ -1428,6 +1481,10 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/sfa_shuttle)
+"jwU" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
+/area/ship/sfa_patrol_ship)
 "jxF" = (
 /obj/structure/bed/roller,
 /obj/structure/curtain/open/medical,
@@ -1643,6 +1700,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship)
+"kUJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
+/area/ship/sfa_patrol_ship)
 "kWZ" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/gloves,
@@ -1696,8 +1761,10 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/sfa_shuttle)
 "lmO" = (
-/obj/structure/table/steel,
-/obj/item/folder/red,
+/obj/machinery/computer/ship/helm{
+	dir = 8;
+	req_access = list(203)
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -2356,11 +2423,13 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship)
 "rdB" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/vending/sovietsoda{
-	name = "Soda Water Machine"
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "SFA Francisca Rotary Gun"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "rgA" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -2610,6 +2679,13 @@
 "ufa" = (
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
+/area/ship/sfa_patrol_ship)
+"uii" = (
+/obj/structure/ship_weapon_dummy,
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "uBC" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -2908,6 +2984,12 @@
 	req_access = list(203)
 	},
 /obj/item/folder/blue,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
+"wEB" = (
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "SFA Francisca Rotary Gun"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "wMs" = (
@@ -30473,11 +30555,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+jwU
+jwU
+jwU
+jwU
+uii
 xRX
 xRX
 xRX
@@ -30730,8 +30812,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+rdB
+jwU
 xRX
 xRX
 xRX
@@ -30987,7 +31069,7 @@ nit
 yjk
 yjk
 yjk
-yjk
+wEB
 yjk
 yjk
 yjk
@@ -31244,7 +31326,7 @@ sBA
 nsN
 yjk
 pXP
-rdB
+aCd
 yjk
 akP
 aMB
@@ -31991,13 +32073,13 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+yjk
+yjk
+yjk
+yjk
+dyv
+yjk
+yjk
 yjk
 yjk
 yjk
@@ -32021,7 +32103,7 @@ sBA
 ttG
 ttG
 sBA
-tKM
+tra
 yjk
 sBA
 sBA
@@ -32252,7 +32334,7 @@ yjk
 yjk
 yjk
 yjk
-dyv
+yjk
 yjk
 yjk
 yjk
@@ -32274,7 +32356,7 @@ yjk
 aCd
 aCd
 yjk
-tra
+yjk
 yjk
 yjk
 qgw
@@ -32530,8 +32612,8 @@ sAC
 yjk
 sBA
 shH
-yjk
-yjk
+buM
+aAY
 yjk
 vCZ
 ylV
@@ -33022,7 +33104,7 @@ xRX
 aaI
 bGz
 aHw
-yjW
+iiJ
 mkb
 yjk
 lNu
@@ -33301,7 +33383,7 @@ iQt
 yjk
 aCd
 aCd
-ccm
+vyZ
 fkj
 yjk
 fDM
@@ -33533,9 +33615,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
+yjk
+yjk
+yjk
 yjk
 sBA
 vQR
@@ -33558,7 +33640,7 @@ yjk
 yjk
 sBA
 shH
-aAY
+ccm
 fkj
 yjk
 eeP
@@ -36617,9 +36699,9 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
+yjk
+yjk
+yjk
 yjk
 shH
 bci
@@ -37132,7 +37214,7 @@ xRX
 xRX
 xRX
 aaI
-oJN
+kUJ
 aSi
 mkb
 yjW
@@ -37394,7 +37476,7 @@ aJd
 oJN
 mkb
 yjk
-bfG
+hKh
 fqb
 fUw
 yjk
@@ -37906,7 +37988,7 @@ yjk
 yjk
 yjk
 yjk
-pIa
+yjk
 yjk
 yjk
 yjk
@@ -38159,13 +38241,13 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+yjk
+yjk
+yjk
+yjk
+pIa
+yjk
+yjk
 yjk
 yjk
 yjk

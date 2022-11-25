@@ -12,8 +12,9 @@
 #define OUTFIT_GENERIC 2
 #define OUTFIT_FACTIONSPECIFIC 3
 
-#define OUTFIT_NORMAL 2
-#define OUTFIT_THICK 3
+#define OUTFIT_THIN 2
+#define OUTFIT_NORMAL 3
+#define OUTFIT_THICK 4
 
 #define OUTFIT_BLUE 2
 #define OUTFIT_GREEN 3
@@ -214,13 +215,15 @@
 					B.color = "#3d2711"
 		else
 			B.color = null
-		switch (H.backbag_strap)
-			if (OUTFIT_NOTHING)
+		switch(H.backbag_strap)
+			if(OUTFIT_NOTHING)
 				B.alpha_mask = "hidden"
-			if (OUTFIT_THICK)
-				B.alpha_mask = null
-			if (OUTFIT_NORMAL)
+			if(OUTFIT_THIN)
+				B.alpha_mask = "thin"
+			if(OUTFIT_NORMAL)
 				B.alpha_mask = "normal"
+			if(OUTFIT_THICK)
+				B.alpha_mask = null
 		if(isvaurca(H, TRUE))
 			H.equip_or_collect(B, slot_r_hand)
 		else
@@ -397,19 +400,19 @@
 		var/obj/item/I = new pda(H)
 		switch(H.pda_choice)
 			if(OUTFIT_TAB_PDA)
-				I.desc_fluff += "For its many years of service, this model has held a virtual monopoly for PDA models for NanoTrasen. The secret? A lapel pin affixed to the back."
+				I.desc_extended += "For its many years of service, this model has held a virtual monopoly for PDA models for NanoTrasen. The secret? A lapel pin affixed to the back."
 			if(OUTFIT_PDA_OLD)
 				I.icon = 'icons/obj/pda_old.dmi'
-				I.desc_fluff += "Nicknamed affectionately as the 'Brick', PDA enthusiasts rejoice with the return of an old favorite, retrofitted to new modular computing standards."
+				I.desc_extended += "Nicknamed affectionately as the 'Brick', PDA enthusiasts rejoice with the return of an old favorite, retrofitted to new modular computing standards."
 			if(OUTFIT_PDA_RUGGED)
 				I.icon = 'icons/obj/pda_rugged.dmi'
-				I.desc_fluff += "EVA enthusiasts and owners of fat fingers just LOVE the huge tactile buttons provided by this model. Prone to butt-dialing, but don't let that hold you back."
+				I.desc_extended += "EVA enthusiasts and owners of fat fingers just LOVE the huge tactile buttons provided by this model. Prone to butt-dialing, but don't let that hold you back."
 			if(OUTFIT_PDA_SLATE)
 				I.icon = 'icons/obj/pda_slate.dmi'
-				I.desc_fluff += "A bet between an engineer and a disgruntled scientist, it turns out you CAN make a PDA out of an atmospherics scanner. Also, probably don't tell management, just enjoy."
+				I.desc_extended += "A bet between an engineer and a disgruntled scientist, it turns out you CAN make a PDA out of an atmospherics scanner. Also, probably don't tell management, just enjoy."
 			if(OUTFIT_PDA_SMART)
 				I.icon = 'icons/obj/pda_smart.dmi'
-				I.desc_fluff += "NanoTrasen originally designed this as a portable media player. Unfortunately, Royalty-free and corporate-approved ukulele isn't particularly popular."
+				I.desc_extended += "NanoTrasen originally designed this as a portable media player. Unfortunately, Royalty-free and corporate-approved ukulele isn't particularly popular."
 		I.update_icon()
 		if (H.pda_choice == OUTFIT_WRISTBOUND)
 			H.equip_or_collect(I, slot_wrists)

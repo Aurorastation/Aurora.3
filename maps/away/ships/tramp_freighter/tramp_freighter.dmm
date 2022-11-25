@@ -658,18 +658,9 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/flashshells,
-/obj/item/gun/projectile/shotgun/doublebarrel,
-/obj/item/storage/box/flashshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun,
-/obj/item/ammo_casing/a556,
-/obj/item/ammo_casing/a556,
-/obj/item/ammo_casing/a556,
-/obj/item/ammo_casing/a556,
-/obj/item/ammo_casing/a556,
-/obj/item/ammo_casing/a556,
-/obj/item/ammo_casing/a556,
+/obj/random/civgun/rifle,
+/obj/random/civgun/rifle,
+/obj/random/civgun/rifle,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
 "eiL" = (
@@ -954,6 +945,7 @@
 /obj/item/spacecash/c50,
 /obj/structure/closet,
 /obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/clothing/suit/armor/material/makeshift/plasteel,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
 "fXG" = (
@@ -1311,16 +1303,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/gun/projectile/tanto,
-/obj/item/ammo_magazine/mc10mm,
-/obj/item/ammo_magazine/mc10mm,
-/obj/item/gun/projectile/leyon,
-/obj/item/ammo_magazine/mc10mm/leyon,
-/obj/item/ammo_magazine/mc10mm/leyon,
-/obj/item/gun/projectile/revolver/detective,
-/obj/item/ammo_magazine/c38,
-/obj/item/ammo_magazine/c38,
-/obj/item/gun/energy/pistol,
+/obj/random/civgun,
+/obj/random/civgun,
+/obj/random/civgun,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
 "jgW" = (
@@ -1963,6 +1948,7 @@
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
+/obj/item/clothing/suit/armor/material/makeshift/plasteel,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
 "uDF" = (

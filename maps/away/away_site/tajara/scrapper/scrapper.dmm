@@ -1,569 +1,1375 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ab" = (
-/obj/structure/extinguisher_cabinet{
-	layer = 3.3;
-	pixel_x = -26
+"ag" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"aF" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/random/junk,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"aM" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/fryer{
-	pixel_y = 2
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"am" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"aK" = (
+/obj/structure/table/standard,
+/obj/item/material/ashtray/bronze,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
 "aP" = (
-/obj/structure/closet/cabinet,
-/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
-/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
-/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
-/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
-/obj/effect/decal/cleanable/cobweb2{
-	icon_state = "cobweb1"
-	},
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"aY" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10;
-	icon_state = "spline_fancy"
-	},
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"bg" = (
-/obj/structure/table/steel,
-/obj/item/device/flashlight/lantern,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"bt" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/meter,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"bC" = (
-/obj/machinery/seed_storage/garden,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"bF" = (
-/obj/structure/sign/double/map/right{
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"aR" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"aV" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"aX" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"bO" = (
-/obj/structure/closet/crate,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"bP" = (
-/obj/machinery/light/small{
-	dir = 8
+/area/scrapper_base)
+"be" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
+/area/scrapper_base)
+"bg" = (
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
+"bm" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"bp" = (
+/obj/effect/shuttle_landmark/tajara_scrapper/nav3,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
+"br" = (
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"bt" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"bw" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"by" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"bF" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, power station"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/power_station)
+"bK" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 5
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"bO" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
 "bS" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
 /area/space)
-"bV" = (
-/obj/machinery/computer/shuttle_control/explore/tajara_safehouse_shuttle{
+"bT" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"cq" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"cD" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"ch" = (
-/obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"cm" = (
-/obj/machinery/door/airlock/hatch,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"cs" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"cJ" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"cT" = (
-/obj/structure/table/wood,
-/obj/item/pen/black,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"dc" = (
-/turf/simulated/mineral,
-/area/tajara_safehouse)
-"dw" = (
-/obj/structure/bed/stool/chair/shuttle{
+/area/scrapper_base)
+"cG" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"cH" = (
+/obj/structure/toilet{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"dI" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"dK" = (
-/obj/machinery/light{
-	dir = 1
+/turf/simulated/floor/tiled/freezer,
+/area/scrapper_base/quarters)
+"da" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "scrapper_bridge"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"dP" = (
-/obj/structure/table/stone/marble,
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/reagent_containers/food/snacks/tajaran_bread,
-/obj/item/reagent_containers/food/snacks/tajaran_bread,
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"dR" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"dU" = (
-/obj/effect/decal/cleanable/cobweb2{
-	icon_state = "spiderling";
-	name = "dead greimorian"
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"dX" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/area/shuttle/scrapper_ship/bridge)
+"db" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/cyan,
+/obj/machinery/meter,
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"dZ" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"ec" = (
-/obj/effect/landmark/entry_point/west{
-	name = "starboard, side"
+/area/shuttle/scrapper_ship/atmos)
+"dj" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary{
-	name = "military hull"
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
 	},
-/area/shuttle/tajara_safehouse_shuttle)
-"eQ" = (
-/obj/machinery/light{
-	brightness_color = "#FA8282";
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
 	dir = 4
 	},
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"eZ" = (
-/obj/machinery/vending/boozeomat{
-	req_access = null
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
+"do" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, engine"
 	},
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"fa" = (
-/turf/unsimulated/wall/fakepdoor,
-/area/tajara_safehouse/hangar)
-"fb" = (
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/port_engines)
+"dp" = (
 /obj/machinery/telecomms/allinone/ship,
-/turf/simulated/floor,
-/area/tajara_safehouse)
-"fg" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/tajaran/dpra,
-/obj/item/clothing/under/tajaran/dpra/alt,
-/obj/effect/decal/cleanable/cobweb2{
-	icon_state = "cobweb1"
-	},
-/obj/item/clothing/accessory/tajaran/charm/tajani,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"fi" = (
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"fv" = (
-/obj/structure/table/wood/gamblingtable,
-/obj/item/storage/pill_bottle/dice/tajara,
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"fy" = (
-/obj/item/ore/iron,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"fC" = (
-/obj/structure/sink{
-	pixel_y = 20
-	},
-/obj/structure/mirror{
-	layer = 2.98;
-	pixel_y = 34
-	},
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"fG" = (
-/obj/machinery/light{
-	dir = 1
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"fS" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/reagent_containers/food/snacks/meat/adhomai,
-/turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"gn" = (
-/obj/machinery/light/small{
-	dir = 8
+/area/shuttle/scrapper_ship/storage)
+"dv" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
 	},
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"gr" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/material/kitchen/rollingpin,
-/obj/item/storage/box/clams,
-/obj/item/reagent_containers/food/condiment/sugar{
-	pixel_x = -8;
-	pixel_y = 8
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24;
+	req_access = list(202)
 	},
-/obj/item/reagent_containers/food/condiment/enzyme,
-/obj/item/reagent_containers/food/condiment/shaker/salt,
-/obj/item/reagent_containers/food/condiment/shaker/peppermill,
-/obj/item/reagent_containers/food/condiment/shaker/spacespice,
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"hp" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/stove,
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"hw" = (
-/obj/machinery/light{
-	dir = 8
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"hH" = (
-/obj/machinery/vending/snack,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"hJ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/reagent_dispensers/keg/mead,
-/turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"hZ" = (
-/obj/effect/decal/cleanable/cobweb2,
-/obj/structure/filingcabinet/chestdrawer,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"is" = (
-/obj/structure/sign/double/map/left{
-	desc = "A framed picture of the outpost";
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"iv" = (
-/obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"iy" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5;
-	icon_state = "spline_fancy"
-	},
-/obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"iz" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/reagent_containers/food/snacks/meat/adhomai,
-/obj/item/reagent_containers/food/snacks/meat/adhomai,
-/obj/machinery/light/small{
-	brightness_color = "#FA8282"
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"iF" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
-/area/shuttle/tajara_safehouse_shuttle)
-"iI" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary{
-	name = "military hull"
-	},
-/area/shuttle/tajara_safehouse_shuttle)
-"iK" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"iR" = (
-/obj/structure/closet/walllocker/emerglocker/west,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"jn" = (
-/obj/structure/reagent_dispensers/keg/mead,
-/turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"jw" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"jM" = (
-/obj/structure/trash_pile,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"jN" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/tajaran/fancy,
-/obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"jR" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
-/obj/machinery/computer/ship/engines{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"jU" = (
-/obj/structure/closet/crate/hydroponics,
-/obj/item/wirecutters/clippers,
-/obj/item/wirecutters/clippers,
-/obj/item/material/minihoe,
-/obj/item/material/minihoe,
-/obj/item/material/hatchet,
-/obj/item/material/hatchet,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/spline/plain/cee,
-/turf/simulated/floor/tiled,
-/area/tajara_safehouse)
-"kc" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"kd" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"kg" = (
-/obj/random/junk,
-/turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"ko" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"kD" = (
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"kO" = (
-/obj/structure/table/wood/gamblingtable,
-/obj/item/material/ashtray/bronze,
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"ll" = (
-/obj/structure/table/wood,
+/area/shuttle/scrapper_ship/workshop)
+"dG" = (
+/obj/structure/table/standard,
+/obj/machinery/light/small,
 /obj/item/paper_bin,
-/obj/item/pen/multi,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"lq" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/trash_pile,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"lH" = (
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"lO" = (
-/obj/structure/closet/cabinet,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"mt" = (
-/obj/machinery/door/airlock/hatch,
-/turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"nf" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/tajara_safehouse)
-"nk" = (
-/turf/simulated/wall,
-/area/tajara_safehouse)
-"nW" = (
-/obj/machinery/washing_machine,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"nY" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "tajara_safehouse_shuttle_out"
-	},
-/turf/simulated/floor,
-/area/shuttle/tajara_safehouse_shuttle)
-"nZ" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/item/pen,
+/obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"os" = (
-/obj/machinery/light/small{
-	dir = 1
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"dI" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"dJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"dS" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"ot" = (
-/obj/structure/ore_box,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/area/scrapper_base)
+"dU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"dW" = (
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"ei" = (
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"ox" = (
-/obj/machinery/vending/wallmed1{
-	name = "Medical Supplies";
-	pixel_x = -26;
-	pixel_y = -1;
+/area/scrapper_base/quarters)
+"er" = (
+/obj/machinery/vending/tool{
+	req_access = null
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"es" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 5
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"et" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/airless,
+/area/shuttle/scrapper_ship/starboard_engines)
+"ev" = (
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"eX" = (
+/obj/structure/table/standard,
+/obj/machinery/light/small,
+/obj/machinery/button/remote/blast_door{
+	id = "scrapper_bridge";
+	name = "Bridge Shutters";
+	req_access = list(202);
+	req_one_access = null
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"eZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"fb" = (
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"fd" = (
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
+/area/shuttle/scrapper_ship/starboard_engines)
+"fm" = (
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"fn" = (
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 4;
+	target_pressure = 250
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"fo" = (
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"fq" = (
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
+/area/shuttle/scrapper_ship/port_engines)
+"fv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"fG" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/extinguisher_cabinet{
+	layer = 3.3;
+	pixel_x = -27;
+	pixel_y = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"fQ" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = -5
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"fS" = (
+/obj/structure/closet/secure_closet/engineering_welding{
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"oz" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"pg" = (
-/obj/machinery/floodlight,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"pp" = (
-/obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"pv" = (
-/obj/effect/floor_decal/industrial/warning{
+/area/scrapper_base/storage)
+"gd" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/shuttle_landmark/tajara_safehouse_shuttle/hangar,
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"pw" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/bed/stool/bar/padded/black,
-/obj/effect/ghostspawpoint{
-	identifier = "tajaran_migrant";
-	name = "igs - tajaran_migrant"
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"py" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/sink/kitchen{
-	dir = 8;
-	pixel_x = 20
+/area/shuttle/scrapper_ship/port_engines)
+"ge" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"pF" = (
-/obj/structure/table/wood,
-/obj/item/material/knife/bayonet,
-/obj/item/device/radio/phone,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"pL" = (
-/obj/machinery/door/airlock/hatch,
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"pM" = (
-/obj/structure/table/steel,
-/obj/item/storage/toolbox/emergency,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"qh" = (
-/obj/item/material/ashtray,
-/obj/structure/table/wood,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"qo" = (
-/obj/structure/ore_box,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/light/small{
-	dir = 1
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"qq" = (
-/obj/item/bedsheet/grey,
-/obj/structure/bed/padded,
-/obj/structure/curtain/open/bed,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"qw" = (
-/obj/structure/closet/toolcloset,
-/turf/simulated/floor,
-/area/tajara_safehouse)
-"qD" = (
-/obj/effect/floor_decal/industrial/warning{
+/area/shuttle/scrapper_ship/starboard_engines)
+"gr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"qK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"gz" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"gE" = (
+/obj/machinery/power/terminal,
+/obj/structure/cable/green,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"gI" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"gP" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/clothing/mask/breath,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"gU" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, port storage"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"gW" = (
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"gY" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"hl" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/suit_cycler/engineering{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"ht" = (
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"hz" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, atmos"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/atmos)
+"hA" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"hB" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
+"hF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"hG" = (
+/obj/machinery/power/smes/buildable/autosolars,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/sign/electricshock{
+	pixel_x = -32
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"hZ" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"ib" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 32
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 22
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"ih" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"iw" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"iC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"iE" = (
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/atmos)
+"ja" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"jj" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"jF" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"jH" = (
+/obj/structure/table/rack,
+/obj/item/inflatable_dispenser,
+/obj/item/storage/bag/inflatable,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"jK" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "scrapper_bridge"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/bridge)
+"jV" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "scrapper_station_door";
+	locked = 1;
+	req_access = list(202)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"jW" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/clothing/mask/breath,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"kp" = (
+/obj/machinery/light/small,
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/item/toy/desk/fan,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"ku" = (
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"kz" = (
+/turf/simulated/wall/shuttle/raider,
+/area/scrapper_base/atmos)
+"kB" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/meter,
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"kM" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"kN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
+"la" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/red,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"lc" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/radiation,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"lk" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"lo" = (
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"lw" = (
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/floor_decal/corner/beige,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"lA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"lE" = (
+/obj/effect/map_effect/airlock/s_to_n,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"lM" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"lP" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"mc" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
+"md" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	req_access = list(202);
+	name = "Bridge"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"mx" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"mB" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"mG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"mI" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = -5
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"mR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"mT" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "tajara_scrapper";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"mU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"nb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24;
+	req_access = list(202)
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"ni" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"nm" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/scrapper_base)
+"nn" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"nr" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"nv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"nx" = (
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"nB" = (
+/obj/machinery/vending/cigarette,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
+"nR" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/solar_control/autostart,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"nW" = (
+/obj/structure/closet/secure_closet/engineering_electrical{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"oa" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/engineering_welding{
+	req_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /obj/machinery/light/small{
 	dir = 8
 	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"ob" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/shuttle/scrapper_ship/bridge)
+"oc" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
+/area/scrapper_base)
+"ot" = (
+/obj/structure/bed/stool/chair/sofa/right/black,
+/obj/effect/ghostspawpoint{
+	identifier = "tajaran_scrapper";
+	name = "igs - tajaran_scrapper"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
+"ov" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8;
+	icon_state = "map-scrubbers"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"oC" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"oD" = (
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24;
+	req_access = list(202)
+	},
+/obj/structure/cable/green,
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"oE" = (
+/obj/machinery/autolathe{
+	hacked = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"oP" = (
+/obj/machinery/pipedispenser,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"oR" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"oX" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"ph" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"pl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"pn" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"pT" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"pX" = (
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/workshop)
+"qk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	req_access = list(202);
+	name = "Bridge"
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"qn" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"qy" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/hatch{
+	req_access = list(202);
+	name = "Workshop"
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
 "rl" = (
 /turf/space/transit/north,
 /area/space)
@@ -571,859 +1377,2804 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
 /area/space)
-"rA" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
+"rs" = (
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"rE" = (
-/turf/simulated/wall/r_wall,
-/area/tajara_safehouse)
-"rN" = (
-/obj/structure/closet/cabinet,
-/obj/item/reagent_containers/food/drinks/bottle/messa_mead,
-/obj/item/reagent_containers/food/drinks/bottle/messa_mead,
-/obj/item/reagent_containers/food/drinks/bottle/messa_mead,
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"rW" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"rY" = (
-/obj/structure/table/wood,
-/obj/machinery/media/jukebox/phonograph,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"sb" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6;
-	icon_state = "spline_fancy"
+/area/shuttle/scrapper_ship/port_engines)
+"rz" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
 	},
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"sd" = (
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"sp" = (
-/obj/machinery/vending/coffee,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"su" = (
-/obj/structure/window/reinforced{
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"rD" = (
+/obj/effect/floor_decal/corner/beige{
 	dir = 1
 	},
-/obj/machinery/vending/tool,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"sE" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4;
-	icon_state = "spline_fancy"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/structure/bed/stool/bar/padded/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"rW" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"se" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"sj" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"sr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"ss" = (
+/obj/effect/map_effect/airlock/w_to_e/long/square,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
+"st" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"sE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
+"sG" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/ghostspawpoint{
-	identifier = "tajaran_migrant";
-	name = "igs - tajaran_migrant"
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"sI" = (
-/obj/effect/decal/cleanable/dirt,
+/area/shuttle/scrapper_ship/starboard_engines)
+"sJ" = (
+/obj/machinery/door/airlock/mining{
+	name = "Storage";
+	req_access = list(202)
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"sM" = (
-/obj/machinery/suit_cycler/engineering{
-	req_access = null
+/area/scrapper_base/quarters)
+"sR" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
-/obj/structure/window/reinforced{
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"sW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24;
+	req_access = list(202)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
+"tc" = (
+/obj/effect/floor_decal/corner/beige/full,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"te" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/effect/decal/fake_object{
+	color = "#8bbbd5";
+	icon = 'icons/obj/decals.dmi';
+	icon_state = "twin_suns";
+	name = "Twins Suns Symbol";
+	pixel_y = 32;
+	desc = "An ancient icon representing Adhomai's suns."
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"tf" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"ta" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"th" = (
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"to" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"tp" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/drinks/carton/fatshouters,
-/obj/item/reagent_containers/food/drinks/carton/fatshouters,
-/obj/item/reagent_containers/food/drinks/carton/fatshouters,
-/obj/item/reagent_containers/food/drinks/carton/fatshouters,
-/obj/item/reagent_containers/food/drinks/carton/fatshouters,
-/obj/item/reagent_containers/food/drinks/carton/fatshouters,
-/obj/item/reagent_containers/food/drinks/carton/fatshouters,
-/obj/item/reagent_containers/food/drinks/carton/fatshouters,
-/turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"tI" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/ghostspawpoint{
-	identifier = "tajara_revolutionary_army_agent";
-	name = "igs - tajara_revolutionary_army_agent"
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"tw" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/solar,
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"tz" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"tU" = (
-/obj/structure/bed/stool/bar/padded/black,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"uC" = (
-/obj/machinery/light/small{
-	brightness_color = "#FA8282"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"uR" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "tajara_safehouse_shuttle_dock";
-	pixel_y = 24
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"uV" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/bed/stool/bar/padded/black,
-/obj/effect/ghostspawpoint{
-	identifier = "tajaran_migrant";
-	name = "igs - tajaran_migrant"
-	},
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"uY" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"vj" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/cryopod{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"vm" = (
-/obj/structure/closet/cabinet,
-/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater,
-/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater,
-/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater,
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"vx" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/tajaran,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"vX" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"wj" = (
+/area/scrapper_base)
+"tA" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"wt" = (
-/obj/machinery/recharge_station,
-/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"wT" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall,
-/area/tajara_safehouse)
-"wY" = (
-/obj/machinery/atm{
+/area/scrapper_base)
+"tD" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"tQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"ua" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/template_noop,
+/area/scrapper_base)
+"ud" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "pump to waste"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
+"uf" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
+"us" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	icon_state = "rwindow"
+	},
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space)
+"uC" = (
+/obj/effect/floor_decal/corner/beige/full,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/window/reinforced{
+	dir = 8;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window{
+	dir = 1;
+	pixel_x = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"uD" = (
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = -32
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"uH" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
+"uS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"uW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"vc" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"xi" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"xL" = (
-/obj/structure/urinal{
-	dir = 8;
-	pixel_x = 32
+/area/shuttle/scrapper_ship/bridge)
+"vi" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/trash_pile,
-/turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"xQ" = (
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"yd" = (
-/obj/machinery/hologram/holopad/long_range,
-/obj/effect/overmap/visitable/ship/landable/tajara_safehouse_shuttle,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"yq" = (
-/obj/structure/bed/stool/chair/sofa/left/beige{
-	dir = 1
+/obj/machinery/door/airlock/hatch{
+	req_access = list(202);
+	name = "Solars"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
+"vj" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/obj/structure/extinguisher_cabinet{
+	layer = 3.3;
+	pixel_x = 24;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"yu" = (
-/obj/machinery/computer/ship/helm{
+/area/scrapper_base)
+"vl" = (
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
+"vs" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/engineering_electrical{
 	req_access = null
 	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"yw" = (
-/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"vA" = (
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"vD" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"vI" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"vO" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
+"vQ" = (
+/obj/machinery/power/terminal{
+	dir = 1;
+	icon_state = "term"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"vS" = (
+/obj/effect/floor_decal/corner/beige,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"vT" = (
+/obj/machinery/computer/shuttle_control/explore/tajara_scrapper,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"vV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"wc" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"wk" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"wn" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"wt" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"ww" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
+"wx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
+"wH" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "tajara_scrapper";
+	pixel_y = 24;
+	tag_door = "tajara_scrapper_hatch"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"xk" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"xm" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/airless,
+/area/shuttle/scrapper_ship/port_engines)
+"xH" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"xI" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"xK" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"xL" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 1
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 25
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"xM" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "scrapper_station_door";
+	locked = 1;
+	req_access = list(202)
+	},
+/obj/effect/shuttle_landmark/tajara_scrapper/hangar,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"xN" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"xQ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"xU" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"yc" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"yl" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"yC" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"yG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"yH" = (
+/obj/structure/window/reinforced{
+	dir = 8;
+	icon_state = "rwindow"
+	},
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space)
+"yJ" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"yS" = (
+/obj/machinery/atmospherics/pipe/tank/air,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"yT" = (
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/bridge)
+"ze" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"zf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"zk" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/manifold/visible/red{
+	dir = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"zu" = (
+/obj/machinery/light/small,
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"zx" = (
+/obj/effect/shuttle_landmark/tajara_scrapper/nav1,
+/turf/template_noop,
+/area/space)
+"zE" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"zF" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"zQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/beige,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"zT" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"zU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"Af" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"Ag" = (
+/obj/effect/map_effect/airlock/long/square/wide,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/storage)
+"Am" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"Ap" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
+"AP" = (
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 1;
+	target_pressure = 250
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"Be" = (
+/obj/effect/shuttle_landmark/tajara_scrapper/transit,
+/turf/space/transit/north,
+/area/space)
+"Bp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"BF" = (
+/obj/machinery/door/airlock{
+	name = "Restroom"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/scrapper_base/quarters)
+"BR" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24;
+	req_access = list(202)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"Cb" = (
+/obj/structure/sink{
+	dir = 8;
+	icon_state = "sink";
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/obj/structure/mirror{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/scrapper_base/quarters)
+"Cd" = (
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"yJ" = (
-/obj/structure/table/wood,
-/obj/item/paper_bin,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"yK" = (
-/obj/machinery/door/airlock/hatch,
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"yV" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"zc" = (
+/area/scrapper_base/quarters)
+"Cn" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Telecomms"
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/shuttle/scrapper_ship/storage)
+"Cy" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8;
+	icon_state = "rwindow"
+	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/clothing/mask/breath,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"CB" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"CH" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"CM" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_x = -32
+	layer = 3.3;
+	pixel_x = 24;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"zj" = (
-/obj/structure/fuel_port/phoron{
-	pixel_x = -32
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"zn" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/bed/stool/chair/padded/black{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"zp" = (
-/obj/random/junk,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"zs" = (
-/obj/structure/closet/cabinet,
-/obj/item/storage/firstaid,
-/obj/item/storage/firstaid,
-/obj/item/device/megaphone,
-/obj/item/device/binoculars,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"zP" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/random/junk,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"zU" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"zZ" = (
-/obj/structure/table/wood,
-/obj/item/material/ashtray/glass,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"AD" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
-"AT" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Bh" = (
-/obj/structure/table/wood/gamblingtable,
-/obj/item/deck/cards,
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"Bi" = (
-/obj/machinery/computer/arcade/orion_trail,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"BF" = (
-/turf/simulated/wall,
-/area/tajara_safehouse/hangar)
-"BS" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/tajaran/summer,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"BZ" = (
-/obj/random/junk,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Cz" = (
-/obj/structure/bed/stool/chair/sofa/beige{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"CI" = (
-/obj/structure/closet/cabinet,
-/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
-/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
-/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
+/area/scrapper_base/quarters)
 "CN" = (
-/obj/machinery/vending/dinnerware,
-/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"CO" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/template_noop,
+/area/scrapper_base)
+"CP" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"CX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
+"CZ" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"Dr" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"Ea" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"Df" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/trash_pile,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"Dr" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"Dz" = (
-/obj/structure/table/steel,
-/obj/item/storage/toolbox/mechanical,
-/turf/simulated/floor,
-/area/tajara_safehouse)
-"DI" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/machinery/appliance/mixer/candy{
-	pixel_y = 12
+/obj/structure/window/reinforced{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"DT" = (
-/obj/structure/bed/stool/chair/office/dark,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window{
+	dir = 8;
+	req_one_access = list(113)
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Ej" = (
-/obj/effect/decal/cleanable/blood/oil,
+/area/scrapper_base)
+"Et" = (
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"EC" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"FA" = (
-/obj/machinery/photocopier,
+/area/scrapper_base)
+"EY" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
+	},
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"Fh" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"Fk" = (
+/obj/machinery/conveyor_switch{
+	id = "tajara_scrapper"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/button/remote/blast_door{
+	id = "scrapper_cargo";
+	name = "Cargo Shutter";
+	pixel_x = -26
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"Fl" = (
+/obj/effect/overmap/visitable/sector/tajara_scrapper,
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
+/area/scrapper_base/quarters)
+"Fo" = (
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
+"Fr" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"Fs" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"FL" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"FM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
 "FN" = (
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
 /area/space)
-"Gk" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"Gl" = (
-/obj/machinery/shipsensors/weak,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/shuttle/tajara_safehouse_shuttle)
-"Gq" = (
-/obj/effect/floor_decal/industrial/warning{
+"FP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"GH" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor,
-/area/tajara_safehouse)
-"GK" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"FS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"Gk" = (
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"Gn" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/meter,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"Gp" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"Gq" = (
+/obj/machinery/door/airlock/mining{
+	name = "Living Quarters";
+	req_access = list(202)
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"Gr" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"Gw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner/beige/full,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"GF" = (
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24;
+	req_access = list(202)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"GL" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, workshop"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/workshop)
+"GN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"GO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
+"GQ" = (
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
 "GU" = (
 /obj/effect/shuttle_landmark/automatic,
 /turf/template_noop,
 /area/space)
-"Hc" = (
-/obj/machinery/light/small{
-	dir = 1
+"Ha" = (
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
+"He" = (
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
+"Hg" = (
+/obj/machinery/computer/ship/sensors,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Hj" = (
-/obj/machinery/light/small/emergency{
+/area/shuttle/scrapper_ship/bridge)
+"Hi" = (
+/obj/machinery/iff_beacon/name_change,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/shuttle/scrapper_ship/bridge)
+"Hl" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"Ho" = (
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"Hp" = (
+/obj/machinery/vending/tool{
+	req_access = null
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"Hx" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"HA" = (
+/obj/machinery/computer/ship/helm{
+	req_access = null
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"HD" = (
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/floor_decal/corner/beige{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"HM" = (
+/obj/effect/shuttle_landmark/tajara_scrapper/nav2,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
+"HP" = (
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"Ig" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/landmark/entry_point/aft,
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "tajara_scrapper_hatch";
+	layer = 2.8;
+	name = "Ship External Access";
+	open_layer = 2.8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"Im" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "tajara_scrapper";
+	layer = 2.9
+	},
+/obj/structure/plasticflaps/mining,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "scrapper_cargo"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"Ip" = (
+/turf/simulated/wall/shuttle/raider,
+/area/scrapper_base/storage)
+"Iu" = (
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/starboard_engines)
+"IA" = (
+/obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"Hp" = (
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Hr" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/hatch,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
+/area/shuttle/scrapper_ship/power_station)
 "IB" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "tajara_safehouse_shuttle";
-	name = "Port docking controller";
-	pixel_x = 6;
-	pixel_y = 28;
-	tag_door = "tajara_safehouse_shuttle_out"
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, starboard"
 	},
-/obj/machinery/computer/ship/sensors{
+/turf/simulated/floor/airless,
+/area/shuttle/scrapper_ship/starboard_engines)
+"II" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"IL" = (
+/obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"II" = (
-/obj/structure/closet/cabinet,
-/obj/item/reagent_containers/food/drinks/bottle/victorygin,
-/obj/item/reagent_containers/food/drinks/bottle/victorygin,
-/obj/item/reagent_containers/food/drinks/bottle/victorygin,
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"IU" = (
-/obj/structure/table/steel,
-/obj/item/trash/broken_electronics,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"JG" = (
-/obj/machinery/vending/hydronutrients,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"JI" = (
-/obj/structure/extinguisher_cabinet{
-	layer = 3.3;
-	pixel_x = 26
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
+"IV" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"JZ" = (
-/obj/structure/table/wood/gamblingtable,
-/obj/item/reagent_containers/food/snacks/hardbread,
-/obj/item/reagent_containers/food/drinks/bottle/messa_mead,
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"Ke" = (
-/obj/machinery/atmospherics/unary/engine{
+/area/scrapper_base)
+"IW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"Jd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"Jk" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, port"
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/scrapper_ship/port_engines)
+"JF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"JG" = (
+/obj/structure/table/rack,
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/tajara_safehouse_shuttle)
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/wood/full,
+/obj/item/stack/rods,
+/obj/item/storage/box/lights/bulbs,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"JH" = (
+/obj/machinery/computer/ship/navigation,
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"JJ" = (
+/turf/simulated/wall/shuttle/raider,
+/area/scrapper_base/quarters)
+"JM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"JO" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"JU" = (
+/turf/simulated/wall/shuttle/raider,
+/area/scrapper_base)
+"JV" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/quarters)
+"JX" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/template_noop,
+/area/scrapper_base)
+"Kf" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"Kl" = (
+/obj/structure/bed/stool/chair/sofa/black,
+/obj/effect/ghostspawpoint{
+	identifier = "tajaran_scrapper";
+	name = "igs - tajaran_scrapper"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
 "Kn" = (
 /turf/template_noop,
 /area/space)
-"KI" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "tajara_safehouse_shuttle_out"
+"Ku" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
 	},
-/obj/effect/landmark/entry_point/east{
-	name = "port, airlock"
-	},
-/turf/simulated/floor,
-/area/shuttle/tajara_safehouse_shuttle)
-"Lb" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/small{
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
+"KA" = (
+/obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"Lh" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9;
-	icon_state = "spline_fancy"
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"Lt" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/area/shuttle/scrapper_ship/workshop)
+"KK" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"KQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"La" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8;
-	icon_state = "spline_fancy"
+	icon_state = "map-scrubbers"
 	},
-/obj/structure/bed/stool/bar/padded/black,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"Lp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"Lq" = (
+/obj/structure/cable/green,
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24;
+	req_access = list(202)
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"LA" = (
+/obj/effect/map_effect/airlock/long/square,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
+"LB" = (
+/obj/structure/bed/stool/chair/sofa/left/black,
 /obj/effect/ghostspawpoint{
-	identifier = "tajaran_migrant";
-	name = "igs - tajaran_migrant"
-	},
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"LI" = (
-/obj/machinery/mech_recharger,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"Mc" = (
-/obj/machinery/door/airlock/hatch,
-/turf/simulated/floor,
-/area/tajara_safehouse)
-"Ms" = (
-/obj/effect/shuttle_landmark/tajara_safehouse_shuttle/transit,
-/turf/space/transit/north,
-/area/space)
-"MY" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/storage/box/gloves{
-	pixel_x = 2;
-	pixel_y = 4
-	},
-/obj/machinery/reagentgrinder{
-	pixel_y = 7
-	},
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"Ol" = (
-/obj/effect/ghostspawpoint{
-	identifier = "tajara_revolutionary_army_agent";
-	name = "igs - tajara_revolutionary_army_agent"
+	identifier = "tajaran_scrapper";
+	name = "igs - tajaran_scrapper"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Oo" = (
-/obj/structure/bed/stool/chair/sofa/right/beige{
+/area/scrapper_base/quarters)
+"LC" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Telecomms"
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/scrapper_base/atmos)
+"LM" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/structure/window/reinforced,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window{
+	dir = 8;
+	req_one_access = list(113)
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"OF" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/effect/decal/cleanable/dirt,
+/area/scrapper_base)
+"LS" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"LT" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"OG" = (
-/obj/structure/table/wood,
-/obj/item/flame/lighter/adhomai,
-/obj/item/clothing/mask/smokable/cigarette/adhomai,
+/area/scrapper_base)
+"LV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"OW" = (
-/obj/structure/bed/stool/bar/padded/black,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"Ph" = (
-/obj/structure/closet/cabinet,
-/obj/item/gun/projectile/shotgun/pump/rifle,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/gun/projectile/shotgun/pump/rifle,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Pl" = (
-/obj/machinery/atmospherics/unary/engine{
+/area/scrapper_base)
+"Mg" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/landmark/entry_point/north{
-	name = "aft, engines"
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/tajara_safehouse_shuttle)
-"Pp" = (
+/area/shuttle/scrapper_ship/port_engines)
+"Mi" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	icon_state = "rwindow"
+	},
+/obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/obj/structure/table/steel,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"Py" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/head/helmet,
-/obj/item/clothing/head/helmet,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"PM" = (
-/obj/structure/table/stone/marble,
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/storage/box/drinkingglasses,
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"Qg" = (
-/obj/effect/overmap/visitable/sector/tajara_safehouse,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Qo" = (
-/obj/machinery/light/small,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table/wood,
-/obj/item/pen/black,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"QK" = (
-/obj/machinery/vending/cigarette,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"RB" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
+/area/shuttle/scrapper_ship/power_station)
+"Mn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"RS" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
+/area/scrapper_base/storage)
+"My" = (
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/power_station)
+"MF" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
 	},
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"RT" = (
-/obj/structure/bed/stool/chair/padded/black{
-	dir = 1
-	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"RX" = (
-/turf/simulated/wall/r_wall,
-/area/tajara_safehouse/hangar)
-"Se" = (
-/obj/random/junk,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Sv" = (
-/obj/structure/table/wood,
-/obj/item/material/ashtray,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Sw" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/machinery/appliance/mixer/cereal{
-	pixel_x = 0;
-	pixel_y = 7
-	},
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"SE" = (
-/obj/item/ore/slag,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"SJ" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/structure/toilet{
-	dir = 8;
-	icon_state = "toilet00"
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"SL" = (
-/turf/simulated/mineral,
-/area/space)
-"Th" = (
-/turf/simulated/floor,
-/area/tajara_safehouse)
-"Tw" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tajara_safehouse_shuttle)
-"TC" = (
-/turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"TN" = (
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/head/helmet/space/void/engineering,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"Uf" = (
+/area/scrapper_base/quarters)
+"MJ" = (
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/storage)
+"MM" = (
 /obj/machinery/light{
-	brightness_color = "#FA8282"
+	dir = 4
 	},
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"Uk" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
+/turf/simulated/floor/tiled/freezer,
+/area/scrapper_base/quarters)
+"MR" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner/beige/full,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"Nf" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"Ng" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space)
+"Nj" = (
+/obj/machinery/vending/snack,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
+"Ns" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24;
+	req_access = list(202)
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"NC" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"NH" = (
+/obj/structure/table/rack,
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"UH" = (
-/obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"UP" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/wood/full,
+/obj/item/stack/rods,
+/obj/item/storage/box/lights/bulbs,
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/floor/tiled/white,
-/area/tajara_safehouse)
-"UW" = (
-/obj/machinery/light/small{
+/area/shuttle/scrapper_ship/workshop)
+"NJ" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/vending/wallmed2{
+	pixel_y = 32;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"NK" = (
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"NN" = (
+/turf/simulated/floor/tiled/freezer,
+/area/scrapper_base/quarters)
+"NX" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"Oc" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"Oh" = (
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"Oi" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engine"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/starboard_engines)
+"Om" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Vc" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/effect/landmark/entry_point/south{
-	name = "fore, bridge"
+/area/scrapper_base/quarters)
+"OL" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/tajara_safehouse_shuttle)
-"Vl" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/hatch{
+	req_access = list(202);
+	name = "Engine"
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"OW" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Vr" = (
-/obj/machinery/vending/cola,
+/area/scrapper_base)
+"OX" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"OZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"VG" = (
+/area/scrapper_base)
+"Pg" = (
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"Pm" = (
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/port_engines)
+"Pr" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"Pv" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base)
+"Px" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"Pz" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/firealarm/north,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"PD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"Qh" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"Qk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/extinguisher_cabinet{
+	layer = 3.3;
+	pixel_x = 24;
+	pixel_y = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"Qp" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"Qx" = (
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "tajara_scrapper_hatch";
+	layer = 2.8;
+	name = "Ship External Access";
+	open_layer = 2.8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"QB" = (
+/obj/effect/map_effect/airlock/s_to_n/long/square,
+/turf/simulated/wall/shuttle/raider,
+/area/scrapper_base)
+"QD" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"QH" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"QL" = (
+/obj/effect/floor_decal/corner/beige/full,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window{
+	dir = 4;
+	req_one_access = "112"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"QQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"QR" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"QV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"QW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"QX" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"Rf" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/scrapper_base)
+"Ri" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"Rl" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "tajara_scrapper";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/scrapper_ship/storage)
+"Rz" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24;
+	req_access = list(202)
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"RJ" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space)
+"RK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"RN" = (
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"Se" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"Sl" = (
+/obj/structure/closet/toolcloset/empty,
+/obj/item/crowbar/rescue_axe/red,
+/obj/item/pipewrench,
+/obj/item/weldingtool/hugetank,
+/obj/item/storage/belt/utility/alt,
+/obj/item/storage/belt/utility/alt,
+/obj/item/screwdriver,
+/obj/item/pickaxe/drill,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"Sz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"SE" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"Tb" = (
 /obj/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Wi" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor,
-/area/tajara_safehouse)
-"Wp" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/wall/shuttle/space_ship/mercenary{
-	name = "military hull"
+/area/scrapper_base/quarters)
+"Tg" = (
+/obj/machinery/shower{
+	pixel_y = 15
 	},
-/area/shuttle/tajara_safehouse_shuttle)
-"WM" = (
-/obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"WV" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4;
-	icon_state = "spline_fancy"
-	},
-/obj/structure/bed/stool/bar/padded/black,
-/obj/effect/ghostspawpoint{
-	identifier = "tajaran_migrant";
-	name = "igs - tajaran_migrant"
-	},
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"Xl" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/obj/structure/bed/stool/bar/padded/black,
-/obj/effect/ghostspawpoint{
-	identifier = "tajaran_migrant";
-	name = "igs - tajaran_migrant"
-	},
-/turf/simulated/floor/wood,
-/area/tajara_safehouse)
-"Xp" = (
-/obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"Xs" = (
-/obj/structure/table/wood,
-/obj/item/stamp,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"XD" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/random/junk,
+/obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"XR" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/trash_pile,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"YT" = (
-/obj/machinery/door/window{
-	dir = 8;
-	req_one_access = list(150)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Zh" = (
-/obj/machinery/light/small{
+/area/scrapper_base/quarters)
+"Th" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/computer/arcade/battle,
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
-"Zq" = (
-/obj/structure/closet/toolcloset,
+/area/scrapper_base)
+"Tq" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
-"ZE" = (
-/obj/effect/floor_decal/industrial/warning{
+/area/scrapper_base)
+"TF" = (
+/obj/machinery/telecomms/allinone/ship,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/scrapper_base/atmos)
+"TG" = (
+/obj/effect/map_effect/airlock/long/square/wide,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/workshop)
+"TR" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"TS" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"TU" = (
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"TV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"Ua" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"Ue" = (
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"Uh" = (
+/turf/simulated/wall/shuttle/raider,
+/area/scrapper_base/solars)
+"Ui" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 5
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"Uk" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"Uo" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"UB" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"UF" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/obj/machinery/meter,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"UL" = (
+/obj/structure/cable/green,
+/obj/machinery/power/solar,
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"Vf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
+"VM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/tajara_scrapper,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"Wb" = (
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"Wc" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/solars)
+"Wm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"Wq" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"Wr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/door/airlock/hatch{
+	req_access = list(202);
+	name = "Engine"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"Wx" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24;
+	req_access = list(202)
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"WA" = (
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"WI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/firealarm/west,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"WM" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/cable/green,
+/obj/machinery/power/apc{
+	is_critical = 1;
+	name = "south bump";
+	pixel_y = -24;
+	req_access = list(202)
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"WR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/quarters)
+"WW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"Xc" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"Xg" = (
+/obj/machinery/door/airlock/hatch{
+	req_access = list(202);
+	name = "Atmos"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
+"Xh" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/binary/pump/on{
 	dir = 8
 	},
-/turf/simulated/floor,
-/area/tajara_safehouse/hangar)
-"ZM" = (
-/obj/machinery/light/small,
-/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"Xi" = (
+/obj/machinery/power/tracker,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/airless,
+/area/scrapper_base/solars)
+"Xp" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/power_station)
+"Xr" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, starboard storage"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"XG" = (
+/obj/machinery/button/distress{
+	dir = 1;
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner/beige/full,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(202)
+	},
+/obj/item/gun/projectile/shotgun/pump/rifle/obrez,
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/contender,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
 /turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse/hangar)
+/area/shuttle/scrapper_ship/bridge)
+"XL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/hatch{
+	req_access = list(202);
+	name = "Workshop"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/workshop)
+"XT" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"XU" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "tajaran_scrapper_shuttle_dock";
+	pixel_y = -28;
+	tag_door = "scrapper_station_door"
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"Yl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(202);
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"Yo" = (
+/obj/machinery/computer/ship/engines,
+/obj/effect/floor_decal/corner/beige/full,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scrapper_ship/bridge)
+"Yq" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"Yw" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/atmos)
+"YV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"Ze" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/port_engines)
+"Zi" = (
+/obj/structure/closet/toolcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/storage)
+"Zm" = (
+/obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/storage)
+"Zx" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, storage"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/scrapper_ship/storage)
+"ZF" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/machinery/atmospherics/pipe/tank,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/scrapper_base/atmos)
+"ZI" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/scrapper_ship/starboard_engines)
+"ZL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base)
+"ZY" = (
+/obj/machinery/power/apc{
+	is_critical = 1;
+	name = "south bump";
+	pixel_y = -24;
+	req_access = list(202)
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
 
 (1,1,1) = {"
 Kn
@@ -4954,56 +7705,56 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
+bS
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
 rl
 rl
 rl
@@ -5211,6 +7962,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -5259,8 +8011,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -5468,6 +8219,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -5516,8 +8268,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -5725,6 +8476,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -5773,8 +8525,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -5982,6 +8733,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -6030,8 +8782,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -6239,6 +8990,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -6287,8 +9039,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -6496,6 +9247,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -6544,8 +9296,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -6753,6 +9504,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -6801,8 +9553,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -7010,6 +9761,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -7058,8 +9810,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -7267,6 +10018,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -7315,8 +10067,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -7524,6 +10275,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -7572,8 +10324,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -7781,6 +10532,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -7829,8 +10581,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -8038,6 +10789,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -8086,8 +10838,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -8295,6 +11046,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -8343,8 +11095,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -8552,6 +11303,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -8600,8 +11352,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -8809,6 +11560,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -8857,8 +11609,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -9066,6 +11817,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -9114,8 +11866,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -9323,43 +12074,6 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-bS
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
 rr
 rl
 rl
@@ -9373,6 +12087,43 @@ rl
 rl
 rl
 rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rr
 rl
 rl
 rl
@@ -9580,24 +12331,6 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rr
 rl
 rl
@@ -9617,19 +12350,37 @@ rl
 rl
 rl
 rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
 rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rl
 rl
 rl
@@ -9837,6 +12588,37 @@ rl
 rl
 rl
 rl
+rr
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+Be
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
 rl
 rl
 rl
@@ -9856,37 +12638,6 @@ rl
 rl
 rl
 rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rl
 rl
 rl
@@ -10094,24 +12845,6 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rr
 rl
 rl
@@ -10131,19 +12864,37 @@ rl
 rl
 rl
 rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
 rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rl
 rl
 rl
@@ -10351,24 +13102,6 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rr
 rl
 rl
@@ -10388,19 +13121,37 @@ rl
 rl
 rl
 rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
 rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rl
 rl
 rl
@@ -10608,6 +13359,37 @@ rl
 rl
 rl
 rl
+rr
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
 rl
 rl
 rl
@@ -10627,37 +13409,6 @@ rl
 rl
 rl
 rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-Ms
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rl
 rl
 rl
@@ -10865,24 +13616,6 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rr
 rl
 rl
@@ -10902,19 +13635,37 @@ rl
 rl
 rl
 rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
 rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rl
 rl
 rl
@@ -11122,24 +13873,6 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rr
 rl
 rl
@@ -11159,19 +13892,37 @@ rl
 rl
 rl
 rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
 rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rl
 rl
 rl
@@ -11379,24 +14130,6 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rr
 rl
 rl
@@ -11416,19 +14149,37 @@ rl
 rl
 rl
 rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
 rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rl
 rl
 rl
@@ -11636,24 +14387,6 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rr
 rl
 rl
@@ -11673,19 +14406,37 @@ rl
 rl
 rl
 rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
 rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rl
 rl
 rl
@@ -11893,43 +14644,6 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-bS
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
 rr
 rl
 rl
@@ -11943,6 +14657,43 @@ rl
 rl
 rl
 rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rr
 rl
 rl
 rl
@@ -12150,6 +14901,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -12198,8 +14950,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -12407,6 +15158,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -12455,8 +15207,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -12664,6 +15415,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -12712,8 +15464,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -12921,6 +15672,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -12969,8 +15721,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -13178,6 +15929,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -13226,8 +15978,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -13435,6 +16186,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -13483,8 +16235,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -13692,6 +16443,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -13740,8 +16492,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -13949,6 +16700,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -13997,8 +16749,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -14206,6 +16957,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -14254,8 +17006,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -14463,6 +17214,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -14511,8 +17263,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -14720,6 +17471,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -14768,8 +17520,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -14977,6 +17728,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -15025,8 +17777,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -15234,6 +17985,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -15282,8 +18034,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -15491,6 +18242,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -15539,8 +18291,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -15748,56 +18499,56 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
+bS
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+bS
 rl
 rl
 rl
@@ -20798,7 +23549,7 @@ Kn
 Kn
 Kn
 Kn
-SL
+Kn
 Kn
 Kn
 Kn
@@ -21054,11 +23805,11 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -21310,17 +24061,17 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -21567,17 +24318,17 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -21824,17 +24575,17 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -22081,17 +24832,17 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -22336,20 +25087,20 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -22592,23 +25343,23 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -22848,25 +25599,25 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -23103,28 +25854,28 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -23360,29 +26111,29 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -23617,33 +26368,33 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -23874,34 +26625,34 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -24131,40 +26882,40 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-dc
-dc
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -24385,43 +27136,43 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-dc
-rE
-rE
-lH
-lH
-sI
-lH
-lH
-sI
-lH
-sI
-lH
-ab
-rE
-rE
-rE
-rE
-rE
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -24640,45 +27391,45 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-rE
-rE
-lH
-sI
-UW
-lH
-lH
-lH
-UW
-lH
-lH
-lH
-lH
-lH
-lH
-sI
-jM
-rE
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -24897,45 +27648,45 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-Se
-lH
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-lq
-UW
-lH
-lH
-lH
-lH
-rE
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -25154,47 +27905,47 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-rE
-Uk
-lH
-Vl
-nk
-jM
-ab
-lH
-lH
-nk
-Hp
-qq
-Sv
-qq
-vx
-VG
-nk
-nk
-nk
-nk
-nk
-lH
-sI
-rE
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -25411,55 +28162,55 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-rE
-is
-tI
-Hp
-nk
-lH
-lH
-lH
-nk
-nk
-lH
-sI
-lH
-lH
-lH
-vj
-nk
-cs
-hw
-JG
-nk
-lH
-lH
-rE
-rE
-rE
-rE
-AD
-AD
-AD
-AD
-AD
-AD
-SL
-SL
 Kn
 Kn
 Kn
 Kn
 Kn
-AD
-AD
-AD
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -25668,55 +28419,55 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-rE
-rE
-rE
-rE
-bF
-tU
-ll
-nk
-BZ
-lH
-nk
-nk
-BS
-lH
-lH
-lH
-sI
-Se
-yJ
-nk
-cs
-zP
-bC
-nk
-lH
-lH
-rE
-Th
-fb
-rE
-AD
-AD
-AD
-AD
-AD
-AD
-SL
-SL
-SL
-SL
-AD
-AD
-AD
-AD
-AD
-AD
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -25923,77 +28674,77 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-rE
-Py
-qK
-lH
-sI
-Ol
-pF
-nk
-lH
-lH
-nk
-fg
-lH
-sI
-sI
-Se
-lH
-tU
-Qo
-nk
-cs
-lH
-jU
-nk
-Hc
-lH
-Mc
-Th
-Dz
-rE
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-RX
-RX
-xi
-xi
-xi
-xi
-RX
-RX
-xi
-xi
-xi
-xi
-RX
-RX
-RX
-xi
-xi
-xi
-xi
-RX
-RX
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -26180,77 +28931,77 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-rE
-zs
-lH
-lH
-lH
-sI
-Ph
-nk
-lH
-dR
-nk
-bO
-sI
-lH
-lH
-lH
-sI
-lH
-lH
-nk
-cs
-lH
-nk
-nk
-lH
-sI
-rE
-Th
-GH
-rE
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-RX
-RX
-wj
-kD
-kD
-kD
-kD
-kD
-wj
-kD
-kD
-kD
-kD
-kD
-wj
-kD
-kD
-kD
-kD
-kD
-wj
-kD
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -26437,77 +29188,77 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-rE
-rE
-nk
-nk
-cm
-nk
-nk
-nk
-nk
-sI
-lH
-nk
-lH
-lH
-OG
-qq
-jN
-qq
-Hp
-qq
-nk
-AT
-lH
-nk
-jM
-lH
-lH
-rE
-nf
-qw
-rE
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-RX
-Xp
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -26694,77 +29445,77 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-RX
-ta
-ta
-xQ
-xQ
-xQ
-nk
-lH
-lH
-sI
-lH
-nk
-cm
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-Hr
-nk
-sI
-Se
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-RX
-ko
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -26951,77 +29702,77 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-RX
-oz
-oz
-xQ
-xQ
-xQ
-nk
-lH
-lH
-lH
-jM
-nk
-lH
-zn
-qh
-nk
-aP
-gn
-rN
-wT
-jn
-kg
-Dr
-nk
-lH
-lH
-nk
-jM
-zP
-lH
-hw
-lH
-Oo
-Wi
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-RX
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -27199,86 +29950,86 @@ Kn
 Kn
 Kn
 Kn
-RX
-RX
-RX
-RX
-RX
-RX
-RX
-RX
-RX
-RX
-RX
-RX
-RX
-RX
-pg
-xQ
-xQ
-xQ
-xQ
-nk
-sI
-lH
-nk
-nk
-nk
-lH
-lH
-RT
-nk
-CI
-dU
-II
-wT
-hJ
-Dr
-TC
-nk
-lH
-sI
-nk
-wY
-sI
-lH
-zP
-lH
-Cz
-Wi
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-RX
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-Uf
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -27456,87 +30207,87 @@ Kn
 Kn
 Kn
 Kn
-RX
-xQ
-xQ
-xQ
-bP
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-bP
-xQ
-xQ
-xQ
-xQ
-xQ
-ch
-nk
-lH
-lH
-nk
-Bi
-lH
-Se
-sI
-lH
-nk
-lO
-vX
-vm
-nk
-jn
-Dr
-tp
-nk
-Hc
-lH
-Mc
-lH
-lH
-lH
-lH
-lH
-Cz
-Wi
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-AD
-RX
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-RX
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -27713,87 +30464,87 @@ Kn
 Kn
 Kn
 Kn
-RX
-uR
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-xQ
-cm
-lH
-dR
-nk
-Zh
-sI
-Qg
-lH
-lH
-yK
-sd
-RS
-sd
-mt
-TC
-TC
-iz
-nk
-lH
-lH
-nk
-nk
-YT
-kc
-lH
-lH
-yq
-nk
-nk
-Wi
-Wi
-Wi
-nk
-AD
-AD
-AD
-AD
-AD
-RX
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-Uf
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -27970,87 +30721,87 @@ Kn
 Kn
 Kn
 Kn
-RX
-xQ
-GK
-ZE
-ZE
-ZE
-ZE
-pv
-ZE
-ZE
-ZE
-ZE
-ZE
-ZE
-nZ
-su
-xQ
-xQ
-ZM
-nk
-lH
-sI
-nk
-QK
-lH
-lH
-lH
-rY
-nk
-nk
-nk
-nk
-nk
-iv
-TC
-fS
-nk
-lH
-sI
-nk
-FA
-sI
-yJ
-lH
-sI
-lH
-QK
-zZ
-tU
-tU
-tU
-rE
-rE
-rE
-rE
-rE
-rE
-RX
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-xi
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -28227,87 +30978,87 @@ Kn
 Kn
 Kn
 Kn
-RX
-os
-dX
-iF
-iI
-iI
-iI
-nY
-KI
-iI
-iI
-iI
-iI
-iI
-cJ
-sM
-xQ
-xQ
-TN
-nk
-lH
-lH
-cm
-lH
-lH
-lH
-lH
-lH
-pL
-jw
-eZ
-CN
-nk
-mt
-nk
-nk
-nk
-lH
-lH
-nk
-sI
-DT
-cT
-lH
-Se
-lH
-lH
-lH
-lH
-lH
-sI
-Mc
-xQ
-xQ
-xQ
-zc
-uY
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-xi
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -28484,87 +31235,87 @@ Kn
 Kn
 Kn
 Kn
-xi
-xQ
-dX
-iF
-iF
-bV
-jR
-fi
-fi
-iR
-zj
-ox
-Wp
-Ke
-cJ
-sM
-xQ
-xQ
-TN
-nk
-lH
-lH
-nk
-Lh
-Lt
-Lt
-aY
-uC
-nk
-jw
-jw
-jw
-jw
-jw
-jw
-gr
-nk
-sI
-lH
-nk
-fG
-sI
-Xs
-lH
-sI
-sI
-lH
-rW
-lH
-lH
-to
-rE
-Df
-xQ
-Ej
-xQ
-uY
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-xi
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -28741,87 +31492,87 @@ Kn
 Kn
 Kn
 Kn
-xi
-xQ
-dX
-Vc
-yu
-Gk
-fi
-yd
-fi
-fi
-fi
-Pp
-Wp
-Pl
-cJ
-RX
-RX
-RX
-BF
-nk
-lH
-lH
-nk
-Xl
-fv
-kO
-pw
-lH
-PM
-dI
-jw
-dI
-hp
-dI
-jw
-DI
-nk
-lH
-lH
-nk
-hZ
-kc
-Hp
-lH
-iK
-AT
-lH
-jM
-hH
-sp
-Vr
-rE
-dK
-xQ
-xQ
-zp
-yV
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-WM
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-xi
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -28998,87 +31749,87 @@ Kn
 Kn
 Kn
 Kn
-xi
-xQ
-dX
-iF
-iF
-IB
-dw
-Hj
-dw
-th
-Tw
-bt
-Wp
-Ke
-cJ
-RX
-SL
-rE
-jM
-lH
-lH
-dR
-nk
-Xl
-JZ
-Bh
-uV
-lH
-dP
-dI
-jw
-dI
-aM
-jw
-jw
-Sw
-nk
-lH
-lH
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-rE
-Zq
-xQ
-dZ
-dZ
-uY
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-xi
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -29255,87 +32006,87 @@ Kn
 Kn
 Kn
 Kn
-RX
-os
-Gl
-iF
-iI
-iI
-iI
-iI
-ec
-iI
-iI
-iI
-iI
-iI
-cJ
-RX
-SL
-rE
-QK
-lH
-lH
-lH
-nk
-iy
-sE
-WV
-sb
-iK
-pp
-jw
-py
-Lb
-zU
-UP
-jw
-MY
-nk
-Hc
-lH
-nk
-ot
-RB
-ot
-qK
-ot
-fy
-kd
-fy
-OF
-lH
-dc
-rE
-pM
-xQ
-dZ
-xQ
-yV
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-xi
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -29512,87 +32263,87 @@ Kn
 Kn
 Kn
 Kn
-RX
-xQ
-rA
-qD
-qD
-qD
-qD
-qD
-qD
-qD
-qD
-qD
-qD
-qD
-Gq
-RX
-SL
-rE
-sp
-lH
-sI
-lH
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-nk
-lH
-lH
-nk
-nW
-sI
-lH
-lH
-lH
-sI
-sI
-SE
-dc
-dc
-dc
-rE
-IU
-OW
-xQ
-xQ
-yV
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-Uf
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -29769,87 +32520,87 @@ Kn
 Kn
 Kn
 Kn
-RX
-RX
-fa
-fa
-fa
-fa
-fa
-fa
-fa
-fa
-fa
-fa
-fa
-fa
-fa
-RX
-SL
-rE
-hH
-lH
-lH
-lH
-lH
-lH
-Se
-lH
-qK
-lH
-lH
-lH
-lH
-qK
-lH
-sI
-Se
-lH
-sI
-sI
-zP
-nk
-qo
-lH
-ot
-fy
-lH
-jM
-dc
-dc
-dc
-dc
-dc
-rE
-bg
-xQ
-dZ
-xQ
-uY
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-RX
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -30042,70 +32793,70 @@ Kn
 Kn
 Kn
 Kn
-SL
-rE
-jM
-lH
-lH
-lH
-sI
-lH
-lH
-lH
-lH
-lH
-lH
-JI
-lH
-lH
-lH
-rW
-lH
-lH
-lH
-lH
-lH
-cm
-sI
-lH
-lH
-sI
-lH
-dc
-dc
-dc
-dc
-dc
-dc
-rE
-LI
-dZ
-xQ
-Ej
-uY
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -30299,70 +33050,70 @@ Kn
 Kn
 Kn
 Kn
-SL
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-cm
-nk
-nk
-nk
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-yw
-fy
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-rE
-LI
-xQ
-aF
-xQ
-uY
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-Uf
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -30556,70 +33307,70 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-rE
-Dr
-TC
-mt
-XD
-rE
-SL
-SL
-SL
-SL
-SL
-SL
-rE
-rE
-rE
-dc
-dc
-dc
-dc
-dc
-dc
-dc
-rE
-wt
-xQ
-xQ
-xQ
-XR
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -30812,71 +33563,71 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-rE
-fC
-xL
-nk
-SJ
-rE
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-dc
-dc
-dc
-dc
-dc
-rE
-rE
-rE
-rE
-rE
-rE
-rE
-RX
-ko
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-kD
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+ww
+ww
+ww
+QB
+JU
+JU
+JU
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -31069,71 +33820,71 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-rE
-rE
-rE
-rE
-rE
-rE
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-RX
-RX
-UH
-kD
-kD
-kD
-kD
-kD
-eQ
-kD
-kD
-kD
-kD
-kD
-eQ
-kD
-kD
-kD
-kD
-kD
-eQ
-kD
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Fo
+Fo
+IL
+Fo
+Px
+uC
+JU
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -31326,71 +34077,71 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-AD
-RX
-RX
-xi
-xi
-xi
-xi
-RX
-RX
-xi
-xi
-xi
-xi
-RX
-RX
-RX
-xi
-xi
-xi
-xi
-RX
-RX
-RX
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bp
+Fo
+Fo
+Fo
+Uk
+mx
+JU
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -31583,9 +34334,6 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
 Kn
 Kn
 Kn
@@ -31595,39 +34343,42 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-AD
-AD
-AD
+ww
+ww
+ww
+JU
+tz
+ni
+JU
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -31840,8 +34591,6 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
 Kn
 Kn
 Kn
@@ -31853,36 +34602,38 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+JU
+IV
+mx
+JU
 Kn
 Kn
-AD
-AD
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -32097,8 +34848,6 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
 Kn
 Kn
 Kn
@@ -32110,32 +34859,34 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
 Kn
-SL
-SL
+JU
+Qp
+mx
+JU
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -32366,33 +35117,33 @@ Kn
 Kn
 Kn
 Kn
-Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+JU
+OW
+mx
+JU
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -32623,33 +35374,33 @@ Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+JU
+bO
+mx
+JU
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
-SL
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -32860,6 +35611,13 @@ Kn
 Kn
 Kn
 Kn
+kz
+kz
+kz
+kz
+kz
+kz
+kz
 Kn
 Kn
 Kn
@@ -32873,17 +35631,10 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-SL
-SL
-SL
-Kn
+JU
+OW
+wc
+JU
 Kn
 Kn
 Kn
@@ -33117,6 +35868,13 @@ Kn
 Kn
 Kn
 Kn
+kz
+am
+CN
+Yq
+vl
+He
+kz
 Kn
 Kn
 Kn
@@ -33130,17 +35888,10 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+JU
+OW
+mx
+JU
 Kn
 Kn
 Kn
@@ -33374,6 +36125,15 @@ Kn
 Kn
 Kn
 Kn
+kz
+oP
+Gk
+zk
+ud
+Ku
+kz
+kz
+kz
 Kn
 Kn
 Kn
@@ -33385,19 +36145,10 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+JU
+OW
+mx
+JU
 Kn
 Kn
 Kn
@@ -33631,6 +36382,15 @@ Kn
 Kn
 Kn
 Kn
+kz
+ZF
+JM
+la
+Ap
+uH
+LC
+TF
+kz
 Kn
 Kn
 Kn
@@ -33642,19 +36402,10 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+JU
+OW
+mx
+JU
 Kn
 Kn
 Kn
@@ -33888,43 +36639,43 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+kz
+CZ
+es
+QH
+kN
+kz
+kz
+kz
+kz
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+Qh
+TR
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+Ng
+Ng
+Ng
+Ng
+CO
 Kn
 Kn
 Kn
@@ -34145,43 +36896,43 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+kz
+yS
+jj
+Xh
+Vf
+kz
+QD
+tA
+bw
+gY
+bw
+bw
+bw
+bw
+tA
+bw
+bw
+bw
+bw
+bw
+tA
+rD
+oc
+tA
+bw
+bw
+bw
+KK
+tA
+bw
+QL
+JU
+ww
+ww
+ww
+LA
+Ng
 Kn
 Kn
 Kn
@@ -34402,43 +37153,43 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+kz
+yS
+UF
+Uo
+CX
+kz
+Uk
+GN
+se
+Oh
+se
+se
+se
+se
+se
+se
+se
+se
+se
+eZ
+eZ
+xN
+eZ
+eZ
+yG
+IW
+IW
+nv
+NK
+NK
+QQ
+Gw
+Fo
+IL
+Fo
+Fo
+Ng
 Kn
 Kn
 Kn
@@ -34659,43 +37410,43 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+kz
+ht
+TV
+CP
+ZY
+kz
+Uk
+OZ
+vS
+EC
+vj
+Pr
+yc
+yc
+yc
+yc
+yc
+yc
+yc
+yc
+yc
+yc
+yc
+jF
+yc
+yc
+yc
+yc
+yc
+yc
+yc
+bm
+Fo
+Fo
+Fo
+Fo
+Ng
 Kn
 Kn
 Kn
@@ -34916,43 +37667,43 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+kz
+RN
+fn
+pl
+sE
+kz
+Uk
+OZ
+mx
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+ww
+ww
+ww
+ww
+Ng
 Kn
 Kn
 Kn
@@ -35173,43 +37924,43 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+kz
+dW
+fo
+zF
+sE
+kz
+Uk
+OZ
+mx
+JU
+RJ
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
 Kn
 Kn
 Kn
@@ -35413,6 +38164,34 @@ Kn
 Kn
 Kn
 Kn
+tw
+sR
+UL
+Kn
+tw
+sR
+UL
+Kn
+tw
+sR
+UL
+Kn
+tw
+sR
+UL
+Kn
+Kn
+kz
+dW
+Wm
+ph
+dj
+Xg
+Hl
+Kf
+mx
+JU
+Ng
 Kn
 Kn
 Kn
@@ -35428,45 +38207,17 @@ Kn
 Kn
 Kn
 Kn
+pX
+pX
+pX
+GL
+pX
+pX
+pX
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
 Kn
 Kn
 Kn
@@ -35671,59 +38422,59 @@ Kn
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
+WA
+Ip
+Ip
+Ip
+Ip
+Ip
+Ip
+Uk
+LV
+wc
+JU
+Ng
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Iu
+Iu
+Oi
+Iu
+Iu
+iE
+iE
+iE
+hz
+iE
+iE
+iE
+iE
+pX
+oR
+oa
+HP
+dv
+KA
+pX
+pX
+pX
+TG
+Ng
 Kn
 Kn
 Kn
@@ -35927,60 +38678,60 @@ Kn
 Kn
 Kn
 Kn
+tw
+JO
+UL
+Kn
+tw
+JO
+UL
+Kn
+tw
+JO
+UL
+Kn
+tw
+JO
+UL
+Kn
+WA
+Ip
+br
+vV
+Yl
+mU
+Gq
+cq
+UB
+mx
+JU
+Ng
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Iu
+fd
+Ui
+Gp
+vI
+iE
+Wq
+aP
+zE
+Ns
+WI
+st
+st
+XL
+fv
+II
+kM
+Hx
+Sz
+pX
+lo
+lo
+pX
+Ng
 Kn
 Kn
 Kn
@@ -36185,59 +38936,59 @@ Kn
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+WA
+Ip
+Hp
+Se
+Mn
+xH
+Ip
+Uk
+LV
+mx
+JU
+Ng
+Iu
+Iu
+Iu
+fd
+TU
+tf
+sr
+Wr
+wk
+nr
+WW
+ov
+dJ
+vA
+Nf
+pX
+GQ
+Bp
+oE
+lo
+Lp
+lo
+lo
+lo
+Xr
+Ng
 Kn
 Kn
 Kn
@@ -36441,60 +39192,60 @@ Kn
 Kn
 Kn
 Kn
+tw
+JO
+UL
 Kn
+tw
+JO
+UL
 Kn
+tw
+JO
+UL
 Kn
+tw
+JO
+UL
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+WA
+Ip
+fQ
+Se
+Mn
+fS
+Ip
+Tq
+LV
+mx
+JU
+Ng
+et
+ge
+Gn
+Xc
+Af
+QW
+ZI
+iE
+jH
+vA
+vA
+QV
+AP
+Fh
+db
+pX
+er
+uS
+NH
+lo
+lo
+pX
+lo
+lo
+pX
+Ng
 Kn
 Kn
 Kn
@@ -36699,59 +39450,59 @@ Kn
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+WA
+Ip
+JG
+Se
+gI
+nW
+Ip
+Uk
+LV
+mx
+JU
+Ng
+IB
+TU
+FP
+YV
+YV
+zf
+WM
+iE
+Et
+qn
+SE
+Qk
+aR
+Pg
+Yw
+pX
+mI
+Wb
+ku
+Dr
+vs
+pX
+pX
+pX
+pX
+Ng
 Kn
 Kn
 Kn
@@ -36955,60 +39706,60 @@ Kn
 Kn
 Kn
 Kn
+tw
+JO
+UL
+Kn
+tw
+JO
+UL
+Kn
+tw
+JO
+UL
+Kn
+tw
+JO
+UL
+Kn
+WA
+Ip
+Ua
+Oc
+GF
+Zi
+Ip
+Uk
+LV
+mx
+JU
+Ng
+et
+EY
+QW
+sG
+mB
+QR
+Iu
+iE
+iE
+iE
+iE
+iE
+iE
+iE
+iE
+pX
+pX
+pX
+pX
+pX
+pX
+pX
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
 Kn
 Kn
 Kn
@@ -37213,59 +39964,59 @@ Kn
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+WA
+JJ
+JJ
+JJ
+JJ
+JJ
+JJ
+Wx
+be
+wc
+JU
+Ng
+Iu
+Iu
+md
+Iu
+Iu
+Iu
+Iu
+RJ
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+CO
 Kn
 Kn
 Kn
@@ -37469,6 +40220,42 @@ Kn
 Kn
 Kn
 Kn
+Xi
+ag
+yJ
+yJ
+yJ
+ag
+yJ
+yJ
+yJ
+ag
+yJ
+yJ
+yJ
+ag
+yJ
+yJ
+ja
+JJ
+nB
+bg
+ei
+Tb
+JJ
+Uk
+LV
+mx
+JU
+Ng
+yT
+xI
+gr
+XG
+yT
+ob
+Kn
+Ng
 Kn
 Kn
 Kn
@@ -37479,50 +40266,14 @@ Kn
 Kn
 Kn
 Kn
+Ng
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
 Kn
 Kn
 Kn
@@ -37727,6 +40478,41 @@ Kn
 Kn
 Kn
 Kn
+bT
+Kn
+Kn
+Kn
+bT
+Kn
+Kn
+Kn
+bT
+Kn
+Kn
+Kn
+bT
+Kn
+Kn
+bT
+JJ
+Ha
+ei
+ei
+hB
+JJ
+Uk
+LV
+mx
+JU
+Ng
+yT
+ib
+Jd
+kp
+yT
+yT
+Kn
+Ng
 Kn
 Kn
 Kn
@@ -37737,49 +40523,14 @@ Kn
 Kn
 Kn
 Kn
+Ng
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
 Kn
 Kn
 Kn
@@ -37983,6 +40734,42 @@ Kn
 Kn
 Kn
 Kn
+tw
+TS
+UL
+Kn
+tw
+TS
+UL
+Kn
+tw
+TS
+UL
+Kn
+tw
+TS
+UL
+Kn
+bT
+JJ
+Nj
+ei
+ei
+MF
+JJ
+Uk
+by
+xK
+JU
+Ng
+yT
+lP
+tQ
+HD
+Yo
+da
+Kn
+Ng
 Kn
 Kn
 Kn
@@ -37993,50 +40780,14 @@ Kn
 Kn
 Kn
 Kn
+Ng
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
 Kn
 Kn
 Kn
@@ -38241,6 +40992,41 @@ Kn
 Kn
 Kn
 Kn
+bT
+Kn
+Kn
+Kn
+bT
+Kn
+Kn
+Kn
+bT
+Kn
+Kn
+Kn
+bT
+Kn
+Kn
+bT
+JV
+ot
+ei
+ei
+sW
+JJ
+Uk
+LV
+mx
+JU
+us
+yT
+te
+Jd
+fb
+dG
+yT
+Kn
+Ng
 Kn
 Kn
 Kn
@@ -38251,49 +41037,14 @@ Kn
 Kn
 Kn
 Kn
+Ng
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
 Kn
 Kn
 Kn
@@ -38497,6 +41248,42 @@ Kn
 Kn
 Kn
 Kn
+tw
+TS
+UL
+Kn
+tw
+TS
+UL
+Kn
+tw
+TS
+UL
+Kn
+tw
+TS
+UL
+Kn
+bT
+JV
+Kl
+ei
+Fl
+GO
+JJ
+Uk
+LV
+oc
+tc
+jV
+Qx
+bt
+Jd
+fb
+vT
+da
+Kn
+Ng
 Kn
 Kn
 Kn
@@ -38507,50 +41294,14 @@ Kn
 Kn
 Kn
 Kn
+Ng
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
 Kn
 Kn
 Kn
@@ -38755,59 +41506,59 @@ Kn
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
 Kn
+bT
 Kn
 Kn
+bT
+JV
+LB
+ei
+WR
+wx
+sJ
+cq
+UB
+NK
+mx
+xM
+Ig
+bt
+VM
+Ue
+HA
+jK
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+CO
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+CO
 Kn
 Kn
 Kn
@@ -39011,6 +41762,42 @@ Kn
 Kn
 Kn
 Kn
+tw
+TS
+UL
+Kn
+tw
+TS
+UL
+Kn
+tw
+TS
+UL
+Kn
+tw
+TS
+UL
+Kn
+bT
+JJ
+aK
+ei
+Om
+mc
+JJ
+Uk
+LV
+vS
+bm
+jV
+Qx
+bt
+Jd
+fb
+Hg
+da
+Kn
+Ng
 Kn
 Kn
 Kn
@@ -39021,50 +41808,14 @@ Kn
 Kn
 Kn
 Kn
+Ng
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
 Kn
 Kn
 Kn
@@ -39269,6 +42020,41 @@ Kn
 Kn
 Kn
 Kn
+bT
+Kn
+Kn
+Kn
+bT
+Kn
+Kn
+Kn
+bT
+Kn
+Kn
+Kn
+bT
+Kn
+Kn
+bT
+JJ
+Cd
+CM
+uf
+ei
+JJ
+aX
+LV
+XU
+JU
+yH
+yT
+wH
+vD
+fb
+eX
+yT
+Kn
+Ng
 Kn
 Kn
 Kn
@@ -39279,49 +42065,14 @@ Kn
 Kn
 Kn
 Kn
+Ng
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
 Kn
 Kn
 Kn
@@ -39525,6 +42276,42 @@ Kn
 Kn
 Kn
 Kn
+tw
+lM
+UL
+Kn
+tw
+lM
+UL
+Kn
+tw
+lM
+UL
+Kn
+tw
+lM
+UL
+Kn
+bT
+JJ
+JJ
+JJ
+JJ
+BF
+JJ
+Uk
+LV
+mx
+JU
+Ng
+yT
+vc
+Jd
+lw
+JH
+da
+Kn
+Ng
 Kn
 Kn
 Kn
@@ -39535,50 +42322,14 @@ Kn
 Kn
 Kn
 Kn
+Ng
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
 Kn
 Kn
 Kn
@@ -39798,6 +42549,26 @@ Kn
 Kn
 Kn
 Kn
+bT
+JJ
+Tg
+NN
+Cb
+NN
+JU
+Uk
+LV
+mx
+JU
+Ng
+yT
+NJ
+Jd
+zu
+yT
+yT
+Kn
+Ng
 Kn
 Kn
 Kn
@@ -39808,34 +42579,14 @@ Kn
 Kn
 Kn
 Kn
+Ng
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
 Kn
 Kn
 Kn
@@ -40055,6 +42806,26 @@ Kn
 Kn
 Kn
 Kn
+bT
+JJ
+Tg
+MM
+cH
+NN
+JU
+Uk
+LV
+mx
+JU
+Ng
+yT
+xL
+RK
+oD
+yT
+Hi
+Kn
+Ng
 Kn
 Kn
 Kn
@@ -40065,34 +42836,14 @@ Kn
 Kn
 Kn
 Kn
+Ng
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
 Kn
 Kn
 Kn
@@ -40312,44 +43063,44 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+bT
+Uh
+Uh
+Uh
+Uh
+Uh
+JU
+Uk
+LV
+wc
+JU
+Ng
+Pm
+Pm
+qk
+Pm
+Pm
+Pm
+Pm
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Rl
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+CO
 Kn
 Kn
 Kn
@@ -40569,44 +43320,44 @@ Kn
 Kn
 Kn
 Kn
+bT
+Uh
+nR
+Wc
+gE
+hG
+JU
+Uk
+ZL
+rW
+JU
+Ng
+xm
+bK
+mG
+uD
+gd
+NX
+Pm
+My
+My
+My
+My
+My
+My
+My
+My
+MJ
+MJ
+MJ
+Im
+MJ
+MJ
+MJ
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Ng
 Kn
 Kn
 Kn
@@ -40824,46 +43575,46 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+yC
+yJ
+cG
+Uh
+oC
+tD
+ev
+yl
+JU
+Uk
+LV
+mx
+JU
+Ng
+Jk
+nx
+zU
+hF
+hF
+La
+Mg
+My
+Pz
+Rz
+Ho
+fG
+dU
+Xp
+Xp
+qy
+FS
+Lq
+mT
+Fk
+CH
+MJ
+MJ
+MJ
+Ag
+Ng
 Kn
 Kn
 Kn
@@ -41081,46 +43832,46 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+bT
+Gr
+Gr
+lE
+yl
+ev
+OX
+dI
+JU
+Tq
+LV
+mx
+JU
+Ng
+xm
+Ze
+kB
+xU
+bK
+nn
+pT
+OL
+NC
+aV
+Am
+QX
+Mi
+fm
+Cy
+MJ
+FM
+gW
+LS
+gW
+Zm
+MJ
+gW
+gW
+MJ
+Ng
 Kn
 Kn
 Kn
@@ -41338,46 +44089,46 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Fr
+ze
+zT
+ze
+tD
+gz
+PD
+BR
+vi
+cq
+UB
+mx
+JU
+Ng
+Pm
+Pm
+Pm
+fq
+nx
+rs
+nb
+My
+CB
+fm
+CB
+Sl
+Ri
+fm
+jW
+MJ
+mR
+lk
+lk
+lk
+hZ
+lk
+lk
+lk
+gU
+Rf
 Kn
 Kn
 Kn
@@ -41596,45 +44347,45 @@ Kn
 Kn
 Kn
 Kn
+Gr
+Gr
+Gr
+Uh
+Gr
+Gr
+Uh
+JU
+Uk
+cD
+mx
+JU
+Ng
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Pm
+fq
+rz
+wn
+hA
+My
+Fs
+vQ
+pn
+lc
+hl
+IA
+gP
+MJ
+xQ
+gW
+gW
+MJ
+Cn
+MJ
+gW
+gW
+MJ
+nm
 Kn
 Kn
 Kn
@@ -41860,38 +44611,38 @@ Kn
 Kn
 Kn
 Kn
+JU
+Uk
+cD
+wc
+JU
+Ng
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Pm
+Pm
+do
+Pm
+Pm
+My
+My
+My
+bF
+My
+My
+My
+My
+MJ
+ih
+ih
+iC
+MJ
+dp
+MJ
+MJ
+MJ
+MJ
+nm
 Kn
 Kn
 Kn
@@ -42117,6 +44868,12 @@ Kn
 Kn
 Kn
 Kn
+JU
+Uk
+cD
+mx
+JU
+Ng
 Kn
 Kn
 Kn
@@ -42132,23 +44889,17 @@ Kn
 Kn
 Kn
 Kn
+MJ
+MJ
+MJ
+Zx
+MJ
+MJ
+MJ
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+nm
 Kn
 Kn
 Kn
@@ -42374,38 +45125,38 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+JU
+Uk
+cD
+mx
+JU
+RJ
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+nm
 Kn
 Kn
 Kn
@@ -42631,38 +45382,38 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+JU
+Uk
+cD
+mx
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+ww
+ww
+ww
+LA
+nm
 Kn
 Kn
 Kn
@@ -42888,38 +45639,38 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+JU
+Uk
+iw
+xk
+LT
+XT
+dS
+XT
+XT
+XT
+XT
+XT
+XT
+XT
+sj
+XT
+wt
+XT
+XT
+XT
+XT
+XT
+XT
+XT
+XT
+FL
+MR
+vO
+Pv
+vO
+vO
+JX
 Kn
 Kn
 Kn
@@ -43145,38 +45896,38 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+JU
+Uk
+uW
+se
+Oh
+se
+se
+se
+se
+se
+se
+se
+se
+se
+JF
+lA
+lA
+lA
+lA
+Th
+NK
+NK
+NK
+NK
+NK
+zQ
+bm
+Fo
+Fo
+Fo
+Fo
+Ng
 Kn
 Kn
 Kn
@@ -43402,38 +46153,38 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+JU
+oX
+yc
+yc
+EC
+vj
+yc
+yc
+yc
+Pr
+yc
+yc
+yc
+yc
+Pr
+yc
+yc
+KQ
+LM
+Pr
+yc
+yc
+yc
+Pr
+yc
+Ea
+JU
+ww
+ww
+ww
+ww
+Ng
 Kn
 Kn
 Kn
@@ -43659,38 +46410,38 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+ww
+Fo
+Fo
+ss
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+JU
+Ng
+Ng
+Ng
+Ng
+ua
 Kn
 Kn
 Kn
@@ -43931,10 +46682,10 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
+ww
+Fo
+Fo
+ww
 Kn
 Kn
 Kn
@@ -44188,10 +46939,10 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
+ww
+Fo
+Fo
+ww
 Kn
 Kn
 Kn
@@ -44445,10 +47196,10 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
+ww
+Fo
+HM
+ww
 Kn
 Kn
 Kn
@@ -46758,7 +49509,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+zx
 Kn
 Kn
 Kn
