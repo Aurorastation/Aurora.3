@@ -41,7 +41,7 @@
 		return
 	var/mob/user = usr
 	if(!src.allowed(user))
-		to_chat(user, "Access Denied")
+		to_chat(user, "Access denied")
 		return
 
 	// Destroys the cyborg
@@ -50,11 +50,11 @@
 		if(!target || !istype(target))
 			return
 		if(isAI(user) && (target.connected_ai != user))
-			to_chat(user, "Access Denied. This robot is not linked to you.")
+			to_chat(user, "Access denied. This robot is not linked to you.")
 			return
 		// Cyborgs may blow up themselves via the console
 		if(isrobot(user) && user != target)
-			to_chat(user, "Access Denied.")
+			to_chat(user, "Access denied.")
 			return
 		var/choice = input("Really detonate [target.name]?") in list ("Yes", "No")
 		if(choice != "Yes")
@@ -69,7 +69,7 @@
 			return
 
 		if(target.emagged)
-			to_chat(user, "Access Denied. Safety protocols are disabled.")
+			to_chat(user, "Access denied. Safety protocols are disabled.")
 			return
 
 		else
@@ -88,11 +88,11 @@
 			return
 
 		if(isAI(user) && (target.connected_ai != user))
-			to_chat(user, "Access Denied. This robot is not linked to you.")
+			to_chat(user, "Access denied. This robot is not linked to you.")
 			return
 
 		if(isrobot(user))
-			to_chat(user, "Access Denied.")
+			to_chat(user, "Access denied.")
 			return
 
 		if(target.emagged)
@@ -117,27 +117,27 @@
 			return
 
 		if(isAI(user) && (target.connected_ai != user))
-			to_chat(user, "Access Denied. This robot is not linked to you.")
+			to_chat(user, "Access denied. This robot is not linked to you.")
 			return
 
 		if(isrobot(user) || target.emagged)
-			to_chat(user, "Access Denied.")
+			to_chat(user, "Access denied.")
 			return
 
 		if(!target || !istype(target))
 			return
 
 		if(!target.module)
-			to_chat(user, "Unit's access protocols are immutable.")
+			to_chat(user, "\The [src]\s access protocols are immutable.")
 			return
 		
 		target.module.all_access = !target.module.all_access
 		target.update_access()
 		
-		var/log_message = "[key_name_admin(usr)] changed [target.name] access to [target.module.all_access ? "all access" : "role specific"]!"
+		var/log_message = "[key_name_admin(usr)] changed [target.name] access to [target.module.all_access ? "all access" : "role specific"]."
 		message_admins(log_message)
-		log_game(log_message,ckey=key_name(usr))
-		to_chat(target, ("Your access was changed to: [target.module.all_access ? "all access" : "role specific"]!"))
+		log_game(log_message, ckey = key_name(usr))
+		to_chat(target, ("Your access was changed to: [target.module.all_access ? "all access" : "role specific"]."))
 
 	// Remotely hacks the cyborg. Only antag AIs can do this and only to linked cyborgs.
 	else if (href_list["hack"])
@@ -147,7 +147,7 @@
 
 		// Antag AI checks
 		if(!istype(user, /mob/living/silicon/ai) || !(user.mind.special_role && user.mind.original == user))
-			to_chat(user, "Access Denied")
+			to_chat(user, "Access denied")
 			return
 
 		if(target.emagged)
@@ -169,7 +169,7 @@
 	// Arms the emergency self-destruct system
 	else if(href_list["arm"])
 		if(istype(user, /mob/living/silicon))
-			to_chat(user, "Access Denied")
+			to_chat(user, "Access denied")
 			return
 
 		safety = !safety
@@ -178,7 +178,7 @@
 	// Destroys all accessible cyborgs if safety is disabled
 	else if(href_list["nuke"])
 		if(istype(user, /mob/living/silicon))
-			to_chat(user, "Access Denied")
+			to_chat(user, "Access denied")
 			return
 		if(safety)
 			to_chat(user, "Self-destruct aborted - safety active")

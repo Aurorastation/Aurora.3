@@ -679,7 +679,7 @@ var/global/list/robot_modules = list(
 	name = "clerical robot module"
 	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_COMMAND = TRUE)
 	networks = list(NETWORK_MINE)
-	specialized_access_types = list(/datum/job/janitor, /datum/job/librarian, /datum/job/hangar_tech)
+	specialized_access_types = list(/datum/job/janitor) // Janitor is a nice general access without specifics
 
 /obj/item/robot_module/service/clerical/Initialize()
 	. = ..()
@@ -727,7 +727,7 @@ var/global/list/robot_modules = list(
 	)
 
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
-	specialized_access_types = list(/datum/job/mining, /datum/job/hangar_tech)
+	specialized_access_types = list(/datum/job/mining)
 
 /obj/item/robot_module/miner/Initialize()
 	. = ..()

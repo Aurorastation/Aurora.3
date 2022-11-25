@@ -204,22 +204,22 @@
 	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 
 /mob/living/silicon/robot/proc/update_access()
-	if (emagged || malf_AI_module || crisis)
-		id_card.access = get_all_station_access() + access_synth // Give full station access
+	if(emagged || malf_AI_module || crisis)
+		id_card.access = get_all_station_access() + access_equipment // Give full station access
 		return
 
 	id_card = new id_card_type()
 
-	if (module)
-		if (module.all_access)
-			id_card.access = get_all_station_access() + access_synth // Give full station access
+	if(module)
+		if(module.all_access)
+			id_card.access = get_all_station_access() + access_equipment // Give full station access
 			return
 
-		for (var/job_type in module.specialized_access_types)
+		for(var/job_type in module.specialized_access_types)
 			var/datum/job/job = new job_type()
 			id_card.access |= job.access
 
-		to_chat(src, SPAN_NOTICE("Access set specialized to the department role belongs to."))
+		to_chat(src, SPAN_NOTICE("Access set to the department the role belongs to."))
 
 /mob/living/silicon/robot/proc/recalculate_synth_capacities()
 	if(!module?.synths)
@@ -415,7 +415,7 @@
 		return null
 
 	var/dat = "<HEAD><TITLE>[src.name] Self-Diagnosis Report</TITLE></HEAD><BODY>\n"
-	for (var/V in components)
+	for(var/V in components)
 		var/datum/robot_component/C = components[V]
 		dat += "<b>[capitalize_first_letters(C.name)]</b><br><table><tr><td>Brute Damage:</td><td>[C.brute_damage]</td></tr><tr><td>Electronics Damage:</td><td>[C.electronics_damage]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table>"
 
@@ -516,7 +516,7 @@
 	set src in usr
 
 	mopping = !mopping
-	if (mopping)
+	if(mopping)
 		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), SPAN_NOTICE("You enable your integrated mopping system."))
 		playsound(usr, 'sound/machines/hydraulic_long.ogg', 100, 1)
 	else
@@ -549,7 +549,7 @@
 		stat(null, text("No Cell Inserted!"))
 
 /mob/living/silicon/robot/proc/show_access()
-	if (!module)
+	if(!module)
 		stat(null, text("Access type: assistant level access"))
 	else
 		stat(null, text("Access type: [module.all_access ? "all access" : "role specific"]"))
@@ -708,7 +708,7 @@
 						to_chat(user, SPAN_NOTICE("You open \the [src]'s maintenance hatch."))
 						opened = TRUE
 						handle_panel_overlay()
-		else if (istype(W, /obj/item/stock_parts/matter_bin) && opened) // Installing/swapping a matter bin
+		else if(istype(W, /obj/item/stock_parts/matter_bin) && opened) // Installing/swapping a matter bin
 			if(storage)
 				to_chat(user, SPAN_NOTICE("You replace \the [storage] with \the [W]"))
 				storage.forceMove(get_turf(src))
@@ -742,7 +742,7 @@
 				C.brute_damage = 0
 				C.electronics_damage = 0
 				handle_panel_overlay()
-		else if (W.iswirecutter() || W.ismultitool())
+		else if(W.iswirecutter() || W.ismultitool())
 			if(wires_exposed)
 				wires.Interact(user)
 			else
@@ -878,14 +878,14 @@
 	<B>Installed Modules</B><BR><BR>"}
 
 
-	for (var/obj in module.modules)
-		if (!obj)
+	for(var/obj in module.modules)
+		if(!obj)
 			dat += text("<B>Resource depleted</B><BR>")
 		else if(activated(obj))
 			dat += text("[obj]: <B>Activated</B><BR>")
 		else
 			dat += text("[obj]: <A HREF=?src=\ref[src];act=\ref[obj]>Activate</A><BR>")
-	if (emagged)
+	if(emagged)
 		if(activated(module.emag))
 			dat += text("[module.emag]: <B>Activated</B><BR>")
 		else
@@ -1233,7 +1233,7 @@
 			clear_supplied_laws()
 			clear_inherent_laws()
 			laws = new /datum/ai_laws/syndicate_override
-			id_card.access = get_all_station_access() + access_synth // Give full station access
+			id_card.access = get_all_station_access() + access_equipment // Give full station access
 			var/time = time2text(world.realtime, "hh:mm:ss")
 			lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 			set_zeroth_law("Only [user.real_name] and people they designate as being such are operatives.")
