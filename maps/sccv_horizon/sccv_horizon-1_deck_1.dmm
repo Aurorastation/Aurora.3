@@ -1877,6 +1877,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"bwQ" = (
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "bxo" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
@@ -2058,6 +2064,14 @@
 "bCi" = (
 /turf/simulated/wall,
 /area/maintenance/hangar/port)
+"bCk" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/turf/space,
+/area/horizon/exterior)
 "bCN" = (
 /obj/structure/stairs/west,
 /obj/structure/railing/mapped,
@@ -2655,6 +2669,15 @@
 /obj/effect/overmap/visitable/ship/landable/mining_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
+"bZF" = (
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 10
+	},
+/turf/space,
+/area/horizon/exterior)
 "bZR" = (
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations - Mining Shuttle Dock Fore Starboard";
@@ -5529,6 +5552,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
+"esJ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 6
+	},
+/turf/space,
+/area/horizon/exterior)
 "esS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -8946,6 +8975,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "gMp" = (
@@ -9125,12 +9157,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint)
-"gTY" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 6
-	},
-/turf/space,
-/area/horizon/exterior)
 "gUl" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -9496,6 +9522,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
+"hhc" = (
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 10
+	},
+/turf/space,
+/area/horizon/exterior)
 "hhv" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -11054,12 +11086,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
-"iAh" = (
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 5
-	},
-/turf/space,
-/area/space)
 "iAs" = (
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
@@ -11157,12 +11183,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/full,
 /area/medical/morgue/lower)
-"iEd" = (
-/obj/machinery/atmospherics/binary/passive_gate{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "iEz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 6
@@ -15210,6 +15230,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial/disposals)
 "lRu" = (
@@ -15629,6 +15650,9 @@
 	name = "wooden plaque";
 	pixel_x = -32
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "mil" = (
@@ -16009,6 +16033,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
+"myD" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion/starboard)
 "myR" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -18070,6 +18101,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
+"obF" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8;
+	layer = 2.8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "obJ" = (
 /obj/structure/window/shuttle/scc,
 /obj/machinery/door/firedoor,
@@ -20242,13 +20280,6 @@
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
-"pXn" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 8;
-	layer = 2.8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "pXu" = (
 /obj/machinery/power/apc/intrepid{
 	dir = 4;
@@ -20576,12 +20607,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering/lower)
-"qif" = (
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 6
-	},
-/turf/space,
-/area/horizon/exterior)
 "qih" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -21832,12 +21857,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"rdF" = (
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 10
-	},
-/turf/space,
-/area/horizon/exterior)
 "ref" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -22080,6 +22099,12 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/deck1)
+"roL" = (
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 5
+	},
+/turf/space,
+/area/space)
 "roX" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -28127,13 +28152,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/rnd/test_range)
-"wdD" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/engineering/atmos/propulsion/starboard)
 "wdT" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -28360,15 +28378,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/aft)
-"wkd" = (
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 10
-	},
-/turf/space,
-/area/horizon/exterior)
 "wkj" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/effect/floor_decal/industrial/warning{
@@ -30495,11 +30504,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "xMk" = (
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 4
+	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/space,
 /area/horizon/exterior)
 "xMm" = (
@@ -46325,7 +46332,7 @@ nFs
 iTW
 apQ
 awJ
-iEd
+bwQ
 wsO
 ekt
 sfF
@@ -47134,7 +47141,7 @@ awJ
 lEw
 awJ
 koH
-pXn
+obF
 sfF
 pzY
 awJ
@@ -47537,7 +47544,7 @@ fBs
 mqI
 lrd
 awJ
-wdD
+myD
 wuW
 mUj
 fTm
@@ -49957,7 +49964,7 @@ eSV
 eSV
 oam
 cpF
-gTY
+esJ
 etT
 onU
 qEq
@@ -51169,13 +51176,13 @@ eSV
 eSV
 sPo
 aZd
-qif
+xMk
 eRb
 qgu
 qgu
 qgu
 eRb
-wkd
+bZF
 cnx
 kid
 dzi
@@ -51377,7 +51384,7 @@ kna
 uAi
 wVU
 oDB
-rdF
+hhc
 lQF
 wEY
 hWb
@@ -52381,9 +52388,9 @@ eSV
 eSV
 sPo
 aZd
-rdF
+hhc
 kid
-iAh
+roL
 wEY
 wEY
 pYB
@@ -53397,8 +53404,8 @@ ukl
 eeb
 iES
 oDB
-gTY
-xMk
+esJ
+bCk
 vnK
 gCN
 aYt
