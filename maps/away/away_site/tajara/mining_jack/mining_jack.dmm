@@ -532,8 +532,8 @@
 	},
 /area/mining_jack_outpost/smelter)
 "hi" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 1
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -690,12 +690,8 @@
 	},
 /area/mining_jack_outpost/smelter)
 "jP" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
-	dir = 1
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/obj/effect/map_effect/airlock/e_to_w/long/square/wide,
+/turf/simulated/wall/shuttle/raider,
 /area/shuttle/mining_jack/engines)
 "jV" = (
 /obj/machinery/computer/shuttle_control/explore/tajara_mining_jack,
@@ -809,6 +805,14 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/hangar)
+"le" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/mining_jack/engines)
 "lk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/meter,
@@ -1669,14 +1673,6 @@
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/engines)
-"Cn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
 "CD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/structure/cable/green{
@@ -2142,8 +2138,12 @@
 	},
 /area/mining_jack_outpost/smelter)
 "Nv" = (
-/obj/effect/map_effect/airlock/e_to_w/long/square/wide,
-/turf/simulated/wall/shuttle/raider,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/shuttle/mining_jack/engines)
 "NC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -32016,8 +32016,8 @@ YW
 YW
 yQ
 YW
-Nv
-Yz
+jP
+wc
 wc
 ww
 ww
@@ -32274,7 +32274,7 @@ Yz
 Yz
 Yz
 YW
-Yz
+wc
 wc
 wc
 wc
@@ -32531,7 +32531,7 @@ Yz
 Yz
 Yj
 YW
-Yz
+wc
 wc
 wc
 wc
@@ -33555,11 +33555,11 @@ NK
 YW
 mk
 nb
-jP
-Cn
+hi
+Nv
 Du
 oR
-hi
+le
 tc
 aN
 Wd
