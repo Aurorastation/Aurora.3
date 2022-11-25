@@ -2424,7 +2424,9 @@
 /area/headmaster_ship)
 "hJ" = (
 /obj/structure/table/standard,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/photocopier/faxmachine{
+	req_one_access = list(209)
+	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
