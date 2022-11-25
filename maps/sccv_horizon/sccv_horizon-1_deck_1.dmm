@@ -8920,7 +8920,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/disposal)
+/area/horizon/custodial/disposals)
 "gJN" = (
 /obj/structure/table/steel,
 /obj/machinery/light{
