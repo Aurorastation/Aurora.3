@@ -1682,10 +1682,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/open{
 	dir = 2;
-	id = "database_checkpoint";
-	icon_state = "pdoor0"
+	id = "database_checkpoint"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2428,10 +2427,9 @@
 	dir = 10;
 	icon_state = "corner_white"
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/open{
 	dir = 2;
-	id = "database_checkpoint";
-	icon_state = "pdoor0"
+	id = "database_checkpoint"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3233,10 +3231,9 @@
 	dir = 1;
 	pixel_y = -32
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/open{
 	dir = 2;
-	id = "database_checkpoint";
-	icon_state = "pdoor0"
+	id = "database_checkpoint"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3520,16 +3517,6 @@
 	temperature = 278.15
 	},
 /area/database_freighter/laboratory)
-"Cu" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "database_bridge"
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/database_freighter)
 "Cx" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/bio_suit/anomaly,
@@ -4390,6 +4377,16 @@
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, hull"
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/database_freighter)
+"Rs" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "database_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -11833,7 +11830,7 @@ ki
 BF
 BF
 ew
-Cu
+Rs
 iB
 iB
 mb
