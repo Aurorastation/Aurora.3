@@ -26238,7 +26238,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/closet/secure_closet/freezer{
 	icon_state = "freezer";
-	name = "cafe fridge"
+	name = "cafe fridgea"
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "poolcafe";
