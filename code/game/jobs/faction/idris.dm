@@ -80,7 +80,7 @@
 	name = "Investigator - Idris"
 
 	uniform = /obj/item/clothing/under/det/idris
-	suit = /obj/item/clothing/suit/storage/det_jacket/idris
+	suit = /obj/item/clothing/suit/storage/security/investigator/idris
 	id = /obj/item/card/id/idris/sec
 
 	backpack_faction = /obj/item/storage/backpack/idris
