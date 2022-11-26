@@ -426,7 +426,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/synthetic
 	name = "\improper Equipment ID"
-	desc = "Access module for SCC equipment"
+	desc = "Access module for SCC equipment."
 	icon_state = "id-robot"
 	item_state = "tdgreen"
 	assignment = "Equipment"
@@ -437,7 +437,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/synthetic/cyborg
 	name = "\improper Equipment ID"
-	desc = "Access module for SCC equipment"
+	desc = "Access module for SCC equipment."
 	icon_state = "id-robot"
 	item_state = "tdgreen"
 	assignment = "Equipment"
