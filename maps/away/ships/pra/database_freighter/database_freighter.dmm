@@ -830,7 +830,11 @@
 	},
 /area/database_freighter/checkpoint)
 "dw" = (
-/obj/structure/reagent_dispensers/coolanttank,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/portgen/basic/fusion,
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "dy" = (
@@ -1668,26 +1672,12 @@
 	},
 /area/database_freighter/storage)
 "hJ" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "database_checkpoint";
-	icon_state = "pdoor0"
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "database_bridge"
 	},
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark{
+/turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/database_freighter)
@@ -1846,10 +1836,10 @@
 "iK" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	id_tag = "headmaster_shuttle_dock";
 	req_one_access = list(31,48,67);
 	tag_door = "mining_shuttle_dock_doors";
-	pixel_x = -25
+	pixel_x = -25;
+	id_tag = "database_freighter_shuttle_dock"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1996,6 +1986,10 @@
 	dir = 2;
 	id = "database_bridge";
 	icon_state = "pdoor0"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "database_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -2425,14 +2419,14 @@
 	},
 /area/database_freighter/engineering)
 "mj" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10;
+	icon_state = "corner_white"
+	},
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	id = "database_checkpoint";
 	icon_state = "pdoor0"
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2440,10 +2434,9 @@
 /area/database_freighter)
 "mk" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "database_bridge";
-	icon_state = "pdoor0"
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "database_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -2472,13 +2465,12 @@
 /area/database_freighter/barracks)
 "mr" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "database_bridge";
-	icon_state = "pdoor0"
-	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "database_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3041,14 +3033,6 @@
 	temperature = 278.15
 	},
 /area/database_freighter)
-"uq" = (
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/portgen/basic/fusion,
-/turf/simulated/floor/plating,
-/area/database_freighter/engine)
 "ux" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
@@ -3057,6 +3041,10 @@
 	},
 /turf/template_noop,
 /area/space)
+"uT" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/turf/simulated/floor/plating,
+/area/database_freighter/engine)
 "uV" = (
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/plating,
@@ -3235,11 +3223,6 @@
 /turf/simulated/wall/shuttle/raider,
 /area/database_freighter/hangar)
 "yr" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "database_checkpoint";
-	icon_state = "pdoor0"
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
 	icon_state = "corner_white"
@@ -3248,6 +3231,11 @@
 	req_one_access = list(209);
 	dir = 1;
 	pixel_y = -32
+	},
+/obj/machinery/door/blast/regular{
+	dir = 2;
+	id = "database_checkpoint";
+	icon_state = "pdoor0"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3671,11 +3659,6 @@
 /turf/template_noop,
 /area/space)
 "Ea" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "database_checkpoint";
-	icon_state = "pdoor0"
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -3690,8 +3673,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/door/blast/regular{
+	dir = 2;
+	id = "database_checkpoint";
+	icon_state = "pdoor0"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4413,11 +4398,6 @@
 /area/database_freighter)
 "Rg" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "database_bridge";
-	icon_state = "pdoor0"
-	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, hull"
 	},
@@ -4800,11 +4780,6 @@
 /area/database_freighter/captain_quarters)
 "Zq" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "database_bridge";
-	icon_state = "pdoor0"
-	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -11544,7 +11519,7 @@ fP
 BF
 BF
 iF
-Zq
+hJ
 iB
 iB
 mb
@@ -11706,7 +11681,7 @@ vo
 BF
 BF
 bs
-Zq
+hJ
 iB
 iB
 mb
@@ -11868,7 +11843,7 @@ ki
 BF
 BF
 ew
-Zq
+hJ
 iB
 iB
 mb
@@ -12841,7 +12816,7 @@ XZ
 XZ
 bu
 mb
-hJ
+Ea
 yr
 mb
 mb
@@ -13142,7 +13117,7 @@ iB
 iB
 iB
 xw
-dw
+uT
 Nm
 rj
 xw
@@ -13304,7 +13279,7 @@ iB
 iB
 iB
 xw
-uq
+dw
 Db
 rj
 xw
@@ -13489,7 +13464,7 @@ Zf
 Zf
 Zf
 mb
-eX
+gh
 PV
 pN
 nz
