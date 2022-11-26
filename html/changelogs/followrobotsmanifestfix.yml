@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes following shipbounds from the crew manifest as a ghost."
