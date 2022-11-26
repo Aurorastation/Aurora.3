@@ -1299,7 +1299,6 @@
 /obj/structure/table/glass,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/light{
@@ -3268,7 +3267,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /turf/simulated/floor/tiled,
@@ -3768,7 +3766,6 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4158,7 +4155,6 @@
 "dHD" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/effect/floor_decal/spline/plain{
@@ -4717,7 +4713,6 @@
 /obj/machinery/disposal/small/east,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /turf/simulated/floor/marble/dark,
@@ -4933,7 +4928,6 @@
 /area/security/investigations)
 "emK" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -5682,7 +5676,6 @@
 /obj/machinery/hologram/holopad,
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5985,7 +5978,6 @@
 "feT" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/machinery/camera/network/third_deck{
@@ -6575,7 +6567,6 @@
 /area/horizon/crew_quarters/cryo/washroom)
 "fxi" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -8796,7 +8787,6 @@
 "hhO" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/recharger/wallcharger{
@@ -8915,7 +8905,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/effect/floor_decal/corner_wide/green{
@@ -9035,7 +9024,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/machinery/disposal/small/west,
@@ -10180,9 +10168,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/item/device/radio/intercom{
-	frequency = 1449;
-	name = "Station Intercom (Interrogation)";
+/obj/item/device/radio/intercom/interrogation{
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -10330,7 +10316,6 @@
 	dir = 10
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = -24;
 	dir = 1
 	},
@@ -10764,7 +10749,6 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 25
 	},
 /turf/simulated/floor/tiled/dark,
@@ -12165,7 +12149,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
@@ -12536,7 +12519,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/dark,
@@ -13189,7 +13171,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/dark,
@@ -13986,7 +13967,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/white,
@@ -14546,11 +14526,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "lIN" = (
-/obj/item/device/radio/intercom{
-	broadcasting = 1;
-	frequency = 1449;
-	listening = 0;
-	name = "Station Intercom (Interrogation)";
+/obj/item/device/radio/intercom/interrogation/broadcasting{
 	pixel_y = -24;
 	dir = 1
 	},
@@ -16329,7 +16305,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -16497,7 +16472,6 @@
 	},
 /obj/structure/bed/padded,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 25
 	},
 /obj/item/bedsheet/medical,
@@ -16854,7 +16828,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/structure/bed/stool/chair/padded/brown,
@@ -17201,7 +17174,6 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/machinery/camera/network/third_deck{
@@ -18081,7 +18053,6 @@
 "ozN" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/structure/table/wood,
@@ -18586,7 +18557,6 @@
 "oUl" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/structure/railing/mapped,
@@ -18618,7 +18588,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -18636,7 +18605,6 @@
 /obj/structure/closet/secure_closet/medical3,
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/item/storage/box/gloves,
@@ -20719,7 +20687,6 @@
 /obj/item/reagent_containers/food/drinks/shaker,
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 25
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -20856,7 +20823,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/structure/cable/green{
@@ -21441,7 +21407,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /turf/simulated/floor/tiled/dark,
@@ -24046,7 +24011,6 @@
 /area/crew_quarters/captain)
 "tpN" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 24
 	},
 /obj/machinery/light{
@@ -25199,7 +25163,6 @@
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /turf/simulated/floor/tiled/white,
@@ -26370,7 +26333,6 @@
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -28332,7 +28294,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/white,
@@ -29992,7 +29953,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 21;
 	pixel_y = -13
 	},
