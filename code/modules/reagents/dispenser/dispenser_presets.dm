@@ -195,7 +195,7 @@
 
 /obj/machinery/chemical_dispenser/coffee
 	name = "Coffee Machine"
-	desc = "The only thing that can get some workers though the day, the coffee maker is the facilities most valuable resource."
+	desc = "The only thing that can get some workers though the day, the coffee maker is the facility's most valuable resource."
 	icon_state = "coffee_machine"
 	ui_title = "Morning Glory Coffee Mate"
 	icon_state_active = null
