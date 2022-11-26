@@ -49,17 +49,17 @@
 	icon_override = null
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/poncho/dominia_cape/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/clothing/accessory/poncho/dominia_cape/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
-		var/image/legge = image(mob_icon, null, "lil_leg_thing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
-		I.add_overlay(legge)
+		var/image/cape_backing = image(mob_icon, null, "lil_leg_thing", human ? human.layer - 0.01 : MOB_LAYER - 0.01)
+		I.add_overlay(cape_backing)
 	return I
 
-/obj/item/clothing/accessory/poncho/dominia_cape/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
+/obj/item/clothing/accessory/poncho/dominia_cape/get_accessory_mob_overlay(mob/living/carbon/human/human, force)
 	var/image/base = ..()
-	var/image/legge = image(icon, null, "lil_leg_thing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
-	base.add_overlay(legge)
+	var/image/cape_backing = image(icon, null, "lil_leg_thing", human ? human.layer - 0.01 : MOB_LAYER - 0.01)
+	base.add_overlay(cape_backing)
 	return base
 
 /obj/item/clothing/accessory/poncho/dominia_cape/strelitz
