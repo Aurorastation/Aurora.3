@@ -556,7 +556,7 @@ var/const/access_kataphract_knight = 114
 * Misc *
 *******/
 /var/const/access_equipment = 199
-/datum/access/Equipment
+/datum/access/equipment
 	id = access_equipment
 	desc = "Equipment"
 	access_type = ACCESS_TYPE_NONE

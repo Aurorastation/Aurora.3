@@ -75,7 +75,7 @@
 			</span>
 			<span class="itemContent">
 				{{if value.access == 0}}
-					{{:helper.link('Role specific access', 'locked', {'access' : value.name})}}
+					{{:helper.link('Role Specific Access', 'locked', {'access' : value.name})}}
 				{{else}}
 					{{:helper.link('All Access', 'unlocked', {'access' : value.name})}}
 				{{/if}}
@@ -98,7 +98,7 @@
 			</span>
 			{{if value.hackable}}
 				<span class="itemLabel">
-					Hacking action: 
+					Hacking Action: 
 				</span>
 				<span class="itemContent">
 					{{:helper.link('Hack', 'calculator', {'hack' : value.name}, null, 'redButton')}}

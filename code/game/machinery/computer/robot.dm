@@ -30,7 +30,7 @@
 
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
+	if(!ui)
 		ui = new(user, src, ui_key, "robot_control.tmpl", "Robotic Control Console", 400, 500)
 		ui.set_initial_data(data)
 		ui.open()
@@ -82,7 +82,7 @@
 
 
 	// Locks or unlocks the cyborg
-	else if (href_list["lockdown"])
+	else if(href_list["lockdown"])
 		var/mob/living/silicon/robot/target = get_cyborg_by_name(href_list["lockdown"])
 		if(!target || !istype(target))
 			return
@@ -111,7 +111,7 @@
 		to_chat(target, (target.lock_charge ? "You have been locked down!" : "Your lockdown has been lifted!"))
 	
 	// Changes borg's access
-	else if (href_list["access"])
+	else if(href_list["access"])
 		var/mob/living/silicon/robot/target = get_cyborg_by_name(href_list["access"])
 		if(!target || !istype(target))
 			return
@@ -140,7 +140,7 @@
 		to_chat(target, ("Your access was changed to: [target.module.all_access ? "all access" : "role specific"]."))
 
 	// Remotely hacks the cyborg. Only antag AIs can do this and only to linked cyborgs.
-	else if (href_list["hack"])
+	else if(href_list["hack"])
 		var/mob/living/silicon/robot/target = get_cyborg_by_name(href_list["hack"])
 		if(!target || !istype(target))
 			return
@@ -218,7 +218,7 @@
 		robot["name"] = R.name
 		if(R.stat)
 			robot["status"] = "Not Responding"
-		else if (R.lock_charge) // changed this from !R.canmove to R.lock_charge because of issues with lockdown and chairs
+		else if(R.lock_charge) // changed this from !R.canmove to R.lock_charge because of issues with lockdown and chairs
 			robot["status"] = "Lockdown"
 		else
 			robot["status"] = "Operational"
@@ -246,7 +246,7 @@
 // Parameters: 1 (name - Cyborg we are trying to find)
 // Description: Helper proc for finding cyborg by name
 /obj/machinery/computer/robotics/proc/get_cyborg_by_name(var/name)
-	if (!name)
+	if(!name)
 		return
 	for(var/mob/living/silicon/robot/R in mob_list)
 		if(R.name == name)
