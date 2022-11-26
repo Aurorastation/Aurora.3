@@ -830,11 +830,7 @@
 	},
 /area/database_freighter/checkpoint)
 "dw" = (
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "dy" = (
@@ -1672,12 +1668,26 @@
 	},
 /area/database_freighter/storage)
 "hJ" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "database_bridge"
+/obj/effect/floor_decal/corner/red{
+	dir = 5
 	},
-/turf/simulated/floor{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/blast/regular{
+	dir = 2;
+	id = "database_checkpoint";
+	icon_state = "pdoor0"
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter)
@@ -1982,11 +1992,6 @@
 /area/database_freighter)
 "jJ" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "database_bridge";
-	icon_state = "pdoor0"
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	id = "database_bridge"
@@ -3041,10 +3046,6 @@
 	},
 /turf/template_noop,
 /area/space)
-"uT" = (
-/obj/structure/reagent_dispensers/coolanttank,
-/turf/simulated/floor/plating,
-/area/database_freighter/engine)
 "uV" = (
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/plating,
@@ -3519,6 +3520,16 @@
 	temperature = 278.15
 	},
 /area/database_freighter/laboratory)
+"Cu" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "database_bridge"
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/database_freighter)
 "Cx" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/bio_suit/anomaly,
@@ -3659,29 +3670,13 @@
 /turf/template_noop,
 /area/space)
 "Ea" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d2 = 2;
+	icon_state = "0-2"
 	},
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "database_checkpoint";
-	icon_state = "pdoor0"
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/database_freighter)
+/obj/machinery/power/portgen/basic/fusion,
+/turf/simulated/floor/plating,
+/area/database_freighter/engine)
 "Eh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
@@ -4304,11 +4299,6 @@
 /area/database_freighter/engine)
 "PH" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "database_bridge";
-	icon_state = "pdoor0"
-	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -11519,7 +11509,7 @@ fP
 BF
 BF
 iF
-hJ
+Zq
 iB
 iB
 mb
@@ -11681,7 +11671,7 @@ vo
 BF
 BF
 bs
-hJ
+Zq
 iB
 iB
 mb
@@ -11843,7 +11833,7 @@ ki
 BF
 BF
 ew
-hJ
+Cu
 iB
 iB
 mb
@@ -12816,7 +12806,7 @@ XZ
 XZ
 bu
 mb
-Ea
+hJ
 yr
 mb
 mb
@@ -13117,7 +13107,7 @@ iB
 iB
 iB
 xw
-uT
+dw
 Nm
 rj
 xw
@@ -13279,7 +13269,7 @@ iB
 iB
 iB
 xw
-dw
+Ea
 Db
 rj
 xw
@@ -13626,7 +13616,7 @@ Nf
 ge
 yo
 mb
-Ea
+hJ
 mj
 mb
 Kf
