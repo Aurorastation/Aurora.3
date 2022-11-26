@@ -2314,11 +2314,9 @@
 /area/headmaster_ship/engineering)
 "hm" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3586,7 +3584,11 @@
 	},
 /area/headmaster_ship/medbay)
 "lk" = (
-/obj/machinery/power/portgen/basic/advanced,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/portgen/basic/fusion,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3673,10 +3675,8 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = 10
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -5983,6 +5983,12 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/hangar)
+"NK" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/headmaster_ship/engineering)
 "NR" = (
 /obj/machinery/floodlight{
 	dir = 4
@@ -15588,7 +15594,7 @@ aS
 aT
 gn
 oh
-lk
+NK
 lw
 oX
 so

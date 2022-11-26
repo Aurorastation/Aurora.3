@@ -830,11 +830,7 @@
 	},
 /area/database_freighter/checkpoint)
 "dw" = (
-/obj/machinery/power/portgen/basic/advanced,
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
+/obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "dy" = (
@@ -3045,6 +3041,14 @@
 	temperature = 278.15
 	},
 /area/database_freighter)
+"uq" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/portgen/basic/fusion,
+/turf/simulated/floor/plating,
+/area/database_freighter/engine)
 "ux" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
@@ -3959,11 +3963,9 @@
 /area/database_freighter/engine)
 "Jv" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4168,14 +4170,12 @@
 /area/database_freighter/hangar)
 "Nm" = (
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = 10
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -13304,7 +13304,7 @@ iB
 iB
 iB
 xw
-dw
+uq
 Db
 rj
 xw
