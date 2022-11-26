@@ -1,6 +1,6 @@
 /obj/item/device/radio/intercom
 	name = "intercom (general)"
-	desc = "An intercom with buttons for transmitting, receiving, and for volume."
+	desc = "An intercom with buttons for transmitting, receiving, and for volume control."
 	desc_extended = "Has a touch display for inputting a frequency, with proper authentication. Used to communicate when you have lost your radio. \
 		Otherwise, you would likely just use a handheld shortwave radio instead."
 	icon_state = "intercom"
