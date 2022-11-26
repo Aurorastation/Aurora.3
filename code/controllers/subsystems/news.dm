@@ -15,7 +15,7 @@
 	NEW_SS_GLOBAL(SSnews)
 
 /datum/controller/subsystem/news/Initialize(timeofday)
-	CreateFeedChannel("Standard Announcements", "Automatic Announcement System", 1, 1, "New Standard Announcement Available")
+	CreateFeedChannel("Announcements", "Automatic Announcement System", 1, 1, "New Announcement Available")
 	CreateFeedChannel("Tau Ceti Daily", "CentComm Minister of Information", 1, 1)
 	CreateFeedChannel("The Gibson Gazette", "Editor Carl Ritz", 1, 1)
 
