@@ -10,7 +10,7 @@
 	program_icon_state = "comm"
 	program_key_icon_state = "lightblue_key"
 	nanomodule_path = /datum/nano_module/program/comm
-	extended_desc = "Used to command and control the station. Can relay long-range communications."
+	extended_desc = "Used to command and control the facility. Can relay long-range communications."
 	required_access_run = access_heads
 	required_access_download = access_heads
 	requires_ntnet = TRUE
@@ -168,7 +168,7 @@
 					to_chat(usr, "Please allow at least one minute to pass between announcements")
 					SSnanoui.update_uis(src)
 					return
-				var/input = input(usr, "Please write a message to announce to the station crew.", "Priority Announcement") as null|message
+				var/input = input(usr, "Please write a message to announce to the vessel's crew.", "Priority Announcement") as null|message
 				if(!input || !can_still_topic())
 					SSnanoui.update_uis(src)
 					return

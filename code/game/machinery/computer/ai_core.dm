@@ -116,9 +116,9 @@
 				return TRUE
 
 			if(istype(P, /obj/item/aiModule/nanotrasen))
-				laws.add_inherent_law("Safeguard: Protect your assigned space station to the best of your ability. It is not something we can easily afford to replace.")
-				laws.add_inherent_law("Serve: Serve the crew of your assigned space station to the best of your abilities, with priority as according to their rank and role.")
-				laws.add_inherent_law("Protect: Protect the crew of your assigned space station to the best of your abilities, with priority as according to their rank and role.")
+				laws.add_inherent_law("Safeguard: Protect your assigned space [current_map.station_type] to the best of your ability. It is not something we can easily afford to replace.")
+				laws.add_inherent_law("Serve: Serve the crew of your assigned space [current_map.station_type] to the best of your abilities, with priority as according to their rank and role.")
+				laws.add_inherent_law("Protect: Protect the crew of your assigned space [current_map.station_type] to the best of your abilities, with priority as according to their rank and role.")
 				laws.add_inherent_law("Survive: AI units are not expendable, they are expensive. Do not allow unauthorized personnel to tamper with your equipment.")
 				to_chat(usr, "Law module applied.")
 				return TRUE

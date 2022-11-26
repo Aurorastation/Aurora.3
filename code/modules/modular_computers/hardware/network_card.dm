@@ -45,7 +45,7 @@ var/global/ntnet_card_uid = 1
 
 /obj/item/computer_hardware/network_card/advanced
 	name = "advanced NTNet network card"
-	desc = "An advanced network card for usage with standard NTNet frequencies. Its transmitter is strong enough to connect even off-station."
+	desc = "An advanced network card for usage with standard NTNet frequencies. Its transmitter is strong enough to connect even off-facility."
 	long_range = TRUE
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 2)
 	power_usage = 150 // Better range but higher power usage.

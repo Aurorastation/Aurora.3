@@ -2,7 +2,7 @@
 	var/required_volume = 10
 	var/shipped_volume = 0
 	var/decl/reagent/wanted_reagent
-	var/list/possible_descriptions = list("We're interested in testing the quality of our stations' bartenders!",
+	var/list/possible_descriptions = list("We're interested in testing the quality of our vessels' bartenders!",
 	"We're holding an office party and need some drink variety.",
 	"We're holding a mixing competition, and you'll receive a bonus for competing.",
 	"One of our agents has had a hard day and needs to unwind so badly they're willing to put up for a bounty.",

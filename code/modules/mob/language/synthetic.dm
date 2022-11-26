@@ -1,6 +1,6 @@
 /datum/language/binary
 	name = LANGUAGE_ROBOT
-	desc = "Most human stations support free-use communications protocols and routing hubs for synthetic use."
+	desc = "Most human installations support free-use communications protocols and routing hubs for synthetic use."
 	colour = "say_quote"
 	speech_verb = list("states")
 	ask_verb = list("queries")

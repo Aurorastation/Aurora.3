@@ -494,7 +494,7 @@
 
 /obj/item/clothing/suit/storage/toggle/highloft
 	name = "high loft jacket"
-	desc = "A high loft insulated jacket intended for long hours in cold station conditions."
+	desc = "A high loft insulated jacket intended for long hours in cold conditions."
 	icon = 'icons/clothing/suits/highloft.dmi'
 	icon_state = "highloft"
 	item_state = "highloft"

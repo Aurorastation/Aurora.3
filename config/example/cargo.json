@@ -19,7 +19,7 @@
 		"nanotrasen": {
 			"name": "Nano Trasen",
 			"description": "Your default supplier.",
-			"tag_line": "For all your station supplies.",
+			"tag_line": "For all your general supplies.",
 			"shuttle_time": 100,
 			"shuttle_price": 500,
 			"available": 1,

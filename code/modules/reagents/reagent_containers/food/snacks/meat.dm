@@ -82,7 +82,7 @@
 /obj/item/reagent_containers/food/snacks/meat/rat
 	name = "rat meat"
 	icon_state = "chickenbreast"
-	desc = "You have reached the epitome of poorness: eating the station's vermin."
+	desc = "You have reached the epitome of poorness: eating the facilities vermin."
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 5, /decl/reagent/nutriment/triglyceride = 2)
 	bitesize = 1.5
 

@@ -46,7 +46,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 		return FALSE
 
 	station_account = new()
-	station_account.owner_name = "[station_name()] Station Account"
+	station_account.owner_name = "[station_name()] Corporate Account"
 	station_account.account_number = next_account_number
 	next_account_number += rand(1,500)
 	if(next_account_number > 999999) //If we're hitting 7 digits, reset to the minimum and increase from there.

@@ -25,7 +25,7 @@
 
 /datum/bounty/item/engineer/eshield
 	name = "Emergency Shields"
-	description = "Another station is requesting emergency energy shields. Apparently there was a baby carp migration and they want to set up a safe play area for them. Treat this as urgent."
+	description = "Another vessel is requesting emergency energy shields. Apparently there was a baby carp migration and they want to set up a safe play area for them. Treat this as urgent."
 	reward_low = 7500
 	reward_high = 9000
 	required_count = 2
@@ -60,7 +60,7 @@
 
 /datum/bounty/item/engineer/phoron_tank
 	name = "Full Tank of Phoron"
-	description = "Another station has requested supplies to test a new engine. In particular, they request a full tank of phoron. Please don't send a whole canister; they'll get... ideas."
+	description = "Another vessel has requested supplies to test a new engine. In particular, they request a full tank of phoron. Please don't send a whole canister; they'll get... ideas."
 	reward_low = 2200
 	reward_high = 3200
 	wanted_types = list(/obj/item/tank)
@@ -78,7 +78,7 @@
 
 /datum/bounty/item/engineer/vending
 	name = "Vending Machines"
-	description = "We're researching the cause of the widespread brand intelligence virus. Send us some vending machines of any kind from your station so we can examine them. Just get permission, first."
+	description = "We're researching the cause of the widespread brand intelligence virus. Send us some vending machines of any kind from your facility so we can examine them. Just get permission, first."
 	reward_low = 3500
 	reward_high = 5000
 	required_count = 4
@@ -122,7 +122,7 @@
 
 /datum/bounty/item/engineer/pipe
 	name = "Atmospheric Pipe Dispenser"
-	description = "We need another pipe dispenser to help expedite an atmospherics project. The station will get a bonus if you send us a pipe dispenser."
+	description = "We need another pipe dispenser to help expedite an atmospherics project. The vessel will get a bonus if you send us a pipe dispenser."
 	reward_low = 5000
 	reward_high = 5700
 	wanted_types = list(/obj/machinery/pipedispenser)
@@ -137,7 +137,7 @@
 
 /datum/bounty/item/engineer/bookcase
 	name = "Bookcases"
-	description = "We're showing some love to one of the libraries on the %DOCKSHORT. A bonus will be paid to any station who has some skilled engineers build some for us."
+	description = "We're showing some love to one of the libraries on the %DOCKSHORT. A bonus will be paid to any facility who has some skilled engineers build some for us."
 	reward_low = 6000
 	reward_high = 7000
 	required_count = 4
@@ -146,7 +146,7 @@
 
 /datum/bounty/item/engineer/generator
 	name = "Portable Generators"
-	description = "Another station reported some engine troubles, and needs a few portable generators to maintain critical operations. Ship any type of portable generators to receive a bonus."
+	description = "Another vessel reported some engine troubles, and needs a few portable generators to maintain critical operations. Ship any type of portable generators to receive a bonus."
 	reward_low = 5000
 	reward_high = 6200
 	required_count = 2

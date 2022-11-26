@@ -1,6 +1,6 @@
 /obj/machinery/keycard_auth
 	name = "keycard authentication device"
-	desc = "This device is used to trigger station functions, which require more than one ID card to authenticate."
+	desc = "This device is used to trigger vessel functions, which require more than one ID card to authenticate."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "auth_off"
 	var/active = 0 //This gets set to 1 on all devices except the one where the initial request was made.
@@ -32,7 +32,7 @@
 			attempt_hook_up(my_sector)
 
 /obj/machinery/keycard_auth/attack_ai(mob/user)
-	to_chat(user, SPAN_NOTICE("The station AI is not to interact with these devices."))
+	to_chat(user, SPAN_NOTICE("The Artificial Intelligence is not to interact with these devices."))
 	return
 
 /obj/machinery/keycard_auth/attackby(obj/item/W, mob/user)

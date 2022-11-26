@@ -3,7 +3,7 @@
 /////////////////////////////////////////////
 /obj/item/card/id/guest
 	name = "guest pass"
-	desc = "Allows temporary access to station areas."
+	desc = "Allows temporary access to more areas."
 	icon_state = "guest"
 	overlay_state = "guest"
 

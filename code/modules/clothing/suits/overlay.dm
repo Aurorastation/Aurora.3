@@ -4,7 +4,7 @@
 
 /obj/item/clothing/suit/storage/toggle/overlay/submariner
 	name = "submariner's coat"
-	desc = "A leather jacket with a synthetic fur collar. It looks comfortable, if a bit warm for the station."
+	desc = "A leather jacket with a synthetic fur collar. It looks comfortable, if a bit warm for a space vessel."
 	desc_extended = "Waterproof leather coats such as this one are commonly worn by Europan submarine crews due to their ability to keep you warm and dry. Comes with a Castillo import synth-fur collar!"
 	icon_state = "submariner_coat"
 	item_state = "submariner_coat"

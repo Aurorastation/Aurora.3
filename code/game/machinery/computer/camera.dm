@@ -1,7 +1,7 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 /obj/machinery/computer/security
 	name = "security camera monitor"
-	desc = "Used to access the various cameras on the station."
+	desc = "Used to access the various cameras on a facility."
 	icon_screen = "cameras"
 	icon_keyboard = "yellow_key"
 	light_color = LIGHT_COLOR_YELLOW
@@ -102,7 +102,7 @@
 
 /obj/machinery/computer/security/attack_hand(var/mob/user as mob)
 	if (src.z > 6)
-		to_chat(user, "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!")
+		to_chat(user, "<span class='danger'>Unable to establish a connection:</span> You're too far away from the [current_map.station_type]!")
 		return
 	if(stat & (NOPOWER|BROKEN))	return
 
@@ -257,7 +257,7 @@
 
 /obj/machinery/computer/security/wooden_tv
 	name = "security camera monitor"
-	desc = "An old TV hooked into the stations camera network."
+	desc = "An old TV hooked into the vessels camera network."
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "television"
 	icon_screen = "detective_tv"

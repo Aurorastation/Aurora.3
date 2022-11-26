@@ -469,7 +469,7 @@
 /obj/machinery/gravity_generator/main/proc/throw_up_and_down(var/area/Area)
 	if(!Area)
 		return
-	to_world("<h2 class='alert'>Station Announcement:</h2>")
+	to_world("<h2 class='alert'>Standard Announcement:</h2>")
 	to_world(SPAN_DANGER("Warning! Localized Gravity Failure in \the [Area]. Brace for dangerous gravity change!"))
 	sleep(50)
 	set_state(FALSE)

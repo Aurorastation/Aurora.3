@@ -319,7 +319,7 @@
 
 	if("Arrivals Shuttle" in current_map.allowed_spawns && spawning_at == "Arrivals Shuttle")
 		H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
-		to_chat(H,SPAN_NOTICE("You have ten minutes to reach the station before you will be forced there."))
+		to_chat(H,SPAN_NOTICE("You have ten minutes to reach your destination before you will be forced there."))
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()

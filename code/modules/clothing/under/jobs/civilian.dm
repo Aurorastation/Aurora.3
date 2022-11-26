@@ -85,7 +85,7 @@
 
 // Janitor
 /obj/item/clothing/under/rank/janitor
-	desc = "It's the official uniform of the station's janitor. It has minor protection from biohazards."
+	desc = "It's the official uniform of the facilities janitor. It has minor protection from biohazards."
 	name = "janitor's jumpsuit"
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	icon_state = "nt_janitor"

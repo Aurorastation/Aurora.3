@@ -7,12 +7,12 @@
 	antag_tags = list(MODE_CHANGELING)
 
 /datum/game_mode/changeling/pre_setup()
-	round_description = "There are alien changelings on the [current_map.station_type]. Do not let the changelings succeed!"
+	round_description = "There are alien changelings on the vessel. Do not let the changelings succeed!"
 	extended_round_description = "Life always finds a way. However, life can sometimes take a more disturbing route. \
 		Humanity's extensive knowledge of xeno-biological specimens has made them confident and arrogant. Yet \
 		something slipped past their eyes. Something dangerous. Something alive. Most frightening of all, \
 		however, is that this something is someone. An unknown alien specimen has incorporated itself into \
-		the crew of the [current_map.station_type]. Its unique biology allows it to manipulate its own or anyone else's DNA. \
+		the crew of the facility. Its unique biology allows it to manipulate its own or anyone else's DNA. \
 		With the ability to copy faces, voices, animals, but also change the chemical make up of your own body, \
 		its existence is a threat to not only your personal safety but the lives of everyone on board. \
 		No one knows where it came from. No one knows who it is or what it wants. One thing is for \

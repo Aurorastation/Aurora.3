@@ -22577,7 +22577,7 @@
 /area/shuttle/merchant)
 "kFK" = (
 /obj/machinery/computer/security/telescreen{
-	desc = "Connects to a station's emergency camera networks after the station sends out a distress signal.";
+	desc = "Connects to a facilities emergency camera networks after the facility sends out a distress signal.";
 	layer = 4;
 	name = "Emergency Dock Uplink";
 	network = list("Emergency Dock","TCFL");

@@ -116,7 +116,7 @@
 
 /obj/item/clothing/shoes/captain
 	name = "captain's shoes"
-	desc = "Super comfortable blue shoes, capable of keeping you on your feet during any station-wide disaster."
+	desc = "Super comfortable blue shoes, capable of keeping you on your feet during any facility-wide disaster."
 	icon = 'icons/clothing/kit/captain.dmi'
 	icon_state = "shoes"
 	item_state = "shoes"
@@ -162,7 +162,7 @@
 
 /obj/item/clothing/shoes/captain/white
 	name = "captain's white shoes"
-	desc = "Super comfortable white shoes, capable of keeping you on your feet during any station-wide disaster."
+	desc = "Super comfortable white shoes, capable of keeping you on your feet during any facility-wide disaster."
 	icon = 'icons/clothing/kit/captain_white.dmi'
 
 /obj/item/clothing/under/rank/captain/white_dress

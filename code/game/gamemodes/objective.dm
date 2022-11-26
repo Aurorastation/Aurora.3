@@ -267,7 +267,7 @@ datum/objective/block
 		return 1
 
 datum/objective/silence
-	explanation_text = "Do not allow anyone to escape the station.  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
+	explanation_text = "Do not allow anyone to escape the facility.  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
 
 	check_completion()
 		if(!evacuation_controller.round_over())
@@ -407,7 +407,7 @@ datum/objective/harm
 
 
 datum/objective/nuclear
-	explanation_text = "Destroy the station with a nuclear device."
+	explanation_text = "Destroy the facility with a nuclear device."
 
 
 
@@ -423,7 +423,7 @@ datum/objective/steal
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/aicard,
 		"a pair of magboots" = /obj/item/clothing/shoes/magboots,
-		"the station blueprints" = /obj/item/blueprints,
+		"the facilities blueprints" = /obj/item/blueprints,
 		"a nasa voidsuit" = /obj/item/clothing/suit/space/void,
 		"28 moles of phoron (full tank)" = /obj/item/tank,
 		"a sample of slime extract" = /obj/item/slime_extract,
@@ -746,7 +746,7 @@ datum/objective/heist/salvage
 				target = "diamond"
 				target_amount = 20
 
-		explanation_text = "Ransack the station and escape with [target_amount] [target]."
+		explanation_text = "Ransack the facility and escape with [target_amount] [target]."
 
 	check_completion()
 
@@ -820,7 +820,7 @@ datum/objective/heist/salvage
 
 /datum/objective/cult/survive/New()
 	..()
-	explanation_text = "Our knowledge must live on. Make sure at least [target_amount] acolytes escape on the shuttle to spread their work on an another station."
+	explanation_text = "Our knowledge must live on. Make sure at least [target_amount] acolytes escape on the shuttle to spread their work on an another facility."
 
 /datum/objective/cult/survive/check_completion()
 	var/acolytes_survived = 0

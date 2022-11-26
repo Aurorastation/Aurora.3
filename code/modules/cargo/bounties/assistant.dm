@@ -49,7 +49,7 @@
 
 /datum/bounty/item/assistant/action_figures
 	name = "Action Figures"
-	description = "%PERSONNAME wants a few action figures for their collection, and is willing to pay any station who provides."
+	description = "%PERSONNAME wants a few action figures for their collection, and is willing to pay any vessel who provides."
 	reward_low = 2000
 	reward_high = 3000
 	required_count = 5
@@ -93,7 +93,7 @@
 
 /datum/bounty/item/assistant/trash
 	name = "Trash"
-	description = "It's time for the %COMPNAME cleanup initiative! Clean stations will receive a bonus; pick up the litter from around your station and send it to us as proof!"
+	description = "It's time for the %COMPNAME cleanup initiative! Clean facilities will receive a bonus; pick up the litter from around your facility and send it to us as proof!"
 	reward_low = 1000
 	reward_high = 2000
 	required_count = 15
@@ -134,7 +134,7 @@
 
 /datum/bounty/item/assistant/tajcard
 	name = "Collectable Card"
-	description = "%PERSONNAME is offering a bonus to any station that can help them expand their collection of collectable tajaran cards."
+	description = "%PERSONNAME is offering a bonus to any vessel that can help them expand their collection of collectable tajaran cards."
 	reward_low = 1800
 	reward_high = 2400
 	required_count = 2
@@ -142,7 +142,7 @@
 
 /datum/bounty/item/assistant/jetpack
 	name = "Jetpacks"
-	description = "We're engaging in an EVA training initiative for new miners. Ship us a few jetpacks for a station bonus."
+	description = "We're engaging in an EVA training initiative for new miners. Ship us a few jetpacks for a bonus."
 	reward_low = 3000
 	reward_high = 4000
 	required_count = 3
@@ -170,7 +170,7 @@
 //Can't wait to see people have fun with THIS one.
 /datum/bounty/item/assistant/photograph
 	name = "Photographs"
-	description = "The %DOCKNAME is holding a morale project, and part of that is to display photographs from the various stations. Send us some for a participation bonus!"
+	description = "The %DOCKNAME is holding a morale project, and part of that is to display photographs from the various facilities. Send us some for a participation bonus!"
 	reward_low = 1500
 	reward_high = 2500
 	required_count = 8

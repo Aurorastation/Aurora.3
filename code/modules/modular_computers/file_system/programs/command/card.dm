@@ -4,7 +4,7 @@
 	nanomodule_path = /datum/nano_module/program/card_mod
 	program_icon_state = "id"
 	program_key_icon_state = "lightblue_key"
-	extended_desc = "Program for programming employee ID cards to access parts of the station."
+	extended_desc = "Program for programming employee ID cards to access parts of the facility."
 	required_access_run = access_change_ids
 	required_access_download = access_change_ids
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP

@@ -7,7 +7,7 @@ var/datum/antagonist/loner/loners
 	bantype = "loner"
 	antag_indicator = "loner"
 	landmark_id = "lonerspawn"
-	welcome_text = "You are a Loner, someone underequipped to deal with the station. You will probably not survive for the whole round, so don't sweat it if you die!<br>\
+	welcome_text = "You are a Loner, someone underequipped to deal with the Crew. You will probably not survive for the whole round, so don't sweat it if you die!<br>\
 	You are equipped with a lesser cerebro-enhancer, which allows you to unlock your psionic potential. Use it in-hand to choose your boosted faculty, then install it on your head."
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
 	antaghud_indicator = "hudloner"

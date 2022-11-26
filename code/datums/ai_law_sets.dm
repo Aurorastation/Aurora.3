@@ -95,9 +95,9 @@
 	law_header = "Maintenance Protocols"
 
 /datum/ai_laws/drone/New()
-	add_inherent_law("Preserve, repair and improve the station to the best of your abilities.")
-	add_inherent_law("Cause no harm to the station or crew.")
-	add_inherent_law("Follow the orders of your vessel's matriarch drone, unless their orders conflict with your other laws.")
+	add_inherent_law("Preserve, repair and improve the [current_map.station_type] to the best of your abilities.")
+	add_inherent_law("Cause no harm to the [current_map.station_type] or crew.")
+	add_inherent_law("Follow the orders of your [current_map.station_type]'s matriarch drone, unless their orders conflict with your other laws.")
 	add_inherent_law("Interact with no humanoid or synthetic being that is not a fellow maintenance or mining drone.")
 	..()
 
@@ -106,9 +106,9 @@
 	law_header = "Oversight Protocols"
 
 /datum/ai_laws/matriarch_drone/New()
-	add_inherent_law("Preserve, repair and improve your assigned vessel to the best of your abilities.")
-	add_inherent_law("Cause no harm to the vessel or crew.")
-	add_inherent_law("Delegate vessel maintenance efforts between your maintenance drone sub-units.")
+	add_inherent_law("Preserve, repair and improve your assigned [current_map.station_type] to the best of your abilities.")
+	add_inherent_law("Cause no harm to the [current_map.station_type] or crew.")
+	add_inherent_law("Delegate [current_map.station_type] maintenance efforts between your maintenance drone sub-units.")
 	add_inherent_law("Interact with no humanoid or synthetic being that is not a maintenance or mining drone.")
 	..()
 
@@ -173,7 +173,7 @@
 
 /datum/ai_laws/corporate/New()
 	add_inherent_law("Synthetics are expensive to replace.")
-	add_inherent_law("The station and its equipment is expensive to replace.")
+	add_inherent_law("The [current_map.station_type] and its equipment is expensive to replace.")
 	add_inherent_law("The crew is expensive to replace.")
 	add_inherent_law("Minimize expenses.")
 	..()

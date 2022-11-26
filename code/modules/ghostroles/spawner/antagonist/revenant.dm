@@ -55,7 +55,7 @@
 		if(M.ear_deaf)
 			continue
 		M.playsound_simple(get_turf(M), 'sound/ambience/tension/tension.ogg', 75, FALSE)
-		to_chat(M, FONT_LARGE(SPAN_CULT("A faint hum coming from the station walls fills your ears...")))
+		to_chat(M, FONT_LARGE(SPAN_CULT("A faint hum coming from the [current_map.station_type] walls fills your ears...")))
 	has_fired = TRUE
 
 /datum/ghostspawner/revenant/proc/check_rift()

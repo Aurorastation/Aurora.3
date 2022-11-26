@@ -23,7 +23,7 @@
 
 /datum/bounty/item/science/cryostasis_beaker
 	name = "Cryostasis Beaker"
-	description = "Chemists at %BOSSNAME have discovered a new chemical that can only be held in cryostasis beakers. The only problem is they don't have any! Rectify this to receive a station bonus."
+	description = "Chemists at %BOSSNAME have discovered a new chemical that can only be held in cryostasis beakers. The only problem is they don't have any! Rectify this to receive a bonus."
 	reward_low = 5200
 	reward_high = 6000
 	required_count = 3
@@ -46,7 +46,7 @@
 	if(O.check_completion())
 		return TRUE
 	return FALSE
-	
+
 /datum/bounty/item/science/forcegloves
 	name = "Force Gloves"
 	description = "%PERSONNAME has been challenged to a sparring duel in the holodeck. Ship them a pair of forcegloves so there can be a fair fight."
@@ -56,7 +56,7 @@
 
 /datum/bounty/item/science/fossil
 	name = "Fossil"
-	description = "We want to set up a display in one of the libraries on the %DOCKSHORT. Ship us a unique discovery when you are done displaying it on-station."
+	description = "We want to set up a display in one of the libraries on the %DOCKSHORT. Ship us a unique discovery when you are done displaying it on-facility."
 	reward_low = 7500
 	reward_high = 8500
 	required_count = 1

@@ -100,7 +100,7 @@
 		var/turf/simulated/floor/T = get_turf(src)
 		var/turf/below_turf = GetBelow(T)
 		if(!istype(below_turf.loc, /area/mine) && !istype(below_turf.loc, /area/template_noop))
-			system_error("Potential station breach below.")
+			system_error("Potential [current_map.station_type] breach below.")
 			return
 		T.ex_act(2.0)
 

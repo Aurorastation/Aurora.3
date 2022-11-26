@@ -10,5 +10,5 @@
 	antag_tags = list(MODE_BURGLAR)
 
 /datum/game_mode/burglars/pre_setup()
-	extended_round_description = "Two of the Orion Spur's best and brightest (or so they were told) have been tasked with burglarizing a [current_map.station_type] that will change the way capitalism grips this galaxy forever (or so they were told). It is up to the crew to repel them, and up to them to survive and possibly thrive."
+	extended_round_description = "Two of the Orion Spur's best and brightest (or so they were told) have been tasked with burglarizing a high-grade facility that will change the way capitalism grips this galaxy forever (or so they were told). It is up to the crew to repel them, and up to them to survive and possibly thrive."
 	. = ..()

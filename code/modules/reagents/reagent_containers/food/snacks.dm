@@ -4593,7 +4593,7 @@
 
 /obj/item/reagent_containers/food/snacks/bacon
 	name = "bacon"
-	desc = "A tasty meat slice. You don't see any pigs on this station, do you?"
+	desc = "A tasty meat slice. You don't see any pigs on this vessel, do you?"
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "bacon"
 	bitesize = 2
@@ -4602,7 +4602,7 @@
 
 /obj/item/reagent_containers/food/snacks/bacon/oven
 	name = "oven-cooked bacon"
-	desc = "A tasty meat slice. You don't see any pigs on this station, do you?"
+	desc = "A tasty meat slice. You don't see any pigs on this vessel, do you?"
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "bacon"
 	bitesize = 2
@@ -4612,7 +4612,7 @@
 
 /obj/item/reagent_containers/food/snacks/bacon/pan
 	name = "pan-cooked bacon"
-	desc = "A tasty meat slice. You don't see any pigs on this station, do you?"
+	desc = "A tasty meat slice. You don't see any pigs on this vessel, do you?"
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "bacon"
 	bitesize = 2

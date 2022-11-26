@@ -264,7 +264,7 @@
 			manifest[dept][++manifest[dept].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online", "head" = FALSE)
 		else if(istype(S, /mob/living/silicon/ai))
 			var/mob/living/silicon/ai/A = S
-			manifest[dept][++manifest[dept].len] = list("name" = sanitize(A.name), "rank" = "Station Intelligence", "active" = "Online", "head" = TRUE)
+			manifest[dept][++manifest[dept].len] = list("name" = sanitize(A.name), "rank" = "Artificial Intelligence", "active" = "Online", "head" = TRUE)
 			manifest[dept].Swap(1, manifest[dept].len)
 
 	manifest_json = json_encode(manifest)

@@ -124,7 +124,7 @@
 
 /obj/item/integrated_circuit/time/clock
 	name = "integrated clock"
-	desc = "Tells you what the local time is, specific to your station, planet, or facility."
+	desc = "Tells you what the local time is, specific to your vessel, planet, or facility."
 	icon_state = "clock"
 	inputs = list()
 	outputs = list(

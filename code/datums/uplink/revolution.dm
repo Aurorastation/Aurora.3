@@ -3,7 +3,7 @@
 
 /datum/uplink_item/item/revolution/armory
 	name = "Armory Dropper"
-	desc = "A device that can be used to drop in an armory-worth of guns. Can only be used outside station areas, unless emagged, which is hazardous."
+	desc = "A device that can be used to drop in an armory-worth of guns. Can only be used outside structured areas, unless emagged, which is hazardous."
 	item_cost = 25
 	path = /obj/item/device/orbital_dropper/armory/syndicate
 

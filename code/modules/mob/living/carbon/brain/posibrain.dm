@@ -53,7 +53,7 @@
 
 	to_chat(brainmob, "<b>You are a positronic brain, brought into existence on [station_name()].</b>")
 	to_chat(brainmob, "<b>As a synthetic intelligence, you answer to all crewmembers, as well as the AI.</b>")
-	to_chat(brainmob, "<b>Remember, the purpose of your existence is to serve the crew and the station. Above all else, do no harm.</b>")
+	to_chat(brainmob, "<b>Remember, the purpose of your existence is to serve the crew and the [current_map.station_type] you are activated on. Above all else, do no harm.</b>")
 
 	var/area/A = get_area(src)
 	if(istype(A, /area/assembly/robotics))

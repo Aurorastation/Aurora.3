@@ -117,7 +117,7 @@
 
 /datum/bounty/item/chef/hotdog
 	name = "Hot Dog"
-	description = "%COMPNAME is conducting taste tests to determine the best hot dog recipe. Ship your station's version to participate."
+	description = "%COMPNAME is conducting taste tests to determine the best hot dog recipe. Ship your vessel's version to participate."
 	reward_low = 4000
 	reward_high = 4800
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/hotdog)
@@ -132,7 +132,7 @@
 
 /datum/bounty/item/chef/muffin
 	name = "Muffins"
-	description = "%BOSSSHORT needs muffins for a morning meeting! Your station will get a bonus if you ship some."
+	description = "%BOSSSHORT needs muffins for a morning meeting! Your facility will get a bonus if you ship some."
 	reward_low = 3500
 	reward_high = 4200
 	required_count = 8
@@ -265,7 +265,7 @@
 
 /datum/bounty/item/chef/curry
 	name = "Curry"
-	description = "I forgot that I was supposed to host lunch for an upcoming meeting. Ship me some curry and I'll make sure your station gets a bonus. - %PERSONNAME"
+	description = "I forgot that I was supposed to host lunch for an upcoming meeting. Ship me some curry and I'll make sure you get a bonus. - %PERSONNAME"
 	reward_low = 3000
 	reward_high = 3900
 	required_count = 4
@@ -276,7 +276,7 @@
 
 /datum/bounty/item/chef/dip
 	name = "Dip"
-	description = "It's time for an office party, but %PERSONNAME forgot the dip! Send us some and we'll transfer part of their upcoming bonus to your station's account."
+	description = "It's time for an office party, but %PERSONNAME forgot the dip! Send us some and we'll transfer part of their upcoming bonus to your vessel's account."
 	reward_low = 2500
 	reward_high = 3000
 	required_count = 3

@@ -216,7 +216,7 @@
 
 /obj/item/clothing/under/pants/camo
 	name = "camouflage pants"
-	desc = "A pair of woodland camouflage pants. Probably not the best choice for a space station."
+	desc = "A pair of woodland camouflage pants. Probably not the best choice for space..."
 	icon_state = "camopants"
 	item_state = "camopants"
 

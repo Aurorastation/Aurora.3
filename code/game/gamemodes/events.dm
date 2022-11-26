@@ -21,7 +21,7 @@ var/hadevent    = 0
 				randmutg(H)
 				domutcheck(H,null,MUTCHK_FORCED)
 	sleep(100)
-	command_announcement.Announce("High levels of radiation detected near the station. Please report to the Med-bay if you feel strange.", "Anomaly Alert")
+	command_announcement.Announce("High levels of radiation detected near the vessel. Please report to the Med-bay if you feel strange.", "Anomaly Alert")
 
 
 
@@ -60,7 +60,7 @@ var/hadevent    = 0
 				temp_timer.releasetime = 1
 
 		sleep(150)
-		command_announcement.Announce("Gr3y.T1d3 virus detected in [station_name()] imprisonment subroutines. Recommend station AI involvement.", "Security Alert")
+		command_announcement.Announce("Gr3y.T1d3 virus detected in [station_name()] imprisonment subroutines. Recommend AI involvement.", "Security Alert")
 	else
 		world.log <<  "ERROR: Could not initate grey-tide. Unable find prison or brig area."
 

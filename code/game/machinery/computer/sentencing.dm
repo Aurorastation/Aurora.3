@@ -1,6 +1,6 @@
 /obj/machinery/computer/sentencing
 	name = "criminal sentencing console"
-	desc = "A console that allows registered security personnel to create incident reports for various on-station crimes. It produces an encrypted report that can be used to automatically set a brig timer."
+	desc = "A console that allows registered security personnel to create incident reports for various on-facility crimes. It produces an encrypted report that can be used to automatically set a brig timer."
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "computerw"
 	icon_screen = "securityw"

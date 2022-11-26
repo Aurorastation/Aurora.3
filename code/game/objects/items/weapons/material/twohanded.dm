@@ -335,7 +335,7 @@
 // Chainsaws!
 /obj/item/material/twohanded/chainsaw
 	name = "chainsaw"
-	desc = "A robust tree-cutting chainsaw intended to cut down various types of invasive spaceplants that grow on the station."
+	desc = "A robust tree-cutting chainsaw intended to cut down various types of invasive spaceplants."
 	icon_state = "chainsaw_off"
 	base_icon = "chainsaw_off"
 	flags = CONDUCT

@@ -1,7 +1,7 @@
 //Hydro bounties. Things that can be biogenerated and stuff
 /datum/bounty/item/hydroponicist/potato_cells
 	name = "Potato Batteries"
-	description = "%BOSSNAME is researching an environmentally-friendly power source on another station. Send us some potato batteries."
+	description = "%BOSSNAME is researching an environmentally-friendly power source on another vessel. Send us some potato batteries."
 	reward_low = 2000
 	reward_high = 3000
 	required_count = 6
@@ -80,9 +80,9 @@
 	description = "%BOSSNAME is in need of a bundle of fresh fruit. Send your best!"
 	required_count = 12
 	random_count = 3
-	produce_picks = list(/datum/seed/tomato, 
-				/datum/seed/berry, 
-				/datum/seed/apple, 
+	produce_picks = list(/datum/seed/tomato,
+				/datum/seed/berry,
+				/datum/seed/apple,
 				/datum/seed/grapes,
 				/datum/seed/banana,
 				/datum/seed/watermelon,

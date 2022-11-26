@@ -7,7 +7,7 @@ var/datum/antagonist/burglar/burglars
 	bantype = "burglar"
 	antag_indicator = "burglar"
 	landmark_id = "burglarspawn"
-	welcome_text = "You are a Burglar, someone underequipped to deal with the station. You will probably not survive for the whole round, so don't sweat it if you die!<br>\
+	welcome_text = "You are a Burglar, someone underequipped to deal with well armed facilities. You will probably not survive for the whole round, so don't sweat it if you die!<br>\
 	Your (syndicate) sponsored uplink will grant you access to various tools you may need to attempt to accomplish your goal.<br>\
 	You can use :H or :B to talk on your encrypted channel, which only you and your partner can read.<br>\
 	<b>You have been outfitted with a special teleportation device, make sure to use it!</b>"
