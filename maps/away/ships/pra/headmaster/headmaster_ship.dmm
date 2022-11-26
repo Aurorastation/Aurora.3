@@ -1376,10 +1376,9 @@
 /area/headmaster_ship/bridge)
 "dW" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/open{
 	dir = 2;
-	id = "headmaster_bridge";
-	icon_state = "pdoor0"
+	id = "headmaster_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3102,13 +3101,12 @@
 /area/headmaster_ship/engineering)
 "jD" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "headmaster_bridge";
-	icon_state = "pdoor0"
-	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "headmaster_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3717,10 +3715,9 @@
 /area/headmaster_ship/engineering)
 "lL" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/open{
 	dir = 8;
-	id = "headmaster_bridge";
-	icon_state = "pdoor0"
+	id = "headmaster_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -4216,6 +4213,12 @@
 /obj/effect/shuttle_landmark/nav_headmaster_ship/nav3,
 /turf/template_noop,
 /area/space)
+"nQ" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/headmaster_ship/engineering)
 "nW" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -4317,13 +4320,12 @@
 /area/space)
 "pj" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "headmaster_bridge";
-	icon_state = "pdoor0"
-	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "headmaster_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -5983,12 +5985,6 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/hangar)
-"NK" = (
-/obj/structure/reagent_dispensers/coolanttank,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/headmaster_ship/engineering)
 "NR" = (
 /obj/machinery/floodlight{
 	dir = 4
@@ -15594,7 +15590,7 @@ aS
 aT
 gn
 oh
-NK
+nQ
 lw
 oX
 so
