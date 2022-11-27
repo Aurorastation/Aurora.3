@@ -13156,9 +13156,6 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
-"kpJ" = (
-/turf/simulated/floor/plating,
-/area/space)
 "kqk" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -51590,7 +51587,7 @@ uSZ
 uSZ
 gwA
 con
-kpJ
+iRC
 iRC
 cLV
 bSM
