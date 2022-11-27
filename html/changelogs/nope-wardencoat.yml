@@ -38,4 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added an alt version for the Zavodskoi warden coat, as well as the ability to select them from the loadout."
+  - rscadd: "Added an alt version for the Zavodskoi warden coat and hat, as well as the ability to select them from the loadout."
+  - bugfix: "Removed the parent version of the warden hat, which was mistakenly labelled as the Zavod warden hat."
