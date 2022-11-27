@@ -1775,7 +1775,8 @@
 "ik" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/tajara/jackboots,
-/obj/item/clothing/under/tajaran/database_freighter,
+/obj/item/clothing/under/tajaran/database_freighter/captain,
+/obj/item/clothing/suit/storage/toggle/labcoat,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -2070,7 +2071,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/media/jukebox/phonograph,
+/obj/machinery/media/jukebox/phonograph{
+	anchored = 1
+	},
 /obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 1

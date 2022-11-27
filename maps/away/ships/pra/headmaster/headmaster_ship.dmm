@@ -4392,7 +4392,9 @@
 	},
 /obj/machinery/light,
 /obj/structure/table/standard,
-/obj/machinery/media/jukebox/phonograph,
+/obj/machinery/media/jukebox/phonograph{
+	anchored = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
