@@ -5789,6 +5789,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/bridge)
+"Ls" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/space)
 "LD" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -11220,7 +11226,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -11740,7 +11746,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -13468,7 +13474,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -16137,7 +16143,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -18482,7 +18488,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -20187,7 +20193,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -21461,7 +21467,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -22863,7 +22869,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -23568,7 +23574,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -24357,7 +24363,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB

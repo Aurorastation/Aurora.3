@@ -3963,6 +3963,12 @@
 	temperature = 278.15
 	},
 /area/database_freighter/barracks)
+"JX" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/space)
 "JZ" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7447,7 +7453,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -8436,7 +8442,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -8565,7 +8571,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -10239,7 +10245,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -12931,7 +12937,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -13637,7 +13643,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -15262,7 +15268,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -16192,7 +16198,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -18487,7 +18493,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -18766,7 +18772,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -19594,7 +19600,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
