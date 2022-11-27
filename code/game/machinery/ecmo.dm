@@ -18,9 +18,8 @@
 	var/transfer_amount = 5
 	var/transfer_limit = 10
 	var/brain_damage_pinner = 140 // Brain damage amount to keep the patient at/above
-	var/rip_vein_damage = 30 // The damage to apply to the vein when the vein or the artery line are ripped out
-	var/mode = TRUE // TRUE is injecting, FALSE is taking blood.
-	var/toggle_stop = TRUE
+	var/rip_vein_damage = 30 // The damage to apply to the vein (and currently artery too) when the vein or the artery line are ripped out
+	var/list/artery_line_valid_targets = list("groin", "chest")
 	var/blood_message_sent = FALSE
 	var/attach_delay = 5
 	var/armor_check = TRUE
@@ -77,20 +76,19 @@
 					if(prob(60))
 						if(breather)
 							src.visible_message(
-								SPAN_WARNING("[M] trips on \the [src]'s [breath_mask] cable, pulling it off from \the [breather]!"),
-								SPAN_WARNING("You trip on \the [src]'s [breath_mask] cable, pulling it off from \the [breather]!"))
+								SPAN_WARNING("[M] trips on \the [src]'s artery line, pulling it off from \the [breather]!"),
+								SPAN_WARNING("You trip on \the [src]'s artery line, pulling it off from \the [breather]!"))
 							shake_animation(4)
 							M.Weaken(3)
 							breath_mask_rip()
 							return
-						src.visible_message(SPAN_WARNING("[M] trips on \the [src]'s [breath_mask] cable!"), SPAN_WARNING("You trip on \the [src]'s [breath_mask] cable!"))
-						breath_mask.forceMove(src.loc)
+						src.visible_message(SPAN_WARNING("[M] trips on \the [src]'s artery line!"), SPAN_WARNING("You trip on \the [src]'s artery line!"))
 						breath_mask = null
 						shake_animation(4)
 						M.Weaken(4)
 						update_icon()
 						return
-					src.visible_message(SPAN_WARNING("[M] barely avoids tripping on \the [src]'s [breath_mask] cable."), SPAN_WARNING("You barely avoid tripping on \the [src]'s [breath_mask] cable."))
+					src.visible_message(SPAN_WARNING("[M] barely avoids tripping on \the [src]'s artery line."), SPAN_WARNING("You barely avoid tripping on \the [src]'s artery line."))
 					shake_animation(2)
 					return
 				if(prob(25))
@@ -129,10 +127,9 @@
 			add_overlay(filling)
 		if(attached)
 			add_overlay("iv_in[tipped ? "_tipped" : ""]")
-			if(mode)
+
+			if(attached.get_blood_volume() < 100)
 				add_overlay("light_green[tipped ? "_tipped" : ""]")
-			else
-				add_overlay("light_red[tipped ? "_tipped" : ""]")
 			if(blood_message_sent)
 				add_overlay("light_yellow[tipped ? "_tipped" : ""]")
 		else
@@ -168,19 +165,6 @@
 			src.visible_message(SPAN_WARNING("\The artery line snaps back into \the [src]!"))
 			breath_mask_rip()
 			return
-		// var/mask_check = breath_mask.get_equip_slot()
-		// if(mask_check != slot_wear_mask)
-		// 	src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
-		// 	breath_mask_rip()
-		// 	return
-		// if(breath_mask.hanging)
-		// 	src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
-		// 	breath_mask_rip()
-		// 	return
-		// if(breath_mask.loc != breather)
-		// 	src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
-		// 	breath_mask_rip()
-		// 	return
 		if(!tank)
 			return
 		if(breather.species.flags & NO_BREATHE)
@@ -230,13 +214,12 @@
 		if(attached.species.flags & NO_BLOOD)
 			return
 
-		if(toggle_stop)
-			if((beaker.reagents.has_reagent(/decl/reagent/blood) || beaker.reagents.has_reagent(/decl/reagent/saline)) && attached.get_blood_volume() >= 100) // Do not add blood if the blood volume is >= 100%
+		if((beaker.reagents.has_reagent(/decl/reagent/blood) || beaker.reagents.has_reagent(/decl/reagent/saline)) && attached.get_blood_volume() >= 100) // Do not add blood if the blood volume is >= 100%
+			update_icon()
+		else
+			if(beaker.reagents.total_volume > 0)
+				beaker.reagents.trans_to_mob(attached, transfer_amount, CHEM_BLOOD)
 				update_icon()
-			else
-				if(beaker.reagents.total_volume > 0)
-					beaker.reagents.trans_to_mob(attached, transfer_amount, CHEM_BLOOD)
-					update_icon()
 
 /obj/machinery/ecmo/MouseDrop(over_object, src_location, over_location)
 	..()
@@ -285,20 +268,22 @@
 				if(breather)
 					visible_message("[usr] removes the artery line from [breather].[valve_open ? " \The [tank]'s valve automatically closes." : ""]")
 					artery = null
-					breath_mask_rip()
+					breath_mask_rip(TRUE)
 					return
 
 				if(!attached)
 					to_chat(usr, SPAN_NOTICE("There is no vein line attached to [over_object]!"))
 					return
+
+				if(!(usr.zone_sel.selecting in artery_line_valid_targets))
+					to_chat(usr, SPAN_NOTICE("It's not possible to cannulate in this location, aim for a bigger artery!"))
+					return
+
 				breather = over_object
 				artery = breather.get_organ(usr.zone_sel.selecting)
 
 				visible_message("<b>[usr]</b> connects the artery line to \the <b>[breather]</b>.")
 				playsound(breather, 'sound/effects/buckle.ogg', 50)
-				// breath_mask.forceMove(breather.loc)
-				// breather.equip_to_slot(breath_mask, slot_wear_mask)
-				// breather.update_inv_wear_mask()
 				update_icon()
 				return
 
@@ -332,7 +317,7 @@
 				to_chat(user, SPAN_NOTICE("There is no installed tank to remove."))
 				return
 			if(breather)
-				to_chat(user, SPAN_NOTICE("You cannot remove \the [tank] if someone's wearing \the [breath_mask]!"))
+				to_chat(user, SPAN_NOTICE("You cannot remove \the [tank] if someone is canulated with \the artery line!"))
 				return
 			if(!is_loose)
 				to_chat(user, SPAN_NOTICE("You must loosen the nuts securing \the [tank] into place to remove it!"))
@@ -366,7 +351,7 @@
 			to_chat(user, "\The [W] is incompatible with \the [src].")
 			return TRUE
 		if(breath_mask)
-			to_chat(user, "There is already a mask installed.")
+			to_chat(user, "There is already an artery line installed.")
 			return TRUE
 		user.drop_from_inventory(W, src)
 		breath_mask = W
@@ -416,7 +401,7 @@
 		return
 	if(tipped)
 		user.visible_message("<b>[user]</b> pulls \the [src] upright.", "You pull \the [src] upright.")
-		icon_state = "iv_stand"
+		icon_state = "ecmo_stand"
 		tipped = FALSE
 		update_icon()
 		return
@@ -455,7 +440,7 @@
 			breath_mask.SpinAnimation(4, 2)
 			breath_mask = null
 		else
-			src.visible_message(SPAN_WARNING("\The artery line is ripped out from [breather], retracting back into \the [src]!"), SPAN_WARNING("\The artery line rips out of you, retracting back into \the [src]!"))
+			src.visible_message(SPAN_WARNING("The artery line is ripped out from [breather], retracting back into \the [src]!"), SPAN_WARNING("\The artery line rips out of you, retracting back into \the [src]!"))
 			vein.take_damage(brute = rip_vein_damage, damage_flags = DAM_SHARP)
 			breath_mask_rip()
 	if(beaker)
@@ -526,7 +511,7 @@
 		to_chat(usr, SPAN_NOTICE("There is no tank for you to open the valve of!"))
 		return
 	if(!breather)
-		to_chat(usr, SPAN_NOTICE("There is no one wearing \the [src]'s [breath_mask] for you to open the valve for!"))
+		to_chat(usr, SPAN_NOTICE("There is no one wearing \the [src]'s artery line, it would be pointless to start the membrane oxygenation!"))
 		return
 
 	if(!valve_open)
@@ -537,11 +522,13 @@
 		if(breather.internals)
 			breather.internals.icon_state = "internal1"
 		valve_open = TRUE
+		icon_state = "ecmo_running"
 		update_icon()
 		return
 
 	usr.visible_message("<b>[usr]</b> closes \the [tank]'s valve.", SPAN_NOTICE("You close \the [tank]'s valve."))
 	playsound(src, 'sound/effects/internals.ogg', 100)
+	icon_state = "ecmo_stand"
 	tank_off()
 
 /obj/machinery/ecmo/verb/transfer_rate()
