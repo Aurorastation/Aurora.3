@@ -151,6 +151,6 @@
 
 /obj/effect/shuttle_landmark/tajaran_smuggler_cargo/nav2
 	name = "Cargo Hold - Starboard Side"
-	landmark_tag = "nav_tajaran_smuggler_cargo_1"
+	landmark_tag = "nav_tajaran_smuggler_cargo_2"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
