@@ -239,7 +239,7 @@
 /obj/item/storage/toolbox/lunchbox/scc
 	name = "Stellar Corporate Conglomerate lunchbox"
 	desc = "A little lunchbox. This one is branded with the Stellar Corporate Conglomerate logo."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon_state = "lunchbox_scc"
 	item_state = "lunchbox_scc"
 

@@ -177,7 +177,7 @@
 	desc = "A small bottle of cough syrup. Don't take too much!"
 	icon_state = "bottle-3"
 	reagents_to_add = list(/decl/reagent/coughsyrup = 60)
-	
+
 /obj/item/reagent_containers/glass/bottle/coagzolug
 	name = "coagzolug bottle"
 	desc = "A small bottle of coagzolug. A medication that encourages the coagulation of blood, slowing down any bleeding. Overdose causes damage to the heart."
@@ -225,3 +225,9 @@
 	desc = "A small bottle. Contains perconol - treats minor-moderate pain as a result of physical injury."
 	icon_state = "bottle-3"
 	reagents_to_add = list(/decl/reagent/perconol = 60)
+
+/obj/item/reagent_containers/glass/bottle/hyronalin
+	name = "hyronalin bottle"
+	desc = "A small bottle. Contains hyronalin - treats mild moderate radiation poisoning."
+	icon_state = "bottle-4"
+	reagents_to_add = list(/decl/reagent/hyronalin = 60)

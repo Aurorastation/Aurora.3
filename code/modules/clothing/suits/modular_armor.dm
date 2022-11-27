@@ -402,6 +402,13 @@
 	icon_state = "flagpatch_callisto"
 	item_state = "flagpatch_callisto"
 
+/obj/item/clothing/accessory/flagpatch/venus
+	name = "venus flagpatch"
+	desc = "A flagpatch representing Venus. While not trendy among people who have use for wearing patches to begin with, the \
+	Venusian flag retains solidarity among Cythereans and Jintarians both."
+	icon_state = "flagpatch_venus"
+	item_state = "flagpatch_venus"
+
 /obj/item/clothing/accessory/flagpatch/coalition
 	name = "coalition flagpatch"
 	desc = "A flagpatch representing the Coalition of Colonies. Although used on many Coalition worlds, this flag has also come \

@@ -1,6 +1,6 @@
 /obj/structure/janitorialcart
-	name = "janitorial cart"
-	desc = "The ultimate in janitorial carts! Has space for water, mops, signs, trash bags, and more!"
+	name = "custodial cart"
+	desc = "The ultimate in custodial carts. Has space for water, mops, signs, trash bags, and more."
 	desc_info  = "Click and drag a mop bucket onto the cart to mount it\
 	</br>Alt+Click with a mop to put it away, a normal click will wet it in the bucket.\
 	</br>Alt+Click with a container, such as a bucket, to pour its contents into the mounted bucket. A normal click will toss it into the trash\
@@ -14,18 +14,33 @@
 	build_amt = 15
 	slowdown = 0
 
-	//copypaste sorry
 	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
-	var/obj/item/storage/bag/trash/mybag	= null
+	var/obj/item/storage/bag/trash/mybag = null
 	var/obj/item/mop/mymop = null
 	var/obj/item/reagent_containers/spray/myspray = null
 	var/obj/item/device/lightreplacer/myreplacer = null
 	var/obj/structure/mopbucket/mybucket = null
-	var/signs = 0	//maximum capacity hardcoded below
-	var/has_items = 0//This is set true whenever the cart has anything loaded/mounted on it
+	var/signs = 0 //maximum capacity hardcoded below
+	var/has_items = FALSE //This is set true whenever the cart has anything loaded/mounted on it
 	var/driving
 	var/mob/living/pulling
 
+// Regular Variant
+// No trashbag and no light replacer, this is inside the custodian's locker.
+/obj/structure/janitorialcart/Initialize()
+	. = ..()
+	mymop = new /obj/item/mop(src)
+	myspray = new /obj/item/reagent_containers/spray/cleaner(src)
+
+	mybucket = new /obj/structure/mopbucket(src)
+
+	for(signs, signs < 4, signs++)
+		new /obj/item/clothing/suit/caution(src)
+
+	update_icon()
+
+// Full Variant
+// Has everything.
 /obj/structure/janitorialcart/full/Initialize()
 	. = ..()
 	mybag = new /obj/item/storage/bag/trash(src)
@@ -40,6 +55,8 @@
 
 	update_icon()
 
+// Full with Water Variant
+// Has everything as well as water in the mop bucket.
 /obj/structure/janitorialcart/full/water/Initialize()
 	. = ..()
 	mybag = new /obj/item/storage/bag/trash(src)

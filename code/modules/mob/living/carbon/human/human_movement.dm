@@ -52,6 +52,10 @@
 
 	tally += move_delay_mod
 
+	var/obj/item/I = get_active_hand()
+	if(istype(I))
+		tally += I.slowdown
+
 	if(tally > 0 && (CE_SPEEDBOOST in chem_effects))
 		tally = max(0, tally-3)
 

@@ -91,7 +91,7 @@
 	name = "Investigator - PMC"
 
 	uniform = /obj/item/clothing/under/det/pmc
-	suit = /obj/item/clothing/suit/storage/det_jacket/pmc
+	suit = /obj/item/clothing/suit/storage/security/investigator/pmc
 	id = /obj/item/card/id/pmc
 
 	backpack_faction = /obj/item/storage/backpack/pmcg

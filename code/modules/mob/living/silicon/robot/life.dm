@@ -333,10 +333,13 @@
 	return TRUE
 
 /mob/living/silicon/robot/update_fire()
-	cut_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
+	cut_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
+	cut_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
+
 	if(on_fire)
-		add_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
+		add_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
+		add_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
 
 /mob/living/silicon/robot/fire_act()
-	if(!on_fire) //Silicons don't gain stacks from hotspots, but hotspots can ignite them
+	if(!on_fire) // Silicons don't gain stacks from hotspots, but hotspots can ignite them.
 		IgniteMob()

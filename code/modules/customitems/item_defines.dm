@@ -87,6 +87,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ana_jacket"
 	item_state = "ana_jacket"
 	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO | ARMS
 
 /obj/item/clothing/accessory/badge/old/fluff/ana_badge //Faded Badge - Ana Roh'hi'tin - suethecake
 	name = "faded badge"
@@ -636,9 +637,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		icon_state = "stand"
 
-/obj/item/fluff/tokash_spear/attack_self(var/mob/user)
+/obj/item/fluff/tokash_spear/attack_hand(var/mob/user)
 	if(has_spear)
-		to_chat(user, "<span class='notice'>You remove the spearhead from \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You remove the spearhead from \the [src]."))
 		var/obj/item/fluff/tokash_spearhead/piece = new(get_turf(user))
 		user.put_in_hands(piece)
 		has_spear = FALSE
@@ -654,6 +655,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		..()
 
+/obj/item/fluff/tokash_spear/MouseDrop(mob/user)
+	if((user == usr && (!(usr.restrained()) && (!(usr.stat) && (usr.contents.Find(src) || in_range(src, usr))))))
+		if(!istype(usr, /mob/living/carbon/slime) && !istype(usr, /mob/living/simple_animal))
+			if(!usr.get_active_hand()) // If active hand is empty.
+				var/mob/living/carbon/human/H = user
+				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
+
+				if(H.hand)
+					temp = H.organs_by_name[BP_L_HAND]
+				if(temp && !temp.is_usable())
+					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+					return
+
+				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
+				user.put_in_hands(src)
+	return
+
 /obj/item/fluff/tokash_spearhead
 	name = "ancestral spearhead"
 	desc = "An aged and worn spearhead. It seems to be made of bronze or composite metal."
@@ -661,7 +679,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "spearhead"
 	w_class = ITEMSIZE_SMALL
-
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/fluff/naomi_coat //Reishi Queen Winter Coat - Naomi Marlowe - smifboy78
 	name = "reishi queen winter coat"
@@ -2007,19 +2024,29 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/deck/tarot/nralakk/fluff/ielia_tarot //Starfinder - Ielia Aliori-Quis'Naala - shestrying
+/obj/item/fluff/ielia_tarot //Starfinder - Ielia Aliori-Quis'Naala - shestrying
 	name = "starfinder"
 	desc = "A small, bronze ball. It is heavy in the hand and seems to have no switches or buttons on it. "
 	icon = 'icons/obj/custom_items/ielia_tarot.dmi'
 	icon_override = 'icons/obj/custom_items/ielia_tarot.dmi'
 	icon_state = "ielia_tarot"
 	contained_sprite = TRUE
+	var/list/possible_cards = list("Island","Hatching Egg","Star Chanter","Jiu'x'klua","Stormcloud","Gnarled Tree","Poet","Bloated Toad","Void","Qu'Poxii","Fisher","Mountain","Sraso","Nioh")
 	var/activated = FALSE
 	var/first_card
 	var/second_card
 	var/third_card
 
-/obj/item/deck/tarot/nralakk/fluff/ielia_tarot/verb/start_starfinder()
+/obj/item/fluff/ielia_tarot/attack_self(var/mob/user)
+	if(activated)
+		reset_starfinder()
+	else
+		start_starfinder()
+
+/obj/item/fluff/ielia_tarot/AltClick(mob/user)
+	attack_self(user)
+
+/obj/item/fluff/ielia_tarot/verb/start_starfinder()
 	set name = "Start the Starfinder"
 	set category = "Object"
 	set src in view(1)
@@ -2028,11 +2055,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
-		return
-	if(!iscarbon(usr))
-		to_chat(usr, SPAN_WARNING("Your simple form can't operate \the [src]."))
-	if(!cards.len)
-		to_chat(usr, SPAN_WARNING("There are no cards in \the [src]."))
 		return
 
 	first_card = null
@@ -2050,23 +2072,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 	add_overlay("card_spin_fx")
 	addtimer(CALLBACK(src, .proc/finish_selection, usr), 3 SECONDS)
 
-/obj/item/deck/tarot/nralakk/fluff/ielia_tarot/proc/finish_selection(var/mob/user)
+/obj/item/fluff/ielia_tarot/examine(mob/user)
+	if(..(user, 1))
+		if(first_card && second_card && third_card)
+			to_chat(user, "The following constellations are displayed on the starfinder: [first_card], [second_card], and [third_card].")
+
+/obj/item/fluff/ielia_tarot/proc/finish_selection(var/mob/user)
 	cut_overlays()
 	flick("card_spin_stop",src)
 	icon_state = "ielia_tarot_on"
 	for(var/i = 1 to 3)
-		var/obj/item/hand/H = new(get_turf(src))
-		H.cards += cards[1]
-		cards -= cards[1]
-		H.concealed = 1
-		var/datum/playingcard/P = cards[1]
-		H.update_icon()
+		var/P = pick(possible_cards)
 		if(!first_card)
-			first_card = "[P.name]"
+			first_card = P
 		else if(first_card && !second_card)
-			second_card = "[P.name]"
+			second_card = P
 		else if(first_card && second_card)
-			third_card = "[P.name]"
+			third_card = P
 
 	cut_overlays()
 	add_overlay("card_display_fx")
@@ -2083,7 +2105,19 @@ All custom items with worn sprites must follow the contained sprite system: http
 	third_card_overlay.pixel_x = 8
 	add_overlay(third_card_overlay)
 
-	addtimer(CALLBACK(src, .proc/reset_starfinder), 15 SECONDS)
-
-/obj/item/deck/tarot/nralakk/fluff/ielia_tarot/proc/reset_starfinder()
+/obj/item/fluff/ielia_tarot/proc/reset_starfinder()
+	if(!activated)
+		return
+	cut_overlays()
+	icon_state = "ielia_tarot"
 	activated = FALSE
+
+
+/obj/item/clothing/suit/storage/fluff/osborne_suit //Osborne Strelitz - Osborne Strelitz - sirtoast
+	name = "dominian officer's trench coat"
+	desc = "An Imperial Army trench coat that is used by Dominian officers in colder environments. This one is missing the unit insignia and has the symbol of a military count on its rank collar."
+	icon = 'icons/obj/custom_items/osborne_suit.dmi'
+	icon_override = 'icons/obj/custom_items/osborne_suit.dmi'
+	icon_state = "osborne_suit"
+	item_state = "osborne_suit"
+	contained_sprite = TRUE
