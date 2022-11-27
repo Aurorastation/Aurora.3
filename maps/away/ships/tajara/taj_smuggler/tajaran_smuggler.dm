@@ -102,6 +102,7 @@
 
 /obj/effect/overmap/visitable/ship/landable/tajaran_smuggler_cargo
 	name = "Cargo Hold"
+	class = "ACV"
 	designation = "Cargo Hold"
 	desc = "A floating cargo container."
 	shuttle = "Adhomian Freight Cargo"
