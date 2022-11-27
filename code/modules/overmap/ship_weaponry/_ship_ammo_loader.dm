@@ -98,3 +98,6 @@
 
 /obj/structure/viewport/zavod
 	icon_state = "viewport_zavod"
+
+/obj/structure/viewport/unathi
+	icon_state = "viewport_unathi"

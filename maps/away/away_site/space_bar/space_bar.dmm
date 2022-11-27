@@ -1171,6 +1171,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
+"sMP" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/shuttle_landmark/automatic,
+/turf/simulated/floor/tiled/steel,
+/area/space_bar/hangar)
 "taa" = (
 /obj/structure/table/stone/marble,
 /obj/item/holomenu{
@@ -27110,7 +27115,7 @@ xRX
 xRX
 xRX
 jiW
-hBd
+lOr
 aVe
 hBd
 hBd
@@ -27134,7 +27139,7 @@ hBd
 hBd
 hBd
 hBd
-hNl
+sMP
 pRm
 xRX
 xRX
@@ -29680,7 +29685,7 @@ xRX
 xRX
 xRX
 jiW
-hBd
+lOr
 aVe
 hBd
 hBd
@@ -29704,7 +29709,7 @@ hBd
 hBd
 qmJ
 hBd
-hNl
+sMP
 pRm
 xRX
 xRX

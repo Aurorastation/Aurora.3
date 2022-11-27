@@ -68,6 +68,18 @@
 	icon_state = "orbital_captain"
 	item_state = "orbital_captain"
 
+/obj/item/clothing/under/tajaran/database_freighter
+	name = "orbital fleet surveyor uniform"
+	desc = "A pratical uniform used by the crew of the orbital fleet's database freighters."
+	icon_state = "database_freighter"
+	item_state = "database_freighter"
+
+/obj/item/clothing/under/tajaran/database_freighter/captain
+	name = "orbital fleet head surveyor uniform"
+	desc = "A pratical uniform used by the captains of the orbital fleet's database freighters."
+	icon_state = "database_freighter_captain"
+	item_state = "database_freighter_captain"
+
 /obj/item/clothing/under/tajaran/summer
 	name = "adhomian summerwear"
 	desc = "A simple piece of adhomian summerwear made with linen."
