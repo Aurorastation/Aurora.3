@@ -78,7 +78,7 @@
 		if(istype(A, /obj/effect/overmap/visitable))
 			var/obj/effect/overmap/visitable/V = A
 			if((V.check_ownership(entry_target)) || (V == target)) //Target spotted!
-				if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
+				if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_PLANETS))
 					. = TRUE
 					//Manually stopping because this proc needs to sleep for a bit.
 					prepare_for_entry()
@@ -97,7 +97,7 @@
 					say_dead_direct("A projectile ([name]) has entered a z-level at [entry_target.name]!")
 					qdel(widowmaker)
 					qdel(src)
-				else if(istype(V, /obj/effect/overmap/visitable) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
+				else if(istype(V, /obj/effect/overmap/visitable) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_VISITABLES))
 					. = TRUE
 					if(istype(V, /obj/effect/overmap/visitable/ship))
 						var/obj/effect/overmap/visitable/ship/VS = V
@@ -105,6 +105,8 @@
 							var/naval_heading = SSatlas.headings_to_naval["[VS.dir]"]["[ammunition.heading]"]
 							var/corrected_heading = SSatlas.naval_to_dir["[VS.fore_dir]"][naval_heading]
 							ammunition.heading = corrected_heading
+					else //if it's not a ship it doesn't have a fore direction, so we need to autocorrect
+						ammunition.heading = entry_target.dir
 					prepare_for_entry()
 					var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 					widowmaker.ammo = ammunition
@@ -153,5 +155,5 @@
 
 /obj/effect/overmap/projectile/Bump(var/atom/A)
 	if(istype(A,/turf/unsimulated/map/edge))
-		qdel(src)
+		handle_wraparound()
 	..()

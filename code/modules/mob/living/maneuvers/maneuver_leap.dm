@@ -22,7 +22,7 @@
 	user.pass_flags = pass_flag
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.species.mob_size >= 10)
+		if(H.species.mob_size > 10)
 			var/turf/T = get_turf(target)
 			var/damage_mod = 1
 			var/from_above = FALSE
