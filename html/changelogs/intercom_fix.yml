@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Removes manually mapped names on intercoms. Implements coded-in intercom subtypes where applicable."
