@@ -47,7 +47,7 @@
 "acx" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/machinery/alarm/cold{
-	req_one_access = list(209);
+	req_one_access = null;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
@@ -481,7 +481,7 @@
 	level = 2
 	},
 /obj/machinery/alarm/cold{
-	req_one_access = list(209);
+	req_one_access = null;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
@@ -863,7 +863,7 @@
 /area/tajaran_smuggler/engine)
 "eLi" = (
 /obj/machinery/alarm/cold{
-	req_one_access = list(209);
+	req_one_access = null;
 	dir = 8;
 	pixel_x = 32
 	},
@@ -1078,7 +1078,8 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_y = 24
+	pixel_y = 24;
+	req_access = null
 	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
@@ -1443,7 +1444,8 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "east bump";
-	pixel_x = 24
+	pixel_x = 24;
+	req_access = null
 	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
@@ -1520,7 +1522,7 @@
 /obj/item/device/flashlight/lamp,
 /obj/random/coin,
 /obj/machinery/alarm/cold{
-	req_one_access = list(209);
+	req_one_access = null;
 	dir = 8;
 	pixel_x = 32
 	},
@@ -1764,7 +1766,8 @@
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
-	pixel_x = -24
+	pixel_x = -24;
+	req_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor{
@@ -1773,7 +1776,7 @@
 /area/tajaran_smuggler/hangar)
 "jcn" = (
 /obj/machinery/alarm/cold{
-	req_one_access = list(209);
+	req_one_access = null;
 	pixel_y = 32
 	},
 /turf/simulated/floor{
@@ -2219,7 +2222,7 @@
 /area/tajaran_smuggler)
 "lBm" = (
 /obj/machinery/alarm/cold{
-	req_one_access = list(209);
+	req_one_access = null;
 	pixel_y = 32
 	},
 /turf/simulated/floor{
@@ -2303,7 +2306,8 @@
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
-	pixel_x = -24
+	pixel_x = -24;
+	req_access = null
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -2708,7 +2712,8 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_y = 24
+	pixel_y = 24;
+	req_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -2799,7 +2804,8 @@
 /area/tajaran_smuggler)
 "oUn" = (
 /obj/machinery/power/apc{
-	pixel_y = -24
+	pixel_y = -24;
+	req_access = null
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor{
@@ -3172,7 +3178,7 @@
 "rDk" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/alarm/cold{
-	req_one_access = list(209);
+	req_one_access = null;
 	dir = 1;
 	pixel_y = -32
 	},
@@ -3454,7 +3460,8 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_y = 24
+	pixel_y = 24;
+	req_access = null
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor{
@@ -3782,7 +3789,7 @@
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/alarm/cold{
-	req_one_access = list(209);
+	req_one_access = null;
 	pixel_y = 32
 	},
 /turf/simulated/floor{
@@ -3820,7 +3827,7 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
 /obj/machinery/alarm/cold{
-	req_one_access = list(209);
+	req_one_access = null;
 	dir = 8;
 	pixel_x = 32
 	},
