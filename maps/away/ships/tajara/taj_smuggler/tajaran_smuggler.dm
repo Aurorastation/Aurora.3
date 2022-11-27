@@ -26,7 +26,8 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_restricted_waypoints = list(
-		"Adhomian Freight Shuttle" = list("nav_tajaran_smuggler_shuttle")
+		"Adhomian Freight Shuttle" = list("nav_tajaran_smuggler_shuttle"),
+		"Adhomian Freight Cargo" = list("nav_tajaran_smuggler_cargo")
 	)
 
 	initial_generic_waypoints = list(
@@ -144,12 +145,12 @@
 
 /obj/effect/shuttle_landmark/tajaran_smuggler_cargo/nav1
 	name = "Cargo Hold - Port Side"
-	landmark_tag = "nav_tajaran_smuggler_1"
+	landmark_tag = "nav_tajaran_smuggler_cargo_1"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tajaran_smuggler_cargo/nav2
 	name = "Cargo Hold - Starboard Side"
-	landmark_tag = "nav_tajaran_smuggler_2"
+	landmark_tag = "nav_tajaran_smuggler_cargo_1"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
