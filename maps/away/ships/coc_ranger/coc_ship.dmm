@@ -936,6 +936,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
+"eQS" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/wood,
+/area/ship/ranger_corvette/foyer)
 "eRR" = (
 /obj/structure/closet/crate{
 	anchored = 1;
@@ -5173,13 +5179,13 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/ship/ranger_corvette/foyer)
 "yfU" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
+	},
+/obj/structure/closet/secure_closet/cabinet/bar{
+	req_access = null
 	},
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
@@ -36403,7 +36409,7 @@ ioB
 vyC
 vzU
 yfz
-bVs
+eQS
 wdq
 bVs
 niD
