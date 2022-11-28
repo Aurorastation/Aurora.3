@@ -35511,12 +35511,6 @@
 "rFn" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora)
-"rFs" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "rFF" = (
 /obj/structure/table/standard,
 /obj/machinery/power/apc{
@@ -41348,6 +41342,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
+"uAl" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/template_noop)
 "uAt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -57369,8 +57367,8 @@ vig
 lnO
 xDC
 ePO
-rFs
 jHd
+uAl
 qgN
 qgN
 qgN
@@ -84248,7 +84246,7 @@ jHd
 jHd
 jHd
 jHd
-rFs
+uAl
 qgN
 qgN
 qgN
