@@ -3073,7 +3073,7 @@
 "pFY" = (
 /obj/structure/table/steel,
 /obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a Montevideo-class vessel.";
+	desc = "Blueprints for a Xansan-class vessel.";
 	icon = 'icons/obj/items.dmi';
 	icon_state = "blueprints";
 	item_icons = null;
@@ -3925,6 +3925,7 @@
 /obj/item/material/knife/butterfly,
 /obj/item/material/knife/tacknife,
 /obj/item/melee/energy/sword/knife/sol,
+/obj/item/melee/energy/sword/knife/sol,
 /obj/item/material/knife/trench,
 /obj/item/material/hatchet,
 /obj/item/clothing/accessory/storage/brown_vest,
@@ -3976,6 +3977,8 @@
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/pouches/colour,
+/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/under/pants/camo,
 /obj/item/clothing/under/pants/camo,
 /obj/item/clothing/under/pants/camo,
 /obj/item/clothing/under/syndicate/tracksuit,
