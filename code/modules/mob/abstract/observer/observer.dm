@@ -228,7 +228,7 @@ Works together with spawning an observer, noted above.
 
 /mob/proc/ghostize(var/can_reenter_corpse = TRUE, var/should_set_timer = TRUE)
 	if(ckey)
-		overlays -= image('icons/effects/effects.dmi', icon_state = "zzz_glow") // not very efficient but ghostize isn't called /too/ often.
+		cut_overlay(image('icons/effects/effects.dmi', "zzz_glow")) // not very efficient but ghostize isn't called /too/ often.
 		var/mob/abstract/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
 		ghost.can_reenter_corpse = can_reenter_corpse
 		ghost.timeofdeath = src.stat == DEAD ? src.timeofdeath : world.time
