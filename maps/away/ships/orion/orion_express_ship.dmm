@@ -867,11 +867,11 @@
 "gtw" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "orion_traveler_pump"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "orion_traveler_sensor";
 	pixel_x = -32
 	},
@@ -1022,7 +1022,7 @@
 /area/ship/orion_express_ship)
 "hrj" = (
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_in"
 	},
@@ -1379,7 +1379,7 @@
 /area/ship/orion_express_ship)
 "krz" = (
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_in"
 	},
@@ -2020,24 +2020,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "pll" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 3001;
-	master_tag = "orion_traveler_port";
-	name = "exterior access button";
-	pixel_y = 32
-	},
+/obj/effect/shuttle_landmark/orion_express_ship/dockintrepid,
 /turf/template_noop,
-/area/ship/orion_express_ship)
+/area/space)
 "ppM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "orion_traveler_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "orion_traveler_port";
 	layer = 3.3;
 	pixel_x = -32;
@@ -2746,7 +2739,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 3001;
+	frequency = 1380;
 	master_tag = "orion_traveler_port";
 	name = "interior access button";
 	pixel_y = -32
@@ -2952,12 +2945,19 @@
 /area/space)
 "vfR" = (
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_out"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "aft, airlock"
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "orion_traveler_port";
+	name = "exterior access button";
+	pixel_x = -32
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -3468,7 +3468,7 @@
 /area/ship/orion_express_ship)
 "yks" = (
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_out"
 	},
@@ -35202,7 +35202,7 @@ qBd
 riA
 riA
 qBd
-soM
+xRX
 xRX
 xRX
 xRX
@@ -35459,7 +35459,7 @@ rrQ
 ppM
 gtw
 hPR
-pll
+xRX
 xRX
 xRX
 xRX
@@ -35716,7 +35716,7 @@ krz
 dYD
 rvq
 vfR
-soM
+xRX
 xRX
 xRX
 xRX
@@ -35973,7 +35973,6 @@ hrj
 rvq
 oEN
 yks
-soM
 xRX
 xRX
 xRX
@@ -35985,6 +35984,7 @@ xRX
 xRX
 xRX
 xRX
+pll
 xRX
 xRX
 xRX
@@ -36230,7 +36230,7 @@ qBd
 riA
 riA
 qBd
-soM
+xRX
 xRX
 xRX
 xRX

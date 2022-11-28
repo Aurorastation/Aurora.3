@@ -192,8 +192,9 @@
 	name = "Mining Shuttle Hangar"
 	landmark_tag = "nav_hangar_mining"
 	docking_controller = "mining_shuttle_dock"
-	base_turf = /turf/simulated/floor/airless
+	base_turf = /turf/simulated/floor/plating
 	base_area = /area/hangar/operations
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/mining/transit
 	name = "In transit"

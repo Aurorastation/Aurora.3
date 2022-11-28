@@ -34,7 +34,8 @@
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
 	initial_restricted_waypoints = list(
-		"Orion Express Shuttle" = list("nav_hangar_orion_express")
+		"Orion Express Shuttle" = list("nav_hangar_orion_express"),
+		"Intrepid" = list("nav_orion_express_ship_dockintrepid")
 	)
 
 	initial_generic_waypoints = list(
@@ -63,14 +64,19 @@
 	name = "Orion Express Mobile Station - Aft Airlock"
 	landmark_tag = "nav_orion_express_ship_3"
 	docking_controller = "orion_traveler_port"
-	base_area = /area/ship/orion_express_ship
+	base_area = /area/space
 	base_turf = /turf/simulated/floor/plating
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/orion_express_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_orion_express_ship"
 	base_turf = /turf/space/transit/north
+
+/obj/effect/shuttle_landmark/orion_express_ship/dockintrepid // restricted for the intrepid only or else other ships will be able to use this point, and not properly dock
+	name = "Orion Express Mobile Station - Aft Airlock"
+	landmark_tag = "nav_orion_express_ship_dockintrepid"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/orion_express_shuttle

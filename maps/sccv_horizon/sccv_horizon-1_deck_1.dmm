@@ -13803,6 +13803,7 @@
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/shuttle_landmark/mining/hangar,
 /turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "kKz" = (
@@ -27830,7 +27831,6 @@
 	id_tag = "mining_shuttle_external";
 	req_access = list(13)
 	},
-/obj/effect/shuttle_landmark/mining/hangar,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)

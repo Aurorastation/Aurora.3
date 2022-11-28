@@ -999,14 +999,14 @@
 /area/horizon/crew_armoury)
 "aOx" = (
 /obj/machinery/airlock_sensor{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "dock_horizon_3_sensor";
 	master_tag = "dock_horizon_3_airlock";
 	pixel_y = -32;
 	pixel_x = 25
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "dock_horizon_3_airlock";
 	pixel_y = 0;
 	req_one_access = list(13);
@@ -1017,7 +1017,7 @@
 	pixel_x = 26
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "dock_horizon_3_pump";
 	dir = 8
 	},
@@ -2740,7 +2740,7 @@
 "csI" = (
 /obj/effect/shuttle_landmark/horizon/dock3,
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "dock_horizon_3_outer";
 	locked = 1;
@@ -2749,7 +2749,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 3001;
+	frequency = 1380;
 	master_tag = "dock_horizon_3_airlock";
 	name = "exterior access button";
 	pixel_x = 21;
@@ -18223,7 +18223,7 @@
 /area/crew_quarters/heads/hop/xo)
 "oAl" = (
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "dock_horizon_3_outer";
 	locked = 1;
@@ -18649,7 +18649,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 3001;
+	frequency = 1380;
 	master_tag = "dock_horizon_3_airlock";
 	name = "interior access button";
 	pixel_x = -24;
@@ -19512,7 +19512,7 @@
 /area/horizon/crew_quarters/fitness/gym)
 "pIp" = (
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "dock_horizon_3_inner";
 	locked = 1;
@@ -28040,7 +28040,7 @@
 /area/bridge/aibunker)
 "wev" = (
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "dock_horizon_3_inner";
 	locked = 1;
@@ -28132,7 +28132,7 @@
 /area/medical/washroom)
 "wiJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "dock_horizon_3_pump";
 	dir = 1
 	},

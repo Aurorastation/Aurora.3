@@ -39,7 +39,7 @@
 	overmap_event_areas = 34
 	planet_size = list(255,255)
 
-	away_site_budget = 3
+	away_site_budget = 30 //set this back to three, rock.
 
 	station_networks = list(
 		NETWORK_COMMAND,
