@@ -901,6 +901,10 @@
 "lw" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner/beige,
+/obj/effect/ghostspawpoint{
+	identifier = "tajaran_scrapper";
+	name = "igs - tajaran_scrapper"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "lA" = (
@@ -1180,10 +1184,6 @@
 /area/scrapper_base)
 "ot" = (
 /obj/structure/bed/stool/chair/sofa/right/black,
-/obj/effect/ghostspawpoint{
-	identifier = "tajaran_scrapper";
-	name = "igs - tajaran_scrapper"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "ov" = (
@@ -2687,6 +2687,10 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 8
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "tajaran_scrapper";
+	name = "igs - tajaran_scrapper"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "HM" = (
@@ -2907,10 +2911,6 @@
 /area/scrapper_base)
 "Kl" = (
 /obj/structure/bed/stool/chair/sofa/black,
-/obj/effect/ghostspawpoint{
-	identifier = "tajaran_scrapper";
-	name = "igs - tajaran_scrapper"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "Kn" = (
@@ -2996,10 +2996,6 @@
 /area/scrapper_base)
 "LB" = (
 /obj/structure/bed/stool/chair/sofa/left/black,
-/obj/effect/ghostspawpoint{
-	identifier = "tajaran_scrapper";
-	name = "igs - tajaran_scrapper"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "LC" = (
@@ -3722,6 +3718,10 @@
 /area/scrapper_base/storage)
 "Ue" = (
 /obj/structure/bed/stool/chair/shuttle,
+/obj/effect/ghostspawpoint{
+	identifier = "tajaran_scrapper";
+	name = "igs - tajaran_scrapper"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "Uh" = (
