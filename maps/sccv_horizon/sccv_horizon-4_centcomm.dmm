@@ -1547,7 +1547,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_x = 5;
 	pixel_y = -22
 	},

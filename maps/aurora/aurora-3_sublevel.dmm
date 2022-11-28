@@ -8629,7 +8629,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /turf/simulated/floor/tiled,
@@ -8925,8 +8924,6 @@
 	c_tag = "Medical - Patient Wing Hallway"
 	},
 /obj/item/device/radio/intercom{
-	frequency = 1475;
-	name = "Station Intercom (Security)";
 	pixel_y = 22
 	},
 /obj/effect/floor_decal/corner_wide/pink{
@@ -10571,7 +10568,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -12039,7 +12035,6 @@
 "avC" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/structure/bed/stool,
@@ -12887,7 +12882,6 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
@@ -13367,7 +13361,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -14210,7 +14203,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27;
 	pixel_y = -32
 	},
@@ -15549,7 +15541,6 @@
 "aEB" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -16564,7 +16555,6 @@
 "aHi" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/effect/floor_decal/corner_wide/lime{
@@ -19740,7 +19730,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -20086,7 +20075,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/white,
@@ -20554,7 +20542,6 @@
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
 /turf/simulated/floor/tiled{
@@ -21338,7 +21325,6 @@
 "aSx" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -21421,7 +21407,6 @@
 /obj/item/device/flashlight/pen,
 /obj/item/device/flashlight/pen,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
 /obj/item/taperoll/medical{
@@ -22548,7 +22533,6 @@
 /area/medical/medbay4)
 "aWC" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
 /obj/structure/flora/pottedplant/random,
@@ -23719,7 +23703,6 @@
 "bcb" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /turf/simulated/floor/tiled,
@@ -24451,7 +24434,6 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = -29
 	},
 /obj/effect/floor_decal/corner/mauve/full,
@@ -26018,7 +26000,6 @@
 "bxJ" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/structure/bed/stool/chair/padded/brown,
@@ -26266,7 +26247,6 @@
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = -29
 	},
 /turf/simulated/floor/tiled,
@@ -28930,7 +28910,6 @@
 "hje" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
@@ -29667,7 +29646,6 @@
 "iRV" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/structure/bed/stool/chair/padded/brown,
@@ -30781,7 +30759,6 @@
 "lQi" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/structure/bed/stool/chair/padded/brown,
@@ -35323,7 +35300,6 @@
 /obj/item/pen,
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/machinery/door/firedoor,
@@ -37052,7 +37028,6 @@
 "xXU" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/structure/bed/stool/chair/padded/brown,

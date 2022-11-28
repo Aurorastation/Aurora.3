@@ -6,7 +6,7 @@
 	as a conglomerate of several aerospace companies in the 22nd century. Initially
 	funded by sales of new designs for warp technology, the company fell on hard times
 	during the Second Great Depression in the late 23rd century. Receiving bailouts
-	from SolGov and securing several crucial production contracts, they have slowly
+	from the Sol Alliance and securing several crucial production contracts, they have slowly
 	worked their way to become the dominant manufacturing mega-corporation in the
 	Sol Alliance, pioneering interstellar logistics and construction on an awe-inspiring scale.
 	</p>"}

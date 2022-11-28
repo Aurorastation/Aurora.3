@@ -1846,7 +1846,6 @@
 /area/shuttle/escape)
 "aTs" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = -30
 	},
 /turf/simulated/floor/shuttle/tan,
@@ -5809,7 +5808,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_x = 5;
 	pixel_y = -22
 	},

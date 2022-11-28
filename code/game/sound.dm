@@ -618,7 +618,11 @@
 		'sound/weapons/reloads/rifle_slide2.ogg',
 		'sound/weapons/reloads/rifle_slide3.ogg',
 		'sound/weapons/reloads/rifle_slide4.ogg',
-		'sound/weapons/reloads/rifle_slide5.ogg'
+		'sound/weapons/reloads/rifle_slide5.ogg',
+		'sound/weapons/reloads/rifle_slide6.ogg',
+		'sound/weapons/reloads/rifle_slide7.ogg',
+		'sound/weapons/reloads/rifle_slide8.ogg',
+		'sound/weapons/reloads/rifle_slide9.ogg'
 	)
 
 /decl/sound_category/revolver_reload

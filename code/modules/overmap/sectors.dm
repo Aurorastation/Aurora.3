@@ -27,6 +27,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/has_called_distress_beacon = FALSE
 	var/image/applied_distress_overlay
 
+	var/targeting_flags = TARGETING_FLAG_ENTRYPOINTS|TARGETING_FLAG_GENERIC_WAYPOINTS
 	var/list/obj/machinery/ship_weapon/ship_weapons
 	var/list/obj/effect/landmark/entry_points
 	var/obj/effect/overmap/targeting

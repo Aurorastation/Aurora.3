@@ -1,6 +1,8 @@
 /obj/item/device/radio/intercom
-	name = "station intercom (General)"
-	desc = "Talk through this."
+	name = "intercom (general)"
+	desc = "An intercom with buttons for transmitting, receiving, and for volume control."
+	desc_extended = "Has a touch display for inputting a frequency, with proper authentication. Used to communicate when you have lost your radio. \
+		Otherwise, you would likely just use a handheld shortwave radio instead."
 	icon_state = "intercom"
 	layer = 2.99
 	anchored = TRUE
@@ -15,7 +17,7 @@
 	clickvol = 40
 
 /obj/item/device/radio/intercom/custom
-	name = "station intercom (Custom)"
+	name = "intercom (custom)"
 
 /obj/item/device/radio/intercom/custom/Initialize()
 	. = ..()
@@ -23,21 +25,25 @@
 	set_listening(FALSE)
 
 /obj/item/device/radio/intercom/interrogation
-	name = "station intercom (Interrogation)"
+	name = "intercom (interrogation)"
 
 /obj/item/device/radio/intercom/interrogation/Initialize()
 	. = ..()
 	set_frequency(1449)
 
+/obj/item/device/radio/intercom/interrogation/broadcasting/Initialize() // The detainee's side.
+	set_broadcasting(TRUE)
+	set_listening(FALSE)
+
 /obj/item/device/radio/intercom/private
-	name = "station intercom (Private)"
+	name = "intercom (private)"
 
 /obj/item/device/radio/intercom/private/Initialize()
 	. = ..()
 	set_frequency(AI_FREQ)
 
 /obj/item/device/radio/intercom/specops
-	name = "\improper Spec Ops intercom"
+	name = "intercom (spec ops)"
 
 /obj/item/device/radio/intercom/specops/Initialize()
 	. = ..()
@@ -52,7 +58,7 @@
 	set_listening(TRUE)
 
 /obj/item/device/radio/intercom/department/medbay
-	name = "station intercom (Medbay)"
+	name = "intercom (medical)"
 
 /obj/item/device/radio/intercom/department/medbay/Initialize()
 	. = ..()
@@ -60,7 +66,7 @@
 	internal_channels = default_medbay_channels.Copy()
 
 /obj/item/device/radio/intercom/department/security
-	name = "station intercom (Security)"
+	name = "intercom (security)"
 
 /obj/item/device/radio/intercom/department/security/Initialize()
 	. = ..()
@@ -71,7 +77,7 @@
 	)
 
 /obj/item/device/radio/intercom/entertainment
-	name = "entertainment intercom"
+	name = "intercom (entertainment)"
 	canhear_range = 4
 
 /obj/item/device/radio/intercom/entertainment/Initialize()
@@ -98,8 +104,8 @@
 	screen_overlays["intercom_l"] = make_screen_overlay(icon, "intercom_l")
 
 /obj/item/device/radio/intercom/syndicate
-	name = "illicit intercom"
-	desc = "Talk through this. Evilly"
+	name = "illegally modified intercom"
+	desc = "Talk through this. Evilly."
 	subspace_transmission = TRUE
 	syndie = TRUE
 
@@ -109,7 +115,7 @@
 	internal_channels[num2text(SYND_FREQ)] = list(access_syndicate)
 
 /obj/item/device/radio/intercom/raider
-	name = "illicit intercom"
+	name = "illegally modified intercom"
 	desc = "Pirate radio, but not in the usual sense of the word."
 	subspace_transmission = TRUE
 	syndie = TRUE
@@ -181,7 +187,7 @@
 	return ""
 
 /obj/item/device/radio/intercom/locked/ai_private
-	name = "\improper AI intercom"
+	name = "intercom (AI private)"
 
 /obj/item/device/radio/intercom/locked/ai_private/Initialize()
 	. = ..()
@@ -190,7 +196,7 @@
 	set_listening(TRUE)
 
 /obj/item/device/radio/intercom/locked/confessional
-	name = "confessional intercom"
+	name = "intercom (confessional)"
 
 /obj/item/device/radio/intercom/locked/confessional/Initialize()
 	. = ..()
