@@ -69,7 +69,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/LateInitialize()
 	for(var/obj/machinery/telecomms/T in telecomms_list)
-		if(T != src && T.z in GetConnectedZlevels(src))
+		if(T != src && (T.z in GetConnectedZlevels(src)))
 			add_automatic_link(T)
 
 /obj/machinery/telecomms/Destroy()
@@ -222,7 +222,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	var/connected_z = GetConnectedZlevels(z)
 
 	for(var/sig_z in signal.levels)
-		if(isAdminLevel(sig_z) || sig_z in connected_z)
+		if(isAdminLevel(sig_z) || (sig_z in connected_z))
 			return TRUE
 
 	if(!current_map.use_overmap)
@@ -230,6 +230,5 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 	if(!istype(linked) || !istype(signal.sector))
 		CRASH("[src] called get_range with invalid or null linked sector! Linked: [linked] | Signal: [signal.sector]")
-		return FALSE
 
 	return linked == signal.sector || get_dist(linked, signal.sector) <= overmap_range
