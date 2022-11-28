@@ -1949,7 +1949,7 @@
 	},
 /obj/item/reagent_containers/food/drinks/pitcher{
 	pixel_x = -5;
-	reagents_to_add = list(/decl/reagent/drink/coffee = 30)
+	reagents_to_add = list(/decl/reagent/drink/coffee=30)
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
 	pixel_x = 6
@@ -3560,10 +3560,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
-"rNJ" = (
-/obj/effect/floor_decal/corner_wide/blue/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/telecomms)
 "rQB" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -4677,7 +4673,7 @@
 /area/ship/ranger_corvette/foyer)
 "vZn" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecommunications/Aux CIC"
+	name = "Cryogenics"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
