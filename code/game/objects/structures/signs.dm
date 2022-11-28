@@ -520,18 +520,18 @@
 /obj/structure/sign/flag/sol
 	name = "Sol Alliance flag"
 	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
-	icon_state = "solgov"
+	icon_state = "sol"
 
 /obj/structure/sign/flag/sol/left
-	icon_state = "solgov_l"
+	icon_state = "sol_l"
 
 /obj/structure/sign/flag/sol/right
-	icon_state = "solgov_r"
+	icon_state = "sol_r"
 
 /obj/item/flag/sol
 	name = "Sol Alliance flag"
 	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
-	flag_path = "solgov"
+	flag_path = "sol"
 
 /obj/item/flag/sol/l
 	name = "Large Sol Alliance flag"

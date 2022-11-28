@@ -38,6 +38,7 @@
 
 /obj/item/storage/secure/safe/unathi_pirate_izharshan
 	starts_with = list(
+	/obj/item/ship_ammunition/bruiser/he = 1,
 	/obj/item/clothing/accessory/badge/passport/dominia = 1,
 	/obj/item/clothing/accessory/badge/passport/coc = 1,
 	/obj/item/spacecash/c1000 = 1,
