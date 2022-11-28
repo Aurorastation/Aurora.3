@@ -817,7 +817,6 @@
 #include "code\game\machinery\telecomms\machines\message_server.dm"
 #include "code\game\machinery\telecomms\machines\processor.dm"
 #include "code\game\machinery\telecomms\machines\receiver.dm"
-#include "code\game\machinery\telecomms\machines\relay.dm"
 #include "code\game\machinery\telecomms\machines\server.dm"
 #include "code\game\modifiers\modifiers.dm"
 #include "code\game\objects\buckling.dm"

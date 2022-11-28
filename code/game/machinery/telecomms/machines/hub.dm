@@ -15,9 +15,9 @@
 	telecomms_type = /obj/machinery/telecomms/hub
 	density = TRUE
 	anchored = TRUE
-	idle_power_usage = 1600
+	idle_power_usage = 1.6 KILOWATTS
+	active_power_usage = 5 KILOWATTS
 	circuitboard = "/obj/item/circuitboard/telecomms/hub"
-	long_range_link = TRUE
 	netspeed = 40
 
 /obj/machinery/telecomms/hub/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
@@ -26,8 +26,6 @@
 
 	if(istype(machine_from, /obj/machinery/telecomms/receiver))
 		//If the signal is compressed, send it to the bus.
-		relay_information(signal, /obj/machinery/telecomms/bus, TRUE) // ideally relay the copied information to bus units
+		relay_information(signal, /obj/machinery/telecomms/bus) // ideally relay the copied information to bus units
 	else
-		// Get a list of relays that we're linked to, then send the signal to their levels.
-		relay_information(signal, /obj/machinery/telecomms/relay, TRUE)
-		relay_information(signal, /obj/machinery/telecomms/broadcaster, TRUE) // Send it to a broadcaster.
+		relay_information(signal, /obj/machinery/telecomms/broadcaster) // Broadcast the current signal to our z-levels

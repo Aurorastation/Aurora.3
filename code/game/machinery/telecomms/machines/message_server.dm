@@ -70,8 +70,6 @@
 	name = "messaging server"
 	desc = "A machine that processes and routes request console messages."
 	telecomms_type = /obj/machinery/telecomms/message_server
-	density = TRUE
-	anchored = TRUE
 	idle_power_usage = 10
 	active_power_usage = 100
 
@@ -99,16 +97,9 @@
 	newKey += pick("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
 	return newKey
 
-/obj/machinery/telecomms/message_server/process()
-	//if(decryptkey == "password")
-	//	decryptkey = generateKey()
-	if(toggled && (stat & (BROKEN|NOPOWER)))
-		toggled = FALSE
-	update_icon()
-
 /obj/machinery/telecomms/message_server/receive_information(datum/signal/subspace/pda/signal, obj/machinery/telecomms/machine_from)
 	// can't log non-PDA signals
-	if(!istype(signal) || !signal.data["message"] || !toggled)
+	if(!istype(signal) || !signal.data["message"] || !use_power || inoperable())
 		return
 
 	// log the signal
@@ -156,14 +147,14 @@
 
 /obj/machinery/telecomms/message_server/attack_hand(user as mob)
 //	to_chat(user, "\blue There seem to be some parts missing from this server. They should arrive on the station in a few days, give or take a few CentCom delays.")
-	to_chat(user, "You toggle request console message passing from [toggled ? "On" : "Off"] to [toggled ? "Off" : "On"]")
-	toggled = !toggled
+	to_chat(user, "You toggle request console message passing from [use_power ? "On" : "Off"] to [use_power ? "Off" : "On"]")
+	toggle_power()
 	update_icon()
 
 	return
 
 /obj/machinery/telecomms/message_server/attackby(obj/item/O as obj, mob/living/user as mob)
-	if (toggled && !(stat & (BROKEN|NOPOWER)) && (spamfilter_limit < MESSAGE_SERVER_DEFAULT_SPAM_LIMIT*2) && \
+	if (use_power && !inoperable(EMPED) && (spamfilter_limit < MESSAGE_SERVER_DEFAULT_SPAM_LIMIT*2) && \
 		istype(O,/obj/item/circuitboard/message_monitor))
 		spamfilter_limit += round(MESSAGE_SERVER_DEFAULT_SPAM_LIMIT / 2)
 		user.drop_from_inventory(O,get_turf(src))
@@ -173,9 +164,9 @@
 		..(O, user)
 
 /obj/machinery/telecomms/message_server/update_icon()
-	if((stat & (BROKEN|NOPOWER)))
+	if(inoperable(EMPED))
 		icon_state = "server-nopower"
-	else if (!toggled)
+	else if (!use_power)
 		icon_state = "server-off"
 	else
 		icon_state = "server-on"

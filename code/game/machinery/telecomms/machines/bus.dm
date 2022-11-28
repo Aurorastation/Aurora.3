@@ -1,11 +1,19 @@
+/*
+	The bus mainframe idles and waits for hubs to relay them signals. They act
+	as junctions for the network.
+
+	They transfer uncompressed subspace packets to processor units, and then take
+	the processed packet to a server for logging.
+
+	Link to a subspace hub if it can't send to a server.
+*/
 /obj/machinery/telecomms/bus
 	name = "bus mainframe"
 	icon_state = "bus"
 	desc = "A mighty piece of hardware used to send massive amounts of data quickly."
 	telecomms_type = /obj/machinery/telecomms/bus
-	density = TRUE
-	anchored = TRUE
-	idle_power_usage = 1000
+	idle_power_usage = 1 KILOWATTS
+	active_power_usage = 3 KILOWATTS
 	circuitboard = "/obj/item/circuitboard/telecomms/bus"
 	netspeed = 40
 	var/change_frequency = 0

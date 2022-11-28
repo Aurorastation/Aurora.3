@@ -105,10 +105,10 @@
 
 	if(auth)
 		dat += "<h4><dd><A href='?src=\ref[src];auth=1'>&#09;<font color='green'>\[Authenticated\]</font></a>&#09;/"
-		dat += " Server Power: <A href='?src=\ref[src];active=1'>[src.linkedServer && src.linkedServer.toggled ? "<font color='green'>\[On\]</font>":"<span class='warning'>\[Off\]</span>"]</a></h4>"
+		dat += " Server Power: <A href='?src=\ref[src];active=1'>[src.linkedServer && src.linkedServer.use_power ? "<font color='green'>\[On\]</font>":"<span class='warning'>\[Off\]</span>"]</a></h4>"
 	else
 		dat += "<h4><dd><A href='?src=\ref[src];auth=1'>&#09;<span class='warning'>\[Unauthenticated\]</span></a>&#09;/"
-		dat += " Server Power: <u>[src.linkedServer && src.linkedServer.toggled ? "<font color='green'>\[On\]</font>":"<span class='warning'>\[Off\]</span>"]</u></h4>"
+		dat += " Server Power: <u>[src.linkedServer && src.linkedServer.use_power ? "<font color='green'>\[On\]</font>":"<span class='warning'>\[Off\]</span>"]</u></h4>"
 
 	if(hacking || emag)
 		screen = 2
@@ -280,7 +280,7 @@
 
 	//Turn the server on/off.
 	if (href_list["active"])
-		if(auth) linkedServer.toggled = !linkedServer.toggled
+		if(auth) linkedServer.use_power = !linkedServer.use_power
 	//Find a server
 	if (href_list["find"])
 		var/list/message_servers = list()

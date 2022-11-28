@@ -1,12 +1,3 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
-
-
-/*
-
-	All telecommunications interactions:
-
-*/
-
 /obj/machinery/telecomms
 	var/temp = "" // output message
 	var/construct_op = 0
@@ -26,9 +17,9 @@
 		if (integrity < 100)               								//Damaged, let's repair!
 			if (T.use(1))
 				integrity = between(0, initial(integrity) / 2, initial(integrity))
-				to_chat(usr, "You apply the Nanopaste to [src], repairing some of the damage.")
+				to_chat(user, "You apply the Nanopaste to [src], repairing some of the damage.")
 		else
-			to_chat(usr, "This machine is already in perfect condition.")
+			to_chat(user, "This machine is already in perfect condition.")
 		return TRUE
 
 
@@ -118,8 +109,8 @@
 		M = user.get_multitool()
 	var/dat
 	dat += "<br>[temp]<br><br>"
-	dat += "Power Status: <a href='?src=\ref[src];input=toggle'>[src.toggled ? "On" : "Off"]</a>"
-	if(on && toggled)
+	dat += "Power Status: <a href='?src=\ref[src];input=toggle'>[src.use_power ? "On" : "Off"]</a>"
+	if(operable() && use_power)
 		if(id != "" && id)
 			dat += "<br>Identification String: <a href='?src=\ref[src];input=id'>[id]</a>"
 		else
@@ -195,23 +186,6 @@
 		temp = "<font color = #666633>-% Processing mode changed. %-</font>"
 		src.process_mode = !src.process_mode
 */
-
-// RELAY
-
-/obj/machinery/telecomms/relay/Options_Menu()
-	var/dat = ""
-	dat += "<br>Broadcasting: <A href='?src=\ref[src];broadcast=1'>[broadcasting ? "YES" : "NO"]</a>"
-	dat += "<br>Receiving:    <A href='?src=\ref[src];receive=1'>[receiving ? "YES" : "NO"]</a>"
-	return dat
-
-/obj/machinery/telecomms/relay/Options_Topic(href, href_list)
-
-	if(href_list["receive"])
-		receiving = !receiving
-		temp = "<font color = #666633>-% Receiving mode changed. %-</font>"
-	if(href_list["broadcast"])
-		broadcasting = !broadcasting
-		temp = "<font color = #666633>-% Broadcasting mode changed. %-</font>"
 // BUS
 
 /obj/machinery/telecomms/bus/Options_Menu()
@@ -250,9 +224,8 @@
 
 			if("toggle")
 
-				src.toggled = !src.toggled
-				temp = "<font color = #666633>-% [src] has been [src.toggled ? "activated" : "deactivated"].</font>"
-				update_power()
+				toggle_power()
+				temp = "<font color = #666633>-% [src] has been [src.use_power ? "activated" : "deactivated"].</font>"
 
 			/*
 			if("hide")

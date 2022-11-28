@@ -37,8 +37,7 @@
 	// Gather data for computer header
 	data["_PC"] = get_header_data(data["_PC"])
 
-	var/datum/signal/signal
-	signal = telecomms_process_active(user.loc.z)
+	var/datum/signal/subspace/signal = SSradio.telecomms_ping(computer)
 
 	var/list/mechs = list()
 	var/list/robots = list()

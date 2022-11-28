@@ -19,18 +19,17 @@
 
 /obj/machinery/telecomms/relay/preset/ruskie
 	id = "Ruskie Relay"
-	hide = 1
-	toggled = 0
+	hide = TRUE
 	autolinkers = list("r_relay")
+
+/obj/machinery/telecomms/relay/preset/ruskie/Initialize(mapload)
+	. = ..()
+	update_use_power(POWER_USE_OFF)
 
 /obj/machinery/telecomms/relay/preset/centcom
 	id = "Centcom Relay"
-	hide = 1
-	toggled = 1
-	//anchored = 1
-	//use_power = POWER_USE_OFF
-	//idle_power_usage = 0
-	produces_heat = 0
+	hide = TRUE
+	produces_heat = FALSE
 	autolinkers = list("c_relay")
 
 //HUB

@@ -16,10 +16,9 @@
 	var/list/data = host.initial_data()
 
 	// This checks if TCOMS is online using the test proc. If it isn't, the suit sensor data isn't loaded.
-	var/datum/signal/signal
-	signal = telecomms_process_active(user.loc.z)
+	var/datum/signal/subspace/signal = SSradio.telecomms_ping(host)
 	data["signal"] = 0
-	if(signal.data["done"] == 1)
+	if(signal.data["done"])
 		data["isAI"] = isAI(user)
 		data["crewmembers"] = list()
 		data["signal"] = 1

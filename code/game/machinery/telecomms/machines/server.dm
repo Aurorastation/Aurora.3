@@ -19,7 +19,8 @@
 	telecomms_type = /obj/machinery/telecomms/server
 	density = TRUE
 	anchored = TRUE
-	idle_power_usage = 300
+	idle_power_usage = 300 // WATTS
+	active_power_usage = 1 KILOWATTS
 	circuitboard = "/obj/item/circuitboard/telecomms/server"
 	var/list/log_entries = list()
 	var/totaltraffic = 0 // gigabytes (if > 1024, divide by 1024 -> terrabytes)

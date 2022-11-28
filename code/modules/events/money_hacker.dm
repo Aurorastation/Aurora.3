@@ -21,7 +21,7 @@
 	var/my_department = "[station_name()] firewall subroutines"
 
 	for(var/obj/machinery/telecomms/message_server/MS in telecomms_list)
-		if(!MS.toggled) continue
+		if(!MS.use_power) continue
 		MS.send_rc_message("Executive Officer's Desk", my_department, message, "", "", 2)
 
 
@@ -62,5 +62,5 @@
 	var/my_department = "[station_name()] firewall subroutines"
 
 	for(var/obj/machinery/telecomms/message_server/MS in telecomms_list)
-		if(!MS.toggled) continue
+		if(!MS.use_power) continue
 		MS.send_rc_message("Executive Officer's Desk", my_department, message, "", "", 2)

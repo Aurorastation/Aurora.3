@@ -244,7 +244,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		var/pass = FALSE
 		var/datum/data_rc_msg/log = new(href_list["department"], department, log_msg, msgStamped, msgVerified, priority)
 		for (var/obj/machinery/telecomms/message_server/MS in telecomms_list)
-			if (MS.toggled)
+			if (MS.use_power)
 				MS.rc_msgs += log
 				pass = TRUE
 		if(pass)
@@ -415,7 +415,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 /obj/machinery/requests_console/proc/can_send()
 	for(var/obj/machinery/telecomms/message_server/MS in telecomms_list)
-		if(!MS.toggled)
+		if(!MS.use_power)
 			continue
 		return TRUE
 	return FALSE
