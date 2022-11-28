@@ -376,6 +376,7 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/clothing/suit/space/void/coalition,
 /obj/item/clothing/head/helmet/space/void/coalition,
+/obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "bIQ" = (
@@ -896,6 +897,7 @@
 	pixel_y = 32;
 	req_one_access = null
 	},
+/obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "eFH" = (
@@ -1479,6 +1481,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "hwT" = (
@@ -3726,6 +3729,17 @@
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/atmospherics)
+"swi" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/door/window/eastleft{
+	dir = 2
+	},
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/turf/simulated/floor/reinforced,
+/area/ship/ranger_corvette/munitions)
 "sCd" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/shuttle/dark_blue,
@@ -34090,7 +34104,7 @@ xRX
 xRX
 xRX
 sTK
-rVo
+swi
 uVR
 itk
 rVo
