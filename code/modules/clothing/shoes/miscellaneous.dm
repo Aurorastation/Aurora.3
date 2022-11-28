@@ -118,6 +118,7 @@ obj/item/clothing/shoes/sandal/clogs
 	icon_state = "slippers_worn"
 	item_state = "slippers_worn"
 	force = 0
+	species_restricted = null
 	w_class = ITEMSIZE_SMALL
 	silent = 1
 
