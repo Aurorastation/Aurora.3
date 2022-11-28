@@ -999,9 +999,9 @@
 /area/horizon/crew_armoury)
 "aOx" = (
 /obj/machinery/airlock_sensor{
-	frequency = 1337;
-	id_tag = "nuke_shuttle_dock_sensor";
-	master_tag = "nuke_shuttle_dock_airlock";
+	frequency = 3001;
+	id_tag = "dock_horizon_3_sensor";
+	master_tag = "dock_horizon_3_airlock";
 	pixel_y = -32;
 	pixel_x = 25
 	},
@@ -2750,7 +2750,7 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 3001;
-	master_tag = "nuke_shuttle_dock_airlock";
+	master_tag = "dock_horizon_3_airlock";
 	name = "exterior access button";
 	pixel_x = 21;
 	pixel_y = -12;
@@ -2799,6 +2799,17 @@
 /obj/item/device/radio,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
+"cud" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "dock_horizon_1_outer";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "cur" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -3005,6 +3016,17 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
+"cFr" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "dock_horizon_1_inner";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "cFJ" = (
 /obj/effect/floor_decal/corner_wide/blue,
 /obj/effect/floor_decal/spline/plain/corner,
@@ -3893,6 +3915,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
+"dtr" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1380;
+	id_tag = "dock_horizon_1_pump"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "dtx" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
@@ -5623,6 +5652,32 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
+"eQR" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1380;
+	id_tag = "dock_horizon_1_pump";
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1380;
+	id_tag = "dock_horizon_1_airlock";
+	pixel_y = 0;
+	req_one_access = list(13);
+	tag_airpump = "dock_horizon_1_pump";
+	tag_chamber_sensor = "dock_horizon_1_sensor";
+	tag_exterior_door = "dock_horizon_1_outer";
+	tag_interior_door = "dock_horizon_1_inner";
+	pixel_x = 26
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "dock_horizon_1_sensor";
+	master_tag = "dock_horizon_1_airlock";
+	pixel_y = 32;
+	pixel_x = 25
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "eQY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -11329,8 +11384,22 @@
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
 "jkC" = (
-/obj/effect/map_effect/airlock/s_to_n/long/square,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "dock_horizon_1_inner";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
+"jkN" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "jlq" = (
 /obj/effect/floor_decal/corner/blue{
@@ -22788,6 +22857,15 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "dock_horizon_1_airlock";
+	name = "interior access button";
+	pixel_x = -24;
+	pixel_y = 21;
+	req_one_access = list(13)
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "snj" = (
@@ -22859,6 +22937,23 @@
 /area/maintenance/engineering_ladder)
 "spn" = (
 /obj/effect/shuttle_landmark/horizon/dock1,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "dock_horizon_1_outer";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "dock_horizon_1_airlock";
+	name = "exterior access button";
+	pixel_x = 21;
+	pixel_y = 11;
+	req_one_access = list(13)
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "sps" = (
@@ -41033,7 +41128,7 @@ wGH
 ebZ
 dce
 dce
-jkC
+ebZ
 iHq
 sEe
 ebZ
@@ -41232,10 +41327,10 @@ wGH
 wGH
 wGH
 wGH
-jIO
-jIO
-jIO
-jIO
+cud
+dtr
+jkN
+jkC
 smM
 oRv
 wev
@@ -41436,8 +41531,8 @@ wGH
 wGH
 spn
 jIO
-jIO
-jIO
+eQR
+cFr
 pTP
 xyA
 pIp

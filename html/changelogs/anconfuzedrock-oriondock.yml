@@ -1,0 +1,6 @@
+author: anconfuzedrock
+
+delete-after: True
+
+changes:
+  - tweak: "the horizon's docking port that's used by the orion express ship now shares a frequency with it, allowing it to actually dock."

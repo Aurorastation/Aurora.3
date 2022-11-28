@@ -87,6 +87,7 @@
 /obj/effect/shuttle_landmark/horizon/dock1
 	name = "Starboard Primary Docking Arm"
 	landmark_tag = "nav_dock_horizon_1"
+	docking_controller = "dock_horizon_1_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 

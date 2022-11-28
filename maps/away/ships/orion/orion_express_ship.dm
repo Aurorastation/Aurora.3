@@ -39,7 +39,8 @@
 
 	initial_generic_waypoints = list(
 		"nav_orion_express_ship_1",
-		"nav_orion_express_ship_2"
+		"nav_orion_express_ship_2",
+		"nav_orion_express_ship_3"
 	)
 
 /obj/effect/overmap/visitable/ship/orion_express_ship/New()
@@ -57,6 +58,14 @@
 	landmark_tag = "nav_orion_express_ship_2"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
+
+/obj/effect/shuttle_landmark/orion_express_ship/nav3
+	name = "Orion Express Mobile Station - Aft Airlock"
+	landmark_tag = "nav_orion_express_ship_3"
+	docking_controller = "orion_traveler_port"
+	base_area = /area/ship/orion_express_ship
+	base_turf = /turf/simulated/floor/plating
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/orion_express_ship/transit
 	name = "In transit"
@@ -90,12 +99,13 @@
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_orion_express"
+	dock_target = "orion_express_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/orion_express_shuttle/hangar
 	name = "Orion Express Shuttle Hangar"
 	landmark_tag = "nav_hangar_orion_express"
-	docking_controller = "orion_express_shuttle_dock"
+	docking_controller = "orion_traveler_n_port"
 	base_area = /area/ship/orion_express_ship
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE

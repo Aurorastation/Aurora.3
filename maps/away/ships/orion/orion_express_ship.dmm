@@ -867,11 +867,11 @@
 "gtw" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
+	frequency = 3001;
 	id_tag = "orion_traveler_pump"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1380;
+	frequency = 3001;
 	id_tag = "orion_traveler_sensor";
 	pixel_x = -32
 	},
@@ -1022,7 +1022,7 @@
 /area/ship/orion_express_ship)
 "hrj" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 3001;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_in"
 	},
@@ -1379,7 +1379,7 @@
 /area/ship/orion_express_ship)
 "krz" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 3001;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_in"
 	},
@@ -2023,7 +2023,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1380;
+	frequency = 3001;
 	master_tag = "orion_traveler_port";
 	name = "exterior access button";
 	pixel_y = 32
@@ -2033,11 +2033,11 @@
 "ppM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
+	frequency = 3001;
 	id_tag = "orion_traveler_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1380;
+	frequency = 3001;
 	id_tag = "orion_traveler_port";
 	layer = 3.3;
 	pixel_x = -32;
@@ -2746,7 +2746,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1380;
+	frequency = 3001;
 	master_tag = "orion_traveler_port";
 	name = "interior access button";
 	pixel_y = -32
@@ -2952,7 +2952,7 @@
 /area/space)
 "vfR" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 3001;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_out"
 	},
@@ -3468,10 +3468,11 @@
 /area/ship/orion_express_ship)
 "yks" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 3001;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_out"
 	},
+/obj/effect/shuttle_landmark/orion_express_ship/nav3,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 
