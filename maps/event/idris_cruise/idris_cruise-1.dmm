@@ -6634,7 +6634,6 @@
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/broadcaster,
-/obj/item/circuitboard/telecomms/relay,
 /obj/item/circuitboard/ntnet_relay,
 /turf/unsimulated/floor{
 	icon_state = "plating"
@@ -12673,7 +12672,6 @@
 	},
 /area/cruise/beach)
 "kez" = (
-/obj/machinery/telecomms/relay/preset/station,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -14780,12 +14778,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/cruise/virtual_reality)
-"lHd" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/unsimulated/floor{
-	icon_state = "plating"
-	},
-/area/cruise/tcomms_sat)
 "lHn" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -38319,7 +38311,7 @@ gMU
 bhV
 czu
 xJS
-lHd
+poQ
 fHM
 twK
 tSs

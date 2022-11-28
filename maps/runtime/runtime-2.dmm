@@ -401,7 +401,6 @@
 /turf/simulated/wall/r_wall,
 /area/construction/storage)
 "sF" = (
-/obj/machinery/telecomms/relay/preset/station,
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
 	temperature = 278

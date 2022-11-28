@@ -16526,7 +16526,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "mVX" = (
-/obj/machinery/telecomms/relay/preset/station,
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 8
 	},

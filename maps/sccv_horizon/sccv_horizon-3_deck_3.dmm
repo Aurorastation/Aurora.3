@@ -10890,7 +10890,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
 "iUc" = (
-/obj/machinery/telecomms/relay/preset/station,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -12617,7 +12616,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew_armoury)
 "kpN" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "kqb" = (
@@ -27156,7 +27154,6 @@
 	name = "Viewing Shutter";
 	pixel_x = -32
 	},
-/obj/item/circuitboard/telecomms/relay,
 /obj/item/circuitboard/ntnet_relay,
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/carpet/rubber,

@@ -1,37 +1,4 @@
 // ### Preset machines  ###
-
-//Relay
-
-/obj/machinery/telecomms/relay/preset
-	network = "tcommsat"
-
-/obj/machinery/telecomms/relay/preset/station
-	id = "Station Relay"
-	autolinkers = list("s_relay")
-
-/obj/machinery/telecomms/relay/preset/telecomms
-	id = "Telecomms Relay"
-	autolinkers = list("relay")
-
-/obj/machinery/telecomms/relay/preset/mining
-	id = "Mining Relay"
-	autolinkers = list("m_relay")
-
-/obj/machinery/telecomms/relay/preset/ruskie
-	id = "Ruskie Relay"
-	hide = TRUE
-	autolinkers = list("r_relay")
-
-/obj/machinery/telecomms/relay/preset/ruskie/Initialize(mapload)
-	. = ..()
-	update_use_power(POWER_USE_OFF)
-
-/obj/machinery/telecomms/relay/preset/centcom
-	id = "Centcom Relay"
-	hide = TRUE
-	produces_heat = FALSE
-	autolinkers = list("c_relay")
-
 //HUB
 
 /obj/machinery/telecomms/hub/preset
