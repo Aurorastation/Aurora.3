@@ -69,7 +69,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/LateInitialize()
 	for(var/obj/machinery/telecomms/T in telecomms_list)
-		if(T != src && (T.z in GetConnectedZlevels(src)))
+		if(T != src && (T.z in GetConnectedZlevels(z)))
 			add_automatic_link(T)
 
 /obj/machinery/telecomms/Destroy()
