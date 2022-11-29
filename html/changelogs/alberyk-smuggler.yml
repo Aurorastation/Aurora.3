@@ -3,5 +3,5 @@ author: Alberyk
 delete-after: True
 
 changes:
-  - rscadd: "The Tajaran smuggler ship now has working atmos and power."
+  - maptweak: "The Tajaran smuggler ship now has working atmos and power."
   - rscadd: "The Tajaran smuggler ship can now eject its cargo hold."
