@@ -3,5 +3,5 @@ author: anconfuzedrock
 delete-after: True
 
 changes:
-  - tweak: "the horizon's docking port that's used by the orion express ship now shares a frequency with it, allowing it to actually dock."
-  - tweak: "The mining pod transit marks have been moved, so they can now dock properly with any functional south-facing dock."
+  - tweak: "The Horizon's docking port that's used by the orion express ship now shares a frequency with it, allowing it to actually dock."
+  - tweak: "The Spark's transit marks have been moved, so they can now dock properly with any functional south-facing dock."
