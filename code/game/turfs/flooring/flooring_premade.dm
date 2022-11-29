@@ -135,6 +135,10 @@
 	icon_state = "steel_full"
 	initial_flooring = /decl/flooring/tiling/full
 
+/turf/simulated/floor/tiled/full/airless
+	oxygen = 0
+	nitrogen = 0
+
 /turf/simulated/floor/reinforced
 	name = "reinforced floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -217,6 +221,10 @@
 	name = "full plasteel tile"
 	icon_state = "dark_full"
 	initial_flooring = /decl/flooring/tiling/dark/full
+
+/turf/simulated/floor/tiled/dark/full/airless
+	oxygen = 0
+	nitrogen = 0
 
 /turf/simulated/floor/tiled/red
 	name = "red floor"
