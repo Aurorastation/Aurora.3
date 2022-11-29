@@ -136,6 +136,7 @@
 	initial_flooring = /decl/flooring/tiling/full
 
 /turf/simulated/floor/tiled/full/airless
+	name = "airless full steel tile"
 	oxygen = 0
 	nitrogen = 0
 
@@ -223,6 +224,7 @@
 	initial_flooring = /decl/flooring/tiling/dark/full
 
 /turf/simulated/floor/tiled/dark/full/airless
+	name = "airless full plasteel tile"
 	oxygen = 0
 	nitrogen = 0
 
