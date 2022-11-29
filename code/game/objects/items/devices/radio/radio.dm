@@ -427,7 +427,7 @@ var/global/list/default_medbay_channels = list(
 
 	// Determine the identify information attached to the signal
 	var/datum/weakref/speaker_weakref = WEAKREF(M)
-	var/datum/signal/subspace/vocal/signal = new(src, frequency, speaker_weakref, speaking, message, say_verb)
+	var/datum/signal/subspace/vocal/signal = new(src, connection.frequency, speaker_weakref, speaking, message, say_verb)
 
 	// All radios attempt to use the subspace system
 	signal.send_to_receivers()

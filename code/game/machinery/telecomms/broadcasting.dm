@@ -61,7 +61,11 @@
 	src.speaker = speaker
 
 	var/turf/T = get_turf(source)
-	levels = list(T.z)
+	if(isturf(T))
+		levels = list(T.z)
+	else // if the source is in nullspace, it's probably an autosay
+		levels = current_map.station_levels
+
 	if(current_map.use_overmap)
 		sector = map_sectors["[source.z]"]
 
