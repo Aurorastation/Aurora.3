@@ -90,6 +90,11 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "ssmd_cap_windows";
+	name = "blast door"
+	},
 /turf/template_noop,
 /area/space)
 "atj" = (
@@ -206,8 +211,8 @@
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
-	icon_state = "2-8";
-	dir = 1
+	dir = 1;
+	icon_state = "2-8"
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -243,6 +248,24 @@
 	},
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "aMB" = (
@@ -604,8 +627,8 @@
 	},
 /obj/machinery/door/blast/shutters{
 	dir = 4;
-	name = "Storage Bay shutter";
-	id = "ssmd_storage_bay"
+	id = "ssmd_storage_bay";
+	name = "Storage Bay shutter"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -684,10 +707,10 @@
 /area/space)
 "cCh" = (
 /obj/effect/decal/fake_object{
+	desc = "A general purpose fabricator that can be used to fabricate robotic equipment. This one is in need of some maintenance.";
 	icon = 'icons/obj/robotics.dmi';
 	icon_state = "fab-o";
 	name = "mechatronic fabricator";
-	desc = "A general purpose fabricator that can be used to fabricate robotic equipment. This one is in need of some maintenance.";
 	pixel_y = 16
 	},
 /obj/effect/decal/fake_object{
@@ -701,9 +724,9 @@
 /area/space)
 "cIL" = (
 /obj/machinery/photocopier{
+	density = 0;
 	pixel_x = 1;
-	pixel_y = 16;
-	density = 0
+	pixel_y = 16
 	},
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -742,8 +765,8 @@
 /area/space)
 "cMo" = (
 /obj/machinery/access_button{
-	name = "exterior access button";
-	command = "cycle_exterior"
+	command = "cycle_exterior";
+	name = "exterior access button"
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/space)
@@ -771,13 +794,13 @@
 	pixel_y = 8
 	},
 /obj/machinery/button/remote/blast_door{
-	pixel_x = 6;
 	id = "ssmd_slauncher_interior";
-	name = "interior launcher blast door-control"
+	name = "interior launcher blast door-control";
+	pixel_x = 6
 	},
 /obj/machinery/button/remote/blast_door{
-	pixel_x = -6;
-	id = "ssmd_slauncher_exterior"
+	id = "ssmd_slauncher_exterior";
+	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -914,8 +937,8 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1012,35 +1035,35 @@
 "dBt" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/effect/decal/fake_object{
+	color = "#B6B64B";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-5";
-	color = "#B6B64B";
-	pixel_x = -27;
-	pixel_y = 13;
 	layer = 4;
-	name = "suspension cable"
+	name = "suspension cable";
+	pixel_x = -27;
+	pixel_y = 13
 	},
 /obj/effect/decal/fake_object{
+	color = "#B6B64B";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "8-9";
-	color = "#B6B64B";
-	pixel_x = 26;
-	pixel_y = 13;
 	layer = 4;
-	name = "suspension cable"
+	name = "suspension cable";
+	pixel_x = 26;
+	pixel_y = 13
 	},
 /obj/effect/decal/fake_object{
+	color = "#485443";
+	desc = "A set of suspended exosuit arms. These ones are out of commission for now.";
 	icon = 'icons/mecha/mech_parts.dmi';
 	icon_state = "heavy_arms";
-	pixel_x = -8;
-	color = "#485443";
 	layer = 4;
 	name = "suspended exosuit arms";
-	desc = "A set of suspended exosuit arms. These ones are out of commission for now."
+	pixel_x = -8
 	},
 /obj/item/clothing/head/cone{
-	pixel_y = -5;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = -5
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
@@ -1056,9 +1079,9 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1132,18 +1155,18 @@
 "dOF" = (
 /obj/structure/table/steel,
 /obj/item/trash{
+	desc = "The SGL-6FR grenade launcher is designed to launch primed fragmentation grenades. This one has been on the fritz since it's last engagement.";
 	icon = 'icons/mecha/mech_equipment.dmi';
 	icon_state = "mech_gl";
-	name = "SGL-6FR grenade launcher";
-	desc = "The SGL-6FR grenade launcher is designed to launch primed fragmentation grenades. This one has been on the fritz since it's last engagement."
+	name = "SGL-6FR grenade launcher"
 	},
 /obj/item/cell/mecha{
-	pixel_y = 12;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 12
 	},
 /obj/item/cell/mecha{
-	pixel_y = 12;
-	pixel_x = -9
+	pixel_x = -9;
+	pixel_y = 12
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
@@ -1260,9 +1283,9 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -1293,9 +1316,9 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1348,8 +1371,8 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/golden_cup{
-	name = "ASSN Interunit Basketball Trophy - 2459";
-	desc = "A golden cup. This one was presented to the 2459 Interunit Basketball competition hosted by the First Middle Ring Battlefleet."
+	desc = "A golden cup. This one was presented to the 2459 Interunit Basketball competition hosted by the First Middle Ring Battlefleet.";
+	name = "ASSN Interunit Basketball Trophy - 2459"
 	},
 /obj/structure/window/basic{
 	dir = 8
@@ -1374,8 +1397,8 @@
 /area/space)
 "euz" = (
 /obj/structure/closet/walllocker{
-	pixel_y = -32;
-	name = "Support Synthetic Equipment"
+	name = "Support Synthetic Equipment";
+	pixel_y = -32
 	},
 /obj/item/clothing/head/helmet/space/void/sol/ssmd,
 /obj/item/clothing/suit/space/void/sol/ssmd,
@@ -1472,9 +1495,9 @@
 	dir = 9
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1489,24 +1512,24 @@
 	pixel_x = 6
 	},
 /obj/effect/decal/fake_object{
+	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach.";
 	icon = 'icons/obj/furniture.dmi';
 	icon_state = "bed";
-	pixel_y = 13;
 	name = "top bunk";
-	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach."
+	pixel_y = 13
 	},
 /obj/structure/table/rack{
-	pixel_y = -32;
 	density = 0;
+	desc = "Used for storing things since the Middle Ages and probably before that.";
 	name = "shelves";
-	desc = "Used for storing things since the Middle Ages and probably before that."
+	pixel_y = -32
 	},
 /obj/effect/decal/fake_object{
+	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach.";
 	icon = 'icons/obj/furniture.dmi';
 	icon_state = "bed_padding";
-	pixel_y = 13;
 	name = "top bunk";
-	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach."
+	pixel_y = 13
 	},
 /obj/structure/bed/padded{
 	name = "bottom bunk"
@@ -1517,8 +1540,8 @@
 	pixel_y = -32
 	},
 /obj/item/toy/desk/fan{
-	pixel_y = -32;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1556,8 +1579,8 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/structure/closet/walllocker{
-	pixel_y = 32;
-	name = "tritium locker"
+	name = "tritium locker";
+	pixel_y = 32
 	},
 /turf/simulated/floor/greengrid,
 /area/space)
@@ -1661,9 +1684,9 @@
 	dir = 10
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1752,9 +1775,9 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 4;
-	pixel_x = -32
+	pixel_x = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1805,9 +1828,9 @@
 	dir = 8
 	},
 /obj/item/clothing/accessory/medal/silver/sol{
+	anchored = 1;
 	pixel_x = 32;
-	pixel_y = 6;
-	anchored = 1
+	pixel_y = 6
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/space)
@@ -1825,8 +1848,8 @@
 /area/space)
 "fBb" = (
 /obj/machinery/door/blast/regular/open{
-	name = "blast door";
-	id = "ssmd_slauncher_interior"
+	id = "ssmd_slauncher_interior";
+	name = "blast door"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/reinforced,
@@ -1910,17 +1933,17 @@
 	pixel_x = -7
 	},
 /obj/effect/decal/fake_object{
+	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach.";
 	icon = 'icons/obj/furniture.dmi';
 	icon_state = "bed";
-	pixel_y = 13;
 	name = "top bunk";
-	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach."
+	pixel_y = 13
 	},
 /obj/structure/table/rack{
-	pixel_y = -32;
 	density = 0;
+	desc = "Used for storing things since the Middle Ages and probably before that.";
 	name = "shelves";
-	desc = "Used for storing things since the Middle Ages and probably before that."
+	pixel_y = -32
 	},
 /obj/structure/sign/poster{
 	pixel_y = 32
@@ -1938,12 +1961,12 @@
 	pixel_y = -32
 	},
 /obj/effect/decal/fake_object{
+	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach.";
 	icon = 'icons/obj/furniture.dmi';
 	icon_state = "bed_padding";
-	pixel_y = 13;
+	mouse_opacity = 0;
 	name = "top bunk";
-	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach.";
-	mouse_opacity = 0
+	pixel_y = 13
 	},
 /obj/structure/bed/padded{
 	name = "bottom bunk"
@@ -1996,8 +2019,8 @@
 /area/space)
 "fVv" = (
 /obj/machinery/access_button{
-	name = "interior access button";
-	command = "cycle_interior"
+	command = "cycle_interior";
+	name = "interior access button"
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/space)
@@ -2030,10 +2053,10 @@
 	icon_state = "4-8"
 	},
 /obj/structure/closet/crate/bin{
-	name = "trashbin";
-	pixel_y = 18;
+	dense_when_open = 0;
 	density = 0;
-	dense_when_open = 0
+	name = "trashbin";
+	pixel_y = 18
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2092,17 +2115,17 @@
 	pixel_x = -10
 	},
 /obj/item/clothing/accessory/flagpatch/visegrad{
-	pixel_x = 32;
+	anchored = 1;
 	desc = s;
-	anchored = 1
+	pixel_x = 32
 	},
 /obj/structure/window/basic{
 	dir = 1
 	},
 /obj/structure/sign/kiddieplaque{
-	pixel_y = -32;
+	desc = "A commendation the First Middle Ring Battlefleet recieved during better times...";
 	name = "First Middle Ring Battlefleet commendation";
-	desc = "A commendation the First Middle Ring Battlefleet recieved during better times..."
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -2152,8 +2175,8 @@
 	dir = 10
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/wood/coloured/walnut,
 /area/space)
@@ -2193,9 +2216,9 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -2210,8 +2233,8 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -2222,9 +2245,9 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -2372,13 +2395,13 @@
 	pixel_x = -32
 	},
 /obj/effect/decal/fake_object{
+	color = "#444444";
+	dir = 4;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	dir = 4;
-	color = "#444444";
-	pixel_y = -5;
 	layer = 4;
-	name = "suspension bar"
+	name = "suspension bar";
+	pixel_y = -5
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
@@ -2486,9 +2509,9 @@
 "hBs" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/blast/regular/open{
-	name = "blast door";
+	dir = 4;
 	id = "ssmd_slauncher_interior";
-	dir = 4
+	name = "blast door"
 	},
 /turf/simulated/floor/reinforced,
 /area/space)
@@ -2576,44 +2599,44 @@
 	pixel_x = -7
 	},
 /obj/effect/decal/fake_object{
+	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach.";
 	icon = 'icons/obj/furniture.dmi';
 	icon_state = "bed";
-	pixel_y = 13;
 	name = "top bunk";
-	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach."
+	pixel_y = 13
 	},
 /obj/item/photo{
-	pixel_y = 32;
 	anchored = 1;
+	desc = "An archaic means of visual preservation, kept alive as kitschy memorabilia by paparazzi, conspiracy theorists and teenage girls. This one portrays a happy family scene.";
 	name = "pinned photo";
-	desc = "An archaic means of visual preservation, kept alive as kitschy memorabilia by paparazzi, conspiracy theorists and teenage girls. This one portrays a happy family scene."
+	pixel_y = 32
 	},
 /obj/structure/table/rack{
-	pixel_y = -32;
 	density = 0;
+	desc = "Used for storing things since the Middle Ages and probably before that.";
 	name = "shelves";
-	desc = "Used for storing things since the Middle Ages and probably before that."
+	pixel_y = -32
 	},
 /obj/item/reagent_containers/food/snacks/candy{
 	pixel_y = -32
 	},
 /obj/item/storage/box/fancy/gum{
-	pixel_y = -32;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = -32
 	},
 /obj/item/photo{
-	pixel_y = 28;
 	anchored = 1;
-	name = "pinned photo";
 	desc = "An archaic means of visual preservation, kept alive as kitschy memorabilia by paparazzi, conspiracy theorists and teenage girls. This one portrays a happy family scene.";
-	pixel_x = 8
+	name = "pinned photo";
+	pixel_x = 8;
+	pixel_y = 28
 	},
 /obj/effect/decal/fake_object{
+	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach.";
 	icon = 'icons/obj/furniture.dmi';
 	icon_state = "bed_padding";
-	pixel_y = 13;
 	name = "top bunk";
-	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach."
+	pixel_y = 13
 	},
 /obj/structure/bed/padded{
 	name = "bottom bunk"
@@ -2645,13 +2668,13 @@
 /area/space)
 "idz" = (
 /obj/effect/decal/fake_object{
+	color = "#444444";
+	dir = 4;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	dir = 4;
-	color = "#444444";
-	pixel_y = -5;
 	layer = 4;
-	name = "suspension bar"
+	name = "suspension bar";
+	pixel_y = -5
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
@@ -2707,12 +2730,12 @@
 /area/space)
 "itl" = (
 /obj/structure/bed/stool/padded/black{
-	pixel_y = 16;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = 16
 	},
 /obj/item/storage/toolbox/mechanical{
-	pixel_y = 7;
-	pixel_x = -13
+	pixel_x = -13;
+	pixel_y = 7
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/item/clothing/glasses/welding{
@@ -2778,14 +2801,14 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/wood,
 /obj/item/flag{
-	name = "boxed First Middle Ring Battlefleet flag";
-	desc = "A flag neatly folded into a wooden container. This one holds the standard of the First Middle Ring Battlefleet.";
 	anchored = 1;
+	desc = "A flag neatly folded into a wooden container. This one holds the standard of the First Middle Ring Battlefleet.";
+	name = "boxed First Middle Ring Battlefleet flag";
 	pixel_y = 9
 	},
 /obj/item/coin/gold{
-	name = "First Middle Ring Battlefleet challenge coin";
 	desc = "A flat disc or piece of metal with an official stamp. Many of these were handed out to large swathe of units back in 2459 by Admiral Szalai herself following a successful training exercise.";
+	name = "First Middle Ring Battlefleet challenge coin";
 	pixel_y = -8
 	},
 /obj/structure/window/basic{
@@ -2847,8 +2870,8 @@
 	dir = 6
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -2947,24 +2970,24 @@
 	pixel_x = 8
 	},
 /obj/structure/closet/crate/bin{
-	pixel_x = -7;
-	name = "trash bin"
+	name = "trash bin";
+	pixel_x = -7
 	},
 /turf/simulated/floor/wood/coloured/walnut,
 /area/space)
 "jgr" = (
 /obj/machinery/button/alternate{
-	pixel_y = -10;
-	pixel_x = -7;
 	id = "ssmd_relax_windows";
-	name = "Relaxation Lounge Observation Lockdown"
+	name = "Relaxation Lounge Observation Lockdown";
+	pixel_x = -7;
+	pixel_y = -10
 	},
 /turf/simulated/wall,
 /area/space)
 "jrz" = (
 /obj/effect/decal/fake_object{
-	name = "ladder";
-	desc = "Climb it to reach higher places!"
+	desc = "Climb it to reach higher places!";
+	name = "ladder"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -3006,6 +3029,23 @@
 "jwe" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"jwk" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/automatic/c20r/sol,
+/obj/item/gun/projectile/automatic/c20r/sol,
+/obj/item/gun/projectile/automatic/c20r/sol,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "jBv" = (
 /obj/structure/cryofeed/pipes{
@@ -3063,9 +3103,9 @@
 "jTo" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -3156,13 +3196,13 @@
 "koz" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/effect/decal/fake_object{
+	color = "#B6B64B";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-5";
-	color = "#B6B64B";
-	pixel_x = -6;
-	pixel_y = 13;
 	layer = 4;
-	name = "suspension cable"
+	name = "suspension cable";
+	pixel_x = -6;
+	pixel_y = 13
 	},
 /obj/item/storage/toolbox/electrical{
 	pixel_x = 10;
@@ -3229,27 +3269,27 @@
 	pixel_x = 6
 	},
 /obj/effect/decal/fake_object{
+	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach.";
 	icon = 'icons/obj/furniture.dmi';
 	icon_state = "bed";
-	pixel_y = 13;
 	name = "top bunk";
-	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach."
+	pixel_y = 13
 	},
 /obj/structure/table/rack{
-	pixel_y = -32;
 	density = 0;
+	desc = "Used for storing things since the Middle Ages and probably before that.";
 	name = "shelves";
-	desc = "Used for storing things since the Middle Ages and probably before that."
+	pixel_y = -32
 	},
 /obj/structure/sign/flag/sol{
 	pixel_y = 32
 	},
 /obj/effect/decal/fake_object{
+	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach.";
 	icon = 'icons/obj/furniture.dmi';
 	icon_state = "bed_padding";
-	pixel_y = 13;
 	name = "top bunk";
-	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach."
+	pixel_y = 13
 	},
 /obj/structure/bed/padded{
 	name = "bottom bunk"
@@ -3259,8 +3299,8 @@
 	pixel_y = -28
 	},
 /obj/item/flame/lighter/zippo/sol{
-	pixel_y = -34;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = -34
 	},
 /obj/item/melee/ceremonial_sword{
 	desc = "A non-standard issue ceremonial sword for Sol navy NCOs as an optional part of their dress uniform. Someone spent a pretty penny on this.";
@@ -3322,9 +3362,9 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -3382,8 +3422,8 @@
 	},
 /obj/machinery/button/alternate{
 	id = "ssmd_grau_shroud";
-	pixel_x = -32;
-	name = "flak battery shroud"
+	name = "flak battery shroud";
+	pixel_x = -32
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -3393,10 +3433,10 @@
 "kWO" = (
 /obj/structure/table/steel,
 /obj/machinery/button/alternate{
+	id = "ssmd_cap_window";
 	name = "Captain's Cabin Observation Lockdown";
 	pixel_x = 5;
-	pixel_y = 7;
-	id = "ssmd_cap_window"
+	pixel_y = 7
 	},
 /obj/machinery/button/alternate{
 	id = "ssmd_relax_windows";
@@ -3496,26 +3536,26 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "lpe" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_x = 32;
-	id_tag = "ssmd_shuttle_airlock";
 	frequency = 1441;
+	id_tag = "ssmd_shuttle_airlock";
+	pixel_x = 32;
 	tag_airpump = "ssmd_shuttle_pump";
+	tag_chamber_sensor = "ssmd_shuttle_sensor";
 	tag_exterior_door = "ssmd_shuttle_out";
-	tag_interior_door = "ssmd_shuttle_in";
-	tag_chamber_sensor = "ssmd_shuttle_sensor"
+	tag_interior_door = "ssmd_shuttle_in"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	id_tag = "ssmd_shuttle_pump";
-	frequency = 1441
+	frequency = 1441;
+	id_tag = "ssmd_shuttle_pump"
 	},
 /turf/simulated/floor,
 /area/space)
@@ -3527,8 +3567,8 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	id_tag = "ssmd_shuttle_pump";
-	frequency = 1441
+	frequency = 1441;
+	id_tag = "ssmd_shuttle_pump"
 	},
 /turf/simulated/floor,
 /area/space)
@@ -3568,9 +3608,9 @@
 /area/space)
 "lwQ" = (
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /turf/simulated/wall,
 /area/space)
@@ -3583,8 +3623,8 @@
 /area/space)
 "lCM" = (
 /obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -3674,9 +3714,9 @@
 /area/space)
 "mdc" = (
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -3716,8 +3756,8 @@
 "moE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
@@ -3726,8 +3766,8 @@
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -3846,8 +3886,8 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/button/alternate{
 	id = "ssmd_grau_shroud";
-	pixel_x = -32;
-	name = "flak battery shroud"
+	name = "flak battery shroud";
+	pixel_x = -32
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -3899,6 +3939,15 @@
 	},
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "mPM" = (
@@ -4082,9 +4131,9 @@
 	dir = 6
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -4186,8 +4235,8 @@
 	dir = 10
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -4228,6 +4277,12 @@
 	name = "cooled tiles";
 	temperature = 253.15
 	},
+/area/space)
+"odL" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/simulated/floor,
 /area/space)
 "odO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4323,9 +4378,9 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4335,19 +4390,19 @@
 /area/space)
 "oBF" = (
 /obj/effect/decal/fake_object{
+	desc = "A very non-holographic fireplace that can emit a holographic projection of a buring fireplace. This one's hologram projector is on the fritz.";
 	icon = 'icons/obj/fireplace.dmi';
 	icon_state = "fireplace";
 	name = "holographic fireplace";
 	pixel_x = -16;
-	pixel_y = 3;
-	desc = "A very non-holographic fireplace that can emit a holographic projection of a buring fireplace. This one's hologram projector is on the fritz."
+	pixel_y = 3
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/machinery/button/alternate{
-	name = "Captain's Cabin Observation Lockdown";
 	id = "ssmd_cap_windows";
+	name = "Captain's Cabin Observation Lockdown";
 	pixel_x = -32
 	},
 /turf/simulated/floor/wood/coloured/walnut,
@@ -4418,8 +4473,8 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/structure/closet/walllocker/medical{
-	pixel_x = -28;
-	name = "blood closet"
+	name = "blood closet";
+	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner_wide/green/full,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -4501,9 +4556,9 @@
 	dir = 9
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -4611,8 +4666,8 @@
 	layer = 2.71
 	},
 /obj/machinery/button/alternate{
-	name = "Storage Bay Access";
 	id = "ssmd_storage_bay";
+	name = "Storage Bay Access";
 	pixel_x = -32
 	},
 /turf/simulated/floor,
@@ -4780,9 +4835,9 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/wood/coloured/walnut,
 /area/space)
@@ -4819,8 +4874,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/wood/coloured/walnut,
 /area/space)
@@ -5217,8 +5272,8 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/blast/shutters{
 	dir = 4;
-	name = "Storage Bay shutter";
-	id = "ssmd_storage_bay"
+	id = "ssmd_storage_bay";
+	name = "Storage Bay shutter"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -5256,8 +5311,8 @@
 	dir = 10
 	},
 /obj/machinery/button/alternate{
-	name = "Storage Bay Access";
 	id = "ssmd_storage_bay";
+	name = "Storage Bay Access";
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -5268,8 +5323,8 @@
 "sBO" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/item/reagent_containers/food/drinks/pitcher{
-	pixel_y = 10;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = 10
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
@@ -5410,9 +5465,9 @@
 "tgM" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -5498,32 +5553,32 @@
 	dir = 6
 	},
 /obj/effect/decal/fake_object{
+	color = "#485443";
+	desc = "A set of suspended exosuit legs. These ones are out of commission for now.";
 	icon = 'icons/mecha/mech_parts.dmi';
 	icon_state = "strider_legs";
-	pixel_x = -20;
-	pixel_y = 10;
-	color = "#485443";
 	layer = 4.1;
 	name = "suspended exosuit legs";
-	desc = "A set of suspended exosuit legs. These ones are out of commission for now."
+	pixel_x = -20;
+	pixel_y = 10
 	},
 /obj/effect/decal/fake_object{
+	color = "#444444";
+	dir = 1;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	dir = 1;
 	layer = 4;
-	color = "#444444";
-	pixel_x = 14;
-	name = "suspension bar"
+	name = "suspension bar";
+	pixel_x = 14
 	},
 /obj/effect/decal/fake_object{
+	color = "#B6B64B";
 	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "8-9";
-	color = "#B6B64B";
-	pixel_x = 13;
-	pixel_y = 13;
 	layer = 4;
-	name = "suspension cable"
+	name = "suspension cable";
+	pixel_x = 13;
+	pixel_y = 13
 	},
 /obj/structure/bed/stool/padded/black,
 /turf/simulated/floor/carpet/rubber,
@@ -5599,9 +5654,9 @@
 	dir = 10
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -5681,9 +5736,9 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -5940,8 +5995,8 @@
 /area/space)
 "uHZ" = (
 /obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
@@ -6114,10 +6169,10 @@
 	dir = 8
 	},
 /obj/effect/decal/fake_object{
+	desc = "Used for watching various sources of entertainment. This one while idle flips through four or five scenic nature vistas.";
 	icon = 'icons/obj/computer.dmi';
 	icon_state = "wallframe";
 	name = "Telescreen";
-	desc = "Used for watching various sources of entertainment. This one while idle flips through four or five scenic nature vistas.";
 	pixel_x = 32
 	},
 /turf/simulated/floor/wood/coloured/birch,
@@ -6312,6 +6367,21 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"wgj" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "ssmd_cap_windows";
+	name = "blast door"
+	},
+/turf/template_noop,
+/area/space)
 "wgU" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6340,9 +6410,9 @@
 	dir = 10
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /obj/structure/table/steel,
 /obj/item/storage/box/sharps{
@@ -6448,9 +6518,9 @@
 /area/space)
 "wrc" = (
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -6627,10 +6697,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "xbB" = (
-/obj/machinery/suit_cycler{
-	pixel_y = 16;
-	density = 0
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
@@ -6638,6 +6704,20 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/storage/belt/security/full,
+/obj/item/storage/belt/security/full,
+/obj/item/gun/energy/taser,
+/obj/item/gun/energy/taser,
+/obj/item/melee/baton/stunrod,
+/obj/item/melee/baton/stunrod,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/smokebomb,
+/obj/item/grenade/smokebomb,
+/obj/item/storage/box/zipties,
+/obj/item/storage/box/zipties,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "xbK" = (
@@ -6663,9 +6743,9 @@
 	dir = 5
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 4;
-	pixel_x = -32
+	pixel_x = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -6703,24 +6783,24 @@
 	dir = 4
 	},
 /obj/effect/decal/fake_object{
+	color = "#444444";
+	dir = 4;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	dir = 4;
-	color = "#444444";
-	pixel_y = -5;
 	layer = 4;
 	name = "suspension bar";
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = -5
 	},
 /obj/effect/decal/fake_object{
+	color = "#444444";
+	dir = 10;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	dir = 10;
-	color = "#444444";
 	layer = 4;
+	name = "suspension bar";
 	pixel_x = 14;
-	pixel_y = -5;
-	name = "suspension bar"
+	pixel_y = -5
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
@@ -6992,8 +7072,8 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -34612,7 +34692,7 @@ mdD
 aHt
 aHt
 aHt
-aHt
+odL
 xRX
 xRX
 xRX
@@ -37686,7 +37766,7 @@ gAt
 hhf
 cPd
 kck
-aKs
+jwk
 hQA
 hQA
 hQA
@@ -40746,7 +40826,7 @@ xRX
 xRX
 xRX
 bcf
-aSi
+wgj
 aSi
 aSi
 aSi
@@ -43091,7 +43171,7 @@ rJN
 liN
 aHt
 aHt
-aHt
+odL
 aHt
 sYY
 xRX
