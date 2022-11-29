@@ -3727,6 +3727,7 @@
 	name = "Spark";
 	req_access = list(48)
 	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "cWd" = (
@@ -13797,6 +13798,7 @@
 	name = "Spark";
 	req_access = list(48)
 	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "kKz" = (
