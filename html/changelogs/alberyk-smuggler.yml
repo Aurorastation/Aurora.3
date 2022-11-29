@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - maptweak: "The Tajaran smuggler ship now has working atmos and power."
-  - rscadd: "The Tajaran smuggler ship can now eject its cargo hold."
+  - maptweak: "The Tajaran smuggler ship can now eject its cargo hold."
