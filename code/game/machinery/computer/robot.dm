@@ -41,7 +41,7 @@
 		return
 	var/mob/user = usr
 	if(!src.allowed(user))
-		to_chat(user, "Access denied")
+		to_chat(user, "Access denied.")
 		return
 
 	// Destroys the cyborg
@@ -113,7 +113,7 @@
 	// Changes borg's access
 	else if(href_list["access"])
 		var/mob/living/silicon/robot/target = get_cyborg_by_name(href_list["access"])
-		if(!target || !istype(target))
+		if(!istype(target))
 			return
 
 		if(isAI(user) && (target.connected_ai != user))
@@ -124,7 +124,7 @@
 			to_chat(user, "Access denied.")
 			return
 
-		if(!target || !istype(target))
+		if(!istype(target))
 			return
 
 		if(!target.module)
@@ -147,7 +147,7 @@
 
 		// Antag AI checks
 		if(!istype(user, /mob/living/silicon/ai) || !(user.mind.special_role && user.mind.original == user))
-			to_chat(user, "Access denied")
+			to_chat(user, "Access denied.")
 			return
 
 		if(target.emagged)
@@ -169,7 +169,7 @@
 	// Arms the emergency self-destruct system
 	else if(href_list["arm"])
 		if(istype(user, /mob/living/silicon))
-			to_chat(user, "Access denied")
+			to_chat(user, "Access denied.")
 			return
 
 		safety = !safety
@@ -178,7 +178,7 @@
 	// Destroys all accessible cyborgs if safety is disabled
 	else if(href_list["nuke"])
 		if(istype(user, /mob/living/silicon))
-			to_chat(user, "Access denied")
+			to_chat(user, "Access denied.")
 			return
 		if(safety)
 			to_chat(user, "Self-destruct aborted - safety active")
