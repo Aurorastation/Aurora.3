@@ -545,7 +545,7 @@
 	name = "fleet voidsman uniform"
 	desc = "The uniform of an enlisted sailor of the Imperial Fleet."
 	desc_extended = "The kerchief of a Fleet voidsman varies from battlefleet to battlefleet, \
-		and its color indicates where the rating originated from. This particular uniform comes from the elite 1st Battlefleet,\
+		and its color indicates where the rating originated from. This particular uniform comes from the elite 1st battlefleet, \
 		which is under the command of Grand Admiral Huiling Zhao herself."
 	icon = 'icons/clothing/under/uniforms/dominia_fleet.dmi'
 	icon_state = "voidsman"
