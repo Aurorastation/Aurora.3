@@ -551,3 +551,16 @@
 	flagpatch_national["flagpatch, nralakk"] = /obj/item/clothing/accessory/flagpatch/nralakk
 	flagpatch_national["flagpatch, hegemony"] = /obj/item/clothing/accessory/flagpatch/hegemony
 	gear_tweaks += new /datum/gear_tweak/path(flagpatch_national)
+
+/datum/gear/accessory/aodai
+	display_name = "ao dai"
+	description = "A long, split tunic worn over trousers. Traditional on New Hai Phong."
+	path = /obj/item/clothing/accessory/aodai
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/aodai/New()
+	..()
+	var/list/aodai = list()
+	aodai["ao dai"] = /obj/item/clothing/accessory/aodai
+	aodai["ao dai, new hai phong cut"] = /obj/item/clothing/accessory/aodai/nhp
+	gear_tweaks += new /datum/gear_tweak/path(aodai)

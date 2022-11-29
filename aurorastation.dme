@@ -1563,6 +1563,7 @@
 #include "code\modules\clothing\factions\himeo.dm"
 #include "code\modules\clothing\factions\idris.dm"
 #include "code\modules\clothing\factions\konyang.dm"
+#include "code\modules\clothing\factions\newhaiphong.dm"
 #include "code\modules\clothing\factions\nralakk.dm"
 #include "code\modules\clothing\factions\pmcg.dm"
 #include "code\modules\clothing\factions\portantillia.dm"
