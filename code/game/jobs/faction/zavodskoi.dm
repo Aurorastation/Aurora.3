@@ -204,7 +204,6 @@
 	head = /obj/item/clothing/head/beret/corporate/zavod
 	uniform = /obj/item/clothing/under/rank/liaison/zavod
 	suit = /obj/item/clothing/suit/storage/liaison/zavod
-	implants = null
 	id = /obj/item/card/id/zavodskoi
 	accessory = /obj/item/clothing/accessory/tie/corporate/zavod
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/zavod
