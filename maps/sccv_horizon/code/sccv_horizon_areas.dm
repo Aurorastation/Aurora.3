@@ -184,9 +184,6 @@
 	icon_state = "quart"
 	sound_env = SMALL_SOFTFLOOR
 
-/area/operations/flak
-	name = "Flak Gun"
-
 //Wings
 
 /area/maintenance/substation/wing_starboard
@@ -248,10 +245,6 @@
 /area/bridge/helm
 	name = "Bridge Helm"
 	icon_state = "bridge_helm"
-
-/area/bridge/longbow_compartment
-	name = "Longbow Compartment"
-	icon_state = "bridge_weapon"
 
 //Crew quarters
 
@@ -554,7 +547,7 @@
 
 /area/horizon/holodeck/source_space
 	name = "Horizon - Holodeck - Space"
-	has_gravity = 0
+	has_gravity = FALSE
 	sound_env = SPACE
 
 /area/horizon/holodeck/source_battlemonsters
@@ -564,13 +557,6 @@
 /area/horizon/holodeck/source_chessboard
 	name = "Horizon - Holodeck - Chessboard"
 /********** Holodeck End **********/
-
-/********** Decks Start **********/
-// Cafeteria
-/area/horizon/deck_three/cafeteria
-	name = "Horizon - Deck 3 - Cafeteria"
-	icon_state = "cafeteria"
-/********** Decks End **********/
 
 /********** Unique Start **********/
 // Hydroponics
@@ -612,6 +598,11 @@
 
 /area/horizon/bar/backroom
 	name = "Horizon - Bar - Backroom"
+
+// Cafeteria
+/area/horizon/cafeteria
+	name = "Horizon - Deck 3 Cafeteria"
+	icon_state = "cafeteria"
 
 // Custodial
 /area/horizon/custodial
@@ -658,3 +649,31 @@
 	sound_env = SMALL_ENCLOSED
 	ambience = AMBIENCE_FOREBODING
 /********** Unique End **********/
+
+/********** Weapon Systems Start **********/
+// ZTA
+/area/horizon/zta
+	name = "Horizon - ZTA Weapon System"
+	icon_state = "zta"
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_SINGULARITY
+
+// Longbow
+/area/horizon/longbow
+	name = "Horizon - Longbow Weapon System"
+	icon_state = "bridge_weapon"
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
+
+/area/horizon/grauwolf
+	name = "Horizon - Grauwolf Weapon System"
+	icon_state = "bridge_weapon"
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
+
+// Secure Ammunition Storage
+/area/horizon/secure_ammunition_storage
+	name = "Horizon - Secure Ammunitions Storage"
+	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_FOREBODING
+/********** Weapon Systems End **********/

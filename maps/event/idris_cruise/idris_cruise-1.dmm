@@ -473,7 +473,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -20
 	},
 /obj/machinery/light{
@@ -1013,7 +1012,6 @@
 "aJq" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -1201,7 +1199,6 @@
 "aQy" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_x = 5;
 	pixel_y = -22
 	},
@@ -1744,7 +1741,6 @@
 "bjA" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -3402,7 +3398,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -20
 	},
 /turf/unsimulated/floor{
@@ -3412,7 +3407,6 @@
 "cFP" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -4956,7 +4950,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/door/firedoor,
@@ -5197,7 +5190,6 @@
 "ejQ" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/effect/landmark/force_spawnpoint{
@@ -6250,7 +6242,6 @@
 "eZS" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -6617,7 +6608,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -7528,7 +7518,6 @@
 "fWc" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/ramp,
@@ -7591,7 +7580,6 @@
 /area/cruise/arcade)
 "fXP" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 25
 	},
 /turf/unsimulated/floor{
@@ -7803,7 +7791,6 @@
 /obj/structure/bed/stool/padded/red,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/light/small{
@@ -8710,7 +8697,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -8809,7 +8795,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -11558,7 +11543,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -11757,7 +11741,6 @@
 /obj/structure/closet/emcloset,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/light/small{
@@ -11798,7 +11781,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/machinery/light/small{
@@ -12451,7 +12433,6 @@
 "jUE" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -15582,7 +15563,6 @@
 "mlx" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -20
 	},
 /turf/unsimulated/floor{
@@ -15656,7 +15636,6 @@
 "mpp" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/light{
@@ -18492,7 +18471,6 @@
 "oAK" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -18846,7 +18824,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/ramp,
@@ -19968,7 +19945,6 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
 /turf/unsimulated/floor{
@@ -21686,7 +21662,6 @@
 "rrj" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_x = 5;
 	pixel_y = -22
 	},
@@ -21947,7 +21922,6 @@
 "rCz" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -22590,7 +22564,6 @@
 "sek" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_x = 5;
 	pixel_y = -22
 	},
@@ -24854,7 +24827,6 @@
 /obj/structure/flora/pottedplant/random,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -26242,7 +26214,6 @@
 "uRK" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -26599,7 +26570,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/light{
@@ -27796,7 +27766,6 @@
 "whR" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -28270,7 +28239,6 @@
 "wFi" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/unsimulated/floor{
@@ -28848,7 +28816,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
@@ -28942,7 +28909,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/ramp/bottom,
@@ -29200,7 +29166,6 @@
 "xpJ" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /turf/unsimulated/floor{
