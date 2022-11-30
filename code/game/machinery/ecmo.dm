@@ -279,13 +279,15 @@
 					to_chat(usr, SPAN_NOTICE("It's not possible to cannulate in this location, aim for a bigger artery!"))
 					return
 
-				breather = over_object
-				artery = breather.get_organ(usr.zone_sel.selecting)
+				visible_message("<b>[usr]</b> starts to cannulate \the <b>[over_object]'s [usr.zone_sel.selecting]</b>.")
+				if (do_after(usr, 60))
+					breather = over_object
+					artery = breather.get_organ(usr.zone_sel.selecting)
 
-				visible_message("<b>[usr]</b> connects the artery line to \the <b>[breather]</b>.")
-				playsound(breather, 'sound/effects/buckle.ogg', 50)
-				update_icon()
-				return
+					visible_message("<b>[usr]</b> connects the artery line to \the <b>[breather]'s [artery]</b>.")
+					playsound(breather, 'sound/effects/buckle.ogg', 50)
+					update_icon()
+					return
 
 /obj/machinery/ecmo/AltClick(mob/user)
 	. = ..()
