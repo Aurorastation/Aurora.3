@@ -24,6 +24,11 @@
 
 /area/ship/sfa_patrol_ship/Engineering
 	name = "SFA Engineering"
+/area/ship/sfa_patrol_ship/Telecoms
+	name = "SFA Telecoms"
+
+/area/ship/sfa_patrol_ship/TreasureRoom
+	name = "SFA Treasure Room"
 
 /area/ship/sfa_patrol_ship/Bridge
 	name = "SFA Corvette Bridge"
