@@ -748,7 +748,7 @@
 "dxv" = (
 /obj/structure/girder,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/ship/sfa_patrol_ship)
 "dxy" = (
 /obj/structure/closet/crate{
@@ -1704,7 +1704,7 @@
 /area/ship/sfa_patrol_ship)
 "hwu" = (
 /obj/structure/lattice,
-/turf/space,
+/turf/simulated/open/airless,
 /area/ship/sfa_patrol_ship)
 "hBs" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1825,7 +1825,7 @@
 /obj/structure/lattice,
 /obj/item/ammo_casing/a12mm,
 /obj/item/ammo_casing/a12mm,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/ship/sfa_patrol_ship)
 "ijY" = (
 /turf/simulated/floor/tiled/freezer{
@@ -2289,7 +2289,7 @@
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/girder,
-/turf/unsimulated/floor,
+/turf/simulated/open/airless,
 /area/ship/sfa_patrol_ship)
 "jQT" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -2618,8 +2618,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "lwj" = (
-/obj/structure/lattice,
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/ship/sfa_patrol_ship)
 "lEx" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -2860,7 +2859,7 @@
 "mWO" = (
 /obj/structure/lattice,
 /obj/item/ammo_casing/a12mm,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/ship/sfa_patrol_ship)
 "mZv" = (
 /obj/machinery/light/small/emergency,
@@ -3198,12 +3197,12 @@
 /area/ship/sfa_patrol_ship)
 "oZk" = (
 /obj/structure/girder,
-/turf/space,
+/turf/simulated/open/airless,
 /area/ship/sfa_patrol_ship)
 "pcb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/girder,
-/turf/simulated/floor,
+/turf/simulated/open/airless,
 /area/ship/sfa_patrol_ship)
 "pcY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3889,7 +3888,7 @@
 "rMk" = (
 /obj/structure/lattice,
 /obj/structure/girder,
-/turf/unsimulated/floor,
+/turf/simulated/open/airless,
 /area/ship/sfa_patrol_ship)
 "rNB" = (
 /obj/structure/bed/stool/chair{
@@ -4385,7 +4384,7 @@
 "uJE" = (
 /obj/structure/lattice,
 /obj/structure/closet/body_bag,
-/turf/space,
+/turf/simulated/open/airless,
 /area/ship/sfa_patrol_ship)
 "uNE" = (
 /obj/machinery/sleeper,
@@ -21563,7 +21562,7 @@ xRX
 xRX
 xRX
 xRX
-xXC
+hwu
 pJB
 yjk
 oZk
@@ -22341,7 +22340,7 @@ xGG
 qsM
 hwu
 fus
-lwj
+hwu
 hFs
 afo
 kbh
@@ -23113,7 +23112,7 @@ fus
 qsM
 qsM
 qsM
-lwj
+hwu
 afo
 guO
 vSl
@@ -24893,7 +24892,7 @@ xRX
 xRX
 xRX
 xRX
-xKh
+lwj
 yjk
 yjk
 yjk
@@ -25949,7 +25948,7 @@ uaE
 eOQ
 jrB
 jrB
-xXC
+hwu
 xRX
 xRX
 xRX
@@ -26178,9 +26177,9 @@ xRX
 xRX
 xRX
 xRX
-mVQ
+oZk
 bjS
-mVQ
+oZk
 gka
 vbm
 pvE
@@ -26436,7 +26435,7 @@ xRX
 xRX
 xRX
 yjk
-mVQ
+oZk
 yjk
 yjk
 kMb
