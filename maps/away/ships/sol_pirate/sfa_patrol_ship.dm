@@ -44,7 +44,7 @@
 	name = "SFA Engine One"
 
 /area/ship/sfa_patrol_ship/Engine2
-	name = "SFA Engine Two
+	name = "SFA Engine Two"
 
 /area/ship/sfa_patrol_ship/Suit_Storage
 	name = "SFA Suit Storage"
