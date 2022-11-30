@@ -3948,7 +3948,6 @@
 /area/derelict/hallway/southwest)
 "nm" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = -28
 	},
 /obj/machinery/light,
@@ -4184,7 +4183,6 @@
 "nW" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
 /turf/simulated/floor/tiled,
