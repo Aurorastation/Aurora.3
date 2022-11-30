@@ -800,10 +800,6 @@
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
-"dMp" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "dSA" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/decal/cleanable/dirt,
@@ -1823,19 +1819,6 @@
 /obj/item/ammo_casing/a12mm,
 /turf/space,
 /area/ship/sfa_patrol_ship)
-"ijs" = (
-/obj/machinery/door/airlock/security{
-	name = "Weapons Control";
-	req_access = list(203)
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
 "ijY" = (
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -2336,7 +2319,7 @@
 	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/sfa_patrol_ship)
 "jYZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
@@ -2405,7 +2388,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/ship/sfa_patrol_ship)
 "kyk" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -4230,16 +4213,6 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship)
-"tXT" = (
-/obj/machinery/door/airlock/security{
-	name = "Weapons Control";
-	req_access = list(203)
-	},
-/obj/machinery/door/airlock/highsecurity{
-	name = "Ship Munitions Storage"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
 "uad" = (
 /obj/structure/closet/crate/loot,
 /obj/item/handcuffs/cable/random,
@@ -4803,17 +4776,17 @@
 /turf/simulated/floor/tiled/old_white,
 /area/ship/sfa_patrol_ship)
 "xgJ" = (
-/obj/machinery/door/airlock/security{
-	name = "Lieutenant's Quarters";
-	req_access = list(203)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/wall/shuttle/raider,
+/obj/machinery/door/airlock/security{
+	name = "Weapons Control";
+	req_access = list(203)
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "xlF" = (
 /obj/structure/closet/crate/coffin,
@@ -4914,13 +4887,6 @@
 	icon_state = "door_locked"
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/machinery/door/airlock/security{
-	name = "Crew Quarters";
-	req_access = list(203);
-	icon_state = "door_locked";
-	has_set_boltlight = 1;
-	locked = 1
-	},
 /obj/item/tape/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -27234,7 +27200,7 @@ gkM
 iMA
 sBA
 kbh
-ijs
+wfy
 sBA
 cME
 mwM
@@ -28787,7 +28753,7 @@ iNb
 sBA
 yjk
 yjk
-tXT
+nsp
 yjk
 yjk
 yjk
@@ -29298,7 +29264,7 @@ jGx
 ciE
 yjk
 jgs
-dMp
+shH
 bjS
 jyA
 lQk
