@@ -305,7 +305,7 @@
 /area/ship/sfa_patrol_ship)
 "aYf" = (
 /obj/structure/sign/directions/custodial,
-/turf/simulated/wall/shuttle/raider,
+/turf/simulated/wall,
 /area/ship/sfa_patrol_ship)
 "aZM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -520,11 +520,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/security{
-	name = "Weapons Control";
-	req_access = list(203)
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/wall,
 /area/ship/sfa_patrol_ship)
 "civ" = (
 /obj/structure/table/stone/marble,
@@ -748,7 +744,7 @@
 "dxv" = (
 /obj/structure/girder,
 /obj/structure/lattice,
-/turf/simulated/open/airless,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "dxy" = (
 /obj/structure/closet/crate{
@@ -1704,7 +1700,7 @@
 /area/ship/sfa_patrol_ship)
 "hwu" = (
 /obj/structure/lattice,
-/turf/simulated/open/airless,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "hBs" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1825,7 +1821,7 @@
 /obj/structure/lattice,
 /obj/item/ammo_casing/a12mm,
 /obj/item/ammo_casing/a12mm,
-/turf/simulated/open/airless,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "ijY" = (
 /turf/simulated/floor/tiled/freezer{
@@ -2289,7 +2285,7 @@
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/girder,
-/turf/simulated/open/airless,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "jQT" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -2618,7 +2614,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "lwj" = (
-/turf/simulated/open/airless,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "lEx" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -2794,7 +2790,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/unsimulated/floor,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "mwM" = (
 /obj/structure/cable/green{
@@ -2859,7 +2855,7 @@
 "mWO" = (
 /obj/structure/lattice,
 /obj/item/ammo_casing/a12mm,
-/turf/simulated/open/airless,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "mZv" = (
 /obj/machinery/light/small/emergency,
@@ -3197,12 +3193,12 @@
 /area/ship/sfa_patrol_ship)
 "oZk" = (
 /obj/structure/girder,
-/turf/simulated/open/airless,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "pcb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/girder,
-/turf/simulated/open/airless,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "pcY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3596,8 +3592,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "qyd" = (
-/obj/structure/girder,
-/turf/simulated/wall,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "qyG" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -3643,7 +3641,7 @@
 /obj/machinery/holosign/surgery{
 	icon_state = "sign_on"
 	},
-/turf/template_noop,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "qGI" = (
 /obj/structure/bed,
@@ -3888,7 +3886,7 @@
 "rMk" = (
 /obj/structure/lattice,
 /obj/structure/girder,
-/turf/simulated/open/airless,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "rNB" = (
 /obj/structure/bed/stool/chair{
@@ -4384,7 +4382,7 @@
 "uJE" = (
 /obj/structure/lattice,
 /obj/structure/closet/body_bag,
-/turf/simulated/open/airless,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "uNE" = (
 /obj/machinery/sleeper,
@@ -23103,7 +23101,7 @@ gyl
 eOZ
 aSm
 vwg
-xgf
+qyd
 mwb
 nQA
 lKf
@@ -26711,7 +26709,7 @@ yjk
 sBA
 xEZ
 wzk
-qyd
+wzk
 cia
 dhk
 xmZ
@@ -27738,7 +27736,7 @@ hcW
 yjk
 yjk
 cwy
-yjk
+wzk
 wzk
 yjk
 vKl
