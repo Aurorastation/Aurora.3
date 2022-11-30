@@ -282,11 +282,11 @@
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "aSZ" = (
-/obj/structure/girder,
 /obj/effect/landmark/entry_point/port{
 	name = "port, workshop"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/inflatable,
+/turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship)
 "aVv" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -667,6 +667,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
+"cZv" = (
+/obj/structure/girder,
+/turf/template_noop,
+/area/space)
 "cZV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -4238,11 +4242,11 @@
 "tVV" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/structure/girder,
 /obj/machinery/alarm{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/girder,
+/turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship)
 "tWv" = (
 /obj/effect/decal/cleanable/dirt,
@@ -24692,7 +24696,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+cZv
 xRX
 gdW
 tIr
@@ -30632,7 +30636,7 @@ ikP
 mkb
 pBY
 xRX
-xRX
+cZv
 xRX
 xRX
 xRX
