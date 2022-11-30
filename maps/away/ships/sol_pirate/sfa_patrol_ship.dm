@@ -16,6 +16,39 @@
 /area/ship/sfa_patrol_ship
 	name = "SFA Corvette"
 
+/area/ship/sfa_patrol_ship/medbay
+	name = "SFA Medbay"
+
+/area/ship/sfa_patrol_ship/SFA_Armory
+	name = "SFA Armory"
+
+/area/ship/sfa_patrol_ship/Engineering
+	name = "SFA Engineering"
+
+/area/ship/sfa_patrol_ship/Bridge
+	name = "SFA Corvette Bridge"
+
+/area/ship/sfa_patrol_ship/Ammo_Closet
+	name = "SFA Ammo Closet"
+
+/area/ship/sfa_patrol_ship/Quarters
+	name = "SFA Crew Quarters"
+
+/area/ship/sfa_patrol_ship/Officer
+	name = "SFA Officer Quarters"
+
+/area/ship/sfa_patrol_ship/Brig
+	name = "SFA Brig"
+
+/area/ship/sfa_patrol_ship/Engine1
+	name = "SFA Engine One"
+
+/area/ship/sfa_patrol_ship/Engine2
+	name = "SFA Engine Two
+
+/area/ship/sfa_patrol_ship/Suit_Storage
+	name = "SFA Suit Storage""
+
 /area/shuttle/sfa_shuttle
 	name = "SFA Shuttle"
 	icon_state = "shuttle2"
