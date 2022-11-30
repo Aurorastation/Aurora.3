@@ -206,6 +206,21 @@
 	req_one_access = list(202);
 	pixel_y = 32
 	},
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/snacks/adhomian_can,
+/obj/item/reagent_containers/food/snacks/adhomian_can,
+/obj/item/reagent_containers/food/snacks/adhomian_can,
+/obj/item/reagent_containers/food/snacks/adhomian_can,
+/obj/item/reagent_containers/food/snacks/adhomian_can,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/reagent_containers/food/snacks/hardbread,
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
 	},
@@ -487,13 +502,8 @@
 	},
 /area/mining_jack_outpost/atmos)
 "hb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 10
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -517,8 +527,9 @@
 	},
 /area/mining_jack_outpost/smelter)
 "hi" = (
-/obj/effect/map_effect/airlock/e_to_w,
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -618,6 +629,10 @@
 	brightness_color = "#FA8282";
 	dir = 1
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "tajara_mining_jack";
+	name = "igs - tajara_mining_jack"
+	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
 	},
@@ -670,10 +685,8 @@
 	},
 /area/mining_jack_outpost/smelter)
 "jP" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/obj/effect/map_effect/airlock/e_to_w/long/square/wide,
+/turf/simulated/wall/shuttle/raider,
 /area/shuttle/mining_jack/engines)
 "jV" = (
 /obj/machinery/computer/shuttle_control/explore/tajara_mining_jack,
@@ -872,10 +885,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/ghostspawpoint{
-	identifier = "tajara_mining_jack";
-	name = "igs - tajara_mining_jack"
-	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
 	},
@@ -931,8 +940,13 @@
 	},
 /area/shuttle/mining_jack/engines)
 "nb" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1067,6 +1081,10 @@
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "tajara_mining_jack";
+	name = "igs - tajara_mining_jack"
 	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
@@ -1216,10 +1234,6 @@
 	pixel_x = -24;
 	req_access = list(202)
 	},
-/obj/effect/ghostspawpoint{
-	identifier = "tajara_mining_jack";
-	name = "igs - tajara_mining_jack"
-	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
 	},
@@ -1309,6 +1323,10 @@
 /area/mining_jack_outpost/atmos)
 "vA" = (
 /obj/structure/bed/stool/chair/shuttle,
+/obj/effect/ghostspawpoint{
+	identifier = "tajara_mining_jack";
+	name = "igs - tajara_mining_jack"
+	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
 	},
@@ -1636,11 +1654,11 @@
 	},
 /area/mining_jack_outpost/atmos)
 "Cl" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -1824,6 +1842,14 @@
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
+"Fo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/mining_jack/engines)
 "FJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1936,7 +1962,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2110,8 +2138,8 @@
 	},
 /area/mining_jack_outpost/smelter)
 "Nv" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 1
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2564,10 +2592,6 @@
 "ZR" = (
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "tajara_mining_jack";
-	name = "igs - tajara_mining_jack"
 	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
@@ -31989,10 +32013,10 @@ wc
 YW
 YW
 YW
-wc
-wc
-wc
-wc
+YW
+yQ
+YW
+jP
 wc
 wc
 ww
@@ -32246,10 +32270,10 @@ wc
 PK
 vP
 YW
-wc
-jP
-yQ
-hi
+Yz
+Yz
+Yz
+YW
 wc
 wc
 wc
@@ -32503,10 +32527,10 @@ oP
 yr
 sI
 YW
-wc
-jP
+Yz
+Yz
 Yj
-jP
+YW
 wc
 wc
 wc
@@ -32761,9 +32785,9 @@ YW
 WM
 YW
 YW
-jP
 Yz
-jP
+YW
+YW
 YW
 tc
 Oc
@@ -33016,10 +33040,10 @@ wc
 NK
 YW
 ZZ
-Nv
 fG
 DS
 Xt
+Yz
 TQ
 zX
 tc
@@ -33273,8 +33297,8 @@ Qp
 NK
 YW
 EE
-Yz
 ZZ
+Yz
 Yz
 Yz
 qH
@@ -33530,12 +33554,12 @@ wc
 NK
 YW
 mk
-Yz
-oR
-Yz
+hb
+Nv
+Fo
 Du
 oR
-Yz
+hi
 tc
 aN
 Wd
@@ -33788,8 +33812,8 @@ GK
 YW
 YW
 KQ
-hb
 Av
+nb
 OH
 aE
 ug
@@ -34045,7 +34069,7 @@ Ec
 YW
 yF
 hl
-nb
+Yz
 HL
 pQ
 Cl

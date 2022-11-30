@@ -100,6 +100,7 @@
 	var/alpha_icon_state = "mirror_mask"
 	var/obj/mirror
 	desc = "Why are you locked in the bathroom?"
+	desc_extended = "You talking to me?"
 	anchored = TRUE
 	unacidable = TRUE
 
