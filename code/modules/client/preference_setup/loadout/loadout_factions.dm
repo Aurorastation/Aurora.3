@@ -179,6 +179,21 @@
 	zavod_sec_coat["zavodskoi warden coat, alt"] = /obj/item/clothing/suit/storage/toggle/warden/zavod/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sec_coat)
 
+/datum/gear/faction/zavod_warden_coat
+	display_name = "zavodskoi warden coat selection"
+	description = "A selection of Zavodskoi warden coats."
+	path = /obj/item/clothing/suit/storage/toggle/warden/zavod
+	slot = slot_wear_suit
+	faction = "Zavodskoi Interstellar"
+	allowed_roles = list("Head of Security", "Warden")
+	
+/datum/gear/faction/zavod_warden_coat/New()
+	..()
+	var/list/zavod_warden_coat = list()
+	zavod_warden_coat["zavodskoi warden coat"] = /obj/item/clothing/suit/storage/toggle/warden/zavod
+	zavod_warden_coat["zavodskoi warden coat, alt"] = /obj/item/clothing/suit/storage/toggle/warden/zavod/alt
+	gear_tweaks += new /datum/gear_tweak/path(zavod_warden_coat)
+
 /datum/gear/faction/zavod_sunglasses
 	display_name = "zavodskoi security HUD selection"
 	description = "A selection of Zavodskoi security HUDs."
