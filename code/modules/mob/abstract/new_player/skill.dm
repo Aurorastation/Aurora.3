@@ -20,7 +20,7 @@ var/list/SKILL_FIRST_RESPONDER = list("field" = "Medical", "medical" = SKILL_ADE
 var/list/SKILL_DOCTOR = list("field" = "Medical", "medical" = SKILL_ADEPT, "anatomy" = SKILL_BASIC, "firstaid" = SKILL_ADEPT)
 var/list/SKILL_SURGEON = list("field" = "Medical", "medical" = SKILL_ADEPT, "anatomy" = SKILL_ADEPT, "firstaid" = SKILL_ADEPT)
 var/list/SKILL_PHARMACIST = list("field" = "Medical", "chemistry" = SKILL_ADEPT, "science" = SKILL_ADEPT, "medical" = SKILL_BASIC, "devices" = SKILL_BASIC)
-var/list/SKILL_BRIDGE_CREW = list("field" = "Command", "command" = SKILL_BASIC, "shipweapons" = SKILL_ADEPT, "shipsystems" = SKILL_ADEPT, "weapons" = SKILL_BASIC)
+var/list/SKILL_BRIDGE_CREW = list("field" = "Command", "command" = SKILL_BASIC, "shipweapons" = SKILL_ADEPT, "shipsystems" = SKILL_ADEPT, "weapons" = SKILL_BASIC, "manuallabor" = SKILL_ADEPT, "mechpilot" = SKILL_ADEPT)
 var/list/SKILL_HANGAR_TECH = list("field" = "Misc", "mechpilot" = SKILL_ADEPT, "manuallabor" = SKILL_ADEPT, "shipweapons" = SKILL_BASIC)
 var/list/SKILL_MINER = list("field" = "Misc", "mechpilot" = SKILL_ADEPT, "shipsystems" = SKILL_BASIC, "EVA" = SKILL_ADEPT, "manuallabor" = SKILL_ADEPT, "geology" = SKILL_BASIC)
 var/list/SKILL_CHEF = list("field" = "Misc", "cook" = SKILL_ADEPT, "manuallabor" = SKILL_BASIC)
