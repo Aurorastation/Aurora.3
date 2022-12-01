@@ -1,0 +1,44 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.
+author: MattAtlas
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - balance: "Damage values of 7.62, 5.56 and midlasers have been all nerfed."
+  - balance: "Security's ballistic and ablative armour have been heavily nerfed. They now only block around 5 more damage, instead of blocking over half."
+  - balance: "Combat stims' chems have been compacted into one new chem, Kilosemine, with increased metabolisation rate (0.6u/tick) and without the effects of Oxycomorphine. Combat hyposprays start with ten units, which can be spread out across two injections."
+  - balance: "Personal shields no longer recharge on their own. They have a cell, which can be recharged and cannot be manually replaced. Passive upkeep is 2 charge every 2 seconds or so, whereas blocking a bullet is 200 charge per shot. Their size has been reduced to normal, so they can fit in backpacks."

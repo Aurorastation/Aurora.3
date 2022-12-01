@@ -308,7 +308,7 @@
 	armorcheck = FALSE
 	time = 0
 
-	reagents_to_add = list(/decl/reagent/oxycomorphine = 5, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5, /decl/reagent/arithrazine = 5)
+	reagents_to_add = list(/decl/reagent/kilosemine = 10)
 
 /obj/item/reagent_containers/hypospray/combat/empty
 	name = "combat hypospray"
