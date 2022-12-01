@@ -479,6 +479,7 @@
 	item_state = "kimono"
 	icon = 'icons/clothing/under/uniforms/kimono.dmi'
 	contained_sprite = TRUE
+
 /obj/item/clothing/under/kimono/ronin
 	name = "ronin kimono"
 	desc = "A non-traditional Japanese kimono, it appears to be very gothic. Like, totally gothic."
