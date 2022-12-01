@@ -40,5 +40,5 @@ delete-after: True
 changes:
   - rscadd: "Added new type of skills, such as bartending, manual labor, geology, literature, archeology, first aid, ship operations, ship weapons."
   - rscadd: "Added new job skill presets: Atmospheric Technician, Security Officer, First Responder, Doctor, Surgeon, Pharmacist, Bridge Crew, Hangar Technician, Shaft Miner, Chef, Bartender, Janitor, Scientist, Xeno Archeologist."
-  - tweak: "Tweaked existing jobs like Engineering, Security Officer appropriate skills. Renamed \"Robotisict\" to \"Machinist\" and \"Chemist\" to \"Pharmascist\"."
+  - tweak: "Tweaked existing jobs like Engineering, Security Officer to have appropriate skills. Renamed \"Robotisict\" to \"Machinist\" and \"Chemist\" to \"Pharmascist\"."
   - tweak: "Changed \"Engine\" skill into \"Power Generation\" skill to not confuse with engines setup. Changed \"Genetics\" skill to \"Telescience\" skill."
