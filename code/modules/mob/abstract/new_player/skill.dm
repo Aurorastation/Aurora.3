@@ -22,7 +22,7 @@ var/list/SKILL_SURGEON = list("field" = "Medical", "medical" = SKILL_ADEPT, "ana
 var/list/SKILL_PHARMACIST = list("field" = "Medical", "chemistry" = SKILL_ADEPT, "science" = SKILL_ADEPT, "medical" = SKILL_BASIC, "devices" = SKILL_BASIC)
 var/list/SKILL_BRIDGE_CREW = list("field" = "Command", "command" = SKILL_BASIC, "shipweapons" = SKILL_ADEPT, "shipsystems" = SKILL_ADEPT, "weapons" = SKILL_BASIC)
 var/list/SKILL_HANGAR_TECH = list("field" = "Misc", "mechpilot" = SKILL_ADEPT, "manuallabor" = SKILL_ADEPT, "shipweapons" = SKILL_BASIC)
-var/list/SKILL_MINER = list("field" = "Misc", "mechpilot" = SKILL_ADEPT, "EVA" = SKILL_ADEPT, "manuallabor" = SKILL_ADEPT, "geology" = SKILL_BASIC)
+var/list/SKILL_MINER = list("field" = "Misc", "mechpilot" = SKILL_ADEPT, "shipsystems" = SKILL_BASIC, "EVA" = SKILL_ADEPT, "manuallabor" = SKILL_ADEPT, "geology" = SKILL_BASIC)
 var/list/SKILL_CHEF = list("field" = "Misc", "cook" = SKILL_ADEPT, "manuallabor" = SKILL_BASIC)
 var/list/SKILL_BARTENDER = list("field" = "Misc", "bartending" = SKILL_ADEPT, "manuallabor" = SKILL_BASIC)
 var/list/SKILL_JANITOR = list("field" = "Misc", "manuallabor" = SKILL_ADEPT)
@@ -109,13 +109,13 @@ datum/skill/computer
 datum/skill/ship_weapons
 	ID = "shipweapons"
 	name = "Ship Weapons"
-	desc = "Describes your understanding of how to operate large weapon systems such as ship weapons. Used in operating or maintaning weapons on the ship."
+	desc = "Describes your understanding of how to operate large weapon systems such as ship weapons. Low skill will allow you to know how to maintain, and reload weapons. High skill will allow you to use ship weapons to target and fire."
 	field = "Ship Operations"
 
 datum/skill/ship_operations
 	ID = "shipsystems"
 	name = "Ship Operations"
-	desc = "Describes your understanding of how to operate basic ship systems like sensors an helm. Used in piloting shuttles and larger vessels alike as well as using sensors."
+	desc = "Describes your understanding of how to operate basic ship systems like sensors an helm. Low level skill will allow you to use sensors and pilot small vessels such as shuttles. High skill will allow you to use sensors and pilot vessels larger than shuttle size."
 	field = "Ship Operations"
 
 datum/skill/mech_pilot
