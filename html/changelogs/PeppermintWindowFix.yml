@@ -1,7 +1,0 @@
-author: Peppermint
-
-delete-after: True
-
-changes:
-  - maptweak: "Adds the correct window to the CoC armory."
-  - maptweak: "Adds the correct ammo type (HE) to the CoC armory."
