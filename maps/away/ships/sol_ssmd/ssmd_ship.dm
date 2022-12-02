@@ -43,6 +43,9 @@
 /area/ship/ssmd_corvette/francisca
 	name = "SSMD Corvette Francisca Gunnery Compartment"
 
+/area/ship/ssmd_corvette/grauwolf
+	name = "SSMD Corvette Grauwolf Gunnery Compartment"
+
 /area/ship/ssmd_corvette/bathroom
 	name = "SSMD Corvette Bathroom"
 
