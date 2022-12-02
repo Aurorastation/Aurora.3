@@ -85,11 +85,6 @@
 #define STOP_EFFECT(effect) effect.isprocessing = FALSE; SSeffects.effect_systems -= effect;
 #define STOP_VISUAL(visual)	visual.isprocessing = FALSE; SSeffects.visuals -= visual;
 
-// -- SSzcopy --
-#define TURF_IS_MIMICING(T) (isturf(T) && (T.flags & MIMIC_BELOW))
-#define CHECK_OO_EXISTENCE(OO) if (OO && !TURF_IS_MIMICING(OO.loc)) { qdel(OO); }
-#define UPDATE_OO_IF_PRESENT CHECK_OO_EXISTENCE(bound_overlay); if (bound_overlay) { update_above(); }
-
 // -- SSfalling --
 #define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }
 
@@ -120,6 +115,7 @@
 // - SSjobs --
 // departments
 #define DEPARTMENT_COMMAND "Command"
+#define DEPARTMENT_COMMAND_SUPPORT "Command Support"
 #define DEPARTMENT_SECURITY "Security"
 #define DEPARTMENT_ENGINEERING "Engineering"
 #define DEPARTMENT_MEDICAL "Medical"
@@ -131,6 +127,7 @@
 #define DEPARTMENT_MISCELLANEOUS "Miscellaneous"
 #define DEPARTMENTS_LIST_INIT list(\
 	DEPARTMENT_COMMAND = list(),\
+	DEPARTMENT_COMMAND_SUPPORT = list(),\
 	DEPARTMENT_SECURITY = list(),\
 	DEPARTMENT_ENGINEERING = list(),\
 	DEPARTMENT_MEDICAL = list(),\

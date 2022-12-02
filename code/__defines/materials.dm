@@ -4,7 +4,7 @@
 #define MATERIAL_PLASTEEL                   "plasteel"
 #define MATERIAL_STEEL                      "steel"
 #define MATERIAL_GLASS                      "glass"
-#define MATERIAL_GLASS_REINFORCED           "rglass"
+#define MATERIAL_GLASS_REINFORCED           "reinforced glass"
 #define MATERIAL_GLASS_WIRED                "wired glass"
 #define MATERIAL_GLASS_PHORON               "borosilicate glass"
 #define MATERIAL_GLASS_REINFORCED_PHORON    "reinforced borosilicate glass"
@@ -51,6 +51,13 @@
 
 // Wood.
 #define MATERIAL_WOOD                    "wood"
+#define MATERIAL_BIRCH                   "birch wood"
+#define MATERIAL_MAHOGANY                "mahogany wood"
+#define MATERIAL_MAPLE                   "maple wood"
+#define MATERIAL_BAMBOO                  "bamboo wood"
+#define MATERIAL_EBONY                   "ebony wood"
+#define MATERIAL_WALNUT                  "walnut wood"
+#define MATERIAL_YEW                     "yew wood"
 #define MATERIAL_WOOD_HOLO               "holowood"
 #define MATERIAL_WOOD_LOG                "log"
 #define MATERIAL_WOOD_BRANCH             "branch"

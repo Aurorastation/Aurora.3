@@ -35,10 +35,10 @@
 	holding_type = /obj/item/gun/energy/laser/mounted/mech
 
 /obj/item/mecha_equipment/mounted_system/combat/smg
-	name = "mounted machinegun"
+	name = "mounted submachinegun"
 	desc = "An exosuit-mounted automatic weapon. Handle with care."
 	icon_state = "mecha_ballistic"
-	holding_type = /obj/item/gun/energy/mountedsmg/mech
+	holding_type = /obj/item/gun/energy/mountedsmg
 
 /obj/item/mecha_equipment/mounted_system/combat/pulse
 	name = "heavy pulse cannon"

@@ -115,7 +115,8 @@
 		/obj/item/powerdrill,
 		/obj/item/device/radio,
 		/obj/item/device/debugger,
-		/obj/item/device/eftpos
+		/obj/item/device/eftpos,
+		/obj/item/tape_roll
 	)
 	content_overlays = TRUE
 
@@ -139,7 +140,6 @@
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters/toolbelt = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1,
 		/obj/item/hammer = 1
 	)
 
@@ -390,10 +390,10 @@
 /obj/item/storage/belt/custodial
 	name = "custodial belt"
 	desc = "A utility belt designed for custodial use."
-	desc_fluff = "A custodial belt is similar to most utility belts, but designed with pockets and attachment points that can hold common custodial tools."
+	desc_extended = "A custodial belt is similar to most utility belts, but designed with pockets and attachment points that can hold common custodial tools."
 	icon_state = "custodialbelt"
 	item_state = "custodialbelt"
-	storage_slots = 8
+	storage_slots = 12
 	w_class = ITEMSIZE_NORMAL
 	max_w_class = ITEMSIZE_NORMAL
 	can_hold = list(
@@ -464,7 +464,8 @@
 		/obj/item/extraction_pack,
 		/obj/item/rfd/mining,
 		/obj/item/gun/custom_ka,
-		/obj/item/device/orbital_dropper
+		/obj/item/device/orbital_dropper,
+		/obj/item/ore_detector
 		)
 
 /obj/item/storage/belt/hydro
@@ -567,7 +568,7 @@
 	contained_sprite = TRUE
 	storage_slots = 1
 	max_w_class = ITEMSIZE_SMALL
-	desc_fluff = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
+	desc_extended = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
 	Holy Village's most important buildings. When Mata'ke's original hunting party had done battle with the King of Rraknarr, her beloved was killed in the fighting. Ever since then \
 	she has resolved to be eternally chaste in dedication to him. She is an M'sai who is depicted wearing modest dresses and carrying a hammer on a belt. She is not known for having \
 	much combat prowess despite her position as head of the town watch but is a capable commander for defensive tactics."

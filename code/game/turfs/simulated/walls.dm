@@ -10,7 +10,16 @@
 	blocks_air = TRUE
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 312500 //a little over 5 cm thick , 312500 for 1 m by 2.5 m by 0.25 m plasteel wall
-	canSmoothWith = list(/turf/simulated/wall, /turf/simulated/wall/r_wall, /obj/structure/window/full, /obj/structure/window/full/phoron)
+	canSmoothWith = list(
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/obj/structure/window/full/reinforced,
+		/obj/structure/window/full/phoron/reinforced,
+		/obj/structure/window/full/reinforced/polarized,
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty
+		)
 
 	var/damage = 0
 	var/damage_overlay = 0
@@ -75,14 +84,19 @@
 		burn(2500)
 	else if(istype(Proj,/obj/item/projectile/ion))
 		burn(500)
+	
+	bullet_ping(Proj)
 
 	var/proj_damage = Proj.get_structure_damage()
+	var/damage = proj_damage
 
 	//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
-	var/damage = min(proj_damage, 100)
+	if(Proj.anti_materiel_potential > 1)
+		damage = min(proj_damage, 100)
+
+	Proj.on_hit(src)
 
 	take_damage(damage)
-	return
 
 /turf/simulated/wall/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
 	..()

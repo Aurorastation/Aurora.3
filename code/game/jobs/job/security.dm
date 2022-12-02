@@ -21,12 +21,12 @@
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-				    access_detective, access_weapons, access_intrepid)
+				    	access_weapons, access_intrepid, access_teleporter)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-				    access_detective, access_weapons, access_intrepid)
+				    	access_weapons, access_intrepid, access_teleporter)
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/hos
 
@@ -60,10 +60,10 @@
 		/obj/item/implant/mindshield
 	)
 
-	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
-	dufflebag = /obj/item/storage/backpack/duffel/sec
-	messengerbag = /obj/item/storage/backpack/messenger/sec
+	backpack = /obj/item/storage/backpack/hos
+	satchel = /obj/item/storage/backpack/satchel/hos
+	dufflebag = /obj/item/storage/backpack/duffel/hos
+	messengerbag = /obj/item/storage/backpack/messenger/hos
 
 /datum/job/warden
 	title = "Warden"
@@ -110,7 +110,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/security
 
 	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
+	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
@@ -159,7 +159,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/security/detective
 
 	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
+	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
@@ -210,7 +210,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/security
 
 	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
+	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
@@ -254,7 +254,7 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/sec
 
 	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
+	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 

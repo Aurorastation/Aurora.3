@@ -34,7 +34,7 @@
 /obj/item/storage/box/bodybags
 	name = "body bags"
 	desc = "This box contains body bags."
-	icon_state = "bodybags"
+	illustration = "bodybags"
 
 /obj/item/storage/box/bodybags/New()
 	..()
@@ -84,14 +84,7 @@
 			src.name = "body bag - "
 			src.name += t
 			playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
-			if(istype(buckled_to, /obj/structure/bed/roller))
-				var/obj/structure/bed/roller/R = buckled_to
-				if(R.bag_strap)
-					LAZYREMOVE(overlays, image(R.icon, R.bag_strap))
-					LAZYADD(overlays, image(icon, "bodybag_label"))
-					LAZYADD(overlays, image(R.icon, R.bag_strap))
-			else
-				LAZYADD(overlays, image(icon, "bodybag_label"))
+			LAZYADD(overlays, image(icon, "bodybag_label"))
 		else
 			src.name = "body bag"
 		return TRUE

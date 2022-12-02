@@ -1,6 +1,6 @@
 /obj/structure/banner
 	name = "corporate banner"
-	desc = "A blue flag emblazoned with a golden logo of Nanotrasen hanging from a wooden stand."
+	desc = "A blue flag emblazoned with a golden logo of NanoTrasen hanging from a wooden stand."
 	anchored = 1
 	density = 1
 	layer = 9
@@ -120,6 +120,6 @@
 /obj/structure/banner/scc
 	name = "Stellar Corporate Conglomerate banner"
 	desc = "A deep blue banner adorned with the logo of the Stellar Corporate Conglomerate."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon_state = "scc_banner_down"
 	icon_up = "scc_banner_up"

@@ -5,7 +5,7 @@
 /turf/template_noop,
 /area/template_noop)
 "ca" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "radiatorshutters";
 	name = "Radiator Shutters"
@@ -49,7 +49,7 @@
 /turf/template_noop,
 /area/template_noop)
 "he" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "radiatorshutters";
@@ -344,7 +344,7 @@
 /turf/template_noop,
 /area/template_noop)
 "HK" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "radiatorshutters";

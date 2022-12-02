@@ -23,7 +23,7 @@
 		/mob/living/silicon/proc/silicon_mimic_accent
 	)
 
-/mob/living/silicon/robot/syndicate
+/mob/living/silicon/robot/combat
 	register_alarms = 0
 	silicon_subsystems = list(
 		/mob/living/silicon/proc/subsystem_law_manager,

@@ -11,6 +11,7 @@
 	brute_mod = 0.7
 	oxy_mod = 1
 	radiation_mod = 0.5
+  standing_jump_range = 3
 	bleed_mod = 1.5
 	burn_mod = 1.0
 	grab_mod = 1.25
@@ -149,7 +150,6 @@
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	blood_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
-	onfire_overlay = 'icons/mob/OnFire_large.dmi'
 
 
 	stamina = 200
@@ -214,7 +214,6 @@
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
 	blood_mask = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
-	onfire_overlay = 'icons/mob/OnFire_bulwark.dmi'
 
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
 	eyes = "bulwark_eyes"
@@ -222,6 +221,9 @@
 	slowdown = 2
 
 	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
+	maneuvers = list(
+		/decl/maneuver/leap/bulwark
+	)
 
 	natural_armor = list(
 		melee = ARMOR_MELEE_SMALL
@@ -238,7 +240,7 @@
 
 	mob_size = 28
 	taste_sensitivity = TASTE_DULL
-	blurb = {"Type E Vaurca, otherwise known as the Bulwarks, are a new bodyform derived from the worker caste in a collaboration by the C'thur and Jargon scientists. Originally only the C'thur had access to these behemoths, but after a short amount of time, the bodyform started appearing in the ranks of the Zo'ra and K'lax as well, causing an even more strained relationship between the hives.<br>
+	blurb = {"Type E Vaurca, otherwise known as the Bulwarks, are a new bodyform derived from the worker caste in a collaboration by the C'thur and Nralakk scientists. Originally only the C'thur had access to these behemoths, but after a short amount of time, the bodyform started appearing in the ranks of the Zo'ra and K'lax as well, causing an even more strained relationship between the hives.<br>
 Similar to Workers, Bulwarks are generally passive, and prefer to flee a fight rather than resist. Though due to their speed, they may still choose to defend themselves should they be unable to properly escape a battle. The main exception to this is when another Vaurca is in danger. When this occurs, they tend to put themselves in between the attacker and the Vaurca, acting as a shield of sorts. They won't go out of their way to take down the attacker, but will ensure the others get away safely.<br>
 Bulwarks are much larger and have significantly thicker carapaces than most Vaurca, making them slow but resistant to most hits, including a complete immunity to radiation. Their powerful arms and claws grant them stronger punches, enough to bend metal, and is often used to pry open non-functional doors.<br>
 <b>Type E Vaurca are typically used for heavy lifting, agricultural and industrial work, thus they can typically be found as Engineers, Cargo Technicians, Miners and similar jobs, though they can also be found in positions such as janitor and Assistant should they be needed.</b>"}

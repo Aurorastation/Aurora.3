@@ -55,7 +55,6 @@
 /obj/item/clothing/head/helmet/hos
 	name = "head of security helmet"
 	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers."
-	desc_fluff = "What the heck did you just hecking say about me, you little honker? I'll have you know I graduated top of my class in the Sol Army, and I've been involved in numerous secret raids on the Jargon Federation, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire Sol armed forces. You are nothing to me but just another target. I will wipe you the heck out with precision the likes of which has never been seen before on Biesel, mark my hecking words."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_sec_commander"
@@ -139,7 +138,7 @@
 	item_state = "helm_ballistic"
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
-		bullet = ARMOR_BALLISTIC_AP,
+		bullet = ARMOR_BALLISTIC_RIFLE,
 		laser = ARMOR_LASER_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -303,7 +302,7 @@
 	item_state = "hegemony_helmet"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_PISTOL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,

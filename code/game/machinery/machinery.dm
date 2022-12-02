@@ -463,6 +463,11 @@ Class Procs:
 	paper.forceMove(loc)
 	printing = FALSE
 
+/obj/machinery/bullet_act(obj/item/projectile/P, def_zone)
+	. = ..()
+	if(P.get_structure_damage() > 5)
+		bullet_ping(P)
+
 /obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
 	if(stat & (NOPOWER|BROKEN))
 		return
@@ -516,9 +521,17 @@ Class Procs:
 		if((. = .(candidate)))
 			return
 
-
 /obj/machinery/proc/on_user_login(mob/M)
 	return
 
 /obj/machinery/proc/set_emergency_state(var/new_security_level)
 	return
+
+/obj/machinery/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+	. = ..()
+	if(isliving(AM))
+		var/mob/living/M = AM
+		M.turf_collision(src, speed)
+		return
+	else
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))

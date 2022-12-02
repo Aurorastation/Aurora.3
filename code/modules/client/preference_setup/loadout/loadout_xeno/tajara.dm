@@ -106,14 +106,14 @@
 	display_name = "PRA medical coat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "Geneticist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "First Responder", "Medical Intern")
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/tajaran_surgeon
 	display_name = "adhomian surgeon garb"
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/surgery
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Xenobiologist", "Roboticist")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Xenobiologist", "Roboticist", "Medical Intern")
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara
@@ -443,3 +443,22 @@
 	card["zbrojny badge"] = /obj/item/clothing/accessory/tajaran/zbrojny_badge
 	card["golden sun pin"] = /obj/item/clothing/accessory/tajaran/tanker_pin
 	gear_tweaks += new /datum/gear_tweak/path(card)
+
+/datum/gear/accessory/tajaran_portraits
+	display_name = "tajaran leader portrait selection"
+	description = "A selection of tajaran leaders portraits."
+	path = /obj/item/sign/painting_frame/hadii
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajaran_portraits/New()
+	..()
+	var/list/portrait = list()
+	portrait["president hadii portrait"] = /obj/item/sign/painting_frame/hadii
+	portrait["president almari portrait"] = /obj/item/sign/painting_frame/almari
+	portrait["supreme commander nated portrait"] = /obj/item/sign/painting_frame/nated
+	portrait["president harrlala portrait"] = /obj/item/sign/painting_frame/harrlala
+	portrait["king vahzirthaamro portrait"] = /obj/item/sign/painting_frame/vahzirthaamro
+	portrait["queen shumaila portrait"] = /obj/item/sign/painting_frame/shumaila
+	gear_tweaks += new /datum/gear_tweak/path(portrait)

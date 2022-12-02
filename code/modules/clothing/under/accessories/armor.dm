@@ -21,6 +21,11 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
+/obj/item/clothing/accessory/leg_guard/generic
+	name = "standard leg guards"
+	icon_state = "legguards_generic"
+	item_state = "legguards_generic"
+
 /obj/item/clothing/accessory/leg_guard/ablative
 	name = "ablative leg guards"
 	desc = "These will protect your legs and feet from energy weapons."
@@ -29,7 +34,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_AP,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	siemens_coefficient = 0
@@ -41,7 +46,7 @@
 	item_state = "legguards_ballistic"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_AP,
+		bullet = ARMOR_BALLISTIC_RIFLE,
 		laser = ARMOR_LASER_MINOR,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
@@ -61,16 +66,16 @@
 	)
 
 /obj/item/clothing/accessory/leg_guard/military
-	name = "military leg guards"
+	name = "sol army leg guards"
 	desc = "These will protect your legs and feet from most things."
 	icon_state = "legguards_military"
 	item_state = "legguards_military"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
 	)
 
 /obj/item/clothing/accessory/leg_guard/heavy
@@ -125,6 +130,11 @@
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 
+/obj/item/clothing/accessory/arm_guard/generic
+	name = "standard arm guards"
+	icon_state = "armguards_generic"
+	item_state = "armguards_generic"
+
 /obj/item/clothing/accessory/arm_guard/ablative
 	name = "ablative arm guards"
 	desc = "These arm guards will protect your hands and arms from energy weapons."
@@ -133,7 +143,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_AP,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	siemens_coefficient = 0
@@ -145,7 +155,7 @@
 	item_state = "armguards_ballistic"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_AP,
+		bullet = ARMOR_BALLISTIC_RIFLE,
 		laser = ARMOR_LASER_MINOR,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
@@ -165,14 +175,14 @@
 	)
 
 /obj/item/clothing/accessory/arm_guard/military
-	name = "military arm guards"
+	name = "sol army arm guards"
 	desc = "These arm guards will protect your hands and arms from most things."
 	icon_state = "armguards_military"
 	item_state = "armguards_military"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_REVOLVER,
-		laser = ARMOR_LASER_RIFLE,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
@@ -197,6 +207,19 @@
 
 /obj/item/clothing/accessory/arm_guard/heavy/sec
 	name = "heavy corporate arm guards"
+	icon_state = "armguards_sec_heavy"
+	item_state = "armguards_sec_heavy"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
+
+/obj/item/clothing/accessory/arm_guard/kala
+	name = "kala arm guards"
+	desc = "These arm guards are made out of an advanced lightweight alloy."
 	icon_state = "armguards_sec_heavy"
 	item_state = "armguards_sec_heavy"
 	armor = list(

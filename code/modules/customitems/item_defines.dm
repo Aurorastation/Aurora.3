@@ -5,16 +5,6 @@ Add custom items to this file, their sprites into their own dmi. in the icons/ob
 All custom items with worn sprites must follow the contained sprite system: http://forums.aurorastation.org/viewtopic.php?f=23&t=6798
 */
 
-/obj/item/clothing/head/fluff/ziva_bandana //Ziva's Bandana - Ziva Ta'Kim - sierrakomodo
-	name = "old bandana"
-	desc = "An old orange-ish-yellow bandana. It has a few stains from engine grease, and the color has been dulled."
-	icon = 'icons/obj/custom_items/motaki_bandana.dmi'
-	icon_override = 'icons/obj/custom_items/motaki_bandana.dmi'
-	icon_state = "motaki_bandana"
-	item_state = "motaki_bandana"
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/suit/armor/vest/fluff/zubari_jacket //Fancy Jacket - Zubari Akenzua - filthyfrankster
 	name = "fancy jacket"
 	desc = "A well tailored unathi styled armored jacket, fitted for one too."
@@ -68,37 +58,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_MASK | SLOT_TIE
 
 
-/obj/item/implant/fluff/ziva_implant //Heart Condition - Ziva Ta'Kim - sierrakomodo
-	name = "heart monitor"
-	desc = "A small machine to watch upon broken hearts."
-
-/obj/item/implant/fluff/ziva_implant/implanted(mob/living/carbon/human/M as mob)
-	if (M.ckey == "sierrakomodo") //just to be sure
-		M.verbs += /mob/living/carbon/human/proc/heart_attack
-	else
-		return
-
-/mob/living/carbon/human/proc/heart_attack()
-	set category = "IC"
-	set name = "Suffer Heart Condition"
-	set desc = "HNNNNG."
-
-	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>Your chest still hurts badly!</span>")
-		return
-
-	last_special = world.time + 500
-
-	var/obj/item/organ/F = src.internal_organs_by_name[BP_HEART]
-
-	if(isnull(F))
-		return
-
-	F.take_damage(5)
-	to_chat(src, "<span class='warning'>You feel a stabbing pain in your chest!</span>")
-	sound_to(src, 'sound/effects/Heart Beat.ogg')
-
-
 /obj/item/clothing/accessory/badge/fluff/caleb_badge //Worn Badge - Caleb Greene - notmegatron
 	name = "worn badge"
 	desc = "A simple gold badge denoting the wearer as Head of Security. It is worn and dulled with age, but the name, \"Caleb Greene\", is still clearly legible."
@@ -109,14 +68,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	stored_name = "Caleb Greene"
 	badge_string = "NOS Apollo Head of Security"
 	contained_sprite = TRUE
-
-
-/obj/item/sign/fluff/iskanz_atimono //Framed Zatimono - Iskanz Sal'Dans - zundy
-	name = "framed zatimono"
-	desc = "A framed Zatimono, a Unathi standard worn into battle similar to an old-Earth Sashimono. This one seems well maintained and carries Sk'akh Warrior Priest markings and litanies."
-	icon_state = "iskanz_atimono"
-	sign_state = "iskanz_atimono"
-	w_class = ITEMSIZE_SMALL
 
 
 /obj/item/clothing/under/fluff/ana_uniform //Retired Uniform - Ana Roh'hi'tin - suethecake
@@ -136,6 +87,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ana_jacket"
 	item_state = "ana_jacket"
 	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO | ARMS
 
 /obj/item/clothing/accessory/badge/old/fluff/ana_badge //Faded Badge - Ana Roh'hi'tin - suethecake
 	name = "faded badge"
@@ -191,28 +143,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/ikrad_beret.dmi'
 	icon_state = "ikrad_letter"
 	w_class = ITEMSIZE_SMALL
-
-/obj/item/clothing/suit/storage/toggle/fluff/ryan_jacket //Mars' Militia Leather Jacket - Ryan McLean - seniorscore
-	name = "mars militia leather jacket"
-	desc = "A leather jacket, appears to have a shield on back with the words \"Contra omnes stabimus\", as well as a unit name \"Sandworms of Thadeus\", \
-	stitched along a banner at the bottom of the shield."
-	icon = 'icons/obj/custom_items/ryan_jacket.dmi'
-	icon_override = 'icons/obj/custom_items/ryan_jacket.dmi'
-	icon_state = "ryan_jacket"
-	item_state = "ryan_jacket"
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/suit/storage/fluff/yuri_duster //Martian Duster - Yuri Daruski - bv1000
-	name = "martian duster"
-	desc = "A longer coat made of a tough fabric designed to protect the wearer from the harshness of the Mars badlands \
-	found beyond the terraformed areas of said planet. Two scorched holes can be found on the lower back, and three non-scorched holes \
-	appear in the upper torso on the back, with two lining up with two in the front."
-	icon = 'icons/obj/custom_items/yuri_duster.dmi'
-	icon_override = 'icons/obj/custom_items/yuri_duster.dmi'
-	icon_state = "yuri_duster"
-	item_state = "yuri_duster"
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/under/fluff/faysal_uniform //Old Tajaran Nobleman Suit - Faysal Al-Shennawi - alberyk
@@ -319,7 +249,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user, "It is [active ? "on" : "off"].")
 
 
-
 /obj/item/clothing/suit/storage/fluff/sonorous_mantle //Maraziite Throw Over - Sonorous Zouzoror - sleepywolf
 	name = "maraziite throw over"
 	desc = "A grey poncho, exclusively warn by members of the Maraziite Order. This one has the flag of the Izweski Hegemony stitched on."
@@ -360,34 +289,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/vira_coat.dmi'
 	icon_state = "vira_coat"
 	item_state = "vira_coat"
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/suit/storage/fluff/azala_coat //Azala's Gentleman's Coat - Azala Huz'kai - tomiixstarslasher
-	name = "gentleman's coat"
-	desc = "A blue gentleman's coat. It is very stylish, and appears to be very warm."
-	icon = 'icons/obj/custom_items/azala_items.dmi'
-	icon_override = 'icons/obj/custom_items/azala_items.dmi'
-	icon_state = "azala_coat"
-	item_state = "azala_coat"
-	contained_sprite = TRUE
-
-/obj/item/clothing/head/fluff/azala_hat //Azala's Gentleman's Cap - Azala Huz'kai - tomiixstarslasher
-	name = "gentleman's cap"
-	desc = "A blue gentleman's cap. It is very stylish, and appears to be warped from being worn crooked."
-	icon = 'icons/obj/custom_items/azala_items.dmi'
-	icon_override = 'icons/obj/custom_items/azala_items.dmi'
-	icon_state = "azala_hat"
-	item_state = "azala_hat"
-	contained_sprite = TRUE
-
-/obj/item/clothing/under/fluff/azala_jumpsuit //Azala's Roboticist Jumpsuit - Azala Huz'kai - tomiixstarslasher
-	name = "modified roboticist jumpsuit"
-	desc = "A variation of the roboticists jumpsuit, this one is in blue colors."
-	icon = 'icons/obj/custom_items/azala_items.dmi'
-	icon_override = 'icons/obj/custom_items/azala_items.dmi'
-	icon_state = "azala_jumpsuit"
-	item_state = "azala_jumpsuit"
 	contained_sprite = TRUE
 
 
@@ -456,24 +357,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_off = "hadley_camera_off"
 
 
-/obj/item/folder/fluff/sukhoi_folder //Inventor's Notebook - Natascha Sukhoi - lancelynxx
-	name = "inventor's notebook"
-	desc = "A dark-green notebook, with crumpled Post-Its sticking out and binding tearing at the edges. It reeks of DromedaryCo cigarettes. The words \"SUKH SYSTEMS\" are scribbled on the cover with a black sharpie."
-	icon = 'icons/obj/custom_items/sukhoi_folder.dmi'
-	icon_override = 'icons/obj/custom_items/sukhoi_folder.dmi'
-	icon_state = "sukhoi_folder"
-
-
-/obj/item/clothing/suit/storage/toggle/det_trench/fluff/nelson_jacket //Armored Detective Jacket - Nelson Okafor - seniorscore
-	name = "armored detective jacket"
-	desc = "A white suit jacket, has a badge hanging out of a breast pocket. Touching it gives a feeling of working on a case for months."
-	icon = 'icons/obj/custom_items/nelson_jacket.dmi'
-	icon_override = 'icons/obj/custom_items/nelson_jacket.dmi'
-	icon_state = "nelson_jacket"
-	item_state = "nelson_jacket"
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/head/beret/fluff/chunley_beret //Sol's Dog Handler Beret - Freya Chunley - thesmiley
 	name = "sol's dog handler beret"
 	desc = "A scarlet military beret worn by the Sol Alliance Military Police dog handling unit. The symbol on the cap is that of a grey wolf's head on white. It quivers menacingly. \
@@ -483,14 +366,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "chunley_beret"
 	item_state = "chunley_beret"
 	contained_sprite = TRUE
-
-
-/obj/item/material/knife/fluff/yumi_knife //Cutting Metal - Yumi Yotin - trickingtrapster
-	name = "cutting metal"
-	desc = "Looks like a piece of sheet metal, sharpened on one end."
-	icon = 'icons/obj/custom_items/yotin_knife.dmi'
-	icon_override = 'icons/obj/custom_items/yotin_knife.dmi'
-	icon_state = "yotin_knife"
 
 
 /obj/item/clothing/accessory/holster/thigh/fluff/rifler_holster //Rifler's Holster - Sophie Rifler - shodan43893
@@ -547,11 +422,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_NORMAL
 
 
-/obj/item/stack/dice/fluff/baron_dice //BARON's Dice - BARON - iamcrystalclear
-	weight_roll = 70
-	favored_number = 2
-
-
 /obj/item/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - simontheminer
 	desc = "An old looking zippo lighter with Vasili Mine Logo engraved on it. \"Good Luck Nikit\" is crudely scratched on under the logo in small writing."
 	icon = 'icons/obj/custom_items/nikit_zippo.dmi'
@@ -566,81 +436,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/klavdiya_amulet.dmi'
 	icon_state = "klavdiya_amulet"
 	contained_sprite = TRUE
-
-
-/obj/item/storage/fluff/sovno_carrier //Reinforced Cat Carrier - Anabelle Sovno - pratepresidenten
-	name = "cat carrier"
-	desc = "It appears to be a reinforced cat carrier. Decals of hearts and kittens are plastered all over its sides."
-	icon = 'icons/obj/custom_items/sovno_carrier.dmi'
-	icon_override = 'icons/obj/custom_items/sovno_carrier.dmi'
-	icon_state = "sovno_carrier"
-	item_state = "sovno_carrier"
-	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
-	can_hold = list(/obj/item/holder/cat)
-	storage_slots = 4
-	max_storage_space = 16
-	var/used = FALSE
-
-/obj/item/storage/fluff/sovno_carrier/open(mob/user as mob)
-	if(!used)
-		deploy_cats(user)
-	else
-		..()
-
-/obj/item/storage/fluff/sovno_carrier/attack_self(mob/user)
-	if(!used)
-		deploy_cats(user)
-
-/obj/item/storage/fluff/sovno_carrier/proc/deploy_cats(mob/user as mob)
-	used = TRUE
-	to_chat(user, "<span class='notice'>You open \the [src]'s hatch.</span>")
-	new /mob/living/simple_animal/cat/fluff/jonesy(user.loc)
-	new /mob/living/simple_animal/cat/fluff/kathrine(user.loc)
-	new /mob/living/simple_animal/cat/fluff/fluffles(user.loc)
-	new /mob/living/simple_animal/cat/fluff/faysaljr(user.loc)
-
-/mob/living/simple_animal/cat/fluff/jonesy
-	name = "Jonesy"
-	desc = "An orange tabby cat. He has a purple silk neckerchief."
-	icon = 'icons/obj/custom_items/sovno_carrier.dmi'
-	icon_state = "jonesy"
-	item_state = "jonesy"
-	icon_living = "jonesy"
-	icon_dead = "jonesy_dead"
-	icon_rest = "jonesy_rest"
-
-/mob/living/simple_animal/cat/fluff/kathrine
-	name = "Kathrine"
-	desc = "She has an elegant, shiny black coat of fur. Around her neck sits a dark pink collar with a golden bell attached to it."
-	gender = FEMALE
-	icon = 'icons/obj/custom_items/sovno_carrier.dmi'
-	icon_state = "kathrine"
-	item_state = "kathrine"
-	icon_living = "kathrine"
-	icon_dead = "kathrine_dead"
-	icon_rest = "kathrine_rest"
-
-/mob/living/simple_animal/cat/fluff/fluffles
-	name = "Fluffles"
-	desc = "A somewhat sickly looking cat. Her fur is white with black patches. A black collar sits around her neck, a golden heart with the word \"Fluffles\" attached to it."
-	gender = FEMALE
-	icon = 'icons/obj/custom_items/sovno_carrier.dmi'
-	icon_state = "fluffles"
-	item_state = "fluffles"
-	icon_living = "fluffles"
-	icon_dead = "fluffles_dead"
-	icon_rest = "fluffles_rest"
-
-/mob/living/simple_animal/cat/fluff/faysaljr
-	name = "Faysal Jr"
-	desc = "A black and white tabby kitten. His coat is very fluffy and his tail stained completely black. A silver collar with a red gem rests around his neck."
-	icon = 'icons/obj/custom_items/sovno_carrier.dmi'
-	icon_state = "faysaljr"
-	item_state = "faysaljr"
-	icon_living = "faysaljr"
-	icon_dead = "faysaljr_dead"
-	can_nap = 0
 
 
 /obj/item/clothing/suit/storage/toggle/fluff/talon_coat //Embroidered Coat - Talon Hatfield - dronzthewolf
@@ -708,63 +503,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	flags_inv = HIDEEARS|HIDEFACE|BLOCKHAIR|BLOCKHEADHAIR
 	body_parts_covered = HEAD|FACE|EYES
 
-
-/obj/item/clothing/under/fluff/mira_uniform //Mira's Cloth Undersuit - Mira Akhandi - ladyfowl
-	name = "dark clothes"
-	desc = "A set of dark under clothing, loosely fitting. The initials /M.A./ are stitched into the collar."
-	icon = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_state = "mira_uniform"
-	item_state = "mira_uniform"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mira_robes //Junior Alchemist Robes - Mira Akhandi - ladyfowl
-	name = "junior alchemist robes"
-	desc = "A  robe with a light silky gold colored belt around the waist. Placed upon the print is two red jewels pinned to it neatly."
-	icon = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_state = "mira_robes"
-	item_state = "mira_robes"
-
-/obj/item/clothing/shoes/fluff/mira_boots //Mira Boots - Mira Akhandi - ladyfowl
-	name = "dark boots"
-	desc = "A pair of black boots with tall laces."
-	icon = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_state = "mira_boots"
-	item_state = "mira_boots"
-	contained_sprite = TRUE
-
-/obj/item/clothing/under/fluff/mira_skirt //Mira's Skirt - Mira Akhandi - ladyfowl
-	name = "suspended skirt"
-	desc = "A plaid skirt with suspenders, sewed into the side is the initials \"M.A.\"."
-	icon = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_state = "mira_skirt"
-	item_state = "mira_skirt"
-	contained_sprite = TRUE
-
-/obj/item/reagent_containers/glass/beaker/fluff/mira_beaker //Alchemist Flask - Mira Akhandi - ladyfowl
-	name = "alchemist flask"
-	desc = "A large bottle used to mix chemicals inside."
-	icon = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_state = "mira_beaker"
-
-/obj/item/storage/backpack/fluff/mira_bag //Burlap Alchemist Bag - Mira Akhandi - ladyfowl
-	name = "burlap bag"
-	desc = "A smallish burlup sack, modified to lug around belongings. Stiched into it is the letters '\"M.A.\"."
-	icon_state = "giftbag0"
-	item_state = "giftbag0"
-
-/obj/item/clothing/suit/fluff/mira_vest //Cut-off Vest - Mira Akhandi - ladyfowl
-	name = "cut-off vest"
-	desc = "A short grey puffer vest."
-	icon = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_override = 'icons/obj/custom_items/mira_clothing.dmi'
-	icon_state = "mira_vest"
-	item_state = "mira_vest"
-	contained_sprite = TRUE
 
 /obj/item/cane/fluff/qrqil_cane //Energy Cane - Qrqil Qrrzix - yonnimer
 	name = "energy cane"
@@ -899,9 +637,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		icon_state = "stand"
 
-/obj/item/fluff/tokash_spear/attack_self(var/mob/user)
+/obj/item/fluff/tokash_spear/attack_hand(var/mob/user)
 	if(has_spear)
-		to_chat(user, "<span class='notice'>You remove the spearhead from \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You remove the spearhead from \the [src]."))
 		var/obj/item/fluff/tokash_spearhead/piece = new(get_turf(user))
 		user.put_in_hands(piece)
 		has_spear = FALSE
@@ -917,6 +655,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		..()
 
+/obj/item/fluff/tokash_spear/MouseDrop(mob/user)
+	if((user == usr && (!(usr.restrained()) && (!(usr.stat) && (usr.contents.Find(src) || in_range(src, usr))))))
+		if(!istype(usr, /mob/living/carbon/slime) && !istype(usr, /mob/living/simple_animal))
+			if(!usr.get_active_hand()) // If active hand is empty.
+				var/mob/living/carbon/human/H = user
+				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
+
+				if(H.hand)
+					temp = H.organs_by_name[BP_L_HAND]
+				if(temp && !temp.is_usable())
+					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+					return
+
+				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
+				user.put_in_hands(src)
+	return
+
 /obj/item/fluff/tokash_spearhead
 	name = "ancestral spearhead"
 	desc = "An aged and worn spearhead. It seems to be made of bronze or composite metal."
@@ -924,7 +679,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "spearhead"
 	w_class = ITEMSIZE_SMALL
-
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/fluff/naomi_coat //Reishi Queen Winter Coat - Naomi Marlowe - smifboy78
 	name = "reishi queen winter coat"
@@ -1295,89 +1049,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/fluff/ulmari_coat //Aut'akh Medical Coat - Ulmari Jukal'za - soultheif96
-	name = "aut'akh medical coat"
-	desc = "A custom-made tailored coat for use in a laboratory/medical setting."
-	icon = 'icons/obj/custom_items/ulmari_coat.dmi'
-	icon_override = 'icons/obj/custom_items/ulmari_coat.dmi'
-	icon_state = "ulmari_coat"
-	item_state = "ulmari_coat"
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat //Biochemist Holocoat - Neith Mekesatis - vrow
-	name = "biochemist holocoat"
-	desc = "An extremely cared for and high quality labcoat that protects against minor chemical spills. The material feels like it could shimmer. There is a pharmaceutical logo displayed on the front."
-	icon = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
-	icon_override = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
-	icon_state = "mekesatis_labcoat"
-	item_state = "mekesatis_labcoat"
-	var/holo_name = "eridanian holocoat"
-	var/holo_desc = "An impeccably designed and cared for dark Eridani Corporate Federation holocoat modelled after a high quality labcoat. It has a prominent animated logo of the ECF on the back, \
-	as well as a minor one across the front."
-	var/changed = FALSE
-	var/changing = FALSE
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/examine(mob/user)
-	..()
-	if(!in_range(user, src))
-		to_chat(user, SPAN_NOTICE("There might be something written on the inside of the coat. You have to get closer if you want to read it."))
-		return
-
-	if(!(all_languages[LANGUAGE_TRADEBAND] in user.languages))
-		to_chat(user, SPAN_NOTICE("On the inside of the coat there is a sentence in Tradeband printed in [changed ? "an elegant blue" : "a stylish red"] font."))
-		return
-
-	else if(!changed)
-		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in a stylish red font:<br><span style='font-family: Fixedsys; color: red'>Exclusive Time Limited Holocoat Deal from July 30, 2459. \
-		Now with graced with an animated Eridani Corporate Federation logo. For the Prosperity of all Eridanians - <i>Delta HoloTextiles. Sector Alpha's best wears.</i></span>"))
-		return
-
-	else
-		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in an elegant blue font:<br><i><font face='Courier New'>Every cloud has a silver lining, \
-		and you should be grateful for yours. Congratulations on your graduation.</font> - <font face='Times New Roman'>Taiwo O. M.</font></i>"))
-		return
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/toggle_open()
-	if(!changing)
-		opened = !opened
-		to_chat(usr, SPAN_NOTICE("You [opened ? "unbutton" : "button up"] \the [src]."))
-		playsound(src, /decl/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
-		icon_state = "mekesatis_[changed ? "holocoat" : "labcoat"][opened ? "_open" : ""]"
-		item_state = icon_state
-		update_clothing_icon()
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/verb/activate_holocoat()
-	set name = "Toggle Holocoat"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return
-
-	if(changing)
-		return
-
-	usr.visible_message("<span class='notice'>With a subtle gesture, [changed ? "the holocoat fades to a normal labcoat." : "the labcoat shimmers in activity!"]</span>")
-	icon_state = "mekesatis_[changed ? "labcoat_r" : "holocoat_t"][opened ? "_open" : ""]"
-	item_state = icon_state
-	name = "[changed ? initial(name) : holo_name]"
-	desc = "[changed ? initial(desc) : holo_desc]"
-	flick("mekesatis_[changed ? "labcoat_r" : "holocoat_t"][opened ? "_open" : ""]", src)
-
-	update_icon()
-	usr.update_inv_wear_suit()
-	changing = TRUE
-	addtimer(CALLBACK(src, .proc/finish_toggle, usr), 6 SECONDS)
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/proc/finish_toggle(mob/user)
-	changed = !changed
-	icon_state = "mekesatis_[changed ? "holocoat" : "labcoat"][opened ? "_open" : ""]"
-	item_state = icon_state
-	update_icon()
-	user.update_inv_wear_suit()
-	changing = FALSE
-
 /obj/item/device/megaphone/fluff/akinyi_mic //Resonance Microphone - Akinyi Idowu - kyres1
 	name = "resonance microphone"
 	desc = "A rather costly voice amplifier disguised as a microphone. A button on the side permits the user to dial their vocal volume with ease."
@@ -1478,57 +1149,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		/obj/item/fluff/akinyi_symphette = 1
 	)
 
-/obj/item/clothing/head/det/fluff/bell_hat //Brown Hat - Avery Bell - serveris6
-	name = "brown hat"
-	desc = "A worn mid 20th century brown hat. It seems to have aged very well."
-	icon = 'icons/obj/custom_items/bell_coat.dmi'
-	icon_override = 'icons/obj/custom_items/bell_coat.dmi'
-	icon_state = "bell_hat"
-	item_state = "bell_hat"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/toggle/det_trench/fluff/bell_coat //Pinned Brown Coat - Avery Bell - serveris6
-	name = "pinned brown coat"
-	desc = "A worn mid 20th century brown trenchcoat. If you look closely at the breast, you can see an ID flap stitched into the leather - \"Avery Bell, Silhouette Co\"."
-	icon = 'icons/obj/custom_items/bell_coat.dmi'
-	icon_override = 'icons/obj/custom_items/bell_coat.dmi'
-	icon_state = "bell_coat"
-	item_state = "bell_coat"
-	contained_sprite = TRUE
-	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,
-	/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder, /obj/item/clothing/accessory/badge/fluff/bell_badge)
-
-/obj/item/clothing/accessory/badge/fluff/bell_badge //Detective's Credentials - Avery Bell - serveris6
-	name = "detective's credentials"
-	desc = "A laminated card, verifying the denoted as a private investigator licensed in Biesel. A photo of a tan-skinned human male dressed in a brown coat and hat is imprinted."
-	icon = 'icons/obj/custom_items/bell_coat.dmi'
-	icon_override = 'icons/obj/custom_items/bell_coat.dmi'
-	icon_state = "bell_badge"
-	item_state = "bell_badge"
-	contained_sprite = TRUE
-	stored_name = "Avery Bell"
-	badge_string = "Silhouette Co. Consulting Detective"
-
-	var/investigator = "Avery Bell"
-	var/occupation = "Consulting Detective"
-	var/birth_year = "8/8/2426"
-	var/licensed_systems = "Republic of Biesel, Sol Alliance, Nralakk"
-	var/supplementary_endorsements = "Licensed Medical Examiner; Sol Alliance, Republic of Biesel - Concealed firearm carry; Sol Alliance, Republic of Biesel"
-	var/citizenship = "Republic of Biesel"
-
-/obj/item/clothing/accessory/badge/fluff/bell_badge/verb/read()
-	set name = "Review credentials"
-	set category = "Object"
-	set src in usr
-
-	to_chat(usr, "\icon[] []: The detective's credentials show:")
-	to_chat(usr, "The investigator registered to the credentials is [investigator].")
-	to_chat(usr, "The assignment registered on the card is [occupation].")
-	to_chat(usr, "The birth date on the card displays [birth_year].")
-	to_chat(usr, "The citizenship registered on the card is [citizenship].")
-	to_chat(usr, "The systems that the credentials show the user is licensed to investigate in are [licensed_systems].")
-	to_chat(usr, "Additional endorsements registered on the card show: [supplementary_endorsements].")
-	return
 
 /obj/item/clothing/accessory/poncho/fluff/amos_vest //Ouerean Vest - Amos Zhujian - dronzthewolf
 	name = "ourean vest"
@@ -1946,7 +1566,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "pax_bag"
 	contained_sprite = TRUE
 
-/obj/item/storage/pill_bottle/dice/fluff/suraya_dicebag //Crevan Dice Bag - Suraya Al-Zahrani - Omicega
+/obj/item/storage/pill_bottle/dice/fluff/suraya_dicebag //Crevan Dice Bag - Suraya Al-Zahrani - omicega
 	name = "velvet dice bag"
 	desc = "A deep purple dice bag fashioned from Adhomian velvet, with two little drawstrings to tighten the neck closed."
 	icon = 'icons/obj/custom_items/suraya_dice.dmi'
@@ -1997,7 +1617,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	canremove = FALSE
 	contained_sprite = TRUE
 
-/obj/item/organ/internal/augment/synthetic_cords/voice/fluff/marc //Old Synthetic Vocal Cords - Marc Hardy - Dekser
+/obj/item/organ/internal/augment/synthetic_cords/voice/fluff/marc //Old Synthetic Vocal Cords - Marc Hardy - dekser
 	name = "old synthetic vocal cords"
 	desc = "A set of Old Age Synthetic Vocal Cords. They look barely functional."
 
@@ -2138,7 +1758,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/suit/storage/fluff/quoro_suit //Skrellian Fancy Robes - Quoro Wurri'Til - witchbells
 	name = "skrellian fancy robes"
 	desc = "An elaborate yet functional set of robes favored by the upper echelons of skrellian society, with a silver belt attached. A star is embroidered on the back, \
-	symbolizing the Jargon Federation."
+	symbolizing the Nralakk Federation."
 	icon = 'icons/obj/custom_items/quoro_items.dmi'
 	icon_override = 'icons/obj/custom_items/quoro_items.dmi'
 	icon_state = "quoro_suit"
@@ -2146,9 +1766,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Jargon division cloak - Eden Li - Huntime
-	name = "Zeng-Hu cloak: Jargon Division"
-	desc = "A cloak worn by Zeng-Hu personnel who worked with or in the Jargon Federation."
+/obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Nralakk division cloak - Eden Li - huntime
+	name = "Zeng-Hu cloak: Nralakk Division"
+	desc = "A cloak worn by Zeng-Hu personnel who worked with or in the Nralakk Federation."
 	icon = 'icons/obj/custom_items/eden_cloak.dmi'
 	icon_override = 'icons/obj/custom_items/eden_cloak.dmi'
 	icon_state = "ZH_cape_custom"
@@ -2301,54 +1921,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		if(lit_message)
 			visible_message(SPAN_NOTICE(lit_message), range = 3)
 
-/obj/item/clothing/under/fluff/yanna_dress //Techno-Conglomerate CR dress - Yanna Trevidic - simplemaroon
-	name = "techno-conglomerate CR dress"
-	desc = "A sky blue-colored comfort-and-relaxation dress designed for off-worlders. This one is made to Techno-Conglomerate specifications, \
-	with sensors outlined across the ribcage that grow brighter or duller based on the wearer's emotional intensity."
-	icon = 'icons/obj/custom_items/yanna_dress.dmi'
-	icon_override = 'icons/obj/custom_items/yanna_dress.dmi'
-	icon_state = "yanna_dress"
-	item_state = "yanna_dress"
-	contained_sprite = TRUE
-	var/list/emotional_settings = list("0", "1", "2", "3")
-	var/emotional_choice
-	action_button_name = "Adjust Emotional Setting"
-
-/obj/item/clothing/under/fluff/yanna_dress/Initialize()
-	for(var/setting in emotional_settings)
-		emotional_settings[setting] = image('icons/obj/custom_items/yanna_dress.dmi', "level_[emotional_settings.Find(setting) - 1]")
-	.=..()
-
-/obj/item/clothing/under/fluff/yanna_dress/attack_self(mob/user)
-	choose_setting(user)
-
-/obj/item/clothing/under/fluff/yanna_dress/verb/adjust_setting()
-	set category = "Object"
-	set name = "Adjust Emotional Setting"
-	set src in usr
-
-	choose_setting(usr)
-
-/obj/item/clothing/under/fluff/yanna_dress/proc/choose_setting(mob/user)
-	var/emotional_setting = RADIAL_INPUT(user, emotional_settings)
-	if(!emotional_setting)
-		return
-	set_light(text2num(emotional_setting) * 0.4, text2num(emotional_setting) * 0.4, COLOR_BRIGHT_GREEN)
-	emotional_choice = "level_" + emotional_setting
-	update_icon()
-	update_clothing_icon()
-	get_mob_overlay(TRUE)
-
-/obj/item/clothing/under/fluff/yanna_dress/update_icon()
-	cut_overlays()
-	add_overlay(emotional_choice)
-
-/obj/item/clothing/under/fluff/yanna_dress/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
-	var/image/I = ..()
-	I.add_overlay(emotional_choice + "_un")
-	return I
-
-
 /obj/item/clothing/suit/vaurca/fluff/bells_zora_cloak //Tailored Hive Cloak - Ka'Akaix'Bells Zo'ra - shestrying
 	name = "tailored hive cloak"
 	desc = "A typical-looking Vaurca hive cloak design, tailored from what looks to be labcoat material."
@@ -2407,3 +1979,145 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "blue taffy"
 	icon_state = "blue_taffy"
 	reagent_data = list(/decl/reagent/nutriment = list("salty-sweet, tangy taffy" = 1))
+
+
+/obj/item/clothing/suit/storage/fluff/aheke_coat //Hengsha Thermal Coat - Aheke Han'san - hawkington
+	name = "hengsha thermal coat"
+	desc = "A very heavy, well padded, and generally quite large grey overcoat, probably made for an Unathi, made out of a rather stiff, almost leathery type substance. With a brown synthetic fur \
+	collar and even more fleecing inside. Interestingly enough, there does not seem to be an easy way of closing it. Emblazoned on the back in large, red letters is \"K6\"."
+	icon = 'icons/obj/custom_items/aheke_coat.dmi'
+	icon_override = 'icons/obj/custom_items/aheke_coat.dmi'
+	icon_state = "aheke_coat"
+	item_state = "aheke_coat"
+	contained_sprite = TRUE
+
+
+/obj/structure/sign/flag/unathi_fleet
+	name = "unathi fleet flag"
+	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
+	icon_state = "unathi_fleet"
+
+/obj/structure/sign/flag/unathi_fleet/left
+	icon_state = "unathi_fleet_l"
+
+/obj/structure/sign/flag/unathi_fleet/right
+	icon_state = "unathi_fleet_r"
+
+/obj/item/flag/fluff/ahzi_flag //Unathi Fleet Flag - Ankala Ahzi - captaingecko
+	name = "unathi fleet flag"
+	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
+	icon = 'icons/obj/custom_items/ahzi_items.dmi'
+	icon_override = 'icons/obj/custom_items/ahzi_items.dmi'
+	icon_state = "ahzi_flag"
+	flag_path = "unathi_fleet"
+
+/obj/item/flag/fluff/ahzi_flag/l
+	flag_size = 1
+
+/obj/item/clothing/accessory/armband/fluff/ahzi_armband //Unathi Fleet Armband - Ankala Ahzi - captaingecko
+	name = "unathi fleet armband"
+	desc = "An armband bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
+	icon = 'icons/obj/custom_items/ahzi_items.dmi'
+	icon_override = 'icons/obj/custom_items/ahzi_items.dmi'
+	icon_state = "ahzi_armband"
+	item_state = "ahzi_armband"
+	contained_sprite = TRUE
+
+
+/obj/item/fluff/ielia_tarot //Starfinder - Ielia Aliori-Quis'Naala - shestrying
+	name = "starfinder"
+	desc = "A small, bronze ball. It is heavy in the hand and seems to have no switches or buttons on it. "
+	icon = 'icons/obj/custom_items/ielia_tarot.dmi'
+	icon_override = 'icons/obj/custom_items/ielia_tarot.dmi'
+	icon_state = "ielia_tarot"
+	contained_sprite = TRUE
+	var/list/possible_cards = list("Island","Hatching Egg","Star Chanter","Jiu'x'klua","Stormcloud","Gnarled Tree","Poet","Bloated Toad","Void","Qu'Poxii","Fisher","Mountain","Sraso","Nioh")
+	var/activated = FALSE
+	var/first_card
+	var/second_card
+	var/third_card
+
+/obj/item/fluff/ielia_tarot/attack_self(var/mob/user)
+	if(activated)
+		reset_starfinder()
+	else
+		start_starfinder()
+
+/obj/item/fluff/ielia_tarot/AltClick(mob/user)
+	attack_self(user)
+
+/obj/item/fluff/ielia_tarot/verb/start_starfinder()
+	set name = "Start the Starfinder"
+	set category = "Object"
+	set src in view(1)
+
+	if(activated)
+		return
+
+	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
+		return
+
+	first_card = null
+	second_card = null
+	third_card = null
+
+	icon_state = "ielia_tarot_on"
+	cut_overlays()
+
+	usr.visible_message("\The [usr] activates the [src].")
+	flick ("card_spawn",src)
+	activated = TRUE
+
+	icon_state = "card_spin"
+	add_overlay("card_spin_fx")
+	addtimer(CALLBACK(src, .proc/finish_selection, usr), 3 SECONDS)
+
+/obj/item/fluff/ielia_tarot/examine(mob/user)
+	if(..(user, 1))
+		if(first_card && second_card && third_card)
+			to_chat(user, "The following constellations are displayed on the starfinder: [first_card], [second_card], and [third_card].")
+
+/obj/item/fluff/ielia_tarot/proc/finish_selection(var/mob/user)
+	cut_overlays()
+	flick("card_spin_stop",src)
+	icon_state = "ielia_tarot_on"
+	for(var/i = 1 to 3)
+		var/P = pick(possible_cards)
+		if(!first_card)
+			first_card = P
+		else if(first_card && !second_card)
+			second_card = P
+		else if(first_card && second_card)
+			third_card = P
+
+	cut_overlays()
+	add_overlay("card_display_fx")
+	add_overlay("card_display")
+
+	var/image/first_card_overlay = image(icon, src, first_card)
+	first_card_overlay.pixel_x = -8
+	add_overlay(first_card_overlay)
+
+	var/image/second_card_overlay = image(icon, src, second_card)
+	add_overlay(second_card_overlay)
+
+	var/image/third_card_overlay = image(icon, src, third_card)
+	third_card_overlay.pixel_x = 8
+	add_overlay(third_card_overlay)
+
+/obj/item/fluff/ielia_tarot/proc/reset_starfinder()
+	if(!activated)
+		return
+	cut_overlays()
+	icon_state = "ielia_tarot"
+	activated = FALSE
+
+
+/obj/item/clothing/suit/storage/fluff/osborne_suit //Osborne Strelitz - Osborne Strelitz - sirtoast
+	name = "dominian officer's trench coat"
+	desc = "An Imperial Army trench coat that is used by Dominian officers in colder environments. This one is missing the unit insignia and has the symbol of a military count on its rank collar."
+	icon = 'icons/obj/custom_items/osborne_suit.dmi'
+	icon_override = 'icons/obj/custom_items/osborne_suit.dmi'
+	icon_state = "osborne_suit"
+	item_state = "osborne_suit"
+	contained_sprite = TRUE

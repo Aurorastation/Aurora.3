@@ -126,6 +126,10 @@
 	metabolism = REM * 0.5
 	taste_description = "mushroom"
 	fallback_specific_heat = 1.2
+	condiment_name = "Psilocybin"
+	condiment_desc = "A small bottle full of a pink liquid. Whatever could it do?"
+	condiment_icon_state = "psilocybin"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/psilocybin/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
 	to_chat(M, SPAN_GOOD(pick("You lean back and begin to fall... and fall... and fall.", "Your eyes open wide and you look upon this new world you now see.", "You close your eyes, and when they open, everything appears so much more vibrant.", "You feel a wave of pleasure suddenly rush over you.", "This is already the best decision you've ever made.")))
@@ -352,6 +356,10 @@
 	taste_description = "sourness"
 	fallback_specific_heat = 1
 	overdose = 10
+	condiment_name = "Wulumunusha Extract Bottle"
+	condiment_desc = "A small dropper bottle full of a stoner's paradise. A warning label warns of muteness as a side effect."
+	condiment_icon_state = "wuluextract"
+
 
 /decl/reagent/wulumunusha/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
 	to_chat(M, SPAN_GOOD(pick("Your eyes open wide and you look upon this new world you now see.", "You close your eyes, and when they open, everything appears so much more vibrant.")))
@@ -378,6 +386,11 @@
 	taste_description = "spicy earth"
 	taste_mult = 0.4
 	fallback_specific_heat = 1.6
+	condiment_name = "Ambrosia Extract Bottle"
+	condiment_desc = "A small dropper bottle full of a stoner's paradise."
+	condiment_icon_state = "ambrosiaextract"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 
 /decl/reagent/ambrosia_extract/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
@@ -448,7 +461,7 @@
 
 /decl/reagent/xuxigas
 	name = "Xu'Xi Gas"
-	description = "A recreational drug hailing from Qerr'Malic that must be inhaled. It produces a mild high similar to Wulumunusha and is known to make users susceptible to persuasion. Most forms of Xu'Xi Gas found outside of the Jargon Federation are cheap, synthetic substitutes. Only works when inhaled."
+	description = "A recreational drug hailing from Qerr'Malic that must be inhaled. It produces a mild high similar to Wulumunusha and is known to make users susceptible to persuasion. Most forms of Xu'Xi Gas found outside of the Nralakk Federation are cheap, synthetic substitutes. Only works when inhaled."
 	color = "#58D373"
 	taste_description = "algae"
 	reagent_state = GAS

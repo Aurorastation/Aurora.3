@@ -4,6 +4,7 @@
 	animate_movement = 2
 	flags = PROXMOVE
 	sight = DEFAULT_SIGHT
+	virtual_mob = /mob/abstract/observer/virtual/mob
 	var/datum/mind/mind
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
@@ -59,17 +60,17 @@
 	var/character_id = 0
 	var/obj/machinery/machine = null
 	var/other_mobs = null
-	var/sdisabilities = 0	//Carbon
-	var/disabilities = 0	//Carbon
+	var/sdisabilities = 0				//Carbon
+	var/disabilities = 0				//Carbon
 	var/atom/movable/pulling = null
 	var/next_move = null
-	var/transforming = null	//Carbon
+	var/transforming = null				//Carbon
 	var/other = 0.0
 	var/hand = null
-	var/eye_blind = null	//Carbon
-	var/eye_blurry = null	//Carbon
-	var/ear_deaf = null		//Carbon
-	var/ear_damage = null	//Carbon
+	var/eye_blind = null				//Carbon
+	var/eye_blurry = null				//Carbon
+	var/ear_deaf = null					//Carbon
+	var/ear_damage = null				//Carbon
 	var/stuttering = null
 	var/slurring = null
 	var/brokejaw = null
@@ -85,14 +86,15 @@
 	var/list/ccia_actions = list()
 	var/exploit_record = ""
 	var/blinded = null
-	var/bhunger = 0			//Carbon
+	var/bhunger = 0						//Carbon
 	var/ajourn = 0
-	var/druggy = 0			//Carbon
-	var/confused = 0		//Carbon
+	var/druggy = 0						//Carbon
+	var/confused = 0					//Carbon
 	var/antitoxs = null
 	var/phoron = null
-	var/sleeping = 0		//Carbon
-	var/resting = 0			//Carbon
+	var/sleeping = 0					//Carbon
+	var/sleeping_msg_debounce = FALSE	//Carbon - Used to show a message once every time someone falls asleep.
+	var/resting = 0						//Carbon
 	var/lying = 0
 	var/lying_prev = 0
 	var/canmove = 1

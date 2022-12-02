@@ -1,8 +1,7 @@
 /obj/item/storage/box/swabs
 	name = "box of swab kits"
 	desc = "Sterilized equipment within. Do not contaminate."
-	icon = 'icons/obj/forensics.dmi'
-	icon_state = "dnakit"
+	illustration = "swab"
 	can_hold = list(/obj/item/forensics/swab)
 	storage_slots = 14
 
@@ -13,7 +12,7 @@
 
 /obj/item/storage/box/slides
 	name = "microscope slide box"
-	icon_state = "solution_trays"
+	illustration = "solution_trays"
 	storage_slots = 7
 
 /obj/item/storage/box/slides/fill()
@@ -24,6 +23,7 @@
 /obj/item/storage/box/evidence
 	name = "evidence bag box"
 	desc = "A box claiming to contain evidence bags."
+	illustration = "evidence"
 	storage_slots = 6
 
 /obj/item/storage/box/evidence/fill()
@@ -34,8 +34,7 @@
 /obj/item/storage/box/fingerprints
 	name = "box of fingerprint cards"
 	desc = "Sterilized equipment within. Do not contaminate."
-	icon = 'icons/obj/forensics.dmi'
-	icon_state = "dnakit"
+	illustration = "paper"
 	can_hold = list(/obj/item/sample/print)
 	storage_slots = 14
 

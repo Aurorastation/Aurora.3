@@ -121,3 +121,4 @@
 	thetamycin	spawn_reagent = /decl/reagent/thetamycin
 	mortaphenyl	spawn_reagent = /decl/reagent/mortaphenyl
 	tricord		spawn_reagent = /decl/reagent/tricordrazine
+	sanasomnum	spawn_reagent = /decl/reagent/sanasomnum

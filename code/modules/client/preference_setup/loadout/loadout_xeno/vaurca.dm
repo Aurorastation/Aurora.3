@@ -171,7 +171,7 @@
 	display_name = "language processor"
 	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective hives."
 	path = /obj/item/organ/internal/augment/language/klax
-	cost = 2
+	cost = 0
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_NO_SELECTION

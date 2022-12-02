@@ -68,7 +68,43 @@
 		</div>
 	</div>
 </div>
+<h4>IFF Management</h4>
+<div class='block'>
+	{{:helper.link(data.id_on ? 'Switch off' : 'Switch on', 'gear', { 'toggle_id' : 1 }, data.id_status != 'NOBEACON' ? null : 'disabled', data.id_on ? 'selected' : null)}}
+	<div class='item'>
+		<div class="itemLabel">
+			<span class='white'>Status:</span>
+		</div>
+		<div class="itemContent">
+			{{:data.id_status}}
+		</div>
+	</div>
+	<div class='item'>
+		<div class="itemLabel">
+			<span class='white'>Class:</span>
+		</div>
+		<div class="itemContent">
+			{{if data.can_change_class}}
+				{{:helper.link(data.id_class, 'gear', { 'change_ship_class' : 1 })}}
+			{{else}}
+				<span class='white'>{{:data.id_class}}</span>
+			{{/if}}
+		</div>
+		<br>
+		<div class="itemLabel">
+			<span class='white'>Designation:</span>
+		</div>
+		<div class="itemContent">
+			{{if data.can_change_name}}
+				{{:helper.link(data.id_name, 'gear', { 'change_ship_name' : 1 })}}
+			{{else}}
+				<span class='white'>{{:data.id_name}}</span>
+			{{/if}}
+		</div>
+	</div>
+</div>
 <h4>Sensor contacts</h4>
+<h4>Sensor Contacts</h4>
 <div class='block'>
 {{if data.contacts}}
 	<table>
@@ -77,6 +113,22 @@
 	<div class='item'>
 		<td>{{:helper.link('Scan', 'search' ,{ 'scan' : value.ref }, null, null)}}</td>
 		<td><span class='white'>{{:value.name}}</span>, bearing {{:value.bearing}}</td>
+	</div>
+	</tr>
+	{{/for}}
+	</table>
+{{/if}}
+</div>
+<h4>Distress Beacons</h4>
+<div class='block'>
+<span class='average'>Press the 'Listen' button to listen to the distress message.</span>
+{{if data.distress_beacons}}
+	<table>
+	{{for data.distress_beacons}}
+	<tr>
+	<div class='item'>
+		<td>{{:helper.link('Listen', 'info' ,{ 'play_message' : value.caller }, null, null)}}</td>
+		<td><span class='white'>{{:value.caller}}</span>, bearing {{:value.bearing}}, sent by {{:value.sender}}</td>
 	</div>
 	</tr>
 	{{/for}}

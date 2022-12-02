@@ -23,6 +23,11 @@
 	else
 		queue_smooth(src)
 
+	if (current_map.use_overmap && istype(loc, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
+
 // Helper to change this turf into an appropriate openturf type, generally you should use this instead of ChangeTurf(/turf/simulated/open).
 /turf/proc/ChangeToOpenturf()
 	. = ChangeTurf(/turf/space)
@@ -83,9 +88,9 @@
 			else
 				lighting_clear_overlay()
 
-	if (config.starlight)
-		for (var/turf/space/S in RANGE_TURFS(1, src))
-			S.update_starlight(FALSE)
+		if (config.starlight)
+			for (var/turf/space/S in RANGE_TURFS(1, src))
+				S.update_starlight()
 
 	W.above = old_above
 

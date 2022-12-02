@@ -113,6 +113,7 @@
 	if(wasoff != (stat & POWEROFF))
 		activation_message(user)
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
+	cooking = use_power
 	update_icon()
 
 /obj/machinery/appliance/cooker/proc/activation_message(var/mob/user)

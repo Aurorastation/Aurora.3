@@ -35,7 +35,7 @@
 /obj/item/clothing/suit/storage/hooded/wintercoat
 	name = "winter coat"
 	desc = "A heavy jacket made from animal furs."
-	icon = 'icons/obj/hoodies.dmi'
+	icon = 'icons/obj/clothing/hoodies.dmi'
 	icon_state = "coatwinter"
 	item_state = "coatwinter"
 	contained_sprite = TRUE
@@ -50,7 +50,7 @@
 /obj/item/clothing/head/winterhood
 	name = "winter hood"
 	desc = "A hood attached to a heavy winter jacket."
-	icon = 'icons/obj/hoodies.dmi'
+	icon = 'icons/obj/clothing/hoodies.dmi'
 	icon_state = "coatwinter_hood"
 	contained_sprite = TRUE
 	body_parts_covered = HEAD
@@ -175,7 +175,7 @@
 	item_state = "coathydro"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
-	name = "cargo winter coat"
+	name = "operations winter coat"
 	icon_state = "coatcargo"
 	item_state = "coatcargo"
 
@@ -263,7 +263,7 @@
 	name = "martian hoodie"
 	desc = "An orange hoodie jacket featuring the face of Warrant Officer August 'Gus' Maldarth, typically worn as a symbol of both solidarity with Mars, and a sign of protest against the Sol Alliance government. \
 	Strangely, Maldarth seems to be mispelled as 'Maldrath' on this garment. Additionally, #GusticeForGus can be seen written on the back. It seems to have typeface issues."
-	desc_fluff = "In November 2462, the planet of Mars was devastated by a phoron explosion widely believed to be\
+	desc_extended = "In November 2462, the planet of Mars was devastated by a phoron explosion widely believed to be\
 	caused by experiments the Solarian government was conducting on the planet. As a result, an earlier whistleblower,\
 	Gus Maldarth was regarded as a martyr after being silenced by operatives allegedly working on the behalf of Sol."
 	icon_state = "hoodie_mars"

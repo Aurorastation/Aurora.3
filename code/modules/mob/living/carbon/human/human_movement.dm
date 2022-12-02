@@ -31,10 +31,6 @@
 
 	tally += species.handle_movement_tally(src)
 
-	if (can_feel_pain())
-		if(shock_stage >= 10)
-			tally += 3
-
 	if(is_asystole())
 		tally += 10  //heart attacks are kinda distracting
 
@@ -55,6 +51,10 @@
 		tally = 0
 
 	tally += move_delay_mod
+
+	var/obj/item/I = get_active_hand()
+	if(istype(I))
+		tally += I.slowdown
 
 	if(tally > 0 && (CE_SPEEDBOOST in chem_effects))
 		tally = max(0, tally-3)

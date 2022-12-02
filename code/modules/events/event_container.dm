@@ -123,20 +123,78 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	next_event = EM
 	return EM
 
+// Returns how many characters are currently active (not logged out, not AFK for more than 10 minutes) with a specific role.
+// Note that this isn't sorted by department, because e.g. having a roboticist shouldn't make meteors spawn.
+/proc/number_active_with_role()
+	var/list/active_with_role = list()
+	active_with_role["Engineer"] = 0
+	active_with_role["Medical"] = 0
+	active_with_role["Surgeon"] = 0
+	active_with_role["Security"] = 0
+	active_with_role["Scientist"] = 0
+	active_with_role["AI"] = 0
+	active_with_role["Cyborg"] = 0
+	active_with_role["Janitor"] = 0
+	active_with_role["Gardener"] = 0
 
+	for(var/mob/M in player_list)
+		if(!M.mind || !M.client || M.client.is_afk(10 MINUTES)) // longer than 10 minutes AFK counts them as inactive
+			continue
+
+		active_with_role["Any"]++
+
+		if(istype(M, /mob/living/silicon/robot))
+			var/mob/living/silicon/robot/R = M
+			if(R.module)
+				if(istype(R.module, /obj/item/robot_module/engineering))
+					active_with_role["Engineer"]++
+				else if(istype(R.module, /obj/item/robot_module/medical))
+					active_with_role["Medical"]++
+				else if(istype(R.module, /obj/item/robot_module/research))
+					active_with_role["Scientist"]++
+
+		if(M.mind.assigned_role in engineering_positions)
+			active_with_role["Engineer"]++
+
+		if(M.mind.assigned_role in medical_positions)
+			active_with_role["Medical"]++
+			if(M.mind.assigned_role == "Surgeon")
+				active_with_role["Surgeon"]++
+
+		if(M.mind.assigned_role in security_positions)
+			active_with_role["Security"]++
+
+		if(M.mind.assigned_role in science_positions)
+			active_with_role["Scientist"]++
+
+		if(M.mind.assigned_role == "AI")
+			active_with_role["AI"]++
+
+		if(M.mind.assigned_role == "Cyborg")
+			active_with_role["Cyborg"]++
+
+		if(M.mind.assigned_role == "Janitor")
+			active_with_role["Janitor"]++
+
+		if(M.mind.assigned_role == "Gardener")
+			active_with_role["Gardener"]++
+
+	return active_with_role
+
+// Severity Level, Event Name, Event Type, Base Weight, Role Weight(s), One Shot (TRUE/FALSE), Min Weight, Max Weight. Last two only used if set and non-zero.
+// Role weight(s) is per active role, so (1 role = role weight * 1), (4 roles active = role weight * 4).
 /datum/event_container/mundane
 	severity = EVENT_LEVEL_MUNDANE
 	available_events = list(
-		// Severity level, event name, even type, base weight, role weights, one shot, min weight, max weight. Last two only used if set and non-zero
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing",					/datum/event/nothing,				120),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "APC Damage",				/datum/event/apc_damage,			20, 	list(ASSIGNMENT_ENGINEER = 15)),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Brand Intelligence",		/datum/event/brand_intelligence,	0, 	list(ASSIGNMENT_ENGINEER = 5),	1),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Brand Intelligence",		/datum/event/brand_intelligence,	0, 		list(ASSIGNMENT_ENGINEER = 5), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Camera Damage",				/datum/event/camera_damage,			20, 	list(ASSIGNMENT_ENGINEER = 10)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Economic News",				/datum/event/economic_event,		300),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Lost Carp",					/datum/event/carp_migration, 		20, 	list(ASSIGNMENT_SECURITY = 10), 1),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Lost Carp",					/datum/event/carp_migration, 		20, 	list(ASSIGNMENT_SECURITY = 10), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Cozmozoan Migration",		/datum/event/carp_migration/cozmo,	60),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Hacker",				/datum/event/money_hacker, 			10),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Lotto",				/datum/event/money_lotto, 			0, 		list(ASSIGNMENT_ANY = 1), 1, 5, 15),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Lotto",				/datum/event/money_lotto, 			0, 		list(ASSIGNMENT_ANY = 1), TRUE, 5, 15),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Mundane News", 				/datum/event/mundane_news, 			300),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",					/datum/event/wallrot, 				75,		list(ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_GARDENER = 20)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Clogged Vents",				/datum/event/vent_clog, 			55),
@@ -148,6 +206,8 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Visitor", 					/datum/event/visitor,				50, is_one_shot = TRUE)
 	)
 
+// Severity Level, Event Name, Event Type, Base Weight, Role Weight(s), One Shot (TRUE/FALSE), Min Weight, Max Weight. Last two only used if set and non-zero.
+// Role weight(s) is per active role, so (1 role = role weight * 1), (4 roles active = role weight * 4).
 /datum/event_container/moderate
 	severity = EVENT_LEVEL_MODERATE
 	available_events = list(
@@ -158,29 +218,29 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Electrical Storm",					/datum/event/electrical_storm, 				50,		list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Gravity Failure",					/datum/event/gravity,	 					100),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ion Storm",						/datum/event/ionstorm, 						0,		list(ASSIGNMENT_AI = 45, ASSIGNMENT_CYBORG = 25, ASSIGNMENT_ENGINEER = 6, ASSIGNMENT_SCIENTIST = 6)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Prison Break",						/datum/event/prison_break,					0,		list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_CYBORG = 20),1),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Xenobiology",	/datum/event/prison_break/xenobiology,		0,		list(ASSIGNMENT_SCIENTIST = 15, ASSIGNMENT_CYBORG = 20),1),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Bridge",		/datum/event/prison_break/bridge,			0,		list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_CYBORG = 20),1),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Prison Break",						/datum/event/prison_break,					0,		list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_CYBORG = 20), TRUE),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Xenobiology",	/datum/event/prison_break/xenobiology,		0,		list(ASSIGNMENT_SCIENTIST = 15, ASSIGNMENT_CYBORG = 20), TRUE),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Bridge",		/datum/event/prison_break/bridge,			0,		list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_CYBORG = 20), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Radiation Storm",					/datum/event/radiation_storm, 				100,	list(ASSIGNMENT_MEDICAL = 20)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Random Antagonist",				/datum/event/random_antag,		 			0,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_SECURITY = 1),0,10,125, list("Extended")),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Random Antagonist",				/datum/event/random_antag,		 			0,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_SECURITY = 1), FALSE, 10, 125, list("Extended")),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Rogue Drones",						/datum/event/rogue_drone, 					15,		list(ASSIGNMENT_SECURITY = 15)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Spider Infestation",		/datum/event/spider_infestation/moderate,	50,		list(ASSIGNMENT_SECURITY = 10)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Vermin Infestation",		/datum/event/infestation/moderate, 			30,		list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 10)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Drone Uprising",					/datum/event/rogue_maint_drones,			25,		list(ASSIGNMENT_ENGINEER = 30)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Rescue Pod",						/datum/event/rescue_pod, 					50,		list(ASSIGNMENT_MEDICAL = 10, ASSIGNMENT_SECURITY = 2), is_one_shot = TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Burglar Pod",						/datum/event/rescue_pod/burglar, 			50,		list(ASSIGNMENT_SECURITY = 5), is_one_shot = TRUE, excluded_roundtypes = list("Extended"))
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Drone Uprising",					/datum/event/rogue_maint_drones,			25,		list(ASSIGNMENT_ENGINEER = 30))
 	)
 
+// Severity Level, Event Name, Event Type, Base Weight, Role Weight(s), One Shot (TRUE/FALSE), Min Weight, Max Weight. Last two only used if set and non-zero.
+// Role weight(s) is per active role, so (1 role = role weight * 1), (4 roles active = role weight * 4).
 /datum/event_container/major
 	severity = EVENT_LEVEL_MAJOR
 	available_events = list(
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Nothing",						/datum/event/nothing,					135),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob",						/datum/event/blob, 						40,	list(ASSIGNMENT_ENGINEER = 5), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Carp Migration",				/datum/event/carp_migration,			50,	list(ASSIGNMENT_SECURITY =  10), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",					/datum/event/spacevine, 				75,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",			/datum/event/spider_infestation,		25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Major Vermin Infestation",	/datum/event/infestation/major, 		15,	list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5)),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Drone Revolution",			/datum/event/rogue_maint_drones,		0,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_SECURITY = 5))
+		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Nothing",					/datum/event/nothing,					135),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Blob",						/datum/event/blob, 						0,		list(ASSIGNMENT_ENGINEER = 10), TRUE),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Carp Migration",			/datum/event/carp_migration,			50,		list(ASSIGNMENT_SECURITY =  10), TRUE),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Space Vines",				/datum/event/spacevine, 				0,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), TRUE),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Spider Infestation",		/datum/event/spider_infestation,		25,	 	list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), TRUE),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Major Vermin Infestation",	/datum/event/infestation/major, 		15,		list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5)),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Drone Revolution",			/datum/event/rogue_maint_drones,		0,		list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_SECURITY = 5))
 	)
 
 #undef ASSIGNMENT_ANY

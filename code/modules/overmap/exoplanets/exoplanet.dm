@@ -34,7 +34,7 @@
 	var/repopulate_types = list() // animals which have died that may come back
 
 	var/list/possible_themes = list(/datum/exoplanet_theme)
-	var/list/themes = list()
+	var/datum/exoplanet_theme/theme
 
 	var/list/map_generators = list()
 
@@ -74,7 +74,7 @@
 
 	if(LAZYLEN(possible_themes))
 		var/datum/exoplanet_theme/T = pick(possible_themes)
-		themes += new T
+		theme = new T
 
 	for(var/T in subtypesof(/datum/map_template/ruin/exoplanet))
 		var/datum/map_template/ruin/exoplanet/ruin = T
@@ -93,6 +93,7 @@
 	generate_landing(2)
 	update_biome()
 	generate_daycycle()
+	generate_planet_image()
 	START_PROCESSING(SSprocessing, src)
 
 //attempt at more consistent history generation for xenoarch finds.
@@ -165,13 +166,15 @@
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
-	var/list/grasscolors = plant_colors.Copy()
-	grasscolors -= "RANDOM"
-	if(length(grasscolors))
-		grass_color = pick(grasscolors)
+	if(plant_colors)
+		var/list/grasscolors = plant_colors.Copy()
+		grasscolors -= "RANDOM"
+		if(length(grasscolors))
+			grass_color = pick(grasscolors)
 
-	for(var/datum/exoplanet_theme/T as anything in themes)
-		T.before_map_generation(src)
+	if(istype(theme))
+		theme.before_map_generation(src)
+
 	for (var/zlevel in map_z)
 		var/list/edges
 		edges += block(locate(1, 1, zlevel), locate(TRANSITIONEDGE, maxy, zlevel))
@@ -183,7 +186,7 @@
 		var/padding = TRANSITIONEDGE
 		for (var/map_type in map_generators)
 			if (ispath(map_type, /datum/random_map/noise/exoplanet))
-				new map_type(null,padding,padding,zlevel,maxx-padding,maxy-padding,0,1,1,planetary_area, plant_colors)
+				new map_type(null,padding,padding,zlevel,maxx-padding,maxy-padding,0,1,1,planetary_area, plant_colors, theme)
 			else
 				new map_type(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area)
 
@@ -225,6 +228,7 @@
 	S.set_trait(TRAIT_HEAT_TOLERANCE,      S.get_trait(TRAIT_HEAT_TOLERANCE) + rand(-5,5),800,70)
 	S.set_trait(TRAIT_LOWKPA_TOLERANCE,    atmosphere.return_pressure() + rand(-5,-50),80,0)
 	S.set_trait(TRAIT_HIGHKPA_TOLERANCE,   atmosphere.return_pressure() + rand(5,50),500,110)
+	S.set_trait(TRAIT_SPREAD,0)
 	if(S.exude_gasses)
 		S.exude_gasses -= badgas
 	if(atmosphere)

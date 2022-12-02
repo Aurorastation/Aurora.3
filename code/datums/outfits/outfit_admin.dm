@@ -43,8 +43,8 @@
 	)
 	back = list(
 		/obj/item/storage/backpack,
-		/obj/item/storage/backpack/satchel_norm,
 		/obj/item/storage/backpack/satchel,
+		/obj/item/storage/backpack/satchel/leather,
 		/obj/item/storage/backpack/duffel,
 		/obj/item/storage/backpack/duffel
 	)

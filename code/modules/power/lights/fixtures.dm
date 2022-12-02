@@ -111,7 +111,7 @@
 	supports_nightmode = FALSE
 
 /obj/machinery/light/spot/weak
-	name = "exterior spotlight"
+	name = "low-intensity spotlight"
 	brightness_range = 12
 	brightness_power = 1.2
 
@@ -413,6 +413,7 @@
 		user.visible_message(SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."), SPAN_WARNING("You hit \the [src], but it doesn't break."), SPAN_WARNING("You hear something hitting against glass."))
 
 /obj/machinery/light/bullet_act(obj/item/projectile/P, def_zone)
+	bullet_ping(P)
 	shatter()
 
 // returns whether this light has power

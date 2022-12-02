@@ -509,6 +509,16 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "long fringe"
 
+	fade_clean
+		name = "Fade, Clean"
+		icon_state = "hair_fade_clean"
+		chatname = "short hair"
+
+	fade_cleanlow
+		name = "Fade, Clean Low"
+		icon_state = "hair_fade_cleanlow"
+		chatname = "short hair"
+
 	fade_high
 		name = "Fade, High"
 		icon_state = "hair_fade_high"
@@ -517,6 +527,11 @@ Follow by example and make good judgement based on length which list to include 
 	fade_low
 		name = "Fade, Low"
 		icon_state = "hair_fade_low"
+		chatname = "short hair"
+
+	fade_manbun
+		name = "Fade, Manbun"
+		icon_state = "hair_fade_manbun"
 		chatname = "short hair"
 
 	fade_medium
@@ -1024,6 +1039,12 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "short ponytail"
 
+	ponytail_short5
+		name = "Ponytail, Short 5"
+		icon_state = "hair_ponytail_short5"
+		length = 2
+		chatname = "short ponytail"
+
 	ponytail_fringetail
 		name = "Ponytail, Fringetail"
 		icon_state = "hair_ponytail_fringetail"
@@ -1119,6 +1140,11 @@ Follow by example and make good judgement based on length which list to include 
 	punk_chelseafringe
 		name = "Punk Shave, Chelsea Fringe"
 		icon_state = "hair_punk_chelseafringe"
+		chatname = "fringe"
+
+	punk_chelseafringealt
+		name = "Punk Shave, Chelsea Fringe Alt"
+		icon_state = "hair_punk_chelseafringe_alt"
 		chatname = "fringe"
 
 	punk_chelseafringe_bighawk
@@ -1304,6 +1330,12 @@ Follow by example and make good judgement based on length which list to include 
 	tresshoulder
 		name = "Tress Shoulder"
 		icon_state = "hair_tressshoulder"
+		length = 2
+		chatname = "curls"
+
+	tresshoulderdouble
+		name = "Tress Shoulder Double"
+		icon_state = "hair_tressshoulder_double"
 		length = 2
 		chatname = "curls"
 
@@ -1784,7 +1816,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon = 'icons/mob/hair_gradients.dmi'
 	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,
-		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b, /datum/species/unathi,/datum/species/zombie/unathi)
+		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b, /datum/species/unathi, /datum/species/zombie/unathi)
 
 	none
 		name = "None"
@@ -1792,6 +1824,12 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell, /datum/species/bug,
 		/datum/species/bug/type_b)
+
+	none_48
+		name = "None (Vaurca Type C/E)"
+		icon = "icons/mob/base_48.dmi"
+		icon_state = "none"
+		species_allowed = list(/datum/species/bug/type_e, /datum/species/bug/type_c)
 
 	fade_up
 		name = "Fade (Up)"
@@ -1846,11 +1884,11 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "skr_headtail_mid"
 		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
 
-	bulwark_default
-		name = "Bulwark Horn"
-		icon = "icons/mob/base_48.dmi"
-		icon_state = "blank"
-		species_allowed = list(/datum/species/bug/type_e)
+	skrell_headtail_hfade
+		name = "Skrell Headtail Hard Fade"
+		icon_state = "skr_headtail_hfade"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
+
 
 /*
 ///////////////////////////////////
@@ -2332,6 +2370,41 @@ Follow by example and make good judgement based on length which list to include 
 			length = 6
 			chatname = "massive frills"
 
+		una_hornsbusted
+			name = "Unathi Horns-Busted"
+			icon_state = "unathi_simplehornbusted"
+			length = 5
+			chatname = "horns"
+
+		una_ramhornshortbusted
+			name = "Unathi Short Ram Horns-Busted"
+			icon_state = "unathi_ramhornbusted"
+			length = 5
+			chatname = "horns"
+
+		una_shorthornbusted
+			name = "Unathi Short Horns-Busted"
+			icon_state = "unathi_shorthornbusted"
+			length = 5
+			chatname = "horns"
+
+		una_drachornbusted
+			name = "Unathi Draconic Horns-Busted"
+			icon_state = "unathi_drachornbusted"
+			length = 5
+			chatname = "horns"
+
+		una_shortfrill2busted
+			name = "Unathi Short Frills 2-Busted"
+			icon_state = "unathi_shortfrills2busted"
+			length = 0
+			chatname = "frills"
+
+		una_styrahornbusted
+			name = "Unathi Styra Horn-Busted"
+			icon_state = "styrahornbusted"
+			length = 2
+			chatname = "horn stub"
 
 //skrell tentacles
 
@@ -2472,7 +2545,7 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "skrell_reef_short"
 			length = 3
 			chatname = "short headtails"
-			scrunchy_style = "reef"
+			scrunchy_style = "reef_short"
 
 		skr_tentacle_emo_l_l
 			name = "Long Headtails, emo (left)"
@@ -3220,6 +3293,36 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "antennae"
 			length = 6
 
+//Breeder antennae
+	breeder_standard
+		icon = 'icons/mob/human_face/breeder_hair.dmi'
+		name = "Breeder Standard Antennae"
+		icon_state = "breeder_standard"
+		species_allowed = list(/datum/species/bug/type_c)
+		gender = NEUTER
+		chatname = "antennae"
+		length = 3
+
+		breeder_quad
+			name = "Breeder Quad Antennae"
+			icon_state = "breeder_quad"
+			length = 3
+
+		breeder_crownedcrest
+			name = "Breeder Crowned Crest"
+			icon_state = "breeder_crownedcrest"
+			length = 1
+
+		breeder_hammerhead
+			name = "Breeder Hammerhead"
+			icon_state = "breeder_hammerhead"
+			length = 1
+
+		breeder_princess
+			name = "Breeder Princess Antennae"
+			icon_state = "breeder_princess"
+			length = 2
+
 /datum/sprite_accessory/facial_hair
 	taj_goatee
 		icon = 'icons/mob/human_face/tajara_facial_hair.dmi'
@@ -3450,6 +3553,30 @@ Follow by example and make good judgement based on length which list to include 
 		una_regal
 			name = "Unathi Regal Frills"
 			icon_state = "unathi_regalfrills"
+
+		una_hornsbusted
+			name = "Unathi Horns-Busted"
+			icon_state = "unathi_simplehornbusted"
+
+		una_ramhornshortbusted
+			name = "Unathi Short Ram Horns-Busted"
+			icon_state = "unathi_ramhornbusted"
+
+		una_shorthornbusted
+			name = "Unathi Short Horns-Busted"
+			icon_state = "unathi_shorthornbusted"
+
+		una_drachornbusted
+			name = "Unathi Draconic Horns-Busted"
+			icon_state = "unathi_drachornbusted"
+
+		una_shortfrill2busted
+			name = "Unathi Short Frills 2-Busted"
+			icon_state = "unathi_shortfrills2busted"
+
+		una_styrahornbusted
+			name = "Unathi Styra Horn-Busted"
+			icon_state = "styrahornbusted"
 
 //ipc screens
 

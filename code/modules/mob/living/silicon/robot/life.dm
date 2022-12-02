@@ -150,30 +150,28 @@
 /mob/living/silicon/robot/handle_regular_hud_updates()
 	..()
 	if(stat == DEAD || (XRAY in mutations) || (sight_mode & BORGXRAY))
-		sight |= (SEE_TURFS | SEE_MOBS | SEE_OBJS)
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_MINIMUM
+		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		set_see_in_dark(8)
+		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if((sight_mode & BORGMESON) && (sight_mode & BORGTHERM))
-		sight |= (SEE_TURFS | SEE_MOBS)
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_MINIMUM
+		set_sight(sight|SEE_TURFS|SEE_MOBS)
+		set_see_in_dark(8)
+		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 	else if(sight_mode & BORGMESON)
-		sight |= SEE_TURFS
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_MINIMUM
+		set_sight(sight|SEE_TURFS)
+		set_see_in_dark(8)
+		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 	else if(sight_mode & BORGMATERIAL)
-		sight |= SEE_OBJS
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_MINIMUM
+		set_sight(sight|SEE_OBJS)
+		set_see_in_dark(8)
 	else if(sight_mode & BORGTHERM)
-		sight |= SEE_MOBS
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_LEVEL_TWO
-	else if(stat != 2)
-		sight &= ~(SEE_TURFS | SEE_MOBS | SEE_OBJS)
-		see_in_dark = 8 			 // see_in_dark means you can FAINTLY see in the dark, humans have a range of 3 or so, tajaran have it at 8
-		see_invisible = SEE_INVISIBLE_LIVING // This is normal vision (25), setting it lower for normal vision means you don't "see" things like darkness since darkness
-							 // has a "invisible" value of 15
+		set_sight(sight|SEE_MOBS)
+		set_see_in_dark(8)
+		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
+	else if(stat != DEAD)
+		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
+		set_see_in_dark(8)
+		set_see_invisible(SEE_INVISIBLE_LIVING)
 
 	switch(sensor_mode)
 		if(SEC_HUD)
@@ -335,10 +333,13 @@
 	return TRUE
 
 /mob/living/silicon/robot/update_fire()
-	cut_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
+	cut_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
+	cut_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
+
 	if(on_fire)
-		add_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
+		add_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
+		add_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
 
 /mob/living/silicon/robot/fire_act()
-	if(!on_fire) //Silicons don't gain stacks from hotspots, but hotspots can ignite them
+	if(!on_fire) // Silicons don't gain stacks from hotspots, but hotspots can ignite them.
 		IgniteMob()

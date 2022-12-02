@@ -1,54 +1,12 @@
 /*
  * Holds procs designed to change one type of value, into another.
  * Contains:
- *			hex2num & num2hex
  *			text2list & list2text
  *			file2list
  *			angle2dir
  *			angle2text
  *			worldtime2text
  */
-
-// Returns an integer given a hexadecimal number string as input.
-/proc/hex2num(hex)
-	if (!istext(hex))
-		return
-
-	var/num   = 0
-	var/power = 1
-	var/i     = length(hex)
-
-	while (i)
-		var/char = text2ascii(hex, i)
-		switch(char)
-			if(48)                                  // 0 -- do nothing
-			if(49 to 57) num += (char - 48) * power // 1-9
-			if(97,  65)  num += power * 10          // A
-			if(98,  66)  num += power * 11          // B
-			if(99,  67)  num += power * 12          // C
-			if(100, 68)  num += power * 13          // D
-			if(101, 69)  num += power * 14          // E
-			if(102, 70)  num += power * 15          // F
-			else
-				return
-		power *= 16
-		i--
-	return num
-
-// Returns the hex value of a number given a value assumed to be a base-ten value
-/proc/num2hex(num, padlength)
-	var/global/list/hexdigits = list("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F")
-
-	. = ""
-	while(num > 0)
-		var/hexdigit = hexdigits[(num & 0xF) + 1]
-		. = "[hexdigit][.]"
-		num >>= 4 //go to the next half-byte
-
-	//pad with zeroes
-	var/left = padlength - length(.)
-	while (left-- > 0)
-		. = "0[.]"
 
 // Splits the text of a file at seperator and returns them in a list.
 /proc/file2list(filename, seperator="\n")
@@ -278,18 +236,18 @@ proc/tg_list2text(list/list, glue=",")
 	var/c
 	for(var/i = 1 to length(str))
 		c= text2ascii(str,i)
-		r+= num2hex(c)
+		r+= num2hex(c, 0)
 	return r
 
 // Decodes hex to raw byte string.
 // If safe=TRUE, returns null on incorrect input strings instead of CRASHing
-/proc/hextostr(str, safe=FALSE)
+/proc/hextostr(str)
 	if(!istext(str)||!str)
 		return
 	var/r
 	var/c
 	for(var/i = 1 to length(str)/2)
-		c = hex2num(copytext(str,i*2-1,i*2+1), safe)
+		c = hex2num(copytext(str,i*2-1,i*2+1))
 		if(isnull(c))
 			return null
 		r += ascii2text(c)

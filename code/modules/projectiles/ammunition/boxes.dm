@@ -107,6 +107,7 @@
 
 /obj/item/ammo_magazine/c45m/practice
 	name = "magazine (.45 practice)"
+	icon_state = "45_practice"
 	ammo_type = /obj/item/ammo_casing/c45/practice
 
 /obj/item/ammo_magazine/c45m/flash
@@ -135,7 +136,8 @@
 
 /obj/item/ammo_magazine/mc10mm
 	name = "magazine (10mm)"
-	icon_state = "tommy-mag"
+	desc = "A detachable magazine for a modified NanoTrasen Mk1, made from stamped sheet metal."
+	icon_state = "12mm"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c10mm
 	matter = list(DEFAULT_WALL_MATERIAL = 475) //metal costs are very roughly based around 1 .45 casing = 75 metal
@@ -308,6 +310,11 @@
 	origin_tech = list(TECH_COMBAT = 3)
 	ammo_type = /obj/item/ammo_casing/a556/ap
 
+/obj/item/ammo_magazine/a556/polymer
+	name = "magazine (5.56mm lethal polymer)"
+	icon_state = "5.56AP"
+	ammo_type = /obj/item/ammo_casing/a556/polymer
+
 /obj/item/ammo_magazine/a556/carbine
 	name = "carbine magazine (5.56mm)"
 	icon_state = "5.56c"
@@ -320,6 +327,7 @@
 
 /obj/item/ammo_magazine/a556/carbine/practice
 	name = "carbine magazine (5.56mm practice)"
+	icon_state = "5.56c_practice"
 	ammo_type = /obj/item/ammo_casing/a556/practice
 
 /obj/item/ammo_magazine/a556/carbine/ap
@@ -327,6 +335,11 @@
 	icon_state = "5.56APc"
 	origin_tech = list(TECH_COMBAT = 3)
 	ammo_type = /obj/item/ammo_casing/a556/ap
+
+/obj/item/ammo_magazine/a556/carbine/polymer
+	name = "carbine magazine (5.56mm lethal polymer)"
+	icon_state = "5.56APc"
+	ammo_type = /obj/item/ammo_casing/a556/polymer
 
 /obj/item/ammo_magazine/a556/makeshift
 	name = "makeshift magazine (5.56mm)"

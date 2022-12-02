@@ -5,6 +5,7 @@
 	var/buckle_lying = -1 //bed-like behavior, forces mob.lying = buckle_lying if != -1
 	var/buckle_require_restraints = 0 //require people to be handcuffed before being able to buckle. eg: pipes
 	var/atom/movable/buckled = null
+	var/buckle_delay = 0 //How much extra time to buckle someone to this object.
 
 /obj/attack_hand(mob/living/user)
 	. = ..()
@@ -89,7 +90,24 @@
 
 	add_fingerprint(user)
 	unbuckle()//this is now just for safety, buckling someone into an occupied chair will fail, instead of removing the occupant
-
+	if(buckle_delay)
+		if(MA == user)
+			MA.visible_message(\
+				"<b>[MA.name]</b> starts buckling themselves to [src].",\
+				SPAN_NOTICE("You start buckling yourself to [src]."),\
+				SPAN_NOTICE("You hear metal clanking."))
+		else if(isliving(MA))
+			MA.visible_message(\
+				SPAN_DANGER("[MA.name] is starting to be buckled to [src] by [user.name]!"),\
+				SPAN_DANGER("You are starting to be buckled to [src] by [user.name]!"),\
+				SPAN_NOTICE("You hear metal clanking."))
+		else
+			MA.visible_message(\
+				SPAN_DANGER("\The [MA] is starting to be buckled to [src] by [user.name]!"),\
+				SPAN_NOTICE("You hear metal clanking."))
+				
+		if(!do_after(user, buckle_delay, src))
+			return
 	if(buckle(MA, user))
 		if(MA == user)
 			MA.visible_message(\

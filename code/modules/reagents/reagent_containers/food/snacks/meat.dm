@@ -36,6 +36,11 @@
 /obj/item/reagent_containers/food/snacks/meat/monkey
 	//same as plain meat
 
+/obj/item/reagent_containers/food/snacks/meat/neaera
+	name = "neaera meat"
+	icon_state = "neaera_meat"
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 3, /decl/reagent/nutriment/protein/seafood = 3, /decl/reagent/nutriment/triglyceride = 2)
+
 /obj/item/reagent_containers/food/snacks/meat/corgi
 	name = "corgi meat"
 	desc = "Tastes like... well, you know."
@@ -68,7 +73,7 @@
 	name = "adhomian meat"
 	desc = "A slab of an animal native from Adhomai."
 	icon_state = "adhomai_meat"
-	desc_fluff = "For much of Tajaran history, the herbivorous and graceful Nav'twir were the main prey of Tajaran hunters, and still are today in rural areas of the planet. \
+	desc_extended = "For much of Tajaran history, the herbivorous and graceful Nav'twir were the main prey of Tajaran hunters, and still are today in rural areas of the planet. \
 	Their meat was nice and hearty and healthy, and the thick furs were good for making clothes to keep themselves warm in the snow. As the modern ages came, the hunting of the \
 	'striders', as their name translates, slowed as the Tajara started to learn how to capture and farm them for their resources more efficiently. That being said, not that the modern \
 	day Adhomai needs their resources less thanks to synthetic fabric and more efficient food sources, both the meat and the fur of the nav'twir has become an export of the Adhomai \

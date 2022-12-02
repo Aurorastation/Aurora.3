@@ -2,7 +2,7 @@
 	name = "NanoTrasen Representative"
 
 	uniform = /obj/item/clothing/under/rank/centcom
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/ert/ccia
@@ -120,6 +120,10 @@
 	l_hand = /obj/item/storage/lockbox/cciaa
 	pda = /obj/item/modular_computer/handheld/pda/command/cciaa
 	id = /obj/item/card/id/ccia
+
+	backpack_contents = list(
+		/obj/item/device/memorywiper = 1
+	)
 
 	id_icon = "ccia"
 	id_access = "CCIA Agent"
@@ -248,7 +252,7 @@
 
 	gloves = /obj/item/clothing/gloves/white
 	belt = /obj/item/storage/belt/medical
-	back = /obj/item/storage/backpack/satchel_med
+	back = /obj/item/storage/backpack/satchel/med
 	accessory = /obj/item/clothing/accessory/storage/white_vest
 	accessory_contents = list(/obj/item/stack/medical/advanced/bruise_pack = 1, /obj/item/stack/medical/advanced/ointment = 1, /obj/item/reagent_containers/glass/bottle/mortaphenyl = 1)
 
@@ -284,7 +288,7 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 
 	backpack = /obj/item/storage/backpack/pharmacy
-	satchel = /obj/item/storage/backpack/satchel_pharm
+	satchel = /obj/item/storage/backpack/satchel/pharm
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
 	messengerbag = /obj/item/storage/backpack/messenger/pharm
 

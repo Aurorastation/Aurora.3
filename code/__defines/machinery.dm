@@ -45,7 +45,7 @@
 #define NETWORK_CIVILIAN_MAIN "Civilian Main"
 #define NETWORK_CIVILIAN_SURFACE "Civilian Surface"
 #define NETWORK_COMMAND "Command"
-#define NETWORK_ENGINE "Engine"
+#define NETWORK_REACTOR "Reactor"
 #define NETWORK_ENGINEERING "Engineering"
 #define NETWORK_ENGINEERING_OUTPOST "Engineering Outpost"
 #define NETWORK_ERT "ZeEmergencyResponseTeam"

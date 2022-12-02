@@ -395,6 +395,7 @@
 	min_broken_damage = 20
 	max_damage = 20
 	var/suspension_mod = 0.8
+	var/jump_bonus = 1
 
 /obj/item/organ/internal/augment/suspension/advanced
 	name = "advanced calf suspension"

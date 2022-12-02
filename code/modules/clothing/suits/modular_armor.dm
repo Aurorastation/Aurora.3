@@ -107,7 +107,7 @@
 	)
 
 /obj/item/clothing/accessory/armor_plate/generic
-	name = "kevlar armor plate"
+	name = "standard armor plate"
 	desc = "A light-weight kevlar armor plate in drab black colors. A galactic favourite of Zavodskoi fans."
 	icon_state = "plate_generic"
 	item_state = "plate_generic"
@@ -125,7 +125,7 @@
 	item_state = "plate_ballistic"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_AP,
+		bullet = ARMOR_BALLISTIC_RIFLE,
 		laser = ARMOR_LASER_MINOR,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
@@ -154,21 +154,21 @@
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_AP,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	slowdown = 1
 	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/armor_plate/military
-	name = "military armor plate"
-	desc = "A heavy military armor plate. Worn by Solarian fanatics everywhere since the 2100s."
+	name = "sol army armor plate"
+	desc = "A heavy military armor plate. Standard-issue to the oft-forgotten Solarian Army."
 	icon_state = "plate_military"
 	item_state = "plate_military"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_RIFLE,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
@@ -243,6 +243,12 @@
 	icon_state = "helm_sec"
 	item_state = "helm_sec"
 
+/obj/item/clothing/head/helmet/security/generic
+	name = "standard helmet"
+	desc = "A shiny helmet in grey! Goes well with the respective plate carrier."
+	icon_state = "helm_generic"
+	item_state = "helm_generic"
+
 /obj/item/clothing/head/helmet/security/skrell
 	name = "skrellmet"
 	desc = "A helmet built for use by a Skrell. This one appears to be fairly standard and reliable."
@@ -264,8 +270,8 @@
 	)
 
 /obj/item/clothing/head/helmet/military
-	name = "military helmet"
-	desc = "A helmet in drab olive. Used by Solarian fanatics since the 2100s. You really had to pick the least original kit, didn't you?"
+	name = "sol army helmet"
+	desc = "A helmet in drab olive. Standard-issue to the oft-forgotten Solarian Army. Comes with a fancy military HUDglass."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_military"
@@ -273,7 +279,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_REVOLVER,
-		laser = ARMOR_LASER_RIFLE,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
@@ -344,7 +350,7 @@
 	item_state = "flagpatch_mars"
 
 /obj/item/clothing/accessory/flagpatch/gus
-	name = "/improper GUS! flagpatch"
+	name = "\improper GUS! flagpatch"
 	desc = "A flagpatch with the face of Gus Maldarth, a famous Martian whistleblower who exposed the Solarian government abuses in the \
 	phoron crisis. After his assassination, 'Justice for Gus!' became a rallying cry for anti-Sol protests on the red planet."
 	icon_state = "flagpatch_gus"
@@ -352,7 +358,7 @@
 
 /obj/item/clothing/accessory/flagpatch/eridani
 	name = "eridani corporate federation flagpatch"
-	desc = "A flagpatch representing the Eridani Corporate Federation. These patches are often incredibly and usually overly resistant to corrosion as a consequence of the toxic atmosphere, \
+	desc = "A flagpatch representing the Eridani Corporate Federation. These patches are often resistant to corrosion as a consequence of the toxic atmosphere, \
 	not that this has stopped resourceful dregs from desecrating those they can get their hands on."
 	icon_state = "flagpatch_eridani"
 	item_state = "flagpatch_eridani"
@@ -395,6 +401,13 @@
 	it is clear that the moon garners a lot of respect from its inhabitants."
 	icon_state = "flagpatch_callisto"
 	item_state = "flagpatch_callisto"
+
+/obj/item/clothing/accessory/flagpatch/venus
+	name = "venus flagpatch"
+	desc = "A flagpatch representing Venus. While not trendy among people who have use for wearing patches to begin with, the \
+	Venusian flag retains solidarity among Cythereans and Jintarians both."
+	icon_state = "flagpatch_venus"
+	item_state = "flagpatch_venus"
 
 /obj/item/clothing/accessory/flagpatch/coalition
 	name = "coalition flagpatch"
@@ -460,12 +473,12 @@
 	icon_state = "flagpatch_fisanduh"
 	item_state = "flagpatch_fisanduh"
 
-/obj/item/clothing/accessory/flagpatch/jargon
-	name = "jargon flagpatch"
-	desc = "A flagpatch represeting the Jargon Federation. The free use of these patches is a contentuous issue back home as \
+/obj/item/clothing/accessory/flagpatch/nralakk
+	name = "nralakk flagpatch"
+	desc = "A flagpatch representing the Nralakk Federation. The free use of these patches is a contentious issue back home as \
 	there is a fear that their wearers may misrepresent the nation."
-	icon_state = "flagpatch_jargon"
-	item_state = "flagpatch_jargon"
+	icon_state = "flagpatch_nralakk"
+	item_state = "flagpatch_nralakk"
 
 /obj/item/clothing/accessory/flagpatch/pra
 	name = "pra flagpatch"
