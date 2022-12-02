@@ -26,7 +26,6 @@
 	icon_state = "heavy"
 	damage = 10000
 	armor_penetration = 1000
-	penetrating = 1
 
 /obj/item/projectile/ship_ammo/coilgun/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
