@@ -11,7 +11,7 @@
 	brute_mod = 0.7
 	oxy_mod = 1
 	radiation_mod = 0.5
-  	standing_jump_range = 3
+	standing_jump_range = 3
 	bleed_mod = 1.5
 	burn_mod = 1.0
 	grab_mod = 1.25
