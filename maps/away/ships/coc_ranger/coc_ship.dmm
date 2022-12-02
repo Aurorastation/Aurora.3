@@ -938,6 +938,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
+"eQS" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/wood,
+/area/ship/ranger_corvette/foyer)
 "eRR" = (
 /obj/structure/closet/crate{
 	anchored = 1;
@@ -3091,7 +3097,7 @@
 "pFY" = (
 /obj/structure/table/steel,
 /obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a Montevideo-class vessel.";
+	desc = "Blueprints for a Xansan-class vessel.";
 	icon = 'icons/obj/items.dmi';
 	icon_state = "blueprints";
 	item_icons = null;
@@ -3954,6 +3960,7 @@
 /obj/item/material/knife/butterfly,
 /obj/item/material/knife/tacknife,
 /obj/item/melee/energy/sword/knife/sol,
+/obj/item/melee/energy/sword/knife/sol,
 /obj/item/material/knife/trench,
 /obj/item/material/hatchet,
 /obj/item/clothing/accessory/storage/brown_vest,
@@ -4005,6 +4012,8 @@
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/pouches/colour,
+/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/under/pants/camo,
 /obj/item/clothing/under/pants/camo,
 /obj/item/clothing/under/pants/camo,
 /obj/item/clothing/under/syndicate/tracksuit,
@@ -4699,7 +4708,7 @@
 /area/ship/ranger_corvette/foyer)
 "vZn" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecommunications/Aux CIC"
+	name = "Cryogenics"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5191,13 +5200,13 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/ship/ranger_corvette/foyer)
 "yfU" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
+	},
+/obj/structure/closet/secure_closet/cabinet/bar{
+	req_access = null
 	},
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
@@ -36421,7 +36430,7 @@ ioB
 vyC
 vzU
 yfz
-bVs
+eQS
 wdq
 bVs
 niD
