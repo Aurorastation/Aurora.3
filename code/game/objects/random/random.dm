@@ -963,7 +963,7 @@
 		/obj/item/clothing/shoes/galoshes = 0.6,
 		/obj/item/clothing/shoes/jackboots = 0.5,
 		/obj/item/clothing/shoes/rainbow = 0.5,
-		/obj/item/clothing/shoes/slippers_worn = 0.5,
+		/obj/item/clothing/shoes/slippers/worn = 0.5,
 		/obj/item/clothing/shoes/winter = 0.3,
 		/obj/item/clothing/shoes/workboots = 0.75,
 		/obj/item/clothing/suit/ianshirt = 0.5,
