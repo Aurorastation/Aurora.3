@@ -141,6 +141,15 @@
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav1,
 /turf/template_noop,
 /area/space)
+"axK" = (
+/obj/structure/closet/crate,
+/obj/item/stack/material/tritium,
+/obj/item/stack/material/tritium,
+/obj/item/stack/material/tritium,
+/obj/item/stack/material/tritium,
+/obj/item/stack/material/tritium,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "ayl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2727,9 +2736,8 @@
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "kMb" = (
 /obj/structure/cable/green{
-	icon_state = "0-4"
+	icon_state = "1-4"
 	},
-/obj/machinery/power/portgen/basic/fusion,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "kMV" = (
@@ -4149,17 +4157,22 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/power/terminal{
+	dir = 4
 	},
-/obj/structure/reagent_dispensers/coolanttank,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "rjl" = (
 /turf/simulated/wall,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"rro" = (
+/obj/machinery/power/portgen/basic/fusion,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "rvt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4867,6 +4880,7 @@
 	pixel_y = 0
 	},
 /obj/item/reagent_containers/glass/bucket,
+/obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "vcM" = (
@@ -26927,7 +26941,7 @@ xRX
 yjk
 oZk
 yjk
-yjk
+rro
 kMb
 rJr
 gCs
@@ -27184,7 +27198,7 @@ xRX
 xRX
 xRX
 yjk
-yjk
+axK
 rip
 mnb
 gCs
