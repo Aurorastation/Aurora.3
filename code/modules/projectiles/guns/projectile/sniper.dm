@@ -177,7 +177,7 @@
 	icon_state = "dragunov"
 	item_state = "dragunov"
 
-	desc_fluff = "The Ho'taki Marksman Rifle was created by the Shastar Technical University, created through the reverse engineering of captured Tsarrayut'yan rifle. \
+	desc_extended = "The Ho'taki Marksman Rifle was created by the Shastar Technical University, created through the reverse engineering of captured Tsarrayut'yan rifle. \
 	The rifle is commonly issued to the feared Das'nrra Marksmen."
 
 	w_class = ITEMSIZE_LARGE
@@ -226,7 +226,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/w556
 	name = "scout rifle"
-	desc = "The Z8M variant of the Bulldog carbine, made by the now defunct Zendai Foundries. \
+	desc = "The ZI Pointer, the designated marksman rifle variant of Zavodskoi's ZI Bulldog carbine. \
 	Features a longer, heavier barrel and low-power fixed-magnification optic in lieu of the grenade launcher. \
 	A vertical grip has been attached under the forend to help offset the change in balance and improve handling. Uses 5.56mm rounds."
 	icon = 'icons/obj/guns/w556.dmi'

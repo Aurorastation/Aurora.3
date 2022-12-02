@@ -91,6 +91,7 @@
 	var/list/obj/machinery/atmospherics/atmos_machines = list()
 	var/list/obj/machinery/machines = list()
 	var/list/obj/structure/cable/cables = list()
+	var/list/obj/machinery/power/apc/apcs = list()
 
 	for(var/atom/A in atoms)
 		if(istype(A, /turf))
@@ -103,6 +104,8 @@
 			machines += A
 		if(istype(A,/obj/effect/landmark/map_load_mark))
 			LAZYADD(subtemplates_to_spawn, A)
+		if(istype(A, /obj/machinery/power/apc))
+			apcs += A
 		if(A.initialized)
 			atoms -= A
 
@@ -117,6 +120,10 @@
 	SSmachinery.setup_atmos_machinery(atmos_machines)
 	if(notsuspended)
 		SSmachinery.wake()
+
+	for (var/i in apcs)
+		var/obj/machinery/power/apc/apc = i
+		apc.update() // map-loading areas and APCs is weird, okay
 
 	for (var/i in machines)
 		var/obj/machinery/machine = i

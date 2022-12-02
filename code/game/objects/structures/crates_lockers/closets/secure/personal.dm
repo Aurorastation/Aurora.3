@@ -8,7 +8,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack(src)
 	else
-		new /obj/item/storage/backpack/satchel_norm(src)
+		new /obj/item/storage/backpack/satchel(src)
 	new /obj/item/device/radio/headset(src)
 	new /obj/item/device/radio/headset/alt(src)
 
@@ -33,7 +33,7 @@
 	double_doors = TRUE
 
 /obj/structure/closet/secure_closet/personal/cabinet/fill()
-	new /obj/item/storage/backpack/satchel/withwallet(src)
+	new /obj/item/storage/backpack/satchel/leather/withwallet(src)
 	new /obj/item/device/radio/headset(src)
 	new /obj/item/device/radio/headset/alt(src)
 

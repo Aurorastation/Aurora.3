@@ -40,6 +40,15 @@
 	icon_state = "oxygen_br"
 	item_state = "oxygen_br"
 
+/obj/item/tank/oxygen/marooning_equipment
+	name = "marooning oxygen tank"
+	desc = "A tank of oxygen, this one is yellow. Issued to marooned personnel."
+	icon_state = "oxygen_f"
+	item_state = "oxygen_f"
+
+/obj/item/tank/oxygen/marooning_equipment/adjust_initial_gas()
+	air_contents.adjust_gas(GAS_OXYGEN, (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+
 /*
  * Anesthetic
  */
@@ -113,13 +122,16 @@
 /obj/item/tank/hydrogen/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_HYDROGEN, (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
 
+/obj/item/tank/hydrogen/shuttle/adjust_initial_gas()
+	air_contents.adjust_gas(GAS_HYDROGEN, 4*(3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
+
 /*
  * Emergency Oxygen
  */
 /obj/item/tank/emergency_oxygen
 	name = "emergency oxygen tank"
 	desc = "Used for emergencies. Contains very little oxygen, so try to conserve it until you actually need it."
-	desc_cult = "This can be reforged to become a large brown oxygen tank."
+	desc_antag = "As a Cultist, this item can be reforged to become a large brown oxygen tank."
 	icon_state = "emergency"
 	item_state = "emergency"
 	gauge_icon = "indicator_emergency"

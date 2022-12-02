@@ -1,7 +1,7 @@
 /datum/job/representative
 	title = "Corporate Liaison"
 	flag = LAWYER
-	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 1
@@ -18,6 +18,11 @@
 
 	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
+	alt_titles = list(
+		"Workplace Liaison",
+		"Corporate Representative",
+		"Corporate Executive"
+		)
 	outfit = /datum/outfit/job/representative
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -90,7 +95,7 @@
 /datum/job/consular
 	title = "Consular Officer"
 	flag = CONSULAR
-	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 1

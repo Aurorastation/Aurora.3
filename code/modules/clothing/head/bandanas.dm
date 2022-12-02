@@ -78,8 +78,8 @@
 	item_state = "idris_gardener_headband"
 
 /obj/item/clothing/head/bandana/cargo
-	name = "cargo bandana"
-	desc = "It's a supply bandana with some fine nanotech lining. Wicks away the sweat from crate-pushing all day."
+	name = "operations bandana"
+	desc = "It's a operations bandana with some fine nanotech lining. Wicks away the sweat from crate-pushing all day."
 	icon_state = "bandana_cargo"
 	item_state = "bandana_cargo"
 

@@ -128,16 +128,16 @@
 	uniform = /obj/item/clothing/under/gearharness
 
 	glasses = null
-	head = /obj/item/clothing/head/klax_breeder
-	shoes = /obj/item/clothing/shoes/vaurca/breeder_klax
+	head = /obj/item/clothing/head/vaurca_breeder/klax
+	shoes = /obj/item/clothing/shoes/vaurca/breeder/klax
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
-	suit = /obj/item/clothing/suit/vaurca/breeder_klax
+	suit = /obj/item/clothing/suit/vaurca/breeder/klax
 
 /datum/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
 
-			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec_klax(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
 
 		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE
@@ -145,7 +145,7 @@
 /datum/citizenship/cthur
 	name = CITIZENSHIP_CTHUR
 	description = "They are the third Hive that has developed relationships with other sophonts of the Orion Spur. \
-	While their arrival was kept in secret by the Jargon Federation, the revelation has reignited diplomatic disputes between K'lax and C'thur, with outright hostility met by the K'lax towards the C'thur. \
+	While their arrival was kept in secret by the Nralakk Federation, the revelation has reignited diplomatic disputes between K'lax and C'thur, with outright hostility met by the K'lax towards the C'thur. \
 	Unlike all other hives, the C'thur are led by their original Hive Queen, who, with a council of three other Lesser Queens, leads the Hive in this new age. \
 	In this effort, the Hive has begun dealing with the multitude of governments and corporations of the galaxy, all under the auspices of their Skrellian saviors. \
 	The C'thur are the most economically developed hive, having stakes in Einstein Engines and Zeng-Hu Pharmaceuticals."
@@ -199,14 +199,14 @@
 	uniform = /obj/item/clothing/under/gearharness
 
 	glasses = null
-	head = /obj/item/clothing/head/cthur_breeder
-	shoes = /obj/item/clothing/shoes/vaurca/breeder_cthur
+	head = /obj/item/clothing/head/vaurca_breeder/cthur
+	shoes = /obj/item/clothing/shoes/vaurca/breeder/cthur
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
-	suit = /obj/item/clothing/suit/vaurca/breeder_cthur
+	suit = /obj/item/clothing/suit/vaurca/breeder/cthur
 
 /datum/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
-			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec_cthur(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
 		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE

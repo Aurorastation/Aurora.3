@@ -7,7 +7,7 @@
 	icon_state_screensaver = "standby"
 	icon_state_screensaver_key = "black_key"
 	icon_state_menu = "menu"
-	icon_state_broken = "console-broken"
+	icon_state_broken = "computer-broken"
 	menu_light_color = LIGHT_COLOR_WHITE
 	hardware_flag = PROGRAM_CONSOLE
 	anchored = TRUE

@@ -369,6 +369,14 @@ var/list/slot_equipment_priority = list( \
 	if(!item)
 		return FALSE //Grab processing has a chance of returning null
 
+	if(item.too_heavy_to_throw())
+		to_chat(src, SPAN_DANGER("You try to throw \the [item] with a lot of difficulty..."))
+		if(do_after(src, 2 SECONDS))
+			to_chat(src, SPAN_DANGER("<font size=4>Your grip slips and \the [item] falls onto your foot!</font>"))
+			throw_fail_consequences(item)
+			drop_item()
+		return FALSE
+
 	if(a_intent == I_HELP && Adjacent(target) && isitem(item))
 		var/obj/item/I = item
 		if(ishuman(target))
@@ -401,7 +409,7 @@ var/list/slot_equipment_priority = list( \
 			I.forceMove(T)
 			return TRUE
 
-	if(!unEquip(item))
+	if(!unEquip(item) && !ismob(item)) //ismob override is here for grab throwing mobs
 		return TRUE
 
 	if(is_pacified())
@@ -422,7 +430,11 @@ var/list/slot_equipment_priority = list( \
 			var/volume = W.get_volume_by_throwforce_and_or_w_class()
 			playsound(src, 'sound/effects/throw.ogg', volume, TRUE, -1)
 
+		// Animate the mob throwing.
+		animate_throw(src)
+
 		item.throw_at(target, item.throw_range, item.throw_speed, src)
+
 		return TRUE
 
 	return FALSE
@@ -473,3 +485,8 @@ var/list/slot_equipment_priority = list( \
 		var/obj/item/I = entry
 		if(I.body_parts_covered & body_parts)
 			return I
+
+//When you drop an extremely heavy 406mm shell onto your foot. Oops!
+/mob/living/carbon/proc/throw_fail_consequences(var/obj/item/I)
+	apply_damage(45, BRUTE, pick(list(BP_L_FOOT, BP_R_FOOT)), I, armor_pen = 30)
+	I.throw_fail_consequences(src)

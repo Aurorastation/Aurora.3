@@ -153,7 +153,7 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/silver
 
-/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/qm/Initialize()
+/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/om/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
 

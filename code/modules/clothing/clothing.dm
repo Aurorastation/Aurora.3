@@ -350,6 +350,8 @@
 	desc = O.desc
 	icon = O.icon
 	icon_state = O.icon_state
+	color = O.color
+	overlays = O.overlays
 	set_dir(O.dir)
 
 /obj/item/clothing/ears/offear/attack_hand(mob/living/carbon/human/H)
@@ -584,8 +586,6 @@
 
 	if(!success)
 		return FALSE
-	else if(success == ALREADY_WEARING_HAT)
-		to_chat(user, SPAN_WARNING("You are already wearing a hat."))
 	else if(success == WEAR_HAT)
 		to_chat(user, SPAN_NOTICE("You crawl under \the [src]."))
 	return TRUE

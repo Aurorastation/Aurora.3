@@ -13,6 +13,9 @@
 	var/list/plant_icon_cache = list()      // Stores images of growth, fruits and seeds.
 	var/list/plant_sprites = list()         // List of all harvested product sprites.
 	var/list/plant_product_sprites = list() // List of all growth sprites plus number of growth stages.
+	var/list/gene_masked_list = list()      // Stores list of masked genes rather than recreating it later
+	var/list/plant_gene_datums = list()     // Stores gene masked list as datums
+
 
 	var/list/processing = list()
 	var/list/current = list()
@@ -54,18 +57,29 @@
 		S.roundstart = 1
 
 	//Might as well mask the gene types while we're at it.
+	var/list/gene_datums = list()
 	var/list/used_masks = list()
 	var/list/plant_traits = ALL_GENES
 	while(plant_traits && plant_traits.len)
 		var/gene_tag = pick(plant_traits)
-		var/gene_mask = "[uppertext(num2hex(rand(0,255)))]"
+		var/gene_mask = "[uppertext(num2hex(rand(0,255), 0))]"
 
 		while(gene_mask in used_masks)
-			gene_mask = "[uppertext(num2hex(rand(0,255)))]"
+			gene_mask = "[uppertext(num2hex(rand(0,255), 0))]"
+
+		var/decl/plantgene/G
+
+		for(var/D in gene_datums)
+			var/decl/plantgene/P = gene_datums[D]
+			if(gene_tag == P.gene_tag)
+				G = P
+				gene_datums -=D
 
 		used_masks += gene_mask
 		plant_traits -= gene_tag
-		gene_tag_masks[gene_tag] = gene_mask
+		gene_tag_masks[gene_mask] = gene_tag
+		plant_gene_datums[gene_mask] = G
+		gene_masked_list += (list(list("tag" = gene_tag, "mask" = gene_mask)))
 
 	..()
 
@@ -77,6 +91,8 @@
 		src.plant_icon_cache = SSplants.plant_icon_cache
 		src.plant_sprites = SSplants.plant_sprites
 		src.plant_product_sprites = SSplants.plant_product_sprites
+		src.gene_masked_list = SSplants.gene_masked_list
+		src.plant_gene_datums = SSplants.plant_gene_datums
 
 /datum/controller/subsystem/plants/fire(resumed = 0)
 	if (!resumed)

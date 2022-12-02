@@ -20,7 +20,7 @@
 /decl/origin_item/origin/xanu_free_league
 	name = "Xanu Free League"
 	desc = "The Xanu Free League, and its capital of Xanu Prime, have long been considered some of the most important figures in the Coalition of Colonies. Xanusanii are a diverse body of people that value their freedom highly, and are known throughout the broader Spur as traders. Much of Xanu's surface remains uninhabitable due to damage inflicted upon the planet by the Solarian Alliance during the Interstellar War."
-	possible_accents = list(ACCENT_COC)
+	possible_accents = list(ACCENT_XANU, ACCENT_COC)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = RELIGIONS_COALITION
 

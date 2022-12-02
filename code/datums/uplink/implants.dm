@@ -29,9 +29,21 @@
 
 /datum/uplink_item/item/implants/imp_uplink
 	name = "Uplink Implant"
-	path = /obj/item/storage/box/syndie_kit/imp_uplink
+	path = /obj/item/implanter/uplink
 
 /datum/uplink_item/item/implants/imp_uplink/New()
 	..()
 	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 2)
 	desc = "Contains [round((DEFAULT_TELECRYSTAL_AMOUNT / 2) * 0.8)] Telecrystal\s"
+
+/datum/uplink_item/item/implants/aug_combitool
+	name = "Combitool Augment Implanter"
+	item_cost = 2
+	desc = "An augment implanter, with the combitool augment."
+	path = /obj/item/device/augment_implanter/combitool
+
+/datum/uplink_item/item/implants/aug_health_scanner
+	name = "Health Scanner Augment Implanter"
+	item_cost = 1
+	desc = "An augment implanter, with the integrated health scanner augment."
+	path = /obj/item/device/augment_implanter/health_scanner

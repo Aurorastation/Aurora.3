@@ -78,7 +78,8 @@
 /obj/item/storage/box/syndie_kit
 	name = "box"
 	desc = "A sleek, sturdy box"
-	icon_state = "box_of_doom"
+	icon_state = "syndiebox"
+	worn_overlay = "writing_syndie"
 
 /obj/item/storage/box/syndie_kit/imp_freedom
 	name = "box (F)"
@@ -110,6 +111,7 @@
 
 /obj/item/storage/box/syndie_kit/space
 	name = "boxed space suit and helmet"
+	worn_overlay = "syndiesuit"
 	starts_with = list(
 		/obj/item/clothing/suit/space/syndicate = 1,
 		/obj/item/clothing/head/helmet/space/syndicate = 1,
@@ -121,6 +123,7 @@
 /obj/item/storage/box/syndie_kit/chameleon
 	name = "chameleon kit"
 	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
+	worn_overlay = "syndiesuit"
 	starts_with = list(
 		/obj/item/clothing/under/chameleon = 1,
 		/obj/item/clothing/head/chameleon = 1,
@@ -136,6 +139,7 @@
 /obj/item/storage/box/syndie_kit/clerical
 	name = "clerical kit"
 	desc = "Comes with all you need to fake paperwork. Assumes you have passed basic writing lessons."
+	worn_overlay = "pen"
 	starts_with = list(
 		/obj/item/stamp/chameleon = 1,
 		/obj/item/pen/chameleon = 1,
@@ -147,6 +151,7 @@
 
 /obj/item/storage/box/syndie_kit/special_pens
 	name = "penjector kit"
+	worn_overlay = "pen"
 	starts_with = list(
 		/obj/item/pen/reagent/healing = 1,
 		/obj/item/pen/reagent/pacifier = 1,
@@ -155,6 +160,7 @@
 
 /obj/item/storage/box/syndie_kit/parapen
 	name = "parapen kit"
+	worn_overlay = "pen"
 	starts_with = list(
 		/obj/item/pen/reagent/paralysis = 1,
 		/obj/item/pen/reagent/purge = 1

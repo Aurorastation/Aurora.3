@@ -989,7 +989,7 @@
 /obj/structure/ladder/up{
 	pixel_y = 16
 	},
-/obj/structure/sign/emerg_exitZ{
+/obj/structure/sign/emergency/exit/ladder{
 	dir = 1;
 	pixel_x = 32;
 	tag = "icon-emerg_exitZ (NORTH)"
@@ -1960,7 +1960,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/structure/cable/green{
@@ -2779,7 +2778,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/effect/landmark/start{
@@ -3176,7 +3174,6 @@
 "iq" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3317,7 +3314,6 @@
 /obj/machinery/firealarm/north,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3654,7 +3650,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/sign/emerg_exit{
+/obj/structure/sign/emergency/exit{
 	pixel_x = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4176,7 +4172,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /turf/simulated/floor/tiled/white,
@@ -4214,7 +4209,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/white,
@@ -4991,7 +4985,6 @@
 "mx" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/effect/floor_decal/corner_wide/green{
@@ -5359,7 +5352,6 @@
 "oB" = (
 /obj/item/device/radio/intercom{
 	layer = 4;
-	name = "Station Intercom (General)";
 	pixel_y = -29
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -7570,7 +7562,6 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/machinery/cell_charger,
@@ -11743,7 +11734,6 @@
 "Zu" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/effect/floor_decal/corner/brown/full{

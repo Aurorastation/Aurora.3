@@ -72,9 +72,9 @@
 /obj/item/mass_driver_diy
 	name = "Mass Driver Kit"
 	desc = "A do-it-yourself kit for constructing the finest of mass drivers."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
-	item_state = "box"
+	item_state = "inf_box"
 
 /obj/item/mass_driver_diy/attack_self(mob/user)
 	to_chat(user, "<span class='notice'>You start piecing together the kit...</span>")

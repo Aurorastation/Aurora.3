@@ -189,6 +189,9 @@
 			slab_count = critter.meat_amount
 		if(critter.meat_type)
 			slab_type = critter.meat_type
+	else if(istype(occupant, /mob/living/carbon/alien))
+		var/mob/living/carbon/alien/A = occupant
+		slab_type = A.meat_type
 	else if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
 		slab_type = H.species.meat_type

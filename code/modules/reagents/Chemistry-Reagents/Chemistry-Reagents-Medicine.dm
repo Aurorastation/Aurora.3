@@ -300,7 +300,7 @@
 /decl/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(3))
 		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
-	
+
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 50)
 		if(!M.chem_effects[CE_CLEARSIGHT])
@@ -739,10 +739,10 @@
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 /decl/reagent/thetamycin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/8) // chance per 2 second tick to cause vomiting
 	M.add_chemical_effect(CE_ANTIBIOTIC, M.chem_doses[type]) // strength of antibiotics; amount absorbed, need >5u dose to begin to be effective which'll take ~5 minutes to metabolise. need >10u dose if administered orally.
 
 /decl/reagent/thetamycin/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/8) // chance per 2 second tick to cause vomiting
 	M.dizziness = max(150, M.dizziness)
 	M.make_dizzy(5)
 
@@ -937,7 +937,7 @@
 
 /* mental */
 
-#define MEDICATION_MESSAGE_DELAY 10 MINUTES 
+#define MEDICATION_MESSAGE_DELAY 10 MINUTES
 
 /decl/reagent/mental
 	name = null //Just like alcohol
@@ -1306,6 +1306,63 @@
 		M.make_dizzy(5)
 		M.make_jittery(5)
 
+/decl/reagent/sanasomnum
+	name = "Sanasomnum"
+	description = "Not strictly a drug, Sanasomnum is actually a cocktail of biomechanical stem cells, which induce a regenerative state of unconsciousness capable healing almost any injury in minutes - however, usage nearly guarantees long-term and irreversible complications, and it is banned from medical use throughout the spur."
+	reagent_state = SOLID
+	color = "#b2db5e"
+	overdose = REAGENTS_OVERDOSE
+	scannable = TRUE
+	taste_description = "blood"
+	specific_heat = 1
+
+/decl/reagent/sanasomnum/initial_effect(mob/living/carbon/M)
+	to_chat(M, SPAN_WARNING("Your limbs start to feel <b>numb</b> and <b>weak</b>, and your legs wobble as it becomes hard to stand!"))
+
+/decl/reagent/sanasomnum/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_ORGANREPAIR, 20)
+		M.add_chemical_effect(CE_BLOODRESTORE, 15)
+		M.add_chemical_effect(CE_BLOODCLOT, 15)
+		M.add_chemical_effect(CE_BRAIN_REGEN, 20)
+		M.add_chemical_effect(CE_OXYGENATED, 15)
+		M.add_chemical_effect(CE_ANTITOXIN, 15)
+		M.add_chemical_effect(CE_ANTIBIOTIC, 15)
+		M.add_chemical_effect(CE_STABLE, 15)
+		M.add_chemical_effect(CE_UNDEXTROUS, 30)
+		M.add_chemical_effect(CE_CLUMSY, 30)
+
+/decl/reagent/sanasomnum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.adjustCloneLoss(-20 * removed)
+	M.adjustOxyLoss(-2 * removed)
+	M.heal_organ_damage(20 * removed, 20 * removed)
+	if(M.is_asystole() && prob(20))
+		M.resuscitate()
+	if(M.chem_doses[type] > 3)
+		M.status_flags &= ~DISFIGURED
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_SCAN))
+		return
+	M.add_chemical_effect(CE_UNDEXTROUS, 1)
+	if(M.chem_doses[type] > 0.2)
+		M.Weaken(10)
+	if(M.chem_doses[type] > 5)
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & ORGAN_ARTERY_CUT && prob(10))
+				E.status &= ~ORGAN_ARTERY_CUT
+	if(M.chem_doses[type] > 5)
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & ORGAN_BROKEN && prob(10))
+				E.status &= ~ORGAN_BROKEN
+	if(M.chem_doses[type] > 5)
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & TENDON_CUT && prob(10))
+				E.status &= ~TENDON_CUT
+
+/decl/reagent/sanasomnum/final_effect(mob/living/carbon/M)
+	to_chat(M, SPAN_GOOD("You can feel sensation creeping back into your limbs!"))
+
 /decl/reagent/verunol
 	name = "Verunol Syrup"
 	description = "A complex emetic medication that causes the patient to vomit due to gastric irritation and the stimulating of the vomit centres of the brain."
@@ -1518,3 +1575,52 @@
 	metabolism_min = 0.5
 	breathe_mul = 0
 	goodmessage = list("You feel strange, in a good way.")
+
+/decl/reagent/kilosemine
+	name = "Kilosemine"
+	description = "An illegal stimulant, known by specialists for its properties that somehow mix the effects of Synaptizine and Hyperzine without the immediate side \
+				   effects. It is unknown how and where this chemical was created; some speculate that it was created in Fisanduh for use by radical terrorist cells."
+	reagent_state = SOLID
+	scannable = TRUE
+	color = "#EE4B2B"
+	overdose = 15
+	metabolism = REM * 3 //0.6 units per tick
+	taste_description = "pure alcohol"
+
+/decl/reagent/kilosemine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.drowsiness = max(M.drowsiness - 5, 0)
+	M.AdjustStunned(-1)
+	M.AdjustWeakened(-1)
+	M.hallucination = max(0, M.hallucination - 10)
+	M.eye_blurry = max(M.eye_blurry - 5, 0)
+	M.confused = max(M.confused - 10, 0)
+
+/decl/reagent/kilosemine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_SPEEDBOOST, 1)
+		M.add_chemical_effect(CE_CLEARSIGHT)
+		M.add_chemical_effect(CE_STRAIGHTWALK)
+		M.add_chemical_effect(CE_PAINKILLER, 30)
+		M.add_chemical_effect(CE_HALLUCINATE, -1)
+		M.add_up_to_chemical_effect(CE_ADRENALINE, 1)
+
+/decl/reagent/kilosemine/overdose(mob/living/carbon/M, alien, removed, scale, datum/reagents/holder)
+	if(!ishuman(M))
+		return
+	var/mob/living/carbon/human/H = M
+	if(prob(H.chem_doses[type] / 2))
+		to_chat(H, SPAN_WARNING(pick("You feel like you're on limited time...", "Something in the left side of your chest feels like it's bursting!",
+									 "You feel like today is your last day, and you should make it count...")))
+	if(prob(H.chem_doses[type] / 3))
+		if(prob(75))
+			H.emote(pick("twitch", "shiver"))
+		else
+			if(prob(50))
+				to_chat(H, SPAN_DANGER("Your joints lock up!"))
+				H.AdjustParalysis(3)
+			else
+				var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
+				if(heart)
+					to_chat(H, SPAN_DANGER("Your heart skips a beat and screams out in pain!"))
+					heart.take_internal_damage(10)

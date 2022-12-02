@@ -13,6 +13,20 @@
 	)
 	opened = TRUE // spawns opened
 
+/obj/item/clothing/suit/storage/toggle/longcoat
+	name = "long labcoat"
+	desc = "A long, victorian styled labcoat that protects against minor chemical spills."
+	icon = 'icons/mob/clothing/suit/labcoat.dmi'
+	contained_sprite = TRUE
+	icon_state = "labcoat_long"
+	item_state = "labcoat_long" // used for inhands and onmobs. ESPECIALLY FOR CONTAINED SPRITES
+	blood_overlay_type = "coat"
+	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS
+	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/dnainjector,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/syringe,/obj/item/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/reagent_containers/glass/bottle,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/pill,/obj/item/storage/pill_bottle,/obj/item/paper, /obj/item/device/breath_analyzer)
+	armor = list(
+		bio = ARMOR_BIO_RESISTANT
+	)
+
 /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	name = "chief medical officer's labcoat"
 	desc = "Bluer than the standard model."
@@ -33,11 +47,15 @@
 	desc = "A suit that protects against minor chemical spills. Has a purple stripe on the shoulder."
 	icon_state = "labcoat_sci"
 
-
-//Nanotrasen
+//NanoTrasen
 /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	name = "nanotrasen labcoat"
 	icon_state = "labcoat_nt"
+
+/obj/item/clothing/suit/storage/toggle/longcoat/nt
+	name = "nanotrasen long labcoat"
+	icon_state = "labcoat_long_nt"
+	item_state = "labcoat_long_nt"
 
 //Zeng-Hu
 /obj/item/clothing/suit/storage/toggle/labcoat/zeng
@@ -59,8 +77,12 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt2
 	icon_state = "labcoat_letterman_zeng_alt2"
 
-//Zavodskoi
+/obj/item/clothing/suit/storage/toggle/longcoat/zeng
+	name = "zeng-hu long labcoat"
+	icon_state = "labcoat_long_zeng"
+	item_state = "labcoat_long_zeng"
 
+//Zavodskoi
 /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	name = "zavodskoi interstellar labcoat"
 	icon_state = "labcoat_zav"
@@ -74,14 +96,23 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman/alt
 	icon_state = "labcoat_letterman_zav_alt"
 
-//Hephaestus
+/obj/item/clothing/suit/storage/toggle/longcoat/zavodskoi
+	name = "zavodskoi long labcoat"
+	icon_state = "labcoat_long_zav"
+	item_state = "labcoat_long_zav"
 
+//Hephaestus
 /obj/item/clothing/suit/storage/toggle/labcoat/heph
 	name = "hephaestus labcoat"
 	icon_state = "labcoat_heph"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/heph/letterman
 	icon_state = "labcoat_letterman_heph"
+
+/obj/item/clothing/suit/storage/toggle/longcoat/heph
+	name = "hephaestus long labcoat"
+	icon_state = "labcoat_long_heph"
+	item_state = "labcoat_long_heph"
 
 // PMGC / EPMC
 /obj/item/clothing/suit/storage/toggle/labcoat/pmc
@@ -94,6 +125,11 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/epmc
 	name = "EPMC labcoat"
 	icon_state = "labcoat_epmc"
+
+/obj/item/clothing/suit/storage/toggle/longcoat/pmc
+	name = "PMCG long labcoat"
+	icon_state = "labcoat_long_pmc"
+	item_state = "labcoat_long_pmc"
 
 //Idris
 /obj/item/clothing/suit/storage/toggle/labcoat/idris
@@ -110,8 +146,12 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/idris/letterman/alt
 	icon_state = "labcoat_letterman_idris_alt"
 
-//IAC
+/obj/item/clothing/suit/storage/toggle/longcoat/idris
+	name = "idris long labcoat"
+	icon_state = "labcoat_long_idris"
+	item_state = "labcoat_long_idris"
 
+//IAC
 /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	name = "iac labcoat"
 	icon_state = "labcoat_iac"

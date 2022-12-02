@@ -210,7 +210,7 @@
 		if(src == M && istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
 			src.visible_message(
-				SPAN_NOTICE("[src] examines [src.gender==MALE?"himself":"herself"]."), \
+				SPAN_NOTICE("[src] examines [src.get_pronoun("himself")]."), \
 				SPAN_NOTICE("You check yourself for injuries.") \
 				)
 
@@ -381,11 +381,12 @@
 	set category = "IC"
 
 	if(usr.sleeping)
-		to_chat(usr, SPAN_WARNING("You are already sleeping"))
+		to_chat(usr, SPAN_WARNING("You are already asleep."))
 		return
-	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
+	if(alert(src,"Are you sure you want to sleep for a while?", "Sleep", "Yes", "No") == "Yes")
 		willfully_sleeping = TRUE
-		usr.sleeping = 20 //Short nap
+		usr.sleeping = 20 // Short nap.
+		usr.eye_blurry = 20
 
 /mob/living/carbon/Collide(atom/A)
 	if(now_pushing)

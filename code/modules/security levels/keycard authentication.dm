@@ -1,5 +1,5 @@
 /obj/machinery/keycard_auth
-	name = "Keycard Authentication Device"
+	name = "keycard authentication device"
 	desc = "This device is used to trigger station functions, which require more than one ID card to authenticate."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "auth_off"
@@ -12,6 +12,8 @@
 	var/obj/machinery/keycard_auth/event_source
 	var/mob/event_triggered_by
 	var/mob/event_confirmed_by
+	var/listening = FALSE
+	var/recorded_message = ""
 	//1 = select event
 	//2 = authenticate
 	anchored = 1.0
@@ -19,11 +21,21 @@
 	active_power_usage = 6
 	power_channel = ENVIRON
 
-/obj/machinery/keycard_auth/attack_ai(mob/user as mob)
-	to_chat(user, "The station AI is not to interact with these devices.")
+/obj/machinery/keycard_auth/Initialize(mapload, d, populate_components, is_internal)
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/keycard_auth/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+
+/obj/machinery/keycard_auth/attack_ai(mob/user)
+	to_chat(user, SPAN_NOTICE("The station AI is not to interact with these devices."))
 	return
 
-/obj/machinery/keycard_auth/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/keycard_auth/attackby(obj/item/W, mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")
 		return
@@ -37,14 +49,14 @@
 					event_source.event_confirmed_by = usr
 			else if(screen == 2)
 				event_triggered_by = usr
-				broadcast_request() //This is the device making the initial event request. It needs to broadcast to other devices
+				broadcast_request(user) //This is the device making the initial event request. It needs to broadcast to other devices
 
 /obj/machinery/keycard_auth/power_change()
 	..()
 	if(stat &NOPOWER)
 		icon_state = "auth_off"
 
-/obj/machinery/keycard_auth/attack_hand(mob/user as mob)
+/obj/machinery/keycard_auth/attack_hand(mob/user)
 	if(user.stat || stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")
 		return
@@ -65,7 +77,8 @@
 		dat += "Select an event to trigger:<ul>"
 		dat += "<li><A href='?src=\ref[src];triggerevent=Red alert'>Red alert</A></li>"
 		if(!config.ert_admin_call_only)
-			dat += "<li><A href='?src=\ref[src];triggerevent=Distress Beacon'>Distress Beacon</A></li>"
+			dat += "<li><A href='?src=\ref[src];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
+		dat += "<li><A href='?src=\ref[src];triggerevent=Unlock Leviathan Safeties'><font color='red'>Unlock Leviathan Safeties</font></A></li>"
 
 		dat += "</ul>"
 	if(screen == 2)
@@ -104,11 +117,28 @@
 	icon_state = "auth_off"
 	event_triggered_by = null
 	event_confirmed_by = null
+	recorded_message = ""
 
-/obj/machinery/keycard_auth/proc/broadcast_request()
+/obj/machinery/keycard_auth/hear_talk(mob/M, text, verb, datum/language/speaking)
+	if(event == "Distress Beacon" && listening && M == event_triggered_by)
+		recorded_message = text
+
+/obj/machinery/keycard_auth/proc/broadcast_request(var/mob/user)
+	var/distress_message
+	if(event == "Distress Beacon" && user)
+		distress_message = input(user, "Enter a distress message that other vessels will receive.", "Distress Beacon")
+		if(distress_message)
+			listening = TRUE
+			user.say(distress_message)
+			listening = FALSE
+		else
+			to_chat(user, SPAN_WARNING("The beacon refuses to launch without a message!"))
+			reset()
+			return
 	icon_state = "auth_on"
 	for(var/obj/machinery/keycard_auth/KA in SSmachinery.machinery)
-		if(KA == src) continue
+		if(KA == src)
+			continue
 		KA.reset()
 		spawn()
 			KA.receive_request(src)
@@ -116,7 +146,7 @@
 	sleep(confirm_delay)
 	if(confirmed)
 		confirmed = 0
-		trigger_event(event)
+		trigger_event(event, recorded_message, user)
 		log_game("[key_name(event_triggered_by)] triggered and [key_name(event_confirmed_by)] confirmed event [event]",ckey=key_name(event_triggered_by),ckey_target=key_name(event_confirmed_by))
 		message_admins("[key_name_admin(event_triggered_by)] triggered and [key_name_admin(event_confirmed_by)] confirmed event [event]", 1)
 	reset()
@@ -136,7 +166,7 @@
 	active = 0
 	busy = 0
 
-/obj/machinery/keycard_auth/proc/trigger_event()
+/obj/machinery/keycard_auth/proc/trigger_event(var/event, var/distress_message, var/mob/user)
 	switch(event)
 		if("Red alert")
 			set_security_level(SEC_LEVEL_RED)
@@ -145,8 +175,20 @@
 			if(is_ert_blocked())
 				to_chat(usr, "<span class='warning'>The distress beacon is disabled!</span>")
 				return
-			SSresponseteam.trigger_armed_response_team()
+			if(linked)
+				if(linked.has_called_distress_beacon)
+					to_chat(usr, SPAN_WARNING("The distress beacon has already been fired!"))
+					return
+				SSdistress.trigger_overmap_distress_beacon(linked, distress_message, user)
+			else
+				SSdistress.trigger_armed_response_team()
 			feedback_inc("alert_keycard_auth_ert",1)
+		if("Unlock Leviathan Safeties")
+			if(linked && linked.levi_safeguard)
+				if(!linked.levi_safeguard.opened)
+					linked.levi_safeguard.open()
+					command_announcement.Announce("Commencing connection of Leviathan warp field arrays. All personnel are reminded to seek out a fixed object they can \
+												   hold on to in preparation for the firing sequence.", "Leviathan Artillery Control", 'sound/effects/ship_weapons/leviathan_safetyoff.ogg')
 
 /obj/machinery/keycard_auth/proc/is_ert_blocked()
 	if(config.ert_admin_call_only)

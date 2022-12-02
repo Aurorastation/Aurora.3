@@ -11,7 +11,7 @@
 	gloves = /obj/item/clothing/gloves/combat
 	glasses =  /obj/item/clothing/glasses/sunglasses
 	suit_store = /obj/item/gun/energy/rifle
-	back = /obj/item/storage/backpack/satchel_sec
+	back = /obj/item/storage/backpack/satchel/sec
 	belt = /obj/item/storage/belt/military
 	id = /obj/item/card/id/distress/ap_eridani
 	l_ear = /obj/item/device/radio/headset/distress
@@ -94,7 +94,7 @@
 	shoes = /obj/item/clothing/shoes/swat/ert
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	belt = /obj/item/storage/belt/medical/first_responder/combat
-	back = /obj/item/storage/backpack/satchel_med
+	back = /obj/item/storage/backpack/satchel/med
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
 	r_ear = /obj/item/device/flashlight/pen

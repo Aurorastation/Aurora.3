@@ -213,6 +213,7 @@
 	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
 	icon_state = "welder"
 	item_state = "welder"
+	var/welding_state = "welding_sparks"
 	contained_sprite = TRUE
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -239,7 +240,6 @@
 	var/welding = 0 	//Whether or not the welding tool is off(0), on(1) or currently welding(2)
 	var/status = TRUE		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
 	var/max_fuel = 20 	//The max amount of fuel the welder can hold
-
 	var/change_icons = TRUE
 
 /obj/item/weldingtool/iswelder()
@@ -297,6 +297,12 @@
 	R.my_atom = src
 	R.add_reagent(/decl/reagent/fuel, max_fuel)
 	update_icon()
+
+/obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
+	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state, EFFECTS_ABOVE_LIGHTING_LAYER)
+	target.add_overlay(welding_sparks)
+	. = ..()
+	target.cut_overlay(welding_sparks)
 
 /obj/item/weldingtool/proc/update_torch()
 	if(welding)
@@ -765,10 +771,10 @@
 
 	return TRUE
 
-/obj/item/crowbar/rescue_axe/red 
+/obj/item/crowbar/rescue_axe/red
 	icon_state = "rescue_axe_red"
 	item_state = "rescue_axe_red"
-	
+
 // Pipe wrench
 /obj/item/pipewrench
 	name = "pipe wrench"

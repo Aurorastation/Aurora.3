@@ -10,7 +10,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_MELEE_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -186,7 +186,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SMALL,
@@ -241,12 +241,12 @@
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
 
-/obj/item/rig/light/offworlder/techno
-	name = "techno-conglomerate mobility hardsuit control module"
-	desc = "A sleek hardsuit used by the Coalition forces of the Techno-Conglomerate."
-	icon = 'icons/clothing/rig/techno.dmi'
-	icon_state = "techno_rig"
-	suit_type = "techno-conglomerate mobility hardsuit"
+/obj/item/rig/light/offworlder/frontier
+	name = "advanced mobility hardsuit control module"
+	desc = "Patterned off of the standard Exo-Stellar Skeleton, this sophisticated and light hardsuit is a staple of many armed forces throughout the Frontier. The mobility it grants compared to bulkier suits, while still packing the potential for a versatile toolset, has made it especially popular in the often cramped environments of ships and stations."
+	icon = 'icons/clothing/rig/frontier.dmi'
+	icon_state = "frontier_rig"
+	suit_type = "advanced mobility hardsuit"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_SMALL,
@@ -287,7 +287,7 @@
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/light
 	glove_type = /obj/item/clothing/gloves/rig/light
 
-/obj/item/rig/light/offworlder/techno/equipped
+/obj/item/rig/light/offworlder/frontier/equipped
 	initial_modules = list(
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
@@ -296,7 +296,7 @@
 		/obj/item/rig_module/chem_dispenser/combat,
 		/obj/item/rig_module/mounted/xray
 		)
-/obj/item/rig/light/offworlder/techno/ninja
+/obj/item/rig/light/offworlder/frontier/ninja
 	initial_modules = list(
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,

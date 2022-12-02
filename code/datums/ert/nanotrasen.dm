@@ -1,5 +1,5 @@
 /datum/responseteam/nanotrasen
-	name = "Nanotrasen ERT"
+	name = "NanoTrasen ERT"
 	chance = 20
 	spawner = /datum/ghostspawner/human/ert/nanotrasen
 	possible_space_sector = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI)

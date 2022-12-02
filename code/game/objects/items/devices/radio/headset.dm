@@ -378,6 +378,7 @@
 	name = "wristbound operations manager radio"
 	icon_state = "wristset_QM"
 	item_state = "wristset_QM"
+	ks2type = /obj/item/device/encryptionkey/headset_operations_manager
 
 /*
  * Medical
@@ -665,7 +666,7 @@
 
 /obj/item/device/radio/headset/bluespace
 	name = "bluespace headset"
-	desc = "A bluespace mockery of a standard Nanotrasen headset. It seems to function. Takes encryption keys."
+	desc = "A bluespace mockery of a standard NanoTrasen headset. It seems to function. Takes encryption keys."
 	icon_state = "bs_headset"
 	item_state = "com_headset" // laziness or genius, you decide
 	syndie = TRUE

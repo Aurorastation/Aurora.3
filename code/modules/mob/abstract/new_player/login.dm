@@ -16,7 +16,7 @@
 	loc = null
 
 	my_client = client
-	sight |= SEE_TURFS
+	set_sight(sight|SEE_TURFS)
 	player_list |= src
 
 	client.playtitlemusic()

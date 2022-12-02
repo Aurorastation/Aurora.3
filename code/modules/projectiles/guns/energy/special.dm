@@ -24,10 +24,12 @@
 	origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
 	modifystate = "floramut"
 	self_recharge = 1
+	var/decl/plantgene/gene = null
 
 	firemodes = list(
 		list(mode_name="induce mutations", projectile_type=/obj/item/projectile/energy/floramut, modifystate="floramut"),
-		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield")
+		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield"),
+		list(mode_name="induce specific mutations", projectile_type=/obj/item/projectile/energy/floramut/gene, modifystate="floramut"),
 		)
 
 	needspin = FALSE
@@ -39,6 +41,22 @@
 		Fire(target,user)
 		return
 	..()
+
+/obj/item/gun/energy/floragun/verb/select_gene()
+	set name = "Select Gene"
+	set category = "Object"
+	set src in view(1)
+
+	var/genemask = input("Choose a gene to modify.") as null|anything in SSplants.plant_gene_datums
+
+	if(!genemask)
+		return
+
+	gene = SSplants.plant_gene_datums[genemask]
+
+	to_chat(usr, SPAN_INFO("You set \the [src]\s targeted genetic area to [genemask]."))
+
+	return
 
 /obj/item/gun/energy/meteorgun
 	name = "meteor gun"
@@ -156,11 +174,11 @@
 	turret_sprite_set = "net"
 
 /obj/item/gun/energy/net/mounted
-	max_shots = 1
+	max_shots = 2
 	self_recharge = TRUE
 	use_external_power = TRUE
 	has_safety = FALSE
-	recharge_time = 40
+	recharge_time = 30
 	can_turret = FALSE
 
 /* Vaurca Weapons */
