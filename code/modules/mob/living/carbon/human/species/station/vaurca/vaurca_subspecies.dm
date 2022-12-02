@@ -15,7 +15,7 @@
 	bleed_mod = 1.5
 	burn_mod = 1.0
 	grab_mod = 1.25
-	resist_mod = 2.5 //Most are weaker then a Unathi, but have a evolutionary disposition towards close-combat.
+	resist_mod = 2.5 //Most are weaker then a Unathi, but have an evolutionary disposition towards close-combat.
 
 	mob_size = 10 //fairly lighter than the worker type.
 	taste_sensitivity = TASTE_DULL
