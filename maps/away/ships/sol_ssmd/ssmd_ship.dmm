@@ -199,8 +199,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sol/ssmd,
 /obj/item/clothing/head/helmet/space/void/sol/ssmd,
-/obj/item/clothing/accessory/badge/passcard/sol,
-/obj/item/clothing/accessory/flagpatch/sol,
+/obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "aHC" = (
@@ -379,8 +378,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sol/ssmd,
 /obj/item/clothing/head/helmet/space/void/sol/ssmd,
-/obj/item/clothing/accessory/badge/passcard/sol,
-/obj/item/clothing/accessory/flagpatch/sol,
+/obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "bdq" = (
@@ -851,6 +849,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/item/reagent_containers/food/drinks/bottle/whitewine,
 /turf/simulated/floor/wood/coloured/walnut,
 /area/space)
 "dbU" = (
@@ -1204,6 +1203,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"dQj" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/heavy_vehicle/premade/firefighter,
+/turf/simulated/floor,
+/area/space)
 "dQZ" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
@@ -1217,13 +1222,18 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
 	},
-/obj/item/clothing/accessory/flagpatch/visegrad,
-/obj/item/clothing/accessory/flagpatch/visegrad,
-/obj/item/clothing/accessory/flagpatch/visegrad,
-/obj/item/clothing/accessory/flagpatch/visegrad,
-/obj/item/clothing/accessory/flagpatch/visegrad,
-/obj/item/clothing/accessory/flagpatch/visegrad,
-/obj/item/clothing/accessory/flagpatch/visegrad,
+/obj/item/clothing/accessory/badge/passcard/sol/visegrad,
+/obj/item/clothing/accessory/badge/passcard/sol/visegrad,
+/obj/item/clothing/accessory/badge/passcard/sol/visegrad,
+/obj/item/clothing/accessory/badge/passcard/sol/visegrad,
+/obj/item/clothing/accessory/badge/passcard/sol/visegrad,
+/obj/item/clothing/accessory/badge/passcard/sol/visegrad,
+/obj/item/clothing/accessory/badge/passcard/sol,
+/obj/item/clothing/accessory/badge/passcard/sol,
+/obj/item/clothing/accessory/badge/passcard/sol,
+/obj/item/clothing/accessory/badge/passcard/sol,
+/obj/item/clothing/accessory/badge/passcard/sol,
+/obj/item/clothing/accessory/badge/passcard/sol,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "dVd" = (
@@ -1400,9 +1410,9 @@
 	name = "Support Synthetic Equipment";
 	pixel_y = -32
 	},
-/obj/item/clothing/head/helmet/space/void/sol/ssmd,
-/obj/item/clothing/suit/space/void/sol/ssmd,
-/obj/item/clothing/accessory/flagpatch/sol,
+/obj/item/clothing/suit/space/void/freelancer,
+/obj/item/clothing/head/helmet/space/void/freelancer,
+/obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "evz" = (
@@ -1916,6 +1926,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow{
 	layer = 2.71
 	},
+/obj/item/reagent_containers/food/drinks/bottle/gin,
 /turf/simulated/floor,
 /area/space)
 "fQk" = (
@@ -2116,7 +2127,6 @@
 	},
 /obj/item/clothing/accessory/flagpatch/visegrad{
 	anchored = 1;
-	desc = s;
 	pixel_x = 32
 	},
 /obj/structure/window/basic{
@@ -2290,8 +2300,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sol/ssmd,
 /obj/item/clothing/head/helmet/space/void/sol/ssmd,
-/obj/item/clothing/accessory/badge/passcard/sol,
-/obj/item/clothing/accessory/flagpatch/sol,
+/obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "gKp" = (
@@ -2502,8 +2511,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sol/ssmd,
 /obj/item/clothing/head/helmet/space/void/sol/ssmd,
-/obj/item/clothing/accessory/badge/passcard/sol,
-/obj/item/clothing/accessory/flagpatch/sol,
+/obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "hBs" = (
@@ -2664,7 +2672,7 @@
 /area/space)
 "icA" = (
 /obj/structure/curtain/open/shower,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/white,
 /area/space)
 "idz" = (
 /obj/effect/decal/fake_object{
@@ -2874,6 +2882,20 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"iLQ" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/turf/simulated/floor/reinforced,
 /area/space)
 "iMd" = (
 /obj/machinery/shipsensors/weak,
@@ -3223,8 +3245,8 @@
 /turf/template_noop,
 /area/space)
 "kqx" = (
-/obj/structure/trash_pile,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/suit_cycler/freelancer,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "krH" = (
@@ -3793,6 +3815,17 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor,
 /area/space)
+"mxo" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/turf/simulated/floor/reinforced,
+/area/space)
 "myR" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/stool/chair{
@@ -3827,6 +3860,7 @@
 	pixel_x = -1
 	},
 /obj/structure/table/steel,
+/obj/item/storage/firstaid/combat,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "mEc" = (
@@ -4562,6 +4596,22 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"prd" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/turf/simulated/floor/reinforced,
+/area/space)
 "pwR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -4814,6 +4864,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"qvC" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/turf/simulated/floor/reinforced,
+/area/space)
 "qvF" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -4903,8 +4966,6 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sol/ssmd,
 /obj/item/clothing/head/helmet/space/void/sol/ssmd,
-/obj/item/clothing/accessory/badge/passcard/sol,
-/obj/item/clothing/accessory/flagpatch/sol,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -5030,6 +5091,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/darkblue,
+/area/space)
+"rmR" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/airless,
 /area/space)
 "rnD" = (
 /obj/machinery/vending/engivend{
@@ -6206,6 +6274,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"vxp" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/airless,
 /area/space)
 "vxN" = (
 /obj/machinery/mass_driver{
@@ -34425,7 +34500,7 @@ hwL
 waK
 xba
 hhf
-aZG
+qvC
 ntE
 aZG
 hhf
@@ -34682,7 +34757,7 @@ txv
 waK
 abI
 hhf
-ucw
+prd
 cdz
 ucw
 hhf
@@ -36207,7 +36282,7 @@ hQA
 hQA
 xRX
 xRX
-xRX
+vxp
 hQA
 uaE
 fHH
@@ -42375,7 +42450,7 @@ hQA
 hQA
 xRX
 xRX
-xRX
+rmR
 hQA
 vbu
 qvh
@@ -43673,7 +43748,7 @@ gsa
 nWO
 hhf
 kUo
-ykd
+dQj
 kkc
 ykd
 hhf
@@ -43934,7 +44009,7 @@ jrz
 vaV
 jrz
 hhf
-haI
+iLQ
 ciD
 haI
 hhf
@@ -44191,7 +44266,7 @@ ftd
 itl
 ugW
 hhf
-aZG
+mxo
 ntE
 aZG
 hhf
