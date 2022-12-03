@@ -182,7 +182,6 @@
 
 /obj/item/projectile/energy/blaster/disruptor
 	damage = 20
-	pass_flags = PASSTABLE | PASSRAILING
 
 /obj/item/projectile/energy/blaster/disruptor/practice
 	damage = 5
