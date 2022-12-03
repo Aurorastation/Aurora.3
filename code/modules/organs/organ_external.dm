@@ -366,7 +366,7 @@
 	if(sharp)
 		organ_damage_threshold *= 0.5
 	if(laser)
-		organ_damage_threshold *= 2
+		organ_damage_threshold *= 1.25
 
 	if(!(cur_damage + damage_amt >= max_damage) && !(damage_amt >= organ_damage_threshold))
 		return FALSE

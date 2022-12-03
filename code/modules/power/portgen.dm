@@ -348,7 +348,7 @@
 		"fuel_usage" = active ? round((power_output / time_per_sheet) * 1000) : FALSE,
 		"fuel_type" = sheet_name
 		)
-	
+
 	//coolant stuff
 	data["uses_coolant"] = !!reagents
 	data["coolant_stored"] = reagents?.total_volume
@@ -457,8 +457,8 @@
 
 /obj/machinery/power/portgen/basic/fusion
 	name = "minature fusion reactor"
-	desc = "The RT7-0, an industrial all-in-one nuclear fusion power plant created by Hephaestus. It uses uranium as a fuel source and relies on coolant to keep the reactor cool. Rated for 500 kW max safe output."
-	power_gen =  100000	
+	desc = "The RT7-0, an industrial all-in-one nuclear fusion power plant created by Hephaestus. It uses tritium as a fuel source and relies on coolant to keep the reactor cool. Rated for 500 kW max safe output."
+	power_gen =  100000
 	icon_state = "reactor"
 	base_icon = "reactor"
 	portgen_lightcolour = "#458943"
@@ -474,7 +474,7 @@
 
 	anchored = TRUE
 	flags = OPENCONTAINER
-	
+
 	var/coolant_volume = 360
 	var/coolant_use = 0.2
 	var/coolant_reagent = /decl/reagent/coolant
