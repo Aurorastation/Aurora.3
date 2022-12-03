@@ -701,7 +701,7 @@
 
 // the big SCC logo
 /obj/effect/floor_decal/scc_full
-	name = "SCC logo (preview)"
+	name = "full SCC logo"
 	icon = 'icons/turf/flooring/scc_decal_preview.dmi'
 	icon_state = "scc_decal_preview"
 
