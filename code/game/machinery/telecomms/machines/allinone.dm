@@ -47,7 +47,18 @@
 		signal.broadcast()
 
 /obj/machinery/telecomms/allinone/ship
-	freq_listening = list(SHIP_FREQ)
+	freq_listening = list()
+	var/preset_name
+
+/obj/machinery/telecomms/allinone/ship/Initialize()
+	if(preset_name)
+		name = "[lowertext(preset_name)] telecommunications mainframe"
+		freq_listening = list(
+			HAIL_FREQ,
+			assign_away_freq(preset_name)
+		)
+
+	return ..()
 
 //This goes on the station map so away ships can maintain radio contact.
 //Regular telecomms machines cannot listen to broadcasts coming from non-station z-levels. If we did this, comms would be receiving a substantial amount of duplicated messages.
@@ -59,7 +70,10 @@
 	desc_info = "This device does not need to be linked to other telecommunications equipment; it will receive and broadcast on its own. It only needs to be powered."
 	idle_power_usage = 25
 	active_power_usage = 200
+	preset_name = null
 
 /obj/machinery/telecomms/allinone/ship/station_relay/Initialize()
 	. = ..()
 	desc = replacetext(desc, "%STATIONNAME", current_map.station_name)
+	freq_listening |= AWAY_FREQS_ASSIGNED
+	freq_listening |= AWAY_FREQS_UNASSIGNED

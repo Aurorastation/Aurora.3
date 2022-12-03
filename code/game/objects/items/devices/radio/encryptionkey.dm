@@ -16,28 +16,43 @@
 /obj/item/device/encryptionkey/attackby(obj/item/W, mob/user)
 	return
 
+/obj/item/device/encryptionkey/map_preset
+	var/preset_name
+	var/use_common = FALSE
+
+/obj/item/device/encryptionkey/map_preset/Initialize()
+	if (preset_name)
+		var/name_lower = lowertext(preset_name)
+		name = "[name_lower] encryption key"
+		channels += list(
+			"[preset_name]" = TRUE,
+			CHANNEL_HAILING = TRUE
+		)
+		if(use_common)
+			channels += list(CHANNEL_COMMON, TRUE)
+
 /obj/item/device/encryptionkey/syndicate
 	icon_state = "cypherkey"
-	additional_channels = list(CHANNEL_MERCENARY = TRUE)
+	additional_channels = list(CHANNEL_MERCENARY = TRUE, CHANNEL_HAILING = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 3)
 	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-station channels. Use :t to access the private channel."
 	syndie = TRUE
 
 /obj/item/device/encryptionkey/raider
 	icon_state = "cypherkey"
-	additional_channels = list(CHANNEL_RAIDER = TRUE)
+	additional_channels = list(CHANNEL_RAIDER = TRUE, CHANNEL_HAILING = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 2)
 	syndie = TRUE
 
 /obj/item/device/encryptionkey/burglar
 	icon_state = "cypherkey"
-	additional_channels = list(CHANNEL_BURGLAR = TRUE)
+	additional_channels = list(CHANNEL_BURGLAR = TRUE, CHANNEL_HAILING = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 2)
 	syndie = TRUE
 
 /obj/item/device/encryptionkey/ninja
 	icon_state = "cypherkey"
-	additional_channels = list(CHANNEL_NINJA = TRUE)
+	additional_channels = list(CHANNEL_NINJA = TRUE, CHANNEL_HAILING = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 3)
 	syndie = TRUE
 
@@ -48,10 +63,6 @@
 	additional_channels = list(CHANNEL_BLUESPACE = TRUE)
 	origin_tech = list(TECH_BLUESPACE = 3)
 	syndie = TRUE
-
-/obj/item/device/encryptionkey/ship
-	icon_state = "cypherkey"
-	additional_channels = list(CHANNEL_SHIP = TRUE)
 
 /obj/item/device/encryptionkey/binary
 	icon_state = "cypherkey"
@@ -108,43 +119,43 @@
 /obj/item/device/encryptionkey/headset_com
 	name = "command radio encryption key"
 	icon_state = "com_cypherkey"
-	channels = list(CHANNEL_COMMAND = TRUE)
+	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/heads/captain
 	name = "captain's encryption key"
 	icon_state = "cap_cypherkey"
-	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE)
+	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/heads/ai_integrated
 	name = "ai integrated encryption key"
 	desc = "Integrated encryption key"
 	icon_state = "cap_cypherkey"
-	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_AI_PRIVATE = TRUE)
+	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_AI_PRIVATE = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/heads/rd
 	name = "research director's encryption key"
 	icon_state = "rd_cypherkey"
-	channels = list(CHANNEL_SCIENCE = TRUE, CHANNEL_COMMAND = TRUE)
+	channels = list(CHANNEL_SCIENCE = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/heads/hos
 	name = "head of security's encryption key"
 	icon_state = "hos_cypherkey"
-	channels = list(CHANNEL_SECURITY = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_PENAL = TRUE)
+	channels = list(CHANNEL_SECURITY = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_PENAL = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/heads/ce
 	name = "chief engineer's encryption key"
 	icon_state = "ce_cypherkey"
-	channels = list(CHANNEL_ENGINEERING = TRUE, CHANNEL_COMMAND = TRUE)
+	channels = list(CHANNEL_ENGINEERING = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/heads/cmo
 	name = "chief medical officer's encryption key"
 	icon_state = "cmo_cypherkey"
-	channels = list(CHANNEL_MEDICAL = TRUE, CHANNEL_COMMAND = TRUE)
+	channels = list(CHANNEL_MEDICAL = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/heads/xo
 	name = "executive officer's encryption key"
 	icon_state = "hop_cypherkey"
-	channels = list(CHANNEL_SERVICE = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE)
+	channels = list(CHANNEL_SERVICE = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/headset_cargo
 	name = "operations radio encryption key"
@@ -154,7 +165,7 @@
 /obj/item/device/encryptionkey/headset_operations_manager
 	name = "operations managaer radio encryption key"
 	icon_state = "cargo_cypherkey"
-	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SUPPLY = TRUE)
+	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/headset_service
 	name = "service radio encryption key"
@@ -163,7 +174,7 @@
 
 /obj/item/device/encryptionkey/ert
 	name = "\improper ERT radio encryption key"
-	channels = list(CHANNEL_RESPONSE_TEAM = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE)
+	channels = list(CHANNEL_RESPONSE_TEAM = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/onlyert
 	name = "\improper ERT radio encryption key"

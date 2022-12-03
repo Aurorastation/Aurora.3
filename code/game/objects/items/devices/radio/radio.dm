@@ -50,8 +50,9 @@ var/global/list/default_medbay_channels = list(
 
 	// If FALSE, broadcasting and listening don't matter and this radio does nothing
 	VAR_PRIVATE/on = TRUE
-	// "default" radio freq. this radio is set to, listens and transmits to this by default
-	VAR_PRIVATE/frequency = PUB_FREQ
+
+	VAR_PRIVATE/frequency = PUB_FREQ // Current frequency the radio is set to
+	var/default_frequency = PUB_FREQ // frequency the radio defaults to on reset / startup
 
 	// Whether the radio transmits dialogue it hears nearby onto its radio channel
 	VAR_PRIVATE/broadcasting = FALSE
@@ -103,7 +104,7 @@ var/global/list/default_medbay_channels = list(
 
 	set_listening(listening)
 	set_broadcasting(broadcasting)
-	set_frequency(frequency)
+	set_frequency(default_frequency)
 	set_on(on)
 
 /obj/item/device/radio/Destroy()
@@ -288,7 +289,7 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 
 	usr.set_machine(src)
 	if (href_list["track"])
@@ -296,7 +297,7 @@ var/global/list/default_medbay_channels = list(
 		var/mob/living/silicon/ai/A = locate(href_list["track2"])
 		if(A && target)
 			A.ai_actual_track(target)
-		. = 1
+		. = TRUE
 
 	else if (href_list["freq"])
 		var/new_frequency = (frequency + text2num(href_list["freq"]))
@@ -306,10 +307,10 @@ var/global/list/default_medbay_channels = list(
 		if(hidden_uplink)
 			if(hidden_uplink.check_trigger(usr, frequency, traitor_frequency))
 				usr << browse(null, "window=radio")
-		. = 1
+		. = TRUE
 	else if (href_list["talk"])
 		set_broadcasting(!broadcasting)
-		. = 1
+		. = TRUE
 	else if (href_list["listen"])
 		var/chan_name = href_list["ch_name"]
 		if (!chan_name)
@@ -319,14 +320,19 @@ var/global/list/default_medbay_channels = list(
 				channels[chan_name] &= ~FREQ_LISTENING
 			else
 				channels[chan_name] |= FREQ_LISTENING
-		. = 1
+		. = TRUE
 	else if(href_list["spec_freq"])
 		var freq = href_list["spec_freq"]
 		if(has_channel_access(usr, freq))
 			set_frequency(text2num(freq))
-		. = 1
+		. = TRUE
+	else if(href_list["reset_freq"])
+		if(default_frequency)
+			set_frequency(default_frequency)
+			. = TRUE
+
 	if(href_list["nowindow"]) // here for pAIs, maybe others will want it, idk
-		return 1
+		return TRUE
 
 	if(.)
 		SSnanoui.update_uis(src)
@@ -666,6 +672,7 @@ var/global/list/default_medbay_channels = list(
 	data["mic_status"] = broadcasting
 	data["speaker"] = listening
 	data["freq"] = format_frequency(frequency)
+	data["default_freq"] = format_frequency(default_frequency)
 	data["rawfreq"] = num2text(frequency)
 
 	var/list/chanlist = list_channels(user)
@@ -701,6 +708,27 @@ var/global/list/default_medbay_channels = list(
 //
 // Radio Variants
 //
+
+/obj/item/device/radio/map_preset
+	var/preset_name
+	var/use_common = FALSE
+	channels = list()
+
+/obj/item/device/radio/map_preset/Initialize()
+	if (!preset_name)
+		return ..()
+
+	var/name_lower = lowertext(preset_name)
+	name = "[name_lower] shortwave radio"
+	frequency = assign_away_freq(preset_name)
+	channels += list(
+		preset_name = TRUE,
+		CHANNEL_HAILING = TRUE
+	)
+	if(use_common)
+		channels += list(CHANNEL_COMMON = TRUE)
+
+	. = ..()
 
 // Radio (Off)
 /obj/item/device/radio/off/Initialize()

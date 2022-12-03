@@ -686,7 +686,21 @@
 //Ghostrole headset
 /obj/item/device/radio/headset/ship
 	icon_state = "syn_headset"
-	ks1type = /obj/item/device/encryptionkey/ship
+	var/preset_name
+	var/encryption_key = /obj/item/device/encryptionkey
+	var/use_common = FALSE
+
+/obj/item/device/radio/headset/ship/Initialize()
+	if (preset_name)
+		var/name_lower = lowertext(preset_name)
+		name = "[name_lower] radio headset"
+		ks1type = encryption_key
+		default_frequency = assign_away_freq(preset_name)
+
+	. = ..()
+
+	if (use_common)
+		set_frequency(PUB_FREQ)
 
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_ILLEGAL = 3)

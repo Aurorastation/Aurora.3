@@ -16,6 +16,34 @@
 	var/radio_sound = null
 	clickvol = 40
 
+/obj/item/device/radio/intercom/ship
+	var/preset_name
+	var/use_common = FALSE
+	channels = list()
+	var/default_hailing = FALSE
+
+/obj/item/device/radio/intercom/ship/Initialize()
+	if(!preset_name)
+		return ..()
+
+	var/name_lower = lowertext(preset_name)
+	name = "intercom ([name_lower])"
+	default_frequency = assign_away_freq(preset_name)
+	channels += list(
+		preset_name = TRUE,
+		CHANNEL_HAILING = TRUE
+	)
+	if (use_common)
+		channels += list(
+			CHANNEL_COMMON = TRUE
+		)
+
+	. = ..()
+
+	if (default_hailing)
+		set_frequency(HAIL_FREQ)
+
+
 /obj/item/device/radio/intercom/custom
 	name = "intercom (custom)"
 
@@ -23,6 +51,13 @@
 	. = ..()
 	set_broadcasting(FALSE)
 	set_listening(FALSE)
+
+/obj/item/device/radio/intercom/hailing
+	name = "intercom (hailing)"
+
+/obj/item/device/radio/intercom/hailing/Initialize()
+	. = ..()
+	set_frequency(HAIL_FREQ)
 
 /obj/item/device/radio/intercom/interrogation
 	name = "intercom (interrogation)"

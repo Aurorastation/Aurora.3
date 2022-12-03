@@ -207,7 +207,8 @@
 				SSfeedback.msg_cargo += blackbox_msg
 			if(SRV_FREQ)
 				SSfeedback.msg_service += blackbox_msg
-			if(SHIP_FREQ)
-				SSfeedback.msg_ship += blackbox_msg
 			else
-				SSfeedback.messages += blackbox_msg
+				if(frequency in AWAY_FREQS_ASSIGNED)
+					SSfeedback.msg_ship += blackbox_msg
+				else
+					SSfeedback.messages += blackbox_msg
