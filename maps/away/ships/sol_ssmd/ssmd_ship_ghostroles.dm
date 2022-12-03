@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/ssmd_navy_crewman
 	short_name = "ssmd_navy_crewman"
 	name = "SSMD Navy Crewman"
-	desc = "Crew the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate activities within the region, while serving the interests of the Solarian government."
+	desc = "Crew the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate activity within the region, while serving the interests of the Solarian government. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solariann accent.)"
 	tags = list("External")
 	mob_name_prefix = "PO3. "
 
@@ -39,9 +39,9 @@
 /datum/ghostspawner/human/ssmd_navy_officer
 	short_name = "ssmd_navy_officer"
 	name = "SSMD Navy Officer"
-	desc = "Command the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate activities within the region, while serving the interests of the Solarian government."
+	desc = "Command the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate activity within the region, while serving the interests of the Solarian government. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solariann accent.)"
 	tags = list("External")
-	mob_name_prefix = "LT. "
+	mob_name_prefix = "LCDR. "
 
 	spawnpoints = list("ssmd_navy_officer")
 	max_count = 1
@@ -58,7 +58,7 @@
 /datum/outfit/admin/ssmd_navy_officer
 	name = "SSMD Navy Officer"
 
-	uniform = /obj/item/clothing/under/rank/sol/dress/subofficer
+	uniform = /obj/item/clothing/under/rank/sol/dress/officer
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel/leather
 	head = /obj/item/clothing/head/sol/dress
@@ -76,8 +76,8 @@
 /datum/ghostspawner/human/ssmd_navy_crewman/senior
 	short_name = "ssmd_navy_senior_crewman"
 	name = "SSMD Navy Senior Crewman"
-	desc = "Serve as the second-in-command of the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate activities within the region, while serving the interests of the Solarian government."
-	mob_name_prefix = "PO1. "
+	desc = "Serve as the second-in-command of the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate activity within the region, while serving the interests of the Solarian government. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solariann accent.)"
+	mob_name_prefix = "CPO. "
 
 	spawnpoints = list("ssmd_navy_crewman")
 	max_count = 1

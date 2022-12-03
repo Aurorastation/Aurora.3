@@ -16,6 +16,7 @@
 //areas
 /area/ship/ssmd_corvette
 	name = "SSMD Corvette"
+	requires_power = TRUE
 
 /area/ship/ssmd_corvette/bridge
 	name = "SSMD Corvette Bridge"
