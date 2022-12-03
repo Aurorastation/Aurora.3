@@ -319,7 +319,7 @@
 				to_chat(user, SPAN_NOTICE("There is no installed tank to remove."))
 				return
 			if(breather)
-				to_chat(user, SPAN_NOTICE("You cannot remove \the [tank] if someone is canulated with \the artery line!"))
+				to_chat(user, SPAN_NOTICE("You cannot remove \the [tank] if someone is canulated with the artery line!"))
 				return
 			if(!is_loose)
 				to_chat(user, SPAN_NOTICE("You must loosen the nuts securing \the [tank] into place to remove it!"))
