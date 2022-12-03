@@ -76,13 +76,14 @@ var/global/list/default_medbay_channels = list(
 	var/mob/living/announcer/announcer = null // used in autosay, held by the radio for re-use
 	var/datum/wires/radio/wires = null
 	var/b_stat = 0
+
 	var/list/channels = list() //see communications.dm for full list. First non-common, non-entertainment channel is a "default" for :h
 	var/subspace_transmission = FALSE
 	var/syndie = FALSE //Holder to see if it's a syndicate encrypted radio
 	var/independent = FALSE // if TRUE, can say/hear on the Special Channel!!! (TBD)
 
 	var/datum/radio_frequency/radio_connection
-	var/list/datum/radio_frequency/secure_radio_connections = new
+	var/list/datum/radio_frequency/secure_radio_connections = list()
 
 /obj/item/device/radio/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
@@ -194,6 +195,7 @@ var/global/list/default_medbay_channels = list(
 	data["mic_status"] = broadcasting
 	data["speaker"] = listening
 	data["freq"] = format_frequency(frequency)
+	data["default_freq"] = format_frequency(default_frequency)
 	data["rawfreq"] = num2text(frequency)
 
 	data["mic_cut"] = (wires.IsIndexCut(WIRE_TRANSMIT) || wires.IsIndexCut(WIRE_SIGNAL))
@@ -215,9 +217,15 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/proc/setupRadioDescription(var/additional_radio_desc)
 	var/radio_text = ""
+	var/found_first_department = FALSE
 	for(var/i = 1 to channels.len)
 		var/channel = channels[i]
 		var/key = get_radio_key_from_channel(channel)
+		if(!length(key) && !found_first_department && channel != CHANNEL_COMMON && channel != CHANNEL_ENTERTAINMENT)
+			// if we don't have a key and it's the 'shortcut' channel, put the department key instead
+			key = get_radio_key_from_channel("department")
+			found_first_department = TRUE
+
 		radio_text += "[key] - [channel]"
 		if(i != channels.len)
 			radio_text += ", "
@@ -698,7 +706,7 @@ var/global/list/default_medbay_channels = list(
 	if(SSradio)
 		for (var/ch_name in channels)
 			SSradio.remove_object(src, radiochannels[ch_name])
-	secure_radio_connections = new
+	secure_radio_connections = list()
 	channels = op
 	if(SSradio)
 		for (var/ch_name in op)
@@ -710,25 +718,24 @@ var/global/list/default_medbay_channels = list(
 //
 
 /obj/item/device/radio/map_preset
-	var/preset_name
-	var/use_common = FALSE
 	channels = list()
 
 /obj/item/device/radio/map_preset/Initialize()
-	if (!preset_name)
+	if(!current_map.use_overmap)
 		return ..()
 
-	var/name_lower = lowertext(preset_name)
-	name = "[name_lower] shortwave radio"
-	frequency = assign_away_freq(preset_name)
-	channels += list(
-		preset_name = TRUE,
-		CHANNEL_HAILING = TRUE
-	)
-	if(use_common)
-		channels += list(CHANNEL_COMMON = TRUE)
+	var/turf/T = get_turf(src)
+	var/obj/effect/overmap/visitable/V = map_sectors["[T.z]"]
+	if(istype(V) && V.comms_support)
+		frequency = assign_away_freq(V.name)
+		channels += list(
+			V.name = TRUE,
+			CHANNEL_HAILING = TRUE
+		)
+		if(V.comms_name)
+			name = "[V.comms_name] shortwave radio"
 
-	. = ..()
+	return ..()
 
 // Radio (Off)
 /obj/item/device/radio/off/Initialize()

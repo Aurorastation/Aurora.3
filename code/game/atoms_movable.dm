@@ -332,14 +332,15 @@
 
 // Core movement hooks & procs.
 /atom/movable/proc/forceMove(atom/destination)
-	if(destination)
-		if(loc)
-			loc.Exited(src, destination)
-		var/old_loc = loc
-		loc = destination
-		loc.Entered(src, old_loc)
-		return 1
-	return 0
+	if(!destination)
+		return FALSE
+	if(loc)
+		loc.Exited(src, destination)
+	var/old_loc = loc
+	loc = destination
+	loc.Entered(src, old_loc)
+	Moved(old_loc, TRUE)
+	return TRUE
 
 /atom/movable/Move()
 	var/old_loc = loc
@@ -364,23 +365,33 @@
 			if (bound_overlay.dir != dir)
 				bound_overlay.set_dir(dir)
 
-/atom/movable/proc/update_grid_location(var/atom/movable/am, var/old_loc, var/new_loc)
+		Moved(old_loc, FALSE)
+
+/atom/movable/proc/Moved(atom/old_loc, forced)
+	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, old_loc, forced)
+
+	update_grid_location(old_loc, src)
+
+/atom/movable/proc/update_grid_location(atom/old_loc)
+	if(!HAS_SPATIAL_GRID_CONTENTS(src))
+		return
+
 	var/turf/old_turf = get_turf(old_loc)
 	var/turf/new_turf = get_turf(src)
 
-	if(HAS_SPATIAL_GRID_CONTENTS(src))
-		if(old_turf && new_turf && (old_turf.z != new_turf.z \
-			|| ROUND_UP(old_turf.x / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.x / SPATIAL_GRID_CELLSIZE) \
-			|| ROUND_UP(old_turf.y / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.y / SPATIAL_GRID_CELLSIZE)))
+	if(old_turf && new_turf && (old_turf.z != new_turf.z \
+		|| ROUND_UP(old_turf.x / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.x / SPATIAL_GRID_CELLSIZE) \
+		|| ROUND_UP(old_turf.y / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.y / SPATIAL_GRID_CELLSIZE)))
 
-			SSspatial_grid.exit_cell(src, old_turf)
-			SSspatial_grid.enter_cell(src, new_turf)
+		SSspatial_grid.exit_cell(src, old_turf)
+		SSspatial_grid.enter_cell(src, new_turf)
 
-		else if(old_turf && !new_turf)
-			SSspatial_grid.exit_cell(src, old_turf)
+	else if(old_turf && !new_turf)
+		SSspatial_grid.exit_cell(src, old_turf)
 
-		else if(new_turf && !old_turf)
-			SSspatial_grid.enter_cell(src, new_turf)
+	else if(new_turf && !old_turf)
+		SSspatial_grid.enter_cell(src, new_turf)
 
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()

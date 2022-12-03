@@ -33,6 +33,9 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/obj/effect/overmap/targeting
 	var/obj/machinery/leviathan_safeguard/levi_safeguard
 
+	var/comms_support = FALSE		// Whether ghostroles attached to this overmap object spawn with comms
+	var/comms_name = "shipboard"	// Snowflake name to apply to comms equipment ("shipboard radio headset", "intercom (shipboard)", "shipboard telecommunications mainframe"), etc.
+
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)

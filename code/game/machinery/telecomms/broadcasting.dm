@@ -67,7 +67,7 @@
 		levels = current_map.station_levels
 
 	if(current_map.use_overmap)
-		sector = map_sectors["[source.z]"]
+		sector = map_sectors["[T.z]"]
 
 	var/mob/M = speaker.resolve()
 

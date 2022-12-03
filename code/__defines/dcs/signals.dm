@@ -34,6 +34,8 @@
 // /turf signals
 
 // /atom/movable signals
+#define COMSIG_MOVABLE_MOVED "movable_moved"
+
 #define COMSIG_MOVABLE_HEAR "movable_hear"
 	#define HEARING_MESSAGE 	1
 	#define HEARING_SPEAKER 	2

@@ -5,8 +5,6 @@
 	They receive their message from a server after the message has been logged.
 */
 
-var/list/recentmessages // global list of recent messages broadcasted : used to circumvent massive radio spam
-
 /obj/machinery/telecomms/broadcaster
 	name = "subspace broadcaster"
 	icon_state = "broadcaster"
@@ -17,10 +15,11 @@ var/list/recentmessages // global list of recent messages broadcasted : used to 
 	produces_heat = FALSE
 	delay = 7
 	circuitboard = "/obj/item/circuitboard/telecomms/broadcaster"
+	var/list/recent_broadcasts
 
 /obj/machinery/telecomms/broadcaster/Initialize(mapload)
 	. = ..()
-	LAZYINITLIST(recentmessages)
+	LAZYINITLIST(recent_broadcasts)
 
 /obj/machinery/telecomms/broadcaster/receive_information(datum/signal/subspace/signal, obj/machinery/telecomms/machine_from)
 	// Don't broadcast rejected signals
@@ -40,9 +39,9 @@ var/list/recentmessages // global list of recent messages broadcasted : used to 
 	signal.levels = GetConnectedZlevels(z)
 
 	var/signal_message = "[signal.frequency]:[signal.data["message"]]:[signal.data["realname"]]"
-	if(signal_message in recentmessages)
+	if(signal_message in recent_broadcasts)
 		return
-	LAZYADD(recentmessages, signal_message)
+	LAZYADD(recent_broadcasts, signal_message)
 
 	if(signal.data["slow"] > 0)
 		addtimer(CALLBACK(signal, /datum/signal/subspace/proc/broadcast), signal.data["slow"]) // network lag
@@ -52,9 +51,5 @@ var/list/recentmessages // global list of recent messages broadcasted : used to 
 	/* --- Do a snazzy animation! --- */
 	flick("broadcaster_send", src)
 
-/obj/machinery/telecomms/broadcaster/process()
-	LAZYCLEARLIST(recentmessages)
-
-/obj/machinery/telecomms/broadcaster/Destroy()
-	LAZYCLEARLIST(recentmessages)
-	return ..()
+	spawn(10)
+		recent_broadcasts -= signal_message

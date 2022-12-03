@@ -16,20 +16,30 @@
 /obj/item/device/encryptionkey/attackby(obj/item/W, mob/user)
 	return
 
-/obj/item/device/encryptionkey/map_preset
-	var/preset_name
+/obj/item/device/encryptionkey/ship
 	var/use_common = FALSE
+	channels = list()
 
-/obj/item/device/encryptionkey/map_preset/Initialize()
-	if (preset_name)
-		var/name_lower = lowertext(preset_name)
-		name = "[name_lower] encryption key"
+/obj/item/device/encryptionkey/ship/Initialize()
+	if(!current_map.use_overmap)
+		return ..()
+
+	var/turf/T = get_turf(src)
+	var/obj/effect/overmap/visitable/V = map_sectors["[T.z]"]
+	if(istype(V) && V.comms_support)
+		if(V.comms_name)
+			name = "[V.comms_name] encryption key"
+
 		channels += list(
-			"[preset_name]" = TRUE,
+			"[V.name]" = TRUE,
 			CHANNEL_HAILING = TRUE
 		)
-		if(use_common)
-			channels += list(CHANNEL_COMMON, TRUE)
+
+	if(use_common)
+		channels += list(CHANNEL_COMMON, TRUE)
+
+/obj/item/device/encryptionkey/ship/common
+	use_common = TRUE
 
 /obj/item/device/encryptionkey/syndicate
 	icon_state = "cypherkey"

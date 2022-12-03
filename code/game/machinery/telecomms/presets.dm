@@ -1,11 +1,14 @@
 // ### Preset machines  ###
 //HUB
 
-/obj/machinery/telecomms/hub/preset_map
-	var/preset_name
+/obj/machinery/telecomms/hub/preset_map/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
 
-/obj/machinery/telecomms/hub/preset_map/Initialize()
-	if(preset_name)
+	if(istype(linked) && linked.comms_support)
+		var/preset_name = linked.comms_name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] Hub"
 		network = "tcomm_[name_lower]"
@@ -33,11 +36,16 @@
 //Receivers
 
 /obj/machinery/telecomms/receiver/preset_map
-	var/preset_name
 	var/use_common = FALSE
 
-/obj/machinery/telecomms/receiver/preset_map/Initialize()
-	if (preset_name)
+/obj/machinery/telecomms/receiver/preset_map/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+
+	if(istype(linked) && linked.comms_support)
+		var/preset_name = linked.comms_name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] Receiver"
 		network = "tcomm_[name_lower]"
@@ -72,11 +80,16 @@
 
 //Buses
 /obj/machinery/telecomms/bus/preset_map
-	var/preset_name
 	var/use_common = FALSE
 
-/obj/machinery/telecomms/bus/preset_map/Initialize()
-	if (preset_name)
+/obj/machinery/telecomms/bus/preset_map/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+
+	if(istype(linked) && linked.comms_support)
+		var/preset_name = linked.comms_name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] Bus"
 		network = "tcomm_[name_lower]"
@@ -129,11 +142,15 @@
 	autolinkers = list("processorCent", "centcomm")
 
 //Processors
-/obj/machinery/telecomms/processor/preset_map
-	var/preset_name
 
-/obj/machinery/telecomms/processor/preset_map/Initialize()
-	if (preset_name)
+/obj/machinery/telecomms/processor/preset_map/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+
+	if(istype(linked) && linked.comms_support)
+		var/preset_name = linked.comms_name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] Processor"
 		network = "tcomm_[name_lower]"
@@ -171,11 +188,16 @@
 
 //Servers
 /obj/machinery/telecomms/server/preset_map
-	var/preset_name
 	var/use_common = FALSE
 
-/obj/machinery/telecomms/server/preset_map/Initialize()
-	if (preset_name)
+/obj/machinery/telecomms/server/preset_map/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+
+	if(istype(linked) && linked.comms_support)
+		var/preset_name = linked.comms_name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] Server"
 		network = "tcomm_[name_lower]"
@@ -258,11 +280,14 @@
 
 //--PRESET LEFT--//
 
-/obj/machinery/telecomms/broadcaster/preset_map
-	var/preset_name
+/obj/machinery/telecomms/broadcaster/preset_map/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
 
-/obj/machinery/telecomms/broadcaster/preset_map/Initialize()
-	if (preset_name)
+	if(istype(linked) && linked.comms_support)
+		var/preset_name = linked.comms_name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] Broadcaster"
 		network = "tcomm_[name_lower]"

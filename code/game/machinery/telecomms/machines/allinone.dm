@@ -13,12 +13,13 @@
 	produces_heat = FALSE
 	overmap_range = 2 // AIOs aren't true relays
 	var/intercept = FALSE // if TRUE, broadcasts all messages to syndicate channel
+	var/list/recent_broadcasts
 
 
 /obj/machinery/telecomms/allinone/Initialize()
 	. = ..()
-	LAZYINITLIST(recentmessages)
-	if(!freq_listening.len || intercept)
+	LAZYINITLIST(recent_broadcasts)
+	if(intercept)
 		freq_listening |= ANTAG_FREQS	//Covers any updates to ANTAG_FREQS
 
 	desc += " It has an effective reception range of [overmap_range] grids on the overmap."
@@ -37,28 +38,29 @@
 	signal.mark_done()
 
 	var/signal_message = "[signal.frequency]:[signal.data["message"]]:[signal.data["realname"]]"
-	if(signal_message in recentmessages)
+	if(signal_message in recent_broadcasts)
 		return
-	LAZYADD(recentmessages, signal_message)
+
+	LAZYADD(recent_broadcasts, signal_message)
 
 	if(signal.data["slow"] > 0)
 		addtimer(CALLBACK(signal, /datum/signal/subspace/proc/broadcast), signal.data["slow"]) // network lag
 	else
 		signal.broadcast()
 
-/obj/machinery/telecomms/allinone/ship
-	freq_listening = list()
-	var/preset_name
+	spawn(10)
+		recent_broadcasts -= signal_message
 
-/obj/machinery/telecomms/allinone/ship/Initialize()
-	if(preset_name)
-		name = "[lowertext(preset_name)] telecommunications mainframe"
-		freq_listening = list(
-			HAIL_FREQ,
-			assign_away_freq(preset_name)
-		)
+/obj/machinery/telecomms/allinone/ship/LateInitialize()
+	. = ..()
+	if(!linked)
+		return
 
-	return ..()
+	name = "[lowertext(linked.comms_name)] telecommunications mainframe"
+	freq_listening = list(
+		HAIL_FREQ,
+		assign_away_freq(linked.name)
+	)
 
 //This goes on the station map so away ships can maintain radio contact.
 //Regular telecomms machines cannot listen to broadcasts coming from non-station z-levels. If we did this, comms would be receiving a substantial amount of duplicated messages.
@@ -70,7 +72,7 @@
 	desc_info = "This device does not need to be linked to other telecommunications equipment; it will receive and broadcast on its own. It only needs to be powered."
 	idle_power_usage = 25
 	active_power_usage = 200
-	preset_name = null
+	freq_listening = list(HAIL_FREQ)
 
 /obj/machinery/telecomms/allinone/ship/station_relay/Initialize()
 	. = ..()

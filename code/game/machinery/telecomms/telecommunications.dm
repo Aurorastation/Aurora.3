@@ -59,18 +59,19 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 //	soundloop = new(list(src), on)
 	telecomms_list += src
 
+	if(mapload)
+		return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/telecomms/LateInitialize()
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
-	if(mapload && autolinkers.len)
-		return INITIALIZE_HINT_LATELOAD
-
-/obj/machinery/telecomms/LateInitialize()
-	for(var/obj/machinery/telecomms/T in telecomms_list)
-		if(T != src && (T.z in GetConnectedZlevels(z)))
-			add_automatic_link(T)
+	if(autolinkers.len)
+		for(var/obj/machinery/telecomms/T in telecomms_list)
+			if(T != src && (T.z in GetConnectedZlevels(z)))
+				add_automatic_link(T)
 
 /obj/machinery/telecomms/Destroy()
 //	QDEL_NULL(soundloop)

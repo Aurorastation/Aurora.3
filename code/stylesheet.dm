@@ -53,6 +53,7 @@ em						{font-style: normal;font-weight: bold;}
 .airadio				{color: #FF00FF;}
 .entradio				{color: #bd893c;}
 .hailradio				{color: #7331c4;}
+.shipradio				{color: #738465;}
 
 .secradio				{color: #A30000;}
 .penradio				{color: #DB1270;}

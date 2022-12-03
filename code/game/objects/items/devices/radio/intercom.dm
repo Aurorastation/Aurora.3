@@ -17,25 +17,22 @@
 	clickvol = 40
 
 /obj/item/device/radio/intercom/ship
-	var/preset_name
-	var/use_common = FALSE
 	channels = list()
 	var/default_hailing = FALSE
 
 /obj/item/device/radio/intercom/ship/Initialize()
-	if(!preset_name)
+	if(!current_map.use_overmap)
 		return ..()
 
-	var/name_lower = lowertext(preset_name)
-	name = "intercom ([name_lower])"
-	default_frequency = assign_away_freq(preset_name)
-	channels += list(
-		preset_name = TRUE,
-		CHANNEL_HAILING = TRUE
-	)
-	if (use_common)
+	var/turf/T = get_turf(src)
+	var/obj/effect/overmap/visitable/V = map_sectors["[T.z]"]
+	if(istype(V) && V.comms_support)
+		if(V.comms_name)
+			name = "intercom ([V.comms_name])"
+		default_frequency = assign_away_freq(V.name)
 		channels += list(
-			CHANNEL_COMMON = TRUE
+			V.name = TRUE,
+			CHANNEL_HAILING = TRUE
 		)
 
 	. = ..()
@@ -43,6 +40,8 @@
 	if (default_hailing)
 		set_frequency(HAIL_FREQ)
 
+/obj/item/device/radio/intercom/ship/hailing
+	default_hailing = TRUE
 
 /obj/item/device/radio/intercom/custom
 	name = "intercom (custom)"

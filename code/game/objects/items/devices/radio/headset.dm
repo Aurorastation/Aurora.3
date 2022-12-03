@@ -146,6 +146,8 @@
 	translate_hivenet = FALSE
 	syndie = FALSE
 
+	SSradio.remove_object_all(src)
+
 	for(var/keyslot in list(keyslot1, keyslot2))
 		if(!keyslot)
 			continue
@@ -686,21 +688,28 @@
 //Ghostrole headset
 /obj/item/device/radio/headset/ship
 	icon_state = "syn_headset"
-	var/preset_name
-	var/encryption_key = /obj/item/device/encryptionkey
+	ks1type = /obj/item/device/encryptionkey/ship
 	var/use_common = FALSE
 
 /obj/item/device/radio/headset/ship/Initialize()
-	if (preset_name)
-		var/name_lower = lowertext(preset_name)
-		name = "[name_lower] radio headset"
-		ks1type = encryption_key
-		default_frequency = assign_away_freq(preset_name)
+	if(!current_map.use_overmap)
+		return ..()
+
+	var/turf/T = get_turf(src)
+	var/obj/effect/overmap/visitable/V = map_sectors["[T.z]"]
+	if(istype(V) && V.comms_support)
+		default_frequency = assign_away_freq(V.name)
+		if(V.comms_name)
+			name = "[V.comms_name] radio headset"
 
 	. = ..()
 
 	if (use_common)
 		set_frequency(PUB_FREQ)
+
+/obj/item/device/radio/headset/ship/common
+	use_common = TRUE
+	ks1type = /obj/item/device/encryptionkey/ship/common
 
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_ILLEGAL = 3)

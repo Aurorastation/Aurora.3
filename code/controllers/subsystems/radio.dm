@@ -204,13 +204,15 @@ var/datum/controller/subsystem/radio/SSradio
 			return "entradio"
 		if (BLSP_FREQ)
 			return "bluespaceradio"
+		if (HAIL_FREQ)
+			return "hailradio"
 
 	if(DEPT_FREQS_ASSOC[fstr])
 		return "deptradio"
 
 	for(var/channel in AWAY_FREQS_ASSIGNED)
 		if(AWAY_FREQS_ASSIGNED[channel] == frequency)
-			return "[lowertext(channel)]radio"
+			return "shipradio"
 
 	return "radio"
 
