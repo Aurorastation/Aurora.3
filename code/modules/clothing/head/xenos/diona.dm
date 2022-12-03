@@ -1,4 +1,4 @@
-/obj/item/clothing/head/rokz
+/obj/item/clothing/head/diona/rokz
 	name = "bone helmet"
 	desc = "A large helmet made out of the skull of some kind of large creature."
 	icon = 'icons/obj/diona_items.dmi'
