@@ -39,3 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - tweak: "K'lax Hopeful Helmets are now flash proof so Vaurca can fight with their eyes intact."
+  - bugfix: "Fixes a door on the Kataphract vessel named incorrectly and fixes a wall in the way of re-fueling the vessel."
+
