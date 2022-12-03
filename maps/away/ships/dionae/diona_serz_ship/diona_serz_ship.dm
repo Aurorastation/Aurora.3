@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/diona_serz_ship
 	name = "Serz Clan Ship"
-//	description = "A ship belonging to the Emporium Of Starborn Critters, a group of Voidtamers known for selling live space fauna"
+	description = "A ship belonging to the Serz voidtamer clan, a group of Dioane who specalize in selling spacefauna."
 	suffix = "ships/dionae/diona_serz_ship/diona_serz_ship.dmm"
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
@@ -11,7 +11,7 @@
 
 /decl/submap_archetype/diona_serz_ship
 	map = "Serz Clan Ship"
-//	description = "A ship belonging to the Emporium Of Starborn Critters, a group of Voidtamers known for selling live space fauna"
+	descriptor = "A ship belonging to the Serz voidtamer clan, a group of Dioane who specalize in selling spacefauna."
 
 //areas
 /area/ship/diona_serz_ship
@@ -26,7 +26,7 @@
 /obj/effect/overmap/visitable/ship/diona_serz_ship
 	name = "Serz Clan Ship"
 	class = "SCS"
-//	description = "A ship belonging to the Emporium Of Starborn Critters, a group of Voidtamers known for selling live space fauna"
+	desc = "A ship belonging to the Serz voidtamer clan, a group of Dioane who specalize in selling spacefauna."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	max_speed = 1/(2 SECONDS)
@@ -44,7 +44,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/diona_serz_ship/New()
-    designation = "[pick("A", "B", "C", "D", "E", "F", "G")]"
+    designation = "[pick("Trawler", "Floating Spear ", "Harpoon")]"
     ..()
 
 /obj/effect/shuttle_landmark/diona_serz_ship/nav1
@@ -69,7 +69,7 @@
 	name = "Serz Clan Shuttle"
 	class = "SCS"
 	designation = "Serz Clan Shuttle"
-	desc = "A shuttle belonging to the Emporium Voidtamers."
+	desc = "A shuttle belonging to the Serz clan of voidtamers."
 	shuttle = "Serz Clan Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
