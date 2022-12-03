@@ -12,7 +12,7 @@
 	var/turf/T = get_turf(src)
 	var/list/floor_decals = SSicon_cache.floor_decals
 	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
-		var/cache_key = "[alpha]-[color]-[dir]-[icon_state]-[layer]"
+		var/cache_key = "[name]-[alpha]-[color]-[dir]-[icon_state]-[layer]"
 		if(!floor_decals[cache_key])
 			var/image/I = image(icon = src.icon, icon_state = src.icon_state, dir = src.dir)
 			I.color = src.color
@@ -701,6 +701,7 @@
 
 // the big SCC logo
 /obj/effect/floor_decal/scc_full
+	name = "SCC logo (preview)"
 	icon = 'icons/turf/flooring/scc_decal_preview.dmi'
 	icon_state = "scc_decal_preview"
 
@@ -724,6 +725,6 @@
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/floor_decal/scc
+	name = "\improper SCC logo"
 	icon = 'icons/turf/flooring/scc_decals.dmi'
 	icon_state = "0,0"
-
