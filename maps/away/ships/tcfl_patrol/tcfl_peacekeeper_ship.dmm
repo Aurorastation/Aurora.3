@@ -2996,8 +2996,8 @@
 /obj/item/bedsheet/black,
 /obj/item/clothing/suit/storage/legion,
 /obj/effect/ghostspawpoint{
-	identifier = "tcfl_peacekeeper_pilot";
-	name = "igs - tcfl_peacekeeper_pilot"
+	identifier = "tcfl_peacekeeper";
+	name = "igs - tcfl_peacekeeper"
 	},
 /turf/simulated/floor/carpet,
 /area/ship/tcfl_peacekeeper_ship)
