@@ -61,7 +61,7 @@
 	uniform = /obj/item/clothing/under/rank/sol/dress/officer
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel/leather
-	head = /obj/item/clothing/head/sol/dress
+	head = /obj/item/clothing/head/sol/dress/officer
 	accessory = /obj/item/clothing/accessory/holster/thigh
 
 	id = /obj/item/card/id/ssmd_ship

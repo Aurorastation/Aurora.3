@@ -231,12 +231,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "aIS" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	dir = 1;
-	icon_state = "2-8"
-	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -248,6 +242,11 @@
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/nuke)
 "aJd" = (
@@ -693,6 +692,10 @@
 	},
 /obj/machinery/light/small/emergency{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/nuke)
@@ -2529,11 +2532,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/starboardengine)
 "gyl" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
@@ -4441,6 +4439,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/nuke)
 "mIX" = (
@@ -5788,11 +5791,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/ssmd_shuttle)
 "rsm" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
