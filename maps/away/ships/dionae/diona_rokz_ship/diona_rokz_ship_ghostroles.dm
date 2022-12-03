@@ -63,7 +63,7 @@
 	name = "Rokz Clan Voidtamer Captain"
 
 	uniform = /obj/item/clothing/under/unathi
-	head = /obj/item/clothing/head/rokz
+	head = /obj/item/clothing/head/diona/rokz
 	back = /obj/item/storage/backpack/satchel/hegemony
 	id = null
 	l_pocket = /obj/item/device/radio
