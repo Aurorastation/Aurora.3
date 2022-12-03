@@ -7,7 +7,6 @@
 	spawn_cost = 1
 	id = "diona_rokz"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/diona_rokz_ship_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /decl/submap_archetype/diona_rokz_ship
 	map = "Rokz Clan Ship"
