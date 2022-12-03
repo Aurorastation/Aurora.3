@@ -540,3 +540,71 @@
 /obj/item/clothing/under/dominia/dress/fancy/sleeveless/kazhkz
 	name = "sleeveless house kazhkz Morozi dress"
 	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/fleet
+	name = "fleet voidsman uniform"
+	desc = "The uniform of an enlisted sailor of the Imperial Fleet."
+	desc_extended = "The kerchief of a Fleet voidsman varies from battlefleet to battlefleet, \
+		and its color indicates where the rating originated from. This particular uniform comes from the elite 1st battlefleet, \
+		which is under the command of Grand Admiral Huiling Zhao herself."
+	icon = 'icons/clothing/under/uniforms/dominia_fleet.dmi'
+	icon_state = "voidsman"
+	item_state = "voidsman"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/dominia/fleet/officer
+	name = "fleet officer uniform"
+	desc = "An Imperial Fleet uniform belonging to an Ensign - a junior officer generally in command of a small ship."
+	desc_extended = "The junior officers ranks of the Imperial Fleet are often as high as most Ma'zals rise, \
+		and are often looked down upon by their higher-ranking and typically noble superiors."
+	icon_state = "officer"
+	item_state = "officer"
+	build_from_parts = TRUE
+	worn_overlay = "cord"
+
+/obj/item/clothing/under/dominia/fleet/armsman
+	name = "fleet armsman uniform"
+	desc = "A no-nonsense uniform worn by Imperial Fleet armsmen."
+	desc_extended = "Imperial Fleet armsmen are generally drawn from the Imperial Army and this uniform \
+		has intentionally been designed to resemble that of the Army. Armsmen note it comes in two sizes: too large or too small."
+	icon_state = "armsman"
+	item_state = "armsman"
+	build_from_parts = TRUE
+	worn_overlay = "collar"
+
+/obj/item/clothing/head/dominia/fleet
+	name = "fleet voidsman duty cover"
+	desc = "A garrison cap commonly worn by enlisted sailors of the Imperial Fleet."
+	desc_extended = "Deliberately modest compared to their Officer counterparts, enlisted voidsmen's caps \
+		typically display their vessel of origin on the right side of the cap. \
+		These caps can easily be rolled and stored in the likely event other forms of headwear are required."
+	icon = 'icons/clothing/under/uniforms/dominia_fleet.dmi'
+	icon_state = "voidsmancap"
+	item_state = "voidsmancap"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/dominia/fleet/officer
+	name = "fleet officer peaked cap"
+	desc = "A junior officer's peaked cap. The Grand Admiral's initials - HZ - are stamped on its badge."
+	desc_extended = "The peaked cap of the Imperial Fleet is one of its most enduring symbols. \
+		Noble officers will generally wear an additional badge on the cap indicating their house of origin."
+	icon_state = "officercap"
+	item_state = "officercap"
+
+/obj/item/clothing/head/dominia/fleet/armsman
+	name = "fleet armsman duty cover"
+	desc = "A standard issue cap issued to Imperial Fleet armsmen."
+	desc_extended = "The duty cover of Fleet armsmen is deliberately meant to resemble the same hat worn by Imperial Army enlisted. \
+		Like its Army counterpart it lacks the second button found on officer's caps which indicates one's noble house of origin."
+	icon_state = "armsmancap"
+	item_state = "armsmancap"
+
+/obj/item/clothing/suit/storage/dominia/fleet
+	name = "fleet officer overcoat"
+	desc = "An Imperial Fleet coat belonging to an officer. The single golden band around its wrist indicates it belongs to an Ensign."
+	desc_extended = "Imperial Fleet officer's coats are both a symbol of rank and of social status, \
+		and proudly bear the wearer's rank by the number of golden bands around their sleeves."
+	icon = 'icons/clothing/under/uniforms/dominia_fleet.dmi'
+	icon_state = "officercoat"
+	item_state = "officercoat"
+	contained_sprite = TRUE
