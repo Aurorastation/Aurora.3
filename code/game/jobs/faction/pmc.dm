@@ -180,7 +180,6 @@
 	head =  /obj/item/clothing/head/beret/corporate/pmc
 	uniform = /obj/item/clothing/under/rank/liaison/pmc
 	suit = /obj/item/clothing/suit/storage/liaison/pmc
-	implants = null
 	id = /obj/item/card/id/pmc
 	accessory = /obj/item/clothing/accessory/tie/corporate/pmc
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/pmc
