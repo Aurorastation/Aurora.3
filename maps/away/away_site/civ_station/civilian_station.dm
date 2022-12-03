@@ -4,7 +4,7 @@
 	suffix = "away_site/civ_station/civilian_station.dmm"
 	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
-	spawn_cost = 2
+	ship_cost = 2
 	id = "civilian_station"
 
 /decl/submap_archetype/civilian_station

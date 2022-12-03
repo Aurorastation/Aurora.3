@@ -4,7 +4,7 @@
 	suffix = "away_site/tajara/mining_jack/mining_jack.dmm"
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "tajara_mining_jack"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_mining_jack)
 

@@ -4,7 +4,7 @@
 	suffix = "ships/sol_merc/fsf_patrol_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "fsf_patrol_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/fsf_shuttle)
 
