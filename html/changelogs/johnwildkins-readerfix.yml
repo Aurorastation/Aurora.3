@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+changes:
+  - backend: "Map reader will now properly mapload initialize /area atoms for away site areas."
