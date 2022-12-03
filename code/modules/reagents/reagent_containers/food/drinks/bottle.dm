@@ -677,7 +677,7 @@
 	center_of_mass = list("x" = 16, "y" = 5)
 	reagents_to_add = list(/decl/reagent/alcohol/pulque = 100)
 
-/obj/item/reagent_containers/food/drinks/bottle/vintage_wine //can't make it a child of wine, or else reagents double-fill 
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine //can't make it a child of wine, or else reagents double-fill
 	name = "Vintage Wine"
 	desc = "A fine bottle of high-quality wine, produced in a small batch and aged for decades, if not centuries. It's likely that few bottles like it remain."
 	icon_state = "vwinebottle"
@@ -723,7 +723,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/whitewine
 	name = "Pineneedle Brand white wine"
-	desc = "A mediocre quality white wine, intended more making spritzers than for drinking by itself. Produced on Visegrad by Idris."
+	desc = "A mediocre quality white wine, intended more for making spritzers than for drinking by itself. Produced on Visegrad by Idris."
 	icon_state = "whitewinebottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/decl/reagent/alcohol/whitewine = 100)
