@@ -149,6 +149,10 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
+"iJ" = (
+/obj/effect/shuttle_landmark/diona_serz_ship/transit,
+/turf/space/transit/north,
+/area/space)
 "iU" = (
 /obj/machinery/computer/ship/navigation{
 	icon_broken = "computer_diona";
@@ -11100,7 +11104,7 @@ UJ
 UJ
 UJ
 UJ
-UJ
+iJ
 UJ
 UJ
 UJ
