@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - backend: "Cables now correctly override their direction vars to match the set icon state, making mapped-in d1/d2 vars superfluous."
