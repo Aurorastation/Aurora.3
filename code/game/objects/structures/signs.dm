@@ -1160,6 +1160,13 @@
 	for many others, with a Sinta (or their head or skull) taking a central place in the picture, and other elements complimenting it, generally in a symmetrical fashion."
 	icon_state = "izharshan"
 
+/obj/item/flag/visegrad
+	name = "Visegrad flag"
+	desc = "The flag of Visegrad."
+	desc_extended = "The blue, white, green and red flag of Visegrad was the original Warsaw Pact-created design for the planet's flag, and even after it acquired independence it was maintained, though with the removal of the socialist emblem and the addition of a Solarian ensign. \
+	It is said that the green represents the forests of the planet, the white the stormclouds, and the blue the sky hidden above, while the red is supposed to represent shared national unity."
+	flag_path = "visegrad"
+
 /obj/structure/sign/flag/visegrad
 	name = "Visegrad flag"
 	desc = "The flag of Visegrad."
