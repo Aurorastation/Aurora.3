@@ -6322,10 +6322,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/closet/l3closet/virology{
-	name = "old suit closet";
-	opened = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
 "up" = (
