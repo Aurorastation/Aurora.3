@@ -42,7 +42,7 @@
 /turf/simulated/floor/exoplanet/barren/update_icon()
 	overlays.Cut()
 	if(prob(20))
-		overlays += image('icons/turf/flooring/decals.dmi', "asteroid[rand(0,9)]")
+		overlays += image('icons/turf/decals/decals.dmi', "asteroid[rand(0,9)]")
 
 /turf/simulated/floor/exoplanet/barren/Initialize()
 	. = ..()
