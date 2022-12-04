@@ -8146,6 +8146,7 @@
 "ykd" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/heavy_vehicle/premade/light/recon,
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/mechbay)
 "ylI" = (
