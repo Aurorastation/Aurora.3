@@ -57,7 +57,7 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/francisca)
 "ajS" = (
 /turf/simulated/wall/shuttle/raider,
@@ -1070,7 +1070,7 @@
 	id = "ssmd_grau_shroud";
 	name = "blast door"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/grauwolf)
 "dhO" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -2720,7 +2720,7 @@
 	dir = 4;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	layer = 4;
+	layer = 4.1;
 	name = "suspension bar";
 	pixel_y = -5
 	},
@@ -3062,7 +3062,7 @@
 	dir = 4;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	layer = 4;
+	layer = 4.1;
 	name = "suspension bar";
 	pixel_y = -5
 	},
@@ -4288,7 +4288,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/francisca)
 "mjR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4970,7 +4970,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/grauwolf)
 "odO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5366,7 +5366,7 @@
 	dir = 8
 	},
 /obj/item/hullbeacon/red,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/francisca)
 "pKR" = (
 /obj/structure/cable{
@@ -5386,7 +5386,7 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/francisca)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
@@ -6070,7 +6070,7 @@
 /area/ship/ssmd_corvette/francisca)
 "suy" = (
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/francisca)
 "suP" = (
 /obj/machinery/appliance/cooker/oven,
@@ -7249,7 +7249,7 @@
 /area/ship/ssmd_corvette/nuke)
 "wfy" = (
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/wall/shuttle/raider,
+/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/grauwolf)
 "wfT" = (
 /obj/machinery/power/apc{
@@ -7699,7 +7699,7 @@
 	dir = 4;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	layer = 4;
+	layer = 4.1;
 	name = "suspension bar";
 	pixel_x = -1;
 	pixel_y = -5
@@ -43856,8 +43856,8 @@ mKi
 foE
 mdD
 aHt
-aHt
-aHt
+wfy
+wfy
 hNE
 sYY
 xRX
@@ -44114,7 +44114,7 @@ liN
 aHt
 aHt
 odL
-aHt
+wfy
 sYY
 xRX
 xRX

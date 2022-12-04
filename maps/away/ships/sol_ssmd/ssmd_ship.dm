@@ -7,6 +7,7 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "ssmd_corvette"
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ssmd_shuttle)
 
 /decl/submap_archetype/ssmd_corvette
