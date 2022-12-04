@@ -543,11 +543,11 @@
 	},
 /area/peoples_station/fang)
 "cw" = (
-/obj/machinery/light,
-/turf/simulated/floor/holofloor/space{
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/zero_g)
+/area/peoples_station/solars)
 "cy" = (
 /obj/machinery/computer/arcade/orion_trail,
 /obj/machinery/light{
@@ -885,11 +885,15 @@
 	},
 /area/peoples_station)
 "dY" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/obj/machinery/light,
 /obj/structure/closet/emcloset,
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/solars)
+/area/peoples_station/hangar)
 "dZ" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -3832,6 +3836,13 @@
 	temperature = 278.15
 	},
 /area/peoples_station/defenses)
+"qY" = (
+/obj/effect/floor_decal/corner/red/full,
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "ra" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -4291,13 +4302,6 @@
 	temperature = 268,15
 	},
 /area/peoples_station/visitor)
-"sK" = (
-/obj/effect/floor_decal/corner/red/full,
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "sL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7683,13 +7687,14 @@
 	},
 /area/peoples_station/fang)
 "Je" = (
-/obj/machinery/light{
-	dir = 4
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
 	},
-/turf/simulated/floor/holofloor/space{
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/zero_g)
+/area/peoples_station)
 "Ji" = (
 /obj/machinery/light{
 	dir = 4
@@ -7799,13 +7804,14 @@
 	},
 /area/peoples_station/barracks)
 "JJ" = (
-/obj/machinery/light{
+/obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/space{
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/zero_g)
+/area/peoples_station)
 "JK" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
@@ -7945,7 +7951,7 @@
 /area/peoples_station/fang)
 "KG" = (
 /obj/effect/floor_decal/corner/red/full{
-	dir = 1
+	dir = 4
 	},
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark{
@@ -8062,15 +8068,6 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/living_quarters)
-"Lr" = (
-/obj/effect/floor_decal/corner/red/full{
-	dir = 8
-	},
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "Ls" = (
 /obj/machinery/door/airlock/glass_engineering{
 	req_access = list(209);
@@ -8670,10 +8667,10 @@
 /turf/simulated/floor/airless,
 /area/peoples_station/solars)
 "Ok" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, training wing"
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/turf/simulated/wall/shuttle/raider,
 /area/peoples_station/zero_g)
 "Ol" = (
 /obj/machinery/mech_recharger,
@@ -9519,15 +9516,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
-"RP" = (
-/obj/effect/floor_decal/corner/red/full{
-	dir = 4
-	},
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station)
 "RQ" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
@@ -10439,14 +10427,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
-"VW" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/space{
-	temperature = 278.15
-	},
-/area/peoples_station/zero_g)
 "Wf" = (
 /obj/machinery/light,
 /obj/structure/table/standard,
@@ -10963,16 +10943,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/medbay)
-"Yp" = (
-/obj/effect/floor_decal/corner/red/full{
-	dir = 4
-	},
-/obj/machinery/light,
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Yy" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -37394,15 +37364,15 @@ Kn
 Kn
 eG
 eG
-eG
-eG
-eG
 Ok
-eG
-eG
-eG
-eG
-eG
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
+Ok
 eG
 Kn
 Kn
@@ -37653,11 +37623,11 @@ eG
 Hg
 Hg
 Hg
-VW
 Hg
-VW
 Hg
-VW
+Hg
+Hg
+Hg
 Hg
 Hg
 eG
@@ -37906,7 +37876,7 @@ Kn
 Kn
 Kn
 Kn
-eG
+Ok
 Hg
 Hg
 Hg
@@ -37917,7 +37887,7 @@ Hg
 Hg
 Hg
 Hg
-eG
+Ok
 Kn
 Kn
 Kn
@@ -38163,7 +38133,7 @@ Kn
 Kn
 Kn
 Kn
-eG
+Ok
 Hg
 Hg
 Hg
@@ -38174,7 +38144,7 @@ Hg
 Hg
 Hg
 Hg
-eG
+Ok
 Kn
 Kn
 Kn
@@ -38420,8 +38390,7 @@ Kn
 Kn
 Kn
 Kn
-eG
-JJ
+Ok
 Hg
 Hg
 Hg
@@ -38430,8 +38399,9 @@ Hg
 Hg
 Hg
 Hg
-cw
-eG
+Hg
+Hg
+Ok
 Kn
 Kn
 Kn
@@ -38677,7 +38647,7 @@ Kn
 Kn
 Kn
 Kn
-eG
+Ok
 Hg
 Hg
 Hg
@@ -38688,7 +38658,7 @@ Hg
 Hg
 Hg
 Hg
-eG
+Ok
 Kn
 Kn
 Kn
@@ -38934,8 +38904,7 @@ Kn
 Kn
 Kn
 Kn
-eG
-JJ
+Ok
 Hg
 Hg
 Hg
@@ -38944,8 +38913,9 @@ Hg
 Hg
 Hg
 Hg
-cw
-eG
+Hg
+Hg
+Ok
 Kn
 Kn
 Kn
@@ -39191,8 +39161,7 @@ Kn
 Kn
 Kn
 Kn
-eG
-JJ
+Ok
 Hg
 Hg
 Hg
@@ -39201,8 +39170,9 @@ Hg
 Hg
 Hg
 Hg
-cw
-eG
+Hg
+Hg
+Ok
 Kn
 Kn
 Kn
@@ -39448,7 +39418,7 @@ Kn
 Kn
 Kn
 Kn
-eG
+Ok
 Hg
 Hg
 Hg
@@ -39705,8 +39675,7 @@ Kn
 Kn
 Kn
 Kn
-eG
-JJ
+Ok
 Hg
 Hg
 Hg
@@ -39715,7 +39684,8 @@ Hg
 Hg
 Hg
 Hg
-cw
+Hg
+Hg
 eG
 Kn
 Kn
@@ -39962,7 +39932,7 @@ Kn
 Kn
 Kn
 Kn
-eG
+Ok
 Hg
 Hg
 Hg
@@ -40219,7 +40189,7 @@ Kn
 Kn
 Kn
 Kn
-eG
+Ok
 Hg
 Hg
 Hg
@@ -40480,11 +40450,11 @@ eG
 Hg
 Hg
 Hg
-Je
 Hg
 Hg
 Hg
-Je
+Hg
+Hg
 Hg
 Hg
 Mz
@@ -41312,7 +41282,7 @@ qo
 zB
 qo
 qo
-sK
+qY
 CR
 Kn
 Kn
@@ -42829,7 +42799,7 @@ PX
 iB
 PX
 PX
-dY
+cw
 nU
 xL
 BT
@@ -43086,7 +43056,7 @@ Dk
 zl
 PX
 PX
-dY
+cw
 nU
 xQ
 jR
@@ -44883,7 +44853,7 @@ si
 Ms
 to
 CR
-Lr
+Je
 zA
 eY
 zv
@@ -52081,7 +52051,7 @@ hw
 CR
 JK
 ST
-RP
+KG
 CR
 Kn
 Kn
@@ -52310,7 +52280,7 @@ yq
 UW
 gN
 PY
-KG
+JJ
 QK
 QK
 QK
@@ -57526,7 +57496,7 @@ kk
 kk
 kk
 kk
-Yp
+dY
 lI
 VG
 EW
