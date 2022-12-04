@@ -223,12 +223,10 @@
 	},
 /area/peoples_station/fang)
 "bg" = (
-/obj/structure/bed/stool/chair/padded/red{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/black/full{
 	dir = 4
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -545,15 +543,11 @@
 	},
 /area/peoples_station/fang)
 "cw" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/shield_capacitor{
-	anchored = 1;
-	dir = 4
-	},
-/turf/simulated/floor/plating{
+/obj/machinery/light,
+/turf/simulated/floor/holofloor/space{
 	temperature = 278.15
 	},
-/area/peoples_station/solars)
+/area/peoples_station/zero_g)
 "cy" = (
 /obj/machinery/computer/arcade/orion_trail,
 /obj/machinery/light{
@@ -891,10 +885,7 @@
 	},
 /area/peoples_station)
 "dY" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/shield_gen/external{
-	anchored = 1
-	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -909,6 +900,7 @@
 /obj/structure/sign/flag/pra{
 	pixel_y = -32
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -933,9 +925,10 @@
 	},
 /area/shuttle/fang/engine)
 "ee" = (
-/obj/machinery/power/portgen/basic/advanced,
 /obj/machinery/light,
 /obj/structure/cable/green,
+/obj/machinery/power/portgen/basic/fusion,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1049,6 +1042,7 @@
 /obj/structure/sign/flag/pra{
 	pixel_y = -32
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1496,10 +1490,8 @@
 	},
 /area/peoples_station/barracks)
 "gs" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 1
-	},
 /obj/structure/window/reinforced,
+/obj/item/modular_computer/console/preset/civilian,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4299,6 +4291,13 @@
 	temperature = 268,15
 	},
 /area/peoples_station/visitor)
+"sK" = (
+/obj/effect/floor_decal/corner/red/full,
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "sL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4377,14 +4376,12 @@
 /area/peoples_station/commissar_quarters)
 "td" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -6572,15 +6569,13 @@
 	},
 /area/peoples_station/armory)
 "DI" = (
-/obj/structure/bed/stool/chair/padded/black{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/red/full,
 /obj/machinery/alarm/cold{
 	dir = 1;
 	pixel_y = -32;
 	req_one_access = list(209)
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -7438,6 +7433,7 @@
 /area/peoples_station)
 "HH" = (
 /obj/effect/floor_decal/corner_wide/black/full,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -7687,12 +7683,13 @@
 	},
 /area/peoples_station/fang)
 "Je" = (
-/obj/machinery/power/portgen/basic/advanced,
-/obj/structure/cable/green,
-/turf/simulated/floor/plating{
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/space{
 	temperature = 278.15
 	},
-/area/peoples_station/solars)
+/area/peoples_station/zero_g)
 "Ji" = (
 /obj/machinery/light{
 	dir = 4
@@ -7802,20 +7799,13 @@
 	},
 /area/peoples_station/barracks)
 "JJ" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/holofloor/space{
 	temperature = 278.15
 	},
-/area/peoples_station/solars)
+/area/peoples_station/zero_g)
 "JK" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
@@ -7954,18 +7944,14 @@
 	},
 /area/peoples_station/fang)
 "KG" = (
-/obj/machinery/shipsensors/weak,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
+/obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
-/obj/machinery/light/small/red{
-	dir = 4
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
 	},
-/turf/simulated/floor/airless,
-/area/peoples_station/solars)
+/area/peoples_station)
 "KI" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -8076,6 +8062,15 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/living_quarters)
+"Lr" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "Ls" = (
 /obj/machinery/door/airlock/glass_engineering{
 	req_access = list(209);
@@ -9524,6 +9519,15 @@
 	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
+"RP" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "RQ" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
@@ -9599,11 +9603,6 @@
 "So" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -10273,6 +10272,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -10439,6 +10439,14 @@
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
+"VW" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/space{
+	temperature = 278.15
+	},
+/area/peoples_station/zero_g)
 "Wf" = (
 /obj/machinery/light,
 /obj/structure/table/standard,
@@ -10955,6 +10963,16 @@
 	temperature = 278.15
 	},
 /area/peoples_station/medbay)
+"Yp" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/obj/machinery/light,
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Yy" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -37635,11 +37653,11 @@ eG
 Hg
 Hg
 Hg
+VW
 Hg
+VW
 Hg
-Hg
-Hg
-Hg
+VW
 Hg
 Hg
 eG
@@ -38403,6 +38421,7 @@ Kn
 Kn
 Kn
 eG
+JJ
 Hg
 Hg
 Hg
@@ -38411,8 +38430,7 @@ Hg
 Hg
 Hg
 Hg
-Hg
-Hg
+cw
 eG
 Kn
 Kn
@@ -38917,6 +38935,7 @@ Kn
 Kn
 Kn
 eG
+JJ
 Hg
 Hg
 Hg
@@ -38925,8 +38944,7 @@ Hg
 Hg
 Hg
 Hg
-Hg
-Hg
+cw
 eG
 Kn
 Kn
@@ -39174,6 +39192,7 @@ Kn
 Kn
 Kn
 eG
+JJ
 Hg
 Hg
 Hg
@@ -39182,8 +39201,7 @@ Hg
 Hg
 Hg
 Hg
-Hg
-Hg
+cw
 eG
 Kn
 Kn
@@ -39688,6 +39706,7 @@ Kn
 Kn
 Kn
 eG
+JJ
 Hg
 Hg
 Hg
@@ -39696,8 +39715,7 @@ Hg
 Hg
 Hg
 Hg
-Hg
-Hg
+cw
 eG
 Kn
 Kn
@@ -40462,11 +40480,11 @@ eG
 Hg
 Hg
 Hg
+Je
 Hg
 Hg
 Hg
-Hg
-Hg
+Je
 Hg
 Hg
 Mz
@@ -41294,7 +41312,7 @@ qo
 zB
 qo
 qo
-lH
+sK
 CR
 Kn
 Kn
@@ -41527,7 +41545,7 @@ nR
 fD
 Kn
 Kn
-KG
+Kn
 xM
 su
 su
@@ -42297,7 +42315,7 @@ OJ
 xT
 OJ
 So
-Je
+PX
 nU
 Qo
 Pe
@@ -42553,7 +42571,7 @@ PG
 PX
 dk
 Dk
-JJ
+Dk
 ee
 nU
 ai
@@ -42811,7 +42829,7 @@ PX
 iB
 PX
 PX
-cw
+dY
 nU
 xL
 BT
@@ -44865,7 +44883,7 @@ si
 Ms
 to
 CR
-MG
+Lr
 zA
 eY
 zv
@@ -52063,7 +52081,7 @@ hw
 CR
 JK
 ST
-Up
+RP
 CR
 Kn
 Kn
@@ -52292,7 +52310,7 @@ yq
 UW
 gN
 PY
-JK
+KG
 QK
 QK
 QK
@@ -55165,7 +55183,7 @@ hz
 hz
 hz
 hz
-Kn
+hz
 Kn
 Kn
 Kn
@@ -55422,7 +55440,7 @@ oO
 Sp
 fQ
 NU
-Kn
+hz
 Kn
 Kn
 Kn
@@ -57508,7 +57526,7 @@ kk
 kk
 kk
 kk
-FA
+Yp
 lI
 VG
 EW

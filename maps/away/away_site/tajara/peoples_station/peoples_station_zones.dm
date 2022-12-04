@@ -88,7 +88,6 @@
 	icon_state = "fitness_pool"
 	requires_power = FALSE
 	has_gravity = FALSE
-	dynamic_lighting = FALSE
 
 //Shuttle
 /area/shuttle/fang
