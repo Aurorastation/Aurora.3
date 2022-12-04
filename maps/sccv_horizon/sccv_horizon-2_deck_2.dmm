@@ -1570,13 +1570,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
-"aIx" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "aIy" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
@@ -15925,14 +15918,6 @@
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hallway/deck_two/fore)
-"hIV" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "hJj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -33822,7 +33807,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
 "qQs" = (
-/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "qQt" = (
@@ -35740,11 +35725,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
-"rLg" = (
-/obj/structure/railing/mapped,
-/obj/structure/girder,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "rLm" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -41110,15 +41090,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
-"uuL" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "uva" = (
 /obj/machinery/power/emitter{
 	dir = 4
@@ -45268,10 +45239,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
-"wqC" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/wall,
-/area/maintenance/wing/port/far)
 "wqE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -82182,10 +82149,10 @@ gjC
 fuu
 fuu
 lBd
+pVs
+pVs
+pVs
 lBd
-qQs
-lBd
-wqC
 wBF
 uNq
 wBF
@@ -82384,9 +82351,9 @@ sgi
 duk
 fuu
 lBd
-fuu
-fuu
-lBd
+pVs
+pVs
+pVs
 lBd
 wBF
 fRN
@@ -82586,9 +82553,9 @@ vnz
 sNr
 fuu
 ebQ
-aIx
-rLg
-lBd
+hoi
+duk
+pVs
 lBd
 wBF
 iTh
@@ -82788,10 +82755,10 @@ iox
 xLO
 fuu
 lBd
-uuL
-hIV
-sEu
-wqC
+pVs
+hoi
+qQs
+lBd
 wBF
 wBF
 wBF
