@@ -120,6 +120,9 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
+/datum/outfit/admin/ssmd_marine_pilot/get_id_access()
+	return list(access_sol_ships, access_external_airlocks)
+
 /datum/ghostspawner/human/ssmd_ipc
 	short_name = "ssmd_ipc"
 	name = "SSMD Military IPC"
@@ -131,7 +134,7 @@
 
 	outfit = /datum/outfit/admin/ssmd_ipc
 	possible_species = list(SPECIES_IPC, SPECIES_IPC_SHELL)
-	uses_species_whitelist = TRUE
+	uses_species_whitelist = FALSE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "SSMD Military IPC"
@@ -152,6 +155,9 @@
 	l_ear = /obj/item/device/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
+
+/datum/outfit/admin/ssmd_ipc/get_id_access()
+	return list(access_sol_ships, access_external_airlocks)
 
 //items
 
