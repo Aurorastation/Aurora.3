@@ -68,11 +68,12 @@
 	name = "airtight plastic flaps"
 	desc = "Heavy duty, airtight, plastic flaps."
 
-/obj/structure/plasticflaps/mining/New() //set the turf below the flaps to block air
+/obj/structure/plasticflaps/mining/Initialize() //set the turf below the flaps to block air
+	..()
 	var/turf/T = get_turf(loc)
 	if(T)
 		T.blocks_air = 1
-	..()
+
 
 /obj/structure/plasticflaps/mining/Destroy() //lazy hack to set the turf to allow air to pass if it's a simulated floor
 	var/turf/T = get_turf(loc)
@@ -88,11 +89,11 @@
 	desc = "Heavy duty, airtight, plastic flaps."
 	layer = 3
 
-/obj/structure/plasticflaps/airtight/New() //set the turf below the flaps to block air
+/obj/structure/plasticflaps/airtight/Initialize() //set the turf below the flaps to block air
+	..()
 	var/turf/T = get_turf(loc)
 	if(T)
 		T.blocks_air = 1
-	..()
 
 /obj/structure/plasticflaps/airtight/Destroy() //lazy hack to set the turf to allow air to pass if it's a simulated floor
 	var/turf/T = get_turf(loc)
