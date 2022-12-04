@@ -19,8 +19,8 @@
 	icon_state = "rd"
 
 /obj/structure/closet/secure_closet/RD/fill()
-	new /obj/item/clothing/suit/bio_suit/scientist(src)
-	new /obj/item/clothing/head/bio_hood/scientist(src)
+	new /obj/item/clothing/suit/hazmat/scientist(src)
+	new /obj/item/clothing/head/hazmat/scientist(src)
 	new /obj/item/clothing/under/rank/research_director(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/shoes/science(src)

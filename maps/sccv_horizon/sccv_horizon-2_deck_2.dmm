@@ -11137,9 +11137,9 @@
 	},
 /obj/structure/closet/l3closet/scientist,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/suit/bio_suit/scientist,
+/obj/item/clothing/suit/hazmat/scientist,
 /obj/item/clothing/mask/gas/half,
-/obj/item/clothing/head/bio_hood/scientist,
+/obj/item/clothing/head/hazmat/scientist,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "fEQ" = (
@@ -45111,9 +45111,9 @@
 	pixel_x = -28
 	},
 /obj/structure/closet/l3closet/scientist,
-/obj/item/clothing/suit/bio_suit/scientist,
+/obj/item/clothing/suit/hazmat/scientist,
 /obj/item/clothing/mask/gas/half,
-/obj/item/clothing/head/bio_hood/scientist,
+/obj/item/clothing/head/hazmat/scientist,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "wox" = (

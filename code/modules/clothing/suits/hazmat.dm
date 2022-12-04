@@ -1,5 +1,5 @@
 // Hazmat Hood
-/obj/item/clothing/head/bio_hood
+/obj/item/clothing/head/hazmat
 	name = "hazmat hood"
 	desc = "A hood that protects against biological hazards."
 	icon_state = "hazmat"
@@ -16,7 +16,7 @@
 	flags_inv = HIDEMASK | HIDEEARS | HIDEEYES | BLOCKHAIR
 
 // Hazmat Suit
-/obj/item/clothing/suit/bio_suit
+/obj/item/clothing/suit/hazmat
 	name = "hazmat suit"
 	desc = "A suit that protects against biological hazards."
 	icon_state = "hazmat"
@@ -34,44 +34,44 @@
 	allowed = list(/obj/item/tank/emergency_oxygen)
 
 // General
-/obj/item/clothing/head/bio_hood/general
+/obj/item/clothing/head/hazmat/general
 	icon_state = "hazmat_general"
 	item_state = "hazmat_general"
 
-/obj/item/clothing/suit/bio_suit/general
+/obj/item/clothing/suit/hazmat/general
 	icon_state = "hazmat_general"
 	item_state = "hazmat_general"
 
 // Research
-/obj/item/clothing/head/bio_hood/scientist
+/obj/item/clothing/head/hazmat/scientist
 	icon_state = "hazmat_research"
 	item_state = "hazmat_research"
 
-/obj/item/clothing/suit/bio_suit/scientist
+/obj/item/clothing/suit/hazmat/scientist
 	icon_state = "hazmat_research"
 	item_state = "hazmat_research"
 
 // Security
-/obj/item/clothing/head/bio_hood/security
+/obj/item/clothing/head/hazmat/security
 	icon_state = "hazmat_security"
 	item_state = "hazmat_security"
 
-/obj/item/clothing/suit/bio_suit/security
+/obj/item/clothing/suit/hazmat/security
 	icon_state = "hazmat_security"
 	item_state = "hazmat_security"
 
 // Custodial
-/obj/item/clothing/head/bio_hood/janitor
+/obj/item/clothing/head/hazmat/janitor
 	icon_state = "hazmat_custodial"
 	item_state = "hazmat_custodial"
 
-/obj/item/clothing/suit/bio_suit/janitor
+/obj/item/clothing/suit/hazmat/janitor
 	icon_state = "hazmat_custodial"
 	item_state = "hazmat_custodial"
 
 // Plague Doctor
 // Mask in "clothing/masks/gasmask.dm".
-/obj/item/clothing/suit/bio_suit/plaguedoctorsuit
+/obj/item/clothing/suit/hazmat/plaguedoctorsuit
 	name = "plague doctor suit"
 	desc = "It protected doctors from the Black Death, back then. You bet your arse it's gonna help you against viruses."
 	icon_state = "plaguedoctor"

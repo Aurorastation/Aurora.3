@@ -2124,8 +2124,8 @@
 /obj/item/clothing/glasses/science,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/gloves/latex/nitrile,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_storage)
 "afg" = (
@@ -5212,8 +5212,8 @@
 	pixel_y = -4
 	},
 /obj/item/clothing/gloves/latex/nitrile,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window{
 	base_state = "right";
 	name = "Suit Storage";
@@ -5267,8 +5267,8 @@
 	pixel_y = -4
 	},
 /obj/item/clothing/gloves/latex/nitrile,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window{
 	dir = 1;
 	name = "Suit Storage";
@@ -10628,8 +10628,8 @@
 	pixel_y = -4
 	},
 /obj/item/clothing/gloves/latex/nitrile,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window{
 	base_state = "right";
 	name = "Suit Storage";
@@ -14233,8 +14233,8 @@
 	},
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/suit/bio_suit/general,
-/obj/item/clothing/head/bio_hood/general,
+/obj/item/clothing/suit/hazmat/general,
+/obj/item/clothing/head/hazmat/general,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "aBx" = (

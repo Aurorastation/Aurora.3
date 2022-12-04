@@ -177,7 +177,7 @@
 	delete_me = 1
 
 /obj/effect/landmark/costume/plaguedoctor/New()
-	new /obj/item/clothing/suit/bio_suit/plaguedoctorsuit(src.loc)
+	new /obj/item/clothing/suit/hazmat/plaguedoctorsuit(src.loc)
 	new /obj/item/clothing/head/plaguedoctorhat(src.loc)
 	delete_me = 1
 
