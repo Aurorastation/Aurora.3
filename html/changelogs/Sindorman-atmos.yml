@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Majorily increased maximum power rating for most atmospheric devices. Refer to the pull request for exact numbers (https://forums.aurorastation.org/topic/14761-full-chem-rework-feedback-thread/)."
-  - tweak: "Refactored atmospheric omi gas filter's UI to be more like a gas pump, added display of current power usage."
+  - balance: "Majorily increased maximum power rating for most atmospheric devices. Refer to the pull request for exact numbers (https://github.com/Aurorastation/Aurora.3/pull/15229)."
+  - tweak: "Refactored atmospheric omi gas filter's and mixer's UI to be more like a gas pump, added display of current power usage."
