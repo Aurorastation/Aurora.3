@@ -117,7 +117,7 @@
 
 /mob/living/heavy_vehicle/premade/light/recon
 	name = "gremlin exosuit"
-	desc = "A light and nimble exosuit, bearing the colour scheme of the Solarian Armed Forces."
+	desc = "A light and nimble recon exosuit, bearing the colour scheme of the Solarian Armed Forces."
 
 	e_color = COLOR_DARK_GREEN_GRAY
 	e_arms = /obj/item/mech_component/manipulators/combat
