@@ -4358,7 +4358,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "mechaeyebully_l"
 		do_colouration = FALSE
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 		mechaeyebully_r
 			name = "Mecha Eye R"
@@ -4373,7 +4373,7 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "mechaeyeoverlaybully_r"
 
 		mechamandiblesbully
-			name = "Mecha Mandibles"
+			name = "Mecha Mandibles (Bulwark)"
 			icon_state = "mechamandiblesbully"
 
 		mechamandiblesoverlaybully
@@ -4406,11 +4406,11 @@ Follow by example and make good judgement based on length which list to include 
 	
 	bullybackmeter
 		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
-		name = "Back Meter"
+		name = "Back Meter (Bulwark)"
 		icon_state = "bullybackmeter"
 		do_colouration = FALSE
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 		bullybackmeteroverlay
 			name = "Back Meter Overlay"
@@ -4425,15 +4425,15 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "mechahorn_r"
 
 		bullybackwires
-			name = "Back Wires"
+			name = "Back Wires (Bulwark)"
 			icon_state = "bullybackwires"
 
 		bullybacktubes
-			name = "Back Tubes"
+			name = "Back Tubes (Bulwark)"
 			icon_state = "bullybacktubes"
 
 		ventsbully
-			name = "Vents"
+			name = "Vents (Bulwark)"
 			icon_state = "ventsbully"
 
 		shellpanelbully
@@ -4446,7 +4446,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "mechakneesbully_l"
 		do_colouration = FALSE
 		body_parts = list(BP_L_LEG)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	mechakneesbully_r
 		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
@@ -4454,23 +4454,23 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "mechakneesbully_r"
 		do_colouration = FALSE
 		body_parts = list(BP_R_LEG)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	mechaabdomenbully
 		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
-		name = "Mecha Abdomen"
+		name = "Mecha Abdomen (Bulwark)"
 		icon_state = "mechaabdomenbully"
 		do_colouration = FALSE
 		body_parts = list(BP_GROIN)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	mechapelvisbully
 		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
-		name = "Mecha Pelvis"
+		name = "Mecha Pelvis (Bulwark)"
 		icon_state = "mechapelvisbully"
 		do_colouration = FALSE
 		body_parts = list(BP_GROIN)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	handpanelbully_l
 		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
@@ -4478,7 +4478,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "handpanelbully_l"
 		do_colouration = FALSE
 		body_parts = list(BP_L_HAND)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	handpanelbully_r
 		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
@@ -4486,7 +4486,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "handpanelbully_r"
 		do_colouration = FALSE
 		body_parts = list(BP_R_HAND)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	handpanelbully_loverlay
 		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
@@ -4494,7 +4494,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "handpanelbully_loverlay"
 		do_colouration = FALSE
 		body_parts = list(BP_L_HAND)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	handpanelbully_roverlay
 		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
@@ -4502,7 +4502,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "handpanelbully_roverlay"
 		do_colouration = FALSE
 		body_parts = list(BP_R_HAND)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	armwirebully_l
 		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
@@ -4510,7 +4510,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "armwirebully_l"
 		do_colouration = FALSE
 		body_parts = list(BP_L_ARM)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	armwirebully_r
 		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
@@ -4518,7 +4518,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "armwirebully_r"
 		do_colouration = FALSE
 		body_parts = list(BP_R_ARM)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	armwirebullyhand_l
 		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
@@ -4526,7 +4526,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "handwirebully_l"
 		do_colouration = FALSE
 		body_parts = list(BP_L_HAND)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	armwiresbullyhand_r
 		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
@@ -4534,7 +4534,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "handwirebully_r"
 		do_colouration = FALSE
 		body_parts = list(BP_R_HAND)
-		species_allowed = list(/datum/species/bug, /datum/species/bug/type_e)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	backstripe
 		name = "Back Stripe"
