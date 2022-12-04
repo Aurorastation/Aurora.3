@@ -1,9 +1,9 @@
 /area/peoples_station
 	name = "People's Space Station"
 	icon_state = "bluenew"
-	requires_power = 1
-	dynamic_lighting = 1
-	no_light_control = 0
+	requires_power = TRUE
+	dynamic_lighting = TRUE
+	no_light_control = TRUE
 	base_turf = /turf/space
 	flags = RAD_SHIELDED
 
@@ -78,6 +78,17 @@
 /area/peoples_station/restroom
 	name = "People's Space Station Restroom"
 	icon_state = "green"
+
+/area/peoples_station/training
+	name = "People's Space Training Room"
+	icon_state = "fitness_gym"
+
+/area/peoples_station/zero_g
+	name = "People's Space Zero Gravity Chamber"
+	icon_state = "fitness_pool"
+	requires_power = FALSE
+	has_gravity = FALSE
+	dynamic_lighting = FALSE
 
 //Shuttle
 /area/shuttle/fang
