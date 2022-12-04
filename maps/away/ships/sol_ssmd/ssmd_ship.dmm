@@ -1441,6 +1441,34 @@
 /obj/item/flag/sol,
 /obj/item/flag/sol/l,
 /obj/item/flag/sol/l,
+/obj/item/clothing/accessory/armband{
+	desc = "A red armband bearing the insignia of the First Middle Ring Battlegroup.";
+	name = "ssmd armband"
+	},
+/obj/item/clothing/accessory/armband{
+	desc = "A red armband bearing the insignia of the First Middle Ring Battlegroup.";
+	name = "ssmd armband"
+	},
+/obj/item/clothing/accessory/armband{
+	desc = "A red armband bearing the insignia of the First Middle Ring Battlegroup.";
+	name = "ssmd armband"
+	},
+/obj/item/clothing/accessory/armband{
+	desc = "A red armband bearing the insignia of the First Middle Ring Battlegroup.";
+	name = "ssmd armband"
+	},
+/obj/item/clothing/accessory/armband{
+	desc = "A red armband bearing the insignia of the First Middle Ring Battlegroup.";
+	name = "ssmd armband"
+	},
+/obj/item/clothing/accessory/armband{
+	desc = "A red armband bearing the insignia of the First Middle Ring Battlegroup.";
+	name = "ssmd armband"
+	},
+/obj/item/clothing/accessory/armband{
+	desc = "A red armband bearing the insignia of the First Middle Ring Battlegroup.";
+	name = "ssmd armband"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "dUd" = (
