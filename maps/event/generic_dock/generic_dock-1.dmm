@@ -2717,20 +2717,10 @@
 	},
 /area/shuttle/administration)
 "bHu" = (
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
-/obj/structure/closet/hazmat,
-/obj/item/clothing/suit/hazmat/general,
-/obj/item/clothing/head/hazmat/general,
-/obj/item/clothing/suit/hazmat/general,
-/obj/item/clothing/head/hazmat/general,
-/obj/item/tank/oxygen/red,
-/obj/item/tank/oxygen/red,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/mask/gas/alt,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
+/obj/structure/closet/hazmat/general,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "bHL" = (

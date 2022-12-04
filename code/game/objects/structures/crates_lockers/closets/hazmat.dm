@@ -2,19 +2,10 @@
 // Hazmat Closets
 //
 
-// Hazmat
+// Parent Object
 /obj/structure/closet/hazmat
-	name = "hazmat gear closet"
-	desc = "A closet for hazmat gear."
-	icon_state = "bio"
-
-/obj/structure/closet/hazmat/fill()
-	new /obj/item/clothing/head/hazmat/general(src)
-	new /obj/item/clothing/head/hazmat/general(src)
-	new /obj/item/clothing/suit/hazmat/general(src)
-	new /obj/item/clothing/suit/hazmat/general(src)
-	new /obj/item/clothing/mask/gas/half(src)
-	new /obj/item/clothing/mask/gas/half(src)
+	name = "hazmat gear closet parent object"
+	desc = DESC_PARENT
 
 // General
 /obj/structure/closet/hazmat/general

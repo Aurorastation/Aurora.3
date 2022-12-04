@@ -6322,10 +6322,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/closet/hazmat{
-	name = "old suit closet";
-	opened = 1
-	},
+/obj/structure/closet/hazmat/general,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
 "up" = (
@@ -8188,7 +8185,7 @@
 	dir = 1
 	},
 /obj/item/storage/box/fancy/vials{
-	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 2)
+	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial=2)
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)

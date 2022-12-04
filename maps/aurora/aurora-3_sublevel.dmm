@@ -419,7 +419,7 @@
 	input_tag = "tox_in";
 	name = "Phoron Supply Control";
 	output_tag = "tox_out";
-	sensors = list("ph_sensor" = "Tank")
+	sensors = list("ph_sensor"="Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -505,7 +505,7 @@
 	input_tag = "air_in";
 	name = "Mixed Air Supply Control";
 	output_tag = "air_out";
-	sensors = list("air_sensor" = "Tank")
+	sensors = list("air_sensor"="Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -562,7 +562,7 @@
 	input_tag = "co2_in";
 	name = "Carbon Dioxide Supply Control";
 	output_tag = "co2_out";
-	sensors = list("co2_sensor" = "Tank")
+	sensors = list("co2_sensor"="Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -1800,7 +1800,7 @@
 	input_tag = "waste_in";
 	name = "Gas Mix Tank Control";
 	output_tag = "waste_out";
-	sensors = list("waste_sensor" = "Tank")
+	sensors = list("waste_sensor"="Tank")
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
@@ -1861,7 +1861,7 @@
 	input_tag = "n2o_in";
 	name = "Nitrous Oxide Supply Control";
 	output_tag = "n2o_out";
-	sensors = list("n2o_sensor" = "Tank")
+	sensors = list("n2o_sensor"="Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -14223,7 +14223,6 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 4
 	},
-/obj/structure/closet/hazmat,
 /obj/machinery/button/remote/blast_door{
 	id = "quarantine_processing_shutters";
 	name = "Desk Lockdown";
@@ -14231,10 +14230,7 @@
 	pixel_y = -25;
 	req_access = list(66)
 	},
-/obj/item/tank/oxygen,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/suit/hazmat/general,
-/obj/item/clothing/head/hazmat/general,
+/obj/structure/closet/hazmat/general,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "aBx" = (
@@ -23723,7 +23719,7 @@
 	input_tag = "n2_in";
 	name = "Nitrogen Supply Control";
 	output_tag = "n2_out";
-	sensors = list("n2_sensor" = "Tank")
+	sensors = list("n2_sensor"="Tank")
 	},
 /obj/machinery/camera/network/engineering_outpost{
 	c_tag = "Engineering Sublevel - Atmospherics North 1"
@@ -23739,7 +23735,7 @@
 	input_tag = "o2_in";
 	name = "Oxygen Supply Control";
 	output_tag = "o2_out";
-	sensors = list("o2_sensor" = "Tank")
+	sensors = list("o2_sensor"="Tank")
 	},
 /obj/machinery/light{
 	dir = 1;
@@ -24856,7 +24852,7 @@
 	},
 /obj/machinery/computer/general_air_control/large_tank_control{
 	name = "Chamber Monitors";
-	sensors = list("toxins_sensor01" = "North Chamber Sensor", "toxins_sensor02" = "South Chamber Sensor")
+	sensors = list("toxins_sensor01"="North Chamber Sensor","toxins_sensor02"="South Chamber Sensor")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
@@ -33007,7 +33003,7 @@
 	input_tag = "h2_in";
 	name = "Hydrogen Supply Control";
 	output_tag = "h2_out";
-	sensors = list("h2_sensor" = "Tank")
+	sensors = list("h2_sensor"="Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
