@@ -99,7 +99,7 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 
 	if (!ui)
-		ui = new(user, src, ui_key, "omni_filter.tmpl", "Omni Filter Control", 330, 330)
+		ui = new(user, src, ui_key, "omni_filter.tmpl", "Omni Filter Control", 470, 330)
 		ui.set_initial_data(data)
 
 		ui.open()
@@ -109,6 +109,8 @@
 
 	data["power"] = use_power
 	data["config"] = configuring
+	data["last_power_draw"] = last_power_draw
+	data["max_power_draw"] = power_rating
 
 	var/portData[0]
 	for(var/datum/omni_port/P in ports)
@@ -140,7 +142,6 @@
 	if(output)
 		data["set_flow_rate"] = round(set_flow_rate*10)		//because nanoui can't handle rounded decimals.
 		data["last_flow_rate"] = round(last_flow_rate*10)
-	if(power_rating)
 
 	return data
 
