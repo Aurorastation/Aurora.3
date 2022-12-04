@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/ssmd_navy_crewman
 	short_name = "ssmd_navy_crewman"
 	name = "SSMD Navy Crewman"
-	desc = "Crew the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate activity within the region, while serving the interests of the Solarian government. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
+	desc = "Crew the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSMD. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
 	tags = list("External")
 	mob_name_prefix = "PO3. "
 
@@ -39,7 +39,7 @@
 /datum/ghostspawner/human/ssmd_navy_officer
 	short_name = "ssmd_navy_officer"
 	name = "SSMD Navy Officer"
-	desc = "Command the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate activity within the region, while serving the interests of the Solarian government. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
+	desc = "Command the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSMD. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
 	tags = list("External")
 	mob_name_prefix = "LCDR. "
 
@@ -76,7 +76,7 @@
 /datum/ghostspawner/human/ssmd_navy_crewman/senior
 	short_name = "ssmd_navy_senior_crewman"
 	name = "SSMD Navy Senior Crewman"
-	desc = "Serve as the second-in-command of the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate activity within the region, while serving the interests of the Solarian government. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
+	desc = "Serve as the second-in-command of the Southern Solarian Military District reconnaissance corvette. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSMD. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
 	mob_name_prefix = "CPO. "
 
 	spawnpoints = list("ssmd_navy_crewman")
@@ -88,7 +88,7 @@
 /datum/ghostspawner/human/ssmd_marine_pilot
 	short_name = "ssmd_marine_pilot"
 	name = "SSMD Marine Exosuit Pilot"
-	desc = "Protect the Southern Solarian Military District reconnaissance corvette, and pilot the gremlin recon exosuit. Closely monitor and investigate pirate activity within the region, while serving the interests of the Solarian government. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
+	desc = "Protect the Southern Solarian Military District reconnaissance corvette, and pilot the gremlin recon exosuit. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSMD. (OOC Note: Because the bulk of the SSMD's forces are people from the planet Visegrad or surrounding space, it is recommended that your character use the Visegradi or general Solarian accent.)"
 	tags = list("External")
 	mob_name_prefix = "SGT. "
 
@@ -126,7 +126,7 @@
 /datum/ghostspawner/human/ssmd_ipc
 	short_name = "ssmd_ipc"
 	name = "SSMD Military Synthetic"
-	desc = "Assist the crew of the Southern Solarian Military District reconnaissance corvette in whatever capacity necessary. Use your superior reflexes and skills to expertly pilot the ship and man its targeting systems. Remember that you are not a free, enlisted soldier: you are the military's non-combatant property, programmed to rigidly serve the interests of the Solarian government and SSMD above all else."
+	desc = "Assist the crew of the Southern Solarian Military District reconnaissance corvette in whatever capacity necessary. Use your superior reflexes and skills to expertly pilot the ship and man its targeting systems. Remember that you are not a free, enlisted soldier: you are the military's non-combatant property, programmed to rigidly serve the interests of the Solarian government, and the SSMD and SSMD above all else."
 	tags = list("External")
 
 	spawnpoints = list("ssmd_ipc")

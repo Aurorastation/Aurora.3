@@ -3233,6 +3233,7 @@
 "iCD" = (
 /obj/structure/table/steel,
 /obj/item/clipboard,
+/obj/item/clothing/head/helmet/pilot,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/bridge)
 "iEN" = (
