@@ -135,7 +135,7 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 
 	if (!ui)
-		ui = new(user, src, ui_key, "omni_mixer.tmpl", "Omni Mixer Control", 360, 330)
+		ui = new(user, src, ui_key, "omni_mixer.tmpl", "Omni Mixer Control", 470, 330)
 		ui.set_initial_data(data)
 
 		ui.open()
@@ -145,6 +145,8 @@
 
 	data["power"] = use_power
 	data["config"] = configuring
+	data["last_power_draw"] = last_power_draw
+	data["max_power_draw"] = power_rating
 
 	var/portData[0]
 	for(var/datum/omni_port/P in ports)
