@@ -51,6 +51,8 @@
 	var/generated_name = TRUE
 	var/ring_chance = 20 //the chance of this exoplanet spawning with a ring on its sprite
 
+	var/list/possible_random_ruins
+
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
 	var/roll = rand(1,100)
 	switch(roll)
@@ -78,14 +80,14 @@
 	if(LAZYLEN(possible_themes))
 		var/datum/exoplanet_theme/T = pick(possible_themes)
 		theme = new T
-
-	for(var/T in subtypesof(/datum/map_template/ruin/exoplanet))
-		var/datum/map_template/ruin/exoplanet/ruin = T
-		if(ruin_tags_whitelist && !(ruin_tags_whitelist & initial(ruin.ruin_tags)))
-			continue
-		if(ruin_tags_blacklist & initial(ruin.ruin_tags))
-			continue
-		possible_features += new ruin
+	if(possible_random_ruins)
+		for(var/T in possible_random_ruins)
+			var/datum/map_template/ruin/exoplanet/ruin = T
+			if(ruin_tags_whitelist && !(ruin_tags_whitelist & initial(ruin.ruin_tags)))
+				continue
+			if(ruin_tags_blacklist & initial(ruin.ruin_tags))
+				continue
+			possible_features += new ruin
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()

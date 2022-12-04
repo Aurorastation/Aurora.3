@@ -10,6 +10,7 @@
 	features_budget = 6
 	surface_color = "#807d7a"
 	water_color = null
+	possible_random_ruins = list(/datum/map_template/ruin/exoplanet/abandoned_mining, /datum/map_template/ruin/exoplanet/hideout, /datum/map_template/ruin/exoplanet/crashed_shuttle_01)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/generate_habitability()
 	return HABITABILITY_BAD
@@ -62,7 +63,7 @@
 	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich)
 	rock_colors = list(COLOR_ASTEROID_ROCK)
 	planetary_area = /area/exoplanet/barren/asteroid
-	possible_features = list(/datum/map_template/ruin/exoplanet/abandoned_mining)
+	possible_random_ruins = list(/datum/map_template/ruin/exoplanet/abandoned_mining, /datum/map_template/ruin/exoplanet/carp_nest, /datum/map_template/ruin/exoplanet/hideout, /datum/map_template/ruin/exoplanet/crashed_shuttle_01)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/romanovich
 	name = "romanovich cloud asteroid"

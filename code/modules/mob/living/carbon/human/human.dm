@@ -90,6 +90,8 @@
 		sync_organ_dna()
 	make_blood()
 
+	available_maneuvers = species.maneuvers.Copy()
+
 	pixel_x = species.icon_x_offset
 	pixel_y = species.icon_y_offset
 
@@ -674,7 +676,7 @@
 
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R))
-				var/setmedical = input(usr, "Specify a new medical status for this person.", "Medical HUD", R.physical_status) in list("*SSD*", "*Deceased*", "Physically Unfit", "Active", "Disabled", "Cancel")
+				var/setmedical = input(usr, "Specify a new medical status for this person.", "Medical HUD", R.physical_status) in list("*SSD*", "*Deceased*", "*Missing*", "Physically Unfit", "Active", "Disabled", "Cancel")
 
 				if(hasHUD(usr,"medical"))
 					if(setmedical != "Cancel")

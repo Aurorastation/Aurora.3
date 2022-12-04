@@ -5,6 +5,8 @@
 	icon_state = "ammo_loader"
 	density = TRUE
 	anchored = TRUE
+	var/damage = 0
+	var/max_damage = 1000
 	var/obj/machinery/ship_weapon/weapon
 	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
 
@@ -21,6 +23,23 @@
 				crash_with("[src] is set to [weapon_id] of [SW] at [x] [y] [z], but areas mismatch!")
 	if(!weapon)
 		crash_with("[src] at [x] [y] [z] has no weapon attached!")
+
+/obj/machinery/ammunition_loader/ex_act(severity)
+	switch(severity)
+		if(1)
+			add_damage(50)
+		if(2)
+			add_damage(25)
+		if(3)
+			add_damage(10)
+
+/obj/machinery/ammunition_loader/proc/add_damage(var/amount)
+	damage = max(0, min(damage + amount, max_damage))
+	update_damage()
+
+/obj/machinery/ammunition_loader/proc/update_damage()
+	if(damage >= max_damage)
+		qdel(src)
 
 /obj/machinery/ammunition_loader/attackby(obj/item/W, mob/user)
 	if(isliving(user))
@@ -79,3 +98,6 @@
 
 /obj/structure/viewport/zavod
 	icon_state = "viewport_zavod"
+
+/obj/structure/viewport/unathi
+	icon_state = "viewport_unathi"

@@ -8,7 +8,7 @@
 	var/obj/item/ship_ammunition/ammunition
 	var/atom/target //The target is the actual overmap object we're hitting.
 	var/obj/entry_target //The entry target is where the projectile itself is going to spawn in world.
-	var/range = OVERMAP_PROJECTILE_RANGE_ULTRAHIGH
+	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
 	var/current_range_counter = 0
 	var/speed = 0 //A projectile with 0 speed does not move. Note that this is the 'lag' variable on walk_towards! Lower speed is better.
 	
@@ -24,13 +24,34 @@
 
 /obj/effect/overmap/projectile/Bump(var/atom/A)
 	if(istype(A, /turf/unsimulated/map/edge))
-		QDEL_NULL(ammunition)
-		qdel(src)
+		handle_wraparound()
 	..()
+
+/obj/effect/overmap/projectile/proc/handle_wraparound()
+	var/nx = x
+	var/ny = y
+	var/low_edge = 1
+	var/high_edge = current_map.overmap_size - 1
+
+	if((dir & WEST) && x == low_edge)
+		nx = high_edge
+	else if((dir & EAST) && x == high_edge)
+		nx = low_edge
+	if((dir & SOUTH)  && y == low_edge)
+		ny = high_edge
+	else if((dir & NORTH) && y == high_edge)
+		ny = low_edge
+	if((x == nx) && (y == ny))
+		return //we're not flying off anywhere
+	if(!check_entry())
+		var/turf/T = locate(nx,ny,z)
+		if(T)
+			forceMove(T)
 
 /obj/effect/overmap/projectile/Move()
 	if(!check_entry())
 		. = ..()
+		handle_wraparound()
 	current_range_counter++
 	if(current_range_counter >= range)
 		qdel(src)
@@ -57,7 +78,7 @@
 		if(istype(A, /obj/effect/overmap/visitable))
 			var/obj/effect/overmap/visitable/V = A
 			if((V.check_ownership(entry_target)) || (V == target)) //Target spotted!
-				if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
+				if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_PLANETS))
 					. = TRUE
 					//Manually stopping because this proc needs to sleep for a bit.
 					prepare_for_entry()
@@ -76,7 +97,7 @@
 					say_dead_direct("A projectile ([name]) has entered a z-level at [entry_target.name]!")
 					qdel(widowmaker)
 					qdel(src)
-				else if(istype(V, /obj/effect/overmap/visitable) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
+				else if(istype(V, /obj/effect/overmap/visitable) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_VISITABLES))
 					. = TRUE
 					if(istype(V, /obj/effect/overmap/visitable/ship))
 						var/obj/effect/overmap/visitable/ship/VS = V
@@ -84,6 +105,8 @@
 							var/naval_heading = SSatlas.headings_to_naval["[VS.dir]"]["[ammunition.heading]"]
 							var/corrected_heading = SSatlas.naval_to_dir["[VS.fore_dir]"][naval_heading]
 							ammunition.heading = corrected_heading
+					else //if it's not a ship it doesn't have a fore direction, so we need to autocorrect
+						ammunition.heading = entry_target.dir
 					prepare_for_entry()
 					var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 					widowmaker.ammo = ammunition
@@ -132,5 +155,5 @@
 
 /obj/effect/overmap/projectile/Bump(var/atom/A)
 	if(istype(A,/turf/unsimulated/map/edge))
-		qdel(src)
+		handle_wraparound()
 	..()

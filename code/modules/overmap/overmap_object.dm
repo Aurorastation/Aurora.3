@@ -54,7 +54,7 @@
 			var/obj/machinery/computer/ship/targeting/GS = H.machine
 			if(GS.targeting)
 				return
-			if(!istype(GS.connected.loc, /turf/unsimulated/map))
+			if(!istype(GS.linked.loc, /turf/unsimulated/map))
 				to_chat(H, SPAN_WARNING("The safeties won't let you target while you're not on the Overmap!"))
 				return
 			var/my_sector = map_sectors["[H.z]"]
@@ -79,10 +79,16 @@
 		targeting = O
 		O.targeted_overlay = icon('icons/obj/overmap_heads_up_display.dmi', "lock")
 		O.add_overlay(O.targeted_overlay)
-		if(!O.maptext)
-			O.maptext = SMALL_FONTS(6, "[class] [designation]")
+		if(designation && class && !obfuscated)
+			if(!O.maptext)
+				O.maptext = SMALL_FONTS(6, "[class] [designation]")
+			else
+				O.maptext += SMALL_FONTS(6, " [class] [designation]")
 		else
-			O.maptext += SMALL_FONTS(6, " [class] [designation]")
+			if(!O.maptext)
+				O.maptext = SMALL_FONTS(6, "[capitalize_first_letters(name)]")
+			else
+				O.maptext = SMALL_FONTS(6, " [capitalize_first_letters(name)]")
 		O.maptext_y = 32
 		O.maptext_x = -10
 		O.maptext_width = 72
@@ -99,7 +105,8 @@
 		C.targeting = FALSE
 
 /obj/effect/overmap/visitable/proc/detarget(var/obj/effect/overmap/O,  var/obj/machinery/computer/C)
-	playsound(C, 'sound/items/rfd_interrupt.ogg')
+	if(C)
+		playsound(C, 'sound/items/rfd_interrupt.ogg')
 	if(O)
 		O.cut_overlay(O.targeted_overlay)
 		O.maptext = null

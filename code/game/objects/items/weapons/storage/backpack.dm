@@ -6,7 +6,7 @@
 /obj/item/storage/backpack
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
-	desc_cult = "This can be reforged to become a cult backpack. Any stored items will be transferred."
+	desc_antag = "As a Cultist, this item can be reforged to become a cult backpack. Any stored items will be transferred."
 	icon = 'icons/obj/storage/backpack.dmi'
 	icon_state = "backpack"
 	item_state = "backpack"
@@ -39,12 +39,14 @@
 	if(use_check_and_message(usr))
 		return 0
 	switch(input(usr, "Choose your bag strap style.", "[src]") as null|anything in backbagstrap)
-		if("Thick")
-			alpha_mask = null
-		if("Normal")
-			alpha_mask = "normal"
 		if("Hidden")
 			alpha_mask = "hidden"
+		if("Thin")
+			alpha_mask = "thin"
+		if("Normal")
+			alpha_mask = "normal"
+		if("Thick")
+			alpha_mask = null
 	to_chat(usr, SPAN_NOTICE("You adjust your bag strap to be [alpha_mask ? "[alpha_mask]" : "thick"]."))
 	var/mob/living/carbon/human/H = src.loc
 	H.update_icon()
@@ -117,7 +119,7 @@
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"
 	desc = "It's useful for both carrying extra gear and proudly declaring your insanity."
-	desc_cult = null
+	desc_antag = null // It's already been forged once.
 	icon_state = "cultpack"
 	item_state = "cultpack"
 

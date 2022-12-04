@@ -16,14 +16,15 @@
 	var/ammunition_status = SHIP_AMMO_STATUS_GOOD //Currently unused, but will be relevant for chemical ammo.
 	var/ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
 	var/ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE //Not a bitfield!
-	var/overmap_behaviour = SHIP_AMMO_CAN_HIT_HAZARDS|SHIP_AMMO_CAN_HIT_SHIPS //Whether or not the ammo can hit hazards or ships, or both.
+	var/overmap_behaviour = SHIP_AMMO_CAN_HIT_HAZARDS|SHIP_AMMO_CAN_HIT_VISITABLES|SHIP_AMMO_CAN_HIT_PLANETS //Whether or not the ammo can hit hazards or ships, and so on.
 	var/overmap_icon_state = "cannon"
 	var/obj/effect/overmap/origin
 	var/atom/overmap_target
 	var/obj/entry_point
 	var/obj/item/projectile/original_projectile
 	var/heading = SOUTH
-
+	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
+	var/mob_carry_size = MOB_LARGE //How large a mob has to be to carry the shell
 	//Cookoff variables.
 	var/cookoff_devastation = 0
 	var/cookoff_heavy = 2
@@ -64,7 +65,7 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			var/datum/species/S = H.species
-			if(S.mob_size >= MOB_LARGE || S.resist_mod >= 10 || user.status_flags & GODMODE)
+			if(S.mob_size >= mob_carry_size || S.resist_mod >= 10 || user.status_flags & GODMODE)
 				visible_message(SPAN_NOTICE("[user] tightens their grip on [src] and starts heaving..."))
 				if(do_after(user, 1 SECONDS))
 					visible_message(SPAN_NOTICE("[user] heaves \the [src] up!"))
@@ -171,12 +172,13 @@
 	var/obj/effect/overmap/start_object = map_sectors["[new_z]"]
 	if(!start_object)
 		return FALSE
-	
+
 	var/obj/effect/overmap/projectile/P = new(null, start_object.x, start_object.y)
 	P.name = name_override ? name_override : name
 	P.desc = desc
 	P.ammunition = src
 	P.target = overmap_target
+	P.range = range
 	if(istype(origin, /obj/effect/overmap/visitable/ship))
 		var/obj/effect/overmap/visitable/ship/S = origin
 		P.dir = S.dir

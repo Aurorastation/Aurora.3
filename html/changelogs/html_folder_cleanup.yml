@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - backend: "Moves some stuff in the HTML folder to a more appropiate folder."

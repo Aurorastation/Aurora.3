@@ -376,6 +376,7 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/clothing/suit/space/void/coalition,
 /obj/item/clothing/head/helmet/space/void/coalition,
+/obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "bIQ" = (
@@ -896,6 +897,7 @@
 	pixel_y = 32;
 	req_one_access = null
 	},
+/obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "eFH" = (
@@ -935,6 +937,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/ranger_corvette/foyer)
+"eQS" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "eRR" = (
 /obj/structure/closet/crate{
@@ -1202,6 +1210,13 @@
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1,
+/obj/item/clothing/accessory/armband/gadpathur,
+/obj/item/clothing/under/uniform/gadpathur,
+/obj/item/clothing/suit/storage/toggle/himeo/grey,
+/obj/item/clothing/accessory/assunzione,
+/obj/item/clothing/under/konyang/male/shortsleeve,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/leader)
 "gkq" = (
@@ -1472,6 +1487,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "hwT" = (
@@ -1633,6 +1649,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
+"itk" = (
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -32;
+	req_one_access = null
+	},
+/turf/simulated/floor/holofloor/reinforced,
+/area/ship/ranger_corvette/munitions)
 "itr" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1651,7 +1675,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "iCX" = (
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
@@ -1949,7 +1975,7 @@
 	},
 /obj/item/reagent_containers/food/drinks/pitcher{
 	pixel_x = -5;
-	reagents_to_add = list(/decl/reagent/drink/coffee = 30)
+	reagents_to_add = list(/decl/reagent/drink/coffee=30)
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
 	pixel_x = 6
@@ -1991,7 +2017,7 @@
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/ranger_corvette/engine1)
 "kaR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2278,19 +2304,9 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -10
 	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "lWH" = (
@@ -2620,7 +2636,7 @@
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/emergency{
-	pixel_y = 8
+	pixel_y = 11
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
@@ -2737,6 +2753,12 @@
 /obj/item/grenade/chem_grenade/metalfoam,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
+"okk" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, munitions bay, armory"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/ranger_corvette/munitions)
 "omu" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, engines"
@@ -2954,7 +2976,9 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/vending/engineering,
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine2)
 "oZS" = (
@@ -2987,7 +3011,7 @@
 	weapon_id = "Ranger Francisca Rotary Gun"
 	},
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/ranger_corvette/engine1)
 "plP" = (
 /turf/simulated/floor/tiled/dark,
@@ -3073,7 +3097,7 @@
 "pFY" = (
 /obj/structure/table/steel,
 /obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a Montevideo-class vessel.";
+	desc = "Blueprints for a Xansan-class vessel.";
 	icon = 'icons/obj/items.dmi';
 	icon_state = "blueprints";
 	item_icons = null;
@@ -3560,10 +3584,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
-"rNJ" = (
-/obj/effect/floor_decal/corner_wide/blue/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/telecomms)
 "rQB" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -3715,6 +3735,17 @@
 	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/atmospherics)
+"swi" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/door/window/eastleft{
+	dir = 2
+	},
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/turf/simulated/floor/reinforced,
+/area/ship/ranger_corvette/munitions)
 "sCd" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/shuttle/dark_blue,
@@ -3929,6 +3960,7 @@
 /obj/item/material/knife/butterfly,
 /obj/item/material/knife/tacknife,
 /obj/item/melee/energy/sword/knife/sol,
+/obj/item/melee/energy/sword/knife/sol,
 /obj/item/material/knife/trench,
 /obj/item/material/hatchet,
 /obj/item/clothing/accessory/storage/brown_vest,
@@ -3980,6 +4012,8 @@
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/pouches/colour,
+/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/under/pants/camo,
 /obj/item/clothing/under/pants/camo,
 /obj/item/clothing/under/pants/camo,
 /obj/item/clothing/under/syndicate/tracksuit,
@@ -4363,8 +4397,8 @@
 /obj/item/grenade/smokebomb,
 /obj/item/storage/belt/security,
 /obj/item/storage/belt/security,
-/obj/item/cell,
-/obj/item/cell,
+/obj/item/cell/high,
+/obj/item/cell/high,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "uty" = (
@@ -4466,7 +4500,7 @@
 /area/ship/ranger_corvette/foyer)
 "uFD" = (
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/ranger_corvette/engine1)
 "uGk" = (
 /obj/machinery/door/airlock/external{
@@ -4487,10 +4521,8 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/ship/ranger_corvette/voidsuits)
 "uVR" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, munitions bay, armory"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/holofloor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "uWT" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -4519,7 +4551,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/firealarm/west,
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "vfX" = (
@@ -4677,7 +4708,7 @@
 /area/ship/ranger_corvette/foyer)
 "vZn" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecommunications/Aux CIC"
+	name = "Cryogenics"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4784,11 +4815,6 @@
 "wpk" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
-	},
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -32;
-	req_one_access = null
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
@@ -5174,13 +5200,13 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/ship/ranger_corvette/foyer)
 "yfU" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
+	},
+/obj/structure/closet/secure_closet/cabinet/bar{
+	req_access = null
 	},
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
@@ -33829,12 +33855,12 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+sTK
+sTK
+okk
+sTK
+sTK
+sTK
 xRX
 xRX
 xRX
@@ -34087,10 +34113,10 @@ xRX
 xRX
 xRX
 sTK
-sTK
+swi
 uVR
-rrQ
-rrQ
+itk
+rVo
 rrQ
 tLA
 tLA
@@ -36404,7 +36430,7 @@ ioB
 vyC
 vzU
 yfz
-bVs
+eQS
 wdq
 bVs
 niD

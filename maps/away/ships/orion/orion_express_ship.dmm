@@ -3049,6 +3049,10 @@
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/rifle,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "vFS" = (

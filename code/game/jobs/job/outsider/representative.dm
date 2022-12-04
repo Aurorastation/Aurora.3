@@ -51,10 +51,6 @@
 		/obj/item/gun/energy/pistol = 1
 	)
 
-	implants = list(
-		/obj/item/implant/mindshield
-	)
-
 /datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H && !visualsOnly)

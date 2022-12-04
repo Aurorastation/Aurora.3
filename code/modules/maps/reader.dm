@@ -296,6 +296,11 @@ var/global/dmm_suite/preloader/_preloader = new
 	//Instanciation
 	////////////////
 
+	//since we've switched off autoinitialisation, record atoms to initialise later
+	var/list/atoms_to_initialise = list()
+	//turn off base new Initialization until the whole thing is loaded
+	SSatoms.map_loader_begin()
+
 	//The next part of the code assumes there's ALWAYS an /area AND a /turf on a given tile
 	var/turf/crds = locate(xcrd,ycrd,zcrd)
 
@@ -309,6 +314,7 @@ var/global/dmm_suite/preloader/_preloader = new
 			_preloader.setup(attr)//preloader for assigning  set variables on atom creation
 		if(!instance)
 			instance = new atype(null)
+			atoms_to_initialise += instance
 		if(crds)
 			instance.contents += crds
 
@@ -320,11 +326,6 @@ var/global/dmm_suite/preloader/_preloader = new
 	var/first_turf_index = 1
 	while(!ispath(members[first_turf_index], /turf)) //find first /turf object in members
 		first_turf_index++
-
-	//turn off base new Initialization until the whole thing is loaded
-	SSatoms.map_loader_begin()
-	//since we've switched off autoinitialisation, record atoms to initialise later
-	var/list/atoms_to_initialise = list()
 
 	//instanciate the first /turf
 	var/turf/T
