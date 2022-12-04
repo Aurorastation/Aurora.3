@@ -1581,6 +1581,7 @@
 #include "code\modules\clothing\head\berets.dm"
 #include "code\modules\clothing\head\collectable.dm"
 #include "code\modules\clothing\head\hardhat.dm"
+#include "code\modules\clothing\head\hazmat.dm"
 #include "code\modules\clothing\head\helmet.dm"
 #include "code\modules\clothing\head\jobs.dm"
 #include "code\modules\clothing\head\misc.dm"
