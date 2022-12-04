@@ -2024,7 +2024,7 @@
 	},
 /area/database_freighter/bridge)
 "jV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -4035,7 +4035,7 @@
 	},
 /area/database_freighter)
 "Lu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
 /turf/simulated/floor{
