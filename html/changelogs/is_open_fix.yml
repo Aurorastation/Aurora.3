@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes the maintenance turf initializer not respecting the is_open() proc."
+  - bugfix: "Fixes abyss turfs not respecting lattices and its children, only catwalks."
