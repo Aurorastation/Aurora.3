@@ -1502,6 +1502,9 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
+/obj/structure/sign/flag/visegrad{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/bridge)
 "dVz" = (
@@ -3263,6 +3266,9 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
+/obj/structure/sign/flag/sol{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/bridge)
 "iwS" = (
@@ -4911,9 +4917,6 @@
 	},
 /obj/machinery/light/colored/blue{
 	dir = 1
-	},
-/obj/structure/sign/flag/sol{
-	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/bridge)
