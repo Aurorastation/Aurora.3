@@ -47,7 +47,7 @@
 /obj/machinery/ship_weapon/francisca{
 	pixel_x = -64;
 	pixel_y = -162;
-	weapon_id = "Ranger Francisca Rotary Gun"
+	weapon_id = "SSMD Francisca Rotary Gun"
 	},
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -1389,7 +1389,7 @@
 "dQj" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/mob/living/heavy_vehicle/premade/firefighter,
+/mob/living/heavy_vehicle/premade/firefighter/sol,
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/mechbay)
 "dQZ" = (
@@ -4020,7 +4020,7 @@
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
-	weapon_id = "Grauwolf Flak Battery"
+	weapon_id = "SSMD Grauwolf Flak Battery"
 	},
 /obj/structure/ship_weapon_dummy,
 /obj/structure/window/reinforced{
@@ -4640,7 +4640,9 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/ssmd_corvette/nuke)
 "ncB" = (
-/obj/machinery/ammunition_loader/grauwolf,
+/obj/machinery/ammunition_loader/grauwolf{
+	weapon_id = "SSMD Grauwolf Flak Battery"
+	},
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/grauwolf)
 "nda" = (
@@ -5907,7 +5909,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/grauwolf)
 "rNp" = (
-/obj/machinery/ammunition_loader/francisca,
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "SSMD Francisca Rotary Gun"
+	},
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/francisca)
 "rNV" = (
@@ -6587,11 +6591,11 @@
 /area/ship/ssmd_corvette/starboardengine)
 "ugW" = (
 /obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
+/mob/living/heavy_vehicle/premade/ripley/loader/sol,
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/mechbay)
 "umX" = (
