@@ -436,6 +436,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/helm)
+"pb" = (
+/obj/structure/viewport/unathi,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/unathi_pirate_izharshan/operations)
 "pg" = (
 /turf/simulated/floor/carpet,
 /area/shuttle/unathi_pirate_izharshan/helm)
@@ -1563,10 +1567,6 @@
 /obj/item/clothing/head/pirate,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
-"YU" = (
-/obj/structure/viewport/unathi,
-/turf/simulated/floor,
-/area/shuttle/unathi_pirate_izharshan/operations)
 "Zi" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/device/radio{
@@ -31568,8 +31568,8 @@ ZU
 xg
 Ni
 fR
-fR
-YU
+pb
+yo
 yo
 yo
 yN

@@ -3219,6 +3219,7 @@
 #include "maps\away\ships\sol_pirate\sfa_patrol_ship.dm"
 #include "maps\away\ships\sol_pirate\sfa_patrol_ship_ghostroles.dm"
 #include "maps\away\ships\tajara\taj_smuggler\tajaran_smuggler.dm"
+#include "maps\away\ships\tajara\taj_smuggler\tajaran_smuggler_areas.dm"
 #include "maps\away\ships\tajara\taj_smuggler\tajaran_smuggler_ghostroles.dm"
 #include "maps\away\ships\tcfl_patrol\tcfl_peacekeeper_ship.dm"
 #include "maps\away\ships\tcfl_patrol\tcfl_peacekeeper_ship_ghostroles.dm"

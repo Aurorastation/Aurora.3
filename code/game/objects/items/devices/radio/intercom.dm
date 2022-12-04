@@ -1,6 +1,8 @@
 /obj/item/device/radio/intercom
-	name = "station intercom (General)"
-	desc = "Talk through this."
+	name = "intercom (general)"
+	desc = "An intercom with buttons for transmitting, receiving, and for volume control."
+	desc_extended = "Has a touch display for inputting a frequency, with proper authentication. Used to communicate when you have lost your radio. \
+		Otherwise, you would likely just use a handheld shortwave radio instead."
 	icon_state = "intercom"
 	layer = 2.99
 	anchored = TRUE
@@ -15,20 +17,24 @@
 	clickvol = 40
 
 /obj/item/device/radio/intercom/custom
-	name = "station intercom (Custom)"
+	name = "intercom (custom)"
 	broadcasting = FALSE
 	listening = FALSE
 
 /obj/item/device/radio/intercom/interrogation
-	name = "station intercom (Interrogation)"
-	frequency  = 1449
+	name = "intercom (interrogation)"
+	frequency = 1449
+
+/obj/item/device/radio/intercom/interrogation/broadcasting // The detainee's side.
+	broadcasting = TRUE
+	listening = FALSE
 
 /obj/item/device/radio/intercom/private
-	name = "station intercom (Private)"
+	name = "intercom (private)"
 	frequency = AI_FREQ
 
 /obj/item/device/radio/intercom/specops
-	name = "\improper Spec Ops intercom"
+	name = "intercom (spec ops)"
 	frequency = ERT_FREQ
 
 /obj/item/device/radio/intercom/department
@@ -37,15 +43,15 @@
 	listening = TRUE
 
 /obj/item/device/radio/intercom/department/medbay
-	name = "station intercom (Medbay)"
+	name = "intercom (medical)"
 	frequency = MED_I_FREQ
 
 /obj/item/device/radio/intercom/department/security
-	name = "station intercom (Security)"
+	name = "intercom (security)"
 	frequency = SEC_I_FREQ
 
 /obj/item/device/radio/intercom/entertainment
-	name = "entertainment intercom"
+	name = "intercom (entertainment)"
 	frequency = ENT_FREQ
 	canhear_range = 4
 
@@ -83,8 +89,8 @@
 	)
 
 /obj/item/device/radio/intercom/syndicate
-	name = "illicit intercom"
-	desc = "Talk through this. Evilly"
+	name = "illegally modified intercom"
+	desc = "Talk through this. Evilly."
 	frequency = SYND_FREQ
 	subspace_transmission = 1
 	syndie = 1
@@ -94,7 +100,7 @@
 	internal_channels[num2text(SYND_FREQ)] = list(access_syndicate)
 
 /obj/item/device/radio/intercom/raider
-	name = "illicit intercom"
+	name = "illegally modified intercom"
 	desc = "Pirate radio, but not in the usual sense of the word."
 	frequency = RAID_FREQ
 	subspace_transmission = 1
@@ -174,11 +180,11 @@
 	return ""
 
 /obj/item/device/radio/intercom/locked/ai_private
-	name = "\improper AI intercom"
+	name = "intercom (AI private)"
 	frequency = AI_FREQ
 	broadcasting = TRUE
 	listening = TRUE
 
 /obj/item/device/radio/intercom/locked/confessional
-	name = "confessional intercom"
+	name = "intercom (confessional)"
 	frequency = 1480

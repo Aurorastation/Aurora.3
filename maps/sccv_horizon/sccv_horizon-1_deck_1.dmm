@@ -618,7 +618,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -25
 	},
 /obj/effect/floor_decal/corner/purple/full{
@@ -2177,7 +2176,6 @@
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_x = 24;
 	dir = 8
 	},
@@ -2732,7 +2730,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -3725,14 +3722,12 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_dock_doors";
-	req_access = list(13)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass_mining{
+	name = "Spark";
+	req_access = list(48)
 	},
 /obj/structure/plasticflaps/airtight,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "cWd" = (
@@ -4564,7 +4559,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -5783,7 +5777,6 @@
 "eDa" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/effect/floor_decal/corner/brown/full{
@@ -6353,7 +6346,6 @@
 /area/rnd/xenoarch_atrium)
 "eWJ" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 25
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -6583,7 +6575,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/computer/ship/engines{
@@ -6768,7 +6759,7 @@
 	dir = 10
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "fjS" = (
 /obj/structure/ladder/up{
@@ -9184,7 +9175,6 @@
 	dir = 5
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
@@ -10114,7 +10104,7 @@
 	dir = 6
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "hMr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -11237,7 +11227,6 @@
 "iLE" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -20
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -11563,7 +11552,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "iZk" = (
 /obj/machinery/door/blast/regular/open{
@@ -12331,7 +12320,6 @@
 "jDs" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/machinery/camera/network/supply{
@@ -12757,7 +12745,6 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 25
 	},
 /obj/structure/bed/stool/chair/office/bridge,
@@ -13279,7 +13266,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/teleport/pad,
@@ -13807,14 +13793,12 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "kKc" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_dock_doors";
-	req_access = list(13)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass_mining{
+	name = "Spark";
+	req_access = list(48)
 	},
 /obj/structure/plasticflaps/airtight,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "kKz" = (
@@ -16943,7 +16927,6 @@
 "nmF" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_x = -24;
 	dir = 4
 	},
@@ -18248,7 +18231,7 @@
 "osc" = (
 /obj/machinery/iff_beacon/horizon,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "otX" = (
 /obj/structure/disposalpipe/segment,
@@ -18524,7 +18507,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "oDv" = (
 /obj/machinery/conveyor{
@@ -18755,7 +18738,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "oSD" = (
 /obj/effect/shuttle_landmark/merc_ship/first_deck,
@@ -19495,7 +19478,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -21129,7 +21111,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -21218,15 +21199,6 @@
 	},
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 1
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "mining_shuttle_dock";
-	name = "\improper Spark docking port controller";
-	pixel_x = 6;
-	pixel_y = -25;
-	req_one_access = list(31,48,67);
-	tag_door = "mining_shuttle_dock_doors"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -23425,7 +23397,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "sxT" = (
 /obj/structure/sign/directions/cryo{
@@ -23955,7 +23927,7 @@
 /area/storage/eva)
 "sVu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "sVZ" = (
 /obj/effect/landmark/entry_point/aft{
@@ -24458,7 +24430,7 @@
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
 "tqs" = (
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "tqT" = (
 /obj/structure/cable{
@@ -25267,7 +25239,7 @@
 	dir = 1;
 	pixel_y = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "tWc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
@@ -25361,7 +25333,6 @@
 "tYN" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/effect/floor_decal/corner/green{
@@ -26834,7 +26805,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "vht" = (
 /obj/machinery/door/blast/regular/open{
@@ -27160,7 +27131,6 @@
 /obj/effect/floor_decal/corner/green/full,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/structure/bed/stool/chair/office/light{
@@ -27446,7 +27416,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "vIF" = (
 /obj/structure/shuttle_part{
@@ -27509,7 +27479,6 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -29503,7 +29472,6 @@
 	},
 /obj/item/stack/nanopaste,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -29645,7 +29613,7 @@
 "xpX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/handrail,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "xqe" = (
 /obj/structure/cable/green,
