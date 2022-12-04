@@ -5012,7 +5012,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
 "mB" = (
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},

@@ -8464,7 +8464,7 @@
 "bHu" = (
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
-/obj/structure/closet/l3closet,
+/obj/structure/closet/hazmat,
 /obj/item/clothing/suit/hazmat/general,
 /obj/item/clothing/head/hazmat/general,
 /obj/item/clothing/suit/hazmat/general,
@@ -8541,7 +8541,7 @@
 "bJW" = (
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
-/obj/structure/closet/l3closet,
+/obj/structure/closet/hazmat,
 /obj/item/clothing/suit/hazmat/general,
 /obj/item/clothing/head/hazmat/general,
 /obj/item/clothing/suit/hazmat/general,

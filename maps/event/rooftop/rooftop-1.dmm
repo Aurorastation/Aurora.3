@@ -5199,7 +5199,7 @@
 /obj/structure/sink{
 	pixel_y = 26
 	},
-/obj/structure/closet/l3closet,
+/obj/structure/closet/hazmat,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "Dl" = (

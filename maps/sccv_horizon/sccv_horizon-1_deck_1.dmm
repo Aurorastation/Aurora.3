@@ -2213,7 +2213,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "bHx" = (
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -7739,7 +7739,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "fVm" = (
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /obj/structure/railing/mapped{
 	dir = 8
 	},

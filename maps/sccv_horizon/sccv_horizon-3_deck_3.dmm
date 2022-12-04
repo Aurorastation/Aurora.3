@@ -26738,7 +26738,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/obj/structure/closet/l3closet/general,
+/obj/structure/closet/hazmat/general,
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
 	id_tag = "processing_airlock_control";
 	name = "Processing Access Controller";

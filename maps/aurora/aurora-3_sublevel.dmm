@@ -11757,7 +11757,7 @@
 	},
 /area/mine/unexplored)
 "ave" = (
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -14223,7 +14223,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 4
 	},
-/obj/structure/closet/l3closet,
+/obj/structure/closet/hazmat,
 /obj/machinery/button/remote/blast_door{
 	id = "quarantine_processing_shutters";
 	name = "Desk Lockdown";
@@ -16356,7 +16356,7 @@
 /area/rnd/xenobiology)
 "aGL" = (
 /obj/machinery/firealarm/north,
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aGM" = (
@@ -18777,7 +18777,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aLL" = (
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -21594,7 +21594,7 @@
 /area/maintenance/research_xenobiology)
 "aTc" = (
 /obj/machinery/firealarm/west,
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aTe" = (
@@ -32921,7 +32921,7 @@
 /obj/structure/sign/biohazard{
 	pixel_x = -32
 	},
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /obj/item/clothing/mask/gas/alt,
 /obj/machinery/light{
 	dir = 8

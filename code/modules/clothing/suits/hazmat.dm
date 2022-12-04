@@ -27,7 +27,7 @@
 	item_state = "hazmat_general"
 
 // Research
-/obj/item/clothing/suit/hazmat/scientist
+/obj/item/clothing/suit/hazmat/research
 	icon_state = "hazmat_research"
 	item_state = "hazmat_research"
 
@@ -37,7 +37,7 @@
 	item_state = "hazmat_security"
 
 // Custodial
-/obj/item/clothing/suit/hazmat/janitor
+/obj/item/clothing/suit/hazmat/custodial
 	icon_state = "hazmat_custodial"
 	item_state = "hazmat_custodial"
 
