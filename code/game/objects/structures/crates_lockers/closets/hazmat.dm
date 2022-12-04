@@ -1,6 +1,6 @@
 /obj/structure/closet/hazmat
 	name = "hazmat gear closet"
-	desc = "It's a storage unit for hazmat gear."
+	desc = "A closet for hazmat gear."
 	icon_state = "bio"
 
 /obj/structure/closet/hazmat/general/fill()
@@ -13,7 +13,7 @@
 
 /obj/structure/closet/hazmat/research
 	name = "research hazmat gear closet"
-	desc = "It's a storage unit for research hazmat gear."
+	desc = "A closet for research hazmat gear."
 	icon_state = "bio_scientist"
 
 /obj/structure/closet/hazmat/research/fill()
@@ -23,7 +23,7 @@
 
 /obj/structure/closet/hazmat/security
 	name = "security hazmat gear closet"
-	desc = "It's a storage unit for security hazmat gear."
+	desc = "A closet for security hazmat gear."
 	icon_state = "bio_sec"
 
 /obj/structure/closet/hazmat/security/fill()
@@ -33,7 +33,7 @@
 
 /obj/structure/closet/hazmat/custodial
 	name = "custodial hazmat gear closet"
-	desc = "It's a storage unit for custodial hazmat gear."
+	desc = "A closet for custodial hazmat gear."
 	icon_state = "bio_jan"
 
 /obj/structure/closet/hazmat/custodial/fill()
