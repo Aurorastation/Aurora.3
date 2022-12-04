@@ -13,10 +13,12 @@
 	var/datum/omni_port/output
 
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
-	power_rating = 7500			//7500 W ~ 10 HP
+	power_rating = 15000			//15000 W ~ 20 HP
 
-	var/max_flow_rate = 200
-	var/set_flow_rate = 200
+	var/max_output_pressure = 15000
+
+	var/max_flow_rate = ATMOS_DEFAULT_VOLUME_FILTER
+	var/set_flow_rate = ATMOS_DEFAULT_VOLUME_FILTER
 
 	var/list/filtering_outputs = list()	//maps gasids to gas_mixtures
 
@@ -138,6 +140,7 @@
 	if(output)
 		data["set_flow_rate"] = round(set_flow_rate*10)		//because nanoui can't handle rounded decimals.
 		data["last_flow_rate"] = round(last_flow_rate*10)
+	if(power_rating)
 
 	return data
 
