@@ -119,7 +119,7 @@
 	name = "gremlin exosuit"
 	desc = "A light and nimble exosuit, bearing the colour scheme of the Solarian Armed Forces."
 
-	e_color = COLOR_OLIVE
+	e_color = COLOR_DARK_GREEN_GRAY
 	e_arms = /obj/item/mech_component/manipulators/combat
 	e_head = /obj/item/mech_component/sensors/combat
 
