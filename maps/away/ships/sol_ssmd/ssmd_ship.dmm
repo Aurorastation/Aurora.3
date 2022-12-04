@@ -927,7 +927,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/ssmd_shuttle)
 "cNn" = (
-/obj/machinery/iff_beacon,
+/obj/machinery/iff_beacon/name_change,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/brig)

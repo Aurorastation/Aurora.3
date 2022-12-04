@@ -122,6 +122,7 @@
 	e_color = COLOR_DARK_GREEN_GRAY
 	e_arms = /obj/item/mech_component/manipulators/combat
 	e_head = /obj/item/mech_component/sensors/combat
+	e_legs = /obj/item/mech_component/propulsion/hover/light
 
 	h_back = /obj/item/mecha_equipment/quick_enter
 	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher

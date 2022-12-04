@@ -125,7 +125,7 @@
 
 /datum/ghostspawner/human/ssmd_ipc
 	short_name = "ssmd_ipc"
-	name = "SSMD Military IPC"
+	name = "SSMD Military Synthetic"
 	desc = "Assist the crew of the Southern Solarian Military District reconnaissance corvette in whatever capacity necessary. Use your superior reflexes and skills to expertly pilot the ship and man its targeting systems. Remember that you are not a free, enlisted soldier: you are the military's non-combatant property, programmed to rigidly serve the interests of the Solarian government and SSMD above all else."
 	tags = list("External")
 
@@ -134,16 +134,16 @@
 
 	outfit = /datum/outfit/admin/ssmd_ipc
 	possible_species = list(SPECIES_IPC, SPECIES_IPC_SHELL)
-	uses_species_whitelist = FALSE
+	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "SSMD Military IPC"
-	special_role = "SSMD Military IPC"
+	assigned_role = "SSMD Military Synthetic"
+	special_role = "SSMD Military Synthetic"
 	respawn_flag = null
 
 
 /datum/outfit/admin/ssmd_ipc
-	name = "SSMD Military IPC"
+	name = "SSMD Military Synthetic"
 
 	uniform = /obj/item/clothing/under/rank/sol/ipc
 	shoes = /obj/item/clothing/shoes/jackboots
