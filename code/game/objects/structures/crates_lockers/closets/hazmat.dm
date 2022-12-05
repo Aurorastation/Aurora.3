@@ -25,6 +25,7 @@
 /obj/structure/closet/hazmat/research
 	name = "research hazmat gear closet"
 	desc = "A closet for research hazmat gear."
+	icon_state = "hazmat"
 
 /obj/structure/closet/hazmat/research/fill()
 	new /obj/item/clothing/head/hazmat/research(src)
@@ -35,6 +36,7 @@
 /obj/structure/closet/hazmat/security
 	name = "security hazmat gear closet"
 	desc = "A closet for security hazmat gear."
+	icon_state = "hazmat"
 
 /obj/structure/closet/hazmat/security/fill()
 	new /obj/item/clothing/head/hazmat/security(src)
