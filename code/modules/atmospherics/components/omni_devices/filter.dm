@@ -15,8 +15,6 @@
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
 	power_rating = 15000			//15000 W ~ 20 HP
 
-	var/max_output_pressure = 15000
-
 	var/max_flow_rate = ATMOS_DEFAULT_VOLUME_FILTER
 	var/set_flow_rate = ATMOS_DEFAULT_VOLUME_FILTER
 
