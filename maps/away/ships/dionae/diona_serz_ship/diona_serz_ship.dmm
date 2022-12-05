@@ -260,6 +260,13 @@
 	},
 /turf/simulated/wall/diona,
 /area/shuttle/diona_serz_ship_shuttle)
+"rb" = (
+/obj/structure/sign/flag/hegemony/right,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/wall/diona,
+/area/shuttle/diona_serz_ship_shuttle)
 "rh" = (
 /obj/machinery/computer/shuttle_control/explore/diona_serz_ship{
 	icon_broken = "computer_diona";
@@ -385,6 +392,13 @@
 /obj/structure/diona/bulb,
 /turf/simulated/wall/diona,
 /area/ship/diona_serz_ship)
+"zm" = (
+/obj/machinery/door/airlock/diona/external,
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor/diona,
+/area/shuttle/diona_serz_ship_shuttle)
 "Ar" = (
 /obj/structure/window/borosilicate/reinforced{
 	dir = 1
@@ -496,6 +510,15 @@
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona,
 /area/shuttle/diona_serz_ship_shuttle)
+"Fh" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/simulated/wall/diona,
+/area/shuttle/diona_serz_ship_shuttle)
 "FW" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -562,6 +585,10 @@
 /obj/structure/table/diona,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
+"JI" = (
+/obj/item/trap/animal/large,
+/turf/simulated/floor/diona/airless,
+/area/shuttle/diona_serz_ship_shuttle)
 "Kp" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -642,6 +669,13 @@
 /obj/item/melee/classic_baton,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
+"Oo" = (
+/obj/machinery/door/airlock/diona/external,
+/obj/effect/landmark/entry_point/port{
+	name = "port, compartment"
+	},
+/turf/simulated/floor/diona,
+/area/shuttle/diona_serz_ship_shuttle)
 "Ow" = (
 /obj/structure/table/diona,
 /obj/item/clothing/suit/diona/serz,
@@ -30303,7 +30337,7 @@ yR
 yR
 yR
 Dh
-Dh
+zm
 yR
 yR
 yR
@@ -30564,7 +30598,7 @@ Pg
 EF
 Jb
 gx
-Jb
+JI
 HS
 tA
 kB
@@ -31070,7 +31104,7 @@ KX
 KX
 kB
 cj
-Pz
+rb
 In
 GZ
 Pz
@@ -31079,7 +31113,7 @@ Pg
 Pg
 Pg
 Pg
-Ji
+Fh
 tA
 kB
 kB
@@ -31588,7 +31622,7 @@ yR
 yR
 yR
 Dh
-Dh
+Oo
 yR
 yR
 yR
