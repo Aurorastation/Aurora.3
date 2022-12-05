@@ -40,12 +40,3 @@
 /obj/item/clothing/suit/hazmat/custodial
 	icon_state = "hazmat_custodial"
 	item_state = "hazmat_custodial"
-
-// Plague Doctor
-// Mask in "clothing/masks/gasmask.dm".
-/obj/item/clothing/suit/hazmat/plaguedoctorsuit
-	name = "plague doctor suit"
-	desc = "It protected doctors from the Black Death, back then. You bet your arse it's gonna help you against viruses."
-	icon_state = "plaguedoctor"
-	item_state = "hazmat"
-	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDEJUMPSUIT|HIDETAIL

@@ -447,7 +447,6 @@ var/list/worths = list(
 					/obj/item/clothing/mask/luchador = 60,
 					/obj/item/clothing/mask/breath/medical = 180,
 					/obj/item/clothing/mask/breath = 80,
-					/obj/item/clothing/mask/gas/plaguedoctor = 100,
 					/obj/item/clothing/mask/gas/swat = 200,
 					/obj/item/clothing/mask/gas/voice = 600,
 					/obj/item/clothing/mask/gas/tactical = 500,

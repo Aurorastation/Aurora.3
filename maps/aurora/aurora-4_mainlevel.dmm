@@ -69829,7 +69829,6 @@
 /turf/simulated/floor/tiled/old,
 /area/maintenance/atmos_control)
 "vOq" = (
-/obj/effect/landmark/costume/plaguedoctor,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood{
 	pixel_x = -2;
