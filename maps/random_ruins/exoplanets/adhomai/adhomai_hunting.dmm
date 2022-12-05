@@ -8,7 +8,7 @@
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
-/area/adhomai_hunting)
+/area/exoplanet/adhomai)
 "b" = (
 /turf/simulated/wall/wood,
 /area/adhomai_hunting)
@@ -248,7 +248,7 @@
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
-/area/adhomai_hunting)
+/area/exoplanet/adhomai)
 "J" = (
 /obj/structure/bed/stool/chair/sofa/brown{
 	dir = 1
@@ -298,7 +298,7 @@
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
-/area/adhomai_hunting)
+/area/exoplanet/adhomai)
 "Q" = (
 /obj/structure/cult/tome{
 	desc = "A stone altar dedicated to Ma'take, the god of hunting.";
@@ -325,7 +325,8 @@
 	},
 /area/adhomai_hunting)
 "S" = (
-/turf/simulated/floor/exoplanet/snow{
+/obj/machinery/light/small,
+/turf/simulated/floor/wood{
 	temperature = 268.15
 	},
 /area/adhomai_hunting)
@@ -343,7 +344,7 @@
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
-/area/adhomai_hunting)
+/area/exoplanet/adhomai)
 "V" = (
 /obj/structure/bed/stool/chair/sofa/right/brown{
 	dir = 1
@@ -669,7 +670,7 @@ b
 P
 P
 P
-S
+c
 I
 c
 c
@@ -701,9 +702,9 @@ F
 k
 b
 Y
-S
-S
-S
+c
+c
+c
 U
 c
 c
@@ -737,8 +738,8 @@ b
 P
 P
 P
-S
-S
+c
+c
 c
 s
 c
@@ -768,11 +769,11 @@ b
 n
 k
 b
-S
-S
-S
-S
-S
+c
+c
+c
+c
+c
 c
 c
 c
@@ -803,10 +804,10 @@ b
 f
 b
 a
-S
-S
-S
-S
+c
+c
+c
+c
 c
 c
 c
@@ -936,7 +937,7 @@ O
 y
 j
 k
-k
+S
 b
 b
 b
