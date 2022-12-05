@@ -11137,9 +11137,6 @@
 	},
 /obj/structure/closet/hazmat/research,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/suit/hazmat/research,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/head/hazmat/research,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "fEQ" = (
@@ -16626,8 +16623,6 @@
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
 "iic" = (
 /obj/structure/closet/secure_closet/scientist,
-/obj/item/storage/box/gloves,
-/obj/item/clothing/mask/gas/half,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
@@ -45111,9 +45106,6 @@
 	pixel_x = -28
 	},
 /obj/structure/closet/hazmat/research,
-/obj/item/clothing/suit/hazmat/research,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/head/hazmat/research,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "wox" = (
@@ -47910,8 +47902,6 @@
 /area/maintenance/wing/starboard)
 "xGz" = (
 /obj/structure/closet/secure_closet/scientist,
-/obj/item/storage/box/gloves,
-/obj/item/clothing/mask/gas/half,
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
 	},
