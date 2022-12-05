@@ -139,13 +139,43 @@
 
 		small_flora_types += chosen_seed
 
+/datum/random_map/noise/exoplanet/snow/adhomai/get_additional_spawns(var/value, var/turf/T)
+	..()
+	if(istype(T, water_type))
+		return
+	if(T.density)
+		return
+	var/val = min(10,max(0,round((value/cell_range)*10)))
+	if(isnull(val)) val = 0
+	switch(val)
+		if(2)
+			if(prob(10))
+				new /obj/structure/flora/rock/ice(T)
+		if(3)
+			if(prob(50))
+				new /obj/structure/flora/grass/both(T)
+		if(4)
+			if(prob(50))
+				new /obj/structure/flora/bush(T)
+		if(5)
+			if(prob(15))
+				new /obj/structure/flora/tree/dead(T)
+		if(6)
+			if(prob(15))
+				new /obj/structure/flora/tree/pine(T)
+
 /area/exoplanet/adhomai
 	name = "Adhomian Wilderness"
 	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/floor/exoplanet/mineral/adhomai
-	icon = 'icons/turf/floors.dmi'
-	icon_state = "asteroid"
+	icon = 'icons/turf/flooring/ice_cavern.dmi'
+	icon_state = "icy_rock"
 	temperature = T0C - 5
 	has_edge_icon = FALSE
+
+/turf/simulated/floor/exoplanet/mineral/adhomai/Initialize(mapload)
+	. = ..()
+	icon_state = "icy_rock[rand(1,19)]"
+
