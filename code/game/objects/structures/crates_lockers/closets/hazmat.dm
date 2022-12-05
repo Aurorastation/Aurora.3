@@ -29,7 +29,10 @@
 
 /obj/structure/closet/hazmat/research/fill()
 	new /obj/item/clothing/head/hazmat/research(src)
+	new /obj/item/clothing/head/hazmat/research(src)
 	new /obj/item/clothing/suit/hazmat/research(src)
+	new /obj/item/clothing/suit/hazmat/research(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/clothing/mask/gas/half(src)
 
 // Security
@@ -40,7 +43,10 @@
 
 /obj/structure/closet/hazmat/security/fill()
 	new /obj/item/clothing/head/hazmat/security(src)
+	new /obj/item/clothing/head/hazmat/security(src)
 	new /obj/item/clothing/suit/hazmat/security(src)
+	new /obj/item/clothing/suit/hazmat/security(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/clothing/mask/gas/half(src)
 
 // Custodial
