@@ -3024,6 +3024,9 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "cJn" = (
@@ -5742,14 +5745,26 @@
 /obj/machinery/power/portgen/basic{
 	anchored = 1
 	},
-/obj/item/stack/material/graphite/full,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/stack/material/graphite{
+	amount = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "eYD" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/bed/stool/chair/office,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Energy Carbines and .45 Pistols)"
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "eYR" = (
@@ -6474,22 +6489,18 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo/washroom)
 "fxi" = (
-/obj/structure/lattice,
-/obj/structure/grille,
-/obj/item/wirecutters{
-	pixel_y = -11
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/clothing/glasses/welding/emergency{
+	pixel_y = -6
 	},
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/item/weldingtool/emergency{
+	pixel_y = 6
 	},
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/structure/sign/emergency/evacuation/ladder{
+	pixel_y = -32
 	},
-/obj/machinery/door/window/brigdoor/northleft{
-	name = "Escape Hatch";
-	req_access = list(19)
-	},
-/turf/simulated/open,
+/obj/item/paper/fluff/bunker,
+/turf/simulated/floor,
 /area/bridge/aibunker)
 "fxj" = (
 /obj/machinery/door/firedoor,
@@ -11081,10 +11092,12 @@
 /area/horizon/cafeteria)
 "jid" = (
 /obj/machinery/door/airlock/hatch{
-	id_tag = "bolts_bunker_external";
-	name = "Command Bunker Exterior";
+	id_tag = "airlocks_bunker";
+	name = "Command Bunker";
 	req_access = list(19);
-	secured_wires = 1
+	secured_wires = 1;
+	locked = 1;
+	icon_state = "door_locked"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -11092,6 +11105,11 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	name = "Command Bunker Blast Door";
+	id = "shutters_bunker"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
@@ -16406,7 +16424,23 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/button/remote/airlock{
+	dir = 4;
+	id = "airlocks_bunker";
+	name = "Command Bunker Bolts";
+	pixel_x = -25;
+	req_access = list(19);
+	specialfunctions = 4;
+	pixel_y = 7
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	pixel_x = -35;
+	pixel_y = 7;
+	name = "Command Bunker Blast Door";
+	id = "shutters_bunker"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "nAM" = (
@@ -22542,6 +22576,22 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	pixel_x = -25;
+	pixel_y = -35;
+	name = "Command Bunker Blast Door";
+	id = "shutters_bunker"
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 1;
+	id = "airlocks_bunker";
+	name = "Command Bunker Bolts";
+	pixel_x = -25;
+	req_access = list(19);
+	specialfunctions = 4;
+	pixel_y = -25
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/hallway)
