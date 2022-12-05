@@ -95,10 +95,15 @@
 	playsound(src.loc, 'sound/effects/squelch1.ogg', 100, 1)
 	open()
 
+/obj/structure/pit/Crossed(AM as mob|obj)
+	for(var/obj/item/landmine/I in contents)
+		I.Crossed(AM, TRUE)
+	..()
+
 /obj/structure/pit/closed
 	name = "mound"
 	desc = "Some things are better left buried."
-	open = 0
+	open = FALSE
 
 /obj/structure/pit/closed/Initialize()
 	. = ..()
@@ -109,6 +114,28 @@
 	invisibility = INVISIBILITY_OBSERVER
 
 /obj/structure/pit/closed/hidden/open()
+	..()
+	invisibility = INVISIBILITY_LEVEL_ONE
+
+
+//buried land mines
+
+/obj/structure/pit/landmine
+	name = "mound"
+	desc = "Some things are better left buried."
+	open = FALSE
+	var/landmine_prob = 25
+
+/obj/structure/pit/landmine/Initialize()
+	. = ..()
+	if(prob(landmine_prob))
+		new /obj/item/landmine(src)
+	close()
+
+/obj/structure/pit/landmine/hidden
+	invisibility = INVISIBILITY_OBSERVER
+
+/obj/structure/pit/landmine/hidden/open()
 	..()
 	invisibility = INVISIBILITY_LEVEL_ONE
 

@@ -155,6 +155,15 @@
 "v" = (
 /turf/simulated/floor/exoplanet/ice,
 /area/exoplanet/adhomai)
+"w" = (
+/obj/structure/window/basic{
+	dir = 8
+	},
+/obj/structure/curtain/black,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
 "x" = (
 /obj/machinery/appliance/cooker/oven/adhomai,
 /turf/simulated/floor/wood{
@@ -243,6 +252,12 @@
 	temperature = 268.15
 	},
 /area/adhomai_hunting)
+"H" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "I" = (
 /obj/structure/sink/puddle,
 /turf/simulated/floor/exoplanet/snow{
@@ -375,13 +390,22 @@
 	temperature = 268.15
 	},
 /area/adhomai_hunting)
+"Z" = (
+/obj/structure/window/basic{
+	dir = 4
+	},
+/obj/structure/curtain/black,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_hunting)
 
 (1,1,1) = {"
 c
 c
 c
 c
-c
+H
 c
 c
 c
@@ -665,7 +689,7 @@ c
 c
 b
 b
-b
+w
 b
 P
 P
@@ -728,7 +752,7 @@ c
 c
 b
 b
-b
+w
 b
 b
 b
@@ -808,7 +832,7 @@ c
 c
 c
 c
-c
+H
 c
 c
 c
@@ -856,7 +880,7 @@ c
 c
 c
 c
-c
+H
 c
 b
 g
@@ -940,12 +964,12 @@ k
 S
 b
 b
-b
+Z
 b
 b
 c
 c
-c
+H
 c
 c
 c
@@ -1140,7 +1164,7 @@ c
 b
 b
 b
-b
+Z
 b
 b
 c
@@ -1374,13 +1398,13 @@ c
 c
 c
 c
+H
 c
 c
 c
 c
 c
-c
-c
+H
 c
 c
 c

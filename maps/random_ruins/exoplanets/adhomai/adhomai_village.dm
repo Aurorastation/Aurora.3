@@ -1,12 +1,12 @@
 /datum/map_template/ruin/exoplanet/adhomai_village
 	name = "Adhomai Hunting Lodge"
 	id = "adhomai_hunting"
-	description = "A tiny Tajara village somewhere in Adhomai.."
+	description = "A tiny Tajara village somewhere in Adhomai."
 
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_SRANDMARR)
-	suffix = "adhomai/adhomai_hunting.dmm"
+	suffix = "adhomai/adhomai_village.dmm"
 
 /area/adhomai_village
 	name = "Adhomian Village"
@@ -55,13 +55,10 @@
 	)
 
 	back = list(
-		/obj/item/storage/backpack/satchel/leather,
-		/obj/item/storage/backpack/rucksack/tan
+		/obj/item/storage/backpack/satchel/leather
 	)
 
 	l_ear = null
 
-	suit = /obj/item/clothing/suit/storage/tajaran/hunting
 	id = null
-	suit_store = /obj/item/gun/projectile/shotgun/pump/rifle
 	backpack_contents = list(/obj/item/storage/wallet/random = 1)

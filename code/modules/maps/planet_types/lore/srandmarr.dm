@@ -102,10 +102,11 @@
 	plant_colors = null
 	possible_themes = list(/datum/exoplanet_theme/mountains/adhomai)
 	map_generators = list(/datum/random_map/noise/exoplanet/snow/adhomai, /datum/random_map/noise/ore/rich)
+	features_budget = 3
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
 	generated_name = FALSE
-	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting)
+	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village)
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_habitability()
 	return HABITABILITY_IDEAL
