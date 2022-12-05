@@ -80,9 +80,7 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "eT" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, compartment"
-	},
+/obj/effect/landmark/entry_point/west,
 /turf/simulated/wall/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "fP" = (
