@@ -12,9 +12,10 @@
 	active_power_usage = 0
 	produces_heat = FALSE
 	overmap_range = 2 // AIOs aren't true relays
+
+	var/away_aio = FALSE
 	var/intercept = FALSE // if TRUE, broadcasts all messages to syndicate channel
 	var/list/recent_broadcasts
-
 
 /obj/machinery/telecomms/allinone/Initialize()
 	. = ..()
@@ -56,11 +57,31 @@
 	if(!linked)
 		return
 
-	name = "[lowertext(linked.comms_name)] telecommunications mainframe"
-	freq_listening = list(
-		HAIL_FREQ,
-		assign_away_freq(linked.name)
-	)
+	if(away_aio)
+		if(linked.comms_name)
+			name = "[lowertext(linked.comms_name)] [initial(name)]"
+		freq_listening = list(
+			HAIL_FREQ,
+			assign_away_freq(linked.name)
+		)
+
+/obj/machinery/telecomms/allinone/ship/shuttle
+	name = "shuttle communications unit"
+	icon = 'icons/obj/machines/telecomms.dmi'
+	icon_state = "broadcast receiver"
+	desc = "This compact machine allows shuttles and other parasite craft to perform limited radio communication while detached from their mothership."
+
+/obj/machinery/telecomms/allinone/ship/shuttle/LateInitialize()
+	. = ..()
+	for (var/obj/machinery/telecomms/allinone/A in telecomms_list)
+		if(A.z == src.z)
+			toggle_power(POWER_USE_OFF)
+			// TURN IT OFF
+
+	for (var/obj/machinery/telecomms/broadcaster/B in telecomms_list)
+		if(B.z == src.z)
+			toggle_power(POWER_USE_OFF)
+			// TURN IT OFF
 
 //This goes on the station map so away ships can maintain radio contact.
 //Regular telecomms machines cannot listen to broadcasts coming from non-station z-levels. If we did this, comms would be receiving a substantial amount of duplicated messages.
@@ -73,8 +94,9 @@
 	idle_power_usage = 25
 	active_power_usage = 200
 	freq_listening = list(HAIL_FREQ)
+	away_aio = FALSE
 
-/obj/machinery/telecomms/allinone/ship/station_relay/Initialize()
+/obj/machinery/telecomms/allinone/ship/station_relay/LateInitialize()
 	. = ..()
 	desc = replacetext(desc, "%STATIONNAME", current_map.station_name)
 	freq_listening |= AWAY_FREQS_ASSIGNED

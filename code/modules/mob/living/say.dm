@@ -129,16 +129,17 @@ proc/get_radio_key_from_channel(var/channel)
 /mob/living/proc/get_stutter_verbs()
 	return list("stammers", "stutters")
 
-/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode == "intercom")
-		for(var/obj/item/device/radio/intercom/I in view(1, null))
+		for(var/obj/item/device/radio/intercom/I in view(1, src))
 			used_radios += I
-			if(I.talk_into(src, message, verb, speaking))
-				successful_radio += I
+			I.talk_into(src, message, verb, speaking)
+
 	if(message_mode == "whisper" && !whisper)
 		whisper(message, speaking)
 		return TRUE
-	return 0
+
+	return FALSE
 
 /mob/living/proc/handle_speech_sound()
 	var/list/returns[3]
@@ -250,16 +251,13 @@ proc/get_radio_key_from_channel(var/channel)
 			return say_signlang(message, pick(speaking.signlang_verb), speaking, speaking.sign_adv_length)
 
 	var/list/obj/item/used_radios = new
-	var/list/successful_radio = new // passes a list because standard vars don't work when passed
-	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper, is_singing))
-		return 1
+	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper, is_singing))
+		return TRUE
 
 	var/list/handle_v = handle_speech_sound()
 	var/sound/speech_sound = handle_v[1]
 	var/sound_vol = handle_v[2]
 	var/italics = handle_v[3]
-
-
 
 	//speaking into radios
 	if(length(used_radios))
@@ -267,12 +265,10 @@ proc/get_radio_key_from_channel(var/channel)
 		message_range = 1
 		if(speaking)
 			message_range = speaking.get_talkinto_msg_range(message)
-		var/msg
 		if(!speaking || !(speaking.flags & NO_TALK_MSG))
-			msg = "<span class='notice'>\The [src] [length(successful_radio) ? "talks into" : "tries talking into"] \the [used_radios[1]]</span>."
-		for(var/mob/living/M in hearers(5, src) - src)
-			if(msg)
-				M.show_message(msg)
+			var/msg = SPAN_NOTICE("\The [src] talks into \the [used_radios[1]].")
+			for (var/mob/living/L in get_hearers_in_view(5, src) - src)
+				L.show_message(msg)
 		if(speech_sound)
 			sound_vol *= 0.5
 

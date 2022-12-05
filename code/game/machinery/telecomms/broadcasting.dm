@@ -40,9 +40,9 @@
 
 /datum/signal/subspace/proc/send_to_receivers()
 	for(var/obj/machinery/telecomms/receiver/R in telecomms_list)
-		R.receive_signal(src)
+		INVOKE_ASYNC(R, /obj/proc/receive_signal, src)
 	for(var/obj/machinery/telecomms/allinone/R in telecomms_list)
-		R.receive_signal(src)
+		INVOKE_ASYNC(R, /obj/proc/receive_signal, src)
 
 /datum/signal/subspace/proc/broadcast()
 	set waitfor = FALSE
@@ -63,11 +63,11 @@
 	var/turf/T = get_turf(source)
 	if(isturf(T))
 		levels = list(T.z)
+		if(current_map.use_overmap)
+			sector = map_sectors["[T.z]"]
 	else // if the source is in nullspace, it's probably an autosay
 		levels = current_map.station_levels
-
-	if(current_map.use_overmap)
-		sector = map_sectors["[T.z]"]
+		sector = map_sectors["[levels[1]]"]
 
 	var/mob/M = speaker.resolve()
 

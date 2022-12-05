@@ -109,12 +109,9 @@ var/global/list/default_medbay_channels = list(
 	set_on(on)
 
 /obj/item/device/radio/Destroy()
+	SSradio.remove_object_all(src)
 	QDEL_NULL(announcer)
 	QDEL_NULL(wires)
-	if(SSradio)
-		SSradio.remove_object(src, frequency)
-		for (var/ch_name in channels)
-			SSradio.remove_object(src, radiochannels[ch_name])
 	return ..()
 
 /obj/item/device/radio/proc/is_on()
@@ -450,7 +447,7 @@ var/global/list/default_medbay_channels = list(
 	if(subspace_transmission)
 		return
 
-	// Non-subspace radios will check in a coupel of seconds, and if the signal was never received, we send a mundane broadcast
+	// Non-subspace radios will check in a couple of seconds, and if the signal was never received, we send a mundane broadcast
 	addtimer(CALLBACK(src, .proc/backup_transmission, signal), 2 SECONDS)
 
 /obj/item/device/radio/proc/backup_transmission(datum/signal/subspace/vocal/signal)
@@ -480,7 +477,7 @@ var/global/list/default_medbay_channels = list(
 	if (within_jamming_range(src))
 		return FALSE
 
-	if (input_frequency in ANTAG_FREQS && !syndie) //Checks to see if it's allowed on that frequency, based on the encryption keys
+	if ((input_frequency in ANTAG_FREQS) && !syndie) //Checks to see if it's allowed on that frequency, based on the encryption keys
 		return FALSE
 
 	if (input_frequency == frequency)

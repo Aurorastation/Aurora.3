@@ -215,15 +215,15 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	// return TRUE if found, FALSE if not found
 	return signal && (!freq_listening.len || (signal.frequency in freq_listening))
 
-// Reception range of telecomms machines is limited via overmap_range, with the exception of admin levels.
+// Reception range of telecomms machines is limited via overmap_range
 /obj/machinery/telecomms/proc/check_range(datum/signal/subspace/signal)
-	if(isAdminLevel(z))
+	if(z in signal.levels)
 		return TRUE
 
-	var/connected_z = GetConnectedZlevels(z)
+	var/connected_z = GetConnectedZlevels(z) - z
 
 	for(var/sig_z in signal.levels)
-		if(isAdminLevel(sig_z) || (sig_z in connected_z))
+		if(sig_z in connected_z)
 			return TRUE
 
 	if(!current_map.use_overmap)
