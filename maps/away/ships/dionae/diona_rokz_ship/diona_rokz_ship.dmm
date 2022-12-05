@@ -209,13 +209,13 @@
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "lP" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /obj/effect/landmark/entry_point/north{
 	name = "aft, engines"
 	},
-/turf/simulated/wall/diona,
+/turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "mM" = (
 /obj/machinery/computer/ship/engines{
@@ -38061,8 +38061,8 @@ ac
 ac
 ac
 XN
+oS
 lP
-Yh
 sx
 sx
 sx
