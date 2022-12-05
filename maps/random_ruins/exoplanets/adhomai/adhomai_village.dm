@@ -1,6 +1,6 @@
 /datum/map_template/ruin/exoplanet/adhomai_village
-	name = "Adhomai Hunting Lodge"
-	id = "adhomai_hunting"
+	name = "Adhomian Village"
+	id = "adhomai_village"
 	description = "A tiny Tajara village somewhere in Adhomai."
 
 	spawn_weight = 1
@@ -21,8 +21,8 @@
 
 /datum/ghostspawner/human/adhomai_village
 	short_name = "adhomai_village."
-	name = "Adhomian Hunter"
-	desc = "Hunt the wild creatures of Adhomai."
+	name = "Adhomian Villager"
+	desc = "Live your life in a tiny Adhomian village."
 	tags = list("External")
 
 	spawnpoints = list("adhomai_village")
