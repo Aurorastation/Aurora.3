@@ -235,6 +235,7 @@
 /area/ship/ssmd_corvette/dorms)
 "aHC" = (
 /obj/structure/table/steel,
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "aIS" = (
@@ -917,6 +918,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "cMo" = (
@@ -1306,6 +1308,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "dKs" = (
@@ -1551,6 +1554,7 @@
 	pixel_x = 32;
 	req_one_access = null
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "ege" = (
@@ -2667,6 +2671,7 @@
 	name = "Head";
 	req_access = list(203)
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "gSP" = (
@@ -2905,6 +2910,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "hLC" = (
@@ -3054,6 +3060,7 @@
 /area/ship/ssmd_corvette/medbay)
 "icA" = (
 /obj/structure/curtain/open/shower,
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "idz" = (
@@ -3384,7 +3391,7 @@
 	},
 /obj/structure/table/steel,
 /obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a Montevideo-class vessel.";
+	desc = "Blueprints for an Uhlan-class vessel.";
 	icon = 'icons/obj/items.dmi';
 	icon_state = "blueprints";
 	item_icons = null;
@@ -3472,6 +3479,7 @@
 /area/ship/ssmd_corvette/medbay)
 "jwe" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "jwk" = (
@@ -3565,6 +3573,7 @@
 /obj/machinery/door/airlock/silver{
 	name = "Toilet"
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "jTb" = (
@@ -3657,6 +3666,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "kkc" = (
@@ -3997,6 +4007,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "lhC" = (
@@ -4058,9 +4069,11 @@
 	dir = 6;
 	pixel_y = 0
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "lkT" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "lnL" = (
@@ -4227,6 +4240,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothbrush/green,
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "lTx" = (
@@ -4749,6 +4763,7 @@
 "nvE" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "nwz" = (
@@ -4877,6 +4892,7 @@
 /area/ship/ssmd_corvette/medbay)
 "nUH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "nVb" = (
@@ -4980,6 +4996,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "ofY" = (
@@ -5611,6 +5628,7 @@
 	name = "Head";
 	req_access = list(203)
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/starboardfoyer)
 "qHm" = (
@@ -5673,7 +5691,6 @@
 	dir = 1
 	},
 /obj/machinery/firealarm/west,
-/obj/item/clothing/accessory/sol_pin,
 /obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/ssmd_corvette/captain)
@@ -5726,6 +5743,7 @@
 	pixel_x = 4;
 	pixel_y = 16
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "qZm" = (
@@ -5852,6 +5870,7 @@
 /obj/machinery/washing_machine{
 	pixel_x = 6
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "rxf" = (
@@ -6836,6 +6855,7 @@
 /obj/structure/mirror{
 	pixel_x = -28
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "uHZ" = (
@@ -7091,6 +7111,7 @@
 /area/ship/ssmd_corvette/medbay)
 "vFk" = (
 /obj/structure/undies_wardrobe,
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "vGl" = (
@@ -7506,6 +7527,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "wNh" = (
@@ -7710,7 +7732,7 @@
 	dir = 10;
 	icon = 'icons/atmos/pipes.dmi';
 	icon_state = "intact";
-	layer = 4;
+	layer = 4.2;
 	name = "suspension bar";
 	pixel_x = 14;
 	pixel_y = -5
@@ -7931,6 +7953,7 @@
 /area/ship/ssmd_corvette/portengine)
 "xUC" = (
 /obj/machinery/firealarm/east,
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "xVp" = (
