@@ -17,7 +17,7 @@
 /obj/machinery/disposal
 	name = "disposal unit"
 	desc = "A pneumatic waste disposal unit."
-	icon = 'icons/obj/pipes/disposal.dmi'
+	icon = 'icons/obj/disposals.dmi'
 	icon_state = "disposal"
 	anchored = 1
 	density = 1
@@ -767,7 +767,7 @@
 // Disposal pipes
 
 /obj/structure/disposalpipe
-	icon = 'icons/obj/pipes/disposal.dmi'
+	icon = 'icons/obj/disposals.dmi'
 	name = "disposal pipe"
 	desc = "An underfloor disposal pipe."
 	anchored = 1
@@ -1512,7 +1512,7 @@
 /obj/structure/disposaloutlet
 	name = "disposal outlet"
 	desc = "An outlet for the pneumatic disposal system."
-	icon = 'icons/obj/pipes/disposal.dmi'
+	icon = 'icons/obj/disposals.dmi'
 	icon_state = "outlet"
 	density = 1
 	anchored = 1

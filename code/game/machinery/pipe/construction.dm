@@ -142,8 +142,6 @@ Buildable meters
 			src.pipe_type = PIPE_PASSIVE_GATE_SUPPLY
 		else if(istype(make_from, /obj/machinery/atmospherics/binary/passive_gate))
 			src.pipe_type = PIPE_PASSIVE_GATE
-		else if(istype(make_from, /obj/machinery/atmospherics/unary/heat_exchanger))
-			src.pipe_type = PIPE_HEAT_EXCHANGE
 		else if(istype(make_from, /obj/machinery/atmospherics/tvalve/mirrored))
 			src.pipe_type = PIPE_MTVALVEM
 		else if(istype(make_from, /obj/machinery/atmospherics/tvalve))
@@ -1099,20 +1097,6 @@ Buildable meters
 			if (P.node2)
 				P.node2.atmos_init()
 				P.node2.build_network()
-
-		if(PIPE_HEAT_EXCHANGE)		// heat exchanger
-			var/obj/machinery/atmospherics/unary/heat_exchanger/C = new( src.loc )
-			C.set_dir(dir)
-			C.initialize_directions = pipe_dir
-			if (pipename)
-				C.name = pipename
-			var/turf/T = C.loc
-			C.level = !T.is_plating() ? 2 : 1
-			C.atmos_init()
-			C.build_network()
-			if (C.node)
-				C.node.atmos_init()
-				C.node.build_network()
 ///// Z-Level stuff
 		if(PIPE_UP)
 			var/obj/machinery/atmospherics/pipe/zpipe/up/P = new(src.loc)
