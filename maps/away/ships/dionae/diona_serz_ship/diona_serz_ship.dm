@@ -89,7 +89,7 @@
 	landmark_transition = "nav_transit_diona_serz_ship_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_tdiona_serz_ship_shuttle"
+	logging_home_tag = "nav_diona_serz_ship_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/diona_serz_ship_shuttle/hangar
