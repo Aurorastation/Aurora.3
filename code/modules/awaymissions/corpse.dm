@@ -32,7 +32,8 @@
 /obj/effect/landmark/corpse/proc/createCorpse() //Creates a mob and checks for gear in each slot before attempting to equip it.
 	var/mob/living/carbon/human/M = new /mob/living/carbon/human (src.loc)
 	M.set_species(species)
-	M.real_name = src.name
+	M.name = random_name(M.gender, M.species.name)
+	M.real_name = M.name
 	M.death(1) //Kills the new mob
 	if(src.corpseuniform)
 		var/obj/item/clothing/under/cuniform = new corpseuniform(M)
@@ -79,9 +80,12 @@
 			W.assignment = corpseidjob
 		M.set_id_info(W)
 		M.equip_to_slot_or_del(W, slot_wear_id)
+	do_extra_customization(M)
 	qdel(src)
 
 
+/obj/effect/landmark/corpse/proc/do_extra_customization(var/mob/living/carbon/human/M)
+	return
 
 // I'll work on making a list of corpses people request for maps, or that I think will be commonly used. Syndicate operatives for example.
 

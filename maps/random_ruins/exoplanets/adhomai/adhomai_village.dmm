@@ -1018,12 +1018,6 @@
 	temperature = 268.15
 	},
 /area/adhomai_village)
-"Xv" = (
-/obj/structure/light_pole/r,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/adhomai_village)
 "Yn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1735,7 +1729,7 @@ xc
 xc
 xc
 xc
-Xv
+rM
 Jb
 xc
 Gu

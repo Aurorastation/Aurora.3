@@ -1,7 +1,7 @@
 /datum/map_template/ruin/exoplanet/adhomai_abandoned_village
 	name = "Adhomai Abandoned Village"
 	id = "abandoned_village"
-	description = "An abandoned Tajaran village."
+	description = "The ruins of a Tajaran settlement."
 
 	spawn_weight = 1
 	spawn_cost = 1

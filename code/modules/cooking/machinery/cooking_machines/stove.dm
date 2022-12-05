@@ -56,10 +56,10 @@
 /obj/machinery/appliance/cooker/stove/adhomai/update_icon()
 	cut_overlays()
 	if (!stat)
-		icon_state = "adhomai_ovenclosed_on"
+		icon_state = "adhomai_stove_on"
 	else
 		icon_state = "adhomai_stove_off"
-	if(stat && temperature)
+	if(!stat && temperature)
 		switch(temperature)
 			if(T0C to T20C)
 				add_overlay("stove_fire0")
