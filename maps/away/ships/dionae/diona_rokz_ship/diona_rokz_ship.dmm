@@ -714,6 +714,10 @@
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
+"Om" = (
+/obj/effect/landmark/entry_point/west,
+/turf/unsimulated/mineral/asteroid,
+/area/shuttle/diona_rokz_ship_shuttle)
 "Oq" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/unsimulated/floor/asteroid/ash,
@@ -37301,7 +37305,7 @@ kX
 fP
 kX
 kX
-kX
+fP
 kX
 kX
 sx
@@ -38586,7 +38590,7 @@ kX
 eT
 kX
 jR
-jR
+Om
 jR
 jR
 sx
