@@ -1352,6 +1352,7 @@
 #include "code\modules\atmospherics\components\trinary_devices\mixer.dm"
 #include "code\modules\atmospherics\components\trinary_devices\trinary_base.dm"
 #include "code\modules\atmospherics\components\unary\cold_sink.dm"
+#include "code\modules\atmospherics\components\unary\heat_exchanger.dm"
 #include "code\modules\atmospherics\components\unary\heat_source.dm"
 #include "code\modules\atmospherics\components\unary\outlet_injector.dm"
 #include "code\modules\atmospherics\components\unary\unary_base.dm"
