@@ -6895,7 +6895,6 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "vn" = (
-/obj/machinery/power/rad_collector,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "vo" = (
@@ -7127,7 +7126,6 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "wq" = (
-/obj/machinery/power/rad_collector,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "wr" = (
