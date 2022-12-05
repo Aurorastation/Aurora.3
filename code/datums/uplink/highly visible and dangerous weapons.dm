@@ -82,6 +82,7 @@
 /datum/uplink_item/item/visible_weapons/gatling
 	name = "Gatling Machine Gun"
 	item_cost = 40
+	item_limit = 1
 	path = /obj/item/minigunpack
 
 /datum/uplink_item/item/visible_weapons/chainsaw
@@ -187,6 +188,7 @@
 /datum/uplink_item/item/visible_weapons/gyrojet_pistol
 	name = "Gyrojet Pistol"
 	item_cost = 20
+	item_limit = 1
 	path = /obj/item/gun/projectile/gyropistol
 
 /datum/uplink_item/item/visible_weapons/bullpup_assault_carbine
@@ -202,6 +204,7 @@
 /datum/uplink_item/item/visible_weapons/gatling_laser
 	name = "Gatling Laser"
 	item_cost = 40
+	item_limit = 1
 	path = /obj/item/gun/energy/vaurca/gatlinglaser
 
 /datum/uplink_item/item/visible_weapons/laser_shotgun
@@ -252,6 +255,7 @@
 /datum/uplink_item/item/visible_weapons/railgun
 	name = "Railgun"
 	item_cost = 30
+	item_limit = 1
 	path = /obj/item/gun/projectile/automatic/railgun
 
 /datum/uplink_item/item/visible_weapons/deagle
