@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/shotgun/pump/rifle
 	name = "bolt action rifle"
-	desc = "A cheap ballistic rifle often found in the hands of crooks and frontiersmen. Uses 7.62mm rounds."
+	desc = "A cheap ballistic rifle often found in the hands of Tajaran conscripts. Uses 7.62mm rounds."
 	icon = 'icons/obj/guns/moistnugget.dmi'
 	icon_state = "moistnugget"
 	item_state = "moistnugget"

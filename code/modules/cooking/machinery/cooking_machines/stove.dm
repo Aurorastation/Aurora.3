@@ -47,3 +47,27 @@
 	if(isemptylist(pans))
 		return
 	add_overlay(pans)
+
+/obj/machinery/appliance/cooker/stove/adhomai
+	name = "adhomian stove"
+	desc = "A rustic Adhomian stove. Warm enough to gather around the winter."
+	icon_state = "adhomai_stove_off"
+
+/obj/machinery/appliance/cooker/stove/adhomai/update_icon()
+	cut_overlays()
+	if (!stat)
+		icon_state = "adhomai_ovenclosed_on"
+	else
+		icon_state = "adhomai_stove_off"
+	if(stat && temperature)
+		switch(temperature)
+			if(T0C to T20C)
+				add_overlay("stove_fire0")
+			if(T20C+21 to T20C+40)
+				add_overlay("stove_fire1")
+			if(T20C+21 to T20C+40)
+				add_overlay("stove_fire2")
+			if(T20C+41 to T20C+60)
+				add_overlay("stove_fire3")
+			if(T20C+61 to INFINITY)
+				add_overlay("stove_fire4")

@@ -318,6 +318,9 @@
 /obj/item/material/twohanded/spear/diamond/Initialize(newloc, material_key)
 	. = ..(newloc, MATERIAL_DIAMOND)
 
+/obj/item/material/twohanded/spear/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
+
 /obj/structure/headspear
 	name = "head on a spear"
 	desc = "How barbaric."
@@ -616,6 +619,9 @@
 	base_icon = "flag_hegemony"
 	contained_sprite = TRUE
 	damtype = BURN
+
+/obj/item/material/twohanded/pike/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
 
 /obj/item/material/twohanded/zweihander
 	icon_state = "zweihander0"

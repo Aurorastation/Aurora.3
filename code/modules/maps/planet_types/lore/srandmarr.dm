@@ -104,13 +104,14 @@
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
 	generated_name = FALSE
+	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting)
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_habitability()
 	return HABITABILITY_IDEAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_map()
 	if(prob(50))
-		lightlevel = rand(1,7)/10
+		lightlevel = rand(3,10)/10
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_planet_image()

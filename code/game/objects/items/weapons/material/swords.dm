@@ -99,6 +99,9 @@
 	item_state = "sabre"
 	slot_flags = SLOT_BELT
 
+/obj/item/material/sword/sabre/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
+
 /obj/item/material/sword/axe
 	name = "battle axe"
 	desc = "A one handed battle axe, still a deadly weapon."

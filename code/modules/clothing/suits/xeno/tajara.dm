@@ -276,3 +276,13 @@
 	item_state = "nka_Jacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/tajaran/hunting
+	name = "adhomian hunting coat"
+	desc = "A coat made of adhomian pelts. Commonly used by hunters."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "hunter_coat"
+	item_state = "hunter_coat"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	allowed = list(/obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/material/knife, /obj/item/device/flashlight)

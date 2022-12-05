@@ -3237,6 +3237,7 @@
 #include "maps\event\rooftop\code\rooftop_areas.dm"
 #include "maps\event\rooftop\code\rooftop_shuttles.dm"
 #include "maps\random_ruins\exoplanets\exoplanet_ruins.dm"
+#include "maps\random_ruins\exoplanets\adhomai\adhomai_hunting.dm"
 #include "maps\random_ruins\exoplanets\asteroid\asteroid.dm"
 #include "maps\random_ruins\exoplanets\crashed_pod\crashed_pod.dm"
 #include "maps\random_ruins\space_ruins\space_ruins.dm"
