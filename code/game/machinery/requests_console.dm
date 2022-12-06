@@ -243,7 +243,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		screen = RCS_SENTFAIL
 		var/pass = FALSE
 		var/datum/data_rc_msg/log = new(href_list["department"], department, log_msg, msgStamped, msgVerified, priority)
-		for (var/obj/machinery/telecomms/message_server/MS in telecomms_list)
+		for (var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 			if (MS.use_power)
 				MS.rc_msgs += log
 				pass = TRUE
@@ -414,7 +414,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		return TRUE
 
 /obj/machinery/requests_console/proc/can_send()
-	for(var/obj/machinery/telecomms/message_server/MS in telecomms_list)
+	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 		if(!MS.use_power)
 			continue
 		return TRUE

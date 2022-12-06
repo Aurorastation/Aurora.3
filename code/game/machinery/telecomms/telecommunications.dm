@@ -17,8 +17,6 @@
 	Inbound Signal -> Receiver -> Hub -> Bus -> Processor -> Bus -> Server -> Hub -> Broadcaster
 */
 
-var/global/list/obj/machinery/telecomms/telecomms_list = list()
-
 /obj/machinery/telecomms
 	icon = 'icons/obj/machines/telecomms.dmi'
 	density = TRUE
@@ -57,7 +55,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 /obj/machinery/telecomms/Initialize(mapload)
 	. = ..()
 //	soundloop = new(list(src), on)
-	telecomms_list += src
+	SSmachinery.all_telecomms += src
 
 	if(mapload)
 		return INITIALIZE_HINT_LATELOAD
@@ -69,14 +67,14 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 			attempt_hook_up(my_sector)
 
 	if(autolinkers.len)
-		for(var/obj/machinery/telecomms/T in telecomms_list)
+		for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
 			if(T != src && (T.z in GetConnectedZlevels(z)))
 				add_automatic_link(T)
 
 /obj/machinery/telecomms/Destroy()
 //	QDEL_NULL(soundloop)
-	telecomms_list -= src
-	for(var/obj/machinery/telecomms/comm in telecomms_list)
+	SSmachinery.all_telecomms -= src
+	for(var/obj/machinery/telecomms/comm in SSmachinery.all_telecomms)
 		remove_link(comm)
 	links = list()
 	return ..()

@@ -39,9 +39,9 @@
 		current = current.original
 
 /datum/signal/subspace/proc/send_to_receivers()
-	for(var/obj/machinery/telecomms/receiver/R in telecomms_list)
+	for(var/obj/machinery/telecomms/receiver/R in SSmachinery.all_telecomms)
 		INVOKE_ASYNC(R, /obj/proc/receive_signal, src)
-	for(var/obj/machinery/telecomms/allinone/R in telecomms_list)
+	for(var/obj/machinery/telecomms/allinone/R in SSmachinery.all_telecomms)
 		INVOKE_ASYNC(R, /obj/proc/receive_signal, src)
 
 /datum/signal/subspace/proc/broadcast()

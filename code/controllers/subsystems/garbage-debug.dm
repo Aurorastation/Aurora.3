@@ -619,7 +619,6 @@
 	SearchVar(syndicate_elite_shuttle_timeleft)
 	SearchVar(recentmessages)
 	SearchVar(message_delay)
-	SearchVar(telecomms_list)
 	SearchVar(word_to_uristrune_table)
 	SearchVar(slot_flags_enumeration)
 	SearchVar(BUMP_TELEPORTERS)

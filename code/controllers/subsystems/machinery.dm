@@ -57,6 +57,7 @@ if(Datum.isprocessing) {\
 	var/list/obj/machinery/hologram/holopad/all_holopads = list()
 	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
 	var/list/gravity_generators = list()
+	var/list/obj/machinery/telecomms/all_telecomms = list()
 
 	var/list/rcon_smes_units = list()
 	var/list/rcon_smes_units_by_tag = list()

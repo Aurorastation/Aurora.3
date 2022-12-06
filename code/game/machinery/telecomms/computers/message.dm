@@ -87,7 +87,7 @@
 /obj/machinery/computer/message_monitor/LateInitialize()
 	//If the server isn't linked to a server, and there's a server available, default it to the first one in the list.
 	if(!linkedServer)
-		for(var/obj/machinery/telecomms/message_server/S in telecomms_list)
+		for(var/obj/machinery/telecomms/message_server/S in SSmachinery.all_telecomms)
 			linkedServer = S
 			break
 
@@ -284,7 +284,7 @@
 	//Find a server
 	if (href_list["find"])
 		var/list/message_servers = list()
-		for(var/obj/machinery/telecomms/message_server/M in telecomms_list)
+		for(var/obj/machinery/telecomms/message_server/M in SSmachinery.all_telecomms)
 			message_servers += M
 
 		if(message_servers.len > 1)
@@ -422,7 +422,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/item/paper/monitorkey/LateInitialize()
-	for(var/obj/machinery/telecomms/message_server/server in telecomms_list)
+	for(var/obj/machinery/telecomms/message_server/server in SSmachinery.all_telecomms)
 		if(!isnull(server))
 			if(!isnull(server.decryptkey))
 				info = "<center><h2>Daily Key Reset</h2></center><br>The new message monitor key is '[server.decryptkey]'.<br>Please keep this a secret and away from unauthorized personnel.<br>If necessary, change the password to a more secure one."

@@ -87,7 +87,7 @@
 		target.add_ion_law(law)
 		target.show_laws()
 
-	for (var/obj/machinery/telecomms/message_server/MS in telecomms_list)
+	for (var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 		MS.spamfilter.Cut()
 		var/i
 		for (i = 1, i <= MS.spamfilter_limit, i++)

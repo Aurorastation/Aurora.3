@@ -65,24 +65,6 @@
 			assign_away_freq(linked.name)
 		)
 
-/obj/machinery/telecomms/allinone/ship/shuttle
-	name = "shuttle communications unit"
-	icon = 'icons/obj/machines/telecomms.dmi'
-	icon_state = "broadcast receiver"
-	desc = "This compact machine allows shuttles and other parasite craft to perform limited radio communication while detached from their mothership."
-
-/obj/machinery/telecomms/allinone/ship/shuttle/LateInitialize()
-	. = ..()
-	for (var/obj/machinery/telecomms/allinone/A in telecomms_list)
-		if(A.z == src.z)
-			toggle_power(POWER_USE_OFF)
-			// TURN IT OFF
-
-	for (var/obj/machinery/telecomms/broadcaster/B in telecomms_list)
-		if(B.z == src.z)
-			toggle_power(POWER_USE_OFF)
-			// TURN IT OFF
-
 //This goes on the station map so away ships can maintain radio contact.
 //Regular telecomms machines cannot listen to broadcasts coming from non-station z-levels. If we did this, comms would be receiving a substantial amount of duplicated messages.
 /obj/machinery/telecomms/allinone/ship/station_relay

@@ -68,7 +68,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
 		if(H.linked == src)
 			H.linked = null
-	for(var/obj/machinery/telecomms/T in telecomms_list)
+	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
 		if(T.linked == src)
 			T.linked = null
 	if(entry_points)
@@ -86,7 +86,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 /obj/effect/overmap/visitable/proc/populate_sector_objects()
 	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
 		H.attempt_hook_up(src)
-	for(var/obj/machinery/telecomms/T in telecomms_list)
+	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
 		T.attempt_hook_up(src)
 
 /obj/effect/overmap/visitable/proc/get_areas()
