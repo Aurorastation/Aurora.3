@@ -126,7 +126,7 @@
 /datum/ghostspawner/human/ssmd_ipc
 	short_name = "ssmd_ipc"
 	name = "SSMD Military Synthetic"
-	desc = "Assist the crew of the Southern Solarian Military District reconnaissance corvette in whatever capacity necessary. Use your superior reflexes and skills to expertly pilot the ship and man its targeting systems. Remember that you are not a free, enlisted soldier: you are the military's non-combatant property, programmed to rigidly serve the interests of the Solarian government, and the SSMD and SSMD above all else."
+	desc = "Assist the crew of the Southern Solarian Military District reconnaissance corvette in whatever capacity necessary. Use your superior reflexes and skills to expertly pilot the ship and man its targeting systems. Remember that you are not a free, enlisted soldier: you are the military's non-combatant property, programmed to rigidly serve the interests of the Solarian government and the SSMD above all else."
 	tags = list("External")
 
 	spawnpoints = list("ssmd_ipc")
