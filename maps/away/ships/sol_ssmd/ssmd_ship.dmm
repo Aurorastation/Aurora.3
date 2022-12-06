@@ -3962,6 +3962,10 @@
 	name = "Bridge Lockdown";
 	pixel_x = -5
 	},
+/obj/machinery/button/distress{
+	pixel_x = -5;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/bridge)
 "lct" = (
