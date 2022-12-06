@@ -31727,7 +31727,7 @@
 /area/hallway/primary/central_one)
 "pRd" = (
 /obj/structure/foamedmetal,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "pRf" = (
 /obj/structure/cable/orange{
