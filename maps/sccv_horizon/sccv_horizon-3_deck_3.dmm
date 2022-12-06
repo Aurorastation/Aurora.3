@@ -6516,14 +6516,15 @@
 /area/horizon/crew_quarters/cryo/washroom)
 "fxi" = (
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/clothing/glasses/welding/emergency{
-	pixel_y = -6
+/obj/structure/sign/emergency/evacuation/ladder{
+	pixel_y = -32
 	},
+/obj/item/crowbar/red,
 /obj/item/weldingtool/emergency{
 	pixel_y = 6
 	},
-/obj/structure/sign/emergency/evacuation/ladder{
-	pixel_y = -32
+/obj/item/clothing/glasses/welding/emergency{
+	pixel_y = -6
 	},
 /obj/item/paper/fluff/bunker,
 /turf/simulated/floor,
