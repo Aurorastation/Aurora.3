@@ -132,7 +132,7 @@
 	name = "SSMD Shuttle"
 	class = "SSMDV"
 	designation = "Vizsla"
-	desc = "A modestly-sized shuttle design used by the Solarian armed forces, the Destrier is well-armored but somewhat slow, and was explicitly designed to be as survivable as possible for operations during combat. Notably features a fast-deployment exosuit catapult."
+	desc = "A modestly sized shuttle design used by the Solarian armed forces, the Destrier is well-armored but somewhat slow, and was explicitly designed to be as survivable as possible for operations during combat. Notably features a fast-deployment exosuit catapult."
 	shuttle = "SSMD Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
