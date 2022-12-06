@@ -727,7 +727,7 @@
 /obj/item/paper/fluff/bunker
 	name = "bunker evacuation route instructions"
 	desc = "A paper. It has evacuation route instructions printed on it."
-	info = "<font face=\"Verdana\"><center>SCCV Horizon Command Bunker<br>Evacuation Route Instructions</center><br><font size=\"2\"><ol><li>Put on the emergency \
+	info = "<font face=\"Verdana\"><center>SCCV Horizon Command Bunker<br>Evacuation Route Instructions</center><font size=\"2\"><ol><li>Put on the emergency \
 		welding goggles.</li><li>Grasp the emergency welding tool firmly in your hands, turn it on, and start cutting a hole in the floor.</li><li>Wait for \
 		the newly created hole to cool.<li>Use the emergency crowbar to pry away the metal.</li><li>Deploy the emergency ladder.</li><li>Dispose of the used \
 		equipment, if necessary.</li></ol></font></font>"
