@@ -127,7 +127,7 @@
 	name = "5.56 Rifle Magazine"
 	item_cost = 2
 	path = /obj/item/ammo_magazine/a556
-	desc = "A magazine for 5.56 rifle."
+	desc = "A magazine for a 5.56 rifle."
 
 /datum/uplink_item/item/ammo/uzi_magazine
 	name = ".45 Autopistol Magazine"
