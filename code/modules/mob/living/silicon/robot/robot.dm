@@ -487,19 +487,6 @@
 	handle_panel_overlay()
 	set_intent(a_intent)
 
-/obj/item/robot_module/janitor/verb/toggle_mop()
-	set category = "Robot Commands"
-	set name = "Toggle Mop"
-	set desc = "Toggle the integrated mop."
-	set src in usr
-
-	mopping = !mopping
-	if (mopping)
-		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), SPAN_NOTICE("You enable your integrated mopping system."))
-		playsound(usr, 'sound/machines/hydraulic_long.ogg', 100, 1)
-	else
-		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system putters before turning off."), SPAN_NOTICE("You disable your integrated mopping system."))
-
 /mob/living/silicon/robot/proc/update_robot_light()
 	if(lights_on)
 		if(intense_light)
@@ -941,49 +928,6 @@
 
 /mob/living/silicon/robot/proc/radio_menu()
 	radio.interact(src) //Just use the radio's Topic() instead of bullshit special-snowflake code
-
-/mob/living/silicon/robot/Move(a, b, flag)
-	. = ..()
-
-	if(module)
-		if(module.type == /obj/item/robot_module/janitor)
-			var/obj/item/robot_module/janitor/J = module
-			var/turf/tile = get_turf(src)
-			if(isturf(tile) && J.mopping)
-				tile.clean_blood()
-				if(istype(tile, /turf/simulated))
-					var/turf/simulated/S = tile
-					S.dirt = FALSE
-					S.color = null
-				for(var/A in tile)
-					if(istype(A, /obj/effect))
-						if(istype(A, /obj/effect/decal/cleanable))
-							qdel(A)
-						if(istype(A, /obj/effect/overlay))
-							var/obj/effect/overlay/O = A
-							if(O.no_clean)
-								continue
-							qdel(O)
-					else if(istype(A, /obj/item))
-						var/obj/item/cleaned_item = A
-						cleaned_item.clean_blood()
-					else if(istype(A, /mob/living/carbon/human))
-						var/mob/living/carbon/human/cleaned_human = A
-						if(cleaned_human.lying)
-							if(cleaned_human.head)
-								cleaned_human.head.clean_blood()
-								cleaned_human.update_inv_head(0)
-							if(cleaned_human.wear_suit)
-								cleaned_human.wear_suit.clean_blood()
-								cleaned_human.update_inv_wear_suit(0)
-							else if(cleaned_human.w_uniform)
-								cleaned_human.w_uniform.clean_blood()
-								cleaned_human.update_inv_w_uniform(0)
-							if(cleaned_human.shoes)
-								cleaned_human.shoes.clean_blood()
-								cleaned_human.update_inv_shoes(0)
-							cleaned_human.clean_blood(1)
-							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
 
 /mob/living/silicon/robot/proc/start_self_destruct(var/anti_theft = FALSE)
 	if(self_destructing)

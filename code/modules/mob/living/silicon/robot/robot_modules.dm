@@ -6,8 +6,7 @@ var/global/list/robot_modules = list(
 	"Rescue" 		= /obj/item/robot_module/medical/rescue,
 	"Medical" 		= /obj/item/robot_module/medical/general,
 	"Engineering"	= /obj/item/robot_module/engineering/general,
-	"Construction"	= /obj/item/robot_module/engineering/construction,
-	"Custodial" 	= /obj/item/robot_module/janitor
+	"Construction"	= /obj/item/robot_module/engineering/construction
 )
 
 /obj/item/robot_module
@@ -524,59 +523,6 @@ var/global/list/robot_modules = list(
 	var/obj/item/stack/tile/floor_dark/cyborg/FTD = new /obj/item/stack/tile/floor_dark/cyborg(src)
 	FTD.synths = list(plasteel)
 	modules += FTD
-
-/obj/item/robot_module/janitor
-	name = "custodial robot module"
-	channels = list(CHANNEL_SERVICE = TRUE)
-	networks = list(NETWORK_SERVICE)
-	sprites = list(
-		"Basic" =          list(ROBOT_CHASSIS = "robot_jani", ROBOT_PANEL = "robot", ROBOT_EYES = "robot"),
-		"Landmate" =       list(ROBOT_CHASSIS = "landmate_jani", ROBOT_PANEL = "landmate", ROBOT_EYES = "landmate"),
-		"Treadmate" =      list(ROBOT_CHASSIS = "treadmate_jani", ROBOT_PANEL = "treadmate", ROBOT_EYES = "treadmate"),
-		"Treadhead" =      list(ROBOT_CHASSIS = "treadhead_jani", ROBOT_PANEL = "treadhead", ROBOT_EYES = "treadhead"),
-		"Spiffy" =         list(ROBOT_CHASSIS = "mcspizzy_jani", ROBOT_PANEL = "mcspizzy", ROBOT_EYES = "mcspizzy"),
-		"Tau-Ceti Drone" = list(ROBOT_CHASSIS = "tauceti_jani", ROBOT_PANEL = "tauceti", ROBOT_EYES = "tauceti"),
-		"Sputnik" =        list(ROBOT_CHASSIS = "sputnik_jani", ROBOT_PANEL = "sputnik", ROBOT_EYES = "sputnik"),
-		"Kent" =           list(ROBOT_CHASSIS = "kent_jani", ROBOT_PANEL = "kent", ROBOT_EYES = "kent"),
-		"Wide" =           list(ROBOT_CHASSIS = "wide_jani", ROBOT_PANEL = "wide", ROBOT_EYES = "wide"),
-		"Cricket" =        list(ROBOT_CHASSIS = "cricket_jani", ROBOT_PANEL = "cricket", ROBOT_EYES = "cricket"),
-		"Quad-Dex" =       list(ROBOT_CHASSIS = "quaddex_jani", ROBOT_PANEL = "quaddex", ROBOT_EYES = "quaddex"),
-		"Arthrodroid" =    list(ROBOT_CHASSIS = "arthrodroid_jani", ROBOT_PANEL = "arthrodroid", ROBOT_EYES = "arthrodroid"),
-		"Spiderbot" =      list(ROBOT_CHASSIS = "spiderbot_jani", ROBOT_PANEL = "spiderbot", ROBOT_EYES = "spiderbot"),
-		"Heavy" =          list(ROBOT_CHASSIS = "heavy_jani",  ROBOT_PANEL = "heavy_jani", ROBOT_EYES = "heavy_jani"),
-		"Positron 03" =    list(ROBOT_CHASSIS = "positron03_jani", ROBOT_PANEL = "positron03", ROBOT_EYES = "positron03"),
-		"Plantasonic" =    list(ROBOT_CHASSIS = "plantasonic_jani", ROBOT_PANEL = "plantasonic", ROBOT_EYES = "plantasonic"),
-		"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_jani", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
-		"Phage" =          list(ROBOT_CHASSIS = "phage_jani", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
-	)
-
-	var/mopping = FALSE
-
-/obj/item/robot_module/janitor/Initialize()
-	. = ..()
-	modules += new /obj/item/soap/drone(src)
-	modules += new /obj/item/storage/bag/trash(src)
-	modules += new /obj/item/mop(src)
-	modules += new /obj/item/device/lightreplacer/advanced(src)
-	modules += new /obj/item/reagent_containers/glass/bucket(src) // a hydroponist's bucket
-	modules += new /obj/item/matter_decompiler(src) // free drone remains for all
-	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
-	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
-	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
-	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	emag = new /obj/item/reagent_containers/spray(src)
-	emag.reagents.add_reagent(/decl/reagent/lube, 250)
-	emag.name = "Lube spray"
-
-/obj/item/robot_module/janitor/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
-	..()
-	var/obj/item/device/lightreplacer/LR = locate() in modules
-	LR.Charge(R, amount)
-	if(emag)
-		var/obj/item/reagent_containers/spray/S = emag
-		S.reagents.add_reagent(/decl/reagent/lube, 2 * amount)
 
 /obj/item/robot_module/clerical
 	name = "service robot module"
