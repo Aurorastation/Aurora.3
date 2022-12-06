@@ -162,5 +162,5 @@
 //items
 
 /obj/item/card/id/ssmd_ship
-	name = "ssmd patrol ship id"
+	name = "\improper SSMD patrol ship identification card"
 	access = list(access_sol_ships, access_external_airlocks)
