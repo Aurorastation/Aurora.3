@@ -3,12 +3,17 @@
 	transmission_method = TRANSMISSION_SUBSPACE
 	var/server_type = /obj/machinery/telecomms/server
 	var/datum/signal/subspace/original
+	var/origin_level
 	var/list/levels
 	var/obj/effect/overmap/visitable/sector
 
 /datum/signal/subspace/New(obj/source, frequency, message = "", data = null)
 	src.source = source
 	src.frequency = frequency
+	var/turf/T = get_turf(source)
+	if(isturf(T))
+		origin_level = T.z
+
 	if(data)
 		src.data = data
 	else
@@ -25,6 +30,7 @@
 	copy.original = src
 	copy.source = source
 	copy.levels = levels
+	copy.origin_level = origin_level
 	copy.frequency = frequency
 	copy.server_type = server_type
 	copy.transmission_method = transmission_method
@@ -39,10 +45,47 @@
 		current = current.original
 
 /datum/signal/subspace/proc/send_to_receivers()
-	for(var/obj/machinery/telecomms/receiver/R in SSmachinery.all_telecomms)
-		INVOKE_ASYNC(R, /obj/proc/receive_signal, src)
-	for(var/obj/machinery/telecomms/allinone/R in SSmachinery.all_telecomms)
-		INVOKE_ASYNC(R, /obj/proc/receive_signal, src)
+	if(!source.loc)
+		// It's an announcer message, just send it to the horizon's receiver
+		for(var/obj/machinery/telecomms/receiver/R in SSmachinery.all_receivers)
+			if(R.z in current_map.station_levels)
+				R.receive_signal(src)
+				return
+
+	var/closest_range = 999999
+	var/list/candidates = list()
+	var/obj/machinery/telecomms/selected_receiver
+	var/t_range = -1
+
+	for(var/obj/machinery/telecomms/R in SSmachinery.all_receivers)
+		t_range = R.receive_range(src)
+		if(t_range <= -1)
+			continue
+
+		if(t_range < closest_range)
+			candidates = list(R)
+			closest_range = t_range
+		else if(t_range == closest_range)
+			candidates |= R
+
+	if(!length(candidates))
+		return
+
+	if(length(candidates) > 1)
+		// Unlikely we ever have two receivers at the same distance listening to one frequency, but still
+		closest_range = 128 // get_dist returns 127 max
+		t_range = -1
+		for(var/obj/machinery/telecomms/R in candidates)
+			t_range = get_dist(R, source)
+			if(t_range < closest_range)
+				selected_receiver = R
+				closest_range = t_range
+				continue
+
+	else
+		selected_receiver = candidates[1]
+
+	selected_receiver.receive_signal(src)
 
 /datum/signal/subspace/proc/broadcast()
 	set waitfor = FALSE
@@ -62,11 +105,13 @@
 
 	var/turf/T = get_turf(source)
 	if(isturf(T))
+		origin_level = T.z
 		levels = list(T.z)
 		if(current_map.use_overmap)
 			sector = map_sectors["[T.z]"]
 	else // if the source is in nullspace, it's probably an autosay
 		levels = current_map.station_levels
+		origin_level = levels[1]
 		sector = map_sectors["[levels[1]]"]
 
 	var/mob/M = speaker.resolve()

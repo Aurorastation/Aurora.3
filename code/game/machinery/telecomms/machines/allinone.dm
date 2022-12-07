@@ -20,19 +20,18 @@
 /obj/machinery/telecomms/allinone/Initialize()
 	. = ..()
 	LAZYINITLIST(recent_broadcasts)
+	SSmachinery.all_receivers += src
 	if(intercept)
 		freq_listening |= ANTAG_FREQS	//Covers any updates to ANTAG_FREQS
 
 	desc += " It has an effective reception range of [overmap_range] grids on the overmap."
 
+/obj/machinery/telecomms/allinone/Destroy()
+	SSmachinery.all_receivers -= src
+	return ..()
+
 /obj/machinery/telecomms/allinone/receive_signal(datum/signal/subspace/signal)
-	if(!use_power || !istype(signal) || signal.transmission_method != TRANSMISSION_SUBSPACE)
-		return
-
-	if(!intercept && (!is_freq_listening(signal) || !check_range(signal))) // If we're an antag intercepting all-in-one, don't bother checking overmap range or whether we care about the freq
-		return
-
-	signal.levels = GetConnectedZlevels(z)
+	signal.levels = broadcast_levels(signal)
 
 	// Decompress the signal, mark it received
 	signal.data["compression"] = 0

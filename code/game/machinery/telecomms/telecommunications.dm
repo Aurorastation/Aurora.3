@@ -2,7 +2,7 @@
 	Telecommunications machines handle communications over radio and subspace networks, primarily for radio communication
 	but also for a variety of other networked machines.
 
-	Receivers recieve incoming signals within their reception range, and pass them into the network for processing.
+	Signals are received by the closest active and viable receiver, i.e. one listening on their frequency and powered. Only one receiver processes any given signal normally.
 	Hubs take incoming signals from receivers and passes them to the bus for processing, and take completed messages from the server to broadcast
 	Buses move signals from hub to processor, and then to the signal's designated server (usually the Tcomms server)
 	Processors decompress compressed signals (and vice versa), sending the processed signal back to the bus.
@@ -78,6 +78,22 @@
 		remove_link(comm)
 	links = list()
 	return ..()
+
+// This proc returns distance, so -1 is our error value
+/obj/machinery/telecomms/proc/receive_range(datum/signal/subspace/sig)
+	if(!use_power || !istype(sig) || !is_freq_listening(sig))
+		return -1
+
+	return get_signal_dist(sig)
+
+/obj/machinery/telecomms/proc/broadcast_levels(datum/signal/subspace/sig)
+	if(!use_power || !istype(sig) || !is_freq_listening(sig))
+		return
+
+	. = GetConnectedZlevels(z)
+	if(current_map.use_overmap && linked)
+		for(var/obj/effect/overmap/visitable/V in range(overmap_range, linked))
+			. |= V.map_z
 
 // Used in auto linking
 /obj/machinery/telecomms/proc/add_automatic_link(var/obj/machinery/telecomms/T)
@@ -214,20 +230,21 @@
 	return signal && (!freq_listening.len || (signal.frequency in freq_listening))
 
 // Reception range of telecomms machines is limited via overmap_range
-/obj/machinery/telecomms/proc/check_range(datum/signal/subspace/signal)
-	if(z in signal.levels)
-		return TRUE
-
-	var/connected_z = GetConnectedZlevels(z) - z
-
-	for(var/sig_z in signal.levels)
-		if(sig_z in connected_z)
-			return TRUE
-
+// Returns distance, not a boolean value, so don't do !get_reception or so help me god
+/obj/machinery/telecomms/proc/get_signal_dist(datum/signal/subspace/signal)
 	if(!current_map.use_overmap)
-		return FALSE
+		if(z == signal.origin_level || (signal.origin_level in GetConnectedZlevels(z)))
+			return 1
+		else
+			return -1
 
 	if(!istype(linked) || !istype(signal.sector))
 		CRASH("[src] called get_range with invalid or null linked sector! Linked: [linked] | Signal: [signal.sector]")
 
-	return linked == signal.sector || get_dist(linked, signal.sector) <= overmap_range
+	if (signal.sector == linked)
+		return 0
+
+	var/overmap_dist = get_dist(signal.sector, linked)
+	if (overmap_dist > overmap_range)
+		return -1
+	return overmap_dist

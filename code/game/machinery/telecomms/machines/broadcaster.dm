@@ -36,7 +36,7 @@
 	if(original && ("compression" in signal.data))
 		original.data["compression"] = signal.data["compression"]
 
-	signal.levels = GetConnectedZlevels(z)
+	signal.levels = broadcast_levels(signal)
 
 	var/signal_message = "[signal.frequency]:[signal.data["message"]]:[signal.data["realname"]]"
 	if(signal_message in recent_broadcasts)

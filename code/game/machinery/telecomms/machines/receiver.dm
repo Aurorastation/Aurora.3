@@ -15,11 +15,13 @@
 
 /obj/machinery/telecomms/receiver/Initialize(mapload)
 	. = ..()
+	SSmachinery.all_receivers += src
 	desc += " It has an effective reception range of [overmap_range] grids on the overmap."
 
-/obj/machinery/telecomms/receiver/receive_signal(datum/signal/subspace/signal)
-	if(!use_power || !istype(signal) || !is_freq_listening(signal) || !check_range(signal))
-		return
+/obj/machinery/telecomms/receiver/Destroy()
+	SSmachinery.all_receivers -= src
+	return ..()
 
+/obj/machinery/telecomms/receiver/receive_signal(datum/signal/subspace/signal)
 	if(!relay_information(signal, /obj/machinery/telecomms/hub, TRUE))
 		relay_information(signal, /obj/machinery/telecomms/bus, TRUE)
