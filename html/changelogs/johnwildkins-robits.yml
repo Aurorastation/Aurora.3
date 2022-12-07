@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "AI should no longer be launched across the ship when the Horizon decides to do a barrel roll."
+  - bugfix: "Custom borg sprites can now be selected again."
