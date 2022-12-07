@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed some messed up pipes in the scrapper ship."
-  - bugfix: "Fixed a window with the wrong access at the pra database ship."
