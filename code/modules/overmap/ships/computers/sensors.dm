@@ -244,21 +244,21 @@
 
 	var/overlay = "sensors-effect"
 
-	var/range_precentage = range / world.view * 100
+	var/range_percentage = range / world.view * 100
 
-	if(range_precentage < 20)
+	if(range_percentage < 20)
 		overlay = "[overlay]1"
-	else if(range_precentage < 40)
+	else if(range_percentage < 40)
 		overlay = "[overlay]2"
-	else if(range_precentage < 60)
+	else if(range_percentage < 60)
 		overlay = "[overlay]3"
-	else if(range_precentage < 80)
+	else if(range_percentage < 80)
 		overlay = "[overlay]4"
 	else
 		overlay = "[overlay]5"
 
 	// Check if we are already using this overlay. Since updating is expensive.
-	if (!(overlay in our_overlays))
+	if(!(overlay in our_overlays))
 		cut_overlays()
 		add_overlay(overlay)
 
