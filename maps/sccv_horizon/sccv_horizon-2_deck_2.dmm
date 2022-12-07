@@ -18852,9 +18852,7 @@
 /area/horizon/exterior)
 "jmp" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "jmE" = (
@@ -20784,7 +20782,6 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
 "kjs" = (
-/obj/structure/table/standard,
 /obj/item/storage/box/snack{
 	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
 	name = "corporate care package";
@@ -20795,9 +20792,8 @@
 	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
 	name = "corporate care package"
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "kjO" = (
@@ -22034,6 +22030,14 @@
 /obj/item/trash/mollusc_shell,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
+"kXs" = (
+/obj/structure/bed/stool/padded/red,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "kXO" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/mauve{
@@ -27041,6 +27045,11 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"nqE" = (
+/obj/structure/table/standard,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "nrr" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -32922,9 +32931,6 @@
 "quJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/seed_storage,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "quT" = (
@@ -35751,9 +35757,6 @@
 	},
 /obj/machinery/vending/hydronutrients,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "rLw" = (
@@ -46575,6 +46578,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/turf/simulated/floor/tiled,
+/area/security/prison)
+"wXg" = (
+/obj/structure/bed/stool/padded/red,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "wXp" = (
@@ -75109,7 +75117,7 @@ iJx
 rxk
 oUb
 aLq
-aLq
+kXs
 rLu
 ioW
 wRm
@@ -75311,7 +75319,7 @@ aac
 uZD
 jvW
 vaR
-kvL
+nqE
 quJ
 pJE
 oXo
@@ -75513,7 +75521,7 @@ cQd
 dXF
 aae
 kvL
-kvL
+nqE
 kjs
 eUB
 hgO
@@ -75715,7 +75723,7 @@ ePb
 cZa
 pJE
 pBA
-pBA
+wXg
 jmp
 pJE
 gEa
