@@ -242,24 +242,30 @@
 		cut_overlays()
 		return
 
-	var/heat_precentage = heat / critical_heat * 100
-
 	var/overlay = "sensors-effect"
-	if(heat_precentage < 20)
+
+	var/range_precentage = range / world.view * 100
+
+	if(range_precentage < 20)
 		overlay = "[overlay]1"
-	else if(heat_precentage < 40)
+	else if(range_precentage < 40)
 		overlay = "[overlay]2"
-	else if(heat_precentage < 60)
+	else if(range_precentage < 60)
 		overlay = "[overlay]3"
-	else if(heat_precentage < 80)
+	else if(range_precentage < 80)
 		overlay = "[overlay]4"
 	else
 		overlay = "[overlay]5"
-	
+
 	// Check if we are already using this overlay. Since updating is expensive.
 	if (!(overlay in our_overlays))
 		cut_overlays()
 		add_overlay(overlay)
+
+		var/heat_precentage = heat / critical_heat * 100
+
+		if(heat_precentage > 85)
+			add_overlay("sensors-effect-hot")
 
 /obj/machinery/shipsensors/examine(mob/user)
 	. = ..()

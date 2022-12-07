@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - imageadd: "Sensor suit will now have 5 different icon states depending on how much heat it has."
+  - imageadd: "Sensor suit will now have 5 different icon states depending on range it is set to (Since our range is not a constant and could change in code, I did not make it 7 but rather precentage of max view range). It also has another icon effect if heat is above 85%."
