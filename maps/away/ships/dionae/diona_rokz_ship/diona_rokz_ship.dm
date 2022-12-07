@@ -39,7 +39,9 @@
 
 	initial_generic_waypoints = list(
 		"nav_diona_rokz_ship_1",
-		"nav_diona_rokz_ship_2"
+		"nav_diona_rokz_ship_2",
+		"nav_diona_rokz_ship_3",
+		"nav_diona_rokz_ship_4"
 	)
 
 /obj/effect/overmap/visitable/ship/diona_rokz_ship/New()
@@ -55,6 +57,18 @@
 /obj/effect/shuttle_landmark/diona_rokz_ship/nav2
 	name = "Rokz Clan Ship - Port Airlock"
 	landmark_tag = "nav_diona_rokz_ship_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/diona_rokz_ship/nav3
+	name = "Rokz Clan Ship - Aft Side"
+	landmark_tag = "nav_diona_rokz_ship_3"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+	
+/obj/effect/shuttle_landmark/diona_rokz_ship/nav4
+	name = "Rokz Clan Ship - Starboard Side"
+	landmark_tag = "nav_diona_rokz_ship_4"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
