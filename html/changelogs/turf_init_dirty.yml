@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - backend: "Adds a generic preset for the turf initializer."
