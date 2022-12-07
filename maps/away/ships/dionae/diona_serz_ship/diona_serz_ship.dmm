@@ -525,7 +525,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/ship/diona_serz_ship)
 "Gh" = (
 /obj/structure/table/diona,
@@ -753,7 +753,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/ship/diona_serz_ship)
 "Ro" = (
 /obj/effect/landmark/entry_point/aft,
