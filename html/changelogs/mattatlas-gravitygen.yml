@@ -27,7 +27,7 @@
 #################################
 
 # Your name.
-author: MattAtlas
+author: MattAtlas, Wildkins
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "You are no longer affected by ship maneuvers if there is an active gravity generator."
+  - bugfix: "AIs no longer get thrown around by ship maneuvers."
