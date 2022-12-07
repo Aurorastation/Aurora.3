@@ -21,7 +21,7 @@
 	icon_state = "blood_robe"
 	item_state = "blood_robe"
 	
-	/obj/item/clothing/suit/diona/carp
+/obj/item/clothing/suit/diona/carp
 	name = "carp hide poncho"
 	desc = "A poncho made up of carp hide"
 	icon_state = "carp_poncho"
