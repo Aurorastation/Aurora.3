@@ -196,7 +196,7 @@
 /obj/machinery/shipsensors
 	name = "sensors suite"
 	desc = "Long range gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/machines/sensors.dmi'
 	icon_state = "sensors"
 	anchored = 1
 	var/max_health = 200
@@ -237,10 +237,29 @@
 	return 1
 
 /obj/machinery/shipsensors/update_icon()
-	if(use_power)
-		icon_state = "sensors"
+	icon_state = "sensors_off"
+	if(!use_power)
+		cut_overlays()
+		return
+
+	var/heat_precentage = heat / critical_heat * 100
+
+	var/overlay = "sensors-effect"
+	if(heat_precentage < 20)
+		overlay = "[overlay]1"
+	else if(heat_precentage < 40)
+		overlay = "[overlay]2"
+	else if(heat_precentage < 60)
+		overlay = "[overlay]3"
+	else if(heat_precentage < 80)
+		overlay = "[overlay]4"
 	else
-		icon_state = "sensors_off"
+		overlay = "[overlay]5"
+	
+	// Check if we are already using this overlay. Since updating is expensive.
+	if (!(overlay in our_overlays))
+		cut_overlays()
+		add_overlay(overlay)
 
 /obj/machinery/shipsensors/examine(mob/user)
 	. = ..()
@@ -280,6 +299,8 @@
 
 	if (heat > 0)
 		heat = max(0, heat - heat_reduction)
+	
+	update_icon()
 
 /obj/machinery/shipsensors/power_change()
 	. = ..()
