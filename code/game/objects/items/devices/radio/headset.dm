@@ -651,7 +651,7 @@
 	name = "military headset"
 	icon_state = "syn_headset"
 	origin_tech = list(TECH_ILLEGAL = 3)
-	syndie = 1
+	syndie = TRUE
 	ks1type = /obj/item/device/encryptionkey/syndicate
 
 /obj/item/device/radio/headset/syndicate/alt

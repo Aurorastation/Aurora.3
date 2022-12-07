@@ -156,10 +156,10 @@
 				if(!subspace_radio.can_receive(frequency, signal_reaches_every_z_level))
 					radios -= subspace_radio
 
-			// Syndicate radios can hear all well-known radio channels
-			if(num2text(frequency) in reverseradiochannels)
-				for (var/obj/item/device/radio/syndicate_radios in SSradio.get_devices(SYND_FREQ, RADIO_CHAT))
-					if(syndicate_radios.can_receive(SYND_FREQ, RADIO_NO_Z_LEVEL_RESTRICTION))
+			// Cool antag radios can hear all Horizon comms
+			for (var/antag_freq in list(SYND_FREQ, RAID_FREQ, NINJ_FREQ))
+				for (var/obj/item/device/radio/syndicate_radios in SSradio.get_devices(antag_freq, RADIO_CHAT))
+					if(syndicate_radios.can_receive(antag_freq, signal_reaches_every_z_level))
 						radios |= syndicate_radios
 
 		if (TRANSMISSION_RADIO)
