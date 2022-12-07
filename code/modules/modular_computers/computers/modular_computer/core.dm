@@ -86,7 +86,6 @@
 
 /obj/item/modular_computer/Initialize()
 	. = ..()
-	listener = new(LISTENER_MODULAR_COMPUTER, src)
 	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)
@@ -105,7 +104,6 @@
 		uninstall_component(null, CH)
 		qdel(CH)
 	STOP_PROCESSING(SSprocessing, src)
-	QDEL_NULL(listener)
 	QDEL_NULL(soundloop)
 	return ..()
 
