@@ -443,6 +443,10 @@
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
 /area/space)
+"zM" = (
+/obj/effect/shuttle_landmark/diona_rokz_ship/nav4,
+/turf/template_noop,
+/area/space)
 "zT" = (
 /obj/structure/diona/bulb,
 /obj/structure/window/reinforced{
@@ -753,6 +757,10 @@
 /obj/structure/closet/crate/loot,
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship)
+"RD" = (
+/obj/effect/shuttle_landmark/diona_rokz_ship/nav3,
+/turf/template_noop,
+/area/space)
 "RI" = (
 /obj/structure/table/diona,
 /obj/item/reagent_containers/food/snacks/xenomeat,
@@ -23124,7 +23132,7 @@ sx
 sx
 sx
 sx
-sx
+zM
 sx
 sx
 sx
@@ -29079,7 +29087,7 @@ sx
 sx
 sx
 sx
-sx
+RD
 sx
 sx
 sx
