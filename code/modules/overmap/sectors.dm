@@ -32,6 +32,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/list/obj/effect/landmark/entry_points
 	var/obj/effect/overmap/targeting
 	var/obj/machinery/leviathan_safeguard/levi_safeguard
+	var/obj/machinery/gravity_generator/main/gravity_generator
 
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
@@ -76,6 +77,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		ship_weapons.Cut()
 	targeting = null
 	levi_safeguard = null
+	gravity_generator = null
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
