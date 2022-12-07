@@ -3240,6 +3240,7 @@
 #include "maps\random_ruins\exoplanets\exoplanet_ruins.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_abadoned_village.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_battlefield.dm"
+#include "maps\random_ruins\exoplanets\adhomai\adhomai_cavern.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_hunting.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_minefield.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_village.dm"

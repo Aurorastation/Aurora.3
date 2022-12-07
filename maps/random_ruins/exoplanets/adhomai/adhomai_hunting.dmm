@@ -190,12 +190,6 @@
 	temperature = 268.15
 	},
 /area/adhomai_hunting)
-"A" = (
-/obj/structure/flora/tree/pine,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/exoplanet/adhomai)
 "B" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/material/knife/bayonet,
@@ -544,7 +538,7 @@ c
 c
 c
 c
-c
+X
 c
 c
 c
@@ -580,7 +574,7 @@ C
 c
 c
 c
-A
+c
 c
 c
 c
@@ -1077,7 +1071,7 @@ c
 c
 c
 c
-A
+c
 c
 "}
 (21,1,1) = {"
@@ -1243,7 +1237,7 @@ c
 c
 c
 c
-A
+c
 c
 c
 c
@@ -1277,7 +1271,7 @@ s
 c
 c
 c
-c
+X
 c
 c
 c

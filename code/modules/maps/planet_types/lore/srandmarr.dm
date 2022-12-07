@@ -166,7 +166,7 @@
 				new /obj/structure/flora/tree/dead(T)
 		if(6)
 			if(prob(15))
-				new /obj/structure/flora/tree/pine(T)
+				new /obj/structure/flora/grass/green(T)
 
 /area/exoplanet/adhomai
 	name = "Adhomian Wilderness"
