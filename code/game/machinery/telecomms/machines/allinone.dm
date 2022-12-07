@@ -12,13 +12,14 @@
 	active_power_usage = 0
 	produces_heat = FALSE
 	overmap_range = 2 // AIOs aren't true relays
-	freq_listening = ANTAG_FREQS
 
 	var/away_aio = FALSE
 	var/list/recent_broadcasts
 
 /obj/machinery/telecomms/allinone/Initialize()
 	. = ..()
+	if(!freq_listening.len)
+		freq_listening = ANTAG_FREQS
 	LAZYINITLIST(recent_broadcasts)
 	SSmachinery.all_receivers += src
 
