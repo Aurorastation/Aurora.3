@@ -262,9 +262,9 @@
 		cut_overlays()
 		add_overlay(overlay)
 
-		var/heat_precentage = heat / critical_heat * 100
+		var/heat_percentage = heat / critical_heat * 100
 
-		if(heat_precentage > 85)
+		if(heat_percentage > 85)
 			add_overlay("sensors-effect-hot")
 
 /obj/machinery/shipsensors/examine(mob/user)
