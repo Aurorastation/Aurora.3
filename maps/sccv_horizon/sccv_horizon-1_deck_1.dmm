@@ -12733,7 +12733,8 @@
 	},
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
-	pixel_y = 35
+	pixel_y = 43;
+	dir = 1
 	},
 /obj/structure/table/steel,
 /obj/item/device/binoculars/high_power{
@@ -12751,9 +12752,9 @@
 	dir = 6
 	},
 /obj/item/device/radio/intercom{
-	dir = 1;
+	dir = 2;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 21
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -25391,12 +25392,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "tZK" = (
-/obj/machinery/mecha_part_fabricator{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
@@ -25408,7 +25403,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/operations/lower/machinist)
+/area/teleporter)
 "tZY" = (
 /obj/machinery/conveyor{
 	id = "mining_2";
