@@ -82,6 +82,7 @@
 /datum/uplink_item/item/visible_weapons/gatling
 	name = "Gatling Machine Gun"
 	item_cost = 40
+	item_limit = 1
 	path = /obj/item/minigunpack
 
 /datum/uplink_item/item/visible_weapons/chainsaw
@@ -183,3 +184,81 @@
 	name = "Energy Pistol"
 	item_cost = 2
 	path = /obj/item/gun/energy/pistol
+
+/datum/uplink_item/item/visible_weapons/gyrojet_pistol
+	name = "Gyrojet Pistol"
+	item_cost = 20
+	item_limit = 1
+	path = /obj/item/gun/projectile/gyropistol
+
+/datum/uplink_item/item/visible_weapons/bullpup_assault_carbine
+	name = "Bullpup Assault Carbine"
+	item_cost = 12
+	path = /obj/item/gun/projectile/automatic/rifle/z8
+
+/datum/uplink_item/item/visible_weapons/assault_shotgun
+	name = "Assault Shotgun"
+	item_cost = 15
+	path = /obj/item/gun/projectile/automatic/rifle/shotgun
+
+/datum/uplink_item/item/visible_weapons/gatling_laser
+	name = "Gatling Laser"
+	item_cost = 40
+	item_limit = 1
+	path = /obj/item/gun/energy/vaurca/gatlinglaser
+
+/datum/uplink_item/item/visible_weapons/laser_shotgun
+	name = "Laser Shotgun"
+	item_cost = 10
+	path = /obj/item/gun/energy/laser/shotgun
+
+/datum/uplink_item/item/visible_weapons/xray_laser
+	name = "X-Ray Laser Rifle"
+	item_cost = 12
+	path = /obj/item/gun/energy/rifle/laser/xray
+
+/datum/uplink_item/item/visible_weapons/combat_shotgun
+	name = "Combat Shotgun"
+	item_cost = 10
+	path = /obj/item/gun/projectile/shotgun/pump/combat
+
+/datum/uplink_item/item/visible_weapons/automatic_45_pistol
+	name = "Automatic .45 Pistol"
+	item_cost = 5
+	path = /obj/item/gun/projectile/automatic/mini_uzi
+
+/datum/uplink_item/item/visible_weapons/shortened_assault_rifle
+	name = "Shortened Assault Rifle"
+	item_cost = 12
+	path = /obj/item/gun/projectile/automatic/rifle/shorty
+
+/datum/uplink_item/item/visible_weapons/assault_rifle
+	name = "Assault Rifle"
+	item_cost = 12
+	path = /obj/item/gun/projectile/automatic/rifle/sts35
+
+/datum/uplink_item/item/visible_weapons/laser_cannon
+	name = "Laser Cannon"
+	item_cost = 12
+	path = /obj/item/gun/energy/lasercannon
+
+/datum/uplink_item/item/visible_weapons/derringer
+	name = "Derringer"
+	item_cost = 1
+	path = /obj/item/gun/projectile/revolver/derringer
+
+/datum/uplink_item/item/visible_weapons/gauss_thumper
+	name = "Gauss Thumper"
+	item_cost = 10
+	path = /obj/item/gun/projectile/gauss
+
+/datum/uplink_item/item/visible_weapons/railgun
+	name = "Railgun"
+	item_cost = 30
+	item_limit = 1
+	path = /obj/item/gun/projectile/automatic/railgun
+
+/datum/uplink_item/item/visible_weapons/deagle
+	name = ".50 Pistol"
+	item_cost = 5
+	path = /obj/item/gun/projectile/deagle/adhomai

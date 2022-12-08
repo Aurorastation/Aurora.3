@@ -196,7 +196,6 @@
 	head = /obj/item/clothing/head/beret/corporate/zeng
 	uniform = /obj/item/clothing/under/rank/liaison/zeng
 	suit = /obj/item/clothing/suit/storage/liaison/zeng
-	implants = null
 	id = /obj/item/card/id/zeng_hu
 	accessory = /obj/item/clothing/accessory/tie/corporate/zeng
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/zeng

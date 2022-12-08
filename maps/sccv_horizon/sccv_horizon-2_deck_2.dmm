@@ -1570,13 +1570,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
-"aIx" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "aIy" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
@@ -15925,14 +15918,6 @@
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hallway/deck_two/fore)
-"hIV" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "hJj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -18867,9 +18852,7 @@
 /area/horizon/exterior)
 "jmp" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "jmE" = (
@@ -20799,7 +20782,6 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
 "kjs" = (
-/obj/structure/table/standard,
 /obj/item/storage/box/snack{
 	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
 	name = "corporate care package";
@@ -20810,9 +20792,8 @@
 	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
 	name = "corporate care package"
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "kjO" = (
@@ -22049,6 +22030,14 @@
 /obj/item/trash/mollusc_shell,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
+"kXs" = (
+/obj/structure/bed/stool/padded/red,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "kXO" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/mauve{
@@ -27056,6 +27045,11 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"nqE" = (
+/obj/structure/table/standard,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "nrr" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -32937,9 +32931,6 @@
 "quJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/seed_storage,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "quT" = (
@@ -33822,7 +33813,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
 "qQs" = (
-/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "qQt" = (
@@ -35511,12 +35502,6 @@
 "rFn" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora)
-"rFs" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "rFF" = (
 /obj/structure/table/standard,
 /obj/machinery/power/apc{
@@ -35746,11 +35731,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
-"rLg" = (
-/obj/structure/railing/mapped,
-/obj/structure/girder,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "rLm" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -35777,9 +35757,6 @@
 	},
 /obj/machinery/vending/hydronutrients,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "rLw" = (
@@ -41116,15 +41093,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
-"uuL" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "uva" = (
 /obj/machinery/power/emitter{
 	dir = 4
@@ -41348,6 +41316,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
+"uAl" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/template_noop)
 "uAt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -45270,10 +45242,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
-"wqC" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/wall,
-/area/maintenance/wing/port/far)
 "wqE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -46610,6 +46578,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/turf/simulated/floor/tiled,
+/area/security/prison)
+"wXg" = (
+/obj/structure/bed/stool/padded/red,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "wXp" = (
@@ -57369,8 +57342,8 @@ vig
 lnO
 xDC
 ePO
-rFs
 jHd
+uAl
 qgN
 qgN
 qgN
@@ -75144,7 +75117,7 @@ iJx
 rxk
 oUb
 aLq
-aLq
+kXs
 rLu
 ioW
 wRm
@@ -75346,7 +75319,7 @@ aac
 uZD
 jvW
 vaR
-kvL
+nqE
 quJ
 pJE
 oXo
@@ -75548,7 +75521,7 @@ cQd
 dXF
 aae
 kvL
-kvL
+nqE
 kjs
 eUB
 hgO
@@ -75750,7 +75723,7 @@ ePb
 cZa
 pJE
 pBA
-pBA
+wXg
 jmp
 pJE
 gEa
@@ -82184,10 +82157,10 @@ gjC
 fuu
 fuu
 lBd
+pVs
+pVs
+pVs
 lBd
-qQs
-lBd
-wqC
 wBF
 uNq
 wBF
@@ -82386,9 +82359,9 @@ sgi
 duk
 fuu
 lBd
-fuu
-fuu
-lBd
+pVs
+pVs
+pVs
 lBd
 wBF
 fRN
@@ -82588,9 +82561,9 @@ vnz
 sNr
 fuu
 ebQ
-aIx
-rLg
-lBd
+hoi
+duk
+pVs
 lBd
 wBF
 iTh
@@ -82790,10 +82763,10 @@ iox
 xLO
 fuu
 lBd
-uuL
-hIV
-sEu
-wqC
+pVs
+hoi
+qQs
+lBd
 wBF
 wBF
 wBF
@@ -84248,7 +84221,7 @@ jHd
 jHd
 jHd
 jHd
-rFs
+uAl
 qgN
 qgN
 qgN

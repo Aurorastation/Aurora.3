@@ -287,8 +287,14 @@
 		if(custom_sprite)
 			var/datum/custom_synth/sprite = robot_custom_icons[name]
 			var/list/valid_states = icon_states(CUSTOM_ITEM_SYNTH)
-			if("[sprite.synthicon]-[mod_type]" in valid_states)
-				module_sprites["Custom"] = "[sprite.synthicon]-[mod_type]"
+			var/custom_iconpath = "[sprite.synthicon]-[mod_type]"
+			if(custom_iconpath in valid_states)
+				module_sprites["Custom"] = list(
+					ROBOT_CHASSIS = custom_iconpath,
+					ROBOT_EYES = custom_iconpath,
+					ROBOT_PANEL = custom_iconpath,
+					ROBOT_ICON = CUSTOM_ITEM_SYNTH
+					)
 				icon = CUSTOM_ITEM_SYNTH
 				icontype = "Custom"
 			else
@@ -378,7 +384,7 @@
 			custom_name = newname
 
 		updatename()
-		if(custom_sprite)
+		if(custom_sprite && module)
 			set_module_sprites(module.sprites) // custom synth icons
 		SSrecords.reset_manifest()
 
@@ -1084,8 +1090,11 @@
 	else
 		var/list/options = list()
 		for(var/i in module_sprites) // Gottverdamnt.
-			var/image/radial_button = image(icon = src.icon, icon_state = module_sprites[i][ROBOT_CHASSIS])
-			radial_button.overlays.Add(image(icon = src.icon, icon_state = "[module_sprites[i][ROBOT_EYES]]-eyes_help"))
+			var/icon/btn_icon = module_sprites[i][ROBOT_ICON]
+			if(!btn_icon)
+				btn_icon = initial(icon)
+			var/image/radial_button = image(btn_icon, icon_state = module_sprites[i][ROBOT_CHASSIS])
+			radial_button.overlays.Add(image(btn_icon, icon_state = "[module_sprites[i][ROBOT_EYES]]-eyes_help"))
 			options[i] = radial_button
 		icontype = show_radial_menu(src, src, options, radius = 42, tooltips = TRUE)
 
@@ -1093,6 +1102,8 @@
 		return
 
 	icon_state = module_sprites[icontype][ROBOT_CHASSIS]
+	if(!module_sprites[icontype][ROBOT_ICON])
+		icon = initial(icon)
 	icon_selected = TRUE
 
 	setup_icon_cache()

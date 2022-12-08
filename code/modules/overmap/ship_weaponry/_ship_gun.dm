@@ -257,8 +257,8 @@
 //The fake objects below handle things like density/opaqueness for empty tiles, since the icons for guns are larger than 32x32.
 //What kind of dinky ass gun is only 32x32?
 /obj/structure/ship_weapon_dummy
-	name = "ship weapon"
-	icon = 'icons/obj/machines/ship_guns/ship_weapon_attachments.dmi'
+	name = "ship weapon dummy"
+	icon = 'icons/obj/machines/ship_guns/ship_weapon_dummy.dmi'
 	icon_state = "dummy"
 	mouse_opacity = 2
 	layer = OBJ_LAYER+0.1 //Higher than the gun itself.
@@ -270,7 +270,7 @@
 	var/is_barrel = FALSE //Ammo spawns in front of THIS dummy.
 
 /obj/structure/ship_weapon_dummy/Initialize(mapload)
-	icon_state = "dummy_inv"
+	icon_state = null
 	. = ..()
 
 /obj/structure/ship_weapon_dummy/examine(mob/user)
@@ -311,6 +311,15 @@
 	for(var/obj/structure/ship_weapon_dummy/SD in orange(1, src))
 		if(!SD.connected)
 			SD.connect(SW)
+
+// Ship Weapon Barrel Dummy
+/obj/structure/ship_weapon_dummy/barrel
+	name = "ship weapon barrel dummy"
+	icon_state = "dummy_barrel"
+	is_barrel = TRUE
+
+// ^^
+// Cardinal variants of the "ship weapon barrel dummy" intentionally left out since ship guns only face south and thus only fire south.
 
 /obj/machinery/computer/ship/targeting
 	name = "targeting systems console"

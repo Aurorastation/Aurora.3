@@ -15970,7 +15970,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNQ" = (
-/turf/unsimulated/wall/darkshuttlewall,
+/turf/unsimulated/wall/steel,
 /area/centcom/start{
 	name = "Romanovich Cloud, Tau Ceti"
 	})
@@ -16109,7 +16109,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aOg" = (
-/turf/simulated/floor/holofloor/space,
+/turf/unsimulated/floor,
 /area/centcom/start{
 	name = "Romanovich Cloud, Tau Ceti"
 	})
@@ -17276,7 +17276,7 @@
 /obj/effect/landmark{
 	name = "start"
 	},
-/turf/simulated/floor/holofloor/space,
+/turf/unsimulated/floor,
 /area/centcom/start{
 	name = "Romanovich Cloud, Tau Ceti"
 	})
