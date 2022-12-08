@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - tweak: "Cleans up the biosuits code and renames them to hazmat suits. Renames the level 3 biohazard closets to hazmat gear closets."
