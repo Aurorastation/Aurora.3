@@ -277,6 +277,7 @@
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (sidearms)";
 	req_access = list(203)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
@@ -3487,6 +3488,7 @@
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (PDWs)";
 	req_access = list(203)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
@@ -4571,6 +4573,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (longarms)";
 	req_access = list(203)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
@@ -7627,6 +7630,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (law enforcement)";
 	req_access = list(203)
 	},
 /obj/item/storage/belt/security/full,
@@ -7950,7 +7954,7 @@
 /area/ship/ssmd_corvette/portengine)
 "xUv" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor,
