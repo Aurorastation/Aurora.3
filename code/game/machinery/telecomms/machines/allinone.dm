@@ -64,7 +64,6 @@
 		)
 
 //This goes on the station map so away ships can maintain radio contact.
-//Regular telecomms machines cannot listen to broadcasts coming from non-station z-levels. If we did this, comms would be receiving a substantial amount of duplicated messages.
 /obj/machinery/telecomms/allinone/ship/station_relay
 	name = "external signal receiver"
 	icon = 'icons/obj/machines/telecomms.dmi'
@@ -81,3 +80,4 @@
 	desc = replacetext(desc, "%STATIONNAME", current_map.station_name)
 	freq_listening |= AWAY_FREQS_ASSIGNED
 	freq_listening |= AWAY_FREQS_UNASSIGNED
+	freq_listening |= ANTAG_FREQS

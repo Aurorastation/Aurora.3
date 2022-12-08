@@ -36810,6 +36810,11 @@
 	icon_state = "dark2"
 	},
 /area/centcom/ferry)
+"iWB" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/telecomms/allinone,
+/turf/simulated/floor/plating,
+/area/shuttle/skipjack)
 "iWH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -98432,7 +98437,7 @@ bza
 bBh
 bBC
 bCo
-bza
+iWB
 bDw
 bEI
 bES

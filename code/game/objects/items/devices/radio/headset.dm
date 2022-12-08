@@ -675,6 +675,7 @@
 	icon_state = "syn_headset"
 	origin_tech = list(TECH_ILLEGAL = 3)
 	syndie = TRUE
+	independent = TRUE
 	ks1type = /obj/item/device/encryptionkey/ninja
 
 /obj/item/device/radio/headset/bluespace
@@ -683,6 +684,7 @@
 	icon_state = "bs_headset"
 	item_state = "com_headset" // laziness or genius, you decide
 	syndie = TRUE
+	independent = TRUE
 	ks1type = /obj/item/device/encryptionkey/bluespace
 
 //Ghostrole headset
