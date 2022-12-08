@@ -2,7 +2,7 @@
 	name = "Serz Clan Ship"
 	description = "A ship belonging to the Serz voidtamer clan, a group of Dioane who specalize in selling spacefauna."
 	suffix = "ships/dionae/diona_serz_ship/diona_serz_ship.dmm"
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "diona_serz"
@@ -54,7 +54,7 @@
 
 /obj/effect/shuttle_landmark/diona_serz_ship/nav2
 	name = "Serz Clan Ship - Port Airlock"
-	landmark_tag = "nav_serz_serz_ship_2"
+	landmark_tag = "nav_diona_serz_ship_2"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
