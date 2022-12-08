@@ -27,13 +27,9 @@
 
 	suit = /obj/item/clothing/suit/diona/rokz
 
-	back = list(
-		/obj/item/storage/backpack/satchel/leather,
-
-	)
+	back = /obj/item/storage/backpack/satchel/leather
 
 	id = null
-
 
 	l_pocket = /obj/item/device/radio
 
