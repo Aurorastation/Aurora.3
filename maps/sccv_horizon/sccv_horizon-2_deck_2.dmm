@@ -100,10 +100,7 @@
 	pixel_y = 2
 	},
 /obj/item/device/radio/intercom{
-	desc = "Talk... listen through this.";
-	name = "Station Intercom (General)";
-	pixel_y = 24;
-	wires = 7
+	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -681,7 +678,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "aqZ" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -746,6 +743,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/office)
+"arV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "ask" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-4"
@@ -990,7 +994,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "avu" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -1471,7 +1475,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "aFE" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1566,13 +1570,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
-"aIx" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "aIy" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
@@ -2319,7 +2316,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /turf/simulated/floor/tiled/white,
@@ -3584,7 +3580,8 @@
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
 	id_tag = "cell_2";
-	name = "Cell B"
+	name = "Cell B";
+	req_access = list(2)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
@@ -4826,7 +4823,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "ckc" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -5014,7 +5011,7 @@
 /area/turret_protected/ai_upload_foyer)
 "cpl" = (
 /turf/simulated/wall/r_wall,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "cpW" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -5853,7 +5850,7 @@
 /area/engineering/storage_hard)
 "cRE" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "cRN" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
@@ -7041,7 +7038,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/machinery/camera/network/security{
@@ -7097,7 +7093,6 @@
 "dxH" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -20
 	},
 /obj/effect/floor_decal/corner/mauve{
@@ -7362,7 +7357,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "dEz" = (
 /turf/simulated/wall,
 /area/maintenance/wing/starboard/far)
@@ -7717,7 +7712,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "dMG" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/disposalpipe/down{
@@ -7907,10 +7902,7 @@
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
-	desc = "Talk... listen through this.";
-	name = "Station Intercom (General)";
-	pixel_y = 25;
-	wires = 7
+	pixel_y = 25
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -7958,9 +7950,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "dVE" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /obj/structure/sign/securearea{
 	desc = "A caution sign which reads 'CAUTION: BRIG COMMUNAL AREA' and 'SECURE AREA'.";
 	name = "\improper BRIG COMMUNAL AREA sign";
@@ -7968,6 +7957,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning,
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "dVN" = (
@@ -8319,7 +8309,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "efz" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
@@ -8876,7 +8866,6 @@
 /obj/machinery/disposal/small/west,
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/wood,
@@ -9186,7 +9175,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
@@ -9236,7 +9224,6 @@
 "eEB" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -25
 	},
 /obj/structure/closet/secure_closet/operations_manager,
@@ -9559,11 +9546,10 @@
 "ePO" = (
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "eQg" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 25
 	},
 /obj/effect/floor_decal/corner/yellow/full{
@@ -9603,7 +9589,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	id = "Cell 1";
+	id = "shutters_deck1_security_cell_4";
 	name = "Cell Door"
 	},
 /obj/machinery/door/firedoor,
@@ -11289,7 +11275,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "fIi" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
@@ -12793,7 +12779,6 @@
 /obj/machinery/firealarm/south,
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
@@ -12867,7 +12852,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "gqy" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -13277,7 +13262,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "gzg" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Examination Room Maintenance";
@@ -14437,7 +14422,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "hal" = (
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /obj/effect/floor_decal/industrial/warning{
@@ -14845,7 +14830,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
@@ -15812,7 +15796,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "hGj" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -15934,14 +15918,6 @@
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hallway/deck_two/fore)
-"hIV" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "hJj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -16329,7 +16305,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "hYk" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -16455,7 +16431,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "idy" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -16913,7 +16889,6 @@
 "inB" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/machinery/disposal/small/west,
@@ -17780,7 +17755,7 @@
 	weapon_id = "Grauwolf Flak Battery"
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "iKV" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -18140,7 +18115,6 @@
 /obj/structure/closet/secure_closet/engineering_chief,
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/machinery/requests_console{
@@ -18764,12 +18738,10 @@
 	name = "\improper BRIG COMMUNAL AREA sign";
 	pixel_y = 32
 	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "jko" = (
@@ -18880,9 +18852,7 @@
 /area/horizon/exterior)
 "jmp" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "jmE" = (
@@ -19352,7 +19322,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "jvV" = (
 /turf/simulated/wall,
 /area/engineering/storage_eva)
@@ -19463,7 +19433,8 @@
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
 	id_tag = "cell_3";
-	name = "Cell C"
+	name = "Cell C";
+	req_access = list(2)
 	},
 /turf/simulated/floor/tiled/full,
 /area/security/prison)
@@ -19836,7 +19807,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "jJW" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ramp,
@@ -20196,7 +20167,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/full,
 /area/security/brig)
 "jUs" = (
 /obj/machinery/atmospherics/unary/freezer{
@@ -20653,6 +20624,7 @@
 	c_tag = "Service - Deck 2 - Bar Preparation Room";
 	dir = 4
 	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice,
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
 "kga" = (
@@ -20810,7 +20782,6 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
 "kjs" = (
-/obj/structure/table/standard,
 /obj/item/storage/box/snack{
 	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
 	name = "corporate care package";
@@ -20821,9 +20792,8 @@
 	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
 	name = "corporate care package"
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "kjO" = (
@@ -22060,6 +22030,14 @@
 /obj/item/trash/mollusc_shell,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
+"kXs" = (
+/obj/structure/bed/stool/padded/red,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "kXO" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/mauve{
@@ -22266,7 +22244,6 @@
 /obj/item/stock_parts/matter_bin,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/white,
@@ -22635,7 +22612,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "llI" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -22740,7 +22717,7 @@
 	weapon_id = "Grauwolf Flak Battery"
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "lpu" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/window/reinforced{
@@ -23562,7 +23539,8 @@
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
 	id_tag = "cell_4";
-	name = "Cell D"
+	name = "Cell D";
+	req_access = list(2)
 	},
 /turf/simulated/floor/tiled/full,
 /area/security/prison)
@@ -23572,7 +23550,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -23704,7 +23681,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/full,
 /area/security/brig)
 "lNb" = (
 /obj/effect/floor_decal/corner/green{
@@ -24184,8 +24161,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	id = "Cell 4";
-	name = "Cell Door"
+	id = "shutters_deck1_security_cell_1";
+	name = "Cell A Blast Door"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -24242,18 +24219,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics)
-"mbh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/security/prison)
 "mbi" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
@@ -24562,11 +24527,11 @@
 /area/medical/reception)
 "miM" = (
 /obj/effect/floor_decal/corner/grey/full,
-/obj/structure/table/stone/marble,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
 	},
+/obj/machinery/chem_master/condimaster,
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
 "miP" = (
@@ -24674,7 +24639,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "mmS" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/wood,
@@ -24688,7 +24653,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
@@ -25669,7 +25633,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "mLw" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -26755,7 +26719,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "njl" = (
 /obj/structure/bed/stool/chair/plastic{
 	dir = 1
@@ -26818,7 +26782,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -27082,6 +27045,11 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"nqE" = (
+/obj/structure/table/standard,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "nrr" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -27753,6 +27721,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
+"nKA" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/ladder/up{
+	pixel_y = 16
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "nKK" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -27951,6 +27926,18 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/research)
+"nRF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "nSO" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 4
@@ -28468,7 +28455,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "ohs" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/research/rd,
@@ -28958,11 +28945,8 @@
 "otI" = (
 /obj/machinery/light,
 /obj/item/device/radio/intercom{
-	desc = "Talk... listen through this.";
 	dir = 1;
-	name = "Station Intercom (General)";
-	pixel_y = -24;
-	wires = 7
+	pixel_y = -24
 	},
 /obj/structure/disposalpipe/junction{
 	dir = 4;
@@ -30299,7 +30283,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "pax" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
@@ -30779,7 +30763,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/machinery/camera/network/second_deck{
@@ -31445,9 +31428,6 @@
 /area/horizon/kitchen)
 "pGJ" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /obj/structure/sign/securearea{
 	desc = "A caution sign which reads 'CAUTION: BRIG COMMUNAL AREA' and 'SECURE AREA'.";
 	name = "\improper BRIG COMMUNAL AREA sign";
@@ -31456,6 +31436,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "pGX" = (
@@ -31734,7 +31715,6 @@
 /obj/machinery/autolathe,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
@@ -32253,7 +32233,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "qbl" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -32288,7 +32268,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "qcc" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/mauve/full{
@@ -32951,9 +32931,6 @@
 "quJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/seed_storage,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "quT" = (
@@ -32965,7 +32942,7 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "quV" = (
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -33258,7 +33235,7 @@
 	name = "fore, grauwolf compartment"
 	},
 /turf/simulated/floor/plating,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "qBt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -33836,7 +33813,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
 "qQs" = (
-/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "qQt" = (
@@ -35525,12 +35502,6 @@
 "rFn" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora)
-"rFs" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "rFF" = (
 /obj/structure/table/standard,
 /obj/machinery/power/apc{
@@ -35760,11 +35731,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
-"rLg" = (
-/obj/structure/railing/mapped,
-/obj/structure/girder,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "rLm" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -35791,9 +35757,6 @@
 	},
 /obj/machinery/vending/hydronutrients,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "rLw" = (
@@ -36345,7 +36308,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/structure/cable/green,
@@ -36451,7 +36413,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "sci" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
@@ -36909,7 +36871,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/structure/flora/pottedplant{
@@ -38864,10 +38825,7 @@
 "tuD" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/device/radio/intercom{
-	desc = "Talk... listen through this.";
-	name = "Station Intercom (General)";
-	pixel_y = 24;
-	wires = 7
+	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -39418,7 +39376,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "tHv" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -39619,7 +39577,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "tLp" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -39671,7 +39629,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "tND" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
@@ -39909,7 +39867,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "tTM" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/warning{
@@ -41135,15 +41093,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
-"uuL" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "uva" = (
 /obj/machinery/power/emitter{
 	dir = 4
@@ -41367,6 +41316,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
+"uAl" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/template_noop)
 "uAt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -41401,7 +41354,7 @@
 /area/security/checkpoint2)
 "uBx" = (
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "uBK" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
@@ -41780,7 +41733,7 @@
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "uLh" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/light,
@@ -42150,7 +42103,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	id = "Cell 2";
+	id = "shutters_deck1_security_cell_3";
 	name = "Cell Door"
 	},
 /obj/machinery/door/firedoor,
@@ -42349,7 +42302,6 @@
 /obj/structure/table/wood,
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -26
 	},
 /obj/item/device/flashlight/lamp/green,
@@ -42551,7 +42503,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -26
 	},
 /turf/simulated/floor/carpet,
@@ -42729,7 +42680,7 @@
 /area/maintenance/substation/engineering)
 "vig" = (
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "viR" = (
 /obj/structure/closet/secure_closet/RD,
 /obj/item/clothing/mask/gas/half,
@@ -42754,7 +42705,7 @@
 /obj/machinery/light/small,
 /obj/effect/floor_decal/corner/blue/full,
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "vjN" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -45291,10 +45242,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
-"wqC" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/wall,
-/area/maintenance/wing/port/far)
 "wqE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -45435,7 +45382,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "wtC" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Starboard Wing Substation"
@@ -45714,7 +45661,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "wCZ" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -45734,29 +45681,29 @@
 /area/security/brig)
 "wDa" = (
 /obj/machinery/button/remote/blast_door{
-	id = "Cell 1";
-	name = "Cell 1 Door";
+	id = "shutters_deck1_security_cell_1";
+	name = "Cell A Blast Door";
 	pixel_x = -4;
 	pixel_y = 35;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "Cell 2";
-	name = "Cell 2 Door";
+	id = "shutters_deck1_security_cell_2";
+	name = "Cell B Blast Door";
 	pixel_x = 7;
 	pixel_y = 35;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "Cell 3";
-	name = "Cell 3 Door";
+	id = "shutters_deck1_security_cell_3";
+	name = "Cell C Blast Door";
 	pixel_x = -4;
 	pixel_y = 25;
 	req_access = list(3)
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "Cell 4";
-	name = "Cell 4 Door";
+	id = "shutters_deck1_security_cell_4";
+	name = "Cell D Blast Door";
 	pixel_x = 7;
 	pixel_y = 25;
 	req_access = list(3)
@@ -45891,7 +45838,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	id = "Cell 3";
+	id = "shutters_deck1_security_cell_2";
 	name = "Cell Door"
 	},
 /obj/machinery/door/firedoor,
@@ -46631,6 +46578,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/turf/simulated/floor/tiled,
+/area/security/prison)
+"wXg" = (
+/obj/structure/bed/stool/padded/red,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "wXp" = (
@@ -47490,7 +47442,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /turf/simulated/floor/wood,
@@ -47665,7 +47616,8 @@
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
 	id_tag = "cell_1";
-	name = "Cell A"
+	name = "Cell A";
+	req_access = list(2)
 	},
 /turf/simulated/floor/tiled/full,
 /area/security/prison)
@@ -47870,11 +47822,11 @@
 "xDC" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "xDF" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "xDI" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -47957,7 +47909,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /turf/simulated/floor/wood,
@@ -48020,7 +47971,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "xHv" = (
 /obj/structure/table/reinforced,
 /obj/item/material/minihoe,
@@ -48142,7 +48093,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "xKI" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -48930,7 +48881,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -48979,7 +48929,7 @@
 "ydh" = (
 /obj/structure/viewport/zavod,
 /turf/template_noop,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "ydi" = (
 /obj/structure/table/standard,
 /obj/random/tech_supply,
@@ -49223,7 +49173,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
-/area/operations/flak)
+/area/horizon/grauwolf)
 "yiA" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
@@ -57392,8 +57342,8 @@ vig
 lnO
 xDC
 ePO
-rFs
 jHd
+uAl
 qgN
 qgN
 qgN
@@ -74761,11 +74711,11 @@ qaw
 nWZ
 aaa
 dlR
-mbh
+nRF
 dKi
 jfH
 dKi
-mbh
+nRF
 oYH
 pSv
 jki
@@ -75167,7 +75117,7 @@ iJx
 rxk
 oUb
 aLq
-aLq
+kXs
 rLu
 ioW
 wRm
@@ -75369,7 +75319,7 @@ aac
 uZD
 jvW
 vaR
-kvL
+nqE
 quJ
 pJE
 oXo
@@ -75571,7 +75521,7 @@ cQd
 dXF
 aae
 kvL
-kvL
+nqE
 kjs
 eUB
 hgO
@@ -75773,7 +75723,7 @@ ePb
 cZa
 pJE
 pBA
-pBA
+wXg
 jmp
 pJE
 gEa
@@ -77394,7 +77344,7 @@ gXM
 lTQ
 vPj
 bIi
-xer
+nKA
 qgN
 qgN
 qgN
@@ -77596,7 +77546,7 @@ qvO
 dqy
 vPj
 bIi
-uhP
+arV
 qgN
 qgN
 qgN
@@ -82207,10 +82157,10 @@ gjC
 fuu
 fuu
 lBd
+pVs
+pVs
+pVs
 lBd
-qQs
-lBd
-wqC
 wBF
 uNq
 wBF
@@ -82409,9 +82359,9 @@ sgi
 duk
 fuu
 lBd
-fuu
-fuu
-lBd
+pVs
+pVs
+pVs
 lBd
 wBF
 fRN
@@ -82611,9 +82561,9 @@ vnz
 sNr
 fuu
 ebQ
-aIx
-rLg
-lBd
+hoi
+duk
+pVs
 lBd
 wBF
 iTh
@@ -82813,10 +82763,10 @@ iox
 xLO
 fuu
 lBd
-uuL
-hIV
-sEu
-wqC
+pVs
+hoi
+qQs
+lBd
 wBF
 wBF
 wBF
@@ -84271,7 +84221,7 @@ jHd
 jHd
 jHd
 jHd
-rFs
+uAl
 qgN
 qgN
 qgN

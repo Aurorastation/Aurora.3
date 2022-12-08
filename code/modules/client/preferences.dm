@@ -42,7 +42,7 @@ datum/preferences
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = OUTFIT_BACKPACK		//backpack type (defines in outfit.dm)
-	var/backbag_style = OUTFIT_JOBSPECIFIC
+	var/backbag_style = OUTFIT_FACTIONSPECIFIC
 	var/backbag_color = OUTFIT_NOTHING
 	var/backbag_strap = OUTFIT_NORMAL
 	var/pda_choice = OUTFIT_TAB_PDA

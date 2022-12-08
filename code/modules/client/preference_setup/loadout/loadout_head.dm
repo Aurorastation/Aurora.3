@@ -110,7 +110,8 @@
 /datum/gear/head/warden/New()
 	..()
 	var/list/wardenhead = list()
-	wardenhead["warden hat, zavod"] = /obj/item/clothing/head/warden
+	wardenhead["warden hat, zavod"] = /obj/item/clothing/head/warden/zavod
+	wardenhead["warden hat, zavod alt"] = /obj/item/clothing/head/warden/zavod/alt
 	wardenhead["warden hat, idris"] = /obj/item/clothing/head/warden/idris
 	wardenhead["warden hat, pmc"] = /obj/item/clothing/head/warden/pmc
 	wardenhead["warden beret"] = /obj/item/clothing/head/beret/security/warden
@@ -255,6 +256,11 @@
 	turbans["yellow turban"] = /obj/item/clothing/head/turban/yellow
 
 	gear_tweaks += new /datum/gear_tweak/path(turbans)
+
+/datum/gear/head/turban_colourable
+	display_name = "turban (colourable)"
+	path = /obj/item/clothing/head/turban/white
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
