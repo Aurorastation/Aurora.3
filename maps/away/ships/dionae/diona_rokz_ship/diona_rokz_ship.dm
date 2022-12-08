@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/diona_rokz_ship
 	name = "Rokz Clan Ship"
-	description = "Unga."
+	description = "A ship belonging to the Rokz voidtamer clan, a group of Dioane who specalize in selling spacefauna."
 	suffix = "ships/dionae/diona_rokz_ship/diona_rokz_ship.dmm"
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
 	spawn_weight = 1
@@ -11,7 +11,7 @@
 
 /decl/submap_archetype/diona_rokz_ship
 	map = "Rokz Clan Ship"
-	descriptor = "Unga"
+	descriptor = "A ship belonging to the Rokz voidtamer clan, a group of Dioane who specalize in selling spacefauna."
 
 //areas
 /area/ship/diona_rokz_ship
@@ -26,7 +26,7 @@
 /obj/effect/overmap/visitable/ship/diona_rokz_ship
 	name = "Rokz Clan Ship"
 	class = "RCS"
-	desc = "Unga."
+	desc = "A ship belonging to the Rokz voidtamer clan, a group of Dioane who specalize in selling spacefauna."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	max_speed = 1/(2 SECONDS)
@@ -44,7 +44,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/diona_rokz_ship/New()
-    designation = "[pick("A", "B", "C", "D", "E", "F", "G")]"
+    designation = "[pick("Boulder", "Stonecarp", "Gibber")]"
     ..()
 
 /obj/effect/shuttle_landmark/diona_rokz_ship/nav1
@@ -69,7 +69,7 @@
 	name = "Rokz Clan Shuttle"
 	class = "RCS"
 	designation = "Rokz Clan Shuttle"
-	desc = "Unga Shuttle."
+	desc = "A shuttle belonging to the Rokz clan of voidtamers."
 	shuttle = "Rokz Clan Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
