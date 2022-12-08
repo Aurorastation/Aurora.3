@@ -453,6 +453,8 @@
 /obj/item/pickaxe,
 /obj/structure/table/diona,
 /obj/structure/diona/bulb,
+/obj/item/clothing/head/hardhat/red,
+/obj/item/clothing/head/hardhat/red,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
 "AM" = (
@@ -824,6 +826,8 @@
 "Sh" = (
 /obj/item/pickaxe,
 /obj/structure/table/diona,
+/obj/item/clothing/head/hardhat/red,
+/obj/item/clothing/head/hardhat/red,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
 "SG" = (
