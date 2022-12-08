@@ -185,12 +185,6 @@
 	item_cost = 2
 	path = /obj/item/gun/energy/pistol
 
-/datum/uplink_item/item/visible_weapons/gyrojet_pistol
-	name = "Gyrojet Pistol"
-	item_cost = 20
-	item_limit = 1
-	path = /obj/item/gun/projectile/gyropistol
-
 /datum/uplink_item/item/visible_weapons/bullpup_assault_carbine
 	name = "Bullpup Assault Carbine"
 	item_cost = 12
@@ -249,14 +243,8 @@
 
 /datum/uplink_item/item/visible_weapons/gauss_thumper
 	name = "Gauss Thumper"
-	item_cost = 10
+	item_cost = 12
 	path = /obj/item/gun/projectile/gauss
-
-/datum/uplink_item/item/visible_weapons/railgun
-	name = "Railgun"
-	item_cost = 30
-	item_limit = 1
-	path = /obj/item/gun/projectile/automatic/railgun
 
 /datum/uplink_item/item/visible_weapons/deagle
 	name = ".50 Pistol"
