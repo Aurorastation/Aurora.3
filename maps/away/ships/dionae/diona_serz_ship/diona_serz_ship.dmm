@@ -61,6 +61,12 @@
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
+"cW" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship)
 "dp" = (
 /obj/structure/bed/handrail,
 /obj/structure/sign/flag/hegemony/left{
@@ -100,6 +106,9 @@
 /obj/effect/ghostspawpoint{
 	identifier = "serz_voidtamer_captain";
 	name = "igs - serz_leader"
+	},
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
@@ -171,6 +180,11 @@
 "kB" = (
 /turf/space,
 /area/space)
+"kY" = (
+/obj/structure/table/diona,
+/obj/item/device/binoculars/spyglass,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship)
 "le" = (
 /obj/structure/table/diona,
 /obj/item/shield/energy/hegemony,
@@ -216,10 +230,25 @@
 /obj/item/device/flashlight/lantern,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
+"nA" = (
+/obj/structure/sign/flag/hegemony{
+	pixel_y = 32
+	},
+/mob/living/simple_animal/carp/baby{
+	faction = "neutral"
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship)
 "nG" = (
 /obj/machinery/shipsensors/weak,
 /turf/simulated/floor/diona/airless,
 /area/shuttle/diona_serz_ship_shuttle)
+"od" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 8
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship)
 "oF" = (
 /obj/structure/table/diona,
 /obj/item/device/flashlight/lantern,
@@ -269,6 +298,12 @@
 	},
 /turf/simulated/wall/diona,
 /area/shuttle/diona_serz_ship_shuttle)
+"rc" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship)
 "rh" = (
 /obj/machinery/computer/shuttle_control/explore/diona_serz_ship{
 	icon_broken = "computer_diona";
@@ -476,8 +511,8 @@
 /area/ship/diona_serz_ship)
 "CW" = (
 /obj/structure/table/diona,
-/obj/item/clothing/suit/armor/bone,
 /obj/structure/diona/bulb,
+/obj/item/clothing/suit/diona/serz,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
 "Dh" = (
@@ -671,6 +706,11 @@
 /area/shuttle/diona_serz_ship_shuttle)
 "MI" = (
 /obj/structure/ore_box,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship)
+"Nn" = (
+/obj/structure/diona/bulb,
+/obj/structure/table/diona,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
 "NU" = (
@@ -895,8 +935,7 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
 "VY" = (
-/obj/structure/table/diona,
-/obj/item/clothing/suit/armor/bone,
+/obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
 "Wa" = (
@@ -916,6 +955,9 @@
 "WA" = (
 /obj/structure/bed/handrail{
 	dir = 4
+	},
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
@@ -32645,7 +32687,7 @@ qc
 Jd
 rV
 rV
-VY
+Ow
 Jd
 Jd
 Jd
@@ -32891,7 +32933,7 @@ rV
 rV
 zf
 Rb
-rV
+cW
 rV
 rV
 rV
@@ -32904,7 +32946,7 @@ qa
 rV
 CW
 Jd
-vS
+nA
 rV
 rV
 rV
@@ -33148,7 +33190,7 @@ qa
 rV
 zf
 xl
-af
+kY
 rV
 rV
 pw
@@ -33159,7 +33201,7 @@ Ow
 Jd
 ny
 af
-VY
+Ow
 Jd
 rV
 qa
@@ -33682,7 +33724,7 @@ nu
 FW
 nu
 wG
-rV
+rc
 rV
 rV
 rV
@@ -33939,7 +33981,7 @@ nu
 Rm
 nu
 wG
-qa
+Nn
 rV
 rV
 qa
@@ -34196,11 +34238,11 @@ nu
 FW
 nu
 wG
+od
 rV
 rV
 rV
-rV
-rV
+Du
 rV
 rV
 Jd
@@ -34433,9 +34475,9 @@ KX
 KX
 Jd
 rV
-rV
-rV
-rV
+VY
+af
+cW
 rV
 Jd
 Jd
