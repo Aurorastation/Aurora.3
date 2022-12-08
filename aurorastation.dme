@@ -3195,6 +3195,8 @@
 #include "maps\away\ships\casino\casino_areas.dm"
 #include "maps\away\ships\coc_ranger\coc_ship.dm"
 #include "maps\away\ships\coc_ranger\coc_ship_ghostroles.dm"
+#include "maps\away\ships\dionae\diona_rokz_ship\diona_rokz_ship.dm"
+#include "maps\away\ships\dionae\diona_rokz_ship\diona_rokz_ship_ghostroles.dm"
 #include "maps\away\ships\dionae\diona_serz_ship\diona_serz_ship.dm"
 #include "maps\away\ships\dionae\diona_serz_ship\diona_serz_ship_ghostroles.dm"
 #include "maps\away\ships\einstein\ee_spy_ship.dm"
