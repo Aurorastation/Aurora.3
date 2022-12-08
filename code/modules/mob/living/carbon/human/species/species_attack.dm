@@ -258,3 +258,9 @@
 	damage = 7.5
 	attack_door = 20
 	crowbar_door = TRUE
+
+/datum/unarmed_attack/bite/warrior
+	attack_name = "warrior bite"
+	attack_verb = list("mauled", "lacerated")
+	damage = 10
+	desc = "Rip into an opponent with your warrior mandibles. Only possible if you aren't wearing a muzzle. Next to useless against someone in armour but the vicious attacks will shred someone without it into ribbons."

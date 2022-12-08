@@ -49,6 +49,19 @@
 	icon_override = null
 	contained_sprite = TRUE
 
+/obj/item/clothing/accessory/poncho/dominia_cape/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/cape_backing = image(mob_icon, null, "cape_backing", human ? human.layer - 0.01 : MOB_LAYER - 0.01)
+		I.add_overlay(cape_backing)
+	return I
+
+/obj/item/clothing/accessory/poncho/dominia_cape/get_accessory_mob_overlay(mob/living/carbon/human/human, force)
+	var/image/base = ..()
+	var/image/cape_backing = image(icon, null, "cape_backing", human ? human.layer - 0.01 : MOB_LAYER - 0.01)
+	base.add_overlay(cape_backing)
+	return base
+
 /obj/item/clothing/accessory/poncho/dominia_cape/strelitz
 	name = "house strelitz cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Strelitz."

@@ -3252,7 +3252,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/effect/floor_decal/scc_full,
+/obj/effect/floor_decal/big/scc_full,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "cDq" = (

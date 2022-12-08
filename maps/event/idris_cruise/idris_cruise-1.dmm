@@ -8704,7 +8704,7 @@
 	},
 /area/cruise/central)
 "gML" = (
-/obj/effect/floor_decal/scc_full,
+/obj/effect/floor_decal/big/scc_full,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},

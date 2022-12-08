@@ -1,4 +1,4 @@
-/datum/turf_initializer/maintenance/initialize(var/turf/simulated/T)
+/datum/turf_initializer/dirty/initialize(var/turf/simulated/T)
 	if(T.density)
 		return
 	// Quick and dirty check to avoid placing things inside windows
@@ -8,7 +8,7 @@
 	if(T.is_open())
 		return
 	//Dont place on unsimulated!
-	if(istype(T,/turf/unsimulated))
+	if(istype(T, /turf/unsimulated))
 		return
 
 	var/cardinal_turfs = T.CardinalTurfs()
@@ -20,39 +20,18 @@
 		T.dirt += rand(0,10)
 	T.update_dirt()
 
-	if(prob(2))
-		var/type = junk()
-		new type(T)
-	if(prob(2))
-		new /obj/effect/decal/cleanable/blood/oil(T)
 	if(prob(25))	// Keep in mind that only "corners" get any sort of web
 		attempt_web(T, cardinal_turfs)
 
-var/global/list/random_junk
-/datum/turf_initializer/maintenance/proc/junk()
-	if(prob(25))
-		return /obj/effect/decal/cleanable/generic
-	if(!random_junk)
-		random_junk = subtypesof(/obj/item/trash)
-		random_junk += typesof(/obj/item/trash/cigbutt)
-		random_junk += /obj/effect/decal/cleanable/spiderling_remains
-		random_junk += /obj/effect/decal/remains/rat
-		random_junk += /obj/effect/decal/remains/robot
-		random_junk -= /obj/item/trash/plate
-		random_junk -= /obj/item/trash/snack_bowl
-		random_junk -= /obj/item/trash/syndi_cakes
-		random_junk -= /obj/item/trash/tray
-	return pick(random_junk)
-
-/datum/turf_initializer/maintenance/proc/dirty_neighbors(var/list/cardinal_turfs)
-	var/how_dirty = 0
+/datum/turf_initializer/dirty/proc/dirty_neighbors(var/list/cardinal_turfs)
+	var/how_dirty
 	for(var/turf/simulated/T in cardinal_turfs)
 		// Considered dirty if more than halfway to visible dirt
 		if(T.dirt > 25)
 			how_dirty++
 	return how_dirty
 
-/datum/turf_initializer/maintenance/proc/attempt_web(var/turf/simulated/T)
+/datum/turf_initializer/dirty/proc/attempt_web(var/turf/simulated/T)
 	var/turf/north_turf = get_step(T, NORTH)
 	if(!north_turf || !north_turf.density)
 		return
