@@ -152,7 +152,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/list/output_info
 
 	var/default_input_flow_setting = 200
-	var/default_pressure_setting = ONE_ATMOSPHERE * 45
+	var/default_pressure_setting = 2000
 	var/max_input_flow_setting = ATMOS_DEFAULT_VOLUME_PUMP + 500
 	var/max_pressure_setting = 15000
 	circuit = /obj/item/circuitboard/air_management/tank_control
