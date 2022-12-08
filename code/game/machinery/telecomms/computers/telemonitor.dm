@@ -5,7 +5,7 @@
 
 
 /obj/machinery/computer/telecomms/monitor
-	name = "Telecommunications Monitor"
+	name = "telecommunications monitor"
 	desc = "A monitor that tracks the overall traffic of a telecommunications network, and displays a hierarchy of linked machines."
 	icon_screen = "comm_monitor"
 	icon_keyboard = "green_key"

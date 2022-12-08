@@ -199,7 +199,7 @@
 	if(istype(linked) && linked.comms_support)
 		var/preset_name = linked.comms_name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
-		id = "[preset_name] Server"
+		id = "[preset_name] server"
 		network = "tcomm_[name_lower]"
 		freq_listening += list(
 			assign_away_freq(preset_name),
@@ -289,7 +289,7 @@
 	if(istype(linked) && linked.comms_support)
 		var/preset_name = linked.comms_name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
-		id = "[preset_name] Broadcaster"
+		id = "[preset_name] broadcaster"
 		network = "tcomm_[name_lower]"
 		autolinkers = list(
 			"[name_lower]_broadcaster"

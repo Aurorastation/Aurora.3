@@ -1,7 +1,7 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
 
 /obj/machinery/computer/telecomms/traffic
-	name = "Telecommunications Traffic Control"
+	name = "telecommunications traffic control"
 	icon_screen = "computer_generic"
 	icon_keyboard = "green_key"
 	light_color = LIGHT_COLOR_GREEN
