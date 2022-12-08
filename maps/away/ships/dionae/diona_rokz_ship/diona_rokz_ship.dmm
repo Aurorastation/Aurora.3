@@ -72,6 +72,9 @@
 "eD" = (
 /obj/structure/table/diona,
 /obj/item/clothing/suit/diona/rokz,
+/obj/item/clothing/suit/diona/rokz,
+/obj/item/clothing/suit/diona/rokz,
+/obj/item/clothing/head/diona/rokz,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "eT" = (
@@ -338,6 +341,10 @@
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
+/obj/item/clothing/head/hardhat/green,
+/obj/item/clothing/head/hardhat/green,
+/obj/item/clothing/head/hardhat/green,
+/obj/item/clothing/head/hardhat/green,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "qQ" = (
@@ -919,6 +926,16 @@
 /obj/item/device/flashlight/flare,
 /obj/structure/diona/bulb,
 /obj/machinery/atmospherics/pipe/simple/visible,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "Wt" = (
