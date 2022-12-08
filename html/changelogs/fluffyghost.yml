@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Expanded the Intrepid helm room and moved the sensors console, added a window to allow the sensors console operator to see the people buckled and see the helm, added two softsuit dispensers to fill the space a little, made the window doors towards the cannon station a double window and duplicated it to the right of the sensors/helm area for symmetry."
+  - maptweak: "Expanded the Intrepid helm room and moved the sensors console, added a window to allow the sensors console operator to see the people buckled and see the helm, added two softsuit dispensers to fill the space a little, made the window doors towards the cannon station a double window and duplicated it to the right of the sensors/helm area for symmetry."
