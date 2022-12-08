@@ -17,7 +17,7 @@
 	name = "Rokz Clan Ship"
 
 /area/shuttle/diona_rokz_ship_shuttle
-	name = "Rokz Clan Ship Shuttle"
+	name = "Rokz Clan Shuttle"
 	icon_state = "shuttle2"
 
 //ship stuff
