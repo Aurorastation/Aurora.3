@@ -160,9 +160,10 @@ var/datum/controller/subsystem/radio/SSradio
 
 // Used to test connectivity to the telecomms network.
 /datum/controller/subsystem/radio/proc/telecomms_ping(obj/O, test_freq = PUB_FREQ)
-	var/datum/signal/subspace/sig = new(O, test_freq, "PING")
-	sig.send_to_receivers()
-	return sig
+	var/datum/signal/subspace/testsig = new(O, test_freq)
+	for (var/obj/machinery/telecomms/R in SSmachinery.all_receivers)
+		if(R.receive_range(testsig) >= 0)
+			return TRUE
 
 // Some misc procs not technically part of the subsystem, but are related.
 
