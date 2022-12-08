@@ -310,6 +310,14 @@
 	},
 /turf/simulated/wall/diona,
 /area/ship/diona_rokz_ship)
+"qg" = (
+/obj/structure/table/diona,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship)
 "qs" = (
 /obj/structure/bed/handrail{
 	dir = 8
@@ -318,6 +326,15 @@
 	identifier = "rokz_voidtamer";
 	name = "igs - rokz"
 	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship)
+"qO" = (
+/obj/structure/diona/bulb,
+/obj/structure/table/diona,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "qQ" = (
@@ -429,6 +446,11 @@
 	req_one_access = list(31,48,67);
 	tag_door = "mining_shuttle_dock_doors"
 	},
+/obj/structure/table/diona,
+/obj/structure/table/diona,
+/obj/structure/table/diona,
+/obj/item/melee/classic_baton,
+/obj/item/melee/classic_baton,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "yG" = (
@@ -455,6 +477,10 @@
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
 /area/space)
+"zJ" = (
+/obj/item/trap/animal/large,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship)
 "zT" = (
 /obj/structure/diona/bulb,
 /obj/structure/window/reinforced{
@@ -746,6 +772,12 @@
 "Pg" = (
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship)
+"Pw" = (
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/wall/diona,
+/area/shuttle/diona_rokz_ship_shuttle)
 "PU" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/unsimulated/mineral/asteroid,
@@ -947,11 +979,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "Zn" = (
-/obj/effect/landmark/entry_point/south{
-	name = "fore, bridge"
-	},
-/turf/simulated/floor/diona,
-/area/shuttle/diona_rokz_ship_shuttle)
+/obj/structure/ore_box,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship)
 "ZK" = (
 /obj/structure/simple_door/iron{
 	name = "armory"
@@ -37315,7 +37345,7 @@ He
 TY
 nS
 nS
-He
+zJ
 He
 ve
 jR
@@ -37827,7 +37857,7 @@ sx
 sx
 nS
 iS
-He
+zJ
 wn
 He
 He
@@ -38083,13 +38113,13 @@ He
 sx
 TY
 TY
-He
+Zn
 He
 He
 He
 wh
 oe
-Zn
+ac
 ac
 ac
 ac
@@ -38343,9 +38373,9 @@ TY
 TY
 MU
 He
-He
-He
-kX
+qg
+nS
+Pw
 kX
 Of
 ce
@@ -38597,11 +38627,11 @@ He
 hc
 TY
 TY
-He
+Zn
 wn
 He
-wn
-He
+qO
+nS
 Wt
 kX
 kX
