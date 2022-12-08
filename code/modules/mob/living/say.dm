@@ -293,6 +293,13 @@ proc/get_radio_key_from_channel(var/channel)
 
 		listening = get_hearers_in_view(message_range, src)
 
+	if(client)
+		for (var/mob/player_mob in player_list)
+			if(!player_mob || player_mob.stat != DEAD || (player_mob in listening))
+				continue
+			if(player_mob.client?.prefs.toggles & CHAT_GHOSTEARS)
+				listening |= player_mob
+
 	var/list/hear_clients = list()
 	for(var/mob/M in listening)
 		var/heard_say = M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol, get_font_size_modifier())
