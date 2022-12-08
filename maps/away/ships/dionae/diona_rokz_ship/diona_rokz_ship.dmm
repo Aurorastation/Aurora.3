@@ -535,8 +535,10 @@
 /turf/simulated/wall/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "Gn" = (
-/obj/structure/sign/flag/hegemony,
-/turf/unsimulated/mineral/asteroid,
+/obj/structure/sign/flag/hegemony/left{
+	pixel_y = 32
+	},
+/turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "GT" = (
 /obj/structure/window/reinforced{
@@ -561,6 +563,9 @@
 	dir = 4;
 	icon_broken = "computer_diona";
 	icon_state = "computer_diona"
+	},
+/obj/structure/sign/flag/hegemony{
+	pixel_y = 32
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
@@ -638,6 +643,9 @@
 /obj/structure/table/diona,
 /obj/item/projectile/beam/pistol/hegemony,
 /obj/structure/diona/bulb,
+/obj/structure/sign/flag/hegemony/right{
+	pixel_y = 32
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "LV" = (
@@ -645,9 +653,9 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship)
 "Mk" = (
-/obj/structure/sign/flag/hegemony,
-/turf/simulated/wall/diona,
-/area/ship/diona_rokz_ship)
+/obj/effect/shuttle_landmark/diona_rokz_ship/transit,
+/turf/space/transit/north,
+/area/space)
 "Mt" = (
 /obj/structure/diona/bulb,
 /obj/item/clothing/suit/diona/carp,
@@ -675,9 +683,18 @@
 /obj/structure/diona/bulb,
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship)
+"MU" = (
+/obj/structure/sign/flag/hegemony{
+	pixel_y = 32
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship)
 "Ns" = (
-/obj/structure/sign/flag/hegemony/right,
-/turf/simulated/wall/diona,
+/obj/structure/diona/bulb,
+/obj/structure/sign/flag/hegemony{
+	pixel_y = 32
+	},
+/turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "Nt" = (
 /obj/machinery/floodlight,
@@ -909,9 +926,12 @@
 /area/shuttle/diona_rokz_ship_shuttle)
 "XS" = (
 /obj/structure/table/diona,
-/obj/item/material/woodenshield,
-/obj/item/material/woodenshield,
-/obj/item/material/woodenshield,
+/obj/structure/sign/flag/hegemony/left{
+	pixel_y = 32
+	},
+/obj/item/shield/buckler,
+/obj/item/shield/buckler,
+/obj/item/shield/buckler,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "Yh" = (
@@ -921,8 +941,10 @@
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "YF" = (
-/obj/structure/sign/flag/hegemony/left,
-/turf/simulated/wall/diona,
+/obj/structure/sign/flag/hegemony/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "Zn" = (
 /obj/effect/landmark/entry_point/south{
@@ -10901,7 +10923,7 @@ SS
 SS
 SS
 SS
-SS
+Mk
 SS
 SS
 SS
@@ -30326,7 +30348,7 @@ sx
 sx
 sx
 TY
-YF
+nS
 XS
 gl
 aW
@@ -30583,7 +30605,7 @@ sx
 sx
 sx
 TY
-Ns
+nS
 Lw
 He
 He
@@ -32891,8 +32913,8 @@ sx
 sx
 sx
 sx
-YF
-He
+nS
+Gn
 He
 He
 hu
@@ -33148,8 +33170,8 @@ sx
 sx
 sx
 sx
-Ns
-He
+nS
+YF
 He
 wn
 nS
@@ -33669,8 +33691,8 @@ nS
 nS
 nS
 nS
-Mk
-wn
+nS
+Ns
 He
 He
 Pg
@@ -38318,8 +38340,8 @@ UI
 TY
 TY
 TY
-Gn
-He
+TY
+MU
 He
 He
 He
