@@ -7582,7 +7582,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "dKE" = (
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas/alt,
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -10567,7 +10567,7 @@
 	dir = 1;
 	pixel_y = 24
 	},
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -11135,11 +11135,8 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/suit/bio_suit/scientist,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/head/bio_hood/scientist,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "fEQ" = (
@@ -11546,7 +11543,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "fOl" = (
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas/alt,
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -13038,7 +13035,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "gud" = (
-/obj/structure/closet/l3closet/security,
+/obj/structure/closet/hazmat/security,
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -28
@@ -13894,7 +13891,7 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
 	},
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/white,
@@ -16626,8 +16623,6 @@
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
 "iic" = (
 /obj/structure/closet/secure_closet/scientist,
-/obj/item/storage/box/gloves,
-/obj/item/clothing/mask/gas/half,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
@@ -36297,7 +36292,7 @@
 /area/operations/mail_room)
 "rYM" = (
 /obj/effect/floor_decal/corner/purple/full,
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/power/apc{
 	dir = 8;
@@ -45113,10 +45108,7 @@
 	dir = 4;
 	pixel_x = -28
 	},
-/obj/structure/closet/l3closet/scientist,
-/obj/item/clothing/suit/bio_suit/scientist,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/head/bio_hood/scientist,
+/obj/structure/closet/hazmat/research,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "wox" = (
@@ -47918,8 +47910,6 @@
 /area/maintenance/wing/starboard)
 "xGz" = (
 /obj/structure/closet/secure_closet/scientist,
-/obj/item/storage/box/gloves,
-/obj/item/clothing/mask/gas/half,
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
 	},

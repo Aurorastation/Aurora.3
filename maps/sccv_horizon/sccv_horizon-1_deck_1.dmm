@@ -2213,7 +2213,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "bHx" = (
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -5336,11 +5336,11 @@
 /area/engineering/atmos)
 "eog" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(65)
@@ -6323,11 +6323,11 @@
 /area/rnd/xenoarch_atrium)
 "eWA" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(65)
@@ -7739,7 +7739,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "fVm" = (
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -23597,11 +23597,11 @@
 /area/maintenance/substation/hangar)
 "sIQ" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(65)

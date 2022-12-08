@@ -11523,7 +11523,7 @@
 /area/cruise/arcade)
 "jdi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/l3closet/security,
+/obj/structure/closet/hazmat/security,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -21806,7 +21806,7 @@
 /area/cruise/library)
 "ruM" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -26057,7 +26057,7 @@
 /area/cruise/hangar)
 "uJZ" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
