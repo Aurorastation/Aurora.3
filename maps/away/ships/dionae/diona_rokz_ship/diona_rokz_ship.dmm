@@ -162,6 +162,9 @@
 	icon_state = "computer_diona";
 	icon_broken = "computer_diona"
 	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "kw" = (
@@ -555,10 +558,10 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship)
 "FP" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, compartment"
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
 	},
-/turf/simulated/wall/diona,
+/turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "Gn" = (
 /obj/structure/sign/flag/hegemony/left{
@@ -660,10 +663,13 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "KM" = (
-/obj/effect/landmark/entry_point/east{
-	name = "port, crew compartment"
+/obj/structure/bed/handrail{
+	dir = 8
 	},
-/turf/simulated/wall/diona,
+/obj/effect/landmark/entry_point/port{
+	name = "port, compartment"
+	},
+/turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "Lw" = (
 /obj/structure/table/diona,
@@ -772,12 +778,6 @@
 "Pg" = (
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship)
-"Pw" = (
-/obj/effect/landmark/entry_point/south{
-	name = "fore, bridge"
-	},
-/turf/simulated/wall/diona,
-/area/shuttle/diona_rokz_ship_shuttle)
 "PU" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/unsimulated/mineral/asteroid,
@@ -37351,7 +37351,7 @@ ve
 jR
 jR
 jR
-KM
+kX
 kX
 kX
 kX
@@ -38119,7 +38119,7 @@ He
 He
 wh
 oe
-ac
+FP
 ac
 ac
 ac
@@ -38375,11 +38375,11 @@ MU
 He
 qg
 nS
-Pw
+kX
 kX
 Of
 ce
-dI
+KM
 dI
 lH
 ac
@@ -38636,7 +38636,7 @@ Wt
 kX
 kX
 kX
-FP
+kX
 kX
 kX
 jR
