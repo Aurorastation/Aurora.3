@@ -886,6 +886,14 @@
 /obj/effect/landmark/entry_point/fore,
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_serz_ship)
+"VO" = (
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/structure/closet/crate,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship)
 "VY" = (
 /obj/structure/table/diona,
 /obj/item/clothing/suit/armor/bone,
@@ -33172,7 +33180,7 @@ rV
 rV
 rV
 rV
-rV
+VO
 ie
 BK
 kB
