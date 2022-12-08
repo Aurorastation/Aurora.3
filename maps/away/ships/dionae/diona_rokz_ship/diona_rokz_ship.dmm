@@ -57,11 +57,6 @@
 /obj/machinery/computer/ship/engines,
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship)
-"dg" = (
-/obj/item/material/twohanded/pike/flag/hegemony,
-/obj/effect/landmark/entry_point/aft,
-/turf/simulated/floor/diona/airless,
-/area/ship/diona_rokz_ship)
 "dI" = (
 /obj/structure/bed/handrail{
 	dir = 8
@@ -124,9 +119,11 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "hW" = (
-/obj/effect/landmark/entry_point/fore,
-/turf/simulated/floor/diona/airless,
-/area/ship/diona_rokz_ship)
+/obj/effect/landmark/entry_point/port{
+	name = "port, compartment"
+	},
+/turf/simulated/wall/diona,
+/area/shuttle/diona_rokz_ship_shuttle)
 "ih" = (
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel{
 	faction = "neutral"
@@ -168,9 +165,12 @@
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "kw" = (
-/obj/effect/landmark/entry_point/fore,
-/turf/unsimulated/floor/asteroid/ash,
-/area/ship/diona_rokz_ship)
+/obj/machinery/door/airlock/diona/external,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/diona,
+/area/shuttle/diona_rokz_ship_shuttle)
 "kx" = (
 /obj/effect/shuttle_landmark/diona_rokz_ship/nav2,
 /turf/unsimulated/floor/asteroid/ash,
@@ -558,15 +558,18 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship)
 "FP" = (
-/obj/effect/landmark/entry_point/south{
-	name = "fore, bridge"
-	},
-/turf/simulated/floor/diona,
-/area/shuttle/diona_rokz_ship_shuttle)
+/obj/effect/landmark/entry_point/aft,
+/turf/unsimulated/floor/asteroid/ash,
+/area/ship/diona_rokz_ship)
 "Gn" = (
 /obj/structure/sign/flag/hegemony/left{
 	pixel_y = 32
 	},
+/obj/item/stack/material/steel/full,
+/obj/structure/closet/crate,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "GT" = (
@@ -663,13 +666,10 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "KM" = (
-/obj/structure/bed/handrail{
-	dir = 8
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
 	},
-/obj/effect/landmark/entry_point/port{
-	name = "port, compartment"
-	},
-/turf/simulated/floor/diona,
+/turf/simulated/wall/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "Lw" = (
 /obj/structure/table/diona,
@@ -740,11 +740,11 @@
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "NY" = (
-/obj/effect/floor_decal/asteroid{
-	icon_state = "asteroid3"
-	},
 /obj/effect/landmark/entry_point/port{
 	name = "port airlock"
+	},
+/obj/effect/floor_decal/asteroid{
+	icon_state = "asteroid3"
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship)
@@ -855,12 +855,10 @@
 /turf/space,
 /area/space)
 "SL" = (
-/obj/effect/ghostspawpoint{
-	identifier = "rokz_voidtamer";
-	name = "igs - rokz"
-	},
-/turf/template_noop,
-/area/space)
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/diona,
+/area/ship/diona_rokz_ship)
 "SS" = (
 /turf/space/transit/north,
 /area/space)
@@ -880,10 +878,10 @@
 /turf/unsimulated/mineral/asteroid,
 /area/ship/diona_rokz_ship)
 "Ux" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, cargo"
+/obj/effect/landmark/entry_point/port{
+	name = "port airlock"
 	},
-/turf/simulated/wall/diona,
+/turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "UI" = (
 /obj/machinery/floodlight{
@@ -970,7 +968,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
-/turf/simulated/floor/diona,
+/turf/simulated/floor/diona/airless,
 /area/shuttle/diona_rokz_ship_shuttle)
 "YF" = (
 /obj/structure/sign/flag/hegemony/right{
@@ -29608,9 +29606,9 @@ sx
 sx
 sx
 TY
-TY
-TY
 Fz
+TY
+TY
 sx
 sx
 sx
@@ -31402,7 +31400,7 @@ sx
 sx
 sx
 sx
-Ux
+nS
 nS
 nS
 TY
@@ -31672,7 +31670,7 @@ TY
 TY
 TY
 TY
-kw
+Pg
 sx
 sx
 sx
@@ -31916,7 +31914,7 @@ sx
 sx
 sx
 sx
-HR
+SL
 Ta
 Sa
 He
@@ -32185,7 +32183,7 @@ Bk
 TY
 TY
 TY
-TY
+qY
 sx
 sx
 sx
@@ -32429,7 +32427,7 @@ sx
 sx
 sx
 sx
-As
+nS
 nS
 Ek
 He
@@ -33200,7 +33198,7 @@ sx
 sx
 sx
 sx
-nS
+As
 YF
 He
 wn
@@ -33216,8 +33214,8 @@ TY
 Pg
 wn
 He
-He
 Ep
+He
 sx
 sx
 sx
@@ -33480,10 +33478,10 @@ He
 sx
 sx
 sx
-Ux
+nS
 TY
 TY
-qY
+TY
 sx
 sx
 sx
@@ -33997,7 +33995,7 @@ nS
 TY
 TY
 TY
-TY
+qY
 sx
 sx
 sx
@@ -37060,11 +37058,11 @@ sx
 sx
 sx
 sx
-dg
+Ek
 He
 He
 sx
-SL
+sx
 sx
 sx
 sx
@@ -37352,7 +37350,7 @@ jR
 jR
 jR
 kX
-kX
+KM
 kX
 kX
 kX
@@ -37571,7 +37569,7 @@ sx
 sx
 sx
 sx
-TY
+PU
 Vq
 xF
 Pg
@@ -37861,7 +37859,7 @@ zJ
 wn
 He
 He
-oe
+kw
 XN
 ac
 ac
@@ -37871,7 +37869,7 @@ ac
 ac
 ac
 ac
-oS
+lP
 Yh
 sx
 sx
@@ -38119,7 +38117,7 @@ He
 He
 wh
 oe
-FP
+ac
 ac
 ac
 ac
@@ -38128,7 +38126,7 @@ ac
 ac
 ac
 XN
-lP
+oS
 Yh
 sx
 sx
@@ -38357,7 +38355,7 @@ nS
 nS
 wn
 He
-He
+Ux
 He
 He
 He
@@ -38379,7 +38377,7 @@ kX
 kX
 Of
 ce
-KM
+dI
 dI
 lH
 ac
@@ -38637,7 +38635,7 @@ kX
 kX
 kX
 kX
-kX
+hW
 kX
 jR
 jR
@@ -39143,7 +39141,7 @@ Pg
 wn
 He
 He
-hW
+He
 sx
 sx
 sx
@@ -39368,7 +39366,7 @@ sx
 sx
 sx
 sx
-Pg
+FP
 Pg
 TY
 TY
@@ -39626,7 +39624,7 @@ sx
 sx
 Pg
 Pg
-PU
+TY
 TY
 TY
 nS
@@ -40667,7 +40665,7 @@ xx
 AY
 VC
 TY
-qY
+TY
 sx
 sx
 sx
@@ -40924,7 +40922,7 @@ xx
 ru
 sl
 TY
-TY
+qY
 sx
 sx
 sx
@@ -41948,8 +41946,8 @@ TY
 TY
 TY
 TY
-TY
 nz
+TY
 sx
 sx
 sx
@@ -42453,8 +42451,8 @@ sx
 sx
 sx
 sx
-nz
 TY
+nz
 TY
 sx
 TY
