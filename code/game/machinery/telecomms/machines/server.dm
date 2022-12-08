@@ -51,10 +51,26 @@
 	if(!istype(speaker))
 		return
 
-	log.parameters["mobtype"] = speaker.type
 	log.parameters["name"] = signal.data["name"]
 	log.parameters["job"] = signal.data["job"]
 	log.parameters["message"] = signal.data["message"]
+	log.parameters["language"] = signal.language || all_languages[LANGUAGE_TCB]
+
+	var/race = "Unidentifiable"
+	if(ishuman(speaker) || isbrain(speaker))
+		race = "Sapient Species"
+	else if(speaker.isMonkey())
+		race = "Monkey"
+	else if(issilicon(speaker) || isobj(speaker))
+		race = "Machinery"
+	else if(isslime(speaker))
+		race = "Slime"
+	else if(isanimal(speaker))
+		race = "Domestic Animal"
+	else if(istype(speaker, /mob/living/announcer))
+		race = "Announcement"
+
+	log.parameters["race"] = race
 
 	// If the signal is still compressed, make the log entry gibberish
 	var/compression = signal.data["compression"]

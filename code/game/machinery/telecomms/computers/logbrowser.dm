@@ -61,7 +61,7 @@
 			else
 				dat += "<br>Total recorded traffic: [SelectedServer.totaltraffic] Gigabytes<br><br>"
 
-			dat += log_entries_to_text(SelectedServer)
+			dat += log_entries_to_text(user, SelectedServer)
 
 	user << browse(dat, "window=comm_monitor;size=575x400")
 	onclose(user, "server_control")
@@ -183,7 +183,7 @@
 		src.updateUsrDialog()
 		return 1
 
-/obj/machinery/computer/telecomms/server/proc/log_entries_to_text(var/obj/machinery/telecomms/server/SelectedServer, start = 1, end = SelectedServer.log_entries.len)
+/obj/machinery/computer/telecomms/server/proc/log_entries_to_text(mob/user, var/obj/machinery/telecomms/server/SelectedServer, start = 1, end = SelectedServer.log_entries.len)
 	if(!end)
 		end = SelectedServer.log_entries.len
 	start = between(1, start, SelectedServer.log_entries.len)
@@ -201,28 +201,25 @@
 
 			. += "<li><font color = #008F00>[C.name]</font>  <font color = #FF0000><a href='?src=\ref[src];delete=[i]'>\[X\]</a></font><br>"
 
-			// -- Determine race of orator --
+			var/datum/language/language = C.parameters["language"]
+			var/message_out = ""
+			var/message_in = C.parameters["message"]
 
-			var/race = C.parameters["race"]			   // The actual race of the mob
-			var/language = C.parameters["language"] // The language spoken, or null/""
-
-			// -- If the orator is a human, or universal translate is active, OR mob has universal speech on --
-
-			if(universal_translate || C.parameters["uspeech"] || C.parameters["intelligible"])
-				. += "<u><font color = #18743E>Data type</font></u>: [C.input_type]<br>"
-				. += "<u><font color = #18743E>Source</font></u>: [C.parameters["name"]] (Job: [C.parameters["job"]])<br>"
-				. += "<u><font color = #18743E>Class</font></u>: [race]<br>"
-				. += "<u><font color = #18743E>Contents</font></u>: \"[C.parameters["message"]]\"<br>"
-				if(language)
-					. += "<u><font color = #18743E>Language</font></u>: [language]<br/>"
-
-			// -- Orator is not human and universal translate not active --
-
+			if(universal_translate || language in user.languages)
+				message_out = "\"[message_in]\""
+			else if(!(language in user.languages))
+				// Language unknown by viewer, scramble
+				message_out = "\"[language.scramble(message_in, user.languages)]\""
 			else
-				. += "<u><font color = #18743E>Data type</font></u>: Audio File<br>"
-				. += "<u><font color = #18743E>Source</font></u>: <i>Unidentifiable</i><br>"
-				. += "<u><font color = #18743E>Class</font></u>: [race]<br>"
-				. += "<u><font color = #18743E>Contents</font></u>: <i>Unintelligble</i><br>"
+				// Entirely unintelligible
+				message_out = "(Unintelligible)"
+
+			. += "<u><font color = #18743E>Data type</font></u>: [C.input_type]<br>"
+			. += "<u><font color = #18743E>Source</font></u>: [C.parameters["name"]] [C.parameters["job"] ? "(Job: [C.parameters["job"]])" : ""]<br>"
+			. += "<u><font color = #18743E>Class</font></u>: [C.parameters["race"]]<br>"
+			. += "<u><font color = #18743E>Contents</font></u>: [message_out]<br>"
+			if(language)
+				. += "<u><font color = #18743E>Language</font></u>: [language.name]<br/>"
 
 			. += "</li><br>"
 

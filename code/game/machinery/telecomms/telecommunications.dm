@@ -232,14 +232,11 @@
 // Reception range of telecomms machines is limited via overmap_range
 // Returns distance, not a boolean value, so don't do !get_reception or so help me god
 /obj/machinery/telecomms/proc/get_signal_dist(datum/signal/subspace/signal)
-	if(!current_map.use_overmap)
+	if(!current_map.use_overmap || !istype(linked) || !istype(signal.sector))
 		if(z == signal.origin_level || (signal.origin_level in GetConnectedZlevels(z)))
 			return 1
 		else
 			return -1
-
-	if(!istype(linked) || !istype(signal.sector))
-		CRASH("[src] called get_range with invalid or null linked sector! Linked: [linked] | Signal: [signal.sector]")
 
 	if (signal.sector == linked)
 		return 0
