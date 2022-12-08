@@ -205,7 +205,7 @@
 			var/message_out = ""
 			var/message_in = C.parameters["message"]
 
-			if(universal_translate || language in user.languages)
+			if(universal_translate || (language in user.languages))
 				message_out = "\"[message_in]\""
 			else if(!(language in user.languages))
 				// Language unknown by viewer, scramble
