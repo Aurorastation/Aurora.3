@@ -63,6 +63,9 @@
 /area/ship/diona_serz_ship)
 "dp" = (
 /obj/structure/bed/handrail,
+/obj/structure/sign/flag/hegemony/left{
+	pixel_y = 32
+	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_serz_ship_shuttle)
 "dG" = (
@@ -261,7 +264,6 @@
 /turf/simulated/wall/diona,
 /area/shuttle/diona_serz_ship_shuttle)
 "rb" = (
-/obj/structure/sign/flag/hegemony/right,
 /obj/effect/landmark/entry_point/south{
 	name = "fore, bridge"
 	},
@@ -271,6 +273,9 @@
 /obj/machinery/computer/shuttle_control/explore/diona_serz_ship{
 	icon_broken = "computer_diona";
 	icon_state = "computer_diona"
+	},
+/obj/structure/sign/flag/hegemony/left{
+	pixel_y = 32
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_serz_ship_shuttle)
@@ -338,11 +343,14 @@
 /obj/item/stack/material/gold,
 /obj/item/stack/material/gold,
 /obj/structure/table/diona,
+/obj/item/stack/material/gold/full,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
 "vS" = (
-/obj/structure/sign/flag/hegemony/left,
-/turf/simulated/wall/diona,
+/obj/structure/sign/flag/hegemony{
+	pixel_y = 32
+	},
+/turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
 "wG" = (
 /obj/effect/map_effect/window_spawner/borosilicate/reinforced,
@@ -405,10 +413,6 @@
 	},
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
-/area/ship/diona_serz_ship)
-"Az" = (
-/obj/structure/sign/flag/hegemony,
-/turf/simulated/wall/diona,
 /area/ship/diona_serz_ship)
 "AA" = (
 /obj/item/pickaxe,
@@ -565,6 +569,9 @@
 	icon_broken = "computer_diona";
 	icon_state = "computer_diona"
 	},
+/obj/structure/sign/flag/hegemony/right{
+	pixel_y = 32
+	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_serz_ship_shuttle)
 "Jb" = (
@@ -598,6 +605,9 @@
 /area/ship/diona_serz_ship)
 "KJ" = (
 /obj/structure/bed/handrail,
+/obj/structure/sign/flag/hegemony/left{
+	pixel_y = 32
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
 "KX" = (
@@ -681,10 +691,6 @@
 /obj/item/clothing/suit/diona/serz,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
-"OE" = (
-/obj/structure/sign/flag/hegemony/left,
-/turf/simulated/wall/diona,
-/area/shuttle/diona_serz_ship_shuttle)
 "OK" = (
 /obj/machinery/door/airlock/diona,
 /obj/machinery/door/blast/regular,
@@ -701,10 +707,6 @@
 "Pg" = (
 /turf/simulated/floor/diona,
 /area/shuttle/diona_serz_ship_shuttle)
-"Pz" = (
-/obj/structure/sign/flag/hegemony/right,
-/turf/simulated/wall/diona,
-/area/shuttle/diona_serz_ship_shuttle)
 "PU" = (
 /obj/structure/bed/handrail,
 /obj/effect/overmap/visitable/ship/landable/diona_serz_ship_shuttle,
@@ -715,6 +717,9 @@
 	pixel_x = 6;
 	pixel_y = 28;
 	tag_door = "elyran_shuttle_out"
+	},
+/obj/structure/sign/flag/hegemony/right{
+	pixel_y = 32
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_serz_ship_shuttle)
@@ -838,8 +843,11 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
 "Uk" = (
-/obj/structure/sign/flag/hegemony/right,
-/turf/simulated/wall/diona,
+/obj/structure/bed/handrail,
+/obj/structure/sign/flag/hegemony/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
 "UJ" = (
 /turf/space/transit/north,
@@ -30847,10 +30855,10 @@ KX
 KX
 kB
 cj
-OE
+yR
 rh
 GZ
-OE
+yR
 dp
 Pg
 mt
@@ -31107,7 +31115,7 @@ cj
 rb
 In
 GZ
-Pz
+yR
 PU
 Pg
 Pg
@@ -32887,8 +32895,8 @@ Jd
 qa
 rV
 CW
-Az
-rV
+Jd
+vS
 rV
 rV
 rV
@@ -33388,7 +33396,7 @@ UP
 UP
 sS
 Jd
-rV
+vS
 rV
 rV
 rV
@@ -34943,8 +34951,8 @@ Jd
 Vd
 rV
 xl
-Az
-rV
+Jd
+vS
 rV
 rV
 rV
@@ -35450,7 +35458,7 @@ KX
 Jd
 qa
 ig
-vS
+Jd
 KJ
 qa
 Jd
@@ -35707,8 +35715,8 @@ KX
 Jd
 rV
 ig
+Jd
 Uk
-KJ
 rV
 Jd
 qa
