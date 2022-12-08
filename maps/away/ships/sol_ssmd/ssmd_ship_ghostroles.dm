@@ -133,7 +133,7 @@
 	max_count = 1
 
 	outfit = /datum/outfit/admin/ssmd_ipc
-	possible_species = list(SPECIES_IPC, SPECIES_IPC_SHELL)
+	possible_species = list(SPECIES_IPC, SPECIES_IPC_SHELL, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
 	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
