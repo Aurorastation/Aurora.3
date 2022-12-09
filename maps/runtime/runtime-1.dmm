@@ -1921,7 +1921,7 @@
 /turf/template_noop,
 /area/engineering)
 "ZH" = (
-/obj/structure/fuel_port,
+/obj/structure/fuel_port/phoron,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
 

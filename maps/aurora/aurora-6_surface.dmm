@@ -3252,7 +3252,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/effect/floor_decal/scc_full,
+/obj/effect/floor_decal/big/scc_full,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "cDq" = (
@@ -6728,13 +6728,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
-"fSr" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/tcommsat/chamber)
 "fSV" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
@@ -15040,8 +15033,6 @@
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/broadcaster,
-/obj/item/circuitboard/telecomms/relay,
-/obj/item/circuitboard/telecomms/relay,
 /obj/item/circuitboard/telecomms/hub,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
@@ -19738,13 +19729,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
-"raf" = (
-/obj/machinery/telecomms/relay/preset/station,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/tcommsat/chamber)
 "ras" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -39322,7 +39306,7 @@ cmK
 mRI
 gQU
 mRI
-fSr
+mRI
 blE
 mRI
 uvR
@@ -40864,7 +40848,7 @@ qSE
 mRI
 mRI
 mRI
-raf
+mRI
 blE
 mRI
 ojT

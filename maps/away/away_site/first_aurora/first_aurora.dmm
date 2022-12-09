@@ -985,7 +985,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "dC" = (
-/obj/structure/closet/l3closet/security,
+/obj/structure/closet/hazmat/security,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "dD" = (

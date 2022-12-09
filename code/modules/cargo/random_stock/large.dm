@@ -20,7 +20,7 @@ STOCK_ITEM_LARGE(EOD, 1.5)
 		new /obj/structure/closet/bombcloset(L)
 
 STOCK_ITEM_LARGE(biosuit, 3)
-	var/list/allsuits = typesof(/obj/structure/closet/l3closet)
+	var/list/allsuits = typesof(/obj/structure/closet/hazmat)
 	var/type = pick(allsuits)
 	new type(L)
 

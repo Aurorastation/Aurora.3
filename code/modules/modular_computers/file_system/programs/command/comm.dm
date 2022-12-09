@@ -172,9 +172,12 @@
 				if(!input || !can_still_topic())
 					SSnanoui.update_uis(src)
 					return
-				program.computer.listening = TRUE
+				var/was_hearing = HAS_TRAIT(program.computer, TRAIT_HEARING_SENSITIVE)
+				if(!was_hearing)
+					program.computer.become_hearing_sensitive()
 				usr.say(input)
-				program.computer.listening = FALSE
+				if(!was_hearing)
+					program.computer.lose_hearing_sensitivity()
 				var/affected_zlevels = GetConnectedZlevels(GET_Z(program.computer))
 				crew_announcement.Announce(program.computer.registered_message, zlevels = affected_zlevels)
 				set_announcement_cooldown(TRUE)

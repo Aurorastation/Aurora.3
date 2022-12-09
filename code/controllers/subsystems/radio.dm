@@ -136,6 +136,17 @@ var/datum/controller/subsystem/radio/SSradio
 
 	return 1
 
+/datum/controller/subsystem/radio/proc/remove_object_all(obj/device)
+	for(var/freq in frequencies)
+		SSradio.remove_object(device, text2num(freq))
+
+/datum/controller/subsystem/radio/proc/get_devices(freq, filter = RADIO_DEFAULT)
+	var/datum/radio_frequency/frequency = frequencies[num2text(freq)]
+	if(!frequency)
+		return
+
+	return frequency.devices["[filter]"]
+
 /datum/controller/subsystem/radio/proc/return_frequency(new_frequency)
 	var/f_text = num2text(new_frequency)
 	var/datum/radio_frequency/frequency = frequencies[f_text]
@@ -147,6 +158,12 @@ var/datum/controller/subsystem/radio/SSradio
 
 	return frequency
 
+// Used to test connectivity to the telecomms network.
+/datum/controller/subsystem/radio/proc/telecomms_ping(obj/O, test_freq = PUB_FREQ)
+	var/datum/signal/subspace/testsig = new(O, test_freq)
+	for (var/obj/machinery/telecomms/R in SSmachinery.all_receivers)
+		if(R.receive_range(testsig) >= 0)
+			return TRUE
 
 // Some misc procs not technically part of the subsystem, but are related.
 
@@ -155,7 +172,6 @@ var/datum/controller/subsystem/radio/SSradio
 	return null
 
 /proc/frequency_span_class(var/frequency)
-	. = "radio"
 	var/fstr = "[frequency]"
 	// Antags!
 	if (ANTAG_FREQS_ASSOC[fstr])
@@ -168,29 +184,50 @@ var/datum/controller/subsystem/radio/SSradio
 	// department radio formatting
 	switch (frequency)
 		if (COMM_FREQ)	// command
-			. = "comradio"
+			return "comradio"
 		if (AI_FREQ)	// AI Private
-			. = "airadio"
+			return "airadio"
 		if (SEC_FREQ,SEC_I_FREQ)
-			. = "secradio"
+			return "secradio"
 		if (PEN_FREQ)
-			. = "penradio"
+			return "penradio"
 		if (ENG_FREQ)
-			. = "engradio"
+			return "engradio"
 		if (SCI_FREQ)
-			. = "sciradio"
+			return "sciradio"
 		if (MED_FREQ,MED_I_FREQ)
-			. = "medradio"
+			return"medradio"
 		if (SUP_FREQ)	// cargo
-			. = "supradio"
+			return "supradio"
 		if (SRV_FREQ)	// service
-			. = "srvradio"
+			return "srvradio"
 		if (ENT_FREQ) //entertainment
-			. = "entradio"
+			return "entradio"
 		if (BLSP_FREQ)
-			. = "bluespaceradio"
-		if (SHIP_FREQ)
-			. = "shipradio"
-		else
-			if(DEPT_FREQS_ASSOC[fstr])
-				. = "deptradio"
+			return "bluespaceradio"
+		if (HAIL_FREQ)
+			return "hailradio"
+
+	if(DEPT_FREQS_ASSOC[fstr])
+		return "deptradio"
+
+	for(var/channel in AWAY_FREQS_ASSIGNED)
+		if(AWAY_FREQS_ASSIGNED[channel] == frequency)
+			return "shipradio"
+
+	return "radio"
+
+/proc/assign_away_freq(channel)
+	if (!AWAY_FREQS_UNASSIGNED.len)
+		return FALSE
+
+	if (channel in AWAY_FREQS_ASSIGNED)
+		return AWAY_FREQS_ASSIGNED[channel]
+
+	var/freq = pick_n_take(AWAY_FREQS_UNASSIGNED)
+	AWAY_FREQS_ASSIGNED[channel] = freq
+	radiochannels[channel] = freq
+	reverseradiochannels["[freq]"] = channel
+	ALL_RADIO_CHANNELS[channel] = TRUE
+
+	return freq
