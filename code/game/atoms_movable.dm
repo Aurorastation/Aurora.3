@@ -41,10 +41,6 @@
 		crash_with("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
 	..()*/
 
-/atom/movable/Initialize()
-	. = ..()
-	moved_event.register(src, src, /atom/movable/proc/update_grid_location)
-
 /atom/movable/Destroy()
 	if (important_recursive_contents && (important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS] || important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))
 		SSspatial_grid.force_remove_from_cell(src)
@@ -68,8 +64,6 @@
 	if(virtual_mob && !ispath(virtual_mob))
 		qdel(virtual_mob)
 		virtual_mob = null
-
-	moved_event.unregister(src, src, /atom/movable/proc/update_grid_location)
 
 // This is called when this atom is prevented from moving by atom/A.
 /atom/movable/proc/Collide(atom/A)
