@@ -11533,9 +11533,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "fNc" = (
-/obj/machinery/power/singularity_beacon/emergency{
-	name = "emergency tesla beacon"
-	},
+/obj/machinery/power/tesla_beacon,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_hard)

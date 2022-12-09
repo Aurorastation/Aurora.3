@@ -314,8 +314,8 @@
 	var/beam_range = zap_range + 2
 	for(var/A in typecache_filter_multi_list_exclusion(oview(source, beam_range), things_to_shock, blacklisted_types))
 
-		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/machinery/power/singularity_beacon/emergency))
-			var/obj/machinery/power/singularity_beacon/emergency/E = A
+		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/machinery/power/tesla_beacon/emergency))
+			var/obj/machinery/power/tesla_beacon/emergency/E = A
 			var/obj/singularity/energy_ball/B = source
 			if(!E.active)
 				return

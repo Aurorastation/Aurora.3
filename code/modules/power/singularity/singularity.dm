@@ -42,7 +42,7 @@
 	..()
 	START_PROCESSING(SScalamity, src)
 	SScalamity.singularities += src
-	for(var/obj/machinery/power/singularity_beacon/singubeacon in SSmachinery.processing)
+	for(var/obj/machinery/power/tesla_beacon/singubeacon in SSmachinery.processing)
 		if(singubeacon.active)
 			target = singubeacon
 			break
