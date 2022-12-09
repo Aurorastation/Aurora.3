@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - tweak: "Two exoplanets of the same type should no longer spawn."
