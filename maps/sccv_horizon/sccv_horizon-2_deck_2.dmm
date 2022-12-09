@@ -6247,15 +6247,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard/far)
-"dcU" = (
-/obj/structure/sign/vacuum{
-	pixel_y = 32
-	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/bridge/aibunker)
 "dcX" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -10266,9 +10257,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics)
-"fgh" = (
-/turf/simulated/floor/plating,
-/area/bridge/aibunker)
 "fgC" = (
 /obj/machinery/newscaster{
 	pixel_x = 32
@@ -10706,20 +10694,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering/tesla)
-"fto" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/corner/blue{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/camera/network/command{
-	alarm_on = 1;
-	c_tag = "Bridge - Deck 2 - Bunker Escape Route";
-	dir = 8;
-	network = list("Command","Bunker")
-	},
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
 "ftz" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Armoury Lobby";
@@ -14346,9 +14320,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
-"gXy" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/bridge/aibunker)
 "gXM" = (
 /turf/simulated/floor/tiled,
 /area/security/armory)
@@ -15915,16 +15886,6 @@
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hallway/deck_two/fore)
-"hJj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
 "hKh" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped,
@@ -16011,11 +15972,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
-"hOA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
 "hOU" = (
 /turf/simulated/wall,
 /area/medical/psych)
@@ -17879,16 +17835,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
-"iND" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
 "iNS" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/brown/full{
@@ -18524,9 +18470,6 @@
 /obj/item/storage/firstaid/adv,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
-"jeT" = (
-/turf/simulated/wall/r_wall,
-/area/bridge/aibunker)
 "jeY" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
@@ -22365,14 +22308,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
-"leh" = (
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 1
-	},
-/obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
 "leU" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -24872,7 +24807,7 @@
 "mte" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
-/area/engineering/aft_airlock)
+/area/engineering/engine_room/tesla)
 "mtf" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -25143,9 +25078,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"mzh" = (
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
 "mzL" = (
 /obj/machinery/light,
 /obj/machinery/computer/shuttle_control/lift/wall{
@@ -28908,25 +28840,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
-"otv" = (
-/obj/effect/floor_decal/corner/blue/full,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/structure/table/rack,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/security,
-/obj/item/clothing/suit/space/void/security,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/security,
-/obj/item/clothing/head/helmet/space/void/security,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
 "otw" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
@@ -31120,24 +31033,6 @@
 	},
 /turf/simulated/open,
 /area/hallway/primary/central_one)
-"pyo" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
-	},
-/obj/structure/table/rack,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/security,
-/obj/item/clothing/suit/space/void/security,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/security,
-/obj/item/clothing/head/helmet/space/void/security,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
 "pyJ" = (
 /obj/machinery/shower{
 	dir = 1
@@ -32092,7 +31987,7 @@
 "pXV" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating,
-/area/bridge/aibunker)
+/area/engineering/aft_airlock)
 "pYK" = (
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 4
@@ -36266,14 +36161,6 @@
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/security/main)
-"rXj" = (
-/obj/structure/ladder/up,
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
 "rXm" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/mech_recharger,
@@ -41189,13 +41076,6 @@
 /obj/structure/plasticflaps,
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
-"uxi" = (
-/obj/effect/map_effect/airlock/s_to_n/long/square/wide{
-	name = "Deck 2 Command Bunker Airlock (2004)";
-	radio_frequency = 2004
-	},
-/turf/simulated/wall/r_wall,
-/area/bridge/aibunker)
 "uxn" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -41539,16 +41419,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/rnd/conference)
-"uHb" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/camera/network/command{
-	alarm_on = 1;
-	c_tag = "Bridge - Deck 2 - Bunker Escape Route External";
-	dir = 1;
-	network = list("Command","Bunker")
-	},
-/turf/simulated/open/airless,
-/area/horizon/exterior)
 "uHh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -44186,18 +44056,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/engineering/lobby)
-"vWE" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window/eastright{
-	name = "Canister Access";
-	req_access = list(19)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
 "vWX" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/toilet{
@@ -45205,35 +45063,6 @@
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
-"wqn" = (
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 8
-	},
-/obj/structure/table/rack,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/security,
-/obj/item/clothing/suit/space/void/security,
-/obj/item/clothing/suit/space/void/security,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/security,
-/obj/item/clothing/head/helmet/space/void/security,
-/obj/item/clothing/head/helmet/space/void/security,
-/obj/structure/sign/vacuum{
-	pixel_y = 32
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
 "wqE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -70801,14 +70630,14 @@ qgN
 qgN
 qgN
 qgN
-gXy
-gXy
-gXy
-gXy
-gXy
-gXy
-gXy
-gXy
+bBO
+bBO
+bBO
+bBO
+bBO
+bBO
+bBO
+bBO
 wZJ
 nZj
 bBO
@@ -71002,15 +70831,15 @@ qgN
 qgN
 qgN
 qgN
-gXy
-gXy
+bBO
+bBO
 pXV
 pXV
 pXV
-jeT
-jeT
-jeT
-jeT
+pXV
+pXV
+pXV
+cQS
 tyZ
 cQS
 xOA
@@ -71204,15 +71033,15 @@ qgN
 qgN
 qgN
 qgN
-gXy
-jeT
-jeT
-uxi
-jeT
-jeT
-vWE
-jeT
-jeT
+bBO
+pXV
+pXV
+pXV
+pXV
+pXV
+pXV
+pXV
+cQS
 wZJ
 cQS
 tOk
@@ -71405,16 +71234,16 @@ qgN
 qgN
 qgN
 qgN
-bxp
-gXy
-dcU
-fgh
-jeT
-wqn
-pyo
-otv
-jeT
-jeT
+qgN
+bBO
+pXV
+pXV
+pXV
+pXV
+pXV
+pXV
+pXV
+cQS
 cZq
 lqM
 tfr
@@ -71607,16 +71436,16 @@ qgN
 qgN
 qgN
 qgN
-bxp
-fgh
-fgh
-fgh
-mzh
-iND
-hOA
-hJj
-jeT
-jeT
+qgN
+bBO
+pXV
+pXV
+pXV
+pXV
+pXV
+pXV
+pXV
+cQS
 uaM
 llI
 rLn
@@ -71809,16 +71638,16 @@ qgN
 qgN
 qgN
 qgN
-uHb
-gXy
-fgh
-fgh
-jeT
-leh
-fto
-rXj
-jeT
-jeT
+qgN
+bBO
+pXV
+pXV
+pXV
+pXV
+pXV
+pXV
+pXV
+cQS
 qwq
 kga
 kDN
@@ -72012,15 +71841,15 @@ qgN
 qgN
 qgN
 qgN
-gXy
-jeT
-jeT
-jeT
-jeT
-jeT
-jeT
-jeT
-jeT
+bBO
+pXV
+pXV
+pXV
+pXV
+pXV
+pXV
+pXV
+cQS
 dcX
 lbf
 lbf
@@ -72214,19 +72043,19 @@ qgN
 qgN
 qgN
 qgN
-gXy
-pXV
-jeT
-jeT
-jeT
-jeT
-jeT
-jeT
-jeT
-cQS
+fJv
+pRd
+ntt
+ntt
+ntt
+ntt
+ntt
+ntt
+ntt
+ntt
 mte
 mte
-cQS
+ntt
 wfD
 tKs
 bTg
