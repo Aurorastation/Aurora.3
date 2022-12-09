@@ -2704,8 +2704,7 @@
 	pixel_y = -12;
 	req_one_access = list(13)
 	},
-/obj/effect/shuttle_landmark/horizon/deckthree/starboard,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "csY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
