@@ -40,6 +40,25 @@
 			<ul class="changes bgimages16">
 				<li class="tweak">Two exoplanets of the same type should no longer spawn.</li>
 			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Tcomms relays have been removed. All telecomms machines now handle traffic on all connected z-levels by default, making them superfluous.</li>
+				<li class="refactor">Ported and overhauled generated away site frequencies from Bay. Away ships and sites now have their own radio frequency, accessible via &#x27;;&#x27; or &#x27;:h&#x27;.</li>
+				<li class="rscadd">Hailing frequency, &#x27;:y&#x27;, added to all ships and most of the command / exploration crew on the Horizon. Radios (headsets) now have a button to reset to their preset frequency, if tuned away.</li>
+				<li class="backend">Significantly overhauled the systems underpinning telecomms / radio broadcasts, relying more directly on /datum/signal creation.</li>
+				<li class="backend">Ported the spatial grid / orthogonal range search algorithms from /tg/, making checks for hearers in range much faster, and thus easing server load during high-pop events.</li>
+				<li class="backend">Ported the trait system from /tg/ and refactored / reorganized telecomms machines as necessary for the above changes.</li>
+			</ul>
+			<h3 class="author">PoZe updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Reworked cyborg&#x27;s access to be role specific and reflect their crewmate&#x27;s access for the same role/department.</li>
+				<li class="rscadd">Added ability to change cyborg&#x27;s access in Robotics Control Console from role specific to all access and vice-versa.</li>
+				<li class="rscadd">Added displaying of what access type cyborg has in status tab.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Moves the bunker to a more central location on deck 3.</li>
+			</ul>
 
 			<h2 class="date">08 December 2022</h2>
 			<h3 class="author">Connorjg1 updated:</h3>
