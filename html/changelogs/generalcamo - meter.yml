@@ -1,0 +1,7 @@
+author: GeneralCamo & Bloodpriest
+
+delete-after: True
+
+changes:
+  - tweak: "Ported Atmospheric Pipe Meter sprites from Eris."
+  - tweak: "Ported Airlock Sensor, Control, and Access Control sprites from Eris."
