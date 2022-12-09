@@ -162,12 +162,12 @@
 		log_debug("No valid exoplanets found!")
 		return
 
-var/exoplanets_to_spawn = min(possible_exoplanets.len, num_exoplanets)
-for(var/i = 0, i < exoplanets_to_spawn, i++)
-	var/exoplanet_type = pick_n_take(possible_exoplanets)
-	log_debug("Building new exoplanet with type: [exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
-	var/obj/effect/overmap/visitable/sector/exoplanet/new_planet = new exoplanet_type(null, planet_size[1], planet_size[2])
-	new_planet.build_level()
+	var/exoplanets_to_spawn = min(possible_exoplanets.len, num_exoplanets)
+	for(var/i = 0, i < exoplanets_to_spawn, i++)
+		var/exoplanet_type = pick_n_take(possible_exoplanets)
+		log_debug("Building new exoplanet with type: [exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
+		var/obj/effect/overmap/visitable/sector/exoplanet/new_planet = new exoplanet_type(null, planet_size[1], planet_size[2])
+		new_planet.build_level()
 
 /* It is perfectly possible to create loops with TEMPLATE_FLAG_ALLOW_DUPLICATES and force/allow. Don't. */
 /proc/resolve_site_selection(datum/map_template/ruin/away_site/site, list/selected, list/available, list/unavailable, list/by_type)
