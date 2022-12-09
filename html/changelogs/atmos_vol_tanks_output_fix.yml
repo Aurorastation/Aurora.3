@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes the atmospherics volume tanks starting at 15000 kPa output pressure."
