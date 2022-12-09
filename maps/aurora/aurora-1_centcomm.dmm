@@ -11268,7 +11268,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/telecomms/relay/preset/centcom,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -20834,9 +20833,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/telecomms/allinone{
-	intercept = 1
-	},
+/obj/machinery/telecomms/allinone,
 /turf/simulated/floor/plating,
 /area/shuttle/mercenary)
 "jxO" = (

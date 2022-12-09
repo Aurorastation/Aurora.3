@@ -18012,7 +18012,6 @@
 /area/crew_quarters/heads/hor)
 "iTh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/telecomms/relay/preset/station,
 /obj/machinery/camera/network/telecom{
 	c_tag = "Telecomms - Second Deck Relay";
 	dir = 8

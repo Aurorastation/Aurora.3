@@ -4040,7 +4040,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/telecomms/relay/preset/centcom,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -6215,13 +6214,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
-"gkf" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/centcom/control)
 "glr" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -49041,7 +49033,7 @@ aaM
 bYs
 uOd
 gAn
-gkf
+dLE
 uqK
 nTD
 vfb

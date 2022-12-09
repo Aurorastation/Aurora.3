@@ -9004,7 +9004,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "aqI" = (
-/obj/machinery/message_server,
+/obj/machinery/telecomms/message_server,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_server_room)
 "aqJ" = (
@@ -9951,7 +9951,6 @@
 	},
 /area/tcommsat/mainlvl_tcomms__relay)
 "arX" = (
-/obj/machinery/telecomms/relay/preset/station,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
 	},

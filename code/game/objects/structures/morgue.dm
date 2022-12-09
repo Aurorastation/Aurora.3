@@ -32,7 +32,7 @@
 		icon_state = "morgue0"
 	else
 		icon_state = "morgue1"
-		var/list/searching = GetAllContents(searchDepth = 3, checkClient = 0) // Search inside bodybags as well.
+		var/list/searching = get_all_contents_of_type(/mob/living) // Search inside bodybags as well.
 		for(var/mob/living/M in searching)
 			if(iscarbon(M))
 				var/mob/living/carbon/C = M
@@ -252,7 +252,7 @@
 		update_icon()
 		var/desperation = 0
 
-		var/list/searching = GetAllContents(searchDepth = 3, checkClient = 0)
+		var/list/searching = get_all_contents_of_type(/mob/living)
 		for(var/mob/living/M in searching)
 			admin_attack_log(A, M, "Began cremating their victim.", "Has begun being cremated.", "began cremating")
 			if(iscarbon(M))

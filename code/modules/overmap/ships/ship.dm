@@ -37,6 +37,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 	var/list/consoles
 
+	comms_support = TRUE
+
 /obj/effect/overmap/visitable/ship/Initialize()
 	. = ..()
 	glide_size = world.icon_size
