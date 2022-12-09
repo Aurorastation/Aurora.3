@@ -39,6 +39,9 @@
 
 	turfs += src
 
+	if (isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else

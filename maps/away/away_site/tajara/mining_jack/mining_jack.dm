@@ -23,6 +23,8 @@
 	initial_restricted_waypoints = list(
 		"Mining Jack" = list("nav_hangar_tajara_mining_jack")
 	)
+	comms_support = TRUE
+	comms_name = "adhomian"
 
 /obj/effect/shuttle_landmark/tajara_mining_jack
 	base_turf = /turf/space

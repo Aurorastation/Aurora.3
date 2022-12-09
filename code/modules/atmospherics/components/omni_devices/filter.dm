@@ -13,10 +13,10 @@
 	var/datum/omni_port/output
 
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
-	power_rating = 7500			//7500 W ~ 10 HP
+	power_rating = 15000			//15000 W ~ 20 HP
 
-	var/max_flow_rate = 200
-	var/set_flow_rate = 200
+	var/max_flow_rate = ATMOS_DEFAULT_VOLUME_FILTER
+	var/set_flow_rate = ATMOS_DEFAULT_VOLUME_FILTER
 
 	var/list/filtering_outputs = list()	//maps gasids to gas_mixtures
 
@@ -97,7 +97,7 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 
 	if (!ui)
-		ui = new(user, src, ui_key, "omni_filter.tmpl", "Omni Filter Control", 330, 330)
+		ui = new(user, src, ui_key, "omni_filter.tmpl", "Omni Filter Control", 470, 330)
 		ui.set_initial_data(data)
 
 		ui.open()
@@ -107,6 +107,8 @@
 
 	data["power"] = use_power
 	data["config"] = configuring
+	data["last_power_draw"] = last_power_draw
+	data["max_power_draw"] = power_rating
 
 	var/portData[0]
 	for(var/datum/omni_port/P in ports)

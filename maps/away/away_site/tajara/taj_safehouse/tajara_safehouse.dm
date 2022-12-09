@@ -18,6 +18,7 @@
 	initial_restricted_waypoints = list(
 		"Unmarked Civilian Shuttle" = list("nav_hangar_tajara_safehouse")
 	)
+	comms_support = TRUE
 
 /area/tajara_safehouse
 	name = "Abandoned Outpost"

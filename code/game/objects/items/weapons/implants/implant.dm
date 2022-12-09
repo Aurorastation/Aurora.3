@@ -289,10 +289,9 @@ Implant Specifics:<BR>"}
 
 /obj/item/implant/explosive/New()
 	..()
-	listening_objects += src
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 /obj/item/implant/explosive/Destroy()
-	listening_objects -= src
 	return ..()
 
 /obj/item/implant/explosive/full
