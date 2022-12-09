@@ -2019,17 +2019,6 @@
 /obj/item/pen/multi,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
-"pll" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "orion_traveler_port";
-	name = "exterior access button";
-	pixel_y = 32
-	},
-/turf/template_noop,
-/area/ship/orion_express_ship)
 "ppM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -2959,6 +2948,13 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "aft, airlock"
 	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "orion_traveler_port";
+	name = "exterior access button";
+	pixel_x = -32
+	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "vhp" = (
@@ -3472,6 +3468,7 @@
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_out"
 	},
+/obj/effect/shuttle_landmark/orion_express_ship/nav3,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 
@@ -35201,7 +35198,7 @@ qBd
 riA
 riA
 qBd
-soM
+xRX
 xRX
 xRX
 xRX
@@ -35458,7 +35455,7 @@ rrQ
 ppM
 gtw
 hPR
-pll
+xRX
 xRX
 xRX
 xRX
@@ -35715,7 +35712,7 @@ krz
 dYD
 rvq
 vfR
-soM
+xRX
 xRX
 xRX
 xRX
@@ -35972,7 +35969,7 @@ hrj
 rvq
 oEN
 yks
-soM
+xRX
 xRX
 xRX
 xRX
@@ -36229,7 +36226,7 @@ qBd
 riA
 riA
 qBd
-soM
+xRX
 xRX
 xRX
 xRX
