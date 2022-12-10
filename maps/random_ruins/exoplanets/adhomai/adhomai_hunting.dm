@@ -1,7 +1,7 @@
 /datum/map_template/ruin/exoplanet/adhomai_hunting
 	name = "Adhomai Hunting Lodge"
 	id = "adhomai_hunting"
-	description = "A lodge housing some Tajara hunters."
+	description = "A lodge housing some Tajaran hunters."
 
 	spawn_weight = 1
 	spawn_cost = 2

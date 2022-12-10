@@ -1,7 +1,7 @@
 /datum/map_template/ruin/exoplanet/adhomai_cavern
 	name = "Adhomai Cavern"
 	id = "adhomai_Cavern"
-	description = "A cavern with something inside.."
+	description = "An Adhomian cavern with something inside."
 
 	spawn_weight = 1
 	spawn_cost = 1

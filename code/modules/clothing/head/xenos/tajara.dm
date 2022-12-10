@@ -125,6 +125,12 @@
 	icon_state = "nka_consularhat"
 	item_state = "nka_consularhat"
 
+/obj/item/clothing/head/tajaran/archeologist
+	name = "archeologist hat"
+	desc = "A well-worn fedora favored by Adhomian explorers and archeologists. Not very protective but still very stylish."
+	icon_state = "explorer_hat"
+	item_state = "explorer_hat"
+
 /obj/item/clothing/head/helmet/amohda
 	name = "amohdan swordsman helmet"
 	desc = "A helmet used by the traditional warriors of Amohda."

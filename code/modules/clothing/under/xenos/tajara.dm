@@ -223,3 +223,9 @@
 	desc = "Clothes frequently worn by the New Kingdom's nobles. Likely a hand-me-down."
 	icon_state = "nka_noble_uniform"
 	item_state = "nka_noble_uniform"
+
+/obj/item/clothing/under/tajaran/archeologist
+	name = "archeologist uniform"
+	desc = "A rugged uniform used by Adhomian archeologists. It is already covered in dirt and ancient dust."
+	icon_state = "explorer_uniform"
+	item_state = "explorer_uniform"

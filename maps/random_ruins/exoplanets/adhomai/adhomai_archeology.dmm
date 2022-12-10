@@ -1,0 +1,1408 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"b" = (
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/device/flashlight/lamp{
+	pixel_y = 15
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"c" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"d" = (
+/obj/structure/closet/crate/miningcart,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"f" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead,
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead,
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"g" = (
+/obj/structure/table/standard,
+/obj/item/stack/nanopaste,
+/obj/item/stack/nanopaste,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"j" = (
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_x = 12
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"k" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"m" = (
+/obj/structure/sign/flag/nka{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"n" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/artifact_analyser,
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"o" = (
+/obj/machinery/artifact_scanpad,
+/obj/effect/floor_decal/spline/plain/cee,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"p" = (
+/obj/effect/ghostspawpoint{
+	identifier = "adhomai_archeology";
+	name = "igs - adhomai_archeology"
+	},
+/obj/structure/bed/stool/wood,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"q" = (
+/obj/structure/curtain/open,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"r" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = 12
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"s" = (
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"t" = (
+/obj/machinery/floodlight,
+/obj/structure/sign/flag/nka{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"u" = (
+/obj/structure/table/rack,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"v" = (
+/obj/structure/bonfire/light_up,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"w" = (
+/obj/structure/closet/crate,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"x" = (
+/obj/structure/anomaly_container,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"z" = (
+/obj/structure/closet/crate,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"A" = (
+/obj/machinery/suspension_gen,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"B" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"C" = (
+/obj/structure/flora/rock/ice,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"E" = (
+/turf/simulated/wall/cloth,
+/area/adhomai_archeology)
+"F" = (
+/obj/structure/closet/crate/secure/large,
+/obj/item/storage/box/dynamite,
+/obj/item/storage/box/dynamite,
+/obj/item/storage/box/dynamite,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"H" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"I" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/radiocarbon_spectrometer,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"J" = (
+/obj/structure/closet/crate,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"M" = (
+/obj/structure/closet/excavation,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"O" = (
+/obj/structure/sign/flag/nka{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"P" = (
+/obj/structure/sign/flag/nka{
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Q" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/closet/excavation,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"R" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"S" = (
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"U" = (
+/obj/structure/closet/crate/miningcart,
+/obj/structure/sign/flag/nka{
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"V" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"W" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+"X" = (
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Y" = (
+/obj/item/trash/cigbutt/cigarbutt,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Z" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 268.15
+	},
+/area/adhomai_archeology)
+
+(1,1,1) = {"
+c
+c
+c
+c
+H
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(2,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+X
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(3,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(4,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+X
+c
+c
+c
+s
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(5,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+X
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+C
+c
+c
+c
+c
+c
+c
+s
+c
+c
+c
+c
+"}
+(6,1,1) = {"
+c
+c
+s
+c
+c
+C
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+s
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(7,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+E
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(8,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+E
+E
+E
+E
+E
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+s
+"}
+(9,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+E
+E
+J
+z
+w
+E
+E
+c
+c
+c
+c
+c
+X
+c
+c
+c
+c
+c
+"}
+(10,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+E
+F
+S
+S
+S
+f
+E
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(11,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+E
+F
+S
+S
+S
+W
+E
+c
+c
+c
+s
+c
+c
+c
+c
+c
+c
+c
+"}
+(12,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+E
+E
+E
+q
+E
+E
+E
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(13,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+P
+c
+U
+d
+d
+c
+c
+H
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(14,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+E
+E
+E
+E
+R
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(15,1,1) = {"
+c
+c
+c
+H
+c
+c
+c
+c
+E
+E
+k
+b
+E
+R
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+s
+c
+"}
+(16,1,1) = {"
+c
+s
+c
+c
+c
+c
+c
+c
+E
+V
+r
+Z
+E
+t
+c
+c
+j
+p
+c
+c
+c
+c
+c
+c
+c
+c
+c
+X
+c
+c
+c
+c
+"}
+(17,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+E
+E
+I
+B
+S
+q
+c
+c
+c
+p
+v
+c
+c
+c
+c
+c
+c
+H
+c
+c
+c
+c
+c
+c
+c
+"}
+(18,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+E
+g
+B
+S
+E
+m
+c
+c
+c
+p
+Y
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(19,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+E
+E
+n
+o
+E
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(20,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+E
+E
+E
+E
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(21,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+O
+c
+O
+c
+c
+c
+c
+c
+s
+c
+c
+c
+c
+c
+c
+c
+"}
+(22,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+X
+c
+c
+c
+E
+E
+E
+q
+E
+E
+E
+c
+c
+c
+c
+c
+s
+c
+c
+c
+c
+c
+"}
+(23,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+E
+u
+S
+S
+S
+A
+E
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(24,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+E
+x
+S
+S
+S
+A
+E
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(25,1,1) = {"
+c
+c
+c
+c
+c
+X
+c
+c
+c
+c
+c
+c
+c
+c
+E
+E
+M
+Q
+M
+E
+E
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(26,1,1) = {"
+c
+X
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+E
+E
+E
+E
+E
+c
+c
+s
+c
+c
+c
+X
+c
+c
+c
+c
+c
+"}
+(27,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+s
+c
+c
+c
+E
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(28,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+s
+c
+"}
+(29,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+s
+c
+c
+c
+c
+c
+c
+c
+c
+X
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(30,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+X
+c
+c
+c
+c
+c
+c
+c
+c
+c
+H
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(31,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(32,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}

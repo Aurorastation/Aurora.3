@@ -39,4 +39,4 @@
 
 /obj/item/photo/soldier
 	name = "family photo"
-	desc = "A picture of a happy Tajaran family. This photography is crumpled and slightly bloody."
+	desc = "A picture of a happy Tajaran family. This photo is crumpled and slightly bloody."

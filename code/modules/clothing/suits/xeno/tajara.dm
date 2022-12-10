@@ -286,3 +286,12 @@
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	allowed = list(/obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/material/knife, /obj/item/device/flashlight)
+
+/obj/item/clothing/suit/storage/tajaran/archeologist
+	name = "archeologist jacket"
+	desc = "A leather jacket used by Adhomian archeologists. Perfect to store dynamite sticks."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "explorer_jacket"
+	item_state = "explorer_jacket"
+	contained_sprite = TRUE
+	allowed = list(/obj/item/grenade/dynamite, /obj/item/melee/whip, /obj/item/gun/projectile/revolver, /obj/item/pickaxe)

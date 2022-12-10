@@ -1,7 +1,7 @@
 /datum/map_template/ruin/exoplanet/raskara_ritual
 	name = "Raskara Ritual"
 	id = "raskara_ritual"
-	description = "The site of a bizzare ritual on Raskara"
+	description = "The site of a sinister ritual."
 
 	spawn_weight = 1
 	spawn_cost = 2

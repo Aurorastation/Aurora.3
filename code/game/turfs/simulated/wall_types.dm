@@ -108,7 +108,7 @@
 	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_WOOD)
 	canSmoothWith = list(src.type)
-	
+
 /turf/simulated/wall/birchwood/Initialize(mapload)
 	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_BIRCH)
@@ -148,4 +148,9 @@
 	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_RUST)
 	desc = "Rust stains this ancient wall."
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/cloth/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_CLOTH)
 	canSmoothWith = list(src.type)

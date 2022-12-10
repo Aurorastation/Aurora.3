@@ -142,3 +142,22 @@
 		qdel(I)
 		user.put_in_hands(T)
 		qdel(src)
+
+/obj/item/device/flashlight/flare/torch/stick
+	name = "flaming stick"
+	desc = "How exciting!"
+	brightness_on = 1.5
+	light_power = 1
+	produce_heat = 400
+
+/obj/item/device/flashlight/flare/torch/stick/Initialize()
+	. = ..()
+	fuel = rand(30, 45)
+	on = TRUE
+	START_PROCESSING(SSprocessing, src)
+	update_icon()
+
+/obj/item/device/flashlight/flare/torch/stick/turn_off()
+	visible_message("\The [src] burns out.")
+	new /obj/effect/decal/cleanable/ash(get_turf(src))
+	qdel(src)

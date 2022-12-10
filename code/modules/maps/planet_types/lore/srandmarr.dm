@@ -106,8 +106,10 @@
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
 	generated_name = FALSE
-	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
-								/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield)
+//	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
+//								/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_archeology)
+	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_archeology)
+
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_habitability()
 	return HABITABILITY_IDEAL
@@ -119,6 +121,8 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_planet_image()
 	skybox_image = image('icons/skybox/lore_planets.dmi', "adhomai")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_atmosphere()
 	..()
