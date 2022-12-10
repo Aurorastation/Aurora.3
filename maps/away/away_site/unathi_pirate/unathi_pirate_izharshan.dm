@@ -23,6 +23,7 @@
 /area/shuttle/unathi_pirate_izharshan
 	name = "Izharshan Freighter"
 	requires_power = TRUE
+	flags = HIDE_FROM_HOLOMAP
 
 /area/shuttle/unathi_pirate_izharshan/operations
 	name = "Izharshan Freighter Operations"

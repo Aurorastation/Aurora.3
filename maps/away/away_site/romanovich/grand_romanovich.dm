@@ -19,6 +19,7 @@
 	comms_name = "grand romanovich"
 
 /area/grand_romanovich
+	flags = HIDE_FROM_HOLOMAP
 	name = "Grand Romanovich Casino"
 	icon_state = "away"
 	requires_power = FALSE

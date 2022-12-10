@@ -1,6 +1,6 @@
 /obj/machinery/station_map
-	name = "station holomap"
-	desc = "A virtual map of the surrounding station."
+	name = "holomap"
+	desc = "A virtual map of the surrounding level."
 	icon = 'icons/obj/machines/stationmap.dmi'
 	icon_state = "station_map"
 	anchored = 1
@@ -36,6 +36,7 @@
 /obj/machinery/station_map/Initialize()
 	. = ..()
 	init_map(loc.z)
+	add_floor_decal()
 
 /obj/machinery/station_map/proc/init_map(var/Z)
 	holomap_datum = new()
@@ -57,6 +58,7 @@
 	small_station_map.layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	small_station_map.filters = filter(type = "drop_shadow", color = light_color + "F0", size = 1, offset = 1, x = 0, y = 0)
 
+/obj/machinery/station_map/proc/add_floor_decal()
 	floor_markings = image('icons/obj/machines/stationmap.dmi', "decal_station_map")
 	floor_markings.dir = src.dir
 	floor_markings.layer = ON_TURF_LAYER
@@ -193,13 +195,14 @@
 	active_power_usage = 0
 
 /obj/machinery/station_map/mobile/Initialize()
+	init_map(loc.z)
 	return
 
 /obj/machinery/station_map/mobile/startWatching(var/mob/user)
 	if(!user)
 		return
 
-	src.init_map(user.loc.z)
+	small_station_map = image(SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[user.z]"], dir = dir)
 	if(!watching_mob && isliving(user))
 		..()
 

@@ -7704,6 +7704,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
+"dMA" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/station_map{
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_two/fore)
 "dMG" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/disposalpipe/down{
@@ -9196,10 +9207,10 @@
 	layer = 4;
 	pixel_y = 32
 	},
-/mob/living/simple_animal/hostile/commanded/dog/columbo,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/mob/living/simple_animal/hostile/commanded/dog/columbo,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "eEx" = (
@@ -10249,6 +10260,11 @@
 /obj/effect/floor_decal/corner/green,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
+	},
+/obj/machinery/station_map{
+	dir = 1;
+	pixel_x = 0;
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
@@ -12390,10 +12406,10 @@
 	name = "Ginny's Cage Access";
 	req_access = list(56)
 	},
-/mob/living/simple_animal/carp/fluff/ginny,
 /obj/machinery/light{
 	dir = 1
 	},
+/mob/living/simple_animal/carp/fluff/ginny,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "ghX" = (
@@ -22258,6 +22274,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
+"lcG" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/machinery/station_map{
+	dir = 1;
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/hallway)
 "ldk" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -24397,6 +24424,11 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/station_map{
+	dir = 1;
+	pixel_x = 0;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "mgJ" = (
@@ -24563,10 +24595,10 @@
 "mmm" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
 "mmS" = (
@@ -28361,6 +28393,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/station_map{
+	dir = 8;
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "ohc" = (
@@ -29009,6 +29045,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
+"oyK" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/station_map{
+	dir = 1;
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/lobby)
 "oyP" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
@@ -40157,6 +40204,17 @@
 "ueH" = (
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
+"uft" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/station_map{
+	dir = 2;
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/operations/lobby)
 "ufC" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -43922,7 +43980,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine Core")
+	sensors = list("engine_sensor" = "Engine Core")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
@@ -58970,7 +59028,7 @@ rCR
 rCR
 rCR
 rCR
-ubX
+uft
 jNd
 gfI
 cOU
@@ -67832,7 +67890,7 @@ ilT
 nge
 lMN
 nbJ
-dpG
+oyK
 sYl
 oUt
 oUt
@@ -68670,7 +68728,7 @@ hGC
 tre
 qfC
 hnf
-sBy
+dMA
 sBy
 wbE
 tre
@@ -76523,7 +76581,7 @@ jxs
 mdR
 pBn
 aov
-rnA
+lcG
 kGX
 kGX
 kGX
