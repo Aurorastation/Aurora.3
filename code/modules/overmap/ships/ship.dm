@@ -278,10 +278,13 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	forceMove(get_step(src, dir_to_move))
 	for(var/mob/living/L in living_mob_list)
 		if(L.z in map_z)
-			to_chat(L, SPAN_DANGER("<font size=4>The ship rapidly inclines under your feet!</font>"))
-			if(!L.buckled_to)
-				var/turf/T = get_step_away(get_turf(L), get_step(L, new_dir), 10)
-				L.throw_at(T, 10, 10)
+			if(!gravity_generator?.on && !L.anchored)
+				to_chat(L, SPAN_DANGER("<font size=4>The ship rapidly inclines beneath you!</font>"))
+				if(!L.buckled_to)
+					var/turf/T = get_step_away(get_turf(L), get_step(L, new_dir), 10)
+					L.throw_at(T, 10, 10)
+			else
+				to_chat(L, SPAN_WARNING("The ship inclines beneath you, but the artificial gravity keeps you on your feet."))
 			shake_camera(L, 2 SECONDS, 10)
 			sound_to(L, sound('sound/effects/combatroll.ogg'))
 	last_combat_roll = world.time
@@ -310,16 +313,19 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	update_icon()
 	for(var/mob/living/L in living_mob_list)
 		if(L.z in map_z)
-			to_chat(L, SPAN_DANGER("The ship rapidly turns under your feet!"))
-			if(!L.buckled_to)
-				L.Weaken(3)
+			if(!gravity_generator?.on && !L.anchored)
+				to_chat(L, SPAN_DANGER("The ship rapidly turns beneath you!"))
+				if(!L.buckled_to)
+					L.Weaken(3)
+			else
+				to_chat(L, SPAN_WARNING("The ship turns beneath you, but the artificial gravity keeps you on your feet."))
 			shake_camera(L, 1 SECOND, 2)
 			L.playsound_simple(soundin = 'sound/machines/thruster.ogg', volume = 50)
 	last_combat_turn = world.time
 
 /obj/effect/overmap/visitable/ship/signal_hit(var/list/hit_data)
 	for(var/obj/machinery/computer/ship/targeting/TR in consoles)
-		TR.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] Hit confirmed on [hit_data["target_name"]] in [hit_data["target_area"]] at coordinates [hit_data["coordinates"]]."), range = 2)
+		TR.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(TR)))] Hit confirmed on [hit_data["target_name"]] in [hit_data["target_area"]] at coordinates [hit_data["coordinates"]]."), range = 2)
 
 #undef MOVING
 #undef SANITIZE_SPEED
