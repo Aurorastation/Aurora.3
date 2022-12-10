@@ -380,7 +380,7 @@
 	path = /obj/item/voidsuit_modkit/himeo/tajara
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Cargo Technician", "Shaft Miner", "Quartermaster", "Head of Personnel", "Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Shaft Miner", "Operations Manager", "Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
 	origin_restriction = list(/decl/origin_item/origin/free_council)
 
 /datum/gear/tajaran_tarot
