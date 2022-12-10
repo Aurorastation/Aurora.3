@@ -512,14 +512,16 @@
 	set name = "View Holomap"
 	set desc = "View Holomap of the current level."
 	
-	var/obj/machinery/station_map/robot/holo_map
+	var/obj/machinery/station_map/robot/holo_map_object
 	if(src.holo_map)
-		holo_map = src.holo_map.resolve()
+		holo_map_object = src.holo_map.resolve()
 
-	if(!holo_map)
-		holo_map = new(src)
-		holo_map.startWatching(src)
+	// Not an else because weakref.resolve() can return false. Edge case
+	if(!holo_map_object)
+		holo_map_object = new(src)
 		src.holo_map = WEAKREF(holo_map)
+	
+	holo_map_object.startWatching(src)
 
 /mob/living/silicon/robot/verb/rebuild_overlays()
 	set category = "Robot Commands"

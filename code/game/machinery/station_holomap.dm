@@ -35,8 +35,11 @@
 
 /obj/machinery/station_map/Initialize()
 	. = ..()
+	init_map(loc.z)
+
+/obj/machinery/station_map/proc/init_map(var/Z)
 	holomap_datum = new()
-	original_zLevel = loc.z
+	original_zLevel = Z
 	SSholomap.station_holomaps += src
 	flags |= ON_BORDER // Why? It doesn't help if its not density
 	bogus = FALSE
@@ -185,47 +188,20 @@
 
 // TODO: Make these constructable.
 
-/obj/machinery/station_map/robot/Initialize()
+/obj/machinery/station_map/mobile
+	idle_power_usage = 0
+	active_power_usage = 0
+
+/obj/machinery/station_map/mobile/Initialize()
 	return
 
-/obj/machinery/station_map/robot/proc/init_map(var/Z)
-	holomap_datum = new()
-	original_zLevel = Z
-	SSholomap.station_holomaps += src
-	flags |= ON_BORDER // Why? It doesn't help if its not density
-	bogus = FALSE
-	var/turf/T = get_turf(src)
-	original_zLevel = T.z
-	if(!("[HOLOMAP_EXTRA_STATIONMAP]_[original_zLevel]" in SSholomap.extra_minimaps))
-		bogus = TRUE
-		holomap_datum.initialize_holomap_bogus()
-		update_icon()
+/obj/machinery/station_map/mobile/startWatching(var/mob/user)
+	if(!user)
 		return
 
-	holomap_datum.initialize_holomap(T, reinit = TRUE)
-
-	small_station_map = image(SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"], dir = dir)
-	small_station_map.layer = EFFECTS_ABOVE_LIGHTING_LAYER
-	small_station_map.filters = filter(type = "drop_shadow", color = light_color + "F0", size = 1, offset = 1, x = 0, y = 0)
-
-	floor_markings = image('icons/obj/machines/stationmap.dmi', "decal_station_map")
-	floor_markings.dir = src.dir
-	floor_markings.layer = ON_TURF_LAYER
-	update_icon()
-
-/obj/machinery/station_map/robot/startWatching(var/mob/user)
 	src.init_map(user.loc.z)
 	if(!watching_mob && isliving(user))
 		..()
-
-/obj/machinery/station_map/robot/stopWatching()
-	var/mob/living/silicon/robot/R = watching_mob
-	if (R)
-		R.holo_map = null
-		. = ..()
-		qdel(src)
-	else
-		. = ..()
 
 // Simple datum to keep track of a running holomap. Each machine capable of displaying the holomap will have one.
 /datum/station_holomap

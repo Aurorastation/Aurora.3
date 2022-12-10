@@ -657,6 +657,7 @@
 	icon_state = "zta"
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
+	flags = HIDE_FROM_HOLOMAP
 
 // Longbow
 /area/horizon/longbow
