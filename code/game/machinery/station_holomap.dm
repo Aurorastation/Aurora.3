@@ -1,6 +1,6 @@
 /obj/machinery/station_map
 	name = "holomap"
-	desc = "A virtual map of the surrounding level."
+	desc = "A virtual map of the surrounding deck."
 	icon = 'icons/obj/machines/stationmap.dmi'
 	icon_state = "station_map"
 	anchored = 1
