@@ -50,6 +50,9 @@
 	spawn(10)
 		recent_broadcasts -= signal_message
 
+/obj/machinery/telecomms/allinone/ship
+	away_aio = TRUE
+
 /obj/machinery/telecomms/allinone/ship/LateInitialize()
 	. = ..()
 	if(!linked)

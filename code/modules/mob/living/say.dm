@@ -302,6 +302,9 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/list/hear_clients = list()
 	for(var/mob/M in listening)
+		if((M.client || (M.vr_mob && M.vr_mob.client)) && ((M.client in hear_clients) || (M.vr_mob?.client in hear_clients)))
+			listening -= M
+			continue // people don't need to double-hear stuff
 		var/heard_say = M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol, get_font_size_modifier())
 		if(heard_say && M.client)
 			hear_clients += M.client
