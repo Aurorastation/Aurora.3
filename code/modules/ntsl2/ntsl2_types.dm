@@ -54,7 +54,7 @@
 	. = ..()
 	src.server = server
 
-/datum/ntsl2_program/tcomm/proc/process_message(var/datum/signal/signal, var/callback = null)
+/datum/ntsl2_program/tcomm/proc/process_message(var/datum/signal/subspace/vocal/signal, var/callback = null)
 	var/datum/language/signal_language = signal.data["language"]
 	SSntsl2.send_task("tcom/process", list(
 		id = id,
@@ -64,7 +64,7 @@
 			source = html_decode(signal.data["name"]),
 			job = html_decode(signal.data["job"]),
 			pass = !(signal.data["reject"]),
-			verb = signal.data["verb"],
+			verb = signal.data["say_verb"],
 			language = signal_language.name,
 			reference = ref(signal)
 		)
@@ -82,36 +82,31 @@
   }
 ]*/
 
-/datum/ntsl2_program/tcomm/proc/retrieve_messages(var/callback = null)
+/datum/ntsl2_program/tcomm/proc/retrieve_messages(callback = null)
 	SSntsl2.send_task("tcom/get", callback = CALLBACK(src, .proc/_finish_retrieve_messages, callback))
 
-/datum/ntsl2_program/tcomm/proc/_finish_retrieve_messages(var/callback = null, var/data)
+/datum/ntsl2_program/tcomm/proc/_finish_retrieve_messages(callback = null, data)
 	if(data)
 		var/list/signals = json_decode(data)
 		for(var/sl in signals)
 			var/list/S = sl
-			var/datum/signal/sig = null
-			if(S["reference"])
-				sig = locate(S["reference"])
-				if(istype(sig))
-					var/datum/language/L = all_languages[S["language"]]
-					if(!L || !(L.flags & TCOMSSIM))
-						L = all_languages[LANGUAGE_TCB]
-					sig.data["message"] = S["content"]
-					sig.frequency = S["freq"] || PUB_FREQ
-					sig.data["name"] = html_encode(S["source"])
-					sig.data["realname"] = html_encode(S["source"])
-					sig.data["job"] = html_encode(S["job"])
-					sig.data["reject"] = !S["pass"]
-					sig.data["verb"] = html_encode(S["verb"])
-					sig.data["language"] = L
-					sig.data["vmessage"] = html_encode(S["content"]) 
-					sig.data["vname"] = html_encode(S["source"])
-					sig.data["vmask"] = 0
-			else
-				sig = new()
-				sig.data["server"] = server
-				sig.tcombroadcast(html_encode(S["content"]), S["freq"], html_encode(S["source"]), html_encode(S["job"]), html_encode(S["verb"]), S["language"])
+			var/datum/signal/subspace/vocal/sig = locate(S["reference"])
+			if(!istype(sig))
+				continue
+
+			var/datum/language/L = all_languages[S["language"]]
+			if(!L || !(L.flags & TCOMSSIM))
+				L = all_languages[LANGUAGE_TCB]
+
+			sig.frequency = S["freq"] || PUB_FREQ
+
+			sig.data["name"] = html_encode(S["source"])
+			sig.data["job"] = html_encode(S["job"])
+			sig.data["message"] = S["content"]
+			sig.data["language"] = L
+			sig.data["say_verb"] = html_encode(S["verb"])
+			sig.data["reject"] = !S["pass"]
+
 	var/datum/callback/cb = callback
 	if(istype(cb))
 		cb.InvokeAsync()

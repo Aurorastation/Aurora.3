@@ -2099,11 +2099,11 @@
 /area/database_freighter)
 "kn" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(209);
@@ -3396,11 +3396,11 @@
 /area/database_freighter/engine)
 "AK" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(209);
@@ -3522,11 +3522,11 @@
 /area/database_freighter/laboratory)
 "Cx" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(209);

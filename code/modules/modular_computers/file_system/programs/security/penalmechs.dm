@@ -37,13 +37,10 @@
 	// Gather data for computer header
 	data["_PC"] = get_header_data(data["_PC"])
 
-	var/datum/signal/signal
-	signal = telecomms_process_active(user.loc.z)
-
 	var/list/mechs = list()
 	var/list/robots = list()
 
-	if(signal.data["done"])
+	if(SSradio.telecomms_ping(computer))
 		for(var/mech in SSvirtualreality.mechs[REMOTE_PRISON_MECH])
 			var/mob/living/heavy_vehicle/M = mech
 
