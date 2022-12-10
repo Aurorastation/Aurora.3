@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Added Ship Weapons access type for flak cannon and Secure Ammunitions Storage. Roles that now have it: hangar technicia, all head of staff, bridge crew, engineers, rescue tech, lawyer, HR assistant."
+  - tweak: "Added Ship Weapons access type for flak cannon, longbow, and Secure Ammunitions Storage. Roles that now have it: hangar technician, all head of staff, engineers."
   - tweak: "Removed QM access from miner and hangar tech. Now they shouldn't be able to access QM's room."
-  - tweak: "Added Ship Weapons access type to mulebot"
-  - maptweak: "Changed flak cannon and Secure Ammunitions Storage doors access to new ship weapons type."
+  - bugfix: "Fixed Access for the door that seperates AI upload lobby from research hallway, now cyborg's have access to it by default."
+  - bugfix: "Fixed AI shells's all station access."
