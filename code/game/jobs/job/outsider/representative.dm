@@ -16,7 +16,7 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(access_lawyer, access_maint_tunnels, access_ship_weapons)
+	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
 	alt_titles = list(
 		"Workplace Liaison",

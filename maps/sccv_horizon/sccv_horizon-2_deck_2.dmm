@@ -342,7 +342,7 @@
 	id_tag = "airlocks_deck2_ammostorage";
 	locked = 1;
 	name = "Secure Ammunition Storage";
-	req_one_access = list(210)
+	req_one_access = list(75)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
@@ -990,7 +990,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Ship Flak Munitions Bay";
-	req_one_access = list(210)
+	req_one_access = list(75)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -7685,7 +7685,7 @@
 	name = "Door Bolt Control";
 	pixel_x = -40;
 	pixel_y = -7;
-	req_one_access = list(10,20,34,60,74);
+	req_one_access = list(75);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -7694,7 +7694,7 @@
 	name = "Blast Door Control";
 	pixel_x = -40;
 	pixel_y = 7;
-	req_one_access = list(10,20,34,60,74)
+	req_one_access = list(75)
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
@@ -9052,7 +9052,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Research Hallway";
-	req_access = list(16,47)
+	req_one_access = list(16,47)
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /obj/effect/map_effect/door_helper/unres{
@@ -14224,7 +14224,7 @@
 	id_tag = "airlocks_deck2_ammostorage";
 	locked = 1;
 	name = "Secure Ammunition Storage";
-	req_one_access = list(210)
+	req_one_access = list(75)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
@@ -21481,7 +21481,7 @@
 	name = "Blast Door Control";
 	pixel_x = 40;
 	pixel_y = 7;
-	req_one_access = list(10,20,34,60,74)
+	req_one_access = list(75)
 	},
 /obj/machinery/button/remote/airlock/screamer{
 	channel = "Command";
@@ -21491,7 +21491,7 @@
 	name = "Door Bolt Control";
 	pixel_x = 40;
 	pixel_y = -7;
-	req_one_access = list(10,20,34,60,74);
+	req_one_access = list(75);
 	specialfunctions = 4
 	},
 /turf/simulated/floor/reinforced,

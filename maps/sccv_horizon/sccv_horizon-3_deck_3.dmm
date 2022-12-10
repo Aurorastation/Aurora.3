@@ -25777,7 +25777,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = null;
 	name = "Direct Fire Artillery System";
-	req_one_access = list(10,19,31)
+	req_one_access = list(75)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,

@@ -21,6 +21,7 @@
 					)
 
 	sprites = list("Basic" = list(ROBOT_CHASSIS = "shell", ROBOT_PANEL = "shell", ROBOT_EYES = "shell"))
+	all_access = TRUE
 
 /obj/item/robot_module/aicontrol/Initialize()
 	. = ..()

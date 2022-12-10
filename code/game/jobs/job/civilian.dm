@@ -466,7 +466,7 @@
 	)
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_ship_weapons, access_cargo_bot, access_mining, access_mining_station)
-	minimal_access = list(access_cargo, access_cargo_bot, access_mailsorting)
+	minimal_access = list(access_cargo, access_cargo_bot, access_ship_weapons, access_mailsorting)
 	outfit = /datum/outfit/job/hangar_tech
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
