@@ -42,24 +42,6 @@ datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow/start_te
 	QDEL_IN(O, 10 SECONDS)
 	return 1
 
-datum/unit_test/observation/moved_shall_not_register_on_enter_without_listeners
-	name = "OBSERVATION: Moved - Shall Not Register on Enter Without Listeners"
-
-datum/unit_test/observation/moved_shall_not_register_on_enter_without_listeners/start_test()
-	var/turf/T = locate(20,20,1)
-	var/mob/living/carbon/human/H = new(T)
-	var/obj/structure/closet/C = new(T)
-
-	H.forceMove(C)
-	if(!is_listening_to_movement(C, H))
-		pass("The mob did not register to the closet's moved event.")
-	else
-		fail("The mob has registered to the closet's moved event.")
-
-	QDEL_IN(C, 10 SECONDS)
-	QDEL_IN(H, 10 SECONDS)
-	return 1
-
 datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener
 	name = "OBSERVATION: Moved - Shall Register Recursively on New Listener"
 

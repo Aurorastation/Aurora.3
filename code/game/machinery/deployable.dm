@@ -55,7 +55,7 @@ for reference:
 */
 
 //Barricades!
-/obj/structure/barricade
+/obj/structure/blocker
 	name = "barricade"
 	desc = "This space is blocked off by a barricade."
 	icon = 'icons/obj/structures.dmi'
@@ -69,13 +69,13 @@ for reference:
 	var/health = 100
 	var/maxhealth = 100
 
-/obj/structure/barricade/Initialize(mapload, var/material_name)
+/obj/structure/blocker/Initialize(mapload, var/material_name)
 	. = ..()
 	if(!material_name)
 		material_name = MATERIAL_WOOD
 	set_material(material_name)
 
-/obj/structure/barricade/proc/set_material(var/material_name)
+/obj/structure/blocker/proc/set_material(var/material_name)
 	if(force_material)
 		material_name = force_material
 	material = SSmaterials.get_material_by_name(material_name)
@@ -88,7 +88,7 @@ for reference:
 	maxhealth = material.integrity
 	health = maxhealth
 
-/obj/structure/barricade/bullet_act(obj/item/projectile/P, def_zone)
+/obj/structure/blocker/bullet_act(obj/item/projectile/P, def_zone)
 	var/damage_modifier = 0.4
 	switch(P.damage_type)
 		if(BURN)
@@ -99,7 +99,7 @@ for reference:
 	if(!check_dismantle())
 		visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
 
-/obj/structure/barricade/attackby(obj/item/W, mob/user)
+/obj/structure/blocker/attackby(obj/item/W, mob/user)
 	if(W.ishammer() && user.a_intent != I_HURT)
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
@@ -130,7 +130,7 @@ for reference:
 			return TRUE
 		return ..()
 
-/obj/structure/barricade/proc/check_dismantle()
+/obj/structure/blocker/proc/check_dismantle()
 	if(src.health <= 0)
 		visible_message(SPAN_DANGER("The barricade is smashed apart!"))
 		dismantle()
@@ -138,7 +138,7 @@ for reference:
 		return TRUE
 	return FALSE
 
-/obj/structure/barricade/ex_act(severity)
+/obj/structure/blocker/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -149,7 +149,7 @@ for reference:
 				dismantle()
 			return
 
-/obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
+/obj/structure/blocker/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
 		return TRUE
 	if(istype(mover, /obj/item/projectile))
@@ -165,7 +165,7 @@ for reference:
 		return TRUE
 	return FALSE
 
-/obj/structure/barricade/steel
+/obj/structure/blocker/steel
 	force_material = MATERIAL_STEEL
 
 //Actual Deployable machinery stuff
@@ -323,7 +323,8 @@ for reference:
 
 /obj/item/deployable_kit/legion_barrier
 	name = "legion barrier kit"
-	desc = "A quick assembly kit for deploying id-lockable barriers in the field. Most commonly seen used for crowd control by corporate security."
+	desc = "A quick assembly kit for deploying id-lockable barriers in the field. This one has the mark of the Tau Ceti Foreign Legion."
+	icon = 'icons/obj/storage.dmi'
 	icon_state = "barrier_kit"
 	w_class = ITEMSIZE_SMALL
 	kit_product = /obj/machinery/deployable/barrier/legion

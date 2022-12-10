@@ -166,7 +166,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "aD" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /obj/structure/door_assembly/door_assembly_skrell{
 	name = "Bridge"
 	},
@@ -212,7 +212,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "aK" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "aL" = (
@@ -450,7 +450,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "bD" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "bE" = (
@@ -578,7 +578,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bX" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /obj/machinery/light/skrell{
 	dir = 4
 	},
@@ -631,7 +631,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "ce" = (
-/obj/structure/sign/flag/jargon/left{
+/obj/structure/sign/flag/nralakk/left{
 	bound_y = 0;
 	pixel_y = 32
 	},
@@ -670,7 +670,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "cl" = (
-/obj/structure/sign/flag/jargon/right{
+/obj/structure/sign/flag/nralakk/right{
 	pixel_y = 32
 	},
 /turf/simulated/floor/shuttle/skrell,
@@ -683,7 +683,7 @@
 /obj/machinery/light/skrell{
 	dir = 1
 	},
-/obj/structure/sign/flag/jargon{
+/obj/structure/sign/flag/nralakk{
 	pixel_y = 32
 	},
 /turf/simulated/floor/shuttle/skrell/blue,

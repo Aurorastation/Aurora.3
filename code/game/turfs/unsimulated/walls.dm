@@ -44,7 +44,10 @@
 	color = "#666666"
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
-		/turf/unsimulated/wall/steel
+		/turf/unsimulated/wall/steel,
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty
 	)
 
 /turf/unsimulated/wall/darkshuttlewall

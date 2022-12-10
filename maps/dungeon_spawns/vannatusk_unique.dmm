@@ -201,11 +201,11 @@
 /area/dungeon/bluespace_outpost)
 "aK" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aL" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aM" = (
@@ -289,7 +289,7 @@
 "bc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bd" = (

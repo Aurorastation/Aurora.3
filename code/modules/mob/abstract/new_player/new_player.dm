@@ -14,6 +14,7 @@
 
 	anchored = 1	//  don't get pushed around
 	simulated = FALSE
+	virtual_mob = null // Hear no evil, speak no evil
 
 	var/last_ready_name // This has to be saved because the client is nulled prior to Logout()
 
@@ -214,6 +215,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction
 	var/list/faction_allowed_roles = unpacklist(faction.allowed_role_types)
 	if (!(job.type in faction_allowed_roles))
+		return FALSE
+
+	if(!faction.can_select(client.prefs,src))
 		return FALSE
 
 	if(!(client.prefs.GetPlayerAltTitle(job) in client.prefs.GetValidTitles(job))) // does age/species check for us!

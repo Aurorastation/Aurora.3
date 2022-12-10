@@ -84,14 +84,19 @@
 		burn(2500)
 	else if(istype(Proj,/obj/item/projectile/ion))
 		burn(500)
+	
+	bullet_ping(Proj)
 
 	var/proj_damage = Proj.get_structure_damage()
+	var/damage = proj_damage
 
 	//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
-	var/damage = min(proj_damage, 100)
+	if(Proj.anti_materiel_potential > 1)
+		damage = min(proj_damage, 100)
+
+	Proj.on_hit(src)
 
 	take_damage(damage)
-	return
 
 /turf/simulated/wall/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
 	..()

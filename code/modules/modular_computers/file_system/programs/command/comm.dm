@@ -172,7 +172,14 @@
 				if(!input || !can_still_topic())
 					SSnanoui.update_uis(src)
 					return
-				crew_announcement.Announce(input)
+				var/was_hearing = HAS_TRAIT(program.computer, TRAIT_HEARING_SENSITIVE)
+				if(!was_hearing)
+					program.computer.become_hearing_sensitive()
+				usr.say(input)
+				if(!was_hearing)
+					program.computer.lose_hearing_sensitivity()
+				var/affected_zlevels = GetConnectedZlevels(GET_Z(program.computer))
+				crew_announcement.Announce(program.computer.registered_message, zlevels = affected_zlevels)
 				set_announcement_cooldown(TRUE)
 				addtimer(CALLBACK(src, .proc/set_announcement_cooldown, FALSE), 600) //One minute cooldown
 		if("message")
@@ -242,7 +249,7 @@
 						post_display_status(href_list["target"])
 
 		if("setalert")
-			if(is_authenticated(user) && !issilicon(usr) && ntn_cont && ntn_comm)
+			if(is_authenticated(user) && (!issilicon(usr) || isAI(usr)) && ntn_cont && ntn_comm)
 				var/current_level = text2num(href_list["target"])
 				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", name, "No", "Yes")
 				if(confirm == "Yes" && can_still_topic())

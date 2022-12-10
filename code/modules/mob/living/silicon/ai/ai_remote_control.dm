@@ -21,6 +21,7 @@
 					)
 
 	sprites = list("Basic" = list(ROBOT_CHASSIS = "shell", ROBOT_PANEL = "shell", ROBOT_EYES = "shell"))
+	all_access = TRUE
 
 /obj/item/robot_module/aicontrol/Initialize()
 	. = ..()
@@ -60,4 +61,3 @@
 /obj/item/crowbar/robotic/jawsoflife/attack(mob/living/carbon/M, mob/living/carbon/user)
 	user.visible_message("\The [user] [pick("boops", "squeezes", "pokes", "prods", "strokes", "bonks")] \the [M] with \the [src]")
 	return FALSE
-

@@ -6,7 +6,8 @@
 	name = "brush"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick_brush"
-	item_state = "syringe_0"
+	item_state = "xenoarch_pick"
+	contained_sprite = TRUE
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
@@ -24,7 +25,8 @@
 	name = "1/6 pick"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick1"
-	item_state = "syringe_0"
+	item_state = "xenoarch_pick"
+	contained_sprite = TRUE
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
@@ -42,7 +44,8 @@
 	name = "1/3 pick"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick2"
-	item_state = "syringe_0"
+	item_state = "xenoarch_pick"
+	contained_sprite = TRUE
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
@@ -60,7 +63,8 @@
 	name = "1/2 pick"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick3"
-	item_state = "syringe_0"
+	item_state = "xenoarch_pick"
+	contained_sprite = TRUE
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
@@ -78,7 +82,8 @@
 	name = "2/3 pick"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick4"
-	item_state = "syringe_0"
+	item_state = "xenoarch_pick"
+	contained_sprite = TRUE
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
@@ -96,7 +101,8 @@
 	name = "5/6 pick"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick5"
-	item_state = "syringe_0"
+	item_state = "xenoarch_pick"
+	contained_sprite = TRUE
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
@@ -114,7 +120,8 @@
 	name = "1/1 pick"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick6"
-	item_state = "syringe_0"
+	item_state = "xenoarch_pick"
+	contained_sprite = TRUE
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
@@ -132,7 +139,7 @@
 	name = "hand pickaxe"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "pick_hand"
-	item_state = "syringe_0"
+	item_state = "pickaxe"
 	digspeed = 20
 	digspeed_unwielded = 20
 	digspeed_wielded = 20
@@ -151,9 +158,9 @@
 
 /obj/item/storage/box/excavation
 	name = "excavation pick set"
-	icon = 'icons/obj/storage/wallet.dmi'
+	icon = 'icons/obj/storage/boxes.dmi'
 	icon_state = "excavation"
-	desc = "A set of picks for excavation."
+	desc = "A rugged metal case containing a set of standardized picks used in archaeological digs."
 	item_state = "box"
 	foldable = /obj/item/stack/material/cardboard //BubbleWrap
 	storage_slots = 7

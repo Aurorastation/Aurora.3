@@ -11,7 +11,6 @@
 		for(var/atom/movable/AM in client.screen)
 			qdel(AM)
 		client.screen = list()
-		client.cleanup_parallax_references()
 	if (mind)
 		mind.handle_mob_deletion(src)
 	for(var/infection in viruses)
@@ -67,18 +66,22 @@
 	spell_masters = null
 	zone_sel = null
 
+/mob/var/should_add_to_mob_list = TRUE
 /mob/Initialize()
 	. = ..()
-	mob_list += src
-	if(stat == DEAD)
-		dead_mob_list += src
-	else
-		living_mob_list += src
+	if(should_add_to_mob_list)
+		mob_list += src
+		if(stat == DEAD)
+			dead_mob_list += src
+		else
+			living_mob_list += src
 
 	if (!ckey && mob_thinks)
 		MOB_START_THINKING(src)
 
-/mob/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+	become_hearing_sensitive()
+
+/mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
 	if(!client)	return
 
@@ -155,6 +158,10 @@
 	if(intent_message)
 		intent_message(intent_message, intent_range, messagemobs)
 
+	//Multiz, have shadow do same
+	if(bound_overlay)
+		bound_overlay.visible_message(message, blind_message, range)
+
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
 // Broadcaster is the place the action will be seen/heard from, mobs in sight of THAT will see the message. This is generally the object or mob that src is contained in
@@ -191,29 +198,17 @@
 // deaf_message (optional) is what deaf people will see.
 // hearing_distance (optional) is the range, how many tiles away the message can be heard.
 /mob/audible_message(var/message, var/deaf_message, var/hearing_distance, var/self_message, var/ghost_hearing = GHOSTS_ALL_HEAR)
+	if(!hearing_distance)
+		hearing_distance = world.view
 
-	var/range = world.view
-	if(hearing_distance)
-		range = hearing_distance
+	var/list/hearers = get_hearers_in_view(hearing_distance, src)
 
-	var/turf/T = get_turf(src)
-
-	var/list/mobs = list()
-	var/list/objs = list()
-	get_mobs_or_objs_in_view(T, range, mobs, objs, ghost_hearing)
-
-
-	for(var/m in mobs)
-		var/mob/M = m
-		if(self_message && M==src)
-			M.show_message("[get_accent_icon(null, M)] [self_message]", 2, deaf_message, 1)
+	for (var/atom/movable/AM as anything in hearers)
+		if(self_message && AM == src)
+			AM.show_message("[get_accent_icon(null, src)] [self_message]", 2, deaf_message, 1)
 			continue
 
-		M.show_message("[get_accent_icon(null, M)] [message]", 2, deaf_message,1)
-
-	for(var/o in objs)
-		var/obj/O = o
-		O.show_message("[get_accent_icon(null, src)] [message]", 2, deaf_message, 1)
+		AM.show_message("[get_accent_icon(null, src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -684,6 +679,19 @@
 		var/datum/browser/flavor_win = new(usr, name, capitalize_first_letters(name), 500, 250)
 		flavor_win.set_content(replacetext(flavor_text, "\n", "<BR>"))
 		flavor_win.open()
+
+	if(href_list["accent_tag"])
+		var/datum/accent/accent = SSrecords.accents[href_list["accent_tag"]]
+		if(accent && istype(accent))
+			var/datum/browser/accent_win = new(usr, accent.name, capitalize_first_letters(accent.name), 500, 250)
+			var/html = "[accent.description]<br>"
+			var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+			html += "[S.css_tag()]<br>"
+			html += {"[S.icon_tag(accent.tag_icon)]<br>"}
+			html += "([accent.text_tag])<br>"
+			accent_win.set_content(html)
+			accent_win.open()
+
 	if(href_list["flavor_change"])
 		update_flavor_text()
 
@@ -840,7 +848,7 @@
 			stat("Current Space Sector", SSatlas.current_sector.name)
 			var/current_month = text2num(time2text(world.realtime, "MM"))
 			var/current_day = text2num(time2text(world.realtime, "DD"))
-			stat("Current Date", "[current_day]/[current_month]/[game_year]")
+			stat("Current Date", "[game_year]-[current_month]-[current_day]")
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", get_round_duration_formatted())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
@@ -1321,14 +1329,6 @@
 		LAZYREMOVE(AM.contained_mobs, src)
 
 	. = ..()
-
-	if (!contained_mobs)	// If this is true, the parent will have already called the client hook.
-		update_client_hook(loc)
-
-/mob/Move()
-	. = ..()
-	if (. && !contained_mobs && client)
-		update_client_hook(loc)
 
 /mob/verb/northfaceperm()
 	set hidden = 1

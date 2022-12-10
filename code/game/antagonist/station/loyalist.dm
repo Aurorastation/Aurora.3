@@ -16,8 +16,8 @@ var/datum/antagonist/loyalists/loyalists
 
 	hard_cap = 3
 	hard_cap_round = 4
-	initial_spawn_req = 3
-	initial_spawn_target = 8
+	initial_spawn_req = 1
+	initial_spawn_target = 4
 
 	// Inround loyalists.
 	faction_role_text = "Loyalist"
@@ -53,7 +53,7 @@ var/datum/antagonist/loyalists/loyalists
 		return FALSE
 
 	if(!player.back)
-		player.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(player), slot_back) // if they have no backpack, spawn one
+		player.equip_to_slot_or_del(new /obj/item/storage/backpack(player), slot_back) // if they have no backpack, spawn one
 	player.equip_to_slot_or_del(new /obj/item/device/announcer(player), slot_in_backpack)
 	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player, player.mind), slot_in_backpack)
 

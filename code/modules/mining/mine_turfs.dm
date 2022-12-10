@@ -15,9 +15,6 @@ var/list/mineral_can_smooth_with = list(
 	/turf/unsimulated/wall
 )
 
-// Some extra types for the surface to keep things pretty.
-/turf/simulated/mineral/surface
-	mined_turf = /turf/unsimulated/floor/asteroid/ash
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
@@ -74,6 +71,9 @@ var/list/mineral_can_smooth_with = list(
 
 	turfs += src
 
+	if(isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -91,6 +91,17 @@ var/list/mineral_can_smooth_with = list(
 		queue_smooth_neighbors(src)
 
 	rock_health = rand(10,20)
+
+	var/area/A = loc
+
+	if(!baseturf)
+		// Hard-coding this for performance reasons.
+		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
+
+	if (current_map.use_overmap && istype(A, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -189,6 +200,9 @@ var/list/mineral_can_smooth_with = list(
 
 	turfs += src
 
+	if(isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -204,6 +218,11 @@ var/list/mineral_can_smooth_with = list(
 
 	if(!mapload)
 		queue_smooth_neighbors(src)
+
+	if (current_map.use_overmap && istype(loc, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -505,6 +524,9 @@ var/list/mineral_can_smooth_with = list(
 		MineralSpread()
 	. = ..()
 
+/turf/simulated/mineral/random/exoplanet
+	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
 /turf/simulated/mineral/random/high_chance
 	mineralSpawnChanceList = list(
 		ORE_URANIUM = 2,
@@ -527,6 +549,9 @@ var/list/mineral_can_smooth_with = list(
 		ORE_GOLD = 2,
 		ORE_SILVER = 2
 	)
+
+/turf/simulated/mineral/random/high_chance/exoplanet
+	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/random/higher_chance
 	mineralSpawnChanceList = list(
@@ -564,6 +589,13 @@ var/list/mineral_can_smooth_with = list(
 			if(start.CanZPass(H, UP))
 				if(destination.CanZPass(H, UP))
 					H.climb(UP, src, 20)
+
+// Some extra types for the surface to keep things pretty.
+/turf/simulated/mineral/surface
+	mined_turf = /turf/unsimulated/floor/asteroid/ash
+
+/turf/simulated/mineral/planet
+	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /**********************Asteroid**************************/
 
@@ -612,6 +644,9 @@ var/list/asteroid_floor_smooth = list(
 
 	turfs += src
 
+	if(isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -631,6 +666,11 @@ var/list/asteroid_floor_smooth = list(
 
 	if(light_range && light_power)
 		update_light()
+
+	if (current_map.use_overmap && istype(loc, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 

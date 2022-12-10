@@ -211,7 +211,7 @@
         },
         "visitor": {
           "name": "Visitor",
-          "desc": "You are a random visitor that boarded the NSS Aurora, visiting for any reason you can think of. You do not have any records, as you are not a Nanotrasen employee. (This spawner is not enabled.)",
+          "desc": "You are a random visitor that boarded the NSS Aurora, visiting for any reason you can think of. You do not have any records, as you are not a NanoTrasen employee. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,
@@ -414,8 +414,8 @@
           "spawnpoints": ["ERTSpawn"]
         },
         "ntmed": {
-          "name": "Nanotrasen Medical Specialist",
-          "desc": "A medical specialist of the Nanotrasen Phoenix ERT. (This spawner is not enabled.)",
+          "name": "NanoTrasen Medical Specialist",
+          "desc": "A medical specialist of the NanoTrasen Phoenix ERT. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,
@@ -426,8 +426,8 @@
           "spawnpoints": ["NTERTSpawn"]
         },
         "nteng": {
-          "name": "Nanotrasen Engineering Specialist",
-          "desc": "An engineering specialist of the Nanotrasen Phoenix ERT. (This spawner is not enabled.)",
+          "name": "NanoTrasen Engineering Specialist",
+          "desc": "An engineering specialist of the NanoTrasen Phoenix ERT. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,
@@ -438,8 +438,8 @@
           "spawnpoints": ["NTERTSpawn"]
         },
         "ntlead": {
-          "name": "Nanotrasen Leader",
-          "desc": "The leader of the Nanotrasen Phoenix ERT. (This spawner is not enabled.)",
+          "name": "NanoTrasen Leader",
+          "desc": "The leader of the NanoTrasen Phoenix ERT. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,
@@ -450,8 +450,8 @@
           "spawnpoints": ["NTERTSpawn"]
         },
         "ntert": {
-          "name": "Nanotrasen Responder",
-          "desc": "A responder of the Nanotrasen Phoenix ERT. (This spawner is not enabled.)",
+          "name": "NanoTrasen Responder",
+          "desc": "A responder of the NanoTrasen Phoenix ERT. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,

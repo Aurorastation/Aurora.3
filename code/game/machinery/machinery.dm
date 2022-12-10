@@ -219,6 +219,16 @@ Class Procs:
 /obj/machinery/proc/inoperable(var/additional_flags = 0)
 	return (stat & (NOPOWER|BROKEN|additional_flags))
 
+/obj/machinery/proc/toggle_power(power_set = -1, additional_flags = 0)
+	if(power_set >= 0)
+		update_use_power(power_set)
+	else if (use_power || inoperable(additional_flags))
+		update_use_power(POWER_USE_OFF)
+	else
+		update_use_power(initial(use_power))
+
+	update_icon()
+
 /obj/machinery/CanUseTopic(var/mob/user)
 	if(stat & BROKEN)
 		return STATUS_CLOSE
@@ -463,6 +473,11 @@ Class Procs:
 	paper.forceMove(loc)
 	printing = FALSE
 
+/obj/machinery/bullet_act(obj/item/projectile/P, def_zone)
+	. = ..()
+	if(P.get_structure_damage() > 5)
+		bullet_ping(P)
+
 /obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
 	if(stat & (NOPOWER|BROKEN))
 		return
@@ -516,9 +531,17 @@ Class Procs:
 		if((. = .(candidate)))
 			return
 
-
 /obj/machinery/proc/on_user_login(mob/M)
 	return
 
 /obj/machinery/proc/set_emergency_state(var/new_security_level)
 	return
+
+/obj/machinery/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+	. = ..()
+	if(isliving(AM))
+		var/mob/living/M = AM
+		M.turf_collision(src, speed)
+		return
+	else
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))

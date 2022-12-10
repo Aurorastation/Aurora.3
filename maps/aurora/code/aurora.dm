@@ -2,7 +2,7 @@
 	name = "Aurora"
 	full_name = "NSS Aurora"
 	description = "You're aboard the <b>NSS Aurora</b>, a state-of-the-art station specializing in phoron research and acquisition. \
-				   It is staffed by Nanotrasen personnel and contractors from competing megacorporations. \
+				   It is staffed by NanoTrasen personnel and contractors from competing megacorporations. \
 				   Orbiting at the very edge of the Tau Ceti system, approximately 12 light-years away from Sol, \
 				   it is under the joint administration of the Republic of Biesel and the trans-stellar corporate conglomerate NanoTrasen."
 	path = "aurora"
@@ -44,7 +44,7 @@
 		NETWORK_CIVILIAN_MAIN,
 		NETWORK_CIVILIAN_SURFACE,
 		NETWORK_COMMAND,
-		NETWORK_ENGINE,
+		NETWORK_REACTOR,
 		NETWORK_ENGINEERING,
 		NETWORK_ENGINEERING_OUTPOST,
 		NETWORK_STATION,
@@ -110,3 +110,4 @@
 /datum/map/aurora/finalize_load()
 	// generate an empty space Z
 	world.maxz++
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)

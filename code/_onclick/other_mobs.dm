@@ -144,9 +144,9 @@
 			if (I_GRAB) // We feed
 				Wrap(M)
 			if (I_HURT) // Attacking
-				A.attack_generic(src, (is_adult ? rand(20,40) : rand(5,25)), "glomped")
+				A.attack_generic(src, (is_adult ? rand(4,12) : rand(4,8)), "glomped")
 	else
-		A.attack_generic(src, (is_adult ? rand(20,40) : rand(5,25)), "glomped") // Basic attack.
+		A.attack_generic(src, (is_adult ? rand(4,12) : rand(4,8)), "glomped") // Basic attack.
 /*
 	New Players:
 	Have no reason to click on anything at all.
@@ -171,3 +171,8 @@
 	var/damage = rand(melee_damage_lower, melee_damage_upper)
 	if(A.attack_generic(src, damage, attacktext, environment_smash, armor_penetration, attack_flags) && loc && attack_sound)
 		playsound(loc, attack_sound, 50, 1, 1)
+
+/mob/living/CtrlClickOn(var/atom/A)
+	. = ..()
+	if(!. && a_intent == I_GRAB && length(available_maneuvers))
+		. = perform_maneuver(prepared_maneuver || available_maneuvers[1], A)

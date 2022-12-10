@@ -87,7 +87,7 @@
 	light_range = 3
 	light_color = "#557733"
 	density = FALSE
-	destroy_spawntype = /mob/living/carbon/alien/diona
+	destroy_spawntype = null
 
 /obj/structure/diona/bulb/unpowered
 	name = "unpowered glow bulb"

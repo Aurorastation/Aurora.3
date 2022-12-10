@@ -15,7 +15,7 @@
 	)
 
 /turf/simulated/wall/shuttle/Initialize(mapload)
-	. = ..(mapload,"shuttle")
+	. = ..(mapload, "shuttle", "shuttle")
 
 /turf/simulated/wall/shuttle/cardinal
 	smooth = SMOOTH_TRUE
@@ -123,7 +123,7 @@
 		/turf/unsimulated/wall/fakeairlock
 	)
 
-/turf/simulated/wall/shuttle/Initialize(mapload)
+/turf/simulated/wall/shuttle/skrell/Initialize(mapload)
 	. = ..(mapload,"skrell")
 
 /turf/simulated/wall/shuttle/skrell/cardinal
@@ -140,6 +140,13 @@
 	icon = 'icons/turf/smooth/scc_shuttle.dmi'
 
 /turf/simulated/wall/shuttle/scc/cardinal
+	smooth = SMOOTH_MORE
+
+//Corporate shuttle and ship walls//
+/turf/simulated/wall/shuttle/idris
+	icon = 'icons/turf/smooth/idris_ship.dmi'
+
+/turf/simulated/wall/shuttle/idris/cardinal
 	smooth = SMOOTH_MORE
 
 /turf/simulated/wall/shuttle/space_ship

@@ -1,5 +1,7 @@
 /obj/effect/overmap/visitable/ship/runtime
 	name = "NSS Runtime"
+	class = "NSS"
+	designation = "Runtime"
 	desc = "A large cube-shaped station, a penal colony of sorts for the likes of video game developers."
 	vessel_mass = 100000
 	burn_delay = 2 SECONDS
@@ -7,6 +9,8 @@
 
 /obj/effect/overmap/visitable/ship/landable/runtime
 	name = "NSV While True"
+	class = "NSV"
+	designation = "While True"
 	desc = "A RUN-T1M3 long range shuttle."
 	shuttle = "WhileTrue"
 	max_speed = 1/(2 SECONDS)

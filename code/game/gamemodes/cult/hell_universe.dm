@@ -40,13 +40,13 @@ In short:
 
 	escape_list = get_area_turfs(locate(/area/hallway/secondary/exit))
 
-	convert_all_parallax()
 	//Separated into separate procs for profiling
 	AreaSet()
 	MiscSet()
 	APCSet()
 	KillMobs()
 	OverlayAndAmbientSet()
+	SSskybox.change_skybox("narsie", new_use_stars = FALSE, new_use_overmap_details = FALSE)
 
 	SScult.rune_boost += 9001	//basically removing the rune cap
 
@@ -100,20 +100,4 @@ In short:
 	for(var/mob/living/simple_animal/M in mob_list)
 		if(M && !M.client)
 			M.stat = DEAD
-		CHECK_TICK
-
-// Parallax.
-
-/datum/universal_state/hell/convert_parallax(obj/screen/plane_master/parallax_spacemaster/PS)
-	PS.color = list(
-	0,0,0,0,
-	0,0,0,0,
-	0,0,0,0,
-	1,0,0,1)
-
-/datum/universal_state/hell/proc/convert_all_parallax()
-	for(var/client/C in clients)
-		var/obj/screen/plane_master/parallax_spacemaster/PS = locate() in C.screen
-		if(PS)
-			convert_parallax(PS)
 		CHECK_TICK

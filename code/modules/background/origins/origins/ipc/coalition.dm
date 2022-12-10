@@ -4,13 +4,14 @@
 	possible_origins = list(
 		/decl/origin_item/origin/ipc_xanu,
 		/decl/origin_item/origin/ipc_himeo,
-		/decl/origin_item/origin/ipc_assunzione
+		/decl/origin_item/origin/ipc_assunzione,
+		/decl/origin_item/origin/ipc_vysoka
 	)
 
 /decl/origin_item/origin/ipc_xanu
 	name = "Xanu Prime"
 	desc = "Considered the most advanced planet in the Coalition in terms of technology and infrastructure, Xanu Prime is the natural choice for many IPC living or escaping into the Frontier. The planet hosts a population of both free and owned synthetics, offering opportunities for work and citizenship as well as danger for refugees."
-	possible_accents = list(ACCENT_COC, ACCENT_TTS)
+	possible_accents = list(ACCENT_XANU, ACCENT_COC, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_NONE)
 	possible_religions = RELIGIONS_ALL_IPC
 
@@ -42,3 +43,11 @@
 	possible_accents = ACCENTS_ALL_IPC_SOL
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_TRINARY)
+
+/decl/origin_item/origin/ipc_vysoka
+	name = "Free System of Vysoka"
+	desc = "Whilst the population of Synthetics on Vysoka is rather small, a number of both free and owned synthetics exist across the city states and rural areas of the planet, primarily concentrated in the developed city states with infrastructure to support them. However, some hosts maintain Synthetics through solar power or other small-scale methods. Synthetics can be found performing many duties across the planet, from security or engineering work to acting as advisors to Hosts. Treatment of Synthetics is dependent on their ability to prove the presence of an Aruhuin in their body, the spirits of the local religion, Stolitism. IPCs who fail to prove this spiritual presence, especially free ones, face discrimination and violence from the locals."
+	important_information = "Due to local laws on Vysoka, Shells are exceedingly rare, with the only ones existing on the planet being those owned by Idris Incorporated."
+	possible_accents = list(ACCENT_SOL, ACCENT_COC, ACCENT_NCF, ACCENT_VYSOKA, ACCENT_TTS)
+	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_NONE)
+	possible_religions = list(RELIGION_NONE, RELIGION_OTHER)

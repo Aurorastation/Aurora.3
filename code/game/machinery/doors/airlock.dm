@@ -556,6 +556,18 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 /obj/machinery/door/airlock/skrell/grey
 	icon = 'icons/obj/doors/grey_skrell_door.dmi'
 
+/obj/machinery/door/airlock/diona
+	name = "biomass airlock"
+	icon = 'icons/obj/doors/Door_dionae_airlock.dmi'
+	explosion_resistance = 20
+	secured_wires = TRUE
+	maxhealth = 600
+	insecure = FALSE
+	hashatch = FALSE
+
+/obj/machinery/door/airlock/diona/external
+	icon = 'icons/obj/doors/Door_dionae_external.dmi'
+
 //---Uranium doors
 /obj/machinery/door/airlock/uranium
 	name = "Uranium Airlock"
@@ -1515,7 +1527,9 @@ About the new airlock wires panel:
 	return 0
 
 /mob/living/blocks_airlock()
-	return mob_size > MOB_SMALL
+	// if this returns false, a mob can be crushed by airlock
+	// cat is 2.5, corgi is 3.5, fox is 4, human is 9
+	return mob_size > 2.4
 
 /atom/movable/proc/airlock_crush(var/crush_damage)
 	return 0

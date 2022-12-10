@@ -10,7 +10,7 @@
 #define SHUTTER_CRUSH_DAMAGE 10
 
 /obj/machinery/door/blast
-	name = "Blast Door"
+	name = "blast door"
 	desc = "That looks like it doesn't open easily."
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = null
@@ -28,15 +28,15 @@
 	dir = 1
 	explosion_resistance = 25
 
-	//Most blast doors are infrequently toggled and sometimes used with regular doors anyways,
-	//turning this off prevents awkward zone geometry in places like medbay lobby, for example.
+	// Most blast doors are infrequently toggled and sometimes used with regular doors anyways,
+	// turning this off prevents awkward zone geometry in places like medbay lobby, for example.
 	block_air_zones = 0
 
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
 
 	var/securitylock = TRUE
-	var/is_critical = FALSE
+	var/fail_secure = FALSE // If the blast door should close when power goes out.
 
 /obj/machinery/door/blast/Initialize()
 	. = ..()
@@ -177,20 +177,19 @@
 	if(stat & BROKEN)
 		stat &= ~BROKEN
 
-
 /obj/machinery/door/blast/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group) return 1
 	return ..()
 
-
+// Controls how blast doors and shutters should act when power is lost or gained.
 /obj/machinery/door/blast/power_change()
 	..()
-	if(src.operating || (stat & BROKEN) || is_critical)
+	if(src.operating || (stat & BROKEN))
 		return
-	if(stat & NOPOWER)
-		securitylock = !density // blast doors will only re-open when power is restored if they were open originally
+	if((stat & NOPOWER) && fail_secure)
+		securitylock = !density // Blast doors will only re-open when power is restored if they were open originally.
 		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_close)
-	else if(securitylock)
+	else if(securitylock && fail_secure)
 		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_open)
 		securitylock = FALSE
 
@@ -210,12 +209,13 @@
 
 /obj/machinery/door/blast/regular/open
 	icon_state = "pdoor0"
-	density = 0
-	opacity = 0
+	density = FALSE
+	opacity = FALSE
 
 // SUBTYPE: Shutters
 // Nicer looking, and also weaker, shutters. Found in kitchen and similar areas.
 /obj/machinery/door/blast/shutters
+	name = "shutter"
 	icon_state_open = "shutter0"
 	icon_state_opening = "shutterc0"
 	icon_state_closed = "shutter1"
@@ -225,8 +225,8 @@
 
 /obj/machinery/door/blast/shutters/open
 	icon_state = "shutter0"
-	density = 0
-	opacity = 0
+	density = FALSE
+	opacity = FALSE
 
 // SUBTYPE: Odin
 // Found on the odin, or where people really shouldnt get into

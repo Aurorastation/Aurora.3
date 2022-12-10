@@ -52,6 +52,8 @@
 
 #define isbrain(A) istype(A, /mob/living/carbon/brain)
 
+#define isvirtualmob(A) istype(A, /mob/abstract/observer/virtual)
+
 #define iscarbon(A) istype(A, /mob/living/carbon)
 
 #define iscorgi(A) istype(A, /mob/living/simple_animal/corgi)
@@ -71,6 +73,8 @@
 #define isobj(A) istype(A, /obj)
 
 #define isspace(A) istype(A, /area/space)
+
+#define isspaceturf(A) istype(A, /turf/space)
 
 #define isobserver(A) istype(A, /mob/abstract/observer)
 

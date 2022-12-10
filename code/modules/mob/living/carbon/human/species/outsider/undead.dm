@@ -156,9 +156,6 @@
 	icobase = 'icons/mob/human_races/zombie/r_zombie.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie.dmi'
 
-	brute_mod = 0.5
-	burn_mod = 0.5
-
 	hide_name = TRUE
 
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
@@ -168,6 +165,8 @@
 
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/claws/strong/zombie)
 	darksight = 8
+
+	slowdown = 0.5
 
 	has_fine_manipulation = FALSE
 
@@ -182,11 +181,24 @@
 		BP_ZOMBIE_PARASITE = /obj/item/organ/internal/parasite/zombie,
 		BP_BRAIN =           /obj/item/organ/internal/brain/zombie,
 		BP_STOMACH =         /obj/item/organ/internal/stomach
-		)
+	)
+	has_limbs = list(
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/zombie),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/zombie),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/zombie),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/zombie),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/zombie),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/zombie),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/zombie),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/zombie),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/zombie),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/zombie),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/zombie)
+	)
 
 	total_health = 100
 
-	slowdown = 3
+	slowdown = 2
 
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
 
@@ -222,6 +234,7 @@
 	var/datum/martial_art/zombie/Z = new /datum/martial_art/zombie()
 	Z.teach(H)
 	to_chat(H, "<font size=4><span class='notice'>Use the Check Attacks verb in your IC tab for information on your attacks! They are important! Your bite infects, but is worse at getting through armour than your claws, which have great damage and are armor piercing!</font></span>")
+	H.accent = ACCENT_BLUESPACE
 	return ..()
 
 /datum/species/zombie/tajara

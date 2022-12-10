@@ -7,7 +7,7 @@
 	PATHS THAT USE DATUMS
 		turf/simulated/wall
 		obj/item/material
-		obj/structure/barricade
+		obj/structure/blocker
 		obj/item/stack/material
 		obj/structure/table
 
@@ -715,6 +715,41 @@
 	weapon_pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 	weapon_hitsound = 'sound/weapons/woodenhit.ogg'
 	shatter_sound = /decl/sound_category/wood_break_sound
+
+/material/wood/birch 
+	name = MATERIAL_BIRCH
+	stack_type = /obj/item/stack/material/wood/coloured/birch
+	icon_colour = WOOD_COLOR_BIRCH
+
+/material/wood/mahogany
+	name = MATERIAL_MAHOGANY
+	stack_type = /obj/item/stack/material/wood/coloured/mahogany
+	icon_colour = WOOD_COLOR_RICH
+
+/material/wood/maple
+	name = MATERIAL_MAPLE  
+	stack_type = /obj/item/stack/material/wood/coloured/maple
+	icon_colour = WOOD_COLOR_PALE
+
+/material/wood/bamboo
+	name = MATERIAL_BAMBOO
+	stack_type = /obj/item/stack/material/wood/coloured/bamboo
+	icon_colour = WOOD_COLOR_PALE2
+
+/material/wood/ebony
+	name = MATERIAL_EBONY
+	stack_type = /obj/item/stack/material/wood/coloured/ebony
+	icon_colour = WOOD_COLOR_BLACK
+
+/material/wood/walnut
+	name = MATERIAL_WALNUT
+	stack_type = /obj/item/stack/material/wood/coloured/walnut
+	icon_colour = WOOD_COLOR_CHOCOLATE
+
+/material/wood/yew
+	name = MATERIAL_YEW
+	stack_type = /obj/item/stack/material/wood/coloured/yew
+	icon_colour = WOOD_COLOR_YELLOW
 
 /material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
 	name = MATERIAL_WOOD_LOG

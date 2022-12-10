@@ -139,7 +139,7 @@
 #define BP_IPCTAG   "ipc tag"
 
 // Zombie organ
-#define BP_ZOMBIE_PARASITE "zombieparasite"
+#define BP_ZOMBIE_PARASITE "black tumour"
 
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
@@ -449,6 +449,7 @@
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
 
+#define ROBOT_ICON		"iconpath"
 #define ROBOT_CHASSIS	"chassistype"
 #define ROBOT_PANEL		"paneltype"
 #define ROBOT_EYES		"eyetype"

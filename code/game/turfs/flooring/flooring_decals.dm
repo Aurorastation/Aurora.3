@@ -4,7 +4,7 @@
 
 /obj/effect/floor_decal
 	name = "floor decal"
-	icon = 'icons/turf/flooring/decals.dmi'
+	icon = 'icons/turf/decals/decals.dmi'
 	layer = TURF_LAYER + 0.01
 	var/supplied_dir
 
@@ -12,7 +12,7 @@
 	var/turf/T = get_turf(src)
 	var/list/floor_decals = SSicon_cache.floor_decals
 	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
-		var/cache_key = "[alpha]-[color]-[dir]-[icon_state]-[layer]"
+		var/cache_key = "[name]-[alpha]-[color]-[dir]-[icon_state]-[layer]"
 		if(!floor_decals[cache_key])
 			var/image/I = image(icon = src.icon, icon_state = src.icon_state, dir = src.dir)
 			I.color = src.color
@@ -98,6 +98,14 @@
 
 /obj/effect/floor_decal/corner/green/full
 	icon_state = "corner_white_full"
+
+/obj/effect/floor_decal/corner/light
+	name = "light corner"
+	icon_state = "corner_light"
+
+/obj/effect/floor_decal/corner/light/full
+	name = "full light corner"
+	icon_state = "corner_light_full"
 
 /obj/effect/floor_decal/corner/lime
 	name = "lime corner"
@@ -265,6 +273,14 @@
 
 /obj/effect/floor_decal/corner_wide/lime/full
 	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/light
+	name = "light wide corner"
+	icon_state = "wide_corner_light"
+
+/obj/effect/floor_decal/corner_wide/light/full
+	name = "full light wide corner"
+	icon_state = "wide_corner_full_light"
 
 /obj/effect/floor_decal/corner_wide/yellow
 	name = "yellow corner"
@@ -444,10 +460,14 @@
 /obj/effect/floor_decal/industrial/hatch/red
 	color = "#990C0C"
 
+//
+// Outline
+//
 /obj/effect/floor_decal/industrial/outline
 	name = "white outline"
 	icon_state = "outline"
 
+// Outline - Colours
 /obj/effect/floor_decal/industrial/outline/blue
 	name = "cyan outline"
 	color = "#b6efe1"
@@ -464,6 +484,7 @@
 	name = "red outline"
 	color = "#990C0C"
 
+// Outline - Departmental
 /obj/effect/floor_decal/industrial/outline/custodial
 	name = "custodial purple outline"
 	color = COLOR_PURPLE_GRAY
@@ -488,6 +509,15 @@
 	name = "security blue outline"
 	color = COLOR_BLUE_GRAY
 
+// Outline - Informative
+/obj/effect/floor_decal/industrial/outline/emergency_closet
+	name = "blue emergency closet outline"
+	color = "#618FBA"
+
+/obj/effect/floor_decal/industrial/outline/firefighting_closet
+	name = "red firefighting closet outline"
+	color = "#C82D2D"
+
 /obj/effect/floor_decal/industrial/loading
 	name = "loading area"
 	icon_state = "loadingarea"
@@ -497,6 +527,10 @@
 
 /obj/effect/floor_decal/industrial/loading/grey
 	color = COLOR_GRAY
+
+/obj/effect/floor_decal/industrial/loading/security
+	name = "security blue loading area"
+	color = COLOR_BLUE_GRAY
 
 /obj/effect/floor_decal/plaque
 	name = "plaque"
@@ -665,19 +699,14 @@
 /obj/effect/floor_decal/sign/srg
 	icon_state = "white_srg"
 
-// the big SCC logo
-/obj/effect/floor_decal/scc_full
-	icon = 'icons/turf/flooring/scc_decal_preview.dmi'
-	icon_state = "scc_decal_preview"
+// Big Floor Decals
+/obj/effect/floor_decal/big
+	name = "big floor decal"
 
-	var/list/decals = list(
-		"0,0", "1,0", "2,0", "3,0", "4,0",
-		"0,1", "1,1", "2,1", "3,1", "4,1",
-		"0,2", "1,2", "2,2", "3,2","4,2",
-		"0,3", "2,3", "4,3"
-	)
+	var/decal_path
+	var/list/decals
 
-/obj/effect/floor_decal/scc_full/Initialize()
+/obj/effect/floor_decal/big/Initialize()
 	..()
 	for(var/coordinate in decals)
 		var/list/split_coordinate = splittext(coordinate, ",")
@@ -686,9 +715,46 @@
 			decal_turf = get_step(decal_turf, EAST)
 		for(var/i = 1 to text2num(split_coordinate[2]))
 			decal_turf = get_step(decal_turf, NORTH)
-		new /obj/effect/floor_decal/scc(decal_turf, null, null, FALSE, coordinate)
+		new decal_path(decal_turf, null, null, FALSE, coordinate)
 	return INITIALIZE_HINT_QDEL
 
+// SCC Preview
+/obj/effect/floor_decal/big/scc_full
+	name = "full 5x4 SCC logo"
+	icon = 'icons/turf/decals/big/scc_5x4_preview.dmi'
+	icon_state = "scc_preview"
+
+	decal_path = "/obj/effect/floor_decal/scc"
+	decals = list(
+		"0,0", "1,0", "2,0", "3,0", "4,0",
+		"0,1", "1,1", "2,1", "3,1", "4,1",
+		"0,2", "1,2", "2,2", "3,2", "4,2",
+		"0,3", "2,3", "4,3"
+	)
+
+// SCC
 /obj/effect/floor_decal/scc
-	icon = 'icons/turf/flooring/scc_decals.dmi'
+	name = "\improper 5x4 SCC logo"
+	icon = 'icons/turf/decals/big/scc_5x4.dmi'
+	icon_state = "0,0"
+
+// Sol Preview
+/obj/effect/floor_decal/big/sol_full
+	name = "full 5x5 Sol Alliance logo"
+	icon = 'icons/turf/decals/big/sol_5x5_preview.dmi'
+	icon_state = "sol_preview"
+
+	decal_path = "/obj/effect/floor_decal/sol"
+	decals = list(
+		"0,0", "1,0", "2,0", "3,0", "4,0",
+		"0,1", "1,1", "2,1", "3,1", "4,1",
+		"0,2", "1,2", "2,2", "3,2", "4,2",
+		"0,3", "1,3", "2,3", "3,3", "4,3",
+		"0,4", "1,4", "2,4", "3,4", "4,4"
+	)
+
+// Sol
+/obj/effect/floor_decal/sol
+	name = "\improper 5x5 Sol Alliance logo"
+	icon = 'icons/turf/decals/big/sol_5x5.dmi'
 	icon_state = "0,0"

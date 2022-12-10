@@ -314,7 +314,7 @@ var/list/global/organ_rel_size = list(
 // Emulates targetting a specific body part, and miss chances
 // May return null if missed
 // miss_chance_mod may be negative.
-/proc/get_zone_with_miss_chance(zone, var/mob/target, var/miss_chance_mod = 0, var/ranged_attack=0)
+/proc/get_zone_with_miss_chance(zone, var/mob/target, var/miss_chance_mod = 0, var/ranged_attack=0, var/point_blank = FALSE)
 	zone = check_zone(zone)
 
 	if(!ranged_attack)
@@ -325,6 +325,8 @@ var/list/global/organ_rel_size = list(
 		for(var/obj/item/grab/G in target.grabbed_by)
 			if(G.state >= GRAB_AGGRESSIVE)
 				return zone
+		if(point_blank)
+			return zone //Point blank shots don't miss.
 
 	var/miss_chance = 10
 	if (zone in base_miss_chance)
@@ -436,24 +438,17 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 #define PIXELS_PER_STRENGTH_VAL 16
 
 /proc/shake_camera(mob/M, duration, strength = 1)
-	set waitfor = 0
-	if(!M || !M.client || M.shakecamera || M.stat || isEye(M) || isAI(M))
+	var/current_time = world.time
+	if(!M || !M.client || (M.shakecamera > current_time)|| M.stat || isEye(M) || isAI(M))
 		return
-
-	if(M.client && ((M.client.view != world.view) || (M.client.pixel_x != 0) || (M.client.pixel_y != 0))) //to prevent it while zooming, because zoom does not play well with this code
-		return
-
-	M.shakecamera = TRUE
+	M.shakecamera = current_time + max(TICKS_PER_RECOIL_ANIM, duration)
 	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
 	var/steps = min(1, Floor(duration/TICKS_PER_RECOIL_ANIM))-1
-	animate(M.client, pixel_x = rand(-(strength), strength), pixel_y = rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM)
-	sleep(TICKS_PER_RECOIL_ANIM)
+	animate(M.client, pixel_x = rand(-(strength), strength), pixel_y = rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM, easing = JUMP_EASING|EASE_IN)
 	if(steps)
 		for(var/i = 1 to steps)
-			animate(M.client, pixel_x = rand(-(strength), strength), pixel_y = rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM)
-			sleep(TICKS_PER_RECOIL_ANIM)
-	M?.shakecamera = FALSE
-	animate(M.client, pixel_x = 0, pixel_y = 0, time = TICKS_PER_RECOIL_ANIM)
+			animate(pixel_x =  0 + rand(-(strength), strength), pixel_y = 0 + rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM, easing = JUMP_EASING|EASE_IN)
+	animate(pixel_x = 0, pixel_y = 0, time = TICKS_PER_RECOIL_ANIM)
 
 /proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -1190,12 +1185,12 @@ proc/is_blind(A)
 	if(used_accent && (speaking?.allow_accents || !speaking))
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		if(istype(a))
-			if(hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
-				return "([a.text_tag])"
+			if(hearer && hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
+				return {"<a href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'>([a.text_tag])</a>"}
 			else
 				var/final_icon = a.tag_icon
 				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
-				return S.icon_tag(final_icon)
+				return {"<span onclick="window.location.href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'">[S.icon_tag(final_icon)]</span>"}
 				
 
 /mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
@@ -1288,3 +1283,15 @@ proc/is_blind(A)
 
 /mob/proc/get_talk_bubble()
 	return 'icons/mob/talk.dmi'
+
+/datum/proc/get_client()
+	return null
+
+/client/get_client()
+	return src
+
+/mob/get_client()
+	return client
+
+/mob/abstract/observer/virtual/get_client()
+	return host.get_client()

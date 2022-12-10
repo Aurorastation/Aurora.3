@@ -39,7 +39,6 @@
 /datum/gear/accessory/armband/New()
 	..()
 	var/list/armbands = list()
-	armbands["Stellar Corporate Conglomerate armband"] = /obj/item/clothing/accessory/armband/scc
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["operations armband"] = /obj/item/clothing/accessory/armband/operations
@@ -60,7 +59,8 @@
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer")
+	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer",
+		"Chief Engineer", "Chief Medical Officer", "Research Director", "Operations Manager")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -152,7 +152,7 @@
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/pouches/black
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Investigator")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
@@ -168,7 +168,7 @@
 /datum/gear/accessory/overalls_mining
 	display_name = "overalls, mining"
 	path = /obj/item/clothing/accessory/storage/overalls/mining
-	allowed_roles = list("Shaft Miner")
+	allowed_roles = list("Shaft Miner", "Xenoarchaeologist")
 	cost = 2
 
 /datum/gear/accessory/overalls_engineer
@@ -186,18 +186,26 @@
 /datum/gear/accessory/sweater/New()
 	..()
 	var/list/sweater = list()
+
+	// Sweaters
 	sweater["sweater"] = /obj/item/clothing/accessory/sweater
-	sweater["crewneck sweater"] = /obj/item/clothing/accessory/sweatercrewneck
-	sweater["v-neck sweater"] = /obj/item/clothing/accessory/sweatervneck
-	sweater["sweater vest"] = /obj/item/clothing/accessory/sweatervest
-	sweater["turtleneck sweater"] = /obj/item/clothing/accessory/sweaterturtleneck
-	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweatertubeneck
-	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
-	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/sweaterargylecrewneck
-	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/sweaterargylevneck
-	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweatervestargyle
-	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
-	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
+	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweater/tubeneck
+	sweater["turtleneck sweater"] = /obj/item/clothing/accessory/sweater/turtleneck
+	sweater["crewneck sweater"] = /obj/item/clothing/accessory/sweater/crewneck
+	sweater["v-neck sweater"] = /obj/item/clothing/accessory/sweater/v_neck
+	sweater["deep v-neck sweater"] = /obj/item/clothing/accessory/sweater/v_neck/deep
+
+	// Argyle Sweaters
+	sweater["argyle sweater"] = /obj/item/clothing/accessory/argyle_sweater
+	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/tubeneck
+	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/turtleneck
+	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/crewneck
+	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/argyle_sweater/v_neck
+
+	// Sweater Vests
+	sweater["sweater vest"] = /obj/item/clothing/accessory/sweater_vest
+	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/argyle_sweater_vest
+
 	gear_tweaks += new /datum/gear_tweak/path(sweater)
 
 /datum/gear/accessory/shirt
@@ -228,6 +236,7 @@
 	shirt["blouse"] = /obj/item/clothing/accessory/blouse
 	shirt["long-sleeved blouse"] = /obj/item/clothing/accessory/longblouse
 	shirt["puffy blouse"] = /obj/item/clothing/accessory/puffyblouse
+	shirt["halter top"] = /obj/item/clothing/accessory/haltertop
 	gear_tweaks += new /datum/gear_tweak/path(shirt)
 
 /datum/gear/accessory/silversun
@@ -335,11 +344,6 @@
 	path = /obj/item/clothing/accessory/sleevepatch
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/scc_patch
-	display_name = "stellar corporate conglomerate sleeve patch"
-	path = /obj/item/clothing/accessory/sleevepatch/scc
-	flags = 0
-
 /datum/gear/accessory/whalebone
 	display_name = "europan bone charm"
 	path = /obj/item/clothing/accessory/whalebone
@@ -398,6 +402,11 @@
 /datum/gear/accessory/sash_horizontal
 	display_name = "horizontal sash (colourable)"
 	path = /obj/item/clothing/accessory/sash/horizontal
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/konyang_belt
+	display_name = "hanbok belt (colourable)"
+	path = /obj/item/clothing/accessory/konyang
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/passcard
@@ -525,6 +534,7 @@
 	flagpatch_national["flagpatch, visegrad"] = /obj/item/clothing/accessory/flagpatch/visegrad
 	flagpatch_national["flagpatch, silversun"] = /obj/item/clothing/accessory/flagpatch/silversun
 	flagpatch_national["flagpatch, callisto"] = /obj/item/clothing/accessory/flagpatch/callisto
+	flagpatch_national["flagpatch, venus"] = /obj/item/clothing/accessory/flagpatch/venus
 	flagpatch_national["flagpatch, konyang"] = /obj/item/clothing/accessory/flagpatch/konyang
 	flagpatch_national["flagpatch, elyra"] = /obj/item/clothing/accessory/flagpatch/elyra
 	flagpatch_national["flagpatch, coalition"] = /obj/item/clothing/accessory/flagpatch/coalition
@@ -538,6 +548,6 @@
 	flagpatch_national["flagpatch, dpra"] = /obj/item/clothing/accessory/flagpatch/dpra
 	flagpatch_national["flagpatch, nka"] = /obj/item/clothing/accessory/flagpatch/nka
 	flagpatch_national["flagpatch, free council"] = /obj/item/clothing/accessory/flagpatch/freecouncil
-	flagpatch_national["flagpatch, jargon"] = /obj/item/clothing/accessory/flagpatch/jargon
+	flagpatch_national["flagpatch, nralakk"] = /obj/item/clothing/accessory/flagpatch/nralakk
 	flagpatch_national["flagpatch, hegemony"] = /obj/item/clothing/accessory/flagpatch/hegemony
 	gear_tweaks += new /datum/gear_tweak/path(flagpatch_national)

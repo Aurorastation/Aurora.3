@@ -19,7 +19,6 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/fire.dmi'
 	)
 	icon_auto_adapt = TRUE
-	icon_supported_species_tags = list("ada", "gol")
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.90
@@ -56,10 +55,10 @@
 	w_class = ITEMSIZE_HUGE//Too large to fit in a backpack
 	item_flags = THICKMATERIAL|BLOCK_GAS_SMOKE_EFFECT
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH, 
-		bullet = ARMOR_BALLISTIC_MINOR, 
-		laser = ARMOR_LASER_SMALL, 
-		energy = ARMOR_ENERGY_RESISTANT, 
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_SHIELDED
 	)
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
@@ -85,10 +84,10 @@
 	permeability_coefficient = 0.01
 	slowdown = 8
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH, 
-		bullet = ARMOR_BALLISTIC_MINOR, 
-		laser = ARMOR_LASER_SMALL, 
-		energy = ARMOR_ENERGY_RESISTANT, 
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_SHIELDED
 	)
 	siemens_coefficient = 0.1
@@ -217,7 +216,7 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction,/obj/item/material/twohanded/fireaxe,/obj/item/storage/backpack/cell,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas,/obj/item/reagent_containers/hypospray/autoinjector)
 	slowdown = 1.5
 	armor = list(
-		bio = ARMOR_BIO_RESISTANT, 
+		bio = ARMOR_BIO_RESISTANT,
 		rad = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.35

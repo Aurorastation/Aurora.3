@@ -23,11 +23,11 @@
 #define SS_INIT_GHOSTROLES  3   // Ghost roles must initialize before SS_INIT_MISC due to some roles (matriarch drones) relying on the assumption that this SS is initialized.
 #define SS_INIT_MISC        2	// Subsystems without an explicitly set initialization order start here.
 #define SS_INIT_SUNLIGHT    1	// Sunlight setup. Creates lots of lighting & SSzcopy updates.
-#define SS_INIT_LIGHTING    0	// Generation of lighting overlays and pre-bake. May cause openturf updates, should initialize before SSzcopy.
+#define SS_INIT_LIGHTING   	0	// Generation of lighting overlays and pre-bake. May cause openturf updates, should initialize before SSzcopy.
 #define SS_INIT_ZCOPY      -1	// Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
-#define SS_INIT_LOBBY      -2	// Lobby timer starts here. The lobby timer won't actually start going down until the MC starts ticking, so you probably want this last
-#define SS_INIT_CHAT       -3	// To ensure chat remains smooth during init.
-#define SS_INIT_XENOARCH   -4   // Xenoarch is this far below because it can infinite loop if placed in SS_INIT_MISC as it was before, due to some subsystems spawning stuff there.
+#define SS_INIT_XENOARCH   -2   // Xenoarch is this far below because it can infinite loop if placed in SS_INIT_MISC as it was before, due to some subsystems spawning stuff there.
+#define SS_INIT_LOBBY      -3	// Lobby timer starts here. The lobby timer won't actually start going down until the MC starts ticking, so you probably want this last
+#define SS_INIT_CHAT       -4	// To ensure chat remains smooth during init.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.

@@ -21,13 +21,23 @@ BREATH ANALYZER
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	var/mode = 1
+	var/last_scan = 0
+	var/sound_scan = FALSE
 
 /obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
-	health_scan_mob(M, user, mode)
+	sound_scan = FALSE
+	if(last_scan <= world.time - 20) //Spam limiter.
+		last_scan = world.time
+		sound_scan = TRUE
+	health_scan_mob(M, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
-	health_scan_mob(user, user, mode)
+	sound_scan = FALSE
+	if(last_scan <= world.time - 20) //Spam limiter.
+		last_scan = world.time
+		sound_scan = TRUE
+	health_scan_mob(user, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
 
 /proc/get_wound_severity(var/damage_ratio, var/uppercase = FALSE) //Used for ratios.
@@ -72,12 +82,13 @@ BREATH ANALYZER
 		output = capitalize(output)
 	return output
 
-/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE)
+/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE, var/sound_scan)
 	if(!just_scan)
 		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
-			to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
-			to_chat(user, "Overall Status: <span class='good'>Healthy</span>")
+			to_chat(user, "<span class='notice'><b>Scan results for the ERROR:</b></span>")
+			if(sound_scan)
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
 			return
 
 		if(!usr.IsAdvancedToolUser())
@@ -88,12 +99,16 @@ BREATH ANALYZER
 
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
+		if(sound_scan)
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
 		return
 
 	var/mob/living/carbon/human/H = M
 
 	if(H.isSynthetic() && !H.isFBP())
 		to_chat(user, "<span class='warning'>This scanner is designed for organic humanoid patients only.</span>")
+		if(sound_scan)
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
 		return
 
 	. = list()
@@ -115,8 +130,25 @@ BREATH ANALYZER
 	. += "[b]Scan results for \the [H]:[endb]"
 
 	// Brain activity.
-	var/brain_result = H.get_brain_status()
-	dat += "Brain activity: [brain_result]."
+	var/brain_status = H.get_brain_status()
+	dat += "Brain activity: [brain_status]"
+	var/brain_result = H.get_brain_result()
+
+	if(sound_scan)
+		switch(brain_result)
+			if(0)
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25)
+			if(-1)
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+			else
+				if(brain_result <= 25)
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25)
+				else if(brain_result <= 50)
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25)
+				else if(brain_result <= 90)
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+				else
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25)
 
 	if(H.stat == DEAD || H.status_flags & FAKEDEATH)
 		dat += "<span class='scan_warning'>[b]Time of Death:[endb] [worldtime2text(H.timeofdeath)]</span>"
@@ -137,13 +169,14 @@ BREATH ANALYZER
 			pulse_result = "<span class='scan_warning'>[pulse_result]</span>"
 	else
 		pulse_result = "<span class='scan_danger'>0</span>"
-	dat += "Pulse rate: [pulse_result]bpm."
+	dat += "Pulse rate: [pulse_result] bpm"
 
-	// Blood pressure. Based on the idea of a normal blood pressure being 120 over 80.
+	// Blood pressure and blood type. Based on the idea of a normal blood pressure being 120 over 80.
 	if(H.should_have_organ(BP_HEART))
 		if(H.get_blood_volume() <= 70)
 			dat += "<span class='scan_danger'>Severe blood loss detected.</span>"
 		var/oxygenation_string = "<span class='scan_green'>[H.get_blood_oxygenation()]% blood oxygenation</span>"
+		dat += "Blood type: <span class ='scan_green'>[H.dna.b_type]</span>"
 		switch(H.get_blood_oxygenation())
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 				oxygenation_string = "<span class='scan_notice'>[oxygenation_string]</span>"
@@ -162,16 +195,16 @@ BREATH ANALYZER
 				blood_pressure_string = "<span class='scan_warning'>[H.get_blood_pressure()]</span>"
 			if(4)
 				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
-		dat += "[b]Blood pressure:[endb] [blood_pressure_string] ([oxygenation_string])"
+		dat += "Blood pressure: [blood_pressure_string] ([oxygenation_string])"
 	else
-		dat += "[b]Blood pressure:[endb] N/A"
+		dat += "Blood pressure: N/A"
 
-	// Body temperature.
+	// Body temperature. Rounds to one digit after decimal.
 	var/temperature_string
 	if(H.bodytemperature < H.species.cold_level_1 || H.bodytemperature > H.species.heat_level_1)
-		temperature_string = "<span class='scan_warning'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
+		temperature_string = "Body temperature: <span class='scan_warning'>[round(H.bodytemperature-T0C, 0.1)]&deg;C ([round(H.bodytemperature*1.8-459.67, 0.1)]&deg;F)</span>"
 	else
-		temperature_string = "<span class='scan_green'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
+		temperature_string = "Body temperature: <span class='scan_green'>[round(H.bodytemperature-T0C, 0.1)]&deg;C ([round(H.bodytemperature*1.8-459.67, 0.1)]&deg;F)</span>"
 	dat += temperature_string
 
 	// Traumatic shock.
@@ -540,7 +573,7 @@ BREATH ANALYZER
 
 /obj/item/device/breath_analyzer
 	name = "breath analyzer"
-	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's repository system."
+	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respiratory system."
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
 	w_class = ITEMSIZE_SMALL
@@ -593,15 +626,19 @@ BREATH ANALYZER
 
 	if(H.stat == DEAD || H.losebreath || !H.breathing)
 		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
+		playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25)
 		return
 
 	switch(H.getOxyLoss())
 		if(0 to 25)
 			to_chat(user,"Subject oxygen levels nominal.")
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25)
 		if(25 to 50)
 			to_chat(user,"<span class='notice'>Subject oxygen levels abnormal.</span>")
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25)
 		if(50 to INFINITY)
 			to_chat(user,"<span class='notice'><b>Severe oxygen deprivation detected.</b></span>")
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25)
 
 	var/obj/item/organ/internal/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L))
@@ -634,11 +671,11 @@ BREATH ANALYZER
 		for(var/_R in H.breathing.reagent_volumes)
 			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(R.scannable)
-				to_chat(user,"<span class='notice'>[R.name] found in subject's respitory system.</span>")
+				to_chat(user,"<span class='notice'>[R.name] found in subject's respiratory system.</span>")
 			else
 				++unknown
 		if(unknown)
-			to_chat(user,"<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respitory system.</span>")
+			to_chat(user,"<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respiratory system.</span>")
 
 
 /obj/item/device/advanced_healthanalyzer

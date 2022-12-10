@@ -7,6 +7,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	var/list/viewers // Weakrefs to mobs in direct-view mode.
 	var/extra_view = 0 // how much the view is increased by when the mob is in overmap mode.
 	var/obj/effect/overmap/visitable/ship/connected //The ship we're attached to. This is a typecheck for linked, to ensure we're linked to a ship and not a sector
+	var/targeting = FALSE //Are we targeting anything right now?
 
 /obj/machinery/computer/ship/proc/display_reconnect_dialog(var/mob/user, var/flavor)
 	var/datum/browser/popup = new (user, "[src]", "[src]")
@@ -106,6 +107,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 
 /obj/machinery/computer/ship/sensors/Destroy()
 	sensors = null
+	identification = null
 	if(LAZYLEN(viewers))
 		for(var/datum/weakref/W in viewers)
 			var/M = W.resolve()
