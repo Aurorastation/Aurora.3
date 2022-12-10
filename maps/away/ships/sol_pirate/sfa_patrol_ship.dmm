@@ -286,7 +286,7 @@
 "aSm" = (
 /obj/structure/weightlifter,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship)
 "aSy" = (
 /obj/item/trash/spitwad,
@@ -2756,6 +2756,10 @@
 "kYY" = (
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/Quarters)
+"kZP" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/space,
+/area/ship/sfa_patrol_ship)
 "lcg" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/light{
@@ -3069,7 +3073,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship)
 "mwM" = (
 /obj/structure/cable/green{
@@ -4764,7 +4768,8 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/wall/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/space,
 /area/ship/sfa_patrol_ship)
 "uDm" = (
 /obj/machinery/vending/wallmed1{
@@ -23316,7 +23321,7 @@ yjk
 mEJ
 vBP
 dHE
-vwg
+xKh
 rGn
 wNH
 qsM
@@ -23574,7 +23579,7 @@ gyl
 eOZ
 aSm
 vwg
-lwj
+xKh
 mwb
 szb
 lKf
@@ -24088,10 +24093,10 @@ ceI
 nsy
 dHE
 yjk
-yjk
+kZP
 uCL
-vwg
-vwg
+kZP
+kZP
 vwg
 xHa
 vwg
