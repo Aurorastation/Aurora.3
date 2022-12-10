@@ -441,7 +441,7 @@ var/global/list/default_medbay_channels = list(
 	var/datum/signal/subspace/vocal/signal = new(src, connection.frequency, speaker_weakref, speaking, message, say_verb)
 
 	// All radios attempt to use the subspace system
-	signal.send_to_receivers()
+	. = signal.send_to_receivers()
 
 	// If it's subspace only, that's all we can do
 	if(subspace_transmission)
@@ -465,7 +465,7 @@ var/global/list/default_medbay_channels = list(
 	if (!broadcasting || get_dist(src, M) > canhear_range)
 		return
 
-	talk_into(M, msg, null, verb, speaking, ignore_restrained = TRUE)
+	return talk_into(M, msg, null, verb, speaking, ignore_restrained = TRUE)
 
 /obj/item/device/radio/proc/can_receive(input_frequency, list/levels)
 	// check if the radio can receive on the given frequency
