@@ -731,10 +731,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
-"cZv" = (
-/obj/structure/girder,
-/turf/template_noop,
-/area/space)
 "cZV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -1581,7 +1577,6 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/structure/curtain/open/shower/security,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, office"
 	},
@@ -1895,7 +1890,7 @@
 /obj/structure/lattice,
 /obj/structure/girder,
 /obj/structure/girder,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/sfa_patrol_ship)
 "hyd" = (
 /turf/simulated/floor/tiled/dark,
@@ -2037,7 +2032,7 @@
 /obj/structure/lattice,
 /obj/item/ammo_casing/a12mm,
 /obj/item/ammo_casing/a12mm,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/sfa_patrol_ship)
 "ijY" = (
 /turf/simulated/floor/tiled/freezer{
@@ -2544,19 +2539,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/medbay)
-"jOG" = (
-/obj/structure/lattice,
-/obj/effect/decal/cleanable/blood/oil,
-/obj/structure/girder,
-/turf/template_noop,
-/area/ship/sfa_patrol_ship)
-"jQT" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship/Brig)
 "jRX" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -2896,7 +2878,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "lwj" = (
-/turf/space,
+/turf/space/dynamic,
 /area/ship/sfa_patrol_ship)
 "lEx" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -2908,7 +2890,6 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/structure/curtain/open/shower/security,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Officer)
 "lFg" = (
@@ -3081,7 +3062,6 @@
 /area/ship/sfa_patrol_ship/Quarters)
 "mwb" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/ammo_casing,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -3089,7 +3069,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "mwM" = (
 /obj/structure/cable/green{
@@ -3172,7 +3152,7 @@
 "mWO" = (
 /obj/structure/lattice,
 /obj/item/ammo_casing/a12mm,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/sfa_patrol_ship)
 "mYQ" = (
 /turf/simulated/wall/shuttle/raider,
@@ -3573,12 +3553,12 @@
 /area/ship/sfa_patrol_ship)
 "oZk" = (
 /obj/structure/girder,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/sfa_patrol_ship)
 "pcb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/girder,
-/turf/space,
+/turf/space/dynamic,
 /area/ship/sfa_patrol_ship)
 "pcY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3648,12 +3628,6 @@
 /turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship)
 "pls" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -3663,6 +3637,12 @@
 	name = "east bump";
 	pixel_x = 24;
 	req_access = list(113)
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
@@ -3982,9 +3962,6 @@
 /obj/item/trash/uselessplastic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
-"qyd" = (
-/turf/template_noop,
-/area/ship/sfa_patrol_ship)
 "qyG" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/door/blast/regular{
@@ -4025,14 +4002,6 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
-"qFV" = (
-/obj/structure/lattice,
-/obj/structure/girder,
-/obj/machinery/holosign/surgery{
-	icon_state = "sign_on"
-	},
-/turf/template_noop,
 /area/ship/sfa_patrol_ship)
 "qGI" = (
 /obj/structure/bed,
@@ -4401,6 +4370,7 @@
 /area/ship/sfa_patrol_ship)
 "svF" = (
 /obj/structure/sign/flag/sol,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship)
 "swy" = (
@@ -4417,10 +4387,9 @@
 /turf/simulated/wall,
 /area/ship/sfa_patrol_ship/Bridge)
 "szb" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/random_produce/box,
-/turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship/medbay)
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/ship/sfa_patrol_ship)
 "szP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -4507,6 +4476,9 @@
 /obj/item/storage/belt/security,
 /obj/item/cell/high,
 /obj/item/cell/high,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
 "sYQ" = (
@@ -4552,10 +4524,6 @@
 /obj/item/ship_ammunition/longbow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/unsimulated/floor,
-/area/ship/sfa_patrol_ship)
-"tCh" = (
-/obj/structure/girder,
-/turf/template_noop,
 /area/ship/sfa_patrol_ship)
 "tCy" = (
 /obj/structure/closet/body_bag/cryobag,
@@ -4756,7 +4724,6 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/structure/curtain/open/shower/security,
 /obj/structure/bookcase/libraryspawn,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Officer)
@@ -21310,7 +21277,7 @@ iMA
 tMM
 pIo
 pJa
-jQT
+tvp
 kyk
 ntt
 wyk
@@ -22066,10 +22033,10 @@ xRX
 xRX
 xRX
 xRX
-xXC
+szb
 pJB
 yjk
-tCh
+oZk
 krh
 tuL
 eGr
@@ -22323,10 +22290,10 @@ xRX
 xRX
 xRX
 fLH
-qFV
+rMk
 nQA
 neP
-tCh
+oZk
 yjk
 yjk
 yjk
@@ -22842,7 +22809,7 @@ qsM
 dYU
 xGG
 qsM
-xXC
+szb
 fus
 hwu
 hFs
@@ -23353,7 +23320,7 @@ vwg
 rGn
 wNH
 qsM
-xXC
+szb
 nQe
 nQe
 uJE
@@ -23607,16 +23574,16 @@ gyl
 eOZ
 aSm
 vwg
-qyd
+lwj
 mwb
-xXC
+szb
 lKf
 qsM
 fus
 qsM
 qsM
 qsM
-xXC
+szb
 afo
 guO
 vSl
@@ -23864,10 +23831,10 @@ rDx
 fNs
 lFg
 xHa
-xXC
+szb
 fWB
-xXC
-xXC
+szb
+szb
 ucv
 wDs
 ucv
@@ -25680,8 +25647,8 @@ sBA
 gtX
 xXC
 xRX
-gSs
-gSs
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -26196,7 +26163,7 @@ xXC
 xRX
 xRX
 xRX
-gSs
+xRX
 xRX
 xRX
 xRX
@@ -27227,7 +27194,7 @@ yjk
 wgm
 dLj
 hJh
-jOG
+rMk
 xRX
 xRX
 xRX
@@ -28497,7 +28464,7 @@ qZc
 fUi
 vus
 mYQ
-szb
+jGx
 els
 fzB
 jGx
@@ -31075,12 +31042,12 @@ wzk
 yjk
 yjk
 yjk
-pBY
+yjk
 ikP
 mkb
-pBY
+yjk
 xRX
-cZv
+xRX
 xRX
 xRX
 xRX
