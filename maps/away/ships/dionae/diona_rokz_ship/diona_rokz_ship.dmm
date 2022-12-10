@@ -48,6 +48,12 @@
 /obj/item/device/flashlight/lantern,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
+"ch" = (
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/wall/diona,
+/area/shuttle/diona_rokz_ship_shuttle)
 "cj" = (
 /obj/item/trap/animal/large,
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -86,7 +92,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/turf/unsimulated/mineral/asteroid,
+/turf/simulated/wall/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "eO" = (
 /obj/structure/table/diona,
@@ -600,10 +606,7 @@
 /area/ship/diona_rokz_ship)
 "Jd" = (
 /obj/machinery/door/airlock/diona/external,
-/obj/effect/landmark/entry_point/south{
-	name = "fore, bridge"
-	},
-/turf/simulated/floor/diona,
+/turf/space,
 /area/shuttle/diona_rokz_ship_shuttle)
 "Ji" = (
 /obj/structure/closet/crate/loot,
@@ -719,9 +722,6 @@
 	dir = 4;
 	icon_state = "computer_diona";
 	icon_broken = "computer_diona"
-	},
-/obj/effect/landmark/entry_point/east{
-	name = "port, crew compartment"
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
@@ -35813,8 +35813,8 @@ KX
 KX
 KX
 Gh
-AM
 Gh
+AM
 Gh
 Gh
 Gh
@@ -36584,8 +36584,8 @@ cC
 cC
 cC
 cC
-Rb
 cC
+Rb
 cC
 cC
 HS
@@ -36836,7 +36836,7 @@ VO
 aI
 BK
 gu
-Gh
+ch
 Gh
 cj
 LZ
@@ -37098,8 +37098,8 @@ Gh
 Gh
 Gh
 Gh
-PU
 Gh
+PU
 KX
 KX
 KX
