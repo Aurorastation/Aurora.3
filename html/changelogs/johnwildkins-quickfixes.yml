@@ -1,8 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed away site telecomms AIOs not initializing properly, causing comms to fail."
-  - bugfix: "Fixed AI shells having no access."
-  - bugfix: "Fixed AI / borgs / etc. speaking locally when sending a radio message."
