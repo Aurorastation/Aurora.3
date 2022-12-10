@@ -85,6 +85,7 @@
 	shuttle_area = list(/area/shuttle/headmaster_shuttle)
 	current_location = "nav_headmaster_shuttle"
 	landmark_transition = "nav_transit_headmaster_shuttle"
+	dock_target = "headmaster_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_headmaster_shuttle"

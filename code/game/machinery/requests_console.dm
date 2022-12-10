@@ -24,7 +24,7 @@ var/req_console_information = list()
 var/list/obj/machinery/requests_console/allConsoles = list()
 
 /obj/machinery/requests_console
-	name = "Requests Console"
+	name = "requests console"
 	desc = "A console intended to send requests to different departments on the station."
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp"
@@ -118,7 +118,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	announcement.title = "[department] announcement"
 	announcement.newscast = 1
 
-	name = "[department] Requests Console"
+	name = "[department] requests console"
 	allConsoles += src
 	if (departmentType & RC_ASSIST)
 		req_console_assistance |= department
@@ -240,13 +240,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	if( href_list["department"] && message )
 		var/log_msg = message
-		var/pass = FALSE
 		screen = RCS_SENTFAIL
-		for(var/obj/machinery/message_server/MS in SSmachinery.processing)
-			if(!MS.active)
-				continue
-			MS.send_rc_message(ckey(href_list["department"]), department, log_msg, msgStamped, msgVerified, priority)
-			pass = TRUE
+		var/pass = FALSE
+		var/datum/data_rc_msg/log = new(href_list["department"], department, log_msg, msgStamped, msgVerified, priority)
+		for (var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+			if (MS.use_power)
+				MS.rc_msgs += log
+				pass = TRUE
 		if(pass)
 			screen = RCS_SENTPASS
 			message_log += "<B>Message sent to [recipient]</B><BR>[message]"
@@ -414,8 +414,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		return TRUE
 
 /obj/machinery/requests_console/proc/can_send()
-	for(var/obj/machinery/message_server/MS in SSmachinery.processing)
-		if(!MS.active)
+	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+		if(!MS.use_power)
 			continue
 		return TRUE
 	return FALSE

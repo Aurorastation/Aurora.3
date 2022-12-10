@@ -152,7 +152,7 @@
 	..()
 	var/list/banners = list()
 	banners["banner, Stellar Corporate Conglomerate"] = /obj/item/flag/scc
-	banners["banner, SolGov"] = /obj/item/flag/sol
+	banners["banner, Sol Alliance"] = /obj/item/flag/sol
 	banners["banner, Dominia"] = /obj/item/flag/dominia
 	banners["banner, Elyra"] = /obj/item/flag/elyra
 	banners["banner, Hegemony"] = /obj/item/flag/hegemony
@@ -203,7 +203,7 @@
 	..()
 	var/list/flags = list()
 	flags["flag, Stellar Corporate Conglomerate"] = /obj/item/flag/scc/l
-	flags["flag, SolGov"] = /obj/item/flag/sol/l
+	flags["flag, Sol Alliance"] = /obj/item/flag/sol/l
 	flags["flag, Dominia"] = /obj/item/flag/dominia/l
 	flags["flag, Elyra"] = /obj/item/flag/elyra/l
 	flags["flag, Hegemony"] = /obj/item/flag/hegemony/l

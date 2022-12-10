@@ -20,7 +20,7 @@
 	returns[4] = world.view
 	return returns
 
-/mob/living/silicon/robot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+/mob/living/silicon/robot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode == "whisper" && !whisper)
 		whisper(message, speaking)
 		return TRUE
@@ -36,7 +36,7 @@
 /mob/living/silicon/robot/drone/handle_message_mode()
 	return null
 
-/mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+/mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode == "whisper" && !whisper)
 		whisper(message, speaking)
 		return TRUE
@@ -52,7 +52,7 @@
 		log_say("[key_name(src)] : [message]",ckey=key_name(src))
 		return ai_radio.talk_into(src, message, message_mode, verb, speaking)
 
-/mob/living/silicon/pai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+/mob/living/silicon/pai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode)
 		if(message_mode == "whisper" && !whisper)
 			whisper(message, speaking)
@@ -120,7 +120,7 @@
 		var/turf/T = get_turf(H)
 
 		if(T)
-			var/list/hear = hear(7, T)
+			var/list/hear = get_hear(7, T)
 			var/list/hearturfs = list()
 
 			for(var/I in hear)

@@ -14,6 +14,8 @@
 /obj/effect/overmap/visitable/sector/space_bar
 	name = "space bar"
 	desc = "A cozy meeting place floating on space."
+	comms_support = TRUE
+	comms_name = "station"
 
 /area/space_bar
 	name = "Spacer Bar"

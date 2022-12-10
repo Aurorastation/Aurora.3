@@ -192,9 +192,9 @@
 	if(href_list["action"] == "follow") // from manifest.vue
 		var/mob/abstract/observer/O = usr
 		if(istype(O))
-			for(var/mob/living/carbon/human/H in human_mob_list)
-				if(istype(H) && H.real_name == href_list["name"])
-					O.ManualFollow(H)
+			for(var/mob/living/M in player_list)
+				if(istype(M) && M.real_name == href_list["name"])
+					O.ManualFollow(M)
 					break
 	. = ..()
 
