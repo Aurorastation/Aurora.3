@@ -1,0 +1,6 @@
+author: listerla
+
+delete-after: True
+
+changes:
+  - tweak: "Filled in a pixel on the short shorts, to prevent clipping."
