@@ -6352,7 +6352,7 @@
 /area/rnd/telesci)
 "dfP" = (
 /obj/structure/table/rack,
-/obj/item/storage/bag/slimes,
+/obj/item/storage/slimes,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
 "dfR" = (
@@ -15962,7 +15962,7 @@
 	dir = 5
 	},
 /obj/structure/table/standard,
-/obj/item/storage/bag/slimes,
+/obj/item/storage/slimes,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/xenobiology)
 "hOa" = (
