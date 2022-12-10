@@ -4,6 +4,6 @@
 	description = "The site of a sinister ritual."
 
 	spawn_weight = 1
-	spawn_cost = 2
+	spawn_cost = 1
 	sectors = list(SECTOR_SRANDMARR)
-	suffix = "adhomai/raskara_ritual.dmm"
+	suffix = "raskara/raskara_ritual.dmm"
