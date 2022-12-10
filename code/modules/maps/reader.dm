@@ -65,6 +65,8 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	var/stored_index = 1
 	var/list/atoms_to_initialise = list()
+	var/has_expanded_world_maxx = FALSE
+	var/has_expanded_world_maxy = FALSE
 
 	while(dmmRegex.Find(tfile, stored_index))
 		stored_index = dmmRegex.next
@@ -104,6 +106,7 @@ var/global/dmm_suite/preloader/_preloader = new
 					continue
 				else
 					world.maxz = zcrd //create a new z_level if needed
+					SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 				if(!no_changeturf)
 					WARNING("Z-level expansion occurred without no_changeturf set, this may cause problems when /turf/post_change is called.")
 
@@ -130,6 +133,7 @@ var/global/dmm_suite/preloader/_preloader = new
 			if(!cropMap && ycrd > world.maxy)
 				if(!measureOnly)
 					world.maxy = ycrd // Expand Y here.  X is expanded in the loop below
+					has_expanded_world_maxy = TRUE
 				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], Clamp(ycrd, y_lower, y_upper))
 			else
 				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], Clamp(min(ycrd, world.maxy), y_lower, y_upper))
@@ -154,6 +158,7 @@ var/global/dmm_suite/preloader/_preloader = new
 									break
 								else
 									world.maxx = xcrd
+									has_expanded_world_maxx = TRUE
 
 							if(xcrd >= 1)
 								var/model_key = copytext(line, tpos, tpos + key_len)
@@ -182,10 +187,13 @@ var/global/dmm_suite/preloader/_preloader = new
 	else
 		if(!measureOnly)
 			if(!no_changeturf)
-				for(var/t in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
-					var/turf/T = t
+				for(var/turf/T as anything in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
 					//we do this after we load everything in. if we don't; we'll have weird atmos bugs regarding atmos adjacent turfs
 					T.post_change(FALSE)
+
+			if(has_expanded_world_maxx || has_expanded_world_maxy)
+				SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, has_expanded_world_maxx, has_expanded_world_maxy)
+
 		var/datum/map_load_metadata/M = new
 		M.bounds = bounds
 		M.atoms_to_initialise = atoms_to_initialise

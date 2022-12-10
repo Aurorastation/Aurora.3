@@ -5,7 +5,7 @@
 	if(locate(/obj/structure/grille, T) || locate(/obj/structure/window_frame, T) || locate(/obj/structure/window/full, T))
 		return
 	//Don't place on openspace!
-	if(istype(T,/turf/simulated/open))
+	if(T.is_open())
 		return
 	//Dont place on unsimulated!
 	if(istype(T,/turf/unsimulated))

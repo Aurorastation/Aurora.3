@@ -16,44 +16,111 @@
 	var/radio_sound = null
 	clickvol = 40
 
+/obj/item/device/radio/intercom/ship
+	channels = list()
+	var/default_hailing = FALSE
+
+/obj/item/device/radio/intercom/ship/Initialize()
+	if(!current_map.use_overmap)
+		return ..()
+
+	var/turf/T = get_turf(src)
+	var/obj/effect/overmap/visitable/V = map_sectors["[T.z]"]
+	if(istype(V) && V.comms_support)
+		if(V.comms_name)
+			name = "intercom ([V.comms_name])"
+		default_frequency = assign_away_freq(V.name)
+		channels += list(
+			V.name = TRUE,
+			CHANNEL_HAILING = TRUE
+		)
+
+	. = ..()
+
+	if (default_hailing)
+		set_frequency(HAIL_FREQ)
+
+/obj/item/device/radio/intercom/ship/hailing
+	default_hailing = TRUE
+
 /obj/item/device/radio/intercom/custom
 	name = "intercom (custom)"
-	broadcasting = FALSE
-	listening = FALSE
+
+/obj/item/device/radio/intercom/custom/Initialize()
+	. = ..()
+	set_broadcasting(FALSE)
+	set_listening(FALSE)
+
+/obj/item/device/radio/intercom/hailing
+	name = "intercom (hailing)"
+
+/obj/item/device/radio/intercom/hailing/Initialize()
+	. = ..()
+	set_frequency(HAIL_FREQ)
 
 /obj/item/device/radio/intercom/interrogation
 	name = "intercom (interrogation)"
-	frequency = 1449
 
-/obj/item/device/radio/intercom/interrogation/broadcasting // The detainee's side.
-	broadcasting = TRUE
-	listening = FALSE
+/obj/item/device/radio/intercom/interrogation/Initialize()
+	. = ..()
+	set_frequency(1449)
+
+/obj/item/device/radio/intercom/interrogation/broadcasting/Initialize() // The detainee's side.
+	set_broadcasting(TRUE)
+	set_listening(FALSE)
 
 /obj/item/device/radio/intercom/private
 	name = "intercom (private)"
-	frequency = AI_FREQ
+
+/obj/item/device/radio/intercom/private/Initialize()
+	. = ..()
+	set_frequency(AI_FREQ)
 
 /obj/item/device/radio/intercom/specops
 	name = "intercom (spec ops)"
-	frequency = ERT_FREQ
+
+/obj/item/device/radio/intercom/specops/Initialize()
+	. = ..()
+	set_frequency(ERT_FREQ)
 
 /obj/item/device/radio/intercom/department
 	canhear_range = 5
-	broadcasting = FALSE
-	listening = TRUE
+
+/obj/item/device/radio/intercom/department/Initialize()
+	. = ..()
+	set_broadcasting(FALSE)
+	set_listening(TRUE)
 
 /obj/item/device/radio/intercom/department/medbay
 	name = "intercom (medical)"
-	frequency = MED_I_FREQ
+
+/obj/item/device/radio/intercom/department/medbay/Initialize()
+	. = ..()
+	set_frequency(MED_I_FREQ)
+	internal_channels = default_medbay_channels.Copy()
 
 /obj/item/device/radio/intercom/department/security
 	name = "intercom (security)"
-	frequency = SEC_I_FREQ
+
+/obj/item/device/radio/intercom/department/security/Initialize()
+	. = ..()
+	set_frequency(SEC_I_FREQ)
+	internal_channels = list(
+		num2text(PUB_FREQ) = list(),
+		num2text(SEC_I_FREQ) = list(access_security)
+	)
 
 /obj/item/device/radio/intercom/entertainment
 	name = "intercom (entertainment)"
-	frequency = ENT_FREQ
 	canhear_range = 4
+
+/obj/item/device/radio/intercom/entertainment/Initialize()
+	. = ..()
+	set_frequency(ENT_FREQ)
+	internal_channels = list(
+		num2text(PUB_FREQ) = list(),
+		num2text(ENT_FREQ) = list()
+	)
 
 /obj/item/device/radio/intercom/Initialize()
 	. = ..()
@@ -70,44 +137,26 @@
 	screen_overlays["intercom_b"] = make_screen_overlay(icon, "intercom_b")
 	screen_overlays["intercom_l"] = make_screen_overlay(icon, "intercom_l")
 
-/obj/item/device/radio/intercom/department/medbay/Initialize()
-	. = ..()
-	internal_channels = default_medbay_channels.Copy()
-
-/obj/item/device/radio/intercom/department/security/Initialize()
-	. = ..()
-	internal_channels = list(
-		num2text(PUB_FREQ) = list(),
-		num2text(SEC_I_FREQ) = list(access_security)
-	)
-
-/obj/item/device/radio/intercom/entertainment/Initialize()
-	. = ..()
-	internal_channels = list(
-		num2text(PUB_FREQ) = list(),
-		num2text(ENT_FREQ) = list()
-	)
-
 /obj/item/device/radio/intercom/syndicate
 	name = "illegally modified intercom"
 	desc = "Talk through this. Evilly."
-	frequency = SYND_FREQ
-	subspace_transmission = 1
-	syndie = 1
+	subspace_transmission = TRUE
+	syndie = TRUE
 
 /obj/item/device/radio/intercom/syndicate/Initialize()
 	. = ..()
+	set_frequency(SYND_FREQ)
 	internal_channels[num2text(SYND_FREQ)] = list(access_syndicate)
 
 /obj/item/device/radio/intercom/raider
 	name = "illegally modified intercom"
 	desc = "Pirate radio, but not in the usual sense of the word."
-	frequency = RAID_FREQ
-	subspace_transmission = 1
-	syndie = 1
+	subspace_transmission = TRUE
+	syndie = TRUE
 
 /obj/item/device/radio/intercom/syndicate/Initialize()
 	. = ..()
+	set_frequency(RAID_FREQ)
 	internal_channels[num2text(RAID_FREQ)] = list(access_syndicate)
 
 /obj/item/device/radio/intercom/Destroy()
@@ -124,27 +173,19 @@
 	src.add_fingerprint(user)
 	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
 
-/obj/item/device/radio/intercom/receive_range(freq, level)
-	if (!on)
-		return -1
-	if(!(0 in level))
+/obj/item/device/radio/intercom/can_receive(input_frequency, list/levels)
+	if(levels != RADIO_NO_Z_LEVEL_RESTRICTION)
 		var/turf/position = get_turf(src)
-		if(isnull(position) || !(position.z in level))
-			return -1
-	if (!src.listening)
-		return -1
-	if(freq in ANTAG_FREQS)
-		if(!(src.syndie))
-			return -1//Prevents broadcast of messages over devices lacking the encryption
+		if(!istype(position) || !(position.z in levels))
+			return FALSE
 
-	return canhear_range
+	if(input_frequency in ANTAG_FREQS && !syndie)
+		return FALSE//Prevents broadcast of messages over devices lacking the encryption
+
+	return TRUE
 
 /obj/item/device/radio/intercom/proc/power_change(has_power)
-	if (!src.loc)
-		on = 0
-	else
-		on = has_power
-
+	set_on(has_power) // has_power is given by our listener machinery
 	update_icon()
 
 /obj/item/device/radio/intercom/forceMove(atom/dest)
@@ -166,8 +207,8 @@
 		if(listening)
 			add_overlay(screen_overlays["intercom_l"])
 
-/obj/item/device/radio/intercom/broadcasting
-	broadcasting = TRUE
+/obj/item/device/radio/intercom/broadcasting/Initialize()
+	set_broadcasting(TRUE)
 
 /obj/item/device/radio/intercom/locked
     var/locked_frequency
@@ -181,10 +222,16 @@
 
 /obj/item/device/radio/intercom/locked/ai_private
 	name = "intercom (AI private)"
-	frequency = AI_FREQ
-	broadcasting = TRUE
-	listening = TRUE
+
+/obj/item/device/radio/intercom/locked/ai_private/Initialize()
+	. = ..()
+	set_frequency(AI_FREQ)
+	set_broadcasting(TRUE)
+	set_listening(TRUE)
 
 /obj/item/device/radio/intercom/locked/confessional
 	name = "intercom (confessional)"
-	frequency = 1480
+
+/obj/item/device/radio/intercom/locked/confessional/Initialize()
+	. = ..()
+	set_frequency(1480)

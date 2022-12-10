@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/tajara_scrapper
 	name = "adhomian scrapper outpost"
-	description = "An outpost used by Tajaran scrapper. It offers repair and scrapping services."
+	description = "An outpost used by Tajaran scrappers. It offers repair and scrapping services."
 	suffix = "away_site/tajara/scrapper/scrapper.dmm"
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
@@ -23,6 +23,8 @@
 	initial_restricted_waypoints = list(
 		"Scrapper Ship" = list("nav_hangar_tajara_scrapper")
 	)
+	comms_support = TRUE
+	comms_name = "adhomian"
 
 /obj/effect/shuttle_landmark/tajara_scrapper
 	base_turf = /turf/space

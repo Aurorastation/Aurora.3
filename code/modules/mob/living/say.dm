@@ -16,7 +16,7 @@ var/list/department_radio_keys = list(
 	  ":x" = "Raider",		".x" = "Raider",
 	  ":b" = "Burglar",		".b" = "Burglar",
 	  ":j" = "Bluespace",	".j" = "Bluespace",
-	  ":y" = "Ship",		".y" = "Ship",
+	  ":y" = "Hailing",		".y" = "Hailing",
 	  ":q" = "Ninja",		".q" = "Ninja",
 	  ":u" = "Operations",	".u" = "Operations",
 	  ":v" = "Service",		".v" = "Service",
@@ -39,7 +39,7 @@ var/list/department_radio_keys = list(
 	  ":X" = "Raider",		".X" = "Raider",
 	  ":B" = "Burglar",		".B" = "Burglar",
 	  ":J" = "Bluespace",	".J" = "Bluespace",
-	  ":Y" = "Ship",		".Y" = "Ship",
+	  ":Y" = "Hailing",		".Y" = "Hailing",
 	  ":Q" = "Ninja",		".Q" = "Ninja",
 	  ":U" = "Operations",	".U" = "Operations",
 	  ":V" = "Service",		".V" = "Service",
@@ -129,16 +129,17 @@ proc/get_radio_key_from_channel(var/channel)
 /mob/living/proc/get_stutter_verbs()
 	return list("stammers", "stutters")
 
-/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode == "intercom")
-		for(var/obj/item/device/radio/intercom/I in view(1, null))
+		for(var/obj/item/device/radio/intercom/I in view(1, src))
 			used_radios += I
-			if(I.talk_into(src, message, verb, speaking))
-				successful_radio += I
+			I.talk_into(src, message, verb, speaking)
+
 	if(message_mode == "whisper" && !whisper)
 		whisper(message, speaking)
 		return TRUE
-	return 0
+
+	return FALSE
 
 /mob/living/proc/handle_speech_sound()
 	var/list/returns[3]
@@ -250,16 +251,13 @@ proc/get_radio_key_from_channel(var/channel)
 			return say_signlang(message, pick(speaking.signlang_verb), speaking, speaking.sign_adv_length)
 
 	var/list/obj/item/used_radios = new
-	var/list/successful_radio = new // passes a list because standard vars don't work when passed
-	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper, is_singing))
-		return 1
+	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper, is_singing))
+		return TRUE
 
 	var/list/handle_v = handle_speech_sound()
 	var/sound/speech_sound = handle_v[1]
 	var/sound_vol = handle_v[2]
 	var/italics = handle_v[3]
-
-
 
 	//speaking into radios
 	if(length(used_radios))
@@ -267,17 +265,14 @@ proc/get_radio_key_from_channel(var/channel)
 		message_range = 1
 		if(speaking)
 			message_range = speaking.get_talkinto_msg_range(message)
-		var/msg
 		if(!speaking || !(speaking.flags & NO_TALK_MSG))
-			msg = "<span class='notice'>\The [src] [length(successful_radio) ? "talks into" : "tries talking into"] \the [used_radios[1]]</span>."
-		for(var/mob/living/M in hearers(5, src) - src)
-			if(msg)
-				M.show_message(msg)
+			var/msg = SPAN_NOTICE("\The [src] talks into \the [used_radios[1]].")
+			for (var/mob/living/L in get_hearers_in_view(5, src) - src)
+				L.show_message(msg)
 		if(speech_sound)
 			sound_vol *= 0.5
 
 	var/list/listening = list()
-	var/list/listening_obj = list()
 	var/turf/T = get_turf(src)
 
 	if(whisper)
@@ -296,14 +291,21 @@ proc/get_radio_key_from_channel(var/channel)
 				italics = 1
 				sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		get_mobs_or_objs_in_view(T, message_range, listening, listening_obj, ghost_hearing)
+		listening = get_hearers_in_view(message_range, src)
+
+	if(client)
+		for (var/mob/player_mob in player_list)
+			if(!player_mob || player_mob.stat != DEAD || (player_mob in listening))
+				continue
+			if(player_mob.client?.prefs.toggles & CHAT_GHOSTEARS)
+				listening |= player_mob
 
 	var/list/hear_clients = list()
-	for(var/m in listening)
-		var/mob/M = m
+	for(var/mob/M in listening)
 		var/heard_say = M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol, get_font_size_modifier())
 		if(heard_say && M.client)
 			hear_clients += M.client
+		listening -= M
 
 	var/speech_bubble_test = say_test(message)
 	var/image/speech_bubble = image(get_talk_bubble(),src,"h[speech_bubble_test]")
@@ -313,7 +315,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/bypass_listen_obj = (speaking && (speaking.flags & PASSLISTENOBJ))
 	if(!bypass_listen_obj)
-		for(var/obj/O as anything in listening_obj)
+		for(var/obj/O as anything in listening)
 			if(O) //It's possible that it could be deleted in the meantime.
 				INVOKE_ASYNC(O, /obj/.proc/hear_talk, src, message, verb, speaking)
 

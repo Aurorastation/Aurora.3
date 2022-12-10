@@ -18,11 +18,6 @@
 	name = "Hub Mainframe"
 	build_path = /obj/item/circuitboard/telecomms/hub
 
-/datum/design/circuit/tcom/relay
-	name = "Relay Mainframe"
-	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 4, TECH_BLUESPACE = 3)
-	build_path = /obj/item/circuitboard/telecomms/relay
-
 /datum/design/circuit/tcom/broadcaster
 	name = "Subspace Broadcaster"
 	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4, TECH_BLUESPACE = 2)
