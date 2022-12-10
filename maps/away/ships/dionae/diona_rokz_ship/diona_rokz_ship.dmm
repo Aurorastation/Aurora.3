@@ -48,12 +48,6 @@
 /obj/item/device/flashlight/lantern,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
-"ch" = (
-/obj/effect/landmark/entry_point/south{
-	name = "fore, bridge"
-	},
-/turf/simulated/wall/diona,
-/area/shuttle/diona_rokz_ship_shuttle)
 "cj" = (
 /obj/item/trap/animal/large,
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -606,7 +600,10 @@
 /area/ship/diona_rokz_ship)
 "Jd" = (
 /obj/machinery/door/airlock/diona/external,
-/turf/space,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "Ji" = (
 /obj/structure/closet/crate/loot,
@@ -36836,7 +36833,7 @@ VO
 aI
 BK
 gu
-ch
+Gh
 Gh
 cj
 LZ
