@@ -35,12 +35,13 @@
 
 /obj/machinery/station_map/Initialize()
 	. = ..()
-	init_map(loc.z)
+	init_map()
+	create_small_map()
 	add_floor_decal()
 
-/obj/machinery/station_map/proc/init_map(var/Z)
+/obj/machinery/station_map/proc/init_map()
 	holomap_datum = new()
-	original_zLevel = Z
+	original_zLevel = loc.z
 	SSholomap.station_holomaps += src
 	flags |= ON_BORDER // Why? It doesn't help if its not density
 	bogus = FALSE
@@ -54,6 +55,7 @@
 
 	holomap_datum.initialize_holomap(T, reinit = TRUE)
 
+/obj/machinery/station_map/proc/create_small_map()
 	small_station_map = image(SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"], dir = dir)
 	small_station_map.layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	small_station_map.filters = filter(type = "drop_shadow", color = light_color + "F0", size = 1, offset = 1, x = 0, y = 0)
@@ -195,14 +197,14 @@
 	active_power_usage = 0
 
 /obj/machinery/station_map/mobile/Initialize()
-	init_map(loc.z)
+	init_map()
 	return
 
 /obj/machinery/station_map/mobile/startWatching(var/mob/user)
 	if(!user)
 		return
 
-	small_station_map = image(SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[user.z]"], dir = dir)
+	create_small_map()
 	if(!watching_mob && isliving(user))
 		..()
 
