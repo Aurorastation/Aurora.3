@@ -126,6 +126,15 @@
 
 	category = MODULE_UTILITY
 
+/obj/item/rig_module/device/rfd_c/handle_device_engage(atom/target, mob/user)
+	var/resolved = target.attackby(device, user)
+	if(!resolved && device && target)
+		if(device.afterattack(target, user, TRUE))
+			return TRUE
+		else
+			return FALSE
+	return TRUE
+
 /obj/item/rig_module/device/Initialize()
 	. = ..()
 	if(device_type)
@@ -147,6 +156,9 @@
 	if(istype(target, /obj/machinery/disposal))
 		return FALSE
 
+	return handle_device_engage(target, user)
+
+/obj/item/rig_module/device/proc/handle_device_engage(atom/target, mob/user)
 	var/resolved = target.attackby(device, user)
 	if(!resolved && device && target)
 		device.afterattack(target, user, TRUE)
@@ -347,7 +359,7 @@
 /obj/item/rig_module/chem_dispenser/injector/paramedic //downgraded version
 	charges = list(
 		list("tricordrazine",	"tricordrazine",	/decl/reagent/tricordrazine,	40),
-		list("mortaphenyl",		"mortaphenyl",		/decl/reagent/mortaphenyl,		40),
+		list("perconol",		"perconol",			/decl/reagent/perconol,		40),
 		list("dexalin",			"dexalin",			/decl/reagent/dexalin,			40),
 		list("inaprovaline",	"inaprovaline",		/decl/reagent/inaprovaline,	40)
 		)
@@ -448,6 +460,8 @@
 
 /obj/item/rig_module/maneuvering_jets/activate(mob/user)
 	if(active)
+		return FALSE
+	if(use_check_and_message(user))
 		return FALSE
 
 	active = TRUE
@@ -783,6 +797,7 @@
 			T.ChangeTurf(T.baseturf)
 		else
 			T.ChangeTurf(/turf/space)
+	return TRUE
 
 var/global/list/lattice_users = list()
 
@@ -859,3 +874,4 @@ var/global/list/lattice_users = list()
 		counter--
 		previous_turf = T
 		sleep(1)
+	return TRUE

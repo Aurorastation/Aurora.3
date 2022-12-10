@@ -87,8 +87,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	initialize_codex_data()
 	var/pre_secret_len = chemical_reactions.len
 	log_ss("chemistry", "Found [pre_secret_len] reactions.")
-	load_secret_chemicals()
-	log_ss("chemistry", "Loaded [chemical_reactions.len - pre_secret_len] secret reactions.")
+	log_ss("chemistry", "Loaded [load_secret_chemicals()] secret reactions.")
 	initialize_specific_heats() // must be after reactions
 	..()
 
@@ -125,6 +124,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	src.chemical_reactions = SSchemistry.chemical_reactions
 
 /datum/controller/subsystem/chemistry/proc/load_secret_chemicals()
+	. = 0
 	var/list/chemconfig = list()
 	try
 		chemconfig = json_decode(return_file_text("config/secretchem.json"))
@@ -140,24 +140,24 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		cc.id = chemconfig[chemical]["id"]
 		cc.result = text2path(chemconfig[chemical]["result"])
 		cc.result_amount = chemconfig[chemical]["resultamount"]
-		cc.required_reagents = chemconfig[chemical]["required_reagents"]
-		if(!istype(cc.result, /decl/reagent))
+		if(!ispath(cc.result, /decl/reagent))
 			log_debug("SSchemistry: Warning: Invalid result [cc.result] in [cc.name] reactions list.")
 			qdel(cc)
 			break
 
-		for(var/i in 1 to cc.required_reagents.len)
-			var/A = text2path(cc.required_reagents[i])
-			cc.required_reagents[i] = text2path(cc.required_reagents[i])
-			if(!ispath(A, /decl/reagent))
-				log_debug("SSchemistry: Warning: Invalid chemical [A] in [cc.name] required reagents list.")
+		for(var/key in chemconfig[chemical]["required_reagents"])
+			var/result_chem = text2path(key)
+			LAZYSET(cc.required_reagents, result_chem, chemconfig[chemical]["required_reagents"][key])
+			if(!ispath(result_chem, /decl/reagent))
+				log_debug("SSchemistry: Warning: Invalid chemical [key] in [cc.name] required reagents list.")
 				qdel(cc)
 				break
 
-		if(LAZYLEN(cc.required_reagents))
+		if(LAZYLEN(cc?.required_reagents))
 			var/rtype = cc.required_reagents[1]
 			LAZYINITLIST(chemical_reactions[rtype])
 			chemical_reactions[rtype] += cc
+			.++
 
 //Chemical Reactions - Initialises all /datum/chemical_reaction into a list
 // It is filtered into multiple lists within a list.

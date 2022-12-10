@@ -5,7 +5,7 @@ var/datum/antagonist/renegade/renegades
 	role_text_plural = "Renegades"
 	welcome_text = "You're extremely paranoid today. For your entire life, you've theorized about a shadow corporation out for your blood and yours only. Something's here to kill you, but you don't know what... Remember that you're not a full antagonist. You can prepare to murder someone and kill, but you shouldn't actively seek conflict."
 	id = MODE_RENEGADE
-	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE | ANTAG_VOTABLE
+	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE | ANTAG_VOTABLE | ANTAG_NO_ROUNDSTART_SPAWN
 	hard_cap = 5
 	hard_cap_round = 7
 
@@ -39,7 +39,7 @@ var/datum/antagonist/renegade/renegades
 		return
 
 	if(!player.back)
-		player.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(player), slot_back) // if they have no backpack, spawn one
+		player.equip_to_slot_or_del(new /obj/item/storage/backpack(player), slot_back) // if they have no backpack, spawn one
 	player.equip_to_slot_or_del(new /obj/item/storage/box/syndie_kit/random_weapon/concealable(player), slot_in_backpack)
 
 /proc/rightandwrong()

@@ -101,7 +101,7 @@
 		blinded = 1
 		silent = 0
 	else				//ALIVE. LIGHTS ARE ON
-		if( !container && (health < config.health_threshold_dead || ((world.time - timeofhostdeath) > config.revival_brain_life)) )
+		if(!container && (health < config.health_threshold_dead || ((config.revival_brain_life != -1) && world.time - timeofhostdeath > config.revival_brain_life)))
 			death()
 			blinded = 1
 			silent = 0
@@ -165,18 +165,14 @@
 	return 1
 
 /mob/living/carbon/brain/handle_regular_hud_updates()
-	if (stat == 2 || (XRAY in src.mutations))
-		sight |= SEE_TURFS
-		sight |= SEE_MOBS
-		sight |= SEE_OBJS
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_LEVEL_TWO
-	else if (stat != 2)
-		sight &= ~SEE_TURFS
-		sight &= ~SEE_MOBS
-		sight &= ~SEE_OBJS
-		see_in_dark = 2
-		see_invisible = SEE_INVISIBLE_LIVING
+	if(stat == DEAD || (XRAY in src.mutations))
+		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		set_see_in_dark(8)
+		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
+	else if(stat != DEAD)
+		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
+		set_see_in_dark(2)
+		set_see_invisible(SEE_INVISIBLE_LIVING)
 
 	if (healths)
 		if (stat != 2)
@@ -198,18 +194,15 @@
 		else
 			healths.icon_state = "health7"
 
-		if (stat == 2 || (XRAY in src.mutations))
-			sight |= SEE_TURFS
-			sight |= SEE_MOBS
-			sight |= SEE_OBJS
-			see_in_dark = 8
-			see_invisible = SEE_INVISIBLE_LEVEL_TWO
-		else if (stat != 2)
-			sight &= ~SEE_TURFS
-			sight &= ~SEE_MOBS
-			sight &= ~SEE_OBJS
-			see_in_dark = 2
-			see_invisible = SEE_INVISIBLE_LIVING
+		if(stat == DEAD || (XRAY in src.mutations))
+			set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+			set_see_in_dark(8)
+			set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
+		else if(stat != DEAD)
+			set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
+			set_see_in_dark(2)
+			set_see_invisible(SEE_INVISIBLE_LIVING)
+
 	if (client)
 		client.screen.Remove(global_hud.blurry,global_hud.druggy,global_hud.vimpaired)
 

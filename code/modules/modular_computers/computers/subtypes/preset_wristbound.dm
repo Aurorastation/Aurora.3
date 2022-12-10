@@ -9,7 +9,7 @@
 	battery_module.charge_to_full()
 
 /obj/item/modular_computer/handheld/wristbound/preset/cheap/generic
-	_app_preset_type = /datum/modular_computer_app_presets/civilian
+	enrolled = 0
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/install_default_hardware()
 	..()
@@ -23,9 +23,18 @@
 	flashlight = new /obj/item/computer_hardware/flashlight(src)
 	battery_module.charge_to_full()
 
+/obj/item/modular_computer/handheld/wristbound/preset/advanced
+	enrolled = DEVICE_COMPANY
+
+/obj/item/modular_computer/handheld/wristbound/preset/advanced/generic
+	enrolled = 0
+
+/obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
+	_app_preset_type = /datum/modular_computer_app_presets/civilian
+
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/cargo
 	icon_state = "wristbound_cargo"
-	_app_preset_type = /datum/modular_computer_app_presets/cargo_delivery
+	_app_preset_type = /datum/modular_computer_app_presets/supply
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/engineering
 	icon_state = "wristbound_engineering"
@@ -62,7 +71,7 @@
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/cmo
 	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
 
-/obj/item/modular_computer/handheld/wristbound/preset/advanced/command/hop
+/obj/item/modular_computer/handheld/wristbound/preset/advanced/command/xo
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/hos
@@ -70,9 +79,6 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/captain
 	_app_preset_type = /datum/modular_computer_app_presets/command/captain
-
-/obj/item/modular_computer/handheld/wristbound/preset/advanced/generic
-	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/representative
 	_app_preset_type = /datum/modular_computer_app_presets/representative
@@ -147,7 +153,7 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/silver
 
-/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/qm/Initialize()
+/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/om/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
 
@@ -217,7 +223,7 @@
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/cciaa
 	_app_preset_type = /datum/modular_computer_app_presets/command
 
-/obj/item/modular_computer/handheld/wristbound/preset/pda/command/hop
+/obj/item/modular_computer/handheld/wristbound/preset/pda/command/xo
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain

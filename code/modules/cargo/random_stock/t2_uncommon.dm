@@ -14,11 +14,11 @@ STOCK_ITEM_UNCOMMON(plasteel, 3)
 STOCK_ITEM_UNCOMMON(silver, 2)
 	new /obj/item/stack/material/silver(L, rand(5,30))
 
-STOCK_ITEM_UNCOMMON(phoronsheets, 1)
-	new /obj/item/stack/material/phoron(L, rand(5,30))
+STOCK_ITEM_UNCOMMON(phoronsheets, 0.5)
+	new /obj/item/stack/material/phoron(L, rand(5,20))
 
-STOCK_ITEM_UNCOMMON(phoronglass, 1)
-	new /obj/item/stack/material/glass/phoronglass(L, rand(10,30))
+STOCK_ITEM_UNCOMMON(phoronglass, 0.5)
+	new /obj/item/stack/material/glass/phoronglass(L, rand(10,20))
 
 STOCK_ITEM_UNCOMMON(sandstone, 2)
 	new /obj/item/stack/material/sandstone(L, 50)
@@ -88,18 +88,17 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 	var/list/chems = decls_repository.get_decls_of_subtype(/decl/reagent/)
 	var/list/exclusion = list(/decl/reagent/drink, /decl/reagent, /decl/reagent/adminordrazine, /decl/reagent/polysomnine/beer2, /decl/reagent/azoth, /decl/reagent/elixir,\
 		/decl/reagent/liquid_fire, /decl/reagent/philosopher_stone, /decl/reagent/toxin/undead, /decl/reagent/love_potion, /decl/reagent/shapesand, /decl/reagent/usolve,\
-		/decl/reagent/sglue, /decl/reagent/black_matter, /decl/reagent/bottle_lightning, /decl/reagent/toxin/trioxin, /decl/reagent/toxin/nanites, /decl/reagent/nitroglycerin)
+		/decl/reagent/sglue, /decl/reagent/black_matter, /decl/reagent/bottle_lightning, /decl/reagent/toxin/trioxin, /decl/reagent/toxin/nanites, /decl/reagent/nitroglycerin, \
+		/decl/reagent/aslimetoxin, /decl/reagent/sanasomnum, /decl/reagent/rezadone)
 	chems -= exclusion
 	for (var/i in 1 to rand(2, 4))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)
 		var/rname = pick(chems)
-		var/decl/reagent/R = decls_repository.get_decl(rname)
-
 		//If we get a drink, reroll it once.
 		//Should result in a higher chance of getting medicines and chemicals
-		if (istype(R, /decl/reagent/drink) || istype(R, /decl/reagent/alcohol))
+		if (ispath(rname, /decl/reagent/drink) || ispath(rname, /decl/reagent/alcohol))
 			rname = pick(chems)
-			R = decls_repository.get_decl(rname)
+		var/decl/reagent/R = decls_repository.get_decl(rname)
 		C.reagents.add_reagent(rname, C.volume)
 		C.setLabel(R.name)
 
@@ -132,10 +131,6 @@ STOCK_ITEM_UNCOMMON(jetpack, 3)
 	if(prob(40))
 		new /obj/item/tank/emergency_oxygen/double(L)
 
-STOCK_ITEM_UNCOMMON(xenocostume, 1)
-	new /obj/item/clothing/suit/xenos(L)
-	new /obj/item/clothing/head/xenos(L)
-
 STOCK_ITEM_UNCOMMON(inhaler, 1)
 	var/obj/item/reagent_containers/inhaler/I = pick(subtypesof(/obj/item/reagent_containers/inhaler))
 	new I(L)
@@ -145,9 +140,6 @@ STOCK_ITEM_UNCOMMON(advwelder, 2)
 		new /obj/item/weldingtool/experimental(L)
 	else
 		new /obj/item/weldingtool/hugetank(L)
-
-STOCK_ITEM_UNCOMMON(sord, 1)
-	new /obj/item/sord(L)
 
 STOCK_ITEM_UNCOMMON(policebaton, 1.5)
 	new /obj/item/melee/classic_baton(L)
@@ -175,7 +167,7 @@ STOCK_ITEM_UNCOMMON(violin, 1)
 	new /obj/item/device/violin(L)
 
 STOCK_ITEM_UNCOMMON(atmosfiresuit, 2)
-	new /obj/item/clothing/head/hardhat/red/atmos(L)
+	new /obj/item/clothing/head/hardhat/atmos(L)
 	new /obj/item/clothing/suit/fire/atmos(L)
 
 STOCK_ITEM_UNCOMMON(debugger, 2)
@@ -273,11 +265,16 @@ STOCK_ITEM_UNCOMMON(rped, 1)
 	new /obj/item/storage/part_replacer(L)
 
 STOCK_ITEM_UNCOMMON(briefcase, 2)
-	if(prob(20))
-		new /obj/item/storage/secure/briefcase(L)
-	else
-		var/obj/item/storage/briefcase/B = pick(typesof(/obj/item/storage/briefcase))
-		new B(L)
+	var/list/briefcases = list(
+		/obj/item/storage/briefcase = 1,
+		/obj/item/storage/briefcase/real = 0.8,
+		/obj/item/storage/briefcase/black = 0.8,
+		/obj/item/storage/briefcase/aluminium = 0.5,
+		/obj/item/storage/briefcase/nt = 0.5
+	)
+
+	var/type = pickweight(briefcases)
+	new type(L)
 
 STOCK_ITEM_UNCOMMON(blade, 1.2)
 	var/list/blades = list(
@@ -306,12 +303,6 @@ STOCK_ITEM_UNCOMMON(laserscalpel, 1.3)
 
 STOCK_ITEM_UNCOMMON(electropack, 1)
 	new /obj/item/device/radio/electropack(L)
-
-	if(istype(L, /obj/structure/closet/crate) && prob(40))
-		var/obj/structure/closet/crate/cr = L
-		cr.rigged = TRUE
-		//Boobytrapped crate, will electrocute when you attempt to open it
-		//Can be disarmed with wirecutters or ignored with insulated gloves
 
 STOCK_ITEM_UNCOMMON(randomhide, 0.5)
 	var/obj/item/stack/material/animalhide/spawn_hide = pick(typesof(/obj/item/stack/material/animalhide))
@@ -354,8 +345,14 @@ STOCK_ITEM_UNCOMMON(apiary, 1)
 		new /obj/item/honey_frame(L)
 
 STOCK_ITEM_UNCOMMON(wristbound, 0.5)
-	var/obj/item/modular_computer/handheld/wristbound/preset/P = pick(subtypesof(/obj/item/modular_computer/handheld/wristbound/preset))
-	new P(L)
+	var/list/possible_wristbounds = list()
+	for(var/thing in subtypesof(/obj/item/modular_computer/handheld/wristbound/preset))
+		var/obj/item/modular_computer/handheld/wristbound/preset/P = thing
+		if(initial(P.hidden))
+			continue
+		possible_wristbounds += P
+	var/wristbound_type = pick(possible_wristbounds)
+	new wristbound_type(L)
 
 STOCK_ITEM_UNCOMMON(pops, 0.5)
 	if(prob(85))
@@ -394,6 +391,12 @@ STOCK_ITEM_UNCOMMON(alt_glasses, 1)
 
 STOCK_ITEM_UNCOMMON(gumballs, 3)
 	new /obj/item/glass_jar/gumball(L)
+
+STOCK_ITEM_UNCOMMON(googly, 0.75)
+	new /obj/item/storage/box/googly(L)
+
+STOCK_ITEM_UNCOMMON(wizarddressup, 1)
+	new /obj/random/wizard_dressup(L)
 
 STOCK_ITEM_UNCOMMON(nothing, 0)
 	// no-op

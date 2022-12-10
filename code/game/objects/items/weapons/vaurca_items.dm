@@ -17,7 +17,7 @@
 	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
 	name = "filter port"
 	icon_state = "filterport"
-	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BREEDER)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_BULWARK)
 	item_state = 0
 
 /obj/item/clothing/head/shaper
@@ -27,7 +27,10 @@
 	icon_state = "shaper_helmet"
 	item_state = "shaper_helmet"
 	contained_sprite = TRUE
-	species_restricted = list(BODYTYPE_VAURCA)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/expression
@@ -73,6 +76,13 @@
 	icon_state = "vacshroudbrown"
 	item_state = "vacshroudbrown"
 
+/obj/item/clothing/head/shroud/colorable
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles."
+	icon_state = "vacshroudcol"
+	item_state = "vacshroudcol"
+	worn_overlay = "over"
+	build_from_parts = TRUE
+
 /obj/item/melee/energy/vaurca
 	name = "thermal knife"
 	desc = "A Vaurcae-designed combat knife with a thermal energy blade designed for close-quarter encounters."
@@ -90,7 +100,7 @@
 	flags = CONDUCT | NOBLOODY
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	contained_sprite = 1
 
 
@@ -189,6 +199,7 @@
 	force = 15
 	throwforce = 30
 	w_class = ITEMSIZE_LARGE
+	var/seed = /datum/seed/koisspore
 
 /obj/item/grenade/spawnergrenade/vaurca/prime()
 
@@ -200,10 +211,16 @@
 				M.flash_eyes()
 
 		for(var/i=1, i<=deliveryamt, i++)
-			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new /datum/seed/koisspore())
+			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new seed())
 			x.tumble(4)
 	qdel(src)
 	return
+
+/obj/item/grenade/spawnergrenade/vaurca/liidra
+	name = "Black K'ois delivery pod"
+	desc = "A device made for rapid spread of black k'ois."
+	icon_state = "liibeacon"
+	seed = /datum/seed/koisspore/black
 
 /obj/item/clothing/suit/space/void/vaurca
 	name = "voidsuit"
@@ -243,7 +260,7 @@
 	species_restricted = list(BODYTYPE_VAURCA,BODYTYPE_VAURCA_WARFORM)
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi'
-		)
+	)
 
 	action_button_name = "Toggle the magclaws"
 
@@ -257,8 +274,13 @@
 	slowdown = -1
 
 	species_restricted = list(BODYTYPE_VAURCA)
-	armor = list(melee = 50, bullet = 20, laser = 50, energy = 30, bomb = 45, bio = 100, rad = 10)
-
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED
+	)
 /obj/item/clothing/head/helmet/space/void/scout
 	name = "scout helmet"
 	desc = "A helmet designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
@@ -268,8 +290,13 @@
 	item_state = "helm_scout"
 
 	species_restricted = list(BODYTYPE_VAURCA)
-	armor = list(melee = 40, bullet = 20, laser = 40, energy = 30, bomb = 45, bio = 100, rad = 10)
-
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED
+	)
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
 
@@ -279,21 +306,34 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "commando"
 	item_state = "commando"
-	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
+	desc = "A design perfected by the Zo'ra, this armor is commonly used by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
 
 	species_restricted = list(BODYTYPE_VAURCA)
-	armor = list(melee = 40, bullet = 40, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
-
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_MAJOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 /obj/item/clothing/head/helmet/space/void/commando
 	name = "commando helmet"
-	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
+	desc = "A design perfected by the Zo'ra, this helmet is commonly used by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "helm_commando"
 	item_state = "helm_commando"
 
 	species_restricted = list(BODYTYPE_VAURCA)
-	armor = list(melee = 30, bullet = 30, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_MAJOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
@@ -307,7 +347,13 @@
 	gas_filter_strength = 3
 	w_class = ITEMSIZE_SMALL
 	filtered_gases = list(GAS_NITROGEN, GAS_N2O)
-	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		bio = ARMOR_BIO_STRONG,
+		rad = ARMOR_RAD_MINOR
+	)
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_metalg"
 	item_state = "m_metalg"
@@ -331,7 +377,7 @@
 	flags = CONDUCT | NOBLOODY
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	contained_sprite = 1
 	base_reflectchance = 40
 	base_block_chance = 60
@@ -399,11 +445,11 @@
 	tension = 1
 	..()
 
-/obj/item/gun/launcher/crossbow/vaurca/attack_self(mob/living/user as mob)
+/obj/item/gun/launcher/crossbow/vaurca/unique_action(mob/living/user)
 	pump(user)
 
 /obj/item/gun/launcher/crossbow/vaurca/proc/pump(mob/M as mob)
-	playsound(M, 'sound/weapons/shotgun_pump.ogg', 60, 1)
+	playsound(M, 'sound/weapons/reloads/shotgun_pump.ogg', 60, 1)
 
 	if(bolt)
 		if(tension < max_tension)

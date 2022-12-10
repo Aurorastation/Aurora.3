@@ -182,6 +182,7 @@
 				if(get_trait(TRAIT_BIOLUM_COLOUR))
 					clr = get_trait(TRAIT_BIOLUM_COLOUR)
 				splat.set_light(get_trait(TRAIT_POTENCY)/10, pwr, clr)
+				addtimer(CALLBACK(splat, /atom/.proc/set_light, 0), rand(3 MINUTES, 5 MINUTES))
 			var/flesh_colour = get_trait(TRAIT_FLESH_COLOUR)
 			if(!flesh_colour) flesh_colour = get_trait(TRAIT_PRODUCT_COLOUR)
 			if(flesh_colour) splat.color = get_trait(TRAIT_PRODUCT_COLOUR)
@@ -455,6 +456,9 @@
 			/decl/reagent/mortaphenyl,
 			/decl/reagent/water,
 			/decl/reagent/woodpulp,
+			/decl/reagent/ambrosia_extract,
+			/decl/reagent/skrell_nootropic,
+			/decl/reagent/toxin/berserk
 			)
 
 		for(var/x=1;x<=additional_chems;x++)
@@ -760,6 +764,7 @@
 		if(get_trait(TRAIT_BIOLUM_COLOUR))
 			clr = get_trait(TRAIT_BIOLUM_COLOUR)
 		product.set_light(get_trait(TRAIT_POTENCY)/10, pwr, clr)
+		addtimer(CALLBACK(product, /atom/.proc/set_light, 0), rand(5 MINUTES, 7 MINUTES))
 
 	//Handle spawning in living, mobile products (like dionaea).
 	if(istype(product,/mob/living))

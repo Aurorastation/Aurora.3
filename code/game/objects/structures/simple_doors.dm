@@ -173,7 +173,7 @@
 				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [I] with no visible effect.</span>")
 			else
 				user.do_attack_animation(src)
-				animate_shake()
+				shake_animation()
 				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [I]!</span>")
 				playsound(src.loc, material.hitsound, W.get_clamped_volume(), 1)
 				src.health -= W.force * 1
@@ -185,8 +185,8 @@
 
 /obj/structure/simple_door/bullet_act(var/obj/item/projectile/Proj)
 	health -= Proj.damage
+	bullet_ping(Proj)
 	CheckHealth()
-	return
 
 /obj/structure/simple_door/proc/CheckHealth()
 	if(health <= 0)
@@ -211,7 +211,7 @@
 	if(!material.radioactivity)
 		return
 	for(var/mob/living/L in range(1,src))
-		L.apply_effect(round(material.radioactivity/3),IRRADIATE,0)
+		L.apply_damage(round(material.radioactivity/3),IRRADIATE, damage_flags = DAM_DISPERSED)
 
 /obj/structure/simple_door/iron/New(var/newloc,var/material_name, var/complexity)
 	..(newloc, MATERIAL_IRON, complexity)

@@ -13,28 +13,31 @@
  * Pens
  */
 /obj/item/pen
-	desc = "An instrument for writing or drawing with ink. This one is in black, in a classic, grey casing. Stylish, classic and professional."
-	desc_info = {"This is an item for writing down your thoughts, on paper or elsewhere. The following special commands are available:
-Pen and crayon commands
-\[br\] : Creates a linebreak.
-\[center\] - \[/center\] : Centers the text.
-\[h1\] - \[/h1\] : Makes the text a first level heading.
-\[h2\] - \[/h2\] : Makes the text a second level headin.
-\[h3\] - \[/h3\] : Makes the text a third level heading.
-\[b\] - \[/b\] : Makes the text bold.
-\[i\] - \[/i\] : Makes the text italic.
-\[u\] - \[/u\] : Makes the text underlined.
-\[large\] - \[/large\] : Increases the size of the text.
-\[sign\] : Inserts a signature of your name in a foolproof way.
-\[field\] : Inserts an invisible field which lets you start type from there. Useful for forms.
-\[date\] : Inserts today's station date.
-\[time\] : Inserts the current station time.
-Pen exclusive commands
-\[small\] - \[/small\] : Decreases the size of the text.
-\[list\] - \[/list\] : A list.
-\[*\] : A dot used for lists.
-\[hr\] : Adds a horizontal rule."}
 	name = "pen"
+	desc = "An instrument for writing or drawing. This one is in black."
+	desc_info = {"This is an item for writing down your thoughts, on paper or elsewhere. The following special commands are available:
+		<br>
+		Pen and crayon commands
+		\[br\] : Creates a linebreak.
+		\[center\] - \[/center\] : Centers the text.
+		\[h1\] - \[/h1\] : Makes the text a first level heading.
+		\[h2\] - \[/h2\] : Makes the text a second level headin.
+		\[h3\] - \[/h3\] : Makes the text a third level heading.
+		\[b\] - \[/b\] : Makes the text bold.
+		\[i\] - \[/i\] : Makes the text italic.
+		\[u\] - \[/u\] : Makes the text underlined.
+		\[large\] - \[/large\] : Increases the size of the text.
+		\[redacted\] - \[/redacted\] : Covers the text in an unbreachable black box.
+		\[sign\] : Inserts a signature of your name in a foolproof way.
+		\[field\] : Inserts an invisible field which lets you start type from there. Useful for forms.
+		\[date\] : Inserts today's station date.
+		\[time\] : Inserts the current station time.
+		<br>
+		Pen Exclusive Commands
+		\[small\] - \[/small\] : Decreases the size of the text.
+		\[list\] - \[/list\] : A list.
+		\[*\] : A dot used for lists.
+		\[hr\] : Adds a horizontal rule."}
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "pen"
 	item_state = "pen"
@@ -44,9 +47,11 @@ Pen exclusive commands
 	throw_speed = 7
 	throw_range = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 10)
-	var/colour = "black"	//what colour the ink is!
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+	var/colour = "black" // Ink colour.
+	var/cursive = FALSE // Done here so other pen variants can access the cursive variable.
 
 /obj/item/pen/ispen()
 	return TRUE
@@ -115,16 +120,6 @@ Pen exclusive commands
 
 	to_chat(user, "<span class='notice'>Changed color to '[colour].'</span>")
 
-/obj/item/pen/attack(mob/M as mob, mob/user as mob, var/target_zone)
-	if(!ismob(M))
-		return
-	to_chat(user, "<span class='warning'>You stab [M] with \the [src].</span>")
-//	to_chat(M, "\red You feel a tiny prick!" //That's a whole lot of meta!)
-	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stabbed with [name]  by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] to stab [M.name] ([M.ckey])</span>")
-	msg_admin_attack("[user.name] ([user.ckey]) Used the [name] to stab [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
-	return
-
 /obj/item/pen/attack_self(var/mob/user)
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
 
@@ -138,7 +133,6 @@ Pen exclusive commands
 	icon_state = "pen_fountain"
 	throwforce = 1 //pointy
 	colour = "#1c1713" //dark ashy brownish
-	var/cursive = FALSE
 
 /obj/item/pen/fountain/attack_self(var/mob/user)
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
@@ -171,70 +165,79 @@ Pen exclusive commands
 	icon_state = "pen_fountain-nbc"
 
 /*
- * Reagent pens
+ * Reagent Pens
  */
-
 /obj/item/pen/reagent
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+
 /obj/item/pen/reagent/Initialize()
 	. = ..()
 	create_reagents(30)
 
-/obj/item/pen/reagent/attack(mob/living/M as mob, mob/user as mob)
-
-	if(!istype(M))
-		return
-
+/obj/item/pen/reagent/attack(mob/living/M, mob/user)
 	. = ..()
-
-	if(M.can_inject(user,1))
+	if(!ismob(M))
+		return
+	if(M.can_inject(user, 1))
 		if(reagents.total_volume)
 			if(M.reagents)
 				var/contained_reagents = reagents.get_reagents()
 				var/trans = reagents.trans_to_mob(M, 30, CHEM_BLOOD)
-				admin_inject_log(user, M, src, contained_reagents, reagents.get_temperature(), trans)
+				to_chat(user, SPAN_ALERT("You stab \the [M] with \the [src], injecting all of its contents.")) // To the stabber.
+				to_chat(M, SPAN_WARNING("You feel a small <b>pinch</b>!")) // To the stabbed.
+				M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stabbed with [name] by [user.name] ([user.ckey])</font>")
+				user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] to stab [M.name] ([M.ckey])</span>")
+				msg_admin_attack("[user.name] ([user.ckey]) Used the [name] to stab [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
+				admin_inject_log(user, M, src, contained_reagents, reagents.get_temperature(), trans) // Admin log.
 
 /*
  * Sleepy Pens
  */
 /obj/item/pen/reagent/sleepy
-	desc = "It's a black ink pen with a sharp point and a carefully engraved \"Waffle Co.\""
+	desc = "It's a black ink pen with a sharp point and a carefully engraved \"Sleepy Co.\""
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
 	reagents_to_add = list(/decl/reagent/polysomnine = 22)
-
 
 /*
  * Parapens
  */
 /obj/item/pen/reagent/paralysis
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/toxin/dextrotoxin = 10)
-
-/obj/item/pen/reagent/healing
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/tricordrazine = 10, /decl/reagent/dermaline = 5, /decl/reagent/bicaridine = 5)
-	icon_state = "pen_green"
-	colour = "green"
-
-/obj/item/pen/reagent/pacifier
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/wulumunusha = 2, /decl/reagent/pacifier = 15, /decl/reagent/cryptobiolin = 10)
-	icon_state = "pen_blue"
-	colour = "blue"
-
-/obj/item/pen/reagent/hyperzine
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/hyperzine = 10)
-	icon_state = "pen_yellow"
-	colour = "yellow"
-
-/obj/item/pen/reagent/poison
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/toxin/cyanide = 1, /decl/reagent/lexorin = 20)
 	icon_state = "pen_red"
 	colour = "red"
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	reagents_to_add = list(/decl/reagent/toxin/dextrotoxin = 10) // ~5 minutes worth of paralysis. Measured from falling over to getting up.
+
+/obj/item/pen/reagent/purge
+	icon_state = "pen_green"
+	colour = "green"
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	reagents_to_add = list(/decl/reagent/fluvectionem = 5)
+ 
+/obj/item/pen/reagent/healing
+	icon_state = "pen_green"
+	colour = "green"
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	reagents_to_add = list(/decl/reagent/tricordrazine = 10, /decl/reagent/dermaline = 5, /decl/reagent/bicaridine = 5)
+
+/obj/item/pen/reagent/pacifier
+	icon_state = "pen_blue"
+	colour = "blue"
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	reagents_to_add = list(/decl/reagent/wulumunusha = 2, /decl/reagent/pacifier = 15, /decl/reagent/cryptobiolin = 10)
+
+/obj/item/pen/reagent/hyperzine
+	icon_state = "pen_yellow"
+	colour = "yellow"
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	reagents_to_add = list(/decl/reagent/hyperzine = 10)
+
+/obj/item/pen/reagent/poison
+	icon_state = "pen_red"
+	colour = "red"
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	reagents_to_add = list(/decl/reagent/toxin/cyanide = 1, /decl/reagent/lexorin = 20)
 
 /*
  * Chameleon pen
@@ -242,7 +245,7 @@ Pen exclusive commands
 /obj/item/pen/chameleon
 	var/signature = ""
 
-/obj/item/pen/chameleon/attack_self(mob/user as mob)
+/obj/item/pen/chameleon/attack_self(mob/user)
 	signature = sanitize(input("Enter new signature. Leave blank for 'Anonymous'", "New Signature", signature))
 
 /obj/item/pen/proc/get_signature(var/mob/user)
@@ -309,3 +312,40 @@ Pen exclusive commands
 /obj/item/pen/crayon/Initialize()
 	. = ..()
 	name = "[colourName] crayon"
+
+/*
+ * Augment Pens
+ */
+
+/obj/item/pen/augment
+	name = "integrated pen"
+	desc = "An pen implanted directly into the hand, popping through the finger."
+	icon_state = "combipen"
+	item_state = "combipen"
+	colour = "#1c1713" //dark ashy brownish
+	cursive = FALSE
+	w_class = ITEMSIZE_TINY
+
+/obj/item/pen/augment/attack_self(mob/user)
+	var/choice = input(user, "Would you like to change colour or writing style?", "Pen Selector") as null|anything in list("Colour", "Style")
+	if(!choice)
+		return
+
+	switch(choice)
+		if("Colour")
+			var/newcolour = input(user, "Which colour would you like to use?", "Colour Selector") as null|anything in list("black", "blue", "red", "green", "yellow")
+			if(newcolour)
+				colour = newcolour	
+				to_chat(user, SPAN_NOTICE("Your pen synthesizes [newcolour] ink."))
+				playsound(get_turf(src), 'sound/effects/pop.ogg', 50, 0)
+		if("Style")
+			playsound(loc, 'sound/items/penclick.ogg', 50, 1)
+			to_chat(user, SPAN_NOTICE("You snap the nib into position to write [cursive ? "normally" : "in cursive"]."))
+			cursive = !cursive
+
+/obj/item/pen/augment/throw_at(atom/target, range, speed, mob/user)
+	user.drop_from_inventory(src)
+
+/obj/item/pen/augment/dropped()
+	loc = null
+	qdel(src)

@@ -12,6 +12,7 @@
 /obj/item/stack
 	gender = PLURAL
 	origin_tech = list(TECH_MATERIAL = 1)
+	flags = HELDMAPTEXT
 	var/list/datum/stack_recipe/recipes
 	var/singular_name
 	var/amount = 1
@@ -43,6 +44,10 @@
 		item_state = icon_state
 
 	update_icon()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/item/stack/LateInitialize()
+	check_maptext(SMALL_FONTS(7, get_amount()))
 
 /obj/item/stack/Destroy()
 	if (src && usr && usr.machine == src)
@@ -50,6 +55,8 @@
 	return ..()
 
 /obj/item/stack/update_icon()
+	check_maptext(SMALL_FONTS(7, get_amount()))
+
 	if (!icon_has_variants)
 		return ..()
 
@@ -194,7 +201,7 @@
 		return 0
 	return 1
 
-/obj/item/stack/proc/use(var/used)
+/obj/item/stack/use(var/used)
 	if (!can_use(used))
 		return 0
 	if(!uses_charge)
@@ -206,12 +213,11 @@
 		update_icon()
 		return 1
 	else
-		if(get_amount() < used)
-			return 0
 		for(var/i = 1 to charge_costs.len)
 			var/datum/matter_synth/S = synths[i]
 			if(!S.use_charge(charge_costs[i] * used)) // Doesn't need to be deleted
 				return 0
+		check_maptext(SMALL_FONTS(7, get_amount()))
 		return 1
 
 /obj/item/stack/proc/add(var/extra)
@@ -228,6 +234,7 @@
 		for(var/i = 1 to uses_charge)
 			var/datum/matter_synth/S = synths[i]
 			S.add_charge(charge_costs[i] * extra)
+		check_maptext(SMALL_FONTS(7, get_amount()))
 
 /*
 	The transfer and split procs work differently than use() and add().

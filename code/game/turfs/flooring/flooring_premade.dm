@@ -1,3 +1,4 @@
+//Carpets
 /turf/simulated/floor/carpet
 	name = "carpet"
 	icon = 'icons/turf/flooring/carpet.dmi'
@@ -10,6 +11,10 @@
 	icon_state = "bcarpet"
 	initial_flooring = /decl/flooring/carpet/blue
 
+/turf/simulated/floor/carpet/blue/airless
+	oxygen = 0
+	nitrogen = 0
+
 /turf/simulated/floor/carpet/rubber
 	name = "rubber carpet"
 	icon_state = "rub_carpet"
@@ -19,6 +24,43 @@
 	icon_state = "artcarpet"
 	initial_flooring = /decl/flooring/carpet/art
 
+/turf/simulated/floor/carpet/fancybrown
+	icon_state = "brown"
+	initial_flooring = /decl/flooring/carpet/fancybrown
+
+/turf/simulated/floor/carpet/red
+	icon_state = "red"
+	initial_flooring = /decl/flooring/carpet/red
+
+/turf/simulated/floor/carpet/darkblue
+	icon_state = "blue1"
+	initial_flooring = /decl/flooring/carpet/darkblue
+
+/turf/simulated/floor/carpet/lightblue
+	icon_state = "blue2"
+	initial_flooring = /decl/flooring/carpet/lightblue
+
+/turf/simulated/floor/carpet/aquablue
+	icon_state = "blue3"
+	initial_flooring = /decl/flooring/carpet/aquablue
+
+/turf/simulated/floor/carpet/green
+	icon_state = "green"
+	initial_flooring = /decl/flooring/carpet/green
+
+/turf/simulated/floor/carpet/magenta
+	icon_state = "magenta"
+	initial_flooring = /decl/flooring/carpet/magenta
+
+/turf/simulated/floor/carpet/purple
+	icon_state = "purple"
+	initial_flooring = /decl/flooring/carpet/purple
+
+/turf/simulated/floor/carpet/orange
+	icon_state = "orange"
+	initial_flooring = /decl/flooring/carpet/orange
+
+//Grids
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
@@ -31,6 +73,7 @@
 	icon_state = "gcircuit"
 	initial_flooring = /decl/flooring/reinforced/circuit/green
 
+//Wood Flooring
 /turf/simulated/floor/wood
 	name = "wooden floor"
 	icon = 'icons/turf/flooring/wood.dmi'
@@ -38,6 +81,36 @@
 	initial_flooring = /decl/flooring/wood
 	footstep_sound = /decl/sound_category/wood_footstep
 
+/turf/simulated/floor/wood/airless
+	oxygen = 0
+	nitrogen = 0
+
+/turf/simulated/floor/wood/coloured
+	icon_state = "woodcolour"
+	initial_flooring = /decl/flooring/wood/coloured
+
+/turf/simulated/floor/wood/coloured/birch
+	color = WOOD_COLOR_BIRCH
+
+/turf/simulated/floor/wood/coloured/mahogany
+	color = WOOD_COLOR_RICH
+
+/turf/simulated/floor/wood/coloured/walnut
+	color = WOOD_COLOR_PALE
+
+/turf/simulated/floor/wood/coloured/bamboo
+	color = WOOD_COLOR_PALE2
+
+/turf/simulated/floor/wood/coloured/ebony
+	color = WOOD_COLOR_BLACK
+
+/turf/simulated/floor/wood/coloured/walnut
+	color = WOOD_COLOR_CHOCOLATE
+
+/turf/simulated/floor/wood/coloured/yew
+	color = WOOD_COLOR_YELLOW
+
+//Grass
 /turf/simulated/floor/grass
 	name = "grass patch"
 	icon = 'icons/turf/flooring/grass.dmi'
@@ -50,11 +123,22 @@
 	icon_state = "grass_alt"
 	initial_flooring = /decl/flooring/grass/alt
 
+//Tiles
 /turf/simulated/floor/tiled
-	name = "floor"
+	name = "steel tiles"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "steel"
 	initial_flooring = /decl/flooring/tiling
+
+/turf/simulated/floor/tiled/full
+	name = "full steel tile"
+	icon_state = "steel_full"
+	initial_flooring = /decl/flooring/tiling/full
+
+/turf/simulated/floor/tiled/full/airless
+	name = "airless full steel tile"
+	oxygen = 0
+	nitrogen = 0
 
 /turf/simulated/floor/reinforced
 	name = "reinforced floor"
@@ -76,6 +160,12 @@
 /turf/simulated/floor/reinforced/nitrogen
 	oxygen = 0
 	nitrogen = ATMOSTANK_NITROGEN
+
+// Reinforced Reactor Flooring
+/turf/simulated/floor/reinforced/reactor
+	name = "reinforced reactor floor"
+	oxygen = 0
+	nitrogen = MOLES_CELLSTANDARD // One atmosphere of nitrogen.
 
 /turf/simulated/floor/reinforced/oxygen
 	oxygen = ATMOSTANK_OXYGEN
@@ -120,11 +210,21 @@
 	return
 
 /turf/simulated/floor/tiled/dark
-	name = "dark floor"
+	name = "plasteel tiles"
 	icon_state = "dark"
 	initial_flooring = /decl/flooring/tiling/dark
 
 /turf/simulated/floor/tiled/dark/airless
+	oxygen = 0
+	nitrogen = 0
+
+/turf/simulated/floor/tiled/dark/full
+	name = "full plasteel tile"
+	icon_state = "dark_full"
+	initial_flooring = /decl/flooring/tiling/dark/full
+
+/turf/simulated/floor/tiled/dark/full/airless
+	name = "airless full plasteel tile"
 	oxygen = 0
 	nitrogen = 0
 
@@ -324,6 +424,17 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "diamond"
 	initial_flooring = /decl/flooring/diamond
+
+/turf/simulated/floor/marble
+	name = "light marble floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "lightmarble"
+	initial_flooring = /decl/flooring/marble
+
+/turf/simulated/floor/marble/dark
+	name = "dark marble floor"
+	icon_state = "darkmarble"
+	initial_flooring = /decl/flooring/marble/dark
 
 /turf/simulated/floor/vaurca
 	name = "alien floor"

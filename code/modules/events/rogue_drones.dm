@@ -18,16 +18,17 @@
 			D.disabled = rand(15, 60)
 
 /datum/event/rogue_drone/announce()
-	var/msg
-	if(prob(33))
-		msg = "A combat drone wing operating out of the NDV Icarus has failed to return from a sweep of this sector, if any are sighted approach with caution."
-	else if(prob(50))
-		msg = "Contact has been lost with a combat drone wing operating out of the NDV Icarus. If any are sighted in the area, approach with caution."
+	var/message_index = rand(1, length(current_map.rogue_drone_detected_messages))
+	var/message = current_map.rogue_drone_detected_messages[message_index]
+	var/list/possible_sounds = list('sound/AI/rogue_drone_detected_message_1.ogg', 'sound/AI/rogue_drone_detected_message_2.ogg')
+	var/our_sound
+	if(length(current_map.rogue_drone_detected_messages > possible_sounds))
+		our_sound = possible_sounds[message_index]
 	else
-		msg = "Unidentified hackers have targetted a combat drone wing deployed from the NDV Icarus. If any are sighted in the area, approach with caution."
-	command_announcement.Announce(msg, "Rogue drone alert", new_sound = 'sound/AI/combatdrones.ogg')
+		our_sound = possible_sounds[1]
+	command_announcement.Announce(message, "Rogue Drone Alert", new_sound = our_sound)
 
-/datum/event/rogue_drone/end()
+/datum/event/rogue_drone/end(var/faked)
 	var/num_recovered = 0
 	for(var/drone in drones_list)
 		var/mob/living/simple_animal/hostile/icarus_drone/malf/D = drone
@@ -35,7 +36,8 @@
 		D.beam_out()
 		num_recovered++
 
-	if(num_recovered > length(drones_list) * 0.75)
-		command_announcement.Announce("Icarus drone control reports the malfunctioning wing has been recovered safely.", "Rogue drone alert")
-	else
-		command_announcement.Announce("Icarus drone control registers disappointment at the loss of the drones, but the survivors have been recovered.", "Rogue drone alert")
+	if(!faked)
+		if(num_recovered > length(drones_list) * 0.75)
+			command_announcement.Announce(current_map.rogue_drone_end_message, "Rogue Drone Alert", new_sound = 'sound/AI/rogue_drone_end_message.ogg', zlevels = affecting_z)
+		else
+			command_announcement.Announce(current_map.rogue_drone_destroyed_message, "Rogue Drone Alert", new_sound = 'sound/AI/rogue_drone_destroyed_message.ogg', zlevels = affecting_z)

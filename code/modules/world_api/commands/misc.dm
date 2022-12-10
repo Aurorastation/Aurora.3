@@ -203,7 +203,7 @@
 	if(cl)
 		to_chat(cl, "Another connection has been made using your login key. This session has been terminated.")
 		del(cl)
-	
+
 	statuscode = 200
 	response = "Client has been authenticated sucessfully."
 	una.ClientLogin(queryparams["key"])
@@ -219,7 +219,7 @@
 /datum/topic_command/get_auth_client_ip/run_command(queryparams)
 	if(!(queryparams["clienttoken"] in unauthed))
 		statuscode = 404
-		response = "Client with such token is not found."
+		response = "Unauthed client with such token is not found."
 		return TRUE
 
 	var/mob/abstract/unauthed/una = unauthed[queryparams["clienttoken"]]
@@ -230,7 +230,7 @@
 		return TRUE
 
 	if(!config.external_auth)
-		statuscode = 500
+		statuscode = 403
 		response = "External auth is disallowed."
 		del(una.client)
 		del(una)
@@ -253,7 +253,7 @@
 		config.external_auth = !config.external_auth
 	else
 		config.external_auth = queryparams["state"]
-	
+
 	statuscode = 200
 	response = "External authentication state has been updated sucessfully."
 	data = config.external_auth

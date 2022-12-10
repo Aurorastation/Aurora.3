@@ -1,7 +1,7 @@
 /obj/vehicle/bike
 	name = "space-bike"
 	desc = "Space wheelies! Woo!"
-	desc_info = "Drag yourself onto the bike to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off. Use ctrl-click to quickly toggle the engine if you're adjacent (only when vehicle is stationary). Alt-click will similarly toggle the kickstand."
+	desc_info = "Click on the bike, click resist, or type resist into the red bar below to get off. Drag yourself onto the bike to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off. Use ctrl-click to quickly toggle the engine if you're adjacent (only when vehicle is stationary). Alt-click will similarly toggle the kickstand."
 	icon = 'icons/obj/bike.dmi'
 	icon_state = "bike_off"
 	dir = SOUTH
@@ -25,8 +25,8 @@
 	var/kickstand = TRUE
 	var/can_hover = TRUE
 
-/obj/vehicle/bike/Initialize()
-	. = ..()
+/obj/vehicle/bike/setup_vehicle()
+	..()
 	ion = new(src)
 	turn_off()
 	add_overlay(image('icons/obj/bike.dmi', "[icon_state]_off_overlay", MOB_LAYER + 1))
@@ -36,16 +36,13 @@
 
 /obj/vehicle/bike/CtrlClick(var/mob/user)
 	if(Adjacent(user) && anchored)
-		toggle()
+		toggle_engine(user)
 	else
 		return ..()
 
-/obj/vehicle/bike/verb/toggle()
-	set name = "Toggle Engine"
-	set category = "Vehicle"
-	set src in view(0)
-
-	if(usr.incapacitated()) return
+/obj/vehicle/bike/proc/toggle_engine(var/mob/user)
+	if(use_check_and_message(user))
+		return
 
 	if(!on)
 		turn_on()
@@ -61,23 +58,20 @@
 	else
 		return ..()
 
-/obj/vehicle/bike/verb/kickstand()
-	set name = "Toggle Kickstand"
-	set category = "Vehicle"
-	set src in view(0)
-
-	if(usr.incapacitated()) return
+/obj/vehicle/bike/proc/kickstand(var/mob/user)
+	if(use_check_and_message(user))
+		return
 
 	if(kickstand)
-		usr.visible_message("\The [usr] puts up \the [src]'s kickstand.", "You put up \the [src]'s kickstand.", "You hear a thunk.")
+		user.visible_message("\The [user] puts up \the [src]'s kickstand.", "You put up \the [src]'s kickstand.", "You hear a thunk.")
 		playsound(src, 'sound/misc/bike_stand_up.ogg', 50, 1)
 	else
 		if(isturf(loc))
 			var/turf/T = loc
 			if (T.is_hole)
-				to_chat(usr, "<span class='warning'>You don't think kickstands work here.</span>")
+				to_chat(user, "<span class='warning'>You don't think kickstands work here.</span>")
 				return
-		usr.visible_message("\The [usr] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
+		user.visible_message("\The [user] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
 		playsound(src, 'sound/misc/bike_stand_down.ogg', 50, 1)
 		if(pulledby)
 			pulledby.stop_pulling()
@@ -88,7 +82,7 @@
 /obj/vehicle/bike/load(var/atom/movable/C)
 	var/mob/living/M = C
 	if(!istype(C)) return 0
-	if(M.buckled || M.restrained() || !Adjacent(M) || !M.Adjacent(src))
+	if(M.buckled_to || M.restrained() || !Adjacent(M) || !M.Adjacent(src))
 		return 0
 	return ..(M)
 
@@ -165,8 +159,8 @@
 	..()
 
 /obj/vehicle/bike/bullet_act(var/obj/item/projectile/Proj)
-	if(buckled_mob && prob(protection_percent))
-		buckled_mob.bullet_act(Proj)
+	if(buckled && prob(protection_percent))
+		buckled.bullet_act(Proj)
 		return
 	..()
 
@@ -190,23 +184,26 @@
 
 /obj/vehicle/bike/Collide(var/atom/movable/AM)
 	. = ..()
-	if(!buckled_mob)
+	var/mob/living/M
+	if(!buckled)
 		return
-	if(buckled_mob.a_intent == I_HURT)
+	if(istype(buckled, /mob/living))
+		M = buckled
+	if(M.a_intent == I_HURT)
 		if (istype(AM, /obj/vehicle))
-			buckled_mob.setMoveCooldown(10)
+			M.setMoveCooldown(10)
 			var/obj/vehicle/V = AM
 			if(prob(50))
-				if(V.buckled_mob)
-					if(ishuman(V.buckled_mob))
-						var/mob/living/carbon/human/I = V.buckled_mob
+				if(V.buckled)
+					if(ishuman(V.buckled))
+						var/mob/living/carbon/human/I = V.buckled
 						I.visible_message(SPAN_DANGER("\The [I] falls off from \the [V]"))
 						V.unload(I)
 						I.throw_at(get_edge_target_turf(V.loc, V.loc.dir), 5, 1)
 						I.apply_effect(2, WEAKEN)
 				if(prob(25))
-					if(ishuman(buckled_mob))
-						var/mob/living/carbon/human/C = buckled_mob
+					if(ishuman(buckled))
+						var/mob/living/carbon/human/C = buckled
 						C.visible_message(SPAN_DANGER ("\The [C] falls off from \the [src]!"))
 						unload(C)
 						C.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
@@ -215,15 +212,15 @@
 		if(isliving(AM))
 			if(ishuman(AM))
 				var/mob/living/carbon/human/H = AM
-				buckled_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-				buckled_mob.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[buckled_mob.name] ([buckled_mob.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
+				M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
+				M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
 				playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
 				H.apply_damage(20, BRUTE)
 				H.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				H.apply_effect(4, WEAKEN)
-				buckled_mob.setMoveCooldown(10)
+				M.setMoveCooldown(10)
 				return TRUE
 
 			else
@@ -232,7 +229,7 @@
 				playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
 				L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				L.apply_damage(20, BRUTE)
-				buckled_mob.setMoveCooldown(10)
+				M.setMoveCooldown(10)
 				return TRUE
 
 /obj/vehicle/bike/speeder
@@ -273,11 +270,14 @@
 	can_hover = FALSE
 
 /obj/vehicle/bike/monowheel/RunOver(var/mob/living/carbon/human/H)
-	if(!buckled_mob)
+	var/mob/living/M
+	if(!buckled)
 		return
-	if(buckled_mob.a_intent == I_HURT)
-		buckled_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-		buckled_mob.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[buckled_mob.name] ([buckled_mob.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
+	if(istype(buckled, /mob/living))
+		M = buckled
+	if(M.a_intent == I_HURT)
+		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
+		M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
 		msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
 		H.apply_damage(30, BRUTE)
@@ -302,3 +302,38 @@
 
 /obj/item/storage/toolbox/bike_storage/monowheel
 	name = "monowheel storage"
+
+/obj/vehicle/bike/casino
+	name = "retrofitted snowmobile"
+	desc = "A modified snowmobile. There is a coin slot on the panel."
+	icon_state = "snowmobile_on"
+
+	bike_icon = "snowmobile"
+	land_speed = 3
+	protection_percent = 10
+	var/paid = FALSE
+
+/obj/vehicle/bike/casino/Move(var/turf/destination)
+	if(!paid)
+		return
+	..()
+
+/obj/vehicle/bike/casino/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/coin/casino))
+		if(!paid)
+			paid = TRUE
+			to_chat(user, SPAN_NOTICE("Payment confirmed, enjoy two minutes of unlimited snowmobile use."))
+			addtimer(CALLBACK(src, .proc/rearm), 2 MINUTES)
+		return
+	..()
+
+/obj/vehicle/bike/casino/proc/rearm()
+	visible_message(SPAN_NOTICE("\The [src] beeps lowly, asking for another chip to continue."))
+	paid = FALSE
+
+/obj/vehicle/bike/casino/check_destination(var/turf/destination)
+	var/static/list/types = typecacheof(list(/turf/space))
+	if(is_type_in_typecache(destination,types) || pulledby)
+		return TRUE
+	else
+		return FALSE

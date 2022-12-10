@@ -19,7 +19,6 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	var/speed = 1
 	var/product_offset = FALSE //Set to make the printer spawn its product in a neighboring turf dictated by dir.
 
-	use_power = 1
 	idle_power_usage = 30
 	active_power_usage = 2500
 
@@ -30,7 +29,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		/obj/item/reagent_containers/glass/beaker = 2
 	)
 
-/obj/machinery/r_n_d/circuit_imprinter/machinery_process()
+/obj/machinery/r_n_d/circuit_imprinter/process()
 	..()
 	if(stat)
 		update_icon()
@@ -137,6 +136,9 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		return 1
 
 	var/obj/item/stack/material/stack = O
+	if(!stack.default_type)
+		to_chat(user, SPAN_WARNING("This stack cannot be used!"))
+		return
 	var/amount = round(input("How many sheets do you want to add?") as num)
 	if(!O)
 		return
@@ -151,14 +153,11 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		amount = min(stack.get_amount(), round((max_material_storage - TotalMaterials()) / SHEET_MATERIAL_AMOUNT))
 
 	busy = 1
-	use_power(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))
-	var/stacktype = stack.type
-	var/t = getMaterialName(stacktype)
-	if(t)
-		if(do_after(usr, 16))
-			if(stack.use(amount))
-				to_chat(user, "<span class='notice'>You add [amount] sheets to \the [src].</span>")
-				materials[t] += amount * SHEET_MATERIAL_AMOUNT
+	use_power_oneoff(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))
+	if(do_after(user, 16))
+		if(stack.use(amount))
+			to_chat(user, "<span class='notice'>You add [amount] sheets to \the [src].</span>")
+			materials[stack.default_type] += amount * SHEET_MATERIAL_AMOUNT
 	busy = 0
 	updateUsrDialog()
 
@@ -188,9 +187,10 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 			ret += "[D.materials[M] - materials[M]] [M]"
 	for(var/C in D.chemicals)
 		if(!reagents.has_reagent(C, D.chemicals[C]))
+			var/decl/reagent/R = decls_repository.get_decl(C)
 			if(ret != "")
 				ret += ", "
-			ret += "[C]"
+			ret += "[R.name]"
 	return ret
 
 /obj/machinery/r_n_d/circuit_imprinter/proc/build(var/datum/design/D)
@@ -198,7 +198,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	for(var/M in D.materials)
 		power += round(D.materials[M] / 5)
 	power = max(active_power_usage, power)
-	use_power(power)
+	use_power_oneoff(power)
 	for(var/M in D.materials)
 		materials[M] = max(0, materials[M] - D.materials[M] * mat_efficiency)
 	for(var/C in D.chemicals)

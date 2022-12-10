@@ -414,23 +414,21 @@
 
 /obj/structure/device/piano/attackby(obj/item/O as obj, mob/user as mob)
 	if (O.iswrench())
-		if (anchored)
-			playsound(src.loc, O.usesound, 50, 1)
-			to_chat(user, "<span class='notice'>You begin to loosen \the [src]'s casters...</span>")
-			if (do_after(user, 40/O.toolspeed))
+		if(anchored)
+			to_chat(user, SPAN_NOTICE("You begin to loosen \the [src]'s casters..."))
+			if(O.use_tool(src, user, 40, volume = 50))
 				user.visible_message( \
-					"[user] loosens \the [src]'s casters.", \
-					"<span class='notice'>You have loosened \the [src]. Now it can be pulled somewhere else.</span>", \
-					"You hear ratchet.")
-				src.anchored = 0
+					SPAN_NOTICE("[user] loosens \the [src]'s casters."), \
+					SPAN_NOTICE("You have loosened \the [src]. Now it can be pulled somewhere else."), \
+					"You hear a ratchet.")
+				src.anchored = FALSE
 		else
-			playsound(src.loc, O.usesound, 50, 1)
-			to_chat(user, "<span class='notice'>You begin to tighten \the [src] to the floor...</span>")
-			if (do_after(user, 20/O.toolspeed))
+			to_chat(user, SPAN_NOTICE("You begin to tighten \the [src] to the floor..."))
+			if(O.use_tool(src, user, 20, volume = 50))
 				user.visible_message( \
-					"[user] tightens \the [src]'s casters.", \
-					"<span class='notice'>You have tightened \the [src]'s casters. Now it can be played again</span>.", \
-					"You hear ratchet.")
-				src.anchored = 1
+					SPAN_NOTICE("[user] tightens \the [src]'s casters."), \
+					SPAN_NOTICE("You have tightened \the [src]'s casters. Now it can be played again"), \
+					"You hear a ratchet.")
+				src.anchored = TRUE
 	else
 		..()

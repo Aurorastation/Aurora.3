@@ -251,12 +251,10 @@ FLOOR SAFES
 
 /obj/structure/safe/proc/drill_open()
 	broken = TRUE
-	if(drill)
-		drill.soundloop.stop()
 	STOP_PROCESSING(SSprocessing, src)
 	update_icon()
 
-obj/structure/safe/ex_act(severity)
+/obj/structure/safe/ex_act(severity)
 	return
 
 //FLOOR SAFES
@@ -292,3 +290,22 @@ obj/structure/safe/ex_act(severity)
 	new /obj/random/highvalue(src)
 	new /obj/random/highvalue(src)
 	new /obj/random/highvalue(src)
+
+/obj/structure/safe/cash
+	name = "credit safe"
+
+/obj/structure/safe/cash/Initialize()
+	. = ..()
+	new /obj/random/highvalue/cash(src)
+	new /obj/random/highvalue/cash(src)
+	new /obj/random/highvalue/cash(src)
+
+/obj/structure/safe/highvalue
+	name = "valuables safe"
+
+/obj/structure/safe/highvalue/Initialize()
+	. = ..()
+	new /obj/random/highvalue/no_weapon(src)
+	new /obj/random/highvalue/no_weapon(src)
+	new /obj/random/highvalue/no_weapon(src)
+	new /obj/random/highvalue/no_weapon(src)

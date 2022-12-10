@@ -20,9 +20,9 @@
 	Notifications will be sent as updates occur.<br>"
 	var/my_department = "[station_name()] firewall subroutines"
 
-	for(var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
-		if(!MS.active) continue
-		MS.send_rc_message("Head of Personnel's Desk", my_department, message, "", "", 2)
+	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+		if(!MS.use_power) continue
+		MS.send_rc_message("Executive Officer's Desk", my_department, message, "", "", 2)
 
 
 /datum/event/money_hacker/tick()
@@ -31,9 +31,9 @@
 	else
 		endWhen = activeFor + 10
 
-/datum/event/money_hacker/end()
+/datum/event/money_hacker/end(var/faked)
 	var/message
-	if(affected_account && !affected_account.suspended)
+	if(affected_account && !affected_account.suspended && !faked)
 		//hacker wins
 		message = "The hack attempt has succeeded."
 
@@ -61,6 +61,6 @@
 
 	var/my_department = "[station_name()] firewall subroutines"
 
-	for(var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
-		if(!MS.active) continue
-		MS.send_rc_message("Head of Personnel's Desk", my_department, message, "", "", 2)
+	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+		if(!MS.use_power) continue
+		MS.send_rc_message("Executive Officer's Desk", my_department, message, "", "", 2)

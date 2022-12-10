@@ -12,7 +12,7 @@
       <tr v-for="beacon in teleport_beacons" class="item border" :key="beacon.ref">
         <td>{{ beacon.beacon_name }}</td>
         <td>
-          <vui-button :params="{ beacon: beacon.ref, name: beacon.beacon_name }">Lock On</vui-button>
+          <vui-button :class="{ 'danger' : beacon.selected_beacon == true}" :params="{ beacon: beacon.ref, name: beacon.beacon_name }">{{beacon.selected_beacon == true ? "Unset" : "Lock On"}}</vui-button>
         </td>
       </tr>
     </table>
@@ -25,7 +25,7 @@
       <tr v-for="implant in teleport_implants" class="item border" :key="implant.ref">
         <td>{{ implant.implant_name }}</td>
         <td>
-          <vui-button :params="{ implant: implant.ref, name: implant.implant_name }">Lock On</vui-button>
+          <vui-button :class="{ 'danger' : implant.selected_implant == true}" :params="{ implant: implant.ref, name: implant.implant_name }">{{implant.selected_implant == true ? "Unset" : "Lock On"}}</vui-button>
         </td>
       </tr>
     </table>

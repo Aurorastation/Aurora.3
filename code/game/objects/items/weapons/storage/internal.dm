@@ -46,12 +46,12 @@
 
 		if (!( user.restrained() ) && !( user.stat ))
 			switch(over_object.name)
-				if(BP_R_HAND)
+				if("right hand")
 					user.u_equip(master_item)
-					user.put_in_r_hand(master_item)
-				if(BP_L_HAND)
+					user.equip_to_slot_if_possible(master_item, slot_r_hand)
+				if("left hand")
 					user.u_equip(master_item)
-					user.put_in_l_hand(master_item)
+					user.equip_to_slot_if_possible(master_item, slot_l_hand)
 			master_item.add_fingerprint(user)
 			return 0
 	return 0

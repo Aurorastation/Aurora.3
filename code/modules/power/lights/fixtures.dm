@@ -13,15 +13,15 @@
 	desc = "A lighting fixture."
 	anchored = TRUE
 	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
-	var/brightness_power = 0.8
+	var/brightness_power = 0.45
 	var/night_brightness_range = 6
-	var/night_brightness_power = 0.6
+	var/night_brightness_power = 0.4
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN
@@ -42,9 +42,18 @@
 	var/emergency_mode = FALSE	// if true, the light is in emergency mode.
 	var/no_emergency = FALSE	// if true, this light cannot enter emergency mode.
 
+	var/next_spark = 0
+
 	var/bulb_is_noisy = TRUE
 
 	var/previous_stat
+	var/randomize_color = TRUE
+	var/default_color
+	var/static/list/randomized_colors = LIGHT_STANDARD_COLORS
+	var/static/list/emergency_lights = list(
+		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
+		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
+	)
 
 /obj/machinery/light/skrell
 	base_state = "skrell"
@@ -54,7 +63,7 @@
 	bulb_is_noisy = FALSE
 	light_type = /obj/item/light/tube
 	inserted_light = /obj/item/light/tube
-	brightness_power = 1
+	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_PURPLE
 
 // the smaller bulb light fixture
@@ -64,7 +73,7 @@
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness_range = 5
-	brightness_power = 0.75
+	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
 	light_type = /obj/item/light/bulb
@@ -74,19 +83,23 @@
 
 /obj/machinery/light/small/emergency
 	brightness_range = 6
-	brightness_power = 1
+	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
+	randomize_color = FALSE
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5
-	brightness_power = 1
+	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_RED
+	randomize_color = FALSE
 
 /obj/machinery/light/colored/blue
 	brightness_color = LIGHT_COLOR_BLUE
+	randomize_color = FALSE
 
 /obj/machinery/light/colored/red
 	brightness_color = LIGHT_COLOR_RED
+	randomize_color = FALSE
 
 /obj/machinery/light/spot
 	name = "spotlight"
@@ -94,11 +107,11 @@
 	light_type = /obj/item/light/tube/large
 	inserted_light = /obj/item/light/tube/large
 	brightness_range = 12
-	brightness_power = 4
+	brightness_power = 3.5
 	supports_nightmode = FALSE
 
 /obj/machinery/light/spot/weak
-	name = "exterior spotlight"
+	name = "low-intensity spotlight"
 	brightness_range = 12
 	brightness_power = 1.2
 
@@ -132,6 +145,9 @@
 				if(prob(5))
 					broken(1)
 
+	if(randomize_color)
+		brightness_color = pick(randomized_colors)
+	default_color = brightness_color // We need a different var so the new color doesn't get wiped away. Initial() wouldn't work since brightness_color is overridden.
 	update(0)
 
 /obj/machinery/light/Destroy()
@@ -203,31 +219,38 @@
 				stat |= BROKEN
 				set_light(0)
 		else
-			use_power = 2
-			active_power_usage = light_range * LIGHTING_POWER_FACTOR
+			update_use_power(POWER_USE_ACTIVE)
+			change_power_consumption(light_range * LIGHTING_POWER_FACTOR, POWER_USE_ACTIVE)
 			if (supports_nightmode && nightmode)
 				set_light(night_brightness_range, night_brightness_power, brightness_color)
 			else
 				set_light(brightness_range, brightness_power, brightness_color)
 	else if (has_emergency_power(LIGHT_EMERGENCY_POWER_USE) && !(stat & POWEROFF))
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 		emergency_mode = TRUE
 		var/new_power = round(max(0.5, 0.75 * (cell.charge / cell.maxcharge)), 0.1)
 		set_light(brightness_range * 0.25, new_power, LIGHT_COLOR_EMERGENCY)
 	else
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 		set_light(0)
 
 	update_icon()
 
-	active_power_usage = ((light_range * light_power) * 10)
+	change_power_consumption((light_range * light_power) * 10, POWER_USE_ACTIVE)
+
+/obj/machinery/light/proc/broken_sparks()
+	if(world.time > next_spark && !(stat & POWEROFF) && has_power())
+		spark(src, 3, alldirs)
+		next_spark = world.time + 1 MINUTE + (rand(-15, 15) SECONDS)
 
 // ehh
-/obj/machinery/light/machinery_process()
+/obj/machinery/light/process()
 	if (cell && cell.charge != cell.maxcharge && has_power())
 		cell.charge = min(cell.maxcharge, cell.charge + 0.2)
 	if (emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
 		update(FALSE)
+	if(status == LIGHT_BROKEN)
+		broken_sparks()
 
 /obj/machinery/light/proc/has_emergency_power(pwr = LIGHT_EMERGENCY_POWER_USE)
 	if (no_emergency | !cell)
@@ -389,6 +412,9 @@
 	else
 		user.visible_message(SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."), SPAN_WARNING("You hit \the [src], but it doesn't break."), SPAN_WARNING("You hear something hitting against glass."))
 
+/obj/machinery/light/bullet_act(obj/item/projectile/P, def_zone)
+	bullet_ping(P)
+	shatter()
 
 // returns whether this light has power
 // true if area has power
@@ -433,7 +459,6 @@
 // attack with hand - remove tube/bulb
 // if hands aren't protected and the light is on, burn the player
 /obj/machinery/light/attack_hand(mob/user)
-
 	add_fingerprint(user)
 
 	if(status == LIGHT_EMPTY)
@@ -452,29 +477,6 @@
 				shatter()
 				return
 
-	// make it burn hands if not wearing fire-insulated gloves
-	if(!stat)
-		var/prot = 0
-		var/mob/living/carbon/human/H = user
-
-		if(istype(H))
-			if(H.species.heat_level_1 > LIGHT_BULB_TEMPERATURE)
-				prot = 1
-			else if(H.gloves)
-				var/obj/item/clothing/gloves/G = H.gloves
-				if(G.max_heat_protection_temperature && G.max_heat_protection_temperature > LIGHT_BULB_TEMPERATURE)
-					prot = 1
-		else
-			prot = 1
-
-		if(prot || (COLD_RESISTANCE in user.mutations))
-			to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
-		else
-			to_chat(user, SPAN_WARNING("You try to remove the light [fitting], but it's too hot and you don't want to burn your hand."))
-			return				// if burned, don't remove the light
-	else
-		to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
-
 	// create a light tube/bulb item and put it in the user's hand
 	if(inserted_light)
 		var/obj/item/light/L = new inserted_light()
@@ -492,6 +494,8 @@
 		L.add_fingerprint(user)
 
 		user.put_in_active_hand(L)	//puts it in our active hand
+
+		to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
 
 		inserted_light = null
 
@@ -609,3 +613,14 @@
 	explosion(T, 0, 0, 2, 2)
 	sleep(1)
 	qdel(src)
+
+/obj/machinery/light/set_emergency_state(var/new_security_level)
+	var/area/A = get_area(src)
+	if(new_security_level in emergency_lights)
+		if(A.emergency_lights)
+			brightness_color = emergency_lights[new_security_level]
+			update(0)
+	else
+		if(brightness_color != default_color)
+			brightness_color = default_color
+			update(0)

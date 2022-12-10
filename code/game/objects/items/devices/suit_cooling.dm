@@ -2,9 +2,10 @@
 	name = "portable suit cooling unit"
 	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling."
 	w_class = ITEMSIZE_LARGE
-	icon = 'icons/obj/suitcooler.dmi'
+	icon = 'icons/obj/contained_items/tools/suitcooler.dmi'
 	icon_state = "suitcooler0"
 	item_state = "coolingpack"
+	action_button_name = "Toggle Cooling Unit"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BACK	//you can carry it on your back if you want, but it won't do anything unless attached to suit storage
 
@@ -24,19 +25,18 @@
 	var/cover_open = 0		//is the cover open?
 	var/obj/item/cell/cell
 	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
-	var/charge_consumption = 16.6		//charge per second at max_cooling
+	var/charge_consumption = 8.3		//charge per second at max_cooling
 	var/thermostat = T20C
 
 	//TODO: make it heat up the surroundings when not in space
 
 /obj/item/device/suit_cooling_unit/Initialize()
 	. = ..()
-	START_PROCESSING(SSprocessing, src)
 	if(celltype)
 		cell = new celltype(src)
 
 /obj/item/device/suit_cooling_unit/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSmob, src)
 	QDEL_NULL(cell)
 	return ..()
 
@@ -111,6 +111,7 @@
 		return
 
 	on = TRUE
+	START_PROCESSING(SSmob, src)
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/proc/turn_off()
@@ -118,6 +119,7 @@
 		var/mob/M = src.loc
 		to_chat(M, SPAN_WARNING("\The [src] clicks and whines as it powers down."))
 	on = FALSE
+	STOP_PROCESSING(SSmob, src)
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/attack_self(mob/user)
@@ -134,14 +136,19 @@
 		src.cell = null
 		update_icon()
 		return
+	toggle_power(user)
 
-	//TODO use a UI like the air tanks
+/obj/item/device/suit_cooling_unit/AltClick(mob/user)
+	if(Adjacent(user))
+		toggle_power(user)
+
+/obj/item/device/suit_cooling_unit/proc/toggle_power(var/mob/user)
 	if(on)
 		turn_off()
 	else
 		turn_on()
 		if(on)
-			to_chat(user, SPAN_NOTICE("You switch on the [src]."))
+			to_chat(user, SPAN_NOTICE("You switch on \the [src]."))
 
 /obj/item/device/suit_cooling_unit/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
@@ -177,23 +184,31 @@
 		return
 
 	icon_state = "suitcooler0"
+	item_state = "coolingpack"
 
-	if(!cell || !on)
-		return
+	if(cell && on)
+		var/battery_level = 0
+		switch(round(cell.percent()))
+			if(86 to INFINITY)
+				battery_level = 0
+			if(69 to 85)
+				battery_level = 1
+			if(52 to 68)
+				battery_level = 2
+			if(35 to 51)
+				battery_level = 3
+			if(18 to 34)
+				battery_level = 4
+			if(-INFINITY to 17)
+				battery_level = 5
 
-	switch(round(cell.percent()))
-		if(86 to INFINITY)
-			add_overlay("battery-0")
-		if(69 to 85)
-			add_overlay("battery-1")
-		if(52 to 68)
-			add_overlay("battery-2")
-		if(35 to 51)
-			add_overlay("battery-3")
-		if(18 to 34)
-			add_overlay("battery-4")
-		if(-INFINITY to 17)
-			add_overlay("battery-5")
+		add_overlay("battery-[battery_level]")
+		item_state = "coolingpack[battery_level]"
+
+	if(ismob(loc))
+		var/mob/M = loc
+		M.update_inv_back()
+		M.update_inv_s_store()
 
 /obj/item/device/suit_cooling_unit/examine(mob/user)
 	if(!..(user, 1))

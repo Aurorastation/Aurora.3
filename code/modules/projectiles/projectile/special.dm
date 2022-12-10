@@ -67,7 +67,7 @@
 	damage = 50
 	check_armor = "bullet"
 	sharp = 1
-	edge = 1
+	edge = TRUE
 
 /obj/item/projectile/bullet/gyro/on_impact(var/atom/A)
 	explosion(A, -1, 0, 2)
@@ -140,19 +140,25 @@
 	nodamage = 1
 	check_armor = "energy"
 
+/obj/item/projectile/energy/floramut/gene
+	name = "gamma somatoray"
+	icon_state = "energy2"
+	damage = 0
+	damage_type = TOX
+	nodamage = TRUE
+	var/decl/plantgene/gene = null
+
 /obj/item/projectile/energy/floramut/on_hit(var/atom/target, var/blocked = 0)
 	var/mob/living/M = target
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = M
 		if((H.species.flags & IS_PLANT) && (M.nutrition < 500))
 			if(prob(15))
-				H.apply_effect((rand(30,80)),IRRADIATE,blocked = H.getarmor(null, "rad"))
+				H.apply_damage(rand(30,80), IRRADIATE, damage_flags = DAM_DISPERSED)
 				M.Weaken(5)
 				for (var/mob/V in viewers(src))
 					V.show_message("<span class='warning'>[M] writhes in pain as [M.get_pronoun("his")] vacuoles boil.</span>", 3, "<span class='warning'>You hear the crunching of leaves.</span>", 2)
 			if(prob(35))
-			//	for (var/mob/V in viewers(src)) //Public messages commented out to prevent possible metaish genetics experimentation and stuff. - Cheridan
-			//		V.show_message("\red [M] is mutated by the radiation beam.", 3, "\red You hear the snapping of twigs.", 2)
 				if(prob(80))
 					randmutb(M)
 					domutcheck(M,null)
@@ -162,11 +168,7 @@
 			else
 				M.adjustFireLoss(rand(5,15))
 				M.show_message("<span class='warning'>The radiation beam singes you!</span>")
-			//	for (var/mob/V in viewers(src))
-			//		V.show_message("\red [M] is singed by the radiation beam.", 3, "\red You hear the crackle of burning leaves.", 2)
-	else if(istype(target, /mob/living/carbon/))
-	//	for (var/mob/V in viewers(src))
-	//		V.show_message("The radiation beam dissipates harmlessly through [M]", 3)
+	else if(iscarbon(target))
 		M.show_message("<span class='notice'>The radiation beam dissipates harmlessly through your body.</span>")
 	else
 		return 1
@@ -206,7 +208,7 @@
 	damage = 75
 	check_armor = "bomb"
 	sharp = 1
-	edge = 1
+	edge = TRUE
 
 /obj/item/projectile/bullet/trod/on_impact(var/atom/A)
 	explosion(A, 0, 0, 4)
@@ -274,18 +276,19 @@
 /obj/item/projectile/plasma
 	name = "plasma slug"
 	icon_state = "plasma_bolt"
-	damage = 25
+	damage = 20
 	damage_type = BRUTE
+	damage_flags = DAM_LASER
 	check_armor = "energy"
 	incinerate = 10
-	armor_penetration = 20
+	armor_penetration = 60
 	penetrating = 1
 
 /obj/item/projectile/plasma/light
 	name = "plasma bolt"
-	damage = 10
-	armor_penetration = 10
-	incinerate = 5
+	damage = 15
+	armor_penetration = 60
+	incinerate = 8
 
 /obj/item/missile
 	icon = 'icons/obj/grenade.dmi'
@@ -300,3 +303,22 @@
 	else
 		..()
 	return
+
+/obj/item/projectile/ice
+	name ="ice bolt"
+	icon_state= "icer_bolt"
+	damage = 15
+	damage_type = BRUTE
+	check_armor = "energy"
+
+/obj/item/projectile/bonedart
+	name = "bone dart"
+	icon_state = "bonedart"
+	damage = 35
+	damage_type = BRUTE
+	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
+	nodamage = FALSE
+	check_armor = "melee"
+	embed = TRUE
+	sharp = TRUE
+	shrapnel_type = /obj/item/bone_dart/vannatusk

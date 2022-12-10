@@ -1,5 +1,4 @@
-/mob/living/simple_animal/borer/say(var/message)
-	message = sanitize(message)
+/mob/living/simple_animal/borer/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	message = capitalize(message)
 
 	if(!message)
@@ -31,15 +30,14 @@
 			to_chat(src, SPAN_NOTICE("There are no viable hosts to speak with."))
 		else
 			var/mob/living/carbon/human/chosen_sayer = pick(viable_sayers)
-			log_say("[key_name(src)] : ([name]) [message]", ckey=key_name(src))
+			log_say("[key_name(src)] : (forcing [key_name(chosen_sayer)]) [message]", ckey=key_name(src))
 			chosen_sayer.say(message)
 		return
 
 	to_chat(src, "<b>You drop words into [host]'s mind:</b> \"[message]\"")
 	to_chat(host, "<b>Your own thoughts speak:</b> \"[message]\"")
+	log_say("[key_name(src)] : (borer whisper -> [key_name(host)]) [message]")
 
-	for(var/mob/M in player_list)
-		if(istype(M, /mob/abstract/new_player))
-			continue
-		else if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)
+	for(var/mob/M in mob_list)
+		if(M.client && M.stat == DEAD && !isnewplayer(M) && (M.client.prefs.toggles & CHAT_GHOSTEARS))
 			to_chat(M, "<b>[src.truename]</b> whispers to <b>[host]</b>, \"[message]\"")

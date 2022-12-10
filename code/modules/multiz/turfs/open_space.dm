@@ -11,9 +11,9 @@
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
-	flags = MIMIC_BELOW | MIMIC_OVERWRITE | MIMIC_NO_AO
 	roof_type = null
 	footstep_sound = null
+	z_flags = ZM_MIMIC_DEFAULTS | ZM_MIMIC_OVERWRITE | ZM_MIMIC_NO_AO | ZM_ALLOW_ATMOS
 
 	// A lazy list to contain a list of mobs who are currently scaling
 	// up this turf. Used in human/can_fall.
@@ -29,6 +29,34 @@
 			return FALSE
 
 	return ..()
+
+/turf/proc/CanZPass(atom/A, direction)
+	if(z == A.z) //moving FROM this turf
+		return direction == UP //can't go below
+	else
+		if(direction == UP) //on a turf below, trying to enter
+			return 0
+		if(direction == DOWN) //on a turf above, trying to enter
+			return !density
+
+/turf/simulated/open/CanZPass(atom/A, direction)
+	if(locate(/obj/structure/lattice/catwalk, src))
+		if(z == A.z)
+			if(direction == DOWN)
+				return 0
+		else if(direction == UP)
+			return 0
+	return 1
+
+/turf/space/CanZPass(atom/A, direction)
+	if(locate(/obj/structure/lattice/catwalk, src))
+		if(z == A.z)
+			if(direction == DOWN)
+				return 0
+		else if(direction == UP)
+			return 0
+	return 1
+
 
 // Add a falling atom by default. Even if it's not an atom that can actually fall.
 // SSfalling will check this on its own and remove if necessary. This is saner, as it
@@ -105,7 +133,7 @@
 	icon_state = "debug"
 	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
-	flags = MIMIC_BELOW
+	z_flags = ZM_MIMIC_BELOW
 	name = "hole"
 
 /turf/simulated/open/chasm/airless
@@ -226,3 +254,6 @@
 	if(!t)
 		return null
 	return t.roof_type
+
+/turf/simulated/open/is_open()
+	return TRUE

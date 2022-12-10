@@ -50,11 +50,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	client.sending |= asset_name
 	var/job = ++client.last_asset_job
 
-	client << browse({"
-	<script>
-		window.location.href="?asset_cache_confirm_arrival=[job]"
-	</script>
-	"}, "window=asset_cache_browser")
+	client << browse("<script>window.location.href=\"?asset_cache_confirm_arrival=[job]\"</script>", "window=asset_cache_browser")
 
 	var/t = 0
 	var/timeout_time = (ASSET_CACHE_SEND_TIMEOUT * client.sending.len) + ASSET_CACHE_SEND_TIMEOUT
@@ -102,11 +98,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	client.sending |= unreceived
 	var/job = ++client.last_asset_job
 
-	client << browse({"
-	<script>
-		window.location.href="?asset_cache_confirm_arrival=[job]"
-	</script>
-	"}, "window=asset_cache_browser")
+	client << browse("<script>window.location.href=\"?asset_cache_confirm_arrival=[job]\"</script>", "window=asset_cache_browser")
 
 	var/t = 0
 	var/timeout_time = ASSET_CACHE_SEND_TIMEOUT * client.sending.len
@@ -150,7 +142,6 @@ var/list/asset_datums = list()
 
 /datum/asset
 	var/_abstract = /datum/asset
-	var/delayed = FALSE
 
 /datum/asset/New()
 	asset_datums[type] = src
@@ -367,13 +358,16 @@ var/list/asset_datums = list()
 
 /datum/asset/simple/faction_icons
 	assets = list(
-		"faction_EPMC.png" = 'icons/misc/factions/ECFlogo.png',
-		"faction_Zeng.png" = 'icons/misc/factions/ZhenHulogo.png',
-		"faction_Zavod.png" = 'icons/misc/factions/Zavodlogo.png',
-		"faction_NT.png" = 'icons/misc/factions/NanoTrasenlogo.png',
-		"faction_Idris.png" = 'icons/misc/factions/Idrislogo.png',
-		"faction_Hepht.png" = 'icons/misc/factions/Hephaestuslogo.png',
-		"faction_unaffiliated.png" = 'icons/misc/factions/Unaffiliatedlogo.png'
+		"faction_EPMC.png" = 'html/images/factions/ECFlogo.png',
+		"faction_Zeng.png" = 'html/images/factions/zenghulogo.png',
+		"faction_Zavod.png" = 'html/images/factions/zavodlogo.png',
+		"faction_NT.png" = 'html/images/factions/nanotrasenlogo.png',
+		"faction_Idris.png" = 'html/images/factions/idrislogo.png',
+		"faction_Hepht.png" = 'html/images/factions/hephlogo.png',
+		"faction_INDEP.png" = 'html/images/factions/unaffiliatedlogo.png',
+		"faction_PMCG.png" = 'html/images/factions/pmcglogo.png',
+		"faction_Orion.png" = 'html/images/factions/orionlogo.png',
+		"faction_SCC.png" = 'html/images/factions/scclogo.png'
 	)
 
 /datum/asset/simple/jquery
@@ -383,7 +377,7 @@ var/list/asset_datums = list()
 	)
 
 /datum/asset/simple/goonchat
-	verify = FALSE
+	verify = TRUE
 	assets = list(
 		"json2.min.js"             = 'code/modules/goonchat/browserassets/js/json2.min.js',
 		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
@@ -409,7 +403,8 @@ var/list/asset_datums = list()
 		"loading.gif" = 'html/images/loading.gif',
 		"ie-truth.min.js" = 'html/iestats/ie-truth.min.js',
 		"conninfo.min.js" = 'html/iestats/conninfo.min.js',
-		"copyright_infrigement.png" = 'html/copyright_infrigement.png'
+		"copyright_infrigement.png" = 'html/images/copyright_infrigement.png',
+		"88x31.png" = 'html/images/88x31.png'
 	)
 
 /datum/asset/simple/paper
@@ -419,23 +414,66 @@ var/list/asset_datums = list()
 		"barcode1.png" = 'html/images/barcode1.png',
 		"barcode2.png" = 'html/images/barcode2.png',
 		"barcode3.png" = 'html/images/barcode3.png',
-		"ntlogo.png" = 'html/images/ntlogo.png',
-		"ntlogo_small.png" = 'html/images/ntlogo_small.png',
-		"zhlogo.png" = 'html/images/zhlogo.png',
-		"idrislogo.png" = 'html/images/idrislogo.png',
-		"eridanilogo.png" = 'html/images/eridanilogo.png',
-		"zavodlogo.png" = 'html/images/zavodlogo.png',
-		"hplogo.png" = 'html/images/hplogo.png',
+		"scclogo.png" = 'html/images/factions/scclogo.png',
+		"scclogo_small.png" = 'html/images/factions/scclogo_small.png',
+		"nanotrasenlogo.png" = 'html/images/factions/nanotrasenlogo.png',
+		"nanotrasenlogo_small.png" = 'html/images/factions/nanotrasenlogo_small.png',
+		"zhlogo.png" = 'html/images/factions/zenghulogo.png',
+		"zhlogo_small.png" = 'html/images/factions/zenghulogo_small.png',
+		"idrislogo.png" = 'html/images/factions/idrislogo.png',
+		"idrislogo_small.png" = 'html/images/factions/idrislogo_small.png',
+		"eridanilogo.png" = 'html/images/factions/ECFlogo.png',
+		"eridanilogo_small.png" = 'html/images/factions/ECFlogo_small.png',
+		"pmcglogo.png" = 'html/images/factions/pmcglogo.png',
+		"pmcglogo_small.png" = 'html/images/factions/pmcglogo_small.png',
+		"zavodlogo.png" = 'html/images/factions/zavodlogo.png',
+		"zavodlogo_small.png" = 'html/images/factions/zavodlogo_small.png',
+		"orionlogo.png" = 'html/images/factions/orionlogo.png',
+		"orionlogo_small.png" = 'html/images/factions/orionlogo_small.png',
+		"hplogolarge.png" = 'html/images/hplogolarge.png',
+		"hplogo.png" = 'html/images/factions/hephlogo.png',
+		"hplogo_small.png" = 'html/images/factions/hephlogo_small.png',
 		"beflag.png" = 'html/images/beflag.png',
+		"beflag_small.png" = 'html/images/beflag_small.png',
 		"elyraflag.png" = 'html/images/elyraflag.png',
+		"elyraflag_small.png" = 'html/images/elyraflag_small.png',
 		"solflag.png" = 'html/images/solflag.png',
+		"solflag_small.png" = 'html/images/solflag_small.png',
 		"cocflag.png" = 'html/images/cocflag.png',
+		"cocflag_small.png" = 'html/images/cocflag_small.png',
 		"domflag.png" = 'html/images/domflag.png',
-		"jargonflag.png" = 'html/images/jargonflag.png',
+		"domflag_small.png" = 'html/images/domflag_small.png',
+		"nralakkflag.png" = 'html/images/nralakkflag.png',
+		"nralakkflag_small.png" = 'html/images/nralakkflag_small.png',
 		"praflag.png" = 'html/images/praflag.png',
+		"praflag_small.png" = 'html/images/praflag_small.png',
 		"dpraflag.png" = 'html/images/dpraflag.png',
+		"dpraflag_small.png" = 'html/images/dpraflag_small.png',
 		"nkaflag.png" = 'html/images/nkaflag.png',
-		"izweskiflag.png" = 'html/images/izweskiflag.png'
+		"nkaflag_small.png" = 'html/images/nkaflag_small.png',
+		"izweskiflag.png" = 'html/images/izweskiflag.png',
+		"izweskiflag_small.png" = 'html/images/izweskiflag_small.png',
+		"goldenlogo.png" = 'html/images/factions/goldenlogo.png',
+		"goldenlogo_small.png" = 'html/images/factions/goldenlogo_small.png',
+		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
+		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',
+		"lashema.woff" = 'html/fonts/OFL/Lashema.woff',
+		"sourcecodepro.woff" = 'html/fonts/OFL/SourceCodePro.woff',
+		"sovjetbox.woff" = 'html/fonts/OFL/SovjetBox.woff',
+		"torsha.woff" = 'html/fonts/OFL/Torsha.woff',
+		"web3of9ascii.woff" = 'html/fonts/OFL/Web3Of9ASCII.woff',
+		"zeshit.woff" = 'html/fonts/OFL/zeshit.woff',
+		"bilboinc.woff" = 'html/fonts/OFL/BilboINC.woff',
+		"fproject.woff" = 'html/fonts/OFL/FProject.woff',
+		"gelasio.woff" = 'html/fonts/OFL/Gelasio.woff',
+		"mo5v56.woff" = 'html/fonts/OFL/Mo5V56.woff',
+		"runasans.woff" = 'html/fonts/OFL/RunaSans.woff',
+		"classica.woff" = 'html/fonts/OFL/Classica.woff',
+		"stormning.woff" = 'html/fonts/OFL/Stormning.woff',
+		"copt-b.woff" = 'html/fonts/OFL/Copt-B.woff',
+		"ducados.woff" = 'html/fonts/OFL/Ducados.woff',
+		"kawkabmono.woff" = 'html/fonts/OFL/KawkabMono.woff',
+		"kaushanscript.woff" = 'html/fonts/OFL/KaushanScript.woff'
 	)
 
 /datum/asset/simple/changelog
@@ -463,7 +501,6 @@ var/list/asset_datums = list()
 
 /datum/asset/spritesheet/vending
 	name = "vending"
-	delayed = TRUE
 
 /datum/asset/spritesheet/vending/register()
 	var/list/vending_products = list()
@@ -498,9 +535,12 @@ var/list/asset_datums = list()
 		if(istype(O, /obj/item/seeds))
 			// thanks seeds for being overlays defined at runtime
 			var/obj/item/seeds/S = O
+			if(!S.seed && S.seed_type && !isnull(SSplants.seeds) && SSplants.seeds[S.seed_type])
+				S.seed = SSplants.seeds[S.seed_type]
 			I = S.update_appearance(TRUE)
 			Insert(imgid, I, forced=I)
 		else
+			O.update_icon()
 			if(O.overlay_queued)
 				O.compile_overlays()
 			if(O.overlays.len)
@@ -512,7 +552,7 @@ var/list/asset_datums = list()
 
 /datum/asset/spritesheet/chem_master
 	name = "chemmaster"
-	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4")
+	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4", "bottle-5", "bottle-6")
 	var/max_pill_sprite = 20
 
 /datum/asset/spritesheet/chem_master/register()

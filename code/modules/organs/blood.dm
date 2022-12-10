@@ -15,6 +15,7 @@
 		return
 
 	vessel.add_reagent(/decl/reagent/blood, species.blood_volume, temperature = species?.body_temperature)
+	fixblood()
 
 //Resets blood data
 /mob/living/carbon/human/proc/fixblood()
@@ -45,7 +46,7 @@
 	spawn(0)
 		for(var/i = 1 to BLOOD_SPRAY_DISTANCE)
 			sprayloc = get_step(sprayloc, spraydir)
-			if(!istype(sprayloc) || sprayloc.density)
+			if(!istype(sprayloc) || (sprayloc.density && !iswall(sprayloc)))
 				break
 			var/hit_mob
 			for(var/thing in sprayloc)
@@ -78,7 +79,7 @@
 
 			drip(amt, sprayloc, spraydir)
 			bled += amt
-			if(hit_mob)
+			if(hit_mob || iswall(sprayloc))
 				break
 	return bled
 #undef BLOOD_SPRAY_DISTANCE
@@ -217,10 +218,19 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 	data["dose_chem"] = chem_doses.Copy()
 	return data
 
-proc/blood_splatter(var/target, var/source, var/large, var/spray_dir)
+/mob/living/carbon/human/get_blood_data()
+	. = ..()
+	var/list/trace_chems = list()
+	if(LAZYLEN(vessel.reagent_data))
+		trace_chems = LAZYACCESS(vessel.reagent_data[/decl/reagent/blood], "trace_chem") || list()
+	.["trace_chem"] = trace_chems.Copy()
+
+proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/sourceless_color)
 
 	var/obj/effect/decal/cleanable/blood/splatter
 	var/decal_type = /obj/effect/decal/cleanable/blood/splatter
+	if(sourceless_color == COLOR_OIL)
+		decal_type = /obj/effect/decal/cleanable/blood/oil/streak
 	var/turf/T = get_turf(target)
 
 	// Are we dripping or splattering?
@@ -229,8 +239,10 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir)
 	for(var/obj/effect/decal/cleanable/blood/drip/drop in T)
 		drips |= drop.drips
 		qdel(drop)
-	if(!large && drips.len < 3)
+	if(!large && length(drips) < 3)
 		decal_type = /obj/effect/decal/cleanable/blood/drip
+		if(sourceless_color == COLOR_OIL)
+			decal_type = /obj/effect/decal/cleanable/blood/drip/oil
 
 	// Find a blood decal or create a new one.
 	if(T)
@@ -255,6 +267,11 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir)
 	else if(isatom(source))
 		var/atom/donor = source
 		blood_data = REAGENT_DATA(donor.reagents, /decl/reagent/blood)
+	else if(!source)
+		if(sourceless_color)
+			splatter.basecolor = sourceless_color
+			splatter.update_icon()
+		return splatter
 	if(!islist(blood_data))
 		return splatter
 

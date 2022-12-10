@@ -37,7 +37,9 @@
 	item_flags = FLEXIBLEMATERIAL
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_RESISTANT
+	)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
 	adjustable = TRUE
@@ -57,7 +59,9 @@
 	item_flags = FLEXIBLEMATERIAL
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 15, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
 	adjustable = TRUE
@@ -72,7 +76,9 @@
 	item_flags = FLEXIBLEMATERIAL
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 15, rad = 10)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
 	adjustable = TRUE
@@ -191,7 +197,7 @@
 /obj/item/clothing/mask/offworlder
 	name = "scarab scarf"
 	desc = "Usually a treasured item, these spider-silk scarves are seen passed down by generations of Scarabs."
-	desc_fluff = "Scarves like these are passed down from family members in the Scarab fleets as a coming of age ritual, typically given to children to mark them as worthy of setting off on their own."
+	desc_extended = "Scarves like these are passed down from family members in the Scarab fleets as a coming of age ritual, typically given to children to mark them as worthy of setting off on their own."
 	icon_state = "pioneer_scarf"
 	item_flags = FLEXIBLEMATERIAL
 	item_state = "pioneer_scarf"

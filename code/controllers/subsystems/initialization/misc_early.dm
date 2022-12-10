@@ -21,9 +21,6 @@
 		global_hud.holomap
 	)
 
-	// Create autolathe recipes, as above.
-	populate_lathe_recipes()
-
 	// Create robolimbs for chargen.
 	populate_robolimb_list()
 
@@ -45,5 +42,7 @@
 
 	// Setup cargo spawn lists.
 	setup_cargo_spawn_lists()
+
+	click_catchers = create_click_catcher()
 
 	..()

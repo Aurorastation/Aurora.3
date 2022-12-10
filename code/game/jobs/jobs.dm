@@ -1,10 +1,12 @@
-var/const/NUM_JOB_DEPTS     = 3 //ENGSEC, MEDSCI and CIVILIAN
+var/const/NUM_JOB_DEPTS     = 3 //ENGSEC, MEDSCI and SERVICE
+
+// ENGSEC
 var/const/ENGSEC			=(1<<0)
 
 var/const/CAPTAIN			=(1<<0)
 var/const/HOS				=(1<<1)
 var/const/WARDEN			=(1<<2)
-var/const/DETECTIVE			=(1<<3)
+var/const/FORENSICS			=(1<<3)
 var/const/OFFICER			=(1<<4)
 var/const/CHIEF				=(1<<5)
 var/const/ENGINEER			=(1<<6)
@@ -13,9 +15,11 @@ var/const/AI				=(1<<8)
 var/const/CYBORG			=(1<<9)
 var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
-var/const/FORENSICS			=(1<<12)
+var/const/BRIDGE_CREW		=(1<<12)
+var/const/OPERATIONS_MANAGER =(1<<13)
+var/const/HRA              =(1<<14)
 
-
+// MEDSCI
 var/const/MEDSCI			=(1<<1)
 
 var/const/RD				=(1<<0)
@@ -31,17 +35,19 @@ var/const/XENOBIOLOGIST		=(1<<9)
 var/const/MED_TECH			=(1<<10)
 var/const/INTERN_MED		=(1<<11)
 var/const/INTERN_SCI		=(1<<12)
+var/const/XENOBOTANIST		=(1<<13)
+var/const/XENOARCHEOLOGIST	=(1<<14)
 
+// SERVICE
+var/const/SERVICE			=(1<<2)
 
-var/const/CIVILIAN			=(1<<2)
-
-var/const/HOP				=(1<<0)
+var/const/XO				=(1<<0)
 var/const/BARTENDER			=(1<<1)
 var/const/BOTANIST			=(1<<2)
 var/const/CHEF				=(1<<3)
 var/const/JANITOR			=(1<<4)
 var/const/LIBRARIAN			=(1<<5)
-var/const/QUARTERMASTER		=(1<<6)
+var/const/PASSENGER			=(1<<6)
 var/const/CARGOTECH			=(1<<7)
 var/const/MINER				=(1<<8)
 var/const/LAWYER			=(1<<9)
@@ -52,24 +58,30 @@ var/const/MERCHANT			=(1<<13)
 var/const/JOURNALIST		=(1<<14)
 var/const/ASSISTANT			=(1<<15)
 
-
+// Positions Lists
 var/list/command_positions = list(
 	"Captain",
-	"Head of Personnel",
+	"Executive Officer",
 	"Head of Security",
 	"Chief Engineer",
 	"Research Director",
-	"Chief Medical Officer"
+	"Chief Medical Officer",
+	"Operations Manager"
 )
 
+var/list/command_support_positions = list(
+	"Human Resources Assistant",
+	"Corporate Liaison",
+	"Consular Officer",
+	"Bridge Crew"
+)
 
 var/list/engineering_positions = list(
 	"Chief Engineer",
-	"Station Engineer",
+	"Engineer",
 	"Atmospheric Technician",
 	"Engineering Apprentice"
 )
-
 
 var/list/medical_positions = list(
 	"Chief Medical Officer",
@@ -81,43 +93,44 @@ var/list/medical_positions = list(
 	"Medical Intern"
 )
 
-
 var/list/science_positions = list(
 	"Research Director",
 	"Scientist",
-	"Roboticist",
+	"Xenoarchaeologist",
 	"Xenobiologist",
+	"Xenobotanist",
 	"Lab Assistant"
 )
 
-//BS12 EDIT
 var/list/cargo_positions = list(
-	"Quartermaster",
-	"Cargo Technician",
-	"Shaft Miner"
+	"Operations Manager",
+	"Hangar Technician",
+	"Shaft Miner",
+	"Machinist"
 )
 
-var/list/civilian_positions = list(
-	"Head of Personnel",
-	"Corporate Liaison",
-	"Consular Officer",
+var/list/service_positions = list(
+	"Executive Officer",
 	"Bartender",
 	"Gardener",
 	"Chef",
 	"Janitor",
 	"Librarian",
 	"Corporate Reporter",
-	"Chaplain",
-	"Assistant",
-	"Visitor"
+	"Chaplain"
 )
 
+var/list/civilian_positions = list(
+	"Assistant",
+	"Off-Duty Crew Member",
+	"Passenger",
+	"Merchant"
+)
 
 var/list/security_positions = list(
 	"Head of Security",
 	"Warden",
-	"Detective",
-	"Forensic Technician",
+	"Investigator",
 	"Security Officer",
 	"Security Cadet"
 )
@@ -125,8 +138,7 @@ var/list/security_positions = list(
 var/list/nonhuman_positions = list(
 	"AI",
 	"Cyborg",
-	"pAI",
-	"Merchant"
+	"pAI"
 )
 
 /proc/guest_jobbans(var/job)
@@ -152,5 +164,3 @@ var/list/nonhuman_positions = list(
 			titles = J.alt_titles
 
 	return titles
-
-//Mahzel : Job preview not added because code don't exist in BS12

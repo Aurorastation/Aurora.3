@@ -20,3 +20,9 @@
 		if (I.implanted)
 			return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
 	return FALSE
+
+/mob/living/proc/is_psi_pingable()
+	return !is_psi_blocked()
+
+/mob/living/simple_animal/is_psi_pingable()
+	return psi_pingable

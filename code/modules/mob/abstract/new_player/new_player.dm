@@ -3,8 +3,6 @@
 /mob/abstract/new_player
 	var/ready = 0
 	var/spawning = 0 //Referenced when you want to delete the new_player later on in the code
-	var/totalPlayers = 0 //Player counts for the Lobby tab
-	var/totalPlayersReady = 0
 	var/datum/late_choices/late_choices_ui = null
 	universal_speak = 1
 
@@ -16,6 +14,9 @@
 
 	anchored = 1	//  don't get pushed around
 	simulated = FALSE
+	virtual_mob = null // Hear no evil, speak no evil
+
+	var/last_ready_name // This has to be saved because the client is nulled prior to Logout()
 
 INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
@@ -33,6 +34,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(statpanel("Lobby"))
 		stat("Game ID:", game_id)
 
+		if(!istype(SSticker))
+			return
+
 		if(SSticker.hide_mode == ROUNDTYPE_SECRET)
 			stat("Game Mode:", "Secret")
 		else if (SSticker.hide_mode == ROUNDTYPE_MIXED_SECRET)
@@ -41,18 +45,14 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			stat("Game Mode:", "[master_mode]") // Old setting for showing the game mode
 
 		if(SSticker.current_state == GAME_STATE_PREGAME)
-			if (SSticker.lobby_ready)
-				stat("Time To Start:", "[SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
-			else
-				stat("Time To Start:", "Waiting for Server")
-			stat("Players: [totalPlayers]", "Players Ready: [totalPlayersReady]")
-			totalPlayers = 0
-			totalPlayersReady = 0
-			for(var/mob/abstract/new_player/player in player_list)
-				stat("[player.key]", (player.ready)?("(Playing)"):(null))
-				totalPlayers++
-				if(player.ready)
-					totalPlayersReady++
+			stat("Time To Start:", "[SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
+			stat("Players: [length(player_list)]", "Players Ready: [SSticker.total_players_ready]")
+			if(LAZYLEN(SSticker.ready_player_jobs))
+				for(var/dept in SSticker.ready_player_jobs)
+					if(LAZYLEN(SSticker.ready_player_jobs[dept]))
+						stat(uppertext(dept), null)
+					for(var/char in SSticker.ready_player_jobs[dept])
+						stat("[copytext_char(char, 1, 18)]", "[SSticker.ready_player_jobs[dept][char]]")
 
 /mob/abstract/new_player/Topic(href, href_list[])
 	if(!client)	return 0
@@ -68,7 +68,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				alert(src, "You have not saved your character yet. Please do so before readying up.")
 				return
 			if(client.unacked_warning_count > 0)
-				alert(src, "You can not ready up, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+				alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 				return
 
 			ready = text2num(href_list["ready"])
@@ -121,7 +121,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return
 
 		if(client.unacked_warning_count > 0)
-			alert(usr, "You can not join the game, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+			alert(usr, "You can not join the game, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 			return
 
 		var/datum/species/S = all_species[client.prefs.species]
@@ -213,7 +213,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return FALSE
 
 	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction
-	if (!(job.type in faction.allowed_role_types))
+	var/list/faction_allowed_roles = unpacklist(faction.allowed_role_types)
+	if (!(job.type in faction_allowed_roles))
+		return FALSE
+
+	if(!faction.can_select(client.prefs,src))
 		return FALSE
 
 	if(!(client.prefs.GetPlayerAltTitle(job) in client.prefs.GetValidTitles(job))) // does age/species check for us!
@@ -237,6 +241,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(!IsJobAvailable(rank))
 		to_chat(usr, "<span class='notice'>[rank] is not available. Please try another.</span>")
 		return 0
+	if(!(spawning_at in current_map.allowed_spawns))
+		to_chat(usr, SPAN_NOTICE("Spawn location [spawning_at] invalid for [current_map]. Defaulting to [current_map.default_spawn]."))
+		spawning_at = current_map.default_spawn
 
 	spawning = 1
 	close_spawn_windows()
@@ -246,7 +253,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	var/mob/living/character = create_character()	//creates the human and transfers vars and mind
 
 	SSjobs.EquipAugments(character, character.client.prefs)
-	character = SSjobs.EquipPersonal(character, rank, 1,spawning_at)					//equips the human
+	character = SSjobs.EquipRank(character, rank, TRUE, spawning_at)					//equips the human
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core
 	if(character.mind.assigned_role == "AI")
@@ -274,11 +281,12 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
-	if(character.buckled && istype(character.buckled, /obj/structure/bed/chair/wheelchair))
-		character.buckled.forceMove(character.loc)
-		character.buckled.set_dir(character.dir)
+	if(character.buckled_to && istype(character.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
+		character.buckled_to.forceMove(character.loc)
+		character.buckled_to.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
+	universe.OnPlayerLatejoin(character)
 	if(SSjobs.ShouldCreateRecords(character.mind))
 		if(character.mind.assigned_role != "Cyborg")
 			SSrecords.generate_record(character)
@@ -378,7 +386,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	SSrecords.open_manifest_vueui(src)
 
 /mob/abstract/new_player/Move()
-	return 0
+	return TRUE
 
 /mob/abstract/new_player/proc/close_spawn_windows()
 	src << browse(null, "window=playersetup") //closes the player setup window

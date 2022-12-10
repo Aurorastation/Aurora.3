@@ -1,32 +1,8 @@
 /*
  * Contains:
- *		Lasertag
  *		Costume
  *		Misc
  */
-
-/*
- * Lasertag
- */
-/obj/item/clothing/suit/bluetag
-	name = "blue laser tag armor"
-	desc = "Blue Pride, Station Wide."
-	icon_state = "bluetag"
-	item_state = "bluetag"
-	blood_overlay_type = "armor"
-	body_parts_covered = UPPER_TORSO
-	allowed = list (/obj/item/gun/energy/lasertag/blue)
-	siemens_coefficient = 1.0
-
-/obj/item/clothing/suit/redtag
-	name = "red laser tag armor"
-	desc = "Reputed to go faster."
-	icon_state = "redtag"
-	item_state = "redtag"
-	blood_overlay_type = "armor"
-	body_parts_covered = UPPER_TORSO
-	allowed = list (/obj/item/gun/energy/lasertag/red)
-	siemens_coefficient = 1.0
 
 /*
  * Costume
@@ -55,14 +31,14 @@
 	item_state = "death"
 	flags = CONDUCT
 	fire_resist = T0C+5200
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
 /obj/item/clothing/suit/justice
 	name = "justice suit"
 	desc = "This pretty much looks ridiculous."
 	icon_state = "justice"
 	item_state = "justice"
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
 /obj/item/clothing/suit/judgerobe
@@ -89,21 +65,12 @@
 	desc = "A plastic replica of the syndicate space suit, you'll look just like a real murderous syndicate agent in this! This is a toy, it is not made for use in space!"
 	w_class = ITEMSIZE_NORMAL
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/toy)
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
-
-/obj/item/clothing/suit/imperium_monk
-	name = "imperium monk"
-	desc = "Have YOU killed a xenos today?"
-	icon_state = "imperium_monk"
-	item_state = "imperium_monk"
-	body_parts_covered = HEAD|UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
-	flags_inv = HIDESHOES|HIDEJUMPSUIT
-
 
 /obj/item/clothing/suit/chickensuit
 	name = "chicken suit"
-	desc = "A suit made long ago by the ancient empire KFC."
+	desc = "A cheap rubber chicken costume."
 	icon_state = "chickensuit"
 	item_state = "chickensuit"
 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS|FEET
@@ -117,7 +84,7 @@
 	icon_state = "monkeysuit"
 	item_state = "monkeysuit"
 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS|FEET|HANDS
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 1.5
 
 
@@ -154,7 +121,7 @@
 	icon_state = "straight_jacket"
 	item_state = "straight_jacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS
-	flags_inv = HIDEGLOVES|HIDEJUMPSUIT
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDEJUMPSUIT
 
 /obj/item/clothing/suit/straight_jacket/equipped(var/mob/user, var/slot)
 	if (slot == slot_wear_suit)
@@ -183,14 +150,13 @@
 	min_cold_protection_temperature = T0C - 20
 	siemens_coefficient = 0.75
 
-/obj/item/clothing/suit/xenos
-	name = "xenos suit"
-	desc = "A suit made out of chitinous alien hide."
-	icon_state = "xenos"
-	item_state = "xenos_helm"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-	siemens_coefficient = 1.5
+/obj/item/clothing/suit/golden_tailcoat
+	name = "golden tailcoat"
+	desc = "A brilliant looking golden tailcoat of sorts."
+	icon = 'icons/clothing/suits/goldendeep_tailcoat.dmi'
+	icon_state = "tailcoat"
+	item_state = "tailcoat"
+	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/toggle/bomber
 	name = "bomber jacket"
@@ -259,12 +225,20 @@
 	desc = "A Tau Ceti Foreign Legion pilot's jacket. This is the more common, less durable variety, which typically finds itself percolating amongst all ranks of the TCFL."
 	icon_state = "lflight"
 	item_state = "lflight"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
 	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
-	armor = list(melee = 40, bullet = 10, laser = 20, energy = 10, bomb = 30, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military
@@ -303,9 +277,33 @@
 	item_state = "brown_jacket_sleeveless"
 	body_parts_covered = UPPER_TORSO
 
+/obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless/colorable
+	name = "vest"
+	desc = "A vest made of synthetic fiber."
+	icon_state = "colored_vest"
+	item_state = "colored_vest"
+
 /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	desc = "A brown leather coat. A corporate logo is proudly displayed on the back."
 	icon_state = "brown_jacket_nt"
+
+/obj/item/clothing/suit/storage/toggle/brown_jacket/scc
+	name = "Stellar Corporate Conglomerate jacket"
+	desc = "A comfortable blue jacket. Tailored upon its back is a large Stellar Corporate Conglomerate logo."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	icon = 'icons/clothing/suits/scc_jacket.dmi'
+	icon_state = "scc_jacket"
+	item_state = "scc_jacket"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/brown_jacket/scc/sancol
+	name = "bridge crew jacket"
+	desc = "A more formal jacket for bridge staff. Designed in a typical Colettish style."
+	desc_extended= "While not a true Colettish uniform the aiguillette and cuff tabs of this one are obviously based on the real thing. \
+	An actual Civil Guard uniform, commonly known as a rayadillo, is generally of a darker blue and features the wearer’s ranks on the collar."
+	icon = 'icons/contained_items/clothing/topwear/bridge_crew_jacket_sancol.dmi'
+	icon_state = "bridge_crew_jacket_sancol"
+	item_state = "bridge_crew_jacket_sancol"
 
 /obj/item/clothing/suit/storage/toggle/flannel
 	name = "green flannel shirt"
@@ -365,6 +363,12 @@
 	icon_state = "trenchcoat_grey"
 	item_state = "trenchcoat_grey"
 
+/obj/item/clothing/suit/storage/toggle/trench/green
+	name = "green trenchcoat"
+	desc = "A sleek canvas trenchcoat"
+	icon_state = "trenchcoat_green"
+	item_state = "trenchcoat_green"
+
 /obj/item/clothing/suit/storage/toggle/trench/colorable
 	name = "trenchcoat"
 	desc = "A sleek canvas trenchcoat"
@@ -381,6 +385,15 @@
 	icon = 'icons/clothing/suits/highvis.dmi'
 	icon_state = "highvis"
 	item_state = "highvis"
+	body_parts_covered = UPPER_TORSO|ARMS
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/highvis_alt
+	name = "high visibility jacket"
+	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering, and sometimes even law enforcement in cold and poor weather or when visibility is low."
+	icon = 'icons/clothing/suits/highvis.dmi'
+	icon_state = "highvis_alt"
+	item_state = "highvis_alt"
 	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
 
@@ -472,6 +485,27 @@
 	icon_state = "peacoat"
 	item_state = "peacoat"
 
+/obj/item/clothing/suit/storage/toggle/asymmetriccoat
+	name = "asymmetric coat"
+	desc = "A solid sleeveless coat that only covers the upper body and the back of the legs."
+	icon_state = "asymmetriccoat"
+	item_state = "asymmetriccoat"
+	body_parts_covered = UPPER_TORSO
+
+/obj/item/clothing/suit/storage/toggle/highloft
+	name = "high loft jacket"
+	desc = "A high loft insulated jacket intended for long hours in cold station conditions."
+	icon = 'icons/clothing/suits/highloft.dmi'
+	icon_state = "highloft"
+	item_state = "highloft"
+	worn_overlay = "over"
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	body_parts_covered = UPPER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = T0C - 20
+	siemens_coefficient = 0.75
+
 /*
  * Department Jackets
  */
@@ -482,8 +516,8 @@
 	item_state = "engi_dep_jacket"
 
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
-	name = "supply department jacket"
-	desc = "A cozy jacket in supply's colors, perfect for folding up and forgetting bounty lists."
+	name = "operations department jacket"
+	desc = "A cozy jacket in operations' colors, perfect for folding up and forgetting bounty lists."
 	icon_state = "supply_dep_jacket"
 	item_state = "supply_dep_jacket"
 
@@ -522,21 +556,21 @@
 /obj/item/clothing/suit/storage/toggle/cardigan
 	name = "cardigan"
 	desc = "A cozy, warm knit cardigan."
-	desc_fluff = "Only slightly worse than a blanket."
+	desc_extended = "Only slightly worse than a blanket."
 	icon_state = "cardigan"
 	item_state = "cardigan"
 
 /obj/item/clothing/suit/storage/toggle/cardigan/sweater
 	name = "sweater cardigan"
 	desc = "A cozy, warm knit sweater cardigan."
-	desc_fluff = "Half as warm as a sweater, and half as fashionable as a cardigan. Not like it matters for coffee-house dwelling beatniks like yourself."
+	desc_extended = "Half as warm as a sweater, and half as fashionable as a cardigan. Not like it matters for coffee-house dwelling beatniks like yourself."
 	icon_state = "cardigansweater"
 	item_state = "cardigansweater"
 
 /obj/item/clothing/suit/storage/toggle/cardigan/argyle
 	name = "argyle cardigan"
 	desc = "A cozy, warm knit argyle cardigan."
-	desc_fluff = "You'll never get dumped if you never get in a relationship in the first place. With this, you'll never have to worry again."
+	desc_extended = "You'll never get dumped if you never get in a relationship in the first place. With this, you'll never have to worry again."
 	icon_state = "cardiganargyle"
 	item_state = "cardiganargyle"
 
@@ -551,7 +585,7 @@
 /obj/item/clothing/suit/caution
 	name = "wet floor sign"
 	desc = "Caution! Wet Floor!"
-	desc_fluff = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
+	desc_extended = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
 	desc_info = "Alt-click, or click in-hand to toggle the caution lights. It looks like you can wear it in your suit slot."
 	icon = 'icons/obj/janitor.dmi'
 	item_icons = list(
@@ -568,7 +602,7 @@
 	w_class = ITEMSIZE_SMALL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	attack_verb = list("warned", "cautioned", "smashed")
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/caution/attack_self()
 	toggle()

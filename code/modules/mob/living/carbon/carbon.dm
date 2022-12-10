@@ -166,11 +166,9 @@
 
 /mob/living/carbon/swap_hand()
 	var/obj/item/item_in_hand = src.get_active_hand()
-	if(item_in_hand) //this segment checks if the item in your hand is twohanded.
-		if(istype(item_in_hand,/obj/item/material/twohanded) || istype(item_in_hand,/obj/item/gun) || istype(item_in_hand,/obj/item/pickaxe))
-			if(item_in_hand:wielded == 1)
-				to_chat(usr, SPAN_WARNING("Your other hand is too busy holding the [item_in_hand.name]"))
-				return
+	if(item_in_hand && !item_in_hand.can_swap_hands(src)) //this segment checks if the item in your hand is twohanded.
+		to_chat(src, SPAN_WARNING("Your other hand is too busy holding \the [item_in_hand]!"))
+		return
 	src.hand = !src.hand
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
 		if(hand)	//This being 1 means the left hand is in use
@@ -179,11 +177,6 @@
 		else
 			hud_used.l_hand_hud_object.icon_state = "l_hand_inactive"
 			hud_used.r_hand_hud_object.icon_state = "r_hand_active"
-	/*if (!( src.hand ))
-		src.hands.set_dir(NORTH)
-	else
-		src.hands.set_dir(SOUTH)*/
-	return
 
 /mob/living/carbon/proc/activate_hand(var/selhand) //0 or "r" or "right" for right hand; 1 or "l" or "left" for left hand.
 	if(istext(selhand))
@@ -217,7 +210,7 @@
 		if(src == M && istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
 			src.visible_message(
-				SPAN_NOTICE("[src] examines [src.gender==MALE?"himself":"herself"]."), \
+				SPAN_NOTICE("[src] examines [src.get_pronoun("himself")]."), \
 				SPAN_NOTICE("You check yourself for injuries.") \
 				)
 
@@ -355,7 +348,7 @@
 /mob/living/carbon/can_use_hands()
 	if(handcuffed)
 		return 0
-	if(buckled && ! istype(buckled, /obj/structure/bed/chair)) // buckling does not restrict hands
+	if(buckled_to && ! istype(buckled_to, /obj/structure/bed/stool/chair)) // buckling does not restrict hands
 		return 0
 	return 1
 
@@ -370,8 +363,8 @@
 	else if (W == handcuffed)
 		handcuffed = null
 		update_inv_handcuffed()
-		if(buckled && buckled.buckle_require_restraints)
-			buckled.unbuckle_mob()
+		if(buckled_to && buckled_to.buckle_require_restraints)
+			buckled_to.unbuckle()
 
 	else if (W == legcuffed)
 		legcuffed = null
@@ -388,11 +381,12 @@
 	set category = "IC"
 
 	if(usr.sleeping)
-		to_chat(usr, SPAN_WARNING("You are already sleeping"))
+		to_chat(usr, SPAN_WARNING("You are already asleep."))
 		return
-	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
+	if(alert(src,"Are you sure you want to sleep for a while?", "Sleep", "Yes", "No") == "Yes")
 		willfully_sleeping = TRUE
-		usr.sleeping = 20 //Short nap
+		usr.sleeping = 20 // Short nap.
+		usr.eye_blurry = 20
 
 /mob/living/carbon/Collide(atom/A)
 	if(now_pushing)
@@ -403,7 +397,7 @@
 	return
 
 /mob/living/carbon/slip(var/slipped_on,stun_duration=8)
-	if(buckled)
+	if(buckled_to)
 		return 0
 	stop_pulling()
 	to_chat(src, SPAN_WARNING("You slipped on [slipped_on]!"))
@@ -493,3 +487,12 @@
 /mob/living/carbon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
 	if(eyecheck() < intensity || override_blindness_check)
 		return ..()
+
+/mob/living/carbon/get_contained_external_atoms()
+	. = contents - internal_organs
+
+/mob/living/carbon/proc/is_drowsy()
+	return (drowsiness >= 5)
+
+/mob/living/carbon/proc/should_have_limb(var/organ_check)
+	return FALSE

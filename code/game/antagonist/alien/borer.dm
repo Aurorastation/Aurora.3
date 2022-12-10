@@ -66,3 +66,6 @@ var/datum/antagonist/xenos/borer/borers
 			head.implants += borer
 		else
 			..()
+
+/datum/antagonist/xenos/borer/is_obvious_antag(datum/mind/player)
+	return TRUE

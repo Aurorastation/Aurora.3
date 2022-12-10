@@ -44,18 +44,6 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
 
-/obj/item/modular_computer/handheld/pda/civilian/clown
-	_app_preset_type = /datum/modular_computer_app_presets/civilian/clown
-	icon_add = "clown"
-
-/obj/item/modular_computer/handheld/pda/civilian/clown/Initialize()
-	. = ..()
-	card_slot.stored_item = new /obj/item/pen/crayon
-
-/obj/item/modular_computer/handheld/pda/civilian/mime
-	_app_preset_type = /datum/modular_computer_app_presets/civilian/mime
-	icon_add = "mime"
-
 // Engineering
 
 /obj/item/modular_computer/handheld/pda/engineering
@@ -85,7 +73,7 @@
 /obj/item/modular_computer/handheld/pda/supply/miner
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
-/obj/item/modular_computer/handheld/pda/supply/qm
+/obj/item/modular_computer/handheld/pda/supply/om
 	icon_add = "q"
 
 /obj/item/modular_computer/handheld/pda/supply/qm/Initialize()
@@ -155,7 +143,7 @@
 	icon_add = "h"
 	// detonate = 0
 
-/obj/item/modular_computer/handheld/pda/command/hop
+/obj/item/modular_computer/handheld/pda/command/xo
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 	icon_add = "hop"
 

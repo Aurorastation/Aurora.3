@@ -5,7 +5,6 @@
 	organ_tag = BP_KIDNEYS
 	parent_organ = BP_GROIN
 	robotic_name = "prosthetic kidneys"
-	robotic_sprite = "kidneys-prosthetic"
 	min_bruised_damage = 25
 	min_broken_damage = 45
 	max_damage = 70
@@ -25,9 +24,9 @@
 	var/decl/reagent/drink/coffee = REAGENT_VOLUME(owner.reagents, /decl/reagent/drink/coffee)
 	if(coffee)
 		if(is_bruised())
-			owner.adjustToxLoss(0.1 * PROCESS_ACCURACY)
+			owner.adjustToxLoss(0.1)
 		else if(is_broken())
-			owner.adjustToxLoss(0.3 * PROCESS_ACCURACY)
+			owner.adjustToxLoss(0.3)
 
 	if(is_bruised())
 		if(prob(5) && REAGENT_VOLUME(reagents, /decl/reagent/potassium) < 5)

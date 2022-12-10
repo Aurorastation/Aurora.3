@@ -1,13 +1,43 @@
 /obj/machinery/computer/shuttle_control
 	name = "shuttle control console"
-	icon = 'icons/obj/computer.dmi'
 	icon_screen = "shuttle"
+	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
 
 	var/shuttle_tag      // Used to coordinate data in shuttle controller.
 	var/hacked = FALSE   // Has been emagged, no access restrictions.
 
 	var/ui_template = "shuttle_control_console.tmpl"
+	var/list/linked_helmets = list()
+
+/obj/machinery/computer/shuttle_control/Initialize()
+	. = ..()
+	if(SSshuttle.shuttles[shuttle_tag])
+		var/datum/shuttle/shuttle = SSshuttle.shuttles[shuttle_tag]
+		shuttle.shuttle_computers += src
+	else
+		SSshuttle.lonely_shuttle_computers += src
+
+/obj/machinery/computer/shuttle_control/Destroy()
+	SSshuttle.lonely_shuttle_computers -= src
+	var/datum/shuttle/shuttle = SSshuttle.shuttles[shuttle_tag]
+	shuttle.shuttle_computers -= src
+	for(var/obj/item/clothing/head/helmet/pilot/PH as anything in linked_helmets)
+		PH.linked_console = null
+	return ..()
+
+/obj/machinery/computer/shuttle_control/attackby(obj/item/I, user)
+	if(istype(I, /obj/item/clothing/head/helmet/pilot))
+		var/obj/item/clothing/head/helmet/pilot/PH = I
+		if(I in linked_helmets)
+			to_chat(user, SPAN_NOTICE("You unlink \the [I] from \the [src]."))
+			PH.set_console(null)
+		else
+			to_chat(user, SPAN_NOTICE("You link \the [I] to \the [src]."))
+			PH.set_console(src)
+			PH.set_hud_maptext("Shuttle Status: [get_shuttle_status(SSshuttle.shuttles[shuttle_tag])]")
+		return
+	return ..()
 
 /obj/machinery/computer/shuttle_control/attack_hand(mob/user)
 	ui_interact(user)
@@ -28,26 +58,8 @@
 		if(SHUTTLE_WARMUP) shuttle_state = "warmup"
 		if(SHUTTLE_INTRANSIT) shuttle_state = "in_transit"
 
-	var/shuttle_status
-	switch (shuttle.process_state)
-		if(IDLE_STATE)
-			var/cannot_depart = shuttle.current_location.cannot_depart(shuttle)
-			if (shuttle.in_use)
-				shuttle_status = "Busy."
-			else if(cannot_depart)
-				shuttle_status = cannot_depart
-			else
-				shuttle_status = "Standing-by at \the [shuttle.get_location_name()]."
-
-		if(WAIT_LAUNCH, FORCE_LAUNCH)
-			shuttle_status = "Shuttle has recieved command and will depart shortly."
-		if(WAIT_ARRIVE)
-			shuttle_status = "Proceeding to \the [shuttle.get_destination_name()]."
-		if(WAIT_FINISH)
-			shuttle_status = "Arriving at destination now."
-
 	return list(
-		"shuttle_status" = shuttle_status,
+		"shuttle_status" = get_shuttle_status(shuttle),
 		"shuttle_state" = shuttle_state,
 		"has_docking" = shuttle.active_docking_controller? 1 : 0,
 		"docking_status" = shuttle.active_docking_controller? shuttle.active_docking_controller.get_docking_status() : null,
@@ -56,6 +68,24 @@
 		"can_cancel" = shuttle.can_cancel(),
 		"can_force" = shuttle.can_force(),
 	)
+
+/obj/machinery/computer/shuttle_control/proc/get_shuttle_status(var/datum/shuttle/autodock/shuttle)
+	switch(shuttle.process_state)
+		if(IDLE_STATE)
+			var/cannot_depart = shuttle.current_location.cannot_depart(shuttle)
+			if(shuttle.in_use)
+				. = "Busy."
+			else if(cannot_depart)
+				. = cannot_depart
+			else
+				. = "Standing-by at \the [shuttle.get_location_name()]."
+
+		if(WAIT_LAUNCH, FORCE_LAUNCH)
+			. = "Shuttle has received a command and will depart shortly."
+		if(WAIT_ARRIVE)
+			. = "Proceeding to \the [shuttle.get_destination_name()]."
+		if(WAIT_FINISH)
+			. = "Arriving at destination now."
 
 // This is a subset of the actual checks; contains those that give messages to the user.
 /obj/machinery/computer/shuttle_control/proc/can_move(var/datum/shuttle/autodock/shuttle, var/user)
@@ -106,6 +136,11 @@
 /obj/machinery/computer/shuttle_control/Topic(href_list, href_list)
 	..()
 	handle_topic_href(SSshuttle.shuttles[shuttle_tag], href_list, usr)
+
+/obj/machinery/computer/shuttle_control/proc/update_helmets(var/datum/shuttle/autodock/shuttle)
+	var/shuttle_status = get_shuttle_status(shuttle)
+	for(var/obj/item/clothing/head/helmet/pilot/PH as anything in linked_helmets)
+		PH.set_hud_maptext("Shuttle Status: [shuttle_status]")
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)
 	if(!hacked)

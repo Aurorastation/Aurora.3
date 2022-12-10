@@ -63,7 +63,7 @@
 	seed_name = "grape"
 	display_name = "grapevines"
 	mutants = list("greengrapes")
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/sugar = list(1,5), /decl/reagent/drink/grapejuice = list(10,10))
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/sugar = list(1,5), /decl/reagent/drink/grapejuice = list(10,10), /decl/reagent/nutriment/grapejelly = list(1,8))
 
 /datum/seed/grapes/setup_traits()
 	..()
@@ -87,7 +87,7 @@
 	seed_name = "green grape"
 	display_name = "green grapevines"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/kelotane = list(3,5), /decl/reagent/drink/grapejuice = list(10,10))
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/kelotane = list(3,5), /decl/reagent/drink/whitegrapejuice = list(10,10))
 
 /datum/seed/grapes/green/setup_traits()
 	..()
@@ -129,14 +129,10 @@
 	seed_name = "blueberry"
 	display_name = "blueberry bush"
 	mutants = list("berries","poisonberries","glowberries")
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/berryjuice = list(10,10))
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/blueberryjuice = list(10,10))
 
 /datum/seed/berry/blue/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,5)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,2)
-	set_trait(TRAIT_POTENCY,10)
 	set_trait(TRAIT_PRODUCT_COLOUR,"#1C225C")
 	set_trait(TRAIT_WATER_CONSUMPTION, 5)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.2)
@@ -149,7 +145,7 @@
 	seed_name = "glowberry"
 	display_name = "glowberry bush"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/uranium = list(3,5))
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/uranium = list(3,5), /decl/reagent/drink/glowberryjuice = list(10,10))
 
 /datum/seed/berry/glow/setup_traits()
 	..()
@@ -188,7 +184,7 @@
 	seed_name = "death berry"
 	display_name = "death berry bush"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/toxin = list(3,3), /decl/reagent/lexorin = list(1,5))
+	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/toxin = list(3,3), /decl/reagent/lexorin = list(1,5), /decl/reagent/toxin/deathberryjuice = list(10,10))
 
 /datum/seed/berry/poison/death/setup_traits()
 	..()
@@ -199,6 +195,62 @@
 
 /obj/item/seeds/deathberryseed
 	seed_type = "deathberries"
+
+/datum/seed/berry/raspberry
+	name = "raspberries"
+	seed_name = "raspberry"
+	display_name = "raspberry bush"
+	mutants = list("berries","poisonberries","glowberries")
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/raspberryjuice = list(10,10))
+
+/datum/seed/berry/raspberry/setup_traits()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#ff0000")
+
+/obj/item/seeds/raspberryseed
+	seed_type = "raspberries"
+
+/datum/seed/berry/raspberry/blue
+	name = "blue raspberries"
+	seed_name = "blue raspberry"
+	display_name = "blue raspberry bush"
+	mutants = list("berries","poisonberries","glowberries")
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/blueraspberryjuice = list(10,10))
+
+/datum/seed/berry/raspberry/blue/setup_traits()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#030145")
+
+/obj/item/seeds/blueraspberryseed
+	seed_type = "blue raspberries"
+
+/datum/seed/berry/raspberry/black
+	name = "blackberries"
+	seed_name = "blackberry"
+	display_name = "blackberry bush"
+	mutants = list("berries","poisonberries","glowberries")
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/blackraspberryjuice = list(10,10))
+
+/datum/seed/berry/raspberry/black/setup_traits()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#1a063f")
+
+/obj/item/seeds/blackraspberryseed
+	seed_type = "blackberries"
+
+/datum/seed/berry/strawberry
+	name = "strawberries"
+	seed_name = "strawberry"
+	display_name = "strawberry bush"
+	mutants = list("berries","poisonberries","glowberries")
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/strawberryjuice = list(10,10))
+
+/datum/seed/berry/strawberry/setup_traits()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#bb0202")
+
+/obj/item/seeds/strawberryseed
+	seed_type = "strawberries"
 //////////////
 //  Apples  //
 //////////////
@@ -239,7 +291,7 @@
 	seed_name = "golden apple"
 	display_name = "gold apple tree"
 	mutants = null
-	chems = list(/decl/reagent/drink/applejuice = list(1,10), MATERIAL_GOLD = list(1,5))
+	chems = list(/decl/reagent/drink/applejuice = list(1,10), /decl/reagent/gold = list(1,5))
 	kitchen_tag = "goldapple"
 
 /datum/seed/apple/gold/setup_traits()
@@ -375,3 +427,49 @@
 
 /obj/item/seeds/pumpkinseed
 	seed_type = "pumpkin"
+
+
+//coffee beans are considered a fruit and seed, commonly considered a "cherry" of the plant
+/datum/seed/coffee
+	name = "coffee"
+	seed_name = "coffee beans"
+	display_name = "coffee bush"
+	chems = list(/decl/reagent/nutriment/coffeegrounds = list(2,10))
+	kitchen_tag = "coffee"
+
+/datum/seed/coffee/setup_traits()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,3)
+	set_trait(TRAIT_PRODUCTION,3)
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_POTENCY,2)
+	set_trait(TRAIT_PRODUCT_ICON,"bean2")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#be9109")
+	set_trait(TRAIT_PLANT_ICON,"bush2")
+	set_trait(TRAIT_IDEAL_LIGHT, 6)
+
+/obj/item/seeds/coffeeseed
+	seed_type = "coffee"
+
+/datum/seed/richcoffee
+	name = "rich coffee"
+	seed_name = "rich coffee beans"
+	display_name = "rich coffee bush"
+	chems = list(/decl/reagent/nutriment/darkcoffeegrounds = list(2,10))
+	kitchen_tag = "richcoffee"
+
+/datum/seed/richcoffee/setup_traits()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,3)
+	set_trait(TRAIT_PRODUCTION,3)
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_POTENCY,2)
+	set_trait(TRAIT_PRODUCT_ICON,"bean2")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#be9109")
+	set_trait(TRAIT_PLANT_ICON,"bush2")
+	set_trait(TRAIT_IDEAL_LIGHT, 6)
+
+/obj/item/seeds/richcoffeeseed
+	seed_type = "richcoffee"

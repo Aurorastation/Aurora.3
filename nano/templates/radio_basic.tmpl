@@ -4,19 +4,23 @@ Used In File(s): /code/game/objects/item/devices/radio/radio.dm
 -->
 <head>
 	<style type="text/css">
-		.radio					{color: #008000;}
-		.deptradio				{color: #993399;}
-		.comradio				{color: #395A9A;}
-		.syndradio				{color: #6D3F40;}
-		.centradio				{color: #5C5C8A;}
-		.airadio				{color: #FF00FF;}
-		.secradio				{color: #A30000;}
-		.penradio				{color: #DB1270;}
-		.engradio				{color: #A66300;}
-		.medradio				{color: #008160;}
-		.sciradio				{color: #993399;}
-		.supradio				{color: #7F6539;}
-		.srvradio				{color: #6eaa2c;}
+		.radio					{color: #00a700;}
+		.deptradio				{color: #ff00ff;}
+		.comradio				{color: #5b8deb;}
+		.syndradio				{color: #ac6667;}
+		.centradio				{color: #7272a7;}
+		.airadio				{color: #ec00ec;}
+		.entradio				{color: #cfcfcf;}
+		.hailradio				{color: #8b4cd8;}
+		.shipradio				{color: #738465;}
+		.secradio				{color: #e21111;}
+		.engradio				{color: #cc7b01;}
+		.medradio				{color: #0f7e62;}
+		.sciradio				{color: #c03bc0;}
+		.supradio				{color: #c09141;}
+		.srvradio				{color: #7fc732;}
+
+		.channelList			{overflow: clip;}
 	</style>
 </head>
 
@@ -89,6 +93,9 @@ Used In File(s): /code/game/objects/item/devices/radio/radio.dm
 		{{:helper.link('-', null, {'freq' : -2})}}
 		{{:helper.link('+', null, {'freq' : 2})}}
 		{{:helper.link('++', null, {'freq' : 10})}}
+		{{if data.default_freq}}
+			{{:helper.link(data.default_freq, null, {'default_freq' : 1})}}
+		{{/if}}
 	</div>
 </div>
 
@@ -99,7 +106,7 @@ Used In File(s): /code/game/objects/item/devices/radio/radio.dm
 		<div class="itemLabelWide">
 			<span class='{{:value.chan_span}}'>&#9724</span>{{:value.display_name}}
 		</div>
-		<div class="itemContentMedium">
+		<div class="itemContentMedium channelList">
 			{{if value.secure_channel}}
 				{{:helper.link('On', null, {'ch_name' : value.chan, 'listen' : value.sec_channel_listen}, value.sec_channel_listen ? null : 'selected')}}
 				{{:helper.link('Off', null, {'ch_name' : value.chan, 'listen' : value.sec_channel_listen}, value.sec_channel_listen ? 'selected' : null)}}

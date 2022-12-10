@@ -1,12 +1,13 @@
 /obj/item/melee/cultblade
 	name = "eldritch blade"
-	desc = "A sword humming with unholy energy. It glows with a dim red light."
+	desc = "A sword humming with unholy energy. It glows with a dim red light and looks deadly sharp."
 	desc_antag = "This sword is a powerful weapon, capable of severing limbs easily, if they are targeted.  Non-believers are unable to use this weapon."
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
 	contained_sprite = TRUE
 	force = 25
+	armor_penetration = 50 // Narsie's blessing is strong. Also needed so the cult isn't obliterated by the average voidsuit with melee resistance.
 	w_class = ITEMSIZE_LARGE
 	throwforce = 10
 	slot_flags = SLOT_BELT
@@ -61,6 +62,7 @@
 		var/obj/item/material/sword/blade = new(get_turf(src))
 		blade.force = 15
 		qdel(src)
+		return TRUE
 
 /obj/item/melee/cultblade/mounted
 	name = "daemon doomblade"

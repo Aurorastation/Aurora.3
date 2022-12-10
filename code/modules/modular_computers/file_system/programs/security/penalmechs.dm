@@ -2,6 +2,7 @@
 	filename = "penalrobotics"
 	filedesc = "Remote Penal Monitoring"
 	program_icon_state = "security"
+	program_key_icon_state = "yellow_key"
 	extended_desc = "This program allows monitoring and control of active penal robotics."
 	required_access_run = access_armory
 	required_access_download = access_armory
@@ -35,14 +36,11 @@
 
 	// Gather data for computer header
 	data["_PC"] = get_header_data(data["_PC"])
-	
-	var/datum/signal/signal
-	signal = telecomms_process_active()
 
 	var/list/mechs = list()
 	var/list/robots = list()
 
-	if(signal.data["done"])
+	if(SSradio.telecomms_ping(computer))
 		for(var/mech in SSvirtualreality.mechs[REMOTE_PRISON_MECH])
 			var/mob/living/heavy_vehicle/M = mech
 
@@ -136,6 +134,10 @@
 		A.eyeobj.setLoc(get_turf(C))
 		A.client.eye = A.eyeobj
 		return TRUE
+
+	if(!is_contact_area(get_area(C)))
+		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
+		return FALSE
 
 	set_current(C)
 	user.machine = ui_host()

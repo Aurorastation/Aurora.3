@@ -6,14 +6,15 @@ var/datum/antagonist/vampire/vamp = null
 	role_text_plural = "Vampires"
 	bantype = "vampires"
 	feedback_tag = "vampire_objective"
-	restricted_jobs = list("AI", "Cyborg", "Chaplain", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Head of Personnel")
+	restricted_jobs = list("AI", "Cyborg", "Chaplain", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Executive Officer", "Operations Manager")
 
-	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
+	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Investigator")
 	restricted_species = list(
 		SPECIES_IPC,
 		SPECIES_IPC_SHELL,
 		SPECIES_IPC_G1,
 		SPECIES_DIONA,
+		SPECIES_DIONA_COEUS,
 		SPECIES_IPC_G2,
 		SPECIES_IPC_XION,
 		SPECIES_IPC_ZENGHU,

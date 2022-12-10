@@ -34,20 +34,6 @@
 		cells_amount++
 	capacity = C * 40   //Basic cells are such crap. Hyper cells needed to get on normal SMES levels.
 
-
-/obj/machinery/power/smes/batteryrack/update_icon()
-	cut_overlays()
-	if(stat & BROKEN)	return
-
-	if (output_attempt)
-		add_overlay("gsmes_outputting")
-	if(inputting)
-		add_overlay("gsmes_charging")
-
-	var/clevel = chargedisplay()
-	if(clevel>0)
-		add_overlay("gsmes_og[clevel]")
-
 /obj/machinery/power/smes/batteryrack/chargedisplay()
 	return round(4 * charge/(capacity ? capacity : 5e6))
 
@@ -100,19 +86,10 @@
 	)
 
 /obj/machinery/power/smes/batteryrack/makeshift/update_icon()
-	cut_overlays()
-	if(stat & BROKEN)	return
-
-	if (output_attempt)
-		add_overlay("gsmes_outputting")
-	if(inputting)
-		add_overlay("gsmes_charging")
-	if (overcharge_percent > 100)
-		add_overlay("gsmes_overcharge")
-	else
-		var/clevel = chargedisplay()
-		if(clevel>0)
-			add_overlay("gsmes_og[clevel]")
+	.=..()
+	if(overcharge_percent > 100)
+		cut_overlays()
+		add_overlay("smes-crit")
 
 //This mess of if-elses and magic numbers handles what happens if the engies don't pay attention and let it eat too much charge
 //What happens depends on how much capacity has the ghetto smes and how much it is overcharged.
@@ -164,7 +141,7 @@
 
 
 #define SMESRATE 0.05			// rate of internal charge to external power
-/obj/machinery/power/smes/batteryrack/makeshift/machinery_process()
+/obj/machinery/power/smes/batteryrack/makeshift/process()
 	if(stat & BROKEN)	return
 
 	//store machine state to see if we need to update the icon overlays

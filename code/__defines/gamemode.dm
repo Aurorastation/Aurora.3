@@ -44,12 +44,13 @@
 #define MODE_ERT "ert"
 #define MODE_MERCENARY "mercenary"
 #define MODE_NINJA "ninja"
-#define MODE_RAIDER_MAGE "raider mage"
+#define MODE_RAIDER_TECHNO "raider techno"
 #define MODE_RAIDER "raider"
 #define MODE_BURGLAR "burglar"
 #define MODE_LONER "loner"
-#define MODE_WIZARD "wizard"
+#define MODE_TECHNOMANCER "technomancer"
 #define MODE_CHANGELING "changeling"
+#define MODE_MORPH "morph"
 #define MODE_CULTIST "cultist"
 #define MODE_HIGHLANDER "highlander"
 #define MODE_MONKEY "monkey"
@@ -62,7 +63,7 @@
 #define MODE_REVENANT "revenant"
 #define MODE_GOLEM "golem"
 
-#define DEFAULT_TELECRYSTAL_AMOUNT 25
+#define DEFAULT_TELECRYSTAL_AMOUNT 20
 
 // Defines (NOT FLAGS) for making secret, random, and mixed secret less snowflake-string
 // and number dependant.

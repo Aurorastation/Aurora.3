@@ -53,7 +53,6 @@
 	var/deny_time // How long the physical icon state lasts, used cut the deny overlay
 
 	// Power
-	use_power = 1
 	idle_power_usage = 10
 	var/vend_power_usage = 150 //actuators and stuff
 
@@ -100,6 +99,7 @@
 	emagged = 0 //Ignores if somebody doesn't have card access to that machine.
 	var/seconds_electrified = 0 //Shock customers like an airlock.
 	var/shoot_inventory = 0 //Fire items at customers! We're broken!
+	var/shoot_inventory_chance = 1
 
 	var/scan_id = 1
 	var/obj/item/coin/coin
@@ -126,7 +126,7 @@
 	var/datum/asset/spritesheet/vending/v_asset
 
 	light_range = 2
-	light_power = 1
+	light_power = 1.3
 
 /obj/machinery/vending/Initialize(mapload)
 	. = ..()
@@ -230,19 +230,20 @@
 	if(istype(W, /obj/item/device/debugger))
 		if(!shut_up)
 			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
-			if(do_after(user, 100 / W.toolspeed, act_target = src))
+			if(W.use_tool(src, user, 100, volume = 50))
 				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied.\"."))
 				shut_up = TRUE
 		if(shoot_inventory)
 			if(wires.IsIndexCut(VENDING_WIRE_THROW))
 				to_chat(user, SPAN_WARNING("\The [W] reads, \"Hardware error detected. Manual repair required.\"."))
-				return
+				return TRUE
 			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
-			if(do_after(user, 100 / W.toolspeed, act_target = src))
+			if(W.use_tool(src, user, 100, volume = 50))
 				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied. Have a NanoTrasen day!\"."))
 				shoot_inventory = FALSE
 		else
 			to_chat(user, SPAN_NOTICE("\The [W] reads, \"All systems nominal.\"."))
+		return TRUE
 
 	var/obj/item/card/id/I = W.GetID()
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
@@ -256,7 +257,7 @@
 			src.status_error = 1
 			playsound(src.loc, 'sound/machines/buzz-two.ogg', 35, 1)
 			currently_vending = null
-			return
+			return TRUE
 
 		if (I) //for IDs and PDAs and wallets with IDs
 			paid = pay_with_card(I,W)
@@ -273,14 +274,12 @@
 		if(paid)
 			SSvueui.check_uis_for_change(src)
 			src.vend(currently_vending, usr)
-			return
 		else if(handled)
 			SSvueui.check_uis_for_change(src)
-			return // don't smack that machine with your 2 credits
+		return TRUE // don't smack that machine with your 2 credits
 
 	if (I || istype(W, /obj/item/spacecash))
-		attack_hand(user)
-		return
+		return attack_hand(user)
 	else if(W.isscrewdriver())
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
@@ -288,38 +287,34 @@
 		add_screen_overlay()
 		if(src.panel_open)
 			add_overlay("[initial(icon_state)]-panel")
-		return
+		return TRUE
 	else if(W.ismultitool()||W.iswirecutter())
 		if(src.panel_open)
-			attack_hand(user)
-		return
+			return attack_hand(user)
+		return TRUE
 	else if(istype(W, /obj/item/coin) && premium.len > 0)
 		user.drop_from_inventory(W,src)
 		coin = W
 		categories |= CAT_COIN
 		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
 		SSvueui.check_uis_for_change(src)
-		return
+		return TRUE
 	else if(W.iswrench())
 		if(!can_move)
-			return
+			return TRUE
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		playsound(src.loc, W.usesound, 100, 1)
-		if(anchored)
-			user.visible_message("<b>[user]</b> begins unsecuring \the [src] from the floor.", SPAN_NOTICE("You start unsecuring \the [src] from the floor."))
-		else
-			user.visible_message("<b>[user]</b> begins securing \the [src] to the floor.", SPAN_NOTICE("You start securing \the [src] to the floor."))
-
-		if(do_after(user, 20/W.toolspeed))
+		playsound(src.loc, W.usesound, 50, 1)
+		user.visible_message("<b>[user]</b> begins [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor.", SPAN_NOTICE("You start [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor."))
+		if(W.use_tool(src, user, 20, volume = 50))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
 			anchored = !anchored
 			power_change()
-		return
+		return TRUE
 
-	else if(istype(W,/obj/item/vending_refill))
+	else if(istype(W,/obj/item/device/vending_refill))
 		if(panel_open)
-			var/obj/item/vending_refill/VR = W
+			var/obj/item/device/vending_refill/VR = W
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
@@ -330,28 +325,26 @@
 					to_chat(user, "<span class='warning'>\The [VR] is not stocked for this type of vendor!</span>")
 			else
 				to_chat(user, "<span class='warning'>\The [VR] is depleted!</span>")
-			return
 		else
 			to_chat(user, "<span class='warning'>You must open \the [src]'s maintenance panel first!</span>")
-			return
+		return TRUE
 
 	else if(!is_borg_item(W))
 		if(!restock_items)
 			to_chat(user, "<span class='warning'>\the [src] can not be restocked manually!</span>")
-			return
+			return TRUE
 		for(var/path in restock_blocked_items)
 			if(istype(W,path))
 				to_chat(user, "<span class='warning'>\the [src] does not accept this item!</span>")
-				return
+				return TRUE
 
 		for(var/datum/data/vending_product/R in product_records)
 			if(W.type == R.product_path)
 				stock(R, user)
+				user.remove_from_mob(W) //Catches gripper duplication
 				qdel(W)
-				return
-		..()
-	else
-		..()
+				return TRUE
+	return ..()
 
 /**
  *  Receive payment with cashmoney.
@@ -709,10 +702,11 @@
 			src.speak(src.vend_reply)
 			src.last_reply = world.time
 
-	use_power(vend_power_usage)	//actuators and stuff
+	use_power_oneoff(vend_power_usage)	//actuators and stuff
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
 	playsound(src.loc, vending_sound, 100, 1)
+	intent_message(MACHINE_SOUND)
 	addtimer(CALLBACK(src, .proc/vend_product, R, user), vend_delay)
 
 /obj/machinery/vending/proc/vend_product(var/datum/data/vending_product/R, mob/user)
@@ -731,9 +725,9 @@
 		if(RC.reagents)
 			switch(temperature_setting)
 				if(-1)
-					use_power(RC.reagents.set_temperature(cooling_temperature))
+					use_power_oneoff(RC.reagents.set_temperature(cooling_temperature))
 				if(1)
-					use_power(RC.reagents.set_temperature(heating_temperature))
+					use_power_oneoff(RC.reagents.set_temperature(heating_temperature))
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
 
@@ -742,7 +736,7 @@
 
 	SSvueui.check_uis_for_change(src)
 
-/obj/machinery/vending/machinery_process()
+/obj/machinery/vending/process()
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -758,7 +752,7 @@
 		src.speak(slogan)
 		src.last_slogan = world.time
 
-	if(src.shoot_inventory && prob(2))
+	if(src.shoot_inventory && prob(shoot_inventory_chance))
 		src.throw_item()
 
 	return
@@ -811,12 +805,12 @@
 
 //Somebody cut an important wire and now we're following a new definition of "pitch."
 /obj/machinery/vending/proc/throw_item()
-	var/obj/throw_item = null
+	var/obj/item/throw_item = null
 	var/mob/living/target = locate() in view(7,src)
 	if(!target)
 		return 0
 
-	for(var/datum/data/vending_product/R in src.product_records)
+	for(var/datum/data/vending_product/R in shuffle(product_records))
 		if (R.amount <= 0) //Try to use a record that actually has something to dump.
 			continue
 		var/dump_path = R.product_path
@@ -827,9 +821,15 @@
 		SSvueui.check_uis_for_change(src)
 		throw_item = new dump_path(src.loc)
 		break
-	if (!throw_item)
-		return 0
-	spawn(0)
-		throw_item.throw_at(target, 16, 3, src)
+	if(!throw_item)
+		return FALSE
+	intent_message(MACHINE_SOUND)
+	throw_item.vendor_action(src)
+	INVOKE_ASYNC(throw_item, /atom/movable.proc/throw_at, target, rand(3, 10), rand(1, 3), src)
 	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
 	return 1
+
+// screens go over the lighting layer, so googly eyes go under them
+/obj/machinery/vending/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
+	to_chat(user, SPAN_WARNING("\The [src]'s non-stick surface prevents you from attaching a sticker to it!"))
+	return FALSE

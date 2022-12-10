@@ -1,47 +1,44 @@
 /datum/gear/computer
-	display_name = "tablet"
-	path = /obj/item/modular_computer/handheld/custom_loadout/cheap
+	display_name = "laptop computer"
+	path = /obj/item/modular_computer/laptop/preset/loadout
 	sort_category = "Modular Computers"
 	cost = 2
 
-/datum/gear/computer/laptop
-	display_name = "laptop computer"
-	path = /obj/item/modular_computer/laptop/preset
-	cost = 3
+/datum/gear/computer/handheld/tablet
+	display_name = "tablet"
+	path = /obj/item/modular_computer/handheld/preset
 
-/datum/gear/computer/handheld/wristbound
-	display_name = "wristbound computer"
-	path = /obj/item/modular_computer/handheld/wristbound/preset/cheap/generic
+/datum/gear/computer/handheld/tablet/New()
+	..()
+	var/list/tablets = list()
+	tablets["generic tablet"] = /obj/item/modular_computer/handheld/preset/generic
+	tablets["janitor tablet"] = /obj/item/modular_computer/handheld/preset/civilian/janitor
+	tablets["operations tablet"] = /obj/item/modular_computer/handheld/preset/supply
+	tablets["engineering tablet"] = /obj/item/modular_computer/handheld/preset/engineering
+	tablets["atmos tablet"] = /obj/item/modular_computer/handheld/preset/engineering/atmos
+	tablets["medical tablet"] =/obj/item/modular_computer/handheld/preset/medical
+	tablets["security tablet"] = /obj/item/modular_computer/handheld/preset/security
+	tablets["investigation tablet"] = /obj/item/modular_computer/handheld/preset/security/detective
+	tablets["research tablet"] = /obj/item/modular_computer/handheld/preset/research
+	tablets["robotics tablet"] = /obj/item/modular_computer/handheld/preset/research/robotics
+	gear_tweaks += new /datum/gear_tweak/path(tablets)
 
-/datum/gear/computer/handheld/wristbound/cargo
-	display_name = "wristbound computer (Cargo)"
-	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/cargo
-	allowed_roles = list("Cargo Technician", "Shaft Miner", "Quartermaster")
+/datum/gear/computer/handheld/wristbound/selection
+	display_name = "wristbound computer selection"
+	path = /obj/item/modular_computer/handheld/wristbound/preset
 
-/datum/gear/computer/handheld/wristbound/engineering
-	display_name = "wristbound computer (Engineering)"
-	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/engineering
-	allowed_roles = list("Station Engineer", "Engineering Apprentince", "Atmospheric Technician", "Engineering Apprentice")
-
-/datum/gear/computer/handheld/wristbound/medical
-	display_name = "wristbound computer (Medical)"
-	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/medical
-	allowed_roles = list("Physician", "Surgeon", "Medical Intern", "Pharmacist", "Psychiatrist", "First Responder")
-
-/datum/gear/computer/handheld/wristbound/security
-	display_name = "wristbound computer (Security)"
-	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/security
-	allowed_roles = list("Security Officer", "Warden", "Security Cadet")
-
-/datum/gear/computer/handheld/wristbound/security/investigations
-	display_name = "wristbound computer (Security Investigations)"
-	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/security/investigations
-	allowed_roles = list("Detective", "Forensic Technician")
-
-/datum/gear/computer/handheld/wristbound/security/research
-	display_name = "wristbound computer (Research)"
-	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/research
-	allowed_roles = list("Scientist", "Lab Assistant", "Roboticist", "Xenobiologist")
+/datum/gear/computer/handheld/wristbound/selection/New()
+	..()
+	var/list/wristbounds = list()
+	wristbounds["cheap generic wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/cheap/generic
+	wristbounds["expensive generic wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/generic
+	wristbounds["operations wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/cargo
+	wristbounds["engineering wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/engineering
+	wristbounds["medical wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/medical
+	wristbounds["security wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/security
+	wristbounds["investigation wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/security/investigations
+	wristbounds["research wristbound"] = /obj/item/modular_computer/handheld/wristbound/preset/advanced/research
+	gear_tweaks += new /datum/gear_tweak/path(wristbounds)
 
 /datum/gear/computer/handheld/wristbound/ce
 	display_name = "wristbound computer (Chief Engineer)"
@@ -58,10 +55,10 @@
 	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/cmo
 	allowed_roles = list("Chief Medical Officer")
 
-/datum/gear/computer/handheld/wristbound/hop
-	display_name = "wristbound computer (Head of Personnel)"
-	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/hop
-	allowed_roles = list("Head of Personnel")
+/datum/gear/computer/handheld/wristbound/xo
+	display_name = "wristbound computer (Executive Officer)"
+	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/xo
+	allowed_roles = list("Executive Officer")
 
 /datum/gear/computer/handheld/wristbound/hos
 	display_name = "wristbound computer (Head of Security)"

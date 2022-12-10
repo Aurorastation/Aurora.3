@@ -108,7 +108,7 @@
 /client/proc/cmd_debug_make_powernets()
 	set category = "Debug"
 	set name = "Make Powernets"
-	makepowernets()
+	SSmachinery.makepowernets()
 	log_admin("[key_name(src)] has remade the powernet. makepowernets() called.",admin_key=key_name(usr))
 	message_admins("[key_name_admin(src)] has remade the powernets. makepowernets() called.", 0)
 	feedback_add_details("admin_verb","MPWN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -312,9 +312,14 @@
 			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/ert/legion)
 			outfit_catagories["Syndicate"] = typesof(/datum/outfit/admin/deathsquad/syndicate)
 			outfit_catagories["Freelance Mercenaries"] = typesof(/datum/outfit/admin/ert/mercenary)
+			outfit_catagories["Free Solarian Fleets Marines"] = typesof(/datum/outfit/admin/ert/fsf)
 			outfit_catagories["Kataphracts"] = typesof(/datum/outfit/admin/ert/kataphract)
+			outfit_catagories["Eridani"] = typesof(/datum/outfit/admin/ert/ap_eridani)
 			outfit_catagories["IAC"] = typesof(/datum/outfit/admin/ert/iac)
+			outfit_catagories["Kosmostrelki"] = typesof(/datum/outfit/admin/ert/pra_cosmonaut)
+			outfit_catagories["Elyran Navy"] = typesof(/datum/outfit/admin/ert/elyran_trooper)
 		if("Admin")
+			outfit_catagories["Stellar Corporate Conglomerate"] = typesof(/datum/outfit/admin/scc)
 			outfit_catagories["NanoTrasen"] = typesof(/datum/outfit/admin/nt)
 			outfit_catagories["Antagonist"] = typesof(/datum/outfit/admin/syndicate)
 			outfit_catagories["Event"] = typesof(/datum/outfit/admin/event)

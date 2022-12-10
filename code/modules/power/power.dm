@@ -11,7 +11,7 @@
 	icon = 'icons/obj/power.dmi'
 	anchored = 1.0
 	var/datum/powernet/powernet = null
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 	active_power_usage = 0
 
@@ -59,44 +59,6 @@
 
 /obj/machinery/power/proc/disconnect_terminal() // machines without a terminal will just return, no harm no fowl.
 	return
-
-// returns true if the area has power on given channel (or doesn't require power).
-// defaults to power_channel
-/obj/machinery/proc/powered(var/chan = -1) // defaults to power_channel
-
-	if(!src.loc)
-		return 0
-
-	//Don't do this. It allows machines that set use_power to 0 when off (many machines) to
-	//be turned on again and used after a power failure because they never gain the NOPOWER flag.
-	//if(!use_power)
-	//	return 1
-
-	var/area/A = src.loc.loc		// make sure it's in an area
-	if(!A || !isarea(A))
-		return 0					// if not, then not powered
-	if(chan == -1)
-		chan = power_channel
-	return A.powered(chan)			// return power status of the area
-
-// increment the power usage stats for an area
-/obj/machinery/proc/use_power(var/amount, var/chan = -1) // defaults to power_channel
-	var/area/A = get_area(src)		// make sure it's in an area
-	if(!A || !isarea(A))
-		return
-	if(chan == -1)
-		chan = power_channel
-	A.use_power(amount, chan)
-
-/obj/machinery/proc/power_change()		// called whenever the power settings of the containing area change
-										// by default, check equipment channel & set flag
-										// can override if needed
-	SHOULD_CALL_PARENT(1)
-
-	if(powered(power_channel))
-		stat &= ~NOPOWER
-	else
-		stat |= NOPOWER
 
 // connect the machine to a powernet if a node cable is present on the turf
 /obj/machinery/power/proc/connect_to_network()
@@ -190,10 +152,6 @@
 			. += C
 	return .
 
-/obj/machinery/power/shuttle_move(turf/loc)
-	..()
-	SSmachinery.powernet_update_queued = TRUE
-
 ///////////////////////////////////////////
 // GLOBAL PROCS for powernets handling
 //////////////////////////////////////////
@@ -236,21 +194,6 @@
 				else if(C.d1 == d || C.d2 == d)
 					. += C
 	return .
-
-// rebuild all power networks from scratch - called by area movement, world start, & by an admin verb.
-/proc/makepowernets()
-	var/list/powernets = SSpower.powernets
-	for(var/datum/powernet/PN in powernets)
-		qdel(PN)
-	powernets.Cut()
-
-	for(var/thing in SSpower.all_cables)
-		var/obj/structure/cable/PC = thing
-		if(!PC.powernet)
-			var/datum/powernet/NewPN = new()
-			NewPN.add_cable(PC)
-			propagate_network(PC,PC.powernet)
-	return 1
 
 //remove the old powernet and replace it with a new one throughout the network.
 /proc/propagate_network(var/obj/O, var/datum/powernet/PN)
@@ -355,7 +298,7 @@
 	if(H)
 		if(H.species.siemens_coefficient == 0)
 			return
-		if(isvaurca(H)) //natural vaurca insulation
+		if(H.species.is_naturally_insulated())
 			return
 		if(H.gloves && contact_zone == "hand")
 			var/obj/item/clothing/gloves/G = H.gloves
@@ -395,7 +338,7 @@
 	var/drained_energy = drained_hp*20
 
 	if (source_area)
-		source_area.use_power(drained_energy/CELLRATE)
+		source_area.use_power_oneoff(drained_energy/CELLRATE)
 	else if (istype(power_source,/datum/powernet))
 		var/drained_power = drained_energy/CELLRATE
 		drained_power = PN.draw_power(drained_power)

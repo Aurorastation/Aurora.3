@@ -7,10 +7,11 @@
 	density = TRUE
 	unacidable = TRUE
 	anchored = TRUE				//There's a reason this is here, Mport. God fucking damn it -Agouri. Find&Fix by Pete. The reason this is here is to stop the curving of emitter shots.
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE|PASSRAILING
 	mouse_opacity = 0
 	animate_movement = 0	//Use SLIDE_STEPS in conjunction with legacy
 	var/projectile_type = /obj/item/projectile
+	var/ping_effect = "ping_b" //Effect displayed when a bullet hits a barricade. See atom/proc/bullet_ping.
 
 	var/def_zone = ""	//Aiming at
 	var/hit_zone		// The place that actually got hit
@@ -23,9 +24,7 @@
 	var/dispersion = 0.0
 
 	//used for shooting at blank range, you shouldn't be able to miss
-	var/can_miss = 0
-
-	var/taser_effect = 0 //If set then the projectile will apply it's agony damage using stun_effect_act() to mobs it hits, and other damage will be ignored
+	var/point_blank = FALSE
 
 	//Effects
 	var/damage = 10
@@ -81,6 +80,7 @@
 	//Fired processing vars
 	var/fired = FALSE	//Have we been fired yet
 	var/paused = FALSE	//for suspending the projectile midair
+	var/reflected = FALSE
 	var/last_projectile_move = 0
 	var/last_process = 0
 	var/time_offset = 0
@@ -98,6 +98,9 @@
 	var/muzzle_type
 	var/impact_type
 	var/hit_effect
+	var/anti_materiel_potential = 1 //how much the damage of this bullet is increased against mechs
+
+	var/iff // identify friend or foe. will check mob's IDs to see if they match, if they do, won't hit
 
 /obj/item/projectile/CanPass()
 	return TRUE
@@ -121,8 +124,9 @@
 	if(hit_effect)
 		new hit_effect(target.loc)
 
-	L.apply_effects(stun, weaken, paralyze, 0, stutter, eyeblur, drowsy, agony, incinerate, blocked)
-	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad")) //radiation protection is handled separately from other armor types.
+	L.apply_effects(0, weaken, paralyze, 0, stutter, eyeblur, drowsy, 0, incinerate, blocked)
+	L.stun_effect_act(stun, agony, def_zone, src, damage_flags)
+	L.apply_damage(irradiate, IRRADIATE, damage_flags = DAM_DISPERSED) //radiation protection is handled separately from other armor types.
 	return 1
 
 //called when the projectile stops flying because it collided with something
@@ -148,7 +152,7 @@
 
 /obj/item/projectile/proc/get_structure_damage()
 	if(damage_type == BRUTE || damage_type == BURN)
-		return damage
+		return damage * anti_materiel_potential
 	return FALSE
 
 //return TRUE if the projectile should be allowed to pass through after all, FALSE if not.
@@ -172,7 +176,16 @@
 	shot_from = launcher.name
 	silenced = launcher.silenced
 
+	if(launcher.iff_capable && user)
+		iff = get_iff_from_user(user)
+
 	return launch_projectile(target, target_zone, user, params, angle_override, forced_spread)
+
+/obj/item/projectile/proc/get_iff_from_user(var/mob/user)
+	var/obj/item/card/id/ID = user.GetIdCard()
+	if(ID)
+		return ID.iff_faction
+	return null
 
 //Called when the projectile intercepts a mob. Returns 1 if the projectile hit the mob, 0 if it missed and should keep flying.
 /obj/item/projectile/proc/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
@@ -181,7 +194,7 @@
 
 	//roll to-hit
 	miss_modifier = max(15*(distance-1) - round(25*accuracy) + miss_modifier, 0)
-	hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, ranged_attack=(distance > 1 || original != target_mob)) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
+	hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, (distance > 1 || original != target_mob), point_blank) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
 
 	var/result = PROJECTILE_FORCE_MISS
 	if(hit_zone)
@@ -190,19 +203,19 @@
 			return TRUE
 		result = target_mob.bullet_act(src, def_zone)
 
-	if(result == PROJECTILE_FORCE_MISS && (can_miss == 0)) //if you're shooting at point blank you can't miss.
-		if(!silenced)
-			target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
-			playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
-		return FALSE
+	switch(result)
+		if(PROJECTILE_FORCE_MISS)
+			if(!point_blank)
+				if(!silenced)
+					target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
+					playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
+				return FALSE
+		if(PROJECTILE_DODGED)
+			return FALSE
+		if(PROJECTILE_STOPPED)
+			return TRUE
 
-	if(result == PROJECTILE_DODGED)
-		return FALSE
-
-	var/impacted_organ = parse_zone(def_zone)
-	if(istype(target_mob, /mob/living/simple_animal))
-		var/mob/living/simple_animal/SA = target_mob
-		impacted_organ = pick(SA.organ_names)
+	var/impacted_organ = target_mob.get_organ_name_from_zone(def_zone)
 	//hit messages
 	if(silenced)
 		to_chat(target_mob, "<span class='danger'>You've been hit in the [impacted_organ] by \a [src]!</span>")
@@ -259,17 +272,21 @@
 	var/passthrough = FALSE //if the projectile should continue flying
 	if(ismob(A))
 		var/mob/M = A
-		if(istype(A, /mob/living))
-			//if they have a neck grab on someone, that person gets hit instead
-			var/obj/item/grab/G = locate() in M
-			if(G && G.state >= GRAB_NECK)
-				visible_message("<span class='danger'>\The [M] uses [G.affecting] as a shield!</span>")
-				if(Collide(G.affecting))
-					return //If Collide() returns 0 (keep going) then we continue on to attack M.
+		if(isliving(A)) //so ghosts don't stop bullets
+			if(check_iff(M))
+				passthrough = TRUE
+			else
+				if(M.dir & get_dir(M, starting)) // only check neckgrab if they're facing in the direction the bullets came from
+					//if they have a neck grab on someone, that person gets hit instead
+					for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
+						if(!G.affecting.lying && G.state >= GRAB_NECK)
+							visible_message(SPAN_DANGER("\The [M] uses [G.affecting] as a shield!"))
+							if(Collide(G.affecting))
+								return //If Collide() returns 0 (keep going) then we continue on to attack M.
 
-			passthrough = !attack_mob(M, distance)
+				passthrough = !attack_mob(M, distance)
 		else
-			passthrough = TRUE	//so ghosts don't stop bullets
+			passthrough = TRUE
 	else
 		passthrough = (A.bullet_act(src, def_zone) == PROJECTILE_CONTINUE) //backwards compatibility
 		if(isturf(A))
@@ -299,9 +316,16 @@
 
 	//stop flying
 	on_impact(A, hit_zone)
-
 	qdel(src)
 	return TRUE
+
+/obj/item/projectile/proc/check_iff(var/mob/M)
+	if(isnull(iff))
+		return FALSE
+	var/obj/item/card/id/ID = M.GetIdCard()
+	if(ID && (ID.iff_faction == iff))
+		return TRUE
+	return FALSE
 
 /obj/item/projectile/ex_act(var/severity = 2.0)
 	return //explosions probably shouldn't delete projectiles
@@ -310,7 +334,9 @@
 /obj/item/projectile/proc/old_style_target(atom/target, atom/source)
 	if(!source)
 		source = get_turf(src)
-	setAngle(Get_Angle(source, target))
+	starting = get_turf(source)
+	original = target
+	setAngle(get_projectile_angle(source, target))
 
 /obj/item/projectile/proc/fire(angle, atom/direct_target)
 	//If no angle needs to resolve it from xo/yo!
@@ -331,7 +357,7 @@
 			qdel(src)
 			return
 		var/turf/target = locate(Clamp(starting + xo, 1, world.maxx), Clamp(starting + yo, 1, world.maxy), starting.z)
-		setAngle(Get_Angle(src, target))
+		setAngle(get_projectile_angle(src, target))
 	if(dispersion)
 		setAngle(Angle + rand(-dispersion, dispersion))
 	original_angle = Angle
@@ -367,7 +393,7 @@
 	else if(targloc && curloc)
 		yo = targloc.y - curloc.y
 		xo = targloc.x - curloc.x
-		setAngle(Get_Angle(src, targloc))
+		setAngle(get_projectile_angle(src, targloc))
 	else
 		crash_with("WARNING: Projectile [type] fired without either mouse parameters, or a target atom to aim at!")
 		qdel(src)
@@ -388,6 +414,9 @@
 /obj/item/projectile/Initialize()
 	. = ..()
 	permutated = list()
+
+/obj/item/projectile/damage_flags()
+	return damage_flags
 
 /obj/item/projectile/proc/pixel_move(moves, trajectory_multiplier = 1, hitscanning = FALSE)
 	if(!loc || !trajectory)
@@ -570,6 +599,9 @@
 		trajectory.set_angle(new_angle)
 	return TRUE
 
+/obj/item/projectile/proc/redirect(x, y, starting, source)
+	old_style_target(locate(x, y, z), starting? get_turf(starting) : get_turf(source))
+
 /obj/item/projectile/forceMove(atom/target)
 	. = ..()
 	if(trajectory && !trajectory_ignore_forcemove && isturf(target))
@@ -613,3 +645,39 @@
 			qdel(i)
 		beam_segments = null
 		QDEL_NULL(beam_index)
+
+/obj/item/projectile/get_print_info()
+	. = "<br>"
+	. += "Damage: [initial(damage)]<br>"
+	. += "Damage Type: [initial(damage_type)]<br>"
+	. += "Blocked by Armor Type: [initial(check_armor)]<br>"
+	. += "Stuns: [initial(stun) ? "true" : "false"]<br>"
+	if(initial(shrapnel_type))
+		var/obj/shrapnel = new shrapnel_type
+		. += "Shrapnel Type: [shrapnel.name]<br>"
+	. += "Armor Penetration: [initial(armor_penetration)]%<br>"
+
+//This is where the bullet bounces off.
+/atom/proc/bullet_ping(obj/item/projectile/P, var/pixel_x_offset, var/pixel_y_offset)
+	if(!P || !P.ping_effect)
+		return
+
+	var/image/I = image('icons/obj/projectiles.dmi', src,P.ping_effect,10, pixel_x = pixel_x_offset, pixel_y = pixel_y_offset)
+	var/angle = (P.firer && prob(60)) ? round(Get_Angle(P.firer,src)) : round(rand(1,359))
+	I.pixel_x += rand(-6,6)
+	I.pixel_y += rand(-6,6)
+
+	var/matrix/rotate = matrix()
+	rotate.Turn(angle)
+	I.transform = rotate
+	// Need to do this in order to prevent the ping from being deleted
+	addtimer(CALLBACK(I, /image/.proc/flick_overlay, src, 3), 1)
+
+
+/image/proc/flick_overlay(var/atom/A, var/duration)
+	A.overlays.Add(src)
+	addtimer(CALLBACK(src, .proc/flick_remove_overlay, A), duration)
+
+/image/proc/flick_remove_overlay(var/atom/A)
+	if(A)
+		A.overlays.Remove(src)

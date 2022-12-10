@@ -2,7 +2,7 @@
 	name = "gas mask"
 	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "gas_alt"
-	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT
+	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | THICKMATERIAL
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = FACE|EYES
 	w_class = ITEMSIZE_NORMAL
@@ -12,7 +12,9 @@
 	siemens_coefficient = 0.9
 	var/gas_filter_strength = 1			//For gas mask filters
 	var/list/filtered_gases = list(GAS_PHORON, GAS_N2O)
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 75, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_STRONG
+	)
 
 /obj/item/clothing/mask/gas/filter_air(datum/gas_mixture/air)
 	var/datum/gas_mixture/filtered = new
@@ -33,20 +35,22 @@
 	item_state = "gas_alt_alt"
 	icon_state = "gas_alt_alt"
 
+/obj/item/clothing/mask/gas/half
+	name = "face mask"
+	desc = "A respirator that covers the mouth and nose. It can be connected to an air supply. Filters harmful gases from the air."
+	item_state = "halfgas"
+	icon_state = "halfgas"
+	w_class = ITEMSIZE_SMALL
+	flags_inv = null
+	body_parts_covered = FACE
+	down_body_parts_covered = null
+	adjustable = TRUE
+
 /obj/item/clothing/mask/gas/old
 	desc = "A face-covering mask that can be connected to an air supply. Seems to be an old, outdated design."
 	filtered_gases = list(GAS_N2O)
 	item_state = "gas_mask"
 	icon_state = "gas_mask"
-
-//Plague Dr suit can be found in clothing/suits/bio.dm
-/obj/item/clothing/mask/gas/plaguedoctor
-	name = "plague doctor mask"
-	desc = "A modernised version of the classic design, this mask will not only filter out phoron but it can also be connected to an air supply."
-	icon_state = "plaguedoctor"
-	item_state = "plaguedoctor"
-	armor = list(melee = 0, bullet = 0, laser = 2,energy = 2, bomb = 0, bio = 90, rad = 0)
-	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/mask/gas/swat
 	name = "\improper SWAT mask"
@@ -62,18 +66,6 @@
 	icon_state = "swat"
 	item_state = "swat"
 	siemens_coefficient = 0.7
-
-/obj/item/clothing/mask/gas/clown_hat
-	name = "clown wig and mask"
-	desc = "A true prankster's facial attire. A clown is incomplete without their wig and mask."
-	icon_state = "clown"
-	item_state = "clown"
-
-/obj/item/clothing/mask/gas/sexyclown
-	name = "sexy-clown wig and mask"
-	desc = "A feminine clown mask for the dabbling crossdressers or female entertainers."
-	icon_state = "sexyclown"
-	item_state = "sexyclown"
 
 /obj/item/clothing/mask/gas/mime
 	name = "mime mask"
@@ -108,8 +100,13 @@
 
 /obj/item/clothing/mask/gas/tactical
 	name = "tactical mask"
-	desc = "A compact carbon-fiber respirator covering the mouth and nose to protect against the inhalation of smoke and other harmful gasses. "
+	desc = "A compact carbon-fiber respirator covering the mouth and nose to protect against the inhalation of smoke and other harmful gasses."
 	icon_state = "fullgas"
 	item_state = "fullgas"
 	w_class = ITEMSIZE_SMALL
-	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_MINOR,
+		bio = ARMOR_BIO_STRONG
+	)

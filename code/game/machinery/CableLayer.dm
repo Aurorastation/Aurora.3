@@ -1,13 +1,12 @@
 /obj/machinery/cablelayer
 	name = "automatic cable layer"
-
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "pipe_d"
-	density = 1
+	icon = 'icons/obj/cable_layer.dmi'
+	icon_state = "cable_layer"
+	density = TRUE
 	var/obj/structure/cable/last_piece
 	var/obj/item/stack/cable_coil/cable
 	var/max_cable = 100
-	var/on = 0
+	var/on = FALSE
 
 /obj/machinery/cablelayer/Initialize()
 	. = ..()
@@ -34,7 +33,7 @@
 			to_chat(user, SPAN_WARNING("\The [src]'s cable reel is full."))
 		else
 			to_chat(user, SPAN_NOTICE("You load [result] lengths of cable into \the [src]."))
-		return
+		return TRUE
 
 	if(O.iswirecutter())
 		if(cable && cable.amount)
@@ -48,13 +47,13 @@
 				user.put_in_hands(CC)
 		else
 			to_chat(user, SPAN_WARNING("There's no more cable on the reel."))
-		return
+		return TRUE
 
 	if(O.ismultitool())
 		if(!cable)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any cable loaded!"))
-			return
-		cable.attackby(O, user)
+			return TRUE
+		return cable.attackby(O, user)
 
 /obj/machinery/cablelayer/examine(mob/user)
 	..()

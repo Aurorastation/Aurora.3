@@ -28,7 +28,8 @@ var/global/ntnrc_uid = 0
 		for(var/datum/computer_file/program/chat_client/Cl in U.clients)
 			var/notification_text = message.format_chat_notification(src, Cl)
 			if(notification_text && Cl.can_receive_notification(message.client))
-				Cl.computer.output_message(notification_text, 0)
+				if(!Cl.message_mute)
+					Cl.computer.output_message(notification_text, 0)
 				if(message.play_sound)
 					Cl.play_notification_sound(message.client)
 
@@ -43,7 +44,7 @@ var/global/ntnrc_uid = 0
 	
 	if(update_ui)
 		for(var/datum/ntnet_user/U in users)
-			for(var/datum/computer_file/program/chat_client/Cl)
+			for(var/datum/computer_file/program/chat_client/Cl in U.clients)
 				SSvueui.check_uis_for_change(Cl)
 
 /datum/ntnet_conversation/proc/trim_message_list()
@@ -125,6 +126,8 @@ var/global/ntnrc_uid = 0
 /datum/ntnet_conversation/proc/cl_leave(var/datum/computer_file/program/chat_client/Cl)
 	if(!istype(Cl) || !istype(Cl.my_user) || !(Cl.my_user in users) || !can_interact(Cl) || direct)
 		return
+	if(Cl.focused_conv == src)
+		Cl.focused_conv = null
 	var/datum/ntnet_message/leave/msg = new(Cl)
 	Cl.my_user.channels.Remove(src)
 	users.Remove(Cl.my_user)

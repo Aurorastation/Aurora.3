@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "Working with counts: Macro-$MACRO_COUNT Gender-$GENDER_COUNT to_world-$TO_WORLD_COUNT"
+echo "TGM check line: $TGM_CHECK"
 
 if [ $# -ne 1 ]; then
     echo "Invalid argument count. specify path to run in as first argument"
@@ -27,6 +28,15 @@ if [ $? -eq 0 ]; then
     echo "FAIL: Found step_x or step_y in maps" >> code_error.log
 else
     echo "PASS: Found no step_x / step_y in maps:" >> code_error.log
+fi
+
+echo "Checking for non-TGM map files:" >> code_error.log
+MAP_ERROR_COUNT=0
+while read p; do if [[ "$(sed -n 1p "$p")" != *"$TGM_CHECK"* ]]; then MAP_ERROR_COUNT=$(($MAP_ERROR_COUNT+1)) && echo "FAIL: Found non-TGM mapfile in $p" >> code_error.log; fi;done <<< "$(find maps -name \*.dmm -type f)"
+if [ $MAP_ERROR_COUNT -ne 0 ]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+else
+    echo "PASS: All maps in maps/ are TGM format!" >> code_error.log
 fi
 
 echo "Checking for span tags with empty class in .dm files" >> code_error.log
@@ -83,7 +93,16 @@ else
     echo "PASS: to_world count matches" >> code_error.log
 fi
 
-echo "Found $ERROR_COUNT Errors while performing code check"
+echo "Checking for edge = 0/1 uses:" >> code_error.log
+grep -r '\bedge\s*=\s*\d' **/*.dm >> code_error.log
+if [ $? -eq 0 ]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Found edge = 0/1 in code" >> code_error.log
+else
+    echo "PASS: Did not find edge = 0/1 in code:" >> code_error.log
+fi
+
+echo "Found $ERROR_COUNT errors while performing code check"
 
 if [ $ERROR_COUNT -ne 0 ]; then
     cat code_error.log

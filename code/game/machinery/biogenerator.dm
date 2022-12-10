@@ -5,7 +5,6 @@
 	icon_state = "biogen"
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 40
 	var/processing = 0
 	var/obj/item/reagent_containers/glass/beaker = null
@@ -21,362 +20,265 @@
 		/obj/item/stock_parts/manipulator
 	)
 
-	var/list/biorecipies = list(
-		"biogenerated" = list(
-			name = "Bio Meat",
-			class = "Food",
-			object = /obj/item/reagent_containers/food/snacks/meat/biogenerated,
-			cost = 50,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"fishfillet" = list(
-			name = "Fish Fillet",
-			class = "Food",
-			object = /obj/item/reagent_containers/food/snacks/fish/fishfillet,
-			cost = 50,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"soywafers" = list(
-			name = "Soy Wafers",
-			class = "Food",
-			object = /obj/item/reagent_containers/food/snacks/soywafers,
-			cost = 150,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"bio_vitamin" = list(
-			name = "Flavored Vitamin",
-			class = "Food",
-			object = /obj/item/reagent_containers/pill/bio_vitamin,
-			cost = 50,
-			amount = list(1,5,10,25,50),
-			emag = 0
-		),
-		"liquidfood" = list(
-			name = "Food Ration",
-			class = "Food",
-			object = /obj/item/reagent_containers/food/snacks/liquidfood,
-			cost = 30,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"milk" = list(
-			name = "Space Milk (50u)",
-			class = "Food",
-			object = /obj/item/reagent_containers/food/drinks/milk,
-			cost = 100,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"nutri-spread" = list(
-			name = "Nutri-spread",
-			class = "Food",
-			object = /obj/item/reagent_containers/food/snacks/spreads,
-			cost = 80,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"enzyme" = list(
-			name = "Universal Enzyme (50u)",
-			class = "Food",
-			object = /obj/item/reagent_containers/food/condiment/enzyme,
-			cost = 200,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"ez" = list(
-			name = "E-Z-Nutrient (60u)",
-			class = "Fertilizer",
-			object = /obj/item/reagent_containers/glass/fertilizer/ez,
-			cost = 60,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"l4z" = list(
-			name = "Left 4 Zed (60u)",
-			class = "Fertilizer",
-			object = /obj/item/reagent_containers/glass/fertilizer/l4z,
-			cost = 120,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"rh" = list(
-			name = "Robust Harvest (60u)",
-			class = "Fertilizer",
-			object = /obj/item/reagent_containers/glass/fertilizer/rh,
-			cost = 180,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"jug" = list(
-			name = "Empty Jug",
-			class = "Items",
-			object = /obj/item/reagent_containers/glass/fertilizer,
-			cost = 100,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"custom_cigarettes" = list(
-			name = "Empty Cigarettes (x6)",
-			class = "Items",
-			object = /obj/item/storage/box/fancy/cigarettes/blank,
-			cost = 500,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"tape_roll" = list(
-			name = "Tape Roll",
-			class = "Items",
-			object = /obj/item/tape_roll,
-			cost = 250,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"botanic_leather" = list(
-			name = "Botanical Gloves",
-			class = "Items",
-			object = /obj/item/clothing/gloves/botanic_leather,
-			cost = 250,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"utility" = list(
-			name = "Utility Belt",
-			class = "Items",
-			object = /obj/item/storage/belt/utility,
-			cost = 300,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"hydrobelt" = list(
-			name = "Hydroponic Belt",
-			class = "Items",
-			object = /obj/item/storage/belt/hydro,
-			cost = 300,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"wallet" = list(
-			name = "Leather Wallet",
-			class = "Items",
-			object = /obj/item/storage/wallet,
-			cost = 100,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"satchel" = list(
-			name = "Leather Satchel",
-			class = "Items",
-			object = /obj/item/storage/backpack/satchel,
-			cost = 400,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"cash" = list(
-			name = "Money Bag",
-			class = "Items",
-			object = /obj/item/storage/bag/money,
-			cost = 400,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"soap" = list(
-			name = "Soap",
-			class = "Items",
-			object = /obj/item/soap/plant,
-			cost = 200,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"towel" = list(
-			name = "Towel",
-			class = "Items",
-			object = /obj/item/towel/random,
-			cost = 300,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"crayon_box" = list(
-			name = "Crayon Box",
-			class = "Items",
-			object = /obj/item/storage/box/fancy/crayons,
-			cost = 600,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"animalhide" = list(
-			name = "Animal Hide",
-			class = "Construction",
-			object = /obj/item/stack/material/animalhide,
-			cost = 100,
-			amount = list(1,5,10,25,50),
-			emag = 0
-		),
-		"leather" = list(
-			name = "Leather",
-			class = "Construction",
-			object = /obj/item/stack/material/leather,
-			cost = 100,
-			amount = list(1,5,10,25,50),
-			emag = 0
-		),
-		"cloth" = list(
-			name = "Cloth",
-			class = "Construction",
-			object = /obj/item/stack/material/cloth,
-			cost = 50,
-			amount = list(1,5,10,25,50),
-			emag = 0
-		),
-		"cardboard" = list(
-			name = "Cardboard",
-			class = "Construction",
-			object = /obj/item/stack/material/cardboard,
-			cost = 50,
-			amount = list(1,5,10,25,50),
-			emag = 0
-		),
-		"wax" = list(
-			name = "Wax",
-			class = "Construction",
-			object = /obj/item/stack/wax,
-			cost = 100,
-			amount = list(1,5,10,25,50),
-			emag = 0
-		),
-		"plastic" = list(
-			name = "Plastic",
-			class = "Construction",
-			object = /obj/item/stack/material/plastic,
-			cost = 100,
-			amount = list(1,5,10,25,50),
-			emag = 0
-		),
-		"mushroom" = list(
-			name = "Pet Mushroom",
-			class = "Special",
-			object = /mob/living/simple_animal/mushroom,
-			cost = 1000,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"monkey" = list(
-			name = "Monkey Cube",
-			class = "Special",
-			object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped,
-			cost = 500,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"stok" = list(
-			name = "Stok Cube",
-			class = "Special",
-			object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/stokcube,
-			cost = 500,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"farwa" = list(
-			name = "Farwa Cube",
-			class = "Special",
-			object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube,
-			cost = 500,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"neaera" = list(
-			name = "Neaera Cube",
-			class = "Special",
-			object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube,
-			cost = 500,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"cazador" = list(
-			name = "V'krexi Cube",
-			class = "Special",
-			object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube,
-			cost = 500,
-			amount = list(1,2,3,4,5),
-			emag = 0
-		),
-		"bruise_pack" = list(
-			name = "Bruise Pack",
-			class = "Medical",
-			object = /obj/item/stack/medical/bruise_pack,
-			cost = 400,
-			amount = list(1,2,3,4,5),
-			emag = FALSE
-		),
-		"ointment" = list(
-			name = "Burn Ointment",
-			class = "Medical",
-			object = /obj/item/stack/medical/ointment,
-			cost = 400,
-			amount = list(1,2,3,4,5),
-			emag = FALSE
-		),
-		"perconol_pill" = list(
-			name = "Perconol Pill",
-			class = "Medical",
-			object = /obj/item/reagent_containers/pill/perconol,
-			cost = 250,
-			amount = list(1,2,3,5,7),
-			emag = FALSE
-		),
-		"adv_trauma_kit" = list(
-			name = "Advanced Trauma Kit",
-			class = "!@#$%^&*()",
-			object = /obj/item/stack/medical/advanced/bruise_pack,
-			cost = 600,
-			amount = list(1,2,3,4,5),
-			emag = TRUE
-		),
-		"adv_burn_kit" = list(
-			name = "Advanced Burn Kit",
-			class = "!@#$%^&*()",
-			object = /obj/item/stack/medical/advanced/ointment,
-			cost = 600,
-			amount = list(1,2,3,4,5),
-			emag = TRUE
-		),
-		// Antag Items (Emag)
-		"humanhide" = list(
-			name = "Human Hide",
-			class = "!@#$%^&*()",
-			object = /obj/item/stack/material/animalhide/human,
-			cost = 50,
-			amount = list(1,5,10,25,50),
-			emag = 1
-		),
-		"syndie" = list(
-			name = "Red Soap",
-			class = "!@#$%^&*()",
-			object = /obj/item/soap/syndie,
-			cost = 200,
-			amount = list(1,2,3,4,5),
-			emag = 1
-		),
-		"buckler" = list(
-			name = "Buckler",
-			class = "!@#$%^&*()",
-			object = /obj/item/shield/buckler,
-			cost = 500,
-			amount = list(1,2,3,4,5),
-			emag = 1
-		),
-		"tree" = list(
-			name = "Tree",
-			class = "!@#$%^&*()",
-			object = /mob/living/simple_animal/hostile/tree,
-			cost = 1000,
-			amount = list(1,2,3,4,5),
-			emag = 1
-		)
+#define BIOGEN_FOOD "Food"
+#define BIOGEN_ITEMS "Items"
+#define BIOGEN_SPECIAL "Special"
+#define BIOGEN_CONSTRUCTION "Construction"
+#define BIOGEN_FERTILIZER "Fertilizer"
+#define BIOGEN_MEDICAL "Medical"
+#define BIOGEN_ILLEGAL "!@#$%^&*()"
 
-	)
+/decl/biorecipe
+	var/name = "fixme"
+	var/class = BIOGEN_ITEMS
+	var/object
+	var/cost = 100
+	var/amount = list(1, 2, 3, 4, 5)
+	var/emag = FALSE
+
+/decl/biorecipe/food
+	name = "Meat Substitute"
+	class = BIOGEN_FOOD
+	object = /obj/item/reagent_containers/food/snacks/meat/biogenerated
+	cost = 50
+
+/decl/biorecipe/food/fishfillet
+	name = "Fish Fillet"
+	object = /obj/item/reagent_containers/food/snacks/fish/fishfillet
+
+/decl/biorecipe/food/syntiflesh
+	name = "Synthetic Meat"
+	object = /obj/item/reagent_containers/food/snacks/meat/syntiflesh
+
+/decl/biorecipe/food/soywafers
+	name = "Soy Wafers"
+	object = /obj/item/reagent_containers/food/snacks/soywafers
+	cost = 150
+
+/decl/biorecipe/food/bio_vitamin
+	name = "Flavored Vitamin"
+	object = /obj/item/reagent_containers/pill/bio_vitamin
+	amount = list(1,5,10,25,50)
+
+/decl/biorecipe/food/liquidfood
+	name = "Food Ration"
+	object = /obj/item/reagent_containers/food/snacks/liquidfood
+	cost = 30
+
+/decl/biorecipe/food/milk
+	name = "Space Milk (50u)"
+	object = /obj/item/reagent_containers/food/drinks/milk
+	cost = 100
+
+/decl/biorecipe/food/nutrispread
+	name = "Nutri-spread"
+	object = /obj/item/reagent_containers/food/snacks/spreads
+	cost = 80
+
+/decl/biorecipe/food/enzyme
+	name = "Universal Enzyme (50u)"
+	object = /obj/item/reagent_containers/food/condiment/enzyme
+
+/*
+ FERTILIZER
+*/
+
+/decl/biorecipe/fertilizer
+	name = "E-Z-Nutrient (60u)"
+	class = BIOGEN_FERTILIZER
+	object = /obj/item/reagent_containers/glass/fertilizer/ez
+	cost = 60
+
+/decl/biorecipe/fertilizer/l4z
+	name = "Left 4 Zed (60u)"
+	object = /obj/item/reagent_containers/glass/fertilizer/l4z
+	cost = 120
+
+/decl/biorecipe/fertilizer/rh
+	name = "Robust Harvest (60u)"
+	object = /obj/item/reagent_containers/glass/fertilizer/rh
+	cost = 180
+
+/*
+ ITEMS
+*/
+/decl/biorecipe/item
+	name = "Towel"
+	class = BIOGEN_ITEMS
+	object = /obj/item/towel/random
+	cost = 300
+
+/decl/biorecipe/item/jug
+	name = "Empty Jug"
+	object = /obj/item/reagent_containers/glass/fertilizer
+	cost = 100
+
+/decl/biorecipe/item/custom_cigarettes
+	name = "Empty Cigarettes (x6)"
+	object = /obj/item/storage/box/fancy/cigarettes/blank
+	cost = 500
+
+/decl/biorecipe/item/tape_roll
+	name = "Tape Roll"
+	object = /obj/item/tape_roll
+	cost = 250
+
+/decl/biorecipe/item/botanic_leather
+	name = "Botanical Gloves"
+	object = /obj/item/clothing/gloves/botanic_leather
+	cost = 250
+
+/decl/biorecipe/item/utility
+	name = "Utility Belt"
+	object = /obj/item/storage/belt/utility
+
+/decl/biorecipe/item/hydrobelt
+	name = "Hydroponic Belt"
+	object = /obj/item/storage/belt/hydro
+
+/decl/biorecipe/item/plantbag
+	name = "Plant Bag"
+	object = /obj/item/storage/bag/plants
+	cost = 500
+
+/decl/biorecipe/item/wallet
+	name = "Leather Wallet"
+	object = /obj/item/storage/wallet
+	cost = 100
+
+/decl/biorecipe/item/satchel
+	name = "Leather Satchel"
+	object = /obj/item/storage/backpack/satchel/leather
+	cost = 400
+
+/decl/biorecipe/item/cash
+	name = "Money Bag"
+	object = /obj/item/storage/bag/money
+	cost = 400
+
+/decl/biorecipe/item/soap
+	name = "Soap"
+	object = /obj/item/soap/plant
+	cost = 200
+
+/decl/biorecipe/item/crayon_box
+	name = "Crayon Box"
+	object = /obj/item/storage/box/fancy/crayons
+	cost = 600
+
+/*
+ CONSTRUCTION
+*/
+
+/decl/biorecipe/construction
+	name = "Animal Hide"
+	class = BIOGEN_CONSTRUCTION
+	object = /obj/item/stack/material/animalhide
+	cost = 100
+	amount = list(1,5,10,25,50)
+
+/decl/biorecipe/construction/leather
+	name = "Leather"
+	object = /obj/item/stack/material/leather
+
+/decl/biorecipe/construction/cloth
+	name = "Cloth"
+	object = /obj/item/stack/material/cloth
+	cost = 50
+
+/decl/biorecipe/construction/cardboard
+	name = "Cardboard"
+	object = /obj/item/stack/material/cardboard
+	cost = 50
+
+/decl/biorecipe/construction/wax
+	name = "Wax"
+	object = /obj/item/stack/wax
+
+/decl/biorecipe/construction/plastic
+	name = "Plastic"
+	object = /obj/item/stack/material/plastic
+
+/*
+ SPECIAL
+*/
+
+/decl/biorecipe/mushroom
+	name = "Pet Mushroom"
+	class = BIOGEN_SPECIAL
+	object = /mob/living/simple_animal/mushroom
+	cost = 1000
+
+/decl/biorecipe/cube
+	name = "Monkey Cube"
+	class = BIOGEN_SPECIAL
+	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped
+
+/decl/biorecipe/cube/stok
+	name = "Stok Cube"
+	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/stokcube
+
+/decl/biorecipe/cube/farwa
+	name = "Farwa Cube"
+	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube
+
+/decl/biorecipe/cube/neaera
+	name = "Neaera Cube"
+	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube
+
+/decl/biorecipe/cube/cazador
+	name = "V'krexi Cube"
+	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube
+	cost = 500
+
+/decl/biorecipe/medical
+	name = "Bruise Pack"
+	class = BIOGEN_MEDICAL
+	object = /obj/item/stack/medical/bruise_pack
+	cost = 400
+
+/decl/biorecipe/medical/ointment
+	name = "Burn Ointment"
+	object = /obj/item/stack/medical/ointment
+
+/decl/biorecipe/medical/perconol_pill
+	name = "Perconol Pill"
+	object = /obj/item/reagent_containers/pill/perconol
+	cost = 250
+	amount = list(1,2,3,5,7)
+
+/decl/biorecipe/illegal
+	name = "Advanced Trauma Kit"
+	class = BIOGEN_ILLEGAL
+	object = /obj/item/stack/medical/advanced/bruise_pack
+	cost = 600
+	emag = TRUE
+
+/decl/biorecipe/illegal/adv_burn_kit
+	name = "Advanced Burn Kit"
+	object = /obj/item/stack/medical/advanced/ointment
+
+		// Antag Items (Emag)
+/decl/biorecipe/illegal/humanhide
+	name = "Human Hide"
+	object = /obj/item/stack/material/animalhide/human
+	cost = 50
+	amount = list(1,5,10,25,50)
+
+/decl/biorecipe/illegal/syndie
+	name = "Red Soap"
+	object = /obj/item/soap/syndie
+	cost = 200
+
+/decl/biorecipe/illegal/buckler
+	name = "Buckler"
+	object = /obj/item/shield/buckler
+	cost = 500
+
+/decl/biorecipe/illegal/tree
+	name = "Tree"
+	object = /mob/living/simple_animal/hostile/tree
+	cost = 1000
 
 /obj/machinery/biogenerator/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
@@ -405,11 +307,11 @@
 
 /obj/machinery/biogenerator/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))
-		return
+		return TRUE
 	if(default_deconstruction_crowbar(user, O))
-		return
+		return TRUE
 	if(default_part_replacement(user, O))
-		return
+		return TRUE
 	if(istype(O, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, SPAN_NOTICE("\The [src] is already loaded."))
@@ -418,8 +320,10 @@
 			O.forceMove(src)
 			beaker = O
 			updateUsrDialog()
+		. = TRUE
 	else if(processing)
 		to_chat(user, SPAN_NOTICE("\The [src] is currently processing."))
+		. = TRUE
 	else if(istype(O, /obj/item/storage/bag/plants))
 		var/i = 0
 		var/obj/item/storage/bag/P = O
@@ -439,10 +343,10 @@
 
 			if(i < capacity)
 				to_chat(user, SPAN_NOTICE("You empty \the [O] into \the [src]."))
-
-
+		. = TRUE
 	else if(!istype(O, /obj/item/reagent_containers/food/snacks/grown))
 		to_chat(user, SPAN_NOTICE("You cannot put this in \the [src]."))
+		. = TRUE
 	else
 		var/i = 0
 		for(var/obj/item/reagent_containers/food/snacks/grown/G in contents)
@@ -453,8 +357,8 @@
 			user.remove_from_mob(O)
 			O.forceMove(src)
 			to_chat(user, SPAN_NOTICE("You put \the [O] in \the [src]"))
+			. = TRUE
 	update_icon()
-	return
 
 /obj/machinery/biogenerator/interact(mob/user as mob)
 	if(stat & BROKEN)
@@ -476,29 +380,23 @@
 					dat += "<tr><td colspan='2'>Name</td><td colspan='2'>Cost</td><td colspan='4'>Production Amount</td></tr>"
 					var/lastclass = "Commands"
 
-					for (var/k in biorecipies)
-						var/list/v = biorecipies[k]
-						var/id = k
-						var/name = v["name"]
-						var/class = v["class"]
-						var/cost = v["cost"]
-						var/listamount = v["amount"]
-						var/emag = v["emag"]
+					for (var/k in decls_repository.get_decls_of_subtype(/decl/biorecipe))
+						var/decl/biorecipe/current_recipe = decls_repository.get_decl(k)
 
-						if(emag == 0 || emagged == 1)
-							if(lastclass != class)
-								dat += "<tr><td colspan='6'><H2>[class]</H2></td></tr>"
-								lastclass = class
-							dat += "<tr class='build'><td colspan='2'>[name]</td><td colspan='2'>[round(cost/build_eff)]</td>"
+						if(emagged || !current_recipe.emag)
+							if(lastclass != current_recipe.class)
+								dat += "<tr><td colspan='6'><H2>[current_recipe.class]</H2></td></tr>"
+								lastclass = current_recipe.class
+							dat += "<tr class='build'><td colspan='2'>[current_recipe.name]</td><td colspan='2'>[round(current_recipe.cost/build_eff)]</td>"
 							dat += "<td colspan='4'>"
-							for(var/num in listamount)
+							for(var/num in current_recipe.amount)
 								var/fakenum = ""
 								if(num <= 9)
 									fakenum = "0"
-								if(num*round(cost/build_eff) > points)
+								if(num*round(current_recipe.cost/build_eff) > points)
 									dat += "<div class='no-build inline'>([fakenum][num])</div>"
 								else
-									dat += "<A href='?src=\ref[src];action=create;itemid=[id];count=[num]'>([fakenum][num])</A>"
+									dat += "<A href='?src=\ref[src];action=create;itemtype=[current_recipe.type];count=[num]'>([fakenum][num])</A>"
 							dat += "</td>"
 							dat += "</tr>"
 
@@ -546,26 +444,31 @@
 		update_icon()
 		updateUsrDialog()
 		playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
-		use_power(S * 30)
-		sleep((S + 15) / eat_eff)
+		intent_message(MACHINE_SOUND)
+		use_power_oneoff(S * 30)
+		sleep((S + 1.5 SECONDS) / eat_eff)
 		processing = 0
 		update_icon()
 	else
 		menustat = "void"
 	return
 
-/obj/machinery/biogenerator/proc/create_product(var/itemid, var/count)
+/obj/machinery/biogenerator/proc/create_product(var/itemtype, var/count)
+	if (!ispath(itemtype, /decl/biorecipe))
+		return FALSE
 
-	var/list/recipie_data = biorecipies[itemid]
+	var/decl/biorecipe/recipe = decls_repository.get_decl(itemtype)
 
-	if (!istype(recipie_data))
-		return 0
+	if (!ispath(recipe.object)) // this shouldn't happen unless someone tries to create /decl/biorecipe with href hacking
+		return FALSE
 
-	if (recipie_data["emag"] && !emagged)
-		return 0
+	if (recipe.emag && !emagged)
+		return FALSE
 
-	var/cost = recipie_data["cost"]
-	var/totake = round(cost/build_eff)
+	if (!(count in recipe.amount)) // l-l-look at you, href h-hacker...
+		return FALSE
+
+	var/totake = round(recipe.cost/build_eff)
 	var/delay = totake/2
 	//Meat = 5 seconds
 
@@ -585,27 +488,27 @@
 			return FALSE
 		else
 			points -= totake
-			use_power(totake * 0.25)
+			use_power_oneoff(totake * 0.25)
 			playsound(src.loc, /decl/sound_category/switch_sound, 50, 1)
-			var/new_object = recipie_data["object"]
-			if(ispath(new_object, /obj/item/reagent_containers/pill))
+			intent_message(PING_SOUND)
+			if(ispath(recipe.object, /obj/item/reagent_containers/pill))
 				if(!made_container)
 					made_container = new /obj/item/storage/pill_bottle(loc)
-				new new_object(made_container)
-			else if(ispath(new_object, /obj/item/stack/medical)) // we want full amounts of medical supplies
-				new new_object(loc)
+				new recipe.object(made_container)
+			else if(ispath(recipe.object, /obj/item/stack/medical)) // we want full amounts of medical supplies
+				new recipe.object(loc)
 				sleep(delay)
-			else if(ispath(new_object, /obj/item/stack))
+			else if(ispath(recipe.object, /obj/item/stack))
 				var/subtract_amount = totake * (count - 1)
 				points -= subtract_amount
-				use_power(subtract_amount * 0.25)
-				new new_object(loc, count)
+				use_power_oneoff(subtract_amount * 0.25)
+				new recipe.object(loc, count)
 				break
 			else
-				new new_object(loc)
+				new recipe.object(loc)
 				sleep(delay)
 
-	sleep(10)
+	sleep(1 SECOND)
 
 	processing = 0
 	menustat = "complete"
@@ -630,7 +533,7 @@
 				beaker = null
 				update_icon()
 		if("create")
-			create_product(href_list["itemid"], text2num(href_list["count"]))
+			create_product(text2path(href_list["itemtype"]), text2num(href_list["count"]))
 		if("menu")
 			menustat = "menu"
 	updateUsrDialog()

@@ -10,12 +10,16 @@
 		to_chat(src, SPAN_NOTICE("You cannot leave your host in your current state."))
 		return
 
-	to_chat(src, SPAN_NOTICE("You begin disconnecting from [host]'s synapses and prodding at their internal ear canal."))
+	var/exit_time = 10 SECONDS
+	if(!start_ability(host, exit_time))
+		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
+		return
 
+	to_chat(src, SPAN_NOTICE("You begin disconnecting from [host]'s synapses and prodding at their internal ear canal."))
 	if(!host.stat)
 		to_chat(host, SPAN_WARNING("An odd, uncomfortable pressure begins to build inside your skull, behind your ear..."))
 
-	addtimer(CALLBACK(src, .proc/exit_host), 100)
+	addtimer(CALLBACK(src, .proc/exit_host), exit_time)
 
 /mob/living/simple_animal/borer/proc/exit_host()
 	if(!host || !src)
@@ -48,19 +52,28 @@
 		return
 
 	var/list/choices = list()
-	for(var/mob/living/carbon/C in view(1,src))
+	for(var/mob/living/carbon/C in view(2, src))
 		if(src.Adjacent(C))
 			choices += C
 
-	if(!choices.len)
+	if(!length(choices))
 		to_chat(src, SPAN_NOTICE("There are no viable hosts within range."))
 		return
 
 	var/mob/living/carbon/M = input(src,"Who do you wish to infest?") in null|choices
+	if(M)
+		do_infest(M)
 
+/mob/living/simple_animal/borer/proc/do_infest(var/mob/living/carbon/M)
+	if(host)
+		to_chat(src, SPAN_NOTICE("You are already within a host."))
+		return
+	if(stat)
+		to_chat(src, SPAN_NOTICE("You cannot infest a target in your current state."))
+		return
 	if(!M || !src)
 		return
-	if(!(src.Adjacent(M)))
+	if(!Adjacent(M))
 		return
 	if(M.has_brain_worms())
 		to_chat(src, SPAN_WARNING("You cannot infest someone who is already infested!"))
@@ -73,8 +86,12 @@
 		if(!E || E.is_stump())
 			to_chat(src, SPAN_WARNING("\The [H] does not have a head!"))
 			return
-		if(!H.species.has_organ[BP_BRAIN])
-			to_chat(src, SPAN_WARNING("\The [H] does not seem to have an ear canal to breach."))
+		var/obj/item/organ/internal/I = H.species.has_organ[BP_BRAIN]
+		if(!I)
+			to_chat(src, SPAN_WARNING("\The [H] doesn't have a brain!"))
+			return
+		if(istype(I, /obj/item/organ/internal/borer))
+			to_chat(src, SPAN_WARNING("You cannot infest someone who is already infested!"))
 			return
 		if(H.isSynthetic())
 			to_chat(src, SPAN_NOTICE("You can't affect synthetics."))
@@ -103,6 +120,9 @@
 		src.host = M
 		src.host.status_flags |= PASSEMOTES
 		src.forceMove(M)
+
+		if(client)
+			client.screen += host.healths
 
 		//Update their traitor status.
 		if(host.mind)
@@ -236,12 +256,14 @@
 		if(C.stat != 2)
 			choices += C
 
+	var/mob/living/carbon/M = input(src, "Who do you wish to dominate?") in null|choices
+	if(M)
+		do_paralyze(M)
+
+/mob/living/simple_animal/borer/proc/do_paralyze(var/mob/living/carbon/M)
 	if(world.time - used_dominate < 150)
 		to_chat(src, SPAN_NOTICE("You cannot use that ability again so soon."))
 		return
-
-	var/mob/living/carbon/M = input(src, "Who do you wish to dominate?") in null|choices
-
 	if(!M || !src)
 		return
 	if(M.isSynthetic())
@@ -279,10 +301,15 @@
 			to_chat(src, SPAN_WARNING("\The [host]'s mind is shielded against your powers."))
 			return
 
+	var/takeover_time = 10 SECONDS + (host.getBrainLoss() * 5)
+	if(!start_ability(host, takeover_time))
+		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
+		return
+
 	to_chat(src, SPAN_WARNING("You begin delicately adjusting your connection to the host brain..."))
 	to_chat(host, SPAN_WARNING("You feel a tingling sensation at the back of your head."))
 
-	addtimer(CALLBACK(src, .proc/host_takeover), 100+(host.getBrainLoss()*5))
+	addtimer(CALLBACK(src, .proc/host_takeover), takeover_time)
 
 /mob/living/simple_animal/borer/proc/host_takeover()
 	if(!host || !src || controlling)
@@ -303,8 +330,8 @@
 	host_brain = new(src)
 
 	host_brain.ckey = host.ckey
-
-	host_brain.name = host.name
+	host_brain.name = host.real_name
+	host_brain.real_name = "[host_brain.name] (captive host)"
 
 	if(!host_brain.computer_id)
 		host_brain.computer_id = h2b_id
@@ -357,7 +384,7 @@
 	var/mob/living/simple_animal/borer/B = has_brain_worms()
 
 	if(B?.host_brain)
-		to_chat(src, SPAN_WARNING("You withdraw your probosci, releasing control of [B.host_brain]"))
+		to_chat(src, SPAN_WARNING("You withdraw your probosci, releasing control of [B.host_brain]."))
 
 		B.detach()
 
@@ -366,7 +393,7 @@
 		verbs -= /mob/living/carbon/proc/spawn_larvae
 
 	else
-		to_chat(src, SPAN_DANGER("Something has gone terribly wrong, as your host's brain does not seem to contain you. Make a Github report and ahelp to get out."))
+		to_chat(src, SPAN_DANGER("Something has gone terribly wrong, as your host's brain does not seem to contain you. Make a GitHub report and ahelp to get out."))
 
 //Brain slug proc for tormenting the host.
 /mob/living/carbon/proc/punish_host()
@@ -437,20 +464,30 @@
 			to_chat(src, SPAN_WARNING("\The [host]'s mind is shielded against your powers."))
 			return
 
+	var/jumpstart_time = 15 SECONDS
+	if(!start_ability(host, jumpstart_time))
+		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
+		return
+
 	chemicals -= 150
 	to_chat(src, SPAN_NOTICE("You probe your tendrils deep within your host's zona bovinae, seeking to unleash their potential."))
 	to_chat(host, SPAN_DANGER("You feel some tendrils probe at the back of your head..."))
 	to_chat(host, FONT_LARGE(SPAN_WARNING("You feel something terrible coming on...")))
-	addtimer(CALLBACK(src, .proc/jumpstart_psi), 150)
+
+	addtimer(CALLBACK(src, .proc/jumpstart_psi), jumpstart_time)
 
 /mob/living/simple_animal/borer/proc/jumpstart_psi()
+	if(!host)
+		return
+
 	to_chat(src, SPAN_NOTICE("You succeed in interfacing with the host's zona bovinae, this will be a painful process for them."))
-	host.awaken_psi_basic("something in your head")
+	host.awaken_psi_basic("something in your head", FALSE)
+	host.add_language(LANGUAGE_TCB) // if we don't have TCB, give them TCB | this allows monkey borers to RP
 
 /mob/living/simple_animal/borer/verb/advance_faculty()
 	set category = "Abilities"
 	set name = "Advance Psionic Faculty (75)"
-	set desc = "Advance one of your host's psionic faculties' by one step."
+	set desc = "Advance one of your host's psionic faculties by one step."
 
 	if(!host)
 		to_chat(src, SPAN_NOTICE("You are not inside a host body."))
@@ -475,19 +512,31 @@
 	if(!selected_faculty)
 		return
 	selected_faculty = lowertext(selected_faculty)
-	if(host.psi.get_rank(selected_faculty) >= PSI_RANK_GRANDMASTER)
+	var/max_rank = islesserform(host) ? PSI_RANK_OPERANT : PSI_RANK_MASTER
+	if(host.psi.get_rank(selected_faculty) >= max_rank)
 		to_chat(src, SPAN_NOTICE("This faculty has already been pushed to the max potential you can achieve!"))
+		return
+
+	var/faculty_time = 10 SECONDS
+	if(!start_ability(host, faculty_time))
+		to_chat(src, SPAN_WARNING("You're busy doing something else, complete that task first."))
 		return
 
 	chemicals -= 75
 	to_chat(src, SPAN_NOTICE("You probe your tendrils deep within your host's zona bovinae, seeking to upgrade their abilities."))
 	to_chat(host, SPAN_WARNING("You feel a burning, tingling sensation at the back of your head..."))
-	addtimer(CALLBACK(src, .proc/faculty_upgrade, selected_faculty), 100)
+
+	addtimer(CALLBACK(src, .proc/faculty_upgrade, selected_faculty), faculty_time)
 
 /mob/living/simple_animal/borer/proc/faculty_upgrade(var/selected_faculty)
-	host.psi.set_rank(selected_faculty, host.psi.get_rank(selected_faculty) + 1)
-	host.psi.update()
-	to_chat(src, SPAN_NOTICE("You successfully manage to upgrade your host's [selected_faculty] faculty."))
+	if(!host)
+		return
+
+	var/host_psi_rank = host.psi.get_rank(selected_faculty)
+	var/next_rank = host_psi_rank > PSI_RANK_BLUNT ? host_psi_rank + 1 : PSI_RANK_OPERANT
+	host.psi.set_rank(selected_faculty, next_rank)
+	host.psi.update(TRUE)
+	to_chat(src, SPAN_NOTICE("You successfully manage to upgrade your host to [psychic_ranks_to_strings[host.psi.ranks[selected_faculty]]] [selected_faculty]."))
 	to_chat(host, SPAN_GOOD("A breeze of fresh air washes over your mind, you feel powerful!"))
 	to_chat(host, SPAN_NOTICE("You have been psionically enlightened. You are now a [psychic_ranks_to_strings[host.psi.ranks[selected_faculty]]] in the [selected_faculty] faculty."))
 

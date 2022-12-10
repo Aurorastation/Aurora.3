@@ -11,7 +11,6 @@ var/list/admin_departments
 	insert_anim = "faxsend"
 	req_one_access = list(access_lawyer, access_heads)
 	density = 0//It's a small machine that sits on a table, this allows small things to walk under that table
-	use_power = 1
 	idle_power_usage = 30
 	active_power_usage = 200
 
@@ -142,7 +141,7 @@ var/list/admin_departments
 				alert_pdas -= pda
 				SSvueui.check_uis_for_change(src)
 
-/obj/machinery/photocopier/faxmachine/machinery_process()
+/obj/machinery/photocopier/faxmachine/process()
 	.=..()
 	var/static/ui_update_delay = 0
 
@@ -186,7 +185,7 @@ var/list/admin_departments
 	if(stat & (BROKEN|NOPOWER))
 		return 0
 
-	use_power(200)
+	use_power_oneoff(200)
 
 	var/success = 0
 	for(var/obj/machinery/photocopier/faxmachine/F in allfaxes)
@@ -220,13 +219,13 @@ var/list/admin_departments
 	// give the sprite some time to flick
 	spawn(20)
 		if (istype(incoming, /obj/item/paper))
-			copy(incoming, 1, 0, 0)
+			copy(src, incoming, 1, 0, 0)
 		else if (istype(incoming, /obj/item/photo))
-			photocopy(incoming)
+			photocopy(src, incoming)
 		else if (istype(incoming, /obj/item/paper_bundle))
-			bundlecopy(incoming)
+			bundlecopy(src, incoming)
 		do_pda_alerts()
-		use_power(active_power_usage)
+		use_power_oneoff(active_power_usage)
 
 	return 1
 
@@ -234,7 +233,7 @@ var/list/admin_departments
 	var success = 1
 	for (var/dest in (alldepartments - department))
 		// Send to everyone except this department
-		delay(1)
+		sleep(1)
 		success &= sendfax(dest, 0)	// 0: don't display success/error messages
 
 		if(!success)// Stop on first error
@@ -250,15 +249,15 @@ var/list/admin_departments
 	if(stat & (BROKEN|NOPOWER))
 		return
 
-	use_power(200)
+	use_power_oneoff(200)
 
 	var/obj/item/rcvdcopy
 	if (istype(copyitem, /obj/item/paper))
-		rcvdcopy = copy(copyitem, 0)
+		rcvdcopy = copy(src, copyitem, 0)
 	else if (istype(copyitem, /obj/item/photo))
-		rcvdcopy = photocopy(copyitem)
+		rcvdcopy = photocopy(src, copyitem)
 	else if (istype(copyitem, /obj/item/paper_bundle))
-		rcvdcopy = bundlecopy(copyitem, 0)
+		rcvdcopy = bundlecopy(src, copyitem, 0)
 	else
 		visible_message("[src] beeps, \"Error transmitting message.\"")
 		return
@@ -306,9 +305,6 @@ var/list/admin_departments
 	discord_bot.send_to_cciaa(discord_msg)
 
 /obj/machinery/photocopier/faxmachine/proc/do_pda_alerts()
-	if (!alert_pdas || !alert_pdas.len)
-		return
-
-	for (var/obj/item/modular_computer/pda in alert_pdas)
+	for(var/obj/item/modular_computer/pda in alert_pdas)
 		var/message = "New message has arrived!"
 		pda.get_notification(message, 1, "[department] [name]")

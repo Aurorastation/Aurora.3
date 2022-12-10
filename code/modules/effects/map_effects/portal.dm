@@ -15,7 +15,7 @@ Portals do have some specific requirements when mapping them in;
 	  E.g. both being on the left most side on a horizontal row.
 Portals also have some limitations to be aware of when mapping. Some of these are not an issue if you're trying to make an 'obvious' portal;
 	- The objects seen through portals are purely visual, which has many implications,
-	  such as simple_mob AIs being blind to mobs on the other side of portals.
+	  such as simple_animal AIs being blind to mobs on the other side of portals.
 	- Objects on the other side of a portal can be interacted with if the interaction has no range limitation,
 	  or the distance between the two portal sides happens to be less than the interaction max range. Examine will probably work,
 	  while picking up an item that appears to be next to you will fail.
@@ -138,7 +138,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 
 /obj/effect/map_effect/portal/master/Initialize()
 	LAZYADD(all_portal_masters, src)
-	LAZYADD(listening_objects, src)
+	become_hearing_sensitive()
 	find_lines()
 	..()
 	return INITIALIZE_HINT_LATELOAD
@@ -150,7 +150,6 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 
 /obj/effect/map_effect/portal/master/Destroy()
 	LAZYREMOVE(all_portal_masters, src)
-	LAZYREMOVE(listening_objects, src)
 	for(var/thing in portal_lines)
 		qdel(thing)
 	return ..()
@@ -232,13 +231,10 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	if(!counterpart)
 		return
 	var/turf/T = counterpart.get_focused_turf()
-	var/list/mobs_to_relay = list()
-	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, world.view, mobs_to_relay, objs)
+	var/list/mobs_to_relay = get_hearers_in_view(world.view, T)
 
-	for(var/thing in mobs_to_relay)
-		var/mob/mob = thing
-		var/rendered = "<span class='message'>[text]</span>"
+	for(var/mob/mob in mobs_to_relay)
+		var/rendered = span("message", "[text]")
 		mob.show_message(rendered)
 
 	..()
@@ -247,14 +243,11 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 /obj/effect/map_effect/portal/master/show_message(msg, type, alt, alt_type)
 	if(!counterpart)
 		return
-	var/rendered = "<span class='message'>[msg]</span>"
+	var/rendered = span("message", "[msg]")
 	var/turf/T = counterpart.get_focused_turf()
-	var/list/mobs_to_relay = list()
-	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, world.view, mobs_to_relay, objs)
+	var/list/mobs_to_relay = get_hearers_in_view(world.view, T)
 
-	for(var/thing in mobs_to_relay)
-		var/mob/mob = thing
+	for(var/mob/mob in mobs_to_relay)
 		mob.show_message(rendered)
 
 	..()
@@ -264,12 +257,9 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	if(!counterpart)
 		return
 	var/turf/T = counterpart.get_focused_turf()
-	var/list/mobs_to_relay = list()
-	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, world.view, mobs_to_relay, objs)
+	var/list/mobs_to_relay = get_hearers_in_view(world.view, T)
 
-	for(var/thing in mobs_to_relay)
-		var/mob/mob = thing
+	for(var/mob/mob in mobs_to_relay)
 		var/accent_icon = M.get_accent_icon(speaking, src)
 		var/name_used = M.GetVoice()
 		var/rendered = null

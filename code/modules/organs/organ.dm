@@ -1,6 +1,6 @@
 /obj/item/organ
 	name = "organ"
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/organs/organs.dmi'
 	drop_sound = 'sound/items/drop/flesh.ogg'
 	pickup_sound = 'sound/items/pickup/flesh.ogg'
 	default_action_type = /datum/action/item_action/organ
@@ -13,6 +13,7 @@
 	var/vital //Lose a vital limb, die immediately.
 	var/rejecting   // Is this organ already being rejected?
 	var/is_augment = FALSE
+	var/death_time
 
 	//Organ damage stats.
 	var/damage = 0 // amount of damage to the organ
@@ -30,8 +31,9 @@
 	var/robotic = 0 //For being a robot
 	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
 	var/robotic_name
-	var/robotic_sprite
+	var/robotic_sprite = TRUE
 	var/emp_coeff = 1 //coefficient for damages taken by EMP, if the organ is robotic.
+	var/model
 
 	//Lists.
 	var/list/transplant_data
@@ -51,11 +53,6 @@
 	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
 		args[1] = TRUE
 		SSatoms.InitAtom(src, args)
-
-	if(max_damage)
-		min_broken_damage = Floor(max_damage / 2)
-	else
-		max_damage = min_broken_damage * 2
 
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -128,6 +125,7 @@
 		return
 	damage = max_damage
 	status |= ORGAN_DEAD
+	death_time = world.time
 	STOP_PROCESSING(SSprocessing, src)
 	if(owner && vital)
 		owner.death()
@@ -138,11 +136,9 @@
 /obj/item/organ/proc/bruise()
 	damage = max(damage, min_bruised_damage)
 
-/obj/item/organ/proc/can_feel_pain()
-	return (!BP_IS_ROBOTIC(src) && (!species || !(species.flags & NO_PAIN)))
-
+#define ORGAN_RECOVERY_THRESHOLD (5 MINUTES)
 /obj/item/organ/proc/can_recover()
-	return max_damage > 0
+	return (max_damage > 0) && !(status & ORGAN_DEAD) || death_time >= world.time - ORGAN_RECOVERY_THRESHOLD
 
 /obj/item/organ/process()
 	if(loc != owner)
@@ -227,16 +223,13 @@
 	if (CE_ANTIBIOTIC in owner.chem_effects)
 		antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
 
-	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(30))
+	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(35))
 		germ_level--
 
 	if (germ_level >= INFECTION_LEVEL_ONE/2)
-		//aiming for germ level to go from ambient to INFECTION_LEVEL_TWO in an average of 15 minutes
-		if(antibiotics < 5 && prob(round(germ_level/6)))
+		//aiming for germ level to go from ambient to INFECTION_LEVEL_TWO in an average of 17 minutes
+		if(antibiotics < 5 && prob(round(germ_level/7)))
 			germ_level++
-
-	if(germ_level >= INFECTION_LEVEL_ONE)
-		owner.add_chemical_effect(CE_FEVER, germ_level/INFECTION_LEVEL_ONE) //10u of Perconol minimum for a level 3 infection
 
 	if (germ_level >= INFECTION_LEVEL_TWO)
 		var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
@@ -284,22 +277,53 @@
 /obj/item/organ/proc/is_usable()
 	return !(status & (ORGAN_CUT_AWAY|ORGAN_MUTATED|ORGAN_DEAD))
 
+/obj/item/organ/proc/is_infected()
+	return (germ_level >= INFECTION_LEVEL_ONE)
+
+/obj/item/organ/proc/estimated_infection_level()
+	if(germ_level < INFECTION_LEVEL_ONE)
+		return "Healthy"
+	else if(germ_level >= INFECTION_LEVEL_ONE && germ_level < INFECTION_LEVEL_TWO)
+		return "Infection Level One"
+	else if(germ_level >= INFECTION_LEVEL_TWO && germ_level < INFECTION_LEVEL_THREE)
+		return "Infection Level Two"
+	else
+		return "Infection Level Three"
+
+/obj/item/organ/proc/increase_germ_level()
+	switch(estimated_infection_level())
+		if("Healthy")
+			germ_level = INFECTION_LEVEL_ONE
+		if("Infection Level One")
+			germ_level = INFECTION_LEVEL_TWO
+		if("Infection Level Two")
+			germ_level = INFECTION_LEVEL_THREE
+
+/obj/item/organ/proc/decrease_germ_level()
+	switch(estimated_infection_level())
+		if("Infection Level One")
+			germ_level = 0
+		if("Infection Level Two")
+			germ_level = INFECTION_LEVEL_ONE
+		if("Infection Level Three")
+			germ_level = INFECTION_LEVEL_TWO
+
 //Germs
 /obj/item/organ/proc/handle_antibiotics()
-	if(!owner || !(CE_ANTIBIOTIC in owner.chem_effects))
+	if(!owner || !(CE_ANTIBIOTIC in owner.chem_effects) || (germ_level <= 0))
 		return
 
 	var/antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
 
-	if (!germ_level || antibiotics < 5)
-		return
-
-	if (germ_level < INFECTION_LEVEL_ONE)
-		germ_level = 0	//cure instantly
-	else if (germ_level < INFECTION_LEVEL_TWO)
-		germ_level -= 6	//at germ_level == 500, this should cure the infection in a minute
+	if(germ_level <= INFECTION_LEVEL_ONE)
+		if(antibiotics >= 5)
+			germ_level = 0 //just finish up this small infection
+		else
+			germ_level = max(germ_level - (antibiotics * 5), 0) //Clears very quickly, finishing up remnants of infection
+	else if(germ_level <= INFECTION_LEVEL_TWO)
+		germ_level = max(germ_level - min(antibiotics, 6), 0) //Still quick, infection's not too bad. At max dose and germ_level 500, should take a minute or two
 	else
-		germ_level -= 2 //at germ_level == 1000, this will cure the infection in 5 minutes
+		germ_level = max(germ_level - min(antibiotics * 0.5, 3), 0) //Big infections, very slow to stop. At max dose and germ_level 1000, should take five to six minutes
 
 //Adds autopsy data for used_weapon.
 /obj/item/organ/proc/add_autopsy_data(var/used_weapon, var/damage)
@@ -330,10 +354,10 @@
 	robotic = ROBOTIC_MECHANICAL
 	status = ORGAN_ROBOT
 	status |= ORGAN_ASSISTED
+	drop_sound = 'sound/items/drop/metalweapon.ogg'
+	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 	if(robotic_name)
 		name = robotic_name
-	if(robotic_sprite)
-		icon_state = robotic_sprite
 
 /obj/item/organ/proc/mechassist() //Used to add things like pacemakers, etc
 	robotize()

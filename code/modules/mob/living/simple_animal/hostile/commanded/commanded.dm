@@ -5,6 +5,7 @@
 	melee_damage_upper = 0
 	density = FALSE
 	belongs_to_station = TRUE
+	hostile_nameable = TRUE
 	var/short_name = null
 	var/list/command_buffer = list()
 	var/list/known_commands = list("stay", "stop", "attack", "follow")
@@ -29,6 +30,18 @@
 		command_buffer.Add(speaker)
 		command_buffer.Add(lowertext(html_decode(message)))
 	return 0
+
+/mob/living/simple_animal/hostile/commanded/can_name(var/mob/living/M)
+	if(master && (M != master))
+		to_chat(M, SPAN_WARNING("You can't name \the [src] because you aren't their master!"))
+		return FALSE
+	return ..()
+
+/mob/living/simple_animal/hostile/commanded/do_nickname(var/mob/living/M)
+	var/input = sanitizeSafe(input("What nickname do you want to give \the [src]?","Choose a name") as null|text, MAX_NAME_LEN)
+	if(!input)
+		return
+	short_name = input
 
 /mob/living/simple_animal/hostile/commanded/think()
 	while(command_buffer.len > 0)
@@ -193,7 +206,7 @@
 		target_mob = null
 		audible_emote("[pick(sad_emote)].",0)
 		return
-	if(!. && retribution)
+	if(. && retribution)
 		stance = HOSTILE_STANCE_ATTACK
 		target_mob = user
 		allowed_targets += user //fuck this guy in particular.

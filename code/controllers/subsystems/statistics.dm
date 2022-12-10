@@ -5,7 +5,7 @@
 	wait = 1 MINUTE
 	flags = SS_NO_TICK_CHECK | SS_BACKGROUND
 	priority = SS_PRIORITY_STATISTICS
-	
+
 	var/kicked_clients = 0
 
 	var/list/messages = list()		//Stores messages of non-standard frequencies
@@ -22,8 +22,10 @@
 	var/list/msg_raider = list()
 	var/list/msg_burglar = list()
 	var/list/msg_ninja = list()
+	var/list/msg_bluespace = list()
 	var/list/msg_cargo = list()
 	var/list/msg_service = list()
+	var/list/msg_ship = list()
 
 	var/list/datum/statistic/simple_statistics = list()
 
@@ -64,8 +66,7 @@
 		for(var/mob/M in player_list)
 			if(M.client)
 				playercount += 1
-		establish_db_connection(dbcon)
-		if(!dbcon.IsConnected())
+		if(!establish_db_connection(dbcon))
 			log_game("SQL ERROR during population polling. Failed to connect.")
 		else
 			var/sqltime = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")
@@ -115,7 +116,7 @@
 	var/pda_msg_amt = 0
 	var/rc_msg_amt = 0
 
-	for(var/obj/machinery/message_server/MS in SSmachinery.all_machines)
+	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 		if(MS.pda_msgs.len > pda_msg_amt)
 			pda_msg_amt = MS.pda_msgs.len
 		if(MS.rc_msgs.len > rc_msg_amt)
@@ -162,8 +163,7 @@
 		return
 
 	round_end_data_gathering() //round_end time logging and some other data processing
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return
 
 	for(var/datum/feedback_variable/FV in feedback)
@@ -249,8 +249,7 @@
 	var/area/placeofdeath = get_area(H)
 	var/podname = placeofdeath ? "[placeofdeath]" : "Unknown area"
 
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		log_game("SQL ERROR during death reporting. Failed to connect.")
 	else
 		var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_death (name, ckey, char_id, job, special, pod, tod, laname, lackey, gender, bruteloss, fireloss, brainloss, oxyloss, coord) VALUES \

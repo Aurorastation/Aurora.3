@@ -12,7 +12,7 @@
 /datum/uplink_item/abstract/announcements/fake_centcom/New()
 	..()
 	name = "[current_map.boss_name] Update Announcement"
-	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 3)
+	item_cost = 5
 	desc = "Causes a falsified [current_map.boss_name] Update. Triggers immediately after supplying additional data."
 
 /datum/uplink_item/abstract/announcements/fake_centcom/extra_args(var/mob/user)
@@ -32,7 +32,7 @@
 	name = "Crew Arrival Announcement/Records"
 	desc = "Creates a fake crew arrival announcement as well as fake crew records, using your current appearance (including held items!) and worn id card. Trigger with care!"
 	antag_roles = list(MODE_MERCENARY)
-	item_cost = 8
+	item_cost = 4
 
 /datum/uplink_item/abstract/announcements/fake_crew_arrival/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/user, var/list/args)
 	if(!user)
@@ -46,18 +46,23 @@
 		random_record = new(user)
 
 	var/datum/record/general/record = random_record.Copy()
-	
+
 	if(I)
 		record.age = I.age
-		record.rank = I.assignment
-		record.real_rank = I.assignment
 		record.name = I.registered_name
 		record.sex = I.sex
+		record.employer = I.employer_faction
+		var/datum/faction/id_faction = SSjobs.name_factions[I.employer_faction]
+		var/faction_abbreviation = id_faction.title_suffix
+		var/assignment = "[I.assignment][ faction_abbreviation ? " ([faction_abbreviation])" : ""]"
+		record.rank = assignment
+		record.real_rank = assignment
 	else
 		var/mob/living/carbon/human/H
 		if(istype(user,/mob/living/carbon/human))
 			H = user
 			record.age = H.age
+			record.employer = H.employer_faction
 		else
 			record.age = initial(H.age)
 		var/assignment = GetAssignment(user)
@@ -98,7 +103,7 @@
 /datum/uplink_item/abstract/announcements/fake_radiation
 	name = "Radiation Storm Announcement"
 	desc = "Interferes with the station's radiation sensors. Triggers immediately upon investment."
-	item_cost = 4
+	item_cost = 3
 
 /datum/uplink_item/abstract/announcements/fake_radiation/get_goods(var/obj/item/device/uplink/U, var/loc)
 	var/static/cooldown = 0

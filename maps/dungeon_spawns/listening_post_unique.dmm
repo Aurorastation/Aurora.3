@@ -261,7 +261,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "aM" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -280,7 +280,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "aP" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "aQ" = (
@@ -508,7 +508,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "by" = (
-/obj/structure/bed/chair/office/bridge/generic{
+/obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,

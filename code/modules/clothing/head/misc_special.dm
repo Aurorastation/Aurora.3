@@ -22,7 +22,9 @@
 		)
 	matter = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 1000)
 	var/up = 0
-	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+			melee = ARMOR_MELEE_SMALL
+		)
 	flags_inv = (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 	body_parts_covered = HEAD|FACE|EYES
 	action_button_name = "Flip Welding Mask"
@@ -74,6 +76,7 @@
 		to_chat(usr, "You push the [src] up out of your face.")
 	update_clothing_icon()	//so our mob-overlays
 	usr.update_action_buttons()
+	usr.handle_vision()
 
 
 /*
@@ -222,7 +225,7 @@
 		new /obj/item/clothing/head/pumpkin(src.loc)
 		new /obj/item/trash/candle(src.loc)
 		if(istype(src.loc, /mob))
-			src.dropped()
+			src.dropped(user)
 		to_chat(user, SPAN_NOTICE("The candle burns out."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		STOP_PROCESSING(SSprocessing, src)
@@ -270,4 +273,4 @@
 	w_class = ITEMSIZE_SMALL
 	body_parts_covered = HEAD
 	attack_verb = list("warned", "cautioned", "smashed")
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)

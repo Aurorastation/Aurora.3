@@ -1,6 +1,7 @@
 /obj/structure/shuttle
 	name = "shuttle"
 	icon = 'icons/turf/shuttle.dmi'
+	opacity = 1
 
 /obj/structure/shuttle/window
 	name = "shuttle window"
@@ -18,7 +19,7 @@
 /obj/structure/shuttle/engine
 	name = "engine"
 	density = 1
-	anchored = 1.0
+	anchored = 1
 	atmos_canpass = CANPASS_NEVER
 
 /obj/structure/shuttle/engine/heater
@@ -32,7 +33,6 @@
 /obj/structure/shuttle/engine/propulsion
 	name = "propulsion"
 	icon_state = "propulsion"
-	opacity = 1
 
 /obj/structure/shuttle/engine/propulsion/burst
 	name = "burst"

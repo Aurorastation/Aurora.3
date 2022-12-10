@@ -14,8 +14,7 @@ var/global/list/mecha_damage_overlay_cache = list()
 // No software required: taser. light, radio.
 #define MECH_SOFTWARE_UTILITY "utility equipment"                // Plasma torch, clamp, drill.
 #define MECH_SOFTWARE_MEDICAL "medical support systems"          // Sleeper.
-#define MECH_SOFTWARE_WEAPONS "ballistic weapon systems"         // Ballistics.
-#define MECH_SOFTWARE_ADVWEAPONS "advanced weapon systems"       // Railguns, ion rifle, missile launcher.
+#define MECH_SOFTWARE_WEAPONS "exosuit weapon systems"           // Combat equipment
 #define MECH_SOFTWARE_CULT "daemon systems"                      // Souljavelin, Doomblade
 #define MECH_SOFTWARE_ENGINEERING "advanced engineering systems" // RCD.
 
@@ -37,3 +36,8 @@ var/global/list/mecha_damage_overlay_cache = list()
 
 #define FRAME_WIRED 1
 #define FRAME_WIRED_ADJUSTED 2
+
+//POWER!
+#define MECH_POWER_OFF 0
+#define MECH_POWER_TRANSITION 1
+#define MECH_POWER_ON 2

@@ -17,7 +17,7 @@
 /mob/living/carbon/human/singularity_act()
 	var/gain = 20
 	if(mind)
-		if((mind.assigned_role == "Station Engineer") || (mind.assigned_role == "Chief Engineer"))
+		if((mind.assigned_role == "Engineer") || (mind.assigned_role == "Chief Engineer"))
 			gain = 100
 		if(mind.assigned_role == "Assistant")
 			gain = rand(0, 300)
@@ -32,7 +32,7 @@
 			if(prob(current_size*5) && hand.w_class >= ((11-current_size)/2) && u_equip(hand))
 				step_towards(hand, src)
 				to_chat(src, "<span class = 'warning'>The [S] pulls \the [hand] from your grip!</span>")
-	apply_effect(current_size * 3, IRRADIATE, blocked = getarmor(null, "rad"))
+	apply_damage(current_size * 3, IRRADIATE, damage_flags = DAM_DISPERSED)
 	if(shoes)
 		if(shoes.item_flags & NOSLIP) return 0
 	..()

@@ -77,8 +77,8 @@
 		H.u_equip(H.handcuffed)
 		qdel(cuffs)
 
-	if(H.buckled)
-		H.buckled.unbuckle_mob()
+	if(H.buckled_to)
+		H.buckled_to.unbuckle()
 
 	changeling.chem_charges--
 	H.visible_message("<span class='warning'>[H] transforms!</span>")
@@ -493,8 +493,8 @@
 				continue
 			M.drop_from_inventory(I)
 
-	if(M.buckled)
-		M.buckled.unbuckle_mob()
+	if(M.buckled_to)
+		M.buckled_to.unbuckle()
 
 	if(M.mind)
 		M.mind.transfer_to(ling)

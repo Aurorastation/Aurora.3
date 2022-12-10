@@ -16,8 +16,6 @@
 	name = "emergency closet"
 	desc = "It's a storage unit for emergency breathmasks and o2 tanks."
 	icon_state = "emergency"
-	icon_closed = "emergency"
-	icon_opened = "emergencyopen"
 
 /obj/structure/closet/emcloset/fill()
 	switch (pickweight(list("small" = 50, "aid" = 20, "tank" = 10, "seal" = 10, "all" = 10)))
@@ -44,6 +42,7 @@
 			new /obj/item/clothing/mask/gas/alt(src)
 			new /obj/item/tank/emergency_oxygen/engi(src)
 			new /obj/item/clothing/mask/gas/alt(src)
+			new /obj/item/clothing/mask/gas/half(src)
 			new /obj/item/device/oxycandle(src)
 			new /obj/item/device/oxycandle(src)
 			new /obj/item/airbubble(src)
@@ -54,13 +53,13 @@
 			new /obj/item/clothing/suit/space/emergency(src)
 			new /obj/item/clothing/head/helmet/space/emergency(src)
 			new /obj/item/device/oxycandle(src)
-			new /obj/item/inflatable/door(src)
-			new /obj/item/inflatable/wall(src)
-			new /obj/item/inflatable/wall(src)
+			new /obj/item/storage/bag/inflatable/emergency(src)
 		if ("all")
 			new /obj/item/storage/toolbox/emergency(src)
 			new /obj/item/tank/emergency_oxygen/engi(src)
 			new /obj/item/clothing/mask/breath(src)
+			new /obj/item/clothing/mask/gas/alt(src)
+			new /obj/item/clothing/mask/gas/half(src)
 			new /obj/item/storage/firstaid/o2(src)
 			new /obj/item/clothing/suit/space/emergency(src)
 			new /obj/item/clothing/suit/space/emergency(src)
@@ -71,42 +70,57 @@
 			new /obj/item/device/oxycandle(src)
 			new /obj/item/airbubble(src)
 			new /obj/item/airbubble(src)
-			new /obj/item/inflatable/door(src)
-			new /obj/item/inflatable/wall(src)
-			new /obj/item/inflatable/wall(src)
+			new /obj/item/storage/bag/inflatable/emergency(src)
 
 /obj/structure/closet/emcloset/legacy/fill()
 	..()
 	new /obj/item/tank/oxygen(src)
 	new /obj/item/clothing/mask/gas(src)
 
+/obj/structure/closet/emcloset/offworlder
+	name = "offworlder supplies"
+	desc = "It's a storage unit for offworlder breathing apparatus."
+
+/obj/structure/closet/emcloset/offworlder/fill()
+	new /obj/item/rig/light/offworlder
+	new /obj/item/rig/light/offworlder
+	new /obj/item/rig/light/offworlder
+	new /obj/item/clothing/accessory/offworlder/bracer
+	new /obj/item/clothing/accessory/offworlder/bracer
+	new /obj/item/clothing/accessory/offworlder/bracer
+	new /obj/item/storage/pill_bottle/rmt
+	new /obj/item/storage/pill_bottle/rmt
+	new /obj/item/storage/pill_bottle/rmt
+	new /obj/item/clothing/mask/offworlder
+
 /*
  * Fire Closet
  */
 /obj/structure/closet/firecloset
-	name = "fire-safety closet"
-	desc = "It's a storage unit for fire-fighting supplies."
-	icon_state = "firecloset"
-	icon_closed = "firecloset"
-	icon_opened = "fireclosetopen"
+	name = "firefighting closet"
+	desc = "It's a storage unit for firefighting supplies."
+	icon_state = "fire"
 
 /obj/structure/closet/firecloset/fill()
-	new /obj/item/clothing/suit/fire/firefighter(src)
-	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/clothing/head/hardhat/firefighter(src)
+	new /obj/item/clothing/suit/fire(src)
+	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/crowbar/rescue_axe/red(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/extinguisher(src)
-	new /obj/item/clothing/head/hardhat/red(src)
+	new /obj/item/inflatable/door(src)
+	new /obj/item/inflatable/wall(src)
+	new /obj/item/inflatable/wall(src)
 
 /obj/structure/closet/firecloset/full/fill()
-	new /obj/item/clothing/suit/fire/firefighter(src)
-	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/clothing/head/hardhat/firefighter(src)
+	new /obj/item/clothing/suit/fire(src)
+	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/crowbar/rescue_axe/red(src)
 	new /obj/item/device/flashlight(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/extinguisher(src)
-	new /obj/item/clothing/head/hardhat/red(src)
-
-
-
+	new /obj/item/storage/bag/inflatable/emergency(src)
 
 /*
  * Tool Closet
@@ -114,9 +128,8 @@
 /obj/structure/closet/toolcloset
 	name = "tool closet"
 	desc = "It's a storage unit for tools."
-	icon_state = "toolcloset"
-	icon_closed = "toolcloset"
-	icon_opened = "toolclosetopen"
+	icon_state = "eng"
+	icon_door = "eng_tool"
 
 /obj/structure/closet/toolcloset/fill()
 	if(prob(40))
@@ -152,6 +165,8 @@
 	if(prob(40))
 		new /obj/item/clothing/head/hardhat(src)
 
+/obj/structure/closet/toolcloset/empty/fill()
+
 
 /*
  * Radiation Closet
@@ -159,17 +174,16 @@
 /obj/structure/closet/radiation
 	name = "radiation suit closet"
 	desc = "It's a storage unit for rad-protective suits."
-	icon_state = "radsuitcloset"
-	icon_opened = "toolclosetopen"
-	icon_closed = "radsuitcloset"
+	icon_state = "eng"
+	icon_door = "eng_rad"
 
 /obj/structure/closet/radiation/fill()
-	new /obj/item/clothing/suit/radiation(src)
-	new /obj/item/clothing/head/radiation(src)
-	new /obj/item/clothing/glasses/safety/goggles(src)
-	new /obj/item/clothing/suit/radiation(src)
-	new /obj/item/clothing/head/radiation(src)
-	new /obj/item/clothing/glasses/safety/goggles(src)
+	for(var/i = 1 to 2)
+		new /obj/item/clothing/head/radiation(src)
+		new /obj/item/clothing/suit/radiation(src)
+		new /obj/item/clothing/glasses/safety/goggles(src)
+	for(var/i = 1 to 2)
+		new /obj/item/reagent_containers/hypospray/autoinjector/hyronalin(src)
 
 /*
  * Bombsuit closet
@@ -177,9 +191,7 @@
 /obj/structure/closet/bombcloset
 	name = "\improper EOD closet"
 	desc = "It's a storage unit for explosive-defusal equipment."
-	icon_state = "bombsuit"
-	icon_closed = "bombsuit"
-	icon_opened = "bombsuitopen"
+	icon_state = "bomb"
 
 /obj/structure/closet/bombcloset/fill()
 	new /obj/item/clothing/suit/bomb_suit(src)
@@ -188,12 +200,10 @@
 	new /obj/item/clothing/head/bomb_hood(src)
 	new /obj/item/wirecutters/bomb(src)
 
-/obj/structure/closet/bombclosetsecurity
+/obj/structure/closet/bombclosetsecurity // Why the hell is this different? And this is like, only used ONCE! Madness, I tell you.
 	name = "\improper EOD closet"
 	desc = "It's a storage unit for the security department's explosive-defusal equipment."
-	icon_state = "bombsuitsec"
-	icon_closed = "bombsuitsec"
-	icon_opened = "bombsuitsecopen"
+	icon_state = "bombsec"
 
 /obj/structure/closet/bombclosetsecurity/fill()
 	new /obj/item/clothing/suit/bomb_suit/security(src)
@@ -201,42 +211,3 @@
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/head/bomb_hood/security(src)
 	new /obj/item/wirecutters/bomb(src)
-
-/*
- * Hydrant
- */
-/obj/structure/closet/hydrant //wall mounted fire closet
-	name = "fire-safety closet"
-	desc = "It's a storage unit for fire-fighting supplies."
-	icon_state = "hydrant"
-	icon_closed = "hydrant"
-	icon_opened = "hydrant_open"
-	welded_overlay_state = "welded_wallcloset"
-	anchored = 1
-	density = 0
-	wall_mounted = 1
-
-/obj/structure/closet/hydrant/fill()
-	new /obj/item/clothing/suit/fire/firefighter(src)
-	new /obj/item/clothing/mask/gas(src)
-	new /obj/item/device/flashlight(src)
-	new /obj/item/tank/oxygen/red(src)
-	new /obj/item/extinguisher(src)
-	new /obj/item/clothing/head/hardhat/red(src)
-
-	if (prob(25))
-		new /obj/item/ladder_mobile(src)
-
-/*
- * First Aid
- */
-/obj/structure/closet/medical_wall //wall mounted medical closet
-	name = "first-aid closet"
-	desc = "It's wall-mounted storage unit for first aid supplies."
-	icon_state = "medical_wall"
-	icon_closed = "medical_wall"
-	icon_opened = "medical_wall_open"
-	welded_overlay_state = "welded_wallcloset"
-	anchored = 1
-	density = 0
-	wall_mounted = 1

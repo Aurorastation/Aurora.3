@@ -80,7 +80,13 @@
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
 
-	if(!T)	T = pick(latejoin)			//Safety in case we cannot find the body's position
+	if(!T)
+		if(length(latejoin))
+			T = pick(latejoin)			//Safety in case we cannot find the body's position
+		else if(current_map.force_spawnpoint && length(force_spawnpoints["Anyone"]))
+			T = pick(force_spawnpoints["Anyone"])
+		else
+			T = locate(1, 1, 1)
 	forceMove(T)
 
 	if(!name)							//To prevent nameless ghosts
@@ -183,18 +189,25 @@ Works together with spawning an observer, noted above.
 
 //Teleports the observer away from z-levels they shouldnt be on, if needed.
 /mob/abstract/observer/proc/teleport_if_needed()
+	//If we dont have a observe restriction we dont need to teleport
+	if(!config.observe_restriction)
+		return
+
+	//If we are not on a restricted level we dont need to get rid of them
 	if(!on_restricted_level())
 		return
 
+	//If we have observe restriction 1 and they are following a living non-animal mob we dont need to do anything.
+	if(config.observe_restriction == 1 && following && isliving(following) && !isliving(following))
+		return
+
+	//In case we have observe restriction 2 (or 1 and they are following something, then teleport them back.)
 	if(following)
-		if(!isliving(following) || isanimal(following)) //If they are following something other than a living non-animal mob, teleport them
-			var/message = "You can not follow \the [following] on this level."
-			stop_following()
-			teleport_to_spawn(message)
-		else
-			return
-	//If they are moving around freely, teleport them
-	teleport_to_spawn()
+		stop_following()
+		teleport_to_spawn("You can not follow \the [following] on this level.")
+	else
+		teleport_to_spawn()
+
 	//And update their sight settings
 	updateghostsight()
 
@@ -215,6 +228,7 @@ Works together with spawning an observer, noted above.
 
 /mob/proc/ghostize(var/can_reenter_corpse = TRUE, var/should_set_timer = TRUE)
 	if(ckey)
+		cut_overlay(image('icons/effects/effects.dmi', "zzz_glow")) // not very efficient but ghostize isn't called /too/ often.
 		var/mob/abstract/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
 		ghost.can_reenter_corpse = can_reenter_corpse
 		ghost.timeofdeath = src.stat == DEAD ? src.timeofdeath : world.time
@@ -266,8 +280,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/observer/Stat()
 	..()
 	if(statpanel("Status"))
-		if(emergency_shuttle)
-			var/eta_status = emergency_shuttle.get_status_panel_eta()
+		if(evacuation_controller)
+			var/eta_status = evacuation_controller.get_status_panel_eta()
 			if(eta_status)
 				stat(null, eta_status)
 
@@ -310,6 +324,20 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	else
 		medHUD = 1
 		to_chat(src, "<span class='notice'><B>Medical HUD Enabled</B></span>")
+
+/mob/abstract/observer/verb/scan_target()
+	set category = "Ghost"
+	set name = "Medical Scan Target"
+	set desc = "Analyse the health of whatever you are following."
+
+	if(!following)
+		to_chat(src, SPAN_WARNING("You aren't following anything!"))
+		return
+
+	if(ishuman(following))
+		health_scan_mob(following, usr, TRUE, TRUE)
+	else
+		to_chat(src, SPAN_WARNING("This isn't a scannable target."))
 
 /mob/abstract/observer/verb/toggle_antagHUD()
 	set category = "Ghost"
@@ -380,14 +408,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	stop_following()
 	usr.forceMove(pick(L))
 
-/mob/abstract/observer/verb/follow(input in getmobs())
+/mob/abstract/observer/verb/follow()
 	set category = "Ghost"
 	set name = "Follow" // "Haunt"
 	set desc = "Follow and haunt a mob."
 
-	var/target = getmobs()[input]
-	if(!target) return
-	ManualFollow(target)
+	var/datum/vueui_module/ghost_menu/GM = new /datum/vueui_module/ghost_menu(usr)
+	GM.ui_interact(usr)
 
 // This is the ghost's follow verb with an argument
 /mob/abstract/observer/proc/ManualFollow(var/atom/movable/target)
@@ -492,7 +519,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	//If we hit the limit without finding a valid one, then the best one we found is selected
 
 	var/list/found_vents = list()
-	for(var/obj/machinery/atmospherics/unary/vent_pump/v in SSmachinery.processing_machines)
+	for(var/obj/machinery/atmospherics/unary/vent_pump/v in SSmachinery.processing)
 		if(!v.welded && v.z == ZLevel)
 			found_vents.Add(v)
 
@@ -834,7 +861,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set category = "Ghost"
 	ghostvision = !(ghostvision)
 	updateghostsight()
-	to_chat(usr, "You [(ghostvision?"now":"no longer")] have ghost vision.")
+	to_chat(usr, "You [(ghostvision ? "now" : "no longer")] have ghost vision.")
 
 /mob/abstract/observer/verb/toggle_darkness()
 	set name = "Toggle Darkness"
@@ -846,21 +873,19 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	//if they are on a restricted level, then set the ghost vision for them.
 	if(on_restricted_level())
 		//On the restricted level they have the same sight as the mob
-		sight &= ~(SEE_TURFS | SEE_MOBS | SEE_OBJS)
-		see_in_dark = 2
-		see_invisible = SEE_INVISIBLE_OBSERVER
+		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
+		set_see_in_dark(2)
+		set_see_invisible(SEE_INVISIBLE_OBSERVER)
 	else
 		//Outside of the restrcited level, they have enhanced vision
-		sight |= (SEE_TURFS | SEE_MOBS | SEE_OBJS)
-		see_in_dark = 100
-		see_invisible = SEE_INVISIBLE_LEVEL_TWO
+		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		set_see_in_dark(100)
+		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 
 		if (!seedarkness)
-			see_invisible = SEE_INVISIBLE_NOLIGHTING
+			set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 		else
-			see_invisible = SEE_INVISIBLE_OBSERVER
-			if (!ghostvision)
-				see_invisible = SEE_INVISIBLE_LIVING
+			set_see_invisible(ghostvision ? SEE_INVISIBLE_OBSERVER : SEE_INVISIBLE_LIVING)
 
 	updateghostimages()
 
@@ -953,3 +978,8 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 
 	if(SSpai.revokeCandidancy(src))
 		to_chat(src, "You have been removed from the pAI candidate pool.")
+
+/mob/abstract/observer/can_hear_radio(speaker_coverage = list())
+	if(client && (client.prefs.toggles & CHAT_GHOSTRADIO))
+		return TRUE
+	return ..()

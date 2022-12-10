@@ -8,6 +8,9 @@ var/datum/controller/subsystem/materials/SSmaterials
 	var/list/materials
 	var/list/materials_by_name
 
+	var/list/autolathe_recipes
+	var/list/autolathe_categories
+
 /datum/controller/subsystem/materials/New()
 	NEW_SS_GLOBAL(SSmaterials)
 

@@ -303,7 +303,10 @@
 	w_class = ITEMSIZE_LARGE
 	can_hold = list(/obj/item/coin,/obj/item/spacecash)
 
-/obj/item/storage/bag/money/vault
+/obj/item/storage/bag/money/Initialize(mapload)
+	. = ..()
+	if(prob(20))
+		icon_state = "moneybagalt"
 
 /obj/item/storage/bag/money/vault/New()
 	..()
@@ -328,5 +331,21 @@
 	max_storage_space = 200
 	max_w_class = ITEMSIZE_NORMAL
 	w_class = ITEMSIZE_NORMAL
-	can_hold = list(/obj/item/book, /obj/item/spellbook)
+	can_hold = list(/obj/item/book)
 
+	// -----------------------------
+	//           Chemistry Bag
+	// -----------------------------
+/obj/item/storage/bag/chemistry
+	name = "chemistry bag"
+	icon = 'icons/obj/chemical.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
+	icon_state = "chembag"
+	desc = "A bag for storing pills and bottles of medicine."
+	max_storage_space = 200
+	w_class = ITEMSIZE_LARGE
+	slowdown = 1
+	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/glass/bottle)

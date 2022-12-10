@@ -18,6 +18,7 @@
 /obj/effect/hoist_hook
 	name = "hoist clamp"
 	desc = "A clamp used to lift people or things."
+	desc_info = "To use the hook, click drag the object you want to it to attach it.\nTo remove an object from the hook, click drag the hook to a nearby turf."
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_hook"
 	var/obj/structure/hoist/source_hoist
@@ -45,8 +46,8 @@
 		AM.forceMove(get_turf(source_hook))
 	hoistee = AM
 	if(ismob(AM))
-		source_hook.buckle_mob(AM)
-	AM.anchored = 1 // why isn't this being set by buckle_mob for silicons?
+		source_hook.buckle(AM)
+	AM.anchored = 1 // why isn't this being set by buckle for silicons?
 	source_hook.layer = AM.layer + 0.1
 
 /obj/effect/hoist_hook/MouseDrop(atom/dest)
@@ -79,7 +80,7 @@
 	source_hoist.release_hoistee()
 
 // This will handle mobs unbuckling themselves.
-/obj/effect/hoist_hook/unbuckle_mob()
+/obj/effect/hoist_hook/unbuckle()
 	. = ..()
 	if (. && !QDELETED(source_hoist))
 		var/mob/M = .
@@ -89,6 +90,7 @@
 /obj/structure/hoist
 	icon = 'icons/obj/hoists.dmi'
 	icon_state = "hoist_base"
+	desc_info = "To use the hook, click drag the object you want to it to attach it.\nTo remove an object from the hook, click drag the hook to a nearby turf."
 	var/broken = 0
 	density = 1
 	anchored = 1
@@ -124,7 +126,7 @@
 
 /obj/structure/hoist/proc/release_hoistee()
 	if(ismob(hoistee))
-		source_hook.unbuckle_mob(hoistee)
+		source_hook.unbuckle(hoistee)
 	else
 		hoistee.anchored = 0
 	hoistee = null
@@ -148,7 +150,6 @@
 			if(prob(50))
 				qdel(src)
 			else
-				visible_message("\The [src] shakes violently, and neatly collapses as its damage sensors go off.")
 				collapse_kit()
 			return
 		if(3.0)

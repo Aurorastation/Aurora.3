@@ -43,8 +43,8 @@
 	)
 	back = list(
 		/obj/item/storage/backpack,
-		/obj/item/storage/backpack/satchel_norm,
 		/obj/item/storage/backpack/satchel,
+		/obj/item/storage/backpack/satchel/leather,
 		/obj/item/storage/backpack/duffel,
 		/obj/item/storage/backpack/duffel
 	)
@@ -91,3 +91,14 @@
 
 /datum/outfit/admin/random/visitor/get_id_rank()
 	return "Visitor"
+
+/datum/outfit/admin/virtual_reality
+	name = "Virtual Reality Outfit"
+	uniform = /obj/item/clothing/under/chameleon
+	suit = /obj/item/clothing/suit/chameleon
+	back = /obj/item/storage/backpack/chameleon
+	gloves = /obj/item/clothing/gloves/chameleon
+	shoes = /obj/item/clothing/shoes/chameleon
+	head = /obj/item/clothing/head/chameleon
+	mask = /obj/item/clothing/mask/chameleon
+	glasses = /obj/item/clothing/glasses/chameleon

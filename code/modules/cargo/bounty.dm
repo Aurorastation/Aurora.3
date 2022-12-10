@@ -16,7 +16,7 @@
 
 /datum/bounty/New()
 	if(reward_low > 0 && reward_high > reward_low)
-		reward = round(rand(reward_low, reward_high), 100)	
+		reward = round(rand(reward_low, reward_high), 100)
 	description = replacetext(description, "%DOCKNAME",current_map.dock_name)
 	description = replacetext(description, "%DOCKSHORT",current_map.dock_short)
 	description = replacetext(description, "%BOSSNAME",current_map.boss_name)
@@ -88,9 +88,7 @@
 // It handles items shipped for bounties.
 /datum/controller/subsystem/cargo/proc/bounty_ship_item_and_contents(atom/movable/AM, dry_run=FALSE)
 	var/list/matched_one = FALSE
-	var/list/contents = list()
-	contents += AM
-	contents += AM.GetAllContents()
+	var/list/contents = AM.GetAllContents()
 	for(var/thing in reverseRange(contents))
 		var/matched_this = FALSE
 		for(var/datum/bounty/B in bounties_list)
@@ -166,41 +164,40 @@
 
 // Called lazily at startup to populate bounties_list with random bounties.
 /datum/controller/subsystem/cargo/proc/setupBounties()
-
+	var/list/assistant_bounties = subtypesof(/datum/bounty/item/assistant)
 	for(var/i = 0; i < BOUNTY_NUM_HIGH; i++)
 		CHECK_TICK
-		var/datum/bounty/subtype = pick(subtypesof(/datum/bounty/item/assistant))
+		var/datum/bounty/subtype = pick(assistant_bounties)
 		try_add_bounty(new subtype)
 
+	var/list/robotics_and_science_bounties = subtypesof(/datum/bounty/item/bot) + subtypesof(/datum/bounty/item/science)
 	for(var/i = 0; i < BOUNTY_NUM_HIGH; i++)
 		CHECK_TICK
-		var/list/subtypes = subtypesof(/datum/bounty/item/bot)
-		subtypes += subtypesof(/datum/bounty/item/science)
-		var/datum/bounty/subtype = pick(subtypes)
+		var/datum/bounty/subtype = pick(robotics_and_science_bounties)
 		try_add_bounty(new subtype)
 
+	var/list/chef_bounties = subtypesof(/datum/bounty/item/chef)
 	for(var/i = 0; i < BOUNTY_NUM_MED; i++)
 		CHECK_TICK
-		var/datum/bounty/subtype = pick(subtypesof(/datum/bounty/item/chef))
+		var/datum/bounty/subtype = pick(chef_bounties)
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i <  BOUNTY_NUM_MED; i++)
+	var/list/hydroponics_bounties = subtypesof(/datum/bounty/item/hydroponicist)
+	for(var/i = 0; i < BOUNTY_NUM_MED; i++)
 		CHECK_TICK
-		var/datum/bounty/subtype = pick(subtypesof(/datum/bounty/item/hydroponicist))
+		var/datum/bounty/subtype = pick(hydroponics_bounties)
 		try_add_bounty(new subtype)
 
+	var/list/security_and_engineering_bounties = subtypesof(/datum/bounty/item/security) + subtypesof(/datum/bounty/item/engineer)
 	for(var/i = 0; i < BOUNTY_NUM_HIGH; i++)
 		CHECK_TICK
-		var/list/subtypes = subtypesof(/datum/bounty/item/security)
-		subtypes += subtypesof(/datum/bounty/item/engineer)
-		var/datum/bounty/subtype = pick(subtypes)
+		var/datum/bounty/subtype = pick(security_and_engineering_bounties)
 		try_add_bounty(new subtype)
 
+	var/list/prototype_weapon_and_slime_bounties = subtypesof(/datum/bounty/weapon_prototype) + subtypesof(/datum/bounty/item/slime)
 	for(var/i = 0; i < BOUNTY_NUM_LOW; i++)
 		CHECK_TICK
-		var/list/subtypes = subtypesof(/datum/bounty/weapon_prototype)
-		subtypes += subtypesof(/datum/bounty/item/slime)
-		var/datum/bounty/subtype = pick(subtypes)
+		var/datum/bounty/subtype = pick(prototype_weapon_and_slime_bounties)
 		try_add_bounty(new subtype)
 
 	//add one of each reagent, then another one picked at random
@@ -210,13 +207,13 @@
 	var/datum/bounty/r_subtype = pick(subtypesof(/datum/bounty/reagent))
 	try_add_bounty(new r_subtype)
 
-	//phoron arc bounties. remove when arc is done.
-	var/datum/bounty/item/phoron_bounty = pick(/datum/bounty/item/phoron_sheet, /datum/bounty/item/phoron_canister)
-	try_add_bounty(new phoron_bounty)
-
-	//uncomment the below two lines when phoron scarcity arc is done
-	//var/datum/bounty/B = pick(bounties_list)
-	//B.mark_high_priority()
+	if(prob(60))
+		//phoron bounties
+		var/datum/bounty/item/phoron_bounty = pick(/datum/bounty/item/phoron_sheet, /datum/bounty/item/solar_array)
+		try_add_bounty(new phoron_bounty)
+	else
+		var/datum/bounty/B = pick(bounties_list)
+		B.mark_high_priority()
 
 	// Generate these last so they can't be high priority.
 	try_add_bounty(new /datum/bounty/more_bounties)
@@ -228,4 +225,3 @@
 		if(B.claimed)
 			++count
 	return count
-

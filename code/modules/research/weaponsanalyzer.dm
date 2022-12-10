@@ -5,7 +5,6 @@
 	icon_state = "weapon_analyzer"
 	density = TRUE
 	anchored = TRUE
-	use_power = 1
 	idle_power_usage = 60
 	active_power_usage = 2000
 
@@ -140,6 +139,9 @@
 /obj/machinery/weapons_analyzer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	if(!data)
 		. = data = list()
+
+	data["has_inserted"] = item ? TRUE : FALSE
+
 	data["name"] = ""
 	data["item"] = FALSE
 	data["energy"] = FALSE
@@ -177,7 +179,7 @@
 
 		if(istype(gun, /obj/item/gun/energy))
 			var/obj/item/gun/energy/E = gun
-			var/obj/item/projectile/P = E.projectile_type
+			var/obj/item/projectile/P = new E.projectile_type
 			data["max_shots"] = initial(E.max_shots)
 			data["recharge"] = initial(E.self_recharge) ? "self recharging" : "not self recharging"
 			data["recharge_time"] = initial(E.recharge_time)
@@ -185,7 +187,11 @@
 			data["damage_type"] = initial(P.damage_type)
 			data["check_armor"] = initial(P.check_armor)
 			data["stun"] = initial(P.stun) ? "stuns" : "does not stun"
-			data["shrapnel_type"] = initial(P.shrapnel_type) ? initial(P.shrapnel_type) : "none"
+			if(P.shrapnel_type)
+				var/obj/item/S = new P.shrapnel_type
+				data["shrapnel_type"] = S.name
+			else
+				data["shrapnel_type"] = "none"
 			data["armor_penetration"] = initial(P.armor_penetration)
 
 			if(istype(gun, /obj/item/gun/energy/laser/prototype))
@@ -212,14 +218,18 @@
 
 		else
 			var/obj/item/gun/projectile/P_gun = gun
-			var/obj/item/ammo_casing/casing = P_gun.ammo_type
-			var/obj/item/projectile/P = casing.projectile_type
+			var/obj/item/ammo_casing/casing = new P_gun.ammo_type
+			var/obj/item/projectile/P = new casing.projectile_type
 			data["max_shots"] = P_gun.max_shells
 			data["damage"] = initial(P.damage)
 			data["damage_type"] = initial(P.damage_type)
 			data["check_armor"] = initial(P.check_armor)
 			data["stun"] = initial(P.stun) ? "stuns" : "does not stun"
-			data["shrapnel_type"] = initial(P.shrapnel_type) ? initial(P.shrapnel_type) : "none"
+			if(P.shrapnel_type)
+				var/obj/item/S = new P.shrapnel_type
+				data["shrapnel_type"] = S.name
+			else
+				data["shrapnel_type"] = "none"
 		data["burst"] = gun.burst
 		data["reliability"] = gun.reliability
 
@@ -252,9 +262,28 @@
 	if (!ui)
 		ui = new(user, src, "wanalyzer-analyzer", width, height, capitalize(name))
 
-	var/icon/Icon_used
 	if(item)
-		Icon_used = new /icon(item.icon, item.icon_state)
-	ui.add_asset("icon", Icon_used) 
-	ui.send_asset("icon")
+		var/icon/Icon_used = new /icon(item.icon, item.icon_state)
+		ui.add_asset("icon", Icon_used) 
+		ui.send_asset("icon")
 	ui.open()
+
+/obj/machinery/weapons_analyzer/Topic(href, href_list, datum/topic_state/state)
+	. = ..()
+	if(.)
+		return
+
+	if(href_list["print"] && item)
+		do_print()
+
+/obj/machinery/weapons_analyzer/proc/do_print()
+	var/obj/item/paper/R = new /obj/item/paper(get_turf(src))
+	R.color = "#fef8ff"
+	R.set_content_unsafe("Weapon Analysis ([item.name])", get_print_info(item))
+	print(R, message = "\The [src] beeps, printing \the [R] after a moment.")
+
+/obj/machinery/weapons_analyzer/proc/get_print_info(var/obj/item/device)
+	var/dat = "<span class='notice'><b>Analysis performed at [worldtime2text()]</b></span><br>"
+	dat += "<span class='notice'><b>Analyzer Item: [device.name]</b></span><br><br>"
+	dat += device.get_print_info()
+	return dat

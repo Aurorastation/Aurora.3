@@ -78,7 +78,8 @@
 /obj/item/storage/box/syndie_kit
 	name = "box"
 	desc = "A sleek, sturdy box"
-	icon_state = "box_of_doom"
+	icon_state = "syndiebox"
+	worn_overlay = "writing_syndie"
 
 /obj/item/storage/box/syndie_kit/imp_freedom
 	name = "box (F)"
@@ -110,6 +111,7 @@
 
 /obj/item/storage/box/syndie_kit/space
 	name = "boxed space suit and helmet"
+	worn_overlay = "syndiesuit"
 	starts_with = list(
 		/obj/item/clothing/suit/space/syndicate = 1,
 		/obj/item/clothing/head/helmet/space/syndicate = 1,
@@ -121,9 +123,10 @@
 /obj/item/storage/box/syndie_kit/chameleon
 	name = "chameleon kit"
 	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
+	worn_overlay = "syndiesuit"
 	starts_with = list(
 		/obj/item/clothing/under/chameleon = 1,
-		/obj/item/clothing/head/softcap/chameleon = 1,
+		/obj/item/clothing/head/chameleon = 1,
 		/obj/item/clothing/suit/chameleon = 1,
 		/obj/item/clothing/shoes/chameleon = 1,
 		/obj/item/storage/backpack/chameleon = 1,
@@ -136,20 +139,31 @@
 /obj/item/storage/box/syndie_kit/clerical
 	name = "clerical kit"
 	desc = "Comes with all you need to fake paperwork. Assumes you have passed basic writing lessons."
+	worn_overlay = "pen"
 	starts_with = list(
 		/obj/item/stamp/chameleon = 1,
 		/obj/item/pen/chameleon = 1,
 		/obj/item/device/destTagger = 1,
 		/obj/item/stack/packageWrap = 1,
-		/obj/item/hand_labeler = 1
+		/obj/item/device/hand_labeler = 1,
+		/obj/item/folder/filled = 1
 	)
 
 /obj/item/storage/box/syndie_kit/special_pens
-	name = "box (P)"
+	name = "penjector kit"
+	worn_overlay = "pen"
 	starts_with = list(
 		/obj/item/pen/reagent/healing = 1,
 		/obj/item/pen/reagent/pacifier = 1,
 		/obj/item/pen/reagent/hyperzine = 1
+	)
+
+/obj/item/storage/box/syndie_kit/parapen
+	name = "parapen kit"
+	worn_overlay = "pen"
+	starts_with = list(
+		/obj/item/pen/reagent/paralysis = 1,
+		/obj/item/pen/reagent/purge = 1
 	)
 
 /obj/item/storage/box/syndie_kit/spy
@@ -171,7 +185,7 @@
 /obj/item/storage/box/syndie_kit/toxin
 	name = "toxin kit"
 	desc = "An apple will not be enough to keep the doctor away after this."
-	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1, /obj/item/reagent_containers/syringe = 1)
+	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 3, /obj/item/reagent_containers/syringe = 1)
 
 /obj/item/storage/box/syndie_kit/cigarette
 	name = "tricky smokes"
@@ -220,8 +234,8 @@
 	starts_with = list(/obj/item/rig_module/electrowarfare_suite = 1, /obj/item/rig_module/voice = 1)
 
 /obj/item/storage/box/syndie_kit/armor
-	name = "boxed armor kit"
-	starts_with = list(/obj/item/clothing/suit/storage/vest/merc = 1, /obj/item/clothing/head/helmet/merc = 1, /obj/item/clothing/gloves/arm_guard/mercs = 1, /obj/item/clothing/shoes/leg_guard/merc = 1)
+	name = "boxed heavy armor kit"
+	starts_with = list(/obj/item/clothing/suit/armor/carrier/heavy = 1, /obj/item/clothing/head/helmet/merc = 1)
 
 /obj/item/storage/secure/briefcase/money
 	starts_with = list(/obj/item/spacecash/c1000 = 10)
@@ -252,4 +266,11 @@
 	desc = "Comes with 4x autoinjectors filled with drugs to counter chemical side-effects. Each injector has 2 uses."
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 4
+	)
+
+/obj/item/storage/box/syndie_kit/berserk_injectors
+	name = "box of berserk injectors"
+	desc = "Comes with 2x autoinjectors filled with Red Nightshade used to induce a berserk state."
+	starts_with = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/berserk = 2
 	)

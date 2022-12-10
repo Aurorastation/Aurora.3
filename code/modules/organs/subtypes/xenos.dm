@@ -4,7 +4,6 @@
 
 /obj/item/organ/external/groin/skeleton
 	name = "pelvis"
-	vital = 0
 
 /obj/item/organ/external/arm/skeleton
 	dislocated = -1
@@ -33,5 +32,5 @@
 /obj/item/organ/external/head/skeleton
 	name = "skull"
 	dislocated = -1
-	vital = 0
+	vital = FALSE
 

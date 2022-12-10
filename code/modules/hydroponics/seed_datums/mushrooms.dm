@@ -47,7 +47,7 @@
 	set_trait(TRAIT_MATURATION,5)
 	set_trait(TRAIT_PRODUCTION,1)
 	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,40)
+	set_trait(TRAIT_POTENCY,60)
 	set_trait(TRAIT_BIOLUM,1)
 	set_trait(TRAIT_IDEAL_LIGHT,1)
 	set_trait(TRAIT_LIGHT_TOLERANCE,2)
@@ -73,7 +73,7 @@
 /datum/seed/koisspore/black/setup_traits()
 	..()
 	set_trait(TRAIT_BIOLUM_PWR,-1.5)
-	set_trait(TRAIT_POTENCY,60)
+	set_trait(TRAIT_POTENCY,80)
 	set_trait(TRAIT_ENDURANCE,75)
 	set_trait(TRAIT_IDEAL_LIGHT,0)
 	set_trait(TRAIT_LIGHT_TOLERANCE,8)
@@ -168,7 +168,7 @@
 	seed_name = "liberty cap"
 	display_name = "liberty cap mushrooms"
 	mutants = list("ghostmushroom")
-	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/soporific = list(3,3), /decl/reagent/space_drugs = list(1,25))
+	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/soporific = list(3,3), /decl/reagent/psilocybin = list(1,25))
 
 /datum/seed/mushroom/hallucinogenic/strong/setup_traits()
 	..()

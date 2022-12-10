@@ -49,6 +49,8 @@ var/datum/controller/subsystem/economy/SSeconomy
 	station_account.owner_name = "[station_name()] Station Account"
 	station_account.account_number = next_account_number
 	next_account_number += rand(1,500)
+	if(next_account_number > 999999) //If we're hitting 7 digits, reset to the minimum and increase from there.
+		next_account_number = 111111 + rand(1,500)
 	station_account.remote_access_pin = rand(1111, 111111)
 	station_account.money = 75000
 
@@ -95,13 +97,14 @@ var/datum/controller/subsystem/economy/SSeconomy
 	return TRUE
 
 //Create a "normal" player account
-/datum/controller/subsystem/economy/proc/create_account(var/new_owner_name = "Default user", var/starting_funds = 0, var/datum/computer_file/program/account_db/source_db)
+/datum/controller/subsystem/economy/proc/create_account(var/new_owner_name = "Default user", var/starting_funds = 0, var/datum/computer_file/program/account_db/source_db, var/account_public = TRUE)
 	//create a new account
 	var/datum/money_account/M = new()
 	M.owner_name = new_owner_name
 	M.remote_access_pin = rand(1111, 111111)
 	M.money = starting_funds
 	M.account_number = next_account_number
+	M.public_account = account_public
 	next_account_number += rand(1,25)
 
 	//create an entry in the account transaction log for when it was created
@@ -149,6 +152,13 @@ var/datum/controller/subsystem/economy/SSeconomy
 
 	return M
 
+/datum/controller/subsystem/economy/proc/get_public_accounts()
+	var/list/public_accounts = list()
+	for(var/account in all_money_accounts)
+		var/datum/money_account/M = all_money_accounts[account]
+		if(M.public_account)
+			public_accounts += account // yes, we're passing the number
+	return public_accounts
 
 //Charge a account
 /datum/controller/subsystem/economy/proc/charge_to_account(var/attempt_account_number, var/source_name, var/purpose, var/terminal_id, var/amount)
@@ -278,6 +288,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 /datum/money_account
 	var/owner_name = ""
 	var/account_number = 0
+	var/public_account = TRUE
 	var/remote_access_pin = 0
 	var/money = 0
 	var/list/transactions = list()

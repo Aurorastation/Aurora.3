@@ -2,29 +2,27 @@ var/datum/antagonist/revolutionary/revs
 
 /datum/antagonist/revolutionary
 	id = MODE_REVOLUTIONARY
-	role_text = "Head Contender"
-	role_text_plural = "Contenders"
+	role_text = "Head Revolutionary"
+	role_text_plural = "Revolutionaries"
 	bantype = "revolutionary"
 	feedback_tag = "rev_objective"
 	antag_indicator = "contenderhead"
-	welcome_text = "You, as a subversive leader belonging to an element of the NanoTrasen Crew, have caught wind of a hostile Fellowship forming. Whatever your reasons, you fervently stand against its goals. Recruit from the Crew and lead your efforts against them."
-	victory_text = "You eliminated the Fellowship in one fell swoop."
-	loss_text = "The Fellowship threw a wrench into your plans -- permanently."
-	victory_feedback_tag = "You eliminated the Fellows in one fell swoop."
+	victory_text = "You eliminated the Loyalists in one fell swoop."
+	loss_text = "The Loyalists threw a wrench into your plans -- permanently."
+	victory_feedback_tag = "You eliminated the Loyalists in one fell swoop."
 	loss_feedback_tag = "No matter your efforts, you failed to thwart them."
 	flags = ANTAG_SUSPICIOUS | ANTAG_VOTABLE
 	antaghud_indicator = "contender"
 
 	hard_cap = 3
-	hard_cap_round = 3
-	initial_spawn_req = 3
-	initial_spawn_target = 8
+	hard_cap_round = 4
+	initial_spawn_req = 1
+	initial_spawn_target = 4
 
 	// Inround revs.
-	faction_role_text = "Contender"
-	faction_descriptor = "Contenders"
+	faction_role_text = "Revolutionary"
+	faction_descriptor = "Revolutionaries"
 	faction_verb = /mob/living/proc/convert_to_rev
-	faction_welcome = "You joined a subversive organization in the Aurora Crew, united under a forward-thinking leader, you must achieve their goals."
 	faction_indicator = "contender"
 	faction_invisible = FALSE
 
@@ -35,6 +33,10 @@ var/datum/antagonist/revolutionary/revs
 /datum/antagonist/revolutionary/New()
 	..()
 	revs = src
+
+/datum/antagonist/revolutionary/create_antagonist()
+	faction_welcome = "You joined a subversive organization in the crew of the [current_map.station_name]. United under a forward-thinking leader, you must achieve their goals."
+	welcome_text = "You are a subversive seeking to demolish the current order on the [current_map.station_type] by whatever means possible. Recruit friends and strangers alike to bring [current_map.company_short]'s tyranny to an end! Or whatever your objective is."
 
 /datum/antagonist/revolutionary/create_global_objectives()
 	if(!..())
@@ -67,11 +69,11 @@ var/datum/antagonist/revolutionary/revs
 	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player, player.mind), slot_in_backpack)
 
 	give_codewords(player)
-	INVOKE_ASYNC(src, .proc/alert_contender_status, player)
+	INVOKE_ASYNC(src, .proc/alert_revolutionary_status, player)
 	return TRUE
 
-/datum/antagonist/revolutionary/proc/alert_contender_status(var/mob/living/carbon/human/player) //This is so dumb.
-	alert(player, "As a Head Contender you are given an uplink with a lot of telecrystals. \
+/datum/antagonist/revolutionary/proc/alert_revolutionary_status(var/mob/living/carbon/human/player) //This is so dumb.
+	alert(player, "As a Head Revolutionary you are given an uplink with a lot of telecrystals. \
 				Your goal is to create and progress a story. Use the announcement device you spawn with to whip people into a frenzy, \
 				and the uplink disguised as a radio to equip them. DO NOT PLAY THIS ROLE AS A SUPER TRAITOR. \
 				Doing so may lead to administrative action being taken.",

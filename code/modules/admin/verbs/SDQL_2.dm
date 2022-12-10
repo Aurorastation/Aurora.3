@@ -58,6 +58,10 @@
 				objs += d
 
 	//to_chat(usr, "Query: [query_text]")
+	var/static/list/blacklist = list(/datum/configuration)
+	for(var/datum/D in objs)
+		if(blacklist[D.type])
+			objs -= D
 	message_admins("[usr] executed SDQL query: \"[query_text]\".")
 
 	switch(query_tree[1])

@@ -3,7 +3,7 @@
 	desc = "A small robot. It looks angry."
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "repairbot"
-	blood_type = "#000000"
+	blood_type = COLOR_OIL
 	speak = list("Removing organic waste.", "Pest control in progress.", "Engaging self-preservation protocols.", "Moving to eject unauthorized personnel.")
 	speak_emote = list("blares", "buzzes", "beeps")
 	speak_chance = 1
@@ -12,6 +12,7 @@
 	maxHealth = 50
 	melee_damage_lower = 5
 	melee_damage_upper = 8
+	armor_penetration = 5
 	attacktext = "sliced"
 	faction = "silicon"
 	min_oxy = 0
@@ -20,10 +21,12 @@
 	mob_size = MOB_TINY
 	var/image/eye_overlay
 
+	psi_pingable = FALSE
+
 /mob/living/simple_animal/hostile/rogue_drone/Initialize()
 	. = ..()
 	name = "[initial(name)] ([rand(100, 999)])"
-	eye_overlay = image(icon, "eyes-[icon_state]-emag", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+	eye_overlay = image(icon, "[icon_state]-eyes_emag", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
 	eye_overlay.appearance_flags = KEEP_APART
 	add_overlay(eye_overlay)
 

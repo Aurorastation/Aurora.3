@@ -2,27 +2,21 @@
 	name = "adhomian musket"
 	desc = "A rustic firearm, used by Tajaran soldiers during the adhomian gunpowder age"
 
-	desc_fluff = "The Gunpowder Age was marked by the slow replacement of traditional Adhomian battle tactics and weapons, that included melee weapons and crossbows, in favor of \
+	desc_extended = "The Gunpowder Age was marked by the slow replacement of traditional Adhomian battle tactics and weapons, that included melee weapons and crossbows, in favor of \
 	cannons and primitive firing lines. The Kingdoms of Amohda, Nal'tor and Das'nrra were the first countries to make use of this new technology."
 
 	icon = 'icons/obj/guns/musket.dmi'
 	icon_state = "musket"
 	item_state = "musket"
-	contained_sprite = TRUE
 
 	load_method = SINGLE_CASING
 	handle_casings = DELETE_CASINGS
 
 	max_shells = 1
-
 	caliber = "musket"
 
 	slot_flags = SLOT_BACK
-
 	is_wieldable = TRUE
-
-	needspin = FALSE
-
 	w_class = ITEMSIZE_LARGE
 
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)

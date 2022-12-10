@@ -37,7 +37,7 @@
 					nicename = list ("suit", "back", "belt", "right hand", "left hand", "left pocket", "right pocket")
 					tankcheck = list (H.s_store, C.back, H.belt, C.r_hand, C.l_hand, H.l_store, H.r_store)
 					if(H.species.has_organ[BP_PHORON_RESERVE])
-						var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
+						var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 						if(preserve && preserve.air_contents)
 							from = "in"
 							nicename |= "sternum"
@@ -89,8 +89,8 @@
 								else
 									contents.Add(0)
 
-					if(istype(tankcheck[i], /obj/item/organ/vaurca/preserve))
-						var/obj/item/organ/vaurca/preserve/t = tankcheck[i]
+					if(istype(tankcheck[i], /obj/item/organ/internal/vaurca/preserve))
+						var/obj/item/organ/internal/vaurca/preserve/t = tankcheck[i]
 						if (!isnull(t.manipulated_by) && t.manipulated_by != C.real_name && findtext(t.desc,breathes))
 							contents.Add(t.air_contents.total_moles)	//Someone messed with the tank and put unknown gasses
 							continue					//in it, so we're going to believe the tank is what it says it is
@@ -122,7 +122,7 @@
 								else
 									contents.Add(0)
 
-					if(!(istype(tankcheck[i], /obj/item/organ/vaurca/preserve)) & !(istype(tankcheck[i], /obj/item/tank)))
+					if(!(istype(tankcheck[i], /obj/item/organ/internal/vaurca/preserve)) && !(istype(tankcheck[i], /obj/item/tank)))
 						//no tank so we set contents to 0
 						contents.Add(0)
 

@@ -25,10 +25,12 @@
 	var/list/targets = list()
 	var/attacked_times = 0
 	var/list/target_type_validator_map = list()
+	var/list/tolerated_types = list()
 	var/attack_emote = "stares menacingly at"
 
 	var/smart_melee = TRUE   // This makes melee mobs try to stay two tiles away from their target in combat, lunging in to attack only
 	var/smart_ranged = FALSE // This makes ranged mob check for friendly fire and obstacles
+	var/hostile_nameable = FALSE //If we can rename this hostile mob. Mostly to prevent repeat checks with guard dogs and hostile/retaliate farm animals
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
@@ -41,6 +43,13 @@
 	target_mob = null
 	targets = null
 	return ..()
+
+/mob/living/simple_animal/hostile/can_name(var/mob/living/M)
+	if(!hostile_nameable)
+		to_chat(M, SPAN_WARNING("\The [src] cannot be renamed."))
+		return FALSE
+	return ..()
+
 
 /mob/living/simple_animal/hostile/proc/FindTarget()
 	if(!faction) //No faction, no reason to attack anybody.
@@ -163,9 +172,14 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	else
 		return 0
 
+/mob/living/simple_animal/hostile/proc/on_attack_mob(var/mob/hit_mob)
+	return
+
 /mob/living/simple_animal/hostile/proc/AttackingTarget()
 	setClickCooldown(attack_delay)
 	if(!Adjacent(target_mob))
+		return
+	if(!canmove)
 		return
 	if(!see_target())
 		LoseTarget()
@@ -178,7 +192,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	var/atom/target
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
-		L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
+		L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags)
+		on_attack_mob(L)
 		target = L
 	else if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
@@ -202,6 +217,12 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
 	if(stat)
 		return
+	if(!isturf(loc)) // no teleporting out of lockers
+		return
+	for(var/grab in grabbed_by)
+		var/obj/item/grab/G = grab
+		if(G.state >= GRAB_AGGRESSIVE)
+			return
 	facing_dir = get_dir(src, target)
 	if(ishuman(target))
 		step_away(src, pick(RANGE_TURFS(2, target)))
@@ -337,7 +358,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 
 /mob/living/simple_animal/hostile/proc/check_horde()
-	if(emergency_shuttle.shuttle.location)
+	if(evacuation_controller.is_prepared())
 		if(!enroute && !target_mob)	//The shuttle docked, all monsters rush for the escape hallway
 			if(!shuttletarget && escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
 				shuttletarget = pick(escape_list) //Pick a shuttle target
@@ -393,6 +414,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			current_health = M.health
 		if(L.health < current_health)
 			return TRUE
+	if(tolerated_types[L.type] == TRUE)
+		return FALSE
 	return FALSE
 
 /mob/living/simple_animal/hostile/proc/validator_bot(var/obj/machinery/bot/B, var/atom/current)

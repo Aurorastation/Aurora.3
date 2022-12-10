@@ -11,7 +11,7 @@
 	anchored = 1
 	density = 1
 	layer = 9
-	use_power = 0
+	use_power = POWER_USE_OFF
 
 	var/chargesa = 1
 	var/insistinga = 0
@@ -55,8 +55,9 @@
 					user.mutations.Add(HEAL)
 				if (!(XRAY in user.mutations))
 					user.mutations.Add(XRAY)
-					user.sight |= (SEE_MOBS|SEE_OBJS|SEE_TURFS)
-					user.see_invisible = SEE_INVISIBLE_LEVEL_TWO
+					user.set_sight(user.sight|SEE_MOBS|SEE_OBJS|SEE_TURFS)
+					user.set_see_in_dark(8)
+					user.set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 					to_chat(user, "<span class='notice'>The walls suddenly disappear.</span>")
 					user.set_species(SPECIES_REVENANT)
 					user.mind.special_role = "Avatar of the Wish Granter"
@@ -89,7 +90,7 @@
 				for(var/datum/objective/OBJ in user.mind.objectives)
 					to_chat(user, "<B>Objective #[obj_count]</B>: [OBJ.explanation_text]")
 					obj_count++
-				for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.all_machines)
+				for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.machinery)
 					to_chat(user, "<span class='warning'>[N.r_code]...!</span>")
 					user.mind.store_memory("<B>Nuclear Bomb Code</B>: [N.r_code]", 0, 0)
 			if("I want peace")

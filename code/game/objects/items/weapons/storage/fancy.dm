@@ -20,11 +20,18 @@
 	var/opened = FALSE // handles open/closing icons. also a failsafe.
 	var/closable = TRUE // if you can close the icon after opening.
 	var/icon_overlays = TRUE // whether the icon uses the update_icon() or a unique one.
+	var/open_sound = null // if you want to play a special sound if you open it for the first time
+	var/open_message = null // same as above, but a message
 	foldable = null // most of this stuff isn't foldable by default, e.g. cig packets and vial boxes
 
 /obj/item/storage/box/fancy/open(mob/user)
 	. = ..()
 	if(!opened)
+		if(!closable)
+			if(open_sound)
+				playsound(src, open_sound, 50, 1, -5)
+			if(open_message)
+				to_chat(user, SPAN_NOTICE(open_message))
 		opened = TRUE
 		update_icon() // the reason why this isn't a clean catch-all update_icon() for fancy boxes is because of cigarette packets and donut boxes being different.
 
@@ -65,11 +72,12 @@
 
 /obj/item/storage/box/fancy/examine(mob/user)
 	..()
+	if(!icon_type || !storage_type)
+		return
 	if(contents.len <= 0)
 		to_chat(user, "There are no [src.icon_type]s left in the [src.storage_type].")
 	else
 		to_chat(user, "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type].")
-	return
 
 /*
  * Donut Box
@@ -120,6 +128,26 @@
 		)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/egg = 12)
 	foldable = /obj/item/stack/material/cardboard
+
+/*
+ * Cracker Packet
+ */
+
+/obj/item/storage/box/fancy/crackers
+	name = "\improper Getmore Crackers"
+	desc = "Salted crackers, not much for conversation; they're awfully dry."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "crackerbag"
+	icon_type = "cracker"
+	storage_type = "bag"
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	closable = FALSE
+	storage_slots = 6
+	w_class = ITEMSIZE_SMALL
+	can_hold = list(/obj/item/reagent_containers/food/snacks/cracker)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/cracker = 6)
 
 /*
  * Candle Box
@@ -303,8 +331,10 @@
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
-		user.visible_message("<b>[user]</b> casually pulls out a [icon_type] from \the [src] with their mouth.", range = 3)
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> casually pulls out a [icon_type] from \the [src] with their mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
 		update_icon()
+	if(M == user && target_zone == BP_R_HAND || target_zone == BP_L_HAND) // Cig packing. Because obsessive smokers do it.
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against their palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	else
 		..()
 
@@ -413,6 +443,12 @@
 /obj/item/storage/lockbox/vials/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	update_icon()
+
+/obj/item/storage/lockbox/vials/forensic
+	icon_state = "vialbox6"
+	locked = FALSE
+	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 6)
+	req_access = list(access_forensics_lockers)
 
 /obj/item/storage/box/fancy/chocolate_box
 	name = "chocolate box"

@@ -7,7 +7,13 @@
 		slot_r_hand_str = "helmet"
 		)
 	item_flags = THICKMATERIAL
-	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_KEVLAR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 	cold_protection = HEAD
 	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
@@ -16,7 +22,6 @@
 	siemens_coefficient = 0.5
 	w_class = ITEMSIZE_NORMAL
 	var/obj/machinery/camera/camera
-	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 
@@ -47,21 +52,13 @@
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>.")))
 		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
 
-/obj/item/clothing/head/helmet/verb/toggle_block_hair()
-	set name = "Toggle Helmet Hair Coverage"
-	set category = "Object"
-
-	if(allow_hair_covering)
-		flags_inv ^= BLOCKHEADHAIR
-		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>")
-
 /obj/item/clothing/head/helmet/hos
 	name = "head of security helmet"
 	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers."
-	desc_fluff = "What the heck did you just hecking say about me, you little honker? I'll have you know I graduated top of my class in the Sol Army, and I've been involved in numerous secret raids on the Jargon Federation, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire Sol armed forces. You are nothing to me but just another target. I will wipe you the heck out with precision the likes of which has never been seen before on Biesel, mark my hecking words."
-	icon_state = "hoshelmet"
-	item_state = "hoshelmet"
-	armor = list(melee = 62, bullet = 50, laser = 50, energy = 35, bomb = 10, bio = 2, rad = 0)
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "helm_sec_commander"
+	item_state = "helm_sec_commander"
 
 /obj/item/clothing/head/helmet/hos/dermal
 	name = "dermal armor patch"
@@ -84,9 +81,15 @@
 /obj/item/clothing/head/helmet/riot
 	name = "riot helmet"
 	desc = "It's a helmet specifically designed to protect against close range attacks."
-	icon_state = "riot"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "helm_riot"
+	item_state = "helm_riot"
 	body_parts_covered = HEAD|FACE|EYES //face shield
-	armor = list(melee = 80, bullet = 20, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_MINOR
+		)
 	siemens_coefficient = 0.35
 	flags_inv = HIDEEARS
 	action_button_name = "Toggle Visor"
@@ -95,46 +98,87 @@
 	if (use_check_and_message(user))
 		return
 
-	if(src.icon_state == initial(icon_state))
-		src.icon_state = "[icon_state]-up"
-		to_chat(user, "You raise the visor on \the [src].")
+	do_flip(user)
+	update_clothing_icon()
+
+/obj/item/clothing/head/helmet/riot/proc/do_flip(var/mob/user)
+	if(icon_state == initial(icon_state))
+		icon_state = "[icon_state]-up"
+		item_state = icon_state
+		to_chat(user, SPAN_NOTICE("You raise the visor on \the [src]."))
 		body_parts_covered = HEAD
 	else
-		src.icon_state = initial(icon_state)
-		to_chat(user, "You lower the visor on \the [src].")
+		icon_state = initial(icon_state)
+		item_state = icon_state
+		to_chat(user, SPAN_NOTICE("You lower the visor on \the [src]."))
 		body_parts_covered = HEAD|FACE|EYES
-	update_clothing_icon()
+
 
 /obj/item/clothing/head/helmet/ablative
 	name = "ablative helmet"
 	desc = "A helmet made from advanced materials which protects against concentrated energy weapons."
-	icon_state = "helmet_reflect"
-	armor = list(melee = 25, bullet = 25, laser = 80, energy = 40, bomb = 0, bio = 0, rad = 0)
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "helm_ablative"
+	item_state = "helm_ablative"
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_RESISTANT
+	)
 	siemens_coefficient = 0
 
 /obj/item/clothing/head/helmet/ballistic
 	name = "ballistic helmet"
 	desc = "A helmet with reinforced plating to protect against ballistic projectiles."
-	icon_state = "helmet_bulletproof"
-	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "helm_ballistic"
+	item_state = "helm_ballistic"
+	armor = list(
+		melee = ARMOR_MELEE_MINOR,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/merc
 	name = "combat helmet"
 	desc = "A tan helmet made from advanced ceramic."
-	icon = 'icons/clothing/kit/heavy_armor.dmi'
-	item_state = "helmet"
-	icon_state = "helmet"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
-	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+	icon_state = "helm_heavy"
+	item_state = "helm_heavy"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	siemens_coefficient = 0.35
+
+/obj/item/clothing/head/helmet/merc/scc
+	name = "heavy SCC helmet"
+	desc = "A blue helmet made from advanced ceramic. If corporate drones had brains, this would be protecting it."
+	icon_state = "helm_blue"
+	item_state = "helm_blue"
 
 /obj/item/clothing/head/helmet/swat
 	name = "\improper SWAT helmet"
 	desc = "They're often used by highly trained Swat Members."
 	icon_state = "swat"
 	item_state = "swat"
-	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
@@ -167,7 +211,13 @@
 	name = "\improper Thunderdome helmet"
 	desc = "<i>'Let the battle commence!'</i>"
 	icon_state = "thunderdome"
-	armor = list(melee = 80, bullet = 60, laser = 50,energy = 10, bomb = 25, bio = 10, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 1
@@ -188,8 +238,14 @@
 	sprite_sheets = list(
 		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi'
-		)
-	armor = list(melee = 62, bullet = 50, laser = 50,energy = 35, bomb = 10, bio = 2, rad = 0)
+	)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	siemens_coefficient = 0.35
 
 
@@ -197,7 +253,13 @@
 	name = "augment array"
 	desc = "A helmet with optical and cranial augments coupled to it."
 	icon_state = "v62"
-	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	flags_inv = HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|EYES
 	cold_protection = HEAD
@@ -208,7 +270,12 @@
 	name = "IAC helmet"
 	desc = "This helmet is meant to protect the wearer from light debris, scrapes and bumps in a disaster situation, this lightweight helmet doesn't offer any significant protection from attacks or severe accidents. It's not recommended for use as armor and it's definitely not spaceworthy."
 	icon_state = "iac_helmet"
-	armor = list(melee = 6, bullet = 10, laser = 10, energy = 3, bomb = 5, bio = 15, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MINOR,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		bio = ARMOR_BIO_MINOR
+	)
 	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/helmet/unathi
@@ -219,7 +286,13 @@
 	item_state = "unathi_helmet"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_UNATHI)
-	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/unathi/hegemony
@@ -227,17 +300,32 @@
 	desc = "A highly armored helmet designated to be worn by an Unathi, a newer variant commonly worn by the Hegemony Levies."
 	icon_state = "hegemony_helmet"
 	item_state = "hegemony_helmet"
-	armor = list(melee = 70, bullet = 40, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 40)
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		rad = ARMOR_RAD_MINOR
+	)
 
 /obj/item/clothing/head/helmet/unathi/klax
 	name = "klaxan hopeful helmet"
-	desc = "A helmet designated to be worn by a K'lax hopeful. The retrofit features a modified shape and an extra two eye visors.."
+	desc = "A helmet designated to be worn by a K'lax hopeful. The retrofit features a modified shape and an extra two eye visors. Flash protection blocks many flashes, shielding sensitive Vaurca eyes."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "klax_hopeful_helmet"
 	item_state = "klax_hopeful_helmet"
 	species_restricted = list(BODYTYPE_VAURCA)
-	armor = list(melee = 70, bullet = 40, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 40)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 	siemens_coefficient = 0.35
+	flash_protection = FLASH_PROTECTION_MODERATE
 
 /obj/item/clothing/head/helmet/tank
 	name = "padded cap"
@@ -245,7 +333,9 @@
 	icon_state = "tank"
 	flags_inv = BLOCKHEADHAIR
 	color = "#5f5f5f"
-	armor = list(melee = 25, bullet = 5, laser = 5, energy = 10, bomb = 5, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES
+	)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/head/helmet/tank/olive
@@ -265,8 +355,14 @@
 	item_state_slots = list(
 		slot_l_hand_str = "syndicate-helm-green",
 		slot_r_hand_str = "syndicate-helm-green"
-		)
-	armor = list(melee = 62, bullet = 50, laser = 50,energy = 35, bomb = 10, bio = 2, rad = 0)
+	)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BIO_MINOR
+	)
 	siemens_coefficient = 0.35
 
 //Commander
@@ -298,13 +394,19 @@
 	icon_state = "legion_helmet"
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = HIDEEARS|HIDEEYES|BLOCKHEADHAIR
-	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	siemens_coefficient = 0.35
 	sprite_sheets = list(
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
 		"Machine" = 'icons/mob/species/machine/helmet.dmi'
-		)
+	)
 
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light_dual"
@@ -312,35 +414,3 @@
 	light_wedge = LIGHT_WIDE
 	camera = /obj/machinery/camera/network/tcfl
 	on = 0
-
-/obj/item/clothing/head/helmet/legion_pilot
-	name = "foreign legion flight helmet"
-	desc = "A helmet with an aged pilot visor mounted to it. The visor feeds its wearer in-flight information via a heads-up display."
-	icon_state = "legion_pilot_up"
-	body_parts_covered = null
-	flags_inv = BLOCKHEADHAIR
-	armor = list(melee = 40, bullet = 20, laser = 20, energy = 10, bomb = 40, bio = 0, rad = 0)
-	camera = /obj/machinery/camera/network/tcfl
-	siemens_coefficient = 0.35
-	action_button_name = "Flip Pilot Visor"
-
-/obj/item/clothing/head/helmet/legion_pilot/attack_self()
-	flip_visor()
-
-/obj/item/clothing/head/helmet/legion_pilot/verb/flip_visor()
-	set category = "Object"
-	set name = "Flip pilot visor"
-	var/mob/living/carbon/human/user
-	if(istype(usr,/mob/living/carbon/human))
-		user = usr
-	else
-		return
-	if(icon_state == initial(icon_state))
-		icon_state = "legion_pilot"
-		to_chat(user, "You flip down the pilot visor.")
-		sound_to(user, 'sound/items/goggles_charge.ogg')
-	else
-		icon_state = initial(icon_state)
-		to_chat(user, "You flip up the pilot visor.")
-	update_clothing_icon()
-	user.update_action_buttons()

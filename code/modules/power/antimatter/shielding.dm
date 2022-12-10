@@ -18,7 +18,7 @@ proc/cardinalrange(var/center)
 	anchored = TRUE
 	density = TRUE
 	dir = NORTH
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 	active_power_usage = 0
 
@@ -42,7 +42,6 @@ proc/cardinalrange(var/center)
 		controllerscan()
 		return
 	link_control(AMC)
-	remove_machine(src, FALSE)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/am_shielding/LateInitialize()
@@ -104,7 +103,7 @@ proc/cardinalrange(var/center)
 		return TRUE
 	return FALSE
 
-/obj/machinery/am_shielding/machinery_process()
+/obj/machinery/am_shielding/process()
 	if(!processing)
 		. = PROCESS_KILL
 	//TODO: core functions and stability

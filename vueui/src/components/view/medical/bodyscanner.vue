@@ -51,11 +51,13 @@
           <vui-group>
             <vui-group-item label="BP:" :style="{color:getPressureClass(blood_pressure_level)}"> {{blood_pressure}} </vui-group-item>
             <vui-group-item label="Blood Oxygenation:"><vui-progress :class="progressClass(brain_activity)" :value="Math.round(blood_o2)">{{Math.round(blood_o2)}}%</vui-progress></vui-group-item>
+            <vui-group-item label="Blood Volume:"><vui-progress :class="progressClass(brain_activity)" :value="Math.round(blood_volume)">{{Math.round(blood_volume)}}%</vui-progress></vui-group-item>
             <vui-group-item label="Inaprovaline:" v-if="Math.round(norepiAmt)"> {{ Math.round(norepiAmt) }} unit(s)</vui-group-item>
             <vui-group-item label="Soporific:" v-if="Math.round(soporAmt)"> {{ Math.round(soporAmt) }} unit(s)</vui-group-item>
             <vui-group-item label="Bicaridine:" v-if="Math.round(bicardAmt)"> {{ Math.round(bicardAmt) }} unit(s)</vui-group-item>
             <vui-group-item label="Dermaline:" v-if="Math.round(dermAmt)"> {{ Math.round(dermAmt) }} unit(s)</vui-group-item>
             <vui-group-item label="Dexalin:" v-if="Math.round(dexAmt)"> {{ Math.round(dexAmt) }} unit(s)</vui-group-item>
+            <vui-group-item label="Thetamycin:" v-if="Math.round(thetaAmt)"> {{ Math.round(thetaAmt) }} unit(s)</vui-group-item>
             <vui-group-item label="Other:" v-if="Math.round(otherAmt)"> {{ Math.round(otherAmt) }} unit(s)</vui-group-item>
           </vui-group>
         </div>
@@ -182,19 +184,22 @@
         }
       },
     damageLabel(value) {
-      if(value == "extreme" || value < 20) {
+      if(value == "Fatal" || value < 10) {
         return "Crimson"
       }
-      else if(value == "severe" || value < 40) {
+      if(value == "Critical" || value < 20) {
+        return "Crimson"
+      }
+      else if(value == "Severe" || value < 40) {
         return "OrangeRed"
       }
-      else if(value == "significant" || value < 60) {
+      else if(value == "Significant" || value < 60) {
         return "Tomato"
       }
-      else if(value == "moderate" || value < 80) {
+      else if(value == "Moderate" || value < 80) {
         return "Orange"
       }
-      else if(value == "minor" || value < 100) {
+      else if(value == "Minor" || value < 100) {
         return "LawnGreen"
       }
       else {

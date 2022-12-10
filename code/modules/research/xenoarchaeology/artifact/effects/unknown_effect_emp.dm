@@ -11,4 +11,4 @@
 	if(holder)
 		var/turf/T = get_turf(holder)
 		empulse(T, effectrange/1, effectrange)
-		return 1
+		return TRUE

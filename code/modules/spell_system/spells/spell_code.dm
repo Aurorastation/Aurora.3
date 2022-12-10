@@ -21,7 +21,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	var/holder_var_type = "bruteloss" //only used if charge_type equals to "holder_var"
 	var/holder_var_amount = 20 //same. The amount adjusted with the mob's var when the spell is used
 
-	var/spell_flags = NEEDSCLOTHES
+	var/spell_flags
 	var/invocation = "HURP DURP"	//what is uttered when the wizard casts the spell
 	var/invocation_type = SpI_NONE	//can be none, whisper, shout, and emote
 	var/range = 7					//the range of the spell; outer radius for aoe spells
@@ -222,19 +222,14 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 		return 0
 
 	if(!(spell_flags & GHOSTCAST) && holder == user)
-		if(user.stat && !(spell_flags & STATALLOWED))
-			to_chat(usr, "Not when you're incapacitated.")
+		if(user.incapacitated(INCAPACITATION_KNOCKOUT) && !(spell_flags & STATALLOWED))
+			to_chat(usr, SPAN_WARNING("Not when you're incapacitated."))
 			return 0
 
 		if(ishuman(user) && !(invocation_type in list(SpI_EMOTE, SpI_NONE)))
 			if(istype(user.wear_mask, /obj/item/clothing/mask/muzzle))
 				to_chat(user, "Mmmf mrrfff!")
 				return 0
-
-	var/spell/noclothes/spell = locate() in user.spell_list
-	if((spell_flags & NEEDSCLOTHES) && !(spell && istype(spell)) && holder == user)//clothes check
-		if(!user.wearing_wiz_garb())
-			return 0
 
 	return 1
 
@@ -267,7 +262,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 		return 0
 	return 1
 
-/spell/proc/invocation(mob/user = usr, var/list/targets) //spelling the spell out and setting it on recharge/reducing charges amount
+/spell/proc/invocation(mob/living/user = usr, var/list/targets) //spelling the spell out and setting it on recharge/reducing charges amount
 
 	switch(invocation_type)
 		if(SpI_SHOUT)

@@ -14,10 +14,12 @@
 
 	using = new /obj/screen/new_player/title(src)
 	using.name = "Title"
+	using.hud = src
 	adding += using
 
 	using = new /obj/screen/new_player/selection/join_game(src)
 	using.name = "Join Game"
+	using.hud = src
 	adding += using
 
 	using = new /obj/screen/new_player/selection/settings(src)
@@ -83,6 +85,8 @@
 	. = ..()
 
 /obj/screen/new_player/title/proc/Update()
+	if(!istype(hud) || !isnewplayer(hud.mymob))
+		return
 	lobby_index += 1
 	if (lobby_index > length(current_map.lobby_screens))
 		lobby_index = 1
@@ -99,52 +103,50 @@
 	hud = H
 	..()
 
+/obj/screen/new_player/selection/MouseEntered(location, control, params)
+	var/matrix/M = matrix()
+	M.Scale(1.1, 1)
+	animate(src, color = color_rotation(30), transform = M, time = 3, easing = CUBIC_EASING)
+	return ..()
+
+/obj/screen/new_player/selection/MouseExited(location,control,params)
+	animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+	return ..()
+
 /obj/screen/new_player/selection/join_game
 	name = "Join Game"
 	icon_state = "unready"
-	screen_loc = "LEFT+1,CENTER"
+	screen_loc = "LEFT+0.1,CENTER-1"
 
 /obj/screen/new_player/selection/settings
 	name = "Setup"
 	icon_state = "setup"
-	screen_loc = "LEFT+1,CENTER-1"
+	screen_loc = "LEFT+0.1,CENTER-2"
 
 /obj/screen/new_player/selection/manifest
 	name = "Crew Manifest"
 	icon_state = "manifest"
-	screen_loc = "LEFT+1,CENTER-2"
+	screen_loc = "LEFT+0.1,CENTER-3"
 
 /obj/screen/new_player/selection/observe
 	name = "Observe"
 	icon_state = "observe"
-	screen_loc = "LEFT+1,CENTER-3"
+	screen_loc = "LEFT+0.1,CENTER-4"
 
 /obj/screen/new_player/selection/changelog
 	name = "Changelog"
 	icon_state = "changelog"
-	screen_loc = "LEFT+1,CENTER-4"
+	screen_loc = "LEFT+0.1,CENTER-5"
 
 /obj/screen/new_player/selection/polls
 	name = "Polls"
 	icon_state = "polls"
-	screen_loc = "LEFT+1,CENTER-5"
+	screen_loc = "LEFT+0.1,CENTER-6"
 
 /obj/screen/new_player/selection/lore_summary
 	name = "Current Lore Summary"
 	icon_state = "lore_summary"
-	screen_loc = "LEFT+1,CENTER-6"
-
-/obj/screen/new_player/selection/MouseEntered(location,control,params) //Yellow color for the font
-	color = "#ffb200"
-	var/matrix/M = matrix()
-	M.Scale(1.1, 1.1)
-	animate(src, transform = M, time = 1, easing = CUBIC_EASING)
-	return ..()
-
-/obj/screen/new_player/selection/MouseExited(location,control,params)
-	color = null
-	animate(src, transform = null, time = 1, easing = CUBIC_EASING)
-	return ..()
+	screen_loc = "LEFT+0.1,CENTER-7"
 
 /obj/screen/new_player/selection/join_game/Initialize()
 	. = ..()
@@ -156,10 +158,8 @@
 	sound_to(player, 'sound/effects/menu_click.ogg')
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
-			player.ready = FALSE
 			player.ready(FALSE)
 		else
-			player.ready = TRUE
 			player.ready(TRUE)
 	else
 		player.join_game()
@@ -230,10 +230,13 @@
 			alert(src, "You have not saved your character yet. Please do so before readying up.")
 			return
 		if(client.unacked_warning_count > 0)
-			alert(src, "You can not ready up, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+			alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 			return
 
 		ready = readying
+		if(ready)
+			last_ready_name = client.prefs.real_name
+		SSticker.update_ready_list(src)
 	else
 		ready = FALSE
 
@@ -271,7 +274,7 @@
 		announce_ghost_joinleave(src)
 		var/mob/living/carbon/human/dummy/mannequin/mannequin = new
 		client.prefs.dress_preview_mob(mannequin)
-		observer.appearance = mannequin
+		observer.appearance = mannequin.appearance
 		observer.appearance_flags = KEEP_TOGETHER
 		observer.alpha = 127
 		observer.layer = initial(observer.layer)

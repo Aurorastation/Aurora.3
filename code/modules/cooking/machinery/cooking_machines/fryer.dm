@@ -43,12 +43,17 @@
 	oil.add_reagent(/decl/reagent/nutriment/triglyceride/oil/corn, optimal_oil*(1 - variance))
 	fry_loop = new(list(src), FALSE)
 
+/obj/machinery/appliance/cooker/fryer/Destroy()
+	QDEL_NULL(fry_loop)
+	QDEL_NULL(oil)
+	return ..()
+
 /obj/machinery/appliance/cooker/fryer/heat_up()
 	if (..())
 		//Set temperature of oil
 		oil.set_temperature(temperature)
 
-/obj/machinery/appliance/cooker/fryer/machinery_process()
+/obj/machinery/appliance/cooker/fryer/process()
 	. = ..()
 	//Set temperature of oil
 	oil.set_temperature(temperature)
@@ -74,10 +79,8 @@
 /obj/machinery/appliance/cooker/fryer/update_icon()
 	if (cooking)
 		icon_state = on_icon
-		fry_loop.start()
 	else
 		icon_state = off_icon
-		fry_loop.stop(src)
 	..()
 
 //Fryer gradually infuses any cooked food with oil. Moar calories
@@ -102,10 +105,9 @@
 	for (var/obj/item/I in CI.container)
 		if (I.reagents && I.reagents.total_volume)
 			for (var/_R in I.reagents.reagent_volumes)
-				var/decl/reagent/R = decls_repository.get_decl(_R)
-				if (istype(R, /decl/reagent/nutriment/triglyceride/oil))
+				if (ispath(_R, /decl/reagent/nutriment/triglyceride/oil))
 					total_oil += I.reagents.reagent_volumes[_R]
-					if (R.type != our_oil.type)
+					if (_R != our_oil.type)
 						total_removed += I.reagents.reagent_volumes[_R]
 						I.reagents.remove_reagent(_R, I.reagents.reagent_volumes[_R])
 					else
@@ -206,8 +208,7 @@
 	//So for now, restrict to oil only
 		var/amount = 0
 		for (var/_R in I.reagents.reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(_R)
-			if (istype(R, /decl/reagent/nutriment/triglyceride/oil))
+			if (ispath(_R, /decl/reagent/nutriment/triglyceride/oil))
 				var/delta = REAGENTS_FREE_SPACE(oil)
 				delta = min(delta, I.reagents.reagent_volumes[_R])
 				oil.add_reagent(_R, delta)
@@ -218,3 +219,11 @@
 			return TRUE
 	//If neither of the above returned, then call parent as normal
 	..()
+
+/obj/machinery/appliance/cooker/fryer/add_content(obj/item/I, mob/user)
+	. = ..()
+	fry_loop.start(src)
+
+/obj/machinery/appliance/cooker/fryer/eject(datum/cooking_item/CI, mob/user)
+	. = ..()
+	fry_loop.stop(src)

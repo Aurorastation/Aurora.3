@@ -4,7 +4,6 @@
 	organ_tag = BP_LIVER
 	parent_organ = BP_GROIN
 	robotic_name = "toxin filter"
-	robotic_sprite = "liver-prosthetic"
 	toxin_type = CE_HEPATOTOXIC
 	min_bruised_damage = 25
 	min_broken_damage = 55
@@ -45,14 +44,8 @@
 		filter_effect += 1
 
 	if(filter_effect < 2) //Trouble. You're not filtering well.
-		owner.adjustToxLoss(0.8 * max(2 - filter_effect, 0))
-
-	// Heal a bit if needed and we're not busy. This allows recovery from low amounts of toxloss.
-	if(!owner.total_radiation && damage > 0)
-		if(damage < min_broken_damage)
-			heal_damage(0.2)
-		if(damage < min_bruised_damage)
-			heal_damage(0.3)
+		if(owner.intoxication > 0)
+			owner.adjustToxLoss(0.5 * max(2 - filter_effect, 0))
 
 	var/filter_strength = INTOX_FILTER_HEALTHY
 	if(is_bruised())
@@ -63,7 +56,12 @@
 		filter_strength *= 1.1
 
 	if (owner.intoxication > 0)
-		owner.intoxication -= min(owner.intoxication, filter_strength)
+		var/bac = owner.get_blood_alcohol()
+		var/res = owner.species ? owner.species.ethanol_resistance : 1
+		if(bac >= INTOX_MUSCLEIMP * res) //Excessive blood alcohol, difficult to filter
+			owner.intoxication -= min(owner.intoxication, filter_strength/2)
+		else
+			owner.intoxication -= min(owner.intoxication, filter_strength)
 		if(!owner.intoxication)
 			owner.handle_intoxication()
 
@@ -71,6 +69,12 @@
 		if(is_damaged())
 			owner.adjustToxLoss(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY) // as actual organ damage is handled elsewhere
 
-//We got it covered in Process with more detailed thing
 /obj/item/organ/internal/liver/handle_regeneration()
-	return
+	if(..())
+		if(!owner.total_radiation && damage > 0)
+			if(damage < min_broken_damage)
+				heal_damage(0.2)
+			if(damage < min_bruised_damage)
+				heal_damage(0.3)
+			return TRUE
+	return FALSE

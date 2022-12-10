@@ -58,14 +58,15 @@
 	var/max_stored = 10
 
 /obj/item/device/lightreplacer/advanced
-	store_broken = 1
-	load_interval = 10
-	max_uses = 30
-	uses = 0 //Starts empty
 	name = "advanced light replacer"
 	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs. Empty into a disposal or trashbag when full!"
 	icon_state = "adv_lightreplacer"
 	item_state = "adv_lightreplacer"
+	w_class = ITEMSIZE_SMALL
+	store_broken = 1
+	load_interval = 10
+	max_uses = 30
+	uses = 0 //Starts empty
 
 /obj/item/device/lightreplacer/New()
 	failmsg = "The [name]'s refill light blinks red."
@@ -81,29 +82,38 @@
 	if(istype(W, /obj/item/stack/material) && W.get_material_name() == "glass")
 		var/obj/item/stack/G = W
 		if(uses >= max_uses)
-			to_chat(user, "<span class='warning'>[src.name] is full.</span>")
-			return
+			to_chat(user, SPAN_WARNING("[src.name] is full."))
 		else if(G.use(5))
 			AddUses(2)
 			if (prob(50))
 				AddUses(1)
-			to_chat(user, "<span class='notice'>You insert five pieces of glass into the [src.name]. You have [uses] lights remaining.</span>")
-			return
+			to_chat(user, SPAN_NOTICE("You insert five pieces of glass into the [src]. You have [uses] light\s remaining."))
 		else
-			to_chat(user, "<span class='warning'>You need 5 sheets of glass to replace lights.</span>")
+			to_chat(user, SPAN_WARNING("You need 5 sheets of glass to replace lights."))
+		return TRUE
 
 	if(istype(W, /obj/item/light))
 		var/obj/item/light/L = W
 		if(L.status == 0) // LIGHT OKAY
 			if(uses < max_uses)
 				AddUses(1)
-				to_chat(user, "You insert \the [L.name] into \the [src.name]. You have [uses] light\s remaining.")
+				to_chat(user, SPAN_NOTICE("You insert \the [L] into \the [src]. You have [uses] light\s remaining."))
 				user.drop_from_inventory(L,get_turf(src))
 				qdel(L)
-				return
 		else
-			to_chat(user, "You need a working light.")
-			return
+			to_chat(user, SPAN_WARNING("You need a working light."))
+		return TRUE
+
+	if(istype(W, /obj/item/device/lightreplacer))
+		var/obj/item/device/lightreplacer/LR = W
+		if(LR.uses == LR.max_uses)
+			to_chat(user, SPAN_WARNING("\The [LR] is already full!"))
+			return TRUE
+		var/use_difference = min(LR.max_uses - LR.uses, uses)
+		AddUses(-use_difference)
+		LR.AddUses(use_difference)
+		to_chat(user, SPAN_NOTICE("You transfer the lights from \the [src] to \the [LR]."))
+		return TRUE
 
 
 /obj/item/device/lightreplacer/afterattack(var/atom/target, var/mob/living/user, proximity, params)
@@ -124,7 +134,7 @@
 /obj/item/device/lightreplacer/proc/load_lights_from_box(var/obj/item/storage/box/box, var/mob/user)
 	var/boxstartloc = box.loc
 	var/ourstartloc = src.loc
-	user.visible_message("<span class='notice'>[user] starts loading lights from the [box] into their [src]</span>", "<span class='notice'>You start loading lights from the [box] into the [src]</span>")
+	user.visible_message(SPAN_NOTICE("[user] starts loading lights from the [box] into their [src]"), SPAN_NOTICE("You start loading lights from the [box] into the [src]"))
 	while (uses < max_uses)
 		var/bulb = null
 		for (var/obj/item/light/L in box.contents)
@@ -133,20 +143,22 @@
 				break
 
 		if (!bulb)
-			to_chat(user, "<span class='warning'>There are no more working lights left in the box!</span>")
+			to_chat(user, SPAN_WARNING("There are no more working lights left in the box!"))
 			return
 
 		if (do_after(user, load_interval, needhand = 0) && boxstartloc == box.loc && ourstartloc == src.loc)
+			if(uses >= max_uses) //catches loading from multiple boxes
+				break
 			uses++
-			to_chat(user, "<span class='notice'>Light loaded: [uses]/[max_uses]</span>")
+			to_chat(user, SPAN_NOTICE("Light loaded: [uses]/[max_uses]"))
 			playsound(src.loc, 'sound/machines/click.ogg', 20, 1)
 			box.remove_from_storage(bulb,get_turf(box))
 			qdel(bulb)
 		else
-			to_chat(user, "<span class='warning'>You need to keep the [src] close to the box!</span>")
+			to_chat(user, SPAN_WARNING("You need to keep the [src] close to the box!"))
 			return
 
-	to_chat(user, "<span class='notice'>The [src]'s refill light shines a solid green, indicating it's full and ready to go!</span>")
+	to_chat(user, SPAN_NOTICE("The [src]'s refill light shines a solid green, indicating it's full and ready to go!"))
 
 /obj/item/device/lightreplacer/proc/stored()
 	var/count = 0
@@ -184,7 +196,7 @@
 	if(target.status != LIGHT_OK)
 		if(CanUse(U))
 			if(!Use(U)) return
-			to_chat(U, "<span class='notice'>You replace the [target.fitting] with the [src].</span>")
+			to_chat(U, SPAN_NOTICE("You replace the [target.fitting] with the [src]."))
 
 			if(target.status != LIGHT_EMPTY)
 
@@ -205,9 +217,9 @@
 				if (store_broken)
 					if (stored() < max_stored)
 						L1.forceMove(src)
-						to_chat(U, "<span class='notice'>\The [src] neatly sucks the broken [target.fitting] into its internal storage. Now storing [stored()]/[max_stored] broken bulbs</span>")
+						to_chat(U, SPAN_NOTICE("\The [src] neatly sucks the broken [target.fitting] into its internal storage. Now storing [stored()]/[max_stored] broken bulbs"))
 					else
-						to_chat(U, "<span class='danger'>\The [src] tries to suck up the broken [target.fitting] but it has no more space. Empty it into the trash!</span>")
+						to_chat(U, SPAN_DANGER("\The [src] tries to suck up the broken [target.fitting] but it has no more space. Empty it into the trash!"))
 
 			var/obj/item/light/L2 = new target.light_type()
 

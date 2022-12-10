@@ -83,7 +83,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 /mob/proc/update_floating(var/dense_object=0)
 
-	if(anchored||buckled)
+	if(anchored||buckled_to)
 		make_floating(0)
 		return
 
@@ -108,7 +108,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 	return
 
 /mob/proc/make_floating(var/n)
-	if(buckled)
+	if(buckled_to)
 		if(is_floating)
 			stop_floating()
 		return
@@ -268,3 +268,29 @@ note dizziness decrements automatically in the mob's Life() proc.
 			set_dir(D)
 			spintime -= speed
 	return
+
+// Mob Throwing Animation
+/proc/animate_throw(atom/A)
+	var/ipx = A.pixel_x
+	var/ipy = A.pixel_y
+	var/mpx = 0
+	var/mpy = 0
+
+	if(A.dir & NORTH)
+		mpy += 3
+	else if(A.dir & SOUTH)
+		mpy -= 3
+	if(A.dir & EAST)
+		mpx += 3
+	else if(A.dir & WEST)
+		mpx -= 3
+
+	var/x = mpx + ipx
+	var/y = mpy + ipy
+
+	animate(A, pixel_x = x, pixel_y = y, time = 0.6, easing = EASE_OUT)
+
+	var/matrix/M = matrix(A.transform)
+	animate(transform = turn(A.transform, (mpx - mpy) * 4), time = 0.6, easing = EASE_OUT)
+	animate(pixel_x = ipx, pixel_y = ipy, time = 0.6, easing = EASE_IN)
+	animate(transform = M, time = 0.6, easing = EASE_IN)

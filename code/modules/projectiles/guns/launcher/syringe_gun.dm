@@ -13,10 +13,10 @@
 	var/obj/item/reagent_containers/syringe/syringe
 
 /obj/item/syringe_cartridge/update_icon()
-	underlays.Cut()
 	if(syringe)
-		underlays += image(syringe.icon, src, syringe.icon_state)
-		underlays += syringe.filling
+		icon_state = "syringe-cartridge-loaded"
+	else
+		icon_state = "syringe-cartridge"
 
 /obj/item/syringe_cartridge/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/reagent_containers/syringe))
@@ -95,7 +95,7 @@
 	darts -= next
 	next = null
 
-/obj/item/gun/launcher/syringe/attack_self(mob/living/user as mob)
+/obj/item/gun/launcher/syringe/unique_action(mob/living/user)
 	if(next)
 		user.visible_message("[user] unlatches and carefully relaxes the bolt on [src].", "<span class='warning'>You unlatch and carefully relax the bolt on [src], unloading the spring.</span>")
 		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)

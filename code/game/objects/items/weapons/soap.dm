@@ -38,8 +38,8 @@
 			var/obj/item/key/K = I
 			key_data = K.key_data
 			update_icon()
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/soap/update_icon()
 	overlays.Cut()
@@ -97,7 +97,7 @@
 	..()
 
 /obj/item/soap/nanotrasen
-	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."
+	desc = "A NanoTrasen-brand bar of soap. Smells of acai berries and white chocolate."
 	icon_state = "soapnt"
 	item_state = "soapnt"
 
@@ -114,104 +114,85 @@
 	desc = "A deluxe Waffle Co. brand bar of soap. Smells of [pick("lavender", "vanilla", "strawberry", "chocolate" ,"space")]."
 
 /obj/item/soap/syndie
-	desc = "An untrustworthy bar of soap. Smells of fear."
+	desc = "A lackluster bar of soap. It smells like cranberries."
 	icon_state = "soapsyndie"
 	item_state = "soapsyndie"
 	capacity = 20
 
 /obj/item/soap/space_soap
-	name = "Soap"
-	desc = "Smells like burnt meat."
+	desc = "Smells like cedarwood and almonds."
 	icon_state = "space_soap"
 
 /obj/item/soap/water_soap
-	name = "Soap"
-	desc = "Smells like chlorine."
+	desc = "Smells like rain water and vanilla."
 	icon_state = "water_soap"
 
 /obj/item/soap/fire_soap
-	name = "Soap"
-	desc = "Smells like burnt charcoal."
+	desc = "Smells like charcoal and chestnuts."
 	icon_state = "fire_soap"
 
 /obj/item/soap/rainbow_soap
-	name = "Soap"
-	desc = "Smells sweet."
+	desc = "Smells like carnations and honey."
 	icon_state = "rainbow_soap"
 
 /obj/item/soap/diamond_soap
-	name = "Soap"
-	desc = "Smells like saffron."
+	desc = "Smells like saffron and vanilla."
 	icon_state = "diamond_soap"
 
 /obj/item/soap/uranium_soap
-	name = "Soap"
-	desc = "Doesn't smell... it's glowing though."
+	desc = "Smells like lime."
 	icon_state = "uranium_soap"
 
 /obj/item/soap/silver_soap
-	name = "Soap"
-	desc = "Smells bitter."
+	desc = "Smells like birch and amaranth."
 	icon_state = "silver_soap"
 
 /obj/item/soap/brown_soap
-	name = "Soap"
-	desc = "Smells like chocolate."
+	desc = "Smells like cinnamon and cognac."
 	icon_state = "brown_soap"
 
 /obj/item/soap/white_soap
-	name = "Soap"
-	desc = "Smells like vanilla."
+	desc = "Smells like nutmeg and oats."
 	icon_state = "white_soap"
 
 /obj/item/soap/grey_soap
-	name = "Soap"
-	desc = "Smells acidic."
+	desc = "Smells like bergamot and lilies."
 	icon_state = "grey_soap"
 
 /obj/item/soap/pink_soap
-	name = "Soap"
-	desc = "Smells like bubble gum"
+	desc = "Smells like cherry blossoms."
 	icon_state = "pink_soap"
 
 /obj/item/soap/purple_soap
-	name = "Soap"
-	desc = "Smells like wisteria."
+	desc = "Smells like lavender."
 	icon_state = "purple_soap"
 
 /obj/item/soap/blue_soap
-	name = "Soap"
-	desc = "Smells like lilies."
+	desc = "Smells like cardamom."
 	icon_state = "blue_soap"
 
 /obj/item/soap/cyan_soap
-	name = "Soap"
-	desc = "Smells like bluebells."
+	desc = "Smells like bluebells and peaches."
 	icon_state = "cyan_soap"
 
 /obj/item/soap/green_soap
-	name = "Soap"
-	desc = "Smells like a freshly mowed lawn."
+	desc = "Smells like rosemary and thyme."
 	icon_state = "green_soap"
 
 /obj/item/soap/yellow_soap
-	name = "Soap"
-	desc = "Smells like sunflowers."
+	desc = "Smells like citron and ginger."
 	icon_state = "yellow_soap"
 
 /obj/item/soap/orange_soap
-	name = "Soap"
-	desc = "Smells like oranges."
+	desc = "Smells like oranges and dark chocolate."
 	icon_state = "orange_soap"
 
 /obj/item/soap/red_soap
-	name = "Soap"
-	desc = "Smells like cherries."
+	desc = "Smells like roses and oats."
 	icon_state = "red_soap"
 
 /obj/item/soap/golden_soap
-	name = "Soap"
-	desc = "Smells like honey."
+	desc = "Smells like agave nectar."
 	icon_state = "golden_soap"
 
 /obj/random/soap/

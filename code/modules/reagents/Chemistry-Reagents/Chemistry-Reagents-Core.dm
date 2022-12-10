@@ -12,13 +12,27 @@
 
 	fallback_specific_heat = 3.617
 
+/decl/reagent/blood/initialize_data(newdata, datum/reagents/holder)
+	. = ..()
+	if(.)
+		LAZYINITLIST(.["trace_chem"])
+
+/decl/reagent/blood/proc/handle_trace_chems(var/datum/reagents/holder)
+	var/list/trace_chems = holder.reagent_data[type]["trace_chem"]
+	for(var/chem in trace_chems)
+		var/decl/reagent/R = decls_repository.get_decl(chem)
+		trace_chems[chem] = trace_chems[chem] - (R.metabolism / 10) // work your way out of the body but at 10th the speed
+		if(trace_chems[chem] < 0)
+			trace_chems -= chem
+	holder.reagent_data[type]["trace_chem"] = trace_chems
+
 /decl/reagent/blood/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
 	var/list/data = ..()
 	if(LAZYACCESS(newdata, "trace_chem"))
 		var/list/other_chems = LAZYACCESS(newdata, "trace_chem")
 		if(!data)
 			data = newdata.Copy()
-		else if(!data["trace_chem"])
+		else if(!length(data["trace_chem"]))
 			data["trace_chem"] = other_chems.Copy()
 		else
 			var/list/my_chems = data["trace_chem"]
@@ -61,7 +75,7 @@
 				return
 			var/datum/vampire/vampire = M.mind.antag_datums[MODE_VAMPIRE]
 			vampire.blood_usable += removed
-			to_chat(M, "<span class='notice'>You have accumulated [vampire.blood_usable] [vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
+			to_chat(M, "<span class='notice'>You have accumulated [vampire.blood_usable] unit\s of usable blood. It tastes quite stale.</span>")
 			return
 	var/dose = M.chem_doses[type]
 	if(dose > 15)

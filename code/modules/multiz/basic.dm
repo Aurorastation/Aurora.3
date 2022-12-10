@@ -37,13 +37,16 @@
 /proc/GetConnectedZlevels(z)
 	. = list(z)
 	for(var/level = z, HAS_BELOW(level), level--)
-		. += level-1
+		. |= level-1
 	for(var/level = z, HAS_ABOVE(level), level++)
-		. += level+1
+		. |= level+1
 
 /proc/AreConnectedZLevels(var/zA, var/zB)
 	if (zA == zB)
 		return TRUE
+	
+	if(zA == 0 || zB == 0)
+		return FALSE
 
 	if (SSatlas.connected_z_cache.len >= zA && SSatlas.connected_z_cache[zA])
 		return (SSatlas.connected_z_cache[zA].len >= zB && SSatlas.connected_z_cache[zA][zB])

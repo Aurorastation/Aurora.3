@@ -23,6 +23,9 @@
     <vui-item v-if="brightness !== null" label="Brightness:">
       <vui-input-slider :min="0" :max="10" v-model="brightness"/>
     </vui-item>
+    <vui-item label="Audible Message Output Range:">
+      <vui-input-slider :min="0" :max="max_message_range" v-model="message_range"/>
+    </vui-item>
     <h2>Computer Components</h2>
     <div v-for="(h, name) in hardware" :key="name">
       <h3>{{name}}</h3>

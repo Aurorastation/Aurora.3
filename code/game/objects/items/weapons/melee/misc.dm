@@ -5,6 +5,9 @@
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_melee.dmi'
 		)
 
+/obj/item/melee/should_equip()
+	return TRUE
+
 /obj/item/melee/chainofcommand
 	name = "chain of command"
 	desc = "A tool used by great men to placate the frothing masses."
@@ -30,7 +33,7 @@
 	throwforce = 7
 	w_class = ITEMSIZE_LARGE
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	origin_tech = list(TECH_COMBAT = 5)
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -75,6 +78,16 @@
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
+
+/obj/item/melee/hammer/iscrowbar()
+	if(ismob(loc))
+		var/mob/M = loc
+		if(M.a_intent && M.a_intent == I_HURT)
+			return FALSE
+	return TRUE
+
+/obj/item/melee/hammer/ishammer()
+	return TRUE
 
 /obj/item/melee/hammer/powered
 	name = "powered hammer"
@@ -165,7 +178,7 @@
 /obj/item/melee/ceremonial_sword
 	name = "sol officer ceremonial sword"
 	desc = "A ceremonial sword issued to Sol navy officers as part of their dress uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
 	icon_state = "officersword"
 	item_state = "officersword"
 	contained_sprite = TRUE
@@ -175,7 +188,7 @@
 	throwforce = 5
 	w_class = ITEMSIZE_LARGE
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	can_embed = 0
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
@@ -184,7 +197,5 @@
 /obj/item/melee/ceremonial_sword/marine
 	name = "sol marine ceremonial sword"
 	desc = "A ceremonial sword issued to Sol marine officers as part of their dress uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "marineofficersword"
 	item_state = "marineofficersword"
-	contained_sprite = 1

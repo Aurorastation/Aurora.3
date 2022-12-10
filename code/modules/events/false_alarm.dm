@@ -6,15 +6,16 @@
 /datum/event/false_alarm
 	announceWhen	= 0
 	endWhen	=	90
+	no_fake = TRUE //Can't fake itself
 	var/datum/event_meta/EM
 	var/eventname
 	var/datum/event/E = null
 
 
-/datum/event/false_alarm/end()
-	command_announcement.Announce("Error, It appears our previous announcement about [eventname] was a sensor glitch. There is no cause for alarm, please return to your stations.", "False Alarm", new_sound = 'sound/AI/falsealarm.ogg')
+/datum/event/false_alarm/end(var/faked)
+	command_announcement.Announce("Error, It appears our previous announcement about [eventname] was a sensor glitch. There is no cause for alarm, please return to your stations.", "False Alarm", new_sound = 'sound/AI/falsealarm.ogg', zlevels = affecting_z)
 	if(two_part)
-		E.end()
+		E.end()	//This does not return TRUE for var/faked because two-part events like radiation storms need to do things such as revoking maint access
 	if (EM)
 		qdel(EM)
 		EM = null
@@ -31,14 +32,13 @@
 	var/fake_allowed = 0
 	while (!fake_allowed)
 		if (E)
-			E.end()
+			E.end(TRUE)
 			E.kill()
 			qdel(E)
 			E = null
 		EM = pick(EC.available_events)
 		E = new EM.event_type(EM,1)
 		fake_allowed = !E.no_fake
-
 	if (E.ic_name)
 		eventname = E.ic_name
 	else
@@ -47,6 +47,6 @@
 		two_part = 1
 		E.start()
 
-	E.end()
+	E.end(TRUE)
 	E.kill()
 	E.announce()

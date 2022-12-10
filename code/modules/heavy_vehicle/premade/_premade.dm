@@ -190,6 +190,8 @@
 		var/list/forbidden_leg_types = list(/obj/item/mech_component/propulsion/cult, /obj/item/mech_component/propulsion/superheavy, /obj/item/mech_component/propulsion/combat)
 		var/legstype = pick(subtypesof(/obj/item/mech_component/propulsion) - forbidden_leg_types)
 		legs = new legstype(src)
+		if(legs.hover)
+			pass_flags |= PASSRAILING
 		legs.color = mech_colour ? mech_colour : pick(use_colours)
 	if(!head)
 		var/list/forbidden_head_types = list(/obj/item/mech_component/sensors/cult, /obj/item/mech_component/sensors/superheavy, /obj/item/mech_component/sensors/combat)
@@ -222,7 +224,7 @@
 	..()
 
 /mob/living/heavy_vehicle/premade/random/boring/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
-	..(mapload, source_frame, using_boring_colours = TRUE)
+	. = ..(mapload, source_frame, using_boring_colours = TRUE)
 
 /mob/living/heavy_vehicle/premade/random/extra/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
-	..(mapload, source_frame, super_random = TRUE)
+	. = ..(mapload, source_frame, super_random = TRUE)

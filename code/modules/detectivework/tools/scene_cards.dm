@@ -25,9 +25,22 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 	w_class = ITEMSIZE_TINY
+	flags = NOBLUDGEON
 	randpixel = 1
 	layer = ABOVE_MOB_LAYER //so you can mark bodies
 	var/number = 1
+
+/obj/item/csi_marker/afterattack(atom/A, mob/user, proximity)
+	if(!proximity)
+		return
+	if(!istype(A, /obj/item/storage))
+		if(!user.Adjacent(A))
+			return
+		if(A.density)
+			return
+
+		user.drop_from_inventory(src, get_turf(A))
+	return
 
 /obj/item/csi_marker/Initialize(mapload)
 	. = ..()

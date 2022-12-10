@@ -8,17 +8,18 @@
 	icon = 'icons/obj/machines/shielding.dmi'
 	icon_state = "capacitor"
 	obj_flags = OBJ_FLAG_ROTATABLE
-	var/active = 0
-	density = 1
+	var/active = FALSE
+	density = TRUE
 	var/stored_charge = 0	//not to be confused with power cell charge, this is in Joules
 	var/last_stored_charge = 0
 	var/time_since_fail = 100
 	var/max_charge = 8e6	//8 MJ
 	var/max_charge_rate = 400000	//400 kW
-	var/locked = 0
-	use_power = 0 //doesn't use APC power
+	var/locked = FALSE
+	use_power = POWER_USE_OFF //doesn't use APC power
 	var/charge_rate = 100000	//100 kW
 	var/obj/machinery/shield_gen/owned_gen
+	req_one_access = list(access_captain, access_security, access_engine)
 
 /obj/machinery/shield_capacitor/Initialize()
 	..()
@@ -26,39 +27,37 @@
 
 /obj/machinery/shield_capacitor/LateInitialize()
 	for(var/obj/machinery/shield_gen/possible_gen in range(1, src))
-		if(get_dir(src, possible_gen) == src.dir)
+		if(get_dir(src, possible_gen) == dir)
 			possible_gen.owned_capacitor = src
 			break
 
 /obj/machinery/shield_capacitor/emag_act(var/remaining_charges, var/mob/user)
 	if(prob(75))
-		src.locked = !src.locked
-		to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
-		. = 1
+		locked = !locked
+		to_chat(user, "Controls are now [locked ? "locked." : "unlocked."]")
+		. = TRUE
 		updateDialog()
 	spark(src, 5, alldirs)
 
 /obj/machinery/shield_capacitor/attackby(obj/item/W, mob/user)
 
 	if(istype(W, /obj/item/card/id))
-		var/obj/item/card/id/C = W
-		if((access_captain in C.access) || (access_security in C.access) || (access_engine in C.access))
-			src.locked = !src.locked
-			to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
+		if(allowed(user))
+			locked = !locked
+			to_chat(user, "Controls are now [locked ? "locked." : "unlocked."]")
 			updateDialog()
 		else
 			to_chat(user, SPAN_ALERT("Access denied."))
 	else if(W.iswrench())
-		src.anchored = !src.anchored
-		src.visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
+		anchored = !anchored
+		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
 
 		if(anchored)
-			spawn(0)
-				for(var/obj/machinery/shield_gen/gen in range(1, src))
-					if(get_dir(src, gen) == src.dir && !gen.owned_capacitor)
-						owned_gen = gen
-						owned_gen.owned_capacitor = src
-						owned_gen.updateDialog()
+			for(var/obj/machinery/shield_gen/gen in range(1, src))
+				if(get_dir(src, gen) == src.dir && !gen.owned_capacitor)
+					owned_gen = gen
+					owned_gen.owned_capacitor = src
+					owned_gen.updateDialog()
 		else
 			if(owned_gen && owned_gen.owned_capacitor == src)
 				owned_gen.owned_capacitor = null
@@ -72,8 +71,8 @@
 	interact(user)
 
 /obj/machinery/shield_capacitor/interact(mob/user)
-	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN)) )
-		if (!istype(user, /mob/living/silicon))
+	if ( !in_range(src, user) || (stat & (BROKEN)) )
+		if (!issilicon(user))
 			user.unset_machine()
 			user << browse(null, "window=shield_capacitor")
 			return
@@ -100,16 +99,16 @@
 	user << browse(t, "window=shield_capacitor;size=500x400")
 	user.set_machine(src)
 
-/obj/machinery/shield_capacitor/machinery_process()
+/obj/machinery/shield_capacitor/process()
 	if (!anchored)
-		active = 0
+		active = FALSE
 
 	//see if we can connect to a power net.
 	var/datum/powernet/PN
-	var/turf/T = src.loc
+	var/turf/T = loc
 
 	if (!istype(T))
-		active = 0
+		active = FALSE
 		return
 
 	var/obj/structure/cable/C = T.get_cable_node()
@@ -148,3 +147,6 @@
 		icon_state = "broke"
 	else
 		..()
+
+/obj/machinery/shield_capacitor/multiz
+	max_charge_rate = 1250000	//1250 kW

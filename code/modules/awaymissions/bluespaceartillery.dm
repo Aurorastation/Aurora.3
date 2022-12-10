@@ -7,7 +7,7 @@
 	density = 1
 	anchored = 1
 
-/obj/machinery/computer/artillerycontrol/machinery_process()
+/obj/machinery/computer/artillerycontrol/process()
 	if(src.reload<180)
 		src.reload++
 

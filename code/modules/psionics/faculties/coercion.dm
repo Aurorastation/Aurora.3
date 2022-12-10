@@ -75,9 +75,10 @@
 	else
 		to_chat(user, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking an answer: <i>[question]</i></b>"))
 		to_chat(target, SPAN_NOTICE("<b>Your mind is compelled to answer: <i>[question]</i></b>"))
-	var/answer =  sanitize(input(target, question, "Read Mind") as null|text)
+	var/answer =  sanitize(input(target, "[question]\nYou have 25 seconds to type a response", "Read Mind") as null|text)
 	if(!answer || world.time > started_mindread + 25 SECONDS || user.stat != CONSCIOUS)
 		to_chat(user, SPAN_NOTICE("<b>You receive nothing useful from \the [target].</b>"))
+		to_chat(target, SPAN_NOTICE("Your mind blanks out momentarily."))
 	else
 		to_chat(user, SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: <i>[answer]</i></b>"))
 	msg_admin_attack("[key_name(user)] read mind of [key_name(target)] with question \"[question]\" and [answer?"got answer \"[answer]\".":"got no answer."]")
@@ -216,7 +217,7 @@
 		var/coercion_rank = user.psi.get_rank(PSI_COERCION)
 		if(coercion_rank >= PSI_RANK_GRANDMASTER)
 			target.AdjustParalysis(-1)
-		target.drowsyness = 0
+		target.drowsiness = 0
 		if(istype(target, /mob/living/carbon))
 			var/mob/living/carbon/M = target
 			M.hallucination = max(M.hallucination, 10)
@@ -301,7 +302,7 @@
 			var/turf/T = get_turf(L)
 			if(!T || L == user || L.stat == DEAD || L.invisibility == INVISIBILITY_LEVEL_TWO)
 				continue
-			if(L.is_psi_blocked())
+			if(!L.is_psi_pingable())
 				continue
 			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = our_turf, layer = OBFUSCATION_LAYER + 0.1)
 			pixel_shift_to_turf(ping_image, our_turf, T)

@@ -94,12 +94,28 @@
 	desc = "A pair of overly colorful shoes."
 	icon_state = "rain_bow"
 
+/obj/item/clothing/shoes/sneakers
+	name = "sneakers"
+	desc = "A pair of shoes well suited for running around in."
+	icon_state = "sneakers"
+	item_state = "sneakers"
+
+/obj/item/clothing/shoes/sneakers/whitetip
+	icon = 'icons/clothing/shoes/recolorable.dmi'
+	icon_state = "shoe"
+	item_state = "shoe"
+	worn_overlay = "over"
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+
 /obj/item/clothing/shoes/medical
 	name = "doctor shoes"
 	desc = "A pair of green and white shoes intended for safety around patients."
 	icon_state = "doctor"
 	item_state = "green"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 80, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_RESISTANT
+	)
 
 /obj/item/clothing/shoes/science
 	name = "scientist shoes"
@@ -115,7 +131,9 @@
 	icon_state = "chemist"
 	item_state = "orange"
 	permeability_coefficient = 0.01
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_RESISTANT
+	)
 
 /obj/item/clothing/shoes/biochem
 	name = "protective shoes"
@@ -123,7 +141,9 @@
 	icon_state = "biochem"
 	item_state = "red"
 	permeability_coefficient = 0.01
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_RESISTANT
+	)
 
 /obj/item/clothing/shoes/psych
 	name = "psychologist shoes"
@@ -131,7 +151,9 @@
 	icon_state = "psych"
 	item_state = "blue"
 	permeability_coefficient = 0.01
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_RESISTANT
+	)
 
 /obj/item/clothing/shoes/surgeon
 	name = "surgeon shoes"
@@ -139,7 +161,9 @@
 	icon_state = "surgeon"
 	item_state = "blue"
 	permeability_coefficient = 0.01
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_RESISTANT
+	)
 
 /obj/item/clothing/shoes/trauma
 	name = "trauma physician shoes"
@@ -147,7 +171,9 @@
 	icon_state = "trauma"
 	item_state = "black"
 	permeability_coefficient = 0.01
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_RESISTANT
+	)
 
 /obj/item/clothing/shoes/flats
 	desc = "A pair of black, low-heeled women's flats."

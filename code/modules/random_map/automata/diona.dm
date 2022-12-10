@@ -1,5 +1,7 @@
 /turf/simulated/wall/diona/Initialize(mapload)
+	canSmoothWith = list(src.type)
 	. = ..(mapload, "biomass")
+	canSmoothWith = list(src.type)
 
 /obj/structure/diona
 	icon = 'icons/obj/diona.dmi'
@@ -22,13 +24,12 @@
 		if (!WT.welding)
 			to_chat(user, SPAN_WARNING("\The [WT] must be turned on!"))
 			return
-		else if (WT.remove_fuel(0,user))
+		else if (WT.use(0,user))
 			user.visible_message("<b>[user]</b> begins slicing through the skin of \the [src].", SPAN_NOTICE("You begin slicing through the skin of \the [src]."))
-			if(!do_after(user, 20/W.toolspeed, act_target = src))
+			if(!W.use_tool(src, user, 20, volume = 50))
 				return
 			if(QDELETED(src) || !WT.isOn())
 				return
-			playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
 			user.visible_message("<b>[user]</b> slices through the skin of \the [src].", SPAN_NOTICE("You slice through \the [src]."))
 		qdel(src)
 	else
@@ -86,7 +87,7 @@
 	light_range = 3
 	light_color = "#557733"
 	density = FALSE
-	destroy_spawntype = /mob/living/carbon/alien/diona
+	destroy_spawntype = null
 
 /obj/structure/diona/bulb/unpowered
 	name = "unpowered glow bulb"

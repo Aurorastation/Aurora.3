@@ -54,6 +54,7 @@ var/global/list/ore_data = list()
 	name = ORE_COAL
 	display_name = "raw carbon"
 	smelts_to = MATERIAL_PLASTIC
+	compresses_to = MATERIAL_GRAPHITE
 	alloy = 1
 	result_amount = 5
 	spread_chance = 35

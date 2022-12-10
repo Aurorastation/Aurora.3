@@ -6,12 +6,14 @@
 	slot_flags = 0
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_MASK | SLOT_TIE
-	var/base_icon
 	var/open
 	var/obj/item/held //Item inside locket.
 
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/locket/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
 
 /obj/item/clothing/accessory/locket/attack_self(mob/user as mob)
 	if(!base_icon)

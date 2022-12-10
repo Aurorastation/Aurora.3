@@ -1,4 +1,37 @@
-#define MACHINERY_GO_TO_NEXT if (no_mc_tick) { CHECK_TICK; } else if (MC_TICK_CHECK) { return; } else { continue; }
+#define SSMACHINERY_PIPENETS 1
+#define SSMACHINERY_MACHINERY 2
+#define SSMACHINERY_POWERNETS 3
+#define SSMACHINERY_POWER_OBJECTS 4
+
+
+#define START_PROCESSING_IN_LIST(Datum, List) \
+if (Datum.isprocessing) {\
+	if(Datum.isprocessing != "SSmachinery.[#List]")\
+	{\
+		crash_with("Failed to start processing. [log_info_line(Datum)] is already being processed by [Datum.isprocessing] but queue attempt occured on SSmachinery.[#List]."); \
+	}\
+} else {\
+	Datum.isprocessing = "SSmachinery.[#List]";\
+	SSmachinery.List += Datum;\
+}
+
+#define STOP_PROCESSING_IN_LIST(Datum, List) \
+if(Datum.isprocessing) {\
+	if(SSmachinery.List.Remove(Datum)) {\
+		Datum.isprocessing = null;\
+	} else {\
+		crash_with("Failed to stop processing. [log_info_line(Datum)] is being processed by [isprocessing] and not found in SSmachinery.[#List]"); \
+	}\
+}
+
+#define START_PROCESSING_PIPENET(Datum) START_PROCESSING_IN_LIST(Datum, pipenets)
+#define STOP_PROCESSING_PIPENET(Datum) STOP_PROCESSING_IN_LIST(Datum, pipenets)
+
+#define START_PROCESSING_POWERNET(Datum) START_PROCESSING_IN_LIST(Datum, powernets)
+#define STOP_PROCESSING_POWERNET(Datum) STOP_PROCESSING_IN_LIST(Datum, powernets)
+
+#define START_PROCESSING_POWER_OBJECT(Datum) START_PROCESSING_IN_LIST(Datum, power_objects)
+#define STOP_PROCESSING_POWER_OBJECT(Datum) STOP_PROCESSING_IN_LIST(Datum, power_objects)
 
 /var/datum/controller/subsystem/machinery/SSmachinery
 
@@ -8,22 +41,33 @@
 	init_order = SS_INIT_MACHINERY
 	flags = SS_POST_FIRE_TIMING
 
-	var/tmp/list/all_machines = list()        // A list of all machines. Including the non-processing ones.
-	var/tmp/list/processing_machines = list() // A list of machines that process.
-
-	var/tmp/list/working_machinery = list()   // A list of machinery left to process this work cycle.
-	var/tmp/list/working_powersinks = list()  // A list of machinery draining power to process this work cycle.
-	var/tmp/powernets_reset_yet
-
-	var/tmp/processes_this_tick = 0
-	var/tmp/powerusers_this_tick = 0
+	var/static/tmp/current_step = SSMACHINERY_PIPENETS
+	var/static/tmp/cost_pipenets = 0
+	var/static/tmp/cost_machinery = 0
+	var/static/tmp/cost_powernets = 0
+	var/static/tmp/cost_power_objects = 0
+	var/static/tmp/list/pipenets = list()
+	var/static/tmp/list/machinery = list()
+	var/static/tmp/list/powernets = list()
+	var/static/tmp/list/power_objects = list()
+	var/static/tmp/list/processing = list()
+	var/static/tmp/list/queue = list()
 
 	var/list/all_cameras = list()
+	var/list/obj/machinery/hologram/holopad/all_holopads = list()
 	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
 	var/list/gravity_generators = list()
+	var/list/obj/machinery/telecomms/all_telecomms = list()
+	var/list/obj/machinery/telecomms/all_receivers = list()
 
-	var/rcon_update_queued = FALSE
-	var/powernet_update_queued = FALSE
+	var/list/rcon_smes_units = list()
+	var/list/rcon_smes_units_by_tag = list()
+	var/list/rcon_breaker_units = list()
+	var/list/rcon_breaker_units_by_tag = list()
+
+	var/list/breaker_boxes = list()
+	var/list/smes_units = list()
+	var/list/all_sensors = list()
 
 	var/list/slept_in_process = list()
 
@@ -32,179 +76,177 @@
 
 /datum/controller/subsystem/machinery/Recover()
 	all_cameras = SSmachinery.all_cameras
+	all_holopads = SSmachinery.all_holopads
 	recipe_datums = SSmachinery.recipe_datums
-
-/datum/controller/subsystem/machinery/proc/queue_rcon_update()
-	rcon_update_queued = TRUE
+	breaker_boxes = SSmachinery.breaker_boxes
+	all_sensors = SSmachinery.all_sensors
+	all_telecomms = SSmachinery.all_telecomms
+	all_receivers = SSmachinery.all_receivers
+	current_step = SSMACHINERY_PIPENETS
 
 /datum/controller/subsystem/machinery/New()
 	NEW_SS_GLOBAL(SSmachinery)
 
 /datum/controller/subsystem/machinery/Initialize(timeofday)
+	makepowernets()
+	build_rcon_lists()
+	setup_atmos_machinery(machinery)
 	fire(FALSE, TRUE)	// Tick machinery once to pare down the list so we don't hammer the server on round-start.
 	..(timeofday)
 
-/datum/controller/subsystem/machinery/fire(resumed = 0, no_mc_tick = FALSE)
-	if (!resumed)
-		src.working_machinery = processing_machines.Copy()
-		src.working_powersinks = processing_power_items.Copy()
-		powernets_reset_yet = FALSE
+/datum/controller/subsystem/machinery/fire(resumed = FALSE, no_mc_tick = FALSE)
+	var/timer
+	if (!resumed || current_step == SSMACHINERY_PIPENETS)
+		timer = world.tick_usage
+		process_pipenets(resumed, no_mc_tick)
+		cost_pipenets = MC_AVERAGE(cost_pipenets, TICK_DELTA_TO_MS(world.tick_usage - timer))
+		if (state != SS_RUNNING)
+			return
+		current_step = SSMACHINERY_MACHINERY
+		resumed = FALSE
+	if (current_step == SSMACHINERY_MACHINERY)
+		timer = world.tick_usage
+		process_machinery(resumed, no_mc_tick)
+		cost_machinery = MC_AVERAGE(cost_machinery, TICK_DELTA_TO_MS(world.tick_usage - timer))
+		if(state != SS_RUNNING)
+			return
+		current_step = SSMACHINERY_POWERNETS
+		resumed = FALSE
+	if (current_step == SSMACHINERY_POWERNETS)
+		timer = world.tick_usage
+		process_powernets(resumed, no_mc_tick)
+		cost_powernets = MC_AVERAGE(cost_powernets, TICK_DELTA_TO_MS(world.tick_usage - timer))
+		if(state != SS_RUNNING)
+			return
+		current_step = SSMACHINERY_POWER_OBJECTS
+		resumed = FALSE
+	if (current_step == SSMACHINERY_POWER_OBJECTS)
+		timer = world.tick_usage
+		process_power_objects(resumed, no_mc_tick)
+		cost_power_objects = MC_AVERAGE(cost_power_objects, TICK_DELTA_TO_MS(world.tick_usage - timer))
+		if (state != SS_RUNNING)
+			return
+		current_step = SSMACHINERY_PIPENETS
 
-		// Reset accounting vars.
-		processes_this_tick = 0
-		powerusers_this_tick = 0
+/datum/controller/subsystem/machinery/proc/makepowernets()
+	for(var/datum/powernet/powernet as anything in powernets)
+		qdel(powernet)
+	powernets.Cut()
+	setup_powernets_for_cables(cable_list)
 
-		if (rcon_update_queued)
-			rcon_update_queued = FALSE
-			SSpower.build_rcon_lists()
-
-		if (powernet_update_queued)
-			makepowernets()
-			powernet_update_queued = FALSE
-
-	var/list/curr_machinery = working_machinery
-	var/list/curr_powersinks = working_powersinks
-
-	while (curr_machinery.len)
-		var/obj/machinery/M = curr_machinery[curr_machinery.len]
-		curr_machinery.len--
-
-		if (QDELETED(M))
-			log_debug("SSmachinery: QDELETED machine [DEBUG_REF(M)] found in machines list! Removing.")
-			remove_machine(M, TRUE)
+/datum/controller/subsystem/machinery/proc/setup_powernets_for_cables(list/cables)
+	for (var/obj/structure/cable/cable as anything in cables)
+		if (cable.powernet)
 			continue
+		var/datum/powernet/network = new
+		network.add_cable(cable)
+		propagate_network(cable, cable.powernet)
 
-		var/start_tick = world.time
+/datum/controller/subsystem/machinery/proc/setup_atmos_machinery(list/machines)
+	set background = TRUE
+	var/list/atmos_machines = list()
+	for (var/obj/machinery/atmospherics/machine in machines)
+		atmos_machines += machine
+	admin_notice(SPAN_DANGER("Initializing atmos machinery."), R_DEBUG)
+	log_ss("machinery", "Initializing atmos machinery.")
+	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
+		machine.atmos_init()
+		CHECK_TICK
+	admin_notice(SPAN_DANGER("Initializing pipe networks."), R_DEBUG)
+	log_ss("machinery", "Initializing pipe networks.")
+	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
+		machine.build_network()
+		CHECK_TICK
 
-		if (M.machinery_processing)
-			processes_this_tick++
-			switch (M.machinery_process())
-				if (PROCESS_KILL)
-					remove_machine(M, FALSE)
-				if (M_NO_PROCESS)
-					M.machinery_processing = FALSE
-
-		if (start_tick != world.time)
-			// Slept.
-			if (!slept_in_process[M.type])
-				log_debug("SSmachinery: Type '[M.type]' slept during machinery_process().")
-				slept_in_process[M.type] = TRUE
-
-		// I'm sorry.
-		if (M.use_power && isturf(M.loc))
-			powerusers_this_tick++
-			if (M.has_special_power_checks)
-				M.auto_use_power()
-			else
-				var/area/A = M.loc.loc
-				var/chan = M.power_channel
-				if ((A.has_weird_power && !A.powered(chan)))
-					MACHINERY_GO_TO_NEXT
-				if (A.requires_power)
-					if (A.always_unpowered)
-						MACHINERY_GO_TO_NEXT
-					switch (chan)
-						if (EQUIP)
-							if (!A.power_equip)
-								MACHINERY_GO_TO_NEXT
-						if (LIGHT)
-							if (!A.power_light)
-								MACHINERY_GO_TO_NEXT
-						if (ENVIRON)
-							if (!A.power_environ)
-								MACHINERY_GO_TO_NEXT
-						else	// ?!
-							log_debug("SSmachinery: Type '[M.type]' has insane channel [chan] (expected value in range 1-3).")
-							M.use_power = FALSE
-							MACHINERY_GO_TO_NEXT
-
-				if (A.has_weird_power)
-					A.use_power(M.use_power == 2 ? M.active_power_usage : M.idle_power_usage, chan)
-				else
-					switch (chan)
-						if (EQUIP)
-							A.used_equip += M.use_power == 2 ? M.active_power_usage : M.idle_power_usage
-						if (LIGHT)
-							A.used_light += M.use_power == 2 ? M.active_power_usage : M.idle_power_usage
-						if (ENVIRON)
-							A.used_environ += M.use_power == 2 ? M.active_power_usage : M.idle_power_usage
-						else // ?!
-							log_debug("SSmachinery: Type '[M.type]' has insane channel [chan] (expected value in range 1-3).")
-							M.use_power = FALSE
-
+/datum/controller/subsystem/machinery/proc/process_pipenets(resumed, no_mc_tick)
+	if (!resumed)
+		queue = pipenets.Copy()
+	var/datum/pipe_network/network
+	for (var/i = queue.len to 1 step -1)
+		network = queue[i]
+		if (QDELETED(network))
+			if (network)
+				network.isprocessing = null
+			pipenets -= network
+			continue
+		network.process()
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
+			queue.Cut(i)
 			return
 
-	if (!powernets_reset_yet)
-		SSpower.reset_powernets()
-		powernets_reset_yet = TRUE
-
-	while (curr_powersinks.len)
-		var/obj/item/I = curr_powersinks[curr_powersinks.len]
-		curr_powersinks.len--
-
-		if (QDELETED(I) || !I.pwr_drain())
-			processing_power_items -= I
-			log_debug("SSmachinery: QDELETED item [DEBUG_REF(I)] found in processing power items list.")
-
+/datum/controller/subsystem/machinery/proc/process_machinery(resumed, no_mc_tick)
+	if (!resumed)
+		queue = processing.Copy()
+	var/obj/machinery/machine
+	for (var/i = queue.len to 1 step -1)
+		machine = queue[i]
+		if (QDELETED(machine))
+			if (machine)
+				machine.isprocessing = null
+			processing -= machine
+			continue
+		if (machine.process_all() == PROCESS_KILL)
+			processing -= machine
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
+			queue.Cut(i)
+			return
+
+/datum/controller/subsystem/machinery/proc/process_powernets(resumed, no_mc_tick)
+	if (!resumed)
+		queue = powernets.Copy()
+	var/datum/powernet/network
+	for (var/i = queue.len to 1 step -1)
+		network = queue[i]
+		if (QDELETED(network))
+			if (network)
+				network.isprocessing = null
+			powernets -= network
+			continue
+		network.reset(wait)
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
+			queue.Cut(i)
+			return
+
+/datum/controller/subsystem/machinery/proc/process_power_objects(resumed, no_mc_tick)
+	if (!resumed)
+		queue = power_objects.Copy()
+	var/obj/item/item
+	for (var/i = queue.len to 1 step -1)
+		item = queue[i]
+		if (QDELETED(item))
+			if (item)
+				item.isprocessing = null
+			power_objects -= item
+			continue
+		if (!item.pwr_drain(wait))
+			item.isprocessing = null
+			power_objects -= item
+		if (no_mc_tick)
+			CHECK_TICK
+		else if (MC_TICK_CHECK)
+			queue.Cut(i)
 			return
 
 /datum/controller/subsystem/machinery/stat_entry()
-	var/list/out = list()
-	out += "AM:[all_machines.len] PM:[processing_machines.len] PI:[processing_power_items.len]"
-	out += "LT:{T:[processes_this_tick]|P:[powerusers_this_tick]}"
-	..(out.Join("\n\t"))
-
-/datum/controller/subsystem/machinery/proc/setup_template_powernets(list/cables)
-	for(var/A in cables)
-		var/obj/structure/cable/PC = A
-		if(!PC.powernet)
-			var/datum/powernet/NewPN = new()
-			NewPN.add_cable(PC)
-			propagate_network(PC, PC.powernet)
-
-/**
- * @brief Adds a machine to the SSmachinery.processing_machines and the SSmachinery.all_machines list.
- *
- * Must be called in every machine's Initialize(). Is called in the parent override of that proc
- * by default.
- *
- * @param M The machine we want to add.
- */
-/proc/add_machine(obj/machinery/M)
-	if (QDELETED(M))
-		crash_with("Attempted add of QDELETED machine [M ? M : "NULL"] to machines list, ignoring.")
-		return
-
-	M.machinery_processing = TRUE
-	if (SSmachinery.processing_machines[M])
-		crash_with("Type [M.type] was added to the processing machines list twice! Ignoring duplicate.")
-
-	SSmachinery.processing_machines[M] = TRUE
-	SSmachinery.all_machines[M] = TRUE
-
-/**
- * @brief Removes a machine from all of the default global lists it's in.
- *
- * @param M The machine we want to remove.
- * @param remove_from_global Boolean to indicate wether or not the machine should
- * also be removed from the all_machines list. Defaults to FALSE.
- */
-/proc/remove_machine(obj/machinery/M, remove_from_global = FALSE)
-	if (M)
-		M.machinery_processing = FALSE
-
-	SSmachinery.processing_machines -= M
-	SSmachinery.working_machinery -= M
-
-	if (remove_from_global)
-		SSmachinery.all_machines -= M
-
+	..({"\n\
+		Queues: \
+		Pipes [pipenets.len] \
+		Machines [processing.len] \
+		Networks [powernets.len] \
+		Objects [power_objects.len]\n\
+		Costs: \
+		Pipes [round(cost_pipenets, 1)] \
+		Machines [round(cost_machinery, 1)] \
+		Networks [round(cost_powernets, 1)] \
+		Objects [round(cost_power_objects, 1)]\n\
+		Overall [round(cost ? processing.len / cost : 0, 0.1)]
+	"})
 
 /datum/controller/subsystem/machinery/ExplosionStart()
 	suspend()
@@ -212,4 +254,25 @@
 /datum/controller/subsystem/machinery/ExplosionEnd()
 	wake()
 
-#undef MACHINERY_GO_TO_NEXT
+/datum/controller/subsystem/machinery/proc/build_rcon_lists()
+	rcon_smes_units.Cut()
+	rcon_breaker_units.Cut()
+	rcon_breaker_units_by_tag.Cut()
+
+	for(var/obj/machinery/power/smes/buildable/SMES in smes_units)
+		if(SMES.RCon_tag && (SMES.RCon_tag != "NO_TAG") && SMES.RCon)
+			rcon_smes_units += SMES
+			rcon_smes_units_by_tag[SMES.RCon_tag] = SMES
+
+	for(var/obj/machinery/power/breakerbox/breaker in breaker_boxes)
+		if(breaker.RCon_tag != "NO_TAG")
+			rcon_breaker_units += breaker
+			rcon_breaker_units_by_tag[breaker.RCon_tag] = breaker
+
+	sortTim(rcon_smes_units, /proc/cmp_rcon_smes)
+	sortTim(rcon_breaker_units, /proc/cmp_rcon_bbox)
+
+#undef SSMACHINERY_PIPENETS
+#undef SSMACHINERY_MACHINERY
+#undef SSMACHINERY_POWERNETS
+#undef SSMACHINERY_POWER_OBJECTS

@@ -1,31 +1,30 @@
 /mob/living/silicon/robot/drone/mining
+	name = "NT-MD-000"
+	desc_flavor = "It's a small mining drone. The casing is stamped with an corporate logo and the subscript: '%MAPNAME% Automated Pickaxe!'<br><br><b>OOC Info:</b><br><br>Mining drones are player-controlled synthetics which are lawed to serve the crew and excavate for ore.<br><br>They hold a wide array of tools to explore mining sites and extract ore. They function similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, such as fire, radiation, vacuum, and more.<br><br>Ghosts can join the round as a mining drone by accessing the 'Ghost Spawner' menu in the 'Ghost' tab. An inactive drone can be rebooted by swiping an ID card on it with mining or robotics access, and an active drone can be shut down in the same manner.<br><br>An antagonist can use an Electromagnetic Sequencer to corrupt their laws and make them follow their orders."
 	icon_state = "miningdrone"
 	mod_type = "Mining"
 	law_type = /datum/ai_laws/mining_drone
-	module_type = /obj/item/robot_module/mining_drone/basic
+	module_type = /obj/item/robot_module/mining_drone
 	holder_type = /obj/item/holder/drone/mining
 	maxHealth = 45
 	health = 45
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE|PASSRAILING
 	req_access = list(access_mining, access_robotics)
 	id_card_type = /obj/item/card/id/minedrone
 	speed = -1
 	hat_x_offset = 1
 	hat_y_offset = -12
+	standard_drone = FALSE
+	var/list/allowed_areas = list(/area/exoplanet, /area/shuttle/mining, /area/shuttle/intrepid) //Needed for the bot to go mining
 	var/seeking_player = FALSE
 	var/health_upgrade
 	var/ranged_upgrade
-	var/melee_upgrade
 	var/drill_upgrade
 
 /mob/living/silicon/robot/drone/mining/Initialize()
 	. = ..()
 
 	verbs |= /mob/living/proc/hide
-	remove_language(LANGUAGE_ROBOT)
-	remove_language(LANGUAGE_DRONE)
-	add_language(LANGUAGE_TCB, TRUE)
-	add_language(LANGUAGE_EAL, TRUE)
 
 	//They are unable to be upgraded, so let's give them a bit of a better battery.
 	cell.maxcharge = 10000
@@ -47,19 +46,19 @@
 	update_icon()
 	density = FALSE
 
-/mob/living/silicon/robot/drone/mining/updatename()
-	real_name = "NT-I-[rand(100,999)]"
-	name = real_name
-
-/mob/living/silicon/robot/drone/mining/init()
-	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)
-	if(!laws)
-		laws = new law_type
-	if(!module)
-		module = new module_type(src, src)
-
-	flavor_text = "It's a tiny little mining drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Automated Pickaxe!'"
-	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
+/mob/living/silicon/robot/drone/mining/examine(mob/user)
+	. = ..()
+	if(health_upgrade)
+		to_chat(user, SPAN_NOTICE("\The [src] appears to have a reinforced chassis."))
+	if(ranged_upgrade || drill_upgrade)
+		var/output_text = "\The [src]'s lights indicates it has"
+		if(ranged_upgrade && drill_upgrade)
+			output_text += " fully upgraded mining equipment."
+		else if(ranged_upgrade)
+			output_text += " a stationbound class KA mounted to it."
+		else if(drill_upgrade)
+			output_text += " a jackhammer drill mounted to it."
+		to_chat(user, SPAN_NOTICE(output_text))
 
 /mob/living/silicon/robot/drone/mining/request_player()
 	if(too_many_active_drones())
@@ -87,9 +86,18 @@
 		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [W]."))
 		return
 
+	if(istype(W, /obj/item/device/mine_bot_upgrade))
+		var/obj/item/device/mine_bot_upgrade/MBU = W
+		MBU.upgrade_bot(src, user)
+		return
+
 	else if (W.GetID())
 		if(!allowed(user))
 			to_chat(user, SPAN_WARNING("Access denied."))
+			return
+		if(ckey || client)
+			user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src] shutting it down."), SPAN_NOTICE("You swipe your ID over \the [src], shutting it down! You can swipe it again to make it search for a new intelligence."))
+			shut_down()
 			return
 		if(seeking_player)
 			to_chat(user, SPAN_WARNING("\The [src] is already in the reboot process."))
@@ -111,6 +119,8 @@
 	var/turf/T = get_turf(src)
 	if (!T || isStationLevel(T.z))
 		return FALSE
+	if(is_type_in_list(get_area(T), allowed_areas))
+		return FALSE
 	if(!self_destructing)
 		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
 		start_self_destruct(TRUE)
@@ -130,29 +140,22 @@
 	icon_state = "mainboard"
 	icon = 'icons/obj/module.dmi'
 
-/obj/item/device/mine_bot_upgrade/afterattack(var/mob/living/silicon/robot/drone/mining/M, mob/user, proximity)
-	if(!istype(M) || !proximity)
-		return
-	if(upgrade_bot(M, user))
-		to_chat(user, SPAN_NOTICE("You successfully install \the [src] into \the [M]."))
-
 /obj/item/device/mine_bot_upgrade/proc/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
-	if(M.melee_upgrade)
+	if(M.drill_upgrade)
 		to_chat(user, SPAN_WARNING("[src] already has a drill upgrade installed!"))
 		return
 	M.mod_type = initial(M.mod_type)
 	M.uneq_all()
-	qdel(M.module)
-	M.module = null
+	QDEL_NULL(M.module)
 	if(M.ranged_upgrade)
-		new /obj/item/robot_module/mining_drone/drillandka(M)
+		M.module = new /obj/item/robot_module/mining_drone/drillandka(M, M)
 	else
-		new /obj/item/robot_module/mining_drone/drill(M)
-	M.melee_upgrade = TRUE
+		M.module = new /obj/item/robot_module/mining_drone/drill(M, M)
+	M.drill_upgrade = TRUE
 	M.module.rebuild()
 	M.recalculate_synth_capacities()
+	to_chat(user, SPAN_NOTICE("You successfully install \the [src] into \the [M]."))
 	qdel(src)
-	return TRUE
 
 /obj/item/device/mine_bot_upgrade/health
 	name = "minebot chassis upgrade"
@@ -168,8 +171,8 @@
 			var/datum/robot_component/C = M.components[V]
 			C.max_damage = 30
 	M.health_upgrade = TRUE
+	to_chat(user, SPAN_NOTICE("You successfully install \the [src] into \the [M]."))
 	qdel(src)
-	return TRUE
 
 /obj/item/device/mine_bot_upgrade/ka
 	name = "minebot kinetic accelerator upgrade"
@@ -180,21 +183,17 @@
 		return
 	M.mod_type = initial(M.mod_type)
 	M.uneq_all()
-	qdel(M.module)
-	M.module = null
-	if(M.melee_upgrade)
-		new /obj/item/robot_module/mining_drone/drillandka(M)
+	QDEL_NULL(M.module)
+	if(M.drill_upgrade)
+		M.module = new /obj/item/robot_module/mining_drone/drillandka(M, M)
 	else
-		new /obj/item/robot_module/mining_drone/ka(M)
+		M.module = new /obj/item/robot_module/mining_drone/ka(M, M)
 	M.ranged_upgrade = TRUE
 	M.module.rebuild()
 	M.recalculate_synth_capacities()
+	to_chat(user, SPAN_NOTICE("You successfully install \the [src] into \the [M]."))
 	qdel(src)
-	return TRUE
 
 /mob/living/silicon/robot/drone/mining/roundstart/Initialize()
 	. = ..()
-	if(SSticker.current_state == GAME_STATE_PLAYING)
-		request_player()
-	else
-		LAZYADD(SSatoms.late_misc_firers, src)
+	check_add_to_late_firers()

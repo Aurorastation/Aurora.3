@@ -24,7 +24,6 @@
 	icon_state = SEED_NOUN_SEEDS
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 100
 
 	var/list/datum/seed_pile/piles = list()
@@ -44,14 +43,17 @@
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
+		/obj/item/seeds/blackraspberryseed = 3,
 		/obj/item/seeds/blizzard = 3,
 		/obj/item/seeds/blueberryseed = 3,
+		/obj/item/seeds/blueraspberryseed = 3,
 		/obj/item/seeds/cabbageseed = 3,
 		/obj/item/seeds/carrotseed = 3,
 		/obj/item/seeds/chantermycelium = 3,
 		/obj/item/seeds/cherryseed = 3,
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
+		/obj/item/seeds/coffeeseed = 3,
 		/obj/item/seeds/cornseed = 3,
 		/obj/item/seeds/dynseed = 3,
 		/obj/item/seeds/earthenroot = 2,
@@ -63,7 +65,9 @@
 		/obj/item/seeds/guamiseed = 2,
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/limeseed = 3,
+		/obj/item/seeds/mossseed = 2,
 		/obj/item/seeds/mtearseed = 2,
+		/obj/item/seeds/mintseed = 3,
 		/obj/item/seeds/nifberries = 2,
 		/obj/item/seeds/onionseed = 3,
 		/obj/item/seeds/orangeseed = 3,
@@ -75,18 +79,23 @@
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
 		/obj/item/seeds/qlortseed = 2,
+		/obj/item/seeds/raspberryseed = 3,
 		/obj/item/seeds/reishimycelium = 2,
 		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/riceseed = 3,
+		/obj/item/seeds/richcoffeeseed = 3,
 		/obj/item/seeds/seaweed = 3,
 		/obj/item/seeds/shandseed = 2,
 		/obj/item/seeds/soyaseed = 3,
+		/obj/item/seeds/strawberryseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sugartree = 2,
 		/obj/item/seeds/sunflowerseed = 3,
+		/obj/item/seeds/teaseed = 3,
 		/obj/item/seeds/tobaccoseed = 3,
 		/obj/item/seeds/tomatoseed = 3,
 		/obj/item/seeds/towermycelium = 3,
+		/obj/item/seeds/vanilla = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
@@ -94,7 +103,9 @@
 		/obj/item/seeds/ylpha = 2,
 		/obj/item/seeds/clam = 15,
 		/obj/item/seeds/barnacle = 15,
-		/obj/item/seeds/mollusc = 15
+		/obj/item/seeds/mollusc = 15,
+		/obj/item/seeds/clam/rasval = 15,
+		/obj/item/seeds/fjylozyn = 1
 	)
 
 /obj/machinery/seed_storage/xenobotany
@@ -106,14 +117,17 @@
 		/obj/item/seeds/amanitamycelium = 2,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
+		/obj/item/seeds/blackraspberryseed = 3,
 		/obj/item/seeds/blizzard = 3,
 		/obj/item/seeds/blueberryseed = 3,
+		/obj/item/seeds/blueraspberryseed = 3,
 		/obj/item/seeds/cabbageseed = 3,
 		/obj/item/seeds/carrotseed = 3,
 		/obj/item/seeds/chantermycelium = 3,
 		/obj/item/seeds/cherryseed = 3,
 		/obj/item/seeds/chiliseed = 3,
 		/obj/item/seeds/cocoapodseed = 3,
+		/obj/item/seeds/coffeeseed = 3,
 		/obj/item/seeds/cornseed = 3,
 		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/earthenroot = 2,
@@ -127,6 +141,7 @@
 		/obj/item/seeds/libertymycelium = 2,
 		/obj/item/seeds/limeseed = 3,
 		/obj/item/seeds/mtearseed = 2,
+		/obj/item/seeds/mintseed = 3,
 		/obj/item/seeds/nettleseed = 2,
 		/obj/item/seeds/nifberries = 2,
 		/obj/item/seeds/onionseed = 3,
@@ -138,21 +153,27 @@
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
+		/obj/item/seeds/raspberryseed = 3,
 		/obj/item/seeds/reishimycelium = 2,
 		/obj/item/seeds/riceseed = 3,
+		/obj/item/seeds/richcoffeeseed = 3,
 		/obj/item/seeds/soyaseed = 3,
+		/obj/item/seeds/strawberryseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
 		/obj/item/seeds/sugartree = 2,
 		/obj/item/seeds/shandseed = 2,
+		/obj/item/seeds/teaseed = 3,
 		/obj/item/seeds/tobaccoseed = 3,
 		/obj/item/seeds/tomatoseed = 3,
 		/obj/item/seeds/towermycelium = 3,
+		/obj/item/seeds/vanilla = 3,
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/wulumunushaseed = 3,
-		/obj/item/seeds/dynseed = 3
+		/obj/item/seeds/dynseed = 3,
+		/obj/item/seeds/fjylozyn = 3
 	)
 
 /obj/machinery/seed_storage/attack_hand(mob/user as mob)

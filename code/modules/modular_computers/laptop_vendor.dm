@@ -265,14 +265,13 @@
 /obj/machinery/lapvend/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		playsound(src.loc, W.usesound, 100, 1)
 		if(anchored)
 			user.visible_message("<b>[user]</b> begins unsecuring \the [src] from the floor.", \
 								SPAN_NOTICE("You start unsecuring \the [src] from the floor."))
 		else
 			user.visible_message("<b>[user]</b> begins securing \the [src] to the floor.", \
 								SPAN_NOTICE("You start securing \the [src] to the floor."))
-		if(do_after(user, 20/W.toolspeed))
+		if(W.use_tool(src, user, 20, volume = 50))
 			if(!src)
 				return
 			to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]secured \the [src]!"))
@@ -285,7 +284,7 @@
 				create_device()
 				return TRUE
 		else if(istype(W, /obj/item/card/tech_support))
-			create_device("Have a Nanotrasen day!")
+			create_device("Have a NanoTrasen day!")
 			return TRUE
 	return ..()
 
@@ -305,6 +304,7 @@
 		fabricated_tablet.forceMove(src.loc)
 		fabricated_tablet = null
 	ping(message)
+	intent_message(MACHINE_SOUND)
 	state = 3
 
 // Simplified payment processing, returns 1 on success.

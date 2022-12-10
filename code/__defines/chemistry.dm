@@ -65,10 +65,12 @@
 #define CE_PAINKILLER   "painkiller"
 #define CE_PULSE        "xcardic"		// increases or decreases heartrate
 #define CE_UNDEXTROUS   "undextrous"    // arms no work right
-#define CE_HALLUCINATE  "hallucinogen"	//Makes hallucinations stronger or weaker
+#define CE_HALLUCINATE  "hallucinogen"	// Makes hallucinations stronger or weaker
 #define CE_CRYO 	    "cryogenic"     // Prevents damage from being frozen
 #define CE_CLEARSIGHT   "clearsight"    // prevents the blurry eye chem side effect
 #define CE_STRAIGHTWALK "straightwalk"  // prevents the confused walking chem side effect
+#define CE_NOSTUTTER    "nostutter"		// helps alleviate stuttering
+#define CE_HAUNTED      "haunted"       // Spectrocybin's ghost vision
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin
@@ -77,6 +79,7 @@
 #define CE_BRAIN_REGEN  "brainfix"		// Alkysine
 #define CE_OXYGENATED   "oxygenated"	// Dexalin
 #define CE_BLOODCLOT    "bloodclot"		// Coagzolug
+#define CE_ORGANREPAIR  "organrepair"	// Rezadone
 
 // Deal damage
 #define CE_BREATHLOSS   "breathloss"
@@ -99,9 +102,9 @@
 #define INTOX_DEATH      0.45
 
 //How many units of intoxication to remove per second
-#define INTOX_FILTER_HEALTHY 0.15
-#define INTOX_FILTER_BRUISED 0.10
-#define INTOX_FILTER_DAMAGED 0.05
+#define INTOX_FILTER_HEALTHY 0.10
+#define INTOX_FILTER_BRUISED 0.07
+#define INTOX_FILTER_DAMAGED 0.03
 
 #define	BASE_DIZZY 50 //Base dizziness from getting drunk.
 #define DIZZY_ADD_SCALE 15 //Amount added for every 0.01 percent over the JUDGEIMP limit

@@ -12,11 +12,13 @@
 
 	backpack_contents = null
 
+	id_iff = IFF_TCFL
+
 /datum/outfit/admin/ert/legion/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
-		var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
+		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 
@@ -39,13 +41,15 @@
 /datum/outfit/admin/ert/legion/pilot
 	name = "TCFL Dropship Pilot"
 	uniform = /obj/item/clothing/under/legion/pilot
-	head = /obj/item/clothing/head/helmet/legion_pilot
-	suit = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	head = /obj/item/clothing/head/helmet/pilot/legion
+	suit = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
 	gloves = null
 	back = null
 	belt = /obj/item/storage/belt/security/tactical
-	accessory = /obj/item/clothing/accessory/holster/hip
-	accessory_contents = list(/obj/item/gun/energy/blaster/revolver/pilot  = 1)
+	accessory = /obj/item/clothing/accessory/storage/webbingharness/pouches/ert
+	accessory_contents = list(/obj/item/gun/energy/blaster/pilot_special = 1, /obj/item/device/binoculars = 1)
+
+	backpack_contents = null
 
 /datum/outfit/admin/ert/legion/sentinel
 	name = "TCFL Sentinel"
@@ -63,7 +67,8 @@
 		/obj/item/handcuffs/ziptie = 3,
 		/obj/item/clothing/mask/gas/tactical = 1,
 		/obj/item/storage/firstaid/regular = 1,
-		/obj/item/clothing/gloves/swat/ert = 1
+		/obj/item/clothing/gloves/swat/ert = 1,
+		/obj/item/material/knife/bayonet = 1
 	)
 
 	belt_contents = list(

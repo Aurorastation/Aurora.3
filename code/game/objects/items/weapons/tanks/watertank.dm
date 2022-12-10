@@ -84,7 +84,7 @@
 /obj/item/watertank/attackby(obj/item/W, mob/user, params)
 	if(W == noz)
 		remove_noz()
-		return 1
+		return TRUE
 	else
 		return ..()
 
@@ -123,8 +123,8 @@
 
 //Janitor tank
 /obj/item/watertank/janitor
-	name = "backpack water tank"
-	desc = "A janitorial watertank backpack with nozzle to clean dirt and graffiti."
+	name = "backpack cleaner tank"
+	desc = "A janitorial cleaner tank that is worn on the back, with a nozzle to clean dirt and graffiti."
 	icon_state = "waterpackjani"
 	item_state = "waterpackjani"
 	reagents_to_add = list(/decl/reagent/spacecleaner = 500)

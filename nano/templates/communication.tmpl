@@ -8,11 +8,13 @@
 		{{/if}} </div>
 		<div class=item>{{:helper.link('Change alert level', null, {'action' : 'sw_menu', 'target' : 5}, data.isAI || !data.net_syscont || !data.net_comms ? 'disabled' : null)}} </div>
 		{{if data.can_call_shuttle}}
-			<div class=item>{{if data.have_shuttle && data.have_shuttle_called}}
-				{{:helper.link('Cancel Shuttle Call', null, {'action' : 'shuttle', 'target' : 'cancel'}, data.isAI || !data.net_syscont ? 'disabled' : null)}}
-			{{else data.have_shuttle && !data.have_shuttle_called}}
-				{{:helper.link('Call Emergency Shuttle', null, {'action' : 'shuttle', 'target' : 'call'}, !data.net_syscont ? 'disabled' : null)}}
-			{{/if}} </div>
+			{{for data.evac_options}}
+				<div class="item">
+					{{:helper.link(value.option_text, null, {'action' : 'evac', 'target' : value.option_target}, ((value.needs_syscontrol && !data.net_syscont) || (!value.silicon_allowed && data.isAI)) ? 'disabled' : null, 'redButton')}}
+				</div>
+			{{empty}}
+				<div class=bad>No further options currently available.</div>
+			{{/for}}
 		{{/if}}
 		{{if data.current_maint_all_access}}
 			<div class=item>{{:helper.link('Disable Emergency Maintenance Access', null, {'action' : 'emergencymaint'}, data.isAI ? 'disabled' : null)}}</div>
@@ -45,7 +47,7 @@
 		Set status displays:
 		<div class=item>{{:helper.link('Clear', null, {'action' : 'setstatus', 'target' : 'blank'})}} </div>
 		<div class=item>{{:helper.link('Station Time', null, {'action' : 'setstatus', 'target' : 'time'})}} </div>
-		<div class=item>{{:helper.link('Shuttle ETA', null, {'action' : 'setstatus', 'target' : 'shuttle'})}} </div>
+		<div class=item>{{:helper.link('Evacuation ETA', null, {'action' : 'setstatus', 'target' : 'shuttle'})}} </div>
 		<div class=item>{{:helper.link('Message', null, {'action' : 'setstatus', 'target' : 'message'})}}
 		<ul>
 		<li><div class=item>Line 1: {{:helper.link(data.message_line1 ? data.message_line1 : '(none)', null, {'action' : 'setstatus', 'target' : 'line1'})}}</div></li>

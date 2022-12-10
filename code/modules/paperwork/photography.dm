@@ -29,7 +29,7 @@ var/global/photo_count = 0
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "photo"
 	item_state = "paper"
-	w_class = ITEMSIZE_SMALL
+	w_class = ITEMSIZE_TINY
 	var/picture_desc // Who and/or what's in the picture.
 	var/id
 	var/icon/img	//Big photo image
@@ -54,8 +54,8 @@ var/global/photo_count = 0
 	..()
 
 /obj/item/photo/examine(mob/user)
-	.=..()
-	if(in_range(user, src))
+	. = ..()
+	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
 		show(user)
 		to_chat(user, "<span class='notice'>[picture_desc]</span>")
 	else
@@ -73,15 +73,21 @@ var/global/photo_count = 0
 	set category = "Object"
 	set src in usr
 
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the photo?", "Photo Labelling", null)  as text, MAX_NAME_LEN)
-	//loc.loc check is for making possible renaming photos in clipboards
-	if(((loc == usr || (loc.loc && loc.loc == usr)) && usr.stat == 0))
+
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT))
+		return
+
+	var/atom/surface_atom = recursive_loc_turf_check(src, 3, usr)
+	if(surface_atom == usr || surface_atom.Adjacent(usr))
 		if(n_name)
 			name = "[initial(name)] ([n_name])"
 		else
-			name = initial(n_name)
-	add_fingerprint(usr)
-	return
+			name = initial(name)
+		add_fingerprint(usr)
 
 
 /**************
@@ -103,12 +109,12 @@ var/global/photo_count = 0
 		playsound(loc, /decl/sound_category/rustle_sound, 50, 1, -5)
 		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
 			switch(over_object.name)
-				if(BP_R_HAND)
+				if("right hand")
 					M.u_equip(src)
-					M.put_in_r_hand(src)
-				if(BP_L_HAND)
+					M.equip_to_slot_if_possible(src, slot_r_hand)
+				if("left hand")
 					M.u_equip(src)
-					M.put_in_l_hand(src)
+					M.equip_to_slot_if_possible(src, slot_l_hand)
 			add_fingerprint(usr)
 			return
 		if(over_object == usr && in_range(src, usr) || usr.contents.Find(src))
@@ -167,14 +173,16 @@ var/global/photo_count = 0
 	if(istype(I, /obj/item/device/camera_film))
 		if(pictures_left)
 			to_chat(user, "<span class='notice'>[src] still has some film in it!</span>")
-			return
+			return TRUE
 		to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
 		user.drop_from_inventory(I,get_turf(src))
 		qdel(I)
 		pictures_left = pictures_max
-		return
-	..()
+		return TRUE
+	return ..()
 
+/obj/item/device/camera/AltClick(var/mob/user)
+	change_size()
 
 /obj/item/device/camera/proc/get_mobs(turf/the_turf as turf)
 	var/mob_detail
@@ -208,6 +216,11 @@ var/global/photo_count = 0
 	spawn(64)
 		icon_state = icon_on
 		on = 1
+
+/obj/item/device/camera/detective
+	name = "detectives camera"
+	desc = "A one use - polaroid camera."
+	pictures_left = 30
 
 //Proc for capturing check
 /mob/living/proc/can_capture_turf(turf/T)
@@ -281,4 +294,3 @@ var/global/photo_count = 0
 		p.id = id
 
 	return p
-

@@ -161,14 +161,10 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 			A.loseBackupPower()
 
 		if(AIRLOCK_WIRE_AI_CONTROL)
-			//Sending a pulse toggles whether AI can bolt the doors (if allowed by the door type and not emagged)
+			//Sending a pulse toggles whether AI can bolt the doors (if not emagged)
 			if(A.emagged)
 				return
-			switch(A.aiBoltingSetup)
-				if(AIRLOCK_AI_BOLTING_ALLOW, AIRLOCK_AI_BOLTING_DENY, AIRLOCK_AI_BOLTING_NEVER) // these doors don't allow change
-					return
-				else
-					A.aiBolting = !A.aiBolting
+			A.aiBolting = !A.aiBolting
 
 		if(AIRLOCK_WIRE_ELECTRIFY)
 			//one wire for electrifying the door. Sending a pulse through this electrifies the door for 30 seconds.

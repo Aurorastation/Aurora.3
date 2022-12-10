@@ -8,11 +8,11 @@
 	throw_speed = 10
 	throw_range = 15
 	sharp = 1
-	edge =  1
+	edge = TRUE
 	w_class = ITEMSIZE_SMALL
 
-/obj/item/material/star/New()
-	..()
+/obj/item/material/star/Initialize(newloc, material_key)
+	. = ..()
 	src.pixel_x = rand(-12, 12)
 	src.pixel_y = rand(-12, 12)
 

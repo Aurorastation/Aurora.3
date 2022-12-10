@@ -3,7 +3,6 @@
 		animate(pain, alpha = target, time = 15, easing = ELASTIC_EASING)
 		animate(pain, alpha = 0, time = 20)
 
-mob/var/list/pain_stored = list()
 mob/var/last_pain_message = ""
 mob/var/next_pain_time = 0
 
@@ -49,8 +48,6 @@ mob/var/next_pain_time = 0
 	next_pain_time = world.time + 5 SECONDS
 
 /mob/living/carbon/human/proc/handle_pain()
-	if(!can_feel_pain())
-		return
 	if(stat >= DEAD)
 		return
 	if(!can_feel_pain())
@@ -61,7 +58,7 @@ mob/var/next_pain_time = 0
 	var/maxdam = 0
 	var/obj/item/organ/external/damaged_organ = null
 	for(var/obj/item/organ/external/E in organs)
-		if(E.status & (ORGAN_DEAD|ORGAN_ROBOT)) 
+		if(E.status & (ORGAN_DEAD|ORGAN_ROBOT))
 			continue
 		var/dam = E.get_damage()
 		// make the choice of the organ depend on damage,

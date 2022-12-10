@@ -5,7 +5,7 @@
 	name = "small inhaler cartridge"
 	desc = "Fill this when chemicals and attach this to personal inhalers. Contains enough aerosol for 15u of reagents. The container must be activated for aerosol reagents to mix for the use in inhalers."
 	icon = 'icons/obj/syringe.dmi'
-	item_state = "buildpipe"
+	item_state = "pi_cart_small"
 	icon_state = "pi_cart_small"
 	volume = 15
 	w_class = ITEMSIZE_TINY
@@ -17,6 +17,19 @@
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 250)
 	center_of_mass = null
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/on_reagent_change()
+	update_icon()
+	return
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/update_icon()
+	cut_overlays()
+	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
+	
+	if(reagents.total_volume)
+		var/mutable_appearance/filling = mutable_appearance('icons/obj/syringe.dmi', "[initial(icon_state)][rounded_vol]")
+		filling.color = reagents.get_color()
+		add_overlay(filling)
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/examine(var/mob/user)
 	if(!..(user, 2))
@@ -75,7 +88,7 @@
 	name = "inhaler"
 	desc = "A safe way to administer small amounts of drugs into the lungs by trained personnel."
 	icon = 'icons/obj/syringe.dmi'
-	item_state = "buildpipe"
+	item_state = "pi"
 	icon_state = "pi"
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
@@ -94,6 +107,11 @@
 	cut_overlays()
 	if(stored_cartridge)
 		add_overlay(stored_cartridge.icon_state)
+		if(stored_cartridge.reagents.total_volume)
+			var/rounded_vol = round(stored_cartridge.reagents.total_volume, round(stored_cartridge.reagents.maximum_volume / (stored_cartridge.volume / 5)))
+			var/image/filling = image(icon, "[stored_cartridge.icon_state][rounded_vol]")
+			filling.color = stored_cartridge.reagents.get_color()
+			add_overlay(filling)
 
 /obj/item/personal_inhaler/attack_self(mob/user as mob)
 	if(stored_cartridge)
@@ -121,7 +139,8 @@
 
 	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
-		eyestab(M,user)
+		if(M.eyes_protected(src, FALSE))
+			eyestab(M,user)
 		user.visible_message("<span class='notice'>[user] accidentally sticks \the [src] in [M]'s eye!</span>","<span class='notice'>You accidentally stick the [src] in [M]'s eye!</span>")
 		return
 
@@ -149,8 +168,9 @@
 
 	if(M.reagents)
 		var/contained = stored_cartridge.reagentlist()
+		var/temp = stored_cartridge.reagents.get_temperature()
 		var/trans = stored_cartridge.reagents.trans_to_mob(M, transfer_amount, CHEM_BREATHE, bypass_checks = TRUE)
-		admin_inject_log(user, M, src, contained, reagents.get_temperature(), trans)
+		admin_inject_log(user, M, src, contained, temp, trans)
 		playsound(M.loc, 'sound/items/stimpack.ogg', 50, 1)
 		if(eject_when_empty)
 			to_chat(user,"<span class='notice'>\The [stored_cartridge] automatically ejects from \the [src].</span>")
@@ -161,6 +181,7 @@
 	else
 		to_chat(user,"<span class='warning'>Nothing happens!</span>")
 
+	update_icon()
 	return
 
 /obj/item/personal_inhaler/attackby(var/obj/item/reagent_containers/personal_inhaler_cartridge/cartridge as obj, var/mob/user as mob)

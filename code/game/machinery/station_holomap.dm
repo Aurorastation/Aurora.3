@@ -5,7 +5,6 @@
 	icon_state = "station_map"
 	anchored = 1
 	density = 0
-	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 500
 
@@ -97,7 +96,7 @@
 			watching_mob = user
 			moved_event.register(watching_mob, src, /obj/machinery/station_map/proc/checkPosition)
 			destroyed_event.register(watching_mob, src, /obj/machinery/station_map/proc/stopWatching)
-			update_use_power(2)
+			update_use_power(POWER_USE_ACTIVE)
 
 			if(bogus)
 				to_chat(user, "<span class='warning'>The holomap failed to initialize. This area of space cannot be mapped.</span>")
@@ -108,7 +107,7 @@
 	return // TODO - Implement for AI ~Leshana
 	// user.station_holomap.toggleHolomap(user, isAI(user))
 
-/obj/machinery/station_map/machinery_process()
+/obj/machinery/station_map/process()
 	if((stat & (NOPOWER|BROKEN)) || !anchored)
 		stopWatching()
 
@@ -125,7 +124,7 @@
 		moved_event.unregister(watching_mob, src)
 		destroyed_event.unregister(watching_mob, src)
 	watching_mob = null
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 
 /obj/machinery/station_map/proc/clear_image(mob/M, image/I)
 	if (M.client)
@@ -170,14 +169,6 @@
 		add_overlay("station_map-panel")
 	else
 		cut_overlay("station_map-panel")
-
-/*/obj/machinery/station_map/attackby(obj/item/W as obj, mob/user as mob)
-	src.add_fingerprint(user)
-	if(default_deconstruction_screwdriver(user, W))
-		return
-	if(default_deconstruction_crowbar(user, W))
-		return
-	return ..()*/	// Uncomment this if/when this is made constructable.
 
 /obj/machinery/station_map/ex_act(severity)
 	switch(severity)

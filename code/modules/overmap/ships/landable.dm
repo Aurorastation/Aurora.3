@@ -10,6 +10,10 @@
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 
+/obj/effect/overmap/visitable/ship/landable/Destroy()
+	shuttle_moved_event.unregister(SSshuttle.shuttles[shuttle], src)
+	return ..()
+
 /obj/effect/overmap/visitable/ship/landable/can_burn()
 	if(status != SHIP_STATUS_OVERMAP)
 		return 0
@@ -33,6 +37,7 @@
 	for(var/i = 0 to multiz)
 		world.maxz++
 		map_z += world.maxz
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
 	var/turf/center_loc = locate(round(world.maxx/2), round(world.maxy/2), world.maxz)
 	landmark = new (center_loc, shuttle)
@@ -57,12 +62,14 @@
 /obj/effect/overmap/visitable/ship/landable/populate_sector_objects()
 	..()
 	var/datum/shuttle/shuttle_datum = SSshuttle.shuttles[shuttle]
+	shuttle_moved_event.register(shuttle_datum, src, .proc/on_shuttle_jump)
 	on_landing(landmark, shuttle_datum.current_location) // We "land" at round start to properly place ourselves on the overmap.
 
 /obj/effect/shuttle_landmark/ship
 	name = "Open Space"
 	landmark_tag = "ship"
 	flags = SLANDMARK_FLAG_AUTOSET | SLANDMARK_FLAG_ZERO_G
+	base_turf = /turf/space
 	var/shuttle_name
 	var/list/visitors // landmark -> visiting shuttle stationed there
 
@@ -110,9 +117,11 @@
 
 /obj/effect/shuttle_landmark/visiting_shuttle/shuttle_arrived(datum/shuttle/shuttle)
 	LAZYSET(core_landmark.visitors, src, shuttle)
+	shuttle_moved_event.register(shuttle, src, .proc/shuttle_left)
 
 /obj/effect/shuttle_landmark/visiting_shuttle/proc/shuttle_left(datum/shuttle/shuttle, obj/effect/shuttle_landmark/old_landmark, obj/effect/shuttle_landmark/new_landmark)
 	if(old_landmark == src)
+		shuttle_moved_event.unregister(shuttle, src)
 		LAZYREMOVE(core_landmark.visitors, src)
 
 /obj/effect/overmap/visitable/ship/landable/proc/on_shuttle_jump(datum/shuttle/given_shuttle, obj/effect/shuttle_landmark/from, obj/effect/shuttle_landmark/into)

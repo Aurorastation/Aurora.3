@@ -14,6 +14,7 @@
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/palm,
 		/datum/unarmed_attack/bite
 	)
 	blurb = "Humanity originated in the Sol system, and over the last four centuries has spread colonies across a wide swathe of space. \
@@ -23,12 +24,13 @@
 	megacorporations have sparked secretive factions to fight their influence, while there is always the risk of someone digging too \
 	deep into the secrets of the galaxy..."
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SOL_COMMON)
+	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_ELYRAN_STANDARD)
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
 	mob_size = 9
 	spawn_flags = CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS | HAS_SKIN_PRESET
 	remains_type = /obj/effect/decal/remains/human
+	dust_remains_type = /obj/effect/decal/remains/human/burned
 
 	stamina = 130	// Humans can sprint for longer than any other species
 	stamina_recovery = 5
@@ -41,9 +43,19 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/tie_hair)
 
+	possible_cultures = list(
+		/decl/origin_item/culture/biesellite,
+		/decl/origin_item/culture/solarian,
+		/decl/origin_item/culture/dominia,
+		/decl/origin_item/culture/coalition,
+		/decl/origin_item/culture/elyran
+	)
+
 	zombie_type = SPECIES_ZOMBIE
 	base_color = "#25032"
 	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")
+
+	onfire_overlay = 'icons/mob/burning/burning_human.dmi'
 
 /datum/species/human/handle_npc(var/mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)
@@ -65,7 +77,7 @@
 		var/maxdam = 0
 		var/obj/item/organ/external/damaged_organ = null
 		for(var/obj/item/organ/external/E in H.organs)
-			if(!E.can_feel_pain())
+			if(!ORGAN_CAN_FEEL_PAIN(E))
 				continue
 			var/dam = E.get_damage()
 			// make the choice of the organ depend on damage,

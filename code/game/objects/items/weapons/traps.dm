@@ -4,7 +4,7 @@
 	throw_speed = 2
 	throw_range = 1
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/contained_items/weapons/traps.dmi'
 	var/icon_base = "beartrap"
 	icon_state = "beartrap0"
 	randpixel = 0
@@ -15,7 +15,11 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 18750)
 	var/deployed = FALSE
 	var/time_to_escape = 60
-	var/ignore_armor = FALSE
+	var/activated_armor_penetration = 0
+
+/obj/item/trap/Initialize()
+	. = ..()
+	update_icon()
 
 /obj/item/trap/proc/can_use(mob/user)
 	return (user.IsAdvancedToolUser() && !issilicon(user) && !user.stat && !user.restrained())
@@ -46,50 +50,38 @@
 		return TRUE
 	return FALSE
 
-/obj/item/trap/user_unbuckle_mob(mob/user)
-	if(buckled_mob && can_use(user))
+/obj/item/trap/user_unbuckle(mob/user)
+	if(buckled && can_use(user))
 		user.visible_message(
-			SPAN_NOTICE("\The [user] begins freeing \the [buckled_mob] from \the [src]..."),
-			SPAN_NOTICE("You carefully begin to free \the [buckled_mob] from \the [src]..."),
+			SPAN_NOTICE("\The [user] begins freeing \the [buckled] from \the [src]..."),
+			SPAN_NOTICE("You carefully begin to free \the [buckled] from \the [src]..."),
 			SPAN_NOTICE("You hear metal creaking.")
 			)
 		if(do_after(user, time_to_escape))
 			user.visible_message(
-				SPAN_NOTICE("\The [user] frees \the [buckled_mob] from \the [src]."),
-				SPAN_NOTICE("You free \the [buckled_mob] from \the [src].")
+				SPAN_NOTICE("\The [user] frees \the [buckled] from \the [src]."),
+				SPAN_NOTICE("You free \the [buckled] from \the [src].")
 				)
-			unbuckle_mob()
+			unbuckle()
 			anchored = FALSE
 
 /obj/item/trap/attack_hand(mob/user)
-	if(buckled_mob && can_use(user))
-		user.visible_message(
-			SPAN_NOTICE("\The [user] begins freeing \the [buckled_mob] from \the [src]..."),
-			SPAN_NOTICE("You carefully begin to free \the [buckled_mob] from \the [src]...")
-			)
-		if(do_after(user, time_to_escape))
-			user.visible_message(
-				SPAN_NOTICE("\The user frees \the [buckled_mob] from \the [src]."),
-				SPAN_NOTICE("You free \the [buckled_mob] from \the [src].")
-				)
-			unbuckle_mob()
-			anchored = FALSE
-	else if(deployed && can_use(user))
-		user.visible_message(
-			SPAN_NOTICE("\The [user] starts to disarm \the [src]..."),
-			SPAN_NOTICE("You begin disarming \the [src]..."),
-			SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring.")
-			)
-		if(do_after(user, 6 SECONDS))
-			user.visible_message(
-				SPAN_NOTICE("\The [user] disarms \the [src]!"),
-				SPAN_NOTICE("You disarm \the [src]!")
-				)
-			deployed = FALSE
-			anchored = FALSE
-			update_icon()
-	else
-		..()
+	if(can_use(user))
+		if(buckled)
+			user_unbuckle(user)
+			return
+		else if(deployed)
+			disarm_trap(user)
+			return
+	..()
+
+/obj/item/trap/proc/disarm_trap(var/mob/user)
+	user.visible_message(SPAN_NOTICE("\The [user] starts to disarm \the [src]..."), SPAN_NOTICE("You begin disarming \the [src]..."), SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."))
+	if(do_after(user, 6 SECONDS))
+		user.visible_message(SPAN_NOTICE("\The [user] disarms \the [src]!"), SPAN_NOTICE("You disarm \the [src]!"))
+		deployed = FALSE
+		anchored = FALSE
+		update_icon()
 
 /obj/item/trap/proc/attack_mob(mob/living/L)
 	var/target_zone
@@ -98,18 +90,11 @@
 	else
 		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
-	if(!ignore_armor)
-		//armor
-		var/blocked = L.run_armor_check(target_zone, "melee")
-		if(blocked >= 100)
-			return
-		var/success = L.apply_damage(30, BRUTE, target_zone, blocked, src)
-		if(!success)
-			return FALSE
-	else
-		var/success = L.apply_damage(30, BRUTE, target_zone, 0, src)
-		if(!success)
-			return FALSE
+	var/success = L.apply_damage(30, BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+	if(!success)
+		return FALSE
+
+	L.visible_message(SPAN_DANGER("\The [L] steps on \the [src]!"), FONT_LARGE(SPAN_DANGER("You step on \the [src]!")), SPAN_WARNING("<b>You hear a loud metallic snap!</b>"))
 
 	var/did_trap = TRUE
 	if(ishuman(L))
@@ -120,8 +105,8 @@
 
 	if(did_trap)
 		//trap the victim in place
-		can_buckle = TRUE
-		buckle_mob(L)
+		can_buckle = list(/mob/living)
+		buckle(L)
 		can_buckle = initial(can_buckle)
 
 	deployed = FALSE
@@ -133,22 +118,20 @@
 		bear.anger += 15//traps make bears really angry
 		bear.instant_aggro()
 
+	if(!buckled)
+		anchored = FALSE
+		deployed = FALSE
+
 /obj/item/trap/Crossed(atom/movable/AM)
+	if(ishuman(AM))
+		var/mob/living/carbon/human/H = AM
+		if(H.shoes?.item_flags & LIGHTSTEP)
+			return
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM
-		L.visible_message(
-			SPAN_DANGER("\The [L] steps on \the [src]!"),
-			FONT_LARGE(SPAN_DANGER("You step on \the [src]!")),
-			SPAN_WARNING("<b>You hear a loud metallic snap!</b>")
-			)
 		attack_mob(L)
-		if(!buckled_mob)
-			anchored = FALSE
-		deployed = FALSE
 		update_icon()
-		animate_shake()
-	..()
-
+		shake_animation()
 
 /obj/item/trap/update_icon()
 	icon_state = "[icon_base][deployed]"
@@ -156,17 +139,13 @@
 /obj/item/trap/sharpened
 	name = "sharpened mechanical trap"
 	desc_antag = "This device has an even higher chance of penetrating armor and locking foes in place."
-	ignore_armor = TRUE
+	activated_armor_penetration = 100
 
 /obj/item/trap/animal
 	name = "small trap"
-	throw_speed = 2
-	throw_range = 1
-	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	desc = "A small mechanical trap that's used to catch small animals like rats, lizards, and chicks."
 	icon_base = "small"
 	icon_state = "small0"
-	desc = "A small mechanical trap that's used to catch small animals like rats, lizards, and chicks."
 	throwforce = 2
 	force = 1
 	w_class = ITEMSIZE_SMALL
@@ -174,7 +153,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
 	deployed = FALSE
 	time_to_escape = 3 // Minutes
-	can_buckle = TRUE
+	can_buckle = list(/mob/living)
 	var/breakout = FALSE
 	var/last_shake = 0
 	var/list/allowed_mobs = list(/mob/living/simple_animal/rat, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
@@ -197,7 +176,6 @@
 		to_chat(user, "<span class='warning'>\The [src] is already full!</span>")
 
 /obj/item/trap/animal/update_icon()
-	icon = initial(icon)
 	icon_state = "[icon_base][deployed]"
 
 /obj/item/trap/animal/examine(mob/user)
@@ -233,10 +211,11 @@
 		if(AM.loc != loc)
 			AM.forceMove(loc)
 		captured = WEAKREF(L)
-		buckle_mob(L)
+		buckle(L)
+		layer = L.layer + 0.1
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 		deployed = FALSE
-		src.animate_shake()
+		src.shake_animation()
 		update_icon()
 
 /obj/item/trap/animal/proc/req_breakout()
@@ -252,13 +231,13 @@
 
 	if ((world.time - last_shake) > 5 SECONDS)
 		playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
-		animate_shake()
+		shake_animation()
 		last_shake = world.time
 
 	return TRUE
 
 // If we are stuck, and need to get out
-/obj/item/trap/animal/user_unbuckle_mob(var/mob/living/escapee)
+/obj/item/trap/animal/user_unbuckle(var/mob/living/escapee)
 	if (req_breakout() < 1)
 		return
 
@@ -369,12 +348,13 @@
 		var/mob/living/ll = L
 		msg = "<span class='warning'>[ll] runs out of \the [src].</span>"
 
-	unbuckle_mob()
+	unbuckle()
 	captured = null
 	visible_message(msg)
-	animate_shake()
+	shake_animation()
 	update_icon()
 	release_time = world.time
+	layer = initial(layer)
 
 /obj/item/trap/animal/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/grab))
@@ -398,14 +378,14 @@
 
 	else if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
-		if(!WT.welding)
-			to_chat(user, SPAN_WARNING("Your \the [W] is off!"))
+		if(!WT.isOn())
+			to_chat(user, SPAN_WARNING("\The [WT] is off!"))
 			return
 		user.visible_message("<span class='notice'>[user] is trying to slice \the [src] open!</span>",
 							 "<span class='notice'>You are trying to slice \the [src] open!</span>")
 
-		if (do_after(user, 30/W.toolspeed, act_target = src))
-			if(WT.remove_fuel(2, user))
+		if(WT.use_tool(src, user, 60, volume = 50))
+			if(WT.use(2, user))
 				user.visible_message("<span class='notice'>[user] slices \the [src] open!</span>",
 									"<span class='notice'>You slice \the [src] open!</span>")
 				new /obj/item/stack/rods(src.loc, resources["rods"])
@@ -424,7 +404,7 @@
 							 "<span class='notice'>You are trying to [anchored ? "un" : "" ]secure \the [src]!</span>")
 		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
 
-		if (do_after(user, 30/W.toolspeed, act_target = src))
+		if(W.use_tool(src, user, 30, volume = 50))
 			density = !density
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
@@ -438,7 +418,7 @@
 		var/datum/M = captured.resolve()
 		if(isliving(M))
 			var/mob/living/L = M
-			if(L && buckled_mob.buckled == src)
+			if(L && buckled.buckled_to == src)
 				L.forceMove(loc)
 			else if(L)
 				captured = null
@@ -543,7 +523,7 @@
 /obj/item/trap/animal/medium/Initialize()
 	. = ..()
 	allowed_mobs = list(
-						/mob/living/simple_animal/cat, /mob/living/simple_animal/corgi, /mob/living/simple_animal/hostile/diyaab, /mob/living/carbon/human/monkey, /mob/living/simple_animal/penguin, /mob/living/simple_animal/crab,
+						/mob/living/simple_animal/cat, /mob/living/simple_animal/corgi, /mob/living/simple_animal/hostile/retaliate/diyaab, /mob/living/carbon/human/monkey, /mob/living/simple_animal/penguin, /mob/living/simple_animal/crab,
 						/mob/living/simple_animal/chicken, /mob/living/simple_animal/yithian, /mob/living/carbon/alien/diona, /mob/living/silicon/robot/drone, /mob/living/silicon/pai,
 						/mob/living/simple_animal/spiderbot, /mob/living/simple_animal/hostile/tree)
 
@@ -571,7 +551,7 @@
 						/mob/living/simple_animal/pig)
 
 /obj/item/trap/animal/large/attack_hand(mob/user)
-	if(user == buckled_mob)
+	if(user == buckled)
 		return
 	else if(!anchored)
 		to_chat(user, SPAN_WARNING("You need to anchor \the [src] first!"))
@@ -592,10 +572,9 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] begins [anchored ? "un" : "" ]securing \the [src]!</span>",
-							  "<span class='notice'>You beign [anchored ? "un" : "" ]securing \the [src]!</span>")
-		playsound(src.loc, W.usesound, 50, 1)
+							  "<span class='notice'>You begin [anchored ? "un" : "" ]securing \the [src]!</span>")
 
-		if(do_after(user, 30/W.toolspeed, act_target = src))
+		if(W.use_tool(src, user, 30, volume = 50))
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
 								"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
@@ -634,8 +613,8 @@
 /obj/item/large_trap_foundation
 	name = "large trap foundation"
 	desc = "A metal foundation for large trap, it is missing metals rods to hold the prey."
+	icon = 'icons/obj/contained_items/weapons/traps.dmi'
 	icon_state = "large_foundation"
-	icon = 'icons/obj/items.dmi'
 	throwforce = 4
 	force = 5
 	w_class = ITEMSIZE_HUGE
@@ -662,3 +641,51 @@
 	else
 		..()
 
+
+/obj/item/trap/tripwire
+	name = "tripwire trap"
+	desc = "A piece of cable coil strung between two metal rods. Low-tech, but reliable."
+	icon_base = "tripwire"
+	color = COLOR_RED
+	layer = UNDERDOOR // so you can't cover it with items
+
+/obj/item/trap/tripwire/Initialize(mapload, var/new_cable_color)
+	. = ..()
+	if(!new_cable_color)
+		new_cable_color = COLOR_RED
+	color = new_cable_color
+
+/obj/item/trap/tripwire/update_icon()
+	underlays = null
+	icon_state = "[icon_base][deployed]"
+	var/image/I = image(icon, null, "[icon_state]_base")
+	I.appearance_flags = RESET_COLOR
+	underlays = list(I)
+
+/obj/item/trap/tripwire/deploy(mob/user)
+	user.visible_message(SPAN_WARNING("\The [user] starts to deploy \the [src]."), SPAN_WARNING("You begin deploying \the [src]!"))
+	if(do_after(user, 5 SECONDS))
+		user.visible_message(SPAN_WARNING("\The [user] deploys \the [src]."), SPAN_WARNING("You deploy \the [src]!"))
+		deployed = TRUE
+		update_icon()
+		return TRUE
+	return FALSE
+
+/obj/item/trap/tripwire/disarm_trap(var/mob/user)
+	user.visible_message(SPAN_NOTICE("\The [user] starts to take \the [src] down..."), SPAN_NOTICE("You begin taking \the [src] down..."), SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."))
+	if(do_after(user, 6 SECONDS))
+		deployed = FALSE
+		anchored = FALSE
+		update_icon()
+
+/obj/item/trap/tripwire/attack_mob(mob/living/L)
+	if(!ishuman(L))
+		return
+
+	var/mob/living/carbon/human/H = L
+	if(!H.organs_by_name[BP_L_LEG] && !H.organs_by_name[BP_R_LEG]) // tripwires are triggered by shin, so if you don't have legs, assume you fly or crawl
+		return
+
+	if(!L.lying && (L.m_intent == M_RUN) || prob(5))
+		L.visible_message(SPAN_DANGER("\The [L] trips over \the [src]!"), FONT_LARGE(SPAN_DANGER("You trip over \the [src]!")))
+		L.Weaken(3)

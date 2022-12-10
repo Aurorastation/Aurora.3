@@ -39,6 +39,9 @@
 /decl/reagent/alcohol/butanol/xuizijuice
 	value = 0.2
 
+/decl/reagent/alcohol/nmshaan_liquor/darmadhirbrew
+	value = 25
+
 /decl/reagent/hydrazine
 	value = 0.017
 
@@ -203,6 +206,9 @@
 
 /decl/reagent/alcohol/wine
 	value = 0.1
+
+/decl/reagent/alcohol/wine/vintage
+	value = 15
 
 /decl/reagent/alcohol/acid_spit
 	value = 0.15
@@ -381,6 +387,9 @@
 /decl/reagent/alcohol/screwdrivercocktail
 	value = 0.13
 
+/decl/reagent/alcohol/sidewinderfang
+	value = 0.14
+
 /decl/reagent/alcohol/silencer
 	value = 0.135
 
@@ -501,7 +510,7 @@
 /decl/reagent/alcohol/solarian_marine
 	value = 0.2
 
-/decl/reagent/alcohol/cloudyoran
+/decl/reagent/alcohol/cloudyeridani
 	value = 0.12
 
 /decl/reagent/alcohol/djinntea
@@ -643,6 +652,9 @@
 	value = 2
 
 /decl/reagent/rezadone
+	value = 5
+
+/decl/reagent/sanasomnum
 	value = 5
 
 /decl/reagent/verunol
@@ -800,3 +812,6 @@
 
 /decl/reagent/toxin/undead
 	value = 300
+
+/decl/reagent/ambrosia_extract
+	value = 2.8

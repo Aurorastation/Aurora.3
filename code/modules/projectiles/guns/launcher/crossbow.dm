@@ -45,7 +45,7 @@
 	icon_state = "metal-rod"
 
 /obj/item/arrow/rod/removed(mob/user)
-	if(throwforce == 15) // The rod has been superheated - we don't want it to be useable when removed from the bow.
+	if(throwforce == 20) // The rod has been superheated - we don't want it to be useable when removed from the bow.
 		to_chat(user, SPAN_WARNING("\The [src] shatters into a scattering of unusable overstressed metal shards as it leaves the crossbow."))
 		qdel(src)
 
@@ -64,8 +64,8 @@
 
 	var/obj/item/bolt
 	var/tension = 0                         // Current draw on the bow.
-	var/max_tension = 5                     // Highest possible tension.
-	var/release_speed = 5                   // Speed per unit of tension.
+	var/max_tension = 3                     // Highest possible tension.
+	var/release_speed = 3                   // Speed per unit of tension.
 	var/obj/item/cell/cell = null    // Used for firing superheated rods.
 	var/current_user                        // Used to check if the crossbow has changed hands since being drawn.
 	var/draw_time = 20						// How long it takes to increase the draw on the bow by one "tension"
@@ -85,7 +85,7 @@
 	update_icon()
 	..()
 
-/obj/item/gun/launcher/crossbow/attack_self(mob/living/user)
+/obj/item/gun/launcher/crossbow/unique_action(mob/living/user)
 	if(tension)
 		if(bolt)
 			user.visible_message("<b>[user]</b> relaxes the tension on \the [src]'s string and removes \the [bolt].", SPAN_NOTICE("You relax the tension on \the [src]'s string and remove \the [bolt]."))
@@ -189,13 +189,13 @@
 		return
 	if(cell.charge < 500)
 		return
-	if(bolt.throwforce >= 15)
+	if(bolt.throwforce >= 20)
 		return
 	if(!istype(bolt,/obj/item/arrow/rod))
 		return
 
 	to_chat(user, SPAN_WARNING("\The [bolt] plinks and crackles as it begins to glow red-hot."))
-	bolt.throwforce = 15
+	bolt.throwforce = 20
 	bolt.icon_state = "metal-rod-superheated"
 	cell.use(500)
 
@@ -242,7 +242,7 @@
 	else if(W.iswelder())
 		if(buildstate == 1)
 			var/obj/item/weldingtool/T = W
-			if(T.remove_fuel(0,user))
+			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, SPAN_NOTICE("You weld the rods into place."))
@@ -319,7 +319,7 @@
 		playsound(loc, 'sound/items/rfd_empty.ogg', 50, FALSE)
 		flick("[icon_state]-empty", src)
 
-/obj/item/gun/launcher/crossbow/RFD/attack_self(mob/living/user as mob)
+/obj/item/gun/launcher/crossbow/RFD/unique_action(mob/living/user as mob)
 	if(tension)
 		user.visible_message("<b>[user]</b> relaxes the tension on \the [src]'s string.", SPAN_NOTICE("You relax the tension on \the [src]'s string."))
 		playsound(loc, 'sound/weapons/holster/tactiholsterout.ogg', 50, FALSE)

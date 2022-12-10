@@ -77,3 +77,18 @@
 /datum/design/circuit/computer/telesci_console
 	name = "Telepad Control Console"
 	build_path = /obj/item/circuitboard/telesci_console
+
+/datum/design/circuit/computer/helm
+	name = "Helm Control Console"
+	req_tech = list(TECH_ENGINEERING = 3)
+	build_path = /obj/item/circuitboard/ship/helm
+
+/datum/design/circuit/computer/sensors
+	name = "Ship Sensors Console"
+	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 2)
+	build_path = /obj/item/circuitboard/ship/sensors
+
+/datum/design/circuit/computer/engines
+	name = "Ship Engines Control Console"
+	req_tech = list(TECH_ENGINEERING = 3)
+	build_path = /obj/item/circuitboard/ship/engines

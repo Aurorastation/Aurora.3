@@ -3,14 +3,15 @@
 	filedesc = "Merchant's List"
 	extended_desc = "Allows communication and trade between passing vessels, even while jumping."
 	program_icon_state = "comm"
+	program_key_icon_state = "lightblue_key"
 	nanomodule_path = /datum/nano_module/program/merchant
 	requires_ntnet = 0
 	available_on_ntnet = 0
 	size = 12
 	usage_flags = PROGRAM_CONSOLE
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
-	required_access_run = list(access_merchant, access_kataphract_trader)
-	required_access_download = list(access_merchant, access_kataphract_trader)
+	required_access_run = list(access_merchant)
+	required_access_download = list(access_merchant)
 	var/obj/machinery/merchant_pad/pad = null
 	var/current_merchant = 0
 	var/show_trades = 0
@@ -82,12 +83,12 @@
 			bank -= response
 		return
 	last_comms = "PAD NOT CONNECTED"
-	
+
 /datum/computer_file/program/merchant/proc/bulk_offer(var/datum/trader/T, var/num)
 	var/BulkAmount = input("How many items? (Buy 1-50 items. 0 to cancel.)") as num
 	if(istext(BulkAmount))
 		last_comms = "ERROR: NUMBER EXPECTED"
-		return 
+		return
 	if(BulkAmount < 0 || BulkAmount > 50)
 		last_comms = "ERROR: POSITIVE NUMBER UP TO 50 EXPECTED"
 		return

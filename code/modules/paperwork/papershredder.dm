@@ -56,6 +56,7 @@
 			qdel(W)
 			playsound(src.loc, 'sound/bureaucracy/papershred.ogg', 75, 1)
 			to_chat(user, SPAN_NOTICE("You shred the paper."))
+			intent_message(MACHINE_SOUND)
 			if(paperamount > max_paper)
 				to_chat(user, SPAN_DANGER("\The [src] was too full, and shredded paper goes everywhere!"))
 				for(var/i=(paperamount-max_paper);i>0;i--)
@@ -127,7 +128,6 @@
 			add_overlay("papershredder4")
 		if(10)
 			add_overlay("papershredder5")
-	update_icon()
 
 /obj/item/shreddedp/attackby(var/obj/item/W as obj, var/mob/user)
 	if(istype(W, /obj/item/flame/lighter))
@@ -147,7 +147,7 @@
 			var/obj/item/weldingtool/F = P // NOW THAT'S WHAT I CALL RECYCLING - wezzy
 			if (!F.welding)
 				return
-			if (!F.remove_fuel(1, user))
+			if (!F.use(1, user))
 				return
 		else
 

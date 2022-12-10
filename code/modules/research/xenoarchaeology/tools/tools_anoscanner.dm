@@ -3,8 +3,9 @@
 	name = "Alden-Saraspova counter"
 	desc = "Aids in triangulation of exotic particles."
 	icon = 'icons/obj/xenoarchaeology.dmi'
-	icon_state = "flashgun"
-	item_state = "lampgreen"
+	icon_state = "xenoarch_scanner"
+	item_state = "xenoarch_scanner"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	var/nearest_artifact_id = "unknown"
@@ -30,6 +31,7 @@
 				to_chat(user, "Exotic energy detected on wavelength '[nearest_artifact_id]' in a radius of [nearest_artifact_distance]m")
 			else
 				to_chat(user, "Background radiation levels detected.")
+			playsound(loc, 'sound/machines/boop2.ogg', 40)
 	else
 		to_chat(user, "Scanning array is recharging.")
 
@@ -39,6 +41,9 @@
 	last_scan_time = world.time
 	nearest_artifact_distance = -1
 	var/turf/cur_turf = get_turf(src)
+	if(!cur_turf)
+		return
+
 	if (SSxenoarch) //Sanity check due to runtimes ~Z
 		for(var/turf/simulated/mineral/T in SSxenoarch.artifact_spawning_turfs)
 			if(T.artifact_find)

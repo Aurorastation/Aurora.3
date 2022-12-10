@@ -15,6 +15,8 @@
 
 	roof_type = /turf/simulated/floor/airless/ceiling
 
+	baseturf = /turf/space
+
 /turf/simulated/proc/wet_floor(var/apply_type = WET_TYPE_WATER, var/amount = 1)
 
 	//Wet type:
@@ -79,7 +81,7 @@
 	if(istype(A,/mob/living))
 		var/mob/living/M = A
 		if(src.wet_type && src.wet_amount)
-			if(M.buckled || (src.wet_type == 1 && M.m_intent == M_WALK))
+			if(M.buckled_to || (src.wet_type == 1 && M.m_intent == M_WALK))
 				return
 
 			//Water
@@ -113,7 +115,7 @@
 
 		M.inertia_dir = 0
 
-	..()
+	..(A, OL)
 
 //returns TRUE if made bloody, returns FALSE otherwise
 /turf/simulated/add_blood(mob/living/carbon/human/M as mob)

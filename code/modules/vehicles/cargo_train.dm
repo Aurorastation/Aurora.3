@@ -1,7 +1,7 @@
 /obj/vehicle/train/cargo/engine
 	name = "cargo train tug"
 	desc = "A ridable electric car designed for pulling cargo trolleys."
-	desc_info = "Use ctrl-click to quickly toggle the engine if you're adjacent (only when vehicle is stationary). Alt-click will grab the keys, if present."
+	desc_info = "Click resist, or type resist into the red bar below to get off. Use ctrl-click to quickly toggle the engine if you're adjacent (only when vehicle is stationary). Alt-click will grab the keys, if present. If latched, you can use a wrench to unlatch."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_engine"
 	on = 0
@@ -16,7 +16,7 @@
 
 	var/car_limit = 3		//how many cars an engine can pull before performance degrades
 	active_engines = 1
-	var/obj/item/key/cargo_train/key
+	var/obj/item/key/key
 
 /obj/item/key/cargo_train
 	name = "key"
@@ -27,6 +27,7 @@
 
 /obj/vehicle/train/cargo/trolley
 	name = "cargo train trolley"
+	desc_info = "You can use a wrench to unlatch this."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_trailer"
 	anchored = 0
@@ -41,13 +42,16 @@
 //-------------------------------------------
 // Standard procs
 //-------------------------------------------
-/obj/vehicle/train/cargo/engine/Initialize()
-	. = ..()
+/obj/vehicle/train/cargo/engine/setup_vehicle()
+	..()
+	setup_engine()
+
+/obj/vehicle/train/cargo/engine/proc/setup_engine()
 	cell = new /obj/item/cell/high(src)
-	key = new(src)
+	key = new /obj/item/key/cargo_train(src)
 	var/image/I = new(icon = icon, icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
 	add_overlay(I)
-	turn_off()	//so engine verbs are correctly set
+	turn_off()
 
 /obj/vehicle/train/cargo/engine/attack_hand(mob/user)
 	if(use_check_and_message(user))
@@ -87,17 +91,17 @@
 	if(.)
 		return TRUE
 
-	if(load && usr != load)
-		to_chat(usr, SPAN_WARNING("You can't interact with \the [src] unless you're the driver, or you're adjacent to it while it has no driver."))
+	if(load && load != usr)
+		to_chat(usr, SPAN_WARNING("You can't interact with \the [src] while its in use."))
 		return TRUE
 
 	if(href_list["toggle_engine"])
 		if(!on)
-			start_engine()
+			start_engine(usr)
 		else
-			stop_engine()
+			stop_engine(usr)
 	if(href_list["key"])
-		do_remove_key(usr)
+		remove_key(usr)
 	if(href_list["unlatch"])
 		tow.unattach(usr)
 	SSvueui.check_uis_for_change(src)
@@ -131,7 +135,6 @@
 			user.drop_from_inventory(W, src)
 			key = W
 			to_chat(user, SPAN_NOTICE("You slide the key into the ignition."))
-			verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
 		else
 			to_chat(user, SPAN_WARNING("\The [src] already has a key inserted."))
 		return
@@ -140,8 +143,8 @@
 // Cargo trains are open topped, so you can shoot at the driver.
 // Or you can shoot at the tug itself, if you're good.
 /obj/vehicle/train/cargo/bullet_act(var/obj/item/projectile/Proj)
-	if (buckled_mob && Proj.original == buckled_mob)
-		buckled_mob.bullet_act(Proj)
+	if (buckled && Proj.original == buckled)
+		buckled.bullet_act(Proj)
 	else
 		..()
 
@@ -186,32 +189,13 @@
 		..()
 		update_stats()
 
-		verbs -= /obj/vehicle/train/cargo/engine/verb/stop_engine
-		verbs -= /obj/vehicle/train/cargo/engine/verb/start_engine
-
-		if(on)
-			verbs += /obj/vehicle/train/cargo/engine/verb/stop_engine
-		else
-			verbs += /obj/vehicle/train/cargo/engine/verb/start_engine
-
-/obj/vehicle/train/cargo/engine/turn_off()
-	..()
-
-	verbs -= /obj/vehicle/train/cargo/engine/verb/stop_engine
-	verbs -= /obj/vehicle/train/cargo/engine/verb/start_engine
-
-	if(!on)
-		verbs += /obj/vehicle/train/cargo/engine/verb/start_engine
-	else
-		verbs += /obj/vehicle/train/cargo/engine/verb/stop_engine
-
 /obj/vehicle/train/cargo/RunOver(var/mob/living/carbon/human/H)
 	var/list/parts = list(BP_HEAD, BP_CHEST, BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM)
 
 	H.apply_effects(5, 5)
 	for(var/i = 0, i < rand(1,5), i++)
 		var/def_zone = pick(parts)
-		H.apply_damage(rand(5,10), BRUTE, def_zone, H.run_armor_check(def_zone, "melee"))
+		H.apply_damage(rand(5,10), BRUTE, def_zone)
 
 /obj/vehicle/train/cargo/trolley/RunOver(var/mob/living/carbon/human/H)
 	..()
@@ -262,76 +246,50 @@
 /obj/vehicle/train/cargo/engine/CtrlClick(var/mob/user)
 	if(Adjacent(user))
 		if(on)
-			stop_engine()
+			stop_engine(usr)
 		else
-			start_engine()
+			start_engine(usr)
 	else
 		return ..()
 
 /obj/vehicle/train/cargo/engine/AltClick(var/mob/user)
 	if(Adjacent(user))
-		remove_key()
+		remove_key(user)
 	else
 		return ..()
 
-/obj/vehicle/train/cargo/engine/verb/start_engine()
-	set name = "Start engine"
-	set category = "Vehicle"
-	set src in view(0)
-
-	if(!ishuman(usr))
-		return
-
+/obj/vehicle/train/cargo/engine/proc/start_engine(var/mob/user)
 	if(on)
-		to_chat(usr, "The engine is already running.")
+		to_chat(user, SPAN_WARNING("The engine is already running."))
 		return
 
 	turn_on()
 	if(on)
-		to_chat(usr, "You start [src]'s engine.")
+		to_chat(user, SPAN_NOTICE("You start \the [src]'s engine."))
 	else if(cell.charge < charge_use)
-		to_chat(usr, "[src] is out of power.")
+		to_chat(user, SPAN_WARNING("\The [src] is out of power."))
 
-/obj/vehicle/train/cargo/engine/verb/stop_engine()
-	set name = "Stop engine"
-	set category = "Vehicle"
-	set src in view(0)
-
-	if(!istype(usr, /mob/living/carbon/human))
-		return
-
+/obj/vehicle/train/cargo/engine/proc/stop_engine(var/mob/user)
 	if(!on)
-		to_chat(usr, "The engine is already stopped.")
+		to_chat(user, SPAN_WARNING("The engine is already stopped."))
 		return
 
 	turn_off()
-	if (!on)
-		to_chat(usr, "You stop [src]'s engine.")
+	if(!on)
+		to_chat(user, SPAN_NOTICE("You stop [src]'s engine."))
 
-/obj/vehicle/train/cargo/engine/verb/remove_key()
-	set name = "Remove key"
-	set category = "Vehicle"
-	set src in view(0)
-
-	if(!istype(usr, /mob/living/carbon/human))
-		return
-
+/obj/vehicle/train/cargo/engine/proc/remove_key(var/mob/user)
 	if(!key)
 		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a key inserted!"))
 		return
 	if(load && load != usr)
 		return
 
-	do_remove_key(usr)
-
-/obj/vehicle/train/cargo/engine/proc/do_remove_key(var/mob/user)
 	if(on)
 		turn_off()
 
 	user.put_in_hands(key)
 	key = null
-
-	verbs -= /obj/vehicle/train/cargo/engine/verb/remove_key
 
 /obj/vehicle/train/cargo/engine/emag_act(var/remaining_charges, mob/user)
 	. = ..()

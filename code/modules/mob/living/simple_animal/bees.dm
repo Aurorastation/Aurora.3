@@ -17,7 +17,7 @@
 	var/mob/target_mob
 	var/obj/machinery/beehive/parent
 	var/loner = 0
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	turns_per_move = 6
 	var/obj/machinery/portable_atmospherics/hydroponics/my_hydrotray
 	emote_sounds = list('sound/effects/creatures/bees.ogg')
@@ -35,6 +35,8 @@
 	target_mob = null
 	return ..()
 
+/mob/living/simple_animal/bee/can_name(var/mob/living/M)
+	return FALSE
 
 //Special death behaviour. When bees accumulate enough damage to 'die', they don't outright die.  Thus no call to parent
 //Instead the swarm strength (ie, size, or quantity of bees) drops and their health is refilled
@@ -44,13 +46,13 @@
 	if (!QDELING(src))
 		strength -= 1
 		if (strength <= 0)
-			if (prob(35))//probability to reduce spam
+			if (prob(25))//probability to reduce spam
 				src.visible_message("<span class='warning'>The bee swarm completely dissipates.</span>")
 			qdel(src)
 			return
 		else
 			health = maxHealth
-			if (prob(35))//probability to reduce spam
+			if (prob(25))//probability to reduce spam
 				src.visible_message("<span class='warning'>The bee swarm starts to thin out a little.</span>")
 
 		update_icon()
@@ -68,17 +70,20 @@
 
 	..()
 
+/mob/living/simple_animal/bee/proc/verify_stingable(var/mob/living/M)
+	if(M.isSynthetic()) //Can't sting robots, unfortunately
+		return FALSE
+	return TRUE
 
-/mob/living/simple_animal/bee/think()
-	..()
-	if (stat != CONSCIOUS)
-		return
-
+/mob/living/simple_animal/bee/proc/do_sting()
 	//if we're strong enough, sting some people
 	var/mob/living/carbon/human/M = target_mob
+	if(!verify_stingable(M)) //If we can't sting this, why is it our target?
+		target_mob = null
+		return FALSE
 	var/sting_prob = 40 // Bees will always try to sting.
 	var/prob_mult = 1
-	if(M && (M in view(src,1))) // Can I see my target?
+	if(Adjacent(M)) //Can I reach my target?
 		var/obj/item/clothing/worn_suit = M.wear_suit
 		var/obj/item/clothing/worn_helmet = M.head
 		if(worn_suit) // Are you wearing clothes?
@@ -93,11 +98,23 @@
 				prob_mult -= 0.01 *(min(LAZYACCESS(worn_helmet.armor, "bio"), 30))// Is your helmet sealed? I can't get to 30% of your body.
 		if( prob(sting_prob*prob_mult) && (M.stat == CONSCIOUS || (M.stat == UNCONSCIOUS && prob(25*prob_mult))) ) // Try to sting! If you're not moving, think about stinging.
 			M.apply_damage(min(strength*0.85,2)+mut, BURN, damage_flags = DAM_SHARP) // Stinging. The more mutated I am, the harder I sting.
-			M.apply_damage(max(strength*0.2,(round(feral/10,1)*(max((round(strength/20,1)),1)))+toxic), TOX) // Bee venom based on how angry I am and how many there are of me!
+			var/venom_strength = max(strength*0.2, (round(feral/10,1) * (max(round(strength/20,1), 1)))) + toxic // Bee venom based on how angry I am and how many there are of me!
+			M.apply_damage(venom_strength, PAIN)  //Bee venom causes pain, not organ failure
+			if(prob(max(80, strength * 10))) //If there's enough of a swarm, it can also cause breathing trouble. Yes, even without being allergic. 
+				M.apply_damage(venom_strength, OXY)
+			update_icon()
 			to_chat(M, "<span class='warning'>You have been stung!</span>")
 			M.flash_pain(5)
+	else
+		step_to(src, target_mob)
 
+/mob/living/simple_animal/bee/think()
+	..()
+	if (stat != CONSCIOUS)
+		return
 
+	if(target_mob)
+		do_sting()
 
 	//calm down a little bit
 	if(feral > 0 && !target_mob)
@@ -115,17 +132,17 @@
 			//calm down and spread out a little
 			var/mob/living/simple_animal/bee/B = new(get_turf(src))
 			B.strength = rand(1,5)
-			src.strength -= B.strength
+			strength -= B.strength
 			update_icon()
 			B.update_icon()
-			if(src.parent)
-				B.parent = src.parent
-				src.parent.owned_bee_swarms.Add(B)
+			if(parent)
+				B.parent = parent
+				parent.owned_bee_swarms.Add(B)
 
 	//make some noise
-	if(prob(3))
-		src.visible_message("<span class='notice'>[pick("Buzzzz.","Hmmmmm.","Bzzz.")]</span>")
-		playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 15, 1,-4)
+	if(prob(2))
+		src.audible_message("[SPAN_BOLD("\The [src]")] [pick("buzz", "hum")].")
+		playsound(src, pick('sound/effects/Buzz1.ogg', 'sound/effects/Buzz2.ogg'), 10, TRUE, -4)
 
 	if (feral && isturf(loc))
 		//smoke, water and steam calms us down
@@ -143,16 +160,19 @@
 			feral = -15
 			target_mob = null
 			target_turf = null
-			wander = 1
+			wander = TRUE
 
 	for(var/mob/living/simple_animal/bee/B in src.loc)
 		if(B == src)
 			continue
 
-		if(feral > 0)
-			src.strength += B.strength
+		if(feral > 0 && prob(50)) //We'll combine into a stronger swarm if this passes
+			if(B.strength > strength) //This is so that we'll take the toxic and mut values of the larger swarm, as that will be the majority of bees. If B is smaller, we keep ours.
+				mut = B.mut
+				toxic = B.toxic
+			strength += B.strength
 			B.strength = 0
-			B.update_icon()
+			qdel(B) //We've absorbed the other bees, they're gone. Qdel here to avoid spamming disipate messages
 			update_icon()
 
 		else if(prob(10))
@@ -160,34 +180,33 @@
 			var/total_bees = B.strength + src.strength
 			if(total_bees < 10)
 				B.strength = min(5, total_bees)
-				src.strength = total_bees - B.strength
+				strength = total_bees - B.strength
 
 				update_icon()
 				B.update_icon()
-				if(src.strength <= 0)
+				if(strength <= 0)
 					qdel(src)
 					return
-				var/turf/simulated/floor/T = get_step(src, pick(1,2,4,8))
-				density = 1
-				Move(T)
-				density = 0
+				var/turf/simulated/floor/T = get_step(src, pick(cardinal))
+				if(istype(T))
+					Move(T)
 			break
 
-
 	if(target_mob)//If we have a target
-		if(target_mob in view(src,7))//Check that we can still see them
+		if(target_mob in view(5, src))//Check that we can still see them
 			target_turf = get_turf(target_mob)//If so, update the location
-			wander = 0
+			wander = FALSE
 		else//Otherwise, if our target is out of view, we clear them so we can pick a new one in the next step
 			target_mob = null
 			target_turf = null
-			wander = 1
+			wander = TRUE
 
 	//If we're angry but have no target, lets search for one
 	if (!target_mob && feral)
 		for(var/mob/living/carbon/G in view(src,7))
-			target_mob = G
-			break
+			if(verify_stingable(G))
+				target_mob = G
+				break
 
 	//if we're chasing someone, get a little bit angry
 	if(target_mob && prob(5))
@@ -196,11 +215,11 @@
 	if(target_turf)
 		if (!(DirBlocked(get_step(src, get_dir(src,target_turf)),get_dir(src,target_turf)))) // Check for windows and doors!
 			Move(get_step(src, get_dir(src,target_turf)))
-			if (prob(10))
-				src.visible_message("<span class='notice'>The bees swarm after [target_mob]!</span>")
-		if(src.loc == target_turf)
+			if(prob(10))
+				visible_message("<span class='notice'>The bees swarm after [target_mob]!</span>")
+		if(get_turf(src) == target_turf)
 			target_turf = null
-			wander = 1
+			wander = TRUE
 	else
 		//find some flowers, harvest
 		//angry bee swarms don't hang around
@@ -237,7 +256,8 @@
 		apply_damage(strength*0.5, BRUTE, used_weapon = "Crushing by [grabber.name]")
 	else
 		to_chat(grabber, "<span class = 'warning'>For some bizarre reason known only to yourself, you attempt to grab ahold of the swarm of bees. You come away with nothing but empty, slightly stung hands.</span>")
-		grabber.apply_damage(strength*0.5, BURN)
+		if(verify_stingable(grabber))
+			grabber.apply_damage(strength*0.5, BURN)
 
 	return 0
 
@@ -266,3 +286,8 @@
 	maxHealth = 30
 	strength = 5
 	feral = 30
+
+/mob/living/simple_animal/bee/beegun/Initialize()
+	. = ..()
+	mut = rand(0, 1) //We're creating bees out of energy. They have a chance of being mutated...
+	toxic = rand(0, 1) //...or slightly more toxic

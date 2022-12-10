@@ -13,6 +13,7 @@
 	unacidable = 1
 	simulated = 0
 	invisibility = 101
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 	var/identifier = null //identifier of this spawnpoint
 

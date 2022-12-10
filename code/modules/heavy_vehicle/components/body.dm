@@ -48,28 +48,40 @@
 
 /obj/item/mech_component/chassis/show_missing_parts(var/mob/user)
 	if(!cell)
-		to_chat(user, "<span class='warning'>It is missing a power cell.</span>")
+		to_chat(user, SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=cell'>power cell</a>."))
 	if(!diagnostics)
-		to_chat(user, "<span class='warning'>It is missing a diagnostics unit.</span>")
+		to_chat(user, SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=diagnostics'>diagnostics unit</a>."))
 	if(!mech_armor)
-		to_chat(user, "<span class='warning'>It is missing armor plating.</span>")
+		to_chat(user, SPAN_WARNING("It is missing <a href='?src=\ref[src];info=diagnostics'>armor plating</a>."))
+
+/obj/item/mech_component/chassis/Topic(href, href_list)
+	. = ..()
+	if(.)
+		return
+	switch(href_list["info"])
+		if("cell")
+			to_chat(usr, SPAN_NOTICE("A power cell can be created at a mechatronic fabricator."))
+		if("diagnostics")
+			to_chat(usr, SPAN_NOTICE("A diagnostics unit can be created at a mechatronic fabricator."))
+		if("armor")
+			to_chat(usr, SPAN_NOTICE("Armor plating can be created at a mechatronic fabricator."))
 
 /obj/item/mech_component/chassis/return_diagnostics(mob/user)
 	..()
 	if(diagnostics)
-		to_chat(user, SPAN_NOTICE(" Diagnostics Unit Integrity: <b>[round(((diagnostics.max_dam - diagnostics.total_dam) / diagnostics.max_dam)) * 100]%</b>"))
+		to_chat(user, SPAN_NOTICE("  - Diagnostics Unit Integrity: <b>[round(((diagnostics.max_dam - diagnostics.total_dam) / diagnostics.max_dam) * 100, 0.1)]%</b>"))
 	else
-		to_chat(user, SPAN_WARNING(" Diagnostics Unit Missing or Non-functional."))
+		to_chat(user, SPAN_WARNING("  - Diagnostics Unit Missing or Non-functional."))
 	if(mech_armor)
-		to_chat(user, SPAN_NOTICE(" Armor Integrity: <b>[round(((mech_armor.max_dam - mech_armor.total_dam) / mech_armor.max_dam)) * 100]%</b>"))
+		to_chat(user, SPAN_NOTICE("  - Armor Integrity: <b>[round(((mech_armor.max_dam - mech_armor.total_dam) / mech_armor.max_dam) * 100, 0.1)]%</b>"))
 	else
-		to_chat(user, SPAN_WARNING(" Armor Missing or Non-functional."))
+		to_chat(user, SPAN_WARNING("  - Armor Missing or Non-functional."))
 
 /obj/item/mech_component/chassis/Initialize()
 	. = ..()
-	cockpit = new(20)
+	cockpit = new
 	if(loc)
-		cockpit.equalize(loc.return_air())
+		cockpit.copy_from(loc.return_air())
 	air_supply = new /obj/machinery/portable_atmospherics/canister/air(src)
 
 /obj/item/mech_component/chassis/proc/update_air(var/take_from_supply)
@@ -103,17 +115,17 @@
 /obj/item/mech_component/chassis/attackby(var/obj/item/thing, var/mob/user)
 	if(istype(thing,/obj/item/robot_parts/robot_component/diagnosis_unit))
 		if(diagnostics)
-			to_chat(user, "<span class='warning'>\The [src] already has a diagnostic system installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has a diagnostic system installed."))
 			return
 		if(install_component(thing, user)) diagnostics = thing
 	else if(istype(thing, /obj/item/cell))
 		if(cell)
-			to_chat(user, "<span class='warning'>\The [src] already has a cell installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has a cell installed."))
 			return
 		if(install_component(thing,user)) cell = thing
 	else if(istype(thing, /obj/item/robot_parts/robot_component/armor/mech))
 		if(mech_armor)
-			to_chat(user, "<span class='warning'>\The [src] already has mech_armor installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has mech_armor installed."))
 			return
 		if(install_component(thing, user))
 			mech_armor = thing
@@ -123,7 +135,7 @@
 /obj/item/mech_component/chassis/MouseDrop_T(atom/dropping, mob/user)
 	var/obj/machinery/portable_atmospherics/canister/C = dropping
 	if(istype(C) && do_after(user, 5, src))
-		to_chat(user, "<span class='notice'>You install the canister in the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You install the canister into \the [src]."))
 		if(air_supply)
 			air_supply.forceMove(get_turf(src))
 			air_supply = null

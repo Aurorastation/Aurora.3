@@ -207,7 +207,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 // Get a hex-encoded UI block.
 /datum/dna/proc/GetUIBlock(var/block)
-	return EncodeDNABlock(GetUIValue(block))
+	return num2hex(GetUIValue(block), 3)
 
 // Do not use this unless you absolutely have to.
 // Set a block from a hex string.  This is inefficient.  If you can, use SetUIValue().
@@ -294,7 +294,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 // Get hex-encoded SE block.
 /datum/dna/proc/GetSEBlock(var/block)
-	return EncodeDNABlock(GetSEValue(block))
+	return num2hex(GetSEValue(block), 3)
 
 // Do not use this unless you absolutely have to.
 // Set a block from a hex string.  This is inefficient.  If you can, use SetUIValue().
@@ -323,14 +323,10 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	//testing("SetSESubBlock([block],[subBlock],[newSubBlock],[defer]): [oldBlock] -> [newBlock]")
 	SetSEBlock(block,newBlock,defer)
 
-
-/proc/EncodeDNABlock(var/value)
-	return add_zero2(num2hex(value,1), 3)
-
 /datum/dna/proc/UpdateUI()
 	src.uni_identity=""
 	for(var/block in UI)
-		uni_identity += EncodeDNABlock(block)
+		uni_identity += num2hex(block, 3)
 	//testing("New UI: [uni_identity]")
 	dirtyUI=0
 
@@ -338,7 +334,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	//var/oldse=struc_enzymes
 	struc_enzymes=""
 	for(var/block in SE)
-		struc_enzymes += EncodeDNABlock(block)
+		struc_enzymes += num2hex(block, 3)
 	//testing("Old SE: [oldse]")
 	//testing("New SE: [struc_enzymes]")
 	dirtySE=0

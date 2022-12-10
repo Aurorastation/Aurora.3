@@ -1,10 +1,11 @@
 //cyborgs presets, mostly used for events/admin bus
-/mob/living/silicon/robot/combat
-	mod_type = "Combat"
-	spawn_module = /obj/item/robot_module/combat
+/mob/living/silicon/robot/military
+	mod_type = "Military"
+	spawn_module = /obj/item/robot_module/military
 	cell_type = /obj/item/cell/super
+	braintype = "Android" // Posibrain.
 
-/mob/living/silicon/robot/combat/ert
+/mob/living/silicon/robot/military/ert
 	scrambled_codes = TRUE
 	law_update = FALSE
 	law_preset = /datum/ai_laws/nanotrasen_aggressive
@@ -62,7 +63,7 @@
 
 	src.custom_emote(VISIBLE_MESSAGE, "politely beeps as its lights start to flash.")
 	spark(src, 5, alldirs)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, src), 10, TIMER_CLIENT_TIME)
+	QDEL_IN(src, 10)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 
 	if(key)

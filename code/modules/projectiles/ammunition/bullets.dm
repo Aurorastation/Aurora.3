@@ -107,7 +107,14 @@
 	caliber = "shotgun"
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
-	reload_sound = 'sound/weapons/reload_shell.ogg'
+	reload_sound = /decl/sound_category/shotgun_reload
+	drop_sound = /decl/sound_category/casing_drop_sound_shotgun
+
+/obj/item/ammo_casing/shotgun/used/Initialize()
+	. = ..()
+	expend()
+	pixel_x = rand(-10, 10)
+	pixel_y = rand(-10, 10)
 
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
@@ -116,6 +123,12 @@
 	spent_icon = "gshell-spent"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
+
+/obj/item/ammo_casing/shotgun/pellet/used/Initialize()
+	. = ..()
+	expend()
+	pixel_x = rand(-10, 10)
+	pixel_y = rand(-10, 10)
 
 /obj/item/ammo_casing/shotgun/blank
 	name = "shotgun shell"
@@ -211,6 +224,10 @@
 	. = ..()
 	expend()
 
+/obj/item/ammo_casing/a762/blank
+	desc = "A 7.62mm blank casing."
+	projectile_type = /obj/item/projectile/bullet/blank
+
 /obj/item/ammo_casing/a145
 	name = "shell casing"
 	desc = "A 14.5mm shell."
@@ -236,6 +253,10 @@
 /obj/item/ammo_casing/a556/practice
 	desc = "A 5.56mm practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/practice
+
+/obj/item/ammo_casing/a556/polymer
+	desc = "A 5.56mm polymer bullet casing."
+	projectile_type = /obj/item/projectile/bullet/rifle/a556/polymer
 
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"
@@ -290,8 +311,14 @@
 	desc = "A heavy tungsten gauss slug."
 	caliber = "gauss"
 	icon_state = "tungstenslug"
+	spent_icon = "tungstenslug-spent"
 	projectile_type = /obj/item/projectile/bullet/gauss
 	max_stack = 2
+
+/obj/item/ammo_casing/gauss/carbine
+	name = "compact tungsten slug"
+	desc = "A heavy tungsten gauss slug. This one has a casing adapated for carbine models."
+	projectile_type = /obj/item/projectile/bullet/gauss/carbine
 
 /obj/item/ammo_casing/gauss/emp
 	name = "ion slug"
@@ -324,7 +351,10 @@
 	projectile_type = /obj/item/projectile/bullet/cannonball
 	matter = list(DEFAULT_WALL_MATERIAL = 800)
 	w_class = ITEMSIZE_NORMAL
+	slot_flags = null
 	max_stack = 1
+	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
+	drop_sound = /decl/sound_category/generic_drop_sound
 
 /obj/item/ammo_casing/cannon/explosive
 	name = "explosive cannonball"
@@ -341,8 +371,11 @@
 	name = "miniaturized nuclear warhead"
 	icon_state = "nuke"
 	caliber = "nuke"
+	w_class = ITEMSIZE_NORMAL
+	slot_flags = null
 	desc = "A miniaturized version of a nuclear bomb."
 	projectile_type = /obj/item/projectile/bullet/nuke
+	drop_sound = /decl/sound_category/generic_drop_sound
 	max_stack = 2
 
 /obj/item/ammo_casing/musket
@@ -351,3 +384,33 @@
 	icon_state = "musketball"
 	caliber = "musket"
 	projectile_type = /obj/item/projectile/bullet/pistol/strong
+	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
+
+/obj/item/ammo_casing/recoilless_rifle
+	name = "anti-tank warhead"
+	icon_state = "missile"
+	caliber = "recoilless_rifle"
+	w_class = ITEMSIZE_NORMAL
+	slot_flags = null
+	projectile_type = /obj/item/projectile/bullet/recoilless_rifle
+	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
+	max_stack = 1
+
+/obj/item/ammo_casing/peac
+	name = "anti-materiel cannon cartridge"
+	icon_state = "peac"
+	spent_icon = "peac-spent"
+	caliber = "peac"
+	w_class = ITEMSIZE_NORMAL
+	slot_flags = null
+	projectile_type = /obj/item/projectile/bullet/recoilless_rifle/peac
+	reload_sound = 'sound/weapons/railgun_insert_emp.ogg'
+	max_stack = 1
+
+/obj/item/ammo_casing/kumar_super
+	name =".599 kumar super casing"
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+	caliber = ".599 Kumar Super"
+	projectile_type = /obj/item/projectile/bullet
+	max_stack = 5

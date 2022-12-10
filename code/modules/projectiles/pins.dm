@@ -38,16 +38,20 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	if(proximity_flag)
 		if(istype(target, /obj/item/gun))
 			var/obj/item/gun/G = target
+			if(!G.needspin)
+				to_chat(user, SPAN_WARNING("\The [G] doesn't take pins."))
+				return
+
 			if(G.pin && (force_replace || G.pin.pin_replaceable))
 				G.pin.forceMove(get_turf(G))
 				G.pin.gun_remove(user)
-				to_chat(user, "<span class ='notice'>You remove [G]'s old pin.</span>")
+				to_chat(user, SPAN_NOTICE("You remove \the [G]'s old pin."))
 
 			if(!G.pin)
 				gun_insert(user, G)
-				to_chat(user, "<span class ='notice'>You insert [src] into [G].</span>")
+				to_chat(user, SPAN_NOTICE("You insert [src] into \the [G]."))
 			else
-				to_chat(user, "<span class ='notice'>This firearm already has a firing pin installed.</span>")
+				to_chat(user, SPAN_NOTICE("This firearm already has a firing pin installed."))
 
 /obj/item/device/firing_pin/emag_act()
 	if(!emagged)
@@ -70,7 +74,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	return 1
 
 /obj/item/device/firing_pin/proc/auth_fail(mob/living/carbon/human/user)
-	user.show_message(fail_message, 1)
+	to_chat(user, fail_message)
 	if(selfdestruct)//sound stolen from the lawgiver. todo, remove this from the lawgiver. there can only be one.
 		user.show_message("<span class='danger'>SELF-DESTRUCTING...</span><br>", 1)
 		visible_message("<span class='danger'>\The [gun] explodes!</span>")
@@ -85,12 +89,6 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 Pins Below.
 */
 
-//only used in wizard staffs/wands.
-/obj/item/device/firing_pin/magic
-	name = "magic crystal shard"
-	desc = "A small enchanted shard which allows magical weapons to fire."
-	icon_state = "firing_pin_wizwoz"
-
 // Test pin, works only near firing ranges.
 /obj/item/device/firing_pin/test_range
 	name = "test-range firing pin"
@@ -103,6 +101,18 @@ Pins Below.
 /obj/item/device/firing_pin/test_range/pin_auth(mob/living/user)
 	var/area/A = get_area(src)
 	if (A && (A.flags & FIRING_RANGE))
+		return 1
+	else
+		return 0
+
+// Psionics pin, checks for psionics (psi aug not included)
+/obj/item/device/firing_pin/psionic
+	name = "psionics firing pin"
+	desc = "This is a psionics-locked firing pin which only authorizes users who are capable of psionics."
+	fail_message = "<span class='warning'>PSIONICS CHECK FAILED.</span>"
+
+/obj/item/device/firing_pin/psionic/pin_auth(mob/living/user)
+	if(user.can_commune())
 		return 1
 	else
 		return 0
@@ -181,28 +191,26 @@ Pins Below.
 	name = "laser tag firing pin"
 	desc = "A recreational firing pin, used in laser tag units to ensure users have their vests on."
 	fail_message = "<span class='warning'>SUIT CHECK FAILED.</span>"
-	var/obj/item/clothing/suit/suit_requirement = null
-	var/tagcolor = ""
+	var/tag_color = ""
 
 /obj/item/device/firing_pin/tag/pin_auth(mob/living/user)
 	if(ishuman(user))
-		var/mob/living/carbon/human/M = user
-		if(istype(M.wear_suit, suit_requirement))
-			return 1
-	to_chat(user, "<span class='warning'>You need to be wearing [tagcolor] laser tag armor!</span>")
-	return 0
+		var/mob/living/carbon/human/H = user
+		var/obj/item/clothing/suit/armor/riot/laser_tag/LT = H.wear_suit
+		if(istype(LT) && tag_color == LT.laser_tag_color)
+			return TRUE
+	to_chat(user, SPAN_WARNING("You need to be wearing [tag_color] laser tag armor!"))
+	return FALSE
 
 /obj/item/device/firing_pin/tag/red
 	name = "red laser tag firing pin"
 	icon_state = "firing_pin_red"
-	suit_requirement = /obj/item/clothing/suit/redtag
-	tagcolor = "red"
+	tag_color = "red"
 
 /obj/item/device/firing_pin/tag/blue
 	name = "blue laser tag firing pin"
 	icon_state = "firing_pin_blue"
-	suit_requirement = /obj/item/clothing/suit/bluetag
-	tagcolor = "blue"
+	tag_color = "blue"
 
 /obj/item/device/firing_pin/Destroy()
 	if(gun)
@@ -235,11 +243,11 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 	desc = "This firing pin is wirelessly controlled. On automatic mode it allow allows weapons to be fired on stun unless the alert level is elevated. Otherwise, it can be controlled from a firearm control console."
 	fail_message = "<span class='warning'>The wireless-control firing pin clicks!</span>"
 	var/registered_user = null
-	var/lockstatus = WIRELESS_PIN_AUTOMATIC
+	var/lock_status = WIRELESS_PIN_AUTOMATIC
 
 /obj/item/device/firing_pin/wireless/examine_info(mob/user)
 	var/wireless_description
-	switch(lockstatus)
+	switch(lock_status)
 		if(WIRELESS_PIN_AUTOMATIC)
 			wireless_description = "is in automatic mode"
 		if(WIRELESS_PIN_DISABLED)
@@ -248,7 +256,7 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 			wireless_description = "is in stun-only mode"
 		if(WIRELESS_PIN_LETHAL)
 			wireless_description = "is in unrestricted mode"
-	to_chat(user, "The wireless-control firing pin [wireless_description].")
+	to_chat(user, SPAN_NOTICE("The wireless-control firing pin <b>[wireless_description]</b>."))
 
 /obj/item/device/firing_pin/wireless/Initialize() //Adds wireless pins to the list of initialized wireless firing pins.
 	wireless_firing_pins += src
@@ -259,9 +267,8 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 	return ..()
 
 /*
-	The return of this pin_auth is dependent on the wireless pin's lockstatus. For the purposes of this, only energy projectiles
-	that have a taser_effect are considered "stun" projectiles. All ballistic firearms are considered as being lethal, regardless
-	of ammunition loaded. Behaviours should be as follows:
+	The return of this pin_auth is dependent on the wireless pin's lock_status. The required_firemode_auth list has to match up index-wise with the firemodes.
+	All ballistic firearms are considered as being lethal, regardless of ammunition loaded. Behaviours should be as follows:
 	Automatic: The weapon will only fire on stun while the security level is Green or Blue. On Yellow, Red & Delta alert the weapon is unrestricted
 	Disabled: The weapon will not fire under any circumstance.
 	Stun-Only: The weapon will only fire on stun regardless of the current security level.
@@ -269,81 +276,73 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 */
 /obj/item/device/firing_pin/wireless/pin_auth(mob/living/user)
 	if(!registered_user)
-		fail_message = "Unable to fire - User not registered"
+		fail_message = SPAN_WARNING("Unable to fire: no registered user detected.")
 		return FALSE
 
 	if(emagged)
 		return TRUE
 
-	if(lockstatus == WIRELESS_PIN_DISABLED)
-		fail_message = "Unable to fire - Weapon Disabled"
+	if(lock_status == WIRELESS_PIN_DISABLED)
+		fail_message = SPAN_WARNING("Unable to fire: firearm remotely disabled.")
 		return FALSE
 
-	else if(lockstatus == WIRELESS_PIN_LETHAL)
+	else if(lock_status == WIRELESS_PIN_LETHAL)
 		return TRUE
 
-	else if(lockstatus == WIRELESS_PIN_STUN)
+	else if(lock_status == WIRELESS_PIN_STUN)
 		if(istype(gun, /obj/item/gun/energy))
 			var/obj/item/gun/energy/EG = gun
-			var/obj/item/projectile/energy/P = new EG.projectile_type
-			if(!P)
-				fail_message = "Unable to fire - Internal Error"
-				return FALSE
-			if(!P.taser_effect)
-				fail_message = "Unable to fire - Weapon not in stun-mode"
+			if(EG.required_firemode_auth[EG.sel_mode] == WIRELESS_PIN_LETHAL)
+				fail_message = SPAN_WARNING("Unable to fire: firearm not in stun mode.")
 				return FALSE
 			return TRUE
 		else
-			fail_message = "Unable to fire - Weapon has not stun-mode"
+			fail_message = SPAN_WARNING("Unable to fire: no stun mode detected.")
 			return FALSE
 
 	else //Automatic Mode
 		if(istype(gun, /obj/item/gun/energy))
 			var/obj/item/gun/energy/EG = gun
-			var/obj/item/projectile/energy/P = new EG.projectile_type
-			if(!P)
-				fail_message = "Unable to fire - Internal Error"
-				return FALSE
-			if(P.taser_effect) //The gun can always be used on stun
+			if(EG.required_firemode_auth[EG.sel_mode] == WIRELESS_PIN_STUN)
 				return TRUE
 			else if (security_level == SEC_LEVEL_YELLOW || security_level == SEC_LEVEL_RED)
 				return TRUE
 			else
-				fail_message = "Unable to fire - Insufficient security level for lethal mode"
+				fail_message = SPAN_WARNING("Unable to fire: insufficient security level.")
 				return FALSE
 		else
 			if (security_level == SEC_LEVEL_YELLOW || security_level == SEC_LEVEL_RED)
 				return TRUE
 			else
-				fail_message = "Unable to fire - Insufficient security level for lethal mode"
+				fail_message = SPAN_WARNING("Unable to fire: insufficient security level.")
 				return FALSE
 
 
-/obj/item/device/firing_pin/wireless/proc/set_mode(var/new_mode) // Changes the current lockstatus of the weapon, and sends a message and sfx to whoever is holding it.
+/obj/item/device/firing_pin/wireless/proc/set_mode(var/new_mode) // Changes the current lock_status of the weapon, and sends a message and sfx to whoever is holding it.
 	var/mob/user = get_holding_mob(src)
 
-	if(new_mode == lockstatus)
+	if(new_mode == lock_status)
 		return
 
 	else if(new_mode == WIRELESS_PIN_AUTOMATIC)
 		playsound(user, 'sound/weapons/laser_safetyon.ogg')
 		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now set to automatic.</b>"))
-		lockstatus = WIRELESS_PIN_AUTOMATIC
+		lock_status = WIRELESS_PIN_AUTOMATIC
 
 	else if(new_mode == WIRELESS_PIN_DISABLED)
 		playsound(user, 'sound/weapons/laser_safetyoff.ogg')
 		to_chat(user, SPAN_WARNING("<b>\The wireless-control firing pin locks \the [gun.name]'s trigger!</b>"))
-		lockstatus = WIRELESS_PIN_DISABLED
+		lock_status = WIRELESS_PIN_DISABLED
 
 	else if(new_mode == WIRELESS_PIN_STUN)
 		playsound(user, 'sound/weapons/laser_safetyon.ogg')
 		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now set to stun only.</b>"))
-		lockstatus = WIRELESS_PIN_STUN
+		lock_status = WIRELESS_PIN_STUN
 
 	else if(new_mode == WIRELESS_PIN_LETHAL)
 		playsound(user, 'sound/weapons/laser_safetyon.ogg')
 		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now unrestricted.</b>"))
-		lockstatus = WIRELESS_PIN_LETHAL
+		lock_status = WIRELESS_PIN_LETHAL
 
 	return
 
@@ -355,6 +354,7 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 			registered_user = null
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You press your ID against the RFID reader and it chimes as it registers your identity."))
+		playsound(user, 'sound/machines/chime.ogg', 20)
 		registered_user = idcard.registered_name
 		return TRUE
 	return FALSE

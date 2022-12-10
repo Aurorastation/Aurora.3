@@ -137,10 +137,11 @@ var/datum/controller/subsystem/docs/SSdocs
 //Loads the document data from JSON
 /datum/controller/subsystem/docs/proc/load_from_json()
 	var/list/docsconfig = list()
-	try
+
+	if(isfile("config/docs.json"))
 		docsconfig = json_decode(return_file_text("config/docs.json"))
-	catch(var/exception/ej)
-		log_debug("SSdocs: Warning: Could not load config, as docs.json is missing - [ej]")
+	else
+		log_debug("SSdocs: Warning: Could not load config, as docs.json is missing")
 		return 0
 
 	//Reset the currently loaded data

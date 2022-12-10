@@ -1,4 +1,5 @@
 var/global/list/all_robolimbs = list()
+var/global/list/internal_robolimbs = list()
 var/global/list/chargen_robolimbs = list()
 var/global/list/fabricator_robolimbs = list()
 var/global/datum/robolimb/basic_robolimb
@@ -12,6 +13,8 @@ var/global/datum/robolimb/basic_robolimb
 			chargen_robolimbs[R.company] = R
 		if(R.fabricator_available)
 			fabricator_robolimbs[R.company] = R
+		if(R.allows_internal)
+			internal_robolimbs[R.company] = R
 
 /datum/robolimb
 	var/company = "Unbranded"                            // Shown when selecting the limb.
@@ -22,6 +25,7 @@ var/global/datum/robolimb/basic_robolimb
 	var/list/species_can_use = list(
 		SPECIES_HUMAN,
 		SPECIES_SKRELL,
+		SPECIES_SKRELL_AXIORI,
 		SPECIES_TAJARA,
 		SPECIES_TAJARA_ZHAN,
 		SPECIES_TAJARA_MSAI,
@@ -29,6 +33,8 @@ var/global/datum/robolimb/basic_robolimb
 		SPECIES_VAURCA_WORKER,
 		SPECIES_VAURCA_WARRIOR,
 		SPECIES_IPC,
+		SPECIES_IPC_SHELL,
+		SPECIES_IPC_BISHOP,
 		SPECIES_HUMAN_OFFWORLD
 	)
 	var/paintable = 0 //tired of istype exceptions. bullshit to find, and by god do i know it after this project.
@@ -36,6 +42,9 @@ var/global/datum/robolimb/basic_robolimb
 	var/brute_mod = 0.9 //how resistant is this mode to brute damage
 	var/burn_mod = 1.1 //how resistant is this mode to burn damage
 	var/fabricator_available = FALSE //if you can print this limb in the robotics fabricator
+	var/internal_organ_suffix = "prosthetic" //this is used to define the icon
+	var/list/allowed_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)//what organs can be augmented by this brand
+	var/allows_internal = TRUE
 
 /datum/robolimb/proc/malfunctioning_check()
 	return FALSE
@@ -46,6 +55,7 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
 	linked_frame = SPECIES_IPC_BISHOP
 	fabricator_available = TRUE
+	allows_internal = FALSE
 
 /datum/robolimb/hesphaistos
 	company = PROSTHETIC_HI
@@ -53,6 +63,7 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi'
 	linked_frame = SPECIES_IPC_G2
 	fabricator_available = TRUE
+	allows_internal = FALSE
 
 /datum/robolimb/zenghu
 	company = PROSTHETIC_ZH
@@ -60,6 +71,7 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
 	linked_frame = SPECIES_IPC_ZENGHU
 	fabricator_available = TRUE
+	allows_internal = FALSE
 
 /datum/robolimb/xion
 	company = PROSTHETIC_XMG
@@ -67,6 +79,7 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
 	linked_frame = SPECIES_IPC_XION
 	fabricator_available = TRUE
+	allows_internal = FALSE
 
 /datum/robolimb/ipc
 	company = PROSTHETIC_IPC
@@ -76,6 +89,7 @@ var/global/datum/robolimb/basic_robolimb
 	paintable = 1
 	linked_frame = SPECIES_IPC
 	fabricator_available = TRUE
+	allows_internal = FALSE
 
 /datum/robolimb/industrial
 	company = PROSTHETIC_IND
@@ -84,34 +98,41 @@ var/global/datum/robolimb/basic_robolimb
 	unavailable_at_chargen = 1
 	linked_frame = SPECIES_IPC_G1
 	fabricator_available = TRUE
+	allows_internal = FALSE
 
 /datum/robolimb/terminator
 	company = PROSTHETIC_HK
 	desc = "A ludicrously expensive and EMP shielded component, these types of limbs are best suited for highly specialized cyborgs."
 	icon = 'icons/mob/human_races/ipc/r_terminator.dmi'
-	unavailable_at_chargen = 1
+	unavailable_at_chargen = TRUE
+	allows_internal = FALSE
 
 /datum/robolimb/human
 	company = PROSTHETIC_SYNTHSKIN
 	desc = "This limb is designed to mimic the Human form. It does so with moderate success."
 	icon = 'icons/mob/human_races/human/r_human.dmi'
-	species_can_use = list(SPECIES_HUMAN)
+	species_can_use = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	linked_frame = SPECIES_IPC_SHELL
 	fabricator_available = TRUE
+	paintable = TRUE
 	lifelike = TRUE
+	allows_internal = FALSE
 
 /datum/robolimb/autakh
 	company = PROSTHETIC_AUTAKH
 	desc = "This limb has been designed by the Aut'akh unathi sect."
 	icon = 'icons/mob/human_races/unathi/r_autakh.dmi'
 	species_can_use = list(SPECIES_UNATHI)
-	paintable = 1
+	paintable = TRUE
+	allows_internal = FALSE
 
 /datum/robolimb/tesla
 	company = PROSTHETIC_TESLA
 	desc = "A limb designed to be used by the People's Republic of Adhomai Tesla Brigade. This civilian version is issued to disabled veterans and civilians."
 	icon = 'icons/mob/human_races/tajara/tesla_limbs.dmi'
 	species_can_use = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	internal_organ_suffix = "tesla"
+	allowed_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX)
 
 /datum/robolimb/tesla/malfunctioning_check(var/mob/living/carbon/human/H)
 	var/obj/item/organ/internal/augment/tesla/T = H.internal_organs_by_name[BP_AUG_TESLA]
@@ -119,3 +140,10 @@ var/global/datum/robolimb/basic_robolimb
 		return FALSE
 	else
 		return TRUE
+
+/datum/robolimb/vaurca
+	company = PROSTHETIC_VAURCA
+	desc = "This limb design is from old Sedantis, still manufactured by the Hives when providing maintenace to most of the basic Vaurcesian bioforms."
+	icon = 'icons/mob/human_races/vaurca/r_vaurcalimbs.dmi'
+	species_can_use = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	allows_internal = FALSE

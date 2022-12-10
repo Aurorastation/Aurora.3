@@ -175,6 +175,13 @@ var/list/datum/power/changeling/powerinstances = list()
 	isVerb = FALSE
 	verbpath = /mob/proc/changeling_engorgedglands
 
+/datum/power/changeling/space_adaption
+	name = "UPGRADE: Space Adaption"
+	desc = "Our body chemistry changes to become resistant to the effects of low pressure, and we no longer have the need to breathe."
+	genomecost = 5
+	isVerb = FALSE
+	verbpath = /mob/proc/changeling_spaceadaption
+
 /datum/power/changeling/rapid_regeneration
 	name = "Rapid Regeneration"
 	desc = "We evolve the ability to rapidly regenerate, negating the need for stasis."
@@ -400,7 +407,7 @@ var/list/datum/power/changeling/powerinstances = list()
 		<table width='560' align='center' cellspacing='0' cellpadding='5' id='maintable'>
 			<tr id='title_tr'>
 				<td align='center'>
-					<font size='5'><b>Changling Evolution Menu</b></font><br>
+					<font size='5'><b>Changeling Evolution Menu</b></font><br>
 					Hover over a power to see more information<br>
 					Current evolution points left to evolve with: [geneticpoints]<br>
 					Absorb genomes to acquire more evolution points

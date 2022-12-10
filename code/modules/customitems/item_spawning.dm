@@ -249,7 +249,7 @@
 
 /proc/equip_custom_item_to_mob(var/datum/custom_item/citem, var/mob/living/carbon/human/M)
 	// Check for required job title.
-	if(citem.req_titles && length(citem.req_titles) > 0)
+	if(length(citem.req_titles))
 		var/has_title
 		var/current_title = M.mind.role_alt_title ? M.mind.role_alt_title : M.mind.assigned_role
 		for(var/title in citem.req_titles)
@@ -259,6 +259,15 @@
 		if(!has_title)
 			to_chat(M, "A custom item could not be equipped as you have joined with the wrong role.")
 			return FALSE
+
+	if(ispath(citem.item_path, /obj/item/organ/internal/augment/fluff))
+		var/obj/item/organ/internal/augment/fluff/aug = citem.spawn_item(M)
+		var/obj/item/organ/external/affected = M.get_organ(aug.parent_organ)
+		aug.replaced(M, affected)
+		M.update_body()
+		M.updatehealth()
+		M.UpdateDamageIcon()
+		return
 
 	// ID cards and MCs are applied directly to the existing object rather than spawned fresh.
 	var/obj/item/existing_item

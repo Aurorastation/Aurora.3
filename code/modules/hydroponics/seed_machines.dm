@@ -37,7 +37,6 @@
 	icon_state = "hydrotray3"
 	density = 1
 	anchored = 1
-	use_power = 1
 
 	var/obj/item/seeds/seed // Currently loaded seed packet.
 	var/obj/item/disk/botany/loaded_disk //Currently loaded data disk.
@@ -50,7 +49,7 @@
 	var/failed_task = 0
 	var/disk_needs_genes = 0
 
-/obj/machinery/botany/machinery_process()
+/obj/machinery/botany/process()
 
 	..()
 	if(!active) return
@@ -143,9 +142,7 @@
 
 	var/list/data = list()
 
-	var/list/geneMasks[0]
-	for(var/gene_tag in SSplants.gene_tag_masks)
-		geneMasks.Add(list(list("tag" = gene_tag, "mask" = SSplants.gene_tag_masks[gene_tag])))
+	var/list/geneMasks = SSplants.gene_masked_list
 	data["geneMasks"] = geneMasks
 
 	data["activity"] = active

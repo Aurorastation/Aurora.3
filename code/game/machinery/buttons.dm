@@ -7,7 +7,6 @@
 	var/active = 0
 	var/operating = 0
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 4
 	var/_wifi_id
@@ -36,6 +35,7 @@
 	if(..()) return 1
 	user.visible_message("<b>[user]</b> hits \the [src] button.")
 	activate(user)
+	intent_message(BUTTON_FLICK, 5)
 
 /obj/machinery/button/proc/activate(mob/living/user)
 	if(operating || !istype(wifi_sender))
@@ -43,7 +43,7 @@
 
 	operating = 1
 	active = 1
-	use_power(5)
+	use_power_oneoff(5)
 	update_icon()
 	wifi_sender.activate(user)
 	sleep(10)
@@ -67,6 +67,7 @@
 
 /obj/machinery/button/switch/attack_hand()
 	playsound(src, /decl/sound_category/switch_sound, 30)
+	intent_message(BUTTON_FLICK, 5)
 
 //alternate button with the same functionality, except has a door control sprite instead
 /obj/machinery/button/alternate
@@ -86,7 +87,7 @@
 
 	operating = 1
 	active = !active
-	use_power(5)
+	use_power_oneoff(5)
 	if(active)
 		wifi_sender.activate(user)
 	else
@@ -131,7 +132,7 @@
 
 	active = 1
 	if(use_power)
-		use_power(active_power_usage)
+		use_power_oneoff(active_power_usage)
 	update_icon()
 	wifi_sender.activate()
 	active = 0
@@ -177,7 +178,7 @@
 
 	operating = 1
 	active = !active
-	use_power(5)
+	use_power_oneoff(5)
 	update_icon()
 	if(active)
 		if(_door_functions & IDSCAN)

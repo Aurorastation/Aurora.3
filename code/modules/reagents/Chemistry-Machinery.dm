@@ -1,5 +1,5 @@
 // Update asset_cache.dm if you change these.
-#define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4") //list of available bottle sprites
+#define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4", "bottle-5", "bottle-6") //list of available bottle sprites
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -11,7 +11,7 @@
 	anchored = 1
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0"
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
 	layer = 2.9
 	clicksound = /decl/sound_category/button_sound
@@ -27,6 +27,7 @@
 	var/max_pill_count = 20
 	flags = OPENCONTAINER
 	var/datum/asset/spritesheet/chem_master/chem_asset
+	var/list/forbidden_containers = list(/obj/item/reagent_containers/glass/bucket) //For containers we don't want people to shove into the chem machine. Like big-ass buckets.
 
 /obj/machinery/chem_master/Initialize()
 	. = ..()
@@ -42,12 +43,15 @@
 				qdel(src)
 				return
 
-/obj/machinery/chem_master/attackby(var/obj/item/B as obj, var/mob/user as mob)
+/obj/machinery/chem_master/attackby(var/obj/item/B, mob/user)
 
 	if(istype(B, /obj/item/reagent_containers/glass))
 
 		if(src.beaker)
-			to_chat(user, "A beaker is already loaded into the machine.")
+			to_chat(user, SPAN_WARNING("A beaker is already loaded into the machine."))
+			return
+		if(is_type_in_list(B, forbidden_containers))
+			to_chat(user, SPAN_WARNING("There's no way to fit [B] into \the [src]!"))
 			return
 		src.beaker = B
 		user.drop_from_inventory(B,src)
@@ -266,6 +270,8 @@
 				dat += "<A href='?src=\ref[src];add=[_G];amount=1'>(1)</A> "
 				dat += "<A href='?src=\ref[src];add=[_G];amount=5'>(5)</A> "
 				dat += "<A href='?src=\ref[src];add=[_G];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];add=[_G];amount=30'>(30)</A> "
+				dat += "<A href='?src=\ref[src];add=[_G];amount=60'>(60)</A> "
 				dat += "<A href='?src=\ref[src];add=[_G];amount=[REAGENT_VOLUME(R, _G)]'>(All)</A> "
 				dat += "<A href='?src=\ref[src];addcustom=[_G]'>(Custom)</A><BR>"
 
@@ -278,6 +284,8 @@
 				dat += "<A href='?src=\ref[src];remove=[_N];amount=1'>(1)</A> "
 				dat += "<A href='?src=\ref[src];remove=[_N];amount=5'>(5)</A> "
 				dat += "<A href='?src=\ref[src];remove=[_N];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=30'>(30)</A> "
+				dat += "<A href='?src=\ref[src];remove=[_N];amount=60'>(60)</A> "
 				dat += "<A href='?src=\ref[src];remove=[_N];amount=[REAGENT_VOLUME(reagents, _N)]'>(All)</A> "
 				dat += "<A href='?src=\ref[src];removecustom=[_N]'>(Custom)</A><BR>"
 		else
@@ -306,10 +314,10 @@
 	name = "All-In-One Grinder"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "juicer1"
-	layer = 2.9
+	layer = 2.99
 	density = 0
 	anchored = 0
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 5
 	active_power_usage = 100
 	var/inuse = 0
@@ -330,6 +338,12 @@
 		/obj/item/stack/material/glass = list(/decl/reagent/silicate),
 		/obj/item/stack/material/glass/phoronglass = list(/decl/reagent/platinum, /decl/reagent/silicate, /decl/reagent/silicate, /decl/reagent/silicate), //5 platinum, 15 silicate,
 		)
+	var/list/beaker_types = list( // also can't be ground
+		/obj/item/reagent_containers/glass,
+		/obj/item/reagent_containers/food/drinks/drinkingglass,
+		/obj/item/reagent_containers/food/drinks/shaker,
+		/obj/item/reagent_containers/cooking_container
+	)
 
 /obj/machinery/reagentgrinder/Initialize()
 	. = ..()
@@ -340,10 +354,7 @@
 	return
 
 /obj/machinery/reagentgrinder/attackby(var/obj/item/O as obj, var/mob/user as mob)
-
-	if (istype(O,/obj/item/reagent_containers/glass) || \
-		istype(O,/obj/item/reagent_containers/food/drinks/drinkingglass) || \
-		istype(O,/obj/item/reagent_containers/food/drinks/shaker))
+	if (is_type_in_list(O, beaker_types))
 		if (beaker)
 			return 1
 		else
@@ -499,6 +510,7 @@
 		do_hair_pull(user)
 
 	playsound(get_turf(src), 'sound/machines/blender.ogg', 50, 1)
+	intent_message(MACHINE_SOUND)
 	inuse = TRUE
 
 	// Reset the machine.
@@ -542,7 +554,7 @@
 
 
 /obj/machinery/reagentgrinder/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
-	if (!istype(target) || target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
+	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
 	if(target == user)
 		if(target.h_style == "Floorlength Braid" || target.h_style == "Very Long Hair")

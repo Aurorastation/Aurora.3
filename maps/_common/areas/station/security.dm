@@ -26,7 +26,7 @@
 /area/security/brig/prison_break()
 	for(var/obj/structure/closet/secure_closet/brig/temp_closet in src)
 		temp_closet.locked = 0
-		temp_closet.icon_state = temp_closet.icon_closed
+		temp_closet.update_icon()
 	for(var/obj/machinery/door_timer/temp_timer in src)
 		temp_timer.releasetime = 1
 	..()
@@ -42,6 +42,11 @@
 	icon_state = "brig_proc"
 	no_light_control = 0
 
+/area/security/brig/processing_secondary
+	name = "Security - Brig Secondary Processing"
+	icon_state = "brig_proc_two"
+	no_light_control = 0
+
 /area/security/prison
 	name = "Security - Prison Wing"
 	lightswitch = TRUE
@@ -51,7 +56,7 @@
 /area/security/prison/prison_break()
 	for(var/obj/structure/closet/secure_closet/brig/temp_closet in src)
 		temp_closet.locked = 0
-		temp_closet.icon_state = temp_closet.icon_closed
+		temp_closet.update_icon()
 	for(var/obj/machinery/door_timer/temp_timer in src)
 		temp_timer.releasetime = 1
 	..()
@@ -97,9 +102,9 @@
 	ambience = AMBIENCE_GHOSTLY
 	no_light_control = 0
 
-/area/security/detectives_office
-	name = "Security - Detective's Office"
-	icon_state = "detective"
+/area/security/break_room
+	name = "Security - Break Room"
+	icon_state = "security"
 	sound_env = SMALL_SOFTFLOOR
 	no_light_control = 0
 

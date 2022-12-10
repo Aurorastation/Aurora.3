@@ -73,10 +73,9 @@
 	if(istype(A.get_active_hand(),/obj/item/grab))
 		var/obj/item/grab/G = A.get_active_hand()
 		if(G && G.affecting == D)
-			var/armor_block = D.run_armor_check(null, "melee")
 			A.visible_message("<span class='warning'>[A] crushes [D] with its mandibles!</span>")
-			D.apply_damage(30, BRUTE, null, armor_block)
-			D.apply_effect(6, WEAKEN, armor_block)
+			D.apply_damage(30, BRUTE)
+			D.apply_effect(6, WEAKEN)
 			qdel(G)
 	return 1
 

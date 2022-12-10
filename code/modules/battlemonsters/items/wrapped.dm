@@ -50,24 +50,24 @@
 
 /obj/item/battle_monsters/wrapped/pro
 	name = "battle monsters booster pack"
-	desc = "A pack of 10 rare battle monster cards, with a chance of having legendary cards."
+	desc = "A pack of 15 rare battle monster cards, with a chance of having legendary cards."
 	icon_state = "pack2"
-	contained_cards = 10
+	contained_cards = 15
 	rarity_max = BATTLE_MONSTERS_RARITY_UNCOMMON
 	rarity_min = BATTLE_MONSTERS_RARITY_LEGENDARY
 
 /obj/item/battle_monsters/wrapped/rare
 	name = "battle monsters rare booster pack"
-	desc = "A pack of 10 ultra-rare battle monster cards."
+	desc = "A pack of 15 ultra-rare battle monster cards."
 	icon_state = "pack2"
-	contained_cards = 10
+	contained_cards = 15
 	rarity_max = BATTLE_MONSTERS_RARITY_RARE
 	rarity_min = BATTLE_MONSTERS_RARITY_LEGENDARY
 
 /obj/item/battle_monsters/wrapped/legendary
-	name = "battle monsters rare booster pack"
-	desc = "A pack of 4 legendary battle monster cards."
+	name = "battle monsters legendary booster pack"
+	desc = "A pack of 8 legendary battle monster cards."
 	icon_state = "pack2"
-	contained_cards = 4
+	contained_cards = 8
 	rarity_max = BATTLE_MONSTERS_RARITY_LEGENDARY
 	rarity_min = BATTLE_MONSTERS_RARITY_LEGENDARY

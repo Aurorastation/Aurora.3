@@ -10,6 +10,9 @@ ALERT_RED_UPTO There is an immediate serious threat to the station. Security may
 ALERT_RED_DOWNTO The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised.
 ALERT_DELTA The station's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.
 
+## Add a # in front of this to disable automatic admin rights for users connecting from the host the server is running on.
+AUTO_LOCAL_ADMIN
+
 ## Add a # infront of this if you want to use the SQL based admin system, the legacy system uses admins.txt. You need to set up your database to use the SQL based system.
 ADMIN_LEGACY_SYSTEM
 
@@ -320,21 +323,11 @@ GATEWAY_DELAY 18000
 ## Remove the # to give assistants maint access.
 #ASSISTANT_MAINT
 
-## Remove the # to make rounds which end instantly (Rev, Wizard, Malf) to continue until the shuttle is called or the station is nuked.
-## Malf and Rev will let the shuttle be called when the antags/protags are dead.
-#CONTINUOUS_ROUNDS
-
 ## Uncomment to restrict non-admins from using humanoid alien races
 USEALIENWHITELIST
 
-## Comment this to disable automated station night lighting
-NIGHT_LIGHTING
-
-## Hour when the station night lighting is disabled (if above is enabled)
-NL_FINISH_HOUR 8
-
-## Hour when the station night lighting is enabled (if above is enabled)
-NL_START_HOUR 19
+## Adjust this time to modify the time offset (in hours) of the station time from GMT
+TIME_OFFSET 6
 
 ## Comment this to unrestrict the number of alien players allowed in the round. The number represents the number of alien players for every human player.
 #ALIEN_PLAYER_RATIO 0.2
@@ -470,7 +463,7 @@ TIME_TO_CALL_EMERGENCY_SHUTTLE 36000
 ## Keep the list semi-colon separated, in format of MAJOR.MINOR;MAJOR.MINOR
 #CLIENT_BLACKLIST_VERSION 123.4567
 
-## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, and say.
+## Uncomment to enable simple Skype/Discord style markup over OOC, LOOC, say, and me.
 #ALLOW_CHAT_MARKUP
 
 ## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and -
@@ -536,11 +529,14 @@ FASTBOOT
 CARGO_LOAD_ITEMS_FROM json
 
 
-# Forces the maploader to load the specified map path. Valid options: aurora, runtime
+# Forces the maploader to load the specified map path. Valid options: sccv_horizon, runtime, aurora, away_sites_testing
 FORCE_MAP runtime
 
 # Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.
 #TICKET_REMINDER_PERIOD 600
+
+# What sector the station/station is currently on. Check _defines/space_sectors.dm for possible options
+CURRENT_SPACE_SECTOR Romanovich Cloud
 
 # If using TGS, counts how many regularly TGS hard restarts the server process.
 # -1 - never do this.
@@ -551,6 +547,7 @@ FORCE_MAP runtime
 # NTSL2+ Connection Info
 NTSL_HOSTNAME localhost
 NTSL_PORT 1945
+NTSL_DISABLED 1
 
 # Limit to how many hacked drones can AI have at the same time.
 # HACKED_DRONES_LIMIT 5

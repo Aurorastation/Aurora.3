@@ -8,7 +8,8 @@
 
 	//~CARN: for renaming mobs (updates their name, real_name, mind.name, their ID/PDA and datacore records).
 	else if(href_list["rename"])
-		if(!check_rights(R_VAREDIT|R_DEV))	return
+		if(!check_rights(R_VAREDIT|R_DEV|R_MOD))
+			return
 
 		var/mob/M = locate(href_list["rename"])
 		if(!istype(M))
@@ -58,6 +59,16 @@
 
 		cmd_mass_modify_object_variables(A, href_list["varnamemass"])
 
+	else if(href_list["varnameview"] && href_list["datumview"])
+		if(!check_rights(R_VAREDIT|R_DEV))	return
+
+		var/list/L = locate(href_list["datumview"])
+		if(!istype(L))
+			to_chat(usr, "This can only be used on instances of type /list")
+			return
+
+		view_extended_list(L, href_list["varnameview"])
+
 	else if(href_list["mob_player_panel"])
 		if(!check_rights(0))	return
 
@@ -100,6 +111,17 @@
 			return
 
 		src.cmd_admin_gib(M)
+
+	else if(href_list["dust"])
+		if(!check_rights(R_ADMIN|R_FUN))
+			return
+
+		var/mob/M = locate(href_list["dust"])
+		if(!istype(M))
+			to_chat(usr, "This can only be used on instances of type /mob")
+			return
+
+		src.cmd_admin_dust(M)
 
 	else if(href_list["build_mode"])
 		if(!check_rights(R_BUILDMODE|R_DEV))	return

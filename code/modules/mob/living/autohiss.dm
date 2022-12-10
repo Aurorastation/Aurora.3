@@ -11,7 +11,7 @@
 
 /client/verb/toggle_autohiss()
 	set name = "Toggle Auto-Hiss"
-	set desc = "Toggle automatic hissing as Unathi, r-rolling as Taj, and buzzing as Vaurca"
+	set desc = "Toggle automatic hissing as Unathi, r-rolling as Taj, buzzing as Vaurca, or beakmouth-speech as Skrell."
 	set category = "OOC"
 
 	autohiss_mode = (autohiss_mode + 1) % AUTOHISS_NUM
@@ -35,6 +35,7 @@
 	var/list/autohiss_basic_extend = null
 	var/list/autohiss_extra_extend = null
 	var/autohiss_extender = "..."
+	var/ignore_subsequent = FALSE
 
 /datum/species/unathi
 	autohiss_basic_map = list(
@@ -60,23 +61,39 @@
 			LANGUAGE_DELVAHII
 		)
 
-/datum/species/bug
+/datum/species/skrell
 	autohiss_basic_map = list(
-			"s" = list("z","zz")
+			"s" = list("sch", "ssch")
 		)
 	autohiss_extra_map = list(
-			"f" = list("v", "vh"),
+			"x" = list("ksch", "kssch")
+		)
+	autohiss_exempt = list(LANGUAGE_SKRELLIAN)
+	ignore_subsequent = TRUE
+
+/datum/species/bug
+	autohiss_basic_map = list(
+			"f" = list("v","vh"),
 			"ph" = list("v", "vh")
+		)
+	autohiss_extra_map = list(
+			"s" = list("z", "zz", "zzz"),
+			"ce" = list("z", "zz"),
+			"ci" = list("z", "zz"),
+			"v" = list("vv", "vvv")
 		)
 	autohiss_exempt = list(LANGUAGE_VAURCA)
 
 /datum/species/bug/type_b
 	autohiss_basic_map = list(
-			"s" = list("z","zz", "zzz")
+			"f" = list("v","vh"),
+			"ph" = list("v", "vh")
 		)
 	autohiss_extra_map = list(
-			"f" = list("v", "vh"),
-			"ph" = list("v", "vh")
+			"s" = list("z", "zz", "zzz"),
+			"ce" = list("z", "zz"),
+			"ci" = list("z", "zz"),
+			"v" = list("vv", "vvv")
 		)
 	autohiss_exempt = list(LANGUAGE_VAURCA)
 
@@ -153,7 +170,10 @@
 						. += capitalize(pick(map[min_char]))
 			else
 				. += pick(map[min_char])
-			message = copytext(message, min_index + 1)
+			if(ignore_subsequent && lowertext(copytext(message, min_index, min_index+1)) == lowertext(copytext(message, min_index+1, min_index+2)))
+				message = copytext(message, min_index + 2) // If the current letter and the subsequent letter are the same, skip the subsequent letter
+			else
+				message = copytext(message, min_index + 1)
 
 	return jointext(., "")
 

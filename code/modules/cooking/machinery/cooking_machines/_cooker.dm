@@ -109,10 +109,11 @@
 		set_temp = text2num(desired_temp) + T0C
 		to_chat(user, SPAN_NOTICE("You set [src] to [round(set_temp-T0C)]C."))
 		stat &= ~POWEROFF
-	use_power = !(stat & POWEROFF) && use_power
+	update_use_power(stat & POWEROFF ? POWER_USE_OFF : POWER_USE_IDLE)
 	if(wasoff != (stat & POWEROFF))
 		activation_message(user)
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
+	cooking = use_power
 	update_icon()
 
 /obj/machinery/appliance/cooker/proc/activation_message(var/mob/user)
@@ -121,7 +122,7 @@
 /obj/machinery/appliance/cooker/update_icon()
 	overlays.Cut()
 	var/image/light
-	if (use_power == 2 && !stat)
+	if (use_power == POWER_USE_ACTIVE && !stat)
 		light = image(icon, "light_on")
 	else
 		light = image(icon, "light_off")
@@ -129,7 +130,7 @@
 	light.pixel_y = light_y
 	overlays += light
 
-/obj/machinery/appliance/cooker/machinery_process()
+/obj/machinery/appliance/cooker/process()
 	var/datum/gas_mixture/loc_air = loc.return_air()
 	if (stat || (use_power != 2)) // if we're not actively heating
 		temperature -= min(loss, temperature - loc_air.temperature)
@@ -138,7 +139,7 @@
 		update_cooking_power() // update!
 	for(var/cooking_obj in cooking_objs)
 		var/datum/cooking_item/CI = cooking_obj
-		if(isemptylist(CI.container?.reagents.reagent_data))
+		if((CI.container.flags && NOREACT) || isemptylist(CI.container?.reagents.reagent_volumes))
 			continue
 		CI.container.reagents.set_temperature(min(temperature, CI.container.reagents.get_temperature() + 10*SIGN(temperature - CI.container.reagents.get_temperature()))) // max of 5C per second
 	return ..()
@@ -160,15 +161,15 @@
 
 /obj/machinery/appliance/cooker/proc/heat_up()
 	if (temperature < set_temp)
-		if (use_power == 1 && ((set_temp - temperature) > 5))
+		if (use_power == POWER_USE_IDLE && ((set_temp - temperature) > 5))
 			playsound(src, 'sound/machines/click.ogg', 20, 1)
-			use_power = 2 //If we're heating we use the active power
+			update_use_power(POWER_USE_ACTIVE)
 			update_icon()
 		temperature += heating_power / resistance
 		update_cooking_power()
 		return TRUE
-	if (use_power == 2)
-		use_power = 1
+	if (use_power == POWER_USE_ACTIVE)
+		update_use_power(POWER_USE_IDLE)
 		playsound(src, 'sound/machines/click.ogg', 20, 1)
 		update_icon()
 

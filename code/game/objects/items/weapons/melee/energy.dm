@@ -4,8 +4,8 @@
 	var/active_throwforce
 	var/active_w_class
 	sharp = 0
-	edge = 0
-	armor_penetration = 10
+	edge = FALSE
+	armor_penetration = 20
 	flags = NOBLOODY
 	can_embed = 0//No embedding pls
 	var/base_reflectchance = 40
@@ -24,7 +24,7 @@
 	force = active_force
 	throwforce = active_throwforce
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	w_class = active_w_class
 	playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 
@@ -65,32 +65,29 @@
 /obj/item/melee/energy/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-
 		spark(src, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
-		return 1
+		return PROJECTILE_STOPPED
 	else
-
 		if(!active)
-			return 0 //turn it on first!
+			return FALSE //turn it on first!
 
 		if(user.incapacitated())
-			return 0
+			return FALSE
 
 		//block as long as they are not directly behind us
 		var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
 		if(check_shield_arc(user, bad_arc, damage_source, attacker))
 
-			if(prob(base_block_chance))
+			if(prob(base_block_chance) && shield_power)
 				spark(src, 5)
 				playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
-				shield_power -= round(damage/4)
+				shield_power -= round(damage * 0.75)
 
 				if(shield_power <= 0)
-					visible_message("<span class='danger'>\The [user]'s [src.name] overloads!</span>")
-					deactivate()
-					shield_power = initial(shield_power)
-					return 0
+					to_chat(user, SPAN_DANGER("\The [src]'s integrated shield goes out! It will no longer assist in parrying."))
+					shield_power = 0
+					return FALSE
 
 				if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
 					var/obj/item/projectile/P = damage_source
@@ -112,7 +109,7 @@
 						return PROJECTILE_CONTINUE // complete projectile permutation
 					else
 						user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
-						return 1
+						return PROJECTILE_STOPPED
 
 				else if(istype(damage_source, /obj/item/projectile/bullet) && can_block_bullets)
 					var/reflectchance = (base_reflectchance) - round(damage/3)
@@ -120,17 +117,27 @@
 						reflectchance /= 2
 					if(prob(reflectchance))
 						user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
-						return 1
+						return PROJECTILE_STOPPED
+
+/obj/item/melee/energy/get_print_info()
+	. = ..()
+	. += "Active Damage: [active_force]<br>"
+	. += "Active Throw Force: [active_throwforce]<br>"
+	. += "Blocks Bullets: [can_block_bullets ? "true" : "false"]<br>"
+	. += "Block Chance: [base_block_chance]<br>"
+	. += "Projectile Reflection Chance: [base_reflectchance]<br>"
+	. += "Shield Rating: [shield_power]<br>"
 
 /obj/item/melee/energy/glaive
 	name = "energy glaive"
 	desc = "An energized glaive."
 	icon_state = "eglaive0"
+	force = 20
+	throwforce = 30
 	active_force = 40
 	active_throwforce = 60
 	active_w_class = ITEMSIZE_HUGE
-	force = 20
-	throwforce = 30
+	armor_penetration = 20 
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_HUGE
@@ -138,13 +145,12 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4)
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	slot_flags = SLOT_BACK
 	base_reflectchance = 0
 	base_block_chance = 0 //cannot be used to block guns
 	shield_power = 0
 	can_block_bullets = 0
-	armor_penetration = 20
 
 /obj/item/melee/energy/glaive/activate(mob/living/user)
 	..()
@@ -187,7 +193,7 @@
 	origin_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 4)
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	base_reflectchance = 0
 	base_block_chance = 0 //cannot be used to block guns
 	shield_power = 0
@@ -210,12 +216,13 @@
 /obj/item/melee/energy/sword
 	color
 	name = "energy sword"
-	desc = "May the force be within you."
+	desc = "An energy sword. Quite rare, very dangerous."
 	desc_antag = "The energy sword is a very strong melee weapon, capable of severing limbs easily, if they are targeted.  It can also has a chance \
 	to block projectiles and melee attacks while it is on and being held.  The sword can be toggled on or off by using it in your hand.  While it is off, \
 	it can be concealed in your pocket or bag."
 	icon_state = "sword0"
 	active_force = 30
+	armor_penetration = 25
 	active_throwforce = 20
 	active_w_class = ITEMSIZE_LARGE
 	force = 3
@@ -226,7 +233,7 @@
 	flags = NOBLOODY
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	var/blade_color
 	shield_power = 75
 
@@ -307,6 +314,20 @@
 	..()
 	icon_state = "edagger1"
 
+/obj/item/melee/energy/sword/knife/sol
+	name = "solarian energy dagger"
+	desc = "A relatively inexpensive energy blade, this is the standard-issue combat knife given to the Solarian military."
+	icon_state = "sol_edagger0"
+	base_reflectchance = 10
+	base_block_chance = 10
+	active_force = 20
+	force = 10
+	origin_tech = list(TECH_MAGNET = 3)
+
+/obj/item/melee/energy/sword/knife/sol/activate(mob/living/user)
+	..()
+	icon_state = "sol_edagger1"
+
 /*
 *Power Sword
 */
@@ -352,9 +373,8 @@
 	icon_state = "blade"
 	force = 40
 	active_force = 40 //Normal attacks deal very high damage - about the same as wielded fire axe
-	armor_penetration = 100
-	sharp = 1
-	edge = 1
+	sharp = TRUE
+	edge = TRUE
 	anchored = 1    // Never spawned outside of inventory, should be fine.
 	throwforce = 1  //Throwing or dropping the item deletes it.
 	throw_speed = 1
@@ -365,9 +385,8 @@
 	var/mob/living/creator
 	base_reflectchance = 140
 	base_block_chance = 75
-	shield_power = 150
-	can_block_bullets = 1
-	active = 1
+	can_block_bullets = TRUE
+	active = TRUE
 	var/datum/effect_system/sparks/spark_system
 
 /obj/item/melee/energy/blade/Initialize()

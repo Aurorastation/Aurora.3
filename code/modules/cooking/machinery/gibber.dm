@@ -14,10 +14,9 @@
 	var/gib_time = 40        // Time from starting until meat appears
 	var/gib_throw_dir = WEST // Direction to spit meat and gibs in.
 
-	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 500
-
+	
 //auto-gibs anything that bumps into it
 /obj/machinery/gibber/autogibber
 	var/turf/input_plate
@@ -122,7 +121,7 @@
 		to_chat(user, SPAN_DANGER("This is not suitable for [src]!"))
 		return
 
-	if(ishuman(victim) && !emagged)
+	if(ishuman(victim) && !emagged && !victim.isMonkey())
 		to_chat(user, SPAN_DANGER("[src]'s safety guard is engaged!"))
 		return
 
@@ -174,7 +173,7 @@
 	if(!occupant)
 		visible_message(SPAN_DANGER("You hear a loud metallic grinding sound."))
 		return
-	use_power(1000)
+	use_power_oneoff(1000)
 	visible_message(SPAN_DANGER("You hear a loud [occupant.isSynthetic() ? "metallic" : "squelchy"] grinding sound."))
 	operating = TRUE
 	update_icon()
@@ -190,6 +189,9 @@
 			slab_count = critter.meat_amount
 		if(critter.meat_type)
 			slab_type = critter.meat_type
+	else if(istype(occupant, /mob/living/carbon/alien))
+		var/mob/living/carbon/alien/A = occupant
+		slab_type = A.meat_type
 	else if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
 		slab_type = H.species.meat_type

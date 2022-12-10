@@ -8,6 +8,12 @@
 		slot_r_hand_str = "caphat"
 		)
 
+/obj/item/clothing/head/caphat/scc
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "caphat"
+	item_state = "caphat"
+	contained_sprite = TRUE
+
 /obj/item/clothing/head/caphat/cap
 	name = "captain's cap"
 	desc = "You fear to wear it for the negligence it brings."
@@ -159,6 +165,15 @@
 	desc = "Super comfortable white shoes, capable of keeping you on your feet during any station-wide disaster."
 	icon = 'icons/clothing/kit/captain_white.dmi'
 
+/obj/item/clothing/under/rank/captain/white_dress
+	name = "captain's white dress"
+	desc = "The white variant of feminine fashion for the style conscious captain."
+	icon = 'icons/clothing/kit/captain_white.dmi'
+	icon_state = "uniform_fem"
+	item_state = "uniform_fem"
+	worn_state = "uniform_fem"
+	is_open = -1
+
 /obj/item/storage/briefcase/nt/captain_white
 	name = "captain white uniform briefcase"
 	desc = "An NT-branded briefcase containing various pieces of the captain's white uniform, for use when wine spillage is unlikely."
@@ -167,7 +182,8 @@
 		/obj/item/clothing/head/caphat/cap/white = 1,
 		/obj/item/clothing/under/rank/captain/white = 1,
 		/obj/item/clothing/gloves/captain/white = 1,
-		/obj/item/clothing/shoes/captain/white = 1
+		/obj/item/clothing/shoes/captain/white = 1,
+		/obj/item/clothing/under/rank/captain/white_dress = 1
 	)
 
 // Formal
@@ -205,3 +221,12 @@
 		/obj/item/clothing/suit/captunic = 1,
 		/obj/item/clothing/shoes/captain/formal = 1
 	)
+
+/obj/item/clothing/under/scc_captain
+	name = "captain's jumpsuit"
+	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
+	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon_state = "captain"
+	item_state = "captain"
+	contained_sprite = TRUE
+	contained_sprite = TRUE

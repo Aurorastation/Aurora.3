@@ -2,7 +2,7 @@
 
 /datum/controller/subsystem/assets
 	name = "Assets"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = SS_INIT_ASSETS
 	flags = SS_BACKGROUND | SS_FIRE_IN_LOBBY
 	wait = 1
 	var/list/cache = list()
@@ -18,7 +18,7 @@
 /datum/controller/subsystem/assets/Initialize(timeofday)
 	for(var/type in typesof(/datum/asset))
 		var/datum/asset/A = type
-		if (type != initial(A._abstract) && !initial(A.delayed))
+		if (type != initial(A._abstract))
 			get_asset_datum(type)
 			CHECK_TICK
 

@@ -2,10 +2,16 @@
 	name = "ragged hood"
 	icon_state = "culthood"
 	desc = "A torn, dust-caked hood."
-	description_cult = "This can be reforged to become an eldritch voidsuit helmet."
+	desc_antag = "As a Cultist, this can be reforged to become an eldritch voidsuit helmet."
 	flags_inv = HIDEFACE|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|EYES
-	armor = list(melee = 50, bullet = 30, laser = 50, energy = 20, bomb = 25, bio = 10, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_MEDIUM,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SMALL
+		)
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0
@@ -19,14 +25,20 @@
 	icon_state = "cult_hoodalt"
 
 /obj/item/clothing/suit/cultrobes
-	name = "ragged robes"
-	desc = "A ragged, dusty set of robes."
-	description_cult = "This can be reforged to become an eldritch voidsuit."
+	name = "ragged robe"
+	desc = "A ragged, dusty robe."
+	desc_antag = "As a Cultist, this item can be reforged to become an eldritch voidsuit."
 	icon_state = "cultrobes"
 	item_state = "cultrobes"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	allowed = list(/obj/item/book/tome, /obj/item/melee/cultblade)
-	armor = list(melee = 50, bullet = 30, laser = 50, energy = 20, bomb = 25, bio = 10, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_MEDIUM,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SMALL
+		)
 	flags_inv = HIDEJUMPSUIT
 	siemens_coefficient = 0
 
@@ -47,8 +59,13 @@
 	force = 5
 	silent = 1
 	siemens_coefficient = 0.35 //antags don't get exceptions, it's just heavy armor by magical standards
-	armor = list(melee = 50, bullet = 30, laser = 50, energy = 20, bomb = 25, bio = 10, rad = 0)
-
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_MEDIUM,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SMALL
+		)
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = FEET

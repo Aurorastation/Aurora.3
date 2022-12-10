@@ -31,6 +31,10 @@
 	icon_state = "sheet-wood"
 	default_type = MATERIAL_WOOD
 
+/obj/item/stack/material/cyborg/cloth
+	icon_state = "sheet-cloth"
+	default_type = MATERIAL_CLOTH
+
 /obj/item/stack/material/cyborg/glass
 	desc_info = "Use in your hand to build a window.  Can be upgraded to reinforced glass by adding metal rods, which are made from metal sheets.<br>\
 	As a synthetic, you can acquire more sheets of glass by recharging."

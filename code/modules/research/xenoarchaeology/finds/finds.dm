@@ -16,7 +16,7 @@
 /datum/find/New(var/digsite, var/exc_req)
 	excavation_required = exc_req
 	find_type = get_random_find_type(digsite)
-	clearance_range = rand(2,6)
+	clearance_range = min(rand(2,6), exc_req - 1)
 	dissonance_spread = rand(1500,2500) / 100
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,11 +58,11 @@
 					for(var/mob/M in viewers(world.view, user))
 						M.show_message("<span class='info'>[src] burns away into nothing.</span>",1)
 				qdel(src)
-				w.remove_fuel(4)
+				w.use(4)
 			else
 				for(var/mob/M in viewers(world.view, user))
 					M.show_message("<span class='info'>A few sparks fly off [src], but nothing else happens.</span>",1)
-				w.remove_fuel(1)
+				w.use(1)
 			return
 
 	else if(istype(W,/obj/item/device/core_sampler/))

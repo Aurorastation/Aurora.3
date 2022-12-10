@@ -191,7 +191,7 @@
 		Move_object(direct)
 
 	if(mob.incorporeal_move && isobserver(mob))
-		Process_Incorpmove(direct)
+		Process_Incorpmove(direct, mob)
 		return
 
 	if(moving || world.time < move_delay)
@@ -219,24 +219,31 @@
 
 	if(isliving(mob))
 		var/mob/living/L = mob
-		if(L.incorporeal_move)//Move though walls
-			Process_Incorpmove(direct)
+		if(L.incorporeal_move && isturf(mob.loc))//Move though walls
+			Process_Incorpmove(direct, mob)
 			return
 		if(mob.client && ((mob.client.view != world.view) || (mob.client.pixel_x != 0) || (mob.client.pixel_y != 0)))		// If mob moves while zoomed in with device, unzoom them.
 			for(var/obj/item/item in mob)
 				if(item.zoom)
 					item.zoom(mob)
 					break
+		if(istype(mob.machine,/obj/machinery/computer/security))
+			// Has to be here specfically to allow WASD/arrow movement of cameras while buckled.
+			// TODO: Remove when machinery/computer finally dies.
+			var/obj/machinery/computer/security/console = mob.machine
+			if(console.current_camera)
+				var/turf/T = get_turf(console.current_camera)
+				for(var/i;i<10;i++)
+					T = get_step(T,direct)
+				console.jump_on_click(mob,T)
+				return
 
 		// Only meaningful for living mobs.
 		if(Process_Grab())
 			return
 
-	if(!mob.canmove)
+	if(!mob.canmove || mob.paralysis)
 		return
-
-	//if(istype(mob.loc, /turf/space) || (mob.flags & NOGRAV))
-	//	if(!mob.Process_Spacemove(0))	return 0
 
 	if(!mob.lastarea)
 		mob.lastarea = get_area(mob.loc)
@@ -268,22 +275,22 @@
 
 		move_delay = world.time - leftover//set move delay
 
-		if (mob.buckled)
-			if(istype(mob.buckled, /obj/vehicle))
+		if (mob.buckled_to)
+			if(istype(mob.buckled_to, /obj/vehicle))
 				//manually set move_delay for vehicles so we don't inherit any mob movement penalties
 				//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
 				move_delay = world.time
 				//drunk driving
 				if(mob.confused && prob(25))
 					direct = pick(cardinal)
-				return mob.buckled.relaymove(mob,direct)
+				return mob.buckled_to.relaymove(mob,direct)
 
 			//TODO: Fuck wheelchairs.
 			//Toss away all this snowflake code here, and rewrite wheelchairs as a vehicle.
-			else if(istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
+			else if(istype(mob.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
 				var/min_move_delay = 0
-				if(ishuman(mob.buckled))
-					var/mob/living/carbon/human/driver = mob.buckled
+				if(ishuman(mob.buckled_to))
+					var/mob/living/carbon/human/driver = mob.buckled_to
 					var/obj/item/organ/external/l_hand = driver.get_organ(BP_L_HAND)
 					var/obj/item/organ/external/r_hand = driver.get_organ(BP_R_HAND)
 					if((!l_hand || l_hand.is_stump()) && (!r_hand || r_hand.is_stump()))
@@ -293,16 +300,18 @@
 				if(mob.confused && prob(25))
 					direct = pick(cardinal)
 				move_delay += max((mob.movement_delay() + config.walk_speed) * config.walk_delay_multiplier, min_move_delay)
-				return mob.buckled.relaymove(mob,direct)
+				return mob.buckled_to.relaymove(mob,direct)
 
 		var/tally = mob.movement_delay() + config.walk_speed
 
 		// Apply human specific modifiers.
 		var/mob_is_human = ishuman(mob)	// Only check this once and just reuse the value.
+		var/sprint_tally = 0
 		if (mob_is_human)
 			var/mob/living/carbon/human/H = mob
 			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
-			if (H.m_intent == M_RUN && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally))) //This will return false if we collapse from exhaustion
+			if (H.m_intent == M_RUN && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE))) //This will return false if we collapse from exhaustion
+				sprint_tally = tally
 				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
 			else
 				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
@@ -310,6 +319,12 @@
 			tally *= config.walk_delay_multiplier
 
 		move_delay += tally
+
+		if(mob_is_human && mob.lying)
+			var/mob/living/carbon/human/H = mob
+			var/crawl_tally = H.get_crawl_tally()
+			if(crawl_tally >= 120)
+				return FALSE
 
 		var/tickcomp = 0 //moved this out here so we can use it for vehicles
 		if(config.Tickcomp)
@@ -323,46 +338,24 @@
 
 		//Wheelchair pushing goes here for now.
 		//TODO: Fuck wheelchairs.
-		if(istype(mob.pulledby, /obj/structure/bed/chair/wheelchair) || istype(mob.pulledby, /obj/structure/janitorialcart))
+		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/janitorialcart))
 			move_delay += 1
 			return mob.pulledby.relaymove(mob, direct)
 
+		var/old_loc = mob.loc
+
 		//We are now going to move
 		moving = 1
-		//Something with pulling things
-		if (mob_is_human && (istype(mob:l_hand, /obj/item/grab) || istype(mob:r_hand, /obj/item/grab)))
-			move_delay = max(move_delay, world.time + 7)
-			var/list/L = mob.ret_grab()
-			if(istype(L, /list))
-				if(L.len == 2)
-					L -= mob
-					var/mob/M = L[1]
-					if(M)
-						if ((get_dist(mob, M) <= 1 || M.loc == mob.loc))
-							var/turf/T = mob.loc
-							. = ..()
-							if (isturf(M.loc))
-								var/diag = get_dir(mob, M)
-								if ((diag - 1) & diag)
-								else
-									diag = null
-								if ((get_dist(mob, M) > 1 || diag))
-									step(M, get_dir(M.loc, T))
-				else
-					for(var/mob/M in L)
-						M.other_mobs = 1
-						if(mob != M)
-							M.animate_movement = 3
-					for(var/mob/M in L)
-						spawn( 0 )
-							step(M, direct)
-							return
-						spawn( 1 )
-							M.other_mobs = null
-							M.animate_movement = 2
-							return
+		if(mob_is_human)
+			for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
+				switch(G.get_grab_type())
+					if(MOB_GRAB_FIREMAN)
+						move_delay++
+					if(MOB_GRAB_NORMAL)
+						move_delay = max(move_delay, world.time + 7)
+						step(G.affecting, get_dir(G.affecting.loc, mob.loc))
 
-		else if(mob.confused && prob(25))
+		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
 			step(mob, pick(cardinal))
 		else
 			. = mob.SelfMove(n, direct)
@@ -377,9 +370,36 @@
 
 		moving = 0
 
+		if(sprint_tally && mob.loc != old_loc)
+			var/mob/living/carbon/human/H = mob
+			H.species.handle_sprint_cost(H, sprint_tally, FALSE)
+
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we moved
 		var/atom/O = mob.loc
 		return O.relaymove(mob, direct)
+
+/mob/living/carbon/human/proc/get_crawl_tally()
+	var/obj/item/organ/external/rhand = organs_by_name[BP_R_HAND]
+	. += limb_check(rhand)
+
+	var/obj/item/organ/external/lhand = organs_by_name[BP_L_HAND]
+	. += limb_check(lhand)
+
+	var/obj/item/organ/external/rfoot = organs_by_name[BP_R_FOOT]
+	. += limb_check(rfoot)
+
+	var/obj/item/organ/external/lfoot = organs_by_name[BP_L_FOOT]
+	. += limb_check(lfoot)
+
+// Checks status of limb, returns an amount to
+/mob/living/carbon/human/proc/limb_check(var/obj/item/organ/external/limb)
+	if(!limb) // Limb is null, thus missing.
+		return 30
+	else if(!limb.is_usable() || limb.is_broken()) // You can't use the limb, but it's still there to maneuvre yourself
+		return 15
+	else
+		return 0
+
 
 /mob/proc/SelfMove(turf/n, direct)
 	return Move(n, direct)
@@ -387,44 +407,49 @@
 ///Process_Incorpmove
 ///Called by client/Move()
 ///Allows mobs to run though walls
-/client/proc/Process_Incorpmove(direct)
-	var/turf/mobloc = get_turf(mob)
-	switch(mob.incorporeal_move)
+/client/proc/Process_Incorpmove(direct, var/mob/use_mob)
+	if(!use_mob)
+		use_mob = mob
+	var/turf/mobloc = get_turf(use_mob)
+	switch(use_mob.incorporeal_move)
 		if(INCORPOREAL_GHOST)
-			var/turf/T = get_step(mob, direct)
-			if(mob.check_holy(T))
-				to_chat(mob, SPAN_WARNING("You cannot get past holy grounds while you are in this plane of existence!"))
+			var/turf/T = get_step(use_mob, direct)
+			if(use_mob.check_holy(T))
+				to_chat(src, SPAN_WARNING("You cannot get past holy grounds while you are in this plane of existence!"))
 				return
 			else
-				mob.forceMove(get_step(mob, direct))
-				mob.dir = direct
+				use_mob.forceMove(get_step(use_mob, direct))
+				use_mob.dir = direct
 		if(INCORPOREAL_NINJA, INCORPOREAL_BSTECH)
-			anim(mobloc, mob, 'icons/mob/mob.dmi', null, "shadow", null, mob.dir)
-			mob.forceMove(get_step(mob, direct))
-			mob.dir = direct
+			anim(mobloc, use_mob, 'icons/mob/mob.dmi', null, "shadow", null, use_mob.dir)
+			use_mob.forceMove(get_step(use_mob, direct))
+			use_mob.dir = direct
+		if(INCORPOREAL_MECH)
+			new /obj/effect/temp_visual/incorporeal_mech(mobloc, use_mob.dir, use_mob)
+			use_mob.forceMove(get_step(use_mob, direct))
 		if(INCORPOREAL_SHADE)
-			if(!mob.canmove || mob.anchored)
+			if(!use_mob.canmove || use_mob.anchored)
 				return
 			move_delay = 1 + world.time
-			var/turf/T = get_step(mob, direct)
+			var/turf/T = get_step(use_mob, direct)
 			for(var/obj/structure/window/W in T)
-				if(istype(W, /obj/structure/window/phoronbasic) || istype(W, /obj/structure/window/phoronreinforced))
+				if(istype(W, /obj/structure/window/borosilicate) || istype(W, /obj/structure/window/borosilicate/reinforced))
 					if(W.is_full_window())
-						to_chat(mob, SPAN_WARNING("\The [W] obstructs your movement!"))
+						to_chat(src, SPAN_WARNING("\The [W] obstructs your movement!"))
 						return
 
 					if((direct & W.dir) && W.density)
-						to_chat(mob, SPAN_WARNING("\The [W] obstructs your movement!"))
+						to_chat(src, SPAN_WARNING("\The [W] obstructs your movement!"))
 						return
 			if(istype(T, /turf/simulated/wall/phoron) || istype(T, /turf/simulated/wall/ironphoron))
-				to_chat(mob, SPAN_WARNING("\The [T] obstructs your movement!"))
+				to_chat(src, SPAN_WARNING("\The [T] obstructs your movement!"))
 				return
 
 			for(var/mob/living/L in T)
 				if(L.is_diona() == DIONA_WORKER)
-					to_chat(mob, SPAN_DANGER("You struggle briefly as you are photovored into \the [L], trapped within a nymphomatic husk!"))
+					to_chat(src, SPAN_DANGER("You struggle briefly as you are photovored into \the [L], trapped within a nymphomatic husk!"))
 					var/mob/living/carbon/alien/diona/D = new /mob/living/carbon/alien/diona(L)
-					var/mob/living/simple_animal/shade/bluespace/BS = mob
+					var/mob/living/simple_animal/shade/bluespace/BS = use_mob
 					if (!(/mob/living/carbon/proc/echo_eject in L.verbs))
 						L.verbs.Add(/mob/living/carbon/proc/echo_eject)
 					BS.mind.transfer_to(D)
@@ -437,21 +462,21 @@
 					qdel(BS)
 					return
 
-			mob.forceMove(get_step(mob, direct))
-			mob.dir = direct
+			use_mob.forceMove(get_step(use_mob, direct))
+			use_mob.dir = direct
 
 	// Crossed is always a bit iffy
-	for(var/obj/S in mob.loc)
+	for(var/obj/S in use_mob.loc)
 		if(istype(S,/obj/effect/step_trigger) || istype(S,/obj/effect/beam))
-			S.Crossed(mob)
+			S.Crossed(use_mob)
 
-	var/area/A = get_area_master(mob)
+	var/area/A = get_area_master(use_mob)
 	if(A)
-		A.Entered(mob)
-	if(isturf(mob.loc))
-		var/turf/T = mob.loc
-		T.Entered(mob)
-	mob.Post_Incorpmove()
+		A.Entered(use_mob)
+	if(isturf(use_mob.loc))
+		var/turf/T = use_mob.loc
+		T.Entered(use_mob)
+	use_mob.Post_Incorpmove()
 	return 1
 
 /mob/proc/Post_Incorpmove()
@@ -473,7 +498,7 @@
 	return -1
 
 //Checks if a mob has solid ground to stand on
-//If there's no gravity then there's no up or down so naturally you can't stand on anything.
+//If there's no gravity then there's no up or down so naturally you can't stand on anything, unless you have grip.
 //For the same reason lattices in space don't count - those are things you grip, presumably.
 /mob/proc/check_solid_ground()
 	var/turf/T = get_turf(src)
@@ -485,7 +510,7 @@
 
 	var/area/A = T.loc
 
-	if (!A.has_gravity())
+	if (!A.has_gravity() && !Check_Shoegrip())
 		return 0
 
 	return 1
@@ -524,7 +549,7 @@
 
 //return 1 if slipped, 0 otherwise
 /mob/proc/handle_spaceslipping()
-	if(prob(slip_chance(5)) && !buckled)
+	if(prob(slip_chance(5)) && !buckled_to)
 		to_chat(src, SPAN_WARNING("You slipped!"))
 		src.inertia_dir = src.last_move
 		step(src, src.inertia_dir)

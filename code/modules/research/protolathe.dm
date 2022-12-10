@@ -4,7 +4,6 @@
 	icon_state = "protolathe"
 	flags = OPENCONTAINER
 
-	use_power = 1
 	idle_power_usage = 30
 	active_power_usage = 5000
 
@@ -24,7 +23,7 @@
 		/obj/item/reagent_containers/glass/beaker = 2
 	)
 
-/obj/machinery/r_n_d/protolathe/machinery_process()
+/obj/machinery/r_n_d/protolathe/process()
 	..()
 	if(stat)
 		update_icon()
@@ -130,6 +129,9 @@
 		return 1
 
 	var/obj/item/stack/material/stack = O
+	if(!stack.default_type)
+		to_chat(user, SPAN_WARNING("This stack cannot be used!"))
+		return
 	var/amount = round(input("How many sheets do you want to add?") as num)//No decimals
 	if(!O)
 		return
@@ -143,18 +145,15 @@
 		if(max_material_storage - TotalMaterials() < (amount * SHEET_MATERIAL_AMOUNT)) //Can't overfill
 			amount = min(stack.get_amount(), round((max_material_storage - TotalMaterials()) / SHEET_MATERIAL_AMOUNT))
 
-	var/stacktype = stack.type
-	var/t = getMaterialName(stacktype)
-	add_overlay("protolathe_[t]")
-	CUT_OVERLAY_IN("protolathe_[t]", 10)
+	add_overlay("protolathe_[stack.default_type]")
+	CUT_OVERLAY_IN("protolathe_[stack.default_type]", 10)
 
 	busy = 1
-	use_power(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))
-	if(t)
-		if(do_after(user, 16))
-			if(stack.use(amount))
-				to_chat(user, "<span class='notice'>You add [amount] sheets to \the [src].</span>")
-				materials[t] += amount * SHEET_MATERIAL_AMOUNT
+	use_power_oneoff(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))
+	if(do_after(user, 16))
+		if(stack.use(amount))
+			to_chat(user, "<span class='notice'>You add [amount] sheets to \the [src].</span>")
+			materials[stack.default_type] += amount * SHEET_MATERIAL_AMOUNT
 	busy = 0
 	updateUsrDialog()
 	return
@@ -183,9 +182,10 @@
 			ret += "[D.materials[M] - materials[M]] [M]"
 	for(var/C in D.chemicals)
 		if(!reagents.has_reagent(C, D.chemicals[C]))
+			var/decl/reagent/R = decls_repository.get_decl(C)
 			if(ret != "")
 				ret += ", "
-			ret += "[C]"
+			ret += "[R.name]"
 	return ret
 
 /obj/machinery/r_n_d/protolathe/proc/build(var/datum/design/D)
@@ -193,11 +193,13 @@
 	for(var/M in D.materials)
 		power += round(D.materials[M] / 5)
 	power = max(active_power_usage, power)
-	use_power(power)
+	use_power_oneoff(power)
 	for(var/M in D.materials)
 		materials[M] = max(0, materials[M] - D.materials[M] * mat_efficiency)
 	for(var/C in D.chemicals)
 		reagents.remove_reagent(C, D.chemicals[C] * mat_efficiency)
+
+	intent_message(MACHINE_SOUND)
 
 	if(D.build_path)
 		var/obj/new_item = D.Fabricate(src, src)

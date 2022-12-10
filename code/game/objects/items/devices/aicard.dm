@@ -135,6 +135,10 @@
 	admin_attack_log(user, ai, "Carded with [src.name]", "Was carded with [src.name]", "used the [src.name] to card")
 	src.name = "[initial(name)] - [ai.name]"
 
+	if(ai.vr_mob) //Kick the AI out of its shell before we stuff it in a card.
+		var/mob/living/silicon/shell = ai.vr_mob
+		if(istype(shell))
+			shell.body_return()
 	ai.forceMove(src)
 	ai.destroy_eyeobj(src)
 	ai.cancel_camera()
@@ -161,13 +165,13 @@
 
 /obj/item/aicard/see_emote(mob/living/M, text)
 	if(carded_ai && carded_ai.client)
-		var/rendered = "<span class='message'>[text]</span>"
+		var/rendered = span("message", "[text]")
 		carded_ai.show_message(rendered, 2)
 	..()
 
 /obj/item/aicard/show_message(msg, type, alt, alt_type)
 	if(carded_ai && carded_ai.client)
-		var/rendered = "<span class='message'>[msg]</span>"
+		var/rendered = span("message", "[msg]")
 		carded_ai.show_message(rendered, type)
 	..()
 

@@ -19,28 +19,32 @@
 // The proc you should always use to set the light of this atom.
 /atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/uv = NONSENSICAL_VALUE, var/angle = NONSENSICAL_VALUE, var/no_update = FALSE)
 	//L_PROF(src, "atom_setlight")
+	. = FALSE // don't update if nothing changed
 
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
 		l_range = MINIMUM_USEFUL_LIGHT_RANGE	//Brings the range up to 1.4, which is just barely brighter than the soft lighting that surrounds players.
-	if (l_power != null)
+		. = TRUE
+	if (l_power != null && light_power != l_power)
 		light_power = l_power
-
-	if (l_range != null)
+		. = TRUE
+	if (l_range != null && light_range != l_range)
 		light_range = l_range
+		. = TRUE
 
-	if (l_color != NONSENSICAL_VALUE)
+	if (l_color != NONSENSICAL_VALUE && light_color != l_color)
 		light_color = l_color
+		. = TRUE
 
-	if (uv != NONSENSICAL_VALUE)
+	if (uv != NONSENSICAL_VALUE && uv_intensity != uv)
 		set_uv(uv, no_update = TRUE)
+		. = TRUE
 
-	if (angle != NONSENSICAL_VALUE)
+	if (angle != NONSENSICAL_VALUE && light_wedge != angle)
 		light_wedge = angle
+		. = TRUE
 
-	if (no_update)
-		return
-
-	update_light()
+	if(!no_update && .)
+		update_light()
 
 #undef NONSENSICAL_VALUE
 
@@ -59,6 +63,7 @@
 // Will update the light (duh).
 // Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...
 /atom/proc/update_light()
+	set waitfor = FALSE
 	if (QDELING(src))
 		return
 

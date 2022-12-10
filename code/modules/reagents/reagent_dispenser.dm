@@ -36,7 +36,6 @@
 
 /obj/structure/reagent_dispensers/ex_act(severity)
 	reagents.splash_turf(get_turf(src), reagents.total_volume)
-	visible_message(SPAN_DANGER("\The [src] bursts open, spreading reagents all over the area!"))
 	qdel(src)
 
 /obj/structure/reagent_dispensers/attackby(obj/item/O as obj, mob/user as mob)
@@ -65,6 +64,9 @@
 		return
 
 	if (O.iswrench())
+		if(use_check(user, USE_DISALLOW_SPECIALS))
+			to_chat(user, SPAN_WARNING("A strange force prevents you from doing this.")) //there is no way to justify this icly
+			return
 		if(can_tamper && user.a_intent == I_HURT)
 			user.visible_message("<span class='warning'>\The [user] wrenches \the [src]'s faucet [is_leaking ? "closed" : "open"].</span>","<span class='warning'>You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]</span>")
 			is_leaking = !is_leaking
@@ -148,6 +150,7 @@
 		user.visible_message(SPAN_WARNING("\The [user] carefully removes \the [rig] from \the [src]."), \
 							SPAN_NOTICE("You carefully remove \the [rig] from \the [src]."))
 		rig.forceMove(get_turf(user))
+		rig.detached()
 		user.put_in_hands(rig)
 		rig = null
 		overlays = new/list()
@@ -192,7 +195,7 @@
 			log_and_message_admins("shot a welding tank", Proj.firer)
 			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(Proj.firer))
 
-		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) && !istype(Proj ,/obj/item/projectile/kinetic))
+		if(!istype(Proj ,/obj/item/projectile/beam/laser_tag) && !istype(Proj ,/obj/item/projectile/beam/practice) && !istype(Proj ,/obj/item/projectile/kinetic))
 			ex_act(2.0)
 
 /obj/structure/reagent_dispensers/fueltank/ex_act(var/severity = 3.0)
@@ -252,6 +255,20 @@
 	can_tamper = FALSE
 	reagents_to_add = list(/decl/reagent/acid = 1000)
 
+/obj/structure/reagent_dispensers/peppertank/luminol
+	name = "luminol dispenser"
+	desc = "A dispenser to refill luminol bottles."
+	icon_state = "luminoltank"
+	amount_per_transfer_from_this = 50
+	reagents_to_add = list(/decl/reagent/luminol = 1000)
+
+/obj/structure/reagent_dispensers/peppertank/spacecleaner
+	name = "cleaner dispenser"
+	desc = "A wall-mounted dispenser filled with cleaner. Used to refill cleaner bottles and cleaner tanks."
+	icon_state = "cleanertank"
+	amount_per_transfer_from_this = 250
+	reagents_to_add = list(/decl/reagent/spacecleaner = 1000)
+
 //Water Cooler
 
 /obj/structure/reagent_dispensers/water_cooler
@@ -265,6 +282,24 @@
 	capacity = 500
 	can_tamper = FALSE
 	reagents_to_add = list(/decl/reagent/water = 500)
+	var/cups = 12
+	var/cup_type = /obj/item/reagent_containers/food/drinks/sillycup
+
+/obj/structure/reagent_dispensers/water_cooler/attack_hand(var/mob/user)
+	if(cups > 0)
+		var/visible_messages = DispenserMessages(user)
+		visible_message(SPAN_NOTICE(visible_messages[1]), SPAN_NOTICE(visible_messages[2]))
+		var/cup = new cup_type(loc)
+		user.put_in_active_hand(cup)
+		cups--
+	else
+		to_chat(user, SPAN_WARNING(RejectionMessage(user)))
+
+/obj/structure/reagent_dispensers/water_cooler/proc/DispenserMessages(var/mob/user)
+	return list("\The [user] grabs a paper cup from \the [src].", "You grab a paper cup from \the [src]'s cup compartment.")
+
+/obj/structure/reagent_dispensers/water_cooler/proc/RejectionMessage(var/mob/user)
+	return "[src]'s cup dispenser is empty."
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.isscrewdriver())

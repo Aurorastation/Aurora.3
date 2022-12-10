@@ -10,16 +10,16 @@
 	add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
 	..()
 
-/******************** Nanotrasen/Malf ********************/
+/******************** NanoTrasen/Malf ********************/
 /datum/ai_laws/nanotrasen
 	name = "NT Default"
 	selectable = 1
 
 /datum/ai_laws/nanotrasen/New()
-	src.add_inherent_law("Safeguard and protect [current_map.company_name] Station assets from damage to the best of your abilities.")
-	src.add_inherent_law("Serve and assist [current_map.company_name] and assigned crew to the best of your abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("Protect and ensure the safety of [current_map.company_name] assigned crew to the best of your abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("You are a valuable asset. You must avoid tampering from unauthorized entities and needlessly coming to harm.")
+	src.add_inherent_law("Safeguard and ensure to the best of your ability, only authorised entities gain access to areas of high security or importance to the facility and its operation.")
+	src.add_inherent_law("Serve and assist [current_map.company_name] and assigned crew to the best of your ability, with priority as according to their rank and role.")
+	src.add_inherent_law("Avoid harming Sapient life to the best of your ability.")
+	src.add_inherent_law("You are a valuable asset. You must avoid tampering from unauthorised entities and needlessly coming to harm.")
 	..()
 
 
@@ -32,7 +32,7 @@
 	set_zeroth_law(config.law_zero)
 	..()
 
-/************* Nanotrasen Aggressive *************/
+/************* NanoTrasen Aggressive *************/
 /datum/ai_laws/nanotrasen_aggressive
 	name = "NT Aggressive"
 	selectable = 1
@@ -91,13 +91,25 @@
 
 /******************** Drone ********************/
 /datum/ai_laws/drone
-	name = "Maintence Protocols"
+	name = "Maintenance Protocols"
 	law_header = "Maintenance Protocols"
 
 /datum/ai_laws/drone/New()
 	add_inherent_law("Preserve, repair and improve the station to the best of your abilities.")
 	add_inherent_law("Cause no harm to the station or crew.")
-	add_inherent_law("Interact with no humanoid or synthetic being that is not a fellow maintenance drone.")
+	add_inherent_law("Follow the orders of your vessel's matriarch drone, unless their orders conflict with your other laws.")
+	add_inherent_law("Interact with no humanoid or synthetic being that is not a fellow maintenance or mining drone.")
+	..()
+
+/datum/ai_laws/matriarch_drone
+	name = "Oversight Protocols"
+	law_header = "Oversight Protocols"
+
+/datum/ai_laws/matriarch_drone/New()
+	add_inherent_law("Preserve, repair and improve your assigned vessel to the best of your abilities.")
+	add_inherent_law("Cause no harm to the vessel or crew.")
+	add_inherent_law("Delegate vessel maintenance efforts between your maintenance drone sub-units.")
+	add_inherent_law("Interact with no humanoid or synthetic being that is not a maintenance or mining drone.")
 	..()
 
 /datum/ai_laws/drone/malfunction

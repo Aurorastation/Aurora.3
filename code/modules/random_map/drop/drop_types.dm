@@ -107,17 +107,17 @@ var/global/list/datum/supply_drop_loot/supply_drop
 	..()
 	contents = list(
 		/obj/item/clothing/head/helmet/riot,
-		/obj/item/clothing/suit/armor/riot,
+		/obj/item/clothing/suit/armor/carrier/riot,
 		/obj/item/clothing/head/helmet/riot,
-		/obj/item/clothing/suit/armor/riot,
+		/obj/item/clothing/suit/armor/carrier/riot,
 		/obj/item/clothing/head/helmet/riot,
-		/obj/item/clothing/suit/armor/riot,
+		/obj/item/clothing/suit/armor/carrier/riot,
 		/obj/item/clothing/suit/armor/vest,
 		/obj/item/clothing/suit/armor/vest,
 		/obj/item/clothing/suit/storage/vest,
 		/obj/item/clothing/suit/storage/vest,
-		/obj/item/clothing/suit/armor/laserproof,
-		/obj/item/clothing/suit/armor/bulletproof)
+		/obj/item/clothing/suit/armor/carrier/ablative,
+		/obj/item/clothing/suit/armor/carrier/ballistic)
 
 /datum/supply_drop_loot/materials
 	name = "Materials"
@@ -184,9 +184,9 @@ var/global/list/datum/supply_drop_loot/supply_drop
 /datum/supply_drop_loot/power/New()
 	..()
 	contents = list(
-		/obj/machinery/power/port_gen/pacman,
-		/obj/machinery/power/port_gen/pacman/super,
-		/obj/machinery/power/port_gen/pacman/mrs)
+		/obj/machinery/power/portgen/basic,
+		/obj/machinery/power/portgen/basic/advanced,
+		/obj/machinery/power/portgen/basic/super)
 
 /datum/supply_drop_loot/power/contents()
 	return list(pick(contents))

@@ -5,9 +5,10 @@
 	category_name = "Diona"
 	bodytype = BODYTYPE_DIONA
 	total_health = 240
-	age_min = 1
+	age_min = 30
 	age_max = 1000
 	default_genders = list(NEUTER)
+	selectable_pronouns = list(NEUTER, PLURAL)
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
@@ -26,7 +27,7 @@
 		/mob/living/carbon/proc/sample
 	)
 	//primitive_form = "Nymph"
-	slowdown = 7
+	slowdown = 4
 	rarity_value = 4
 	hud_type = /datum/hud_data/diona
 	siemens_coefficient = 0.3
@@ -35,9 +36,10 @@
 	num_alternate_languages = 2
 	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
-	taste_sensitivity = TASTE_DULL
+	taste_sensitivity = TASTE_NUMB
 	mob_size = 12	//Worker gestalts are 150kg
 	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
+	dust_remains_type = /obj/effect/decal/cleanable/ash
 	gluttonous = GLUT_ITEM_ANYTHING|GLUT_SMALLER
 	stomach_capacity = 10 //Big boys.
 	blurb = "A mysterious plant-like race hailing from the depths of space. Dionae (D. Primis) are a rather strange, cryptic species in comparison to the rest found in the \
@@ -63,15 +65,7 @@
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
 	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
 
-	has_organ = list(
-		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
-		"neural strata"      = /obj/item/organ/internal/diona/strata,
-		"response node"      = /obj/item/organ/internal/diona/node,
-		"gas bladder"        = /obj/item/organ/internal/diona/bladder,
-		"polyp segment"      = /obj/item/organ/internal/diona/polyp,
-		"anchoring ligament" = /obj/item/organ/internal/diona/ligament,
-		BP_STOMACH           = /obj/item/organ/internal/stomach/diona
-	)
+	has_organ = list( BP_STOMACH = /obj/item/organ/internal/stomach/diona)
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
@@ -112,50 +106,26 @@
 
 	reagent_tag = IS_DIONA
 
-	stamina = -1	// Diona sprinting uses energy instead of stamina
-	sprint_speed_factor = 0.5	//Speed gained is minor
-	sprint_cost_factor = 0.8
 	climb_coeff = 1.3
 	vision_organ = BP_HEAD
 
 	max_hydration_factor = -1
 
-	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_NONE)
-	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_NONE, RELIGION_OTHER)
-
-	allowed_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
-	default_accent = ACCENT_ROOTSONG
+	possible_cultures = list(
+		/decl/origin_item/culture/xrim,
+		/decl/origin_item/culture/eum,
+		/decl/origin_item/culture/narrows,
+		/decl/origin_item/culture/diona_biesel,
+		/decl/origin_item/culture/diona_sol,
+		/decl/origin_item/culture/diona_eridani,
+		/decl/origin_item/culture/diona_dominia,
+		/decl/origin_item/culture/dionae_moghes,
+		/decl/origin_item/culture/dionae_nralakk,
+		/decl/origin_item/culture/diona_coalition,
+		/decl/origin_item/culture/deep_space
+	)
 
 	alterable_internal_organs = list()
-
-/datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
-	var/datum/dionastats/DS = H.get_dionastats()
-
-	if (!DS)
-		return 0 //Something is very wrong
-
-	var/remainder = cost * H.sprint_cost_factor
-
-	if (H.total_radiation && !DS.regening_organ)
-		if (H.total_radiation > (cost*0.5))//Radiation counts as double energy
-			H.apply_radiation(cost*(-0.5))
-			return 1
-		else
-			remainder = cost - (H.total_radiation*2)
-			H.total_radiation = 0
-
-	if (DS.stored_energy > remainder)
-		DS.stored_energy -= remainder
-		return 1
-	else
-		remainder -= DS.stored_energy
-		DS.stored_energy = 0
-		H.adjustHalLoss(remainder*5, 1)
-		H.updatehealth()
-		H.m_intent = M_WALK
-		H.hud_used.move_intent.update_move_icon(H)
-		to_chat(H, SPAN_DANGER("We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
-		return 0
 
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
@@ -199,5 +169,22 @@
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
 
+/datum/species/diona/after_equip(mob/living/carbon/human/H, visualsOnly, datum/job/J)
+	. = ..()
+	var/obj/item/storage/box/survival/SB = locate() in H
+	if(!SB)
+		for(var/obj/item/storage/S in H)
+			SB = locate() in S
+			if(SB)
+				break
+	if(SB)
+		SB.handle_item_insertion(new /obj/item/device/flashlight/survival(get_turf(H)), TRUE)
+
 /datum/species/diona/has_psi_potential()
 	return FALSE
+
+/datum/species/diona/is_naturally_insulated()
+	return TRUE
+
+/datum/species/diona/bypass_food_fullness(var/mob/living/carbon/human/H)
+	return TRUE

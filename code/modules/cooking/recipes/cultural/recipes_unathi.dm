@@ -92,3 +92,60 @@
 	)
 	fruit = list("cabbage" = 1)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/sushi_roll
+
+/decl/recipe/batwings
+	appliance = SKILLET | SAUCEPAN
+	fruit = list("chili" = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/bat,
+		/obj/item/reagent_containers/food/snacks/meat/bat,
+		/obj/item/reagent_containers/food/snacks/spreads/butter
+	)
+	result = /obj/item/reagent_containers/food/snacks/batwings
+
+/decl/recipe/jellystew
+	appliance = POT
+	fruit = list("chili" = 2)
+	reagents = list(/decl/reagent/water = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish/cosmozoan,
+		/obj/item/reagent_containers/food/snacks/cutlet,
+		/obj/item/reagent_containers/food/snacks/spreads/butter
+	)
+	result = /obj/item/reagent_containers/food/snacks/jellystew
+
+/decl/recipe/stuffedfish
+	appliance = SKILLET | SAUCEPAN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+		/obj/item/reagent_containers/food/snacks/fish/roe,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/reagent_containers/food/snacks/stuffedfish
+
+/decl/recipe/stuffedcarp
+	appliance = SKILLET | SAUCEPAN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish/carpmeat,
+		/obj/item/reagent_containers/food/snacks/fish/roe,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/reagent_containers/food/snacks/stuffedcarp
+
+/decl/recipe/razirnoodles
+	appliance = SKILLET | SAUCEPAN
+	fruit = list("lime" = 1)
+	reagents = list(/decl/reagent/sodiumchloride = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dwellermeat,
+		/obj/item/reagent_containers/food/snacks/egg
+	)
+	result = /obj/item/reagent_containers/food/snacks/razirnoodles
+
+/decl/recipe/sintapudding
+	appliance = SAUCEPAN | POT
+	reagents = list(/decl/reagent/blood = 15, /decl/reagent/sugar = 10, /decl/reagent/nutriment/coco = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spreads/butter
+	)
+	result = /obj/item/reagent_containers/food/snacks/sintapudding

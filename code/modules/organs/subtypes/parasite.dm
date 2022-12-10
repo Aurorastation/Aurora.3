@@ -138,9 +138,9 @@
 
 	if(prob(10) && (owner.can_feel_pain()))
 		if(stage < 3)
-			to_chat(owner, "<span class='warning'>You feel a stinging pain in your abdomen!</span>")
-		else
 			to_chat(owner, "<span class='warning'>You feel a stinging pain in your head!</span>")
+		else
+			to_chat(owner, "A part of you tries to fight back, but the taste of the black k'ois puts you at ease.")
 		owner.visible_message("<b>[owner]</b> winces slightly.")
 		owner.adjustHalLoss(5)
 
@@ -159,6 +159,9 @@
 			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
 			owner.reagents.add_reagent(/decl/reagent/kois/black, 4)
 
+		else if(prob(5))
+			to_chat(owner, "In your struggle, a part of you wishes for the spread to continue.")
+
 		else if(prob(10))
 			to_chat(owner, "<span class='warning'>You feel disorientated!</span>")
 			switch(rand(1,3))
@@ -174,11 +177,11 @@
 
 		var/obj/item/organ/internal/brain/B = owner.internal_organs_by_name[BP_BRAIN]
 
-		if(B && !B.lobotomized)
+		if(B && !B.prepared)
 			to_chat(owner, "<span class='danger'>As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains...</span>")
 			to_chat(owner, "<b>You have been lobotomized by K'ois infection. All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive.</b>")
 
-			B.lobotomized = 1
+			B.prepared = 1
 
 
 		if(!removed_langs)
@@ -193,14 +196,13 @@
 				owner.emote("scream")
 			owner.adjustBrainLoss(1, 55)
 
-		else if(prob(10))
+		else if(prob(0.5))
 			to_chat(owner, "<span class='danger'>You feel something alien coming up your throat!</span>")
 
 			var/turf/T = get_turf(owner)
 
-			var/datum/reagents/R = new/datum/reagents(100)
-			R.add_reagent(/decl/reagent/kois/black,10)
-			R.add_reagent(/decl/reagent/toxin/phoron,5)
+			var/datum/reagents/R = new/datum/reagents(20)
+			R.add_reagent(/decl/reagent/kois/black,5)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("blackkois")
 
 			S.attach(T)
@@ -209,8 +211,8 @@
 
 			if(owner.can_feel_pain())
 				owner.emote("scream")
-				owner.adjustHalLoss(15)
-				owner.drip(15)
+				owner.adjustHalLoss(5)
+				owner.drip(5)
 				owner.delayed_vomit()
 
 /obj/item/organ/internal/parasite/blackkois/removed(var/mob/living/carbon/human/target)
@@ -221,14 +223,15 @@
 	..()
 
 /obj/item/organ/internal/parasite/zombie
-	name = "black tumor"
-	icon = 'icons/obj/surgery.dmi'
-	icon_state = "blacktumor"
-	dead_icon = "blacktumor"
+	name = "black tumour"
+	icon = 'icons/obj/organs/organs.dmi'
+	icon_state = "black_tumour"
+	dead_icon = "black_tumour"
 
 	organ_tag = BP_ZOMBIE_PARASITE
 	parent_organ = BP_HEAD
 	stage_interval = 150
+	relative_size = 0
 
 	var/last_heal = 0
 	var/heal_rate = 5 SECONDS
@@ -251,8 +254,8 @@
 				O.status &= ~ORGAN_ARTERY_CUT
 				owner.visible_message(SPAN_WARNING("The severed artery in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed artery in your [O] stitches itself back together..."))
 				healed = TRUE
-			else if(O.status & ORGAN_TENDON_CUT)
-				O.status &= ~ORGAN_TENDON_CUT
+			else if((O.tendon_status() & TENDON_CUT) && O.tendon.can_recover())
+				O.tendon.rejuvenate()
 				owner.visible_message(SPAN_WARNING("The severed tendon in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed tendon in your [O] stitches itself back together..."))
 				healed = TRUE
 			else if(O.status & ORGAN_BROKEN)

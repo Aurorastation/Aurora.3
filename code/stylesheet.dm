@@ -20,6 +20,7 @@ em						{font-style: normal;font-weight: bold;}
 
 .ooc .everyone			{color: #002eb8;}
 .ooc .looc				{color: #6699CC;}
+.ooc .adminlooc			{color: #3BBF6E;}
 .ooc .elevated			{color: #2e78d9;}
 .ooc .moderator			{color: #184880;}
 .ooc .developer			{color: #1b521f;}
@@ -47,9 +48,12 @@ em						{font-style: normal;font-weight: bold;}
 /* Radio Channels */
 .comradio				{color: #193A7A;}
 .syndradio				{color: #6D3F40;}
+.bluespaceradio			{color: #1883A3;}
 .centradio				{color: #5C5C8A;}
 .airadio				{color: #FF00FF;}
 .entradio				{color: #bd893c;}
+.hailradio				{color: #7331c4;}
+.shipradio				{color: #738465;}
 
 .secradio				{color: #A30000;}
 .penradio				{color: #DB1270;}
@@ -96,6 +100,7 @@ h1.alert, h2.alert		{color: #000000;}
 .vaurca                 {color: #9e9e39;}
 .soghun					{color: #228B22;}
 .solcom					{color: #22228B;}
+.elyran					{color: #c79322;}
 .soghun_alt				{color: #024402;}
 .changeling				{color: #800080;}
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
@@ -103,6 +108,8 @@ h1.alert, h2.alert		{color: #000000;}
 .yassa					{color: #400987;}
 .delvahhi				{color: #5E2612; font-weight: bold;}
 .siiktau				{color: #A52A2A;}
+.freespeak				{color: #FF4500; font-family: "Trebuchet MS", cursive, sans-serif;}
+.tradeband				{color: #5C16C6; font-family: Georgia, Verdana, sans-serif;}
 
 .interface				{color: #330033;}
 

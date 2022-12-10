@@ -33,6 +33,7 @@
 	r_pocket = /obj/item/cloaking_device
 	id = /obj/item/card/id/syndicate
 	pda = /obj/item/modular_computer/handheld/pda/command
+	id_iff = IFF_SYNDICATE
 
 /datum/outfit/admin/killer/assassin/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/storage/secure/briefcase/sec_briefcase = new(H)

@@ -88,7 +88,9 @@
 		if(prob(jam_chance))
 			playsound(src.loc, 'sound/items/trayhit2.ogg', 50, TRUE)
 			to_chat(user, "<span class='danger'>\The [src] jams!</span>")
+			balloon_alert(user, SPAN_RED("JAM"))
 			jam_num = rand(2, 5) // gotta attackself two to five times to unjam
+			return FALSE
 	return TRUE
 
 /obj/item/gun/projectile/proc/process_chambered()
@@ -99,10 +101,10 @@
 		var/mob/living/carbon/human/H = loc
 		if(istype(H))
 			if(!istype(H.gloves, /obj/item/clothing))
-				H.gunshot_residue = chambered.caliber
+				LAZYDISTINCTADD(H.gunshot_residue, chambered.caliber)
 			else
 				var/obj/item/clothing/G = H.gloves
-				G.gunshot_residue = chambered.caliber
+				LAZYDISTINCTADD(G.gunshot_residue, chambered.caliber)
 
 	switch(handle_casings)
 		if(DELETE_CASINGS)
@@ -211,17 +213,20 @@
 	update_icon()
 
 /obj/item/gun/projectile/attackby(obj/item/A, mob/user)
-	..()
+	. = ..()
 	load_ammo(A, user)
 
-/obj/item/gun/projectile/attack_self(mob/user)
+/obj/item/gun/projectile/toggle_firing_mode(mob/user)
 	if(jam_num)
 		playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
 		jam_num--
 		if(!jam_num)
 			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"))
+			balloon_alert(user, SPAN_GREEN("CLEAR"))
 			playsound(src.loc, 'sound/weapons/unjam.ogg', 100, TRUE)
 			unjam_cooldown = world.time
+		else
+			balloon_alert(user, SPAN_YELLOW("CLICK"))
 	else if(unjam_cooldown + 2 SECONDS > world.time)
 		return
 	else if(firemodes.len > 1)
@@ -268,3 +273,26 @@
 	if(chambered)
 		bullets += 1
 	return bullets
+
+/obj/item/gun/projectile/get_print_info()
+	. = ""
+	if(load_method & (SINGLE_CASING|SPEEDLOADER))
+		. += "Load Type: Single Casing or Speedloader<br>"
+		. += "Max Shots: [max_shells]<br>"
+		if(length(loaded))
+			var/obj/item/ammo_casing/casing = loaded[1]
+			var/obj/item/projectile/P = new casing.projectile_type
+			. += "<br><b>Projectile</b><br>"
+			. += P.get_print_info()
+		else
+			. += "No ammunition loaded.<br>"
+	else
+		. += "Load Type: Magazine<br>"
+		if(ammo_magazine)
+			var/obj/item/ammo_casing/casing = new ammo_magazine.ammo_type
+			var/obj/item/projectile/P = new casing.projectile_type
+			. += "<br><b>Projectile</b><br>"
+			. += P.get_print_info()
+		else
+			. += "No magazine inserted.<br>"
+	. += ..(FALSE)

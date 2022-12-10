@@ -4,9 +4,9 @@
 //////////////////////////////////////////////////////////////////
 
 /decl/surgery_step/glue_bone
-	name = "Begin bone repair"
+	name = "Repair Broken Bone"
 	allowed_tools = list(
-	/obj/item/surgery/bonegel = 100,	\
+	/obj/item/surgery/bone_gel = 100,	\
 	/obj/item/tape_roll = 60
 	)
 	can_infect = TRUE
@@ -42,10 +42,10 @@
 	target.apply_damage(15, PAIN)
 
 /decl/surgery_step/set_bone
-	name = "Set bone"
+	name = "Set Broken Bone"
 	allowed_tools = list(
 	/obj/item/surgery/bonesetter = 100,	\
-	/obj/item/wrench = 75		\
+	WRENCH = 75		\
 	)
 
 	min_duration = 60
@@ -82,10 +82,10 @@
 	target.apply_damage(5, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/mend_skull
-	name = "Repair skull"
+	name = "Repair Broken Skull"
 	allowed_tools = list(
 	/obj/item/surgery/bonesetter = 100,	\
-	/obj/item/wrench = 75		\
+	WRENCH = 75		\
 	)
 
 	min_duration = 60
@@ -117,9 +117,9 @@
 	h.disfigured = 1
 
 /decl/surgery_step/finish_bone
-	name = "Finish bone repair"
+	name = "Finish Repairing Broken Bone"
 	allowed_tools = list(
-	/obj/item/surgery/bonegel = 100,	\
+	/obj/item/surgery/bone_gel = 100,	\
 	/obj/item/tape_roll = 60
 	)
 	can_infect = TRUE

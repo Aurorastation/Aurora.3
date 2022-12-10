@@ -3,5 +3,6 @@ const component = require('./component')
 module.exports = {
   name: () => 'Puppeteer',
   run,
-  component
+  component,
+  ci: true,
 }

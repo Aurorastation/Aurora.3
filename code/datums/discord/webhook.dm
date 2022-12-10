@@ -109,7 +109,7 @@ var/list/global_webhooks = list()
 			emb["description"] += data["antags"]
 			if(data["survivours"] > 0)
 				emb["description"] += "There [data["survivours"]>1 ? "were **[data["survivours"]] survivors**" : "was **one survivor**"]"
-				emb["description"] += " ([data["escaped"]>0 ? data["escaped"] : "none"] [emergency_shuttle.evac ? "escaped" : "transferred"]) and **[data["ghosts"]] ghosts**."
+				emb["description"] += " ([data["escaped"]>0 ? data["escaped"] : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "transferred"]) and **[data["ghosts"]] ghosts**."
 			else
 				emb["description"] += "There were **no survivors** ([data["ghosts"]] ghosts)."
 			OutData["embeds"] = list(emb)
@@ -139,7 +139,7 @@ var/list/global_webhooks = list()
 		if (WEBHOOK_ROUNDSTART)
 			var/emb = list(
 				"title" = "Round has started",
-				"description" = "Round started with [data["playercount"]] [data["playercount"]>1 ? "players" : "player"]",
+				"description" = "Round started with [data["playercount"]] player\s.",
 				"color" = HEX_COLOR_GREEN
 			)
 			OutData["embeds"] = list(emb)

@@ -5,14 +5,21 @@
 	icon_state = "void"
 
 	heat_protection = HEAD
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 20)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+	max_pressure_protection = VOIDSUIT_MAX_PRESSURE
+	min_pressure_protection = 0
 	siemens_coefficient = 0.5
-
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand.dmi'
-		)
+	contained_sprite = FALSE
+	icon = 'icons/obj/clothing/hats.dmi'
 
 	//Species-specific stuff.
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
@@ -22,14 +29,14 @@
 		BODYTYPE_SKRELL = 'icons/mob/species/skrell/helmet.dmi',
 		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/helmet.dmi',
 		BODYTYPE_IPC = 'icons/mob/species/machine/helmet.dmi'
-		)
+	)
 	sprite_sheets_obj = list(
 		BODYTYPE_UNATHI = 'icons/obj/clothing/species/unathi/hats.dmi',
 		BODYTYPE_TAJARA = 'icons/obj/clothing/species/tajaran/hats.dmi',
 		BODYTYPE_SKRELL = 'icons/obj/clothing/species/skrell/hats.dmi',
 		BODYTYPE_VAURCA = 'icons/obj/clothing/species/vaurca/hats.dmi',
 		BODYTYPE_IPC = 'icons/obj/clothing/species/machine/hats.dmi'
-		)
+	)
 
 	light_overlay = "helmet_light"
 
@@ -39,16 +46,21 @@
 	item_state = "void"
 	desc = "A high-tech dark red space suit. Used for AI satellite maintenance."
 	slowdown = 1
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 20)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
-
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand.dmi'
-		)
+	contained_sprite = FALSE
+	icon = 'icons/obj/clothing/suits.dmi'
 
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 	sprite_sheets_refit = list(
@@ -57,14 +69,14 @@
 		BODYTYPE_SKRELL = 'icons/mob/species/skrell/suit.dmi',
 		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/suit.dmi',
 		BODYTYPE_IPC = 'icons/mob/species/machine/suit.dmi'
-		)
+	)
 	sprite_sheets_obj = list(
 		BODYTYPE_UNATHI = 'icons/obj/clothing/species/unathi/suits.dmi',
 		BODYTYPE_TAJARA = 'icons/obj/clothing/species/tajaran/suits.dmi',
 		BODYTYPE_SKRELL = 'icons/obj/clothing/species/skrell/suits.dmi',
 		BODYTYPE_VAURCA = 'icons/obj/clothing/species/vaurca/suits.dmi',
 		BODYTYPE_IPC= 'icons/obj/clothing/species/machine/suits.dmi'
-		)
+	)
 
 	action_button_name = "Toggle Helmet"
 	var/helmet_deploy_sound = 'sound/items/helmet_close.ogg'
@@ -79,15 +91,18 @@
 	var/obj/item/clothing/shoes/magboots/boots = null // Deployable boots, if any.
 	var/obj/item/clothing/head/helmet/helmet = null   // Deployable helmet, if any.
 	var/obj/item/tank/tank = null              // Deployable tank, if any.
+	var/obj/item/device/suit_cooling_unit/cooler = null // Deployable suit cooler, if any
 
 /obj/item/clothing/suit/space/void/examine(user)
 	..(user)
 	var/list/part_list = new
-	for(var/obj/item/I in list(helmet,boots,tank))
+	for(var/obj/item/I in list(helmet,boots,tank,cooler))
 		part_list += "\a [I]"
 	to_chat(user, "\The [src] has [english_list(part_list)] installed.")
 	if(tank && in_range(src,user))
-		to_chat(user, "<span class='notice'>The wrist-mounted pressure gauge reads [max(round(tank.air_contents.return_pressure()),0)] kPa remaining in \the [tank].</span>")
+		to_chat(user, SPAN_NOTICE("The wrist-mounted pressure gauge reads [max(round(tank.air_contents.return_pressure()),0)] kPa remaining in \the [tank]."))
+	if (cooler && in_range(src,user))
+		to_chat(user, SPAN_NOTICE("The mounted cooler's battery charge reads [round(cooler.cell.percent())]%"))
 
 /obj/item/clothing/suit/space/void/refit_for_species(var/target_species)
 	..()
@@ -125,6 +140,10 @@
 			to_chat(M, "The valve on your suit's installed tank safely engages.")
 			tank.canremove = 0
 
+	if(cooler)
+		if (H.equip_to_slot_if_possible(cooler, slot_s_store))
+			cooler.canremove = 0
+
 /obj/item/clothing/suit/space/void/proc/cleanup_from_mob()
 	var/mob/living/carbon/human/H
 
@@ -145,6 +164,10 @@
 	if(tank)
 		tank.canremove = 1
 		tank.forceMove(src)
+
+	if(cooler)
+		cooler.canremove = 1
+		cooler.forceMove(src)
 
 /obj/item/clothing/suit/space/void/on_slotmove()
 	..()
@@ -201,7 +224,7 @@
 		to_chat(usr, "There is no tank inserted.")
 		return
 
-	to_chat(user, "<span class='info'>You press the emergency release, ejecting \the [tank] from your suit.</span>")
+	to_chat(user, SPAN_INFO("You press the emergency release lever, ejecting \the [tank] from your suit."))
 	tank.canremove = 1
 	playsound(src, 'sound/effects/air_seal.ogg', 50, 1)
 
@@ -211,6 +234,30 @@
 		tank.forceMove(get_turf(src))
 	src.tank = null
 
+/obj/item/clothing/suit/space/void/verb/eject_cooler()
+
+	set name = "Eject Suit Cooler"
+	set category = "Object"
+	set src in view(1)
+
+	var/mob/living/user = usr
+
+	if(use_check_and_message(user))	return
+
+	if(!cooler)
+		to_chat(usr, "There is no suit cooler installed.")
+		return
+
+	to_chat(user, SPAN_INFO("You engage the release mechanism, ejecting \the [cooler] from your suit."))
+	cooler.canremove = 1
+	playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
+
+	if(user.get_inventory_slot(src) == slot_wear_suit)
+		user.drop_from_inventory(cooler)
+	else
+		cooler.forceMove(get_turf(src))
+	src.cooler = null
+
 /obj/item/clothing/suit/space/void/attack_self()
 	toggle_helmet()
 
@@ -218,16 +265,16 @@
 
 	if(!istype(user,/mob/living)) return
 
-	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/hand_labeler))
+	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/device/hand_labeler))
 		return ..()
 
 	if(user.get_inventory_slot(src) == slot_wear_suit)
-		to_chat(user, "<span class='warning'>You cannot modify \the [src] while it is being worn.</span>")
+		to_chat(user, SPAN_WARNING("You cannot modify \the [src] while it is being worn."))
 		return
 
 	if(W.isscrewdriver())
-		if(helmet || boots || tank)
-			var/choice = input("What component would you like to remove?") as null|anything in list(helmet,boots,tank)
+		if(helmet || boots || tank || cooler)
+			var/choice = input("What component would you like to remove?") as null|anything in list(helmet,boots,tank,cooler)
 			if(!choice) return
 
 			playsound(src, 'sound/items/screwdriver.ogg', 50, 1)
@@ -236,13 +283,17 @@
 				tank.forceMove(get_turf(src))
 				src.tank = null
 			else if(choice == helmet)
-				to_chat(user, "You detatch \the [helmet] from \the [src]'s helmet mount.")
+				to_chat(user, "You detach \the [helmet] from \the [src]'s helmet mount.")
 				helmet.forceMove(get_turf(src))
 				src.helmet = null
 			else if(choice == boots)
-				to_chat(user, "You detatch \the [boots] from \the [src]'s boot mounts.")
+				to_chat(user, "You detach \the [boots] from \the [src]'s boot mounts.")
 				boots.forceMove(get_turf(src))
 				src.boots = null
+			else if (choice == cooler)
+				to_chat(user, "You detach \the [cooler] from \the [src]'s cooler mount.")
+				cooler.forceMove(get_turf(src))
+				src.cooler = null
 		else
 			to_chat(user, "\The [src] does not have anything installed.")
 		return
@@ -275,5 +326,13 @@
 			user.drop_from_inventory(W,src)
 			tank = W
 		return
-
+	else if (istype(W, /obj/item/device/suit_cooling_unit))
+		if(cooler)
+			to_chat(user, "\The [src] already has a suit cooler installed.")
+		else
+			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
+			to_chat(user, "You insert \the [W] into \the [src]'s storage compartment.")
+			user.drop_from_inventory(W,src)
+			cooler = W
+		return
 	..()

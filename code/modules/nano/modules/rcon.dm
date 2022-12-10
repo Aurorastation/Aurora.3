@@ -11,7 +11,7 @@
 
 	// SMES DATA (simplified view)
 	var/list/smeslist[0]
-	for(var/obj/machinery/power/smes/buildable/SMES in SSpower.rcon_smes_units)
+	for(var/obj/machinery/power/smes/buildable/SMES in SSmachinery.rcon_smes_units)
 		smeslist.Add(list(list(
 		"charge" = round(SMES.Percentage()),
 		"input_set" = SMES.input_attempt,
@@ -25,7 +25,7 @@
 	data["smes_info"] = smeslist
 	// BREAKER DATA (simplified view)
 	var/list/breakerlist[0]
-	for(var/obj/machinery/power/breakerbox/BR in SSpower.rcon_breaker_units)
+	for(var/obj/machinery/power/breakerbox/BR in SSmachinery.rcon_breaker_units)
 		breakerlist.Add(list(list(
 		"RCON_tag" = BR.RCon_tag,
 		"enabled" = BR.on
@@ -69,9 +69,17 @@
 		if(SMES)
 			var/outputset = input(usr, "Enter new output level (0-[SMES.output_level_max])", "SMES Input Power Control") as num
 			SMES.set_output(outputset)
+	if(href_list["smes_in_max"])
+		var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(href_list["smes_in_max"])
+		if(SMES)
+			SMES.set_input(SMES.input_level_max)
+	if(href_list["smes_out_max"])
+		var/obj/machinery/power/smes/buildable/SMES = GetSMESByTag(href_list["smes_out_max"])
+		if(SMES)
+			SMES.set_output(SMES.output_level_max)
 
 	if(href_list["toggle_breaker"])
-		var/obj/machinery/power/breakerbox/toggle = SSpower.rcon_breaker_units_by_tag[href_list["toggle_breaker"]]
+		var/obj/machinery/power/breakerbox/toggle = SSmachinery.rcon_breaker_units_by_tag[href_list["toggle_breaker"]]
 		if(toggle)
 			if(toggle.update_locked)
 				to_chat(usr, "The breaker box was recently toggled. Please wait before toggling it again.")
@@ -92,4 +100,4 @@
 	if(!tag)
 		return
 
-	return SSpower.rcon_smes_units_by_tag[tag]
+	return SSmachinery.rcon_smes_units_by_tag[tag]

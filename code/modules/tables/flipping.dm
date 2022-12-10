@@ -25,7 +25,7 @@
 		to_chat(usr, "<span class='notice'>It won't budge.</span>")
 		return
 
-	usr.visible_message("<span class='warning'>[usr] flips \the [src]!</span>")
+	usr.visible_message(SPAN_WARNING("[usr] flips \the [src]!"), intent_message = THUNK_SOUND)
 
 	if(climbable)
 		structure_shaken()
@@ -85,7 +85,7 @@
 	set_dir(direction)
 	if(dir != NORTH)
 		layer = 5
-	climbable = 0 //flipping tables allows them to be used as makeshift barriers
+	climbable = FALSE //flipping tables allows them to be used as makeshift barriers
 	flipped = 1
 	flags |= ON_BORDER
 	for(var/D in list(turn(direction, 90), turn(direction, -90)))

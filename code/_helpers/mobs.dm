@@ -6,7 +6,7 @@
 		return load
 
 /obj/vehicle/train/get_mob()
-	return buckled_mob
+	return buckled
 
 /mob/get_mob()
 	return src
@@ -158,14 +158,15 @@ Proc for attack log creation, because really why not
 	if(admin)
 		log_attack("<span class='warning'>[user ? "[user.name][(ismob(user) && user.ckey) ? "([user.ckey])" : ""]" : "NON-EXISTANT SUBJECT"] [what_done] [target ? "[target.name][(ismob(target) && target.ckey)? "([target.ckey])" : ""]" : "NON-EXISTANT SUBJECT"][object ? " with [object]" : " "][addition]</span>",ckey=key_name(user),ckey_target=key_name(target))
 
-//checks whether this item is a module of the robot it is located in.
+//checks whether this item is a module of the robot or exosuit it is located in. This is mainly to ensure that things do not get embedded or fed into autolathes if attached to a bot or exosuit
 /proc/is_robot_module(var/obj/item/thing)
 	if(!thing)
 		return FALSE
 	if(istype(thing.loc, /mob/living/heavy_vehicle))
-		return FALSE
-	if(!istype(thing.loc, /mob/living/silicon/robot))
-		return FALSE
+		return TRUE
+	if(istype(thing.loc, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = thing.loc
+		return (thing in R.module.modules)
 
 /proc/get_exposed_defense_zone(var/atom/movable/target)
 	var/obj/item/grab/G = locate() in target
@@ -201,6 +202,7 @@ Proc for attack log creation, because really why not
 // Returns true if the mob was in neither the dead or living list
 /mob/proc/add_to_dead_mob_list()
 	return FALSE
+
 /mob/living/add_to_dead_mob_list()
 	if((src in living_mob_list) || (src in dead_mob_list))
 		return FALSE
@@ -230,7 +232,7 @@ Proc for attack log creation, because really why not
 				break
 
 		//update our pda and id if we have them on our person
-		var/list/searching = GetAllContents(searchDepth = 3)
+		var/list/searching = GetAllContents()
 		var/search_id = 1
 		var/search_pda = 1
 

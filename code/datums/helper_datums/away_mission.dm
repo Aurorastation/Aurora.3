@@ -3,7 +3,7 @@
 	var/weight = 1
 	var/autoselect = TRUE
 	var/list/map_files = null
-	var/list/valid_maps = null
+	var/list/valid_sectors = null
 	var/list/characteristics = null
 
 	var/base_dir = null
@@ -13,7 +13,7 @@
 	weight = config["weight"]
 	autoselect = config["autoselect"]
 	map_files = config["map_files"]
-	valid_maps = config["valid_maps"]
+	valid_sectors = config["valid_sectors"]
 	characteristics = config["characteristics"]
 	base_dir = i_base_dir
 

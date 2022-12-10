@@ -10,7 +10,7 @@ var/datum/antagonist/rogue_ai/malf
 	antag_sound = 'sound/effects/antag_notice/malf_alert.ogg'
 	victory_text = "The AI has taken control of all of the station's systems."
 	loss_text = "The AI has been shut down!"
-	flags = ANTAG_VOTABLE | ANTAG_OVERRIDE_MOB | ANTAG_OVERRIDE_JOB | ANTAG_CHOOSE_NAME
+	flags = ANTAG_VOTABLE | ANTAG_OVERRIDE_MOB | ANTAG_OVERRIDE_JOB | ANTAG_CHOOSE_NAME | ANTAG_NO_ROUNDSTART_SPAWN
 	hard_cap = 1
 	hard_cap_round = 1
 	initial_spawn_req = 1
@@ -45,16 +45,15 @@ var/datum/antagonist/rogue_ai/malf
 /datum/antagonist/rogue_ai/greet(var/datum/mind/player)
 
 	// Initializes the AI's malfunction stuff.
+	if(!..())
+		return
+
+	var/mob/living/silicon/ai/A = player.current
+	if(!istype(A))
+		error("Non-AI mob designated malf AI! Report this.")
+		to_world("##ERROR: Non-AI mob designated malf AI! Report this.")
+		return 0
 	spawn(0)
-		if(!..())
-			return
-
-		var/mob/living/silicon/ai/A = player.current
-		if(!istype(A))
-			error("Non-AI mob designated malf AI! Report this.")
-			to_world("##ERROR: Non-AI mob designated malf AI! Report this.")
-			return 0
-
 		A.setup_for_malf()
 		A.laws = new /datum/ai_laws/nanotrasen/malfunction
 

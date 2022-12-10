@@ -57,3 +57,22 @@
 /datum/spawnpoint/cyborg/New()
 	..()
 	turfs = latejoin_cyborg
+
+/datum/spawnpoint/living_quarters_lift
+	display_name = "Living Quarters Lift"
+	msg = "is inbound from the living quarters"
+	disallow_job = list("Cyborg", "Merchant")
+
+/datum/spawnpoint/living_quarters_lift/New()
+	..()
+	turfs = latejoin_living_quarters_lift
+
+/datum/spawnpoint/living_quarters_lift/after_join(mob/victim)
+	if(!istype(victim))
+		return
+	var/area/A = get_area(victim)
+	for(var/obj/machinery/cryopod/living_quarters/C in A)
+		if(!C.occupant)
+			C.set_occupant(victim, 1)
+			to_chat(victim, SPAN_NOTICE("You have arrived from the living quarters aboard the [current_map.full_name]."))
+			return

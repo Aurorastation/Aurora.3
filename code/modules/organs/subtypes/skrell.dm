@@ -1,21 +1,20 @@
 /obj/item/organ/internal/heart/skrell
-	icon_state = "skrell_heart-on"
-	dead_icon = "skrell_heart-off"
+	icon = 'icons/obj/organs/skrell_organs.dmi'
 
 /obj/item/organ/internal/lungs/skrell
-	icon_state = "lungs_skrell"
+	icon = 'icons/obj/organs/skrell_organs.dmi'
 
 /obj/item/organ/internal/kidneys/skrell
-	icon_state = "kidney_skrell"
+	icon = 'icons/obj/organs/skrell_organs.dmi'
 
 /obj/item/organ/internal/eyes/skrell
-	icon_state = "eyes_skrell"
+	icon = 'icons/obj/organs/skrell_organs.dmi'
 
 /obj/item/organ/internal/liver/skrell
-	icon_state = "liver_skrell"
+	icon = 'icons/obj/organs/skrell_organs.dmi'
 
 /obj/item/organ/internal/brain/skrell
-	icon_state = "brain_skrell"
+	icon = 'icons/obj/organs/skrell_organs.dmi'
 
 /obj/item/organ/external/head/skrell
 	var/obj/item/storage/internal/skrell/storage
@@ -46,3 +45,15 @@
 
 /obj/item/organ/external/head/skrell/attack_self(mob/user)
 	storage.open(user)
+
+/obj/item/organ/internal/heart/skrell/neaera
+
+/obj/item/organ/internal/lungs/skrell/neaera
+
+/obj/item/organ/internal/kidneys/skrell/neaera
+
+/obj/item/organ/internal/eyes/skrell/neaera
+
+/obj/item/organ/internal/liver/skrell/neaera
+
+/obj/item/organ/internal/brain/skrell/neaera

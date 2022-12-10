@@ -15,9 +15,6 @@ var/list/mineral_can_smooth_with = list(
 	/turf/unsimulated/wall
 )
 
-// Some extra types for the surface to keep things pretty.
-/turf/simulated/mineral/surface
-	mined_turf = /turf/unsimulated/floor/asteroid/ash
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
@@ -74,6 +71,9 @@ var/list/mineral_can_smooth_with = list(
 
 	turfs += src
 
+	if(isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -91,6 +91,17 @@ var/list/mineral_can_smooth_with = list(
 		queue_smooth_neighbors(src)
 
 	rock_health = rand(10,20)
+
+	var/area/A = loc
+
+	if(!baseturf)
+		// Hard-coding this for performance reasons.
+		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
+
+	if (current_map.use_overmap && istype(A, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -129,11 +140,18 @@ var/list/mineral_can_smooth_with = list(
 			GetDrilled()
 
 /turf/simulated/mineral/bullet_act(var/obj/item/projectile/Proj)
+	if(istype(Proj, /obj/item/projectile/beam/plasmacutter))
+		var/obj/item/projectile/beam/plasmacutter/PC_beam = Proj
+		var/list/cutter_results = PC_beam.pass_check(src)
+		. = cutter_results[1]
+		if(cutter_results[2]) // the cutter mined the turf, just pass on
+			return
+
 	// Emitter blasts
 	if(istype(Proj, /obj/item/projectile/beam/emitter))
 		emitter_blasts_taken++
 
-	if(emitter_blasts_taken > 2) // 3 blasts per tile
+	if(emitter_blasts_taken >= 3)
 		GetDrilled()
 
 /turf/simulated/mineral/CollidedWith(AM)
@@ -182,6 +200,9 @@ var/list/mineral_can_smooth_with = list(
 
 	turfs += src
 
+	if(isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -197,6 +218,11 @@ var/list/mineral_can_smooth_with = list(
 
 	if(!mapload)
 		queue_smooth_neighbors(src)
+
+	if (current_map.use_overmap && istype(loc, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -235,7 +261,6 @@ var/list/mineral_can_smooth_with = list(
 		return
 
 	if(istype(W, /obj/item/device/core_sampler))
-		geologic_data.UpdateNearbyArtifactInfo(src) // good god
 		var/obj/item/device/core_sampler/C = W
 		C.sample_item(src, user)
 		return
@@ -301,8 +326,7 @@ var/list/mineral_can_smooth_with = list(
 				else
 					O = new /obj/item/ore(src)
 				if(istype(O))
-					geologic_data.UpdateNearbyArtifactInfo(src)
-					O.geologic_data = geologic_data
+					O.geologic_data = get_geodata()
 				addtimer(CALLBACK(O, /atom/movable/.proc/forceMove, user.loc), 1)
 
 			if(finds?.len)
@@ -325,14 +349,14 @@ var/list/mineral_can_smooth_with = list(
 				if(artifact_find)
 					if(excavation_level > 0 || prob(15))
 						//boulder with an artifact inside
-						B = new(src)
+						B = new(src, "#9c9378") // if we ever get natural walls, edit this
 						if(artifact_find)
 							B.artifact_find = artifact_find
 					else
 						artifact_debris(1)
 				else if(prob(15))
 					//empty boulder
-					B = new(src)
+					B = new(src, "#9c9378") // if we ever get natural walls, edit this
 
 				if(B)
 					GetDrilled(0)
@@ -353,7 +377,7 @@ var/list/mineral_can_smooth_with = list(
 
 		to_chat(user, SPAN_NOTICE("You start chiselling \the [src] into a sculptable block."))
 
-		if(!do_after(user, 80 / W.toolspeed))
+		if(!W.use_tool(src, user, 80, volume = 50))
 			return
 
 		if(!istype(src, /turf/simulated/mineral))
@@ -362,6 +386,12 @@ var/list/mineral_can_smooth_with = list(
 		to_chat(user, SPAN_NOTICE("You finish chiselling [src] into a sculptable block."))
 		new /obj/structure/sculpting_block(src)
 		GetDrilled(1)
+
+/turf/simulated/mineral/proc/get_geodata()
+	if(!geologic_data)
+		geologic_data = new /datum/geosample(src)
+	geologic_data.UpdateNearbyArtifactInfo(src)
+	return geologic_data
 
 /turf/simulated/mineral/proc/clear_ore_effects()
 	if(my_mineral)
@@ -374,8 +404,7 @@ var/list/mineral_can_smooth_with = list(
 	clear_ore_effects()
 	var/obj/item/ore/O = new mineral.ore(src)
 	if(istype(O))
-		geologic_data.UpdateNearbyArtifactInfo(src) //whoever named this proc must be shot - geeves
-		O.geologic_data = geologic_data
+		O.geologic_data = get_geodata()
 	return O
 
 /turf/simulated/mineral/proc/GetDrilled(var/artifact_fail = 0)
@@ -409,12 +438,12 @@ var/list/mineral_can_smooth_with = list(
 	if(prob_clean)
 		X = new /obj/item/archaeological_find(src, new_item_type = F.find_type)
 	else
-		X = new /obj/item/ore/strangerock(src, inside_item_type = F.find_type)
-		geologic_data.UpdateNearbyArtifactInfo(src) //AAAAAAAAAAAAAAAAAAAAAAAAAA
-		X:geologic_data = geologic_data //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		var/obj/item/ore/strangerock/SR = new /obj/item/ore/strangerock(src, inside_item_type = F.find_type)
+		SR.geologic_data = get_geodata()
+		X = SR
 
 	//some find types delete the /obj/item/archaeological_find and replace it with something else, this handles when that happens
-	//yuck //yuck indeed.
+	//yuck //yuck indeed. //yuck ultra
 	var/display_name = "something"
 	if(!X)
 		X = last_find
@@ -470,10 +499,21 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 8,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
+		ORE_SILVER = 2
+	)
+	var/mineralChance = 55
+
+/turf/simulated/mineral/random/phoron
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 2,
+		ORE_PLATINUM = 2,
+		ORE_IRON = 8,
+		ORE_COAL = 8,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 2,
 		ORE_SILVER = 2,
 		ORE_PHORON = 5
 	)
-	var/mineralChance = 55
 
 /turf/simulated/mineral/random/Initialize()
 	if(prob(mineralChance) && !mineral)
@@ -484,6 +524,9 @@ var/list/mineral_can_smooth_with = list(
 		MineralSpread()
 	. = ..()
 
+/turf/simulated/mineral/random/exoplanet
+	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
 /turf/simulated/mineral/random/high_chance
 	mineralSpawnChanceList = list(
 		ORE_URANIUM = 2,
@@ -492,12 +535,37 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 2,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
-		ORE_SILVER = 2,
-		ORE_PHORON = 3
+		ORE_SILVER = 2
 	)
 	mineralChance = 55
 
+/turf/simulated/mineral/random/high_chance/phoron
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 2,
+		ORE_PLATINUM = 2,
+		ORE_IRON = 2,
+		ORE_COAL = 2,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 2,
+		ORE_SILVER = 2
+	)
+
+/turf/simulated/mineral/random/high_chance/exoplanet
+	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
 /turf/simulated/mineral/random/higher_chance
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 3,
+		ORE_PLATINUM = 3,
+		ORE_IRON = 1,
+		ORE_COAL = 1,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 3,
+		ORE_SILVER = 3
+	)
+	mineralChance = 75
+
+/turf/simulated/mineral/random/higher_chance/phoron
 	mineralSpawnChanceList = list(
 		ORE_URANIUM = 3,
 		ORE_PLATINUM = 3,
@@ -508,7 +576,6 @@ var/list/mineral_can_smooth_with = list(
 		ORE_SILVER = 3,
 		ORE_PHORON = 2
 	)
-	mineralChance = 75
 
 /turf/simulated/mineral/attack_hand(var/mob/user)
 	add_fingerprint(user)
@@ -522,6 +589,13 @@ var/list/mineral_can_smooth_with = list(
 			if(start.CanZPass(H, UP))
 				if(destination.CanZPass(H, UP))
 					H.climb(UP, src, 20)
+
+// Some extra types for the surface to keep things pretty.
+/turf/simulated/mineral/surface
+	mined_turf = /turf/unsimulated/floor/asteroid/ash
+
+/turf/simulated/mineral/planet
+	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /**********************Asteroid**************************/
 
@@ -570,6 +644,9 @@ var/list/asteroid_floor_smooth = list(
 
 	turfs += src
 
+	if(isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -589,6 +666,11 @@ var/list/asteroid_floor_smooth = list(
 
 	if(light_range && light_power)
 		update_light()
+
+	if (current_map.use_overmap && istype(loc, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -664,7 +746,7 @@ var/list/asteroid_floor_smooth = list(
 			to_chat(user, SPAN_NOTICE("You start digging deeper."))
 			playsound(get_turf(user), 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
 			digging = TRUE
-			if(!do_after(user, 60 / W.toolspeed))
+			if(!W.use_tool(src, user, 60, volume = 50))
 				if(istype(src, /turf/unsimulated/floor/asteroid))
 					digging = FALSE
 				return

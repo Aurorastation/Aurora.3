@@ -95,7 +95,7 @@
 /obj/effect/shuttle_landmark/automatic
 	name = "Navpoint"
 	landmark_tag = "navpoint"
-	flags = SLANDMARK_FLAG_AUTOSET
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/automatic/Initialize()
 	landmark_tag += "-[x]-[y]-[z]"
@@ -103,7 +103,7 @@
 
 //Subtype that calls explosion on init to clear space for shuttles
 /obj/effect/shuttle_landmark/automatic/clearing
-	var/radius = 10
+	var/radius = LANDING_ZONE_RADIUS
 
 /obj/effect/shuttle_landmark/automatic/clearing/Initialize()
 	..()
@@ -111,7 +111,7 @@
 
 /obj/effect/shuttle_landmark/automatic/sector_set(var/obj/effect/overmap/visitable/O)
 	..()
-	name = "[O.name] - [initial(name)] ([x],[y])"
+	name = "[initial(name)] ([x],[y])"
 
 /obj/effect/shuttle_landmark/automatic/clearing/LateInitialize()
 	..()

@@ -1,10 +1,12 @@
+#define TIME_OFFSET config.time_offset
+
 var/roundstart_hour = 0
 var/round_start_time
 
 //Returns the world time in english
 /proc/worldtime2text(time = world.time, timeshift = 1)
-	if(!roundstart_hour) roundstart_hour = rand(0, 23)
-	return timeshift ? time2text(time+(roundstart_hour HOURS), "hh:mm") : time2text(time, "hh:mm")
+	if(!roundstart_hour) roundstart_hour = REALTIMEOFDAY - (TIME_OFFSET HOURS)
+	return timeshift ? time2text(time+roundstart_hour, "hh:mm") : time2text(time, "hh:mm")
 
 /proc/worldtime2hours()
 	if (!roundstart_hour)
@@ -57,3 +59,16 @@ var/real_round_start_time
 	if(!timevar)
 		timevar = world.realtime
 	return time2text(timevar, "YYYY-MM-DD hh:mm:ss")
+
+/**
+ * Returns "watch handle" (really just a timestamp :V)
+ */
+/proc/start_watch()
+	return REALTIMEOFDAY
+
+/**
+ * Returns number of seconds elapsed.
+ * @param wh number The "Watch Handle" from start_watch(). (timestamp)
+ */
+/proc/stop_watch(wh)
+	return round(0.1 * (REALTIMEOFDAY - wh), 0.1)

@@ -1,6 +1,6 @@
----
---- Adds the cargo logging tables
----
+--
+-- Adds the cargo logging tables
+--
 
 CREATE TABLE `ss13_cargo_orderlog` (
 	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,

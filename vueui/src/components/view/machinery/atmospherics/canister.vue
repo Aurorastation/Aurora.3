@@ -33,7 +33,7 @@
       <vui-group-item label="Release Pressure:">
         <vui-progress style="width: 100%;" :value="releasePressure" :min="minReleasePressure" :max="maxReleasePressure"/>
         <div style="clear: both; padding-top: 4px;">
-          <vui-input-numeric width="5em" v-model="releasePressure" :button-count="4" :min="minReleasePressure" :max="maxReleasePressure" @input="s({pressure_set : releasePressure})">{{releasePressure}} kPa&nbsp;</vui-input-numeric>
+          <vui-input-numeric width="5em" v-model="releasePressure" :button-count="4" :min="minReleasePressure" :max="maxReleasePressure" @input="$toTopic({pressure_set : releasePressure})">{{releasePressure}} kPa&nbsp;</vui-input-numeric>
         </div>
       </vui-group-item>
 
@@ -46,15 +46,9 @@
 </template>
 
 <script>
-import Utils from "../../../../utils.js";
 export default {
 	data() {
 		return this.$root.$data.state;
-  },
-	methods: {
-    s(parameters) {
-      Utils.sendToTopic(parameters);
-    }
-	}
+  }
 }
 </script>

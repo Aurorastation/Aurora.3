@@ -1,7 +1,7 @@
 /obj/item/material/harpoon
 	name = "harpoon"
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	desc = "Tharr she blows!"
 	icon_state = "harpoon"
 	item_state = "harpoon"
@@ -38,7 +38,7 @@
 	thrown_force_divisor = 0.75 // 15 with weight 20 (steel)
 	w_class = ITEMSIZE_SMALL
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 1)
 	attack_verb = list("chopped", "torn", "cut")
 	applies_material_colour = 0
@@ -81,7 +81,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
 		)
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	force_divisor = 0.25
 
 /obj/item/material/minihoe // -- Numbers
@@ -110,7 +110,7 @@
 	force_divisor = 0.275 // 16 with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 with weight 20 (steel)
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	throw_speed = 1
 	throw_range = 3
 	w_class = ITEMSIZE_LARGE

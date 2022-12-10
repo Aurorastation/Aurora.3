@@ -5,6 +5,11 @@
 // global signals
 // These are signals which can be listened to by any component on any parent
 
+// when we expand maxz
+#define COMSIG_GLOB_NEW_Z "!new_z"
+// when we expand maxx and maxy (do we ever do this)
+#define COMSIG_GLOB_EXPANDED_WORLD_BOUNDS "!expanded_world_bounds"
+
 //////////////////////////////////////////////////////////////////
 
 // /datum signals
@@ -29,9 +34,31 @@
 // /turf signals
 
 // /atom/movable signals
+#define COMSIG_MOVABLE_MOVED "movable_moved"
+
+#define COMSIG_MOVABLE_HEAR "movable_hear"
+	#define HEARING_MESSAGE 	1
+	#define HEARING_SPEAKER 	2
+	#define HEARING_LANGUAGE 	3
+	#define HEARING_RAW_MESSAGE 4
+
+//spatial grid signals
+
+///Called from base of /datum/controller/subsystem/spatial_grid/proc/enter_cell: (/atom/movable)
+#define SPATIAL_GRID_CELL_ENTERED(contents_type) "spatial_grid_cell_entered_[contents_type]"
+///Called from base of /datum/controller/subsystem/spatial_grid/proc/exit_cell: (/atom/movable)
+#define SPATIAL_GRID_CELL_EXITED(contents_type) "spatial_grid_cell_exited_[contents_type]"
 
 // /mob signals
 
 // /obj signals
+/// when a hood is unequipped
+#define COMSIG_ITEM_REMOVE "item_remove"
+/// checks an item's state
+#define COMSIG_ITEM_STATE_CHECK "state_check"
+/// updates an item between several states
+#define COMSIG_ITEM_UPDATE_STATE "update_state"
+/// updates sprites
+#define COMSIG_ITEM_ICON_UPDATE "icon_update"
 
 /*******Component Specific Signals*******/

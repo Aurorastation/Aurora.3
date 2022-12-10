@@ -15,12 +15,12 @@ var/global/list/topic_commands = list()				//List of all API commands available
 var/global/list/topic_commands_names = list()				//List of all API commands available
 
 var/global/list/landmarks_list = list()				//list of all landmarks created
+var/global/list/force_spawnpoints					//assoc list of force spawnpoints for event maps
 var/global/list/side_effects = list()				//list of all medical sideeffects types by thier names |BS12
 var/global/list/mechas_list = list()				//list of all mechs. Used by hostile mobs target tracking.
 var/global/list/joblist = list()					//list of all jobstypes, minus borg and AI
 var/global/list/brig_closets = list()				//list of all brig secure_closets. Used by brig timers. Probably should be converted to use SSwireless eventually.
 
-var/global/list/teleportlocs = list()
 var/global/list/ghostteleportlocs = list()
 var/global/list/centcom_areas = list()
 var/global/list/the_station_areas = list()
@@ -28,6 +28,7 @@ var/global/list/the_station_areas = list()
 var/global/list/implants = list()
 
 var/global/list/turfs = list()						//list of all turfs
+var/global/list/station_turfs = list()
 var/global/list/areas_by_type = list()
 var/global/list/all_areas = list()
 
@@ -59,15 +60,20 @@ var/global/list/chargen_disabilities_list = list()
 var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER, PLURAL)
 
 //Backpacks
-var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag", "Messenger Bag")
-var/global/list/backbagstyles = list("Job-specific", "Grey")
-var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
+var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook")
+var/global/list/backbagstyles = list("Job-specific", "Generic", "Faction-specific")
+var/global/list/backbagcolors = list("None", "Blue", "Green", "Navy", "Tan", "Khaki", "Black", "Olive", "Auburn", "Brown")
+var/global/list/backbagstrap = list("Hidden", "Thin", "Normal", "Thick")
+var/global/list/exclude_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/merchant)
 
 //PDA choice
 var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Tablet", "Wristbound")
 
 //Headset choice
-var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset")
+var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio")
+
+// Primary Radio Slot choice
+var/global/list/primary_radio_slot_choice = list("Left Ear", "Right Ear", "Wrist")
 
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()
@@ -82,6 +88,9 @@ var/global/list/syndicate_access = list(access_maint_tunnels, access_syndicate, 
 
 //Cloaking devices
 var/global/list/cloaking_devices = list()
+
+//Hearing sensitive listening in closely
+var/global/list/intent_listener = list()
 
 //////////////////////////
 /////Initial Building/////
@@ -208,3 +217,31 @@ var/global/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = 
 				. += "    has: [t]\n"
 	world << .
 */
+
+//*** params cache
+/*
+	Ported from bay12, this seems to be used to store and retrieve 2D vectors as strings, as well as
+	decoding them into a number
+*/
+var/global/list/paramslist_cache = list()
+
+#define cached_key_number_decode(key_number_data) cached_params_decode(key_number_data, /proc/key_number_decode)
+#define cached_number_list_decode(number_list_data) cached_params_decode(number_list_data, /proc/number_list_decode)
+
+/proc/cached_params_decode(var/params_data, var/decode_proc)
+	. = paramslist_cache[params_data]
+	if(!.)
+		. = call(decode_proc)(params_data)
+		paramslist_cache[params_data] = .
+
+/proc/key_number_decode(var/key_number_data)
+	var/list/L = params2list(key_number_data)
+	for(var/key in L)
+		L[key] = text2num(L[key])
+	return L
+
+/proc/number_list_decode(var/number_list_data)
+	var/list/L = params2list(number_list_data)
+	for(var/i in 1 to L.len)
+		L[i] = text2num(L[i])
+	return L

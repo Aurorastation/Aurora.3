@@ -96,6 +96,7 @@
 
 	user.drop_from_inventory(W,src)
 	Consume(W)
+	return TRUE
 
 
 /turf/unsimulated/wall/supermatter/CollidedWith(atom/AM)

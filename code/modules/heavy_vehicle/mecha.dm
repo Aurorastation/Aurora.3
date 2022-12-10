@@ -8,8 +8,9 @@
 	a_intent = I_HURT
 	mob_size = MOB_LARGE
 	mob_push_flags = ALLMOBS
-	can_buckle = FALSE
+	can_be_buckled = FALSE
 	accent = ACCENT_TTS
+	appearance_flags = KEEP_TOGETHER
 	var/decal
 
 	var/emp_damage = 0
@@ -66,6 +67,7 @@
 	var/maintenance_protocols
 	var/lockdown
 	var/entry_speed = 30
+	var/loudening = FALSE // whether we're increasing the speech volume of our pilot
 
 	// Material
 	var/material/material
@@ -84,6 +86,9 @@
 	var/obj/screen/mecha/health/hud_health
 	var/obj/screen/mecha/toggle/hatch_open/hud_open
 	var/obj/screen/mecha/power/hud_power
+	var/obj/screen/mecha/toggle/power_control/hud_power_control
+	//POWER
+	var/power = MECH_POWER_OFF
 
 /mob/living/heavy_vehicle/Destroy()
 	unassign_leader()
@@ -100,7 +105,7 @@
 	pilots = null
 
 	QDEL_NULL_LIST(hud_elements)
-	
+
 	if(remote_network)
 		SSvirtualreality.remove_mech(src, remote_network)
 
@@ -183,6 +188,8 @@
 		if(source_frame.legs)
 			source_frame.legs.forceMove(src)
 			legs = source_frame.legs
+			if(legs.hover) //Checks here if hoverthrusters
+				pass_flags |= PASSRAILING
 		if(source_frame.head)
 			source_frame.head.forceMove(src)
 			head = source_frame.head
@@ -202,7 +209,7 @@
 		radio = new(src)
 
 	if(!camera)
-		camera = new /obj/machinery/camera(src)
+		camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
 		camera.c_tag = name
 		camera.replace_networks(list(NETWORK_MECHS))
 
@@ -213,7 +220,7 @@
 	update_icon()
 
 	add_language(LANGUAGE_TCB)
-	set_default_language(LANGUAGE_TCB)
+	set_default_language(all_languages[LANGUAGE_TCB])
 
 	. = INITIALIZE_HINT_LATELOAD
 
@@ -227,6 +234,26 @@
 
 /mob/living/heavy_vehicle/GetIdCard()
 	return access_card
+
+/mob/living/heavy_vehicle/proc/toggle_power(var/mob/user)
+	if(power == MECH_POWER_TRANSITION)
+		to_chat(user, SPAN_NOTICE("Power transition in progress. Please wait."))
+	else if(power == MECH_POWER_ON) //Turning it off is instant
+		playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
+		power = MECH_POWER_OFF
+	else if(get_cell(TRUE))
+		//Start power up sequence
+		power = MECH_POWER_TRANSITION
+		playsound(src, 'sound/mecha/powerup.ogg', 50, 0)
+		if(do_after(user, 1.5 SECONDS) && power == MECH_POWER_TRANSITION)
+			playsound(src, 'sound/mecha/nominal.ogg', 50, 0)
+			power = MECH_POWER_ON
+		else
+			to_chat(user, SPAN_WARNING("You abort the powerup sequence."))
+			power = MECH_POWER_OFF
+		hud_power_control?.queue_icon_update()
+	else
+		to_chat(user, SPAN_WARNING("Error: No power cell was detected."))
 
 /obj/item/device/radio/exosuit
 	name = "exosuit radio"
@@ -294,3 +321,6 @@
 		hardpoints_locked = TRUE
 	force_locked = TRUE
 	update_icon()
+
+/mob/living/heavy_vehicle/is_anti_materiel_vulnerable()
+	return TRUE

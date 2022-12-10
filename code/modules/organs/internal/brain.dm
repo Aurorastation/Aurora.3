@@ -1,10 +1,9 @@
 /obj/item/organ/internal/brain
 	name = "brain"
-	health = 400 //They need to live awhile longer than other organs. Is this even used by organ code anymore?
 	desc = "A piece of juicy meat found in a person's head."
 	organ_tag = BP_BRAIN
 	parent_organ = BP_HEAD
-	vital = 1
+	vital = TRUE
 	icon_state = "brain"
 	force = 1.0
 	w_class = ITEMSIZE_SMALL
@@ -19,9 +18,8 @@
 	relative_size = 85
 
 	var/mob/living/carbon/brain/brainmob = null
-	var/list/datum/brain_trauma/traumas = list()
-	var/lobotomized = 0
-	var/can_lobotomize = 1
+	var/prepared = FALSE
+	var/can_prepare = TRUE
 
 	var/const/damage_threshold_count = 10
 	var/damage_threshold_value
@@ -44,11 +42,6 @@
 
 /obj/item/organ/internal/brain/removed(var/mob/living/user)
 
-	for(var/X in traumas)
-		var/datum/brain_trauma/BT = X
-		BT.on_lose(TRUE)
-		BT.owner = null
-
 	var/mob/living/simple_animal/borer/borer = owner.has_brain_worms()
 
 	if(borer)
@@ -70,12 +63,6 @@
 			brainmob.mind.transfer_to(target)
 		else
 			target.key = brainmob.key
-
-	for(var/X in traumas)
-		var/datum/brain_trauma/BT = X
-		BT.owner = owner
-		BT.on_gain()
-
 	..()
 
 /obj/item/organ/internal/brain/getToxLoss()
@@ -118,7 +105,7 @@
 			if(!oxygen_reserve) //(hardcrit)
 				owner.Paralyse(10)
 
-			var/can_heal = damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))
+			var/can_heal = (damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))) && (!(owner.chem_effects[CE_NEUROTOXIC]) || owner.chem_effects[CE_ANTITOXIN])
 			var/damprob
 			var/brain_regen_amount = owner.chem_effects[CE_BRAIN_REGEN]	/ 10
 			//Effects of bloodloss
@@ -130,7 +117,7 @@
 						damage = max(damage-1, 0)
 				if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 					if(prob(1))
-						to_chat(owner, "<span class='warning'>You feel [pick("dizzy","woozy","faint")]...</span>")
+						to_chat(owner, SPAN_WARNING("You feel a bit [pick("lightheaded","dizzy","pale")]..."))
 					damprob = owner.chem_effects[CE_STABLE] ? 30 : 60
 					if(!past_damage_threshold(2) && prob(damprob))
 						take_internal_damage(1)
@@ -141,7 +128,7 @@
 						take_internal_damage(1)
 					if(!owner.paralysis && prob(10))
 						owner.Paralyse(rand(1,3))
-						to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
+						to_chat(owner, SPAN_WARNING("You feel [pick("weak","disoriented","faint","cold")]."))
 				if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 60 : 100
@@ -149,33 +136,15 @@
 						take_internal_damage(1)
 					if(!owner.paralysis && prob(15))
 						owner.Paralyse(rand(3, 5))
-						to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
+						to_chat(owner, SPAN_WARNING("You feel <b>extremely</b> [pick("cold","woozy","faint","weak","confused","tired","lethargic")]."))
 				if(-(INFINITY) to BLOOD_VOLUME_SURVIVE) // Also see heart.dm, being below this point puts you into cardiac arrest.
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 80 : 100
 					if(prob(damprob))
 						take_internal_damage(1)
 					if(prob(damprob))
-						take_internal_damage(2)
+						take_internal_damage(1)
 	..()
-
-/obj/item/organ/internal/brain/take_internal_damage(var/damage, var/silent)
-	set waitfor = 0
-	if(damage >= (max_damage / 4))
-		damage *= 2
-	..()
-	if(damage >= (max_damage / 5)) //This probably won't be triggered by oxyloss or mercury. Probably.
-		var/damage_secondary = damage * 0.20
-		owner.eye_blurry += damage_secondary
-		owner.confused += damage_secondary * 2
-		owner.Weaken(round(damage_secondary * 3, 1))
-		owner.adjustOxyLoss(damage)
-		if(prob(30))
-			addtimer(CALLBACK(src, .proc/brain_damage_callback, damage), rand(6, 20) SECONDS, TIMER_UNIQUE)
-
-/obj/item/organ/internal/brain/proc/brain_damage_callback(var/damage) //Confuse them as a somewhat uncommon aftershock. Side note: Only here so a spawn isn't used. Also, for the sake of a unique timer.
-	to_chat(owner, "<span class = 'notice'><font size=3><B>I can't remember which way is forward...</B></font></span>")
-	owner?.confused += damage
 
 /obj/item/organ/internal/brain/proc/handle_severe_brain_damage()
 	set waitfor = FALSE
@@ -208,7 +177,7 @@
 	if(is_broken())
 		if(!owner.lying && prob(5))
 			to_chat(owner, "<span class='danger'>You black out!</span>")
-		owner.Paralyse(10)
+			owner.Paralyse(10)
 
 /obj/item/organ/internal/brain/surgical_fix(mob/user)
 	var/blood_volume = owner.get_blood_oxygenation()
@@ -219,51 +188,6 @@
 
 /obj/item/organ/internal/brain/get_scarring_level()
 	. = (species.total_health - max_damage)/species.total_health
-
-////////////////////////////////////TRAUMAS////////////////////////////////////////
-
-/obj/item/organ/internal/brain/proc/has_trauma_type(brain_trauma_type, consider_permanent = FALSE)
-	for(var/X in traumas)
-		var/datum/brain_trauma/BT = X
-		if(istype(BT, brain_trauma_type) && (consider_permanent || !BT.permanent))
-			return BT
-
-
-//Add a specific trauma
-/obj/item/organ/internal/brain/proc/gain_trauma(datum/brain_trauma/trauma, permanent = FALSE, list/arguments)
-	var/trauma_type
-	if(ispath(trauma))
-		trauma_type = trauma
-		traumas += new trauma_type(arglist(list(src, permanent) + arguments))
-	else
-		traumas += trauma
-		trauma.permanent = permanent
-
-//Add a random trauma of a certain subtype
-/obj/item/organ/internal/brain/proc/gain_trauma_type(brain_trauma_type = /datum/brain_trauma, permanent = FALSE)
-	var/list/datum/brain_trauma/possible_traumas = list()
-	for(var/T in subtypesof(brain_trauma_type))
-		var/datum/brain_trauma/BT = T
-		if(initial(BT.can_gain))
-			possible_traumas += BT
-
-	var/trauma_type = pick(possible_traumas)
-	traumas += new trauma_type(src, permanent)
-
-//Cure a random trauma of a certain subtype
-/obj/item/organ/internal/brain/proc/cure_trauma_type(brain_trauma_type, cure_permanent = FALSE)
-	var/datum/brain_trauma/trauma = has_trauma_type(brain_trauma_type)
-	if(trauma && (cure_permanent || !trauma.permanent))
-		qdel(trauma)
-
-/obj/item/organ/internal/brain/proc/cure_all_traumas(cure_permanent = FALSE, cure_type = "")
-	for(var/X in traumas)
-		var/datum/brain_trauma/trauma = X
-		if(trauma.cure_type == cure_type || cure_type == CURE_ADMIN)
-			if(cure_permanent || !trauma.permanent)
-				qdel(trauma)
-				if(cure_type != CURE_ADMIN)
-					break
 
 //Miscellaneous
 
@@ -290,26 +214,18 @@
 	else
 		to_chat(user, "This one seems particularly lifeless. Perhaps it will regain some of its luster later..")
 
-/obj/item/organ/internal/brain/proc/lobotomize(mob/user as mob)
-	lobotomized = 1
-
-	if(owner)
-		to_chat(owner, "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>")
-		to_chat(owner, "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>")
-
-	else if(brainmob)
-		to_chat(brainmob, "<span class='danger'>As part of your brain is drilled out, you feel your past self, your memories, your very being slip away...</span>")
-		to_chat(brainmob, "<b>Your brain has been surgically altered to remove your memory recall. Your ability to recall your former life has been surgically removed from your brain, and while your brain is in this state you remember nothing that ever came before this moment.</b>")
-
-	return
-
-/obj/item/organ/internal/brain/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/surgery/surgicaldrill))
-		if(!can_lobotomize)
+/obj/item/organ/internal/brain/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/surgery/surgicaldrill))
+		if(!can_prepare)
+			to_chat(user, SPAN_WARNING("\The [src] cannot be prepared!"))
 			return
-		if(!lobotomized)
-			user.visible_message("<span class='danger'>[user] drills [src] deftly with [W] into the brain!</span>")
-			lobotomize(user)
+		if(!prepared)
+			user.visible_message(SPAN_DANGER("[user] deftly uses \the [I] to drill into \the [src]!"))
+			prepared = TRUE
 		else
-			to_chat(user, "<span class='notice'>The brain has already been operated on!</span>")
-	..()
+			to_chat(user, SPAN_WARNING("The brain has already been prepared!"))
+		return
+	return ..()
+
+/obj/item/organ/internal/brain/zombie
+	relative_size = 100

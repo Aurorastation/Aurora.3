@@ -3,22 +3,23 @@
 #define CANDLE_LUM 3 // For how bright candles are.
 
 // Item inventory slot bitmasks.
-#define SLOT_OCLOTHING  0x1
-#define SLOT_ICLOTHING  0x2
-#define SLOT_GLOVES     0x4
-#define SLOT_EYES       0x8
-#define SLOT_EARS       0x10
-#define SLOT_MASK       0x20
-#define SLOT_HEAD       0x40
-#define SLOT_FEET       0x80
-#define SLOT_ID         0x100
-#define SLOT_BELT       0x200
-#define SLOT_BACK       0x400
-#define SLOT_POCKET     0x800  // This is to allow items with a w_class of 3 or 4 to fit in pockets.
-#define SLOT_DENYPOCKET 0x1000  // This is to  deny items with a w_class of 2 or 1 from fitting in pockets.
-#define SLOT_TWOEARS    0x2000
-#define SLOT_TIE        0x4000
-#define SLOT_HOLSTER	0x8000 //16th bit - higher than this will overflow
+#define SLOT_OCLOTHING  BITFLAG(0)
+#define SLOT_ICLOTHING  BITFLAG(1)
+#define SLOT_GLOVES     BITFLAG(2)
+#define SLOT_EYES       BITFLAG(3)
+#define SLOT_EARS       BITFLAG(4)
+#define SLOT_MASK       BITFLAG(5)
+#define SLOT_HEAD       BITFLAG(6)
+#define SLOT_FEET       BITFLAG(7)
+#define SLOT_ID         BITFLAG(8)
+#define SLOT_BELT       BITFLAG(9)
+#define SLOT_BACK       BITFLAG(10)
+#define SLOT_POCKET     BITFLAG(11) // This is to allow items with a w_class of 3 or 4 to fit in pockets.
+#define SLOT_TWOEARS    BITFLAG(12)
+#define SLOT_TIE        BITFLAG(13)
+#define SLOT_HOLSTER    BITFLAG(14)
+#define SLOT_WRISTS     BITFLAG(15)
+#define SLOT_S_STORE    BITFLAG(16)
 
 // Flags bitmasks.
 #define NOBLUDGEON         0x1   // When an item has this it produces no "X has been hit by Y with Z" message with the default handler.
@@ -29,16 +30,19 @@
 #define PHORONGUARD        0x20  // Does not get contaminated by phoron.
 #define NOREACT            0x40  // Reagents don't react inside this container.
 #define PROXMOVE           0x80  // Does this object require proximity checking in Enter()?
+#define HELDMAPTEXT        0x100 // Uses the special held maptext system, which sets a specific maptext if the item is in possession of a mob.
+#define NOMOVE             0x200 // Cannot be moved from its current inventory slot. Mostly for augments, modules, and other "attached" items.
 
 //Flags for items (equipment)
-#define THICKMATERIAL          0x1  // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.
-#define STOPPRESSUREDAMAGE     0x2  // Counts towards pressure protection. Note that like temperature protection, body_parts_covered is considered here as well.
-#define AIRTIGHT               0x4  // Functions with internals.
-#define NOSLIP                 0x8  // Prevents from slipping on wet floors, in space, etc.
-#define BLOCK_GAS_SMOKE_EFFECT 0x10 // Blocks the effect that chemical clouds would have on a mob -- glasses, mask and helmets ONLY! (NOTE: flag shared with ONESIZEFITSALL)
-#define FLEXIBLEMATERIAL       0x20 // At the moment, masks with this flag will not prevent eating even if they are covering your face.
-#define SOUNDPROTECTION        0x40 // whether wearing this item will protect you from loud noises such as flashbangs | this only works for ear slots or the head slot
-#define LIGHTSTEP              0x80 // When applied to footwear, this makes it so that they don't trigger things like landmines and mouse traps
+#define THICKMATERIAL          BITFLAG(0)  // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.
+#define AIRTIGHT               BITFLAG(1)  // Functions with internals.
+#define NOSLIP                 BITFLAG(2)  // Prevents from slipping on wet floors, in space, etc.
+#define BLOCK_GAS_SMOKE_EFFECT BITFLAG(3)  // Blocks the effect that chemical clouds would have on a mob -- glasses, mask and helmets ONLY! (NOTE: flag shared with ONESIZEFITSALL)
+#define FLEXIBLEMATERIAL       BITFLAG(4)  // At the moment, masks with this flag will not prevent eating even if they are covering your face.
+#define SOUNDPROTECTION        BITFLAG(5)  // whether wearing this item will protect you from loud noises such as flashbangs | this only works for ear slots or the head slot
+#define LIGHTSTEP              BITFLAG(6)  // When applied to footwear, this makes it so that they don't trigger things like landmines and mouse traps
+#define INJECTIONPORT          BITFLAG(7)  // Allows syringes and hyposprays to inject, even if the material is thick
+#define SHOWFLAVORTEXT         BITFLAG(8)  // won't block flavourtext when worn on equipment slot
 
 // Flags for pass_flags.
 #define PASSTABLE		0x1
@@ -47,6 +51,7 @@
 #define PASSDOORHATCH	0x8
 #define PASSMOB			0x10
 #define PASSTRACE       0x20 //Used by turrets in the check_trajectory proc to target mobs hiding behind certain things (such as closets)
+#define PASSRAILING     0x40
 
 // Bitmasks for the flags_inv variable. These determine when a piece of clothing hides another, i.e. a helmet hiding glasses.
 #define HIDEGLOVES      0x1
@@ -58,35 +63,39 @@
 #define HIDEEARS		0x40 // Headsets and such.
 #define HIDEEYES		0x80 // Glasses.
 #define HIDEFACE		0x100// Dictates whether we appear as "Unknown".
-#define BLOCKHEADHAIR   0x200// Hides the user's hair overlay. Leaves facial hair.
-#define BLOCKHAIR       0x400// Hides the user's hair, facial and otherwise.
-#define ALWAYSDRAW		0x800//If set, this item is always rendered even if its slot is hidden by other clothing
+#define HIDEWRISTS		0x200
+#define BLOCKHEADHAIR   0x400// Hides the user's hair overlay. Leaves facial hair.
+#define BLOCKHAIR       0x800/// Hides the user's hair, facial and otherwise.
+#define ALWAYSDRAW		0x1000//If set, this item is always rendered even if its slot is hidden by other clothing
 //Note that the item may still not be visible if its sprite is actually covered up.
 
 // Slots.
-#define slot_back        1
-#define slot_wear_mask   2
-#define slot_handcuffed  3
-#define slot_l_hand      4
-#define slot_r_hand      5
-#define slot_belt        6
-#define slot_wear_id     7
-#define slot_l_ear       8
-#define slot_glasses     9
-#define slot_gloves      10
-#define slot_head        11
-#define slot_shoes       12
-#define slot_wear_suit   13
-#define slot_w_uniform   14
-#define slot_l_store     15
-#define slot_r_store     16
-#define slot_s_store     17
-#define slot_in_backpack 18
-#define slot_legcuffed   19
-#define slot_r_ear       20
-#define slot_legs        21
-#define slot_tie         22
-#define slot_in_belt     23
+#define slot_first		 1
+#define slot_back        2
+#define slot_wear_mask   3
+#define slot_handcuffed  4
+#define slot_l_hand      5
+#define slot_r_hand      6
+#define slot_belt        7
+#define slot_wear_id     8
+#define slot_l_ear       9
+#define slot_glasses     10
+#define slot_gloves      11
+#define slot_head        12
+#define slot_shoes       13
+#define slot_wear_suit   14
+#define slot_w_uniform   15
+#define slot_l_store     16
+#define slot_r_store     17
+#define slot_s_store     18
+#define slot_in_backpack 19
+#define slot_legcuffed   20
+#define slot_r_ear       21
+#define slot_legs        22
+#define slot_tie         23
+#define slot_in_belt     24
+#define slot_wrists      25
+#define slot_last		 26 //for the love of god, keep this updated or you won't be able to unequip things
 
 // Inventory slot strings.
 // since numbers cannot be used as associative list keys.
@@ -94,12 +103,19 @@
 #define slot_back_str		"slot_back"
 #define slot_l_hand_str		"slot_l_hand"
 #define slot_r_hand_str		"slot_r_hand"
+#define slot_wear_id_str	"slot_wear_id"
 #define slot_w_uniform_str	"slot_w_uniform"
+#define slot_s_store_str	"slot_s_store"
 #define slot_head_str		"slot_head"
+#define slot_glasses_str 	"slot_glasses"
+#define slot_wear_mask_str	"slot_mask"
+#define slot_belt_str		"slot_belt"
 #define slot_wear_suit_str	"slot_suit"
 #define slot_l_ear_str		"slot_l_ear"
 #define slot_r_ear_str		"slot_r_ear"
-#define slot_shoes_str "slot_shoes"
+#define slot_shoes_str 		"slot_shoes"
+#define slot_wrists_str 	"slot_wrists"
+#define slot_gloves_str 	"slot_gloves"
 
 //itemstate suffixes. Used for containedsprite worn items
 #define WORN_LHAND	"_lh"
@@ -119,6 +135,7 @@
 #define WORN_BACK	"_ba"
 #define WORN_ID		"_id"
 #define WORN_MASK	"_ma"
+#define WORN_WRISTS	"_wr"
 
 // Bitflags for clothing parts.
 #define HEAD        0x1
@@ -160,6 +177,15 @@
 #define WARNING_HIGH_PRESSURE 325 // This determines when the orange pressure icon is displayed (it is 0.7 * HAZARD_HIGH_PRESSURE)
 #define WARNING_LOW_PRESSURE  50  // This is when the gray low pressure icon is displayed. (it is 2.5 * HAZARD_LOW_PRESSURE)
 #define  HAZARD_LOW_PRESSURE  20  // This is when the black ultra-low pressure icon is displayed. (This one is set as a constant)
+
+#define FIRESUIT_MAX_PRESSURE       20 * ONE_ATMOSPHERE  // Firesuits and atmos voidsuits
+#define RIG_MAX_PRESSURE            10 * ONE_ATMOSPHERE  // Rigs
+#define LIGHT_RIG_MAX_PRESSURE       5 * ONE_ATMOSPHERE  // Rigs
+#define ENG_VOIDSUIT_MAX_PRESSURE   10 * ONE_ATMOSPHERE
+#define VOIDSUIT_MAX_PRESSURE        5 * ONE_ATMOSPHERE
+#define SPACE_SUIT_MAX_PRESSURE      2 * ONE_ATMOSPHERE
+
+#define FIRESUIT_MIN_PRESSURE        0.5 * ONE_ATMOSPHERE
 
 #define TEMPERATURE_DAMAGE_COEFFICIENT  1.5 // This is used in handle_temperature_damage() for humans, and in reagents that affect body temperature. Temperature damage is multiplied by this amount.
 #define BODYTEMP_AUTORECOVERY_DIVISOR   12  // This is the divisor which handles how much of the temperature difference between the current body temperature and 310.15K (optimal temperature) humans auto-regenerate each tick. The higher the number, the slower the recovery. This is applied each tick, so long as the mob is alive.

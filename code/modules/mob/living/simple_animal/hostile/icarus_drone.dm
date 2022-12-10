@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/icarus_drone
 	name = "combat drone"
-	desc = "An automated combat drone armed with state of the art weaponry and shielding. This one has the markings of the NDV Icarus on the side."
-	desc_fluff = "Produced by NanoTrasen, these combat drones are often carried and deployed by NDV Drone Carriers to protect local assets."
+	desc = "An automated combat drone armed with state of the art weaponry and shielding. This one has the markings of a drone carrier on the side."
+	desc_extended = "Produced by NanoTrasen, these combat drones are often carried and deployed by NDV Drone Carriers to protect local assets."
 	icon_state = "drone3"
 	icon_living = "drone3"
 	icon_dead = "drone_dead"
@@ -19,7 +19,7 @@
 	stop_automated_movement_when_pulled = FALSE
 	health = 300
 	maxHealth = 300
-	blood_type = "#000000"
+	blood_type = COLOR_OIL
 	speed = 8
 	projectiletype = /obj/item/projectile/beam/drone
 	projectilesound = 'sound/weapons/laser3.ogg'
@@ -58,8 +58,13 @@
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
+	psi_pingable = FALSE
+
 /mob/living/simple_animal/hostile/icarus_drone/Initialize()
 	. = ..()
+
+	set_light(1.2, 3, LIGHT_COLOR_BLUE)
+	
 	if(prob(5))
 		projectiletype = /obj/item/projectile/beam/pulse/drone
 		projectilesound = 'sound/weapons/pulse2.ogg'

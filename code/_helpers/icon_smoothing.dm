@@ -60,6 +60,8 @@
 
 /atom/movable
 	var/can_be_unanchored = 0
+	var/obj/buckled_to
+	var/can_be_buckled = FALSE
 
 /turf
 	var/list/fixed_underlay
@@ -161,7 +163,7 @@
 		if(A.smooth & SMOOTH_DIAGONAL)
 			A.diagonal_smooth(adjacencies)
 		else
-			cardinal_smooth(A, adjacencies)
+			A.cardinal_smooth(adjacencies)
 
 /atom/proc/diagonal_smooth(adjacencies)
 	switch(adjacencies)
@@ -184,7 +186,7 @@
 			replace_smooth_overlays("d-nw","d-nw-1")
 
 		else
-			cardinal_smooth(src, adjacencies)
+			cardinal_smooth(adjacencies)
 			return
 
 	icon_state = ""
@@ -227,99 +229,99 @@
 
 		underlays = U
 
-/proc/cardinal_smooth(atom/A, adjacencies)
+/atom/proc/cardinal_smooth(adjacencies, var/list/dir_mods)
 	//NW CORNER
 	var/nw = "1-i"
 	if((adjacencies & N_NORTH) && (adjacencies & N_WEST))
 		if(adjacencies & N_NORTHWEST)
-			nw = "1-f"
+			nw = "1-f" + LAZYACCESS(dir_mods, "[N_NORTH][N_WEST][N_NORTHWEST]")
 		else
-			nw = "1-nw"
+			nw = "1-nw" + LAZYACCESS(dir_mods, "[N_NORTH][N_WEST]")
 	else
 		if(adjacencies & N_NORTH)
-			nw = "1-n"
+			nw = "1-n" + LAZYACCESS(dir_mods, "[N_NORTH]")
 		else if(adjacencies & N_WEST)
-			nw = "1-w"
+			nw = "1-w" + LAZYACCESS(dir_mods, "[N_WEST]")
 
 	//NE CORNER
 	var/ne = "2-i"
 	if((adjacencies & N_NORTH) && (adjacencies & N_EAST))
 		if(adjacencies & N_NORTHEAST)
-			ne = "2-f"
+			ne = "2-f" + LAZYACCESS(dir_mods, "[N_NORTH][N_EAST][N_NORTHEAST]")
 		else
-			ne = "2-ne"
+			ne = "2-ne" + LAZYACCESS(dir_mods, "[N_NORTH][N_EAST]")
 	else
 		if(adjacencies & N_NORTH)
-			ne = "2-n"
+			ne = "2-n" + LAZYACCESS(dir_mods, "[N_NORTH]")
 		else if(adjacencies & N_EAST)
-			ne = "2-e"
+			ne = "2-e" + LAZYACCESS(dir_mods, "[N_EAST]")
 
 	//SW CORNER
 	var/sw = "3-i"
 	if((adjacencies & N_SOUTH) && (adjacencies & N_WEST))
 		if(adjacencies & N_SOUTHWEST)
-			sw = "3-f"
+			sw = "3-f" + LAZYACCESS(dir_mods, "[N_SOUTH][N_WEST][N_SOUTHWEST]")
 		else
-			sw = "3-sw"
+			sw = "3-sw" + LAZYACCESS(dir_mods, "[N_SOUTH][N_WEST]")
 	else
 		if(adjacencies & N_SOUTH)
-			sw = "3-s"
+			sw = "3-s" + LAZYACCESS(dir_mods, "[N_SOUTH]")
 		else if(adjacencies & N_WEST)
-			sw = "3-w"
+			sw = "3-w" + LAZYACCESS(dir_mods, "[N_WEST]")
 
 	//SE CORNER
 	var/se = "4-i"
 	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST))
 		if(adjacencies & N_SOUTHEAST)
-			se = "4-f"
+			se = "4-f" + LAZYACCESS(dir_mods, "[N_SOUTH][N_EAST][N_SOUTHEAST]")
 		else
-			se = "4-se"
+			se = "4-se" + LAZYACCESS(dir_mods, "[N_SOUTH][N_EAST]")
 	else
 		if(adjacencies & N_SOUTH)
-			se = "4-s"
+			se = "4-s" + LAZYACCESS(dir_mods, "[N_SOUTH]")
 		else if(adjacencies & N_EAST)
-			se = "4-e"
+			se = "4-e" + LAZYACCESS(dir_mods, "[N_EAST]")
 
 	var/list/New
 	var/list/Old
-	var/cut_f = A.smoothing_hints & SMOOTHHINT_CUT_F
+	var/cut_f = smoothing_hints & SMOOTHHINT_CUT_F
 
-	if(A.top_left_corner != nw)
-		if (A.top_left_corner)
-			LAZYADD(Old, A.top_left_corner)
-		A.top_left_corner = nw
+	if(top_left_corner != nw)
+		if (top_left_corner)
+			LAZYADD(Old, top_left_corner)
+		top_left_corner = nw
 		if (!cut_f || nw != "1-f")
 			LAZYADD(New, nw)
 
-	if(A.top_right_corner != ne)
-		if (A.top_right_corner)
-			LAZYADD(Old, A.top_right_corner)
-		A.top_right_corner = ne
+	if(top_right_corner != ne)
+		if (top_right_corner)
+			LAZYADD(Old, top_right_corner)
+		top_right_corner = ne
 		if (!cut_f || ne != "2-f")
 			LAZYADD(New, ne)
 
-	if(A.bottom_right_corner != sw)
-		if (A.bottom_right_corner)
-			LAZYADD(Old, A.bottom_right_corner)
-		A.bottom_right_corner = sw
+	if(bottom_right_corner != sw)
+		if (bottom_right_corner)
+			LAZYADD(Old, bottom_right_corner)
+		bottom_right_corner = sw
 		if (!cut_f || sw != "3-f")
 			LAZYADD(New, sw)
 
-	if(A.bottom_left_corner != se)
-		if (A.bottom_left_corner)
-			LAZYADD(Old, A.bottom_left_corner)
-		A.bottom_left_corner = se
+	if(bottom_left_corner != se)
+		if (bottom_left_corner)
+			LAZYADD(Old, bottom_left_corner)
+		bottom_left_corner = se
 		if (!cut_f || se != "4-f")
 			LAZYADD(New, se)
 
 	if(Old)
-		A.cut_overlay(Old)
+		cut_overlay(Old)
 
 	if(New)
-		A.add_overlay(New)
+		add_overlay(New)
 
-	if (A.icon_state && !(A.smooth & SMOOTH_NO_CLEAR_ICON))
-		A.icon_state = null
+	if (icon_state && !(smooth & SMOOTH_NO_CLEAR_ICON))
+		icon_state = null
 
 // A more stripped down version of the above, meant for using images to apply multiple smooth overlays
 //    at once.
@@ -502,8 +504,7 @@
 
 //SSicon_smooth
 /proc/queue_smooth_neighbors(atom/A)
-	for(var/V in orange(1,A))
-		var/atom/T = V
+	for(var/atom/T as anything in orange(1,A))
 		if(T.smooth)
 			queue_smooth(T)
 

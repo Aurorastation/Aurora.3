@@ -6,14 +6,18 @@
 
 /datum/language
 	var/name = "an unknown language"  // Fluff name of language if any.
+	var/short                         // a shortened name, for use when languages need to be identified
 	var/desc = "A language."          // Short description for 'Check Languages'.
 	var/list/speech_verb = list("says")          // 'says', 'hisses', 'farts'.)
 	var/list/ask_verb = list("asks")  // Used when sentence ends in a ?
 	var/list/exclaim_verb = list("exclaims") // Used when sentence ends in a !
 	var/list/shout_verb = list("shouts", "yells", "screams") //Used when a sentence ends in !!
-	var/list/whisper_verb = list("says quietly", "says softly", "whispers")  // Optional. When not specified speech_verb + quietly/softly is used instead.
+	var/list/whisper_verb = null  // Optional. When not specified speech_verb + quietly/softly is used instead.
 	var/list/signlang_verb = list("signs") // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
+	var/list/sing_verb = list("sings")
+	var/list/sign_adv_length = list(" briefly", " a short message", " a message", " a lengthy message", " a very lengthy message") // 5 messages changing depending on the length of the signed language. A space should be added before the sentence as shown
 	var/colour = "body"               // CSS style to use for strings in this language.
+	var/written_style                 // CSS style used when writing language down, can't be written if null
 	var/key = "x"                     // Character used to speak in language eg. :o for Unathi.
 	var/flags = 0                     // Various language flags.
 	var/native                        // If set, non-native speakers will have trouble speaking.
@@ -23,6 +27,7 @@
 	var/machine_understands = TRUE	// Whether machines can parse and understand this language
 	var/allow_accents = FALSE
 	var/always_parse_language = FALSE // forces the language to parse for language keys even when a default is set
+	var/list/scramble_cache = list()  // A map of unscrambled words -> scrambled words, for scrambling.
 
 /datum/language/proc/get_random_name(var/gender, name_count=2, syllable_count=4, syllable_divisor=2)
 	if(!syllables || !syllables.len)
@@ -42,15 +47,14 @@
 
 	return "[trim(full_name)]"
 
-/datum/language
-	var/list/scramble_cache = list()
-
 /datum/language/proc/scramble(var/input, var/list/known_languages)
 
 	var/understand_chance = 0
 	for(var/datum/language/L in known_languages)
 		if(LAZYACCESS(partial_understanding, L.name))
 			understand_chance += partial_understanding[L.name]
+
+	var/static/list/music_notes = list("\u2669", "\u266A", "\u266B")
 
 	var/list/words = splittext(input, " ")
 	var/list/scrambled_text = list()
@@ -59,7 +63,7 @@
 		var/nword = "[w] "
 		var/input_ending = copytext(w, length(w))
 		var/ends_sentence = findtext(".?!",input_ending)
-		if(!prob(understand_chance))
+		if(!prob(understand_chance) && !(w in music_notes))
 			nword = scramble_word(w)
 			if(new_sentence)
 				nword = capitalize(nword)
@@ -152,8 +156,12 @@
 /datum/language/proc/check_special_condition(var/mob/other)
 	return 1
 
-/datum/language/proc/get_spoken_verb(var/msg_end, var/pre_end)
+/datum/language/proc/get_spoken_verb(var/msg_end, var/pre_end, var/singing = FALSE, var/whisper = FALSE)
 	var/chosen_verb = speech_verb
+	if(singing)
+		return pick(sing_verb)
+	if(whisper)
+		return pick(whisper_verb)
 	switch(msg_end)
 		if("!")
 			if(pre_end == "!" || pre_end == "?")
@@ -169,10 +177,16 @@
 			chosen_verb = speech_verb
 	return pick(chosen_verb)
 
+/datum/language/proc/handle_message_mode(var/message_mode)
+	return list(src, message_mode)
+
 // Language handling.
 /mob/proc/add_language(var/language)
-
-	var/datum/language/new_language = all_languages[language]
+	var/datum/language/new_language
+	if(istype(language, /datum/language))
+		new_language = language
+	else
+		new_language = all_languages[language]
 
 	if (!istype(new_language) || !new_language)
 		CRASH("ERROR: Language [language] not found in list of all languages. The language you're looking for may have been moved, renamed, or removed. Please recheck the spelling of the name.")
@@ -221,6 +235,8 @@
 	for(var/datum/language/L in languages)
 		if(!(L.flags & NONGLOBAL))
 			dat += "<b>[L.name] ([get_language_prefix()][L.key])</b><br/>[L.desc]<br/><br/>"
+			if(L.written_style)
+				dat += "You can write in this language on papers by writing \[lang=[L.key]\]YourTextHere\[/lang\].<br/><br/>"
 
 	src << browse(dat, "window=checklanguage")
 	return
@@ -237,6 +253,8 @@
 				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - default - <a href='byond://?src=\ref[src];default_lang=reset'>reset</a><br/>[L.desc]<br/><br/>"
 			else
 				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - <a href='byond://?src=\ref[src];default_lang=\ref[L]'>set default</a><br/>[L.desc]<br/><br/>"
+			if(L.written_style)
+				dat += "You can write in this language on papers by writing \[lang=[L.key]\]YourTextHere\[/lang\].<br/><br/>"
 
 	src << browse(dat, "window=checklanguage")
 

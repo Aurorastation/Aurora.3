@@ -50,6 +50,7 @@
 			H.LoseTarget()
 			H.attack_same = 0
 			H.friends += user
+			H.hostile_nameable = TRUE
 
 	L.desc += "<br><span class='notice'>It looks especially docile.</span>"
 	var/name = input(user, "Would you like to rename \the [L]?", "Dociler", L.name) as text

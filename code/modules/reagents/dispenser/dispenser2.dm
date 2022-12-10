@@ -5,6 +5,8 @@
 	var/icon_state_active = "dispenser_active"
 	clicksound = /decl/sound_category/button_sound
 
+	obj_flags = OBJ_FLAG_ROTATABLE
+
 	var/list/spawn_cartridges = null // Set to a list of types to spawn one of each on New()
 
 	var/list/cartridges = list() // Associative, label -> cartridge
@@ -14,8 +16,9 @@
 
 	var/accept_drinking = 0
 	var/amount = 30
+	var/list/forbidden_containers = list(/obj/item/reagent_containers/glass/bucket) //For containers we don't want people to shove into the chem machine. Like big-ass buckets.
+	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment) //Allow these cans/glasses/condiment bottles but forbid ACTUAL food.
 
-	use_power = 1
 	idle_power_usage = 100
 	density = 1
 	anchored = 1
@@ -68,9 +71,8 @@
 
 /obj/machinery/chemical_dispenser/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
-		playsound(src.loc, W.usesound, 50, 1)
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "un" : ""]fasten [src]."))
-		if (do_after(user, 20))
+		if(W.use_tool(src, user, 20, volume = 50))
 			user.visible_message(
 				SPAN_NOTICE("[user] [anchored ? "un" : ""]fastens [src]."),
 				SPAN_NOTICE("You have [anchored ? "un" : ""]fastened [src]."),
@@ -90,14 +92,18 @@
 			to_chat(user, SPAN_NOTICE("You remove [C] from [src]."))
 			C.forceMove(loc)
 
-	else if(istype(W, /obj/item/reagent_containers/glass) || istype(W, /obj/item/reagent_containers/food))
+	else if(istype(W, /obj/item/reagent_containers/glass) || is_type_in_list(W, drink_accepted))
 		if(container)
 			to_chat(user, SPAN_WARNING("There is already \a [container] on [src]!"))
 			return
 
 		var/obj/item/reagent_containers/RC = W
 
-		if(!accept_drinking && istype(RC,/obj/item/reagent_containers/food))
+		if(is_type_in_list(RC, forbidden_containers))
+			to_chat(user, SPAN_WARNING("There's no way to fit [RC] into \the [src]!"))
+			return
+
+		if(!accept_drinking && is_type_in_list(RC, drink_accepted))
 			to_chat(user, SPAN_WARNING("This machine only accepts beakers!"))
 			return
 

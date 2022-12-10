@@ -5,12 +5,13 @@
 	name_plural = "Shells"
 	bodytype = BODYTYPE_HUMAN
 	default_genders = list(MALE, FEMALE)
+	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
 
 	burn_mod = 1.2
 	grab_mod = 1
 
 	blurb = "IPCs with humanlike properties. Their focus is on service, civilian, and medical, but there are no \
-	job restrictions. Created in the late days of 2457, the Shell is a controversial IPC model equipped with a synthskin weave applied over its metal chassis \
+	job restrictions. Created in the late days of 2450, the Shell is a controversial IPC model equipped with a synthskin weave applied over its metal chassis \
 	to create an uncannily close approximation of the organic form. Early models of Shell had the advantage of being able to compose themselves of a wide \
 	 variety of organic parts, but contemporary models have been restricted to a single species for the sake of prosthetic integrity. The additional weight of \
 	 the synthskin on the original Hephaestus frame reduces the efficacy of the unit's already strained coolant systems, and increases charge consumption."
@@ -19,6 +20,7 @@
 
 	icobase = 'icons/mob/human_races/human/r_human.dmi'
 	deform = 'icons/mob/human_races/ipc/robotic.dmi'
+	preview_icon = 'icons/mob/human_races/ipc/shell_preview.dmi'
 
 	light_range = 0
 	light_power = 0
@@ -31,8 +33,6 @@
 
 	eyes = "eyes_s"
 	show_ssd = "completely quiescent"
-
-	max_nutrition_factor = 0.8
 
 	heat_level_1 = 500
 	heat_level_2 = 1000
@@ -64,7 +64,7 @@
 	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")
 
 	sprint_temperature_factor = 1.3
-	sprint_charge_factor = 0.85
+	move_charge_factor = 0.85
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
@@ -73,8 +73,13 @@
 
 	bodyfall_sound = /decl/sound_category/bodyfall_sound
 
-	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
-							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
+/datum/species/machine/shell/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
+	if(reference)
+		return src
+	// it's illegal for shells in Tau Ceti space to not have tags, so their records would have to be falsified
+	if(records && !H.internal_organs_by_name[BP_IPCTAG])
+		return "Human"
+	return name
 
 /datum/species/machine/shell/get_light_color()
 	return
@@ -105,7 +110,6 @@
 		/datum/unarmed_attack/bite/strong)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/leap,
 		/mob/living/carbon/human/proc/self_diagnostics
 		)
 
@@ -120,7 +124,7 @@
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
 	mob_size = 12
 
-	unarmed_types = list(/datum/unarmed_attack/industrial)
+	unarmed_types = list(/datum/unarmed_attack/industrial, /datum/unarmed_attack/palm/industrial)
 
 	brute_mod = 0.8
 	burn_mod = 1.1
@@ -156,18 +160,19 @@
 	flags = IS_IPC | ACCEPTS_COOLER
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
+	maneuvers = list(
+		/decl/maneuver/leap/industrial
+	)
+
 	heat_level_1 = 800
 	heat_level_2 = 1600
 	heat_level_3 = 3200
 
 	heat_discomfort_level = 700
 
-	max_nutrition_factor = 1.25
-	nutrition_loss_factor = 2
-
 	sprint_speed_factor = 1.4
 	sprint_temperature_factor = 0.9
-	sprint_charge_factor = 1.1
+	move_charge_factor = 1.1
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
@@ -244,10 +249,10 @@
 
 	has_organ = list(
 		BP_BRAIN = /obj/item/organ/internal/mmi_holder/posibrain/terminator,
-		"shielded cell" = /obj/item/organ/internal/cell/terminator,
+		BP_CELL = /obj/item/organ/internal/cell/terminator,
 		BP_EYES = /obj/item/organ/internal/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/internal/data,
-		"surge"   = /obj/item/organ/internal/surge/advanced
+		"surge" = /obj/item/organ/internal/surge/advanced
 	)
 
 	has_limbs = list(
@@ -271,10 +276,11 @@
 		)
 	stamina	= -1
 	sprint_speed_factor = 1.25
+	sprint_cost_factor = 1
 	slowdown = 1
 
 	sprint_temperature_factor = 0.6
-	sprint_charge_factor = 0.3
+	move_charge_factor = 0.3
 
 /datum/species/machine/terminator/get_light_color()
 	return
@@ -299,7 +305,7 @@
 
 	eyes = "heph_eyes"
 
-	unarmed_types = list(/datum/unarmed_attack/industrial/heavy)
+	unarmed_types = list(/datum/unarmed_attack/industrial/heavy, /datum/unarmed_attack/palm/industrial)
 
 	slowdown = 6
 	brute_mod = 0.7
@@ -335,6 +341,7 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/hephaestus)
 	)
 
+
 /datum/species/machine/industrial/hephaestus/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
@@ -349,15 +356,21 @@
 	preview_icon = 'icons/mob/human_races/ipc/ind_xion_preview.dmi'
 
 	unarmed_types = list(
-		/datum/unarmed_attack/industrial/xion)
+		/datum/unarmed_attack/industrial/xion,
+		/datum/unarmed_attack/palm/industrial
+	)
 
 	brute_mod = 0.9
 	grab_mod = 0.9
 	resist_mod = 8
-
-	heat_level_1 = 700
-	heat_level_2 = 1400
-	heat_level_3 = 2800
+	
+	cold_level_1 = -1 //RaceDefault 50 Default -1
+	cold_level_2 = -1 //RaceDefault -1 Default -1
+	cold_level_3 = -1  //RaceDefault -1 Default -1
+	
+	heat_level_1 = 700  //RaceDefault 600 Default 700
+	heat_level_2 = 1400  //RaceDefault 1200 Default 1400
+	heat_level_3 = 2800  //RaceDefault 2400 Default 2800
 
 	heat_discomfort_level = 600
 	slowdown = 3
@@ -412,12 +425,15 @@
 
 	eyes = "zenghu_eyes"
 	brute_mod = 1.5
-	sprint_speed_factor = 1.5
+
+	slowdown = -0.8
+	sprint_speed_factor = 0.6
+	sprint_cost_factor = 2
+	move_charge_factor = 2
+	standing_jump_range = 3
 
 	grab_mod = 1.1 // Smooth, fast
 	resist_mod = 4 // Not super strong, but still rather strong
-
-	slowdown = -1.2
 
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
@@ -443,6 +459,9 @@
 		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
+	maneuvers = list(
+		/decl/maneuver/leap/zenghu
+	)
 
 
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
@@ -460,8 +479,6 @@
 
 	eyes = "bishop_eyes"
 	eyes_icon_blend = ICON_MULTIPLY
-	sprint_charge_factor = 0.25
-	max_nutrition_factor = 1.75
 
 	brute_mod = 1.2
 	grab_mod = 1.1
@@ -492,10 +509,6 @@
 		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
-
-
-	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
-							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
 
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))

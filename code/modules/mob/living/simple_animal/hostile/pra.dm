@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/republicon
 	name = "republican defensive robot"
 	desc = "An outdated defense drone commonly used by People's Republic of Adhomai Orbital Fleet."
-	desc_fluff = "Most heavy and medium Republican ships carry a detachment of very outdated combat robots brought from Solarian military surplus, they are usually armed with \
+	desc_extended = "Most heavy and medium Republican ships carry a detachment of very outdated combat robots brought from Solarian military surplus, they are usually armed with \
 	blades,	ballistic rifles or rockets. Those machines are usually deployed in rare cases of boarding operations. They possess a rudimentary artificial intelligence and targeting system, \
 	being only capable of perfoming simple tasks outside of attacking. The People's Republic is unable to manufacture this kind of synthetics, but their fleet technicians can \
 	easily repair and reprogram them."
@@ -9,7 +9,7 @@
 	icon_state = "republicon"
 	icon_living = "republicon"
 	icon_dead = "republicon_dead"
-	blood_type = "#000000"
+	blood_type = COLOR_OIL
 	speak_chance = 5
 	turns_per_move = 3
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
@@ -30,7 +30,6 @@
 	universal_speak = TRUE
 	universal_understand = TRUE
 
-	harm_intent_damage = 5
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	mob_size = 5
@@ -63,7 +62,7 @@
 /mob/living/simple_animal/hostile/republicon/Initialize()
 	. = ..()
 	add_language(LANGUAGE_SIIK_MAAS)
-	set_default_language(LANGUAGE_SIIK_MAAS)
+	set_default_language(all_languages[LANGUAGE_SIIK_MAAS])
 
 /mob/living/simple_animal/hostile/republicon/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)

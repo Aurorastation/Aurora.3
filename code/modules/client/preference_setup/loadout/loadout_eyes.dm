@@ -17,14 +17,15 @@
 
 /datum/gear/eyes/glasses/New()
 	..()
-	var/glasses = list()
+	var/list/glasses = list()
 	glasses["glasses, regular"] = /obj/item/clothing/glasses/regular
 	glasses["glasses, hipster"] = /obj/item/clothing/glasses/regular/hipster
 	glasses["glasses, circle"] = /obj/item/clothing/glasses/regular/circle
 	glasses["glasses, jamjar"] = /obj/item/clothing/glasses/regular/jamjar
 	glasses["glasses, monocle"] = /obj/item/clothing/glasses/monocle
 	glasses["glasses, safety"] = /obj/item/clothing/glasses/safety
-	gear_tweaks += new/datum/gear_tweak/path(glasses)
+	glasses["glasses, safety (prescription)"] = /obj/item/clothing/glasses/safety/prescription
+	gear_tweaks += new /datum/gear_tweak/path(glasses)
 
 /datum/gear/eyes/fakesunglasses
 	display_name = "sunglasses selection"
@@ -33,27 +34,29 @@
 
 /datum/gear/eyes/fakesunglasses/New()
 	..()
-	var/glasses = list()
+	var/list/glasses = list()
 	glasses["sunglasses, regular"] = /obj/item/clothing/glasses/fakesunglasses
 	glasses["sunglasses, aviator"] = /obj/item/clothing/glasses/fakesunglasses/aviator
 	glasses["sunglasses, prescription"] = /obj/item/clothing/glasses/fakesunglasses/prescription
 	glasses["sunglasses, fat"] = /obj/item/clothing/glasses/fakesunglasses/big
-	gear_tweaks += new/datum/gear_tweak/path(glasses)
+	glasses["sunglasses, visor"] = /obj/item/clothing/glasses/fakesunglasses/visor
+	gear_tweaks += new /datum/gear_tweak/path(glasses)
 
 /datum/gear/eyes/sunglasses
 	display_name = "flash-proof sunglasses selection (Security/Command)"
 	description = "A selection of flash-proof sunglasses."
 	path = /obj/item/clothing/glasses/sunglasses
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Captain", "Head of Personnel", "Quartermaster", "Internal Affairs Agent", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Captain", "Executive Officer", "Operations Manager", "Investigator", "Bridge Crew")
 
 /datum/gear/eyes/sunglasses/New()
 	..()
-	var/glasses = list()
+	var/list/glasses = list()
 	glasses["flash-proof sunglasses, regular"] = /obj/item/clothing/glasses/sunglasses
 	glasses["flash-proof sunglasses, aviator"] = /obj/item/clothing/glasses/sunglasses/aviator
 	glasses["flash-proof sunglasses, prescription"] = /obj/item/clothing/glasses/sunglasses/prescription
 	glasses["flash-proof sunglasses, fat"] = /obj/item/clothing/glasses/sunglasses/big
-	gear_tweaks += new/datum/gear_tweak/path(glasses)
+	glasses["flash-proof sunglasses, visor"] = /obj/item/clothing/glasses/sunglasses/visor
+	gear_tweaks += new /datum/gear_tweak/path(glasses)
 
 /datum/gear/eyes/goggles
 	display_name = "goggles selection"
@@ -62,12 +65,13 @@
 
 /datum/gear/eyes/goggles/New()
 	..()
-	var/goggles = list()
+	var/list/goggles = list()
 	goggles["goggles, safety"] = /obj/item/clothing/glasses/safety/goggles
+	goggles["goggles, safety (prescription)"] = /obj/item/clothing/glasses/safety/goggles/prescription
 	goggles["goggles, scanning"] = /obj/item/clothing/glasses/regular/scanners
 	goggles["goggles, science"] = /obj/item/clothing/glasses/science
 	goggles["goggles, orange"] = /obj/item/clothing/glasses/spiffygogs
-	gear_tweaks += new/datum/gear_tweak/path(goggles)
+	gear_tweaks += new /datum/gear_tweak/path(goggles)
 
 /datum/gear/eyes/medhuds
 	display_name = "medical HUD selection"
@@ -77,25 +81,31 @@
 
 /datum/gear/eyes/medhuds/New()
 	..()
-	var/medhud = list()
+	var/list/medhud = list()
 	medhud["aviators, medical"] = /obj/item/clothing/glasses/hud/health/aviator
 	medhud["HUD, medical"] = /obj/item/clothing/glasses/hud/health
 	medhud["HUDpatch, medical"] = /obj/item/clothing/glasses/eyepatch/hud/medical
-	gear_tweaks += new/datum/gear_tweak/path(medhud)
+	medhud["prescription HUD, medical"] = /obj/item/clothing/glasses/hud/health/prescription
+	medhud["visor sunglasses, medical"] = /obj/item/clothing/glasses/hud/health/aviator/visor
+	gear_tweaks += new /datum/gear_tweak/path(medhud)
 
 /datum/gear/eyes/sechuds
 	display_name = "security HUD selection"
 	description = "A selection of security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/aviator
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
 
 /datum/gear/eyes/sechuds/New()
 	..()
-	var/sechud = list()
+	var/list/sechud = list()
+	sechud["sunglasses, security"] = /obj/item/clothing/glasses/sunglasses/sechud
+	sechud["fat sunglasses, security"] = /obj/item/clothing/glasses/sunglasses/sechud/big
 	sechud["aviators, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	sechud["HUD, security"] = /obj/item/clothing/glasses/hud/security
 	sechud["HUDpatch, security"] = /obj/item/clothing/glasses/eyepatch/hud/security
-	gear_tweaks += new/datum/gear_tweak/path(sechud)
+	sechud["prescription HUD, security"] = /obj/item/clothing/glasses/hud/security/prescription
+	sechud["visor sunglasses, security"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
+	gear_tweaks += new /datum/gear_tweak/path(sechud)
 
 /datum/gear/eyes/hudpatch
 	display_name = "iPatch"
@@ -118,8 +128,7 @@
 
 /datum/gear/eyes/blindfolds/New()
 	..()
-	var/blindfold = list()
-	blindfold["blindfold, black"] = /obj/item/clothing/glasses/sunglasses/blindfold
-	blindfold["blindfold, white"] = /obj/item/clothing/glasses/sunglasses/blindfold/white
-	blindfold["blindfold, transparent white"] = /obj/item/clothing/glasses/sunglasses/blindfold/white/seethrough
-	gear_tweaks += new/datum/gear_tweak/path(blindfold)
+	var/list/blindfold = list()
+	blindfold["blindfold"] = /obj/item/clothing/glasses/sunglasses/blindfold/white
+	blindfold["blindfold, transparent"] = /obj/item/clothing/glasses/sunglasses/blindfold/white/seethrough
+	gear_tweaks += new /datum/gear_tweak/path(blindfold)

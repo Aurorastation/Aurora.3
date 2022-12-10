@@ -28,7 +28,7 @@
 			M.flash_eyes()
 		else if(affected_limb && M == A)
 			M.confused = rand(2, 7)
-			flick("flash", M.flash)
+			M.flash_eyes()
 
 	//snap pop
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
@@ -50,7 +50,6 @@
 	icon_state = "spark"
 	damage = 2 //Flavor.
 	damage_type = BURN
-	taser_effect = 1
 	agony = 40
 	eyeblur = 1
 	//Damage will be handled on the MOB side, to prevent window shattering.
@@ -58,7 +57,6 @@
 /obj/item/projectile/energy/electrode/stunshot
 	name = "stunshot"
 	damage = 5
-	taser_effect = 1
 	agony = 80
 
 /obj/item/projectile/energy/declone
@@ -78,13 +76,15 @@
 /obj/item/projectile/energy/bolt
 	name = "bolt"
 	icon_state = "cbbolt"
-	damage_type = PAIN
+	damage = 1
+	damage_type = BURN
 	agony = 45
 	stutter = 10
 
 /obj/item/projectile/energy/bolt/large
 	name = "largebolt"
-	damage_type = PAIN
+	damage = 2
+	damage_type = BURN
 	agony = 60
 
 /obj/item/projectile/energy/neurotoxin
@@ -106,7 +106,7 @@
 	check_armor = "bomb"
 	damage = 60
 	damage_type = BRUTE
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	range = 100
 	embed = 0
 	speed = 8
@@ -148,7 +148,7 @@
 	icon_state = "bluespace"
 	damage = 0
 	damage_type = BRUTE
-	pass_flags = PASSTABLE | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
 	range = 10
 	embed = 0
 	speed = 2
@@ -169,58 +169,48 @@
 /obj/item/projectile/energy/gravitydisabler/proc/turnongravity(var/area/A)
 	A.gravitychange(TRUE)
 
-/obj/item/projectile/energy/bee
-	name = "bees"
-	icon = 'icons/obj/apiary_bees_etc.dmi'
-	icon_state = "beegun"
-	check_armor = "bio"
-	damage = 5
-	damage_type = BRUTE
-	pass_flags = PASSTABLE | PASSGRILLE
-	embed = 0
-	weaken = 0
-
-/obj/item/projectile/energy/bee/on_impact(var/atom/A)
-	playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 70, 1)
-	var/turf/T = get_turf(A)
-	if(!istype(T, /turf/simulated/wall) && !istype(A, /obj/structure/window) && !istype(A, /obj/machinery/door))
-		for(var/i=1, i<=8, i++)
-			var/atom/movable/x = new /mob/living/simple_animal/bee/beegun //hackmaster pro, butt fuck it
-			x.forceMove(T)
-	else
-		src.visible_message("<span class='danger'>[src] splat sickly against [T]!</span>")
-	..()
-
 /obj/item/projectile/energy/blaster
 	name = "blaster bolt"
 	icon_state = "heavybolt"
 	damage = 30
 	check_armor = "laser"
 	damage_type = BURN
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	damage_flags = DAM_LASER
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 	hit_effect = /obj/effect/temp_visual/blaster_effect
 
 /obj/item/projectile/energy/blaster/disruptor
 	damage = 20
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
+
+/obj/item/projectile/energy/blaster/disruptor/practice
+	damage = 5
+	damage_type = PAIN
+	eyeblur = 0
 
 /obj/item/projectile/energy/disruptorstun
 	name = "disruptor bolt"
 	icon_state = "blue_laser"
-	agony = 30
+	damage = 1
+	agony = 40
 	speed = 0.4
-	damage_type = PAIN // Can't blow your own head off with a stunbolt.
-	taser_effect = TRUE
+	damage_type = BURN
 	eyeblur = TRUE
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 
+/obj/item/projectile/energy/disruptorstun/practice
+	damage = 5
+	damage_type = PAIN
+	eyeblur = 0
 
 /obj/item/projectile/energy/blaster/heavy
 	damage = 35
+	armor_penetration = 10
 
 /obj/item/projectile/energy/blaster/incendiary
 	icon_state = "laser"
-	damage = 15
-	incinerate = 2
+	damage = 30
+	armor_penetration = 10
+	incinerate = 4

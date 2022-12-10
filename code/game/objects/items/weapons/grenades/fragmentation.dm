@@ -29,7 +29,8 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 
 //Fragmentation grenade projectile
 /obj/item/projectile/bullet/pellet/fragment
-	damage = 10
+	damage = 20
+	armor_penetration = 35
 	range_step = 2
 
 	base_spread = 0 //causes it to be treated as a shrapnel explosion instead of cone

@@ -16,32 +16,6 @@
 	message_admins("[key_name_admin(usr)] made [key_name_admin(M)] drop everything!", 1)
 	feedback_add_details("admin_verb","DEVR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cmd_admin_prison(mob/M as mob in mob_list)
-	set category = "Admin"
-	set name = "Prison"
-	if(!holder)
-		to_chat(src, "Only administrators may use this command.")
-		return
-	if (ismob(M))
-		if(istype(M, /mob/living/silicon/ai))
-			alert("The AI can't be sent to prison you jerk!", null, null, null, null, null)
-			return
-		//strip their stuff before they teleport into a cell :downs:
-		for(var/obj/item/W in M)
-			M.drop_from_inventory(W)
-		//teleport person to cell
-		M.Paralyse(5)
-		sleep(5)	//so they black out before warping
-		M.forceMove(pick(prisonwarp))
-		if(istype(M, /mob/living/carbon/human))
-			var/mob/living/carbon/human/prisoner = M
-			prisoner.equip_to_slot_or_del(new /obj/item/clothing/under/color/orange(prisoner), slot_w_uniform)
-			prisoner.equip_to_slot_or_del(new /obj/item/clothing/shoes/orange(prisoner), slot_shoes)
-		spawn(50)
-			to_chat(M, "<span class='danger'>You have been sent to the prison station!</span>")
-		log_admin("[key_name(usr)] sent [key_name(M)] to the prison station.",admin_key=key_name(usr),ckey=key_name(M))
-		message_admins("<span class='notice'>[key_name_admin(usr)] sent [key_name_admin(M)] to the prison station.</span>", 1)
-		feedback_add_details("admin_verb","PRISON") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_subtle_message(mob/M as mob in mob_list)
 	set category = "Special Verbs"
@@ -247,7 +221,7 @@ proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 
 	var/show_log = alert(src, "Show ion message?", "Message", "Yes", "No")
 	if(show_log == "Yes")
-		command_announcement.Announce("Ion storm detected near the station. Please check all AI-controlled equipment for errors.", "Anomaly Alert", new_sound = 'sound/AI/ionstorm.ogg')
+		command_announcement.Announce("Incoming ion storm detected near the ship. Please check all AI-controlled equipment for errors.", "Anomaly Alert", new_sound = 'sound/AI/ionstorm.ogg')
 
 	IonStorm(0)
 	feedback_add_details("admin_verb","ION") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -416,6 +390,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Special Verbs"
 	set name = "Respawn Character"
 	set desc = "Respawn a person that has been gibbed/dusted/killed. They must be a ghost for this to work and preferably should not have a body to go back into."
+
 	if(!holder)
 		to_chat(src, "Only administrators may use this command.")
 		return
@@ -546,7 +521,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	var/show_log = alert(src, "Show ion message?", "Message", "Yes", "No")
 	if(show_log == "Yes")
-		command_announcement.Announce("Ion storm detected near the station. Please check all AI-controlled equipment for errors.", "Anomaly Alert", new_sound = 'sound/AI/ionstorm.ogg')
+		command_announcement.Announce("Incoming ion storm detected near the ship. Please check all AI-controlled equipment for errors.", "Anomaly Alert", new_sound = 'sound/AI/ionstorm.ogg')
 	feedback_add_details("admin_verb","IONC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_rejuvenate(mob/living/M as mob in mob_list)
@@ -585,8 +560,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 	switch(reporttype)
 		if("Template")
-			establish_db_connection(dbcon)
-			if (!dbcon.IsConnected())
+			if (!establish_db_connection(dbcon))
 				to_chat(src, "<span class='notice'>Unable to connect to the database.</span>")
 				return
 			var/DBQuery/query = dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
@@ -768,6 +742,25 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		log_admin("[key_name(usr)] used gibself.",admin_key=key_name(usr))
 		message_admins("<span class='notice'>[key_name_admin(usr)] used gibself.</span>", 1)
 		feedback_add_details("admin_verb","GIBS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/cmd_admin_dust(mob/M as mob in mob_list)
+	set category = "Special Verbs"
+	set name = "Turn to dust"
+
+	if(!check_rights(R_ADMIN|R_FUN))
+		return
+
+	var/confirm = alert(src, "You sure?", "Confirm", "Yes", "No")
+	if(confirm != "Yes")
+		if(istype(mob, /mob/abstract/observer))
+			return
+		else
+			mob.dust()
+
+	log_admin("[key_name(usr)] has annihilated [key_name(M)]")
+	message_admins("[key_name_admin(usr)] has annihilated [key_name_admin(M)]")
+	feedback_add_details("admin_verb","DUST") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /*
 /client/proc/cmd_manual_ban()
 	set name = "Manual Ban"
@@ -888,67 +881,86 @@ Traitors and the like can also be revived with the previous role mostly intact.
 /client/proc/admin_call_shuttle()
 
 	set category = "Admin"
-	set name = "Call Shuttle"
+	set name = "Call Evacuation"
 
-	if ((!( ROUND_IS_STARTED ) || !emergency_shuttle.location()))
+	if ((!( ROUND_IS_STARTED ) || !evacuation_controller))
 		return
 
-	if(!check_rights(R_ADMIN))	return
+	if(!check_rights(R_ADMIN))
+		return
 
-	var/confirm = alert(src, "You sure?", "Confirm", "Yes", "No")
-	if(confirm != "Yes") return
+	if(alert(src, "Are you sure?", "Confirm", "Yes", "No") != "Yes")
+		return
 
-	var/choice
+	if(current_map.shuttle_call_restarts)
+		if(current_map.shuttle_call_restart_timer)
+			to_chat(usr, SPAN_WARNING("The shuttle round restart timer is already active!"))
+			return
+		feedback_add_details("admin_verb","CSHUT")
+		current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, .proc/reboot_world), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
+		log_game("[key_name(usr)] has admin-called the 'shuttle' round restart.")
+		message_admins("[key_name_admin(usr)] has admin-called the 'shuttle' round restart.", 1)
+		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_called_message)))
+		return
+
 	if(SSticker.mode.auto_recall_shuttle)
-		choice = input("The shuttle will just return if you call it. Call anyway?") in list("Confirm", "Cancel")
-		if(choice == "Confirm")
-			emergency_shuttle.auto_recall = 1	//enable auto-recall
-		else
+		if(input("The evacuation will just be cancelled if you call it. Call anyway?") in list("Confirm", "Cancel") != "Confirm")
 			return
 
-	choice = input("Is this an emergency evacuation or a crew transfer?") in list("Emergency", "Crew Transfer")
-	if (choice == "Emergency")
-		emergency_shuttle.call_evac()
-	else
-		emergency_shuttle.call_transfer()
+	var/choice = input("Is this an emergency evacuation or a crew transfer?") in list("Emergency", "Crew Transfer")
+	evacuation_controller.call_evacuation(usr, (choice == "Emergency"))
 
 
 	feedback_add_details("admin_verb","CSHUT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(usr)] admin-called the emergency shuttle.",admin_key=key_name(usr))
-	message_admins("<span class='notice'>[key_name_admin(usr)] admin-called the emergency shuttle.</span>", 1)
+	log_admin("[key_name(usr)] admin-called an evacuation.",admin_key=key_name(usr))
+	message_admins("<span class='notice'>[key_name_admin(usr)] admin-called an evacuation</span>", 1)
 	return
 
 /client/proc/admin_cancel_shuttle()
 	set category = "Admin"
-	set name = "Cancel Shuttle"
+	set name = "Cancel Evacuation"
 
 	if(!check_rights(R_ADMIN))	return
 
 	if(alert(src, "You sure?", "Confirm", "Yes", "No") != "Yes") return
 
-	if(!ROUND_IS_STARTED || !emergency_shuttle.can_recall())
+	if(!ROUND_IS_STARTED || !evacuation_controller)
 		return
 
-	emergency_shuttle.recall()
+	if(current_map.shuttle_call_restarts)
+		if(!current_map.shuttle_call_restart_timer)
+			to_chat(usr, SPAN_WARNING("The restart timer for this map isn't active!"))
+			return
+		feedback_add_details("admin_verb","CCSHUT")
+		deltimer(current_map.shuttle_call_restart_timer)
+		current_map.shuttle_call_restart_timer = null
+		log_game("[key_name(usr)] has admin-stopped the 'shuttle' round restart.", key_name(usr))
+		message_admins("[key_name_admin(usr)] has admin-stopped the 'shuttle' round restart.", 1)
+		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_recall_message)))
+		return
+
+
+	evacuation_controller.cancel_evacuation()
 	feedback_add_details("admin_verb","CCSHUT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(usr)] admin-recalled the emergency shuttle.",admin_key=key_name(usr))
-	message_admins("<span class='notice'>[key_name_admin(usr)] admin-recalled the emergency shuttle.</span>", 1)
+	log_admin("[key_name(usr)] admin-cancelled the evacuation.",admin_key=key_name(usr))
+	message_admins("<span class='notice'>[key_name_admin(usr)] admin-cancelled the evacuation.</span>", 1)
 
 	return
 
 /client/proc/admin_deny_shuttle()
 	set category = "Admin"
-	set name = "Toggle Deny Shuttle"
+	set name = "Toggle Deny Evacuation"
 
 	if (!ROUND_IS_STARTED)
 		return
 
-	if(!check_rights(R_ADMIN))	return
+	if(!check_rights(R_ADMIN))
+		return
 
-	emergency_shuttle.deny_shuttle = !emergency_shuttle.deny_shuttle
+	evacuation_controller.deny = !evacuation_controller.deny
 
-	log_admin("[key_name(src)] has [emergency_shuttle.deny_shuttle ? "denied" : "allowed"] the shuttle to be called.",admin_key=key_name(usr))
-	message_admins("[key_name_admin(usr)] has [emergency_shuttle.deny_shuttle ? "denied" : "allowed"] the shuttle to be called.")
+	log_admin("[key_name(src)] has [evacuation_controller.deny ? "denied" : "allowed"] the evacuation to be called.",admin_key=key_name(usr))
+	message_admins("[key_name_admin(usr)] has [evacuation_controller.deny ? "denied" : "allowed"] the evacuation to be called.")
 
 /client/proc/cmd_admin_attack_log(mob/M as mob in mob_list)
 	set category = "Special Verbs"

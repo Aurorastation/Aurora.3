@@ -109,22 +109,10 @@ datum/unit_test/zas_area_test/supply_centcomm
 	name = "ZAS: Supply Shuttle (CentComm)"
 	area_path = /area/supply/dock
 
-datum/unit_test/zas_area_test/emergency_shuttle
-	name = "ZAS: Emergency Shuttle"
-	area_path = /area/shuttle/escape
-
 datum/unit_test/zas_area_test/ai_chamber
 	name = "ZAS: AI Chamber"
 	area_path = /area/turret_protected/ai
 	expectation = UT_NORMAL_COOL
-
-datum/unit_test/zas_area_test/arrival_maint
-	name = "ZAS: Arrival Maintenance"
-	area_path = /area/maintenance/arrivals
-
-datum/unit_test/zas_area_test/
-	name = "ZAS: Cargo Maintenance"
-	area_path = /area/maintenance/cargo
 
 datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"
@@ -138,10 +126,6 @@ datum/unit_test/zas_area_test/mining_area
 	disabled = 1
 	why_disabled = "Asteroid Generation disabled"
  */
-datum/unit_test/zas_area_test/
-	name = "ZAS: Cargo Bay"
-	area_path = /area/quartermaster/storage
-
 
 // ==================================================================================================
 
@@ -206,6 +190,58 @@ datum/unit_test/zas_area_test/
 			if(SUCCESS) pass(test["msg"])
 			else        fail(test["msg"])
 	return 1
+
+/datum/unit_test/zas_active_edges
+	name = "ZAS: Roundstart Active Edges"
+
+/datum/unit_test/zas_active_edges/start_test()
+	if(SSair.active_edges.len)
+		fail("[SSair.active_edges.len] edges active at round-start!")
+	else
+		pass("No active ZAS edges at round-start.")
+		return TRUE
+	for(var/connection_edge/E in SSair.active_edges)
+		var/connection_edge/unsimulated/U = E
+		if(istype(U))
+			var/turf/T = U.B
+			if(istype(T))
+				log_unit_test("[ascii_red]---- [U.A.name] and [T.name] ([T.x], [T.y], [T.z]) have mismatched gas mixtures![ascii_reset]")
+			else
+				log_unit_test("[ascii_red]----[U.A.name] and [U.B] have mismatched gas mixtures![ascii_reset]")
+
+			var/zone/A = U.A
+			var/offending_turfs = "Problem turfs: "
+			for(var/turf/simulated/S in A.contents)
+				if(S.oxygen || S.nitrogen)
+					offending_turfs += "[S] ([S.x], [S.y], [S.z]) "
+
+			log_unit_test("[ascii_red]-------- [offending_turfs][ascii_reset]")
+		else
+			var/connection_edge/zone/Z = E
+			var/zone/problem
+			if(!istype(Z))
+				return
+			log_unit_test("[ascii_red]---- [Z.A.name] and [Z.B.name] have mismatched gas mixtures![ascii_reset]")
+			if(Z.A.air.gas.len && Z.B.air.gas.len)
+				log_unit_test("[ascii_red]-------- Both zones have gas mixtures defined; either one is a normally vacuum zone exposed to a breach, or two differing gases are mixing at round-start.[ascii_reset]")
+				continue
+			else if(Z.A.air.gas.len)
+				problem = Z.A
+			else if(Z.B.air.gas.len)
+				problem = Z.B
+
+			if(!istype(problem))
+				continue
+
+			var/offending_turfs = "Problem turfs: "
+			for(var/turf/simulated/S in problem.contents)
+				if(S.oxygen || S.nitrogen)
+					offending_turfs += "[S] ([S.x], [S.y], [S.z]) "
+
+			log_unit_test("[ascii_red]-------- [offending_turfs][ascii_reset]")
+
+
+	return FALSE
 
 #undef UT_NORMAL
 #undef UT_VACUUM

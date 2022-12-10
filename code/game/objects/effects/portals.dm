@@ -44,7 +44,7 @@
 	if(istype(I, /obj/item/bluespace_neutralizer))
 		user.visible_message("<b>[user]</b> collapses \the [src] with \the [I].", SPAN_NOTICE("You collapse \the [src] with \the [I]."))
 		qdel(src)
-		return
+		return TRUE
 	return ..()
 
 /obj/effect/portal/attack_hand(mob/user)
@@ -53,21 +53,36 @@
 	if(does_teleport)
 		teleport(user)
 
-/obj/effect/portal/proc/teleport(atom/movable/M)
+/obj/effect/portal/proc/teleport(atom/movable/movable)
 	if(!does_teleport) // just to be safe
 		return
-	if(istype(M, /obj/effect)) //sparks don't teleport
+	if(istype(movable, /obj/effect)) //sparks don't teleport
 		return
 	if(!target)
 		qdel(src)
 		return
-	if(istype(M, /atom/movable))
+	var/has_teleported = FALSE
+	var/list/things_to_teleport = list(movable)
+	if(ismob(movable))
+		var/mob/M = movable
+		if(M.pulling)
+			things_to_teleport += M.pulling
+		if(ishuman(movable))
+			var/mob/living/carbon/human/H = movable
+			for(var/obj/item/grab/G in list(H.l_hand, H.r_hand))
+				things_to_teleport += G.affecting
+	for(var/atom/movable/M in things_to_teleport)
 		if(has_failed) //oh dear a problem, put em in deep space
 			icon_state = "portal1" // only tell people the portal failed after a teleport has been done
 			desc = "A bluespace tear in space, reaching directly to another point within this region. Definitely unstable."
-			do_teleport(M, locate(rand(5, world.maxx - 5), rand(5, world.maxy -5), 3), 0)
+			if(do_teleport(M, locate(rand(5, world.maxx - 5), rand(5, world.maxy -5), pick(GetConnectedZlevels(z))), 0))
+				has_teleported = TRUE
 		else
-			do_teleport(M, target, precision)
+			if(do_teleport(M, target, precision))
+				has_teleported = TRUE
+	if(!has_teleported)
+		visible_message(SPAN_WARNING("\The [src] oscillates violently as \the [movable] comes into contact with it, and collapses! Seems like the rift was unstable..."))
+		qdel(src)
 
 /obj/effect/portal/Destroy()
 	if(istype(creator, /obj/item/hand_tele))
@@ -151,6 +166,28 @@
 		/obj/item/stack/material/phoron = 3
 	)
 
+/obj/effect/portal/spawner/plasticglass
+	num_of_spawns = 3
+	spawn_things = list(
+		/obj/item/stack/material/plastic = 5,
+		/obj/item/stack/material/glass = 5
+	)
+
+/obj/effect/portal/spawner/wood
+	num_of_spawns = 3
+	spawn_things = list(
+		/obj/item/stack/material/wood = 5,
+		/obj/item/stack/material/cardboard = 5,
+		/obj/item/stack/material/cloth = 5
+	)
+
+/obj/effect/portal/spawner/hide
+	num_of_spawns = 3
+	spawn_things = list(
+		/obj/item/stack/material/animalhide = 5,
+		/obj/item/stack/material/leather = 5
+	)
+
 /obj/effect/portal/spawner/monkey_cube
 	num_of_spawns = 1
 	spawn_things = list(
@@ -186,7 +223,6 @@
 
 	var/last_color_level = 5
 	var/health_timer = 10 MINUTES // you need to reduce the health by standing near it with a neutralizer
-	var/datum/looping_sound/revenant_rift/soundloop
 
 /obj/effect/portal/revenant/Initialize(mapload)
 	. = ..()
@@ -195,8 +231,6 @@
 	var/turf/T = get_turf(src)
 	log_and_message_admins("Revenant Bluespace Rift spawned at \the [get_area(T)]", null, T)
 	revenants.revenant_rift = src
-	soundloop = new(list(src), FALSE)
-	soundloop.start()
 
 /obj/effect/portal/revenant/Destroy()
 	revenants.destroyed_rift()
@@ -209,13 +243,12 @@
 		O.throw_at_random(FALSE, 3, THROWNOBJ_KNOCKBACK_SPEED)
 	var/area/A = get_area(src)
 	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here has been destroyed in [A.name]!")))
-	QDEL_NULL(soundloop)
 	return ..()
 
 /obj/effect/portal/revenant/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/bluespace_neutralizer))
 		to_chat(user, SPAN_WARNING("You need to activate \the [I] and keep it near \the [src] to collapse it."))
-		return
+		return TRUE
 	return ..()
 
 /obj/effect/portal/revenant/proc/reduce_health(var/amount = 1)

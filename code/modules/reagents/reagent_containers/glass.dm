@@ -4,7 +4,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 /obj/item/reagent_containers/glass
 	name = " "
-	var/base_name = " "
 	desc = " "
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = null
@@ -23,30 +22,39 @@
 
 /obj/item/reagent_containers/glass/Initialize()
 	. = ..()
-	base_name = name
+	AddComponent(/datum/component/base_name, name)
 
 /obj/item/reagent_containers/glass/examine(var/mob/user)
 	if(!..(user, 2))
 		return
 	if(LAZYLEN(reagents.reagent_volumes))
-		to_chat(user, "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of liquid.</span>")
+		to_chat(user, SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of a reagent."))
 		for(var/_T in reagents.reagent_volumes)
 			var/decl/reagent/T = decls_repository.get_decl(_T)
-			if(T.reagent_state == SOLID)
-				to_chat(user, "<span class='notice'>You see something solid in the beaker.</span>")
+			if(T.reagent_state == LIQUID)
+				to_chat(user, SPAN_NOTICE("You see something liquid in the beaker."))
 				break // to stop multiple messages of this
+			if(T.reagent_state == GAS)
+				to_chat(user, SPAN_NOTICE("You see something gaseous in the beaker."))
+				break
+			if(T.reagent_state == SOLID)
+				to_chat(user, SPAN_NOTICE("You see something solid in the beaker."))
+				break 
 	else
-		to_chat(user, "<span class='notice'>It is empty.</span>")
+		to_chat(user, SPAN_NOTICE("It is empty."))
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>Airtight lid seals it completely.</span>")
+		to_chat(user, SPAN_NOTICE("An airtight lid seals it completely."))
 
 /obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
 	var/list/additional_evidence = ..()
 	var/list/Bdata = REAGENT_DATA(reagents, /decl/reagent/blood/)
+	var/list/blood_Data = list(
+		Bdata["blood_DNA"] = Bdata["blood_type"]
+	)
 	if(Bdata)
 		additional_evidence["type"] = EVIDENCE_TYPE_BLOOD
 		additional_evidence["sample_type"] = "blood"
-		additional_evidence["dna"] += Bdata["blood_DNA"]
+		additional_evidence["dna"] += blood_Data
 		additional_evidence["sample_message"] = "You dip the swab inside [src] to sample its contents."
 
 	return additional_evidence
@@ -76,10 +84,12 @@
 			to_chat(user, "<span class='notice'>You set the label to \"[tmp_label]\".</span>")
 			label_text = tmp_label
 			update_name_label()
+			update_icon()
 		return
 	. = ..() // in the case of nitroglycerin, explode BEFORE it shatters
 
-/obj/item/reagent_containers/glass/proc/update_name_label()
+/obj/item/reagent_containers/glass/proc/update_name_label(var/base_name = initial(name))
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
 	if(label_text == "")
 		name = base_name
 	else
@@ -90,11 +100,12 @@
 	desc = "A beaker."
 	icon = 'icons/obj/chemical.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
 		)
 	icon_state = "beaker"
 	item_state = "beaker"
+	filling_states = "20;40;60;80;100"
 	center_of_mass = list("x" = 15,"y" = 11)
 	matter = list(MATERIAL_GLASS = 500)
 	drop_sound = 'sound/items/drop/drinkglass.ogg'
@@ -106,7 +117,7 @@
 	desc += " Can hold up to [volume] units."
 
 /obj/item/reagent_containers/glass/beaker/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You drink from \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You drink from \the [src]."))
 
 /obj/item/reagent_containers/glass/beaker/on_reagent_change()
 	update_icon()
@@ -126,24 +137,20 @@
 /obj/item/reagent_containers/glass/beaker/update_icon()
 	cut_overlays()
 
-	if(reagents.total_volume)
-		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]10")
-
-		var/percent = round((reagents.total_volume / volume) * 100)
-		switch(percent)
-			if(0 to 9)		filling.icon_state = "[icon_state]-10"
-			if(10 to 24) 	filling.icon_state = "[icon_state]10"
-			if(25 to 49)	filling.icon_state = "[icon_state]25"
-			if(50 to 74)	filling.icon_state = "[icon_state]50"
-			if(75 to 79)	filling.icon_state = "[icon_state]75"
-			if(80 to 90)	filling.icon_state = "[icon_state]80"
-			if(91 to INFINITY)	filling.icon_state = "[icon_state]100"
-
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-	if (!is_open_container())
-		add_overlay("lid_[initial(icon_state)]")
+	if(!is_open_container())
+		var/lid_icon = "lid_[icon_state]"
+		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
+		add_overlay(lid)
+
+	if(label_text)
+		var/label_icon = "label_[icon_state]"
+		var/mutable_appearance/label = mutable_appearance(icon, label_icon)
+		add_overlay(label)
 
 /obj/item/reagent_containers/glass/beaker/large
 	name = "large beaker"
@@ -154,7 +161,6 @@
 	volume = 120
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120)
-	flags = OPENCONTAINER
 	fragile = 6 // a bit sturdier
 
 /obj/item/reagent_containers/glass/beaker/noreact
@@ -177,7 +183,6 @@
 	volume = 300
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120,300)
-	flags = OPENCONTAINER
 	fragile = 0
 
 /obj/item/reagent_containers/glass/beaker/vial
@@ -189,8 +194,22 @@
 	volume = 30
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25)
-	flags = OPENCONTAINER
 	fragile = 1 // very fragile
+
+/obj/item/reagent_containers/glass/beaker/medcup
+	name = "medicine cup"
+	desc = "A glass medicine cup. Like a shot glass for medicine."
+	icon_state = "medcup"
+	filling_states = "25;50;75;100"
+	center_of_mass = list("x" = 15,"y" = 9)
+	matter = list(MATERIAL_GLASS = 250)
+	volume = 15
+	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = null
+	fragile = 1
+
+/obj/item/reagent_containers/glass/beaker/medcup/attack_self() // No lid for the medcup
+	return
 
 /obj/item/reagent_containers/glass/beaker/cryoxadone/reagents_to_add = list(/decl/reagent/cryoxadone = 30)
 
@@ -211,8 +230,8 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 120
-	possible_transfer_amounts = list(10,20,30,60,120)
-	volume = 120
+	possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
+	volume = 300
 	flags = OPENCONTAINER
 	unacidable = 0
 	drop_sound = 'sound/items/drop/helm.ogg'

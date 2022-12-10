@@ -169,96 +169,6 @@
 	name = "Thunderdome (Observer.)"
 	icon_state = "purple"
 
-// Kataphract Station
-
-/area/kataphract_chapter
-	name = "Kataphract Chapter"
-	icon_state = "yellow"
-	requires_power = 1
-	dynamic_lighting = 1
-	no_light_control = 0
-	base_turf = /turf/space
-	flags = NO_CREW_EXPECTED
-
-/area/kataphract_chapter/bridge
-	name = "Kataphract Chapter - Bridge"
-	icon_state = "bridge"
-	ambience = AMBIENCE_HIGHSEC
-
-/area/kataphract_chapter/sparring_chamber
-	name = "Kataphract Chapter - Sparring Chamber"
-	icon_state = "security"
-	sound_env = ARENA
-
-/area/kataphract_chapter/commissary
-	name = "Kataphract Chapter - Commissary"
-	icon_state = "Warden"
-
-/area/kataphract_chapter/main_ring
-	name = "Kataphract Chapter - Main Ring"
-	icon_state = "yellow"
-
-/area/kataphract_chapter/dorms
-	name = "Kataphract Chapter - Dormitory"
-	icon_state = "Sleep"
-	sound_env = SMALL_SOFTFLOOR
-
-/area/kataphract_chapter/toilets
-	name = "Kataphract Chapter - Toilets"
-	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
-
-/area/kataphract_chapter/office
-	name = "Kataphract Chapter - Knight's Office"
-	icon_state = "law"
-	sound_env = SMALL_SOFTFLOOR
-
-/area/kataphract_chapter/cafeteria
-	name = "Kataphract Chapter - Cafeteria"
-	icon_state = "kitchen"
-
-/area/kataphract_chapter/engineering
-	name = "Kataphract Chapter - Engineering"
-	icon_state = "engineering_workshop"
-	ambience = AMBIENCE_ENGINEERING
-
-/area/kataphract_chapter/port_solars
-	name = "Kataphract Chapter - Port Solars"
-	icon_state = "panelsA"
-	ambience = AMBIENCE_SPACE
-
-/area/kataphract_chapter/starboard_solars
-	name = "Kataphract Chapter - Starboard Solars"
-	icon_state = "panelsA"
-	ambience = AMBIENCE_SPACE
-
-/area/kataphract_chapter/trading_area
-	name = "Kataphract Chapter - Trading Area"
-	icon_state = "quartoffice"
-
-/area/kataphract_chapter/warehouse
-	name = "Kataphract Chapter - Warehouse"
-	icon_state = "quartstorage"
-	sound_env = LARGE_ENCLOSED
-
-/area/kataphract_chapter/hangar
-	name = "Kataphract Chapter - Hangar"
-	icon_state = "green"
-	ambience = AMBIENCE_HANGAR
-	sound_env = HANGAR
-
-/area/kataphract_chapter/hull
-	name = "Kataphract Chapter - Hull"
-	icon_state = "blue"
-
-/area/beach
-	name = "Keelin's private beach"
-	icon_state = "yellow"
-	luminosity = 1
-	dynamic_lighting = 0
-	requires_power = 0
-	no_light_control = 1
-
 //Dungeons
 
 /area/dungeon/crashed_ship
@@ -298,16 +208,20 @@
 	no_light_control = 1
 
 /area/dungeon/skrell_ship
-    name = "Crashed Skrell Ship"
-    icon_state = "purple"
-    flags = RAD_SHIELDED | SPAWN_ROOF
+	name = "Crashed Skrell Ship"
+	icon_state = "purple"
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
-//Misc
+/area/dungeon/bluespace_outpost
+	name = "Bluespace Outpost"
+	icon_state = "purple"
+	flags = RAD_SHIELDED | SPAWN_ROOF
 
-/area/beach
-	name = "Keelin's private beach"
-	icon_state = "yellow"
-	luminosity = 1
-	dynamic_lighting = 0
+//Away ships, third party ships, etc. Mostly for the ships that are expected to move on the overmap and/or have ghost roles.
+/area/ship
+	name = "Ship"
+	icon_state = "ship"
 	requires_power = 0
+	sound_env = STANDARD_STATION
 	no_light_control = 1
+	flags = RAD_SHIELDED | SPAWN_ROOF

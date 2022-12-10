@@ -1,5 +1,19 @@
 
 // see code/datums/recipe.dm
+/decl/recipe/hotdog
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/sausage
+	)
+	result = /obj/item/reagent_containers/food/snacks/hotdog
+
+/decl/recipe/classichotdog
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/meat/corgi
+	)
+	result = /obj/item/reagent_containers/food/snacks/classichotdog
+
 /decl/recipe/humanburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/human,
@@ -48,20 +62,6 @@
 		/obj/item/reagent_containers/food/snacks/tofu
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/tofu
-
-/decl/recipe/hotdog
-	items = list(
-		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/sausage
-	)
-	result = /obj/item/reagent_containers/food/snacks/hotdog
-
-/decl/recipe/classichotdog
-	items = list(
-		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat/corgi
-	)
-	result = /obj/item/reagent_containers/food/snacks/classichotdog
 
 /decl/recipe/humankabob
 	items = list(
@@ -114,6 +114,25 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/sandwich
+
+/decl/recipe/bunbun
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/bun
+	)
+	result = /obj/item/reagent_containers/food/snacks/bunbun
+
+/decl/recipe/reubensandwich
+	reagents = list(/decl/reagent/nutriment/mayonnaise = 5, /decl/reagent/nutriment/ketchup = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/toast,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/sauerkraut,
+		/obj/item/reagent_containers/food/snacks/cutlet,
+		/obj/item/reagent_containers/food/snacks/toast
+	)
+	reagent_mix = RECIPE_REAGENT_MIN
+	result = /obj/item/reagent_containers/food/snacks/reubensandwich
 
 /decl/recipe/superbiteburger
 	fruit = list("tomato" = 1)
@@ -171,6 +190,14 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/jellysandwich/cherry
 
+/decl/recipe/pbjsandwich
+	reagents = list(/decl/reagent/nutriment/cherryjelly = 5, /decl/reagent/nutriment/peanutbutter = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/pbjsandwich
+
 /decl/recipe/tossedsalad
 	fruit = list("cabbage" = 2, "tomato" = 1, "carrot" = 1, "apple" = 1)
 	result = /obj/item/reagent_containers/food/snacks/salad/tossedsalad
@@ -191,7 +218,7 @@
 
 /*
 /decl/recipe/neuralbroke
-	items = list(/obj/item/organ/vaurca/neuralsocket)
+	items = list(/obj/item/organ/internal/vaurca/neuralsocket)
 	result = /obj/item/neuralbroke
 */
 
@@ -313,4 +340,11 @@
 		/obj/item/reagent_containers/food/snacks/spreads/lard
 	)
 	result = /obj/item/reagent_containers/food/snacks/lardwich
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/decl/recipe/sauerkraut
+	appliance = MIX
+	fruit = list("cabbage" = 1)
+	reagents = list(/decl/reagent/enzyme = 5)
+	result = /obj/item/reagent_containers/food/snacks/sauerkraut
 	reagent_mix = RECIPE_REAGENT_REPLACE

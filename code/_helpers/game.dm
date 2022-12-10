@@ -39,269 +39,14 @@
 
 	return 0 //not in range and not telekinetic
 
-// Like view but bypasses luminosity check
-
-/proc/hear(var/range, var/atom/source)
-
-	var/lum = source.luminosity
-	source.luminosity = 6
-
-	var/list/heard = view(range, source)
-	source.luminosity = lum
-
-	return heard
-
-/proc/circlerange(center=usr,radius=3)
-
-	var/turf/centerturf = get_turf(center)
-	var/list/turfs = new/list()
-	var/rsq = radius * (radius+0.5)
-
-	for(var/atom/T in range(radius, centerturf))
-		var/dx = T.x - centerturf.x
-		var/dy = T.y - centerturf.y
-		if(dx*dx + dy*dy <= rsq)
-			turfs += T
-
-	//turfs += centerturf
-	return turfs
-
-/proc/circleview(center=usr,radius=3)
-
-	var/turf/centerturf = get_turf(center)
-	var/list/atoms = new/list()
-	var/rsq = radius * (radius+0.5)
-
-	for(var/atom/A in view(radius, centerturf))
-		var/dx = A.x - centerturf.x
-		var/dy = A.y - centerturf.y
-		if(dx*dx + dy*dy <= rsq)
-			atoms += A
-
-	//turfs += centerturf
-	return atoms
-
-/proc/get_dist_euclidian(atom/Loc1 as turf|mob|obj,atom/Loc2 as turf|mob|obj)
-	var/dx = Loc1.x - Loc2.x
-	var/dy = Loc1.y - Loc2.y
-
-	var/dist = sqrt(dx**2 + dy**2)
-
-	return dist
-
-/proc/circlerangeturfs(center=usr,radius=3)
-	var/turf/centerturf = get_turf(center)
-	if(radius == 1)
-		return list(centerturf)
-	var/list/turfs = new/list()
-	var/rsq = radius * (radius+0.5)
-
-	for(var/turf/T in range(radius, centerturf))
-		var/dx = T.x - centerturf.x
-		var/dy = T.y - centerturf.y
-		if(dx*dx + dy*dy <= rsq)
-			turfs += T
-	return turfs
-
-/proc/circleviewturfs(center=usr,radius=3)		//Is there even a diffrence between this proc and circlerangeturfs()?
-
-	var/turf/centerturf = get_turf(center)
-	var/list/turfs = new/list()
-	var/rsq = radius * (radius+0.5)
-
-	for(var/turf/T in view(radius, centerturf))
-		var/dx = T.x - centerturf.x
-		var/dy = T.y - centerturf.y
-		if(dx*dx + dy*dy <= rsq)
-			turfs += T
-	return turfs
-
-// Will recursively loop through an atom's locs until it finds the atom loc above a turf
-/proc/recursive_loc_turf_check(var/atom/O, var/recursion_limit = 3)
-	if(recursion_limit <= 0 || isturf(O.loc))
+// Will recursively loop through an atom's locs until it finds the atom loc above a turf or its target_atom
+/proc/recursive_loc_turf_check(var/atom/O, var/recursion_limit = 3, var/atom/target_atom)
+	if(recursion_limit <= 0 || isturf(O.loc) || O == target_atom)
 		return O
 	else
 		O = O.loc
 		recursion_limit--
 		return recursive_loc_turf_check(O, recursion_limit)
-
-// Will recursively loop through an atom's contents and check for mobs, then it will loop through every atom in that atom's contents.
-// It will keep doing this until it checks every content possible. This will fix any problems with mobs, that are inside objects,
-// being unable to hear people due to being in a box within a bag.
-// Does not return list, as list is passed as reference.
-
-/proc/recursive_content_check(var/atom/O,  var/list/L = list(), var/recursion_limit = 3, var/client_check = 1, var/sight_check = 1, var/include_mobs = 1, var/include_objects = 1)
-
-	if(!recursion_limit)
-		return 
-
-	for(var/I in O.contents)
-
-		if(ismob(I))
-			if(!sight_check || isInSight(I, O))
-				recursive_content_check(I, L, recursion_limit - 1, client_check, sight_check, include_mobs, include_objects)
-				if(include_mobs)
-					if(client_check)
-						var/mob/M = I
-						if(M.client)
-							L += M
-					else
-						L += I
-
-		else if(isobj(I))
-			if(!sight_check || isInSight(I, O))
-				recursive_content_check(I, L, recursion_limit - 1, client_check, sight_check, include_mobs, include_objects)
-				if(include_objects)
-					L += I
-
-// Returns a list of mobs and/or objects in range of R from source. Used in radio and say code.
-
-/proc/get_mobs_or_objects_in_view(var/R, var/atom/source, var/include_mobs = 1, var/include_objects = 1)
-
-	var/turf/T = get_turf(source)
-	var/list/hear = list()
-
-	if(!T)
-		return hear
-
-	var/list/range = hear(R, T)
-
-	for(var/I in range)
-		if(ismob(I))
-			recursive_content_check(I, hear, 3, 1, 0, include_mobs, include_objects)
-			if(include_mobs)
-				var/mob/M = I
-				if(M.client)
-					hear += M
-		else if(istype(I, /obj/))
-			recursive_content_check(I, hear, 3, 1, 0, include_mobs, include_objects)
-			if(include_objects)
-				hear += I
-
-	return hear
-
-
-/proc/get_mobs_in_radio_ranges(var/list/obj/item/device/radio/radios)
-
-	set background = 1
-
-	. = list()
-	// Returns a list of mobs who can hear any of the radios given in @radios
-	var/list/speaker_coverage = list()
-	for(var/obj/item/device/radio/R in radios)
-		if(R)
-			//Cyborg checks. Receiving message uses a bit of cyborg's charge.
-			var/obj/item/device/radio/borg/BR = R
-			if(istype(BR) && BR.myborg)
-				var/mob/living/silicon/robot/borg = BR.myborg
-				var/datum/robot_component/CO = borg.get_component("radio")
-				if(!CO)
-					continue //No radio component (Shouldn't happen)
-				if(!borg.is_component_functioning("radio") || !borg.cell_use_power(CO.active_usage))
-					continue //No power.
-
-			var/turf/speaker = get_turf(R)
-			if(speaker)
-				for(var/turf/T in hear(R.canhear_range,speaker))
-					speaker_coverage[T] = T
-
-
-	// Try to find all the players who can hear the message
-	for(var/i = 1; i <= player_list.len; i++)
-		var/mob/M = player_list[i]
-		if(M)
-			var/turf/ear = get_turf(M)
-			if(ear)
-				// Ghostship is magic: Ghosts can hear radio chatter from anywhere
-				if(speaker_coverage[ear] || (istype(M, /mob/abstract/observer) && (M.client) && (M.client.prefs.toggles & CHAT_GHOSTRADIO)))
-					. += M
-	return .
-
-/proc/get_mobs_and_objs_in_view_fast(turf/T, range, list/mobs, list/objs, checkghosts = GHOSTS_ALL_HEAR)
-	var/list/hear = list()
-	DVIEW(hear, range, T, INVISIBILITY_MAXIMUM)
-	var/list/hearturfs = list()
-
-	for(var/am in hear)
-		var/atom/movable/AM = am
-		if (!AM.loc)
-			continue
-
-		var/turf/AM_turf = get_turf(AM)
-
-		if(ismob(AM))
-			mobs[AM] = TRUE
-			hearturfs[AM_turf] = TRUE
-		else if(isobj(AM))
-			objs[AM] = TRUE
-			hearturfs[AM_turf] = TRUE
-
-	for(var/m in player_list)
-		var/mob/M = m
-		if(istype(M, /mob/living/test))
-			if (!mobs[M])
-				mobs[M] = TRUE
-			continue
-		if(checkghosts == GHOSTS_ALL_HEAR && M.stat == DEAD && !isnewplayer(M) && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
-			if (!mobs[M])
-				mobs[M] = TRUE
-			continue
-
-		var/turf/M_turf = get_turf(M)
-		if(M.loc && hearturfs[M_turf])
-			if (!mobs[M])
-				mobs[M] = TRUE
-
-	for(var/o in listening_objects)
-		var/obj/O = o
-		var/turf/O_turf = get_turf(O)
-		if(O && O.loc && hearturfs[O_turf])
-			if (!objs[O])
-				objs[O] = TRUE
-
-proc
-	inLineOfSight(X1,Y1,X2,Y2,Z=1,PX1=16.5,PY1=16.5,PX2=16.5,PY2=16.5)
-		var/turf/T
-		if(X1==X2)
-			if(Y1==Y2)
-				return 1 //Light cannot be blocked on same tile
-			else
-				var/s = SIGN(Y2-Y1)
-				Y1+=s
-				while(Y1!=Y2)
-					T=locate(X1,Y1,Z)
-					if(T.opacity)
-						return 0
-					Y1+=s
-		else
-			var/m=(32*(Y2-Y1)+(PY2-PY1))/(32*(X2-X1)+(PX2-PX1))
-			var/b=(Y1+PY1/32-0.015625)-m*(X1+PX1/32-0.015625) //In tiles
-			var/signX = SIGN(X2-X1)
-			var/signY = SIGN(Y2-Y1)
-			if(X1<X2)
-				b+=m
-			while(X1!=X2 || Y1!=Y2)
-				if(round(m*X1+b-Y1))
-					Y1+=signY //Line exits tile vertically
-				else
-					X1+=signX //Line exits tile horizontally
-				T=locate(X1,Y1,Z)
-				if(T.opacity)
-					return 0
-		return 1
-
-proc/isInSight(var/atom/A, var/atom/B)
-	var/turf/Aturf = get_turf(A)
-	var/turf/Bturf = get_turf(B)
-
-	if(!Aturf || !Bturf)
-		return 0
-
-	if(inLineOfSight(Aturf.x,Aturf.y, Bturf.x,Bturf.y,Aturf.z))
-		return 1
-
-	else
-		return 0
 
 /proc/get_cardinal_step_away(atom/start, atom/finish) //returns the position of a step from start away from finish, in one of the cardinal directions
 	//returns only NORTH, SOUTH, EAST, or WEST
@@ -527,6 +272,10 @@ datum/projectile_data
 	else
 		return (cult.current_antagonists.len > spookiness_threshold)
 
+/// Removes an image from a client's `.images`. Useful as a callback.
+/proc/remove_image_from_client(image/image, client/remove_from)
+	remove_from?.images -= image
+
 /proc/remove_images_from_clients(image/I, list/show_to)
 	for(var/client/C in show_to)
 		C.images -= I
@@ -543,3 +292,13 @@ datum/projectile_data
 		if(M.client)
 			viewing += M.client
 	flick_overlay(I, viewing, duration)
+
+// makes peoples byond icon flash on the taskbar
+/proc/window_flash(client/C)
+	if(ismob(C))
+		var/mob/M = C
+		if(M.client)
+			C = M.client
+	if(!C)
+		return
+	winset(C, "mainwindow", "flash=5")

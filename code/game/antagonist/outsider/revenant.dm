@@ -12,7 +12,7 @@ var/datum/antagonist/revenant/revenants = null
 	hard_cap = 12
 	hard_cap_round = 12
 
-	var/rifts_left = 3
+	var/rifts_left = 1
 	var/kill_count = 0
 	var/obj/effect/portal/revenant/revenant_rift
 
@@ -25,7 +25,10 @@ var/datum/antagonist/revenant/revenants = null
 	revenants.revenant_rift = null
 	revenants.rifts_left--
 	if(revenants.rifts_left <= 0)
-		command_announcement.Announce("Aurora, we aren't detecting any more rift energy signatures. Mop up the rest of the invaders. Good work.", "Bluespace Breach Alert")
+		command_announcement.Announce("[current_map.station_name], we aren't detecting any more rift energy signatures. Mop up the rest of the invaders. Good work.", "Bluespace Breach Alert")
+
+/datum/antagonist/revenant/is_obvious_antag(datum/mind/player)
+	return TRUE
 
 /proc/message_all_revenants(var/message)
 	for(var/thing in human_mob_list)

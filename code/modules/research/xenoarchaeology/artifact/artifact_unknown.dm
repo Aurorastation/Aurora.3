@@ -34,12 +34,12 @@
 	. = ..()
 
 	//setup primary effect - these are the main ones (mixed)
-	var/effecttype = pick(typesof(/datum/artifact_effect) - /datum/artifact_effect)
+	var/effecttype = pick(subtypesof(/datum/artifact_effect))
 	my_effect = new effecttype(src)
 
 	//75% chance to have a secondary stealthy (and mostly bad) effect
 	if(prob(75))
-		effecttype = pick(typesof(/datum/artifact_effect) - /datum/artifact_effect)
+		effecttype = pick(subtypesof(/datum/artifact_effect))
 		secondary_effect = new effecttype(src)
 		if(prob(75))
 			secondary_effect.ToggleActivate(0)
@@ -72,7 +72,7 @@
 		if(prob(75))
 			my_effect.trigger = rand(1,4)
 
-/obj/machinery/artifact/machinery_process()
+/obj/machinery/artifact/process()
 
 	var/turf/L = loc
 	if(isnull(L) || !istype(L)) 	// We're inside a container or on null turf, either way stop processing effects
@@ -183,24 +183,23 @@
 		if(secondary_effect?.trigger == TRIGGER_NITRO && secondary_effect.activated)
 			secondary_effect.ToggleActivate()
 
-/obj/machinery/artifact/attack_hand(var/mob/user as mob)
-	if (get_dist(user, src) > 1)
-		to_chat(user, "<span class='warning'>You can't reach [src] from here.</span>")
+/obj/machinery/artifact/attack_hand(mob/user)
+	if(use_check_and_message(user, USE_ALLOW_NON_ADV_TOOL_USR))
 		return
 	if(ishuman(user) && user:gloves)
-		to_chat(user, "<b>You touch [src]</b> with your gloved hands, [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
+		to_chat(user, "<b>You touch \the [src]</b> with your gloved hands, [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
 		return
 
 	src.add_fingerprint(user)
 
 	if(my_effect.trigger == TRIGGER_TOUCH)
-		to_chat(user, "<b>You touch [src].</b>")
+		to_chat(user, "<b>You touch \the [src].</b>")
 		my_effect.ToggleActivate()
 	else
-		to_chat(user, "<b>You touch [src],</b> [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
+		to_chat(user, "<b>You touch \the [src],</b> [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
 
 	if(secondary_effect?.trigger == TRIGGER_TOUCH)
-		to_chat(user, "<b>You touch [src].</b>")
+		to_chat(user, "<b>You touch \the [src].</b>")
 		secondary_effect.ToggleActivate()
 
 	if (my_effect.effect == EFFECT_TOUCH)
@@ -209,7 +208,7 @@
 	if(secondary_effect?.effect == EFFECT_TOUCH && secondary_effect.activated)
 		secondary_effect.DoEffectTouch(user)
 
-/obj/machinery/artifact/attackby(obj/item/W as obj, mob/living/user as mob)
+/obj/machinery/artifact/attackby(var/obj/item/W, mob/living/user)
 
 	if (istype(W, /obj/item/reagent_containers/))
 		if(W.reagents.has_reagent(/decl/reagent/hydrazine, 1) || W.reagents.has_reagent(/decl/reagent/water, 1))
@@ -324,3 +323,8 @@
 		my_effect.UpdateMove()
 	if(secondary_effect)
 		secondary_effect.UpdateMove()
+
+/obj/machinery/artifact/attack_ai(mob/user) //AI can't interfact with weird artifacts. Borgs can but not remotely. 
+	if(!isrobot(user) || !Adjacent(user))
+		return
+	return ..()

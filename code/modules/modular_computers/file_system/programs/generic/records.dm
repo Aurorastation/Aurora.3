@@ -4,13 +4,15 @@
 	extended_desc = "Used to view, edit and maintain records."
 
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
 	color = LIGHT_COLOR_BLUE
 	available_on_ntnet = FALSE
 	size = 6
 
 	requires_ntnet = TRUE
-	requires_ntnet_feature = NTNET_SYSTEMCONTROL
+	requires_ntnet_feature = "NTNET_SYSTEMCONTROL"
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
+	requires_access_to_download = PROGRAM_ACCESS_LIST_ONE
 	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_STATIONBOUND
 
 	var/records_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
@@ -23,7 +25,7 @@
 	var/default_screen = "general"
 	var/record_prefix = ""
 	var/typechoices = list(
-		"physical_status" = list("Active", "*Deceased*", "*SSD*", "Physically Unfit", "Disabled"),
+		"physical_status" = list("Active", "*Deceased*", "*SSD*", "*Missing*", "Physically Unfit", "Disabled"),
 		"criminal_status" = list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released"),
 		"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*"),
 		"medical" = list(
@@ -37,14 +39,15 @@
 	extended_desc = "Used to view, edit and maintain medical records."
 	record_prefix = "Medical "
 
-	required_access_run = list(access_medical_equip, access_forensics_lockers, access_detective, access_robotics, access_hop)
-	required_access_download = access_heads
+	required_access_run = list(access_medical_equip, access_forensics_lockers, access_robotics, access_hop)
+	required_access_download = list(access_heads, access_medical_equip, access_forensics_lockers)
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
 	edit_type = RECORD_MEDICAL
 	default_screen = "medical"
 	program_icon_state = "medical_record"
+	program_key_icon_state = "teal_key"
 	color = LIGHT_COLOR_CYAN
 
 /datum/computer_file/program/records/security
@@ -54,14 +57,15 @@
 	record_prefix = "Security "
 
 	required_access_run = list(access_security, access_forensics_lockers, access_lawyer, access_hop)
-	required_access_download = access_heads
+	required_access_download = list(access_heads, access_security)
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_SECURITY
 	edit_type = RECORD_SECURITY
 	default_screen = "security"
 	program_icon_state = "security_record"
-	color = LIGHT_COLOR_RED
+	program_key_icon_state = "yellow_key"
+	color = LIGHT_COLOR_YELLOW
 
 /datum/computer_file/program/records/employment
 	filename = "emprec"
@@ -70,12 +74,14 @@
 	record_prefix = "Employment "
 
 	required_access_run = list(access_heads, access_lawyer, access_consular)
+	requires_access_to_download = PROGRAM_ACCESS_ONE
 	required_access_download = access_heads
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_GENERAL | RECORD_SECURITY
 	edit_type = RECORD_GENERAL
 	program_icon_state = "employment_record"
+	program_key_icon_state = "lightblue_key"
 	color = LIGHT_COLOR_BLUE
 
 /datum/computer_file/program/records/pai
@@ -317,6 +323,12 @@
 		switch(key[2])
 			if("security")
 				if(!(edit_type & RECORD_SECURITY))
+					return FALSE
+			if("physical_status")
+				if(!((edit_type & RECORD_MEDICAL) || (edit_type & RECORD_GENERAL)))
+					return FALSE
+			if("mental_status")
+				if(!((edit_type & RECORD_MEDICAL) || (edit_type & RECORD_GENERAL)))
 					return FALSE
 			if("medical")
 				if(!(edit_type & RECORD_MEDICAL))

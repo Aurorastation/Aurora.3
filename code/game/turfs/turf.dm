@@ -26,6 +26,7 @@
 	var/footstep_sound = /decl/sound_category/tiles_footstep
 
 	var/list/decals
+	var/list/blueprints
 
 	var/is_hole		// If true, turf will be treated as space or a hole
 	var/tmp/turf/baseturf
@@ -61,9 +62,12 @@
 	initialized = TRUE
 
 	for(var/atom/movable/AM as mob|obj in src)
-		Entered(AM)
+		Entered(AM, src)
 
 	turfs += src
+
+	if (isStationLevel(z))
+		station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -91,8 +95,13 @@
 	if (A.flags & SPAWN_ROOF)
 		spawn_roof()
 
-	if (flags & MIMIC_BELOW)
+	if (z_flags & ZM_MIMIC_BELOW)
 		setup_zmimic(mapload)
+
+	if (current_map.use_overmap && istype(A, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -103,17 +112,21 @@
 	changing_turf = FALSE
 	turfs -= src
 
+	if (isStationLevel(z))
+		station_turfs -= src
+
+	remove_cleanables()
 	cleanup_roof()
 
 	if (ao_queued)
 		SSocclusion.queue -= src
 		ao_queued = 0
 
-	if (flags & MIMIC_BELOW)
+	if (z_flags & ZM_MIMIC_BELOW)
 		cleanup_zmimic()
 
-	if (bound_overlay)
-		QDEL_NULL(bound_overlay)
+	if (z_flags & ZM_MIMIC_BELOW)
+		cleanup_zmimic()
 
 	..()
 	return QDEL_HINT_IWILLGC
@@ -136,21 +149,36 @@
 	return 0
 
 /turf/attack_hand(mob/user)
-	if(!(user.canmove) || user.restrained() || !(user.pulling))
-		return 0
-	if(user.pulling.anchored || !isturf(user.pulling.loc))
-		return 0
-	if(user.pulling.loc != user.loc && get_dist(user, user.pulling) > 1)
-		return 0
-	if(ismob(user.pulling))
-		var/mob/M = user.pulling
-		var/atom/movable/t = M.pulling
-		M.stop_pulling()
-		step(user.pulling, get_dir(user.pulling.loc, src))
-		M.start_pulling(t)
-	else
-		step(user.pulling, get_dir(user.pulling.loc, src))
-	return 1
+	if(!(user.canmove) || user.restrained())
+		return FALSE
+	if(user.pulling)
+		if(user.pulling.anchored || !isturf(user.pulling.loc))
+			return FALSE
+		if(user.pulling.loc != user.loc && get_dist(user, user.pulling) > 1)
+			return FALSE
+		if(ismob(user.pulling))
+			var/mob/M = user.pulling
+			var/atom/movable/t = M.pulling
+			M.stop_pulling()
+			step(user.pulling, get_dir(user.pulling.loc, src))
+			M.start_pulling(t)
+		else
+			step(user.pulling, get_dir(user.pulling.loc, src))
+
+	. = handle_hand_interception(user)
+	if (!.)
+		return TRUE
+	return TRUE
+
+/turf/proc/handle_hand_interception(var/mob/user)
+	var/datum/component/turf_hand/THE
+	for (var/atom/A in src)
+		var/datum/component/turf_hand/TH = A.GetComponent(/datum/component/turf_hand)
+		if (istype(TH) && TH.priority > THE?.priority) //Only overwrite if the new one is higher. For matching values, its first come first served
+			THE = TH
+
+	if (THE)
+		return THE.OnHandInterception(user)
 
 /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
@@ -159,7 +187,7 @@
 
 	..()
 
-	if (!mover || !isturf(mover.loc))
+	if (!mover || !isturf(mover.loc) || isobserver(mover))
 		return 1
 
 	//First, check objects to block exit that are not on the border
@@ -198,7 +226,7 @@
 
 var/const/enterloopsanity = 100
 
-/turf/Entered(atom/movable/AM)
+/turf/Entered(atom/movable/AM, atom/old_loc)
 	if(movement_disabled)
 		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
@@ -225,7 +253,7 @@ var/const/enterloopsanity = 100
 		var/has_feet = TRUE
 		if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
 			has_feet = FALSE
-		if(!H.buckled && !H.lying && has_feet)
+		if(!H.buckled_to && !H.lying && has_feet)
 			if(H.shoes) //Adding ash to shoes
 				var/obj/item/clothing/shoes/S = H.shoes
 				if(istype(S))
@@ -245,38 +273,11 @@ var/const/enterloopsanity = 100
 
 		H.update_inv_shoes(TRUE)
 
-	if(istype(AM, /mob/living/carbon/human))
+	if(tracks_footprint && ishuman(AM))
 		var/mob/living/carbon/human/H = AM
-		// Tracking blood
-		var/list/footprint_DNA = list()
-		var/footprint_color
-		var/will_track = FALSE
-		if(H.shoes)
-			var/obj/item/clothing/shoes/S = H.shoes
-			if(istype(S))
-				S.handle_movement(src, H.m_intent == M_RUN ? TRUE : FALSE)
-				if(S.track_footprint)
-					if(S.blood_DNA)
-						footprint_DNA = S.blood_DNA
-					footprint_color = S.blood_color
-					S.track_footprint--
-					will_track = TRUE
-		else
-			if(H.track_footprint)
-				if(H.feet_blood_DNA)
-					footprint_DNA = H.feet_blood_DNA
-				footprint_color = H.footprint_color
-				H.track_footprint--
-				will_track = TRUE
+		H.species.deploy_trail(H, src)
 
-		if(tracks_footprint && will_track)
-			add_tracks(H.species.get_move_trail(H), footprint_DNA, H.dir, 0, footprint_color) // Coming
-			var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
-			if(istype(from) && from)
-				from.add_tracks(H.species.get_move_trail(H), footprint_DNA, 0, H.dir, footprint_color) // Going
-			footprint_DNA = null
-
-	..()
+	..(AM, old_loc)
 
 	var/objects = 0
 	if(AM && (AM.flags & PROXMOVE) && AM.simulated)
@@ -340,20 +341,22 @@ var/const/enterloopsanity = 100
 	for(var/obj/O in src)
 		O.hide(O.hides_under_flooring() && !is_plating())
 
-/turf/proc/AdjacentTurfs()
-	var/L[] = new()
-	for(var/turf/simulated/t in oview(src,1))
-		if(!t.density)
-			if(!LinkBlocked(src, t) && !TurfBlockedNonWindow(t))
-				L.Add(t)
-	return L
+/turf/proc/AdjacentTurfs(var/check_blockage = TRUE)
+	. = list()
+	for(var/turf/t in oview(src,1))
+		if(check_blockage)
+			if(!t.density)
+				if(!LinkBlocked(src, t) && !TurfBlockedNonWindow(t))
+					. += t
+		else
+			. += t
 
-/turf/proc/CardinalTurfs()
-	var/L[] = new()
-	for(var/turf/simulated/T in AdjacentTurfs())
+/turf/proc/CardinalTurfs(var/check_blockage = TRUE)
+	. = list()
+	for(var/ad in AdjacentTurfs(check_blockage))
+		var/turf/T = ad
 		if(T.x == src.x || T.y == src.y)
-			L.Add(T)
-	return L
+			. += T
 
 /turf/proc/Distance(turf/t)
 	if(get_dist(src,t) == 1)
@@ -486,56 +489,16 @@ var/const/enterloopsanity = 100
 			L.Add(t)
 	return L
 
-// CRAWLING + MOVING STUFF
-/turf/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
-	var/turf/T = get_turf(user)
-	var/area/A = T.loc
-	if((istype(A) && !(A.has_gravity())) || (istype(T,/turf/space)))
-		return
-	if(istype(O, /obj/screen))
-		return
-	if(user.restrained() || user.stat || user.incapacitated(INCAPACITATION_KNOCKOUT) || !user.lying)
-		return
-	if((!(istype(O, /atom/movable)) || O.anchored || !Adjacent(user) || !Adjacent(O) || !user.Adjacent(O)))
-		return
-	if(!isturf(O.loc) || !isturf(user.loc))
-		return
-	if(isanimal(user) && O != user)
-		return
+/turf/proc/is_wall()
+	return FALSE
 
-	var/tally = 0
+/turf/proc/is_open()
+	return FALSE
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+/turf/proc/is_floor()
+	return FALSE
 
-		var/obj/item/organ/external/rhand = H.organs_by_name[BP_R_HAND]
-		tally += limbCheck(rhand)
-
-		var/obj/item/organ/external/lhand = H.organs_by_name[BP_L_HAND]
-		tally += limbCheck(lhand)
-
-		var/obj/item/organ/external/rfoot = H.organs_by_name[BP_R_FOOT]
-		tally += limbCheck(rfoot)
-
-		var/obj/item/organ/external/lfoot = H.organs_by_name[BP_L_FOOT]
-		tally += limbCheck(lfoot)
-
-	if(tally >= 120)
-		to_chat(user, SPAN_NOTICE("You're too injured to do this!"))
-		return
-
-	var/finaltime = 25 + (5 * (user.weakened * 1.5))
-	if(tally >= 45) // If you have this much missing, you'll crawl slower.
-		finaltime += tally
-
-	if(do_after(user, finaltime) && !user.stat)
-		step_towards(O, src)
-
-// Checks status of limb, returns an amount to
-/turf/proc/limbCheck(var/obj/item/organ/external/limb)
-	if(!limb) // Limb is null, thus missing. Add 3 seconds.
-		return 30
-	else if(!limb.is_usable() || limb.is_broken()) // You can't use the limb, but it's still there to manoevre yourself
-		return 15
-	else
-		return 0
+/turf/proc/remove_cleanables()
+	for(var/obj/effect/O in src)
+		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable))
+			qdel(O)

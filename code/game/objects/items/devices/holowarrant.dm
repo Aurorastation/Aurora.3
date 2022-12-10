@@ -57,7 +57,7 @@
 		<HTML><HEAD><TITLE>Arrest Warrant: [activename]</TITLE></HEAD>
 		<BODY bgcolor='#FFFFFF'>
 		<font face="Verdana" color=black><font size = "1">
-		<center><large><b>NanoTrasen Inc.
+		<center><large><b>Stellar Corporate Conglomerate
 		<br>Civilian Branch of Operation</b></large>
 		<br>
 		<br><b>DIGITAL ARREST WARRANT</b></center>
@@ -65,14 +65,14 @@
 		<b>Facility:</b>__<u>[current_map.station_name]</u>__<b>Date:</b>__<u>[worlddate2text()]__</u>
 		<br>
 		<br><small><i>This document serves as a notice and permits the sanctioned arrest of
-		the denoted employee of the NanoTrasen Civilian Branch of Operation by the
-		Security Department of the denoted facility. </br>
-		In accordance with Corporate Regulation, the denoted employee must be presented with signed and stamped or
-		digitally autorized warrant before the actions entailed can be conducted legally. </br>
-		The Suspect/Department staff is expected to offer full co-operation.</br>
+		the denoted employee of the SCC Civilian Branch of Operation by the
+		Security Department of the denoted vessel. </br>
+		In accordance with Corporate Regulations, the denoted employee must be presented with a signed and stamped or
+		digitally authorized warrant before the actions entailed can be conducted legally. </br>
+		The Suspect/Department staff are expected to offer full co-operation.</br>
 		In the event of the Suspect attempting to resist or flee, resisting arrest charges need to be applied !</br>
 		In the event of staff attempting to interfere with a lawful arrest, they are to be detained as an accomplice !</br>
-		In the event of no warrant being displayed <b>prior</b> to the arrest, security personell performing the arrest are subject to illegal detention charges !
+		In the event of no warrant being displayed <b>prior</b> to the arrest, security personnel performing the arrest are subject to illegal detention charges !
 		</i></small>
 		<br>
 		<br><b>Suspect's name: </b>
@@ -93,7 +93,7 @@
 		<HTML><HEAD><TITLE>Search Warrant: [activename]</TITLE></HEAD>
 		<BODY bgcolor='#FFFFFF'>
 		<font face="Verdana" color=black><font size = "1">
-		<center><large><b>NanoTrasen Inc.
+		<center><large><b>Stellar Corporate Conglomerate
 		<br>Civilian Branch of Operation</b></large>
 		<br>
 		<br><b>DIGITAL SEARCH WARRANT</b></center>
@@ -104,11 +104,11 @@
 		the Suspect's person/belongings/premises and/or Department for any items and materials
 		that could be connected to the suspected regulation violation described below,
 		pending an investigation in progress. </br>
-		The Security Officer(s) are obligated to remove any and all such items from the Suspects posession
+		The Security Officer(s) are obligated to remove any and all such items from the Suspect's posession
 		and/or Department and file it as evidence. </br>
-		In accordance with Corporate Regulation, the denoted employee must be presented with signed and stamped or
-		digitally autorized warrant before the actions entailed can be conducted legally. </br>
-		The Suspect/Department staff is expected to offer full co-operation.</br>
+		In accordance with Corporate Regulations, the denoted employee must be presented with a signed and stamped or
+		digitally authorized warrant before the actions entailed can be conducted legally. </br>
+		The Suspect/Department staff are expected to offer full co-operation.</br>
 		In the event of the Suspect/Department staff attempting	to resist/impede this search or flee, they must be taken into custody immediately! </br>
 		All confiscated items must be filed and taken to Evidence!</small></i></br>
 		<br><b>Suspect's/location name: </b>

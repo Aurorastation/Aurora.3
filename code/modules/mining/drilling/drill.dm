@@ -5,7 +5,7 @@
 /obj/machinery/mining
 	icon = 'icons/obj/mining_drill.dmi'
 	anchored = FALSE
-	use_power = 0 //The drill takes power directly from a cell.
+	use_power = POWER_USE_OFF //The drill takes power directly from a cell.
 	density = TRUE
 	layer = MOB_LAYER + 0.1 //So it draws over mobs in the tile north of it.
 
@@ -65,7 +65,7 @@
 	QDEL_NULL(spark_system)
 	return ..()
 
-/obj/machinery/mining/drill/machinery_process()
+/obj/machinery/mining/drill/process()
 	if(need_player_check)
 		return
 
@@ -207,7 +207,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] has no resource field to draw data from!"))
 			return
 		to_chat(user, SPAN_NOTICE("You start drawing the data from \the [src]..."))
-		if(do_after(user, 50, TRUE))
+		if(O.use_tool(src, user, 50, volume = 50))
 			if(!length(resource_field))
 				to_chat(user, SPAN_WARNING("\The [src] has no resource field to draw data from!"))
 				return
@@ -252,7 +252,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a satchel attached to it!"))
 			return
 		user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [attached_satchel]."), SPAN_NOTICE("You start detaching \the [attached_satchel]."))
-		if(do_after(user, 30, TRUE, src))
+		if(O.use_tool(src, user, 30, volume = 50))
 			if(!attached_satchel)
 				return
 			attached_satchel.forceMove(get_turf(user))

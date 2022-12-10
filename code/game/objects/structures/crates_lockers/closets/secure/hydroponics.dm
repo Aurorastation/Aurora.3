@@ -1,12 +1,7 @@
 /obj/structure/closet/secure_closet/hydroponics
 	name = "botanist's locker"
 	req_access = list(access_hydroponics)
-	icon_state = "hydrosecure1"
-	icon_closed = "hydrosecure"
-	icon_locked = "hydrosecure1"
-	icon_opened = "hydrosecureopen"
-	icon_broken = "hydrosecurebroken"
-	icon_off = "hydrosecureoff"
+	icon_state = "hydro"
 
 /obj/structure/closet/secure_closet/hydroponics/fill()
 	..()
@@ -28,13 +23,8 @@
 
 /obj/structure/closet/secure_closet/xenobotany
 	name = "xenobotanist's locker"
-	req_access = list(access_xenobiology)
-	icon_state = "xenobotsecure1"
-	icon_closed = "xenobotsecure"
-	icon_locked = "xenobotsecure1"
-	icon_opened = "xenobotsecureopen"
-	icon_broken = "xenobotsecurebroken"
-	icon_off = "xenobotsecureoff"
+	req_access = list(access_xenobotany)
+	icon_state = "xenobot"
 
 /obj/structure/closet/secure_closet/xenobotany/fill()
 	..()
@@ -54,5 +44,7 @@
 	new /obj/item/wirecutters/clippers(src)
 	new /obj/item/reagent_containers/spray/plantbgone(src)
 	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/watertank(src)
 	new /obj/item/storage/belt/hydro(src)
+	new /obj/item/clothing/gloves/botanic_leather(src)

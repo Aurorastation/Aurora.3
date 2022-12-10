@@ -48,7 +48,7 @@
 	if(I.iscrowbar())
 		to_chat(user, SPAN_NOTICE("You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]."))
 		playsound(loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
-		if(do_after(user, 30/I.toolspeed))
+		if(I.use_tool(src, user, 30, volume = 0))
 			user.visible_message(SPAN_NOTICE("[user] [cistern ? "replaces the lid on the cistern" : "lifts the lid off the cistern"]!"), SPAN_NOTICE("You [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]!"), "You hear grinding porcelain.")
 			cistern = !cistern
 			update_icon()
@@ -119,8 +119,7 @@
 					to_chat(user, SPAN_NOTICE("[GM.name] needs to be on the urinal."))
 					return
 				user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))
-				var/blocked = GM.run_armor_check("melee")
-				GM.apply_damage(8, def_zone = BP_HEAD, blocked = blocked, used_weapon = "blunt force")
+				GM.apply_damage(8, def_zone = BP_HEAD, used_weapon = "blunt force")
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 1.5)
 			else
 				to_chat(user, SPAN_NOTICE("You need a tighter grip."))
@@ -134,7 +133,7 @@
 	icon_state = "shower"
 	density = 0
 	anchored = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	var/spray_amount = 20
 	var/on = 0
 	var/obj/effect/mist/mymist = null
@@ -180,8 +179,7 @@
 	if(I.iswrench())
 		var/newtemp = input(user, "What setting would you like to set the temperature valve to?", "Water Temperature Valve") in temperature_settings
 		to_chat(user, SPAN_NOTICE("You begin to adjust the temperature valve with \the [I]."))
-		playsound(src.loc, I.usesound, 50, 1)
-		if(do_after(user, 50/I.toolspeed))
+		if(I.use_tool(src, user, 50, volume = 50))
 			watertemp = newtemp
 			user.visible_message(SPAN_NOTICE("[user] adjusts the shower with \the [I]."), SPAN_NOTICE("You adjust the shower with \the [I]."))
 			add_fingerprint(user)
@@ -257,15 +255,17 @@
 
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			var/washgloves = 1
-			var/washshoes = 1
-			var/washmask = 1
-			var/washears = 1
-			var/washglasses = 1
+			var/washgloves = TRUE
+			var/washshoes = TRUE
+			var/washmask = TRUE
+			var/washears = TRUE
+			var/washglasses = TRUE
+			var/washwrists = TRUE
 
 			if(H.wear_suit)
 				washgloves = !(H.wear_suit.flags_inv & HIDEGLOVES)
 				washshoes = !(H.wear_suit.flags_inv & HIDESHOES)
+				washwrists = !(H.wear_suit.flags_inv & HIDEWRISTS)
 
 			if(H.head)
 				washmask = !(H.head.flags_inv & HIDEMASK)
@@ -318,6 +318,10 @@
 				if(H.belt.clean_blood())
 					H.update_inv_belt(0)
 					update_icons_required = TRUE
+			if(H.wrists && washwrists)
+				if(H.wrists.clean_blood())
+					H.update_inv_wrists(0)
+					update_icons_required = TRUE
 			H.clean_blood(washshoes)
 		else
 			if(M.wear_mask)						//if the mob is not human, it cleans the mask without asking for bitflags
@@ -349,7 +353,7 @@
 			if(istype(E,/obj/effect/rune) || istype(E,/obj/effect/decal/cleanable) || istype(E,/obj/effect/overlay))
 				qdel(E)
 
-/obj/machinery/shower/machinery_process()
+/obj/machinery/shower/process()
 	if(!on)
 		return
 	wash_floor()
@@ -454,8 +458,6 @@
 
 	// Filling/emptying open reagent containers
 	var/obj/item/reagent_containers/RG = O
-	if (istype(RG, /obj/item/reagent_containers/glass/rag))
-		return
 
 	if (istype(RG) && RG.is_open_container())
 		var/atype = alert(usr, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
@@ -484,7 +486,7 @@
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
 				var/max_reagents = RG.reagents.maximum_volume
 				user.visible_message("<b>[user]</b> empties [empty_amount == max_reagents ? "all of \the [RG]" : "some of \the [RG]"] into \a [src].")
-				playsound(src.loc, 'sound/effects/pour.ogg', 10, 1)
+				playsound(src.loc, /decl/sound_category/generic_pour_sound, 10, 1)
 		return
 
 	// Filling/empying Syringes
@@ -529,7 +531,7 @@
 	// Short of a rewrite, this is necessary to stop monkeycubes being washed.
 	else if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
 		return
-	else if(istype(O, /obj/item/mop) || istype(O, /obj/item/reagent_containers/glass/rag))
+	else if(istype(O, /obj/item/mop))
 		O.reagents.add_reagent(/decl/reagent/water, 5)
 		to_chat(user, SPAN_NOTICE("You wet \the [O] in \the [src]."))
 		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)

@@ -11,10 +11,10 @@
 
 /datum/gear/mask/surgical/New()
 	..()
-	var/masks = list()
+	var/list/masks = list()
 	masks["surgical mask"] = /obj/item/clothing/mask/surgical
 	masks["surgical mask, white"] = /obj/item/clothing/mask/surgical/w
-	gear_tweaks += new/datum/gear_tweak/path(masks)
+	gear_tweaks += new /datum/gear_tweak/path(masks)
 
 /datum/gear/mask/cloth
 	display_name = "cloth mask"

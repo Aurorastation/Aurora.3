@@ -120,10 +120,11 @@ client/verb/showrevinfo()
 	. += {"</tr><tr><td class="hiddenRow"><div id="[divid]" class="collapse">"}
 	. += {"<table class="table">"}
 	. += {"<tr><th>Author:</th><td>[html_encode(tm.author)]</td></tr>"}
-	. += {"<tr><th>Merged:</th><td>[tm.time_merged]</td></tr>"}
 
 	if (config.githuburl)
-		. += {"<tr><td colspan="2"><a href="?JSlink=github;pr=[tm.number]">Link to Github</a></td></tr>"}
+		. += {"<tr><td colspan="2"><a href="?JSlink=github;pr=[tm.number]">Link to GitHub</a></td></tr>"}
 
 	. += {"<tr><th>Description:</th><td>[html_encode(tm.body)]</td></tr>"}
+	if(tm.comment)
+		. += {"<tr><th>Comment:</th><td>[html_encode(tm.comment)]</td></tr>"}
 	. += {"</table></div></td></tr>"}

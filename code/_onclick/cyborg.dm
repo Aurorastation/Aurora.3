@@ -45,15 +45,8 @@
 		if(is_component_functioning("camera"))
 			ai_camera.captureimage(A, usr)
 		else
-			to_chat(src, "<span class='danger'>Your camera isn't functional.</span>")
+			to_chat(src, SPAN_DANGER("Your camera isn't functional."))
 		return
-
-	/*
-	cyborg restrained() currently does nothing
-	if(restrained())
-		RestrainedClickOn(A)
-		return
-	*/
 
 	var/obj/item/W = get_active_hand()
 
@@ -63,29 +56,20 @@
 		A.attack_robot(src)
 		return
 
-	// buckled cannot prevent machine interlinking but stops arm movement
-	if(buckled)
+	// buckled_to cannot prevent machine interlinking but stops arm movement
+	if(buckled_to)
 		return
 
 	if(W == A)
 		W.attack_self(src)
 		return
 
-	//Handling using grippers
-	if(istype(W, /obj/item/gripper))
-		var/obj/item/gripper/G = W
-		//If the gripper contains something, then we will use its contents to attack
-		if (G.wrapped && (G.wrapped.loc == G))
-			GripperClickOn(A, params, G)
-			G.update_icon() //We may need to update our gripper based on a change in the wrapped item
-			return
-
 	// cyborgs are prohibited from using storage items so we can I think safely remove (A.loc in contents)
 	if(A == loc || (A in loc) || (A in contents))
 		// No adjacency checks
 
-		var/resolved = A.attackby(W,src)
-		if(!resolved && A && W)
+		var/resolved = W.resolve_attackby(A,src,params)
+		if(!resolved)
 			W.afterattack(A,src,1,params)
 		return
 
@@ -95,57 +79,11 @@
 	// cyborgs are prohibited from using storage items so we can I think safely remove (A.loc && isturf(A.loc.loc))
 	if(isturf(A) || isturf(A.loc))
 		if(A.Adjacent(src)) // see adjacent.dm
-
-			if(W)
-				var/resolved = W.resolve_attackby(A, src, params)
-				if(!resolved && A && W)
-					W.afterattack(A, src, 1, params)
-				return
+			var/resolved = W.resolve_attackby(A, src, params)
+			if(!resolved)
+				W.afterattack(A, src, 1, params)
 		else
 			W.afterattack(A, src, 0, params)
-			return
-	return
-
-
-/*
-	Gripper Handling
-	This is used when a gripper is used on anything. It does all the handling for it
-*/
-/mob/living/silicon/robot/proc/GripperClickOn(var/atom/A, var/params, var/obj/item/gripper/G)
-
-	var/obj/item/W = G.wrapped
-	if (!grippersafety(G))return
-
-
-	G.force_holder = W.force
-	W.force = 0
-	// cyborgs are prohibited from using storage items so we can I think safely remove (A.loc in contents)
-	if(A == loc || (A in loc) || (A in contents))
-		// No adjacency checks
-
-		var/resolved = A.attackby(W,src)
-		if (!grippersafety(G))return
-		if(!resolved && A && W)
-			W.afterattack(A,src,1,params)
-		if (!grippersafety(G))return
-		W.force = G.force_holder
-		return
-	if(!isturf(loc))
-		W.force = G.force_holder
-		return
-
-	// cyborgs are prohibited from using storage items so we can I think safely remove (A.loc && isturf(A.loc.loc))
-	if(isturf(A) || isturf(A.loc))
-		if(A.Adjacent(src)) // see adjacent.dm
-			var/resolved = A.attackby(W, src)
-			if (!grippersafety(G))return
-			if(!resolved && A && W)
-				W.afterattack(A, src, 1, params)
-			if (!grippersafety(G))return
-			W.force = G.force_holder
-			return
-		//No non-adjacent clicks. Can't fire guns
-	W.force = G.force_holder
 	return
 
 //Middle click cycles through selected modules.
@@ -191,8 +129,8 @@
 /atom/proc/BorgCtrlClick(var/mob/living/silicon/robot/user) //forward to human click if not overriden
 	CtrlClick(user)
 
-/obj/machinery/door/airlock/BorgCtrlClick() // Bolts doors. Forwards to AI code.
-	AICtrlClick()
+/obj/machinery/door/airlock/BorgCtrlClick(mob/user) // Bolts doors. Forwards to AI code.
+	AICtrlClick(user)
 
 /obj/machinery/power/apc/BorgCtrlClick() // turns off/on APCs. Forwards to AI code.
 	AICtrlClick()

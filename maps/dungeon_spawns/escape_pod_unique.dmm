@@ -19,7 +19,7 @@
 /turf/simulated/floor/plating,
 /area/mine/unexplored)
 "e" = (
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,

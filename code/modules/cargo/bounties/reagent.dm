@@ -65,6 +65,7 @@
 		/decl/reagent/alcohol/screwdrivercocktail,
 		/decl/reagent/alcohol/cobaltvelvet,
 		/decl/reagent/alcohol/snowwhite,
+		/decl/reagent/alcohol/sidewinderfang,
 		/decl/reagent/alcohol/gibsonhooch,
 		/decl/reagent/alcohol/manly_dorf,
 		/decl/reagent/alcohol/thirteenloko,
@@ -166,8 +167,8 @@
 		/decl/reagent/impedrezene,
 		/decl/reagent/night_juice,
 		/decl/reagent/toxin/cardox,
-		/decl/reagent/toxin/lean,
-		/decl/reagent/toxin/stimm)
+		/decl/reagent/toxin/stimm,
+		/decl/reagent/ambrosia_extract)
 
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type

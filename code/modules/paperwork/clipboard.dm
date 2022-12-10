@@ -27,12 +27,12 @@
 
 		if(!M.restrained() && !M.stat)
 			switch(over_object.name)
-				if(BP_R_HAND)
+				if("right hand")
 					M.u_equip(src)
-					M.put_in_r_hand(src)
-				if(BP_L_HAND)
+					M.equip_to_slot_if_possible(src, slot_r_hand)
+				if("left hand")
 					M.u_equip(src)
-					M.put_in_l_hand(src)
+					M.equip_to_slot_if_possible(src, slot_l_hand)
 
 			add_fingerprint(usr)
 			return
@@ -168,15 +168,8 @@
 
 		else if(href_list["read"])
 			var/obj/item/paper/P = locate(href_list["read"])
-
-			if(P && (P.loc == src) && istype(P, /obj/item/paper) )
-
-				if(!(istype(usr, /mob/living/carbon/human) || istype(usr, /mob/abstract/observer) || istype(usr, /mob/living/silicon)))
-					usr << browse("<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[stars(P.info)][P.stamps]</BODY></HTML>", "window=[P.name]")
-					onclose(usr, "[P.name]")
-				else
-					usr << browse("<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[P.info][P.stamps]</BODY></HTML>", "window=[P.name]")
-					onclose(usr, "[P.name]")
+			if(istype(P) && (P.loc == src))
+				P.show_content(usr)
 
 		else if(href_list["look"])
 			var/obj/item/photo/P = locate(href_list["look"])

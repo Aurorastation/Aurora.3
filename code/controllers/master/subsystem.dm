@@ -89,8 +89,8 @@
 		queue_node_priority = queue_node.queued_priority
 		queue_node_flags = queue_node.flags
 
-		if (queue_node_flags & SS_TICKER)
-			if (!(SS_flags & SS_TICKER))
+		if (queue_node_flags & (SS_TICKER|SS_BACKGROUND) == SS_TICKER)
+			if ((SS_flags & (SS_TICKER|SS_BACKGROUND)) != SS_TICKER)
 				continue
 			if (queue_node_priority < SS_priority)
 				break
@@ -171,14 +171,14 @@
 /datum/controller/subsystem/Initialize(start_timeofday)
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 	init_time = time
-	var/msg = "Initialized [name] subsystem within [time] second[time == 1 ? "" : "s"]!"
+	var/msg = "Initialized [name] subsystem within [time] second\s!"
 	admin_notice(SPAN_DANGER(msg), R_DEBUG)
 	world.log <<  "SS Init: [msg]"
 	log_ss_init(msg)
 	return time
 
 //hook for printing stats to the "MC" statuspanel for admins to see performance and related stats etc.
-/datum/controller/subsystem/stat_entry(msg)
+/datum/controller/subsystem/stat_entry(var/msg)
 	if(!statclick)
 		statclick = new/obj/effect/statclick/debug(null, "Initializing...", src)
 

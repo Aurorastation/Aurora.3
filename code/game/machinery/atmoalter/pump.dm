@@ -61,10 +61,11 @@
 
 	target_pressure = rand(0,1300)
 	update_icon()
+	SSvueui.check_uis_for_change(src)
 
 	..(severity)
 
-/obj/machinery/portable_atmospherics/powered/pump/machinery_process()
+/obj/machinery/portable_atmospherics/powered/pump/process()
 	..()
 	var/power_draw = -1
 
@@ -111,6 +112,7 @@
 			update_icon()
 
 	src.updateDialog()
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/portable_atmospherics/powered/pump/return_air()
 	return air_contents
@@ -127,8 +129,8 @@
 /obj/machinery/portable_atmospherics/powered/pump/attack_hand(var/mob/user)
 	ui_interact(user)
 
-/obj/machinery/portable_atmospherics/powered/pump/ui_interact(mob/user, ui_key = "rcon", datum/nanoui/ui=null, force_open=1)
-	var/list/data[0]
+/obj/machinery/portable_atmospherics/powered/pump/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = ..() || list()
 	data["portConnected"] = connected_port ? 1 : 0
 	data["tankPressure"] = round(air_contents.return_pressure() > 0 ? air_contents.return_pressure() : 0)
 	data["targetpressure"] = round(target_pressure)
@@ -143,13 +145,13 @@
 	data["hasHoldingTank"] = holding ? 1 : 0
 	if (holding)
 		data["holdingTank"] = list("name" = holding.name, "tankPressure" = round(holding.air_contents.return_pressure() > 0 ? holding.air_contents.return_pressure() : 0))
+	return data
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/machinery/portable_atmospherics/powered/pump/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, ui_key, "portpump.tmpl", "Portable Pump", 480, 410, state = physical_state)
-		ui.set_initial_data(data)
+		ui = new(user, src, "machinery-atmospherics-portpump", 480, 410, "Portable Pump")
 		ui.open()
-		ui.set_auto_update(1)
 
 /obj/machinery/portable_atmospherics/powered/pump/Topic(href, href_list)
 	if(..())
@@ -166,10 +168,10 @@
 			holding.forceMove(loc)
 			holding = null
 		. = 1
-	if (href_list["pressure_adj"])
-		var/diff = text2num(href_list["pressure_adj"])
-		target_pressure = min(10*ONE_ATMOSPHERE, max(0, target_pressure+diff))
+	if (href_list["pressure_set"])
+		target_pressure = between(pressuremin, text2num(href_list["pressure_set"]), pressuremax)
 		. = 1
 
 	if(.)
 		update_icon()
+		SSvueui.check_uis_for_change(src)

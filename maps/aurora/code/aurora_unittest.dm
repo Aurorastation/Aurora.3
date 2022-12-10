@@ -11,7 +11,6 @@
 		,/area/tdome
 		,/area/centcom
 		,/area/antag
-		,/area/beach
 		,/area/prison
 		,/area/supply/dock
 		,/area/turbolift
@@ -36,3 +35,31 @@
 		,/area/medical/patient_c
 		,/area/security/penal_colony
 	)
+	ut_fire_exempt_areas = list(
+		/area/maintenance,
+		/area/rnd/isolation_a,
+		/area/rnd/isolation_b,
+		/area/rnd/isolation_c,
+		/area/rnd/test_area,
+		/area/rnd/xenobiology/cells,
+		/area/security/penal_colony,
+		/area/turret_protected/tcomsat
+	)
+
+/datum/unit_test/zas_area_test/aurora
+	map_path = "aurora"
+/datum/unit_test/zas_area_test/aurora/arrival_maint
+	name = "ZAS: Arrival Maintenance"
+	area_path = /area/maintenance/arrivals
+
+/datum/unit_test/zas_area_test/aurora/emergency_shuttle
+	name = "ZAS: Emergency Shuttle"
+	area_path = /area/shuttle/escape
+
+/datum/unit_test/zas_area_test/aurora/zas_area_test
+	name = "ZAS: Cargo Bay"
+	area_path = /area/quartermaster/storage
+
+/datum/unit_test/zas_area_test/aurora/cargo_maint
+	name = "ZAS: Cargo Maintenance"
+	area_path = /area/maintenance/cargo

@@ -126,7 +126,7 @@
 		return FALSE
 	return TRUE
 
-/mob/living/proc/handle_vision()
+/mob/living/handle_vision()
 	update_sight()
 
 	if(stat == DEAD)
@@ -146,7 +146,7 @@
 		if(viewflags < 0)
 			reset_view(null, 0)
 		else if(viewflags)
-			sight |= viewflags
+			set_sight(viewflags)
 	else if(eyeobj)
 		if(eyeobj.owner != src)
 			reset_view(null)
@@ -161,26 +161,32 @@
 		setEarDamage(-1, max(ear_deaf, 1))
 
 /mob/living/proc/update_sight()
+	set_sight(0)
+	set_see_in_dark(0)
 	if(stat == DEAD || eyeobj)
 		update_dead_sight()
 	else
-		sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		if (is_ventcrawling)
-			sight |= SEE_TURFS|BLIND
+		update_living_sight()
 
-		if (!stop_sight_update) //If true, it won't reset the mob vision flags to the initial ones
-			see_in_dark = initial(see_in_dark)
-			see_invisible = initial(see_invisible)
-		var/list/vision = get_accumulated_vision_handlers()
-		sight|= vision[1]
-		see_invisible = (max(vision[2], see_invisible))
+	var/list/vision = get_accumulated_vision_handlers()
+	set_sight(sight | vision[1])
+	set_see_invisible(max(vision[2], see_invisible))
+
+/mob/living/proc/update_living_sight()
+	var/set_sight_flags = is_ventcrawling ? (SEE_TURFS) : sight & ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
+	if(is_ventcrawling)
+		set_sight_flags |= BLIND
+	else
+		set_sight_flags &= ~BLIND
+
+	set_sight(set_sight_flags)
+	set_see_in_dark(initial(see_in_dark))
+	set_see_invisible(initial(see_invisible))
 
 /mob/living/proc/update_dead_sight()
-	sight |= SEE_TURFS
-	sight |= SEE_MOBS
-	sight |= SEE_OBJS
-	see_in_dark = 8
-	see_invisible = SEE_INVISIBLE_LEVEL_TWO
+	set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+	set_see_in_dark(8)
+	set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 
 /mob/living/proc/handle_hud_icons()
 	handle_hud_icons_health()

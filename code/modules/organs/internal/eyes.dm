@@ -5,8 +5,8 @@
 	organ_tag = BP_EYES
 	parent_organ = BP_HEAD
 	robotic_name = "optical sensors"
-	robotic_sprite = "eyes-prosthetic"
 	max_damage = 45
+	min_broken_damage = 25
 	relative_size = 5
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"
@@ -38,7 +38,7 @@
 
 /obj/item/organ/internal/eyes/take_damage(amount, var/silent=0)
 	var/oldbroken = is_broken()
-	..()
+	. = ..()
 	if(is_broken() && !oldbroken && owner && !owner.stat)
 		to_chat(owner, "<span class='danger'>You go blind!</span>")
 
@@ -55,10 +55,12 @@
 		owner.eye_blind = 20
 
 /obj/item/organ/internal/eyes/do_surge_effects()
-	owner.overlay_fullscreen("noise", /obj/screen/fullscreen/flash/noise)
+	if(owner)
+		owner.overlay_fullscreen("noise", /obj/screen/fullscreen/flash/noise)
 
 /obj/item/organ/internal/eyes/clear_surge_effects()
-	owner.clear_fullscreen("noise")
+	if(owner)
+		owner.clear_fullscreen("noise")
 
 /obj/item/organ/internal/eyes/robotize()
 	..()

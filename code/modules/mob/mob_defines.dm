@@ -4,10 +4,11 @@
 	animate_movement = 2
 	flags = PROXMOVE
 	sight = DEFAULT_SIGHT
+	virtual_mob = /mob/abstract/observer/virtual/mob
 	var/datum/mind/mind
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
-	var/can_buckle = TRUE
+	can_be_buckled = TRUE
 
 	var/obj/screen/cells = null
 	var/obj/screen/flash = null
@@ -35,10 +36,15 @@
 	var/obj/screen/gun/move/gun_move_icon = null
 	var/obj/screen/gun/run/gun_run_icon = null
 	var/obj/screen/gun/mode/gun_setting_icon = null
+	var/obj/screen/gun/unique_action_icon = null
+	var/obj/screen/gun/toggle_firing_mode = null
+	var/obj/screen/energy/energy_display = null
+	var/obj/screen/instability/instability_display = null
 	var/obj/screen/up_hint = null
 
 	//spells hud icons - this interacts with add_spell and remove_spell
 	var/list/obj/screen/movable/spell_master/spell_masters = null
+	var/obj/screen/movable/ability_master/ability_master = null
 
 	/*A bunch of this stuff really needs to go under their own defines instead of being globally attached to mob.
 	A variable should only be globally attached to turfs/objects/whatever, when it is in fact needed as such.
@@ -54,17 +60,17 @@
 	var/character_id = 0
 	var/obj/machinery/machine = null
 	var/other_mobs = null
-	var/sdisabilities = 0	//Carbon
-	var/disabilities = 0	//Carbon
+	var/sdisabilities = 0				//Carbon
+	var/disabilities = 0				//Carbon
 	var/atom/movable/pulling = null
 	var/next_move = null
-	var/transforming = null	//Carbon
+	var/transforming = null				//Carbon
 	var/other = 0.0
 	var/hand = null
-	var/eye_blind = null	//Carbon
-	var/eye_blurry = null	//Carbon
-	var/ear_deaf = null		//Carbon
-	var/ear_damage = null	//Carbon
+	var/eye_blind = null				//Carbon
+	var/eye_blurry = null				//Carbon
+	var/ear_deaf = null					//Carbon
+	var/ear_damage = null				//Carbon
 	var/stuttering = null
 	var/slurring = null
 	var/brokejaw = null
@@ -80,14 +86,15 @@
 	var/list/ccia_actions = list()
 	var/exploit_record = ""
 	var/blinded = null
-	var/bhunger = 0			//Carbon
+	var/bhunger = 0						//Carbon
 	var/ajourn = 0
-	var/druggy = 0			//Carbon
-	var/confused = 0		//Carbon
+	var/druggy = 0						//Carbon
+	var/confused = 0					//Carbon
 	var/antitoxs = null
 	var/phoron = null
-	var/sleeping = 0		//Carbon
-	var/resting = 0			//Carbon
+	var/sleeping = 0					//Carbon
+	var/sleeping_msg_debounce = FALSE	//Carbon - Used to show a message once every time someone falls asleep.
+	var/resting = 0						//Carbon
 	var/lying = 0
 	var/lying_prev = 0
 	var/canmove = 1
@@ -107,12 +114,12 @@
 	var/name_archive //For admin things like possession
 
 	var/timeofdeath = 0.0//Living
-	var/cpr_time = 1.0//Carbon
+	var/cpr = FALSE //Whether the mob is performing cpr or not
 
 	var/bodytemperature = 310.055	//98.7 F
 	var/old_x = 0
 	var/old_y = 0
-	var/drowsyness = 0.0//Carbon
+	var/drowsiness = 0.0//Carbon
 	var/charges = 0.0
 	var/nutrition = BASE_MAX_NUTRITION * CREW_NUTRITION_SLIGHTLYHUNGRY  //carbon
 	var/nutrition_loss = HUNGER_FACTOR //How much hunger is lost per tick. This is modified by species
@@ -131,12 +138,11 @@
 	var/stunned = 0
 	var/weakened = 0
 	var/losebreath = 0 //Carbon
-	var/intent = null//Living
+	var/intent = null//Living -- Depreciated? (a_intent below is your help/disarm/grab/harm)
 	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
 	var/m_intent = M_WALK //Living
 	var/lastKnownIP = null
-	var/obj/buckled = null//Living
 	var/obj/item/l_hand = null//Living
 	var/obj/item/r_hand = null//Living
 	var/obj/item/back = null//Human/Monkey
@@ -158,7 +164,6 @@
 	var/inertia_dir = 0
 
 	var/job = null//Living
-	var/megavend = 0		//determines if this ID has claimed their megavend stache
 
 	var/const/blindness = 1//Carbon
 	var/const/deafness = 2//Carbon
@@ -176,7 +181,7 @@
 	var/accent
 
 	var/faction = "neutral" //Used for checking whether hostile simple animals will attack you, possibly more stuff later
-	var/captured = 0 //Functionally, should give the same effect as being buckled into a chair when true.
+	var/captured = 0 //Functionally, should give the same effect as being buckled_to into a chair when true.
 
 //Generic list for proc holders. Only way I can see to enable certain verbs/procs. Should be modified if needed.
 	//var/proc_holder_list[] = list()//Right now unused.

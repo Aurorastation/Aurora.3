@@ -5,3 +5,7 @@
 	icon_state = "veil"
 	item_state = "veil"
 	contained_sprite = TRUE
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
+	flags_inv = HIDEFACE
+	sprite_sheets = null

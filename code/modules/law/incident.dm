@@ -7,7 +7,7 @@
 	var/list/evidence = list() // If its a prison sentence, it'll require evidence
 
 	var/list/arbiters = list( "Witness" = list() ) // The person or list of people who were involved in the conviction of the criminal
-	var/mob/living/carbon/human/criminal // The person who committed the crimes
+	var/datum/weakref/criminal // The person who committed the crimes
 	var/datum/weakref/card // The ID of the criminal
 
 	var/datetime = "" //When the crime has been commited
@@ -29,12 +29,9 @@
 /datum/crime_incident/proc/addArbiter( var/obj/item/card/id/C, var/title )
 	if( !istype( C ))
 		return "Invalid ID card!"
-
-	if( !C.mob )
-		return "ID card not tied to a NanoTrasen Employee!"
-
-	// if( criminal == C.mob ) //Uncommented because you should be able to give a statement in your case
-	// 	return "The criminal cannot hold official court positions in his own trial!"
+	var/mob/living/carbon/human/M = C.mob_id.resolve()
+	if( !M )
+		return "ID card not tied to an SCC Employee!"
 
 	var/list/same_access // The card requires one of these access codes to become this title
 	var/minSeverity = 1
@@ -42,7 +39,7 @@
 	switch( title )
 		if( "Witness" ) // anyone can be a witness
 			var/list/L = arbiters[title]
-			L += list( C.mob ) // some reason adding a mob counts as adding a list, so it would add the mob contents
+			L += list( M ) // some reason adding a mob counts as adding a list, so it would add the mob contents
 			arbiters[title] = L
 			return 0
 
@@ -50,13 +47,14 @@
 		return "The severity of the incident does not call for a [title]."
 
 	if( same_access && same_access.len )
-		arbiters[title] = C.mob
+		arbiters[title] = M
 		return 0
 	else
-		return "Could not add [C.mob] as [title]."
+		return "Could not add [M] as [title]."
 
 /datum/crime_incident/proc/missingSentenceReq()
-	if( !istype( criminal ))
+	var/mob/living/carbon/human/C = criminal.resolve()
+	if( !istype( C ))
 		return "No criminal selected!"
 
 	if( !charges.len )
@@ -136,7 +134,8 @@
 
 //type: 0 - brig sentence, 1 - fine, 2 - prison sentence
 /datum/crime_incident/proc/renderGuilty( var/mob/living/user, var/type=0 )
-	if( !criminal )
+	var/mob/living/carbon/human/C = criminal.resolve()
+	if( !C )
 		return
 
 	created_by = "[user.ckey] - [user.real_name]"
@@ -155,12 +154,15 @@
 	return generateReport()
 
 /datum/crime_incident/proc/generateReport()
+	var/mob/living/carbon/human/C = criminal.resolve()
+	if( !C )
+		return
 	. = "<center>Security Incident Report</center><hr>"
 
 	. += "<br>"
-	. += "<b>CRIMINAL</b>: <i>[criminal]</i><br><br>"
+	. += "<b>CRIMINAL</b>: <i>[C]</i><br><br>"
 
-	. += "[criminal] was found guilty of the following crimes on [game_year]-[time2text(world.realtime, "MMM-DD")].<br>"
+	. += "[C] was found guilty of the following crimes on [game_year]-[time2text(world.realtime, "MMM-DD")].<br>"
 
 	if( brig_sentence != 0 )
 		. += "As decided by the arbiter(s), they will serve the following sentence:<br>"
@@ -186,8 +188,9 @@
 	return .
 
 /datum/crime_incident/proc/saveCharInfraction()
+	var/mob/living/carbon/human/C = criminal.resolve()
 	var/datum/record/char_infraction/cinf = new()
-	cinf.char_id = criminal.character_id
+	cinf.char_id = C.character_id
 	cinf.id = UID
 	cinf.notes = notes
 	cinf.charges = json_decode(json_encode(charges)) //Thats there to strip all the non-needed values from the data before saving it to the db
@@ -200,9 +203,9 @@
 	cinf.felony = felony
 	cinf.created_by = created_by
 	// Check if player is a antag
-	if(isnull(criminal.mind.special_role))
+	if(isnull(C.mind.special_role))
 		cinf.saveToDB()
-	var/datum/record/general/R = SSrecords.find_record("name", criminal.name)
+	var/datum/record/general/R = SSrecords.find_record("name", C.name)
 	if(istype(R) && istype(R.security))
 		R.security.incidents += cinf
 
@@ -228,8 +231,7 @@
 		return "Holding until Transfer"
 
 /datum/record/char_infraction/proc/saveToDB()
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		error("SQL database connection failed. Infractions Datum failed to save information")
 		return
 
@@ -277,8 +279,7 @@
 	infraction_insert_query.Execute(sql_args)
 
 /datum/record/char_infraction/proc/deleteFromDB(var/deleted_by)
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		error("SQL database connection failed. Infractions Datum failed to save information")
 		return
 

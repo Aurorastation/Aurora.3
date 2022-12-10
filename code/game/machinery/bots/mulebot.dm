@@ -96,7 +96,7 @@
 	else if(I.isscrewdriver())
 		if(locked)
 			to_chat(user, "<span class='notice'>The maintenance hatch cannot be opened or closed while the controls are locked.</span>")
-			return
+			return TRUE
 
 		open = !open
 		if(open)
@@ -108,6 +108,7 @@
 			icon_state = "mulebot0"
 
 		updateDialog()
+		return TRUE
 	else if (I.iswrench())
 		if (src.health < maxhealth)
 			src.health = min(maxhealth, src.health+25)
@@ -118,6 +119,7 @@
 			)
 		else
 			to_chat(user, "<span class='notice'>[src] does not need a repair!</span>")
+		return TRUE
 	else if(load && ismob(load))  // chance to knock off rider
 		if(prob(1+I.force * 2))
 			unload(0)
@@ -125,9 +127,9 @@
 		else
 			to_chat(user, "You hit [src] with \the [I] but to no effect.")
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		return TRUE
 	else
-		..()
-	return
+		return ..()
 
 /obj/machinery/bot/mulebot/emag_act(var/remaining_charges, var/user)
 	locked = !locked
@@ -474,7 +476,7 @@
 	mode = 0
 
 
-/obj/machinery/bot/mulebot/machinery_process()
+/obj/machinery/bot/mulebot/process()
 	if(!has_power())
 		on = 0
 		return

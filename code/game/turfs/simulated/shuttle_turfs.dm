@@ -6,7 +6,6 @@
 	icon_state = "map-shuttle"
 	permit_ao = 0
 	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
-	use_standard_smoothing = 1
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle,
 		/obj/structure/window/shuttle,
@@ -16,55 +15,7 @@
 	)
 
 /turf/simulated/wall/shuttle/Initialize(mapload)
-	. = ..(mapload,"shuttle")
-
-/turf/simulated/wall/shuttle/attackby(obj/item/W as obj, mob/user as mob)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if (!user)
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
-
-	if(!istype(user.loc, /turf))
-		return
-
-	if(locate(/obj/effect/overlay/wallrot) in src)
-		if(W.iswelder() )
-			var/obj/item/weldingtool/WT = W
-			if( WT.remove_fuel(0,user) )
-				to_chat(user, "<span class='notice'>You burn away the fungi with \the [WT].</span>")
-				playsound(src, 'sound/items/welder.ogg', 10, 1)
-				for(var/obj/effect/overlay/wallrot/WR in src)
-					qdel(WR)
-				return
-		else if(!is_sharp(W) && W.force >= 10 || W.force >= 20)
-			to_chat(user, "<span class='notice'>\The [src] crumbles away under the force of your [W.name].</span>")
-			src.dismantle_wall(1)
-			return
-
-	if(thermite)
-		if(W.iswelder() )
-			var/obj/item/weldingtool/WT = W
-			if( WT.remove_fuel(0,user) )
-				thermitemelt(user)
-				return
-
-		else if(istype(W, /obj/item/gun/energy/plasmacutter))
-			thermitemelt(user)
-			return
-
-		else if( istype(W, /obj/item/melee/energy/blade) )
-			var/obj/item/melee/energy/blade/EB = W
-
-			spark(EB, 5)
-			to_chat(user, "<span class='notice'>You slash \the [src] with \the [EB]; the thermite ignites!</span>")
-			playsound(src, /decl/sound_category/spark_sound, 50, 1)
-			playsound(src, 'sound/weapons/blade.ogg', 50, 1)
-
-			thermitemelt(user)
-			return
-
-	if(!istype(W, /obj/item/reagent_containers))
-		return attack_hand(user)
+	. = ..(mapload, "shuttle", "shuttle")
 
 /turf/simulated/wall/shuttle/cardinal
 	smooth = SMOOTH_TRUE
@@ -74,8 +25,25 @@
 	canSmoothWith = null
 
 /turf/simulated/wall/shuttle/dark/cardinal
-	smooth = SMOOTH_TRUE
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle/dark,
+		/obj/structure/shuttle_part/dark
+	)
+
+/turf/simulated/wall/shuttle/dark/long_diagonal_2
+	name = "test diagonal"
+	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
+	icon_state = "d2-we-1"
+	use_set_icon_state = TRUE
+	smooth = null
 	canSmoothWith = null
+
+/obj/structure/shuttle_part/dark
+	name = "spaceship alloy wall"
+	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
+	icon_state = "d2-we-1"
+	outside_part = FALSE
 
 /turf/simulated/wall/shuttle/dark/corner
 	icon = 'icons/turf/shuttle.dmi'
@@ -99,6 +67,24 @@
 	if(T && !istype(T, /turf/simulated/open))
 		underlay_appearance.appearance = T
 		underlays = U
+
+/turf/simulated/wall/shuttle/scc_space_ship
+	name = "spaceship hull"
+	icon = 'icons/turf/smooth/scc_ship.dmi'
+	canSmoothWith = null
+
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/obj/structure/window/shuttle/scc_space_ship
+	)
+
+/obj/structure/shuttle_part/scc_space_ship
+	name = "spaceship alloy wall"
+	icon = 'icons/turf/smooth/scc_ship.dmi'
+	icon_state = "map-shuttle"
+	outside_part = FALSE
 
 /turf/simulated/wall/shuttle/raider
 	icon = 'icons/turf/smooth/composite_metal.dmi'
@@ -137,7 +123,7 @@
 		/turf/unsimulated/wall/fakeairlock
 	)
 
-/turf/simulated/wall/shuttle/Initialize(mapload)
+/turf/simulated/wall/shuttle/skrell/Initialize(mapload)
 	. = ..(mapload,"skrell")
 
 /turf/simulated/wall/shuttle/skrell/cardinal
@@ -149,6 +135,32 @@
 	use_set_icon_state = TRUE
 	smooth = null
 	canSmoothWith = null
+
+/turf/simulated/wall/shuttle/scc
+	icon = 'icons/turf/smooth/scc_shuttle.dmi'
+
+/turf/simulated/wall/shuttle/scc/cardinal
+	smooth = SMOOTH_MORE
+
+//Corporate shuttle and ship walls//
+/turf/simulated/wall/shuttle/idris
+	icon = 'icons/turf/smooth/idris_ship.dmi'
+
+/turf/simulated/wall/shuttle/idris/cardinal
+	smooth = SMOOTH_MORE
+
+/turf/simulated/wall/shuttle/space_ship
+	icon = 'icons/turf/smooth/generic_shuttle.dmi'
+
+/turf/simulated/wall/shuttle/space_ship/cardinal
+	smooth = SMOOTH_MORE
+
+/turf/simulated/wall/shuttle/space_ship/mercenary
+	color = "#5b5b5b"
+
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal
+	smooth = SMOOTH_MORE
+	color = "#5b5b5b"
 
 //--Unique Shuttles--//
 
@@ -399,6 +411,12 @@
 	icon = 'icons/turf/shuttles_unique/distress_shuttle.dmi'
 	icon_state = "6,2"
 
+//scc shuttle pieces
+
+/turf/simulated/wall/shuttle/unique/scc
+	name = "shuttle hull"
+	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
+	icon_state = "c1"
 
 //--Floors--//
 

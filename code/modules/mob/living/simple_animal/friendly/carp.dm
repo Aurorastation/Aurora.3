@@ -45,7 +45,7 @@
 	stomach_size_mult = 3 //They're just baby
 
 	density = TRUE
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
 
@@ -57,7 +57,7 @@
 		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	else
 		blood_overlay_icon = initial(blood_overlay_icon)
-	handle_blood_overlay(TRUE)
+	handle_blood(TRUE)
 
 /mob/living/simple_animal/carp/fall_impact()
 	src.visible_message(SPAN_NOTICE("\The [src] gently floats to a stop."))
@@ -70,7 +70,7 @@
 
 /mob/living/simple_animal/carp/fluff/think()
 	..()
-	if(!stat && !buckled && (turns_since_move > 5))
+	if(!stat && !buckled_to && (turns_since_move > 5))
 		walk_to(src,0)
 		turns_since_move = 0
 		handle_movement_target()

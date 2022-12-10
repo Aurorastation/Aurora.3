@@ -42,7 +42,9 @@
 	var/list/all_underwear_metadata = list()
 	var/list/hide_underwear = list()
 	var/backbag = OUTFIT_BACKPACK		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
-	var/backbag_style = 1
+	var/backbag_style = OUTFIT_JOBSPECIFIC
+	var/backbag_color = OUTFIT_NOTHING
+	var/backbag_strap = TRUE
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 
@@ -67,6 +69,7 @@
 	var/obj/item/r_store = null
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
+	var/obj/item/wrists = null
 
 	var/used_skillpoints = 0
 	var/skill_specialization = null
@@ -94,7 +97,7 @@
 	var/hand_blood_color
 
 	var/list/flavor_texts = list()
-	var/gunshot_residue
+	var/list/gunshot_residue
 	var/pulling_punches // Are you trying not to hurt your opponent?
 
 	mob_bump_flag = HUMAN
@@ -111,6 +114,7 @@
 
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
 	var/bodyfall_sound = /decl/sound_category/bodyfall_sound
+	var/footsound = /decl/sound_category/blank_footsteps
 
 	var/last_x = 0
 	var/last_y = 0
@@ -123,3 +127,5 @@
 
 	var/datum/martial_art/primary_martial_art = null
 	var/list/datum/martial_art/known_martial_arts = null
+
+	var/triage_tag = TRIAGE_NONE

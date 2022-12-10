@@ -1,6 +1,6 @@
 // PRESETS
 var/global/list/engineering_networks = list(
-	NETWORK_ENGINE,
+	NETWORK_REACTOR,
 	NETWORK_ENGINEERING,
 	NETWORK_ENGINEERING_OUTPOST,
 	"Atmosphere Alarms",
@@ -32,8 +32,8 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/command
 	network = list(NETWORK_COMMAND)
 
-/obj/machinery/camera/network/engine
-	network = list(NETWORK_ENGINE)
+/obj/machinery/camera/network/reactor
+	network = list(NETWORK_REACTOR)
 
 /obj/machinery/camera/network/engineering
 	network = list(NETWORK_ENGINEERING)
@@ -50,7 +50,7 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/tcfl
 	network = list(NETWORK_TCFL)
 
-/obj/machinery/camera/network/exodus
+/obj/machinery/camera/network/station
 	network = list(NETWORK_STATION)
 
 /obj/machinery/camera/network/mining
@@ -125,6 +125,20 @@ var/global/list/engineering_networks = list(
 	upgradeXRay()
 	upgradeMotion()
 
+//space ship cameras
+
+/obj/machinery/camera/network/first_deck
+	network = list(NETWORK_FIRST_DECK)
+
+/obj/machinery/camera/network/second_deck
+	network = list(NETWORK_SECOND_DECK)
+
+/obj/machinery/camera/network/third_deck
+	network = list(NETWORK_THIRD_DECK)
+
+/obj/machinery/camera/network/intrepid
+	network = list(NETWORK_INTREPID)
+
 // AUTONAME
 /obj/machinery/camera/autoname
 	var/number = 0 //camera number in area
@@ -176,8 +190,8 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/proc/upgradeMotion()
 	assembly.upgrades.Add(new /obj/item/device/assembly/prox_sensor(assembly))
 	setPowerUsage()
-	if(!(SSmachinery.processing_machines[src]))
-		add_machine(src)
+	if(!(SSmachinery.processing[src]))
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	update_coverage()
 
 /obj/machinery/camera/proc/setPowerUsage()
@@ -186,4 +200,4 @@ var/global/list/engineering_networks = list(
 		mult++
 	if (isMotion())
 		mult++
-	active_power_usage = mult*initial(active_power_usage)
+	change_power_consumption(mult*initial(active_power_usage), POWER_USE_ACTIVE)

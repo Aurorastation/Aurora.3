@@ -52,7 +52,6 @@
 				.(currentz, currentx, currenty, ligths)
 		else
 			to_chat(usr, "End of map, capture is done.")
-			sound_to(usr, 'sound/AI/done.ogg')
 
 /datum/admins/proc/capture_map(tz as null|num)
 	set category = "Server"

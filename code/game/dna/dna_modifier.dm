@@ -44,7 +44,6 @@
 	icon_state = "scanner_0"
 	density = 1
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 50
 	active_power_usage = 300
 	interact_offline = 1
@@ -119,27 +118,27 @@
 	if(istype(item, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
-			return
+			return TRUE
 
 		beaker = item
 		user.drop_from_inventory(item,src)
 		user.visible_message("\The [user] adds \a [item] to \the [src]!", "You add \a [item] to \the [src]!")
-		return
+		return TRUE
 	else if (!istype(item, /obj/item/grab))
 		return
 	var/obj/item/grab/G = item
 	if (!ismob(G.affecting))
-		return
+		return TRUE
 	if (src.occupant)
 		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
-		return
+		return TRUE
 	if (G.affecting.abiotic())
 		to_chat(user, "<span class='warning'>The subject cannot have abiotic items on.</span>")
-		return
+		return TRUE
 	put_in(G.affecting)
 	src.add_fingerprint(user)
 	qdel(G)
-	return
+	return TRUE
 
 /obj/machinery/dna_scannernew/proc/put_in(var/mob/M)
 	if(M.client)
@@ -206,8 +205,10 @@
 
 /obj/machinery/computer/scan_consolenew
 	name = "DNA Modifier Access Console"
-	desc = "Scand DNA."
+	desc = "Scan DNA."
 	icon_screen = "dna"
+	icon_keyboard = "teal_key"
+	light_color = LIGHT_COLOR_BLUE
 	density = 1
 	circuit = /obj/item/circuitboard/scan_consolenew
 	var/selected_ui_block = 1.0
@@ -225,7 +226,6 @@
 	var/obj/item/disk/data/disk = null
 	var/selected_menu_key = null
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 400
 	var/waiting_for_user_input=0 // Fix for #274 (Mash create block injector without answering dialog to make unlimited injectors) - N3X
@@ -237,10 +237,9 @@
 			src.disk = I
 			to_chat(user, "You insert [I].")
 			SSnanoui.update_uis(src) // update all UIs attached to src
-			return
+			return TRUE
 	else
-		..()
-	return
+		return ..()
 
 /obj/machinery/computer/scan_consolenew/ex_act(severity)
 
@@ -274,7 +273,7 @@
 /obj/machinery/computer/scan_consolenew/proc/all_dna_blocks(var/list/buffer)
 	var/list/arr = list()
 	for(var/i = 1, i <= buffer.len, i++)
-		arr += "[i]:[EncodeDNABlock(buffer[i])]"
+		arr += "[i]:[num2hex(buffer[i], 3)]"
 	return arr
 
 /obj/machinery/computer/scan_consolenew/proc/setInjectorBlock(var/obj/item/dnainjector/I, var/blk, var/datum/dna2/record/buffer)
@@ -454,7 +453,7 @@
 			else
 				randmuti(src.connected.occupant)
 
-		src.connected.occupant.apply_effect(((src.radiation_intensity*3)+src.radiation_duration*3), IRRADIATE, blocked = 0)
+		src.connected.occupant.apply_damage(((src.radiation_intensity*3)+src.radiation_duration*3), IRRADIATE, damage_flags = DAM_DISPERSED)
 		src.connected.locked = lock_state
 		return 1 // return 1 forces an update to all Nano uis attached to src
 
@@ -548,7 +547,7 @@
 			block = miniscrambletarget(num2text(selected_ui_target), src.radiation_intensity, src.radiation_duration)
 			src.connected.occupant.dna.SetUISubBlock(src.selected_ui_block,src.selected_ui_subblock,block)
 			src.connected.occupant.UpdateAppearance()
-			src.connected.occupant.apply_effect((src.radiation_intensity+src.radiation_duration), IRRADIATE, blocked = 0)
+			src.connected.occupant.apply_damage((src.radiation_intensity+src.radiation_duration), IRRADIATE, damage_flags = DAM_DISPERSED)
 		else
 			if	(prob(20+src.radiation_intensity))
 				randmutb(src.connected.occupant)
@@ -556,7 +555,7 @@
 			else
 				randmuti(src.connected.occupant)
 				src.connected.occupant.UpdateAppearance()
-			src.connected.occupant.apply_effect(((src.radiation_intensity*2)+src.radiation_duration), IRRADIATE, blocked = 0)
+			src.connected.occupant.apply_damage(((src.radiation_intensity*2)+src.radiation_duration), IRRADIATE, damage_flags = DAM_DISPERSED)
 		src.connected.locked = lock_state
 		return 1 // return 1 forces an update to all Nano uis attached to src
 
@@ -613,10 +612,10 @@
 
 				//testing("Irradiated SE block [real_SE_block]:[src.selected_se_subblock] ([original_block] now [block]) [(real_SE_block!=selected_se_block) ? "(SHIFTED)":""]!")
 				connected.occupant.dna.SetSESubBlock(real_SE_block,selected_se_subblock,block)
-				src.connected.occupant.apply_effect((src.radiation_intensity+src.radiation_duration), IRRADIATE, blocked = 0)
+				src.connected.occupant.apply_damage((src.radiation_intensity+src.radiation_duration), IRRADIATE, damage_flags = DAM_DISPERSED)
 				domutcheck(src.connected.occupant,src.connected)
 			else
-				src.connected.occupant.apply_effect(((src.radiation_intensity*2)+src.radiation_duration), IRRADIATE, blocked = 0)
+				src.connected.occupant.apply_damage(((src.radiation_intensity*2)+src.radiation_duration), IRRADIATE, damage_flags = DAM_DISPERSED)
 				if	(prob(80-src.radiation_duration))
 					//testing("Random bad mut!")
 					randmutb(src.connected.occupant)
@@ -738,7 +737,7 @@
 				src.connected.occupant.dna.SE = buf.dna.SE
 				src.connected.occupant.dna.UpdateSE()
 				domutcheck(src.connected.occupant,src.connected)
-			src.connected.occupant.apply_effect(rand(20,50), IRRADIATE, blocked = 0)
+			src.connected.occupant.apply_damage(rand(20,50), damage_flags = DAM_DISPERSED)
 			return 1
 
 		if (bufferOption == "createInjector")

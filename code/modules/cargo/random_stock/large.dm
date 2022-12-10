@@ -20,7 +20,7 @@ STOCK_ITEM_LARGE(EOD, 1.5)
 		new /obj/structure/closet/bombcloset(L)
 
 STOCK_ITEM_LARGE(biosuit, 3)
-	var/list/allsuits = typesof(/obj/structure/closet/l3closet)
+	var/list/allsuits = typesof(/obj/structure/closet/hazmat)
 	var/type = pick(allsuits)
 	new type(L)
 
@@ -63,9 +63,9 @@ STOCK_ITEM_LARGE(airscrubber, 1)
 
 STOCK_ITEM_LARGE(generator, 5)
 	var/list/generators = list(
-		/obj/machinery/power/port_gen/pacman = 1,
-		/obj/machinery/power/port_gen/pacman/super = 0.7,
-		/obj/machinery/power/port_gen/pacman/mrs = 0.5
+		/obj/machinery/power/portgen/basic = 1,
+		/obj/machinery/power/portgen/basic/advanced = 0.7,
+		/obj/machinery/power/portgen/basic/super = 0.5
 	)
 	var/type = pickweight(generators)
 	new type(L)
@@ -107,6 +107,7 @@ STOCK_ITEM_LARGE(dispenser, 2.5)
 	var/type = pickweight(dispensers)
 	var/obj/machinery/chemical_dispenser/CD = new type(L)
 	CD.anchored = FALSE
+	CD.update_use_power(POWER_USE_OFF)
 	for (var/cart in CD.cartridges)
 		if (prob(90))
 			CD.cartridges -= cart

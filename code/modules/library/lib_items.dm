@@ -27,7 +27,7 @@
 			I.forceMove(src)
 	update_icon()
 
-/obj/structure/bookcase/attackby(obj/O as obj, mob/user as mob)
+/obj/structure/bookcase/attackby(obj/item/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/book))
 		user.drop_from_inventory(O,src)
 		update_icon()
@@ -42,15 +42,12 @@
 		to_chat(user, (anchored ? "<span class='notice'>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>"))
 		anchored = !anchored
 	else if(O.isscrewdriver())
-		playsound(loc, O.usesound, 75, 1)
 		to_chat(user, "<span class='notice'>You begin dismantling \the [src].</span>")
-		if(do_after(user,25))
+		if(O.use_tool(src, user, 25, volume = 50))
 			to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
-			new /obj/item/stack/material/wood(get_turf(src), 3)
 			for(var/obj/item/book/b in contents)
 				b.forceMove((get_turf(src)))
-			qdel(src)
-
+			dismantle()
 	else
 		..()
 
@@ -142,9 +139,6 @@
 /obj/structure/bookcase/libraryspawn/nonfiction
 	spawn_category = "Non-Fiction"
 
-/obj/structure/bookcase/libraryspawn/adult
-	spawn_category = "Adult"
-
 /obj/structure/bookcase/libraryspawn/reference
 	spawn_category = "Reference"
 
@@ -197,7 +191,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
 		)
 	icon_state = "book"
-	description_cult = "This can be reforged to become a cult tome."
+	desc_antag = "As a Cultist, this item can be reforged to become a cult tome."
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEMSIZE_NORMAL		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
@@ -307,7 +301,7 @@
 	else if(istype(W, /obj/item/material/knife) || W.iswirecutter())
 		if(carved)	return
 		to_chat(user, "<span class='notice'>You begin to carve out [title].</span>")
-		if(do_after(user, 30/W.toolspeed))
+		if(W.use_tool(src, user, 30, volume = 50))
 			to_chat(user, "<span class='notice'>You carve out the pages from [title]! You didn't want to read it anyway.</span>")
 			playsound(loc, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
 			new /obj/item/shreddedp(get_turf(src))
@@ -361,4 +355,3 @@
 		else
 			to_chat(user, "<span class='attack'>No associated computer found. Only local scans will function properly.</span>")
 		to_chat(user, "\n")
-

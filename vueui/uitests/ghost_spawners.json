@@ -211,7 +211,7 @@
         },
         "visitor": {
           "name": "Visitor",
-          "desc": "You are a random visitor that boarded the NSS Aurora, visiting for any reason you can think of. You do not have any records, as you are not a Nanotrasen employee. (This spawner is not enabled.)",
+          "desc": "You are a random visitor that boarded the NSS Aurora, visiting for any reason you can think of. You do not have any records, as you are not a NanoTrasen employee. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,
@@ -317,9 +317,9 @@
           "tags": ["Response Teams"],
           "spawnpoints": ["ERTSpawn"]
         },
-        "eridanidocbodyguard": {
-          "name": "Eridani Medical Contractor Bodyguard",
-          "desc": "A highly trained bodyguard. Sticks close to the medics while they work. (This spawner is not enabled.)",
+        "eridaniassetprotection": {
+          "name": "Eridani Asset Protection Specialist",
+          "desc": "A specialist suited for close asset protection and policing duties. Ensure your colleagues ledgers remain in the black. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,
@@ -329,9 +329,9 @@
           "tags": ["Response Teams"],
           "spawnpoints": ["ERTSpawn"]
         },
-        "eridaniparamedic": {
-          "name": "Eridani Medical Contractor Paramedic",
-          "desc": "A highly trained paramedic. You grab injured people and bring them to the medical doctor. You are trained in nursing duties as well. (This spawner is not enabled.)",
+        "eridanicorpsman": {
+          "name": "Eridani Corpsman",
+          "desc": "An Eridani corpsman that can handle nursing duties as well. Trained to operate in combat environments if needed. Make sure to check your quarterlies. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,
@@ -341,17 +341,29 @@
           "tags": ["Response Teams"],
           "spawnpoints": ["ERTSpawn"]
         },
-        "eridanidoctor": {
-          "name": "Eridani Medical Contractor Doctor",
-          "desc": "A highly trained Eridani contractor doctor medical doctor. Can do most medical procedures even under severe stress. (This spawner is not enabled.)",
+        "eridanileader": {
+          "name": "Eridani Section Leader",
+          "desc": "The leader of the EPMC Asset Protection Team. Ensure your employers bottom line remains protected and don't sign blindly. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,
           "count": 0,
           "spawnatoms": 0,
-          "max_count": 2,
+          "max_count": 1,
           "tags": ["Response Teams"],
           "spawnpoints": ["ERTSpawn"]
+        },
+          "eridanidoctor": {
+            "name": "Eridani Medical Officer",
+            "desc": " highly trained Eridani medical officer and the second in command of the EPMC Asset Protection Team. Well versed in surgical procedures and expected to work in a hot zone. Not a stranger to a bank run. (This spawner is not enabled.)",
+            "cant_spawn": "This spawner is not enabled.",
+            "can_edit": 1,
+            "enabled": 0,
+            "count": 0,
+            "spawnatoms": 0,
+            "max_count": 1,
+            "tags": ["Response Teams"],
+            "spawnpoints": ["ERTSpawn"]
         },
         "mercs": {
           "name": "Mercenary Medical Specialist",
@@ -402,8 +414,8 @@
           "spawnpoints": ["ERTSpawn"]
         },
         "ntmed": {
-          "name": "Nanotrasen Medical Specialist",
-          "desc": "A medical specialist of the Nanotrasen Phoenix ERT. (This spawner is not enabled.)",
+          "name": "NanoTrasen Medical Specialist",
+          "desc": "A medical specialist of the NanoTrasen Phoenix ERT. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,
@@ -414,8 +426,8 @@
           "spawnpoints": ["NTERTSpawn"]
         },
         "nteng": {
-          "name": "Nanotrasen Engineering Specialist",
-          "desc": "An engineering specialist of the Nanotrasen Phoenix ERT. (This spawner is not enabled.)",
+          "name": "NanoTrasen Engineering Specialist",
+          "desc": "An engineering specialist of the NanoTrasen Phoenix ERT. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,
@@ -426,8 +438,8 @@
           "spawnpoints": ["NTERTSpawn"]
         },
         "ntlead": {
-          "name": "Nanotrasen Leader",
-          "desc": "The leader of the Nanotrasen Phoenix ERT. (This spawner is not enabled.)",
+          "name": "NanoTrasen Leader",
+          "desc": "The leader of the NanoTrasen Phoenix ERT. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,
@@ -438,8 +450,8 @@
           "spawnpoints": ["NTERTSpawn"]
         },
         "ntert": {
-          "name": "Nanotrasen Responder",
-          "desc": "A responder of the Nanotrasen Phoenix ERT. (This spawner is not enabled.)",
+          "name": "NanoTrasen Responder",
+          "desc": "A responder of the NanoTrasen Phoenix ERT. (This spawner is not enabled.)",
           "cant_spawn": "This spawner is not enabled.",
           "can_edit": 1,
           "enabled": 0,

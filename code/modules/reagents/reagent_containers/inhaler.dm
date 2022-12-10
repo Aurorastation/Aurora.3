@@ -4,10 +4,13 @@
 	name = "autoinhaler"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel."
 	icon = 'icons/obj/syringe.dmi'
-	item_state = "autoinjector"
-	icon_state = "inhaler1"
+	icon_state = "autoinhaler"
+	item_state = "autoinhaler"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi'
+		)
 	center_of_mass = list("x" = 16,"y" = 11)
-	var/empty_state = "inhaler0"
 	unacidable = 1
 	amount_per_transfer_from_this = 5
 	volume = 5
@@ -16,20 +19,27 @@
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	center_of_mass = null
-	var/used = FALSE
+	var/name_label
+	var/spent = FALSE
 	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
 
 /obj/item/reagent_containers/inhaler/Initialize()
 	. =..()
-	icon_state = empty_state
+	if(name_label)
+		name_unlabel = name
+		name = "[name] ([name_label])"
+		verbs += /atom/proc/remove_label
+	if(reagents_to_add)
+		flags = 0
+		spent = FALSE
 	update_icon()
 
-/obj/item/reagent_containers/inhaler/afterattack(var/mob/living/carbon/human/H, var/mob/user, var/proximity)
+/obj/item/reagent_containers/inhaler/on_reagent_change()
+	update_icon()
+	return
 
-	if (!istype(H))
-		return ..()
-
-	if(!proximity)
+/obj/item/reagent_containers/inhaler/proc/inject(var/mob/living/carbon/human/H, var/mob/user, var/proximity)
+	if (!istype(H) || !proximity)
 		return
 
 	if(!reagents.total_volume)
@@ -38,7 +48,8 @@
 
 	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
-		eyestab(H,user)
+		if(!H.eyes_protected(src, FALSE))
+			eyestab(H,user)
 		if(H.reagents)
 			var/contained = reagentlist()
 			var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_TOUCH)
@@ -46,7 +57,7 @@
 			playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 			user.visible_message("<span class='notice'>[user] accidentally sticks the [src] in [H]'s eyes!</span>","<span class='notice'>You accidentally stick the [src] in [H]'s eyes!</span>")
 			to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
-			used = TRUE
+			spent = TRUE
 			update_icon()
 		return
 
@@ -81,16 +92,25 @@
 		admin_inject_log(user, H, src, contained, temp, trans)
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
-		used = TRUE
+		spent = TRUE
 
 	update_icon()
-
 	return TRUE
+
+/obj/item/reagent_containers/inhaler/afterattack(var/mob/living/carbon/human/H, var/mob/user, proximity)
+	if (!istype(H))
+		return ..()
+
+	if(!proximity)
+		return
 
 /obj/item/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
 	if(is_open_container())
 		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
 		return FALSE
+
+	else
+		inject(M, user, M.Adjacent(user))
 	. = ..()
 
 /obj/item/reagent_containers/inhaler/attack_self(mob/user as mob)
@@ -98,6 +118,7 @@
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
 			flags &= ~OPENCONTAINER
+			spent = FALSE
 			update_icon()
 		else
 			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
@@ -110,14 +131,23 @@
 		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler's lid.</span>") // it locks shut after being secured
 		flags |= OPENCONTAINER
 		update_icon()
-		return
+		return TRUE
 	. = ..()
 
 /obj/item/reagent_containers/inhaler/update_icon()
-	if(reagents.total_volume > 0 && !is_open_container())
-		icon_state = initial(icon_state)
-	else
-		icon_state = empty_state
+	cut_overlays()
+	if(!is_open_container())
+		var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinhaler_secured")
+		add_overlay(backing_overlay)
+
+	icon_state = "[initial(icon_state)][spent]"
+	item_state = "[initial(item_state)][spent]"
+
+	if(reagents.total_volume)
+		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinhaler_reagents")
+		reagent_overlay.color = reagents.get_color()
+		add_overlay(reagent_overlay)
+	update_held_icon()
 
 /obj/item/reagent_containers/inhaler/examine(mob/user)
 	..(user)
@@ -127,109 +157,127 @@
 		to_chat(user, "<span class='notice'>It is spent.</span>")
 
 /obj/item/reagent_containers/inhaler/dexalin
-	name = "autoinhaler (dexalin)"
+	name_label = "dexalin"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains dexalin."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/dexalin, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/dexalin/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/dexalin, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/peridaxon
-	name = "autoinhaler (peridaxon)"
+	name_label = "peridaxon"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains peridaxon."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/peridaxon, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/peridaxon/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/peridaxon, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/hyperzine
-	name = "autoinhaler (hyperzine)"
+	name_label = "hyperzine"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains hyperzine."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/hyperzine, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/hyperzine/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/hyperzine, volume)
+	update_icon()
+	return
+
+/obj/item/reagent_containers/inhaler/xuxigas
+	name_label = "xu'xi gas"
+	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains xu'xi gas."
+	flags = 0
+
+/obj/item/reagent_containers/inhaler/xuxigas/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/xuxigas, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/phoron
-	name = "autoinhaler (phoron)"
+	name_label = "phoron"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains phoron."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/phoron/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/phoron_special
 	name = "vaurca autoinhaler (phoron)"
 	desc = "A strange device that contains some sort of heavy-duty bag and mouthpiece combo."
 	icon_state = "anthaler1"
-	empty_state = "anthaler0"
+	flags = 0
 	volume = 10
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
-		update_icon()
-		return
+	var/empty_state = "anthaler0"
+
+/obj/item/reagent_containers/inhaler/phoron_special/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/soporific
-	name = "autoinhaler (soporific)"
+	name_label = "soporific"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains soporific."
-	icon_state = "so_inhaler1"
-	empty_state = "so_inhaler0"
 	volume = 10
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/soporific, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/soporific/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/soporific, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/space_drugs
-	name = "autoinhaler (space drugs)"
+	name_label = "space drugs"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains space drugs."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/space_drugs, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/space_drugs/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/space_drugs, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/ammonia
-	name = "autoinhaler (ammonia)"
+	name_label = "ammonia"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains ammonia."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/ammonia, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/ammonia/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/ammonia, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/pulmodeiectionem
-	name = "autoinhaler (pulmodeiectionem)"
+	name_label = "pulmodeiectionem"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains pulmodeiectionem."
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/pulmodeiectionem, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/pulmodeiectionem/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/pulmodeiectionem, volume)
+	update_icon()
+	return
 
 /obj/item/reagent_containers/inhaler/pneumalin
-	name = "autoinhaler (pneumalin)"
+	name_label = "pneumalin"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains pneumalin."
-	icon_state = "so_inhaler1"
-	empty_state = "so_inhaler0"
 	volume = 10
+	flags = 0
 
-	Initialize()
-		. =..()
-		reagents.add_reagent(/decl/reagent/pneumalin, volume)
-		update_icon()
-		return
+/obj/item/reagent_containers/inhaler/pneumalin/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/pneumalin, volume)
+	update_icon()
+	return

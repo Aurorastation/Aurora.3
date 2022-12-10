@@ -13,17 +13,17 @@
 	equip_sound = null
 
 //Predefined materials go here.
-/obj/item/material/twohanded/baseballbat/metal/New(var/newloc)
-	..(newloc, MATERIAL_STEEL)
+/obj/item/material/twohanded/baseballbat/metal/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_STEEL)
 
-/obj/item/material/twohanded/baseballbat/uranium/New(var/newloc)
-	..(newloc, MATERIAL_URANIUM)
+/obj/item/material/twohanded/baseballbat/uranium/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_URANIUM)
 
-/obj/item/material/twohanded/baseballbat/gold/New(var/newloc)
-	..(newloc, MATERIAL_GOLD)
+/obj/item/material/twohanded/baseballbat/gold/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_GOLD)
 
-/obj/item/material/twohanded/baseballbat/platinum/New(var/newloc)
-	..(newloc, MATERIAL_PLATINUM)
+/obj/item/material/twohanded/baseballbat/platinum/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_PLATINUM)
 
-/obj/item/material/twohanded/baseballbat/diamond/New(var/newloc)
-	..(newloc, MATERIAL_DIAMOND)
+/obj/item/material/twohanded/baseballbat/diamond/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_DIAMOND)

@@ -9,8 +9,6 @@
 	lstate = SSnightlight.is_active() ? "dark" : "full"
 
 /datum/nano_module/lighting_ctrl/proc/update_lighting()
-	if (!config.night_lighting)
-		return
 
 	// whether to only select areas explicitly marked for nightlighting
 	var/wl_only = context == "all" ? 0 : 1

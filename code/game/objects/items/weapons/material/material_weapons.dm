@@ -8,21 +8,22 @@
 	throw_range = 7
 	w_class = ITEMSIZE_NORMAL
 	sharp = 0
-	edge = 0
+	edge = FALSE
 	icon = 'icons/obj/weapons.dmi'
 
 	var/use_material_name = TRUE // Does the finished item put the material name in front of it?
 	var/use_material_sound = TRUE
-	var/applies_material_colour = 1
+	var/use_material_shatter = TRUE // If it has a custom shatter message.
+	var/applies_material_colour = TRUE
 	var/unbreakable
 	var/force_divisor = 0.5
 	var/thrown_force_divisor = 0.5
 	var/default_material = DEFAULT_WALL_MATERIAL
 	var/material/material
-	var/drops_debris = 1
+	var/drops_debris = TRUE
 
-/obj/item/material/New(var/newloc, var/material_key)
-	..(newloc)
+/obj/item/material/Initialize(var/newloc, var/material_key)
+	. = ..()
 	if(!material_key)
 		material_key = default_material
 	set_material(material_key)
@@ -35,6 +36,9 @@
 		for(var/material_type in matter)
 			if(!isnull(matter[material_type]))
 				matter[material_type] *= force_divisor // May require a new var instead.
+
+/obj/item/material/should_equip()
+	return TRUE
 
 /obj/item/material/get_material()
 	return material
@@ -87,11 +91,11 @@
 
 /obj/item/material/proc/shatter(var/consumed)
 	var/turf/T = get_turf(src)
-	T.visible_message("<span class='danger'>\The [src] [material.destruction_desc]!</span>")
+	if(use_material_shatter)
+		T.visible_message(SPAN_DANGER("\The [src] [material.destruction_desc]!"))
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
 		M.drop_from_inventory(src)
 	playsound(src, material.shatter_sound, 70, 1)
 	if(!consumed && drops_debris) material.place_shard(T)
 	qdel(src)
-

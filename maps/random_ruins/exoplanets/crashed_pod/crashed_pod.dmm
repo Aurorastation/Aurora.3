@@ -1,0 +1,194 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"b" = (
+/turf/template_noop,
+/area/space)
+"c" = (
+/turf/simulated/wall/shuttle/dark,
+/area/map_template/crashed_pod)
+"d" = (
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/tiled,
+/area/map_template/crashed_pod)
+"e" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/tiled,
+/area/map_template/crashed_pod)
+"f" = (
+/turf/simulated/floor/tiled,
+/area/map_template/crashed_pod)
+"g" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/emergency,
+/obj/item/storage/toolbox/emergency,
+/obj/item/storage/toolbox/emergency,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/turf/simulated/floor/tiled,
+/area/map_template/crashed_pod)
+"h" = (
+/obj/structure/closet/toolcloset,
+/turf/simulated/floor/tiled,
+/area/map_template/crashed_pod)
+"i" = (
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/obj/machinery/power/apc/super{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/map_template/crashed_pod)
+"k" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/map_template/crashed_pod)
+"l" = (
+/obj/machinery/power/smes/buildable,
+/obj/structure/cable{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/map_template/crashed_pod)
+"n" = (
+/obj/machinery/autolathe,
+/turf/simulated/floor/tiled,
+/area/map_template/crashed_pod)
+"o" = (
+/obj/structure/droppod_door,
+/turf/simulated/wall/shuttle/dark,
+/area/map_template/crashed_pod)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+b
+c
+c
+c
+c
+c
+c
+c
+c
+a
+"}
+(3,1,1) = {"
+b
+c
+d
+f
+g
+i
+h
+h
+c
+a
+"}
+(4,1,1) = {"
+b
+c
+d
+f
+f
+k
+f
+f
+o
+a
+"}
+(5,1,1) = {"
+b
+c
+d
+f
+f
+k
+f
+f
+o
+a
+"}
+(6,1,1) = {"
+b
+c
+e
+f
+f
+k
+f
+f
+o
+a
+"}
+(7,1,1) = {"
+b
+c
+e
+f
+f
+k
+f
+f
+c
+a
+"}
+(8,1,1) = {"
+b
+c
+e
+f
+h
+l
+n
+f
+c
+a
+"}
+(9,1,1) = {"
+b
+c
+c
+c
+c
+c
+c
+c
+c
+a
+"}
+(10,1,1) = {"
+b
+b
+b
+b
+b
+b
+b
+b
+b
+a
+"}

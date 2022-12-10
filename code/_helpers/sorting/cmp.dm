@@ -85,3 +85,6 @@
 
 /proc/cmp_clientcolor_priority(datum/client_color/A, datum/client_color/B)
 	return B.priority - A.priority
+
+/proc/cmp_ruincost_priority(datum/map_template/ruin/A, datum/map_template/ruin/B)
+	return initial(A.spawn_cost) - initial(B.spawn_cost)

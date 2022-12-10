@@ -9,17 +9,18 @@
 	damage_overlays = 'icons/mob/human_races/masks/dam_monkey.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_monkey.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_monkey.dmi'
-	language = null
+	language = LANGUAGE_CHIMPANZEE
 	default_language = LANGUAGE_CHIMPANZEE
+	secondary_langs = list(LANGUAGE_CHIMPANZEE)
 	greater_form = SPECIES_HUMAN
 	mob_size = MOB_SMALL
-	has_fine_manipulation = 0
 	show_ssd = null
+
+	bodytype = BODYTYPE_MONKEY
 
 	eyes = "blank_eyes"
 
 	gibbed_anim = "gibbed-m"
-	dusted_anim = "dust-m"
 
 	death_message = "lets out a faint chimper as it collapses and stops moving..."
 	death_message_range = 7
@@ -27,8 +28,9 @@
 	tail = "chimptail"
 
 	unarmed_types = list(/datum/unarmed_attack/bite, /datum/unarmed_attack/claws)
-	inherent_verbs = list(/mob/living/proc/ventcrawl)
+	inherent_verbs = list(/mob/living/proc/ventcrawl, /mob/living/carbon/human/proc/change_animal_name)
 	hud_type = /datum/hud_data/monkey
+
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/monkey
 
 	rarity_value = 0.1
@@ -71,6 +73,15 @@
 	if(!H.restrained() && H.lying && H.shock_stage >= 60 && prob(3))
 		H.custom_emote(AUDIBLE_MESSAGE, "thrashes in agony")
 
+/datum/species/monkey/New()
+	..()
+	equip_adjust = list(
+		slot_l_hand_str =    list("[NORTH]" = list("x" = 1, "y" = 2),  "[EAST]" = list("x" = -3, "y" = 1), "[SOUTH]" = list("x" = -2, "y" = 2), "[WEST]" = list("x" = 3, "y" = 2)),
+		slot_r_hand_str =    list("[NORTH]" = list("x" = -1, "y" = 2), "[EAST]" = list("x" = -2, "y" = 2), "[SOUTH]" = list("x" = 2, "y" = 2),  "[WEST]" = list("x" = 2, "y" = 2)),
+		slot_head_str =      list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = -2, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 0),  "[WEST]" = list("x" = 2, "y" = 0)),
+		slot_wear_mask_str = list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = -1, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 0),  "[WEST]" = list("x" = 1, "y" = 0))
+	)
+
 /datum/species/monkey/get_random_name()
 	return "[lowertext(name)] ([rand(100,999)])"
 
@@ -101,6 +112,7 @@
 	name = SPECIES_MONKEY_SKRELL
 	short_name = "nea"
 	name_plural = "Neaera"
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/neaera
 
 	icobase = 'icons/mob/human_races/monkeys/r_neaera.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_neaera.dmi'
@@ -113,6 +125,16 @@
 	tail = null
 	holder_type = /obj/item/holder/monkey/neaera
 	fall_mod = 0.25
+
+	has_organ = list(
+		BP_HEART =    /obj/item/organ/internal/heart/skrell/neaera,
+		BP_LUNGS =    /obj/item/organ/internal/lungs/skrell/neaera,
+		BP_LIVER =    /obj/item/organ/internal/liver/skrell/neaera,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell/neaera,
+		BP_BRAIN =    /obj/item/organ/internal/brain/skrell/neaera,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
+		BP_EYES =     /obj/item/organ/internal/eyes/skrell/neaera
+		)
 
 /datum/species/monkey/unathi
 	name = SPECIES_MONKEY_UNATHI
@@ -143,7 +165,8 @@
 	deform = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite
+		/mob/living/carbon/human/proc/bugbite,
+		/mob/living/carbon/human/proc/change_animal_name
 		)
 
 	tail = "vkrexitail"

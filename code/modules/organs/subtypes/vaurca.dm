@@ -1,55 +1,71 @@
 /obj/item/organ/internal/heart/vaurca
 	name = "double heart system"
-	icon_state = "vaurca_heart_d-on"
+	desc = "A double heart capable of pushing blood in an open circulatory system."
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	organ_tag = BP_HEART
 	parent_organ = BP_CHEST
-	dead_icon = "vaurca_heart_d-off"
 	max_damage = 90 //two hearts = stronger hearts
 
 /obj/item/organ/internal/lungs/vaurca
-	icon_state = "lungs_vaurca"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 
 /obj/item/organ/internal/kidneys/vaurca
-	icon_state = "kidney_vaurca"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 
 /obj/item/organ/internal/kidneys/vaurca/robo
-	icon_state = "kidney_vaurca"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	organ_tag = BP_VAURCA_KIDNEYS
 	robotic = ROBOTIC_MECHANICAL
 	robotic_name = null
-	robotic_sprite = null
+	robotic_sprite = FALSE
 
 /obj/item/organ/internal/liver/vaurca/robo
-	icon_state = "liver_vaurca"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	organ_tag = BP_VAURCA_LIVER
 	robotic = ROBOTIC_MECHANICAL
 	robotic_name = null
-	robotic_sprite = null
+	robotic_sprite = FALSE
 
 /obj/item/organ/internal/liver/vaurca
-	icon_state = "liver_vaurca"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
+
+/obj/item/organ/internal/stomach/vaurca
+	name = "private stomach"
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
+
+/obj/item/organ/internal/appendix/vaurca
+	name = "social stomach"
+	desc = "A vestigial organ that stores food for throphallaxis. It has not seen a practical use since the rise of modern Hives."
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 
 /obj/item/organ/internal/brain/vaurca
-	icon_state = "brain_vaurca"
+	name = "vaurca brain"
+	desc = "The brain of a Vaurca, being similar to that of an insect; and that of a mammal."
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
+	can_prepare = FALSE
 
-/obj/item/organ/vaurca/reservoir
+/obj/item/organ/internal/vaurca/reservoir
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_PHORON_RESERVOIR
 	organ_tag = BP_PHORON_RESERVOIR
 	parent_organ = BP_CHEST
 	icon_state = "phoron_reservoir"
 	robotic = ROBOTIC_ASSISTED
 
-/obj/item/organ/vaurca/filtrationbit
+/obj/item/organ/internal/vaurca/filtrationbit
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_FILTRATION_BIT
 	organ_tag = BP_FILTRATION_BIT
 	parent_organ = BP_HEAD
 	icon_state = "filter"
 	robotic = ROBOTIC_MECHANICAL
 
-/obj/item/organ/vaurca/neuralsocket
+/obj/item/organ/internal/vaurca/neuralsocket
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_NEURAL_SOCKET
 	organ_tag = BP_NEURAL_SOCKET
 	icon_state = "neural_socket"
+	desc = "The single most important organ for a Vaurca, able to copy their mind into their Virtual Reality Afterlife upon death."
 	parent_organ = BP_HEAD
 	robotic = ROBOTIC_MECHANICAL
 
@@ -64,30 +80,32 @@ obj/item/organ/vaurca/neuralsocket/process()
 			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	..()
 
-/obj/item/organ/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
 	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
 		owner.add_language(LANGUAGE_VAURCA)
 		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	..()
 
-/obj/item/organ/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
 	if(all_languages[LANGUAGE_VAURCA] in target.languages)
 		target.remove_language(LANGUAGE_VAURCA)
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
 	..()
 
-/obj/item/organ/vaurca/preserve
+/obj/item/organ/internal/vaurca/preserve
+	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_PHORON_RESERVE
 	organ_tag = BP_PHORON_RESERVE
 	parent_organ = BP_CHEST
 	icon_state = "breathing_app"
+	desc = "A capillary tube mesh, stores and moves the phoron into the lungs."
 	robotic = ROBOTIC_ASSISTED
 	var/datum/gas_mixture/air_contents = null
 	var/distribute_pressure = ((2*ONE_ATMOSPHERE)*O2STANDARD)
 	var/volume = 50
 	var/manipulated_by = null
 
-/obj/item/organ/vaurca/preserve/Initialize()
+/obj/item/organ/internal/vaurca/preserve/Initialize()
 	. = ..()
 
 	air_contents = new /datum/gas_mixture()
@@ -104,13 +122,13 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 	return
 
-/obj/item/organ/vaurca/preserve/Destroy()
+/obj/item/organ/internal/vaurca/preserve/Destroy()
 	if(air_contents)
 		QDEL_NULL(air_contents)
 
 	return ..()
 
-/obj/item/organ/vaurca/preserve/examine(mob/user)
+/obj/item/organ/internal/vaurca/preserve/examine(mob/user)
 	. = ..(user, 0)
 	if(.)
 		var/celsius_temperature = air_contents.temperature - T0C
@@ -130,7 +148,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 				descriptive = "cold"
 		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
 
-/obj/item/organ/vaurca/preserve/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/organ/internal/vaurca/preserve/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	var/obj/icon = src
 
@@ -155,13 +173,13 @@ obj/item/organ/vaurca/neuralsocket/process()
 		B.blow(src)
 		src.add_fingerprint(user)
 
-/obj/item/organ/vaurca/preserve/attack_self(mob/user as mob)
+/obj/item/organ/internal/vaurca/preserve/attack_self(mob/user as mob)
 	if (!(src.air_contents))
 		return
 
 	ui_interact(user)
 
-/obj/item/organ/vaurca/preserve/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/organ/internal/vaurca/preserve/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/mob/living/carbon/location = null
 
 	var/using_internal
@@ -212,7 +230,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 		// auto update every Master Controller tick
 		ui.set_auto_update(1)
 
-/obj/item/organ/vaurca/preserve/Topic(href, href_list)
+/obj/item/organ/internal/vaurca/preserve/Topic(href, href_list)
 	..()
 	if (usr.stat|| usr.restrained())
 		return 0
@@ -259,19 +277,19 @@ obj/item/organ/vaurca/neuralsocket/process()
 	return 1
 
 
-/obj/item/organ/vaurca/preserve/remove_air(amount)
+/obj/item/organ/internal/vaurca/preserve/remove_air(amount)
 	return air_contents.remove(amount)
 
-/obj/item/organ/vaurca/preserve/return_air()
+/obj/item/organ/internal/vaurca/preserve/return_air()
 	return air_contents
 
-/obj/item/organ/vaurca/preserve/assume_air(datum/gas_mixture/giver)
+/obj/item/organ/internal/vaurca/preserve/assume_air(datum/gas_mixture/giver)
 	air_contents.merge(giver)
 
 	check_status()
 	return 1
 
-/obj/item/organ/vaurca/preserve/proc/remove_air_volume(volume_to_return)
+/obj/item/organ/internal/vaurca/preserve/proc/remove_air_volume(volume_to_return)
 	if(!air_contents)
 		return null
 
@@ -283,14 +301,14 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 	return remove_air(moles_needed)
 
-/obj/item/organ/vaurca/preserve/process()
+/obj/item/organ/internal/vaurca/preserve/process()
 	//Allow for reactions
 	air_contents.react() //cooking up air tanks - add phoron and oxygen, then heat above PHORON_MINIMUM_BURN_TEMPERATURE
 	check_status()
 	..()
 
 
-/obj/item/organ/vaurca/preserve/proc/check_status()
+/obj/item/organ/internal/vaurca/preserve/proc/check_status()
 	//Handle exploding, leaking, and rupturing of the tank
 
 	if(!air_contents)
@@ -340,6 +358,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 /obj/item/organ/external/chest/vaurca
 	limb_flags = 0
+	encased = null
 
 /obj/item/organ/external/groin/vaurca
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
@@ -370,3 +389,4 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 /obj/item/organ/external/head/vaurca
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
+	encased = null

@@ -1,7 +1,7 @@
-/mob/living/carbon/human/proc/change_appearance(var/flags = APPEARANCE_ALL_HAIR, var/location = src, var/mob/user = src, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/datum/topic_state/state = default_state)
-	var/datum/nano_module/appearance_changer/AC = new(location, src, check_species_whitelist, species_whitelist, species_blacklist)
+/mob/living/carbon/human/proc/change_appearance(var/flags = APPEARANCE_ALL_HAIR, var/mob/user = src, var/check_species_whitelist = TRUE, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/datum/topic_state/ui_state = interactive_state, var/datum/state_object = src, var/update_id = FALSE)
+	var/datum/vueui_module/appearance_changer/AC = new /datum/vueui_module/appearance_changer(src, check_species_whitelist, species_whitelist, species_blacklist, ui_state, state_object, update_id)
 	AC.flags = flags
-	AC.ui_interact(user, state = state)
+	AC.ui_interact(user)
 
 /mob/living/carbon/human/proc/change_species(var/new_species)
 	if(!new_species)
@@ -17,12 +17,13 @@
 	reset_hair()
 	return 1
 
-/mob/living/carbon/human/proc/change_gender(var/gender)
-	if(src.gender == gender)
+/mob/living/carbon/human/proc/change_gender(var/set_gender)
+	if(gender == set_gender)
 		return
 
-	src.gender = gender
-	dna.SetUIState(DNA_UI_GENDER, src.gender != MALE, 1)
+	gender = set_gender
+	pronouns = gender
+	dna.SetUIState(DNA_UI_GENDER, gender != MALE, 1)
 	reset_hair()
 	update_body()
 	species.create_organs(src)
@@ -62,13 +63,13 @@
 	var/list/valid_hairstyles = generate_valid_hairstyles()
 	var/list/valid_facial_hairstyles = generate_valid_facial_hairstyles()
 
-	if(valid_hairstyles.len)
+	if(length(valid_hairstyles))
 		h_style = pick(valid_hairstyles)
 	else
 		//this shouldn't happen
 		h_style = "Bald"
 
-	if(valid_facial_hairstyles.len)
+	if(length(valid_facial_hairstyles))
 		f_style = pick(valid_facial_hairstyles)
 	else
 		//this shouldn't happen

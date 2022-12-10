@@ -121,7 +121,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "A golden cup"
 	name = "golden cup"
 	icon_state = "golden_cup"
-	item_state = "" //nope :(
+	item_state = "" //nope :[
 	w_class = ITEMSIZE_LARGE
 	force = 14
 	throwforce = 10
@@ -156,8 +156,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/milk/soymilk = 50)
 
 /obj/item/reagent_containers/food/drinks/coffee
-	name = "robust coffee"
-	desc = "Careful, the beverage you're about to enjoy is extremely hot."
+	name = "\improper Martian Dark Roast"
+	desc = "The darkest roast this side of Olympia, guaranteed."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -181,8 +181,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/coffee/sadpslatte = 30)
 
 /obj/item/reagent_containers/food/drinks/tea
-	name = "duke purple tea"
-	desc = "An insult to Duke Purple is an insult to the Space Queen! Any proper gentleman will fight you, if you sully this tea."
+	name = "\improper Sol-III tea"
+	desc = "A hot tea with an \"Earthy\" flavor that's much weaker than it claims to be on the cup."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -232,8 +232,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/tea/chaitea = 30)
 
 /obj/item/reagent_containers/food/drinks/ice
-	name = "ice cup"
-	desc = "Careful, cold ice, do not chew."
+	name = "\improper Admiral's ice cup"
+	desc = "Solid water served in an official Getmore-brand disposable collector's cup, each one commemorating a late admiral."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -244,8 +244,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	reagents_to_add = list(/decl/reagent/drink/ice = 30)
 
 /obj/item/reagent_containers/food/drinks/h_chocolate
-	name = "dutch hot coco"
-	desc = "Made in Space South America."
+	name = "\improper Red Gaia hot coco"
+	desc = "A Mars favorite. Usually dispensed at a temperature hotter than any human can stand."
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
@@ -278,7 +278,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/waterbottle
 	name = "bottled water"
 	desc = "A fresh bottle of water from the finest bottling plants on Silversun."
-	desc_fluff = "Previously introduced to the vending machines by Skrellian request, this water used to come straight from the Martian poles. Ever since the Martian catastrophe, however, an Idris subsidiary has since stepped in to fill the gap in the market \
+	desc_extended = "Previously introduced to the vending machines by Skrellian request, this water used to come straight from the Martian poles. Ever since the Martian catastrophe, however, an Idris subsidiary has since stepped in to fill the gap in the market \
 	and 'Martian Water' has become a prized collector's item."
 	icon_state = "waterbottle"
 	flags = 0 //starts closed
@@ -321,53 +321,12 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	else
 		icon_state = "water_cup_e"
 
-/obj/item/reagent_containers/food/drinks/medcup
-	name = "medicine cup"
-	desc = "A plastic medicine cup. Like a shot glass for medicine."
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "medcup"
-	drop_sound = 'sound/items/drop/drinkglass.ogg'
-	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
-	possible_transfer_amounts = null
-	volume = 15
-
-/obj/item/reagent_containers/food/drinks/medcup/on_reagent_change()
-	update_icon()
-
-/obj/item/reagent_containers/food/drinks/medcup/pickup(mob/user)
-	..()
-	update_icon()
-
-/obj/item/reagent_containers/food/drinks/medcup/dropped(mob/user)
-	..()
-	update_icon()
-
-/obj/item/reagent_containers/food/drinks/medcup/update_icon()
-	cut_overlays()
-
-	if(reagents.total_volume)
-		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]25")
-
-		var/percent = round((reagents.total_volume / volume) * 100)
-		switch(percent) // offset by about 12.5 so it seems more gradual
-			if(0 to 37)
-				filling.icon_state = "[icon_state]25"
-			if(38 to 62)
-				filling.icon_state = "[icon_state]50"
-			if(63 to 87)
-				filling.icon_state = "[icon_state]75"
-			if(87 to INFINITY)
-				filling.icon_state = "[icon_state]100"
-
-		filling.color = reagents.get_color()
-		add_overlay(filling)
-
 //////////////////////////JUICES AND STUFF ///////////////////////
 
 /obj/item/reagent_containers/food/drinks/carton
 	name = "carton"
 	desc = "An abstract way to organize bottles that are really cartons. Finally!"
-	item_state = "carton"
+	icon_state = "carton"
 	volume = 100
 	center_of_mass = list("x"=16, "y"=6)
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
@@ -422,27 +381,207 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 	reagents_to_add = list(/decl/reagent/drink/applejuice = 100)
 
+/obj/item/reagent_containers/food/drinks/carton/fatshouters
+	name = "fatshouters milk carton"
+	desc = "Fatty fatshouters milk in a carton."
+
+	reagents_to_add = list(/decl/reagent/drink/milk/adhomai = 100)
+
+/obj/item/reagent_containers/food/drinks/carton/mutthir
+	name = "mutthir carton"
+	icon_state = "mutthir"
+	desc = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
+	desc_extended = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs. Mutthir is usually consumed during meals by both nobles and commoners. \
+	The drink can also be smoked for flavor. Mutthir is believed to have originated from the worldwide appreciated Fatshouters' fermented milk. Rock Nomads living in the Nomadic Host \
+	were quick to adopt the drink to their diet."
+
+	reagents_to_add = list(/decl/reagent/drink/milk/adhomai/mutthir = 100)
+
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink
 //	itself), in Chemistry-Recipes.dm (for the reaction that changes the components into the drink), and here (for the drinking glass
-//	icon states.
+//	icon states.)
 
 /obj/item/reagent_containers/food/drinks/shaker
 	name = "shaker"
 	desc = "A metal shaker to mix drinks in."
+	desc_info = "Alt Click the shaker to twist the cap closed/loose. If the cap is loose, use the shaker to remove it. Without a cap, use the shaker again to remove the top. \
+	If the shaker has a top fitted, you can Alt Click the shaker to change the transfer amount. Without a top, the transfer amount changes to max automatically."
+	icon = 'icons/obj/shaker.dmi'
 	icon_state = "shaker"
+	item_state = "shaker"
+	contained_sprite = TRUE
+	filling_states = "10;25;50;75;80;100"
 	unacidable = TRUE
 	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(10, 30, 60)
 	volume = 120
 	center_of_mass = list("x"=16, "y"=8)
 	var/last_shake = 0
+	var/twisted = FALSE
+	var/obj/item/shaker_top/top
+	var/obj/item/reagent_containers/food/drinks/shaker_cup/cap
+
+/obj/item/reagent_containers/food/drinks/shaker/Initialize()
+	. = ..()
+	top = new(src)
+	cap = new(src)
+	update_icon()
+
+/obj/item/reagent_containers/food/drinks/shaker/Destroy()
+	QDEL_NULL(top)
+	QDEL_NULL(cap)
+	return ..()
+
+/obj/item/reagent_containers/food/drinks/shaker/update_icon()
+	cut_overlays()
+	if(top)
+		icon_state = "shakertop"
+		item_state = "shakertop"
+	else
+		icon_state = initial(icon_state)
+		item_state = icon_state
+		if(reagents.total_volume)
+			var/mutable_appearance/filling = mutable_appearance('icons/obj/shaker.dmi', "[icon_state]-[get_filling_state()]")
+			filling.color = reagents.get_color()
+			add_overlay(filling)
+	if(cap)
+		add_overlay("shaker_cap")
+	update_held_icon()
+
+/obj/item/reagent_containers/food/drinks/shaker/AltClick(mob/user)
+	if(cap)
+		toggle_twist()
+		return
+	if(top)
+		set_APTFT()
+	return
 
 /obj/item/reagent_containers/food/drinks/shaker/attack_self(mob/user)
+	if(!twisted)
+		if(cap)
+			to_chat(user, SPAN_NOTICE("You remove \the [src]'s [cap]."))
+			user.put_in_hands(cap)
+			flags |= OPENCONTAINER
+			cap = null
+			playsound(src.loc, /decl/sound_category/shaker_lid_off, 50, 1)
+			update_icon()
+			return
+		if(top)
+			toggle_top()
+			return
+		to_chat(user, SPAN_WARNING("It would be a bad idea to shake it without it being closed."))
+		return
 	if(last_shake <= world.time - 10) //Spam limiter.
 		last_shake = world.time
-		playsound(src.loc, 'sound/items/soda_shaking.ogg', 50, 1)
+		playsound(src.loc, /decl/sound_category/shaker_shaking, 50, 1)
 	src.add_fingerprint(user)
 	return
+
+/obj/item/reagent_containers/food/drinks/shaker/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/reagent_containers/food/drinks/shaker_cup))
+		if(cap)
+			to_chat(user, SPAN_WARNING("\The [src] already has \a [cap]."))
+			return TRUE
+		if(W.reagents.total_volume > 0)
+			var/obj/item/reagent_containers/food/drinks/shaker_cup/C = W
+			C.standard_pour_into(user, src)
+			return TRUE
+		if(!top)
+			to_chat(user, SPAN_WARNING("\The [src] lacks a top to fit \the [W] on."))
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You put \the [W] onto \the [src]."))
+		user.drop_from_inventory(W, src)
+		flags ^= OPENCONTAINER
+		cap = W
+		playsound(src.loc, /decl/sound_category/shaker_lid_off, 50, 1)
+		update_icon()
+		return TRUE
+	if(istype(W, /obj/item/shaker_top))
+		if(top)
+			to_chat(user, SPAN_WARNING("\The [src] already has \a [top]."))
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You fit \the [W] onto \the [src]."))
+		amount_per_transfer_from_this = 10
+		user.drop_from_inventory(W, src)
+		top = W
+		playsound(src.loc, /decl/sound_category/shaker_lid_off, 50, 1)
+		update_icon()
+		return TRUE
+	return ..()
+
+/obj/item/reagent_containers/food/drinks/shaker/on_pour()
+	if(!top)
+		playsound(src, 'sound/effects/pour_big.ogg', 50, 1)
+		return
+	return ..()
+
+/obj/item/reagent_containers/food/drinks/shaker/verb/toggle_twist()
+	set category = "Object"
+	set name = "Twist Cap"
+	set src in usr
+
+	if(!cap)
+		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a cap!"))
+		return
+	twisted = !twisted
+	to_chat(usr, SPAN_NOTICE("You twist \the [cap] [twisted ? "closed for a tight seal" : "loose"]."))
+	update_icon()
+
+/obj/item/reagent_containers/food/drinks/shaker/verb/toggle_top()
+	set category = "Object"
+	set name = "Remove Top"
+	set src in usr
+
+	if(cap)
+		to_chat(usr, SPAN_WARNING("You must remove \the [cap] first!"))
+		return
+	if(!top)
+		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a top to remove!"))
+		return
+	to_chat(usr, SPAN_NOTICE("You remove \the [src]'s [top]."))
+	amount_per_transfer_from_this = 120
+	usr.put_in_hands(top)
+	top = null
+	playsound(src.loc, /decl/sound_category/shaker_lid_off, 50, 1)
+	update_icon()
+
+/obj/item/shaker_top
+	name = "shaker top"
+	desc = "A metal shaker top with an in-built filter on the bottom."
+	desc_info = "When fitted on a shaker, you can Alt Click the shaker to change transfer amount of the shaker."
+	icon = 'icons/obj/shaker.dmi'
+	icon_state = "shaker_top"
+	item_state = "shaker_top"
+	contained_sprite = TRUE
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = null
+	center_of_mass = list("x" = 16, "y" = 16)
+
+/obj/item/reagent_containers/food/drinks/shaker_cup
+	name = "shaker cap"
+	desc = "A metal shaker cap that also doubles as a metal cup to measure liquids, or to drink from."
+	desc_info = "Alt Click the cap to change the transfer amount."
+	icon = 'icons/obj/shaker.dmi'
+	icon_state = "shaker_cup"
+	item_state = "shaker_cup"
+	contained_sprite = TRUE
+	filling_states = "50;100"
+	pickup_sound = null
+	volume = 10
+	possible_transfer_amounts = list(1,2,3,4,5,10)
+	center_of_mass = list("x" = 16, "y" = 16)
+
+/obj/item/reagent_containers/food/drinks/shaker_cup/update_icon()
+	cut_overlays()
+
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling = mutable_appearance('icons/obj/shaker.dmi', "[icon_state]-[get_filling_state()]")
+		filling.color = reagents.get_color()
+		add_overlay(filling)
+
+/obj/item/reagent_containers/food/drinks/shaker_cup/AltClick(mob/user)
+	set_APTFT()
 
 /obj/item/reagent_containers/food/drinks/teapot
 	name = "teapot"
@@ -452,7 +591,15 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	unacidable = TRUE
 	amount_per_transfer_from_this = 10
 	volume = 120
-	center_of_mass = list("x"=17, "y"=7)
+
+/obj/item/reagent_containers/food/drinks/pitcher
+	name = "pitcher"
+	desc = "Everyone's best friend in the morning."
+	icon_state = "pitcher"
+	unacidable = TRUE
+	amount_per_transfer_from_this = 10
+	volume = 120
+	possible_transfer_amounts = list(5,10,15,30,60,120)
 
 /obj/item/reagent_containers/food/drinks/flask
 	name = "captain's flask"
@@ -492,9 +639,86 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	volume = 60
 	center_of_mass = list("x"=15, "y"=4)
 
+	var/obj/item/reagent_containers/food/drinks/flask/flask_cup/cup
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/Initialize()
+	. = ..()
+	cup = new(src)
+	flags ^= OPENCONTAINER
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/attack_self(mob/user)
+	if(cup)
+		to_chat(user, SPAN_NOTICE("You remove \the [src]'s cap."))
+		user.put_in_hands(cup)
+		flags |= OPENCONTAINER
+		cup = null
+		update_icon()
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/reagent_containers/food/drinks/flask/flask_cup))
+		if(cup)
+			to_chat(user, SPAN_WARNING("\The [src] already has a cap."))
+			return TRUE
+		if(W.reagents.total_volume + reagents.total_volume > volume)
+			to_chat(user, SPAN_WARNING("There's too much fluid in both the cap and \the [src]!"))
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You put the cap onto \the [src]."))
+		user.drop_from_inventory(W, src)
+		flags ^= OPENCONTAINER
+		cup = W
+		cup.reagents.trans_to_holder(reagents, cup.reagents.total_volume)
+		update_icon()
+		return TRUE
+	return ..()
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/update_icon()
+	icon_state = cup ? initial(icon_state) : "[initial(icon_state)]-nobrim"
+
+/obj/item/reagent_containers/food/drinks/flask/flask_cup
+	name = "vacuum flask cup"
+	desc = "The cup that appears in your hands after you unscrew the cap of the flask and turn it over. Magic!"
+	icon_state = "vacuumflask-brim"
+	volume = 10
+	center_of_mass = list("x" = 16, "y" = 16)
+
+/obj/item/reagent_containers/food/drinks/flask/flask_cup/afterattack(atom/target, mob/user, proximity, params)
+	if(istype(target, /obj/item/reagent_containers/food/drinks/flask/vacuumflask))
+		return
+	return ..()
+
 /obj/item/reagent_containers/food/drinks/britcup
 	name = "cup"
 	desc = "A cup with the British flag emblazoned on it."
 	icon_state = "britcup"
 	volume = 30
 	center_of_mass = list("x"=15, "y"=13)
+
+/obj/item/reagent_containers/food/drinks/small_milk
+	name = "small milk carton"
+	desc = "It's milk. White and nutritious goodness!"
+	icon_state = "mini-milk"
+	item_state = "carton"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	center_of_mass = list("x"=16, "y"=14)
+	reagents_to_add = list(/decl/reagent/drink/milk = 20)
+
+/obj/item/reagent_containers/food/drinks/small_milk_choco
+	name = "small chocolate milk carton"
+	desc = "It's milk. This one is in delicious chocolate flavor."
+	icon_state = "mini-milk_choco"
+	item_state = "carton"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	center_of_mass = list("x"=16, "y"=14)
+	reagents_to_add = list(/decl/reagent/drink/milk/chocolate = 20)
+
+/obj/item/reagent_containers/food/drinks/small_milk_strawberry
+	name = "small strawberry milk carton"
+	desc = "It's milk. This one is in delicious strawberry flavor."
+	icon_state = "mini-milk_strawberry"
+	item_state = "carton"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	center_of_mass = list("x"=16, "y"=14)
+	reagents_to_add = list(/decl/reagent/drink/milk/strawberry = 20)

@@ -1,12 +1,13 @@
 
 /obj/machinery/floodlight
-	name = "emergency floodlight"
+	name = "industrial floodlight"
+	desc = "A series of large LEDs housed in a reflective frame, this is a cheap and easy way of lighting large areas during construction."
 	icon = 'icons/obj/machines/floodlight.dmi'
 	icon_state = "flood00"
 	density = TRUE
 	obj_flags = OBJ_FLAG_ROTATABLE
 	var/on = FALSE
-	var/obj/item/cell/high/cell = null
+	var/obj/item/cell/cell = null
 	var/use = 200 // 200W light
 	var/unlocked = FALSE
 	var/open = FALSE
@@ -16,15 +17,23 @@
 
 /obj/machinery/floodlight/Initialize()
 	. = ..()
-	cell = new(src)
-	cell.maxcharge = 1000
-	cell.charge = 1000 // 41minutes @ 200W
+	cell = new /obj/item/cell/device(src) // 41minutes @ 200W
+
+/obj/machinery/floodlight/examine(mob/user)
+	. = ..()
+	if(cell)
+		if(!cell.charge)
+			to_chat(user, SPAN_WARNING("The installed [cell.name] is completely flat!"))
+			return
+		to_chat(user, SPAN_NOTICE("The installed [cell.name] has [Percent(cell.charge, cell.maxcharge)]% charge remaining."))
+	else
+		to_chat(user, SPAN_WARNING("\The [src] has no cell installed!"))
 
 /obj/machinery/floodlight/update_icon()
 	cut_overlays()
 	icon_state = "flood[open ? "o" : ""][open && cell ? "b" : ""]0[on]"
 
-/obj/machinery/floodlight/machinery_process()
+/obj/machinery/floodlight/process()
 	if(!on)
 		return
 
@@ -34,13 +43,14 @@
 
 	// If the cell is almost empty rarely "flicker" the light. Aesthetic only.
 	if((cell.percent() < 10) && prob(5))
-		set_light(brightness_on/2, 0.5)
-		spawn(20)
-			if(on)
-				set_light(brightness_on, 1)
+		set_light(brightness_on/3, 0.5)
+		addtimer(CALLBACK(src, .proc/stop_flicker), 5, TIMER_UNIQUE)
 
 	cell.use(use*CELLRATE)
 
+/obj/machinery/floodlight/proc/stop_flicker()
+	if(on)
+		set_light(brightness_on, 1)
 
 // Returns 0 on failure and 1 on success
 /obj/machinery/floodlight/proc/turn_on(var/loud = FALSE)
@@ -104,6 +114,7 @@
 			to_chat(user, SPAN_NOTICE(msg))
 		else
 			to_chat(user, SPAN_WARNING("\The [src]'s battery panel is open and cannot be screwed down!"))
+		return TRUE
 	if(W.iscrowbar())
 		if(unlocked)
 			open = !open
@@ -111,6 +122,7 @@
 			to_chat(user, SPAN_NOTICE(msg))
 		else
 			to_chat(user, SPAN_WARNING("\The [src]'s battery panel is still screwed shut!"))
+		return TRUE
 	if(istype(W, /obj/item/cell))
 		if(open)
 			if(cell)
@@ -120,4 +132,13 @@
 				user.drop_from_inventory(W, src)
 				cell = W
 				to_chat(user, SPAN_NOTICE("You insert the power cell."))
+		return TRUE
 	update_icon()
+
+/obj/machinery/floodlight/randomcharge
+	// Intentionally left empty as it's the same as the parent, but the cell is randomized.
+
+/obj/machinery/floodlight/randomcharge/Initialize()
+	. = ..()
+	if(cell)
+		cell.charge = rand(1, cell.maxcharge)

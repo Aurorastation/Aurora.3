@@ -2,7 +2,7 @@
 	name = "NanoTrasen Representative"
 
 	uniform = /obj/item/clothing/under/rank/centcom
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/ert/ccia
@@ -10,7 +10,7 @@
 	id = /obj/item/card/id
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1
+		/obj/item/storage/box/survival/engineer = 1
 	)
 
 	id_icon = "centcom"
@@ -50,7 +50,7 @@
 	belt = /obj/item/storage/belt/security
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/clothing/head/helmet/swat/peacekeeper = 1,
 		/obj/item/clothing/accessory/holster/hip = 1,
 		/obj/item/gun/energy/disruptorpistol/magnum = 1
@@ -110,7 +110,6 @@
 	name = "CCIA Agent"
 
 	uniform = /obj/item/clothing/under/rank/centcom_officer
-	suit = /obj/item/clothing/suit/storage/toggle/liaison
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/white
 	l_ear = /obj/item/device/radio/headset/ert/ccia
@@ -121,6 +120,10 @@
 	l_hand = /obj/item/storage/lockbox/cciaa
 	pda = /obj/item/modular_computer/handheld/pda/command/cciaa
 	id = /obj/item/card/id/ccia
+
+	backpack_contents = list(
+		/obj/item/device/memorywiper = 1
+	)
 
 	id_icon = "ccia"
 	id_access = "CCIA Agent"
@@ -149,7 +152,7 @@
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/grenade/chem_grenade/gas = 1,
 		/obj/item/device/flash = 1,
-		/obj/item/ammo_magazine/c45x = 2
+		/obj/item/ammo_magazine/c45m/auto = 2
 	)
 
 	implants = list(
@@ -205,7 +208,7 @@
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs = 1
 	)
@@ -228,7 +231,7 @@
 	)
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/storage/box/zipties = 1,
 		/obj/item/clothing/head/helmet = 1
 	)
@@ -238,8 +241,8 @@
 /datum/outfit/admin/nt/odindoc
 	name = "NTCC Odin Medical Specialist"
 
-	uniform = /obj/item/clothing/under/rank/medical/black
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/trauma
+	uniform = /obj/item/clothing/under/rank/medical/surgeon/zavod
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/trauma
 	mask = /obj/item/clothing/mask/surgical
 	l_hand = /obj/item/storage/firstaid/adv
@@ -249,13 +252,13 @@
 
 	gloves = /obj/item/clothing/gloves/white
 	belt = /obj/item/storage/belt/medical
-	back = /obj/item/storage/backpack/satchel_med
+	back = /obj/item/storage/backpack/satchel/med
 	accessory = /obj/item/clothing/accessory/storage/white_vest
-	accessory_contents = list(/obj/item/reagent_containers/hypospray/cmo = 1, /obj/item/storage/pill_bottle/dexalin_plus = 1, /obj/item/storage/pill_bottle/mortaphenyl = 1)
+	accessory_contents = list(/obj/item/stack/medical/advanced/bruise_pack = 1, /obj/item/stack/medical/advanced/ointment = 1, /obj/item/reagent_containers/glass/bottle/mortaphenyl = 1)
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/storage/firstaid/regular = 2,
+		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/storage/firstaid/surgery = 1,
 		/obj/item/storage/box/gloves = 1,
 		/obj/item/storage/box/syringes = 1,
@@ -263,11 +266,13 @@
 	)
 
 	belt_contents = list(
-		/obj/item/stack/medical/advanced/bruise_pack = 2,
-		/obj/item/stack/medical/advanced/ointment = 2,
-		/obj/item/stack/medical/splint = 1,
-		/obj/item/reagent_containers/syringe = 1,
-		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1
+		/obj/item/reagent_containers/hypospray/cmo = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
 	id_access = "Medical Doctor"
@@ -275,15 +280,15 @@
 /datum/outfit/admin/nt/odinpharm
 	name = "NTCC Odin Pharmacy Specialist"
 
-	uniform = /obj/item/clothing/under/rank/pharmacist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
+	uniform = /obj/item/clothing/under/rank/medical/pharmacist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/chemist
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
 	glasses = /obj/item/clothing/glasses/hud/health
 
 	backpack = /obj/item/storage/backpack/pharmacy
-	satchel = /obj/item/storage/backpack/satchel_pharm
+	satchel = /obj/item/storage/backpack/satchel/pharm
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
 	messengerbag = /obj/item/storage/backpack/messenger/pharm
 

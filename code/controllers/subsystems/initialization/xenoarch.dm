@@ -7,9 +7,9 @@ var/datum/controller/subsystem/xenoarch/SSxenoarch
 #define ARTIFACTSPAWNNUM_UPPER 12
 
 /datum/controller/subsystem/xenoarch
-	name = "Xenoarcheology"
+	name = "Xenoarchaeology"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_MISC
+	init_order = SS_INIT_XENOARCH
 
 	var/list/artifact_spawning_turfs = list()
 	var/list/digsite_spawning_turfs = list()
@@ -21,8 +21,6 @@ var/datum/controller/subsystem/xenoarch/SSxenoarch
 	//create digsites
 	for(var/turf/simulated/mineral/M in turfs)
 		CHECK_TICK
-		if(!M.geologic_data)
-			M.geologic_data = new/datum/geosample(M)
 
 		if(!prob(XENOARCH_SPAWN_CHANCE))
 			continue

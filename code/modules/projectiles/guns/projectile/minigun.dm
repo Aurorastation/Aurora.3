@@ -127,9 +127,9 @@
 	origin_tech = null
 
 	firemodes = list(
-		list(mode_name="short bursts",	can_autofire=0, burst=6, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(3, 6, 9)),
+		list(mode_name="short bursts",	can_autofire=0, burst=6, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(3, 6, 9)),
 		list(mode_name="long bursts",	can_autofire=0, burst=12, move_delay=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(8)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
 
 

@@ -25,7 +25,8 @@
 	var/check_weapons = 0	//checks if it can shoot people that have a weapon they aren't authorized to have
 	var/check_access = 1	//if this is active, the turret shoots everything that does not meet the access requirements
 	var/check_wildlife = 1	//checks if it can shoot at simple animals or anything that passes issmall
-	var/check_synth = 0 	//if active, will shoot at anything not an AI or cyborg
+	var/check_synth = 0		//if active, will shoot at anything not an AI or cyborg
+	var/target_borgs = FALSE//if active, will shoot at borgs
 	var/ailock = 0 	//Silicons cannot use this
 	req_access = list(access_ai_upload)
 
@@ -62,7 +63,7 @@
 			A.turret_controls += src
 		else
 			control_area = null
-
+	updateTurrets()
 	if (!mapload)
 		power_change() //Checks power and initial settings
 		turretModes()
@@ -102,7 +103,7 @@
 			else
 				locked = !locked
 				to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the panel.</span>")
-		return
+		return TRUE
 	return ..()
 
 /obj/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
@@ -141,6 +142,7 @@
 
 	var/usedSettings = list(
 		"check_synth" = "Neutralize All Non-Synthetics",
+		"target_borgs" = "Neutralize All Cyborg-likes",
 		"check_wildlife" = "Neutralize All Wildlife",
 		"check_weapons" = "Check Weapon Authorization",
 		"check_records" = "Check Security Records",
@@ -186,6 +188,8 @@
 				lethal = value
 			else if(href_list["command"] == "check_synth")
 				check_synth = value
+			else if(href_list["command"] == "target_borgs")
+				target_borgs = value
 			else if(href_list["command"] == "check_weapons")
 				check_weapons = value
 			else if(href_list["command"] == "check_records")
@@ -197,7 +201,6 @@
 			else if(href_list["command"] == "check_wildlife")
 				check_wildlife = value
 			updateTurrets()
-			update_icon()
 			SSvueui.check_uis_for_change(src)
 	else if(href_list["turret_ref"])
 		var/obj/machinery/porta_turret/aTurret = locate(href_list["turret_ref"]) in (control_area.turrets)
@@ -205,7 +208,6 @@
 			return
 		. = aTurret.Topic(href, href_list)
 		SSvueui.check_uis_for_change(src)
-		update_icon()
 
 /obj/machinery/turretid/proc/updateTurrets()
 	var/datum/turret_checks/TC = getState()
@@ -218,11 +220,14 @@
 				TC.enabled = 0
 				aTurret.setState(TC)
 
+	queue_icon_update()
+
 /obj/machinery/turretid/proc/getState()
 	var/datum/turret_checks/TC = new
 	TC.enabled = enabled
 	TC.lethal = lethal
 	TC.check_synth = check_synth
+	TC.target_borgs = target_borgs
 	TC.check_access = check_access
 	TC.check_records = check_records
 	TC.check_arrest = check_arrest
@@ -251,12 +256,10 @@
 		var/obj/machinery/porta_turret/aTurret = control_area.turrets[1]
 		lethal = aTurret.lethal
 		updateTurrets()
-	update_icon()
 
 /obj/machinery/turretid/power_change()
 	..()
 	updateTurrets()
-	update_icon()
 
 /obj/machinery/turretid/update_icon()
 	..()

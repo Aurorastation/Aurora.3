@@ -234,6 +234,14 @@
 	if(istype(O))
 		O.refresh_action_button()
 
+/datum/action/item_action/organ/night_eyes
+	check_flags = AB_CHECK_STUNNED|AB_CHECK_ALIVE|AB_CHECK_INSIDE
+	button_icon_state = "night_eyes"
+
+/datum/action/item_action/organ/night_eyes/rev
+	check_flags = AB_CHECK_ALIVE|AB_CHECK_INSIDE
+	button_icon_state = "rev_eyes"
+
 #undef AB_WEST_OFFSET
 #undef AB_NORTH_OFFSET
 #undef AB_MAX_COLUMNS

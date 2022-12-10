@@ -1,20 +1,21 @@
 // Species flags.
-#define NO_BLOOD             1    // Vessel var is not filled with blood, cannot bleed out.
-#define NO_BREATHE           2    // Cannot suffocate or take oxygen loss.
-#define NO_SCAN              4    // Cannot be scanned in a DNA machine/genome-stolen.
-#define NO_PAIN              8    // Cannot suffer halloss/receives deceptive health indicator.
-#define NO_SLIP             16    // Cannot fall over.
-#define NO_POISON           32    // Cannot not suffer toxloss.
-#define IS_PLANT            64    // Is a treeperson.
-#define NO_EMBED            128    // Can not have shrapnel or any object embedded into its body
-#define IS_MECHANICAL       256    // Is a robot.
-#define ACCEPTS_COOLER      512    // Can wear suit coolers and have them work without a suit.
-#define NO_CHUBBY           1024   // Cannot be visibly fat from nutrition type.
-#define NO_ARTERIES         2048   // This species does not have arteries.
+#define NO_BLOOD            BITFLAG(1)    // Vessel var is not filled with blood, cannot bleed out.
+#define NO_BREATHE          BITFLAG(2)    // Cannot suffocate or take oxygen loss.
+#define NO_SCAN             BITFLAG(3)    // Cannot be scanned in a DNA machine/genome-stolen.
+#define NO_PAIN             BITFLAG(4)    // Cannot suffer halloss/receives deceptive health indicator.
+#define NO_SLIP             BITFLAG(5)    // Cannot fall over.
+#define NO_POISON           BITFLAG(6)    // Cannot not suffer toxloss.
+#define IS_PLANT            BITFLAG(7)    // Is a treeperson.
+#define NO_EMBED            BITFLAG(8)    // Can not have shrapnel or any object embedded into its body
+#define IS_MECHANICAL       BITFLAG(9)    // Is a robot.
+#define ACCEPTS_COOLER      BITFLAG(10)    // Can wear suit coolers and have them work without a suit.
+#define NO_CHUBBY           BITFLAG(11)   // Cannot be visibly fat from nutrition type.
+#define NO_ARTERIES         BITFLAG(12)   // This species does not have arteries.
+#define PHORON_IMMUNE       BITFLAG(13)   // species doesn't suffer the negative effects of phoron contamination
 // unused: 0x8000(32768) - higher than this will overflow
 
 // Base flags for IPCs.
-#define IS_IPC (NO_BREATHE|NO_SCAN|NO_BLOOD|NO_PAIN|NO_POISON|IS_MECHANICAL|NO_CHUBBY)
+#define IS_IPC (NO_BREATHE|NO_SCAN|NO_BLOOD|NO_PAIN|NO_POISON|IS_MECHANICAL|NO_CHUBBY|PHORON_IMMUNE)
 
 // Species spawn flags
 #define IS_WHITELISTED    0x1    // Must be whitelisted to play.
@@ -38,6 +39,7 @@
 
 // Species languages
 #define LANGUAGE_SOL_COMMON "Sol Common"
+#define LANGUAGE_ELYRAN_STANDARD "Elyran Standard"
 #define LANGUAGE_UNATHI "Sinta'unathi"
 #define LANGUAGE_SIIK_MAAS "Siik'maas"
 #define LANGUAGE_SIIK_TAJR "Siik'tajr"
@@ -72,20 +74,24 @@
 
 // Synth Languages
 #define LANGUAGE_ROBOT "Robot Talk"
-#define LANGUAGE_DRONE "Drone Talk"
+#define LANGUAGE_LOCAL_DRONE "Drone Transmission"
+#define LANGUAGE_DRONE "Matrix Weave"
 #define LANGUAGE_EAL "Encoded Audio Language"
 
 // Language flags.
-#define WHITELISTED  1   // Language is available if the speaker is whitelisted.
-#define RESTRICTED   2   // Language can only be acquired by spawning or an admin.
-#define NONVERBAL    4   // Language has a significant non-verbal component. Speech is garbled without line-of-sight.
-#define SIGNLANG     8   // Language is completely non-verbal. Speech is displayed through emotes for those who can understand.
-#define HIVEMIND     16  // Broadcast to all mobs with this language.
-#define NONGLOBAL    32  // Do not add to general languages list.
-#define INNATE       64  // All mobs can be assumed to speak and understand this language. (audible emotes)
-#define NO_TALK_MSG  128 // Do not show the "\The [speaker] talks into \the [radio]" message
-#define NO_STUTTER   256 // No stuttering, slurring, or other speech problems
-#define TCOMSSIM     512 // Can be synthesized in tcoms
+#define WHITELISTED   BITFLAG(0)  // Language is available if the speaker is whitelisted.
+#define RESTRICTED    BITFLAG(1)  // Language can only be acquired by spawning or an admin.
+#define NONVERBAL     BITFLAG(2)  // Language has a significant non-verbal component. Speech is garbled without line-of-sight.
+#define SIGNLANG      BITFLAG(3)  // Language is completely non-verbal. Speech is displayed through emotes for those who can understand.
+#define HIVEMIND      BITFLAG(4)  // Broadcast to all mobs with this language.
+#define NONGLOBAL     BITFLAG(5)  // Do not add to general languages list.
+#define INNATE        BITFLAG(6)  // All mobs can be assumed to speak and understand this language. (audible emotes)
+#define NO_TALK_MSG   BITFLAG(7)  // Do not show the "\The [speaker] talks into \the [radio]" message
+#define NO_STUTTER    BITFLAG(8)  // No stuttering, slurring, or other speech problems
+#define TCOMSSIM      BITFLAG(9)  // Can be synthesized in tcoms
+#define KNOWONLYHEAR  BITFLAG(10) // Only people who know the language actually hears it
+#define PRESSUREPROOF BITFLAG(11) // Pressure doesn't affect hearing
+#define PASSLISTENOBJ BITFLAG(12) // Listening Objs can't hear this language
 
 // Autohiss
 #define AUTOHISS_OFF 0

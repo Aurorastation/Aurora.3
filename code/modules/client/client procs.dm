@@ -1,3 +1,8 @@
+var/list/localhost_addresses = list(
+	"127.0.0.1" = TRUE,
+	"::1" = TRUE
+)
+
 	////////////
 	//SECURITY//
 	////////////
@@ -129,8 +134,7 @@
 
 		var/request_id = text2num(href_list["linkingrequest"])
 
-		establish_db_connection(dbcon)
-		if (!dbcon.IsConnected())
+		if (!establish_db_connection(dbcon))
 			to_chat(src, "<span class='warning'>Action failed! Database link could not be established!</span>")
 			return
 
@@ -202,8 +206,8 @@
 			// Forum link from various panels.
 			if ("github")
 				if (!config.githuburl)
-					to_chat(src, "<span class='danger'>Github URL not set in the config. Unable to open the site.</span>")
-				else if (alert("This will open the Github page in your browser. Are you sure?",, "Yes", "No") == "Yes")
+					to_chat(src, "<span class='danger'>GitHub URL not set in the config. Unable to open the site.</span>")
+				else if (alert("This will open the GitHub page in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					if (href_list["pr"])
 						var/pr_link = "[config.githuburl]pull/[href_list["pr"]]"
 						send_link(src, pr_link)
@@ -333,9 +337,6 @@
 /client/New(TopicData)
 	TopicData = null							//Prevent calls to client.Topic from connect
 
-	// Load goonchat
-	chatOutput = new(src)
-
 	if(!(connection in list("seeker", "web")))					//Invalid connection type.
 		return null
 	if(byond_version < MIN_CLIENT_VERSION)		//Out of date client.
@@ -352,12 +353,15 @@
 	if (LAZYLEN(config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
 		if (client_version in config.client_blacklist_version)
-			to_chat(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
-			to_chat(src, "Your current version: [client_version].")
-			to_chat(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
+			to_chat_immediate(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
+			to_chat_immediate(src, "Your current version: [client_version].")
+			to_chat_immediate(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
 			del(src)
 			return 0
+
+	if(!chatOutput)
+		chatOutput = new(src)
 
 	if(IsGuestKey(key) && config.external_auth)
 		src.authed = FALSE
@@ -365,7 +369,6 @@
 		m.client = src
 		src.InitPrefs() //Init some default prefs
 		m.LateLogin()
-		chatOutput.start()
 		return m
 		//Do auth shit
 	else
@@ -373,7 +376,6 @@
 		src.InitClient()
 		src.InitPrefs()
 		mob.LateLogin()
-		chatOutput.start()
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
@@ -389,8 +391,18 @@
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
 
+	if(prefs.toggles_secondary & FULLSCREEN_MODE)
+		toggle_fullscreen(TRUE)
+
 /client/proc/InitClient()
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
+
+	var/local_connection = (config.auto_local_admin && !config.use_forumuser_api && (isnull(address) || localhost_addresses[address]))
+	// Automatic admin rights for people connecting locally.
+	// Concept stolen from /tg/ with deepest gratitude.
+	// And ported from Nebula with love.
+	if(local_connection && !admin_datums[ckey])
+		new /datum/admins("Local Host", R_ALL, ckey)
 
 	//Admin Authorisation
 	holder = admin_datums[ckey]
@@ -471,8 +483,7 @@
 // Returns null if no DB connection can be established, or -1 if the requested key was not found in the database
 
 /proc/get_player_age(key)
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		return null
 
 	var/DBQuery/query = dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age FROM ss13_player WHERE ckey = :ckey:")
@@ -590,6 +601,32 @@
 	if(prefs)
 		prefs.ShowChoices(usr)
 
+/client/verb/toggle_fullscreen_preference()
+	set name = "Toggle Fullscreen Preference"
+	set category = "Preferences"
+	set desc = "Toggles whether the game window will be true fullscreen or normal."
+
+	prefs.toggles_secondary ^= FULLSCREEN_MODE
+	prefs.save_preferences()
+	toggle_fullscreen(prefs.toggles_secondary & FULLSCREEN_MODE)
+
+/client/verb/toggle_accent_tag_text()
+	set name = "Toggle Accent Tag Text"
+	set category = "Preferences"
+	set desc = "Toggles whether accents will be shown as text or images.."
+
+	prefs.toggles_secondary ^= ACCENT_TAG_TEXT
+	prefs.save_preferences()
+
+/client/proc/toggle_fullscreen(new_value)
+	if(new_value)
+		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false;menu=menu")
+		winset(src, "mainwindow.mainvsplit", "pos=0x0")
+	else
+		winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true;menu=menu")
+		winset(src, "mainwindow.mainvsplit", "pos=3x0")
+	winset(src, "mainwindow", "is-maximized=true")
+
 /client/proc/apply_fps(var/client_fps)
 	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= 0 && client_fps <= 1000)
 		vars["fps"] = prefs.clientfps
@@ -606,8 +643,7 @@
 	if (!config.webint_url || !config.sql_enabled)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
 
 	var/list/requests = list()
@@ -644,8 +680,7 @@
 	if (!config.webint_url || !config.sql_enabled)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
 
 	var/DBQuery/select_query = dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey: AND deleted_at IS NULL")
@@ -744,6 +779,9 @@
 	. = ..()
 
 	if(over_object)
+		if(autofire_aiming_at[1])
+			autofire_aiming_at[1] = over_object
+			autofire_aiming_at[2] = params
 		var/mob/living/M = mob
 		if(istype(get_turf(over_object), /atom))
 			var/atom/A = get_turf(over_object)
@@ -753,15 +791,37 @@
 
 		if(istype(M) && !M.incapacitated())
 			var/obj/item/I = M.get_active_hand()
-			if(istype(I, /obj/item/gun))
-				var/obj/item/gun/gun = I
-				if(gun.can_autofire())
-					M.set_dir(get_dir(M, over_object))
-					gun.Fire(get_turf(over_object), M, params, (get_dist(over_object, M) <= 1), FALSE)
-
 			if(istype(I, /obj/item/rfd/mining) && isturf(over_object))
 				var/proximity = M.Adjacent(over_object)
 				var/obj/item/rfd/mining/RFDM = I
 				RFDM.afterattack(over_object, M, proximity, params, FALSE)
 
 	CHECK_TICK
+
+/client/MouseDown(object, location, control, params)
+	var/obj/item/I = mob.get_active_hand()
+	var/obj/O = object
+	if(istype(I, /obj/item/gun) && !mob.in_throw_mode)
+		var/obj/item/gun/G = I
+		if(G.can_autofire(O, location, params) && O.is_auto_clickable() && !(G.safety()) && !(G == O))
+			autofire_aiming_at[1] = O
+			autofire_aiming_at[2] = params
+			var/accuracy_dec = 0
+			while(autofire_aiming_at[1])
+				G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE, accuracy_dec)
+				mob.set_dir(get_dir(mob, autofire_aiming_at[1]))
+				accuracy_dec = min(accuracy_dec + 0.25, 2)
+				sleep(G.fire_delay)
+			CHECK_TICK
+
+/client/MouseUp(object, location, control, params)
+	autofire_aiming_at[1] = null
+
+/atom/proc/is_auto_clickable()
+	return TRUE
+
+/obj/screen/is_auto_clickable()
+	return FALSE
+
+/obj/screen/click_catcher/is_auto_clickable()
+	return TRUE

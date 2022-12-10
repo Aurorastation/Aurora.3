@@ -198,3 +198,6 @@
 				loc.contents += stomachContent
 
 		return
+
+/mob/living/simple_animal/space_worm/can_name(var/mob/living/M)
+	return FALSE

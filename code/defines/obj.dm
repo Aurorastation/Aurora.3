@@ -1,21 +1,3 @@
-/obj/structure/signpost
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "signpost"
-	anchored = 1
-	density = 1
-
-	attackby(obj/item/W as obj, mob/user as mob)
-		return attack_hand(user)
-
-	attack_hand(mob/user as mob)
-		switch(alert("Travel back to ss13?",,"Yes","No"))
-			if("Yes")
-				if(user.z != src.z)	return
-				user.loc.loc.Exited(user) //what the fuck is this
-				user.forceMove(pick(latejoin))
-			if("No")
-				return
-
 /obj/effect/mark
 		var/mark = ""
 		icon = 'icons/misc/mark.dmi'
@@ -31,20 +13,16 @@
 	unacidable = 1//Just to be sure.
 	var/def_zone
 	flags = PROXMOVE
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 
 /var/list/acting_rank_prefixes = list("acting", "temporary", "interim", "provisional")
 
 /proc/make_list_rank(rank)
 	for(var/prefix in acting_rank_prefixes)
-		if(findtext(rank, "[prefix] ", 1, 2+length(prefix)))
-			return copytext(rank, 2+length(prefix))
+		rank = replacetext(rank, "[prefix] ", "")
+	for(var/datum/faction/faction as anything in SSjobs.factions)
+		rank = replacetext(rank, " ([faction.title_suffix])", "")
 	return rank
-
-/obj/effect/projection
-	name = "Projection"
-	desc = "This looks like a projection of something."
-	anchored = 1.0
 
 /obj/structure/showcase
 	name = "Showcase"

@@ -9,9 +9,9 @@
 	var/datum/vampire/vampire = vampire_power(0, 0)
 	vampire.stealth = !vampire.stealth
 	if(vampire.stealth)
-		to_chat(src, SPAN_NOTICE("Your victims will now forget your interactions, and get paralyzed when you do them."))
+		to_chat(src, SPAN_NOTICE("Your victims will now forget your interactions and become paralyzed. After feeding on them, you can tell them what they should believe happened to them."))
 	else
-		to_chat(src, SPAN_NOTICE("Your victims will now remember your interactions, and stay completely mobile during them."))
+		to_chat(src, SPAN_NOTICE("Your victims will now remember your interactions."))
 
 // Drains the target's blood.
 /mob/living/carbon/human/proc/vampire_drain_blood()
@@ -76,7 +76,7 @@
 	admin_attack_log(src, T, "drained blood from [key_name(T)], who [remembrance] the encounter.", "had their blood drained by [key_name(src)] and [remembrance] the encounter.", "is draining blood from")
 
 	if(vampire.stealth)
-		to_chat(T, SPAN_WARNING("You are unable to resist or even move. Your mind blanks as you're being fed upon."))
+		to_chat(T, SPAN_WARNING("You are unable to resist or even move. Your mind blanks completely as you're being fed upon."))
 		T.paralysis = 3400
 	else
 		to_chat(T, SPAN_WARNING("You are unable to resist or even move. Your mind is acutely aware of what's occuring."))
@@ -130,7 +130,7 @@
 			vampire.frenzy--
 
 		if(blood_total != vampire.blood_total)
-			var/update_msg = "You have accumulated [vampire.blood_total] [vampire.blood_total > 1 ? "units" : "unit"] of blood"
+			var/update_msg = "You have accumulated [vampire.blood_total] unit\s of blood"
 			if(blood_usable != vampire.blood_usable)
 				update_msg += " and have [vampire.blood_usable] left to use"
 			update_msg += "."
@@ -143,14 +143,14 @@
 
 	var/endsuckmsg = "You extract your fangs from \the [T]'s neck and stop draining them of blood."
 	if(vampire.stealth)
-		endsuckmsg += " They will remember nothing of this occurance, provided they survived."
+		endsuckmsg += " They will only remember about this encounter by what you tell them now. If you don't tell them anything, then they will forget the previous few minutes entirely, provided they survived."
 	visible_message(SPAN_DANGER("[src] stops biting \the [T]'s neck!"), SPAN_NOTICE(endsuckmsg))
 	if(target_aware)
 		T.paralysis = 0
 		T.stunned = 0
 		if(T.stat != DEAD)
 			if(vampire.stealth)
-				to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src]."))
+				to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember nothing about being fed upon. Instead, you remember whatever \the [src] told you after it was over. If \the [src] said nothing, then you have forgotten the entire interaction and the few minutes leading up to it."))
 			else
 				to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember everything about being fed upon. How you react to [src]'s actions is up to you."))
 
@@ -186,7 +186,7 @@
 			L.stuttering = 20
 			L.confused = 10
 			to_chat(L, SPAN_DANGER("You are blinded by [src]'s glare!"))
-			flick("flash", L.flash)
+			L.flash_eyes(FLASH_PROTECTION_MAJOR)
 			victims += L
 		else if(isrobot(L))
 			L.Weaken(rand(3, 6))
@@ -346,17 +346,32 @@
 			continue
 		if(!vampire_can_affect_target(T, 0))
 			continue
-
 		to_chat(T, SPAN_DANGER("<font size='3'><b>You hear an ear piercing shriek and feel your senses go dull!</b></font>"))
-		T.Weaken(5)
-		T.ear_deaf = 20
+		if (T.get_hearing_sensitivity())
+			if (T.is_listening())
+				T.Weaken(10)
+				T.Stun(10)
+				T.earpain(4)
+			else
+				T.Weaken(7)
+				T.Stun(7)
+				T.earpain(3)
+		else
+			T.Weaken(5)
+			T.Stun(5)
 		T.stuttering = 20
-		T.Stun(5)
+		T.adjustEarDamage(10, 20, TRUE)
 
 		victims += T
 
 	for(var/obj/structure/window/W in view(7))
 		W.shatter()
+
+	for(var/obj/machinery/door/window/WD in view(7))
+		if(get_dist(src, WD) > 5) //Windoors are strong, may only take damage instead of break if far away.
+			WD.take_damage(rand(12, 16) * 10)
+		else
+			WD.shatter()
 
 	for(var/obj/machinery/light/L in view(7))
 		L.broken()
@@ -380,6 +395,9 @@
 
 	var/datum/vampire/vampire = vampire_power(0, 0, 1)
 	if(!vampire)
+		return
+
+	if(isAdminLevel(src.z))
 		return
 
 	if(pulledby)
@@ -427,7 +445,7 @@
 
 /obj/effect/dummy/veil_walk/proc/eject_all()
 	for(var/atom/movable/A in src)
-		A.forceMove(loc)
+		A.forceMove(last_valid_turf)
 		if(ismob(A))
 			var/mob/M = A
 			M.reset_view(null)
@@ -580,40 +598,65 @@
 		if(tox_loss)
 			to_heal = min(10, tox_loss)
 			adjustToxLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 		if(oxy_loss)
 			to_heal = min(10, oxy_loss)
 			adjustOxyLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 		if(ext_loss)
 			to_heal = min(20, ext_loss)
 			heal_overall_damage(min(10, getBruteLoss()), min(10, getFireLoss()))
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 		if(clone_loss)
 			to_heal = min(10, clone_loss)
 			adjustCloneLoss(0 - to_heal)
-			blood_used += round(to_heal * 1.2)
+			blood_used += round(to_heal * 0.25)
 
-		var/list/organs = get_damaged_organs(1, 1)
-		if(length(organs))
+		adjustHalLoss(-20)
+
+		var/list/damaged_organs = get_damaged_organs(TRUE, TRUE, FALSE)
+		if(length(damaged_organs))
 			// Heal an absurd amount, basically regenerate one organ.
-			heal_organ_damage(50, 50)
-			blood_used += 12
+			heal_organ_damage(50, 50, FALSE)
+			blood_used += 3
+
+		var/missing_blood = species.blood_volume - REAGENT_VOLUME(vessel, /decl/reagent/blood)
+		if(missing_blood)
+			to_heal = min(20, missing_blood)
+			vessel.add_reagent(/decl/reagent/blood, to_heal)
+			blood_used += round(to_heal * 0.1) // gonna need to regen a shitton of blood, since human mobs have around 560 normally
 
 		for(var/A in organs)
 			var/healed = FALSE
 			var/obj/item/organ/external/E = A
+			if(BP_IS_ROBOTIC(E))
+				continue
 			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
-				blood_used += 12
-			if(E.status & ORGAN_TENDON_CUT)
-				E.status &= ~ORGAN_TENDON_CUT
-				blood_used += 12
+				blood_used += 2
+			if((E.tendon_status() & TENDON_CUT) && E.tendon.can_recover())
+				E.tendon.rejuvenate()
+				blood_used += 2
 			if(E.status & ORGAN_BROKEN)
 				E.status &= ~ORGAN_BROKEN
 				E.stage = 0
-				blood_used += 12
+				blood_used += 3
 				healed = TRUE
+			if(E.germ_level > 0)
+				if(E.is_infected())
+					E.germ_level = max(0, E.germ_level - 50)
+					blood_used += 1
+				else
+					E.germ_level = 0
+					blood_used += 0.25
+			for(var/datum/wound/W in E.wounds)
+				if(W.germ_level > 0)
+					W.germ_level = max(0, W.germ_level - 50)
+					blood_used += 0.5
+				if(!W.disinfected)
+					W.disinfect()
+					blood_used += 1
+
 
 			if(healed)
 				break
@@ -643,6 +686,8 @@
 			vampire.status &= ~VAMP_HEALING
 			to_chat(src, SPAN_NOTICE("Your body has finished healing. You are ready to continue."))
 			break
+		else
+			vampire.blood_usable -= blood_used
 
 	// We broke out of the loop naturally. Gotta catch that.
 	if(vampire.status & VAMP_HEALING)
@@ -650,60 +695,6 @@
 		to_chat(src, SPAN_WARNING("Your concentration is broken! You are no longer regenerating!"))
 
 	return
-
-// Dominate a victim, imbed a thought into their mind.
-/mob/living/carbon/human/proc/vampire_dominate()
-	set category = "Vampire"
-	set name = "Dominate (50)"
-	set desc = "Dominate the mind of a victim, make them obey your will."
-
-	var/datum/vampire/vampire = vampire_power(25, 0)
-	if(!vampire)
-		return
-
-	var/list/victims = list()
-	for(var/mob/living/carbon/human/H in view(7))
-		if(H == src)
-			continue
-		victims += H
-
-	if(!length(victims))
-		to_chat(src, SPAN_WARNING("No suitable targets."))
-		return
-
-	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
-	if(!T || !vampire_can_affect_target(T, 1, 1))
-		return
-
-	if(!(vampire.status & VAMP_FULLPOWER))
-		to_chat(src, SPAN_NOTICE("You begin peering into [T]'s mind, looking for a way to gain control."))
-
-		if(!do_mob(src, T, 50))
-			to_chat(src, SPAN_WARNING("Your concentration is broken!"))
-			return
-
-		to_chat(src, SPAN_NOTICE("You succeed in dominating [T]'s mind. They are yours to command."))
-	else
-		to_chat(src, SPAN_NOTICE("You instantly dominate [T]'s mind, forcing them to obey your command."))
-
-	var/command = input(src, "Command your victim.", "Your command.") as text|null
-	if(!command)
-		to_chat(src, SPAN_NOTICE("You decide against commanding your victim."))
-		return
-
-	command = sanitizeSafe(command, extra = 0)
-
-	admin_attack_log(src, T, "used dominate on [key_name(T)]", "was dominated by [key_name(src)]", "used dominate and issued the command of '[command]' to")
-
-	show_browser(T, "<center>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, <b>and are compelled to follow its direction without question or hesitation:</b><br>[command]</center>", "window=vampiredominate")
-	to_chat(T, SPAN_NOTICE("You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction without question or hesitation:"))
-	to_chat(T, SPAN_GOOD("<i><em>[command]</em></i>"))
-	to_chat(src, SPAN_NOTICE("You command [T], and they will obey."))
-	visible_message("<b>[src]</b> whispers something.")
-
-	vampire.use_blood(50)
-	verbs -= /mob/living/carbon/human/proc/vampire_dominate
-	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_dominate, CALLBACK(src, .proc/finish_vamp_timeout))
 
 // Enthralls a person, giving the vampire a mortal slave.
 /mob/living/carbon/human/proc/vampire_enthrall()
@@ -803,7 +794,7 @@
 		for(var/mob/living/carbon/human/T in view(5))
 			if(T == src)
 				continue
-			if(!vampire_can_affect_target(T, 0, 1, affect_ipc = FALSE)) //Will only affect IPCs at full power. 
+			if(!vampire_can_affect_target(T, 0, 1, affect_ipc = FALSE)) //Will only affect IPCs at full power.
 				continue
 			if(!T.client)
 				continue
@@ -964,7 +955,7 @@
 
 	if(status_flags & LEAPING)
 		return
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
+	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
 		to_chat(src, SPAN_WARNING("You cannot lean in your current state."))
 		return
 
@@ -1007,7 +998,7 @@
 
 	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"))
 
-	var/obj/item/grab/G = new(src, T)
+	var/obj/item/grab/G = new(src, src, T)
 	if(use_hand == "left")
 		l_hand = G
 	else

@@ -43,16 +43,22 @@
 	name = "Ian"
 	real_name = "Ian"	//Intended to hold the name without altering it.
 	gender = MALE
-	desc = "It's a corgi."
+	desc = "It's Ian the corgi."
+	icon = 'icons/mob/npc/pets.dmi'
+	icon_state = "ian"
+	icon_living = "ian"
+	icon_dead = "ian_dead"
+	named = TRUE
 	//var/obj/movement_target
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
+	holder_type = /obj/item/holder/ian
 
 /mob/living/simple_animal/corgi/Ian/think()
 	..()
 
-	if(!stat && !resting && !buckled)
+	if(!stat && !resting && !buckled_to)
 		if(prob(1))
 			visible_emote(pick("dances around.","chases their tail."),0)
 			INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
@@ -110,6 +116,7 @@
 	icon_state = "puppy"
 	icon_living = "puppy"
 	icon_dead = "puppy_dead"
+	holder_type = /obj/item/holder/corgi
 
 	butchering_products = list(/obj/item/stack/material/animalhide/corgi = 1)
 
@@ -127,12 +134,14 @@
 	real_name = "Lisa"
 	gender = FEMALE
 	desc = "It's a corgi with a cute pink bow."
+	named = TRUE
 	icon_state = "lisa"
 	icon_living = "lisa"
 	icon_dead = "lisa_dead"
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
+	holder_type = /obj/item/holder/lisa
 	var/puppies = 0
 
 //Lisa already has a cute bow!
@@ -144,7 +153,7 @@
 
 /mob/living/simple_animal/corgi/Lisa/think()
 	..()
-	if(!stat && !resting && !buckled)
+	if(!stat && !resting && !buckled_to)
 		turns_since_scan++
 		if(turns_since_scan > 15)
 			turns_since_scan = 0
@@ -166,6 +175,6 @@
 				new /mob/living/simple_animal/corgi/puppy(loc)
 				puppies++
 
-	if (!stat && !resting && !buckled && prob(1))
+	if (!stat && !resting && !buckled_to && prob(1))
 		visible_emote(pick("dances around","chases her tail"),0)
 		INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))

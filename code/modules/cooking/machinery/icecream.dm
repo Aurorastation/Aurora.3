@@ -11,12 +11,12 @@
 
 /obj/machinery/icecream_vat
 	name = "icecream vat"
-	desc = "Ding-aling ding dong. Get your NanoTrasen-approved ice cream!"
+	desc = "Ding-aling ding dong. Get your SCC-approved ice cream!"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "icecream_vat"
 	density = 1
 	anchored = 0
-	use_power = 0
+	use_power = POWER_USE_OFF
 	flags = OPENCONTAINER | NOREACT
 
 	var/list/product_types = list()
@@ -114,6 +114,7 @@
 			//		beaker.reagents.trans_to(I, 10)
 				if(I.reagents.total_volume < 10)
 					I.reagents.add_reagent(/decl/reagent/sugar, 10 - I.reagents.total_volume, temperature = T0C - 15)
+					I.reagents.reagent_data = list(/decl/reagent/nutriment = list("[flavour_name]" = 10))
 			else
 				to_chat(user, SPAN_WARNING("There is not enough icecream left!"))
 		else

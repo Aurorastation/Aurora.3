@@ -13,7 +13,6 @@
 	animate_movement=1
 	light_range = 3
 
-	can_buckle = 1
 	buckle_movable = 1
 	buckle_lying = 0
 
@@ -43,9 +42,12 @@
 //-------------------------------------------
 // Standard procs
 //-------------------------------------------
-/obj/vehicle/New()
-	..()
-	//spawn the cell you want in each vehicle
+/obj/vehicle/Initialize()
+	. = ..()
+	setup_vehicle()
+
+/obj/vehicle/proc/setup_vehicle()
+	LAZYADD(can_buckle, /mob/living)
 
 /obj/vehicle/Move()
 	if(world.time > l_move_time + move_delay)
@@ -75,8 +77,11 @@
 	else
 		return 0
 
+/obj/vehicle/proc/create_vehicle_overlay()
+	return
+
 /obj/vehicle/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/hand_labeler))
+	if(istype(W, /obj/item/device/hand_labeler))
 		return
 	if(W.isscrewdriver())
 		if(!locked)
@@ -296,14 +301,13 @@
 			C.pixel_y += mob_offset_y
 		else
 			C.pixel_y += load_offset_y
-		C.layer = layer + 0.1		//so it sits above the vehicle
 
 	if(ismob(C))
-		buckle_mob(C)
+		buckle(C)
 
 	return 1
 
-/obj/vehicle/user_unbuckle_mob(var/mob/user)
+/obj/vehicle/user_unbuckle(var/mob/user)
 	unload(user)
 	return
 
@@ -312,6 +316,7 @@
 		return
 
 	var/turf/dest = null
+	var/turf/v_turf = get_turf(src)
 
 	//find a turf to unload to
 	if(direction)	//if direction specified, unload in that direction
@@ -323,16 +328,24 @@
 		dest = get_step_to(src, get_step(src, turn(dir, 90))) //try unloading to the side of the vehicle first if neither of the above are present
 
 	//if these all result in the same turf as the vehicle or nullspace, pick a new turf with open space
-	if(!dest || dest == get_turf(src))
+	if(!dest || dest == v_turf || dest.is_hole)
 		var/list/options = new()
+		var/list/safe_options = new()
 		for(var/test_dir in alldirs)
-			var/new_dir = get_step_to(src, get_step(src, test_dir))
-			if(new_dir && load.Adjacent(new_dir))
-				options += new_dir
-		if(options.len)
+			var/turf/T = get_step_to(src, get_step(src, test_dir))
+			if(istype(T) && load.Adjacent(T))
+				options += T
+				if(!T.is_hole)
+					safe_options += T
+		if(safe_options.len)
+			dest = pick(safe_options)
+		else if(!v_turf.is_hole)
+			dest = v_turf
+		else if(options.len) // No safe tiles to unload -- you're going to the shadow realm, jimbo
 			dest = pick(options)
-		else
-			dest = get_turf(src)	//otherwise just dump it on the same turf as the vehicle
+
+	if(!isturf(dest))
+		dest = v_turf	//otherwise just dump it on the same turf as the vehicle
 
 	if(!isturf(dest))	//if there still is nowhere to unload, cancel out since the vehicle is probably in nullspace
 		return 0
@@ -345,7 +358,7 @@
 	load.layer = initial(load.layer)
 
 	if(ismob(load))
-		unbuckle_mob(load)
+		unbuckle(load)
 
 	load = null
 
@@ -354,7 +367,7 @@
 // This exists to stop a weird jumping motion when you disembark.
 // It essentially makes disembarkation count as a movement.
 // Yes, it's not the full calculation. But it's relatively close, and will make it seamless.
-/obj/vehicle/post_buckle_mob(var/mob/M)
+/obj/vehicle/post_buckle(var/mob/M)
 	if (M.client)
 		M.client.move_delay = M.movement_delay() + config.walk_speed
 

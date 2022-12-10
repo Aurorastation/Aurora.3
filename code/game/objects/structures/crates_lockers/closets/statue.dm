@@ -5,7 +5,7 @@
 /mob/statue_mob/send_emote()
 	to_chat(src, "You are unable to move while trapped as a statue.")
 
-/mob/statue_mob/say()
+/mob/statue_mob/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	to_chat(src, "You are unable to speak while trapped as a statue.")
 
 /obj/structure/closet/statue
@@ -29,8 +29,8 @@
 
 /obj/structure/closet/statue/Initialize(mapload, mob/living/L)
 	if(isliving(L))
-		if(L.buckled)
-			L.buckled = 0
+		if(L.buckled_to)
+			L.buckled_to = 0
 			L.anchored = 0
 		if(L.client)
 			L.client.perspective = EYE_PERSPECTIVE
@@ -44,19 +44,7 @@
 		health = L.health + 300 //stoning damaged mobs will result in easier to shatter statues
 		L.frozen = TRUE
 
-		appearance = L
-		dir = L.dir
-		color = list(
-					    0.30, 0.3, 0.25,
-					    0.30, 0.3, 0.25,
-					    0.30, 0.3, 0.25
-					)
-		name = "statue of [L.name]"
-		desc = "An incredibly lifelike stone carving."
-
-		if(iscorgi(L))
-			name = "statue of a corgi"
-			desc = "If it takes forever, I will wait for you..."
+		create_icon(L)
 
 		var/mob/statue_mob/temporarymob = new (src)
 		temporarymob.forceMove(src)
@@ -84,6 +72,22 @@
 
 /obj/structure/closet/statue/content_info()
 	return
+
+/obj/structure/closet/statue/proc/create_icon(var/mob/living/L)
+	appearance = L
+	appearance_flags |= KEEP_TOGETHER
+	dir = L.dir
+	color = list(
+				    0.30, 0.3, 0.25,
+				    0.30, 0.3, 0.25,
+				    0.30, 0.3, 0.25
+				)
+	name = "statue of [L.name]"
+	desc = "An incredibly lifelike stone carving."
+
+	if(iscorgi(L))
+		name = "statue of a corgi"
+		desc = "If it takes forever, I will wait for you..."
 
 /obj/structure/closet/statue/dump_contents()
 
@@ -163,4 +167,29 @@
 		user.dust()
 	dump_contents()
 	visible_message("<span class='warning'>[src] shatters!.</span>")
+	qdel(src)
+
+
+/obj/structure/closet/statue/ice
+	name = "ice cube"
+	desc = "A large ice cube."
+	anchored = FALSE
+
+/obj/structure/closet/statue/ice/create_icon(var/mob/living/L)
+	appearance = L
+	dir = L.dir
+	var/image/I
+	I = image(icon = 'icons/obj/statue.dmi', icon_state = "icecube")
+	add_overlay(I)
+
+/obj/structure/closet/statue/ice/shatter(mob/user as mob)
+	if (user)
+		user.frozen = FALSE
+		if(isliving(user))
+			var/mob/living/L = user
+			L.adjustBruteLoss(30)
+			L.bodytemperature -= 150
+
+	dump_contents()
+	visible_message("<span class='warning'>\The [src] shatters!</span>")
 	qdel(src)

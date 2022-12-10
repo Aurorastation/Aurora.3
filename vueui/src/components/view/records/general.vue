@@ -11,14 +11,14 @@
       <vui-group-item label="Sex:"><view-records-field :editable="(editable & 1) > 0" path="active.sex"/></vui-group-item>
       <vui-group-item label="Rank:"><view-records-field :editable="(editable & 1) > 0" path="active.rank"/></vui-group-item>
       <vui-group-item label="Physical Status:">
-        <view-records-field :editable="(editable & 1) > 0" path="active.physical_status">
+        <view-records-field :editable="(editable & 1 || editable & 2) > 0" path="active.physical_status">
           <select v-model="$root.$data.state.editingvalue">
             <option v-for="i in choices.physical_status" :key="i" :value="i">{{ i }}</option>
           </select>
         </view-records-field>
       </vui-group-item>
       <vui-group-item label="Mental Status:">
-        <view-records-field :editable="(editable & 1) > 0" path="active.mental_status">
+        <view-records-field :editable="(editable & 1 || editable & 2) > 0" path="active.mental_status">
           <select v-model="$root.$data.state.editingvalue">
             <option v-for="i in choices.mental_status" :key="i" :value="i">{{ i }}</option>
           </select>

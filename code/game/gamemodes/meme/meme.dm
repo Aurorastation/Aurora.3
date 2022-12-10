@@ -7,7 +7,6 @@
 	config_tag = "meme"
 	required_players = 3
 	votable = 0 // temporarily disable this mode for voting
-	end_on_antag_death = 1
 
 	var/var/list/datum/mind/first_hosts = list()
 	var/var/list/assigned_hosts = list()
@@ -76,9 +75,6 @@
 		qdel(original)
 
 	log_admin("Created [memes.len] memes.")
-
-	spawn (rand(waittime_l, waittime_h))
-		send_intercept()
 	..()
 	return
 

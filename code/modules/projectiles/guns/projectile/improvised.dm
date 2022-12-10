@@ -40,7 +40,7 @@
 				Fire(user, user)	//will this work? //it will. we call it twice, for twice the FUN
 			user.visible_message("<span class='danger'>The shotgun goes off!</span>", "<span class='danger'>The shotgun goes off in your face!</span>")
 			return
-		if(do_after(user, 30))
+		if(A.use_tool(src, user, 30, volume = 50))
 			icon_state = "ishotgunsawn"
 			item_state = "ishotgunsawn"
 			w_class = ITEMSIZE_NORMAL
@@ -122,12 +122,11 @@
 		var/obj/item/stack/cable_coil/C = W
 		if(buildstate == 3)
 			if(C.use(10))
-				to_chat(user, "<span class='notice'>You tie the lengths of cable to the shotgun, making a sling.</span>")
-				var/obj/item/gun/projectile/shotgun/improvised/G = new(get_turf(src))
-				G.fail_chance = rand(1,100)
+				to_chat(user, "<span class='notice'>You tie the lengths of cable to the pipegun, making a sling.</span>")
+				new /obj/item/gun/projectile/shotgun/pump/rifle/pipegun(get_turf(src))
 				qdel(src)
 			else
-				to_chat(user, "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!.</span>")
+				to_chat(user, "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!</span>")
 			return
 
 		..()
@@ -199,7 +198,7 @@
 	else if(W.iswelder())
 		if(buildstate == 3)
 			var/obj/item/weldingtool/T = W
-			if(T.remove_fuel(0,user))
+			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You shorten the barrel with the welding tool.</span>")

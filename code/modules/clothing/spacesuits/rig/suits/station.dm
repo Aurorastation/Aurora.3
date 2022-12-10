@@ -26,7 +26,9 @@
 	name = "augmented tie"
 	suit_type = "augmented suit"
 	desc = "Prepare for paperwork."
+	icon = 'icons/clothing/rig/tie.dmi'
 	icon_state = "internalaffairs_rig"
+	icon_supported_species_tags = null
 	armor = null
 	siemens_coefficient = 0.9
 	slowdown = 0
@@ -38,8 +40,9 @@
 	req_access = list()
 	req_one_access = list()
 
-	glove_type = null
 	helm_type = null
+	suit_type = null
+	glove_type = null
 	boot_type = null
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
@@ -64,13 +67,25 @@
 	name = "industrial suit control module"
 	suit_type = "industrial hardsuit"
 	desc = "A heavy, powerful hardsuit used by construction crews and mining corporations."
+	icon = 'icons/clothing/rig/industrial.dmi'
 	icon_state = "industrial_rig"
-	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 50)
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 	siemens_coefficient = 0.35
 	slowdown = 2
 	offline_slowdown = 7
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = -20
+	max_pressure_protection = FIRESUIT_MAX_PRESSURE
+	min_pressure_protection = 0
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
 	chest_type = /obj/item/clothing/suit/space/rig/industrial
@@ -103,8 +118,18 @@
 	name = "EVA suit control module"
 	suit_type = "EVA hardsuit"
 	desc = "A light hardsuit for repairs and maintenance to the outside of habitats and vessels."
+	icon = 'icons/clothing/rig/eva.dmi'
 	icon_state = "eva_rig"
-	armor = list(melee = 30, bullet = 10, laser = 20, energy = 25, bomb = 20, bio = 100, rad = 100)
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_MINOR,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	slowdown = 0
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
@@ -112,7 +137,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva
 	glove_type = /obj/item/clothing/gloves/rig/eva
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction,/obj/item/material/twohanded/fireaxe,/obj/item/storage/backpack/cell)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction,/obj/item/material/twohanded/fireaxe,/obj/item/storage/backpack/cell)
 
 	req_access = list()
 	req_one_access = list()
@@ -140,21 +165,32 @@
 	camera = /obj/machinery/camera/network/mercenary
 
 /obj/item/rig/ce
-
 	name = "advanced voidsuit control module"
 	suit_type = "advanced voidsuit"
 	desc = "An advanced voidsuit that protects against hazardous, low pressure environments. Shines with a high polish."
+	icon = 'icons/clothing/rig/ce.dmi'
 	icon_state = "ce_rig"
-	armor = list(melee = 40, bullet = 10, laser = 30,energy = 25, bomb = 40, bio = 100, rad = 100)
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	slowdown = 0
 	offline_slowdown = 3
 	offline_vision_restriction = 0
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE / 1.5 // Good against fires, but not as good as a proper firesuit / atmos voidsuit
+	max_pressure_protection = FIRESUIT_MAX_PRESSURE
+	min_pressure_protection = 0
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
 	glove_type = /obj/item/clothing/gloves/rig/ce
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction,/obj/item/storage/backpack/cell,/obj/item/storage/toolbox)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction,/obj/item/storage/backpack/cell,/obj/item/storage/toolbox,/obj/item/storage/bag/inflatable)
 
 	req_access = list()
 	req_one_access = list()
@@ -177,12 +213,21 @@
 	siemens_coefficient = 0
 
 /obj/item/rig/hazmat
-
 	name = "AMI control module"
 	suit_type = "hazmat hardsuit"
 	desc = "An Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
+	icon = 'icons/clothing/rig/hazmat.dmi'
 	icon_state = "hazmat_rig"
-	armor = list(melee = 45, bullet = 5, laser = 40, energy = 65, bomb = 60, bio = 100, rad = 100)
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_STRONG,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	siemens_coefficient = 0.50
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 40
@@ -210,8 +255,18 @@
 	name = "rescue suit control module"
 	suit_type = "rescue hardsuit"
 	desc = "A durable suit designed for medical rescue in high risk areas."
+	icon = 'icons/clothing/rig/medical.dmi'
 	icon_state = "medical_rig"
-	armor = list(melee = 30, bullet = 15, laser = 20, energy = 60, bomb = 30, bio = 100, rad = 100)
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	siemens_coefficient = 0.50
 	slowdown = 0
 	offline_slowdown = 2
@@ -219,7 +274,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/medical
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/firstaid,/obj/item/device/healthanalyzer,/obj/item/stack/medical,/obj/item/roller,/obj/item/material/twohanded/fireaxe,/obj/item/device/breath_analyzer)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/firstaid,/obj/item/device/healthanalyzer,/obj/item/stack/medical,/obj/item/roller,/obj/item/material/twohanded/fireaxe,/obj/item/device/breath_analyzer,/obj/item/reagent_containers/blood)
 
 	req_access = list()
 	req_one_access = list()
@@ -235,15 +290,26 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/vision/medhud,
-		/obj/item/rig_module/actuators
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/cooling_unit
 		)
 
 /obj/item/rig/hazard
 	name = "hazard hardsuit control module"
 	suit_type = "hazard hardsuit"
 	desc = "A security hardsuit designed for prolonged EVA in dangerous environments."
+	icon = 'icons/clothing/rig/hazard.dmi'
 	icon_state = "hazard_rig"
-	armor = list(melee = 60, bullet = 45, laser = 30, energy = 15, bomb = 60, bio = 100, rad = 45)
+	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 
@@ -278,13 +344,22 @@
 	name = "diving suit control module"
 	suit_type = "diving suit"
 	desc = "A heavy hardsuit designated for operations under the water, you are not sure what it is doing here however."
+	icon = 'icons/clothing/rig/diving.dmi'
 	icon_state = "diving_rig"
-	armor = list(melee = 30, bullet = 10, laser = 20, energy = 25, bomb = 20, bio = 100, rad = 100)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 	slowdown = 3
 	offline_slowdown = 4
 	offline_vision_restriction = TINT_HEAVY
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction)
 
 	req_access = list()
 	req_one_access = list()

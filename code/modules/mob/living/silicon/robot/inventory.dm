@@ -3,7 +3,6 @@
 
 //Returns the thing in our active hand (whatever is in our active module-slot, in this case)
 /mob/living/silicon/robot/get_active_hand()
-	// TODO: see if refactoring this to return the gripped object (should one exist) works - would make a lot of edge cases a lot simpler
 	return module_active
 
 /mob/living/silicon/robot/proc/return_wirecutter()
@@ -231,41 +230,48 @@
 		to_chat(src, "<span class='notice'>You need to disable a module first!</span>")
 
 /mob/living/silicon/robot/put_in_hands(var/obj/item/W) // Maybe hands.
-	var/obj/item/gripper/G
+	var/obj/item/gripper/G = get_active_hand()
+	if (istype(G))
+		if(!G.wrapped && G.grip_item(W, src, TRUE))
+			return TRUE
 	if (istype(module_state_1, /obj/item/gripper))
-
 		G = module_state_1
-		if (!G.wrapped && G.grip_item(W, src, 1))
+		if (!G.wrapped && G.grip_item(W, src, TRUE))
 			return TRUE
 	else if (istype(module_state_2, /obj/item/gripper))
 		G = module_state_2
-		if (!G.wrapped && G.grip_item(W, src, 0))
+		if (!G.wrapped && G.grip_item(W, src, TRUE))
 			return TRUE
 	else if (istype(module_state_3, /obj/item/gripper))
 		G = module_state_3
-		if (!G.wrapped && G.grip_item(W, src, 0))
+		if (!G.wrapped && G.grip_item(W, src, TRUE))
 			return TRUE
-
 
 	W.forceMove(get_turf(src))
 	return FALSE
 
+/mob/living/silicon/robot/remove_from_mob(var/obj/O) //Necessary to clear gripper when trying to place items in things (grinders, smartfridges, vendors, etc)
+	if(istype(module_active, /obj/item/gripper))
+		var/obj/item/gripper/G = module_active
+		if(G.wrapped == O)
+			G.drop(get_turf(src), FALSE) //We don't need to see the "released X item" message if we're putting stuff in fridges and the like.
 
 /mob/living/silicon/robot/drop_item()
-	if (istype(module_active, /obj/item/gripper))
+	if(istype(module_active, /obj/item/gripper))
 		var/obj/item/gripper/G = module_active
-		if (G.wrapped)
+		if(G.wrapped)
 			G.drop_item()
 			return
 	uneq_active()
 
 /mob/living/silicon/robot/drop_from_inventory(var/obj/item/W, var/atom/target = null)
+	var/do_feedback = target ? FALSE : TRUE //Do not do feedback messages if dropping to a target, to avoid duplicate "You release X" messages. 
 	if(W)
 		if(!target)
 			target = loc
 		if (istype(W.loc, /obj/item/gripper))
 			var/obj/item/gripper/G = W.loc
-			G.drop(target)
+			G.drop(target, do_feedback)
 			return TRUE
 	return FALSE
 

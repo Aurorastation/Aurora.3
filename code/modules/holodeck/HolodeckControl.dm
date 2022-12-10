@@ -1,12 +1,11 @@
 /obj/machinery/computer/HolodeckControl
 	name = "holodeck control console"
 	desc = "A computer used to control a nearby holodeck."
-
+	icon = 'icons/obj/computer.dmi'
 	icon_state  = "computerw"
 	icon_screen = "holocontrolw"
 	light_color = LIGHT_COLOR_CYAN
 
-	use_power = 1
 	active_power_usage = 8000 //8kW for the scenery + 500W per holoitem
 
 	circuit = /obj/item/circuitboard/holodeckcontrol
@@ -106,41 +105,37 @@
 	if(..())
 		return 1
 
-	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+	if(locked && !allowed(usr))
+		return
 
-		if(locked && !allowed(usr))
+	if(href_list["program"])
+		var/prog = href_list["program"]
+		if(prog in current_map.holodeck_programs)
+			loadProgram(current_map.holodeck_programs[prog])
+
+	else if(href_list["AIoverride"])
+		if(!issilicon(usr))
 			return
 
-		usr.set_machine(src)
+		if(safety_disabled && emagged)
+			return //if a traitor has gone through the trouble to emag the thing, let them keep it.
 
-		if(href_list["program"])
-			var/prog = href_list["program"]
-			if(prog in current_map.holodeck_programs)
-				loadProgram(current_map.holodeck_programs[prog])
+		safety_disabled = !safety_disabled
+		update_projections()
+		if(safety_disabled)
+			message_admins("[key_name_admin(usr)] overrode the holodeck's safeties")
+			log_game("[key_name(usr)] overrided the holodeck's safeties",ckey=key_name(usr))
+		else
+			message_admins("[key_name_admin(usr)] restored the holodeck's safeties")
+			log_game("[key_name(usr)] restored the holodeck's safeties",ckey=key_name(usr))
 
-		else if(href_list["AIoverride"])
-			if(!issilicon(usr))
-				return
+	else if(href_list["gravity"])
+		toggleGravity(linkedholodeck)
 
-			if(safety_disabled && emagged)
-				return //if a traitor has gone through the trouble to emag the thing, let them keep it.
+	else if(href_list["togglehololock"])
+		togglelock(usr)
 
-			safety_disabled = !safety_disabled
-			update_projections()
-			if(safety_disabled)
-				message_admins("[key_name_admin(usr)] overrode the holodeck's safeties")
-				log_game("[key_name(usr)] overrided the holodeck's safeties",ckey=key_name(usr))
-			else
-				message_admins("[key_name_admin(usr)] restored the holodeck's safeties")
-				log_game("[key_name(usr)] restored the holodeck's safeties",ckey=key_name(usr))
-
-		else if(href_list["gravity"])
-			toggleGravity(linkedholodeck)
-
-		else if(href_list["togglehololock"])
-			togglelock(usr)
-
-		src.add_fingerprint(usr)
+	src.add_fingerprint(usr)
 	src.updateUsrDialog()
 	return
 
@@ -190,7 +185,7 @@
 	if (stat != oldstat && active && (stat & NOPOWER))
 		emergencyShutdown()
 
-/obj/machinery/computer/HolodeckControl/machinery_process()
+/obj/machinery/computer/HolodeckControl/process()
 	for(var/item in holographic_objs) // do this first, to make sure people don't take items out when power is down.
 		if(!(get_turf(item) in linkedholodeck))
 			derez(item, 0)
@@ -208,13 +203,13 @@
 	if(inoperable())
 		return
 	if(active)
-		use_power(item_power_usage * (holographic_objs.len + holographic_mobs.len))
+		use_power_oneoff(item_power_usage * (holographic_objs.len + holographic_mobs.len))
 
 		if(!checkInteg(linkedholodeck))
 			damaged = 1
 			loadProgram(current_map.holodeck_programs["turnoff"], 0)
 			active = 0
-			use_power = 1
+			update_use_power(POWER_USE_IDLE)
 			for(var/mob/M in range(10,src))
 				M.show_message("The holodeck overloads!")
 
@@ -260,7 +255,7 @@
 			linkedholodeck.gravitychange(TRUE)
 
 		active = 0
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 
 
 /obj/machinery/computer/HolodeckControl/proc/loadProgram(var/datum/holodeck_program/HP, var/check_delay = 1)
@@ -281,7 +276,7 @@
 
 	last_change = world.time
 	active = 1
-	use_power = 2
+	update_use_power(POWER_USE_ACTIVE)
 
 	for(var/item in holographic_objs)
 		derez(item)
@@ -302,9 +297,9 @@
 		holo_obj.alpha *= 0.8 //give holodeck objs a slight transparency
 
 	if(HP.ambience)
-		linkedholodeck.forced_ambience = HP.ambience
+		linkedholodeck.music = HP.ambience
 	else
-		linkedholodeck.forced_ambience = list()
+		linkedholodeck.music = list()
 
 	for(var/mob/living/M in mobs_in_area(linkedholodeck))
 		if(M.mind)
@@ -351,7 +346,7 @@
 
 	last_gravity_change = world.time
 	active = 1
-	use_power = 1
+	update_use_power(POWER_USE_IDLE)
 
 	if(A.has_gravity())
 		A.gravitychange(FALSE)
@@ -366,7 +361,7 @@
 		linkedholodeck.gravitychange(TRUE)
 
 	active = 0
-	use_power = 1
+	update_use_power(POWER_USE_IDLE)
 
 /obj/machinery/computer/HolodeckControl/proc/togglelock(var/mob/user)
 	if(allowed(user))
@@ -377,6 +372,10 @@
 		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return TRUE
 
-/obj/machinery/computer/HolodeckControl/Exodus
+/obj/machinery/computer/HolodeckControl/Aurora
 	density = 0
 	linkedholodeck_area = /area/holodeck/alphadeck
+
+/obj/machinery/computer/HolodeckControl/Horizon
+	density = 0
+	linkedholodeck_area = /area/horizon/holodeck/alphadeck

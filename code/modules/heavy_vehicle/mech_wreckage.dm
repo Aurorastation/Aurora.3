@@ -8,7 +8,8 @@
 	icon = 'icons/mecha/mech_part_items.dmi'
 	var/prepared = FALSE
 
-/obj/structure/mech_wreckage/Initialize(var/newloc, var/mob/living/heavy_vehicle/exosuit, var/gibbed)
+/obj/structure/mech_wreckage/Initialize(mapload, var/mob/living/heavy_vehicle/exosuit, var/gibbed)
+	. = ..(mapload)
 	if(exosuit)
 		name = "wreckage of \the [exosuit.name]"
 		if(!gibbed)
@@ -21,10 +22,11 @@
 					if(exosuit.remove_system(hardpoint))
 						thing.forceMove(src)
 
-	..()
-
-/obj/structure/mech_wreckage/powerloader/Initialize(var/newloc)
-	..(newloc, new /mob/living/heavy_vehicle/premade/ripley(newloc), FALSE)
+/obj/structure/mech_wreckage/powerloader/Initialize(mapload)
+	var/mob/living/heavy_vehicle/premade/ripley/new_mech = new(loc)
+	. = ..(mapload, new_mech, FALSE)
+	if(!QDELETED(new_mech))
+		qdel(new_mech)
 
 /obj/structure/mech_wreckage/attack_hand(var/mob/user)
 	if(contents.len)

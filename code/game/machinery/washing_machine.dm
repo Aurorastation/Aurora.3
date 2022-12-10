@@ -1,5 +1,6 @@
 /obj/machinery/washing_machine
-	name = "Washing Machine"
+	name = "washing machine"
+	desc = "A washing machine with special decontamination procedures. It can fit everything from clothes to even rifles."
 	icon = 'icons/obj/machines/washing_machine.dmi'
 	icon_state = "wm_10"
 	density = 1
@@ -33,11 +34,11 @@
 	if(!istype(usr, /mob/living)) //ew ew ew usr, but it's the only way to check.
 		return
 
-	if( state != 4 )
+	if(state != 4)
 		to_chat(usr, "The washing machine cannot run in this state.")
 		return
 
-	if( locate(/mob,contents) )
+	if(locate(/mob,contents))
 		state = 8
 	else
 		state = 5
@@ -50,10 +51,11 @@
 		I.decontaminate()
 
 	//Tanning!
-	for(var/obj/item/stack/material/hairlesshide/HH in contents)
-		var/obj/item/stack/material/wetleather/WL = new(src)
-		WL.amount = HH.amount
-		qdel(HH)
+	for(var/obj/item/stack/material/animalhide/barehide/BH in contents)
+		var/obj/item/stack/material/animalhide/wetleather/WL = new(src)
+		WL.amount = BH.amount
+		contents -= BH
+		qdel(BH)
 
 	if( locate(/mob,contents) )
 		state = 7
@@ -71,6 +73,9 @@
 	if(state in list(1,3,6) )
 		usr.forceMove(src.loc)
 
+/obj/machinery/washing_machine/AltClick(mob/user)
+	if(Adjacent(user))
+		start()
 
 /obj/machinery/washing_machine/update_icon()
 	icon_state = "wm_[state][panel]"
@@ -82,9 +87,9 @@
 				user.drop_from_inventory(W,src)
 				crayon = W
 			else
-				..()
+				return ..()
 		else
-			..()
+			return ..()
 	else if(istype(W,/obj/item/grab))
 		if( (state == 1) && hacked)
 			var/obj/item/grab/G = W
@@ -93,65 +98,18 @@
 				qdel(G)
 				state = 3
 		else
-			..()
-	else if(istype(W,/obj/item/stack/material/hairlesshide) || \
-		istype(W,/obj/item/clothing/under) || \
-		istype(W,/obj/item/clothing/mask) || \
-		istype(W,/obj/item/clothing/head) || \
-		istype(W,/obj/item/clothing/gloves) || \
-		istype(W,/obj/item/clothing/shoes) || \
-		istype(W,/obj/item/clothing/suit) || \
-		istype(W,/obj/item/bedsheet))
-
-		//YES, it's hardcoded... saves a var/can_be_washed for every single clothing item.
-		if ( istype(W,/obj/item/clothing/suit/space ) )
-			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/suit/syndicatefake ) )
-			to_chat(user, "This item does not fit.")
-			return
-//		if ( istype(W,/obj/item/clothing/suit/powered ) )
-//			to_chat(user, "This item does not fit.")
-//			return
-		if ( istype(W,/obj/item/clothing/suit/cyborg_suit ) )
-			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/suit/bomb_suit ) )
-			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/suit/armor ) )
-			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/suit/armor ) )
-			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/mask/gas ) )
-			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/mask/smokable/cigarette ) )
-			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/head/syndicatefake ) )
-			to_chat(user, "This item does not fit.")
-			return
-//		if ( istype(W,/obj/item/clothing/head/powered ) )
-//			to_chat(user, "This item does not fit.")
-//			return
-		if ( istype(W,/obj/item/clothing/head/helmet ) )
-			to_chat(user, "This item does not fit.")
-			return
-
+			return ..()
+	else 
 		if(contents.len < 5)
-			if ( state in list(1, 3) )
+			if (state in list(1, 3))
 				user.drop_from_inventory(W,src)
 				state = 3
 			else
 				to_chat(user, "<span class='notice'>You can't put the item in right now.</span>")
 		else
 			to_chat(user, "<span class='notice'>The washing machine is full.</span>")
-	else
-		..()
 	update_icon()
+	return ..()
 
 /obj/machinery/washing_machine/attack_hand(mob/user as mob)
 	switch(state)

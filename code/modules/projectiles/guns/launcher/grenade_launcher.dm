@@ -27,7 +27,7 @@
 
 //revolves the magazine, allowing players to choose between multiple grenade types
 /obj/item/gun/launcher/grenade/proc/pump(mob/M as mob)
-	playsound(M, 'sound/weapons/shotgun_pump.ogg', 60, 1)
+	playsound(M, 'sound/weapons/reloads/shotgun_pump.ogg', 60, 1)
 
 	var/obj/item/grenade/next
 	if(grenades.len)
@@ -78,7 +78,7 @@
 		return FALSE
 	return TRUE
 
-/obj/item/gun/launcher/grenade/attack_self(mob/user)
+/obj/item/gun/launcher/grenade/unique_action(mob/user)
 	pump(user)
 
 /obj/item/gun/launcher/grenade/attackby(obj/item/I, mob/user)
@@ -115,9 +115,6 @@
 	w_class = ITEMSIZE_NORMAL
 	force = 5
 	max_grenades = 0
-
-/obj/item/gun/launcher/grenade/underslung/attack_self()
-	return
 
 //load and unload directly into chambered
 /obj/item/gun/launcher/grenade/underslung/load(obj/item/grenade/G, mob/user)

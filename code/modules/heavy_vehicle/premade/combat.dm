@@ -9,8 +9,8 @@
 	e_legs = /obj/item/mech_component/propulsion/combat
 	e_color = COLOR_DARK_GUNMETAL
 
-	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/taser/smg
-	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/taser/smg
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/combat/smg
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/smg
 
 /obj/item/mech_component/manipulators/combat
 	name = "combat arms"
@@ -48,8 +48,7 @@
 /obj/item/mech_component/sensors/combat/prebuild()
 	..()
 	software = new(src)
-	software.installed_software |= MECH_SOFTWARE_WEAPONS
-	software.installed_software |= MECH_SOFTWARE_ADVWEAPONS
+	software.installed_software = list(MECH_SOFTWARE_WEAPONS, MECH_SOFTWARE_UTILITY)
 
 /obj/item/mech_component/chassis/combat
 	name = "sealed exosuit chassis"

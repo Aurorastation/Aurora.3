@@ -1,6 +1,26 @@
-/client/proc/spawn_chemdisp_cartridge(size in list("small", "medium", "large"), reagent in decls_repository.get_decls_of_subtype(/decl/reagent/))
+/client/proc/spawn_chemdisp_cartridge(size in list("small", "medium", "large"))
 	set name = "Spawn Chemical Dispenser Cartridge"
 	set category = "Admin"
+
+	var/rtype = input("Enter full or partial reagent path.", "Reagent Search") as text
+	if(!rtype)
+		return
+
+	var/list/matches
+	for(var/path in decls_repository.get_decls_of_subtype(/decl/reagent/))
+		if(findtext("[path]", rtype))
+			LAZYADD(matches, path)
+
+	var/reagent
+	if(!LAZYLEN(matches))
+		return
+
+	if(LAZYLEN(matches) == 1)
+		reagent = matches[1]
+	else
+		reagent = input("Select a reagent type", "Pick reagent", matches[1]) as null|anything in matches
+		if(!reagent)
+			return
 
 	var/obj/item/reagent_containers/chem_disp_cartridge/C
 	switch(size)

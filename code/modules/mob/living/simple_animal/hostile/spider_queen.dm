@@ -1,9 +1,13 @@
 /mob/living/simple_animal/hostile/spider_queen
-	name = "colossal spider"
-	desc = "A monstrous eight-legged creature."
+	name = "colossal greimorian"
+	desc = "A monstrous six-legged Greimorian."
+	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
+	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
+	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
 	icon = 'icons/mob/npc/spider_queen.dmi'
 	icon_state = "spider_queen"
 	icon_living = "spider_queen"
+	icon_rest = "spider_queen_rest"
 	icon_dead = "spider_queen_dead"
 	speak_emote = list("chitters")
 	emote_hear = list("chitters")
@@ -16,12 +20,14 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
+	blood_type = "#51C404"
 	blood_overlay_icon = null
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 700
-	health = 700
-	melee_damage_lower = 25
-	melee_damage_upper = 30
+	maxHealth = 1100
+	health = 1100
+	melee_damage_lower = 35
+	melee_damage_upper = 40
+	armor_penetration = 30
 	resist_mod = 15 // LOL good luck pal
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
@@ -33,7 +39,7 @@
 	attacktext = "bit"
 	attack_sound = 'sound/weapons/bite.ogg'
 
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE|PASSRAILING
 	move_to_delay = 6
 	speed = 1
 	mob_size = 15

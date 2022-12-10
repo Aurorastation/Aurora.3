@@ -1,4 +1,4 @@
-/obj/structure/bed/chair/remote
+/obj/structure/bed/stool/chair/remote
 	name = "virtual reality centre"
 	desc = "A comfortable chair with full audio-visual transposition centres."
 	icon_state = "shuttlechair_preview"
@@ -6,25 +6,26 @@
 	var/portable_type
 	can_dismantle = FALSE
 	var/remote_network // Which network does this remote control belong to?
+	held_item = null
 
-/obj/structure/bed/chair/remote/Initialize()
+/obj/structure/bed/stool/chair/remote/Initialize()
 	. = ..()
 	if(portable_type)
 		name = "portable [name]"
 
-/obj/structure/bed/chair/remote/Destroy()
+/obj/structure/bed/stool/chair/remote/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/structure/bed/chair/remote/examine(mob/user)
+/obj/structure/bed/stool/chair/remote/examine(mob/user)
 	..()
 	if(portable_type)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("Can be packed up by using a wrench on it.")))
 
-/obj/structure/bed/chair/remote/update_icon()
+/obj/structure/bed/stool/chair/remote/update_icon()
 	return
 
-/obj/structure/bed/chair/remote/attackby(obj/item/W, mob/user)
+/obj/structure/bed/stool/chair/remote/attackby(obj/item/W, mob/user)
 	if(portable_type && W.iswrench())
 		user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start dismantling \the [src]..."))
 		if(do_after(user, 20 SECONDS, TRUE, src))
@@ -35,7 +36,7 @@
 		return
 	..()
 
-/obj/structure/bed/chair/remote/user_buckle_mob(mob/user)
+/obj/structure/bed/stool/chair/remote/user_buckle(mob/user)
 	..()
 	var/area/A = get_area(src)
 	if(!A.powered(EQUIP))
@@ -50,17 +51,17 @@
 	START_PROCESSING(SSprocessing, src)
 
 
-/obj/structure/bed/chair/remote/process()
+/obj/structure/bed/stool/chair/remote/process()
 	..()
-	if(buckled_mob)
+	if(buckled)
 		var/area/A = get_area(src)
 		if(!A.powered(EQUIP))
-			user_unbuckle_mob(buckled_mob)
+			user_unbuckle(buckled)
 
 // Return to our body in the unfortunate event that we get unbuckled while plugged in
-/obj/structure/bed/chair/remote/user_unbuckle_mob(mob/user)
-	if(buckled_mob)
-		var/mob/M = buckled_mob
+/obj/structure/bed/stool/chair/remote/user_unbuckle(mob/user)
+	if(buckled)
+		var/mob/M = buckled
 		if(istype(M) && M.vr_mob)
 			M.vr_mob.body_return()
 		cut_overlays()

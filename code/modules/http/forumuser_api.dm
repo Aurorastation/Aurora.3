@@ -7,6 +7,7 @@ var/global/forumuser_api_key = null
 	var/list/forum_secondary_groups = list()
 	var/discord_id
 	var/ckey
+	var/psync_game_disabled = FALSE
 
 /datum/forum_user/New(data)
 	forum_member_id = data["forum_member_id"]
@@ -18,6 +19,8 @@ var/global/forumuser_api_key = null
 
 	discord_id = data["discord_id"]
 	ckey = data["ckey"]
+	if(data["psync_game_disabled"] == 1) //This here is needed because the data can be null, 1 or 0
+		psync_game_disabled = TRUE
 
 /datum/http_request/forumuser_api
 
@@ -62,4 +65,3 @@ var/global/forumuser_api_key = null
 	R.body = users
 
 	return R
-

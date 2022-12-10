@@ -10,6 +10,9 @@
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "robot"
 	var/icontype 				//Persistent icontype tracking allows for cleaner icon updates
+	var/chassistype				// Custom model icon. Also can be used to re-use icons to prevent copypasta, provided you listed them correctly in the list
+	var/paneltype				// Same as above, but for maintenance panel.
+	var/eyetype					// Same as above, but for eyes.
 	var/module_sprites[0] 		//Used to store the associations between sprite names and sprite index.
 	var/icon_selected = 0		//If icon selection has been completed yet
 	var/spawn_sound = 'sound/voice/liveagain.ogg'
@@ -66,7 +69,7 @@
 	// Modules and active items
 	var/mod_type = "Default"
 	var/spawn_module // Which module does this robot use when it spawns in?
-	var/selecting_module = 0 //whether the borg is in process of selecting its module or not.
+	var/selecting_module = FALSE //whether the borg is in process of selecting its module or not.
 	var/obj/item/robot_module/module
 	var/obj/item/module_active
 	var/obj/item/module_state_1
@@ -105,6 +108,8 @@
 	var/key_type
 	var/scrambled_codes = FALSE // When true, doesn't show up on robotics console.
 
+	id_card_type = /obj/item/card/id/synthetic/cyborg
+
 	// Alerts
 	var/view_alerts = FALSE
 
@@ -115,7 +120,7 @@
 	var/killswitch_time = 60
 
 	// Weapon lock
-	var/weapon_lock = 0
+	var/weapon_lock = FALSE
 	var/weapon_lock_time = 120
 
 	// Verbs
@@ -143,16 +148,13 @@
 	robot_modules_background = new()
 	robot_modules_background.icon_state = "block"
 	robot_modules_background.layer = SCREEN_LAYER //Objects that appear on screen are on layer 20, UI should be just below it.
-	module_sprites["Basic"] = "robot"
-	icontype = "Basic"
 	updatename(mod_type)
 
 	if(!client)
 		stat = UNCONSCIOUS
-	setup_icon_cache()
 
 	if(mmi?.brainobj)
-		mmi.brainobj.lobotomized = TRUE
+		mmi.brainobj.prepared = TRUE
 		mmi.brainmob.name = src.name
 		mmi.brainmob.real_name = src.name
 		mmi.name = "[initial(mmi.name)]: [src.name]"
@@ -161,7 +163,7 @@
 	common_radio = radio
 
 	if(!camera)
-		camera = new /obj/machinery/camera(src)
+		camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
 		camera.c_tag = real_name
 		if(!scrambled_codes)
 			camera.replace_networks(list(NETWORK_STATION, NETWORK_ROBOTS))
@@ -172,6 +174,7 @@
 
 	init()
 	initialize_components()
+	setup_icon_cache()
 
 	for(var/V in components)
 		if(V != "power cell" && V != "jetpack" && V != "surge") //We don't install the jetpack onstart
@@ -201,6 +204,24 @@
 	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 
+/mob/living/silicon/robot/proc/update_access()
+	if(emagged || malf_AI_module || crisis)
+		id_card.access = get_all_station_access() + access_equipment // Give full station access
+		return
+
+	id_card = new id_card_type()
+
+	if(module)
+		if(module.all_access)
+			id_card.access = get_all_station_access() + access_equipment // Give full station access
+			return
+
+		for(var/job_type in module.specialized_access_types)
+			var/datum/job/job = new job_type()
+			id_card.access |= job.access
+
+		to_chat(src, SPAN_NOTICE("Access set to the department the role belongs to."))
+
 /mob/living/silicon/robot/proc/recalculate_synth_capacities()
 	if(!module?.synths)
 		return
@@ -209,6 +230,10 @@
 		mult += storage.rating
 	for(var/datum/matter_synth/M in module.synths)
 		M.set_multiplier(mult)
+	for(var/obj/item/stack/SM in module.modules)
+		SM.update_icon()
+
+	update_access()
 
 /mob/living/silicon/robot/proc/init()
 	ai_camera = new /obj/item/device/camera/siliconcam/robot_camera(src)
@@ -285,8 +310,14 @@
 		if(custom_sprite)
 			var/datum/custom_synth/sprite = robot_custom_icons[name]
 			var/list/valid_states = icon_states(CUSTOM_ITEM_SYNTH)
-			if("[sprite.synthicon]-[mod_type]" in valid_states)
-				module_sprites["Custom"] = "[sprite.synthicon]-[mod_type]"
+			var/custom_iconpath = "[sprite.synthicon]-[mod_type]"
+			if(custom_iconpath in valid_states)
+				module_sprites["Custom"] = list(
+					ROBOT_CHASSIS = custom_iconpath,
+					ROBOT_EYES = custom_iconpath,
+					ROBOT_PANEL = custom_iconpath,
+					ROBOT_ICON = CUSTOM_ITEM_SYNTH
+					)
 				icon = CUSTOM_ITEM_SYNTH
 				icontype = "Custom"
 			else
@@ -295,7 +326,7 @@
 				to_chat(src, SPAN_WARNING("Custom Sprite Sheet does not contain a valid icon_state for [sprite.synthicon]-[mod_type]"))
 		else
 			icontype = module_sprites[1]
-		icon_state = module_sprites[icontype]
+		icon_state = module_sprites[icontype][ROBOT_CHASSIS]
 	return module_sprites
 
 /mob/living/silicon/robot/proc/pick_module(var/set_module)
@@ -345,7 +376,6 @@
 	else
 		braintype = "Cyborg"
 
-
 	var/changed_name = ""
 	if(custom_name)
 		changed_name = custom_name
@@ -353,22 +383,7 @@
 	else
 		changed_name = "[mod_type] [braintype]-[rand(1, 999)]"
 
-	real_name = changed_name
-	name = real_name
-	if(mmi)
-		mmi.brainmob.name = src.name
-		mmi.brainmob.real_name = src.name
-		mmi.name = "[initial(mmi.name)]: [src.name]"
-
-	// We also need to update our internal ID
-	if(id_card)
-		id_card.assignment = prefix
-		id_card.registered_name = changed_name
-		id_card.update_name()
-
-	//We also need to update name of internal camera.
-	if(camera)
-		camera.c_tag = changed_name
+	set_name(changed_name, prefix)
 
 	if(!custom_sprite) //Check for custom sprite
 		set_custom_sprite()
@@ -392,7 +407,7 @@
 			custom_name = newname
 
 		updatename()
-		if(module)
+		if(custom_sprite && module)
 			set_module_sprites(module.sprites) // custom synth icons
 		SSrecords.reset_manifest()
 
@@ -407,7 +422,7 @@
 		return null
 
 	var/dat = "<HEAD><TITLE>[src.name] Self-Diagnosis Report</TITLE></HEAD><BODY>\n"
-	for (var/V in components)
+	for(var/V in components)
 		var/datum/robot_component/C = components[V]
 		dat += "<b>[capitalize_first_letters(C.name)]</b><br><table><tr><td>Brute Damage:</td><td>[C.brute_damage]</td></tr><tr><td>Electronics Damage:</td><td>[C.electronics_damage]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table>"
 
@@ -506,6 +521,15 @@
 		holo_map.startWatching(src)
 		src.holo_map = WEAKREF(holo_map)
 
+/mob/living/silicon/robot/verb/rebuild_overlays()
+	set category = "Robot Commands"
+	set name = "Rebuild Overlays"
+	set desc = "An OOC tool that rebuilds your overlays, useful if your talk bubble gets stuck to you."
+
+	cut_overlays()
+	handle_panel_overlay()
+	set_intent(a_intent)
+
 /obj/item/robot_module/janitor/verb/toggle_mop()
 	set category = "Robot Commands"
 	set name = "Toggle Mop"
@@ -513,7 +537,7 @@
 	set src in usr
 
 	mopping = !mopping
-	if (mopping)
+	if(mopping)
 		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), SPAN_NOTICE("You enable your integrated mopping system."))
 		playsound(usr, 'sound/machines/hydraulic_long.ogg', 100, 1)
 	else
@@ -527,6 +551,7 @@
 			set_light(integrated_light_power)
 	else
 		set_light(0)
+	setup_eye_cache() //update eyes
 
 // this function displays jetpack pressure in the stat panel
 /mob/living/silicon/robot/proc/show_jetpack_pressure()
@@ -544,11 +569,18 @@
 	else
 		stat(null, text("No Cell Inserted!"))
 
+/mob/living/silicon/robot/proc/show_access()
+	if(!module)
+		stat(null, text("Access type: assistant level access"))
+	else
+		stat(null, text("Access type: [module.all_access ? "all access" : "role specific"]"))
+
 // update the status screen display
 /mob/living/silicon/robot/Stat()
 	..()
 	if(statpanel("Status"))
 		show_cell_power()
+		show_access()
 		show_jetpack_pressure()
 		stat(null, text("Lights: [lights_on ? "ON" : "OFF"]"))
 		if(module)
@@ -621,7 +653,7 @@
 			if(!WT.welding)
 				to_chat(user, SPAN_WARNING("Your welding tool is not lit!")) // it aint lit fam :fire:
 				return
-			if(WT.remove_fuel(1))
+			if(WT.use(1))
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				adjustBruteLoss(-30)
 				updatehealth()
@@ -643,7 +675,7 @@
 			if(opened)
 				if(cell)
 					user.visible_message(SPAN_NOTICE("\The [user] begins clasping shut \the [src]'s maintenance hatch."), SPAN_NOTICE("You begin closing up \the [src]'s maintenance hatch."))
-					if(do_after(user, 50 / W.toolspeed, act_target = src))
+					if(W.use_tool(src, user, 50, volume = 50))
 						if(!Adjacent(user))
 							to_chat(user, SPAN_WARNING("You are too far from \the [src] to close its hatch."))
 							return
@@ -656,7 +688,7 @@
 						to_chat(user, SPAN_WARNING("\The [src] has no brain to remove.")) // me irl - geeves
 						return
 					user.visible_message(SPAN_NOTICE("\The [user] begins ripping \the [mmi] from \the [src]."), SPAN_NOTICE("You jam the crowbar into the robot and begin levering out \the [mmi]."))
-					if(do_after(user, 50 / W.toolspeed, act_target = src))
+					if(W.use_tool(src, user, 50, volume = 50))
 						to_chat(user, SPAN_NOTICE("You damage some parts of the chassis, but eventually manage to rip out \the [mmi]!"))
 						new /obj/item/robot_parts/robot_suit/equipped(get_turf(src))
 						new /obj/item/robot_parts/chest(get_turf(src))
@@ -690,14 +722,14 @@
 					to_chat(user, SPAN_WARNING("The cover is locked and cannot be opened."))
 				else
 					user.visible_message(SPAN_NOTICE("\The [user] begins prying open \the [src]'s maintenance hatch."), SPAN_NOTICE("You start opening \the [src]'s maintenance hatch."))
-					if(do_after(user, 50 / W.toolspeed, act_target = src))
+					if(W.use_tool(src, user, 50, volume = 50))
 						if(!Adjacent(user))
 							to_chat(user, SPAN_NOTICE("You are too far from \the [src] to open its hatch."))
 							return
 						to_chat(user, SPAN_NOTICE("You open \the [src]'s maintenance hatch."))
 						opened = TRUE
 						handle_panel_overlay()
-		else if (istype(W, /obj/item/stock_parts/matter_bin) && opened) // Installing/swapping a matter bin
+		else if(istype(W, /obj/item/stock_parts/matter_bin) && opened) // Installing/swapping a matter bin
 			if(storage)
 				to_chat(user, SPAN_NOTICE("You replace \the [storage] with \the [W]"))
 				storage.forceMove(get_turf(src))
@@ -731,7 +763,7 @@
 				C.brute_damage = 0
 				C.electronics_damage = 0
 				handle_panel_overlay()
-		else if (W.iswirecutter() || W.ismultitool())
+		else if(W.iswirecutter() || W.ismultitool())
 			if(wires_exposed)
 				wires.Interact(user)
 			else
@@ -754,7 +786,7 @@
 				to_chat(user, SPAN_WARNING("\The [src] does not have a radio installed!"))
 				return
 		else if(W.GetID() || istype(W, /obj/item/card/robot))			// trying to unlock the interface with an ID card
-			if(emagged) //still allow them to open the cover
+			if(emagged && !is_traitor()) //still allow them to open the cover. is_traitor() dodges this text as being made traitor sets emagged to TRUE.
 				to_chat(user, SPAN_NOTICE("You notice that \the [src]'s interface appears to be damaged."))
 			if(opened)
 				to_chat(user, SPAN_WARNING("You must close the cover to swipe an ID card."))
@@ -867,14 +899,14 @@
 	<B>Installed Modules</B><BR><BR>"}
 
 
-	for (var/obj in module.modules)
-		if (!obj)
+	for(var/obj in module.modules)
+		if(!obj)
 			dat += text("<B>Resource depleted</B><BR>")
 		else if(activated(obj))
 			dat += text("[obj]: <B>Activated</B><BR>")
 		else
 			dat += text("[obj]: <A HREF=?src=\ref[src];act=\ref[obj]>Activate</A><BR>")
-	if (emagged)
+	if(emagged)
 		if(activated(module.emag))
 			dat += text("[module.emag]: <B>Activated</B><BR>")
 		else
@@ -1101,17 +1133,23 @@
 			return
 	else
 		var/list/options = list()
-		for(var/i in module_sprites)
-			var/image/radial_button = image(icon = src.icon, icon_state = module_sprites[i])
-			radial_button.overlays.Add(image(icon = src.icon, icon_state = "eyes-[module_sprites[i]]-help"))
+		for(var/i in module_sprites) // Gottverdamnt.
+			var/icon/btn_icon = module_sprites[i][ROBOT_ICON]
+			if(!btn_icon)
+				btn_icon = initial(icon)
+			var/image/radial_button = image(btn_icon, icon_state = module_sprites[i][ROBOT_CHASSIS])
+			radial_button.overlays.Add(image(btn_icon, icon_state = "[module_sprites[i][ROBOT_EYES]]-eyes_help"))
 			options[i] = radial_button
 		icontype = show_radial_menu(src, src, options, radius = 42, tooltips = TRUE)
 
 	if(!icontype)
 		return
 
-	icon_state = module_sprites[icontype]
+	icon_state = module_sprites[icontype][ROBOT_CHASSIS]
+	if(!module_sprites[icontype][ROBOT_ICON])
+		icon = initial(icon)
 	icon_selected = TRUE
+
 	setup_icon_cache()
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 10, TRUE)
 	spark(get_turf(src), 5, alldirs)
@@ -1221,6 +1259,7 @@
 			clear_supplied_laws()
 			clear_inherent_laws()
 			laws = new /datum/ai_laws/syndicate_override
+			id_card.access = get_all_station_access() + access_equipment // Give full station access
 			var/time = time2text(world.realtime, "hh:mm:ss")
 			lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 			set_zeroth_law("Only [user.real_name] and people they designate as being such are operatives.")

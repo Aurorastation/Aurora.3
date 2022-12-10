@@ -61,11 +61,11 @@
 	data["character_name"] = user.client.prefs.real_name
 
 	var/shuttle_status = ""
-	if(emergency_shuttle) //In case Nanotrasen decides to reposess CentComm's shuttles.
-		if(emergency_shuttle.going_to_centcom()) //Shuttle is going to centcomm, not recalled
+	if(evacuation_controller) //In case NanoTrasen decides to reposess CentComm's shuttles.
+		if(evacuation_controller.has_evacuated()) //Shuttle is going to centcomm, not recalled
 			shuttle_status = "post-evac"
-		if(emergency_shuttle.online())
-			if (emergency_shuttle.evac) // Emergency shuttle is past the point of no recall
+		if(evacuation_controller.is_evacuating())
+			if (evacuation_controller.emergency_evacuation) // Emergency shuttle is past the point of no recall
 				shuttle_status = "evac"
 			else // Crew transfer initiated
 				shuttle_status = "transfer"

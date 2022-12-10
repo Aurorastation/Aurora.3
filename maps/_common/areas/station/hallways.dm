@@ -1,12 +1,11 @@
-
-//Hallway
-
+// Hallways
 /area/hallway
 	sound_env = LARGE_ENCLOSED
 	allow_nightmode = TRUE
 	station_area = TRUE
 	lightswitch = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
+	emergency_lights = TRUE
 
 /area/hallway/primary/fore
 	name = "Fore Primary Hallway"

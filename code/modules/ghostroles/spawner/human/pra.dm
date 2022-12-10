@@ -18,7 +18,6 @@
 	special_role = "Kosmostrelki"
 	respawn_flag = null
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	uses_species_whitelist = FALSE
 	away_site = TRUE
 
 /datum/ghostspawner/human/pra_cosmonaut/commissar
@@ -33,13 +32,12 @@
 
 	outfit = /datum/outfit/admin/pra_cosmonaut/commissar
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
-	req_species_whitelist = SPECIES_TAJARA
 
 /datum/outfit/admin/pra_cosmonaut
 	name = "Kosmostrelki"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut
-	shoes = /obj/item/clothing/shoes/jackboots/toeless
+	shoes = /obj/item/clothing/shoes/tajara/combat
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/gun/projectile/automatic/rifle/adhomian
 	id = /obj/item/card/id/syndicate
@@ -48,7 +46,8 @@
 						/obj/item/ammo_magazine/boltaction = 3,
 						/obj/item/grenade/smokebomb = 2,
 						/obj/item/plastique = 1,
-						/obj/item/gun/projectile/pistol/adhomai = 1
+						/obj/item/gun/projectile/pistol/adhomai = 1,
+						/obj/item/ammo_magazine/mc9mm = 2
 						)
 	r_hand = /obj/item/storage/field_ration
 
@@ -60,7 +59,7 @@
 	accessory = /obj/item/clothing/accessory/hadii_pin
 	belt = /obj/item/gun/projectile/deagle/adhomai
 	belt_contents = null
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
 						/obj/item/ammo_magazine/a50 = 2,
 						/obj/item/material/knife/trench = 1,

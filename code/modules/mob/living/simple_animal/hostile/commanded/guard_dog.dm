@@ -44,8 +44,6 @@
 
 	known_commands = list("stay", "stop", "attack", "follow")
 
-	var/name_changed = 0
-
 	destroy_surroundings = FALSE
 	attack_emote = "growls at"
 
@@ -71,31 +69,6 @@
 
 	return
 
-/mob/living/simple_animal/hostile/commanded/dog/verb/change_name()
-	set name = "Name Dog"
-	set category = "IC"
-	set src in view(1)
-
-	var/mob/M = usr
-	if(!M.mind)	return 0
-
-	if(!name_changed)
-
-		var/input = sanitizeSafe(input("What do you want to name the dog?", ,""), MAX_NAME_LEN)
-		var/short_input = sanitizeSafe(input("What nickname do you want to give the dog ?", , ""), MAX_NAME_LEN)
-
-		if(src && input && !M.stat && in_range(M,src))
-			name = input
-			real_name = input
-			if(short_input != "")
-				short_name = short_input
-			name_changed = 1
-			return 1
-
-	else
-		to_chat(usr, "<span class='notice'>[src] already has a name!</span>")
-		return
-
 /mob/living/simple_animal/hostile/commanded/dog/amaskan
 	desc = "A dog trained to listen and obey its owner commands, this one is a Tamaskan."
 
@@ -107,11 +80,11 @@
 	name = "Lt. Columbo"
 	short_name = "Columbo"
 	desc = "A dog trained to listen and obey its owner commands. This one looks about three days from retirement."
+	named = TRUE
+	gender = MALE
 
 	melee_damage_lower = 5
 	melee_damage_upper = 10
-
-	name_changed = 1
 
 	icon_state = "columbo"
 	icon_living = "columbo"

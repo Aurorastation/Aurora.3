@@ -7,19 +7,30 @@
  */
 
 /obj/item/rig
-
 	name = "hardsuit control module"
-	icon = 'icons/obj/rig_modules.dmi'
 	desc = "A back-mounted hardsuit deployment and control mechanism."
+	icon = 'icons/obj/rig_modules.dmi'
+	contained_sprite = TRUE
 	slot_flags = SLOT_BACK
 	req_one_access = list()
 	req_access = list()
 	w_class = ITEMSIZE_LARGE
 
 	// These values are passed on to all component pieces.
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 20)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+	max_pressure_protection = RIG_MAX_PRESSURE
+	min_pressure_protection = 0
+
 	siemens_coefficient = 0.35
 	permeability_coefficient = 0.1
 	unacidable = 1
@@ -79,7 +90,7 @@
 	var/offline_slowdown = 3                                  // If the suit is deployed and unpowered, it sets slowdown to this.
 	var/vision_restriction = TINT_NONE
 	var/offline_vision_restriction = TINT_HEAVY
-	var/airtight = 1 //If set, will adjust AIRTIGHT and STOPPRESSUREDAMAGE flags on components. Otherwise it should leave them untouched.
+	var/airtight = 1 //If set, will adjust the AIRTIGHT flag on components. Otherwise it should leave them untouched.
 
 	var/emp_protection = 0
 
@@ -114,7 +125,7 @@
 
 	spark_system = bind_spark(src, 5)
 
-	START_PROCESSING(SSprocessing, src)
+	START_PROCESSING(SSmob, src)
 
 	last_remote_message = world.time
 
@@ -150,8 +161,13 @@
 		piece.canremove = 0
 		piece.name = "[suit_type] [initial(piece.name)]"
 		piece.desc = "It seems to be part of a [src.name]."
-		piece.icon_state = "[initial(icon_state)]"
+		piece.icon = icon
+		piece.icon_state = "[initial(icon_state)]_[piece.clothing_class()]"
 		piece.item_state = "[initial(icon_state)]"
+		piece.contained_sprite = TRUE
+		if(length(icon_supported_species_tags))
+			piece.icon_auto_adapt = TRUE
+			piece.icon_supported_species_tags = icon_supported_species_tags
 		piece.min_cold_protection_temperature = min_cold_protection_temperature
 		piece.max_heat_protection_temperature = max_heat_protection_temperature
 		if(piece.siemens_coefficient > siemens_coefficient) //So that insulated gloves keep their insulation.
@@ -159,7 +175,11 @@
 		piece.permeability_coefficient = permeability_coefficient
 		piece.unacidable = unacidable
 		piece.species_restricted = species_restricted
-		if(islist(armor)) piece.armor = armor.Copy()
+		if(islist(armor))
+			var/datum/component/armor/armor_component = piece.GetComponent(/datum/component/armor)
+			if(istype(armor_component))
+				armor_component.RemoveComponent()
+			piece.AddComponent(/datum/component/armor, armor, ARMOR_TYPE_STANDARD|ARMOR_TYPE_RIG)
 
 	set_vision(!offline)
 	update_icon(1)
@@ -167,7 +187,7 @@
 /obj/item/rig/Destroy()
 	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
 		qdel(piece)
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSmob, src)
 	qdel(wires)
 	wires = null
 	qdel(spark_system)
@@ -199,7 +219,9 @@
 		if(!piece) continue
 		piece.icon_state = "[initial(icon_state)]"
 		if(airtight)
-			piece.item_flags &= ~(STOPPRESSUREDAMAGE|AIRTIGHT)
+			piece.max_pressure_protection = initial(piece.max_pressure_protection)
+			piece.min_pressure_protection = initial(piece.min_pressure_protection)
+			piece.item_flags &= ~AIRTIGHT
 	update_icon(1)
 
 /obj/item/rig/proc/toggle_seals(var/mob/initiator,var/instant)
@@ -243,7 +265,7 @@
 		else
 			for(var/list/piece_data in list(list(wearer.shoes,boots,"boots",boot_type),list(wearer.gloves,gloves,"gloves",glove_type),list(wearer.head,helmet,"helmet",helm_type),list(wearer.wear_suit,chest,BP_CHEST,chest_type)))
 
-				var/obj/item/piece = piece_data[1]
+				var/obj/item/clothing/piece = piece_data[1]
 				var/obj/item/compare_piece = piece_data[2]
 				var/msg_type = piece_data[3]
 				var/piece_type = piece_data[4]
@@ -262,7 +284,7 @@
 					if(seal_delay && !instant && !do_after(wearer,seal_delay,needhand=0, act_target = src))
 						failed_to_seal = 1
 
-					piece.icon_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]"
+					piece.icon_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]_[piece.clothing_class()]"
 					piece.item_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]"
 					switch(msg_type)
 						if("boots")
@@ -281,12 +303,9 @@
 								helmet.update_light(wearer)
 
 					//sealed pieces become airtight, protecting against diseases
-					if (!seal_target)
-						LAZYINITLIST(piece.armor)
-						piece.armor["bio"] = 100
-					else
-						LAZYINITLIST(piece.armor)
-						piece.armor["bio"] = LAZYACCESS(src.armor, "bio") || 0
+					var/datum/component/armor/armor_component = piece.GetComponent(/datum/component/armor)
+					if(istype(armor_component))
+						armor_component.sealed = !seal_target
 					playsound(src, "[!seal_target ? 'sound/machines/rig/rig_deploy.ogg' : 'sound/machines/rig/rig_retract.ogg']", 20, FALSE)
 
 				else
@@ -333,9 +352,13 @@
 /obj/item/rig/proc/update_component_sealed()
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
 		if(canremove)
-			piece.item_flags &= ~(STOPPRESSUREDAMAGE|AIRTIGHT)
+			piece.max_pressure_protection = initial(piece.max_pressure_protection)
+			piece.min_pressure_protection = initial(piece.min_pressure_protection)
+			piece.item_flags &= ~AIRTIGHT
 		else
-			piece.item_flags |=  (STOPPRESSUREDAMAGE|AIRTIGHT)
+			piece.max_pressure_protection = max_pressure_protection
+			piece.min_pressure_protection = min_pressure_protection
+			piece.item_flags |= AIRTIGHT
 	update_icon(1)
 
 /obj/item/rig/process()
@@ -593,7 +616,7 @@
 				if("deactivate")
 					module.deactivate(user)
 				if("engage")
-					module.engage(null, user)
+					module.do_engage(null, user)
 				if("select")
 					selected_module = module
 				if("select_charge_type")
@@ -614,23 +637,19 @@
 			to_chat(module.integrated_ai, "[message]")
 			. = 1
 
-/obj/item/rig/equipped(mob/living/carbon/human/M)
-	..()
+/obj/item/rig/check_equipped(mob/living/carbon/human/M, slot, assisted_equip = FALSE)
+	if(istype(M) && slot == slot_back)
+		if(!assisted_equip && seal_delay > 0)
+			M.visible_message(SPAN_NOTICE("[M] starts putting on \the [src]..."), SPAN_NOTICE("You start putting on \the [src]..."))
+			if(!do_after(M, seal_delay))
+				return FALSE
 
-	if(seal_delay > 0 && istype(M) && M.back == src)
-		M.visible_message("<span class='notice'>[M] starts putting on \the [src]...</span>", "<span class='notice'>You start putting on \the [src]...</span>")
-		if(!do_after(M,seal_delay))
-			if(M && M.back == src)
-				if(!M.unEquip(src))
-					return
-			M.put_in_hands(src)
-			return
-
-	if(istype(M) && M.back == src)
-		M.visible_message("<span class='notice'><b>[M] struggles into \the [src].</b></span>", "<span class='notice'><b>You struggle into \the [src].</b></span>")
+		M.visible_message(SPAN_NOTICE("<b>[M] struggles into \the [src].</b>"), SPAN_NOTICE("<b>You struggle into \the [src].</b>"))
 		wearer = M
 		wearer.wearing_rig = src
 		update_icon()
+		return TRUE
+	return TRUE
 
 /obj/item/rig/proc/toggle_piece(var/piece, var/mob/initiator, var/deploy_mode)
 
@@ -663,7 +682,7 @@
 			equip_to = slot_shoes
 			use_obj = boots
 			check_slot = wearer.shoes
-		if(BP_CHEST)
+		if("chest")
 			equip_to = slot_wear_suit
 			use_obj = chest
 			check_slot = wearer.wear_suit
@@ -681,7 +700,7 @@
 						playsound(src, 'sound/machines/rig/rig_retract.ogg', 20, FALSE)
 						use_obj.canremove = 1
 						holder.drop_from_inventory(use_obj,get_turf(src)) //TODO: TEST THIS CODE!
-						use_obj.dropped()
+						use_obj.dropped(wearer)
 						use_obj.canremove = 0
 						use_obj.forceMove(src)
 
@@ -885,7 +904,7 @@
 	if(!wearer || !wearer.loc || !ai_can_move_suit(user, check_user_module = 1))
 		return
 
-	if(!wearer.stat) // don't force move if our wearer is awake
+	if(!wearer.stat && !wearer.paralysis) // don't force move if our wearer is awake and capable of moving
 		return
 
 	//This is sota the goto stop mobs from moving var
@@ -934,29 +953,29 @@
 		tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
 		wearer_move_delay += tickcomp
 
-	if(istype(wearer.buckled, /obj/vehicle))
+	if(istype(wearer.buckled_to, /obj/vehicle))
 		//manually set move_delay for vehicles so we don't inherit any mob movement penalties
 		//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
 		wearer_move_delay = world.time + tickcomp
-		return wearer.buckled.relaymove(wearer, direction)
+		return wearer.buckled_to.relaymove(wearer, direction)
 
 	if(istype(wearer.machine, /obj/machinery))
 		if(wearer.machine.relaymove(wearer, direction))
 			return
 
-	if(wearer.pulledby || wearer.buckled) // Wheelchair driving!
+	if(wearer.pulledby || wearer.buckled_to) // Wheelchair driving!
 		if(istype(wearer.loc, /turf/space))
 			return // No wheelchair driving in space
-		if(istype(wearer.pulledby, /obj/structure/bed/chair/wheelchair))
+		if(istype(wearer.pulledby, /obj/structure/bed/stool/chair/office/wheelchair))
 			return wearer.pulledby.relaymove(wearer, direction)
-		else if(istype(wearer.buckled, /obj/structure/bed/chair/wheelchair))
-			if(ishuman(wearer.buckled))
+		else if(istype(wearer.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
+			if(ishuman(wearer.buckled_to))
 				var/obj/item/organ/external/l_hand = wearer.get_organ(BP_L_HAND)
 				var/obj/item/organ/external/r_hand = wearer.get_organ(BP_R_HAND)
 				if((!l_hand || (l_hand.status & ORGAN_DESTROYED)) && (!r_hand || (r_hand.status & ORGAN_DESTROYED)))
 					return // No hands to drive your chair? Tough luck!
 			wearer_move_delay += 2
-			return wearer.buckled.relaymove(wearer,direction)
+			return wearer.buckled_to.relaymove(wearer,direction)
 
 	cell.use(10)
 	wearer.Move(get_step(get_turf(wearer),direction),direction)

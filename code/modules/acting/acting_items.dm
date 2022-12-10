@@ -24,14 +24,19 @@
 	anchored = 1
 	density = 1
 
-/obj/machinery/acting/changer/attack_hand(var/mob/user as mob)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		H.change_appearance(APPEARANCE_ALL, H.loc, H, H.generate_valid_species(), state = z_state)
-		var/getName = sanitize(input(H, "Would you like to change your name to something else?", "Name change") as null|text, MAX_NAME_LEN)
-		if(getName)
-			H.real_name = getName
-			H.name = getName
-			H.dna.real_name = getName
-			if(H.mind)
-				H.mind.name = H.name
+/obj/machinery/acting/changer/attack_hand(var/mob/living/carbon/human/H)
+	if(!istype(H))
+		return
+
+	H.change_appearance(APPEARANCE_ALL, H, TRUE, H.generate_valid_species(), null, default_state, src, update_id = TRUE)
+	var/getName = sanitizeName(sanitize_readd_odd_symbols(sanitize(input(H, "Would you like to change your name to something else?", "Name change") as null|text)))
+	if(getName)
+		H.real_name = getName
+		H.name = getName
+		H.dna.real_name = getName
+		if(H.mind)
+			H.mind.name = H.name
+		var/obj/item/card/id/ID = H.GetIdCard()
+		if(ID)
+			ID.registered_name = H.real_name
+			ID.update_name()

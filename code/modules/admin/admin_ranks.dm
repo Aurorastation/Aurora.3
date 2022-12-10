@@ -113,9 +113,7 @@ var/list/forum_groupids_to_ranks = list()
 
 	else
 		//The current admin system uses SQL
-
-		establish_db_connection(dbcon)
-		if(!dbcon.IsConnected())
+		if(!establish_db_connection(dbcon))
 			error("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
 			log_misc("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
 			config.admin_legacy_system = 1
@@ -212,6 +210,9 @@ var/list/forum_groupids_to_ranks = list()
 /proc/insert_user_to_admins_table(datum/forum_user/user)
 	if(isnull(user.ckey))
 		log_debug("AdminRanks: [user.forum_name] does not have a ckey linked - Ignoring")
+		return
+	if(user.psync_game_disabled)
+		log_debug("AdminRanks: [user.forum_name] has permsync-game disabled - Ignoring")
 		return
 	var/rights = 0
 

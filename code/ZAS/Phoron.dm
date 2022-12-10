@@ -5,47 +5,49 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	var/PHORON_DMG_NAME = "Phoron Damage Amount"
 	var/PHORON_DMG_DESC = "Self Descriptive"
 
-	var/CLOTH_CONTAMINATION = 1
+	var/CLOTH_CONTAMINATION = TRUE
 	var/CLOTH_CONTAMINATION_NAME = "Cloth Contamination"
 	var/CLOTH_CONTAMINATION_DESC = "If this is on, phoron does damage by getting into cloth."
 
-	var/PHORONGUARD_ONLY = 0
+	var/PHORONGUARD_ONLY = FALSE
 	var/PHORONGUARD_ONLY_NAME = "\"PhoronGuard Only\""
 	var/PHORONGUARD_ONLY_DESC = "If this is on, only biosuits and spacesuits protect against contamination and ill effects."
 
-	var/GENETIC_CORRUPTION = 0
+	var/GENETIC_CORRUPTION = FALSE
 	var/GENETIC_CORRUPTION_NAME = "Genetic Corruption Chance"
 	var/GENETIC_CORRUPTION_DESC = "Chance of genetic corruption as well as toxic damage, X in 10,000."
 
-	var/SKIN_BURNS = 0
+	var/SKIN_BURNS = TRUE
 	var/SKIN_BURNS_DESC = "Phoron has an effect similar to mustard gas on the un-suited."
 	var/SKIN_BURNS_NAME = "Skin Burns"
 
-	var/EYE_BURNS = 1
+	var/EYE_BURNS = TRUE
 	var/EYE_BURNS_NAME = "Eye Burns"
 	var/EYE_BURNS_DESC = "Phoron burns the eyes of anyone not wearing eye protection."
 
-	var/CONTAMINATION_LOSS = 0.02
+	var/CONTAMINATION_LOSS = 2
 	var/CONTAMINATION_LOSS_NAME = "Contamination Loss"
-	var/CONTAMINATION_LOSS_DESC = "How much toxin damage is dealt from contaminated clothing" //Per tick?  ASK ARYN
+	var/CONTAMINATION_LOSS_DESC = "How much fire damage is dealt from contaminated clothing, per life process."
 
-	var/PHORON_HALLUCINATION = 0
+	var/PHORON_HALLUCINATION = FALSE
 	var/PHORON_HALLUCINATION_NAME = "Phoron Hallucination"
 	var/PHORON_HALLUCINATION_DESC = "Does being in phoron cause you to hallucinate?"
 
-	var/N2O_HALLUCINATION = 1
+	var/N2O_HALLUCINATION = TRUE
 	var/N2O_HALLUCINATION_NAME = "N2O Hallucination"
 	var/N2O_HALLUCINATION_DESC = "Does being in sleeping gas cause you to hallucinate?"
 
 
-obj/var/contaminated = 0
-
+/obj/var/contaminated = 0
 
 /obj/item/proc/can_contaminate()
-	//Clothing and backpacks can be contaminated.
-	if(flags & PHORONGUARD) return 0
-	else if(istype(src,/obj/item/storage/backpack)) return 0 //Cannot be washed :(
-	else if(istype(src,/obj/item/clothing)) return 1
+	if(flags & PHORONGUARD)
+		return FALSE
+	return TRUE
+
+//Clothing can be contaminated.
+/obj/item/storage/backpack/can_contaminate()
+	return FALSE
 
 /obj/item/proc/contaminate()
 	//Do a contamination overlay? Temporary measure to keep contamination less deadly than it was.
@@ -68,10 +70,6 @@ obj/var/contaminated = 0
 	if(!pl_head_protected())
 		if(prob(1)) suit_contamination() //Phoron can sometimes get through such an open suit.
 
-//Cannot wash backpacks currently.
-//	if(istype(back,/obj/item/storage/backpack))
-//		back.contaminate()
-
 /mob/proc/pl_effects()
 
 /mob/living/carbon/human/pl_effects()
@@ -81,14 +79,18 @@ obj/var/contaminated = 0
 	if(vsc.plc.CLOTH_CONTAMINATION) contaminate()
 
 	//Anything else requires them to not be dead.
-	if(stat >= 2)
+	if(stat >= DEAD)
+		return
+
+	if(species.flags & PHORON_IMMUNE)
 		return
 
 	//Burn skin if exposed.
 	if(vsc.plc.SKIN_BURNS)
 		if(!pl_head_protected() || !pl_suit_protected())
-			burn_skin(0.75)
-			if(prob(20)) to_chat(src, "<span class='danger'>Your skin burns!</span>")
+			burn_skin(3)
+			if(prob(20))
+				to_chat(src, SPAN_DANGER("Your skin burns!"))
 			updatehealth()
 
 	//Burn eyes if exposed.
@@ -167,9 +169,10 @@ obj/var/contaminated = 0
 	if(gloves) gloves.contaminate()
 
 
-turf/Entered(obj/item/I)
-	. = ..()
+turf/Entered(atom/movable/thing, turf/oldLoc)
+	. = ..(thing, oldLoc)
 	//Items that are in phoron, but not on a mob, can still be contaminated.
+	var/obj/item/I = thing
 	if(istype(I) && vsc.plc.CLOTH_CONTAMINATION && I.can_contaminate())
 		var/datum/gas_mixture/env = return_air(1)
 		if(!env)

@@ -55,7 +55,7 @@
 	if (D.grabbed_by.len)
 		rand_damage = max(1, rand_damage - 2)
 
-	if(D.grabbed_by.len || D.buckled || !D.canmove || D==A)
+	if(D.grabbed_by.len || D.buckled_to || !D.canmove || D==A)
 		accurate = 1
 		rand_damage = 5
 
@@ -98,6 +98,7 @@
 	var/real_damage = rand_damage
 	var/hit_dam_type = attack.damage_type
 	var/damage_flags = attack.damage_flags()
+	var/armor_penetration = attack.armor_penetration
 
 	real_damage += attack.get_unarmed_damage(A)
 	real_damage *= D.damage_multiplier
@@ -106,6 +107,9 @@
 	if(HULK in A.mutations)
 		real_damage *= 2 // Hulks do twice the damage
 		rand_damage *= 2
+	if(A.is_berserk())
+		real_damage *= 1.5 // Nightshade increases damage by 50%
+		rand_damage *= 1.5
 
 	real_damage = max(1, real_damage)
 
@@ -127,11 +131,9 @@
 				var/obj/item/clothing/gloves/force/X = A.gloves
 				real_damage *= X.amplification
 
-	var/armor = D.run_armor_check(hit_zone, "melee")
+	attack.apply_effects(A, D, rand_damage, hit_zone)
 
-	attack.apply_effects(A, D, armor, rand_damage, hit_zone)
-
-	D.apply_damage(real_damage, hit_dam_type, hit_zone, armor, damage_flags = damage_flags)
+	D.apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags, armor_pen = armor_penetration)
 
 	return 1
 

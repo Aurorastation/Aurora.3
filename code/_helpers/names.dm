@@ -106,7 +106,6 @@ var/syndicate_code_response //Code response for traitors.
 	var/safety[] = list(1,2,3) //Tells the proc which options to remove later on.
 	var/nouns[] = list("love","hate","anger","peace","pride","sympathy","bravery","loyalty","honesty","integrity","compassion","charity","success","courage","deceit","skill","beauty","brilliance","pain","misery","beliefs","dreams","justice","truth","faith","liberty","knowledge","thought","information","culture","trust","dedication","progress","education","hospitality","leisure","trouble","friendships", "relaxation")
 	var/drinks[] = list("vodka and tonic","gin fizz","bahama mama","manhattan","black Russian","whiskey soda","long island tea","margarita","Irish coffee"," manly dwarf","Irish cream","doctor's delight","Beepksy Smash","tequila sunrise","brave bull","gargle blaster","bloody mary","whiskey cola","white Russian","vodka martini","martini","Cuba libre","kahlua","vodka","wine","moonshine")
-	var/locations[] = teleportlocs.len ? teleportlocs : drinks //if null, defaults to drinks instead.
 
 	var/maxwords = words //Extra var to check for duplicates.
 
@@ -132,7 +131,11 @@ var/syndicate_code_response //Code response for traitors.
 					if (1)
 						code_phrase += pick(drinks)
 					if (2)
-						code_phrase += pick(locations)
+						if(the_station_areas.len)
+							var/area/location = pick(the_station_areas)
+							code_phrase += location.name
+						else
+							code_phrase += pick(drinks)
 				safety -= 2
 			if (3)
 				switch (rand(1,3)) //Nouns, adjectives, verbs. Can be selected more than once.

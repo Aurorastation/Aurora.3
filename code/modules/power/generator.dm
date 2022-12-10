@@ -1,12 +1,12 @@
 /obj/machinery/power/generator
 	name = "thermoelectric generator"
 	desc = "It's a high efficiency thermoelectric generator."
-	icon_state = "teg"
+	icon_state = "teg-unassembled"
 	density = TRUE
 	anchored = FALSE
 	obj_flags = OBJ_FLAG_ROTATABLE
 
-	use_power = FALSE
+	use_power = POWER_USE_OFF
 	idle_power_usage = 100 //Watts, I hope.  Just enough to do the computer and display things.
 
 	var/max_power = 500000
@@ -50,6 +50,10 @@
 //and a circulator to the WEST of the generator connects first to the NORTH, then to the SOUTH
 //note that the circulator's outlet dir is it's always facing dir, and it's inlet is always the reverse
 /obj/machinery/power/generator/proc/reconnect()
+	if(circ1)
+		circ1.temperature_overlay = null
+	if(circ2)
+		circ2.temperature_overlay = null
 	circ1 = null
 	circ2 = null
 	if(src.loc && anchored)
@@ -69,13 +73,31 @@
 			if(circ1 && circ2 && (circ1.dir != EAST || circ2.dir != WEST))
 				circ1 = null
 				circ2 = null
+	update_icon()
 
 /obj/machinery/power/generator/update_icon()
+	icon_state = anchored ? "teg-assembled" : "teg-unassembled"
 	cut_overlays()
-	if(!(stat & (NOPOWER|BROKEN)) && lastgenlev)
-		add_overlay("teg-op[lastgenlev]")
+	if (circ1)
+		circ1.temperature_overlay = null
+	if (circ2)
+		circ2.temperature_overlay = null
+	if (stat & (NOPOWER|BROKEN))
+		return TRUE
+	else
+		if (lastgenlev != 0)
+			add_overlay("teg-op[lastgenlev]")
+			if (circ1 && circ2)
+				var/extreme = (lastgenlev > 9) ? "ex" : ""
+				if (circ1.last_temperature < circ2.last_temperature)
+					circ1.temperature_overlay = "circ-[extreme]cold"
+					circ2.temperature_overlay = "circ-[extreme]hot"
+				else
+					circ1.temperature_overlay = "circ-[extreme]hot"
+					circ2.temperature_overlay = "circ-[extreme]cold"
+		return TRUE
 
-/obj/machinery/power/generator/machinery_process()
+/obj/machinery/power/generator/process()
 	if(!circ1 || !circ2 || !anchored || stat & (BROKEN|NOPOWER))
 		stored_energy = 0
 		return
@@ -107,6 +129,7 @@
 			else
 				air2.temperature = air2.temperature + heat/air2_heat_capacity
 				air1.temperature = air1.temperature - energy_transfer/air1_heat_capacity
+			playsound(get_turf(src), 'sound/effects/beam.ogg', 25, FALSE, 10, , required_preferences = ASFX_AMBIENCE)
 
 	//Transfer the air
 	if (air1)
@@ -133,7 +156,7 @@
 	stored_energy -= lastgen1
 	effective_gen = (lastgen1 + lastgen2) / 2
 
-	// update icon overlays and power usage only if displayed level has changed
+	// update icon overlays and power usage only when necessary
 	var/genlev = max(0, min( round(11*effective_gen / max_power), 11))
 	if(effective_gen > 100 && genlev == 0)
 		genlev = 1
@@ -154,7 +177,7 @@
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
 					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
 					"You hear a ratchet")
-		use_power = anchored
+		update_use_power(anchored ? POWER_USE_IDLE : POWER_USE_OFF)
 		if(anchored) // Powernet connection stuff.
 			connect_to_network()
 		else

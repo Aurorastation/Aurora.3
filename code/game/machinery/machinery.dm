@@ -51,28 +51,15 @@ Class Procs:
 
    Destroy()                     'game/machinery/machine.dm'
 
-   auto_use_power()            'game/machinery/machine.dm'
-      This proc determines how power mode power is deducted by the machine.
-      'auto_use_power()' is called by the 'master_controller' game_controller every
-      tick.
-
-      Return Value:
-         return:1 -- if object is powered
-         return:0 -- if object is not powered.
-
-      Default definition uses 'use_power', 'power_channel', 'active_power_usage',
-      'idle_power_usage', 'powered()', and 'use_power()' implement behavior.
-
-   powered(chan = EQUIP)         'modules/power/power.dm'
+   powered(chan = EQUIP)         'modules/power/power_usage.dm'
       Checks to see if area that contains the object has power available for power
       channel given in 'chan'.
 
-   use_power(amount, chan=EQUIP, autocalled)   'modules/power/power.dm'
+   use_power_oneoff(amount, chan=EQUIP, autocalled)   'modules/power/power_usage.dm'
       Deducts 'amount' from the power channel 'chan' of the area that contains the object.
-      If it's autocalled then everything is normal, if something else calls use_power we are going to
-      need to recalculate the power two ticks in a row.
+      This is not a continuous draw, but rather will be cleared after one APC update.
 
-   power_change()               'modules/power/power.dm'
+   power_change()               'modules/power/power_usage.dm'
       Called by the area that contains the object when ever that area under goes a
       power state change (area runs out of power, or area channel is turned off).
 
@@ -98,15 +85,15 @@ Class Procs:
 	icon = 'icons/obj/stationobjs.dmi'
 	w_class = ITEMSIZE_IMMENSE
 	layer = OBJ_LAYER - 0.01
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	var/stat = 0
 	var/emagged = 0
-	var/use_power = 1
-		//0 = dont run the auto
-		//1 = run auto, use idle
-		//2 = run auto, use active
+	var/use_power = POWER_USE_IDLE // See code/__defines/machinery.dm
+	var/internal = FALSE
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
+	var/power_init_complete = FALSE
 	var/power_channel = EQUIP //EQUIP, ENVIRON or LIGHT
 	/* List of types that should be spawned as component_parts for this machine.
 		Structure:
@@ -127,34 +114,42 @@ Class Procs:
 	var/global/gl_uid = 1
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
 	var/printing = 0 // Is this machine currently printing anything?
-	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
-	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
+	var/list/processing_parts // Component parts queued for processing by the machine. Expected type: `/obj/item/stock_parts` Unused currently
+	var/processing_flags // Bitflag. What is being processed. One of `MACHINERY_PROCESS_*`.
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
 	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
+	var/obj/effect/overmap/visitable/linked // overmap sector the machine is linked to
 
-/obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
+/obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	. = ..()
 	if(d)
 		set_dir(d)
+
+	if(init_flags & INIT_MACHINERY_PROCESS_ALL)
+		START_PROCESSING_MACHINE(src, init_flags & INIT_MACHINERY_PROCESS_ALL)
+	SSmachinery.machinery += src // All machines should be in machinery.
 
 	if (populate_components && component_types)
 		component_parts = list()
 		for (var/type in component_types)
 			var/count = component_types[type]
-			if (count > 1)
-				for (var/i in 1 to count)
-					component_parts += new type(src)
+			if(ispath(type, /obj/item/stack))
+				if(isnull(count))
+					count = 1
+				component_parts += new type(src, count)
 			else
-				component_parts += new type(src)
+				if(count > 1)
+					for (var/i in 1 to count)
+						component_parts += new type(src)
+				else
+					component_parts += new type(src)
 
 		if(component_parts.len)
 			RefreshParts()
 
-	add_machine(src)
-
 /obj/machinery/Destroy()
-	remove_machine(src, TRUE)
+	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_ALL)
 	if(component_parts)
 		for(var/atom/A in component_parts)
 			if(A.loc == src) // If the components are inside the machine, delete them.
@@ -169,15 +164,25 @@ Class Procs:
 	if(signaler && Adjacent(user))
 		to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
 
-/obj/machinery/proc/machinery_process()	//If you dont use process or power why are you here
-	if(!(use_power || idle_power_usage || active_power_usage))
-		return PROCESS_KILL
+/obj/machinery/proc/process_all()
+	/* Uncomment this if/when you need component processing
+	if(processing_flags & MACHINERY_PROCESS_COMPONENTS)
+		for(var/thing in processing_parts)
+			var/obj/item/stock_parts/part = thing
+			if(part.machine_process(src) == PROCESS_KILL)
+				part.stop_processing() */
 
-	return M_NO_PROCESS
+	if((processing_flags & MACHINERY_PROCESS_SELF))
+		. = process()
+		if(. == PROCESS_KILL)
+			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+
+/obj/machinery/process()
+	return PROCESS_KILL
 
 /obj/machinery/emp_act(severity)
 	if(use_power && stat == 0)
-		use_power(7500/severity)
+		use_power_oneoff(7500/severity)
 
 		var/obj/effect/overlay/pulse2 = new(src.loc)
 		pulse2.icon = 'icons/effects/effects.dmi'
@@ -205,19 +210,6 @@ Class Procs:
 		else
 	return
 
-//sets the use_power var and then forces an area power update
-/obj/machinery/proc/update_use_power(var/new_use_power)
-	use_power = new_use_power
-
-/obj/machinery/proc/auto_use_power()
-	if(!powered(power_channel))
-		return 0
-	if(src.use_power == 1)
-		use_power(idle_power_usage,power_channel, 1)
-	else if(src.use_power >= 2)
-		use_power(active_power_usage,power_channel, 1)
-	return 1
-
 /proc/is_operable(var/obj/machinery/M, var/mob/user)
 	return istype(M) && M.operable()
 
@@ -226,6 +218,16 @@ Class Procs:
 
 /obj/machinery/proc/inoperable(var/additional_flags = 0)
 	return (stat & (NOPOWER|BROKEN|additional_flags))
+
+/obj/machinery/proc/toggle_power(power_set = -1, additional_flags = 0)
+	if(power_set >= 0)
+		update_use_power(power_set)
+	else if (use_power || inoperable(additional_flags))
+		update_use_power(POWER_USE_OFF)
+	else
+		update_use_power(initial(use_power))
+
+	update_icon()
 
 /obj/machinery/CanUseTopic(var/mob/user)
 	if(stat & BROKEN)
@@ -290,18 +292,18 @@ Class Procs:
 		if(issignaler(W))
 			if(signaler)
 				to_chat(user, SPAN_WARNING("\The [src] already has a signaler attached."))
-				return
+				return TRUE
 			var/obj/item/device/assembly/signaler/S = W
 			user.drop_from_inventory(W, src)
 			signaler = S
 			S.machine = src
 			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), range = 3)
 			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
-			return
+			return TRUE
 		else if(W.iswirecutter() && signaler)
 			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
 			user.put_in_hands(detach_signaler())
-			return
+			return TRUE
 
 	return ..()
 
@@ -314,7 +316,7 @@ Class Procs:
 	if(!detach_turf)
 		log_debug("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
 		return
-	
+
 	var/obj/item/device/assembly/signaler/S = signaler
 
 	signaler.forceMove(detach_turf)
@@ -471,6 +473,11 @@ Class Procs:
 	paper.forceMove(loc)
 	printing = FALSE
 
+/obj/machinery/bullet_act(obj/item/projectile/P, def_zone)
+	. = ..()
+	if(P.get_structure_damage() > 5)
+		bullet_ping(P)
+
 /obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
 	if(stat & (NOPOWER|BROKEN))
 		return
@@ -499,3 +506,42 @@ Class Procs:
 
 /obj/machinery/proc/do_signaler() // override this to customize effects
 	return
+
+
+// A late init operation called in SSshuttle for ship computers and holopads, used to attach the thing to the right ship.
+/obj/machinery/proc/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
+	SHOULD_CALL_PARENT(TRUE)
+	if(!istype(sector))
+		return FALSE
+	if(sector.check_ownership(src))
+		linked = sector
+		return TRUE
+	return FALSE
+
+/obj/machinery/proc/sync_linked()
+	var/obj/effect/overmap/visitable/sector = map_sectors["[z]"]
+	if(!sector)
+		return
+	return attempt_hook_up_recursive(sector)
+
+/obj/machinery/proc/attempt_hook_up_recursive(var/obj/effect/overmap/visitable/sector)
+	if(attempt_hook_up(sector))
+		return sector
+	for(var/obj/effect/overmap/visitable/candidate in sector)
+		if((. = .(candidate)))
+			return
+
+/obj/machinery/proc/on_user_login(mob/M)
+	return
+
+/obj/machinery/proc/set_emergency_state(var/new_security_level)
+	return
+
+/obj/machinery/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+	. = ..()
+	if(isliving(AM))
+		var/mob/living/M = AM
+		M.turf_collision(src, speed)
+		return
+	else
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))

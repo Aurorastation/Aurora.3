@@ -3,6 +3,7 @@
 	filedesc = "ID Card Modification Program"
 	nanomodule_path = /datum/nano_module/program/card_mod
 	program_icon_state = "id"
+	program_key_icon_state = "lightblue_key"
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
 	required_access_run = access_change_ids
 	required_access_download = access_change_ids
@@ -40,12 +41,13 @@
 		data["id_owner"] = id_card && id_card.registered_name ? id_card.registered_name : "-----"
 		data["id_name"] = id_card ? id_card.name : "-----"
 
-
+	data["command_support_jobs"] = format_jobs(command_support_positions)
 	data["engineering_jobs"] = format_jobs(engineering_positions)
 	data["medical_jobs"] = format_jobs(medical_positions)
 	data["science_jobs"] = format_jobs(science_positions)
 	data["security_jobs"] = format_jobs(security_positions)
 	data["cargo_jobs"] = format_jobs(cargo_positions)
+	data["service_jobs"] = format_jobs(service_positions)
 	data["civilian_jobs"] = format_jobs(civilian_positions)
 	data["centcom_jobs"] = format_jobs(get_all_centcom_jobs())
 
@@ -199,6 +201,7 @@
 					id_card.assignment = t1
 					id_card.rank = t1
 
+				SSrecords.reset_manifest()
 				callHook("reassign_employee", list(id_card))
 		if("access")
 			if(href_list["allowed"] && computer && can_run(user, 1))

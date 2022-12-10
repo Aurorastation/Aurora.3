@@ -8,9 +8,14 @@
 	density = FALSE
 	anchored = TRUE
 	var/obj/machinery/mineral/stacking_machine/machine
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
+
+	component_types = list(
+		/obj/item/circuitboard/stacking_console,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/console_screen
+	)
 
 /obj/machinery/mineral/stacking_unit_console/Initialize(mapload, d, populate_components)
 	..()
@@ -22,20 +27,37 @@
 /obj/machinery/mineral/stacking_unit_console/LateInitialize()
 	setup_machine(null)
 
+/obj/machinery/mineral/stacking_unit_console/Destroy()
+	if(machine)
+		machine.console = null
+	return ..()
+
 /obj/machinery/mineral/stacking_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
 		var/area/A = get_area(src)
 		var/best_distance = INFINITY
-		for(var/obj/machinery/mineral/stacking_machine/checked_machine in SSmachinery.all_machines)
-			if(A == get_area(checked_machine) && get_dist_euclidian(checked_machine,src) < best_distance)
+		for(var/obj/machinery/mineral/stacking_machine/checked_machine in SSmachinery.machinery)
+			if(id)
+				if(checked_machine.id == id)
+					machine = checked_machine
+			else if(!checked_machine.console && A == get_area(checked_machine) && get_dist_euclidian(checked_machine, src) < best_distance)
 				machine = checked_machine
-				best_distance = get_dist_euclidian(checked_machine,src)
+				best_distance = get_dist_euclidian(checked_machine, src)
 		if(machine)
 			machine.console = src
 		else if(user)
 			to_chat(user, SPAN_WARNING("ERROR: Linked machine not found!"))
 
 	return machine
+
+/obj/machinery/mineral/stacking_unit_console/attackby(obj/item/I, mob/user)
+	if(default_deconstruction_screwdriver(user, I))
+		return
+	if(default_deconstruction_crowbar(user, I))
+		return
+	if(default_part_replacement(user, I))
+		return
+	return ..()
 
 /obj/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -81,7 +103,7 @@
 			return
 
 		if(machine.stack_storage[stacktype] > 0)
-			var/obj/item/stack/material/S = new stacktype(get_turf(machine.output))
+			var/obj/item/stack/material/S = new stacktype(machine.output)
 			S.amount = machine.stack_storage[stacktype]
 			machine.stack_storage[stacktype] = 0
 			return TRUE
@@ -104,9 +126,13 @@
 	var/list/stack_storage = list()
 	var/list/stack_paths = list()
 	var/stack_amt = 50 // Amount to stack before releasing
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
+
+	component_types = list(
+		/obj/item/circuitboard/stacking_machine,
+		/obj/item/stock_parts/manipulator = 2
+	)
 
 /obj/machinery/mineral/stacking_machine/Initialize()
 	. = ..()
@@ -116,17 +142,38 @@
 		stack_storage[stacktype] = 0
 		stack_paths[stacktype] = capitalize(initial(S.name))
 
+	//Locate our output and input machinery.
 	for(var/dir in cardinal)
-		input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-		if(input)
+		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
+		if(input_spot)
+			input = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
 			break
-
 	for(var/dir in cardinal)
-		output = locate(/obj/machinery/mineral/output, get_step(src, dir))
+		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(output)
+			output = get_turf(output_spot)
 			break
 
-/obj/machinery/mineral/stacking_machine/machinery_process()
+	if(!input)
+		input = get_step(src, reverse_dir[dir])
+	if(!output)
+		output = get_step(src, dir)
+
+/obj/machinery/mineral/stacking_machine/Destroy()
+	if(console)
+		console.machine = null
+	return ..()
+
+/obj/machinery/mineral/stacking_machine/attackby(obj/item/I, mob/user)
+	if(default_deconstruction_screwdriver(user, I))
+		return
+	if(default_deconstruction_crowbar(user, I))
+		return
+	if(default_part_replacement(user, I))
+		return
+	return ..()
+
+/obj/machinery/mineral/stacking_machine/process()
 	if(!console)
 		return
 	if(stat & BROKEN)
@@ -135,8 +182,7 @@
 		return
 
 	if(output && input)
-		var/turf/T = get_turf(input)
-		for(var/obj/item/O in T)
+		for(var/obj/item/O in input)
 			if(!O)
 				return
 			var/obj/item/stack/S = O
@@ -144,10 +190,11 @@
 				stack_storage[S.type] += S.amount
 				qdel(S)
 			else
-				O.forceMove(get_turf(output))
+				O.forceMove(output)
 
 	//Output amounts that are past stack_amt.
 	for(var/sheet in stack_storage)
 		if(stack_storage[sheet] >= stack_amt)
-			new sheet(get_turf(output), stack_amt)
+			new sheet(output, stack_amt)
 			stack_storage[sheet] -= stack_amt
+			intent_message(MACHINE_SOUND)

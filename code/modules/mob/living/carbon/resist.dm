@@ -1,7 +1,7 @@
 /mob/living/carbon/process_resist()
 
 	//drop && roll
-	if(on_fire && !buckled)
+	if(on_fire && !buckled_to)
 		var/obj/effect/decal/cleanable/foam/extinguisher_foam = locate() in src.loc
 		var/extra = 0
 		if(extinguisher_foam)
@@ -10,14 +10,14 @@
 		Weaken(3)
 		spin(32,2)
 		visible_message(
-			"<span class='danger'>[src] rolls on the floor, trying to put themselves out!</span>",
-			"<span class='notice'>You stop, drop, and roll!</span>"
+			SPAN_DANGER("[src] rolls on the floor, trying to put themselves out!"),
+			SPAN_NOTICE("You stop, drop, and roll!")
 			)
 		sleep(3 SECONDS)
 		if(fire_stacks <= 0)
 			visible_message(
-				"<span class='danger'>[src] has successfully extinguished themselves!</span>",
-				"<span class='notice'>You extinguish yourself.</span>"
+				SPAN_DANGER("[src] has successfully extinguished themselves!"),
+				SPAN_NOTICE("You extinguish yourself.")
 				)
 		return
 
@@ -36,26 +36,26 @@
 
 /mob/living/carbon/human/proc/escape_jacket()
 	visible_message(
-		"<span class='danger'>\The [src] attempts to escape [wear_suit]!</span>",
-		"<span class='warning'>You attempt to escape [wear_suit]. (This will take around 6 minutes and you need to stand still)</span>"
+		SPAN_DANGER("\The [src] attempts to escape [wear_suit]!"),
+		SPAN_WARNING("You attempt to escape [wear_suit]. (This will take around 6 minutes and you need to stand still)")
 		)
 	if (!do_after(src, 1.5 MINUTES, act_target = src))
 		return
 	visible_message(
-			"<span class='danger'>\The [src] is shifting in their [wear_suit]!</span>",
-			"<span class='warning'>You start to loosen the [wear_suit].</span>"
+			SPAN_WARNING("\The [src] is shifting in their [wear_suit]!"),
+			SPAN_WARNING("You start to loosen the [wear_suit].")
 		)
 	if (!do_after(src, 1.5 MINUTES, act_target = src))
 		return
 	visible_message(
-			"<span class='danger'>\The [src] is moving in their [wear_suit]!</span>",
-			"<span class='warning'>You slip one of your arms out of the [wear_suit].</span>"
+			SPAN_DANGER("\The [src] is moving in their [wear_suit]!"),
+			SPAN_WARNING("You slip one of your arms out of the [wear_suit].")
 		)
 	if (!do_after(src, 1.5 MINUTES, act_target = src))
 		return
 	visible_message(
-			"<span class='danger'>\The [src] is moving around in their [wear_suit] - it looks like they are about to break out!</span>",
-			"<span class='warning'>You start to pull loose the straps on the straightjacket[wear_suit].</span>"
+			SPAN_DANGER("\The [src] is moving around in their [wear_suit] - it looks like they are about to break out!"),
+			SPAN_WARNING("You start to pull loose the straps on the straightjacket[wear_suit].")
 		)
 	if (do_after(src, 1.5 MINUTES, act_target = src))
 		var/obj/ex_suit = wear_suit
@@ -82,8 +82,8 @@
 	if(istype(HC))
 		breakouttime = HC.breakouttime
 
-	if(buckled)
-		breakouttime += 600 //If you are buckled, it takes a minute longer, but you are unbuckled and uncuffed instantly
+	if(buckled_to)
+		breakouttime += 600 //If you are buckled_to, it takes a minute longer, but you are unbuckled and uncuffed instantly
 
 	displaytime = breakouttime / 600 //Minutes
 
@@ -98,13 +98,13 @@
 		violent_removal = 1
 		breakouttime = rand(450,600)
 		visible_message(
-			"<span class='danger'>\The [src] attempts to break out of \the [HC]!</span>",
-			"<span class='warning'>You attempt to break out of \the [HC]. (This will take around 1 minute and you need to stand still)</span>"
+			SPAN_DANGER("\The [src] attempts to break out of \the [HC]!"),
+			SPAN_WARNING("You attempt to break out of \the [HC]. (This will take around 1 minute and you need to stand still)")
 			)
 	else
 		visible_message(
-			"<span class='danger'>\The [src] attempts to slip out of \the [HC]!</span>",
-			"<span class='warning'>You attempt to slip out of \the [HC]. (This will take around [displaytime] minutes and you need to stand still)</span>"
+			SPAN_DANGER("\The [src] attempts to slip out of \the [HC]!"),
+			SPAN_WARNING("You attempt to slip out of \the [HC]. (This will take around [displaytime] minutes and you need to stand still)")
 			)
 
 	if(do_after(src, breakouttime))
@@ -113,25 +113,25 @@
 
 		var/buckle_message_user = ""
 		var/buckle_message_other = ""
-		if(buckled) //If the person is buckled, also unbuckle the person
+		if(buckled_to) //If the person is buckled, also unbuckle the person
 			buckle_message_user = " and unbuckle yourself"
 			buckle_message_other = " and to unbuckle themself"
-			buckled.user_unbuckle_mob(src)
+			buckled_to.user_unbuckle(src)
 
 		if(violent_removal)
 			var/obj/item/organ/external/E = H.get_organ(pick(BP_L_ARM,BP_R_ARM))
 			var/dislocate_message = ""
-			if(E && !E.is_dislocated())
+			if(E && !ORGAN_IS_DISLOCATED(E))
 				E.dislocate(1)
 				dislocate_message = ", but dislocate your [E] in the process"
 			visible_message(
-				"<span class='danger'>\The [src] manages to remove \the [handcuffed][buckle_message_other]!</span>",
-				"<span class='notice'>You successfully remove \the [handcuffed][buckle_message_user][dislocate_message].</span>"
+				SPAN_DANGER("\The [src] manages to remove \the [handcuffed][buckle_message_other]!"),
+				SPAN_NOTICE("You successfully remove \the [handcuffed][buckle_message_user][dislocate_message].")
 				)
 		else
 			visible_message(
-				"<span class='notice'>\The [src] manages to slip out of \the [handcuffed][buckle_message_other]!</span>",
-				"<span class='notice'>You successfully slip out of \the [handcuffed][buckle_message_user].</span>"
+				SPAN_NOTICE("\The [src] manages to slip out of \the [handcuffed][buckle_message_other]!"),
+				SPAN_NOTICE("You successfully slip out of \the [handcuffed][buckle_message_user].")
 				)
 		drop_from_inventory(handcuffed)
 
@@ -157,16 +157,16 @@
 		displaytime = breakouttime / 600 //Minutes
 
 	visible_message(
-		"<span class='danger'>[usr] attempts to remove \the [HC]!</span>",
-		"<span class='warning'>You attempt to remove \the [HC]. (This will take around [displaytime] minutes and you need to stand still)</span>"
+		SPAN_DANGER("[usr] attempts to remove \the [HC]!"),
+		SPAN_WARNING("You attempt to remove \the [HC]. (This will take around [displaytime] minutes and you need to stand still)")
 		)
 
 	if(do_after(src, breakouttime))
-		if(!legcuffed || buckled)
+		if(!legcuffed || buckled_to)
 			return
 		visible_message(
-			"<span class='danger'>[src] manages to remove \the [legcuffed]!</span>",
-			"<span class='notice'>You successfully remove \the [legcuffed].</span>"
+			SPAN_DANGER("[src] manages to remove \the [legcuffed]!"),
+			SPAN_NOTICE("You successfully remove \the [legcuffed].")
 			)
 
 		drop_from_inventory(legcuffed)
@@ -187,17 +187,17 @@
 
 /mob/living/carbon/proc/break_handcuffs()
 	visible_message(
-		"<span class='danger'>[src] is trying to break \the [handcuffed]!</span>",
-		"<span class='warning'>You attempt to break your [handcuffed.name]. (This will take around 5 seconds and you need to stand still)</span>"
+		SPAN_DANGER("[src] is trying to break \the [handcuffed]!"),
+		SPAN_WARNING("You attempt to break your [handcuffed.name]. (This will take around 10 seconds and you need to stand still)")
 		)
 
-	if(do_after(src, 50))
+	if(do_after(src, 10 SECONDS))
 		if(!handcuffed)
 			return
 
 		visible_message(
-			"<span class='danger'>[src] manages to break \the [handcuffed]!</span>",
-			"<span class='warning'>You successfully break your [handcuffed.name].</span>"
+			SPAN_DANGER("[src] manages to break \the [handcuffed]!"),
+			SPAN_WARNING("You successfully break your [handcuffed.name].")
 			)
 
 		if((isunathi(src)) || (HULK in mutations))
@@ -206,21 +206,21 @@
 
 		qdel(handcuffed)
 		handcuffed = null
-		if(buckled)
-			buckled.unbuckle_mob()
+		if(buckled_to)
+			buckled_to.unbuckle()
 		update_inv_handcuffed()
 
 /mob/living/carbon/proc/break_legcuffs()
-	to_chat(src, "<span class='warning'>You attempt to break your legcuffs. (This will take around 5 seconds and you need to stand still)</span>")
-	visible_message("<span class='danger'>[src] is trying to break the legcuffs!</span>")
+	to_chat(src, SPAN_WARNING("You attempt to break your legcuffs. (This will take around 5 seconds and you need to stand still)"))
+	visible_message(SPAN_DANGER("[src] is trying to break the legcuffs!"))
 
 	if(do_after(src, 50))
-		if(!legcuffed || buckled)
+		if(!legcuffed || buckled_to)
 			return
 
 		visible_message(
-			"<span class='danger'>[src] manages to break the legcuffs!</span>",
-			"<span class='warning'>You successfully break your legcuffs.</span>"
+			SPAN_DANGER("[src] manages to break the legcuffs!"),
+			SPAN_WARNING("You successfully break your legcuffs.")
 			)
 
 		say(pick("RAAAAAAAARGH!", "HNNNNNNNNNGGGGGGH!", "GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", "AAAAAAARRRGH!" ))

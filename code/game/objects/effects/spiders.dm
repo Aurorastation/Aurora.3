@@ -1,7 +1,7 @@
 //generic procs copied from obj/effect/alien
 /obj/effect/spider
 	name = "web"
-	desc = "It's stringy and sticky, eugh. Probably came from one of those giant spiders..."
+	desc = "It's stringy and sticky, eugh. Probably came from one of those greimorians..."
 	icon = 'icons/effects/effects.dmi'
 	anchored = TRUE
 	density = FALSE
@@ -25,9 +25,10 @@
 	var/damage = W.force / 4.0
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			damage = 15
 			playsound(loc, 'sound/items/welder.ogg', 100, 1)
+		return TRUE
 	else
 		user.do_attack_animation(src)
 		playsound(loc, W.hitsound, 50, 1, -1)
@@ -129,8 +130,11 @@
 		qdel(src)
 
 /obj/effect/spider/spiderling
-	name = "spiderling"
-	desc = "It never stays still for long."
+	name = "greimorian larva"
+	desc = "A small, agile alien creature. It oozes some disgusting slime."
+	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
+	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
+	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
 	icon_state = "spiderling"
 	anchored = 0
 	layer = 2.7
@@ -274,11 +278,12 @@
 	die()
 
 /obj/effect/spider/spiderling/attackby(var/obj/item/W, var/mob/user)
-	..()
+	. = ..()
 	if(istype(W, /obj/item/newspaper))
 		var/obj/item/newspaper/N = W
 		if(N.rolled)
 			die()
+			return TRUE
 
 /**
  * Makes the organ spew out all of the spiderlings it has. It's triggered at the point
@@ -318,14 +323,14 @@
 		qdel(O)
 
 /obj/effect/decal/cleanable/spiderling_remains
-	name = "spiderling remains"
+	name = "greimorian larva remains"
 	desc = "Green squishy mess."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "greenshatter"
 
 /obj/effect/spider/cocoon
 	name = "cocoon"
-	desc = "Something wrapped in silky spider web"
+	desc = "Something wrapped in silky greimorian web"
 	icon_state = "cocoon1"
 	health = 60
 

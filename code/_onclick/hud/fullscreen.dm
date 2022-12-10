@@ -1,11 +1,10 @@
-
 /mob
 	var/list/screens = list()
 
 /mob/proc/set_fullscreen(condition, screen_name, screen_type, arg)
 	condition ? overlay_fullscreen(screen_name, screen_type, arg) : clear_fullscreen(screen_name)
 
-/mob/proc/overlay_fullscreen(category, type, severity)
+/mob/proc/overlay_fullscreen(category, type, severity, animated = 0)
 	var/obj/screen/fullscreen/screen = screens[category]
 
 	if(screen)
@@ -17,6 +16,8 @@
 
 	if(!screen)
 		screen = new type()
+		if(animated)
+			screen.alpha = 0
 
 	screen.icon_state = "[initial(screen.icon_state)][severity]"
 	screen.severity = severity
@@ -24,6 +25,8 @@
 	screens[category] = screen
 	if(client && (stat != DEAD || screen.allstate))
 		client.screen += screen
+		if(animated)
+			animate(screen, alpha = initial(screen.alpha), time = animated)
 	return screen
 
 /mob/proc/clear_fullscreen(category, animated = 10)
@@ -90,9 +93,7 @@
 	layer = OBFUSCATION_LAYER
 
 /obj/screen/fullscreen/blackout
-	icon = 'icons/mob/screen/effects.dmi'
-	icon_state = "black"
-	screen_loc = ui_entire_screen
+	icon_state = "blackout"
 	layer = OBFUSCATION_LAYER
 
 /obj/screen/fullscreen/impaired

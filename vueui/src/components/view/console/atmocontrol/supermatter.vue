@@ -10,7 +10,7 @@
       <vui-item label="Flow Rate Limit:">{{ state['input'].rate }} L/s</vui-item>
       <vui-item label="Command:">
         <vui-input-numeric
-          @keypress.enter="s({ in_set_flowrate: state['input'].setrate })"
+          @keypress.enter="$toTopic({ in_set_flowrate: state['input'].setrate })"
           width="3em"
           :button-count="3"
           v-model="state['input'].setrate"
@@ -30,7 +30,7 @@
       <vui-item label="Min Core Pressure:">{{ state['output'].pressure }} kPa</vui-item>
       <vui-item label="Command:">
         <vui-input-numeric
-          @keypress.enter="s({ out_set_pressure: state['output'].setpressure })"
+          @keypress.enter="$toTopic({ out_set_pressure: state['output'].setpressure })"
           width="5em"
           :button-count="3"
           :decimal-places="2"
@@ -49,15 +49,9 @@
 </template>
 
 <script>
-import Utils from "../../../../utils.js";
 export default {
   data() {
-    return this.$root.$data;
-  },
-  methods: {
-    s(parameters) {
-      Utils.sendToTopic(parameters);
-    }
+    return this.$root.$data
   }
 };
 </script>

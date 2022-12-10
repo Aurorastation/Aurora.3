@@ -11,6 +11,7 @@
 	maxHealth = 150
 	health = 150
 	gender = NEUTER
+	accent = ACCENT_BLUESPACE
 
 	update_icon = 0
 	nutrition = 700
@@ -55,9 +56,6 @@
 	var/hurt_temperature = T0C-50	// Slime keeps taking damage when its bodytemperature is below this
 	var/die_temperature = 50		// Slime dies instantly when its bodytemperature is below this
 
-	var/co2overloadtime = null
-	var/temperature_resistance = T0C+75
-
 	///////////TIME FOR SUBSPECIES
 
 	var/colour = "grey"
@@ -75,6 +73,9 @@
 	. = ..()
 
 	verbs += /mob/living/proc/ventcrawl
+
+	add_language(LANGUAGE_TCB)
+	set_default_language(all_languages[LANGUAGE_TCB])
 
 	src.colour = colour
 	number = rand(1, 1000)
@@ -132,6 +133,12 @@
 	..()
 
 /mob/living/carbon/slime/black/Initialize(mapload, colour = "black")
+	..()
+
+/mob/living/carbon/slime/cerulean/Initialize(mapload, colour = "cerulean")
+	..()
+
+/mob/living/carbon/slime/pyrite/Initialize(mapload, colour = "pyrite")
 	..()
 
 /mob/living/carbon/slime/getToxLoss()
@@ -334,7 +341,7 @@
 		if(I_GRAB)
 			if(M == src || anchored)
 				return
-			var/obj/item/grab/G = new /obj/item/grab(M, src)
+			var/obj/item/grab/G = new /obj/item/grab(M, M, src)
 
 			M.put_in_active_hand(G)
 

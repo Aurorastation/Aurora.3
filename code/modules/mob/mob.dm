@@ -11,7 +11,6 @@
 		for(var/atom/movable/AM in client.screen)
 			qdel(AM)
 		client.screen = list()
-		client.cleanup_parallax_references()
 	if (mind)
 		mind.handle_mob_deletion(src)
 	for(var/infection in viruses)
@@ -67,18 +66,22 @@
 	spell_masters = null
 	zone_sel = null
 
+/mob/var/should_add_to_mob_list = TRUE
 /mob/Initialize()
 	. = ..()
-	mob_list += src
-	if(stat == DEAD)
-		dead_mob_list += src
-	else
-		living_mob_list += src
+	if(should_add_to_mob_list)
+		mob_list += src
+		if(stat == DEAD)
+			dead_mob_list += src
+		else
+			living_mob_list += src
 
 	if (!ckey && mob_thinks)
 		MOB_START_THINKING(src)
 
-/mob/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+	become_hearing_sensitive()
+
+/mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
 	if(!client)	return
 
@@ -110,7 +113,8 @@
 // self_message (optional) is what the src mob sees  e.g. "You do something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
-/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE)
+/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
+	set waitfor = FALSE
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
@@ -151,6 +155,13 @@
 		var/obj/O = o
 		O.see_emote(src, message)
 
+	if(intent_message)
+		intent_message(intent_message, intent_range, messagemobs)
+
+	//Multiz, have shadow do same
+	if(bound_overlay)
+		bound_overlay.visible_message(message, blind_message, range)
+
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
 // Broadcaster is the place the action will be seen/heard from, mobs in sight of THAT will see the message. This is generally the object or mob that src is contained in
@@ -187,29 +198,17 @@
 // deaf_message (optional) is what deaf people will see.
 // hearing_distance (optional) is the range, how many tiles away the message can be heard.
 /mob/audible_message(var/message, var/deaf_message, var/hearing_distance, var/self_message, var/ghost_hearing = GHOSTS_ALL_HEAR)
+	if(!hearing_distance)
+		hearing_distance = world.view
 
-	var/range = world.view
-	if(hearing_distance)
-		range = hearing_distance
+	var/list/hearers = get_hearers_in_view(hearing_distance, src)
 
-	var/turf/T = get_turf(src)
-
-	var/list/mobs = list()
-	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, range, mobs, objs, ghost_hearing)
-
-
-	for(var/m in mobs)
-		var/mob/M = m
-		if(self_message && M==src)
-			M.show_message(self_message,2,deaf_message,1)
+	for (var/atom/movable/AM as anything in hearers)
+		if(self_message && AM == src)
+			AM.show_message("[get_accent_icon(null, src)] [self_message]", 2, deaf_message, 1)
 			continue
 
-		M.show_message(message,2,deaf_message,1)
-
-	for(var/o in objs)
-		var/obj/O = o
-		O.show_message(message,2,deaf_message,1)
+		AM.show_message("[get_accent_icon(null, src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -218,13 +217,15 @@
 	return 0
 
 /mob/proc/movement_delay()
+	if(lying) //Crawling, it's slower
+		. += (8 + ((weakened * 3) + (confused * 2)))
 	. = get_pulling_movement_delay()
 
 /mob/proc/get_pulling_movement_delay()
 	. = 0
 	if(istype(pulling, /obj/structure))
 		var/obj/structure/P = pulling
-		if(P.buckled_mob || locate(/mob) in P.contents)
+		if(P.buckled || locate(/mob) in P.contents)
 			. += P.slowdown
 
 /mob/proc/Life()
@@ -233,10 +234,10 @@
 #define UNBUCKLED 0
 #define PARTIALLY_BUCKLED 1
 #define FULLY_BUCKLED 2
-/mob/proc/buckled()
+/mob/proc/buckled_to()
 	// Preliminary work for a future buckle rewrite,
 	// where one might be fully restrained (like an elecrical chair), or merely secured (shuttle chair, keeping you safe but not otherwise restrained from acting)
-	if(!buckled)
+	if(!buckled_to)
 		return UNBUCKLED
 	return restrained() ? FULLY_BUCKLED : PARTIALLY_BUCKLED
 
@@ -261,7 +262,7 @@
 		return 1
 
 	if((incapacitation_flags & (INCAPACITATION_BUCKLED_PARTIALLY|INCAPACITATION_BUCKLED_FULLY)))
-		var/buckling = buckled()
+		var/buckling = buckled_to()
 		if(buckling >= PARTIALLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_PARTIALLY))
 			return 1
 		if(buckling == FULLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_FULLY))
@@ -324,62 +325,50 @@
 	face_atom(A)
 	A.examine(src)
 
+/mob/proc/can_examine()
+	if(client?.eye == src)
+		return TRUE
+	return FALSE
+
+/mob/living/silicon/pai/can_examine()
+	. = ..()
+	if(!.)
+		var/atom/our_holder = recursive_loc_turf_check(src, 5)
+		if(isturf(our_holder.loc)) // Are we folded on the ground?
+			return TRUE
+
+/mob/living/simple_animal/borer/can_examine()
+	. = ..()
+	if(!. && iscarbon(loc) && isturf(loc.loc)) // We're inside someone, let us examine still.
+		return TRUE
+
 /mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
 
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
 	set category = "Object"
 
-	if(!src || !isturf(src.loc) || !(A in range(world.view, get_turf(src))))
-		return 0
-	if(istype(A, /obj/effect/decal/point) || pointing_effect)
-		return 0
+	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
+		return FALSE
+	if(next_point_time >= world.time)
+		return FALSE
 
-	var/tile = get_turf(A)
-	if (!tile)
-		return 0
-
-	pointing_effect = new /obj/effect/decal/point(tile)
-	pointing_effect.invisibility = invisibility
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, pointing_effect), 2 SECONDS)
-
+	next_point_time = world.time + 25
 	face_atom(A)
-	return 1
-/datum/mobl	// I have no idea what the fuck this is, but it's better for it to be a datum than an /obj/effect.
-	var/list/container = list()
-	var/master
+	if(isturf(A))
+		if(pointing_effect)
+			end_pointing_effect()
+		pointing_effect = new /obj/effect/decal/point(A)
+		pointing_effect.invisibility = invisibility
+		addtimer(CALLBACK(src, .proc/end_pointing_effect, pointing_effect), 2 SECONDS)
+	else if(!invisibility)
+		var/atom/movable/M = A
+		M.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
+		addtimer(CALLBACK(M, /atom/movable.proc/remove_filter, "pointglow"), 2 SECONDS)
+	return TRUE
 
-/mob/proc/ret_grab(datum/mobl/L, flag)
-	if ((!( istype(l_hand, /obj/item/grab) ) && !( istype(r_hand, /obj/item/grab) )))
-		if (!( L ))
-			return null
-		else
-			return L.container
-	else
-		if (!( L ))
-			L = new /datum/mobl
-			L.container += src
-			L.master = src
-		if (istype(l_hand, /obj/item/grab))
-			var/obj/item/grab/G = l_hand
-			if (!(L.container.Find(G.affecting)))
-				L.container += G.affecting
-				if (G.affecting)
-					G.affecting.ret_grab(L, 1)
-		if (istype(r_hand, /obj/item/grab))
-			var/obj/item/grab/G = r_hand
-			if (!(L.container.Find(G.affecting)))
-				L.container += G.affecting
-				if (G.affecting)
-					G.affecting.ret_grab(L, 1)
-		if (!( flag ))
-			if (L.master == src)
-				var/list/temp = L.container.Copy()
-				qdel(L)
-				return temp
-			else
-				return L.container
-	return
+/mob/proc/end_pointing_effect()
+	QDEL_NULL(pointing_effect)
 
 /mob/verb/mode()
 	set name = "Activate Held Object"
@@ -690,6 +679,19 @@
 		var/datum/browser/flavor_win = new(usr, name, capitalize_first_letters(name), 500, 250)
 		flavor_win.set_content(replacetext(flavor_text, "\n", "<BR>"))
 		flavor_win.open()
+
+	if(href_list["accent_tag"])
+		var/datum/accent/accent = SSrecords.accents[href_list["accent_tag"]]
+		if(accent && istype(accent))
+			var/datum/browser/accent_win = new(usr, accent.name, capitalize_first_letters(accent.name), 500, 250)
+			var/html = "[accent.description]<br>"
+			var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+			html += "[S.css_tag()]<br>"
+			html += {"[S.icon_tag(accent.tag_icon)]<br>"}
+			html += "([accent.text_tag])<br>"
+			accent_win.set_content(html)
+			accent_win.open()
+
 	if(href_list["flavor_change"])
 		update_flavor_text()
 
@@ -736,7 +738,10 @@
 		return
 
 	if (AM.anchored)
-		to_chat(src, "<span class='warning'>It won't budge!</span>")
+		if(!AM.buckled_to)
+			to_chat(src, "<span class='warning'>It won't budge!</span>")
+		else
+			start_pulling(AM.buckled_to) //Pull the thing they're buckled to instead.
 		return
 
 	var/mob/M = null
@@ -840,6 +845,10 @@
 		if(statpanel("Status") && SSticker.current_state != GAME_STATE_PREGAME)
 			stat("Game ID", game_id)
 			stat("Map", current_map.full_name)
+			stat("Current Space Sector", SSatlas.current_sector.name)
+			var/current_month = text2num(time2text(world.realtime, "MM"))
+			var/current_day = text2num(time2text(world.realtime, "DD"))
+			stat("Current Date", "[game_year]-[current_month]-[current_day]")
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", get_round_duration_formatted())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
@@ -870,10 +879,13 @@
 					stat("Failsafe Controller:", "ERROR")
 				if (Master)
 					stat(null, "- Subsystems -")
+					var/amt = 0
 					for(var/datum/controller/subsystem/SS in Master.subsystems)
 						if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
 							continue
-
+						if(amt >= 70)
+							break
+						amt++
 						SS.stat_entry()
 
 		if(listed_turf && client)
@@ -906,28 +918,33 @@
 
 //Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
 /mob/proc/update_canmove()
-
-	if(!resting && cannot_stand() && can_stand_overridden())
+	if(in_neck_grab())
+		lying = FALSE
+		for(var/obj/item/grab/G in grabbed_by)
+			if(G.force_down)
+				lying = TRUE
+				break
+	else if(!resting && cannot_stand() && can_stand_overridden())
 		lying = 0
 		canmove = 1
 	else
-		if(istype(buckled, /obj/vehicle))
-			var/obj/vehicle/V = buckled
+		if(istype(buckled_to, /obj/vehicle))
+			var/obj/vehicle/V = buckled_to
 			if(is_physically_disabled())
 				lying = 1
 				canmove = 0
 				pixel_y = V.mob_offset_y - 5
 			else
-				if(buckled.buckle_lying != -1) lying = buckled.buckle_lying
+				if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
 				canmove = 1
 				pixel_y = V.mob_offset_y
-		else if(buckled)
+		else if(buckled_to)
 			anchored = 1
 			canmove = 0
-			if(istype(buckled))
-				if(buckled.buckle_lying != -1)
-					lying = buckled.buckle_lying
-				if(buckled.buckle_movable)
+			if(isobj(buckled_to))
+				if(buckled_to.buckle_lying != -1)
+					lying = buckled_to.buckle_lying
+				if(buckled_to.buckle_movable)
 					anchored = 0
 					canmove = 1
 		else if(captured)
@@ -936,7 +953,7 @@
 			lying = 0
 		else
 			lying = incapacitated(INCAPACITATION_KNOCKDOWN)
-			canmove = !incapacitated(INCAPACITATION_DISABLED)
+			canmove = !incapacitated(INCAPACITATION_KNOCKOUT)
 
 	if(lying)
 		density = 0
@@ -946,6 +963,10 @@
 		density = initial(density)
 
 	for(var/obj/item/grab/G in grabbed_by)
+		if(G.wielded)
+			canmove = FALSE
+			lying = TRUE
+			break
 		if(G.state >= GRAB_AGGRESSIVE)
 			canmove = 0
 			break
@@ -962,14 +983,16 @@
 	return canmove
 
 
-/mob/proc/facedir(var/ndir)
-	if(!canface() || (client && client.moving) || (client && world.time < client.move_delay))
+/mob/proc/facedir(var/ndir, var/force_change = FALSE)
+	if(!canface() || (client && client.moving))
 		return 0
+	if((facing_dir != ndir) && force_change)
+		facing_dir = null
 	set_dir(ndir)
-	if(buckled && buckled.buckle_movable)
-		buckled.set_dir(ndir)
+	if(buckled_to && buckled_to.buckle_movable)
+		buckled_to.set_dir(ndir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
-		client.move_delay += movement_delay()
+		setMoveCooldown(movement_delay())
 	return 1
 
 
@@ -1079,6 +1102,7 @@
 
 /mob/proc/get_pressure_weakness()
 	return 1
+
 /mob/living/proc/flash_strong_pain()
 	return
 
@@ -1285,7 +1309,7 @@
 
 /mob/set_dir(ndir)
 	if(facing_dir)
-		if(!canface() || lying || buckled || restrained())
+		if(!canface() || lying || buckled_to || restrained())
 			facing_dir = null
 		else if(dir != facing_dir)
 			return ..(facing_dir)
@@ -1297,20 +1321,14 @@
 	if (dest != loc && istype(dest, /atom/movable))
 		AM = dest
 		LAZYADD(AM.contained_mobs, src)
+		if(pulledby)
+			pulledby.stop_pulling()
 
 	if (istype(loc, /atom/movable))
 		AM = loc
 		LAZYREMOVE(AM.contained_mobs, src)
 
 	. = ..()
-
-	if (!contained_mobs)	// If this is true, the parent will have already called the client hook.
-		update_client_hook(loc)
-
-/mob/Move()
-	. = ..()
-	if (. && !contained_mobs && client)
-		update_client_hook(loc)
 
 /mob/verb/northfaceperm()
 	set hidden = 1
@@ -1327,6 +1345,18 @@
 /mob/verb/westfaceperm()
 	set hidden = 1
 	set_face_dir(client.client_dir(WEST))
+
+/mob/living/verb/unique_action()
+	set hidden = 1
+	var/obj/item/gun/dakka = get_active_hand()
+	if(istype(dakka))
+		dakka.unique_action(src)
+
+/mob/living/verb/toggle_firing_mode()
+	set hidden = 1
+	var/obj/item/gun/dakka = get_active_hand()
+	if(istype(dakka))
+		dakka.toggle_firing_mode(src)
 
 /mob/proc/adjustEarDamage()
 	return
@@ -1353,6 +1383,10 @@
 		src.throw_icon.icon_state = "act_throw_on"
 
 /mob/proc/is_invisible_to(var/mob/viewer)
+	if(isAI(viewer))
+		for(var/image/I as anything in SSai_obfuscation.obfuscation_images)
+			if(I.loc == src)
+				return TRUE
 	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility)
 
 //Admin helpers

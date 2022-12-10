@@ -134,16 +134,52 @@
 	reagents_to_add = list(/decl/reagent/mortaphenyl = 10)
 
 /obj/item/reagent_containers/pill/corophenidate
-	name = "5u Corophenidate Pill"
+	name = "2u Corophenidate Pill"
 	desc = "Improves the ability to concentrate."
-	icon_state = "pill8"
-	reagents_to_add = list(/decl/reagent/mental/corophenidate = 5)
+	icon_state = "pill22"
+	reagents_to_add = list(/decl/reagent/mental/corophenidate = 2)
+
+/obj/item/reagent_containers/pill/emoxanyl
+	name = "2u Emoxanyl Pill"
+	desc = "Used to treat anxiety disorders, depression and epilepsy."
+	icon_state = "pill22"
+	reagents_to_add = list(/decl/reagent/mental/emoxanyl = 2)
 
 /obj/item/reagent_containers/pill/minaphobin
-	name = "5u Minaphobin Pill"
+	name = "2u Minaphobin Pill"
 	desc = "Used to treat anxiety disorders and depression."
+	icon_state = "pill22"
+	reagents_to_add = list(/decl/reagent/mental/minaphobin = 2)
+
+/obj/item/reagent_containers/pill/nerospectan
+	name = "2u Nerospectan Pill"
+	desc = "Used to treat a large variety of disorders including tourettes, depression, anxiety and psychosis."
+	icon_state = "pill22"
+	reagents_to_add = list(/decl/reagent/mental/nerospectan = 2)
+
+/obj/item/reagent_containers/pill/neurapan
+	name = "2u Neurapan Pill"
+	desc = "Used to treat a large variety of disorders including tourettes, depression, anxiety and psychosis."
+	icon_state = "pill22"
+	reagents_to_add = list(/decl/reagent/mental/neurapan = 2)
+
+/obj/item/reagent_containers/pill/neurostabin
+	name = "2u Neurostabin Pill"
+	desc = "Used to treat psychosis and muscle weakness."
 	icon_state = "pill8"
-	reagents_to_add = list(/decl/reagent/mental/minaphobin = 5)
+	reagents_to_add = list(/decl/reagent/mental/neurostabin = 2)
+
+/obj/item/reagent_containers/pill/orastabin
+	name = "2u Orastabin Pill"
+	desc = "Used to treat anxiety disorders and speech impediments."
+	icon_state = "pill22"
+	reagents_to_add = list(/decl/reagent/mental/orastabin = 2)
+
+/obj/item/reagent_containers/pill/parvosil
+	name = "2u Parvosil Pill"
+	desc = "Used to treat anxiety disorders such as phobias and social anxiety."
+	icon_state = "pill22"
+	reagents_to_add = list(/decl/reagent/mental/parvosil = 2)
 
 /obj/item/reagent_containers/pill/inaprovaline
 	name = "10u Inaprovaline Pill"
@@ -190,20 +226,20 @@
 /obj/item/reagent_containers/pill/happy
 	name = "Happy Pill"
 	desc = "Happy happy joy joy!"
-	icon_state = "pill18"
+	icon_state = "pill_happy"
 	reagents_to_add = list(/decl/reagent/space_drugs = 15, /decl/reagent/sugar = 15)
 
 /obj/item/reagent_containers/pill/zoom
 	name = "Zoom Pill"
 	desc = "Zoooom!"
 	icon_state = "pill18"
-	reagents_to_add = list(/decl/reagent/impedrezene = 10, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5)
+	reagents_to_add = list(/decl/reagent/impedrezene = 5, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5)
 
-obj/item/reagent_containers/pill/tranquility
-	name = "Tranquility Pill"
+obj/item/reagent_containers/pill/joy
+	name = "Joy Pill"
 	desc = "Peace, at last."
 	icon_state = "pill8"
-	reagents_to_add = list(/decl/reagent/mental/neurapan = 15, /decl/reagent/impedrezene = 10)
+	reagents_to_add = list(/decl/reagent/joy = 5)
 
 /obj/item/reagent_containers/pill/thetamycin
 	name = "15u Thetamycin Pill"
@@ -233,3 +269,9 @@ obj/item/reagent_containers/pill/tranquility
 	desc = "Used to treat coughing, sneezing and itching."
 	icon_state = "pill19"
 	reagents_to_add = list(/decl/reagent/cetahydramine = 5)
+
+/obj/item/reagent_containers/pill/skrell_nootropic
+	name = "5u Co'qnixq Wuxi Pill"
+	desc = "Used to treat dementia."
+	icon_state = "pill8"
+	reagents_to_add = list(/decl/reagent/skrell_nootropic = 5)

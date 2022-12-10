@@ -6,44 +6,41 @@
 
 // Turf-only flags.
 #define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
-#define MIMIC_BELOW 2      // If this turf should mimic the turf on the Z below.
-#define MIMIC_OVERWRITE 4  // If this turf is Z-mimicing, overwrite the turf's appearance instead of using a movable. This is faster, but means the turf cannot have an icon.
-#define MIMIC_QUEUED 8     // If the turf is currently queued for Z-mimic update.
-#define MIMIC_NO_AO 16     // If the turf shouldn't apply regular turf AO and only do Z-mimic AO.
 
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
+#define RUIN_MAP_EDGE_PAD 15
 
 // Invisibility constants.
-#define INVISIBILITY_LIGHTING             20
-#define INVISIBILITY_LEVEL_ONE            35
-#define INVISIBILITY_LEVEL_TWO            45
-#define INVISIBILITY_OBSERVER             60
-#define INVISIBILITY_EYE		          61
+#define INVISIBILITY_LIGHTING		20
+#define INVISIBILITY_LEVEL_ONE		35
+#define INVISIBILITY_LEVEL_TWO		45
+#define INVISIBILITY_OBSERVER		60
+#define INVISIBILITY_EYE			61
+#define INVISIBILITY_SYSTEM			99
 
-#define SEE_INVISIBLE_LIVING              25
-#define SEE_INVISIBLE_NOLIGHTING 15
-#define SEE_INVISIBLE_LEVEL_ONE           35
-#define SEE_INVISIBLE_LEVEL_TWO           45
-#define SEE_INVISIBLE_CULT		          60
-#define SEE_INVISIBLE_OBSERVER            61
+#define SEE_INVISIBLE_LIVING		25
+#define SEE_INVISIBLE_NOLIGHTING	15
+#define SEE_INVISIBLE_LEVEL_ONE		35
+#define SEE_INVISIBLE_LEVEL_TWO		45
+#define SEE_INVISIBLE_CULT			60
+#define SEE_INVISIBLE_OBSERVER		61
+#define SEE_INVISIBLE_SYSTEM		99
 
-#define SEE_INVISIBLE_MINIMUM 5
-#define INVISIBILITY_MAXIMUM 100
-#define INVISIBILITY_ABSTRACT 101	// Special invis value that can never be seen by see_invisible.
+#define SEE_IN_DARK_DEFAULT			2
+
+#define SEE_INVISIBLE_MINIMUM		5
+#define INVISIBILITY_MAXIMUM		100
+#define INVISIBILITY_ABSTRACT		101	// Special invis value that can never be seen by see_invisible.
 
 // Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
 #define PROCESS_KILL 26 // Used to trigger removal from a processing list.
-
-// Age limits on a character.
-#define AGE_MIN 17
-#define AGE_MAX 85
 
 #define MAX_GEAR_COST 15 // Used in chargen for accessory loadout limit.
 
 // Preference toggles.
 #define SOUND_ADMINHELP 0x1
 #define SOUND_MIDI      0x2
-#define SOUND_AMBIENCE  0x4
+// 0x4 is free.
 #define SOUND_LOBBY     0x8
 #define CHAT_OOC        0x10
 #define CHAT_DEAD       0x20
@@ -57,16 +54,21 @@
 #define CHAT_GHOSTRADIO 0x2000
 #define SHOW_TYPING     0x4000
 #define CHAT_NOICONS    0x8000
+#define CHAT_GHOSTLOOC	0x10000
 
-#define PARALLAX_SPACE 0x1
-#define PARALLAX_DUST  0x2
+// 0x1 is free.
+// 0x2 is free.
 #define PROGRESS_BARS  0x4
 #define PARALLAX_IS_STATIC 0x8
 #define FLOATING_MESSAGES 0x10
+#define HOTKEY_DEFAULT 0x20
+#define FULLSCREEN_MODE 0x40
+#define ACCENT_TAG_TEXT 0x80
 
-#define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
+#define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | SOUND_LOBBY | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
 
-//Sound effects toggles
+// ASFX and SFX Toggles
+// (ASFX = Ambient Sound Effects; SFX = Sound Effects)
 #define ASFX_AMBIENCE	1
 #define ASFX_FOOTSTEPS	2
 #define ASFX_VOTE		4
@@ -75,8 +77,10 @@
 #define ASFX_ARCADE		32
 #define ASFX_RADIO		64
 #define ASFX_INSTRUMENT 128
+#define ASFX_HUM 256
+#define ASFX_MUSIC 512
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE|ASFX_RADIO|ASFX_INSTRUMENT)
+#define ASFX_DEFAULT (ASFX_AMBIENCE | ASFX_FOOTSTEPS | ASFX_VOTE | ASFX_VOX | ASFX_DROPSOUND | ASFX_ARCADE | ASFX_RADIO | ASFX_INSTRUMENT | ASFX_HUM | ASFX_MUSIC)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line reading the pulse.
@@ -89,6 +93,7 @@
 #define SPECIALROLE_HUD 8 // AntagHUD image.
 #define  STATUS_HUD_OOC 9 // STATUS_HUD without virus DB check for someone being ill.
 #define 	  LIFE_HUD 10 // STATUS_HUD that only reports dead or alive
+#define     TRIAGE_HUD 11 // a HUD that creates a bar above the user showing their medical status
 
 //	Shuttles.
 
@@ -130,12 +135,13 @@
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define RAD_SHIELDED        1 //shielded from radiation, clearly
-#define SPAWN_ROOF          2 // if we should attempt to spawn a roof above us.
-#define HIDE_FROM_HOLOMAP   4 // if we shouldn't be drawn on station holomaps
-#define FIRING_RANGE        8
-#define NO_CREW_EXPECTED   16 // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
-#define PRISON             32 // Marks prison area for purposes of checking if brigged/imprisoned
+#define RAD_SHIELDED        	 BITFLAG(1) //shielded from radiation, clearly
+#define SPAWN_ROOF          	 BITFLAG(2) // if we should attempt to spawn a roof above us.
+#define HIDE_FROM_HOLOMAP   	 BITFLAG(3) // if we shouldn't be drawn on station holomaps
+#define FIRING_RANGE        	 BITFLAG(4)
+#define NO_CREW_EXPECTED    	 BITFLAG(5) // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
+#define PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
+#define NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -230,6 +236,7 @@
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
 #define PROJECTILE_FORCE_MISS -2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.
 #define PROJECTILE_DODGED     -3 //this is similar to the above, but the check and message is run on the mob, instead of on the projectile code. basically just has a unique message
+#define PROJECTILE_STOPPED    -4 //stops the projectile completely, as if a shield absorbed it
 
 //Camera capture modes
 #define CAPTURE_MODE_REGULAR 0 //Regular polaroid camera mode
@@ -322,6 +329,7 @@
 #define USE_ALLOW_NON_ADJACENT 16
 #define USE_FORCE_SRC_IN_USER 32
 #define USE_DISALLOW_SILICONS 64
+#define USE_DISALLOW_SPECIALS 128 // revenants, zombies, etc
 
 #define USE_SUCCESS 0
 #define USE_FAIL_NON_ADJACENT 1
@@ -331,6 +339,7 @@
 #define USE_FAIL_INCAPACITATED 5
 #define USE_FAIL_NOT_IN_USER 6
 #define USE_FAIL_IS_SILICON 7
+#define USE_FAIL_IS_MOB_SPECIAL 8
 
 #define DEFAULT_SIGHT (SEE_SELF)
 
@@ -437,6 +446,8 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define GET_ABOVE(A) (HAS_ABOVE(A:z) ? get_step(A, UP) : null)
 #define GET_BELOW(A) (HAS_BELOW(A:z) ? get_step(A, DOWN) : null)
 
+#define GET_Z(A) (get_step(A, 0)?.z || 0)
+
 #define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
 
 //Lying animation
@@ -469,3 +480,25 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define COOK_CHECK_EXTRA	0
 #define COOK_CHECK_EXACT	1
 
+// Moved from tanks/tanks.dm
+#define TANK_MAX_RELEASE_PRESSURE 		(3*ONE_ATMOSPHERE)
+#define TANK_DEFAULT_RELEASE_PRESSURE 	24 // kPa
+#define TANK_IDEAL_PRESSURE 			1015 //Arbitrary.
+
+#define STATION_TAG "Aurora"
+
+//Planet habitability class
+#define HABITABILITY_IDEAL  1
+#define HABITABILITY_OKAY  2
+#define HABITABILITY_BAD  3
+
+//Map template flags
+#define TEMPLATE_FLAG_ALLOW_DUPLICATES 1 // Lets multiple copies of the template to be spawned
+#define TEMPLATE_FLAG_SPAWN_GUARANTEED 2 // Makes it ignore away site budget and just spawn (only for away sites)
+#define TEMPLATE_FLAG_CLEAR_CONTENTS   4 // if it should destroy objects it spawns on top of
+#define TEMPLATE_FLAG_NO_RUINS         8 // if it should forbid ruins from spawning on top of it
+
+//Ruin map template flags
+#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it.
+
+#define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets

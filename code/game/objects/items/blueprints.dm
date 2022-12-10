@@ -22,6 +22,8 @@
 	var/const/ROOM_ERR_SPACE = -1
 	var/const/ROOM_ERR_TOOLARGE = -2
 
+	var/list/active_blueprints
+
 /obj/item/blueprints/Initialize(mapload, ...)
 	. = ..()
 	airlock_wires = new(src)
@@ -32,7 +34,41 @@
 		return
 	add_fingerprint(user)
 	interact()
-	return
+
+/obj/item/blueprints/equipped(var/mob/user, var/slot)
+	. = ..()
+	if(slot == slot_l_hand || slot == slot_r_hand)
+		START_PROCESSING(SSprocessing, src)
+		LAZYINITLIST(active_blueprints)
+
+/obj/item/blueprints/dropped(mob/user)
+	. = ..()
+	STOP_PROCESSING(SSprocessing, src)
+	if(user.client)
+		for(var/thing in active_blueprints)
+			user.client.images -= thing
+	LAZYCLEARLIST(active_blueprints)
+
+/obj/item/blueprints/process()
+	var/mob/user = loc
+	if(!istype(user))
+		return PROCESS_KILL
+
+	var/turf/origin_turf = get_turf(src)
+
+	var/list/new_prints = list()
+	for(var/turf/T as anything in RANGE_TURFS(world.view, origin_turf))
+		for(var/image/I as anything in T.blueprints)
+			new_prints += I
+
+	var/list/update_remove = active_blueprints - new_prints
+	active_blueprints = new_prints - update_remove
+
+	for(var/thing in update_remove)
+		user.client.images -= thing
+
+	for(var/thing in active_blueprints)
+		user.client.images += thing
 
 /obj/item/blueprints/Topic(href, href_list)
 	..()

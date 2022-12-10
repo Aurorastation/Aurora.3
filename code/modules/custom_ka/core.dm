@@ -372,7 +372,7 @@
 	accuracy = round(recoil_increase*0.25)
 	accuracy_wielded = accuracy * 0.5
 
-/obj/item/gun/custom_ka/attack_self(mob/user as mob)
+/obj/item/gun/custom_ka/unique_action(mob/user)
 	. = ..()
 
 	if(!wielded)
@@ -394,6 +394,7 @@
 		custom_name = sanitize(input("Enter a custom name for your [name]", "Set Name") as text|null)
 		to_chat(user,"You label \the [name] as \"[custom_name]\"")
 		update_icon()
+		return TRUE
 	else if(I.iswrench())
 		if(installed_upgrade_chip)
 			playsound(src,I.usesound, 50, 0)
@@ -421,6 +422,7 @@
 			update_icon()
 		else
 			to_chat(user,"There is nothing to remove from \the [src].")
+		return TRUE
 	else if(istype(I,/obj/item/custom_ka_upgrade/cells))
 		if(installed_cell)
 			to_chat(user,"There is already \an [installed_cell] installed.")
@@ -432,6 +434,7 @@
 			update_stats()
 			update_icon()
 			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
+		return TRUE
 	else if(istype(I,/obj/item/custom_ka_upgrade/barrels))
 		if(!installed_cell)
 			to_chat(user,"You must install a power cell before installing \the [I].")
@@ -445,6 +448,7 @@
 			update_stats()
 			update_icon()
 			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
+		return TRUE
 	else if(istype(I,/obj/item/custom_ka_upgrade/upgrade_chips))
 		if(!installed_cell || !installed_barrel)
 			to_chat(user,"A barrel and a cell need to be installed before you install \the [I].")
@@ -462,13 +466,17 @@
 			update_stats()
 			update_icon()
 			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
+		return TRUE
 
 	if(installed_cell)
 		installed_cell.attackby(I,user)
+		return TRUE
 	if(installed_barrel)
 		installed_barrel.attackby(I,user)
+		return TRUE
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.attackby(I,user)
+		return TRUE
 
 /obj/item/custom_ka_upgrade //base item
 	name = null //abstract

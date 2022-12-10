@@ -60,6 +60,10 @@
 		dismantle_material.place_sheet(loc)
 	qdel(src)
 
+/obj/structure/bullet_act(obj/item/projectile/P, def_zone)
+	. = ..()
+	bullet_ping(P)
+
 /obj/structure/Initialize(mapload)
 	. = ..()
 	if (!mapload)
@@ -77,7 +81,14 @@
 	set category = "Object"
 	set src in oview(1)
 
-	do_climb(usr)
+	if(can_climb(usr))
+		do_climb(usr)
+
+/obj/structure/handle_middle_mouse_click(mob/user)
+	if(can_climb(user))
+		do_climb(usr)
+		return TRUE
+	return FALSE
 
 /obj/structure/MouseDrop_T(mob/target, mob/user)
 
@@ -120,7 +131,7 @@
 	if (!can_climb(user))
 		return
 
-	usr.visible_message("<span class='warning'>[user] starts climbing onto \the [src]!</span>")
+	user.visible_message(SPAN_WARNING("[user] starts [flags & ON_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
 
 	if(!do_after(user,50))
@@ -130,11 +141,15 @@
 	if (!can_climb(user, post_climb_check=1))
 		LAZYREMOVE(climbers, user)
 		return
+		
+	var/turf/TT = get_turf(src)
+	if(flags & ON_BORDER)
+		TT = get_step(get_turf(src), dir)
+		if(user.loc == TT)
+			TT = get_turf(src)
 
-	usr.forceMove(get_turf(src))
-
-	if (get_turf(user) == get_turf(src))
-		usr.visible_message("<span class='warning'>[user] climbs onto \the [src]!</span>")
+	user.visible_message("<span class='warning'>[user] [flags & ON_BORDER ? "leaps over" : "climbs onto"] \the [src]!</span>")
+	user.forceMove(TT)
 	LAZYREMOVE(climbers, user)
 
 /obj/structure/proc/structure_shaken()
@@ -190,7 +205,7 @@
 		return 0
 	if(!Adjacent(user))
 		return 0
-	if (user.restrained() || user.buckled)
+	if (user.restrained() || user.buckled_to)
 		to_chat(user, "<span class='notice'>You need your hands and legs free for this.</span>")
 		return 0
 	if (user.stat || user.paralysis || user.sleeping || user.lying || user.weakened)

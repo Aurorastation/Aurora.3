@@ -42,7 +42,7 @@
 				SSnightlight.end_temp_disable()
 			if(SEC_LEVEL_RED)
 				if(security_level < SEC_LEVEL_RED)
-					security_announcement_sound.Announce("[config.alert_desc_red_upto]", "Attention! Security level elevated to red!")
+					security_announcement_sound.Announce("[config.alert_desc_red_upto]", "Attention! Security level elevated to red!", new_sound = 'sound/effects/high_alert.ogg')
 					SSnightlight.temp_disable()
 				else
 					security_announcement.Announce("[config.alert_desc_red_downto]", "Attention! Code red!")
@@ -54,10 +54,9 @@
 				SSnightlight.temp_disable()
 
 		var/newlevel = get_security_level()
-		for(var/obj/machinery/firealarm/FA in SSmachinery.processing_machines)
-			if(isContactLevel(FA.z))
-				FA.set_security_level(newlevel)
-
+		for(var/obj/machinery/power/apc/powercontrol in SSmachinery.processing)
+			if(isContactLevel(powercontrol.z))
+				powercontrol.manage_emergency(newlevel)
 
 /proc/get_security_level()
 	switch(security_level)

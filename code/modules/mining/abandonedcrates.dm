@@ -1,9 +1,6 @@
 /obj/structure/closet/crate/secure/loot
 	name = "abandoned crate"
 	desc = "What could be inside?"
-	icon_state = "securecrate"
-	icon_opened = "securecrateopen"
-	icon_closed = "securecrate"
 	var/list/code = list()
 	var/list/lastattempt = list()
 	var/attempts = 15
@@ -118,24 +115,11 @@
 			new /obj/item/material/sword/katana(src)
 		if(93)
 			new /obj/item/dnainjector/xraymut(src) // Probably the least OP
-		if(94) // Why the hell not
-			new /obj/item/storage/backpack/clown(src)
-			new /obj/item/clothing/under/rank/clown(src)
-			new /obj/item/clothing/shoes/clown_shoes(src)
-			new /obj/item/modular_computer/handheld/pda/civilian/clown(src)
-			new /obj/item/clothing/mask/gas/clown_hat(src)
-			new /obj/item/bikehorn(src)
-			new /obj/item/pen/crayon/rainbow(src)
-			new /obj/item/reagent_containers/spray/waterflower(src)
+		if(94)
+			new /obj/item/clothing/suit/space/void/zavodskoi(src)
+			new /obj/item/clothing/head/helmet/space/void/zavodskoi(src)
+			new /obj/item/flag/zavodskoi/l(src)
 		if(95)
-			new /obj/item/clothing/under/mime(src)
-			new /obj/item/clothing/shoes/black(src)
-			new /obj/item/modular_computer/handheld/pda/civilian/mime(src)
-			new /obj/item/clothing/gloves/white(src)
-			new /obj/item/clothing/mask/gas/mime(src)
-			new /obj/item/clothing/head/beret/red(src)
-			new /obj/item/clothing/accessory/suspenders(src)
-			new /obj/item/pen/crayon/mime(src)
 			new /obj/item/reagent_containers/food/drinks/bottle/bottleofnothing(src)
 		if(96)
 			new/obj/item/vampiric(src)
@@ -168,7 +152,8 @@
 	else if(check_input(input))
 		to_chat(user, SPAN_NOTICE("The crate unlocks!"))
 		playsound(user, 'sound/machines/lockreset.ogg', 50, 1)
-		set_locked(FALSE)
+		locked = FALSE
+		update_icon()
 	else
 		visible_message(SPAN_WARNING("A red light on \the [src]'s control panel flashes briefly."))
 		attempts--

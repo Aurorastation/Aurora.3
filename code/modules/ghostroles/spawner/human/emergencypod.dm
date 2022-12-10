@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/rescuepodsurv
 	short_name = "rescuepodsurv"
 	name = "Rescue Pod Survivor"
-	desc = "You managed to get into a rescue pod and landed somewhere on an asteroid."
+	desc = "You managed to get into a rescue pod and landed somewhere on an asteroid in the sector."
 	tags = list("External")
 
 	enabled = FALSE
@@ -10,22 +10,22 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/random/visitor
-	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI)
+	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Pod Survivor"
 	special_role = "Pod Survivor"
 	respawn_flag = null
 
-	mob_name = FALSE
+	mob_name = null
 
 /datum/ghostspawner/human/rescuepodsurv/New()
 	. = ..()
-	var/t = pick(list("star", "priest", "rep", "smuggler", "hunter", "occultist", "pmc"))
+	var/t = pick(list("star", "priest", "rep", "smuggler", "hunter", "occultist", "pmc", "tcfl", "fsf", "scc", "fib"))
 	if(t == "star")
 		welcome_message = "You are a stranded star!<br>You were relaxing comfortably in your cryo pod as tragedy struck - the pilot of your luxury yacht fell asleep under some mysterious circumstances. You were unceremoniously stuffed into an escape pod, and left to wander in space. What a despicable, low-quality plot to get rid of you. Should've chosen murder instead - you certainly know you'll convince someone nice to lend you a shuttle."
 		outfit = /datum/outfit/admin/pod/star
-		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
+		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	else if(t == "priest")
 		welcome_message = "You are a stranded Trinary Perfection priest!<br>You were traveling around space on your small shuttle, preaching peacefully of the future divinity of the synthetics, and the grand purpose of mankind as the ones to help them achieve that goal. Unfortunately, Dominians don't seem to be as peaceful in disagreeing with your views - and had to evacuate your shot-down ship. Have your prayers to the Divines helped you now?"
 		outfit = /datum/outfit/admin/pod/priest
@@ -45,14 +45,31 @@
 		welcome_message = "You are a stranded Eridani paramilitary sergeant!<br>You aren't getting paid enough for this shit. Where's the pickup shuttle?"
 		outfit = /datum/outfit/admin/pod/pmc
 		possible_species = list(SPECIES_HUMAN) // no cycler in the pod, spawns in a voidsuit
+	else if(t == "tcfl")
+		welcome_message = "You are a stranded member of the Tau Ceti Foreign Legion!<br>Perhaps there was a training accident or maybe something went wrong during a routine operation in the Romanovich Cloud. The Prefect will never let you hear the end of this..."
+		outfit = /datum/outfit/admin/pod/tcfl
+		possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA) // TCFL accepts everyone. G1 and G2 have been excluded because they can't wear the hardsuit, which has the suit cooler.
+	else if(t == "fsf")
+		welcome_message = "You are a stranded Petty Officer of the Free Solarian Fleets!<br>Your skiff out of the FSFV Sforza was on a routine patrol when an accident or an attack forced you to abandon ship. Thankfully, you seem to be in friendly territory..."
+		outfit = /datum/outfit/admin/pod/fsf
+		possible_species = list(SPECIES_HUMAN)
+	else if(t == "scc")
+		welcome_message = "You are a stranded Stellar Corporate Conglomerate low-level functionary!<br>A routine inspection of SCC assets in the Romanovich cloud turned into disaster when your shuttle's reactor suddenly and mysteriously failed. You narrowly escaped with your life. Worst of all? You lost your paperwork."
+		outfit = /datum/outfit/admin/pod/scc
+		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	else if(t == "fib")
+		welcome_message = "You are a stranded Federal Investigation Bureau Agent!<br>What was supposed to be a standard investigation turned into a nightmare when the vessel you were supposed to board opened fire! You just managed to reach an escape pod before your own ship was turned into smoldering rubble. You really need some coffee."
+		outfit = /datum/outfit/admin/pod/fib
+		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+
 	else
 		welcome_message = "You are a stranded drugs smuggler!<br>You shouldn't have had the fucking Tajara pilot your ship. <i>Of course</i> we crashed into a rock. Good thing you've got some of the stuff with you while evacuating - maybe you'll crash somewhere you could sell it for a ticket back?"
 		outfit = /datum/outfit/admin/pod/smuggler
-		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI)
+		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_UNATHI)
 
 /datum/ghostspawner/human/rescuepodsurv/select_spawnlocation(var/use=TRUE)
-	//Randomly select a Turf on the asteroid.
-	var/turf/T = pick_area_turf(/area/mine/unexplored)
+	var/list/possible_areas = list(/area/exoplanet/barren/asteroid)
+	var/turf/T = pick_area_turf(pick(possible_areas))
 	if(!use) //If we are just checking if we can get one, return the turf we found
 		return T
 
@@ -88,6 +105,9 @@
 	new /obj/item/pickaxe/drill(H.loc)
 	new /obj/item/device/gps(H.loc)
 	new /obj/item/device/flashlight/flare/mech(H.loc) // spawns an active flare
+	new /obj/item/clothing/suit/space/emergency(H.loc)        // weak softsuit, so if for whatever reason
+	new /obj/item/clothing/head/helmet/space/emergency(H.loc) // the survivor spawns with no EVA gear,
+	new /obj/item/tank/emergency_oxygen/double(H.loc)         // they can use this, and not just die in space
 
 /datum/outfit/admin/pod/star
 	name = "RescuePod - Star"
@@ -132,18 +152,22 @@
 /datum/outfit/admin/pod/rep
 	name = "RescuePod - IdrisRep"
 
-	uniform = /obj/item/clothing/under/rank/idris
+	head = /obj/item/clothing/head/beret/corporate/idris
+	uniform = /obj/item/clothing/under/rank/liaison/idris
+	suit = /obj/item/clothing/suit/storage/liaison/idris
 	id = /obj/item/card/id/idris
 	pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	l_hand =  /obj/item/storage/briefcase
+	accessory = /obj/item/clothing/accessory/tie/corporate/idris
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate/idris
 	backpack_contents = list(
-		/obj/item/clothing/head/beret/centcom/liaison = 1,
 		/obj/item/device/camera = 1,
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/device/oxycandle = 1,
-		/obj/item/airbubble = 1
+		/obj/item/airbubble = 1,
+		/obj/item/stamp/idris = 1
 	)
 
 /datum/outfit/admin/pod/rep/get_id_assignment()
@@ -214,21 +238,137 @@
 
 
 /datum/outfit/admin/pod/pmc
-	name = "RescuePod - EPMC Sergeant"
+	name = "RescuePod - PMCG Sergeant"
 	head = /obj/item/clothing/head/helmet/space/void/cruiser
 	suit = /obj/item/clothing/suit/space/void/cruiser
 	suit_store = /obj/item/tank/oxygen
 	shoes = /obj/item/clothing/shoes/jackboots
-	id = /obj/item/card/id/eridani
+	id = /obj/item/card/id/pmc
 	pda = /obj/item/modular_computer/handheld/pda/security
 	belt = /obj/item/gun/energy/gun/nuclear
-	uniform = /obj/item/clothing/under/rank/security/eridani
+	uniform = /obj/item/clothing/under/rank/security/pmc
 
 /datum/outfit/admin/pod/pmc/get_id_assignment()
-	return "Security Officer (EPMC)"
+	return "Security Officer (PMCG)"
 
 /datum/outfit/admin/pod/pmc/get_id_rank()
 	return "Security Officer"
+
+/datum/outfit/admin/pod/tcfl
+	name = "RescuePod - TCFL Member"
+	head = /obj/item/clothing/head/beret/legion/field
+	l_ear = /obj/item/device/radio/headset/legion
+	glasses = /obj/item/clothing/glasses/sunglasses/aviator
+	suit = /obj/item/clothing/suit/storage/vest/legion
+	suit_store = /obj/item/gun/energy/blaster/carbine
+	back = /obj/item/rig/retro // has an oxygen tank built in
+	belt = /obj/item/storage/belt/security/tactical
+	gloves = /obj/item/clothing/gloves/swat/ert
+	shoes = /obj/item/clothing/shoes/swat/ert
+	id = /obj/item/card/id/distress/legion
+	uniform = /obj/item/clothing/under/legion
+	accessory = /obj/item/clothing/accessory/holster/thigh
+	accessory_contents = list(/obj/item/gun/energy/blaster/revolver = 1)
+	l_hand =  /obj/item/material/twohanded/pike/flag
+	r_hand = /obj/item/storage/backpack/legion
+
+	belt_contents = list(
+		/obj/item/melee/energy/sword/knife = 1,
+		/obj/item/shield/riot/tact/legion = 1,
+		/obj/item/grenade/flashbang = 1,
+		/obj/item/device/flashlight/flare = 1,
+		/obj/item/device/radio = 1
+	)
+
+/datum/outfit/admin/pod/tcfl/get_id_assignment()
+	return "TCFL"
+
+/datum/outfit/admin/pod/tcfl/get_id_rank()
+	return "TCFL"
+
+/datum/outfit/admin/pod/fsf
+	name = "RescuePod - FSF Crewman"
+	uniform = /obj/item/clothing/under/rank/sol/
+	shoes = /obj/item/clothing/shoes/jackboots
+	belt = /obj/item/storage/belt/military
+	back = /obj/item/storage/backpack/satchel
+	head = /obj/item/clothing/head/helmet/space/void/sol
+	suit = /obj/item/clothing/suit/space/void/sol
+	suit_store = /obj/item/tank/oxygen
+	id = /obj/item/card/id/distress/fsf
+	accessory = /obj/item/clothing/accessory/holster/hip/
+	accessory_contents = list(/obj/item/gun/projectile/pistol/sol = 1)
+
+
+	belt_contents = list(
+		/obj/item/melee/energy/sword/knife/sol = 1,
+		/obj/item/ammo_magazine/mc9mm = 1,
+		/obj/item/device/flashlight/flare = 1,
+		/obj/item/device/radio = 1
+	)
+
+	backpack_contents = list(
+		/obj/item/clothing/head/sol = 1
+	)
+
+/datum/outfit/admin/pod/fsf/get_id_assignment()
+	return "Free Solarian Fleets Crewman"
+
+/datum/outfit/admin/pod/fsf/get_id_rank()
+	return "Free Solarian Fleets Crewman"
+
+/datum/outfit/admin/pod/scc
+	name = "RescuePod - SCC"
+
+	uniform = /obj/item/clothing/under/rank/scc
+	back = /obj/item/storage/backpack/satchel/leather
+	shoes = /obj/item/clothing/shoes/laceup
+	glasses = /obj/item/clothing/glasses/sunglasses
+	l_hand =  /obj/item/storage/briefcase
+	accessory = /obj/item/clothing/accessory/holster/hip/
+	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/energy/repeater = 1,
+		/obj/item/device/oxycandle = 1,
+		/obj/item/airbubble = 1
+	)
+
+
+
+/datum/outfit/admin/pod/scc/get_id_assignment()
+	return "Stellar Corporate Conglomerate Functionary"
+
+/datum/outfit/admin/pod/scc/get_id_rank()
+	return "Stellar Corporate Conglomerate Functionary"
+
+/datum/outfit/admin/pod/fib
+	name = "RescuePod - FIB" // Doctor Pavel, I'm FIB.
+
+	uniform = /obj/item/clothing/under/rank/fib
+	shoes = /obj/item/clothing/shoes/laceup
+	gloves = /obj/item/clothing/gloves/black
+	l_pocket = /obj/item/reagent_containers/spray/pepper
+	glasses = /obj/item/clothing/glasses/sunglasses
+	accessory = /obj/item/clothing/accessory/holster/hip
+	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
+	back = /obj/item/storage/backpack/satchel/leather
+	backpack_contents = list(
+    	/obj/item/device/camera = 1,
+		/obj/item/clothing/suit/storage/toggle/fib = 1,
+		/obj/item/handcuffs = 1,
+		/obj/item/device/oxycandle = 1,
+		/obj/item/airbubble = 1,
+		/obj/item/ammo_magazine/c45m = 1
+	)
+
+
+
+/datum/outfit/admin/pod/fib/get_id_assignment()
+	return "Federal Investigation Bureau Agent"
+
+/datum/outfit/admin/pod/fib/get_id_rank()
+	return "Federal Investigation Bureau Agent"
+
 
 /datum/ghostspawner/human/rescuepodsurv/burglar
 	short_name = "burglarpod"
@@ -262,10 +402,12 @@
 	)
 
 	gloves = list(
-		/obj/item/clothing/gloves/watch,
-		/obj/item/clothing/gloves/watch/silver,
-		/obj/item/clothing/gloves/watch/gold,
-		/obj/item/clothing/gloves/watch/spy
+		/obj/item/clothing/wrists/watch,
+		/obj/item/clothing/wrists/watch/silver,
+		/obj/item/clothing/wrists/watch/gold,
+		/obj/item/clothing/wrists/watch/holo,
+		/obj/item/clothing/wrists/watch/leather,
+		/obj/item/clothing/wrists/watch/spy
 	)
 
 	l_pocket = /obj/item/syndie/teleporter
@@ -286,7 +428,6 @@
 		/obj/item/gun/energy/retro,
 		/obj/item/gun/projectile/silenced,
 		/obj/item/gun/projectile/colt,
-		/obj/item/gun/projectile/revolver/deckard,
 		/obj/item/gun/projectile/revolver/lemat
 		)
 
@@ -329,3 +470,5 @@
 	passport.name = "[H.real_name]'s Passport"
 	if(W)
 		W.handle_item_insertion(passport)
+
+	burglars.add_antagonist(H.mind, TRUE, TRUE, FALSE, TRUE, TRUE)

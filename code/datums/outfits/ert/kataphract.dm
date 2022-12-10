@@ -26,6 +26,8 @@
 		/obj/item/storage/box/donkpockets = 1
 	)
 
+	id_iff = IFF_KATAPHRACT
+
 /datum/outfit/admin/ert/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")
@@ -60,7 +62,7 @@
 
 /datum/outfit/admin/ert/kataphract/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
-		var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
+		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 
@@ -82,14 +84,17 @@
 
 	head = /obj/item/clothing/head/helmet/space/void/kataphract/spec
 	suit = /obj/item/clothing/suit/space/void/kataphract/spec
-	belt = /obj/item/storage/belt/medical
+	belt = /obj/item/storage/belt/medical/first_responder/combat
 	l_hand = /obj/item/melee/hammer/powered/hegemony
 
 	belt_contents = list(
-		/obj/item/reagent_containers/hypospray = 1,
-		/obj/item/stack/medical/advanced/bruise_pack = 1,
-		/obj/item/stack/medical/advanced/ointment = 1,
-		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
+		/obj/item/reagent_containers/hypospray/cmo = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
 	backpack_contents = list(
@@ -97,7 +102,10 @@
 		/obj/item/shield/energy/hegemony = 1,
 		/obj/item/storage/box/donkpockets = 1,
 		/obj/item/crowbar = 1,
-		/obj/item/storage/firstaid/adv = 1
+		/obj/item/storage/firstaid/adv = 1,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1
 	)
 
 /datum/outfit/admin/ert/kataphract/specialist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

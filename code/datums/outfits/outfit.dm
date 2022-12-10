@@ -1,10 +1,30 @@
 #define OUTFIT_NOTHING 1
 
 #define OUTFIT_BACKPACK 2
-#define OUTFIT_SATCHEL 3
-#define OUTFIT_SATCHEL_ALT 4
+#define OUTFIT_SATCHEL 3 // the classic grey sling one
+#define OUTFIT_SATCHEL_ALT 4 // the leather bag
 #define OUTFIT_DUFFELBAG 5
 #define OUTFIT_MESSENGERBAG 6
+#define OUTFIT_RUCKSACK 7 // the bay one
+#define OUTFIT_POCKETBOOK 8 // the leather bag but smaller
+
+#define OUTFIT_JOBSPECIFIC 1
+#define OUTFIT_GENERIC 2
+#define OUTFIT_FACTIONSPECIFIC 3
+
+#define OUTFIT_THIN 2
+#define OUTFIT_NORMAL 3
+#define OUTFIT_THICK 4
+
+#define OUTFIT_BLUE 2
+#define OUTFIT_GREEN 3
+#define OUTFIT_NAVY 4
+#define OUTFIT_TAN 5
+#define OUTFIT_KHAKI 6
+#define OUTFIT_BLACK 7
+#define OUTFIT_OLIVE 8
+#define OUTFIT_AUBURN 9
+#define OUTFIT_BROWN 10
 
 #define OUTFIT_TAB_PDA 2
 #define OUTFIT_PDA_OLD 3
@@ -16,6 +36,8 @@
 
 #define OUTFIT_HEADSET 2
 #define OUTFIT_BOWMAN 3
+#define OUTFIT_DOUBLE 4
+#define OUTFIT_WRISTRAD 5
 
 /datum/outfit
 	var/name = "Naked"
@@ -28,6 +50,7 @@
 	var/back = null // Mutually exclusive with and will override backpack choices below. Use for RIGs, tanks, etc.
 	var/belt = null
 	var/gloves = null
+	var/wrist = null
 	var/shoes = null
 	var/head = null
 	var/mask = null
@@ -40,6 +63,14 @@
 	var/accessory = null
 	var/suit_accessory = null
 
+	// species specific item paths, in the form of
+	// thing = list(SPECIES_NAME = /type/path/here)
+	// if no path is found, the default fallback (var without the species_ prefix) will be used
+	var/list/species_head
+	var/list/species_suit
+	var/list/species_gloves
+	var/list/species_shoes
+
 	//The following vars must be paths
 	var/l_hand = null
 	var/r_hand = null
@@ -50,10 +81,19 @@
 	// Must be paths, used to allow player-pref backpack choice
 	var/allow_backbag_choice = FALSE
 	var/backpack = /obj/item/storage/backpack
-	var/satchel = /obj/item/storage/backpack/satchel_norm
-	var/satchel_alt = /obj/item/storage/backpack/satchel
+	var/backpack_faction
+	var/satchel = /obj/item/storage/backpack/satchel
+	var/satchel_faction
+	var/satchel_alt = /obj/item/storage/backpack/satchel/leather
+	var/satchel_alt_faction
 	var/dufflebag = /obj/item/storage/backpack/duffel
+	var/dufflebag_faction
 	var/messengerbag = /obj/item/storage/backpack/messenger
+	var/messengerbag_faction
+	var/rucksack = /obj/item/storage/backpack/rucksack
+	var/rucksack_faction
+	var/pocketbook = /obj/item/storage/backpack/satchel/pocketbook
+	var/pocketbook_faction
 
 	var/allow_pda_choice = FALSE
 	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
@@ -63,6 +103,10 @@
 	var/allow_headset_choice = FALSE
 	var/headset = /obj/item/device/radio/headset
 	var/bowman = /obj/item/device/radio/headset/alt
+	var/double_headset = /obj/item/device/radio/headset/alt/double
+	var/wrist_radio = /obj/item/device/radio/headset/wrist
+
+	var/id_iff = IFF_DEFAULT // when spawning in, the ID will be set to this iff, preventing friendly fire
 
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
@@ -74,28 +118,116 @@
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
 	if(allow_backbag_choice)
-		var/use_job_specific = H.backbag_style == TRUE
 		switch(H.backbag)
 			if (OUTFIT_NOTHING)
 				back = null
 			if (OUTFIT_BACKPACK)
-				back = use_job_specific ? backpack : /obj/item/storage/backpack
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = backpack
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = backpack_faction ? backpack_faction : backpack // some may not have faction specific; fall back on job backpack if needed
 			if (OUTFIT_SATCHEL)
-				back = use_job_specific ? satchel : /obj/item/storage/backpack/satchel_norm
-			if (OUTFIT_SATCHEL_ALT)
-				back = use_job_specific ? satchel_alt : /obj/item/storage/backpack/satchel
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = satchel
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/satchel
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = satchel_faction ? satchel_faction : satchel
+			if (OUTFIT_SATCHEL_ALT) // Leather Satchel
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = satchel_alt
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/satchel/leather
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = satchel_alt_faction ? satchel_alt_faction : satchel_alt
 			if (OUTFIT_DUFFELBAG)
-				back = use_job_specific ? dufflebag : /obj/item/storage/backpack/duffel
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = dufflebag
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/duffel
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = dufflebag_faction ? dufflebag_faction : dufflebag
 			if (OUTFIT_MESSENGERBAG)
-				back = use_job_specific ? messengerbag : /obj/item/storage/backpack/messenger
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = messengerbag
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/messenger
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = messengerbag_faction ? messengerbag_faction : messengerbag
+			if (OUTFIT_RUCKSACK)
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = rucksack
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/rucksack
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = rucksack_faction ? rucksack_faction : rucksack
+			if (OUTFIT_POCKETBOOK)
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = pocketbook
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/satchel/pocketbook
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = pocketbook_faction ? pocketbook_faction : pocketbook
 			else
 				back = backpack //Department backpack
-	if(back)
-		equip_item(H, back, slot_back)
 
-	if(istype(H.back,/obj/item/storage/backpack))
-		var/obj/item/storage/backpack/B = H.back
-		B.autodrobe_no_remove = TRUE
+		if (H.backbag_color >= 2) // if theres a color switch em out for a recolorable one
+			switch (H.backbag)
+				if (OUTFIT_POCKETBOOK)
+					back = /obj/item/storage/backpack/satchel/pocketbook/recolorable
+				if (OUTFIT_RUCKSACK)
+					back = /obj/item/storage/backpack/rucksack/recolorable
+				if (OUTFIT_SATCHEL_ALT)
+					back = /obj/item/storage/backpack/satchel/leather/recolorable
+
+	if(back)
+		var/obj/item/storage/backpack/B = new back(H) //i'll be honest with you - i'm kinda retarded
+		if (H.backbag == OUTFIT_SATCHEL_ALT || H.backbag == OUTFIT_RUCKSACK || H.backbag == OUTFIT_POCKETBOOK)
+			switch (H.backbag_color)
+				if (OUTFIT_NOTHING)
+					B.color = null
+				if (OUTFIT_BLUE)
+					B.color  = "#2f4f81"
+				if (OUTFIT_GREEN)
+					B.color  = "#353727"
+				if (OUTFIT_NAVY)
+					B.color  = "#2a303b"
+				if (OUTFIT_TAN)
+					B.color  = "#524a3e"
+				if (OUTFIT_KHAKI)
+					B.color  = "#baa481"
+				if (OUTFIT_BLACK)
+					B.color  = "#212121"
+				if (OUTFIT_OLIVE)
+					B.color  = "#544f3d"
+				if (OUTFIT_AUBURN)
+					B.color = "#512828"
+				if (OUTFIT_BROWN)
+					B.color = "#3d2711"
+		else
+			B.color = null
+		switch(H.backbag_strap)
+			if(OUTFIT_NOTHING)
+				B.alpha_mask = "hidden"
+			if(OUTFIT_THIN)
+				B.alpha_mask = "thin"
+			if(OUTFIT_NORMAL)
+				B.alpha_mask = "normal"
+			if(OUTFIT_THICK)
+				B.alpha_mask = null
+		if(isvaurca(H, TRUE))
+			H.equip_or_collect(B, slot_r_hand)
+		else
+			H.equip_or_collect(B, slot_back)
 
 	if(allow_headset_choice)
 		switch(H.headset_choice)
@@ -103,15 +235,23 @@
 				l_ear = null
 			if (OUTFIT_BOWMAN)
 				l_ear = bowman
+			if (OUTFIT_DOUBLE)
+				l_ear = double_headset
+			if (OUTFIT_WRISTRAD)
+				l_ear = null
+				wrist = wrist_radio
 			else
 				l_ear = headset //Department headset
 	if(l_ear)
-		equip_item(H, l_ear, slot_l_ear, TRUE)
+		equip_item(H, l_ear, slot_l_ear)
+	else if (wrist)
+		equip_item(H, wrist, slot_wrists)
 
 	return
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
-/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/set_no_remove = FALSE)
+//override_collect temporarily allows equip_or_collect without enabling it for the job. Mostly used to prevent weirdness with hand equips when the player is missing one
+/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE, var/item_color)
 	var/obj/item/I
 
 	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
@@ -126,10 +266,7 @@
 	else
 		I = new path(H) //As fallback treat it as a path
 
-	if(set_no_remove)
-		I.autodrobe_no_remove = TRUE
-
-	if(collect_not_del)
+	if(collect_not_del || override_collect)
 		H.equip_or_collect(I, slot)
 	else
 		H.equip_to_slot_or_del(I, slot)
@@ -179,17 +316,45 @@
 		equip_item(H, uniform, slot_w_uniform)
 		if(accessory)
 			equip_uniform_accessory(H)
-	if(suit)
+	var/got_suit = FALSE
+	if(length(species_suit))
+		var/path = species_suit[H.species.name]
+		if(path)
+			got_suit = TRUE
+			equip_item(H, path, slot_wear_suit)
+			if(suit_accessory)
+				equip_suit_accessory(H)
+	if(suit && !got_suit)
 		equip_item(H, suit, slot_wear_suit)
 		if(suit_accessory)
 			equip_suit_accessory(H)
 	if(belt)
 		equip_item(H, belt, slot_belt)
-	if(gloves)
+	var/got_gloves = FALSE
+	if(length(species_gloves))
+		var/path = species_gloves[H.species.name]
+		if(path)
+			got_gloves = TRUE
+			equip_item(H, path, slot_gloves)
+	if(gloves && !got_gloves)
 		equip_item(H, gloves, slot_gloves)
-	if(shoes)
+	if(wrist)
+		equip_item(H, wrist, slot_wrists)
+	var/got_shoes = FALSE
+	if(length(species_shoes))
+		var/path = species_shoes[H.species.name]
+		if(path)
+			got_shoes = TRUE
+			equip_item(H, path, slot_shoes)
+	if(shoes && !got_shoes)
 		equip_item(H, shoes, slot_shoes)
-	if(head)
+	var/got_head = FALSE
+	if(length(species_head))
+		var/path = species_head[H.species.name]
+		if(path)
+			got_head = TRUE
+			equip_item(H, path, slot_head)
+	if(head && !got_head)
 		equip_item(H, head, slot_head)
 	if(mask)
 		equip_item(H, mask, slot_wear_mask)
@@ -203,10 +368,22 @@
 	if(suit_store)
 		equip_item(H, suit_store, slot_s_store)
 
+	//Hand equips. If person is missing an arm or hand it attempts to put it in the other hand.
+	//Override_collect should attempt to collect any items that can't be equipped regardless of collect_not_del settings for the outfit.
 	if(l_hand)
-		H.put_in_l_hand(new l_hand(H))
+		var/obj/item/organ/external/O
+		O = H.organs_by_name[BP_L_HAND]
+		if(!O || !O.is_usable())
+			equip_item(H, l_hand, slot_r_hand, override_collect = TRUE)
+		else
+			equip_item(H, l_hand, slot_l_hand, override_collect = TRUE)
 	if(r_hand)
-		H.put_in_r_hand(new r_hand(H))
+		var/obj/item/organ/external/O
+		O = H.organs_by_name[BP_R_HAND]
+		if(!O || !O.is_usable())
+			equip_item(H, r_hand, slot_l_hand, override_collect = TRUE)
+		else
+			equip_item(H, r_hand, slot_r_hand, override_collect = TRUE)
 
 	if(allow_pda_choice)
 		switch(H.pda_choice)
@@ -222,23 +399,23 @@
 	if(pda && !visualsOnly)
 		var/obj/item/I = new pda(H)
 		switch(H.pda_choice)
+			if(OUTFIT_TAB_PDA)
+				I.desc_extended += "For its many years of service, this model has held a virtual monopoly for PDA models for NanoTrasen. The secret? A lapel pin affixed to the back."
 			if(OUTFIT_PDA_OLD)
 				I.icon = 'icons/obj/pda_old.dmi'
+				I.desc_extended += "Nicknamed affectionately as the 'Brick', PDA enthusiasts rejoice with the return of an old favorite, retrofitted to new modular computing standards."
 			if(OUTFIT_PDA_RUGGED)
 				I.icon = 'icons/obj/pda_rugged.dmi'
+				I.desc_extended += "EVA enthusiasts and owners of fat fingers just LOVE the huge tactile buttons provided by this model. Prone to butt-dialing, but don't let that hold you back."
 			if(OUTFIT_PDA_SLATE)
 				I.icon = 'icons/obj/pda_slate.dmi'
+				I.desc_extended += "A bet between an engineer and a disgruntled scientist, it turns out you CAN make a PDA out of an atmospherics scanner. Also, probably don't tell management, just enjoy."
 			if(OUTFIT_PDA_SMART)
 				I.icon = 'icons/obj/pda_smart.dmi'
+				I.desc_extended += "NanoTrasen originally designed this as a portable media player. Unfortunately, Royalty-free and corporate-approved ukulele isn't particularly popular."
 		I.update_icon()
-		H.equip_or_collect(I, slot_wear_id)
-
-	if(id)
-		var/obj/item/modular_computer/P = H.wear_id
-		var/obj/item/I = new id(H)
-		imprint_idcard(H,I)
-		if(istype(P) && P.card_slot)
-			addtimer(CALLBACK(src, .proc/register_pda, P, I), 1 SECOND)
+		if (H.pda_choice == OUTFIT_WRISTBOUND)
+			H.equip_or_collect(I, slot_wrists)
 		else
 			H.equip_or_collect(I, slot_wear_id)
 
@@ -256,6 +433,15 @@
 			var/number = belt_contents[path]
 			for(var/i in 1 to number)
 				H.equip_or_collect(new path(H), slot_in_belt)
+
+		if(id)
+			var/obj/item/modular_computer/P = H.wear_id
+			var/obj/item/I = new id(H)
+			imprint_idcard(H,I)
+			if(istype(P) && P.card_slot)
+				addtimer(CALLBACK(src, .proc/register_pda, P, I), 2 SECOND)
+			else
+				H.equip_or_collect(I, slot_wear_id)
 
 	post_equip(H, visualsOnly)
 
@@ -284,6 +470,27 @@
 	H.update_body()
 	return 1
 
+// this proc takes all the scattered voidsuit pieces and reassembles them into one piece
+/datum/outfit/proc/organize_voidsuit(mob/living/carbon/human/H, var/add_magboots = TRUE)
+	var/obj/item/tank/T = H.s_store
+	H.unEquip(T, TRUE)
+
+	var/obj/item/clothing/suit/space/void/VS = H.wear_suit
+	H.unEquip(VS, TRUE)
+
+	var/obj/item/clothing/head/helmet/VH = H.head
+	H.unEquip(VH, TRUE, VS)
+	VS.helmet = VH
+
+	T.forceMove(VS)
+	VS.tank = T
+
+	if(add_magboots)
+		var/obj/item/clothing/shoes/magboots/M = new /obj/item/clothing/shoes/magboots(VH)
+		VS.boots = M
+
+	H.equip_to_slot_if_possible(VS, slot_wear_suit)
+
 /datum/outfit/proc/apply_fingerprints(mob/living/carbon/human/H)
 	if(!istype(H))
 		return
@@ -305,6 +512,8 @@
 		H.shoes.add_fingerprint(H, 1)
 	if(H.gloves)
 		H.gloves.add_fingerprint(H, 1)
+	if(H.wrists)
+		H.wrists.add_fingerprint(H, 1)
 	if(H.l_ear)
 		H.l_ear.add_fingerprint(H, 1)
 	if(H.r_ear)
@@ -349,7 +558,7 @@
 	. = GetAssignment(H)
 
 	if (. && . != "Unassigned" && H?.mind?.selected_faction)
-		if (!H.mind.selected_faction.is_default && H.mind.selected_faction.title_suffix)
+		if (H.mind.selected_faction.title_suffix)
 			. += " ([H.mind.selected_faction.title_suffix])"
 
 /datum/outfit/proc/get_id_rank(mob/living/carbon/human/H)

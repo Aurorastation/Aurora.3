@@ -18,14 +18,14 @@
 	if(drive)
 		add_overlay("paperscanner-drive")
 
-/obj/item/paper_scanner/AltClick(mob/living/carbon/user)
+/obj/item/paper_scanner/AltClick(mob/living/user)
 	if(!drive)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have a drive installed."))
 		return
 	if(!istype(user))
 		to_chat(user, SPAN_WARNING("You're too simple to work \the [src]."))
 		return
-	if(user.l_hand == src || user.r_hand == src)
+	if(user.l_hand == src || user.r_hand == src || issilicon(user))
 		to_chat(user, SPAN_NOTICE("You eject \the [drive]."))
 		user.put_in_hands(drive)
 		drive = null
@@ -37,13 +37,14 @@
 	if(istype(W, /obj/item/computer_hardware/hard_drive/portable))
 		if(drive)
 			to_chat(user, SPAN_WARNING("\The [src] already has a drive installed!"))
-			return
+			return TRUE
 		to_chat(user, SPAN_NOTICE("You insert \the [W] into \the [src]."))
 		user.drop_from_inventory(W, src)
 		drive = W
 		update_icon()
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/paper_scanner/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(proximity_flag && (istype(target, /obj/item/paper) || istype(target, /obj/item/paper_bundle)))

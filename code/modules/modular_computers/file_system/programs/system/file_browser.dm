@@ -4,6 +4,7 @@
 	filedesc = "NTOS File Manager"
 	extended_desc = "This program allows management of files."
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
 	color = LIGHT_COLOR_GREEN
 	size = 2
 	requires_ntnet = FALSE
@@ -120,15 +121,21 @@
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if(!HDD)
 			return TRUE
-		var/datum/computer_file/data/F = HDD.find_file_by_name(open_file)
-		if(!F || !istype(F))
-			return TRUE
 		if(!computer.nano_printer)
 			error = "Missing Hardware: Your computer does not have required hardware to complete this operation."
 			return TRUE
-		if(!computer.nano_printer.print_text(F.stored_data))
-			error = "Hardware error: Printer was unable to print the file. It may be out of paper."
+		var/datum/computer_file/data/F = HDD.find_file_by_name(open_file)
+		var/datum/computer_file/script/S = F
+		if(!F)
 			return TRUE
+		if(istype(F))
+			if(!computer.nano_printer.print_text(F.stored_data))
+				error = "Hardware error: Printer was unable to print the file. It may be out of paper."
+				return TRUE
+		else if(istype(S))
+			if(!computer.nano_printer.print_text(S.code))
+				error = "Hardware error: Printer was unable to print the file. It may be out of paper."
+				return TRUE
 	if(href_list["PRG_copytousb"])
 		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
@@ -226,14 +233,20 @@
 		data["error"] = PRG.error
 	if(PRG.open_file)
 		var/datum/computer_file/data/file
+		var/datum/computer_file/script/script
 
 		if(!PRG.computer || !PRG.computer.hard_drive)
 			data["error"] = "I/O ERROR: Unable to access hard drive."
 		else
 			HDD = PRG.computer.hard_drive
 			file = HDD.find_file_by_name(PRG.open_file)
+			script = file
 			if(!istype(file))
-				data["error"] = "I/O ERROR: Unable to open file."
+				if(!istype(script))
+					data["error"] = "I/O ERROR: Unable to open file."
+				else
+					data["scriptdata"] = html_encode(script.code)
+					data["filename"] = "[script.filename].[script.filetype]"
 			else
 				data["filedata"] = pencode2html(file.stored_data)
 				data["filename"] = "[file.filename].[file.filetype]"

@@ -118,7 +118,7 @@
 /proc/ipintel_handle_error(error, ip, retryed)
 	if (retryed)
 		SSipintel.errors++
-		error += " Could not check [ip]. Disabling IPINTEL for [SSipintel.errors] minute[( SSipintel.errors == 1 ? "" : "s" )]"
+		error += " Could not check [ip]. Disabling IPINTEL for [SSipintel.errors] minute\s"
 		SSipintel.throttle = world.timeofday + (10 * 120 * SSipintel.errors)
 	else
 		error += " Attempting retry on [ip]."

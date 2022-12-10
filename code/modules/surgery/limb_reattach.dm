@@ -17,12 +17,12 @@
 	var/obj/item/organ/external/E = tool
 	if(E?.parent_organ)
 		var/obj/item/organ/external/P = target.organs_by_name[E.parent_organ]
-		if(!P || P.is_stump() || (BP_IS_ROBOTIC(P) && !BP_IS_ROBOTIC(E)))
+		if(!P || P.is_stump() || !P.supports_children || (BP_IS_ROBOTIC(P) && !BP_IS_ROBOTIC(E)))
 			return FALSE // Parent organ non-existant or unsuitable
 	return !isnull(organ_data)
 
 /decl/surgery_step/limb/attach
-	name = "Replace limb"
+	name = "Replace Limb"
 	allowed_tools = list(/obj/item/organ/external = 100)
 
 	min_duration = 50
@@ -50,7 +50,7 @@
 	target.apply_damage(10, BRUTE, null, damage_flags = DAM_EDGE)
 
 /decl/surgery_step/limb/connect
-	name = "Connect limb"
+	name = "Connect Limb"
 	allowed_tools = list(
 	/obj/item/surgery/hemostat = 100,	\
 	/obj/item/stack/cable_coil = 75, 	\
@@ -92,7 +92,7 @@
 	target.apply_damage(10, BRUTE, null, damage_flags = DAM_SHARP)
 
 /decl/surgery_step/limb/mechanize
-	name = "Attach prosthetic limb"
+	name = "Attach Prosthetic Limb"
 	allowed_tools = list(/obj/item/robot_parts = 100)
 
 	min_duration = 80

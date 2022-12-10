@@ -6,11 +6,12 @@
 	desc = "A small bottle."
 	icon = 'icons/obj/chemical.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
 		)
 	icon_state = null
 	item_state = "bottle"
+	filling_states = "20;40;60;80;100"
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	flags = 0
@@ -34,31 +35,27 @@
 /obj/item/reagent_containers/glass/bottle/Initialize()
 	. = ..()
 	if(!icon_state)
-		icon_state = "bottle-[rand(1,4)]"
+		icon_state = "bottle-[rand(1,6)]"
 
 	update_icon()
 
-/obj/item/reagent_containers/glass/bottle/update_icon()
+/obj/item/reagent_containers/glass/bottle/update_icon() // You know, bottles should be a subtype of beakers. But not gonna change a million and one paths today. - Wezzy.
 	cut_overlays()
 
-	if(reagents.total_volume && (icon_state == "bottle-1" || icon_state == "bottle-2" || icon_state == "bottle-3" || icon_state == "bottle-4"))
-		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]10")
-
-		var/percent = round((reagents.total_volume / volume) * 100)
-		switch(percent)
-			if(0 to 9)		filling.icon_state = "[icon_state]--10"
-			if(10 to 24) 	filling.icon_state = "[icon_state]-10"
-			if(25 to 49)	filling.icon_state = "[icon_state]-25"
-			if(50 to 74)	filling.icon_state = "[icon_state]-50"
-			if(75 to 79)	filling.icon_state = "[icon_state]-75"
-			if(80 to 90)	filling.icon_state = "[icon_state]-80"
-			if(91 to INFINITY)	filling.icon_state = "[icon_state]-100"
-
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-	if (!is_open_container())
-		add_overlay("lid_bottle")
+	if(!is_open_container())
+		var/lid_icon = "lid_[icon_state]"
+		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
+		add_overlay(lid)
+
+	if(label_text)
+		var/label_icon = "label_[icon_state]"
+		var/mutable_appearance/label = mutable_appearance(icon, label_icon)
+		add_overlay(label)
 
 /obj/item/reagent_containers/glass/bottle/inaprovaline
 	name = "inaprovaline bottle"
@@ -126,6 +123,12 @@
 	icon_state = "bottle-4"
 	reagents_to_add = list(/decl/reagent/acid/polyacid = 60)
 
+/obj/item/reagent_containers/glass/bottle/nitroglycerin
+	name = "nitroglycerin bottle"
+	desc = "A small bottle. Contains a small amount of Nitroglycerin."
+	icon_state = "bottle-4"
+	reagents_to_add = list(/decl/reagent/nitroglycerin = 60)
+
 /obj/item/reagent_containers/glass/bottle/adminordrazine
 	name = "adminordrazine bottle"
 	desc = "A small bottle. Contains the liquid essence of the gods."
@@ -175,6 +178,12 @@
 	icon_state = "bottle-3"
 	reagents_to_add = list(/decl/reagent/coughsyrup = 60)
 
+/obj/item/reagent_containers/glass/bottle/coagzolug
+	name = "coagzolug bottle"
+	desc = "A small bottle of coagzolug. A medication that encourages the coagulation of blood, slowing down any bleeding. Overdose causes damage to the heart."
+	icon_state = "bottle-3"
+	reagents_to_add = list(/decl/reagent/coagzolug = 60)
+
 /obj/item/reagent_containers/glass/bottle/thetamycin
 	name = "thetamycin bottle"
 	desc = "A small bottle of thetamycin. Used for disinfecting whatever wounds security caused."
@@ -186,6 +195,12 @@
 	desc = "A small bottle. Contains bicaridine - treats damaged tissues."
 	icon_state = "bottle-1"
 	reagents_to_add = list(/decl/reagent/bicaridine = 60)
+
+/obj/item/reagent_containers/glass/bottle/butazoline
+	name = "butazoline bottle"
+	desc = "A small bottle. Contains butazoline - treats damaged tissues."
+	icon_state = "bottle-1"
+	reagents_to_add = list(/decl/reagent/butazoline = 60)
 
 /obj/item/reagent_containers/glass/bottle/dermaline
 	name = "dermaline bottle"
@@ -210,3 +225,9 @@
 	desc = "A small bottle. Contains perconol - treats minor-moderate pain as a result of physical injury."
 	icon_state = "bottle-3"
 	reagents_to_add = list(/decl/reagent/perconol = 60)
+
+/obj/item/reagent_containers/glass/bottle/hyronalin
+	name = "hyronalin bottle"
+	desc = "A small bottle. Contains hyronalin - treats mild moderate radiation poisoning."
+	icon_state = "bottle-4"
+	reagents_to_add = list(/decl/reagent/hyronalin = 60)

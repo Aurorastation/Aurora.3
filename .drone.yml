@@ -9,7 +9,7 @@ clone:
 environment:
   MACRO_COUNT: 0
   GENDER_COUNT: 6
-  TO_WORLD_COUNT: 206
+  TO_WORLD_COUNT: 209
 
 trigger:
   branch:
@@ -20,8 +20,6 @@ steps:
     image: python:3.6-slim-buster
     commands:
       - pip install --user -r ./tools/requirements.txt
-      - pip install --user PyYaml -q # Why is that shit not in the requirements
-      - pip install --user beautifulsoup4 -q # Same here
       - chmod +x ./scripts/code_check.sh && ./scripts/code_check.sh $PWD
       - awk -f tools/indentation.awk **/*.dm
       - python3 tools/TagMatcher/tag-matcher.py ../..
@@ -33,13 +31,44 @@ steps:
     image: aurorastation/dm-buildimage:latest
     commands:
       - /opt/dreamchecker
+  - name: "Restore NPM Cache"
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: sftp_server
+      port:
+        from_secret: sftp_port
+      username:
+        from_secret: sftp_user
+      password:
+        from_secret: sftp_pass
+      path: /upload/nodecache
+      mount:
+        - vueui/node_modules
+      restore: true
   - name: "Vue - Lint and Compile"
     image: node:10-buster
     commands:
       - cd vueui
-      - npm install # TODO: Cache that shit
+      - npm install
       - (npm run lint | tee lint.log)
+      - grep "No lint errors found!" lint.log
       - npm run build
+  - name: "Rebuild NPM Cache"
+    image: appleboy/drone-sftp-cache
+    settings:
+      server:
+        from_secret: sftp_server
+      port:
+        from_secret: sftp_port
+      username:
+        from_secret: sftp_user
+      password:
+        from_secret: sftp_pass
+      path: /upload/nodecache
+      mount:
+        - vueui/node_modules
+      rebuild: true
 ---
 kind: pipeline
 type: docker
@@ -88,6 +117,9 @@ kind: pipeline
 type: docker
 name: dm-aurora
 
+node:
+  k: y
+
 clone:
   depth: 50
 
@@ -111,34 +143,7 @@ steps:
       - (! grep "runtime error:" log.txt)
       - echo "Unit Tests Completed"
 ---
-kind: pipeline
-type: docker
-name: dm-exodus
-
-clone:
-  depth: 50
-
-environment:
-  USE_MAP: exodus
-
-trigger:
-  branch:
-  - master #avoid double builds on PRs
-
-steps:
-  - name: "Exodus - Compile and Run Unit Tests"
-    image: aurorastation/dm-buildimage:latest
-    commands:
-      - export LD_LIBRARY_PATH=./:$PWD:$HOME/.byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
-      - cp config/example/* config/ && cp config/ut/config-nodb.txt config/config.txt
-      - scripts/dm.sh -DUNIT_TEST -M$USE_MAP aurorastation.dme
-      - grep "0 warnings" build_log.txt
-      - DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
-      - grep "All Unit Tests Passed" log.txt
-      - (! grep "runtime error:" log.txt)
-      - echo "Unit Tests Completed"
----
 kind: signature
-hmac: 21286f11eaa90a42d926886ecc2df9312ad174051f5f42b51d4394cc578ae0ee
+hmac: aa5f81d300bb1f01656d04254a788970d593b10792ac97b91161ec95ce622b1a
 
 ...

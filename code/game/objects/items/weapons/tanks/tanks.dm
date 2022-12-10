@@ -1,16 +1,9 @@
-#define TANK_MAX_RELEASE_PRESSURE (3*ONE_ATMOSPHERE)
-#define TANK_DEFAULT_RELEASE_PRESSURE 24
-#define TANK_IDEAL_PRESSURE 1015 //Arbitrary.
-
 /obj/item/tank
 	name = "tank"
 	icon = 'icons/obj/tank.dmi'
+	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/gascan.ogg'
 	pickup_sound = 'sound/items/pickup/gascan.ogg'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_tank.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_tank.dmi',
-		)
 
 	var/gauge_icon = "indicator_tank"
 	var/last_gauge_pressure
@@ -31,6 +24,7 @@
 	var/volume = 70
 	var/manipulated_by = null		//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
 						//If they have and we haven't scanned it with a computer or handheld gas analyzer then we might just breath whatever they put in it.
+
 /obj/item/tank/Initialize()
 	. = ..()
 
@@ -39,6 +33,7 @@
 	air_contents.temperature = T20C
 
 	START_PROCESSING(SSprocessing, src)
+	adjust_initial_gas()
 	update_gauge()
 
 /obj/item/tank/Destroy()
@@ -74,9 +69,6 @@
 
 /obj/item/tank/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if (istype(src.loc, /obj/item/assembly))
-		icon = src.loc
-
 	if ((istype(W, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
 		var/obj/item/device/analyzer/A = W
 		A.analyze_gases(src, user)
@@ -230,6 +222,9 @@
 		update_gauge()
 	check_status()
 
+/obj/item/tank/proc/adjust_initial_gas()
+	return
+
 /obj/item/tank/proc/update_gauge()
 	var/gauge_pressure = 0
 	if(air_contents)
@@ -246,6 +241,12 @@
 	cut_overlays()
 	// SSoverlay will handle icon caching.
 	add_overlay("[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]")
+
+/obj/item/tank/proc/percent()
+	var/gauge_pressure = 0
+	if(air_contents)
+		gauge_pressure = air_contents.return_pressure()
+	return 100.0*gauge_pressure/TANK_IDEAL_PRESSURE
 
 /obj/item/tank/proc/check_status()
 	//Handle exploding, leaking, and rupturing of the tank

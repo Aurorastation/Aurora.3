@@ -286,6 +286,8 @@ em						{font-style: normal;	font-weight: bold;}
 .centradio				{color: #5C5C8A;}
 .airadio				{color: #FF00FF;}
 .entradio				{color: #bd893c;}
+.hailradio				{color: #7331c4;}
+.shipradio				{color: #738465;}
 
 .secradio				{color: #A30000;}
 .engradio				{color: #A66300;}
@@ -325,6 +327,7 @@ h1.alert, h2.alert		{color: #000080;}
 .vaurca					{color: #9e9e39;}
 .soghun					{color: #228B22;}
 .solcom					{color: #22228B;}
+.elyran					{color: #c79322;}
 .soghun_alt				{color: #024402;}
 .changeling				{color: #800080;}
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
@@ -332,6 +335,8 @@ h1.alert, h2.alert		{color: #000080;}
 .yassa					{color: #400987;}
 .delvahhi				{color: #5E2612; font-weight: bold;}
 .siiktau				{color: #A52A2A;}
+.freespeak				{color: #FF4500; font-family: "Trebuchet MS", cursive, sans-serif;}
+.tradeband				{color: #5C16C6; font-family: Georgia, Verdana, sans-serif;}
 
 .interface				{color: #750e75;}
 

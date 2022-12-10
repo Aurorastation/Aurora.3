@@ -10,17 +10,17 @@
 /obj/item/storage/firstaid
 	name = "first-aid kit"
 	desc = "It's an emergency medical kit for those serious boo-boos."
+	icon = 'icons/obj/storage/firstaid.dmi'
 	icon_state = "firstaid"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
+	item_state = "firstaid"
+	contained_sprite = TRUE
 	center_of_mass = list("x" = 13,"y" = 10)
 	throw_speed = 2
 	throw_range = 8
 	var/empty = 0
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+	use_sound = 'sound/items/storage/briefcase.ogg'
 
 /obj/item/storage/firstaid/fill()
 	if (empty) return
@@ -29,8 +29,8 @@
 /obj/item/storage/firstaid/fire
 	name = "fire first-aid kit"
 	desc = "It's an emergency medical kit for when the toxins lab <i>-spontaneously-</i> burns down."
-	icon_state = "ointment"
-	item_state = "ointment"
+	icon_state = "firefirstaid"
+	item_state = "firefirstaid"
 	starts_with = list(
 		/obj/item/reagent_containers/pill/kelotane = 3,
 		/obj/item/stack/medical/ointment = 2,
@@ -40,22 +40,23 @@
 
 /obj/item/storage/firstaid/fire/fill()
 	. = ..()
-	icon_state = pick("ointment","firefirstaid")
+	icon_state = pick("firefirstaid","firefirstaid2","firefirstaid3")
 
 /obj/item/storage/firstaid/regular
 	icon_state = "firstaid"
 	starts_with = list(
-		/obj/item/stack/medical/bruise_pack = 3,
+		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/device/healthanalyzer = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1
 	)
 
 /obj/item/storage/firstaid/toxin
 	name = "toxin first aid"
 	desc = "Used to treat when you have a high amount of toxins in your body."
-	icon_state = "antitoxin"
-	item_state = "antitoxin"
+	icon_state = "antitoxinfirstaid"
+	item_state = "antitoxinfirstaid"
 	starts_with = list(
 		/obj/item/reagent_containers/syringe/dylovene = 3,
 		/obj/item/reagent_containers/pill/antitox = 3,
@@ -64,18 +65,22 @@
 
 /obj/item/storage/firstaid/toxin/fill()
 	. = ..()
-	icon_state = pick("antitoxin","antitoxfirstaid","antitoxfirstaid2","antitoxfirstaid3")
+	icon_state = pick("antitoxfirstaid","antitoxfirstaid2","antitoxfirstaid3")
 
 /obj/item/storage/firstaid/o2
 	name = "oxygen deprivation kit"
 	desc = "A box full of oxygen related goodies."
-	icon_state = "o2"
-	item_state = "o2"
+	icon_state = "o2firstaid"
+	item_state = "o2firstaid"
 	starts_with = list(
 		/obj/item/reagent_containers/inhaler/dexalin = 4,
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
 		/obj/item/device/breath_analyzer = 1
 	)
+
+/obj/item/storage/firstaid/o2/fill()
+	. = ..()
+	icon_state = pick("o2firstaid","o2firstaid2","o2firstaid3")
 
 /obj/item/storage/firstaid/adv
 	name = "advanced first-aid kit"
@@ -88,6 +93,10 @@
 		/obj/item/stack/medical/advanced/ointment = 2,
 		/obj/item/stack/medical/splint = 1
 	)
+
+/obj/item/storage/firstaid/adv/fill()
+	. = ..()
+	icon_state = pick("advfirstaid","advfirstaid2","advfirstaid3")
 
 /obj/item/storage/firstaid/combat
 	name = "combat medical kit"
@@ -109,7 +118,6 @@
 	desc = "Contains tools for surgery. Has precise foam fitting for safe transport."
 	icon_state = "purplefirstaid"
 	item_state = "purplefirstaid"
-	use_sound = 'sound/items/storage/briefcase.ogg'
 	starts_with = list(
 		/obj/item/surgery/bonesetter = 1,
 		/obj/item/surgery/cautery = 1,
@@ -118,16 +126,17 @@
 		/obj/item/surgery/retractor = 1,
 		/obj/item/surgery/scalpel = 1,
 		/obj/item/surgery/surgicaldrill = 1,
-		/obj/item/surgery/bonegel = 1,
-		/obj/item/surgery/FixOVein = 1,
+		/obj/item/surgery/bone_gel = 1,
+		/obj/item/surgery/fix_o_vein = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/reagent_containers/inhaler/soporific = 2
 	)
 
 /obj/item/storage/firstaid/surgery/fill()
 	..()
-	if (!empty)
+	if(!empty)
 		make_exact_fit()
+	icon_state = pick("purplefirstaid","purplefirstaid2","purplefirstaid3")
 
 /obj/item/storage/firstaid/brute
 	name = "brute aid kit"
@@ -140,6 +149,24 @@
 		/obj/item/reagent_containers/pill/bicaridine = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1,
 		/obj/item/device/healthanalyzer = 1
+	)
+
+/obj/item/storage/firstaid/brute/fill()
+	..()
+	icon_state = pick("brute","brute2","brute3")
+
+/obj/item/storage/firstaid/marooning_equipment
+	name = "marooning first aid kit"
+	desc = "A first aid kit for marooned personnel."
+	starts_with = list(
+		/obj/item/stack/medical/bruise_pack = 2,
+		/obj/item/stack/medical/ointment = 2,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/reagent_containers/pill/bicaridine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1,
+		/obj/item/storage/pill_bottle/perconol = 1
 	)
 
 /*
@@ -157,7 +184,7 @@
 	item_state = "pill_canister"
 	center_of_mass = list("x" = 16,"y" = 12)
 	w_class = ITEMSIZE_SMALL
-	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/dice,/obj/item/paper)
+	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/stack/dice,/obj/item/paper)
 	allow_quick_gather = 1
 	use_to_pickup = 1
 	use_sound = 'sound/items/storage/pillbottle.ogg'
@@ -241,7 +268,7 @@ obj/item/storage/pill_bottle/butazoline
 	starts_with = list(/obj/item/reagent_containers/pill/perconol = 7)
 
 /obj/item/storage/pill_bottle/minaphobin
-	name = "bottle of 5u Minaphobin pills"
+	name = "bottle of 2u Minaphobin pills"
 	desc = "Contains pills used to treat anxiety disorders and depression."
 	starts_with = list(/obj/item/reagent_containers/pill/minaphobin = 7)
 
@@ -249,3 +276,41 @@ obj/item/storage/pill_bottle/butazoline
 	name = "bottle of 15u RMT pills"
 	desc = "Contains pills used to remedy the effects of prolonged zero-gravity adaptations. Do not exceed 30u dosage."
 	starts_with = list(/obj/item/reagent_containers/pill/rmt = 10) // 10x 15u RMT pills will last 4 hours.
+
+/obj/item/storage/pill_bottle/corophenidate
+	name = "bottle of 2u Corophenidate pills"
+	desc = "Contains pills used to improve the ability to concentrate."
+	starts_with = list(/obj/item/reagent_containers/pill/corophenidate = 3)
+
+/obj/item/storage/pill_bottle/emoxanyl
+	name = "bottle of 2u Emoxanyl pills"
+	desc = "Contains pills used to treat anxiety disorders, depression and epilepsy."
+	starts_with = list(/obj/item/reagent_containers/pill/emoxanyl = 3)
+
+/obj/item/storage/pill_bottle/minaphobin/small
+	starts_with = list(/obj/item/reagent_containers/pill/minaphobin = 3)
+
+/obj/item/storage/pill_bottle/nerospectan
+	name = "bottle of 2u Nerospectan pills"
+	desc = "Contains pills used to treat a large variety of disorders including tourette, depression, anxiety and psychoses."
+	starts_with = list(/obj/item/reagent_containers/pill/nerospectan = 3)
+
+/obj/item/storage/pill_bottle/neurapan
+	name = "bottle of 2u Neurapan pills"
+	desc = "Contains pills used to treat large variety of disorders including tourette, depression, anxiety and psychoses."
+	starts_with = list(/obj/item/reagent_containers/pill/neurapan= 3)
+
+/obj/item/storage/pill_bottle/neurostabin
+	name = "bottle of 2u Neurostabin pills"
+	desc = "Contains pills used to treat psychoses and muscle weakness."
+	starts_with = list(/obj/item/reagent_containers/pill/neurostabin = 3)
+
+/obj/item/storage/pill_bottle/orastabin
+	name = "bottle of 2u Orastabin pills"
+	desc = "Contains pills used to treat anxiety disorders and speech impediments."
+	starts_with = list(/obj/item/reagent_containers/pill/orastabin = 3)
+
+/obj/item/storage/pill_bottle/parvosil
+	name = "bottle of 2u Parvosil pills"
+	desc = "Contains pills used to treat anxiety disorders such as phobias and social anxiety."
+	starts_with = list(/obj/item/reagent_containers/pill/parvosil = 3)

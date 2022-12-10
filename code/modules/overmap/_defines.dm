@@ -20,6 +20,9 @@ var/global/list/map_sectors = list()
 
 /turf/unsimulated/map/Initialize(mapload)
 	. = ..()
+
+	icon_state = "map_[rand(1,6)]"
+
 	name = "[x]-[y]"
 	var/list/numbers = list()
 

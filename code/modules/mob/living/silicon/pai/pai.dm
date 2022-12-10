@@ -25,8 +25,10 @@
 		"Cat" = "cat",
 		"Rat" = "rat",
 		"Monkey" = "monkey",
-		"Rabbit" = "rabbit"
-
+		"Rabbit" = "rabbit",
+		"Parrot" = "parrot",
+		"Fox" = "fox",
+		"Schlorrgo" = "schlorrgo"
 		)
 
 	var/global/list/pai_holder_types = list(
@@ -34,7 +36,10 @@
 		"Cat" = /obj/item/holder/pai/cat,
 		"Rat" = /obj/item/holder/pai/rat,
 		"Monkey" = /obj/item/holder/pai/monkey,
-		"Rabbit" = /obj/item/holder/pai/rabbit
+		"Rabbit" = /obj/item/holder/pai/rabbit,
+		"Parrot" = /obj/item/holder/pai/parrot,
+		"Fox" = /obj/item/holder/pai/fox,
+		"Schlorrgo" = /obj/item/holder/pai/schlorrgo
 		)
 
 	var/global/list/possible_say_verbs = list(
@@ -171,6 +176,7 @@
 	//Default languages without universal translator software
 
 	add_language(LANGUAGE_SOL_COMMON, 1)
+	add_language(LANGUAGE_ELYRAN_STANDARD, 1)
 	add_language(LANGUAGE_TRADEBAND, 1)
 	add_language(LANGUAGE_GUTTER, 1)
 	add_language(LANGUAGE_EAL, 1)
@@ -200,16 +206,13 @@
 
 
 /mob/living/silicon/pai/LateLogin()
-	greet()
-	..()
-
-/mob/living/silicon/pai/proc/greet()
-
-	if (!greeted)
+	if(!greeted)
 		// Basic intro text.
-		to_chat(src, "<span class='danger'><font size=3>You are a Personal AI!</font></span>")
-		to_chat(src, "<span class='notice'>You are a small artificial intelligence contained inside a portable tablet, and you are bound to a master. Your primary directive is to serve them and follow their instructions, follow this prime directive above all others. Check your Software interface to spend ram on programs that can help, and unfold your chassis to take a holographic form and move around the world.</span>")
+		to_chat(src, SPAN_DANGER("<font size=3>You are a Personal AI!</font>"))
+		to_chat(src, SPAN_NOTICE("You are a small artificial intelligence contained inside a portable tablet, and you are bound to a master. Your primary directive is to serve them and follow their instructions, follow this prime directive above all others. Check your Software interface to spend ram on programs that can help, and unfold your chassis to take a holographic form and move around the world."))
+		playsound(usr, 'sound/effects/pai/pai_login.ogg', 75)
 		greeted = 1
+	..()
 
 // this function shows the information about being silenced as a pAI in the Status panel
 /mob/living/silicon/pai/proc/show_silenced()
@@ -244,7 +247,7 @@
 	if(prob(20))
 		var/turf/T = get_turf_or_move(src.loc)
 		for (var/mob/M in viewers(T))
-			M.show_message("<span class='warning'>A shower of sparks spray from [src]'s inner workings.</span>", 3, "<span class='warning'>You hear and smell the ozone hiss of electrical sparks being expelled violently.</span>", 2)
+			M.show_message(SPAN_WARNING("A shower of sparks spray from [src]'s inner workings."), 3, SPAN_WARNING("You hear and smell the ozone hiss of electrical sparks being expelled violently."), 2)
 		return src.death(0)
 
 	switch(pick(1,2,3))
@@ -349,6 +352,7 @@
 	var/turf/T = get_turf(src)
 	if(loud && istype(T))
 		T.visible_message(SPAN_NOTICE("<b>[src]</b> folds outwards, expanding into a mobile form."))
+		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 	canmove = TRUE
 	resting = FALSE
 
@@ -371,18 +375,17 @@
 	set category = "pAI Commands"
 	set name = "Choose Chassis"
 
-	var/choice
-	var/finalized = "No"
-	while(finalized == "No" && src.client)
-		set_custom_sprite()
-		choice = input(usr,"What would you like to use for your mobile chassis icon? This decision can only be made once.") as null|anything in possible_chassis
-		if(!choice) return
+	var/list/options = list()
+	for(var/i in possible_chassis)
+		var/image/radial_button = image(icon = src.icon, icon_state = possible_chassis[i])
+		options[i] = radial_button
+	var/choice = show_radial_menu(src, recursive_loc_turf_check(src), options, radius = 42, tooltips = TRUE)
+	if(!choice)
+		return
+	icon_state = possible_chassis[choice]
+	holder_type = pai_holder_types[choice]
+	chassis = icon_state
 
-		icon_state = possible_chassis[choice]
-		holder_type = pai_holder_types[choice]
-		finalized = alert("Look at your sprite. Is this what you wish to use?",,"No","Yes")
-
-	chassis = possible_chassis[choice]
 	verbs -= /mob/living/silicon/pai/proc/choose_chassis
 	verbs += /mob/living/proc/hide
 
@@ -424,7 +427,7 @@
 	else
 		resting = !resting
 		icon_state = resting ? "[chassis]_rest" : "[chassis]"
-		to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
+		to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]."))
 
 	canmove = !resting
 
@@ -445,15 +448,15 @@
 		return
 
 	if(W.force)
-		visible_message("<span class='danger'>[user.name] attacks [src] with [W]!</span>")
+		visible_message(SPAN_DANGER("[user.name] attacks [src] with [W]!"))
 		src.adjustBruteLoss(W.force)
 		src.updatehealth()
 	else
-		visible_message("<span class='warning'>[user.name] bonks [src] harmlessly with [W].</span>")
+		visible_message(SPAN_WARNING("[user.name] bonks [src] harmlessly with [W]."))
 
 /mob/living/silicon/pai/AltClick(mob/user as mob)
 	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return
-	visible_message("<span class='danger'>[user.name] boops [src] on the head.</span>")
+	visible_message(SPAN_DANGER("[user.name] boops [src] on the head."))
 	close_up()
 
 //I'm not sure how much of this is necessary, but I would rather avoid issues.
@@ -465,7 +468,9 @@
 		return
 
 	var/turf/T = get_turf(src)
-	if(istype(T)) T.visible_message("<b>[src]</b> neatly folds inwards, compacting down to a rectangular card.")
+	if(istype(T))
+		T.visible_message("<b>[src]</b> neatly folds inwards, compacting down to a rectangular card.")
+		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 
 	src.stop_pulling()
 	if (client)
@@ -518,12 +523,12 @@
 	if(istype(AM,/obj/item))
 		var/obj/item/O = AM
 		if(O.w_class > can_pull_size)
-			to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+			to_chat(src, SPAN_WARNING("You are too small to pull that."))
 			return
 		else
 			..()
 	else
-		to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+		to_chat(src, SPAN_WARNING("You are too small to pull that."))
 		return
 
 /mob/living/silicon/pai/UnarmedAttack(atom/A, proximity)
@@ -536,7 +541,7 @@
 	if(stat || sleeping || paralysis || weakened)
 		return
 
-	var/selection = input(src, "Choose an icon for you card.") in pai_emotions
+	var/selection = input(src, "Choose an icon for your card.") in pai_emotions
 	card.setEmotion(pai_emotions[selection])
 
 /mob/living/silicon/pai/set_respawn_time()

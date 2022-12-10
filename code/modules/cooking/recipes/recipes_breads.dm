@@ -61,6 +61,15 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/flatbread
 
+/decl/recipe/moroz_flatbread
+	appliance = OVEN
+	fruit = list ("tomato" = 1)
+	reagents = list(/decl/reagent/sodiumchloride = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
+	)
+	result = /obj/item/reagent_containers/food/snacks/moroz_flatbread
+
 /decl/recipe/meatbread
 	appliance = OVEN
 	items = list(
@@ -141,6 +150,39 @@
 //================================
 // Toasts and Toasted Sandwiches
 //================================
+/decl/recipe/toast // Needs to be here otherwise it fucking kills itself
+	appliance = SKILLET
+	reagents = list(/decl/reagent/nutriment/triglyceride = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/toast
+
+/decl/recipe/slimetoast_alt
+	appliance = MIX
+	reagents = list(/decl/reagent/slimejelly = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/toast
+	)
+	result = /obj/item/reagent_containers/food/snacks/jelliedtoast/slime
+
+/decl/recipe/jelliedtoast_alt
+	appliance = MIX
+	reagents = list(/decl/reagent/nutriment/cherryjelly = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/toast
+	)
+	result = /obj/item/reagent_containers/food/snacks/jelliedtoast/cherry
+
+/decl/recipe/pbtoast_alt
+	appliance = MIX
+	reagents = list(/decl/reagent/nutriment/peanutbutter = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/toast
+	)
+	result = /obj/item/reagent_containers/food/snacks/pbtoast
+
 /decl/recipe/slimetoast
 	appliance = SKILLET
 	reagents = list(/decl/reagent/slimejelly = 5)
@@ -157,6 +199,14 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/jelliedtoast/cherry
 
+/decl/recipe/pbtoast
+	appliance = SKILLET
+	reagents = list(/decl/reagent/nutriment/peanutbutter = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/pbtoast
+
 /decl/recipe/toastedsandwich
 	appliance = SKILLET
 	items = list(
@@ -172,3 +222,21 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/grilledcheese
+
+/decl/recipe/egginthebasket
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/egg,
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/egginthebasket
+
+/decl/recipe/garlicbread
+	appliance = SKILLET | OVEN
+	reagents = list(/decl/reagent/nutriment/garlicsauce = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spreads/butter,
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE // Yeah that butter though
+	result = /obj/item/reagent_containers/food/snacks/garlicbread

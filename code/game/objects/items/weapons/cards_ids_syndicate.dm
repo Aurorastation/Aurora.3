@@ -2,6 +2,9 @@
 	name = "agent card"
 	assignment = "Agent"
 	origin_tech = list(TECH_ILLEGAL = 3)
+	iff_faction = IFF_SYNDICATE
+	can_copy_access = TRUE
+	access_copy_msg = "The microscanner activates as you pass it over the ID, copying its access."
 	var/charge = 10000
 	var/electronic_warfare = FALSE
 	var/image/obfuscation_image
@@ -37,14 +40,6 @@
 /obj/item/card/id/syndicate/prevent_tracking()
 	return electronic_warfare
 
-/obj/item/card/id/syndicate/afterattack(var/obj/item/O as obj, mob/user as mob, proximity)
-	if(!proximity) return
-	if(istype(O, /obj/item/card/id))
-		var/obj/item/card/id/I = O
-		src.access |= I.access
-		if(player_is_antag(user.mind))
-			to_chat(user, "<span class='notice'>The microscanner activates as you pass it over the ID, copying its access.</span>")
-
 /obj/item/card/id/syndicate/attack_self(mob/user as mob)
 	// We use the fact that registered_name is not unset should the owner be vaporized, to ensure the id doesn't magically become unlocked.
 	if(!registered_user && register_user(user))
@@ -70,6 +65,9 @@
 	entries[++entries.len] = list("name" = "Name", 				"value" = registered_name)
 	entries[++entries.len] = list("name" = "Photo", 			"value" = "Update")
 	entries[++entries.len] = list("name" = "Sex", 				"value" = sex)
+	entries[++entries.len] = list("name" = "Citizenship",		"value" = citizenship)
+	entries[++entries.len] = list("name" = "Religion",			"value" = religion)
+	entries[++entries.len] = list("name" = "Faction",			"value" = employer_faction)
 	entries[++entries.len] = list("name" = "Factory Reset",		"value" = "Use With Care")
 	data["electronic_warfare"] = electronic_warfare
 	data["entries"] = entries
@@ -220,12 +218,31 @@
 					src.sex = new_sex
 					to_chat(user, "<span class='notice'>Sex changed to '[new_sex]'.</span>")
 					. = 1
+			if("Citizenship")
+				var/new_citizenship = sanitize(input(user,"Which citizenship would you like to put on this card?","Agent Card Citizenship", citizenship) as null|text)
+				if(!isnull(new_citizenship) && CanUseTopic(user,state))
+					src.citizenship = new_citizenship
+					to_chat(user, SPAN_NOTICE("Citizenship changed to '[new_citizenship]'."))
+					. = 1
+			if("Religion")
+				var/new_religion = sanitize(input(user,"What religion would you like to put on this card?","Agent Card Religion", religion) as null|text)
+				if(!isnull(new_religion) && CanUseTopic(user,state))
+					src.religion = new_religion
+					to_chat(user, SPAN_NOTICE("Religion changed to '[new_religion]'."))
+					. = 1
+			if("Faction")
+				var/new_faction = sanitize(input(user,"Which faction would you like to put on this card?","Agent Card Faction", employer_faction) as null|text)
+				if(!isnull(new_faction) && CanUseTopic(user,state))
+					src.employer_faction = new_faction
+					to_chat(user, SPAN_NOTICE("Faction changed to '[new_faction]'."))
+					. = 1
 			if("Factory Reset")
 				if(alert("This will factory reset the card, including access and owner. Continue?", "Factory Reset", "No", "Yes") == "Yes" && CanUseTopic(user, state))
 					age = initial(age)
 					access = syndicate_access.Copy()
 					assignment = initial(assignment)
 					blood_type = initial(blood_type)
+					citizenship = initial(citizenship)
 					dna_hash = initial(dna_hash)
 					electronic_warfare = initial(electronic_warfare)
 					fingerprint_hash = initial(fingerprint_hash)
@@ -233,7 +250,9 @@
 					name = initial(name)
 					registered_name = initial(registered_name)
 					unset_registered_user()
+					religion = initial(religion)
 					sex = initial(sex)
+					employer_faction = initial(employer_faction)
 					to_chat(user, "<span class='notice'>All information has been deleted from \the [src].</span>")
 					. = 1
 

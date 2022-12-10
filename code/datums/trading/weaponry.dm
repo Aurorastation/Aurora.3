@@ -25,9 +25,10 @@
 		/obj/item/gun/projectile/shotgun/doublebarrel = TRADER_ALL,
 		/obj/item/gun/projectile/tanto                = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/revolver/detective   = TRADER_THIS_TYPE,
-		/obj/item/gun/projectile/revolver/deckard     = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/leyon                = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic/x9         = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/automatic/rifle/carbine = TRADER_ALL,
+		/obj/item/ammo_magazine/a556/carbine 			 = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/c45m                         = TRADER_ALL,
 		/obj/item/ammo_magazine/c45m/empty                   = TRADER_BLACKLIST,
 		/obj/item/ammo_magazine/mc10mm                       = TRADER_ALL,
@@ -35,7 +36,7 @@
 		/obj/item/ammo_magazine/mc10mm/empty                 = TRADER_BLACKLIST,
 		/obj/item/storage/box/ammo10mm                = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/c38                          = TRADER_ALL,
-		/obj/item/ammo_magazine/c45x                         = TRADER_THIS_TYPE,
+		/obj/item/ammo_magazine/c45m/auto                         = TRADER_THIS_TYPE,
 		/obj/item/storage/box/beanbags                = TRADER_THIS_TYPE,
 		/obj/item/storage/box/shotgunammo             = TRADER_THIS_TYPE,
 		/obj/item/storage/box/shotgunshells           = TRADER_THIS_TYPE,
@@ -70,10 +71,12 @@
 		/obj/item/gun/energy/xray                  = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/rifle                 = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/rifle/laser           = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/rifle/laser/noctiluca = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/gun                   = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/pistol                = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/gun/nuclear           = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/laser/shotgun         = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/freeze                = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster              = TRADER_ALL,
 		/obj/item/clothing/accessory/holster/thigh/fluff  = TRADER_BLACKLIST_ALL
 	)
@@ -83,6 +86,7 @@
 	origin = "Comrade Sergei's Humble Shop"
 	speech = list(
 		"hail_generic"      = "Grrreetings, comrrrade! Sergei hopes they can enjoy his selection of goods, nothing herrre was smuggled!",
+		"hail_Tajara"       = "Welcome, comrrrade. He has the best prrrices forr them!",
 		"hail_deny"         = "The shop is closed, comrrrade!",
 		"trade_complete"    = "Many thanks, comrrrade, enjoy it!",
 		"trade_blacklist"   = "No, no, nothing of this in his shop!",
@@ -94,6 +98,8 @@
 		"insult_good"       = "Good one, comrrrade!",
 		"insult_bad"        = "Rrrracist!"
 	)
+
+	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
 	possible_trading_items = list(
 		/obj/item/gun/projectile/shotgun/pump/rifle           = TRADER_ALL,
@@ -117,6 +123,7 @@
 		/obj/item/gun/projectile/deagle/adhomai               = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/revolver/adhomian            = TRADER_THIS_TYPE,
 		/obj/item/gun/launcher/harpoon                        = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/recoilless_rifle             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/shotgun/foldable             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic/rifle/adhomian     = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/revolver/knife               = TRADER_THIS_TYPE
@@ -127,7 +134,7 @@
 	name = "Tactical Gear Shop Employee"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Tactical Gear Shop"
-	possible_origins = list("Mall Ninja. Co.", "Hephaestus Defense Supplies", "Tacticool Emporium", "The Redshirt", "The Harmbaton")
+	possible_origins = list("Hephaestus Defense Supplies", "Tacticool Emporium", "The Redshirt", "The Harmbaton", "Zavodskoi Interstellar Defense Supplies")
 	speech = list(
 		"hail_generic"      = "Welcome to ORIGIN, you will find everything you need to stay safe.",
 		"hail_deny"         = "We refuse to make business with you.",
@@ -143,9 +150,9 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/clothing/suit/armor/riot                        = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/armor/bulletproof                 = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/armor/laserproof                  = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/carrier/riot                        = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/carrier/ballistic                 = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/carrier/ablative                  = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/armor/tactical                    = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/storage/vest                      = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet                            = TRADER_THIS_TYPE,
@@ -161,5 +168,6 @@
 		/obj/item/clothing/mask/gas/tactical                      = TRADER_THIS_TYPE,
 		/obj/item/shield/riot/tact                         = TRADER_THIS_TYPE,
 		/obj/item/storage/belt/security/tactical           = TRADER_THIS_TYPE,
+		/obj/item/storage/belt/medical/first_responder/combat	 = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/storage/bandolier            = TRADER_THIS_TYPE
 	)

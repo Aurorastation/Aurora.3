@@ -70,13 +70,13 @@ obj/structure/windoor_assembly/Destroy()
 	//I really should have spread this out across more states but thin little windoors are hard to sprite.
 	switch(state)
 		if("01")
-			if(W.iswelder() && !anchored )
+			if(W.iswelder() && !anchored)
 				var/obj/item/weldingtool/WT = W
-				if (WT.remove_fuel(0,user))
+				if (WT.use(0,user))
 					user.visible_message("[user] dissassembles the windoor assembly.", "You start to dissassemble the windoor assembly.")
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 
-					if(do_after(user, 40/W.toolspeed))
+					if(W.use_tool(src, user, 40, volume = 50))
 						if(!src || !WT.isOn()) return
 						to_chat(user, "<span class='notice'>You dissasembled the windoor assembly!</span>")
 						new /obj/item/stack/material/glass/reinforced(get_turf(src), 5)
@@ -89,10 +89,9 @@ obj/structure/windoor_assembly/Destroy()
 
 			//Wrenching an unsecure assembly anchors it in place. Step 4 complete
 			if(W.iswrench() && !anchored)
-				playsound(src.loc, W.usesound, 100, 1)
 				user.visible_message("[user] secures the windoor assembly to the floor.", "You start to secure the windoor assembly to the floor.")
 
-				if(do_after(user, 40/W.toolspeed))
+				if(W.use_tool(src, user, 40, volume = 50))
 					if(!src) return
 					to_chat(user, "<span class='notice'>You've secured the windoor assembly!</span>")
 					src.anchored = 1
@@ -103,10 +102,9 @@ obj/structure/windoor_assembly/Destroy()
 
 			//Unwrenching an unsecure assembly un-anchors it. Step 4 undone
 			else if(W.iswrench() && anchored)
-				playsound(src.loc, W.usesound, 100, 1)
 				user.visible_message("[user] unsecures the windoor assembly to the floor.", "You start to unsecure the windoor assembly to the floor.")
 
-				if(do_after(user, 40/W.toolspeed))
+				if(W.use_tool(src, user, 40, volume = 50))
 					if(!src) return
 					to_chat(user, "<span class='notice'>You've unsecured the windoor assembly!</span>")
 					src.anchored = 0
@@ -123,7 +121,7 @@ obj/structure/windoor_assembly/Destroy()
 					return
 				to_chat(user, "<span class='notice'>You start to reinforce the windoor with rods.</span>")
 
-				if(do_after(user,40/W.toolspeed) && !secure)
+				if(W.use_tool(src, user, 40, volume = 50) && !secure)
 					if (R.use(4))
 						to_chat(user, "<span class='notice'>You reinforce the windoor.</span>")
 						src.secure = "secure_"
@@ -137,7 +135,7 @@ obj/structure/windoor_assembly/Destroy()
 				user.visible_message("[user] wires the windoor assembly.", "You start to wire the windoor assembly.")
 
 				var/obj/item/stack/cable_coil/CC = W
-				if(do_after(user, 40/W.toolspeed))
+				if(W.use_tool(src, user, 40, volume = 50))
 					if (CC.use(1))
 						to_chat(user, "<span class='notice'>You wire the windoor!</span>")
 						src.state = "02"
@@ -155,7 +153,7 @@ obj/structure/windoor_assembly/Destroy()
 				playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 				user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
-				if(do_after(user, 40/W.toolspeed))
+				if(W.use_tool(src, user, 40, volume = 50))
 					if(!src) return
 
 					to_chat(user, "<span class='notice'>You cut the windoor wires.!</span>")
@@ -185,10 +183,9 @@ obj/structure/windoor_assembly/Destroy()
 
 			//Screwdriver to remove airlock electronics. Step 6 undone.
 			else if(W.isscrewdriver() && src.electronics)
-				playsound(src.loc, W.usesound, 100, 1)
 				user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to uninstall electronics from the airlock assembly.")
 
-				if(do_after(user, 40/W.toolspeed))
+				if(W.use_tool(src, user, 40, volume = 50))
 					if(!src || !src.electronics) return
 					to_chat(user, "<span class='notice'>You've removed the airlock electronics!</span>")
 					if(src.secure)
@@ -205,10 +202,9 @@ obj/structure/windoor_assembly/Destroy()
 					to_chat(usr, "<span class='warning'>The assembly is missing electronics.</span>")
 					return
 				usr << browse(null, "window=windoor_access")
-				playsound(src.loc, W.usesound, 100, 1)
 				user.visible_message("[user] pries the windoor into the frame.", "You start prying the windoor into the frame.")
 
-				if(do_after(user, 40/W.toolspeed))
+				if(W.use_tool(src, user, 40, volume = 50))
 
 					if(!src) return
 

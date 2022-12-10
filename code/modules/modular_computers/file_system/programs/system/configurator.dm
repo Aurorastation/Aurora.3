@@ -7,6 +7,7 @@
 	filedesc = "Hardware Configuration Tool"
 	extended_desc = "This program allows configuration of the computer's hardware."
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
 	color = LIGHT_COLOR_GREEN
 	unsendable = TRUE
 	undeletable = TRUE
@@ -33,7 +34,7 @@
 	if(headerdata)
 		data["_PC"] = headerdata
 		. = data
-	
+
 	if(!computer)
 		return
 
@@ -60,6 +61,12 @@
 		if(data["brightness"])
 			var/new_brightness = Clamp(0, data["brightness"]/10, 1)
 			computer.flashlight.tweak_brightness(new_brightness)
+
+	VUEUI_SET_CHECK_IFNOTSET(data["message_range"], computer.message_output_range, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["max_message_range"], initial(computer.message_output_range) + 3, ., data)
+
+	if(data["message_range"])
+		computer.message_output_range = clamp(data["message_range"], 0, initial(computer.message_output_range) + 3)
 
 	LAZYINITLIST(data["hardware"])
 	for(var/obj/item/computer_hardware/H in hardware)

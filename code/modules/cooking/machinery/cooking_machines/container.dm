@@ -29,7 +29,7 @@
 
 /obj/item/reagent_containers/cooking_container/proc/get_content_info()
 	var/string = "It contains:</br><ul><li>"
-	string += jointext(contents, "</li></br><li>") + "</li></ul>"
+	string += jointext(contents, "</li><li>") + "</li></ul>"
 	return string
 
 /obj/item/reagent_containers/cooking_container/proc/get_reagent_info()
@@ -239,7 +239,8 @@
 	icon_state = "grill_grate"
 	appliancetype = GRILL
 	insertable = list(
-		/obj/item/reagent_containers/food/snacks/meat
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/xenomeat
 	)
 
 /obj/item/reagent_containers/cooking_container/grill_grate/can_fit()
@@ -257,6 +258,11 @@
 	volume = 15 // for things like jelly sandwiches etc
 	max_space = 25
 
+/obj/item/reagent_containers/cooking_container/plate/examine(mob/user)
+	. = ..()
+	if(length(contents) || reagents?.total_volume)
+		to_chat(user, SPAN_NOTICE("To attempt cooking; click and hold, then drag this onto your character"))
+
 /obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
 	if(over_obj != usr || use_check(usr))
 		return ..()
@@ -265,7 +271,7 @@
 	var/decl/recipe/recipe = select_recipe(src, appliance = appliancetype)
 	if(!recipe)
 		return
-	var/list/results = recipe.make_food(src)
+	var/list/obj/results = recipe.make_food(src)
 	var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
 	for (var/result in results)
 		var/atom/movable/AM = result
@@ -284,6 +290,14 @@
 		var/obj/item/reagent_containers/food/snacks/R = r
 		R.forceMove(src) //Move everything from the buffer back to the container
 
+	var/l = length(results)
+	if (l && usr)
+		var/name = results[1].name
+		if (l > 1)
+			to_chat(usr, SPAN_NOTICE("You made some [pluralize_word(name, TRUE)]!"))
+		else
+			to_chat(usr, SPAN_NOTICE("You made [name]!"))
+
 	QDEL_NULL(temp) //delete buffer object
 	return ..()
 
@@ -293,9 +307,38 @@
 	desc = "A bowl. You bowl foods... wait, what?"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mixingbowl"
+	filling_states = "-10;10;25;50;75;80;100"
 	center_of_mass = list("x" = 17,"y" = 7)
 	max_space = 30
 	matter = list(DEFAULT_WALL_MATERIAL = 300)
 	volume = 180
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,180)
+
+
+/obj/item/reagent_containers/cooking_container/plate/bowl/on_reagent_change()
+	update_icon()
+
+
+/obj/item/reagent_containers/cooking_container/plate/bowl/pickup(mob/user)
+	..()
+	update_icon()
+
+
+/obj/item/reagent_containers/cooking_container/plate/bowl/dropped(mob/user)
+	..()
+	update_icon()
+
+
+/obj/item/reagent_containers/cooking_container/plate/bowl/attack_hand()
+	..()
+	update_icon()
+
+
+/obj/item/reagent_containers/cooking_container/plate/bowl/update_icon()
+	cut_overlays()
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state][get_filling_state()]")
+		filling.color = reagents.get_color()
+		add_overlay(filling)
+

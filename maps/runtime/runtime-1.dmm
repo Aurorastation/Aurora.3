@@ -143,7 +143,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "as" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
 	icon_state = "radiation";
@@ -244,6 +244,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering)
+"aE" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/shuttle/runtime)
 "aF" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -274,7 +278,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "aH" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/gravity_gen)
 "aI" = (
@@ -357,6 +361,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "aR" = (
@@ -383,6 +388,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Gravity Generator"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "aU" = (
@@ -446,6 +452,7 @@
 	c_tag = "Engineering - Engine Airlock";
 	dir = 4
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "be" = (
@@ -488,6 +495,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "bj" = (
@@ -515,6 +523,7 @@
 	c_tag = "Engineering - Technical Storage";
 	dir = 1
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/engineering)
 "bm" = (
@@ -551,13 +560,14 @@
 "bq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/engineering,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "br" = (
 /turf/simulated/wall/r_wall,
 /area/bridge)
 "bs" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/bridge)
 "bt" = (
@@ -571,6 +581,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering)
 "bv" = (
@@ -602,7 +613,7 @@
 	locked = 0;
 	pixel_y = 23
 	},
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bz" = (
@@ -645,7 +656,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bE" = (
-/obj/structure/table/standard,
+/obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bF" = (
@@ -667,10 +678,11 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bI" = (
-/obj/structure/closet/secure_closet/hop,
+/obj/structure/closet/secure_closet/xo,
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bJ" = (
@@ -767,11 +779,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "bU" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "bV" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
 "bW" = (
@@ -810,7 +822,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bZ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -854,7 +866,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "cd" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -914,6 +926,7 @@
 /area/hallway/secondary/entry)
 "cj" = (
 /obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry)
 "ck" = (
@@ -968,6 +981,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"cq" = (
+/obj/machinery/power/apc,
+/turf/simulated/wall/r_wall,
+/area/shuttle/runtime)
 "cr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
@@ -976,10 +993,12 @@
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "ct" = (
 /obj/machinery/door/airlock/glass,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cu" = (
@@ -1157,10 +1176,11 @@
 /area/construction)
 "cN" = (
 /obj/machinery/door/airlock/glass,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/construction)
 "cO" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/construction)
 "cP" = (
@@ -1180,6 +1200,7 @@
 /area/storage/primary)
 "cS" = (
 /obj/machinery/door/airlock/glass,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "cT" = (
@@ -1346,6 +1367,7 @@
 /area/construction)
 "dr" = (
 /obj/machinery/door/airlock,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "ds" = (
@@ -1357,14 +1379,8 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"dt" = (
-/obj/effect/landmark/start,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "du" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/force_spawnpoint,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "dv" = (
@@ -1425,6 +1441,12 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"dH" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/runtime)
 "eI" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor 1";
@@ -1432,11 +1454,21 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"eQ" = (
+/obj/machinery/atmospherics/binary/pump,
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
+"fq" = (
+/obj/machinery/computer/shuttle_control/explore/runtime,
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
+"fX" = (
+/turf/template_noop,
+/area/space)
 "gF" = (
 /obj/machinery/light{
 	dir = 4
@@ -1444,7 +1476,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "ie" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -1491,6 +1523,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering)
+"lV" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/phoron,
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
 "mn" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1505,6 +1542,12 @@
 /obj/machinery/computer/security,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"nB" = (
+/obj/machinery/atmospherics/binary/pump/high_power/on{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "ob" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -1518,6 +1561,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"pv" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/overmap/visitable/ship/runtime,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "pM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1537,6 +1589,10 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"qx" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/r_wall,
+/area/shuttle/runtime)
 "tT" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1546,6 +1602,12 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"uA" = (
+/obj/machinery/atmospherics/pipe/tank/phoron{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "uI" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
@@ -1555,6 +1617,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
+"vm" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/template_noop,
+/area/engineering)
 "wk" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1562,6 +1633,21 @@
 /obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"wL" = (
+/obj/effect/shuttle_landmark/runtime/hangar,
+/obj/machinery/computer/ship/engines,
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
+"xb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
+"xv" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "yC" = (
 /obj/structure/lattice,
 /obj/machinery/power/terminal{
@@ -1569,6 +1655,10 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"yE" = (
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
 "zP" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor 2";
@@ -1576,9 +1666,12 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"zQ" = (
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "Bd" = (
@@ -1589,8 +1682,24 @@
 /area/construction)
 "Ct" = (
 /obj/machinery/door/airlock/glass,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"Eu" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/r_wall,
+/area/maintenance/maintcentral)
+"EN" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
+"ES" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/shipsensors,
+/turf/template_noop,
+/area/engineering)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/recharge_station,
@@ -1604,6 +1713,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"Gr" = (
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Chief Engineer";
+	name = "force spawnpoint (CE)"
+	},
+/turf/simulated/floor/tiled,
+/area/storage/primary)
+"Hn" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
 "HB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -1632,6 +1754,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
+"In" = (
+/obj/machinery/computer/ship/helm,
+/turf/simulated/floor/tiled,
+/area/bridge)
+"IY" = (
+/obj/machinery/computer/ship/engines,
+/turf/simulated/floor/plating,
+/area/storage/primary)
+"Jx" = (
+/obj/machinery/computer/ship/helm,
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
+"JW" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
 "Kz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 4
@@ -1642,6 +1782,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
+"KE" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "Ly" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1658,6 +1802,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"Qe" = (
+/turf/simulated/wall/r_wall,
+/area/shuttle/runtime)
+"Qn" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
+/area/shuttle/runtime)
+"QV" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/plating,
+/area/storage/primary)
+"Ro" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "RL" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1668,12 +1832,21 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /obj/machinery/computer/station_alert/all,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"Tq" = (
+/obj/effect/overmap/visitable/ship/landable/runtime,
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
+"TD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "TP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1698,10 +1871,38 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"UP" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/plating,
+/area/storage/primary)
+"Vm" = (
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
+"WH" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/construction)
 "WS" = (
 /obj/turbolift_map_holder/runtime,
 /turf/simulated/floor/plating,
 /area/turbolift/main_station)
+"XQ" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 8
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry)
+"Yc" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/template_noop)
 "YP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1709,8 +1910,35 @@
 /obj/item/modular_computer/console/preset/command/captain,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"YR" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
+"ZE" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/engineering)
+"ZH" = (
+/obj/structure/fuel_port/phoron,
+/turf/simulated/wall/r_wall,
+/area/shuttle/runtime)
 
 (1,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -1737,16 +1965,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
 aa
 aa
 aa
@@ -1765,6 +1993,19 @@ aa
 aa
 "}
 (2,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -1791,16 +2032,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cK
+de
+de
+de
+de
+de
+de
+de
+de
+cK
 aa
 aa
 aa
@@ -1819,6 +2060,19 @@ aa
 aa
 "}
 (3,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -1845,16 +2099,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cK
+de
+Qe
+Qe
+Qe
+Qe
+Qe
+Qe
+de
+cK
 aa
 aa
 aa
@@ -1873,6 +2127,19 @@ aa
 aa
 "}
 (4,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -1899,16 +2166,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cK
+de
+qx
+Vm
+lV
+eQ
+Hn
+Qn
+de
+cK
 aa
 aa
 aa
@@ -1927,6 +2194,19 @@ aa
 aa
 "}
 (5,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -1952,17 +2232,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Yc
+cK
+de
+Qe
+Vm
+Jx
+wL
+EN
+dH
+de
+cK
 aa
 aa
 aa
@@ -1981,6 +2261,19 @@ aa
 aa
 "}
 (6,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2007,16 +2300,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cK
+de
+qx
+fq
+yE
+Tq
+JW
+Qn
+de
+cK
 aa
 aa
 aa
@@ -2035,6 +2328,19 @@ aa
 aa
 "}
 (7,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2061,16 +2367,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cK
+de
+Qe
+Qe
+ZH
+aE
+cq
+Qe
+de
+cK
 aa
 aa
 aa
@@ -2089,6 +2395,19 @@ aa
 aa
 "}
 (8,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2115,16 +2434,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cK
+de
+de
+de
+de
+de
+de
+de
+de
+cK
 aa
 aa
 aa
@@ -2143,6 +2462,19 @@ aa
 aa
 "}
 (9,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2169,16 +2501,16 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+cK
+cK
+cK
+cK
+de
+de
+cK
+cK
+cK
+cK
 ab
 ab
 ab
@@ -2197,6 +2529,19 @@ aa
 aa
 "}
 (10,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2226,10 +2571,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+cK
+de
+de
+cK
 aa
 aa
 aa
@@ -2251,6 +2596,19 @@ aa
 aa
 "}
 (11,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2280,10 +2638,10 @@ ac
 ac
 ac
 ac
-ac
-ac
-ac
-ac
+cK
+de
+de
+cK
 ac
 ac
 ac
@@ -2305,6 +2663,19 @@ aa
 aa
 "}
 (12,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2334,10 +2705,10 @@ ob
 Go
 pX
 HB
-ae
-ae
-ae
-ae
+de
+de
+de
+de
 ae
 ae
 ae
@@ -2359,6 +2730,19 @@ aa
 aa
 "}
 (13,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2369,7 +2753,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 af
 af
@@ -2389,8 +2773,8 @@ cK
 cK
 Bd
 cK
-cK
-cK
+de
+de
 cK
 cK
 cK
@@ -2413,6 +2797,19 @@ aa
 aa
 "}
 (14,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2462,11 +2859,24 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 "}
 (15,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2521,6 +2931,19 @@ aa
 aa
 "}
 (16,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2531,7 +2954,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 af
 ak
@@ -2575,6 +2998,19 @@ aa
 aa
 "}
 (17,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2629,6 +3065,19 @@ aa
 aa
 "}
 (18,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2683,6 +3132,19 @@ aa
 aa
 "}
 (19,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2737,6 +3199,19 @@ aa
 aa
 "}
 (20,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2791,6 +3266,19 @@ aa
 aa
 "}
 (21,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2833,10 +3321,10 @@ dx
 cK
 ae
 ac
-aa
-ab
-aa
-aa
+cP
+cP
+cP
+cP
 aa
 aa
 aa
@@ -2845,6 +3333,19 @@ aa
 aa
 "}
 (22,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2864,15 +3365,15 @@ aN
 aZ
 ab
 bs
-bE
-cb
+In
+pv
 mn
 br
 cA
 bB
-bB
+zQ
 cK
-cV
+WH
 de
 de
 de
@@ -2887,10 +3388,10 @@ dx
 cK
 ae
 ac
-aa
-ab
-aa
-aa
+dc
+TD
+uA
+cP
 aa
 aa
 aa
@@ -2899,6 +3400,19 @@ aa
 aa
 "}
 (23,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -2941,10 +3455,10 @@ dx
 cK
 ae
 ac
-aa
-ab
-aa
-aa
+TD
+xv
+uA
+cP
 aa
 aa
 aa
@@ -2953,12 +3467,25 @@ aa
 aa
 "}
 (24,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 ab
@@ -2967,10 +3494,10 @@ ad
 aa
 aa
 ab
-aA
+vm
+ZE
+ZE
 ab
-aa
-aa
 bs
 bG
 cb
@@ -2995,10 +3522,10 @@ dx
 cK
 ae
 ac
-aa
-ab
-aa
-aa
+xb
+Ro
+uA
+cP
 aa
 aa
 aa
@@ -3007,6 +3534,19 @@ aa
 aa
 "}
 (25,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3023,8 +3563,8 @@ aa
 ah
 aB
 ah
-aa
-aa
+ZE
+ab
 bs
 bH
 cb
@@ -3049,10 +3589,10 @@ dy
 cK
 ae
 ac
-aa
-ab
-aa
-aa
+xb
+cP
+cP
+cP
 aa
 aa
 aa
@@ -3061,6 +3601,19 @@ aa
 aa
 "}
 (26,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3077,8 +3630,8 @@ aa
 ah
 kM
 ah
-aa
-aa
+ES
+ab
 br
 bI
 cc
@@ -3090,22 +3643,22 @@ zP
 cP
 cP
 cP
-cP
-cP
+UP
+UP
 cP
 dr
 dr
 cP
-cP
-cP
+UP
+UP
 cP
 cP
 cP
 ae
 ac
-aa
-ab
-aa
+nB
+TD
+YR
 aa
 aa
 aa
@@ -3115,6 +3668,19 @@ aa
 aa
 "}
 (27,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3154,12 +3720,12 @@ dc
 dc
 dg
 dc
+dc
+dc
+dc
+Ro
+QV
 cP
-ae
-ac
-aa
-ab
-aa
 aa
 aa
 aa
@@ -3169,6 +3735,19 @@ aa
 aa
 "}
 (28,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3211,9 +3790,9 @@ dc
 cP
 ae
 ac
-aa
-ab
-aa
+IY
+Ro
+YR
 aa
 aa
 aa
@@ -3223,6 +3802,19 @@ aa
 aa
 "}
 (29,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3265,9 +3857,9 @@ cZ
 cP
 ae
 ac
-aa
-ab
-aa
+cP
+cP
+cP
 aa
 aa
 aa
@@ -3277,6 +3869,19 @@ aa
 aa
 "}
 (30,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3287,7 +3892,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 ah
 ap
@@ -3304,12 +3909,12 @@ cx
 bB
 bB
 cP
-da
+KE
 da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3331,6 +3936,19 @@ aa
 aa
 "}
 (31,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3363,7 +3981,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3385,6 +4003,19 @@ aa
 aa
 "}
 (32,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3417,7 +4048,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3439,6 +4070,19 @@ aa
 aa
 "}
 (33,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3467,11 +4111,11 @@ bB
 bB
 cS
 da
-da
+Gr
 dl
 dc
 pM
-dt
+du
 du
 dl
 dc
@@ -3493,6 +4137,19 @@ aa
 aa
 "}
 (34,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3525,7 +4182,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3547,6 +4204,19 @@ aa
 aa
 "}
 (35,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3557,7 +4227,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 ai
 at
@@ -3579,7 +4249,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3601,6 +4271,19 @@ aa
 aa
 "}
 (36,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3622,7 +4305,7 @@ at
 bv
 bQ
 ch
-uI
+XQ
 uI
 cE
 cF
@@ -3633,7 +4316,7 @@ da
 dl
 dc
 do
-dt
+du
 du
 dl
 dc
@@ -3655,6 +4338,19 @@ aa
 aa
 "}
 (37,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3703,12 +4399,25 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa
 "}
 (38,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3763,6 +4472,19 @@ aa
 aa
 "}
 (39,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3817,6 +4539,19 @@ aa
 aa
 "}
 (40,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3871,6 +4606,19 @@ aa
 aa
 "}
 (41,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3925,6 +4673,19 @@ aa
 aa
 "}
 (42,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -3979,6 +4740,19 @@ aa
 aa
 "}
 (43,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -4033,6 +4807,19 @@ aa
 aa
 "}
 (44,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -4087,6 +4874,19 @@ aa
 aa
 "}
 (45,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -4141,6 +4941,19 @@ aa
 aa
 "}
 (46,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -4195,6 +5008,19 @@ aa
 aa
 "}
 (47,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -4216,7 +5042,7 @@ aa
 aa
 aa
 aa
-aa
+Yc
 aa
 aa
 aa
@@ -4249,6 +5075,19 @@ aa
 aa
 "}
 (48,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -4303,6 +5142,19 @@ aa
 aa
 "}
 (49,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -4357,6 +5209,19 @@ aa
 aa
 "}
 (50,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -4411,6 +5276,19 @@ aa
 aa
 "}
 (51,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -4465,6 +5343,19 @@ aa
 aa
 "}
 (52,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 aa
 aa
 aa
@@ -4517,4 +5408,875 @@ aa
 aa
 aa
 aa
+"}
+(53,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+"}
+(54,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+"}
+(55,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+"}
+(56,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+"}
+(57,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+"}
+(58,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+"}
+(59,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+"}
+(60,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+"}
+(61,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+"}
+(62,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+"}
+(63,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+"}
+(64,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+"}
+(65,1,1) = {"
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
+fX
 "}

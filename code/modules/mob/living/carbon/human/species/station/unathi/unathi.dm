@@ -4,26 +4,28 @@
 	name_plural = "Unathi"
 	category_name = "Unathi"
 	bodytype = BODYTYPE_UNATHI
-	icobase = 'icons/mob/human_races/unathi/r_lizard.dmi'
-	deform = 'icons/mob/human_races/unathi/r_def_lizard.dmi'
+	icobase = 'icons/mob/human_races/unathi/r_unathi.dmi'
+	deform = 'icons/mob/human_races/unathi/r_def_unathi.dmi'
 	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
-	tail = "sogtail"
+	tail = "unathtail"
 	tail_animation = 'icons/mob/species/unathi/tail.dmi'
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
-		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/claws/unathi,
+		/datum/unarmed_attack/palm/unathi,
 		/datum/unarmed_attack/bite/sharp
 	)
 	primitive_form = SPECIES_MONKEY_UNATHI
 	darksight = 3
-	gluttonous = GLUT_MESSY
+	gluttonous = GLUT_MESSY|GLUT_ITEM_TINY
 	stomach_capacity = 7
 	slowdown = 0.5
 
 	brute_mod = 0.8
 	fall_mod = 1.2
+	radiation_mod = 0.9 // how else did they survive nuclear armageddon?
 	grab_mod = 1.25 // Huge, usually have horns
 	resist_mod = 2.5 // Arguably our strongest organic species
 
@@ -41,6 +43,14 @@
 	sprint_cost_factor = 1.45
 	sprint_speed_factor = 3.2
 	exhaust_threshold = 65
+	bp_base_systolic = 80 // Default 120
+	bp_base_disatolic = 50 // Default 80
+	low_pulse = 20 // Default 40
+	norm_pulse = 40 // Default 60
+	fast_pulse = 60 // Default 90
+	v_fast_pulse = 80// Default 120
+	max_pulse = 100// Default 160
+	body_temperature = T0C + 24
 
 	rarity_value = 3
 	break_cuffs = TRUE
@@ -76,19 +86,31 @@
 	reagent_tag = IS_UNATHI
 	base_color = "#066000"
 
-	heat_discomfort_level = 295
+	heat_discomfort_level = 304 // 30°C
 	heat_discomfort_strings = list(
 		"You feel soothingly warm.",
 		"You feel the heat sink into your bones.",
 		"You feel warm enough to take a nap."
 		)
 
-	cold_discomfort_level = 292
+	cold_discomfort_level = 294  // 20°C
 	cold_discomfort_strings = list(
 		"You feel chilly.",
 		"You feel sluggish and cold.",
 		"Your scales bristle against the cold."
 		)
+
+	has_organ = list(
+        BP_BRAIN =    /obj/item/organ/internal/brain/unathi,
+        BP_HEART =    /obj/item/organ/internal/heart/unathi,
+        BP_LIVER =    /obj/item/organ/internal/liver/unathi,
+        BP_LUNGS =    /obj/item/organ/internal/lungs/unathi,
+        BP_KIDNEYS =    /obj/item/organ/internal/kidneys/unathi,
+        BP_STOMACH =    /obj/item/organ/internal/stomach/unathi,
+        BP_EYES =    /obj/item/organ/internal/eyes/unathi
+    )
+
+	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
 	pain_emotes_with_pain_level = list(
 			list(/decl/emote/audible/wheeze, /decl/emote/audible/roar, /decl/emote/audible/bellow) = 80,
@@ -100,19 +122,20 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-	allowed_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI)
-	allowed_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_MOROZ, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM)
-	default_citizenship = CITIZENSHIP_IZWESKI
+	possible_cultures = list(
+		/decl/origin_item/culture/izweski,
+		/decl/origin_item/culture/traditionalists,
+		/decl/origin_item/culture/spaceborn,
+		/decl/origin_item/culture/dominian_unathi
+	)
 
 	zombie_type = SPECIES_ZOMBIE_UNATHI
 
-	default_accent = ACCENT_HEGEMON_PEASANT
-	allowed_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR)
+	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	if(H.shoes)
 		return
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
-	if(H.equip_to_slot_or_del(S,slot_shoes))
-		S.autodrobe_no_remove = TRUE
+	H.equip_to_slot_or_del(S,slot_shoes)

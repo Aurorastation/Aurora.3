@@ -1,3 +1,6 @@
+/obj/machinery/mineral
+	var/id //used for linking machines to consoles
+
 /**********************Mineral processing unit console**************************/
 
 /obj/machinery/mineral/processing_unit_console
@@ -8,7 +11,6 @@
 	icon_state = "production_console"
 	density = FALSE
 	anchored = TRUE
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 
@@ -23,18 +25,32 @@
 	var/waste = 0
 	var/idx = 0
 
+	component_types = list(
+		/obj/item/circuitboard/redemption_console,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/console_screen
+	)
+
 /obj/machinery/mineral/processing_unit_console/Initialize(mapload, d, populate_components)
 	. = ..()
 	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
 	add_overlay(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
+/obj/machinery/mineral/processing_unit_console/Destroy()
+	if(machine)
+		machine.console = null
+	return ..()
+
 /obj/machinery/mineral/processing_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
 		var/area/A = get_area(src)
 		var/best_distance = INFINITY
-		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.all_machines)
-			if(A == get_area(checked_machine) && get_dist_euclidian(checked_machine, src) < best_distance)
+		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.machinery)
+			if(id)
+				if(checked_machine.id == id)
+					machine = checked_machine
+			else if(!checked_machine.console && A == get_area(checked_machine) && get_dist_euclidian(checked_machine, src) < best_distance)
 				machine = checked_machine
 				best_distance = get_dist_euclidian(checked_machine, src)
 		if(machine)
@@ -43,6 +59,15 @@
 			to_chat(user, SPAN_WARNING("ERROR: Linked machine not found!"))
 
 	return machine
+
+/obj/machinery/mineral/processing_unit_console/attackby(obj/item/I, mob/user)
+	if(default_deconstruction_screwdriver(user, I))
+		return
+	if(default_deconstruction_crowbar(user, I))
+		return
+	if(default_part_replacement(user, I))
+		return
+	return ..()
 
 /obj/machinery/mineral/processing_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -61,7 +86,11 @@
 	interact(user)
 
 /obj/machinery/mineral/processing_unit_console/proc/get_user_id(var/mob/user)
-	if(!scanned_id && !isDrone(user))
+	if(isDrone(user))
+		var/mob/living/silicon/robot/drone/D = user
+		if(D.standard_drone)
+			return
+	if(!scanned_id)
 		var/obj/item/card/id/ID = user.GetIdCard()
 		if(ID)
 			scanned_id = WEAKREF(ID)
@@ -71,10 +100,6 @@
 		return
 
 	if(!setup_machine(user))
-		return
-
-	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 
 	user.set_machine(src)
@@ -118,7 +143,7 @@
 	dat += "</table><hr>"
 	dat += "Currently displaying [show_all_ores ? "all ore types" : "only available ore types"]. <A href='?src=\ref[src];toggle_ores=1'>\[[show_all_ores ? "show less" : "show more"]\]</a></br>"
 	dat += "The ore processor is currently <A href='?src=\ref[src];toggle_power=1'>[(machine.active ? "<font color='green'>processing</font>" : "<font color='red'>disabled</font>")]</a>."
-	
+
 	var/datum/browser/processor_win = new(user, "processor_console", capitalize_first_letters(name))
 	processor_win.set_content(dat)
 	processor_win.open()
@@ -200,16 +225,16 @@
 
 	printing = TRUE
 
-	var/obj/item/paper/P = new /obj/item/paper(user.loc)
+	var/obj/item/paper/P = new /obj/item/paper(get_turf(src))
 	var/date_string = worlddate2text()
 	idx++
 
 	var/form_title = "Form 0600 - Mining Yield Declaration"
-	var/dat = "<small><center><b>NanoTrasen Inc.<br>"
-	dat += "Civilian Branch of Operation</b><br><br>"
+	var/dat = "<small><center><b>Stellar Corporate Conglomerate<br>"
+	dat += "Operations Department</b><br><br>"
 
 	dat += "Form 0600<br> Mining Yield Declaration</center><hr>"
-	dat += "Facility: NSS Aurora<br>"
+	dat += "Facility: [current_map.station_name]<br>"
 	dat += "Date: [date_string]<br>"
 	dat += "Index: [idx]<br><br>"
 
@@ -252,7 +277,7 @@
 
 	dat += "Additional Notes: <span class=\"paper_field\"></span><br><br>"
 
-	dat += "Quartermaster's / Head of Personnel's / Captain's Stamp: </small>"
+	dat += "Operations Manager's / Captain's Stamp: </small>"
 
 	P.set_content(form_title, dat)
 
@@ -266,7 +291,7 @@
 	P.ico += "paper_stamp-cent"
 	P.stamped += /obj/item/stamp
 	P.add_overlay(stampoverlay)
-	P.stamps += "<HR><i>This paper has been stamped by the NT Ore Processing System.</i>"
+	P.stamps += "<HR><i>This paper has been stamped by the SCC Ore Processing System.</i>"
 
 	user.visible_message("\The [src] rattles and prints out a sheet of paper.")
 	playsound(get_turf(src), "sound/bureaucracy/print_short.ogg", 50, 1)
@@ -276,7 +301,8 @@
 	input_mats = list()
 	waste = 0
 
-	user.put_in_hands(P)
+	if(user.Adjacent(src))
+		user.put_in_hands(P)
 
 	printing = FALSE
 	return
@@ -292,15 +318,14 @@
 	density = TRUE
 	anchored = TRUE
 	light_range = 3
-	var/obj/machinery/mineral/input
-	var/obj/machinery/mineral/output
+	var/turf/input
+	var/turf/output
 	var/obj/machinery/mineral/processing_unit_console/console
 	var/sheets_per_tick = 20
 	var/list/ores_processing[0]
 	var/list/ores_stored[0]
 	var/static/list/alloy_data
 	var/active = 0
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 150
 
@@ -327,15 +352,37 @@
 
 	//Locate our output and input machinery.
 	for(var/dir in cardinal)
-		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-		if(src.input)
+		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
+		if(input_spot)
+			input = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
 			break
 	for(var/dir in cardinal)
-		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-		if(src.output)
+		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
+		if(output)
+			output = get_turf(output_spot)
 			break
 
-/obj/machinery/mineral/processing_unit/machinery_process()
+	if(!input)
+		input = get_step(src, reverse_dir[dir])
+	if(!output)
+		output = get_step(src, dir)
+
+/obj/machinery/mineral/processing_unit/Destroy()
+	if(console)
+		console.machine = null
+	return ..()
+
+/obj/machinery/mineral/processing_unit/attackby(obj/item/I, mob/user)
+	if(default_deconstruction_screwdriver(user, I))
+		return
+	if(default_deconstruction_crowbar(user, I))
+		return
+	if(default_part_replacement(user, I))
+		return
+	return ..()
+
+
+/obj/machinery/mineral/processing_unit/process()
 	..()
 
 	if(!src.output || !src.input)
@@ -345,7 +392,7 @@
 
 	//Grab some more ore to process this tick.
 	for(var/i = 0, i < sheets_per_tick, i++)
-		var/obj/item/ore/O = locate() in get_turf(input)
+		var/obj/item/ore/O = locate() in input
 		if(!O)
 			break
 		if(!isnull(ores_stored[O.material]))
@@ -395,15 +442,16 @@
 							if(console)
 								var/ore/Ore = ore_data[needs_metal]
 								console.points += Ore.worth
-							use_power(100)
+							use_power_oneoff(100)
 							ores_stored[needs_metal] -= A.requires[needs_metal]
 							total += A.requires[needs_metal]
 							total = max(1, round(total * A.product_mod)) //Always get at least one sheet.
 							sheets += total - 1
 
 						for(var/i = 0, i < total, i++)
-							console.alloy_mats[A] = console.alloy_mats[A] + 1
-							new A.product(get_turf(output))
+							if(console)
+								console.alloy_mats[A] = console.alloy_mats[A] + 1
+							new A.product(output)
 
 			else if(ores_processing[metal] == 2 && O.compresses_to) //Compressing.
 				var/can_make = Clamp(ores_stored[metal], 0, sheets_per_tick - sheets)
@@ -418,11 +466,11 @@
 				for(var/i = 0, i < can_make, i += 2)
 					if(console)
 						console.points += O.worth * 2
-					use_power(100)
+					use_power_oneoff(100)
 					ores_stored[metal] -= 2
 					sheets += 2
 					console.output_mats[M] += 1
-					new M.stack_type(get_turf(output))
+					new M.stack_type(output)
 
 			else if(ores_processing[metal] == 1 && O.smelts_to) //Smelting.
 				var/can_make = Clamp(ores_stored[metal], 0, sheets_per_tick - sheets)
@@ -434,30 +482,27 @@
 				for(var/i = 0, i < can_make, i++)
 					if(console)
 						console.points += O.worth
-					use_power(100)
+					use_power_oneoff(100)
 					ores_stored[metal] -= 1
 					sheets++
-					console.output_mats[M] += 1
-					new M.stack_type(get_turf(output))
+					if(console)
+						console.output_mats[M] += 1
+					new M.stack_type(output)
 			else
 				if(console)
 					console.points -= O.worth * 3 //reee wasting our materials!
-				use_power(500)
+				use_power_oneoff(500)
 				ores_stored[metal] -= 1
 				sheets++
-				console.input_mats[O] += 1
-				console.waste++
-				new /obj/item/ore/slag(get_turf(output))
+				if(console)
+					console.input_mats[O] += 1
+					console.waste++
+				new /obj/item/ore/slag(output)
 		else
 			continue
 
-	console.updateUsrDialog()
-
-/obj/machinery/mineral/processing_unit/attackby(obj/item/W, mob/user)
-	if(default_deconstruction_screwdriver(user, W))
-		return
-	else if(default_part_replacement(user, W))
-		return
+	if(console)
+		console.updateUsrDialog()
 
 /obj/machinery/mineral/processing_unit/RefreshParts()
 	..()

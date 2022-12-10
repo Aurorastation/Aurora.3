@@ -92,7 +92,7 @@
 			descriptors |= "radioactive"
 		if(reagents.has_reagent(/decl/reagent/toxin/amatoxin) || reagents.has_reagent(/decl/reagent/toxin))
 			descriptors |= "poisonous"
-		if(reagents.has_reagent(/decl/reagent/psilocybin) || reagents.has_reagent(/decl/reagent/space_drugs))
+		if(reagents.has_reagent(/decl/reagent/psilocybin) || reagents.has_reagent(/decl/reagent/ambrosia_extract) || reagents.has_reagent(/decl/reagent/space_drugs) || reagents.has_reagent(/decl/reagent/mindbreaker))
 			descriptors |= "hallucinogenic"
 		if(reagents.has_reagent(/decl/reagent/bicaridine) || reagents.has_reagent(/decl/reagent/dylovene))
 			descriptors |= "medicinal"
@@ -150,7 +150,7 @@
 	if(seed && seed.get_trait(TRAIT_JUICY) == 2)
 		if(istype(M))
 
-			if(M.buckled)
+			if(M.buckled_to)
 				return
 
 			if(istype(M,/mob/living/carbon/human))

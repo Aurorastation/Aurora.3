@@ -11,6 +11,8 @@ var/list/robot_custom_icons
 	return 1
 
 /mob/living/silicon/robot/proc/set_custom_sprite()
+	if(!(name in robot_custom_icons))
+		return
 	var/datum/custom_synth/sprite = robot_custom_icons[name]
 	if(istype(sprite) && sprite.synthckey == ckey)
 		custom_sprite = 1

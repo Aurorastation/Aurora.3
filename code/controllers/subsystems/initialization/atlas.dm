@@ -19,6 +19,125 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	var/list/list/connected_z_cache = list()
 	var/z_levels = 0	// Each bit represents a connection between adjacent levels.  So the first bit means levels 1 and 2 are connected.
+	var/datum/space_sector/current_sector
+	var/list/possible_sectors = list()
+	//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
+	//These are strings because otherwise the list indexes would be out of bounds. Thanks BYOND.
+	var/list/naval_to_dir = list(
+		"1" = list(
+			"starboard" = WEST,
+			"port" = EAST,
+			"fore" = SOUTH,
+			"aft" = NORTH
+		),
+		"2" = list(
+			"starboard" = EAST,
+			"port" = WEST,
+			"fore" = NORTH,
+			"aft" = SOUTH
+		),
+		"4" = list(
+			"starboard" = NORTH,
+			"port" = SOUTH,
+			"fore" = WEST,
+			"aft" = EAST
+		),
+		"4" = list(
+			"starboard" = NORTH,
+			"port" = SOUTH,
+			"fore" = WEST,
+			"aft" = EAST
+		),
+		"8" = list(
+			"starboard" = SOUTH,
+			"port" = NORTH,
+			"fore" = EAST,
+			"aft" = WEST
+		)
+	)
+
+	var/list/headings_to_naval = list(
+		"1" = list(
+			"1" = "aft",
+			"2" = "fore",
+			"4" = "port",
+			"5" = "port",
+			"6" = "port",
+			"8" = "starboard",
+			"9" = "starboard",
+			"10" = "starboard"
+		),
+		"2" = list(
+			"1" = "fore",
+			"2" = "aft",
+			"4" = "starboard",
+			"5" = "starboard",
+			"6" = "starboard",
+			"8" = "port",
+			"9" = "port",
+			"10" = "port"
+		),
+		"4" = list(
+			"1" = "starboard",
+			"2" = "port",
+			"4" = "aft",
+			"5" = "starboard",
+			"6" = "port",
+			"8" = "fore",
+			"9" = "starboard",
+			"10" = "port"
+		),
+		"5" = list( //northeast
+			"1" = "starboard",
+			"2" = "port",
+			"4" = "port",
+			"5" = "aft",
+			"6" = "port",
+			"8" = "starboard",
+			"9" = "starboard",
+			"10" = "fore"
+		),
+		"6" = list( //southeast
+			"1" = "starboard",
+			"2" = "port",
+			"4" = "starboard",
+			"5" = "starboard",
+			"6" = "aft",
+			"8" = "port",
+			"9" = "fore",
+			"10" = "port"
+		),
+		"8" = list(
+			"1" = "port",
+			"2" = "starboard",
+			"4" = "fore",
+			"5" = "port",
+			"6" = "starboard",
+			"8" = "aft",
+			"9" = "port",
+			"10" = "starboard"
+		),
+		"9" = list(  //northwest
+			"1" = "port",
+			"2" = "starboard",
+			"4" = "port",
+			"5" = "port",
+			"6" = "fore",
+			"8" = "starboard",
+			"9" = "aft",
+			"10" = "starboard"
+		),
+		"10" = list( //southwest
+			"1" = "port",
+			"2" = "starboard",
+			"4" = "starboard",
+			"5" = "fore",
+			"6" = "starboard",
+			"8" = "port",
+			"9" = "port",
+			"10" = "aft"
+		)
+	)
 
 /datum/controller/subsystem/atlas/stat_entry()
 	..("W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[z_levels]")
@@ -75,6 +194,27 @@ var/datum/controller/subsystem/atlas/SSatlas
 	setup_multiz()
 
 	QDEL_NULL(maploader)
+
+	InitializeSectors()
+
+	var/chosen_sector
+	var/using_sector_config = FALSE
+
+	if(config.current_space_sector)
+		chosen_sector = config.current_space_sector
+		using_sector_config = TRUE
+	else
+		chosen_sector = current_map.default_sector
+
+	var/datum/space_sector/selected_sector = SSatlas.possible_sectors[chosen_sector]
+
+	if(!selected_sector)
+		if(using_sector_config)
+			log_debug("atlas: [chosen_sector] used in the config file is not a valid space sector")
+		current_sector = new /datum/space_sector/tau_ceti //if all fails, we go with tau ceti
+		log_debug("atlas: Unable to select [chosen_sector] as a valid space sector. Tau Ceti will be used instead.")
+	else
+		current_sector = selected_sector
 
 	..()
 
@@ -164,6 +304,15 @@ var/datum/controller/subsystem/atlas/SSatlas
 		var/datum/spawnpoint/S = new type
 		spawn_locations[S.display_name] = S
 
+/datum/controller/subsystem/atlas/proc/InitializeSectors()
+	for (var/type in subtypesof(/datum/space_sector))
+		var/datum/space_sector/space_sector = new type()
+
+		possible_sectors[space_sector.name] = space_sector
+
+	if (!possible_sectors.len)
+		crash_with("No space sectors located in SSatlas.")
+
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
 /world/proc/map_panic(reason)
 	to_chat(world, "<span class='danger'>Fatal error during map setup, unable to continue! Server will reboot in 60 seconds.</span>")
@@ -184,10 +333,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 	if (world.name != sname)
 		world.name = sname
 		world.log <<  "Set world.name to [sname]."
-
-/proc/system_name()
-	ASSERT(current_map)
-	return current_map.system_name
 
 /proc/commstation_name()
 	ASSERT(current_map)

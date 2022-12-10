@@ -28,6 +28,7 @@
 /datum/trader/ship/unique/syndicate
 	name = "Cyndie Kate"
 	origin = "Cloaked ship"
+	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 
 	possible_wanted_items = list (
 		/obj/item/gun/energy/captain                 = TRADER_THIS_TYPE,
@@ -39,7 +40,7 @@
 	)
 
 	possible_trading_items = list (
-		/obj/item/antag_spawner/borg_tele            = TRADER_THIS_TYPE,
+		/obj/item/antag_spawner/combat_robot         = TRADER_THIS_TYPE,
 		/obj/item/storage/box/syndie_kit             = TRADER_SUBTYPES_ONLY,
 		/obj/item/syndie/c4explosive                 = TRADER_ALL,
 		/obj/item/melee/energy/sword                 = TRADER_ALL,
@@ -55,7 +56,6 @@
 		/obj/item/gun/energy/sniperrifle             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic           = TRADER_SUBTYPES_ONLY,
 		/mob/living/heavy_vehicle/premade/combat     = TRADER_THIS_TYPE
-
 	)
 
 	speech = list(
@@ -78,6 +78,7 @@
 /datum/trader/ship/unique/severance
 	name = "Unknown"
 	origin = "SGS Severance"
+	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 
 	possible_wanted_items = list(
 		/obj/item/reagent_containers/food/snacks/human      = TRADER_SUBTYPES_ONLY,
@@ -141,45 +142,6 @@
 		"insult_bad"           = "Blub feels bad now."
 	)
 
-/datum/trader/ship/unique/vaurca
-	origin = "The Hive Shop"
-	name_language = LANGUAGE_VAURCA
-
-	possible_wanted_items = list(
-		/obj/item/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/koisbar_clean    = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/grown/kois       = TRADER_THIS_TYPE,
-		/obj/item/stack/material/phoron                                  = TRADER_THIS_TYPE
-	)
-
-	possible_trading_items = list(
-		/obj/item/clothing/mask/breath/vaurca            = TRADER_THIS_TYPE,
-		/obj/item/melee/energy/vaurca             = TRADER_THIS_TYPE,
-		/obj/item/vaurca/box                             = TRADER_THIS_TYPE,
-		/obj/item/melee/vaurca/rock               = TRADER_THIS_TYPE,
-		/obj/item/grenade/spawnergrenade/vaurca   = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/space/void/vaurca        = TRADER_THIS_TYPE,
-		/obj/item/clothing/head/helmet/space/void/vaurca = TRADER_THIS_TYPE,
-		/obj/item/clothing/shoes/magboots/vaurca     = TRADER_THIS_TYPE,
-		/obj/item/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE
-	)
-
-	speech = list(
-		"hail_generic"         = "Greetingzz.",
-		"hail_deny"            = "I'm zzorry, we do not want to zzzpeak to you.",
-		"trade_complete"       = "Enjoy it, zzzir!",
-		"trade_no_money"       = "I have no uzzze vhor creditzzz.",
-		"trade_not_enough"     = "I want more, zzzzir.",
-		"trade_found_unwanted" = "That izzz not what I want.",
-		"how_much"             = "We need k'oizz or vhoron, zzzir.",
-		"what_want"            = "K'oizzz or vhoron.",
-		"compliment_deny"      = "No kind wordzzzz...",
-		"compliment_accept"    = "I appreciate kind wordzzz.",
-		"insult_good"          = "Your humor izzz odd.",
-		"insult_bad"           = "I do not take inzzultzz kindly."
-	)
-
-
 /datum/trader/ship/unique/bluespace
 	name = "Maximus Crane"
 	origin = "Bluespace Emporium"
@@ -194,8 +156,7 @@
 		/obj/item/circuitboard/telesci_pad     = TRADER_THIS_TYPE,
 		/obj/item/phylactery                          = TRADER_THIS_TYPE,
 		/obj/item/blueprints                          = TRADER_THIS_TYPE,
-		/obj/item/storage/backpack/holding     = TRADER_THIS_TYPE,
-		/obj/item/teleportation_scroll         = TRADER_THIS_TYPE
+		/obj/item/storage/backpack/holding     = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(

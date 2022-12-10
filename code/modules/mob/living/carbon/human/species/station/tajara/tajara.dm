@@ -14,7 +14,11 @@
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/palm,
 		/datum/unarmed_attack/bite/sharp
+	)
+	maneuvers = list(
+		/decl/maneuver/leap/tajara
 	)
 	darksight = 8
 	slowdown = -1
@@ -24,17 +28,34 @@
 
 	grab_mod = 1.25 // Fur easy to cling onto
 
+	age_max = 80
+
+	damage_overlays = 'icons/mob/human_races/masks/dam_tajara.dmi'
+	damage_mask = 'icons/mob/human_races/masks/dam_mask_tajara.dmi'
+	blood_mask = 'icons/mob/human_races/masks/blood_tajara.dmi'
+
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
 	name_language = LANGUAGE_SIIK_MAAS
 	ethanol_resistance = 0.8//Gets drunk a little faster
 	rarity_value = 2
 	economic_modifier = 7
+	selectable_pronouns = null
 
 	stamina = 90	// Tajara evolved to maintain a steady pace in the snow, sprinting wastes energy
 	stamina_recovery = 4
 	sprint_speed_factor = 0.65
 	sprint_cost_factor = 0.75
+	standing_jump_range = 3
+	bp_base_systolic = 140 // Default 120
+	bp_base_disatolic = 90 // Default 80
+	low_pulse = 50 // Default 40
+	norm_pulse = 70 // Default 60
+	fast_pulse = 100 // Default 90
+	v_fast_pulse = 130 // Default 120
+	max_pulse = 170 // Default 160
+
+	hearing_sensitivity = HEARING_SENSITIVE // Default HEARING_NORMAL
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Adhomai in the S'rendarr \
 	system. They have been brought up into the space age by the Humans and Skrell, who alledgedly influenced their \
@@ -73,12 +94,13 @@
 
 	default_h_style = "Tajaran Ears"
 
-	allowed_citizenships = list(CITIZENSHIP_PRA, CITIZENSHIP_DPRA, CITIZENSHIP_NKA)
-	default_citizenship = CITIZENSHIP_PRA
-	allowed_religions = list(RELIGION_TWINSUNS, RELIGION_MATAKE, RELIGION_RASKARA, RELIGION_NONE, RELIGION_OTHER)
+	possible_cultures = list(
+		/decl/origin_item/culture/adhomian,
+		/decl/origin_item/culture/offworld_tajara
+	)
 
-	default_accent = ACCENT_REPUBICLANSIIK
-	allowed_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_CREVAN, ACCENT_DASNRRASIIK, ACCENT_HIGHHARRSIIK, ACCENT_LOWHARRSIIK, ACCENT_AMOHDASIIK, ACCENT_NORTHRASNRR, ACCENT_OLDYASSA)
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/tie_hair)
 
 	zombie_type = SPECIES_ZOMBIE_TAJARA
 
@@ -109,5 +131,4 @@
 	if(H.shoes)
 		return
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
-	if(H.equip_to_slot_or_del(S,slot_shoes))
-		S.autodrobe_no_remove = TRUE
+	H.equip_to_slot_or_del(S,slot_shoes)

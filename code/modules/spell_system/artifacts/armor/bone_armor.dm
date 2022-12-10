@@ -7,7 +7,7 @@
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_SKELETON)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(melee = 50, bullet = 40, laser = 50, energy = 25, bomb = 30, bio = 0, rad = 0)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 40, laser = 50, energy = 25, bomb = 30, bio = 0, rad = 0)
 
 /obj/item/clothing/head/helmet/bone
 	name = "bone helmet"
@@ -17,4 +17,4 @@
 	item_state = "skull"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_SKELETON)
-	armor = list(melee = 50, bullet = 40, laser = 50, energy = 25, bomb = 30, bio = 0, rad = 0)
+	armor = list(melee = ARMOR_MELEE_MAJOR, bullet = 40, laser = 50, energy = 25, bomb = 30, bio = 0, rad = 0)

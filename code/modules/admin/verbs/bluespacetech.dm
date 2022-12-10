@@ -106,6 +106,7 @@
 	// Other station species' languages
 	bst.add_language(LANGUAGE_SKRELLIAN)
 	bst.add_language(LANGUAGE_SOL_COMMON)
+	bst.add_language(LANGUAGE_ELYRAN_STANDARD)
 	bst.add_language(LANGUAGE_ROOTSONG)
 	bst.add_language(LANGUAGE_VAURCA)
 	// Synthetics
@@ -160,7 +161,7 @@
 
 	src.custom_emote(VISIBLE_MESSAGE,"presses a button on their suit, followed by a polite bow.")
 	spark(src, 5, alldirs)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, src), 10, TIMER_CLIENT_TIME)
+	QDEL_IN(src, 10)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 	if(key)
 		if(client.holder && client.holder.original_mob)
@@ -415,7 +416,6 @@
 /obj/item/clothing/glasses/sunglasses/bst
 	name = "bluespace technician's glasses"
 	desc = "A pair of modified sunglasses. The word 'BST' is stamped on the side."
-//	var/list/obj/item/clothing/glasses/hud/health/hud = null
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	canremove = 0
@@ -443,12 +443,6 @@
 
 	to_chat(usr, "<span class='notice'>\The [src]'s vision mode is now <b>[mode]</b>.</span>")
 
-/*	New()
-		..()
-		src.hud += new/obj/item/clothing/glasses/hud/security(src)
-		src.hud += new/obj/item/clothing/glasses/hud/health(src)
-		return
-*/
 /obj/item/clothing/glasses/sunglasses/bst/attack_hand()
 	if(!usr)
 		return

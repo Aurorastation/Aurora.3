@@ -1,63 +1,70 @@
 /*Energy Guns*/
 
-/obj/item/mecha_equipment/mounted_system/taser
+/obj/item/mecha_equipment/mounted_system/combat
+	name = "combat thing"
+	desc = "You shouldn't be seeing this."
+	icon_state = "mecha_taser"
+	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	restricted_software = list(MECH_SOFTWARE_WEAPONS)
+
+/obj/item/mecha_equipment/mounted_system/combat/CtrlClick(mob/user)
+	if(owner && istype(holding, /obj/item/gun))
+		var/obj/item/gun/G = holding
+		G.iff_capable = !G.iff_capable
+		to_chat(user, SPAN_NOTICE("You [G.iff_capable ? "en" : "dis"]able \the [src]'s IFF systems!"))
+	else
+		return ..()
+
+/obj/item/mecha_equipment/mounted_system/combat/taser
 	name = "mounted electrolaser carbine"
 	desc = "A dual fire mode electrolaser system connected to the exosuit's targetting system."
 	icon_state = "mecha_taser"
 	holding_type = /obj/item/gun/energy/taser/mounted/mech
-	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/taser/ion
+/obj/item/mecha_equipment/mounted_system/combat/ion
 	name = "mounted ion rifle"
 	desc = "An exosuit-mounted ion rifle. Handle with care."
 	icon_state = "mecha_ion"
 	holding_type = /obj/item/gun/energy/rifle/ionrifle/mounted/mech
 
-/obj/item/mecha_equipment/mounted_system/taser/laser
+/obj/item/mecha_equipment/mounted_system/combat/laser
 	name = "\improper CH-PS \"Immolator\" laser"
 	desc = "An exosuit-mounted laser rifle. Handle with care."
 	icon_state = "mecha_laser"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	holding_type = /obj/item/gun/energy/laser/mounted/mech
 
-/obj/item/mecha_equipment/mounted_system/taser/smg
-	name = "mounted machinegun"
+/obj/item/mecha_equipment/mounted_system/combat/smg
+	name = "mounted submachinegun"
 	desc = "An exosuit-mounted automatic weapon. Handle with care."
 	icon_state = "mecha_ballistic"
 	holding_type = /obj/item/gun/energy/mountedsmg
 
-/obj/item/mecha_equipment/mounted_system/pulse
+/obj/item/mecha_equipment/mounted_system/combat/pulse
 	name = "heavy pulse cannon"
 	desc = "A weapon for combat exosuits. The eZ-13 mk2 heavy pulse rifle shoots powerful pulse-based beams, capable of destroying structures."
 	icon_state = "pulse"
 	holding_type = /obj/item/gun/energy/pulse/mounted/mech
-	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/xray
+/obj/item/mecha_equipment/mounted_system/combat/xray
 	name = "xray gun"
 	desc = "A weapon for combat exosuits. Shoots armor penetrating xray beams."
 	icon_state = "mecha_xray"
 	holding_type = /obj/item/gun/energy/xray/mounted/mech
-	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/blaster
+/obj/item/mecha_equipment/mounted_system/combat/blaster
 	name = "rapidfire blaster"
 	desc = "A weapon for combat exosuits. Shoots armor penetrating blaster beams."
 	icon_state = "mecha_blaster"
 	holding_type = /obj/item/gun/energy/blaster/mounted/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
-	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/gauss
+/obj/item/mecha_equipment/mounted_system/combat/gauss
 	name = "heavy gauss cannon"
 	desc = "A weapon for combat exosuits. Shoots high explosive gauss propelled projectiles."
 	icon_state = "mecha_gauss"
 	holding_type = /obj/item/gun/energy/gauss/mounted/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
-	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
 /obj/item/gun/energy/taser/mounted/mech
 	use_external_power = TRUE
@@ -73,58 +80,56 @@
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
+	projectile_type = /obj/item/projectile/beam/midlaser/mech
 
 /obj/item/gun/energy/pulse/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
+	projectile_type = /obj/item/projectile/beam/pulse/mech
 
 /obj/item/gun/energy/xray/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
+	projectile_type = /obj/item/projectile/beam/xray/mech
 
 /*Launchers*/
 
-/obj/item/mecha_equipment/mounted_system/missile
+/obj/item/mecha_equipment/mounted_system/combat/missile
 	name = "missile rack"
 	desc = "The SRM-8 missile rack is loaded with explosive missiles."
 	icon_state = "mech_missile_pod"
 	holding_type = /obj/item/gun/launcher/mech/mountedrl
 	restricted_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/grenadefrag
+/obj/item/mecha_equipment/mounted_system/combat/grenadefrag
 	name = "frag grenade launcher"
 	desc = "The SGL-6FR grenade launcher is designed to launch primed fragmentation grenades."
 	icon_state = "mech_gl"
 	holding_type = /obj/item/gun/launcher/mech/mountedgl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/grenadeflash
+/obj/item/mecha_equipment/mounted_system/combat/grenadeflash
 	name = "flashbang launcher"
 	desc = "The SGL-6FL grenade launcher is designated to launch primed flashbangs."
 	icon_state = "mech_gl"
-	holding_type = /obj/item/gun/launcher/mech/mountedfl
+	holding_type = /obj/item/gun/launcher/mech/mountedgl/fl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/grenadetear
+/obj/item/mecha_equipment/mounted_system/combat/grenadetear
 	name = "teargas launcher"
 	desc = "The SGL-6TGL grenade launcher is designated to launch primed teargas grenades."
 	icon_state = "mech_gl"
-	holding_type = /obj/item/gun/launcher/mech/mountedtgl
+	holding_type = /obj/item/gun/launcher/mech/mountedgl/tg
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
-/obj/item/mecha_equipment/mounted_system/grenadesmoke
+/obj/item/mecha_equipment/mounted_system/combat/grenadesmoke
 	name = "smoke grenade launcher"
 	desc = "The SGL-6SGL grenade launcher is designated to launch primed smoke grenades."
 	icon_state = "mech_gl"
-	holding_type = /obj/item/gun/launcher/mech/mountedsgl
+	holding_type = /obj/item/gun/launcher/mech/mountedgl/sm
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
-	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
 /obj/item/gun/launcher/mech
 	name = "mounted mech launcher"
@@ -189,6 +194,8 @@
 	item_state = "smg"
 	fire_sound = 'sound/weapons/grenadelaunch.ogg'
 
+	var/grenade_type = /obj/item/grenade/frag
+
 	release_force = 5
 	throw_distance = 7
 	proj = 5
@@ -197,83 +204,37 @@
 
 
 /obj/item/gun/launcher/mech/mountedgl/consume_next_projectile()
-	if(proj < 1) return null
-	var/obj/item/grenade/frag/g = new (src)
+	if(proj < 1)
+		return null
+	var/obj/item/grenade/g = new grenade_type(src)
 	g.det_time = 10
 	g.activate(null)
 	proj--
 	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
 	return g
 
-/obj/item/gun/launcher/mech/mountedfl
-	name = "mounted grenade launcher"
+/obj/item/gun/launcher/mech/mountedgl/fl
 	desc = "The SGL-6FL grenade launcher is designated to launch primed flashbangs."
-	icon = 'icons/obj/robot_items.dmi'
-	icon_state = "smg"
-	item_state = "smg"
-	fire_sound = 'sound/weapons/grenadelaunch.ogg'
-
-	release_force = 5
-	throw_distance = 7
-	proj = 5
-	max_proj = 5
+	grenade_type = /obj/item/grenade/flashbang
 	proj_gen_time = 200
 
-
-/obj/item/gun/launcher/mech/mountedfl/consume_next_projectile()
-	if(proj < 1) return null
-	var/obj/item/grenade/flashbang/g = new (src)
-	g.det_time = 10
-	g.activate(null)
-	proj--
-	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
-	return g
-
-/obj/item/gun/launcher/mech/mountedtgl
+/obj/item/gun/launcher/mech/mountedgl/tg
 	name = "mounted teargas launcher"
 	desc = "The SGL-6TGL grenade launcher is designated to launch primed teargas grenades."
-	icon = 'icons/obj/robot_items.dmi'
-	icon_state = "smg"
-	item_state = "smg"
-	fire_sound = 'sound/weapons/grenadelaunch.ogg'
-
-	release_force = 5
-	throw_distance = 7
-	proj = 3
-	max_proj = 3
+	grenade_type = /obj/item/grenade/chem_grenade/teargas
 	proj_gen_time = 200
 
-/obj/item/gun/launcher/mech/mountedtgl/consume_next_projectile()
-	if(proj < 1) return null
-	var/obj/item/grenade/chem_grenade/teargas/tg = new (src)
-	tg.det_time = 10
-	tg.activate(null)
-	proj--
-	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
-	return tg
-
-/obj/item/gun/launcher/mech/mountedsgl
+/obj/item/gun/launcher/mech/mountedgl/sm
 	name = "mounted smoke launcher"
 	desc = "The SGL-6SGL grenade launcher is designated to launch primed smoke grenades."
-	icon = 'icons/obj/robot_items.dmi'
-	icon_state = "smg"
-	item_state = "smg"
-	fire_sound = 'sound/weapons/grenadelaunch.ogg'
-
-	release_force = 5
-	throw_distance = 7
-	proj = 3
-	max_proj = 3
+	grenade_type = /obj/item/grenade/smokebomb
 	proj_gen_time = 200
 
-/obj/item/gun/launcher/mech/mountedsgl/consume_next_projectile()
-	if(proj < 1) return null
-	var/obj/item/grenade/smokebomb/sg = new (src)
-	sg.det_time = 10
-	sg.activate(null)
-	proj--
-	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
-	return sg
+/obj/item/gun/launcher/mech/mountedgl/cl
+	name = "mounted cleaner launcher"
+	desc = "The SGL-6CL grenade launcher is designed to launch primed cleaner grenades."
+	grenade_type = /obj/item/grenade/chem_grenade/cleaner
+	proj_gen_time = 200
 
 /obj/item/gun/launcher/mech/get_hardpoint_maptext()
 	return "[proj]/[max_proj]"
@@ -345,7 +306,14 @@
 		START_PROCESSING(SSprocessing, src)
 	else
 		STOP_PROCESSING(SSprocessing, src)
+	active = aura.active
+	passive_power_use = active ? 1 KILOWATTS : 0
 	owner.update_icon()
+
+/obj/item/mecha_equipment/shield/deactivate()
+	if(active)
+		toggle()
+	..()
 
 /obj/item/mecha_equipment/shield/update_icon()
 	. = ..()
@@ -361,10 +329,9 @@
 		return
 	if((world.time - last_recharge) < cooldown)
 		return
-	var/obj/item/cell/cell = owner.get_cell()
 
 	var/actual_required_power = Clamp(max_charge - charge, 0, charging_rate)
-	charge += cell.use(actual_required_power)
+	owner.use_cell_power(actual_required_power)
 
 /obj/item/mecha_equipment/shield/get_hardpoint_status_value()
 	return charge / max_charge

@@ -19,9 +19,9 @@
 	var/r = hex2num(textr)
 	var/g = hex2num(textg)
 	var/b = hex2num(textb)
-	textr = num2hex(255 - r)
-	textg = num2hex(255 - g)
-	textb = num2hex(255 - b)
+	textr = num2hex(255 - r, 0)
+	textg = num2hex(255 - g, 0)
+	textb = num2hex(255 - b, 0)
 	if (length(textr) < 2)
 		textr = text("0[]", textr)
 	if (length(textg) < 2)
@@ -41,19 +41,34 @@
 	return 1
 
 
-/proc/Get_Angle(atom/movable/start,atom/movable/end)//For beams.
-	if(!start || !end) return 0
-	var/dy
-	var/dx
-	dy=(32*end.y+end.pixel_y)-(32*start.y+start.pixel_y)
-	dx=(32*end.x+end.pixel_x)-(32*start.x+start.pixel_x)
+/proc/Get_Angle(atom/movable/start, atom/movable/end) //For beams.
+	if(!start || !end)
+		return FALSE
+	var/dy = (32 * end.y + end.pixel_y) - (32 * start.y + start.pixel_y)
+	var/dx = (32 * end.x + end.pixel_x) - (32 * start.x + start.pixel_x)
 	if(!dy)
-		return (dx>=0)?90:270
-	.=arctan(dx/dy)
-	if(dy<0)
-		.+=180
-	else if(dx<0)
-		.+=360
+		return (dx >= 0) ? 90 : 270
+	. = arctan(dx / dy)
+	if(dy < 0)
+		. += 180
+	else if(dx < 0)
+		. += 360
+
+/proc/get_projectile_angle(atom/source, atom/target)
+	var/sx = source.x * world.icon_size
+	var/sy = source.y * world.icon_size
+	var/tx = target.x * world.icon_size
+	var/ty = target.y * world.icon_size
+	var/atom/movable/AM
+	if(ismovable(source))
+		AM = source
+		sx += AM.step_x
+		sy += AM.step_y
+	if(ismovable(target))
+		AM = target
+		tx += AM.step_x
+		ty += AM.step_y
+	return SIMPLIFY_DEGREES(arctan(ty - sy, tx - sx))
 
 //Returns location. Returns null if no location was found.
 /proc/get_teleport_loc(turf/location,mob/target,distance = 1, density = 0, errorx = 0, errory = 0, eoffsetx = 0, eoffsety = 0)
@@ -631,6 +646,13 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	if (progbar)
 		qdel(progbar)
 
+/proc/atom_maintain_position(var/atom/A, var/atom/location)
+	if(QDELETED(A) || QDELETED(location))
+		return FALSE
+	if(A.loc != location)
+		return FALSE
+	return TRUE
+
 //Takes: Anything that could possibly have variables and a varname to check.
 //Returns: 1 if found, 0 if not.
 /proc/hasvar(var/datum/A, var/varname)
@@ -701,6 +723,21 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	else if (zone == BP_R_HAND) return "right hand"
 	else if (zone == BP_L_FOOT) return "left foot"
 	else if (zone == BP_R_FOOT) return "right foot"
+	else return zone
+
+/proc/reverse_parse_zone(zone)
+	if(zone == "right hand") return BP_R_HAND
+	else if (zone == "left hand") return BP_L_HAND
+	else if (zone == "left arm") return BP_L_ARM
+	else if (zone == "right arm") return BP_R_ARM
+	else if (zone == "left leg") return BP_L_LEG
+	else if (zone == "right leg") return BP_R_LEG
+	else if (zone == "left foot") return BP_L_FOOT
+	else if (zone == "right foot") return BP_R_FOOT
+	else if (zone == "left hand") return BP_L_HAND
+	else if (zone == "right hand") return BP_R_HAND
+	else if (zone == "left foot") return BP_L_FOOT
+	else if (zone == "right foot") return BP_R_FOOT
 	else return zone
 
 /proc/get(atom/loc, type)
@@ -779,23 +816,6 @@ var/global/list/common_tools = list(
 	if (O.edge)
 		return 1
 	return 0
-
-//Returns 1 if the given item is capable of popping things like balloons, inflatable barriers, or cutting police tape.
-/proc/can_puncture(obj/item/W as obj)		// For the record, WHAT THE HELL IS THIS METHOD OF DOING IT?
-	if(!W)
-		return 0
-	if(W.sharp)
-		return 1
-	return ( \
-		W.sharp													  || \
-		W.isscrewdriver()                   || \
-		W.ispen()                           || \
-		W.iswelder()					  || \
-		istype(W, /obj/item/flame/lighter/zippo)			  || \
-		istype(W, /obj/item/flame/match)            		  || \
-		istype(W, /obj/item/clothing/mask/smokable/cigarette) 		      || \
-		istype(W, /obj/item/shovel) \
-	)
 
 /proc/is_surgery_tool(obj/item/W)
 	return istype(W, /obj/item/surgery)
@@ -1000,11 +1020,15 @@ var/global/known_proc = new /proc/get_type_ref_bytes
 		colour = pick(list("FF0000","FF7F00","FFFF00","00FF00","0000FF","4B0082","8F00FF"))
 	else
 		for(var/i=1;i<=3;i++)
-			var/temp_col = "[num2hex(rand(lower,upper))]"
+			var/temp_col = "[num2hex(rand(lower,upper), 0)]"
 			if(length(temp_col )<2)
 				temp_col  = "0[temp_col]"
 			colour += temp_col
 	return "#[colour]"
+
+/proc/color_square(red, green, blue, hex)
+	var/color = hex ? hex : "#[num2hex(red, 2)][num2hex(green, 2)][num2hex(blue, 2)]"
+	return "<span style='font-face: fixedsys; font-size: 14px; background-color: [color]; color: [color]'>___</span>"
 
 // call to generate a stack trace and print to runtime logs
 /proc/crash_with(msg)

@@ -9,7 +9,8 @@
 	job_species_blacklist = list(
 		"Consular Officer" = list(
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK
 		)
 	)
 
@@ -34,22 +35,24 @@
 /datum/outfit/job/representative/consular/ceti
 	name = "Tau Ceti Consular Officer"
 
-	uniform = /obj/item/clothing/under/lawyer/blue
+	uniform = /obj/item/clothing/under/suit_jacket/navy
 	accessory = /obj/item/clothing/accessory/tc_pin
 	backpack_contents = list(
 		/obj/item/storage/box/ceti_visa = 1,
 		/obj/item/storage/box/tcfl_pamphlet = 1,
+		/obj/item/device/versebook/biesel = 1, //constitution
 		/obj/item/stamp/biesel = 1,
-		/obj/item/gun/energy/pistol = 1
+		/obj/item/gun/energy/blaster/revolver = 1
 	)
 
 
 /datum/citizenship/sol_alliance
 	name = CITIZENSHIP_SOL
-	description = "A juggernaut in terms of cultural and political influence, the Alliance of Sovereign Solarian Nations (ASSN), commonly referred to as SolGov or the Sol Alliance is \
-	by far the largest nation within all of known space. It is arguably the most culturally and linguistically diverse entity within known space, owing primarily to the age of its \
-	colonies and its control over the Sol system and Earth. In recent times, however, Sol Alliance has been failing to hold its grip, and many believe it to be in a state of decline. \
-	It is generally authoritarian, and many aliens here find themselves discriminated against."
+	description = "Once considered a juggernaut in terms of cultural and political influence, the Alliance of Sovereign Solarian Nations (ASSN), commonly referred to as the Sol Alliance, has greatly declined in the wake of the phoron crisis and the Solarian collapse of 2462. \
+	Once the spur's largest interstellar power, in recent times the Sol Alliance has retreated to its wealthy so-called Jewel Worlds and inner colonies, with its reach barely extending to a few select middle colonies. \
+    However, it still controls the largest human military in the entire spur, and their cooperation with Einstein Engines and the Nralakk Federation has contributed to it gradually regaining some of its pre-collapse influence and power. \
+	Presently ruled by a military junta that is gradually giving way to civilian control, the Alliance is also generally xenophobic, and most non-humans find themselves discriminated against in Solarian territory. \
+	Though much of its former possessions are now occupied by warlord statelets and other interstellar powers, the Alliance still maintains a revanchist outlook, refusing to relinquish its claims to its lost territories."
 	consular_outfit = /datum/outfit/job/representative/consular/sol
 
 	job_species_blacklist = list(
@@ -65,13 +68,17 @@
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
 			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
 			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -80,15 +87,15 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of NanoTrasen being unfair or oppressive against Solarian employees, to be used as leverage in future diplomatic talks.",
+			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or oppressive against Solarian employees, to be used as leverage in future diplomatic talks.",
 							"Convince [rand(1,3)] solarian employees to apply for the Solarian armed forces.")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Have [rand(2,5)] amount of Sol citizens write down their grievances with the company, and present the report to station command.",
+			rep_objectives = pick("Have [rand(2,5)] amount of Sol citizens write down their grievances with the company, and present the report to [current_map.station_short] command.",
 							"Convince [rand(3,6)] qualified specialists among crew to enter Sol Alliance space, and issue them a visa recommendation.")
 		else
-			rep_objectives = pick("Collect [rand(3,7)] pictures of secure station areas.",
-							"Convince station command to turn a Solarian crewmember's sentence into a fine.")
+			rep_objectives = pick("Collect [rand(3,7)] pictures of secure [current_map.station_short] areas.",
+							"Convince Horizon command to turn a Solarian crewmember's sentence into a fine.")
 
 	return rep_objectives
 
@@ -108,7 +115,11 @@
 	description = "Eridani, or the Eridani Corporate Federation, is a dystopian oligarchic republic in the Epsilon Eridani system, dominated entirely by a council of mega-corporations \
 	that seek profit and expansion at any cost. It is characterized by a stark class divide, with citizens falling into one into two groups - pristine, inoffensive and rich Corporates, \
 	and poor, yet free-willed and provocative Dregs. The Federation is controlled by several megacorporations, and although NanoTrasen is not one of them, it is a common former \
-	workplace of various contractors on board NSS Aurora."
+	workplace of various contractors on-board."
+
+	job_species_blacklist = list(
+		"Consular Officer" = ALL_SPECIES
+	)
 
 /datum/citizenship/coalition
 	name = CITIZENSHIP_COALITION
@@ -116,6 +127,7 @@
 	from whole colonial systems to travelling super ships to mining and farming outposts. Most communities here are, although not as developed as many galactic powers, very \
 	tightly-knit. Almost anything and anyone can be found in these wild, mostly uncharted lands. "
 	demonym = "frontiersman"
+	consular_outfit = /datum/outfit/job/representative/consular/coalition
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -124,8 +136,18 @@
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
+	)
+
+/datum/outfit/job/representative/consular/coalition
+	name = "Coalition Consular Officer"
+
+	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/gun/projectile/colt/super = 1
 	)
 
 /datum/citizenship/elyra
@@ -135,14 +157,21 @@
 	is \"For Greatness We Strive\". It's official language is Tau Ceti Basic, though several old-earth languages cling to life in small enclaves, such as arabic, persian, and farsi. \
 	The Republic has mixed relations with NanoTrasen, due to their own possession of phoron."
 	demonym = "elyrian"
+	consular_outfit = /datum/outfit/job/representative/consular/elyra
+
+/datum/outfit/job/representative/consular/elyra
+	name = "Elyra Consular Officer"
+
+	backpack_contents = list(
+		/obj/item/gun/projectile/plasma/bolter/pistol = 1
+	)
 
 /datum/citizenship/dominia
 	name = CITIZENSHIP_DOMINIA
-	description = "A heavily religious absolute monarchy with its capital, Nova Luxembourg, on the planet of Dominia in the X'yr Vharn'p system. This autocratic state is ruled by His \
-	Imperial Majesty Boleslaw Keeser. The Empire of Dominia was proclaimed in 2437 by Unathi raiders who invaded the planet of Moroz, a colony which had been isolated for hundreds of \
-	years. Imperial society is dominated by the Great and Minor Houses under the Emperor and is very socio-economically stratified due to the so-called blood debt, \
-	known as the Mor'iz'al. All citizens are born with the Mor'iz'al debt in exchange for the privileges of citizenship, a debt that takes a lifetime or more to pay off. \
-	Indebted citizens are known as Ma'zals, forming the massive underclass in Dominia. Many in the Empire follow a strict code of honor."
+	description = "A heavily religious absolute monarchy with its capital, Nova Luxembourg, on the planet of Moroz in the Mira Sancta system. This autocratic state is ruled by \
+	His Imperial Majesty Boleslaw Keeser. The Empire of Dominia was proclaimed in 2385 by then-Emperor Godwin Keeser, unifying a colony which had been isolated for hundreds of years. \
+	Imperial society is dominated by the Great and Minor Houses under the Emperor and is very socio-economically stratified due to the so-called blood debt, known as the Mor'iz'al."
+
 	consular_outfit = /datum/outfit/job/representative/consular/dominia
 
 	job_species_blacklist = list(
@@ -155,11 +184,15 @@
 			SPECIES_IPC_UNBRANDED,
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
@@ -168,14 +201,14 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Have [rand(2,5)] employees write their grievances with the stationbounds and IPC workers, and present the report to station command.",
+			rep_objectives = pick("Have [rand(2,5)] employees write their grievances with the stationbounds and IPC workers, and present the report to Horizon command.",
 							"Convince [rand(2,5)] crewmembers of Moroz Holy Tribunal being the superior religion.")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Promote and distribute the copies of Dominian Code of Honor to [rand(3,6)] crewmembers.",
-							"Convince a Dominian citizen to return to the Empire with valuable information on NanoTrasen to present.")
+							"Convince a Dominian citizen to return to the Empire with valuable information on the [current_map.boss_name] to present.")
 		else
-			rep_objectives = pick("Collect [rand(3,7)] pictures of secure station areas.",
+			rep_objectives = pick("Collect [rand(3,7)] pictures of secure vessel areas.",
 							"Convince [rand(3,6)] crewmembers to apply for a Dominian tourist visa.")
 
 	return rep_objectives

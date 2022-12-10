@@ -14,6 +14,27 @@
 		skipitems |= C.flags_inv
 	return skipitems
 
+/mob/living/carbon/human/proc/examine_pulse(mob/user)
+	if(user.stat || user.incapacitated() || !ishuman(user))
+		return
+
+	var/mob/living/carbon/human/H = user
+	if(H.has_stethoscope_active())
+		var/obj/item/organ/organ = src.get_organ(user.zone_sel.selecting)
+		if(organ)
+			user.visible_message("<b>[user]</b> checks [src] with a stethoscope.", "You check [src] with the stethoscope on your person.")
+			to_chat(user, SPAN_NOTICE("You place the stethoscope against [src]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>."))
+		else
+			to_chat(user, SPAN_WARNING("[src] is missing that limb!"))
+
+	else if(src.stat && !(src.species.flags & NO_BLOOD))
+		user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
+		if(do_mob(user, src, 15))
+			if(pulse() == PULSE_NONE || (status_flags & FAKEDEATH))
+				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] no pulse.</span>")
+			else
+				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
+
 /mob/living/carbon/human/examine(mob/user)
 	var/skipbody = get_covered_body_parts()
 	var/skipbody_thick = get_covered_body_parts(TRUE)
@@ -27,6 +48,7 @@
 	var/skipmask = skipitems & HIDEMASK
 	var/skipeyes = skipitems & HIDEEYES
 	var/skipears = skipitems & HIDEEARS
+	var/skipwrists = skipitems & HIDEWRISTS
 
 	var/list/msg = list("<span class='info'>*---------*\nThis is ")
 
@@ -53,7 +75,7 @@
 				for(var/accessory in U.accessories)
 					if(istype(accessory, /obj/item/clothing/accessory/holster)) //so you can't see what kind of gun a holster is holding from afar
 						accessory_descs += "\a [accessory]"
-					else	
+					else
 						accessory_descs += "<a href='?src=\ref[src];lookitem_desc_only=\ref[accessory]'>\a [accessory]</a>"
 
 				tie_msg += " [lowertext(english_list(accessory_descs))]"
@@ -71,9 +93,9 @@
 	//head
 	if(head)
 		if(head.blood_color)
-			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] [head.gender==PLURAL?"some":"a"] [fluid_color_type_map(head.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>[head.name]</a> on [get_pronoun("his")] head!</span>\n"
+			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] [head.gender==PLURAL?"some":"a"] [fluid_color_type_map(head.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>[head.name]</a> [head.get_head_examine_text(src)]!</span>\n"
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>\a [head]</a> on [get_pronoun("his")] head.\n"
+			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>\a [head]</a> [head.get_head_examine_text(src)].\n"
 
 	//suit/armor
 	if(wear_suit)
@@ -147,9 +169,9 @@
 	if(legcuffed)
 		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(legcuffed, user)] legcuffed!</span>\n"
 
-	//buckled
-	if(buckled)
-		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(buckled, user)] buckled to [buckled]!</span>\n"
+	//buckled_to
+	if(buckled_to)
+		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] [icon2html(buckled_to, user)] buckled to [buckled_to]!</span>\n"
 
 	//belt
 	if(belt)
@@ -170,9 +192,9 @@
 	//mask
 	if(wear_mask && !skipmask)
 		if(wear_mask.blood_color)
-			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [icon2html(wear_mask, user)] [wear_mask.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_mask.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>[wear_mask.name]</a> on [get_pronoun("his")] face!</span>\n"
+			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [icon2html(wear_mask, user)] [wear_mask.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_mask.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>[wear_mask.name]</a> [wear_mask.get_mask_examine_text(src)]!</span>\n"
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(wear_mask, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>\a [wear_mask]</a> on [get_pronoun("his")] face.\n"
+			msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(wear_mask, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>\a [wear_mask]</a> [wear_mask.get_mask_examine_text(src)].\n"
 
 	//eyes
 	if(glasses && !skipeyes)
@@ -183,16 +205,20 @@
 
 	//left ear
 	if(l_ear && !skipears)
-		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(l_ear, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[l_ear]'>\a [l_ear]</a> on [get_pronoun("his")] left ear.\n"
+		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(l_ear, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[l_ear]'>\a [l_ear]</a> [l_ear.get_ear_examine_text(src, "left")].\n"
 
 	//right ear
 	if(r_ear && !skipears)
-		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(r_ear, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[r_ear]'>\a [r_ear]</a> on [get_pronoun("his")] right ear.\n"
+		msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(r_ear, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[r_ear]'>\a [r_ear]</a> [r_ear.get_ear_examine_text(src, "right")].\n"
 
 	//ID
 	if(wear_id)
 		var/id_name = wear_id
 		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wear_id, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_id]'>\a [id_name]</a>.\n"
+
+	//wrists
+	if(wrists && !skipwrists)
+		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wrists, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wrists]'>\a [wrists]</a> on [get_pronoun("his")] [wrists.gender==PLURAL?"wrists":"wrist"].\n"
 
 	//Jitters
 	if(is_jittery)
@@ -203,6 +229,10 @@
 		else if(jitteriness >= 100)
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] twitching ever so slightly.</span>\n"
 
+	//Red Nightshade
+	if(is_berserk())
+		msg += "<span class='warning'><B>[get_pronoun("He")] [get_pronoun("has")] engorged veins which appear a vibrant red.</B></span>\n"
+		
 	//splints
 	for(var/organ in list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_R_FOOT,BP_L_FOOT))
 		var/obj/item/organ/external/o = get_organ(organ)
@@ -218,18 +248,11 @@
 	var/distance = get_dist(user,src)
 	if(istype(user, /mob/abstract/observer) || user.stat == 2) // ghosts can see anything
 		distance = 1
-	if (src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
+
+	if(src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
 		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")]n't responding to anything around [get_pronoun("him")] and seems to be unconscious.</span>\n"
-		if((stat == DEAD || is_asystole() || src.losebreath) && distance <= 3)
+		if((stat == DEAD || is_asystole() || src.losebreath) && distance <= 3 || (status_flags & FAKEDEATH))
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("does")] not appear to be breathing.</span>\n"
-		if(istype(user, /mob/living/carbon/human) && !user.stat && Adjacent(user))
-			spawn (0)
-				user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
-				if (do_mob(user, src, 15))
-					if(pulse() == PULSE_NONE)
-						to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] no pulse.</span>")
-					else
-						to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
 
 	else if (src.stat)
 		msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] not responding to anything around [get_pronoun("him")].\n")
@@ -251,7 +274,7 @@
 		inactivity =  have_client ? bg.client.inactivity : null
 
 
-	if(species.show_ssd && (!species.has_organ[BP_BRAIN] || has_brain()) && stat != DEAD)
+	if(species.show_ssd && (!species.has_organ[BP_BRAIN] || has_brain()) && stat != DEAD && !(status_flags & FAKEDEATH))
 		if(!vr_mob && !key)
 			msg += "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("is")] [species.show_ssd]. It doesn't look like [get_pronoun("he")] [get_pronoun("is")] waking up anytime soon.</span>\n"
 		else if(!vr_mob && !client && !bg)
@@ -287,7 +310,7 @@
 				continue
 			var/thin_covering = (skipbody & body_part) ? TRUE : FALSE
 			if((temp.status & ORGAN_ASSISTED) && !thin_covering)
-				if(!(temp.brute_dam + temp.burn_dam))
+				if(!(temp.brute_dam + temp.burn_dam) && !(temp.open))
 					continue
 				else
 					wound_flavor_text["[temp.name]"] = "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [temp.get_wounds_desc()] on [get_pronoun("his")] [temp.name].</span><br>"
@@ -361,19 +384,31 @@
 		if(istype(R))
 			medical = R.physical_status
 
-		msg += "<span class = 'deptradio'>Physical status:</span> <a href='?src=\ref[src];medical=1'>\[[medical]\]</a>\n"
-		msg += "<span class = 'deptradio'>Medical records:</span> <a href='?src=\ref[src];medrecord=`'>\[View\]</a> <a href='?src=\ref[src];medrecordadd=`'>\[Add comment\]</a>\n"
+		msg += "<span class = 'deptradio'>Physical Status:</span> <a href='?src=\ref[src];medical=1'>\[[medical]\]</a>\n"
+		msg += "<span class = 'deptradio'>Medical Records:</span> <a href='?src=\ref[src];medrecord=`'>\[View\]</a> <a href='?src=\ref[src];medrecordadd=`'>\[Add Comment\]</a>\n"
+		msg += "<span class = 'deptradio'>Triage Tag:</span> <a href='?src=\ref[src];triagetag=1'>\[[triage_tag]\]</a>\n"
 
 
 	if(print_flavor_text()) msg += "[print_flavor_text()]\n"
 
 	msg += "*---------*</span>"
+
+	if(src in intent_listener)
+		msg += SPAN_NOTICE("\n[get_pronoun("He")] looks like [get_pronoun("he")] [get_pronoun("is")] listening intently to [get_pronoun("his")] surroundings.")
+	
+	var/datum/vampire/V = get_antag_datum(MODE_VAMPIRE)
+	if(V && (V.status & VAMP_DRAINING))
+		var/obj/item/grab/G = get_active_hand()
+		msg += SPAN_ALERT("\n[get_pronoun("He")] is biting [G.affecting]'[G.affecting.get_pronoun("end")] neck!")
+
 	if (pose)
 		if( findtext(pose,".",length(pose)) == 0 && findtext(pose,"!",length(pose)) == 0 && findtext(pose,"?",length(pose)) == 0 )
 			pose = addtext(pose,".") //Makes sure all emotes end with a period.
 		msg += "\n[get_pronoun("He")] [pose]"
 
 	to_chat(user, msg.Join())
+	if(Adjacent(user))
+		INVOKE_ASYNC(src, .proc/examine_pulse, user)
 
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
 /proc/hasHUD(mob/M, hudtype)

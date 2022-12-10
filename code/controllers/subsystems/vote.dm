@@ -49,6 +49,9 @@ var/datum/controller/subsystem/vote/SSvote
 	log_debug("The server has called a crew transfer vote")
 
 /datum/controller/subsystem/vote/proc/autogamemode()
+	for(var/thing in clients)
+		var/client/C = thing
+		window_flash(C)
 	initiate_vote("gamemode","the server", 1)
 	log_debug("The server has called a gamemode vote")
 
@@ -197,6 +200,12 @@ var/datum/controller/subsystem/vote/SSvote
 		if(vote in choices)
 			if(current_votes[ckey])
 				choices[current_votes[ckey]]["votes"]--
+			var/vote_descriptor = ""
+			if(isnewplayer(usr))
+				vote_descriptor = ", from the lobby"
+			else if(isobserver(usr))
+				vote_descriptor = ", as an observer"
+			log_vote("[ckey] submitted their vote for: [vote][vote_descriptor]")
 			voted += usr.ckey
 			choices[vote]["votes"]++	//check this
 			current_votes[ckey] = vote
@@ -290,7 +299,7 @@ var/datum/controller/subsystem/vote/SSvote
 		to_world("<span class='vote'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</span>")
 		for(var/cc in clients)
 			var/client/C = cc
-			if(C.prefs.asfx_togs & ASFX_VOTE) //Personal mute
+			if(C.prefs.sfx_toggles & ASFX_VOTE) //Personal mute
 				switch(vote_type)
 					if("crew_transfer")
 						sound_to(C, sound('sound/effects/vote.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))

@@ -8,6 +8,7 @@
 	age_max = 60
 	economic_modifier = 3
 	default_genders = list(NEUTER)
+	selectable_pronouns = list(NEUTER, PLURAL)
 
 	blurb = "IPCs are, quite simply, \"Integrated Positronic Chassis.\" In this scenario, 'positronic' implies that the chassis possesses a positronic processing core (or positronic brain), meaning that an IPC must be positronic to be considered an IPC. The Baseline model is more of a category - the long of the short is that they represent all unbound synthetic units. Baseline models cover anything that is not an Industrial chassis or a Shell chassis. They can be custom made or assembly made. The most common feature of the Baseline model is a simple design, skeletal or semi-humanoid, and ordinary atmospheric diffusion cooling systems."
 
@@ -30,10 +31,11 @@
 
 	name_language = "Encoded Audio Language"
 	num_alternate_languages = 2
-	secondary_langs = list("Encoded Audio Language", "Sol Common")
+	secondary_langs = list("Encoded Audio Language", "Sol Common", "Elyran Standard")
 	ethanol_resistance = -1//Can't get drunk
 	radiation_mod = 0	// not affected by radiation
 	remains_type = /obj/effect/decal/remains/robot
+	dust_remains_type = /obj/effect/decal/remains/robot/burned
 
 	hud_type = /datum/hud_data/ipc
 
@@ -50,6 +52,8 @@
 	knockout_message = "encounters a hardware fault and suddenly reboots!"
 	halloss_message = "encounters a hardware fault and suddenly reboots."
 	halloss_message_self = "ERROR: Unrecoverable machine check exception.<BR>System halted, rebooting..."
+
+	stutter_verbs = list("sputters", "crackles", "stutters")
 
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
@@ -110,30 +114,61 @@
 		)
 	stamina = -1	// Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1  // About as capable of speed as a human
+	sprint_cost_factor = 1.5
 
 	max_hydration_factor = -1
+	max_nutrition_factor = -1
 
-	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA, CITIZENSHIP_GOLDEN)
-	default_citizenship = CITIZENSHIP_NONE
 	bodyfall_sound = /decl/sound_category/bodyfall_machine_sound
 
-	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
-							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
+	possible_cultures = list(
+		/decl/origin_item/culture/ipc_sol,
+		/decl/origin_item/culture/ipc_elyra,
+		/decl/origin_item/culture/ipc_coalition,
+		/decl/origin_item/culture/ipc_tau_ceti,
+		/decl/origin_item/culture/golden_deep,
+		/decl/origin_item/culture/megacorporate,
+		/decl/origin_item/culture/scrapper,
+		/decl/origin_item/culture/orepit_trinary
+	)
 
 	alterable_internal_organs = list()
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
-	var/sprint_charge_factor = 0.65
+	var/move_charge_factor = 1
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
+	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+	if(C)
+		C.move_charge_factor = move_charge_factor
 
-/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
-	if (H.stat == CONSCIOUS)
+/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
+	if(!pre_move && H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
+	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+	if(C)
+		C.use(cost * sprint_cost_factor)
 	return TRUE
+
+/datum/species/machine/handle_emp_act(mob/living/carbon/human/H, var/severity)
+	var/obj/item/organ/internal/surge/S = H.internal_organs_by_name["surge"]
+	if(!isnull(S))
+		if(S.surge_left >= 1)
+			playsound(H.loc, 'sound/magic/LightningShock.ogg', 25, 1)
+			S.surge_left -= 1
+			if(S.surge_left)
+				to_chat(H, SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. There are [S.surge_left] preventions left."))
+			else
+				S.broken = TRUE
+				S.icon_state = "surge_ipc_broken"
+				to_chat(H, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended."))
+			return TRUE
+		else
+			to_chat(src, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended."))
+	return FALSE
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
@@ -288,6 +323,45 @@
 
 		if ("waiting IPC screen")
 			return "#FFFFFF"
+
+		if ("nanotrasen IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("hephaestus IPC screen")
+			return LIGHT_COLOR_ORANGE
+
+		if ("idris IPC screen")
+			return LIGHT_COLOR_CYAN
+
+		if ("zavodskoi IPC screen")
+			return LIGHT_COLOR_RED
+
+		if ("zeng-hu IPC screen")
+			return "#FFFFFF"
+
+		if ("scc IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("republic of biesel IPC screen")
+			return "#FFFFFF"
+
+		if ("sol alliance IPC screen")
+			return "#FFFFFF"
+
+		if ("coalition of colonies IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("republic of elyra IPC screen")
+			return LIGHT_COLOR_YELLOW
+
+		if ("eridani IPC screen")
+			return "#FFFFFF"
+
+		if ("burzsia IPC screen")
+			return LIGHT_COLOR_ORANGE
+
+		if ("trinary perfection IPC screen")
+			return LIGHT_COLOR_RED
 
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

@@ -5,7 +5,7 @@
 	max_co2 = 0
 	minbodytemp = 0
 	maxbodytemp = 500
-	mob_size = MOB_SMALL
+	mob_size = MOB_TINY
 
 	var/radio_type = /obj/item/device/radio/borg
 	var/obj/item/device/radio/borg/radio = null
@@ -23,6 +23,8 @@
 	icon_state = "spiderbot-chassis"
 	icon_living = "spiderbot-chassis"
 	icon_dead = "spiderbot-smashed"
+	blood_color = COLOR_OIL
+	blood_type = COLOR_OIL
 
 	wander = 0
 	density = 0
@@ -43,8 +45,12 @@
 	var/obj/item/held_item = null //Storage for single item they can hold.
 	speed = -1                    //Spiderbots gotta go fast.
 	pass_flags = PASSTABLE | PASSDOORHATCH
-	speak_emote = list("beeps","clicks","chirps")
 	universal_understand = TRUE
+	speak_emote = list("beeps","clicks","chirps")
+	can_pull_size = 3
+	can_pull_mobs = MOB_PULL_SMALLER
+
+	psi_pingable = FALSE
 
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
@@ -55,6 +61,12 @@
 	verbs |= /mob/living/proc/hide
 	verbs |= /mob/living/simple_animal/spiderbot/proc/control_integrated_radio
 	voice_name = name
+
+/mob/living/simple_animal/spiderbot/can_name(var/mob/living/M)
+	return FALSE
+
+/mob/living/simple_animal/spiderbot/isSynthetic()
+	return TRUE
 
 /mob/living/simple_animal/spiderbot/attackby(var/obj/item/O as obj, var/mob/user as mob)
 
@@ -100,7 +112,7 @@
 
 	if (O.iswelder())
 		var/obj/item/weldingtool/WT = O
-		if (WT.remove_fuel(0))
+		if (WT.use(0))
 			if(health < maxHealth)
 				health += pick(1,1,1,2,2,3)
 				if(health > maxHealth)
@@ -114,7 +126,7 @@
 			return
 	else if(O.GetID())
 		if (!mmi)
-			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain to remove.</span>")
+			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain.</span>")
 			return 0
 
 		var/obj/item/card/id/id_card = O.GetID()
@@ -122,17 +134,33 @@
 		if(!istype(id_card))
 			return 0
 
-		if(access_robotics in id_card.access)
-			to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
-			eject_brain()
-			if(held_item)
-				held_item.forceMove(src.loc)
-				held_item = null
-			return 1
-		else
-			to_chat(user, "<span class='danger'>You swipe your card with no effect.</span>")
-			return 0
+		var/choice = input(user, "Would you like to eject the brain or sync access?", "Swipe Mode") as null|anything in list("Eject", "Sync")
+		if(!choice)
+			return
 
+		switch(choice)
+			if("Eject")
+				if(use_check_and_message(user))
+					return 0
+				if(access_robotics in id_card.access)
+					to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
+					eject_brain()
+					if(held_item)
+						held_item.forceMove(src.loc)
+						held_item = null
+					return 1
+				else
+					to_chat(user, "<span class='danger'>You swipe your card with no effect.</span>")
+					return 0
+			if("Sync")
+				if(use_check_and_message(user))
+					return 0
+
+				internal_id.access.Cut()
+				internal_id.access = id_card.access.Copy()
+				to_chat(user, SPAN_NOTICE("Access synced with [src]."))
+				to_chat(src, SPAN_NOTICE("Access codes updated."))
+				return 1
 	else
 		O.attack(src, user, user.zone_sel.selecting)
 
@@ -185,6 +213,9 @@
 	remove_language("Robot Talk")
 	positronic = null
 
+/mob/living/simple_animal/spiderbot/get_radio()
+	return radio
+
 /mob/living/simple_animal/spiderbot/Destroy()
 	eject_brain()
 	return ..()
@@ -193,7 +224,7 @@
 	. = ..()
 
 	radio = new radio_type(src)
-	camera = new /obj/machinery/camera(src)
+	camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
 	camera.c_tag = "spiderbot-[real_name]"
 	camera.replace_networks(list("SS13"))
 
@@ -308,8 +339,12 @@
 /mob/living/simple_animal/spiderbot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
-/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
+/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	switch(message_mode)
+		if("whisper")
+			if(!whisper)
+				whisper(message, speaking)
+				return TRUE
 		if("headset")
 			radio.talk_into(src, message, null, verb, speaking)
 			used_radios += radio

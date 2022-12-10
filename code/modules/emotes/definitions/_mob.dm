@@ -57,6 +57,7 @@
 		/decl/emote/visible/jump,
 		/decl/emote/visible/shiver,
 		/decl/emote/visible/collapse,
+		/decl/emote/visible/blink_r,
 		/decl/emote/audible/hiss,
 		/decl/emote/audible,
 		/decl/emote/audible/scretch,
@@ -112,7 +113,7 @@
 		/decl/emote/audible/grunt,
 		/decl/emote/audible/slap,
 		/decl/emote/audible/snap,
-		/decl/emote/human,
+		/decl/emote/human/vomit,
 		/decl/emote/human/deathgasp,
 		/decl/emote/audible/giggle,
 		/decl/emote/audible/scream,
@@ -120,8 +121,6 @@
 		/decl/emote/visible/blink_r,
 		/decl/emote/visible/bow,
 		/decl/emote/visible/salute,
-		/decl/emote/visible/flap,
-		/decl/emote/visible/aflap,
 		/decl/emote/visible/drool,
 		/decl/emote/visible/eyebrow,
 		/decl/emote/visible/twitch,
@@ -169,19 +168,24 @@
 
 /mob/living/silicon/robot
 	default_emotes = list(
-		/decl/emote/audible/clap,
-		/decl/emote/visible/bow,
-		/decl/emote/visible/salute,
-		/decl/emote/visible/flap,
-		/decl/emote/visible/aflap,
 		/decl/emote/visible/twitch,
 		/decl/emote/visible/twitch_v,
-		/decl/emote/visible/nod,
-		/decl/emote/visible/shake,
-		/decl/emote/visible/glare,
 		/decl/emote/visible/look,
 		/decl/emote/visible/stare,
 		/decl/emote/visible/deathgasp_robot,
+		/decl/emote/audible/synth,
+		/decl/emote/audible/synth/ping,
+		/decl/emote/audible/synth/buzz,
+		/decl/emote/audible/synth/confirm,
+		/decl/emote/audible/synth/deny,
+		)
+
+/mob/living/simple_animal/spiderbot
+	default_emotes = list(
+		/decl/emote/visible/twitch,
+		/decl/emote/visible/twitch_v,
+		/decl/emote/visible/look,
+		/decl/emote/visible/stare,
 		/decl/emote/audible/synth,
 		/decl/emote/audible/synth/ping,
 		/decl/emote/audible/synth/buzz,

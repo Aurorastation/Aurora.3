@@ -23,6 +23,18 @@
 
 	mob_name = null
 
+//Return a error message if the user CANT spawn. Otherwise FALSE
+/datum/ghostspawner/human/cant_spawn(mob/user)
+	//If whitelist is required, check if user can spawn in ANY of the possible species
+	if(uses_species_whitelist)
+		var/can_spawn_as_any = FALSE
+		for (var/S in possible_species)
+			if(is_alien_whitelisted(user, S))
+				can_spawn_as_any = TRUE
+				break
+		if(!can_spawn_as_any)
+			return "This spawner requires whitelists for its spawnable species, and you do not have any such."
+	. = ..()
 
 //Proc executed before someone is spawned in
 /datum/ghostspawner/human/pre_spawn(mob/user)
@@ -36,7 +48,7 @@
 			pick_message = "[pick_message] Auto Prefix: \"[mob_name_prefix]\" "
 		if(mob_name_suffix)
 			pick_message = "[pick_message] Auto Suffix: \"[mob_name_suffix]\" "
-		mname = sanitizeSafe(input(user, pick_message, "Name for a [species] (without prefix/suffix)"))
+		mname = sanitizeName(sanitize_readd_odd_symbols(sanitizeSafe(input(user, pick_message, "Name for a [species] (without prefix/suffix)"))))
 
 	if(!length(mname))
 		if(mob_name_prefix || mob_name_suffix)
@@ -97,6 +109,7 @@
 
 	if(assigned_role)
 		M.mind.assigned_role = assigned_role
+		M.mind.role_alt_title = assigned_role
 	if(special_role)
 		M.mind.special_role = special_role
 	if(faction)
@@ -105,19 +118,15 @@
 	//Move the mob
 	M.forceMove(T)
 	M.lastarea = get_area(M.loc) //So gravity doesnt fuck them.
-	M.megavend = TRUE //So the autodrobe ignores them
-
-	//Setup the appearance
-	if(allow_appearance_change)
-		M.change_appearance(allow_appearance_change, M.loc, check_species_whitelist = 1)
-	else //otherwise randomize
-		M.client.prefs.randomize_appearance_for(M, FALSE)
 
 	//Setup the mob age and name
 	if(!mname)
 		mname = random_name(M.gender, M.species.name)
 
 	M.fully_replace_character_name(M.real_name, mname)
+
+	M.mind.signature = mname
+	M.mind.signfont = pick("Verdana", "Times New Roman", "Courier New")
 
 	if(!age)
 		age = rand(35, 50)
@@ -131,6 +140,12 @@
 	else if(outfit)
 		M.preEquipOutfit(outfit, FALSE)
 		M.equipOutfit(outfit, FALSE)
+
+	//Setup the appearance
+	if(allow_appearance_change)
+		M.change_appearance(allow_appearance_change, M, update_id = TRUE)
+	else //otherwise randomize
+		M.client.prefs.randomize_appearance_for(M, FALSE)
 
 	for(var/language in extra_languages)
 		M.add_language(language)

@@ -3,7 +3,7 @@
 	ic_name = "a viral biohazard"
 
 /datum/event/disease_outbreak/announce()
-	command_announcement.Announce("Confirmed outbreak of level 7 viral biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", new_sound = 'sound/AI/outbreak7.ogg')
+	command_announcement.Announce("Confirmed outbreak of level 7 viral biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", new_sound = 'sound/AI/level_7_biohazard.ogg')
 
 /datum/event/disease_outbreak/setup()
 	announceWhen = rand(15, 30)

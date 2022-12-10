@@ -24,7 +24,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "bj" = (
-/obj/structure/bed/chair/office/bridge/generic{
+/obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue{
@@ -37,7 +37,7 @@
 /area/dungeon/crashed_ship)
 "dO" = (
 /obj/structure/window/reinforced,
-/obj/structure/bed/chair/office/bridge{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue{
@@ -143,7 +143,7 @@
 /area/dungeon/crashed_ship)
 "jj" = (
 /obj/structure/window/reinforced,
-/obj/structure/bed/chair/office/bridge,
+/obj/structure/bed/stool/chair/office/bridge,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0
@@ -193,7 +193,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal,
 /area/dungeon/crashed_ship)
 "mD" = (
-/obj/structure/bed/chair/office/bridge/pilot{
+/obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -307,7 +307,7 @@
 	},
 /area/dungeon/crashed_ship)
 "tD" = (
-/obj/structure/bed/chair/office/bridge/pilot{
+/obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
 	},
 /obj/item/clothing/accessory/sol_pin,
@@ -517,7 +517,7 @@
 	req_access = list(150)
 	},
 /obj/random/weapon_and_ammo,
-/obj/structure/closet/crate/secure/weapon{
+/obj/structure/closet/crate/secure/weapon/alt{
 	req_access = list(150)
 	},
 /obj/item/clothing/accessory/storage/bayonet,
@@ -610,10 +610,10 @@
 	},
 /area/dungeon/crashed_ship)
 "Oz" = (
-/obj/structure/bed/chair/office/bridge/generic,
+/obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/under/rank/fatigues,
+/obj/item/clothing/under/rank/sol,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0
@@ -627,7 +627,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/clothing/head/dress/officer,
+/obj/item/clothing/head/sol/dress/officer,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0

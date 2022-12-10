@@ -80,6 +80,10 @@
 	_app_preset_type = /datum/modular_computer_app_presets/command/account
 	enrolled = 1
 
+/obj/item/modular_computer/console/preset/command/account/centcomm
+	name = "centcomm accounts database"
+	_app_preset_type = /datum/modular_computer_app_presets/command/account/centcomm
+
 // Security
 /obj/item/modular_computer/console/preset/security
 	name = "security console"
@@ -100,6 +104,16 @@
 	name = "head of security's console"
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
 	enrolled = 1
+
+/obj/item/modular_computer/console/preset/command/teleporter
+	name = "teleporter control console"
+	desc = "A computer that has a special teleporter control program loaded."
+	_app_preset_type = /datum/modular_computer_app_presets/command/teleporter
+
+/obj/item/modular_computer/console/preset/command/teleporter/ninja
+	name = "teleporter control console"
+	desc = "A computer that has a special teleporter control program loaded."
+	_app_preset_type = /datum/modular_computer_app_presets/command/teleporter/ninja
 
 // Civilian
 /obj/item/modular_computer/console/preset/civilian

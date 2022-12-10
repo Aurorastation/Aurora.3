@@ -5,7 +5,7 @@
 /turf/template_noop,
 /area/template_noop)
 "ca" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "radiatorshutters";
 	name = "Radiator Shutters"
@@ -36,16 +36,9 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/cooling)
-"ep" = (
-/obj/structure/lattice,
-/obj/effect/landmark{
-	name = "Revenant"
-	},
-/turf/template_noop,
-/area/template_noop)
 "eu" = (
 /obj/structure/table/standard,
-/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/cooling)
 "gY" = (
@@ -56,7 +49,7 @@
 /turf/template_noop,
 /area/template_noop)
 "he" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "radiatorshutters";
@@ -96,7 +89,7 @@
 /area/engineering/cooling)
 "jT" = (
 /obj/structure/table/standard,
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_x = 32
 	},
 /obj/item/stack/medical/ointment,
@@ -131,6 +124,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -173,6 +167,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/sign/flag/scc{
+	pixel_y = 32
+	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/cooling)
 "pp" = (
@@ -253,7 +251,7 @@
 /turf/template_noop,
 /area/template_noop)
 "tQ" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -334,6 +332,9 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
@@ -343,7 +344,7 @@
 /turf/template_noop,
 /area/template_noop)
 "HK" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "radiatorshutters";
@@ -12774,7 +12775,7 @@ CN
 CN
 mc
 CN
-ep
+Ar
 CN
 UG
 sQ

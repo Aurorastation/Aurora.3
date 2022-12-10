@@ -13,12 +13,20 @@
 		qdel(L)
 
 // Called after turf replaces old one
-/turf/proc/post_change()
+/turf/proc/post_change(queue_neighbors = TRUE)
 	levelupdate()
 	if (above)
 		above.update_mimic()
 
-	queue_smooth_neighbors(src)
+	if(queue_neighbors)
+		queue_smooth_neighbors(src)
+	else
+		queue_smooth(src)
+
+	if (current_map.use_overmap && istype(loc, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 // Helper to change this turf into an appropriate openturf type, generally you should use this instead of ChangeTurf(/turf/simulated/open).
 /turf/proc/ChangeToOpenturf()
@@ -29,11 +37,9 @@
 /turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, var/ignore_override)
 	if (!N)
 		return
-	if(!use_preloader && N == type) // Don't no-op if the map loader requires it to be reconstructed
-		return src
 
 	// This makes sure that turfs are not changed to space when there's a multi-z turf below
-	if(N == /turf/space && HasBelow(z) && !ignore_override)
+	if(ispath(N, /turf/space) && HasBelow(z) && !ignore_override)
 		N = openspace_override_type || /turf/simulated/open/airless
 
 	var/obj/fire/old_fire = fire
@@ -44,6 +50,8 @@
 	var/list/old_affecting_lights = affecting_lights
 	var/old_lighting_overlay = lighting_overlay
 	var/list/old_corners = corners
+	var/list/old_blueprints = blueprints
+	var/list/old_decals = decals
 
 	changing_turf = TRUE
 
@@ -53,7 +61,7 @@
 	// So we call destroy.
 	qdel(src)
 
-	var/turf/simulated/W = new N(src)
+	var/turf/W = new N(src)
 
 #ifndef AO_USE_LIGHTING_OPACITY
 	// If we're using opacity-based AO, this is done in recalc_atom_opacity().
@@ -61,27 +69,28 @@
 		regenerate_ao()
 #endif
 
-	recalc_atom_opacity()
-	lighting_overlay = old_lighting_overlay
-	if (lighting_overlay && lighting_overlay.loc != src)
-		// This is a hack, but I can't figure out why the fuck they're not on the correct turf in the first place.
-		lighting_overlay.forceMove(src, harderforce = TRUE)
+	if(lighting_overlays_initialized)
+		recalc_atom_opacity()
+		lighting_overlay = old_lighting_overlay
+		if (lighting_overlay && lighting_overlay.loc != src)
+			// This is a hack, but I can't figure out why the fuck they're not on the correct turf in the first place.
+			lighting_overlay.forceMove(src, harderforce = TRUE)
 
-	affecting_lights = old_affecting_lights
-	corners = old_corners
+		affecting_lights = old_affecting_lights
+		corners = old_corners
 
-	if ((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
-		reconsider_lights()
+		if ((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
+			reconsider_lights()
 
-	if (dynamic_lighting != old_dynamic_lighting)
-		if (dynamic_lighting)
-			lighting_build_overlay()
-		else
-			lighting_clear_overlay()
+		if (dynamic_lighting != old_dynamic_lighting)
+			if (dynamic_lighting)
+				lighting_build_overlay()
+			else
+				lighting_clear_overlay()
 
-	if (config.starlight)
-		for (var/turf/space/S in RANGE_TURFS(1, src))
-			S.update_starlight()
+		if (config.starlight)
+			for (var/turf/space/S in RANGE_TURFS(1, src))
+				S.update_starlight()
 
 	W.above = old_above
 
@@ -101,6 +110,13 @@
 	if(!W.baseturf)
 		W.baseturf = old_baseturf
 
+	W.blueprints = old_blueprints
+	for(var/image/I as anything in W.blueprints)
+		I.loc = W
+		I.plane = 0
+
+	W.decals = old_decals
+
 	W.post_change()
 
 	. = W
@@ -114,6 +130,11 @@
 	src.icon = other.icon
 	src.overlays = other.overlays.Copy()
 	src.underlays = other.underlays.Copy()
+	if(other.decals)
+		src.decals = other.decals.Copy()
+		other.decals.Cut()
+		other.update_icon()
+		src.update_icon()
 	return 1
 
 //I would name this copy_from() but we remove the other turf from their air zone for some reason

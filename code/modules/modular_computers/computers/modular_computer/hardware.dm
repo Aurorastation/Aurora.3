@@ -72,6 +72,12 @@
 		to_chat(personal_ai.pai, SPAN_NOTICE("You gain access to \the [src]'s computronics."))
 		user.drop_from_inventory(H, src)
 		update_icon()
+	else if(istype(H, /obj/item/computer_hardware/flashlight))
+		if(flashlight)
+			to_chat(user, SPAN_WARNING("\The [src]'s flashlight slot is already occupied by \the [flashlight]."))
+			return
+		found = TRUE
+		flashlight = H
 	if(found)
 		to_chat(user, SPAN_NOTICE("You install \the [H] into \the [src]."))
 		H.parent_computer = src

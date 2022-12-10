@@ -1,3 +1,6 @@
+#define MINOR_ARTIFACTS "Minor Artifacts" // defined solely so someone doesn't typo it
+#define MAJOR_ARTIFACTS "Major Artifacts"
+
 /obj/item/ore_detector
 	name = "ore detector"
 	desc = "A device capable of locating and displaying ores to the average untrained hole explorer."
@@ -45,6 +48,8 @@
 			var/ore/O = ore_data[ore_n]
 			var/ore_name = O.display_name
 			ore_names += ore_name
+		ore_names += MINOR_ARTIFACTS
+		ore_names += MAJOR_ARTIFACTS
 	if(loc == user)
 		var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 		if(!ui)
@@ -86,7 +91,7 @@
 	for(var/turf/simulated/mineral/mine_turf in RANGE_TURFS(7, our_turf))
 		if(isnull(our_user)) // in the event it's dropped midsweep
 			return
-		if(mine_turf.mineral && (mine_turf.mineral.display_name in search_ores))
+		if((length(mine_turf.finds) && (MINOR_ARTIFACTS in search_ores)) || (mine_turf.artifact_find && (MAJOR_ARTIFACTS in search_ores)) || (mine_turf.mineral && (mine_turf.mineral.display_name in search_ores)))
 			var/image/ore_ping = image(icon = 'icons/obj/contained_items/tools/ore_scanner.dmi', icon_state = "signal_overlay", loc = our_turf, layer = OBFUSCATION_LAYER + 0.1)
 			pixel_shift_to_turf(ore_ping, our_turf, mine_turf)
 			M << ore_ping
@@ -117,3 +122,6 @@
 
 /obj/item/ore_detector/on_give()
 	deactivate()
+
+#undef MINOR_ARTIFACTS
+#undef MAJOR_ARTIFACTS

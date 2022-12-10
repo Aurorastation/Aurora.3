@@ -84,7 +84,7 @@
 
 	return 1
 
-/obj/machinery/dnaforensics/machinery_process()
+/obj/machinery/dnaforensics/process()
 	if(scanning)
 		if(!bloodsamp || bloodsamp.loc != src)
 			bloodsamp = null
@@ -99,24 +99,26 @@
 	last_process_worldtime = world.time
 
 /obj/machinery/dnaforensics/proc/complete_scan()
-	visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] makes an insistent chime.</span>", range = 2)
+	visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] makes an insistent chime."), range = 2)
 	update_icon()
 	if(bloodsamp)
 		var/obj/item/paper/P = new()
-		var/pname = "[src] report #[++report_num]: [bloodsamp.name]"
+		var/pname = "[src] report #[++report_num]"
 		var/info
 		P.stamped = list(/obj/item/stamp)
 		P.overlays = list("paper_stamped")
 		//dna data itself
 		var/data = "No scan information available."
 		if(bloodsamp.dna != null)
-			data = "Spectometric analysis on provided sample has determined the presence of [bloodsamp.dna.len] strings of DNA.<br><br>"
+			data = "Spectometric analysis on provided sample has determined the presence of [length(bloodsamp.dna)] string\s of DNA.<br><br>"
 			for(var/blood in bloodsamp.dna)
-				data += "<span class='notice'>Blood type: [bloodsamp.dna[blood]]<br>\nDNA: [blood]<br><br></span>"
+				if(bloodsamp.dna[blood])
+					data += "<b>Blood type:</b> [bloodsamp.dna[blood]]<br>"
+				data += "<b>DNA:</b> [blood]<br><br>"
 		else
 			data += "No DNA found.<br>"
-		info = "<b>[src] analysis report #[report_num]</b><br>"
-		info += "<b>Scanned item:</b><br>[bloodsamp.name]<br>[bloodsamp.desc]<br><br>" + data
+		info = "<b><font size=\"4\">[src] analysis report #[report_num]</font></b><HR>"
+		info += "<b>Scanned item:</b> [bloodsamp.name]<br><br>" + data
 		P.set_content_unsafe(pname, info)
 		print(P)
 		scanning = 0

@@ -3,7 +3,7 @@
 //				GENERIC	RIBCAGE SURGERY							//
 //////////////////////////////////////////////////////////////////
 /decl/surgery_step/open_encased
-	name = "Saw through bone"
+	name = "Saw Through Bone"
 	priority = 2
 	can_infect = TRUE
 	blood_level = 1
@@ -65,7 +65,7 @@
 
 
 /decl/surgery_step/open_encased/retract
-	name = "Retract bone"
+	name = "Retract Sawed Bone"
 	allowed_tools = list(
 	/obj/item/surgery/retractor = 100, 	\
 	/obj/item/crowbar = 75
@@ -116,6 +116,7 @@
 	affected.fracture()
 
 /decl/surgery_step/open_encased/close
+	name = "Bend Sawed Bone Closed"
 	allowed_tools = list(
 	/obj/item/surgery/retractor = 100, 	\
 	/obj/item/crowbar = 75
@@ -173,8 +174,9 @@
 			O.bruise()
 
 /decl/surgery_step/open_encased/mend
+	name = "Repair Sawed Bone"
 	allowed_tools = list(
-	/obj/item/surgery/bonegel = 100,	\
+	/obj/item/surgery/bone_gel = 100,	\
 	/obj/item/tape_roll = 60
 	)
 
@@ -203,8 +205,8 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	var/msg = "<b>[user]</b> starts applying \the [tool] to [target]'s [affected.encased]."
-	var/self_msg = "You start applying \the [tool] to [target]'s [affected.encased]."
+	var/msg = "<b>[user]</b> applies some of \the [tool] to [target]'s [affected.encased]."
+	var/self_msg = "You apply some of \the [tool] to [target]'s [affected.encased]."
 	user.visible_message(msg, SPAN_NOTICE(self_msg))
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()

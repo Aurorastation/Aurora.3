@@ -172,23 +172,11 @@
 	species = SPECIES_SKELETON
 	corpseid = 0
 
-/obj/effect/landmark/corpse/clown
-	name = "Clown"
-	corpseuniform = /obj/item/clothing/under/rank/clown
-	corpseshoes = /obj/item/clothing/shoes/clown_shoes
-	corpseradio = /obj/item/device/radio/headset
-	corpsemask = /obj/item/clothing/mask/gas/clown_hat
-	corpsepocket1 = /obj/item/bikehorn
-	corpseback = /obj/item/storage/backpack/clown
-	corpseid = 1
-	corpseidjob = "Clown"
-	corpseidaccess = "Clown"
-
 /obj/effect/landmark/corpse/scientist
 	name = "Scientist"
 	corpseradio = /obj/item/device/radio/headset/headset_sci
 	corpseuniform = /obj/item/clothing/under/rank/scientist
-	corpsesuit = /obj/item/clothing/suit/storage/toggle/labcoat/science
+	corpsesuit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	corpseback = /obj/item/storage/backpack
 	corpseshoes = /obj/item/clothing/shoes/science
 	corpseid = 1
@@ -215,9 +203,9 @@
 
 /obj/effect/landmark/corpse/bridgeofficer
 	name = "Bridge Officer"
-	corpseradio = /obj/item/device/radio/headset/heads/hop
+	corpseradio = /obj/item/device/radio/headset/heads/xo
 	corpseuniform = /obj/item/clothing/under/rank/centcom_officer
-	corpsesuit = /obj/item/clothing/suit/armor/bulletproof
+	corpsesuit = /obj/item/clothing/suit/armor/carrier/ballistic
 	corpseshoes = /obj/item/clothing/shoes/black
 	corpseglasses = /obj/item/clothing/glasses/sunglasses
 	corpseid = 1
@@ -227,7 +215,7 @@
 /obj/effect/landmark/corpse/commander
 	name = "Commander"
 	corpseuniform = /obj/item/clothing/under/rank/centcom_captain
-	corpsesuit = /obj/item/clothing/suit/armor/bulletproof
+	corpsesuit = /obj/item/clothing/suit/armor/carrier/ballistic
 	corpseradio = /obj/item/device/radio/headset/heads/captain
 	corpseglasses = /obj/item/clothing/glasses/eyepatch
 	corpsemask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
@@ -238,3 +226,26 @@
 	corpseid = 1
 	corpseidjob = "Commander"
 	corpseidaccess = "Captain"
+
+/*
+	Hideout Corpsespawners
+*/
+
+/obj/effect/landmark/corpse/hideout
+	name = "unidentifiable corpse"
+	corpseuniform = /obj/item/clothing/under/offworlder
+	corpsesuit = /obj/item/clothing/suit/storage/toggle/bomber
+	corpseradio = /obj/item/device/radio/headset
+	corpseglasses = /obj/item/clothing/glasses/sunglasses
+	corpsemask = /obj/item/clothing/mask/breath
+	corpsehelmet = /obj/item/clothing/head/softcap/cargo
+	corpsegloves = /obj/item/clothing/gloves/yellow/budget
+	corpseshoes = /obj/item/clothing/shoes/boots
+
+/obj/effect/landmark/corpse/hideout/captain
+	corpsegloves = /obj/item/clothing/gloves/fingerless
+	corpseshoes = /obj/item/clothing/shoes/jackboots
+	corpsesuit = /obj/item/clothing/suit/armor/carrier/ballistic
+	corpsehelmet = /obj/item/clothing/head/helmet/ballistic
+	corpsemask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
+	corpsepocket1 = /obj/item/flame/lighter/zippo

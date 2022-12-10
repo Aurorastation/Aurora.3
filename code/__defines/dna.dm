@@ -36,11 +36,10 @@
 #define TOURETTES   8
 #define STUTTERING     16
 #define DUMB            32
-#define MONKEYLIKE      64 //sets IsAdvancedToolUser to FALSE
-#define PACIFIST        128
-#define UNINTELLIGIBLE  256
-#define GERTIE 512
-#define ASTHMA 1024
+#define PACIFIST        64
+#define UNINTELLIGIBLE  128
+#define GERTIE 128
+#define ASTHMA 256
 
 // sdisabilities
 #define BLIND 0x1

@@ -8,7 +8,6 @@
 	icon = 'icons/obj/virology.dmi'
 	icon_state = "analyser"
 
-	use_power = 1			//1 = idle, 2 = active
 	idle_power_usage = 20
 	active_power_usage = 300
 
@@ -163,7 +162,7 @@
 		// auto update every Master Controller tick
 		ui.set_auto_update(1)
 
-/obj/machinery/radiocarbon_spectrometer/machinery_process()
+/obj/machinery/radiocarbon_spectrometer/process()
 	if(scanning)
 		if(!scanned_item || scanned_item.loc != src)
 			scanned_item = null
@@ -200,7 +199,7 @@
 					if(!rad_shield)
 						//irradiate nearby mobs
 						for(var/mob/living/M in view(7,src))
-							M.apply_effect(radiation / 25, IRRADIATE, blocked = M.getarmor(null, "rad"))
+							M.apply_damage(radiation / 25, IRRADIATE, damage_flags = DAM_DISPERSED)
 				else
 					t_left_radspike = pick(10,15,25)
 
@@ -283,8 +282,8 @@
 
 			if(/obj/item/rocksliver)
 				var/obj/item/rocksliver/O = scanned_item
-				if(O.geological_data)
-					G = O.geological_data
+				if(O.geologic_data)
+					G = O.geologic_data
 
 			if(/obj/item/archaeological_find)
 				data = " - Mundane object (archaic xenos origins)<br>"

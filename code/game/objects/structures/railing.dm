@@ -8,6 +8,8 @@
 	climbable = TRUE
 	layer = OBJ_LAYER
 	anchored = FALSE
+
+	flags = ON_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE
 
 	build_amt = 2
@@ -77,7 +79,9 @@
 /obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSTABLE))
+	if(!istype(mover) || mover.checkpass(PASSRAILING))
+		return TRUE
+	if(mover.throwing)
 		return TRUE
 	if(get_dir(loc, target) == dir)
 		return !density
@@ -185,6 +189,8 @@
 	update_icon()
 
 /obj/structure/railing/CheckExit(var/atom/movable/O, var/turf/target)
+	if(istype(O) && CanPass(O, target))
+		return TRUE
 	if(get_dir(O.loc, target) == dir)
 		if(!density)
 			return TRUE
@@ -220,9 +226,8 @@
 	// Dismantle
 	if(W.iswrench())
 		if(!anchored)
-			playsound(get_turf(src), W.usesound, 50, TRUE)
 			user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start dismantling \the [src]..."))
-			if(do_after(user, 20, src))
+			if(W.use_tool(src, user, 20, volume = 50))
 				if(anchored)
 					return
 				user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
@@ -278,34 +283,49 @@
 /obj/structure/railing/ex_act(severity)
 	qdel(src)
 
-/obj/structure/railing/can_climb(var/mob/living/user, climb_dir, post_climb_check=0)
+/obj/structure/railing/can_climb(var/mob/living/user, post_climb_check=0)
 	. = ..()
-	if(. && get_turf(user) == get_turf(src))
-		if(turf_is_crowded(TRUE) || !user.Adjacent(get_step(src, climb_dir)))
+	if(!.)
+		return
+
+	var/turf/destination_turf = get_destination_turf(user)
+
+	if(destination_turf.density)
+		to_chat(user, SPAN_DANGER("You can't climb into \the [destination_turf]."))
+		return FALSE
+
+	if(!Adjacent(destination_turf))
+		to_chat(user, SPAN_DANGER("You can't climb there, the way is blocked."))
+		return FALSE
+
+	for(var/atom/A in destination_turf.contents - src)
+		if(A.density && !(A.flags & ON_BORDER))
 			to_chat(user, SPAN_DANGER("You can't climb there, the way is blocked."))
 			return FALSE
 
-/obj/structure/railing/do_climb(mob/living/user)
-	var/climb_dir = get_dir(user, src)
-	if(get_turf(src) == get_turf(user))
-		climb_dir = src.dir
-	if(!can_climb(user, climb_dir))
-		return
+	return TRUE
 
+/obj/structure/railing/do_climb(mob/living/user)
 	user.visible_message(SPAN_WARNING("\The [user] starts climbing over \the [src]!"))
 	LAZYADD(climbers, user)
 
-	if(!do_after(user, 50))
+	if(!do_after(user, 2 SECONDS))
 		LAZYREMOVE(climbers, user)
 		return
 
-	if(!can_climb(user, climb_dir, post_climb_check = TRUE))
+	if(!can_climb(user, post_climb_check = TRUE))
 		LAZYREMOVE(climbers, user)
 		return
 
-	user.forceMove(get_step(src, climb_dir))
+	var/turf/destination_turf = get_destination_turf(user)
+	user.forceMove(destination_turf)
 	user.visible_message(SPAN_WARNING("\The [user] climbs over \the [src]!"))
 	LAZYREMOVE(climbers, user)
 
 	if(!anchored || material.is_brittle())
 		take_damage(maxhealth) // Fatboy
+
+/obj/structure/railing/proc/get_destination_turf(var/mob/user)
+	. = get_turf(src) // by default, we pop into the turf the railing's on
+	if(get_turf(user) == . || !(get_dir(src, user) & dir)) // if the user's inside our turf or behind us, go in front of us
+		. = get_step(src, dir)

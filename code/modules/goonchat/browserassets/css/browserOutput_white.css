@@ -60,6 +60,7 @@ a {color: #0000ff;}
 a.visited {color: #ff00ff;}
 a:visited {color: #ff00ff;}
 a.popt {text-decoration: none;}
+.ai_tracking, .ai_tracking:link, .ai_tracking:visited, .ai_tracking:active, .ai_tracking:hover {color: #0000ff;}
 
 /*****************************************
 *
@@ -247,7 +248,7 @@ a.popt {text-decoration: none;}
 .motd a, .motd a:link, .motd a:visited, .motd a:active, .motd a:hover {color: #638500;}
 
 /* ADD HERE FOR BOLD */
-.bold, .name, .prefix, .ooc, .aooc, .looc, .adminooc, .admin, .medal, .yell {font-weight: bold;}
+.bold, .name, .prefix, .ooc, .aooc, .looc, .adminooc, .adminlooc, .admin, .medal, .yell {font-weight: bold;}
 
 /* ADD HERE FOR ITALIC */
 .italic, .italics, .emote {font-style: italic;}
@@ -266,6 +267,7 @@ em						{font-style: normal;font-weight: bold;}
 .tag				{color: #fff; border-radius: 15px; font-size: 80%; padding-left: 4px; padding-right: 4px;}
 .ooc_tag			{background-color: #002eb8;}
 .looc_tag			{color: #000; background-color: #46b2b2;}
+.adminlooc_tag		{color: #000; background-color: #3bae6e;}
 .dev_tag			{background-color: #2c7731;}
 .admin_tag			{background-color: #9611d4;}
 .mod_tag			{background-color: #663a0e;}
@@ -283,6 +285,7 @@ em						{font-style: normal;font-weight: bold;}
 
 .ooc .everyone			{color: #002eb8;}
 .ooc .looc				{color: #6699CC;}
+.ooc .adminlooc			{color: #3bae6e;}
 .ooc .elevated			{color: #2e78d9;}
 .ooc .moderator			{color: #184880;}
 .ooc .developer			{color: #2c7731;}
@@ -314,6 +317,8 @@ em						{font-style: normal;font-weight: bold;}
 .centradio				{color: #5C5C8A;}
 .airadio				{color: #FF00FF;}
 .entradio				{color: #bd893c;}
+.hailradio				{color: #7331c4;}
+.shipradio				{color: #738465;}
 
 .secradio				{color: #A30000;}
 .engradio				{color: #A66300;}
@@ -351,16 +356,25 @@ h1.alert, h2.alert		{color: #000080;}
 .tajaran_signlang		{color: #941C1C;}
 .skrell					{color: #00CED1;}
 .vaurca					{color: #9e9e39;}
+.vaurca_zora		{color: #9e3939;}
+.vaurca_cthur		{color: #39719e;}
+.vaurca_klax		{color: #399e4a;}
+.vaurca_liidra	{color: #b350b3;}
 .soghun					{color: #228B22;}
 .solcom					{color: #22228B;}
+.elyran					{color: #c79322;}
 .soghun_alt				{color: #024402;}
 .changeling				{color: #800080;}
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
 .say_quote				{font-family: Georgia, Verdana, sans-serif;}
-.yassa					{color: #400987;}
+.yassa					{color: #801fff;}
 .delvahhi				{color: #5E2612; font-weight: bold;}
 .siiktau				{color: #A52A2A;}
 .revenant				{color: #215a5c; font-style: italic;}
+.freespeak				{color: #FF4500; font-family: "Trebuchet MS", cursive, sans-serif;}
+.tradeband				{color: #5C16C6; font-family: Georgia, Verdana, sans-serif;}
+
+.singing				{font-family: "Trebuchet MS", cursive, sans-serif; font-style: italic;}
 
 .interface				{color: #750e75;}
 

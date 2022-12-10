@@ -13,7 +13,6 @@ var/global/list/additional_antag_types = list()
 	var/max_players = 0			 			// Maximum players for round to start for secret voting. 0 means "doesn't matter"
 	var/required_enemies = 0                 // Minimum antagonists for round to start.
 	var/newscaster_announcements = null
-	var/end_on_antag_death = 0               // Round will end when all antagonists are dead.
 	var/ert_disabled = 0                     // ERT cannot be called.
 	var/deny_respawn = 0	                 // Disable respawn during this round.
 
@@ -230,6 +229,7 @@ var/global/list/additional_antag_types = list()
 			EMajor.delay_modifier = event_delay_mod_major
 
 /datum/game_mode/proc/pre_setup()
+	SHOULD_CALL_PARENT(TRUE)
 	for(var/datum/antagonist/antag in antag_templates)
 		antag.update_current_antag_max()
 		antag.update_initial_spawn_target()
@@ -277,9 +277,6 @@ var/global/list/additional_antag_types = list()
 	spawn (ROUNDSTART_LOGOUT_REPORT_TIME)
 		display_logout_report()
 
-	spawn (rand(waittime_l, waittime_h))
-		send_intercept()
-
 	//Assign all antag types for this game mode. Any players spawned as antags earlier should have been removed from the pending list, so no need to worry about those.
 	for(var/datum/antagonist/antag in antag_templates)
 		if(!(antag.flags & ANTAG_OVERRIDE_JOB))
@@ -287,8 +284,8 @@ var/global/list/additional_antag_types = list()
 		if(!(antag.flags & ANTAG_NO_ROUNDSTART_SPAWN))
 			antag.finalize_spawn() //actually spawn antags
 
-	if(emergency_shuttle && auto_recall_shuttle)
-		emergency_shuttle.auto_recall = 1
+	if(evacuation_controller && auto_recall_shuttle)
+		evacuation_controller.auto_recall(1)
 
 	feedback_set_details("round_start","[time2text(world.realtime)]")
 	if(SSticker.mode)
@@ -338,17 +335,7 @@ var/global/list/additional_antag_types = list()
 	command_announcement.Announce("The presence of [pick(reasons)] in the region is tying up all available local emergency resources; emergency response teams cannot be called at this time, and post-evacuation recovery efforts will be substantially delayed.","Emergency Transmission")
 
 /datum/game_mode/proc/check_finished()
-	if(emergency_shuttle.returned() || station_was_nuked)
-		return 1
-	if(end_on_antag_death && antag_templates && antag_templates.len)
-		for(var/datum/antagonist/antag in antag_templates)
-			if(!antag.antags_are_dead())
-				return 0
-		if(config.continous_rounds)
-			emergency_shuttle.auto_recall = 0
-			return 0
-		return 1
-	return 0
+	return evacuation_controller.round_over() || station_was_nuked
 
 /datum/game_mode/proc/cleanup()	//This is called when the round has ended but not the game, if any cleanup would be necessary in that case.
 	return
@@ -424,10 +411,10 @@ var/global/list/additional_antag_types = list()
 	var/text = ""
 	if(surviving_total > 0)
 		text += "<br>There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]"
-		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [emergency_shuttle.evac ? "escaped" : "transferred"]</b>) and <b>[ghosts] ghosts</b>.<br>"
+		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "transferred"]</b>) and <b>[ghosts] ghosts</b>.<br>"
 
 		discord_text += "There [surviving_total>1 ? "were **[surviving_total] survivors**" : "was **one survivor**"]"
-		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [emergency_shuttle.evac ? "escaped" : "transferred"]) and **[ghosts] ghosts**."
+		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "transferred"]) and **[ghosts] ghosts**."
 	else
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>)."
 
@@ -462,149 +449,6 @@ var/global/list/additional_antag_types = list()
 
 /datum/game_mode/proc/check_win() //universal trigger to be called at mob death, nuke explosion, etc. To be called from everywhere.
 	return 0
-
-/datum/game_mode/proc/send_intercept()
-
-	var/intercepttext = "<center><img src = ntlogo.png></center><BR><FONT size = 3><BR><B>Cent. Com. Update</B><BR>FOR YOUR EYES ONLY:</FONT><HR><font face='Courier New'>"
-
-	var/list/disregard_roles = list()
-	for(var/antag_type in all_antag_types)
-		var/datum/antagonist/antag = all_antag_types[antag_type]
-		if(antag.flags & ANTAG_SUSPICIOUS)
-			disregard_roles |= antag.role_text
-
-	var/list/suspects = list()
-	var/list/loyalists
-	var/list/repeat_offenders = list()
-	var/eng_suspect = 0
-	var/eng = 0
-	var/sec_suspect = 0
-	var/sec = 0
-	var/med_suspect = 0
-	var/med = 0
-	var/sci_suspect = 0
-	var/sci = 0
-	var/civ_suspect = 0
-	var/civ = 0
-	var/loyal_crew = 0
-	var/total_crew = 0
-	var/evil_department
-
-	for(var/mob/living/carbon/human/man in player_list) if(man.client && man.mind)
-
-		// NT relation option
-		var/special_role = man.mind.special_role
-		var/datum/antagonist/special_role_data = get_antag_data(special_role)
-
-		total_crew += 1
-		if (special_role in disregard_roles)
-			continue
-		else if(man.mind.assigned_job)
-			var/datum/job/job = man.mind.assigned_job
-			var/evil = 0
-			if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED || man.client.prefs.nanotrasen_relation == COMPANY_SKEPTICAL)
-				evil = 1
-				if((DEPARTMENT_CIVILIAN in job.departments) || (DEPARTMENT_CARGO in job.departments))
-					civ += 1
-					if(evil)
-						civ_suspect += 1
-				if(DEPARTMENT_ENGINEERING in job.departments)
-					eng += 1
-					if(evil)
-						eng_suspect += 1
-				if(DEPARTMENT_SECURITY in job.departments)
-					sec += 1
-					if(evil)
-						sec_suspect += 1
-				if(DEPARTMENT_MEDICAL in job.departments)
-					med +=1
-					if(evil)
-						med_suspect += 1
-				if(DEPARTMENT_SCIENCE in job.departments)
-					sci += 1
-					if(evil)
-						sci_suspect += 1
-
-		else if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED && prob(25))
-			suspects += man
-		else if(man.client.prefs.nanotrasen_relation == COMPANY_LOYAL || man.client.prefs.nanotrasen_relation == COMPANY_SUPPORTATIVE)
-			loyal_crew += 1
-			if(prob(25))
-				loyalists += man
-		// Antags
-		else if(special_role_data && prob(special_role_data.suspicion_chance))
-			suspects += man
-		if(man.incidents.len >= 3)
-			repeat_offenders += man
-
-	var/civ_ratio = 0
-	if(civ)
-		civ_ratio = civ_suspect / civ
-	var/eng_ratio = 0
-	if(eng)
-		eng_ratio = eng_suspect / eng
-	var/sec_ratio = 0
-	if(sec)
-		sec_ratio = sec_suspect / sec
-	var/med_ratio = 0
-	if(med)
-		med_ratio = med_suspect / med
-	var/sci_ratio  = 0
-	if(sci)
-		sci_ratio = sci_suspect / sci
-
-	var/most_evil = max(civ_ratio, eng_ratio, sec_ratio, med_ratio, sci_ratio)
-	if(most_evil >= 0.5)
-		if(most_evil == civ_ratio)
-			evil_department = "Civilian & Supply"
-		else if(most_evil == eng_ratio)
-			evil_department = "Engineering"
-		else if(most_evil == sec_ratio)
-			evil_department = "Security"
-		else if(most_evil == med_ratio)
-			evil_department = "Medical"
-		else if(most_evil == sci_ratio)
-			evil_department = "Science"
-
-	var/business_jargon = list("Collated incident reports","Assembled peer-reviews","Persistently negative staff reviews","Collected shift logs","Accumulated negative reports","Analyzed shift data")
-	var/mean_words = list("has expressed consistent disapproval with the network", "is no longer working efficiently","has gone on record against NanoTrasen practices","is spreading minor dissent in response to recent NanoTrasen behavior","has expressed subversive intent","is unhappy with their employment package")
-
-	if(suspects)
-		intercepttext += "<B>The personnel listed below have been marked at-risk elements that Cent. Com. has deemed priority handling for the current shift:</B><br>"
-		for(var/mob/living/carbon/human/M in suspects)
-			if(player_is_antag(M.mind, only_offstation_roles = 1))
-				continue
-			intercepttext += "<br>     + [pick(business_jargon)] indicate that [M.mind.assigned_role] [M.name] [pick(mean_words)].<br>"
-		intercepttext += "Cent. Com recommends coordinating with human resources to resolve any issues with employment.<br>"
-
-	if(repeat_offenders)
-		intercepttext += "<br><B>The personnel listed below possess three or more offenses listed on record:</B>"
-		for(var/mob/living/carbon/human/M in repeat_offenders)
-			if(player_is_antag(M.mind, only_offstation_roles = 1))
-				continue
-			intercepttext += "<br>     + [M.mind.assigned_role] [M.name], [M.incidents.len] offenses.<br>"
-		intercepttext += "Cent. Com recommends coordinating with internal security to monitor and rehabilitate these personnel.<br>"
-
-	if(loyalists)
-		intercepttext += "<br><B>The personnel listed below have been indicated as particularly loyal to NanoTrasen:</B>"
-		for(var/mob/living/carbon/human/M in loyalists)
-			if(player_is_antag(M.mind, only_offstation_roles = 1))
-				continue
-			intercepttext += "<br>     + [M.mind.assigned_role] [M.name].<br>"
-		intercepttext += "Cent. Com recommends coordinating with human resources to reward and further motivate these personnel for their loyalty.<br>"
-
-	if(evil_department)
-		intercepttext += "<br>[pick(business_jargon)] indicate that a majority of the [evil_department] department [pick(mean_words)]. This department has been marked at-risk and Cent. Com. recommends immediate action before the situation worsens.<br>"
-	if(total_crew)
-		intercepttext += "<br>Data collected and analyzed by Bubble indicate that [round((loyal_crew/total_crew)*100)]% of the current crew detail are supportive of NanoTrasen actions. Cent. Com. implores the current Head of Staff detail to increase this percentage.<br>"
-
-	intercepttext += "<hr> </font>Respectfully,<br><i>Quix Repi'Weish</i>, Chief Personnel Director<br>"
-	intercepttext += "<center><img src = barcode[rand(0, 3)].png></center>"
-
-	//New message handling
-	post_comm_message("Cent. Com. Status Summary", intercepttext)
-
-	sound_to(world, ('sound/AI/commandreport.ogg'))
 
 /datum/game_mode/proc/get_players_for_role(var/role, var/antag_id)
 	var/list/players = list()
@@ -698,7 +542,7 @@ proc/get_logout_report()
 				continue //AFK client
 			if(L.stat)
 				if(L.stat == UNCONSCIOUS)
-					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Dying)\n"
+					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Unconscious)\n"
 					continue //Unconscious
 				if(L.stat == DEAD)
 					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Dead)\n"
@@ -736,16 +580,20 @@ proc/display_logout_report()
 		return
 	to_chat(src,get_logout_report())
 
-proc/get_nt_opposed()
-	var/list/dudes = list()
-	for(var/mob/living/carbon/human/man in player_list)
-		if(man.client)
-			if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED)
-				dudes += man
-			else if(man.client.prefs.nanotrasen_relation == COMPANY_SKEPTICAL && prob(50))
-				dudes += man
-	if(dudes.len == 0) return null
-	return pick(dudes)
+proc/get_poor()
+	var/list/characters = list()
+
+	for(var/mob/living/carbon/human/character in player_list)
+		if(character.client)
+			if(character.client.prefs.economic_status == ECONOMICALLY_DESTITUTE) // Discrimination.
+				characters += character
+			else if(character.client.prefs.economic_status == ECONOMICALLY_POOR && prob(50)) // 50% discrimination.
+				characters += character
+
+	if(!length(characters))
+		return
+
+	return pick(characters)
 
 //Announces objectives/generic antag text.
 /proc/show_generic_antag_text(var/datum/mind/player)

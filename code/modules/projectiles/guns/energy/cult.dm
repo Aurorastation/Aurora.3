@@ -2,7 +2,7 @@
 	name = "bloodpike"
 	desc = "A ranged weapon of demonic origin, surely. It menaces with crimson spikes."
 	desc_info = null
-	desc_fluff = null
+	desc_extended = null
 	desc_antag = "This weapon can be recharged by clicking on blood or remains with it, remains recharge more than simple blood."
 	icon = 'icons/obj/guns/bloodpike.dmi'
 	icon_state = "bloodpike"

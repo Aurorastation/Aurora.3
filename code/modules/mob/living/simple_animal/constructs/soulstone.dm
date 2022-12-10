@@ -105,32 +105,26 @@
 	if(!istype(T))
 		return
 	if(src.imprinted != "empty")
-		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul stone has already been imprinted with [src.imprinted]'s mind!")
+		if(U)
+			to_chat(U, "<span class='danger'>Capture failed!</span>: The soul stone has already been imprinted with [src.imprinted]'s mind!")
 		return
 	if(T.stat != DEAD && !T.is_asystole())
-		to_chat(U, "<span class='danger'>Capture failed!</span>: Kill or maim the victim first!")
+		if(U)
+			to_chat(U, "<span class='danger'>Capture failed!</span>: Kill or maim the victim first!")
 		return
 	if(T.client == null)
-		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul has already fled its mortal frame.")
+		if(U)
+			to_chat(U, "<span class='danger'>Capture failed!</span>: The soul has already fled its mortal frame.")
 		return
 	if(src.contents.len)
-		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul stone is full! Use or free an existing soul to make room.")
+		if(U)
+			to_chat(U, "<span class='danger'>Capture failed!</span>: The soul stone is full! Use or free an existing soul to make room.")
 		return
 
 	for(var/obj/item/W in T)
 		T.drop_from_inventory(W)
 
-	var/obj/effect/decal/remains/remains = T.species.remains_type //spawns a skeleton based on the species remain type
-	new remains(T.loc)
-
-	T.invisibility = 101
-
-	var/atom/movable/overlay/animation = new /atom/movable/overlay( T.loc )
-	animation.icon_state = "blank"
-	animation.icon = 'icons/mob/mob.dmi'
-	animation.master = T
-	flick("dust-h", animation)
-	qdel(animation)
+	T.dust()
 
 	var/mob/living/simple_animal/shade/S = new /mob/living/simple_animal/shade( T.loc )
 	S.forceMove(src) //put shade in stone
@@ -150,9 +144,10 @@
 
 	src.icon_state = "soulstone2"
 	src.name = "Soul Stone: [S.real_name]"
-	to_chat(S, "Your soul has been captured! You are now bound to [U.name]'s will, help them suceed in their goals at all costs.")
-	to_chat(U, "<span class='notice'>Capture successful!</span> : [T.real_name]'s soul has been ripped from their body and stored within the soul stone.")
-	to_chat(U, "The soulstone has been imprinted with [S.real_name]'s mind, it will no longer react to other souls.")
+	if(U)
+		to_chat(S, "Your soul has been captured! You are now bound to [U.name]'s will, help them suceed in their goals at all costs.")
+		to_chat(U, "<span class='notice'>Capture successful!</span> : [T.real_name]'s soul has been ripped from their body and stored within the soul stone.")
+		to_chat(U, "The soulstone has been imprinted with [S.real_name]'s mind, it will no longer react to other souls.")
 	src.imprinted = "[S.name]"
 	qdel(T)
 
@@ -177,6 +172,7 @@
 
 	to_chat(T, "Your soul has been recaptured by the soul stone, its arcane energies are reknitting your ethereal form")
 	to_chat(U, "<span class='notice'>Capture successful!</span> : [T.name]'s has been recaptured and stored within the soul stone.")
+
 /obj/item/device/soulstone/proc/transfer_construct(var/obj/structure/constructshell/T,var/mob/U)
 	var/mob/living/simple_animal/shade/A = locate() in src
 	if(!A)
@@ -186,9 +182,11 @@
 	switch(construct_class)
 		if("Juggernaut")
 			var/mob/living/simple_animal/construct/armored/Z = new /mob/living/simple_animal/construct/armored (get_turf(T.loc))
-			Z.key = A.key
-			if(iscultist(U))
-				cult.add_antagonist(Z.mind)
+			if(A.key)
+				Z.key = A.key
+			else
+				SSghostroles.add_spawn_atom("construct", Z)
+				SSghostroles.remove_spawn_atom("shade", A)
 			qdel(T)
 			to_chat(Z, "<B>You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike.</B>")
 			to_chat(Z, "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>")
@@ -196,9 +194,11 @@
 			qdel(src)
 		if("Wraith")
 			var/mob/living/simple_animal/construct/wraith/Z = new /mob/living/simple_animal/construct/wraith (get_turf(T.loc))
-			Z.key = A.key
-			if(iscultist(U))
-				cult.add_antagonist(Z.mind)
+			if(A.key)
+				Z.key = A.key
+			else
+				SSghostroles.add_spawn_atom("construct", Z)
+				SSghostroles.remove_spawn_atom("shade", A)
 			qdel(T)
 			to_chat(Z, "<B>You are playing a Wraith. Though relatively fragile, you are fast, deadly, and even able to phase through walls.</B>")
 			to_chat(Z, "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>")
@@ -206,14 +206,17 @@
 			qdel(src)
 		if("Artificer")
 			var/mob/living/simple_animal/construct/builder/Z = new /mob/living/simple_animal/construct/builder (get_turf(T.loc))
-			Z.key = A.key
-			if(iscultist(U))
-				cult.add_antagonist(Z.mind)
+			if(A.key)
+				Z.key = A.key
+			else
+				SSghostroles.add_spawn_atom("construct", Z)
+				SSghostroles.remove_spawn_atom("shade", A)
 			qdel(T)
 			to_chat(Z, "<B>You are playing an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, repair allied constructs (by clicking on them), and even create new constructs</B>")
 			to_chat(Z, "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>")
 			Z.cancel_camera()
 			qdel(src)
+
 /obj/item/device/soulstone/proc/transfer_soul(var/choice as text, var/target, var/mob/U as mob)
 	switch(choice)
 		if("VICTIM")

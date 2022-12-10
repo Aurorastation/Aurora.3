@@ -2,6 +2,7 @@
 	filename = "signaler"
 	filedesc = "Remote Signaller"
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program can be used to send wide-range signals of various frequencies."
 	size = 2
 	available_on_ntnet = TRUE
@@ -76,7 +77,7 @@
 
 	if(href_list["send"])
 		radio.send_signal("ACTIVATE")
-		computer.output_message("[icon2html(host, viewers(get_turf(src)))] *beep* *beep*", 1)
+		computer.output_message("[icon2html(computer, viewers(get_turf(src)))] *beep* *beep*", 1)
 		return TRUE
 
 	else if(href_list["freq"])
@@ -92,7 +93,7 @@
 		return TRUE
 
 	else if(href_list["toggledoor"])
-		for(var/obj/machinery/door/blast/M in SSmachinery.all_machines)
+		for(var/obj/machinery/door/blast/M in SSmachinery.machinery)
 			if(M.id == href_list["toggledoor"])
 				if(M.density)
 					M.open()

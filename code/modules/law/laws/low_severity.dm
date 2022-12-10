@@ -157,7 +157,7 @@
 
 /datum/law/low_severity/necrophilia
 	name = "i116 - Disrespect to the Dead"
-	desc = "To threaten to kill or seriously injure an employee."
+	desc = "To abuse bodies of dead or previously dead employees."
 	id = "i116"
 
 	min_brig_time = 5

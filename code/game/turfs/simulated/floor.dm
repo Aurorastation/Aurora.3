@@ -17,6 +17,25 @@
 	heat_capacity = 10000
 	var/lava = 0
 
+/turf/simulated/floor/examine(mob/user, distance, infix, suffix)
+	. = ..()
+	if(flooring)
+		var/list/can_remove_with = list()
+		if(flooring.flags & TURF_REMOVE_CROWBAR)
+			can_remove_with += "crowbars"
+		if(flooring.flags & TURF_IS_FRAGILE)
+			can_remove_with += SPAN_WARNING("crowbars")
+		if(flooring.flags & TURF_REMOVE_SCREWDRIVER)
+			can_remove_with += "screwdrivers"
+		if(flooring.flags & TURF_REMOVE_SHOVEL)
+			can_remove_with += "shovels"
+		if(flooring.flags & TURF_REMOVE_WRENCH)
+			can_remove_with += "wrenches"
+		if(flooring.flags & TURF_REMOVE_WELDER)
+			can_remove_with += "welding tools"
+		if(length(can_remove_with))
+			to_chat(user, SPAN_NOTICE("\The [src] can be removed with: [english_list(can_remove_with)]."))
+
 /turf/simulated/floor/is_plating()
 	return !flooring
 
@@ -72,6 +91,9 @@
 /turf/simulated/floor/levelupdate()
 	for(var/obj/O in src)
 		O.hide(O.hides_under_flooring() && src.flooring)
+
+/turf/simulated/floor/is_floor()
+	return TRUE
 
 /turf/simulated/floor/shuttle_ceiling
 	name = "hull plating"

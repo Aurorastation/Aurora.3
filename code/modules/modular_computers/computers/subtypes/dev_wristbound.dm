@@ -2,14 +2,14 @@
 	name = "wristbound computer"
 	lexical_name = "wristbound"
 	desc = "A portable wristbound device for your needs on the go. Quite comfortable."
-	desc_fluff = "A NanoTrasen design, this wristbound computer allows the user to quickly and safely access critical info, without taking their hands out of the equation."
+	desc_extended = "A NanoTrasen design, this wristbound computer allows the user to quickly and safely access critical info, without taking their hands out of the equation."
 	icon = 'icons/obj/modular_wristbound.dmi'
 	icon_state = "wristbound"
 	icon_state_unpowered = "wristbound"
 	icon_state_menu = "menu"
 	icon_state_screensaver = "standby"
 	hardware_flag = PROGRAM_WRISTBOUND
-	slot_flags = SLOT_GLOVES|SLOT_ID
+	slot_flags = SLOT_WRISTS|SLOT_ID
 	can_reset = TRUE
 	max_hardware_size = 1
 	menu_light_color = COLOR_GREEN
@@ -21,7 +21,7 @@
 /obj/item/modular_computer/handheld/wristbound/attack_hand(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.gloves == src || H.wear_id == src)
+		if(H.wrists == src || H.wear_id == src)
 			return attack_self(user)
 	..()
 
@@ -46,10 +46,10 @@
 			return
 
 		switch(over_object.name)
-			if(BP_R_HAND)
+			if("right hand")
 				usr.u_equip(src)
-				usr.put_in_r_hand(src,FALSE)
-			if(BP_L_HAND)
+				usr.equip_to_slot_if_possible(src, slot_r_hand)
+			if("left hand")
 				usr.u_equip(src)
-				usr.put_in_l_hand(src,FALSE)
+				usr.equip_to_slot_if_possible(src, slot_l_hand)
 		add_fingerprint(usr)

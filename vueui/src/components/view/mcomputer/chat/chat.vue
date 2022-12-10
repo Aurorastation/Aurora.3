@@ -18,6 +18,7 @@
         <vui-button v-else-if="!channel.direct" @click="title = channel.title">Change title</vui-button>
         <vui-button :params="{delete: reference}" @click="$emit('on-leave')">Delete channel</vui-button>
       </template>
+      <vui-button :class="{'selected': channel.focused == true}" :params="{focus: reference}">{{ channel.focused == true ? "Disable Speech-To-Text" : "Enable Speech-To-Text" }}</vui-button>
     </div>
     <div>
       <div v-for="(user, uref) in channel.users" :key="uref">
@@ -36,7 +37,6 @@
 </template>
 
 <script>
-import { sendToTopic } from '@/utils'
 export default {
   data() {
     return {
@@ -58,22 +58,22 @@ export default {
   props: {
     reference: {
       type: String,
-      default: "",
-    },
+      default: ""
+    }
   },
   methods: {
     send_msg() {
-      sendToTopic({
+      this.$toTopic({
         send: { message: this.send_buffer, target: this.reference },
       })
       this.send_buffer = ""
     },
     set_password() {
-      sendToTopic({set_password: {target: this.reference, password: this.password}})
+      this.$toTopic({set_password: {target: this.reference, password: this.password}})
       this.password = null
     },
     set_title() {
-      sendToTopic({change_title: {target: this.reference, title: this.title}})
+      this.$toTopic({change_title: {target: this.reference, title: this.title}})
       this.title = null
     },
     scrollBottom() {

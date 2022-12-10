@@ -27,7 +27,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	add_fingerprint(user)
 	return A.attackby(src, user, click_parameters)
 
-// No comment
+// attackby should return TRUE if all desired actions are resolved from that attack, within attackby. This prevents afterattack being called.
 /atom/proc/attackby(obj/item/W, mob/user, var/click_parameters)
 	return
 
@@ -67,6 +67,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 /mob/living/simple_animal/attackby(obj/item/I, mob/living/user)
 	if(I.damtype == PAIN)
 		playsound(loc, 'sound/weapons/tap.ogg', I.get_clamped_volume(), 1, -1)
+		return TRUE
 	else
 		return ..()
 
@@ -84,11 +85,14 @@ avoid code duplication. This includes items that may sometimes act as a standard
 
 //I would prefer to rename this attack_as_weapon(), but that would involve touching hundreds of files.
 /obj/item/proc/attack(mob/living/M, mob/living/user, var/target_zone = BP_CHEST)
-
 	if(flags & NOBLUDGEON)
 		return 0
+
 	if(M == user && user.a_intent != I_HURT)
 		return 0
+
+	if(user.incapacitated(INCAPACITATION_STUNNED|INCAPACITATION_KNOCKOUT|INCAPACITATION_KNOCKDOWN|INCAPACITATION_FORCELYING))
+		return
 
 	if(force && user.is_pacified())
 		to_chat(user, "<span class='warning'>You don't want to harm other living beings!</span>")
@@ -122,11 +126,13 @@ avoid code duplication. This includes items that may sometimes act as a standard
 
 	return 1
 
-//Called when a weapon is used to make a successful melee attack on a mob. Returns the blocked result
+//Called when a weapon is used to make a successful melee attack on a mob. Returns whether damage was dealt.
 /obj/item/proc/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	var/power = force
 	if(HULK in user.mutations)
 		power *= 2
+	if(user.is_berserk())
+		power *= 1.5
 	if(ishuman(user))
 		var/mob/living/carbon/human/X = user
 		if(ishuman(target))

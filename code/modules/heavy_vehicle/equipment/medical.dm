@@ -75,13 +75,14 @@
 /obj/machinery/sleeper/mounted/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/reagent_containers/glass))
 		if(!user.unEquip(I, src))
-			return
+			return TRUE
 
 		if(beaker)
 			beaker.forceMove(get_turf(src))
 			user.visible_message("<span class='notice'>\The [user] removes \the [beaker] from \the [src].</span>", "<span class='notice'>You remove \the [beaker] from \the [src].</span>")
 		beaker = I
 		user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
+		return TRUE
 
 /obj/item/mecha_equipment/crisis_drone
 	name = "crisis dronebay"
@@ -228,6 +229,7 @@
 		L.adjustOxyLoss(oxy_heal * -1)
 		L.adjustCloneLoss(clone_heal * -1)
 		L.adjustHalLoss(hal_heal * -1)
+		L.add_chemical_effect(CE_PAINKILLER, 50) //Pain is bad :(
 
 		if(ishuman(L) && bone_heal)
 			var/mob/living/carbon/human/H = L
@@ -262,6 +264,77 @@
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_MEDICAL)
 
+/obj/item/device/healthanalyzer/mech //Used to set up the full body scan feature
+	var/obj/machinery/body_scanconsole/internal_bodyscanner = null
+	var/fullScan = FALSE //Toggle whether to do full or basic scan
+	
+/obj/item/device/healthanalyzer/mech/Initialize()
+	. = ..()
+	internal_bodyscanner = new /obj/machinery/body_scanconsole(src)
+	internal_bodyscanner.use_power = FALSE
+
+/obj/item/mecha_equipment/mounted_system/medanalyzer/CtrlClick(mob/user)
+	var/obj/item/device/healthanalyzer/mech/HA = holding
+	if(istype(HA))
+		HA.fullScan = !HA.fullScan
+		to_chat(user, SPAN_NOTICE("You switch to \the [src]'s [HA.fullScan ? "full body" : "basic"] scan mode."))
+
 /obj/item/device/healthanalyzer/mech/attack(mob/living/M, var/mob/living/heavy_vehicle/user)
-	for(var/mob/pilot in user.pilots)
-		health_scan_mob(M, pilot, TRUE, TRUE)
+	sound_scan = FALSE
+	if(last_scan <= world.time - 20) //Spam limiter.
+		last_scan = world.time
+		sound_scan = TRUE
+	if(!fullScan)
+		for(var/mob/pilot in user.pilots)
+			health_scan_mob(M, pilot, TRUE, TRUE, sound_scan = sound_scan)
+	else
+		user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
+		if(do_after(user, 7 SECONDS, TRUE))
+			print_scan(M, user)
+			add_fingerprint(user)
+
+/obj/item/device/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/user)
+	var/obj/item/paper/medscan/R = new(user.loc)
+	R.color = "#eeffe8"
+	R.set_content_unsafe("Scan ([M.name])", internal_bodyscanner.format_occupant_data(get_medical_data(M)))
+
+	if(ishuman(user) && !(user.l_hand && user.r_hand))
+		user.put_in_hands(R)
+	user.visible_message(SPAN_NOTICE("\The [src] spits out a piece of paper."))
+
+/obj/item/device/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/human/H)
+	if (!ishuman(H))
+		return
+
+	var/list/medical_data = list(
+		"stationtime" = worldtime2text(),
+		"brain_activity" = H.get_brain_status(),
+		"blood_volume" = H.get_blood_volume(),
+		"blood_oxygenation" = H.get_blood_oxygenation(),
+		"blood_pressure" = H.get_blood_pressure(),
+
+		"bruteloss" = get_severity(H.getBruteLoss(), TRUE),
+		"fireloss" = get_severity(H.getFireLoss(), TRUE),
+		"oxyloss" = get_severity(H.getOxyLoss(), TRUE),
+		"toxloss" = get_severity(H.getToxLoss(), TRUE),
+		"cloneloss" = get_severity(H.getCloneLoss(), TRUE),
+
+		"rads" = H.total_radiation,
+		"paralysis" = H.paralysis,
+		"bodytemp" = H.bodytemperature,
+		"borer_present" = H.has_brain_worms(),
+		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/inaprovaline),
+		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dexalin),
+		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/soporific),
+		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/bicaridine),
+		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/thetamycin),
+		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
+		"disabilities" = H.sdisabilities,
+		"lung_ruptured" = H.is_lung_ruptured(),
+		"lung_rescued" = H.is_lung_rescued(),
+		"external_organs" = H.organs.Copy(),
+		"internal_organs" = H.internal_organs.Copy(),
+		"species_organs" = H.species.has_organ
+		)
+	return medical_data

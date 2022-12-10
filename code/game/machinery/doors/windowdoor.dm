@@ -26,8 +26,14 @@
 		icon_state = "[icon_state]"
 		base_state = icon_state
 
+/obj/machinery/door/window/update_icon()
+	if(!density != !operating) //XOR, baby
+		icon_state = base_state
+	else
+		icon_state = "[base_state]open"
+
 /obj/machinery/door/window/proc/shatter(var/display_message = 1)
-	new /obj/item/circuitboard/broken(loc)
+	new /obj/item/trash/broken_electronics(loc)
 	new /obj/item/material/shard(loc)
 	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
 	CC.amount = 2
@@ -43,40 +49,25 @@
 	return ..()
 
 /obj/machinery/door/window/CollidedWith(atom/movable/AM as mob|obj)
-	if(istype(AM, /mob/living/heavy_vehicle))
-		var/mob/living/heavy_vehicle/HV = AM
-		for(var/user in HV.pilots)
-			AM = user
-			break
-	if (istype(AM, /mob/living/bot))
-		var/mob/living/bot/bot = AM
-		if(istype(bot))
-			if(density && src.check_access(bot.botcard))
+	var/mob/M = AM
+	if (!( ROUND_IS_STARTED ) || operating || !density || !istype(M) || !allowed(M))
+		return
+
+	if(ishuman(M) || isrobot(M) || isbot(M) || istype(M, /mob/living/simple_animal/spiderbot) || ismech(M))
+		if(inoperable())
+			if(do_after(M, 1 SECOND, TRUE, src))
+				// The VM here is before open and the wording is backwards because density gets set after a background sleep in open
+				visible_message("\The [M] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
 				open()
-				addtimer(CALLBACK(src, .proc/close), 50)
-		return
-	if(istype(AM, /mob/living/simple_animal/spiderbot))
-		var/mob/living/simple_animal/spiderbot/bot = AM
-		if(istype(bot))
-			if(density && src.check_access(bot.internal_id))
-				open()
-				addtimer(CALLBACK(src, .proc/close), 50)
-		return
-	if (!( ROUND_IS_STARTED ))
-		return
-	if (src.operating)
-		return
-	if (src.density && (ishuman(AM) || isrobot(AM)) && src.allowed(AM))
-		open()
-		//secure doors close faster
-		var/time = check_access(null) ? 50 : 20
-		addtimer(CALLBACK(src, .proc/close), time)
+		else
+			open()
+			addtimer(CALLBACK(src, .proc/close), check_access(null) ? 5 SECONDS : 2 SECONDS)
 
 /obj/machinery/door/window/allowed(mob/M)
 	. = ..()
 	if(inoperable()) // Unpowered windoors can just be slid open
 		return TRUE
-	use_power(50) // Just powering the RFID and maybe a weak motor
+	use_power_oneoff(50) // Just powering the RFID and maybe a weak motor
 	if(operable() && . == FALSE)
 		flick("[base_state]deny", src)
 
@@ -98,12 +89,14 @@
 		return 1
 
 /obj/machinery/door/window/open(var/forced=FALSE)
+	set waitfor = FALSE
+
 	if(!can_open() && !forced)
 		return FALSE
 	operating = TRUE
 	flick("[base_state]opening", src)
 	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
-	icon_state = "[base_state]open"
+	update_icon()
 	sleep(1 SECOND)
 
 	explosion_resistance = 0
@@ -113,12 +106,14 @@
 	return TRUE
 
 /obj/machinery/door/window/close(var/forced=FALSE)
+	set waitfor = FALSE
+
 	if (!can_close() && !forced)
 		return FALSE
 	operating = TRUE
 	flick("[base_state]closing", src)
 	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
-	icon_state = base_state
+	update_icon()
 
 	density = TRUE
 	explosion_resistance = initial(explosion_resistance)
@@ -143,7 +138,7 @@
 		user.visible_message("<span class='danger'>[user] smashes against [src].</span>", "<span class='danger'>You smash against [src]!</span>")
 		take_damage(25)
 		return
-	else if(operable())
+	else
 		return attackby(user, user)
 
 /obj/machinery/door/window/emag_act(var/remaining_charges, var/mob/user)
@@ -159,7 +154,7 @@
 
 	//If it's in the process of opening/closing, ignore the click
 	if (operating)
-		return
+		return TRUE
 
 	//Emags and ninja swords? You may pass.
 	if (istype(I, /obj/item/melee/energy/blade))
@@ -168,21 +163,31 @@
 			playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 			visible_message("<span class='warning'>The glass door was sliced open by [user]!</span>")
-		return 1
+		return TRUE
 
 	//If it's emagged, crowbar can pry electronics out.
 	if (emagged == 1 && I.iscrowbar())
-		playsound(src.loc, I.usesound, 100, 1)
 		user.visible_message("[user] dismantles the windoor.", "You start to dismantle the windoor.")
-		if (do_after(user,60/I.toolspeed))
+		if(I.use_tool(src, user, 60, volume = 50))
 			to_chat(user, SPAN_NOTICE("You dismantled the windoor!"))
-			new /obj/item/circuitboard/broken(loc)
+			new /obj/item/trash/broken_electronics(loc)
 			var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
 			CC.amount = 2
 			var/obj/item/stack/material/glass/reinforced/rglass = new /obj/item/stack/material/glass/reinforced(loc)
 			rglass.amount = 5
 			qdel(src)
-			return
+		return TRUE
+
+	if(isobj(I) && I.iscrowbar() && user.a_intent == I_HELP)
+		if(inoperable())
+			visible_message("\The [user] forces \the [src] [density ? "open" : "closed"].")
+			if(density)
+				open(TRUE)
+			else
+				close(TRUE)
+		else
+			to_chat(user, SPAN_NOTICE("\The [src]'s motors resist your efforts to force it."))
+		return TRUE
 
 	//If it's a weapon, smash windoor. Unless it's an id card, agent card, ect.. then ignore it (Cards really shouldnt damage a door anyway)
 	if(src.density && istype(I, /obj/item) && !istype(I, /obj/item/card))
@@ -192,22 +197,21 @@
 		visible_message("<span class='danger'>[src] was hit by [I].</span>")
 		if(I.damtype == BRUTE || I.damtype == BURN)
 			take_damage(aforce)
-		return
+		return TRUE
 
 	if(!istype(I, /obj/item/forensics))
 		src.add_fingerprint(user)
 
 	if(allowed(user))
 		if(inoperable())
-			user.visible_message("\The [user] begins to manually [density ? "push" : "pull"] \the [src] [density ? "open" : "closed"]!",
-				"You begin to manually [density ? "push" : "pull"] \the [src] [density ? "open" : "closed"]!", "You hear the sound of a glass door [density ? "opening" : "closing"].")
 			if(!do_after(user, 1 SECOND, TRUE, src))
-				return
-			visible_message("\The [user] [density ? "pulls" : "pushes"] \the [src] [density ? "closed" : "open"].")
+				return TRUE
+			visible_message("\The [user] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
 		if (src.density)
 			open()
 		else
 			close()
+		return TRUE
 
 /obj/machinery/door/window/brigdoor
 	name = "secure door"

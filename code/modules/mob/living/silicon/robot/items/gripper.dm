@@ -24,13 +24,16 @@
 		/obj/item/smes_coil,
 		/obj/item/device/assembly,//Primarily for making improved cameras, but opens many possibilities
 		/obj/item/computer_hardware,
-		/obj/item/pipe
+		/obj/item/pipe,
+		/obj/item/smallDelivery,
+		/obj/item/gift
 		)
+
+	var/list/cant_hold
 
 	var/obj/item/wrapped
 
 	var/force_holder
-	var/just_dropped = FALSE //When set to 1, the gripper has just dropped its item, and should not attempt to trigger anything
 
 /obj/item/gripper/examine(var/mob/user)
 	..()
@@ -50,21 +53,20 @@
 		return FALSE
 	return TRUE
 
-/obj/item/gripper/proc/grip_item(var/obj/item/I, var/mob/user, var/feedback = 1)
+/obj/item/gripper/proc/grip_item(var/obj/item/I, var/mob/user, var/feedback = TRUE)
 	//This function returns 1 if we successfully took the item, or 0 if it was invalid. This information is useful to the caller
 	if(!wrapped)
-		for(var/typepath in can_hold)
-			if(istype(I,typepath))
-				if(feedback)
-					to_chat(user, SPAN_NOTICE("You collect \the [I]."))
-				if(isturf(I.loc) && I.Adjacent(user))
-					I.do_pickup_animation(user)
-				I.forceMove(src)
-				wrapped = I
-				wrapped.pixel_x = 0
-				wrapped.pixel_y = 0
-				update_icon()
-				return TRUE
+		if((can_hold && is_type_in_list(I, can_hold)) || (cant_hold && !is_type_in_list(I, cant_hold)))
+			if(feedback)
+				to_chat(user, SPAN_NOTICE("You collect \the [I]."))
+			if(isturf(I.loc) && I.Adjacent(user))
+				I.do_pickup_animation(user)
+			I.forceMove(src)
+			wrapped = I
+			wrapped.pixel_x = 0
+			wrapped.pixel_y = 0
+			update_icon()
+			return TRUE
 		if(feedback)
 			to_chat(user, SPAN_WARNING("Your gripper cannot hold \the [I]."))
 		return FALSE
@@ -74,6 +76,7 @@
 
 /obj/item/gripper/update_icon()
 	underlays.Cut()
+	grippersafety(src)
 	if(wrapped && wrapped.icon)
 		var/mutable_appearance/MA = new(wrapped)
 		MA.layer = FLOAT_LAYER
@@ -105,28 +108,30 @@
 	set desc = "Release an item from your magnetic gripper."
 	set category = "Robot Commands"
 
-	drop(get_turf(src))
+	drop(get_turf(src), usr)
 
-/obj/item/gripper/proc/drop(var/atom/target)
+/obj/item/gripper/proc/drop(var/atom/target, mob/user, var/feedback = TRUE)
 	if(wrapped)
 		if(wrapped.loc == src)
 			if(force_holder)
 				wrapped.force = force_holder
 			wrapped.forceMove(target)
+			wrapped.dropped(user)
 			force_holder = null
-		to_chat(loc, SPAN_NOTICE("You release \the [wrapped].")) // loc will always be the cyborg
+		if(feedback)
+			to_chat(loc, SPAN_NOTICE("You release \the [wrapped].")) // loc will always be the cyborg
 	wrapped = null
 	update_icon()
 	return TRUE
 
-/obj/item/gripper/attack(mob/living/carbon/M, mob/living/carbon/user)
+/obj/item/gripper/attack(mob/M, mob/user)
 	if(wrapped) //The force of the wrapped obj gets set to zero during the attack() and afterattack().
 		force_holder = wrapped.force
 		wrapped.force = 0
-		wrapped.attack(M,user)
+		var/resolved = wrapped.attack(M,user)
 		if(QDELETED(wrapped))
-			wrapped = null
-		return TRUE
+			drop(get_turf(src), user, FALSE)
+		return resolved
 	else // mob interactions
 		switch(user.a_intent)
 			if(I_HELP)
@@ -140,25 +145,26 @@
 	return FALSE
 
 /obj/item/gripper/attackby(obj/item/O, mob/user)
+	var/resolved = FALSE
 	if(wrapped)
-		var/resolved = wrapped.attackby(O,user)
-		if(!resolved && wrapped && O)
-			O.afterattack(wrapped, user ,1)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
-	return
+		if(O == wrapped)
+			attack_self(user) //Allows gripper to be clicked to use item.
+			return TRUE
+		resolved = wrapped.attackby(O,user)
+		if(!resolved)
+			O.afterattack(wrapped, user, TRUE)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
+	return resolved
 
 /obj/item/gripper/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 	if(!proximity)
-		return // This will prevent them using guns at range but adminbuse can add them directly to modules, so eh.
-	//There's some weirdness with items being lost inside the arm. Trying to fix all cases. ~Z
-	if(!wrapped)
-		for(var/obj/item/thing in src.contents)
-			wrapped = thing
-			break
+		return
 	if(wrapped) //Already have an item.
-		return //This is handled in /mob/living/silicon/robot/GripperClickOn
+		wrapped.afterattack(target, user, TRUE, params)
+		if(QDELETED(wrapped))
+			drop(get_turf(src), user, FALSE)
 	else if(istype(target, /obj/item/storage) && !istype(target, /obj/item/storage/pill_bottle) && !istype(target, /obj/item/storage/secure))
-		for(var/obj/item/C in target.contents)
-			if(grip_item(C, user, 0))
+		for(var/obj/item/C in target)
+			if(grip_item(C, user, FALSE))
 				to_chat(user, SPAN_NOTICE("You grab \the [C] from inside \the [target.name]."))
 				return
 		to_chat(user, SPAN_NOTICE("There is nothing inside the box that your gripper can collect."))
@@ -170,9 +176,14 @@
 		grip_item(target, user)
 	else if (istype(target, /obj/machinery/mining)) // to prevent them from activating it by accident
 		return
-	else if (!just_dropped)
+	else
 		target.attack_ai(user)
-	just_dropped = FALSE
+
+/obj/item/gripper/resolve_attackby(atom/A, mob/user, var/click_parameters)
+	if(wrapped)
+		return wrapped.resolve_attackby(A, user, click_parameters)
+	else
+		. = ..()
 
 /*
 	//Definitions of gripper subtypes
@@ -189,7 +200,10 @@
 		/obj/item/stock_parts,
 		/obj/item/custom_ka_upgrade,
 		/obj/item/warp_core,
-		/obj/item/extraction_pack
+		/obj/item/extraction_pack,
+		/obj/item/smallDelivery,
+		/obj/item/gift,
+		/obj/item/device/mine_bot_upgrade
 	)
 
 /obj/item/gripper/paperwork
@@ -200,14 +214,22 @@
 		/obj/item/clipboard,
 		/obj/item/paper,
 		/obj/item/paper_bundle,
+		/obj/item/canvas,
+		/obj/item/pen,
 		/obj/item/card/id,
 		/obj/item/book,
 		/obj/item/newspaper,
 		/obj/item/stamp,
-		/obj/item/ducttape
+		/obj/item/ducttape,
+		/obj/item/smallDelivery,
+		/obj/item/gift,
+		/obj/item/stack/packageWrap,
+		/obj/item/stack/wrapping_paper,
+		/obj/item/computer_hardware/hard_drive/portable,
+		/obj/item/photo
 		)
 
-/obj/item/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
+/obj/item/gripper/research // A general usage gripper, used for toxins/robotics/xenobio/etc
 	name = "scientific gripper"
 	icon_state = "gripper-sci"
 	desc = "A simple grasping tool suited to assist in a wide array of research applications."
@@ -221,24 +243,28 @@
 		/obj/item/mecha_equipment,
 		/obj/item/device/radio/exosuit,
 		/obj/item/borg/upgrade,
-		/obj/item/device/flash, //to build borgs,
-		/obj/item/organ/internal/brain, //to insert into MMIs,
-		/obj/item/stack/cable_coil, //again, for borg building,
+		/obj/item/device/flash, // to build borgs,
+		/obj/item/organ/internal/brain, // to insert into MMIs,
+		/obj/item/stack/cable_coil, // again, for borg building,
 		/obj/item/circuitboard,
 		/obj/item/slime_extract,
 		/obj/item/reagent_containers/glass,
 		/obj/item/reagent_containers/food/snacks/monkeycube,
-		/obj/item/device/assembly,//For building bots and similar complex R&D devices
-		/obj/item/device/healthanalyzer,//For building medibots
+		/obj/item/seeds, // To be able to plant things for Xenobotany
+		/obj/item/grown, // To be able to plant things for Xenobotany
+		/obj/item/device/assembly, // For building bots and similar complex R&D devices
+		/obj/item/device/healthanalyzer,// For building medibots
 		/obj/item/disk,
 		/obj/item/device/analyzer/plant_analyzer,//For farmbot construction
-		/obj/item/material/minihoe,//Farmbots and xenoflora
+		/obj/item/material/minihoe, // Farmbots and xenoflora
 		/obj/item/computer_hardware,
 		/obj/item/slimesteroid,
-		/obj/item/slimesteroid2,
-		/obj/item/slimepotion,
-		/obj/item/slimepotion2,
-		/obj/item/remote_mecha
+		/obj/item/extract_enhancer,
+		/obj/item/docility_serum,
+		/obj/item/advanced_docility_serum,
+		/obj/item/remote_mecha,
+		/obj/item/smallDelivery,
+		/obj/item/gift
 		)
 
 /obj/item/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab
@@ -252,13 +278,19 @@
 		/obj/item/organ,
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/spray,
+		/obj/item/personal_inhaler,
+		/obj/item/reagent_containers/personal_inhaler_cartridge,
+		/obj/item/reagent_containers/inhaler,
+		/obj/item/reagent_containers/hypospray,
 		/obj/item/storage/pill_bottle,
-		/obj/item/hand_labeler,
+		/obj/item/device/hand_labeler,
 		/obj/item/paper,
 		/obj/item/stack/material/phoron,
 		/obj/item/reagent_containers/blood,
 		/obj/item/reagent_containers/food/drinks/sillycup,
-		/obj/item/reagent_containers/food/drinks/medcup
+		/obj/item/smallDelivery,
+		/obj/item/gift,
+		/obj/item/reagent_containers/chem_disp_cartridge
 		)
 
 /obj/item/gripper/service //Used to handle food, drinks, and seeds.
@@ -274,7 +306,12 @@
 		/obj/item/trash,
 		/obj/item/reagent_containers/cooking_container,
 		/obj/item/material/kitchen,
-		/obj/item/reagent_containers/food/snacks
+		/obj/item/reagent_containers/food/snacks,
+		/obj/item/smallDelivery,
+		/obj/item/gift,
+		/obj/item/stack/packageWrap,
+		/obj/item/stack/wrapping_paper,
+		/obj/item/reagent_containers/chem_disp_cartridge //Drink cartridges
 		)
 
 /obj/item/gripper/no_use //Used when you want to hold and put items in other things, but not able to 'use' the item
@@ -291,3 +328,16 @@
 		/obj/item/stack/material,
 		/obj/item/stack/tile
 		)
+
+/obj/item/gripper/multi_purpose
+	name = "multi-purpose gripper"
+	desc = "An articulate gripper suited to carrying a wide variety of objects you could encounter on a space-faring vessel."
+	can_hold = null
+	cant_hold = list(
+		/obj/item/stack,
+		/obj/item/gun,
+		/obj/item/clothing,
+		/obj/item/storage,
+		/obj/item/modular_computer,
+		/obj/item/card/id
+	)

@@ -6,7 +6,7 @@
 	required_count = 4
 	random_count = 1
 	wanted_types = list(/obj/item/storage/briefcase)
-	exclude_types = list(/obj/item/storage/briefcase/inflatable, /obj/item/storage/briefcase/crimekit)
+	exclude_types = list(/obj/item/storage/briefcase/crimekit)
 
 /datum/bounty/item/assistant/lung
 	name = "Lungs"
@@ -80,7 +80,7 @@
 	reward_low = 2300
 	reward_high = 4000
 	required_count = 2
-	wanted_types = list(/obj/structure/bed/chair/wheelchair, /obj/item/wheelchair)
+	wanted_types = list(/obj/structure/bed/stool/chair/office/wheelchair, /obj/item/material/stool/chair/wheelchair)
 
 /datum/bounty/item/assistant/film
 	name = "Camera Film"

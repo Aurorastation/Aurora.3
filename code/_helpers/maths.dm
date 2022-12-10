@@ -34,6 +34,9 @@
 /proc/Modulus(x, y)
 	return ( (x) - (y) * round((x) / (y)) )
 
+/proc/Percent(current_value, max_value, rounding = 1)
+	return round((current_value / max_value) * 100, rounding)
+
 // Greatest Common Divisor: Euclid's algorithm.
 /proc/Gcd(a, b)
 	while (1)
@@ -71,11 +74,8 @@
 /proc/IsMultiple(x, y)
 	return x % y == 0
 
-/proc/IsEven(x)
-	return !(x & 0x1)
-
-/proc/IsOdd(x)
-	return  (x & 0x1)
+#define ISEVEN(x) (x % 2 == 0)
+#define ISODD(x) (x % 2 != 0)
 
 // Performs a linear interpolation between a and b.
 // Note: weight=0 returns a, weight=1 returns b, and weight=0.5 returns the mean of a and b.
@@ -139,3 +139,82 @@
 	for (var/i = 0, i < iterations, i++)
 		. = (1/3) * (num/(.**2)+2*.)
 
+
+// Old scripting functions used by all over place.
+// Round down
+/proc/n_floor(var/num)
+	if(isnum(num))
+		return round(num)
+
+// Round up
+/proc/n_ceil(var/num)
+	if(isnum(num))
+		return round(num)+1
+
+// Round to nearest integer
+/proc/n_round(var/num)
+	if(isnum(num))
+		if(num-round(num)<0.5)
+			return round(num)
+		return n_ceil(num)
+
+// Returns 1 if N is inbetween Min and Max
+/proc/n_inrange(var/num, var/min=-1, var/max=1)
+	if(isnum(num)&&isnum(min)&&isnum(max))
+		return ((min <= num) && (num <= max))
+
+#define MODULUS_FLOAT(X, Y) ( (X) - (Y) * round((X) / (Y)) )
+
+// Will filter out extra rotations and negative rotations
+// E.g: 540 becomes 180. -180 becomes 180.
+#define SIMPLIFY_DEGREES(degrees) (MODULUS_FLOAT((degrees), 360))
+
+/// Value or the next multiple of divisor in a positive direction. Ceilm(-1.5, 0.3) = -1.5 , Ceilm(-1.5, 0.4) = -1.2
+#define Ceilm(value, divisor) ( -round(-(value) / (divisor)) * (divisor) )
+
+/**
+ * Get a list of turfs in a line from `starting_atom` to `ending_atom`.
+ *
+ * Uses the ultra-fast [Bresenham Line-Drawing Algorithm](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm).
+ */
+/proc/get_line(atom/starting_atom, atom/ending_atom)
+	var/current_x_step = starting_atom.x // start at X and Y, then add 1 or -1 to these to get every turf from start to end
+	var/current_y_step = starting_atom.y
+	var/starting_z = starting_atom.z
+
+	var/list/line = list(get_turf(starting_atom))
+
+	var/x_distance = ending_atom.x - current_x_step
+	var/y_distance = ending_atom.y - current_y_step
+
+	var/abs_x_distance = abs(x_distance)
+	var/abs_y_distance = abs(y_distance)
+
+	var/x_distance_sign = SIGN(x_distance)
+	var/y_distance_sign = SIGN(y_distance)
+
+	var/x = abs_x_distance >> 1
+	var/y = abs_y_distance >> 1
+
+	if (abs_x_distance >= abs_y_distance)
+		for (var/distance_counter in 0 to (abs_x_distance - 1))
+			y += abs_y_distance
+
+			if(y >= abs_x_distance) // Every abs_y_distance steps, step once in y direction
+				y -= abs_x_distance
+				current_y_step += y_distance_sign
+
+			current_x_step += x_distance_sign // Step in x direction
+			line += locate(current_x_step, current_y_step, starting_z)
+	else
+		for (var/distance_counter in 0 to (abs_y_distance - 1))
+			x += abs_x_distance
+
+			if(x >= abs_y_distance)
+				x -= abs_y_distance
+				current_x_step += x_distance_sign
+
+			current_y_step += y_distance_sign
+			line += locate(current_x_step, current_y_step, starting_z)
+
+	return line

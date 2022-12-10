@@ -11,7 +11,7 @@
 	var/throwforce = 1
 	var/list/attack_verb //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
 	var/sharp = 0		// whether this object cuts
-	var/edge = 0		// whether this object is more likely to dismember
+	var/edge = FALSE	// whether this object is more likely to dismember
 	var/in_use = 0 // If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
 	var/damtype = BRUTE
 	var/force = 0
@@ -184,7 +184,7 @@
 	being_shocked = 0
 
 
-/obj/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+/obj/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 	return
 
 //To be called from things that spill objects on the floor.
@@ -218,13 +218,6 @@
 /obj/proc/Created()
 	return
 
-/obj/proc/animate_shake()
-	var/init_px = pixel_x
-	var/shake_dir = pick(-1, 1)
-	animate(src, transform = turn(matrix(), 8*shake_dir), pixel_x = init_px + 2*shake_dir, time = 1)
-	animate(transform = null, pixel_x = init_px, time = 6, easing = ELASTIC_EASING)
-	return 7 // how long it takes to do this
-
 /obj/proc/rotate(var/mob/user, var/anchored_ignore = FALSE)
 	if(use_check_and_message(user))
 		return
@@ -235,6 +228,7 @@
 
 	set_dir(turn(dir, 90))
 	update_icon()
+	return TRUE
 
 /obj/AltClick(var/mob/user)
 	if(obj_flags & OBJ_FLAG_ROTATABLE)
@@ -249,6 +243,8 @@
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
 		to_chat(user, SPAN_SUBTLE("Can be rotated with alt-click."))
+	if(contaminated)
+		to_chat(user, SPAN_ALIEN("\The [src] has been contaminated with phoron!"))
 
 // whether mobs can unequip and drop items into us or not
 /obj/proc/can_hold_dropped_items()

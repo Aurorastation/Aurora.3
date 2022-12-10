@@ -200,21 +200,7 @@
 
 	// Determine what job is marked as 'High' priority, and dress them up as such.
 	var/datum/job/previewJob
-	if(job_civilian_low & ASSISTANT)
-		previewJob = SSjobs.GetJob("Assistant")
-	else
-		for(var/datum/job/job in SSjobs.occupations)
-			var/job_flag
-			switch(job.department_flag)
-				if(CIVILIAN)
-					job_flag = job_civilian_high
-				if(MEDSCI)
-					job_flag = job_medsci_high
-				if(ENGSEC)
-					job_flag = job_engsec_high
-			if(job.flag == job_flag)
-				previewJob = job
-				break
+	previewJob = return_chosen_high_job()
 
 	if(previewJob)
 		mannequin.job = previewJob.title
@@ -226,7 +212,7 @@
 			SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
 
 		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)
-			previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title])
+			previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title], faction)
 
 		if(equip_preview_mob & EQUIP_PREVIEW_LOADOUT && leftovers.len)
 			SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
@@ -236,6 +222,25 @@
 			mannequin.regenerate_icons()
 		else
 			mannequin.update_icon()
+
+/datum/preferences/proc/return_chosen_high_job(var/title = FALSE)
+	var/datum/job/chosenJob
+	if(SSjobs.init_state < SS_INITSTATE_DONE)
+		return
+
+	if(job_civilian_low & ASSISTANT)
+		// Assistant is weird, has to be checked first because it overrides
+		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_low]"]
+	else if(job_civilian_high)
+		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_high]"]
+	else if(job_medsci_high)
+		chosenJob = SSjobs.bitflag_to_job["[MEDSCI]"]["[job_medsci_high]"]
+	else if(job_engsec_high)
+		chosenJob = SSjobs.bitflag_to_job["[ENGSEC]"]["[job_engsec_high]"]
+
+	if(istype(chosenJob) && title)
+		return chosenJob.title
+	return chosenJob
 
 /datum/preferences/proc/update_mannequin()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmob.get_mannequin(client.ckey)

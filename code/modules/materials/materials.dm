@@ -7,7 +7,7 @@
 	PATHS THAT USE DATUMS
 		turf/simulated/wall
 		obj/item/material
-		obj/structure/barricade
+		obj/structure/blocker
 		obj/item/stack/material
 		obj/structure/table
 
@@ -418,7 +418,7 @@
 	melting_point = 6000
 	icon_base = "solid"
 	icon_reinf = "reinf_over"
-	icon_colour = "#777777"
+	icon_colour = "#666666"
 	explosion_resistance = 25
 	hardness = 80
 	weight = 23
@@ -585,7 +585,7 @@
 	integrity = 100
 	icon_colour = "#FC2BC5"
 	stack_origin_tech = list(TECH_MATERIAL = 4)
-	created_window = /obj/structure/window/phoronbasic
+	created_window = /obj/structure/window/borosilicate
 	wire_product = null
 	rod_product = /obj/item/stack/material/glass/phoronrglass
 	golem = SPECIES_GOLEM_PHORON
@@ -596,7 +596,7 @@
 	stack_type = /obj/item/stack/material/glass/phoronrglass
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	composite_material = list() //todo
-	created_window = /obj/structure/window/phoronreinforced
+	created_window = /obj/structure/window/borosilicate/reinforced
 	hardness = 40
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)
@@ -715,6 +715,41 @@
 	weapon_pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 	weapon_hitsound = 'sound/weapons/woodenhit.ogg'
 	shatter_sound = /decl/sound_category/wood_break_sound
+
+/material/wood/birch 
+	name = MATERIAL_BIRCH
+	stack_type = /obj/item/stack/material/wood/coloured/birch
+	icon_colour = WOOD_COLOR_BIRCH
+
+/material/wood/mahogany
+	name = MATERIAL_MAHOGANY
+	stack_type = /obj/item/stack/material/wood/coloured/mahogany
+	icon_colour = WOOD_COLOR_RICH
+
+/material/wood/maple
+	name = MATERIAL_MAPLE  
+	stack_type = /obj/item/stack/material/wood/coloured/maple
+	icon_colour = WOOD_COLOR_PALE
+
+/material/wood/bamboo
+	name = MATERIAL_BAMBOO
+	stack_type = /obj/item/stack/material/wood/coloured/bamboo
+	icon_colour = WOOD_COLOR_PALE2
+
+/material/wood/ebony
+	name = MATERIAL_EBONY
+	stack_type = /obj/item/stack/material/wood/coloured/ebony
+	icon_colour = WOOD_COLOR_BLACK
+
+/material/wood/walnut
+	name = MATERIAL_WALNUT
+	stack_type = /obj/item/stack/material/wood/coloured/walnut
+	icon_colour = WOOD_COLOR_CHOCOLATE
+
+/material/wood/yew
+	name = MATERIAL_YEW
+	stack_type = /obj/item/stack/material/wood/coloured/yew
+	icon_colour = WOOD_COLOR_YELLOW
 
 /material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
 	name = MATERIAL_WOOD_LOG
@@ -836,6 +871,13 @@
 	drop_sound = 'sound/items/drop/leather.ogg'
 	pickup_sound = 'sound/items/pickup/leather.ogg'
 
+/material/leather/fine
+	name = MATERIAL_LEATHER_FINE
+	icon_colour = "#4B3A27"
+	stack_type = /obj/item/stack/material/leather/fine
+	ignition_point = T0C+320
+	melting_point = T0C+320
+
 /material/cotton
 	name = MATERIAL_COTTON
 	display_name ="cotton"
@@ -886,48 +928,6 @@
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	weapon_hitsound = 'sound/weapons/towelwhip.ogg'
 
-/material/cloth/teal
-	name = MATERIAL_CLOTH_TEAL
-	display_name ="teal"
-	use_name = "teal cloth"
-	icon_colour = "#00EAFA"
-
-/material/cloth/black
-	name = MATERIAL_CLOTH_BLACK
-	display_name = "black"
-	use_name = "black cloth"
-	icon_colour = "#505050"
-
-/material/cloth/green
-	name = MATERIAL_CLOTH_GREEN
-	display_name = "green"
-	use_name = "green cloth"
-	icon_colour = "#01C608"
-
-/material/cloth/purple
-	name = MATERIAL_CLOTH_PURPLE
-	display_name = "purple"
-	use_name = "purple cloth"
-	icon_colour = "#9C56C4"
-
-/material/cloth/blue
-	name = MATERIAL_CLOTH_BLUE
-	display_name = "blue"
-	use_name = "blue cloth"
-	icon_colour = "#6B6FE3"
-
-/material/cloth/beige
-	name = MATERIAL_CLOTH_BEIGE
-	display_name = "beige"
-	use_name = "beige cloth"
-	icon_colour = "#E8E7C8"
-
-/material/cloth/lime
-	name = MATERIAL_CLOTH_LIME
-	display_name = "lime"
-	use_name = "lime cloth"
-	icon_colour = "#62E36C"
-
 /material/hide //TODO make different hides somewhat different among them
 	name = MATERIAL_HIDE
 	stack_origin_tech = list(TECH_MATERIAL = 2)
@@ -975,6 +975,14 @@
 	stack_type = /obj/item/stack/material/animalhide/human
 	icon_colour = "#833C00"
 
+/material/hide/barehide
+	name = "bare hide"
+	stack_type = /obj/item/stack/material/animalhide/barehide
+
+/material/hide/wetleather
+	name = "wet leather"
+	stack_type = /obj/item/stack/material/animalhide/wetleather
+
 /material/bone
 	name = MATERIAL_BONE
 	icon_colour = "#e3dac9"
@@ -1013,9 +1021,8 @@
 
 /material/shuttle
 	name = MATERIAL_SHUTTLE
-	display_name = "spaceship alloy"
+	display_name = "plastitanium alloy"
 	stack_type = null
-	icon_colour = "#6C7364"
 	icon_base = "shuttle"
 	integrity = 1200
 	melting_point = 6000       // Hull plating.
@@ -1023,9 +1030,25 @@
 	hardness = 500
 	weight = 500
 	protectiveness = 80 // 80%
+	cut_delay = 20 SECONDS
 
 /material/shuttle/skrell
 	name = MATERIAL_SHUTTLE_SKRELL
 	display_name = "superadvanced alloy"
 	icon_colour = null
 	icon_base = "skrell"
+
+/material/graphite
+	name = MATERIAL_GRAPHITE
+	stack_type = /obj/item/stack/material/graphite
+	icon_base = "graphite"
+	icon_colour = "#666666"
+	shard_type = SHARD_STONE_PIECE
+	weight = 20
+	hardness = 20
+	protectiveness = 5 // 20%
+	conductivity = 5
+	sheet_singular_name = "bar"
+	sheet_plural_name = "bars"
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'

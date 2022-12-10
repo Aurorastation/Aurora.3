@@ -3,7 +3,7 @@
 	desc = "A spell used to fix others that cannot be fixed with regular medicine."
 	feedback = "CM"
 	charge_max = 300
-	spell_flags = INCLUDEUSER | SELECTABLE | NEEDSCLOTHES
+	spell_flags = INCLUDEUSER | SELECTABLE
 	invocation = "Borv Di'Nath"
 	range = 1
 	level_max = list(Sp_TOTAL = 2, Sp_SPEED = 1, Sp_POWER = 1)

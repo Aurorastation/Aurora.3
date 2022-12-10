@@ -40,7 +40,7 @@
 	id = "crashed";
 	pixel_x = 32
 	},
-/obj/structure/bed/chair/office/bridge,
+/obj/structure/bed/stool/chair/office/bridge,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "ah" = (
@@ -85,13 +85,13 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/dungeon/crashed_ship)
 "an" = (
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "ao" = (
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -104,7 +104,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -113,7 +113,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -143,7 +143,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "av" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	pixel_x = -32;
 	req_access = list(150)
 	},
@@ -387,7 +387,7 @@
 /area/dungeon/crashed_ship)
 "bg" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood locker";
 	pixel_x = 32
 	},

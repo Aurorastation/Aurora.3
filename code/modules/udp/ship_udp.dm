@@ -26,7 +26,7 @@
 
 	The prerequisite for using this is rustg compiled with the udp_shipper feature.
 
-	Rustg's rustg_udp_shipper_send function is used to send data.
+	Rustg's rustg_udp_send function is used to send data.
 */
 
 /**
@@ -37,17 +37,17 @@
  */
 /proc/send_udp_data(addr, data)
 #ifdef RUST_G
-#	ifndef rustg_udp_shipper_send
-#		error rustg_udp_shipper_send macro is not defined for rustg.
-#	endif // rustg_udp_shipper_send
+#	ifndef rustg_udp_send
+#		error rustg_udp_send macro is not defined for rustg.
+#	endif // rustg_udp_send
 
 	if (!addr || !data)
 		return "Not enough args."
 
-	. = rustg_udp_shipper_send(addr, data)
+	. = rustg_udp_send(addr, data)
 
 	if (.)
-		error("UDP Shipper error: [.]")
+		error("UDP Sender error: [.]")
 
 #else
 	return

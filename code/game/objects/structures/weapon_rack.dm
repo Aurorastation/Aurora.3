@@ -9,6 +9,7 @@
 	var/obj/item/held_weapon
 
 /obj/structure/weapon_rack/Initialize()
+	. = ..()
 	if(held_weapon)
 		held_weapon = new held_weapon(src)
 		icon_state = initial(icon_state) + "_[held_weapon.icon_state]"

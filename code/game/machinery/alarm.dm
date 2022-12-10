@@ -37,7 +37,6 @@
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "alarm0"
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 90
 	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
 	power_channel = ENVIRON
@@ -97,8 +96,13 @@
 
 /obj/machinery/alarm/server
 	req_one_access = list(access_rd, access_atmospherics, access_engine_equip)
-	target_temperature = 90
-	desc = "A device that controls the local air regulation machinery. This one is designed for use in server rooms."
+	target_temperature = 80
+	desc = "A device that controls the local air regulation machinery. This one is designed for use in small server rooms."
+	highpower = 1
+
+/obj/machinery/alarm/tcom
+	desc = "A device that controls the local air regulation machinery. This one is designed for use in server halls."
+	req_access = list(access_tcomsat)
 	highpower = 1
 
 /obj/machinery/alarm/freezer
@@ -177,8 +181,8 @@
 		wires = new(src)
 
 	if (highpower)
-		active_power_usage *= 6
-		idle_power_usage *= 3
+		change_power_consumption(active_power_usage * 6, POWER_USE_ACTIVE)
+		change_power_consumption(idle_power_usage * 3, POWER_USE_IDLE)
 
 	// breathable air according to human/Life()
 	TLV[GAS_OXYGEN] =			list(16, 19, 135, 140) // Partial pressure, kpa
@@ -189,7 +193,7 @@
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*0.90,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+40, T0C+66) // K
 
-/obj/machinery/alarm/machinery_process()
+/obj/machinery/alarm/process()
 	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
 		return
 
@@ -235,14 +239,14 @@
 	if (!regulating_temperature)
 		//check for when we should start adjusting temperature
 		if(!get_danger_level(target_temperature, TLV["temperature"]) && abs(environment.temperature - target_temperature) > 2.0)
-			update_use_power(2)
+			update_use_power(POWER_USE_ACTIVE)
 			regulating_temperature = 1
 			visible_message("\The [src] clicks as it starts [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
 			"You hear a click and a faint electronic hum.")
 	else
 		//check for when we should stop adjusting temperature
 		if (get_danger_level(target_temperature, TLV["temperature"]) || abs(environment.temperature - target_temperature) <= 0.5)
-			update_use_power(1)
+			update_use_power(POWER_USE_IDLE)
 			regulating_temperature = 0
 			visible_message("\The [src] clicks quietly as it stops [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
 			"You hear a click as a faint electronic humming stops.")
@@ -769,7 +773,7 @@
 				wiresexposed = !wiresexposed
 				to_chat(user, "<span class='notice'>You [wiresexposed ? "open" : "close"] the maintenance panel.</span>")
 				update_icon()
-				return
+				return TRUE
 
 			if (wiresexposed && W.iswirecutter())
 				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You cut the wires inside \the [src].")
@@ -777,19 +781,19 @@
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1
 				update_icon()
-				return
+				return TRUE
 
 			if (W.GetID())// trying to unlock the interface with an ID card
 				if(stat & (NOPOWER|BROKEN))
 					to_chat(user, "<span class='notice'>Nothing happens.</span>")
-					return
+					return TRUE
 				else
 					if(allowed(usr) && !wires.IsIndexCut(AALARM_WIRE_IDSCAN))
 						locked = !locked
 						to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the Air Alarm interface.</span>")
 					else
 						to_chat(user, "<span class='warning'>Access denied.</span>")
-			return
+				return TRUE
 
 		if(1)
 			if(W.iscoil())
@@ -800,34 +804,34 @@
 					update_icon()
 					first_run()
 					set_frequency(frequency)
-					return
 				else
 					to_chat(user, "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>")
-					return
+				return TRUE
 
 			else if(W.iscrowbar())
 				to_chat(user, "You start prying out the circuit.")
-				playsound(src.loc, W.usesound, 50, 1)
-				if(do_after(user,20/W.toolspeed))
+				if(W.use_tool(src, user, 20, volume = 50))
 					to_chat(user, "You pry out the circuit!")
 					var/obj/item/airalarm_electronics/circuit = new /obj/item/airalarm_electronics()
 					circuit.forceMove(user.loc)
 					buildstage = 0
 					update_icon()
-				return
+				return TRUE
+
 		if(0)
 			if(istype(W, /obj/item/airalarm_electronics))
 				to_chat(user, "You insert the circuit!")
 				qdel(W)
 				buildstage = 1
 				update_icon()
-				return
+				return TRUE
 
 			else if(W.iswrench())
 				to_chat(user, "You remove the air alarm assembly from the wall!")
 				new /obj/item/frame/air_alarm(get_turf(user))
 				playsound(src.loc, W.usesound, 50, 1)
 				qdel(src)
+				return TRUE
 
 	return ..()
 

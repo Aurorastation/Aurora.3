@@ -1,132 +1,104 @@
 /obj/item/clothing/under/unathi
 	name = "sinta tunic"
-	desc = "A tunic common on both Moghes and Ouerea, it's simple and easy to manufacture design makes it universally favorable."
+	desc = "A tunic common on both Moghes and Ouerea. It's simple and easily-manufactured design makes it \
+	universally favorable."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "tunic"
 	item_state = "tunic"
-	var/has_down_and_sleeves = TRUE // does this under uniform have down and sleeve sprites?
 	contained_sprite = TRUE
-
-/obj/item/clothing/under/unathi/Initialize()
-	..()
-	rolled_down = FALSE
-	rolled_sleeves = FALSE
 
 /obj/item/clothing/under/unathi/jizixi
 	name = "jizixi dress"
 	desc = "A striking, modern dress typically worn by Moghean women of high birth."
 	icon_state = "jizixi"
 	item_state = "jizixi"
-	has_down_and_sleeves = FALSE
 
 /obj/item/clothing/under/unathi/sashes
 	name = "gy'zao sashes"
 	gender = PLURAL
-	desc = "An androgynous set of sashes worn by Unathi when they want to bask under the sun. Not appropriate to wear outside of that."
+	desc = "An androgynous set of sashes worn by Unathi when they want to bask under the sun. Not appropriate \
+	to wear outside of that."
 	icon_state = "gyzao"
 	item_state = "gyzao"
-	has_down_and_sleeves = FALSE
 
 /obj/item/clothing/under/unathi/mogazali
 	name = "mogazali attire"
-	desc = "A traditional Moghean uniform worn by men of high status whether merchants, priests, or nobility."
+	desc = "A traditional Moghean uniform worn by men of high status, whether merchants, priests, or nobility."
 	icon_state = "mogazali"
 	item_state = "mogazali"
-	has_down_and_sleeves = FALSE
 
 /obj/item/clothing/under/unathi/zazali
 	name = "zazali garb"
-	desc = "An old fashioned, extremely striking garb for the Unathi man with pointy shoulders. It's typically worn by those in the warrior caste... Or those with something to prove."
+	desc = "An old fashioned, extremely striking garb for a Unathi man with pointy shoulders. It's typically \
+	worn by those in the warrior caste or those with something to prove."
 	icon_state = "zazali"
 	item_state = "zazali"
-	has_down_and_sleeves = FALSE
+	var/additional_color = COLOR_GRAY // The default color.
+
+/obj/item/clothing/under/unathi/zazali/update_icon()
+	cut_overlays()
+	var/image/top = image(icon, null, "zazali_top")
+	top.appearance_flags = RESET_COLOR
+	top.color = additional_color
+	add_overlay(top)
+	var/image/belt = image(icon, null, "zazali_belt")
+	belt.appearance_flags = RESET_COLOR
+	add_overlay(belt)
+
+/obj/item/clothing/under/unathi/zazali/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_w_uniform_str)
+		var/image/top = image(mob_icon, null, "zazali_un_top")
+		top.appearance_flags = RESET_COLOR
+		top.color = additional_color
+		I.add_overlay(top)
+		var/image/belt = image(mob_icon, null, "zazali_un_belt")
+		belt.appearance_flags = RESET_COLOR
+		I.add_overlay(belt)
+	return I
 
 /obj/item/clothing/under/unathi/huytai
 	name = "huytai outfit"
-	desc = "Typically worn by Unathi women who engage in a trade. Popular with fisherwomen and others."
+	desc = "Typically worn by Unathi women who engage in a trade. Popular with fisherwomen especially!"
 	icon_state = "huytai"
 	item_state = "huytai"
-	has_down_and_sleeves = FALSE
 
 /obj/item/clothing/under/unathi/zozo
 	name = "zo'zo top"
-	desc = "A modern blend of Ouerean and Moghean style for the Unathi man on the go. Great for sunbathing."
+	desc = "A modern blend of Ouerean and Moghean style for anyone on the go. Great for sunbathing!"
 	icon_state = "zozo"
 	item_state = "zozo"
-	has_down_and_sleeves = FALSE
 
-// Turns out normal rolling was pretty shoddy, so I made my own for 'Nathi - geeves
-/obj/item/clothing/under/unathi/rollsuit()
-	set name = "Roll Down Jumpsuit"
-	set category = "Object"
-	set src in usr
+/obj/item/clothing/under/unathi/himation
+	name = "himation cloak"
+	desc = "The himation is a staple of Unathi fashion. Whether a commoner in practical clothes or a noble looking \
+	for leisure wear, the himation has remained stylish for centuries."
+	desc_extended = "The himation while unwrapped is usually a three meter around cloth. Unathi start by putting the \
+	front around their waist, bring it over their right shoulder, and then form a sash-like loop by bringing it over \
+	their right again. A belt ties it off and drapes a skirt down over their thighs to complete the look. Fashionable \
+	for simple noble wear (the cloth can be embroidered), and practical for labor!"
+	icon_state = "himation"
+	item_state = "himation"
+	var/additional_color = COLOR_GRAY
 
-	if(use_check_and_message(usr))
-		return
-	if(has_down_and_sleeves == FALSE)
-		to_chat(usr, SPAN_NOTICE("You cannot roll down the [src]!"))
-		return
+/obj/item/clothing/under/unathi/himation/update_icon()
+	cut_overlays()
+	var/image/skirt = image(icon, null, "himation_skirt")
+	skirt.appearance_flags = RESET_COLOR
+	skirt.color = additional_color
+	add_overlay(skirt)
+	var/image/belt = image(icon, null, "himation_belt")
+	belt.appearance_flags = RESET_COLOR
+	add_overlay(belt)
 
-	if((rolled_sleeves == TRUE) && !(rolled_down))
-		rolled_sleeves = FALSE
-
-	if(rolled_down)
-		body_parts_covered = initial(body_parts_covered)
-		item_state = "[initial(item_state)]" // REMINDER!: Contained Sprites automatically take out the _un after the spritename, somehow.
-		to_chat(usr, SPAN_NOTICE("You roll up your [src]."))
-		rolled_down = FALSE
-	else
-		body_parts_covered &= LOWER_TORSO|LEGS|FEET
-		item_state = "[initial(item_state)]_d"
-		to_chat(usr, SPAN_NOTICE("You roll down your [src]."))
-		rolled_down = TRUE
-	update_clothing_icon()
-
-/obj/item/clothing/under/unathi/rollsleeves()
-	set name = "Roll Up Sleeves"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return
-	if(has_down_and_sleeves == FALSE)
-		to_chat(usr, SPAN_NOTICE("You cannot roll up your [src]'s sleeves!"))
-		return
-
-	if(rolled_down == TRUE)
-		to_chat(usr, SPAN_NOTICE("You must roll up your [src] first!"))
-		return
-
-	if(rolled_sleeves)
-		body_parts_covered = initial(body_parts_covered)
-		item_state = "[initial(item_state)]" // REMINDER!: Contained Sprites automatically take out the _un after the spritename, somehow.
-		to_chat(usr, SPAN_NOTICE("You roll down your [src]'s sleeves."))
-		rolled_sleeves = FALSE
-	else
-		body_parts_covered &= ~(ARMS|HANDS)
-		item_state = "[initial(item_state)]_r"
-		to_chat(usr, SPAN_NOTICE("You roll up your [src]'s sleeves."))
-		rolled_sleeves = TRUE
-	update_clothing_icon()
-
-/obj/item/clothing/suit/unathi/mantle/wrapping
-	name = "unathi wrappings"
-	desc = "Stitched together clothing with bandages covering them, looks tailored for an unathi."
-	desc_fluff = "This is a very traditional Sinta wear for Th'akh shamans, most modern Sinta do not wear these."
-	icon = 'icons/obj/unathi_items.dmi'
-	icon_state = "thakh_wrappings" //special thanks to Araskael
-	item_state = "thakh_wrappings"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	flags_inv = HIDEJUMPSUIT|HIDETAIL
-	species_restricted = list(BODYTYPE_UNATHI)
-	contained_sprite = TRUE
-
-/obj/item/clothing/mask/gas/wrapping
-	name = "unathi head wrappings"
-	desc = "A bunch of stitched together bandages with a fibreglass breath mask on it, openings for the eyes. Looks tailored for an unathi."
-	desc_fluff = "This is a very traditional Sinta wear for Th'akh shamans, most modern Sinta do not wear these."
-	icon = 'icons/obj/unathi_items.dmi'
-	icon_state = "thakh_mask" //special thanks to Araskael
-	item_state = "thakh_mask"
-	species_restricted = list(BODYTYPE_UNATHI)
-	contained_sprite = TRUE
+/obj/item/clothing/under/unathi/himation/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_w_uniform_str)
+		var/image/skirt = image(mob_icon, null, "himation_un_skirt")
+		skirt.appearance_flags = RESET_COLOR
+		skirt.color = additional_color
+		I.add_overlay(skirt)
+		var/image/belt = image(mob_icon, null, "himation_un_belt")
+		belt.appearance_flags = RESET_COLOR
+		I.add_overlay(belt)
+	return I

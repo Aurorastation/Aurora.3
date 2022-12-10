@@ -10,7 +10,7 @@ mob/var/obj/effect/decal/typing_indicator
 /mob/proc/set_typing_indicator(var/state)
 	if(!typing_indicator)
 		typing_indicator = new
-		typing_indicator.icon = 'icons/mob/talk.dmi'
+		typing_indicator.icon = get_talk_bubble()
 		typing_indicator.icon_state = "typing"
 
 	if(client && !stat)

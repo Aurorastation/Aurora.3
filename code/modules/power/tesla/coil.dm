@@ -13,6 +13,14 @@
 		/obj/item/stock_parts/capacitor
 	)
 
+/obj/machinery/power/tesla_coil/update_icon()
+	cut_overlays()
+	if(anchored)
+		add_overlay("[icon_state]+bolts")
+		var/image/lights_image = image(icon, null, "[icon_state]+lights")
+		lights_image.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+		add_overlay(lights_image)
+
 /obj/machinery/power/tesla_coil/RefreshParts()
 	var/power_multiplier = 0
 
@@ -32,6 +40,7 @@
 		playsound(src.loc, W.usesound, 50, 1)
 		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
 		anchored = !anchored
+		update_icon()
 		if(!anchored)
 			disconnect_from_network()
 		else
@@ -53,7 +62,7 @@
 		..()
 
 /obj/machinery/power/grounding_rod
-	name = "Grounding Rod"
+	name = "grounding rod"
 	desc = "Keep an area from being fried from Edison's Bane."
 	icon = 'icons/obj/tesla_engine/tesla_coil.dmi'
 	icon_state = "grounding_rod"
@@ -65,6 +74,13 @@
 		/obj/item/stock_parts/capacitor
 	)
 
+/obj/machinery/power/grounding_rod/update_icon()
+	cut_overlays()
+	if(anchored)
+		add_overlay("[icon_state]+bolts")
+		var/image/lights_image = image(icon, null, "[icon_state]+lights")
+		lights_image.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+		add_overlay(lights_image)
 
 /obj/machinery/power/grounding_rod/attackby(obj/item/W, mob/user)
 	if(default_deconstruction_screwdriver(user, W))
@@ -78,8 +94,8 @@
 		playsound(src.loc, W.usesound, 50, 1)
 		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
 		anchored = !anchored
+		update_icon()
 		return
-
 
 /obj/machinery/power/grounding_rod/tesla_act(var/power, var/melt = FALSE)
 	flick("coil_shock_1", src)

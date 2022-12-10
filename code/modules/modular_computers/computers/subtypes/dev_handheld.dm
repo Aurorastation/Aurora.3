@@ -7,17 +7,18 @@
 	icon_state = "tablet"
 	icon_state_unpowered = "tablet"
 	icon_state_menu = "menu"
+	overlay_state = "electronic"
 	slot_flags = SLOT_ID | SLOT_BELT
 	can_reset = TRUE
 	hardware_flag = PROGRAM_TABLET
 	max_hardware_size = 1
 	w_class = ITEMSIZE_SMALL
+	looping_sound = FALSE
 
 /obj/item/modular_computer/handheld/Initialize()
 	. = ..()
 	set_icon()
 
 /obj/item/modular_computer/handheld/proc/set_icon()
-	icon_state += pick("", "-blue", "-green", "-red", "-brown")
 	icon_state_unpowered = icon_state
 	icon_state_broken = icon_state

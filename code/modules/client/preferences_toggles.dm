@@ -110,9 +110,8 @@
 	to_chat(src, "You will [(prefs.toggles & CHAT_OOC) ? "now" : "no longer"] see messages on the OOC channel.")
 	feedback_add_details("admin_verb","TOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-
 /client/verb/listen_looc()
-	set name = "Show/Hide LOOC"
+	set name = "Show/Hide LOOC (All)"
 	set category = "Preferences"
 	set desc = "Toggles seeing Local OutOfCharacter chat"
 	prefs.toggles ^= CHAT_LOOC
@@ -120,6 +119,19 @@
 
 	to_chat(src, "You will [(prefs.toggles & CHAT_LOOC) ? "now" : "no longer"] see messages on the LOOC channel.")
 	feedback_add_details("admin_verb","TLOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/verb/listen_ghostlooc()
+	set name = "Show/Hide LOOC (Observers)"
+	set category = "Preferences"
+	set desc = "Toggles seeing Local OutOfCharacter chat from observing players"
+	if(!(prefs.toggles & CHAT_LOOC)) //Don't need to disable ghost LOOC if you've disabled all LOOC
+		to_chat(src, SPAN_NOTICE("You already have the LOOC channel hidden!"))
+		return
+	prefs.toggles ^= CHAT_GHOSTLOOC
+	prefs.save_preferences()
+
+	to_chat(src, "You will [(prefs.toggles & CHAT_GHOSTLOOC) ? "now" : "no longer"] see messages on the LOOC channel from observing/ghosted players.")
+	feedback_add_details("admin_verb","TGLOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
 /client/verb/toggle_chattags()
@@ -131,65 +143,6 @@
 
 	to_chat(src, "You will [!(prefs.toggles & CHAT_NOICONS) ? "now" : "no longer"] see chat tag icons.")
 	feedback_add_details("admin_verb","TCTAG") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-
-/client/verb/Toggle_Soundscape() //All new ambience should be added here so it works with this verb until someone better at things comes up with a fix that isn't awful
-	set name = "Hear/Silence Ambience"
-	set category = "Preferences"
-	set desc = "Toggles hearing ambient sound effects"
-	prefs.toggles ^= SOUND_AMBIENCE
-	prefs.save_preferences()
-	if(prefs.toggles & SOUND_AMBIENCE)
-		to_chat(src, "You will now hear ambient sounds.")
-	else
-		to_chat(src, "You will no longer hear ambient sounds.")
-		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 1)
-		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 2)
-	feedback_add_details("admin_verb","TAmbi") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/verb/toggle_space_parallax()
-	set name = "Show/Hide Space Parallax"
-	set category = "Preferences"
-	set desc = "Toggles space parallax effects."
-	prefs.toggles_secondary ^= PARALLAX_SPACE
-	prefs.save_preferences()
-	if (prefs.toggles_secondary & PARALLAX_SPACE)
-		to_chat(src, "You will now see space parallax effects.")
-	else
-		to_chat(src, "You will no longer see space parallax effects.")
-
-	if (mob.hud_used)
-		mob.hud_used.update_parallax()
-
-
-/client/verb/toggle_space_dust()
-	set name = "Show/Hide Space Dust"
-	set category = "Preferences"
-	set desc = "Toggles space parallax dust."
-	prefs.toggles_secondary ^= PARALLAX_DUST
-	prefs.save_preferences()
-	if (prefs.toggles_secondary & PARALLAX_DUST)
-		to_chat(src, "You will now see space parallax dust effects.")
-	else
-		to_chat(src, "You will no longer see space parallax dust effects.")
-
-	if (mob.hud_used)
-		mob.hud_used.update_parallax()
-
-/client/verb/set_parallax_speed()
-	set name = "Set Parallax Speed"
-	set category = "Preferences"
-	set desc = "Sets the movement speed of the space parallax effect."
-	var/choice = input("What speed do you want to use for space parallax? (default 2)", "SPAAACE") as num|null
-	if (!choice || choice < 0)
-		to_chat(src, "Invalid input.")
-		return
-
-	prefs.parallax_speed = choice
-	prefs.save_preferences()
-
-	if (mob.hud_used)
-		mob.hud_used.update_parallax()
 
 /client/verb/toggle_progress()
 	set name = "Show/Hide Progress Bars"
@@ -211,16 +164,3 @@
 	prefs.toggles_secondary ^= FLOATING_MESSAGES
 	prefs.save_preferences()
 	to_chat(src, SPAN_NOTICE("Floating messages are now [prefs.toggles_secondary & FLOATING_MESSAGES ? "enabled" : "disabled"]."))
-
-/client/verb/toggle_static_spess()
-	set name = "Toggle Parallax Movement"
-	set category = "Preferences"
-	set desc = "Toggles movement of parallax space."
-
-	prefs.toggles_secondary ^= PARALLAX_IS_STATIC
-	prefs.save_preferences()
-
-	if (prefs.toggles_secondary & PARALLAX_IS_STATIC)
-		to_chat(src, "Space will no longer move.")
-	else
-		to_chat(src, "Space will now move.")

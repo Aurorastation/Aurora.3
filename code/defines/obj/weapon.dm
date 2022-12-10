@@ -56,6 +56,7 @@
 	w_class = ITEMSIZE_LARGE
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
+	var/can_support = TRUE
 
 /obj/item/cane/attack(mob/living/target, mob/living/carbon/human/user, target_zone = BP_CHEST)
 
@@ -84,8 +85,8 @@
 
 	if (targetIsHuman)
 		var/mob/living/carbon/human/targethuman = target
-		armorpercent = targethuman.run_armor_check(target_zone,"melee")
-		wasblocked = targethuman.check_shields(force, src, user, target_zone, null) //returns 1 if it's a block
+		armorpercent = targethuman.get_blocked_ratio(target_zone, BRUTE, damage = force)*100
+		wasblocked = targethuman.check_shields(force, src, user, target_zone, null)
 
 	var/damageamount = force
 
@@ -270,8 +271,9 @@
 		W.forceMove(src)
 		src.concealed_blade = W
 		update_icon()
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/cane/concealed/update_icon()
 	if(concealed_blade)
@@ -294,6 +296,7 @@
 	desc = "A white cane, used by the visually impaired."
 	icon_state = "whitecane"
 	item_state = "whitecane"
+	can_support = FALSE
 
 /obj/item/cane/shillelagh
 	name = "adhomian shillelagh"
@@ -302,6 +305,48 @@
 	icon_state = "shillelagh"
 	item_state = "shillelagh"
 	contained_sprite = TRUE
+
+/obj/item/cane/telecane
+	name = "telescopic cane"
+	desc = "A compact cane which can be collapsed for storage."
+	icon = 'icons/obj/contained_items/weapons/telecane.dmi'
+	icon_state = "telecane"
+	contained_sprite = TRUE
+	w_class = ITEMSIZE_SMALL
+	slot_flags = SLOT_BELT
+	drop_sound = 'sound/items/drop/crowbar.ogg'
+	pickup_sound = 'sound/items/pickup/crowbar.ogg'
+	var/on = FALSE
+	can_support = FALSE
+
+/obj/item/cane/telecane/attack_self(mob/user)
+	on = !on
+	if(on)
+		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic cane."), SPAN_WARNING("You extend the cane."), SPAN_WARNING("You hear an ominous click."))
+		icon_state = "telecane_1"
+		item_state = "telestick"
+		w_class = ITEMSIZE_LARGE
+		slot_flags = null
+		force = 6
+		attack_verb = list("smacked", "struck", "slapped")
+		can_support = TRUE
+	else
+		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
+		icon_state = "telecane"
+		item_state = "telestick_0"
+		w_class = ITEMSIZE_SMALL
+		slot_flags = SLOT_BELT
+		force = 3
+		attack_verb = list("hit", "punched")
+		can_support = FALSE
+
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
+	add_fingerprint(user)
 
 /obj/item/disk
 	name = "disk"
@@ -349,7 +394,7 @@
 
 /obj/item/staff
 	name = "wizards staff"
-	desc = "Apparently a staff used by the wizard."
+	desc = "A staff which only has the power to make you look like a nerd."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "staff"
 	force = 3.0
@@ -390,6 +435,7 @@
 	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
 	flags = CONDUCT
+	usesound = 'sound/items/Deconstruct.ogg'
 	var/mtype = 1						// 1=electronic 2=hardware
 
 /obj/item/module/card_reader
@@ -409,6 +455,7 @@
 		to_chat(user, SPAN_NOTICE("You modify \the [src] into a makeshift PSU circuitboard."))
 		qdel(src)
 		user.put_in_hands(new_circuit)
+		return TRUE
 
 /obj/item/module/id_auth
 	name = "\improper ID authentication module"
@@ -480,6 +527,7 @@
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)
+		return TRUE
 
 /obj/item/storage/part_replacer
 	name = "rapid part exchange device"
@@ -487,8 +535,8 @@
 	icon_state = "RPED"
 	item_state = "RPED"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi'
+		slot_l_hand_str = 'icons/mob/items/device/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/device/righthand_device.dmi'
 		)
 	w_class = ITEMSIZE_HUGE
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)

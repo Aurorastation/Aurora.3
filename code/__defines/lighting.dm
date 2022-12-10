@@ -82,6 +82,7 @@
 #define LIGHT_COLOR_PURPLE     "#A97FAA" //Soft purple. rgb(169, 127, 170)
 #define LIGHT_COLOR_VIOLET     "#B43CB8" //Deep purple. rgb(180, 60, 184)
 #define LIGHT_COLOR_SCARLET    "#E85656" //Light red. rgb(232, 86, 86)
+#define LIGHT_COLOR_WHITE  	   "#FFFFFF" //White. rgb(255, 255, 255)
 
 //These ones aren't a direct colour like the ones above, because nothing would fit
 #define LIGHT_COLOR_FIRE              "#FAA019" //Warm orange color, leaning strongly towards yellow. rgb(250, 160, 25)
@@ -92,6 +93,13 @@
 #define LIGHT_COLOR_HALOGEN           "#C0C0CA" //Soft lighting for general-purpose light fixtures. rgb(192, 192, 202)
 #define LIGHT_COLOR_EMERGENCY         "#FF3232" //Red color used by emergency lighting. rgb(255, 50, 50)
 #define LIGHT_COLOR_EMERGENCY_SOFT    "#FA8282" //A softer emergency red, used for small bulbs. rgb(250, 130, 130)
+#define LIGHT_COLOUR_WHITE            "#FEFEFE" // Clinical white light bulbs
+#define LIGHT_COLOUR_WARM             "#FFFEE0" // Warm yellowish light bulbs
+
+#define LIGHT_STANDARD_COLORS list(LIGHT_COLOUR_WHITE, LIGHT_COLOUR_WARM, LIGHT_COLOR_HALOGEN) // List of standard light colors used for randomized lighting and selectable printed lights.
+
+#define LIGHT_MODE_RED      "red"
+#define LIGHT_MODE_DELTA    "delta"
 
 //Defines for lighting status, see power/lighting.dm
 #define LIGHT_OK     0
@@ -107,20 +115,15 @@
 #define LIGHT_WIDE 90
 #define LIGHT_NARROW 45
 
-// Night lighting controller times
-// The time (in hours based on worldtime2hours()) that various actions trigger
-#define MORNING_LIGHT_RESET 7       // 7am or 07:00 - lighting restores to normal in morning
-#define NIGHT_LIGHT_ACTIVE 18        // 6pm or 18:00 - night lighting mode activates
-
 // Some brightness/range defines for objects.
-#define L_WALLMOUNT_POWER 0.4
+#define L_WALLMOUNT_POWER 1.3
 #define L_WALLMOUNT_RANGE 2
 #define L_WALLMOUNT_HI_POWER 1	// For red/delta alert on fire alarms.
 #define L_WALLMOUNT_HI_RANGE 4
 // This controls by how much console sprites are dimmed before being overlayed.
-#define HOLOSCREEN_ADDITION_FACTOR 1
+#define HOLOSCREEN_ADDITION_FACTOR 0.5
 #define HOLOSCREEN_MULTIPLICATION_FACTOR 0.5
-#define HOLOSCREEN_ADDITION_OPACITY 0.8
+#define HOLOSCREEN_ADDITION_OPACITY 0.5
 #define HOLOSCREEN_MULTIPLICATION_OPACITY 1
 
 // Just so we can avoid unneeded proc calls when profiling is disabled.

@@ -12,7 +12,7 @@
 
 	dat = {"
 		<html>
-		<head></head>
+		<head><style>body {overflow: hidden;}</style></head>
 
 		<body>
 		<iframe width='100%' height='97%' src="[config.wikiurl][sub_page]&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
@@ -1158,7 +1158,7 @@
 				and then is screwed in for one and a quarter full rotations clockwise, leaving the faceplate directly in front of you. There is a small button on the right side of the helmet that activates the helmet light.
 				The tanks that fasten onto the side slot are emergency tanks, as well as full-sized oxygen tanks, leaving your back free for a backpack or satchel.<BR><BR>
 
-				These suits generally only fit one species. Nanotrasen's are usually human-fitting by default, but there's equipment that can make modifications to the voidsuits to fit them to other species.<BR><BR>
+				These suits generally only fit one species. NanoTrasen's are usually human-fitting by default, but there's equipment that can make modifications to the voidsuits to fit them to other species.<BR><BR>
 
 				<h2><a name="Equipment">Modification Equipment</a></h2>
 				<I>How to actually make voidsuits fit you.</I><BR>
@@ -1398,7 +1398,7 @@
 	name = "Guide to Custom Kinetic Accelerators"
 	icon_state = "rulebook"
 	item_state = "book1"
-	author = "Quartermaster Burgs"
+	author = "Quartermaster Longson"
 	title = "Guide to Custom Kinetic Accelerators"
 	dat = {"<html>
 				<head>
@@ -1413,7 +1413,7 @@
 				</head>
 				<body>
 					<h1>Metal Snowflake: Your Guide to Custom Kinetic Accelerators</h1>
-					<h2>by Quartermaster Burgs</h2>
+					<h2>by Quartermaster Longson</h2>
 					<br>
 					<p>So you want to make your own custom kinetic accelerator. While it may look simple to take apart, swap, and modify parts to fit your working needs, there are a few things to keep in mind before assembling.</p>
 
@@ -1472,32 +1472,21 @@
 					</style>
 				</head>
 				<body>
-				<h1><center>Manifesto of the Parizahra Zhahrazjujz'tajara Akzatauzjauna'azahrazakahuz Hadii</center></h1>
-
-				<b><center></b><br>\
+				<h1><center>The Hadiist Manifesto</center></h1>
 				<br>\
-				Written: Late 2432;<br> \
-				First Published: 2433<br> \
-				Translated by Comrade Aurauz'hurl Aizhunua</center><br>\
-				A Rrak'narr is haunting the Njarir'Akhran. The Rrak'narr of Hadiism. Where have not the Njarir'Akhran blasted Hadiism? Where not have the nobility ruthlessly uprooted its supporters \
-				like they were tearing up weeds from their gardens? Despite their dismissal, the fact that the Njarir'Akhran are so desperate to exterminate them brings the Tajara to two inevitable facts:<br>\
-				<br>\
-				1) Revolutionary ideology is already cemented amongst Tajara.<br>\
-				2) It is time for supporters of Hadiism to throw off their cloaks and set aside their daggers and pick up the rifle to meet the nobility in the open field.<br>\
-				<br>\
-				To that end, Comrade Al'mari Hadii has coalesced the many supporters and thinkers of the Revolution to bring to life this manifesto of the Tajara people, the Hadiist nation, and the Revolution.<br>\
-				This is a Revolution that will make the Old Order buckle before the strength of the Tajara people until it collapses into ruin. Remember, dear comrade, all of the contents of this manifesto are to justify one simple fact.<br>\
-				This one fact has been unsuccessfully suppressed by the Njarir'Akhran, only to live on in the burning spirit of every Tajara. The simple fact that no Tajara is born inherently better than another.<br>\
+				Ethnic, cultural, and religious differences have been used by the nobility to stop the Tajara people from uniting against the oppression. These barriers have finally been broken during the Revolution. \
+				As history shows them, the establishment of a united Adhomai under a Hadiist state is necessary to secure the future of the Tajara. They must abandon their past sectarianism and work as one. \
+				Hadiism will shape all aspects of their lives for the better. The Tajara will be powerful and free as long they are guided by the Party. Together the Tajara are undefeatable.<br>\
 				</body>
 			</html>
 			"}
 
 /obj/item/book/manual/dpra_manifesto
-	name = "in defense of al'marii's legacy"
+	name = "in defense of al'mari's legacy"
 	desc = "A political manifesto containing the foundations of the Al'mariist ideology."
 	icon_state = "dpra-manifesto"
 	item_state = "book2"
-	title = "In Defense of Al'marii's Legacy"
+	title = "In Defense of Al'mari's Legacy"
 	author = "Supreme Commander Nated"
 	w_class = ITEMSIZE_SMALL
 	dat = {"<html>
@@ -1512,11 +1501,11 @@
 					</style>
 				</head>
 				<body>
-				<h1><center>In Defense of Al'marii's Legacy</center></h1>
+				<h1><center>In Defense of Al'mari's Legacy</center></h1>
 				<br>\
-				People of Adhomai, they must rally in defense of the legacy of Al'marii. The Hadiist usurper plans to enslave the Tajara people to alien overlords, the Tajara must stand up against his tyranny. \
-				Take up arms in the defense of the freeodm and destiny of their people. The power belongs to the People, not in the hands of the Party. The Hadiists are nothing but puppets of the alien oppressor. \
-				The war to decide the fate of the Tajaran culture and homeworld has begun, join them in this struggle. Death to the Hadiist usurper. Long live the legacy of Al'marii!<br>\
+				People of Adhomai, they must rally in defense of the legacy of Al'mari. The Hadiist usurper plans to enslave the Tajara people to alien overlords, the Tajara must stand up against his tyranny. \
+				Take up arms in the defense of the freedom and destiny of their people. The power belongs to the People, not in the hands of the Party. The Hadiists are nothing but puppets of the alien oppressor. \
+				The war to decide the fate of the Tajaran culture and homeworld has begun; they must join them in this struggle. Death to the Hadiist usurper. Long live the legacy of Al'mari!<br>\
 				</body>
 			</html>
 			"}
@@ -1576,76 +1565,62 @@
 				<h2><a name="Contents">Contents</a></h2>
 				<ol>
 					<li><a href="#I">Conduct toward Equals</a></li>
-					<li><a href="#II">Conduct of Men</a></li>
-					<li><a href="#III">Conduct of Women</a></li>
-					<li><a href="#IV">Dueling Etiquette</a></li>
-					<li><a href="#V">Conduct of a Soldier</a></li>
-					<li><a href="#VI">On High and Low</a></li>
-					<li><a href="#VII">Behavior amongst Foreigners and Enemies</a></li>
-					<li><a href="#VIII">Behavior amongst Foreigners and Enemies</a></li>
-					<li><a href="#IX">On Duty to Country and Emperor</a></li>
-					<li><a href="#X">On Duty to Self</a></li>
+					<li><a href="#II">Dueling Etiquette</a></li>
+					<li><a href="#III">Conduct of a Soldier</a></li>					
+					<li><a href="#IV">On High and Low</a></li>
+					<li><a href="#V">Behavior amongst Foreigners and Enemies</a></li>
+					<li><a href="#VI">On Duty to Family and Goddess</a></li>
+					<li><a href="#VII">On Duty to Country and Emperor</a></li>
+					<li><a href="#VII">On Duty to Self</a></li>					
 				</ol>
 				<br>
 
 				<a name="I"><h2>Conduct toward Equals</h2><br></a>
 				An honorable person will conduct himself in a manner that recognizes rich or poor, young or old, all are morally equal. Birth and wealth do not convey honor and a good reputation,
-				your actions do. It is not what one thinks, but one does. Thus, a gentleman of good repute and standing should avoid conducting himself untowardly to his fellow man, that they may
-				avoid unnecessarily coming to blows. Politeness and civility are the hallmarks of a reputable person. Thus, unless a person is known to of low repute and lacking honor,
+				your actions do. It is not what one thinks, but one does. Thus, a gentle-being of good repute and standing should avoid conducting himself untowardly to their fellow, 
+				that they may avoid unnecessarily coming to blows. Politeness and civility are the hallmarks of a reputable person. Thus, unless a person is known to of low repute and lacking honor,
 				act civilly to all you meet.<BR><BR>
 
-				<a name="II"><h2>Conduct of Men</h2><br></a>
-				Men, of the sexes, must bear a responsibility of having a gentile and forgiving nature, while remaining upright and honorable. They, especially, are burdened with the
-				responsibility of defending their honor - as outlined in Codex 4 - to the extreme if ncessary, for an honor that cannot be defended is not held, and an honor that cannot
-				be lost is not an honor at all. They must be kind and generous to the weaker and poorer, upright and honest with their equals, and respectful and obedient to their
-				superiors in rank or station.<BR><BR>
+				<a name="II"><h2>Dueling Etiquette</h2><br></a>
+				There is no justice in the court of law for an offense of Slander, and to be Slandered is worse than death. To live a life of shame and ill repute is the lowest 
+				fate one can receive. It is thus that affairs of honor are brought to the contest of the duel – to satisfy both parties, defender, and accuser. In a duel, a second for 
+				both sides must be present, as well as a physician. In some cases, a legal notary may be present to ensure its validity. In the cases of duels between or people of 
+				differing ages and physical capabilities, to ensure the uprightness, fairness, and honor of the duel, guns may be used. These shall be inspected by both seconds upon 
+				being presented by the defendant in the duel. In a contest between two of equal physical ability, swords are preferable in use, as they do not necessarily inflict a 
+				mortal wound when one is not necessary to satisfy the Honor of the two parties<BR><BR>
 
-				<a name="III"><h2>Conduct of Women</h2><br></a>
-				Women, while being noted on equal footing as men in matters of honor, cannot avoid the realities of being physically weaker. They must be equally vigorous and stalwart
-				in their conduct, in being polite and upright to all they interact with. It is good - though not necessary - for women to manage a home and family's affairs. Chastity,
-				modesty, and attention to detail - these are all traits of a woman of good repute.<BR><BR>
+				<a name="III"><h2>Conduct of a Soldier</h2><br></a>
+				Soldiers, of all professions, have the greatest responsibilities in society to be fair and gentle in some cases, and be harsh and punishing in others. Looting, bawdiness, 
+				pillaging, a lack of appropriate mercy, cruelty in killing, all hallmarks of a dishonorable soldier. A soldier must be dedicated to their task, dedicated to becoming a master 
+				of their task, and willing to die to complete it. A soldier in defeat, if they have given their all, is a soldier who has learned. No soldier should be afraid of defeat – for 
+				no soldier can win every battle – they should be afraid to not learn from it.<BR><BR>
 
-				<a name="IV"><h2>Dueling Etiquette</h2><br></a>
-				There is no justice in the court of law for an offense of Slander, and to be Slandered is worse than death. To live a life of shame and ill repute is the lowest fate
-				one can receive. It is thus that affairs of honor are brought to the contest of the duel - to satisfy both parties, defender and accuser. In a duel, a second for both
-				sides must be present, as well as a physician. In some cases, a legal notary may be present to ensure its validity. In the cases of duels between men and women, or
-				people of differing ages and physical capabilities, to ensure the uprightness, fairness and honor of the duel, guns may be used. These shall be inspected by both
-				seconds upon being presented by the defendant in the duel. In a contest between two of equal physical ability, swords are preferable in use, as they do not necessarily
-				inflict a mortal wound when one is not necessary to satisfy the Honor of the two parties.<BR><BR>
+				<a name="IV"><h2>On High and Low</h2><br></a>
+				The Goddess, in Her wisdom, sees fit to place some souls high and some souls low. This does not make them any less equal in matters of honor. A powerful individual, if they 
+				have been seen fit to be head over another, must not, in any case, abuse their authority or position. An individual, if they have been seen fit to be placed under another's 
+				authority, must be dedicated and true in their work. There is no greater stain to a person of honor than to be a cruel task-master or an abuser of the weak and powerless. 
+				They have a responsibility to ensure those under him work efficiently, and they have a responsibility to not cheat their master.<BR><BR>
 
-				<a name="V"><h2>Conduct of a Soldier</h2><br></a>
-				Soldiers, of all professions, have the greatest responsibilities in society to be fair and gentle in some cases, and be harsh and punishing in others. Looting,
-				bawdiness, pillaging, a lack of appropriate mercy, cruelty in killing, all hallmarks of a dishonorable soldier. A soldier must be dedicated to his task, dedicated in
-				becoming a master of his task, and willing to die to complete it. A soldier in defeat, if he has given his all, is a soldier who has learned. No soldier should be
-				afraid of defeat - for no soldier can win every battle - he should be afraid to not learn from it.<BR><BR>
+				<a name="V"><h2>Behavior amongst Foreigners and Enemies</h2><br></a>
+				When among foreigners, an honorable and respectful soul must be honorable and respectful of their customs as much as he can, unless they are themselves against the code of Honor
+				and the Edicts. Do not expect them to know or recognize our higher Code of Conduct. They, someday, will be brought under its reach – but until then, be as polite and respectful 
+				to them as they deserve. When amongst your enemies, be polite. If they are enemies in war, they are doing their duty as you are. Respect and honor your enemy unless they prove 
+				themselves unworthy of it. In all cases, show that you are a better individual than they are.<BR><BR>
 
-				<a name="VI"><h2>On High and Low</h2><br></a>
-				God, in His wisdom, sees fit to place some men high and some men low. This is does not make them any less equal in matters of honor. A powerful man, if he has been seen
-				fit to be head over another, must not in any case abuse his authority or position. A man, if he has been seen fit to be placed under another's authority, must be
-				dedicated and true in his work. There in no greater stain to a man of honor then to be a cruel task-master or an abuser of the weak and powerless. He has a
-				responsibility to ensure those under him work efficiently, and they have a responsibility to not cheat their master.<BR><BR>
+				<a name="VI"><h2>On Duty to Family and Goddess</h2><br></a>
+				A genteel and honorable person, in all cases, is loyal first to Goddess first, their family second, king third, country fourth, and themselves last. Your family is your closest 
+				friends, allies, and compatriots: you must rely upon them, and they must rely upon you. If a person has no family, they have nothing. Be upright and honest with your family, 
+				loyal, and keep your promises in all things – such as your dealings are with other men. Be loyal to the Goddess first and foremost – for if a soul is without the Goddess, 
+				it is not living. It is Goddess that gives us this opportunity to be honorable and just people.<BR><BR>
 
-				<a name="VII"><h2>Behavior amongst Foreigners and Enemies</h2><br></a>
-				When among foreigners, an honorable and respectful man must be honorable and respectful of their customs as much as he can, unless they be themselves against the code of
-				Honor and the Edicts. Do not expect them to know or recognize our higher Code of Conduct. They, someday, will be brought under its reach - but until then, be as polite
-				and respectful to them as they deserve. When amongst your enemies, be polite. If they are enemies in war, they are doing their duty as you are. Respect and honor your
-				enemy unless he prove himself unworthy of it. In all cases, show that you are a better man then they are.<BR><BR>
+				<a name="VII"><h2>On Duty to Country and Emperor</h2><br></a>
+				Dutiful should describe any honorable person. A person everyone knows will keep their word, honor their word, and faithfully fulfill their word. And no more important word is 
+				given than an oath to King, and to Country. While some argue the Emperor is the Country, this codex is not one of philosophy. Obey the Emperor faithfully, serve him faithfully, 
+				and your country will prosper for it. Respectfully question the Emperor at the appropriate time if necessary and obey him in all right and honorable things.<BR><BR>
 
-				<a name="VIII"><h2>On Duty to Family and God</h2><br></a>
-				A genteel and honorable person, in all cases, is loyal first to God first, his family second, king third, country fourth, and himself last. Your family are your closest
-				friends, allies, and compatriots: you must rely upon them, and they must rely upon you. If a person has no family, he has nothing. Be upright and honest with your
-				family, loyal, and keep your promises in all things - such as your dealings are with other men. Be loyal to God first and foremost - for if a man is without God, he is
-				not living. It is God that gives us this opportunity to be honorable and just people.<BR><BR>
-
-				<a name="IX"><h2>On Duty to Country and Emperor</h2><br></a>
-				Dutiful should describe any honorable person. A person everyone know will keep their word, honor their word, and faithfully fulfill their word. And no more important
-				word is given then an oath to King, and to Country. While some argue the Emperor is the Country, this codex is not one of philosophy. Obey the Emperor faithfully, serve
-				him faithfully, and your country will prosper for it. Respectfully question the Emperor at the appropriate time if necessary and obey him in all right and honorable
-				things.<BR><BR>
-
-				<a name="X"><h2>On Duty to Self</h2><br></a>
-				Your body, your mind, your honor - these three are the trinity of life. An honorable person keeps themselves in as good shape as they can and abstains from things such
-				as overuse of hard liquors and substances which cloud the mind and hamper the body. Without a sound body and mind, nobody can maintain their honor and reputation.<BR><BR>
+				<a name="VIII"><h2>On Duty to Self</h2><br></a>
+				Your body, your mind, your honor – these three are the trinity of life. An honorable person keeps themselves in as good shape as they can and abstains from things such as overuse 
+				of hard liquors and substances which cloud the mind and hamper the body. Without a sound body and mind, nobody can maintain their honor and reputation.<BR><BR>
 
 				</body>
 			</html>
@@ -1672,10 +1647,12 @@
 				</head>
 				<body>
 				<br>\
-				The Tau Ceti Foreign Legion is a military force employed by the Republic of Biesel consisting of mostly volunteers of all recognized sentient citizens. It primarily
-				comprises of immigrants and external parties seeking citizenship or stakes in Tau Ceti, which the Republic offers in exchange for participation. It can often be seen
-				working with NanoTrasen assets wherever possible, extending operations slightly further than most NanoTrasen ERT officially reach. As such, the Foreign Legion can be
-				seen regularly patrolling areas nearby the N.S.S. Aurora and the Romanovich Cloud.
+				The Tau Ceti Foreign Legion is the primary armed force of the Republic of Biesel and is comprised of volunteer immigrants. External parties seeking citizenship \
+				often enlist, since the Republic offers citizenship in turn for service. Since 2464 the Legion was promoted to the official armed forces of the Republic, which \
+				resulted in a great boost in popularity, funding and manpower. This happened after President Dorn enacted the People's Protection Act megacorporations are also \
+				able to fund the legion, something the Stellar Corporate Conglomerate immediately did. The Legion's largest deployment currently is throughout the Corporate \
+				Reconstruction Zone, ensuring the SCC's growing influence over the region. To help with this task the Legion also seeks the assistance of the Private Military \
+				Contracting Group.
 				</body>
 			</html>
 			"}

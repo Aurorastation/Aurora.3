@@ -10,6 +10,7 @@ main ui datum.
 	var/mob/user
 	// object that contains this ui
 	var/datum/object
+	var/datum/state_object // if this is specified, checking for state will use this instead of just object
 	// browser window width
 	var/width = 100
 	// browser window height
@@ -46,11 +47,12 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/ntitle, var/list/ndata, var/datum/topic_state/state = default_state)
+/datum/vueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/ntitle, var/list/ndata, var/datum/topic_state/state = default_state, var/datum/set_state_object)
 	user = nuser
 	object = nobject
 	data = ndata
 	src.state = state
+	state_object = set_state_object
 	LAZYINITLIST(assets)
 
 	if (nactiveui)
@@ -88,7 +90,13 @@ main ui datum.
 
 	var/params = "window=[windowid];file=[windowid];titlebar=0;can_resize=0;"
 	if(width && height)
-		params += "size=[width]x[height];"
+		var/winsize = winget(user, "mapwindow", "size")
+		var/map_size = splittext(winsize, "x")
+		var/screen_height = text2num(map_size[2])
+		if(height > screen_height)
+			params += "size=[width]x[max(screen_height - 100, 240)];"
+		else
+			params += "size=[width]x[height];"
 	send_resources_and_assets(user.client, load_asset)
 	user << browse(generate_html(load_asset?.css_tag()), params)
 	winset(user, "mapwindow.map", "focus=true")
@@ -107,6 +115,8 @@ main ui datum.
 	SSvueui.ui_closed(src) // this stops processing and cleans up references to this UI
 	user << browse(null, "window=[windowid]")
 	status = null
+	if(istype(user))
+		user.unset_machine()
 
 /**
   * Resizes UI
@@ -361,7 +371,8 @@ main ui datum.
   * @return 1 if push should happen, 0 if shouldn't happen.
   */
 /datum/vueui/proc/update_status(var/autopush = TRUE, var/checkforchange = FALSE)
-	. = set_status(object.CanUseTopic(user, state), autopush, checkforchange)
+	var/datum/check_object = state_object ? state_object : object
+	return set_status(check_object.CanUseTopic(user, state), autopush, checkforchange)
 
 /**
   * Process this ui

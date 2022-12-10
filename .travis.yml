@@ -8,7 +8,7 @@ env:
     BYOND_MINOR="1517"
     MACRO_COUNT=0
     GENDER_COUNT=6
-    TO_WORLD_COUNT=206
+    TO_WORLD_COUNT=209
     FLYWAY_BUILD="5.2.4"
     NODE_VERSION=10
     RUST_G_VERSION="0.4.2+a2"
@@ -17,7 +17,6 @@ env:
   matrix:
     - USE_MAP=aurora
     - USE_MAP=runtime
-    - USE_MAP=exodus
 
 cache:
   directories:

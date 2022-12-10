@@ -1,8 +1,5 @@
-/mob/living/carbon/slime/say(var/message)
-
-	message = sanitize(message)
-
-	var/verb = say_quote(message)
+/mob/living/carbon/slime/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+	verb = say_quote(message)
 
 	if(copytext(message,1,2) == "*")
 		return emote(copytext(message,2))

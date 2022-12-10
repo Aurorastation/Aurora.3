@@ -23,7 +23,7 @@
 
 /obj/item/device/taperecorder/Initialize()
 	. = ..()
-	listening_objects += src
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
 	portable_drive = new /obj/item/computer_hardware/hard_drive/portable(src)
 
 /obj/item/device/taperecorder/Destroy()
@@ -161,9 +161,6 @@
 
 	if(use_check_and_message(usr))
 		return
-	if(emagged)
-		to_chat(usr, SPAN_WARNING("The tape recorder makes a scratchy noise."))
-		return
 	if(recording)
 		to_chat(usr, SPAN_WARNING("You can't playback when recording!"))
 		return
@@ -197,15 +194,15 @@
 	playing = FALSE
 	if(emagged)
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: This tape recorder will self-destruct in... Five.</font>", hearing_distance = 3)
-		sleep(10)
+		sleep(15)
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: Four.</font>", hearing_distance = 3)
-		sleep(10)
+		sleep(15)
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: Three.</font>", hearing_distance = 3)
-		sleep(10)
+		sleep(15)
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: Two.</font>", hearing_distance = 3)
-		sleep(10)
+		sleep(15)
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: One.</font>", hearing_distance = 3)
-		sleep(10)
+		sleep(15)
 		explode()
 
 /obj/item/device/taperecorder/verb/print_transcript()
@@ -301,6 +298,9 @@
 			stored_info += "\[[time2text(time_recorded*10,"mm:ss")]\] Recording stopped."
 			to_chat(usr, SPAN_NOTICE("Recording stopped."))
 			icon_state = "taperecorderidle"
+			return
+		else if(emagged)
+			to_chat(usr, SPAN_WARNING("The tape recorder's buttons doesn't react!"))
 			return
 		else if(playing)
 			playing = FALSE

@@ -2,7 +2,7 @@
 
 
 /* --- Traffic Control Scripting Language --- */
-	// Nanotrasen TCS Language - Made by Doohl
+	// NanoTrasen TCS Language - Made by Doohl
 
 /n_Interpreter/TCS_Interpreter
 	var/datum/TCS_Compiler/Compiler
@@ -40,7 +40,7 @@
 
 	/* -- Execute the compiled code -- */
 
-	proc/Run(var/datum/signal/signal)
+	proc/Run(var/datum/signal/subspace/vocal/signal)
 
 		if(!ready)
 			return
@@ -63,7 +63,8 @@
 
 		//Language macros
 		interpreter.SetVar("L_BASIC",	LANGUAGE_TCB)
-		interpreter.SetVar("L_SOL",	    LANGUAGE_SOL_COMMON)
+		interpreter.SetVar("L_SOL",		LANGUAGE_SOL_COMMON)
+		interpreter.SetVar("L_ELYRAN",	LANGUAGE_ELYRAN_STANDARD)
 		interpreter.SetVar("L_TRADE",	LANGUAGE_TRADEBAND)
 		interpreter.SetVar("L_GUTTER",	LANGUAGE_GUTTER)
 		interpreter.SetVar("L_MAAS",	LANGUAGE_SIIK_MAAS)
@@ -106,7 +107,7 @@
 					@param job:			The name of the job.
 					@param language:	The language used for the broadcast
 		*/
-		interpreter.SetProc("broadcast", "tcombroadcast", signal, list("message", "freq", "source", "job", "language"))
+		interpreter.SetProc("broadcast", "broadcast", signal, list("message", "freq", "source", "job", "language"))
 
 		/*
 			-> Store a value permanently to the server machine (not the actual game hosting machine, the ingame machine)
@@ -234,63 +235,3 @@ datum/signal
 
 			else
 				S.memory[address] = value
-
-
-	proc/tcombroadcast(var/message, var/freq, var/source, var/job, var/verb, var/language)
-
-		var/datum/signal/newsign = new
-		var/obj/machinery/telecomms/server/S = data["server"]
-		var/obj/item/device/radio/hradio = S.server_radio
-
-		if(!hradio)
-			error("[src] has no radio.")
-			return
-
-		if((!message || message == "") && message != 0)
-			message = "*beep*"
-		if(!source)
-			source = "[html_encode(uppertext(S.id))]"
-			hradio = new // sets the hradio as a radio intercom
-		if(!freq)
-			freq = PUB_FREQ
-		if(findtext(num2text(freq), ".")) // if the frequency has been set as a decimal
-			freq *= 10 // shift the decimal one place
-
-		if(!job)
-			job = "?"
-
-		if(!language || language == "")
-			language = LANGUAGE_TCB
-
-		var/datum/language/L = all_languages[language]
-		if(!L || !(L.flags & TCOMSSIM))
-			L = all_languages[LANGUAGE_TCB]
-
-		newsign.data["mob"] = null
-		newsign.data["mobtype"] = /mob/living/carbon/human
-		newsign.data["name"] = source
-		newsign.data["realname"] = newsign.data["name"]
-		newsign.data["job"] = job
-		newsign.data["compression"] = 0
-		newsign.data["message"] = message
-		newsign.data["language"] = L
-		newsign.data["type"] = 2 // artificial broadcast
-		if(!isnum(freq))
-			freq = text2num(freq)
-		newsign.frequency = freq
-
-		var/datum/radio_frequency/connection = SSradio.return_frequency(freq)
-		newsign.data["connection"] = connection
-
-
-		newsign.data["radio"] = hradio
-		newsign.data["vmessage"] = message
-		newsign.data["vname"] = source
-		newsign.data["vmask"] = 0
-		newsign.data["level"] = list()
-		newsign.data["verb"] = verb
-
-		var/pass = S.relay_information(newsign, "/obj/machinery/telecomms/hub")
-		if(!pass)
-			S.relay_information(newsign, "/obj/machinery/telecomms/broadcaster") // send this simple message to broadcasters
-

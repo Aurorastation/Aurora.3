@@ -23,6 +23,8 @@
 		/obj/item/ammo_magazine/a454 = 2,
 		/obj/item/shield/energy/legion = 1
 	)
+
+	id_iff = IFF_TCFL
 	var/id_access = "NanoTrasen Representative"
 
 /datum/outfit/admin/tcfl/get_id_access()

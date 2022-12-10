@@ -106,7 +106,7 @@
 	parent_organ = BP_GROIN
 
 /obj/item/organ/internal/augment/calf_override/proc/do_run_act()
-	owner.apply_damage(1, BRUTE, BP_GROIN)
+	owner.apply_damage(1, BRUTE, BP_GROIN, armor_pen = 100)
 
 /obj/item/organ/internal/augment/protein_valve
 	name = "protein breakdown valve"
@@ -180,7 +180,7 @@
 
 	owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as they focus ahead.")
 	take_damage(1)
-	zoom(owner,7,3, FALSE)
+	zoom(owner,7,7, FALSE)
 
 /obj/item/organ/internal/augment/eye_flashlight
 	name = "eye flashlight"
@@ -320,6 +320,7 @@
 
 /obj/item/pickaxe/drill/integrated
 	name = "integrated mining drill"
+	desc = "A integrated mining drill that is installed on the hand of the user, it can retract at the user's command."
 	icon_state = "integrateddrill"
 	item_state = "integrateddrill"
 

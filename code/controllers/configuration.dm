@@ -43,7 +43,6 @@ var/list/gamemode_cache = list()
 	var/traitor_scaling = 0 			//if amount of traitors scales based on amount of players
 	var/objectives_disabled = 0 			//if objectives are disabled or not
 	var/protect_roles_from_antagonist = 0// If security and such can be traitor/cult/other
-	var/continous_rounds = 0			// Gamemodes which end instantly will instead keep on going until the round ends by escape shuttle or nuke.
 	var/allow_Metadata = 0				// Metadata is supported.
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
 	var/Ticklag = 0.4
@@ -111,7 +110,7 @@ var/list/gamemode_cache = list()
 	var/alert_desc_blue_downto = "The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed."
 	var/alert_desc_yellow_to = "The station is now under an elevated alert status due to a confirmed biological hazard. All crew are to follow command instruction in order to ensure a safe return to standard operations."
 	var/alert_desc_red_upto = "There is an immediate serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised."
-	var/alert_desc_red_downto = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised."
+	var/alert_desc_red_downto = "The self-destruct mechanism has been deactivated, there is still, however, an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised."
 	var/alert_desc_delta = "The station's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill."
 
 	var/forbid_singulo_possession = 0
@@ -162,6 +161,7 @@ var/list/gamemode_cache = list()
 	var/animal_delay = 0
 
 
+	var/auto_local_admin = FALSE
 	var/admin_legacy_system = 0	//Defines whether the server uses the legacy admin system with admins.txt or the SQL system. Config option in config.txt
 	var/ban_legacy_system = 0	//Defines whether the server uses the legacy banning system with the files in /data or the SQL system. Config option in config.txt
 	var/use_age_restriction_for_jobs = 0 //Do jobs use account age restrictions? --requires database
@@ -180,9 +180,7 @@ var/list/gamemode_cache = list()
 	var/gateway_delay = 18000 //How long the gateway takes before it activates. Default is half an hour.
 	var/ghost_interaction = 0
 
-	var/night_lighting = 0
-	var/nl_start = 19
-	var/nl_finish = 8
+	var/time_offset = 6 //GMT to CST
 
 	var/enter_allowed = 1
 
@@ -238,6 +236,7 @@ var/list/gamemode_cache = list()
 
 	var/ghosts_can_possess_animals = 0
 	var/delist_when_no_admins = 0
+	var/observe_restriction = 1 // 0 - no restrictions; 1 - only following is permited on restricted levels; 2 - nothing is permitted on restricted levels
 
 	//Snowflake antag contest boolean
 	//AUG2016
@@ -294,6 +293,7 @@ var/list/gamemode_cache = list()
 	// Configurable hostname / port for the NTSL Daemon.
 	var/ntsl_hostname = "localhost"
 	var/ntsl_port = "1945"
+	var/ntsl_disabled = TRUE
 
 	// Is external Auth enabled
 	var/external_auth = FALSE
@@ -321,6 +321,8 @@ var/list/gamemode_cache = list()
 	var/list/external_rsc_urls = list()
 
 	var/lore_summary
+
+	var/current_space_sector
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -367,6 +369,9 @@ var/list/gamemode_cache = list()
 
 		if(type == "config")
 			switch (name)
+				if ("auto_local_admin")
+					config.auto_local_admin = TRUE
+
 				if ("admin_legacy_system")
 					config.admin_legacy_system = 1
 
@@ -538,6 +543,9 @@ var/list/gamemode_cache = list()
 				if ("ghosts_can_possess_animals")
 					config.ghosts_can_possess_animals = value
 
+				if ("observe_restriction")
+					config.observe_restriction = text2num(value)
+
 				if ("guest_jobban")
 					config.guest_jobban = 1
 
@@ -702,20 +710,11 @@ var/list/gamemode_cache = list()
 				if("gateway_delay")
 					config.gateway_delay = text2num(value)
 
-				if("continuous_rounds")
-					config.continous_rounds = 1
-
 				if("ghost_interaction")
 					config.ghost_interaction = 1
 
-				if("night_lighting")
-					config.night_lighting = 1
-
-				if("nl_start_hour")
-					config.nl_start = text2num(value)
-
-				if("nl_finish_hour")
-					config.nl_finish = text2num(value)
+				if("time_offset")
+					config.time_offset = text2num(value)
 
 				if("disable_player_rats")
 					config.disable_player_rats = 1
@@ -899,6 +898,9 @@ var/list/gamemode_cache = list()
 				if("time_to_call_emergency_shuttle")
 					config.time_to_call_emergency_shuttle = text2num(value)
 
+				if("current_space_sector")
+					config.current_space_sector = value
+
 				if("force_map")
 					override_map = value
 
@@ -933,6 +935,8 @@ var/list/gamemode_cache = list()
 					ntsl_hostname = value
 				if ("ntsl_port")
 					ntsl_port = value
+				if ("ntsl_disabled")
+					ntsl_disabled = text2num(value)
 
 				if ("external_auth")
 					external_auth = TRUE

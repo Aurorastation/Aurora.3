@@ -8,13 +8,7 @@
 	for the mega corporations, is often necessary to forward the facade of economic freedom
 	that Tau Ceti reports to have.
 	</p>"}
+	departments = {"Civilian"}
+	allowed_role_types = INDEP_ROLES
 
-	allowed_role_types = list(
-		/datum/job/visitor,
-		/datum/job/journalist,
-		/datum/job/merchant,
-		/datum/job/consular
-	)
-
-/datum/faction/unaffiliated/get_logo_name()
-	return "faction_unaffiliated.png"
+	title_suffix = "INDEP"

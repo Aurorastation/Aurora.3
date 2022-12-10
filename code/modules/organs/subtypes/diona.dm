@@ -38,7 +38,7 @@
 	min_broken_damage = 50
 	w_class = ITEMSIZE_HUGE
 	body_part = UPPER_TORSO
-	vital = 1
+	vital = TRUE
 	parent_organ = null
 	limb_flags = 0
 	dislocated = -1

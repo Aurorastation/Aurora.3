@@ -1,5 +1,5 @@
 /obj/machinery/r_n_d/server
-	name = "R&D server"
+	name = "\improper R&D server"
 	desc = "A server which houses a back-up of all station research. It can be used to restore lost data, or to act as another point of retrieval."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "server"
@@ -10,10 +10,12 @@
 	var/id_with_upload_string = ""		//String versions for easy editing in map editor.
 	var/id_with_download_string = ""
 	var/server_id = 0
-	var/produces_heat = 1
+	var/produces_heat = TRUE
 	idle_power_usage = 800
 	var/delay = 10
 	req_access = list(access_rd) //Only the R&D can change server settings.
+
+	var/list/linked_processors
 
 	component_types = list(
 		/obj/item/circuitboard/rdserver,
@@ -22,6 +24,8 @@
 	)
 
 /obj/machinery/r_n_d/server/Destroy()
+	for(var/obj/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
+		TP.set_server(null)
 	griefProtection()
 	return ..()
 
@@ -30,7 +34,7 @@
 
 	for(var/obj/item/stock_parts/SP in component_parts)
 		tot_rating += SP.rating
-	idle_power_usage /= max(1, tot_rating)
+	change_power_consumption(idle_power_usage / max(1, tot_rating), POWER_USE_IDLE)
 
 /obj/machinery/r_n_d/server/Initialize()
 	. = ..()
@@ -51,7 +55,10 @@
 		for(var/N in temp_list)
 			id_with_download += text2num(N)
 
-/obj/machinery/r_n_d/server/machinery_process()
+/obj/machinery/r_n_d/server/process()
+	if(stat & (NOPOWER|BROKEN))
+		return
+
 	var/datum/gas_mixture/environment = loc.return_air()
 	switch(environment.temperature)
 		if(0 to T0C)
@@ -73,6 +80,19 @@
 	else
 		produce_heat()
 		delay = initial(delay)
+	upgrade_techs()
+
+/obj/machinery/r_n_d/server/proc/upgrade_techs()
+	for(var/obj/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
+		if(TP.stat & (NOPOWER|BROKEN))
+			continue
+		TP.processing_stage++
+		if(TP.processing_stage == 5)
+			for(var/tech_id in files.known_tech)
+				var/datum/tech/T = files.known_tech[tech_id]
+				if(T.level)
+					files.UpdateTech(T.id, round(TP.tech_rate))
+			TP.processing_stage = 0
 
 /obj/machinery/r_n_d/server/emp_act(severity)
 	griefProtection()
@@ -84,7 +104,7 @@
 
 //Backup files to centcomm to help admins recover data after greifer attacks
 /obj/machinery/r_n_d/server/proc/griefProtection()
-	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.all_machines)
+	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.machinery)
 		for(var/id in files.known_tech)
 			var/datum/tech/T = files.known_tech[id]
 			C.files.AddTech2Known(T)
@@ -113,7 +133,15 @@
 
 			env.merge(removed)
 
-/obj/machinery/r_n_d/server/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/r_n_d/server/attackby(obj/item/O, mob/user)
+	if(O.ismultitool())
+		var/obj/item/device/multitool/MT = O
+		var/obj/machinery/r_n_d/tech_processor/TP = MT.get_buffer(/obj/machinery/r_n_d/tech_processor)
+		if(TP)
+			TP.set_server(src)
+			MT.unregister_buffer(TP)
+		to_chat(user, SPAN_NOTICE("You link \the [TP] to \the [src]."))
+		return
 	if(default_deconstruction_screwdriver(user, O))
 		return
 	if(default_deconstruction_crowbar(user, O))
@@ -129,7 +157,7 @@
 	..()
 	var/list/no_id_servers = list()
 	var/list/server_ids = list()
-	for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
+	for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
 		switch(S.server_id)
 			if(-1)
 				continue
@@ -148,7 +176,7 @@
 				server_ids += num
 		no_id_servers -= S
 
-/obj/machinery/r_n_d/server/centcom/machinery_process()
+/obj/machinery/r_n_d/server/centcom/process()
 	return PROCESS_KILL //don't need process()
 
 /obj/machinery/r_n_d/server/advanced //an advanced server that starts with higher tech levels
@@ -173,7 +201,9 @@
 	desc = "A console use to operate a RnD server, such as locking it, wiping it, or downloading its stored research."
 
 	icon_screen = "rdcomp"
-	light_color = "#a97faa"
+	icon_keyboard = "purple_key"
+	light_color = LIGHT_COLOR_PURPLE
+
 	circuit = /obj/item/circuitboard/rdservercontrol
 	var/screen = 0
 	var/obj/machinery/r_n_d/server/temp_server
@@ -198,20 +228,20 @@
 		temp_server = null
 		consoles = list()
 		servers = list()
-		for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
+		for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
 			if(S.server_id == text2num(href_list["access"]) || S.server_id == text2num(href_list["data"]) || S.server_id == text2num(href_list["transfer"]))
 				temp_server = S
 				break
 		if(href_list["access"])
 			screen = 1
-			for(var/obj/machinery/computer/rdconsole/C in SSmachinery.all_machines)
+			for(var/obj/machinery/computer/rdconsole/C in SSmachinery.machinery)
 				if(C.sync)
 					consoles += C
 		else if(href_list["data"])
 			screen = 2
 		else if(href_list["transfer"])
 			screen = 3
-			for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
+			for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
 				if(S == src)
 					continue
 				servers += S
@@ -258,7 +288,7 @@
 		if(0) //Main Menu
 			dat += "Connected Servers:<BR><BR>"
 
-			for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
+			for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
 				if(istype(S, /obj/machinery/r_n_d/server/centcom) && !badmin)
 					continue
 				dat += "[S.name] || "

@@ -24,6 +24,7 @@
 	if(!obfuscation)
 		obfuscation = image(icon, T, icon_state)
 		obfuscation.layer = OBFUSCATION_LAYER
+		obfuscation.plane = PLANE_DEFAULT
 		if(!obfuscation_underlay)
 			// Creating a new icon of a fairly common icon state, adding some random color to prevent address searching, and hoping being static kills memory locality
 			var/turf/floor = /turf/simulated/floor/tiled
@@ -186,7 +187,7 @@
 	. = list()
 	var/turf/pos = get_turf(source)
 	if(pos)
-		for(var/turf/T in hear(range, pos))
+		for(var/turf/T in get_hear(range, pos))
 			. += T
 
 #undef UPDATE_BUFFER

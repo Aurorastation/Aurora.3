@@ -7,7 +7,7 @@
 	icon_state = "large"
 	randpixel = 8
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	recyclable = TRUE
 	w_class = ITEMSIZE_SMALL
 	force_divisor = 0.2 // 6 with hardness 30 (glass)
@@ -16,7 +16,7 @@
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
 	default_material = "glass"
 	unbreakable = 1 //It's already broken.
-	drops_debris = 0
+	drops_debris = FALSE
 	drop_sound = 'sound/effects/glass_step.ogg'
 
 /obj/item/material/shard/set_material(var/new_material)
@@ -51,7 +51,7 @@
 /obj/item/material/shard/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswelder() && material.shard_can_repair)
 		var/obj/item/weldingtool/WT = W
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			material.place_sheet(user.loc)
 			qdel(src)
 			return
@@ -62,7 +62,7 @@
 	if(isliving(AM))
 		var/mob/M = AM
 
-		if(M.buckled) //wheelchairs, office chairs, rollerbeds
+		if(M.buckled_to) //wheelchairs, office chairs, rollerbeds
 			return
 
 		to_chat(M, SPAN_DANGER("You step on \the [src]!"))
@@ -93,14 +93,14 @@
 			return
 
 // Preset types - left here for the code that uses them
-/obj/item/material/shard/shrapnel/New(loc)
-	..(loc, MATERIAL_STEEL)
+/obj/item/material/shard/shrapnel/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_STEEL)
 
-/obj/item/material/shard/shrapnel/flechette/New(loc)
-	..(loc, MATERIAL_TITANIUM)
+/obj/item/material/shard/shrapnel/flechette/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_TITANIUM)
 
-/obj/item/material/shard/phoron/New(loc)
-	..(loc, MATERIAL_GLASS_PHORON)
+/obj/item/material/shard/phoron/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_GLASS_PHORON)
 
-/obj/item/material/shard/wood/New(loc)
-	..(loc, MATERIAL_WOOD)
+/obj/item/material/shard/wood/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_WOOD)

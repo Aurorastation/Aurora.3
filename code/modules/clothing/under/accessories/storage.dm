@@ -2,7 +2,7 @@
 	name = "load bearing equipment"
 	desc = "Used to hold things when you don't have enough hands."
 	icon_state = "webbing"
-	slot = "utility"
+	slot = ACCESSORY_SLOT_UTILITY
 	var/slots = 3
 	var/obj/item/storage/internal/hold
 	w_class = ITEMSIZE_NORMAL
@@ -70,6 +70,30 @@
 	icon_state = "vest_white"
 	slots = 5
 
+/obj/item/clothing/accessory/storage/webbingharness
+	name = "webbing harness"
+	desc = "Durable mess of synthcotton belts and buckles. Has some pouches, but not a lot."
+	icon_state = "vest_harness"
+
+/obj/item/clothing/accessory/storage/webbingharness/alt
+	icon_state = "vest_harness_alt"
+
+/obj/item/clothing/accessory/storage/webbingharness/pouches
+	icon_state = "vest_harness_pouches"
+
+/obj/item/clothing/accessory/storage/webbingharness/pouches/ert
+	desc = "Durable mess of synthcotton belts and buckles. To better satiate the need for storage and stability."
+	slots = 5
+
+/obj/item/clothing/accessory/storage/webbingharness/grayscale
+	icon_state = "vest_harness_g"
+
+/obj/item/clothing/accessory/storage/webbingharness/alt/grayscale
+	icon_state = "vest_harness_alt_g"
+
+/obj/item/clothing/accessory/storage/webbingharness/pouches/grayscale
+	icon_state = "vest_harness_pouches_g"
+
 /obj/item/clothing/accessory/storage/overalls
 	name = "overalls"
 	desc = "Heavy-duty overalls for use on the work site, with plenty of convenient pockets to boot."
@@ -126,7 +150,7 @@
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
 	update_clothing_icon()
 	src.inv_overlay = null
-	src.mob_overlay = null
+	src.accessory_mob_overlay = null
 
 /obj/item/clothing/accessory/storage/pouches/black
 	name = "black drop pouches"

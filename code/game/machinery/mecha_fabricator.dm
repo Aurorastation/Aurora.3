@@ -1,11 +1,10 @@
 /obj/machinery/mecha_part_fabricator
+	name = "mechatronic fabricator"
+	desc = "A general purpose fabricator that can be used to fabricate robotic equipment."
 	icon = 'icons/obj/robotics.dmi'
 	icon_state = "fab-idle"
-	name = "Mechatronic Fabricator"
-	desc = "A general purpose fabricator that can be used to fabricate robotic equipment."
-	density = 1
-	anchored = 1
-	use_power = 1
+	density = TRUE
+	anchored = TRUE
 	idle_power_usage = 20
 	active_power_usage = 5000
 	req_access = list(access_robotics)
@@ -40,16 +39,16 @@
 	manufacturer = basic_robolimb.company
 	update_categories()
 
-/obj/machinery/mecha_part_fabricator/machinery_process()
+/obj/machinery/mecha_part_fabricator/process()
 	..()
 	if(stat)
 		return
 	if(busy)
-		use_power = 2
+		update_use_power(POWER_USE_ACTIVE)
 		progress += speed
 		check_build()
 	else
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 	update_icon()
 
 /obj/machinery/mecha_part_fabricator/update_icon()
@@ -85,6 +84,7 @@
 	if(..())
 		return
 	if(!allowed(user))
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 	do_hair_pull(user)
 	ui_interact(user)
@@ -150,56 +150,45 @@
 
 /obj/machinery/mecha_part_fabricator/attackby(var/obj/item/I, var/mob/user)
 	if(busy)
-		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
-		return 1
+		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation."))
+		return TRUE
 	if(default_deconstruction_screwdriver(user, I))
-		return
+		return TRUE
 	if(default_deconstruction_crowbar(user, I))
-		return
+		return TRUE
 	if(default_part_replacement(user, I))
-		return
+		return TRUE
 
-	var/material
-	switch(I.type)
-		if(/obj/item/stack/material/gold)
-			material = MATERIAL_GOLD
-		if(/obj/item/stack/material/silver)
-			material = MATERIAL_SILVER
-		if(/obj/item/stack/material/diamond)
-			material = MATERIAL_DIAMOND
-		if(/obj/item/stack/material/phoron)
-			material = MATERIAL_PHORON
-		if(/obj/item/stack/material/steel)
-			material = DEFAULT_WALL_MATERIAL
-		if(/obj/item/stack/material/glass)
-			material = MATERIAL_GLASS
-		if(/obj/item/stack/material/uranium)
-			material = MATERIAL_URANIUM
-		else
-			return ..()
+	if(!istype(I, /obj/item/stack/material))
+		return ..()
 
-	var/obj/item/stack/material/stack = I
-	var/sname = "[stack.name]"
-	var/amnt = stack.perunit
+	var/obj/item/stack/material/M = I
+	if(!M.material)
+		return ..()
+	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM)))
+		to_chat(user, SPAN_WARNING("\The [src] cannot hold [M.material.name]."))
+		return TRUE
 
-	if(materials[material] + amnt <= res_max_amount)
-		if(stack && stack.amount >= 1)
+	var/sname = "[M.name]"
+	if(materials[M.material.name] + M.perunit <= res_max_amount)
+		if(M.amount >= 1)
 			var/count = 0
 
-			add_overlay("fab-load-[material]")
-			CUT_OVERLAY_IN("fab-load-[material]", 6)
+			add_overlay("fab-load-[M.material.name]")
+			CUT_OVERLAY_IN("fab-load-[M.material.name]", 6)
 
-			while(materials[material] + amnt <= res_max_amount && stack.amount >= 1)
-				materials[material] += amnt
-				stack.use(1)
+			while(materials[M.material.name] + M.perunit <= res_max_amount && M.amount >= 1)
+				materials[M.material.name] += M.perunit
+				M.use(1)
 				count++
-			to_chat(user, "You insert [count] [sname] into the fabricator.")
+			to_chat(user, SPAN_NOTICE("You insert [count] [sname] into \the [src]."))
 			update_busy()
 	else
-		to_chat(user, "The fabricator cannot hold more [sname].")
+		to_chat(user, SPAN_NOTICE("\The [src] cannot hold more [sname]."))
+	return TRUE
 
 /obj/machinery/mecha_part_fabricator/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
-	if (!istype(target) || target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
+	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
 	if(target == user)
 		return
@@ -218,7 +207,7 @@
 		if(hair_style.length < 4)
 			return
 
-		user.visible_message("<span class='warning'>[user] starts feeding [target]'s hair into \the [src]!</span>", "<span class='warning'>You start feeding [target]'s hair into \the [src]!</span>")
+		user.visible_message(SPAN_WARNING("[user] starts feeding [target]'s hair into \the [src]!"), SPAN_WARNING("You start feeding [target]'s hair into \the [src]!"))
 		if(!do_after(usr, 50))
 			return
 		if(target_loc != target.loc)
@@ -300,10 +289,13 @@
 		return
 	for(var/M in D.materials)
 		materials[M] = max(0, materials[M] - D.materials[M] * mat_efficiency)
+
+	intent_message(MACHINE_SOUND)
+
 	if(D.build_path)
 		var/loc_offset = get_step(src, dir)
 		var/obj/new_item = D.Fabricate(loc_offset, src)
-		visible_message("\The <b>[src]</b> pings, indicating that \the [new_item] is complete.", "You hear a ping.")
+		visible_message("\The <b>[src]</b> pings, indicating that \the [new_item] is complete.", "You hear a ping.", intent_message = PING_SOUND)
 		if(mat_efficiency != 1)
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)
@@ -353,19 +345,19 @@
 	material = lowertext(material)
 	var/mattype
 	switch(material)
-		if(DEFAULT_WALL_MATERIAL)
+		if(MATERIAL_STEEL)
 			mattype = /obj/item/stack/material/steel
-		if("glass")
+		if(MATERIAL_GLASS)
 			mattype = /obj/item/stack/material/glass
-		if("gold")
+		if(MATERIAL_GOLD)
 			mattype = /obj/item/stack/material/gold
-		if("silver")
+		if(MATERIAL_SILVER)
 			mattype = /obj/item/stack/material/silver
-		if("diamond")
+		if(MATERIAL_DIAMOND)
 			mattype = /obj/item/stack/material/diamond
-		if("phoron")
+		if(MATERIAL_PHORON)
 			mattype = /obj/item/stack/material/phoron
-		if("uranium")
+		if(MATERIAL_URANIUM)
 			mattype = /obj/item/stack/material/uranium
 		else
 			return

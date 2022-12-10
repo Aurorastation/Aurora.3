@@ -13,7 +13,6 @@
 		/decl/reagent/capsaicin/condensed = 2,
 		/decl/reagent/mindbreaker = 0.5,
 		/decl/reagent/lube = 4,
-		/decl/reagent/paint = 3,
 		/decl/reagent/drink/banana = 3,
 		/decl/reagent/space_drugs = 3,
 		/decl/reagent/water/holywater = 1,
@@ -27,7 +26,6 @@
 		/decl/reagent/toxin/fertilizer/monoammoniumphosphate = 1,
 		/decl/reagent/saline = 2,
 		/decl/reagent/mental/kokoreed = 0.5,
-		/decl/reagent/mental/vaam = 0.5,
 		/decl/reagent/toxin/tobacco = 3,
 		/decl/reagent/stone_dust = 0.5,
 		/decl/reagent/crayon_dust = 1,
@@ -42,22 +40,15 @@
 		/decl/reagent/nutriment/protein/egg = 2,
 		/decl/reagent/serotrotium = 1,
 		/decl/reagent/psilocybin = 0.5,
-		/decl/reagent/toxin/spectrocybin = 0.1
+		/decl/reagent/toxin/spectrocybin = 0.1,
+		/decl/reagent/ambrosia_extract = 0.3,
+		/decl/reagent/skrell_nootropic = 0.5,
+		/decl/reagent/xuxigas = 2
 	)
-	var/list/paint_reagents = list(
-		/decl/reagent/crayon_dust/red,
-		/decl/reagent/crayon_dust/orange,
-		/decl/reagent/crayon_dust/yellow,
-		/decl/reagent/crayon_dust/green,
-		/decl/reagent/crayon_dust/blue,
-		/decl/reagent/crayon_dust/purple
-	)
-
-
 
 /datum/event/vent_clog/setup()
 	endWhen = rand(25, 100)
-	for(var/obj/machinery/atmospherics/unary/vent_scrubber/temp_vent in SSmachinery.processing_machines)
+	for(var/obj/machinery/atmospherics/unary/vent_scrubber/temp_vent in SSmachinery.processing)
 		if(!temp_vent)
 			continue
 		if(isStationLevel(temp_vent.z))
@@ -76,10 +67,6 @@
 			var/datum/reagents/R = new/datum/reagents(reagent_amount)
 			R.my_atom = vent
 			R.add_reagent(chem, reagent_amount)
-			if(chem == /decl/reagent/paint) // so it's not just paint
-				var/chem2 = pick(paint_reagents)
-				R.maximum_volume += 1
-				R.add_reagent(chem2, 1)
 
 			var/datum/effect/effect/system/smoke_spread/chem/smoke = new
 			smoke.show_log = 0 // This displays a log on creation
@@ -89,6 +76,5 @@
 			smoke.start()
 			qdel(R)
 
-
 /datum/event/vent_clog/announce()
-	command_announcement.Announce("The scrubbers network is experiencing a backpressure surge. Some ejection of contents may occur.", "Atmospherics alert", new_sound = 'sound/AI/scrubbers.ogg')
+	command_announcement.Announce("The scrubbers network is experiencing a backpressure surge. Some ejection of contents may occur.", "Atmospherics alert", new_sound = 'sound/AI/scrubbers.ogg', zlevels = affecting_z)

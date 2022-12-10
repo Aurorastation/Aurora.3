@@ -40,6 +40,7 @@
 
 /obj/item/device/laser_pointer/attack(mob/living/M, mob/user)
 	laser_act(M, user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 /obj/item/device/laser_pointer/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/stock_parts/micro_laser))
@@ -50,26 +51,26 @@
 			to_chat(user, "<span class='notice'>You install a [diode.name] in [src].</span>")
 		else
 			to_chat(user, "<span class='notice'>[src] already has a laser diode.</span>")
+		return TRUE
 
 	else if(W.isscrewdriver())
 		if(diode)
 			to_chat(user, "<span class='notice'>You remove the [diode.name] from the [src].</span>")
 			diode.forceMove(get_turf(user))
 			diode = null
-			return
-		..()
-	return
+		return TRUE
 
 /obj/item/device/laser_pointer/afterattack(var/atom/target, var/mob/living/user, flag, params)
 	if(flag)	//we're placing the object on a table or in backpack
 		return
 	laser_act(target, user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 /obj/item/device/laser_pointer/proc/laser_act(var/atom/target, var/mob/living/user)
 	if( !(user in (viewers(7,target))) )
 		return
 	if (!diode)
-		to_chat(user, "<span class='notice'>You point [src] at [target], but nothing happens!</span>")
+		to_chat(user, "<span class='notice'>You point \the [src] at \the [target], but nothing happens!</span>")
 		return
 	if (!user.IsAdvancedToolUser())
 		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
@@ -78,7 +79,8 @@
 	add_fingerprint(user)
 
 
-	var/outmsg
+	var/selfmsg
+	var/othermsg
 	var/turf/targloc = get_turf(target)
 
 	if(istype(target, /obj/machinery/camera))
@@ -86,21 +88,24 @@
 
 		if(prob(25))
 			C.emp_act(28)
-			outmsg = "<span class='notice'>You hit the lens of [C] with [src], temporarily disabling the camera!</span>"
+			selfmsg = "<span class='notice'>You hit the lens of \the [C] with \the [src], temporarily disabling the camera!</span>"
 
 			admin_attack_log(user, src,"hits the  camera with a laser pointer",  "EMPd a camera with a laser pointer")
 
 		else
-			outmsg = "<span class='notice'>You fail to hit the lens of [C] with [src].</span>"
+			selfmsg = "<span class='notice'>You fail to hit the lens of \the [C] with \the [src].</span>"
+		othermsg = "<b>[user]</b> shines \the [src] at \the [C]."
 
 	if(iscarbon(target))
 		if(user.zone_sel.selecting == BP_EYES)
 			var/mob/living/carbon/C = target
 			if(C.eyecheck() <= 0 && prob(30))
-				outmsg = "<span class='notice'>You blind [C] with [src]</span>"
+				selfmsg = "<span class='notice'>You blind \the [C] with \the [src].</span>"
+				othermsg = "<b>[user]</b> shines \the [src] at \the [C]'s eyes'."
 				C.eye_blind = 3
 			else
-				outmsg = "<span class='notice'>You fail to blind [C] with [src]</span>"
+				selfmsg = "<span class='notice'>You fail to blind \the [C] with \the [src].</span>"
+				othermsg = "<b>[user]</b> fails to blind \the [C] with \the [src]."
 
 	//laser pointer image
 	icon_state = "pointer_[pointer_icon_state]"
@@ -112,13 +117,13 @@
 	I.pixel_x = target.pixel_x + rand(-5,5)
 	I.pixel_y = target.pixel_y + rand(-5,5)
 
-	if(outmsg)
-		to_chat(user, outmsg)
+	if(selfmsg)
+		user.visible_message(othermsg, selfmsg)
 	else
-		to_chat(user, "<span class='notice'>You point [src] at [target].</span>")
+		user.visible_message("<b>[user]</b> points \the [src] at \the [target].", "<span class='notice'>You point \the [src] at \the [target].</span>")
 
 
-	flick_overlay(I, showto, 10)
+	flick_overlay(I, showto, 15)
 	icon_state = "pointer"
 
 /obj/item/device/laser_pointer/Destroy()

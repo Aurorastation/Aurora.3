@@ -300,8 +300,8 @@
 	reagents_to_add = list(/decl/reagent/drink/lemon_lime = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/iced_tea
-	name = "\improper Vrisk Serket iced tea"
-	desc = "That sweet, refreshing southern earthy flavor. That's where it's from, right? South Earth?"
+	name = "\improper Silversun Wave iced tea"
+	desc = "Marketed as a favorite amongst parched Silversun beachgoers, there's actually more sugar in this than there is tea."
 	icon_state = "ice_tea_can"
 	center_of_mass = list("x"=16, "y"=10)
 
@@ -333,7 +333,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/koispunch
 	name = "\improper Phoron Punch!"
-	desc = "A radical looking can of <span class='warning'>Phoron Punch!</span> Phoron poisoning has never been more extreme!"
+	desc = "A radical looking can of " + SPAN_WARNING("Phoron Punch!") + " Phoron poisoning has never been more extreme! " + SPAN_DANGER("WARNING: Phoron is toxic to non-Vaurca. Consuming this product might lead to death.")
 	icon_state = "phoron_punch"
 	center_of_mass = list("x"=16, "y"=8)
 	can_size_overrides = list("x" = 1)
@@ -347,78 +347,66 @@
 
 	reagents_to_add = list(/decl/reagent/drink/root_beer = 30)
 
-//zoda
-
+// Zo'ra Sodas
 /obj/item/reagent_containers/food/drinks/cans/zorasoda
+	name = "\improper Zo'ra Soda"
+	desc = "A can of Zo'ra Soda energy drink, with V'krexi additives. You aren't supposed to see this."
+	center_of_mass = list("x" = 16, "y" = 8)
+	can_size_overrides = list("x" = 1)
+	reagents_to_add = list(/decl/reagent/drink/zorasoda = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry
 	name = "\improper Zo'ra Soda Cherry"
-	desc = "A can of cherry energy drink, with V'krexi additives. All good colas come in cherry."
+	desc = "A can of cherry flavoured Zo'ra Soda energy drink, with V'krexi additives. All good energy drinks come in cherry."
 	icon_state = "zoracherry"
-	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("x" = 1)
-	reagents_to_add = list(/decl/reagent/drink/zorasoda = 20, /decl/reagent/mental/vaam = 15)
+	reagents_to_add = list(/decl/reagent/drink/zorasoda/cherry = 30)
 
-/obj/item/reagent_containers/food/drinks/cans/zorakois
-	name = "\improper Zo'ra Soda Kois Twist"
-	desc = "A can of K'ois flavored energy drink, with V'krexi additives. Contains no K'ois, probably contains no palatable flavor."
-	icon_state = "koistwist"
-	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("x" = 1)
-	reagents_to_add = list(/decl/reagent/drink/zorasoda/kois = 20, /decl/reagent/mental/vaam = 15)
-
-/obj/item/reagent_containers/food/drinks/cans/zoraphoron
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron
 	name = "\improper Zo'ra Soda Phoron Passion"
-	desc = "A can of grape flavored energy drink, with V'krexi additives. Tastes nothing like phoron according to Unbound taste testers."
+	desc = "A can of grape flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes nothing like phoron according to Unbound vaurca taste testers."
 	icon_state = "phoronpassion"
-	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("x" = 1)
-	reagents_to_add = list(/decl/reagent/drink/zorasoda/phoron = 20, /decl/reagent/mental/vaam = 15)
+	reagents_to_add = list(/decl/reagent/drink/zorasoda/phoron = 30)
 
-/obj/item/reagent_containers/food/drinks/cans/zorahozm
-	name = "\improper High Octane Zorane Might"
-	desc = "A can of fizzy, acidic energy, with plenty of V'krexi additives. Tastes like impaling the bottom of your mouth with a freezing cold spear laced with bees and salt."
-	icon_state = "hozm"
-	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("x" = 1)
-	reagents_to_add = list(/decl/reagent/drink/zorasoda/hozm = 20, /decl/reagent/mental/vaam = 15)
-
-/obj/item/reagent_containers/food/drinks/cans/zoravenom
-	name = "\improper Zo'ra Soda Sour Venom Grass (Diet!)"
-	desc = "A diet can of Venom Grass flavored energy drink, with V'krexi additives. Still tastes like a cloud of stinging polytrinic bees, but calories are nowhere to be found."
-	icon_state = "sourvenomgrass"
-	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("x" = 1)
-	reagents_to_add = list(/decl/reagent/drink/zorasoda/venomgrass = 20, /decl/reagent/mental/vaam = 15)
-
-/obj/item/reagent_containers/food/drinks/cans/zoraklax
-	name = "\improper Klaxan Energy Crush"
-	desc = "A can of orange cream flavored energy drink, with V'krexi additives. Engineered nearly to perfection."
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/klax
+	name = "\improper K'laxan Energy Crush"
+	desc = "A can of nitrogen-infused creamy orange zest flavoured Zo'ra Soda energy drink, with V'krexi additives. The smooth taste is engineered to near perfection."
 	icon_state = "klaxancrush"
-	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("x" = 1)
-	reagents_to_add = list(/decl/reagent/drink/zorasoda/klax = 20, /decl/reagent/mental/vaam = 15)
+	reagents_to_add = list(/decl/reagent/drink/zorasoda/klax = 30)
 
-/obj/item/reagent_containers/food/drinks/cans/zoracthur
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur
 	name = "\improper C'thur Rockin' Raspberry"
-	desc = "A can of blue raspberry flavored energy drink, with V'krexi additives. You're pretty sure this was shipped by mistake, the previous K'laxan Energy Crush wrapper is still partly visible underneath the current one."
+	desc = "A can of \"blue raspberry\" flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes like a more flowery and aromatic raspberry."
 	icon_state = "cthurberry"
-	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("x" = 1)
-	reagents_to_add = list(/decl/reagent/drink/zorasoda/cthur = 20, /decl/reagent/mental/vaam = 15)
+	reagents_to_add = list(/decl/reagent/drink/zorasoda/cthur = 30)
 
-/obj/item/reagent_containers/food/drinks/cans/zoradrone
-	name = "\improper Drone Fuel"
-	desc = "A can of some kind of industrial fluid flavored energy drink, with V'krexi additives meant for Vaurca. <span class='warning'>Known to induce vomiting in humans!</span>."
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass
+	name = "\improper Zo'ra Sour Venom Grass"
+	desc = "A can of sour \"venom grass\" flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes like a cloud of angry stinging acidic bees."
+	icon_state = "sourvenomgrass"
+	reagents_to_add = list(/decl/reagent/drink/zorasoda/venomgrass = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm // "Contraband"
+	name = "\improper High Octane Zorane Might"
+	desc = "A can of mint flavoured Zo'ra Soda energy drink, with a lot of V'krexi additives. Tastes like impaling the roof of your mouth with a freezing cold spear laced with angry bees and road salt.<br/>" + SPAN_DANGER(" WARNING: Not for the faint hearted!")
+	icon_state = "hozm"
+	reagents_to_add = list(/decl/reagent/drink/zorasoda/hozm = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois
+	name = "\improper Zo'ra Soda K'ois Twist"
+	desc = "A can of K'ois-imitation flavoured Zo'ra Soda energy drink, with V'krexi additives. Contains no K'ois, contrary to what the name may imply."
+	icon_state = "koistwist"
+	reagents_to_add = list(/decl/reagent/drink/zorasoda/kois = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone
+	name = "\improper Vaurca Drone Fuel"
+	desc = "A can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives, meant for Vaurca.<br/>" + SPAN_DANGER(" WARNING: Known to induce vomiting in all species except vaurcae and dionae!")
 	icon_state = "dronefuel"
-	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("x" = 1)
-	reagents_to_add = list(/decl/reagent/drink/zorasoda/drone = 30, /decl/reagent/mental/vaam = 10)
+	reagents_to_add = list(/decl/reagent/drink/zorasoda/drone = 30)
 
-/obj/item/reagent_containers/food/drinks/cans/zorajelly
-	name = "\improper Royal Jelly"
-	desc = "A can of... You aren't sure, but it smells pleasant already."
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly
+	name = "\improper Royal Vaurca Jelly"
+	desc = "A can of..." + SPAN_ITALIC(" sludge?") + " It smells kind of pleasant either way. Royal jelly is a nutritious concentrated substance commonly created by Caretaker Vaurca in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
 	icon_state = "royaljelly"
-	center_of_mass = list("x"=16, "y"=8)
-	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/jelly = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/adhomai_milk
@@ -426,7 +414,7 @@
 	desc = "A can of fermented fatshouters milk, imported from Adhomai."
 	icon_state = "milk_can"
 	center_of_mass = list("x"=16, "y"=10)
-	desc_fluff = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
+	desc_extended = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
 
 	reagents_to_add = list(/decl/reagent/drink/milk/adhomai/fermented = 30)
 
@@ -451,3 +439,29 @@
 	icon_state = "three_towns_cider"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/alcohol/butanol/threetownscider = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda
+	name = "Hro'zamal Soda"
+	desc = "A can of Hro'zamal Soda. Made with Hro'zamal Ras'Nifs powder and canned in the People's Republic of Adhomai."
+	desc_extended = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as a herbal tea by the \
+	colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university \
+	students because of its stimulant effect."
+	icon_state = "hrozamal_soda_can"
+	center_of_mass = list("x"=16, "y"=10)
+
+	reagents_to_add = list(/decl/reagent/drink/hrozamal_soda = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/diet_cola
+	name = "Diet Cola"
+	desc = "Space Cola! Now in diet!"
+	icon_state = "diet_cola"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/decl/reagent/drink/diet_cola = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/peach_soda
+	name = "Xanu Rush!"
+	desc = "Made from the NEW Xanu Prime peaches."
+	desc_extended = "The rehabilitating environment of Xanu has allowed for small-scale agriculture to bloom. Xanu Rush! Is the number one Coalition soda, despite its dull taste."
+	icon_state = "xanu_rush"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/decl/reagent/drink/peach_soda = 30)

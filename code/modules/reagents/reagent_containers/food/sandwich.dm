@@ -14,6 +14,8 @@
 	bitesize = 2
 
 	var/list/ingredients = list()
+	var/base_name = "sandwich"
+	var/topper = "sandwich_top"
 
 /obj/item/reagent_containers/food/snacks/csandwich/attackby(obj/item/W as obj, mob/user)
 
@@ -51,15 +53,15 @@
 		I.appearance_flags |= RESET_COLOR // You grill the bread, not the ingredients.
 		ovr += I
 
-	var/image/T = new(src.icon, "sandwich_top")
+	var/image/T = new(src.icon, topper)
 	T.pixel_x = pick(list(-1,0,1))
 	T.pixel_y = (ingredients.len * 2)+1
 	ovr += T
 
 	add_overlay(ovr)
 
-	name = lowertext("[english_list(words)] sandwich")
-	if(length(name) > 80) name = "[pick(list("absurd","colossal","enormous","ridiculous"))] sandwich"
+	name = lowertext("[english_list(words)] [base_name]")
+	if(length(name) > 80) name = "[pick(list("absurd","colossal","enormous","ridiculous"))] [base_name]"
 	w_class = n_ceil(Clamp((ingredients.len/2),2,4))
 
 /obj/item/reagent_containers/food/snacks/csandwich/Destroy()

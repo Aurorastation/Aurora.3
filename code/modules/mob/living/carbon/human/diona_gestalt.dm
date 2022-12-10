@@ -100,7 +100,7 @@
 	if (severity)
 		damage_factor = (1 / severity)
 
-	var/armorval = 	getarmor(null, "bomb")
+	var/armorval = get_blocked_ratio(BP_CHEST, BRUTE, DAM_DISPERSED, damage = damage)
 	if (armorval)
 		damage_factor *= (1 - (armorval * 0.01))
 
@@ -115,9 +115,6 @@
 	set category = "Abilities"
 	set name = "Check light level"
 
-	if (!DS.light_organ || DS.light_organ.is_broken() || DS.light_organ.is_bruised())
-		to_chat(usr, SPAN_DANGER("Our response node is damaged or missing, without it we can't tell light from darkness. We can only hope this area is bright enough to let us regenerate it!"))
-		return
 	var/light = get_lightlevel_diona(DS)
 	if (light <= -0.75)
 		to_chat(usr, SPAN_DANGER("It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
@@ -150,24 +147,6 @@
 	DS.pain_factor = (100 / dark_consciousness) / MLS
 	DS.trauma_factor = (DS.max_health / dark_survival) / MLS
 	DS.dionatype = 2//Gestalt
-
-	for (var/organ in internal_organs)
-		if (istype(organ, /obj/item/organ/internal/diona/node))
-			DS.light_organ = organ
-		if (istype(organ, /obj/item/organ/internal/diona/nutrients))
-			DS.nutrient_organ = organ
-
-//This proc can be called if some dionastats information needs to be refreshed or re-found
-//Currently only used for refreshing organs
-/mob/living/carbon/human/proc/update_dionastats()
-	DS.light_organ = null
-	DS.nutrient_organ = null
-
-	for (var/organ in internal_organs)
-		if (istype(organ, /obj/item/organ/internal/diona/node))
-			DS.light_organ = organ
-		if (istype(organ, /obj/item/organ/internal/diona/nutrients))
-			DS.nutrient_organ = organ
 
 //Splitting functions
 //====================
@@ -278,8 +257,8 @@
 	M.detached = TRUE
 	M.update_verbs(TRUE)
 	M.languages = languages.Copy()
+	M.accent = accent
 
-	update_dionastats() //Re-find the organs in case they were lost or regained
 	nutrition -= REGROW_FOOD_REQ
 	DS.stored_energy -= REGROW_ENERGY_REQ
 	diona_handle_regeneration(DS)

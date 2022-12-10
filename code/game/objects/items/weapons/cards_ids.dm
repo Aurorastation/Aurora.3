@@ -95,7 +95,7 @@ var/const/NO_EMAG_ACT = -50
 
 	var/list/access = list()
 	var/registered_name = "Unknown" // The name registered_name on the card
-	var/mob/living/carbon/human/mob
+	var/datum/weakref/mob_id
 	slot_flags = SLOT_ID
 
 	var/age = "\[UNSET\]"
@@ -109,22 +109,31 @@ var/const/NO_EMAG_ACT = -50
 	var/icon/side
 	var/mining_points //miners gotta eat
 
+	var/can_copy_access = FALSE
+	var/access_copy_msg
+
 	var/flipped = 0
 	var/wear_over_suit = 0
 
 	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
 	var/assignment = null	//can be alt title or the actual job
 	var/rank = null			//actual job
+	var/employer_faction = null
 	var/dorm = 0			// determines if this ID has claimed a dorm already
 	var/datum/ntnet_user/chat_user
 
+	var/iff_faction = IFF_DEFAULT
+
 /obj/item/card/id/Destroy()
-	mob = null
 	return ..()
 
 /obj/item/card/id/examine(mob/user)
 	if (..(user, 1))
 		show(user)
+
+/obj/item/card/id/on_slotmove(var/mob/living/user, slot)
+	. = ..(user, slot)
+	BITSET(user.hud_updateflag, ID_HUD) //Update ID HUD if an ID is ever moved
 
 /obj/item/card/id/proc/prevent_tracking()
 	return 0
@@ -145,9 +154,9 @@ var/const/NO_EMAG_ACT = -50
 		chat_user.username = chat_user.generateUsernameIdCard(src)
 
 /obj/item/card/id/proc/set_id_photo(var/mob/M)
-	front = getFlatIcon(M, SOUTH)
+	front = getFlatIcon(M, SOUTH, ignore_parent_dir = TRUE)
 	front.Scale(128, 128)
-	side = getFlatIcon(M, WEST)
+	side = getFlatIcon(M, WEST, ignore_parent_dir = TRUE)
 	side.Scale(128, 128)
 
 /mob/proc/set_id_info(var/obj/item/card/id/id_card)
@@ -167,7 +176,8 @@ var/const/NO_EMAG_ACT = -50
 	id_card.age 				= age
 	id_card.citizenship			= citizenship
 	id_card.religion 			= SSrecords.get_religion_record_name(religion)
-	id_card.mob					= src
+	id_card.mob_id				= WEAKREF(src)
+	id_card.employer_faction    = employer_faction
 
 /obj/item/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
@@ -196,7 +206,7 @@ var/const/NO_EMAG_ACT = -50
 				to_chat(user, "<span class='warning'>You cannot imprint [src] while wearing \the [H.gloves].</span>")
 				return
 			else
-				mob = H
+				mob_id = WEAKREF(H)
 				blood_type = H.dna.b_type
 				dna_hash = H.dna.unique_enzymes
 				fingerprint_hash = md5(H.dna.uni_identity)
@@ -259,7 +269,7 @@ var/const/NO_EMAG_ACT = -50
 					to_chat(user, "<span class='warning'>They don't have any hands.</span>")
 					return 1
 				user.visible_message("[user] imprints [src] with \the [H]'s biometrics.")
-				mob = H
+				mob_id = WEAKREF(H)
 				blood_type = H.dna.b_type
 				dna_hash = H.dna.unique_enzymes
 				fingerprint_hash = md5(H.dna.uni_identity)
@@ -267,9 +277,20 @@ var/const/NO_EMAG_ACT = -50
 				religion = H.religion
 				age = H.age
 				src.add_fingerprint(H)
-				to_chat(user, "<span class='notice'>Biometric Imprinting Successful!.</span>")
+				to_chat(user, SPAN_NOTICE("Biometric Imprinting Successful!"))
 				return 1
 	return ..()
+
+/obj/item/card/id/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/card/id))
+		var/obj/item/card/id/ID = W
+		if(ID.can_copy_access)
+			ID.access |= src.access
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			if(player_is_antag(user.mind) || isgolem(user))
+				to_chat(user, SPAN_NOTICE(ID.access_copy_msg))
+			return
+	. = ..()
 
 /obj/item/card/id/GetAccess()
 	return access
@@ -353,7 +374,7 @@ var/const/NO_EMAG_ACT = -50
 	item_state = "gold_id"
 	overlay_state = "gold"
 
-/obj/item/card/id/syndicate_command
+/obj/item/card/id/syndicate/command
 	name = "syndicate ID card"
 	desc = "An ID straight from the Syndicate."
 	icon_state = "dark"
@@ -361,14 +382,14 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Syndicate Overlord"
 	access = list(access_syndicate, access_external_airlocks)
 
-/obj/item/card/id/syndicate_ert
+/obj/item/card/id/syndicate/ert
 	name = "\improper Syndicate Commando ID"
 	assignment = "Commando"
 	icon_state = "centcom"
 
-/obj/item/card/id/syndicate_ert/New()
+/obj/item/card/id/syndicate/ert/Initialize()
+	. = ..()
 	access = get_all_accesses()
-	..()
 
 /obj/item/card/id/syndicate/raider
 	name = "passport"
@@ -404,15 +425,26 @@ var/const/NO_EMAG_ACT = -50
 	access = list(access_merchant)
 
 /obj/item/card/id/synthetic
-	name = "\improper Synthetic ID"
-	desc = "Access module for NanoTrasen Synthetics"
+	name = "\improper Equipment ID"
+	desc = "Access module for SCC equipment."
 	icon_state = "id-robot"
 	item_state = "tdgreen"
-	assignment = "Synthetic"
+	assignment = "Equipment"
 
 /obj/item/card/id/synthetic/New()
-	access = get_all_station_access() + access_synth
+	access = get_all_station_access() + access_equipment
 	..()
+
+/obj/item/card/id/synthetic/cyborg
+	name = "\improper Equipment ID"
+	desc = "Access module for SCC equipment."
+	icon_state = "id-robot"
+	item_state = "tdgreen"
+	assignment = "Equipment"
+
+/obj/item/card/id/synthetic/cyborg/New()
+	..()
+	access = list(access_equipment, access_ai_upload, access_external_airlocks) // barebones cyborg access. Job special added in different place
 
 /obj/item/card/id/minedrone
 	name = "\improper Minedrone ID"
@@ -456,7 +488,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "fib"
 
 /obj/item/card/id/ert
-	name = "\improper Nanotrasen Emergency Response Team ID"
+	name = "\improper NanoTrasen Emergency Response Team ID"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Emergency Response Team"
@@ -466,7 +498,7 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/asset_protection
-	name = "\improper Nanotrasen Asset Protection ID"
+	name = "\improper NanoTrasen Asset Protection ID"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Asset Protection"
@@ -484,6 +516,11 @@ var/const/NO_EMAG_ACT = -50
 	access = list(access_distress, access_maint_tunnels, access_external_airlocks)
 	..()
 
+/obj/item/card/id/distress/fsf
+	name = "\improper Free Solarian Fleets ID"
+	icon_state = "centcom"
+	assignment = "Free Solarian Fleets Marine ID"
+
 /obj/item/card/id/distress/kataphract
 	name = "\improper Kataphract ID"
 	icon_state = "centcom"
@@ -496,6 +533,17 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/distress/legion/New()
 	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
+	..()
+
+/obj/item/card/id/distress/ap_eridani
+	name = "\improper Eridani Private Military Contractor ID"
+	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
+	assignment = "EPMC Asset Protection"
+	icon_state = "pmc_card"
+	overlay_state = "pmc_card"
+
+/obj/item/card/id/distress/ap_eridani/New()
+	access = get_distress_access()
 	..()
 
 /obj/item/card/id/distress/iac
@@ -538,11 +586,11 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "iru_card"
 	overlay_state = "iru_card"
 
-/obj/item/card/id/eridani
-	name = "\improper Eridani identification card"
-	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
-	icon_state = "erisec_card"
-	overlay_state = "erisec_card"
+/obj/item/card/id/pmc
+	name = "\improper PMCG identification card"
+	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Private Military Contracting Group."
+	icon_state = "pmc_card"
+	overlay_state = "pmc_card"
 
 /obj/item/card/id/zeng_hu
 	name = "\improper Zeng-Hu Pharmaceuticals identification card"
@@ -572,3 +620,35 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A stylized plastic card, belonging to one of the many specialists at Einstein Engines."
 	icon_state = "einstein_card"
 	overlay_state = "einstein_card"
+	iff_faction = IFF_EE
+
+/obj/item/card/id/orion
+	name = "\improper Orion Express identification card"
+	desc = "A well-worn identification pass, retrofitted with wireless transmission technology."
+	icon_state = "orion_card"
+	overlay_state = "orion_card"
+
+/obj/item/card/id/bluespace
+	name = "bluespace identification card"
+	desc = "A bizarre imitation of NanoTrasen identification cards. It seems to function normally as well."
+	desc_antag = "Access can be copied from other ID cards by clicking on them."
+	icon_state = "crystalid"
+	iff_faction = IFF_BLUESPACE
+
+/obj/item/card/id/bluespace/update_name()
+	return
+
+/obj/item/card/id/bluespace/attack_self(mob/user)
+	if(registered_name == user.real_name)
+		switch(alert("Would you like edit the ID label, or show it?", "Show or Edit?", "Edit", "Show"))
+			if("Edit")
+				var/new_label = sanitize(input(user, "Enter the new label.", "Set Label") as text|null, 12)
+				if(new_label)
+					name = "[initial(name)] ([new_label])"
+			if("Show")
+				..()
+	else
+		..()
+
+/obj/item/card/id/away_site
+	access = list(access_generic_away_site, access_external_airlocks)

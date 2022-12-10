@@ -29,5 +29,6 @@ div.item {
 .itemLabel {
   padding-right: 8px;
   width: 4%;
+  vertical-align: top;
 }
 </style>

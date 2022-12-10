@@ -30,7 +30,7 @@
 	. = ..()
 	update_icon()
 	add_language(LANGUAGE_TCB)
-	set_default_language(LANGUAGE_TCB)
+	set_default_language(all_languages[LANGUAGE_TCB])
 
 	botcard = new /obj/item/card/id(src)
 	botcard.access = botcard_access.Copy()
@@ -161,12 +161,8 @@
 		return
 	return attack_hand(user)
 
-/mob/living/bot/say(var/message)
-	var/verb = "beeps"
-
-	message = sanitize(message)
-
-	..(message, null, verb)
+/mob/living/bot/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+	..(message, null, "beeps")
 
 /mob/living/bot/Collide(atom/A)
 	if(on && botcard && istype(A, /obj/machinery/door))

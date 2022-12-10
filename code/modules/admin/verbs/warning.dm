@@ -9,8 +9,7 @@
 	if (!warned_ckey || !istext(warned_ckey))
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		to_chat(usr, "<span class='warning'>Error: warn(): Database Connection failed, reverting to legacy systems.</span>")
 		usr.client.warn_legacy(warned_ckey)
 		return
@@ -110,8 +109,7 @@
 	var/dcolor = "#ffaaaa"	//dark colour, severity = 1
 	var/ecolor = "#e3e3e3"	//gray colour, expired = 1
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		alert("Connection to the SQL database lost. Aborting. Please alert an Administrator or a member of staff.")
 		return
 
@@ -213,8 +211,7 @@
 	if (!warning_id)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		alert("Connection to SQL database failed while attempting to update your warning's status!")
 		return
 
@@ -249,8 +246,7 @@
 	var/count = 0
 	var/count_expire = 0
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
 
 	var/list/client_details = list("ckey" = ckey, "computer_id" = computer_id, "address" = address)
@@ -270,7 +266,7 @@
 
 	var/list/data = list("unread" = "", "expired" = "")
 	if (count)
-		data["unread"] = "You have <b>[count] unread [count > 1 ? "warnings" : "warning"]!</b> Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"
+		data["unread"] = "You have <b>[count] unread warning\s!</b> Click <a href='?JSlink=warnings;notification=:src_ref'>here</a> to review and acknowledge them!"
 	if (count_expire)
 		data["expired"] = "[count_expire] of your warnings have expired."
 
@@ -280,16 +276,24 @@
  * A proc used to gather if someone has Unacknowledged Warnings
  */
 /client/proc/fetch_unacked_warning_count()
-	establish_db_connection(dbcon)
 	if (!dbcon)
 		return
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(dbcon))
 		return
+	var/count = 0
+
 	var/DBQuery/warning_count_query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_warnings WHERE (visible = 1 AND acknowledged = 0 AND expired = 0) AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:)")
 	warning_count_query.Execute(list("ckey" = ckey, "computer_id" = computer_id, "address" = address))
 	if(warning_count_query.NextRow())
-		unacked_warning_count = text2num(warning_count_query.item[1])
-		return unacked_warning_count
+		count += text2num(warning_count_query.item[1])
+
+	var/DBQuery/notification_count_query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_player_notifications WHERE ckey = :ckey: AND acked_at is NULL and type IN ('player_greeting','player_greeting_chat')")
+	notification_count_query.Execute(list("ckey" = ckey))
+	if(notification_count_query.NextRow())
+		count += text2num(notification_count_query.item[1])
+
+	unacked_warning_count = count
+	return unacked_warning_count
 
 /*
  * A proc for an admin/moderator to look up a member's warnings.
@@ -459,8 +463,7 @@
 	if(!warning_id || !warning_edit)
 		return
 
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
+	if(!establish_db_connection(dbcon))
 		alert("Connection to the SQL database lost. Aborting. Please alert the database admin!")
 		return
 

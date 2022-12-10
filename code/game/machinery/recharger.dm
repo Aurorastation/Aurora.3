@@ -6,9 +6,9 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "recharger_off"
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 6
 	active_power_usage = 45 KILOWATTS
+	pass_flags = PASSTABLE
 	var/charging_efficiency = 1.3
 	//Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging
@@ -18,7 +18,12 @@
 		/obj/item/melee/baton,
 		/obj/item/cell,
 		/obj/item/modular_computer,
-		/obj/item/computer_hardware/battery_module
+		/obj/item/computer_hardware/battery_module,
+		/obj/item/device/flashlight/survival,
+		/obj/item/clothing/mask/smokable/ecig,
+		/obj/item/inductive_charger/handheld,
+		/obj/item/auto_cpr,
+		/obj/item/device/personal_shield
 	)
 	var/icon_state_charged = "recharger100"
 	var/icon_state_charging = "recharger"
@@ -28,7 +33,7 @@
 
 /obj/machinery/recharger/examine(mob/user)
 	. = ..(user, 3)
-	to_chat(user, "There is [charging ? "[charging]" : "nothing"] in [src].")
+	to_chat(user, "There is [charging ? "\a [charging]" : "nothing"] in [src].")
 	if (charging && .)
 		var/obj/item/cell/C = charging.get_cell()
 		if (istype(C) && user.client && (!user.progressbars || !user.progressbars[src]))
@@ -42,15 +47,15 @@
 		LAZYREMOVE(chargebars, bar)
 		qdel(bar)
 
-/obj/machinery/recharger/attackby(obj/item/G as obj, mob/user as mob)
+/obj/machinery/recharger/attackby(obj/item/G, mob/user)
 	if(portable && G.iswrench())
 		if(charging)
-			to_chat(user, "<span class='alert'>Remove [charging] first!</span>")
-			return
+			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
+			return TRUE
 		anchored = !anchored
-		to_chat(user, "You have [anchored ? "attached" : "detached"] the recharger.")
+		user.visible_message("<b>[user]</b> [anchored ? "attaches" : "detaches"] \the [src].", SPAN_NOTICE("You [anchored ? "attach" : "detach"] \the [src]."))
 		playsound(loc, G.usesound, 75, 1)
-		return
+		return TRUE
 
 	if (istype(G, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/gripper/Gri = G
@@ -60,26 +65,28 @@
 				update_icon()
 			else
 				to_chat(user, "<span class='danger'>Your gripper cannot hold \the [charging].</span>")
+		return TRUE
 
 	if(!G.dropsafety())
-		return
+		return TRUE
 
 	if(is_type_in_list(G, allowed_devices))
 		if (G.get_cell() == DEVICE_NO_CELL)
 			if (G.charge_failure_message)
 				to_chat(user, "<span class='warning'>\The [G][G.charge_failure_message]</span>")
-			return
+			return TRUE
 		if(charging)
 			to_chat(user, "<span class='warning'>\A [charging] is already charging here.</span>")
-			return
+			return TRUE
 		// Checks to make sure he's not in space doing it, and that the area got proper power.
 		if(!powered())
 			to_chat(user, "<span class='warning'>\The [name] blinks red as you try to insert the item!</span>")
-			return
+			return TRUE
 
 		user.drop_from_inventory(G,src)
 		charging = G
 		update_icon()
+		return TRUE
 
 /obj/machinery/recharger/attack_hand(mob/user as mob)
 	if(istype(user,/mob/living/silicon))
@@ -96,14 +103,14 @@
 				remove_bar(thing, chargebars[thing])
 		update_icon()
 
-/obj/machinery/recharger/machinery_process()
+/obj/machinery/recharger/process()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
-		update_use_power(0)
+		update_use_power(POWER_USE_OFF)
 		icon_state = icon_state_idle
 		return
 
 	if(!charging)
-		update_use_power(1)
+		update_use_power(POWER_USE_IDLE)
 		icon_state = icon_state_idle
 	else
 		var/obj/item/cell/cell = charging.get_cell()
@@ -122,10 +129,10 @@
 					icon_state = icon_state_charging + "80"
 				C.give(active_power_usage*CELLRATE*charging_efficiency)
 
-				update_use_power(2)
+				update_use_power(POWER_USE_ACTIVE)
 			else
 				icon_state = icon_state_charged
-				update_use_power(1)
+				update_use_power(POWER_USE_IDLE)
 
 			if (chargebars)
 				for (var/thing in chargebars)

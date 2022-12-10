@@ -11,7 +11,6 @@
 	var/timing = 0
 	var/lockdownbyai = 0
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 6
 	power_channel = ENVIRON
@@ -19,6 +18,8 @@
 	var/wiresexposed = 0
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 	var/seclevel
+	///looping sound datum for our fire alarm siren.
+	var/datum/looping_sound/firealarm/soundloop
 
 /obj/machinery/firealarm/examine(mob/user)
 	. = ..()
@@ -90,14 +91,14 @@
 	if(!istype(W, /obj/item/forensics))
 		src.add_fingerprint(user)
 	else
-		return
+		return TRUE
 
 	if (W.isscrewdriver() && buildstage == 2)
 		if(!wiresexposed)
 			set_light(0)
 		wiresexposed = !wiresexposed
 		update_icon()
-		return
+		return TRUE
 
 	if(wiresexposed)
 		set_light(0)
@@ -109,22 +110,23 @@
 						user.visible_message("<span class='notice'>\The [user] has reconnected [src]'s detecting unit!</span>", "<span class='notice'>You have reconnected [src]'s detecting unit.</span>")
 					else
 						user.visible_message("<span class='notice'>\The [user] has disconnected [src]'s detecting unit!</span>", "<span class='notice'>You have disconnected [src]'s detecting unit.</span>")
+					return TRUE
 				else if (W.iswirecutter())
 					user.visible_message("<span class='notice'>\The [user] has cut the wires inside \the [src]!</span>", "<span class='notice'>You have cut the wires inside \the [src].</span>")
 					new/obj/item/stack/cable_coil(get_turf(src), 5)
 					playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 					buildstage = 1
 					update_icon()
+					return TRUE
 			if(1)
 				if(W.iscoil())
 					var/obj/item/stack/cable_coil/C = W
 					if (C.use(5))
 						to_chat(user, "<span class='notice'>You wire \the [src].</span>")
 						buildstage = 2
-						return
 					else
 						to_chat(user, "<span class='warning'>You need 5 pieces of cable to wire \the [src].</span>")
-						return
+					return TRUE
 				else if(W.iscrowbar())
 					to_chat(user, "You pry out the circuit!")
 					playsound(src.loc, W.usesound, 50, 1)
@@ -133,24 +135,25 @@
 						circuit.forceMove(user.loc)
 						buildstage = 0
 						update_icon()
+					return TRUE
 			if(0)
 				if(istype(W, /obj/item/firealarm_electronics))
 					to_chat(user, "You insert the circuit!")
 					qdel(W)
 					buildstage = 1
 					update_icon()
-
+					return TRUE
 				else if(W.iswrench())
 					to_chat(user, "You remove the fire alarm assembly from the wall!")
 					new /obj/item/frame/fire_alarm(get_turf(user))
 					playsound(src.loc, W.usesound, 50, 1)
 					qdel(src)
-		return
+					return TRUE
+		return TRUE
 
 	src.alarm()
-	return
 
-/obj/machinery/firealarm/machinery_process()//Note: this processing was mostly phased out due to other code, and only runs when needed
+/obj/machinery/firealarm/process()//Note: this processing was mostly phased out due to other code, and only runs when needed
 	var/area/A = get_area(src)
 	if (A.fire != previous_fire_state)
 		update_icon()
@@ -170,6 +173,7 @@
 			src.alarm()
 			src.time = 0
 			src.timing = 0
+			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		src.updateDialog()
 	last_process = world.timeofday
 
@@ -214,6 +218,7 @@
 		time = Clamp(input(usr, "Enter time delay", "Fire Alarm Delayed Activation", time) as num, 0, 600)
 	else if (href_list["tmr"] == "start")
 		src.timing = 1
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	else if (href_list["tmr"] == "stop")
 		src.timing = 0
 
@@ -223,26 +228,29 @@
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
 		fire_alarm.clearAlarm(loc, FA)
+		soundloop.stop(src)
 	update_icon()
 	return
 
 /obj/machinery/firealarm/proc/alarm(var/duration = 0)
-	if (!( src.working))
+	if(!(src.working))
 		return
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
 		fire_alarm.triggerAlarm(loc, FA, duration)
-		playsound(FA.loc, 'sound/ambience/firealarm.ogg', 75, 0)
+		soundloop.start(src)
 	update_icon()
 	return
 
-/obj/machinery/firealarm/proc/set_security_level(var/newlevel)
-	if(seclevel != newlevel)
-		seclevel = newlevel
+/obj/machinery/firealarm/set_emergency_state(var/new_security_level)
+	if(seclevel != new_security_level)
+		seclevel = new_security_level
 		update_icon()
 
 /obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
 	. = ..(mapload, ndir)
+
+	seclevel = get_security_level()
 
 	if(building)
 		buildstage = 0
@@ -255,6 +263,11 @@
 
 	if(isContactLevel(z))
 		set_security_level(security_level ? get_security_level() : "green")
+	soundloop = new(src, FALSE)
+
+/obj/machinery/firealarm/Destroy()
+	QDEL_NULL(soundloop)
+	. = ..()
 
 // Convenience subtypes for mappers.
 /obj/machinery/firealarm/north

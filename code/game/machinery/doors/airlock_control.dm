@@ -134,7 +134,7 @@
 		frequency = new_frequency
 		radio_connection = SSradio.add_object(src, frequency, RADIO_AIRLOCK)
 
-/obj/machinery/door/airlock/Initialize()
+/obj/machinery/door/airlock/Initialize(mapload, d = 0, populate_components = TRUE, var/obj/structure/door_assembly/DA)
 	. = ..()
 	if(frequency)
 		set_frequency(frequency)
@@ -147,6 +147,10 @@
 
 	if(SSradio)
 		set_frequency(frequency)
+
+	if(DA)
+		bound_height = DA.bound_height
+		bound_width = DA.bound_width
 
 /obj/machinery/door/airlock/Destroy()
 	if(frequency && SSradio)
@@ -191,7 +195,7 @@
 	radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
 	flick("airlock_sensor_cycle", src)
 
-/obj/machinery/airlock_sensor/machinery_process()
+/obj/machinery/airlock_sensor/process()
 	if(on)
 		var/datum/gas_mixture/air_sample = return_air()
 		var/pressure = round(air_sample.return_pressure(),0.1)
@@ -261,8 +265,8 @@
 	//Swiping ID on the access button
 	if (I.GetID())
 		attack_hand(user)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/machinery/access_button/attack_hand(mob/user)
 	add_fingerprint(usr)

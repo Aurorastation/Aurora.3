@@ -1,9 +1,9 @@
 /obj/item/gun/projectile/heavysniper
 	name = "anti-materiel rifle"
-	desc = "A portable anti-armor rifle fitted with a scope, the PTR-7 is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
-	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  The gun's chamber can be opened or closed by using it in your hand.  To reload, open the chamber, add a new bullet \
-	then close it.  To use the scope, use the appropriate verb in the object tab."
+	desc = "The PTR-7 is man-portable anti-armor rifle fitted with a high-powered scope, capable of penetrating through most windows, airlocks, and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
+	desc_info = "A single-shot, bolt-action anachronism in an age of energy weapons, the PTR-7 was originally developed to combat exosuits, either by disabling critical systems \
+	or killing the pilot. Firing a high-velocity 14.5mm cartridge designed to defeat heavy armor, the PTR-7 boasts penetrative power unmatched by most in its class, though recent advancements \
+	in composites have rendered the weapon less effective at its intended purpose. Nonetheless, it still sees use among some groups as a general-purpose anti-materiel rifle."
 	icon = 'icons/obj/guns/heavysniper.dmi'
 	icon_state = "heavysniper"
 	item_state = "heavysniper"
@@ -31,6 +31,14 @@
 	recoil_wielded = 2
 	accuracy_wielded = -1
 
+/obj/item/gun/projectile/heavysniper/get_ammo()
+	var/ammo_count = 0
+	for(var/thing in loaded)
+		var/obj/item/ammo_casing/AC = thing
+		if(AC.BB) // my favourite band - geeves
+			ammo_count++
+	return ammo_count
+
 /obj/item/gun/projectile/heavysniper/update_icon()
 	..()
 	if(bolt_open)
@@ -38,7 +46,7 @@
 	else
 		icon_state = "heavysniper"
 
-/obj/item/gun/projectile/heavysniper/attack_self(mob/user as mob)
+/obj/item/gun/projectile/heavysniper/unique_action(mob/user as mob)
 	bolt_open = !bolt_open
 	if(bolt_open)
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
@@ -131,11 +139,6 @@
 			else
 				RH.take_damage(30)
 
-/obj/item/gun/projectile/heavysniper/unathi/get_ammo()
-	if(chambered)
-		return TRUE
-	return FALSE
-
 /obj/item/gun/projectile/heavysniper/tranq
 	name = "tranquilizer rifle"
 	desc = "A nonlethal modification to the PTR-7 anti-materiel rifle meant for sedation and capture of the most dangerous of game. Fires .50 cal PPS shells that deploy a torpor inducing drug payload."
@@ -174,7 +177,7 @@
 	icon_state = "dragunov"
 	item_state = "dragunov"
 
-	desc_fluff = "The Ho'taki Marksman Rifle was created by the Shastar Technical University, created through the reverse engineering of captured Tsarrayut'yan rifle. \
+	desc_extended = "The Ho'taki Marksman Rifle was created by the Shastar Technical University, created through the reverse engineering of captured Tsarrayut'yan rifle. \
 	The rifle is commonly issued to the feared Das'nrra Marksmen."
 
 	w_class = ITEMSIZE_LARGE
@@ -223,7 +226,9 @@
 
 /obj/item/gun/projectile/automatic/rifle/w556
 	name = "scout rifle"
-	desc = "A lightweight Neyland 556mi 'Ranger' used within the Sol Navy and Nanotrasen Emergency Response Teams. Equipped with a scope and designed for medium to long range combat, with moderate stopping power. Chambered in 5.56 rounds."
+	desc = "The ZI Pointer, the designated marksman rifle variant of Zavodskoi's ZI Bulldog carbine. \
+	Features a longer, heavier barrel and low-power fixed-magnification optic in lieu of the grenade launcher. \
+	A vertical grip has been attached under the forend to help offset the change in balance and improve handling. Uses 5.56mm rounds."
 	icon = 'icons/obj/guns/w556.dmi'
 	icon_state = "w556rifle"
 	item_state = "w556rifle"
@@ -244,11 +249,20 @@
 	recoil_wielded = 2
 	accuracy_wielded = 1
 	multi_aim = 0 //Definitely a fuck no. Being able to target one person at this range is plenty.
+	auto_eject = 1
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0),
+		list(mode_name="semiauto", burst=1, fire_delay=0, fire_delay_wielded=0),
 		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(0,-1,-1), dispersion=list(0, 8))
 		)
+
+/obj/item/gun/projectile/automatic/rifle/w556/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "w556rifle"
+	else
+		icon_state = "w556rifle-empty"
 
 /obj/item/gun/projectile/automatic/rifle/w556/verb/scope()
 	set category = "Object"

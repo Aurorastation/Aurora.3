@@ -6,27 +6,17 @@
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 /datum/controller/subsystem/misc_late/Initialize(timeofday)
-	var/turf/picked
 	// Setup the teleport locs.
-	for (var/thing in all_areas)
-		var/area/AR = thing
-		picked = null
-		if(!(istype(AR, /area/shuttle) || istype(AR, /area/antag/wizard)))
-			picked = pick_area_turf(AR.type, list(/proc/is_station_turf))
-			if (picked)
-				teleportlocs += AR.name
-				teleportlocs[AR.name] = AR
-
-		if(istype(AR, /area/turret_protected/aisat) || istype(AR, /area/tdome) || istype(AR, /area/shuttle/specops))
+	for(var/area/AR as anything in the_station_areas)
+		if(AR.flags & NO_GHOST_TELEPORT_ACCESS)
+			continue
+		var/list/area_turfs = AR.contents
+		if (area_turfs.len) // Check the area is mapped
 			ghostteleportlocs += AR.name
 			ghostteleportlocs[AR.name] = AR
+	if(current_map.use_overmap)
+		ghostteleportlocs[map_overmap.name] = map_overmap
 
-		picked = pick_area_turf(AR.type, list(/proc/is_station_turf))
-		if (picked)
-			ghostteleportlocs += AR.name
-			ghostteleportlocs[AR.name] = AR
-
-	sortTim(teleportlocs, /proc/cmp_text_asc)
 	sortTim(ghostteleportlocs, /proc/cmp_text_asc)
 
 	setupgenetics()
@@ -37,19 +27,12 @@
 	populate_code_phrases()
 
 	// this covers mapped in drone fabs
-	for(var/thing in SSatoms.late_misc_firers)
-		if(istype(thing, /obj/machinery/drone_fabricator))
-			var/obj/machinery/drone_fabricator/DF = thing
-			DF.enable_drone_spawn()
-		else if(istype(thing, /mob/living/silicon/robot/drone/mining))
-			var/mob/living/silicon/robot/drone/mining/MD = thing
-			MD.request_player()
+	for(var/atom/thing as anything in SSatoms.late_misc_firers)
+		thing.do_late_fire()
 		LAZYREMOVE(SSatoms.late_misc_firers, thing)
 
 	if (config.use_forumuser_api)
 		update_admins_from_api(TRUE)
-
-	click_catchers = create_click_catcher()
 
 	..(timeofday)
 

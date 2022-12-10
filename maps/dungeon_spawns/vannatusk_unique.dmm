@@ -1,0 +1,1705 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
+"ab" = (
+/turf/simulated/wall/rusty,
+/area/mine/unexplored)
+"ac" = (
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ad" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ae" = (
+/obj/structure/table/standard,
+/obj/item/surgery/scalpel/laser3,
+/obj/item/storage/box/freezer/organcooler,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"af" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ag" = (
+/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ah" = (
+/obj/structure/table/rack,
+/obj/item/gun/energy/vaurca/thermaldrill,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ai" = (
+/obj/machinery/optable,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "The body of some unknown creature.";
+	icon = 'icons/mob/npc/vannatusk.dmi';
+	icon_state = "vannatusk_dead2";
+	name = "alien remains"
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ak" = (
+/obj/machinery/suit_cycler/science,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"al" = (
+/obj/structure/table/standard,
+/obj/item/surgery/retractor,
+/obj/item/surgery/bonesetter,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"am" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/walllocker/emerglocker/north,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"an" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ao" = (
+/obj/machinery/door/airlock/sac,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ap" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ar" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"as" = (
+/obj/machinery/door/airlock/sac,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"at" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"au" = (
+/obj/machinery/vannatusk_spawner,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"av" = (
+/obj/structure/trash_pile,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aw" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ax" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/curtain/medical,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ay" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/floodlight{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"az" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/freezer/meat,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aB" = (
+/obj/structure/table/standard,
+/obj/machinery/chemical_dispenser/coffee/full,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aC" = (
+/obj/machinery/vending/cigarette,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aD" = (
+/obj/structure/table/standard,
+/obj/item/material/ashtray/plastic,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/freezer,
+/obj/item/organ/internal/kidneys,
+/obj/machinery/light/small,
+/obj/item/paper{
+	info = "Taeyang is dead.\[br]Another one of those 'Vannatusk' came out. I don't know what we were expecting, maybe that things would just go back to routine, hoping another lifeless, ancient relic would pop in. This one was far more aggressive than the other two, practically a raving beast compared to the second one's confused and frightened demeanor. This time I was the one who used the lance and thank God they had the foresight to stock one here. I was not able to save Taeyang though, there was no time at all. The moment the Vannatusk came through, it had already bridged the gap between itself and Taeyang and impaled him several times, killing him quickly. It would have surely gotten Lowell as well had she been in the room, I hardly had enough time to flee into the ready room as it was.";
+	name = "note"
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aH" = (
+/obj/effect/decal/cleanable/cobweb2,
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aI" = (
+/obj/structure/closet/secure_closet/medical2,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aJ" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/blocker/steel,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aL" = (
+/obj/structure/blocker/steel,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aM" = (
+/obj/structure/table/rack,
+/obj/random/toolbox,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aN" = (
+/obj/structure/bed/stool/chair/plastic,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/plastic,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aP" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 9
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aQ" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aS" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/trash_pile,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/shieldgen,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aY" = (
+/obj/random/junk,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"aZ" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ba" = (
+/obj/machinery/shieldgen,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bb" = (
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/hazmat/custodial,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/mopbucket,
+/obj/item/mop/advanced,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"be" = (
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/structure/sink{
+	pixel_y = 15
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/structure/sink{
+	pixel_y = 15
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bg" = (
+/obj/structure/urinal{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bh" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/silver,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bi" = (
+/obj/machinery/door/airlock/silver,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bj" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/wall/rusty,
+/area/dungeon/bluespace_outpost)
+"bk" = (
+/obj/structure/trash_pile,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bl" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/trash_pile,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bm" = (
+/obj/structure/table/standard,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bo" = (
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/paper{
+	info = "There will be no more testing, three times in a row is no coincidence. Hopefully, the other test sites are not experiencing this trend, hopefully not any who are traveling through bluespace? There are just too many unknowns to continue, and now not even enough of us to even remotely continue safely. Hopefully, Fayad will respond to my next transmission.";
+	name = "note"
+	},
+/obj/item/pen/fountain/black,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bp" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/standard,
+/obj/item/device/camera,
+/obj/item/paper{
+	info = "\[00:02] Recording started.\\\[br\\]\[01:00] Friday Lowell asks, 'Did you have to shoot it with the Lance?'\\\[br\\]\[01:12] Friday Lowell says, 'You completely cooked the animal. Every cell was either blown out from the inside or totally denatured.'\\\[br\\]\[01:30] San Taeyang says, 'You were there, I don't see why you're complaining.'\\\[br\\]\[01:41] William Alsever says, 'Give it a rest, Lowell. We don't need this right now.'\\\[br\\]\[01:57] William Alsever asks, 'Your findings?'\\\[br\\]\[02:32] Friday Lowell says, 'I'm afraid I can't give you much at the cellular level.'\\\[br\\]\[02:56] Friday Lowell says, 'There's not much left inside the membranes. Not many membranes left, for that matter.'\\\[br\\]\[03:19] Friday Lowell says, 'In terms of gross morphology…'\\\[br\\]\[03:56] Friday Lowell says, 'It's all pretty much there on the surface, Humanoid, similarly insectoid outside of that.'\\\[br\\]\[04:10] Friday Lowell says, 'Calcareous exoskeleton, keratinized plastic cuticle. Nothing special.'\\\[br\\]\[04:34] Friday Lowell says, 'Given the environment, I was half-expecting a Sanduloviciu plasma.'\\\[br\\]\[04:52] Friday Lowell says, 'This thing is carbon-based. It's even protein-based, although its proteins are a great deal tougher than ours.'\\\[br\\]\[05:01] San Taeyang asks, 'What does it eat?'\\\[br\\]\[05:21] Friday Lowell says, 'I couldn't say.'\\\[br\\]\[06:35] Friday Lowell says, 'I found gizzard-like contractile around it, which implies they chew on something, or did at some point in their history.'\\\[br\\]\[06:44] Friday Lowell says, 'Besides that...'\\\[br\\]\[07:20] Friday Lowell says, 'Inflate those contractile enough and you create an airtight seal, by the way. In conjunction with the cuticle bits, that would allow this fella to survive briefly in a vacuum.'\\\[br\\]\[07:47] San Taeyang says, 'So it can survive in space.'\\\[br\\]\[07:54] Friday Lowell says, 'In the sense that a dolphin survives underwater. Limited time only.'\\\[br\\]\[08:00] San Taeyang asks, 'How long?'\\\[br\\]\[08:08] Friday Lowell says, 'I'm not certain.'\\\[br\\]\[08:10] Recording stopped.";
+	name = "Recording"
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/body_bag,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"br" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/window/borosilicate/reinforced,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bs" = (
+/obj/structure/window/borosilicate/reinforced,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bt" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/modular_computer/console,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/wood,
+/obj/machinery/photocopier/faxmachine,
+/obj/item/paper{
+	info = "Another one! Christ, what were the odds that the next thing to come out would be yet another? By no means am I complaining, and such an easier subject this one was.\[br] ...Until it smashed the glass and came screaming out into the lab, being shredded by Taeyang a second later - no energy weapon this time!\[br]Well, at least we got a better specimen for Lowell to examine. For the time it was alive this one was very different than the first. Our second guest seemed...scared? Confused? Nothing at all like the first one who acted somewhat startled but immediately after became hostile. We figured that another could possibly come through again, thus keeping the chamber sealed from then on.\[br]Not like it really mattered it seems, this second Vannatusk smashed down the silicate panel like it was made of plywood. I doubt that I will get a response, but I've sent a transmission to the Aurora for replacement chamber paneling, a stronger one at that. Perhaps I should ask Taeyang to head over.";
+	name = "note"
+	},
+/turf/simulated/floor/carpet,
+/area/dungeon/bluespace_outpost)
+"bv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/washing_machine,
+/obj/item/paper{
+	info = "This is becoming obscene. I at first thought it was that fool Fayad's laziness when they failed to respond about our contact with the Vannatusk. As grossly negligent as that is I can imagine it as so. But no response to Taeyang's death? No response to the panel request?\[\\br]I am speechless, even now as I write it is hard to find the words for what I am feeling. Did they fucking leave? Did they perish? Neither I nor Lowell has felt any tremors of which came whenever the Tajara carve out another huge cavern for more of the station to be built. Perhaps they've made a grievous error in the last one?\[\\br]Could it be something else? My mind is racing with the possibilities, but something must happen soon. Supplies are running low, along with charged cells to power our habitation. As horrible as it is to say, Taeyang's death has bought some time if things are as my worst fears believe them to be. Nevertheless, something must happen.\[\\br]If we do not hear from the Aurora, or someone in person in the next day or so, either I or Lowell will make the trek to the Aurora.";
+	name = "note"
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bw" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bx" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"by" = (
+/obj/structure/table/standard,
+/obj/random/action_figure,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bz" = (
+/obj/structure/table/standard,
+/obj/item/device/hand_labeler,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bA" = (
+/obj/structure/bed/roller,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
+/obj/machinery/artifact_scanpad,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bC" = (
+/obj/machinery/artifact_analyser,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bF" = (
+/obj/machinery/chemical_dispenser,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/standard,
+/obj/item/robot_parts/robot_component/camera,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bH" = (
+/obj/structure/table/standard,
+/obj/random/belt,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/artifact,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bJ" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/effect/decal/remains/human,
+/obj/machinery/light/small,
+/obj/item/gun/energy/pistol,
+/obj/item/paper{
+	info = "There is nothing more for me to do. I cannot leave this place, Lowell has not returned nor anyone for that matter in over a month. With no suit? An un-programmed hand teleporter? There is no escaping this place. What's more, there will soon be no more water, no more air, no more power - At least I will not starve? There really is no hope, not that I can see. I am writing this because someone will come, eventually. They'll find this note.\[br]I do not want to suffer, and I do not want to die at the hands of those bluespace beings. Sorry for the mess.";
+	name = "letter"
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bK" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet,
+/area/dungeon/bluespace_outpost)
+"bL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/wood,
+/obj/item/hand_tele,
+/turf/simulated/floor/carpet,
+/area/dungeon/bluespace_outpost)
+"bM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/dungeon/bluespace_outpost)
+"bO" = (
+/turf/simulated/floor/carpet,
+/area/dungeon/bluespace_outpost)
+"bP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small,
+/turf/simulated/floor/carpet,
+/area/dungeon/bluespace_outpost)
+"bR" = (
+/obj/random/junk,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bU" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bV" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/machinery/light/small,
+/mob/living/simple_animal/hostile/giant_spider/hunter,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"bW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ha" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/window/borosilicate/reinforced,
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"qX" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/vannatusk/dead,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"sX" = (
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"AH" = (
+/mob/living/simple_animal/hostile/vannatusk/dead,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"FD" = (
+/obj/machinery/power/apc/high/inactive{
+	cell_type = null;
+	dir = 1;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"Iu" = (
+/turf/simulated/wall/rusty,
+/area/dungeon/bluespace_outpost)
+"Nw" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Nw
+aa
+Nw
+Nw
+Nw
+Nw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+Iu
+ao
+Iu
+Iu
+Nw
+Nw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+aP
+ap
+at
+Iu
+Nw
+Nw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+am
+ad
+bD
+Iu
+Nw
+Nw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Nw
+Iu
+an
+aq
+av
+Iu
+Nw
+Nw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+Iu
+Iu
+ao
+Iu
+Iu
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+ag
+aJ
+ad
+aw
+Iu
+Iu
+Iu
+Iu
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+"}
+(8,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Nw
+Nw
+Nw
+Iu
+ah
+ad
+af
+aS
+Iu
+az
+bM
+Iu
+ab
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+"}
+(9,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Iu
+aM
+ac
+aR
+ay
+Iu
+aA
+ac
+aD
+Iu
+Nw
+Nw
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Nw
+"}
+(10,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+Iu
+Iu
+Iu
+Iu
+aj
+ad
+ac
+aT
+Iu
+aB
+ad
+aE
+Iu
+Nw
+Nw
+Iu
+be
+aJ
+bh
+bJ
+Iu
+Nw
+"}
+(11,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+ae
+ac
+aI
+Iu
+ak
+ac
+bn
+ac
+Iu
+aC
+ac
+ad
+Iu
+Nw
+Nw
+Iu
+bf
+ad
+Iu
+bj
+Iu
+Nw
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+ai
+ac
+aF
+Iu
+Iu
+Iu
+Iu
+ao
+Iu
+Iu
+Iu
+as
+Iu
+Nw
+Nw
+Iu
+bg
+aZ
+bh
+bU
+Iu
+Nw
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+al
+ad
+ad
+Iu
+aN
+bA
+Iu
+ac
+aU
+ac
+aY
+ad
+Iu
+Iu
+Iu
+Iu
+Iu
+as
+Iu
+Iu
+ab
+Nw
+"}
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+Iu
+ax
+ax
+Iu
+aO
+ad
+as
+ac
+ad
+qX
+ad
+bP
+Iu
+ac
+ad
+bR
+ad
+ad
+aQ
+Iu
+Nw
+Nw
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Nw
+Iu
+bq
+ad
+aK
+ac
+ad
+Iu
+ac
+ac
+ac
+ad
+ac
+as
+ac
+ad
+ad
+ad
+ac
+ad
+Iu
+Nw
+Nw
+"}
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Nw
+Iu
+aH
+ad
+aL
+ac
+bk
+Iu
+ac
+aV
+aW
+aZ
+ba
+Iu
+bb
+ac
+ad
+ad
+ac
+ac
+Iu
+Nw
+Nw
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+ao
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+ao
+Iu
+Iu
+as
+Iu
+Iu
+Iu
+Nw
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+ac
+ac
+br
+bt
+bx
+ac
+bl
+ac
+ac
+Iu
+aa
+aa
+aa
+Iu
+bc
+af
+Iu
+be
+ac
+bi
+bV
+Iu
+Nw
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+ar
+au
+bs
+bo
+ad
+ad
+ac
+ad
+ac
+Iu
+Iu
+Iu
+Iu
+Iu
+bd
+aG
+Iu
+bf
+ac
+bj
+bj
+Iu
+Nw
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+ac
+sX
+ha
+bp
+ad
+ac
+bB
+af
+ad
+Iu
+ac
+ac
+aY
+Iu
+bv
+aX
+Iu
+aQ
+bS
+bi
+bW
+Iu
+Nw
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+Iu
+ac
+ac
+sX
+ad
+ad
+bC
+ad
+ad
+Iu
+ac
+bu
+bQ
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Nw
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Nw
+Iu
+Iu
+Iu
+FD
+sX
+AH
+ac
+ac
+ac
+ao
+ad
+bK
+bN
+Iu
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Nw
+Nw
+Iu
+bw
+ac
+ad
+ac
+bE
+bG
+Iu
+ac
+bL
+bO
+Iu
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Nw
+Nw
+Iu
+Iu
+by
+bz
+bm
+bF
+bH
+Iu
+bI
+Iu
+Iu
+Iu
+Nw
+Nw
+Nw
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Iu
+Nw
+Nw
+Nw
+Nw
+Nw
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+Nw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}

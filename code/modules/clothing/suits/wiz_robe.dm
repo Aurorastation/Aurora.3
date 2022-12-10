@@ -6,10 +6,7 @@
 		slot_l_hand_str = "wizhat",
 		slot_r_hand_str = "wizhat"
 		)
-	//Not given any special protective value since the magic robes are full-body protection --NEO
-	siemens_coefficient = 0.75
 	body_parts_covered = 0
-	wizard_garb = 1
 
 /obj/item/clothing/head/wizard/red
 	name = "red wizard hat"
@@ -21,12 +18,6 @@
 	desc = "It has WIZZARD written across it in sequins. Comes with a cool beard."
 	icon_state = "wizard-fake"
 	body_parts_covered = HEAD|FACE
-	siemens_coefficient = 1.0
-
-/obj/item/clothing/head/wizard/marisa
-	name = "witch Hat"
-	desc = "Strange-looking hat-wear, makes you want to cast fireballs."
-	icon_state = "marisa"
 
 /obj/item/clothing/head/wizard/magus
 	name = "magus Helm"
@@ -62,25 +53,14 @@
 	desc = "A magnificant, gem-lined robe that seems to radiate power."
 	icon_state = "wizard"
 	item_state = "wizrobe"
-	gas_transfer_coefficient = 0.01 // IT'S MAGICAL OKAY JEEZ +1 TO NOT DIE
-	permeability_coefficient = 0.01
-	armor = list(melee = 30, bullet = 20, laser = 20,energy = 20, bomb = 20, bio = 20, rad = 20)
-	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/teleportation_scroll,/obj/item/scrying,/obj/item/spellbook,/obj/item/device/soulstone,/obj/item/material/knife/ritual)
+	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/material/knife/ritual)
 	flags_inv = HIDEJUMPSUIT
-	siemens_coefficient = 0.75
-	wizard_garb = 1
 
 /obj/item/clothing/suit/wizrobe/red
 	name = "red wizard robe"
 	desc = "A magnificant, red, gem-lined robe that seems to radiate power."
 	icon_state = "redwizard"
 	item_state = "redwizrobe"
-
-/obj/item/clothing/suit/wizrobe/marisa
-	name = "witch robe"
-	desc = "Magic is all about the spell power, ZE!"
-	icon_state = "marisa"
-	item_state = "marisarobe"
 
 /obj/item/clothing/suit/wizrobe/magusblue
 	name = "magus robe"
@@ -107,13 +87,8 @@
 	desc = "A heavy threaded tweed gray jacket. For a different sort of Gentleman."
 	icon_state = "gentlecoat"
 	item_state = "gentlecoat"
-	gas_transfer_coefficient = 0.01 // IT'S MAGICAL OKAY JEEZ +1 TO NOT DIE
-	permeability_coefficient = 0.01
-	armor = list(melee = 30, bullet = 20, laser = 20,energy = 20, bomb = 20, bio = 20, rad = 20)
-	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/teleportation_scroll,/obj/item/scrying,/obj/item/spellbook,/obj/item/device/soulstone,/obj/item/material/knife/ritual)
+	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/material/knife/ritual)
 	flags_inv = HIDEJUMPSUIT
-	siemens_coefficient = 0.75
-	wizard_garb = 1
 
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	flags_inv = 0
@@ -123,24 +98,6 @@
 	desc = "A rather dull, blue robe meant to mimick real wizard robes."
 	icon_state = "wizard-fake"
 	item_state = "wizrobe"
-	armor = null
-	siemens_coefficient = 1.0
-
-/obj/item/clothing/head/wizard/marisa/fake
-	name = "witch hat"
-	desc = "Strange-looking hat-wear, makes you want to cast fireballs."
-	icon_state = "marisa"
-	armor = null
-	siemens_coefficient = 1.0
-
-/obj/item/clothing/suit/wizrobe/marisa/fake
-	name = "witch robe"
-	desc = "Magic is all about the spell power, ZE!"
-	icon_state = "marisa"
-	item_state = "marisarobe"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	armor = null
-	siemens_coefficient = 1.0
 
 //black robes
 

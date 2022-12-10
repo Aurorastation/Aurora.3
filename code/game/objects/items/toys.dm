@@ -16,6 +16,8 @@
  *		Action figures
  *		Plushies
  *		Toy cult sword
+ *		Ring bell
+ *		Chess Pieces
  */
 
 
@@ -74,8 +76,8 @@
 					src.desc = "A translucent balloon with some form of liquid sloshing around in it."
 					to_chat(user, "<span class='notice'>You fill the balloon with the contents of [O].</span>")
 					O.reagents.trans_to_obj(src, 10)
-	src.update_icon()
-	return
+		src.update_icon()
+		return TRUE
 
 /obj/item/toy/waterballoon/throw_impact(atom/hit_atom)
 	if(src.reagents.total_volume >= 1)
@@ -105,7 +107,7 @@
 /obj/item/toy/balloon
 	name = "balloon"
 	desc_info = "You can fill it up with gas using a tank."
-	desc_fluff = "Thanks to the joint effort of the Research and Atmospherics teams, station enviroments have been set to allow balloons to float without helium. Look, it was the end of the month and we went under budget."
+	desc_extended = "Thanks to the joint effort of the Research and Atmospherics teams, station enviroments have been set to allow balloons to float without helium. Look, it was the end of the month and we went under budget."
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	w_class = ITEMSIZE_HUGE
@@ -173,8 +175,9 @@
 	return
 
 /obj/item/toy/balloon/attackby(obj/item/W as obj, mob/user as mob)
-	if(can_puncture(W))
+	if(W.can_puncture())
 		burst()
+		return TRUE
 
 /obj/item/toy/balloon/latex
 	desc = "Leaves a starchy taste in your mouth after blowing into it."
@@ -225,25 +228,25 @@
 /obj/item/toy/balloon/bat
 	name = "giant bat balloon"
 	desc = "A large, kitschy balloon in the shape of a spooky bat with orange eyes."
-	desc_fluff = "There's a tag that reads: \"Apparition Halloween LLC.\""
+	desc_extended = "There's a tag that reads: \"Apparition Halloween LLC.\""
 	icon_state = "batballoon"
 
 /obj/item/toy/balloon/ghost
 	name = "giant ghost balloon"
 	desc = "Oh no, it's a ghost! Oh wait, it's just a kitschy balloon. Phew!"
-	desc_fluff = "There's a tag that reads: \"Apparition Halloween LLC.\""
+	desc_extended = "There's a tag that reads: \"Apparition Halloween LLC.\""
 	icon_state = "ghostballoon"
 
 /obj/item/toy/balloon/xmastree
 	name = "giant christmas tree balloon"
 	desc = "Mandatory at inter-generational christmas gatherings and office parties."
-	desc_fluff = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
+	desc_extended = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
 	icon_state = "xmastreeballoon"
 
 /obj/item/toy/balloon/candycane
 	name = "giant candy cane balloon"
 	desc = "Kris Kringle ain't got nothing on this candied confection."
-	desc_fluff = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
+	desc_extended = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
 	icon_state = "candycaneballoon"
 
 /obj/item/toy/balloon/color /// To color it, VV the 'color' var with a hex color code with the # included.
@@ -293,109 +296,145 @@
 	icon_state = "singularity_s1"
 
 /*
- * Toy crossbow
+ * Comic books
  */
+/obj/item/toy/comic
+	name = "comic book"
+	desc = "A magazine presenting a fictional story through a sequence of images. Perfect for those long, boring shifts."
+	w_class = ITEMSIZE_SMALL
+	icon_state = "comic"
+	item_state = "comic"
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
+/obj/item/toy/comic/inspector
+	name = "inspector 404 manga"
+	desc = "Inspector 404 follows the adventures of the titular I404, a shell inspector from Konyang. This issue, #67, follows the \
+	404, also known as Kyung-Sun's quest to bring down the corrupt Superintendent Hayashi."
+	icon_state = "comicinspector"
+	item_state = "comicinspector"
+
+/obj/item/toy/comic/stormman
+	name = "stormman manga"
+	desc = "Stormman, often stylized as STORMMAN! is one of Konyang's most beloved anime series, following a masked superhero named Stormman \
+	who has the power to harness the weather to defend his homeworld while keeping his secret identity. Since its release, all kinds of merchandise \
+	have been made, including a conversion of the show to a paperback manga."
+	icon_state = "comicstormman"
+	item_state = "comicstormman"
+
+/obj/item/toy/comic/outlandish_tales
+	name = "outlandish tales magazine"
+	desc = "A magazine specialized in publishing Tajaran Otherworldly Literature stories. The periodical magazine features texts submitted by amateur and established writers alike. \
+	Since it is printed using cheap, recycled paper, outlandish tales is sold for a couple of credits on the streets of Little Adhomai. The magazine also has a section dedicated to \
+	exploring the urban legends and mysteries of Mendell City."
+	desc_extended = "Influenced by recent events and the growing interest in urban legends, Little Adhomai became the birthplace of Tajaran Otherworldly Literature. This literary genre combines \
+	aspects of fantasy, horror, and speculative fiction alongside Adhomian paranormal elements, frequently reimagining mythological creatures and events. Tajaran Otherworldly texts are usually \
+	published in magazines or on extranet sites."
+	icon_state = "comicoutlandish"
+	item_state = "comicoutlandish"
+
+//
+// Toy Crossbows
+//
 /obj/item/toy/crossbow
 	name = "foam dart crossbow"
-	desc = "A weapon favored by many overactive children. Ages 8 and up."
+	desc = "A foam dart crossbow."
 	icon = 'icons/obj/guns/crossbow.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
+	slot_flags = SLOT_BELT | SLOT_HOLSTER
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	attack_verb = list("attacked", "struck", "hit")
-	var/bullets = 5
+	var/dart_count = 5
 
-	examine(mob/user)
-		if(..(user, 2) && bullets)
-			to_chat(user, "<span class='notice'>It is loaded with [bullets] foam darts!</span>")
+/obj/item/toy/crossbow/examine(mob/user)
+	if(..(user, 2) && dart_count)
+		to_chat(user, "<span class='notice'>\The [src] is loaded with [dart_count] foam dart\s.</span>")
 
-	attackby(obj/item/I as obj, mob/user as mob)
-		if(istype(I, /obj/item/toy/ammo/crossbow))
-			if(bullets <= 4)
-				user.drop_from_inventory(I,src)
-				qdel(I)
-				bullets++
-				to_chat(user, "<span class='notice'>You load the foam dart into the crossbow.</span>")
-			else
-				to_chat(usr, "<span class='warning'>It's already fully loaded.</span>")
-
-
-	afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
-		if(!isturf(target.loc) || target == user) return
-		if(flag) return
-
-		if (locate (/obj/structure/table, src.loc))
-			return
-		else if (bullets)
-			var/turf/trg = get_turf(target)
-			var/obj/effect/foam_dart_dummy/D = new/obj/effect/foam_dart_dummy(get_turf(src))
-			bullets--
-			D.icon_state = "foamdart"
-			D.name = "foam dart"
-			playsound(user.loc, 'sound/items/syringeproj.ogg', 50, 1)
-
-			for(var/i=0, i<6, i++)
-				if (D)
-					if(D.loc == trg) break
-					step_towards(D,trg)
-
-					for(var/mob/living/M in D.loc)
-						if(!istype(M,/mob/living)) continue
-						if(M == user) continue
-						for(var/mob/O in viewers(world.view, D))
-							O.show_message(text("<span class='warning'>\The [] was hit by the foam dart!</span>", M), 1)
-						new /obj/item/toy/ammo/crossbow(M.loc)
-						qdel(D)
-						return
-
-					for(var/atom/A in D.loc)
-						if(A == user) continue
-						if(A.density)
-							new /obj/item/toy/ammo/crossbow(A.loc)
-							qdel(D)
-
-				sleep(1)
-
-			spawn(10)
-				if(D)
-					new /obj/item/toy/ammo/crossbow(D.loc)
-					qdel(D)
-
-			return
-		else if (bullets == 0)
-			user.Weaken(5)
-			for(var/mob/O in viewers(world.view, user))
-				O.show_message(text("<span class='warning'>\The [] realized they were out of ammo and starting scrounging for some!</span>", user), 1)
+/obj/item/toy/crossbow/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/toy/ammo/crossbow))
+		if(dart_count <= 4)
+			user.drop_from_inventory(I, src)
+			qdel(I)
+			dart_count++
+			to_chat(user, "<span class='notice'>You load the foam dart into \the [src].</span>")
+		else
+			to_chat(usr, "<span class='warning'>\The [src] is already fully loaded.</span>")
 
 
-	attack(mob/M as mob, mob/user as mob)
-		src.add_fingerprint(user)
-
-// ******* Check
-
-		if (src.bullets > 0 && M.lying)
-
-			for(var/mob/O in viewers(M, null))
-				if(O.client)
-					O.show_message(text("<span class='danger'>\The [] casually lines up a shot with []'s head and pulls the trigger!</span>", user, M), 1, "<span class='warning'>You hear the sound of foam against skull</span>", 2)
-					O.show_message(text("<span class='warning'>\The [] was hit in the head by the foam dart!</span>", M), 1)
-
-			playsound(user.loc, 'sound/items/syringeproj.ogg', 50, 1)
-			new /obj/item/toy/ammo/crossbow(M.loc)
-			src.bullets--
-		else if (M.lying && src.bullets == 0)
-			for(var/mob/O in viewers(M, null))
-				if (O.client)	O.show_message(text("<span class='danger'>\The [] casually lines up a shot with []'s head, pulls the trigger, then realizes they are out of ammo and drops to the floor in search of some!</span>", user, M), 1, "<span class='warning'>You hear someone fall</span>", 2)
-			user.Weaken(5)
+/obj/item/toy/crossbow/afterattack(atom/target, mob/user, flag)
+	if(!isturf(target.loc) || target == user)
 		return
+
+	if(flag)
+		return
+
+	if(locate(/obj/structure/table) in get_turf(src))
+		return
+
+	else if(dart_count)
+		var/turf/trg = get_turf(target)
+		var/obj/effect/foam_dart_dummy/D = new/obj/effect/foam_dart_dummy(get_turf(src))
+		dart_count--
+		D.icon_state = "foamdart"
+		D.name = "foam dart"
+		playsound(src, 'sound/items/syringeproj.ogg', 50, TRUE)
+
+		for(var/i = 0, i < 6, i++)
+			if (D)
+				if(D.loc == trg) break
+				step_towards(D, trg)
+
+				for(var/mob/living/M in D.loc)
+					if(!istype(M, /mob/living))
+						continue
+
+					if(M == user)
+						continue
+
+					for(var/mob/O in viewers(world.view, D))
+						O.show_message(text("<span class='warning'>\The [] was hit by the foam dart!</span>", M), 1)
+					new /obj/item/toy/ammo/crossbow(M.loc)
+					qdel(D)
+					return
+
+				for(var/atom/A in D.loc)
+					if(A == user)
+						continue
+
+					if(A.density)
+						new /obj/item/toy/ammo/crossbow(A.loc)
+						qdel(D)
+
+			sleep(1)
+
+		spawn(10)
+			if(D)
+				new /obj/item/toy/ammo/crossbow(D.loc)
+				qdel(D)
+
+		return
+
+/obj/item/toy/crossbow/attack(mob/M, mob/user)
+	src.add_fingerprint(user)
+
+	if (src.dart_count > 0 && M.lying) // Check
+		for(var/mob/O in viewers(M, null))
+			if(O.client)
+				O.show_message(text("<span class='notice'>\The [] casually lines up a shot with []'s head and pulls the trigger.</span>", user, M), 1)
+				O.show_message(text("<span class='warning'>\The [] was hit in the head by the foam dart!</span>", M), 1)
+
+		playsound(src, 'sound/items/syringeproj.ogg', 50, TRUE)
+		new /obj/item/toy/ammo/crossbow(M.loc)
+		src.dart_count--
+	return
 
 /obj/item/toy/ammo/crossbow
 	name = "foam dart"
-	desc = "It's nerf or nothing! Ages 8 and up."
+	desc = "A foam dart."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "foamdart"
 	w_class = ITEMSIZE_TINY
@@ -404,13 +443,12 @@
 	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/effect/foam_dart_dummy
-	name = ""
-	desc = ""
+	name = null
+	desc = null
 	icon = 'icons/obj/toy.dmi'
 	icon_state = null
-	anchored = 1
-	density = 0
-
+	anchored = TRUE
+	density = FALSE
 
 /*
  * Toy swords
@@ -925,6 +963,12 @@
 	icon_state = "kittenplushie"
 	slot_flags = SLOT_HEAD
 
+/obj/item/toy/plushie/pennyplush
+	name = "Penny plush"
+	desc = "It's a plush of the beloved company mascot cat, Penny! For the price NanoTrasen sells these things at, you probably could have bought an actual cat."
+	icon_state = "pennyplushie"
+	slot_flags = SLOT_HEAD
+
 /obj/item/toy/plushie/lizard
 	name = "lizard plush"
 	desc = "A plushie of a scaly lizard! Very controversial, after being accused as \"racist\" by some Unathi."
@@ -951,6 +995,67 @@
 	desc = "A bear plushie. Only you can stop phoron fires!"
 	icon_state = "bearplushie_fire"
 
+/obj/item/toy/plushie/schlorrgo
+	name = "schlorrgo plush"
+	desc = "A schlorrgo plushie, ready to roll his way into your heart!"
+	icon_state = "schlorrgoplushie"
+	phrase = "Eough!"
+
+/obj/item/toy/plushie/coolschlorrgo
+	name = "Cool Schlorrgo plush"
+	desc = "A plushie of the popular cartoon character, Cool Schlorrgo. Hadii's grace!"
+	icon_state = "coolerschlorrgoplushie"
+	phrase = "Eough!"
+
+/obj/item/toy/plushie/slime
+	name = "slime plush"
+	desc = "A beanbag-filled slime plushie. Relaxing!"
+	icon_state = "slimeplushie"
+	phrase = "Rawr!"
+
+/obj/item/toy/plushie/bee
+	name = "bee plush"
+	desc = "A chunky plushie bee. Your new buzz-t friend!"
+	icon_state = "beeplushie"
+	phrase = "Buzz!"
+
+/obj/item/toy/plushie/shark
+	name = "shark plush"
+	desc = "A beloved jumbo sized shark that is sure to impress your friends."
+	icon_state = "sharkplushie"
+	phrase = "Gashunk!"
+
+/obj/item/toy/plushie/greimorian
+	name = "greimorian plushie"
+	desc = "A lovable plushie of a fierce greimorian! This one takes a few liberties."
+	icon_state = "greimorianplushie"
+	phrase = "Gort!"
+
+/obj/item/toy/plushie/axic
+	name = "Axic plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Axic. "
+	icon_state = "axicplushie"
+	phrase = "Warble!"
+
+/obj/item/toy/plushie/qill
+	name = "Qill plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Qill. "
+	icon_state = "qillplushie"
+	phrase = "Warble!"
+
+/obj/item/toy/plushie/xana
+	name = "Xana plushie"
+	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Xana. "
+	icon_state = "xanaplushie"
+	phrase = "Warble!"
+
+/obj/item/toy/plushie/ipc
+	name = "Aphy plushie"
+	desc = "A plushie of an old Hephaestus mascot, Aphy."
+	desc_extended = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. While the original Aphy is on display in Hephaestus' Mars headquarters, the unit has become a cutesy mascot in recent years."
+	icon_state = "ipcplushie"
+	phrase = "Bwoop!"
+
 //Squid Plushies
 
 /obj/item/toy/plushie/squid
@@ -969,6 +1074,13 @@
 	icon_state = "[colorvar]squid"
 	item_state = "[colorvar]squid"
 	desc = "A small, cute and loveable squid friend. This one is in [colorvar]."
+
+/obj/item/toy/plushie/squidcolour
+	name = "squid plushie"
+	desc = "A small, cute, and loveable squid friend. This one comes in a wide variety of colours."
+	icon_state = "squidplushie_colour"
+	// slot_flags = SLOT_HEAD - head sprite may come someday, but not today.
+	phrase = "Blub!"
 
 //Toy cult sword
 /obj/item/toy/cultsword
@@ -1001,6 +1113,30 @@
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
+/obj/item/toy/aurora
+	name = "aurora miniature"
+	desc = "A miniature of a space station, built into an asteroid. A tiny suspension field keeps it afloat. A small plaque on the front reads: NSS Aurora, Tau Ceti, Romanovich Cloud, 2464. Onward to new horizons."
+	desc_info = "This miniature was given out on the 9th of April 2464 to all former crew members of the Aurora as a memento, before setting off to their new mission on the SCCV Horizon."
+	icon_state = "aurora"
+
+/obj/item/toy/ringbell
+	name = "ringside bell"
+	desc = "A bell used to signal the beginning and end of various ring sports."
+	desc_info = "Use help intent on the bell to signal the start of a contest\ndisarm intent to signal the end of a contest and\nharm intent to signal a disqualification."
+	icon_state = "ringbell"
+	anchored = TRUE
+
+/obj/item/toy/ringbell/attack_hand(mob/user)
+	switch(user.a_intent)
+		if (I_HELP)
+			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src], signalling the beginning of the contest.")), SPAN_NOTICE("You ring \the [src] to signal the beginning of the contest!"))
+			playsound(user.loc, 'sound/items/oneding.ogg', 60, 1)
+		if (I_DISARM)
+			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src] three times, signalling the end of the contest!")), SPAN_NOTICE("You ring \the [src] to signal the end of the contest!"))
+			playsound(user.loc, 'sound/items/threedings.ogg', 60, 1)
+		if (I_HURT)
+			user.visible_message(FONT_LARGE(SPAN_WARNING("[user] rings \the [src] repeatedly, signalling a disqualification!")), SPAN_WARNING("You ring \the [src] to signal a disqualification!"))
+			playsound(user.loc, 'sound/items/manydings.ogg', 60, 1)
 
 //baystation desk toys
 
@@ -1029,25 +1165,25 @@
 /obj/item/toy/desk/newtoncradle
 	name = "\improper Newton's cradle"
 	desc = "A ancient 21th century super-weapon model demonstrating that Sir Isaac Newton is the deadliest sonuvabitch in space."
-	desc_fluff = "Aside from car radios, Eridanian Dregs are reportedly notorious for stealing these things. It is often theorized that the very same ball bearings are used in black-market cybernetics."
+	desc_extended = "Aside from car radios, Eridanian Dregs are reportedly notorious for stealing these things. It is often theorized that the very same ball bearings are used in black-market cybernetics."
 	icon_state = "newtoncradle"
 
 /obj/item/toy/desk/fan
 	name = "office fan"
 	desc = "Your greatest fan."
-	desc_fluff = "For weeks, the atmospherics department faced a conundrum on how to lower temperatures in a localized area through complicated pipe channels and ventilation systems. The problem was promptly solved by ordering several desk fans."
+	desc_extended = "For weeks, the atmospherics department faced a conundrum on how to lower temperatures in a localized area through complicated pipe channels and ventilation systems. The problem was promptly solved by ordering several desk fans."
 	icon_state = "fan"
 
 /obj/item/toy/desk/officetoy
 	name = "office toy"
 	desc = "A generic microfusion powered office desk toy. Only generates magnetism and ennui."
-	desc_fluff = "The mechanism inside is a Hephasteus trade secret. No peeking!"
+	desc_extended = "The mechanism inside is a Hephasteus trade secret. No peeking!"
 	icon_state = "desktoy"
 
 /obj/item/toy/desk/dippingbird
 	name = "dipping bird toy"
 	desc = "Engineers marvel at this scale model of a primitive thermal engine. It's highly debated why the majority of owners were in low-level bureaucratic jobs."
-	desc_fluff = "One of the key essentials for every Eridanian suit - it's practically a rite of passage to own one of these things."
+	desc_extended = "One of the key essentials for every Eridanian suit - it's practically a rite of passage to own one of these things."
 	icon_state = "dippybird"
 
 /obj/item/toy/partypopper
@@ -1070,3 +1206,70 @@
 		new /obj/effect/decal/cleanable/confetti(T)
 	else
 		to_chat(user, SPAN_NOTICE("The [src] is already spent!"))
+
+/obj/item/chess_piece
+	name = "white pawn"
+	desc = "A %NAME% chess piece, this one is worth %POINT% points."
+	icon = 'icons/obj/contained_items/misc/chess.dmi'
+	icon_state = "white_pawn"
+	w_class = ITEMSIZE_HUGE // hugh mungus
+	var/piece_worth = 1
+
+/obj/item/chess_piece/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	if(proximity_flag && isturf(target))
+		user.drop_from_inventory(src, target)
+		pixel_y = initial(pixel_y)
+		pixel_x = initial(pixel_x)
+
+/obj/item/chess_piece/Initialize()
+	. = ..()
+	desc = "A [name] chess piece, this one is worth [piece_worth] point\s."
+
+/obj/item/chess_piece/black
+	name = "black pawn"
+	icon_state = "black_pawn"
+
+/obj/item/chess_piece/rook
+	name = "white rook"
+	icon_state = "white_rook"
+	piece_worth = 5
+
+/obj/item/chess_piece/rook/black
+	name = "black rook"
+	icon_state = "black_rook"
+
+/obj/item/chess_piece/knight
+	name = "white knight"
+	icon_state = "white_knight"
+	piece_worth = 3
+
+/obj/item/chess_piece/knight/black
+	name = "black knight"
+	icon_state = "black_knight"
+
+/obj/item/chess_piece/bishop
+	name = "white bishop"
+	icon_state = "white_bishop"
+	piece_worth = 3
+
+/obj/item/chess_piece/bishop/black
+	name = "black bishop"
+	icon_state = "black_bishop"
+
+/obj/item/chess_piece/king
+	name = "white king"
+	icon_state = "white_king"
+	piece_worth = 10 // not really, but i coded myself into a corner here
+
+/obj/item/chess_piece/king/black
+	name = "black king"
+	icon_state = "black_king"
+
+/obj/item/chess_piece/queen
+	name = "white queen"
+	icon_state = "white_queen"
+	piece_worth = 9
+
+/obj/item/chess_piece/queen/black
+	name = "black queen"
+	icon_state = "black_queen"

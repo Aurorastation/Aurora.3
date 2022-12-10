@@ -10,6 +10,7 @@
 	anchored = TRUE
 	flags = CONDUCT
 	explosion_resistance = 1
+	layer = 2.98
 	var/health = 10
 	var/destroyed = 0
 
@@ -102,10 +103,10 @@
 			qdel(src)
 	else if(istype(W, /obj/item/gun/energy/plasmacutter))
 		var/obj/item/gun/energy/plasmacutter/PC = W
-		if(!PC.power_supply)
-			to_chat(user, SPAN_WARNING("\The [src] doesn't have a power supply installed!"))
+		if(PC.check_power_and_message(user))
 			return
-		playsound(get_turf(src), PC.fire_sound, 100, TRUE)
+		PC.use_resource(user, 1)
+		playsound(loc, PC.fire_sound, 100, TRUE)
 		new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
 		qdel(src)
 	else if((W.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))

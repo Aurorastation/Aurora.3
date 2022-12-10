@@ -44,6 +44,7 @@
 	playsound(src, /decl/sound_category/switch_sound, 30)
 	on = !on
 	sync_lights()
+	intent_message(BUTTON_FLICK, 5)
 
 /obj/machinery/light_switch/proc/sync_lights()
 	var/area/A = get_area(src)

@@ -1,11 +1,11 @@
-1. Get your system to record your web-browser.
-2. Go to https://www.naturalreaders.com/ and select the American heather voice.
-3. Type whatever you want/need and record it.
-4. I used audacity. Set the project rate (hz) to 16000.
+1. Download https://github.com/N3X15/ss13-vox and follow the instructions for setup.
+2. Open create.py, remove line 171 to 174 to get rid of post processing.
+3. Generate lines as normal.
+4. Download Audacity. Set the project rate (hz) to 16000.
 5. Apply reverb, the settings are this: 
-	Room size: 56
+	Room size: 40
 	Pre-delay: 48
-	Reverberance: 47
+	Reverberance: 70
 	Damping: 57
 	Tone low: 84
 	Tone High: 85
@@ -14,5 +14,6 @@
 	Stereo Width (%): 32
 	Wet only: no
 6. Apply amplify with -4.0
+7. In effects, change tempo speed to 15% higher.
 7. Export as .ogg at 10 quality.
 8. Done.

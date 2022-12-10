@@ -26,6 +26,11 @@
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay
 
+	var/bleeding = FALSE
+	var/blood_amount = 20			// set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
+	var/previous_bleed_timer = 0	// they only bleed for as many seconds as force damage was applied to them
+	var/blood_timer_mod = 0.25		// tweak to change the amount of seconds a mob will bleed
+
 	var/list/speak = list()
 	var/speak_chance = 0
 	var/list/emote_hear = list()	//Hearable emotes
@@ -41,6 +46,7 @@
 	var/stop_thinking = FALSE // prevents them from doing any AI stuff whatsoever
 	var/stop_automated_movement = 0 //Use this to temporarely stop random movement or to if you write special movement code for animals.
 	var/wander = 1	// Does the mob wander around when idle?
+	var/wanders_diagonally = FALSE // does the mob move diagonally when wandering?
 	var/stop_automated_movement_when_pulled = 1 //When set to 1 this stops the animal from moving when someone is pulling it.
 	var/atom/movement_target = null//Thing we're moving towards
 	var/turns_since_scan = 0
@@ -50,7 +56,7 @@
 	var/response_help   = "tries to help"
 	var/response_disarm = "tries to disarm"
 	var/response_harm   = "hurts"
-	var/harm_intent_damage = 5
+	var/harm_intent_damage = 3 //The maximum amount of damage this mob can take from simple unarmed attacks that don't have damage values, like punches
 
 	//Temperature effect
 	var/minbodytemp = 250
@@ -76,14 +82,14 @@
 	//LETTING SIMPLE ANIMALS ATTACK? WHAT COULD GO WRONG. Defaults to zero so Ian can still be cuddly
 	var/melee_damage_lower = 0
 	var/melee_damage_upper = 0
+	var/armor_penetration = 0
+	var/attack_flags = 0
 	var/attacktext = "attacked"
 	var/attack_sound = null
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
 	var/resistance		  = 0	// Damage reduction
 	var/resist_mod = 1 // a multiplier for the chance the animal has to break out
-
-	var/wizard_master
 
 	//Null rod stuff
 	var/supernatural = 0
@@ -130,6 +136,15 @@
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
+	var/psi_pingable = TRUE
+
+	var/armor_type = /datum/component/armor
+	var/list/natural_armor //what armor animal has
+
+	//for simple animals that reflect damage when attacked in melee
+	var/return_damage_min
+	var/return_damage_max
+
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
@@ -154,6 +169,9 @@
 		udder = new(50)
 		udder.my_atom = src
 
+	if(LAZYLEN(natural_armor))
+		AddComponent(armor_type, natural_armor)
+
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()
 	if(.)
@@ -165,6 +183,11 @@
 	scan_interval = min_scan_interval
 	turns_since_move = turns_per_move
 	..()
+
+/mob/living/simple_animal/revive(reset_to_roundstart)
+	. = ..()
+	blood_amount = initial(blood_amount)
+	bleeding = FALSE
 
 /mob/living/simple_animal/LateLogin()
 	if(src && src.client)
@@ -181,6 +204,14 @@
 	else if (health < maxHealth)
 		to_chat(user, "<span class='warning'>It looks wounded.</span>")
 
+/mob/living/simple_animal/can_name(var/mob/living/M)
+	if(named)
+		to_chat(M, SPAN_NOTICE("\The [src] already has a name!"))
+		return FALSE
+	if(stat == DEAD)
+		to_chat(M, SPAN_WARNING("You can't name a corpse."))
+		return FALSE
+	return TRUE
 
 /mob/living/simple_animal/Life()
 	..()
@@ -193,7 +224,7 @@
 	if(health > maxHealth)
 		health = maxHealth
 
-	handle_blood_overlay()
+	handle_blood()
 	handle_stunned()
 	handle_weakened()
 	handle_paralysed()
@@ -264,10 +295,10 @@
 		return
 
 	if(!stop_automated_movement && wander && !anchored)
-		if(isturf(loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
+		if(isturf(loc) && !resting && !buckled_to && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			if(turns_since_move >= turns_per_move && !(stop_automated_movement_when_pulled && pulledby))	 //Some animals don't move when pulled
 				var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
-				moving_to = pick(cardinal)
+				moving_to = wanders_diagonally ? pick(alldirs) : pick(cardinal)
 				set_dir(moving_to)			//How about we turn them the direction they are moving, yay.
 				Move(get_step(src,moving_to))
 				turns_since_move = 0
@@ -321,9 +352,12 @@
 	if(purge)
 		purge -= 1
 
-/mob/living/simple_animal/proc/handle_blood_overlay(var/force_reset = FALSE)
+/mob/living/simple_animal/proc/handle_blood(var/force_reset = FALSE)
 	if(!blood_overlay_icon)
 		return
+
+	if(blood_amount <= 0 && stat != DEAD)
+		death()
 
 	var/current_blood_state = blood_state
 	var/blood_mod = health / maxHealth
@@ -335,6 +369,18 @@
 		blood_state = BLOOD_MEDIUM
 	else
 		blood_state = BLOOD_HEAVY
+
+	if(bleeding)
+		switch(blood_state)
+			if(BLOOD_LIGHT)
+				blood_splatter(src, null, FALSE, sourceless_color = blood_type)
+				blood_amount--
+			if(BLOOD_MEDIUM)
+				blood_splatter(src, null, TRUE, sourceless_color = blood_type)
+				blood_amount -= 2
+			if(BLOOD_HEAVY)
+				blood_splatter(src, null, TRUE, sourceless_color = blood_type)
+				blood_amount -= 3
 
 	if(force_reset || current_blood_state != blood_state)
 		if(blood_overlay)
@@ -421,14 +467,8 @@
 	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
 	custom_emote(AUDIBLE_MESSAGE, act_desc, can_ghosts_hear)
 
-/*
-mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
-	if(!Proj || Proj.nodamage)
-		return
-
-	adjustBruteLoss(Proj.damage)
-	return 0
-*/
+/mob/living/simple_animal/proc/handle_attack_by(var/mob/M)
+	return
 
 /mob/living/simple_animal/attack_hand(mob/living/carbon/human/M as mob)
 	..()
@@ -443,6 +483,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			M.visible_message("<b>\The [M]</b> [response_disarm] \the [src]")
 			M.do_attack_animation(src)
 			poke(1)
+			handle_attack_by(M)
 			//TODO: Push the mob away or something
 
 		if(I_GRAB)
@@ -454,7 +495,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			if (!attempt_grab(M))
 				return
 
-			var/obj/item/grab/G = new /obj/item/grab(M, src)
+			var/obj/item/grab/G = new /obj/item/grab(M, M, src)
 
 			M.put_in_active_hand(G)
 
@@ -465,16 +506,33 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			M.visible_message(SPAN_WARNING("\The [M] has grabbed \the [src] passively!"))
 			M.do_attack_animation(src)
 			poke(1)
+			handle_attack_by(M)
 
 		if(I_HURT)
 			unarmed_harm_attack(M)
+			handle_attack_by(M)
 
 	return
 
 /mob/living/simple_animal/proc/unarmed_harm_attack(var/mob/living/carbon/human/user)
+	if(istype(user))
+		var/datum/unarmed_attack/attack = user.get_unarmed_attack(src)
+		if(!attack)
+			simple_harm_attack(user)
+			return
+		attack.show_attack_simple(user, src, pick(organ_names))
+		var/actual_damage = attack.get_unarmed_damage(user) //Punch and kick no longer have get_unarmed_damage due to how humanmob combat works. If we have none, we'll apply a small random amount.
+		if(!actual_damage)
+			actual_damage = harm_intent_damage ? rand(1, harm_intent_damage) : 0
+		apply_damage(actual_damage, attack.damage_type)
+		user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
+		return
+	simple_harm_attack(user)
+
+/mob/living/simple_animal/proc/simple_harm_attack(var/mob/living/user)
 	apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [user.name]")
 	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
-	user.do_attack_animation(src)
+	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	poke(TRUE)
 
 /mob/living/simple_animal/attackby(obj/item/O, mob/user)
@@ -538,16 +596,45 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		poke()
 
 	visible_message(SPAN_DANGER("\The [src] has been attacked with \the [O] by \the [user]."))
-	user.do_attack_animation(src)
+	if(O.hitsound)
+		playsound(loc, O.hitsound, O.get_clamped_volume(), 1, -1)
+	user.do_attack_animation(src, O)
+	handle_attack_by(user)
 	return TRUE
 
-/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags)
+/mob/living/simple_animal/hitby(atom/movable/AM, speed)
 	. = ..()
-	handle_blood_overlay()
+	if(ismob(AM.thrower))
+		handle_attack_by(AM.thrower)
+
+/mob/living/simple_animal/bullet_act(obj/item/projectile/P, def_zone)
+	. = ..()
+	if(ismob(P.firer))
+		handle_attack_by(P.firer)
+
+/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags, armor_pen, silent = FALSE)
+	. = ..()
+	handle_bleeding_timer(damage)
+	handle_blood()
+
+/mob/living/simple_animal/proc/handle_bleeding_timer(var/damage_inflicted)
+	if(QDELETED(src)) // robotic mobs explode before this runs
+		return
+	if(!blood_overlay_icon) // no blood, don't bother
+		return
+	if(damage_inflicted <= 0) // just to be safe
+		return
+	if(!bleeding || previous_bleed_timer <= damage_inflicted)
+		bleeding = TRUE
+		previous_bleed_timer = damage_inflicted
+		addtimer(CALLBACK(src, .proc/stop_bleeding), (damage_inflicted SECONDS) * blood_timer_mod, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/mob/living/simple_animal/proc/stop_bleeding()
+	bleeding = FALSE
 
 /mob/living/simple_animal/heal_organ_damage(var/brute, var/burn)
 	. = ..()
-	handle_blood_overlay()
+	handle_blood()
 
 /mob/living/simple_animal/movement_delay()
 	var/tally = 0 //Incase I need to add stuff other than "speed" later
@@ -586,7 +673,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 /mob/living/simple_animal/updatehealth()
 	..()
-	if (health <= 0)
+	if (health <= 0 && (stat != DEAD))
 		death()
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
@@ -600,14 +687,12 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
-		flick("flash", flash)
+		flash_eyes()
 
 	var/damage
 	switch (severity)
 		if (1.0)
 			damage = 500
-			if(!prob(getarmor(null, "bomb")))
-				gib()
 
 		if (2.0)
 			damage = 120
@@ -615,7 +700,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		if(3.0)
 			damage = 30
 
-	adjustBruteLoss(damage * BLOCKED_MULT(getarmor(null, "bomb")))
+	apply_damage(damage, BRUTE, damage_flags = DAM_EXPLODE)
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
 	if (isliving(target_mob))
@@ -650,15 +735,41 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		sound_time = FALSE
 		addtimer(CALLBACK(src, .proc/reset_sound_time), 2 SECONDS)
 
+/mob/living/simple_animal/verb/change_name()
+	set name = "Name Animal"
+	set desc = "Rename an animal."
+	set category = "IC"
+	set src in view(1)
+
+	var/mob/living/carbon/M = usr
+	if(!istype(M))
+		to_chat(usr, SPAN_WARNING("You aren't allowed to rename \the [src]."))
+		return
+
+	if(can_name(M))
+		var/input = sanitizeSafe(input("What do you want to name \the [src]?","Choose a name") as null|text, MAX_NAME_LEN)
+		if(!input)
+			return
+
+		//check for adjacent and dead in case something happened while naming.
+		if(in_range(M,src) && (stat != DEAD))
+			to_chat(M, SPAN_NOTICE("You rename \the [src] to [input]."))
+			name = "\proper [input]"
+			real_name = input
+			named = TRUE
+			do_nickname(M) //This is for commanded mobs who can have a short name, like guard dogs
+
+//This is for commanded mobs who can have a short name, like guard dogs. Does nothing for other mobs for now
+/mob/living/simple_animal/proc/do_nickname(var/mob/living/M)
+
+
 /mob/living/simple_animal/proc/reset_sound_time()
 	sound_time = TRUE
 
-/mob/living/simple_animal/say(var/message)
-	var/verb = "says"
+/mob/living/simple_animal/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
-	message = sanitize(message)
 	if(emote_sounds.len)
 		var/sound_chance = TRUE
 		if(client) // we do not want people who assume direct control to spam
@@ -693,7 +804,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 		if(issmall(src))
 			user.visible_message("<b>\The [user]</b> chops up \the [src]!")
-			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+			var/obj/effect/decal/cleanable/blood/splatter/S = new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+			S.basecolor = blood_type
+			S.update_icon()
 			qdel(src)
 		else
 			user.visible_message("<b>\The [user]</b> butchers \the [src] messily!")
@@ -829,6 +942,26 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 /mob/living/simple_animal/set_respawn_time()
 	set_death_time(ANIMAL, world.time)
+
+/mob/living/simple_animal/get_organ_name_from_zone(var/def_zone)
+	return pick(organ_names)
+
+/mob/living/simple_animal/is_anti_materiel_vulnerable()
+	if(isSynthetic())
+		return TRUE
+	else
+		return FALSE
+
+/mob/living/simple_animal/proc/reflect_unarmed_damage(var/mob/living/carbon/human/attacker, var/damage_type, var/description)
+	if(attacker.a_intent == I_HURT)
+		var/hand_hurtie
+		if(attacker.hand)
+			hand_hurtie = BP_L_HAND
+		else
+			hand_hurtie = BP_R_HAND
+		attacker.apply_damage(rand(return_damage_min, return_damage_max), damage_type, hand_hurtie, used_weapon = description)
+		if(rand(25))
+			to_chat(attacker, SPAN_WARNING("Your attack has no obvious effect on \the [src]'s [description]!"))
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

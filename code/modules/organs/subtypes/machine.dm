@@ -64,17 +64,18 @@
 	icon_state = "scell"
 	organ_tag = BP_CELL
 	parent_organ = BP_CHEST
-	vital = TRUE
 	max_damage = 80
 	relative_size = 80
+	robotic_sprite = FALSE
 	var/open = FALSE
 	var/obj/item/cell/cell = /obj/item/cell/super
+	var/move_charge_factor = 1
 	//at 0.8 completely depleted after 60ish minutes of constant walking or 130 minutes of standing still
 	var/servo_cost = 0.8
 
 /obj/item/organ/internal/cell/Initialize()
 	robotize()
-	cell = new cell(src)
+	replace_cell(new cell(src))
 	. = ..()
 
 /obj/item/organ/internal/cell/proc/percent()
@@ -89,12 +90,7 @@
 		return 0
 	return round(cell.charge*(1 - damage/max_damage))
 
-/obj/item/organ/internal/cell/proc/checked_use(var/amount)
-	if(!is_usable() || !cell)
-		return FALSE
-	return cell.checked_use(amount)
-
-/obj/item/organ/internal/cell/proc/use(var/amount)
+/obj/item/organ/internal/cell/use(var/amount)
 	if(!is_usable() || !cell)
 		return
 	return cell.use(amount)
@@ -108,12 +104,10 @@
 	var/cost = get_power_drain()
 	if(world.time - owner.l_move_time < 15)
 		cost *= 2
-	if(!checked_use(cost) && owner.isSynthetic())
-		if(!owner.lying && !owner.buckled)
-			to_chat(owner, "<span class='warning'>You don't have enough energy to function!</span>")
-		owner.Paralyse(3)
+	cost *= move_charge_factor
+	use(cost)
 
-/obj/item/organ/internal/cell/proc/get_power_drain()	
+/obj/item/organ/internal/cell/proc/get_power_drain()
 	return servo_cost
 
 /obj/item/organ/internal/cell/emp_act(severity)
@@ -122,7 +116,7 @@
 		cell.emp_act(severity)
 
 /obj/item/organ/internal/cell/attackby(obj/item/W, mob/user)
-	if(isscrewdriver(W))
+	if(W.isscrewdriver())
 		if(open)
 			open = FALSE
 			to_chat(user, SPAN_NOTICE("You screw the battery panel in place."))
@@ -130,20 +124,34 @@
 			open = TRUE
 			to_chat(user, SPAN_NOTICE("You unscrew the battery panel."))
 
-	if(iscrowbar(W))
+	if(W.iscrowbar())
 		if(open)
 			if(cell)
 				user.put_in_hands(cell)
 				to_chat(user, SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 				cell = null
+			else
+				to_chat(user, SPAN_WARNING("There is no cell to remove."))
+		else
+			to_chat(user, SPAN_WARNING("You need to unscrew the battery panel first."))
 
-	if (istype(W, /obj/item/cell))
+	if(istype(W, /obj/item/cell))
 		if(open)
 			if(cell)
 				to_chat(user, SPAN_WARNING("There is a power cell already installed."))
 			else if(user.unEquip(W, src))
-				cell = W
+				replace_cell(W)
 				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
+		else
+			to_chat(user, SPAN_WARNING("You need to unscrew the battery panel first."))
+
+/obj/item/organ/internal/cell/proc/replace_cell(var/obj/item/cell/C)
+	if(istype(cell))
+		qdel(cell)
+	if(C.loc != src)
+		C.forceMove(src)
+	cell = C
+	name = "[initial(name)] ([C.name])"
 
 /obj/item/organ/internal/cell/listen()
 	if(get_charge())
@@ -156,7 +164,8 @@
 	icon_state = "surge_ipc"
 	organ_tag = "surge"
 	parent_organ = BP_CHEST
-	vital = 0
+	vital = FALSE
+	robotic_sprite = FALSE
 	var/surge_left = 0
 	var/broken = 0
 
@@ -195,6 +204,7 @@
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "camera"
 	dead_icon = "camera_broken"
+	robotic_sprite = FALSE
 
 /obj/item/organ/internal/eyes/optical_sensor/Initialize()
 	robotize()
@@ -209,6 +219,7 @@
 	item_state = "ipc_tag"
 	dead_icon = "ipc_tag_dead"
 	contained_sprite = TRUE
+	robotic_sprite = FALSE
 	var/auto_generate = TRUE
 	var/serial_number = ""
 	var/ownership_info = IPC_OWNERSHIP_COMPANY
@@ -278,6 +289,7 @@
 	organ_tag = BP_BRAIN
 	parent_organ = BP_HEAD
 	vital = TRUE
+	robotic_sprite = FALSE
 	var/obj/item/device/mmi/stored_mmi
 
 /obj/item/organ/internal/mmi_holder/proc/update_from_mmi()
@@ -342,7 +354,7 @@
 	name = BP_BRAIN
 	organ_tag = BP_BRAIN
 	parent_organ = BP_CHEST
-	vital = 1
+	vital = TRUE
 	emp_coeff = 0.1
 
 /obj/item/organ/internal/data
@@ -351,8 +363,9 @@
 	parent_organ = BP_GROIN
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "harddisk"
-	vital = 0
+	vital = FALSE
 	emp_coeff = 0.1
+	robotic_sprite = FALSE
 
 /obj/item/organ/internal/data/Initialize()
 	robotize()
@@ -590,6 +603,22 @@
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = "Unbranded"
+
+/obj/item/organ/external/groin/ipc/unbranded/cap // extreme nugget action
+	force_prosthetic_name = "prosthetic groin cap"
+	supports_children = FALSE
+
+/obj/item/organ/external/groin/ipc/unbranded/cap/Initialize(mapload)
+	. = ..()
+	var/obj/item/organ/internal/kidneys/K = new(src)
+	K.robotize()
+	internal_organs += K
+	var/obj/item/organ/internal/liver/L = new(src)
+	L.robotize()
+	internal_organs += L
+	var/obj/item/organ/internal/stomach/S = new(src)
+	S.robotize()
+	internal_organs += S
 
 /obj/item/organ/external/arm/ipc/unbranded
 	dislocated = -1

@@ -122,77 +122,6 @@ Implant Specifics:<BR>"}
 	spawn(delay)
 		malfunction--
 
-
-/obj/item/implant/explosive/deadman
-	name = "deadman explosive"
-	desc = "A military grade micro bio-explosive that detonates upon death."
-	icon_state = "implant_evil"
-	uses_codewords = FALSE
-
-/obj/item/implant/explosive/deadman/get_data()
-	. = {"
-<b>Implant Specifications:</b><BR>
-<b>Name:</b> Robust Corp RX-78 Employee Management Implant<BR>
-<b>Life:</b> Activates upon death.<BR>
-<b>Important Notes:</b> Explodes<BR>
-<HR>
-<b>Implant Details:</b><BR>
-<b>Function:</b> Contains a compact, electrically detonated explosive that detonates upon receiving a specially encoded signal or upon host death.<BR>
-<b>Special Features:</b> Explodes<BR>
-<b>Integrity:</b> Implant will occasionally be degraded by the body's immune system and thus will occasionally malfunction."}
-
-/obj/item/implant/explosive/deadman/attack_self(mob/user)
-	return
-
-/obj/item/implant/explosive/deadman/hear(var/msg)
-	return
-
-/obj/item/implant/explosive/deadman/process()
-	if(malfunction)
-		STOP_PROCESSING(SSprocessing, src)
-		return
-	if (!implanted)
-		return
-	var/mob/M = imp_in
-
-	if(M.stat == DEAD)
-		activate()
-
-/obj/item/implant/explosive/deadman/activate(var/cause)
-	small_countdown(src)
-	STOP_PROCESSING(SSprocessing, src)
-
-/obj/item/implant/explosive/deadman/small_boom()
-	if(imp_in)
-		explosion(get_turf(src), 0, 0, 2, 4, 5)
-		qdel(src)
-		imp_in.gib()
-
-/obj/item/implant/explosive/deadman/implanted(mob/source)
-	START_PROCESSING(SSprocessing, src)
-	return TRUE
-
-/obj/item/implant/explosive/deadman/emp_act(severity)
-	if(malfunction)
-		return
-	malfunction = MALFUNCTION_TEMPORARY
-	switch (severity)
-		if(3.0)
-			if(prob(1))
-				small_countdown()
-			else if(prob(5))
-				meltdown()
-		if(2.0)
-			if(prob(5))
-				small_countdown()
-			else if (prob(10))
-				meltdown()
-		if(1.0)
-			if(prob(10))
-				small_countdown()
-			else if (prob(30))
-				meltdown()
-
 //BS12 Explosive
 /obj/item/implant/explosive
 	name = "explosive implant"
@@ -201,6 +130,7 @@ Implant Specifics:<BR>"}
 	var/phrase
 	var/setup_done = FALSE //Have we set this yet?
 	var/uses_codewords = TRUE
+	var/list/possible_explosions = list("Localized Limb", "Destroy Body")
 	icon_state = "implant_evil"
 
 /obj/item/implant/explosive/Initialize()
@@ -264,7 +194,7 @@ Implant Specifics:<BR>"}
 			small_countdown()
 			return	//to avoid hotspot_expose.
 		if(elevel == "Destroy Body")
-			explosion(get_turf(T), -1, 0, 1, 6)
+			explosion(get_turf(T), -1, 0, 2, 6)
 			T.gib()
 		if(elevel == "Full Explosion")
 			explosion_spread(get_turf(T), rand(8,13))
@@ -324,7 +254,7 @@ Implant Specifics:<BR>"}
 	return TRUE
 
 /obj/item/implant/explosive/attack_self(mob/user)
-	elevel = alert("What sort of explosion would you prefer?", "Implant Intent", "Localized Limb", "Destroy Body", "Full Explosion")
+	elevel = input(user, "What sort of explosion would you prefer?", "Implant Intent") as null|anything in possible_explosions
 	phrase = input("Choose activation phrase:") as text
 	var/list/replacechars = list("\"" = "",">" = "","<" = "","(" = "",")" = "")
 	phrase = replace_characters(phrase, replacechars)
@@ -359,12 +289,83 @@ Implant Specifics:<BR>"}
 
 /obj/item/implant/explosive/New()
 	..()
-	listening_objects += src
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 /obj/item/implant/explosive/Destroy()
-	listening_objects -= src
 	return ..()
 
+/obj/item/implant/explosive/full
+	possible_explosions = list("Localized Limb", "Destroy Body", "Full Explosion")
+
+/obj/item/implant/explosive/deadman
+	name = "deadman explosive"
+	desc = "A military grade micro bio-explosive that detonates upon death."
+	icon_state = "implant_evil"
+	uses_codewords = FALSE
+
+/obj/item/implant/explosive/deadman/get_data()
+	. = {"
+<b>Implant Specifications:</b><BR>
+<b>Name:</b> Robust Corp RX-78 Employee Management Implant<BR>
+<b>Life:</b> Activates upon death.<BR>
+<b>Important Notes:</b> Explodes<BR>
+<HR>
+<b>Implant Details:</b><BR>
+<b>Function:</b> Contains a compact, electrically detonated explosive that detonates upon receiving a specially encoded signal or upon host death.<BR>
+<b>Special Features:</b> Explodes<BR>
+<b>Integrity:</b> Implant will occasionally be degraded by the body's immune system and thus will occasionally malfunction."}
+
+/obj/item/implant/explosive/deadman/attack_self(mob/user)
+	return
+
+/obj/item/implant/explosive/deadman/hear(var/msg)
+	return
+
+/obj/item/implant/explosive/deadman/process()
+	if(malfunction)
+		STOP_PROCESSING(SSprocessing, src)
+		return
+	if (!implanted)
+		return
+	var/mob/M = imp_in
+
+	if(M.stat == DEAD)
+		activate()
+
+/obj/item/implant/explosive/deadman/activate(var/cause)
+	small_countdown(src)
+	STOP_PROCESSING(SSprocessing, src)
+
+/obj/item/implant/explosive/deadman/small_boom()
+	if(imp_in)
+		explosion(get_turf(src), -1, 0, 1, 6)
+		imp_in.gib()
+		qdel(src)
+
+/obj/item/implant/explosive/deadman/implanted(mob/source)
+	START_PROCESSING(SSprocessing, src)
+	return TRUE
+
+/obj/item/implant/explosive/deadman/emp_act(severity)
+	if(malfunction)
+		return
+	malfunction = MALFUNCTION_TEMPORARY
+	switch (severity)
+		if(3.0)
+			if(prob(1))
+				small_countdown()
+			else if(prob(5))
+				meltdown()
+		if(2.0)
+			if(prob(5))
+				small_countdown()
+			else if (prob(10))
+				meltdown()
+		if(1.0)
+			if(prob(10))
+				small_countdown()
+			else if (prob(30))
+				meltdown()
 
 /obj/item/implant/chem
 	name = "chemical implant"
@@ -563,7 +564,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 			STOP_PROCESSING(SSprocessing, src)
 		if ("emp")
 			var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset(null)
-			var/name = prob(50) ? t.name : pick(teleportlocs)
+			var/name = prob(50) ? t.name : pick(the_station_areas)
 			a.autosay("[mobname] has died in [name]!", "[mobname]'s Death Alarm")
 			qdel(a)
 		else
@@ -649,7 +650,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	qdel(src)
 
 /obj/item/implant/compressed/implanted(mob/source as mob)
-	src.activation_emote = input("Choose activation emote:") in list("blink", "blink_r", "eyebrow", "chuckle", "twitch_s", "frown", "nod", "blush", "giggle", "grin", "groan", "shrug", "smile", "pale", "sniff", "whimper", "wink")
+	src.activation_emote = input("Choose activation emote:") in list("blink", "blink_r", "eyebrow", "chuckle", "twitch", "frown", "nod", "blush", "giggle", "grin", "groan", "shrug", "smile", "pale", "sniff", "whimper", "wink")
 	if (source.mind)
 		source.mind.store_memory("Compressed matter implant can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate.", 0, 0)
 	to_chat(source, "The implanted compressed matter implant can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate.")

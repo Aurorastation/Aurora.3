@@ -38,33 +38,27 @@
 	dispersion = list(3,6,9,12)
 	firemodes = list()
 
+/obj/item/gun/energy/blaster/pilot_special
+	name = "pilot's sidearm"
+	desc = "A robust, low in maintenance blaster pistol. Customized for peak performance and perfect for self-defense purposes."
+	max_shots = 8
+	accuracy = 2 // Likely to get nothing else, so they gotta know how to make it count.
+	offhand_accuracy = 2
+
 /obj/item/gun/energy/blaster/revolver
 	name = "blaster revolver"
-	desc = "A robust eight-shot blaster.."
+	desc = "A robust eight-shot blaster."
 	icon = 'icons/obj/guns/blaster_revolver.dmi'
 	icon_state = "blaster_revolver"
 	item_state = "blaster_revolver"
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	projectile_type = /obj/item/projectile/energy/blaster
 	max_shots = 8
-	w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_SMALL
 
-/obj/item/gun/energy/blaster/revolver/verb/spin_cylinder()
-	set name = "Spin cylinder"
-	set desc = "Fun when you're bored out of your skull."
-	set category = "Object"
-	var/mob/living/carbon/human/user
-	if(istype(usr,/mob/living/carbon/human))
-		user = usr
-	else
-		return
-
+/obj/item/gun/energy/blaster/revolver/unique_action(mob/living/user)
 	user.visible_message(SPAN_WARNING("\The [user] spins the cylinder of \the [src]!"), SPAN_WARNING("You spin the cylinder of \the [src]!"), SPAN_NOTICE("You hear something metallic spin and click."))
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
-
-/obj/item/gun/energy/blaster/revolver/pilot
-	name = "pilot's sidearm"
-	desc = "A robust, low in maintenance, eight-shot blaster. Perfect for self-defense purposes."
 
 /obj/item/gun/energy/blaster/carbine
 	name = "blaster carbine"
@@ -90,9 +84,12 @@
 	offhand_accuracy = 0
 	projectile_type = /obj/item/projectile/energy/blaster/heavy
 
+	force = 10
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
-
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
 	fire_delay = 25
 	w_class = ITEMSIZE_LARGE
 	accuracy = -3

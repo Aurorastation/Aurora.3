@@ -85,6 +85,10 @@
 				light_range = 2
 	. = ..()
 
+/turf/unsimulated/floor/asteroid/ReplaceWithLattice()
+	ChangeTurf(baseturf)
+	new /obj/structure/lattice(src)
+
 /turf/unsimulated/floor/asteroid/ash
 	name = "ash"
 	icon_state = "ash"

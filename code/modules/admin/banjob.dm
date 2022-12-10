@@ -319,9 +319,9 @@ var/list/jobban_keylist = list() // Global jobban list.
 	************************************WARNING!***********************************/
 	var/counter = 0
 	//Regular jobs
-	//Command (Blue)
+	//Command
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr align='center' bgcolor='ccccff'><th colspan='[length(command_positions)]'><a href='?src=\ref[src];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_positions)]'><a href='?src=\ref[src];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in command_positions)
 		if (!jobPos)
 			continue
@@ -341,10 +341,32 @@ var/list/jobban_keylist = list() // Global jobban list.
 			counter = 0
 	jobs += "</tr></table>"
 
-	//Security (Red)
+	//Command Support
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_support_positions)]'><a href='?src=\ref[src];jobban_job=commandsupportdept;jobban_tgt=[ckey]'>Command Support Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in command_support_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = SSjobs.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 6) //So things dont get squiiiiished!
+			jobs += "</tr><tr>"
+			counter = 0
+	jobs += "</tr></table>"
+
+	//Security
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='ffddf0'><th colspan='[length(security_positions)]'><a href='?src=\ref[src];jobban_job=securitydept;jobban_tgt=[ckey]'>Security Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='991818'><th colspan='[length(security_positions)]'><a href='?src=\ref[src];jobban_job=securitydept;jobban_tgt=[ckey]'>Security Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in security_positions)
 		if (!jobPos)
 			continue
@@ -364,10 +386,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			counter = 0
 	jobs += "</tr></table>"
 
-	//Engineering (Yellow)
+	//Engineering
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='fff5cc'><th colspan='[length(engineering_positions)]'><a href='?src=\ref[src];jobban_job=engineeringdept;jobban_tgt=[ckey]'>Engineering Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='c67519'><th colspan='[length(engineering_positions)]'><a href='?src=\ref[src];jobban_job=engineeringdept;jobban_tgt=[ckey]'>Engineering Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in engineering_positions)
 		if (!jobPos)
 			continue
@@ -387,10 +409,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			counter = 0
 	jobs += "</tr></table>"
 
-	//Medical (White)
+	//Medical
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='ffeef0'><th colspan='[length(medical_positions)]'><a href='?src=\ref[src];jobban_job=medicaldept;jobban_tgt=[ckey]'>Medical Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='15903a'><th colspan='[length(medical_positions)]'><a href='?src=\ref[src];jobban_job=medicaldept;jobban_tgt=[ckey]'>Medical Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in medical_positions)
 		if (!jobPos)
 			continue
@@ -410,10 +432,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			counter = 0
 	jobs += "</tr></table>"
 
-	//Science (Purple)
+	//Science
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='e79fff'><th colspan='[length(science_positions)]'><a href='?src=\ref[src];jobban_job=sciencedept;jobban_tgt=[ckey]'>Science Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='a44799'><th colspan='[length(science_positions)]'><a href='?src=\ref[src];jobban_job=sciencedept;jobban_tgt=[ckey]'>Science Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in science_positions)
 		if (!jobPos)
 			continue
@@ -433,10 +455,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			counter = 0
 	jobs += "</tr></table>"
 
-	//Cargo (Brown ish)
+	//Cargo
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='f49d50'><th colspan='[length(cargo_positions)]'><a href='?src=\ref[src];jobban_job=cargodept;jobban_tgt=[ckey]'>Cargo Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='593616'><th colspan='[length(cargo_positions)]'><a href='?src=\ref[src];jobban_job=cargodept;jobban_tgt=[ckey]'>Cargo Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in cargo_positions)
 		if (!jobPos)
 			continue
@@ -455,10 +477,33 @@ var/list/jobban_keylist = list() // Global jobban list.
 			jobs += "</tr><tr align='center'>"
 			counter = 0
 
-	//Civilian (Grey)
+	//Service
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='dddddd'><th colspan='[length(civilian_positions)]'><a href='?src=\ref[src];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='90524b'><th colspan='[length(service_positions)]'><a href='?src=\ref[src];jobban_job=servicedept;jobban_tgt=[ckey]'>Service Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in service_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = SSjobs.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 5) //So things dont get squiiiiished!
+			jobs += "</tr><tr align='center'>"
+			counter = 0
+	jobs += "</tr></table>"
+
+	//Civilian
+	counter = 0
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr bgcolor='999999'><th colspan='[length(civilian_positions)]'><a href='?src=\ref[src];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in civilian_positions)
 		if (!jobPos)
 			continue
@@ -476,13 +521,6 @@ var/list/jobban_keylist = list() // Global jobban list.
 		if (counter >= 5) //So things dont get squiiiiished!
 			jobs += "</tr><tr align='center'>"
 			counter = 0
-
-	if (jobban_isbanned(ckey, "Internal Affairs Agent"))
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Internal Affairs Agent;jobban_tgt=[ckey]'><font color=red>Internal Affairs Agent</font></a></td>"
-	else
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Internal Affairs Agent;jobban_tgt=[ckey]'>Internal Affairs Agent</a></td>"
-
-	jobs += "</tr></table>"
 
 	//Non-Human (Green)
 	counter = 0
@@ -505,6 +543,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 		if (counter >= 5) //So things dont get squiiiiished!
 			jobs += "</tr><tr align='center'>"
 			counter = 0
+	jobs += "</tr></table>"
 
 	//pAI isn't technically a job, but it goes in here.
 
@@ -519,12 +558,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 	jobs += "</tr></table>"
 
 	//Antagonist (Orange)
+	counter = 0
 	var/isbanned_dept = jobban_isbanned(ckey, "Antagonist")
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
 	jobs += "<tr bgcolor='ffeeaa'><th colspan='10'><a href='?src=\ref[src];jobban_job=Antagonist;jobban_tgt=[ckey]'>Antagonist Positions</a></th></tr><tr align='center'>"
-
-	// Antagonists.
-	counter = 0
 	for (var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
 		if (!antag || !antag.bantype)
@@ -539,10 +576,9 @@ var/list/jobban_keylist = list() // Global jobban list.
 		if (counter >= 5) //So things dont get squiiiiished!
 			jobs += "</tr><tr align='center'>"
 			counter = 0
-
 	jobs += "</tr></table>"
 
-	//Other races  (BLUE, because I have no idea what other color to make this)
+	//Other Races
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
 	jobs += "<tr bgcolor='ccccff'><th colspan='1'>Other Races</th></tr><tr align='center'>"
 
@@ -601,6 +637,14 @@ var/list/jobban_keylist = list() // Global jobban list.
 				if (!temp)
 					continue
 				joblist += temp.title
+		if ("commandsupportdept")
+			for (var/jobPos in command_support_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
 		if ("securitydept")
 			for (var/jobPos in security_positions)
 				if (!jobPos)
@@ -627,6 +671,14 @@ var/list/jobban_keylist = list() // Global jobban list.
 				joblist += temp.title
 		if ("sciencedept")
 			for (var/jobPos in science_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
+		if ("servicedept")
+			for (var/jobPos in service_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)

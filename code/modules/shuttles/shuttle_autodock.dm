@@ -90,9 +90,9 @@
 				//*** ready to go
 				if(next_location.is_valid(src))
 					process_launch()
-					process_state = WAIT_ARRIVE
+					set_process_state(WAIT_ARRIVE)
 				else
-					process_state = IDLE_STATE
+					set_process_state(IDLE_STATE)
 					in_use = null
 
 		if (FORCE_LAUNCH)
@@ -102,12 +102,12 @@
 			if (moving_status == SHUTTLE_IDLE)
 				//*** we made it to the destination, update stuff
 				process_arrived()
-				process_state = WAIT_FINISH
+				set_process_state(WAIT_FINISH)
 
 		if (WAIT_FINISH)
 			if (world.time > last_dock_attempt_time + DOCK_ATTEMPT_TIMEOUT || check_docked())
 				//*** all done here
-				process_state = IDLE_STATE
+				set_process_state(IDLE_STATE)
 				arrived()
 
 //not to be confused with the arrived() proc
@@ -128,14 +128,14 @@
 
 /datum/shuttle/autodock/proc/process_launch()
 	if(!next_location.is_valid(src) || current_location.cannot_depart(src))
-		process_state = IDLE_STATE
+		set_process_state(IDLE_STATE)
 		in_use = null
 		return
 	if (get_travel_time() && landmark_transition)
-		. = long_jump(next_location, landmark_transition, get_travel_time())
+		long_jump(next_location, landmark_transition, get_travel_time())
 	else
-		. = short_jump(next_location)
-	process_state = WAIT_ARRIVE
+		short_jump(next_location)
+	set_process_state(WAIT_ARRIVE)
 
 /*
 	Guards
@@ -158,7 +158,7 @@
 
 	in_use = user	//obtain an exclusive lock on the shuttle
 
-	process_state = WAIT_LAUNCH
+	set_process_state(WAIT_LAUNCH)
 	undock()
 
 /datum/shuttle/autodock/proc/force_launch(var/user)
@@ -167,13 +167,13 @@
 
 	in_use = user	//obtain an exclusive lock on the shuttle
 
-	process_state = FORCE_LAUNCH
+	set_process_state(FORCE_LAUNCH)
 
 /datum/shuttle/autodock/proc/cancel_launch(var/user)
 	if (!can_cancel()) return
 
 	moving_status = SHUTTLE_IDLE
-	process_state = WAIT_FINISH
+	set_process_state(WAIT_FINISH)
 	in_use = null
 
 	//whatever we were doing with docking: stop it, then redock

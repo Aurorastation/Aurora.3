@@ -61,7 +61,7 @@
 		sleeping = 0
 		willfully_sleeping = FALSE
 
-/mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/blocked, var/hit_zone)
+/mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
 	var/t_him = "it"
 	if (src.gender == MALE)
 		t_him = "him"
@@ -85,12 +85,12 @@
 					    "<span class='danger'>You attack [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
 		user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
-				    "<span class='danger'>You attack [src] with [I], waking [t_him] up!</span>")
+							"<span class='danger'>You attack [src] with [I], waking [t_him] up!</span>")
 		sleeping = 0
 		willfully_sleeping = FALSE
 
 
-	if(!effective_force || blocked >= 100)
+	if(!effective_force)
 		return 0
 
 	//Hulk modifier
@@ -99,19 +99,14 @@
 
 	//Apply weapon damage
 	var/damage_flags = I.damage_flags()
-	if(prob(blocked)) //armor provides a chance to turn sharp/edge weapon attacks into blunt ones
-		damage_flags &= ~DAM_SHARP
-		damage_flags &= ~DAM_EDGE
-
-	apply_damage(effective_force, I.damtype, hit_zone, blocked, used_weapon=I, damage_flags = damage_flags)
+	apply_damage(effective_force, I.damtype, hit_zone, I, damage_flags, I.armor_penetration)
 
 	//Melee weapon embedded object code.
-	if (I && I.damtype == BRUTE && !I.anchored && !is_robot_module(I))
+	if (I && I.damtype == BRUTE && !I.anchored && !is_robot_module(I) && I.canremove)
 		var/damage = effective_force //just the effective damage used for sorting out embedding, no further damage is applied here
-		if (blocked)
-			damage *= BLOCKED_MULT(blocked)
+		damage *= 1 - get_blocked_ratio(hit_zone, I.damtype, I.damage_flags(), I.armor_penetration, I.force)
 
-		if (I.can_embed)//If this weapon is allowed to embed in people
+		if(I.can_embed) //If this weapon is allowed to embed in people.
 			//blunt objects should really not be embedding in things unless a huge amount of force is involved
 			var/sharp = damage_flags & DAM_SHARP
 			var/edge = damage_flags & DAM_EDGE
@@ -142,7 +137,7 @@
 	user.visible_message("<span class='danger'>\The [user] begins to slit [src]'s throat with \the [W]!</span>")
 
 	user.next_move = world.time + 20 //also should prevent user from triggering this repeatedly
-	if(!do_after(user, 20/W.toolspeed))
+	if(!W.use_tool(src, user, 20, volume = 50))
 		return 0
 	if(!(G && G.assailant == user && G.affecting == src)) //check that we still have a grab
 		return 0
@@ -150,9 +145,10 @@
 	var/damage_mod = 1
 	//presumably, if they are wearing a helmet that stops pressure effects, then it probably covers the throat as well
 	var/obj/item/clothing/head/helmet = get_equipped_item(slot_head)
-	if(istype(helmet) && (helmet.body_parts_covered & HEAD) && (helmet.flags & STOPPRESSUREDAMAGE))
-		//we don't do an armor_check here because this is not an impact effect like a weapon swung with momentum, that either penetrates or glances off.
-		damage_mod = 1.0 - (LAZYACCESS(helmet.armor, "melee")/100)
+	if(istype(helmet) && (helmet.body_parts_covered & HEAD) && (helmet.min_pressure_protection == 0))
+		var/datum/component/armor/armor_component = helmet.GetComponent(/datum/component/armor)
+		if(armor_component)
+			damage_mod -= armor_component.get_blocked(BRUTE, damage_flags, W.armor_penetration, W.force*1.5)
 
 	var/total_damage = 0
 	for(var/i in 1 to 3)

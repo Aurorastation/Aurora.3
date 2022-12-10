@@ -30,7 +30,7 @@
 	user.drop_item()
 	playsound(src.loc, 'sound/items/package_unwrap.ogg', 50,1)
 	if(src.gift)
-		user.put_in_active_hand(gift)
+		user.put_in_hands(gift)
 		src.gift.add_fingerprint(user)
 	else
 		to_chat(user, "<span class='warning'>The gift was empty!</span>")
@@ -138,7 +138,7 @@
 	..()
 	randpixel_xy()
 	var/gift_benefactor = pick("the NanoTrasen Department of Christmas Affairs", "Miranda Trasen", "Joseph Dorne", "Isaac Asimov", "Baal D. Griffon", "the Sol Alliance (Sorry about the blockade!)",
-		"Hephaestus Industries", "Idris Incorporated", "Glorsh Omega II", "the Jargon Federation", "the People's Republic of Adhomai", "the Adhomai Liberation Army", "the Izweski Hegemony",
+		"Hephaestus Industries", "Idris Incorporated", "Glorsh Omega II", "the Nralakk Federation", "the People's Republic of Adhomai", "the Adhomai Liberation Army", "the Izweski Hegemony",
 		"the Zo'ra Hive","the Coalition of Colonies", "Digital Dingo", "Optimum Jeffrey", "Lemmy and the Clockworks", "President Hadii", "King Azunja","Supreme Commander Nated'Hakhan",
 		"Lord-Regent Not'zar","Jesus Christ","Santa Claus","Mrs. Claus","Sandy Claws","Buddha","Gary","Jesus Christ!","the True Queen of Biesel, God-Lady Seon-rin von Illdenberg, First of Her Name",
 		"Admiral Frost","Pirate King Frost", "The Secret NanoTrasen Cabal of Duty Officers", "The Society for the Preservation of Rats", "Officer Beepsky","Lieutenant Columbo","Crew of the NSS Upsilon","Runtime",
@@ -167,13 +167,14 @@
 		/obj/random/spacecash,
 		/obj/random/glowstick,
 		/obj/random/gloves,
+		/obj/random/wizard_dressup,
 		/obj/item/storage/wallet,
 		/obj/item/storage/photo_album,
 		/obj/item/storage/box/snappops,
 		/obj/item/storage/box/fancy/crayons,
 		/obj/item/soap/deluxe,
 		/obj/item/pen/invisible,
-		/obj/item/clothing/gloves/watch,
+		/obj/item/clothing/wrists/watch,
 		/obj/item/lipstick/random,
 		/obj/item/clothing/shoes/carp,
 		/obj/item/bikehorn,
@@ -200,7 +201,6 @@
 		/obj/item/storage/box/fancy/cigarettes/dromedaryco,
 		/obj/item/toy/bosunwhistle,
 		/obj/item/clothing/mask/fakemoustache,
-		/obj/item/clothing/mask/gas/clown_hat,
 		/obj/item/clothing/mask/gas/mime,
 		/obj/item/clothing/head/festive/santa,
 		/obj/item/stack/material/animalhide/lizard,
@@ -244,7 +244,6 @@
 
 /obj/item/xmasgift/medium/get_gift_type()
 	var/picked_gift_type = pick(
-		/obj/item/sord,
 		/obj/random/booze,
 		/obj/random/random_flag,
 		/obj/item/storage/belt/champion,
@@ -269,7 +268,6 @@
 		/obj/item/device/flashlight/lantern,
 		/obj/item/clothing/mask/balaclava,
 		/obj/item/clothing/accessory/badge/old,
-		/obj/item/clothing/mask/gas/clown_hat,
 		/obj/item/clothing/mask/gas/mime,
 		/obj/item/clothing/shoes/galoshes,
 		/mob/living/simple_animal/lizard,
@@ -281,7 +279,7 @@
 		/obj/item/xmasgift/large,
 		/obj/item/reagent_containers/food/snacks/pudding,
 		/obj/item/contraband/poster,
-		/obj/item/clothing/head/hardhat/red/atmos,
+		/obj/item/clothing/head/hardhat/atmos,
 		/mob/living/bot/cleanbot,
 		/obj/item/device/binoculars,
 		/obj/item/device/camera,
@@ -312,10 +310,8 @@
 		/obj/item/inflatable_duck,
 		/obj/item/beach_ball,
 		/obj/item/clothing/under/syndicate/tracksuit,
-		/obj/item/clothing/under/rank/clown,
-		/obj/item/clothing/under/mime,
-		/obj/item/clothing/under/rank/fatigues/marine,
-		/obj/item/clothing/under/rank/dress/marine,
+		/obj/item/clothing/under/rank/sol/marine,
+		/obj/item/clothing/under/rank/sol/dress/marine,
 		/obj/random/hoodie,
 		/mob/living/simple_animal/cat/kitten,
 		/mob/living/simple_animal/chick,

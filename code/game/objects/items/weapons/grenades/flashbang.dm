@@ -7,15 +7,15 @@
 
 /obj/item/grenade/flashbang/prime()
 	..()
-	for(var/obj/structure/closet/L in hear(7, get_turf(src)))
+	for(var/obj/structure/closet/L in get_hear(7, get_turf(src)))
 		if(locate(/mob/living/carbon/, L))
 			for(var/mob/living/carbon/M in L)
 				bang(get_turf(src), M)
 
-	for(var/mob/living/carbon/M in hear(7, get_turf(src)))
+	for(var/mob/living/carbon/M in get_hear(7, get_turf(src)))
 		bang(get_turf(src), M)
 
-	for(var/obj/effect/blob/B in hear(8,get_turf(src)))       		//Blob damage here
+	for(var/obj/effect/blob/B in get_hear(8,get_turf(src)))       		//Blob damage here
 		var/damage = round(30/(get_dist(B,get_turf(src))+1))
 		B.health -= damage
 		B.update_icon()
@@ -65,20 +65,28 @@
 	if((get_dist(M, T) <= 2 || src.loc == M.loc || src.loc == M))
 		if(!(ear_safety > 0))
 			if ((prob(14) || (M == src.loc && prob(70))))
-				M.ear_damage += rand(1, 10)
+				M.adjustEarDamage(rand(1, 10), 0, TRUE)
 			else
-				M.ear_damage += rand(0, 5)
-				M.ear_deaf = max(M.ear_deaf,15)
+				M.adjustEarDamage(rand(0, 5), 15, TRUE)
+			if(ishuman(M))
+				var/mob/living/carbon/human/H = M
+				if (H.is_listening())
+					if (H.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
+						H.Weaken(5)
+					else 
+						H.Weaken(2)
 
 	else if(get_dist(M, T) <= 5)
 		if(!ear_safety)
 			sound_to(M, sound('sound/weapons/flash_ring.ogg',0,1,0,100))
-			M.ear_damage += rand(0, 3)
-			M.ear_deaf = max(M.ear_deaf,10)
+			M.adjustEarDamage(rand(0, 3), 10, TRUE)
+			if(ishuman(M))
+				var/mob/living/carbon/human/H = M
+				if (H.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
+					H.Weaken(2)
 
 	else if(!ear_safety)
-		M.ear_damage += rand(0, 1)
-		M.ear_deaf = max(M.ear_deaf,5)
+		M.adjustEarDamage(rand(0, 1), 5, TRUE)
 
 //This really should be in mob not every check
 	if(ishuman(M))
@@ -89,15 +97,6 @@
 			if(!banglet && !(istype(src , /obj/item/grenade/flashbang/clusterbang)))
 				if (E.damage >= E.min_broken_damage)
 					to_chat(M, "<span class='danger'>You can't see anything!</span>")
-	if (M.ear_damage >= 15)
-		to_chat(M, "<span class='danger'>Your ears start to ring badly!</span>")
-		if(!banglet && !(istype(src , /obj/item/grenade/flashbang/clusterbang)))
-			if (prob(M.ear_damage - 10 + 5))
-				to_chat(M, "<span class='danger'>You can't hear anything!</span>")
-				M.sdisabilities |= DEAF
-	else
-		if (M.ear_damage >= 5)
-			to_chat(M, "<span class='danger'>Your ears start to ring!</span>")
 	M.update_icon()
 
 /obj/item/grenade/flashbang/clusterbang//Created by Polymorph, fixed by Sieve

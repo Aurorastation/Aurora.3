@@ -1,0 +1,28 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"b" = (
+/obj/vehicle/train/cargo/trolley/mining,
+/turf/template_noop,
+/area/template_noop)
+"F" = (
+/obj/vehicle/train/cargo/engine/mining,
+/turf/template_noop,
+/area/template_noop)
+
+(1,1,1) = {"
+a
+b
+a
+"}
+(2,1,1) = {"
+a
+b
+a
+"}
+(3,1,1) = {"
+a
+F
+a
+"}

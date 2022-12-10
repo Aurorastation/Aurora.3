@@ -188,11 +188,22 @@
 		return STATUS_INTERACTIVE
 	return ..()
 
+/datum/controller/subsystem/records/Topic(href, href_list)
+	if(href_list["action"] == "follow") // from manifest.vue
+		var/mob/abstract/observer/O = usr
+		if(istype(O))
+			for(var/mob/living/M in player_list)
+				if(istype(M) && M.real_name == href_list["name"])
+					O.ManualFollow(M)
+					break
+	. = ..()
+
 /datum/controller/subsystem/records/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data || list()
 
 	VUEUI_SET_CHECK_LIST(data["manifest"], SSrecords.get_manifest_list(), ., data)
+	VUEUI_SET_CHECK(data["allow_follow"], isobserver(usr), ., data)
 
 /datum/controller/subsystem/records/proc/open_manifest_vueui(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -283,19 +294,18 @@
 /*
  * Helping functions for everyone
  */
-/proc/GetAssignment(var/mob/living/carbon/human/H)
+/proc/GetAssignment(var/mob/living/carbon/human/H, var/include_faction_prefix)
+	var/return_value = "Unassigned"
 	if(H.mind?.role_alt_title)
-		return H.mind.role_alt_title
+		return_value = H.mind.role_alt_title
 	else if(H.mind?.assigned_role)
-		return H.mind.assigned_role
+		return_value = H.mind.assigned_role
 	else if(H.job)
-		return H.job
-	else
-		return "Unassigned"
+		return_value = H.job
+	return "[return_value][include_faction_prefix ? " ([H.mind.selected_faction.title_suffix])" : ""]"
 
 /proc/generate_record_id()
-	return add_zero(num2hex(rand(1, 65535)), 4)
-
+	return num2hex(rand(1, 65535), 4)
 
 /datum/controller/subsystem/records/proc/InitializeCitizenships()
 	for (var/type in subtypesof(/datum/citizenship))

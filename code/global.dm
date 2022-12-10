@@ -20,8 +20,7 @@ var/global/datum/universal_state/universe = new
 
 var/global/list/global_map = null
 
-// Noises made when hit while typing.
-var/list/hit_appends = list("-OOF", "-ACK", "-UGH", "-HRNK", "-HURGH", "-GLORF")
+var/global/list/cable_list = list()
 
 var/diary               = null
 var/diary_runtime  = null
@@ -35,9 +34,6 @@ var/round_progressing = 1
 var/master_mode       = "extended" // "extended"
 var/secret_force_mode = "secret"   // if this is anything but "secret", the secret rotation will forceably choose this mode.
 
-var/host = null //only here until check @ code\modules\ghosttrap\trap.dm:112 is fixed
-
-var/list/jobMax        = list()
 var/list/bombers       = list()
 var/list/admin_log     = list()
 var/list/signal_log    = list()
@@ -45,8 +41,6 @@ var/list/lastsignalers = list() // Keeps last 100 signals here in format: "[src]
 var/list/lawchanges    = list() // Stores who uploaded laws to which silicon-based lifeform, and what the law was.
 var/list/reg_dna       = list()
 
-var/list/monkeystart     = list()
-var/list/wizardstart     = list()
 var/turf/newplayer_start = null
 
 //Spawnpoints.
@@ -56,18 +50,15 @@ var/list/latejoin_cryo         = list()
 var/list/latejoin_cryo_command = list()
 var/list/latejoin_cyborg       = list()
 var/list/latejoin_merchant     = list()
+var/list/latejoin_living_quarters_lift     = list()
 var/list/kickoffsloc           = list()
+var/list/virtual_reality_spawn = list()
 
-var/list/prisonwarp         = list() // Prisoners go to these
-var/list/holdingfacility    = list() // Captured people go here
-var/list/xeno_spawn         = list() // Aliens spawn at at these.
 var/list/asteroid_spawn     = list() // Asteroid "Dungeons" spawn at these.
 var/list/tdome1             = list()
 var/list/tdome2             = list()
 var/list/tdomeobserve       = list()
 var/list/tdomeadmin         = list()
-var/list/prisonsecuritywarp = list() // Prison security goes to these.
-var/list/prisonwarped       = list() // List of players already warped.
 var/list/ninjastart         = list()
 
 var/list/cardinal    = list(NORTH, SOUTH, EAST, WEST)
@@ -137,15 +128,14 @@ var/static/list/scarySounds = list(
 	'sound/items/welder.ogg',
 	'sound/items/welder_pry.ogg',
 	'sound/machines/airlock.ogg',
-	'sound/effects/clownstep1.ogg',
-	'sound/effects/clownstep2.ogg'
+
 )
 
 // Bomb cap!
 var/max_explosion_range = 14
 
 // Announcer intercom, because too much stuff creates an intercom for one message then hard del()s it.
-var/global/obj/item/device/radio/intercom/global_announcer = new(null)
+var/global/obj/item/device/radio/all_channels/global_announcer = new(null)
 
 // the number next to it denotes how much money the department receives when its account is generated
 var/list/department_funds = list(
@@ -154,8 +144,8 @@ var/list/department_funds = list(
 	"Engineering" = 10000,
 	"Science" = 10000,
 	"Security" = 10000,
-	"Cargo" = 5000,
-	"Civilian" = 10000,
+	"Operations" = 5000,
+	"Service" = 10000,
 	"Vendor" = 0
 	)
 

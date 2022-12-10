@@ -19,20 +19,28 @@
 	drop_sound = 'sound/items/drop/gascan.ogg'
 	pickup_sound = 'sound/items/pickup/gascan.ogg'
 
-/obj/item/reagent_containers/extinguisher_refill/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/O, mob/user)
+	if(O.isscrewdriver())
+		if(is_open_container())
+			flags &= ~OPENCONTAINER
+		else
+			flags |= OPENCONTAINER
+		to_chat(user, SPAN_NOTICE("Using \the [O], you [is_open_container() ? "unsecure" : "secure"] the cartridge's lid!"))
+		return TRUE
+
 	if(istype(O,/obj/item/extinguisher))
 		var/obj/item/extinguisher/E = O
-		if(src.is_open_container())
+		if(is_open_container())
 			to_chat(user,"<span class='notice'>\The [src] needs to be secured first!</span>")
-		else if(src.reagents.total_volume <= 0)
+		else if(reagents.total_volume <= 0)
 			to_chat(user,"<span class='notice'>\The [src] is empty!</span>")
 		else if(E.reagents.total_volume < E.reagents.maximum_volume)
-			src.reagents.trans_to(E, src.reagents.total_volume)
+			reagents.trans_to(E, src.reagents.total_volume)
 			user.visible_message("<span class='notice'>[user] fills \the [E] with the [src].</span>", "<span class='notice'>You fill \the [E] with the [src].</span>")
 			playsound(E.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else
 			to_chat(user,"<span class='notice'>\The [E] is full!</span>")
-		return
+		return TRUE
 
 	. = ..()
 
@@ -46,13 +54,6 @@
 	else
 		to_chat(user,"<span class='notice'>\The reagents inside [src] are already secured!</span>")
 	return
-
-/obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() && !is_open_container())
-		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the extinguisher refill cartridge's lid.</span>") // it locks shut after being secured
-		flags |= OPENCONTAINER
-		return
-	. = ..()
 
 /obj/item/reagent_containers/extinguisher_refill/examine(var/mob/user) //Copied from inhalers.
 	if(!..(user, 2))
@@ -157,16 +158,18 @@
 			playsound(ER.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else
 			to_chat(user,"<span class='notice'>\The [src] is full!</span>")
-		return
+		return TRUE
 
 	. = ..()
 
 /obj/item/extinguisher/proc/propel_object(var/obj/O, mob/user, movementdirection)
 	if(O.anchored) return
 
-	var/obj/structure/bed/chair/C
-	if(istype(O, /obj/structure/bed/chair))
-		C = O
+	var/obj/structure/bed/stool/chair/C
+	if(!istype(O, /obj/structure/bed/stool/chair/office))
+		return
+
+	C = O
 
 	var/list/move_speed = list(1, 1, 1, 2, 2, 3)
 	for(var/i in 1 to 6)
@@ -194,9 +197,9 @@
 
 		var/direction = get_dir(src,target)
 
-		if(user.buckled && isobj(user.buckled))
+		if(user.buckled_to && isobj(user.buckled_to))
 			spawn(0)
-				propel_object(user.buckled, user, turn(direction,180))
+				propel_object(user.buckled_to, user, turn(direction,180))
 
 		var/turf/T = get_turf(target)
 		var/turf/T1 = get_step(T,turn(direction, 90))

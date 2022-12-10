@@ -49,7 +49,30 @@
 	fallback_specific_heat = 1.048
 
 /decl/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.adjustToxLoss(removed * 1.5)
+	if(alien == IS_DIONA)
+		M.adjustNutritionLoss(-removed*3)
+	else
+		if(prob(15))
+			M.add_chemical_effect(CE_NEPHROTOXIC, 1)
+
+/decl/reagent/ammonia/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(alien == IS_DIONA)
+		M.adjustNutritionLoss(-removed*3)
+	else if(REAGENT_VOLUME(holder, type) > 15)
+		M.adjustOxyLoss(2 * removed)
+		if(M.losebreath < 15)
+			M.losebreath++
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "Your insides are on fire!", "Your feel a burning pain in your chest!")))
+	else
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something really digusting.", "Your chest doesn't feel so great.")))
+
+/decl/reagent/ammonia/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(!(alien == IS_DIONA))
+		M.adjustFireLoss(20)
+		to_chat(M, SPAN_WARNING(pick("Your skin burns!", "The chemical is melting your skin!", "Wash it off, wash it off!")))
+		remove_self(REAGENT_VOLUME(holder, type), holder)
 
 /decl/reagent/carbon
 	name = "Carbon"
@@ -286,7 +309,7 @@
 
 /decl/reagent/lithium
 	name = "Lithium"
-	description = "A chemical element, used as antidepressant."
+	description = "A chemical element, used as an antidepressant."
 	reagent_state = SOLID
 	color = "#808080"
 	taste_description = "metal"
@@ -296,7 +319,7 @@
 /decl/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
 		step(M, pick(cardinal))
-	if(prob(5))
+	if(prob(5) && ishuman(M))
 		M.emote(pick("twitch", "drool", "moan"))
 
 /decl/reagent/mercury
@@ -315,7 +338,7 @@
 	fallback_specific_heat = 0.631
 
 /decl/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.add_chemical_effect(CE_NEUROTOXIC, 2*removed)
+	M.add_chemical_effect(CE_NEUROTOXIC, 1*removed)
 	var/dose = M.chem_doses[type]
 	if(dose > 1)
 		if(prob(dose/2))
@@ -323,7 +346,7 @@
 		M.confused = max(M.confused, 10)
 	if(dose > 4)
 		M.add_chemical_effect(CE_CLUMSY, 1)
-		if(prob(dose/4))
+		if(prob(dose/4) && ishuman(M))
 			M.emote(pick("twitch", "shiver", "drool"))
 		if(prob(dose/4))
 			M.visible_message("<b>[M]</b> chuckles spontaneously.", "You chuckle spontaneously.")
@@ -446,7 +469,7 @@
 		M.take_organ_damage(0, removed * power * 0.2) //burn damage, since it causes chemical burns. Acid doesn't make bones shatter, like brute trauma would.
 		return
 	if(!M.unacidable && removed > 0)
-		if(istype(M, /mob/living/carbon/human) && REAGENT_VOLUME(holder, type) >= meltdose)
+		if(ishuman(M) && REAGENT_VOLUME(holder, type) >= meltdose)
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 			if(affecting)

@@ -11,6 +11,16 @@ obj/item/circuitboard/rdserver
 							"/obj/item/stack/cable_coil" = 2,
 							"/obj/item/stock_parts/scanning_module" = 1)
 
+obj/item/circuitboard/rdtechprocessor
+	name = T_BOARD("R&D tech processor")
+	build_path = /obj/machinery/r_n_d/tech_processor
+	board_type = "machine"
+	origin_tech = list(TECH_DATA = 3)
+	req_components = list(
+							"/obj/item/stack/cable_coil" = 2,
+							"/obj/item/stock_parts/scanning_module" = 2
+	)
+
 /obj/item/circuitboard/destructive_analyzer
 	name = T_BOARD("destructive analyzer")
 	build_path = /obj/machinery/r_n_d/destructive_analyzer

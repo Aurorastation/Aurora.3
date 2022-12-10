@@ -125,7 +125,7 @@
 		get_spawned_drop(T)
 
 /datum/random_map/droppod/proc/get_spawned_drop(var/turf/T)
-	var/obj/structure/bed/chair/C = new(T)
+	var/obj/structure/bed/stool/chair/C = new(T)
 	C.set_light(3, l_color = "#CC0000")
 	var/mob/living/drop
 	// This proc expects a list of mobs to be passed to the spawner.
@@ -138,14 +138,14 @@
 			supplied_drop_types -= drop
 			if(istype(drop))
 				drop.tag = null
-				if(drop.buckled)
-					drop.buckled = null
+				if(drop.buckled_to)
+					drop.buckled_to = null
 				drop.forceMove(T)
 	else if(ispath(drop_type))
 		drop = new drop_type(T)
 		if(istype(drop))
-			if(drop.buckled)
-				drop.buckled = null
+			if(drop.buckled_to)
+				drop.buckled_to = null
 			drop.forceMove(T)
 
 /datum/admins/proc/call_drop_pod()

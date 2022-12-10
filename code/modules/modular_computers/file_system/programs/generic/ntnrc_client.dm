@@ -2,9 +2,10 @@
 	filename = "ntnrc_client"
 	filedesc = "Chat Client"
 	program_icon_state = "command"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program allows communication over the NTRC network."
 	size = 2
-	requires_ntnet = TRUE
+	requires_ntnet = FALSE
 	requires_ntnet_feature = NTNET_COMMUNICATION
 	program_type = PROGRAM_TYPE_ALL
 	network_destination = "NTRC server"
@@ -13,10 +14,14 @@
 	silent = FALSE
 
 	var/datum/ntnet_user/my_user
+	var/datum/ntnet_conversation/focused_conv
+
 	var/netadmin_mode = FALSE		// Administrator mode (invisible to other users + bypasses passwords)
 	var/set_offline = FALSE			// appear "invisible"
 
 	var/ringtone = "beep"
+	var/message_mute = FALSE
+
 	var/syndi_auth = FALSE
 
 
@@ -27,14 +32,14 @@
 	return ((program_state > PROGRAM_STATE_KILLED || service_state > PROGRAM_STATE_KILLED) && from != src && get_signal(NTNET_COMMUNICATION))
 
 /datum/computer_file/program/chat_client/proc/play_notification_sound(var/datum/computer_file/program/chat_client/from)
-	if(!silent && src != from && program_state == PROGRAM_STATE_BACKGROUND)
+	if(!silent && src != from && (program_state == PROGRAM_STATE_BACKGROUND || (program_state == PROGRAM_STATE_KILLED && service_state == PROGRAM_STATE_ACTIVE)))
 		playsound(computer, 'sound/machines/twobeep.ogg', 50, 1)
 		computer.output_message("[icon2html(computer, world)] *[ringtone]*", 2)
 
 /datum/computer_file/program/chat_client/Topic(href, href_list)
 	if(..())
 		return TRUE
-	
+
 	if(href_list["ringtone"])
 		var/newRingtone = href_list["ringtone"]
 		var/obj/item/device/uplink/hidden/H = computer.hidden_uplink
@@ -46,14 +51,19 @@
 			newRingtone = sanitize(newRingtone, 20)
 			ringtone = newRingtone
 			SSvueui.check_uis_for_change(src)
-	
+
+	if(href_list["mute_message"])
+		message_mute = !message_mute
+		SSvueui.check_uis_for_change(src)
+
 	// User only commands
 	if(!istype(my_user))
 		return
 	// Following actions require signal
 	if(!get_signal(NTNET_COMMUNICATION))
+		to_chat(usr, FONT_SMALL(SPAN_WARNING("\The [src] displays, \"NETWORK ERROR - Unable to connect to NTNet. Please retry. If problem persists, contact your system administrator.\".")))
 		return
-	
+
 	if(href_list["send"])
 		var/mob/living/user = usr
 		var/datum/ntnet_conversation/conv = locate(href_list["send"]["target"])
@@ -62,6 +72,18 @@
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
+	if(href_list["focus"])
+		var/mob/living/user = usr
+		var/datum/ntnet_conversation/conv = locate(href_list["focus"])
+		if(istype(conv))
+			if(ishuman(user))
+				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
+			if(focused_conv == conv)
+				focused_conv = null
+			else
+				focused_conv = conv
+				computer.become_hearing_sensitive()
+		SSvueui.check_uis_for_change(src)
 	if(href_list["join"])
 		var/datum/ntnet_conversation/conv = locate(href_list["join"]["target"])
 		var/password = href_list["join"]["password"]
@@ -104,7 +126,7 @@
 	if(href_list["direct"])
 		var/datum/ntnet_user/tUser = locate(href_list["direct"])
 		ntnet_global.begin_direct(src, tUser)
-	
+
 	if(href_list["toggleadmin"])
 		if(netadmin_mode)
 			netadmin_mode = FALSE
@@ -121,8 +143,7 @@
 			if(ishuman(user))
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
-	
-				
+
 /datum/computer_file/program/chat_client/service_activate()
 	. = ..()
 	if(istype(my_user) && get_signal(NTNET_COMMUNICATION))
@@ -152,8 +173,7 @@
 			if((!computer.registered_id && !computer.register_account(src)))
 				return
 	if(service_state == PROGRAM_STATE_DISABLED)
-		if(!computer.enable_service(null, user, src))
-			return
+		computer.enable_service(null, user, src)
 	return ..(user)
 
 /datum/computer_file/program/chat_client/event_registered()
@@ -162,7 +182,7 @@
 	my_user = computer.registered_id.chat_user
 	if(service_state > PROGRAM_STATE_KILLED)
 		activate_chat_client()
-	
+
 
 /datum/computer_file/program/chat_client/event_unregistered()
 	. = ..()
@@ -199,13 +219,14 @@
 	if(headerdata)
 		data["_PC"] = headerdata
 		. = data
-	
+
 	data["service"] = service_state > PROGRAM_STATE_KILLED
 	data["registered"] = istype(my_user)
 	data["signal"] = get_signal(NTNET_COMMUNICATION)
 	data["ringtone"] = ringtone
 	data["netadmin_mode"] = netadmin_mode
 	data["can_netadmin_mode"] = can_run(user, FALSE, access_network)
+	data["message_mute"] = message_mute
 
 	if(data["registered"] && data["service"] && data["signal"])
 		data["channels"] = list()
@@ -220,7 +241,8 @@
 					"direct" = Channel.direct,
 					"password" = !!Channel.password,
 					"can_interact" = can_interact,
-					"can_manage" = can_manage
+					"can_manage" = can_manage,
+					"focused" = focused_conv == Channel ? TRUE : FALSE
 				)
 				if(can_interact)
 					data["channels"][ref]["msg"] = Channel.messages
@@ -249,5 +271,5 @@
 		return
 	if(src in my_user.clients)
 		my_user.clients.Remove(src)
-	if(src in ntnet_global.chat_clients)	
+	if(src in ntnet_global.chat_clients)
 		ntnet_global.chat_clients.Remove(src)

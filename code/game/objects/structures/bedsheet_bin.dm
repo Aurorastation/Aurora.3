@@ -178,23 +178,20 @@ LINEN BINS
 
 /obj/item/bedsheet/attackby(obj/item/I, mob/user)
 	if(I.isscrewdriver())
-		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [I]."),
-						SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [I]."))
-		if(do_after(user, 50/I.toolspeed))
+		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [I]."), SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [I]."))
+		if(I.use_tool(src, user, 50, volume = 50))
 			to_chat(user, SPAN_NOTICE("You poke eyeholes in \the [src]!"))
 			new /obj/item/bedsheet/costume(get_turf(src))
 			qdel(src)
-		return
+		return TRUE
 	else if(is_sharp(I))
-		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up [src] with [I]."),
-							SPAN_NOTICE("You begin cutting up [src] with [I]."))
-		if(do_after(user, 50/I.toolspeed))
-			to_chat(user, SPAN_NOTICE("You cut [src] into pieces!"))
-			for(var/i in 1 to rand(2,5))
-				new /obj/item/reagent_containers/glass/rag(get_turf(src))
+		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up \the [src] with \the [I]."), SPAN_NOTICE("You begin cutting up \the [src] with \the [I]."))
+		if(I.use_tool(src, user, 50, volume = 50))
+			to_chat(user, SPAN_NOTICE("You cut \the [src] into pieces!"))
+			new /obj/item/stack/material/cloth(get_turf(src), rand(2, 5))
 			qdel(src)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/bedsheet/grey
 	icon_state = "sheetgrey"
@@ -252,7 +249,7 @@ LINEN BINS
 
 /obj/item/bedsheet/captain
 	name = "captain's bedsheet"
-	desc = "It has a Nanotrasen symbol on it, and was woven with a revolutionary new kind of thread guaranteed to have 0.01% permeability for most non-chemical substances, popular among most modern captains."
+	desc = "It has a NanoTrasen symbol on it, and was woven with a revolutionary new kind of thread guaranteed to have 0.01% permeability for most non-chemical substances, popular among most modern captains."
 	icon_state = "sheetcaptain"
 	item_state = "sheetcaptain"
 
@@ -272,14 +269,14 @@ LINEN BINS
 	icon_state = "sheetcmo"
 	item_state = "sheetcmo"
 
-/obj/item/bedsheet/qm
-	name = "quartermaster's bedsheet"
+/obj/item/bedsheet/operation_manager
+	name = "operation manager's bedsheet"
 	desc = "It is decorated with a crate emblem in silver lining.  It's rather tough, and just the thing to lie on after a hard day of pushing paper."
 	icon_state = "sheetqm"
 	item_state = "sheetqm"
 
-/obj/item/bedsheet/hop
-	name = "head of personnel's bedsheet"
+/obj/item/bedsheet/xo
+	name = "executive officer's bedsheet"
 	desc = "It is decorated with a key emblem. For those rare moments when you can rest and cuddle with Ian without someone screaming for you over the radio."
 	icon_state = "sheethop"
 	item_state = "sheethop"
@@ -310,7 +307,7 @@ LINEN BINS
 
 /obj/item/bedsheet/nanotrasen
 	name = "nanotrasen bedsheet"
-	desc = "It has the Nanotrasen logo on it and has an aura of duty."
+	desc = "It has the NanoTrasen logo on it and has an aura of duty."
 	icon_state = "sheetNT"
 	item_state = "sheetNT"
 

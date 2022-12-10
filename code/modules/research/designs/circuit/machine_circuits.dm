@@ -46,6 +46,11 @@
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdserver
 
+/datum/design/circuit/machine/rdtechprocessor
+	name = "R&D Tech Processor"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/circuitboard/rdtechprocessor
+
 /datum/design/circuit/machine/mechfab
 	name = "Exosuit Fabricator"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
@@ -75,6 +80,11 @@
 	name = "Sleeper"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/sleeper
+
+/datum/design/circuit/machine/stasis_bed
+	name = "Lifeform Stasis Unit"
+	req_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 4, TECH_BIO = 4)
+	build_path = /obj/item/circuitboard/stasis_bed
 
 /datum/design/circuit/machine/bodyscannerm
 	name = "Body Scanner"
@@ -106,16 +116,6 @@
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/cryotube
 
-/datum/design/circuit/machine/crystelpod
-	name = "Crystal Therapy Pod"
-	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
-	build_path = /obj/item/circuitboard/crystelpod
-
-/datum/design/circuit/machine/crystelpodconsole
-	name = "Crystal Therapy Pod"
-	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
-	build_path = /obj/item/circuitboard/crystelpodconsole
-
 /datum/design/circuit/machine/stove
 	name = "Stove"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
@@ -136,25 +136,30 @@
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/cerealmaker
 
+/datum/design/circuit/machine/grill
+	name = "Grill"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/circuitboard/grill
+
 /datum/design/circuit/machine/candymaker
 	name = "Candy Machine"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/candymachine
 
-/datum/design/circuit/machine/pacman
-	name = "PACMAN-type Generator"
+/datum/design/circuit/machine/portgen
+	name = "portable generator"
 	req_tech = list(TECH_DATA = 3, TECH_PHORON = 3, TECH_POWER = 3, TECH_ENGINEERING = 3)
-	build_path = /obj/item/circuitboard/pacman
+	build_path = /obj/item/circuitboard/portgen
 
-/datum/design/circuit/machine/superpacman
-	name = "SUPERPACMAN-type generator"
+/datum/design/circuit/machine/advancedportgen
+	name = "advanced portable generator"
 	req_tech = list(TECH_DATA = 3, TECH_POWER = 4, TECH_ENGINEERING = 4)
-	build_path = /obj/item/circuitboard/pacman/super
+	build_path = /obj/item/circuitboard/portgen/advanced
 
-/datum/design/circuit/machine/mrspacman
-	name = "MRSPACMAN-type generator"
+/datum/design/circuit/machine/superportgen
+	name = "super portable generator"
 	req_tech = list(TECH_DATA = 3, TECH_POWER = 5, TECH_ENGINEERING = 5)
-	build_path = /obj/item/circuitboard/pacman/mrs
+	build_path = /obj/item/circuitboard/portgen/super
 
 /datum/design/circuit/machine/batteryrack
 	name = "Cell Rack PSU"
@@ -212,16 +217,6 @@
 	req_tech = list(TECH_DATA = 4, TECH_BLUESPACE = 4, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
 	build_path = /obj/item/circuitboard/telesci_pad
 
-/datum/design/circuit/machine/miningdrill
-	name = "Mining Drill Head"
-	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
-	build_path = /obj/item/circuitboard/miningdrill
-
-/datum/design/circuit/machine/miningdrillbrace
-	name = "Mining Drill Brace"
-	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
-	build_path = /obj/item/circuitboard/miningdrillbrace
-
 /datum/design/circuit/machine/cargo_trolley
 	name = "Cargo Trolley"
 	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
@@ -236,3 +231,8 @@
 	name = "Slime Extractor"
 	req_tech = list(TECH_BIO = 2, TECH_ENGINEERING = 1, TECH_BLUESPACE = 1)
 	build_path = /obj/item/circuitboard/slime_extractor
+
+/datum/design/circuit/machine/iv_drip
+	name = "IV drip"
+	req_tech = list(TECH_DATA = 1, TECH_BIO = 2)
+	build_path = /obj/item/circuitboard/iv_drip

@@ -1,6 +1,6 @@
 /obj/structure/banner
 	name = "corporate banner"
-	desc = "A blue flag emblazoned with a golden logo of Nanotrasen hanging from a wooden stand."
+	desc = "A blue flag emblazoned with a golden logo of NanoTrasen hanging from a wooden stand."
 	anchored = 1
 	density = 1
 	layer = 9
@@ -28,15 +28,9 @@
 
 /obj/structure/banner/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
-		switch(anchored)
-			if(0)
-				anchored = 1
-				playsound(src.loc, W.usesound, 75, 1)
-				user.visible_message("[user.name] secures [src.name] to the floor.", "You secure [src.name] to the floor.", "You hear a ratchet")
-			if(1)
-				anchored = 0
-				playsound(src.loc, W.usesound, 75, 1)
-				user.visible_message("[user.name] unsecures [src.name] reinforcing bolts from the floor.", "You unsecure [src.name] from the floor.", "You hear a ratchet")
+		anchored = !anchored
+		playsound(src.loc, W.usesound, 75, 1)
+		user.visible_message("[user.name] [anchored ? "" : "un" ]secures \the [src.name] [anchored ? "to" : "from" ] the floor.", "You [anchored ? "" : "un" ]secure \the [src.name] [anchored ? "to" : "from" ] the floor.", "You hear a ratchet.")
 		return
 
 /obj/structure/banner/unmovable
@@ -122,3 +116,10 @@
 	desc = "A banner depicting the flag of New Gibson."
 	icon_state = "newgibson_down"
 	icon_up = "newgibson_up"
+
+/obj/structure/banner/scc
+	name = "Stellar Corporate Conglomerate banner"
+	desc = "A deep blue banner adorned with the logo of the Stellar Corporate Conglomerate."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	icon_state = "scc_banner_down"
+	icon_up = "scc_banner_up"

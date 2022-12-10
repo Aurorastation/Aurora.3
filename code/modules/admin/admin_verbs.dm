@@ -72,12 +72,12 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggleghostwriters,
 	/client/proc/toggledrones,
 	/datum/admins/proc/show_skills,
+	/client/proc/damage_menu,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
 	/client/proc/response_team, // Response Teams admin verb,
 	/client/proc/toggle_antagHUD_use,
 	/client/proc/toggle_antagHUD_restrictions,
-	/client/proc/allow_character_respawn,    // Allows a ghost to respawn ,
 	/client/proc/allow_stationbound_reset,
 	/client/proc/end_round,
 	/client/proc/event_manager_panel,
@@ -99,7 +99,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/fix_player_list,
 	/client/proc/reset_openturf,
 	/client/proc/toggle_aooc,
-	/client/proc/force_away_mission
+	/client/proc/force_away_mission,
+	/client/proc/alooc
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -135,8 +136,6 @@ var/list/admin_verbs_fun = list(
 	/client/proc/show_tip,
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
-	/client/proc/cure_traumas,
-	/client/proc/add_traumas,
 	/datum/admins/proc/ccannoucment
 	)
 
@@ -263,6 +262,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/toggledrones,
 	/datum/admins/proc/show_skills,
 	/client/proc/restart_sql,
+	/client/proc/damage_menu,
 	/client/proc/man_up,
 	/client/proc/global_man_up,
 	/client/proc/connect_ntsl,
@@ -350,8 +350,6 @@ var/list/admin_verbs_hideable = list(
 	/datum/admins/proc/spawn_plant,
 	/client/proc/show_plant_genes,
 	/datum/admins/proc/spawn_atom,
-	/client/proc/cure_traumas,
-	/client/proc/add_traumas,
 	/client/proc/respawn_character,
 	/client/proc/spawn_chemdisp_cartridge,
 	/client/proc/jobbans,
@@ -423,7 +421,9 @@ var/list/admin_verbs_mod = list(
 	/client/proc/print_logout_report,
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
 	/client/proc/aooc,
-	/client/proc/toggle_aooc
+	/client/proc/toggle_aooc,
+	/client/proc/alooc,
+	/client/proc/allow_character_respawn
 )
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
@@ -710,52 +710,6 @@ var/list/admin_verbs_cciaa = list(
 	message_admins("<span class='notice'>[ckey] creating an admin explosion at [epicenter.loc].</span>")
 	feedback_add_details("admin_verb","DB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cure_traumas(mob/T as mob in mob_list)
-	set category = "Fun"
-	set name = "Cure Traumas"
-	set desc = "Cure the traumas of a given mob."
-
-	if(!istype(T,/mob/living/carbon/human))
-		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
-		return
-
-	var/mob/living/carbon/human/C = T
-
-	C.cure_all_traumas(TRUE, CURE_ADMIN)
-	log_and_message_admins("<span class='notice'>cured [key_name(C)]'s traumas.</span>")
-	feedback_add_details("admin_verb","TB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/add_traumas(mob/T as mob in mob_list)
-	set category = "Fun"
-	set name = "Add Traumas"
-	set desc = "Induces traumas on a given mob."
-
-	if(!istype(T,/mob/living/carbon/human))
-		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
-		return
-
-	var/mob/living/carbon/human/C = T
-
-	var/list/traumas = subtypesof(/datum/brain_trauma)
-	var/result = input(usr, "Choose the brain trauma to apply","Traumatize") as null|anything in traumas
-	if(!result) return
-	var/permanent = alert("Do you want to make the trauma unhealable?", "Permanently Traumatize", "Yes", "No")
-	if(permanent == "Yes")
-		permanent = TRUE
-	else
-		permanent = FALSE
-	if(!usr)
-		return
-	if(!C)
-		to_chat(usr, "Mob doesn't exist anymore")
-		return
-
-	if(result)
-		C.gain_trauma(result, permanent)
-
-	log_and_message_admins("<span class='notice'>gave [key_name(C)] [result].</span>")
-	feedback_add_details("admin_verb","BT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
 /client/proc/make_sound(var/obj/O in range(world.view)) // -- TLE
 	set category = "Special Verbs"
 	set name = "Make Sound"
@@ -813,7 +767,7 @@ var/list/admin_verbs_cciaa = list(
 		deadmin_holder.reassociate()
 		log_admin("[src] re-admined themself.",admin_key=key_name(src))
 		message_admins("[src] re-admined themself.", 1)
-		to_chat(src, "<span class='interface'>You now have the keys to control the planet, or atleast a small space station</span>")
+		to_chat(src, "<span class='interface'>You now have the keys to control the galaxy, or at least a small space ship</span>")
 		verbs -= /client/proc/readmin_self
 
 /client/proc/deadmin_self()
@@ -905,7 +859,7 @@ var/list/admin_verbs_cciaa = list(
 	if(!H) return
 
 	log_and_message_admins("is altering the appearance of [H].")
-	H.change_appearance(APPEARANCE_ALL, usr, usr, check_species_whitelist = 0, state = admin_state)
+	H.change_appearance(APPEARANCE_ALL, usr, FALSE)
 	feedback_add_details("admin_verb","CHAA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/change_human_appearance_self()
@@ -925,10 +879,10 @@ var/list/admin_verbs_cciaa = list(
 	switch(alert("Do you wish for [H] to be allowed to select non-whitelisted races?","Alter Mob Appearance","Yes","No","Cancel"))
 		if("Yes")
 			log_and_message_admins("has allowed [H] to change [H.get_pronoun("his")] appearance, without whitelisting of races.")
-			H.change_appearance(APPEARANCE_ALL, H.loc, check_species_whitelist = 0)
+			H.change_appearance(APPEARANCE_ALL, H, FALSE)
 		if("No")
 			log_and_message_admins("has allowed [H] to change [H.get_pronoun("his")] appearance, with whitelisting of races.")
-			H.change_appearance(APPEARANCE_ALL, H.loc, check_species_whitelist = 1)
+			H.change_appearance(APPEARANCE_ALL, H, TRUE)
 	feedback_add_details("admin_verb","CMAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/change_security_level()
@@ -1094,6 +1048,13 @@ var/list/admin_verbs_cciaa = list(
 	else
 		to_chat(usr, "You now won't get debug log messages")
 
+/client/proc/damage_menu(mob/living/carbon/human/H as null|mob in human_mob_list)
+	set name = "Damage Menu"
+	set desc = "Access a human mob's damage menu, allowing you to make their life hell."
+	set category = "Fun"
+
+	if(H)
+		new /datum/vueui_module/damage_menu(WEAKREF(H), usr)
 
 /client/proc/man_up(mob/T as mob in mob_list)
 	set category = "Fun"
@@ -1339,3 +1300,66 @@ var/list/admin_verbs_cciaa = list(
 		log_and_message_admins("reset the forced away mission.")
 	else
 		log_and_message_admins("forced the following away mission: [mission_name].")
+
+/client/proc/alooc(msg as text)
+	set name = "Admin LOOC"
+	set desc = "Admin Local OOC, seen only by those in view, regardless of their LOOC preferences."
+	set category = "Admin"
+
+	if(!check_rights(R_ADMIN|R_MOD))
+		return
+
+	if(!mob)
+		return
+
+	msg = sanitize(msg)
+	msg = process_chat_markup(msg, list("*"))
+	if(!msg)
+		return
+
+	log_ooc("(ADMIN LOCAL) [mob.name]/[key] : [msg]",ckey=key_name(mob))
+
+	var/mob/source = src.mob
+	var/list/messageturfs = list() //List of turfs we broadcast to.
+	var/list/messagemobs = list() //List of living mobs nearby who can hear it
+
+	for(var/turf in range(world.view, get_turf(source)))
+		messageturfs += turf
+	if(isAI(source))
+		var/mob/living/silicon/ai/AI = source
+		for(var/turf in range(world.view, get_turf(AI.eyeobj)))
+			messageturfs += turf
+
+	for(var/mob/M in player_list)
+		if(!M.client || istype(M, /mob/abstract/new_player))
+			continue
+		if(isAI(M))
+			var/mob/living/silicon/ai/AI = M
+			if(get_turf(AI.eyeobj) in messageturfs)
+				messagemobs += M
+				continue
+		if(get_turf(M) in messageturfs)
+			messagemobs += M
+
+	var/display_name = source.key
+	if(holder && holder.fakekey)
+		display_name = holder.fakekey
+
+	msg = process_chat_markup(msg, list("*"))
+
+	var/prefix
+	var/admin_stuff
+	for(var/client/target in clients)
+		admin_stuff = ""
+		var/display_remote = FALSE
+		if (target.holder && ((R_MOD|R_ADMIN) & target.holder.rights))
+			display_remote = TRUE
+		if(display_remote)
+			prefix = "(R)"
+			admin_stuff += "/([source.key])"
+			if(target != source.client)
+				admin_stuff += "(<A HREF='?src=\ref[target.holder];adminplayerobservejump=\ref[mob]'>JMP</A>)"
+		if(target.mob in messagemobs)
+			prefix = ""
+		if((target.mob in messagemobs) || display_remote)
+			to_chat(target, "<span class='ooc'><span class='adminlooc'>" + create_text_tag("ALOOC", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span></span></span>")

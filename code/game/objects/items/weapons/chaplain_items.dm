@@ -17,13 +17,13 @@
 	throwforce = 10
 	w_class = ITEMSIZE_SMALL
 	var/cooldown = 0 // floor tap cooldown
-	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod/, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame, "Tribunal Rod" = /obj/item/nullrod/dominia)
+	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod/, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame, "Tribunal Rod" = /obj/item/nullrod/dominia, "Tajaran charm" = /obj/item/nullrod/charm)
 
 /obj/item/nullrod/dominia
 	name = "tribunalist purification rod"
 	desc = "A holy Symbol often carried by female Tribunalist clergy, the obsidian encased in the wooden handle is intended to ward off malevolent spirits and bless followers of the Goddess. The ornament on top depicts 'The Eye'\
 	Moroz Holy Tribunal."
-	desc_fluff = "With origins in House Zhao, Tribunalist purification rods are a common sight throughout the Empire of Dominia. Intended to ward off malevolent entities and bless the \
+	desc_extended = "With origins in House Zhao, Tribunalist purification rods are a common sight throughout the Empire of Dominia. Intended to ward off malevolent entities and bless the \
 	faithful a Tribunalist priestess is nothing without her rod, which is typically granted upon promotion to full priestess. This particular example has been built around an obsidian \
 	core in the shaft, and is heavier than it seems."
 	icon_state = "tribunalrod"
@@ -48,6 +48,24 @@
 	desc = "An athame of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullathame"
 	item_state = "nullathame"
+
+/obj/item/nullrod/charm
+	name = "obsidian charm"
+	desc = "A tajaran charm created from obsidian created to ward off the supernatural and bring good fortune."
+	desc_extended = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off raskara and other evils."
+	icon = 'icons/obj/tajara_items.dmi'
+	contained_sprite = TRUE
+	item_icons = null
+	icon_state = "stone_talisman"
+	item_state = "stone_talisman"
+	force = 4
+	throw_range = 7
+	throwforce = 2
+	slot_flags = SLOT_MASK | SLOT_WRISTS | SLOT_EARS | SLOT_TIE
+	w_class = ITEMSIZE_TINY
+
+/obj/item/nullrod/charm/get_mask_examine_text(mob/user)
+	return "around [user.get_pronoun("his")] neck"
 
 /obj/item/nullrod/obsidianshards
 	name = "obsidian shards"
@@ -123,12 +141,6 @@
 		else
 			to_chat(user, SPAN_DANGER("The [src] appears to do nothing."))
 			M.visible_message(SPAN_DANGER("\The [user] waves \the [src] over \the [M]'s head."))
-			if(ishuman(M))
-				var/mob/living/carbon/human/H = M
-				if(prob(25))
-					H.cure_all_traumas(cure_type = CURE_SOLITUDE)
-				else if(prob(20))
-					H.cure_all_traumas(cure_type = CURE_CRYSTAL)
 			return
 	else if(user.a_intent != I_HURT) // to prevent the chaplain from hurting peoples accidentally
 		to_chat(user, SPAN_NOTICE("The [src] appears to do nothing."))
@@ -172,8 +184,9 @@
 	icon_state = "urn"
 	applies_material_colour = TRUE
 	w_class = ITEMSIZE_SMALL
+	flags = NOBLUDGEON
 
-/obj/item/material/urn/attack(var/obj/A, var/mob/user, var/proximity)
+/obj/item/material/urn/afterattack(var/obj/A, var/mob/user, var/proximity)
 	if(!istype(A, /obj/effect/decal/cleanable/ash))
 		return ..()
 	else if(proximity)
@@ -193,3 +206,56 @@
 			A.dropInto(loc)
 			user.visible_message("[user] pours \the [A] out from \the [src].", "You pour \the [A] out from \the [src].")
 			desc = "A vase used to store the ashes of the deceased."
+
+/obj/item/assunzioneorb
+	name = "warding sphere"
+	desc = "A religious artefact commonly associated with Luceism, this transparent globe gives off a faint ghostly white light at all times."
+	desc_extended = "Luceian warding spheres are made on the planet of Assunzione in the great domed city of Guelma, and are carried by followers of the faith heading abroad. \
+	Constructed out of glass and a luce vine bulb these spheres can burn for years upon years, and it is said that the lights in the truly faithful's warding sphere will always \
+	point towards Assunzione. It is considered extremely bad luck to have one's warding sphere break, to extinguish its flame, or to relinquish it (permanently) to an unbeliever."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "assunzioneorb"
+	item_state = "assunzioneorb"
+	throwforce = 5
+	force = 5
+	light_range = 1.4
+	light_power = 1.4
+	light_color = LIGHT_COLOR_BLUE
+	w_class = ITEMSIZE_SMALL
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/assunzioneorb/proc/shatter()
+	visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))
+	playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, TRUE)
+	new /obj/item/material/shard(get_turf(src))
+	qdel(src)
+
+/obj/item/assunzioneorb/throw_impact(atom/hit_atom)
+	..()
+	shatter()
+
+/obj/item/assunzioneorb/afterattack(atom/target, mob/user, proximity)
+	if(!proximity)
+		return
+	if(user.a_intent != I_HURT)
+		return
+
+	shatter()
+
+/obj/item/storage/assunzionesheath
+	name = "warding sphere casing"
+	desc = "A small metal shell designed to protect the warding sphere inside. The all-seeing eye of Ennoia, a common symbol of Luceism, is engraved upon the front of the casing."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "assunzionesheath_empty"
+	can_hold = list(/obj/item/assunzioneorb)
+	storage_slots = 1
+	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
+
+/obj/item/storage/assunzionesheath/update_icon()
+	if(contents.len)
+		icon_state = "assunzionesheath"
+	else
+		icon_state = "assunzionesheath_empty"
+

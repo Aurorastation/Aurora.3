@@ -4,7 +4,13 @@ var/list/floating_chat_colors = list()
 /atom/movable
 	var/list/stored_chat_text
 
-/atom/movable/proc/animate_chat(message, datum/language/language, small, list/show_to, duration)
+/atom/movable/proc/get_floating_chat_color()
+	return get_random_colour(0, 160, 230)
+
+/atom/movable/proc/set_floating_chat_color(color)
+	floating_chat_colors[name] = color
+
+/atom/movable/proc/animate_chat(message, datum/language/language, small, list/show_to, duration, override_color)
 	set waitfor = FALSE
 
 	var/style	//additional style params for the message
@@ -21,7 +27,7 @@ var/list/floating_chat_colors = list()
 		message = "[copytext(message, 1, limit)]..."
 
 	if(!floating_chat_colors[name])
-		floating_chat_colors[name] = get_random_colour(0, 160, 230)
+		floating_chat_colors[name] = get_floating_chat_color()
 	style += "color: [floating_chat_colors[name]];"
 
 	// create 2 messages, one that appears if you know the language, and one that appears when you don't know the language
@@ -44,19 +50,20 @@ var/list/floating_chat_colors = list()
 			C.images += gibberish
 
 /proc/generate_floating_text(atom/movable/holder, message, style, size, duration, show_to)
-	var/image/I = image(null, recursive_loc_turf_check(holder))
+	var/atom/movable/attached_holder = recursive_loc_turf_check(holder, 5)
+	var/image/I = image(null, attached_holder)
 	I.layer = FLY_LAYER
 	I.alpha = 0
 	I.maptext_width = 80
 	I.maptext_height = 64
 	I.plane = FLOAT_PLANE
 	I.layer = HUD_LAYER - 0.01
-	I.pixel_x = (-round(I.maptext_width/2) + 16) + holder.get_floating_chat_x_offset()
+	I.pixel_x = (-round(I.maptext_width/2) + 16) + attached_holder.get_floating_chat_x_offset()
 	I.appearance_flags = RESET_COLOR|RESET_ALPHA|RESET_TRANSFORM
 
 	style = "font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [size]px; [style]"
 	I.maptext = "<center><span style=\"[style]\">[message]</span></center>"
-	animate(I, 1, alpha = 255, pixel_y = 16)
+	animate(I, 1, alpha = 255, pixel_y = 23)
 
 	for(var/image/old in holder.stored_chat_text)
 		animate(old, 2, pixel_y = old.pixel_y + 8)

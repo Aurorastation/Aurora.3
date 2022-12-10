@@ -1,0 +1,100 @@
+name: BYOND tests
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+env:
+  MACRO_COUNT: 0
+  GENDER_COUNT: 6
+  TO_WORLD_COUNT: 204
+  TGM_CHECK: "//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE"
+
+jobs:
+  lint:
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install
+        run: |
+          pip install --user -r ./tools/requirements.txt
+          chmod +x ./scripts/code_check.sh && ./scripts/code_check.sh $PWD
+          bash tools/ci/install_spaceman_dmm.sh dreamchecker
+      - name: Code checks
+        run: |
+          awk -f tools/indentation.awk **/*.dm
+          python3 tools/TagMatcher/tag-matcher.py ../..
+          python3 tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
+          python3 tools/mapmerge2/travis_mapcheck.py
+          echo "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml" | md5sum -c -
+      - name: Run dreamchecker
+        id: runDreamchecker
+        run: ~/dreamchecker > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
+      - name: Annotate Lints
+        if: failure() && steps.runDreamchecker.outcome == 'failure'
+        uses: yogstation13/DreamAnnotate@v1
+        with:
+          outputFile: output-annotations.txt
+
+  unit-test-linux:
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    strategy:
+      matrix:
+        map: [runtime, aurora, sccv_horizon, away_sites_testing]
+      fail-fast: false
+    runs-on: ubuntu-20.04
+    needs: lint
+    services:
+      mariadb:
+        image: mariadb:latest
+        ports:
+          - 3306
+        env:
+          MYSQL_USER: build
+          MYSQL_PASSWORD: build
+          MYSQL_DATABASE: game
+          MYSQL_ROOT_PASSWORD: root
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install BYOND
+        run: |
+          source .versions.sh
+          sudo dpkg --add-architecture i386
+          sudo apt-get update
+          sudo apt-get install -y gcc-multilib libssl1.1:i386
+          bash tools/ci/install_byond.sh
+          source $HOME/BYOND/byond/bin/byondsetup
+          echo "Getting rust_g from https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so"
+          wget "https://github.com/Aurorastation/rust-g/releases/download/${RUST_G_VERSION}/librust_g.so" -O ./librust_g.so
+          chmod +x ./librust_g.so
+          ldd ./librust_g.so
+      - name: Install Flyway
+        run: |
+          source .versions.sh
+          bash scripts/install-flyway.sh
+      - name: Migrate database
+        env:
+          PORT: ${{ job.services.mariadb.ports[3306] }}
+        run: |
+          source .versions.sh
+          $HOME/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game"
+      - name: Build
+        run: |
+          export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
+          scripts/dm.sh -DUNIT_TEST -M${{ matrix.map }} aurorastation.dme
+          grep "0 warnings" build_log.txt
+      - name: Run tests
+        env:
+          PORT: ${{ job.services.mariadb.ports[3306] }}
+        run: |
+          export LD_LIBRARY_PATH=./:$PWD:$HOME/BYOND/byond/bin:/usr/local/lib:$LD_LIBRARY_PATH
+          cp config/example/* config/ && cp config/ut/config-db.txt config/config.txt && cp config/ut/dbconfig.txt config/dbconfig.txt
+          echo "PORT $PORT" >> config/dbconfig.txt
+          $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
+          grep "All Unit Tests Passed" log.txt
+          (! grep "runtime error:" log.txt)

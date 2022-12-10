@@ -1,3 +1,4 @@
+var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 #define SHIP_MOVE_RESOLUTION 0.00001
 #define MOVING(speed) abs(speed) >= min_speed
 #define SANITIZE_SPEED(speed) SIGN(speed) * Clamp(abs(speed), 0, max_speed)
@@ -13,6 +14,7 @@
 	name = "generic ship"
 	desc = "Space faring vessel."
 	icon_state = "ship"
+	obfuscated_name = "unidentified vessel"
 	var/moving_state = "ship_moving"
 
 	var/vessel_mass = 10000             //tonnes, arbitrary number, affects acceleration provided by engines
@@ -21,26 +23,41 @@
 	var/min_speed = 1/(2 MINUTES)       // Below this, we round speed to 0 to avoid math errors.
 
 	var/list/speed = list(0,0)          //speed in x,y direction
-	var/last_burn = 0                   //worldtime when ship last acceleated
-	var/burn_delay = 1 SECOND           //how often ship can do burns
-	var/list/last_movement = list(0,0)  //worldtime when ship last moved in x,y direction
-	var/fore_dir = NORTH                //what dir ship flies towards for purpose of moving stars effect procs
+	var/list/position = list(0,0)       // position within a tile.
+	var/last_burn = 0                   // worldtime when ship last acceleated
+	var/burn_delay = 1 SECOND           // how often ship can do burns
+	var/fore_dir = NORTH                // what dir ship flies towards for purpose of moving stars effect procs
+	var/last_combat_roll = 0
+	var/last_combat_turn = 0
 
 	var/list/engines = list()
 	var/engines_state = 0 //global on/off toggle for all engines
 	var/thrust_limit = 1  //global thrust limit for all engines, 0..1
 	var/halted = 0        //admin halt or other stop.
 
+	var/list/consoles
+
+	comms_support = TRUE
+
 /obj/effect/overmap/visitable/ship/Initialize()
 	. = ..()
+	glide_size = world.icon_size
 	min_speed = round(min_speed, SHIP_MOVE_RESOLUTION)
 	max_speed = round(max_speed, SHIP_MOVE_RESOLUTION)
 	SSshuttle.ships += src
-	START_PROCESSING(SSprocessing, src)
+
+/obj/effect/overmap/visitable/ship/find_z_levels(var/fore_direction)
+	. = ..(fore_dir)
 
 /obj/effect/overmap/visitable/ship/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
 	SSshuttle.ships -= src
+	for(var/obj/machinery/computer/ship/S in SSmachinery.machinery)
+		if(S.linked == src)
+			S.linked = null
+	for(var/obj/machinery/computer/shuttle_control/explore/C in SSmachinery.machinery)
+		if(C.linked == src)
+			C.linked = null
+
 	. = ..()
 
 /obj/effect/overmap/visitable/ship/relaymove(mob/user, direction, accel_limit)
@@ -129,24 +146,41 @@
 			adjust_speed(0, -acceleration)
 
 /obj/effect/overmap/visitable/ship/process()
+	..()
 	if(!halted && !is_still())
 		var/list/deltas = list(0,0)
-		for(var/i=1, i<=2, i++)
-			if(MOVING(speed[i]) && world.time > last_movement[i] + 1/abs(speed[i]))
-				deltas[i] = SIGN(speed[i])
-				last_movement[i] = world.time
+		for(var/i = 1 to 2)
+			if(MOVING(speed[i]))
+				position[i] += speed[i] * OVERMAP_SPEED_CONSTANT
+				if(position[i] < 0)
+					deltas[i] = CEILING(position[i], 1)
+				else if(position[i] > 0)
+					deltas[i] = Floor(position[i])
+				if(deltas[i] != 0)
+					position[i] -= deltas[i]
+					position[i] += (deltas[i] > 0) ? -1 : 1
+
+		update_icon()
 		var/turf/newloc = locate(x + deltas[1], y + deltas[2], z)
-		if(newloc)
+		if(newloc && loc != newloc)
 			Move(newloc)
 			handle_wraparound()
-		update_icon()
 
 /obj/effect/overmap/visitable/ship/update_icon()
+	pixel_x = position[1] * (world.icon_size/2)
+	pixel_y = position[2] * (world.icon_size/2)
 	if(!is_still())
 		icon_state = moving_state
 		dir = get_heading()
 	else
 		icon_state = initial(icon_state)
+	for(var/obj/machinery/computer/ship/machine in consoles)
+		if(machine.z in map_z)
+			for(var/datum/weakref/W in machine.viewers)
+				var/mob/M = W.resolve()
+				if(istype(M) && M.client)
+					M.client.pixel_x = pixel_x
+					M.client.pixel_y = pixel_y
 	..()
 
 /obj/effect/overmap/visitable/ship/proc/burn()
@@ -168,10 +202,12 @@
 //deciseconds to next step
 /obj/effect/overmap/visitable/ship/proc/ETA()
 	. = INFINITY
-	for(var/i=1, i<=2, i++)
+	for(var/i = 1 to 2)
 		if(MOVING(speed[i]))
-			. = min(last_movement[i] - world.time + 1/abs(speed[i]), .)
-	. = max(.,0)
+			. = min(., ((speed[i] > 0 ? 1 : -1) - position[i]) / speed[i])
+	if(. == INFINITY)
+		. = 0
+	. = max(CEILING(., 1),0)
 
 /obj/effect/overmap/visitable/ship/proc/handle_wraparound()
 	var/nx = x
@@ -209,14 +245,81 @@
 
 /obj/effect/overmap/visitable/ship/populate_sector_objects()
 	..()
-	for(var/obj/machinery/computer/ship/S in SSmachinery.all_machines)
+	for(var/obj/machinery/computer/ship/S in SSmachinery.machinery)
 		S.attempt_hook_up(src)
+	for(var/obj/machinery/computer/shuttle_control/explore/C in SSmachinery.machinery)
+		C.attempt_hook_up(src)
 	for(var/datum/ship_engine/E in ship_engines)
 		if(check_ownership(E.holder))
 			engines |= E
 
 /obj/effect/overmap/visitable/ship/proc/get_landed_info()
 	return "This ship cannot land."
+
+/obj/effect/overmap/visitable/ship/proc/can_combat_roll()
+	if(!can_burn())
+		return FALSE
+	var/cooldown = min(vessel_mass / 100, 100) SECONDS //max 100s for horizon, 50s for Intrepid
+	if(world.time >= (last_combat_roll + cooldown))
+		return TRUE
+	return FALSE
+
+/obj/effect/overmap/visitable/ship/proc/can_combat_turn()
+	if(!can_burn())
+		return FALSE
+	var/cooldown = min(vessel_mass / 200, 20) SECONDS //max 20s for horizon
+	if(world.time >= (last_combat_turn + cooldown))
+		return TRUE
+	return FALSE
+
+/obj/effect/overmap/visitable/ship/proc/combat_roll(var/new_dir)
+	burn()
+	var/dir_to_move = turn(dir, new_dir == WEST ? 90 : -90)
+	forceMove(get_step(src, dir_to_move))
+	for(var/mob/living/L in living_mob_list)
+		if(L.z in map_z)
+			to_chat(L, SPAN_DANGER("<font size=4>The ship rapidly inclines under your feet!</font>"))
+			if(!L.buckled_to)
+				var/turf/T = get_step_away(get_turf(L), get_step(L, new_dir), 10)
+				L.throw_at(T, 10, 10)
+			shake_camera(L, 2 SECONDS, 10)
+			sound_to(L, sound('sound/effects/combatroll.ogg'))
+	last_combat_roll = world.time
+
+/obj/effect/overmap/visitable/ship/proc/combat_turn(var/new_dir)
+	burn()
+	var/angle = -45
+	if(new_dir == WEST)
+		angle = 45
+	var/direction = turn(dir, angle)
+	accelerate(direction, 1000)
+	if(direction & EAST)
+		speed[1] = abs(speed[1])
+	else if(direction & WEST)
+		if(speed[1] > 0)
+			speed[1] = -speed[1]
+	else
+		speed[1] = 0
+	if(direction & NORTH)
+		speed[2] = abs(speed[2])
+	else if(direction & SOUTH)
+		if(speed[2] > 0)
+			speed[2] = -speed[2]
+	else
+		speed[2] = 0
+	update_icon()
+	for(var/mob/living/L in living_mob_list)
+		if(L.z in map_z)
+			to_chat(L, SPAN_DANGER("The ship rapidly turns under your feet!"))
+			if(!L.buckled_to)
+				L.Weaken(3)
+			shake_camera(L, 1 SECOND, 2)
+			L.playsound_simple(soundin = 'sound/machines/thruster.ogg', volume = 50)
+	last_combat_turn = world.time
+
+/obj/effect/overmap/visitable/ship/signal_hit(var/list/hit_data)
+	for(var/obj/machinery/computer/ship/targeting/TR in consoles)
+		TR.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] Hit confirmed on [hit_data["target_name"]] in [hit_data["target_area"]] at coordinates [hit_data["coordinates"]]."), range = 2)
 
 #undef MOVING
 #undef SANITIZE_SPEED

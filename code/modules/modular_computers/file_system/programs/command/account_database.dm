@@ -3,7 +3,8 @@
 /datum/computer_file/program/account_db
 	filename = "accdb"
 	filedesc = "Account Database"
-	program_icon_state = "comm"
+	program_icon_state = "employment_record"
+	program_key_icon_state = "lightblue_key"
 	extended_desc = "Access transaction logs, account data and all kinds of other financial records."
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE
@@ -12,13 +13,16 @@
 	color = LIGHT_COLOR_BLUE
 
 	var/machine_id = ""
+	var/centcomm_db = FALSE
 
-/datum/computer_file/program/account_db/New()
+/datum/computer_file/program/account_db/New(obj/item/modular_computer/comp, var/is_centcomm_db = FALSE)
 	..()
 	if(current_map)
 		machine_id = "[station_name()] Acc. DB #[SSeconomy.num_financial_terminals++]"
 	else
 		machine_id = "NT-Net Relay Back-up Software DB" // created during map generation inside the ntnet relay, not used by players
+
+	centcomm_db = is_centcomm_db
 
 /datum/computer_file/program/account_db/proc/get_held_card()
 	var/obj/item/card/id/held_card
@@ -30,7 +34,7 @@
 	var/obj/item/card/id/held_card = get_held_card()
 	if (!held_card)
 		return 0
-	if(access_cent_captain in held_card.access)
+	if(access_cent_ccia in held_card.access)
 		return 2
 	else if((access_hop in held_card.access) || (access_captain in held_card.access))
 		return 1
@@ -84,7 +88,8 @@
 
 	data["accounts"] = list()
 	if(get_access_level())
-		for(var/M in SSeconomy.all_money_accounts)
+		var/list/SSeconomy_accounts = centcomm_db ? SSeconomy.all_money_accounts : SSeconomy.get_public_accounts()
+		for(var/M in SSeconomy_accounts)
 			var/datum/money_account/D = SSeconomy.get_account(M)
 			var/account_number = "[M]"
 			data["accounts"][account_number] = list()
@@ -131,7 +136,7 @@
 			//create a transaction log entry
 			var/datum/transaction/trx = create_transation(account_name, "New account activation", "([starting_funds])")
 			SSeconomy.add_transaction_log(SSeconomy.station_account,trx)
-	
+
 	if(href_list["suspend"])
 		var/account = href_list["suspend"]["account"]
 
@@ -139,14 +144,15 @@
 		if(Acc)
 			Acc.suspended = !Acc.suspended
 			callHook("change_account_status", list(Acc))
-		
-	
+
+
 	if(href_list["add_funds"] && access_level == 2)
 		var/account = href_list["add_funds"]["account"]
 		var/amount = href_list["add_funds"]["amount"]
 
 		var/datum/money_account/Acc = SSeconomy.get_account(account)
 		if(Acc)
+			log_and_message_admins("Added [amount] credits to the [Acc.owner_name] account.")
 			Acc.money = min(Acc.money + amount, FUND_CAP)
 
 	if(href_list["remove_funds"] && access_level == 2)
@@ -155,6 +161,7 @@
 
 		var/datum/money_account/Acc = SSeconomy.get_account(account)
 		if(Acc)
+			log_and_message_admins("Removed [amount] credits to the [Acc.owner_name] account.")
 			Acc.money = max(Acc.money - amount, -FUND_CAP)
 
 	if(href_list["revoke_payroll"])
@@ -234,7 +241,8 @@
 					<tbody>
 			"}
 
-			for(var/M in SSeconomy.all_money_accounts)
+			var/list/SSeconomy_accounts = centcomm_db ? SSeconomy.all_money_accounts : SSeconomy.get_public_accounts()
+			for(var/M in SSeconomy_accounts)
 				var/datum/money_account/D = SSeconomy.get_account(M)
 				text += {"
 						<tr>

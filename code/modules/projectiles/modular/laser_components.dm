@@ -365,21 +365,21 @@
 /obj/item/laser_components/modulator/red
 	name = "red team modulator"
 	desc = "Modulates the beam into firing red team tagger beams."
-	projectile = /obj/item/projectile/beam/lastertag/red
+	projectile = /obj/item/projectile/beam/laser_tag
 	damage = 0
 	icon_state = "red"
 
 /obj/item/laser_components/modulator/blue
 	name = "blue team modulator"
 	desc = "Modulates the beam into firing blue team tagger beams."
-	projectile = /obj/item/projectile/beam/lastertag/blue
+	projectile = /obj/item/projectile/beam/laser_tag/blue
 	damage = 0
 	icon_state = "blue"
 
 /obj/item/laser_components/modulator/omni
 	name = "omni team modulator"
 	desc = "Modulates the beam into firing omni team tagger beams."
-	projectile = /obj/item/projectile/beam/lastertag/omni
+	projectile = /obj/item/projectile/beam/laser_tag/omni
 	damage = 0
 	icon_state = "omni"
 
@@ -445,3 +445,11 @@
 	icon_state = "xray"
 	firing_sound = 'sound/weapons/plasma_cutter.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_PHORON = 4, TECH_ILLEGAL = 4)
+
+/obj/item/laser_components/modulator/freeze
+	name = "freeze ray modulator"
+	desc = "Modulates the beam into freezing rays."
+	projectile = /obj/item/projectile/beam/freezer
+	icon_state = "blue"
+	firing_sound = 'sound/weapons/pulse3.ogg'
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 5, TECH_MATERIAL = 4)

@@ -20,6 +20,7 @@
 
 	health = 60
 	maxHealth = 60
+	blood_type = "#006666"
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	attacktext = "chomped"
@@ -87,6 +88,7 @@
 	ranged = 1
 	smart_ranged = TRUE
 	organ_names = list("core", "right fore wheel", "left fore wheel", "right rear wheel", "left rear wheel")
+	blood_type = COLOR_OIL
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	attacktext = "barrels into"
@@ -109,6 +111,7 @@
 	light_range = 10
 	light_wedge = LIGHT_WIDE
 	see_in_dark = 8
+	psi_pingable = FALSE
 
 	faction = "sol"
 

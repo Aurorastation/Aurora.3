@@ -173,7 +173,7 @@
 // Description: Returns a list of all unhacked APCs
 /proc/get_unhacked_apcs(var/mob/living/silicon/ai/user)
 	var/list/H = list()
-	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
+	for(var/obj/machinery/power/apc/A in SSmachinery.processing)
 		if(A.hacker && A.hacker == user)
 			continue
 		H.Add(A)
@@ -184,7 +184,7 @@
 // Description: Returns a list of all hacked APCs
 /proc/get_hacked_apcs()
 	var/list/H = list()
-	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
+	for(var/obj/machinery/power/apc/A in SSmachinery.processing)
 		if(!A.hacker)
 			continue
 		H.Add(A)
@@ -195,13 +195,13 @@
 // Description: Returns a list of all APCs
 /proc/get_apcs()
 	var/list/H = list()
-	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
+	for(var/obj/machinery/power/apc/A in SSmachinery.processing)
 		H.Add(A)
 	return H
 
 /proc/get_unhacked_holopads()
 	var/list/H = list()
-	for(var/obj/machinery/hologram/holopad/HP in SSmachinery.processing_machines)
+	for(var/obj/machinery/hologram/holopad/HP in SSmachinery.processing)
 		if(!HP.hacked)
 			H.Add(HP)
 	return H

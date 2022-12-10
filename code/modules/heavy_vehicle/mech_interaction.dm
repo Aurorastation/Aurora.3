@@ -42,17 +42,17 @@
 		return
 
 	if(modifiers["alt"])
-		if(selected_system)
-			if(selected_system == A)
-				selected_system.attack_self(user)
-				setClickCooldown(5)
+		var/obj/item/mecha_equipment/ME = A
+		if(istype(ME))
+			ME.attack_self(user)
+			setClickCooldown(5)
 			return
 
 	if(modifiers["ctrl"])
-		if(selected_system)
-			if(selected_system == A)
-				selected_system.CtrlClick(user)
-				setClickCooldown(5)
+		var/obj/item/mecha_equipment/ME = A
+		if(istype(ME))
+			ME.CtrlClick(user)
+			setClickCooldown(5)
 			return
 
 	if(!(user in pilots) && user != src)
@@ -75,8 +75,9 @@
 		setClickCooldown(15)
 		return
 
-	if(!(get_cell()?.checked_use(arms.power_use * CELLRATE)))
-		to_chat(user, "<span class='warning'>Error: Power levels insufficient.</span>")
+	if(!checked_use_cell(arms.power_use * CELLRATE))
+		to_chat(user, power == MECH_POWER_ON ? SPAN_WARNING("Error: Power levels insufficient.") : SPAN_WARNING("\The [src] is powered off."))
+		return
 
 	if(user != src)
 		set_intent(user.a_intent)
@@ -165,12 +166,14 @@
 	return
 
 /mob/living/heavy_vehicle/setClickCooldown(var/timeout)
+	var/old_next_move = next_move
 	next_move = max(world.time + timeout, next_move)
 	for(var/hardpoint in hardpoint_hud_elements)
 		var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 		if(H)
 			H.color = "#FF0000"
-	addtimer(CALLBACK(src, .proc/reset_hardpoint_color), timeout)
+	if(next_move > old_next_move) // TIMER_OVERRIDE would not work here, because the smaller delays tend to be called after the longer ones
+		addtimer(CALLBACK(src, .proc/reset_hardpoint_color), timeout)
 
 /mob/living/heavy_vehicle/proc/reset_hardpoint_color()
 	for(var/hardpoint in hardpoint_hud_elements)
@@ -234,7 +237,6 @@
 	LAZYDISTINCTADD(pilots, user)
 	sync_access()
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
-	user << sound('sound/mecha/nominal.ogg',volume=50)
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
@@ -256,9 +258,7 @@
 		if(hatch_locked)
 			if(!silent) to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
 			return
-		hatch_closed = 0
-		hud_open.update_icon()
-		update_icon()
+		hud_open.toggled(FALSE)
 		if(!silent)
 			to_chat(user, "<span class='notice'>You open the hatch and climb out of \the [src].</span>")
 	else
@@ -286,9 +286,15 @@
 		var/turf/target_loc = get_step(src, direction)
 		if(!legs.can_move_on(loc, target_loc))
 			return
-		Move(target_loc, direction)
+		if(incorporeal_move)
+			if(legs && legs.mech_step_sound)
+				playsound(src.loc,legs.mech_step_sound,40,1)
+			use_cell_power(legs.power_use * CELLRATE)
+			user.client.Process_Incorpmove(direction, src)
+		else
+			Move(target_loc, direction)
 	else
-		get_cell()?.use(legs.power_use * CELLRATE)
+		use_cell_power(legs.power_use * CELLRATE)
 		if(legs && legs.mech_turn_sound)
 			playsound(src.loc,legs.mech_turn_sound,40,1)
 		next_mecha_move = world.time + legs.turn_delay
@@ -307,8 +313,14 @@
 	if(..() && !istype(loc, /turf/space))
 		if(legs && legs.mech_step_sound)
 			playsound(src.loc,legs.mech_step_sound,40,1)
-		get_cell()?.use(legs.power_use * CELLRATE)
+		use_cell_power(legs.power_use * CELLRATE)
 	update_icon()
+
+/mob/living/heavy_vehicle/Post_Incorpmove()
+	if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/phazon))
+		var/obj/item/mecha_equipment/phazon/PZ = hardpoints[HARDPOINT_BACK]
+		use_cell_power(PZ.active_power_use * CELLRATE)
+	return ..()
 
 /mob/living/heavy_vehicle/attackby(var/obj/item/thing, var/mob/user)
 	if(user.a_intent != I_HURT && istype(thing, /obj/item/mecha_equipment))
@@ -426,6 +438,8 @@
 				to_chat(user, "<span class='notice'>You remove \the [body.cell] from \the [src].</span>")
 				playsound(user.loc, thing.usesound, 50, 1)
 				visible_message("<span class='notice'>\The [user] pries out \the [body.cell] using the \the [thing].</span>")
+				power = MECH_POWER_OFF
+				hud_power_control.update_icon()
 				body.cell = null
 				return
 			else if(istype(thing, /obj/item/cell))
@@ -544,7 +558,7 @@
 		src.visible_message("<span class='warning'>\The [src] hums with life as it is released from its lockdown mode!</span>")
 
 /mob/living/heavy_vehicle/get_floating_chat_x_offset()
-	return 8
+	return -offset_x // reverse the offset
 
 /mob/living/heavy_vehicle/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if(can_listen())
@@ -554,7 +568,7 @@
 // heavily commented so it doesn't look like one fat chunk of code, which it still does - Geeves
 /mob/living/heavy_vehicle/proc/handle_hear_say(var/mob/speaker, var/text)
 	var/found_text = findtext(text, name)
-	if(!found_text)
+	if(!found_text && nickname)
 		found_text = findtext(text, nickname)
 	if(found_text)
 		text = copytext(text, found_text) // I'm trimming the text each time so only information stated after eachother is valid
@@ -585,6 +599,7 @@
 		// Checking whether we have a leader or not
 		if(!leader)
 			if(!maintenance_protocols) // don't select a leader unless we have maintenance protocols set
+				say("Maintenance protocols must be enabled to link.")
 				return
 			// If we have no leader, we listen to the keywords 'listen to'
 			if(findtext(text, "listen to"))
@@ -609,7 +624,7 @@
 				say("Error, leader not found. Unassigning...")
 				unassign_leader()
 				return
-			if(speaker != resolved_leader || (speaker in pilots))
+			if(speaker != resolved_leader && !(speaker in pilots))
 				return
 
 			found_text = findtext(text, "set nickname to")
@@ -653,6 +668,10 @@
 			
 			// unlink the leader to get a new one
 			if(findtext(text, "unlink"))
+				if(!maintenance_protocols) // Can't lock yourself out
+					say("Maintenance protocols must be enabled to unlink.")
+					return
+
 				unassign_leader()
 				say("Leader dropped, awaiting new leader.")
 				return

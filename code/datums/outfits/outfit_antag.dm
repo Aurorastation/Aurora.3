@@ -7,8 +7,8 @@
 	uniform = /obj/item/clothing/under/syndicate
 	back = null
 	backpack = /obj/item/storage/backpack/syndie
-	satchel = /obj/item/storage/backpack/satchel_syndie
-	satchel_alt = /obj/item/storage/backpack/satchel
+	satchel = /obj/item/storage/backpack/satchel/syndie
+	satchel_alt = /obj/item/storage/backpack/satchel/leather
 	dufflebag = /obj/item/storage/backpack/duffel/syndie
 	messengerbag = /obj/item/storage/backpack/messenger/syndie
 	belt = /obj/item/storage/belt/utility/full
@@ -18,12 +18,14 @@
 	id = /obj/item/card/id/syndicate
 	r_pocket = /obj/item/device/radio/uplink
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/device/flashlight = 1,
 		/obj/item/card/emag = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
 		/obj/item/device/multitool = 1
 	)
+
+	id_iff = IFF_SYNDICATE
 
 	var/id_access = "Syndicate Operative"
 	var/uplink_uses = DEFAULT_TELECRYSTAL_AMOUNT
@@ -57,10 +59,10 @@
 	l_hand = /obj/item/tank/jetpack/void
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1,
 		/obj/item/gun/projectile/automatic/x9 = 1,
-		/obj/item/ammo_magazine/c45x = 1,
+		/obj/item/ammo_magazine/c45m/auto = 1,
 		/obj/item/crowbar/red = 1,
 		/obj/item/plastique = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
@@ -79,7 +81,7 @@
 	r_pocket = null // stop them getting a radio uplink, they get an implant instead
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/device/flashlight = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
@@ -110,6 +112,7 @@
 	allow_backbag_choice = FALSE
 
 	uniform = /obj/item/clothing/under/syndicate/ninja
+	l_hand = /obj/item/hardsuit_token
 	back = null
 	belt = /obj/item/storage/belt/ninja
 	shoes = /obj/item/clothing/shoes/swat/ert
@@ -138,10 +141,6 @@
 	if(visualsOnly)
 		return
 
-	var/obj/item/rig/light/ninja/rig = new /obj/item/rig/light/ninja(src)
-	rig.dnaLock = H.dna
-	H.equip_to_slot_or_del(rig, slot_l_hand)
-
 	H.equip_to_slot_or_del(new /obj/item/device/special_uplink/ninja(H, H.mind), slot_l_store)
 
 /datum/outfit/admin/syndicate/mercenary
@@ -152,11 +151,14 @@
 	gloves = /obj/item/clothing/gloves/swat
 	shoes = /obj/item/clothing/shoes/jackboots
 	pda = /obj/item/modular_computer/handheld/pda/syndicate
+	r_pocket = /obj/item/device/special_uplink/mercenary
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1
 	)
+
+	id_iff = IFF_MERCENARY
 
 /datum/outfit/admin/syndicate/mercenary/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -179,6 +181,7 @@
 		/obj/item/device/multitool/hacktool = 1
 	)
 
+	id_iff = IFF_LONER
 	id_access = "Lone Operative"
 
 /datum/outfit/admin/syndicate/raider
@@ -187,8 +190,8 @@
 
 	uniform = list(
 		/obj/item/clothing/under/serviceoveralls,
-		/obj/item/clothing/under/det,
-		/obj/item/clothing/under/brown,
+		/obj/item/clothing/under/det/zavod,
+		/obj/item/clothing/under/color/brown,
 		/obj/item/clothing/under/syndicate/tracksuit,
 		/obj/item/clothing/under/captainformal,
 		/obj/item/clothing/under/dominia,
@@ -203,18 +206,18 @@
 		/obj/item/clothing/under/pants/khaki,
 		/obj/item/clothing/under/pants/musthang,
 		/obj/item/clothing/under/rank/bartender,
-		/obj/item/clothing/under/rank/cargo,
+		/obj/item/clothing/under/rank/hangar_technician/heph,
 		/obj/item/clothing/under/rank/chef,
 		/obj/item/clothing/under/rank/chaplain,
 		/obj/item/clothing/under/rank/engineer,
-		/obj/item/clothing/under/rank/fatigues,
+		/obj/item/clothing/under/rank/sol,
 		/obj/item/clothing/under/rank/miner,
 		/obj/item/clothing/under/skirt/offworlder,
 		/obj/item/clothing/under/suit_jacket/tan,
 		/obj/item/clothing/under/tactical,
 		/obj/item/clothing/under/tajaran,
 		/obj/item/clothing/under/tajaran/nt,
-		/obj/item/clothing/under/rank/hephaestus/tech,
+		/obj/item/clothing/under/rank/engineer/apprentice/heph,
 		/obj/item/clothing/under/unathi,
 		/obj/item/clothing/under/waiter
 		)
@@ -222,7 +225,7 @@
 	suit = list(
 		/obj/item/clothing/suit/pirate,
 		/obj/item/clothing/suit/storage/toggle/bomber,
-		/obj/item/clothing/suit/unathi/mantle,
+		/obj/item/clothing/accessory/poncho/unathimantle,
 		/obj/item/clothing/accessory/poncho,
 		/obj/item/clothing/accessory/poncho/purple,
 		/obj/item/clothing/accessory/poncho/roles/cloak/captain,
@@ -295,7 +298,7 @@
 		/obj/item/clothing/head/hijab,
 		/obj/item/clothing/head/hijab/grey,
 		/obj/item/clothing/head/hijab/red,
-		/obj/item/clothing/head/navy/garrison,
+		/obj/item/clothing/head/sol/garrison,
 		/obj/item/clothing/head/nonla,
 		/obj/item/clothing/head/helmet/bucket,
 		/obj/item/clothing/head/helmet/material/makeshift/plasteel,
@@ -314,14 +317,22 @@
 	back = null
 	belt = null
 	gloves = null
+	glasses = list(
+			/obj/item/clothing/glasses/sunglasses,
+			/obj/item/clothing/glasses/sunglasses/aviator,
+			/obj/item/clothing/glasses/sunglasses/big,
+			/obj/item/clothing/glasses/sunglasses/visor
+			)
 	l_ear = /obj/item/device/radio/headset/raider
-	l_pocket = /obj/item/device/contract_uplink
+	l_pocket = /obj/item/device/special_uplink/raider
 	r_pocket = list(
 			/obj/item/clothing/glasses/eyepatch/hud/thermal,
 			/obj/item/clothing/glasses/thermal,
 			/obj/item/clothing/glasses/thermal/aviator
 			)
+
 	id = /obj/item/storage/wallet/random
+	id_iff = IFF_RAIDER
 
 	accessory = /obj/item/clothing/accessory/storage/webbing
 
@@ -389,7 +400,7 @@
 		)
 
 	belt = null
-	suit = /obj/item/clothing/suit/armor/bulletproof
+	suit = null
 
 	shoes = list(
 		/obj/item/clothing/shoes/laceup/all_species,
@@ -404,10 +415,12 @@
 	head = null
 
 	gloves = list(
-		/obj/item/clothing/gloves/watch,
-		/obj/item/clothing/gloves/watch/silver,
-		/obj/item/clothing/gloves/watch/gold,
-		/obj/item/clothing/gloves/watch/spy
+		/obj/item/clothing/wrists/watch,
+		/obj/item/clothing/wrists/watch/silver,
+		/obj/item/clothing/wrists/watch/gold,
+		/obj/item/clothing/wrists/watch/holo,
+		/obj/item/clothing/wrists/watch/leather,
+		/obj/item/clothing/wrists/watch/spy
 	)
 
 	l_ear = /obj/item/device/radio/headset/burglar
@@ -419,6 +432,8 @@
 
 	backpack_contents = list()
 
+	id_iff = IFF_BURGLAR
+
 /datum/outfit/admin/syndicate/burglar/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
@@ -429,7 +444,7 @@
 		/obj/item/gun/energy/retro,
 		/obj/item/gun/projectile/silenced,
 		/obj/item/gun/projectile/colt,
-		/obj/item/gun/projectile/revolver/deckard,
+		/obj/item/gun/projectile/colt/super,
 		/obj/item/gun/projectile/revolver/lemat
 		)
 
@@ -488,6 +503,7 @@
 	l_pocket = /obj/item/pinpointer
 
 	id = /obj/item/card/id/highlander
+	id_iff = IFF_HIGHLANDER
 
 /datum/outfit/admin/highlander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -498,42 +514,6 @@
 	if(W)
 		W.name = "[H.real_name]'s ID"
 		W.registered_name = H.real_name
-
-/datum/outfit/admin/wizard
-	name = "Space Wizard"
-	allow_backbag_choice = FALSE
-
-	uniform = /obj/item/clothing/under/chameleon/wizard
-	back = /obj/item/storage/backpack/chameleon/wizard
-	suit = /obj/item/clothing/suit/chameleon/wizard
-	head = /obj/item/clothing/head/softcap/chameleon/wizard
-	shoes = /obj/item/clothing/shoes/chameleon/wizard
-	l_ear = /obj/item/device/radio/headset
-	r_pocket = /obj/item/teleportation_scroll
-	l_hand = /obj/item/spellbook
-
-	backpack_contents = list(
-		/obj/item/storage/box = 1
-	)
-
-/datum/outfit/admin/wizard/apprentice
-	name = "Space Wizard Apprentice"
-	l_hand = null
-	r_pocket = null
-
-/datum/outfit/admin/wizard/skeleton
-	name = "Skeleton Warrior"
-	allow_backbag_choice = FALSE
-
-	uniform = /obj/item/clothing/under/gladiator
-	back = /obj/item/material/twohanded/spear/bone
-	suit = /obj/item/clothing/suit/armor/bone
-	head = /obj/item/clothing/head/helmet/bone
-	l_ear = null
-	r_pocket = null
-	l_hand = null
-
-	backpack_contents = null
 
 /datum/outfit/admin/syndicate/cultist
 	name = "Cultist"
@@ -553,6 +533,8 @@
 
 	r_hand = /obj/item/melee/cultblade
 
+	id_iff = IFF_CULTIST
+
 /datum/outfit/admin/syndicate/cultist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	return
 
@@ -564,8 +546,8 @@
 
 	suit_store = /obj/item/gun/energy/rifle/cult
 
-/datum/outfit/admin/syndicate/raider_mage
-	name = "Raider Mage"
+/datum/outfit/admin/syndicate/raider_techno
+	name = "Raider Techno"
 	allow_backbag_choice = FALSE
 
 	uniform = /obj/item/clothing/under/syndicate/ninja
@@ -573,18 +555,19 @@
 	shoes = /obj/item/clothing/shoes/sandal
 	head = null
 
-	back = /obj/item/gun/energy/staff/focus
 	belt = /obj/item/storage/belt/fannypack/component
 	gloves = null
-	l_ear = /obj/item/device/radio/headset/raider
-	l_pocket = null
+	l_ear = /obj/item/device/radio/headset/bluespace
+	l_pocket = /obj/item/technomancer_catalog/apprentice
 	r_pocket = null
 	id = /obj/item/storage/wallet/random
 
 	accessory = /obj/item/clothing/accessory/storage/webbing
 	backpack_contents = list()
 
-/datum/outfit/admin/syndicate/raider_mage/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	id_iff = IFF_BLUESPACE
+
+/datum/outfit/admin/syndicate/raider_techno/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/list/loadouts = list("Nature", "Techno", "Cobra", "Brawler", "Shimmer")
 	if(H.gender in list(FEMALE, PLURAL, NEUTER))
 		loadouts += list("Storm", "Sorceress")
@@ -594,39 +577,39 @@
 			head = /obj/item/clothing/head/wizard/nature
 			suit = /obj/item/clothing/suit/wizrobe/nature
 			suit_accessory = /obj/item/clothing/accessory/poncho/nature
-			spells = list(/spell/targeted/heal_target/major = 2, /spell/targeted/entangle = 2, /spell/aoe_turf/conjure/grove/sanctuary = 2)
+			back = /obj/item/technomancer_core/safety
 		if("Techno")
 			head = /obj/item/clothing/head/wizard/techno
 			suit = /obj/item/clothing/suit/wizrobe/techno
 			uniform = /obj/item/clothing/under/techo
 			shoes = /obj/item/clothing/shoes/techno
-			spells = list(/spell/aoe_turf/knock = 2, /spell/aoe_turf/conjure/forcewall = 2, /spell/aoe_turf/disable_tech = 2)
+			back = /obj/item/technomancer_core/recycling
 		if("Cobra")
 			head = /obj/item/clothing/head/wizard/cobra
 			suit = /obj/item/clothing/suit/wizrobe/cobra
 			shoes = /obj/item/clothing/shoes/hitops/red
-			spells = list(/spell/targeted/mend = 2, /spell/targeted/life_steal = 2, /spell/aoe_turf/conjure/soulstone = 2)
+			back = /obj/item/technomancer_core/overcharged
 		if("Brawler")
 			head = /obj/item/clothing/head/wizard/brawler
 			suit = /obj/item/clothing/suit/wizrobe/brawler
 			shoes = /obj/item/clothing/shoes/caligae
-			spells = list(/spell/targeted/projectile/dumbfire/passage = 2, /spell/targeted/equip_item/shield = 2, /spell/targeted/torment = 2)
+			back = /obj/item/technomancer_core/bulky
 		if("Shimmer")
 			head = /obj/item/clothing/head/wizard/shimmer
 			suit = /obj/item/clothing/suit/wizrobe/shimmer
-			spells = list(/spell/radiant_aura = 2, /spell/targeted/projectile/dumbfire/stuncuff = 2, /spell/aoe_turf/conjure/golem = 2)
+			back = /obj/item/technomancer_core/rapid
 		if("Storm")
 			head = /obj/item/clothing/head/wizard/storm
 			suit = /obj/item/clothing/suit/wizrobe/storm
 			shoes = /obj/item/clothing/shoes/heels
-			spells = list(/spell/targeted/projectile/magic_missile = 2, /spell/targeted/genetic/blind = 2, /spell/targeted/shapeshift/avian = 2)
+			back = /obj/item/technomancer_core/unstable
 		if("Sorceress")
 			head = /obj/item/clothing/head/wizard/sorceress
 			suit = /obj/item/clothing/suit/wizrobe/sorceress
-			spells = list(/spell/targeted/projectile/dumbfire/fireball = 2, /spell/aoe_turf/conjure/creature = 2, /spell/shadow_shroud = 2)
+			back = /obj/item/technomancer_core/summoner
 	return ..()
 
-/datum/outfit/admin/syndicate/raider_mage/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/syndicate/raider_techno/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -640,3 +623,94 @@
 	passport.name = "[H.real_name]'s Passport"
 	if(W)
 		W.handle_item_insertion(passport)
+
+	var/obj/item/technomancer_core/TC = H.back
+	if(TC)
+		technomancer_belongings.Add(TC)
+
+	var/obj/item/technomancer_catalog/catalog = H.l_store
+	if(catalog)
+		catalog.bind_to_owner(H)
+
+/datum/outfit/admin/golem
+	name = "Bluespace Golem"
+	allow_backbag_choice = FALSE
+
+	l_ear = /obj/item/device/radio/headset/bluespace
+	id_iff = IFF_BLUESPACE
+
+/datum/outfit/admin/techomancer
+	name = "Technomancer"
+	allow_backbag_choice = FALSE
+
+	head = /obj/item/clothing/head/chameleon/technomancer
+	l_ear = /obj/item/device/radio/headset/bluespace
+	uniform = /obj/item/clothing/under/chameleon/technomancer
+	suit = /obj/item/clothing/suit/chameleon/technomancer
+	belt = /obj/item/device/flashlight
+	back = /obj/item/technomancer_core
+	shoes = /obj/item/clothing/shoes/chameleon/technomancer
+
+	r_pocket = /obj/item/disposable_teleporter/free
+	l_pocket = /obj/item/technomancer_catalog
+
+	id = /obj/item/card/id/bluespace
+	id_iff = IFF_BLUESPACE
+
+	var/id_assignment = "Technomagus"
+
+/datum/outfit/admin/techomancer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.assignment = id_assignment
+		H.set_id_info(W)
+
+	var/obj/item/technomancer_core/TC = H.back
+	if(TC)
+		technomancer_belongings.Add(TC)
+
+	var/obj/item/technomancer_catalog/catalog = H.l_store
+	if(catalog)
+		catalog.bind_to_owner(H)
+
+/datum/outfit/admin/techomancer/apprentice
+	name = "Technomancer Apprentice"
+
+	head = /obj/item/clothing/head/chameleon/technomancer
+	uniform = /obj/item/clothing/under/chameleon/technomancer
+	suit = /obj/item/clothing/suit/chameleon/technomancer
+	shoes = /obj/item/clothing/shoes/chameleon/technomancer
+
+	l_pocket = /obj/item/technomancer_catalog/apprentice
+
+	id_assignment = "Techno-apprentice"
+
+/datum/outfit/admin/techomancer/apprentice/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	to_chat(H, "<b>You are the Technomancer's apprentice! Your goal is to assist them in their mission at the [station_name()].</b>")
+	to_chat(H, "<b>Your service has not gone unrewarded, however. Studying under them, you have learned how to use a Manipulation Core \
+	of your own.  You also have a catalog, to purchase your own functions and equipment as you see fit.</b>")
+	to_chat(H, "<b>It would be wise to speak to your master, and learn what their plans are for today. Your clothing is holographic, you should change its look before leaving.</b>")
+
+/datum/outfit/admin/techomancer/golem
+	name = "Technomancer Golem"
+
+	head = null
+	l_ear = /obj/item/device/radio/headset/bluespace
+	uniform = null
+	suit = null
+	belt = null
+	back = /obj/item/technomancer_core/golem
+	shoes = null
+
+	r_pocket = /obj/item/disposable_teleporter/free
+	l_pocket = /obj/item/technomancer_catalog/golem
+
+	id = /obj/item/card/id/bluespace

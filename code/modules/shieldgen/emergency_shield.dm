@@ -17,7 +17,7 @@
 	desc = "A forcefield which seems to be projected by the station's emergency atmosphere containment field."
 	health = 100
 
-/obj/machinery/shield/malfai/machinery_process()
+/obj/machinery/shield/malfai/process()
 	health -= 0.5 // Slowly lose integrity over time
 	check_failure()
 
@@ -145,7 +145,7 @@
 	var/is_open = FALSE //Whether or not the wires are exposed
 	var/locked = FALSE
 	var/check_delay = 60	//periodically recheck if we need to rebuild a shield
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 
 /obj/machinery/shieldgen/Destroy()
@@ -160,10 +160,12 @@
 
 	create_shields()
 
-	idle_power_usage = 0
+	var/shield_power_usage
 	for(var/obj/machinery/shield/shield_tile in deployed_shields)
-		idle_power_usage += shield_tile.shield_idle_power
-	update_use_power(TRUE)
+		shield_power_usage += shield_tile.shield_idle_power
+
+	change_power_consumption(shield_power_usage, POWER_USE_IDLE)
+	update_use_power(POWER_USE_IDLE)
 
 /obj/machinery/shieldgen/proc/shields_down()
 	if(!active) return FALSE //If it's already off, how did this get called?
@@ -173,7 +175,7 @@
 
 	collapse_shields()
 
-	update_use_power(FALSE)
+	update_use_power(POWER_USE_OFF)
 
 /obj/machinery/shieldgen/proc/create_shields()
 	for(var/T in RANGE_TURFS(2, src))
@@ -190,7 +192,7 @@
 /obj/machinery/shieldgen/proc/deploy_shield(var/turf/T)
 	var/obj/machinery/shield/S = new /obj/machinery/shield(T)
 	deployed_shields += S
-	use_power(S.shield_generate_power)
+	use_power_oneoff(S.shield_generate_power)
 
 /obj/machinery/shieldgen/proc/collapse_shields()
 	for(var/obj/machinery/shield/shield_tile in deployed_shields)
@@ -205,7 +207,7 @@
 		create_shields()
 	update_icon()
 
-/obj/machinery/shieldgen/machinery_process()
+/obj/machinery/shieldgen/process()
 	if (!active || (stat & NOPOWER))
 		return
 
@@ -221,8 +223,8 @@
 				new_power_usage += shield_tile.shield_idle_power
 
 			if (new_power_usage != idle_power_usage)
-				idle_power_usage = new_power_usage
-				use_power(0)
+				change_power_consumption(new_power_usage, POWER_USE_IDLE)
+				use_power_oneoff(0)
 
 			check_delay = 60
 		else
@@ -296,7 +298,7 @@
 
 /obj/machinery/shieldgen/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.isscrewdriver())
-		playsound(src.loc, W.usesound, 100, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		if(is_open)
 			to_chat(user, "<span class='notice'>You close the panel.</span>")
 			is_open = FALSE
@@ -308,7 +310,7 @@
 		var/obj/item/stack/cable_coil/coil = W
 		to_chat(user, "<span class='notice'>You begin to replace the wires.</span>")
 		//if(do_after(user, min(60, round( ((maxhealth/health)*10)+(malfunction*10) ))) //Take longer to repair heavier damage
-		if(do_after(user, 30))
+		if(W.use_tool(src, user, 30, volume = 50))
 			if (coil.use(1))
 				health = initial(health)
 				malfunction = FALSE

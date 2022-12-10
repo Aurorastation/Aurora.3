@@ -14,11 +14,11 @@
 
 	density = TRUE
 	anchored = TRUE
-	use_power = TRUE
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
 	active_power_usage = 5000
 
-	var/fabricator_tag = "Aurora"
+	var/fabricator_tag
 	var/drone_progress = 0
 	var/produce_drones = TRUE
 	var/time_last_drone = 500
@@ -30,19 +30,8 @@
 
 /obj/machinery/drone_fabricator/Initialize()
 	. = ..()
-	if(SSticker.current_state == GAME_STATE_PLAYING)
-		enable_drone_spawn()
-	else
-		LAZYADD(SSatoms.late_misc_firers, src)
-
-/obj/machinery/drone_fabricator/Destroy()
-	. = ..()
-	var/datum/ghostspawner/G = SSghostroles.spawners[drone_ghostrole_name]
-	LAZYREMOVE(G.spawnpoints, get_turf(src))
-
-/obj/machinery/drone_fabricator/proc/enable_drone_spawn()
-	var/datum/ghostspawner/G = SSghostroles.spawners[drone_ghostrole_name]
-	LAZYADD(G.spawnpoints, get_turf(src))
+	check_add_to_late_firers()
+	fabricator_tag = current_map.station_short
 
 /obj/machinery/drone_fabricator/derelict
 	name = "construction drone fabricator"
@@ -54,7 +43,7 @@
 	if(stat & NOPOWER)
 		icon_state = "drone_fab_nopower"
 
-/obj/machinery/drone_fabricator/machinery_process()
+/obj/machinery/drone_fabricator/process()
 	if(!ROUND_IS_STARTED)
 		return
 
@@ -79,7 +68,7 @@
 	if(produce_drones && drone_progress >= 100 && istype(user,/mob/abstract) && config.allow_drone_spawn && count_drones() < config.max_maint_drones)
 		to_chat(user, SPAN_NOTICE("<B>A drone is prepared. use 'Ghost Spawner' from the Ghost tab to spawn as a maintenance drone.</B>"))
 
-/obj/machinery/drone_fabricator/proc/create_drone(var/client/player)
+/obj/machinery/drone_fabricator/proc/create_drone(var/client/player, var/drone_tag)
 	if(stat & NOPOWER)
 		return
 	if(!produce_drones || !config.allow_drone_spawn || count_drones() >= config.max_maint_drones)
@@ -90,14 +79,23 @@
 	announce_ghost_joinleave(player, 0, "They have taken control over a maintenance drone.")
 	visible_message(SPAN_NOTICE("\The [src] churns and grinds as it lurches into motion, disgorging a shiny new drone after a few moments."))
 	flick("h_lathe_leave", src)
+	intent_message(MACHINE_SOUND)
 
 	time_last_drone = world.time
 	if(player.mob?.mind)
 		player.mob.mind.reset()
 
+	if(!drone_tag)
+		drone_tag = "MT"
+
+	var/designation = "[drone_tag]-[rand(100,999)]"
+
 	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
+	new_drone.set_name("[initial(new_drone.name)] ([designation])")
+	new_drone.designation = designation
 	new_drone.transfer_personality(player)
 	new_drone.master_fabricator = src
+	assign_drone_to_matrix(new_drone, fabricator_tag)
 
 	drone_progress = 0
 

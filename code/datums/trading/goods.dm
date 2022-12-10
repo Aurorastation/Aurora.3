@@ -38,9 +38,8 @@
 		/obj/item/toy/bosunwhistle            = TRADER_THIS_TYPE,
 		/obj/item/board                = TRADER_THIS_TYPE,
 		/obj/item/deck                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/deck/tarot/fluff     = TRADER_BLACKLIST_ALL,
 		/obj/item/pack                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/dice                 = TRADER_ALL,
+		/obj/item/stack/dice                 = TRADER_ALL,
 		/obj/item/eightball                   = TRADER_ALL,
 		/obj/item/gun/energy/wand/toy  = TRADER_THIS_TYPE,
 		/obj/item/spirit_board         = TRADER_ALL
@@ -83,7 +82,7 @@
 		/obj/item/circuitboard/telecomms                  = TRADER_BLACKLIST,
 		/obj/item/circuitboard/unary_atmos                = TRADER_BLACKLIST,
 		/obj/item/circuitboard/arcade                     = TRADER_BLACKLIST,
-		/obj/item/circuitboard/broken                     = TRADER_BLACKLIST,
+		/obj/item/trash/broken_electronics                     = TRADER_BLACKLIST,
 		/obj/item/storage/box/lights/colored              = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil                               = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil/cyborg                        = TRADER_BLACKLIST,
@@ -156,7 +155,6 @@
 		/obj/item/clothing/shoes                        = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/shoes/chameleon              = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/combat                 = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/clown_shoes            = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/cult                   = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/cyborg                 = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/lightrig               = TRADER_BLACKLIST_ALL,
@@ -182,15 +180,20 @@
 		/obj/item/clothing/gloves/chameleon             = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/force                 = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/swat/bst              = TRADER_BLACKLIST,
-		/obj/item/clothing/gloves/watch/fluff           = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/wrists/watch/fluff           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/fluff                 = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/gloves/powerfist             = TRADER_BLACKLIST,
+		/obj/item/clothing/gloves/claws                 = TRADER_BLACKLIST,
+		/obj/item/clothing/gloves/brassknuckles         = TRADER_BLACKLIST,
+		/obj/item/clothing/gloves/ballistic             = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/gloves/tesla                 = TRADER_BLACKLIST,
 		/obj/item/clothing/head                         = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/head/beret/centcom           = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/bio_hood                = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/head/hazmat                  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/bomb_hood               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/caphat                  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/centhat                 = TRADER_BLACKLIST,
-		/obj/item/clothing/head/softcap/chameleon               = TRADER_BLACKLIST,
+		/obj/item/clothing/head/chameleon               = TRADER_BLACKLIST,
 		/obj/item/clothing/head/collectable             = TRADER_BLACKLIST,
 		/obj/item/clothing/head/culthood                = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/helmet                  = TRADER_BLACKLIST_ALL,
@@ -271,7 +274,7 @@ Sells devices, odds and ends, and medical stuff
 	name = "Robot Seller"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Robot Store"
-	possible_origins = list("AI for the Straight Guy", "Mechanical Buddies", "Bot Chop Shop", "Omni Consumer Projects")
+	possible_origins = list("AI for the Straight Guy", "Mechanical Buddies", "Bot Chop Shop", "Omni Consumer Projects", "Hephaestus Industries Robotic Shop")
 
 	possible_wanted_items = list(
 		/obj/item/bucket_sensor         = TRADER_THIS_TYPE,
@@ -353,6 +356,8 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/gun/energy/plasmacutter         = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/space/void/mining = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/space/void/mining        = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/mining/fluff = TRADER_BLACKLIST, //No custom items
+		/obj/item/clothing/suit/space/void/mining/fluff        = TRADER_BLACKLIST, //No custom items
 		/obj/machinery/mining/drill                      = TRADER_THIS_TYPE,
 		/obj/machinery/mining/brace                      = TRADER_THIS_TYPE,
 		/mob/living/heavy_vehicle/premade/ripley                      = TRADER_THIS_TYPE,

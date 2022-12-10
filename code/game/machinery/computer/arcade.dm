@@ -1,8 +1,10 @@
 /obj/machinery/computer/arcade/
 	name = "random arcade"
 	desc = "random arcade machine"
-	icon_state = "arcade"
-	icon_screen = "invaders"
+	icon = 'icons/obj/computer.dmi'
+	icon_state = "arcade2"
+	icon_screen = "battler"
+	icon_broken = "broken-arcade"
 	var/prize = /obj/random/arcade
 
 /obj/machinery/computer/arcade/Initialize()
@@ -50,7 +52,8 @@
 /obj/machinery/computer/arcade/battle
 	name = "arcade machine"
 	desc = "Does not support Pinball."
-	icon_state = "arcade"
+	icon_state = "arcade2"
+	icon_screen = "battler"
 	circuit = /obj/item/circuitboard/arcade/battle
 	var/enemy_name = "Space Villian"
 	var/temp = "Winners don't use space drugs" //Temporary message, for attack messages, etc
@@ -96,6 +99,7 @@
 
 	dat += "</b></center>"
 
+	send_theme_resources(user)
 	var/datum/browser/arcade_win = new(user, "arcade", capitalize_first_letters(name))
 	arcade_win.set_content(dat)
 	arcade_win.open()

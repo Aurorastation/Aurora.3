@@ -2,6 +2,8 @@
 	filename = "cargodelivery"
 	filedesc = "Cargo Delivery"
 	extended_desc = "Application to Control Delivery and Payment of Cargo orders."
+	program_icon_state = "supply"
+	program_key_icon_state = "yellow_key"
 	size = 6
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE

@@ -11,7 +11,7 @@
 	icon_state = "farmbot0"
 	health = 50
 	maxHealth = 50
-	req_one_access = list(access_hydroponics, access_robotics, access_xenobiology)
+	req_one_access = list(access_hydroponics, access_robotics, access_xenobotany)
 
 	var/action = "" // Used to update icon
 	var/waters_trays = TRUE
@@ -143,11 +143,11 @@
 			path = list()
 			target = null
 		else
-			if(path.len && frustration < 5)
+			if(length(path) && frustration < 5)
 				if(path[1] == loc)
 					path -= path[1]
 
-				if (path.len)
+				if(length(path))
 					var/t = step_towards(src, path[1])
 					if(t)
 						path -= path[1]
@@ -167,16 +167,24 @@
 					target = tray
 					frustration = 0
 					break
+			if(target) //We found a tray we can do something to. Set path to there.
+				pathfind(target)
+				return
 			if(check_tank())
 				for(var/obj/structure/sink/source in view(7, src))
-					target = source
-					frustration = 0
-					break
-		if(target)
-			var/t = get_dir(target, src) // Turf with the tray is impassable, so a* can't navigate directly to it
-			path = AStar(loc, get_step(target, t), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
-			if(!path)
-				path = list()
+					if(pathfind(source)) //If we can find a valid path to this sink, it's our target
+						target = source
+						frustration = 0
+						break
+				
+
+/mob/living/bot/farmbot/proc/pathfind(var/atom/A)
+	var/t = get_dir(A, src) // Turf with the tray is impassable, so a* can't navigate directly to it
+	path = AStar(loc, get_step(A, t), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
+	if(!path)
+		path = list()
+		return FALSE
+	return path
 
 /mob/living/bot/farmbot/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()

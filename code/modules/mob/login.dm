@@ -4,6 +4,8 @@
 	lastKnownIP	= client.address
 	computer_id	= client.computer_id
 	log_access("Login: [key_name(src)] from [lastKnownIP ? lastKnownIP : "localhost"]-[computer_id] || BYOND v[client.byond_version]",ckey=key_name(src))
+	if(config.guests_allowed) // shut up if guests allowed for testing
+		return
 	if(config.log_access)
 		for(var/mob/M in player_list)
 			if(M == src)	continue
@@ -66,7 +68,7 @@
 
 	disconnect_time = null
 	next_move = 1
-	sight |= SEE_SELF
+	set_sight(sight|SEE_SELF)
 	disconnect_time = null
 
 	player_age = client.player_age
@@ -82,11 +84,22 @@
 		eyeobj.possess(src)
 
 	//set macro to normal incase it was overriden (like cyborg currently does)
-	winset(src, null, "mainwindow.macro=macro input.focus=true input.background-color=#D3B5B5")
+	if(client.prefs.toggles_secondary & HOTKEY_DEFAULT)
+		winset(src, null, "mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.background-color=#D3B5B5")
+	else
+		winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5")
 	MOB_STOP_THINKING(src)
+
+	clear_important_client_contents(client)
+	enable_client_mobs_in_contents(client)
 
 	update_client_color()
 	add_click_catcher()
 
+	if(machine)
+		machine.on_user_login(src)
+
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
+
+	client.chatOutput.start()

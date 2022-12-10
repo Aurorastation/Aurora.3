@@ -42,8 +42,10 @@
 
 /proc/get_centcom_access(job)
 	switch(job)
+		if("SCC Agent", "SCC Executive", "SCC Bodyguard")
+			return list(access_cent_general, access_cent_ccia, access_cent_specops)
 		if("CCIA Agent")
-			return list(access_cent_general, access_cent_captain, access_cent_living)
+			return list(access_cent_general, access_cent_ccia, access_cent_specops)
 		if("Emergency Response Team")
 			return list(access_cent_general, access_cent_specops, access_cent_living)
 		if("Odin Security")
@@ -53,11 +55,11 @@
 		if("Service")
 			return list(access_cent_general, access_cent_living)
 		if("Death Commando")
-			return list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage)
-		if("NanoTrasen Representative")
-			return list(access_cent_general, access_cent_living, access_cent_storage, access_cent_thunder, access_cent_medical, access_cent_specops, access_cent_teleporter)
+			return list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage, access_cent_medical)
 		if("BlackOps Commander")
 			return list(access_cent_general, access_cent_thunder, access_cent_specops, access_cent_living, access_cent_storage, access_cent_creed)
+		if("NanoTrasen Representative") //Adminspawn roles
+			return get_all_centcom_access()
 		if("Supreme Commander")
 			return get_all_centcom_access()
 
@@ -177,7 +179,7 @@
 		if(ACCESS_REGION_GENERAL) //station general
 			return "Station General"
 		if(ACCESS_REGION_SUPPLY) //supply
-			return "Supply"
+			return "Operations"
 
 /proc/get_access_desc(id)
 	var/list/AS = get_all_access_datums_by_id()
@@ -248,8 +250,8 @@ var/obj/item/card/id/all_access/ghost_all_access
 		var/id = wear_id.GetID()
 		if(id)
 			return id
-	if(gloves)
-		var/id = gloves.GetID()
+	if(wrists)
+		var/id = wrists.GetID()
 		if(id)
 			return id
 

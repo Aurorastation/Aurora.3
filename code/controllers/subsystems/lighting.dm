@@ -1,6 +1,7 @@
 var/datum/controller/subsystem/lighting/SSlighting
 
 /var/lighting_profiling = FALSE
+/var/lighting_overlays_initialized = FALSE
 
 /datum/controller/subsystem/lighting
 	name = "Lighting"
@@ -51,8 +52,10 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 /datum/controller/subsystem/lighting/ExplosionStart()
 	force_queued = TRUE
+	suspend()
 
 /datum/controller/subsystem/lighting/ExplosionEnd()
+	wake()
 	if (!force_override)
 		force_queued = FALSE
 
@@ -73,6 +76,11 @@ var/datum/controller/subsystem/lighting/SSlighting
 	for (var/zlevel = 1 to world.maxz)
 		for (thing in Z_ALL_TURFS(zlevel))
 			T = thing
+			if(config.starlight)
+				var/turf/space/S = T
+				if(istype(S) && S.use_starlight)
+					S.update_starlight()
+
 			if (!T.dynamic_lighting)
 				continue
 
@@ -80,10 +88,12 @@ var/datum/controller/subsystem/lighting/SSlighting
 			if (!A.dynamic_lighting)
 				continue
 
-			new /atom/movable/lighting_overlay(T)
+			T.lighting_build_overlay()
 			overlaycount++
 
 			CHECK_TICK
+
+	lighting_overlays_initialized = TRUE
 
 	admin_notice(SPAN_DANGER("Created [overlaycount] lighting overlays in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 

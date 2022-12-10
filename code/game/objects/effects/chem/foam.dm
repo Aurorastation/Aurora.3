@@ -172,7 +172,7 @@
 		qdel(src)
 	else
 		to_chat(user, SPAN_NOTICE("You hit the metal foam but bounce off it."))
-		animate_shake()
+		shake_animation()
 
 /obj/structure/foamedmetal/attackby(var/obj/item/I, var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -180,29 +180,29 @@
 		var/obj/item/grab/G = I
 		if(G.state < GRAB_AGGRESSIVE)
 			to_chat(user, SPAN_WARNING("You need a stronger grip to do that!"))
-			return
+			return TRUE
 		G.affecting.forceMove(src.loc)
 		visible_message(SPAN_WARNING("[G.assailant] smashes [G.affecting] through the foamed metal wall."))
 		G.affecting.take_overall_damage(15)
 		qdel(I)
 		qdel(src)
-		return
+		return TRUE
 
 	else if(istype(I, /obj/item/stack/material))
 		var/obj/item/stack/material/S = I
 		if(S.get_amount() < 4)
 			to_chat(user, SPAN_NOTICE("There isn't enough material here to construct a wall."))
-			return
-		
+			return TRUE
+
 		var/material/M = SSmaterials.get_material_by_name(S.default_type)
 		if(!istype(M))
-			return
+			return TRUE
 		if(M.integrity < 50)
 			to_chat(user, SPAN_NOTICE("This material is too soft for use in wall construction."))
-			return
+			return TRUE
 		user.visible_message("<b>[user]</b> starts slotting material into \the [src]...", SPAN_NOTICE("You start slotting material into \the [src], forming it into a wall..."))
 		if(!do_after(user, 10 SECONDS) || !S.use(4))
-			return
+			return TRUE
 		var/turf/Tsrc = get_turf(src)
 		var/original_type = Tsrc.type
 		Tsrc.ChangeTurf(/turf/simulated/wall)
@@ -211,18 +211,18 @@
 		T.set_material(M)
 		T.add_hiddenprint(usr)
 		qdel(src)
-		return
+		return TRUE
 
 	else if(istype(I, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
 		if(T.type != /turf/space && !isopenturf(T)) // need to do a hard check here because transit turfs are also space turfs
 			to_chat(user, SPAN_WARNING("The tile below \the [src] isn't an open space, or space itself!"))
-			return
+			return TRUE
 		var/obj/item/stack/tile/floor/S = I
 		S.use(1)
 		T.ChangeTurf(/turf/simulated/floor/airless)
 		qdel(src)
-		return
+		return TRUE
 
 	user.do_attack_animation(src, I)
 	if(prob(I.force * 20 - metal * 25))
@@ -230,7 +230,8 @@
 		qdel(src)
 	else
 		to_chat(user, SPAN_NOTICE("You hit the metal foam to no effect."))
-		animate_shake()
+		shake_animation()
+	return TRUE
 
 /obj/structure/foamedmetal/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
 	if(air_group)

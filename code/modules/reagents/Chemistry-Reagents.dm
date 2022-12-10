@@ -14,6 +14,7 @@
 	var/overdose = 0 // Volume of a chemical required in the blood to meet overdose criteria.
 	var/od_minimum_dose = 5 // Metabolised dose of a chemical required to meet overdose criteria.
 	var/scannable = 0 // Shows up on health analyzers.
+	var/spectro_hidden = FALSE // doesn't show up on basic mass spectrometers, only shows on the advanced variant
 	var/affects_dead = 0
 	var/glass_icon_state = null
 	var/glass_name = null
@@ -43,6 +44,13 @@
 
 /decl/reagent/proc/remove_self(var/amount, var/datum/reagents/holder) // Shortcut
 	holder.remove_reagent(type, amount) // Don't typecheck this, fix anywhere this is called with a null holder.
+	if(ishuman(holder.my_atom))
+		var/mob/living/carbon/human/H = holder.my_atom
+		if(H.vessel && (/decl/reagent/blood in H.vessel.reagent_data))
+			if(H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type])
+				H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type] += amount
+			else
+				H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type] = amount
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
 /decl/reagent/proc/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
@@ -86,7 +94,7 @@
 	if(is_overdosing(M, location, holder))
 		overdose(M, alien, removed, LAZYACCESS(M.chem_doses, type)/get_overdose(M, location, holder), holder) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
 
-	if(LAZYACCESS(M.chem_doses, type) == 0)
+	if(LAZYACCESS(M.chem_doses, type) <= 0)
 		initial_effect(M,alien, holder)
 
 	LAZYSET(M.chem_doses, type, LAZYACCESS(M.chem_doses, type) + removed)
@@ -159,3 +167,7 @@
 
 /decl/reagent/proc/mix_data(var/newdata, var/newamount, var/datum/reagents/holder) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
 	return REAGENT_DATA(holder, type)
+
+//Check to use when seeing if the person has the minimum dose of the reagent. Useful for stopping minimum transfer rate IV drips from applying chem effects
+/decl/reagent/proc/check_min_dose(var/mob/living/carbon/M, var/min_dose = 1)
+	return (REAGENT_VOLUME(M.reagents, type) >= min_dose)

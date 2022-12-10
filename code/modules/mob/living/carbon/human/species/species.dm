@@ -12,26 +12,31 @@
 	var/category_name                                    // a name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
 	var/bodytype
-	var/age_min = 17
+	var/age_min = 18
 	var/age_max = 85
 	var/economic_modifier = 0
 	var/list/default_genders = list(MALE, FEMALE)
+	var/list/selectable_pronouns = list(MALE, FEMALE, PLURAL)
 
 	// Icon/appearance vars.
+	var/canvas_icon = 'icons/mob/base_32.dmi'                  // Used to blend parts and icons onto this, to avoid clipping issues.
 	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
 	var/deform = 'icons/mob/human_races/human/r_def_human.dmi' // Mutated icon set.
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
 	var/bandages_icon
 
+	var/talk_bubble_icon
+
 	// Damage overlay and masks.
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
 	var/damage_mask = 'icons/mob/human_races/masks/dam_mask_human.dmi'
 	var/blood_mask = 'icons/mob/human_races/masks/blood_human.dmi'
-	var/onfire_overlay = 'icons/mob/OnFire.dmi'
+	var/onfire_overlay = 'icons/mob/burning/burning_generic.dmi'
 
 	var/prone_icon                                       // If set, draws this from icobase when mob is prone.
 	var/icon_x_offset = 0
 	var/icon_y_offset = 0
+	var/floating_chat_x_offset = null
 	var/eyes = "eyes_s"                                  // Icon for eyes.
 	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
@@ -50,8 +55,11 @@
 	var/show_ssd = "fast asleep"
 	var/short_sighted
 	var/bald = 0
-	var/light_range
-	var/light_power
+
+	// Light
+	var/light_range = null
+	var/light_power = null
+	var/light_color = null
 
 	// Language/culture vars.
 	var/default_language = "Ceti Basic"		 // Default language is used when 'say' is used without modifiers.
@@ -67,8 +75,11 @@
 	var/list/unarmed_types = list(           // Possible unarmed attacks that the mob will use in combat,
 		/datum/unarmed_attack,
 		/datum/unarmed_attack/bite
-		)
+	)
 	var/list/unarmed_attacks = null          // For empty hand harm-intent attack
+	var/standing_jump_range = 2
+	var/list/maneuvers = list(/decl/maneuver/leap)
+
 	var/pain_mod =      1                    // Pain multiplier
 	var/brute_mod =     1                    // Physical damage multiplier.
 	var/burn_mod =      1                    // Burn damage multiplier.
@@ -90,14 +101,15 @@
 	var/break_cuffs = FALSE                   //used in resist.dm to check if they can break hand/leg cuffs
 	var/natural_climbing = FALSE             //If true, the species always succeeds at climbing.
 	var/climb_coeff = 1.25                   //The coefficient to the climbing speed of the individual = 60 SECONDS * climb_coeff
+
 	// Death vars.
 	var/respawn_type = CREW
 	var/meat_type = /obj/item/reagent_containers/food/snacks/meat/human
 	var/gibber_type = /obj/effect/gibspawner/human
 	var/single_gib_type = /obj/effect/decal/cleanable/blood/gibs
 	var/remains_type = /obj/effect/decal/remains/xeno
+	var/dust_remains_type =  /obj/effect/decal/remains/xeno/burned
 	var/gibbed_anim = "gibbed-h"
-	var/dusted_anim = "dust-h"
 	var/death_sound
 	var/death_message = "falls limp and stops moving..."
 	var/death_message_range = 2
@@ -115,6 +127,8 @@
 	var/organ_low_burn_message = "<span class='danger'>Your %PARTNAME% burns.</span>"
 	var/organ_med_burn_message = "<span class='danger'><font size=3>Your %PARTNAME% burns horribly!</font></span>"
 	var/organ_high_burn_message = "<span class='danger'><font size=4>Your %PARTNAME% feels like it's on fire!</font></span>"
+
+	var/list/stutter_verbs = list("stammers", "stutters")
 
 	// Environment tolerance/life processes vars.
 	var/reagent_tag                                   //Used for metabolizing reagents.
@@ -167,6 +181,9 @@
 	var/healths_x // set this to specify where exactly the healths HUD element appears
 	var/healths_overlay_x = 0 // set this to tweak where the overlays on top of the healths HUD element goes
 
+	var/list/equip_overlays
+	var/list/equip_adjust
+
 	// Body/form vars.
 	var/list/inherent_verbs 	  // Species-specific verbs.
 	var/list/inherent_spells 	  // Species-specific spells.
@@ -190,6 +207,21 @@
 	var/sprint_cost_factor = 0.9  	// Multiplier on stamina cost for sprinting
 	var/exhaust_threshold = 50	  	// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
 
+	// Pulse modifiers
+	var/low_pulse = 40
+	var/norm_pulse = 60
+	var/fast_pulse = 90
+	var/v_fast_pulse = 120
+	var/max_pulse = 160
+
+	// Blood pressure modifiers
+	var/bp_base_systolic = 120
+	var/bp_base_disatolic = 80
+
+	// Hearing sensitivity
+	var/hearing_sensitivity = HEARING_NORMAL
+
+	// Eating & nutrition related stuff
 	var/gluttonous = 0            // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
 	var/stomach_capacity = 5      // How much stuff they can stick in their stomach
 	var/allowed_eat_types = TYPE_ORGANIC
@@ -227,6 +259,8 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
 
+	var/list/natural_armor
+
 	// Bump vars
 	var/bump_flag = HUMAN	// What are we considered to be when bumped?
 	var/push_flags = ~HEAVY	// What can we push?
@@ -234,23 +268,23 @@
 
 	var/pass_flags = 0
 
-	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints // What marks are left when walking
+	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot // What marks are left when walking
 
 	var/default_h_style = "Bald"
 	var/default_f_style = "Shaved"
 	var/default_g_style = "None"
 
-	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
-	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM)
-	var/default_citizenship = CITIZENSHIP_BIESEL
-	var/list/allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
-									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR, ACCENT_KONYAN, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_NCF, ACCENT_FISANDUH, ACCENT_GADPATHUR)
-	var/default_accent = ACCENT_CETI
+	var/list/possible_cultures = list(
+		/decl/origin_item/culture/unknown
+	)
+
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
 	var/bodyfall_sound = /decl/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
+	var/footsound = /decl/sound_category/blank_footsteps //same as above but for footsteps without shoes
 
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
+	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -293,7 +327,7 @@
 	for(var/obj/item/clothing/clothes in H)
 		if(H.l_hand == clothes|| H.r_hand == clothes)
 			continue
-		if((clothes.body_parts_covered & UPPER_TORSO) && (clothes.body_parts_covered & LOWER_TORSO))
+		if((clothes.body_parts_covered & UPPER_TORSO) && (clothes.body_parts_covered & LOWER_TORSO) && !clothes.no_overheat)
 			covered = 1
 			break
 
@@ -374,6 +408,9 @@
 		for(var/obj/item/organ/I in H.internal_organs)
 			I.status |= ORGAN_ADV_ROBOT
 
+	if(natural_armor)
+		H.AddComponent(/datum/component/armor, natural_armor)
+
 /datum/species/proc/tap(var/mob/living/carbon/human/H,var/mob/living/target)
 	if(H.on_fire)
 		target.fire_stacks += 1
@@ -423,6 +460,7 @@
 			H.dna.SetSEState(MONKEYBLOCK,0)
 	if(!H.client || !H.client.prefs || !H.client.prefs.gender)
 		H.gender = pick(default_genders)
+		H.pronouns = H.gender
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
@@ -478,21 +516,19 @@
 		H.sight &= ~(H.equipment_vision_flags)
 		H.sight &= ~(vision[1])
 	else
-		H.sight |= get_vision_flags(H)
-		H.sight |= H.equipment_vision_flags
-		H.sight |= vision[1]
+		H.set_sight(H.sight|get_vision_flags(H)|H.equipment_vision_flags|vision[1])
 
 	if(H.stat == DEAD)
 		return 1
 
 	if(!H.druggy)
-		H.see_in_dark = (H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(darksight + H.equipment_darkness_modifier, 8)
+		H.set_see_in_dark((H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(darksight + H.equipment_darkness_modifier, 8))
 		if(H.seer)
 			var/obj/effect/rune/R = locate(/obj/effect/rune) in get_turf(H)
 			if(R && R.type == /datum/rune/see_invisible)
-				H.see_invisible = SEE_INVISIBLE_CULT
+				H.set_see_invisible(SEE_INVISIBLE_CULT)
 		if(H.see_invisible != SEE_INVISIBLE_CULT && H.equipment_see_invis)
-			H.see_invisible = min(H.see_invisible, H.equipment_see_invis)
+			H.set_see_invisible(min(H.see_invisible, H.equipment_see_invis))
 
 	if(H.equipment_tint_total >= TINT_BLIND)
 		H.eye_blind = max(H.eye_blind, 1)
@@ -504,7 +540,10 @@
 	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
 
 	if(config.welder_vision)
-		H.set_fullscreen(H.equipment_tint_total, "welder", /obj/screen/fullscreen/impaired, H.equipment_tint_total)
+		if(H.equipment_tint_total)
+			H.overlay_fullscreen("welder", /obj/screen/fullscreen/impaired, H.equipment_tint_total, 0.5 SECONDS)
+		else
+			H.clear_fullscreen("welder")
 	var/how_nearsighted = get_how_nearsighted(H)
 	H.set_fullscreen(how_nearsighted, "nearsighted", /obj/screen/fullscreen/oxy, how_nearsighted)
 	H.set_fullscreen(H.eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
@@ -519,6 +558,10 @@
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay
 
+	var/obj/item/organ/internal/eyes/night/NE = H.internal_organs_by_name[BP_EYES]
+	if(istype(NE) && NE.night_vision && NE.can_change_invisible())
+		H.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+
 	return 1
 
 /datum/species/proc/get_how_nearsighted(var/mob/living/carbon/human/H)
@@ -529,11 +572,16 @@
 		prescriptions -= H.equipment_prescription
 	return Clamp(prescriptions, 0, 7)
 
-/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+// pre_move is set to TRUE when the mob checks whether it's even possible to move, so resources aren't drained until after the move completes
+// once the mob moves and its loc actually changes, the pre_move is set to FALSE and all the proper resources are drained
+/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
 	if (!H.exhaust_threshold)
 		return 1 // Handled.
 
+	cost += H.getOxyLoss() * 0.1 //The less oxygen we get, the more we strain.
 	cost *= H.sprint_cost_factor
+	if(H.is_drowsy())
+		cost *= 1.25
 	if (H.stamina == -1)
 		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
 		return 0
@@ -541,44 +589,51 @@
 	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
 	if(C && !C.is_broken())
 		cost = 0
-		C.do_run_act()
+		if(!pre_move)
+			C.do_run_act()
 
 	var/remainder = 0
 	if (H.stamina > cost)
-		H.stamina -= cost
-		H.hud_used.move_intent.update_move_icon(H)
+		if(!pre_move)
+			H.stamina -= cost
+			H.hud_used.move_intent.update_move_icon(H)
 		return 1
 	else if (H.stamina > 0)
 		remainder = cost - H.stamina
-		H.stamina = 0
+		if(!pre_move)
+			H.stamina = 0
 	else
 		remainder = cost
 
-	if(H.disabilities & ASTHMA)
+	if(!pre_move && (H.disabilities & ASTHMA))
 		H.adjustOxyLoss(remainder*0.15)
 
-	if(H.disabilities & COUGHING)
+	if(!pre_move && (H.disabilities & COUGHING))
 		H.adjustHalLoss(remainder*0.1)
 
-	if (breathing_organ && has_organ[breathing_organ])
+	if(!pre_move && breathing_organ && has_organ[breathing_organ])
 		var/obj/item/organ/O = H.internal_organs_by_name[breathing_organ]
 		if(O.is_bruised())
 			H.adjustOxyLoss(remainder*0.15)
 			H.adjustHalLoss(remainder*0.25)
+		H.adjustOxyLoss(remainder * 0.2) //Keeping oxyloss small when out of stamina to prevent old issue where running until exhausted sometimes gave you brain damage.
 
-	H.adjustHalLoss(remainder*0.25)
-	H.updatehealth()
-	if((H.get_shock() >= 10) && prob(H.get_shock() *2))
-		H.flash_pain(H.get_shock())
+	var/shock = H.get_shock()
+	if(!pre_move)
+		H.adjustHalLoss(remainder*0.3)
+		H.updatehealth()
+		if((shock >= 10) && prob(shock *2))
+			H.flash_pain(shock)
 
-	if ((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
+	if((shock + H.getOxyLoss()*2) >= (exhaust_threshold * 0.8))
 		H.m_intent = M_WALK
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
-		H.flash_pain(H.get_shock())
+		H.flash_pain(shock)
 		return 0
 
-	H.hud_used.move_intent.update_move_icon(H)
+	if(!pre_move)
+		H.hud_used.move_intent.update_move_icon(H)
 	return 1
 
 /datum/species/proc/get_light_color(mob/living/carbon/human/H)
@@ -587,10 +642,47 @@
 /datum/species/proc/can_breathe_water()
 	return FALSE
 
-/datum/species/proc/get_move_trail(var/mob/living/carbon/human/H)
-	if( H.shoes || ( H.wear_suit && (H.wear_suit.body_parts_covered & FEET) ) )
-		return /obj/effect/decal/cleanable/blood/tracks/footprints
+/datum/species/proc/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
+	var/list/trail_info = list()
+	if(H.shoes)
+		var/obj/item/clothing/shoes/S = H.shoes
+		if(istype(S))
+			S.handle_movement(T, H.m_intent == M_RUN ? TRUE : FALSE)
+			if(S.track_footprint)
+				if(S.blood_DNA)
+					trail_info["footprint_DNA"] = S.blood_DNA
+				trail_info["footprint_color"] = S.blood_color
+				S.track_footprint--
 	else
+		if(H.track_footprint)
+			if(H.feet_blood_DNA)
+				trail_info["footprint_DNA"] = H.feet_blood_DNA
+			trail_info["footprint_color"] = H.footprint_color
+			H.track_footprint--
+
+	return trail_info
+
+/datum/species/proc/deploy_trail(var/mob/living/carbon/human/H, var/turf/T)
+	var/list/trail_info = handle_trail(H, T)
+	if(length(trail_info))
+		var/track_path = trail_info["footprint_type"]
+		T.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], H.dir, 0, trail_info["footprint_color"]) // Coming
+		var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
+		if(istype(from))
+			from.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], 0, H.dir, trail_info["footprint_color"]) // Going
+
+/datum/species/proc/get_move_trail(var/mob/living/carbon/human/H)
+	if(H.lying)
+		return /obj/effect/decal/cleanable/blood/tracks/body
+	else if(H.shoes || (H.wear_suit && (H.wear_suit.body_parts_covered & FEET)))
+		var/obj/item/clothing/shoes
+		if(H.wear_suit && (H.wear_suit.body_parts_covered & FEET))
+			shoes = H.wear_suit
+			. = shoes.move_trail
+		if(H.shoes && !.)
+			shoes = H.shoes
+			. = shoes.move_trail
+	if(!.)
 		return move_trail
 
 /datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
@@ -656,3 +748,85 @@
 
 /datum/species/proc/get_injection_modifier()
 	return injection_mod
+
+/datum/species/proc/is_naturally_insulated()
+	return FALSE
+
+/datum/species/proc/bypass_food_fullness(var/mob/living/carbon/human/H) //proc used to see if the species can eat more than their nutrition value allows
+	return FALSE
+
+// the records var is so that untagged shells can appear human
+/datum/species/proc/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
+	if(reference)
+		return src
+	return name
+
+// prevents EMP damage if return it returns TRUE
+/datum/species/proc/handle_emp_act(var/mob/living/carbon/human/H, var/severity)
+	return FALSE
+
+/datum/species/proc/handle_movement_tally(var/mob/living/carbon/human/H)
+	var/tally = 0
+	if(istype(H.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
+		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
+			var/obj/item/organ/external/E = H.get_organ(organ_name)
+			if(!E || E.is_stump())
+				tally += 4
+			else if(E.status & ORGAN_SPLINTED)
+				tally += 0.5
+			else if(E.status & ORGAN_BROKEN)
+				tally += 1.5
+	else
+		for(var/organ_name in list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG))
+			var/obj/item/organ/external/E = H.get_organ(organ_name)
+			if(!E || E.is_stump())
+				tally += 4
+			else if((E.status & ORGAN_BROKEN) || (E.tendon_status() & TENDON_CUT))
+				tally += 1.5
+			else if((E.status & ORGAN_SPLINTED) || (E.tendon_status() & TENDON_BRUISED))
+				tally += 0.5
+	return tally
+
+/datum/species/proc/handle_stance_damage(var/mob/living/carbon/human/H, var/damage_only = FALSE)
+	var/static/support_limbs = list(
+		BP_L_LEG = BP_R_LEG,
+		BP_L_FOOT = BP_R_FOOT
+	)
+
+	var/has_opposite_limb = FALSE
+	var/stance_damage = 0
+	for(var/limb_tag in list(BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT))
+		var/obj/item/organ/external/E = H.organs_by_name[limb_tag]
+		if(!E || (E.status & (ORGAN_MUTATED|ORGAN_DEAD)) || E.is_stump()) //should just be !E.is_usable() here but dislocation screws that up.
+			has_opposite_limb = H.get_organ(support_limbs[limb_tag])
+			if(!has_opposite_limb)
+				stance_damage += 10 //No walking for you with no supporting limb, buddy.
+				break
+			else
+				stance_damage += 2
+		else if (E.is_malfunctioning())
+			//malfunctioning only happens intermittently so treat it as a missing limb when it procs
+			stance_damage += 2
+			if(!damage_only && prob(10))
+				H.visible_message(SPAN_WARNING("\The [H]'s [E.name] [pick("twitches", "shudders")] and sparks!"))
+				spark(H, 5)
+		else if (E.is_broken() || !E.is_usable())
+			stance_damage += 1
+		else if (ORGAN_IS_DISLOCATED(E))
+			stance_damage += 0.5
+
+	// Canes and crutches help you stand (if the latter is ever added)
+	// One cane mitigates a broken leg+foot, or a missing foot.
+	// No double caning allowed, sorry. Canes also don't work if you're missing a functioning pair of feet or legs.
+	if(has_opposite_limb)
+		var/obj/item/cane/C = H.get_type_in_hands(/obj/item/cane)
+		if(C?.can_support)
+			stance_damage -=2
+
+	return stance_damage
+
+/datum/species/proc/can_hold_s_store(var/obj/item/I)
+	return FALSE
+
+/datum/species/proc/can_double_fireman_carry()
+	return FALSE

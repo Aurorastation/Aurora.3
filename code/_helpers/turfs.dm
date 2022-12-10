@@ -148,8 +148,10 @@
 		if(target)
 			if(base_area)
 				ChangeArea(target, get_area(source))
+				transport_turf_contents(source, target)
 				ChangeArea(source, base_area)
-			transport_turf_contents(source, target)
+			else
+				transport_turf_contents(source, target)
 
 	//change the old turfs
 	for(var/turf/source in translation)
@@ -174,3 +176,11 @@
 		M.forceMove(new_turf)
 
 	return new_turf
+
+/proc/air_sound(atom/source, var/required_pressure = SOUND_MINIMUM_PRESSURE)
+	var/turf/T = get_turf(source)
+	var/datum/gas_mixture/environment = T.return_air()
+	var/pressure = (environment)? environment.return_pressure() : 0
+	if(pressure < required_pressure)
+		return FALSE
+	return TRUE

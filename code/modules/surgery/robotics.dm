@@ -23,9 +23,9 @@
 	return TRUE
 
 /decl/surgery_step/robotics/unscrew_hatch
-	name = "Unscrew hatch"
+	name = "Unscrew Hatch"
 	allowed_tools = list(
-		/obj/item/screwdriver = 100,
+		SCREWDRIVER = 100,
 		/obj/item/coin = 50,
 		/obj/item/material/kitchen/utensil/knife = 50
 	)
@@ -33,12 +33,19 @@
 	min_duration = 90
 	max_duration = 110
 
+	requires_surgery_compatibility = FALSE
+
 /decl/surgery_step/robotics/unscrew_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 
+	if(target_zone == BP_MOUTH)
+		return FALSE
+
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
+	if(affected?.open == ORGAN_CLOSED)
+		return TRUE
+	return FALSE
 
 /decl/surgery_step/robotics/unscrew_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -57,11 +64,53 @@
 	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, failing to unscrew [target]'s [affected.name]."), \
 		SPAN_WARNING("Your [tool] slips, failing to unscrew [target]'s [affected.name]."))
 
+/decl/surgery_step/robotics/screw_hatch
+	name = "Screw Hatch"
+	allowed_tools = list(
+		SCREWDRIVER = 100,
+		/obj/item/coin = 50,
+		/obj/item/material/kitchen/utensil/knife = 50
+	)
+
+	min_duration = 90
+	max_duration = 110
+
+	requires_surgery_compatibility = FALSE
+
+/decl/surgery_step/robotics/screw_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	if(target_zone == BP_MOUTH)
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(affected?.open == ORGAN_OPEN_INCISION)
+		return TRUE
+	return FALSE
+
+/decl/surgery_step/robotics/screw_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message("<b>[user]</b> starts to screw the maintenance hatch on [target]'s [affected.name] with \the [tool].", \
+		SPAN_NOTICE("You start to screw the maintenance hatch on [target]'s [affected.name] with \the [tool]."))
+	..()
+
+/decl/surgery_step/robotics/screw_hatch/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message("<b>[user]</b> has closed the maintenance hatch on [target]'s [affected.name] with \the [tool].", \
+		SPAN_NOTICE("You have closed the maintenance hatch on [target]'s [affected.name] with \the [tool]."),)
+	affected.open = ORGAN_CLOSED
+
+/decl/surgery_step/robotics/screw_hatch/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, failing to screw [target]'s [affected.name]."), \
+		SPAN_WARNING("Your [tool] slips, failing to screw [target]'s [affected.name]."))
+
 /decl/surgery_step/robotics/open_hatch
-	name = "Open hatch"
+	name = "Open Hatch"
 	allowed_tools = list(
 		/obj/item/surgery/retractor = 100,
-		/obj/item/crowbar = 100,
+		CROWBAR = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
 
@@ -73,7 +122,9 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.open == ORGAN_OPEN_INCISION
+	if(affected?.open == ORGAN_OPEN_INCISION)
+		return TRUE
+	return FALSE
 
 /decl/surgery_step/robotics/open_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -93,10 +144,10 @@
 		SPAN_WARNING("Your [tool] slips, failing to open the hatch on [target]'s [affected.name]."))
 
 /decl/surgery_step/robotics/close_hatch
-	name = "Close hatch"
+	name = "Close Hatch"
 	allowed_tools = list(
 		/obj/item/surgery/retractor = 100,
-		/obj/item/crowbar = 100,
+		CROWBAR = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
 
@@ -107,20 +158,25 @@
 	if(!..())
 		return FALSE
 
+	if(target_zone == BP_MOUTH)
+		return FALSE
+
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.open > ORGAN_CLOSED && target_zone != BP_MOUTH
+	if(affected?.open > ORGAN_OPEN_INCISION)
+		return TRUE
+	return FALSE
 
 /decl/surgery_step/robotics/close_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<b>[user]</b> begins to close and secure the hatch on [target]'s [affected.name] with \the [tool]." , \
-		SPAN_NOTICE("You begin to close and secure the hatch on [target]'s [affected.name] with \the [tool]."))
+	user.visible_message("<b>[user]</b> begins to close the hatch on [target]'s [affected.name] with \the [tool]." , \
+		SPAN_NOTICE("You begin to close the hatch on [target]'s [affected.name] with \the [tool]."))
 	..()
 
 /decl/surgery_step/robotics/close_hatch/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<b>[user]</b> closes and secures the hatch on [target]'s [affected.name] with \the [tool].", \
-		SPAN_NOTICE("You close and secure the hatch on [target]'s [affected.name] with \the [tool]."))
-	affected.open = ORGAN_CLOSED
+	user.visible_message("<b>[user]</b> closes the hatch on [target]'s [affected.name] with \the [tool].", \
+		SPAN_NOTICE("You close the hatch on [target]'s [affected.name] with \the [tool]."))
+	affected.open = ORGAN_OPEN_INCISION
 	affected.germ_level = 0
 
 /decl/surgery_step/robotics/close_hatch/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -129,7 +185,7 @@
 		SPAN_WARNING("Your [tool.name] slips, failing to close the hatch on [target]'s [affected.name]."))
 
 /decl/surgery_step/robotics/repair_brute
-	name = "Repair damage"
+	name = "Repair Damage"
 	allowed_tools = list(
 		/obj/item/weldingtool = 100,
 		/obj/item/gun/energy/plasmacutter = 50
@@ -145,7 +201,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(tool.iswelder())
 		var/obj/item/weldingtool/welder = tool
-		if(!welder.isOn() || !welder.remove_fuel(2,user))
+		if(!welder.isOn() || !welder.use(2,user))
 			return FALSE
 	return affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.brute_dam > 0 && target_zone != BP_MOUTH
 
@@ -174,9 +230,10 @@
 	target.apply_damage(rand(5,10), BURN, affected)
 
 /decl/surgery_step/robotics/repair_burn
-	name = "Repair burns"
+	name = "Repair Burns"
 	allowed_tools = list(
-		/obj/item/stack/cable_coil = 100
+		/obj/item/stack/cable_coil = 100,
+		/obj/item/stack/cable_coil/cyborg = 100
 	)
 
 	min_duration = 50
@@ -217,7 +274,7 @@
 	target.apply_damage(rand(5,10), BURN, affected)
 
 /decl/surgery_step/robotics/detach_organ_robotic
-	name = "Detach robotic organ"
+	name = "Detach Robotic Organ"
 	allowed_tools = list(
 	/obj/item/device/multitool = 100
 	)
@@ -267,13 +324,15 @@
 	SPAN_WARNING("Your hand slips, disconnecting \the [tool]."))
 
 /decl/surgery_step/robotics/attach_organ_robotic
-	name = "Attach robotic organ"
+	name = "Attach Robotic Organ"
 	allowed_tools = list(
-		/obj/item/screwdriver = 100
+		SCREWDRIVER = 100
 	)
 
 	min_duration = 100
 	max_duration = 120
+
+	requires_surgery_compatibility = FALSE
 
 /decl/surgery_step/robotics/attach_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

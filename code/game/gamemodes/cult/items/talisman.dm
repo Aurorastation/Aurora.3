@@ -1,5 +1,6 @@
 /obj/item/paper/talisman
 	icon_state = "paper_talisman"
+	can_change_icon_state = FALSE
 	var/uses = 1
 	var/datum/rune/rune
 	info = "<center><img src='talisman.png'></center><br/><br/>"
@@ -30,7 +31,7 @@
 		to_chat(user, SPAN_CULT("The smell of blood permeates this paper. That can't be good."))
 		return
 
-/obj/item/paper/talisman/proc/use()
+/obj/item/paper/talisman/use()
 	uses--
 	if(uses <= 0)
 		qdel(src)

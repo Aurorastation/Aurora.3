@@ -17,6 +17,10 @@
 /obj/structure/bigDelivery/attack_hand(mob/user as mob)
 	unwrap()
 
+/obj/structure/bigDelivery/attack_ai(mob/user)
+	if(isrobot(user) && Adjacent(user)) // Robots can open packages.
+		attack_hand(user)
+
 /obj/structure/bigDelivery/proc/unwrap()
 	playsound(loc, 'sound/items/package_unwrap.ogg', 50, 1)
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
@@ -129,8 +133,20 @@
 /obj/item/smallDelivery/attack_self(mob/user as mob)
 	if (src.wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
 		wrapped.forceMove(user.loc)
+		to_chat(user, SPAN_NOTICE("You tear open the parcel, revealing \a [wrapped]!"))
 		if(ishuman(user))
 			user.put_in_hands(wrapped)
+		else if(isrobot(user))
+			var/obj/item/gripper/G = user.get_active_hand()
+			if(istype(G))
+				G.drop(src, FALSE)
+				if(is_type_in_list(wrapped, G.can_hold))
+					G.grip_item(wrapped, user, FALSE)
+				else
+					to_chat(user, SPAN_WARNING("\The [wrapped] tumbles from \the [G] as you unwrap it!"))
+					wrapped.forceMove(get_turf(src))
+			else
+				wrapped.forceMove(get_turf(src))
 		else
 			wrapped.forceMove(get_turf(src))
 
@@ -357,10 +373,9 @@
 			return
 	else if(I.iswelder() && c_mode==1)
 		var/obj/item/weldingtool/W = I
-		if(W.remove_fuel(1,user))
+		if(W.use(1,user))
 			to_chat(user, "You start slicing the floorweld off the delivery chute.")
-			if(do_after(user,20/W.toolspeed))
-				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
+			if(W.use_tool(src, user, 20, volume = 50))
 				if(!src || !W.isOn()) return
 				to_chat(user, "You sliced the floorweld off the delivery chute.")
 				var/obj/structure/disposalconstruct/C = new (src.loc)

@@ -1,11 +1,11 @@
 /datum/bounty/item/engineer/comfy_chair
-	name = "Comfy Chairs"
+	name = "Padded Chairs"
 	description = "%PERSONNAME is unhappy with their chair. They claim it hurts their back. Have engineers craft some alternatives and ship them out to humor them."
 	reward_low = 2400
 	reward_high = 3900
 	required_count = 4
 	random_count = 2
-	wanted_types = list(/obj/structure/bed/chair/comfy)
+	wanted_types = list(/obj/structure/bed/stool/chair/padded)
 
 /datum/bounty/item/engineer/smes_coil
 	name = "Superconductive magnetic coil"
@@ -42,7 +42,7 @@
 
 /datum/bounty/item/engineer/fuel_tank
 	name = "Fuel Tank"
-	description = "After some observations of the Aurora, we think it's best if you send us a few of those fuel tanks so nobody hurts themselves."
+	description = "After observing your engineering staff, we think it's best if you send us a few of those fuel tanks so nobody hurts themselves."
 	reward_low = 2500
 	reward_high = 3500
 	required_count = 4
@@ -92,7 +92,7 @@
 	reward_high = 3000
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/structure/closet/coffin, /obj/item/material/urn)
+	wanted_types = list(/obj/structure/closet/crate/coffin, /obj/item/material/urn)
 
 /datum/bounty/item/engineer/pap
 	name = "Portable Air Pumps"
@@ -146,9 +146,17 @@
 
 /datum/bounty/item/engineer/generator
 	name = "Portable Generators"
-	description = "Another station reported some engine troubles, and needs a few portable generators to maintain critical operations. Ship any type of P.A.C.M.A.N. generators to receive a bonus."
+	description = "Another station reported some engine troubles, and needs a few portable generators to maintain critical operations. Ship any type of portable generators to receive a bonus."
 	reward_low = 5000
 	reward_high = 6200
 	required_count = 2
 	random_count = 1
-	wanted_types = list(/obj/machinery/power/port_gen/pacman)
+	wanted_types = list(/obj/machinery/power/portgen/basic)
+
+/datum/bounty/item/engineer/crossbow
+	name = "Powered Crossbow"
+	description = "Mictlanian Democratic Forces require weaponry to assist the TCFL in quelling the unrest following peaceful takeover, please ship us some powered crossbows."
+	reward_low = 5000
+	reward_high = 7500
+	required_count = 2
+	wanted_types = list(/obj/item/gun/launcher/crossbow)

@@ -11,7 +11,7 @@
 	var/access_code = 0
 	var/editmode = 0
 	var/receipt = ""
-	var/destinationact = "Civilian"
+	var/destinationact = "Service"
 
 
 
@@ -47,7 +47,7 @@
 	R.ico += "paper_stamp-cent"
 	R.stamped += /obj/item/stamp
 	R.add_overlay(stampoverlay)
-	R.stamps += "<HR><i>This paper has been stamped by the Head of Personnel's desk.</i>"
+	R.stamps += "<HR><i>This paper has been stamped by the Executive Officer's desk.</i>"
 
 /obj/item/device/nanoquikpay/AltClick(var/mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()
@@ -72,7 +72,7 @@
 		R.stamped = new
 	R.stamped += /obj/item/stamp
 	R.add_overlay(stampoverlay)
-	R.stamps += "<HR><i>This paper has been stamped by the Head of Personnel's desk.</i>"
+	R.stamps += "<HR><i>This paper has been stamped by the Executive Officer's desk.</i>"
 	var/obj/item/smallDelivery/D = new(R.loc)
 	R.forceMove(D)
 	D.wrapped = R
@@ -96,12 +96,31 @@
 
 
 /obj/item/device/nanoquikpay/attackby(obj/O, mob/user)
+	if (istype(O, /obj/item/spacecash/ewallet))
+		var/obj/item/spacecash/ewallet/E = O
+		var/transaction_amount = sum
+		var/transaction_purpose = "[destinationact] Payment"
+		var/transaction_terminal = machine_id
+
+		if(transaction_amount <= E.worth)
+			playsound(src, 'sound/machines/chime.ogg', 50, 1)
+			src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
+
+			SSeconomy.charge_to_account(SSeconomy.get_department_account(destinationact)?.account_number, E.owner_name, transaction_purpose, transaction_terminal, transaction_amount)
+			E.worth -= transaction_amount
+			print_receipt()
+			sum = 0
+			receipt = ""
+			to_chat(src.loc, SPAN_NOTICE("Transaction completed, please return to the home screen."))
+		else if (transaction_amount > E.worth)
+			to_chat(user, "[icon2html(src, user)]<span class='warning'>\The [E] doesn't have that much money!</span>")
+		return
+
 	var/obj/item/card/id/I = O.GetID()
-	if (!I) 
+	if (!I)
 		return
 	if (!istype(O))
 		return
-	
 
 	else
 
@@ -174,12 +193,12 @@
 			if(items[name] && selection[name])
 				sum += items[name] * selection[name]
 				receipt += "<b>[name]</b> : [items[name]]x[selection[name]]:  [items[name] * selection[name]]<br>"
-		ui.activeui = "devices-quikpay-confirmation"	
+		ui.activeui = "devices-quikpay-confirmation"
 		. = TRUE
 	if(href_list["return"])
 		sum = 0
 		receipt = ""
-		ui.activeui = "devices-quikpay-main"	
+		ui.activeui = "devices-quikpay-main"
 		. = TRUE
 
 
@@ -202,12 +221,12 @@
 		if(editmode == 0)
 			to_chat(usr, SPAN_NOTICE("You don't have access to use this option."))
 			return 0
-		switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Civilian", "Cargo", "Command", "Medical", "Security", "Engineering", "Science"))
-		
-			if("Civilian")
-				destinationact = "Civilian"
-			if("Cargo")
-				destinationact = "Cargo"
+		switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Service", "Operations", "Command", "Medical", "Security", "Engineering", "Science"))
+
+			if("Service")
+				destinationact = "Service"
+			if("Operations")
+				destinationact = "Operations"
 			if("Command")
 				destinationact = "Command"
 			if("Medical")
@@ -221,6 +240,6 @@
 	. = TRUE
 	playsound(src, 'sound/machines/chime.ogg', 50, 1)
 	SSvueui.check_uis_for_change(src)
-		
+
 
 

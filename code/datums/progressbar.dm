@@ -3,6 +3,7 @@
 
 /datum/progressbar
 	var/goal = 1
+	var/destroy_on_full = FALSE
 	var/last_progress = 0
 	var/image/bar
 	var/shown = 0
@@ -28,6 +29,9 @@
 	bars += src
 	listindex = bars.len
 	bar.pixel_y = 0
+	if(istype(target, /atom/movable))
+		var/atom/movable/AM = target
+		bar.pixel_x = AM.get_floating_chat_x_offset()
 	bar.alpha = 0
 	animate(bar, pixel_y = 32 + (PROGRESSBAR_HEIGHT * (listindex - 1)), alpha = 255, time = PROGRESSBAR_ANIMATION_TIME, easing = SINE_EASING)
 
@@ -46,6 +50,8 @@
 	if (!shown)
 		user.client.images += bar
 		shown = TRUE
+	if(destroy_on_full && progress == goal)
+		QDEL_IN(src, 5)
 
 /datum/progressbar/proc/shiftDown()
 	--listindex
@@ -75,6 +81,9 @@
 	if(client)
 		client.images -= bar
 		client = null
+
+/datum/progressbar/autocomplete
+	destroy_on_full = TRUE
 
 #undef PROGRESSBAR_ANIMATION_TIME
 #undef PROGRESSBAR_HEIGHT

@@ -66,7 +66,7 @@
 				toplevelholder = toplevelholder.loc
 			toplevelholder.visible_message("<span class='warning'>[icon2html(toplevelholder, viewers(get_turf(toplevelholder)))] [toplevelholder] [display_msg]</span>")
 
-/datum/artifact_effect/proc/DoEffectTouch(var/mob/user)
+/datum/artifact_effect/proc/DoEffectTouch(var/mob/living/user)
 /datum/artifact_effect/proc/DoEffectAura(var/atom/holder)
 /datum/artifact_effect/proc/DoEffectPulse(var/atom/holder)
 /datum/artifact_effect/proc/UpdateMove()
@@ -95,12 +95,12 @@ proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
 
 	var/protected = 0
 
-	if(istype(H.wear_suit,/obj/item/clothing/suit/bio_suit/anomaly))
+	if(istype(H.wear_suit,/obj/item/clothing/suit/hazmat/anomaly))
 		protected += 0.6
 	else if(istype(H.wear_suit,/obj/item/clothing/suit/space/anomaly))
 		protected += 0.5
 
-	if(istype(H.head,/obj/item/clothing/head/bio_hood/anomaly))
+	if(istype(H.head,/obj/item/clothing/head/hazmat/anomaly))
 		protected += 0.3
 	else if(istype(H.head,/obj/item/clothing/head/helmet/space/anomaly))
 		protected += 0.2

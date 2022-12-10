@@ -12,6 +12,9 @@
 	charge = 0
 	update_icon()
 
+/obj/item/cell/get_cell()
+	return src
+
 /obj/item/cell/drain_power(var/drain_check, var/surge, var/power = 0)
 
 	if(drain_check)
@@ -45,7 +48,7 @@
 	return (charge >= amount)
 
 // use power from a cell, returns the amount actually used
-/obj/item/cell/proc/use(var/amount)
+/obj/item/cell/use(var/amount)
 	if (QDELING(src))
 		return 0
 
@@ -89,7 +92,6 @@
 		to_chat(user, "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]J!\nThe charge meter reads [round(src.percent() )]%.")
 
 /obj/item/cell/attackby(obj/item/W, mob/user)
-	..()
 	if(istype(W, /obj/item/reagent_containers/syringe))
 		var/obj/item/reagent_containers/syringe/S = W
 
@@ -103,6 +105,7 @@
 			message_admins("[key_name_admin(user)] injected a power cell with phoron, rigging it to explode.")
 
 		S.reagents.clear_reagents()
+		return
 	else if(istype(W, /obj/item/device/assembly_holder))
 		var/obj/item/device/assembly_holder/assembly = W
 		if (istype(assembly.a_left, /obj/item/device/assembly/signaler) && istype(assembly.a_right, /obj/item/device/assembly/signaler))
@@ -113,6 +116,22 @@
 			new /obj/item/device/radiojammer/improvised(assembly, src, user)
 		else
 			to_chat(user, "<span class='notice'>You'd need both devices to be signallers for this to work.</span>")
+		return
+	else if(W.ismultitool() && ishuman(user) && user.get_inactive_hand() == src)
+		if(charge < 10)
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have enough charge to produce sufficient current!"))
+			return
+		var/mob/living/carbon/human/H = user
+		var/siemens_coeff = 1
+		if(H.gloves)
+			siemens_coeff = H.gloves.siemens_coefficient
+		if(siemens_coeff >= 0.75 && prob(10 * siemens_coeff))
+			to_chat(H, SPAN_WARNING("You probe \the [src] with \the [W] and feel a jolt of electricity shoot through you! It reads out that [100 * siemens_coeff]% of the current was let through."))
+			H.electrocute_act(5, src, siemens_coeff, H.hand ? BP_R_HAND : BP_L_HAND) // hand holding the battery gets shocked
+		else
+			to_chat(H, SPAN_NOTICE("You probe \the [src] with \the [W]. It reads out that [100 * siemens_coeff]% of the current was let through."))
+		return
+	return ..()
 
 /obj/item/cell/proc/explode()
 	var/turf/T = get_turf(src.loc)

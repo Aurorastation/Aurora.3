@@ -50,7 +50,7 @@
 
 /obj/item/pinpointer/examine(mob/user)
 	..(user)
-	for(var/obj/machinery/nuclearbomb/bomb in SSmachinery.all_machines)
+	for(var/obj/machinery/nuclearbomb/bomb in SSmachinery.machinery)
 		if(bomb.timing)
 			to_chat(user, "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]")
 

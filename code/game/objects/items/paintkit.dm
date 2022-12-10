@@ -9,9 +9,9 @@
 
 /obj/item/device/kit/examine()
 	..()
-	to_chat(usr, "It has [uses] [uses>1?"uses":"use"] left.")
+	to_chat(usr, "It has [uses] use\s left.")
 
-/obj/item/device/kit/proc/use(var/amt, var/mob/user)
+/obj/item/device/kit/use(var/amt, var/mob/user)
 	uses -= amt
 	playsound(get_turf(user), 'sound/items/screwdriver.ogg', 50, 1)
 	if(uses<1)
@@ -45,7 +45,7 @@
 		if(istype(H))
 			species_restricted = list(H.species.get_bodytype())
 		kit.use(1,user)
-		return 1
+		return TRUE
 	return ..()
 
 /obj/item/clothing/suit/space/void/attackby(var/obj/item/O, var/mob/user)
@@ -64,5 +64,5 @@
 		if(istype(H))
 			species_restricted = list(H.species.get_bodytype())
 		kit.use(1,user)
-		return 1
+		return TRUE
 	return ..()

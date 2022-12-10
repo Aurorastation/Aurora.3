@@ -5,6 +5,7 @@
     regal and noble. Their vocal augments stereotypically have difficulty, typically when producing sounds related to the letter 's', instead substituting with \
     a harsh buzzing in the throat."
     tag_icon = "zora"
+    text_tag = "ZOR"
 
 /datum/accent/klax
     name = ACCENT_KLAX
@@ -15,6 +16,7 @@
     throat - the K'lax experience less of this - no Unathi would be content listening to a Vaura buzz incessantly when trying to hiss a sentence in the \
     Hegemonic tongue."
     tag_icon = "klax"
+    text_tag = "KLA"
 
 /datum/accent/cthur
     name = ACCENT_CTHUR
@@ -24,3 +26,14 @@
     infamous of the C'thur's past deeds. Their vocal augments stereotypically have difficulty, typically when producing sounds related to the letter 's', instead \
     substituting with a harsh buzzing in the throat."
     tag_icon = "cthur"
+    text_tag = "CTH"
+
+/datum/accent/liidra 
+    name = ACCENT_LIIDRA
+    description = "The Lii'dra speech, as understood by those that have heard the Hivemind and live to tell, is characterized by a monotonous voice that sounds \
+    even more robotical than the rest of the modulators used by the other Hives. It is believed to be a modified technology reverse engineered from stolen \
+    Zo'rane modulators. While, with its flaws, the Zo'ra accent might sound quirky to some, it is often said that this is to add more personality to each \
+    individual. Since the Lii'dra do not think of themselves as such, these variations were deemed useless. The Connected individuals will often speak in plural, while the Disconnected \
+    are prone to use the first person when referring to others."
+    tag_icon = "liidra"
+    text_tag = "LII"

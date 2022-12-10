@@ -23,6 +23,7 @@ $fa-css-prefix: "ic";
 .uiIcon16 {
     @include fa-icon;
     @extend .fas;
+    @extend .#{$fa-css-prefix}-fw;
     font-size: 12px;
     padding: 2px;
 }
@@ -236,22 +237,22 @@ $fa-css-prefix: "ic";
     "chiefengineer" $fa-var-wrench,
     "researchdirector" $fa-var-lightbulb,
     "chiefmedicalofficer" $fa-var-plus,
-    
+
     /* Engineering Positions */
     "stationengineer" $fa-var-wrench,
     "atmospherictechnician" $fa-var-wrench,
-    
+
     /* Medical Positions */
     "medicaldoctor" $fa-var-plus,
     "psychiatrist" $fa-var-plus,
     "chemist" $fa-var-plus,
-    
+
     /* Science Positions */
     "scientist" $fa-var-lightbulb,
     "geneticist" $fa-var-lightbulb,
     "roboticist" $fa-var-lightbulb,
     "xenobiologist" $fa-var-lightbulb,
-    
+
     /* Security Positions */
     "warden" $fa-var-key,
     "detective" $fa-var-key,

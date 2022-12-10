@@ -8,6 +8,7 @@
 	filename = "comm"
 	filedesc = "Command and Communications Program"
 	program_icon_state = "comm"
+	program_key_icon_state = "lightblue_key"
 	nanomodule_path = /datum/nano_module/program/comm
 	extended_desc = "Used to command and control the station. Can relay long-range communications."
 	required_access_run = access_heads
@@ -92,14 +93,18 @@
 	if(current_viewing_message)
 		data["message_current"] = current_viewing_message
 
-	if(emergency_shuttle.location())
-		data["have_shuttle"] = TRUE
-		if(emergency_shuttle.online())
-			data["have_shuttle_called"] = TRUE
-		else
-			data["have_shuttle_called"] = FALSE
-	else
-		data["have_shuttle"] = FALSE
+	var/list/processed_evac_options = list()
+	if(!isnull(evacuation_controller))
+		for (var/datum/evacuation_option/EO in evacuation_controller.available_evac_options())
+			if(EO.abandon_ship)
+				continue
+			var/list/option = list()
+			option["option_text"] = EO.option_text
+			option["option_target"] = EO.option_target
+			option["needs_syscontrol"] = EO.needs_syscontrol
+			option["silicon_allowed"] = EO.silicon_allowed
+			processed_evac_options[++processed_evac_options.len] = option
+	data["evac_options"] = processed_evac_options
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
@@ -167,7 +172,14 @@
 				if(!input || !can_still_topic())
 					SSnanoui.update_uis(src)
 					return
-				crew_announcement.Announce(input)
+				var/was_hearing = HAS_TRAIT(program.computer, TRAIT_HEARING_SENSITIVE)
+				if(!was_hearing)
+					program.computer.become_hearing_sensitive()
+				usr.say(input)
+				if(!was_hearing)
+					program.computer.lose_hearing_sensitivity()
+				var/affected_zlevels = GetConnectedZlevels(GET_Z(program.computer))
+				crew_announcement.Announce(program.computer.registered_message, zlevels = affected_zlevels)
 				set_announcement_cooldown(TRUE)
 				addtimer(CALLBACK(src, .proc/set_announcement_cooldown, FALSE), 600) //One minute cooldown
 		if("message")
@@ -206,16 +218,18 @@
 					log_say("[key_name(usr)] has sent a message to [current_map.boss_short]: [input]", ckey = key_name(usr))
 					centcomm_message_cooldown = TRUE
 					addtimer(CALLBACK(src, .proc/set_centcomm_message_cooldown, FALSE), 300) // thirty second cooldown
-		if("shuttle")
-			if(is_authenticated(user) && ntn_cont && can_call_shuttle())
-				if(href_list["target"] == "call")
-					var/confirm = alert("Are you sure you want to call the shuttle?", name, "No", "Yes")
-					if(confirm == "Yes" && can_still_topic())
-						call_shuttle_proc(usr)
-				if(href_list["target"] == "cancel" && !issilicon(usr))
-					var/confirm = alert("Are you sure you want to cancel the shuttle?", name, "No", "Yes")
-					if(confirm == "Yes" && can_still_topic())
-						cancel_call_proc(usr)
+		if("evac")
+			if(is_authenticated(user))
+				var/datum/evacuation_option/selected_evac_option = evacuation_controller.evacuation_options[href_list["target"]]
+				if (isnull(selected_evac_option) || !istype(selected_evac_option))
+					return
+				if (!selected_evac_option.silicon_allowed && issilicon(user))
+					return
+				if (selected_evac_option.needs_syscontrol && !ntn_cont)
+					return
+				var/confirm = alert("Are you sure you want to [selected_evac_option.option_desc]?", name, "No", "Yes")
+				if (confirm == "Yes" && can_still_topic())
+					evacuation_controller.handle_evac_option(selected_evac_option.option_target, user)
 		if("setstatus")
 			if(is_authenticated(user) && ntn_cont)
 				switch(href_list["target"])
@@ -235,7 +249,7 @@
 						post_display_status(href_list["target"])
 
 		if("setalert")
-			if(is_authenticated(user) && !issilicon(usr) && ntn_cont && ntn_comm)
+			if(is_authenticated(user) && (!issilicon(usr) || isAI(usr)) && ntn_cont && ntn_comm)
 				var/current_level = text2num(href_list["target"])
 				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", name, "No", "Yes")
 				if(confirm == "Yes" && can_still_topic())
@@ -358,98 +372,78 @@ Command action procs
 
 //Returns 1 if recalled 0 if not
 /proc/cancel_call_proc(var/mob/user)
-	if(!(ROUND_IS_STARTED) || !emergency_shuttle.can_recall())
-		return FALSE
-	if((SSticker.mode.name == "blob")||(SSticker.mode.name == "Meteor"))
+	if(!(ROUND_IS_STARTED) || !evacuation_controller)
 		return FALSE
 
-	if(!emergency_shuttle.going_to_centcom()) //check that shuttle isn't already heading to centcomm
-		emergency_shuttle.recall()
-		log_game("[key_name(user)] has recalled the shuttle.", key_name(user))
-		message_admins("[key_name_admin(user)] has recalled the shuttle.", 1)
+	if(current_map.shuttle_call_restarts && current_map.shuttle_call_restart_timer)
+		deltimer(current_map.shuttle_call_restart_timer)
+		current_map.shuttle_call_restart_timer = null
+		log_game("[key_name(user)] has stopped the 'shuttle' round restart.", key_name(user))
+		message_admins("[key_name_admin(user)] has stopped the 'shuttle' round restart.", 1)
+		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_recall_message)))
+		return
+
+	if(SSticker.mode.name == "Meteor")
+		return FALSE
+
+	if(evacuation_controller.cancel_evacuation())
+		log_and_message_admins("has cancelled the evacuation.", user)
 		return TRUE
 	return FALSE
 
 
 /proc/is_relay_online()
-	for(var/obj/machinery/bluespacerelay/M in SSmachinery.all_machines)
+	for(var/obj/machinery/bluespacerelay/M in SSmachinery.machinery)
 		if(M.stat == 0)
 			return TRUE
 	return FALSE
 
 //Returns 1 if called 0 if not
-/proc/call_shuttle_proc(var/mob/user)
-	if((!(ROUND_IS_STARTED) || !emergency_shuttle.location()))
+/proc/call_shuttle_proc(var/mob/user, var/emergency = FALSE)
+	if((!(ROUND_IS_STARTED) || !evacuation_controller))
 		return FALSE
 
 	if(!universe.OnShuttleCall(usr))
-		to_chat(user, SPAN_WARNING("Cannot establish a bluespace connection."))
+		to_chat(user, SPAN_WARNING("A bluespace connection cannot be established! Please check the user manual for more information."))
 		return FALSE
 
-	if(emergency_shuttle.deny_shuttle)
-		to_chat(user, SPAN_WARNING("The emergency shuttle cannot be sent at this time. Please try again later."))
+	if(evacuation_controller.deny)
+		to_chat(user, SPAN_WARNING("An evacuation cannot be sent at this time. Please try again later."))
 		return FALSE
 
 	if(world.time < config.time_to_call_emergency_shuttle)
-		to_chat(user, SPAN_WARNING("The emergency shuttle is refueling. Please wait another [round((config.time_to_call_emergency_shuttle-world.time)/600)] minute\s before trying again."))
+		to_chat(user, SPAN_WARNING("An evacuation cannot be sent at this time. Please wait another [round((config.time_to_call_emergency_shuttle-world.time)/600)] minute\s before trying again."))
 		return FALSE
 
-	if(emergency_shuttle.going_to_centcom())
-		to_chat(user, SPAN_WARNING("The emergency shuttle cannot be called while returning to [current_map.boss_short]."))
-		return FALSE
+	if(evacuation_controller.is_on_cooldown()) // Ten minute grace period to let the game get going without lolmetagaming. -- TLE
+		to_chat(user, evacuation_controller.get_cooldown_message())
 
-	if(emergency_shuttle.online())
-		to_chat(user, SPAN_WARNING("The emergency shuttle is already on its way."))
-		return FALSE
+	if(evacuation_controller.is_evacuating())
+		to_chat(user, "An evacuation is already underway.")
+		return
 
-	if(SSticker.mode.name == "blob")
-		to_chat(user, SPAN_WARNING("Under directive 7-10, [station_name()] is quarantined until further notice."))
-		return FALSE
-
-	emergency_shuttle.call_evac()
-	log_game("[key_name(user)] has called the shuttle.",ckey=key_name(user))
-	message_admins("[key_name_admin(user)] has called the shuttle.", 1)
+	if(evacuation_controller.call_evacuation(user, emergency))
+		log_and_message_admins("[user? key_name(user) : "Autotransfer"] has called a shuttle.")
 
 	return TRUE
 
 /proc/init_shift_change(var/mob/user, var/force = FALSE)
-	if ((!(ROUND_IS_STARTED) || !emergency_shuttle.location()))
+	if(!(ROUND_IS_STARTED) || !evacuation_controller)
 		return
 
-	if(emergency_shuttle.going_to_centcom())
-		to_chat(user, SPAN_WARNING("The shuttle cannot be called while returning to [current_map.boss_short]."))
+	if(current_map.shuttle_call_restarts)
+		current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, .proc/reboot_world), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
+		log_game("[user? key_name(user) : "Autotransfer"] has called the 'shuttle' round restart.")
+		message_admins("[user? key_name_admin(user) : "Autotransfer"] has called the 'shuttle' round restart.", 1)
+		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_called_message)))
 		return
 
-	if(emergency_shuttle.online())
-		to_chat(user, SPAN_WARNING("The shuttle is already on its way."))
-		return
-
-	// if force is 0, some things may stop the shuttle call
-	if(!force)
-		if(emergency_shuttle.deny_shuttle)
-			to_chat(user, SPAN_WARNING("[current_map.boss_short] does not currently have a shuttle available in your sector. Please try again later."))
-			return
-
-		if(world.time < 54000) // 30 minute grace period to let the game get going
-			to_chat(user, SPAN_WARNING("The shuttle is refueling. Please wait another [round((54000-world.time)/60)] minutes before trying again."))
-			return
-
-		if(SSticker.mode.auto_recall_shuttle)
-			//New version pretends to call the shuttle but cause the shuttle to return after a random duration.
-			emergency_shuttle.auto_recall = TRUE
-
-		if(SSticker.mode.name == "blob" || SSticker.mode.name == "epidemic")
-			to_chat(user, SPAN_WARNING("Under directive 7-10, [station_name()] is quarantined until further notice."))
-			return
-
-	emergency_shuttle.call_transfer()
+	. = evacuation_controller.call_evacuation(null, _emergency_evac = FALSE, autotransfer = TRUE)
 
 	//delay events in case of an autotransfer
-	if(!user)
+	if(.)
 		SSevents.delay_events(EVENT_LEVEL_MODERATE, 10200) //17 minutes
 		SSevents.delay_events(EVENT_LEVEL_MAJOR, 10200)
 
 	log_game("[user? key_name(user) : "Autotransfer"] has called the shuttle.")
 	message_admins("[user? key_name_admin(user) : "Autotransfer"] has called the shuttle.", 1)
-
-	return

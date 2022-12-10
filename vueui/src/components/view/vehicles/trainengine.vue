@@ -14,7 +14,7 @@
       There is no key in the ignition.
     </div>
     <div v-if="has_cell">
-      Cell Charge: <vui-progress :value="cell_charge" :max="cell_max_charge" :min="0">{{ cell_charge }}J</vui-progress> <vui-tooltip label="?">The cell can be removed by using a screwdriver to open the maintenance panel, then using a crowbar to shimmy it out.</vui-tooltip>
+      Cell Charge: <vui-progress :class="{ good: cell_charge >= cell_max_charge * 0.8, bad: cell_charge <= cell_max_charge * 0.4, average: cell_charge < cell_max_charge * 0.8 && cell_charge > cell_max_charge * 0.4 }" :value="cell_charge" :max="cell_max_charge" :min="0">{{ cell_charge }}J</vui-progress> <vui-tooltip label="?">The cell can be removed by using a screwdriver to open the maintenance panel, then using a crowbar to shimmy it out.</vui-tooltip>
     </div>
     <div v-else>
       There is no cell installed. <vui-tooltip label="?">The cell can be installed by using a screwdriver to open the maintenance panel, then clicking on the engine with a compatible power cell.</vui-tooltip>

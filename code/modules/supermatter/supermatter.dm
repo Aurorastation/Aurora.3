@@ -30,10 +30,13 @@
 
 #define WARNING_DELAY 20			//seconds between warnings.
 
+///to prevent accent sounds from layering
+#define SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN 2 SECONDS
+
 #define LIGHT_POWER_CALC (max(power / 50, 1))
 
 /obj/machinery/power/supermatter
-	name = "Supermatter"
+	name = "supermatter crystal"
 	desc = "A strangely translucent and iridescent crystal. <span class='warning'>You get headaches just from looking at it.</span>"
 	desc_info = "When energized by a laser (or something hitting it), it emits radiation and heat.  If the heat reaches above 7000 kelvin, it will send an alert and start taking damage. \
 	After integrity falls to zero percent, it will delaminate, causing a massive explosion, station-wide radiation spikes, and hallucinations. \
@@ -47,16 +50,17 @@
 	desc_antag = "Always ahelp before sabotaging the supermatter, as it can potentially ruin the round. Exposing the supermatter to oxygen or vaccuum will cause it to start rapidly heating up.  \
 	Sabotaging the supermatter and making it explode will cause a period of lag as the explosion is processed by the server, as well as irradiating the entire station and causing hallucinations to happen.  \
 	Wearing radiation equipment will protect you from most of the delamination effects sans explosion."
-	icon = 'icons/obj/engine.dmi'
-	icon_state = "darkmatter"
+	icon = 'icons/obj/supermatter.dmi'
+	icon_state = "supermatter"
 	density = TRUE
 	anchored = FALSE
 	light_range = 4
 	light_power = 1
+	layer = ABOVE_ALL_MOB_LAYER
 
 	var/gasefficency = 0.25
 
-	var/base_icon_state = "darkmatter"
+	var/base_icon_state = "supermatter"
 
 	var/last_power
 	var/damage = 0
@@ -109,11 +113,13 @@
 
 	var/datum/looping_sound/supermatter/soundloop
 
+	/// cooldown tracker for accent sounds,
+	var/last_accent_sound = 0
+
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 	soundloop = new(list(src), TRUE)
-	filters += filter(type="rays", size=0, factor=1)
 
 /obj/machinery/power/supermatter/Destroy()
 	QDEL_NULL(radio)
@@ -199,8 +205,7 @@
 
 	return ..()
 
-/obj/machinery/power/supermatter/machinery_process()
-
+/obj/machinery/power/supermatter/process()
 	var/turf/L = loc
 
 	if(isnull(L))		// We have a null turf...something is wrong, stop processing this entity.
@@ -208,11 +213,6 @@
 
 	if(!istype(L)) 	//We are in a crate or somewhere that isn't turf, if we return to turf resume processing but for now.
 		return  //Yeah just stop.
-
-	if(power)
-		soundloop.volume = min(100, (round(power/7)+1))
-	else
-		soundloop.volume = 0
 
 	if(damage > explosion_point)
 		if(!exploded)
@@ -230,9 +230,27 @@
 	if(grav_pulling)
 		supermatter_pull()
 
+	if(power)
+		soundloop.volume = Clamp((50 + (power / 50)), 50, 100)
+	if(damage >= 300)
+		soundloop.mid_sounds = list('sound/machines/sm/loops/delamming.ogg' = 1)
+	else
+		soundloop.mid_sounds = list('sound/machines/sm/loops/calm.ogg' = 1)
+
+	if(last_accent_sound < world.time && prob(20))
+		var/aggression = min(((damage / 800) * (power / 2500)), 1.0) * 100
+		if(damage >= 300)
+			playsound(src, /decl/sound_category/supermatter_delam, max(50, aggression), FALSE, 10)
+		else
+			playsound(src, /decl/sound_category/supermatter_calm, max(50, aggression), FALSE, 10)
+		var/next_sound = round((100 - aggression) * 5)
+		last_accent_sound = world.time + max(SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN, next_sound)
+
+
 	//Ok, get the air from the turf
-	var/datum/gas_mixture/removed = null
 	var/datum/gas_mixture/env = null
+
+	var/datum/gas_mixture/removed = null
 
 	//ensure that damage doesn't increase too quickly due to super high temperatures resulting from no coolant, for example. We dont want the SM exploding before anyone can react.
 	//We want the cap to scale linearly with power (and explosion_point). Let's aim for a cap of 5 at power = 300 (based on testing, equals roughly 5% per SM alert announcement).
@@ -293,8 +311,6 @@
 	for(var/mob/living/carbon/human/l in view(src, min(7, round(sqrt(power/6))))) // If they can see it without mesons on.  Bad on them.
 		if(!istype(l.glasses, /obj/item/clothing/glasses/safety) && !l.is_diona() && !l.isSynthetic())
 			l.hallucination = max(0, min(200, l.hallucination + power * config_hallucination_power * sqrt( 1 / max(1,get_dist(l, src)) ) ) )
-			if(prob(15))
-				l.cure_all_traumas(cure_type = CURE_HYPNOSIS)
 
 	//adjusted range so that a power of 170 (pretty high) results in 9 tiles, roughly the distance from the core to the engine monitoring room.
 	//note that the rads given at the maximum range is a constant 0.2 - as power increases the maximum range merely increases.
@@ -305,7 +321,7 @@
 		var/rads = (power / 10) * ( 1 / (radius**2) )
 		if (!(l in oview(rad_range, src)) && !(l in range(src, round(rad_range * 2/3))))
 			continue
-		l.apply_effect(rads, IRRADIATE, blocked = l.getarmor(null, "rad"))
+		l.apply_damage(rads, IRRADIATE, damage_flags = DAM_DISPERSED)
 		if(l.is_diona())
 			l.adjustToxLoss(-rads)
 			if(last_message_time + 800 < world.time) // Not to spam message
@@ -314,7 +330,6 @@
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 
-	animate(filters[1], size=max(0, power+1), offset=++filter_offset, time=1 SECONDS, easing=ELASTIC_EASING|EASE_IN|EASE_OUT)
 	return 1
 
 
@@ -352,29 +367,23 @@
 	Consume(user)
 
 // This is purely informational UI that may be accessed by AIs or robots
-/obj/machinery/power/supermatter/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/data[0]
-
+/obj/machinery/power/supermatter/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = ..() || list()
 	data["integrity_percentage"] = round(get_integrity())
 	var/datum/gas_mixture/env = null
 	if(!istype(src.loc, /turf/space))
 		env = src.loc.return_air()
-
-	if(!env)
-		data["ambient_temp"] = 0
-		data["ambient_pressure"] = 0
-	else
-		data["ambient_temp"] = round(env.temperature)
-		data["ambient_pressure"] = round(env.return_pressure())
+	data["ambient_temp"] = round(env?.temperature)
+	data["ambient_pressure"] = round(env?.return_pressure())
 	data["detonating"] = grav_pulling
+	return data
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/machinery/power/supermatter/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, ui_key, "supermatter_crystal.tmpl", "Supermatter Crystal", 500, 300)
-		ui.set_initial_data(data)
+		ui = new(user, src, "machinery-power-supermattercrystal", 500, 300, "Supermatter Crystal")
+		ui.auto_update_content = TRUE
 		ui.open()
-		ui.set_auto_update(1)
-
 
 /*
 /obj/machinery/power/supermatter/proc/transfer_energy()
@@ -394,7 +403,7 @@
 	user.drop_from_inventory(W)
 	Consume(W)
 
-	user.apply_effect(150, IRRADIATE, blocked = user.getarmor(null, "rad"))
+	user.apply_damage(150, IRRADIATE, damage_flags = DAM_DISPERSED)
 
 
 /obj/machinery/power/supermatter/CollidedWith(atom/AM as mob|obj)
@@ -437,7 +446,7 @@
 		else
 			l.show_message("<span class=\"warning\">You hear an uneartly ringing and notice your skin is covered in fresh radiation burns.</span>", 2)
 		var/rads = 500 * sqrt( 1 / (get_dist(l, src) + 1) )
-		l.apply_effect(rads, IRRADIATE, blocked = l.getarmor(null, "rad"))
+		l.apply_damage(rads, IRRADIATE, damage_flags = DAM_DISPERSED)
 
 
 /obj/machinery/power/supermatter/proc/supermatter_pull()

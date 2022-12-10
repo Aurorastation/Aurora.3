@@ -93,6 +93,34 @@
 	reagents = list(/decl/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/beet
 
+/decl/recipe/pozole
+	appliance = SAUCEPAN | POT
+	fruit = list("dyn leaf" = 1, "cabbage" = 1, "tomato" = 1)
+	reagents = list(/decl/reagent/water = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/meat)
+	result = /obj/item/reagent_containers/food/snacks/soup/pozole
+
+/decl/recipe/brudet
+	appliance = SAUCEPAN | POT
+	fruit = list ("tomato" = 1)
+	reagents = list(/decl/reagent/water = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/fish)
+	result = /obj/item/reagent_containers/food/snacks/soup/brudet
+
+/decl/recipe/maeuntang
+	appliance = SAUCEPAN | POT
+	fruit = list("chili" = 1, "moss" = 1)
+	reagents = list(/decl/reagent/water = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/fish)
+	result = /obj/item/reagent_containers/food/snacks/soup/maeuntang
+
+/decl/recipe/miyeokguk
+	appliance = SAUCEPAN | POT
+	fruit = list("moss" = 1, "seaweed" = 1)
+	reagents = list(/decl/reagent/water = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/meat)
+	result = /obj/item/reagent_containers/food/snacks/soup/miyeokguk
+
 // Stews
 /decl/recipe/stew
 	appliance = POT

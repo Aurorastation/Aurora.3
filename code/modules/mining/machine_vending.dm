@@ -55,6 +55,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Industrial Drill Head",		/obj/machinery/mining/drill,								-1,					1000,	1),
 	new /datum/data/mining_equipment("Super Resonator",				/obj/item/resonator/upgraded,								10,					1250),
 	new /datum/data/mining_equipment("Diamond Pickaxe",				/obj/item/pickaxe/diamond,									10,					1500),
+	new /datum/data/mining_equipment("Orbital Minecart Dropper",	/obj/item/device/orbital_dropper/minecart,					5,					2000),
 	new /datum/data/mining_equipment("Orbital Drill Dropper",		/obj/item/device/orbital_dropper/drill,						10,					3250),
 	new /datum/data/mining_equipment("Thermal Drill",				/obj/item/gun/energy/vaurca/thermaldrill,					5,					3750)
 	)
@@ -118,7 +119,11 @@ var/global/list/minevendor_list = list( //keep in order of price
 	interact(user)
 
 /obj/machinery/mineral/equipment_vendor/proc/get_user_id(var/mob/user)
-	if(!scanned_id && !isDrone(user))
+	if(isDrone(user))
+		var/mob/living/silicon/robot/drone/D = user
+		if(D.standard_drone)
+			return
+	if(!scanned_id)
 		var/obj/item/card/id/ID = user.GetIdCard()
 		if(ID)
 			scanned_id = WEAKREF(ID)
@@ -126,7 +131,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 /obj/machinery/mineral/equipment_vendor/interact(mob/user)
 	var/dat
 	dat +="<div class='statusDisplay'>"
-	var/obj/item/card/id/ID = scanned_id.resolve()
+	var/obj/item/card/id/ID = scanned_id?.resolve()
 	if(ID)
 		dat += "You have [ID.mining_points ? ID.mining_points : 0] mining points collected. <A href='?src=\ref[src];choice=eject'>Eject ID.</A><br>"
 	else
@@ -170,54 +175,24 @@ var/global/list/minevendor_list = list( //keep in order of price
 			if(prize.cost > ID.mining_points)
 			else
 				if(prize.shuttle)
-					var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
-					if(shuttle)
-						if(!shuttle.shuttle_area) //This really should never happen, but, oh well.
-							to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE} Order failed! Please try again."))
-							return
-						var/list/clear_turfs = list()
-						for(var/area/subarea in shuttle.shuttle_area)
-							for(var/turf/T in subarea)
-								if(T.density)
-									continue
-								var/contcount
-								for(var/atom/A in T.contents)
-									if(!A.simulated)
-										continue
-									contcount++
-								if(contcount)
-									continue
-								clear_turfs += T
-
-						if(!length(clear_turfs))
-							to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again."))
-							return
-
-						var/i = rand(1, length(clear_turfs))
-						var/turf/pickedloc = clear_turfs[i]
-
-						if(pickedloc)
-							ID.mining_points -= prize.cost
-							new prize.equipment_path(pickedloc)
-							to_chat(usr, SPAN_NOTICE("Order passed. Your order has been placed on the next available supply shuttle."))
-						else
-							to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again."))
-							return
+					if(SScargo.order_mining(prize.equipment_path))
+						ID.mining_points -= prize.cost
+						to_chat(usr, SPAN_NOTICE("Order passed. Your order has been placed on the next available supply shuttle."))
 					else
-						to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE} Order failed! Please try again."))
-						return
+						to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again."))
 				else
 					ID.mining_points -= prize.cost
 					if(prize.amount != -1)
 						prize.amount--
 					new prize.equipment_path(get_turf(src))
+					intent_message(MACHINE_SOUND)
 
 	updateUsrDialog()
 	return
 
 /obj/machinery/mineral/equipment_vendor/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/coin/mining))
-		var/choice = input(user, "Which special equipment would you like to dispense from \the [src]?", capitalize_first_letters(name)) as null|anything in list("Enhanced Power Converter", "Hand-held Drill")
+		var/choice = input(user, "Which special equipment would you like to dispense from \the [src]?", capitalize_first_letters(name)) as null|anything in list("Enhanced Power Converter", "Hand-held Drill", "Autonomous Mining Drone")
 		if(!choice || QDELETED(I) || !Adjacent(user))
 			return
 		var/obj/dispensed_equipment
@@ -226,10 +201,13 @@ var/global/list/minevendor_list = list( //keep in order of price
 				dispensed_equipment = new /obj/item/custom_ka_upgrade/barrels/barrel02(src)
 			if("Hand-held Drill")
 				dispensed_equipment = new /obj/item/pickaxe/drill/weak(src)
+			if("Autonomous Mining Drone")
+				dispensed_equipment = new /mob/living/silicon/robot/drone/mining(get_turf(user))
 		if(dispensed_equipment)
 			to_chat(user, SPAN_NOTICE("\The [src] accepts your coin and dispenses \a [dispensed_equipment]."))
 			qdel(I)
-			user.put_in_hands(dispensed_equipment)
+			if(dispensed_equipment && isobj(dispensed_equipment))
+				user.put_in_hands(dispensed_equipment)
 		return
 	if(default_deconstruction_screwdriver(user, "mining-open", "mining", I))
 		updateUsrDialog()

@@ -3,6 +3,7 @@
 /datum/controller/subsystem/ghostroles
 	name = "Ghost Roles"
 	flags = SS_NO_FIRE
+	init_order = SS_INIT_GHOSTROLES
 
 	var/list/list/spawnpoints = list() //List of the available spawnpoints by spawnpoint type
 		// -> type 1 -> spawnpoint 1
@@ -32,7 +33,7 @@
 			continue
 		//Check if we have a spawnpoint on the current map
 		if(!G.select_spawnlocation(FALSE) && G.loc_type == GS_LOC_POS)
-			log_debug("ghostroles","Spawner [G.type] got removed from selection because of missing spawnpoint")
+			log_ss("ghostroles","Spawner [G.type] got removed from selection because of missing spawnpoint")
 			continue
 		spawners[G.short_name] = G
 
@@ -193,7 +194,7 @@
 /datum/controller/subsystem/ghostroles/proc/add_spawn_atom(var/ghost_role_name, var/atom/spawn_atom)
 	if(ghost_role_name && spawn_atom)
 		var/datum/ghostspawner/G = spawners[ghost_role_name]
-		if(G)
+		if(G && !(spawn_atom in G.spawn_atoms))
 			G.spawn_atoms += spawn_atom
 			if(G.atom_add_message)
 				say_dead_direct("[G.atom_add_message]<br>Spawn in as it by using the ghost spawner menu in the ghost tab, and try to be good!")

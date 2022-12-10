@@ -1,17 +1,14 @@
 //TODO: Convert this over for languages.
-/mob/living/carbon/brain/say(var/message)
+/mob/living/carbon/brain/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if (silent)
 		return
-
-	message = sanitize(message)
 
 	if(!(container && istype(container, /obj/item/device/mmi)))
 		return //No MMI, can't speak, bucko./N
 	else
-		var/datum/language/speaking = parse_language(message)
+		speaking = parse_language(message)
 		if(speaking)
 			message = copytext(message, 2+length(speaking.key))
-		var/verb = "says"
 		var/ending = copytext(message, length(message))
 		var/pre_ending = copytext(message, length(message) - 1, length(message))
 		if (speaking)

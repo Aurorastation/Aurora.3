@@ -194,6 +194,14 @@
 	name = "Shirt, Meat"
 	icon_state = "shirt_meat"
 
+/datum/category_item/underwear/undershirt/shirt_scc
+	name = "Shirt, SCC"
+	icon_state = "shirt_scc"
+
+/datum/category_item/underwear/undershirt/shirt_scc_fem
+	name = "Shirt, SCC feminine"
+	icon_state = "shirt_scc_fem"
+
 /datum/category_item/underwear/undershirt/shirt_nt
 	name = "Shirt, NT"
 	icon_state = "shirt_nano"

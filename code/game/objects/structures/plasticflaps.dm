@@ -24,7 +24,7 @@
 		return prob(60)
 
 	var/obj/structure/bed/B = A
-	if (istype(A, /obj/structure/bed) && B.buckled_mob)//if it's a bed/chair and someone is buckled, it will not pass
+	if (istype(A, /obj/structure/bed) && B.buckled)//if it's a bed/chair and someone is buckled, it will not pass
 		return 0
 
 	if(istype(A, /obj/vehicle))	//no vehicles
@@ -58,10 +58,9 @@
 		manipulating = TRUE
 		visible_message(SPAN_NOTICE("[user] begins cutting down \the [src]."),
 					SPAN_NOTICE("You begin cutting down \the [src]."))
-		if(!do_after(user, 30/W.toolspeed))
+		if(!W.use_tool(src, user, 30, volume = 50))
 			manipulating = FALSE
 			return
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."), SPAN_NOTICE("You cut down \the [src]."))
 		dismantle()
 
@@ -69,18 +68,19 @@
 	name = "airtight plastic flaps"
 	desc = "Heavy duty, airtight, plastic flaps."
 
-	New() //set the turf below the flaps to block air
-		var/turf/T = get_turf(loc)
-		if(T)
-			T.blocks_air = 1
-		..()
+/obj/structure/plasticflaps/mining/Initialize() //set the turf below the flaps to block air
+	..()
+	var/turf/T = get_turf(loc)
+	if(T)
+		T.blocks_air = 1
 
-	Destroy() //lazy hack to set the turf to allow air to pass if it's a simulated floor
-		var/turf/T = get_turf(loc)
-		if(T)
-			if(istype(T, /turf/simulated/floor))
-				T.blocks_air = 0
-		return ..()
+
+/obj/structure/plasticflaps/mining/Destroy() //lazy hack to set the turf to allow air to pass if it's a simulated floor
+	var/turf/T = get_turf(loc)
+	if(T)
+		if(istype(T, /turf/simulated/floor))
+			T.blocks_air = 0
+	return ..()
 
 
 //Airtight plastic flaps made for the kitchen freezer, blocks atmos but not movement
@@ -89,11 +89,11 @@
 	desc = "Heavy duty, airtight, plastic flaps."
 	layer = 3
 
-/obj/structure/plasticflaps/airtight/New() //set the turf below the flaps to block air
+/obj/structure/plasticflaps/airtight/Initialize() //set the turf below the flaps to block air
+	..()
 	var/turf/T = get_turf(loc)
 	if(T)
 		T.blocks_air = 1
-	..()
 
 /obj/structure/plasticflaps/airtight/Destroy() //lazy hack to set the turf to allow air to pass if it's a simulated floor
 	var/turf/T = get_turf(loc)

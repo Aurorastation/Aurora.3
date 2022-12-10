@@ -32,8 +32,8 @@
 
 	if (istype(A, /mob/living/))
 		var/mob/living/L = A
-		if(L.buckled && istype(L.buckled,/obj/structure/bed/))
-			var/turf/O = L.buckled
+		if(L.buckled_to && istype(L.buckled_to,/obj/structure/bed/))
+			var/turf/O = L.buckled_to
 			do_teleport(O, pick(endgame_safespawns))
 			L.forceMove(O.loc)
 		else

@@ -11,7 +11,6 @@
 	var/speak_statement = "states"
 	var/speak_exclamation = "declares"
 	var/speak_query = "queries"
-	var/local_transmit //If set, can only speak to others of the same type within a short range.
 
 	// Description
 	var/pose //Yes, now AIs can pose too.
@@ -55,17 +54,20 @@
 	var/obj/item/card/id/id_card
 	var/id_card_type = /obj/item/card/id/synthetic
 
-	var/list/possible_accents = list(ACCENT_TTS, ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_LUNA, ACCENT_MARTIAN, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
-									ACCENT_SILVERSUN, ACCENT_KONYAN, ACCENT_EARTH)
+	var/list/possible_accents = list(ACCENT_TTS, ACCENT_CETI, ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR, ACCENT_SOL, ACCENT_LUNA, ACCENT_MARTIAN, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_CALLISTO, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
+									ACCENT_SILVERSUN_EXPATRIATE, ACCENT_KONYAN, ACCENT_EARTH, ACCENT_PERSEPOLIS, ACCENT_MEDINA, ACCENT_AEMAQ, ACCENT_NEWSUEZ, ACCENT_DAMASCUS, ACCENT_ERIDANI, ACCENT_PHONG,
+									ACCENT_VISEGRAD, ACCENT_HIMEO, ACCENT_PLUTO, ACCENT_XANU)
 
 	// Misc
 	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
 	mob_thinks = FALSE
 
+	var/can_speak_basic = TRUE
+
 /mob/living/silicon/Initialize()
 	silicon_mob_list |= src
 	. = ..()
-	add_language(LANGUAGE_TCB)
+	add_language(LANGUAGE_TCB, can_speak_basic)
 	init_id()
 
 	var/datum/language/L = locate(/datum/language/common) in languages
@@ -119,7 +121,7 @@
 	to_chat(src, SPAN_WARNING("Warning: Electromagnetic pulse detected."))
 	..()
 
-/mob/living/silicon/stun_effect_act()
+/mob/living/silicon/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
 	return	//immune
 
 /mob/living/silicon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, tesla_shock = FALSE, ground_zero)
@@ -176,8 +178,8 @@
 
 // this function displays the shuttles ETA in the status panel if the shuttle has been called
 /mob/living/silicon/proc/show_emergency_shuttle_eta()
-	if(emergency_shuttle)
-		var/eta_status = emergency_shuttle.get_status_panel_eta()
+	if(evacuation_controller)
+		var/eta_status = evacuation_controller.get_status_panel_eta()
 		if(eta_status)
 			stat(null, eta_status)
 
@@ -274,7 +276,7 @@
 
 /mob/living/silicon/ex_act(severity)
 	if(!blinded)
-		flick("flash", flash)
+		flash_eyes()
 
 	var/brute
 	var/burn
@@ -282,22 +284,14 @@
 		if(1.0)
 			brute = 400
 			burn = 100
-			if(!anchored && !prob(getarmor(null, "bomb")))
-				gib()
 		if(2.0)
 			brute = 60
 			burn = 60
 		if(3.0)
 			brute = 30
 
-	var/protection = BLOCKED_MULT(getarmor(null, "bomb"))
-	brute *= protection
-	burn *= protection
-
-	adjustBruteLoss(brute)
-	adjustFireLoss(burn)
-
-	updatehealth()
+	apply_damage(brute, BRUTE, damage_flags = DAM_EXPLODE)
+	apply_damage(burn, BURN, damage_flags = DAM_EXPLODE)
 
 /mob/living/silicon/proc/receive_alarm(var/datum/alarm_handler/alarm_handler, var/datum/alarm/alarm, was_raised)
 	if(!next_alarm_notice)
@@ -400,3 +394,6 @@
 
 /mob/living/silicon/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
+
+/mob/living/silicon/get_radio()
+	return common_radio

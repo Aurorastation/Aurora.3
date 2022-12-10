@@ -8,7 +8,7 @@
 	var/one_shot	= 0	// If true, then the event will not be re-added to the list of available events
 	var/add_to_queue= 1	// If true, add back to the queue of events upon finishing.
 	var/list/role_weights = list()
-	var/list/excluded_gamemodes = list()	// A list of gamemodes during which this event won't fire.
+	var/list/excluded_gamemodes	// A lazylist of gamemodes during which this event won't fire.
 	var/datum/event/event_type
 
 /datum/event_meta/New(var/event_severity, var/event_name, var/datum/event/type, var/event_weight, var/list/job_weights, var/is_one_shot = 0, var/min_event_weight = 0, var/max_event_weight = 0, var/list/excluded_roundtypes, var/add_to_queue = TRUE)
@@ -29,9 +29,9 @@
 	if(!enabled)
 		return 0
 
-	if(excluded_gamemodes.len && (SSticker.mode in excluded_gamemodes))
+	if(LAZYISIN(excluded_gamemodes, SSticker.mode.name))
 		// There's no way it'll be run this round anyways.
-		enabled = 0
+		enabled = FALSE
 		return 0
 
 	var/job_weight = 0
@@ -58,6 +58,7 @@
 	var/startedAt		= 0 //When this event started.
 	var/endedAt			= 0 //When this event ended.
 	var/datum/event_meta/event_meta = null
+	var/list/affecting_z
 
 	var/no_fake 		= 0
 	//If set to 1, this event will not be picked for false announcements
@@ -71,6 +72,8 @@
 
 	var/two_part		=	0
 	//used for events that run secondary announcements, like releasing maint access.
+
+	var/has_skybox_image = FALSE
 
 /datum/event/nothing
 	no_fake = 1
@@ -86,6 +89,8 @@
 //Allows you to start before announcing or vice versa.
 //Only called once.
 /datum/event/proc/start()
+	if(has_skybox_image)
+		SSskybox.rebuild_skyboxes(affecting_z)
 	return
 
 //Called when the tick is equal to the announceWhen variable.
@@ -107,6 +112,7 @@
 //the activeFor variable.
 //For example: if(activeFor == myOwnVariable + 30) doStuff()
 //Only called once.
+//faked indicates this is a false alarm. Used to prevent announcements and other things from happening during false alarms.
 /datum/event/proc/end()
 	return
 
@@ -151,10 +157,12 @@
 	isRunning = 0
 	endedAt = world.time
 
+	if(has_skybox_image)
+		SSskybox.rebuild_skyboxes(affecting_z)
+
 	if(!dummy)
 		SSevents.active_events -= src
 		SSevents.event_complete(src)
-
 
 
 /datum/event/New(var/datum/event_meta/EM = null, var/is_dummy = 0)
@@ -173,5 +181,18 @@
 	SSevents.active_events += src
 	startedAt = world.time
 
+	if(!affecting_z)
+		affecting_z = current_map.station_levels
+
 	setup()
 	..()
+
+/datum/event/proc/location_name()
+	if(!current_map.use_overmap)
+		return station_name()
+
+	var/obj/effect/overmap/O = map_sectors["[pick(affecting_z)]"]
+	return O ? O.name : "Unknown Location"
+
+/datum/event/proc/get_skybox_image()
+	return

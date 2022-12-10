@@ -1,9 +1,9 @@
 /obj/machinery/computer/drone_control
 	name = "Maintenance Drone Control"
 	desc = "Used to monitor the station's drone population and the assembler that services them."
-	light_color = LIGHT_COLOR_ORANGE
-
-	icon_screen = "power"
+	icon_screen = "power_monitor"
+	icon_keyboard = "yellow_key"
+	light_color = LIGHT_COLOR_YELLOW
 	req_access = list(access_engine_equip)
 	circuit = /obj/item/circuitboard/drone_control
 
@@ -11,6 +11,8 @@
 	var/drone_call_area = "Engineering"
 	//Used to enable or disable drone fabrication.
 	var/obj/machinery/drone_fabricator/dronefab
+
+	var/static/list/call_area_names
 
 /obj/machinery/computer/drone_control/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
@@ -56,12 +58,15 @@
 		to_chat(usr, SPAN_WARNING("Access denied."))
 		return
 
-	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
-		usr.set_machine(src)
 
 	if(href_list["setarea"])
+		if(!call_area_names)
+			call_area_names = list()
+			for(var/area/A as anything in all_areas)
+				if(A.station_area)
+					call_area_names += A.name
 		//Probably should consider using another list, but this one will do.
-		var/t_area = input(usr, "Select the area to ping.", "Set Target Area") as null|anything in SSdisposals.tagger_locations
+		var/t_area = input(usr, "Select the area to ping.", "Set Target Area") as null|anything in call_area_names
 
 		if(!t_area)
 			return

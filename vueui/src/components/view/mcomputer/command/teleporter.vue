@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-if="has_linked_station">
-      <h3>Linked Station Info</h3>
-      <span :class="station_locked_in ? 'good' : 'bad'">{{ station_locked_in ? 'Locked In ' : 'Not Locked In ' }}</span><span :class="station_locked_in ? 'good' : 'bad'">({{ locked_in_name }})</span>
+    <div v-if="has_linked_pad">
+      <h3>Linked Pad Info</h3>
+      <span :class="selected_target ? 'good' : 'bad'">{{ selected_target ? 'Locked In ' : 'Not Locked In ' }}</span><span :class="selected_target ? 'good' : 'bad'">({{ selected_target_name }})</span>
       <br><span>Calibration: {{calibration}}%</span> <vui-button :params="{ recalibrate: 1 }">Recalibrate</vui-button>
       <h3>Teleporter Beacons</h3>
       <table class="table border">
@@ -13,7 +13,7 @@
         <tr v-for="beacon in teleport_beacons" class="item border" :key="beacon.ref">
           <td>{{ beacon.beacon_name }}</td>
           <td>
-            <vui-button :params="{ beacon: beacon.ref, name: beacon.beacon_name }">Lock On</vui-button>
+            <vui-button :class="{ 'danger' : selected_target == beacon.ref }" :params="{ beacon: beacon.ref, name: beacon.beacon_name }">{{selected_target == beacon.ref ? "Unset" : "Lock On"}}</vui-button>
           </td>
         </tr>
       </table>
@@ -26,22 +26,22 @@
         <tr v-for="implant in teleport_implants" class="item border" :key="implant.ref">
           <td>{{ implant.implant_name }}</td>
           <td>
-            <vui-button :params="{ implant: implant.ref, name: implant.implant_name }">Lock On</vui-button>
+            <vui-button :class="{ 'danger' : selected_target == implant.ref}" :params="{ implant: implant.ref, name: implant.implant_name }">{{selected_target == implant.ref ? "Unset" : "Lock On"}}</vui-button>
           </td>
         </tr>
       </table>
     </div>
     <div v-else>
-      <h3>Nearby Teleportation Stations</h3>
+      <h3>Nearby Teleportation Pads</h3>
       <table class="table border">
         <tr class="header border">
           <th>Name</th>
           <th>Action</th>
         </tr>
-        <tr v-for="station in nearby_stations" class="item border" :key="station.ref">
-          <td>{{ station.station_name }}</td>
+        <tr v-for="pad in nearby_pads" class="item border" :key="pad.ref">
+          <td>{{ pad.pad_name }}</td>
           <td>
-            <vui-button :params="{ station: station.ref }">Link</vui-button>
+            <vui-button :params="{ pad: pad.ref }">Link</vui-button>
           </td>
         </tr>
       </table>

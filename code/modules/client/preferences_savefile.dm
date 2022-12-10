@@ -48,6 +48,12 @@
 
 /datum/preferences/proc/load_character(slot)
 	var/savefile/S
+	var/mob/abstract/new_player/NP = src.client.mob
+	var/readied
+	if(istype(NP) && NP.ready)
+		readied = TRUE
+		SSticker.update_ready_list(NP, force_urdy=TRUE)
+
 	if (!config.sql_saves)
 		if (!path)
 			return 0
@@ -74,6 +80,9 @@
 		loaded_character = S
 	else
 		save_preferences()
+
+	if(istype(NP) && readied)
+		SSticker.update_ready_list(NP)
 
 	return 1
 

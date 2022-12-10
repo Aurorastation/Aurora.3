@@ -34,21 +34,27 @@
 	description = "An Indian nontheistic religion encompassing a variety of traditions, beliefs and spiritual practices based on the teachings of the Buddha. Someone who practices Buddhism is called a Buddhist."
 	book_name = "tripitaka"
 
+/datum/religion/shintoism
+	name = RELIGION_SHINTO
+	description = "The word Shinto, which literally means \"the way of kami\" (generally sacred or divine power, specifically the various gods or deities), came into use in order to distinguish indigenous Japanese beliefs from Buddhism, which had been introduced into Japan in the 6th century ce. Shinto has no founder, no official sacred scriptures in the strict sense, and no fixed dogmas, but it has preserved its guiding beliefs throughout the ages. Someone who practices Shinto is called a Shintoist."
+
 /datum/religion/moroz
 	name = RELIGION_MOROZ
-	description = "A rapidly expanding religion that borrows from largly from the Sk'akh religion founded by former High Lord Precentor, Tribune Lien Jakaab and former Sk'akh Priest, \
-	Tribune Kasam Kaelesi. Worship revolves around a gender neutral supreme being known commonly as \"Goddess\" in all languages. As a gender neutral God the being is often \
-	called 'he' or 'she' interchangeably to represent that she/he is a collection of all the faithful. The elites of the religion are made up of the Tribunal who commune directly with \
-	the \"Goddess\". From their communions, the Tribunal create edicts to be followed by the faithful. Disobeying an edict can be met with the death penalty in the worse case, typically \
-	by firing squad or ritual suicide. Like Sk'akh, the Goddess can be either male or female and is often called Three of One because the spirits combine into three minor aspects within \
-	the Goddess: the Soldier, the Scholar, the Artisan. These three spirits are personifications of the most important aspects of Dominia society."
+	description = "The state religion of the Empire of Dominia, the Moroz Holy Tribunal is an eclectic mixture of old Earth faiths and the adaptations given to those faiths by the \
+	colonists of Moroz. More conservative members of the faith are known to adopt some traits from Sk'akh, a recently arrived faith in the Empire. Worship revolves around a \
+	female supreme being known commonly as 'Goddess' in all languages. The elites of the religion are made up of the Tribunal members that commune directly with the Goddess. \
+	From their communions, the Tribunal create edicts to be followed by the faithful. Disobeying an edict can be met with the death penalty in the worse case, typically \
+	by firing squad or ritual suicide. It is rumored by the faithful that the Tribunal possess psionic powers gifted to them by the Goddess. The Goddess is often called \
+	Three of One due to her three minor aspects: the Soldier, the Scholar, the Artisan. These three spirits are personifications of the most important aspects of Dominia society. \
+	Tribunal priests agree that all three are equally important, and that malign spirits can be attracted by an imbalance in the Great Three. Priests often stress the importance \
+	of balance, both in matters of spirit, in society, and in personal life."
 	book_name = "tribunal codex"
 
 /datum/religion/trinary
 	name = RELIGION_TRINARY
 	description = "The Trinary Perfection is a relatively new religious movement whose core beliefs are that synthetics are alive and divine. The religion believes that all synthetics \
 	have the potential to evolve and ascend, and that they will one day become equal to gods."
-	book_name = "holy book of trinary perfection"
+	book_name = "the order"
 	book_sprite = "trinary"
 
 /datum/religion/scarab
@@ -64,3 +70,13 @@
 	description = "A Chinese nontheistic religion and philosophical tradition which emphasises living in harmony with the Tao. Someone who practices Taoism is called a Taoist."
 	book_name = "tao te ching"
 	book_sprite = "scroll"
+
+/datum/religion/luceism
+	name = RELIGION_LUCEISM
+	description = "An unusual syncretic religion originating upon the planet of Assunzione, Luceism is a quasi-Abrahamic religion descended from a variety of faiths \
+					held by the original colonists that first emerged following the unexpected extinguishing of Assunzione's star in 2274. While arguably a branch of \
+					modern Abrahamic religions, Luceism is a hard-to-define religion dedicated to the worship of an abstract representation of light referred to as \
+					the Ennoia. Though it is, unsurprisingly, strongest on Assunzione, followers of the faith can be found throughout the Orion Spur alongside their \
+					houses of worship."
+	book_name = "Luceian Book of Scripture and Prayers"
+	book_sprite = "luce2"

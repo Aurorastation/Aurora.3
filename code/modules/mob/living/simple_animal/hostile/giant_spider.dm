@@ -6,26 +6,34 @@
 
 //basic spider mob, these generally guard nests
 /mob/living/simple_animal/hostile/giant_spider
-	name = "giant spider"
-	desc = "Furry and brown, it makes you shudder to look at it. This one has deep red eyes."
-	icon_state = "guard"
-	icon_living = "guard"
-	icon_dead = "guard_dead"
+	name = "greimorian warrior"
+	desc = "A deep purple carapace covers this vicious Greimorian warrior."
+	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
+	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
+	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
+	icon = 'icons/mob/npc/greimorian.dmi'
+	icon_state = "greimorian"
+	icon_living = "greimorian"
+	icon_dead = "greimorian_dead"
 	speak_emote = list("chitters")
 	emote_hear = list("chitters")
 	speak_chance = 5
 	turns_per_move = 5
 	see_in_dark = 10
+	meat_amount = 3
 	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
 	organ_names = list("thorax", "legs", "head")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
+	blood_type = "#51C404"
+	blood_amount = 150
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 200
 	health = 200
 	melee_damage_lower = 15
 	melee_damage_upper = 20
+	armor_penetration = 10
 	resist_mod = 1.5
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
@@ -44,14 +52,17 @@
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
-	desc = "Furry and beige, it makes you shudder to look at it. This one has brilliant green eyes."
-	icon_state = "nurse"
-	icon_living = "nurse"
-	icon_dead = "nurse_dead"
+	name = "greimorian worker"
+	desc = "A hideous Greimorian with vestigial wings and an awful stench about it. This one is brown with shimmering, bulbous red eyes."
+	icon_state = "greimorian_worker"
+	icon_living = "greimorian_worker"
+	icon_dead = "greimorian_worker_dead"
+	blood_amount = 50
 	maxHealth = 40
 	health = 40
 	melee_damage_lower = 5
 	melee_damage_upper = 10
+	armor_penetration = 20
 	poison_per_bite = 10
 	var/atom/cocoon_target
 	poison_type = /decl/reagent/soporific
@@ -59,16 +70,34 @@
 
 //hunters have the most poison and move the fastest, so they can find prey
 /mob/living/simple_animal/hostile/giant_spider/hunter
-	desc = "Furry and black, it makes you shudder to look at it. This one has sparkling purple eyes."
-	icon_state = "hunter"
-	icon_living = "hunter"
-	icon_dead = "hunter_dead"
+	name = "greimorian hunter"
+	desc = "A vicious, hostile red Greimorian. This one holds a mighty stinger to impale its prey."
+	icon_state = "greimorian_hunter"
+	icon_living = "greimorian_hunter"
+	icon_dead = "greimorian_hunter_dead"
+	blood_amount = 90
 	maxHealth = 120
 	health = 120
 	melee_damage_lower = 10
 	melee_damage_upper = 20
+	armor_penetration = 15
 	poison_per_bite = 5
 	move_to_delay = 4
+
+/mob/living/simple_animal/hostile/giant_spider/emp
+	name = "greimorian jackal"
+	desc = "A slithering bright blue Greimorian. This one gently buzzes with electrical potential."
+	icon_state = "greimorian_jackal"
+	icon_living = "greimorian_jackal"
+	icon_dead = "greimorian_jackal_dead"
+	maxHealth = 100
+	health = 100
+	melee_damage_lower = 5
+	melee_damage_upper = 10
+	armor_penetration = 15
+	poison_type = /decl/reagent/perconol // mildly beneficial for organics
+	poison_per_bite = 2
+	move_to_delay = 5
 
 /mob/living/simple_animal/hostile/giant_spider/Initialize(mapload, atom/parent)
 	get_light_and_color(parent)
@@ -94,6 +123,24 @@
 				var/eggs = new /obj/effect/spider/eggcluster(O, src)
 				O.implants += eggs
 				to_chat(H, "<span class='warning'>The [src] injects something into your [O.name]!</span>")
+
+/mob/living/simple_animal/hostile/giant_spider/emp/AttackingTarget()
+	. = ..()
+	if(ishuman(.))
+		var/mob/living/carbon/human/H = .
+		if(prob(20))
+			if(H.isSynthetic())
+				var/obj/item/organ/internal/cell/cell_holder = locate() in H.internal_organs
+				if(cell_holder)
+					var/obj/item/cell/C = cell_holder.cell
+					if(C)
+						to_chat(H, SPAN_WARNING("\The [src] saps some of your energy!"))
+						C.use(C.maxcharge / 15)
+			if(length(H.organs))
+				var/obj/item/organ/external/O = pick(H.organs)
+				if(O.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT))
+					H.visible_message(SPAN_WARNING("\The [src] bites down onto \the [H]'s [O.name]!"), SPAN_WARNING("\The [src] bites down onto your [O.name]!"))
+					O.emp_act(2)
 
 /mob/living/simple_animal/hostile/giant_spider/think()
 	..()

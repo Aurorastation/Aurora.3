@@ -13,11 +13,11 @@
 	possible_spiders = typesof(/mob/living/simple_animal/hostile/giant_spider)
 
 /datum/event/spider_infestation/announce()
-	command_announcement.Announce("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert", new_sound = 'sound/AI/aliens.ogg')
+	command_announcement.Announce("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert", new_sound = 'sound/AI/aliens.ogg', zlevels = affecting_z)
 
 /datum/event/spider_infestation/start()
 	var/list/vents = list()
-	for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in SSmachinery.processing_machines)
+	for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in SSmachinery.processing)
 		if(!temp_vent.welded && temp_vent.network && isStationLevel(temp_vent.loc.z))
 			if(temp_vent.network.normal_members.len > 50)
 				vents += temp_vent

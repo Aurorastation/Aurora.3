@@ -51,7 +51,7 @@
 	var/turf/T = get_turf(ui_host())
 	if(!T) // Safety check
 		return
-	for(var/obj/machinery/power/sensor/S in SSpower.all_sensors)
+	for(var/obj/machinery/power/sensor/S in SSmachinery.all_sensors)
 		if((T && S.loc.z == T.z) || (S.long_range)) // Consoles have range on their Z-Level. Sensors with long_range var will work between Z levels.
 			if(S.name_tag == "#UNKN#") // Default name. Shouldn't happen!
 				warning("Powernet sensor with unset ID Tag! [S.x]X [S.y]Y [S.z]Z")

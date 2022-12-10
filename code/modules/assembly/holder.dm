@@ -15,6 +15,10 @@
 	var/obj/special_assembly = null
 
 /obj/item/device/assembly_holder/proc/detached()
+	if(a_left)
+		a_left.holder_movement()
+	if(a_right)
+		a_right.holder_movement()
 	return
 
 /obj/item/device/assembly_holder/IsAssemblyHolder()
@@ -171,10 +175,13 @@
 
 /obj/item/device/assembly_holder/Initialize(mapload, ...)
 	. = ..()
-	listening_objects += src
+	become_hearing_sensitive()
 
 /obj/item/device/assembly_holder/Destroy()
-	listening_objects -= src
+	if(a_left)
+		a_left.holder = null
+	if(a_right)
+		a_right.holder = null
 	return ..()
 
 /obj/item/device/assembly_holder/hear_talk(mob/living/M, msg, verb, datum/language/speaking)

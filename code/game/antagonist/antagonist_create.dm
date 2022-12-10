@@ -7,7 +7,7 @@
 	if(!target.current)
 		remove_antagonist(target)
 		return 0
-	if(flags & ANTAG_CHOOSE_NAME)
+	if(!preserve_appearance && (flags & ANTAG_CHOOSE_NAME))
 		spawn(1)
 			set_antag_name(target.current)
 	if(move)
@@ -47,15 +47,17 @@
 
 	switch(freq)
 		if(NINJ_FREQ)
-			R = new/obj/item/device/radio/headset/ninja(player)
+			R = new /obj/item/device/radio/headset/ninja(player)
+		if(BLSP_FREQ)
+			R = new /obj/item/device/radio/headset/bluespace(player)
 		if(BURG_FREQ)
 			R = new /obj/item/device/radio/headset/burglar(player)
 		if(SYND_FREQ)
-			R = new/obj/item/device/radio/headset/syndicate(player)
+			R = new /obj/item/device/radio/headset/syndicate(player)
 		if(RAID_FREQ)
-			R = new/obj/item/device/radio/headset/raider(player)
+			R = new /obj/item/device/radio/headset/raider(player)
 		else
-			R = new/obj/item/device/radio/headset(player)
+			R = new /obj/item/device/radio/headset(player)
 			R.set_frequency(freq)
 
 	R.set_frequency(freq)
@@ -129,7 +131,7 @@
 		H.real_name = L.get_random_name()
 		H.name = H.real_name
 		H.dna.real_name = H.real_name
-	var/newname = sanitize(input(player, "You are a [role_text]. Would you like to change your name to something else?", "Name change") as null|text, MAX_NAME_LEN)
+	var/newname = sanitizeName(sanitize_readd_odd_symbols(sanitize(input(player, "You are a [role_text]. Would you like to change your name to something else?", "Name change") as null|text)))
 	if (newname)
 		player.real_name = newname
 		player.name = player.real_name

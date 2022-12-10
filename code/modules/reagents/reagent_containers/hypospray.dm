@@ -5,7 +5,7 @@
 /obj/item/reagent_containers/hypospray
 	name = "hypospray"
 	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
-	desc_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
+	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
 	desc_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
 	icon = 'icons/obj/syringe.dmi'
 	item_icons = list(
@@ -31,6 +31,9 @@
 	. = ..()
 	update_icon()
 
+/obj/item/reagent_containers/hypospray/AltClick(var/mob/user)
+	set_APTFT()
+
 /obj/item/reagent_containers/hypospray/on_reagent_change()
 	update_icon()
 	return
@@ -38,7 +41,7 @@
 /obj/item/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
 	desc = "A high-end version of the regular hypospray, it allows for a substantially higher rate of drug administration to patients."
-	desc_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
+	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
 	desc_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
 	volume = 30
@@ -50,14 +53,16 @@
 	if(isliving(M))
 		var/mob/living/L = M
 		var/inj_time = time
-		inj_time *= L.can_inject(user, TRUE)
-		if(!inj_time)
+		var/mod_time = L.can_inject(user, TRUE, target_zone, armorcheck)
+		if(!mod_time)
 			return
+		else if(inj_time <= 0 && mod_time > 1)
+			inj_time = (1 SECOND) * mod_time
+		else
+			inj_time *= mod_time
 		user.visible_message(SPAN_WARNING("\The [user] is trying to inject \the [L] with \the [src]!"), SPAN_NOTICE("You are trying to inject \the [L] with \the [src]."))
-		if(armorcheck && L.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
-			inj_time += 6 SECONDS
-		if(!do_mob(user, L, inj_time))
-			return 1
+		if(do_mob(user, L, inj_time))
+			inject(M, user, M.Adjacent(user))
 
 /obj/item/reagent_containers/hypospray/update_icon()
 	cut_overlays()
@@ -73,12 +78,8 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-/obj/item/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
-
-	if (!istype(M))
-		return ..()
-
-	if(!proximity)
+/obj/item/reagent_containers/hypospray/proc/inject(var/mob/M, var/mob/user, proximity)
+	if(!proximity || !istype(M))
 		return
 
 	if(!reagents.total_volume)
@@ -101,22 +102,37 @@
 	update_icon()
 	return TRUE
 
+/obj/item/reagent_containers/hypospray/afterattack(atom/target, mob/user, proximity)
+	if (!proximity)
+		return
+
+	if (!isliving(target))
+		return ..()
+
 /obj/item/reagent_containers/hypospray/autoinjector
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
-	icon_state = "autoinjector1"
-	item_state = "autoinjector1"
-	var/empty_state = "autoinjector0"
-	flags = OPENCONTAINER
+	desc_extended = "Funded by the Stellar Corporate Conglomerate, produced by Zeng-Hu Pharmaceuticals, this autoinjector system was rebuilt from the ground up from the old variant to provide maximum user feedback."
+	desc_info = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Use in-hand, or click it while it's in your active hand to prepare it for reuse."
+	icon_state = "autoinjector"
+	item_state = "autoinjector"
+	slot_flags = SLOT_EARS
+	var/name_label
+	var/spent = TRUE
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = null
 	volume = 5
 	time = 0
 
 /obj/item/reagent_containers/hypospray/autoinjector/Initialize()
-	. =..()
-	icon_state = empty_state
-	item_state = empty_state
+	. = ..()
+	if(name_label)
+		name_unlabel = name
+		name = "[name] ([name_label])"
+		verbs += /atom/proc/remove_label
+	if(reagents_to_add)
+		flags = 0
+		spent = FALSE
 	update_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
@@ -125,10 +141,17 @@
 		return FALSE
 	. = ..()
 
+/obj/item/reagent_containers/hypospray/autoinjector/inject(mob/M, mob/user, proximity)
+	. = ..()
+	if(.)
+		spent = TRUE
+		update_icon()
+
 /obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
 	if(is_open_container())
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user, SPAN_NOTICE("With a quick twist of \the [src]'s lid, you secure the reagents inside."))
+			spent = FALSE
 			flags &= ~OPENCONTAINER
 			update_icon()
 		else
@@ -142,16 +165,23 @@
 		to_chat(user, SPAN_NOTICE("Using \the [W], you unsecure the autoinjector's lid.")) // it locks shut after being secured
 		flags |= OPENCONTAINER
 		update_icon()
-		return
+		return TRUE
 	. = ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon()
-	if(reagents.total_volume > 0 && !is_open_container())
-		icon_state = initial(icon_state)
-		item_state = initial(icon_state)
-	else
-		icon_state = empty_state
-		item_state = empty_state
+	cut_overlays()
+	if(!is_open_container())
+		var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinjector_secured")
+		add_overlay(backing_overlay)
+
+	icon_state = "[initial(icon_state)][spent]"
+	item_state = "[initial(item_state)][spent]"
+
+	if(reagents.total_volume)
+		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinjector_reagents")
+		reagent_overlay.color = reagents.get_color()
+		add_overlay(reagent_overlay)
+	update_held_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
@@ -162,11 +192,15 @@
 
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
-	name = "autoinjector (inaprovaline)"
+	name_label = "inaprovaline"
 	reagents_to_add = list(/decl/reagent/inaprovaline = 5)
 
+/obj/item/reagent_containers/hypospray/autoinjector/dylovene
+	name_label = "dylovene"
+	reagents_to_add = list(/decl/reagent/dylovene = 5)
+
 /obj/item/reagent_containers/hypospray/autoinjector/emergency
-	name = "autoinjector (emergency)"
+	name_label = "emergency"
 	reagents_to_add = list(/decl/reagent/inaprovaline = 2.5, /decl/reagent/dexalin = 2.5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/emergency/Initialize()
@@ -174,14 +208,19 @@
 	desc += " This auto-injector is to be used in emergencies. It contains a small amount of inaprovaline and dexalin."
 
 /obj/item/reagent_containers/hypospray/autoinjector/coagzolug
-	name = "autoinjector (coagzolug)"
+	name_label = "coagzolug"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel. This one contains coagzolug, a quick-acting blood coagulant that will slow bleeding for as long as it's within the bloodstream."
 	volume = 5
 	flags = 0
 	reagents_to_add = list(/decl/reagent/coagzolug = 5)
 
+/obj/item/reagent_containers/hypospray/autoinjector/hyronalin
+	name_label = "hyronalin"
+	flags = 0
+	reagents_to_add = list(/decl/reagent/hyronalin = 5)
+
 /obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone
-	name = "sideeffects-be-gone! autoinjector"
+	name_label = "sideeffects-be-gone!"
 	desc = "A special cocktail designed to counter the side-effects of various drugs. Has 2 uses."
 	volume = 30
 	amount_per_transfer_from_this = 15
@@ -204,13 +243,103 @@
 
 	reagents_to_add = list(/decl/reagent/tricordrazine = 15, /decl/reagent/inaprovaline = 5, /decl/reagent/dexalin/plus = 5, /decl/reagent/oxycomorphine = 3, /decl/reagent/synaptizine = 2, /decl/reagent/mental/corophenidate = 5)
 
+/obj/item/reagent_containers/hypospray/autoinjector/berserk
+	name_label = "berserk injector"
+	desc = "An injector containing Red Nightshade. Used before fights to induce a berserk state."
+	volume = 5
+	amount_per_transfer_from_this = 5
+
+	reagents_to_add = list(/decl/reagent/toxin/berserk = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/trauma
+	name = "trauma hypo-injector"
+	desc = "A special hypospray made to combat most forms of physical trauma."
+	volume = 15
+	amount_per_transfer_from_this = 15
+
+	reagents_to_add = list(/decl/reagent/butazoline = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/burn
+	name = "burn hypo-injector"
+	desc = "A special hypospray made to combat most types of superficial burns."
+	volume = 15
+	amount_per_transfer_from_this = 15
+
+	reagents_to_add = list(/decl/reagent/dermaline = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/oxygen
+	name = "oxygenation hypo-injector"
+	desc = "A special hypospray made to combat oxygen deprivation."
+	volume = 15
+	amount_per_transfer_from_this = 15
+
+	reagents_to_add = list(/decl/reagent/dexalin/plus = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/purity
+	name = "purity hypo-injector"
+	desc = "A special hypospray made to combat most forms of impurities such as genetic damage and infections."
+	volume = 15
+	amount_per_transfer_from_this = 15
+
+	reagents_to_add = list(/decl/reagent/thetamycin = 10, /decl/reagent/ryetalyn = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/organ
+	name = "organ hypo-injector"
+	desc = "A special hypospray made to combat internal damage."
+	volume = 15
+	amount_per_transfer_from_this = 15
+
+	reagents_to_add = list(/decl/reagent/peridaxon = 10, /decl/reagent/oculine = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/pain
+	name = "numbing hypo-injector"
+	desc = "A special hypospray made to combat pain. This one only injects <b>5 units</b> at a time."
+	volume = 15
+	amount_per_transfer_from_this = 5
+
+	reagents_to_add = list(/decl/reagent/oxycomorphine = 15)
+
 /obj/item/reagent_containers/hypospray/combat
 	name = "combat hypospray"
 	desc = "A hypospray loaded with combat stimulants. Its needle has the ability to bypass armor."
 	item_state = "combat_hypo"
 	icon_state = "combat_hypo"
 	volume = 20
-	armorcheck = 0
+	armorcheck = FALSE
 	time = 0
 
-	reagents_to_add = list(/decl/reagent/oxycomorphine = 5, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5, /decl/reagent/arithrazine = 5)
+	reagents_to_add = list(/decl/reagent/kilosemine = 10)
+
+/obj/item/reagent_containers/hypospray/combat/empty
+	name = "combat hypospray"
+	desc = "A sleek black hypospray. Its needle has the ability to bypass armor."
+	reagents_to_add = FALSE
+
+/obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
+	name = "sanasomnum autoinjector"
+	desc = "A special autoinjector loaded with outlawed biomechanical stem cells, inducing a regenerative coma so intense it can heal almost any injury - even broken bones, organ and brain damage, severed tendons, and arterial damage. Upon use one will fall immediately into a state of unconsciousness lasting roughly three to five minutes, arising completely healed. The only thing it cannot fix are organs that have been destroyed outright, or so much cumulative damage that death is all but certain. The only downside is that Sanasomnum use guarantees extreme cancerous growth months or years down the line, which is invariably fatal in the long-term. However, in the short-term, it will save your life."
+	volume = 20
+	amount_per_transfer_from_this = 20
+
+	reagents_to_add = list(/decl/reagent/sanasomnum = 20)
+
+/obj/item/reagent_containers/hypospray/autoinjector/bicaridine
+	name = "bicaridine autoinjector"
+	desc = "An autoinjector loaded with bicaridine, a chemical used to treat physical trauma."
+	volume = 15
+	amount_per_transfer_from_this = 15
+	reagents_to_add = list(/decl/reagent/bicaridine = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/kelotane
+	name = "kelotane autoinjector"
+	desc = "An autoinjector loaded with kelotane, a chemical used to treat burnt tissue."
+	volume = 15
+	amount_per_transfer_from_this = 15
+	reagents_to_add = list(/decl/reagent/kelotane = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/peridaxon
+	name = "peridaxon autoinjector"
+	desc = "An autoinjector loaded with peridaxon, a chemical used to treat minor organ damage."
+	volume = 10
+	amount_per_transfer_from_this = 10
+	reagents_to_add = list(/decl/reagent/peridaxon = 10)

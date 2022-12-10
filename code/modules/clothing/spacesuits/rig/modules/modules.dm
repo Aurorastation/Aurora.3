@@ -150,6 +150,16 @@
 	holder = new_holder
 	return
 
+/obj/item/rig_module/proc/do_engage(atom/target, mob/living/carbon/human/user)
+	. = engage(target, user)
+	if(.)
+		var/old_next_use = next_use
+		next_use = world.time + module_cooldown
+		if(next_use > old_next_use && holder.wearer)
+			var/obj/screen/inventory/back/B = locate(/obj/screen/inventory/back) in holder.wearer.hud_used.adding
+			if(B)
+				B.set_color_for(COLOR_RED, module_cooldown)
+
 //Proc for one-use abilities like teleport.
 /obj/item/rig_module/proc/engage(atom/target, mob/user)
 	if(damage >= 2)
@@ -183,15 +193,16 @@
 		to_chat(user, SPAN_DANGER("You cannot use the suit in the confined space."))
 		return FALSE
 
-	next_use = world.time + module_cooldown
-
 	return TRUE
 
 // Proc for toggling on active abilities.
 /obj/item/rig_module/proc/activate(mob/user)
 	if(active)
 		return FALSE
-	if(engage_on_activate && !engage(null, user))
+	if(engage_on_activate && !do_engage(null, user))
+		return FALSE
+
+	if(use_check_and_message(user, USE_ALLOW_NON_ADJACENT))
 		return FALSE
 
 	active = TRUE
@@ -208,6 +219,9 @@
 // Proc for toggling off active abilities.
 /obj/item/rig_module/proc/deactivate(mob/user)
 	if(!active)
+		return FALSE
+
+	if(use_check_and_message(user, USE_ALLOW_NON_ADJACENT))
 		return FALSE
 
 	active = FALSE

@@ -85,7 +85,7 @@
 /turf/simulated/floor,
 /area/mine/unexplored)
 "v" = (
-/obj/structure/bed/chair/shuttle,
+/obj/structure/bed/stool/chair/shuttle,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/remains/human,
 /turf/simulated/floor/shuttle/dark_blue,
@@ -108,7 +108,7 @@
 /turf/simulated/floor/shuttle,
 /area/mine/unexplored)
 "z" = (
-/obj/structure/bed/chair/shuttle,
+/obj/structure/bed/stool/chair/shuttle,
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
@@ -145,7 +145,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "G" = (
-/obj/structure/bed/chair/shuttle{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood,

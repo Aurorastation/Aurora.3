@@ -1,8 +1,13 @@
 #define SPECIES_HUMAN				"Human"
 #define SPECIES_HUMAN_OFFWORLD		"Off-Worlder Human"
-#define SPECIES_SKRELL				"Skrell"
+
 #define SPECIES_UNATHI				"Unathi"
+
 #define SPECIES_DIONA				"Diona"
+#define SPECIES_DIONA_COEUS			"Coeus Diona"
+
+#define SPECIES_SKRELL				"Xiialt Skrell"
+#define SPECIES_SKRELL_AXIORI		"Axiori Skrell"
 
 #define SPECIES_TAJARA				"Tajara"
 #define SPECIES_TAJARA_ZHAN			"Zhan-Khazan Tajara"
@@ -12,6 +17,7 @@
 #define SPECIES_VAURCA_WARRIOR		"Vaurca Warrior"
 #define SPECIES_VAURCA_BREEDER		"Vaurca Breeder"
 #define SPECIES_VAURCA_WARFORM		"Vaurca Warform"
+#define SPECIES_VAURCA_BULWARK		"Vaurca Bulwark"
 
 #define SPECIES_IPC					"Baseline Frame"
 #define SPECIES_IPC_SHELL			"Shell Frame"
@@ -66,6 +72,7 @@
 #define SPECIES_GOLEM_URANIUM		"Uranium Golem"
 #define SPECIES_GOLEM_MEAT			"Homunculus"
 #define SPECIES_GOLEM_ADAMANTINE	"Adamantine Golem"
+#define SPECIES_GOLEM_TECHOMANCER	"Technomancer Golem"
 
 
 #define BODYTYPE_HUMAN				"Human"
@@ -76,6 +83,7 @@
 
 #define BODYTYPE_VAURCA				"Vaurca"
 #define BODYTYPE_VAURCA_BREEDER		"Vaurca Breeder"
+#define BODYTYPE_VAURCA_BULWARK		"Vaurca Bulwark"
 #define BODYTYPE_VAURCA_WARFORM		"Vaurca Warform"
 
 #define BODYTYPE_IPC				"Machine"
@@ -88,3 +96,9 @@
 
 #define BODYTYPE_SKELETON			"Skeleton"
 #define BODYTYPE_CULTGHOST			"Apparition"
+
+#define ALL_SPECIES list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, \
+			SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_UNBRANDED, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, \
+			SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA, \
+			SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_VAURCA_WORKER, \
+			SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)

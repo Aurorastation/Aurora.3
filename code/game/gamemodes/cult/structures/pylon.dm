@@ -230,7 +230,7 @@
 			if(sacrifice)
 				walk_to(sacrifice, 0)
 		else
-			if(istype(sacrifice.loc, /turf) && !sacrifice.is_ventcrawling && !sacrifice.buckled)
+			if(istype(sacrifice.loc, /turf) && !sacrifice.is_ventcrawling && !sacrifice.buckled_to)
 				//Suck the creature towards the pylon if possible
 				walk_towards(sacrifice, src, 10)
 			else
@@ -351,7 +351,7 @@
 		var/obj/item/holder/H = W
 		if(H.contained)
 			present_sacrifice(user, H.contained)
-		return
+		return TRUE
 
 	attackpylon(user, W.force, W)
 

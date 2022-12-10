@@ -190,9 +190,9 @@
 							E.status &= ~ORGAN_ARTERY_CUT
 							return
 
-						if(E.status & ORGAN_TENDON_CUT)
+						if((E.tendon_status() & TENDON_CUT) && E.tendon.can_recover())
 							to_chat(H, SPAN_NOTICE("Your autoredactive faculty repairs the severed tendon in your [E.name]."))
-							E.status &= ~ORGAN_TENDON_CUT
+							E.tendon.rejuvenate()
 							return TRUE
 
 						for(var/datum/wound/W in E.wounds)
