@@ -174,7 +174,9 @@
 						alert(user, "You have already selected the maximum number of alternate languages for this species!")
 					else
 						pref.alternate_languages |= new_lang
-					return TOPIC_REFRESH
+					if(length(new_lang.possible_dialects))
+						our_dialect = decls_repository.get_decl(pick(lang.possible_dialects))
+						pref.dialects += our_dialect.type
 	else if(href_list["change_dialect"])
 		var/language_name = href_list["change_dialect"]
 		var/datum/language/L = all_languages[language_name]
@@ -188,7 +190,7 @@
 		var/decl/dialect/ND = possible_dialects[new_dialect]
 		var/decl/dialect/dialect_to_remove
 		for(var/dialect in pref.dialects)
-			var/decl/dialect/D = dialect
+			var/decl/dialect/D = decls_repository.get_decl(dialect)
 			if(D.parent_language == language_name)
 				dialect_to_remove = D
 				break
