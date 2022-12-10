@@ -38,4 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
+  - tweak: "Updated holomap to work with the new horizon's map."
+  - maptweak: "Added holomaps to the hallways on all 3 decks of the horizon."
   - rscadd: "Cyborgs now have a View Holomap verb to see holomap from their position."
