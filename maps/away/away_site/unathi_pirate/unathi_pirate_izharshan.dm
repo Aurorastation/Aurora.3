@@ -80,6 +80,7 @@
 	vessel_mass = 7500 //This truck is too damn big
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
+	comms_name = "modified"
 
 /obj/machinery/computer/shuttle_control/explore/unathi_pirate_izharshan
 	name = "shuttle control console"

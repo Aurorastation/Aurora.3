@@ -15,6 +15,9 @@
 	name = "grand romanovich casino"
 	desc = "An adhomian style casino in Tau Ceti's space."
 
+	comms_support = TRUE
+	comms_name = "grand romanovich"
+
 /area/grand_romanovich
 	name = "Grand Romanovich Casino"
 	icon_state = "away"

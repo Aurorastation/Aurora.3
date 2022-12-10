@@ -277,6 +277,7 @@
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (sidearms)";
 	req_access = list(203)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
@@ -757,7 +758,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssmd_corvette/storage)
 "bYg" = (
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	dir = 1
+	},
 /obj/machinery/light/colored/blue,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/bridge)
@@ -961,9 +964,6 @@
 /area/ship/ssmd_corvette/portengine)
 "cTq" = (
 /obj/structure/table/steel,
-/obj/item/mass_driver_button{
-	pixel_y = 8
-	},
 /obj/machinery/button/remote/blast_door{
 	id = "ssmd_slauncher_interior";
 	name = "interior launcher blast door-control";
@@ -975,6 +975,12 @@
 	},
 /obj/machinery/light/colored/blue{
 	dir = 8
+	},
+/obj/machinery/button/mass_driver{
+	_wifi_id = "ssmd_driver";
+	id = "ssmd_driver";
+	layer = 3.2;
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/ssmd_shuttle)
@@ -1023,7 +1029,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/item/reagent_containers/food/drinks/bottle/whitewine,
 /turf/simulated/floor/wood/coloured/walnut,
 /area/ship/ssmd_corvette/captain)
 "dbU" = (
@@ -1090,11 +1095,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/sign/directions/cryo{
 	dir = 4;
 	pixel_x = 32
@@ -1104,6 +1104,11 @@
 	pixel_x = 32;
 	pixel_y = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/hangar)
 "dll" = (
@@ -1472,6 +1477,18 @@
 	desc = "A red brassard bearing the insignia of the First Middle Ring Battlegroup.";
 	name = "ssmd brassard"
 	},
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/white_vest,
+/obj/item/clothing/accessory/storage/white_vest,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/latex,
+/obj/item/clothing/gloves/latex,
+/obj/item/clothing/mask/surgical/w,
+/obj/item/clothing/mask/surgical/w,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "dUd" = (
@@ -1646,7 +1663,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/golden_cup{
-	desc = "A golden cup. This one was presented to the 2459 Interunit Basketball competition hosted by the First Middle Ring Battlefleet.";
+	desc = "A golden cup. This one commemorates the First Middle Ring Battlegroup's victory in the 2459 naval basketball tournament.";
 	name = "ASSN Interunit Basketball Trophy - 2459"
 	},
 /obj/structure/window/basic{
@@ -1868,7 +1885,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/ssmd_corvette/portengine)
 "eKb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2222,6 +2239,7 @@
 	layer = 2.71
 	},
 /obj/item/reagent_containers/food/drinks/bottle/gin,
+/obj/item/reagent_containers/food/drinks/bottle/whitewine,
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/storage)
 "fQk" = (
@@ -3487,6 +3505,7 @@
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (PDWs)";
 	req_access = list(203)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
@@ -3947,7 +3966,7 @@
 "kWO" = (
 /obj/structure/table/steel,
 /obj/machinery/button/remote/blast_door{
-	id = "ssmd_cap_window";
+	id = "ssmd_cap_windows";
 	name = "Captain's Cabin Observation Lockdown";
 	pixel_x = 5;
 	pixel_y = 7
@@ -4424,16 +4443,31 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/closet/walllocker/medical/secure{
+	name = "Stabilization Kit";
+	pixel_x = 32
+	},
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/medbay)
 "mCz" = (
-/obj/structure/table/steel,
-/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv{
+	pixel_x = 4
+	},
 /obj/item/storage/firstaid/toxin{
 	pixel_x = -1
 	},
 /obj/structure/table/steel,
-/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat{
+	pixel_x = -4
+	},
 /obj/item/reagent_containers/hypospray/autoinjector/hyronalin,
 /obj/item/reagent_containers/hypospray/autoinjector/hyronalin,
 /turf/simulated/floor/tiled/white,
@@ -4571,6 +4605,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (longarms)";
 	req_access = list(203)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
@@ -4820,13 +4855,11 @@
 "nBW" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/fire{
-	pixel_x = 1
+	pixel_x = 4
 	},
-/obj/item/storage/firstaid/regular{
-	pixel_y = -1
-	},
+/obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/o2{
-	pixel_x = -2
+	pixel_x = -4
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -4863,11 +4896,10 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4954,6 +4986,12 @@
 "nWO" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
+	},
+/obj/machinery/vending/medical{
+	density = 0;
+	pixel_x = -1;
+	pixel_y = -32;
+	req_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/medbay)
@@ -5114,7 +5152,7 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "ssmd_cap_window";
+	id = "ssmd_cap_windows";
 	name = "Captain's Cabin Observation Lockdown";
 	pixel_x = -32
 	},
@@ -5339,6 +5377,7 @@
 /area/ship/ssmd_corvette/starboardengine)
 "pBR" = (
 /obj/machinery/computer/ship/helm{
+	dir = 1;
 	req_access = list(203)
 	},
 /obj/machinery/light/colored/blue,
@@ -5678,11 +5717,11 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/firealarm/east,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/hangar)
 "qND" = (
@@ -5878,7 +5917,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "rxf" = (
-/obj/machinery/computer/ship/sensors,
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/bridge)
 "rAt" = (
@@ -7100,7 +7141,9 @@
 /area/ship/ssmd_corvette/portengine)
 "vxN" = (
 /obj/machinery/mass_driver{
-	dir = 8
+	_wifi_id = "ssmd_driver";
+	dir = 8;
+	id = "ssmd_driver"
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/ssmd_shuttle)
@@ -7190,7 +7233,7 @@
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/hangar)
 "vUT" = (
-/obj/machinery/computer/ship/engines{
+/obj/machinery/computer/ship/navigation{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7627,6 +7670,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (law enforcement)";
 	req_access = list(203)
 	},
 /obj/item/storage/belt/security/full,
@@ -7950,7 +7994,7 @@
 /area/ship/ssmd_corvette/portengine)
 "xUv" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor,

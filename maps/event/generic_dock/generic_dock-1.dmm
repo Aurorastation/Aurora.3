@@ -2717,20 +2717,10 @@
 	},
 /area/shuttle/administration)
 "bHu" = (
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
-/obj/structure/closet/l3closet,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/tank/oxygen/red,
-/obj/item/tank/oxygen/red,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/mask/gas/alt,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
+/obj/structure/closet/hazmat/general,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "bHL" = (
@@ -4050,7 +4040,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/telecomms/relay/preset/centcom,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -6225,13 +6214,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
-"gkf" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/centcom/control)
 "glr" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -49051,7 +49033,7 @@ aaM
 bYs
 uOd
 gAn
-gkf
+dLE
 uqK
 nTD
 vfb
