@@ -512,7 +512,7 @@
 	set name = "View Holomap"
 	set desc = "View Holomap of the current level."
 	
-	var/obj/machinery/station_map/robot/holo_map_object
+	var/obj/machinery/station_map/mobile/holo_map_object
 	if(src.holo_map)
 		holo_map_object = src.holo_map.resolve()
 
