@@ -4,4 +4,6 @@ delete-after: True
 
 changes:
   - bugfix: "Hoists can no longer move through catwalks and/or lattices."
+  - bugfix: "Hoists no longer cause issues when hoisting mobs."
+  - bugfix: "Hoists can now hoist occupied air bubbles."
   - tweak: "Clicking on hoist hooks now detach what they're holding to the turf beneath the hoist."
