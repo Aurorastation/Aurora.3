@@ -430,20 +430,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/purple
 	color = PIPE_COLOR_PURPLE
 
-/obj/machinery/atmospherics/pipe/simple/insulated
-	desc_info = "This is completely useless, use a normal pipe."
-	icon = 'icons/obj/atmospherics/red_pipe.dmi'
-	icon_state = "intact"
-
-	minimum_temperature_difference = 10000
-	thermal_conductivity = 0
-	maximum_pressure = 1000*ONE_ATMOSPHERE
-	fatigue_pressure = 900*ONE_ATMOSPHERE
-	alert_pressure = 900*ONE_ATMOSPHERE
-
-	level = 2
-
-
 /obj/machinery/atmospherics/pipe/manifold
 	name = "pipe manifold"
 	desc = "A manifold composed of regular pipes."
