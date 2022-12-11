@@ -118,16 +118,6 @@ Buildable meters
 			src.pipe_type = PIPE_VOLUME_PUMP
 		else if(istype(make_from, /obj/machinery/atmospherics/binary/pump))
 			src.pipe_type = PIPE_PUMP
-		else if(istype(make_from, /obj/machinery/atmospherics/trinary/filter/m_filter))
-			src.pipe_type = PIPE_GAS_FILTER_M
-		else if(istype(make_from, /obj/machinery/atmospherics/trinary/mixer/t_mixer))
-			src.pipe_type = PIPE_GAS_MIXER_T
-		else if(istype(make_from, /obj/machinery/atmospherics/trinary/mixer/m_mixer))
-			src.pipe_type = PIPE_GAS_MIXER_M
-		else if(istype(make_from, /obj/machinery/atmospherics/trinary/filter))
-			src.pipe_type = PIPE_GAS_FILTER
-		else if(istype(make_from, /obj/machinery/atmospherics/trinary/mixer))
-			src.pipe_type = PIPE_GAS_MIXER
 		else if(istype(make_from, /obj/machinery/atmospherics/unary/vent_scrubber))
 			src.pipe_type = PIPE_SCRUBBER
 		else if(istype(make_from, /obj/machinery/atmospherics/binary/passive_gate/scrubbers))
@@ -818,106 +808,6 @@ Buildable meters
 			if (P.node2)
 				P.node2.atmos_init()
 				P.node2.build_network()
-
-		if(PIPE_GAS_FILTER)		//gas filter
-			var/obj/machinery/atmospherics/trinary/filter/P = new(src.loc)
-			P.set_dir(dir)
-			P.initialize_directions = pipe_dir
-			if (pipename)
-				P.name = pipename
-			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
-			P.atmos_init()
-			P.build_network()
-			if (P.node1)
-				P.node1.atmos_init()
-				P.node1.build_network()
-			if (P.node2)
-				P.node2.atmos_init()
-				P.node2.build_network()
-			if (P.node3)
-				P.node3.atmos_init()
-				P.node3.build_network()
-
-		if(PIPE_GAS_MIXER)		//gas mixer
-			var/obj/machinery/atmospherics/trinary/mixer/P = new(src.loc)
-			P.set_dir(dir)
-			P.initialize_directions = pipe_dir
-			if (pipename)
-				P.name = pipename
-			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
-			P.atmos_init()
-			P.build_network()
-			if (P.node1)
-				P.node1.atmos_init()
-				P.node1.build_network()
-			if (P.node2)
-				P.node2.atmos_init()
-				P.node2.build_network()
-			if (P.node3)
-				P.node3.atmos_init()
-				P.node3.build_network()
-
-		if(PIPE_GAS_FILTER_M)		//gas filter mirrored
-			var/obj/machinery/atmospherics/trinary/filter/m_filter/P = new(src.loc)
-			P.set_dir(dir)
-			P.initialize_directions = pipe_dir
-			if (pipename)
-				P.name = pipename
-			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
-			P.atmos_init()
-			P.build_network()
-			if (P.node1)
-				P.node1.atmos_init()
-				P.node1.build_network()
-			if (P.node2)
-				P.node2.atmos_init()
-				P.node2.build_network()
-			if (P.node3)
-				P.node3.atmos_init()
-				P.node3.build_network()
-
-		if(PIPE_GAS_MIXER_T)		//gas mixer-t
-			var/obj/machinery/atmospherics/trinary/mixer/t_mixer/P = new(src.loc)
-			P.set_dir(dir)
-			P.initialize_directions = pipe_dir
-			if (pipename)
-				P.name = pipename
-			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
-			P.atmos_init()
-			P.build_network()
-			if (P.node1)
-				P.node1.atmos_init()
-				P.node1.build_network()
-			if (P.node2)
-				P.node2.atmos_init()
-				P.node2.build_network()
-			if (P.node3)
-				P.node3.atmos_init()
-				P.node3.build_network()
-
-		if(PIPE_GAS_MIXER_M)		//gas mixer mirrored
-			var/obj/machinery/atmospherics/trinary/mixer/m_mixer/P = new(src.loc)
-			P.set_dir(dir)
-			P.initialize_directions = pipe_dir
-			if (pipename)
-				P.name = pipename
-			var/turf/T = P.loc
-			P.level = !T.is_plating() ? 2 : 1
-			P.atmos_init()
-			P.build_network()
-			if (P.node1)
-				P.node1.atmos_init()
-				P.node1.build_network()
-			if (P.node2)
-				P.node2.atmos_init()
-				P.node2.build_network()
-			if (P.node3)
-				P.node3.atmos_init()
-				P.node3.build_network()
 
 		if(PIPE_SCRUBBER)		//scrubber
 			var/obj/machinery/atmospherics/unary/vent_scrubber/S = new(src.loc)
