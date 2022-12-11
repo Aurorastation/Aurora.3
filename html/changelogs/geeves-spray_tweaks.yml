@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Chemsprayers and xenoblasters now report how many units of reagent they have left after you spray something."
+  - tweak: "Adjusting the pressure nozzle of a spray now accurately tells you how many reagents you'll use, and in how many lanes your spray will go."
