@@ -3624,7 +3624,6 @@
 /area/racers)
 "rAy" = (
 /obj/machinery/mech_recharger,
-/mob/living/bot/floorbot,
 /turf/simulated/floor/plating,
 /area/racers)
 "rDo" = (
