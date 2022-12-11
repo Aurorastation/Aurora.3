@@ -41,7 +41,7 @@
 				message = pick(S.speak)
 			else
 				if(language)
-					message = language.scramble(message, languages, dialect_understanding(language, src, speaker))
+					message = language.scramble(message, languages, dialect_understanding(language, speaker))
 				else
 					message = stars(message)
 
@@ -311,11 +311,11 @@
 
 	to_chat(src, heard)
 
-/mob/proc/dialect_understanding(var/datum/language/L, var/mob/recipient, var/mob/speaker)
+/mob/proc/dialect_understanding(var/datum/language/L, var/mob/speaker)
 	. = null
 	if(L in recipient.languages && L in speaker.languages)
 		if(L.name in speaker.languages_to_dialects)
 			var/decl/dialect/D = decls_repository.get_decl(speaker.languages_to_dialects[L.name])
 			if(L.name in speaker.languages_to_dialects)
-				var/decl/dialect/R = decls_repository.get_decl(speaker.languages_to_dialects)
+				var/decl/dialect/R = decls_repository.get_decl(languages_to_dialects[L.name])
 				. = D.calculate_cross_understanding(R)
