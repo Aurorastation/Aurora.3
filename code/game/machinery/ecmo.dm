@@ -1,6 +1,6 @@
 /obj/machinery/ecmo
 	name = "\improper ECMO"
-	desc = "An Extra-Corporeal Membrane Oxygenator."
+	desc = "An Extra-Corporeal Membrane Oxygenator, using a membrane and a pump it's able to oxygenate the blood and keep it circulating, thus preventing cerebral death."
 	desc_info = "ECMO must be supplied with a blood pack and an oxygen tank."
 	icon = 'icons/obj/ecmo.dmi'
 	icon_state = "ecmo_stand"
@@ -370,6 +370,12 @@
 		if(!istype(W, /obj/item/tank/oxygen))
 			to_chat(user, "The ECMO only accepts oxygen tanks.")
 			return TRUE
+		if(istype(W,/obj/item/tank/oxygen))
+			var/datum/gas_mixture/mixture = W.return_air()
+			if((mixture.gas.len != 1) || (mixture.gas[1] != "oxygen"))
+				to_chat(user, "The tank does not contain pure oxygen.")
+				return TRUE
+
 		user.drop_from_inventory(W, src)
 		tank = W
 		user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
