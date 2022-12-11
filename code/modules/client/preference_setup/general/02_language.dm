@@ -17,7 +17,6 @@
 		"ss13_characters" = list(
 			"vars" = list(
 				"language" = "alternate_languages",
-				"dialects" = "dialects",
 				"autohiss" = "autohiss_setting"
 			),
 			"args" = list("id")
@@ -43,7 +42,7 @@
 		"language" = list2params(pref.alternate_languages),
 		"autohiss" = pref.autohiss_setting,
 		"id" = pref.current_character,
-		"dialects" = list2params(pref.dialects),
+		"dialects" = json_encode(pref.dialects),
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
@@ -52,7 +51,13 @@
 	if (sql_load)
 		pref.alternate_languages = params2list(pref.alternate_languages)
 		pref.autohiss_setting = text2num(pref.autohiss_setting)
-		pref.dialects = params2list(pref.dialects)
+		if(istext(pref.dialects))
+			try
+				var/before = pref.dialects
+				pref.dialects = json_decode(pref.dialects)
+			catch(var/exception/e)
+				log_debug("LANGUAGES: Caught [e]. Initial value: [before]")
+				pref.dialects = list()
 
 	if(!islist(pref.alternate_languages))
 		pref.alternate_languages = list()
@@ -177,6 +182,7 @@
 					if(length(new_lang.possible_dialects))
 						our_dialect = decls_repository.get_decl(pick(lang.possible_dialects))
 						pref.dialects += our_dialect.type
+					return TOPIC_REFRESH
 	else if(href_list["change_dialect"])
 		var/language_name = href_list["change_dialect"]
 		var/datum/language/L = all_languages[language_name]

@@ -16,3 +16,6 @@
 	if(target)
 		total_understanding -= target.deviation //their deviation: 40, so 20 total
 	return max(0, total_understanding) //20 returned
+
+/mob
+	var/list/languages_to_dialects = list()

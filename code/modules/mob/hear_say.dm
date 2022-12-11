@@ -41,7 +41,7 @@
 				message = pick(S.speak)
 			else
 				if(language)
-					message = language.scramble(message, languages)
+					message = language.scramble(message, languages, dialect_understanding(language, src, speaker))
 				else
 					message = stars(message)
 
@@ -310,3 +310,12 @@
 		heard = "<span class = 'game_say'>...<i>You almost hear someone talking</i>...</span>"
 
 	to_chat(src, heard)
+
+/mob/proc/dialect_understanding(var/datum/language/L, var/mob/recipient, var/mob/speaker)
+	. = null
+	if(L in recipient.languages && L in speaker.languages)
+		if(L.name in speaker.languages_to_dialects)
+			var/decl/dialect/D = decls_repository.get_decl(speaker.languages_to_dialects[L.name])
+			if(L.name in speaker.languages_to_dialects)
+				var/decl/dialect/R = decls_repository.get_decl(speaker.languages_to_dialects)
+				. = D.calculate_cross_understanding(R)
