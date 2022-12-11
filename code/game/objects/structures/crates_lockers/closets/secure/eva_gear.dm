@@ -18,8 +18,8 @@
 /obj/structure/closet/secure_closet/eva_gear/softsuits/fill()
 	new /obj/item/clothing/head/helmet/space(src)
 	new /obj/item/clothing/head/helmet/space(src)
-	new /obj/item/clothing/mask/breath/space(src)
-	new /obj/item/clothing/mask/breath/space(src)
+	new /obj/item/clothing/mask/breath(src)
+	new /obj/item/clothing/mask/breath(src)
 	new /obj/item/clothing/suit/space(src)
 	new /obj/item/clothing/suit/space(src)
 

@@ -1,6 +1,6 @@
 /obj/structure/dispenser
 	name = "gas tank storage unit"
-	desc = "A simple yet bulky storage device for gas tanks. Has room for up to [oxygentanks] oxygen tanks, and [phorontanks] phoron tanks."
+	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 oxygen and phoron tanks."
 	icon = 'icons/obj/tank_dispenser.dmi'
 	icon_state = "dispenser"
 	density = TRUE
@@ -12,17 +12,19 @@
 	var/list/platanks = list()
 
 /obj/structure/dispenser/oxygen
-	desc = "A simple yet bulky storage device for gas tanks. Has room for up to [oxygentanks] oxygen tanks."
+	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 oxygen tanks."
 	phorontanks = 0
 
 /obj/structure/dispenser/oxygen/large
+	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 20 oxygen tanks."
 	oxygentanks = 20
 
 /obj/structure/dispenser/phoron
-	desc = "A simple yet bulky storage device for gas tanks. Has room for up to [phorontanks] phoron tanks."
+	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 phoron tanks."
 	oxygentanks = 0
 
 /obj/structure/dispenser/oxygen/large
+	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 20 phoron tanks."
 	phorontanks = 20
 
 /obj/structure/dispenser/Initialize()
