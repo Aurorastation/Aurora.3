@@ -1273,9 +1273,6 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/ammo_casing,
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/holosign/surgery{
-	icon_state = "sign_on"
-	},
 /turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship)
 "fcm" = (
@@ -2485,11 +2482,6 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
-/area/ship/sfa_patrol_ship)
-"jIb" = (
-/turf/simulated/floor/tiled/dark{
-	icon = 'is'
-	},
 /area/ship/sfa_patrol_ship)
 "jIq" = (
 /obj/structure/extinguisher_cabinet{
@@ -4720,16 +4712,7 @@
 /area/ship/sfa_patrol_ship/Engineering)
 "uum" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/structure/grille,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "sfa bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/structure/bookcase/libraryspawn,
-/turf/simulated/floor,
+/turf/space,
 /area/ship/sfa_patrol_ship/Officer)
 "uus" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -28736,7 +28719,7 @@ lcg
 jGx
 wfy
 xUX
-jIb
+sBA
 gma
 hkY
 qCZ
