@@ -261,19 +261,19 @@
 		if(leader)
 			if(holding_still)
 				holding_still = max(holding_still - 1, 0)
-			else if(canmove && isturf(loc))
+			else if(canmove && !pulledby && !length(grabbed_by) && isturf(loc))
 				step_to(src, leader)
 
 		else if(hungry)
 			if(holding_still)
 				holding_still = max(holding_still - 1 - hungry, 0)
-			else if(canmove && isturf(loc) && prob(50))
+			else if(canmove && !pulledby && !length(grabbed_by) && isturf(loc) && prob(50))
 				step(src, pick(cardinal))
 
 		else
 			if(holding_still)
 				holding_still = max(holding_still - 1, 0)
-			else if(canmove && isturf(loc) && prob(33))
+			else if(canmove && !pulledby && !length(grabbed_by) && isturf(loc) && prob(33))
 				step(src, pick(cardinal))
 
 /mob/living/carbon/slime/proc/handle_AI() // the master AI process
@@ -332,7 +332,13 @@
 					UnarmedAttack(target)
 
 		else if(target in view(7, src))
-			step_to(src, target)
+			var/blue_grabbed = FALSE
+			for(var/obj/item/grab/G as anything in grabbed_by)
+				if(G.state >= GRAB_AGGRESSIVE)
+					blue_grabbed = TRUE
+					break
+			if(!blue_grabbed)
+				step_to(src, target)
 
 		else
 			target = null
