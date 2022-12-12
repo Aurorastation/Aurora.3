@@ -20,7 +20,7 @@
 //ghost roles
 
 /datum/ghostspawner/human/adhomai_hunter
-	short_name = "adhomai_hunter."
+	short_name = "adhomai_hunter"
 	name = "Adhomian Hunter"
 	desc = "Hunt the wild creatures of Adhomai."
 	tags = list("External")
@@ -67,7 +67,7 @@
 	backpack_contents = list(/obj/item/storage/wallet/random = 1)
 
 /datum/ghostspawner/human/matake_hunter
-	short_name = "matake_hunter."
+	short_name = "matake_hunter"
 	name = "Mata'ke Priest-Hunter"
 	desc = "Hunt the wild creatures of Adhomai in the name of Mata'ke."
 	tags = list("External")

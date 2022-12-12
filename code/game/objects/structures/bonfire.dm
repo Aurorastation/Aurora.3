@@ -340,7 +340,7 @@ var/global/list/total_active_bonfires = list()
 	name = "fireplace"
 	desc = "A large stone brick fireplace."
 	icon = 'icons/obj/fireplace.dmi'
-	icon_state = "fireplace_material"
+	icon_state = "fireplace"
 	pixel_x = -16
 	safe = TRUE
 	density = TRUE
@@ -356,7 +356,6 @@ var/global/list/total_active_bonfires = list()
 		qdel(src)
 		return
 	name = "[material.display_name] fireplace"
-	color = material.icon_colour
 
 /obj/structure/bonfire/fireplace/update_icon()
 	cut_overlays()

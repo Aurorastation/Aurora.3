@@ -20,7 +20,7 @@
 //ghost roles
 
 /datum/ghostspawner/human/adhomai_archeology
-	short_name = "adhomai_archeology."
+	short_name = "adhomai_archeology"
 	name = "Adhomian Archeologist"
 	desc = "Do some archeological work in Adhomai as part of a New Kingdom of Adhomai expedition."
 	tags = list("External")

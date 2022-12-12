@@ -20,7 +20,7 @@
 //ghost roles
 
 /datum/ghostspawner/human/adhomai_village
-	short_name = "adhomai_village."
+	short_name = "adhomai_village"
 	name = "Adhomian Villager"
 	desc = "Live your life in a tiny Adhomian village."
 	tags = list("External")
@@ -54,9 +54,7 @@
 				/obj/item/clothing/shoes/tajara/workboots/adhomian_boots
 	)
 
-	back = list(
-		/obj/item/storage/backpack/satchel/leather
-	)
+	back = /obj/item/storage/backpack/satchel/leather
 
 	l_ear = null
 

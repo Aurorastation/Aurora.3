@@ -1,0 +1,2188 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"am" = (
+/obj/structure/simple_door/wood{
+	name = "room five";
+	initial_lock_value = "room_five"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"aK" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/seeds/earthenroot,
+/obj/item/seeds/earthenroot,
+/obj/item/seeds/blizzard,
+/obj/item/seeds/blizzard,
+/obj/item/seeds/nifberries,
+/obj/item/seeds/nifberries,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"bf" = (
+/obj/machinery/light/small,
+/obj/structure/table/rack,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"bm" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/wood,
+/obj/item/key{
+	name = "key - room one";
+	key_data = "room_one"
+	},
+/obj/item/key{
+	name = "key - room two";
+	key_data = "room_two"
+	},
+/obj/item/key{
+	name = "key - room three";
+	key_data = "room_three"
+	},
+/obj/item/key{
+	name = "key - room four";
+	key_data = "room_four"
+	},
+/obj/item/key{
+	name = "key - room five";
+	key_data = "room_five"
+	},
+/obj/item/key{
+	name = "key - room six";
+	key_data = "room_six"
+	},
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"cs" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"cY" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/structure/weapon_rack/double_pellet{
+	pixel_y = 32
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"dd" = (
+/obj/machinery/light/small,
+/obj/structure/coatrack,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"eu" = (
+/obj/structure/simple_door/wood{
+	name = "room one";
+	initial_lock_value = "room_one"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"ev" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"eS" = (
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"fC" = (
+/obj/structure/mirror{
+	pixel_x = -28;
+	pixel_y = -3
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"gm" = (
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"gz" = (
+/obj/structure/railing/fence,
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"hk" = (
+/obj/machinery/vending/dinnerware,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"hy" = (
+/obj/structure/reagent_dispensers/keg/mead,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/adhomai_bar)
+"hD" = (
+/obj/structure/curtain/black,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"iw" = (
+/obj/machinery/chem_heater,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"ix" = (
+/obj/structure/mirror{
+	pixel_x = 28;
+	pixel_y = -3
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"jp" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"jz" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"jW" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"ko" = (
+/obj/machinery/appliance/cooker/oven,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"kx" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/storage/pill_bottle/dice/tajara,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"kI" = (
+/obj/item/material/hatchet/butch,
+/obj/structure/table/wood,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/adhomai_bar)
+"kN" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"le" = (
+/obj/structure/table/wood,
+/obj/machinery/media/jukebox/phonograph{
+	anchored = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"lk" = (
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/item/material/knife{
+	layer = 2.99;
+	pixel_x = -9
+	},
+/obj/structure/table/wood,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"mw" = (
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"mC" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"mF" = (
+/obj/structure/bed/stool/padded/red,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"mH" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"mS" = (
+/obj/structure/reagent_dispensers/cookingoil,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/adhomai_bar)
+"ng" = (
+/obj/structure/simple_door/wood{
+	name = "room four";
+	initial_lock_value = "room_four"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"nR" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"ow" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/item/material/ashtray,
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"oL" = (
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"oT" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"pr" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"qF" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead,
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead,
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead,
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
+/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
+/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
+/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
+/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
+/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
+/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
+/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
+/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater,
+/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater,
+/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater,
+/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater,
+/obj/effect/floor_decal/spline/plain{
+	dir = 10
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"qM" = (
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/adhomai_bar)
+"rM" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"se" = (
+/obj/structure/table/wood,
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"sE" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"sS" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"tf" = (
+/obj/structure/table/wood,
+/obj/item/flame/lighter/adhomai,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"tv" = (
+/obj/effect/floor_decal/spline/plain,
+/obj/machinery/light/small,
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"uT" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/waiter,
+/obj/item/clothing/under/waiter,
+/obj/item/clothing/under/dress/tajaran/summer,
+/obj/item/clothing/under/dress/tajaran/red,
+/obj/item/clothing/head/tajaran/circlet/silver,
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"vA" = (
+/obj/machinery/chem_master/condimaster,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"ww" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = -9;
+	pixel_y = 15
+	},
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = -9;
+	pixel_y = 6
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/machinery/reagentgrinder{
+	pixel_x = 4;
+	pixel_y = 16
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"wx" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"xc" = (
+/obj/structure/bed/stool/chair/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"xn" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"xE" = (
+/obj/structure/bed/stool,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"xS" = (
+/obj/machinery/atm{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"yN" = (
+/obj/structure/railing/fence,
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"yR" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"zA" = (
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Ag" = (
+/obj/machinery/computer/slot_machine,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Bk" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/material/ashtray/glass,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"BB" = (
+/obj/structure/railing/fence,
+/obj/structure/table/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"BZ" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cooking_container/plate,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Cg" = (
+/obj/machinery/door/window{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"CN" = (
+/obj/machinery/gibber,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/adhomai_bar)
+"DE" = (
+/obj/structure/table/rack,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Eg" = (
+/obj/structure/simple_door/wood{
+	name = "room six";
+	initial_lock_value = "room_six"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Ez" = (
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"EZ" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/item/device/hand_labeler,
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Fl" = (
+/obj/machinery/appliance/cooker/stove,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"Fy" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/adhomai_bar)
+"FM" = (
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"FS" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Gf" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/adhomai_bar)
+"GG" = (
+/obj/machinery/vending/cigarette,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"HS" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/adhomai_bar)
+"HX" = (
+/obj/structure/simple_door/wood{
+	name = "room two";
+	initial_lock_value = "room_two"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"In" = (
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"IH" = (
+/obj/structure/table/wood,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"IL" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/adhomai_bar)
+"IM" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Jy" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Kq" = (
+/obj/machinery/computer/slot_machine,
+/obj/machinery/light/small,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Kt" = (
+/obj/structure/table/wood/gamblingtable,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Kv" = (
+/obj/structure/table/rack,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Kw" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/sink/kitchen{
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"MM" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/machinery/light/small,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"NA" = (
+/obj/machinery/appliance/cooker/fryer,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"NI" = (
+/obj/structure/sign/poster{
+	pixel_y = -32
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"NM" = (
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Ow" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/deck/cards,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Qi" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/appliance/mixer/candy{
+	pixel_y = 8
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"Qw" = (
+/obj/structure/simple_door/wood{
+	name = "room three";
+	initial_lock_value = "room_three"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Rh" = (
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Sp" = (
+/obj/structure/bed,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"SN" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"SU" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/shaker,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Ta" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/adhomai_bar)
+"Tb" = (
+/obj/structure/bed/stool/padded/red,
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"TA" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"TJ" = (
+/obj/structure/closet/secure_closet/freezer/kitchen{
+	req_access = null
+	},
+/obj/item/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/reagent_containers/food/drinks/carton/fatshouters,
+/obj/item/reagent_containers/food/drinks/carton/fatshouters,
+/obj/item/reagent_containers/food/drinks/carton/fatshouters,
+/obj/item/reagent_containers/food/drinks/carton/fatshouters,
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/adhomai_bar)
+"UI" = (
+/obj/item/holder/monkey/farwa,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"UT" = (
+/obj/structure/railing/fence,
+/obj/structure/table/wood,
+/obj/item/material/ashtray,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"UY" = (
+/obj/structure/table/wood,
+/obj/machinery/reagentgrinder,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Vi" = (
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"VS" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/seeds/blizzard,
+/obj/item/seeds/blizzard,
+/obj/item/seeds/sugartree,
+/obj/item/seeds/sugartree,
+/obj/item/seeds/nifberries,
+/obj/item/seeds/nifberries,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Wa" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/glass/rag,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Wk" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Wm" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Wo" = (
+/obj/machinery/vending/dinnerware/plastic,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Wr" = (
+/obj/structure/bonfire/fireplace,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"WC" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"WI" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/adhomai_bar)
+"WS" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"WU" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Xv" = (
+/turf/simulated/wall/wood,
+/area/adhomai_bar)
+"Yn" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Yw" = (
+/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/structure/table/wood,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"YY" = (
+/obj/structure/table/rack,
+/obj/item/reagent_containers/glass/bucket/wood,
+/obj/item/reagent_containers/glass/bucket/wood,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Zc" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Zf" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 9
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Zw" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"ZT" = (
+/obj/structure/table/wood,
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 6
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+
+(1,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(2,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+FM
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+FM
+nR
+nR
+nR
+nR
+NM
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(3,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+FM
+nR
+nR
+nR
+nR
+"}
+(4,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(5,1,1) = {"
+Wm
+IM
+WU
+IM
+WU
+IM
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+nR
+nR
+nR
+FM
+nR
+nR
+nR
+nR
+Xv
+rM
+rM
+rM
+rM
+jp
+nR
+nR
+nR
+nR
+"}
+(6,1,1) = {"
+cs
+TA
+In
+TA
+In
+TA
+Xv
+uT
+Qi
+Fl
+ko
+NA
+mC
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+sS
+eS
+eS
+eS
+UT
+nR
+nR
+nR
+nR
+"}
+(7,1,1) = {"
+cs
+TA
+In
+TA
+In
+TA
+Xv
+Kw
+xn
+xn
+xn
+xn
+xn
+Xv
+Zf
+vA
+iw
+hk
+UY
+se
+IH
+qF
+Xv
+Zc
+eS
+eS
+eS
+yN
+nR
+nR
+nR
+nR
+"}
+(8,1,1) = {"
+cs
+In
+In
+In
+In
+In
+Zw
+xn
+xn
+xn
+xn
+xn
+xn
+Wk
+Jy
+gm
+gm
+gm
+gm
+gm
+gm
+oL
+Xv
+FS
+eS
+eS
+eS
+gz
+nR
+nR
+nR
+nR
+"}
+(9,1,1) = {"
+cs
+TA
+In
+TA
+In
+In
+Xv
+bm
+ww
+SN
+Yw
+lk
+xn
+Xv
+cY
+gm
+gm
+gm
+gm
+gm
+gm
+tv
+Xv
+eS
+eS
+eS
+eS
+BB
+nR
+nR
+nR
+nR
+"}
+(10,1,1) = {"
+cs
+TA
+In
+TA
+In
+In
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Gf
+Xv
+Jy
+gm
+gm
+gm
+gm
+gm
+gm
+oL
+Xv
+eS
+eS
+eS
+wx
+yN
+nR
+nR
+nR
+NM
+"}
+(11,1,1) = {"
+cs
+TA
+In
+TA
+In
+eS
+DE
+Xv
+hy
+mS
+WI
+qM
+qM
+Xv
+Cg
+EZ
+WC
+Wa
+ow
+SU
+WC
+ZT
+Xv
+Xv
+Xv
+Wk
+Xv
+Xv
+nR
+nR
+nR
+nR
+"}
+(12,1,1) = {"
+cs
+TA
+In
+TA
+In
+eS
+Kv
+Xv
+TJ
+qM
+qM
+qM
+Fy
+Xv
+eS
+Ez
+Ez
+Ez
+Ez
+Ez
+Ez
+eS
+mH
+eS
+eS
+eS
+mw
+Xv
+nR
+nR
+nR
+nR
+"}
+(13,1,1) = {"
+cs
+TA
+In
+TA
+VS
+eS
+YY
+Xv
+HS
+qM
+qM
+qM
+CN
+Xv
+pr
+eS
+eS
+eS
+eS
+eS
+eS
+eS
+zA
+zA
+eS
+eS
+eS
+Xv
+nR
+nR
+nR
+nR
+"}
+(14,1,1) = {"
+cs
+TA
+In
+TA
+aK
+jW
+jz
+Xv
+Ta
+qM
+kI
+qM
+IL
+Xv
+eS
+eS
+eS
+eS
+eS
+eS
+eS
+zA
+Zc
+Zc
+zA
+eS
+eS
+Xv
+nR
+NM
+nR
+nR
+"}
+(15,1,1) = {"
+oT
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+xS
+eS
+eS
+sS
+sS
+eS
+UI
+zA
+Zc
+yR
+zA
+eS
+kN
+Xv
+nR
+nR
+nR
+nR
+"}
+(16,1,1) = {"
+nR
+Xv
+Sp
+eS
+Vi
+Xv
+Sp
+eS
+Vi
+Xv
+Sp
+eS
+Vi
+Xv
+eS
+eS
+xc
+Zc
+Zc
+ev
+eS
+eS
+zA
+zA
+eS
+eS
+eS
+Xv
+nR
+nR
+nR
+nR
+"}
+(17,1,1) = {"
+nR
+Xv
+sE
+eS
+MM
+Xv
+sE
+eS
+MM
+Xv
+sE
+eS
+MM
+Xv
+eS
+eS
+xc
+yR
+Zc
+ev
+eS
+eS
+eS
+eS
+eS
+eS
+NI
+Xv
+nR
+nR
+nR
+nR
+"}
+(18,1,1) = {"
+nR
+Xv
+xE
+eS
+ix
+Xv
+xE
+eS
+ix
+Xv
+xE
+eS
+ix
+Xv
+Wr
+eS
+xc
+Zc
+BZ
+ev
+eS
+eS
+zA
+zA
+eS
+eS
+eS
+Xv
+nR
+nR
+nR
+FM
+"}
+(19,1,1) = {"
+nR
+Xv
+Xv
+Qw
+Xv
+Xv
+Xv
+HX
+Xv
+Xv
+Xv
+eu
+Xv
+Xv
+eS
+eS
+xc
+Zc
+Zc
+ev
+eS
+zA
+tf
+Zc
+zA
+eS
+eS
+Xv
+Xv
+nR
+nR
+nR
+"}
+(20,1,1) = {"
+nR
+Xv
+pr
+eS
+eS
+mH
+eS
+eS
+eS
+mH
+eS
+eS
+kN
+Xv
+eS
+eS
+xc
+Zc
+Zc
+ev
+eS
+zA
+yR
+Zc
+zA
+eS
+eS
+GG
+Xv
+Xv
+nR
+nR
+"}
+(21,1,1) = {"
+nR
+Xv
+eS
+eS
+eS
+eS
+eS
+eS
+eS
+eS
+eS
+eS
+eS
+Wk
+eS
+eS
+eS
+Yn
+Yn
+eS
+wx
+eS
+zA
+zA
+eS
+eS
+eS
+eS
+dd
+Xv
+nR
+nR
+"}
+(22,1,1) = {"
+nR
+Xv
+Xv
+Eg
+Xv
+Xv
+Xv
+am
+Xv
+Xv
+Xv
+ng
+Xv
+Xv
+eS
+eS
+eS
+eS
+eS
+kN
+Xv
+pr
+eS
+eS
+eS
+eS
+eS
+eS
+eS
+Wk
+Rh
+Rh
+"}
+(23,1,1) = {"
+nR
+Xv
+xE
+eS
+fC
+Xv
+xE
+eS
+fC
+Xv
+xE
+eS
+fC
+Xv
+Tb
+eS
+eS
+zA
+zA
+eS
+mH
+eS
+zA
+zA
+eS
+eS
+eS
+eS
+bf
+Xv
+nR
+nR
+"}
+(24,1,1) = {"
+nR
+Xv
+sE
+eS
+MM
+Xv
+sE
+eS
+MM
+Xv
+sE
+eS
+MM
+Xv
+WS
+eS
+zA
+BZ
+yR
+zA
+eS
+zA
+Zc
+yR
+zA
+eS
+eS
+mw
+Xv
+Xv
+nR
+nR
+"}
+(25,1,1) = {"
+nR
+Xv
+Sp
+eS
+Vi
+Xv
+Sp
+eS
+Vi
+Xv
+Sp
+eS
+Vi
+Xv
+zA
+eS
+zA
+Zc
+Zc
+zA
+eS
+zA
+Zc
+Zc
+zA
+eS
+eS
+Xv
+Xv
+nR
+nR
+nR
+"}
+(26,1,1) = {"
+nR
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+eS
+zA
+zA
+eS
+eS
+eS
+zA
+zA
+eS
+eS
+kN
+Xv
+nR
+nR
+FM
+nR
+"}
+(27,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+Xv
+eS
+mF
+zA
+eS
+eS
+eS
+eS
+hD
+eS
+eS
+wx
+eS
+le
+eS
+eS
+wx
+eS
+eS
+Wo
+Xv
+nR
+nR
+nR
+nR
+"}
+(28,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+Xv
+zA
+Kt
+kx
+zA
+eS
+zA
+Ag
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+nR
+nR
+nR
+nR
+"}
+(29,1,1) = {"
+nR
+nR
+nR
+FM
+nR
+nR
+nR
+Xv
+Tb
+Ow
+Bk
+zA
+eS
+zA
+Kq
+Xv
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(30,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+Xv
+eS
+zA
+zA
+eS
+eS
+zA
+Ag
+Xv
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+FM
+nR
+nR
+nR
+"}
+(31,1,1) = {"
+nR
+nR
+nR
+FM
+nR
+nR
+nR
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+Xv
+nR
+nR
+nR
+FM
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(32,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
