@@ -3270,6 +3270,7 @@
 #include "maps\random_ruins\exoplanets\crashed_pod\crashed_pod.dm"
 #include "maps\random_ruins\exoplanets\raskara\raskara_okon.dm"
 #include "maps\random_ruins\exoplanets\raskara\raskara_ritual.dm"
+#include "maps\random_ruins\exoplanets\raskara\raskara_wreck.dm"
 #include "maps\random_ruins\space_ruins\space_ruins.dm"
 #include "maps\runtime\runtime_overmap.dm"
 #include "maps\runtime\code\runtime.dm"

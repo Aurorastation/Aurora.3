@@ -70,7 +70,7 @@
 	surface_color = "#373737"
 	generated_name = FALSE
 	ring_chance = 0
-	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/raskara_ritual, /datum/map_template/ruin/exoplanet/raskara_okon)
+	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/raskara_ritual, /datum/map_template/ruin/exoplanet/raskara_okon, /datum/map_template/ruin/exoplanet/raskara_wreck)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/get_surface_color()
 	return "#373737"

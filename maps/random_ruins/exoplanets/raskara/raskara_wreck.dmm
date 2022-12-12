@@ -1,0 +1,1549 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ab" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille/broken,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"aD" = (
+/obj/machinery/floodlight{
+	dir = 8
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"aX" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"br" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/trash_pile,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"bA" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"dg" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/raskara)
+"dG" = (
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/obj/machinery/conveyor{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"eU" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/trash_pile,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"fb" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/sign/vacuum{
+	pixel_x = -32
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"gs" = (
+/obj/random/beret,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/raskara)
+"gz" = (
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/raskara)
+"iS" = (
+/obj/structure/lattice/catwalk,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"kL" = (
+/obj/structure/table/standard,
+/obj/item/toy/desk/fan,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -25
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"me" = (
+/obj/random/hoodie,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"mF" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/conveyor{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"mL" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"oE" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"pt" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"pD" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped,
+/obj/structure/trash_pile,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"pL" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"qh" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"qm" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Cockpit"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"qr" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"tj" = (
+/obj/item/material/shard,
+/obj/item/arrow/rod,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"tF" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/trash_pile,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"vh" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"vp" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"vA" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/structure/closet/crate,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/syndicate,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"vD" = (
+/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"yd" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"yB" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"yR" = (
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"Ag" = (
+/obj/effect/decal/remains/xeno,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"Aq" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/raskara)
+"Dy" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"DP" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"EM" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/raskara)
+"FZ" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"Gn" = (
+/turf/unsimulated/wall/fakepdoor,
+/area/exoplanet/barren/raskara)
+"GU" = (
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"Hv" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"HX" = (
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"Ic" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/accessory/tajaran/charm/bone,
+/obj/item/clothing/accessory/tajaran/charm/steel,
+/obj/item/clothing/accessory/tajaran/charm/steel/silver/seashell,
+/obj/item/clothing/accessory/tajaran/charm/steel/silver,
+/obj/item/clothing/accessory/tajaran/charm/tajani,
+/obj/item/clothing/accessory/tajaran/summershirt,
+/obj/item/clothing/accessory/tajaran/ruddy,
+/obj/item/clothing/accessory/tajaran/silver,
+/obj/item/clothing/accessory/tajaran/orange,
+/obj/item/clothing/accessory/tajaran,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"Iu" = (
+/obj/structure/lattice,
+/obj/structure/closet/crate/freezer,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"Jw" = (
+/obj/structure/computerframe,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"JQ" = (
+/obj/structure/reagent_dispensers/keg/mead,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"Ky" = (
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"LM" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/junk,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"LP" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"Mf" = (
+/turf/simulated/wall/shuttle/raider,
+/area/exoplanet/barren/raskara)
+"NL" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/junk,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"Ol" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/conveyor{
+	dir = 4
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"Pj" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"Re" = (
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"RF" = (
+/obj/item/arrow/rod,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"Sg" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/grille,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"Tl" = (
+/obj/random/bomb_supply,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"TG" = (
+/obj/random/booze,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/raskara)
+"UC" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"WR" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/structure/lattice,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"Xd" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"Xk" = (
+/obj/item/material/shard/wood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"XF" = (
+/obj/structure/lattice,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"YE" = (
+/obj/random/gift,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"YN" = (
+/obj/item/material/shard,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"YV" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/material/shard/wood,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+"Zm" = (
+/obj/item/material/shard/wood,
+/turf/simulated/floor/exoplanet/barren/raskara,
+/area/exoplanet/barren/raskara)
+"ZI" = (
+/obj/structure/closet/crate,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/item/material/knife/raskariim,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/exoplanet/barren/raskara)
+
+(1,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(2,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(3,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(4,1,1) = {"
+HX
+HX
+HX
+dG
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+me
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(5,1,1) = {"
+HX
+HX
+XF
+mF
+XF
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(6,1,1) = {"
+HX
+HX
+Mf
+Gn
+Mf
+Mf
+Mf
+Mf
+Mf
+Mf
+Mf
+Mf
+Mf
+Mf
+Mf
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(7,1,1) = {"
+HX
+Mf
+Mf
+Ol
+fb
+DP
+Mf
+eU
+DP
+DP
+Mf
+vA
+ZI
+Hv
+Mf
+Mf
+HX
+HX
+HX
+HX
+HX
+RF
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(8,1,1) = {"
+HX
+Mf
+pD
+Ol
+Pj
+yB
+LP
+yB
+oE
+NL
+oE
+yB
+yB
+br
+DP
+Mf
+HX
+XF
+XF
+XF
+HX
+HX
+Xd
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(9,1,1) = {"
+HX
+Mf
+Dy
+yd
+YV
+vp
+LM
+yB
+JQ
+DP
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+XF
+Aq
+Mf
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(10,1,1) = {"
+HX
+HX
+Dy
+yd
+yB
+DP
+DP
+oE
+vh
+DP
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+XF
+Mf
+Mf
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+Xd
+HX
+HX
+HX
+"}
+(11,1,1) = {"
+HX
+HX
+HX
+HX
+Pj
+yB
+oE
+YV
+yB
+yB
+HX
+HX
+HX
+RF
+HX
+HX
+Ag
+HX
+RF
+HX
+HX
+HX
+HX
+Mf
+Mf
+Mf
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(12,1,1) = {"
+HX
+HX
+HX
+HX
+tF
+aD
+Mf
+yB
+Ic
+DP
+HX
+HX
+Xd
+HX
+bA
+HX
+HX
+XF
+XF
+gz
+Mf
+HX
+HX
+XF
+WR
+Mf
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(13,1,1) = {"
+HX
+HX
+Mf
+HX
+Mf
+Mf
+Mf
+Re
+Mf
+Mf
+HX
+FZ
+HX
+HX
+HX
+HX
+HX
+XF
+gz
+gz
+Mf
+HX
+bA
+XF
+XF
+Mf
+Mf
+Mf
+Mf
+Mf
+HX
+HX
+"}
+(14,1,1) = {"
+HX
+HX
+Mf
+HX
+Mf
+Mf
+Mf
+qr
+Mf
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+gz
+Aq
+gz
+Mf
+HX
+HX
+HX
+HX
+Mf
+YN
+kL
+UC
+Sg
+HX
+HX
+"}
+(15,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+EM
+HX
+HX
+pL
+HX
+Mf
+Mf
+Mf
+Mf
+HX
+HX
+HX
+HX
+qm
+yR
+Ky
+Jw
+ab
+HX
+HX
+"}
+(16,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+RF
+XF
+XF
+XF
+Mf
+aX
+Xk
+GU
+tj
+HX
+HX
+"}
+(17,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+RF
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+Iu
+XF
+Mf
+Mf
+RF
+HX
+HX
+HX
+HX
+"}
+(18,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+Tl
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+XF
+Mf
+Mf
+Mf
+dg
+HX
+HX
+RF
+HX
+HX
+"}
+(19,1,1) = {"
+HX
+HX
+pt
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+Xd
+HX
+HX
+HX
+Mf
+Mf
+gz
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(20,1,1) = {"
+HX
+HX
+pt
+HX
+HX
+bA
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+iS
+Mf
+Aq
+gz
+HX
+Xd
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(21,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+pL
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+iS
+iS
+Mf
+Mf
+Mf
+HX
+HX
+HX
+mL
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(22,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+Zm
+HX
+HX
+HX
+HX
+HX
+Zm
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+bA
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(23,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+XF
+gs
+XF
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(24,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+gz
+gz
+XF
+XF
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(25,1,1) = {"
+HX
+HX
+HX
+qh
+HX
+HX
+HX
+HX
+HX
+HX
+vD
+HX
+gz
+Aq
+gz
+XF
+XF
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(26,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+Ag
+HX
+HX
+HX
+HX
+HX
+TG
+XF
+XF
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+YE
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(27,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(28,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+Ag
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(29,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(30,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(31,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
+(32,1,1) = {"
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+HX
+"}
