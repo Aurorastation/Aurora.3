@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Respawn timers are now properly reset upon spawning / being granted a respawn."
