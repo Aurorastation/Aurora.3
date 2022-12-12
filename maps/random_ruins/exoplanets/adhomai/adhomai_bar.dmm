@@ -256,6 +256,15 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/adhomai_bar)
+"lr" = (
+/obj/effect/ghostspawpoint{
+	identifier = "adhomai_bar_server";
+	name = "igs - adhomai_bar_server"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "mw" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/wood{
@@ -448,6 +457,15 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
+"vU" = (
+/obj/effect/ghostspawpoint{
+	identifier = "adhomai_bar_innkeeper";
+	name = "igs - adhomai_bar_innkeeper"
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "ww" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/beaker/large{
@@ -570,6 +588,14 @@
 	name = "cooled tiles";
 	temperature = 253.15
 	},
+/area/adhomai_bar)
+"DC" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/ghostspawpoint{
+	identifier = "adhomai_bar_server";
+	name = "igs - adhomai_bar_server"
+	},
+/turf/simulated/floor/tiled/white,
 /area/adhomai_bar)
 "DE" = (
 /obj/structure/table/rack,
@@ -784,6 +810,16 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
+"OC" = (
+/obj/structure/bed/stool/padded/red,
+/obj/effect/ghostspawpoint{
+	identifier = "adhomai_bar_patron";
+	name = "igs - adhomai_bar_patron"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "Qi" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/appliance/mixer/candy{
@@ -791,6 +827,18 @@
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/adhomai_bar)
+"Qp" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "adhomai_bar_patron";
+	name = "igs - adhomai_bar_patron"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
 /area/adhomai_bar)
 "Qw" = (
 /obj/structure/simple_door/wood{
@@ -1347,7 +1395,7 @@ Zw
 xn
 xn
 xn
-xn
+DC
 xn
 xn
 Wk
@@ -1422,7 +1470,7 @@ Xv
 Jy
 gm
 gm
-gm
+vU
 gm
 gm
 gm
@@ -1558,7 +1606,7 @@ Xv
 eS
 eS
 eS
-eS
+lr
 eS
 eS
 eS
@@ -1732,7 +1780,7 @@ Zc
 Zc
 ev
 eS
-zA
+OC
 tf
 Zc
 zA
@@ -1764,7 +1812,7 @@ eS
 xc
 Zc
 Zc
-ev
+Qp
 eS
 zA
 yR
@@ -1862,9 +1910,9 @@ eS
 fC
 Xv
 Tb
+lr
 eS
-eS
-zA
+OC
 zA
 eS
 mH
@@ -1971,7 +2019,7 @@ zA
 eS
 eS
 eS
-zA
+OC
 zA
 eS
 eS

@@ -58,7 +58,7 @@
 	desc = "Serve the Adhomian bar patrons."
 	tags = list("External")
 
-	spawnpoints = list("adhomai_bar_innkeeper")
+	spawnpoints = list("adhomai_bar_server")
 	max_count = 2
 
 	outfit = /datum/outfit/admin/adhomai_bar_server
