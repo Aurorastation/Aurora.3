@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Requests console input can now be canceled, and no longer permits you to send faxes from three rooms away."

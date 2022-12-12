@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - rscadd: "Asteroid exoplanets now have an unique overmap object."
