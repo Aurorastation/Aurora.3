@@ -41,5 +41,5 @@ changes:
   - balance: "Heavy armour and ballistic armour bullet resist have been buffed by 5 points."
   - balance: "Security now gets a second burst rifle."
   - balance: "The PEAC now actually has armour penetration, meaning it will actually do damage."
-  - balance: "Increased PEAC anti-materiel coefficient to 5."
+  - balance: "Increased PEAC anti-materiel coefficient to 4."
   - balance: "Full auto now globally has a 0.5s fire delay, instead of a 0.1s delay."

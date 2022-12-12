@@ -446,6 +446,6 @@
 	icon_state = "peac"
 	damage = 45
 	armor_penetration = 30
-	anti_materiel_potential = 5
+	anti_materiel_potential = 4
 	penetrating = TRUE
 	heavy_impact_range = -1
