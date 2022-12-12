@@ -112,4 +112,4 @@
 
 /obj/item/card/id/iac_rescue_ship
 	name = "iac ship id"
-	access = list(access_external_airlocks)
+	access = list(access_iac_rescue_ship, access_external_airlocks)
