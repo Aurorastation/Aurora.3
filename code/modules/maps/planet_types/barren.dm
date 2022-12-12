@@ -65,6 +65,14 @@
 	planetary_area = /area/exoplanet/barren/asteroid
 	possible_random_ruins = list(/datum/map_template/ruin/exoplanet/abandoned_mining, /datum/map_template/ruin/exoplanet/carp_nest, /datum/map_template/ruin/exoplanet/hideout, /datum/map_template/ruin/exoplanet/crashed_shuttle_01)
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/generate_planet_image()
+	skybox_image = image('icons/skybox/skybox_rock_128.dmi', "bigrock")
+	skybox_image.color = pick(rock_colors)
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	skybox_image.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
+	skybox_image.blend_mode = BLEND_OVERLAY
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/romanovich
 	name = "romanovich cloud asteroid"
 	desc = "A phoron rich asteroid."
