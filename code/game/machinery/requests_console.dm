@@ -24,7 +24,7 @@ var/req_console_information = list()
 var/list/obj/machinery/requests_console/allConsoles = list()
 
 /obj/machinery/requests_console
-	name = "Requests Console"
+	name = "requests console"
 	desc = "A console intended to send requests to different departments on the station."
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp"
@@ -118,7 +118,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	announcement.title = "[department] announcement"
 	announcement.newscast = 1
 
-	name = "[department] Requests Console"
+	name = "[department] requests console"
 	allConsoles += src
 	if (departmentType & RC_ASSIST)
 		req_console_assistance |= department
@@ -215,8 +215,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(reject_bad_text(href_list["write"]))
 		recipient = href_list["write"] //write contains the string of the receiving department's name
 
-		var/new_message = sanitize(input("Write your message:", "Awaiting Input", ""))
-		if(new_message)
+		var/new_message = sanitize(input("Write your message:", "Awaiting Input", null) as null|text)
+		if(new_message && !use_check_and_message(usr))
 			message = new_message
 			screen = RCS_MESSAUTH
 			switch(href_list["priority"])
@@ -227,8 +227,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			reset_message(1)
 
 	if(href_list["writeAnnouncement"])
-		var/new_message = sanitize(input("Write your message:", "Awaiting Input", ""))
-		if(new_message)
+		var/new_message = sanitize(input("Write your message:", "Awaiting Input", null) as null|text)
+		if(new_message && !use_check_and_message(usr))
 			message = new_message
 		else
 			reset_message(1)
@@ -240,13 +240,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	if( href_list["department"] && message )
 		var/log_msg = message
-		var/pass = FALSE
 		screen = RCS_SENTFAIL
-		for(var/obj/machinery/message_server/MS in SSmachinery.processing)
-			if(!MS.active)
-				continue
-			MS.send_rc_message(ckey(href_list["department"]), department, log_msg, msgStamped, msgVerified, priority)
-			pass = TRUE
+		var/pass = FALSE
+		var/datum/data_rc_msg/log = new(href_list["department"], department, log_msg, msgStamped, msgVerified, priority)
+		for (var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+			if (MS.use_power)
+				MS.rc_msgs += log
+				pass = TRUE
 		if(pass)
 			screen = RCS_SENTPASS
 			message_log += "<B>Message sent to [recipient]</B><BR>[message]"
@@ -414,8 +414,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		return TRUE
 
 /obj/machinery/requests_console/proc/can_send()
-	for(var/obj/machinery/message_server/MS in SSmachinery.processing)
-		if(!MS.active)
+	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+		if(!MS.use_power)
 			continue
 		return TRUE
 	return FALSE
@@ -423,6 +423,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console/proc/fax_send(var/obj/item/O, var/mob/user)
 	var/sendto = input("Select department.", "Send Fax", null, null) as null|anything in allConsoles
 	if(!sendto)
+		return
+	if(use_check_and_message(user))
 		return
 	if(!can_send())
 		var/msg = "NOTICE: No server detected!"

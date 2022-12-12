@@ -5,7 +5,7 @@
 
 	spawn_weight = 1
 	spawn_cost = 2
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffix = "asteroid/mining_base.dmm"
 
 	ruin_tags = RUIN_HUMAN|RUIN_VOID
@@ -17,7 +17,7 @@
 
 	spawn_weight = 1
 	spawn_cost = 2
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffix = "asteroid/carp_nest.dmm"
 
 	ruin_tags = RUIN_ALIEN|RUIN_VOID
@@ -29,7 +29,7 @@
 
 	spawn_weight = 0.5
 	spawn_cost = 4
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffix = "asteroid/hideout.dmm"
 
 	ruin_tags = RUIN_HUMAN|RUIN_WRECK|RUIN_VOID
@@ -41,7 +41,7 @@
 
 	spawn_weight = 1
 	spawn_cost = 2
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffix = "asteroid/crashed_shuttle_01.dmm"
 
 	ruin_tags = RUIN_WRECK|RUIN_VOID

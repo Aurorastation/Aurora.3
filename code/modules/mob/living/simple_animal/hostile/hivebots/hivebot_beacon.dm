@@ -72,7 +72,7 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/generate_warp_destinations()
 
 	destinations.Cut()
-	for(var/turf/simulated/floor/T in circlerange(src,10))
+	for(var/turf/simulated/floor/T in circle_range(src,10))
 		if(turf_clear(T))
 			destinations += T
 	var/area/A = get_area(src)

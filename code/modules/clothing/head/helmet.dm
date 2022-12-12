@@ -311,7 +311,7 @@
 
 /obj/item/clothing/head/helmet/unathi/klax
 	name = "klaxan hopeful helmet"
-	desc = "A helmet designated to be worn by a K'lax hopeful. The retrofit features a modified shape and an extra two eye visors.."
+	desc = "A helmet designated to be worn by a K'lax hopeful. The retrofit features a modified shape and an extra two eye visors. Flash protection blocks many flashes, shielding sensitive Vaurca eyes."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "klax_hopeful_helmet"
 	item_state = "klax_hopeful_helmet"
@@ -325,6 +325,7 @@
 		rad = ARMOR_RAD_RESISTANT
 	)
 	siemens_coefficient = 0.35
+	flash_protection = FLASH_PROTECTION_MODERATE
 
 /obj/item/clothing/head/helmet/tank
 	name = "padded cap"
