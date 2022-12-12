@@ -93,7 +93,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/type_big/Initialize(mapload)
 	. = ..(mapload, SPECIES_VAURCA_WARFORM)
 	src.gender = NEUTER
-	src.mutations.Add(HULK)
+	src.mutations |= HULK
 
 /mob/living/carbon/human/type_big
 	layer = 5

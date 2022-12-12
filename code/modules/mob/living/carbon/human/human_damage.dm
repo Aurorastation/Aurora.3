@@ -11,13 +11,16 @@
 	health = maxHealth - getBrainLoss()
 
 	if(stat == DEAD)
-		var/fire_dmg = getFireLoss()
-		if(fire_dmg > maxHealth * 3)
-			ChangeToSkeleton()
-			real_name = "Unknown"
-			name = real_name
-		else if(fire_dmg > maxHealth * 1.5)
-			ChangeToHusk()
+		var/genetic_damage = getCloneLoss()
+		if(genetic_damage > 100)
+			visible_message(SPAN_WARNING("\The [src]'s flesh sloughs off [get_pronoun("his")] body into a puddle of viscera and goop."), SPAN_WARNING("Your flesh sloughs off your body into a puddle of viscera and goop."), range = 5)
+			ChangeToSkeleton(FALSE)
+		else
+			var/fire_dmg = getFireLoss()
+			if(fire_dmg > maxHealth * 3)
+				ChangeToSkeleton(FALSE)
+			else if(fire_dmg > maxHealth * 1.5)
+				ChangeToHusk()
 
 	UpdateDamageIcon() // to fix that darn overlay bug
 
@@ -94,17 +97,17 @@
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/Stun(amount)
-	if(HULK in mutations)
+	if(HAS_FLAG(mutations, HULK))
 		return
 	..()
 
 /mob/living/carbon/human/Weaken(amount)
-	if(HULK in mutations)
+	if(HAS_FLAG(mutations, HULK))
 		return
 	..()
 
 /mob/living/carbon/human/Paralyse(amount)
-	if(HULK in mutations)
+	if(HAS_FLAG(mutations, HULK))
 		return
 	// Notify our AI if they can now control the suit.
 	if(wearing_rig?.ai_override_enabled && !stat && paralysis < amount) //We are passing out right this second.

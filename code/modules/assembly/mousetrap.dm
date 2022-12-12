@@ -72,7 +72,7 @@
 	return ..()
 
 /obj/item/device/assembly/mousetrap/proc/clumsy_check(var/mob/living/user)
-	if((user.is_clumsy() || (DUMB in user.mutations)) && prob(50))
+	if((user.is_clumsy() || HAS_FLAG(user.mutations, DUMB)) && prob(50))
 		var/which_hand = BP_L_HAND
 		if(!user.hand)
 			which_hand = BP_R_HAND

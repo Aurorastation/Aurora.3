@@ -1427,10 +1427,7 @@
 
 
 /mob/proc/is_clumsy()
-	if(CLUMSY in mutations)
-		return TRUE
-
-	return FALSE
+	return HAS_FLAG(mutations, CLUMSY)
 
 //Helper proc for figuring out if the active hand (or given hand) is usable.
 /mob/proc/can_use_hand()

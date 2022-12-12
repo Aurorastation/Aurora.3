@@ -384,7 +384,7 @@
 	if ((!subject.ckey) || (!subject.client))
 		scantemp = "Error: Mental interface failure."
 		return
-	if (NOCLONE in subject.mutations)
+	if (HAS_FLAG(subject.mutations, NOCLONE))
 		scantemp = "Error: Mental interface failure."
 		return
 	if (subject.species && subject.species.flags & NO_SCAN)

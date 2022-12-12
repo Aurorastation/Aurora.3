@@ -92,7 +92,7 @@ proc/get_radio_key_from_channel(var/channel)
 /mob/living/proc/handle_speech_problems(var/message, var/verb, var/message_mode)
 	var/list/returns[4]
 	var/speech_problem_flag = 0
-	if((HULK in mutations) && health >= 25 && length(message))
+	if(HAS_FLAG(mutations, HULK) && health >= 25 && length(message))
 		var/ending = copytext(message, length(message), (length(message) + 1))
 		if(ending && correct_punctuation[ending])
 			message = copytext(message, 1, length(message)) // cut off the punctuation
