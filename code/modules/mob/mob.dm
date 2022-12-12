@@ -480,8 +480,6 @@
 
 	announce_ghost_joinleave(client, 0)
 
-	reset_death_timers()
-
 	var/mob/abstract/new_player/M = new /mob/abstract/new_player()
 
 	if(!client)
