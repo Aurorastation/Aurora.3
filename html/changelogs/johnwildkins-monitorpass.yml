@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "SCC telecomms staff now remember to regularly rotate the message server's password once again."
