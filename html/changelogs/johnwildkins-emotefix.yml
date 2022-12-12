@@ -1,0 +1,8 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Audible emotes (say !emote ...) are now audible by other players again."
+  - bugfix: "Fixed runechat breaking on bolded audible emotes."
+  - backend: "Deleted / cleaned up some unused saycode."
