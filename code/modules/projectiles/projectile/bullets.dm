@@ -213,7 +213,7 @@
 
 /obj/item/projectile/bullet/rifle/a556
 	damage = 30
-	armor_penetration = 26
+	armor_penetration = 28
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a556/ap
@@ -222,8 +222,8 @@
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a556/polymer
-	damage = 24
-	armor_penetration = 32
+	damage = 25
+	armor_penetration = 34
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a145
@@ -445,5 +445,7 @@
 	name = "anti-tank missile"
 	icon_state = "peac"
 	damage = 45
+	armor_penetration = 30
+	anti_materiel_potential = 5
 	penetrating = TRUE
 	heavy_impact_range = -1
