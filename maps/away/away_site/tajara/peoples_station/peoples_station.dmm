@@ -846,7 +846,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "dR" = (
@@ -1084,7 +1084,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "eR" = (
@@ -2243,7 +2243,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "jZ" = (
@@ -3283,7 +3283,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "oz" = (
@@ -3471,7 +3471,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "pr" = (
@@ -3727,7 +3727,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "qB" = (
@@ -4299,7 +4299,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "sL" = (
@@ -5082,7 +5082,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "xa" = (
@@ -6019,7 +6019,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "Bi" = (
@@ -7915,7 +7915,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "Kn" = (
@@ -8229,7 +8229,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "Mj" = (
@@ -8331,7 +8331,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "MG" = (
@@ -9628,7 +9628,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "Sv" = (
@@ -9863,7 +9863,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "TA" = (
@@ -9958,7 +9958,7 @@
 	desc = "A plaque commemorating the founding of the People's Space Station."
 	},
 /turf/simulated/floor/tiled{
-	temperature = 268,15
+	temperature = 268.15
 	},
 /area/peoples_station/visitor)
 "TP" = (
