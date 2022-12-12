@@ -128,6 +128,8 @@ Buildable meters
 			src.pipe_type = PIPE_PASSIVE_GATE_SUPPLY
 		else if(istype(make_from, /obj/machinery/atmospherics/binary/passive_gate))
 			src.pipe_type = PIPE_PASSIVE_GATE
+		else if(istype(make_from, /obj/machinery/atmospherics/unary/heat_exchanger))
+			src.pipe_type = PIPE_HEAT_EXCHANGE
 		else if(istype(make_from, /obj/machinery/atmospherics/tvalve/mirrored))
 			src.pipe_type = PIPE_MTVALVEM
 		else if(istype(make_from, /obj/machinery/atmospherics/tvalve))
