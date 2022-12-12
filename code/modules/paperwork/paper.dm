@@ -741,4 +741,4 @@
 	basic necessities, such as food and water.<br>The IAC and its personnel have been able to provide relief to hundreds of colonies, but this can only happen \
 	with your support. As such, local IAC vessels and stations are accepting donations of non-perishable foods and water, as well as medical supplies of any type. \
 	Additionally, at the behest of the IAC coordinator in your area of space, you can join for a blood drive or apply to volunteer in the IAC. <br> \
-	<center><i>Remember - it's up to all of us to look after our galaxy!</i></center></font></font>"
+	<center><i>Remember - it's up to all of us to look after our galaxy!</i></center></font>"
