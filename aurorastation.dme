@@ -3213,6 +3213,8 @@
 #include "maps\away\ships\einstein\ee_spy_ship_ghostroles.dm"
 #include "maps\away\ships\elyra\elyra_strike_craft.dm"
 #include "maps\away\ships\elyra\elyra_strike_craft_ghostroles.dm"
+#include "maps\away\ships\iac\iac_rescue_ship.dm"
+#include "maps\away\ships\iac\iac_rescue_ship_ghostroles.dm"
 #include "maps\away\ships\kataphracts\kataphract_areas.dm"
 #include "maps\away\ships\kataphracts\kataphract_ship.dm"
 #include "maps\away\ships\kataphracts\kataphract_ship_ghostroles.dm"
