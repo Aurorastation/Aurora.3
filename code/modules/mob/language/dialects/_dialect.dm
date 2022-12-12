@@ -4,6 +4,8 @@
 	var/parent_language = LANGUAGE_SOL_COMMON
 	var/deviation = 0 //The further away someone is from the BASELINE version, the WORSE their language is at cross understanding.
 	var/dialect_to_understanding = list()
+	var/culture_restriction
+	var/origin_restriction
 	//List structure:
 	// /decl/dialect/morozi = 95
 	//This overrides other speech variables.

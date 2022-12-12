@@ -199,12 +199,24 @@
 		return 0
 
 	languages.Add(new_language)
+	if(new_language.possible_dialects)
+		languages_to_dialects[new_language.name] = get_random_dialect(new_language)
 	return 1
 
 /mob/proc/remove_language(var/rem_language)
 	var/datum/language/L = all_languages[rem_language]
 	. = (L in languages)
 	languages.Remove(L)
+
+/mob/proc/get_random_dialect(var/datum/language/L)
+	return
+
+/mob/living/carbon/human/get_random_dialect(var/datum/language/L)
+	for(var/dialect in L.possible_dialects)
+		var/decl/dialect/D = decls_repository.get_decl(dialect)
+		if(!D.culture_restriction || culture.type == D.culture_restriction)
+			if(!D.origin_restriction || origin.type == D.origin_restriction)
+				. = D
 
 /mob/living/remove_language(rem_language)
 	var/datum/language/L = all_languages[rem_language]

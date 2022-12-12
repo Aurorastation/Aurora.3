@@ -313,7 +313,7 @@
 
 /mob/proc/dialect_understanding(var/datum/language/L, var/mob/speaker)
 	. = null
-	if(L in recipient.languages && L in speaker.languages)
+	if((L in languages) && (L in speaker.languages))
 		if(L.name in speaker.languages_to_dialects)
 			var/decl/dialect/D = decls_repository.get_decl(speaker.languages_to_dialects[L.name])
 			if(L.name in speaker.languages_to_dialects)

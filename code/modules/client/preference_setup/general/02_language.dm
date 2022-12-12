@@ -52,8 +52,8 @@
 		pref.alternate_languages = params2list(pref.alternate_languages)
 		pref.autohiss_setting = text2num(pref.autohiss_setting)
 		if(istext(pref.dialects))
+			var/before = pref.dialects
 			try
-				var/before = pref.dialects
 				pref.dialects = json_decode(pref.dialects)
 			catch(var/exception/e)
 				log_debug("LANGUAGES: Caught [e]. Initial value: [before]")
@@ -179,8 +179,9 @@
 						alert(user, "You have already selected the maximum number of alternate languages for this species!")
 					else
 						pref.alternate_languages |= new_lang
-					if(length(new_lang.possible_dialects))
-						our_dialect = decls_repository.get_decl(pick(lang.possible_dialects))
+					var/datum/language/lang = all_languages[new_lang]
+					if(length(lang.possible_dialects))
+						var/decl/dialect/our_dialect = decls_repository.get_decl(pick(lang.possible_dialects))
 						pref.dialects += our_dialect.type
 					return TOPIC_REFRESH
 	else if(href_list["change_dialect"])
