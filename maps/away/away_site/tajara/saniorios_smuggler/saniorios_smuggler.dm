@@ -6,7 +6,6 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "saniorios_smuggler"
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /decl/submap_archetype/saniorios_smuggler
 	map = "Sani'Orios"
