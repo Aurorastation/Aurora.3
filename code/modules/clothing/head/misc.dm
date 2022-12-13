@@ -82,7 +82,7 @@
 /obj/item/clothing/head/pin/ribbon
 	name = "hair ribbon parent item"
 	desc = DESC_PARENT
-	icon = 'icons/contained_items/clothing/accessories/hair_ribbons.dmi'
+	icon = 'icons/obj/item/clothing/accessory/hair_ribbons.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/pin/ribbon/head

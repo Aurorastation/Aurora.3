@@ -69,7 +69,7 @@
 //This goes on the station map so away ships can maintain radio contact.
 /obj/machinery/telecomms/allinone/ship/station_relay
 	name = "external signal receiver"
-	icon = 'icons/obj/machines/telecomms.dmi'
+	icon = 'icons/obj/machinery/telecomms.dmi'
 	icon_state = "ntnet"
 	desc = "This device allows nearby third-party ships to maintain radio contact with their crew that are aboard the %STATIONNAME."
 	desc_info = "This device does not need to be linked to other telecommunications equipment; it will receive and broadcast on its own. It only needs to be powered."
