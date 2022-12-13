@@ -191,8 +191,8 @@
 	hair_accessories_colourable["hair pin, butterfly"] = /obj/item/clothing/head/pin/butterfly
 	hair_accessories_colourable["hair pin, magnet"] = /obj/item/clothing/head/pin/magnetic
 	hair_accessories_colourable["hair bow"] = /obj/item/clothing/head/pin/bow/back
-	hair_accessories_colourable["hair bow, headband"] = /obj/item/clothing/head/pin/ribbon
 	hair_accessories_colourable["hair bow, small"] = /obj/item/clothing/head/pin/bow/small
+	hair_accessories_colourable["hair ribbon"] = /obj/item/clothing/head/pin/ribbon
 	gear_tweaks += new /datum/gear_tweak/path(hair_accessories_colourable)
 
 /datum/gear/head/hats
