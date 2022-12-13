@@ -85,7 +85,7 @@
 	icon = 'icons/contained_items/clothing/accessories/hair/hair_ribbons.dmi'
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/pin/ribbon/headband
+/obj/item/clothing/head/pin/ribbon/head
 	name = "hair ribbon"
 	desc = "A length of ribbon acting as a headband."
 	icon_state = "hair_ribbon"

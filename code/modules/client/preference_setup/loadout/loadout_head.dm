@@ -185,14 +185,14 @@
 /datum/gear/head/hair_accessories_colourable/New()
 	..()
 	var/list/hair_accessories_colourable = list()
+	hair_accessories_colourable["hair ribbon, headband"] = /obj/item/clothing/head/pin/ribbon/head
+	hair_accessories_colourable["hair bow"] = /obj/item/clothing/head/pin/ribbon/back
+	hair_accessories_colourable["hair bow, small"] = /obj/item/clothing/head/pin/ribbon/small
 	hair_accessories_colourable["hair pin"] = /obj/item/clothing/head/pin
 	hair_accessories_colourable["hair pin, flower"] = /obj/item/clothing/head/pin/flower/white
 	hair_accessories_colourable["hair pin, clover"] = /obj/item/clothing/head/pin/clover
 	hair_accessories_colourable["hair pin, butterfly"] = /obj/item/clothing/head/pin/butterfly
 	hair_accessories_colourable["hair pin, magnet"] = /obj/item/clothing/head/pin/magnetic
-	hair_accessories_colourable["hair bow"] = /obj/item/clothing/head/pin/ribbon/back
-	hair_accessories_colourable["hair bow, small"] = /obj/item/clothing/head/pin/ribbon/small
-	hair_accessories_colourable["hair ribbon, headband"] = /obj/item/clothing/head/pin/ribbon/headband
 	gear_tweaks += new /datum/gear_tweak/path(hair_accessories_colourable)
 
 /datum/gear/head/hats

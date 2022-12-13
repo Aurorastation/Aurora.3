@@ -199,28 +199,31 @@
 	name = "tie with a silver clip"
 	worn_overlay = "sclip"
 
-/obj/item/clothing/accessory/tie/bow_tie
+/obj/item/clothing/accessory/tie/ribbon
+	name = "neck ribbon parent item"
+	desc = DESC_PARENT
+	icon = 'icons/contained_items/clothing/accessories/neck/neck_ribbons.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/tie/ribbon/neck
+	name = "neck ribbon"
+	desc = "A ribbon for adorning the neck."
+	icon_state = "ribbon"
+	item_state = "ribbon"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/tie/ribbon/bow_tie
 	name = "bow tie"
 	desc = "A bow tie."
-	icon = 'icons/contained_items/clothing/accessories/neck/bow_tie.dmi'
 	icon_state = "bow_tie"
 	item_state = "bow_tie"
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/tie/bow
-	name = "bow"
+/obj/item/clothing/accessory/tie/ribbon/bow
+	name = "neck bow"
 	desc = "A bow for adorning the neck."
-	icon = 'icons/contained_items/clothing/accessories/neck/neck_bow.dmi'
 	icon_state = "bow"
 	item_state = "bow"
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/tie/ribbon
-	name = "ribbon"
-	desc = "A ribbon for adorning the neck."
-	icon = 'icons/contained_items/clothing/accessories/neck/neck_ribbon.dmi'
-	icon_state = "ribbon"
-	item_state = "ribbon"
 	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/stethoscope
