@@ -18,6 +18,8 @@
 	max_contents = 5
 	stat = POWEROFF	//Starts turned off
 	var/open = FALSE // Start closed so people don't heat up ovens with the door open
+	///Looping sound for the oven
+	var/datum/looping_sound/oven/oven_loop
 
 	starts_with = list(
 		/obj/item/reagent_containers/cooking_container/oven,
@@ -39,6 +41,13 @@
 		"Donut" = /obj/item/reagent_containers/food/snacks/variable/donut
 	)
 
+/obj/machinery/appliance/cooker/oven/Initialize()
+	. = ..()
+	oven_loop = new(src)
+
+/obj/machinery/appliance/cooker/oven/Destroy()
+	QDEL_NULL(oven_loop)
+	. = ..()
 
 /obj/machinery/appliance/cooker/oven/update_icon()
 	if (!open)
@@ -67,9 +76,21 @@
 	open = !open
 	loss = (heating_power / resistance) * (0.5 + open)
 	//When the oven door is opened, oven slowly loses heat
-
-	playsound(src, 'sound/machines/hatch_open.ogg', 20, 1)
+	if(open)
+		playsound(src, 'sound/machines/oven/oven_close.ogg', 75, TRUE)
+	else
+		playsound(src, 'sound/machines/oven/oven_open.ogg', 75, TRUE)
 	update_icon()
+	update_baking_audio()
+
+/obj/machinery/appliance/cooker/oven/proc/update_baking_audio()
+	if(!oven_loop)
+		return
+	var/obj/item/reagent_containers/cooking_container/C
+	if(!open && C?.contents.len)
+		oven_loop.start()
+	else
+		oven_loop.stop()
 
 /obj/machinery/appliance/cooker/oven/proc/manip(var/obj/item/I)
 	// check if someone's trying to manipulate the machine

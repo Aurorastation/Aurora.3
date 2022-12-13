@@ -38,12 +38,9 @@
 		data["_PC"] = headerdata
 		. = data
 
-	var/datum/signal/signal
-	signal = telecomms_process_active(user.loc.z)
-
 	VUEUI_SET_CHECK(data["isAI"], isAI(user), ., data)
 	data["crewmembers"] = list()
-	if(signal.data["done"] == 1)
+	if(SSradio.telecomms_ping(computer))
 		for(var/z_level in current_map.map_levels)
 			data["crewmembers"] += crew_repository.health_data(z_level)
 

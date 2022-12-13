@@ -10,7 +10,7 @@
 	name = "Th'akhist headgear"
 	desc = "A traditional garment worn by Th'akh shamans. Popular adornments include dried and pressed grass; \
 	alternatively, colorful feathers from talented hunters are sometimes used."
-	desc_fluff = "The headgear of the Th'akhist ensemble has a special component to it. Besides the emulated \
+	desc_extended = "The headgear of the Th'akhist ensemble has a special component to it. Besides the emulated \
 	frills made with straw or feathers, the authentic Unathite skull is from the bones of the previous owner, the \
 	deceased shaman that came before. Other cultures see it as barbaric; Unathi believe that this enables shamans \
 	to call upon their predecessors' wisdom as spirits to empower them."

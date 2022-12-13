@@ -22,11 +22,13 @@
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/rfd/piping(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
+	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/device/gps/engineering(src)
 	new /obj/item/pipewrench(src)
 	new /obj/item/grenade/chem_grenade/large/phoroncleaner(src)
 	new /obj/item/crowbar/rescue_axe/red(src)
 	new /obj/item/device/radio/eng/off(src)
+	new /obj/item/grenade/chem_grenade/antifuel(src)
 
 // Chief Engineer - Clothing Satchel
 // This satchel is used nowhere except in conjunction with the locker above,
@@ -69,6 +71,15 @@
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/engineer(src)
 	new /obj/item/device/radio/eng/off(src)
+	new /obj/item/storage/belt/utility(src)
+	new /obj/item/device/gps/engineering(src)
+	new /obj/item/pipewrench(src)
+	new /obj/item/device/flashlight/heavy(src)
+	new /obj/item/grenade/chem_grenade/antifuel(src)
+
+	// Painters
+	new /obj/item/device/floor_painter(src)
+	new /obj/item/device/pipe_painter(src)
 
 // Atmospherics Technician
 /obj/structure/closet/secure_closet/atmos_personal
@@ -81,7 +92,6 @@
 	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/clothing/suit/fire/atmos(src)
 	new /obj/item/clothing/head/hardhat/atmos(src)
-	new /obj/item/device/flashlight(src)
 	new /obj/item/extinguisher(src)
 	new /obj/item/device/radio/headset/headset_eng(src)
 	new /obj/item/device/radio/headset/headset_eng/alt(src)
@@ -93,6 +103,16 @@
 	new /obj/item/reagent_containers/extinguisher_refill(src)
 	new /obj/item/rfd/piping(src)
 	new /obj/item/device/radio/eng/off(src)
+	new /obj/item/storage/belt/utility(src)
+	new /obj/item/device/gps/engineering(src)
+	new /obj/item/pipewrench(src)
+	new /obj/item/crowbar/rescue_axe(src)
+	new /obj/item/device/flashlight/heavy(src)
+	new /obj/item/grenade/chem_grenade/antifuel(src)
+
+	// Painters
+	new /obj/item/device/floor_painter(src)
+	new /obj/item/device/pipe_painter(src)
 
 // Electrical Supplies
 /obj/structure/closet/secure_closet/engineering_electrical

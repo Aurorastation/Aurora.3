@@ -517,6 +517,13 @@
 	required_reagents = list(/decl/reagent/ammonia = 1, /decl/reagent/water = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/antifuel
+	name = "Antifuel"
+	id = "antifuel"
+	result = /decl/reagent/antifuel
+	required_reagents = list(/decl/reagent/spacecleaner = 1, /decl/reagent/sodium = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/plantbgone
 	name = "Plant-B-Gone"
 	id = "plantbgone"
@@ -1098,7 +1105,7 @@
 	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
 
 /datum/chemical_reaction/slime/teleportation/proc/do_reaction(var/datum/reagents/holder)
-	for(var/atom/movable/AM in circlerange(get_turf(holder.my_atom),7))
+	for(var/atom/movable/AM in circle_range(get_turf(holder.my_atom),7))
 		if(AM.anchored)
 			continue
 		var/area/A = random_station_area()

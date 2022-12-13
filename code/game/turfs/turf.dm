@@ -66,6 +66,9 @@
 
 	turfs += src
 
+	if (isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -95,6 +98,11 @@
 	if (z_flags & ZM_MIMIC_BELOW)
 		setup_zmimic(mapload)
 
+	if (current_map.use_overmap && istype(A, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
+
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
@@ -103,6 +111,9 @@
 
 	changing_turf = FALSE
 	turfs -= src
+
+	if (isStationLevel(z))
+		station_turfs -= src
 
 	remove_cleanables()
 	cleanup_roof()

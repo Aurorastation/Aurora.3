@@ -184,6 +184,11 @@
 	damage = 20
 	pass_flags = PASSTABLE | PASSRAILING
 
+/obj/item/projectile/energy/blaster/disruptor/practice
+	damage = 5
+	damage_type = PAIN
+	eyeblur = 0
+
 /obj/item/projectile/energy/disruptorstun
 	name = "disruptor bolt"
 	icon_state = "blue_laser"
@@ -194,6 +199,11 @@
 	eyeblur = TRUE
 	pass_flags = PASSTABLE | PASSRAILING
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
+
+/obj/item/projectile/energy/disruptorstun/practice
+	damage = 5
+	damage_type = PAIN
+	eyeblur = 0
 
 /obj/item/projectile/energy/blaster/heavy
 	damage = 35

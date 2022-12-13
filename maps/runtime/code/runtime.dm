@@ -45,6 +45,7 @@
 	num_exoplanets = 3
 	planet_size = list(65, 65)
 
-	away_site_budget = 3
+	away_site_budget = 2
+	away_ship_budget = 2
 
 	map_shuttles = list(/datum/shuttle/autodock/overmap/runtime)

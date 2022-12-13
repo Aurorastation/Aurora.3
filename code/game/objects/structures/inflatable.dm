@@ -3,16 +3,16 @@
 
 /obj/item/inflatable
 	name = "inflatable"
-	desc_info = "Inflate by using it in your hand.  The inflatable barrier will inflate on your tile.  To deflate it, use the 'deflate' verb."
+	desc_info = "Inflate by using it in your hand. The inflatable barrier will inflate on the turf you are standing on. To deflate it, use the 'deflate' verb."
 	w_class = ITEMSIZE_SMALL
-	icon = 'icons/obj/contained_items/tools/inflatables.dmi'
+	icon = 'icons/contained_items/items/inflatables.dmi'
 	var/deploy_path = null
 
 /obj/item/inflatable/attack_self(mob/user)
 	if(!deploy_path)
 		return
 	playsound(loc, 'sound/items/zip.ogg', 75, TRUE)
-	to_chat(user, SPAN_NOTICE("You inflate \the [src]."))
+	to_chat(user, SPAN_NOTICE("You press the toggle button on \the [src] and it inflates."))
 	var/obj/structure/inflatable/R = new deploy_path(user.loc)
 	transfer_fingerprints_to(R)
 	R.add_fingerprint(user)
@@ -34,7 +34,7 @@
 	name = "inflatable"
 	desc = "An inflated membrane. Do not puncture."
 	desc_info = "To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
-	icon = 'icons/obj/contained_items/tools/inflatables.dmi'
+	icon = 'icons/contained_objects/objects/inflatables.dmi'
 	icon_state = "wall"
 
 	density = TRUE
@@ -282,7 +282,7 @@
 /obj/item/storage/bag/inflatable
 	name = "inflatable barrier box"
 	desc = "Contains inflatable walls and doors."
-	icon = 'icons/obj/storage/briefcase.dmi'
+	icon = 'icons/contained_items/items/inflatables_box.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
 	contained_sprite = TRUE

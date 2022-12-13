@@ -30,6 +30,9 @@
 
 #define WARNING_DELAY 20			//seconds between warnings.
 
+///to prevent accent sounds from layering
+#define SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN 2 SECONDS
+
 #define LIGHT_POWER_CALC (max(power / 50, 1))
 
 /obj/machinery/power/supermatter
@@ -108,12 +111,19 @@
 	var/debug = 0
 	var/last_message_time = -100 //for message
 
+	var/datum/looping_sound/supermatter/soundloop
+
+	/// cooldown tracker for accent sounds,
+	var/last_accent_sound = 0
+
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
+	soundloop = new(list(src), TRUE)
 
 /obj/machinery/power/supermatter/Destroy()
 	QDEL_NULL(radio)
+	QDEL_NULL(soundloop)
 	. = ..()
 
 /obj/machinery/power/supermatter/proc/explode()
@@ -196,7 +206,6 @@
 	return ..()
 
 /obj/machinery/power/supermatter/process()
-
 	var/turf/L = loc
 
 	if(isnull(L))		// We have a null turf...something is wrong, stop processing this entity.
@@ -221,9 +230,27 @@
 	if(grav_pulling)
 		supermatter_pull()
 
+	if(power)
+		soundloop.volume = Clamp((50 + (power / 50)), 50, 100)
+	if(damage >= 300)
+		soundloop.mid_sounds = list('sound/machines/sm/loops/delamming.ogg' = 1)
+	else
+		soundloop.mid_sounds = list('sound/machines/sm/loops/calm.ogg' = 1)
+
+	if(last_accent_sound < world.time && prob(20))
+		var/aggression = min(((damage / 800) * (power / 2500)), 1.0) * 100
+		if(damage >= 300)
+			playsound(src, /decl/sound_category/supermatter_delam, max(50, aggression), FALSE, 10)
+		else
+			playsound(src, /decl/sound_category/supermatter_calm, max(50, aggression), FALSE, 10)
+		var/next_sound = round((100 - aggression) * 5)
+		last_accent_sound = world.time + max(SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN, next_sound)
+
+
 	//Ok, get the air from the turf
-	var/datum/gas_mixture/removed = null
 	var/datum/gas_mixture/env = null
+
+	var/datum/gas_mixture/removed = null
 
 	//ensure that damage doesn't increase too quickly due to super high temperatures resulting from no coolant, for example. We dont want the SM exploding before anyone can react.
 	//We want the cap to scale linearly with power (and explosion_point). Let's aim for a cap of 5 at power = 300 (based on testing, equals roughly 5% per SM alert announcement).

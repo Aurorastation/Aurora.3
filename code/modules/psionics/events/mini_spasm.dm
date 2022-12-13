@@ -18,12 +18,12 @@
 		SIGNAL SOURCE TRIANGULATED TO DISTANT SITE: All personnel are advised to avoid \
 		exposure to active audio transmission equipment including radio headsets and intercoms \
 		for the duration of the signal broadcast.", \
-		"Jargon Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/misc/announcements/security_level_old.ogg', zlevels = affecting_z)
+		"Nralakk Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/misc/announcements/security_level_old.ogg', zlevels = affecting_z)
 
 /datum/event/minispasm/start()
 	var/list/victims = list()
 	for(var/obj/item/device/radio/radio in listening_objects)
-		if(radio.on)
+		if(radio.is_on())
 			for(var/mob/living/victim in range(radio.canhear_range, radio.loc))
 				if(isnull(victims[victim]) && victim.stat == CONSCIOUS && !isdeaf(victim))
 					victims[victim] = radio
@@ -62,4 +62,4 @@
 /datum/event/minispasm/end()
 	command_announcement.Announce( \
 		"PRIORITY ALERT: SIGNAL BROADCAST HAS CEASED. Personnel are cleared to resume use of non-hardened radio transmission equipment. Have a nice day.", \
-		"Jargon Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/misc/announcements/nightlight_old.ogg', zlevels = affecting_z)
+		"Nralakk Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/misc/announcements/nightlight_old.ogg', zlevels = affecting_z)

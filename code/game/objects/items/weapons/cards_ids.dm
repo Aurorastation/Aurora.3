@@ -131,6 +131,10 @@ var/const/NO_EMAG_ACT = -50
 	if (..(user, 1))
 		show(user)
 
+/obj/item/card/id/on_slotmove(var/mob/living/user, slot)
+	. = ..(user, slot)
+	BITSET(user.hud_updateflag, ID_HUD) //Update ID HUD if an ID is ever moved
+
 /obj/item/card/id/proc/prevent_tracking()
 	return 0
 
@@ -421,15 +425,26 @@ var/const/NO_EMAG_ACT = -50
 	access = list(access_merchant)
 
 /obj/item/card/id/synthetic
-	name = "\improper Synthetic ID"
-	desc = "Access module for NanoTrasen Synthetics"
+	name = "\improper Equipment ID"
+	desc = "Access module for SCC equipment."
 	icon_state = "id-robot"
 	item_state = "tdgreen"
-	assignment = "Synthetic"
+	assignment = "Equipment"
 
 /obj/item/card/id/synthetic/New()
-	access = get_all_station_access() + access_synth
+	access = get_all_station_access() + access_equipment
 	..()
+
+/obj/item/card/id/synthetic/cyborg
+	name = "\improper Equipment ID"
+	desc = "Access module for SCC equipment."
+	icon_state = "id-robot"
+	item_state = "tdgreen"
+	assignment = "Equipment"
+
+/obj/item/card/id/synthetic/cyborg/New()
+	..()
+	access = list(access_equipment, access_ai_upload, access_external_airlocks) // barebones cyborg access. Job special added in different place
 
 /obj/item/card/id/minedrone
 	name = "\improper Minedrone ID"

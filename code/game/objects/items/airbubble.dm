@@ -229,6 +229,7 @@
 			bag.icon_state = "[icon_state]_man_folded"
 		qdel(src)
 		return
+	return ..()
 
 /obj/structure/closet/airbubble/req_breakout()
 

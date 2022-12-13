@@ -1,35 +1,38 @@
 /obj/item/device/personal_shield
 	name = "personal shield"
-	desc = "Truely a life-saver: this device protects its user from being hit by objects moving very, very fast, though only for a few shots."
+	desc = "Truely a life-saver: this device protects its user from being hit by objects moving very, very fast, though only for a few shots. Comes with a power cell and can be recharged in a recharger."
 	icon = 'icons/obj/personal_shield.dmi'
 	icon_state = "personal_shield"
 	item_state = "personal_shield"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_LARGE
+	w_class = ITEMSIZE_NORMAL
 	action_button_name = "Toggle Shield"
-	var/next_recharge
-	var/uses = 5
+	var/obj/item/cell/cell
+	var/charge_per_shot = 200
+	var/upkeep_cost = 2
 	var/obj/aura/personal_shield/device/shield
 
 /obj/item/device/personal_shield/examine(mob/user, distance)
 	..()
 	if(Adjacent(user))
-		to_chat(user, SPAN_NOTICE("\The [src] can absorb [uses] more shot\s."))
+		to_chat(user, SPAN_NOTICE("\The [src] has [cell.charge] charge remaining. Shield upkeep costs [upkeep_cost] charge, and blocking a shot costs [charge_per_shot] charge."))
 
 /obj/item/device/personal_shield/Initialize()
 	. = ..()
+	cell = new(src)
+	cell.charge = cell.maxcharge //1000 charge
 	START_PROCESSING(SSprocessing, src)
 
+/obj/item/device/personal_shield/get_cell()
+	return cell
+
 /obj/item/device/personal_shield/process()
-	if(next_recharge < world.time)
-		uses = min(5, uses + 1)
-		if(uses == 1)
-			update_icon()
-		next_recharge = world.time + 1 MINUTE
+	if(shield)
+		cell.use(upkeep_cost)
 
 /obj/item/device/personal_shield/attack_self(mob/living/user)
-	if(uses && !shield)
+	if(cell.charge && !shield)
 		shield = new /obj/aura/personal_shield/device(user)
 		shield.added_to(user)
 		shield.set_shield(src)
@@ -48,15 +51,15 @@
 	return ..()
 
 /obj/item/device/personal_shield/proc/take_charge()
-	uses--
-	if(!uses)
+	cell.use(charge_per_shot)
+	if(cell.percent() == 0)
 		to_chat(shield.user, FONT_LARGE(SPAN_WARNING("\The [src] begins to spark as it breaks!")))
 		QDEL_NULL(shield)
 		update_icon()
 		return
 
 /obj/item/device/personal_shield/update_icon()
-	if(uses && shield)
+	if(cell.charge && shield)
 		icon_state = "[initial(icon_state)]_on"
 		item_state = "[initial(item_state)]_on"
 	else
@@ -66,6 +69,7 @@
 /obj/item/device/personal_shield/Destroy()
 	dissipate()
 	STOP_PROCESSING(SSprocessing, src)
+	QDEL_NULL(cell)
 	return ..()
 
 /obj/item/device/personal_shield/proc/dissipate()

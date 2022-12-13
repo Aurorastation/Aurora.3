@@ -125,7 +125,7 @@
 	item_state = "plate_ballistic"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_AP,
+		bullet = ARMOR_BALLISTIC_RIFLE,
 		laser = ARMOR_LASER_MINOR,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
@@ -154,7 +154,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_AP,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	slowdown = 1
@@ -402,6 +402,13 @@
 	icon_state = "flagpatch_callisto"
 	item_state = "flagpatch_callisto"
 
+/obj/item/clothing/accessory/flagpatch/venus
+	name = "venus flagpatch"
+	desc = "A flagpatch representing Venus. While not trendy among people who have use for wearing patches to begin with, the \
+	Venusian flag retains solidarity among Cythereans and Jintarians both."
+	icon_state = "flagpatch_venus"
+	item_state = "flagpatch_venus"
+
 /obj/item/clothing/accessory/flagpatch/coalition
 	name = "coalition flagpatch"
 	desc = "A flagpatch representing the Coalition of Colonies. Although used on many Coalition worlds, this flag has also come \
@@ -466,12 +473,12 @@
 	icon_state = "flagpatch_fisanduh"
 	item_state = "flagpatch_fisanduh"
 
-/obj/item/clothing/accessory/flagpatch/jargon
-	name = "jargon flagpatch"
-	desc = "A flagpatch representing the Jargon Federation. The free use of these patches is a contentious issue back home as \
+/obj/item/clothing/accessory/flagpatch/nralakk
+	name = "nralakk flagpatch"
+	desc = "A flagpatch representing the Nralakk Federation. The free use of these patches is a contentious issue back home as \
 	there is a fear that their wearers may misrepresent the nation."
-	icon_state = "flagpatch_jargon"
-	item_state = "flagpatch_jargon"
+	icon_state = "flagpatch_nralakk"
+	item_state = "flagpatch_nralakk"
 
 /obj/item/clothing/accessory/flagpatch/pra
 	name = "pra flagpatch"

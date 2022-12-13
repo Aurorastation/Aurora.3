@@ -88,9 +88,13 @@
 	bullet_ping(Proj)
 
 	var/proj_damage = Proj.get_structure_damage()
+	var/damage = proj_damage
 
 	//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
-	var/damage = min(proj_damage, 100)
+	if(Proj.anti_materiel_potential > 1)
+		damage = min(proj_damage, 100)
+
+	Proj.on_hit(src)
 
 	take_damage(damage)
 

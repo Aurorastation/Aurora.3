@@ -56,7 +56,7 @@
 /datum/gear/accessory/capes
 	display_name = "shoulder capes"
 	path = /obj/item/clothing/accessory/poncho/shouldercape
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/accessory/capes/New()
@@ -72,13 +72,13 @@
 /datum/gear/accessory/qeblak
 	display_name = "qeblak mantle"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/accessory/weishii
 	display_name = "weishii robe"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/uniform/skrell
@@ -111,19 +111,19 @@
 /datum/gear/skrell_projector
 	display_name = "nralakk projector"
 	path = /obj/item/skrell_projector
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/homeworld_deck
 	display_name = "qweipaqui homeworld deck"
-	path = /obj/item/deck/tarot/jargon
+	path = /obj/item/deck/tarot/nralakk
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/colonist_deck // Intentionally separate from homeworld_deck, so that both can be chosen. -Lly
 	display_name = "qweipaqui colonist deck"
-	path = /obj/item/deck/tarot/nonjargon
+	path = /obj/item/deck/tarot/nonnralakk
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_NO_SELECTION
@@ -179,10 +179,10 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/skrell_passport
-	display_name = "jargon federation passport"
-	path = /obj/item/clothing/accessory/badge/passport/jargon
+	display_name = "nralakk federation passport"
+	path = /obj/item/clothing/accessory/badge/passport/nralakk
 	sort_category = "Xenowear - Skrell"
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	flags = GEAR_NO_SELECTION
 	cost = 0
 
@@ -206,7 +206,7 @@
 	return FALSE
 
 /datum/gear/accessory/skrell_passport/spawn_item(location, metadata, mob/living/carbon/human/H)
-	var/obj/item/clothing/accessory/badge/passport/jargon/J = ..()
+	var/obj/item/clothing/accessory/badge/passport/nralakk/J = ..()
 	var/static/list/species_name_to_tag = list(SPECIES_SKRELL = "_s", SPECIES_SKRELL_AXIORI = "_s", SPECIES_VAURCA_WARRIOR = "_v", SPECIES_VAURCA_WORKER = "_v", SPECIES_VAURCA_BREEDER = "_v", SPECIES_VAURCA_BULWARK = "_v", SPECIES_DIONA = "_d", SPECIES_DIONA_COEUS = "_d")
 	var/tag = species_name_to_tag[H.species.name]
 	if(tag)
@@ -232,51 +232,51 @@ datum/gear_tweak/social_credit/get_default()
 	return 5
 
 datum/gear_tweak/social_credit/get_metadata(var/user, var/metadata)
-	var/credit_score = input(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Jargon calculations.)", "Social Credit Score") as null|num
+	var/credit_score = input(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Credit Score") as null|num
 	if(credit_score)
 		return round(credit_score, 0.01)
 	return metadata
 
-datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/passport/jargon/PP, var/metadata)
+datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/passport/nralakk/PP, var/metadata)
 	if(!istype(PP))
 		return
 	PP.credit_score = metadata + pick(-0.01, 0, 0.01)
 
 /datum/gear/uniform/skrell/work
 	display_name = "work uniforms"
-	path = /obj/item/clothing/under/skrell/jargon
+	path = /obj/item/clothing/under/skrell/nralakk
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/skrell/work/New()
 	..()
 	var/list/outfit = list()
-	outfit["ox research"] = /obj/item/clothing/under/skrell/jargon
-	outfit["ox security"] = /obj/item/clothing/under/skrell/jargon/ox
-	outfit["ox engineer"] = /obj/item/clothing/under/skrell/jargon/ox/engineer
-	outfit["ox service"] = /obj/item/clothing/under/skrell/jargon/ox/service
-	outfit["ox medical"] = /obj/item/clothing/under/skrell/jargon/ox/med
-	outfit["ix research"] = /obj/item/clothing/under/skrell/jargon/ix
-	outfit["ix security"] = /obj/item/clothing/under/skrell/jargon/ix/security
-	outfit["ix engineer"] = /obj/item/clothing/under/skrell/jargon/ix/engineer
-	outfit["ix service"] = /obj/item/clothing/under/skrell/jargon/ix/service
-	outfit["ix medical"] = /obj/item/clothing/under/skrell/jargon/ix/med
-	outfit["oqi research"] = /obj/item/clothing/under/skrell/jargon/oqi
-	outfit["oqi security"] = /obj/item/clothing/under/skrell/jargon/oqi/security
-	outfit["oqi engineer"] = /obj/item/clothing/under/skrell/jargon/oqi/engineer
-	outfit["oqi service"] = /obj/item/clothing/under/skrell/jargon/oqi/service
-	outfit["oqi medical"] = /obj/item/clothing/under/skrell/jargon/oqi/med
-	outfit["iqi research"] = /obj/item/clothing/under/skrell/jargon/iqi
-	outfit["iqi security"] = /obj/item/clothing/under/skrell/jargon/iqi/security
-	outfit["iqi engineer"] = /obj/item/clothing/under/skrell/jargon/iqi/engineer
-	outfit["iqi service"] = /obj/item/clothing/under/skrell/jargon/iqi/service
-	outfit["iqi medical"] = /obj/item/clothing/under/skrell/jargon/iqi/med
+	outfit["ox research"] = /obj/item/clothing/under/skrell/nralakk
+	outfit["ox security"] = /obj/item/clothing/under/skrell/nralakk/ox
+	outfit["ox engineer"] = /obj/item/clothing/under/skrell/nralakk/ox/engineer
+	outfit["ox service"] = /obj/item/clothing/under/skrell/nralakk/ox/service
+	outfit["ox medical"] = /obj/item/clothing/under/skrell/nralakk/ox/med
+	outfit["ix research"] = /obj/item/clothing/under/skrell/nralakk/ix
+	outfit["ix security"] = /obj/item/clothing/under/skrell/nralakk/ix/security
+	outfit["ix engineer"] = /obj/item/clothing/under/skrell/nralakk/ix/engineer
+	outfit["ix service"] = /obj/item/clothing/under/skrell/nralakk/ix/service
+	outfit["ix medical"] = /obj/item/clothing/under/skrell/nralakk/ix/med
+	outfit["oqi research"] = /obj/item/clothing/under/skrell/nralakk/oqi
+	outfit["oqi security"] = /obj/item/clothing/under/skrell/nralakk/oqi/security
+	outfit["oqi engineer"] = /obj/item/clothing/under/skrell/nralakk/oqi/engineer
+	outfit["oqi service"] = /obj/item/clothing/under/skrell/nralakk/oqi/service
+	outfit["oqi medical"] = /obj/item/clothing/under/skrell/nralakk/oqi/med
+	outfit["iqi research"] = /obj/item/clothing/under/skrell/nralakk/iqi
+	outfit["iqi security"] = /obj/item/clothing/under/skrell/nralakk/iqi/security
+	outfit["iqi engineer"] = /obj/item/clothing/under/skrell/nralakk/iqi/engineer
+	outfit["iqi service"] = /obj/item/clothing/under/skrell/nralakk/iqi/service
+	outfit["iqi medical"] = /obj/item/clothing/under/skrell/nralakk/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(outfit)
 
 /datum/gear/suit/skrell/jacket
 	display_name = "work jackets"
 	path = /obj/item/clothing/suit/storage/toggle/skrell
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -315,7 +315,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 /datum/gear/accessory/skrell/poncho
 	display_name = "skrell poncho"
 	path = /obj/item/clothing/accessory/poncho/skrell
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -331,7 +331,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 /datum/gear/accessory/skrell/workcloak
 	display_name = "work cloaks"
 	path = /obj/item/clothing/accessory/poncho/shouldercape
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -362,7 +362,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 	tees["teal eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/teal
 	tees["black eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/black
 	tees["white eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/white
-	tees["jargon eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/jargon
+	tees["nralakk eriuyushi nebula shirt"] = /obj/item/clothing/accessory/tshirt/skrell/nebula/nralakk
 	gear_tweaks += new /datum/gear_tweak/path(tees)
 
 /datum/gear/accessory/skrell/dress
@@ -414,7 +414,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 /datum/gear/accessory/skrell/nationcapes/New()
 	..()
 	var/list/nationcapes = list()
-	nationcapes["Jargon Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes
+	nationcapes["Nralakk Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes
 	nationcapes["Free Traverse Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/traverse
 	nationcapes["Sol Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/sol
 	nationcapes["Coalition Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/coc

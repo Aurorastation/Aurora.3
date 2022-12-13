@@ -2545,7 +2545,7 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "skrell_reef_short"
 			length = 3
 			chatname = "short headtails"
-			scrunchy_style = "reef"
+			scrunchy_style = "reef_short"
 
 		skr_tentacle_emo_l_l
 			name = "Long Headtails, emo (left)"
@@ -4351,6 +4351,190 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Hand Panel (Left)"
 			icon_state = "hand_panel_l"
 			body_parts = list(BP_L_HAND)
+
+	bulwark_augs
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Mecha Eye L"
+		icon_state = "mechaeyebully_l"
+		do_colouration = FALSE
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/bug/type_e)
+
+		mechaeyebully_r
+			name = "Mecha Eye R"
+			icon_state = "mechaeyebully_r"
+
+		mechaeyeoverlaybully_l
+			name = "Mecha Eye Overlay L"
+			icon_state = "mechaeyeoverlaybully_l"
+
+		mechaeyeoverlaybully_r
+			name = "Mecha Eye Overlay R"
+			icon_state = "mechaeyeoverlaybully_r"
+
+		mechamandiblesbully
+			name = "Mecha Mandibles (Bulwark)"
+			icon_state = "mechamandiblesbully"
+
+		mechamandiblesoverlaybully
+			name = "Mecha Mandibles Overlay"
+			icon_state = "mechamandiblesoverlaybully"
+
+		visorbully
+			name = "Visor"
+			icon_state = "visorbully"
+
+		visorbullyoverlay
+			name = "Visor Overlay"
+			icon_state = "visorbullyoverlay"
+
+		spidereyesbully
+			name = "Spider Eyes"
+			icon_state = "spidereyesbully"
+
+		spidereyesbullyoverlay
+			name = "Spider Eyes Overlay"
+			icon_state = "spidereyesbullyoverlay"
+
+		mechamonoculusbully
+			name = "Mecha Monoculus"
+			icon_state = "mechamonoculusbully"
+
+		mechamonoculusbullyoverlay
+			name = "Mecha Monoculus Overlay"
+			icon_state = "mechamonoculusbullyoverlay"
+	
+	bullybackmeter
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Back Meter (Bulwark)"
+		icon_state = "bullybackmeter"
+		do_colouration = FALSE
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/bug/type_e)
+
+		bullybackmeteroverlay
+			name = "Back Meter Overlay"
+			icon_state = "bullybackmeteroverlay"
+
+		mechahorn_l
+			name = "Mecha Horn L"
+			icon_state = "mechahorn_l"
+
+		mechahorn_r
+			name = "Mecha Horn R"
+			icon_state = "mechahorn_r"
+
+		bullybackwires
+			name = "Back Wires (Bulwark)"
+			icon_state = "bullybackwires"
+
+		bullybacktubes
+			name = "Back Tubes (Bulwark)"
+			icon_state = "bullybacktubes"
+
+		ventsbully
+			name = "Vents (Bulwark)"
+			icon_state = "ventsbully"
+
+		shellpanelbully
+			name = "Shell Panel"
+			icon_state = "shellpanelbully"
+
+	mechakneesbully_l
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Mecha Knees L"
+		icon_state = "mechakneesbully_l"
+		do_colouration = FALSE
+		body_parts = list(BP_L_LEG)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	mechakneesbully_r
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Mecha Knees R"
+		icon_state = "mechakneesbully_r"
+		do_colouration = FALSE
+		body_parts = list(BP_R_LEG)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	mechaabdomenbully
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Mecha Abdomen (Bulwark)"
+		icon_state = "mechaabdomenbully"
+		do_colouration = FALSE
+		body_parts = list(BP_GROIN)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	mechapelvisbully
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Mecha Pelvis (Bulwark)"
+		icon_state = "mechapelvisbully"
+		do_colouration = FALSE
+		body_parts = list(BP_GROIN)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	handpanelbully_l
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Hand Panel L"
+		icon_state = "handpanelbully_l"
+		do_colouration = FALSE
+		body_parts = list(BP_L_HAND)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	handpanelbully_r
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Hand Panel R"
+		icon_state = "handpanelbully_r"
+		do_colouration = FALSE
+		body_parts = list(BP_R_HAND)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	handpanelbully_loverlay
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Hand Panel L Overlay"
+		icon_state = "handpanelbully_loverlay"
+		do_colouration = FALSE
+		body_parts = list(BP_L_HAND)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	handpanelbully_roverlay
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Hand Panel R Overlay"
+		icon_state = "handpanelbully_roverlay"
+		do_colouration = FALSE
+		body_parts = list(BP_R_HAND)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	armwirebully_l
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Arm Wires L"
+		icon_state = "armwirebully_l"
+		do_colouration = FALSE
+		body_parts = list(BP_L_ARM)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	armwirebully_r
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Arm Wires R"
+		icon_state = "armwirebully_r"
+		do_colouration = FALSE
+		body_parts = list(BP_R_ARM)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	armwirebullyhand_l
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Hand Wires L"
+		icon_state = "handwirebully_l"
+		do_colouration = FALSE
+		body_parts = list(BP_L_HAND)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	armwiresbullyhand_r
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Hand Wires R"
+		icon_state = "handwirebully_r"
+		do_colouration = FALSE
+		body_parts = list(BP_R_HAND)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	backstripe
 		name = "Back Stripe"

@@ -20,7 +20,7 @@
 
 	var/canister_color = "yellow"
 	var/can_label = 1
-	start_pressure = 45 * ONE_ATMOSPHERE
+	start_pressure = 5000
 	var/temperature_resistance = 1000 + T0C
 	volume = 1000
 	use_power = POWER_USE_OFF
@@ -91,6 +91,11 @@
 /obj/machinery/portable_atmospherics/canister/empty/
 	start_pressure = 0
 	can_label = 1
+
+/obj/machinery/portable_atmospherics/canister/empty/air
+	name = "Canister: \[Air\]"
+	icon_state = "grey"
+	canister_color = "grey"
 
 /obj/machinery/portable_atmospherics/canister/empty/oxygen
 	name = "Canister: \[O2\]"
