@@ -224,7 +224,7 @@ datum/gear/suit/colorvest
 	wintercoat["winter coat, engineering"] = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
 	wintercoat["winter coat, atmospherics"] = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
 	wintercoat["winter coat, hydroponics"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
-	wintercoat["winter coat, cargo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
+	wintercoat["winter coat, operations"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
 	wintercoat["winter coat, mining"] = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	gear_tweaks += new /datum/gear_tweak/path(wintercoat)
 
