@@ -688,8 +688,8 @@
 /datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	return 0
 
-/datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
-	return current_flags
+/datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)
+	return
 
 /datum/species/proc/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
 	if(speech_sounds && prob(speech_chance))

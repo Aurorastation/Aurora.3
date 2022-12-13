@@ -84,14 +84,6 @@
 /datum/dna/gene/disability/clumsy/New()
 	block=CLUMSYBLOCK
 
-/datum/dna/gene/disability/tourettes
-	name="Tourettes"
-	activation_message="You twitch."
-	disability=TOURETTES
-
-/datum/dna/gene/disability/tourettes/New()
-	block=TWITCHBLOCK
-
 /datum/dna/gene/disability/stutter
 	name="Stuttering"
 	activation_message="You feel like forming words becomes increasingly difficult."

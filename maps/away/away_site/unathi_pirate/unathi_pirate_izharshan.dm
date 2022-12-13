@@ -4,7 +4,7 @@
 	description = "An empty sector."
 	suffix = "away_site/unathi_pirate/unathi_pirate_izharshan.dmm"
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/unathi_pirate_izharshan)
 	sectors = list(SECTOR_NRRAHRAHUL, SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
