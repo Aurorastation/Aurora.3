@@ -1026,7 +1026,7 @@
 	dir = 1;
 	external_pressure_bound = 140;
 	external_pressure_bound_default = 140;
-	icon_state = "map_vent_out";
+	icon_state = "vent_map_on-3";
 	use_power = 1
 	},
 /turf/simulated/floor/tiled/dark,

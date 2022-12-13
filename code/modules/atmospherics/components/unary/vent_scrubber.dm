@@ -4,7 +4,7 @@
 	desc_info = "This filters the atmosphere of harmful gas.  Filtered gas goes to the pipes connected to it, typically a scrubber pipe. \
 	It can be controlled from an Air Alarm.  It can be configured to drain all air rapidly with a 'panic syphon' from an air alarm."
 	icon = 'icons/atmos/vent_scrubber.dmi'
-	icon_state = "map_scrubber_off"
+	icon_state = "scrub_map-3"
 
 	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
@@ -35,7 +35,7 @@
 
 /obj/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = POWER_USE_IDLE
-	icon_state = "map_scrubber_on"
+	icon_state = "scrub_map_on-3"
 
 /obj/machinery/atmospherics/unary/vent_scrubber/Initialize(mapload)
 	if(mapload)
@@ -91,20 +91,23 @@
 	return ..()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/update_icon(var/safety = 0)
-	var/turf/T = get_turf(src)
-	if(!istype(T))
+	if(welded)
+		icon_state = "scrub_welded"
 		return
 
-	if (welded)
-		icon_state = "weld"
+	if(!powered() || !use_power)
+		icon_state = "scrub_off"
 		return
 
-	if (!powered() || !use_power)
-		icon_state = "off"
-	else if (scrubbing)
-		icon_state = "on"
+	if(scrubbing)
+		icon_state = "scrub_on"
 	else
-		icon_state = "in"
+		icon_state = "scrub_purge"
+
+//		if(widenet)		we don't have this feature yet but someone might put it in
+//			icon_state = "scrub_wide"
+//		else
+//			icon_state = "scrub_on"
 
 /obj/machinery/atmospherics/unary/vent_scrubber/update_underlays()
 	if(..())
@@ -113,6 +116,7 @@
 		if(!istype(T))
 			return
 		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
+			add_overlay(icon, "scrub_cap", dir)
 			return
 		else
 			if(node)

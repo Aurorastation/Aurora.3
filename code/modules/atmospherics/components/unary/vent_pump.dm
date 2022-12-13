@@ -12,7 +12,7 @@
 	desc = "Has a valve and pump attached to it."
 	desc_info = "This pumps the contents of the attached pipe out into the atmosphere, if needed.  It can be controlled from an Air Alarm."
 	icon = 'icons/atmos/vent_pump.dmi'
-	icon_state = "map_vent"
+	icon_state = "vent_map-3"
 
 	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
@@ -53,13 +53,13 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/on
 	use_power = POWER_USE_IDLE
-	icon_state = "map_vent_out"
+	icon_state = "vent_map_on-3"
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon
 	pump_direction = 0
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos
-	icon_state = "map_vent_in"
+	icon_state = "vent_map_siphon_on-3"
 	external_pressure_bound = 0
 	external_pressure_bound_default = 0
 	internal_pressure_bound = 2000
@@ -69,11 +69,11 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on
 	use_power = POWER_USE_IDLE
-	icon_state = "map_vent_in"
+	icon_state = "vent_map_siphon_on-3"
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos
 	use_power = POWER_USE_IDLE
-	icon_state = "map_vent_in"
+	icon_state = "vent_map_siphon_on-3"
 	external_pressure_bound = 0
 	external_pressure_bound_default = 0
 	internal_pressure_bound = 2000
@@ -135,26 +135,37 @@
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500 //meant to match air injector
 
 /obj/machinery/atmospherics/unary/vent_pump/update_icon(var/safety = 0)
-	if (!node)
+	if(!node)
 		update_use_power(POWER_USE_OFF)
 
-	var/vent_icon = ""
-
-	var/turf/T = get_turf(src)
-	if(!istype(T))
+	if(welded)
+		icon_state = "vent_welded"
 		return
 
-	if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
-		vent_icon += "h"
+	if(!powered() || !use_power)
+		if(icon_state == "vent_welded")
+			icon_state = "vent_off"
+			return
 
-	if(welded)
-		vent_icon += "weld"
-	else if(!powered())
-		vent_icon += "off"
-	else
-		vent_icon += "[use_power ? "[pump_direction ? "out" : "in"]" : "off"]"
+		if(pump_direction)
+			icon_state = "vent_out-off"
+		else // pump_direction == SIPHONING
+			icon_state = "vent_in-off"
+		return
 
-	icon_state = vent_icon
+	if(icon_state == ("vent_out-off" || "vent_in-off" || "vent_off"))
+		if(pump_direction)
+			icon_state = "vent_out"
+			flick("vent_out-starting", src)
+		else // pump_direction == SIPHONING
+			icon_state = "vent_in"
+			flick("vent_in-starting", src)
+		return
+
+	if(pump_direction)
+		icon_state = "vent_out"
+	else // pump_direction == SIPHONING
+		icon_state = "vent_in"
 
 	update_underlays()
 
@@ -165,6 +176,7 @@
 		if(!istype(T))
 			return
 		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
+			add_overlay(icon, "vent_cap", dir)
 			return
 		else
 			if(node)

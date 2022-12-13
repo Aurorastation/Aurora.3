@@ -361,7 +361,7 @@
 	dir = 8;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
-	icon_state = "map_vent_in";
+	icon_state = "vent_map_siphon_on-3";
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
 	internal_pressure_bound_default = 4000;
@@ -770,7 +770,7 @@
 	dir = 8;
 	external_pressure_bound = 140;
 	external_pressure_bound_default = 140;
-	icon_state = "map_vent_out";
+	icon_state = "vent_map_on-3";
 	pressure_checks = 0;
 	pressure_checks_default = 0;
 	use_power = 1

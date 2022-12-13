@@ -10,7 +10,7 @@
 
 /obj/machinery/atmospherics/binary/dp_vent_pump
 	icon = 'icons/atmos/vent_pump.dmi'
-	icon_state = "map_dp_vent"
+	icon_state = "dpvent_map_on-3"
 
 	//node2 is output port
 	//node1 is input port
@@ -61,21 +61,11 @@
 	if(!check_icon_cache())
 		return
 
-	var/istate = ""
 
-	var/turf/T = get_turf(src)
-	if(!istype(T))
-		return
-
-	if(!T.is_plating() && node1 && node2 && node1.level == 1 && node2.level == 1 && istype(node1, /obj/machinery/atmospherics/pipe) && istype(node2, /obj/machinery/atmospherics/pipe))
-		istate += "h"
-
-	if(!powered())
-		istate += "off"
+	if(!powered() || !use_power)
+		icon_state = "vent_off"
 	else
-		istate += "[use_power ? "[pump_direction ? "out" : "in"]" : "off"]"
-
-	icon_state = istate
+		icon_state = pump_direction ? "vent_out" : "vent_in"
 
 /obj/machinery/atmospherics/binary/dp_vent_pump/update_underlays()
 	if(..())
@@ -84,6 +74,7 @@
 		if(!istype(T))
 			return
 		if(!T.is_plating() && node1 && node2 && node1.level == 1 && node2.level == 1 && istype(node1, /obj/machinery/atmospherics/pipe) && istype(node2, /obj/machinery/atmospherics/pipe))
+			add_overlay(icon, "dpvent_cap", dir)
 			return
 		else
 			if (node1)
