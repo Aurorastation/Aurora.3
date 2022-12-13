@@ -5,7 +5,7 @@
 // Pants Parent Item
 /obj/item/clothing/under/pants
 	name = "pants parent item"
-	desc = DESC_PARENT_ITEM
+	desc = DESC_PARENT
 	icon = 'icons/obj/pants.dmi'
 	contained_sprite = TRUE
 	body_parts_covered = LOWER_TORSO | LEGS

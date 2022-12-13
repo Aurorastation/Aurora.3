@@ -5,7 +5,7 @@
 // Shorts Parent Item
 /obj/item/clothing/under/shorts
 	name = "shorts parent item"
-	desc = DESC_PARENT_ITEM
+	desc = DESC_PARENT
 	body_parts_covered = LOWER_TORSO
 	icon = 'icons/contained_items/clothing/bottomwear/shorts.dmi'
 	contained_sprite = TRUE
@@ -103,7 +103,7 @@
 // Athletic Shorts
 /obj/item/clothing/under/shorts/athletic
 	name = "athletic shorts parent item"
-	desc = DESC_PARENT_ITEM
+	desc = DESC_PARENT
 
 /obj/item/clothing/under/shorts/athletic/colourable
 	name = "athletic shorts"
