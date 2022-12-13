@@ -846,7 +846,6 @@ var/list/worths = list(
 					/obj/machinery/librarycomp = -1000,
 					/obj/machinery/libraryscanner = -1000,
 					/obj/machinery/bookbinder = -1200,
-					/obj/machinery/wish_granter = - 1000000,
 					/obj/machinery = -1000,
 					/obj/vehicle/bike = 1500,
 					/obj/vehicle = 1000,

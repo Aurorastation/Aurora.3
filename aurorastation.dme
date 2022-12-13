@@ -740,7 +740,6 @@
 #include "code\game\machinery\vending_types.dm"
 #include "code\game\machinery\wall_frames.dm"
 #include "code\game\machinery\washing_machine.dm"
-#include "code\game\machinery\wishgranter.dm"
 #include "code\game\machinery\abstract\abstract.dm"
 #include "code\game\machinery\abstract\intercom_listener.dm"
 #include "code\game\machinery\atmoalter\area_atmos_computer.dm"
