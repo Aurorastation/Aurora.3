@@ -19,10 +19,8 @@ STOCK_ITEM_LARGE(EOD, 1.5)
 	else
 		new /obj/structure/closet/bombcloset(L)
 
-STOCK_ITEM_LARGE(biosuit, 3)
-	var/list/allsuits = typesof(/obj/structure/closet/hazmat)
-	var/type = pick(allsuits)
-	new type(L)
+STOCK_ITEM_LARGE(hazmat_gear_locker, 3)
+	new /obj/structure/closet/hazmat/general(L)
 
 STOCK_ITEM_LARGE(hydrotray, 3)
 	new /obj/machinery/portable_atmospherics/hydroponics(L)
