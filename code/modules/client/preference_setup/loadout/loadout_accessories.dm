@@ -94,15 +94,15 @@
 
 /datum/gear/accessory/neck_accessories
 	display_name = "neck accessories selection (colourable)"
-	path = /obj/item/clothing/accessory/tie/bowtie
+	path = /obj/item/clothing/accessory/tie/bow_tie
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/neck_accessories/New()
 	..()
 	var/list/neck_accessories = list()
-	neck_accessories["bowtie"] = /obj/item/clothing/accessory/tie/bowtie
-	neck_accessories["bow"] = /obj/item/clothing/accessory/tie/bow
-	neck_accessories["ribbon"] = /obj/item/clothing/accessory/tie/ribbon
+	neck_accessories["bow tie"] = /obj/item/clothing/accessory/tie/bow_tie
+	neck_accessories["neck bow"] = /obj/item/clothing/accessory/tie/bow
+	neck_accessories["neck ribbon"] = /obj/item/clothing/accessory/tie/ribbon
 	gear_tweaks += new /datum/gear_tweak/path(neck_accessories)
 
 /datum/gear/accessory/brown_vest

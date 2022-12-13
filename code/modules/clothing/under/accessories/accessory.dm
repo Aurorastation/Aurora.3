@@ -199,7 +199,7 @@
 	name = "tie with a silver clip"
 	worn_overlay = "sclip"
 
-/obj/item/clothing/accessory/tie/bowtie
+/obj/item/clothing/accessory/tie/bow_tie
 	name = "bow tie"
 	desc = "A bow tie."
 	icon = 'icons/contained_items/clothing/accessories/neck/bow_tie.dmi'
