@@ -855,7 +855,7 @@
 	return TRUE
 
 // corresponds with the status overlay in hud_status.dmi
-#define DRUNK_STRING "string"
+#define DRUNK_STRING "drunk"
 #define BLEEDING_STRING "bleeding"
 
 /mob/living/carbon/human/handle_regular_hud_updates()
