@@ -826,7 +826,6 @@
 #include "code\game\objects\auras\auras.dm"
 #include "code\game\objects\auras\personal_shield.dm"
 #include "code\game\objects\auras\radiant_aura.dm"
-#include "code\game\objects\effects\aliens.dm"
 #include "code\game\objects\effects\bump_teleporter.dm"
 #include "code\game\objects\effects\burnt_wall.dm"
 #include "code\game\objects\effects\effect_system.dm"

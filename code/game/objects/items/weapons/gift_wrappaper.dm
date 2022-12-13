@@ -208,7 +208,6 @@
 		/obj/item/stack/material/animalhide/corgi,
 		/obj/item/stack/material/animalhide/human,
 		/obj/item/stack/material/animalhide/monkey,
-		/obj/item/stack/material/animalhide/xeno,
 		/obj/item/xmasgift/medium,
 		/obj/item/toy/balloon/syndicate,
 		/obj/item/toy/xmastree,
