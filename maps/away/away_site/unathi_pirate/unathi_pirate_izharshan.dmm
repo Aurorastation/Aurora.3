@@ -1528,10 +1528,10 @@
 /obj/item/clothing/accessory/poncho/unathimantle/mountain{
 	color = "#ba650b"
 	},
-/obj/item/clothing/suit/apron/colored{
+/obj/item/clothing/accessory/apron{
 	color = "#b97a57"
 	},
-/obj/item/clothing/suit/apron/colored{
+/obj/item/clothing/accessory/apron{
 	color = "#b97a57"
 	},
 /obj/item/clothing/accessory/poncho,
