@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "The submachine gun's sprites are no longer missing."
-  - bugfix: "The anomaly suit's sprites are no longer missing"
