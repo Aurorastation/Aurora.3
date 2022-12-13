@@ -1,21 +1,22 @@
 /datum/map_template/ruin/away_site/saniorios_smuggler
 	name = "Sani'Orios"
 	description = "A gas giant composed of ammonia, Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
-	suffix = "away_site/saniorios_smuggler/saniorios_smuggler.dmm"
+	suffix = "away_site/tajara/saniorios_smuggler/saniorios_smuggler.dmm"
 	sectors = list(SECTOR_SRANDMARR)
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "saniorios_smuggler"
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /decl/submap_archetype/saniorios_smuggler
 	map = "Sani'Orios"
 	descriptor = "A gas giant composed of ammonia, Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
 
 /obj/effect/overmap/visitable/sector/saniorios_smuggler
-	name = "space bar"
+	name = "Sani'Orios"
 	desc = "A gas giant composed of ammonia, Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
 	icon_state = "globe"
-	color = COLOR_NAVY_BLUE
+	color = COLOR_DARK_BLUE_GRAY
 
 /obj/effect/overmap/visitable/sector/saniorios_smuggler/get_skybox_representation()
 
@@ -23,6 +24,7 @@
 
 	var/image/base = image('icons/skybox/planet.dmi', "base[pick(1,2,3)]")
 	base.color = color
+	skybox_image.overlays += base
 
 	var/image/shadow = image('icons/skybox/planet.dmi', "shadow[pick(1,2,3)]")
 	shadow.blend_mode = BLEND_MULTIPLY
@@ -39,3 +41,12 @@
 	skybox_image.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
 	skybox_image.blend_mode = BLEND_OVERLAY
 	return skybox_image
+
+/area/saniorios_smuggler
+	name = "Abandoned Shipping Outpost"
+	icon_state = "bluenew"
+	requires_power = TRUE
+	dynamic_lighting = TRUE
+	no_light_control = FALSE
+	base_turf = /turf/space
+	flags = RAD_SHIELDED
