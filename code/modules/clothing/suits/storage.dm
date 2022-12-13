@@ -100,7 +100,7 @@
 	icon_state = "idris_corp_jacket"
 
 /obj/item/clothing/suit/storage/toggle/corp/idris/alt
-	icon_state "idris_corp_jacket_alt"
+	icon_state = "idris_corp_jacket_alt"
 
 /obj/item/clothing/suit/storage/toggle/corp/zavod
 	name = "zavodskoi corporate jacket"
@@ -108,7 +108,7 @@
 	icon_state = "zavod_corp_jacket"
 
 /obj/item/clothing/suit/storage/toggle/corp/zavod/alt
-	icon_state "zavod_corp_jacket_alt"
+	icon_state = "zavod_corp_jacket_alt"
 
 /obj/item/clothing/suit/storage/toggle/corp/pmc
 	name = "pmcg corporate jacket"
@@ -116,7 +116,7 @@
 	icon_state = "pmc_corp_jacket"
 
 /obj/item/clothing/suit/storage/toggle/corp/pmc/alt
-	icon_state "epmc_corp_jacket"
+	icon_state = "epmc_corp_jacket"
 
 /obj/item/clothing/suit/storage/toggle/corp/heph
 	name = "hephaestus corporate jacket"
@@ -134,7 +134,7 @@
 	icon_state = "zeng_corp_jacket"
 
 /obj/item/clothing/suit/storage/toggle/corp/zeng/alt
-	icon_state "zeng_corp_jacket_alt"
+	icon_state = "zeng_corp_jacket_alt"
 
 /obj/item/clothing/suit/storage/toggle/corp/orion
 	name = "orion corporate jacket"
@@ -142,7 +142,7 @@
 	icon_state = "orion_corp_jacket"
 
 /obj/item/clothing/suit/storage/toggle/corp/orion/alt
-	icon_state "orion_corp_jacket_alt"
+	icon_state = "orion_corp_jacket_alt"
 
 /obj/item/clothing/suit/storage/toggle/corp/scc
 	name = "scc corporate jacket"
@@ -150,4 +150,4 @@
 	icon_state = "scc_corp_jacket"
 
 /obj/item/clothing/suit/storage/toggle/corp/scc/alt
-	icon_state "scc_corp_jacket_alt"
+	icon_state = "scc_corp_jacket_alt"
