@@ -8,7 +8,7 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
 	slowdown = 0
 
-	brute_mod = 0.7
+	brute_mod = 0.8
 	oxy_mod = 1
 	radiation_mod = 0.5
 	standing_jump_range = 3

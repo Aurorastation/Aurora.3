@@ -75,7 +75,7 @@
 
 	var/list/datum/data_pda_msg/pda_msgs = list() // TODO: actually re-link modular PDAs to the message servers
 	var/list/datum/data_rc_msg/rc_msgs = list()
-	var/decryptkey = "password"
+	var/decryptkey = ""
 
 	//Spam filtering stuff
 	var/list/spamfilter = list("You have won", "your prize", "male enhancement", "shitcurity", \
