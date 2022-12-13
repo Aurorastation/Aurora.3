@@ -9,8 +9,8 @@
 	var/oxygentanks = 10
 	var/phorontanks = 10
 	var/max_tanks = 10
-	var/list/oxytanks = list()	//sorry for the similar var names
-	var/list/platanks = list()
+	var/list/oxygen_tanks = list()	//sorry for the similar var names
+	var/list/phoron_tanks = list()
 
 /obj/structure/dispenser/oxygen
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 oxygen tanks."
@@ -66,7 +66,7 @@
 	if(istype(I, /obj/item/tank/oxygen))
 		if(oxygentanks < max_tanks)
 			user.drop_from_inventory(I, src)
-			oxytanks.Add(I)
+			oxygen_tanks.Add(I)
 			oxygentanks++
 			to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
 			if(oxygentanks <= 5)
@@ -78,7 +78,7 @@
 	if(istype(I, /obj/item/tank/phoron))
 		if(phorontanks < max_tanks)
 			user.drop_from_inventory(I, src)
-			platanks.Add(I)
+			phoron_tanks.Add(I)
 			phorontanks++
 			to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
 			if(oxygentanks <= 5)
@@ -104,9 +104,9 @@
 		if(href_list[GAS_OXYGEN])
 			if(oxygentanks > 0)
 				var/obj/item/tank/oxygen/O
-				if(oxytanks.len == oxygentanks)
-					O = oxytanks[1]
-					oxytanks.Remove(O)
+				if(oxygen_tanks.len == oxygentanks)
+					O = oxygen_tanks[1]
+					oxygen_tanks.Remove(O)
 				else
 					O = new /obj/item/tank/oxygen(loc)
 				usr.put_in_hands(O)
@@ -116,9 +116,9 @@
 		if(href_list[GAS_PHORON])
 			if(phorontanks > 0)
 				var/obj/item/tank/phoron/P
-				if(platanks.len == phorontanks)
-					P = platanks[1]
-					platanks.Remove(P)
+				if(phoron_tanks.len == phorontanks)
+					P = phoron_tanks[1]
+					phoron_tanks.Remove(P)
 				else
 					P = new /obj/item/tank/phoron(loc)
 				usr.put_in_hands(P)
