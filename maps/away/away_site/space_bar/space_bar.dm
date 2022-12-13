@@ -4,7 +4,7 @@
 	suffix = "away_site/space_bar/space_bar.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	spawn_weight = 1
-	spawn_cost = 2
+	ship_cost = 2
 	id = "space_bar"
 
 /decl/submap_archetype/space_bar
@@ -14,6 +14,8 @@
 /obj/effect/overmap/visitable/sector/space_bar
 	name = "space bar"
 	desc = "A cozy meeting place floating on space."
+	comms_support = TRUE
+	comms_name = "station"
 
 /area/space_bar
 	name = "Spacer Bar"

@@ -80,7 +80,6 @@
 	head = /obj/item/clothing/head/beret/corporate/orion
 	uniform = /obj/item/clothing/under/rank/liaison/orion
 	suit = /obj/item/clothing/suit/storage/liaison/orion
-	implants = null
 	id = /obj/item/card/id/orion
 	accessory = /obj/item/clothing/accessory/tie/corporate/orion
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/orion

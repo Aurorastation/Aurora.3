@@ -199,7 +199,7 @@
 	if(stability <= 0)
 		qdel(src)
 
-/obj/machinery/power/am_control_unit/proc/toggle_power()
+/obj/machinery/power/am_control_unit/toggle_power()
 	active = !active
 	if(active)
 		update_use_power(POWER_USE_ACTIVE)

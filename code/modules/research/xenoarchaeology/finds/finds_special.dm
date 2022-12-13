@@ -27,11 +27,10 @@
 /obj/item/clothing/mask/gas/poltergeist/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
-	listening_objects += src
+	become_hearing_sensitive()
 
 /obj/item/clothing/mask/gas/poltergeist/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	listening_objects -= src
 	return ..()
 
 /obj/item/clothing/mask/gas/poltergeist/process()
@@ -67,11 +66,10 @@
 /obj/item/vampiric/New()
 	..()
 	START_PROCESSING(SSprocessing, src)
-	listening_objects += src
+	become_hearing_sensitive()
 
 /obj/item/vampiric/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	listening_objects -= src
 	return ..()
 
 /obj/item/vampiric/process()

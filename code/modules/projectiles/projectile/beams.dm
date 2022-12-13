@@ -44,8 +44,8 @@
 	impact_type = /obj/effect/projectile/impact/hegemony
 
 /obj/item/projectile/beam/midlaser
-	damage = 35
-	armor_penetration = 10
+	damage = 30
+	armor_penetration = 15
 
 /obj/item/projectile/beam/midlaser/skrell
 	armor_penetration = 0
@@ -55,8 +55,8 @@
 	armor_penetration = 20
 
 /obj/item/projectile/beam/noctiluca
-	damage = 25
-	armor_penetration = 25
+	damage = 20
+	armor_penetration = 28
 
 /obj/item/projectile/beam/noctiluca/armor_piercing
 	name = "concentrated laser"

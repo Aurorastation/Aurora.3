@@ -92,10 +92,18 @@
 	display_name = "horrible tie"
 	path = /obj/item/clothing/accessory/horrible
 
-/datum/gear/accessory/bowtie
-	display_name = "bowtie"
-	path = /obj/item/clothing/accessory/tie/bowtie
+/datum/gear/accessory/neck_accessories_colourable
+	display_name = "neck accessories selection (colourable)"
+	path = /obj/item/clothing/accessory/tie/ribbon
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/neck_accessories_colourable/New()
+	..()
+	var/list/neck_accessories_colourable = list()
+	neck_accessories_colourable["neck ribbon"] = /obj/item/clothing/accessory/tie/ribbon/neck
+	neck_accessories_colourable["neck bow"] = /obj/item/clothing/accessory/tie/ribbon/bow
+	neck_accessories_colourable["bow tie"] = /obj/item/clothing/accessory/tie/ribbon/bow_tie
+	gear_tweaks += new /datum/gear_tweak/path(neck_accessories_colourable)
 
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"

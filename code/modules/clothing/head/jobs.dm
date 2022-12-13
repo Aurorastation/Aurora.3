@@ -151,6 +151,10 @@
 /obj/item/clothing/head/warden/zavod
 	icon_state = "zav_warden_hat"
 	item_state = "zav_warden_hat"
+	
+/obj/item/clothing/head/warden/zavod/alt
+	icon_state = "zav_warden_hat_alt"
+	item_state = "zav_warden_hat_alt"
 
 /obj/item/clothing/head/warden/pmc
 	icon_state = "pmc_warden_hat"

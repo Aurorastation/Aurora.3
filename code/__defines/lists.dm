@@ -10,6 +10,15 @@
 #define LAZYPICK(L,DEFAULT) (LAZYLEN(L) ? pick(L) : DEFAULT)
 #define LAZYISIN(L, I) (L ? (I in L) : FALSE)
 #define LAZYDISTINCTADD(L, I) if(!L) { L = list(); } L |= I;
+#define LAZYADDASSOCLIST(L, K, V) if(!L) { L = list(); } L[K] += list(V);
+#define LAZYREMOVEASSOC(L, K, V) if(L) { if(L[K]) { L[K] -= V; if(!length(L[K])) L -= K; } if(!length(L)) L = null; }
+#define LAZYACCESSASSOC(L, I, K) L ? L[I] ? L[I][K] ? L[I][K] : null : null : null
+
+/// Performs an insertion on the given lazy list with the given key and value. If the value already exists, a new one will not be made.
+#define LAZYORASSOCLIST(lazy_list, key, value) \
+	LAZYINITLIST(lazy_list); \
+	LAZYINITLIST(lazy_list[key]); \
+	lazy_list[key] |= value;
 
 // Shims for some list procs in lists.dm.
 #define isemptylist(L) (!LAZYLEN(L))

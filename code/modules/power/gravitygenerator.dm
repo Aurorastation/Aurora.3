@@ -135,6 +135,7 @@
 	for(var/obj/machinery/gravity_generator/part/O in parts)
 		O.main_part = null
 		qdel(O)
+	linked.gravity_generator = null
 	return ..()
 
 /obj/machinery/gravity_generator/main/proc/eventshutofftoggle() // Used by the gravity event. Bypasses charging and all of that stuff.
@@ -450,7 +451,15 @@
 	. = ..()
 	soundloop = new(src, start_immediately = FALSE)
 	addtimer(CALLBACK(src, .proc/updateareas), 10)
-	return
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/gravity_generator/main/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+	if(linked)
+		linked.gravity_generator = src
 
 /obj/machinery/gravity_generator/main/proc/updateareas()
 	for(var/area/A in all_areas)

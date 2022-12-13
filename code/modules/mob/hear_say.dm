@@ -127,7 +127,7 @@
 	if(vr_mob)
 		to_chat(vr_mob, "[time] [message]")
 
-/mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
+/mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
 	if(!client && !vr_mob)
 		return
 
@@ -165,13 +165,8 @@
 	else
 		speaker_name = "Unknown"
 
-	if(istype(speaker, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = speaker
-		if(H.voice)
-			speaker_name = H.voice
-
-	if(vname)
-		speaker_name = vname
+	if(ishuman(speaker) && speaker.GetVoice() != real_name)
+		speaker_name = speaker.GetVoice()
 
 	if(hard_to_hear)
 		speaker_name = "Unknown"
