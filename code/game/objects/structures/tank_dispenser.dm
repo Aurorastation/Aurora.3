@@ -8,6 +8,7 @@
 	w_class = ITEMSIZE_HUGE
 	var/oxygentanks = 10
 	var/phorontanks = 10
+	var/max_tanks = 10
 	var/list/oxytanks = list()	//sorry for the similar var names
 	var/list/platanks = list()
 
@@ -18,6 +19,7 @@
 /obj/structure/dispenser/oxygen/large
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 20 oxygen tanks."
 	oxygentanks = 20
+	max_tanks = 20
 
 /obj/structure/dispenser/phoron
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 phoron tanks."
@@ -26,6 +28,7 @@
 /obj/structure/dispenser/oxygen/large
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 20 phoron tanks."
 	phorontanks = 20
+	max_tanks = 20
 
 /obj/structure/dispenser/Initialize()
 	. = ..()
@@ -60,25 +63,25 @@
 	dispenser_win.open()
 
 /obj/structure/dispenser/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/tank/oxygen) || istype(I, /obj/item/tank/air) || istype(I, /obj/item/tank/anesthetic))
-		if(oxygentanks < 10)
+	if(istype(I, /obj/item/tank/oxygen))
+		if(oxygentanks < max_tanks)
 			user.drop_from_inventory(I, src)
 			oxytanks.Add(I)
 			oxygentanks++
 			to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
-			if(oxygentanks < 5)
+			if(oxygentanks <= 5)
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
 		updateUsrDialog()
 		return
 	if(istype(I, /obj/item/tank/phoron))
-		if(phorontanks < 10)
+		if(phorontanks < max_tanks)
 			user.drop_from_inventory(I, src)
 			platanks.Add(I)
 			phorontanks++
 			to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
-			if(oxygentanks < 6)
+			if(oxygentanks <= 5)
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
@@ -86,10 +89,10 @@
 		return
 	if(I.iswrench())
 		if(anchored)
-			to_chat(user, SPAN_NOTICE("You lean down and unwrench [src]."))
+			to_chat(user, SPAN_NOTICE("You lean down and unwrench \the [src]."))
 			anchored = FALSE
 		else
-			to_chat(user, SPAN_NOTICE("You wrench [src] into place."))
+			to_chat(user, SPAN_NOTICE("You wrench \the [src] into place."))
 			anchored = TRUE
 		return
 
