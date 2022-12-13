@@ -697,12 +697,10 @@
 /area/ship/tirakqi_freighter)
 "gDK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/dispenser/oxygen{
-	phorontanks = 2
-	},
 /obj/machinery/light/skrell{
 	dir = 8
 	},
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "gHC" = (

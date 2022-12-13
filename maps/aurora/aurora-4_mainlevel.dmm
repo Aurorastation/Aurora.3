@@ -6859,14 +6859,12 @@
 /turf/simulated/open,
 /area/turbolift/engineering_station)
 "anK" = (
-/obj/structure/dispenser/oxygen{
-	phorontanks = 10
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Atmopsherics Storage";
 	dir = 4
 	},
+/obj/structure/dispenser,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "anL" = (
@@ -9045,10 +9043,8 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "ary" = (
-/obj/structure/dispenser/oxygen{
-	phorontanks = 10
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "arz" = (
