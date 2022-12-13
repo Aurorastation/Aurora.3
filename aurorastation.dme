@@ -2281,8 +2281,6 @@
 #include "code\modules\mob\living\carbon\slime\update_icons.dm"
 #include "code\modules\mob\living\maneuvers\_maneuver.dm"
 #include "code\modules\mob\living\maneuvers\maneuver_leap.dm"
-#include "code\modules\mob\living\parasite\meme.dm"
-#include "code\modules\mob\living\parasite\meme_captive.dm"
 #include "code\modules\mob\living\silicon\computer.dm"
 #include "code\modules\mob\living\silicon\death.dm"
 #include "code\modules\mob\living\silicon\laws.dm"
