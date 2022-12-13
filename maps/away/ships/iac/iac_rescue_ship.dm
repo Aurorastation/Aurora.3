@@ -15,7 +15,44 @@
 //areas
 /area/ship/iac_rescue_ship
 	name = "IAC Rescue Ship"
+	requires_power = TRUE
+	
+/area/ship/iac_rescue_ship/bridge
+	name = "IAC Rescue Ship Bridge"
+	
+/area/ship/iac_rescue_ship/hangar
+	name = "IAC Rescue Ship Hangar"
+	
+/area/ship/iac_rescue_ship/starboardengine
+	name = "IAC Rescue Ship Starboard Engine"
+	
+/area/ship/iac_rescue_ship/portengine
+	name = "IAC Rescue Ship Port Engine"
+	
+/area/ship/iac_rescue_ship/bathroom
+	name = "IAC Rescue Ship Bathroom"
+	
+/area/ship/iac_rescue_ship/mainstorage
+	name = "IAC Rescue Ship Main Storage"
+	
+/area/ship/iac_rescue_ship/medical
+	name = "IAC Rescue Ship Medical"
+	
+/area/ship/iac_rescue_ship/surgery
+	name = "IAC Rescue Ship Surgery Room"
 
+/area/ship/iac_rescue_ship/pharmacy
+	name = "IAC Rescue Ship Pharmacy"
+	
+/area/ship/iac_rescue_ship/dorms
+	name = "IAC Rescue Ship Dorms"
+	
+/area/ship/iac_rescue_ship/coord
+	name = "IAC Rescue Ship Coordinator's Office"
+	
+/area/ship/iac_rescue_ship/hallway
+	name = "IAC Rescue Ship Hallway"
+	
 /area/shuttle/iac_shuttle
 	name = "IAC Ambulance Shuttle"
 	icon_state = "shuttle2"
@@ -55,6 +92,24 @@
 /obj/effect/shuttle_landmark/iac_rescue_ship/nav2
 	name = "IAC Rescue Ship - Port Airlock"
 	landmark_tag = "nav_iac_rescue_ship_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+	
+/obj/effect/shuttle_landmark/iac_rescue_ship/nav3
+	name = "IAC Rescue Ship - Starboard Side"
+	landmark_tag = "nav_iac_rescue_ship_3"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+	
+/obj/effect/shuttle_landmark/iac_rescue_ship/nav4
+	name = "IAC Rescue Ship - Aft Side"
+	landmark_tag = "nav_iac_rescue_ship_4"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+	
+/obj/effect/shuttle_landmark/iac_rescue_ship/nav5
+	name = "IAC Rescue Ship - Fore Side"
+	landmark_tag = "nav_iac_rescue_ship_5"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
