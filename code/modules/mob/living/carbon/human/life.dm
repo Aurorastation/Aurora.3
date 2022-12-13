@@ -854,6 +854,10 @@
 		return FALSE
 	return TRUE
 
+// corresponds with the status overlay in hud_status.dmi
+#define DRUNK_STRING "string"
+#define BLEEDING_STRING "bleeding"
+
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
 		handle_hud_list()
@@ -1089,7 +1093,6 @@
 				bodytemp.icon_state = new_temp
 
 		if(client)
-			var/DRUNK_STRING = "drunk" // pseudo-define, is really just the icon_state in the .dmi, mostly used to prevent typos below
 			var/has_drunk_status = LAZYISIN(status_overlays, DRUNK_STRING)
 			if(is_drunk())
 				if(!has_drunk_status)
@@ -1098,7 +1101,6 @@
 				qdel(status_overlays[DRUNK_STRING])
 				status_overlays -= DRUNK_STRING
 
-			var/BLEEDING_STRING = "bleeding"
 			var/has_bleeding_limb = FALSE
 			var/has_bleeding_status = LAZYISIN(status_overlays, BLEEDING_STRING)
 			for(var/obj/item/organ/external/damaged_limb as anything in bad_external_organs)
@@ -1118,6 +1120,9 @@
 				qdel(status_overlays[status])
 			status_overlays = null
 	return 1
+
+#undef DRUNK_STRING
+#undef BLEEDING_STRING
 
 /mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
 	var/obj/screen/status/new_status = new /obj/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
