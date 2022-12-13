@@ -8,7 +8,7 @@
 	Nonetheless, NanoTrasen has managed to secure itself as a crucial member of the newly-founded Stellar Corporate Conglomerate
 	allowing themselves to remain as a dominant corporate presence within the Orion Spur.
 	</p>"}
-	departments = {"Medical<br>Science<br>Service"}
+	departments = {"Service<br>Medical<br>Research"}
 	title_suffix = "NT"
 
 	is_default = TRUE

@@ -9,7 +9,7 @@
 	claim payment from negligent loan takers. In recent years, they have begun
 	diversifying into more service-based industries.
 	</p>"}
-	departments = {"Security<br>Service"}
+	departments = {"Service<br>Security"}
 	title_suffix = "Idris"
 
 	allowed_role_types = IDRIS_ROLES

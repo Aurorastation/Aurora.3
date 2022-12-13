@@ -8,7 +8,7 @@
 	military force across the Orion Spur. They are the main corporation found in the Empire of
 	Dominia, and are at the forefront of weapons development technology.
 	</p>"}
-	departments = {"Science<br>Security"}
+	departments = {"Security<br>Engineering<br>Research"}
 	title_suffix = "Zavod"
 
 	allowed_role_types = ZAVOD_ROLES
