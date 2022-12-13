@@ -81,7 +81,7 @@
 
 /obj/item/clothing/head/pin/bow
 	name = "bow"
-	desc = "You aren't supposed to see this."
+	desc = DESC_PARENT
 	item_state_slots = list(slot_r_hand_str = "pill", slot_l_hand_str = "pill")
 
 /obj/item/clothing/head/pin/bow/alt
