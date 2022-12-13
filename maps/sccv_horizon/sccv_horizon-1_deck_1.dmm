@@ -1636,7 +1636,6 @@
 "bpL" = (
 /obj/machinery/photocopier,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "bqi" = (
@@ -4039,6 +4038,9 @@
 /obj/item/device/suit_cooling_unit,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
+/obj/machinery/newscaster{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "dmS" = (
@@ -4423,6 +4425,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
+"dCj" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/storage/eva)
 "dCC" = (
 /obj/machinery/sparker{
 	id = "starboard_prop_igni";
@@ -4926,9 +4934,6 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "dYF" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
 /obj/machinery/camera/network/first_deck{
 	c_tag = "First Deck - EVA Storage 2"
 	},
@@ -8775,16 +8780,33 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/suit_cycler,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "gJN" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/firealarm/south,
 /obj/effect/floor_decal/corner/blue/full,
+/obj/machinery/firealarm/west,
+/obj/structure/closet/walllocker/medical{
+	pixel_y = -32
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_y = 4;
+	pixel_x = 4
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = 4
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = -4
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "gKG" = (
@@ -9555,6 +9577,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"hrd" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/storage/eva)
 "hsn" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
 /obj/structure/lattice/catwalk/indoor,
@@ -9717,6 +9745,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/research,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "hzY" = (
@@ -14829,12 +14861,41 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "lNJ" = (
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/item/clothing/shoes/magboots{
+	pixel_y = 4
+	},
+/obj/item/clothing/suit/space/void/security{
+	pixel_y = 4
+	},
+/obj/item/clothing/mask/breath{
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/space/void/security{
+	pixel_y = 4
+	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/security,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/security,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/eva_gear/security,
-/obj/effect/floor_decal/industrial/outline/security,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/window/southleft{
+	name = "Security Voidsuit Storage";
+	req_access = list(2)
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
 "lOi" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -16482,7 +16543,6 @@
 	c_tag = "First Deck - EVA Storage 1";
 	dir = 8
 	},
-/obj/machinery/firealarm/east,
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
@@ -16527,6 +16587,7 @@
 	pixel_y = -4
 	},
 /obj/structure/table/rack,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "mYY" = (
@@ -17410,12 +17471,41 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "nMp" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/obj/structure/closet/secure_closet/eva_gear/medical,
 /obj/effect/floor_decal/industrial/outline/medical,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/item/clothing/shoes/magboots{
+	pixel_y = 4
+	},
+/obj/item/clothing/mask/breath{
+	pixel_y = 4
+	},
+/obj/item/clothing/suit/space/void/medical{
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/space/void/medical{
+	pixel_y = 4
+	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/suit/space/void/medical,
+/obj/item/clothing/head/helmet/space/void/medical,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/southleft{
+	name = "Medical Voidsuit Storage";
+	req_access = list(5)
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
 "nMA" = (
 /obj/structure/cable/green{
@@ -17916,10 +18006,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "ocJ" = (
-/obj/machinery/firealarm/north,
-/obj/machinery/newscaster{
-	pixel_x = -32
-	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -17927,6 +18013,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "ocQ" = (
@@ -18033,6 +18120,12 @@
 "oiS" = (
 /turf/simulated/floor/greengrid/nitrogen,
 /area/engineering/drone_fabrication)
+"ojt" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/storage/eva)
 "okw" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -18668,6 +18761,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"oVb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/storage/eva)
 "oVl" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/test_range)
@@ -19149,11 +19254,33 @@
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod/pod3)
 "poO" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/secure_closet/eva_gear/softsuits,
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/item/clothing/suit/space{
+	pixel_y = 4
+	},
+/obj/item/clothing/mask/breath{
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/space{
+	pixel_y = 4
+	},
+/obj/item/clothing/suit/space,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/northleft{
+	name = "Softsuit Storage"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "ppj" = (
@@ -19951,6 +20078,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "pUK" = (
@@ -20587,13 +20717,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
-	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
 "qpJ" = (
@@ -22037,10 +22164,12 @@
 /area/engineering/drone_fabrication)
 "ryj" = (
 /obj/effect/floor_decal/corner/blue{
-	dir = 5
+	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/security,
-/obj/structure/closet/secure_closet/eva_gear/security,
+/obj/structure/closet/walllocker/firecloset{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "ryA" = (
@@ -24635,6 +24764,9 @@
 	dir = 5
 	},
 /obj/structure/table/rack,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
 "tET" = (
@@ -26304,6 +26436,12 @@
 /obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
+"uUM" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/storage/eva)
 "uUP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/access_button{
@@ -26600,9 +26738,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
+/obj/machinery/newscaster{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
@@ -27545,7 +27682,37 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/research,
-/obj/structure/closet/secure_closet/eva_gear/research,
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/item/clothing/shoes/magboots{
+	pixel_y = 4
+	},
+/obj/item/clothing/suit/space/void/sci{
+	pixel_y = 4
+	},
+/obj/item/clothing/mask/breath{
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/space/void/sci{
+	pixel_y = 4
+	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/sci,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/sci,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/westright{
+	name = "Research Voidsuit Storage";
+	req_access = list(47)
+	},
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
 "vTT" = (
@@ -28053,9 +28220,10 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 6
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
 	},
+/obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "wng" = (
@@ -29374,7 +29542,37 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/research,
-/obj/structure/closet/secure_closet/eva_gear/research,
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/item/clothing/shoes/magboots{
+	pixel_y = 4
+	},
+/obj/item/clothing/suit/space/void/sci{
+	pixel_y = 4
+	},
+/obj/item/clothing/mask/breath{
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/space/void/sci{
+	pixel_y = 4
+	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/sci,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/sci,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/westright{
+	name = "Research Voidsuit Storage";
+	req_access = list(47)
+	},
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
 "xnv" = (
@@ -30264,11 +30462,35 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/maintenance/hangar/starboard)
 "xTb" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/secure_closet/eva_gear/softsuits,
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/item/clothing/suit/space{
+	pixel_y = 4
+	},
+/obj/item/clothing/mask/breath{
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/space{
+	pixel_y = 4
+	},
+/obj/item/clothing/suit/space,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/southleft{
+	name = "Softsuit Storage"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "xTG" = (
@@ -52155,8 +52377,8 @@ jjZ
 oQa
 wRE
 xTb
-cZw
-gzQ
+dCj
+oVb
 poO
 eVw
 jdC
@@ -52357,7 +52579,7 @@ kbo
 geN
 wRE
 xTb
-cZw
+dCj
 pUa
 poO
 eVw
@@ -53568,7 +53790,7 @@ sxT
 lDs
 geN
 dYF
-cZw
+uUM
 cZw
 gzQ
 qDq
@@ -53770,7 +53992,7 @@ jRx
 fzA
 geN
 hmn
-cZw
+hrd
 xCn
 iph
 qDq
@@ -53972,10 +54194,10 @@ ttK
 geN
 geN
 nMp
-cZw
+hrd
 cZw
 fDU
-qDq
+ryj
 wRE
 cfg
 ppA
@@ -54174,7 +54396,7 @@ lyo
 pya
 wRE
 nMp
-cZw
+hrd
 cZw
 fDU
 dlM
@@ -54376,7 +54598,7 @@ lvP
 aNR
 wRE
 nMp
-cZw
+hrd
 cZw
 fDU
 oum
@@ -54578,7 +54800,7 @@ lvP
 mVU
 wRE
 fHn
-cZw
+ojt
 xIh
 nTZ
 hjt
@@ -54779,8 +55001,8 @@ exw
 lvP
 mVU
 wRE
-ryj
-cZw
+lNJ
+ojt
 cZw
 cZw
 roX
