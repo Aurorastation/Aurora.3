@@ -1,5 +1,5 @@
 /*
-Verbs related to getting fucking jacked, bro
+Exercise Verbs
 */
 
 /mob/living/carbon/human/verb/pushup()
@@ -16,12 +16,12 @@ Verbs related to getting fucking jacked, bro
 	set_face_dir(WEST)
 	visible_message(SPAN_NOTICE("[src] gets down and prepares to do some pushups."), SPAN_NOTICE("You get down for some pushups."), SPAN_NOTICE("You hear rustling."))
 
-	switch(alert(src, "Proper pushups or on your knees?", "What kinda pushups, mate.", "Proper ones", "On my knees"))
-		if("Proper ones")
+	switch(alert(src, "Regular pushups or on your knees?", "Pushups", "Regular", "On Knees"))
+		if("Proper Ones")
 			visible_message(SPAN_NOTICE("[src] shifts [get_pronoun("his")] weight onto [get_pronoun("his")] hands and feet."), SPAN_NOTICE("You move your weight onto your hands and feet."), SPAN_NOTICE("You hear rustling."))
 			execute_pushups(on_knees = FALSE)
-		if("On my knees")
-			visible_message(SPAN_NOTICE("[src] shifts [get_pronoun("his")] weight onto [get_pronoun("his")] knees. What a wimp."), SPAN_NOTICE("You move your weight onto your knees. WEAK!"), SPAN_NOTICE("You hear rustling."))
+		if("On Knees")
+			visible_message(SPAN_NOTICE("[src] shifts [get_pronoun("his")] weight onto [get_pronoun("his")] knees."), SPAN_NOTICE("You move your weight onto your knees."), SPAN_NOTICE("You hear rustling."))
 			execute_pushups(on_knees = TRUE)
 
 /mob/living/carbon/human/proc/stop_pushups()
@@ -63,17 +63,17 @@ Verbs related to getting fucking jacked, bro
 		return FALSE
 
 	if(!resting)
-		to_chat(src, SPAN_WARNING("How do you think you'll be able to do a pushup standing up? Get down to the floor!"))
+		to_chat(src, SPAN_WARNING("You need to lie on the floor to do a pushup."))
 		return FALSE
 
 	if(buckled_to)
-		to_chat(src, SPAN_WARNING("How do you think you'll be able to do a pushup while buckled to something? Get down to the floor!"))
+		to_chat(src, SPAN_WARNING("You need to lie on the floor to do a pushup."))
 		return FALSE
 
 	var/list/extremities = list(BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
 	for(var/zone in extremities)
 		if(!get_organ(zone, TRUE))
-			to_chat(src, SPAN_WARNING("How do you think you'll be able to do a pushup without two hands and feet to stand on? See a doctor!"))
+			to_chat(src, SPAN_WARNING("You can't do pushups with missing limbs."))
 			return FALSE
 
 	if(!species.has_stamina_for_pushup(src))
