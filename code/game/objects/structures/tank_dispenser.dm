@@ -9,7 +9,7 @@
 	var/oxygentanks = 10
 	var/phorontanks = 10
 	var/max_tanks = 10
-	var/list/oxygen_tanks = list()	//sorry for the similar var names
+	var/list/oxygen_tanks = list()
 	var/list/phoron_tanks = list()
 
 /obj/structure/dispenser/oxygen
