@@ -200,25 +200,25 @@
 	worn_overlay = "sclip"
 
 /obj/item/clothing/accessory/tie/bowtie
-	name = "bowtie"
-	desc = "A bowtie."
-	icon = 'icons/contained_items/clothing/accessories/neck/bowtie.dmi'
-	icon_state = "bowtie"
-	item_state = "bowtie"
+	name = "bow tie"
+	desc = "A bow tie."
+	icon = 'icons/contained_items/clothing/accessories/neck/bow_tie.dmi'
+	icon_state = "bow_tie"
+	item_state = "bow_tie"
 	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/tie/bow
 	name = "bow"
-	desc = "A bow."
-	icon = 'icons/contained_items/clothing/accessories/neck/bow.dmi'
+	desc = "A bow for adorning the neck."
+	icon = 'icons/contained_items/clothing/accessories/neck/neck_bow.dmi'
 	icon_state = "bow"
 	item_state = "bow"
 	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/tie/ribbon
 	name = "ribbon"
-	desc = "A ribbon."
-	icon = 'icons/contained_items/clothing/accessories/neck/ribbon.dmi'
+	desc = "A ribbon for adorning the neck."
+	icon = 'icons/contained_items/clothing/accessories/neck/neck_ribbon.dmi'
 	icon_state = "ribbon"
 	item_state = "ribbon"
 	contained_sprite = TRUE

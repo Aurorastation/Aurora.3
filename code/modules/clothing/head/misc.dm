@@ -80,21 +80,20 @@
 	desc = "A Silversun dawnflower pin, named after the same flower. This particular version is an artificial recreation, and lacks the distinctive bioluminescence of the original."
 
 /obj/item/clothing/head/pin/bow
-	name = "bow"
+	name = "bow parent item"
 	desc = DESC_PARENT
-	item_state_slots = list(slot_r_hand_str = "pill", slot_l_hand_str = "pill")
 
-/obj/item/clothing/head/pin/bow/alt
+/obj/item/clothing/head/pin/bow/back
 	name = "hair bow"
 	desc = "A hair bow with a small removable clip on the back, so it can be attached to hair or tied into it."
-	icon = 'icons/contained_items/clothing/accessories/hair/hairbow.dmi'
+	icon = 'icons/contained_items/clothing/accessories/hair/hair_bow.dmi'
 	icon_state = "bow"
 	item_state = "bow"
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/pin/bow/hairband
+/obj/item/clothing/head/pin/ribbon
 	name = "hair ribbon"
-	desc = "A glorified length of ribbon acting as a hairband."
+	desc = "A length of ribbon acting as a hairband."
 	icon_state = "hairribbon"
 	item_state = "hairribbon"
 
