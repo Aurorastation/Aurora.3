@@ -6,28 +6,28 @@
 	density = TRUE
 	anchored = TRUE
 	w_class = ITEMSIZE_HUGE
-	var/oxygentanks = 10
-	var/phorontanks = 10
+	var/oxygen_tanks = 10
+	var/phoron_tanks = 10
 	var/max_tanks = 10
-	var/list/oxygen_tanks = list()
-	var/list/phoron_tanks = list()
+	var/list/held_oxygen_tanks = list()
+	var/list/held_phoron_tanks = list()
 
 /obj/structure/dispenser/oxygen
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 oxygen tanks."
-	phorontanks = 0
+	phoron_tanks = 0
 
 /obj/structure/dispenser/oxygen/large
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 20 oxygen tanks."
-	oxygentanks = 20
+	oxygen_tanks = 20
 	max_tanks = 20
 
 /obj/structure/dispenser/phoron
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 phoron tanks."
-	oxygentanks = 0
+	oxygen_tanks = 0
 
 /obj/structure/dispenser/oxygen/large
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 20 phoron tanks."
-	phorontanks = 20
+	phoron_tanks = 20
 	max_tanks = 20
 
 /obj/structure/dispenser/Initialize()
@@ -36,14 +36,14 @@
 
 /obj/structure/dispenser/update_icon()
 	cut_overlays()
-	switch(oxygentanks)
+	switch(oxygen_tanks)
 		if(1 to 4)
-			add_overlay("oxygen-[oxygentanks]")
+			add_overlay("oxygen-[oxygen_tanks]")
 		if(5 to max_tanks)
 			add_overlay("oxygen-5")
-	switch(phorontanks)
+	switch(phoron_tanks)
 		if(1 to 4)
-			add_overlay("phoron-[phorontanks]")
+			add_overlay("phoron-[phoron_tanks]")
 		if(5 to max_tanks)
 			add_overlay("phoron-5")
 
@@ -55,8 +55,8 @@
 /obj/structure/dispenser/attack_hand(mob/user)
 	user.set_machine(src)
 	var/dat = "<br>"
-	dat += "Oxygen Tanks: [oxygentanks] - [oxygentanks ? "<A href='?src=\ref[src];oxygen=1'>Dispense</A>" : "empty"]<br>"
-	dat += "Phoron Tanks: [phorontanks] - [phorontanks ? "<A href='?src=\ref[src];phoron=1'>Dispense</A>" : "empty"]"
+	dat += "Oxygen Tanks: [oxygen_tanks] - [oxygen_tanks ? "<A href='?src=\ref[src];oxygen=1'>Dispense</A>" : "empty"]<br>"
+	dat += "Phoron Tanks: [phoron_tanks] - [phoron_tanks ? "<A href='?src=\ref[src];phoron=1'>Dispense</A>" : "empty"]"
 	
 	var/datum/browser/dispenser_win = new(user, "dispenser", capitalize_first_letters(name), 300, 250)
 	dispenser_win.set_content(dat)
@@ -64,24 +64,24 @@
 
 /obj/structure/dispenser/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/tank/oxygen))
-		if(oxygentanks < max_tanks)
+		if(oxygen_tanks < max_tanks)
 			user.drop_from_inventory(I, src)
-			oxygen_tanks.Add(I)
-			oxygentanks++
+			held_oxygen_tanks.Add(I)
+			oxygen_tanks++
 			to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
-			if(oxygentanks <= 5)
+			if(oxygen_tanks <= 5)
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
 		updateUsrDialog()
 		return
 	if(istype(I, /obj/item/tank/phoron))
-		if(phorontanks < max_tanks)
+		if(phoron_tanks < max_tanks)
 			user.drop_from_inventory(I, src)
-			phoron_tanks.Add(I)
-			phorontanks++
+			held_phoron_tanks.Add(I)
+			phoron_tanks++
 			to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
-			if(oxygentanks <= 5)
+			if(oxygen_tanks <= 5)
 				update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is full."))
@@ -102,28 +102,28 @@
 	if(Adjacent(usr))
 		usr.set_machine(src)
 		if(href_list[GAS_OXYGEN])
-			if(oxygentanks > 0)
+			if(oxygen_tanks > 0)
 				var/obj/item/tank/oxygen/O
-				if(oxygen_tanks.len == oxygentanks)
-					O = oxygen_tanks[1]
-					oxygen_tanks.Remove(O)
+				if(held_oxygen_tanks.len == oxygen_tanks)
+					O = held_oxygen_tanks[1]
+					held_oxygen_tanks.Remove(O)
 				else
 					O = new /obj/item/tank/oxygen(loc)
 				usr.put_in_hands(O)
 				to_chat(usr, SPAN_NOTICE("You take \the [O] out of \the [src]."))
-				oxygentanks--
+				oxygen_tanks--
 				update_icon()
 		if(href_list[GAS_PHORON])
-			if(phorontanks > 0)
+			if(phoron_tanks > 0)
 				var/obj/item/tank/phoron/P
-				if(phoron_tanks.len == phorontanks)
-					P = phoron_tanks[1]
-					phoron_tanks.Remove(P)
+				if(held_phoron_tanks.len == phoron_tanks)
+					P = held_phoron_tanks[1]
+					held_phoron_tanks.Remove(P)
 				else
 					P = new /obj/item/tank/phoron(loc)
 				usr.put_in_hands(P)
 				to_chat(usr, SPAN_NOTICE("You take \the [P] out of \the [src]."))
-				phorontanks--
+				phoron_tanks--
 				update_icon()
 		add_fingerprint(usr)
 		updateUsrDialog()
