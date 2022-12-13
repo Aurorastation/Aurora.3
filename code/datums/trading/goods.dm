@@ -188,7 +188,7 @@
 		/obj/item/clothing/gloves/tesla                 = TRADER_BLACKLIST,
 		/obj/item/clothing/head                         = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/head/beret/centcom           = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/bio_hood                = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/head/hazmat                  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/bomb_hood               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/caphat                  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/centhat                 = TRADER_BLACKLIST,

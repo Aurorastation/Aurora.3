@@ -1053,20 +1053,10 @@
 	},
 /area/shuttle/administration)
 "adj" = (
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
-/obj/structure/closet/l3closet,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/tank/oxygen/red,
-/obj/item/tank/oxygen/red,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/mask/gas/alt,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
+/obj/structure/closet/hazmat/general,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "adk" = (
@@ -1547,7 +1537,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_x = 5;
 	pixel_y = -22
 	},
@@ -7506,7 +7495,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/telecomms/relay/preset/centcom,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -15971,7 +15959,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNQ" = (
-/turf/unsimulated/wall/darkshuttlewall,
+/turf/unsimulated/wall/steel,
 /area/centcom/start{
 	name = "Romanovich Cloud, Tau Ceti"
 	})
@@ -16110,7 +16098,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aOg" = (
-/turf/simulated/floor/holofloor/space,
+/turf/unsimulated/floor,
 /area/centcom/start{
 	name = "Romanovich Cloud, Tau Ceti"
 	})
@@ -17277,7 +17265,7 @@
 /obj/effect/landmark{
 	name = "start"
 	},
-/turf/simulated/floor/holofloor/space,
+/turf/unsimulated/floor,
 /area/centcom/start{
 	name = "Romanovich Cloud, Tau Ceti"
 	})
@@ -26122,7 +26110,6 @@
 /obj/item/clothing/mask/horsehead,
 /obj/item/clothing/mask/gas/monkeymask,
 /obj/item/clothing/mask/luchador/tecnicos,
-/obj/item/clothing/mask/gas/plaguedoctor,
 /obj/item/clothing/shoes/laceup/brown/all_species,
 /obj/item/clothing/shoes/laceup/brown/all_species,
 /obj/item/clothing/shoes/workboots,
@@ -26948,17 +26935,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "blE" = (
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
-/obj/structure/closet/l3closet,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/tank/oxygen/red,
-/obj/item/tank/oxygen/red,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/mask/gas/alt,
+/obj/structure/closet/hazmat/general,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "blH" = (
@@ -31292,7 +31269,6 @@
 /obj/item/clothing/mask/horsehead,
 /obj/item/clothing/mask/gas/monkeymask,
 /obj/item/clothing/mask/luchador/tecnicos,
-/obj/item/clothing/mask/gas/plaguedoctor,
 /obj/item/clothing/shoes/laceup/brown/all_species,
 /obj/item/clothing/shoes/laceup/brown/all_species,
 /obj/item/clothing/shoes/workboots,
@@ -31408,9 +31384,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/telecomms/allinone{
-	intercept = 1
-	},
+/obj/machinery/telecomms/allinone,
 /turf/simulated/floor/plating,
 /area/shuttle/mercenary)
 "buI" = (
@@ -36814,6 +36788,11 @@
 	icon_state = "dark2"
 	},
 /area/centcom/ferry)
+"iWB" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/telecomms/allinone,
+/turf/simulated/floor/plating,
+/area/shuttle/skipjack)
 "iWH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -98436,7 +98415,7 @@ bza
 bBh
 bBC
 bCo
-bza
+iWB
 bDw
 bEI
 bES

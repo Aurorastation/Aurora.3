@@ -830,11 +830,7 @@
 	},
 /area/database_freighter/checkpoint)
 "dw" = (
-/obj/machinery/power/portgen/basic/advanced,
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
+/obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "dy" = (
@@ -1672,11 +1668,6 @@
 	},
 /area/database_freighter/storage)
 "hJ" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "database_checkpoint";
-	icon_state = "pdoor0"
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -1690,6 +1681,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "database_checkpoint"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1780,7 +1775,8 @@
 "ik" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/tajara/jackboots,
-/obj/item/clothing/under/tajaran/database_freighter,
+/obj/item/clothing/under/tajaran/database_freighter/captain,
+/obj/item/clothing/suit/storage/toggle/labcoat,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -1850,10 +1846,10 @@
 "iK" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	id_tag = "headmaster_shuttle_dock";
 	req_one_access = list(31,48,67);
 	tag_door = "mining_shuttle_dock_doors";
-	pixel_x = -25
+	pixel_x = -25;
+	id_tag = "database_freighter_shuttle_dock"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1996,10 +1992,9 @@
 /area/database_freighter)
 "jJ" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/open{
 	dir = 2;
-	id = "database_bridge";
-	icon_state = "pdoor0"
+	id = "database_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -2029,7 +2024,7 @@
 	},
 /area/database_freighter/bridge)
 "jV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -2076,7 +2071,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/media/jukebox/phonograph,
+/obj/machinery/media/jukebox/phonograph{
+	anchored = 1
+	},
 /obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 1
@@ -2102,11 +2099,11 @@
 /area/database_freighter)
 "kn" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(209);
@@ -2429,14 +2426,13 @@
 	},
 /area/database_freighter/engineering)
 "mj" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "database_checkpoint";
-	icon_state = "pdoor0"
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
 	icon_state = "corner_white"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "database_checkpoint"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2444,10 +2440,9 @@
 /area/database_freighter)
 "mk" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "database_bridge";
-	icon_state = "pdoor0"
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "database_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -2476,13 +2471,12 @@
 /area/database_freighter/barracks)
 "mr" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "database_bridge";
-	icon_state = "pdoor0"
-	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "database_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3231,11 +3225,6 @@
 /turf/simulated/wall/shuttle/raider,
 /area/database_freighter/hangar)
 "yr" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "database_checkpoint";
-	icon_state = "pdoor0"
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
 	icon_state = "corner_white"
@@ -3244,6 +3233,10 @@
 	req_one_access = list(209);
 	dir = 1;
 	pixel_y = -32
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "database_checkpoint"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3403,11 +3396,11 @@
 /area/database_freighter/engine)
 "AK" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(209);
@@ -3529,11 +3522,11 @@
 /area/database_freighter/laboratory)
 "Cx" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(209);
@@ -3667,32 +3660,13 @@
 /turf/template_noop,
 /area/space)
 "Ea" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "database_checkpoint";
-	icon_state = "pdoor0"
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d2 = 2;
+	icon_state = "0-2"
 	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/database_freighter)
+/obj/machinery/power/portgen/basic/fusion,
+/turf/simulated/floor/plating,
+/area/database_freighter/engine)
 "Eh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
@@ -3704,9 +3678,7 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window{
-	req_one_access = "112"
-	},
+/obj/machinery/door/window,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -3959,11 +3931,9 @@
 /area/database_freighter/engine)
 "Jv" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3994,6 +3964,12 @@
 	temperature = 278.15
 	},
 /area/database_freighter/barracks)
+"JX" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/space)
 "JZ" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4059,7 +4035,7 @@
 	},
 /area/database_freighter)
 "Lu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
 /turf/simulated/floor{
@@ -4168,14 +4144,12 @@
 /area/database_freighter/hangar)
 "Nm" = (
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = 10
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -4319,11 +4293,6 @@
 /area/database_freighter/engine)
 "PH" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "database_bridge";
-	icon_state = "pdoor0"
-	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4413,13 +4382,18 @@
 /area/database_freighter)
 "Rg" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "database_bridge";
-	icon_state = "pdoor0"
-	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, hull"
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/database_freighter)
+"Rs" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "database_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -4800,11 +4774,6 @@
 /area/database_freighter/captain_quarters)
 "Zq" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "database_bridge";
-	icon_state = "pdoor0"
-	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -7485,7 +7454,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -8474,7 +8443,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -8603,7 +8572,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -10277,7 +10246,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -11868,7 +11837,7 @@ ki
 BF
 BF
 ew
-Zq
+Rs
 iB
 iB
 mb
@@ -12969,7 +12938,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -13304,7 +13273,7 @@ iB
 iB
 iB
 xw
-dw
+Ea
 Db
 rj
 xw
@@ -13489,7 +13458,7 @@ Zf
 Zf
 Zf
 mb
-eX
+gh
 PV
 pN
 nz
@@ -13651,7 +13620,7 @@ Nf
 ge
 yo
 mb
-Ea
+hJ
 mj
 mb
 Kf
@@ -13675,7 +13644,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -15300,7 +15269,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -16230,7 +16199,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -18525,7 +18494,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -18804,7 +18773,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -19632,7 +19601,7 @@ iB
 iB
 iB
 iB
-iB
+JX
 iB
 iB
 iB

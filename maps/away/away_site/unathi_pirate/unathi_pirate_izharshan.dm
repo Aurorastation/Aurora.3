@@ -4,7 +4,7 @@
 	description = "An empty sector."
 	suffix = "away_site/unathi_pirate/unathi_pirate_izharshan.dmm"
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/unathi_pirate_izharshan)
 	sectors = list(SECTOR_NRRAHRAHUL, SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
@@ -38,6 +38,7 @@
 
 /obj/item/storage/secure/safe/unathi_pirate_izharshan
 	starts_with = list(
+	/obj/item/ship_ammunition/bruiser/he = 1,
 	/obj/item/clothing/accessory/badge/passport/dominia = 1,
 	/obj/item/clothing/accessory/badge/passport/coc = 1,
 	/obj/item/spacecash/c1000 = 1,
@@ -79,6 +80,7 @@
 	vessel_mass = 7500 //This truck is too damn big
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
+	comms_name = "modified"
 
 /obj/machinery/computer/shuttle_control/explore/unathi_pirate_izharshan
 	name = "shuttle control console"

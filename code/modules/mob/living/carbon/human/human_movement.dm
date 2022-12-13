@@ -31,10 +31,6 @@
 
 	tally += species.handle_movement_tally(src)
 
-	if (can_feel_pain())
-		if(shock_stage >= 10)
-			tally += 3
-
 	if(is_asystole())
 		tally += 10  //heart attacks are kinda distracting
 

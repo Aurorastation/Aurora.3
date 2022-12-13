@@ -57,6 +57,8 @@ if(Datum.isprocessing) {\
 	var/list/obj/machinery/hologram/holopad/all_holopads = list()
 	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
 	var/list/gravity_generators = list()
+	var/list/obj/machinery/telecomms/all_telecomms = list()
+	var/list/obj/machinery/telecomms/all_receivers = list()
 
 	var/list/rcon_smes_units = list()
 	var/list/rcon_smes_units_by_tag = list()
@@ -76,8 +78,10 @@ if(Datum.isprocessing) {\
 	all_cameras = SSmachinery.all_cameras
 	all_holopads = SSmachinery.all_holopads
 	recipe_datums = SSmachinery.recipe_datums
-	breaker_boxes = breaker_boxes
-	all_sensors = all_sensors
+	breaker_boxes = SSmachinery.breaker_boxes
+	all_sensors = SSmachinery.all_sensors
+	all_telecomms = SSmachinery.all_telecomms
+	all_receivers = SSmachinery.all_receivers
 	current_step = SSMACHINERY_PIPENETS
 
 /datum/controller/subsystem/machinery/New()

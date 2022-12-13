@@ -477,6 +477,8 @@
 	desc = "A traditional Japanese kimono."
 	icon_state = "kimono"
 	item_state = "kimono"
+	icon = 'icons/clothing/under/uniforms/kimono.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/kimono/ronin
 	name = "ronin kimono"
@@ -486,7 +488,7 @@
 
 /obj/item/clothing/under/kimono/fancy
 	name = "fancy kimono"
-	desc = "A Japanese kimono, this one is very luxurious. It brings to mine iced tea cans."
+	desc = "A Japanese kimono, this one is very luxurious. It brings to mind iced tea cans."
 	icon_state = "fancy_kimono"
 	item_state = "fancy_kimono"
 

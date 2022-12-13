@@ -494,6 +494,21 @@
 	..()
 	icon_state = (ammo_magazine)? "tommygun" : "tommygun-empty"
 
+/obj/item/gun/projectile/automatic/tommygun/dom
+	name = "dominian submachine gun"
+	desc = "A .45 caliber submachine gun featuring a novel top loading configuration, used by the Empire of Dominia's armed forces."
+	desc_extended = "The Moroz Pattern Machine Carbine, Model of 2430 is a lightweight, handy weapon intended for use by vehicle crews, airborne troops, and other units that do not require a full-length rifle. \
+	Simplistic in design and function, the MPMC-30 is highly reliable in nearly all environments, lending itself well to use by colonial forces. In particular, the Imperial Fisanduhian Gendarmerie are known to make heavy use of the weapon."
+	icon = 'icons/obj/guns/dom_smg.dmi'
+	icon_state = "owen"
+	item_state = "owen"
+	max_shells = 20
+	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag)
+
+/obj/item/gun/projectile/automatic/tommygun/dom/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "owen" : "owen-empty"
+
 /obj/item/gun/projectile/automatic/railgun
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."

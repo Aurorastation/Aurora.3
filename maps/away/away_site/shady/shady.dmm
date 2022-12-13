@@ -557,8 +557,8 @@
 "hB" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/hideout)

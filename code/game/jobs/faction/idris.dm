@@ -80,7 +80,7 @@
 	name = "Investigator - Idris"
 
 	uniform = /obj/item/clothing/under/det/idris
-	suit = /obj/item/clothing/suit/storage/det_jacket/idris
+	suit = /obj/item/clothing/suit/storage/security/investigator/idris
 	id = /obj/item/card/id/idris/sec
 
 	backpack_faction = /obj/item/storage/backpack/idris
@@ -183,7 +183,6 @@
 	head = /obj/item/clothing/head/beret/corporate/idris
 	uniform = /obj/item/clothing/under/rank/liaison/idris
 	suit = /obj/item/clothing/suit/storage/liaison/idris
-	implants = null
 	id = /obj/item/card/id/idris
 	accessory = /obj/item/clothing/accessory/tie/corporate/idris
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/idris

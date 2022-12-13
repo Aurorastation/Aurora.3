@@ -1,2 +1,2 @@
 #define GLOBAL_PROC	"some_magic_bullshit"
-#define DESC_PARENT_ITEM "A parent item. You are not supposed to have this. Please make an issue report."
+#define DESC_PARENT "You shouldn't be seeing this. Please make an issue report."

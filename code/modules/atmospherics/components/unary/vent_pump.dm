@@ -16,7 +16,7 @@
 
 	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
-	power_rating = 7500			//7500 W ~ 10 HP
+	power_rating = 30000			//30000 W ~ 40 HP
 
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY //connects to regular and supply pipes
 
@@ -119,7 +119,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume
 	name = "Large Air Vent"
 	power_channel = EQUIP
-	power_rating = 15000	//15 kW ~ 20 HP
+	power_rating = 45000	//45 kW ~ 60 HP
 
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/Initialize()
 	. = ..()
@@ -128,7 +128,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/engine
 	name = "Reactor Core Vent"
 	power_channel = ENVIRON
-	power_rating = 30000	//15 kW ~ 20 HP
+	power_rating = 30000	//30 kW ~ 40 HP
 
 /obj/machinery/atmospherics/unary/vent_pump/engine/Initialize()
 	. = ..()

@@ -49,7 +49,7 @@
 /datum/ghostspawner/human/elyran_naval_infantry/officer
 	short_name = "elyran_naval_infantry_officer"
 	name = "Elyran Naval Infantry Officer"
-	desc = "Command and pilot the Elyran naval infantry strike craft."
+	desc = "Command and pilot the Elyran naval infantry strike craft. (OOC Note: All characters must be of Elyran ethnic origin and background, this is enforceable by admin/moderator action.)"
 	mob_name_prefix = "ENS. "
 
 	spawnpoints = list("elyran_naval_infantry_officer")

@@ -35,6 +35,385 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">13 December 2022</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The submachine gun&#x27;s sprites are no longer missing.</li>
+				<li class="bugfix">The anomaly suit&#x27;s sprites are no longer missing</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Audible emotes (say !emote ...) are now audible by other players again.</li>
+				<li class="bugfix">Fixed runechat breaking on bolded audible emotes.</li>
+				<li class="backend">Deleted / cleaned up some unused saycode.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tricordrazine now needs water to react, which makes Tricordrazine no longer mix in your bloodstream if you inject inaprovaline and dylovene at the same time.</li>
+				<li class="bugfix">Fixes empty hazmat gear closets spawning in operations.</li>
+				<li class="rscadd">Adds a new hair ribbon, a neck ribbon, and a neck bow.</li>
+			</ul>
+			<h3 class="author">anconfuzedrock updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">The tramp freighter now has a gun. yeah.</li>
+				<li class="tweak">The budgets for away sites with ghost spawners and ruins have been seperated, ensuring a mix of both in rounds.</li>
+			</ul>
+			<h3 class="author">anconfuzedrock, CNEGecko updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Unathi pirate voidsuits have softer outlines.</li>
+			</ul>
+			<h3 class="author">listerla updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Reduced handheld mirror&#x27;s size.</li>
+			</ul>
+
+			<h2 class="date">12 December 2022</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Asteroid exoplanets now have an unique overmap object.</li>
+			</ul>
+			<h3 class="author">Connorjg1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Vaurca warriors are weaker against brute damage now and can now be killed easier.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Requests console input can now be canceled, and no longer permits you to send faxes from three rooms away.</li>
+				<li class="bugfix">Hoists can no longer move through catwalks and/or lattices.</li>
+				<li class="bugfix">Hoists no longer cause issues when hoisting mobs.</li>
+				<li class="bugfix">Hoists can now hoist occupied air bubbles.</li>
+				<li class="tweak">Clicking on hoist hooks now detach what they&#x27;re holding to the turf beneath the hoist.</li>
+				<li class="bugfix">SCC telecomms staff now remember to regularly rotate the message server&#x27;s password once again.</li>
+				<li class="bugfix">Fixed intercoms not broadcasting radio messages.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Makes overhead text for audible emotes visually separate from regular talking.</li>
+			</ul>
+
+			<h2 class="date">10 December 2022</h2>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed away site telecomms AIOs not initializing properly, causing comms to fail.</li>
+				<li class="bugfix">Fixed AI shells having no access.</li>
+				<li class="bugfix">Fixed AI / borgs / etc. speaking locally when sending a radio message.</li>
+			</ul>
+			<h3 class="author">MattAtlas, Wildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">You are no longer affected by ship maneuvers if there is an active gravity generator.</li>
+				<li class="bugfix">AIs no longer get thrown around by ship maneuvers.</li>
+			</ul>
+			<h3 class="author">PoZe updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Sensor suit will now have 5 different icon states depending on range it is set to (Since our range is not a constant and could change in code, I did not make it 7 but rather precentage of max view range). It also has another icon effect if heat is above 85%.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the command bunker blast door being accessible to anyone.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes alignment of turf windows.</li>
+			</ul>
+			<h3 class="author">listerla updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Filled in a pixel on the short shorts, to prevent clipping.</li>
+			</ul>
+
+			<h2 class="date">09 December 2022</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Two exoplanets of the same type should no longer spawn.</li>
+			</ul>
+			<h3 class="author">GeneralCamo & Bloodpriest updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Ported Atmospheric Pipe Meter sprites from Eris.</li>
+				<li class="tweak">Ported Airlock Sensor, Control, and Access Control sprites from Eris.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Tcomms relays have been removed. All telecomms machines now handle traffic on all connected z-levels by default, making them superfluous.</li>
+				<li class="refactor">Ported and overhauled generated away site frequencies from Bay. Away ships and sites now have their own radio frequency, accessible via &#x27;;&#x27; or &#x27;:h&#x27;.</li>
+				<li class="rscadd">Hailing frequency, &#x27;:y&#x27;, added to all ships and most of the command / exploration crew on the Horizon. Radios (headsets) now have a button to reset to their preset frequency, if tuned away.</li>
+				<li class="backend">Significantly overhauled the systems underpinning telecomms / radio broadcasts, relying more directly on /datum/signal creation.</li>
+				<li class="backend">Ported the spatial grid / orthogonal range search algorithms from /tg/, making checks for hearers in range much faster, and thus easing server load during high-pop events.</li>
+				<li class="backend">Ported the trait system from /tg/ and refactored / reorganized telecomms machines as necessary for the above changes.</li>
+			</ul>
+			<h3 class="author">PoZe updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Reworked cyborg&#x27;s access to be role specific and reflect their crewmate&#x27;s access for the same role/department.</li>
+				<li class="rscadd">Added ability to change cyborg&#x27;s access in Robotics Control Console from role specific to all access and vice-versa.</li>
+				<li class="rscadd">Added displaying of what access type cyborg has in status tab.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Moves the bunker to a more central location on deck 3.</li>
+				<li class="bugfix">Fixes the atmospherics volume tanks starting at 15000 kPa output pressure.</li>
+			</ul>
+
+			<h2 class="date">08 December 2022</h2>
+			<h3 class="author">Connorjg1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">K&#x27;lax Hopeful Helmets are now flash proof so Vaurca can fight with their eyes intact.</li>
+				<li class="bugfix">Fixes a door on the Kataphract vessel named incorrectly and fixes a wall in the way of re-fueling the vessel.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Custom borg sprites can now be selected again.</li>
+			</ul>
+			<h3 class="author">Sheeplets updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Removes the ability to perform surgery on stasis beds.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Cleans up the biosuits code and renames them to hazmat suits. Renames the level 3 biohazard closets to hazmat gear closets.</li>
+			</ul>
+			<h3 class="author">TheDanseMacabre updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a large number of weapons to the antag uplink. Some are very strong, and very expensive!</li>
+				<li class="balance">Gave the energy sword enough armor penetration to do around half damage through heavy armor.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Guests no longer get warnings for multikeying (For testing purposes).</li>
+			</ul>
+
+			<h2 class="date">07 December 2022</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed some messed up pipes in the scrapper ship.</li>
+				<li class="bugfix">Fixed a window with the wrong access at the pra database ship.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">The piece of the Dominia cape that renders between your legs now gets hidden by tails or other clothes.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Removed SCC Assistants and Representatives that were unintentionally added.</li>
+			</ul>
+			<h3 class="author">KingOfThePing updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added two alternative job titles for medical intern. One is for aspiring surgeons, one for Medics in the making.</li>
+				<li class="rscadd">To be more consistent, interns dont have specialized medical access anymore.</li>
+			</ul>
+			<h3 class="author">PoZe updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Majorily increased maximum power rating for most atmospherics devices. Refer to the pull request for exact numbers: https://github.com/Aurorastation/Aurora.3/pull/15229</li>
+				<li class="tweak">Refactored atmospherics omni gas filters&#x27; and mixers&#x27; UI to be more like a gas pump. Added display of current power usage.</li>
+			</ul>
+			<h3 class="author">SilverSZ updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Allows Solarian IPC to take the Visegradi and San Colettish accents</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the maintenance turf initializer not respecting the is_open() proc.</li>
+				<li class="bugfix">Fixes abyss turfs not utilizing the is_open() proc.</li>
+				<li class="bugfix">Fixes abyss turfs not respecting lattices and its children, only catwalks.</li>
+				<li class="bugfix">Fixes rollerbed inhands being mirrored.</li>
+				<li class="bugfix">Fixes a table in the brig communal room.</li>
+				<li class="backend">Adds a generic preset for the turf initializer.</li>
+				<li class="rscadd">Adds some Sol floor decals to the code.</li>
+				<li class="bugfix">Removes a leftover sign where cryo used to be on deck 3.</li>
+			</ul>
+			<h3 class="author">TheDanseMacabre updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a Southern Solarian Military District third party ship. Also adds a Visegrad flag, and a Solarian military IPC uniform.</li>
+				<li class="bugfix">Fixes a problem with the TCFL ship roles not all being able to spawn at the same time.</li>
+				<li class="tweak">Changed the shading slightly on a few Solarian uniforms.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Elevator doors are now see-through again.</li>
+			</ul>
+
+			<h2 class="date">04 December 2022</h2>
+			<h3 class="author">Connorjg1/Talion updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Vaurca warriors have undergone large balance tweaks. They are now more powerful across the board, having better laser resist, less bleeding and have had their mandible ability replaced with a mandible attack.</li>
+			</ul>
+			<h3 class="author">Roostercat12 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed Bulwark augment markings replacing the normal vaurca ones.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes odd behavior with bags saving.</li>
+				<li class="bugfix">Bag strap adjusting works properly now.</li>
+				<li class="bugfix">You no longer can color bags that can&#x27;t be colored.</li>
+				<li class="tweak">Faction specific bags are now default.</li>
+			</ul>
+
+			<h2 class="date">03 December 2022</h2>
+			<h3 class="author">Connorjg1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a spelling mistake in Pineneedle Brand white wine.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">NanoTrasen Corporate Representatives aboard the SCCV Horizon are no longer required to have a mindshield implant. All existing implants have been complementarily removed during the last scheduled physical for all NanoTrasen Corporate Representatives.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Map reader will now properly mapload initialize /area atoms for away site areas.</li>
+				<li class="backend">Cables now correctly override their direction vars to match the set icon state, making mapped-in d1/d2 vars superfluous.</li>
+			</ul>
+			<h3 class="author">Roostercat12 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added various Bulwark Augment Body Markings.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Removes two leftover walls in maintenance on deck 2.</li>
+			</ul>
+			<h3 class="author">atteria updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Resprited the kimono</li>
+			</ul>
+
+			<h2 class="date">02 December 2022</h2>
+			<h3 class="author">Connorjg1/Talion updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Portable Fusion Generator incorrectly had Uranium listed as the fuel source. It is not Tritium as expected.</li>
+			</ul>
+			<h3 class="author">Omicega updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixes some mislabelled/misnamed stuff on the COC ranger ship and gives them minor inventory tweaks besides.</li>
+			</ul>
+			<h3 class="author">Peppermint updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Adds the correct window to the CoC armory.</li>
+				<li class="maptweak">Adds the correct ammo type (HE) to the CoC armory.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Makes the worn bunny slippers a child of the bunny slippers.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Worn bunny slippers are species unrestricted like the normal bunny slippers now.</li>
+			</ul>
+
+			<h2 class="date">01 December 2022</h2>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Damage values of 7.62, 5.56 and midlasers have been all nerfed.</li>
+				<li class="balance">Security&#x27;s ballistic and ablative armour have been heavily nerfed. They now only block around 5 more damage, instead of blocking over half.</li>
+				<li class="balance">Combat stims&#x27; chems have been compacted into one new chem, Kilosemine, with increased metabolisation rate (0.6u/tick) and without the effects of Oxycomorphine. Combat hyposprays start with ten units, which can be spread out across two injections.</li>
+				<li class="balance">Personal shields no longer recharge on their own. They have a cell, which can be recharged and cannot be manually replaced. Passive upkeep is 2 charge every 2 seconds or so, whereas blocking a bullet is 200 charge per shot. Their size has been reduced to normal, so they can fit in backpacks.</li>
+				<li class="bugfix">Shuttle walls are now reinforced.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the Spark dock being pressurized. Replaces the dock airlocks with regular doors.</li>
+			</ul>
+			<h3 class="author">atteria updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added enlisted and officer uniforms for the Dominian fleet.</li>
+			</ul>
+
+			<h2 class="date">30 November 2022</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">The Tajaran smuggler ship now has working atmos and power.</li>
+				<li class="maptweak">The Tajaran smuggler ship can now eject its cargo hold.</li>
+			</ul>
+			<h3 class="author">Nope63 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Added an alt version for the Zavodskoi warden coat and hat, as well as the ability to select them from the loadout.</li>
+				<li class="bugfix">Removed the parent version of the warden hat, which was mistakenly labelled as the Zavod warden hat.</li>
+			</ul>
+
+			<h2 class="date">29 November 2022</h2>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the Longbow&#x27;s barrel not being mapped in appropiately.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">SSD no longer immediately puts you to sleep - only after 5 minutes will your character drop on the ground. Also, adds an overlay to indicate when someone&#x27;s SSD.</li>
+			</ul>
+
+			<h2 class="date">28 November 2022</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed some mapping issues in some Tajaran ships.</li>
+				<li class="tweak">The scrapper and the mining jack ghost roles now spawn inside the ship.</li>
+				<li class="tweak">Added some food to the mining jack base.</li>
+			</ul>
+			<h3 class="author">Spud2 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds &quot;*Missing*&quot; as a possible physical status in medical records.</li>
+			</ul>
+
+			<h2 class="date">27 November 2022</h2>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed the in-game Sol Alliance flag to reflect the flag in canon.</li>
+				<li class="tweak">Purged all references to &quot;SolGov&quot;, as this is now considered a non-canon remnant from Baystation.</li>
+				<li class="tweak">Updated the descriptions for Sol Alliance citizenship, and Hephaestus Industries membership.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Removes manually mapped names on intercoms. Implements coded-in intercom subtypes where applicable.</li>
+				<li class="maptweak">Relocates the Longbow to near the deck 3 port docks.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes following shipbounds from the crew manifest as a ghost.</li>
+			</ul>
+			<h3 class="author">anconfuzedrock updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Five new ammo types for the unathi bruiser cannon ship weapon-the Izharshan freighter gets one cheap HE shell in the safe, and advanced versions of existing ammo types alongside AP are admin spawnable..</li>
+				<li class="tweak">Ship ammo can now be made different weights that can be carried with difficulty by larger or smaller species.</li>
+				<li class="tweak">The bruiser now shoots 178mm shells that require you to be larger than a human to carry by hand, and even then require more effort.</li>
+			</ul>
+
+			<h2 class="date">25 November 2022</h2>
+			<h3 class="author">CinnySuccubus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Removes minimum temperature limit (50K) from Xion frames, making them immune to the cold and allowing them to mine on ice planets and other environments below this limit.</li>
+			</ul>
+			<h3 class="author">KingOfThePing updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added four new rifle reload sounds.</li>
+				<li class="rscdel">Removed one subpar rifle reload sound.</li>
+				<li class="tweak">Updated the sprites for the stunrevolver and the speedloaders.</li>
+			</ul>
+			<h3 class="author">Yonnimer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds new Dionae-themed airlocks and table sprites</li>
+			</ul>
+
+			<h2 class="date">24 November 2022</h2>
+			<h3 class="author">BLUNTFORCE420 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds .45 SMG for Dominia.</li>
+			</ul>
+			<h3 class="author">FearTheBlackout updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Adds a CondiMaster and a bottle of space spice to the Bar.</li>
+			</ul>
+			<h3 class="author">KingOfThePing updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the tajaran light brown fur scarf to be misaligned by two pixels.</li>
+			</ul>
+			<h3 class="author">Omicega updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Limits the big quake stompy jump version of the jump manoeuvre to very big species only, rather than just big ones.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Removes the unused investigator jacket.</li>
+			</ul>
+			<h3 class="author">Sophiemint updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Increases Grauwolf ammo for the FSF, SFA, Elyran Strike Craft, and CoC Rangers.</li>
+				<li class="maptweak">Added some extra flavour items for the CoC ranger captain&#x27;s wardrobe.</li>
+			</ul>
+
 			<h2 class="date">23 November 2022</h2>
 			<h3 class="author">Alberyk updated:</h3>
 			<ul class="changes bgimages16">

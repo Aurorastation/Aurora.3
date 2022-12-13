@@ -219,6 +219,16 @@ Class Procs:
 /obj/machinery/proc/inoperable(var/additional_flags = 0)
 	return (stat & (NOPOWER|BROKEN|additional_flags))
 
+/obj/machinery/proc/toggle_power(power_set = -1, additional_flags = 0)
+	if(power_set >= 0)
+		update_use_power(power_set)
+	else if (use_power || inoperable(additional_flags))
+		update_use_power(POWER_USE_OFF)
+	else
+		update_use_power(initial(use_power))
+
+	update_icon()
+
 /obj/machinery/CanUseTopic(var/mob/user)
 	if(stat & BROKEN)
 		return STATUS_CLOSE

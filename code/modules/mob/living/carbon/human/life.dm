@@ -197,30 +197,10 @@
 		if(prob(5))
 			emote("cough")
 
-	if (disabilities & TOURETTES)
-		speech_problem_flag = 1
-		if ((prob(10) && paralysis <= 1))
-			Stun(10)
-			spawn( 0 )
-				switch(rand(1, 3))
-					if(1)
-						emote("twitch")
-					if(2 to 3)
-						say("[prob(50) ? ";" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]")
-				var/old_x = pixel_x
-				var/old_y = pixel_y
-				pixel_x += rand(-2,2)
-				pixel_y += rand(-1,1)
-				sleep(2)
-				pixel_x = old_x
-				pixel_y = old_y
-				return
 	if(disabilities & STUTTERING)
 		var/aid = 1 + chem_effects[CE_NOSTUTTER]
-		if(aid < 3) //NOSTUTTER at 2 or above prevents it completely.
-			speech_problem_flag = 1
-			if(prob(10/aid))
-				stuttering = max(10/aid, stuttering)
+		if(aid < 3 && prob(10/aid)) //NOSTUTTER at 2 or above prevents it completely.
+			stuttering = max(10/aid, stuttering)
 
 /mob/living/carbon/human/handle_mutations_and_radiation()
 	if(InStasis())
@@ -236,7 +216,6 @@
 		if(!gene.block)
 			continue
 		if(gene.is_active(src))
-			speech_problem_flag = 1
 			gene.OnMobLife(src)
 
 	total_radiation = Clamp(total_radiation,0,100)
@@ -741,7 +720,7 @@
 		return 0
 
 	//SSD check, if a logged player is awake put them back to sleep!
-	if(species.show_ssd && (!client && !vr_mob) && !teleop)
+	if(species.show_ssd && (!client && !vr_mob) && !teleop && ((world.realtime - disconnect_time) >= 5 MINUTES)) //only sleep after 5 minutes, should help those with intermittent internet connections
 		Sleeping(2)
 	if(stat == DEAD)	//DEAD. BROWN BREAD. SWIMMING WITH THE SPESS CARP
 		blinded = 1
@@ -782,7 +761,6 @@
 			AdjustParalysis(-1)
 
 		else if(sleeping)
-			speech_problem_flag = 1
 			handle_dreams()
 			if(mind)
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
@@ -1303,34 +1281,6 @@
 				holder.icon_state = "hudsyndicate"
 			hud_list[SPECIALROLE_HUD] = holder
 	hud_updateflag = 0
-
-/mob/living/carbon/human/handle_silent()
-	if(..())
-		speech_problem_flag = 1
-	return silent
-
-/mob/living/carbon/human/handle_slurring()
-	if(..())
-		speech_problem_flag = 1
-	return slurring
-
-/mob/living/carbon/human/handle_stunned()
-	if(!can_feel_pain())
-		stunned = 0
-		return 0
-	if(..())
-		speech_problem_flag = 1
-	return stunned
-
-/mob/living/carbon/human/handle_stuttering()
-	if(..())
-		speech_problem_flag = 1
-	return stuttering
-
-/mob/living/carbon/human/handle_tarded()
-	if(..())
-		speech_problem_flag = 1
-	return tarded
 
 /mob/living/carbon/human/handle_fire()
 	if(..())

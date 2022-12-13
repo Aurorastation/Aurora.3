@@ -112,14 +112,11 @@ obj/item/clothing/shoes/sandal/clogs
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
-/obj/item/clothing/shoes/slippers_worn
+/obj/item/clothing/shoes/slippers/worn
 	name = "worn bunny slippers"
 	desc = "Fluffy..."
 	icon_state = "slippers_worn"
 	item_state = "slippers_worn"
-	force = 0
-	w_class = ITEMSIZE_SMALL
-	silent = 1
 
 /obj/item/clothing/shoes/laceup
 	name = "black oxford shoes"

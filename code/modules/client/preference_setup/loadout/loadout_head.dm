@@ -110,7 +110,8 @@
 /datum/gear/head/warden/New()
 	..()
 	var/list/wardenhead = list()
-	wardenhead["warden hat, zavod"] = /obj/item/clothing/head/warden
+	wardenhead["warden hat, zavod"] = /obj/item/clothing/head/warden/zavod
+	wardenhead["warden hat, zavod alt"] = /obj/item/clothing/head/warden/zavod/alt
 	wardenhead["warden hat, idris"] = /obj/item/clothing/head/warden/idris
 	wardenhead["warden hat, pmc"] = /obj/item/clothing/head/warden/pmc
 	wardenhead["warden beret"] = /obj/item/clothing/head/beret/security/warden
@@ -144,11 +145,6 @@
 	hardhat["hard hat, hephaestus green"] = /obj/item/clothing/head/hardhat/green
 	gear_tweaks += new /datum/gear_tweak/path(hardhat)
 
-/datum/gear/head/hairflower
-	display_name = "hair flower pin (colorable)"
-	path = /obj/item/clothing/head/pin/flower/white
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/head/flowercrown
 	display_name = "flowercrown selection"
 	description = "A set of flowercrowns, perfect for the queen or even the king."
@@ -162,18 +158,42 @@
 	flowercrown["crown, poppy"] = /obj/item/clothing/head/poppy_crown
 	gear_tweaks += new /datum/gear_tweak/path(flowercrown)
 
-/datum/gear/head/pin
-	display_name = "pin selection"
+/datum/gear/head/hair_accessories
+	display_name = "hair accessories selection"
+	description = "A selection of hair accessories."
+	path = /obj/item/clothing/head/pin
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/hair_accessories/New()
+	..()
+	var/list/hair_accessories = list()
+	hair_accessories["hair pin, red flower"] = /obj/item/clothing/head/pin/flower
+	hair_accessories["hair pin, blue flower"] = /obj/item/clothing/head/pin/flower/blue
+	hair_accessories["hair pin, pink flower"] = /obj/item/clothing/head/pin/flower/pink
+	hair_accessories["hair pin, yellow flower"] = /obj/item/clothing/head/pin/flower/yellow
+	hair_accessories["hair pin, violet flower"] = /obj/item/clothing/head/pin/flower/violet
+	hair_accessories["hair pin, orange flower"] = /obj/item/clothing/head/pin/flower/orange
+	hair_accessories["hair pin, silversun dawnflower"] = /obj/item/clothing/head/pin/flower/silversun
+	gear_tweaks += new /datum/gear_tweak/path(hair_accessories)
+
+/datum/gear/head/hair_accessories_colourable
+	display_name = "hair accessories selection (colourable)"
+	description = "A selection of colourable hair accessories."
 	path = /obj/item/clothing/head/pin
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/head/pin/New()
+/datum/gear/head/hair_accessories_colourable/New()
 	..()
-	var/list/pins = list()
-	for(var/pin in typesof(/obj/item/clothing/head/pin))
-		var/obj/item/clothing/head/pin/pin_type = pin
-		pins[initial(pin_type.name)] = pin_type
-	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(pins))
+	var/list/hair_accessories_colourable = list()
+	hair_accessories_colourable["hair ribbon, headband"] = /obj/item/clothing/head/pin/ribbon/head
+	hair_accessories_colourable["hair bow"] = /obj/item/clothing/head/pin/ribbon/back
+	hair_accessories_colourable["hair bow, small"] = /obj/item/clothing/head/pin/ribbon/small
+	hair_accessories_colourable["hair pin"] = /obj/item/clothing/head/pin
+	hair_accessories_colourable["hair pin, flower"] = /obj/item/clothing/head/pin/flower/white
+	hair_accessories_colourable["hair pin, clover"] = /obj/item/clothing/head/pin/clover
+	hair_accessories_colourable["hair pin, butterfly"] = /obj/item/clothing/head/pin/butterfly
+	hair_accessories_colourable["hair pin, magnet"] = /obj/item/clothing/head/pin/magnetic
+	gear_tweaks += new /datum/gear_tweak/path(hair_accessories_colourable)
 
 /datum/gear/head/hats
 	display_name = "hat selection"
