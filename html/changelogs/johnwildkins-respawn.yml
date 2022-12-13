@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Respawn timers are now properly reset upon spawning / being granted a respawn."
+  - tweak: "Respawn / death timer is no longer reset when observing after having already spawned once in the round."
