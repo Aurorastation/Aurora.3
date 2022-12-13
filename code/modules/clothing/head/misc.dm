@@ -82,14 +82,14 @@
 /obj/item/clothing/head/pin/ribbon
 	name = "hair ribbon parent item"
 	desc = DESC_PARENT
-	icon = 'icons/contained_items/clothing/accessories/hair/hair_ribbons.dmi'
+	icon = 'icons/contained_items/clothing/accessories/hair_ribbons.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/pin/ribbon/head
 	name = "hair ribbon"
 	desc = "A length of ribbon acting as a headband."
-	icon_state = "hair_ribbon"
-	item_state = "hair_ribbon"
+	icon_state = "ribbon"
+	item_state = "ribbon"
 
 /obj/item/clothing/head/pin/ribbon/back
 	name = "hair bow"

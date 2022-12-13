@@ -202,7 +202,7 @@
 /obj/item/clothing/accessory/tie/ribbon
 	name = "neck ribbon parent item"
 	desc = DESC_PARENT
-	icon = 'icons/contained_items/clothing/accessories/neck/neck_ribbons.dmi'
+	icon = 'icons/contained_items/clothing/accessories/neck_ribbons.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/tie/ribbon/neck
