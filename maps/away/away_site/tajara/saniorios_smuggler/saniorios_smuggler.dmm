@@ -618,9 +618,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/space)
 "yg" = (
 /obj/machinery/vending/snack,
@@ -1030,9 +1028,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/space)
 "Pn" = (
 /obj/structure/bed/stool/padded/red,
