@@ -3,4 +3,4 @@ author: Sparky_hotdog
 delete-after: True
 
 changes:
-  - bugfix: "Fixes Xenoarchaeoloist's not having an icon on security HUDs."
+  - bugfix: "Fixes Xenoarchaeologists not having an icon on security HUDs."
