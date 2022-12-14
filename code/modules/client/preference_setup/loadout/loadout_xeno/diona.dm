@@ -294,7 +294,6 @@
 	origin_restriction = list(/decl/origin_item/origin/dionae_wasteland)
 	sort_category = "Xenowear - Diona"
 	allowed_roles = list("Chief Engineer", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist")
-	cost = 2
 
 /datum/gear/uniform/diona/zozo
 	display_name = "dionae zozo top"

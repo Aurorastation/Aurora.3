@@ -506,6 +506,8 @@ BLIND     // can't see anything
 	)
 	action_button_name = "Flip Welding Goggles"
 
+	var/flip_down = "down to protect your eyes."
+	var/flip_up = "up out of your face."
 	var/up = 0
 	item_flags = THICKMATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
@@ -528,7 +530,7 @@ BLIND     // can't see anything
 			item_state = initial(icon_state)
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
-			to_chat(usr, "You flip \the [src] down to protect your eyes.")
+			to_chat(usr, SPAN_NOTICE("You flip \the [src] [flip_down]"))
 		else
 			src.up = !src.up
 			flags_inv &= ~HIDEEYES
@@ -537,7 +539,7 @@ BLIND     // can't see anything
 			item_state = "[initial(item_state)]up"
 			flash_protection = FLASH_PROTECTION_NONE
 			tint = TINT_NONE
-			to_chat(usr, "You push \the [src] up out of your face.")
+			to_chat(usr, SPAN_NOTICE("You flip \the [src] [flip_up]"))
 		update_clothing_icon()
 		usr.update_action_buttons()
 		usr.handle_vision()

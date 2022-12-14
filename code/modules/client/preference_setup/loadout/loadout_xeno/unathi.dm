@@ -103,7 +103,6 @@
 	origin_restriction = list(/decl/origin_item/origin/wastelander)
 	sort_category = "Xenowear - Unathi"
 	allowed_roles = list("Chief Engineer", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist")
-	cost = 2
 
 /datum/gear/accessory/sinta_hood
 	display_name = "clan hood"
