@@ -324,7 +324,7 @@
 	spawn_positions = 3
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#15903a"
-	access = list(access_medical, access_medical_equip)
+	access = list(access_medical, access_medical_equip, access_first_responder)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip, access_first_responder)
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
