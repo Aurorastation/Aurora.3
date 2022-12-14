@@ -3197,6 +3197,7 @@
 #include "maps\away\away_site\tajara\mining_jack\mining_jack.dm"
 #include "maps\away\away_site\tajara\mining_jack\mining_jack_areas.dm"
 #include "maps\away\away_site\tajara\mining_jack\mining_jack_ghostroles.dm"
+#include "maps\away\away_site\tajara\pra_satellite\pra_satellite.dm"
 #include "maps\away\away_site\tajara\scrapper\scrapper.dm"
 #include "maps\away\away_site\tajara\scrapper\scrapper_areas.dm"
 #include "maps\away\away_site\tajara\scrapper\scrapper_ghostroles.dm"
