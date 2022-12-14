@@ -1,0 +1,6 @@
+author: listerla
+
+delete-after: True
+
+changes:
+  - tweak: "Adjusted the wasteland goggles to function as welding goggles. They are also job-restricted and cost 2 points to match this."

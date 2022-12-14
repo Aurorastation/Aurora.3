@@ -270,28 +270,6 @@ BLIND     // can't see anything
 	desc = "A simple pair of safety goggles. It's general chemistry all over again. Comes with a prescription overlay."
 	prescription = 7
 
-/obj/item/clothing/glasses/safety/goggles/wasteland
-	name = "wasteland goggles"
-	desc = "A pair of old goggles common in the Wasteland. A few denizens unfortunate enough to not \
-	keep this protection on them after the nukes dropped no longer have the ability to see."
-	icon = 'icons/obj/unathi_items.dmi'
-	icon_state = "wasteland_goggles"
-	item_state = "wasteland_goggles"
-	off_state = "wasteland_goggles"
-	contained_sprite = TRUE
-	flip_down = "up to protect your eyes."
-	flip_up = "and let it hang around your neck."
-
-/obj/item/clothing/glasses/safety/goggles/wasteland/toggle()
-	..()
-	icon_state = initial(icon_state)
-	if(up)
-		item_state = "[initial(item_state)]_up"
-	else
-		item_state = initial(icon_state)
-	update_worn_icon()
-	update_clothing_icon()
-	update_icon()
 
 /obj/item/clothing/glasses/eyepatch
 	name = "eyepatch"
@@ -601,6 +579,30 @@ BLIND     // can't see anything
 	item_state = "ewelding-g"
 	contained_sprite = TRUE
 	tint = TINT_BLIND // yes, this is on purpose
+
+
+/obj/item/clothing/glasses/welding/wasteland
+	name = "wasteland goggles"
+	desc = "A pair of old goggles common in the Wasteland. A few denizens unfortunate enough to not \
+	keep this protection on them after the nukes dropped no longer have the ability to see."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "wasteland_goggles"
+	item_state = "wasteland_goggles"
+	off_state = "wasteland_goggles"
+	contained_sprite = TRUE
+	flip_down = "up to protect your eyes."
+	flip_up = "and let it hang around your neck."
+
+/obj/item/clothing/glasses/welding/wasteland/toggle()
+	..()
+	icon_state = initial(icon_state)
+	if(up)
+		item_state = "[initial(item_state)]_up"
+	else
+		item_state = initial(icon_state)
+	update_worn_icon()
+	update_clothing_icon()
+	update_icon()
 
 /obj/item/clothing/glasses/sunglasses/blindfold
 	name = "blindfold"
