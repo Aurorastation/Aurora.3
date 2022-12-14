@@ -39,6 +39,28 @@
 	display_name = "spaceball booster pack"
 	path = /obj/item/pack/spaceball
 
+/datum/gear/gamehelm
+	display_name = "handheld video game console"
+	description = "A selection of various GameHelm consoles."
+	cost = 1
+	path = /obj/item/gamehelm
+
+/datum/gear/gamehelm/New()
+	..()
+	var/list/gamehelm = list()
+	gamehelm["red gamehelm"] = /obj/item/gamehelm/red
+	gamehelm["blue gamehelm"] = /obj/item/gamehelm/blue
+	gamehelm["green gamehelm"] = /obj/item/gamehelm/green
+	gamehelm["yellow gamehelm"] = /obj/item/gamehelm/yellow
+	gamehelm["pink gamehelm"] = /obj/item/gamehelm/pink
+	gamehelm["black gamehelm"] = /obj/item/gamehelm/black
+	gamehelm["weathered gamehelm"] = /obj/item/gamehelm/weathered
+	gamehelm["brown gamehelm"] = /obj/item/gamehelm/brown
+	gamehelm["turquoise gamehelm"] = /obj/item/gamehelm/turquoise
+	gamehelm["white gamehelm"] = /obj/item/gamehelm
+	gamehelm["purple gamehelm"] = /obj/item/gamehelm/purple
+	gear_tweaks += new /datum/gear_tweak/path(gamehelm)
+
 /datum/gear/flask
 	display_name = "flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/barflask

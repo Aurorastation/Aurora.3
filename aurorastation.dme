@@ -1849,6 +1849,7 @@
 #include "code\modules\games\boardgame.dm"
 #include "code\modules\games\cardemon.dm"
 #include "code\modules\games\cards.dm"
+#include "code\modules\games\gamehelm.dm"
 #include "code\modules\games\spaceball_cards.dm"
 #include "code\modules\games\tarot.dm"
 #include "code\modules\ghostroles\spawner\base.dm"
