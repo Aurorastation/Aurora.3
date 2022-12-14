@@ -30,16 +30,13 @@
 #define mSmallsize     110 // Table climbing.
 
 // disabilities
-#define NEARSIGHTED 1
-#define EPILEPSY    2
-#define COUGHING    4
-#define TOURETTES   8
-#define STUTTERING     16
-#define DUMB            32
-#define PACIFIST        64
-#define UNINTELLIGIBLE  128
-#define GERTIE 128
-#define ASTHMA 256
+#define NEARSIGHTED 	1
+#define EPILEPSY    	2
+#define COUGHING    	4
+#define STUTTERING  	8
+#define DUMB            16
+#define PACIFIST        32
+#define ASTHMA 			64
 
 // sdisabilities
 #define BLIND 0x1

@@ -74,7 +74,6 @@
 	var/stuttering = null
 	var/slurring = null
 	var/brokejaw = null
-	var/tarded = null
 	var/real_name = null
 	var/flavor_text = ""
 	var/med_record = ""

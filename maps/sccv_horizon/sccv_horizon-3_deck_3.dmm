@@ -16477,7 +16477,8 @@
 	pixel_x = -35;
 	pixel_y = 7;
 	name = "Command Bunker Blast Door";
-	id = "shutters_bunker"
+	id = "shutters_bunker";
+	req_access = list(19)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -22622,7 +22623,8 @@
 	pixel_x = -25;
 	pixel_y = -35;
 	name = "Command Bunker Blast Door";
-	id = "shutters_bunker"
+	id = "shutters_bunker";
+	req_access = list(19)
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 1;

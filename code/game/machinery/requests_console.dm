@@ -215,8 +215,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(reject_bad_text(href_list["write"]))
 		recipient = href_list["write"] //write contains the string of the receiving department's name
 
-		var/new_message = sanitize(input("Write your message:", "Awaiting Input", ""))
-		if(new_message)
+		var/new_message = sanitize(input("Write your message:", "Awaiting Input", null) as null|text)
+		if(new_message && !use_check_and_message(usr))
 			message = new_message
 			screen = RCS_MESSAUTH
 			switch(href_list["priority"])
@@ -227,8 +227,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			reset_message(1)
 
 	if(href_list["writeAnnouncement"])
-		var/new_message = sanitize(input("Write your message:", "Awaiting Input", ""))
-		if(new_message)
+		var/new_message = sanitize(input("Write your message:", "Awaiting Input", null) as null|text)
+		if(new_message && !use_check_and_message(usr))
 			message = new_message
 		else
 			reset_message(1)
@@ -423,6 +423,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console/proc/fax_send(var/obj/item/O, var/mob/user)
 	var/sendto = input("Select department.", "Send Fax", null, null) as null|anything in allConsoles
 	if(!sendto)
+		return
+	if(use_check_and_message(user))
 		return
 	if(!can_send())
 		var/msg = "NOTICE: No server detected!"

@@ -4,7 +4,7 @@
 	suffix = "away_site/romanovich/grand_romanovich.dmm"
 	sectors = list(SECTOR_ROMANOVICH)
 	spawn_weight = 1
-	spawn_cost = 2
+	ship_cost = 2
 	id = "grand_romanovich"
 
 /decl/submap_archetype/grand_romanovich
