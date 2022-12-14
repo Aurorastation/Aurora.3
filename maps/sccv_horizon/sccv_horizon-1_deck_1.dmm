@@ -25379,9 +25379,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "tZK" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
@@ -25389,7 +25386,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "tZY" = (
 /obj/machinery/conveyor{
