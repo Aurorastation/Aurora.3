@@ -1,8 +1,8 @@
 
 /obj/machinery/artifact_harvester
 	name = "exotic particle harvester"
-	icon = 'icons/obj/virology.dmi'
-	icon_state = "incubator"	//incubator_on
+	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon_state = "harvester"
 	anchored = 1
 	density = 1
 	idle_power_usage = 50
