@@ -1,0 +1,6 @@
+author: atteria
+
+delete-after: True
+
+changes:
+  - tweak: "Improved the coloring of yarn items."
