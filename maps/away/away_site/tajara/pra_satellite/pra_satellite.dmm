@@ -1336,6 +1336,24 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
+"Gy" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
 "GK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -28912,7 +28930,7 @@ gq
 Vn
 bw
 lk
-lk
+Gy
 bw
 hX
 Hd
