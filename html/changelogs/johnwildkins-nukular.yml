@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed missing torn inflatable door/wall sprites and tqi-qop rifle sprites."
