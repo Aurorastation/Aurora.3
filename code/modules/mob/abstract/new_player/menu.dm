@@ -253,41 +253,45 @@
 		alert(src, "Please wait, the map is not initialized yet.")
 		return 0
 
-	if(alert(src,"Are you sure you wish to observe? You will have to wait [config.respawn_delay] minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
-		if(!client)
-			return TRUE
-		var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
-		spawning = 1
-		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = 1))
+	if(!client)
+		return TRUE
+	// Only display the warning if it's a /new/ new player,
+	// if they've died and gone back to menu they probably already know their respawn time (and it won't be reset anymore)
+	if(!get_death_time(CREW))
+		if(alert(src, "Are you sure you wish to observe? You will have to wait [config.respawn_delay] minutes before being able to respawn.", "Player Setup", "Yes", "No") != "Yes")
+			return FALSE
 
+	var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
+	spawning = 1
+	sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = 1))
 
-		observer.started_as_observer = 1
-		close_spawn_windows()
-		var/obj/O = locate("landmark*Observer-Start") in landmarks_list
-		if(istype(O))
-			to_chat(src, "<span class='notice'>Now teleporting.</span>")
-			observer.forceMove(O.loc)
-		else
-			to_chat(src, "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>")
-		observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
+	observer.started_as_observer = 1
+	close_spawn_windows()
+	var/obj/O = locate("landmark*Observer-Start") in landmarks_list
+	if(istype(O))
+		to_chat(src, "<span class='notice'>Now teleporting.</span>")
+		observer.forceMove(O.loc)
+	else
+		to_chat(src, "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>")
+	observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
-		announce_ghost_joinleave(src)
-		var/mob/living/carbon/human/dummy/mannequin/mannequin = new
-		client.prefs.dress_preview_mob(mannequin)
-		observer.appearance = mannequin.appearance
-		observer.appearance_flags = KEEP_TOGETHER
-		observer.alpha = 127
-		observer.layer = initial(observer.layer)
-		observer.invisibility = initial(observer.invisibility)
-		observer.desc = initial(observer.desc)
+	announce_ghost_joinleave(src)
+	var/mob/living/carbon/human/dummy/mannequin/mannequin = new
+	client.prefs.dress_preview_mob(mannequin)
+	observer.appearance = mannequin.appearance
+	observer.appearance_flags = KEEP_TOGETHER
+	observer.alpha = 127
+	observer.layer = initial(observer.layer)
+	observer.invisibility = initial(observer.invisibility)
+	observer.desc = initial(observer.desc)
 
-		observer.real_name = client.prefs.real_name
-		observer.name = observer.real_name
-		if(!client.holder && !config.antag_hud_allowed)
-			observer.verbs -= /mob/abstract/observer/verb/toggle_antagHUD
-		observer.ckey = ckey
-		observer.initialise_postkey()
-		qdel(src)
+	observer.real_name = client.prefs.real_name
+	observer.name = observer.real_name
+	if(!client.holder && !config.antag_hud_allowed)
+		observer.verbs -= /mob/abstract/observer/verb/toggle_antagHUD
+	observer.ckey = ckey
+	observer.initialise_postkey()
+	qdel(src)
 
 /mob/abstract/new_player/proc/show_lore_summary()
 	if(config.lore_summary)

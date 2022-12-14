@@ -4,7 +4,7 @@
 	suffix = "ships/elyra/elyran_strike_craft.dmm"
 	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "elyran_strike_craft"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/elyran_shuttle)
 

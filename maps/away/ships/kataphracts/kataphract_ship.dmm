@@ -1821,7 +1821,7 @@
 /area/kataphract_chapter/port_solars_array)
 "ed" = (
 /obj/machinery/door/airlock/glass{
-	name = "Chapter Cafeteria and Knight's Office";
+	name = "Chapter Medical Bay";
 	req_access = null;
 	req_one_access = list(113)
 	},
@@ -2718,7 +2718,9 @@
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "fG" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	req_access = list(113)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -3870,7 +3872,8 @@
 	tag_chamber_sensor = "kataphract_shuttle_sensor";
 	tag_exterior_door = "kataphract_shuttle_out";
 	tag_exterior_sensor = "kataphract_shuttle_exterior_sensor";
-	tag_interior_door = "kataphract_shuttle_in"
+	tag_interior_door = "kataphract_shuttle_in";
+	req_access = list(113)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -7849,11 +7852,6 @@
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "ym" = (
-/obj/machinery/door/airlock/glass{
-	name = "Chapter Cafeteria and Knight's Office";
-	req_access = null;
-	req_one_access = list(113)
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -7862,6 +7860,11 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/glass{
+	name = "Chapter Medical Bay";
+	req_access = null;
+	req_one_access = list(113)
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/medical)
 "yr" = (
@@ -8160,7 +8163,8 @@
 	master_tag = "kataphract_shuttle";
 	name = "exterior access button";
 	pixel_x = 23;
-	pixel_y = -8
+	pixel_y = -8;
+	req_access = list(113)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -10021,7 +10025,8 @@
 	frequency = 1380;
 	id_tag = "kataphract_shuttle_sensor";
 	pixel_x = 25;
-	pixel_y = 7
+	pixel_y = 7;
+	req_access = list(113)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -10701,7 +10706,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
 "YX" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	req_access = list(113)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -24332,7 +24339,7 @@ FX
 FX
 mi
 Hh
-Hh
+er
 sU
 ai
 GH

@@ -2210,7 +2210,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "bHx" = (
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -5328,11 +5328,11 @@
 /area/engineering/atmos)
 "eog" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(65)
@@ -5378,7 +5378,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/binary/passive_gate/on{
-	name = "Reactor to Mix"
+	name = "Reactor Waste to Mix"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -6313,11 +6313,11 @@
 /area/rnd/xenoarch_atrium)
 "eWA" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(65)
@@ -6484,12 +6484,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"faE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos)
 "fbc" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -7729,7 +7723,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "fVm" = (
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -9563,9 +9557,6 @@
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
 "hpU" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -9575,7 +9566,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/binary/pump{
+	name = "Mix to Connector"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "hqa" = (
 /obj/effect/floor_decal/corner/blue{
@@ -12692,9 +12690,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "jVj" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -12707,10 +12702,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/binary/pump{
-	name = "Mix to Connector"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Mix to Mixed Gas Tank"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "jWE" = (
@@ -16518,7 +16514,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "mVX" = (
-/obj/machinery/telecomms/relay/preset/station,
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 8
 	},
@@ -23601,11 +23596,11 @@
 /area/maintenance/substation/hangar)
 "sIQ" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(65)
@@ -26954,9 +26949,6 @@
 "vlY" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -50101,9 +50093,9 @@ jCK
 jCK
 jCK
 sNH
-faE
+mRc
 hpU
-iFd
+dMa
 qew
 eIS
 suA
@@ -50305,7 +50297,7 @@ iUi
 bDt
 vlY
 jVj
-dMa
+iFd
 mGp
 eIS
 qDK

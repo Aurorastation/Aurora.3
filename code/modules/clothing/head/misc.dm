@@ -79,18 +79,29 @@
 	name = "silversun flower pin"
 	desc = "A Silversun dawnflower pin, named after the same flower. This particular version is an artificial recreation, and lacks the distinctive bioluminescence of the original."
 
-/obj/item/clothing/head/pin/bow
+/obj/item/clothing/head/pin/ribbon
+	name = "hair ribbon parent item"
+	desc = DESC_PARENT
+	icon = 'icons/contained_items/clothing/accessories/hair_ribbons.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/pin/ribbon/head
+	name = "hair ribbon"
+	desc = "A length of ribbon acting as a headband."
+	icon_state = "ribbon"
+	item_state = "ribbon"
+
+/obj/item/clothing/head/pin/ribbon/back
+	name = "hair bow"
+	desc = "A hair bow with a small removable clip on the back, so it can be attached to hair or tied into it."
 	icon_state = "bow"
 	item_state = "bow"
-	name = "hair bow"
-	desc = "A ribbon tied into a bow with a clip on the back to attach to hair."
-	item_state_slots = list(slot_r_hand_str = "pill", slot_l_hand_str = "pill")
 
-/obj/item/clothing/head/pin/bow/hairband
-	icon_state = "hairribbon"
-	item_state = "hairribbon"
-	name = "hair ribbon"
-	desc = "A glorified length of ribbon acting as a hairband."
+/obj/item/clothing/head/pin/ribbon/small
+	name = "small hair bow"
+	desc = "A ribbon tied into a small bow with a clip on the back to attach to hair."
+	icon_state = "bow_small"
+	item_state = "bow_small"
 
 /obj/item/clothing/head/powdered_wig
 	name = "powdered wig"
@@ -114,13 +125,6 @@
 	name = "station cap"
 	icon_state = "mailman"
 	desc = "<i>Choo-choo</i>!"
-
-/obj/item/clothing/head/plaguedoctorhat
-	name = "plague doctor's hat"
-	desc = "These were once used by Plague doctors. They're pretty much useless."
-	icon_state = "plaguedoctor"
-	permeability_coefficient = 0.01
-	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/nursehat
 	name = "nurse's hat"

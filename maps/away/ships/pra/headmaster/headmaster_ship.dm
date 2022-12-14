@@ -3,7 +3,7 @@
 	id = "headmaster_ship"
 	description = "A People's Republic Orbital Fleet ship."
 	suffix = "ships/pra/headmaster/headmaster_ship.dmm"
-	spawn_cost = 1
+	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/headmaster_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
