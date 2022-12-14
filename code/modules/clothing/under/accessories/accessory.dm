@@ -29,8 +29,8 @@
 	if(!accessory_mob_overlay)
 		get_accessory_mob_overlay(M, force)
 	var/I = accessory_mob_overlay.icon
+	var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 	if(!inv_overlay || force)
-		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
 			if(contained_sprite)
 				tmp_icon_state = "[tmp_icon_state]_w"
@@ -43,7 +43,7 @@
 		inv_overlay.color = color
 	if(build_from_parts)
 		inv_overlay.cut_overlays()
-		inv_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		inv_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/M, var/force = FALSE)
@@ -89,7 +89,7 @@
 /obj/item/clothing/accessory/proc/on_removed(var/mob/user)
 	if(!has_suit)
 		return
-	has_suit.cut_overlay(get_inv_overlay())
+	has_suit.cut_overlay(get_inv_overlay(user, TRUE))
 	has_suit = null
 	if(user)
 		usr.put_in_hands(src)
@@ -314,16 +314,32 @@
 /obj/item/clothing/accessory/scarf
 	name = "scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
-	icon_state = "scarf"
-	item_state = "scarf"
-	overlay_state = "scarf"
-	flippable = 1
+	icon = 'icons/obj/clothing/scarves.dmi'
+	icon_state = "scarf1"
+	item_state = "scarf1"
+	contained_sprite = TRUE
+	var/list/alternatives = list("scarf1", "scarf2", "scarf3")
+	var/list/overlay_alternatives = null
+
+/obj/item/clothing/accessory/scarf/attack_self(mob/user)
+	if(alternatives)
+		var/current = alternatives.Find(icon_state)
+		current++
+		if(current > alternatives.len)
+			current = 1
+		icon_state = alternatives[current]
+		item_state = icon_state
+		update_icon()
+		update_clothing_icon()
+		inv_overlay = null
+		accessory_mob_overlay = null
+		to_chat(user, SPAN_NOTICE("You retie \the [src]."))
+	return ..()
 
 /obj/item/clothing/accessory/scarf/zebra
 	name = "zebra scarf"
-	icon_state = "zebrascarf"
-	item_state = "zebrascarf"
-	overlay_state = "zebrascarf"
+	build_from_parts = TRUE
+	worn_overlay = "stripes"
 
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"

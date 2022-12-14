@@ -1,0 +1,8 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - imageadd: "Added new scarf sprites."
+  - rscadd: "Scarves can now be used in hand to retie them into other styles."
+  - tweak: "Zebra scarves are now colourable."
