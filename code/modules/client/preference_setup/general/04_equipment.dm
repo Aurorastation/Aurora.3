@@ -11,6 +11,8 @@
 	S["all_underwear_metadata"] >> pref.all_underwear_metadata
 	S["backbag"]       >> pref.backbag
 	S["backbag_style"] >> pref.backbag_style
+	S["backbag_color"] >> pref.backbag_color
+	S["backbag_strap"] >> pref.backbag_strap
 	S["pda_choice"] >> pref.pda_choice
 	S["headset_choice"] >> pref.headset_choice
 	S["primary_radio_slot"] >> pref.primary_radio_slot
@@ -20,6 +22,8 @@
 	S["all_underwear_metadata"] << pref.all_underwear_metadata
 	S["backbag"]       << pref.backbag
 	S["backbag_style"] << pref.backbag_style
+	S["backbag_color"] << pref.backbag_color
+	S["backbag_strap"] << pref.backbag_strap
 	S["pda_choice"] << pref.pda_choice
 	S["headset_choice"] << pref.headset_choice
 	S["primary_radio_slot"] << pref.primary_radio_slot
@@ -32,6 +36,8 @@
 				"all_underwear_metadata",
 				"backbag",
 				"backbag_style",
+				"backbag_color",
+				"backbag_strap",
 				"pda_choice",
 				"headset_choice",
 				"primary_radio_slot"
@@ -50,6 +56,8 @@
 			"all_underwear_metadata",
 			"backbag",
 			"backbag_style",
+			"backbag_color",
+			"backbag_strap",
 			"pda_choice",
 			"headset_choice",
 			"primary_radio_slot",
@@ -64,6 +72,8 @@
 		"all_underwear_metadata" = json_encode(pref.all_underwear_metadata),
 		"backbag" = pref.backbag,
 		"backbag_style" = pref.backbag_style,
+		"backbag_color" = pref.backbag_color,
+		"backbag_strap" = pref.backbag_strap,
 		"pda_choice" = pref.pda_choice,
 		"headset_choice" = pref.headset_choice,
 		"primary_radio_slot" = pref.primary_radio_slot,
@@ -75,6 +85,8 @@
 	if (sql_load)
 		pref.backbag = text2num(pref.backbag)
 		pref.backbag_style = text2num(pref.backbag_style)
+		pref.backbag_color = text2num(pref.backbag_color)
+		pref.backbag_strap = text2num(pref.backbag_strap)
 		pref.pda_choice = text2num(pref.pda_choice)
 		pref.headset_choice = text2num(pref.headset_choice)
 		if(istext(pref.all_underwear))
@@ -119,6 +131,8 @@
 
 	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
 	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
+	pref.backbag_color = sanitize_integer(pref.backbag_color, 1, backbagcolors.len, initial(pref.backbag_color))
+	pref.backbag_strap = sanitize_integer(pref.backbag_strap, 1, backbagstrap.len, initial(pref.backbag_strap))
 	pref.pda_choice = sanitize_integer(pref.pda_choice, 1, pdalist.len, initial(pref.pda_choice))
 	pref.headset_choice	= sanitize_integer(pref.headset_choice, 1, headsetlist.len, initial(pref.headset_choice))
 	if(!(pref.primary_radio_slot in primary_radio_slot_choice))
@@ -140,6 +154,9 @@
 
 	. += "Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[backbaglist[pref.backbag]]</b></a><br>"
 	. += "Backpack Style: <a href='?src=\ref[src];change_backpack_style=1'><b>[backbagstyles[pref.backbag_style]]</b></a><br>"
+	if(pref.backbag == OUTFIT_SATCHEL_ALT || pref.backbag == OUTFIT_RUCKSACK || pref.backbag == OUTFIT_POCKETBOOK) // Hardcoded. Sucks, I know.
+		. += "Backpack Color: <a href='?src=\ref[src];change_backpack_color=1'><b>[backbagcolors[pref.backbag_color]]</b></a><br>"
+	. += "Backpack Strap: <a href='?src=\ref[src];change_backbag_strap=1'><b>[backbagstrap[pref.backbag_strap]]</b></a><br>"
 	. += "PDA Type: <a href='?src=\ref[src];change_pda=1'><b>[pdalist[pref.pda_choice]]</b></a><br>"
 	. += "Headset Type: <a href='?src=\ref[src];change_headset=1'><b>[headsetlist[pref.headset_choice]]</b></a><br>"
 	. += "Primary Radio Slot: <a href='?src=\ref[src];change_radio_slot=1'><b>[pref.primary_radio_slot]</b></a><br>"
@@ -173,6 +190,18 @@
 		var/new_backbag = input(user, "Choose your character's style of bag:", "Character Preference", backbagstyles[pref.backbag_style]) as null|anything in backbagstyles
 		if(!isnull(new_backbag) && CanUseTopic(user))
 			pref.backbag_style = backbagstyles.Find(new_backbag)
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["change_backpack_color"])
+		var/new_backbag = input(user, "Choose your character's color of bag:", "Character Preference", backbagcolors[pref.backbag_color]) as null|anything in backbagcolors
+		if(!isnull(new_backbag) && CanUseTopic(user))
+			pref.backbag_color = backbagcolors.Find(new_backbag)
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["change_backbag_strap"])
+		var/new_backbag = input(user, "Choose your character's style of bag strap:", "Character Preference", backbagstrap[pref.backbag_strap]) as null|anything in backbagstrap
+		if(!isnull(new_backbag) && CanUseTopic(user))
+			pref.backbag_strap = backbagstrap.Find(new_backbag)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_pda"])

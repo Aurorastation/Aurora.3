@@ -3,12 +3,15 @@
     <div v-if="manifestLen(fixedmanifest) > 0">
       <table v-for="(el, dept) in fixedmanifest" :key="dept" :class="'border-dept-' + dept.toLowerCase()">
         <tr :class="'bg-dept-' + dept.toLowerCase()">
-          <th colspan="3" class="fw-bold">{{ dept }}</th>
+          <th colspan="100%" class="fw-bold">{{ dept }}</th>
         </tr>
         <tr v-for="entry in el" :key="entry.name" :class="{'fw-bold': entry.head}">
           <td>{{ entry.name }}</td>
           <td>{{ entry.rank }}</td>
           <td>{{ entry.active }}</td>
+          <td v-if="allow_follow">
+            <vui-button :params="{ action: 'follow', name: entry.name }">Follow</vui-button>
+          </td>
         </tr>
       </table>
     </div>

@@ -64,7 +64,7 @@
 		SPAN_WARNING("Your hand slips, tearing [target]'s innards with \the [tool]!"))
 
 /decl/surgery_step/slime/saw_core
-	name = "Detach core"
+	name = "Detach Core"
 	allowed_tools = list(
 	/obj/item/surgery/circular_saw = 100, \
 	/obj/item/material/hatchet = 75

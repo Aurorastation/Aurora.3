@@ -26,7 +26,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	if(istype(R, /mob/living/silicon/robot/syndicate) || istype(R, /mob/living/silicon/robot/shell))
+	if(istype(R, /mob/living/silicon/robot/combat) || istype(R, /mob/living/silicon/robot/shell))
 		to_chat(user, SPAN_WARNING("\The [R] rejects the reset board. Seems the fitted module is permanent."))
 		return FALSE
 

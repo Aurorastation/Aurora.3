@@ -1,24 +1,30 @@
 #define OUTFIT_NOTHING 1
 
 #define OUTFIT_BACKPACK 2
-#define OUTFIT_SATCHEL 3
-#define OUTFIT_SATCHEL_ALT 4
+#define OUTFIT_SATCHEL 3 // the classic grey sling one
+#define OUTFIT_SATCHEL_ALT 4 // the leather bag
 #define OUTFIT_DUFFELBAG 5
 #define OUTFIT_MESSENGERBAG 6
-#define OUTFIT_RUCKSACK 7
-#define OUTFIT_BLUERUCKSACK 8
-#define OUTFIT_GREENRUCKSACK 9
-#define OUTFIT_NAVYRUCKSACK 10
-#define OUTFIT_TANRUCKSACK 11
-#define OUTFIT_KHAKISATCHEL 12
-#define OUTFIT_BLACKSATCHEL 13
-#define OUTFIT_NAVYSATCHEL 14
-#define OUTFIT_OLIVESATCHEL 15
-#define OUTFIT_AUBURNSATCHEL 16
-#define OUTFIT_POCKETBOOK 17
-#define OUTFIT_BROWNPOCKETBOOK 18
-#define OUTFIT_AUBURNPOCKETBOOK 19
-#define OUTFIT_CLASSICSATCHEL 20
+#define OUTFIT_RUCKSACK 7 // the bay one
+#define OUTFIT_POCKETBOOK 8 // the leather bag but smaller
+
+#define OUTFIT_JOBSPECIFIC 1
+#define OUTFIT_GENERIC 2
+#define OUTFIT_FACTIONSPECIFIC 3
+
+#define OUTFIT_THIN 2
+#define OUTFIT_NORMAL 3
+#define OUTFIT_THICK 4
+
+#define OUTFIT_BLUE 2
+#define OUTFIT_GREEN 3
+#define OUTFIT_NAVY 4
+#define OUTFIT_TAN 5
+#define OUTFIT_KHAKI 6
+#define OUTFIT_BLACK 7
+#define OUTFIT_OLIVE 8
+#define OUTFIT_AUBURN 9
+#define OUTFIT_BROWN 10
 
 #define OUTFIT_TAB_PDA 2
 #define OUTFIT_PDA_OLD 3
@@ -75,24 +81,19 @@
 	// Must be paths, used to allow player-pref backpack choice
 	var/allow_backbag_choice = FALSE
 	var/backpack = /obj/item/storage/backpack
-	var/satchel = /obj/item/storage/backpack/satchel/norm
+	var/backpack_faction
+	var/satchel = /obj/item/storage/backpack/satchel
+	var/satchel_faction
 	var/satchel_alt = /obj/item/storage/backpack/satchel/leather
+	var/satchel_alt_faction
 	var/dufflebag = /obj/item/storage/backpack/duffel
+	var/dufflebag_faction
 	var/messengerbag = /obj/item/storage/backpack/messenger
+	var/messengerbag_faction
 	var/rucksack = /obj/item/storage/backpack/rucksack
-	var/bluerucksack = /obj/item/storage/backpack/rucksack/blue
-	var/greenrucksack = /obj/item/storage/backpack/rucksack/green
-	var/navyrucksack = /obj/item/storage/backpack/rucksack/navy
-	var/tanrucksack = /obj/item/storage/backpack/rucksack/tan
-	var/khakisatchel = /obj/item/storage/backpack/satchel/leather/khaki
-	var/blacksatchel = /obj/item/storage/backpack/satchel/leather/black
-	var/navysatchel = /obj/item/storage/backpack/satchel/leather/navy
-	var/olivesatchel = /obj/item/storage/backpack/satchel/leather/olive
-	var/auburnsatchel = /obj/item/storage/backpack/satchel/leather/reddish
+	var/rucksack_faction
 	var/pocketbook = /obj/item/storage/backpack/satchel/pocketbook
-	var/brownpocketbook = /obj/item/storage/backpack/satchel/pocketbook/brown
-	var/auburnpocketbook = /obj/item/storage/backpack/satchel/pocketbook/reddish
-	var/classicsatchel = /obj/item/storage/backpack/satchel
+	var/pocketbook_faction
 
 	var/allow_pda_choice = FALSE
 	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
@@ -117,55 +118,116 @@
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
 	if(allow_backbag_choice)
-		var/use_job_specific = H.backbag_style == TRUE
 		switch(H.backbag)
 			if (OUTFIT_NOTHING)
 				back = null
 			if (OUTFIT_BACKPACK)
-				back = use_job_specific ? backpack : /obj/item/storage/backpack
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = backpack
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = backpack_faction ? backpack_faction : backpack // some may not have faction specific; fall back on job backpack if needed
 			if (OUTFIT_SATCHEL)
-				back = use_job_specific ? satchel : /obj/item/storage/backpack/satchel/norm
-			if (OUTFIT_SATCHEL_ALT)
-				back = use_job_specific ? satchel_alt : /obj/item/storage/backpack/satchel/leather
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = satchel
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/satchel
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = satchel_faction ? satchel_faction : satchel
+			if (OUTFIT_SATCHEL_ALT) // Leather Satchel
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = satchel_alt
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/satchel/leather
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = satchel_alt_faction ? satchel_alt_faction : satchel_alt
 			if (OUTFIT_DUFFELBAG)
-				back = use_job_specific ? dufflebag : /obj/item/storage/backpack/duffel
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = dufflebag
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/duffel
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = dufflebag_faction ? dufflebag_faction : dufflebag
 			if (OUTFIT_MESSENGERBAG)
-				back = use_job_specific ? messengerbag : /obj/item/storage/backpack/messenger
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = messengerbag
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/messenger
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = messengerbag_faction ? messengerbag_faction : messengerbag
 			if (OUTFIT_RUCKSACK)
-				back = use_job_specific ? rucksack : /obj/item/storage/backpack/rucksack
-			if (OUTFIT_BLUERUCKSACK)
-				back = use_job_specific ? bluerucksack : /obj/item/storage/backpack/rucksack/blue
-			if (OUTFIT_GREENRUCKSACK)
-				back = use_job_specific ? greenrucksack : /obj/item/storage/backpack/rucksack/green
-			if (OUTFIT_NAVYRUCKSACK)
-				back = use_job_specific ? navyrucksack : /obj/item/storage/backpack/rucksack/navy
-			if (OUTFIT_TANRUCKSACK)
-				back = use_job_specific ? tanrucksack : /obj/item/storage/backpack/rucksack/tan
-			if (OUTFIT_KHAKISATCHEL)
-				back = use_job_specific ? khakisatchel : /obj/item/storage/backpack/satchel/leather/khaki
-			if (OUTFIT_BLACKSATCHEL)
-				back = use_job_specific ? blacksatchel : /obj/item/storage/backpack/satchel/leather/black
-			if (OUTFIT_NAVYSATCHEL)
-				back = use_job_specific ? navysatchel : /obj/item/storage/backpack/satchel/leather/navy
-			if (OUTFIT_OLIVESATCHEL)
-				back = use_job_specific ? olivesatchel : /obj/item/storage/backpack/satchel/leather/olive
-			if (OUTFIT_AUBURNSATCHEL)
-				back = use_job_specific ? auburnsatchel : /obj/item/storage/backpack/satchel/leather/reddish
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = rucksack
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/rucksack
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = rucksack_faction ? rucksack_faction : rucksack
 			if (OUTFIT_POCKETBOOK)
-				back = use_job_specific ? pocketbook : /obj/item/storage/backpack/satchel/pocketbook
-			if (OUTFIT_BROWNPOCKETBOOK)
-				back = use_job_specific ? brownpocketbook : /obj/item/storage/backpack/satchel/pocketbook/brown
-			if (OUTFIT_AUBURNPOCKETBOOK)
-				back = use_job_specific ? auburnpocketbook : /obj/item/storage/backpack/satchel/pocketbook/reddish
-			if (OUTFIT_CLASSICSATCHEL)
-				back = use_job_specific ? classicsatchel : /obj/item/storage/backpack/satchel
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = pocketbook
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/satchel/pocketbook
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = pocketbook_faction ? pocketbook_faction : pocketbook
 			else
 				back = backpack //Department backpack
+
+		if (H.backbag_color >= 2) // if theres a color switch em out for a recolorable one
+			switch (H.backbag)
+				if (OUTFIT_POCKETBOOK)
+					back = /obj/item/storage/backpack/satchel/pocketbook/recolorable
+				if (OUTFIT_RUCKSACK)
+					back = /obj/item/storage/backpack/rucksack/recolorable
+				if (OUTFIT_SATCHEL_ALT)
+					back = /obj/item/storage/backpack/satchel/leather/recolorable
+
 	if(back)
-		if(isvaurca(H, TRUE))
-			equip_item(H, back, slot_r_hand)
+		var/obj/item/storage/backpack/B = new back(H) //i'll be honest with you - i'm kinda retarded
+		if (H.backbag == OUTFIT_SATCHEL_ALT || H.backbag == OUTFIT_RUCKSACK || H.backbag == OUTFIT_POCKETBOOK)
+			switch (H.backbag_color)
+				if (OUTFIT_NOTHING)
+					B.color = null
+				if (OUTFIT_BLUE)
+					B.color  = "#2f4f81"
+				if (OUTFIT_GREEN)
+					B.color  = "#353727"
+				if (OUTFIT_NAVY)
+					B.color  = "#2a303b"
+				if (OUTFIT_TAN)
+					B.color  = "#524a3e"
+				if (OUTFIT_KHAKI)
+					B.color  = "#baa481"
+				if (OUTFIT_BLACK)
+					B.color  = "#212121"
+				if (OUTFIT_OLIVE)
+					B.color  = "#544f3d"
+				if (OUTFIT_AUBURN)
+					B.color = "#512828"
+				if (OUTFIT_BROWN)
+					B.color = "#3d2711"
 		else
-			equip_item(H, back, slot_back)
+			B.color = null
+		switch(H.backbag_strap)
+			if(OUTFIT_NOTHING)
+				B.alpha_mask = "hidden"
+			if(OUTFIT_THIN)
+				B.alpha_mask = "thin"
+			if(OUTFIT_NORMAL)
+				B.alpha_mask = "normal"
+			if(OUTFIT_THICK)
+				B.alpha_mask = null
+		if(isvaurca(H, TRUE))
+			H.equip_or_collect(B, slot_r_hand)
+		else
+			H.equip_or_collect(B, slot_back)
 
 	if(allow_headset_choice)
 		switch(H.headset_choice)
@@ -189,7 +251,7 @@
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
 //override_collect temporarily allows equip_or_collect without enabling it for the job. Mostly used to prevent weirdness with hand equips when the player is missing one
-/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE)
+/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE, var/item_color)
 	var/obj/item/I
 
 	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
@@ -338,19 +400,19 @@
 		var/obj/item/I = new pda(H)
 		switch(H.pda_choice)
 			if(OUTFIT_TAB_PDA)
-				I.desc_fluff += "For its many years of service, this model has held a virtual monopoly for PDA models for NanoTrasen. The secret? A lapel pin affixed to the back."
+				I.desc_extended += "For its many years of service, this model has held a virtual monopoly for PDA models for NanoTrasen. The secret? A lapel pin affixed to the back."
 			if(OUTFIT_PDA_OLD)
 				I.icon = 'icons/obj/pda_old.dmi'
-				I.desc_fluff += "Nicknamed affectionately as the 'Brick', PDA enthusiasts rejoice with the return of an old favorite, retrofitted to new modular computing standards."
+				I.desc_extended += "Nicknamed affectionately as the 'Brick', PDA enthusiasts rejoice with the return of an old favorite, retrofitted to new modular computing standards."
 			if(OUTFIT_PDA_RUGGED)
 				I.icon = 'icons/obj/pda_rugged.dmi'
-				I.desc_fluff += "EVA enthusiasts and owners of fat fingers just LOVE the huge tactile buttons provided by this model. Prone to butt-dialing, but don't let that hold you back."
+				I.desc_extended += "EVA enthusiasts and owners of fat fingers just LOVE the huge tactile buttons provided by this model. Prone to butt-dialing, but don't let that hold you back."
 			if(OUTFIT_PDA_SLATE)
 				I.icon = 'icons/obj/pda_slate.dmi'
-				I.desc_fluff += "A bet between an engineer and a disgruntled scientist, it turns out you CAN make a PDA out of an atmospherics scanner. Also, probably don't tell management, just enjoy."
+				I.desc_extended += "A bet between an engineer and a disgruntled scientist, it turns out you CAN make a PDA out of an atmospherics scanner. Also, probably don't tell management, just enjoy."
 			if(OUTFIT_PDA_SMART)
 				I.icon = 'icons/obj/pda_smart.dmi'
-				I.desc_fluff += "NanoTrasen originally designed this as a portable media player. Unfortunately, Royalty-free and corporate-approved ukulele isn't particularly popular."
+				I.desc_extended += "NanoTrasen originally designed this as a portable media player. Unfortunately, Royalty-free and corporate-approved ukulele isn't particularly popular."
 		I.update_icon()
 		if (H.pda_choice == OUTFIT_WRISTBOUND)
 			H.equip_or_collect(I, slot_wrists)

@@ -11,10 +11,9 @@
 
 /obj/item/device/assembly/voice/Initialize(mapload, ...)
 	. = ..()
-	listening_objects += src
+	become_hearing_sensitive()
 
 /obj/item/device/assembly/voice/Destroy()
-	listening_objects -= src
 	return ..()
 
 /obj/item/device/assembly/voice/hear_talk(mob/living/M, msg)

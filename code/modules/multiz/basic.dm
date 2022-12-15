@@ -44,6 +44,9 @@
 /proc/AreConnectedZLevels(var/zA, var/zB)
 	if (zA == zB)
 		return TRUE
+	
+	if(zA == 0 || zB == 0)
+		return FALSE
 
 	if (SSatlas.connected_z_cache.len >= zA && SSatlas.connected_z_cache[zA])
 		return (SSatlas.connected_z_cache[zA].len >= zB && SSatlas.connected_z_cache[zA][zB])

@@ -177,29 +177,29 @@
 	name = "brown thigh holster"
 	icon_state = "holster_brown_thigh"
 
-//
-// Utility Holsters
-//
+/********** Utility Holsters Start **********/
+// Utility Holster
 /obj/item/clothing/accessory/holster/utility
 	name = "utility holster"
 	desc = "A utility holster."
+	icon = 'icons/contained_items/clothing/accessories/utility_holsters.dmi'
+	contained_sprite = TRUE
+
 	var/list/allowed_items = list() // A list of allowed items.
 
 /obj/item/clothing/accessory/holster/utility/holster(var/obj/item/I, var/mob/living/user)
 	if(!is_type_in_list(I, allowed_items))
-		to_chat(user, "<span class='notice'>\The [I] won't fit in \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("\The [I] won't fit in \the [src]."))
 		return
-
 	..()
 
 // Custodial Holster
-/obj/item/clothing/accessory/holster/utility/custodial/armpit/brown
-	name = "brown custodial armpit holster"
-	desc = "A brown utility holster which can't hold actual firearms. This particular one is designed for custodial personnel."
-	desc_fluff = "In a universe where various utility firearms and tools have become more common for diverse applications, it is important that there are ways to store them where \
+/obj/item/clothing/accessory/holster/utility/custodial
+	name = "custodial holster"
+	desc = "A custodial holster."
+	desc_extended = "In a universe where various utility firearms and tools have become more common for diverse applications, it is important that there are ways to store them where \
 		they are kept safe from wear and tear as well as from misuse. Thus as an alternative to regular firearm holsters, specialized utility firearm and tool holsters exist, which \
 		allow non-standard firearms to be stored inside, whilst at the same time keeping individuals from storing actual firearms in one."
-	icon_state = "holster_brown"
 	allowed_items = list(
 		/obj/item/gun/energy/mousegun,
 		/obj/item/gun/energy/mousegun/xenofauna,
@@ -207,3 +207,18 @@
 		/obj/item/toy/crossbow,
 		/obj/item/reagent_containers/food/snacks/grown/banana
 	)
+
+// Brown Custodial Armpit Holster
+/obj/item/clothing/accessory/holster/utility/custodial/armpit
+	name = "brown custodial armpit holster"
+	desc = "A brown utility holster which can't hold actual firearms. This particular one is designed for custodial personnel."
+	icon_state = "custodial_brown"
+	item_state = "custodial_brown"
+
+// Brown Custodial Hip Holster
+/obj/item/clothing/accessory/holster/utility/custodial/hip
+	name = "brown custodial hip holster"
+	desc = "A brown utility holster which can't hold actual firearms. This particular one is designed for custodial personnel."
+	icon_state = "custodial_brown_hip"
+	item_state = "custodial_brown_hip"
+/********** Utility Holsters End **********/

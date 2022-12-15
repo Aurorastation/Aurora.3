@@ -110,3 +110,4 @@
 /datum/map/aurora/finalize_load()
 	// generate an empty space Z
 	world.maxz++
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)

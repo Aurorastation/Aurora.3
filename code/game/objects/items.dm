@@ -69,6 +69,7 @@
 	var/build_from_parts = FALSE // when it uses coloration and a part of it wants to remain uncolored. e.g., handle of the screwdriver is colored while the head is not.
 	var/worn_overlay = null // used similarly as above, except for inhands.
 	var/worn_overlay_color = null // When you want your worn overlay to have colors. So you can have more than one modular coloring.
+	var/alpha_mask // when you want to slice out a chunk from a sprite
 
 	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
@@ -215,6 +216,8 @@
 		if(!temp)
 			to_chat(user, "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>")
 			return
+	if(!do_additional_pickup_checks(user))
+		return
 	var/obj/item/storage/S
 	var/storage_depth_matters = TRUE
 	if(istype(src.loc, /obj/item/storage))
@@ -227,7 +230,6 @@
 	src.pickup(user)
 	if(S)
 		S.remove_from_storage(src)
-
 	src.throwing = 0
 	if (src.loc == user)
 		if(!user.prepare_for_slotmove(src))
@@ -239,6 +241,9 @@
 	if (!user.put_in_active_hand(src))
 		forceMove(user.loc)
 	return
+
+/obj/item/proc/do_additional_pickup_checks(var/mob/user)
+	return TRUE
 
 /obj/item/attack_ai(mob/user as mob)
 	if (istype(src.loc, /obj/item/robot_module))
@@ -1054,3 +1059,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return
 	pickup_animation.overlays = overlays
 	. = ..()
+
+/obj/item/proc/throw_fail_consequences(var/mob/living/carbon/C)
+	return

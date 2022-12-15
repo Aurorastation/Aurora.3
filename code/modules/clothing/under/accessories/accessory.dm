@@ -199,10 +199,32 @@
 	name = "tie with a silver clip"
 	worn_overlay = "sclip"
 
-/obj/item/clothing/accessory/tie/bowtie
-	name = "bowtie"
-	desc = "Snazzy!"
-	icon_state = "bowtie"
+/obj/item/clothing/accessory/tie/ribbon
+	name = "neck ribbon parent item"
+	desc = DESC_PARENT
+	icon = 'icons/contained_items/clothing/accessories/neck_ribbons.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/tie/ribbon/neck
+	name = "neck ribbon"
+	desc = "A ribbon for adorning the neck."
+	icon_state = "ribbon"
+	item_state = "ribbon"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/tie/ribbon/bow
+	name = "neck bow"
+	desc = "A bow for adorning the neck."
+	icon_state = "bow"
+	item_state = "bow"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/tie/ribbon/bow_tie
+	name = "bow tie"
+	desc = "A bow tie."
+	icon_state = "bow_tie"
+	item_state = "bow_tie"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
@@ -420,7 +442,7 @@
 /obj/item/clothing/accessory/sash
 	name = "yellow sash"
 	desc = "A yellow sash, designed to be worn over one shoulder and come down to the opposing hip."
-	desc_fluff = "Sashes such as this one are a common sight throughout the Empire of Dominia, though they are hardly as fashionable as the typical cape."
+	desc_extended = "Sashes such as this one are a common sight throughout the Empire of Dominia, though they are hardly as fashionable as the typical cape."
 	icon = 'icons/clothing/accessories/sash.dmi'
 	item_state = "sash"
 	icon_state = "sash"
@@ -572,7 +594,7 @@
 /obj/item/clothing/accessory/poncho/shouldercape
 	name = "shoulder cape"
 	desc = "A simple shoulder cape."
-	desc_fluff = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
+	desc_extended = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
 	icon_state = "starcape"
 	item_state = "starcape"
 	flippable = 1
@@ -615,7 +637,7 @@
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	name = "qeblak mantle"
 	desc = "A mantle denoting the wearer as a member fo the Qeblak faith."
-	desc_fluff = "This mantle denotes the wearer as a member of the Qeblak faith. \
+	desc_extended = "This mantle denotes the wearer as a member of the Qeblak faith. \
 	It is given to followers after they have completed their coming of age ceremony. \
 	The symbol on the back is of a protostar as it transitions into a main sequence star, \
 	representing the the wearer becoming an adult."
@@ -626,7 +648,7 @@
 /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
 	name = "weishii robe"
 	desc = "A robe denoting the wearer as a member fo the Weishii faith."
-	desc_fluff = "This mantle denotes the wearer as a member of the Weishii faith. \
+	desc_extended = "This mantle denotes the wearer as a member of the Weishii faith. \
 	It is given to followers after they have spent time on a Weishiin Sanctuary."
 	icon_state = "weishii_robe"
 	item_state = "weishii_robe"
@@ -635,7 +657,7 @@
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
 	name = "Nralakk Division Zeng-Hu cloak"
 	desc = "This cloak is given to Zeng-Hu employees who have assisted or worked in collaboration with the Nralakk Federation."
-	desc_fluff = "A cloak given to senior level doctors and researchers for Zeng-Hu who has \
+	desc_extended = "A cloak given to senior level doctors and researchers for Zeng-Hu who has \
 	in the past been given the privilege of working within or in collaboration with the Nralakk Federation\
 	 as a show of goodwill between the corporation and federation."
 	icon = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
@@ -791,7 +813,7 @@
 /obj/item/clothing/accessory/sleevepatch/scc
 	name = "Stellar Corporate Conglomerate patch"
 	desc = "An embroidered patch, adorned with the logo of the Stellar Corporate Conglomerate, which can be attached to the shoulder sleeve of clothing."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon_state = "scc_patch"
 	overlay_state = "scc_patch"
 
@@ -947,7 +969,7 @@
 /obj/item/clothing/accessory/poncho/ipc_mantle
 	name = "\improper Burzsian shoulder mantle"
 	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
-	desc_fluff = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
+	desc_extended = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
 	icon = 'icons/clothing/accessories/BZ_Gorget.dmi'
 	icon_state = "Burz_gorget"
 	item_state = "Burz_gorget"

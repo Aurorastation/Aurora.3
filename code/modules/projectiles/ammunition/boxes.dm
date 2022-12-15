@@ -107,6 +107,7 @@
 
 /obj/item/ammo_magazine/c45m/practice
 	name = "magazine (.45 practice)"
+	icon_state = "45_practice"
 	ammo_type = /obj/item/ammo_casing/c45/practice
 
 /obj/item/ammo_magazine/c45m/flash
@@ -326,6 +327,7 @@
 
 /obj/item/ammo_magazine/a556/carbine/practice
 	name = "carbine magazine (5.56mm practice)"
+	icon_state = "5.56c_practice"
 	ammo_type = /obj/item/ammo_casing/a556/practice
 
 /obj/item/ammo_magazine/a556/carbine/ap

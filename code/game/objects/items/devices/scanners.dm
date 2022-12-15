@@ -131,7 +131,7 @@ BREATH ANALYZER
 
 	// Brain activity.
 	var/brain_status = H.get_brain_status()
-	dat += "Brain activity: [brain_status]."
+	dat += "Brain activity: [brain_status]"
 	var/brain_result = H.get_brain_result()
 
 	if(sound_scan)
@@ -169,13 +169,14 @@ BREATH ANALYZER
 			pulse_result = "<span class='scan_warning'>[pulse_result]</span>"
 	else
 		pulse_result = "<span class='scan_danger'>0</span>"
-	dat += "Pulse rate: [pulse_result]bpm."
+	dat += "Pulse rate: [pulse_result] bpm"
 
-	// Blood pressure. Based on the idea of a normal blood pressure being 120 over 80.
+	// Blood pressure and blood type. Based on the idea of a normal blood pressure being 120 over 80.
 	if(H.should_have_organ(BP_HEART))
 		if(H.get_blood_volume() <= 70)
 			dat += "<span class='scan_danger'>Severe blood loss detected.</span>"
 		var/oxygenation_string = "<span class='scan_green'>[H.get_blood_oxygenation()]% blood oxygenation</span>"
+		dat += "Blood type: <span class ='scan_green'>[H.dna.b_type]</span>"
 		switch(H.get_blood_oxygenation())
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 				oxygenation_string = "<span class='scan_notice'>[oxygenation_string]</span>"
@@ -194,16 +195,16 @@ BREATH ANALYZER
 				blood_pressure_string = "<span class='scan_warning'>[H.get_blood_pressure()]</span>"
 			if(4)
 				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
-		dat += "[b]Blood pressure:[endb] [blood_pressure_string] ([oxygenation_string])"
+		dat += "Blood pressure: [blood_pressure_string] ([oxygenation_string])"
 	else
-		dat += "[b]Blood pressure:[endb] N/A"
+		dat += "Blood pressure: N/A"
 
-	// Body temperature.
+	// Body temperature. Rounds to one digit after decimal.
 	var/temperature_string
 	if(H.bodytemperature < H.species.cold_level_1 || H.bodytemperature > H.species.heat_level_1)
-		temperature_string = "<span class='scan_warning'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
+		temperature_string = "Body temperature: <span class='scan_warning'>[round(H.bodytemperature-T0C, 0.1)]&deg;C ([round(H.bodytemperature*1.8-459.67, 0.1)]&deg;F)</span>"
 	else
-		temperature_string = "<span class='scan_green'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
+		temperature_string = "Body temperature: <span class='scan_green'>[round(H.bodytemperature-T0C, 0.1)]&deg;C ([round(H.bodytemperature*1.8-459.67, 0.1)]&deg;F)</span>"
 	dat += temperature_string
 
 	// Traumatic shock.

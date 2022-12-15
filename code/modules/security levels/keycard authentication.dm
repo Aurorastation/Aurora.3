@@ -12,7 +12,6 @@
 	var/obj/machinery/keycard_auth/event_source
 	var/mob/event_triggered_by
 	var/mob/event_confirmed_by
-	var/listening = FALSE
 	var/recorded_message = ""
 	//1 = select event
 	//2 = authenticate
@@ -78,6 +77,7 @@
 		dat += "<li><A href='?src=\ref[src];triggerevent=Red alert'>Red alert</A></li>"
 		if(!config.ert_admin_call_only)
 			dat += "<li><A href='?src=\ref[src];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
+		dat += "<li><A href='?src=\ref[src];triggerevent=Unlock Leviathan Safeties'><font color='red'>Unlock Leviathan Safeties</font></A></li>"
 
 		dat += "</ul>"
 	if(screen == 2)
@@ -119,7 +119,7 @@
 	recorded_message = ""
 
 /obj/machinery/keycard_auth/hear_talk(mob/M, text, verb, datum/language/speaking)
-	if(event == "Distress Beacon" && listening && M == event_triggered_by)
+	if(event == "Distress Beacon" && M == event_triggered_by)
 		recorded_message = text
 
 /obj/machinery/keycard_auth/proc/broadcast_request(var/mob/user)
@@ -127,9 +127,9 @@
 	if(event == "Distress Beacon" && user)
 		distress_message = input(user, "Enter a distress message that other vessels will receive.", "Distress Beacon")
 		if(distress_message)
-			listening = TRUE
+			become_hearing_sensitive()
 			user.say(distress_message)
-			listening = FALSE
+			lose_hearing_sensitivity()
 		else
 			to_chat(user, SPAN_WARNING("The beacon refuses to launch without a message!"))
 			reset()
@@ -182,6 +182,12 @@
 			else
 				SSdistress.trigger_armed_response_team()
 			feedback_inc("alert_keycard_auth_ert",1)
+		if("Unlock Leviathan Safeties")
+			if(linked && linked.levi_safeguard)
+				if(!linked.levi_safeguard.opened)
+					linked.levi_safeguard.open()
+					command_announcement.Announce("Commencing connection of Leviathan warp field arrays. All personnel are reminded to seek out a fixed object they can \
+												   hold on to in preparation for the firing sequence.", "Leviathan Artillery Control", 'sound/effects/ship_weapons/leviathan_safetyoff.ogg')
 
 /obj/machinery/keycard_auth/proc/is_ert_blocked()
 	if(config.ert_admin_call_only)

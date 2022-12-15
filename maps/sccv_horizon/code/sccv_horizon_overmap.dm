@@ -8,7 +8,7 @@
 	base = TRUE
 
 	initial_restricted_waypoints = list(
-		"Mining Shuttle" = list("nav_hangar_mining"), 	//can't have random shuttles popping inside the ship
+		"Spark" = list("nav_hangar_mining"), 	//can't have random shuttles popping inside the ship
 		"Intrepid" = list("nav_hangar_intrepid")
 	)
 
@@ -17,6 +17,7 @@
 	"nav_hangar_horizon_2",
 	"nav_dock_horizon_1",
 	"nav_dock_horizon_2",
+	"nav_dock_horizon_3",
 	"deck_one_fore_of_horizon",
 	"deck_one_starboard_side",
 	"deck_one_port_side",
@@ -35,26 +36,30 @@
 	"deck_three_aft_of_horizon"
 	)
 
-
-/obj/machinery/computer/shuttle_control/explore/intrepid
-	name = "Intrepid control console"
-	shuttle_tag = "Intrepid"
-	req_access = list(access_intrepid)
-
 /obj/effect/overmap/visitable/ship/landable/intrepid
 	name = "Intrepid"
-	desc = "A standard-sized unarmed exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid."
+	class = "SCCV"
+	designation = "Intrepid"
+	desc = "A standard-sized exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid, which actually uses \
+			a specially modified Pathfinder-class chassis fitted with a 40mm Francisca rotary gun."
 	shuttle = "Intrepid"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 
+/obj/machinery/computer/shuttle_control/explore/intrepid
+	name = "\improper Intrepid control console"
+	shuttle_tag = "Intrepid"
+	req_access = list(access_intrepid)
+
 /obj/effect/overmap/visitable/ship/landable/mining_shuttle
-	name = "Mining Shuttle"
+	name = "Spark"
+	class = "SCCV"
+	designation = "Spark"
 	desc = "A common, modestly-sized short-range shuttle manufactured by Hephaestus. Most frequently used as a mining platform, the Pickaxe-class is entirely reliant on a reasonably-sized mothership for anything but short-term functionality. This one's transponder identifies it as belonging to the Stellar Corporate Conglomerate."
-	shuttle = "Mining Shuttle"
+	shuttle = "Spark"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
@@ -62,8 +67,8 @@
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/mining_shuttle
-	name = "mining shuttle control console"
-	shuttle_tag = "Mining Shuttle"
+	name = "\improper Spark control console"
+	shuttle_tag = "Spark"
 	req_access = list(access_mining)
 
 /obj/effect/shuttle_landmark/horizon/nav1
@@ -88,6 +93,13 @@
 /obj/effect/shuttle_landmark/horizon/dock2 //shares a spot with the TCFL ERT shuttle, but having multiple use cases is fine, ERTs are adminspawned only as well
 	name = "Port Primary Docking Arm"
 	landmark_tag = "nav_dock_horizon_2"
+	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/horizon/dock3
+	name = "Starboard Primary Docking Arm-Fore"
+	landmark_tag = "nav_dock_horizon_3"
+	docking_controller = "dock_horizon_3_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
