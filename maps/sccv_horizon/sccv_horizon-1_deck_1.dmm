@@ -5386,7 +5386,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/binary/passive_gate/on{
-	name = "Reactor to Mix"
+	name = "Reactor Waste to Mix"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -6494,12 +6494,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"faE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos)
 "fbc" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -9567,9 +9561,6 @@
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
 "hpU" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -9579,7 +9570,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/binary/pump{
+	name = "Mix to Connector"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "hqa" = (
 /obj/effect/floor_decal/corner/blue{
@@ -12704,9 +12702,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "jVj" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -12719,10 +12714,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/binary/pump{
-	name = "Mix to Connector"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Mix to Mixed Gas Tank"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "jWE" = (
@@ -26930,9 +26926,6 @@
 "vlY" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -50056,9 +50049,9 @@ jCK
 jCK
 jCK
 sNH
-faE
+mRc
 hpU
-iFd
+dMa
 qew
 eIS
 suA
@@ -50260,7 +50253,7 @@ iUi
 bDt
 vlY
 jVj
-dMa
+iFd
 mGp
 eIS
 qDK
