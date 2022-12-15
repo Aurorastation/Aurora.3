@@ -331,8 +331,13 @@
 	},
 /area/adhomai_bar)
 "oT" = (
-/obj/structure/railing/fence{
-	dir = 8
+/obj/effect/decal/fake_object{
+	color = "#8bbbd5";
+	icon = 'icons/obj/decals.dmi';
+	icon_state = "twin_suns";
+	name = "Twins Suns Symbol";
+	pixel_y = 32;
+	desc = "An ancient icon representing Adhomai's suns."
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -495,6 +500,12 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
+"wy" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "xc" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/wood{
@@ -543,6 +554,13 @@
 /area/adhomai_bar)
 "Ag" = (
 /obj/machinery/computer/slot_machine,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"Bh" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -677,6 +695,17 @@
 "GG" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"HM" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -1128,6 +1157,13 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
+"Zm" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "Zw" = (
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/tiled/white,
@@ -1374,7 +1410,7 @@ se
 IH
 qF
 Xv
-Zc
+Bh
 eS
 eS
 eS
@@ -1424,7 +1460,7 @@ TA
 In
 TA
 In
-In
+wy
 Xv
 bm
 ww
@@ -1589,7 +1625,7 @@ nR
 nR
 "}
 (14,1,1) = {"
-cs
+HM
 TA
 In
 TA
@@ -1611,7 +1647,7 @@ eS
 eS
 eS
 zA
-Zc
+Zm
 Zc
 zA
 eS
@@ -1623,7 +1659,7 @@ nR
 nR
 "}
 (15,1,1) = {"
-oT
+nR
 Xv
 Xv
 Xv
@@ -1675,7 +1711,7 @@ eS
 eS
 xc
 Zc
-Zc
+Zm
 ev
 eS
 eS
@@ -1776,7 +1812,7 @@ Xv
 eS
 eS
 xc
-Zc
+Bh
 Zc
 ev
 eS
@@ -1816,7 +1852,7 @@ Qp
 eS
 zA
 yR
-Zc
+Bh
 zA
 eS
 eS
@@ -1857,7 +1893,7 @@ eS
 eS
 dd
 Xv
-nR
+oT
 nR
 "}
 (22,1,1) = {"
@@ -1985,7 +2021,7 @@ Zc
 zA
 eS
 zA
-Zc
+Zm
 Zc
 zA
 eS
