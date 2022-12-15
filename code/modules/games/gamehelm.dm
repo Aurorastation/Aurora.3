@@ -1,5 +1,5 @@
 /obj/item/gamehelm
-	name = "\improper InUs game-helm"
+	name = "\improper InUs Game-Helm"
 	desc = "The latest device in any self respecting gamer's arsenal, brought to you by the Ingi Usang Entertainment Corporation. Remember to hide it under your desk if the captain walks by."
 	desc_extended = "The Game-Helm was designed by a subsidiary of NanoTrasen, Ingi Usang Entertainment Co., with games \
 	being able to be purchased from an online marketplace hosted by InUs. Thousands of popular and obscure titles are available on the \
@@ -14,6 +14,7 @@
 /obj/item/gamehelm/Initialize()
 	. = ..()
 	icon_state = closed
+	add_overlay("buttons_closed")
 
 /obj/item/gamehelm/AltClick()
 	if(use_check(usr))
@@ -33,9 +34,9 @@
 		cut_overlays()
 		add_overlay("buttons_open")
 		if(choice != "turn off the system")
-			to_chat(user, "You start the application on your GameHelm and begin playing.")
+			to_chat(user, "You start the application on your Game-Helm and begin playing.")
 		else
-			to_chat(user, "You turn the GameHelm off.")
+			to_chat(user, "You turn the Game-Helm off.")
 		if(choice == "anime game")
 			add_overlay("screen_anime")
 		if(choice == "shooter game")
