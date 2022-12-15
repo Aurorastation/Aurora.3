@@ -505,7 +505,7 @@
 	max_shells = 20
 	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag)
 
-/obj/item/gun/projectile/automatic/tommygun/update_icon()
+/obj/item/gun/projectile/automatic/tommygun/dom/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "owen" : "owen-empty"
 

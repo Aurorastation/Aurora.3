@@ -4,7 +4,7 @@
 	suffix = "ships/orion/orion_express_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "orion_express_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/orion_express_shuttle)
 
