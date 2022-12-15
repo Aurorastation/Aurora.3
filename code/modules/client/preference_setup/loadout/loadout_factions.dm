@@ -522,7 +522,7 @@
 
 /datum/gear/faction/scc_jacket
 	display_name = "SCC coat selection"
-	description = "A seclection of SCC coats"
+	description = "A selection of SCC coats"
 	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc
 	slot = slot_wear_suit
 	sort_category = "Factions"
