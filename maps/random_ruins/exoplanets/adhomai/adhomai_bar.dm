@@ -46,7 +46,7 @@
 	head = /obj/item/clothing/head/flatcap
 	shoes = /obj/item/clothing/shoes/tajara/workboots/adhomian_boots
 	back = /obj/item/storage/backpack/satchel/leather
-	accessory = /obj/item/clothing/accessory/tie/bowtie
+	suit = /obj/item/clothing/suit/storage/hooded/tajaran/maroon
 
 	l_ear = null
 
