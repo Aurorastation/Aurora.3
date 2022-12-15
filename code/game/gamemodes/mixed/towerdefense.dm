@@ -1,7 +1,7 @@
 /datum/game_mode/towerdefense
 	name = "Tower Defense (merc+heist+ninjas)"
 	config_tag = "towerdefense"
-	required_players = 30
+	required_players = 70
 	required_enemies = 10
 	antag_tags = list(MODE_MERCENARY, MODE_RAIDER, MODE_NINJA)
 	require_all_templates = TRUE

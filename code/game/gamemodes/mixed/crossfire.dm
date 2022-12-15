@@ -1,7 +1,7 @@
 /datum/game_mode/crossfire
 	name = "Crossfire (Merc+Heist)"
 	config_tag = "crossfire"
-	required_players = 25
+	required_players = 80
 	required_enemies = 8
 	antag_tags = list(MODE_RAIDER, MODE_MERCENARY)
 	require_all_templates = 1

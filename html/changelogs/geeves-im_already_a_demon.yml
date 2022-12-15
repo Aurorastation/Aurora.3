@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Raised the minimum amount of players for Merc to roll to 60, Tower Defense to 70, Crossfire to 80, Bughunt to 75."
