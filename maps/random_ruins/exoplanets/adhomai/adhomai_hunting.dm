@@ -28,6 +28,7 @@
 	spawnpoints = list("adhomai_hunter")
 	max_count = 2
 
+	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	outfit = /datum/outfit/admin/adhomai_hunter
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -75,6 +76,7 @@
 	spawnpoints = list("matake_hunter")
 	max_count = 1
 
+	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	outfit = /datum/outfit/admin/matake_hunter
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY

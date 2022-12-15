@@ -25,6 +25,7 @@
 	desc = "Staff the Adhomian bar."
 	tags = list("External")
 
+	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	spawnpoints = list("adhomai_bar_innkeeper")
 	max_count = 1
 
@@ -39,7 +40,7 @@
 	uses_species_whitelist = FALSE
 
 /datum/outfit/admin/adhomai_bar_innkeeper
-	name = "Adhomian innkeeper"
+	name = "Adhomian Innkeeper"
 
 	uniform = /obj/item/clothing/under/sl_suit
 	head = /obj/item/clothing/head/flatcap
@@ -61,6 +62,7 @@
 	spawnpoints = list("adhomai_bar_server")
 	max_count = 2
 
+	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	outfit = /datum/outfit/admin/adhomai_bar_server
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -89,6 +91,7 @@
 	desc = "Drink, eat, and gamble at the Adhomian inn."
 	tags = list("External")
 
+	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	spawnpoints = list("adhomai_bar_patron")
 	max_count = 4
 

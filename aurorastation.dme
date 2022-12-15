@@ -3259,6 +3259,7 @@
 #include "maps\event\rooftop\code\rooftop_shuttles.dm"
 #include "maps\random_ruins\exoplanets\exoplanet_ruins.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_abadoned_village.dm"
+#include "maps\random_ruins\exoplanets\adhomai\adhomai_amohdan.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_archeology.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_bar.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_battlefield.dm"

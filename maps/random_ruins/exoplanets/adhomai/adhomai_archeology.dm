@@ -25,6 +25,7 @@
 	desc = "Do some archeological work in Adhomai as part of a New Kingdom of Adhomai expedition."
 	tags = list("External")
 
+	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	spawnpoints = list("adhomai_archeology")
 	max_count = 4
 

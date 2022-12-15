@@ -1,0 +1,70 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"c" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"m" = (
+/obj/structure/bed/stool/wood,
+/obj/effect/ghostspawpoint{
+	identifier = "adhomai_amohdan";
+	name = "igs - adhomai_amohdan"
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"s" = (
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"x" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"P" = (
+/obj/structure/bonfire/light_up,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+
+(1,1,1) = {"
+c
+c
+c
+s
+c
+"}
+(2,1,1) = {"
+c
+c
+c
+c
+c
+"}
+(3,1,1) = {"
+c
+m
+P
+c
+c
+"}
+(4,1,1) = {"
+c
+c
+c
+c
+c
+"}
+(5,1,1) = {"
+c
+x
+c
+c
+c
+"}

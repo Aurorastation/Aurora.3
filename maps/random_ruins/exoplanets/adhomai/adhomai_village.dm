@@ -28,6 +28,7 @@
 	spawnpoints = list("adhomai_village")
 	max_count = 4
 
+	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	outfit = /datum/outfit/admin/adhomai_village
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY

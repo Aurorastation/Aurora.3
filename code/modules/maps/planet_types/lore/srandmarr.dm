@@ -108,8 +108,8 @@
 	generated_name = FALSE
 //	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
 //								/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_archeology,
-//								/datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_bar)
-	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_bar)
+//								/datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_bar, /datum/map_template/ruin/exoplanet/adhomai_amohdan)
+	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_amohdan)
 
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_habitability()
