@@ -510,7 +510,7 @@
 /mob/living/silicon/robot/verb/view_holomap()
 	set category = "Robot Commands"
 	set name = "View Holomap"
-	set desc = "View Holomap of the current level."
+	set desc = "View a virtual map of the surrounding area."
 	
 	var/obj/machinery/station_map/mobile/holo_map_object
 	if(src.holo_map)

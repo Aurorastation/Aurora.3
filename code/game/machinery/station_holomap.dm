@@ -1,6 +1,6 @@
 /obj/machinery/station_map
 	name = "holomap"
-	desc = "A virtual map of the surrounding deck."
+	desc = "A virtual map of the surrounding area."
 	icon = 'icons/obj/machines/stationmap.dmi'
 	icon_state = "station_map"
 	anchored = 1
@@ -193,6 +193,7 @@
 // TODO: Make these constructable.
 
 /obj/machinery/station_map/mobile
+	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 	active_power_usage = 0
 
