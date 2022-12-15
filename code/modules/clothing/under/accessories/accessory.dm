@@ -315,25 +315,37 @@
 	name = "scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
 	icon = 'icons/obj/clothing/scarves.dmi'
-	icon_state = "scarf1"
-	item_state = "scarf1"
+	icon_state = "scarf0"
+	item_state = "scarf0"
 	contained_sprite = TRUE
-	var/list/alternatives = list("scarf1", "scarf2", "scarf3")
+	var/list/alternatives = list("drape" = "scarf0",
+								"drape, flipped" = "scarf0_f",
+								"single wrap" = "scarf1",
+								"double wrap" = "scarf2",
+								"parisian" = "scarf3")
 	var/list/overlay_alternatives = null
 
 /obj/item/clothing/accessory/scarf/attack_self(mob/user)
 	if(alternatives)
-		var/current = alternatives.Find(icon_state)
-		current++
-		if(current > alternatives.len)
-			current = 1
-		icon_state = alternatives[current]
+		var/list/options = list()
+		for (var/i in alternatives)
+			var/image/radial_button = image(icon = icon, icon_state = alternatives[i])
+			if(color)
+				radial_button.color = color
+			if(build_from_parts&&worn_overlay)
+				radial_button.cut_overlays()
+				radial_button.add_overlay(overlay_image(icon, "[alternatives[i]]_[worn_overlay]", flags=RESET_COLOR))
+			options[i] = radial_button
+		var/alt = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
+		if(!alt)
+			return
+		icon_state = alternatives[alt]
 		item_state = icon_state
 		update_icon()
 		update_clothing_icon()
 		inv_overlay = null
 		accessory_mob_overlay = null
-		to_chat(user, SPAN_NOTICE("You retie \the [src]."))
+		to_chat(user, SPAN_NOTICE("You retie \the [src] as \an [alt]."))
 	return ..()
 
 /obj/item/clothing/accessory/scarf/zebra
