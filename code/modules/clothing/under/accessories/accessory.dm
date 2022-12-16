@@ -210,21 +210,18 @@
 	desc = "A ribbon for adorning the neck."
 	icon_state = "ribbon"
 	item_state = "ribbon"
-	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/tie/ribbon/bow
 	name = "neck bow"
 	desc = "A bow for adorning the neck."
 	icon_state = "bow"
 	item_state = "bow"
-	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/tie/ribbon/bow_tie
 	name = "bow tie"
-	desc = "A bow tie."
+	desc = "A bow tie. Snazzy!"
 	icon_state = "bow_tie"
 	item_state = "bow_tie"
-	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
