@@ -19,40 +19,40 @@
 /area/ship/sfa_patrol_ship/medbay
 	name = "SFA Medbay"
 
-/area/ship/sfa_patrol_ship/sfa_armory
+/area/ship/sfa_patrol_ship/SFA_Armory
 	name = "SFA Armory"
 
-/area/ship/sfa_patrol_ship/engineering
+/area/ship/sfa_patrol_ship/Engineering
 	name = "SFA Engineering"
 
-/area/ship/sfa_patrol_ship/telecoms
+/area/ship/sfa_patrol_ship/Telecoms
 	name = "SFA Telecoms"
 
-/area/ship/sfa_patrol_ship/treasureroom
+/area/ship/sfa_patrol_ship/TreasureRoom
 	name = "SFA Treasure Room"
 
-/area/ship/sfa_patrol_ship/bridge
+/area/ship/sfa_patrol_ship/Bridge
 	name = "SFA Corvette Bridge"
 
-/area/ship/sfa_patrol_ship/ammo_closet
+/area/ship/sfa_patrol_ship/Ammo_Closet
 	name = "SFA Ammo Closet"
 
-/area/ship/sfa_patrol_ship/quarters
+/area/ship/sfa_patrol_ship/Quarters
 	name = "SFA Crew Quarters"
 
-/area/ship/sfa_patrol_ship/officer
+/area/ship/sfa_patrol_ship/Officer
 	name = "SFA Officer Quarters"
 
-/area/ship/sfa_patrol_ship/brig
+/area/ship/sfa_patrol_ship/Brig
 	name = "SFA Brig"
 
-/area/ship/sfa_patrol_ship/engine1
+/area/ship/sfa_patrol_ship/Engine1
 	name = "SFA Engine One"
 
-/area/ship/sfa_patrol_ship/engine2
+/area/ship/sfa_patrol_ship/Engine2
 	name = "SFA Engine Two"
 
-/area/ship/sfa_patrol_ship/suit_storage
+/area/ship/sfa_patrol_ship/Suit_Storage
 	name = "SFA Suit Storage"
 
 /area/shuttle/sfa_shuttle
