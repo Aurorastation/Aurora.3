@@ -3081,6 +3081,10 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "cMn" = (
@@ -19000,12 +19004,10 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-<<<<<<< HEAD
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/ai_status_display{
-=======
 /obj/machinery/station_map{
->>>>>>> c5aa03ed447491eebb976922e883cfc87acd3717
+	dir = 1;
+	pixel_x = 0;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
