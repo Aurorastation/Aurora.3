@@ -22435,8 +22435,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_security{
-	name = "Processing Cell 1";
-	req_access = list(2)
+	name = "Holding Cell A";
+	req_one_access = list(2,4)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -36443,8 +36443,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_security{
-	name = "Processing Cell 2";
-	req_access = list(2)
+	name = "Holding Cell B";
+	req_one_access = list(2,4)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
