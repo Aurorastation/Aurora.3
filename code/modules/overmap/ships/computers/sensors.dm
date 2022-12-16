@@ -188,7 +188,7 @@
 		if(direction != "clear")
 			security_announcement.Announce("Enemy fire inbound, enemy fire inbound! [direction]!", "Brace for shock!", sound('sound/mecha/internaldmgalarm.ogg'), 0)
 		else
-			security_announcement.Announce("No fire is incoming at the current moment, resume damage control", "Space clear!", sound('sound/misc/announcements/security_level_old.ogg'), 0)
+			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/misc/announcements/security_level_old.ogg'), 0)
 		return TOPIC_HANDLED
 
 
