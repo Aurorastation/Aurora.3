@@ -1,6 +1,0 @@
-author: Geeves
-    
-delete-after: True
-
-changes:
-  - tweak: "Slime Core Bags now show a sorted and numbered list of the cores inside, instead of throwing it into a massive unsorted storage list."
