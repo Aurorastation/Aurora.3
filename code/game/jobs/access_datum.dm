@@ -440,6 +440,12 @@ var/const/access_bridge_crew = 74
 	desc = "Bridge Crew"
 	region = ACCESS_REGION_COMMAND
 
+/var/const/access_ship_weapons = 75
+/datum/access/access_ship_weapons
+	id = access_ship_weapons
+	desc = "Ship Weapons"
+	region = ACCESS_REGION_SUPPLY
+
 /******************
 * Central Command *
 ******************/

@@ -18,11 +18,11 @@
 	)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
+			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_ship_weapons, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research, access_mining, access_mailsorting,
 			access_first_responder, access_maint_tunnels, access_intrepid, access_teleporter)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
+			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_ship_weapons, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research, access_mining, access_mailsorting,
 			access_first_responder, access_maint_tunnels, access_intrepid, access_teleporter)
 

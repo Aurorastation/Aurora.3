@@ -342,7 +342,7 @@
 	id_tag = "airlocks_deck2_ammostorage";
 	locked = 1;
 	name = "Secure Ammunition Storage";
-	req_one_access = list(10,20,34,60,74)
+	req_one_access = list(75)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
@@ -990,7 +990,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Ship Flak Munitions Bay";
-	req_one_access = list(10,60,20,31)
+	req_one_access = list(75)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -7685,7 +7685,7 @@
 	name = "Door Bolt Control";
 	pixel_x = -40;
 	pixel_y = -7;
-	req_one_access = list(10,20,34,60,74);
+	req_one_access = list(75);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -7694,7 +7694,7 @@
 	name = "Blast Door Control";
 	pixel_x = -40;
 	pixel_y = 7;
-	req_one_access = list(10,20,34,60,74)
+	req_one_access = list(75)
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
@@ -9052,7 +9052,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Research Hallway";
-	req_access = list(47)
+	req_one_access = list(16,47)
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /obj/effect/map_effect/door_helper/unres{
@@ -9196,10 +9196,10 @@
 	layer = 4;
 	pixel_y = 32
 	},
-/mob/living/simple_animal/hostile/commanded/dog/columbo,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/mob/living/simple_animal/hostile/commanded/dog/columbo,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "eEx" = (
@@ -12390,10 +12390,10 @@
 	name = "Ginny's Cage Access";
 	req_access = list(56)
 	},
-/mob/living/simple_animal/carp/fluff/ginny,
 /obj/machinery/light{
 	dir = 1
 	},
+/mob/living/simple_animal/carp/fluff/ginny,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "ghX" = (
@@ -14224,7 +14224,7 @@
 	id_tag = "airlocks_deck2_ammostorage";
 	locked = 1;
 	name = "Secure Ammunition Storage";
-	req_one_access = list(10,20,34,60,74)
+	req_one_access = list(75)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
@@ -21481,7 +21481,7 @@
 	name = "Blast Door Control";
 	pixel_x = 40;
 	pixel_y = 7;
-	req_one_access = list(10,20,34,60,74)
+	req_one_access = list(75)
 	},
 /obj/machinery/button/remote/airlock/screamer{
 	channel = "Command";
@@ -21491,7 +21491,7 @@
 	name = "Door Bolt Control";
 	pixel_x = 40;
 	pixel_y = -7;
-	req_one_access = list(10,20,34,60,74);
+	req_one_access = list(75);
 	specialfunctions = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -24563,10 +24563,10 @@
 "mmm" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
 "mmS" = (
@@ -43922,7 +43922,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine Core")
+	sensors = list("engine_sensor" = "Engine Core")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
