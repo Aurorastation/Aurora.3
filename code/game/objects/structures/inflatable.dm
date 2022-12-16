@@ -264,7 +264,7 @@
 /obj/item/inflatable/torn
 	name = "torn inflatable wall"
 	desc = "A folded membrane which rapidly expands into a large cubical shape on activation. It is too torn to be usable."
-	icon_state = "folded_wall_torn"
+	icon_state = "folded_wall-torn"
 
 /obj/item/inflatable/torn/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("The inflatable wall is too torn to be inflated!"))
@@ -273,7 +273,7 @@
 /obj/item/inflatable/door/torn
 	name = "torn inflatable door"
 	desc = "A folded membrane which rapidly expands into a simple door on activation. It is too torn to be usable."
-	icon_state = "folded_door_torn"
+	icon_state = "folded_door-torn"
 
 /obj/item/inflatable/door/torn/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("The inflatable door is too torn to be inflated!"))
