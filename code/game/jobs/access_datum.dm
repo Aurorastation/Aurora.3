@@ -440,6 +440,12 @@ var/const/access_bridge_crew = 74
 	desc = "Bridge Crew"
 	region = ACCESS_REGION_COMMAND
 
+/var/const/access_ship_weapons = 75
+/datum/access/access_ship_weapons
+	id = access_ship_weapons
+	desc = "Ship Weapons"
+	region = ACCESS_REGION_SUPPLY
+
 /******************
 * Central Command *
 ******************/
@@ -616,7 +622,7 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_unathi_pirate
 	id = access_unathi_pirate
 	access_type = ACCESS_TYPE_CENTCOM
-	
+
 /var/const/access_iac_rescue_ship = 211
 /datum/access/access_iac_rescue_ship
 	id = access_iac_rescue_ship

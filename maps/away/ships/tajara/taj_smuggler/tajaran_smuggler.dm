@@ -4,7 +4,7 @@
 	suffix = "ships/tajara/taj_smuggler/tajaran_smuggler.dmm"
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "tajaran_smuggler"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajaran_smuggler_shuttle, /datum/shuttle/autodock/overmap/tajaran_smuggler_cargo)
 

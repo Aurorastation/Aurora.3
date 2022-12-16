@@ -3,7 +3,7 @@
 	id = "database_freighter"
 	description = "Made from adapted designs of the first freighter Tajara ever worked upon, Database freighters are PRA vessels made specially for gathering information on star systems and what passes through them."
 	suffix = "ships/pra/database_freighter/database_freighter.dmm"
-	spawn_cost = 1
+	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/database_freighter_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
