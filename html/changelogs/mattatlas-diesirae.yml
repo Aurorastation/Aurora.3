@@ -43,3 +43,4 @@ changes:
   - balance: "The PEAC now actually has armour penetration, meaning it will actually do damage."
   - balance: "Increased PEAC anti-materiel coefficient to 4."
   - balance: "Full auto now globally has a 0.5s fire delay, instead of a 0.1s delay."
+  - balance: "Adjusted most other calibers' AP to compensate for armour buffs."

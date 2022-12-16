@@ -151,6 +151,7 @@
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
 	damage = 55
+	armor_penetration = 5
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
