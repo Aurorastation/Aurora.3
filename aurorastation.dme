@@ -3202,6 +3202,7 @@
 #include "maps\away\away_site\tajara\peoples_station\peoples_station.dm"
 #include "maps\away\away_site\tajara\peoples_station\peoples_station_ghostroles.dm"
 #include "maps\away\away_site\tajara\peoples_station\peoples_station_zones.dm"
+#include "maps\away\away_site\tajara\saniorios_smuggler\saniorios_smuggler.dm"
 #include "maps\away\away_site\tajara\scrapper\scrapper.dm"
 #include "maps\away\away_site\tajara\scrapper\scrapper_areas.dm"
 #include "maps\away\away_site\tajara\scrapper\scrapper_ghostroles.dm"
