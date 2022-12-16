@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "Second deck starboard maintenance didn't have many emergency shutters and air alarms within it. This has been fixed."
+
