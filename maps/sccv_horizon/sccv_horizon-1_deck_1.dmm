@@ -611,7 +611,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -25
 	},
 /obj/effect/floor_decal/corner/purple/full{
@@ -1398,8 +1397,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "ben" = (
-/mob/living/silicon/robot/shell,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/silicon/robot/shell,
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai)
 "beu" = (
@@ -2009,7 +2008,7 @@
 	input_tag = "ph_in";
 	name = "Phoron Supply Monitor";
 	output_tag = "ph_out";
-	sensors = list("ph_sensor"="Tank")
+	sensors = list("ph_sensor" = "Tank")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -2201,7 +2200,6 @@
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_x = 24;
 	dir = 8
 	},
@@ -2242,7 +2240,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "bHx" = (
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -2766,7 +2764,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -3084,6 +3081,9 @@
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/item/device/gps/stationary/sccv_intrepid{
+	pixel_x = 32
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "cty" = (
@@ -3811,14 +3811,13 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_dock_doors";
-	req_access = list(13)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass_mining{
+	name = "Spark";
+	req_access = list(48)
 	},
 /obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "cWd" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4677,7 +4676,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -5474,11 +5472,11 @@
 /area/engineering/atmos)
 "eog" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(65)
@@ -5524,7 +5522,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/binary/passive_gate/on{
-	name = "Reactor to Mix"
+	name = "Reactor Waste to Mix"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -5920,7 +5918,6 @@
 "eDa" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/effect/floor_decal/corner/brown/full{
@@ -6494,11 +6491,11 @@
 /area/rnd/xenoarch_atrium)
 "eWA" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(65)
@@ -6517,7 +6514,6 @@
 /area/rnd/xenoarch_atrium)
 "eWJ" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 25
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -6664,10 +6660,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"faE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos)
 "fbc" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -6748,7 +6740,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/computer/ship/engines{
@@ -6936,8 +6927,7 @@
 	dir = 10
 	},
 /obj/structure/railing/mapped,
-/obj/machinery/iff_beacon/horizon,
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "fjS" = (
 /obj/structure/ladder/up{
@@ -7398,6 +7388,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
+"fEu" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/station_map{
+	dir = 2;
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/auxiliary)
 "fEy" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -7427,7 +7431,8 @@
 	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "fFf" = (
 /obj/structure/railing/mapped{
@@ -7926,7 +7931,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "fVm" = (
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -9135,10 +9140,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "gOP" = (
-/obj/structure/sign/securearea{
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/corner/green/full,
+/obj/machinery/station_map{
+	dir = 4;
+	pixel_x = -32;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "gPf" = (
@@ -9394,7 +9401,6 @@
 	dir = 5
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
@@ -9785,9 +9791,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage/lower)
 "hpU" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -9797,10 +9800,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
 /obj/machinery/atmospherics/binary/pump{
 	name = "Mix to Connector"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "hqa" = (
@@ -10337,7 +10343,7 @@
 	dir = 6
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "hMr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -11482,7 +11488,6 @@
 "iLE" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -20
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -11562,7 +11567,7 @@
 	frequency = 1442;
 	input_tag = "port_prop_in";
 	output_tag = "port_prop_out";
-	sensors = list("port_prop_sensor"="Port Propulsion Sensor")
+	sensors = list("port_prop_sensor" = "Port Propulsion Sensor")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -11812,15 +11817,15 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /obj/machinery/computer/shuttle_control/explore/mining_shuttle,
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/airless,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "iZk" = (
 /obj/machinery/door/blast/regular/open{
@@ -12595,7 +12600,6 @@
 "jDs" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/machinery/camera/network/supply{
@@ -12991,9 +12995,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "jVj" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -13006,7 +13007,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Mix to Mixed Gas Tank"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "jWE" = (
 /obj/structure/cable/green{
@@ -13028,7 +13034,6 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 25
 	},
 /obj/structure/bed/stool/chair/office/bridge,
@@ -13224,7 +13229,7 @@
 	input_tag = "co2_in";
 	name = "Carbon Dioxide Supply Monitor";
 	output_tag = "co2_out";
-	sensors = list("co2_sensor"="Tank")
+	sensors = list("co2_sensor" = "Tank")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -13564,7 +13569,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/teleport/pad,
@@ -14085,14 +14089,13 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "kKc" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_dock_doors";
-	req_access = list(13)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass_mining{
+	name = "Spark";
+	req_access = list(48)
 	},
 /obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "kKz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
@@ -14182,6 +14185,11 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
+/obj/machinery/station_map{
+	dir = 2;
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "kNN" = (
@@ -14206,7 +14214,8 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "kOJ" = (
 /obj/machinery/camera/network/supply{
@@ -14374,6 +14383,9 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/device/gps/stationary/mining_shuttle{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "kVv" = (
@@ -14789,7 +14801,7 @@
 	input_tag = "h_in";
 	name = "Hydrogen Supply Monitor";
 	output_tag = "h_out";
-	sensors = list("h_sensor"="Tank")
+	sensors = list("h_sensor" = "Tank")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -14857,7 +14869,7 @@
 	name = "Nitrogen Supply Monitor";
 	output_tag = "n_out";
 	pixel_x = -32;
-	sensors = list("n_sensor"="Tank")
+	sensors = list("n_sensor" = "Tank")
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/lattice/catwalk/indoor,
@@ -15083,7 +15095,7 @@
 	frequency = 1442;
 	input_tag = "starboard_prop_in";
 	output_tag = "starboard_prop_out";
-	sensors = list("starboard_prop_sensor"="Starboard Propulsion Sensor")
+	sensors = list("starboard_prop_sensor" = "Starboard Propulsion Sensor")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -16857,7 +16869,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "mVX" = (
-/obj/machinery/telecomms/relay/preset/station,
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 8
 	},
@@ -17081,7 +17092,7 @@
 	name = "Air Supply Monitor";
 	output_tag = "air_out";
 	pixel_x = 32;
-	sensors = list("air_sensor"="Tank")
+	sensors = list("air_sensor" = "Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -17263,7 +17274,6 @@
 "nmF" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_x = -24;
 	dir = 4
 	},
@@ -17694,7 +17704,8 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "nBK" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -18615,6 +18626,11 @@
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled,
 /area/engineering/drone_fabrication)
+"osc" = (
+/obj/machinery/iff_beacon/horizon,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/shuttle/mining)
 "otX" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/green{
@@ -18893,7 +18909,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "oDv" = (
 /obj/machinery/conveyor{
@@ -19136,7 +19152,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "oSD" = (
 /obj/effect/shuttle_landmark/merc_ship/first_deck,
@@ -19711,7 +19727,7 @@
 	name = "Nitrous Oxide Supply Monitor";
 	output_tag = "n2o_out";
 	pixel_x = 32;
-	sensors = list("n2o_sensor"="Tank")
+	sensors = list("n2o_sensor" = "Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -19907,7 +19923,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -20413,7 +20428,7 @@
 	input_tag = null;
 	name = "Phoron Supply Monitor";
 	output_tag = "ph_out_engines";
-	sensors = list("ph_sensor"="Tank")
+	sensors = list("ph_sensor" = "Tank")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -21567,7 +21582,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -21656,15 +21670,6 @@
 	},
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 1
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "mining_shuttle_dock";
-	name = "mining shuttle hatch controller";
-	pixel_x = 6;
-	pixel_y = -25;
-	req_one_access = list(31,48,67);
-	tag_door = "mining_shuttle_dock_doors"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -23586,7 +23591,8 @@
 	tag_exterior_door = "mining_shuttle_external";
 	tag_interior_door = "mining_shuttle_internal"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "soD" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -23885,7 +23891,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "sxT" = (
 /obj/structure/sign/directions/cryo{
@@ -24085,11 +24091,11 @@
 /area/maintenance/substation/hangar)
 "sIQ" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(65)
@@ -24419,7 +24425,7 @@
 /area/storage/eva)
 "sVu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "sVZ" = (
 /obj/effect/landmark/entry_point/aft{
@@ -24934,7 +24940,7 @@
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
 "tqs" = (
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "tqT" = (
 /obj/structure/cable{
@@ -25732,18 +25738,15 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "tVI" = (
-/obj/machinery/door/window/northleft{
-	name = "Mining Shuttle Maintenance Exterior";
-	req_access = list(48)
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/bed/handrail{
+	dir = 1;
+	pixel_y = 8
 	},
-/obj/machinery/door/window/southleft{
-	name = "Mining Shuttle Maintenance Interior";
-	req_access = list(48)
-	},
-/obj/structure/disposalpipe/segment,
-/obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled,
-/area/hangar/operations)
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/shuttle/mining)
 "tWc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/structure/cable/green{
@@ -25836,7 +25839,6 @@
 "tYN" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/effect/floor_decal/corner/green{
@@ -25949,7 +25951,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/item/device/gps/stationary/mining_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "ucG" = (
@@ -25964,6 +25965,11 @@
 	},
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
+/obj/machinery/station_map{
+	dir = 4;
+	pixel_x = -32;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "ueg" = (
@@ -26970,7 +26976,8 @@
 	id_tag = "mining_shuttle_internal";
 	req_access = list(13)
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "uUZ" = (
 /obj/machinery/light{
@@ -26978,6 +26985,9 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 9
+	},
+/obj/structure/sign/securearea{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -27314,7 +27324,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "vht" = (
 /obj/machinery/door/blast/regular/open{
@@ -27643,7 +27653,6 @@
 /obj/effect/floor_decal/corner/green/full,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/structure/bed/stool/chair/office/light{
@@ -27933,7 +27942,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "vIF" = (
 /obj/structure/shuttle_part{
@@ -27967,19 +27976,19 @@
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	id_tag = "mining_dock";
-	name = "mining docking hatch controller";
+	id_tag = "mining_shuttle_dock";
+	name = "\improper Spark docking port controller";
 	pixel_x = -39;
 	pixel_y = -25;
-	req_one_access = list(31,48,67)
+	req_one_access = list(74)
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "intrepid_dock";
-	name = "intrepid docking port controller";
+	name = "\improper Intrepid docking port controller";
 	pixel_x = -26;
 	pixel_y = -25;
-	req_one_access = list(31,48,67)
+	req_one_access = list(74)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
@@ -27996,7 +28005,6 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -28242,7 +28250,7 @@
 	name = "Oxygen Supply Monitor";
 	output_tag = "o2_out";
 	pixel_x = -32;
-	sensors = list("o2_sensor"="Tank")
+	sensors = list("o2_sensor" = "Tank")
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 8
@@ -28348,7 +28356,8 @@
 	req_access = list(13)
 	},
 /obj/effect/shuttle_landmark/mining/hangar,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "vZT" = (
 /obj/machinery/light/spot/weak{
@@ -29396,16 +29405,13 @@
 /area/engineering/atmos)
 "wSS" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/window/northright{
-	name = "Mining Shuttle Maintenance Exterior";
-	req_access = list(48)
-	},
-/obj/machinery/door/window/southright{
-	name = "Mining Shuttle Maintenance Interior";
-	req_access = list(48)
-	},
 /obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled,
+/obj/machinery/door/airlock/glass_mining{
+	name = "Spark Dock Maintenance Access";
+	req_access = list(48)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "wTM" = (
 /obj/machinery/alarm{
@@ -29619,7 +29625,7 @@
 	name = "Mixed Gas Tank Monitor";
 	output_tag = "mixed_out";
 	pixel_y = -3;
-	sensors = list("mixed_sensor"="Tank")
+	sensors = list("mixed_sensor" = "Tank")
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/atmos)
@@ -30032,7 +30038,6 @@
 	},
 /obj/item/stack/nanopaste,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -30174,7 +30179,7 @@
 "xpX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/handrail,
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "xqe" = (
 /obj/structure/cable/green,
@@ -46423,7 +46428,7 @@ wkD
 wos
 rcA
 oXD
-tVI
+wSS
 ixU
 pgW
 gyo
@@ -46837,7 +46842,7 @@ qqS
 ePy
 xpX
 tqs
-sxP
+tVI
 tNp
 jCg
 tNp
@@ -47239,7 +47244,7 @@ aNO
 uNw
 rAa
 ePy
-xpX
+osc
 tqs
 vhg
 tNp
@@ -47645,7 +47650,7 @@ mWV
 ePy
 xpX
 tqs
-sxP
+tVI
 tNp
 jCg
 tNp
@@ -49243,11 +49248,11 @@ wuD
 nyV
 wuD
 wuD
-qju
-qju
-qju
-qju
-qju
+xmc
+xmc
+xmc
+xmc
+xmc
 wKW
 mBx
 qju
@@ -50628,7 +50633,7 @@ jCK
 jCK
 jCK
 sNH
-faE
+mRc
 hpU
 dMa
 qew
@@ -58538,7 +58543,7 @@ aoD
 kAG
 shb
 xtK
-hot
+fEu
 mSq
 adX
 bJa

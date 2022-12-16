@@ -142,7 +142,7 @@ var/global/list/rad_collectors = list()
 		add_overlay("on")
 
 
-/obj/machinery/power/rad_collector/proc/toggle_power()
+/obj/machinery/power/rad_collector/toggle_power()
 	active = !active
 	if(active)
 		icon_state = "ca_on"

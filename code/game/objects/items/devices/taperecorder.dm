@@ -23,7 +23,7 @@
 
 /obj/item/device/taperecorder/Initialize()
 	. = ..()
-	listening_objects += src
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
 	portable_drive = new /obj/item/computer_hardware/hard_drive/portable(src)
 
 /obj/item/device/taperecorder/Destroy()

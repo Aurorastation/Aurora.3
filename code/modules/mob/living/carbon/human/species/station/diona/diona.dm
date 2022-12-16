@@ -147,11 +147,12 @@
 		// This proc sleeps. Async it.
 		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
 
-/datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
+/datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)
 // Diona without head can live, but they cannot talk as loud anymore.
 	var/obj/item/organ/external/O = H.organs_by_name[BP_HEAD]
-	current_flags[4] = O.is_stump() ? 3 : world.view
-	return current_flags
+	if(O.is_stump())
+		message_range = 3
+		. = TRUE
 
 /datum/species/diona/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
 	current_flags = ..()

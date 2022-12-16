@@ -26,6 +26,9 @@ var/list/floating_chat_colors = list()
 	if(length(message) > limit)
 		message = "[copytext(message, 1, limit)]..."
 
+	if(istype(language, /datum/language/noise))
+		message = "<font color='#7F7F7F'>*</font> " + uncapitalize(message)
+
 	if(!floating_chat_colors[name])
 		floating_chat_colors[name] = get_floating_chat_color()
 	style += "color: [floating_chat_colors[name]];"

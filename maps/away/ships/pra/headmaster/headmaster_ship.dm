@@ -3,7 +3,7 @@
 	id = "headmaster_ship"
 	description = "A People's Republic Orbital Fleet ship."
 	suffix = "ships/pra/headmaster/headmaster_ship.dmm"
-	spawn_cost = 1
+	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/headmaster_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
@@ -29,7 +29,7 @@
 		"nav_headmaster_ship_4"
 	)
 	initial_restricted_waypoints = list(
-		"Orbital Fleet Shuttle" = list("nav_hangar_headmaster_shuttle")
+		"Orbital Fleet Shuttle" = list("nav_headmaster_shuttle")
 	)
 
 /obj/effect/overmap/visitable/ship/headmaster_ship/New()
@@ -85,6 +85,7 @@
 	shuttle_area = list(/area/shuttle/headmaster_shuttle)
 	current_location = "nav_headmaster_shuttle"
 	landmark_transition = "nav_transit_headmaster_shuttle"
+	dock_target = "headmaster_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_headmaster_shuttle"

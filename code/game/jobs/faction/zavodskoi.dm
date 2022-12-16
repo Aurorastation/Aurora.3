@@ -8,7 +8,7 @@
 	military force across the Orion Spur. They are the main corporation found in the Empire of
 	Dominia, and are at the forefront of weapons development technology.
 	</p>"}
-	departments = {"Science<br>Security"}
+	departments = {"Engineering<br>Research<br>Security"}
 	title_suffix = "Zavod"
 
 	allowed_role_types = ZAVOD_ROLES
@@ -101,7 +101,7 @@
 
 	id = /obj/item/card/id/zavodskoi/sec
 	uniform = /obj/item/clothing/under/det/zavod
-	suit = /obj/item/clothing/suit/storage/det_jacket/zavod
+	suit = /obj/item/clothing/suit/storage/security/investigator/zavod
 
 	backpack_faction = /obj/item/storage/backpack/zavod
 	satchel_faction = /obj/item/storage/backpack/satchel/zavod
@@ -204,7 +204,6 @@
 	head = /obj/item/clothing/head/beret/corporate/zavod
 	uniform = /obj/item/clothing/under/rank/liaison/zavod
 	suit = /obj/item/clothing/suit/storage/liaison/zavod
-	implants = null
 	id = /obj/item/card/id/zavodskoi
 	accessory = /obj/item/clothing/accessory/tie/corporate/zavod
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/zavod
