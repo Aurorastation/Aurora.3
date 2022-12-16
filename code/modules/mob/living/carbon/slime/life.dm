@@ -561,13 +561,13 @@
 /mob/living/carbon/slime/proc/will_hunt(var/hunger) // Check for being stopped from feeding and chasing
 	if(hunger == 2 || rabid || attacked)
 		return TRUE
-	if(nutrition > get_max_nutrition() * 0.8)
+	if(nutrition > get_grow_nutrition())
 		return FALSE
 	if(leader)
 		return FALSE
 	if(holding_still)
 		return FALSE
-	if(hunger == 1 || prob(25))
+	if(hunger == 1 || prob(35))
 		return TRUE
 	return FALSE
 

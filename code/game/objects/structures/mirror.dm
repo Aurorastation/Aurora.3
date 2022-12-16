@@ -116,7 +116,7 @@
 
 	if(mirror.pixel_y > 0)
 		dir = SOUTH
-	else if (mirror.pixel_y < 0) 
+	else if (mirror.pixel_y < 0)
 		dir = NORTH
 
 	pixel_x = mirror.pixel_x
@@ -174,6 +174,7 @@
 	desc = "A SalonPro Nano-Mirror(TM) brand mirror! Now a portable version."
 	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "mirror"
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/mirror/attack_self(mob/user as mob)
 	if(user.mind)
