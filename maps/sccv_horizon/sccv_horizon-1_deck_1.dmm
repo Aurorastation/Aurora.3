@@ -2008,7 +2008,7 @@
 	input_tag = "ph_in";
 	name = "Phoron Supply Monitor";
 	output_tag = "ph_out";
-	sensors = list("ph_sensor" = "Tank")
+	sensors = list("ph_sensor"="Tank")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -11567,7 +11567,7 @@
 	frequency = 1442;
 	input_tag = "port_prop_in";
 	output_tag = "port_prop_out";
-	sensors = list("port_prop_sensor" = "Port Propulsion Sensor")
+	sensors = list("port_prop_sensor"="Port Propulsion Sensor")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -13229,7 +13229,7 @@
 	input_tag = "co2_in";
 	name = "Carbon Dioxide Supply Monitor";
 	output_tag = "co2_out";
-	sensors = list("co2_sensor" = "Tank")
+	sensors = list("co2_sensor"="Tank")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -14801,7 +14801,7 @@
 	input_tag = "h_in";
 	name = "Hydrogen Supply Monitor";
 	output_tag = "h_out";
-	sensors = list("h_sensor" = "Tank")
+	sensors = list("h_sensor"="Tank")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -14869,7 +14869,7 @@
 	name = "Nitrogen Supply Monitor";
 	output_tag = "n_out";
 	pixel_x = -32;
-	sensors = list("n_sensor" = "Tank")
+	sensors = list("n_sensor"="Tank")
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/lattice/catwalk/indoor,
@@ -15095,7 +15095,7 @@
 	frequency = 1442;
 	input_tag = "starboard_prop_in";
 	output_tag = "starboard_prop_out";
-	sensors = list("starboard_prop_sensor" = "Starboard Propulsion Sensor")
+	sensors = list("starboard_prop_sensor"="Starboard Propulsion Sensor")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -17092,7 +17092,7 @@
 	name = "Air Supply Monitor";
 	output_tag = "air_out";
 	pixel_x = 32;
-	sensors = list("air_sensor" = "Tank")
+	sensors = list("air_sensor"="Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -19727,7 +19727,7 @@
 	name = "Nitrous Oxide Supply Monitor";
 	output_tag = "n2o_out";
 	pixel_x = 32;
-	sensors = list("n2o_sensor" = "Tank")
+	sensors = list("n2o_sensor"="Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -20428,7 +20428,7 @@
 	input_tag = null;
 	name = "Phoron Supply Monitor";
 	output_tag = "ph_out_engines";
-	sensors = list("ph_sensor" = "Tank")
+	sensors = list("ph_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -21708,6 +21708,10 @@
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
+"qPf" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "qPw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -28250,7 +28254,7 @@
 	name = "Oxygen Supply Monitor";
 	output_tag = "o2_out";
 	pixel_x = -32;
-	sensors = list("o2_sensor" = "Tank")
+	sensors = list("o2_sensor"="Tank")
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 8
@@ -29625,7 +29629,7 @@
 	name = "Mixed Gas Tank Monitor";
 	output_tag = "mixed_out";
 	pixel_y = -3;
-	sensors = list("mixed_sensor" = "Tank")
+	sensors = list("mixed_sensor"="Tank")
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/atmos)
@@ -51239,7 +51243,7 @@ lqh
 rNy
 dVG
 hqV
-faE
+qPf
 xol
 aix
 ehH
@@ -53057,8 +53061,8 @@ jID
 uYW
 msn
 hhS
-faE
-faE
+qPf
+qPf
 odV
 vdh
 oDB
