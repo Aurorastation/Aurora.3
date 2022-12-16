@@ -740,11 +740,11 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/mob/living/simple_animal/corgi/Ian,
 /obj/machinery/door/window/westleft{
 	name = "Ian's Cage Access";
 	req_access = list(57)
 	},
+/mob/living/simple_animal/corgi/Ian,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "aDE" = (
@@ -6376,6 +6376,15 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/crew_quarters/fitness/hallway)
+"fsN" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/station_map{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/hallway)
@@ -16398,6 +16407,17 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/bridge)
+"nvd" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/station_map{
+	dir = 1;
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard)
 "nvi" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -16517,7 +16537,8 @@
 	pixel_x = -35;
 	pixel_y = 7;
 	name = "Command Bunker Blast Door";
-	id = "shutters_bunker"
+	id = "shutters_bunker";
+	req_access = list(19)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -17992,13 +18013,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
 "oEf" = (
-/mob/living/simple_animal/corgi/fox/Chauncey,
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/effect/floor_decal/plaque{
 	desc = "The Stellar Corporate Conglomerate Logo Engraved in bronze.";
 	desc_extended = "The unbreakable chainlink, the one thing holding the Orion Spur together...";
 	name = "Commemorative SCC Plaque"
 	},
+/mob/living/simple_animal/corgi/fox/Chauncey,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "oEL" = (
@@ -18979,8 +19000,12 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
+<<<<<<< HEAD
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/ai_status_display{
+=======
+/obj/machinery/station_map{
+>>>>>>> c5aa03ed447491eebb976922e883cfc87acd3717
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -21392,6 +21417,9 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
+/obj/machinery/station_map{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "rBK" = (
@@ -21955,7 +21983,6 @@
 /area/tcommsat/entrance)
 "rZn" = (
 /obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
@@ -21967,6 +21994,7 @@
 	pixel_y = 24;
 	pixel_x = 9
 	},
+/mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
 "rZu" = (
@@ -22671,7 +22699,8 @@
 	pixel_x = -25;
 	pixel_y = -35;
 	name = "Command Bunker Blast Door";
-	id = "shutters_bunker"
+	id = "shutters_bunker";
+	req_access = list(19)
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 1;
@@ -23917,6 +23946,26 @@
 "tuB" = (
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
+"tuN" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/station_map{
+	dir = 1;
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "tvJ" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Shield Substation";
@@ -25834,7 +25883,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = null;
 	name = "Direct Fire Artillery System";
-	req_one_access = list(10,19,31)
+	req_one_access = list(75)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -41172,7 +41221,7 @@ dce
 dce
 ebZ
 pTP
-sEe
+tuN
 ebZ
 dce
 dce
@@ -43799,7 +43848,7 @@ tQA
 oaY
 rWG
 xki
-mqJ
+nvd
 piX
 xhM
 igU
@@ -49228,7 +49277,7 @@ pwO
 pwO
 wwf
 nBJ
-vtC
+fsN
 dfz
 vqB
 vFz

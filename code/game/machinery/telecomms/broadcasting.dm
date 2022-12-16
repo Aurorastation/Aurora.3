@@ -50,7 +50,7 @@
 		for(var/obj/machinery/telecomms/receiver/R in SSmachinery.all_receivers)
 			if(R.z in current_map.station_levels)
 				R.receive_signal(src)
-				return
+				return TRUE
 
 	var/closest_range = 999999
 	var/list/candidates = list()
@@ -86,6 +86,7 @@
 		selected_receiver = candidates[1]
 
 	selected_receiver.receive_signal(src)
+	return TRUE
 
 /datum/signal/subspace/proc/broadcast()
 	set waitfor = FALSE

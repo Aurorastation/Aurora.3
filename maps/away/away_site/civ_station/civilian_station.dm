@@ -4,7 +4,7 @@
 	suffix = "away_site/civ_station/civilian_station.dmm"
 	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
-	spawn_cost = 2
+	ship_cost = 2
 	id = "civilian_station"
 
 /decl/submap_archetype/civilian_station
@@ -20,7 +20,7 @@
 /area/civilian_station
 	name = "Civilian Station"
 	icon_state = "bar"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
 	requires_power = FALSE
 	base_turf = /turf/simulated/floor/plating
 	no_light_control = TRUE

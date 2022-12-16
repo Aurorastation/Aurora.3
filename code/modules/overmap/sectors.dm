@@ -32,6 +32,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/list/obj/effect/landmark/entry_points
 	var/obj/effect/overmap/targeting
 	var/obj/machinery/leviathan_safeguard/levi_safeguard
+	var/obj/machinery/gravity_generator/main/gravity_generator
 
 	var/comms_support = FALSE		// Whether ghostroles attached to this overmap object spawn with comms
 	var/comms_name = "shipboard"	// Snowflake name to apply to comms equipment ("shipboard radio headset", "intercom (shipboard)", "shipboard telecommunications mainframe"), etc.
@@ -79,6 +80,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		ship_weapons.Cut()
 	targeting = null
 	levi_safeguard = null
+	gravity_generator = null
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
