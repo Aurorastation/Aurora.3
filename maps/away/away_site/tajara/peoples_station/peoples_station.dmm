@@ -511,7 +511,7 @@
 	},
 /area/peoples_station/mess_hall)
 "cr" = (
-/obj/machinery/computer/ship/navigation{
+/obj/item/modular_computer/console/preset/civilian{
 	dir = 1
 	},
 /turf/simulated/floor/wood{
@@ -1095,11 +1095,6 @@
 	},
 /area/peoples_station/range)
 "eS" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "peoples_station_hangar";
-	icon_state = "pdoor0"
-	},
 /obj/machinery/door/airlock/engineering{
 	name = "Fang Hangar";
 	req_access = list(209)
@@ -1308,13 +1303,11 @@
 	name = "Hangar"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "peoples_station_hangar";
-	icon_state = "pdoor0"
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "peoples_station_hangar"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1495,7 +1488,9 @@
 /area/peoples_station/barracks)
 "gs" = (
 /obj/structure/window/reinforced,
-/obj/item/modular_computer/console/preset/civilian,
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1951,7 +1946,7 @@
 	},
 /area/peoples_station/bridge)
 "iF" = (
-/obj/machinery/computer/ship/navigation{
+/obj/item/modular_computer/console/preset/civilian{
 	dir = 1
 	},
 /turf/simulated/floor/wood{
@@ -2455,16 +2450,14 @@
 	name = "Hangar"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "peoples_station_hangar";
-	icon_state = "pdoor0"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "peoples_station_hangar"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3087,13 +3080,12 @@
 /area/peoples_station/captain_quarters)
 "nq" = (
 /obj/structure/table/steel,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "peoples_station_armory"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/paper_bin,
 /obj/item/pen/fountain,
+/obj/machinery/door/blast/regular/open{
+	id = "peoples_station_armory"
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3197,10 +3189,8 @@
 	name = "Hangar"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "peoples_station_hangar";
-	icon_state = "pdoor0"
+/obj/machinery/door/blast/regular/open{
+	id = "peoples_station_hangar"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4018,11 +4008,6 @@
 	req_access = list(209)
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "peoples_station_hangar";
-	icon_state = "pdoor0"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
@@ -4198,11 +4183,6 @@
 	name = "Hangar"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "peoples_station_hangar";
-	icon_state = "pdoor0"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -4211,6 +4191,9 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "peoples_station_hangar"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4798,9 +4781,8 @@
 /obj/machinery/door/firedoor,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/open{
 	id = "peoples_station_hangar";
-	icon_state = "pdoor0";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -5501,7 +5483,7 @@
 "yQ" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
-/obj/machinery/chemical_dispenser/coffeemaster,
+/obj/machinery/chemical_dispenser/coffeemaster/full,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -6821,7 +6803,9 @@
 	},
 /area/peoples_station/medbay)
 "EJ" = (
-/obj/item/modular_computer/console/preset/civilian,
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 1
+	},
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -6995,8 +6979,7 @@
 	pixel_x = -5;
 	name = "accepted stamp"
 	},
-/obj/machinery/door/blast/regular{
-	dir = 2;
+/obj/machinery/door/blast/regular/open{
 	id = "peoples_station_armory"
 	},
 /turf/simulated/floor/tiled/dark{
@@ -8252,6 +8235,14 @@
 	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
+"Mo" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/fang/engine)
 "Mp" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -8690,9 +8681,8 @@
 /obj/machinery/door/firedoor,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/open{
 	id = "peoples_station_hangar";
-	icon_state = "pdoor0";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -9147,7 +9137,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -9752,14 +9742,14 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/light/small/red{
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9970,6 +9960,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -10673,11 +10664,6 @@
 	},
 /area/peoples_station/visitor)
 "Xo" = (
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "peoples_station_hangar";
-	icon_state = "pdoor0"
-	},
 /obj/machinery/door/airlock/engineering{
 	name = "Fang Hangar";
 	req_access = list(209)
@@ -53832,7 +53818,7 @@ dI
 vF
 vF
 vF
-bD
+dI
 vF
 vF
 vF
@@ -58224,7 +58210,7 @@ tv
 dg
 dg
 dg
-dg
+Mo
 xh
 xh
 xh
