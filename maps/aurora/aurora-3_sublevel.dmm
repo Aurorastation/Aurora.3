@@ -16803,7 +16803,7 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
-/obj/item/storage/bag/slimes,
+/obj/item/storage/slimes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aHP" = (
@@ -20436,7 +20436,7 @@
 /area/rnd/xenobiology)
 "aPZ" = (
 /obj/structure/table/standard,
-/obj/item/storage/bag/slimes,
+/obj/item/storage/slimes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aQa" = (
