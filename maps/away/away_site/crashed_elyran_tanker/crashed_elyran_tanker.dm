@@ -57,6 +57,9 @@
 	name = "Navpoint West"
 	landmark_tag = "nav_crashed_elyran_tanker_west"
 
+/area/crashed_elyran_tanker
+	flags = HIDE_FROM_HOLOMAP
+
 // ---------------- areas
 /area/crashed_elyran_tanker/bridge
 	name = "Crashed Elyran Tanker - Bridge"
