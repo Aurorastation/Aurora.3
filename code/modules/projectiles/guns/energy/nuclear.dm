@@ -1,4 +1,4 @@
-/obj/item/gun/energy/gun // what idiot made this path
+/obj/item/gun/energy/gun
 	name = "energy carbine"
 	desc = "A NanoTrasen designed energy-based carbine with two settings: Stun and kill."
 	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
