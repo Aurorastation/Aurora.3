@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "You can now buckle yourself and others into a chair or bed if they're adjacent to it, the bucklee will attempt to step onto it, then buckle."

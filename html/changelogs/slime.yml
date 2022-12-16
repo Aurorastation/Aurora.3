@@ -1,6 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - imageadd: "Ported new slime sprites from Tau Ceti Station."

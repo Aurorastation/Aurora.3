@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added status indicators to the top right of the screen that indicate when you're bleeding or drunk, or both."

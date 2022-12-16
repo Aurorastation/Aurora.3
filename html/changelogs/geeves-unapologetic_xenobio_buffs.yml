@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Slimes will now consider hunting when they're under the grow threshold, instead of when they're at 80% of their maximum nutrition, so they should hunt more often."
-  - tweak: "Raised the slime random hunt chance to 35%, up from 25%."
