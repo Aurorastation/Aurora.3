@@ -4710,10 +4710,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
-"uum" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/space,
-/area/ship/sfa_patrol_ship/Officer)
 "uus" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -23847,7 +23843,7 @@ fcm
 xOs
 oyS
 tXz
-uum
+lEx
 xRX
 xRX
 xRX
