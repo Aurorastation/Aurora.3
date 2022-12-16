@@ -1,77 +1,107 @@
 // ### Preset machines  ###
-
-//Relay
-
-/obj/machinery/telecomms/relay/preset
-	network = "tcommsat"
-
-/obj/machinery/telecomms/relay/preset/station
-	id = "Station Relay"
-	autolinkers = list("s_relay")
-
-/obj/machinery/telecomms/relay/preset/telecomms
-	id = "Telecomms Relay"
-	autolinkers = list("relay")
-
-/obj/machinery/telecomms/relay/preset/mining
-	id = "Mining Relay"
-	autolinkers = list("m_relay")
-
-/obj/machinery/telecomms/relay/preset/ruskie
-	id = "Ruskie Relay"
-	hide = 1
-	toggled = 0
-	autolinkers = list("r_relay")
-
-/obj/machinery/telecomms/relay/preset/centcom
-	id = "Centcom Relay"
-	hide = 1
-	toggled = 1
-	//anchored = 1
-	//use_power = POWER_USE_OFF
-	//idle_power_usage = 0
-	produces_heat = 0
-	autolinkers = list("c_relay")
-
 //HUB
+
+/obj/machinery/telecomms/hub/preset_map/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+
+	if(istype(linked) && linked.comms_support)
+		var/preset_name = linked.comms_name
+		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
+		id = "[preset_name] Hub"
+		network = "tcomm_[name_lower]"
+		autolinkers = list(
+			"[name_lower]_broadcaster",
+			"[name_lower]_hub",
+			"[name_lower]_receiver",
+			"[name_lower]_server"
+		)
+
+	return ..()
 
 /obj/machinery/telecomms/hub/preset
 	id = "Hub"
 	network = "tcommsat"
-	autolinkers = list("hub", "relay", "c_relay", "s_relay", "m_relay", "r_relay", "science", "medical",
-	"supply", "service", "common", "command", "engineering", "security", "unused",
+	autolinkers = list("hub", "science", "medical", "supply", "service", "common", "command", "engineering", "security", "unused",
 	"receiverA", "broadcasterA")
 
 /obj/machinery/telecomms/hub/preset_cent
 	id = "CentComm Hub"
 	network = "tcommsat"
 	produces_heat = 0
-	autolinkers = list("hub_cent", "c_relay", "s_relay", "m_relay", "r_relay",
-	 "centcomm", "receiverCent", "broadcasterCent")
+	autolinkers = list("hub_cent", "centcomm", "receiverCent", "broadcasterCent")
 
 //Receivers
+
+/obj/machinery/telecomms/receiver/preset_map
+	var/use_common = FALSE
+
+/obj/machinery/telecomms/receiver/preset_map/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+
+	if(istype(linked) && linked.comms_support)
+		var/preset_name = linked.comms_name
+		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
+		id = "[preset_name] Receiver"
+		network = "tcomm_[name_lower]"
+		freq_listening += list(assign_away_freq(preset_name), HAIL_FREQ)
+		if (use_common)
+			freq_listening += PUB_FREQ
+		autolinkers = list(
+			"[name_lower]_receiver"
+		)
+
+	return ..()
 
 /obj/machinery/telecomms/receiver/preset_right
 	id = "Receiver A"
 	network = "tcommsat"
-	autolinkers = list("receiverA") // link to relay
+	autolinkers = list("receiverA")
 	freq_listening = list(AI_FREQ, SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, COMM_FREQ, ENG_FREQ, SEC_FREQ, ENT_FREQ)
 
-	//Common and other radio frequencies for people to freely use
-	New()
-		for(var/i = PUBLIC_LOW_FREQ, i < PUBLIC_HIGH_FREQ, i += 2)
-			freq_listening |= i
-		..()
+//Common and other radio frequencies for people to freely use
+/obj/machinery/telecomms/receiver/preset_right/Initialize()
+	for(var/i = PUBLIC_LOW_FREQ, i < PUBLIC_HIGH_FREQ, i += 2)
+		freq_listening |= i
+	. = ..()
 
 /obj/machinery/telecomms/receiver/preset_cent
 	id = "CentComm Receiver"
 	network = "tcommsat"
-	produces_heat = 0
+	produces_heat = FALSE
 	autolinkers = list("receiverCent")
 	freq_listening = list(ERT_FREQ, DTH_FREQ)
 
 
 //Buses
+/obj/machinery/telecomms/bus/preset_map
+	var/use_common = FALSE
+
+/obj/machinery/telecomms/bus/preset_map/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+
+	if(istype(linked) && linked.comms_support)
+		var/preset_name = linked.comms_name
+		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
+		id = "[preset_name] Bus"
+		network = "tcomm_[name_lower]"
+		freq_listening += list(assign_away_freq(preset_name), HAIL_FREQ)
+		if (use_common)
+			freq_listening += PUB_FREQ
+		autolinkers = list(
+			"[name_lower]_processor",
+			"[name_lower]_server"
+		)
+
+	return ..()
 
 /obj/machinery/telecomms/bus/preset_one
 	id = "Bus 1"
@@ -85,12 +115,12 @@
 	freq_listening = list(SUP_FREQ, SRV_FREQ)
 	autolinkers = list("processor2", "supply", "service", "unused")
 
-/obj/machinery/telecomms/bus/preset_two/New()
+/obj/machinery/telecomms/bus/preset_two/Initialize()
 	for(var/i = PUBLIC_LOW_FREQ, i < PUBLIC_HIGH_FREQ, i += 2)
-		if(i == PUB_FREQ)
+		if(i == PUB_FREQ || i == ENT_FREQ)
 			continue
 		freq_listening |= i
-	..()
+	return ..()
 
 /obj/machinery/telecomms/bus/preset_three
 	id = "Bus 3"
@@ -101,17 +131,34 @@
 /obj/machinery/telecomms/bus/preset_four
 	id = "Bus 4"
 	network = "tcommsat"
-	freq_listening = list(ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ)
+	freq_listening = list(ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ, HAIL_FREQ)
 	autolinkers = list("processor4", "engineering", "common")
 
 /obj/machinery/telecomms/bus/preset_cent
 	id = "CentComm Bus"
 	network = "tcommsat"
 	freq_listening = list(ERT_FREQ, DTH_FREQ, ENT_FREQ)
-	produces_heat = 0
+	produces_heat = FALSE
 	autolinkers = list("processorCent", "centcomm")
 
 //Processors
+
+/obj/machinery/telecomms/processor/preset_map/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+
+	if(istype(linked) && linked.comms_support)
+		var/preset_name = linked.comms_name
+		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
+		id = "[preset_name] Processor"
+		network = "tcomm_[name_lower]"
+		autolinkers = list(
+			"[name_lower]_processor"
+		)
+
+	return ..()
 
 /obj/machinery/telecomms/processor/preset_one
 	id = "Processor 1"
@@ -136,13 +183,37 @@
 /obj/machinery/telecomms/processor/preset_cent
 	id = "CentComm Processor"
 	network = "tcommsat"
-	produces_heat = 0
+	produces_heat = FALSE
 	autolinkers = list("processorCent")
 
 //Servers
+/obj/machinery/telecomms/server/preset_map
+	var/use_common = FALSE
+
+/obj/machinery/telecomms/server/preset_map/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+
+	if(istype(linked) && linked.comms_support)
+		var/preset_name = linked.comms_name
+		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
+		id = "[preset_name] server"
+		network = "tcomm_[name_lower]"
+		freq_listening += list(
+			assign_away_freq(preset_name),
+			HAIL_FREQ
+		)
+		if(use_common)
+			freq_listening += PUB_FREQ
+		autolinkers = list(
+			"[name_lower]_server"
+		)
+
+	return ..()
 
 /obj/machinery/telecomms/server/presets
-
 	network = "tcommsat"
 
 /obj/machinery/telecomms/server/presets/science
@@ -167,7 +238,7 @@
 
 /obj/machinery/telecomms/server/presets/common
 	id = "Common Server"
-	freq_listening = list(PUB_FREQ, AI_FREQ, ENT_FREQ) // AI Private and Common
+	freq_listening = list(PUB_FREQ, AI_FREQ, ENT_FREQ, MED_I_FREQ, SEC_I_FREQ, HAIL_FREQ) // AI Private, Common, and Dept. Intercoms
 	autolinkers = list("common")
 
 // "Unused" channels, AKA all others.
@@ -178,7 +249,7 @@
 
 /obj/machinery/telecomms/server/presets/unused/New()
 	for(var/i = PUBLIC_LOW_FREQ, i < PUBLIC_HIGH_FREQ, i += 2)
-		if(i == AI_FREQ || i == PUB_FREQ)
+		if(i == AI_FREQ || i == PUB_FREQ || i == ENT_FREQ || i == MED_I_FREQ || i == SEC_I_FREQ || i == HAIL_FREQ)
 			continue
 		freq_listening |= i
 	..()
@@ -208,6 +279,23 @@
 //Broadcasters
 
 //--PRESET LEFT--//
+
+/obj/machinery/telecomms/broadcaster/preset_map/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+
+	if(istype(linked) && linked.comms_support)
+		var/preset_name = linked.comms_name
+		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
+		id = "[preset_name] broadcaster"
+		network = "tcomm_[name_lower]"
+		autolinkers = list(
+			"[name_lower]_broadcaster"
+		)
+
+	return ..()
 
 /obj/machinery/telecomms/broadcaster/preset_right
 	id = "Broadcaster A"

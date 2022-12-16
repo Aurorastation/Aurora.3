@@ -93,6 +93,10 @@
 #define ZONE_ACTIVE   1
 #define ZONE_SLEEPING 0
 
+#define MAX_VENT_PRESSURE 15000 // 15000 kPa of pressure.
+#define PRESSURE_ONE_THOUSAND 1000 // 1000 kPa of pressure. Allows for easier searchability.
+#define PRESSURE_EXERTED 200 // 200 kPa of pressure.
+
 // Defines how much of certain gas do the Atmospherics tanks start with. Values are in kpa per tile (assuming 20C)
 #define ATMOSTANK_NITROGEN      90000 // A lot of N2 is needed to produce air mix, that's why we keep 90MPa of it
 #define ATMOSTANK_OXYGEN        40000 // O2 is also important for airmix, but not as much as N2 as it's only 21% of it.

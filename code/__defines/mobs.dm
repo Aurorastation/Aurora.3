@@ -449,6 +449,7 @@
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
 
+#define ROBOT_ICON		"iconpath"
 #define ROBOT_CHASSIS	"chassistype"
 #define ROBOT_PANEL		"paneltype"
 #define ROBOT_EYES		"eyetype"

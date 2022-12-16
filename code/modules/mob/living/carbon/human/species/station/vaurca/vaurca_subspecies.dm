@@ -8,14 +8,14 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
 	slowdown = 0
 
-	brute_mod = 0.7
-	burn_mod = 1.2
+	brute_mod = 0.8
 	oxy_mod = 1
 	radiation_mod = 0.5
 	standing_jump_range = 3
-
+	bleed_mod = 1.5
+	burn_mod = 1.0
 	grab_mod = 1.25
-	resist_mod = 1.75
+	resist_mod = 2.5 //Most are weaker then a Unathi, but have an evolutionary disposition towards close-combat.
 
 	mob_size = 10 //fairly lighter than the worker type.
 	taste_sensitivity = TASTE_DULL
@@ -35,10 +35,15 @@
 	sprint_cost_factor = 0.40
 	stamina_recovery = 3
 
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/palm,
+		/datum/unarmed_attack/bite/warrior
+	)
 
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
-		)
+
 
 /datum/species/bug/type_c
 	name = SPECIES_VAURCA_BREEDER

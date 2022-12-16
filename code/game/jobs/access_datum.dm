@@ -440,6 +440,12 @@ var/const/access_bridge_crew = 74
 	desc = "Bridge Crew"
 	region = ACCESS_REGION_COMMAND
 
+/var/const/access_ship_weapons = 75
+/datum/access/access_ship_weapons
+	id = access_ship_weapons
+	desc = "Ship Weapons"
+	region = ACCESS_REGION_SUPPLY
+
 /******************
 * Central Command *
 ******************/
@@ -551,10 +557,10 @@ var/const/access_kataphract_knight = 114
 /*******
 * Misc *
 *******/
-/var/const/access_synth = 199
-/datum/access/synthetic
-	id = access_synth
-	desc = "Synthetic"
+/var/const/access_equipment = 199
+/datum/access/equipment
+	id = access_equipment
+	desc = "Equipment"
 	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_crate_cash = 200

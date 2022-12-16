@@ -6624,7 +6624,6 @@
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/broadcaster,
-/obj/item/circuitboard/telecomms/relay,
 /obj/item/circuitboard/ntnet_relay,
 /turf/unsimulated/floor{
 	icon_state = "plating"
@@ -8704,7 +8703,7 @@
 	},
 /area/cruise/central)
 "gML" = (
-/obj/effect/floor_decal/scc_full,
+/obj/effect/floor_decal/big/scc_full,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -11523,7 +11522,7 @@
 /area/cruise/arcade)
 "jdi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/l3closet/security,
+/obj/structure/closet/hazmat/security,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -12654,7 +12653,6 @@
 	},
 /area/cruise/beach)
 "kez" = (
-/obj/machinery/telecomms/relay/preset/station,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -14761,12 +14759,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/cruise/virtual_reality)
-"lHd" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/unsimulated/floor{
-	icon_state = "plating"
-	},
-/area/cruise/tcomms_sat)
 "lHn" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -21806,7 +21798,7 @@
 /area/cruise/library)
 "ruM" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -23598,7 +23590,7 @@
 	},
 /area/cruise/hangar)
 "sXc" = (
-/obj/machinery/message_server,
+/obj/machinery/telecomms/message_server,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
@@ -26057,7 +26049,7 @@
 /area/cruise/hangar)
 "uJZ" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -38284,7 +38276,7 @@ gMU
 bhV
 czu
 xJS
-lHd
+poQ
 fHM
 twK
 tSs

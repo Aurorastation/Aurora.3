@@ -79,7 +79,9 @@
 	if (!ckey && mob_thinks)
 		MOB_START_THINKING(src)
 
-/mob/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+	become_hearing_sensitive()
+
+/mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
 	if(!client)	return
 
@@ -196,29 +198,17 @@
 // deaf_message (optional) is what deaf people will see.
 // hearing_distance (optional) is the range, how many tiles away the message can be heard.
 /mob/audible_message(var/message, var/deaf_message, var/hearing_distance, var/self_message, var/ghost_hearing = GHOSTS_ALL_HEAR)
+	if(!hearing_distance)
+		hearing_distance = world.view
 
-	var/range = world.view
-	if(hearing_distance)
-		range = hearing_distance
+	var/list/hearers = get_hearers_in_view(hearing_distance, src)
 
-	var/turf/T = get_turf(src)
-
-	var/list/mobs = list()
-	var/list/objs = list()
-	get_mobs_or_objs_in_view(T, range, mobs, objs, ghost_hearing)
-
-
-	for(var/m in mobs)
-		var/mob/M = m
-		if(self_message && M==src)
-			M.show_message("[get_accent_icon(null, M)] [self_message]", 2, deaf_message, 1)
+	for (var/atom/movable/AM as anything in hearers)
+		if(self_message && AM == src)
+			AM.show_message("[get_accent_icon(null, src)] [self_message]", 2, deaf_message, 1)
 			continue
 
-		M.show_message("[get_accent_icon(null, M)] [message]", 2, deaf_message,1)
-
-	for(var/o in objs)
-		var/obj/O = o
-		O.show_message("[get_accent_icon(null, src)] [message]", 2, deaf_message, 1)
+		AM.show_message("[get_accent_icon(null, src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -490,11 +480,7 @@
 
 	announce_ghost_joinleave(client, 0)
 
-	// Run this here to null out death timers for the next go.
-
 	var/mob/abstract/new_player/M = new /mob/abstract/new_player()
-
-	M.reset_death_timers()
 
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
@@ -1237,7 +1223,6 @@
 	handle_silent()
 	handle_drugged()
 	handle_slurring()
-	handle_tarded()
 
 /mob/living/proc/handle_stunned()
 	if(stunned)
@@ -1268,11 +1253,6 @@
 	if(slurring)
 		slurring = max(slurring-1, 0)
 	return slurring
-
-/mob/living/proc/handle_tarded()
-	if(tarded)
-		tarded = max(tarded-1, 0)
-	return tarded
 
 /mob/living/proc/handle_paralysed() // Currently only used by simple_animal.dm, treated as a special case in other mobs
 	if(paralysis)
