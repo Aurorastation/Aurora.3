@@ -1,0 +1,106 @@
+/datum/map_template/ruin/away_site/dominian_corvette
+	name = "Dominian Corvette"
+	description = "One of the most common ships in the Imperial Fleet, Lammergeier-class corvettes are often used as the vanguard of battlefleets entering a system marked for annexation into the glorious Empire as it is tasked to find and scout routes for the larger fleet. Though intended for scouting and screening work the Lammergeier is, like its larger counterparts, quite heavily armed and armored for a typical corvette. Any frontier savages who attempt to meet one with force of arms will soon find themselves staring down the barrels of Zhurong’s finest weaponry, and the Fleet-trained Ma’zals entrusted to operate it. The heavy armament and sensors of the Lammergeier-class come at a cost: it lacks a shield generator and is much larger than a typical Solarian corvette, thus requiring a larger crew. Lammergeier-class captains are generally loyal Ma’zals, such as the citizens of Novi Jadran, and are authorized to take whatever measures are necessary to ensure their crew remains loyal to both Empire and Goddess. This one’s transponder marks it as belonging to the Empire’s First Battlefleet – a battle-hardened formation responsible for patrolling the region of the northern Sparring Sea between the Empire, Hegemony, and Republic of dominia."
+	suffix = "ships/dominia/dominian_corvette.dmm"
+	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
+	spawn_weight = 1
+	ship_cost = 1
+	id = "dominian_corvette"
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/dominian_shuttle)
+
+/decl/submap_archetype/dominian_corvette
+	map = "Dominian Corvette"
+	descriptor = "One of the most common ships in the Imperial Fleet, Lammergeier-class corvettes are often used as the vanguard of battlefleets entering a system marked for annexation into the glorious Empire as it is tasked to find and scout routes for the larger fleet. Though intended for scouting and screening work the Lammergeier is, like its larger counterparts, quite heavily armed and armored for a typical corvette. Any frontier savages who attempt to meet one with force of arms will soon find themselves staring down the barrels of Zhurong’s finest weaponry, and the Fleet-trained Ma’zals entrusted to operate it. The heavy armament and sensors of the Lammergeier-class come at a cost: it lacks a shield generator and is much larger than a typical Solarian corvette, thus requiring a larger crew. Lammergeier-class captains are generally loyal Ma’zals, such as the citizens of Novi Jadran, and are authorized to take whatever measures are necessary to ensure their crew remains loyal to both Empire and Goddess. This one’s transponder marks it as belonging to the Empire’s First Battlefleet – a battle-hardened formation responsible for patrolling the region of the northern Sparring Sea between the Empire, Hegemony, and Republic of dominia."
+
+//areas
+/area/ship/dominian_corvette
+	name = "Dominian Corvette"
+
+/area/shuttle/dominian_shuttle
+	name = "Dominian Shuttle"
+	icon_state = "shuttle2"
+
+//ship stuff
+
+/obj/effect/overmap/visitable/ship/dominian_corvette
+	name = "Dominian Corvette"
+	class = "HIMS"
+	desc = "One of the most common ships in the Imperial Fleet, Lammergeier-class corvettes are often used as the vanguard of battlefleets entering a system marked for annexation into the glorious Empire as it is tasked to find and scout routes for the larger fleet. Though intended for scouting and screening work the Lammergeier is, like its larger counterparts, quite heavily armed and armored for a typical corvette. Any frontier savages who attempt to meet one with force of arms will soon find themselves staring down the barrels of Zhurong’s finest weaponry, and the Fleet-trained Ma’zals entrusted to operate it. The heavy armament and sensors of the Lammergeier-class come at a cost: it lacks a shield generator and is much larger than a typical Solarian corvette, thus requiring a larger crew. Lammergeier-class captains are generally loyal Ma’zals, such as the citizens of Novi Jadran, and are authorized to take whatever measures are necessary to ensure their crew remains loyal to both Empire and Goddess. This one’s transponder marks it as belonging to the Empire’s First Battlefleet – a battle-hardened formation responsible for patrolling the region of the northern Sparring Sea between the Empire, Hegemony, and Republic of dominia."
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 5000
+	fore_dir = SOUTH
+	vessel_size = SHIP_SIZE_SMALL
+	initial_restricted_waypoints = list(
+		"Dominian Shuttle" = list("nav_hangar_dominia")
+	)
+
+	initial_generic_waypoints = list(
+		"nav_dominian_corvette_1",
+		"nav_dominian_corvette_2"
+	)
+
+/obj/effect/overmap/visitable/ship/dominian_corvette/New()
+	designation = "[pick("Coleslaw")]"
+	..()
+
+/obj/effect/shuttle_landmark/dominian_corvette/nav1
+	name = "Dominian Corvette - Port Side"
+	landmark_tag = "nav_dominian_corvette_1"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/dominian_corvette/nav2
+	name = "Dominian Corvette - Port Airlock"
+	landmark_tag = "nav_dominian_corvette_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/dominian_corvette/transit
+	name = "In transit"
+	landmark_tag = "nav_transit_dominian_corvette"
+	base_turf = /turf/space/transit/north
+
+//shuttle stuff
+/obj/effect/overmap/visitable/ship/landable/dominian_shuttle
+	name = "Dominian Shuttle"
+	class = "HIMS"
+	designation = "Knight"
+	desc = "Easily mistaken for a Wisp-class (which it is almost identical to), this shuttle is in fact an dominian Dromedary-class, which is an unlicensed copy of the Hephaestus Wisp-class, and one of the designs slated for retirement in the ongoing military modernization program. Hephaestus Industries has attempted to sue the dominian government many times for the navy's unlicensed production of its intellectual property, and dominian courts have, unsurprisingly, always ruled in favor of the government - much to the frustration of the megacorporation, which has no other method of recourse. An inefficient design of ultra-light shuttle. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. This one's transponder identifies it as an dominian Naval Infantry recovery shuttle."
+	shuttle = "Dominian Shuttle"
+	max_speed = 1/(3 SECONDS)
+	burn_delay = 2 SECONDS
+	vessel_mass = 3000 //very inefficient pod
+	fore_dir = NORTH
+	vessel_size = SHIP_SIZE_TINY
+
+/obj/machinery/computer/shuttle_control/explore/dominian_shuttle
+	name = "shuttle control console"
+	shuttle_tag = "Dominian Shuttle"
+	req_access = list(access_dominian_naval_infantry_ship)
+
+/datum/shuttle/autodock/overmap/dominian_shuttle
+	name = "Dominian Shuttle"
+	move_time = 20
+	shuttle_area = list(/area/shuttle/dominian_shuttle)
+	current_location = "nav_hangar_dominia"
+	landmark_transition = "nav_transit_dominian_shuttle"
+	range = 1
+	fuel_consumption = 2
+	logging_home_tag = "nav_hangar_dominia"
+	defer_initialisation = TRUE
+
+/obj/effect/shuttle_landmark/dominian_shuttle/hangar
+	name = "Dominian Shuttle Hangar"
+	landmark_tag = "nav_hangar_dominia"
+	docking_controller = "dominian_shuttle_dock"
+	base_area = /area/ship/dominian_corvette
+	base_turf = /turf/simulated/floor/plating
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+
+/obj/effect/shuttle_landmark/dominian_shuttle/transit
+	name = "In transit"
+	landmark_tag = "nav_transit_dominian_shuttle"
+	base_turf = /turf/space/transit/north
