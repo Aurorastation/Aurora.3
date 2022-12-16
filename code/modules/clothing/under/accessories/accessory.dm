@@ -318,17 +318,19 @@
 	icon_state = "scarf0"
 	item_state = "scarf0"
 	contained_sprite = TRUE
-	var/list/alternatives = list("drape" = "scarf0",
-								"drape, flipped" = "scarf0_f",
-								"single wrap" = "scarf1",
-								"double wrap" = "scarf2",
-								"parisian" = "scarf3")
+	var/list/alternatives = list(
+		"drape" = "scarf0",
+		"drape, flipped" = "scarf0_f",
+		"single wrap" = "scarf1",
+		"double wrap" = "scarf2",
+		"parisian" = "scarf3"
+	)
 	var/list/overlay_alternatives = null
 
 /obj/item/clothing/accessory/scarf/attack_self(mob/user)
 	if(alternatives)
 		var/list/options = list()
-		for (var/i in alternatives)
+		for(var/i in alternatives)
 			var/image/radial_button = image(icon = icon, icon_state = alternatives[i])
 			if(color)
 				radial_button.color = color
