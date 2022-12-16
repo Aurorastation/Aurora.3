@@ -33,5 +33,5 @@
 	desc = "Dominian Unathi are those that either helped found House Kazhkz or came after the Great House was created and sought refuge from the Contact War. The Unathi in Dominia are Primaries and Secondaries, with next to none being Ma'zals. Their recent integration proves to be a point of contention among the Empire of Dominia: some find them welcome, should they be loyal, while others find their presence and conduct to be distasteful and dishonorable. For good or bad, they're here to stay, and they follow some semblance of their former codes and traditions here under the Great Holy Emperor."
 	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH)
 	possible_citizenships = list(CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL)
-	possible_religions = list(RELIGION_MOROZ)
+	possible_religions = list(RELIGION_MOROZ, RELIGION_THAKH)
 
