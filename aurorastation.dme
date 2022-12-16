@@ -1089,6 +1089,7 @@
 #include "code\game\objects\items\weapons\storage\misc.dm"
 #include "code\game\objects\items\weapons\storage\mre.dm"
 #include "code\game\objects\items\weapons\storage\secure.dm"
+#include "code\game\objects\items\weapons\storage\slime_core_bag.dm"
 #include "code\game\objects\items\weapons\storage\storage.dm"
 #include "code\game\objects\items\weapons\storage\toolbox.dm"
 #include "code\game\objects\items\weapons\storage\uplink_kits.dm"
