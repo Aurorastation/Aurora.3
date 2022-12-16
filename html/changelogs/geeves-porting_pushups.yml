@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported push-ups from CM. You can initiate them from the IC tab by hitting Do Pushup."

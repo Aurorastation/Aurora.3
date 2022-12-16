@@ -374,3 +374,14 @@
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
+
+/datum/species/machine/has_stamina_for_pushup(var/mob/living/carbon/human/human)
+	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
+	if(!C.cell)
+		return FALSE
+	return C.cell.charge > (C.cell.maxcharge / 10)
+
+/datum/species/machine/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
+	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
+	if(C)
+		C.use(stamina_cost * 8)
