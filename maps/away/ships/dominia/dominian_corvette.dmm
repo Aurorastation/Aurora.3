@@ -192,6 +192,32 @@
 	},
 /turf/simulated/floor/bluegrid/airless,
 /area/space)
+"aBE" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null;
+	name = "gun cabinet (sidearms)"
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/pistol,
+/obj/item/gun/projectile/pistol,
+/obj/item/gun/projectile/pistol,
+/obj/item/gun/projectile/pistol,
+/obj/item/gun/projectile/pistol,
+/obj/item/gun/projectile/pistol,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "aCd" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -1722,6 +1748,16 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/item/melee/baton/stunrod,
+/obj/item/melee/baton/stunrod,
+/obj/item/storage/belt/security/full,
+/obj/item/storage/belt/security/full,
+/obj/item/storage/box/zipties,
+/obj/item/storage/box/zipties,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/smokebomb,
+/obj/item/grenade/smokebomb,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "hBd" = (
@@ -3807,6 +3843,26 @@
 /obj/effect/shuttle_landmark/ee_spy_ship/transit,
 /turf/space/transit/north,
 /area/space)
+"qIu" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null;
+	name = "gun cabinet (SMGs)"
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/automatic/tommygun/dom,
+/obj/item/gun/projectile/automatic/tommygun/dom,
+/obj/item/gun/projectile/automatic/tommygun/dom,
+/obj/item/gun/projectile/automatic/tommygun/dom,
+/obj/item/ammo_magazine/c45uzi,
+/obj/item/ammo_magazine/c45uzi,
+/obj/item/ammo_magazine/c45uzi,
+/obj/item/ammo_magazine/c45uzi,
+/obj/item/ammo_magazine/c45uzi,
+/obj/item/ammo_magazine/c45uzi,
+/obj/item/ammo_magazine/c45uzi,
+/obj/item/ammo_magazine/c45uzi,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "qIP" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 4
@@ -4309,6 +4365,8 @@
 /obj/structure/closet,
 /obj/item/pocketwatch,
 /obj/item/clothing/accessory/badge/passport/dominia,
+/obj/item/gun/projectile/revolver,
+/obj/item/ammo_magazine/a357,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "tra" = (
@@ -4406,9 +4464,16 @@
 /area/space)
 "tJz" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
+	req_access = null;
+	name = "gun cabinet (rifles)"
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/automatic/rifle/dom,
+/obj/item/gun/projectile/automatic/rifle/dom,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "tMb" = (
@@ -34266,7 +34331,7 @@ wXi
 kRG
 ntt
 tJz
-tJz
+qIu
 cMo
 lwX
 xRX
@@ -34779,7 +34844,7 @@ pdm
 jTL
 wVD
 ntt
-tJz
+aBE
 oXW
 bos
 dOA
