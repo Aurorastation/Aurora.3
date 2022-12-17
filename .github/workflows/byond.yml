@@ -35,8 +35,6 @@ jobs:
       - name: Run dreamchecker
         id: runDreamchecker
         run: ~/dreamchecker > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
-      - name: Annotate Lints
-        if: failure() && steps.runDreamchecker.outcome == 'failure'
         uses: yogstation13/DreamAnnotate@v2
         with:
           outputFile: output-annotations.txt
@@ -60,7 +58,7 @@ jobs:
           MYSQL_DATABASE: game
           MYSQL_ROOT_PASSWORD: root
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install BYOND
         run: |
           source .versions.sh
