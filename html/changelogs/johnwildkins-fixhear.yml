@@ -1,8 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed mapped-in mobs (namely animals like Columbo) not being added to the hearables grid properly, thus acting deaf."
-  - bugfix: "Fixed an issue where voice mimic / masking wouldn't be respected by tcomms logging."
-  - backend: "Removed virtual mobs implementation in favor of the spatial grid system, as the two conflict."
