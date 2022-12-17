@@ -112,7 +112,7 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/security/hos
 	name = "head of security jacket"
 	desc = "This piece of clothing was specifically designed for asserting superior authority."
-	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "hos_jacket"
 	item_state = "hos_jacket"
 
