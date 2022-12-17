@@ -251,7 +251,9 @@
 /datum/changeling_sting/dna_extract/do_sting(mob/living/carbon/human/target)
 	..()
 	var/datum/absorbed_dna/newDNA = new(target.real_name, target.dna, target.species.get_cloning_variant(), target.languages)
-	owner.absorbDNA(newDNA)
+	if(owner.absorbDNA(newDNA))
+		var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
+		changeling.geneticpoints++
 
 //Boosts the range of your next sting attack by 1
 /mob/proc/changeling_boost_range()

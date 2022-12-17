@@ -3,7 +3,6 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 /datum/changeling //stores changeling powers, changeling recharge thingie, changeling absorbed DNA and changeling ID (for changeling hivemind)
 	var/list/datum/absorbed_dna/absorbed_dna = list()
 	var/list/absorbed_languages = list()
-	var/list/hivemind_members = list()
 	var/datum/changeling_sting/prepared_sting
 	var/absorbedcount = 0
 	var/chem_charges = 20
@@ -44,7 +43,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(mind)
 		changeling = mind.antag_datums[MODE_CHANGELING]
 	if(!changeling)
-		return
+		return FALSE
 
 	for(var/language in newDNA.languages)
 		changeling.absorbed_languages |= language
@@ -53,6 +52,8 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	if(!changeling.GetDNA(newDNA.name)) // Don't duplicate - I wonder if it's possible for it to still be a different DNA? DNA code could use a rewrite
 		changeling.absorbed_dna += newDNA
+		return TRUE
+	return FALSE
 
 //Restores our verbs. It will only restore verbs allowed during lesser (monkey) form if we are not human
 /mob/proc/make_changeling()

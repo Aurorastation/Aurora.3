@@ -12,14 +12,6 @@ var/list/datum/power/changeling/powerinstances = list()
 	var/allowduringlesserform = FALSE
 	var/genomecost = 69420 // Cost for the changling to evolve this power.
 
-//DNA absorption
-
-/datum/power/changeling/absorb_dna
-	name = "Absorb DNA"
-	desc = "Permits us to forcibly absorb a massive quantity DNA from another sentient creature. They will perish during the process, and we become stronger, especially if they were another changeling. Have caution, this takes some time."
-	genomecost = 0
-	verbpath = /mob/proc/changeling_absorb_dna
-
 // Accent Mimicry
 
 /datum/power/changeling/mimic_accent
@@ -73,25 +65,6 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 0
 	verbpath = /mob/proc/changeling_hivedownload
 
-/datum/power/changeling/hivemind_commune
-	name = "Hivemind Commune"
-	desc = "We can speak with the members of our Hivemind, without it being apparent to the people in our view."
-	genomecost = 0
-	verbpath = /mob/proc/changeling_hivemind_commune
-
-/datum/power/changeling/hivemind_eject
-	name = "Hivemind Eject"
-	desc = "We can eject a pesky hivemind from ourselves, if it complains a lot. This won't free up space, but will prevent them from screaming at us."
-	helptext = "Ghosts the chosen hivemind. Use it on salty people spamming you to send them to deadchat."
-	genomecost = 0
-	verbpath = /mob/proc/changeling_eject_hivemind
-
-/datum/power/changeling/hivemind_morph
-	name = "Hivemind Release Morph"
-	desc = "We release a hivemind member as a morph. They will be able to crawl inside vents and disguise themselves as objects."
-	genomecost = 0
-	verbpath = /mob/living/carbon/human/proc/changeling_release_morph
-
 //Stings and sting accessorries
 //Rest in pieces, unfat sting. - Geeves
 
@@ -101,6 +74,13 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 2
 	allowduringlesserform = 1
 	verbpath = /mob/proc/changeling_boost_range
+
+/datum/power/changeling/dna_extraction_sting
+	name = "DNA Extraction Sting"
+	desc = "We evolve the ability to stealthily sting a target to absorb a small part of their genome."
+	genomecost = 0
+	allowduringlesserform = FALSE
+	verbpath = /mob/proc/changeling_extract_dna_sting
 
 /datum/power/changeling/deaf_sting
 	name = "Deaf Sting"
