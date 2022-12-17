@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Changelings now get DNA extraction stings instead of the proboscis guaranteed kill ability. It costs 40 chems and cannot be used on the same target twice. It grants one genome point."
+  - backend: "Tweaked the Changeling DNA to be sorted by WEAKREFs instead of names, meaning two people with the same name won't cause problems."
