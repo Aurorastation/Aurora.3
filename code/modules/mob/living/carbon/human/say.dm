@@ -125,7 +125,13 @@
 	if(!message_range)
 		message_range = world.view
 
-	. = ..(message, say_verb, message_mode, message_range)
+	var/list/speech_params = ..(message, say_verb, message_mode, message_range)
+	if(speech_params)
+		message = speech_params[HSP_MSG] || message
+		say_verb = speech_params[HSP_VERB] || say_verb
+		message_mode = speech_params[HSP_MSGMODE] || message_mode
+		message_range = speech_params[HSP_MSGRANGE] || message_range
+		. = TRUE
 
 	if(losebreath >= 5 && prob(50))
 		var/list/words = splittext(message," ")
@@ -151,7 +157,13 @@
 			say_verb = pick(M.say_verbs)
 			. = TRUE
 
-	return species.handle_speech_problems(message, say_verb, message_mode, message_range) || .
+	if(.)
+		return list(
+			HSP_MSG = message,
+			HSP_VERB = say_verb,
+			HSP_MSGMODE = message_mode,
+			HSP_MSGRANGE = message_range,
+		)
 
 /mob/living/carbon/human/get_radio()
 	var/list/headsets = list()
