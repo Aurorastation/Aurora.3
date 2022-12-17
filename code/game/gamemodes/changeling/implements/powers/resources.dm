@@ -30,30 +30,27 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		return
 
 	var/list/names = list()
-	for(var/datum/absorbed_dna/DNA in changeling.absorbed_dna)
-		var/valid = TRUE
+	for(var/datum/absorbed_dna/DNA as anything in changeling.absorbed_dna)
 		for(var/datum/absorbed_dna/DNB in hivemind_bank)
-			if(DNA.name == DNB.name)
-				valid = FALSE
-				break
-		if(valid)
-			names += DNA.name
+			if(DNA.target_ref == DNB.target_ref)
+				continue
+		names[DNA.name] = DNA.target_ref
 
-	if(names.len <= 0)
+	if(!length(names))
 		to_chat(src, "<span class='notice'>The airwaves already has all of our DNA.</span>")
 		return
 
-	var/S = input("Select a DNA to channel: ", "Channel DNA", null) as null|anything in names
-	if(!S)
+	var/chosen_name = input("Select a DNA to channel: ", "Channel DNA", null) as null|anything in names
+	if(!chosen_name)
 		return
 
-	var/datum/absorbed_dna/chosen_dna = changeling.GetDNA(S)
+	var/datum/absorbed_dna/chosen_dna = changeling.GetDNAByWeakref(names[chosen_name])
 	if(!chosen_dna)
 		return
 
 	changeling.chem_charges -= 10
 	hivemind_bank += chosen_dna
-	to_chat(src, "<span class='notice'>We channel the DNA of [S] to the air.</span>")
+	to_chat(src, "<span class='notice'>We channel the DNA of [chosen_name] to the air.</span>")
 	feedback_add_details("changeling_powers", "HU")
 	return TRUE
 
@@ -68,7 +65,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 	var/list/names = list()
 	for(var/datum/absorbed_dna/DNA in hivemind_bank)
-		if(!(changeling.GetDNA(DNA.name)))
+		if(!changeling.GetDNAByWeakref(DNA.target_ref))
 			names[DNA.name] = DNA
 
 	if(names.len <= 0)

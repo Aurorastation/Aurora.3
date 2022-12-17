@@ -33,10 +33,17 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	chem_charges = min(max(0, chem_charges + chem_recharge_rate), chem_storage)
 	geneticdamage = max(0, geneticdamage - 1)
 
-/datum/changeling/proc/GetDNA(var/dna_owner)
-	for(var/datum/absorbed_dna/DNA in absorbed_dna)
-		if(dna_owner == DNA.name)
+/datum/changeling/proc/GetDNA(var/mob/target)
+	for(var/datum/absorbed_dna/DNA as anything in absorbed_dna)
+		if(WEAKREF(target) == DNA.target_ref)
 			return DNA
+	return null
+
+/datum/changeling/proc/GetDNAByWeakref(var/datum/weakref/target_ref)
+	for(var/datum/absorbed_dna/DNA as anything in absorbed_dna)
+		if(target_ref == DNA.target_ref)
+			return DNA
+	return null
 
 /mob/proc/absorbDNA(var/datum/absorbed_dna/newDNA)
 	var/datum/changeling/changeling = null
@@ -50,7 +57,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	changeling_update_languages(changeling.absorbed_languages)
 
-	if(!changeling.GetDNA(newDNA.name)) // Don't duplicate - I wonder if it's possible for it to still be a different DNA? DNA code could use a rewrite
+	if(!changeling.GetDNAByWeakref(newDNA.target_ref)) // Don't duplicate - I wonder if it's possible for it to still be a different DNA? DNA code could use a rewrite
 		changeling.absorbed_dna += newDNA
 		return TRUE
 	return FALSE
@@ -91,7 +98,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	var/mob/living/carbon/human/H = src
 	if(istype(H))
-		var/datum/absorbed_dna/newDNA = new(H.real_name, H.dna, H.species.get_cloning_variant(), H.languages)
+		var/datum/absorbed_dna/newDNA = new(H)
 		absorbDNA(newDNA)
 		changeling.mimiced_accent = H.accent
 
@@ -151,13 +158,17 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/datum/dna/dna
 	var/speciesName
 	var/list/languages
+	var/datum/weakref/target_ref
 
-/datum/absorbed_dna/New(var/newName, var/newDNA, var/newSpecies, var/newLanguages)
+/datum/absorbed_dna/New(var/mob/target)
 	..()
-	name = newName
-	dna = newDNA
-	speciesName = newSpecies
-	languages = newLanguages
+	name = target.real_name
+	dna = target.dna
+	languages = target.languages.Copy()
+	if(ishuman(target))
+		var/mob/living/carbon/human/human = target
+		speciesName = human.species.get_cloning_variant()
+	target_ref = WEAKREF(target)
 
 //Helper for stingcode
 

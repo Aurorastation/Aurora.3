@@ -169,17 +169,16 @@
 		return
 
 	var/list/names = list()
-	for(var/thing in changeling.absorbed_dna)
-		var/datum/absorbed_dna/DNA = thing
-		names += "[DNA.name]"
+	for(var/datum/absorbed_dna/DNA as anything in changeling.absorbed_dna)
+		names[DNA.name] = DNA.target_ref
 
-	var/S = input(src, "Select the target DNA:", "Target DNA") as null|anything in names
-	if(!S)
+	var/chosen_name = input(src, "Select the target DNA:", "Target DNA") as null|anything in names
+	if(!chosen_name)
 		QDEL_NULL(changeling.prepared_sting)
 		to_chat(src, SPAN_NOTICE("With no DNA chosen, you unprepare the sting."))
 		return
 
-	var/datum/absorbed_dna/chosen_dna = changeling.GetDNA(S)
+	var/datum/absorbed_dna/chosen_dna = changeling.GetDNAByWeakref(names[chosen_name])
 	if(!chosen_dna)
 		QDEL_NULL(changeling.prepared_sting)
 		to_chat(src, SPAN_WARNING("Something went wrong, you do not possess the DNA of this person."))
@@ -247,10 +246,14 @@
 		if(!ishuman(target))
 			to_chat(owner, SPAN_WARNING("This sting only works on humanoids!"))
 			return FALSE
+		var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
+		if(changeling.GetDNA(target))
+			to_chat(owner, SPAN_WARNING("We have already absorbed the DNA from this target!"))
+			return FALSE
 
 /datum/changeling_sting/dna_extract/do_sting(mob/living/carbon/human/target)
 	..()
-	var/datum/absorbed_dna/newDNA = new(target.real_name, target.dna, target.species.get_cloning_variant(), target.languages)
+	var/datum/absorbed_dna/newDNA = new(target)
 	if(owner.absorbDNA(newDNA))
 		var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
 		changeling.geneticpoints++
