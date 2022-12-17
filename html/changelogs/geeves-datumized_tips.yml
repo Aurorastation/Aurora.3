@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - backend: "Tips are now handled in the code rather than via config, so you may see some new ones that the server hasn't been updated for yet."
+  

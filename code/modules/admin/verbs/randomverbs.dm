@@ -1036,13 +1036,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!input)
 		return
 
-	SSticker.selected_tip = input
-
-	// If we've already tipped, then send it straight away.
-	if(SSticker.tipped)
-		SSticker.send_tip_of_the_round()
-		SSticker.selected_tip = initial(SSticker.selected_tip)
-
+	SSticker.send_tip_of_the_round(input)
 
 	message_admins("[key_name_admin(usr)] sent a tip of the round.")
 	log_admin("[key_name(usr)] sent \"[input]\" as the Tip of the Round.",admin_key=key_name(usr))
@@ -1051,13 +1045,25 @@ Traitors and the like can also be revived with the previous role mostly intact.
 /client/proc/show_tip()
 	set category = "Debug"
 	set name = "Show Tip"
-	set desc = "Sends a tip (that the config specifies) to all players. After all \
+	set desc = "Sends a random tip to all players. After all \
 		you're not the experienced player here."
 
 	if(!holder)
 		return
 
-	SSticker.send_tip_of_the_round()
+	var/list/possible_categories = list("Random") + tips_by_category.Copy()
+	var/input = input(usr, "Please specify the tip category that you want to send to the players.", "Tip", "Random") as null|anything in possible_categories
+	if(!input)
+		return
+
+	var/datum/tip/tip_datum
+	if(input == "Random")
+		var/chosen_tip_category = pick(tips_by_category)
+		tip_datum = tips_by_category[chosen_tip_category]
+	else
+		tip_datum = tips_by_category[input]
+
+	SSticker.send_tip_of_the_round(pick(tip_datum.messages))
 
 
 	message_admins("[key_name_admin(usr)] sent a pregenerated tip of the round.")
