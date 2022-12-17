@@ -1,9 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed an issue where speech problems (drunk slurring, etc) weren't being applied properly."
-  - bugfix: "Fixed commandable animals not listening when their short name was used."
-  - bugfix: "Fixed alarm consoles not displaying any alarms."
-  - bugfix: "Fixed looping sounds not initializing properly."
