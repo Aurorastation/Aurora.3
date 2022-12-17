@@ -641,8 +641,9 @@ var/list/admin_verbs_cciaa = list(
 /client/proc/game_panel()
 	set name = "Game Panel"
 	set category = "Admin"
-	if(holder)
-		holder.Game()
+	if(holder && check_rights(R_SPAWN))
+		var/static/datum/vueui_module/game_panel/global_game_panel = new()
+		global_game_panel.ui_interact(usr)
 	feedback_add_details("admin_verb","GP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 

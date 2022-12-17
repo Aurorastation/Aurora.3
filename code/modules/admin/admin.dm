@@ -623,29 +623,6 @@ proc/admin_notice(var/message, var/rights)
 	dat += "</table>"
 	usr << browse(dat, "window=ban;size=400x400")
 
-/datum/admins/proc/Game()
-	if(!check_rights(0))	return
-
-	var/dat = {"
-		<center><B>Game Panel</B></center><hr>\n
-		<A href='?src=\ref[src];c_mode=1'>Change Game Mode</A><br>
-		"}
-	if(master_mode == ROUNDTYPE_STR_SECRET || master_mode == ROUNDTYPE_STR_MIXED_SECRET)
-		dat += "<A href='?src=\ref[src];f_secret=1'>(Force Secret Mode)</A><br>"
-
-	dat += {"
-		<BR>
-		<A href='?src=\ref[src];create_object=1'>Create Object</A><br>
-		<A href='?src=\ref[src];create_turf=1'>Create Turf</A><br>
-		<A href='?src=\ref[src];create_mob=1'>Create Mob</A><br>
-		<br><A href='?src=\ref[src];vsc=airflow'>Edit Airflow Settings</A><br>
-		<A href='?src=\ref[src];vsc=phoron'>Edit Phoron Settings</A><br>
-		<A href='?src=\ref[src];vsc=default'>Choose a default ZAS setting</A><br>
-		"}
-
-	usr << browse(dat, "window=admin2;size=210x280")
-	return
-
 /datum/admins/proc/Secrets()
 	if(!check_rights(0))	return
 

@@ -426,7 +426,6 @@
 		log_admin("[key_name(usr)] set the mode as [master_mode].",admin_key=key_name(usr))
 		message_admins("<span class='notice'>[key_name_admin(usr)] set the mode as [master_mode].</span>", 1)
 		to_world("<span class='notice'><b>The mode is now: [master_mode]</b></span>")
-		Game() // updates the main game menu
 		SSpersist_config.last_gamemode = master_mode
 		.(href, list("c_mode"=1))
 
@@ -440,7 +439,6 @@
 		secret_force_mode = href_list["f_secret2"]
 		log_admin("[key_name(usr)] set the forced secret mode as [secret_force_mode].",admin_key=key_name(usr))
 		message_admins("<span class='notice'>[key_name_admin(usr)] set the forced secret mode as [secret_force_mode].</span>", 1)
-		Game() // updates the main game menu
 		.(href, list("f_secret"=1))
 
 	else if(href_list["remove_psionics"])
