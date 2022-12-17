@@ -1,7 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Discord bot (and other things that interact with the staff list) no longer break when a de-admined staff member leaves the server."
-  - bugfix: "Fixed the bot runtiming the server by asking about the evacuation controller before it existed."
