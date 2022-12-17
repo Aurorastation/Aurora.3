@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Re-add handling for species-specific speech problems (only dionae reduced range for losing their head, currently)."
