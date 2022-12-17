@@ -1292,6 +1292,3 @@ proc/is_blind(A)
 
 /mob/get_client()
 	return client
-
-/mob/abstract/observer/virtual/get_client()
-	return host.get_client()
