@@ -125,8 +125,9 @@
 	if(!message_range)
 		message_range = world.view
 
-	var/list/speech_params = ..(message, say_verb, message_mode, message_range)
-	if(speech_params)
+	var/list/speech_params = ..(message, say_verb, message_mode, message_range) || list()
+	speech_params |= species.handle_speech_problems(src, message, say_verb, message_mode, message_range)
+	if(length(speech_params))
 		message = speech_params[HSP_MSG] || message
 		say_verb = speech_params[HSP_VERB] || say_verb
 		message_mode = speech_params[HSP_MSGMODE] || message_mode
