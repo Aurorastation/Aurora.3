@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Putting a lattice/catwalk on an open space makes it not be a hole anymore, meaning you won't fall through it, not use jetpack fuel to traverse them, and mechs can now walk over them."
+  - rscadd: "Jetpack users will now visibly float when they're jetting over an open turf."
+  - tweak: "Jetpack ion trails now fire whenever the jetpack thrusts, not on a processing timer."
+  - bugfix: "Attacking someone or throwing someone no longer resets your floating state."
+  - bugfix: "Trying to pass through an open space with a catwalk will now report the catwalk as the blocker, instead of the open space."
