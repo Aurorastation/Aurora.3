@@ -171,6 +171,21 @@
 	tag_icon = "dominia_vulgar"
 	text_tag = "VMR"
 
+/datum/accent/dominia_frontier
+	name = ACCENT_DOMINIA_FRONTIER
+	description = "The most common Dominian accent is Vulgar Morozi, a variation of Sol Common found upon Moroz itself. Though heavily influenced by Tradeband Vulgar Morozi is considered to be a \
+	dialect of Sol Common rather than a distinct Tradeband dialect. Vulgar Morozi has regional variations on the colonies of the Dominian Empire, and in the rebellious Morozian region of Fisanduh. \
+	The Fisanduhian accent is considered to be a distinctive higher-pitched variation of Vulgar Morozi that is often suppressed by insurgents to better blend in with the greater Imperial population."
+	tag_icon = "dominia_vulgar"
+	text_tag = "VMR"
+
+/datum/accent/dominia_novijadran
+	name = ACCENT_DOMINIA_NOVIJADRAN
+	description = "The most common Dominian accent is Vulgar Morozi, a variation of Sol Common found upon Moroz itself. Though heavily influenced by Tradeband Vulgar Morozi is considered to be a \
+	dialect of Sol Common rather than a distinct Tradeband dialect. Vulgar Morozi has regional variations on the colonies of the Dominian Empire, and in the rebellious Morozian region of Fisanduh. \
+	The Fisanduhian accent is considered to be a distinctive higher-pitched variation of Vulgar Morozi that is often suppressed by insurgents to better blend in with the greater Imperial population."
+	tag_icon = "dominia_vulgar"
+	text_tag = "VMR"
 
 /datum/accent/jupiter
 	name = ACCENT_JUPITER
