@@ -124,23 +124,23 @@
 
 /obj/item/yarn/red
 	desc = "A ball of yarn, this one is red."
-	color = "#ff0000"
+	color = "#a03a53"
 
 /obj/item/yarn/blue
 	desc = "A ball of yarn, this one is blue."
-	color = "#0000FF"
+	color = "#3a5591"
 
 /obj/item/yarn/green
 	desc = "A ball of yarn, this one is green."
-	color = "#00ff00"
+	color = "#69a03c"
 
 /obj/item/yarn/purple
 	desc = "A ball of yarn, this one is purple."
-	color = "#800080"
+	color = "#533079"
 
 /obj/item/yarn/yellow
 	desc = "A ball of yarn, this one is yellow."
-	color = "#FFFF00"
+	color = "#f0bd77"
 
 /obj/item/storage/box/knitting //a bunch of things, so it goes into the box
 	name = "knitting supplies"
