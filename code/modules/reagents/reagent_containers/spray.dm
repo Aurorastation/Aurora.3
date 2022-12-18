@@ -212,6 +212,13 @@
 	volume = 600
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
 
+/obj/item/reagent_containers/spray/chem_sprayer/attack_self(var/mob/user)
+	if(!possible_transfer_amounts)
+		return
+	amount_per_transfer_from_this = next_in_list(amount_per_transfer_from_this, possible_transfer_amounts)
+	spray_size = next_in_list(spray_size, spray_sizes)
+	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this*spray_size] units per spray, with a [spray_size] lane spray."))
+
 /obj/item/reagent_containers/spray/chemsprayer/Spray_at(atom/target, mob/user)
 	var/direction = get_dir(src, target)
 	var/turf/our_turf = get_turf(target)
