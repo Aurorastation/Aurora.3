@@ -4783,7 +4783,7 @@
 /mob/living/heavy_vehicle/premade/combatripley{
 	name = "Coalitioner retrofitted powerloader"
 	},
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
@@ -8709,7 +8709,7 @@
 	},
 /area/cruise/centerline)
 "gMP" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
@@ -15644,7 +15644,7 @@
 /area/cruise/hydroponics)
 "mqt" = (
 /mob/living/heavy_vehicle/premade/superheavy,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -17017,7 +17017,7 @@
 	},
 /area/cruise/library)
 "nxg" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/heavy_vehicle/premade/combat{
 	desc = "A sleek, modern combat exosuit. It's Solarian! Run!";
 	name = "solarian combat exosuit"
@@ -17321,7 +17321,7 @@
 	},
 /area/cruise/pool)
 "nIV" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/machinery/light/spot{
 	dir = 1
 	},
@@ -22142,7 +22142,7 @@
 	},
 /area/cruise/arcade)
 "rLb" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/heavy_vehicle/premade/combatripley{
 	name = "Coalitioner retrofitted powerloader"
 	},
@@ -26308,7 +26308,7 @@
 	desc = "A sleek, modern combat exosuit. It's Solarian! Run!";
 	name = "solarian combat exosuit"
 	},
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},

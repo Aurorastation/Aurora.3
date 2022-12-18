@@ -896,7 +896,7 @@
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "fWY" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)

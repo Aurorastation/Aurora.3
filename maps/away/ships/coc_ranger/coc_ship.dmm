@@ -3149,7 +3149,7 @@
 /area/space)
 "pSI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/machinery/light{
 	dir = 8;

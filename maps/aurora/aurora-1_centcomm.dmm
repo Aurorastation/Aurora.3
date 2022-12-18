@@ -10262,7 +10262,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/supply/dock)
 "cSw" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
@@ -11388,7 +11388,7 @@
 	},
 /area/centcom/legion/hangar5)
 "dGw" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
@@ -17312,7 +17312,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
 "hbO" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
@@ -19519,7 +19519,7 @@
 	},
 /area/centcom/legion)
 "iAV" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/structure/sign/directions/all{
 	dir = 1;
 	pixel_y = 24
@@ -23204,7 +23204,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "lbr" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
@@ -27038,7 +27038,7 @@
 	},
 /area/centcom/control)
 "nvr" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
@@ -40249,7 +40249,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -40879,7 +40879,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "wIB" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)

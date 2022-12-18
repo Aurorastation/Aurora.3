@@ -2498,7 +2498,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "fX" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"

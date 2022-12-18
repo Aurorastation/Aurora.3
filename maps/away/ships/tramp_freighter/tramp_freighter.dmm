@@ -1853,7 +1853,7 @@
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "snZ" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/heavy_vehicle/premade/miner,
 /obj/machinery/light/small/emergency{
 	dir = 8

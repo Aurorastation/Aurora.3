@@ -978,7 +978,7 @@
 	},
 /area/peoples_station)
 "er" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/structure/sign/flag/pra/left{
@@ -8236,7 +8236,7 @@
 	},
 /area/peoples_station/living_quarters)
 "Mo" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/plating{
@@ -8664,7 +8664,7 @@
 	},
 /area/peoples_station/zero_g)
 "Ol" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},

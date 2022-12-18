@@ -12294,7 +12294,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "kLZ" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "kMv" = (

@@ -6151,7 +6151,7 @@
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 1
 	},
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
@@ -10801,7 +10801,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engineering_hallway_main)
 "aue" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/tiled,
 /area/engineering/engineering_hallway_main)
 "auf" = (
@@ -34964,7 +34964,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "biD" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
 "biE" = (
@@ -44225,7 +44225,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/misc_lab)
 "bAX" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -57464,7 +57464,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cgb" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "cgc" = (
@@ -58193,7 +58193,7 @@
 /turf/simulated/floor/tiled/asteroid/airless,
 /area/outpost/mining_main/eva)
 "chA" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/tiled/asteroid/airless,
 /area/outpost/mining_main/eva)
 "chB" = (
@@ -59977,7 +59977,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "exQ" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
@@ -62366,7 +62366,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "itk" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},

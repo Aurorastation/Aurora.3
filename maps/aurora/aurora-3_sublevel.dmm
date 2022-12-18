@@ -12087,7 +12087,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/storage)
 "avH" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -33830,7 +33830,7 @@
 /turf/simulated/floor/wood,
 /area/medical/patient_d)
 "rHf" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/decal/warning_stripes,
 /obj/machinery/door/window{
 	base_state = "right";

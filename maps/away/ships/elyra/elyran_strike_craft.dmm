@@ -1161,7 +1161,7 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "kHe" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)

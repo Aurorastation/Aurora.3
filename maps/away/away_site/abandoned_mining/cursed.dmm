@@ -2056,7 +2056,7 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "meO" = (
-/obj/machinery/mech_recharger/hephaestus,
+/obj/machinery/mech_charger/hephaestus,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "meW" = (
@@ -2468,7 +2468,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
 "oIi" = (
-/obj/machinery/mech_recharger/hephaestus,
+/obj/machinery/mech_charger/hephaestus,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "oJh" = (
@@ -3194,7 +3194,7 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "rRn" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "rSt" = (

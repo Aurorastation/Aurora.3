@@ -225,7 +225,7 @@
 	. = INITIALIZE_HINT_LATELOAD
 
 /mob/living/heavy_vehicle/LateInitialize()
-	var/obj/machinery/mech_recharger/MR = locate() in get_turf(src)
+	var/obj/machinery/mech_charger/MR = locate() in get_turf(src)
 	if(MR)
 		MR.start_charging(src)
 

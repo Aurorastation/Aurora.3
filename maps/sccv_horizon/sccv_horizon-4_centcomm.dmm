@@ -2970,7 +2970,7 @@
 	},
 /area/shuttle/administration)
 "agF" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
@@ -13601,7 +13601,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
 "aGy" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
@@ -18824,7 +18824,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "aUz" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
@@ -21433,7 +21433,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
 "aZW" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
@@ -24172,7 +24172,7 @@
 	},
 /area/shuttle/syndicate_elite)
 "bfx" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/structure/sign/directions/all{
 	dir = 1;
 	pixel_y = 24
@@ -28409,7 +28409,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "boM" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -29256,7 +29256,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -31786,7 +31786,7 @@
 	},
 /area/centcom/distress_prep)
 "bvr" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},

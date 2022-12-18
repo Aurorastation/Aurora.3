@@ -299,7 +299,7 @@
 /area/dungeon/crashed_ship)
 "tC" = (
 /obj/structure/mech_wreckage,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;

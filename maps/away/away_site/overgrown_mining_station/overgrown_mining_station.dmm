@@ -119,7 +119,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "gy" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/structure/mech_wreckage/powerloader,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -783,7 +783,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Do" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -894,7 +894,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/space)
 "Ia" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/heavy_vehicle/premade/ripley/cargo,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)

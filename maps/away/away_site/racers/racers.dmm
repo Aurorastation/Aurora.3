@@ -938,7 +938,7 @@
 /turf/simulated/floor/wood,
 /area/racers)
 "exI" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/bot/medbot,
 /turf/simulated/floor/plating,
 /area/racers)
@@ -3623,7 +3623,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "rAy" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/bot/floorbot,
 /turf/simulated/floor/plating,
 /area/racers)
@@ -3891,7 +3891,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "sRo" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "sUW" = (
@@ -4116,7 +4116,7 @@
 /turf/template_noop,
 /area/space)
 "tZG" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},

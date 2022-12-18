@@ -90,7 +90,7 @@
 /area/mine/unexplored)
 "v" = (
 /mob/living/heavy_vehicle/premade/ripley,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
 "w" = (

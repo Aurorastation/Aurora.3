@@ -57,17 +57,17 @@
 	build_path = /obj/item/circuitboard/mechfab
 
 /datum/design/circuit/machine/mech_recharger
-	name = "Mech Recharger"
+	name = "Mech Charger"
 	req_tech = list(TECH_DATA = 2, TECH_POWER = 2, TECH_ENGINEERING = 2)
-	build_path = /obj/item/circuitboard/mech_recharger
+	build_path = /obj/item/circuitboard/mech_charger
 
 /datum/design/circuit/machine/heph_mech_recharger
 	name = "Hephaestus Mech Recharger"
 	req_tech = list(TECH_DATA = 3, TECH_POWER = 3, TECH_ENGINEERING = 4)
-	build_path = /obj/item/circuitboard/mech_recharger/hephaestus
+	build_path = /obj/item/circuitboard/mech_charger/hephaestus
 
 /datum/design/circuit/machine/recharge_station
-	name = "Cyborg Recharge Station"
+	name = "Robot Charging Station"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/robot_charger
 

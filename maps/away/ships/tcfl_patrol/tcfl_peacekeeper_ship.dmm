@@ -899,7 +899,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "fTp" = (
@@ -1355,7 +1355,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/ship/tcfl_peacekeeper_ship)
 "ijB" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "ilG" = (
@@ -1480,7 +1480,7 @@
 /turf/template_noop,
 /area/space)
 "iVq" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/heavy_vehicle/premade/combatripley{
 	h_r_hand = /obj/item/mecha_equipment/clamp
 	},

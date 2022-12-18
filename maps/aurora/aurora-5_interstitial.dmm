@@ -5221,7 +5221,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/interstitial)
 "nF" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},

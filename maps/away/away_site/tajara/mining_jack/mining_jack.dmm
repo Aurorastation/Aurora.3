@@ -1261,7 +1261,7 @@
 	},
 /area/shuttle/mining_jack/engines)
 "uj" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/heavy_vehicle/premade/miner,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating{

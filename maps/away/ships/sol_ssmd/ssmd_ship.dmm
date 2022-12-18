@@ -1395,7 +1395,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/starboardfoyer)
 "dQj" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /mob/living/heavy_vehicle/premade/firefighter/sol,
 /turf/simulated/floor,
@@ -2112,7 +2112,7 @@
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/starboardengine)
 "ftd" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/plasteel{
 	pixel_x = 7;
@@ -6655,7 +6655,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/starboardengine)
 "ugW" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -8070,7 +8070,7 @@
 /turf/template_noop,
 /area/ship/ssmd_corvette/hangar)
 "ykd" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /mob/living/heavy_vehicle/premade/light/recon,
 /turf/simulated/floor,

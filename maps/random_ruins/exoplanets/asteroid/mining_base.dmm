@@ -111,13 +111,13 @@
 /turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "U" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/mech_wreckage/powerloader,
 /turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "V" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)

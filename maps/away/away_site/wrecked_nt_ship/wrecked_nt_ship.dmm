@@ -309,7 +309,7 @@
 /turf/simulated/wall/r_wall,
 /area/wrecked_nt_ship)
 "gn" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/structure/mech_wreckage,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
@@ -983,7 +983,7 @@
 /turf/simulated/floor/wood/airless,
 /area/wrecked_nt_ship)
 "tY" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/item/robot_parts/robot_component/armor/mech/combat,
 /obj/item/stack/cable_coil/random,
 /turf/simulated/floor/airless,
@@ -1956,7 +1956,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "QV" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/item/anomaly_core,
 /mob/living/heavy_vehicle/premade/random/extra,
 /turf/simulated/floor/airless,

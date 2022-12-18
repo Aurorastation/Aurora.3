@@ -2561,7 +2561,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "uvX" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/outline/red,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor,

@@ -21962,7 +21962,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "rZn" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},

@@ -255,7 +255,7 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "bl" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict)
@@ -1015,7 +1015,7 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "dq" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict)
 "dr" = (

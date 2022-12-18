@@ -1107,7 +1107,7 @@
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "LI" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "Mc" = (

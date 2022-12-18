@@ -1115,7 +1115,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "ome" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor,
 /area/ship/militia_ship)

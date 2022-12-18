@@ -4588,7 +4588,7 @@
 /area/headmaster_ship/hangar)
 "th" = (
 /mob/living/heavy_vehicle/premade/ripley/loader,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
