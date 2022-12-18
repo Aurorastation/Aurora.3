@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "Motherships for shuttles will now use a more visible icon type on the overmap so they can differentiate themselves from their shuttles. Shuttles and motherships will share the same colour."

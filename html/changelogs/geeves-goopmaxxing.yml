@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Your body will now disentegrate into a skeleton on death if you have more than 100 genetic damage."
-  - rscadd: "Added skeleton sprites for monkeys."
-  - backend: "Refactored mutation code to use bitflags rather than a list, making it faster and less memory intensive."
