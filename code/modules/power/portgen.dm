@@ -206,6 +206,7 @@
 		Gives traitors more opportunities to sabotage the generator or allows enterprising engineers to build additional
 		cooling in order to get more power out.
 	*/
+	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
 		var/ratio = min(environment.return_pressure()/ONE_ATMOSPHERE, 1)
@@ -336,8 +337,11 @@
 	data["temperature_max"] = max_temperature
 	data["temperature_overheat"] = overheating
 
-	var/datum/gas_mixture/environment = loc.return_air()
-	data["temperature_min"] = Floor(environment.temperature - T0C)
+	if(loc)
+		var/datum/gas_mixture/environment = loc.return_air()
+		if(environment)
+			data["temperature_min"] = Floor(environment.temperature - T0C)
+
 	data["output_min"] = initial(power_output)
 	data["is_broken"] = IsBroken()
 	data["is_ai"] = (isAI(user) || (isrobot(user) && !Adjacent(user)))

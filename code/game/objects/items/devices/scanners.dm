@@ -377,9 +377,9 @@ BREATH ANALYZER
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 
 /obj/item/device/analyzer/atmosanalyze(var/mob/user)
+	if(!user) return
 	var/air = user.return_air()
-	if (!air)
-		return
+	if (!air) return
 
 	return atmosanalyzer_scan(src, air, user)
 

@@ -500,6 +500,7 @@
 		return
 
 	var/atom/L = loc						// recharging from loc turf
+	if(!loc) return
 	var/datum/gas_mixture/env = L.return_air()
 
 	var/power_draw = -1

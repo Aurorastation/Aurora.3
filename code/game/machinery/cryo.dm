@@ -403,8 +403,6 @@
 	//draws from the cryo tube's environment, instead of the cold internal air.
 	if(loc)
 		return loc.return_air()
-	else
-		return null
 
 /datum/data/function/proc/reset()
 	return

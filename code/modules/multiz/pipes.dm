@@ -69,6 +69,7 @@
 		. = PROCESS_KILL
 
 /obj/machinery/atmospherics/pipe/zpipe/check_pressure(pressure)
+	if(!loc) return FALSE
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	var/pressure_difference = pressure - environment.return_pressure()

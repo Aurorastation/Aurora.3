@@ -167,7 +167,7 @@
 
 
 /obj/machinery/space_heater/process()
-	if(on)
+	if(on && loc)
 		if(cell && cell.charge)
 			var/datum/gas_mixture/env = loc.return_air()
 			if(env && abs(env.temperature - set_temperature) <= 0.1)
