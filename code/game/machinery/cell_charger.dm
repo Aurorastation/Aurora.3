@@ -6,8 +6,8 @@
 	anchored = 1
 	idle_power_usage = 5
 	active_power_usage = 2 KILOWATTS
-	charge_rate = 100000
 	power_channel = EQUIP
+	var/charge_rate = 100000
 	var/obj/item/cell/charging = null
 	var/chargelevel = -1
 
