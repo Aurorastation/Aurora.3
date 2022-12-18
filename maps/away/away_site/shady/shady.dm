@@ -17,6 +17,7 @@
 	icon_state = "object"
 
 /area/hideout
+	flags = HIDE_FROM_HOLOMAP
 	name = "hideout outpost"
 	icon_state = "outpost_mine_main"
 	requires_power = FALSE

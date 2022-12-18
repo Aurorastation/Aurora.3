@@ -346,7 +346,9 @@
 	},
 /area/mining_jack_outpost/atmos)
 "eX" = (
-/obj/machinery/computer/ship/sensors,
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
 	},
@@ -689,7 +691,9 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/mining_jack/engines)
 "jV" = (
-/obj/machinery/computer/shuttle_control/explore/tajara_mining_jack,
+/obj/machinery/computer/shuttle_control/explore/tajara_mining_jack{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
 	},
@@ -1160,7 +1164,8 @@
 /area/shuttle/mining_jack/engines)
 "sJ" = (
 /obj/machinery/computer/ship/helm{
-	req_access = null
+	req_access = null;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15

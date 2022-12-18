@@ -473,7 +473,7 @@
 	It features a light-weight polymer pistol grip, a bulky plasteel frame and an extra long barrel. \
 	It is chambered in the newly developed .599 Kumar Super rifle cartridge. Despite designed for rifle use, the newly developed propellants allows this cartridge for use in the Kumar Arms 2557, upping the stopping power significantly. \
 	Kumar Arms guarantees your enemy's armor penetrated or your money back. It features a revolving bolt system with an electromagnetic striker, allowing for hammerless actuation. It has a revolutinary blowback system to ensure accuracy at the cost of fire rate."
-	icon = 'icons/obj/contained_items/weapons/k_arms.dmi'
+	icon = 'icons/obj/item/gun/projectile/pistol/k_arms.dmi'
 	icon_state = "k2557-loaded"
 	item_state = "k2557-loaded"
 	contained_sprite = TRUE
@@ -497,7 +497,7 @@
 	accuracy = -3
 	accuracy_wielded = 1
 
-	
+
 /obj/item/gun/projectile/pistol/super_heavy/update_icon()
 	..()
 	if(istype(ammo_magazine))
@@ -505,7 +505,7 @@
 			icon_state = "k2557-loaded"
 		else
 			icon_state = "k2557-empty"
-	else 
+	else
 		icon_state = "k2557"
 
 /obj/item/gun/projectile/pistol/super_heavy/handle_post_fire(mob/user)

@@ -63,7 +63,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 /obj/machinery/mineral/equipment_vendor
 	name = "mining equipment vendor"
 	desc = "An equipment vendor for miners, points collected at an ore redemption machine can be spent here."
-	icon = 'icons/obj/machines/mining_machines.dmi'
+	icon = 'icons/obj/machinery/mining_machines.dmi'
 	icon_state = "mining"
 	density = TRUE
 	anchored = TRUE
