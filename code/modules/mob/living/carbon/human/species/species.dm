@@ -688,8 +688,8 @@
 /datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	return 0
 
-/datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
-	return current_flags
+/datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)
+	return
 
 /datum/species/proc/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
 	if(speech_sounds && prob(speech_chance))
@@ -830,3 +830,10 @@
 
 /datum/species/proc/can_double_fireman_carry()
 	return FALSE
+
+/datum/species/proc/has_stamina_for_pushup(var/mob/living/carbon/human/human)
+	return human.stamina > (human.max_stamina / 10)
+
+/datum/species/proc/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
+	human.stamina -= stamina_cost
+	human.hud_used.move_intent.update_move_icon(human)

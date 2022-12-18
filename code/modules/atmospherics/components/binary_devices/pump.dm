@@ -226,7 +226,7 @@ Thus, the two variables affect pump operation are set in New():
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE && !istype(W, /obj/item/pipewrench))
+	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED && !istype(W, /obj/item/pipewrench))
 		to_chat(user, "<span class='warning'>You cannot unwrench this [src], it's too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return TRUE

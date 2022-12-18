@@ -4,7 +4,6 @@
 	animate_movement = 2
 	flags = PROXMOVE
 	sight = DEFAULT_SIGHT
-	virtual_mob = /mob/abstract/observer/virtual/mob
 	var/datum/mind/mind
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
@@ -74,7 +73,6 @@
 	var/stuttering = null
 	var/slurring = null
 	var/brokejaw = null
-	var/tarded = null
 	var/real_name = null
 	var/flavor_text = ""
 	var/med_record = ""

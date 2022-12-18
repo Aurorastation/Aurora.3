@@ -133,7 +133,7 @@
 
 /obj/machinery/smartfridge/secure/extract/Initialize()
 	. = ..()
-	new/obj/item/storage/bag/slimes(src)
+	new/obj/item/storage/slimes(src)
 
 /obj/machinery/smartfridge/secure/medbay
 	name = "\improper Refrigerated Chemical Storage"

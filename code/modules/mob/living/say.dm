@@ -89,42 +89,46 @@ proc/get_radio_key_from_channel(var/channel)
 /mob/proc/is_muzzled()
 	return istype(wear_mask, /obj/item/clothing/mask/muzzle)
 
-/mob/living/proc/handle_speech_problems(var/message, var/verb, var/message_mode)
-	var/list/returns[4]
-	var/speech_problem_flag = 0
-	if((HULK in mutations) && health >= 25 && length(message))
-		var/ending = copytext(message, length(message), (length(message) + 1))
+/mob/living/proc/handle_speech_problems(message, say_verb, message_mode, message_range)
+	if(!length(message))
+		return
+
+	if(!message_range)
+		message_range = world.view
+
+	if(HULK in mutations)
+		var/ending = copytext(message, length(message), length(message) + 1)
 		if(ending && correct_punctuation[ending])
-			message = copytext(message, 1, length(message)) // cut off the punctuation
+			message = copytext(message, 1, length(message))
 		message = "[uppertext(message)]!!!"
-		verb = pick("yells","roars","hollers")
-		speech_problem_flag = 1
-	if(slurring)
-		message = slur(message,slurring)
-		verb = pick("slobbers","slurs")
-		speech_problem_flag = 1
-	if(stuttering)
+		say_verb = pick("yells", "roars", "hollers")
+		. = TRUE
+	else if(brokejaw)
+		message = slur(message, 100)
+		say_verb = pick("slobbers", "slurs")
+		switch(rand(1, 100))
+			if(1 to 10)
+				to_chat(src, SPAN_DANGER("You feel a sharp pain from your jaw as you speak!"))
+				Weaken(3)
+			if(11 to 60)
+				to_chat(src, SPAN_WARNING("You struggle to speak with your dislocated jaw!"))
+		. = TRUE
+	else if(stuttering)
 		message = get_stuttered_message(message)
-		verb = pick(get_stutter_verbs())
-		speech_problem_flag = 1
-	if(tarded)
-		message = slur(message,100)
-		verb = pick("gibbers","gabbers")
-		speech_problem_flag = 1
-	if(brokejaw)
-		message = slur(message,100)
-		verb = pick("slobbers","slurs")
-		speech_problem_flag = 1
-		if(prob(50))
-			to_chat(src, "<span class='danger'>You struggle to speak with your dislocated jaw!</span>")
-		if(prob(10))
-			to_chat(src, "<span class='danger'>You feel a sharp pain from your jaw as you speak!</span>")
-			src.Weaken(3)
-	returns[1] = message
-	returns[2] = verb
-	returns[3] = speech_problem_flag
-	returns[4] = world.view
-	return returns
+		say_verb = pick(get_stutter_verbs())
+		. = TRUE
+	else if(slurring)
+		message = slur(message, slurring)
+		say_verb = pick("slobbers", "slurs")
+		. = TRUE
+
+	if(.)
+		return list(
+			HSP_MSG = message,
+			HSP_VERB = say_verb,
+			HSP_MSGMODE = message_mode,
+			HSP_MSGRANGE = message_range
+		)
 
 /mob/living/proc/get_stutter_verbs()
 	return list("stammers", "stutters")
@@ -214,7 +218,7 @@ proc/get_radio_key_from_channel(var/channel)
 			to_chat(src, SPAN_WARNING("Your head buzzes as your message is blocked with jamming signals."))
 			return
 		speaking.broadcast(src,trim(message))
-		return 1
+		return TRUE
 
 	if(!verb)
 		verb = say_quote(message, speaking, is_singing, whisper)
@@ -224,17 +228,18 @@ proc/get_radio_key_from_channel(var/channel)
 		return
 
 	message = trim_left(message)
-	var/message_range
+	var/message_range = world.view
 	if(!(speaking && (speaking.flags & NO_STUTTER)))
 		message = handle_autohiss(message, speaking)
-
-		var/list/handle_s = handle_speech_problems(message, verb, message_mode)
-		message = handle_s[1]
-		verb = handle_s[2]
-		message_range = handle_s[4]
+		var/list/hsp_params = handle_speech_problems(message, verb, message_mode, message_range)
+		if(hsp_params)
+			message = hsp_params[HSP_MSG] || message
+			verb = hsp_params[HSP_VERB] || verb
+			message_mode = hsp_params[HSP_MSGMODE] || message_mode
+			message_range = hsp_params[HSP_MSGRANGE] || message_range
 
 	if(!message || message == "")
-		return 0
+		return FALSE
 
 	message = process_chat_markup(message, list("~", "_"))
 	if(is_singing)
@@ -302,9 +307,6 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/list/hear_clients = list()
 	for(var/mob/M in listening)
-		if((M.client || (M.vr_mob && M.vr_mob.client)) && ((M.client in hear_clients) || (M.vr_mob?.client in hear_clients)))
-			listening -= M
-			continue // people don't need to double-hear stuff
 		var/heard_say = M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol, get_font_size_modifier())
 		if(heard_say && M.client)
 			hear_clients += M.client

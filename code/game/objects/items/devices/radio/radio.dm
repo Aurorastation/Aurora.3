@@ -95,7 +95,6 @@ var/global/list/default_medbay_channels = list(
 
 	wires = new(src)
 	internal_channels = default_internal_channels.Copy()
-	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 	if(frequency < RADIO_LOW_FREQ || frequency > RADIO_HIGH_FREQ)
 		frequency = sanitize_frequency(frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)

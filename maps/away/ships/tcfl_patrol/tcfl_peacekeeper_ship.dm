@@ -4,7 +4,7 @@
 	suffix = "ships/tcfl_patrol/tcfl_peacekeeper_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "tcfl_peacekeeper_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcfl_shuttle)
 
