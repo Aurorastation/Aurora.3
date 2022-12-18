@@ -23,7 +23,7 @@
 	if(islesserform(T))
 		to_chat(src, "<span class='warning'>This creature's DNA is not compatible with our form!</span>")
 		return
-	if(HUSK in T.mutations)
+	if(HAS_FLAG(T.mutations, HUSK))
 		to_chat(src, "<span class='warning'>This creature's DNA is ruined beyond useability!</span>")
 		return
 	if(G.state != GRAB_KILL)
