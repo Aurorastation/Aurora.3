@@ -121,6 +121,8 @@
 	designation = "Pony"
 	desc = "An inefficient design of ultra-light shuttle. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus."
 	shuttle = "Ranger Shuttle"
+	icon_state = "shuttle_blue"
+	moving_state = "shuttle_blue_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

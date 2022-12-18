@@ -70,6 +70,8 @@
 	designation = "Colibri"
 	desc = "Easily mistaken for a Wisp-class (which it is almost identical to), this shuttle is in fact an Elyran Dromedary-class, which is an unlicensed copy of the Hephaestus Wisp-class, and one of the designs slated for retirement in the ongoing military modernization program. Hephaestus Industries has attempted to sue the Elyran government many times for the navy's unlicensed production of its intellectual property, and Elyran courts have, unsurprisingly, always ruled in favor of the government - much to the frustration of the megacorporation, which has no other method of recourse. An inefficient design of ultra-light shuttle. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. This one's transponder identifies it as an Elyran Naval Infantry recovery shuttle."
 	shuttle = "Elyran Naval Shuttle"
+	icon_state = "shuttle_grey"
+	moving_state = "shuttle_grey_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

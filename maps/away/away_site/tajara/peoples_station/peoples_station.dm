@@ -49,8 +49,10 @@
 /obj/effect/overmap/visitable/ship/landable/peoples_station_fang
 	name = "Orbital Fleet Fang"
 	class = "PRAMV" //People's Republic of Adhomai Vessel
-	desc = "An interceptors used by Orbital Fleet in its carriers and stations."
+	desc = "An interceptor used by the Orbital Fleet in its carriers and stations."
 	shuttle = "Orbital Fleet Fang"
+	icon_state = "shuttle_red
+	moving_state = "shuttle_red_moving"
 	max_speed = 1/(1 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 3000

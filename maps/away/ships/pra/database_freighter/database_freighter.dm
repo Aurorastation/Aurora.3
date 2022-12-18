@@ -16,8 +16,8 @@
 	name = "Database Freighter"
 	desc = "Made from adapted designs of the first freighter Tajara ever worked upon, Database freighters are PRA vessels made specially for gathering information on star systems and what passes through them."
 	class = "PRAMV" //People's Republic of Adhomai Vessel
-	icon_state = "ship_grey"
-	moving_state = "ship_grey_moving"
+	icon_state = "ship_red"
+	moving_state = "ship_red_moving"
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
@@ -63,8 +63,8 @@
 /obj/effect/overmap/visitable/ship/landable/database_freighter_shuttle
 	name = "Database Freighter Shuttle"
 	desc = "A simple and reliable shuttle design used by the Orbital Fleet."
-	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving"
+	icon_state = "shuttle_red"
+	moving_state = "shuttle_red_moving"
 	class = "PRAMV"
 	designation = "Yve'kha"
 	shuttle = "Database Freighter Shuttle"

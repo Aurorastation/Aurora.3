@@ -16,8 +16,8 @@
 	name = "Headmaster Ship"
 	desc = "The second heaviest ship created by the People's Republic of Adhomai. As of now, it's the lightest heavy ship ever designed, barely staying above the classification of a cruiser."
 	class = "PRAMV" //People's Republic of Adhomai Vessel
-	icon_state = "ship_grey"
-	moving_state = "ship_grey_moving"
+	icon_state = "ship_red"
+	moving_state = "ship_red_moving"
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
@@ -63,8 +63,8 @@
 /obj/effect/overmap/visitable/ship/landable/headmaster_shuttle
 	name = "Orbital Fleet Shuttle"
 	desc = "A simple and reliable shuttle design used by the Orbital Fleet."
-	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving"
+	icon_state = "shuttle_red"
+	moving_state = "shuttle_red_moving"
 	class = "PRAMV"
 	designation = "Yve'kha"
 	shuttle = "Orbital Fleet Shuttle"

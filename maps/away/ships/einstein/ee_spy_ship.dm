@@ -27,7 +27,7 @@
 	class = "EERV"
 	desc = "A research ship belonging to Einstein Engines, the Stellar Corporate Conglomerate's main competitor."
 	icon_state = "ship_green"
-	moving_state = "ship_green__moving"
+	moving_state = "ship_green_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -70,6 +70,8 @@
 	designation = "Canary"
 	desc = "A shuttle used by Einstein Engines. For research purposes only."
 	shuttle = "Einstein Engines Shuttle"
+	icon_state = "shuttle_green"
+	moving_state = "shuttle_green_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

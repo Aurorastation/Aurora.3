@@ -84,6 +84,8 @@
 	designation = "Ku'ku"
 	desc = "A simple and fast transport shuttle. This one's transponder identifies it as belonging to an independent freighter."
 	shuttle = "Ti'Rakqi Shuttle"
+	icon_state = "shuttle_blue"
+	moving_state = "shuttle_blue_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000

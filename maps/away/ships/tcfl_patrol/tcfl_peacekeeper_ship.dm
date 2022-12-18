@@ -70,6 +70,8 @@
 	class = "Stake"
 	desc = "A large and unusually-shaped shuttle, the Hydrus-class is deceptively fast and is designed to operate out of a Cetus-class corvette's rear hangar bay, interdicting targets that its mothership intercepts. This one appears to be a Velite-class Interceptor - the TCFL designation for this design."
 	shuttle = "TCFL Shuttle"
+	icon_state = "shuttle_blue"
+	moving_state = "shuttle_blue_moving" 
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
