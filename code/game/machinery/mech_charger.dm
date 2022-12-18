@@ -12,7 +12,7 @@
 	var/mob/living/heavy_vehicle/charging
 	var/base_charge_rate = 90000
 	var/repair_power_usage = 15000		// Per 1 HP of health.
-	var/repair = FALSE
+	var/repair = 0 // Note: Not a boolean.
 	var/charge
 
 	component_types = list(
@@ -120,7 +120,7 @@
 	active_power_usage = 12.5 KILOWATTS
 
 	base_charge_rate = 120000
-	repair = TRUE
+	repair = 1
 
 	component_types = list(
 		/obj/item/circuitboard/mech_charger/hephaestus,
