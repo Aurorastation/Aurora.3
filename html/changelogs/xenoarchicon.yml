@@ -1,8 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - imageadd: "Ported Xenoarchaeology artifact and machinery sprites from Tau Ceti Station."
-  - tweak: "Building skeletons from fossils is now easier."
-  - tweak: "Xenoarchaeologists should find fewer dud energy guns."
