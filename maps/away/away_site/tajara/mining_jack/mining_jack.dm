@@ -49,8 +49,8 @@
 	class = "ACV"
 	desc = "A modified skipjack used by Tajaran miners. These models have been modified to mine as much as possible with a small crew. Due to its limited fuel supply, it usually does not go too far from its home base."
 	shuttle = "Mining Jack"
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "shuttle_grey"
+	moving_state = "shuttle_grey_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
