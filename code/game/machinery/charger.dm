@@ -3,7 +3,8 @@
 	desc = "A charger. Useful for recharging electronic devices."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "recharger_off"
-	anchored = 1
+	anchored = TRUE
+	density = FALSE
 	idle_power_usage = 5
 	active_power_usage = 1 KILOWATT
 	pass_flags = PASSTABLE
@@ -169,7 +170,7 @@
 
 /obj/machinery/charger/wall
 	name = "wall-mounted weapon quick charger"
-	desc = "A wall-mounted quick charger, specialized for electrical weaponry."
+	desc = "A wall-mounted quick charger, specialized for electrically powered weaponry."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger_off"
 	active_power_usage = 2 KILOWATTS

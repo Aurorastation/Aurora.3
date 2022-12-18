@@ -1,9 +1,10 @@
 /obj/machinery/cell_charger
 	name = "heavy-duty cell charger"
-	desc = "A much more powerful version of the standard charger that is specially designed for charging power cells."
+	desc = "A much more powerful version of the standard charger that is specially designed for recharging power cells."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "ccharger"
-	anchored = 1
+	anchored = TRUE
+	density = FALSE
 	idle_power_usage = 5
 	active_power_usage = 2 KILOWATTS
 	power_channel = EQUIP
