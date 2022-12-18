@@ -5,9 +5,9 @@
 	icon_state = "ccharger"
 	anchored = 1
 	idle_power_usage = 5
-	active_power_usage = 90000	//90 kW. (this the power drawn when charging)
+	active_power_usage = 2 KILOWATTS
+	charge_rate = 100000
 	power_channel = EQUIP
-	var/charging_efficiency = 1.38
 	var/obj/item/cell/charging = null
 	var/chargelevel = -1
 
@@ -111,7 +111,7 @@
 		return
 
 	if (charging && !charging.fully_charged())
-		charging.give(active_power_usage*CELLRATE*charging_efficiency)
+		charging.give(charge_rate * CELLRATE)
 		update_use_power(POWER_USE_ACTIVE)
 
 		update_icon()

@@ -1,16 +1,13 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
-
 /obj/machinery/recharger
-	name = "recharger"
-	desc = "Useful for recharging electronic devices."
+	name = "charger"
+	desc = "A charger. Useful for recharging electronic devices."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "recharger_off"
 	anchored = 1
-	idle_power_usage = 6
-	active_power_usage = 45 KILOWATTS
+	idle_power_usage = 5
+	active_power_usage = 1 KILOWATT
 	pass_flags = PASSTABLE
-	var/charging_efficiency = 1.3
-	//Entropy. The charge put into the cell is multiplied by this
+	var/charge_rate = 50000
 	var/obj/item/charging
 
 	var/list/allowed_devices = list(
@@ -127,7 +124,7 @@
 					icon_state = icon_state_charging + "60"
 				else
 					icon_state = icon_state_charging + "80"
-				C.give(active_power_usage*CELLRATE*charging_efficiency)
+				C.give(charge_rate * CELLRATE)
 
 				update_use_power(POWER_USE_ACTIVE)
 			else
@@ -171,11 +168,12 @@
 		icon_state = icon_state_idle
 
 /obj/machinery/recharger/wallcharger
-	name = "wall recharger"
-	desc = "A heavy duty wall recharger specialized for energy weaponry."
+	name = "wall-mounted weapon quick charger"
+	desc = "A wall-mounted quick charger, specialized for electrical weaponry."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger_off"
-	active_power_usage = 75 KILOWATTS
+	active_power_usage = 2 KILOWATTS
+	charge_rate = 100000
 	allowed_devices = list(
 		/obj/item/gun/energy,
 		/obj/item/melee/baton

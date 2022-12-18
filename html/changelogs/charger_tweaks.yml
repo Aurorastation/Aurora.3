@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - tweak: "Makes all chargers not use extreme amounts of power when active."
