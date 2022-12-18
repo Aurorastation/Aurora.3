@@ -122,6 +122,14 @@ proc/get_radio_key_from_channel(var/channel)
 		say_verb = pick("slobbers", "slurs")
 		. = TRUE
 
+	if(.)
+		return list(
+			HSP_MSG = message,
+			HSP_VERB = say_verb,
+			HSP_MSGMODE = message_mode,
+			HSP_MSGRANGE = message_range
+		)
+
 /mob/living/proc/get_stutter_verbs()
 	return list("stammers", "stutters")
 
@@ -223,7 +231,12 @@ proc/get_radio_key_from_channel(var/channel)
 	var/message_range = world.view
 	if(!(speaking && (speaking.flags & NO_STUTTER)))
 		message = handle_autohiss(message, speaking)
-		handle_speech_problems(message, verb, message_mode, message_range)
+		var/list/hsp_params = handle_speech_problems(message, verb, message_mode, message_range)
+		if(hsp_params)
+			message = hsp_params[HSP_MSG] || message
+			verb = hsp_params[HSP_VERB] || verb
+			message_mode = hsp_params[HSP_MSGMODE] || message_mode
+			message_range = hsp_params[HSP_MSGRANGE] || message_range
 
 	if(!message || message == "")
 		return FALSE

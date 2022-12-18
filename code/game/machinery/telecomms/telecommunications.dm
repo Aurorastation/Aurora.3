@@ -18,7 +18,7 @@
 */
 
 /obj/machinery/telecomms
-	icon = 'icons/obj/machines/telecomms.dmi'
+	icon = 'icons/obj/machinery/telecomms.dmi'
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 600 // WATTS

@@ -13,7 +13,7 @@ field_generator power level display
 /obj/machinery/field_generator
 	name = "field generator"
 	desc = "A large thermal battery that projects a high amount of energy when powered."
-	icon = 'icons/obj/machines/field_generator.dmi'
+	icon = 'icons/obj/machinery/field_generator.dmi'
 	icon_state = "field_gen"
 	anchored = 0
 	density = 1

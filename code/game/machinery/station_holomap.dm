@@ -1,7 +1,7 @@
 /obj/machinery/station_map
 	name = "holomap"
 	desc = "A virtual map of the surrounding area."
-	icon = 'icons/obj/machines/stationmap.dmi'
+	icon = 'icons/obj/machinery/stationmap.dmi'
 	icon_state = "station_map"
 	anchored = 1
 	density = 0
@@ -61,7 +61,7 @@
 	small_station_map.filters = filter(type = "drop_shadow", color = light_color + "F0", size = 1, offset = 1, x = 0, y = 0)
 
 /obj/machinery/station_map/proc/add_floor_decal()
-	floor_markings = image('icons/obj/machines/stationmap.dmi', "decal_station_map")
+	floor_markings = image('icons/obj/machinery/stationmap.dmi', "decal_station_map")
 	floor_markings.dir = src.dir
 	floor_markings.layer = ON_TURF_LAYER
 	update_icon()

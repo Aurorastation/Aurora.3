@@ -1,6 +1,6 @@
 /obj/item/device/pipe_painter
 	name = "pipe painter"
-	icon = 'icons/obj/contained_items/tools/pipe_painter.dmi'
+	icon = 'icons/obj/item/tools/pipe_painter.dmi'
 	icon_state = "pipe_painter"
 	item_state = "pipe_painter"
 	contained_sprite = TRUE

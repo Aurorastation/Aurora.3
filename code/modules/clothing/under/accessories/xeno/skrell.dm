@@ -3,8 +3,8 @@
 	name = "Ox cloak"
 	desc = "A plain cloak that denotes the wearer as being an Ox-class worker."
 	desc_extended = "The Nralakk Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Nralakk Society."
-	icon = 'icons/obj/contained_items/skrell/nralakk_cloaks.dmi'
-	icon_override = 'icons/obj/contained_items/skrell/nralakk_cloaks.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/nralakk_cloaks.dmi'
+	icon_override = 'icons/obj/item/clothing/accessory/poncho/nralakk_cloaks.dmi'
 	item_state = "ox_cloak"
 	icon_state = "cloak_item"
 	flippable = FALSE
@@ -32,7 +32,7 @@
 /obj/item/clothing/accessory/poncho/skrell
 	name = "white skrell poncho"
 	desc = "This cover is a design of the Nralakk Federation. It is meant to keep moisture in and stop a Skrell's skin from baking in the hot sun. C'thur and Diona may also wear it as a fashion statement."
-	icon = 'icons/obj/contained_items/skrell/skrell_ponchos.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/skrell_ponchos.dmi'
 	icon_state = "skr_poncho"
 	item_state = "skr_poncho"
 	overlay_state = "skr_poncho"
@@ -62,8 +62,8 @@
 	name = "\improper Nralakk cape"
 	desc = "A cape that has the Nralakk flag on the back."
 	desc_extended = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Nralakk Federation - specifically, the inner systems."
-	icon = 'icons/obj/contained_items/skrell/nationcapes.dmi'
-	icon_override = 'icons/obj/contained_items/skrell/nationcapes.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/nationcapes.dmi'
+	icon_override = 'icons/obj/item/clothing/accessory/poncho/nationcapes.dmi'
 	item_state = "jargcape"
 	icon_state = "jargcape"
 	flippable = TRUE

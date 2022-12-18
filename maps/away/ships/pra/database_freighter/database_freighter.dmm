@@ -226,7 +226,9 @@
 	},
 /area/database_freighter)
 "aO" = (
-/obj/machinery/computer/ship/sensors,
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/red/full,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
@@ -240,7 +242,9 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/database_freighter_shuttle)
 "aV" = (
-/obj/machinery/computer/ship/navigation,
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
@@ -356,7 +360,8 @@
 /area/database_freighter/captain_quarters)
 "bE" = (
 /obj/machinery/computer/ship/helm{
-	req_access = null
+	req_access = null;
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -993,7 +998,9 @@
 	},
 /area/database_freighter/engine)
 "ei" = (
-/obj/machinery/computer/ship/engines,
+/obj/machinery/computer/ship/engines{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/red/full,
 /obj/structure/cable/green,
 /obj/machinery/power/apc/high{
@@ -2396,7 +2403,9 @@
 	},
 /area/database_freighter)
 "lZ" = (
-/obj/item/modular_computer/console/preset/civilian,
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 1
+	},
 /obj/machinery/alarm/cold{
 	req_one_access = list(209);
 	pixel_y = -32;
@@ -4661,7 +4670,7 @@
 /area/database_freighter/eva)
 "Xf" = (
 /obj/machinery/computer/ship/navigation{
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/wood{
 	temperature = 278.15

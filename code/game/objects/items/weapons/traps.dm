@@ -4,7 +4,7 @@
 	throw_speed = 2
 	throw_range = 1
 	gender = PLURAL
-	icon = 'icons/obj/contained_items/weapons/traps.dmi'
+	icon = 'icons/obj/item/traps.dmi'
 	var/icon_base = "beartrap"
 	icon_state = "beartrap0"
 	randpixel = 0
@@ -613,7 +613,7 @@
 /obj/item/large_trap_foundation
 	name = "large trap foundation"
 	desc = "A metal foundation for large trap, it is missing metals rods to hold the prey."
-	icon = 'icons/obj/contained_items/weapons/traps.dmi'
+	icon = 'icons/obj/item/traps.dmi'
 	icon_state = "large_foundation"
 	throwforce = 4
 	force = 5
