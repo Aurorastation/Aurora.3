@@ -191,7 +191,6 @@
 			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/misc/announcements/security_level_old.ogg'), 0)
 		return TOPIC_HANDLED
 
-
 /obj/machinery/computer/ship/sensors/process()
 	..()
 	if(!linked)
