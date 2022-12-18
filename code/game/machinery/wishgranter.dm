@@ -1,7 +1,7 @@
 /obj/machinery/wish_granter
 	name = "Wish Granter"
 	desc = "You are not so sure about this anymore..."
-	icon = 'icons/obj/machines/wishgranter.dmi' //thanks cakeisossim for the sprites
+	icon = 'icons/obj/machinery/wishgranter.dmi' //thanks cakeisossim for the sprites
 	icon_state = "wishgranter"
 
 	light_color = "#458F94"

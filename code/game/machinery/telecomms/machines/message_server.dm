@@ -65,7 +65,7 @@
 				priority = "Undetermined"
 
 /obj/machinery/telecomms/message_server
-	icon = 'icons/obj/machines/research.dmi'
+	icon = 'icons/obj/machinery/research.dmi'
 	icon_state = "server"
 	name = "messaging server"
 	desc = "A machine that processes and routes request console messages."

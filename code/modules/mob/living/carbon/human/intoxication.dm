@@ -80,3 +80,14 @@
 		add_chemical_effect(CE_HEPATOTOXIC, 10)
 		adjustOxyLoss(3,100)
 		adjustBrainLoss(1,50)
+
+/mob/living/carbon/human/proc/is_drunk()
+	var/SR = species.ethanol_resistance
+	if(SR == -1)
+		return FALSE
+
+	var/bac = get_blood_alcohol()
+	if(bac > (INTOX_MUSCLEIMP * SR))
+		return TRUE
+
+	return FALSE
