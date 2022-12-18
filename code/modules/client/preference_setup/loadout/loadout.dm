@@ -203,7 +203,7 @@ var/list/gear_datums = list()
 		if(!(gear_name in player_valid_gear_choices))
 			continue
 		var/datum/gear/G = LC.gear[gear_name]
-		
+
 		var/temp_html = ""
 		var/datum/job/job = pref.return_chosen_high_job()
 		var/available = (G.check_faction(pref.faction) \
@@ -231,7 +231,7 @@ var/list/gear_datums = list()
 		temp_html += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
 		temp_html += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
 		temp_html += "<td><font size=2><i>[G.description]</i><br>"
-		
+
 		if(G.allowed_roles)
 			temp_html += "</font><font size = 1>(Role: "
 			var/role_count = 0
@@ -268,20 +268,20 @@ var/list/gear_datums = list()
 				else
 					temp_html += ", "
 		temp_html += "</font></td></tr>"
-		
+
 		if(ticked)
 			temp_html += "<tr><td colspan=3>"
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
 				temp_html += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
 			temp_html += "</td></tr>"
-		
-		if(ticked) 
+
+		if(ticked)
 			ticked_items_html += temp_html
 		else if(!available)
 			available_items_html += temp_html
 		else
 			unavailable_items_html += temp_html
-	
+
 	. += ticked_items_html
 	. += unavailable_items_html
 	. += available_items_html
@@ -323,7 +323,7 @@ var/list/gear_datums = list()
 		var/datum/gear_tweak/tweak = locate(href_list["tweak"])
 		if(!tweak || !istype(gear) || !(tweak in gear.gear_tweaks))
 			return TOPIC_NOACTION
-		var/metadata = tweak.get_metadata(user, get_tweak_metadata(gear, tweak))
+		var/metadata = tweak.get_metadata(user, get_tweak_metadata(gear, tweak), null, gear.path)
 		if(!metadata || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		set_tweak_metadata(gear, tweak, metadata)
