@@ -31,16 +31,16 @@
 /obj/machinery/charger/examine(mob/user)
 	. = ..(user, 3)
 	to_chat(user, "There is [charging ? "\a [charging]" : "nothing"] in [src].")
-	if (charging && .)
+	if(charging && .)
 		var/obj/item/cell/C = charging.get_cell()
-		if (istype(C) && user.client && (!user.progressbars || !user.progressbars[src]))
+		if(istype(C) && user.client && (!user.progressbars || !user.progressbars[src]))
 			var/datum/progressbar/progbar = new(user, C.maxcharge, src)
 			progbar.update(C.charge)
 			LAZYADD(chargebars, progbar)
 			chargebars[progbar] = addtimer(CALLBACK(src, .proc/remove_bar, progbar, null), 3 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 
 /obj/machinery/charger/proc/remove_bar(datum/progressbar/bar, timerid)
-	if (!timerid || deltimer(timerid))
+	if(!timerid || deltimer(timerid))
 		LAZYREMOVE(chargebars, bar)
 		qdel(bar)
 
@@ -54,10 +54,10 @@
 		playsound(loc, G.usesound, 75, 1)
 		return TRUE
 
-	if (istype(G, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
+	if(istype(G, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
 		var/obj/item/gripper/Gri = G
-		if (charging)//If there's something in the charger
-			if (Gri.grip_item(charging, user))//we attempt to grab it
+		if(charging)//If there's something in the charger
+			if(Gri.grip_item(charging, user))//we attempt to grab it
 				charging = null
 				update_icon()
 			else
@@ -68,8 +68,8 @@
 		return TRUE
 
 	if(is_type_in_list(G, allowed_devices))
-		if (G.get_cell() == DEVICE_NO_CELL)
-			if (G.charge_failure_message)
+		if(G.get_cell() == DEVICE_NO_CELL)
+			if(G.charge_failure_message)
 				to_chat(user, "<span class='warning'>\The [G][G.charge_failure_message]</span>")
 			return TRUE
 		if(charging)
@@ -95,7 +95,7 @@
 		charging.update_icon()
 		user.put_in_hands(charging)
 		charging = null
-		if (chargebars)
+		if(chargebars)
 			for (var/thing in chargebars)
 				remove_bar(thing, chargebars[thing])
 		update_icon()
@@ -131,15 +131,15 @@
 				icon_state = icon_state_charged
 				update_use_power(POWER_USE_IDLE)
 
-			if (chargebars)
+			if(chargebars)
 				for (var/thing in chargebars)
 					var/datum/progressbar/bar = thing
-					if (QDELETED(bar))
+					if(QDELETED(bar))
 						LAZYREMOVE(chargebars, bar)
 					else
 						bar.update(C.charge)
 
-		else if (cell == DEVICE_NO_CELL)
+		else if(cell == DEVICE_NO_CELL)
 			log_debug("recharger: Item [DEBUG_REF(charging)] was in charger, but claims to have no internal cell slot; booting item.")
 			charging.forceMove(loc)
 			charging.visible_message("\The [charging] falls out of [src].")

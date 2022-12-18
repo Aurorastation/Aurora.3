@@ -110,7 +110,7 @@
 		update_use_power(POWER_USE_OFF)
 		return
 
-	if (charging && !charging.fully_charged())
+	if(charging && !charging.fully_charged())
 		charging.give(charge_rate * CELLRATE)
 		update_use_power(POWER_USE_ACTIVE)
 

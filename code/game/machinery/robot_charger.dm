@@ -290,15 +290,15 @@
 	go_in(usr)
 
 /obj/machinery/robot_charger/MouseDrop_T(var/atom/movable/C, mob/user)
-	if (istype(C, /mob/living/silicon/robot))
+	if(istype(C, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = C
-		if (!user.Adjacent(R) || !Adjacent(user))
+		if(!user.Adjacent(R) || !Adjacent(user))
 			to_chat(user, SPAN_DANGER("You need to get closer if you want to put [C] into that charger!"))
 			return
 		user.face_atom(src)
 		user.visible_message(SPAN_DANGER("[user] starts hauling [C] into the recharging unit!"), SPAN_DANGER("You start hauling and pushing [C] into the recharger. This might take a while..."), "You hear heaving and straining")
-		if (do_mob(user, R, R.mob_size*10, needhand = 1))
-			if (go_in(R))
+		if(do_mob(user, R, R.mob_size*10, needhand = 1))
+			if(go_in(R))
 				user.visible_message(SPAN_NOTICE("After a great effort, [user] manages to get [C] into the recharging unit!"))
 				return 1
 			else
