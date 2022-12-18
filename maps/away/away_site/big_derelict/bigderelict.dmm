@@ -975,7 +975,7 @@
 /turf/simulated/floor/bluegrid/airless,
 /area/derelict)
 "dh" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
 "di" = (

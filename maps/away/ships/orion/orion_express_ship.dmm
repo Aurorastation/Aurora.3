@@ -1164,10 +1164,10 @@
 	},
 /obj/item/clipboard,
 /obj/item/paper,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 34
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2126,7 +2126,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "pVf" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/wood,
 /area/ship/orion_express_ship)
 "pXU" = (

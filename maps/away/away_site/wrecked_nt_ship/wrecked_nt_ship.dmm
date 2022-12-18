@@ -134,7 +134,7 @@
 /area/wrecked_nt_ship)
 "cm" = (
 /obj/structure/table/reinforced,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "cs" = (
@@ -254,7 +254,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "fg" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/steel/airless{
 	icon_state = "damaged1"
 	},
@@ -1793,7 +1793,7 @@
 /turf/unsimulated/mineral/asteroid,
 /area/space)
 "Nr" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Ny" = (

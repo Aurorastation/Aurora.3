@@ -176,7 +176,7 @@
 	},
 /area/tajaran_smuggler)
 "aBb" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -473,7 +473,7 @@
 "bOZ" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -3054,7 +3054,7 @@
 	},
 /area/tajaran_smuggler/power)
 "qPj" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /obj/effect/landmark/entry_point/west{

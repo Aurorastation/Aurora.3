@@ -594,7 +594,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
 "dsM" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 30
 	},
@@ -1104,7 +1104,7 @@
 /turf/simulated/mineral/random/higher_chance,
 /area/mine)
 "gzl" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "gEH" = (
@@ -2837,7 +2837,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -23
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -4043,7 +4043,7 @@
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "xvo" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 30
 	},

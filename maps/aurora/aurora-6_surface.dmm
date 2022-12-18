@@ -2284,7 +2284,7 @@
 /area/shuttle/escape_pod/pod2)
 "bMt" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "bMS" = (
@@ -6479,7 +6479,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
 "fDC" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -7006,7 +7006,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -8174,7 +8174,7 @@
 	},
 /obj/item/gun/energy/laser/shotgun/research,
 /obj/item/gun/energy/laser/shotgun/research,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32;
 	pixel_y = -13
 	},
@@ -13795,7 +13795,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "lYR" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/corner/purple/diagonal{
 	dir = 4
 	},
@@ -14925,7 +14925,7 @@
 /area/crew_quarters/fitness/pool)
 "mYV" = (
 /obj/structure/table/reinforced,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /turf/simulated/floor/wood,
@@ -15708,7 +15708,7 @@
 /area/quartermaster/loading)
 "nEA" = (
 /obj/structure/table/reinforced,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /obj/effect/floor_decal/corner/blue/full{
@@ -26846,7 +26846,7 @@
 /area/storage/primary)
 "wSX" = (
 /obj/structure/table/reinforced,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /obj/structure/cable/green{

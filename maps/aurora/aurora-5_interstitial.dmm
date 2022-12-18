@@ -1628,7 +1628,7 @@
 /area/security/range)
 "dI" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/item/gun/energy/laser/practice,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,

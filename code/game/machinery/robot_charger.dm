@@ -1,6 +1,6 @@
-/obj/machinery/recharge_station
-	name = "cyborg recharging station"
-	desc = "A heavy duty rapid charging system, designed to quickly recharge cyborg power reserves."
+/obj/machinery/robot_charger
+	name = "robot charging station"
+	desc = "A heavy-duty rapid charging system, designed to quickly recharge robots' power reserves."
 	icon = 'icons/obj/robot_charger.dmi'
 	icon_state = "borgcharger0"
 	density = 1
@@ -21,21 +21,21 @@
 	var/wire_power_use = 500	// power used per point of burn damage repaired.
 
 	component_types = list(
-		/obj/item/circuitboard/recharge_station,
+		/obj/item/circuitboard/robot_charger,
 		/obj/item/stock_parts/manipulator = 2,
 		/obj/item/stock_parts/capacitor = 2,
 		/obj/item/cell/high,
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
-/obj/machinery/recharge_station/Initialize()
+/obj/machinery/robot_charger/Initialize()
 	. = ..()
 	update_icon()
 
-/obj/machinery/recharge_station/proc/has_cell_power()
+/obj/machinery/robot_charger/proc/has_cell_power()
 	return cell && cell.percent() > 0
 
-/obj/machinery/recharge_station/process()
+/obj/machinery/robot_charger/process()
 	if(stat & (BROKEN))
 		return
 	if(!cell) // Shouldn't be possible, but sanity check
@@ -71,7 +71,7 @@
 		update_icon()
 
 //Processes the occupant, drawing from the internal power cell if needed.
-/obj/machinery/recharge_station/proc/process_occupant()
+/obj/machinery/robot_charger/proc/process_occupant()
 	if(!isrobot(occupant) && !ishuman(occupant))
 		return
 
@@ -110,21 +110,21 @@
 			D.upgrade_cooldown = world.time + 1 MINUTE
 			D.master_matrix.apply_upgrades(D)
 
-/obj/machinery/recharge_station/examine(mob/user)
+/obj/machinery/robot_charger/examine(mob/user)
 	..(user)
 	to_chat(user, "The charge meter reads: [round(chargepercentage())]%.")
 
-/obj/machinery/recharge_station/proc/chargepercentage()
+/obj/machinery/robot_charger/proc/chargepercentage()
 	if(!cell)
 		return 0
 	return cell.percent()
 
-/obj/machinery/recharge_station/relaymove(mob/user as mob)
+/obj/machinery/robot_charger/relaymove(mob/user as mob)
 	if(user.stat)
 		return
 	go_out()
 
-/obj/machinery/recharge_station/emp_act(severity)
+/obj/machinery/robot_charger/emp_act(severity)
 	if(occupant)
 		occupant.emp_act(severity)
 		go_out()
@@ -132,7 +132,7 @@
 		cell.emp_act(severity)
 	..(severity)
 
-/obj/machinery/recharge_station/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/robot_charger/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(!occupant)
 		if(default_deconstruction_screwdriver(user, O))
 			return TRUE
@@ -155,7 +155,7 @@
 		qdel(O)
 	return ..()
 
-/obj/machinery/recharge_station/RefreshParts()
+/obj/machinery/robot_charger/RefreshParts()
 	..()
 	var/man_rating = 0
 	var/cap_rating = 0
@@ -181,7 +181,7 @@
 	if(wire_rate)
 		desc += "<br>It is capable of repairing burn damage."
 
-/obj/machinery/recharge_station/proc/build_overlays()
+/obj/machinery/robot_charger/proc/build_overlays()
 	cut_overlays()
 	switch(round(chargepercentage()))
 		if(1 to 20)
@@ -197,7 +197,7 @@
 		if(99 to 110)
 			add_overlay("statn_c100")
 
-/obj/machinery/recharge_station/update_icon()
+/obj/machinery/robot_charger/update_icon()
 	..()
 	if(stat & BROKEN)
 		icon_state = "borgcharger0"
@@ -214,10 +214,10 @@
 	if(icon_update_tick == 0)
 		build_overlays()
 
-/obj/machinery/recharge_station/CollidedWith(var/mob/living/silicon/robot/R)
+/obj/machinery/robot_charger/CollidedWith(var/mob/living/silicon/robot/R)
 	go_in(R)
 
-/obj/machinery/recharge_station/proc/go_in(var/mob/M)
+/obj/machinery/robot_charger/proc/go_in(var/mob/M)
 	if(occupant)
 		return
 	if(!hascell(M))
@@ -231,7 +231,7 @@
 	update_icon()
 	return 1
 
-/obj/machinery/recharge_station/proc/hascell(var/mob/M)
+/obj/machinery/robot_charger/proc/hascell(var/mob/M)
 	if(isrobot(M))
 		var/mob/living/silicon/robot/R = M
 		if(R.cell)
@@ -246,7 +246,7 @@
 				return TRUE
 	return FALSE
 
-/obj/machinery/recharge_station/proc/go_out()
+/obj/machinery/robot_charger/proc/go_out()
 	if(!occupant)
 		return
 
@@ -255,7 +255,7 @@
 	occupant = null
 	update_icon()
 
-/obj/machinery/recharge_station/proc/move_ipc(var/mob/M) // For the grab/drag and drop
+/obj/machinery/robot_charger/proc/move_ipc(var/mob/M) // For the grab/drag and drop
 	var/mob/living/R = M
 	usr.visible_message(SPAN_NOTICE("[usr] starts putting [R] into [src]."), SPAN_NOTICE("You start putting [R] into [src]."), range = 3)
 	if(do_mob(usr, R, 5 SECONDS))
@@ -268,7 +268,7 @@
 		to_chat(usr, SPAN_DANGER("Cancelled loading [R] into the charger. You and [R] must stay still!"))
 	return
 
-/obj/machinery/recharge_station/verb/move_eject()
+/obj/machinery/robot_charger/verb/move_eject()
 	set category = "Object"
 	set name = "Eject Recharger"
 	set src in oview(1)
@@ -280,7 +280,7 @@
 	add_fingerprint(usr)
 	return
 
-/obj/machinery/recharge_station/verb/move_inside()
+/obj/machinery/robot_charger/verb/move_inside()
 	set category = "Object"
 	set name = "Enter Recharger"
 	set src in oview(1)
@@ -289,7 +289,7 @@
 		return
 	go_in(usr)
 
-/obj/machinery/recharge_station/MouseDrop_T(var/atom/movable/C, mob/user)
+/obj/machinery/robot_charger/MouseDrop_T(var/atom/movable/C, mob/user)
 	if (istype(C, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = C
 		if (!user.Adjacent(R) || !Adjacent(user))

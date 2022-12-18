@@ -592,7 +592,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24;
 	pixel_x = 5
 	},

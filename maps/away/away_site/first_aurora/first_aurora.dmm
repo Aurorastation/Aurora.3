@@ -4750,7 +4750,7 @@
 /turf/template_noop,
 /area/template_noop)
 "pF" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
@@ -5827,7 +5827,7 @@
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "sI" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)

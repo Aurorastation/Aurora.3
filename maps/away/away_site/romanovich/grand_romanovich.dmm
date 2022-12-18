@@ -3965,7 +3965,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "kn" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "ko" = (

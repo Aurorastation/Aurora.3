@@ -3389,7 +3389,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "bBO" = (
@@ -5796,7 +5796,7 @@
 /turf/simulated/open/airless,
 /area/template_noop)
 "cQd" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
@@ -9799,20 +9799,20 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -28;
 	pixel_y = 2
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -28;
 	pixel_y = -9
 	},
 /obj/structure/table/steel,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = -6;
 	pixel_y = 2
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 6;
 	pixel_y = 2
 	},
@@ -10876,7 +10876,7 @@
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "fxD" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
@@ -11112,7 +11112,7 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "fEE" = (
@@ -11790,7 +11790,7 @@
 /area/rnd/hallway)
 "fTd" = (
 /obj/machinery/light/small/emergency,
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
@@ -15825,7 +15825,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -19163,7 +19163,7 @@
 /turf/simulated/floor/plating,
 /area/horizon/zta)
 "jsS" = (
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 1
 	},
 /obj/effect/floor_decal/corner/blue/full,
@@ -23347,7 +23347,7 @@
 /area/rnd/xenobiology/xenoflora)
 "lHx" = (
 /obj/structure/railing/mapped,
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_upload_foyer)
 "lHB" = (
@@ -24295,11 +24295,11 @@
 /area/hallway/primary/central_two)
 "mdB" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 34
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 23
 	},
@@ -24840,7 +24840,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "msO" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 34
@@ -24849,7 +24849,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 23
@@ -28821,7 +28821,7 @@
 /area/horizon/bar)
 "oqN" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/machinery/camera/network/service{
 	c_tag = "Service - Library 3";
 	dir = 8
@@ -28853,7 +28853,7 @@
 /area/horizon/maintenance/deck_two/fore/port)
 "orm" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
@@ -32438,7 +32438,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/device/analyzer,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -37502,7 +37502,7 @@
 /area/security/brig)
 "sJi" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -43036,7 +43036,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/lounge/bar)
 "vuo" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -24
 	},
 /obj/machinery/light_switch{
@@ -43179,7 +43179,7 @@
 /area/rnd/conference)
 "vyg" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -47537,7 +47537,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "xva" = (
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/structure/table/standard,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
@@ -48015,11 +48015,11 @@
 /area/hallway/primary/central_two)
 "xIH" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = -30
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = -41
 	},

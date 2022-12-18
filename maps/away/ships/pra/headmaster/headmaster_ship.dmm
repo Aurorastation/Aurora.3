@@ -3476,7 +3476,7 @@
 	},
 /area/headmaster_ship/hangar)
 "kS" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /obj/effect/landmark/entry_point/west{
@@ -3674,7 +3674,7 @@
 	},
 /area/headmaster_ship/engineering)
 "ly" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -4743,7 +4743,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/structure/window/reinforced{
 	dir = 8
 	},

@@ -2823,10 +2823,10 @@
 /obj/item/crowbar,
 /obj/item/crowbar,
 /obj/item/crowbar,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 22
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -4473,7 +4473,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "aiY" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
@@ -5903,14 +5903,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "alI" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 5;
 	pixel_y = 22
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "alJ" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 5;
 	pixel_y = 22
 	},
@@ -11891,7 +11891,7 @@
 /area/security/armory)
 "awd" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32
 	},
@@ -12262,7 +12262,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -13966,7 +13966,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "azs" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/dark,
@@ -14192,7 +14192,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "azN" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/greengrid,
 /area/security/brig)
 "azO" = (
@@ -14401,7 +14401,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aAd" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 6;
 	pixel_y = -32
 	},
@@ -14903,7 +14903,7 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/office/dark,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/dark,
@@ -17682,7 +17682,7 @@
 /area/crew_quarters/captain)
 "aFl" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -19309,7 +19309,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aHK" = (
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/lino/grey,
 /area/engineering/foyer)
@@ -19798,7 +19798,7 @@
 /turf/simulated/wall,
 /area/security/brig/control_room)
 "aIt" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -32;
 	pixel_y = -6
 	},
@@ -21461,7 +21461,7 @@
 /area/maintenance/engineering)
 "aLp" = (
 /obj/structure/filingcabinet,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -24
 	},
 /obj/machinery/light_switch{
@@ -23709,7 +23709,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aPe" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = -26
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -23719,7 +23719,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aPf" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = -26
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -27269,7 +27269,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/ailobby)
 "aUV" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/ailobby)
@@ -29400,7 +29400,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aYD" = (
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/structure/table/reinforced,
 /obj/machinery/ringer{
 	department = "Head of Personnel's Office";
@@ -29537,7 +29537,7 @@
 /area/bridge)
 "aYN" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -28
@@ -39156,7 +39156,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bqu" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
@@ -39172,7 +39172,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "bqw" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -41844,7 +41844,7 @@
 /area/medical/cryo)
 "bwm" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 8
 	},
@@ -50573,7 +50573,7 @@
 /area/crew_quarters/kitchen/freezer)
 "bQC" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/research_port)
 "bQD" = (
@@ -51654,7 +51654,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "bTB" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
 "bTC" = (
@@ -57436,7 +57436,7 @@
 /turf/simulated/floor/tiled/asteroid/airless,
 /area/outpost/mining_main/eva)
 "cfY" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
@@ -59463,7 +59463,7 @@
 /obj/structure/closet/crate,
 /obj/item/circuitboard/autolathe,
 /obj/item/circuitboard/rtg,
-/obj/item/circuitboard/recharge_station,
+/obj/item/circuitboard/robot_charger,
 /obj/item/circuitboard/mech_recharger,
 /obj/item/circuitboard/optable,
 /obj/item/circuitboard/security/engineering,
@@ -60042,7 +60042,7 @@
 /area/hallway/primary/starboard)
 "eFQ" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -64092,7 +64092,7 @@
 /area/maintenance/atmos_control)
 "mqr" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/carpet,
 /area/quartermaster/break_room)
 "mqs" = (
@@ -64150,7 +64150,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/asteroid/airless,
 /area/outpost/mining_main/eva)
 "mya" = (
@@ -65834,7 +65834,7 @@
 	pixel_x = 28
 	},
 /obj/structure/table/wood,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 8;
 	pixel_y = 15
 	},
@@ -67767,7 +67767,7 @@
 	})
 "sJK" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled,
 /area/medical/custodial_closet)
 "sJR" = (
@@ -68680,7 +68680,7 @@
 /area/maintenance/bar)
 "tZz" = (
 /obj/structure/flora/pottedplant/random,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 22
 	},
 /turf/simulated/floor/lino/grey,

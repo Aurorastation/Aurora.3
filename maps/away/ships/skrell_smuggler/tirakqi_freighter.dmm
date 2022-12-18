@@ -305,7 +305,7 @@
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "egE" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -27
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -913,7 +913,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "hXr" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /turf/simulated/wall/shuttle/skrell/cardinal,
@@ -1522,7 +1522,7 @@
 /obj/machinery/light/skrell{
 	dir = 1
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 5
 	},
 /obj/random/lavalamp{
@@ -1566,10 +1566,10 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "piQ" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32;
 	pixel_y = -11
 	},
@@ -1858,7 +1858,7 @@
 /turf/space/transit/north,
 /area/space)
 "tdV" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -27
 	},
 /turf/simulated/floor,
@@ -2050,7 +2050,7 @@
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "wuB" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /obj/effect/landmark/entry_point/west{

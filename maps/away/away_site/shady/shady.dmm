@@ -2,7 +2,7 @@
 "ai" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 30
 	},
@@ -657,7 +657,7 @@
 "ja" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -23
 	},
 /turf/simulated/floor/plating,
@@ -1281,7 +1281,7 @@
 "sN" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -23
 	},
 /turf/simulated/floor/plating,
@@ -2942,7 +2942,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -23
 	},
 /turf/simulated/floor/plating,

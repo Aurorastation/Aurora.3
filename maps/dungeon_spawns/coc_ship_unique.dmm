@@ -107,7 +107,7 @@
 /turf/simulated/floor/plating,
 /area/dungeon/crashed_ship)
 "cq" = (
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 6;
 	pixel_y = 5
 	},
@@ -389,7 +389,7 @@
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/machinery/floodlight,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	charging_efficiency = 0.5;
 	name = "worn wall recharger";
 	pixel_x = 4;
@@ -761,7 +761,7 @@
 	},
 /area/dungeon/crashed_ship)
 "pw" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/dungeon/crashed_ship)

@@ -1163,7 +1163,7 @@
 	},
 /area/cruise/escort)
 "aPx" = (
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /obj/structure/table/standard,
@@ -1234,7 +1234,7 @@
 	},
 /area/cruise/escort)
 "aSD" = (
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -1527,7 +1527,7 @@
 /area/cruise/aft)
 "bcU" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/structure/sign/flag/idris{
 	pixel_y = 32
 	},
@@ -2274,7 +2274,7 @@
 	},
 /area/cruise/beach)
 "bCw" = (
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -2768,7 +2768,7 @@
 /area/cruise/central)
 "ceX" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /obj/structure/window/reinforced,
@@ -3092,7 +3092,7 @@
 /area/cruise/pool)
 "cqV" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
@@ -3711,7 +3711,7 @@
 	},
 /area/cruise/security)
 "cQI" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
@@ -3736,7 +3736,7 @@
 	},
 /area/cruise/fore)
 "cRC" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor"
 	},
@@ -4542,7 +4542,7 @@
 /area/cruise/beach)
 "dAA" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /obj/item/stamp/idris,
@@ -5729,7 +5729,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
@@ -5801,7 +5801,7 @@
 	},
 /area/template_noop)
 "eEo" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor"
 	},
@@ -6456,7 +6456,7 @@
 	},
 /area/cruise/centerline)
 "fhZ" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor{
 	icon_state = "floor7"
 	},
@@ -6518,7 +6518,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -12144,7 +12144,7 @@
 	},
 /area/cruise/main_bar)
 "jBz" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -13721,11 +13721,11 @@
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/glasses/sunglasses,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = -9
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = 1
 	},
@@ -14835,7 +14835,7 @@
 	},
 /area/cruise/jungle)
 "lJU" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor{
 	icon_state = "bar"
 	},
@@ -15423,7 +15423,7 @@
 /area/cruise/beach)
 "mhP" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /obj/machinery/light/small,
@@ -16645,11 +16645,11 @@
 /area/cruise/beach)
 "nbP" = (
 /obj/structure/table/reinforced,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 31
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 21
 	},
@@ -16768,7 +16768,7 @@
 	pixel_x = -1;
 	pixel_y = 29
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -18417,7 +18417,7 @@
 	},
 /area/cruise/virtual_reality)
 "ozd" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/structure/railing/mapped,
 /obj/structure/window/reinforced,
 /turf/unsimulated/floor{
@@ -19853,7 +19853,7 @@
 /area/cruise/centerline)
 "pJD" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -20173,11 +20173,11 @@
 /obj/item/card/id/syndicate,
 /obj/item/card/id/syndicate,
 /obj/item/card/id/syndicate,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = 1
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = -9
 	},
@@ -20910,7 +20910,7 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -22466,7 +22466,7 @@
 	},
 /area/cruise/beach)
 "sci" = (
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -22586,7 +22586,7 @@
 /area/cruise/e_supplies)
 "sev" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -23107,7 +23107,7 @@
 "sFY" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/table/wood,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -23277,7 +23277,7 @@
 	},
 /area/cruise/beach_bar)
 "sMx" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -24251,7 +24251,7 @@
 	pixel_x = -32;
 	req_access = null
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -24276,7 +24276,7 @@
 /area/cruise/fore_p)
 "tyc" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
@@ -25001,7 +25001,7 @@
 	name = "checkpoint";
 	req_access = list(101)
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = -17;
 	pixel_y = 4
 	},
@@ -25555,7 +25555,7 @@
 	},
 /area/cruise/aft_s)
 "urH" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -26060,7 +26060,7 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -26935,11 +26935,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = -9
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = 1
 	},
@@ -27270,7 +27270,7 @@
 /area/cruise/arcade)
 "vQU" = (
 /obj/structure/table/steel,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -27293,7 +27293,7 @@
 /area/cruise/aft_p)
 "vRj" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -27722,11 +27722,11 @@
 /obj/item/clothing/glasses/fakesunglasses,
 /obj/item/clothing/glasses/fakesunglasses,
 /obj/item/clothing/glasses/fakesunglasses,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = -9
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = 1
 	},
@@ -28201,7 +28201,7 @@
 	},
 /area/cruise/medical)
 "wDJ" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -28890,7 +28890,7 @@
 /area/cruise/escort)
 "xfu" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -29414,7 +29414,7 @@
 	},
 /area/cruise/security)
 "xza" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -30316,7 +30316,7 @@
 /area/cruise/escort)
 "ylM" = (
 /obj/structure/table/steel,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{

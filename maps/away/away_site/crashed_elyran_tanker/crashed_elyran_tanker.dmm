@@ -1751,7 +1751,7 @@
 	pixel_x = 8;
 	pixel_y = 7
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,

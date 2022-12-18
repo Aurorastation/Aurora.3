@@ -80,7 +80,7 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "aeM" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -1877,7 +1877,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "shx" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /obj/effect/landmark/entry_point/port{

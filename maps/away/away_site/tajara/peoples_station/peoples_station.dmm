@@ -2382,7 +2382,7 @@
 	pixel_x = -5;
 	name = "accepted stamp"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /obj/structure/cable/green{
@@ -5598,7 +5598,7 @@
 	},
 /area/peoples_station/robotics_bay)
 "zj" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
@@ -9512,7 +9512,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -11244,7 +11244,7 @@
 	},
 /area/peoples_station/medbay)
 "ZL" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},

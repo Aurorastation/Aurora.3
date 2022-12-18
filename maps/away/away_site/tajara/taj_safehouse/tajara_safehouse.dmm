@@ -743,7 +743,7 @@
 /turf/simulated/floor,
 /area/tajara_safehouse/hangar)
 "wt" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)

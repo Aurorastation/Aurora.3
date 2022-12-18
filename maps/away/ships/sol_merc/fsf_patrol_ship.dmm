@@ -1006,7 +1006,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 25
 	},
 /turf/simulated/floor/tiled/dark,

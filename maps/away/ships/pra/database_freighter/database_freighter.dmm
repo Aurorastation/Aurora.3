@@ -650,7 +650,7 @@
 /turf/template_noop,
 /area/space)
 "cF" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -883,7 +883,7 @@
 /area/database_freighter/barracks)
 "dH" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/item/melee/baton/loaded,
 /obj/item/reagent_containers/dropper{
 	pixel_y = -4
@@ -2558,7 +2558,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/database_freighter_shuttle)
 "mR" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /obj/effect/landmark/entry_point/west{

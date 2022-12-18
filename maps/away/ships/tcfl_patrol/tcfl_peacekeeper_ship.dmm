@@ -260,7 +260,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/tcfl_shuttle)
 "cFC" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "cIZ" = (
@@ -298,7 +298,7 @@
 	identifier = "tcfl_peacekeeper_prefect";
 	name = "igs - tcfl_peacekeeper_prefect"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -27
 	},
 /turf/simulated/floor/carpet,
@@ -487,22 +487,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ehA" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 24
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 33
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "eib" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 33
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -1199,7 +1199,7 @@
 /obj/structure/sign/flag/biesel/left{
 	pixel_y = 31
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "hBS" = (
@@ -1246,10 +1246,10 @@
 /turf/simulated/floor/carpet,
 /area/ship/tcfl_peacekeeper_ship)
 "hJC" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32;
 	pixel_y = 10
 	},
@@ -1626,7 +1626,7 @@
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "jGx" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -3413,7 +3413,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /obj/structure/table/standard,
@@ -3423,7 +3423,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /obj/machinery/computer/ship/targeting{

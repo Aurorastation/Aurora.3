@@ -123,7 +123,7 @@
 /area/space)
 "ani" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_y = 17
 	},
@@ -2398,7 +2398,7 @@
 	pixel_x = -30;
 	pixel_y = 1
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -21;
 	pixel_y = -26
 	},
@@ -2631,7 +2631,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/racers)
 "mMz" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/plating,
 /area/racers)
 "mME" = (
@@ -2674,7 +2674,7 @@
 "mVZ" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/table/steel,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/plating,
 /area/racers)
 "mWo" = (
@@ -4137,7 +4137,7 @@
 /area/racers)
 "uaN" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/plating,
 /area/racers)
 "ubW" = (

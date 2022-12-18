@@ -1,4 +1,4 @@
-/obj/machinery/recharger
+/obj/machinery/charger
 	name = "charger"
 	desc = "A charger. Useful for recharging electronic devices."
 	icon = 'icons/obj/stationobjs.dmi'
@@ -28,7 +28,7 @@
 	var/portable = 1
 	var/list/chargebars
 
-/obj/machinery/recharger/examine(mob/user)
+/obj/machinery/charger/examine(mob/user)
 	. = ..(user, 3)
 	to_chat(user, "There is [charging ? "\a [charging]" : "nothing"] in [src].")
 	if (charging && .)
@@ -39,12 +39,12 @@
 			LAZYADD(chargebars, progbar)
 			chargebars[progbar] = addtimer(CALLBACK(src, .proc/remove_bar, progbar, null), 3 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 
-/obj/machinery/recharger/proc/remove_bar(datum/progressbar/bar, timerid)
+/obj/machinery/charger/proc/remove_bar(datum/progressbar/bar, timerid)
 	if (!timerid || deltimer(timerid))
 		LAZYREMOVE(chargebars, bar)
 		qdel(bar)
 
-/obj/machinery/recharger/attackby(obj/item/G, mob/user)
+/obj/machinery/charger/attackby(obj/item/G, mob/user)
 	if(portable && G.iswrench())
 		if(charging)
 			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
@@ -85,7 +85,7 @@
 		update_icon()
 		return TRUE
 
-/obj/machinery/recharger/attack_hand(mob/user as mob)
+/obj/machinery/charger/attack_hand(mob/user as mob)
 	if(istype(user,/mob/living/silicon))
 		return
 
@@ -100,7 +100,7 @@
 				remove_bar(thing, chargebars[thing])
 		update_icon()
 
-/obj/machinery/recharger/process()
+/obj/machinery/charger/process()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		update_use_power(POWER_USE_OFF)
 		icon_state = icon_state_idle
@@ -145,7 +145,7 @@
 			charging.visible_message("\The [charging] falls out of [src].")
 			charging = null
 
-/obj/machinery/recharger/emp_act(severity)
+/obj/machinery/charger/emp_act(severity)
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		..(severity)
 		return
@@ -161,13 +161,13 @@
 			B.bcell.charge = 0
 	..(severity)
 
-/obj/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
+/obj/machinery/charger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
 	if(charging)
 		icon_state = icon_state_charging + "0"
 	else
 		icon_state = icon_state_idle
 
-/obj/machinery/recharger/wallcharger
+/obj/machinery/charger/wall
 	name = "wall-mounted weapon quick charger"
 	desc = "A wall-mounted quick charger, specialized for electrical weaponry."
 	icon = 'icons/obj/stationobjs.dmi'

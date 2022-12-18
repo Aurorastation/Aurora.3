@@ -1935,7 +1935,7 @@
 /turf/simulated/wall/r_wall,
 /area/medical/ward/isolation)
 "bzq" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 5;
 	pixel_y = 28
 	},
@@ -2785,7 +2785,7 @@
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
 "cvX" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 5;
 	pixel_y = 28
 	},
@@ -4519,11 +4519,11 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = -6;
 	pixel_y = 12
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 6;
 	pixel_y = 12
 	},
@@ -5142,11 +5142,11 @@
 /turf/simulated/floor/grass/alt,
 /area/horizon/hallway/deck_three/primary/central)
 "ezD" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -28;
 	pixel_y = 3
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -28;
 	pixel_y = -10
 	},
@@ -5491,7 +5491,7 @@
 	pixel_x = -1;
 	pixel_y = 5
 	},
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative)
 "ePx" = (
@@ -5544,11 +5544,11 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = -30;
 	pixel_x = 4
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = -40;
 	pixel_x = 4
 	},
@@ -6076,7 +6076,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "fiV" = (
@@ -8261,7 +8261,7 @@
 /obj/effect/floor_decal/corner/blue/full,
 /obj/structure/table/reinforced,
 /obj/machinery/firealarm/south,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = -6;
 	pixel_y = 4
 	},
@@ -8716,11 +8716,11 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = -29
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = -42
 	},
@@ -9149,11 +9149,11 @@
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "hwp" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = 3
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = -10
 	},
@@ -9798,7 +9798,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
 	},
@@ -13819,7 +13819,7 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled,
@@ -14610,11 +14610,11 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = -6;
 	pixel_y = 12
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 6;
 	pixel_y = 12
 	},
@@ -15889,7 +15889,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
 	},
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/item/aicard,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
@@ -18278,7 +18278,7 @@
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "oRM" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
@@ -19640,7 +19640,7 @@
 /obj/machinery/firealarm/west,
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/yellow/full,
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "qeM" = (
@@ -19773,7 +19773,7 @@
 	pixel_x = -1;
 	pixel_y = 5
 	},
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/machinery/light_switch{
 	dir = 4;
 	pixel_x = -24;
@@ -21584,7 +21584,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 5;
 	pixel_y = 28
 	},
@@ -22933,11 +22933,11 @@
 	pixel_y = 28
 	},
 /obj/structure/closet/secure_closet/investigator,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32;
 	pixel_y = -8
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32;
 	pixel_y = 2
 	},
@@ -22973,7 +22973,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
 "sJm" = (
@@ -24139,7 +24139,7 @@
 	pixel_y = 24
 	},
 /obj/structure/table/standard,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/item/device/hand_labeler,
 /obj/item/modular_computer/laptop/preset/command/xo,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -25190,18 +25190,18 @@
 	},
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -28;
 	pixel_y = -10
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -28;
 	pixel_y = 3
 	},
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 11
 	},
 /turf/simulated/floor/tiled/dark,
@@ -28857,11 +28857,11 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 34;
 	pixel_x = 4
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24;
 	pixel_x = 4
 	},

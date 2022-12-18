@@ -44,7 +44,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "ah" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -32;
 	pixel_y = 2
 	},
@@ -56,7 +56,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "aj" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32;
 	pixel_y = 2
 	},
@@ -190,7 +190,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "aD" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "aE" = (

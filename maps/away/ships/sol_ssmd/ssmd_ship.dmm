@@ -211,7 +211,7 @@
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/grauwolf)
 "aHv" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -2325,7 +2325,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "fSE" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 25
 	},
 /obj/effect/floor_decal/corner/blue{

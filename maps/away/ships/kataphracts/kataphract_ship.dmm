@@ -515,7 +515,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bw" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32
 	},
 /obj/structure/table/rack,
@@ -2122,7 +2122,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "eL" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32
 	},
 /obj/structure/table/rack,
@@ -2426,7 +2426,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2701,7 +2701,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "fE" = (
@@ -3443,7 +3443,7 @@
 /area/kataphract_chapter/dorms)
 "hg" = (
 /obj/structure/table/wood/gamblingtable,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "hh" = (
@@ -5444,7 +5444,7 @@
 /area/kataphract_chapter/trading_area)
 "kV" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/structure/window/reinforced{
 	dir = 4;
 	icon_state = "rwindow";
@@ -6626,7 +6626,7 @@
 	name = "Armoury Shutters";
 	opacity = 0
 	},
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -7460,10 +7460,10 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/aft_hall)
 "uy" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32;
 	pixel_y = -10
 	},

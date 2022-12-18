@@ -486,7 +486,7 @@
 	},
 /area/turret_protected/ai_upload_foyer)
 "tD" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278

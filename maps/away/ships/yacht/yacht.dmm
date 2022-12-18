@@ -1134,7 +1134,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "dC" = (

@@ -896,11 +896,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = 1
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = -9
 	},
@@ -1126,7 +1126,7 @@
 	},
 /area/city/mendell)
 "fH" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor{
 	icon_state = "wood_willow"
 	},
@@ -1217,7 +1217,7 @@
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "gd" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "gf" = (
@@ -3980,7 +3980,7 @@
 	},
 /area/city/mendell)
 "wJ" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
 "wK" = (
@@ -4366,7 +4366,7 @@
 	},
 /area/city/mendell/interior)
 "yo" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -4427,7 +4427,7 @@
 	pixel_x = 8;
 	pixel_y = 8
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = -5;
 	pixel_y = 4
 	},
@@ -4682,7 +4682,7 @@
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "At" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/decal/fake_object{
 	desc = "A window overlooking the pristine Mendell City.";
 	icon = 'icons/effects/city.dmi';
@@ -5047,7 +5047,7 @@
 	},
 /area/city/mendell/interior)
 "CI" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/decal/fake_object{
 	desc = "A window overlooking the pristine Mendell City.";
 	icon = 'icons/effects/city.dmi';
@@ -5146,11 +5146,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = -9
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = 1
 	},
@@ -7820,7 +7820,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "Sp" = (
@@ -8393,7 +8393,7 @@
 	},
 /area/city/mendell/interior)
 "VL" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "VM" = (

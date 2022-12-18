@@ -1702,7 +1702,7 @@
 /area/engineering)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "Go" = (

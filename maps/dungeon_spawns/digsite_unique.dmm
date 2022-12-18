@@ -195,7 +195,7 @@
 /area/dungeon/anomaly_outpost)
 "aF" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aG" = (

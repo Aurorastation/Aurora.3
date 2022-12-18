@@ -69,7 +69,7 @@
 /datum/design/circuit/machine/recharge_station
 	name = "Cyborg Recharge Station"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
-	build_path = /obj/item/circuitboard/recharge_station
+	build_path = /obj/item/circuitboard/robot_charger
 
 /datum/design/circuit/machine/holopadboard
 	name = "Holopad"

@@ -204,12 +204,12 @@
 /area/antag/raider)
 "aat" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	layer = 3;
 	pixel_x = 4;
 	pixel_y = 28
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	layer = 3;
 	pixel_x = 4;
 	pixel_y = 19
@@ -3616,7 +3616,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 10;
 	pixel_y = 10
 	},
@@ -4599,7 +4599,7 @@
 	pixel_x = -6;
 	pixel_y = 3
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 7
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -9597,7 +9597,7 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "cwK" = (
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /obj/effect/landmark{
@@ -9752,11 +9752,11 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 31
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 21
 	},
@@ -11024,11 +11024,11 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = -9
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = 1
 	},
@@ -11762,11 +11762,11 @@
 	},
 /area/antag/raider)
 "dPP" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 22
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 32
 	},
@@ -13671,7 +13671,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "fcf" = (
@@ -16386,7 +16386,7 @@
 	},
 /area/shuttle/mercenary)
 "gEh" = (
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /obj/effect/landmark{
@@ -16966,7 +16966,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/syndicate_elite)
 "gTS" = (
@@ -17277,7 +17277,7 @@
 	},
 /area/supply/dock)
 "hap" = (
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 7;
 	pixel_y = 9
 	},
@@ -17431,11 +17431,11 @@
 /area/centcom/holding)
 "hhX" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 22
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 32
 	},
@@ -17646,7 +17646,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "hnG" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -17692,11 +17692,11 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = 1
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 36;
 	pixel_y = -9
 	},
@@ -19091,7 +19091,7 @@
 	},
 /area/antag/raider)
 "iqi" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 26
 	},
@@ -19252,7 +19252,7 @@
 /area/shuttle/administration)
 "iua" = (
 /obj/structure/table/reinforced,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /obj/machinery/light{
@@ -19688,7 +19688,7 @@
 /area/merchant_station/warehouse)
 "iHN" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 3
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -19826,7 +19826,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 6;
 	pixel_y = 4
 	},
@@ -19916,7 +19916,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 20
 	},
@@ -19924,11 +19924,11 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "iOb" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 30
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 20
 	},
@@ -19967,7 +19967,7 @@
 /area/antag/burglar)
 "iOS" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 1;
 	pixel_y = 2
 	},
@@ -20249,11 +20249,11 @@
 /area/centcom/evac)
 "iXy" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 21
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 31
 	},
@@ -20276,7 +20276,7 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "iYn" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor,
 /area/antag/loner)
 "iYt" = (
@@ -22765,7 +22765,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 20
 	},
@@ -22824,7 +22824,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -23800,7 +23800,7 @@
 /area/shuttle/merchant)
 "lvN" = (
 /obj/structure/table/reinforced,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -24396,11 +24396,11 @@
 	},
 /area/shuttle/merchant)
 "lPl" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 32
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 22
 	},
@@ -27083,7 +27083,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "nwL" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
@@ -27133,11 +27133,11 @@
 	},
 /area/antag/mercenary)
 "nyI" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 5;
 	pixel_y = 22
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 5;
 	pixel_y = 31
 	},
@@ -28063,7 +28063,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "nXw" = (
@@ -28730,7 +28730,7 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "oxc" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor,
 /area/antag/burglar)
 "oxe" = (
@@ -29972,7 +29972,7 @@
 	pixel_x = 4;
 	pixel_y = 3
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = -10
 	},
 /obj/item/clothing/mask/balaclava{
@@ -33136,7 +33136,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "rDZ" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	layer = 3.3;
 	pixel_x = -1;
 	pixel_y = 25
@@ -34045,7 +34045,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 3;
 	pixel_y = 26
 	},
@@ -36992,7 +36992,7 @@
 /area/tdome/tdomeobserve)
 "unV" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 10;
 	pixel_y = 9
 	},
@@ -37454,7 +37454,7 @@
 /area/centcom/control)
 "uHA" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_y = 4
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -38614,11 +38614,11 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 22
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 32
 	},
@@ -38682,11 +38682,11 @@
 	icon_state = "tube1"
 	},
 /obj/structure/table/rack,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 22
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 32
 	},
@@ -38915,7 +38915,7 @@
 	},
 /area/antag/mercenary)
 "vJq" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -40347,7 +40347,7 @@
 /area/centcom/legion/hangar5)
 "wtO" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 31
 	},
 /turf/unsimulated/floor,
@@ -40577,7 +40577,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "mercworkshop";
@@ -40834,7 +40834,7 @@
 	},
 /area/shuttle/distress)
 "wHk" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
 	dir = 1;
@@ -41795,11 +41795,11 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 5;
 	pixel_y = 19
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 5;
 	pixel_y = 29
 	},
@@ -42101,7 +42101,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "xuH" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -27
 	},
 /obj/structure/flora/pottedplant{
@@ -42651,7 +42651,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "xJL" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},

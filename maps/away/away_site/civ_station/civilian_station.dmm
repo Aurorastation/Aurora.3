@@ -673,7 +673,7 @@
 "cLC" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/steel,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "cPk" = (
@@ -789,7 +789,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/civilian_station)
 "fat" = (
@@ -1059,7 +1059,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32
 	},
 /turf/simulated/floor/wood,
@@ -1203,7 +1203,7 @@
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "iDG" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
 "iHR" = (
@@ -1742,7 +1742,7 @@
 /area/civilian_station)
 "oYQ" = (
 /obj/structure/table/steel,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/lino/grey,
 /area/civilian_station)
 "oZv" = (
@@ -2283,7 +2283,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
 "vlP" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2379,7 +2379,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "wJk" = (

@@ -2760,7 +2760,7 @@
 /area/maintenance/substation/engineering/lower)
 "cfY" = (
 /obj/structure/table/steel,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -3715,7 +3715,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "cVj" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "cWa" = (
@@ -4499,7 +4499,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
 "dEe" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
@@ -4820,11 +4820,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "dRh" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 20
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 30
 	},
@@ -11657,12 +11657,12 @@
 /obj/machinery/camera/network/security{
 	c_tag = "Security - First Deck Checkpoin"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 24
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 33
@@ -11841,7 +11841,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/machinery/light/small,
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "joF" = (
@@ -12321,11 +12321,11 @@
 /obj/machinery/cell_charger{
 	pixel_y = -4
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = -6;
 	pixel_y = 10
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 6;
 	pixel_y = 10
 	},
@@ -13621,7 +13621,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 24
@@ -14546,7 +14546,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/item/melee/baton/loaded,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
@@ -16134,7 +16134,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/table/steel,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "mKo" = (
@@ -23396,7 +23396,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "sxx" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
@@ -24995,11 +24995,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "tLU" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 20
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 30
 	},
@@ -26301,7 +26301,7 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/intrepid/atmos_compartment)
 "uLM" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
@@ -30596,7 +30596,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "xYn" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "xYW" = (

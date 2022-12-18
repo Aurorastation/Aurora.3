@@ -1061,7 +1061,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "fqt" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
@@ -1294,7 +1294,7 @@
 "gzc" = (
 /obj/structure/table/steel,
 /obj/item/folder/sec,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 25
 	},
 /obj/machinery/light{
@@ -4413,7 +4413,7 @@
 /obj/item/laser_components/modifier/grip{
 	pixel_y = 8
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 32
 	},
