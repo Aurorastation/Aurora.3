@@ -6,7 +6,8 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "iac_rescue_ship"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/IAC_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/iac_shuttle)
+
 
 /decl/submap_archetype/iac_rescue_ship
 	map = "IAC Rescue Ship"
@@ -71,12 +72,14 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_restricted_waypoints = list(
-		"IAC Ambulance Shuttle" = list("nav_hangar_IAC")
+		"IAC Ambulance Shuttle" = list("nav_hangar_iac")
+
 	)
 
 	initial_generic_waypoints = list(
-		"nav_IAC_rescue_ship_1",
-		"nav_IAC_rescue_ship_2"
+		"nav_iac_rescue_ship_1",
+		"nav_iac_rescue_ship_2"
+
 	)
 
 /obj/effect/overmap/visitable/ship/iac_rescue_ship/New()
@@ -119,7 +122,8 @@
 	base_turf = /turf/space/transit/north
 
 //shuttle stuff
-/obj/effect/overmap/visitable/ship/landable/IAC_shuttle
+/obj/effect/overmap/visitable/ship/landable/iac_shuttle
+
 	name = "IAC Ambulance Shuttle"
 	class = "IAV"
 	designation = "Heka"
@@ -131,31 +135,41 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/IAC_shuttle
+/obj/machinery/computer/shuttle_control/explore/iac_shuttle
+
 	name = "shuttle control console"
 	shuttle_tag = "IAC Ambulance Shuttle"
 	req_access = list(access_iac_rescue_ship)
 
-/datum/shuttle/autodock/overmap/IAC_shuttle
+/datum/shuttle/autodock/overmap/iac_shuttle
+
 	name = "IAC Ambulance Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/iac_shuttle)
-	current_location = "nav_hangar_IAC"
-	landmark_transition = "nav_transit_IAC_shuttle"
+	current_location = "nav_hangar_iac"
+
+	landmark_transition = "nav_transit_iac_shuttle"
+
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_IAC"
+	logging_home_tag = "nav_hangar_iac"
+
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/IAC_shuttle/hangar
+/obj/effect/shuttle_landmark/iac_shuttle/hangar
+
 	name = "IAC Ambulance Shuttle Hangar"
-	landmark_tag = "nav_hangar_IAC"
-	docking_controller = "IAC_shuttle_dock"
+	landmark_tag = "nav_hangar_iac"
+
+	docking_controller = "iac_shuttle_dock"
+
 	base_area = /area/ship/iac_rescue_ship
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/shuttle_landmark/IAC_shuttle/transit
+/obj/effect/shuttle_landmark/iac_shuttle/transit
+
 	name = "In transit"
-	landmark_tag = "nav_transit_IAC_shuttle"
+	landmark_tag = "nav_transit_iac_shuttle"
+
 	base_turf = /turf/space/transit/north
