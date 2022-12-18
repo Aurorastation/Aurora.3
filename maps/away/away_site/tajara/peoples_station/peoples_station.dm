@@ -51,7 +51,7 @@
 	class = "PRAMV" //People's Republic of Adhomai Vessel
 	desc = "An interceptor used by the Orbital Fleet in its carriers and stations."
 	shuttle = "Orbital Fleet Fang"
-	icon_state = "shuttle_red"
+	icon_state = "shuttle"
 	moving_state = "shuttle_red_moving"
 	max_speed = 1/(1 SECONDS)
 	burn_delay = 1 SECONDS
