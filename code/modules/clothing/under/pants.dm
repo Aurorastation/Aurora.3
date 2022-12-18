@@ -6,7 +6,7 @@
 /obj/item/clothing/under/pants
 	name = "pants parent item"
 	desc = DESC_PARENT
-	icon = 'icons/obj/pants.dmi'
+	icon = 'icons/obj/item/clothing/under/pants.dmi'
 	contained_sprite = TRUE
 	body_parts_covered = LOWER_TORSO | LEGS
 
@@ -75,7 +75,6 @@
 /obj/item/clothing/under/pants/flared
 	name = "flared pants"
 	desc = "The peak of Biesellite fashion, these pants are flared at the ankle."
-	icon = 'icons/contained_items/clothing/bottomwear/flared_pants.dmi'
 	icon_state = "flaredpants"
 	item_state = "flaredpants"
 	contained_sprite = TRUE
