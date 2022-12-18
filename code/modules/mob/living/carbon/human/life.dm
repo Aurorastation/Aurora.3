@@ -825,10 +825,16 @@
 	var/tmp/last_frenzy_state
 	var/tmp/last_oxy_overlay
 
+	var/list/status_overlays = null
+
 /mob/living/carbon/human/can_update_hud()
 	if((!client && !bg) || QDELETED(src))
 		return FALSE
 	return TRUE
+
+// corresponds with the status overlay in hud_status.dmi
+#define DRUNK_STRING "drunk"
+#define BLEEDING_STRING "bleeding"
 
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
@@ -1064,7 +1070,55 @@
 			if (bodytemp.icon_state != new_temp)
 				bodytemp.icon_state = new_temp
 
+		if(client)
+			var/has_drunk_status = LAZYISIN(status_overlays, DRUNK_STRING)
+			if(is_drunk())
+				if(!has_drunk_status)
+					add_status_to_hud(DRUNK_STRING, SPAN_GOOD("You are drunk. Your words are slurred, and your movements are uncoordinated."))
+			else if(has_drunk_status)
+				qdel(status_overlays[DRUNK_STRING])
+				status_overlays -= DRUNK_STRING
+
+			var/has_bleeding_limb = FALSE
+			var/has_bleeding_status = LAZYISIN(status_overlays, BLEEDING_STRING)
+			for(var/obj/item/organ/external/damaged_limb as anything in bad_external_organs)
+				if(damaged_limb.status & ORGAN_BLEEDING)
+					has_bleeding_limb = TRUE
+					break
+			if(has_bleeding_limb)
+				if(!has_bleeding_status)
+					add_status_to_hud(BLEEDING_STRING, SPAN_HIGHDANGER("Blood gushes from one of your bodyparts, inspect yourself and seal the wound."))
+			else if(has_bleeding_status)
+				qdel(status_overlays[BLEEDING_STRING])
+				status_overlays -= BLEEDING_STRING
+
+			UNSETEMPTY(status_overlays)
+		else
+			for(var/status in status_overlays)
+				qdel(status_overlays[status])
+			status_overlays = null
 	return 1
+
+#undef DRUNK_STRING
+#undef BLEEDING_STRING
+
+/mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
+	var/obj/screen/status/new_status = new /obj/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
+	new_status.alpha = client.prefs.UI_style_alpha
+	new_status.color = client.prefs.UI_style_color
+	new_status.screen_loc = get_status_loc(status_overlays ? LAZYLEN(status_overlays) + 1 : 1)
+	client.screen += new_status
+	LAZYSET(status_overlays, set_overlay, new_status)
+
+/mob/living/carbon/human/proc/get_status_loc(var/placement)
+	var/col = ((placement - 1)%(13)) + 1
+	var/coord_col = "-[col-1]"
+	var/coord_col_offset = "-[4+2*col]"
+
+	var/row = round((placement-1)/13)
+	var/coord_row = "[-1 - row]"
+	var/coord_row_offset = 8
+	return "EAST[coord_col]:[coord_col_offset],NORTH[coord_row]:[coord_row_offset]"
 
 /mob/living/carbon/human/handle_random_events()
 	if(InStasis())

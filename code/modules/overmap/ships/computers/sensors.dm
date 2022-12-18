@@ -77,7 +77,7 @@
 		data["status"] = "MISSING"
 		data["range"] = "N/A"
 		data["on"] = 0
-	
+
 	if(identification)
 		data["id_on"] = identification.use_power
 		if(identification.disabled)
@@ -196,7 +196,7 @@
 /obj/machinery/shipsensors
 	name = "sensors suite"
 	desc = "Long range gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
-	icon = 'icons/obj/machines/sensors.dmi'
+	icon = 'icons/obj/machinery/sensors.dmi'
 	icon_state = "sensors"
 	anchored = 1
 	var/max_health = 200
@@ -305,7 +305,7 @@
 
 	if (heat > 0)
 		heat = max(0, heat - heat_reduction)
-	
+
 	update_icon()
 
 /obj/machinery/shipsensors/power_change()

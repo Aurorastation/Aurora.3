@@ -2,7 +2,7 @@
 	name = "portable suit cooling unit"
 	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling."
 	w_class = ITEMSIZE_LARGE
-	icon = 'icons/obj/contained_items/tools/suitcooler.dmi'
+	icon = 'icons/obj/item/tools/suitcooler.dmi'
 	icon_state = "suitcooler0"
 	item_state = "coolingpack"
 	action_button_name = "Toggle Cooling Unit"

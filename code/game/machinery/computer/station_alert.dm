@@ -20,11 +20,10 @@
 	monitor_type = /datum/nano_module/alarm_monitor/all
 
 /obj/machinery/computer/station_alert/Initialize()
-	alarm_monitor = new monitor_type(src)
-	alarm_monitor.register_alarm(src, /atom/.proc/update_icon)
 	. = ..()
 	if(monitor_type)
 		register_monitor(new monitor_type(src))
+		alarm_monitor.register_alarm(src, /atom/.proc/update_icon)
 
 /obj/machinery/computer/station_alert/Destroy()
 	. = ..()
