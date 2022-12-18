@@ -4,3 +4,6 @@ delete-after: True
 
 changes:
   - tweak: "Makes all chargers not use extreme amounts of power when active."
+  - spellcheck: "Renames the \"cyborg recharger\" to robot charger, to be more generic."
+  - spellcheck: "Renames the \"wall recharger\" to wall-mounted weapon quick charger, to be more specific."
+  - backend: "Repaths the recharger and the robot recharger to reflect their new names."
