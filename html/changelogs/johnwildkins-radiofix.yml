@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed subspace broadcasters having no overmap range, thus capturing messages and not sending them to away sites near the Horizon."
