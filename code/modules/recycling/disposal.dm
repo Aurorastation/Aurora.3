@@ -181,7 +181,7 @@
 		if(istype(S, /obj/item/storage/secure))
 			var/obj/item/storage/secure/secured_storage = S
 			if(secured_storage.locked)
-				to_chat(user, SPAN_WARNING("You can't empty \the [secured_storage] into \the [src] - it is locked."))
+				to_chat(user, SPAN_WARNING("You can't empty \the [secured_storage] into \the [src]. It is locked."))
 				return TRUE
 
 		user.visible_message("<b>[user]</b> empties \the [S] into \the [src].", SPAN_NOTICE("You empty \the [S] into \the [src]."), range = 3)

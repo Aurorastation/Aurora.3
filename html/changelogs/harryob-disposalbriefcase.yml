@@ -3,4 +3,4 @@ author: harryob
 delete-after: True
 
 changes:
-  - bugfix: "disposal units no longer bypass high tech locking devices."
+  - bugfix: "Disposal units no longer bypass high tech locking devices."
