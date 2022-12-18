@@ -73,7 +73,6 @@
 	vessel_size = SHIP_SIZE_SMALL
 	initial_restricted_waypoints = list(
 		"IAC Ambulance Shuttle" = list("nav_hangar_iac")
-
 	)
 
 	initial_generic_waypoints = list(
@@ -82,7 +81,6 @@
 		"nav_iac_rescue_ship_3",
 		"nav_iac_rescue_ship_4",
 		"nav_iac_rescue_ship_5"
-
 	)
 
 /obj/effect/overmap/visitable/ship/iac_rescue_ship/New()
@@ -126,7 +124,6 @@
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/iac_shuttle
-
 	name = "IAC Ambulance Shuttle"
 	class = "IAV"
 	designation = "Heka"
@@ -139,13 +136,11 @@
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/iac_shuttle
-
 	name = "shuttle control console"
 	shuttle_tag = "IAC Ambulance Shuttle"
 	req_access = list(access_iac_rescue_ship)
 
 /datum/shuttle/autodock/overmap/iac_shuttle
-
 	name = "IAC Ambulance Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/iac_shuttle)
@@ -160,7 +155,6 @@
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/iac_shuttle/hangar
-
 	name = "IAC Ambulance Shuttle Hangar"
 	landmark_tag = "nav_hangar_iac"
 
@@ -171,7 +165,6 @@
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/iac_shuttle/transit
-
 	name = "In transit"
 	landmark_tag = "nav_transit_iac_shuttle"
 
