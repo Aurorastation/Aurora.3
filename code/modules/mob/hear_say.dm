@@ -165,7 +165,7 @@
 	else
 		speaker_name = "Unknown"
 
-	if(ishuman(speaker) && speaker.GetVoice() != real_name)
+	if(ishuman(speaker))
 		speaker_name = speaker.GetVoice()
 
 	if(hard_to_hear)

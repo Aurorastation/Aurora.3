@@ -1,2625 +1,1833 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/structure/plasticflaps,
-/obj/effect/floor_decal/industrial/warning/cee,
-/obj/machinery/conveyor{
-	id = "mining_jack_base_belt";
-	layer = 2.9
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"am" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(202);
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"aE" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
-	dir = 4;
-	target_pressure = 250
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"aH" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"aK" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1337;
-	id_tag = "tajara_mining_jack_shuttle_dock";
-	pixel_y = -28
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"aN" = (
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"aO" = (
-/obj/structure/bed/stool/bar/padded,
-/obj/machinery/vending/wallmed1{
-	name = "Medical Supplies";
-	pixel_x = -26;
-	pixel_y = -1;
-	req_access = null
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/quarters)
-"aQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(202);
-	pixel_y = 32
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"aR" = (
-/obj/effect/landmark/entry_point/east{
-	name = "port, bridge"
-	},
+/obj/effect/map_effect/airlock/long/square/wide,
 /turf/simulated/wall/shuttle/raider,
-/area/shuttle/mining_jack/bridge)
-"be" = (
-/obj/machinery/iff_beacon/name_change,
-/obj/structure/railing/mapped{
-	dir = 4
+/area/pra_satellite)
+"aE" = (
+/obj/structure/table/glass,
+/obj/item/storage/firstaid/adv{
+	pixel_x = -3;
+	pixel_y = 4
 	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/airless,
-/area/shuttle/mining_jack/bridge)
-"bl" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/item/storage/firstaid/fire{
+	pixel_x = 3;
+	pixel_y = 4
 	},
-/obj/effect/shuttle_landmark/tajara_mining_jack/hangar,
-/turf/simulated/floor/plating{
-	temperature = 278.15
+/obj/item/storage/firstaid/regular{
+	pixel_x = -4
 	},
-/area/mining_jack_outpost/hangar)
-"br" = (
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"bw" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft engines, port"
-	},
-/turf/simulated/floor/airless,
-/area/shuttle/mining_jack/engines)
-"by" = (
-/obj/structure/table/standard,
-/obj/machinery/power/apc{
-	dir = 2;
-	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
-	req_access = list(202)
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/vending/wallmed1{
-	name = "Medical Supplies";
-	pixel_x = 26;
-	pixel_y = -1;
-	req_access = null
-	},
-/obj/item/pickaxe,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"bS" = (
-/obj/effect/step_trigger/teleporter,
-/obj/effect/step_trigger/teleporter,
-/turf/space/transit/north,
-/area/space)
-"bU" = (
-/obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"cq" = (
-/obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
-/obj/machinery/button/distress{
-	dir = 1;
-	pixel_y = -32
+/obj/item/storage/firstaid/o2{
+	pixel_x = 6;
+	pixel_y = -4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"cw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"cG" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm/cold{
-	req_one_access = list(202);
-	pixel_y = 32
-	},
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/drinks/waterbottle,
-/obj/item/reagent_containers/food/drinks/waterbottle,
-/obj/item/reagent_containers/food/drinks/waterbottle,
-/obj/item/reagent_containers/food/drinks/waterbottle,
-/obj/item/reagent_containers/food/drinks/waterbottle,
-/obj/item/reagent_containers/food/drinks/waterbottle,
-/obj/item/reagent_containers/food/snacks/adhomian_can,
-/obj/item/reagent_containers/food/snacks/adhomian_can,
-/obj/item/reagent_containers/food/snacks/adhomian_can,
-/obj/item/reagent_containers/food/snacks/adhomian_can,
-/obj/item/reagent_containers/food/snacks/adhomian_can,
-/obj/item/reagent_containers/food/snacks/hardbread,
-/obj/item/reagent_containers/food/snacks/hardbread,
-/obj/item/reagent_containers/food/snacks/hardbread,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/quarters)
-"da" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"df" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"dm" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_jack_base_belt";
-	layer = 2.9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"ds" = (
-/obj/effect/shuttle_landmark/tajara_mining_jack/nav3,
-/turf/template_noop,
-/area/space)
-"dB" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"dT" = (
-/obj/structure/table/steel,
-/obj/item/storage/belt/mining,
-/obj/item/storage/belt/mining,
-/obj/item/storage/belt/mining,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"ea" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
-	dir = 4
-	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"eg" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_jack_base_belt";
-	layer = 2.9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/railing/mapped,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"et" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"eB" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 8
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/hangar)
-"eF" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"eL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"eX" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"eZ" = (
+/area/pra_satellite)
+"aH" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
 	layer = 2.8
 	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window{
+	dir = 8
+	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/hangar)
-"fh" = (
-/obj/effect/landmark/entry_point/west{
-	name = "starboard, bridge"
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/mining_jack/bridge)
-"fm" = (
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/quarters)
-"fv" = (
-/obj/structure/table/steel,
-/obj/item/gun/energy/plasmacutter,
-/obj/item/gun/energy/plasmacutter,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"fG" = (
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/empty{
-	name = "waste canister"
-	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/mining_jack/engines)
-"fO" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/hatch{
-	req_access = list(202);
-	name = "Power Room"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"fT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/obj/machinery/light/small,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"gb" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"gd" = (
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"gn" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"gq" = (
-/obj/machinery/alarm/cold{
-	dir = 1;
-	pixel_y = -32;
-	req_one_access = list(202)
-	},
-/obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"gu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/quarters)
-"gI" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"gY" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"hb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/area/pra_satellite)
+"aK" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/shuttle/mining_jack/engines)
-"hg" = (
-/obj/machinery/mineral/stacking_machine{
-	dir = 8
-	},
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_jack_base_belt";
-	layer = 2.9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"hi" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"hl" = (
-/obj/machinery/power/terminal{
-	dir = 8;
-	icon_state = "term"
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"hD" = (
-/obj/machinery/conveyor{
-	dir = 10;
-	id = "mining_jack_base_belt";
-	layer = 2.9;
-	reversed = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"hP" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"hX" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_jack_base_belt";
-	layer = 2.9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"ig" = (
-/obj/machinery/mineral/processing_unit{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_jack_base_belt";
-	layer = 2.9
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"in" = (
-/obj/machinery/atmospherics/binary/pump/on,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"iq" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/quarters)
-"iE" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
-/obj/machinery/light/small{
-	brightness_color = "#FA8282";
-	dir = 1
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "tajara_mining_jack";
-	name = "igs - tajara_mining_jack"
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"iN" = (
-/obj/machinery/button/remote/blast_door{
-	id = "mining_jack_cargo";
-	name = "Cargo Shutter";
-	pixel_x = 26
-	},
-/obj/machinery/conveyor_switch{
-	id = "mining_jack_belt"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"iR" = (
+/area/pra_satellite)
+"aN" = (
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/shuttle/mining_jack/engines)
-"jb" = (
+/area/pra_satellite)
+"aO" = (
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 4;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/machinery/light/small,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"jp" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"jP" = (
-/obj/effect/map_effect/airlock/e_to_w/long/square/wide,
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/mining_jack/engines)
-"jV" = (
-/obj/machinery/computer/shuttle_control/explore/tajara_mining_jack{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"kt" = (
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24;
-	req_access = list(202)
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"kA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"aR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/mob/living/simple_animal/hostile/republicon/ranged,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"be" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"br" = (
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 8;
+	target_pressure = 250
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"bu" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret/ballistic,
+/turf/simulated/floor/airless,
+/area/pra_satellite)
+"bw" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/command{
+	req_access = list(209);
+	name = "Bridge"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"by" = (
+/obj/structure/bed/stool/padded/red,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"bB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"bU" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/multi,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"cw" = (
+/obj/structure/table/standard,
+/obj/machinery/photocopier/faxmachine{
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(209);
+	dir = 4;
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"cG" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/smes/buildable/horizon_shuttle,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"da" = (
+/obj/structure/bed/roller,
+/obj/structure/curtain/open/medical,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"di" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"ds" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"du" = (
+/obj/structure/sign/flag/pra/left{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/mob/living/simple_animal/hostile/republicon,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"dB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"dT" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/mob/living/simple_animal/hostile/republicon/ranged,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"eg" = (
+/obj/structure/bed/stool/chair/sofa,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"eB" = (
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"eF" = (
+/obj/machinery/power/rtg/advanced,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"eL" = (
+/obj/machinery/computer/arcade/orion_trail,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"fm" = (
+/obj/structure/table/standard,
+/obj/item/material/ashtray/bronze,
+/obj/item/trash/cigbutt{
+	pixel_y = 7
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/flame/lighter/adhomai{
+	pixel_x = -7
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"fG" = (
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"fO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/black/full,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"fT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"fU" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"gb" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"gg" = (
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/turf/template_noop,
+/area/space)
+"gi" = (
+/obj/effect/floor_decal/corner/black/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"gq" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1;
 	icon_state = "map-supply"
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"kP" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_jack_base_belt";
-	layer = 2.9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"kR" = (
-/obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"kX" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window{
-	dir = 1;
-	req_access = list(202)
-	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/head/helmet/space/void/mining,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"lb" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "mining_jack_base_belt";
-	layer = 2.9
-	},
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/plating{
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/hangar)
-"lk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/machinery/meter,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"lo" = (
-/obj/structure/table/steel,
-/obj/item/plastique/seismic,
-/obj/item/plastique/seismic,
-/obj/item/plastique/seismic,
-/obj/item/plastique/seismic,
-/obj/item/plastique/seismic,
-/obj/item/plastique/seismic,
-/obj/item/plastique/seismic,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"lu" = (
-/obj/structure/closet/crate/miningcart,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"lG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"lL" = (
-/obj/structure/ore_box,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"lN" = (
-/obj/machinery/telecomms/allinone/ship,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/mining_jack/engines)
-"lT" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_jack_belt";
-	layer = 2.9
-	},
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"ma" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/area/pra_satellite)
+"gC" = (
+/obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"gY" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"hb" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration/army,
+/obj/item/storage/field_ration/army,
+/obj/item/storage/field_ration/nanotrasen,
+/obj/item/storage/field_ration/nanotrasen,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/quarters)
-"mb" = (
-/obj/structure/table/steel,
-/obj/item/shovel,
-/obj/item/shovel,
-/obj/item/shovel,
-/turf/simulated/floor/tiled/steel{
+/area/pra_satellite)
+"hl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/storage)
-"mk" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"mt" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/quarters)
-"mF" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
+/area/pra_satellite)
+"hD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
 	pixel_y = 0
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"mN" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 9
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"nb" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 6
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/shuttle/mining_jack/engines)
-"nn" = (
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
+/area/pra_satellite)
+"hM" = (
+/obj/structure/sign/flag/pra/right{
+	pixel_y = 32
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
-	req_access = list(202)
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"nz" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"oN" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/red,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"oP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/turf/simulated/floor/plating{
+/mob/living/simple_animal/hostile/republicon,
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/hangar)
-"oR" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
-	dir = 4
+/area/pra_satellite)
+"hP" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
-/turf/simulated/floor/plating{
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/shuttle/mining_jack/engines)
-"pc" = (
-/obj/structure/plasticflaps/mining,
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_jack_base_belt";
-	layer = 2.9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"pw" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window{
-	dir = 1;
-	req_access = list(202)
-	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/head/helmet/space/void/mining,
-/obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"py" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"pQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
-	},
+/area/pra_satellite)
+"hX" = (
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
-/turf/simulated/floor/plating{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/shuttle/mining_jack/engines)
-"qa" = (
-/obj/machinery/mineral/processing_unit_console{
+/area/pra_satellite)
+"iq" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "pump to waste"
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"iw" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"iE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner/black/full,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"iN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"iR" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"jb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"jp" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/red,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"jP" = (
+/obj/machinery/telecomms/allinone/ship,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"ks" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"kA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Sleeping Quarters"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"kP" = (
+/obj/machinery/vending/wallmed2{
+	req_access = null;
 	pixel_y = 28
 	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"qw" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/red{
-	dir = 1
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"qy" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
-	},
-/obj/machinery/light/small{
-	brightness_color = "#FA8282";
-	dir = 1
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "tajara_mining_jack";
-	name = "igs - tajara_mining_jack"
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"qA" = (
-/turf/unsimulated/wall/fakepdoor{
-	dir = 4
-	},
-/area/mining_jack_outpost/hangar)
-"qH" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	dir = 1
-	},
-/obj/machinery/meter,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"qP" = (
-/obj/machinery/conveyor_switch/oneway{
-	id = "mining_jack_base_belt"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"rl" = (
-/turf/space/transit/north,
-/area/space)
-"rr" = (
-/obj/effect/step_trigger/teleporter,
-/turf/space/transit/north,
-/area/space)
-"rs" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"rX" = (
-/obj/structure/table/steel,
-/obj/item/pickaxe/drill,
-/obj/item/pickaxe/drill,
-/obj/item/pickaxe/drill,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"sp" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
-	},
-/obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/shuttle/mining_jack/engines)
-"sI" = (
-/obj/machinery/atmospherics/pipe/manifold/visible,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"sJ" = (
-/obj/machinery/computer/ship/helm{
-	req_access = null;
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"sO" = (
-/obj/effect/landmark/entry_point/west{
-	name = "starboard, engine"
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/mining_jack/engines)
-"sW" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "mining_jack_bridge"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"tc" = (
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/mining_jack/bridge)
-"ts" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"tx" = (
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/structure/closet/toolcloset/empty,
-/obj/item/ore_detector,
-/obj/item/ore_detector,
-/obj/item/ore_detector,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"tJ" = (
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"tN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"uc" = (
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
-	req_access = list(202)
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/quarters)
-"ug" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"uj" = (
-/obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/miner,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"uw" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"uH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"vd" = (
-/obj/machinery/conveyor{
-	dir = 9;
-	id = "mining_jack_base_belt";
-	layer = 2.9;
-	reversed = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"ve" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"vn" = (
-/obj/machinery/atmospherics/pipe/tank{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"vy" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"vA" = (
-/obj/structure/bed/stool/chair/shuttle,
-/obj/effect/ghostspawpoint{
-	identifier = "tajara_mining_jack";
-	name = "igs - tajara_mining_jack"
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"vB" = (
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
-	req_access = list(202)
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"vF" = (
-/turf/simulated/wall/shuttle/raider,
-/area/mining_jack_outpost/atmos)
-"vP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/obj/machinery/light/small,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"wc" = (
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"wj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"wq" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"ww" = (
-/turf/simulated/wall/shuttle/raider,
-/area/mining_jack_outpost/hangar)
-"wx" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"wz" = (
-/obj/machinery/mineral/unloading_machine{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"wD" = (
-/obj/machinery/power/apc{
-	dir = 2;
-	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
-	req_access = list(202)
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"xi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"xK" = (
-/obj/machinery/shipsensors/weak,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/airless,
-/area/shuttle/mining_jack/bridge)
-"xL" = (
-/obj/effect/shuttle_landmark/tajara_mining_jack/nav1,
-/turf/template_noop,
-/area/space)
-"xN" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"yh" = (
-/turf/simulated/wall/shuttle/raider,
-/area/mining_jack_outpost/storage)
-"yj" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "mining_jack_base_belt";
-	layer = 2.9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"yk" = (
-/obj/item/pickaxe,
-/obj/item/pickaxe,
-/obj/structure/closet/toolcloset/empty,
-/obj/item/wrench,
-/obj/item/wrench,
-/obj/item/wrench,
-/obj/item/crowbar/red,
-/obj/item/crowbar/red,
-/obj/item/crowbar/red,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"yq" = (
-/obj/structure/ore_box,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"yr" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft engines, starboard"
-	},
-/turf/simulated/floor/airless,
-/area/shuttle/mining_jack/engines)
-"yF" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"yQ" = (
-/obj/effect/landmark/entry_point/east{
-	name = "port, engine"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"zh" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"zF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"zN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/glass_mining{
-	name = "Equipment Storage";
-	req_access = list(202)
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"zX" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/plating,
-/area/shuttle/mining_jack/engines)
-"Av" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"Az" = (
-/obj/machinery/conveyor_switch/oneway{
-	id = "mining_jack_base_belt"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"AA" = (
-/turf/simulated/wall/shuttle/raider,
-/area/mining_jack_outpost/smelter)
-"AS" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"AW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"AY" = (
-/turf/simulated/wall/shuttle/raider,
-/area/mining_jack_outpost/quarters)
-"Be" = (
-/obj/effect/map_effect/airlock/w_to_e/long/square,
-/turf/simulated/wall/shuttle/raider,
-/area/mining_jack_outpost/hangar)
-"Bu" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/alarm/cold{
-	dir = 4;
-	pixel_x = -32;
-	req_one_access = list(202)
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"Cl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"CD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"CM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"CN" = (
-/obj/structure/table/standard,
-/obj/machinery/button/remote/blast_door{
-	id = "mining_jack_bridge";
-	name = "Bridge Shutters";
-	req_access = list(202);
-	req_one_access = null;
-	dir = 1
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"CS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/hatch{
-	req_access = list(202);
-	name = "Atmospherics"
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"Dj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"Du" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"DN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/effect/overmap/visitable/ship/landable/tajara_mining_jack,
-/obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"DS" = (
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
-	},
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"Eb" = (
 /obj/machinery/alarm/cold{
 	dir = 8;
 	pixel_x = 32;
 	req_one_access = list(202)
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/storage)
-"Ec" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"ED" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"EE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/fuel_port/hydrogen{
+/area/pra_satellite)
+"kX" = (
+/obj/structure/closet/walllocker/medical/secure{
+	name = "O- Blood Locker";
+	req_access = list(209);
 	pixel_y = 32
 	},
-/turf/simulated/floor/plating{
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/shuttle/mining_jack/engines)
-"EO" = (
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"Fc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/area/pra_satellite)
+"lk" = (
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/glass_mining{
-	name = "Smelter";
-	req_access = list(202)
-	},
-/turf/simulated/floor/plating{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/smelter)
-"Fo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"FJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"FN" = (
-/obj/effect/step_trigger/teleporter,
-/turf/template_noop,
-/area/space)
-"Ga" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "tajara_mining_jack_hatch";
-	layer = 2.8;
-	name = "Ship External Access";
-	open_layer = 2.8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"Gq" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"Gu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 5
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"Gw" = (
-/obj/machinery/portable_atmospherics/canister/empty{
-	name = "waste canister"
-	},
-/obj/machinery/atmospherics/portables_connector{
+/area/pra_satellite)
+"lo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/plating{
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/atmos)
-"GK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"GU" = (
-/obj/effect/shuttle_landmark/automatic,
+/area/pra_satellite)
+"lu" = (
+/obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/space)
-"Hd" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/plating{
+"lL" = (
+/obj/machinery/power/rtg/advanced,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/hangar)
-"Hw" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+/area/pra_satellite)
+"lT" = (
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"ma" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"mb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"mk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Crew Area"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"mt" = (
+/obj/machinery/door/airlock/glass_medical{
+	req_access = list(209);
+	name = "Medbay"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/effect/overmap/visitable/sector/tajara_mining_jack,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/storage)
-"HE" = (
-/turf/simulated/floor/plating{
+/area/pra_satellite)
+"nn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 9
+	},
+/turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/atmos)
-"HL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+/area/pra_satellite)
+"nz" = (
+/obj/machinery/photocopier,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
 	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"ox" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/black,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"oP" = (
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"oR" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"pc" = (
+/obj/structure/bed/stool/chair/sofa/right,
+/obj/structure/sign/flag/pra/right{
+	dir = 8;
+	pixel_x = -32
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"po" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"pw" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"pR" = (
+/obj/effect/shuttle_landmark/pra_satellite/nav2,
+/turf/template_noop,
+/area/space)
+"qa" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"qw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/shuttle/mining_jack/engines)
-"Jd" = (
-/obj/machinery/meter,
+/area/pra_satellite)
+"qy" = (
+/obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"qA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"qH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/alarm/cold{
+	req_one_access = list(209);
+	dir = 4;
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"sc" = (
+/obj/effect/shuttle_landmark/pra_satellite/nav3,
+/turf/template_noop,
+/area/space)
+"sB" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"sI" = (
+/obj/structure/sign/painting_frame/hadii{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"sJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"sW" = (
+/obj/machinery/atmospherics/pipe/tank{
+	dir = 1
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"tc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"tx" = (
+/obj/item/hullbeacon/red,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/airless,
+/area/pra_satellite)
+"tJ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"ug" = (
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/atmos)
-"JL" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/drill,
-/turf/simulated/floor/tiled/steel{
+/area/pra_satellite)
+"uj" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/red{
+	dir = 8
+	},
+/turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/storage)
-"JU" = (
-/obj/machinery/door/airlock/hatch{
-	req_access = list(202);
-	name = "Bridge"
+/area/pra_satellite)
+"uw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/steel{
+/obj/effect/floor_decal/corner/red,
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/shuttle/mining_jack/bridge)
-"Km" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
+/area/pra_satellite)
+"vd" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
+/obj/item/storage/box/drinkingglasses,
+/obj/machinery/alarm/cold{
+	dir = 1;
+	pixel_y = -32;
+	req_one_access = list(209)
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/atmos)
-"Kn" = (
+/area/pra_satellite)
+"vy" = (
+/obj/machinery/vending/cigarette,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"vA" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/under/tajaran/cosmonaut,
+/obj/item/clothing/accessory/holster/hip,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/item/clothing/accessory/flagpatch/pra,
+/obj/machinery/alarm/cold{
+	req_one_access = list(209);
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"vB" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"vF" = (
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"wc" = (
+/turf/simulated/wall/shuttle/raider,
+/area/pra_satellite)
+"wg" = (
+/obj/structure/lattice,
 /turf/template_noop,
 /area/space)
-"Kz" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
+"wj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"ww" = (
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"wx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/black,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"wD" = (
+/obj/machinery/firealarm/south,
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"wU" = (
+/obj/structure/sign/flag/pra/right{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"yh" = (
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"ym" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/red{
+	dir = 9;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"yx" = (
+/obj/effect/floor_decal/corner/black/full,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"yE" = (
+/obj/structure/sign/flag/pra/left{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"yQ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"zh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"zF" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Ab" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner/black/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Av" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/plating{
+/obj/machinery/door/window{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/corner/black/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/atmos)
-"KQ" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
+/area/pra_satellite)
+"AA" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/shuttle/mining_jack/engines)
-"Lc" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/plating{
+/area/pra_satellite)
+"AS" = (
+/obj/machinery/atmospherics/pipe/tank/air,
+/turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/hangar)
-"Lo" = (
+/area/pra_satellite)
+"AT" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"AY" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/pra,
+/obj/item/clothing/head/helmet/space/void/pra,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Bt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/red,
+/obj/effect/floor_decal/corner/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Bu" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"CM" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = 5;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/food/drinks/bottle/victorygin{
+	pixel_y = 8;
+	pixel_x = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/obj/machinery/turretid{
+	req_access = list(209);
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"CS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 6
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"CW" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Dj" = (
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Eb" = (
+/obj/effect/map_effect/airlock/w_to_e/long/square,
+/turf/simulated/wall/shuttle/raider,
+/area/pra_satellite)
+"ED" = (
+/obj/effect/map_effect/airlock/e_to_w/long/square,
+/turf/simulated/wall/shuttle/raider,
+/area/pra_satellite)
+"Fc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Ff" = (
+/obj/effect/floor_decal/corner/black/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Fx" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"FB" = (
+/obj/machinery/light/small,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Ga" = (
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"Lw" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"LG" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"LT" = (
-/obj/machinery/cryopod{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/quarters)
-"Ma" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"Md" = (
-/obj/structure/table/steel,
-/obj/item/storage/toolbox/mechanical,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"Mg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
 	},
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/smelter)
-"ME" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 5
+/area/pra_satellite)
+"Gq" = (
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
 	},
-/turf/simulated/floor/plating{
+/obj/machinery/firealarm/west,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(209)
+	},
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/energy/rifle/icelance,
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/atmos)
-"Nh" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_jack_base_belt";
-	layer = 2.9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/railing/mapped,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/plating{
+/area/pra_satellite)
+"Gu" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/smelter)
-"Nv" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
-	dir = 1
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"NC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"NG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"NK" = (
+/area/pra_satellite)
+"Gw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 9
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"NO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/steel{
+/obj/machinery/light,
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/shuttle/mining_jack/bridge)
-"Oc" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	id = "mining_jack_bridge"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"Oo" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"OH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
+/area/pra_satellite)
+"Gy" = (
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 8
 	},
-/turf/simulated/floor/plating{
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/shuttle/mining_jack/engines)
-"PK" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/airless,
-/area/shuttle/mining_jack/engines)
-"PL" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
+/area/pra_satellite)
+"GK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"GU" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Hd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/effect/overmap/visitable/sector/pra_satellite,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"HE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"HQ" = (
+/obj/structure/sign/flag/pra/left{
+	dir = 8;
+	pixel_x = -32
+	},
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Jd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Jy" = (
+/obj/structure/sign/flag/pra/right{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"JL" = (
+/obj/structure/table/wood,
+/obj/item/book/manual/pra_manifesto,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Km" = (
+/obj/structure/bed/stool/chair/sofa/left,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Kn" = (
+/turf/template_noop,
+/area/space)
+"Lc" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Lo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Ly" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"LU" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Mg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"ME" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Nh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Nj" = (
+/obj/effect/floor_decal/corner/black/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"NK" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/high{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = list(209)
+	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"NO" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"OH" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"PQ" = (
+/obj/structure/sign/flag/pra/left{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Qi" = (
+/obj/effect/floor_decal/corner/black,
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Qk" = (
+/obj/machinery/atmospherics/binary/pump/on,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Qv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Rw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"RC" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"RO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"SX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/black/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"TQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"UF" = (
+/obj/effect/shuttle_landmark/pra_satellite/nav1,
+/turf/template_noop,
+/area/space)
+"Vh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Vn" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"VX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Wr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 10
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Wy" = (
+/obj/effect/floor_decal/corner/black,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"WM" = (
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/smelter)
-"Qk" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4;
-	name = "pump to waste"
-	},
-/turf/simulated/floor/plating{
+/area/pra_satellite)
+"WT" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/atmos)
-"Qp" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(202);
-	pixel_y = 32
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"QN" = (
-/obj/structure/table/standard,
-/obj/item/material/ashtray,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/quarters)
-"Rm" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading/yellow,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"Rw" = (
-/obj/machinery/suit_cycler/mining{
-	req_access = list(202)
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"Rz" = (
-/obj/structure/plasticflaps/mining,
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "mining_jack_cargo"
-	},
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_jack_belt";
-	layer = 2.9
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"Sa" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"SX" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"Tu" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1337;
-	id_tag = "tajara_mining_jack";
-	tag_door = "tajara_mining_jack_hatch";
-	pixel_x = 24
-	},
+/area/pra_satellite)
+"Xt" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/wood{
 	temperature = 278.15
 	},
-/area/shuttle/mining_jack/engines)
-"TQ" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"TS" = (
-/obj/machinery/computer/ship/engines{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"UJ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/quarters)
-"Vh" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"Vp" = (
-/obj/structure/table/steel,
-/obj/item/gun/custom_ka/frame01/prebuilt,
-/obj/item/gun/custom_ka/frame01/prebuilt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/storage)
-"VB" = (
-/obj/machinery/conveyor{
-	dir = 5;
-	id = "mining_jack_base_belt";
-	layer = 2.9;
-	reversed = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"VX" = (
-/obj/machinery/mineral/stacking_unit_console{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"Wd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/bridge)
-"Wr" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"Wy" = (
-/obj/effect/shuttle_landmark/tajara_mining_jack/nav2,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"WM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/machinery/meter,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"WT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"Xt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"XK" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/smelter)
-"Yd" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
-"Yj" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"Yt" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/hangar)
-"Yz" = (
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/shuttle/mining_jack/engines)
-"YF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
+/area/pra_satellite)
+"Ye" = (
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/glass_mining{
-	name = "Crew Quarters";
-	req_access = list(202)
-	},
-/turf/simulated/floor/tiled/steel{
+/obj/machinery/light,
+/turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/quarters)
-"YW" = (
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/mining_jack/engines)
-"Zg" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "mining_jack_belt";
-	layer = 2.9
+/area/pra_satellite)
+"Yj" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
 	},
-/obj/effect/floor_decal/industrial/warning/cee{
+/obj/machinery/power/terminal,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Yt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Yz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 9
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Zg" = (
+/obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/plating{
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/hangar)
+/area/pra_satellite)
 "Zp" = (
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating{
+/obj/machinery/door/airlock/engineering{
+	req_access = list(209);
+	name = "Power"
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/atmos)
+/area/pra_satellite)
+"Zr" = (
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
 "Zy" = (
-/obj/structure/table/steel,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/turf/simulated/floor/tiled/steel{
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/storage)
-"ZC" = (
-/obj/effect/shuttle_landmark/tajara_mining_jack/transit,
-/turf/space/transit/north,
-/area/space)
-"ZL" = (
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
+/area/pra_satellite)
+"ZV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24;
-	req_access = list(202)
-	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/mining_jack_outpost/hangar)
-"ZR" = (
-/obj/machinery/computer/cryopod{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/steel{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/quarters)
-"ZT" = (
-/obj/machinery/power/smes/buildable/horizon_shuttle,
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/mining_jack_outpost/atmos)
+/area/pra_satellite)
 "ZZ" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/engineering{
+	req_access = list(209);
+	name = "Atmospherics"
 	},
-/turf/simulated/floor/plating{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/shuttle/mining_jack/engines)
+/area/pra_satellite)
 
 (1,1,1) = {"
 Kn
@@ -2800,83 +2008,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-bS
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (2,1,1) = {"
 Kn
@@ -3057,83 +2265,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (3,1,1) = {"
 Kn
@@ -3314,83 +2522,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (4,1,1) = {"
 Kn
@@ -3571,83 +2779,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (5,1,1) = {"
 Kn
@@ -3828,83 +3036,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (6,1,1) = {"
 Kn
@@ -4085,83 +3293,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (7,1,1) = {"
 Kn
@@ -4342,83 +3550,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (8,1,1) = {"
 Kn
@@ -4599,83 +3807,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (9,1,1) = {"
 Kn
@@ -4856,83 +4064,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (10,1,1) = {"
 Kn
@@ -5113,83 +4321,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (11,1,1) = {"
 Kn
@@ -5370,83 +4578,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (12,1,1) = {"
 Kn
@@ -5627,83 +4835,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (13,1,1) = {"
 Kn
@@ -5884,83 +5092,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (14,1,1) = {"
 Kn
@@ -6141,83 +5349,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-bS
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (15,1,1) = {"
 Kn
@@ -6398,83 +5606,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (16,1,1) = {"
 Kn
@@ -6655,83 +5863,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (17,1,1) = {"
 Kn
@@ -6912,83 +6120,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (18,1,1) = {"
 Kn
@@ -7169,83 +6377,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (19,1,1) = {"
 Kn
@@ -7426,83 +6634,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (20,1,1) = {"
 Kn
@@ -7683,83 +6891,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (21,1,1) = {"
 Kn
@@ -7940,83 +7148,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (22,1,1) = {"
 Kn
@@ -8197,83 +7405,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (23,1,1) = {"
 Kn
@@ -8454,83 +7662,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (24,1,1) = {"
 Kn
@@ -8711,83 +7919,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (25,1,1) = {"
 Kn
@@ -8968,83 +8176,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (26,1,1) = {"
 Kn
@@ -9225,83 +8433,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (27,1,1) = {"
 Kn
@@ -9482,83 +8690,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (28,1,1) = {"
 Kn
@@ -9739,83 +8947,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (29,1,1) = {"
 Kn
@@ -9996,83 +9204,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (30,1,1) = {"
 Kn
@@ -10253,83 +9461,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (31,1,1) = {"
 Kn
@@ -10510,83 +9718,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (32,1,1) = {"
 Kn
@@ -10767,83 +9975,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (33,1,1) = {"
 Kn
@@ -11024,83 +10232,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (34,1,1) = {"
 Kn
@@ -11281,83 +10489,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (35,1,1) = {"
 Kn
@@ -11538,83 +10746,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (36,1,1) = {"
 Kn
@@ -11795,83 +11003,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (37,1,1) = {"
 Kn
@@ -12052,83 +11260,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (38,1,1) = {"
 Kn
@@ -12309,83 +11517,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (39,1,1) = {"
 Kn
@@ -12566,83 +11774,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (40,1,1) = {"
 Kn
@@ -12823,83 +12031,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (41,1,1) = {"
 Kn
@@ -13080,83 +12288,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (42,1,1) = {"
 Kn
@@ -13337,83 +12545,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (43,1,1) = {"
 Kn
@@ -13594,83 +12802,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (44,1,1) = {"
 Kn
@@ -13851,83 +13059,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (45,1,1) = {"
 Kn
@@ -14108,83 +13316,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-ZC
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (46,1,1) = {"
 Kn
@@ -14365,83 +13573,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (47,1,1) = {"
 Kn
@@ -14622,83 +13830,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (48,1,1) = {"
 Kn
@@ -14879,83 +14087,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (49,1,1) = {"
 Kn
@@ -15136,83 +14344,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (50,1,1) = {"
 Kn
@@ -15393,83 +14601,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (51,1,1) = {"
 Kn
@@ -15650,83 +14858,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (52,1,1) = {"
 Kn
@@ -15907,83 +15115,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (53,1,1) = {"
 Kn
@@ -16164,83 +15372,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (54,1,1) = {"
 Kn
@@ -16421,83 +15629,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (55,1,1) = {"
 Kn
@@ -16678,83 +15886,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (56,1,1) = {"
 Kn
@@ -16935,83 +16143,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-bS
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-bS
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (57,1,1) = {"
 Kn
@@ -17192,83 +16400,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (58,1,1) = {"
 Kn
@@ -17449,83 +16657,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (59,1,1) = {"
 Kn
@@ -17706,83 +16914,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (60,1,1) = {"
 Kn
@@ -17963,83 +17171,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (61,1,1) = {"
 Kn
@@ -18220,83 +17428,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (62,1,1) = {"
 Kn
@@ -18477,83 +17685,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (63,1,1) = {"
 Kn
@@ -18734,83 +17942,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (64,1,1) = {"
 Kn
@@ -18991,83 +18199,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (65,1,1) = {"
 Kn
@@ -19248,83 +18456,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (66,1,1) = {"
 Kn
@@ -19505,83 +18713,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (67,1,1) = {"
 Kn
@@ -19762,83 +18970,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (68,1,1) = {"
 Kn
@@ -20019,83 +19227,83 @@ Kn
 Kn
 Kn
 Kn
-FN
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-bS
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 "}
 (69,1,1) = {"
 Kn
@@ -20209,7 +19417,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+pR
 Kn
 Kn
 Kn
@@ -23288,6 +22496,7 @@ Kn
 Kn
 Kn
 Kn
+tx
 Kn
 Kn
 Kn
@@ -23307,8 +22516,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+tx
 Kn
 Kn
 Kn
@@ -23545,6 +22753,7 @@ Kn
 Kn
 Kn
 Kn
+lu
 Kn
 Kn
 Kn
@@ -23564,8 +22773,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -23802,6 +23010,7 @@ Kn
 Kn
 Kn
 Kn
+lu
 Kn
 Kn
 Kn
@@ -23821,8 +23030,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -24059,6 +23267,7 @@ Kn
 Kn
 Kn
 Kn
+lu
 Kn
 Kn
 Kn
@@ -24078,8 +23287,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -24316,6 +23524,7 @@ Kn
 Kn
 Kn
 Kn
+lu
 Kn
 Kn
 Kn
@@ -24335,8 +23544,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -24573,6 +23781,7 @@ Kn
 Kn
 Kn
 Kn
+lu
 Kn
 Kn
 Kn
@@ -24592,8 +23801,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -24830,6 +24038,7 @@ Kn
 Kn
 Kn
 Kn
+lu
 Kn
 Kn
 Kn
@@ -24849,8 +24058,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -25087,6 +24295,7 @@ Kn
 Kn
 Kn
 Kn
+lu
 Kn
 Kn
 Kn
@@ -25106,8 +24315,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -25337,42 +24545,42 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
 Kn
 Kn
 Kn
@@ -25594,6 +24802,8 @@ Kn
 Kn
 Kn
 Kn
+lu
+bu
 Kn
 Kn
 Kn
@@ -25612,6 +24822,8 @@ Kn
 Kn
 Kn
 Kn
+lu
+lu
 Kn
 Kn
 Kn
@@ -25624,12 +24836,8 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+bu
+lu
 Kn
 Kn
 Kn
@@ -25851,6 +25059,7 @@ Kn
 Kn
 Kn
 Kn
+lu
 Kn
 Kn
 Kn
@@ -25870,6 +25079,8 @@ Kn
 Kn
 Kn
 Kn
+lu
+lu
 Kn
 Kn
 Kn
@@ -25883,10 +25094,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -26108,6 +25316,7 @@ Kn
 Kn
 Kn
 Kn
+lu
 Kn
 Kn
 Kn
@@ -26127,6 +25336,8 @@ Kn
 Kn
 Kn
 Kn
+lu
+lu
 Kn
 Kn
 Kn
@@ -26140,10 +25351,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -26365,6 +25573,28 @@ Kn
 Kn
 Kn
 Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
+lu
 Kn
 Kn
 Kn
@@ -26378,29 +25608,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -26615,6 +25823,36 @@ Kn
 Kn
 Kn
 Kn
+tx
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+wc
+wc
+wc
+wc
+wc
+wc
+wc
+wc
+wc
+wc
+wc
+Kn
+wc
+ww
+ww
+ED
 Kn
 Kn
 Kn
@@ -26627,45 +25865,15 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+tx
 Kn
 Kn
 Kn
@@ -26879,6 +26087,29 @@ Kn
 Kn
 Kn
 Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+wc
+eF
+eF
+eF
+Yj
+cG
+wc
+Dj
+aE
+da
+wc
+Kn
+wc
+ww
+ww
+wc
 Kn
 Kn
 Kn
@@ -26891,30 +26122,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -27136,6 +26344,29 @@ Kn
 Kn
 Kn
 Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+wc
+Ga
+Ga
+Ga
+WM
+Ye
+wc
+kX
+Mg
+ma
+wc
+Kn
+wc
+ww
+FB
+wc
 Kn
 Kn
 Kn
@@ -27148,30 +26379,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -27393,6 +26601,34 @@ Kn
 Kn
 Kn
 Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+wc
+lL
+lL
+lL
+ww
+zF
+wc
+kP
+zh
+Gu
+wc
+Kn
+wc
+ww
+ww
+wc
+Kn
+Kn
+Kn
+Kn
+bu
 Kn
 Kn
 Kn
@@ -27400,35 +26636,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -27650,6 +26858,34 @@ Kn
 Kn
 Kn
 Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+wc
+wc
+wc
+wc
+wc
+Zp
+wc
+wc
+mt
+wc
+wc
+wc
+wc
+gi
+fO
+wc
+wc
+wc
+wc
+wc
+wc
 Kn
 Kn
 Kn
@@ -27657,35 +26893,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -27907,6 +27115,34 @@ Kn
 Kn
 Kn
 Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+gb
+bU
+by
+vA
+wc
+ug
+ZV
+lo
+ds
+yQ
+yQ
+Lc
+pw
+AT
+Rw
+iN
+po
+qH
+iE
+oR
+wc
 Kn
 Kn
 Kn
@@ -27914,35 +27150,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -28164,6 +27372,34 @@ Kn
 Kn
 Kn
 Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+gb
+JL
+fG
+Nh
+wc
+aO
+Wy
+gC
+tc
+RO
+RO
+Bt
+Fc
+Fc
+Fc
+Fc
+Fc
+hP
+Fx
+yx
+wc
 Kn
 Kn
 Kn
@@ -28171,35 +27407,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -28421,6 +27629,34 @@ Kn
 Kn
 Kn
 Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+wc
+vB
+Vh
+Jd
+kA
+aN
+AA
+wc
+wc
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+wc
+wc
+PQ
+aK
+wc
 Kn
 Kn
 Kn
@@ -28428,35 +27664,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -28678,6 +27886,34 @@ Kn
 Kn
 Kn
 Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+wc
+ME
+Xt
+AY
+wc
+dT
+AA
+wc
+Kn
+wg
+Kn
+wg
+Kn
+Kn
+wg
+Kn
+Kn
+wc
+hM
+AA
+wc
 Kn
 Kn
 Kn
@@ -28685,35 +27921,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -28935,42 +28143,42 @@ Kn
 Kn
 Kn
 Kn
+lu
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
+wc
+wc
+wc
+wc
+wc
+aO
+yE
+wc
+wg
+wg
+wg
+wc
+gb
+gb
+wc
+Kn
+Kn
+gb
+iR
+wD
+wc
+bu
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -29192,42 +28400,42 @@ Kn
 Kn
 Kn
 Kn
+lu
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
+wc
+pc
+HQ
+hD
+mk
+aN
+wU
+wc
+Kn
+wg
+wc
+wc
+be
+eB
+wc
+wc
+wg
+gb
+iR
+aK
+wc
+wc
+wc
+wc
+aa
+gg
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -29448,43 +28656,43 @@ Kn
 Kn
 Kn
 Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+gb
+eg
 vF
-vF
-vF
-vF
-vF
-vF
-vF
-vF
-vF
-vF
-vF
-vF
+dB
+wc
+aO
+AA
+wc
+gb
+gb
+wc
+Gq
+LU
+Yt
+cw
+gb
+Kn
+gb
+iR
+fU
+yx
+wc
+Ly
+ww
+wc
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -29705,44 +28913,44 @@ Kn
 Kn
 Kn
 Kn
+bu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+gb
+Km
 vF
-ZT
-kR
-Ma
-vF
-Km
-Vh
-Km
-Vh
-Km
-Km
-vF
+TQ
+wc
+gq
+Vn
+bw
+lk
+Gy
+bw
+hX
+Hd
+qy
+oP
+gb
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+gb
+iR
+Zr
+Qv
+ww
+ww
+ww
+ww
+lu
+lu
+lu
+lu
+bu
 Kn
 Kn
 Kn
@@ -29956,49 +29164,49 @@ Kn
 Kn
 Kn
 Kn
-vF
-vF
-vF
-vF
-vF
-vF
-vF
-Zp
-HE
-eF
-fO
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 gb
-gb
-gb
-gb
-gb
+fm
 jb
-vF
+Gw
+wc
+GK
+AA
+wc
+gb
+gb
+wc
+NK
+di
+uw
+CM
+gb
+Kn
+gb
+iR
+Wy
+Av
+wc
+ww
+ww
+wc
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -30208,54 +29416,54 @@ Kn
 Kn
 Kn
 Kn
-AY
-AY
-AY
-AY
-AY
-vF
-Gq
-Lo
-Bu
-aH
-wq
-wq
-Wr
-HE
-EO
-vF
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+gb
 vy
+yh
+hb
+wc
+GK
+AA
+wc
+Kn
+wg
+wc
+wc
+nz
 gY
-vy
-gY
-vy
-vy
-vF
+wc
+wc
+wg
+gb
+iR
+aK
+wc
+wc
+wc
+wc
+wc
+gg
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -30465,29 +29673,6 @@ Kn
 Kn
 Kn
 Kn
-AY
-LT
-iq
-uc
-aO
-vF
-Sa
-tN
-ve
-Oo
-zF
-in
-lk
-Gu
-Qk
-vF
-vF
-vF
-vF
-vF
-vF
-vF
-vF
 Kn
 Kn
 Kn
@@ -30500,19 +29685,42 @@ Kn
 Kn
 Kn
 Kn
+lu
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
+wc
+eL
+sI
+vd
+wc
+GK
+yE
+wc
+wg
+wg
+wg
+wc
+gb
+gb
+wc
+Kn
+Kn
+gb
+iR
+AA
+wc
+bu
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -30722,22 +29930,54 @@ Kn
 Kn
 Kn
 Kn
-AY
-ZR
-fm
-mt
-QN
-vF
-eL
-Jd
-Kz
-CD
-nz
-nz
-ME
-qw
-oN
-vF
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+wc
+wc
+wc
+wc
+wc
+GK
+wU
+wc
+Kn
+wg
+Kn
+wg
+Kn
+Kn
+wg
+Kn
+Kn
+wc
+du
+AA
+wc
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
 Kn
 Kn
 Kn
@@ -30757,39 +29997,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+sc
 Kn
 Kn
 Kn
@@ -30979,22 +30187,6 @@ Kn
 Kn
 Kn
 Kn
-AY
-cG
-gu
-ma
-UJ
-CS
-lG
-ED
-wx
-nn
-Yd
-Yd
-gn
-vn
-Gw
-vF
 Kn
 Kn
 Kn
@@ -31007,6 +30199,34 @@ Kn
 Kn
 Kn
 Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+wc
+jP
+ww
+ww
+wc
+aR
+AA
+wc
+wc
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+wc
+wc
+Jy
+aK
+wc
 Kn
 Kn
 Kn
@@ -31014,19 +30234,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -31236,24 +30444,46 @@ Kn
 Kn
 Kn
 Kn
-AY
-AY
-AY
-YF
-AY
-vF
-vF
-vF
-vF
-vF
-vF
-vF
-vF
-vF
-vF
-vF
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+wc
 ww
-ww
+wj
+mb
+ZZ
+tJ
+ks
+VX
+VX
+VX
+VX
+HE
+ym
+ym
+ym
+ym
+ym
+qa
+Qi
+Nj
+wc
 Kn
 Kn
 Kn
@@ -31261,29 +30491,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -31493,24 +30701,46 @@ Kn
 Kn
 Kn
 Kn
-yh
-mb
-vB
-wj
-lo
-yh
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 wc
-wc
-AS
-wc
-wc
-wc
-wc
-wc
-AS
-dB
-dB
 ww
+br
+sJ
+wc
+sB
+CW
+RC
+CW
+CW
+GU
+ox
+Zg
+iw
+wx
+Lo
+bB
+bB
+Ab
+aH
+wc
 Kn
 Kn
 Kn
@@ -31518,29 +30748,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -31750,24 +30958,46 @@ Kn
 Kn
 Kn
 Kn
-yh
-Zy
-tJ
-FJ
-fv
-yh
-wc
-wc
-wc
-wc
-wc
-wc
-wc
-wc
-wc
-wc
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 wc
 ww
+Zy
+fT
+wc
+wc
+wc
+wc
+wc
+wc
+wc
+wc
+wc
+Ff
+SX
+wc
+wc
+wc
+wc
+wc
+wc
 Kn
 Kn
 Kn
@@ -31775,29 +31005,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -32007,30 +31215,46 @@ Kn
 Kn
 Kn
 Kn
-yh
-rX
-tJ
-Hw
-Vp
-yh
-eB
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 wc
-YW
-YW
-YW
-YW
-yQ
-YW
-jP
+AS
+OH
+fT
+ww
+ww
+Bu
+ww
+CS
+sW
 wc
+Kn
 wc
 ww
 ww
-ww
-ww
-ww
-ww
-ww
+Eb
+Kn
+Kn
+Kn
+Kn
+bu
 Kn
 Kn
 Kn
@@ -32038,23 +31262,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -32250,7 +31458,6 @@ Kn
 Kn
 Kn
 Kn
-ds
 Kn
 Kn
 Kn
@@ -32264,30 +31471,42 @@ Kn
 Kn
 Kn
 Kn
-yh
-ea
-tJ
-FJ
-dT
-yh
-wc
-wc
-PK
-vP
-YW
-Yz
-Yz
-Yz
-YW
-wc
-wc
-wc
-wc
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 wc
 AS
-wc
-wc
+OH
+qw
 qA
+hl
+Qk
+uj
+jp
+ww
+wc
+Kn
+wc
+ww
+FB
+wc
 Kn
 Kn
 Kn
@@ -32300,18 +31519,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -32521,30 +31729,41 @@ Kn
 Kn
 Kn
 Kn
-yh
-JL
-tJ
-kA
-yk
-yh
-xN
-oP
-yr
-sI
-YW
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+wc
+WT
 Yz
-Yz
-Yj
-YW
+ww
+ww
+lT
+iq
+nn
+Wr
+NO
 wc
+Kn
 wc
+ww
+ww
 wc
-wc
-wc
-wc
-wc
-wc
-qA
 Kn
 Kn
 Kn
@@ -32557,18 +31776,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -32778,30 +31986,41 @@ Kn
 Kn
 Kn
 Kn
-yh
-SX
-Eb
-FJ
+Kn
+Kn
+Kn
+Kn
 tx
-yh
-eB
-NK
-YW
-WM
-YW
-YW
-Yz
-YW
-YW
-YW
-tc
-Oc
-aR
-xK
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 wc
 wc
 wc
-qA
+wc
+wc
+wc
+wc
+wc
+wc
+wc
+wc
+Kn
+wc
+ww
+ww
+wc
 Kn
 Kn
 Kn
@@ -32814,26 +32033,15 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+tx
 Kn
 Kn
 Kn
@@ -33035,30 +32243,40 @@ Kn
 Kn
 Kn
 Kn
-yh
-yh
-yh
-zN
-yh
-yh
-wc
-NK
-YW
-ZZ
-fG
-DS
-Xt
-Yz
-TQ
-zX
-tc
-gI
-tc
-tc
-wc
-wc
-wc
-qA
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
+lu
 Kn
 Kn
 Kn
@@ -33072,17 +32290,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
 Kn
 Kn
 Kn
@@ -33292,30 +32500,19 @@ Kn
 Kn
 Kn
 Kn
-AA
-bU
-br
-AW
-kX
-AA
-Qp
-NK
-YW
-EE
-ZZ
-Yz
-Yz
-Yz
-qH
-mN
-tc
-iE
-cq
-tc
-tc
-tc
-wc
-qA
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
 Kn
 Kn
 Kn
@@ -33335,11 +32532,22 @@ Kn
 Kn
 Kn
 Kn
+lu
+lu
 Kn
 Kn
 Kn
 Kn
 Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
 Kn
 Kn
 Kn
@@ -33548,31 +32756,20 @@ Kn
 Kn
 Kn
 Kn
-AA
-AA
-da
-br
-AW
-pw
-AA
-wc
-NK
-YW
-mk
-hb
-Nv
-Fo
-Du
-oR
-hi
-tc
-aN
-Wd
-gd
-jV
-sW
-wc
-qA
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
 Kn
 Kn
 Kn
@@ -33592,11 +32789,22 @@ Kn
 Kn
 Kn
 Kn
+lu
+lu
 Kn
 Kn
 Kn
 Kn
 Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
 Kn
 Kn
 Kn
@@ -33805,31 +33013,21 @@ Kn
 Kn
 Kn
 Kn
-AA
-lL
-br
-br
-AW
-kX
-AA
-Lc
-GK
-YW
-YW
-KQ
-Av
-nb
-OH
-aE
-ug
-JU
-xi
-DN
-vA
-sJ
-sW
-wc
-qA
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
+bu
 Kn
 Kn
 Kn
@@ -33848,12 +33046,22 @@ Kn
 Kn
 Kn
 Kn
+lu
+lu
 Kn
 Kn
 Kn
 Kn
 Kn
 Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+bu
+lu
 Kn
 Kn
 Kn
@@ -34062,31 +33270,6 @@ Kn
 Kn
 Kn
 Kn
-AA
-yq
-br
-br
-AW
-Rw
-AA
-wc
-Ec
-YW
-yF
-hl
-Yz
-HL
-pQ
-Cl
-uH
-tc
-am
-NO
-CN
-eX
-sW
-wc
-qA
 Kn
 Kn
 Kn
@@ -34100,17 +33283,42 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
+lu
 Kn
 Kn
 Kn
@@ -34319,31 +33527,6 @@ Kn
 Kn
 Kn
 Kn
-AA
-lL
-br
-br
-AW
-gq
-AA
-eB
-Ec
-YW
-aQ
-mF
-df
-Dj
-wD
-YW
-sp
-tc
-qy
-by
-tc
-tc
-tc
-wc
-qA
 Kn
 Kn
 Kn
@@ -34360,6 +33543,31 @@ Kn
 Kn
 Kn
 Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
 Kn
 Kn
 Kn
@@ -34576,31 +33784,6 @@ Kn
 Kn
 Kn
 Kn
-AA
-AA
-AA
-kt
-PL
-jp
-AA
-Md
-Ec
-YW
-Lw
-Tu
-iR
-iN
-lT
-YW
-lN
-tc
-TS
-tc
-tc
-wc
-wc
-wc
-qA
 Kn
 Kn
 Kn
@@ -34617,6 +33800,31 @@ Kn
 Kn
 Kn
 Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
 Kn
 Kn
 Kn
@@ -34833,31 +34041,6 @@ Kn
 Kn
 Kn
 Kn
-XK
-hD
-aa
-Rm
-AW
-py
-AA
-uj
-Ec
-YW
-WM
-YW
-Ga
-YW
-Rz
-sO
-YW
-tc
-Oc
-fh
-be
-wc
-wc
-wc
-qA
 Kn
 Kn
 Kn
@@ -34874,6 +34057,31 @@ Kn
 Kn
 Kn
 Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
 Kn
 Kn
 Kn
@@ -35090,31 +34298,6 @@ Kn
 Kn
 Kn
 Kn
-XK
-hg
-AA
-VX
-AW
-uw
-AA
-wc
-Ec
-bw
-sI
-YW
-bl
-wc
-Zg
-wc
-wc
-wc
-wc
-wc
-wc
-wc
-wc
-wc
-qA
 Kn
 Kn
 Kn
@@ -35131,6 +34314,31 @@ Kn
 Kn
 Kn
 Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
 Kn
 Kn
 Kn
@@ -35347,47 +34555,47 @@ Kn
 Kn
 Kn
 Kn
-XK
-eg
-br
-br
-AW
-br
-AA
-eB
-Ec
-PK
-fT
-YW
-ts
-wc
-Yt
-wc
-wc
-wc
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 lu
-lu
-LG
-wc
-wc
-qA
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
 Kn
 Kn
 Kn
@@ -35604,31 +34812,6 @@ Kn
 Kn
 Kn
 Kn
-XK
-Nh
-br
-br
-Mg
-WT
-Fc
-CM
-cw
-YW
-YW
-YW
-ts
-wc
-wz
-wc
-wc
-aK
-ww
-ww
-ww
-ww
-ww
-ww
-ww
 Kn
 Kn
 Kn
@@ -35645,6 +34828,31 @@ Kn
 Kn
 Kn
 Kn
+Kn
+Kn
+Kn
+Kn
+lu
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
 Kn
 Kn
 Kn
@@ -35861,26 +35069,6 @@ Kn
 Kn
 Kn
 Kn
-XK
-eg
-AA
-qa
-hP
-qP
-AA
-ZL
-rs
-et
-et
-et
-zh
-Az
-lb
-wc
-wc
-NG
-eZ
-ww
 Kn
 Kn
 Kn
@@ -35901,7 +35089,27 @@ Kn
 Kn
 Kn
 Kn
+lu
 Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+lu
 Kn
 Kn
 Kn
@@ -36118,26 +35326,6 @@ Kn
 Kn
 Kn
 Kn
-XK
-vd
-ig
-kP
-hX
-kP
-pc
-dm
-dm
-yj
-dm
-dm
-dm
-dm
-VB
-LG
-wc
-NC
-ww
-ww
 Kn
 Kn
 Kn
@@ -36158,7 +35346,27 @@ Kn
 Kn
 Kn
 Kn
+tx
 Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+tx
 Kn
 Kn
 Kn
@@ -36375,25 +35583,25 @@ Kn
 Kn
 Kn
 Kn
-AA
-XK
-XK
-XK
-XK
-XK
-AA
-ww
-ww
-ww
-ww
-ww
-ww
-ww
-ww
-ww
-wc
-NC
-ww
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -36647,10 +35855,10 @@ Kn
 Kn
 Kn
 Kn
-ww
-wc
-wc
-Be
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -36904,10 +36112,10 @@ Kn
 Kn
 Kn
 Kn
-ww
-wc
-wc
-ww
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -37161,10 +36369,10 @@ Kn
 Kn
 Kn
 Kn
-ww
-wc
-Hd
-ww
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -37418,10 +36626,10 @@ Kn
 Kn
 Kn
 Kn
-ww
-Wy
-wc
-ww
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn
@@ -39731,7 +38939,7 @@ Kn
 Kn
 Kn
 Kn
-xL
+Kn
 Kn
 Kn
 Kn
@@ -41291,7 +40499,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+UF
 Kn
 Kn
 Kn
@@ -47003,7 +46211,7 @@ Kn
 Kn
 Kn
 Kn
-GU
+Kn
 Kn
 Kn
 Kn
