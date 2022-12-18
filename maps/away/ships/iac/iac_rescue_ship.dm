@@ -64,8 +64,8 @@
 	name = "IAC Rescue Ship"
 	class = "IAV"
 	desc = "The Sanctuary-class rescue ship is a fast response medical vessel, based in large part off of the Asclepius-class medical transport, a widespread clinic ship, designed to operate mainly between planets rather than in open space. Most Sanctuary-class hulls are heavily refitted to accomodate for the new conditions in the Wildlands, sporting additional thrusters and a hangar bay, created from what was originally a waiting room. However, it is still limited by its origins, having only the bare minimum of crew and atmospherics facilities, as well as being rather obviously unarmed, often needing to return to port for repairs or supplies."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship"
+	moving_state = "ship_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -78,7 +78,10 @@
 
 	initial_generic_waypoints = list(
 		"nav_iac_rescue_ship_1",
-		"nav_iac_rescue_ship_2"
+		"nav_iac_rescue_ship_2",
+		"nav_iac_rescue_ship_3",
+		"nav_iac_rescue_ship_4",
+		"nav_iac_rescue_ship_5"
 
 	)
 
