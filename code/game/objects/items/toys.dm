@@ -1210,7 +1210,7 @@
 /obj/item/chess_piece
 	name = "white pawn"
 	desc = "A %NAME% chess piece, this one is worth %POINT% points."
-	icon = 'icons/obj/contained_items/misc/chess.dmi'
+	icon = 'icons/obj/item/chess.dmi'
 	icon_state = "white_pawn"
 	w_class = ITEMSIZE_HUGE // hugh mungus
 	var/piece_worth = 1

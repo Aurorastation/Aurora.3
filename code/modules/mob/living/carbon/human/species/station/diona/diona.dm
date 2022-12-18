@@ -152,7 +152,7 @@
 	var/obj/item/organ/external/O = H.organs_by_name[BP_HEAD]
 	if(O.is_stump())
 		message_range = 3
-		. = TRUE
+		return list(HSP_MSGRANGE = message_range)
 
 /datum/species/diona/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
 	current_flags = ..()
