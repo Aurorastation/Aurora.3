@@ -166,7 +166,7 @@
 
 	docking_controller = "iac_shuttle_dock"
 
-	base_area = /area/ship/iac_rescue_ship
+	base_area = /area/ship/iac_rescue_ship/hangar
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
