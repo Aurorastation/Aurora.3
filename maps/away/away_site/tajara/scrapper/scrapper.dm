@@ -73,8 +73,6 @@
 	dock_target = "tajara_scrapper"
 	current_location = "nav_hangar_tajara_scrapper"
 	landmark_transition = "nav_transit_tajara_scrapper"
-	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_tajara_scrapper"
