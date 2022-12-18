@@ -9,6 +9,17 @@
 	item_icons = null
 	contained_sprite = TRUE
 
+	var/overlay_logo
+
+/obj/item/clothing/under/color/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(overlay_logo && slot == slot_w_uniform_str)
+		var/suffix = rolled_down ? "_d" : rolled_sleeves ? "_r" : ""
+		var/image/overlay_logo_image = image(mob_icon, null, overlay_logo + suffix, human ? human.layer + 0.01 : MOB_LAYER + 0.01)
+		overlay_logo_image.appearance_flags = RESET_COLOR
+		I.add_overlay(overlay_logo_image)
+	return I
+
 /obj/item/clothing/under/color/colorable
 	name = "colorable jumpsuit"
 	desc = "A colorable non-descript jumpsuit."

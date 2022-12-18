@@ -17,6 +17,10 @@
 
 /datum/gear/uniform/jumpsuit/New()
 	..()
+	gear_tweaks += list(gear_tweak_jumpsuit_overlay)
+
+/datum/gear/uniform/jumpsuit/New()
+	..()
 	var/list/jumpsuit = list()
 	jumpsuit["black jumpsuit"] = /obj/item/clothing/under/color/black
 	jumpsuit["grey jumpsuit"] = /obj/item/clothing/under/color/grey
@@ -44,6 +48,10 @@
 	display_name = "jumpsuit (recolorable)"
 	path = /obj/item/clothing/under/color/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/uniform/colorjumpsuit/New()
+	..()
+	gear_tweaks += list(gear_tweak_jumpsuit_overlay)
 
 /datum/gear/uniform/skirt
 	display_name = "skirt selection"
@@ -394,3 +402,22 @@
 	fetil_dress["fetil dress, red flairs"] = /obj/item/clothing/under/antillean
 	fetil_dress["fetil dress, gold flairs"] = /obj/item/clothing/under/antillean/goldflair
 	gear_tweaks += new /datum/gear_tweak/path(fetil_dress)
+
+/*
+	Jumpsuit Overlay Adder
+*/
+var/datum/gear_tweak/jumpsuit_overlay/gear_tweak_jumpsuit_overlay = new()
+
+/datum/gear_tweak/jumpsuit_overlay/get_contents(var/metadata)
+	return "Logo: [metadata]"
+
+/datum/gear_tweak/jumpsuit_overlay/get_default()
+	return "None"
+
+/datum/gear_tweak/jumpsuit_overlay/get_metadata(var/user, var/metadata)
+	return input(user, "Choose which logo you want to display on the back of your jumpsuit.", "Jumpsuit Logo", metadata) as anything in list("None", "Example")
+
+/datum/gear_tweak/jumpsuit_overlay/tweak_item(var/obj/item/clothing/under/color/jumpsuit, var/metadata)
+	if(!istype(jumpsuit))
+		return
+	jumpsuit.overlay_logo = metadata == "None" ? null : metadata
