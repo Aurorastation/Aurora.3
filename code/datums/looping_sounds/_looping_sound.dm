@@ -16,7 +16,7 @@
 */
 
 /datum/looping_sound
-	var/list/atom/output_atoms
+	var/list/atom/output_atoms = list()
 	var/mid_sounds
 	var/mid_length
 	var/start_volume
@@ -39,7 +39,7 @@
 		WARNING("A looping sound datum was created without sounds to play.")
 		return
 
-	output_atoms = _output_atoms
+	output_atoms |= _output_atoms
 	direct = _direct
 
 	if(start_immediately)
