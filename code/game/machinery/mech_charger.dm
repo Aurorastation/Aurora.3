@@ -12,7 +12,7 @@
 	var/mob/living/heavy_vehicle/charging
 	var/base_charge_rate = 90000
 	var/repair_power_usage = 15000		// Per 1 HP of health.
-	var/repair = 0
+	var/repair = FALSE
 	var/charge
 
 	component_types = list(
