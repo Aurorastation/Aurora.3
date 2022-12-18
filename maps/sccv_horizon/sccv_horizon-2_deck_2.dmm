@@ -635,15 +635,8 @@
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "aqo" = (
-/obj/machinery/light,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/wall/r_wall,
 /area/engineering/aft_airlock)
 "aqR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -855,8 +848,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard/far)
 "atK" = (
-/turf/simulated/floor/tiled/dark,
-/area/engineering/aft_airlock)
+/obj/structure/sign/electricshock/tesla{
+	pixel_x = -32
+	},
+/obj/structure/table/steel,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/light/spot/weak{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/tesla)
 "atQ" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -6149,9 +6152,6 @@
 /obj/structure/sign/vacuum{
 	pixel_y = 32
 	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
 "cZw" = (
@@ -6727,13 +6727,10 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "dnZ" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -22315,14 +22312,14 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
@@ -22675,7 +22672,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
 "llI" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/power/apc/low{
+	dir = 4;
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
 "lmf" = (
@@ -22854,7 +22860,7 @@
 	dir = 9
 	},
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
@@ -22866,11 +22872,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "lrD" = (
-/obj/effect/floor_decal/corner/yellow/full{
-	dir = 1
+/obj/machinery/alarm{
+	pixel_x = -28;
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/aft_airlock)
+/obj/structure/table/steel,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/tesla)
 "lrQ" = (
 /obj/machinery/flasher{
 	id = "permflash";
@@ -24939,7 +24950,18 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "mte" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/structure/cable/orange{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/super/critical{
+	dir = 8;
+	pixel_x = -24
+	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "mtf" = (
@@ -33094,14 +33116,13 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "qwq" = (
-/obj/machinery/alarm{
-	pixel_y = 28
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/aft_airlock)
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/tesla)
 "qwD" = (
 /obj/machinery/light{
 	dir = 4
@@ -35784,7 +35805,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "rLn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/alarm{
+	pixel_x = 28;
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
 "rLu" = (
@@ -38350,6 +38380,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
 "tfE" = (
@@ -38451,7 +38484,6 @@
 /area/horizon/kitchen/hallway)
 "tis" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -39944,10 +39976,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
-"tTW" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/aft_airlock)
 "tUR" = (
 /obj/structure/stairs/east,
 /obj/structure/railing/mapped,
@@ -40189,15 +40217,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
-/obj/machinery/power/apc/low{
-	dir = 1;
-	pixel_y = 24
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
@@ -40366,12 +40387,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
-"ufC" = (
-/obj/effect/floor_decal/corner/yellow/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/aft_airlock)
 "ufG" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/disposalpipe/segment,
@@ -47761,12 +47776,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/armory)
-"xAn" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/aft_airlock)
 "xBv" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
@@ -72233,9 +72242,9 @@ pXV
 pXV
 pXV
 cQS
-qwq
-atK
-tTW
+cQS
+cQS
+cQS
 aqo
 wfD
 wfD
@@ -72438,10 +72447,10 @@ pXV
 pXV
 pXV
 cQS
-lrD
-xAn
-xAn
-ufC
+cQS
+cQS
+cQS
+cQS
 wfD
 iHq
 twC
@@ -72643,10 +72652,10 @@ ntt
 ntt
 ntt
 ntt
-ntt
+atK
+lrD
 mte
-mte
-ntt
+qwq
 wfD
 bTg
 dcX
