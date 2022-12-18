@@ -26,8 +26,8 @@
 	name = "Tramp Freighter"
 	class = "ICV"
 	desc = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship_grey"
+	moving_state = "ship_grey_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000

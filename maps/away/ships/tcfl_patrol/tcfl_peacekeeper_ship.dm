@@ -26,8 +26,8 @@
 	name = "TCFL Corvette"
 	class = "BLV"
 	desc = "Serving as the very foundation of the SCC's (And more specifically, NanoTrasen's) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design's interdiction counterpart - the Hydrus-class shuttle. This one appears to be a Decanus-class, the Tau Ceti Foreign Legion variation of the design."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship_blue"
+	moving_state = "ship_blue_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000

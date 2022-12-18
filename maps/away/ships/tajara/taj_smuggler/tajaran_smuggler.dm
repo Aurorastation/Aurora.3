@@ -18,8 +18,8 @@
 	name = "Adhomian Freighter"
 	class = "ACV"
 	desc = "Built with reliability in mind, the Zhsram Freighter is one of the most common Adhomian designs. This vessel is cheap and has a sizeable cargo storage. It is frequently used by Tajaran traders and smugglers."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship_grey"
+	moving_state = "ship_grey_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000

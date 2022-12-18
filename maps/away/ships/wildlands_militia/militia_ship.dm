@@ -26,8 +26,8 @@
 	name = "Militia Ship"
 	class = "IPV"
 	desc = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship_grey"
+	moving_state = "ship_grey_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000

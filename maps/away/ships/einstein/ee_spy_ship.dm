@@ -26,8 +26,8 @@
 	name = "Einstein Engines Research Ship"
 	class = "EERV"
 	desc = "A research ship belonging to Einstein Engines, the Stellar Corporate Conglomerate's main competitor."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship_green"
+	moving_state = "ship_green__moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
