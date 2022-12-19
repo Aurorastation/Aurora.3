@@ -25,8 +25,8 @@
 /obj/effect/overmap/visitable/ship/tirakqi_freighter
 	name = "Ti'Rakqi Freighter"
 	desc = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one's transponder identifies it as belonging to an independent freighter."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship_blue"
+	moving_state = "ship_blue_moving"
 	class = "ISV"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
@@ -84,6 +84,8 @@
 	designation = "Ku'ku"
 	desc = "A simple and fast transport shuttle. This one's transponder identifies it as belonging to an independent freighter."
 	shuttle = "Ti'Rakqi Shuttle"
+	icon_state = "shuttle_blue"
+	moving_state = "shuttle_blue_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000

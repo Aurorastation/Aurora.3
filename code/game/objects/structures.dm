@@ -23,7 +23,7 @@
 
 /obj/structure/attack_hand(mob/user)
 	if(breakable)
-		if(HULK in user.mutations)
+		if(HAS_FLAG(user.mutations, HULK))
 			user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
 			attack_generic(user,1,"smashes")
 		else if(istype(user,/mob/living/carbon/human))
@@ -141,7 +141,7 @@
 	if (!can_climb(user, post_climb_check=1))
 		LAZYREMOVE(climbers, user)
 		return
-		
+
 	var/turf/TT = get_turf(src)
 	if(flags & ON_BORDER)
 		TT = get_step(get_turf(src), dir)

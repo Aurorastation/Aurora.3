@@ -15,7 +15,7 @@ var/mob/living/next_point_time = 0
 		return FALSE
 	if(src.status_flags & FAKEDEATH)
 		return FALSE
-		
+
 	. = ..()
 
 	if(.)
@@ -121,8 +121,8 @@ default behaviour is:
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && (FAT in tmob.mutations))
-				if(prob(40) && !(FAT in src.mutations))
+			if(istype(tmob, /mob/living/carbon/human) && HAS_FLAG(tmob.mutations, FAT))
+				if(prob(40) && NOT_FLAG(mutations, FAT))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = FALSE
 					return
@@ -230,9 +230,9 @@ default behaviour is:
 	return TRUE
 
 /mob/living/carbon/human/burn_skin(burn_amount)
-	if(mShock in mutations) //shockproof
+	if(HAS_FLAG(mutations, mShock)) //shockproof
 		return FALSE
-	if (COLD_RESISTANCE in mutations) //fireproof
+	if(HAS_FLAG(mutations, COLD_RESISTANCE)) //fireproof
 		return FALSE
 	. = ..()
 	updatehealth()

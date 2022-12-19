@@ -549,14 +549,13 @@
 	metabolism_min = 0.25
 
 /decl/reagent/ryetalyn/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/needs_update = M.mutations.len > 0
-
-	M.mutations = list()
+	var/needs_mutation_update = M.mutations > 0
+	M.mutations = 0
 	M.disabilities = 0
 	M.sdisabilities = 0
 
 	// Might need to update appearance for hulk etc.
-	if(needs_update && ishuman(M))
+	if(needs_mutation_update && ishuman(M))
 		var/mob/living/carbon/human/H = M
 		H.update_mutations()
 

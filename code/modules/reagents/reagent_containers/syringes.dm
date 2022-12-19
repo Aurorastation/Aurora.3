@@ -185,7 +185,7 @@
 					if(!T.dna)
 						to_chat(user, SPAN_WARNING("You are unable to locate any blood. (To be specific, your target seems to be missing their DNA datum)."))
 						return
-					if(NOCLONE in T.mutations) //target done been et, no more blood in him
+					if(HAS_FLAG(T.mutations, NOCLONE)) //target done been et, no more blood in him
 						to_chat(user, SPAN_WARNING("You are unable to locate any blood."))
 						return
 

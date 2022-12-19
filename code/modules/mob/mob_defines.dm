@@ -172,7 +172,7 @@
 
 	var/datum/dna/dna = null//Carbon
 
-	var/list/mutations = list() //Carbon -- Doohl
+	var/mutations = 0 //Carbon -- Doohl
 	//see: setup.dm for list of mutations
 
 	var/voice_name = "unidentifiable voice"

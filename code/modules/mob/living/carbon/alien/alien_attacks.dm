@@ -33,7 +33,7 @@
 		else
 			var/damage = rand(1, 9)
 			if (prob(90))
-				if (HULK in M.mutations)
+				if (HAS_FLAG(M.mutations, HULK))
 					damage += 5
 					spawn(0)
 						Paralyse(1)

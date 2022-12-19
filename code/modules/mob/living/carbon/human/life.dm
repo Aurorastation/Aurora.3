@@ -206,9 +206,8 @@
 	if(InStasis())
 		return
 
-	if(getFireLoss())
-		if((COLD_RESISTANCE in mutations) || (prob(1)))
-			heal_organ_damage(0,1)
+	if(getFireLoss() && (HAS_FLAG(mutations, COLD_RESISTANCE) || prob(1)))
+		heal_organ_damage(0,1)
 
 	// DNA2 - Gene processing.
 	// The HULK stuff that was here is now in the hulk gene.
@@ -534,7 +533,7 @@
 	return thermal_protection_flags
 
 /mob/living/carbon/human/get_cold_protection(temperature)
-	if(COLD_RESISTANCE in mutations)
+	if(HAS_FLAG(mutations, COLD_RESISTANCE))
 		return 1 //Fully protected from the cold.
 
 	temperature = max(temperature, 2.7) //There is an occasional bug where the temperature is miscalculated in ares with a small amount of gas on them, so this is necessary to ensure that that bug does not affect this calculation. Space's temperature is 2.7K and most suits that are intended to protect against any cold, protect down to 2.0K.
@@ -1366,7 +1365,7 @@
 		var/isRemoteObserve = 0
 		if(z_eye && client?.eye == z_eye && !is_physically_disabled())
 			isRemoteObserve = 1
-		if((mRemote in mutations) && remoteview_target)
+		if(HAS_FLAG(mutations, mRemote) && remoteview_target)
 			if(remoteview_target.stat==CONSCIOUS)
 				isRemoteObserve = 1
 		if(!isRemoteObserve && client && !client.adminobs)
@@ -1394,7 +1393,7 @@
 	..()
 	if(stat == DEAD)
 		return
-	if(XRAY in mutations)
+	if(HAS_FLAG(mutations, XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 
 /mob/living/carbon/human/proc/handle_stamina()

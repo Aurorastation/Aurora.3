@@ -137,9 +137,8 @@
 	src.thrower = thrower
 	src.throw_source = get_turf(src)	//store the origin turf
 
-	if(usr)
-		if(HULK in usr.mutations)
-			src.throwing = 2 // really strong throw!
+	if(usr && HAS_FLAG(usr.mutations, HULK))
+		src.throwing = 2 // really strong throw!
 
 	var/dist_travelled = 0
 	var/dist_since_sleep = 0
