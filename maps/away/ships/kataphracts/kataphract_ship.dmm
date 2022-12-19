@@ -76,7 +76,7 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/structure/window/reinforced{
-	dir = 1;
+	dir = 2;
 	maxhealth = 80
 	},
 /obj/structure/window/reinforced{
@@ -92,12 +92,17 @@
 /turf/simulated/floor/carpet,
 /area/kataphract_chapter/office)
 "aq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
 /obj/effect/overmap/visitable/ship/landable/kataphract_transport,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "ar" = (
-/obj/structure/cable/green,
+/obj/structure/cable/green{
+	icon_state = "0-2";
+	d2 = 2
+	},
 /obj/machinery/power/terminal{
 	dir = 4
 	},
@@ -127,9 +132,9 @@
 /area/space)
 "av" = (
 /obj/structure/cable{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/plating,
@@ -149,7 +154,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "ay" = (
@@ -177,16 +184,20 @@
 /area/kataphract_chapter/hangar)
 "aB" = (
 /obj/structure/table/rack,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/machinery/door/window{
-	dir = 1;
+	dir = 2;
 	name = "Suit Storage";
 	req_one_access = list(113)
 	},
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/shoes/magboots,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/item/clothing/suit/space/emergency,
 /obj/item/clothing/head/helmet/space/emergency,
 /turf/simulated/floor/tiled,
@@ -196,10 +207,10 @@
 /area/kataphract_chapter/bridge)
 "aD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
@@ -234,7 +245,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "aI" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "aJ" = (
@@ -262,7 +275,9 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/cafeteria)
 "aM" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black,
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 1
+	},
 /obj/machinery/meter,
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
@@ -299,14 +314,14 @@
 /area/kataphract_chapter/bridge)
 "aS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "aT" = (
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -335,7 +350,9 @@
 	dir = 10;
 	icon_state = "corner_white"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "aX" = (
@@ -344,13 +361,13 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "aY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
+	dir = 10;
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -364,7 +381,10 @@
 /area/kataphract_chapter/bridge)
 "ba" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "0-2";
+	d2 = 2
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "bb" = (
@@ -383,7 +403,7 @@
 /area/kataphract_chapter/bridge)
 "bd" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/window/reinforced{
 	dir = 8;
@@ -393,7 +413,7 @@
 /area/kataphract_chapter/bridge)
 "be" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/holofloor/desert,
 /area/kataphract_chapter/bridge)
@@ -403,12 +423,14 @@
 	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/holofloor/desert,
 /area/kataphract_chapter/bridge)
 "bg" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bh" = (
@@ -437,16 +459,16 @@
 /area/shuttle/kataphract_shuttle/main_compartment)
 "bj" = (
 /obj/machinery/power/apc{
-	dir = 1;
+	dir = 2;
 	is_critical = 1;
 	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
+	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
+	d2 = 1;
+	icon_state = "0-1"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
@@ -537,7 +559,7 @@
 	icon_state = "0-8"
 	},
 /obj/effect/landmark/entry_point/west{
-	name = "starboard, solars aft side"
+	name = "port, solars aft side"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/starboard_solars_array)
@@ -568,11 +590,15 @@
 	dir = 8;
 	icon_state = "rwindow"
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/holofloor/desert,
 /area/kataphract_chapter/bridge)
 "bC" = (
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/holofloor/desert,
 /area/kataphract_chapter/bridge)
 "bD" = (
@@ -580,21 +606,23 @@
 	dir = 4;
 	icon_state = "rwindow"
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/holofloor/desert,
 /area/kataphract_chapter/bridge)
 "bE" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/sign/flag/hegemony{
-	pixel_y = 32
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -628,31 +656,33 @@
 /area/kataphract_chapter/bridge)
 "bK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bM" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -666,24 +696,25 @@
 /area/kataphract_chapter/hangar)
 "bQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 6
 	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/super/critical{
-	pixel_y = -24;
-	req_access = list(113)
+	pixel_y = 24;
+	req_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -702,7 +733,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bT" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -717,14 +750,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bU" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 2
+	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -738,7 +773,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bW" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -746,8 +783,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25;
+	dir = 2;
+	pixel_y = 25;
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -761,17 +798,17 @@
 /area/kataphract_chapter/entry)
 "bY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
+	dir = 10;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bZ" = (
 /obj/machinery/atmospherics/unary/engine{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
@@ -816,16 +853,19 @@
 /area/kataphract_chapter/bridge)
 "cd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 10
+	dir = 9
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
 "ce" = (
 /obj/structure/bed/padded,
 /obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(113)
+	pixel_y = -25;
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/brig)
@@ -834,12 +874,14 @@
 /area/kataphract_chapter/main_ring)
 "cg" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "ch" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "ci" = (
@@ -848,22 +890,19 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/sign/flag/hegemony{
-	pixel_y = 32
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "cj" = (
 /obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(113)
+	pixel_y = -25;
+	req_one_access = list(113);
+	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
-"ck" = (
-/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "cl" = (
@@ -896,16 +935,16 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
+	dir = 5;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -947,9 +986,11 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -969,17 +1010,21 @@
 	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -995,9 +1040,11 @@
 	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 2
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1019,16 +1066,16 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
+	dir = 9;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 9
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -1099,7 +1146,7 @@
 /area/kataphract_chapter/main_ring)
 "cD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -1131,15 +1178,15 @@
 	icon_state = "4-8"
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "cG" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/carpet,
 /area/kataphract_chapter/office)
@@ -1166,16 +1213,16 @@
 /area/kataphract_chapter/brig)
 "cL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
+	dir = 5;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/brig)
@@ -1240,7 +1287,7 @@
 	req_one_access = "112"
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/window/reinforced{
 	dir = 4;
@@ -1279,11 +1326,11 @@
 /area/kataphract_chapter/toilets)
 "cZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
+	dir = 9;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
@@ -1322,7 +1369,7 @@
 /area/kataphract_chapter/main_ring)
 "df" = (
 /obj/structure/sign/flag/hegemony/left{
-	pixel_y = 32
+	pixel_y = -32
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
@@ -1337,7 +1384,7 @@
 /area/kataphract_chapter/sparring_chamber)
 "dg" = (
 /obj/structure/sign/flag/hegemony/right{
-	pixel_y = 32
+	pixel_y = -32
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
@@ -1349,7 +1396,7 @@
 "dh" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
@@ -1376,7 +1423,7 @@
 "dk" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
@@ -1443,17 +1490,17 @@
 /area/kataphract_chapter/main_ring)
 "ds" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /obj/machinery/power/apc/high{
-	dir = 1;
+	dir = 2;
 	name = "north bump";
-	pixel_y = 24;
+	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
+	d2 = 1;
+	icon_state = "0-1"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -1486,16 +1533,18 @@
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
 "dz" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
 "dA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
@@ -1509,11 +1558,13 @@
 /area/kataphract_chapter/toilets)
 "dC" = (
 /obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25;
+	dir = 2;
+	pixel_y = 25;
 	req_one_access = list(113)
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -1526,7 +1577,7 @@
 	dir = 2;
 	is_critical = 1;
 	name = "south bump";
-	pixel_y = -24;
+	pixel_y = 24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -1551,17 +1602,17 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 25;
-	pixel_y = 0;
+	pixel_y = -0;
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "dH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
+	dir = 5;
 	pixel_y = 0
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -1578,9 +1629,9 @@
 	dir = 4
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -1589,7 +1640,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1617,7 +1668,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1640,9 +1691,9 @@
 	dir = 4
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -1706,7 +1757,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 25;
-	pixel_y = 0;
+	pixel_y = -0;
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1744,7 +1795,7 @@
 "dX" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -1752,16 +1803,16 @@
 	icon_state = "4-8"
 	},
 /obj/structure/cable{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "dY" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+	dir = 2
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "egg_blastdoors";
@@ -1821,7 +1872,7 @@
 /area/kataphract_chapter/port_solars_array)
 "ed" = (
 /obj/machinery/door/airlock/glass{
-	name = "Chapter Medical Bay";
+	name = "Chapter Cafeteria and Knight's Office";
 	req_access = null;
 	req_one_access = list(113)
 	},
@@ -1847,14 +1898,14 @@
 /area/kataphract_chapter/sparring_chamber)
 "eg" = (
 /obj/structure/cable/yellow{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /obj/structure/cable/yellow{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/port_solars_array)
@@ -1864,14 +1915,14 @@
 	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/sparring_chamber)
 "ei" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/sparring_chamber)
@@ -1881,7 +1932,7 @@
 	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/reinforced,
@@ -1957,7 +2008,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
+	dir = 1
+	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
@@ -1969,15 +2022,17 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "ew" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/light{
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
+	},
+/obj/machinery/light{
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "ex" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
+	dir = 9;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2022,10 +2077,10 @@
 /area/kataphract_chapter/commissary)
 "eB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
+	dir = 10;
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2075,26 +2130,27 @@
 /area/kataphract_chapter/commissary)
 "eI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+	dir = 5
 	},
 /obj/structure/cable{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboard_solars)
 "eJ" = (
 /obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(113)
+	pixel_y = -25;
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
 	icon_state = "corner_white"
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
@@ -2152,14 +2208,14 @@
 /area/kataphract_chapter/brig)
 "eN" = (
 /obj/structure/cable/yellow{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /obj/structure/cable/yellow{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -2203,10 +2259,10 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -2242,17 +2298,21 @@
 	dir = 1;
 	icon_state = "corner_white"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply{
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -2310,9 +2370,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
@@ -2331,7 +2391,7 @@
 	req_one_access = list(113)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/sparring_chamber)
@@ -2341,7 +2401,7 @@
 	req_one_access = list(113)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/sparring_chamber)
@@ -2386,10 +2446,10 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -2411,13 +2471,13 @@
 /area/kataphract_chapter/commissary)
 "fh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "fi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
+	dir = 5;
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2489,19 +2549,21 @@
 /area/kataphract_chapter/main_ring)
 "fm" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/table/standard,
 /obj/machinery/power/apc/super/critical{
-	dir = 1;
-	pixel_y = 24;
+	dir = 2;
+	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
+	d2 = 1;
+	icon_state = "0-1"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
 "fn" = (
@@ -2516,17 +2578,21 @@
 	dir = 1;
 	icon_state = "corner_white"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply{
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2556,10 +2622,10 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
+	dir = 10;
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
@@ -2582,9 +2648,11 @@
 /area/kataphract_chapter/main_ring)
 "ft" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 2
+	},
+/obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "fu" = (
@@ -2593,11 +2661,13 @@
 /area/kataphract_chapter/main_ring)
 "fv" = (
 /obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25;
+	dir = 2;
+	pixel_y = 25;
 	req_one_access = list(113)
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "fw" = (
@@ -2628,9 +2698,9 @@
 /area/kataphract_chapter/toilets)
 "fz" = (
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2641,9 +2711,9 @@
 /area/kataphract_chapter/sparring_chamber)
 "fA" = (
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
@@ -2718,9 +2788,7 @@
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "fG" = (
-/obj/machinery/door/airlock/hatch{
-	req_access = list(113)
-	},
+/obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2729,21 +2797,25 @@
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "fH" = (
 /obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25;
+	dir = 2;
+	pixel_y = 25;
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "fI" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "fK" = (
 /turf/simulated/wall,
 /area/kataphract_chapter/dorms)
 "fL" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -2771,7 +2843,10 @@
 	pixel_x = -24;
 	req_access = list(113)
 	},
-/obj/structure/cable/green,
+/obj/structure/cable/green{
+	icon_state = "0-2";
+	d2 = 2
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
 	icon_state = "corner_white"
@@ -2779,7 +2854,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/sparring_chamber)
 "fO" = (
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/structure/window/reinforced{
 	dir = 8;
 	icon_state = "rwindow"
@@ -2787,11 +2864,15 @@
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/sparring_chamber)
 "fP" = (
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/sparring_chamber)
 "fQ" = (
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/structure/window/reinforced{
 	dir = 4;
 	icon_state = "rwindow"
@@ -2800,7 +2881,7 @@
 /area/kataphract_chapter/sparring_chamber)
 "fS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -2873,8 +2954,9 @@
 /area/kataphract_chapter/dorms)
 "ga" = (
 /obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(113)
+	pixel_y = -25;
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
@@ -2884,10 +2966,10 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc{
-	dir = 1;
+	dir = 2;
 	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
+	pixel_y = -24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/wood,
@@ -2899,15 +2981,15 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "gd" = (
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2918,10 +3000,11 @@
 /area/kataphract_chapter/dorms)
 "gf" = (
 /obj/machinery/light_switch{
-	pixel_y = 25
+	pixel_y = 25;
+	dir = 1
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
@@ -2968,7 +3051,7 @@
 /area/kataphract_chapter/commissary)
 "gm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -40;
@@ -2979,10 +3062,10 @@
 /area/kataphract_chapter/commissary)
 "gn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -2991,19 +3074,17 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24;
-	req_access = list(113)
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
 	icon_state = "corner_white"
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 2
+	},
+/obj/machinery/power/apc{
+	name = "south bump";
+	pixel_y = -24;
+	req_access = list(113)
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
@@ -3017,8 +3098,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "gq" = (
-/obj/effect/landmark/entry_point/south{
-	name = "Fore - Captain's Office"
+/obj/effect/landmark/entry_point/north{
+	name = "fore, Knight's office"
 	},
 /turf/simulated/wall/r_wall,
 /area/kataphract_chapter/office)
@@ -3075,9 +3156,9 @@
 /area/kataphract_chapter/cafeteria)
 "gy" = (
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3109,7 +3190,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible/red,
+/obj/machinery/atmospherics/pipe/manifold/visible/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "gC" = (
@@ -3152,10 +3235,10 @@
 /area/kataphract_chapter/dorms)
 "gE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
+	dir = 10;
 	pixel_y = 0
 	},
 /obj/structure/bed/stool/padded/red,
@@ -3225,14 +3308,16 @@
 	icon_state = "map-scrubbers"
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "gJ" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
 	icon_state = "corner_white"
@@ -3246,7 +3331,9 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "gM" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
 	icon_state = "corner_white"
@@ -3277,9 +3364,9 @@
 	dir = 8
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -3301,11 +3388,11 @@
 /area/kataphract_chapter/commissary)
 "gQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
+	dir = 5;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
@@ -3328,7 +3415,7 @@
 "gS" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
@@ -3345,10 +3432,14 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "gU" = (
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "0-2";
+	d2 = 2
+	},
 /obj/machinery/power/apc/high{
-	pixel_y = -24;
-	req_access = list(113)
+	pixel_y = 24;
+	req_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -3360,11 +3451,11 @@
 /area/kataphract_chapter/cafeteria)
 "gW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
+	dir = 10;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
@@ -3396,7 +3487,7 @@
 "ha" = (
 /obj/machinery/computer/ship/helm,
 /obj/structure/window/reinforced{
-	dir = 1;
+	dir = 2;
 	maxhealth = 80
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3422,11 +3513,11 @@
 	req_one_access = list(113)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
+	dir = 9;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -3468,9 +3559,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -3493,7 +3584,7 @@
 /area/kataphract_chapter/dorms)
 "hm" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
@@ -3502,7 +3593,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "ho" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "hp" = (
@@ -3555,15 +3648,15 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 6
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -3579,9 +3672,11 @@
 	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/yellow,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 2
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -3621,16 +3716,16 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
+	dir = 10;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -3669,24 +3764,26 @@
 /area/kataphract_chapter/cafeteria)
 "hE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "hF" = (
 /obj/structure/sign/flag/hegemony/left{
-	pixel_y = -32
+	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "hG" = (
 /obj/structure/sign/flag/hegemony/right{
-	pixel_y = -32
+	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "hH" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "hI" = (
@@ -3715,7 +3812,9 @@
 /area/kataphract_chapter/cafeteria)
 "hN" = (
 /obj/machinery/appliance/cooker/fryer,
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/lino,
 /area/kataphract_chapter/cafeteria)
 "hO" = (
@@ -3753,9 +3852,9 @@
 /area/kataphract_chapter/cafeteria)
 "hT" = (
 /obj/structure/cable/yellow{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/starboard_solars_array)
@@ -3766,14 +3865,14 @@
 	icon_state = "4-8"
 	},
 /obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/yellow{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/starboard_solars_array)
@@ -3790,7 +3889,7 @@
 	icon_state = "0-8"
 	},
 /obj/effect/landmark/entry_point/west{
-	name = "starboard, solars central side"
+	name = "port, solars central side"
 	},
 /turf/simulated/floor/airless,
 /area/space)
@@ -3815,7 +3914,7 @@
 	icon_state = "0-4"
 	},
 /obj/effect/landmark/entry_point/east{
-	name = "port, solars central"
+	name = "starboard, solars central"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/port_solars_array)
@@ -3823,7 +3922,9 @@
 /turf/simulated/wall,
 /area/kataphract_chapter/engineering)
 "ib" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "ic" = (
@@ -3841,7 +3942,7 @@
 /area/kataphract_chapter/entry)
 "id" = (
 /obj/structure/sign/securearea{
-	pixel_y = -32
+	pixel_y = 32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3853,7 +3954,7 @@
 /area/kataphract_chapter/hangar)
 "ie" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
+	dir = 2;
 	frequency = 1380;
 	id_tag = "kataphract_shuttle_pump"
 	},
@@ -3872,8 +3973,7 @@
 	tag_chamber_sensor = "kataphract_shuttle_sensor";
 	tag_exterior_door = "kataphract_shuttle_out";
 	tag_exterior_sensor = "kataphract_shuttle_exterior_sensor";
-	tag_interior_door = "kataphract_shuttle_in";
-	req_access = list(113)
+	tag_interior_door = "kataphract_shuttle_in"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -3905,7 +4005,9 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "ik" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/black,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/black{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
 "il" = (
@@ -3921,8 +4023,8 @@
 	pixel_x = 32
 	},
 /obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25;
+	dir = 2;
+	pixel_y = 25;
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -3947,9 +4049,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -3983,7 +4085,7 @@
 	req_one_access = null
 	},
 /obj/structure/sign/flag/hegemony/left{
-	pixel_y = 32
+	pixel_y = -32
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
@@ -4011,9 +4113,11 @@
 /area/kataphract_chapter/main_ring)
 "ir" = (
 /obj/machinery/light{
+	dir = 2
+	},
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "is" = (
@@ -4086,16 +4190,16 @@
 "iy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "iz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
@@ -4158,9 +4262,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
@@ -4186,7 +4290,7 @@
 "iL" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/power/apc{
@@ -4219,9 +4323,9 @@
 	pixel_x = -28
 	},
 /obj/structure/cable/yellow{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/port_solars)
@@ -4229,9 +4333,11 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -4274,15 +4380,16 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	req_one_access = list(113)
+	pixel_y = -28;
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/port_solars)
 "iT" = (
 /obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
+	d2 = 1;
+	icon_state = "0-1";
 	pixel_y = 0
 	},
 /obj/machinery/power/smes/buildable/autosolars,
@@ -4313,9 +4420,9 @@
 	icon_state = "corner_white"
 	},
 /obj/structure/cable{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
@@ -4385,9 +4492,9 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
@@ -4400,15 +4507,15 @@
 	icon_state = "corner_white"
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
@@ -4422,8 +4529,12 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "jf" = (
@@ -4456,14 +4567,14 @@
 	icon_state = "4-8"
 	},
 /obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/yellow{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/port_solars_array)
@@ -4508,7 +4619,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 8
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
 "jm" = (
@@ -4530,9 +4643,9 @@
 /area/kataphract_chapter/port_solars)
 "jn" = (
 /obj/structure/cable/yellow{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/starboard_solars_array)
@@ -4541,14 +4654,14 @@
 	dir = 4
 	},
 /obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/port_solars)
@@ -4559,8 +4672,8 @@
 /area/kataphract_chapter/hangar)
 "jq" = (
 /obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
+	d2 = 1;
+	icon_state = "0-1";
 	pixel_y = 0
 	},
 /obj/machinery/power/smes/buildable/autosolars,
@@ -4591,9 +4704,9 @@
 	icon_state = "warning"
 	},
 /obj/structure/cable{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
@@ -4602,9 +4715,9 @@
 /area/kataphract_chapter/engineering)
 "jv" = (
 /obj/structure/cable/yellow{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/port_solars_array)
@@ -4617,8 +4730,9 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	req_one_access = list(113)
+	pixel_y = -28;
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboard_solars)
@@ -4641,9 +4755,11 @@
 /area/kataphract_chapter/engineering)
 "jz" = (
 /obj/structure/sign/flag/hegemony/right{
-	pixel_y = 32
+	pixel_y = -32
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /obj/machinery/papershredder{
 	pixel_x = 24
 	},
@@ -4656,9 +4772,9 @@
 /area/kataphract_chapter/engineering)
 "jB" = (
 /obj/structure/cable{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
@@ -4666,10 +4782,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
@@ -4702,9 +4820,11 @@
 /area/shuttle/kataphract_shuttle/main_compartment)
 "jG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 6
+	dir = 5
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
 "jH" = (
@@ -4761,7 +4881,7 @@
 /area/kataphract_chapter/engineering)
 "jL" = (
 /obj/machinery/atmospherics/unary/vent_pump{
-	dir = 1;
+	dir = 2;
 	frequency = 1983;
 	id_tag = "chapter_port_vent"
 	},
@@ -4831,14 +4951,14 @@
 	dir = 4
 	},
 /obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboard_solars)
@@ -4884,7 +5004,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/landmark/entry_point/west{
-	name = "starboard, airlock"
+	name = "port, airlock"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboard_solars)
@@ -4893,12 +5013,14 @@
 	dir = 4;
 	req_one_access = "112"
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
+	dir = 2;
 	icon_state = "rwindow"
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -4912,13 +5034,13 @@
 	frequency = 1984;
 	name = "Carbon Dioxide Supply Monitor";
 	output_tag = "kata_out";
-	sensors = list("kata_sensor"="Tank")
+	sensors = list("kata_sensor")
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
 "jW" = (
 /obj/machinery/atmospherics/unary/vent_pump{
-	dir = 1;
+	dir = 2;
 	frequency = 1984;
 	id_tag = "chapter_starboard_vent"
 	},
@@ -4941,12 +5063,12 @@
 /area/kataphract_chapter/hangar)
 "jY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 9
+	dir = 10
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
@@ -4966,7 +5088,10 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/medical)
 "kb" = (
-/obj/structure/cable/yellow,
+/obj/structure/cable/yellow{
+	icon_state = "0-2";
+	d2 = 2
+	},
 /obj/machinery/power/solar_control/autostart,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboard_solars)
@@ -4976,14 +5101,16 @@
 /area/kataphract_chapter/bridge)
 "kd" = (
 /obj/structure/window/reinforced{
-	dir = 1;
+	dir = 2;
 	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced{
 	dir = 4;
 	icon_state = "rwindow"
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/machinery/door/window{
 	dir = 8;
 	req_one_access = "112"
@@ -5066,7 +5193,7 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
@@ -5096,7 +5223,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 6
+	dir = 5
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5107,9 +5234,9 @@
 /area/kataphract_chapter/hangar)
 "ko" = (
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5168,9 +5295,9 @@
 /area/kataphract_chapter/janitorial)
 "kv" = (
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -5294,7 +5421,7 @@
 "kF" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
@@ -5361,9 +5488,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/aft_hall)
@@ -5396,10 +5523,10 @@
 /area/kataphract_chapter/hangar)
 "kR" = (
 /obj/machinery/power/apc{
-	dir = 1;
+	dir = 2;
 	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
+	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -5430,15 +5557,15 @@
 /area/kataphract_chapter/aft_hall)
 "kU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 9
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
@@ -5454,31 +5581,39 @@
 /area/kataphract_chapter/bridge)
 "kW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
+	dir = 6;
 	icon_state = "intact"
 	},
-/obj/machinery/light/small,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /obj/machinery/power/apc{
 	is_critical = 1;
 	name = "south bump";
-	pixel_y = -24;
-	req_access = list(113)
+	pixel_y = 24;
+	req_access = list(113);
+	dir = 1
 	},
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "0-2";
+	d2 = 2
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/port_solars)
 "kX" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 6
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
@@ -5501,7 +5636,7 @@
 /area/kataphract_chapter/port_solars)
 "lc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 10
+	dir = 9
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
@@ -5515,9 +5650,9 @@
 	icon_state = "map-scrubbers"
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
@@ -5548,9 +5683,9 @@
 /area/kataphract_chapter/warehouse)
 "lg" = (
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
@@ -5603,7 +5738,7 @@
 "ln" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
@@ -5625,19 +5760,19 @@
 /area/kataphract_chapter/trading_area)
 "lq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "lr" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "ls" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/engine_compartment)
@@ -5657,7 +5792,7 @@
 /area/kataphract_chapter/trading_area)
 "lu" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/tank/air{
 	start_pressure = 3000
@@ -5671,7 +5806,7 @@
 /area/kataphract_chapter/trading_area)
 "lw" = (
 /obj/structure/sign/flag/hegemony/right{
-	pixel_y = 32
+	pixel_y = -32
 	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -5680,11 +5815,11 @@
 /area/kataphract_chapter/trading_area)
 "lx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
+	dir = 10;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
@@ -5733,7 +5868,7 @@
 /area/kataphract_chapter/entry)
 "lE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5746,7 +5881,7 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
+	dir = 10;
 	pixel_y = 0
 	},
 /obj/machinery/alarm{
@@ -5789,7 +5924,9 @@
 	dir = 5;
 	icon_state = "corner_white"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "lN" = (
@@ -5840,19 +5977,25 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "lV" = (
 /obj/structure/table/rack,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/structure/window/reinforced{
 	dir = 4;
 	icon_state = "rwindow"
 	},
 /obj/machinery/door/window{
-	dir = 1;
+	dir = 2;
 	name = "Suit Storage";
 	req_one_access = list(113)
 	},
@@ -5877,13 +6020,13 @@
 /area/kataphract_chapter/trading_area)
 "lY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+	dir = 9
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "lZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
@@ -5927,13 +6070,13 @@
 /area/shuttle/kataphract_shuttle/main_compartment)
 "md" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "me" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
+	dir = 2;
 	icon_state = "map-supply"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -5950,9 +6093,9 @@
 /area/kataphract_chapter/entry)
 "mg" = (
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -6023,7 +6166,9 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "mo" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "mp" = (
@@ -6039,7 +6184,7 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -6063,17 +6208,23 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "mu" = (
-/obj/machinery/light/small,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
+	dir = 10;
 	icon_state = "intact"
 	},
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "0-2";
+	d2 = 2
+	},
 /obj/machinery/power/apc{
 	is_critical = 1;
 	name = "south bump";
-	pixel_y = -24;
-	req_access = list(113)
+	pixel_y = 24;
+	req_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboard_solars)
@@ -6085,7 +6236,7 @@
 /area/kataphract_chapter/medical)
 "mw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
@@ -6141,14 +6292,16 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
 "mC" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
 "mD" = (
 /obj/structure/cable{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -6162,7 +6315,9 @@
 	dir = 10;
 	icon_state = "corner_white"
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "mF" = (
@@ -6194,12 +6349,14 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "mH" = (
-/obj/machinery/light/spot,
+/obj/machinery/light/spot{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "mI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 10
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
@@ -6229,8 +6386,8 @@
 /area/kataphract_chapter/commissary)
 "mM" = (
 /obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -24;
+	dir = 2;
+	pixel_y = 24;
 	req_one_access = list(113)
 	},
 /obj/structure/bed/stool/chair/wood{
@@ -6279,11 +6436,11 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
+	dir = 10;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
@@ -6312,14 +6469,14 @@
 /area/kataphract_chapter/dorms)
 "mS" = (
 /obj/structure/cable/yellow{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /obj/structure/cable/yellow{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -6376,14 +6533,14 @@
 /area/kataphract_chapter/aft_hall)
 "mX" = (
 /obj/structure/cable/yellow{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /obj/structure/cable/yellow{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/starboard_solars_array)
@@ -6396,16 +6553,16 @@
 /area/kataphract_chapter/bridge)
 "mZ" = (
 /obj/structure/cable/yellow{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/port_solars_array)
 "na" = (
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
-	dir = 1
+	dir = 2
 	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
@@ -6436,9 +6593,11 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "nd" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -6457,7 +6616,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
 "nh" = (
@@ -6487,20 +6648,20 @@
 	},
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -6580,10 +6741,12 @@
 /area/kataphract_chapter/medical)
 "nr" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
+	dir = 2;
 	icon_state = "map-supply"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -6726,16 +6889,18 @@
 /area/kataphract_chapter/main_ring)
 "nC" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 2
+	},
+/obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
 "nD" = (
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air{
@@ -6753,7 +6918,9 @@
 /turf/simulated/floor/carpet,
 /area/kataphract_chapter/office)
 "nM" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
 	icon_state = "corner_white"
@@ -6825,7 +6992,9 @@
 	name = "HYDROGEN FUEL";
 	req_one_access = list(113)
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/structure/window/reinforced{
 	dir = 4;
 	icon_state = "rwindow"
@@ -6840,7 +7009,8 @@
 /obj/item/clothing/shoes/magboots/hegemony,
 /obj/machinery/door/window{
 	name = "Knight Captain";
-	req_access = list(114)
+	req_access = list(114);
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -6850,7 +7020,7 @@
 	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
@@ -6870,38 +7040,38 @@
 /area/kataphract_chapter/engineering)
 "pi" = (
 /obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28;
+	dir = 2;
+	pixel_y = 28;
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "pj" = (
 /obj/effect/landmark/entry_point/east{
-	name = "aft, atmospherics"
+	name = "aft, canister storage"
 	},
 /turf/simulated/wall/r_wall,
 /area/kataphract_chapter/hangar)
 "po" = (
 /obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
+	d2 = 1;
+	icon_state = "0-1"
 	},
 /obj/machinery/power/apc{
-	dir = 1;
+	dir = 2;
 	is_critical = 1;
 	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
+	pixel_y = -24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
 "pp" = (
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
@@ -6915,7 +7085,7 @@
 	id = "egg_blastdoors"
 	},
 /obj/effect/landmark/entry_point/east{
-	name = "aft, bridge"
+	name = "fore, bridge"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -6977,7 +7147,7 @@
 /area/shuttle/kataphract_shuttle/main_compartment)
 "pX" = (
 /obj/machinery/atmospherics/unary/engine{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
@@ -6997,21 +7167,21 @@
 	pixel_y = -24
 	},
 /obj/effect/landmark/entry_point/west{
-	name = "starboard, airlock"
+	name = "port, airlock"
 	},
 /turf/simulated/floor,
 /area/kataphract_chapter/entry)
 "qm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 9
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -7038,7 +7208,7 @@
 	locked = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor,
 /area/kataphract_chapter/entry)
@@ -7112,9 +7282,11 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'SERVER ROOM'.";
 	name = "TELECOMMS ROOM - COLD!";
-	pixel_y = -32
+	pixel_y = 32
 	},
-/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/medical)
 "rd" = (
@@ -7265,7 +7437,7 @@
 /area/kataphract_chapter/commissary)
 "sn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
+	dir = 2;
 	frequency = 1380;
 	id_tag = "kataphract_shuttle_pump"
 	},
@@ -7302,26 +7474,28 @@
 /area/kataphract_chapter/entry)
 "sC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "sG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 2
+	},
+/obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/window/reinforced,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/high{
-	dir = 1;
+	dir = 2;
 	name = "north bump";
-	pixel_y = 24;
+	pixel_y = -24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -7377,9 +7551,11 @@
 	},
 /area/kataphract_chapter/medical)
 "tH" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 2
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -7390,16 +7566,16 @@
 /area/kataphract_chapter/hangar)
 "tM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 6
+	dir = 5
 	},
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
-	dir = 1
+	dir = 2
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
@@ -7507,7 +7683,7 @@
 	},
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/medical)
@@ -7520,7 +7696,7 @@
 /area/kataphract_chapter/janitorial)
 "vj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -7532,9 +7708,9 @@
 	name = "waste canister"
 	},
 /obj/structure/cable{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
@@ -7546,14 +7722,14 @@
 /area/kataphract_chapter/aft_hall)
 "vL" = (
 /obj/structure/cable/yellow{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /obj/structure/cable/yellow{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -7563,17 +7739,20 @@
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/starboard_solars_array)
 "vQ" = (
-/obj/machinery/power/apc{
-	dir = 2;
-	name = "south bump";
-	pixel_y = -24;
-	req_access = list(113)
-	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	is_critical = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = list(113)
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
 "vV" = (
@@ -7621,7 +7800,6 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "wk" = (
-/obj/machinery/firealarm/south,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -7629,6 +7807,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "wl" = (
@@ -7639,7 +7818,7 @@
 /area/kataphract_chapter/aft_hall)
 "wp" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/engine_compartment)
@@ -7665,7 +7844,7 @@
 /area/kataphract_chapter/cic)
 "wB" = (
 /obj/effect/landmark/entry_point/west{
-	name = "starboard, cargo fore side"
+	name = "port, cargo fore side"
 	},
 /turf/simulated/wall/r_wall,
 /area/kataphract_chapter/warehouse)
@@ -7677,7 +7856,7 @@
 	req_one_access = null
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
+	dir = 2;
 	maxhealth = 80
 	},
 /obj/structure/window/reinforced{
@@ -7690,7 +7869,7 @@
 "wP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -7728,7 +7907,7 @@
 	icon_state = "0-8"
 	},
 /obj/effect/landmark/entry_point/west{
-	name = "starboard, solars fore side"
+	name = "port, solars fore side"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/starboard_solars_array)
@@ -7741,7 +7920,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -7772,7 +7953,7 @@
 	icon_state = "0-4"
 	},
 /obj/effect/landmark/entry_point/east{
-	name = "port, solars fore side"
+	name = "starboard, solars fore side"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/port_solars_array)
@@ -7780,7 +7961,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid,
 /obj/effect/landmark/entry_point/west{
-	name = "starboard, cargo central side"
+	name = "port, cargo central side"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/warehouse)
@@ -7804,10 +7985,10 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
+	dir = 9;
 	pixel_y = 0
 	},
 /obj/effect/floor_decal/corner/yellow,
@@ -7818,21 +7999,25 @@
 	dir = 5;
 	icon_state = "corner_white"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/light{
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/machinery/light{
+	dir = 2
 	},
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "yj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
-/obj/machinery/light/spot,
+/obj/machinery/light/spot{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "yk" = (
@@ -7843,7 +8028,9 @@
 	pixel_y = 24;
 	req_access = list(66)
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /obj/structure/sink/kitchen{
 	dir = 8;
 	name = "surgical sink";
@@ -7852,6 +8039,11 @@
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "ym" = (
+/obj/machinery/door/airlock/glass{
+	name = "Chapter Cafeteria and Knight's Office";
+	req_access = null;
+	req_one_access = list(113)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -7860,11 +8052,6 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/glass{
-	name = "Chapter Medical Bay";
-	req_access = null;
-	req_one_access = list(113)
-	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/medical)
 "yr" = (
@@ -7886,7 +8073,7 @@
 	icon_state = "corner_white"
 	},
 /obj/structure/sign/flag/hegemony{
-	pixel_y = 32
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -7899,7 +8086,9 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "yE" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -7908,7 +8097,7 @@
 "yK" = (
 /obj/machinery/computer/ship/engines,
 /obj/structure/window/reinforced{
-	dir = 1;
+	dir = 2;
 	maxhealth = 80
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7923,15 +8112,16 @@
 /area/kataphract_chapter/port_solars_array)
 "yO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
+	dir = 5;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /obj/machinery/alarm{
-	pixel_y = 28;
-	req_one_access = list(113)
+	pixel_y = -28;
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
@@ -7942,12 +8132,16 @@
 	icon_state = "4-8"
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
 "zi" = (
@@ -8002,7 +8196,7 @@
 "Aa" = (
 /obj/machinery/iv_drip,
 /obj/structure/sign/flag/hegemony/left{
-	pixel_y = -32
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
@@ -8048,13 +8242,13 @@
 /area/kataphract_chapter/aft_hall)
 "Ah" = (
 /obj/effect/landmark/entry_point/east{
-	name = "aft, bridge starboard side"
+	name = "fore, bridge port side"
 	},
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Ak" = (
 /obj/structure/sign/securearea{
-	pixel_y = -32
+	pixel_y = 32
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -8067,13 +8261,13 @@
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 1984;
 	id_tag = "kata_out";
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/kataphract_chapter/starboardpropulsion)
 "Ap" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /obj/machinery/computer/ship/navigation{
 	dir = 4
@@ -8097,8 +8291,12 @@
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "Ax" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "AC" = (
@@ -8125,7 +8323,7 @@
 /area/kataphract_chapter/commissary)
 "AG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
+	dir = 10;
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8163,14 +8361,13 @@
 	master_tag = "kataphract_shuttle";
 	name = "exterior access button";
 	pixel_x = 23;
-	pixel_y = -8;
-	req_access = list(113)
+	pixel_y = -8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "AZ" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
@@ -8186,9 +8383,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -8208,7 +8405,7 @@
 /area/shuttle/kataphract_shuttle/main_compartment)
 "BL" = (
 /obj/effect/landmark/entry_point/west{
-	name = "starboard, cargo aft side"
+	name = "port, cargo aft side"
 	},
 /turf/simulated/wall/r_wall,
 /area/kataphract_chapter/warehouse)
@@ -8243,7 +8440,9 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "BX" = (
-/obj/machinery/light/small,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
@@ -8268,13 +8467,13 @@
 "Ck" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/brig)
 "Cl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
+	dir = 9;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8283,11 +8482,21 @@
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "Cm" = (
-/obj/effect/landmark/entry_point/east{
-	name = "aft, bridge port side"
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/wall/r_wall,
-/area/shuttle/kataphract_shuttle/main_compartment)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'SERVER ROOM'.";
+	name = "TELECOMMS ROOM - COLD!";
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/medical)
 "Cp" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
@@ -8344,7 +8553,9 @@
 /turf/template_noop,
 /area/space)
 "CX" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
@@ -8354,7 +8565,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/device/flashlight/lamp,
 /obj/structure/window/reinforced{
-	dir = 1;
+	dir = 2;
 	maxhealth = 80
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8378,7 +8589,7 @@
 	locked = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor,
 /area/kataphract_chapter/entry)
@@ -8397,9 +8608,9 @@
 /area/kataphract_chapter/brig)
 "Dx" = (
 /obj/structure/cable{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -8417,7 +8628,10 @@
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/port_solars_array)
 "DE" = (
-/obj/structure/cable/yellow,
+/obj/structure/cable/yellow{
+	icon_state = "0-2";
+	d2 = 2
+	},
 /obj/machinery/power/solar_control/autostart,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/port_solars)
@@ -8469,7 +8683,9 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/janitorial)
 "Eg" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
@@ -8505,8 +8721,9 @@
 /area/kataphract_chapter/hangar)
 "Er" = (
 /obj/machinery/alarm{
-	pixel_y = 28;
-	req_one_access = list(113)
+	pixel_y = -28;
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
@@ -8572,10 +8789,13 @@
 /area/kataphract_chapter/bridge)
 "EQ" = (
 /obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(113)
+	pixel_y = -25;
+	req_one_access = list(113);
+	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
 "Fc" = (
@@ -8603,7 +8823,7 @@
 /area/kataphract_chapter/commissary)
 "Fn" = (
 /obj/effect/landmark/entry_point/east{
-	name = "port, hangar central side"
+	name = "starboard, hangar central side"
 	},
 /turf/unsimulated/wall/fakepdoor,
 /area/kataphract_chapter/hangar)
@@ -8673,10 +8893,10 @@
 /area/kataphract_chapter/entry)
 "Ga" = (
 /obj/machinery/atmospherics/unary/engine{
-	dir = 1
+	dir = 2
 	},
-/obj/effect/landmark/entry_point/north{
-	name = "aft, port engines"
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starbaord thrusters"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
@@ -8690,18 +8910,18 @@
 /area/kataphract_chapter/hangar)
 "Gj" = (
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "Gk" = (
 /obj/structure/sign/flag/hegemony/right{
-	pixel_y = -32
+	pixel_y = 32
 	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -8710,7 +8930,7 @@
 /area/kataphract_chapter/dorms)
 "Gr" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 6
+	dir = 5
 	},
 /obj/structure/table/rack,
 /obj/item/tank/hydrogen/shuttle,
@@ -8720,21 +8940,22 @@
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "Gw" = (
 /obj/structure/cable/yellow{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /obj/structure/cable/yellow{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/port_solars_array)
 "Gx" = (
 /obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(113)
+	pixel_y = -25;
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/structure/closet/walllocker/medical/secure{
 	name = "Theatre Locker";
@@ -8773,7 +8994,9 @@
 /area/kataphract_chapter/starboardpropulsion)
 "GO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -8813,15 +9036,17 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/vending/cola,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "GZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -8835,15 +9060,16 @@
 	dir = 8;
 	id = "katabridgeshutter"
 	},
-/obj/effect/landmark/entry_point/south{
+/obj/effect/landmark/entry_point/north{
 	name = "fore, bridge central"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bridge)
 "Hr" = (
 /obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(113)
+	pixel_y = -25;
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -8859,10 +9085,10 @@
 /obj/structure/bed/roller,
 /obj/structure/curtain/open/medical,
 /obj/structure/sign/flag/hegemony/right{
-	pixel_y = -32
+	pixel_y = 32
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
@@ -8871,7 +9097,7 @@
 /area/kataphract_chapter/cic)
 "HK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -8889,13 +9115,15 @@
 /area/kataphract_chapter/engineering)
 "HX" = (
 /obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28;
+	dir = 2;
+	pixel_y = 28;
 	req_one_access = list(113)
 	},
-/obj/machinery/light,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 2
 	},
 /obj/structure/table/glass,
 /obj/item/storage/firstaid/adv{
@@ -8936,7 +9164,8 @@
 "In" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	frequency = 1984;
-	id_tag = "chapter_starboard_vent"
+	id_tag = "chapter_starboard_vent";
+	dir = 1
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1984;
@@ -8945,7 +9174,7 @@
 	},
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboard_solars)
@@ -8953,10 +9182,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
@@ -8966,7 +9197,7 @@
 /area/space)
 "Iz" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -8978,7 +9209,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
@@ -8986,7 +9217,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
 "IJ" = (
@@ -9071,9 +9304,9 @@
 	icon_state = "warning"
 	},
 /obj/structure/cable{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/plating,
@@ -9096,7 +9329,7 @@
 	name = "SUPB Pod"
 	},
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
@@ -9104,11 +9337,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
@@ -9127,23 +9362,23 @@
 /area/kataphract_chapter/entry)
 "Kd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+	dir = 9
 	},
 /obj/structure/cable{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/port_solars)
 "Kg" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
@@ -9154,8 +9389,8 @@
 	dir = 8;
 	id = "katabridgeshutter"
 	},
-/obj/effect/landmark/entry_point/south{
-	name = "fore, bridge port"
+/obj/effect/landmark/entry_point/north{
+	name = "fore, starboard bridge"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bridge)
@@ -9176,10 +9411,10 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -9195,7 +9430,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "KK" = (
@@ -9210,7 +9447,7 @@
 /area/kataphract_chapter/bridge)
 "KP" = (
 /obj/structure/fuel_port/hydrogen{
-	pixel_y = -31
+	pixel_y = 31
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -9225,15 +9462,15 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -9252,14 +9489,17 @@
 	dir = 5
 	},
 /obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(113)
+	pixel_y = -25;
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/janitorial)
 "Ll" = (
 /obj/structure/table/standard,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Lq" = (
@@ -9291,9 +9531,11 @@
 	dir = 4;
 	icon_state = "rwindow"
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/machinery/door/window{
-	dir = 1;
+	dir = 2;
 	name = "KLAXAN ONLY!!"
 	},
 /obj/item/reagent_containers/food/snacks/koiswaffles,
@@ -9303,10 +9545,10 @@
 /area/kataphract_chapter/cafeteria)
 "LH" = (
 /obj/machinery/atmospherics/unary/engine{
-	dir = 1
+	dir = 2
 	},
-/obj/effect/landmark/entry_point/north{
-	name = "aft, starboard engines"
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port thrusters"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
@@ -9331,9 +9573,11 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
+	dir = 2
+	},
+/obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/window/reinforced,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/window/northleft{
 	dir = 8
@@ -9396,49 +9640,49 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "MH" = (
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/janitorial)
 "MP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
 "MT" = (
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "MZ" = (
 /obj/effect/landmark/entry_point/east{
-	name = "port, hangar aft side"
+	name = "starboard, hangar aft side"
 	},
 /turf/unsimulated/wall/fakepdoor,
 /area/kataphract_chapter/hangar)
 "Nd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -9449,7 +9693,9 @@
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 4
 	},
-/obj/machinery/light/small,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/janitorial)
 "Nh" = (
@@ -9481,7 +9727,7 @@
 /area/kataphract_chapter/aft_hall)
 "Nl" = (
 /obj/structure/sign/securearea{
-	pixel_y = -32
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -9517,9 +9763,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/aft_hall)
@@ -9529,7 +9775,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/medical)
 "Nv" = (
@@ -9546,14 +9794,14 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "NB" = (
-/obj/effect/landmark/entry_point/south{
-	name = "Fore, showers"
+/obj/effect/landmark/entry_point/north{
+	name = "fore, toilets"
 	},
 /turf/simulated/wall/r_wall,
 /area/kataphract_chapter/toilets)
 "NF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/engine_compartment)
@@ -9574,14 +9822,14 @@
 /area/kataphract_chapter/dorms)
 "NR" = (
 /obj/structure/cable/yellow{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /obj/structure/cable/yellow{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -9603,14 +9851,14 @@
 	dir = 8;
 	id = "katabridgeshutter"
 	},
-/obj/effect/landmark/entry_point/south{
-	name = "fore, bridge starboard"
+/obj/effect/landmark/entry_point/north{
+	name = "fore, port bridge"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bridge)
 "NZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
@@ -9640,9 +9888,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
@@ -9662,8 +9910,8 @@
 "Os" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
+	d2 = 1;
+	icon_state = "0-1";
 	pixel_y = 0
 	},
 /obj/machinery/power/apc/high{
@@ -9686,12 +9934,14 @@
 /area/kataphract_chapter/commissary)
 "OF" = (
 /obj/structure/table/rack,
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/machinery/door/window{
-	dir = 1;
+	dir = 2;
 	name = "Suit Storage";
 	req_one_access = list(113)
 	},
@@ -9727,15 +9977,15 @@
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "Pl" = (
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
+	dir = 9;
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
@@ -9745,12 +9995,14 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "Pr" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/black,
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
 "Ps" = (
@@ -9758,7 +10010,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -9791,7 +10043,7 @@
 /area/kataphract_chapter/aft_hall)
 "PG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -9825,9 +10077,9 @@
 	icon_state = "corner_white"
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/aft_hall)
@@ -9843,20 +10095,24 @@
 	dir = 1;
 	icon_state = "corner_white"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "PO" = (
 /obj/structure/cable/yellow{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /obj/machinery/access_button/airlock_interior{
 	frequency = 1984;
@@ -9880,7 +10136,10 @@
 	pixel_x = -24;
 	req_access = list(113)
 	},
-/obj/structure/cable/green,
+/obj/structure/cable/green{
+	icon_state = "0-2";
+	d2 = 2
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "QD" = (
@@ -9894,21 +10153,21 @@
 	icon_state = "corner_white"
 	},
 /obj/structure/sign/flag/hegemony{
-	pixel_y = 32
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "QE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 6
 	},
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -9922,11 +10181,11 @@
 "QT" = (
 /obj/machinery/firealarm/east,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
+	dir = 10;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -9935,7 +10194,7 @@
 /area/kataphract_chapter/trading_area)
 "Re" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
+	dir = 2;
 	frequency = 1380;
 	id_tag = "kataphract_shuttle_pump"
 	},
@@ -9981,7 +10240,7 @@
 "RA" = (
 /obj/machinery/computer/ship/sensors,
 /obj/structure/window/reinforced{
-	dir = 1;
+	dir = 2;
 	maxhealth = 80
 	},
 /turf/simulated/floor/tiled/dark,
@@ -9998,9 +10257,9 @@
 /area/kataphract_chapter/hangar)
 "RM" = (
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10010,10 +10269,12 @@
 /area/kataphract_chapter/engineering)
 "RR" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/bed/stool/bar/padded,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/brig)
 "RY" = (
@@ -10025,14 +10286,13 @@
 	frequency = 1380;
 	id_tag = "kataphract_shuttle_sensor";
 	pixel_x = 25;
-	pixel_y = 7;
-	req_access = list(113)
+	pixel_y = 7
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Sf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10076,22 +10336,24 @@
 /area/kataphract_chapter/janitorial)
 "Sx" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
 	icon_state = "corner_white"
 	},
 /obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(113)
+	pixel_y = -25;
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "Sy" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	frequency = 1983;
-	id_tag = "chapter_port_vent"
+	id_tag = "chapter_port_vent";
+	dir = 1
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1983;
@@ -10100,13 +10362,13 @@
 	},
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/port_solars)
 "Sz" = (
 /obj/structure/sign/flag/hegemony/left{
-	pixel_y = 32
+	pixel_y = -32
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
@@ -10157,23 +10419,23 @@
 	dir = 4
 	},
 /obj/machinery/power/apc{
-	dir = 1;
+	dir = 2;
 	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
+	pixel_y = -24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/janitorial)
 "To" = (
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
@@ -10193,7 +10455,7 @@
 /area/kataphract_chapter/entry)
 "Tt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 6
+	dir = 5
 	},
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/engine_compartment)
@@ -10216,21 +10478,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "TJ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
-/obj/machinery/power/apc{
-	dir = 2;
-	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
-	req_access = list(113)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
 	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	is_critical = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/brig)
@@ -10242,7 +10506,8 @@
 /obj/item/clothing/mask/breath,
 /obj/machinery/door/window{
 	name = "Specialist";
-	req_one_access = list(114,116)
+	req_one_access = list(114,116);
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -10252,7 +10517,7 @@
 	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/sign/flag/hegemony/left{
 	dir = 4;
@@ -10278,7 +10543,7 @@
 	pixel_x = 32
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
+	dir = 2
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -10323,7 +10588,7 @@
 "UE" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
-	dir = 1;
+	dir = 2;
 	maxhealth = 80
 	},
 /obj/item/modular_computer/handheld/pda,
@@ -10331,26 +10596,28 @@
 /area/kataphract_chapter/bridge)
 "UM" = (
 /obj/structure/cable/yellow{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /obj/structure/cable/yellow{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/starboard_solars_array)
 "UT" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/black,
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 1
+	},
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "UU" = (
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -10358,12 +10625,15 @@
 /area/kataphract_chapter/medical)
 "Ve" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 2
+	},
+/obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/window/reinforced,
 /obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(113)
+	pixel_y = -25;
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
@@ -10395,7 +10665,7 @@
 /area/kataphract_chapter/cafeteria)
 "VN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+	dir = 2
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -10420,30 +10690,31 @@
 /obj/item/pipewrench,
 /obj/random/tech_supply,
 /obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(113)
+	pixel_y = -25;
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "Wl" = (
-/obj/effect/landmark/entry_point/north{
-	name = "aft, central"
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, central fuel storage"
 	},
 /turf/simulated/wall/r_wall,
 /area/kataphract_chapter/starboardpropulsion)
 "Wr" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "Ws" = (
 /obj/structure/sign/securearea{
-	pixel_y = -32
+	pixel_y = 32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -10460,14 +10731,14 @@
 /area/kataphract_chapter/aft_hall)
 "Wx" = (
 /obj/effect/landmark/entry_point/west{
-	name = "starboard janitorial"
+	name = "port, janitorial"
 	},
 /turf/simulated/wall/r_wall,
 /area/kataphract_chapter/janitorial)
 "WG" = (
 /obj/machinery/firealarm/east,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+	dir = 9
 	},
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
@@ -10484,8 +10755,9 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/super/critical{
-	pixel_y = -24;
-	req_access = list(113)
+	pixel_y = 24;
+	req_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
@@ -10505,7 +10777,9 @@
 	dir = 9;
 	icon_state = "warning"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "Xa" = (
@@ -10531,8 +10805,8 @@
 /area/kataphract_chapter/janitorial)
 "Xy" = (
 /obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25;
+	dir = 2;
+	pixel_y = 25;
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -10544,11 +10818,13 @@
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "XQ" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray,
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
@@ -10596,17 +10872,17 @@
 /area/kataphract_chapter/brig)
 "Yg" = (
 /obj/machinery/light/spot{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "Yi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 10
+	dir = 9
 	},
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
@@ -10629,7 +10905,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 5
+	dir = 6
 	},
 /obj/machinery/alarm{
 	dir = 4;
@@ -10668,25 +10944,27 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bridge)
 "YQ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 2
+	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "YS" = (
 /obj/structure/cable/green{
-	d1 = 1;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
@@ -10699,16 +10977,16 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "YW" = (
-/obj/machinery/light,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
 "YX" = (
-/obj/machinery/door/airlock/hatch{
-	req_access = list(113)
-	},
+/obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -10744,15 +11022,15 @@
 	icon_state = "4-8"
 	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
+	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -10763,7 +11041,8 @@
 	},
 /obj/machinery/power/apc/high{
 	name = "south bump";
-	pixel_y = -24
+	pixel_y = 24;
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -10774,2261 +11053,2123 @@
 /area/kataphract_chapter/cafeteria)
 "ZO" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 2
 	},
 /obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(113)
+	pixel_y = -25;
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 
 (1,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (2,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (3,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (4,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (5,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (6,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (7,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (8,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (9,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (10,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (11,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (12,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (13,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (14,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-au
-PW
-PW
-PW
-PW
-PW
 PW
 PW
 PW
@@ -13050,1810 +13191,1956 @@ PW
 PW
 PW
 PW
+PW
+PW
+PW
+PW
+PW
+au
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (15,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (16,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (17,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (18,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (19,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (20,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (21,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (22,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (23,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (24,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (25,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (26,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+au
 iB
 iB
 iB
@@ -14967,681 +15254,674 @@ iB
 iB
 iB
 iB
-au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (27,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (28,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (29,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
 au
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
-PW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (30,1,1) = {"
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
+au
 wv
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 "}
 (31,1,1) = {"
 iB
@@ -16345,60 +16625,60 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 eO
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -16454,6 +16734,21 @@ iB
 iB
 "}
 (36,1,1) = {"
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -16599,21 +16894,6 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 "}
 (37,1,1) = {"
 iB
@@ -16680,15 +16960,22 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 ec
-dF
-ec
-dF
-xH
-dF
-ec
-dF
-yM
 dF
 ec
 dF
@@ -16696,22 +16983,15 @@ LV
 dF
 ec
 dF
+yM
+dF
 ec
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+dF
+xH
+dF
+ec
+dF
+ec
 iB
 iB
 iB
@@ -16842,38 +17122,38 @@ iB
 iB
 iB
 iB
-eg
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+Gw
 ey
-NR
+mS
 ey
-NR
+mS
 ey
-NR
+mS
 ey
 jh
 ey
-mS
+NR
 ey
-mS
+NR
 ey
-mS
+NR
 ey
-Gw
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+eg
 iB
 iB
 iB
@@ -17004,6 +17284,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 DC
 dF
 DC
@@ -17021,21 +17316,6 @@ dF
 DC
 dF
 DC
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -17166,6 +17446,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 dF
 dF
 dF
@@ -17183,21 +17478,6 @@ dF
 dF
 dF
 dF
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -17328,6 +17608,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 ec
 dF
 ec
@@ -17345,21 +17640,6 @@ dF
 ec
 dF
 ec
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -17490,38 +17770,38 @@ iB
 iB
 iB
 iB
-eg
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+Gw
 ey
-NR
+mS
 ey
-NR
+mS
 ey
-NR
+mS
 ey
 jh
 ey
-mS
+NR
 ey
-mS
+NR
 ey
-mS
+NR
 ey
-Gw
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+eg
 iB
 iB
 iB
@@ -17652,6 +17932,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 DC
 dF
 DC
@@ -17669,21 +17964,6 @@ dF
 DC
 dF
 DC
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -17814,6 +18094,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 dF
 dF
 dF
@@ -17831,21 +18126,6 @@ dF
 dF
 dF
 dF
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -17976,6 +18256,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 ec
 dF
 ec
@@ -17993,21 +18288,6 @@ dF
 ec
 dF
 ec
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -18112,7 +18392,6 @@ iB
 iB
 iB
 iB
-CW
 iB
 iB
 iB
@@ -18138,23 +18417,39 @@ iB
 iB
 iB
 iB
-eg
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+Gw
 ey
-NR
+mS
 ey
-NR
+mS
 ey
-NR
+mS
 ey
 jh
 ey
-mS
+NR
 ey
-mS
+NR
 ey
-mS
+NR
 ey
-Gw
+eg
 iB
 iB
 iB
@@ -18180,22 +18475,7 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+CW
 iB
 iB
 iB
@@ -18300,6 +18580,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 DC
 dF
 DC
@@ -18317,21 +18612,6 @@ dF
 DC
 dF
 DC
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -18462,6 +18742,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 dF
 dF
 dF
@@ -18479,21 +18774,6 @@ dF
 dF
 dF
 dF
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -18624,6 +18904,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 ec
 dF
 ec
@@ -18641,21 +18936,6 @@ dF
 ec
 dF
 ec
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -18786,38 +19066,38 @@ iB
 iB
 iB
 iB
-eg
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+Gw
 ey
-NR
+mS
 ey
-NR
+mS
 ey
-NR
+mS
 ey
 jh
 ey
-mS
+NR
 ey
-mS
+NR
 ey
-mS
+NR
 ey
-Gw
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+eg
 iB
 iB
 iB
@@ -18934,6 +19214,21 @@ iB
 iB
 iB
 iB
+Ig
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -18979,21 +19274,6 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-Ig
 iB
 iB
 iB
@@ -19110,6 +19390,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 dF
 dF
 dF
@@ -19127,21 +19422,6 @@ dF
 dF
 dF
 dF
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -19272,6 +19552,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 ec
 dF
 ec
@@ -19289,21 +19584,6 @@ dF
 ec
 dF
 ec
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -19434,38 +19714,38 @@ iB
 iB
 iB
 iB
-eg
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+Gw
 ey
-NR
+mS
 ey
-NR
+mS
 ey
-NR
+mS
 ey
 jh
 ey
-mS
+NR
 ey
-mS
+NR
 ey
-mS
+NR
 ey
-Gw
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+eg
 iB
 iB
 iB
@@ -19596,6 +19876,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 DC
 dF
 DC
@@ -19613,21 +19908,6 @@ dF
 DC
 dF
 DC
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -19766,22 +20046,22 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 yM
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -19928,22 +20208,22 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 yM
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -20089,24 +20369,24 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 Pb
 yM
 Pb
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -20251,24 +20531,24 @@ iB
 iB
 iB
 iB
-Pb
-jv
-ey
-ey
-ey
-ey
-ey
-ey
-ey
-ey
-ey
-ey
-ey
+iB
+iB
+iB
+iB
 mZ
-iB
-iB
-iB
-iB
+ey
+ey
+ey
+ey
+ey
+ey
+ey
+ey
+ey
+ey
+ey
+jv
+Pb
 iB
 iB
 iB
@@ -20407,36 +20687,36 @@ iB
 iB
 iB
 iB
-jg
-jg
-jg
-jg
-jg
-jg
-fq
-fq
-fq
-tu
-tu
-tu
-tu
-tu
-tu
-tu
-tu
-tu
-tu
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 yM
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+tu
+fq
+fq
+fq
+jg
+jg
+jg
+jg
+jg
+jg
 iB
 iB
 iB
@@ -20560,43 +20840,10 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-jg
-jg
-jg
-jg
-jg
-jg
-cn
-eu
-eu
-eu
-fK
-fK
-fK
-fK
-fK
-fK
-fK
-fK
-fK
-tu
-yM
-iB
-iB
-iB
-iB
 kr
 ig
 ig
-Ro
+MZ
 ig
 ig
 ig
@@ -20604,10 +20851,43 @@ Fn
 ig
 ig
 ig
-MZ
+Ro
 ig
 ig
 kr
+iB
+iB
+iB
+iB
+yM
+tu
+fK
+fK
+fK
+fK
+fK
+fK
+fK
+fK
+fK
+eu
+eu
+eu
+cn
+jg
+jg
+jg
+jg
+jg
+jg
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -20722,6 +21002,47 @@ iB
 iB
 iB
 iB
+kr
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+kr
+iB
+iB
+iB
+iB
+yM
+tu
+fK
+ge
+mR
+fZ
+mR
+fZ
+mR
+fZ
+fK
+fs
+eP
+ev
+cn
+cn
+cn
+cn
+cn
+cn
+jg
+jg
 iB
 iB
 iB
@@ -20729,47 +21050,6 @@ Ig
 iB
 iB
 iB
-jg
-jg
-cn
-cn
-cn
-cn
-cn
-cn
-ev
-eP
-fs
-fK
-fZ
-mR
-fZ
-mR
-fZ
-mR
-ge
-fK
-tu
-yM
-iB
-iB
-iB
-iB
-kr
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-kr
 iB
 iB
 iB
@@ -20870,7 +21150,6 @@ iB
 iB
 iB
 iB
-Ig
 iB
 iB
 iB
@@ -20884,55 +21163,48 @@ iB
 iB
 iB
 iB
+kr
+kr
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+kr
+ou
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-jg
-jg
-cn
-cw
-cM
-cM
-cM
-cn
+yM
+tu
+fK
+hF
+ge
+ge
+ge
+ge
+ge
+ga
+fK
 cf
 eQ
 cf
-fK
-ga
-ge
-ge
-ge
-ge
-ge
-hF
-fK
-tu
-yM
-iB
-iB
-iB
-ou
-kr
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-kr
-kr
+cn
+cM
+cM
+cM
+cw
+cn
+jg
+jg
 iB
 iB
 iB
@@ -20946,6 +21218,14 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+Ig
 iB
 iB
 iB
@@ -21045,56 +21325,56 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-jg
-jg
-cn
-cx
-cx
-cx
-dy
-cn
-ew
-eR
-ft
-fK
-gb
-ge
-pH
-pH
-ge
-ge
-Gk
-fK
-tu
-jv
-ey
-mZ
-Pb
+kr
+kr
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+kr
 ou
-kr
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-kr
-kr
+Pb
+mZ
+ey
+jv
+tu
+fK
+Gk
+ge
+ge
+pH
+pH
+ge
+gb
+fK
+ft
+eR
+ew
+cn
+dy
+cx
+cx
+cx
+cn
+jg
+jg
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -21207,42 +21487,9 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-jg
-jg
-cn
-cy
-cx
-cY
-dz
-cn
-cf
-eS
-fu
-fK
-gc
-gD
-hd
-hg
-pH
-ge
-hH
-fK
-tu
-Pb
-Pb
-yM
-Pb
-ou
 kr
-Yg
+kr
+mH
 aa
 aa
 aa
@@ -21254,9 +21501,42 @@ fo
 aa
 aa
 aa
-mH
+Yg
 kr
-kr
+ou
+Pb
+yM
+Pb
+Pb
+tu
+fK
+hH
+ge
+pH
+hg
+hd
+gD
+gc
+fK
+fu
+eS
+cf
+cn
+dz
+cY
+cx
+cy
+cn
+jg
+jg
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -21369,56 +21649,56 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-NB
-jg
-cn
-cz
-cy
-cZ
-dA
-eV
-cC
-eT
-cC
-fM
-gd
-gE
-he
-hl
-pH
-ge
-fZ
-fK
-ou
+kr
+kr
+aa
+aa
+Jy
+Ah
+ae
+Ul
+nu
+aF
+ae
+Ah
+bH
+aa
+aa
+kr
 ou
 yw
 ji
 yw
 ou
-kr
-aa
-aa
-bH
-Ah
-ae
-aF
-nu
-Ul
-ae
-Cm
-Jy
-aa
-aa
-kr
-kr
+ou
+fK
+fZ
+ge
+pH
+hl
+he
+gE
+gd
+fM
+cC
+eT
+cC
+eV
+dA
+cZ
+cy
+cz
+cn
+jg
+NB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -21529,60 +21809,60 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-jg
-jg
-cn
-cz
-cy
-da
-dB
-fy
-cf
-eU
-cf
-hI
-ge
-gF
-NJ
-YT
-pH
-ge
-kE
-fK
-ou
-ou
-Sy
-jj
-jL
-ou
+kr
+kr
+kr
 kr
 aa
 aa
 ae
 ae
-Ap
+fL
 bn
 Fd
 bn
-fL
+Ap
 ae
 ae
 aa
 aa
 kr
-kr
-kr
-kr
+ou
+jL
+jj
+Sy
+ou
+ou
+fK
+kE
+ge
+pH
+YT
+NJ
+gF
+ge
+hI
+cf
+eU
+cf
+fy
+dB
+da
+cy
+cz
+cn
+jg
+jg
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -21685,72 +21965,72 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-jg
-jg
-cn
-cy
-cx
-db
-dC
-cn
-cf
-eU
-cf
-fK
-gf
-gG
-hg
-Ew
-pH
-ge
-hH
-fK
-ou
-ou
-yw
-jm
-yw
-ou
-kr
-aa
-ae
-ae
-Ll
-uy
-Nd
-vj
-BY
-zi
-dY
-jF
-mh
-aa
-aa
-kr
-kr
-kr
+JF
 kr
 kr
 pj
 kr
 kr
-JF
+kr
+kr
+kr
+aa
+aa
+mh
+jF
+dY
+zi
+BY
+vj
+Nd
+uy
+Ll
+ae
+ae
+aa
+kr
+ou
+yw
+jm
+yw
+ou
+ou
+fK
+hH
+ge
+pH
+Ew
+hg
+gG
+gf
+fK
+cf
+eU
+cf
+cn
+dC
+db
+cx
+cy
+cn
+jg
+jg
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -21846,74 +22126,74 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-jg
-jg
-cn
-cx
-cx
-cx
-dD
-cn
-cf
-eU
-cf
-fK
-gg
-ge
-pH
-pH
-ge
-ge
-hF
-fK
-lb
-Ea
-iO
-jo
-DE
-Ea
-kN
+JF
+JF
+kr
+kr
+kr
+kr
+kr
+kr
+So
+aA
 aa
 ae
+ae
+ae
+ae
+gU
+Tu
+Af
+ME
 ae
 xr
 ae
-ME
-Af
-Tu
-gU
-ae
-ae
-ae
 ae
 aa
-aA
-So
-kr
-kr
-kr
-kr
-kr
-kr
-JF
-JF
+kN
+Ea
+DE
+jo
+iO
+Ea
+lb
+fK
+hF
+ge
+ge
+pH
+pH
+ge
+gg
+fK
+cf
+eU
+cf
+cn
+dD
+cx
+cx
+cx
+cn
+jg
+jg
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -22007,76 +22287,76 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-jg
-jg
+JF
+JF
+JF
+kr
+Nh
+lL
+zT
+dV
+kr
+Nl
+eq
+aa
+jF
+pW
+sn
+kK
+HK
+bn
+Ek
+le
+iC
+LD
+JD
+jF
+aa
+kN
+Ea
+kW
+Kd
+iS
+Ea
+lb
+fK
+hG
+ge
+ge
+ge
+ge
+ge
+ge
+fK
+fv
+eU
+cg
 cn
-cA
 cn
 dw
 cn
+cA
 cn
-cg
-eU
-fv
-fK
-ge
-ge
-ge
-ge
-ge
-ge
-hG
-fK
-lb
-Ea
-iS
-Kd
-kW
-Ea
-kN
-aa
-jF
-JD
-LD
-iC
-le
-Ek
-bn
-HK
-kK
-sn
-pW
-jF
-aa
-eq
-Nl
-kr
-dV
-zT
-lL
-Nh
-kr
-JF
-JF
-JF
+jg
+jg
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -22168,78 +22448,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-jg
-jg
-cn
-cB
-cn
-ea
-cn
-cn
-cf
-eU
-cf
-fK
-fZ
-mT
-fZ
-gK
-fZ
-mU
-NG
-fK
-lb
-Ea
-iT
-Dx
-kd
-Ea
-kN
-aa
-rp
-xX
-bi
-bi
-GO
-aq
-bn
-lq
-nl
-Re
-hK
-TP
-aa
-eq
-hJ
-tk
+JF
+JF
+JF
+JF
+kr
+zm
 ff
 iw
 ff
-zm
-kr
-JF
-JF
-JF
-JF
+tk
+hJ
+eq
+aa
+TP
+hK
+Re
+nl
+lq
+bn
+aq
+GO
+bi
+bi
+xX
+rp
+aa
+kN
+Ea
+kd
+Dx
+iT
+Ea
+lb
+fK
+NG
+mU
+fZ
+gK
+fZ
+mT
+fZ
+fK
+cf
+eU
+cf
+cn
+cn
+ea
+cn
+cB
+cn
+jg
+jg
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -22304,6 +22584,7 @@ iB
 iB
 iB
 iB
+Iw
 iB
 iB
 iB
@@ -22329,79 +22610,60 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-ab
-jg
-jg
-cn
-cn
-cn
-cn
-cn
-cn
-dd
-fk
-dd
-fK
-fK
-fK
-fK
-fK
-fK
-fK
-fK
-fK
-Ea
+bZ
+jG
+JF
+JF
+kr
+pi
+ff
+iz
+kQ
+es
+GZ
+eq
+qK
+AY
+RY
+ie
+nl
+TV
+BI
+iu
+le
+eo
+fU
+mc
+jF
+aa
+kN
 Ea
 Ea
 js
 Ea
 Ea
-kN
-aa
-jF
-mc
-fU
-eo
-le
-iu
-BI
-TV
-nl
-ie
-RY
-AY
-qK
-eq
-GZ
-es
-kQ
-iz
-ff
-pi
-kr
-JF
-JF
-jG
-bZ
+Ea
+fK
+fK
+fK
+fK
+fK
+fK
+fK
+fK
+fK
+dd
+fk
+dd
+cn
+cn
+cn
+cn
+cn
+cn
+jg
+jg
+ab
 iB
 iB
 iB
@@ -22427,7 +22689,25 @@ iB
 iB
 iB
 iB
-Iw
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -22492,78 +22772,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-ab
-ms
-ms
-ms
-ms
-ms
-ms
-ab
-ab
+JF
+ng
+JF
+JF
+kr
+oX
+cT
+oC
+xD
+kr
+id
+eq
+aa
+ae
+ae
+al
+al
+XI
+NF
+fG
+YX
+al
+al
+al
+al
+aa
+ia
+km
+ke
+jt
+iU
+IA
+av
+jH
+ia
 cf
 cf
 cf
 cN
 cf
-dE
+cf
 cf
 cf
 eU
 cf
 cf
-cf
+dE
 cf
 cN
 cf
 cf
 cf
-ia
-jH
-av
-IA
-iU
-jt
-ke
-km
-ia
-aa
-al
-al
-al
-al
-YX
-fG
-NF
-XI
-al
-al
-ae
-ae
-aa
-eq
-id
-kr
-xD
-oC
-cT
-oX
-kr
-JF
-JF
-ng
-JF
+ab
+ab
+ms
+ms
+ms
+ms
+ms
+ms
+ab
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -22654,78 +22934,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-aG
-aN
-bb
-aN
-bb
-aN
-bb
-ab
-cg
-co
+Ga
+Ve
+JF
+JF
+kr
+kr
+kr
+kr
+kr
+kr
+dW
+eq
+aa
+aa
+Nv
+al
+dZ
+aD
+Dj
+ud
+dX
+Ys
+Os
+rM
+GG
+Yg
+ia
+XZ
+kf
+tb
+pg
+kF
+is
+sX
+ia
+fI
+ht
 fY
 nA
-fY
-eK
-fY
-gH
-gI
-im
 fY
 nB
 fY
+im
+gI
+gH
+fY
+eK
+fY
 nA
 fY
-ht
-fI
-ia
-sX
-is
-kF
-pg
-tb
-kf
-XZ
-ia
-Yg
-GG
-rM
-Os
-Ys
-dX
-ud
-Dj
-aD
-dZ
-al
-Nv
-aa
-aa
-eq
-dW
-kr
-kr
-kr
-kr
-kr
-kr
-JF
-JF
-Ve
-Ga
+co
+cg
+ab
+bb
+aN
+bb
+aN
+bb
+aN
+aG
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -22816,78 +23096,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-az
-aO
-bc
-aZ
-bc
-bI
-aC
-ab
-cj
-cp
-cf
-cN
-de
-dG
-ee
-ez
-cf
-fx
-ee
-gi
-cf
-cN
-cf
-cp
-cf
-ia
-ac
-JI
-gB
-iW
-ju
-kg
-kC
-ia
-aa
-al
-al
-Gr
-aM
-wQ
-oT
-mt
-KP
-al
-al
-jX
-hh
-ny
-ij
-wh
-kr
-mm
-TH
-iM
-dR
-kr
-JF
 JF
 jC
 JF
+JF
+kr
+dR
+iM
+TH
+mm
+kr
+wh
+ij
+ny
+hh
+jX
+al
+al
+KP
+mt
+oT
+wQ
+aM
+Gr
+al
+al
+aa
+ia
+kC
+kg
+ju
+iW
+gB
+JI
+ac
+ia
+cf
+cp
+cf
+cN
+cf
+gi
+ee
+fx
+cf
+ez
+ee
+dG
+de
+cN
+cf
+cp
+cj
+ab
+aC
+bI
+bc
+aZ
+bc
+aO
+az
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -22978,78 +23258,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-Kq
-ay
-aP
-bd
-bq
-bB
-ay
-bg
-jr
-ch
-cq
-cD
-cP
-cP
-cP
-cP
-gh
-gk
-hY
-cP
-cP
-cP
-cP
-ho
-hu
-hE
-ia
-nD
-Gj
-pT
-iX
-rS
-kf
-kD
-ia
-aa
-pp
-kq
-rs
-Ci
-Si
-ar
-Wr
-lJ
-Pg
-aa
-aa
-Kw
-jp
-jp
-yj
-kr
-aw
-aw
-ix
-yE
-kr
-JF
-JF
-sG
 bZ
+sG
+JF
+JF
+kr
+yE
+ix
+aw
+aw
+kr
+yj
+jp
+jp
+Kw
+aa
+aa
+Pg
+lJ
+Wr
+ar
+Si
+Ci
+rs
+kq
+pp
+aa
+ia
+kD
+kf
+rS
+iX
+pT
+Gj
+nD
+ia
+hE
+hu
+ho
+cP
+cP
+cP
+cP
+hY
+gk
+gh
+cP
+cP
+cP
+cP
+cD
+cq
+ch
+jr
+bg
+ay
+bB
+bq
+bd
+aP
+ay
+Kq
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -23140,78 +23420,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-az
-aQ
-be
-br
-bC
-az
-aC
-jr
-cf
-cp
-cf
-cP
-df
-dH
-ef
-eB
-ek
-fz
-fN
-io
-nj
-cP
-FP
-cp
-cf
-ia
-HS
-KB
-iG
-iY
-jy
-kh
-OF
-kY
-aa
-bP
-Tt
-nf
-aM
-vA
-ba
-lT
-Tt
-ls
-aa
-WY
-iP
-Iz
-hJ
-Zf
-kr
-JW
-RL
-iM
-iw
-kr
-JF
 JF
 xB
 JF
+JF
+kr
+iw
+iM
+RL
+JW
+kr
+Zf
+hJ
+Iz
+iP
+WY
+aa
+ls
+Tt
+lT
+ba
+vA
+aM
+nf
+Tt
+bP
+aa
+kY
+OF
+kh
+jy
+iY
+iG
+KB
+HS
+ia
+FP
+cp
+cf
+cP
+nj
+io
+fN
+fz
+ek
+eB
+ef
+dH
+df
+cP
+cf
+cp
+cf
+jr
+aC
+az
+bC
+br
+be
+aQ
+az
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -23302,78 +23582,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-ab
-ab
-ci
-aP
-bf
-bs
-bD
-ay
-aC
-jr
-cf
-cp
-cf
-cP
-dg
-dI
-fE
-fE
-gO
-fA
-ek
-ek
-nk
-cP
-cf
-cp
-fu
-ia
-lu
-et
-iE
-iZ
-SZ
-ki
-aB
-kY
-aa
-bP
-dM
-fV
-wp
-iN
-iN
-nf
-UT
-dM
-aa
-ax
-nd
-Iz
-hJ
-Ak
-kr
-aw
-aw
-ix
-iw
-kr
-tM
-fw
-JX
 bZ
+JX
+fw
+tM
+kr
+iw
+ix
+aw
+aw
+kr
+Ak
+hJ
+Iz
+nd
+ax
+aa
+dM
+UT
+nf
+iN
+iN
+wp
+fV
+dM
+bP
+aa
+kY
+aB
+ki
+SZ
+iZ
+iE
+et
+lu
+ia
+fu
+cp
+cf
+cP
+nk
+ek
+ek
+fA
+gO
+fE
+fE
+dI
+dg
+cP
+cf
+cp
+cf
+jr
+aC
+ay
+bD
+bs
+bf
+aP
+ci
+ab
+ab
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -23464,78 +23744,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-ab
-ab
-QD
-aH
-aR
-bb
-bt
-bb
-bJ
-Xy
-ab
-cf
-cp
-cf
-du
-dh
-dJ
-eh
-eC
-eZ
-fB
-fO
-ek
-gJ
-du
-cf
-cp
-fH
-ia
-am
-en
-Yo
-ja
-jA
-kj
-lV
-kY
+JF
+JF
+JF
+jY
+qS
+kn
+Xe
+Gi
+Gi
+lo
+Bp
+wz
+VN
+YQ
+ax
+aa
+aa
+dM
+fV
+al
+al
+fV
+dM
 aa
 bP
 aa
-dM
-fV
-al
-al
-fV
-dM
-aa
-aa
-ax
-YQ
-VN
-wz
-Bp
-lo
-Gi
-Gi
-Xe
-kn
-qS
-jY
-JF
-JF
-JF
+kY
+lV
+kj
+jA
+ja
+Yo
+en
+am
+ia
+fH
+cp
+cf
+du
+gJ
+ek
+fO
+fB
+eZ
+eC
+eh
+dJ
+dh
+du
+cf
+cp
+cf
+ab
+Xy
+bJ
+bb
+bt
+bb
+aR
+aH
+QD
+ab
+ab
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -23627,76 +23907,76 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-FC
-bJ
-aI
-aS
-bg
-bu
-bE
-bK
-bQ
-ab
-ds
-cF
-cf
-du
-di
-dK
-ei
-eD
-eD
-eD
-fP
-ek
-nk
-du
-cf
-cp
-fI
-ia
-Wi
-BV
-if
-jb
-jB
-ki
-mJ
-ia
+JF
+JF
+JF
+kr
+mw
+Pm
+kQ
+kQ
+gw
+wP
+GW
+iy
+tH
+ax
+aa
+aa
+aa
+dM
+Jv
+al
+dM
+aa
 aa
 bP
 aa
-aa
-dM
-al
-Jv
-dM
-aa
-aa
-aa
-ax
-tH
-iy
-GW
-wP
-gw
-kQ
-kQ
-Pm
-mw
-kr
-JF
-JF
-JF
+ia
+mJ
+ki
+jB
+jb
+if
+BV
+Wi
+ia
+fI
+cp
+cf
+du
+nk
+ek
+fP
+eD
+eD
+eD
+ei
+dK
+di
+du
+cf
+cF
+ds
+ab
+bQ
+bK
+bE
+bu
+bg
+aS
+aI
+bJ
+FC
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -23790,74 +24070,74 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-az
-aC
-aC
-aT
+JF
+JF
+kr
+Eg
+lk
+gZ
+Mv
+kr
+Ws
+gj
+gj
+Ps
+eq
+aa
+aa
+aa
+aa
+aa
+aa
+lg
+kG
+kG
+MT
+aa
+ia
+mK
+kk
+jD
+jd
+iI
+RM
+ih
+ia
+cf
+cp
+cf
+du
+nm
+ek
+fP
+eD
+eD
+eD
+ei
+dK
+dj
+du
+cf
+cp
+cf
+ab
+bR
+bL
 bh
 bv
 bh
-bL
-bR
-ab
-cf
-cp
-cf
-du
-dj
-dK
-ei
-eD
-eD
-eD
-fP
-ek
-nm
-du
-cf
-cp
-cf
-ia
-ih
-RM
-iI
-jd
-jD
-kk
-mK
-ia
-aa
-MT
-kG
-kG
-lg
-aa
-aa
-aa
-aa
-aa
-aa
-eq
-Ps
-gj
-gj
-Ws
-kr
-Mv
-gZ
-lk
-Eg
-kr
-JF
-JF
+aT
+aC
+aC
+az
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -23952,74 +24232,74 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-hm
-aC
-aC
-aU
-ao
-IJ
-dc
-uh
-EP
-ab
-ck
-cp
-cf
-du
-dk
-dL
-ej
-eE
-fa
-fC
-fQ
-ek
-gM
-du
-cf
-cp
-cf
-ia
-ih
-WG
-iL
-je
-jE
-kl
-Qh
-ia
+th
+th
+kr
+iA
+CE
+RL
+mm
+kr
+zL
+lA
+hJ
+En
+eq
+rq
 aa
-mG
+aa
+aa
 aa
 aa
 bP
 aa
 aa
+mG
 aa
-aa
-aa
-rq
-eq
-En
-hJ
-lA
-zL
-kr
-mm
-RL
-CE
-iA
-kr
-th
-th
+ia
+Qh
+kl
+jE
+je
+iL
+WG
+ih
+ia
+cf
+cp
+cf
+du
+gM
+ek
+fQ
+fC
+fa
+eE
+ej
+dL
+dk
+du
+cf
+cp
+fu
+ab
+EP
+uh
+dc
+IJ
+ao
+aU
+aC
+aC
+hm
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -24098,6 +24378,7 @@ iB
 iB
 iB
 iB
+Ig
 iB
 iB
 iB
@@ -24113,75 +24394,67 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-az
-aC
-aC
-aV
-RA
-No
-aC
-aC
-bT
-ab
-cl
-cp
-cf
-cP
-dl
-dK
-ek
-ek
-fb
-ek
-ek
-ek
-AC
-cP
-cf
-cp
-cf
-ia
-ia
-ia
-ia
-jf
-jK
-ia
-ia
-ia
+th
+th
+kr
+eb
 kN
 kN
+kN
+kN
+kN
+kN
+MC
+ru
+GP
+kN
+bk
+bk
+bk
 bk
 bk
 SJ
 bk
 bk
-bk
-bk
-bk
-kN
-GP
-ru
-MC
 kN
 kN
-kN
-kN
-kN
-kN
-eb
-kr
-th
-th
+ia
+ia
+ia
+jK
+jf
+ia
+ia
+ia
+ia
+cf
+cp
+cf
+cP
+AC
+ek
+ek
+ek
+fb
+ek
+ek
+dK
+dl
+cP
+cf
+cp
+cl
+ab
+bT
+aC
+aC
+No
+RA
+aV
+aC
+aC
+az
+YP
 iB
 iB
 iB
@@ -24197,7 +24470,14 @@ iB
 iB
 iB
 iB
-Ig
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -24276,74 +24556,74 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-ay
-aC
-aC
-aU
-UE
-aC
-aC
-aC
-bS
-cb
-cf
-cp
-cf
-cP
-dm
-dK
-ek
-eF
-fc
-eF
-fc
-eF
-nt
-cP
-cf
-cp
-cf
-nb
+th
+GH
+ai
+sU
+Hh
+Hh
+mi
+FX
+FX
+Jr
 OT
-wl
-iK
-jJ
-kp
-kA
-kH
-kI
+kO
 OT
 OT
-OT
-un
-xW
 OT
 OT
 kT
 OT
 OT
+xW
+un
 OT
 OT
-kO
 OT
-Jr
-FX
-FX
-mi
-Hh
-er
-sU
-ai
-GH
-th
+kI
+kH
+kA
+kp
+jJ
+iK
+wl
+OT
+nb
+cf
+cp
+cf
+cP
+nt
+eF
+fc
+eF
+fc
+eF
+ek
+dK
+dm
+cP
+cf
+cp
+cf
+cb
+bS
+aC
+aC
+aC
+UE
+aU
+aC
+aC
+ay
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -24438,74 +24718,74 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-Ho
-az
-aC
-aI
-aW
-ha
-kc
-Ht
-bM
-bU
-cc
-cC
-cr
-cf
-cQ
-cQ
-eA
-eY
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-cQ
-EG
-ni
-iq
-mW
-PD
-PD
-iQ
-ko
-ky
-kz
-kz
-kz
-kB
-kL
-rd
-Ni
-hk
-PI
+Wl
+Al
+Mm
+ik
+Av
+Hh
+mp
+QE
+cI
+FJ
+JQ
+Nq
+CH
+CH
+mF
 mF
 Ag
 mF
-mF
-CH
-CH
-Nq
-JQ
-FJ
-cI
-QE
-mp
-Hh
-Av
-ik
-Mm
-Al
-Wl
+PI
+hk
+Ni
+rd
+kL
+kB
+kz
+kz
+kz
+ky
+ko
+iQ
+PD
+PD
+mW
+iq
+ni
+EG
+cQ
+cQ
+cQ
+cQ
+cQ
+cQ
+cQ
+eY
+eA
+cQ
+cQ
+cf
+cr
+cC
+cc
+bU
+bM
+Ht
+kc
+ha
+aW
+aI
+aC
+az
+Ho
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -24600,74 +24880,74 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-ay
-aC
-aC
-aU
-CY
-aC
-aC
-aC
-bV
-cb
-cf
-cp
-cf
-gu
-dn
-dN
-fX
-eG
-fd
-fD
-DG
-QB
-gP
-cQ
-cf
-cp
-cf
-nb
+th
+th
+th
+Pr
+gS
+Hh
+mi
+mQ
+FX
+Jr
+lK
 OT
 Aq
-Wt
+ul
 OT
-kp
-OT
-OT
-Aq
-OT
-kO
-OT
-un
-OT
-iJ
 OT
 vJ
 OT
+iJ
 OT
-ul
+un
+OT
+kO
+OT
 Aq
 OT
-lK
-Jr
-FX
-mQ
-mi
-Hh
-gS
-Pr
-th
-th
-th
+OT
+kp
+OT
+Wt
+Aq
+OT
+nb
+cf
+cp
+cf
+cQ
+gP
+QB
+DG
+fD
+fd
+eG
+fX
+dN
+dn
+gu
+cf
+cp
+cf
+cb
+bV
+aC
+aC
+aC
+CY
+aU
+aC
+aC
+ay
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -24762,74 +25042,74 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-az
-aC
-aC
-aV
-yK
-RJ
-aC
-aC
-bW
-ab
-cl
-cp
-cf
-GV
-do
-sC
-Bi
-eH
-fe
-nv
-fS
-gm
-gl
-ug
-cf
-cp
-cf
-ly
-ly
-ly
-ly
+th
+th
+er
+Pr
+aE
+Hh
+mq
+nr
+lM
+jc
+jc
+jc
+jc
+jc
+ah
+ah
+ah
+la
+la
+la
+la
+la
+jP
+kP
+la
+la
 ly
 jI
 ly
-la
-la
-kP
-jP
-la
-la
-la
-la
-la
-ah
-ah
-ah
-jc
-jc
-jc
-jc
-jc
-lM
-nr
-mq
-Hh
-aE
-Pr
-er
-th
-th
+ly
+ly
+ly
+ly
+cf
+cp
+cf
+ug
+gl
+gm
+fS
+nv
+fe
+eH
+Bi
+sC
+do
+GV
+cf
+cp
+cl
+ab
+bW
+aC
+aC
+RJ
+yK
+aV
+aC
+aC
+az
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -24924,74 +25204,74 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-hm
-aC
-aC
-aU
-wI
-kV
-lR
-uh
-wk
-ab
-cf
-cp
-cf
-gu
-dp
-Oa
-rZ
-OA
-hc
-hv
-fT
-gn
-il
-cQ
-cf
-cp
-cf
-ly
-Gx
-Xa
-Sp
+th
+th
+WR
+Lq
+jV
+Hh
+mi
+mQ
+lN
+mO
+Oh
+lB
+kx
+jc
+lG
+lG
+lW
+AP
+lp
+lm
+la
+la
+kS
+kP
+la
+rm
 ly
 jM
 ly
-rm
-la
-kP
-kS
-la
-la
-lm
-lp
-AP
-lW
-lG
-lG
-jc
-kx
-lB
-Oh
-mO
-lN
-mQ
-mi
-Hh
-jV
-Lq
-WR
-th
-th
+Sp
+Xa
+Gx
+ly
+cf
+cp
+cf
+cQ
+il
+gn
+fT
+hv
+hc
+OA
+rZ
+Oa
+dp
+gu
+cf
+cp
+cf
+ab
+wk
+uh
+lR
+kV
+wI
+aU
+aC
+aC
+hm
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -25086,74 +25366,74 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-az
-aC
-aC
-aX
-bp
-bz
-bp
-bN
-bY
-ab
-FP
+th
+th
+Kg
+Ks
+bF
+ue
+rv
+KQ
+FX
+FX
+FX
+FX
+aj
+jc
+mo
+lp
+lX
+BN
+lp
+ln
+la
+kX
+kU
+kP
+la
+rm
+ly
+uN
+ly
+XQ
+gQ
+yk
+ly
+fI
 cp
 cf
-cR
-cR
-cR
-WI
-WI
-cR
 cR
 cR
 mL
 cR
 cR
-cf
+cR
+WI
+WI
+cR
+cR
+cR
+FP
 cp
-fI
-ly
-yk
-gQ
-XQ
-ly
-uN
-ly
-rm
-la
-kP
-kU
-kX
-la
-ln
-lp
-BN
-lX
-lp
-mo
-jc
-aj
-FX
-FX
-FX
-FX
-KQ
-rv
-ue
-bF
-Ks
-Kg
-th
-th
+cf
+ab
+bY
+bN
+bp
+bz
+bp
+aX
+aC
+aC
+az
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -25247,76 +25527,76 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-Mk
-bI
-aI
-aY
-bg
-bu
-bE
-bO
-bQ
-ab
-cg
-cp
-cf
-cR
-pc
-dQ
-dq
-dq
-fg
-st
-Jl
-gp
-Vj
-cR
-cf
-cp
-cf
+th
+th
+th
+MP
+lc
+Hr
+Hh
+mi
+mQ
+FX
+FX
+FX
+FX
+FX
+mx
+lp
+md
+lY
+pL
+lp
+ip
+la
+kS
+kP
+kP
+la
+ly
+ly
+rc
 ly
 Rv
 nh
 Rv
 ly
-rc
-ly
-ly
-la
-kP
-kP
-kS
-la
-ip
-lp
-pL
-lY
-md
-lp
-mx
-FX
-FX
-FX
-FX
-FX
-mQ
-mi
-Hh
-Hr
-lc
-MP
-th
-th
-th
+cf
+cp
+cf
+cR
+Vj
+gp
+Jl
+st
+fg
+dq
+dq
+dQ
+pc
+cR
+cf
+cp
+cg
+ab
+bQ
+bO
+bE
+bu
+bg
+aY
+aI
+bI
+Mk
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -25408,78 +25688,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-ab
-ab
-yy
-aJ
-aO
-bc
-bA
-bc
-bI
-aC
-ab
-cf
-cp
-cf
-cR
-cW
-dq
-dq
-dq
-fh
-TF
-TF
-Sf
-Vj
-cR
-cf
-Ze
-Rj
-ym
-UU
-Ax
-bo
-ly
-Nr
-ty
-FK
-la
-kP
-kP
-kS
-la
-lw
-lp
-it
-lZ
-me
-lv
-my
+th
+th
+MP
+ak
+mI
+er
+AZ
+Hh
+mE
+lU
+kZ
+kZ
 kZ
 lD
 kZ
-kZ
-kZ
-lU
-mE
-Hh
-AZ
-er
-mI
-ak
-MP
-th
-th
+my
+lv
+me
+lZ
+it
+lp
+lw
+la
+kS
+kP
+kP
+la
+FK
+ty
+Nr
+ly
+bo
+Ax
+UU
+ym
+Rj
+Ze
+cf
+cR
+Vj
+Sf
+TF
+TF
+fh
+dq
+dq
+dq
+cW
+cR
+cf
+cp
+cf
+ab
+aC
+bI
+bc
+bA
+bc
+aO
+aJ
+yy
+ab
+ab
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -25570,78 +25850,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-pN
-ab
-ab
-ci
-aP
-bd
-bq
-bB
-ay
-aC
-jr
-cf
-cp
-cf
-cR
-dv
-dq
-dq
-dq
-fi
-gr
-gr
-AG
-Vj
-cR
-cf
-cp
-cf
-ed
-gv
-PH
-Aa
-ly
-rc
-ly
-MD
-la
-la
-Er
-kS
-la
-lr
-lp
-uA
-ma
-ml
-mo
-jc
-yi
-lE
-FX
-FX
-FX
-ca
-mi
-Hh
+pX
+jl
+Yi
+th
 ns
 HR
 ns
-th
-Yi
-jl
-pX
+Hh
+mi
+ca
+FX
+FX
+FX
+lE
+yi
+jc
+mo
+ml
+ma
+uA
+lp
+lr
+la
+kS
+Er
+la
+la
+MD
+ly
+Cm
+ly
+Aa
+PH
+gv
+ed
+cf
+cp
+cf
+cR
+Vj
+AG
+gr
+gr
+fi
+dq
+dq
+dq
+dv
+cR
+cf
+cp
+cf
+jr
+aC
+ay
+bB
+bq
+bd
+aP
+ci
+ab
+ab
+pN
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -25732,78 +26012,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-az
-aQ
-be
-br
-bC
-az
-aC
-jr
-cf
-cp
-cf
-cR
-TN
-so
-YE
-bw
-fj
-eL
-dT
-Fk
-AD
-cR
-cf
-cp
-cf
-ly
-oa
-Cl
-HG
-ly
-jM
-Yx
-Yx
-Yx
-lS
-po
-Od
-la
-yO
-nc
-at
-mb
-QT
-gT
-jc
-jZ
-mf
-kv
-XS
-XS
-mg
-mp
-Xf
-qq
-qq
-qq
-qq
-qq
-II
 th
+II
+qq
+qq
+qq
+qq
+qq
+Xf
+mp
+mg
+XS
+XS
+kv
+mf
+jZ
+jc
+gT
+QT
+mb
+at
+nc
+yO
+la
+Od
+po
+lS
+Yx
+Yx
+Yx
+jM
+ly
+HG
+Cl
+oa
+ly
+cf
+cp
+cf
+cR
+AD
+Fk
+dT
+eL
+fj
+bw
+YE
+so
+TN
+cR
+cf
+cp
+cf
+jr
+aC
+az
+bC
+br
+be
+aQ
+az
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -25894,78 +26174,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-NV
-ay
-aP
-bf
-bs
-bD
-ay
-bg
-jr
-ch
-cs
-cD
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-cR
-ho
-hu
-hE
-ly
-kR
-Ub
-Aw
-ka
-jM
-Yx
-EQ
-To
-rx
-qu
-yY
+pX
+nC
+qq
+qq
+no
+Sw
+Uz
+Xf
+mi
+ca
+bX
+ic
+DX
+lF
+GX
+jc
+la
+la
+la
+la
 la
 lt
 la
-la
-la
-la
-la
-jc
-GX
-lF
-DX
-ic
-bX
-ca
-mi
-Xf
-Uz
-Sw
-no
-qq
-qq
-nC
-pX
+yY
+qu
+rx
+To
+EQ
+Yx
+jM
+ka
+Aw
+Ub
+kR
+ly
+hE
+hu
+ho
+cR
+cR
+cR
+cR
+cR
+cR
+cR
+cR
+cR
+cR
+cR
+cD
+cs
+ch
+jr
+bg
+ay
+bD
+bs
+bf
+aP
+ay
+NV
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -26056,78 +26336,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-az
-aR
+th
+Is
+qq
+qq
+BX
+Oi
+na
+Xf
+VZ
+Ya
+yD
+jc
+jc
+jc
+jc
+jc
+rm
+rm
+rm
+rm
+la
+lx
+ld
+kU
+ii
+Yx
+YS
+fm
+Yx
+jM
+ly
+HX
+NZ
+mN
+ly
+cf
+cp
+cf
+cN
+cf
+cf
+ep
+cf
+cf
+cf
+ep
+dU
+dr
+cN
+cf
+cp
+cf
+ab
+aC
+bJ
 bb
 aN
 bb
-bJ
-aC
-ab
-cf
-cp
-cf
-cN
-dr
-dU
-ep
-cf
-cf
-cf
-ep
-cf
-cf
-cN
-cf
-cp
-cf
-ly
-mN
-NZ
-HX
-ly
-jM
-Yx
-fm
-YS
-Yx
-ii
-kU
-ld
-lx
-la
-rm
-rm
-rm
-rm
-jc
-jc
-jc
-jc
-jc
-yD
-Ya
-VZ
-Xf
-na
-Oi
-BX
-qq
-qq
-Is
-th
+aR
+az
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -26218,78 +26498,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-YP
-aK
-aZ
-bc
-aZ
-bc
-VG
-KK
-ab
-cg
-ct
+LH
+nC
+qq
+qq
+ku
+Oi
+KX
+Xf
+mi
+ca
+LM
+jc
+jc
+iR
+iR
+iR
+iR
+iR
+iR
+iR
+iR
+iR
+qW
+lh
+kJ
+Yx
+wA
+CL
+Yx
+uN
+ly
+wT
+nq
+mv
+ly
+fI
+hw
 fY
 nA
 fY
-cO
+nz
 fY
 fY
 gN
 fY
 fY
-nz
+cO
 fY
 nA
 fY
-hw
-fI
-ly
-mv
-nq
-wT
-ly
-uN
-Yx
-CL
-wA
-Yx
-kJ
-lh
-qW
-iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
-iR
-jc
-jc
-LM
-ca
-mi
-Xf
-KX
-Oi
-ku
-qq
-qq
-nC
-LH
+ct
+cg
+ab
+KK
+VG
+bc
+aZ
+bc
+aZ
+aK
+YP
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -26380,78 +26660,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-ab
-ms
-ms
-ms
-ms
-ms
-ab
-ms
-ab
-cf
+th
+II
+cm
+Oi
+Oi
+Oi
+EJ
+Xf
+mp
+ca
+lC
+jc
+jc
+lh
+mA
+lh
+mA
+lj
+lO
+lh
+lO
+lj
+lf
+lh
+kJ
+HH
+HH
+Ru
+Yx
+jM
+ly
+ly
+ly
+ly
+ly
+CS
 cf
 cf
 cN
-cf
-cf
-dG
-cf
-fl
-cf
 cf
 gt
 cf
+cf
+fl
+cf
+dG
+cf
+cf
 cN
 cf
 cf
-CS
-ly
-ly
-ly
-ly
-ly
-jM
-Yx
-Ru
-HH
-HH
-kJ
-lh
-lf
-lj
-lO
-lh
-lO
-lj
-mA
-lh
-mA
-lh
-jc
-jc
-lC
-ca
-mp
-Xf
-EJ
-Oi
-Oi
-Oi
-cm
-II
-th
+cf
+ab
+ms
+ab
+ms
+ms
+ms
+ms
+ms
+ab
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -26542,78 +26822,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-mY
-ks
-ab
-cu
-cu
-nw
-nw
-nw
-cu
-cu
-eW
-gC
-eW
-fW
-aL
-aL
-aL
-aL
-fW
-fW
-fW
-fW
-cH
-uR
-uR
-jN
-Yx
-Yx
-Kz
-YW
-kJ
+pX
+cd
+qq
+qq
+ku
+Oi
+MH
+Ez
+wf
+Pl
+UC
+jc
+jc
+lh
+mA
+lP
+mA
+lh
+lO
+lP
+OY
 lh
 lf
 lh
-OY
-lP
-lO
-lh
-mA
-lP
-mA
-lh
-jc
-jc
-UC
-Pl
-wf
-Ez
-MH
-Oi
-ku
-qq
-qq
-cd
-pX
+kJ
+YW
+Kz
+Yx
+Yx
+jN
+uR
+uR
+cH
+fW
+fW
+fW
+fW
+aL
+aL
+aL
+aL
+fW
+eW
+gC
+eW
+cu
+cu
+nw
+nw
+nw
+cu
+cu
+ab
+ks
+mY
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -26704,78 +26984,78 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-ab
-ab
-ab
-cv
-cu
-xC
-cS
-ap
-ad
-nw
-cf
-fl
-cf
-fW
-nx
-iF
-WV
-hp
-hx
-gx
-LE
-fW
-cH
-uR
-jq
-mD
-jU
-Yx
-YZ
-Yr
-kJ
-bj
-qm
+th
+th
+qq
+qq
+Ne
+vf
+Th
+Xf
+nM
+FX
+Sx
+jc
+jc
+mC
+vV
+mP
+mj
 mj
 mj
 mB
 mj
 mj
-mj
-mP
-vV
-mC
-jc
-jc
-Sx
-FX
-nM
-Xf
-Th
-vf
-Ne
-qq
-qq
-th
-th
+qm
+bj
+kJ
+Yr
+YZ
+Yx
+jU
+mD
+jq
+uR
+cH
+fW
+LE
+gx
+hx
+hp
+WV
+iF
+nx
+fW
+cf
+fl
+cf
+nw
+ad
+ap
+cS
+xC
+cu
+cv
+ab
+ab
+ab
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -26867,76 +27147,76 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-cv
-cv
-cu
-jx
-cE
-ap
-cJ
-nw
+th
+qq
+qq
+qq
+FS
+Ef
+Xf
+mi
+FX
+lz
+jc
+jc
+lh
+mA
+mk
+mA
+lh
+lO
+mk
+lO
+lh
+lh
+lh
+kJ
+kJ
+pf
+pf
+mu
+eI
+jw
+uR
+cH
+fW
+VJ
+hB
+hy
+hq
+lQ
+Zz
+np
+fW
 cf
 fl
-fu
-fW
-np
-Zz
-lQ
-hq
-hy
-hB
-VJ
-fW
-cH
-uR
-jw
-eI
-mu
-pf
-pf
-kJ
-kJ
-lh
-lh
-lh
-lO
-mk
-lO
-lh
-mA
-mk
-mA
-lh
-jc
-jc
-lz
-FX
-mi
-Xf
-Ef
-FS
-qq
-qq
-qq
-th
+cf
+nw
+cJ
+ap
+cE
+jx
+cu
+cv
+cv
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -27030,74 +27310,74 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-cv
-cv
-cu
-cG
-cU
-nE
-cJ
-nw
-cf
-fl
-fH
-fW
-dS
-hb
-lQ
-hr
-hz
-hB
-hL
-fW
-cH
-uR
-PO
-jQ
-kb
-pf
-uR
-iR
-kJ
-NU
-li
-ll
-lO
-lh
-pM
-mz
-mA
-lh
-mA
-lh
-jc
-jc
-QF
-FX
-mp
+qq
+qq
+qq
+qq
+qq
 Xf
-qq
-qq
-qq
-qq
-qq
+mp
+FX
+QF
+jc
+jc
+lh
+mA
+lh
+mA
+mz
+pM
+lh
+lO
+ll
+li
+NU
+kJ
+iR
+uR
+pf
+kb
+jQ
+PO
+uR
+cH
+fW
+hL
+hB
+hz
+hr
+lQ
+hb
+dS
+fW
+fH
+fl
+cf
+nw
+cJ
+nE
+cU
+cG
+cu
+cv
+cv
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -27193,53 +27473,18 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-cv
-cv
-cu
-Sz
-cJ
-el
-vQ
-cu
-cg
-fl
-fI
-fW
-eJ
-gV
-hj
-hq
-hA
-hB
-hM
-fW
-pf
-pf
-OJ
-jR
-OJ
-pf
-pf
+qq
+qq
+qq
+qq
+qq
+sB
+yr
+op
+kw
+kw
 kJ
-kJ
-kJ
-kJ
+BL
 kJ
 jO
 jO
@@ -27247,18 +27492,53 @@ xT
 jO
 jO
 kJ
-BL
 kJ
-kw
-kw
-op
-yr
-sB
-qq
-qq
-qq
-qq
-qq
+kJ
+kJ
+kJ
+pf
+pf
+OJ
+jR
+OJ
+pf
+pf
+fW
+hM
+hB
+hA
+hq
+hj
+gV
+eJ
+fW
+fI
+fl
+cg
+cu
+vQ
+el
+cJ
+Sz
+cu
+cv
+cv
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -27356,70 +27636,70 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-cv
-cv
-cu
-jz
-cV
-ex
-eX
-nW
-gs
-fn
-gs
-gR
-gy
-gW
-hj
-hj
-hB
-hB
-hN
-fW
-pf
-pf
-In
-jS
-jW
-pf
-pf
+Wx
+kw
+kw
+Cp
+FX
+FX
+FX
+Cp
+kw
 kJ
+kJ
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 kJ
 wB
 kJ
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 kJ
-kJ
-kw
-Cp
-FX
-FX
-FX
-Cp
-kw
-kw
-Wx
+pf
+pf
+jW
+jS
+In
+pf
+pf
+fW
+hN
+hB
+hB
+hj
+hj
+gW
+gy
+gR
+gs
+fn
+gs
+nW
+eX
+ex
+cV
+jz
+cu
+cv
+cv
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -27519,6 +27799,15 @@ iB
 iB
 iB
 iB
+kw
+kw
+ib
+FX
+FX
+FX
+ir
+kw
+kJ
 iB
 iB
 iB
@@ -27531,28 +27820,6 @@ iB
 iB
 iB
 iB
-iB
-iB
-gq
-cv
-cu
-Eh
-Rm
-dx
-mM
-cu
-cf
-fl
-cf
-in
-gz
-gX
-hj
-hj
-hB
-hB
-hO
-fW
 pf
 pf
 OJ
@@ -27560,6 +27827,26 @@ jT
 OJ
 pf
 pf
+fW
+hO
+hB
+hB
+hj
+hj
+gX
+gz
+in
+cf
+fl
+cf
+cu
+mM
+dx
+Rm
+Eh
+cu
+cv
+gq
 iB
 iB
 iB
@@ -27572,15 +27859,8 @@ iB
 iB
 iB
 iB
-kJ
-kw
-ir
-FX
-FX
-FX
-ib
-kw
-kw
+iB
+iB
 iB
 iB
 iB
@@ -27681,6 +27961,15 @@ iB
 iB
 iB
 iB
+kw
+kw
+LS
+Td
+Td
+PG
+zF
+kw
+kJ
 iB
 iB
 iB
@@ -27695,31 +27984,31 @@ iB
 iB
 iB
 iB
-iV
-iV
-lI
-lI
-lI
-lI
-lI
-lI
-ZO
-fl
-CX
-fW
-go
-gY
-hj
-hr
-hC
-hB
-hP
-fW
-hW
-hV
 hV
 jk
 hV
+hV
+hW
+fW
+hP
+hB
+hC
+hr
+hj
+gY
+go
+fW
+CX
+fl
+ZO
+lI
+lI
+lI
+lI
+lI
+lI
+iV
+iV
 iB
 iB
 iB
@@ -27734,15 +28023,6 @@ iB
 iB
 iB
 iB
-kJ
-kw
-zF
-PG
-Td
-Td
-LS
-kw
-kw
 iB
 iB
 iB
@@ -27844,66 +28124,66 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iV
-iV
-ce
-cK
-cX
-Et
-cL
-eM
-cC
-PJ
-cf
-fW
-np
-tw
-lQ
-hq
-hC
-hB
-hQ
-fW
-hW
-hT
-SG
-jn
-hV
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+kw
 kw
 ne
-Dl
 qt
+Dl
 ne
 kw
-kw
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+hV
+jn
+SG
+hT
+hW
+fW
+hQ
+hB
+hC
+hq
+lQ
+tw
+np
+fW
+cf
+PJ
+cC
+eM
+cL
+Et
+cX
+cK
+ce
+iV
+iV
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -28008,62 +28288,62 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-cX
-px
-px
-cX
-px
-FL
-Ou
-ch
-fp
-cD
-fW
-dS
-fF
-lQ
-hr
-hC
-hB
-hR
-fW
-hW
-jk
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 ne
-zI
 Tp
+zI
 ne
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+jk
+hW
+fW
+hR
+hB
+hC
+hr
+lQ
+fF
+dS
+fW
+cD
+fp
+ch
+Ou
+FL
+px
+cX
+px
+px
+cX
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -28170,62 +28450,62 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iV
-iV
-RR
-Ck
-qA
-an
-TJ
-lI
-iD
-fr
-VU
-fW
-dP
-rN
-Jg
-hs
-hD
-gA
-hS
-fW
-hW
-jk
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 ne
-Ka
 lH
+Ka
 ne
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+jk
+hW
+fW
+hS
+gA
+hD
+hs
+Jg
+rN
+dP
+fW
+VU
+fr
+iD
+lI
+TJ
+an
+qA
+Ck
+RR
+iV
+iV
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -28332,62 +28612,62 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iV
-iV
-iV
-Fc
-cX
-Yb
-Dm
-lI
-eu
-eu
-eu
-fW
-fW
-fW
-fW
-fW
-fW
-fW
-fW
-fW
-hW
-jk
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 ne
-nn
 qd
+nn
 ne
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+jk
+hW
+fW
+fW
+fW
+fW
+fW
+fW
+fW
+fW
+fW
+eu
+eu
+eu
+lI
+Dm
+Yb
+cX
+Fc
+iV
+iV
+iV
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -28506,38 +28786,38 @@ iB
 iB
 iB
 iB
-iV
-iV
-iV
-iV
-iV
-iV
-iV
-fq
-fq
-fq
-hW
-hW
-hW
-hW
-hW
-hW
-hW
-hW
-hW
-hW
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 jk
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+hW
+fq
+fq
+fq
+iV
+iV
+iV
+iV
+iV
+iV
+iV
 iB
 iB
 iB
@@ -28669,36 +28949,36 @@ iB
 iB
 iB
 iB
-iV
-iV
-iV
-iV
-iV
 iB
-hV
-hT
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 jn
+SG
+SG
+SG
+SG
+SG
+SG
+SG
+SG
+SG
+SG
+SG
+hT
+hV
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+iV
+iV
+iV
+iV
+iV
 iB
 iB
 iB
@@ -28837,24 +29117,24 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 hV
 jk
 hV
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -29000,22 +29280,22 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 jk
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -29162,22 +29442,22 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 jk
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -29316,6 +29596,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 rA
 Rz
 rA
@@ -29333,21 +29628,6 @@ Rz
 rA
 Rz
 rA
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -29478,38 +29758,38 @@ iB
 iB
 iB
 iB
-UM
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+mX
 SG
-eN
+vL
 SG
-eN
+vL
 SG
-eN
+vL
 SG
 hU
 SG
-vL
+eN
 SG
-vL
+eN
 SG
-vL
+eN
 SG
-mX
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+UM
 iB
 iB
 iB
@@ -29640,6 +29920,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 em
 Rz
 em
@@ -29657,21 +29952,6 @@ Rz
 em
 Rz
 em
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -29791,7 +30071,22 @@ iB
 iB
 iB
 iB
-Ig
+iB
+iB
+Cx
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -29829,22 +30124,7 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-Cx
-iB
-iB
+Ig
 iB
 iB
 iB
@@ -29940,7 +30220,22 @@ iB
 iB
 iB
 iB
-KT
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -30004,22 +30299,7 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+KT
 iB
 iB
 iB
@@ -30126,38 +30406,38 @@ iB
 iB
 iB
 iB
-UM
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+mX
 SG
-eN
+vL
 SG
-eN
+vL
 SG
-eN
+vL
 SG
 hU
 SG
-vL
+eN
 SG
-vL
+eN
 SG
-vL
+eN
 SG
-mX
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+UM
 iB
 iB
 iB
@@ -30288,6 +30568,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 em
 Rz
 em
@@ -30305,21 +30600,6 @@ Rz
 em
 Rz
 em
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -30450,6 +30730,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 Rz
 Rz
 Rz
@@ -30467,21 +30762,6 @@ Rz
 Rz
 Rz
 Rz
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -30612,6 +30892,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 rA
 Rz
 rA
@@ -30629,21 +30924,6 @@ Rz
 rA
 Rz
 rA
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -30744,6 +31024,7 @@ iB
 iB
 iB
 iB
+Bv
 iB
 iB
 iB
@@ -30774,23 +31055,37 @@ iB
 iB
 iB
 iB
-UM
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+mX
 SG
-eN
+vL
 SG
-eN
+vL
 SG
-eN
+vL
 SG
 hU
 SG
-vL
+eN
 SG
-vL
+eN
 SG
-vL
+eN
 SG
-mX
+UM
 iB
 iB
 iB
@@ -30821,21 +31116,6 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-Bv
 iB
 iB
 iB
@@ -30936,6 +31216,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 em
 Rz
 em
@@ -30953,21 +31248,6 @@ Rz
 em
 Rz
 em
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -31098,6 +31378,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 Rz
 Rz
 Rz
@@ -31115,21 +31410,6 @@ Rz
 Rz
 Rz
 Rz
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -31260,6 +31540,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 rA
 Rz
 rA
@@ -31277,21 +31572,6 @@ Rz
 rA
 Rz
 rA
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -31396,6 +31676,7 @@ iB
 iB
 iB
 iB
+Ig
 iB
 iB
 iB
@@ -31422,23 +31703,37 @@ iB
 iB
 iB
 iB
-UM
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+mX
 SG
-eN
+vL
 SG
-eN
+vL
 SG
-eN
+vL
 SG
 hU
 SG
-vL
+eN
 SG
-vL
+eN
 SG
-vL
+eN
 SG
-mX
+UM
 iB
 iB
 iB
@@ -31465,21 +31760,6 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-Ig
 iB
 iB
 iB
@@ -31584,6 +31864,21 @@ iB
 iB
 iB
 iB
+Ig
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 em
 Rz
 em
@@ -31601,21 +31896,6 @@ Rz
 em
 Rz
 em
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-Ig
 iB
 iB
 iB
@@ -31746,6 +32026,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 Rz
 Rz
 Rz
@@ -31763,21 +32058,6 @@ Rz
 Rz
 Rz
 Rz
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -31908,6 +32188,21 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 rA
 Rz
 rA
@@ -31925,21 +32220,6 @@ Rz
 rA
 Rz
 rA
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -32070,38 +32350,38 @@ iB
 iB
 iB
 iB
-UM
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+mX
 SG
-eN
+vL
 SG
-eN
+vL
 SG
-eN
+vL
 SG
 hU
 SG
-vL
+eN
 SG
-vL
+eN
 SG
-vL
+eN
 SG
-mX
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
+UM
 iB
 iB
 iB
@@ -32232,9 +32512,24 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 em
 Rz
-xm
+by
 Rz
 em
 Rz
@@ -32246,24 +32541,9 @@ em
 Rz
 em
 Rz
-by
+xm
 Rz
 em
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
@@ -32402,22 +32682,22 @@ iB
 iB
 iB
 iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
 hX
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
 iB
 iB
 iB
