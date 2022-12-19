@@ -248,8 +248,8 @@
 /datum/action/item_action/integrated_circuit/Trigger()
 	if(!Checks())
 		return
-	to_chat(usr, SPAN_NOTICE("You press the button on the exterior of \the [target_clothing]."))
 	var/obj/item/clothing/target_clothing = target
+	to_chat(usr, SPAN_NOTICE("You press the button on the exterior of \the [target_clothing]."))
 	target_clothing.action_circuit.activate_pin(1)
 
 #undef AB_WEST_OFFSET
