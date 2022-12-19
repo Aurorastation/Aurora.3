@@ -335,11 +335,7 @@
 
 /obj/item/toy/comic/azmarian
 	name = "az'marian comic"
-	desc = "A comic book series revolving around a superhero from Az'Mar, popular in the New Kingdom. Sensing great sorrow that disturbed \
-	his slumber from the world of Adhomai, the Az'Marian flew to the planet, finding that the peaceful ways of the Ancient Tajara were \
-	completely disrupted by war and rebellion. The superhero joins forces with the descendant kingdom of the Ancient Tajara, helping \
-	fend off its enemies that threaten to push the Tajara towards doom. Critics often note that most of the villains are Zhan'Khazan, \
-	while most supporting characters are Njarir or Hharar."
+	desc = "A comic book series revolving around a superhero from Az'Mar, popular in the New Kingdom.
 	icon_state = "comicazmarian"
 	item_state = "comicazmarian"
 
