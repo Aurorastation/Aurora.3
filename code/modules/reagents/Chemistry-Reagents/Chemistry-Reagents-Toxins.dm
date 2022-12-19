@@ -198,8 +198,10 @@
 				if(istype(H, /obj/machinery/portable_atmospherics/hydroponics/soil/invisible))
 					qdel(H)
 
-	var/datum/gas_mixture/environment = T.return_air()
-	environment.adjust_gas(GAS_PHORON,-amount*10)
+	if(istype(T))
+		var/datum/gas_mixture/environment = T.return_air()
+		if(environment)
+			environment.adjust_gas(GAS_PHORON,-amount*10)
 
 /decl/reagent/toxin/cyanide //Fast and Lethal
 	name = "Cyanide"

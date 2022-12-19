@@ -371,7 +371,7 @@
 	data = ..() || list()
 	data["integrity_percentage"] = round(get_integrity())
 	var/datum/gas_mixture/env = null
-	if(!istype(src.loc, /turf/space))
+	if(loc && !istype(src.loc, /turf/space))
 		env = src.loc.return_air()
 	data["ambient_temp"] = round(env?.temperature)
 	data["ambient_pressure"] = round(env?.return_pressure())
