@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Clicking the HUD icon of integrated circuit clothing now works correctly."
-  - bugfix: "Integrated Circuit advanced locator refs now work correctly again."
