@@ -1,6 +1,0 @@
-author: atteria
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed rogue pixels on two Dominia fleet uniforms"
