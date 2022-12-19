@@ -334,5 +334,4 @@
 			return
 		if(P.focused_conv)
 			P.focused_conv.cl_send(P, text, M)
-	if(listening)
-		registered_message = text
+	registered_message = text

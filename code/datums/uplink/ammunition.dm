@@ -89,21 +89,15 @@
 
 /datum/uplink_item/item/ammo/slug_magazine
 	name = "Slug Magazine"
-	item_cost = 4
+	item_cost = 8
 	path = /obj/item/ammo_magazine/assault_shotgun
 	desc = "A magazine for an assault shotgun, loaded with slug shells."
 
 /datum/uplink_item/item/ammo/buckshot_magazine
 	name = "Buckshot Magazine"
-	item_cost = 2
+	item_cost = 4
 	path = /obj/item/ammo_magazine/assault_shotgun/shells
 	desc = "A magazine for an assault shotgun, loaded with buckshot shells."
-
-/datum/uplink_item/item/ammo/railgun_ammo
-	name = "Tungsten Railgun Ammunition"
-	item_cost = 6
-	path = /obj/item/ammo_magazine/trodpack
-	desc = "Two tungsten rods, used by a railgun."
 
 /datum/uplink_item/item/ammo/ar_ammo
 	name = "7.62 Assault Rifle magazine"
@@ -116,12 +110,6 @@
 	item_cost = 4
 	path = /obj/item/ammo_magazine/d762
 	desc = "A magazine for a 7.62 sniper rifle."
-
-/datum/uplink_item/item/ammo/gryojet_magazine
-	name = "20mm Rocket Magazine"
-	item_cost = 4
-	path = /obj/item/ammo_magazine/a75
-	desc = "A 20mm rocket magazine."
 
 /datum/uplink_item/item/ammo/bullpup_magazine
 	name = "5.56 Rifle Magazine"

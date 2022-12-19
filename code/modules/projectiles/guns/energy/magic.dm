@@ -28,7 +28,7 @@
 	playsound(src.loc, 'sound/effects/sparks1.ogg', 100, 1)
 
 /obj/item/gun/energy/wand/special_check(var/mob/living/user)
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
 		return 0
 	return 1

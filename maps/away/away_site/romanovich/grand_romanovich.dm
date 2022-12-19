@@ -4,7 +4,7 @@
 	suffix = "away_site/romanovich/grand_romanovich.dmm"
 	sectors = list(SECTOR_ROMANOVICH)
 	spawn_weight = 1
-	spawn_cost = 2
+	ship_cost = 2
 	id = "grand_romanovich"
 
 /decl/submap_archetype/grand_romanovich
@@ -15,7 +15,11 @@
 	name = "grand romanovich casino"
 	desc = "An adhomian style casino in Tau Ceti's space."
 
+	comms_support = TRUE
+	comms_name = "grand romanovich"
+
 /area/grand_romanovich
+	flags = HIDE_FROM_HOLOMAP
 	name = "Grand Romanovich Casino"
 	icon_state = "away"
 	requires_power = FALSE
