@@ -1,6 +1,0 @@
-author: harryob
-
-delete-after: True
-
-changes:
-  - bugfix: "Disposal units no longer bypass high tech locking devices."

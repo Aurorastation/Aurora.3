@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "You can now click on the slime smart fridge with the slime core bag to insert all the cores into the fridge again. As a side-effect, you can now fill fridges by clicking on them with any storage item."
-  - bugfix: "Slime core bags sort their contents by name instead of type, and used extracts are displayed seperately."
-  - bugfix: "A slime extract that turns used while in the bag now automatically updates your storage UI."
