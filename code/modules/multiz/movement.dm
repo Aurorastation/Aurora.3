@@ -11,6 +11,7 @@
 
 	if(zMove(UP))
 		visible_message(SPAN_NOTICE("[src] has moved upwards."), SPAN_NOTICE("You move upwards."))
+
 /**
  * Verb for the mob to move down a z-level if possible.
  */
