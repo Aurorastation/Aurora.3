@@ -121,10 +121,8 @@
 </div>
 
 {{if data.id_name == 'Horizon'}}
-<div style="float:left;width:25%">
-<fieldset style="min-height:180px;background-color: #202020;">
-	<legend style="text-align:center">Inbound fire</legend>
-	<div class='item'>
+	<h4>Announce Inbound fire</h4>
+	<div class='block'>
 		<div class='item'>
 			{{:helper.link('', 'triangle-1-nw', { 'inbound_fire' : 'Fore-Port' }, null, null)}}
 			{{:helper.link('', 'triangle-1-n', { 'inbound_fire' : 'Fore' }, null, null)}}
@@ -140,8 +138,7 @@
 			{{:helper.link('', 'triangle-1-s', { 'inbound_fire' : 'Bow' }, null, null)}}
 			{{:helper.link('', 'triangle-1-se', { 'inbound_fire' : 'Bow-Starboard' }, null, null)}}
 		</div>
-		</fieldset>
-</div>
+	</div>
 {{/if}}
 
 <h4>Distress Beacons</h4>
