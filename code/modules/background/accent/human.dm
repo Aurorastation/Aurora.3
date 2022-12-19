@@ -175,7 +175,7 @@
 	name = ACCENT_DOMINIA_FRONTIER
 	description = "Resembling more Freespeak than the Vulgar Morozi dialect found in more civilised regions of the Empire, most accents of the Imperial Frontier are looked down upon by those from the Core Worlds. \
 	Many Primaries and Secondaries look down upon the dialects of the Imperial Frontier as rogue, coarse, and often grating to hear compared to their Common-descended dialects. Many from this region who wish to rise \
-	through the ranks of the Empire’s Ma’zals spend great amounts of time learning an ersatz Solarian Common dialect based upon this one which is known as the Refined Imperial Frontier Dialect. While not nearly as \
+	through the ranks of the Empire’s Ma'zals spend great amounts of time learning an ersatz Solarian Common dialect based upon this one which is known as the Refined Imperial Frontier Dialect. While not nearly as \
 	prestigious see its counterparts the Refined Frontier dialect is often viewed as a mark of loyalty and dedication to the Empire."
 	tag_icon = "dominia_frontier"
 	text_tag = "IFR"
