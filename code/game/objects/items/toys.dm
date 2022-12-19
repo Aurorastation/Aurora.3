@@ -335,7 +335,7 @@
 
 /obj/item/toy/comic/azmarian
 	name = "az'marian comic"
-	desc = "A comic book series revolving around a superhero from Az'Mar, popular in the New Kingdom.
+	desc = "A comic book series revolving around a superhero from Az'Mar, popular in the New Kingdom."
 	icon_state = "comicazmarian"
 	item_state = "comicazmarian"
 
