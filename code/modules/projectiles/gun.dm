@@ -218,7 +218,7 @@
 
 	var/mob/living/M = user
 
-	if(HULK in M.mutations)
+	if(HAS_FLAG(M.mutations, HULK))
 		to_chat(M, SPAN_DANGER("Your fingers are much too large for the trigger guard!"))
 		return FALSE
 

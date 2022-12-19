@@ -1,10 +1,10 @@
 /datum/map_template/ruin/away_site/tajara_scrapper
 	name = "adhomian scrapper outpost"
-	description = "An outpost used by Tajaran scrapper. It offers repair and scrapping services."
+	description = "An outpost used by Tajaran scrappers. It offers repair and scrapping services."
 	suffix = "away_site/tajara/scrapper/scrapper.dmm"
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "tajara_scrapper"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_scrapper)
 
@@ -23,6 +23,8 @@
 	initial_restricted_waypoints = list(
 		"Scrapper Ship" = list("nav_hangar_tajara_scrapper")
 	)
+	comms_support = TRUE
+	comms_name = "adhomian"
 
 /obj/effect/shuttle_landmark/tajara_scrapper
 	base_turf = /turf/space
@@ -47,8 +49,8 @@
 	class = "ACV"
 	desc = "A horseshoe-shaped ship used by Adhomian Scrappers. Frequently used in repairs and scrapping operations."
 	shuttle = "Scrapper Ship"
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "shuttle_grey"
+	moving_state = "shuttle_grey_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

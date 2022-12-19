@@ -24,7 +24,7 @@
 
 //have all strange rocks be cleared away using welders for now
 /obj/item/ore/strangerock
-	name = "Strange rock"
+	name = "strange rock"
 	desc = "Seems to have some unusal strata evident throughout it."
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "strange"
@@ -355,12 +355,12 @@
 				new_gun.desc = "This is an antique energy weapon, you're not sure if it will fire or not."
 
 				//5% chance to explode when first fired
-				//10% chance to have an unchargeable cell
+				//5% chance to have an unchargeable cell
 				//15% chance to gain a random amount of starting energy, otherwise start with an empty cell
 				if(new_gun.power_supply)
 					if(prob(5))
 						new_gun.power_supply.rigged = 1
-					if(prob(10))
+					if(prob(5))
 						new_gun.power_supply.maxcharge = 0
 					if(prob(15))
 						new_gun.power_supply.charge = rand(0, new_gun.power_supply.maxcharge)

@@ -92,10 +92,18 @@
 	display_name = "horrible tie"
 	path = /obj/item/clothing/accessory/horrible
 
-/datum/gear/accessory/bowtie
-	display_name = "bowtie"
-	path = /obj/item/clothing/accessory/tie/bowtie
+/datum/gear/accessory/neck_accessories_colourable
+	display_name = "neck accessories selection (colourable)"
+	path = /obj/item/clothing/accessory/tie/ribbon
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/neck_accessories_colourable/New()
+	..()
+	var/list/neck_accessories_colourable = list()
+	neck_accessories_colourable["neck ribbon"] = /obj/item/clothing/accessory/tie/ribbon/neck
+	neck_accessories_colourable["neck bow"] = /obj/item/clothing/accessory/tie/ribbon/bow
+	neck_accessories_colourable["bow tie"] = /obj/item/clothing/accessory/tie/ribbon/bow_tie
+	gear_tweaks += new /datum/gear_tweak/path(neck_accessories_colourable)
 
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
@@ -196,15 +204,15 @@
 	sweater["deep v-neck sweater"] = /obj/item/clothing/accessory/sweater/v_neck/deep
 
 	// Argyle Sweaters
-	sweater["argyle sweater"] = /obj/item/clothing/accessory/argyle_sweater
-	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/tubeneck
-	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/turtleneck
-	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/crewneck
-	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/argyle_sweater/v_neck
+	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweater/argyle
+	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweater/argyle/tubeneck
+	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweater/argyle/turtleneck
+	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/sweater/argyle/crewneck
+	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/sweater/argyle/v_neck
 
 	// Sweater Vests
-	sweater["sweater vest"] = /obj/item/clothing/accessory/sweater_vest
-	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/argyle_sweater_vest
+	sweater["sweater vest"] = /obj/item/clothing/accessory/sweater/vest
+	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweater/argyle/vest
 
 	gear_tweaks += new /datum/gear_tweak/path(sweater)
 

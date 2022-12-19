@@ -4,7 +4,9 @@
 /obj/item/clothing/accessory/holster
 	name = "shoulder holster"
 	desc = "A handgun holster."
+	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
 	icon_state = "holster"
+	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY
 	var/obj/item/holstered = null
 	var/sound_in = 'sound/weapons/holster/holsterin.ogg'
@@ -182,8 +184,7 @@
 /obj/item/clothing/accessory/holster/utility
 	name = "utility holster"
 	desc = "A utility holster."
-	icon = 'icons/contained_items/clothing/accessories/utility_holsters.dmi'
-	contained_sprite = TRUE
+	icon = 'icons/obj/item/clothing/accessory/utility_holsters.dmi'
 
 	var/list/allowed_items = list() // A list of allowed items.
 

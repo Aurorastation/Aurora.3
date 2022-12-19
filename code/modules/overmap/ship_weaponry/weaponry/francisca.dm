@@ -1,7 +1,7 @@
 /obj/machinery/ship_weapon/francisca
 	name = "francisca rotary gun"
 	desc = "A Kumar Arms rotary gun developed in 2461. While its barrels may be smaller than its significantly larger kin's, the Longbow's, don't let that fool you: this gun will shred through smaller ships."
-	icon = 'icons/obj/machines/ship_guns/francisca.dmi'
+	icon = 'icons/obj/machinery/ship_guns/francisca.dmi'
 	heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/rotary_fire.ogg'
 	icon_state = "weapon_base"
 	max_ammo = 3

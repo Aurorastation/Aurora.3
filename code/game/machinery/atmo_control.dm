@@ -152,9 +152,9 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/list/output_info
 
 	var/default_input_flow_setting = 200
-	var/default_pressure_setting = ONE_ATMOSPHERE * 45
+	var/default_pressure_setting = PRESSURE_ONE_THOUSAND * 2
 	var/max_input_flow_setting = ATMOS_DEFAULT_VOLUME_PUMP + 500
-	var/max_pressure_setting = 50 * ONE_ATMOSPHERE
+	var/max_pressure_setting = MAX_VENT_PRESSURE
 	circuit = /obj/item/circuitboard/air_management/tank_control
 
 /obj/machinery/computer/general_air_control/large_tank_control/wall
@@ -247,7 +247,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/default_input_flow_setting = 700
 	var/default_pressure_setting = 100
 	var/max_input_flow_setting = ATMOS_DEFAULT_VOLUME_PUMP + 500
-	var/max_pressure_setting = 10 * ONE_ATMOSPHERE
+	var/max_pressure_setting = PRESSURE_ONE_THOUSAND
 	circuit = /obj/item/circuitboard/air_management/supermatter_core
 
 /obj/machinery/computer/general_air_control/supermatter_core/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)

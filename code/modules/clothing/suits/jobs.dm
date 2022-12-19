@@ -80,13 +80,13 @@ obj/item/clothing/suit/apron/overalls/blue
 	allowed = list (/obj/item/material/knife)
 
 /obj/item/clothing/suit/chef/nt
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_chef_jacket"
 	item_state = "nt_chef_jacket"
 
 /obj/item/clothing/suit/chef/idris
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "idris_chef_jacket"
 	item_state = "idris_chef_jacket"
@@ -104,7 +104,7 @@ obj/item/clothing/suit/apron/overalls/blue
 //Security
 /obj/item/clothing/suit/storage/security
 	name = "security jacket parent item"
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	contained_sprite = TRUE
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO | ARMS
@@ -112,6 +112,7 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/security/hos
 	name = "head of security jacket"
 	desc = "This piece of clothing was specifically designed for asserting superior authority."
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "hos_jacket"
 	item_state = "hos_jacket"
 
@@ -173,8 +174,8 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/toggle/warden
 	name = "warden coat"
 	desc = "A thick, rugged overcoat, with corporate livery emblazoned on it."
-	body_parts_covered = UPPER_TORSO | LOWER_TORSO | ARMS | LEGS
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "nt_warden_coat"
 	item_state = "nt_warden_coat"
 	opened = TRUE
@@ -223,7 +224,7 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/liaison
 	name = "liaison vest"
 	desc = "A smooth suit vest. Freshly drycleaned, ready for a day of firm handshakes and dynamic synergy paradigm shifts."
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_liaison_vest"
 	item_state = "nt_liaison_vest"
 	blood_overlay_type = "coat"
@@ -285,7 +286,7 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/toggle/fr_jacket
 	name = "first responder jacket"
 	desc = "A high-visibility jacket worn by medical first responders."
-	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_emt_jacket"
 	item_state = "nt_emt_jacket"
@@ -332,7 +333,7 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/bartender
 	name = "bartender jacket"
 	desc = "A fancy jacket worn by corporate bartenders."
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_bartender_jacket"
 	item_state = "nt_bartender_jacket"
 	contained_sprite = TRUE
@@ -347,7 +348,7 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/machinist
 	name = "machinist jacket"
 	desc = "Functional, rugged durability. The perfect workwear for tinkering with muscle cars, robots and giant mechas."
-	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "machinist_jacket"
 	item_state = "machinist_jacket"
 	contained_sprite = TRUE
