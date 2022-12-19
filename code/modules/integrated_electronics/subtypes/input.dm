@@ -296,7 +296,7 @@
 	var/turf/T = get_turf(src)
 	var/list/nearby_things = view(radius, T)
 	var/list/valid_things = list()
-	var/I = get_pin_data(IC_INPUT, 1)
+	var/I = get_pin_data(IC_INPUT, 1, FALSE)
 	if(isweakref(I))
 		var/datum/weakref/WR = I
 		var/atom/A = WR.resolve()
