@@ -95,6 +95,7 @@
 	var/trigger_nitro = 0
 	if( (my_effect.trigger >= TRIGGER_HEAT && my_effect.trigger <= TRIGGER_NITRO) || (my_effect.trigger >= TRIGGER_HEAT && my_effect.trigger <= TRIGGER_NITRO) )
 		var/turf/T = get_turf(src)
+		if(!istype(T)) return
 		var/datum/gas_mixture/env = T.return_air()
 		if(env)
 			if(env.temperature < 225)

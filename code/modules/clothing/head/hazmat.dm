@@ -6,7 +6,7 @@
 /obj/item/clothing/head/hazmat
 	name = "hazmat hood"
 	desc = "A hood that protects against biological hazards."
-	icon = 'icons/contained_items/clothing/headwear/hazmat.dmi'
+	icon = 'icons/obj/item/clothing/head/hazmat.dmi'
 	icon_state = "hazmat"
 	item_state = "hazmat"
 	contained_sprite = TRUE

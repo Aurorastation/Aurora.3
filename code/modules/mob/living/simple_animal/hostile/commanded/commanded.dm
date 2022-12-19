@@ -43,15 +43,23 @@
 		return
 	short_name = input
 
+/mob/living/simple_animal/hostile/commanded/proc/get_command(cmdtext, list/searchnames)
+	searchnames |= list("everyone", "everybody")
+	for(var/name in searchnames)
+		if(dd_hasprefix(cmdtext, name))
+			return copytext(cmdtext, length(name) + 1)
+
 /mob/living/simple_animal/hostile/commanded/think()
 	while(command_buffer.len > 0)
 		var/mob/speaker = command_buffer[1]
 		var/text = command_buffer[2]
 		var/filtered_name = lowertext(html_decode(name))
 		var/filtered_short = lowertext(html_decode(short_name))
-		if(dd_hasprefix(text,filtered_name) || dd_hasprefix(text,filtered_short) || dd_hasprefix(text,"everyone") || dd_hasprefix(text, "everybody")) //in case somebody wants to command 8 bears at once.
-			var/substring = copytext(text,length(filtered_name)+1) //get rid of the name.
-			listen(speaker,substring)
+		var/substring = get_command(text, list(filtered_name, filtered_short))
+
+		if(substring)
+			listen(speaker, substring)
+
 		command_buffer.Remove(command_buffer[1],command_buffer[2])
 	..()
 	switch(stance)

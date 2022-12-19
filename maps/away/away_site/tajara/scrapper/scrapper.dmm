@@ -1802,7 +1802,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "vT" = (
-/obj/machinery/computer/shuttle_control/explore/tajara_scrapper,
+/obj/machinery/computer/shuttle_control/explore/tajara_scrapper{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
@@ -2619,7 +2621,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
 "Hg" = (
-/obj/machinery/computer/ship/sensors,
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
@@ -2675,7 +2679,8 @@
 /area/shuttle/scrapper_ship/workshop)
 "HA" = (
 /obj/machinery/computer/ship/helm{
-	req_access = null
+	req_access = null;
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -2844,7 +2849,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "JH" = (
-/obj/machinery/computer/ship/navigation,
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
 	},
@@ -4064,7 +4071,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "Yo" = (
-/obj/machinery/computer/ship/engines,
+/obj/machinery/computer/ship/engines{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
@@ -49497,19 +49506,19 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
 zx
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn

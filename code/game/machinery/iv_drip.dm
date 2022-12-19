@@ -245,7 +245,7 @@
 			return
 		if(!attached.dna)
 			return
-		if(NOCLONE in attached.mutations)
+		if(HAS_FLAG(attached.mutations, NOCLONE))
 			return
 		if(attached.species.flags & NO_BLOOD)
 			return

@@ -366,6 +366,7 @@ obj/structure/ex_act(severity)
 //  giving it a chance to mix its internal air supply with the turf it is
 //  currently on.
 /obj/structure/transit_tube_pod/proc/mix_air()
+	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	//note that share_ratio assumes both gas mixes have the same volume,

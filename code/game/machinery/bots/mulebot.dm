@@ -60,7 +60,7 @@
 	. = ..()
 	wires = new(src)
 	botcard = new(src)
-	botcard.access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
+	botcard.access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_ship_weapons, access_qm, access_mining, access_mining_station)
 	cell = new(src)
 	cell.charge = 2000
 	cell.maxcharge = 2000
