@@ -184,7 +184,7 @@
 	name = ACCENT_DOMINIA_NOVIJADRAN
 	description = "Much like the planet itself, the Jadranic dialect of Solarian Common sits between standard Solarian Common-influenced Vulgar Morozi and the more Freespeak-derived accents of the Imperial Frontier. \
 	The dialect possesses grammar and pronunciation similar to Vulgar Morozi but possesses multiple loan words from Freespeak which make it distinct from its Morozian counterpart. Jadraners are valued highly for their \
-	loyalty and this dialect is often regarded as the most common accent of the Imperial Army. More educated Jadraners, such as those from the planet’s few urban centers, will often leave the dialect’s Freespeak \
+	loyalty and this dialect is often regarded as the most common accent of the Imperial Army. More educated Jadraners, such as those from the planet's few urban centers, will often leave the dialect's Freespeak \
 	loan words our while talking with Morozians or other Dominians."
 	tag_icon = "dominia_novijadran"
 	text_tag = "NOV"
