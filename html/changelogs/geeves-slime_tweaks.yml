@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Slimes now pass their mutation chance on to their offspring."
-  - rscadd: "You can now increase a slime's mutation chance by injecting them with unstable mutagen, and you can decrease it by injecting them with slime jelly."
-  - rscadd: "Slimes will no longer wander or follow their leader while pulled or grabbed, and you can prevent them from chasing their target with a blue, aggressive, grab."
