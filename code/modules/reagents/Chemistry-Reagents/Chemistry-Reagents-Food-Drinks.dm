@@ -4642,8 +4642,6 @@
 	strength = 20
 	taste_description = "bittersweet root juice"
 
-	glass_name = "glass of eggnog"
-	glass_desc = "The Christmas spirit, in liquid form."
 //Kaed's Unathi Cocktails
 //=======
 //What an exciting time we live in, that lizards may drink fruity girl drinks.
