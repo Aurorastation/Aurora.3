@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Button- and colorpad-like inputs on the integrated circuit goggles now work as expected."
+  - bugfix: "Renaming wearable integrated circuit clothing now works correctly."
