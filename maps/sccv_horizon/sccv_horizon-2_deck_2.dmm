@@ -49178,7 +49178,7 @@
 /area/operations/office)
 "yhR" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray/robotics,
+/obj/item/storage/box/fancy/tray/machinist,
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},

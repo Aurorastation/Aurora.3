@@ -325,24 +325,19 @@
 		/obj/item/reagent_containers/syringe
 	)
 
-/obj/item/storage/box/fancy/tray/robotics
+/obj/item/storage/box/fancy/tray/machinist
 	can_hold = list(
-		/obj/item/surgery/bonesetter,
 		/obj/item/surgery/cautery,
 		/obj/item/surgery/circular_saw,
 		/obj/item/surgery/hemostat,
 		/obj/item/surgery/retractor,
-		/obj/item/surgery/scalpel,
-		/obj/item/surgery/surgicaldrill,
-		/obj/item/surgery/bone_gel
+		/obj/item/surgery/scalpel
 		)
 
 	starts_with = list(
-		/obj/item/surgery/bonesetter = 1,
 		/obj/item/surgery/cautery = 1,
 		/obj/item/surgery/circular_saw = 1,
 		/obj/item/surgery/hemostat = 1,
 		/obj/item/surgery/retractor = 1,
-		/obj/item/surgery/scalpel = 1,
-		/obj/item/surgery/surgicaldrill = 1
+		/obj/item/surgery/scalpel = 1
 	)
