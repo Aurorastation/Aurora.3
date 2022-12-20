@@ -3371,6 +3371,7 @@
 "bAZ" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/corner/black/full,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "bBh" = (
@@ -6303,6 +6304,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
+"dev" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "dex" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
@@ -7887,8 +7895,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/closet/crate,
-/obj/random/loot,
+/obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "dTI" = (
@@ -33773,6 +33780,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
+"qPP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "qPY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -36519,6 +36535,14 @@
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
+"sgl" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/closet/crate,
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "sgp" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -42500,6 +42524,11 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
+"veG" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "veO" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 1
@@ -43906,6 +43935,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "vPj" = (
@@ -74290,10 +74320,10 @@ ukT
 jPr
 cHz
 kaT
-kaT
+dev
 kaT
 cNU
-mia
+sgl
 ibU
 hrC
 erH
@@ -74495,7 +74525,7 @@ uTr
 uTr
 uTr
 emN
-mia
+sgl
 ibU
 ljm
 aVf
@@ -74899,7 +74929,7 @@ ncx
 dYe
 uTr
 kaT
-mia
+qPP
 vNG
 lLj
 unV
@@ -75302,7 +75332,7 @@ dzI
 uxf
 oGK
 uTr
-kaT
+veG
 kjO
 vNG
 xMV
