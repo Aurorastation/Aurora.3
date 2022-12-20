@@ -1077,6 +1077,15 @@
 
 //Fox Plushies
 
+
+/obj/item/toy/plushie/redfox
+	name = "fox plushie"
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is red."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "redfoxplushie"
+	item_state = "redfoxplushie"
+	phrase = "Kekekeke!"
+
 /obj/item/toy/plushie/fox
 	name = "fox plushie"
 	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is red."
