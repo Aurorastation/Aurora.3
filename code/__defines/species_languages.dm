@@ -34,10 +34,11 @@
 #define HAS_FBP           0x80   // If for whatever ungodly reason we decide to ever have non-Shell FBPs.
 #define HAS_SKIN_PRESET   0x100  // Skin color presets selectable in character generation.
 
-// Tau-Ceti basic, language common to all crew.
+// Innate Languages
+#define LANGUAGE_NOISE "Noise" // Used for audible emotes.
 #define LANGUAGE_TCB "Ceti Basic"
 
-// Species languages
+// Species Languages
 #define LANGUAGE_SOL_COMMON "Sol Common"
 #define LANGUAGE_ELYRAN_STANDARD "Elyran Standard"
 #define LANGUAGE_UNATHI "Sinta'unathi"

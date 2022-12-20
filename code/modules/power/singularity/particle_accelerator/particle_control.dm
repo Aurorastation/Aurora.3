@@ -3,7 +3,7 @@
 /obj/machinery/particle_accelerator/control_box
 	name = "Particle Accelerator Control Computer"
 	desc = "This controls the density of the particles."
-	icon = 'icons/obj/machines/particle_accelerator.dmi'
+	icon = 'icons/obj/machinery/particle_accelerator.dmi'
 	icon_state = "control_box"
 	reference = "control_box"
 	anchored = FALSE
@@ -211,7 +211,7 @@
 	return 0
 
 
-/obj/machinery/particle_accelerator/control_box/proc/toggle_power(mob/user)
+/obj/machinery/particle_accelerator/control_box/toggle_power(mob/user)
 	src.active = !src.active
 	investigate_log("turned [active?"<span class='warning'>ON</span>":"<font color='green'>OFF</font>"] by [user ? user.key : "outside forces"]","singulo")
 	message_admins("PA Control Computer turned [active ?"ON":"OFF"] by [key_name(user, TRUE, highlight_special = TRUE)] in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)

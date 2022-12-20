@@ -66,6 +66,9 @@
 
 	turfs += src
 
+	if (isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -108,6 +111,9 @@
 
 	changing_turf = FALSE
 	turfs -= src
+
+	if (isStationLevel(z))
+		station_turfs -= src
 
 	remove_cleanables()
 	cleanup_roof()

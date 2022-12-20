@@ -83,7 +83,7 @@
 	var/mob/living/carbon/slime/extracted_slime = extract_slimes[slime]
 	for(var/i = 1 to extracted_slime.cores + 1)
 		var/obj/extract = new extracted_slime.coretype(get_turf(src))
-		var/obj/item/storage/bag/slimes/slime_bag = locate() in range(1, get_turf(src))
+		var/obj/item/storage/slimes/slime_bag = locate() in range(1, get_turf(src))
 		if(slime_bag && Adjacent(slime_bag))
 			slime_bag.handle_item_insertion(extract)
 		else

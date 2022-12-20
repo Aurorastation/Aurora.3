@@ -139,8 +139,9 @@
 	if (locate(/obj/machinery/portable_atmospherics, src.loc))
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
+	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
+	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return TRUE

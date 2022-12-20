@@ -3,7 +3,7 @@
 	id = "headmaster_ship"
 	description = "A People's Republic Orbital Fleet ship."
 	suffix = "ships/pra/headmaster/headmaster_ship.dmm"
-	spawn_cost = 1
+	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/headmaster_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
@@ -16,8 +16,8 @@
 	name = "Headmaster Ship"
 	desc = "The second heaviest ship created by the People's Republic of Adhomai. As of now, it's the lightest heavy ship ever designed, barely staying above the classification of a cruiser."
 	class = "PRAMV" //People's Republic of Adhomai Vessel
-	icon_state = "ship_grey"
-	moving_state = "ship_grey_moving"
+	icon_state = "ship"
+	moving_state = "ship_moving"
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
@@ -63,8 +63,8 @@
 /obj/effect/overmap/visitable/ship/landable/headmaster_shuttle
 	name = "Orbital Fleet Shuttle"
 	desc = "A simple and reliable shuttle design used by the Orbital Fleet."
-	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
 	class = "PRAMV"
 	designation = "Yve'kha"
 	shuttle = "Orbital Fleet Shuttle"
@@ -85,6 +85,7 @@
 	shuttle_area = list(/area/shuttle/headmaster_shuttle)
 	current_location = "nav_headmaster_shuttle"
 	landmark_transition = "nav_transit_headmaster_shuttle"
+	dock_target = "headmaster_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_headmaster_shuttle"

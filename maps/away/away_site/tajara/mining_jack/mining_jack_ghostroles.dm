@@ -18,7 +18,7 @@
 	uses_species_whitelist = FALSE
 
 /datum/outfit/admin/tajara_mining_jack
-	name = "Tajaran Miner"
+	name = "Mining Jack Miner"
 
 	uniform = list(
 				/obj/item/clothing/under/serviceoveralls,

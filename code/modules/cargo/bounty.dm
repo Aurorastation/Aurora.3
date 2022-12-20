@@ -88,9 +88,7 @@
 // It handles items shipped for bounties.
 /datum/controller/subsystem/cargo/proc/bounty_ship_item_and_contents(atom/movable/AM, dry_run=FALSE)
 	var/list/matched_one = FALSE
-	var/list/contents = list()
-	contents += AM
-	contents += AM.GetAllContents()
+	var/list/contents = AM.GetAllContents()
 	for(var/thing in reverseRange(contents))
 		var/matched_this = FALSE
 		for(var/datum/bounty/B in bounties_list)
@@ -227,4 +225,3 @@
 		if(B.claimed)
 			++count
 	return count
-

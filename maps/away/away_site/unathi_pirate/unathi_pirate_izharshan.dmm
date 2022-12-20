@@ -137,14 +137,14 @@
 "eu" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 3001;
+	frequency = 1380;
 	master_tag = "unathi_pirate_izharshan_shuttle";
 	name = "interior access button";
 	pixel_x = 26;
 	pixel_y = -9
 	},
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan_inner";
 	name = "Ship External Access"
 	},
@@ -223,7 +223,7 @@
 /area/shuttle/unathi_pirate_izharshan/operations)
 "gE" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan_pump"
 	},
 /obj/structure/bed/handrail{
@@ -429,13 +429,17 @@
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "oZ" = (
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan_inner";
 	name = "Ship External Access"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/helm)
+"pb" = (
+/obj/structure/viewport/unathi,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/unathi_pirate_izharshan/operations)
 "pg" = (
 /turf/simulated/floor/carpet,
 /area/shuttle/unathi_pirate_izharshan/helm)
@@ -476,14 +480,14 @@
 "rY" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 3001;
+	frequency = 1380;
 	master_tag = "unathi_pirate_izharshan_shuttle";
 	name = "exterior access button";
 	pixel_x = 26;
 	pixel_y = 10
 	},
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan_outer";
 	name = "Ship External Access"
 	},
@@ -1113,7 +1117,7 @@
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "LL" = (
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan_outer";
 	name = "Ship External Access"
 	},
@@ -1312,20 +1316,20 @@
 /area/space)
 "Tt" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan";
 	pixel_x = -26;
 	req_access = list(210);
 	pixel_y = -8
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan_sensor";
 	pixel_x = -25;
 	pixel_y = 9
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan_pump"
 	},
 /obj/structure/bed/handrail{
@@ -1563,10 +1567,6 @@
 /obj/item/clothing/head/pirate,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
-"YU" = (
-/obj/structure/viewport/unathi,
-/turf/simulated/floor,
-/area/shuttle/unathi_pirate_izharshan/operations)
 "Zi" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/device/radio{
@@ -31568,8 +31568,8 @@ ZU
 xg
 Ni
 fR
-fR
-YU
+pb
+yo
 yo
 yo
 yN

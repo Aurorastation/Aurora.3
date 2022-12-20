@@ -1454,7 +1454,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/tiled,
@@ -1667,7 +1666,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/tiled,
@@ -1834,7 +1832,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /obj/machinery/computer/station_alert/all,
@@ -1924,7 +1921,7 @@
 /turf/template_noop,
 /area/engineering)
 "ZH" = (
-/obj/structure/fuel_port,
+/obj/structure/fuel_port/phoron,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
 

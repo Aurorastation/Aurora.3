@@ -1,26 +1,20 @@
-/mob/living/silicon/robot/handle_speech_problems(var/message, var/verb, var/message_mode)
-	var/speech_problem_flag = FALSE
+/mob/living/silicon/robot/handle_speech_problems(message, say_verb, message_mode, message_range)
+	if(!message_range)
+		message_range = world.view
 	//Handle gibberish when components are damaged
 	if(message_mode)
 		//If we have a radio message, just look at the damage of the radio
 		var/datum/robot_component/C = get_component("radio")
 		if(C.get_damage())
-			speech_problem_flag = TRUE
+			. = TRUE
 			message = Gibberish(message, C.max_damage / C.get_damage())
 	else
 		var/damaged = 100 - (Clamp(health, 0, maxHealth) / maxHealth) * 100
 		if(damaged > 40)
-			speech_problem_flag = TRUE
+			. = TRUE
 			message = Gibberish(message, damaged - 10)
 
-	var/list/returns[4]
-	returns[1] = message
-	returns[2] = verb
-	returns[3] = speech_problem_flag
-	returns[4] = world.view
-	return returns
-
-/mob/living/silicon/robot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+/mob/living/silicon/robot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode == "whisper" && !whisper)
 		whisper(message, speaking)
 		return TRUE
@@ -36,7 +30,7 @@
 /mob/living/silicon/robot/drone/handle_message_mode()
 	return null
 
-/mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+/mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode == "whisper" && !whisper)
 		whisper(message, speaking)
 		return TRUE
@@ -52,7 +46,7 @@
 		log_say("[key_name(src)] : [message]",ckey=key_name(src))
 		return ai_radio.talk_into(src, message, message_mode, verb, speaking)
 
-/mob/living/silicon/pai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+/mob/living/silicon/pai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode)
 		if(message_mode == "whisper" && !whisper)
 			whisper(message, speaking)
@@ -120,7 +114,7 @@
 		var/turf/T = get_turf(H)
 
 		if(T)
-			var/list/hear = hear(7, T)
+			var/list/hear = get_hear(7, T)
 			var/list/hearturfs = list()
 
 			for(var/I in hear)

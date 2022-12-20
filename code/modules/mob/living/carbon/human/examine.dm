@@ -232,7 +232,7 @@
 	//Red Nightshade
 	if(is_berserk())
 		msg += "<span class='warning'><B>[get_pronoun("He")] [get_pronoun("has")] engorged veins which appear a vibrant red.</B></span>\n"
-		
+
 	//splints
 	for(var/organ in list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_R_FOOT,BP_L_FOOT))
 		var/obj/item/organ/external/o = get_organ(organ)
@@ -242,7 +242,7 @@
 			if(o.applied_pressure == src)
 				msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] applying pressure to [get_pronoun("his")] [o.name]!</span>\n"
 
-	if(mSmallsize in mutations)
+	if(HAS_FLAG(mutations, mSmallsize))
 		msg += "[get_pronoun("He")] [get_pronoun("is")] small halfling!\n"
 
 	var/distance = get_dist(user,src)
@@ -395,7 +395,7 @@
 
 	if(src in intent_listener)
 		msg += SPAN_NOTICE("\n[get_pronoun("He")] looks like [get_pronoun("he")] [get_pronoun("is")] listening intently to [get_pronoun("his")] surroundings.")
-	
+
 	var/datum/vampire/V = get_antag_datum(MODE_VAMPIRE)
 	if(V && (V.status & VAMP_DRAINING))
 		var/obj/item/grab/G = get_active_hand()

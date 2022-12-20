@@ -520,18 +520,18 @@
 /obj/structure/sign/flag/sol
 	name = "Sol Alliance flag"
 	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
-	icon_state = "solgov"
+	icon_state = "sol"
 
 /obj/structure/sign/flag/sol/left
-	icon_state = "solgov_l"
+	icon_state = "sol_l"
 
 /obj/structure/sign/flag/sol/right
-	icon_state = "solgov_r"
+	icon_state = "sol_r"
 
 /obj/item/flag/sol
 	name = "Sol Alliance flag"
 	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
-	flag_path = "solgov"
+	flag_path = "sol"
 
 /obj/item/flag/sol/l
 	name = "Large Sol Alliance flag"
@@ -1159,6 +1159,20 @@
 	and weaponry, there are no proper rules in creating a flag for ones Unathi fleets... Still, the sheer popularity of Izharshan's flag, and the fact that it was one of the first flags created by a Unathi Pirate fleet made it a model to follow \
 	for many others, with a Sinta (or their head or skull) taking a central place in the picture, and other elements complimenting it, generally in a symmetrical fashion."
 	icon_state = "izharshan"
+
+/obj/item/flag/visegrad
+	name = "\improper Visegrad flag"
+	desc = "The flag of Visegrad."
+	desc_extended = "The blue, white, green and red flag of Visegrad was the original Warsaw Pact-created design for the planet's flag, and even after it acquired independence it was maintained, though with the removal of the socialist emblem and the addition of a Solarian ensign. \
+	It is said that the green represents the forests of the planet, the white the stormclouds, and the blue the sky hidden above, while the red is supposed to represent shared national unity."
+	flag_path = "visegrad"
+
+/obj/structure/sign/flag/visegrad
+	name = "\improper Visegrad flag"
+	desc = "The flag of Visegrad."
+	desc_extended = "The blue, white, green and red flag of Visegrad was the original Warsaw Pact-created design for the planet's flag, and even after it acquired independence it was maintained, though with the removal of the socialist emblem and the addition of a Solarian ensign. \
+	It is said that the green represents the forests of the planet, the white the stormclouds, and the blue the sky hidden above, while the red is supposed to represent shared national unity."
+	icon_state = "visegrad"
 
 /obj/structure/sign/painting_frame
 	name = "empty frame"

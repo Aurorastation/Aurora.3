@@ -419,7 +419,7 @@
 	input_tag = "tox_in";
 	name = "Phoron Supply Control";
 	output_tag = "tox_out";
-	sensors = list("ph_sensor" = "Tank")
+	sensors = list("ph_sensor"="Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -505,7 +505,7 @@
 	input_tag = "air_in";
 	name = "Mixed Air Supply Control";
 	output_tag = "air_out";
-	sensors = list("air_sensor" = "Tank")
+	sensors = list("air_sensor"="Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -562,7 +562,7 @@
 	input_tag = "co2_in";
 	name = "Carbon Dioxide Supply Control";
 	output_tag = "co2_out";
-	sensors = list("co2_sensor" = "Tank")
+	sensors = list("co2_sensor"="Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -1800,7 +1800,7 @@
 	input_tag = "waste_in";
 	name = "Gas Mix Tank Control";
 	output_tag = "waste_out";
-	sensors = list("waste_sensor" = "Tank")
+	sensors = list("waste_sensor"="Tank")
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
@@ -1861,7 +1861,7 @@
 	input_tag = "n2o_in";
 	name = "Nitrous Oxide Supply Control";
 	output_tag = "n2o_out";
-	sensors = list("n2o_sensor" = "Tank")
+	sensors = list("n2o_sensor"="Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -2124,8 +2124,8 @@
 /obj/item/clothing/glasses/science,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/gloves/latex/nitrile,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_storage)
 "afg" = (
@@ -5212,8 +5212,8 @@
 	pixel_y = -4
 	},
 /obj/item/clothing/gloves/latex/nitrile,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window{
 	base_state = "right";
 	name = "Suit Storage";
@@ -5267,8 +5267,8 @@
 	pixel_y = -4
 	},
 /obj/item/clothing/gloves/latex/nitrile,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window{
 	dir = 1;
 	name = "Suit Storage";
@@ -8629,7 +8629,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /turf/simulated/floor/tiled,
@@ -8925,8 +8924,6 @@
 	c_tag = "Medical - Patient Wing Hallway"
 	},
 /obj/item/device/radio/intercom{
-	frequency = 1475;
-	name = "Station Intercom (Security)";
 	pixel_y = 22
 	},
 /obj/effect/floor_decal/corner_wide/pink{
@@ -9007,7 +9004,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "aqI" = (
-/obj/machinery/message_server,
+/obj/machinery/telecomms/message_server,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_server_room)
 "aqJ" = (
@@ -9954,7 +9951,6 @@
 	},
 /area/tcommsat/mainlvl_tcomms__relay)
 "arX" = (
-/obj/machinery/telecomms/relay/preset/station,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
 	},
@@ -10572,7 +10568,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -10632,8 +10627,8 @@
 	pixel_y = -4
 	},
 /obj/item/clothing/gloves/latex/nitrile,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window{
 	base_state = "right";
 	name = "Suit Storage";
@@ -11761,7 +11756,7 @@
 	},
 /area/mine/unexplored)
 "ave" = (
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -12040,7 +12035,6 @@
 "avC" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/structure/bed/stool,
@@ -12888,7 +12882,6 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
@@ -13368,7 +13361,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -14211,7 +14203,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27;
 	pixel_y = -32
 	},
@@ -14231,7 +14222,6 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 4
 	},
-/obj/structure/closet/l3closet/virology,
 /obj/machinery/button/remote/blast_door{
 	id = "quarantine_processing_shutters";
 	name = "Desk Lockdown";
@@ -14239,10 +14229,7 @@
 	pixel_y = -25;
 	req_access = list(66)
 	},
-/obj/item/tank/oxygen,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/suit/bio_suit/general,
-/obj/item/clothing/head/bio_hood/general,
+/obj/structure/closet/hazmat/general,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "aBx" = (
@@ -15550,7 +15537,6 @@
 "aEB" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -16365,7 +16351,7 @@
 /area/rnd/xenobiology)
 "aGL" = (
 /obj/machinery/firealarm/north,
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aGM" = (
@@ -16565,7 +16551,6 @@
 "aHi" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/effect/floor_decal/corner_wide/lime{
@@ -16821,7 +16806,7 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
-/obj/item/storage/bag/slimes,
+/obj/item/storage/slimes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aHP" = (
@@ -18787,7 +18772,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aLL" = (
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -19741,7 +19726,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -20087,7 +20071,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/white,
@@ -20456,7 +20439,7 @@
 /area/rnd/xenobiology)
 "aPZ" = (
 /obj/structure/table/standard,
-/obj/item/storage/bag/slimes,
+/obj/item/storage/slimes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aQa" = (
@@ -20555,7 +20538,6 @@
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
 /turf/simulated/floor/tiled{
@@ -21339,7 +21321,6 @@
 "aSx" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -21422,7 +21403,6 @@
 /obj/item/device/flashlight/pen,
 /obj/item/device/flashlight/pen,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
 /obj/item/taperoll/medical{
@@ -21609,7 +21589,7 @@
 /area/maintenance/research_xenobiology)
 "aTc" = (
 /obj/machinery/firealarm/west,
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aTe" = (
@@ -22549,7 +22529,6 @@
 /area/medical/medbay4)
 "aWC" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
 /obj/structure/flora/pottedplant/random,
@@ -23720,7 +23699,6 @@
 "bcb" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /turf/simulated/floor/tiled,
@@ -23740,7 +23718,7 @@
 	input_tag = "n2_in";
 	name = "Nitrogen Supply Control";
 	output_tag = "n2_out";
-	sensors = list("n2_sensor" = "Tank")
+	sensors = list("n2_sensor"="Tank")
 	},
 /obj/machinery/camera/network/engineering_outpost{
 	c_tag = "Engineering Sublevel - Atmospherics North 1"
@@ -23756,7 +23734,7 @@
 	input_tag = "o2_in";
 	name = "Oxygen Supply Control";
 	output_tag = "o2_out";
-	sensors = list("o2_sensor" = "Tank")
+	sensors = list("o2_sensor"="Tank")
 	},
 /obj/machinery/light{
 	dir = 1;
@@ -24452,7 +24430,6 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = -29
 	},
 /obj/effect/floor_decal/corner/mauve/full,
@@ -24874,7 +24851,7 @@
 	},
 /obj/machinery/computer/general_air_control/large_tank_control{
 	name = "Chamber Monitors";
-	sensors = list("toxins_sensor01" = "North Chamber Sensor", "toxins_sensor02" = "South Chamber Sensor")
+	sensors = list("toxins_sensor01"="North Chamber Sensor","toxins_sensor02"="South Chamber Sensor")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
@@ -26019,7 +25996,6 @@
 "bxJ" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/structure/bed/stool/chair/padded/brown,
@@ -26267,7 +26243,6 @@
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = -29
 	},
 /turf/simulated/floor/tiled,
@@ -28931,7 +28906,6 @@
 "hje" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
@@ -29668,7 +29642,6 @@
 "iRV" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/structure/bed/stool/chair/padded/brown,
@@ -30782,7 +30755,6 @@
 "lQi" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/structure/bed/stool/chair/padded/brown,
@@ -32944,7 +32916,7 @@
 /obj/structure/sign/biohazard{
 	pixel_x = -32
 	},
-/obj/structure/closet/l3closet/scientist,
+/obj/structure/closet/hazmat/research,
 /obj/item/clothing/mask/gas/alt,
 /obj/machinery/light{
 	dir = 8
@@ -33030,7 +33002,7 @@
 	input_tag = "h2_in";
 	name = "Hydrogen Supply Control";
 	output_tag = "h2_out";
-	sensors = list("h2_sensor" = "Tank")
+	sensors = list("h2_sensor"="Tank")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -35324,7 +35296,6 @@
 /obj/item/pen,
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/machinery/door/firedoor,
@@ -37053,7 +37024,6 @@
 "xXU" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
-	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
 /obj/structure/bed/stool/chair/padded/brown,

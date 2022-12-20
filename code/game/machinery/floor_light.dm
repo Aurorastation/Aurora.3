@@ -2,7 +2,7 @@ var/list/floor_light_cache = list()
 
 /obj/machinery/floor_light
 	name = "floor light"
-	icon = 'icons/obj/machines/floor_light.dmi'
+	icon = 'icons/obj/machinery/floor_light.dmi'
 	icon_state = "base"
 	desc = "A backlit floor panel."
 	layer = TURF_LAYER+0.001

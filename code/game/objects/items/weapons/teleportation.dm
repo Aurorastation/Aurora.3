@@ -77,7 +77,7 @@ Frequency:
 				src.temp += "<B>Located Beacons:</B><BR>"
 
 				for(var/obj/item/device/radio/beacon/W in teleportbeacons)
-					if (W.frequency == src.frequency)
+					if (W.get_frequency() == src.frequency)
 						var/turf/tr = get_turf(W)
 						if (tr.z == sr.z && tr)
 							var/direct = max(abs(tr.x - sr.x), abs(tr.y - sr.y))

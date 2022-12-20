@@ -101,8 +101,6 @@
 /obj/return_air()
 	if(loc)
 		return loc.return_air()
-	else
-		return null
 
 /obj/proc/updateUsrDialog()
 	if(in_use)
@@ -184,7 +182,7 @@
 	being_shocked = 0
 
 
-/obj/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+/obj/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 	return
 
 //To be called from things that spill objects on the floor.
