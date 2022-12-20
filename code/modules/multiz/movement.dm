@@ -52,11 +52,11 @@
 
 	var/turf/start = get_turf(src)
 	if(!start.CanZPass(src, direction))
-		to_chat(src, SPAN_WARNING("\The [start] is in the way."))
+		to_chat(src, SPAN_WARNING("\The [start.GetZPassBlocker()] is in the way."))
 		return FALSE
 
 	if(!destination.CanZPass(src, direction))
-		to_chat(src, SPAN_WARNING("\The [destination] is in the way!"))
+		to_chat(src, SPAN_WARNING("\The [destination.GetZPassBlocker()] is in the way!"))
 		return FALSE
 
 	var/area/area = get_area(src)
