@@ -888,6 +888,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/xmasgift/large,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -1287,6 +1288,15 @@
 	icon_state = "dark"
 	},
 /area/cruise/centerline)
+"aRt" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/item/xmasgift/large,
+/turf/unsimulated/floor{
+	footstep_sound = /decl/sound_category/grass_footstep;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "aRy" = (
 /obj/item/clothing/suit/armor/carrier/heavy/scc,
 /obj/item/clothing/accessory/armband/scc,
@@ -1812,6 +1822,7 @@
 	dir = 8;
 	name = "lifeguard chair"
 	},
+/obj/item/xmasgift/medium,
 /turf/unsimulated/floor{
 	icon_state = "asteroidfloor"
 	},
@@ -3111,6 +3122,37 @@
 /area/cruise/fore_p)
 "cnk" = (
 /obj/structure/table/wood,
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -7;
+	pixel_y = -5
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = -5
+	},
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
 	},
@@ -3369,6 +3411,30 @@
 	dir = 8
 	},
 /obj/item/toy/xmastree,
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = -5
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -7;
+	pixel_y = -5
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6;
+	pixel_y = 12
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -4270,6 +4336,16 @@
 	icon_state = "platebot"
 	},
 /area/cruise/arcade)
+"ddf" = (
+/obj/structure/closet/crate{
+	desc = "A note on the side says: 'A santa costume for the crewmember who takes up on this difficult task.";
+	name = "santa costume crate"
+	},
+/obj/item/clothing/suit/space/santa,
+/obj/item/storage/backpack/santabag,
+/obj/item/clothing/head/festive/santa/beard,
+/turf/unsimulated/floor/xmas,
+/area/cruise/centerline)
 "dds" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/vending/cigarette,
@@ -4291,6 +4367,30 @@
 "ddC" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/table/stone/marble,
+/obj/item/clothing/head/festive/santa/beard{
+	pixel_x = 7;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa/beard{
+	pixel_x = -6;
+	pixel_y = 11
+	},
+/obj/item/clothing/head/festive/santa/beard{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/clothing/head/festive/santa/beard{
+	pixel_x = -6;
+	pixel_y = -6
+	},
+/obj/item/clothing/head/festive/santa/beard{
+	pixel_x = 7;
+	pixel_y = -6
+	},
+/obj/item/clothing/head/festive/santa/beard{
+	pixel_x = 7;
+	pixel_y = 3
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -4608,7 +4708,9 @@
 /area/cruise/escort)
 "dqf" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/mob/living/simple_animal/cat,
+/mob/living/simple_animal/cat{
+	name = "Herbert"
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -4742,6 +4844,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
+/obj/item/toy/xmas_cracker,
 /turf/unsimulated/floor{
 	icon_state = "carpetnoconnect"
 	},
@@ -5506,6 +5609,7 @@
 	},
 /obj/structure/table/stone/marble,
 /obj/item/device/flashlight/lamp/green,
+/obj/item/xmasgift,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -5759,12 +5863,35 @@
 	},
 /area/cruise/virtual_reality)
 "erJ" = (
-/obj/structure/bed/stool/padded/red,
 /obj/structure/sink/kitchen{
 	layer = 3.5;
 	pixel_x = 6;
 	pixel_y = 27
 	},
+/obj/structure/closet/crate{
+	desc = "A crate, a handwritten note on the side reads: 'Infinite Eggnog supply, enjoy. - CCIA";
+	name = "egnogg crate"
+	},
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
+/obj/item/reagent_containers/food/drinks/carton/eggnog,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -5965,6 +6092,15 @@
 	icon_state = "wood"
 	},
 /area/cruise/main_bar/aft)
+"exb" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/item/xmasgift/medium,
+/turf/unsimulated/floor{
+	footstep_sound = /decl/sound_category/grass_footstep;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "exp" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -6223,6 +6359,37 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "bar_southwest"
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = -5
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -7;
+	pixel_y = -5
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 12
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -7410,6 +7577,14 @@
 	icon_state = "wood_light"
 	},
 /area/cruise/beach)
+"fDw" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/xmasgift/large,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/cruise/jungle)
 "fDD" = (
 /obj/item/toy/figure/janitor{
 	pixel_x = -6
@@ -7778,6 +7953,11 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/grass/alt,
 /area/cruise/hydroponics)
+"fRG" = (
+/obj/item/clothing/suit/snowman_costume,
+/obj/item/clothing/head/snowman_hat,
+/turf/unsimulated/floor/xmas,
+/area/cruise/centerline)
 "fRP" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/sink/kitchen{
@@ -7794,6 +7974,10 @@
 	icon_state = "carpet14-10"
 	},
 /area/cruise/escort)
+"fSh" = (
+/obj/item/xmasgift/large,
+/turf/unsimulated/mineral/asteroid,
+/area/cruise/jungle)
 "fSl" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/shaker{
@@ -8336,6 +8520,7 @@
 	dir = 4
 	},
 /obj/structure/table/stone/marble,
+/obj/item/xmasgift/medium,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -8997,6 +9182,7 @@
 	dir = 4
 	},
 /obj/structure/table/stone/marble,
+/obj/item/toy/xmas_cracker,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -9176,6 +9362,17 @@
 	icon_state = "dark2"
 	},
 /area/cruise/central)
+"gNG" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/obj/item/xmasgift/large,
+/turf/unsimulated/floor{
+	footstep_sound = /decl/sound_category/grass_footstep;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "gOf" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -9571,6 +9768,33 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "bar_east"
 	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -7;
+	pixel_y = -5
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = -5
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -9755,6 +9979,9 @@
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/item/clothing/head/festive/santa/beard{
+	pixel_y = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -10326,6 +10553,8 @@
 	pixel_x = 6;
 	pixel_y = 11
 	},
+/obj/item/xmasgift/schlorrgo,
+/obj/item/toy/xmas_cracker,
 /turf/unsimulated/floor{
 	icon_state = "asteroidfloor"
 	},
@@ -10441,6 +10670,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/xmasgift/medium,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -11846,6 +12076,30 @@
 	dir = 4
 	},
 /obj/item/material/ashtray/bronze,
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = -5
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -7;
+	pixel_y = -5
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -14291,6 +14545,7 @@
 /area/cruise/pool)
 "kQx" = (
 /obj/structure/table/rack,
+/obj/item/xmasgift,
 /turf/unsimulated/floor{
 	icon_state = "bar"
 	},
@@ -14786,6 +15041,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/reagent_containers/food/snacks/stuffing,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -15400,6 +15656,15 @@
 	icon_state = "desert"
 	},
 /area/cruise/beach)
+"lEn" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/item/xmasgift,
+/turf/unsimulated/floor{
+	icon_state = "asteroidfloor"
+	},
+/area/cruise/beach)
 "lEN" = (
 /obj/effect/decal/fake_object{
 	desc = "A descriptive sign.";
@@ -15709,6 +15974,7 @@
 /area/cruise/aft)
 "lOT" = (
 /obj/structure/table/wood,
+/obj/item/toy/xmas_cracker,
 /turf/unsimulated/floor{
 	icon_state = "carpetnoconnect"
 	},
@@ -16318,6 +16584,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/toy/balloon/xmastree,
 /turf/unsimulated/floor/xmas,
 /area/cruise/centerline)
 "mlS" = (
@@ -21308,6 +21575,29 @@
 	id = "bar_east"
 	},
 /obj/item/toy/xmastree,
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = -5
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -7;
+	pixel_y = -5
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -21351,6 +21641,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/xmasgift/medium,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -23988,6 +24279,15 @@
 	icon_state = "freezerfloor"
 	},
 /area/cruise/washroom_fore)
+"swu" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/mob/living/simple_animal/cat/kitten{
+	name = "Herbert The II."
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/hydroponics)
 "swJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -24673,6 +24973,7 @@
 	pixel_x = -16;
 	pixel_y = -16
 	},
+/obj/item/xmasgift,
 /turf/unsimulated/beach/coastline{
 	dir = 5;
 	icon = 'icons/misc/beach.dmi';
@@ -24760,6 +25061,7 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/padded/red,
+/obj/item/xmasgift/medium,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -25902,6 +26204,28 @@
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/cruise/pool)
+"tUe" = (
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -7;
+	pixel_y = -5
+	},
+/turf/unsimulated/floor/xmas,
+/area/cruise/centerline)
 "tUl" = (
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
@@ -27253,6 +27577,7 @@
 "uMc" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
+/obj/item/toy/xmas_cracker,
 /turf/unsimulated/floor{
 	icon_state = "wood_willow"
 	},
@@ -28128,6 +28453,7 @@
 	dir = 8
 	},
 /obj/item/toy/xmastree,
+/obj/item/toy/xmas_cracker,
 /turf/unsimulated/floor{
 	icon_state = "carpet7-3"
 	},
@@ -28633,7 +28959,7 @@
 	},
 /obj/structure/closet/crate{
 	desc = "A steel crate. A small note on the side says it contains an enormous amount of freshly baked cookies.";
-	name = "cookie supply"
+	name = "cookie crate"
 	},
 /obj/item/reagent_containers/food/snacks/cookie,
 /obj/item/reagent_containers/food/snacks/cookie,
@@ -28708,6 +29034,25 @@
 	icon_state = "platebot"
 	},
 /area/cruise/arcade)
+"vXu" = (
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 12
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/festive/santa{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/turf/unsimulated/floor/xmas,
+/area/cruise/centerline)
 "vYa" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -29408,6 +29753,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/reagent_containers/food/snacks/stuffing,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -29427,6 +29773,7 @@
 	dir = 1
 	},
 /obj/structure/table/stone/marble,
+/obj/item/xmasgift/medium,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -29650,6 +29997,9 @@
 	dir = 8
 	},
 /obj/machinery/door/window/eastright,
+/obj/item/reagent_containers/food/snacks/stuffing,
+/obj/item/reagent_containers/food/snacks/stuffing,
+/obj/item/reagent_containers/food/snacks/stuffing,
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
 "wJF" = (
@@ -29828,6 +30178,15 @@
 	icon_state = "beach"
 	},
 /area/cruise/beach_cave)
+"wSe" = (
+/obj/structure/bed/stool/padded/red,
+/obj/item/xmasgift/medium,
+/turf/unsimulated/floor{
+	footstep_sound = /decl/sound_category/grass_footstep;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "wSg" = (
 /obj/structure/flora/tree/jungle/small{
 	icon_state = "tree2"
@@ -30704,6 +31063,7 @@
 	pixel_x = -2;
 	pixel_y = 11
 	},
+/obj/item/xmasgift/large,
 /turf/unsimulated/floor{
 	icon_state = "asteroidfloor"
 	},
@@ -31138,6 +31498,15 @@
 	icon_state = "floor7"
 	},
 /area/cruise/pool)
+"xLG" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/item/xmasgift,
+/turf/unsimulated/floor{
+	icon_state = "asteroidfloor"
+	},
+/area/cruise/beach)
 "xMs" = (
 /obj/effect/floor_decal/spline/fancy,
 /obj/structure/bed/stool/chair/wood,
@@ -57005,7 +57374,7 @@ fob
 gJx
 wjH
 wjH
-wjH
+lEn
 wjH
 wjH
 eFG
@@ -57262,7 +57631,7 @@ duA
 gJx
 qNp
 qNp
-qNp
+xLG
 qNp
 qNp
 eFG
@@ -63764,8 +64133,8 @@ esl
 wyX
 bAB
 nLx
-ocH
-ocH
+tUe
+fRG
 btP
 esl
 ddz
@@ -64020,7 +64389,7 @@ vHO
 esl
 wyX
 bAB
-ocH
+ddf
 uBN
 oZQ
 aaR
@@ -64534,9 +64903,9 @@ dwA
 mWW
 yeg
 qWZ
+vXu
 ocH
-ocH
-ocH
+nLx
 cBs
 dwA
 dDN
@@ -64793,7 +65162,7 @@ qWZ
 qWZ
 mlM
 nLx
-ocH
+nLx
 mlx
 dwA
 oGG
@@ -65509,7 +65878,7 @@ ida
 iKx
 xHc
 xHc
-xHc
+swu
 dqf
 xHc
 xHc
@@ -67267,7 +67636,7 @@ oSt
 oSt
 omf
 omf
-hUO
+fSh
 hUO
 vdS
 qQP
@@ -67816,7 +68185,7 @@ hUO
 kCY
 ttv
 cIz
-hBy
+wSe
 qQP
 omf
 omf
@@ -72955,7 +73324,7 @@ hUO
 dlP
 gfh
 bJl
-iHu
+gNG
 izD
 qQP
 jwi
@@ -74721,7 +75090,7 @@ omf
 omf
 qQP
 cLb
-gqC
+aRt
 cLb
 cLb
 cLb
@@ -74742,7 +75111,7 @@ hUO
 ucs
 uRy
 fBs
-wON
+fDw
 uRy
 hUO
 aXk
@@ -76292,7 +76661,7 @@ qQP
 erg
 hUO
 hUO
-gqC
+exb
 cLb
 gdM
 hUO
