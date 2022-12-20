@@ -1,12 +1,12 @@
 /obj/item/modular_computer/handheld/pda
-	name = "PDA"
+	name = "\improper PDA"
 	lexical_name = "tablet"
-	desc = "The latest in portable microcomputer solutions from Thinktronic Systems, LTD."
+	desc = "A personal data assistant. The latest in portable microcomputer solutions from Thinktronic Systems LTD."
 	icon = 'icons/obj/pda.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/device/lefthand_device.dmi',
 		slot_r_hand_str = 'icons/mob/items/device/righthand_device.dmi',
-		)
+	)
 	icon_state = "pda"
 	item_state = "electronic"
 	icon_state_screensaver = "off"

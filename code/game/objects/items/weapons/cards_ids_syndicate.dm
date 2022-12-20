@@ -66,7 +66,6 @@
 	entries[++entries.len] = list("name" = "Photo", 			"value" = "Update")
 	entries[++entries.len] = list("name" = "Sex", 				"value" = sex)
 	entries[++entries.len] = list("name" = "Citizenship",		"value" = citizenship)
-	entries[++entries.len] = list("name" = "Religion",			"value" = religion)
 	entries[++entries.len] = list("name" = "Faction",			"value" = employer_faction)
 	entries[++entries.len] = list("name" = "Factory Reset",		"value" = "Use With Care")
 	data["electronic_warfare"] = electronic_warfare
@@ -224,12 +223,6 @@
 					src.citizenship = new_citizenship
 					to_chat(user, SPAN_NOTICE("Citizenship changed to '[new_citizenship]'."))
 					. = 1
-			if("Religion")
-				var/new_religion = sanitize(input(user,"What religion would you like to put on this card?","Agent Card Religion", religion) as null|text)
-				if(!isnull(new_religion) && CanUseTopic(user,state))
-					src.religion = new_religion
-					to_chat(user, SPAN_NOTICE("Religion changed to '[new_religion]'."))
-					. = 1
 			if("Faction")
 				var/new_faction = sanitize(input(user,"Which faction would you like to put on this card?","Agent Card Faction", employer_faction) as null|text)
 				if(!isnull(new_faction) && CanUseTopic(user,state))
@@ -250,7 +243,6 @@
 					name = initial(name)
 					registered_name = initial(registered_name)
 					unset_registered_user()
-					religion = initial(religion)
 					sex = initial(sex)
 					employer_faction = initial(employer_faction)
 					to_chat(user, "<span class='notice'>All information has been deleted from \the [src].</span>")

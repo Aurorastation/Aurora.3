@@ -141,7 +141,7 @@
 		return
 
 	access = ID.access
-	auth_name = "[ID.registered_name] ([ID.assignment])"
+	auth_name = "[ID.registered_name], [ID.assignment]"
 	dna_hash = ID.dna_hash
 
 	if (!access || !istype(access))
