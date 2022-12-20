@@ -212,7 +212,7 @@
 		/obj/item/surgery/fix_o_vein,
 		/obj/item/stack/medical/advanced/bruise_pack,
 		/obj/item/stack/nanopaste
-		)
+	)
 
 	starts_with = list(
 		/obj/item/surgery/bonesetter = 1,
@@ -326,12 +326,15 @@
 	)
 
 /obj/item/storage/box/fancy/tray/machinist
+	name = "machinist operation tray"
+	desc = "A tray of various tools for use by machinists in repairing robots."
 	can_hold = list(
 		/obj/item/surgery/cautery,
 		/obj/item/surgery/circular_saw,
 		/obj/item/surgery/hemostat,
 		/obj/item/surgery/retractor,
-		/obj/item/surgery/scalpel
+		/obj/item/surgery/scalpel,
+		/obj/item/stack/nanopaste
 		)
 
 	starts_with = list(
