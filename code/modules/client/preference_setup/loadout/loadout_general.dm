@@ -293,7 +293,14 @@
 	comics["inspector 404 manga"] = /obj/item/toy/comic/inspector
 	comics["stormman manga"] = /obj/item/toy/comic/stormman
 	comics["outlandish tales magazine"] = /obj/item/toy/comic/outlandish_tales
-	comics["az'marian comic"] = /obj/item/toy/comic/azmarian
+	comics["az'marian comic, issue 1"] = /obj/item/toy/comic/azmarian/issue_1
+	comics["az'marian comic, issue 2"] = /obj/item/toy/comic/azmarian/issue_2
+	comics["az'marian comic, issue 3"] = /obj/item/toy/comic/azmarian/issue_3
+	comics["az'marian comic, issue 4"] = /obj/item/toy/comic/azmarian/issue_4
+	comics["az'marian comic, issue 5"] = /obj/item/toy/comic/azmarian/issue_5
+	comics["az'marian comic, issue 6"] = /obj/item/toy/comic/azmarian/issue_6
+	comics["az'marian comic, issue 7"] = /obj/item/toy/comic/azmarian/issue_7
+	comics["az'marian comic, issue 8"] = /obj/item/toy/comic/azmarian/issue_8
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste
