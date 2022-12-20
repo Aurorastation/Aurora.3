@@ -397,6 +397,15 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 	reagents_to_add = list(/decl/reagent/drink/milk/adhomai/mutthir = 100)
 
+/obj/item/reagent_container/food/drinks/carton/eggnog
+	name = "eggnog carton"
+	icon_state = "cream"
+	desc = "A beverage, made out of egg, sugar alcohol and in this case, cream."
+	desc_extended = "Eggnog, also called Egg flip, is an alcoholic beverage, made out of egg, milk or cream, sugar and alcohol. Eggnog is by principle a longdrink and they can be served \
+	hot or cold. Originally it was served in winter and hot. Every serving uses one egg. It is a classic Christmas beverage, loved by every species, universe-wide. Or so you heard."
+
+	reagents_to_add = list(/decl/reagent/alcohol/eggnog = 100)
+
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink
 //	itself), in Chemistry-Recipes.dm (for the reaction that changes the components into the drink), and here (for the drinking glass
