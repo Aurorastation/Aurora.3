@@ -54,6 +54,7 @@
 		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
 		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
 	)
+	init_flags = 0
 
 /obj/machinery/light/skrell
 	base_state = "skrell"
@@ -238,6 +239,11 @@
 
 	change_power_consumption((light_range * light_power) * 10, POWER_USE_ACTIVE)
 
+	if((status == LIGHT_BROKEN) || emergency_mode || (cell && !cell.fully_charged() && has_power()))
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+	else if(processing_flags)
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+
 /obj/machinery/light/proc/broken_sparks()
 	if(world.time > next_spark && !(stat & POWEROFF) && has_power())
 		spark(src, 3, alldirs)
@@ -245,10 +251,13 @@
 
 // ehh
 /obj/machinery/light/process()
-	if (cell && cell.charge != cell.maxcharge && has_power())
-		cell.charge = min(cell.maxcharge, cell.charge + 0.2)
+	if (cell && has_power())
+		cell.give(0.2)
+		if(cell.fully_charged())
+			return PROCESS_KILL
 	if (emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
 		update(FALSE)
+		return PROCESS_KILL
 	if(status == LIGHT_BROKEN)
 		broken_sparks()
 
