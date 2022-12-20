@@ -1,8 +1,0 @@
-author: Granodd
-
-delete-after: True
-
-changes:
-  - imageadd: "Adds a sprite for non-berry pancakes."
-  - tweak: "Creates a non-berry version of pancakes and makes berry pancakes a subtype of it."
-  - bugfix: "Makes ashtrays actually empty into the bin instead of onto the floor."
