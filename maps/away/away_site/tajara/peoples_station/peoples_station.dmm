@@ -1160,7 +1160,7 @@
 	req_access = list(209)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
 /mob/living/simple_animal/hostile/republicon,
@@ -1220,7 +1220,7 @@
 	req_access = list(209)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
 /mob/living/simple_animal/hostile/republicon/ranged,
@@ -2797,7 +2797,7 @@
 	req_access = list(209)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -3237,7 +3237,7 @@
 	},
 /area/peoples_station/mess_hall)
 "os" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
@@ -6343,7 +6343,7 @@
 	},
 /area/peoples_station/hangar)
 "CN" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -8821,7 +8821,7 @@
 	},
 /area/peoples_station/fang)
 "OW" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/plating{
