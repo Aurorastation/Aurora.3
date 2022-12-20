@@ -182,6 +182,13 @@
 			LAZYREMOVE(is_seeing, M)
 	return cansee
 
+
+/obj/item/storage/proc/update_storage_ui()
+	for(var/mob/seer as anything in is_seeing)
+		orient2hud(seer)
+		if(seer.s_active)
+			seer.s_active.show_to(seer)
+
 //This proc draws out the inventory and places the items on it. tx and ty are the upper left tile and mx, my are the bottm right.
 //The numbers are calculated from the bottom-left The bottom-left slot being 1,1.
 /obj/item/storage/proc/orient_objs(tx, ty, mx, my)

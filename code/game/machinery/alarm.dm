@@ -500,6 +500,7 @@
 
 /obj/machinery/alarm/proc/populate_status(var/data)
 	var/turf/location = get_turf(src)
+	if(!istype(location)) return
 	var/datum/gas_mixture/environment = location.return_air()
 	var/total = environment.total_moles
 

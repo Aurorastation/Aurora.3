@@ -428,7 +428,7 @@
 //Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when polyacided or when updating a human's name variable
 /mob/living/carbon/human/proc/get_face_name()
 	var/obj/item/organ/external/head = get_organ(BP_HEAD)
-	if(!head || head.disfigured || head.is_stump() || !real_name || (HUSK in mutations) )	//disfigured. use id-name if possible
+	if(!head || head.disfigured || head.is_stump() || !real_name || HAS_FLAG(mutations, HUSK))	//disfigured. use id-name if possible
 		return "Unknown"
 	return real_name
 
@@ -1014,7 +1014,7 @@
 		remoteview_target = null
 		return
 
-	if(!(mMorph in mutations))
+	if(NOT_FLAG(mutations, mMorph))
 		src.verbs -= /mob/living/carbon/human/proc/morph
 		return
 
@@ -1095,7 +1095,7 @@
 		remoteview_target = null
 		return
 
-	if(!(mRemotetalk in src.mutations))
+	if(NOT_FLAG(mutations, mRemotetalk))
 		src.verbs -= /mob/living/carbon/human/proc/remotesay
 		return
 	var/list/creatures = list()
@@ -1109,7 +1109,7 @@
 		return
 
 	var/say = sanitize(input("What do you wish to say"))
-	if(mRemotetalk in target.mutations)
+	if(HAS_FLAG(target.mutations, mRemotetalk))
 		target.show_message(SPAN_NOTICE("You hear [src.real_name]'s voice: [say]"))
 	else
 		target.show_message(SPAN_NOTICE("You hear a voice that seems to echo around the room: [say]"))
@@ -1127,7 +1127,7 @@
 		reset_view(0)
 		return
 
-	if(!(mRemote in src.mutations))
+	if(NOT_FLAG(mutations, mRemote))
 		remoteview_target = null
 		reset_view(0)
 		src.verbs -= /mob/living/carbon/human/proc/remoteobserve
@@ -1212,7 +1212,7 @@
 	shock_stage = 0
 
 	//Fix husks
-	mutations.Remove(HUSK)
+	mutations &= ~HUSK
 	status_flags &= ~DISFIGURED	//Fixes the unknown status
 	if(src.client)
 		SSjobs.EquipAugments(src, src.client.prefs)
@@ -1811,7 +1811,7 @@
 	return ..() * (species ? species.metabolism_mod : 1)
 
 /mob/living/carbon/human/is_clumsy()
-	if(CLUMSY in mutations)
+	if(HAS_FLAG(mutations, CLUMSY))
 		return TRUE
 	if(CE_CLUMSY in chem_effects)
 		return TRUE
@@ -1867,7 +1867,7 @@
 		victim.forceMove(stomach)
 
 /mob/living/carbon/human/need_breathe()
-	if(!(mNobreath in mutations) && species.breathing_organ && species.has_organ[species.breathing_organ])
+	if(NOT_FLAG(mutations, mNobreath) && species.breathing_organ && species.has_organ[species.breathing_organ])
 		return TRUE
 	return FALSE
 

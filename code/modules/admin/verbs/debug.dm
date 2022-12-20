@@ -22,9 +22,9 @@
 	set name = "Cell"
 	if(!mob)
 		return
-	var/turf/T = mob.loc
+	var/turf/T = get_turf(mob)
 
-	if (!( istype(T, /turf) ))
+	if (!istype(T))
 		return
 
 	var/datum/gas_mixture/env = T.return_air()

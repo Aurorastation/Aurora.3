@@ -302,7 +302,7 @@
 	frequency = 1337;
 	id_tag = "nuke_shuttle_dock_pump"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "ajV" = (
 /obj/effect/floor_decal/corner/red{
@@ -322,16 +322,16 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "dock_horizon_4_airlock";
+	name = "interior access button";
+	pixel_x = -24;
+	pixel_y = -20;
+	req_one_access = list(13)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "akQ" = (
@@ -710,9 +710,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "aCZ" = (
@@ -1013,14 +1011,14 @@
 /area/horizon/crew_armoury)
 "aOx" = (
 /obj/machinery/airlock_sensor{
-	frequency = 1337;
-	id_tag = "nuke_shuttle_dock_sensor";
-	master_tag = "nuke_shuttle_dock_airlock";
+	frequency = 1380;
+	id_tag = "dock_horizon_3_sensor";
+	master_tag = "dock_horizon_3_airlock";
 	pixel_y = -32;
 	pixel_x = 25
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "dock_horizon_3_airlock";
 	pixel_y = 0;
 	req_one_access = list(13);
@@ -1031,11 +1029,11 @@
 	pixel_x = 26
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "dock_horizon_3_pump";
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "aOA" = (
 /obj/effect/floor_decal/corner/blue{
@@ -1363,6 +1361,9 @@
 "bas" = (
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
+"baz" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "baO" = (
 /obj/machinery/light_switch{
 	dir = 8;
@@ -1894,13 +1895,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "bwa" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, deck 3 port docks"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "bxp" = (
 /obj/machinery/door/airlock/external{
@@ -2391,21 +2389,10 @@
 	name = "Security - Investigations Office"
 	})
 "bZV" = (
-/obj/structure/closet/walllocker/emerglocker{
-	pixel_y = -32
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "cav" = (
@@ -2701,7 +2688,7 @@
 "csI" = (
 /obj/effect/shuttle_landmark/horizon/dock3,
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "dock_horizon_3_outer";
 	locked = 1;
@@ -2710,8 +2697,8 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 3001;
-	master_tag = "nuke_shuttle_dock_airlock";
+	frequency = 1380;
+	master_tag = "dock_horizon_3_airlock";
 	name = "exterior access button";
 	pixel_x = 21;
 	pixel_y = -12;
@@ -2818,9 +2805,16 @@
 /turf/template_noop,
 /area/template_noop)
 "czd" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "dock_horizon_1_inner";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "czo" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -3083,11 +3077,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
 "cMi" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/port/docks)
 "cMn" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -4406,16 +4405,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/security/investigations)
-"dUB" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
 "dVW" = (
 /turf/simulated/open,
 /area/hallway/medical/upper)
@@ -4766,15 +4755,6 @@
 "eiF" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/bridge/minibar)
-"eiR" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
 "ejB" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/crew_armoury)
@@ -5352,14 +5332,24 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "eGh" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1380;
+	id_tag = "dock_horizon_4_airlock";
+	pixel_y = 0;
+	req_one_access = list(13);
+	tag_airpump = "dock_horizon_4_pump";
+	tag_chamber_sensor = "dock_horizon_4_sensor";
+	tag_exterior_door = "dock_horizon_4_outer";
+	tag_interior_door = "dock_horizon_4_inner";
+	pixel_x = 26
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1380;
+	id_tag = "dock_horizon_4_pump";
 	dir = 1
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/hallway/deck_three/primary/port/docks)
 "eGq" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
@@ -5947,9 +5937,22 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "ffO" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1380;
+	id_tag = "dock_horizon_4_pump";
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "dock_horizon_4_sensor";
+	master_tag = "dock_horizon_4_airlock";
+	pixel_x = -28
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/hallway/deck_three/primary/port/docks)
 "fgs" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -7299,13 +7302,13 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "gcM" = (
@@ -7779,6 +7782,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
+"gxt" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "dock_horizon_1_outer";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "gxM" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -10703,10 +10717,10 @@
 	},
 /area/crew_quarters/captain)
 "iPk" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "iPE" = (
 /obj/machinery/hologram/holopad,
@@ -10953,7 +10967,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "jaj" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -11183,8 +11197,30 @@
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
 "jkC" = (
-/obj/effect/map_effect/airlock/s_to_n/long/square,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1380;
+	id_tag = "dock_horizon_1_pump";
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1380;
+	id_tag = "dock_horizon_1_airlock";
+	pixel_y = 0;
+	req_one_access = list(13);
+	tag_airpump = "dock_horizon_1_pump";
+	tag_chamber_sensor = "dock_horizon_1_sensor";
+	tag_exterior_door = "dock_horizon_1_outer";
+	tag_interior_door = "dock_horizon_1_inner";
+	pixel_x = 26
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "dock_horizon_1_sensor";
+	master_tag = "dock_horizon_1_airlock";
+	pixel_y = 32;
+	pixel_x = 25
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "jlq" = (
 /obj/effect/floor_decal/corner/blue{
@@ -11302,7 +11338,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "jpO" = (
 /obj/effect/floor_decal/corner/green,
@@ -11687,7 +11723,16 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/bridge/controlroom)
 "jIO" = (
-/turf/simulated/floor/plating,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "dock_horizon_1_inner";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "jIW" = (
 /obj/effect/floor_decal/corner/green{
@@ -12490,11 +12535,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
+	},
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_y = -32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -13201,10 +13249,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
-"kPd" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
 "kQp" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -16663,12 +16707,11 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "nFG" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/port/docks)
 "nFO" = (
 /obj/machinery/light{
 	dir = 8
@@ -16777,7 +16820,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
 "nKD" = (
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/firealarm/south,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "nLc" = (
 /obj/machinery/door/airlock/glass_command{
@@ -17850,7 +17903,7 @@
 /area/crew_quarters/heads/hop/xo)
 "oAl" = (
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "dock_horizon_3_outer";
 	locked = 1;
@@ -18138,12 +18191,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "oLM" = (
-/obj/machinery/firealarm/south,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -18266,7 +18315,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 3001;
+	frequency = 1380;
 	master_tag = "dock_horizon_3_airlock";
 	name = "interior access button";
 	pixel_x = -24;
@@ -18955,7 +19004,10 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/station_map{
+	dir = 1;
+	pixel_x = 0;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -19128,14 +19180,14 @@
 /area/horizon/crew_quarters/fitness/gym)
 "pIp" = (
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "dock_horizon_3_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "pIS" = (
 /obj/machinery/telecomms/server/presets/science,
@@ -20950,13 +21002,6 @@
 "rnX" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/heads/cmo)
-"roe" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/port/docks)
 "ron" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -21759,19 +21804,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
-"rRk" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/port/docks)
 "rRE" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -21907,16 +21939,6 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
-"rXu" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/ai_status_display{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/port/docks)
 "rXN" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -22048,7 +22070,7 @@
 	master_tag = "nuke_shuttle_dock_airlock";
 	pixel_y = -25
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "scL" = (
 /obj/effect/landmark/entry_point/aft{
@@ -22198,6 +22220,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/ward/isolation)
+"shm" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1380;
+	id_tag = "dock_horizon_1_pump"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "shr" = (
 /obj/machinery/turretid/lethal{
 	ailock = 1;
@@ -22369,6 +22398,15 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "dock_horizon_1_airlock";
+	name = "interior access button";
+	pixel_x = -24;
+	pixel_y = 21;
+	req_one_access = list(13)
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "snj" = (
@@ -22436,6 +22474,23 @@
 /area/horizon/cafeteria)
 "spn" = (
 /obj/effect/shuttle_landmark/horizon/dock1,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "dock_horizon_1_outer";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "dock_horizon_1_airlock";
+	name = "exterior access button";
+	pixel_x = 21;
+	pixel_y = 11;
+	req_one_access = list(13)
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "sps" = (
@@ -22449,7 +22504,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "spL" = (
 /obj/effect/floor_decal/corner/green{
@@ -23446,14 +23501,26 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "teR" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "dock_horizon_4_outer";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
 	},
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "dock_horizon_4_airlock";
+	name = "exterior access button";
+	pixel_x = 21;
+	pixel_y = -12;
+	req_one_access = list(13)
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/obj/effect/shuttle_landmark/horizon/dock4,
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/port/docks)
 "tfg" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -25250,13 +25317,16 @@
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "uyH" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "dock_horizon_4_inner";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "uAr" = (
 /obj/structure/railing/mapped{
@@ -25465,13 +25535,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
-"uEc" = (
-/obj/effect/map_effect/airlock/long/square/wide{
-	name = "Deck 3 Port Dock Airlock (3003)";
-	radio_frequency = 3003
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/hallway/deck_three/primary/port/docks)
 "uFp" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Combat Laser Rifle)";
@@ -27540,15 +27603,15 @@
 /area/bridge/controlroom)
 "wev" = (
 /obj/machinery/door/airlock/external{
-	frequency = 3001;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "dock_horizon_3_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13)
 	},
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "wfb" = (
 /obj/structure/lattice/catwalk,
@@ -27624,11 +27687,11 @@
 /area/medical/washroom)
 "wiJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 3001;
+	frequency = 1380;
 	id_tag = "dock_horizon_3_pump";
 	dir = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "wky" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -29635,7 +29698,7 @@
 	frequency = 1337;
 	id_tag = "nuke_shuttle_dock_pump"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "xNv" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -29834,6 +29897,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "xXk" = (
@@ -29897,15 +29961,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/lawoffice/representative)
 "yce" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "dock_horizon_4_outer";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/port/docks)
 "ych" = (
 /obj/structure/table/rack,
 /obj/item/clothing/accessory/armband/sec,
@@ -40550,15 +40615,15 @@ wGH
 ebZ
 dce
 dce
-jkC
+ebZ
 iHq
 sEe
 ebZ
 dce
 dce
 ebZ
-uLF
-leE
+wGH
+wGH
 wGH
 vkb
 dSF
@@ -40749,9 +40814,9 @@ wGH
 wGH
 wGH
 wGH
-jIO
-jIO
-jIO
+gxt
+shm
+iPk
 jIO
 smM
 oRv
@@ -40759,8 +40824,8 @@ wev
 iPk
 wiJ
 oAl
-czd
-czd
+wGH
+wGH
 wGH
 wGH
 opC
@@ -40952,17 +41017,17 @@ wGH
 wGH
 wGH
 spn
-jIO
-jIO
-jIO
+baz
+jkC
+czd
 pTP
 xyA
 pIp
 aOx
 iYG
 csI
-czd
-czd
+wGH
+wGH
 wGH
 wGH
 vkb
@@ -41163,8 +41228,8 @@ ebZ
 dce
 dce
 ebZ
-hBa
-otI
+wGH
+wGH
 wGH
 wGH
 vBY
@@ -57710,15 +57775,15 @@ frA
 nbR
 xJq
 pbx
-bEW
-leE
 wGH
 wGH
 wGH
 wGH
 wGH
-leE
-oCi
+wGH
+wGH
+wGH
+wGH
 wGH
 tcM
 wZu
@@ -57912,15 +57977,15 @@ frA
 nbR
 vEh
 pbx
-vkb
+bEW
+leE
 wGH
 wGH
 wGH
 wGH
 wGH
-wGH
-wGH
-dHX
+leE
+oCi
 wGH
 mIx
 hjM
@@ -58114,6 +58179,7 @@ xSX
 jlq
 hOi
 pbx
+vkb
 wGH
 wGH
 wGH
@@ -58121,8 +58187,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
-wGH
+dHX
 wGH
 mIx
 dSb
@@ -58130,7 +58195,7 @@ pBt
 tcM
 tcM
 tcM
-uEc
+tcM
 cPq
 cPq
 cPq
@@ -58330,17 +58395,17 @@ mIx
 fGN
 rPg
 mIx
-nKD
-nKD
-mIx
-dUB
-fJy
-fJy
-teR
-kCw
-cPq
-cPq
-mKC
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+vkb
 iKX
 slH
 dSF
@@ -58531,18 +58596,18 @@ wGH
 tcM
 tIV
 gbN
-nKD
-nKD
-nKD
-nKD
-kPd
-kPd
-kPd
-kPd
-eGh
-cPq
-cPq
-mKC
+mIx
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+vkb
 dSF
 dSF
 dSF
@@ -58734,17 +58799,17 @@ tcM
 uUQ
 uLo
 mIx
-nKD
-nKD
-mIx
-yce
-mjb
-mjb
-eiR
-nFG
-cPq
-ffO
-cMi
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+bEW
+kMe
 dSF
 dSF
 dSF
@@ -58936,16 +59001,16 @@ tcM
 wVu
 rFk
 tcM
-tcM
-tcM
-tcM
-cPq
-cPq
-cPq
-cPq
-cPq
-cPq
-mKC
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+wGH
+vkb
 dSF
 dSF
 dSF
@@ -59334,7 +59399,7 @@ wGH
 wGH
 wGH
 wGH
-dHX
+wGH
 wGH
 tcM
 pxg
@@ -59536,14 +59601,14 @@ wGH
 wGH
 wGH
 wGH
-mIx
-mIx
-mIx
-ssw
-kpd
-mIx
+dHX
 wGH
+tcM
+cMi
+nKD
+tcM
 wGH
+vkb
 wGH
 wGH
 wGH
@@ -59737,15 +59802,15 @@ wGH
 wGH
 wGH
 wGH
-qCN
-oWq
-fYD
-nHe
-uyH
-rRk
+wGH
 mIx
-wGH
-wGH
+mIx
+mIx
+ssw
+oLM
+mIx
+nFG
+tcM
 wGH
 wGH
 wGH
@@ -59939,15 +60004,15 @@ wGH
 wGH
 wGH
 wGH
-wGH
-lJz
-oQV
-tIt
+qCN
+oWq
+fYD
+nHe
 aCP
 akf
-tcM
-wGH
-wGH
+uyH
+ffO
+yce
 wGH
 wGH
 wGH
@@ -60142,14 +60207,14 @@ wGH
 wGH
 wGH
 wGH
-mIx
-mIx
-mIx
-roe
+lJz
+oQV
+tIt
+aCP
 bZV
-tcM
-wGH
-wGH
+uyH
+eGh
+teR
 wGH
 wGH
 wGH
@@ -60344,14 +60409,14 @@ wGH
 wGH
 wGH
 wGH
-dHX
-wGH
-tcM
-rXu
+mIx
+mIx
+mIx
+ssw
 oLM
+mIx
+nFG
 tcM
-wGH
-wGH
 wGH
 wGH
 wGH
@@ -60546,14 +60611,14 @@ wGH
 wGH
 wGH
 wGH
-wGH
+dHX
 wGH
 njG
 wSJ
 xXh
 mIx
 wGH
-wGH
+vkb
 wGH
 wGH
 wGH
@@ -61346,7 +61411,7 @@ wGH
 wGH
 wGH
 wGH
-vkb
+wGH
 wGH
 wGH
 wGH
@@ -61548,14 +61613,14 @@ wGH
 wGH
 wGH
 wGH
-vBY
-otI
+vkb
 wGH
 wGH
 wGH
 wGH
 wGH
-opC
+wGH
+wGH
 wGH
 wGH
 wGH
@@ -61750,14 +61815,14 @@ wGH
 wGH
 wGH
 wGH
+vBY
+otI
 wGH
 wGH
 wGH
 wGH
 wGH
-wGH
-wGH
-wGH
+opC
 wGH
 wGH
 wGH

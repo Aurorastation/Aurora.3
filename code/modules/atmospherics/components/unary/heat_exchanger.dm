@@ -64,15 +64,16 @@
 	return TRUE
 
 /obj/machinery/atmospherics/unary/heat_exchanger/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (!W.iswrench())
+	if(!W.iswrench())
 		return ..()
 	var/turf/T = src.loc
-	if (level == 1 && isturf(T) && !T.is_plating())
+	if(level == 1 && isturf(T) && !T.is_plating())
 		to_chat(user, SPAN_WARNING("You must remove the plating first."))
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
+	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure() - env_air.return_pressure()) > PRESSURE_EXERTED)
+	if((int_air.return_pressure() - env_air.return_pressure()) > PRESSURE_EXERTED)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE

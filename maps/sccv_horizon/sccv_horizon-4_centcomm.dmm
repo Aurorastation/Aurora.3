@@ -36994,7 +36994,17 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
 "pTp" = (
-/obj/effect/shuttle_landmark/intrepid/transit,
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/obj/effect/shuttle_landmark/mining/transit,
 /turf/space/transit/north,
 /area/template_noop)
 "qlw" = (
@@ -37016,7 +37026,17 @@
 /turf/simulated/floor/holofloor/grass/alt,
 /area/horizon/holodeck/source_wildlife)
 "reg" = (
-/obj/effect/shuttle_landmark/mining/transit,
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/obj/effect/shuttle_landmark/intrepid/transit,
 /turf/space/transit/north,
 /area/template_noop)
 "rkZ" = (
@@ -67903,7 +67923,7 @@ aac
 aac
 aac
 aac
-aab
+reg
 aac
 aac
 aac
@@ -67915,7 +67935,7 @@ aac
 aac
 aac
 aac
-pTp
+aac
 aac
 aac
 aac
@@ -81210,8 +81230,8 @@ aac
 aac
 aac
 aac
-aab
-reg
+pTp
+aac
 aac
 aac
 aac
