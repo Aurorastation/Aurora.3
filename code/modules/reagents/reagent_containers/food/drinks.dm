@@ -397,7 +397,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 	reagents_to_add = list(/decl/reagent/drink/milk/adhomai/mutthir = 100)
 
-/obj/item/reagent_container/food/drinks/carton/eggnog
+/obj/item/reagent_containers/food/drinks/carton/eggnog
 	name = "eggnog carton"
 	icon_state = "cream"
 	desc = "A beverage, made out of egg, sugar alcohol and in this case, cream."
