@@ -290,6 +290,7 @@
 	plushies["plushie, bear"] = /obj/item/toy/plushie/bear
 	plushies["plushie, firefighter bear"] = /obj/item/toy/plushie/bearfire
 	plushies["plushie, random squid"] = /obj/item/toy/plushie/squid //if someone can figure out how to make color work with these, good luck lmao
+	plushies["plushie, random fox"] = /obj/item/toy/plushie/fox
 	plushies["plushie, bee"] = /obj/item/toy/plushie/bee
 	plushies["plushie, shark"] = /obj/item/toy/plushie/shark
 	plushies["plushie, schlorrgo"] = /obj/item/toy/plushie/schlorrgo

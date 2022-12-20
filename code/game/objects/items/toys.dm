@@ -1075,6 +1075,25 @@
 	item_state = "[colorvar]squid"
 	desc = "A small, cute and loveable squid friend. This one is in [colorvar]."
 
+//Fox Plushies
+
+/obj/item/toy/plushie/fox
+	name = "fox plushie"
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is red."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "redfoxplushie"
+	item_state = "redfoxplushie"
+	phrase = "Kekekeke!"
+	var/active = 0.0
+	var/colorvar = "red"
+
+/obj/item/toy/plushie/fox/Initialize()
+	. = ..()
+	colorvar = pick("redfox","blackfox","marblefox","bluefox","orangefox","coffeefox","pinkfox","purplefox","crimsonfox")
+	icon_state = "[colorvar]plushie"
+	item_state = "[colorvar]plushie"
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is in [colorvar]."
+
 /obj/item/toy/plushie/squidcolour
 	name = "squid plushie"
 	desc = "A small, cute, and loveable squid friend. This one comes in a wide variety of colours."
