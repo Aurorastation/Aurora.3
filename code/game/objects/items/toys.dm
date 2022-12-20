@@ -1082,25 +1082,25 @@
 	name = "fox plushie"
 	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is red."
 	icon = 'icons/obj/toy.dmi'
-	icon_state = "redfoxplushie"
-	item_state = "redfoxplushie"
+	icon_state = "redfox"
+	item_state = "redfox"
 	phrase = "Kekekeke!"
 
 /obj/item/toy/plushie/fox/random
 	name = "fox plushie"
 	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is red."
 	icon = 'icons/obj/toy.dmi'
-	icon_state = "redfoxplushie"
-	item_state = "redfoxplushie"
+	icon_state = "redfox"
+	item_state = "redfox"
 	phrase = "Kekekeke!"
 	var/active = 0.0
 	var/colorvar = "red"
 
 /obj/item/toy/plushie/fox/random/Initialize()
 	. = ..()
-	colorvar = pick("redfox","blackfox","marblefox","bluefox","orangefox","coffeefox","pinkfox","purplefox","crimsonfox")
-	icon_state = "[colorvar]plushie"
-	item_state = "[colorvar]plushie"
+	colorvar = pick("red","black","marble","blue","orange","coffee","pink","purple","crimson")
+	icon_state = "[colorvar]fox"
+	item_state = "[colorvar]fox"
 	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is in [colorvar]."
 
 /obj/item/toy/plushie/squidcolour
