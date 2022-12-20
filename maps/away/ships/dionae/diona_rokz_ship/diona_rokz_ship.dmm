@@ -199,11 +199,6 @@
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship)
-"nu" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/overmap/visitable/ship/landable/diona_rokz_ship_shuttle,
-/turf/unsimulated/floor/asteroid/ash,
-/area/ship/diona_rokz_ship)
 "ny" = (
 /mob/living/simple_animal/carp{
 	faction = "neutral"
@@ -33996,7 +33991,7 @@ BQ
 BQ
 bu
 Wg
-nu
+rm
 BQ
 BQ
 SR
