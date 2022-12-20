@@ -29493,7 +29493,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "xlX" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/emergency,
 /obj/structure/bed/handrail{
 	dir = 1
 	},

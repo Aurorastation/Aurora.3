@@ -6,10 +6,10 @@
 #define LIGHT_BULB_TEMPERATURE 400 //K - used value for a 60W bulb
 // the standard tube light fixture
 /obj/machinery/light
-	name = "light fixture"
-	icon = 'icons/obj/lighting.dmi'
+	name = "\improper LED light fixture"
+	icon = 'icons/obj/lights.dmi'
 	var/base_state = "tube"		// base description and icon_state
-	icon_state = "tube_empty"
+	icon_state = "tube_example" // Set here for mapping, overriden in "update()".
 	desc = "A lighting fixture."
 	anchored = TRUE
 	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
@@ -32,10 +32,8 @@
 	var/obj/item/light/inserted_light = /obj/item/light/tube
 	var/fitting = "tube"
 	var/must_start_working = FALSE // Whether the bulb can break during Initialize or not
-	var/switchcount = 0			// count of number of times switched on/off
+	var/switch_count = 0			// count of number of times switched on/off
 								// this is used to calc the probability the light burns out
-
-	var/rigged = 0				// true if rigged to explode
 
 	var/obj/item/cell/cell
 	var/start_with_cell = TRUE	// if true, this fixture generates a very weak cell at roundstart
@@ -54,79 +52,6 @@
 		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
 		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
 	)
-
-/obj/machinery/light/skrell
-	base_state = "skrell"
-	icon_state = "skrell_empty"
-	supports_nightmode = FALSE
-	fitting= "skrell"
-	bulb_is_noisy = FALSE
-	light_type = /obj/item/light/tube
-	inserted_light = /obj/item/light/tube
-	brightness_power = 0.45
-	brightness_color = LIGHT_COLOR_PURPLE
-
-// the smaller bulb light fixture
-
-/obj/machinery/light/small
-	icon_state = "bulb1"
-	base_state = "bulb"
-	fitting = "bulb"
-	brightness_range = 5
-	brightness_power = 0.45
-	brightness_color = LIGHT_COLOR_TUNGSTEN
-	desc = "A small lighting fixture."
-	light_type = /obj/item/light/bulb
-	inserted_light = /obj/item/light/bulb
-	supports_nightmode = FALSE
-	bulb_is_noisy = FALSE
-
-/obj/machinery/light/small/emergency
-	brightness_range = 6
-	brightness_power = 0.45
-	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
-	randomize_color = FALSE
-
-/obj/machinery/light/small/red
-	brightness_range = 2.5
-	brightness_power = 0.45
-	brightness_color = LIGHT_COLOR_RED
-	randomize_color = FALSE
-
-/obj/machinery/light/colored/blue
-	brightness_color = LIGHT_COLOR_BLUE
-	randomize_color = FALSE
-
-/obj/machinery/light/colored/red
-	brightness_color = LIGHT_COLOR_RED
-	randomize_color = FALSE
-
-/obj/machinery/light/spot
-	name = "spotlight"
-	fitting = "large tube"
-	light_type = /obj/item/light/tube/large
-	inserted_light = /obj/item/light/tube/large
-	brightness_range = 12
-	brightness_power = 3.5
-	supports_nightmode = FALSE
-
-/obj/machinery/light/spot/weak
-	name = "low-intensity spotlight"
-	brightness_range = 12
-	brightness_power = 1.2
-
-/obj/machinery/light/built
-	start_with_cell = FALSE
-
-/obj/machinery/light/built/Initialize()
-	status = LIGHT_EMPTY
-	stat |= MAINT
-	. = ..()
-
-/obj/machinery/light/small/built/Initialize()
-	status = LIGHT_EMPTY
-	stat |= MAINT
-	. = ..()
 
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload)
@@ -157,19 +82,23 @@
 /obj/machinery/light/update_icon()
 	cut_overlays()
 	icon_state = "[base_state]_empty"
+	var/on = emergency_mode || !stat
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
 			var/target_color
-			if (emergency_mode)
+			if(emergency_mode)
 				target_color = LIGHT_COLOR_RED
 			else
 				target_color = brightness_color
 				if (supports_nightmode && nightmode && !stat)
-					target_color = BlendRGB("#d2d2d2", target_color, 0.25)
+					target_color = BlendRGB("#D2D2D2", target_color, 0.25)
 
-			var/on = emergency_mode || !stat
-
-			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state][on]", target_color))
+			if(on)
+				var/image/I = LIGHT_FIXTURE_CACHE(icon, "[base_state]_on", target_color)
+				I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+				add_overlay(I)
+			else if(!on)
+				add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))
 
 		if(LIGHT_BURNED)
 			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_burned", brightness_color))
@@ -185,7 +114,7 @@
 /obj/machinery/light/proc/update(var/trigger = 1)
 	emergency_mode = FALSE
 
-	switch (status)
+	switch(status)
 		if(LIGHT_OK)
 			stat &= ~(MAINT|BROKEN)
 
@@ -193,27 +122,21 @@
 			stat |= MAINT
 			stat &= ~BROKEN
 
-		if (LIGHT_BURNED)
+		if(LIGHT_BURNED)
 			stat |= BROKEN
 			stat &= ~MAINT
 
-		if (LIGHT_BROKEN)
+		if(LIGHT_BROKEN)
 			stat |= BROKEN
 			stat &= ~MAINT
 
-	if (previous_stat != stat && !stat && bulb_is_noisy)
+	if(previous_stat != stat && !stat && bulb_is_noisy)
 		playsound(loc, 'sound/effects/lighton.ogg', 65, 1)
 
 	previous_stat = stat
 	if(!stat)
-		switchcount++
-		if(rigged)
-			if(status == LIGHT_OK && trigger)
-				log_admin("LOG: Rigged light explosion, last touched by [fingerprintslast]")
-				message_admins("LOG: Rigged light explosion, last touched by [fingerprintslast]")
-				explode()
-
-		else if( prob( min(60, switchcount*switchcount*0.01) ) )
+		switch_count++
+		if(prob(min(60, switch_count * switch_count * 0.01)))
 			if(status == LIGHT_OK && trigger)
 				status = LIGHT_BURNED
 				stat |= BROKEN
@@ -225,7 +148,7 @@
 				set_light(night_brightness_range, night_brightness_power, brightness_color)
 			else
 				set_light(brightness_range, brightness_power, brightness_color)
-	else if (has_emergency_power(LIGHT_EMERGENCY_POWER_USE) && !(stat & POWEROFF))
+	else if(has_emergency_power(LIGHT_EMERGENCY_POWER_USE) && !(stat & POWEROFF))
 		update_use_power(POWER_USE_IDLE)
 		emergency_mode = TRUE
 		var/new_power = round(max(0.5, 0.75 * (cell.charge / cell.maxcharge)), 0.1)
@@ -243,11 +166,10 @@
 		spark(src, 3, alldirs)
 		next_spark = world.time + 1 MINUTE + (rand(-15, 15) SECONDS)
 
-// ehh
 /obj/machinery/light/process()
-	if (cell && cell.charge != cell.maxcharge && has_power())
+	if(cell && cell.charge != cell.maxcharge && has_power())
 		cell.charge = min(cell.maxcharge, cell.charge + 0.2)
-	if (emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
+	if(emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
 		update(FALSE)
 	if(status == LIGHT_BROKEN)
 		broken_sparks()
@@ -259,9 +181,9 @@
 		return status == LIGHT_OK
 
 /obj/machinery/light/proc/use_emergency_power(pwr = 0.2)
-	if (!has_emergency_power(pwr))
+	if(!has_emergency_power(pwr))
 		return FALSE
-	if (cell.charge > 300)	//it's meant to handle 120 W, ya doofus
+	if(cell.charge > 300) // It's meant to handle 120 W, ya doofus.
 		visible_message(SPAN_WARNING("\The [src] short-circuits!"), SPAN_WARNING("You hear glass breaking."))
 		broken()
 		return FALSE
@@ -273,9 +195,9 @@
 	return TRUE
 
 /obj/machinery/light/proc/check_update()
-	if (emergency_mode)
+	if(emergency_mode)
 		return light_range != brightness_range * 0.25 || light_power != max(0.5, 0.75 * (cell.charge / cell.maxcharge)) || light_color != LIGHT_COLOR_EMERGENCY
-	else if (supports_nightmode && nightmode)
+	else if(supports_nightmode && nightmode)
 		return light_range != night_brightness_range || light_power != night_brightness_power || light_color != brightness_color
 	else
 		return light_range != brightness_range || light_power != brightness_power || light_color != brightness_color
@@ -289,28 +211,34 @@
 	if(!(status == LIGHT_OK || status == LIGHT_BURNED))
 		return
 	if(status == LIGHT_BROKEN)
-		user.visible_message(SPAN_WARNING("\The [user] completely shatters \the [src]!"), SPAN_WARNING("You completely shatter \the [src]!"))
+		user.visible_message(
+			SPAN_WARNING("\The [user] completely shatters \the [src]!"),
+			SPAN_WARNING("You completely shatter \the [src]!")
+		)
 		shatter()
 	else
-		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src]!"), SPAN_WARNING("You smash \the [src]!"))
+		user.visible_message(
+			SPAN_WARNING("\The [user] smashes \the [src]!"),
+			SPAN_WARNING("You smash \the [src]!")
+		)
 		broken()
 	user.do_attack_animation(src)
 	return TRUE
 
-// examine verb
+// Examine.
 /obj/machinery/light/examine(mob/user)
 	. = ..()
 	switch(status)
 		if(LIGHT_OK)
 			to_chat(user, "It is turned [!(stat & POWEROFF) ? "on" : "off"].")
 		if(LIGHT_EMPTY)
-			to_chat(user, "\The [fitting] has been removed.")
+			to_chat(user, "\The [fitting] is empty.")
 		if(LIGHT_BURNED)
-			to_chat(user, "\The [fitting] is burnt out.")
+			to_chat(user, "\The [fitting] has burnt out.")
 		if(LIGHT_BROKEN)
-			to_chat(user, "\The [fitting] has been smashed.")
+			to_chat(user, "\The [fitting] has broken.")
 	if(cell)
-		to_chat(user, "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%.")
+		to_chat(user, "The underside of \the [src] indicates it has [round((cell.charge / cell.maxcharge) * 100, 0.1)]% power left.")
 
 // attack with item - insert light (if right type), otherwise try to break the light
 
@@ -334,8 +262,7 @@
 			if(istype(L, light_type))
 				status = L.status
 				to_chat(user, SPAN_NOTICE("You insert \the [L]."))
-				switchcount = L.switchcount
-				rigged = L.rigged
+				switch_count = L.switch_count
 				brightness_range = L.brightness_range
 				brightness_power = L.brightness_power
 				brightness_color = L.brightness_color
@@ -349,35 +276,30 @@
 
 				user.drop_from_inventory(L,get_turf(src))
 				qdel(L)
-
-				if(!stat && rigged)
-					log_admin("LOG: Rigged light explosion, last touched by [fingerprintslast]")
-					message_admins("LOG: Rigged light explosion, last touched by [fingerprintslast]")
-
-					explode()
 			else
 				to_chat(user, SPAN_WARNING("This type of light requires a [fitting]."))
 				return
 
-		// attempt to break the light
-		//If xenos decide they want to smash a light bulb with a toolbox, who am I to stop them? /N
-
+	// Attempt to break the light.
 	else if(status != LIGHT_BROKEN && status != LIGHT_EMPTY)
 		smash_check(W, user, "smashes", "smashes", TRUE)
 	else if(status == LIGHT_BROKEN)
 		smash_check(W, user, "completely shatters", "shatters completely", FALSE)
 
-	// attempt to stick weapon into light socket
+	// Attempt to stick weapon into light socket.
 	else if(status == LIGHT_EMPTY)
-		if(W.isscrewdriver()) //If it's a screwdriver open it.
+		if(W.isscrewdriver()) // If it's a screwdriver open it.
 			playsound(get_turf(src), W.usesound, 75, 1)
-			user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s casing."), SPAN_NOTICE("You open \the [src]'s casing."), SPAN_NOTICE("You hear a noise."))
+			user.visible_message(
+				SPAN_NOTICE("\The [user] opens \the [src]'s casing."),
+				SPAN_NOTICE("You open \the [src]'s casing."),
+				SPAN_NOTICE("You hear a noise.")
+			)
 			var/obj/machinery/light_construct/newlight = null
 			switch(fitting)
 				if("tube")
 					newlight = new /obj/machinery/light_construct(get_turf(src))
 					newlight.icon_state = "tube-construct-stage2"
-
 				if("bulb")
 					newlight = new /obj/machinery/light_construct/small(get_turf(src))
 					newlight.icon_state = "bulb-construct-stage2"
@@ -401,7 +323,11 @@
 
 /obj/machinery/light/proc/smash_check(var/obj/O, var/mob/living/user, var/others_text, var/self_text, var/only_break)
 	if(prob(1 + O.force * 5))
-		user.visible_message(SPAN_WARNING("\The [user] [others_text] \the [src]!"), SPAN_WARNING("You hit \the [src], and it [self_text]!"), SPAN_WARNING("You hear a tinkle of breaking glass!"))
+		user.visible_message(
+			SPAN_WARNING("\The [user] [others_text] \the [src]!"),
+			SPAN_WARNING("You hit \the [src], and it [self_text]!"),
+			SPAN_WARNING("You hear a tinkle of breaking glass!")
+		)
 		if(!stat && (O.flags & CONDUCT))
 			if(prob(12))
 				electrocute_mob(user, get_area(src), src, 0.3)
@@ -410,7 +336,11 @@
 		else
 			shatter()
 	else
-		user.visible_message(SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."), SPAN_WARNING("You hit \the [src], but it doesn't break."), SPAN_WARNING("You hear something hitting against glass."))
+		user.visible_message(
+			SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."),
+			SPAN_WARNING("You hit \the [src], but it doesn't break."),
+			SPAN_WARNING("You hear something hitting against glass.")
+		)
 
 /obj/machinery/light/bullet_act(obj/item/projectile/P, def_zone)
 	bullet_ping(P)
@@ -441,7 +371,7 @@
 		stat ^= POWEROFF
 		update(FALSE)
 		if (prob(50))
-			playsound(src.loc, 'sound/effects/light_flicker.ogg', 75, 1)
+			playsound(get_turf(src), 'sound/effects/light_flicker.ogg', 75, 1)
 
 /obj/machinery/light/proc/end_flicker()
 	stat &= ~POWEROFF
@@ -457,7 +387,6 @@
 	return
 
 // attack with hand - remove tube/bulb
-// if hands aren't protected and the light is on, burn the player
 /obj/machinery/light/attack_hand(mob/user)
 	add_fingerprint(user)
 
@@ -465,15 +394,23 @@
 		to_chat(user, SPAN_WARNING("There is no [fitting] in \the [src]."))
 		return
 
-	if(istype(user,/mob/living/carbon/human))
+	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(H.a_intent == I_HURT && H.species.can_shred(H))
 			if(status != LIGHT_BROKEN || status != LIGHT_EMPTY)
-				H.visible_message(SPAN_WARNING("\The [user] smashes \the [src]!"), SPAN_WARNING("You smash \the [src]!"), SPAN_WARNING("You hear the tinkle of breaking glass."))
+				H.visible_message(
+					SPAN_WARNING("\The [user] smashes \the [src]!"),
+					SPAN_WARNING("You smash \the [src]!"),
+					SPAN_WARNING("You hear the tinkle of breaking glass.")
+				)
 				broken()
 				return
 			else if(status == LIGHT_BROKEN)
-				H.visible_message(SPAN_WARNING("\The [user] completely shatters \the [src]!"), SPAN_WARNING("You shatter \the [src] completely!"), SPAN_WARNING("You hear the tinkle of breaking glass."))
+				H.visible_message(
+					SPAN_WARNING("\The [user] completely shatters \the [src]!"),
+					SPAN_WARNING("You shatter \the [src] completely!"),
+					SPAN_WARNING("You hear the tinkle of breaking glass.")
+				)
 				shatter()
 				return
 
@@ -481,21 +418,18 @@
 	if(inserted_light)
 		var/obj/item/light/L = new inserted_light()
 		L.status = status
-		L.rigged = rigged
 		L.brightness_range = brightness_range
 		L.brightness_power = brightness_power
 		L.brightness_color = brightness_color
 
-		// light item inherits the switchcount, then zero it
-		L.switchcount = switchcount
-		switchcount = 0
+		// light item inherits the switch_count, then zero it
+		L.switch_count = switch_count
+		switch_count = 0
 
 		L.update()
 		L.add_fingerprint(user)
 
 		user.put_in_active_hand(L)	//puts it in our active hand
-
-		to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
 
 		inserted_light = null
 
@@ -512,14 +446,13 @@
 	// create a light tube/bulb item and put it in the user's hand
 	var/obj/item/light/L = new inserted_light()
 	L.status = status
-	L.rigged = rigged
 	L.brightness_range = brightness_range
 	L.brightness_power = brightness_power
 	L.brightness_color = brightness_color
 
-	// light item inherits the switchcount, then zero it
-	L.switchcount = switchcount
-	switchcount = 0
+	// light item inherits the switch_count, then zero it
+	L.switch_count = switch_count
+	switch_count = 0
 
 	L.update()
 	L.add_fingerprint(user)
@@ -538,13 +471,13 @@
 
 // break the light and make sparks if was on
 
-/obj/machinery/light/proc/broken(skip_sound_and_sparks = 0)
+/obj/machinery/light/proc/broken(skip_sound_and_sparks = FALSE)
 	if(status == LIGHT_EMPTY)
 		return
 
 	if(!skip_sound_and_sparks)
 		if(status == LIGHT_OK || status == LIGHT_BURNED)
-			playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
+			playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, 1)
 		if(!stat)
 			spark(src, 3)
 	status = LIGHT_BROKEN
@@ -607,7 +540,7 @@
 
 /obj/machinery/light/proc/explode()
 	set waitfor = FALSE
-	var/turf/T = get_turf(src.loc)
+	var/turf/T = get_turf(get_turf(src))
 	broken()	// break it first to give a warning
 	sleep(2)
 	explosion(T, 0, 0, 2, 2)
@@ -624,3 +557,86 @@
 		if(brightness_color != default_color)
 			brightness_color = default_color
 			update(0)
+
+/********** Constructed Light Fixtures Start **********/
+// Constructed Light Fixture
+/obj/machinery/light/built
+	start_with_cell = FALSE
+
+/obj/machinery/light/built/Initialize()
+	status = LIGHT_EMPTY
+	stat |= MAINT
+	. = ..()
+
+// Constructed Small Light Fixture
+/obj/machinery/light/small/built
+	start_with_cell = FALSE
+
+/obj/machinery/light/small/built/Initialize()
+	status = LIGHT_EMPTY
+	stat |= MAINT
+	. = ..()
+/********** Constructed Light Fixtures End **********/
+
+/********** Light Fixtures Start **********/
+// Light Fixture with Blue Light Tube
+/obj/machinery/light/colored/blue
+	brightness_color = LIGHT_COLOR_BLUE
+	randomize_color = FALSE
+
+// Light Fixture with Red Light Tube
+/obj/machinery/light/colored/red
+	brightness_color = LIGHT_COLOR_RED
+	randomize_color = FALSE
+
+// Spotlight Fixture
+/obj/machinery/light/spot
+	name = "\improper LED spotlight fixture"
+	fitting = "large tube"
+	light_type = /obj/item/light/tube/large
+	inserted_light = /obj/item/light/tube/large
+	brightness_range = 12
+	brightness_power = 3.5
+	supports_nightmode = FALSE
+
+// Weak Spotlight Fixture
+/obj/machinery/light/spot/weak
+	name = "low-intensity spotlight"
+	brightness_range = 12
+	brightness_power = 1.2
+
+// Skrell Light Fixture
+/obj/machinery/light/skrell
+	base_state = "skrell"
+	icon_state = "skrell_empty"
+	supports_nightmode = FALSE
+	fitting= "skrell"
+	bulb_is_noisy = FALSE
+	light_type = /obj/item/light/tube
+	inserted_light = /obj/item/light/tube
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_PURPLE
+/********** Light Fixtures End **********/
+
+/********** Small Light Fixtures Start **********/
+// Small Light
+/obj/machinery/light/small
+	name = "small LED light fixture"
+	desc = "A small light fixture."
+	icon_state = "bulb_example"
+	base_state = "bulb"
+	fitting = "bulb"
+	brightness_range = 5
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_TUNGSTEN
+	light_type = /obj/item/light/bulb
+	inserted_light = /obj/item/light/bulb
+	supports_nightmode = FALSE
+	bulb_is_noisy = FALSE
+
+/obj/machinery/light/small/emergency
+	brightness_range = 6
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
+	randomize_color = FALSE
+/********** Small Light Fixtures End **********/

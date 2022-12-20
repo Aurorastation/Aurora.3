@@ -17,21 +17,6 @@
 //
 // It can be manually refilled or by clicking on a storage item containing lights.
 // If it's part of a robot module, it will charge when the Robot is inside a Recharge Station.
-//
-// EMAGGED FEATURES
-//
-// NOTICE: The Cyborg cannot use the emagged Light Replacer and the light's explosion was nerfed. It cannot create holes in the station anymore.
-//
-// I'm not sure everyone will react the emag's features so please say what your opinions are of it.
-//
-// When emagged it will rig every light it replaces, which will explode when the light is on.
-// This is VERY noticable, even the device's name changes when you emag it so if anyone
-// examines you when you're holding it in your hand, you will be discovered.
-// It will also be very obvious who is setting all these lights off, since only Janitor Borgs and Janitors have easy
-// access to them, and only one of them can emag their device.
-//
-// The explosion cannot insta-kill anyone with 30% or more health.
-
 
 /obj/item/device/lightreplacer
 	name = "light replacer"
@@ -50,7 +35,6 @@
 
 	var/max_uses = 20
 	var/uses = 10
-	var/emagged = 0
 	var/failmsg = ""
 	var/charge = 0
 	var/load_interval = 60
@@ -170,11 +154,6 @@
 /obj/item/device/lightreplacer/attack_self(mob/user)
 	to_chat(usr, "It has [uses] lights remaining.")
 
-/obj/item/device/lightreplacer/update_icon()
-	if(emagged)
-		add_overlay("emagged")
-
-
 /obj/item/device/lightreplacer/proc/Use(var/mob/user)
 
 	playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
@@ -202,12 +181,11 @@
 
 				var/obj/item/light/L1 = new target.light_type(target.loc)
 				L1.status = target.status
-				L1.rigged = target.rigged
 				L1.brightness_range = target.brightness_range
 				L1.brightness_power = target.brightness_power
 				L1.brightness_color = target.brightness_color
-				L1.switchcount = target.switchcount
-				target.switchcount = 0
+				L1.switch_count = target.switch_count
+				target.switch_count = 0
 				target.inserted_light = L1.type
 				L1.update()
 
@@ -224,8 +202,7 @@
 			var/obj/item/light/L2 = new target.light_type()
 
 			target.status = L2.status
-			target.switchcount = L2.switchcount
-			target.rigged = emagged
+			target.switch_count = L2.switch_count
 			target.brightness_range = L2.brightness_range
 			target.brightness_power = L2.brightness_power
 			target.brightness_color = L2.brightness_color
@@ -233,22 +210,12 @@
 			target.update()
 			qdel(L2)
 
-			if(!target.stat && target.rigged)
-				target.explode()
-			return
-
 		else
 			to_chat(U, failmsg)
 			return
 	else
 		to_chat(U, "There is a working [target.fitting] already inserted.")
 		return
-
-/obj/item/device/lightreplacer/emag_act(var/remaining_charges, var/mob/user)
-	emagged = !emagged
-	playsound(src.loc, /decl/sound_category/spark_sound, 100, 1)
-	update_icon()
-	return 1
 
 //Can you use it?
 

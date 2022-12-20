@@ -231,7 +231,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "afe" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -843,7 +843,7 @@
 /turf/simulated/floor/plating,
 /area/horizon/zta)
 "atB" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1097,9 +1097,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "aya" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/camera/network/prison{
 	c_tag = "Security - Brig Cell 2";
 	dir = 8
@@ -1115,6 +1112,9 @@
 	id = "cell_3"
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "ayc" = (
@@ -4145,7 +4145,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "bTl" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/machinery/door/window/northright,
@@ -5863,6 +5863,11 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
 	},
+/obj/machinery/smartfridge/chemistry{
+	density = 0;
+	pixel_y = 16
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "cRP" = (
@@ -6611,9 +6616,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "dlR" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/structure/disposaloutlet{
 	dir = 4
 	},
@@ -6624,6 +6626,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "dlT" = (
@@ -7290,7 +7295,6 @@
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "dDo" = (
-/obj/structure/table/steel,
 /obj/item/paper_bin{
 	pixel_x = -8;
 	pixel_y = 7
@@ -7305,6 +7309,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/table/reinforced,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "dDp" = (
@@ -7907,9 +7912,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
 "dVc" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -7921,6 +7923,9 @@
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -8957,7 +8962,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "exw" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -12388,9 +12393,6 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/obj/machinery/light/small{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
 "ggC" = (
@@ -12758,11 +12760,11 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_x = 32
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -12921,16 +12923,12 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "grL" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/structure/table/steel,
 /obj/item/paper_bin{
 	pixel_x = -8;
 	pixel_y = 7
@@ -12940,6 +12938,10 @@
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/full,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/table/reinforced,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "grQ" = (
@@ -14682,13 +14684,13 @@
 /area/operations/break_room)
 "hgO" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/light,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "hhx" = (
@@ -15054,6 +15056,9 @@
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/pharmacy)
@@ -17550,7 +17555,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "iIf" = (
-/obj/structure/sign/greencross,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -18528,11 +18532,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/security/prison)
 "jfH" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -19383,7 +19387,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "jAo" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -21423,18 +21427,13 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/starboard)
 "kHn" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/window/brigdoor/southleft{
-	name = "Pharmacy Access";
-	req_access = list(33)
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 5
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "CHE3shutters";
-	name = "Pharmacy Desk Shutter"
+/obj/machinery/light{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "kHu" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -22808,6 +22807,9 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
 "lrS" = (
@@ -24784,9 +24786,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "mrq" = (
-/obj/structure/sign/pharmacy,
 /obj/machinery/door/blast/shutters{
-	dir = 8;
+	dir = 4;
 	id = "CHE2shutters";
 	name = "Pharmacy Window Shutters"
 	},
@@ -28259,7 +28260,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
 "obJ" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -29814,18 +29815,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"oQZ" = (
-/obj/machinery/flasher{
-	id = "permflash";
-	name = "Floor mounted flash"
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/security/prison)
 "oRc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
@@ -30174,10 +30163,10 @@
 	pixel_x = -9;
 	pixel_y = 2
 	},
+/obj/effect/floor_decal/corner/paleblue/full,
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "oYM" = (
@@ -32618,7 +32607,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/table/steel,
 /obj/item/paper_bin{
 	pixel_x = -8;
 	pixel_y = 7
@@ -32630,6 +32618,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
 	},
+/obj/structure/table/reinforced,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "qlV" = (
@@ -35549,11 +35538,11 @@
 /obj/structure/table/standard,
 /obj/structure/bedsheetbin,
 /obj/item/toy/figure/hos,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/spline/plain/cee,
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/effect/floor_decal/spline/plain/cee,
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
 "rGU" = (
@@ -42352,9 +42341,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "uZD" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
@@ -42366,6 +42352,9 @@
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -42549,14 +42538,10 @@
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "vfQ" = (
-/obj/machinery/smartfridge/chemistry{
-	density = 0;
-	pixel_y = 16
-	},
 /obj/effect/floor_decal/corner_wide/orange/full{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/table/reinforced/glass,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "vgg" = (
@@ -43609,7 +43594,6 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard)
 "vIY" = (
-/obj/structure/sign/greencross,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -43619,6 +43603,7 @@
 	opacity = 0
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/structure/sign/greencross,
 /turf/simulated/floor/tiled/dark/full,
 /area/medical/reception)
 "vJu" = (
@@ -44458,9 +44443,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "vZY" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/camera/network/prison{
 	c_tag = "Security - Brig Cell 1";
 	dir = 8
@@ -44478,6 +44460,9 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/brig{
 	id = "cell_4"
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -47784,7 +47769,7 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
 "xDA" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/machinery/button/remote/airlock{
@@ -66001,7 +65986,7 @@ dfR
 eNv
 mdn
 hUh
-seZ
+ihh
 vfQ
 gsR
 eqa
@@ -66405,8 +66390,8 @@ eks
 xDR
 stW
 ryP
+ihh
 kHn
-cRN
 hpX
 jTH
 eLi
@@ -67016,7 +67001,7 @@ seZ
 rWq
 seZ
 seZ
-rWq
+mrq
 dDp
 mrq
 seZ
@@ -67827,7 +67812,7 @@ kLc
 nOu
 fOp
 eCI
-vIY
+uyd
 hEF
 jMp
 uln
@@ -76728,7 +76713,7 @@ brZ
 dbd
 nFf
 bxZ
-oQZ
+lrQ
 lVZ
 lrQ
 pSv

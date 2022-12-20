@@ -28,7 +28,7 @@
 /turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "du" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "dA" = (
@@ -320,7 +320,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/exoplanet/barren/asteroid)
 "Ec" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -335,7 +335,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/exoplanet/barren/asteroid)
 "Fv" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/airless,

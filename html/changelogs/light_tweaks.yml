@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - tweak: "Cleans up lights code and tweaks the sprites."

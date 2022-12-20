@@ -460,7 +460,7 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 6
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -848,7 +848,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "dHv" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/emergency,
 /obj/structure/curtain/open/privacy,
 /turf/simulated/floor/plating,
 /area/racers)
@@ -868,7 +868,7 @@
 /area/racers)
 "dNX" = (
 /obj/machinery/mecha_part_fabricator,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1637,7 +1637,7 @@
 "hRn" = (
 /obj/structure/closet/firecloset/full,
 /obj/item/weldingtool/emergency,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2503,7 +2503,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/racers)
 "mbB" = (
@@ -3051,7 +3051,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "oUe" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4562,7 +4562,7 @@
 /turf/template_noop,
 /area/space)
 "vZc" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/emergency,
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/plating,
 /area/racers)
