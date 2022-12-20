@@ -121,7 +121,8 @@
 /obj/item/clothing/accessory/storage/pouches
 	name = "drop pouches"
 	desc = "Synthcotton bags to hold whatever you need, but cannot hold in hands."
-	icon_state = "thigh_brown" //todo: get a different sprite for it
+	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
+	icon_state = "thigh_brown"
 	overlay_state = "thigh_brown"
 
 
