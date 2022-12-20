@@ -28,7 +28,7 @@
 	path = /obj/item/clothing/under/rank/security/idris/idrissec
 	slot = slot_w_uniform
 	faction = "Idris Incorporated"
-	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden")
+	allowed_roles = list("Head of Security", "Security Cadet", "Security Officer", "Investigator", "Warden")
 
 /datum/gear/faction/idris_sec_uniforms/New()
 	..()
@@ -302,7 +302,7 @@
 	path = /obj/item/clothing/under/rank/security/pmc/epmc
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
-	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden")
+	allowed_roles = list("Head of Security", "Security Cadet", "Security Officer", "Investigator", "Warden")
 
 /datum/gear/faction/pmcg_sec_uniforms/New()
 	..()
