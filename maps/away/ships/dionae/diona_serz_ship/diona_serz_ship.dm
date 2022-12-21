@@ -10,7 +10,7 @@
 
 /decl/submap_archetype/diona_serz_ship
 	map = "Serz Clan Ship"
-	descriptor = "A ship belonging to the Serz voidtamer clan, a group of Dioane who specalize in selling spacefauna."
+	descriptor = "A ship belonging to the Serz voidtamer clan, a group of dionae who specialize in selling space fauna."
 
 //areas
 /area/ship/diona_serz_ship
