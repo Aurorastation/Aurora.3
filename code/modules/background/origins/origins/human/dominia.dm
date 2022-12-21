@@ -36,14 +36,14 @@
 /decl/origin_item/origin/novi_jadran
 	name = "Novi Jadran"
 	desc = "A tundra planet peacefully annexed by the Empire of Dominia fifty years ago, where the influence of the local nobles is much stronger than anywhere else. Novi Jadran is commonly viewed as a very loyal colony, with its inhabitants adhering to a mostly rural lifestyle. The planet itself is behind in many technological aspects such as electricity and urbanization, with most of the population living outside of its few large urban population centers: this is due to neglect on the local nobles' part, who prefer to host lavish parties instead."
-	possible_accents = list(ACCENT_DOMINIA_VULGAR)
+	possible_accents = list(ACCENT_DOMINIA_NOVIJADRAN)
 	possible_citizenships = CITIZENSHIPS_DOMINIA
 	possible_religions = list(RELIGION_MOROZ)
 
 /decl/origin_item/origin/imperial_frontier
 	name = "Imperial Frontier"
 	desc = "The Imperial Frontier consists of worlds conquered by the Empire of Dominia and mostly populated by Ma'zals. Military governments are common here, as are the often-hated viceroyalties that the Empire has become infamous for abroad. The planets of the Imperial Frontier stand at varying levels of development, but most of their resources are sent back to the region that truly matters to the Empire: the Imperial Core."
-	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_COC, ACCENT_NCF)
+	possible_accents = list(ACCENT_DOMINIA_FRONTIER, ACCENT_COC)
 	possible_citizenships = CITIZENSHIPS_DOMINIA
 	possible_religions = list(RELIGION_NONE, RELIGION_MOROZ, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER)
 

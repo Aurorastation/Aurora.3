@@ -41,6 +41,10 @@
 	max_complexity = IC_COMPLEXITY_BASE * 2
 	w_class = ITEMSIZE_NORMAL
 
+/obj/item/device/electronic_assembly/clothing/rename()
+	var/input_name = ..()
+	if(input_name)
+		clothing.name = input_name
 
 // This is defined higher up, in /clothing to avoid lots of copypasta.
 /obj/item/clothing
@@ -165,6 +169,11 @@
 	if(IC.detail_color && (slot in valid_slots))
 		var/image/electronic_overlay = overlay_image(icon, "[item_state][slot_str_to_contained_flag(slot)]-color", IC.detail_color, RESET_COLOR)
 		return electronic_overlay
+	return ..()
+
+/obj/item/clothing/glasses/circuitry/attack_self(mob/user)
+	if(IC)
+		return IC.attack_self(user)
 	return ..()
 
 /obj/item/clothing/glasses/circuitry/Look(var/atom/A, mob/user, var/proximity)

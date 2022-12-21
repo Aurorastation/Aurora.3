@@ -457,6 +457,11 @@
 		affect_blood(M, alien, removed, holder)
 
 /decl/reagent/mutagen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(isslime(M)) // destabilize slime mutation by adding unstable mutagen
+		var/mob/living/carbon/slime/slime = M
+		slime.mutation_chance = min(slime.mutation_chance + removed, 100)
+		return
+
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
@@ -481,6 +486,11 @@
 	taste_mult = 1.3
 
 /decl/reagent/slimejelly/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(isslime(M)) // stabilize slime mutation by reintroducing slime jelly into the slime
+		var/mob/living/carbon/slime/slime = M
+		slime.mutation_chance = max(slime.mutation_chance - removed, 0)
+		return
+
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return

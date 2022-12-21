@@ -504,16 +504,15 @@
 	var/turf/T = get_turf(src)
 
 	if (!T) // nullspace so sure, have gravity.
-		return 1
-	else if (istype(T, /turf/space))
-		return 0
+		return TRUE
+	else if(T.is_hole)
+		return FALSE
 
 	var/area/A = T.loc
-
 	if (!A.has_gravity() && !Check_Shoegrip())
-		return 0
+		return FALSE
 
-	return 1
+	return TRUE
 
 
 /mob/proc/Check_Dense_Object() //checks for anything to push off in the vicinity. also handles magboots on gravity-less floors tiles
