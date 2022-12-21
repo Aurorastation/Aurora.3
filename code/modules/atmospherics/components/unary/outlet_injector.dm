@@ -65,6 +65,7 @@
 		return
 
 	var/power_draw = -1
+	if(!loc) return FALSE
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	if(environment && air_contents.temperature > 0)
@@ -81,7 +82,7 @@
 	return 1
 
 /obj/machinery/atmospherics/unary/outlet_injector/proc/inject()
-	if(injecting || (stat & NOPOWER))
+	if(injecting || (stat & NOPOWER) || !loc)
 		return 0
 
 	var/datum/gas_mixture/environment = loc.return_air()

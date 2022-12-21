@@ -110,6 +110,7 @@
 	ambience = AMBIENCE_HANGAR
 	sound_env = HANGAR
 	station_area = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_HANGAR
 
 /area/hangar/briefing
 	name = "Expedition Briefing Room"
@@ -141,6 +142,7 @@
 	icon_state = "dark"
 	ambience = AMBIENCE_ENGINEERING
 	station_area = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 
 /area/operations/lower
 	name = "Lower Operations"
@@ -354,6 +356,7 @@
 
 /area/horizon/hallway/deck_three/primary/starboard/docks
 	name = "Horizon - Deck 3 - Starboard Primary Hallway - Docks"
+	holomap_color = HOLOMAP_AREACOLOR_DOCK
 
 /area/horizon/hallway/deck_three/primary/port
 	name = "Horizon - Deck 3 - Port Primary Hallway"
@@ -361,6 +364,7 @@
 
 /area/horizon/hallway/deck_three/primary/port/docks
 	name = "Horizon - Deck 3 - Port Primary Hallway - Docks"
+	holomap_color = HOLOMAP_AREACOLOR_DOCK
 
 /area/horizon/hallway/deck_two/fore
 	name = "Horizon - Deck 2 - Fore Hallway"
@@ -372,6 +376,7 @@
 /area/horizon/stairwell
 	name = "Horizon - Stairwell (PARENT AREA - DON'T USE)"
 	flags = RAD_SHIELDED
+	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 
 /area/horizon/stairwell/central
 	name = "Horizon - Central Stairwell"
@@ -390,6 +395,7 @@
 /area/horizon/crew_quarters
 	name = "Horizon - Crew Quarters (PARENT AREA - DON'T USE)"
 	flags = RAD_SHIELDED
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 // Cryogenics
 /area/horizon/crew_quarters/cryo
@@ -472,6 +478,7 @@
 	no_light_control = TRUE
 	dynamic_lighting = FALSE
 	flags = RAD_SHIELDED | NO_GHOST_TELEPORT_ACCESS
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/horizon/holodeck/alphadeck
 	name = "Horizon - Holodeck Alpha"
@@ -563,6 +570,7 @@
 /area/horizon/hydroponics
 	name = "Horizon - Hydroponics"
 	icon_state = "hydro"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/horizon/hydroponics/lower
 	name = "Horizon - Hydroponics - Lower"
@@ -576,12 +584,14 @@
 	name = "Horizon - Library"
 	icon_state = "library"
 	sound_env = LARGE_SOFTFLOOR
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 // Kitchen
 /area/horizon/kitchen
 	name = "Horizon - Kitchen"
 	icon_state = "kitchen"
 	allow_nightmode = FALSE
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/horizon/kitchen/hallway
 	name = "Horizon - Kitchen - Hallway"
@@ -595,14 +605,17 @@
 	name = "Horizon - Bar"
 	icon_state = "bar"
 	allow_nightmode = FALSE
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/horizon/bar/backroom
 	name = "Horizon - Bar - Backroom"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 // Cafeteria
 /area/horizon/cafeteria
 	name = "Horizon - Deck 3 Cafeteria"
 	icon_state = "cafeteria"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 // Custodial
 /area/horizon/custodial
@@ -611,6 +624,7 @@
 	allow_nightmode = FALSE
 	sound_env = LARGE_ENCLOSED
 	ambience = list(AMBIENCE_FOREBODING, AMBIENCE_ENGINEERING)
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/horizon/custodial/disposals
 	name = "Horizon - Disposals and Recycling"
@@ -620,6 +634,7 @@
 /area/horizon/custodial/auxiliary
 	name = "Horizon - Auxiliary Custodial Closet"
 	sound_env = SMALL_ENCLOSED
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 // ZTA
 /area/horizon/zta
@@ -630,9 +645,10 @@
 
 // Secure Ammunition Storage
 /area/horizon/secure_ammunition_storage
-	name = "Horizon - Secure Ammunition Storage"
+	name = "Horizon - Secure Ammunitions Storage"
 	sound_env = SMALL_ENCLOSED
 	ambience = AMBIENCE_FOREBODING
+	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 
 // Crew Armoury
 /area/horizon/crew_armoury
@@ -648,6 +664,7 @@
 	icon_state = "crew_armoury_foyer"
 	sound_env = SMALL_ENCLOSED
 	ambience = AMBIENCE_FOREBODING
+	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 /********** Unique End **********/
 
 /********** Weapon Systems Start **********/
@@ -657,6 +674,7 @@
 	icon_state = "zta"
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
+	flags = HIDE_FROM_HOLOMAP
 
 // Longbow
 /area/horizon/longbow
@@ -664,16 +682,13 @@
 	icon_state = "bridge_weapon"
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
+	flags = HIDE_FROM_HOLOMAP
 
 /area/horizon/grauwolf
 	name = "Horizon - Grauwolf Weapon System"
 	icon_state = "bridge_weapon"
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
+	flags = HIDE_FROM_HOLOMAP
 
-// Secure Ammunition Storage
-/area/horizon/secure_ammunition_storage
-	name = "Horizon - Secure Ammunitions Storage"
-	sound_env = SMALL_ENCLOSED
-	ambience = AMBIENCE_FOREBODING
 /********** Weapon Systems End **********/

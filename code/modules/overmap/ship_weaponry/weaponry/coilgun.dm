@@ -2,7 +2,7 @@
 	name = "type 21 nadziak solarian coilgun"
 	desc = "The venerable Nadziak-class line of coilguns was born in the fires of the Interstellar War, where its ability to shred shields and low-class hulls have ensured its immortality in the infrastructure of the Solarian Navy."
 	desc_extended = "Although originally an expensive blunder made by over-worked Kumar Arms designers, the Nadziak later preformed to an outstanding degree following numerous improvements. Its fame among post-War Admirals was such that its name and purpose has largely remained the same, with a new 'Type' iteration commissioned every decade or so. With the expulsion of Zavodskoi and its subsidiary from Solarian space, this aging giant and symbol of military might is under threat of being consumed by the resulting arms manufacturing vacuum."
-	icon = 'icons/obj/machines/ship_guns/sol_coilgun.dmi'
+	icon = 'icons/obj/machinery/ship_guns/sol_coilgun.dmi'
 	icon_state = "weapon_base"
 	projectile_type = /obj/item/projectile/ship_ammo/coilgun
 

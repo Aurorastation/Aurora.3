@@ -193,7 +193,7 @@
 
 		S.volume -= max(distance - world.view, 0) * 2
 
-		if (use_pressure)
+		if (use_pressure && istype(T))
 			var/datum/gas_mixture/hearer_env = T.return_air()
 			var/datum/gas_mixture/source_env = source_turf.return_air()
 

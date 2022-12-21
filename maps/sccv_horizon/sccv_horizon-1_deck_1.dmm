@@ -775,7 +775,7 @@
 /area/maintenance/research_port)
 "aHu" = (
 /obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_west_exterior_sensor";
 	pixel_x = -8;
 	pixel_y = 32
@@ -1036,7 +1036,7 @@
 "aRG" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1380;
+	frequency = 1385;
 	master_tag = "intrepid_shuttle_cargo";
 	name = "exterior access button";
 	pixel_x = 8;
@@ -1392,8 +1392,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "ben" = (
-/mob/living/silicon/robot/shell,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/silicon/robot/shell,
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai)
 "beu" = (
@@ -1987,7 +1987,7 @@
 	input_tag = "ph_in";
 	name = "Phoron Supply Monitor";
 	output_tag = "ph_out";
-	sensors = list("ph_sensor"="Tank")
+	sensors = list("ph_sensor" = "Tank")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -2938,7 +2938,7 @@
 /area/operations/loading)
 "cpn" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1385;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_west_in"
 	},
@@ -3723,11 +3723,13 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_mining{
-	name = "Spark";
-	req_access = list(48)
-	},
 /obj/structure/plasticflaps/airtight,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "mining_shuttle_dock_doors";
+	req_access = list(13)
+	},
 /turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "cWd" = (
@@ -5119,7 +5121,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1380;
+	frequency = 1385;
 	master_tag = "intrepid_shuttle_west";
 	name = "interior access button";
 	pixel_x = -24;
@@ -5386,7 +5388,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/binary/passive_gate/on{
-	name = "Reactor to Mix"
+	name = "Reactor Waste to Mix"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -5550,13 +5552,13 @@
 /area/shuttle/intrepid/crew_compartment)
 "ewy" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1385;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_west_out"
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1380;
+	frequency = 1385;
 	master_tag = "intrepid_shuttle_west";
 	name = "exterior access button";
 	pixel_x = -10;
@@ -5657,7 +5659,7 @@
 	c_tag = "Intrepid - Airlock Starboard"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_west";
 	layer = 3.3;
 	master_tag = "intrepid_shuttle";
@@ -6494,12 +6496,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"faE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos)
 "fbc" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -7224,6 +7220,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
+"fEu" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/station_map{
+	dir = 2;
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/auxiliary)
 "fEy" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -8239,7 +8249,7 @@
 "gpR" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo";
 	layer = 3.3;
 	master_tag = "intrepid_shuttle";
@@ -8255,7 +8265,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
 /turf/simulated/floor/plating,
@@ -8923,10 +8933,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "gOP" = (
-/obj/structure/sign/securearea{
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/corner/green/full,
+/obj/machinery/station_map{
+	dir = 4;
+	pixel_x = -32;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "gPf" = (
@@ -9282,7 +9294,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
 /turf/simulated/floor/plating,
@@ -9308,7 +9320,7 @@
 "hfm" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_west_pump"
 	},
 /obj/structure/bed/handrail,
@@ -9567,9 +9579,6 @@
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
 "hpU" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -9579,7 +9588,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/binary/pump{
+	name = "Mix to Connector"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "hqa" = (
 /obj/effect/floor_decal/corner/blue{
@@ -10583,7 +10599,7 @@
 /area/horizon/hydroponics/lower)
 "ifw" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1385;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_west_out"
 	},
@@ -11302,7 +11318,7 @@
 	frequency = 1442;
 	input_tag = "port_prop_in";
 	output_tag = "port_prop_out";
-	sensors = list("port_prop_sensor"="Port Propulsion Sensor")
+	sensors = list("port_prop_sensor" = "Port Propulsion Sensor")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -11376,7 +11392,7 @@
 /area/operations/storage)
 "iQL" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1385;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_west_in"
 	},
@@ -12157,11 +12173,11 @@
 "jyn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_west_pump"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_west_sensor";
 	pixel_y = -23
 	},
@@ -12704,9 +12720,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "jVj" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -12719,10 +12732,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/binary/pump{
-	name = "Mix to Connector"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Mix to Mixed Gas Tank"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "jWE" = (
@@ -12764,7 +12778,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
 /turf/simulated/floor/plating,
@@ -12929,7 +12943,7 @@
 	input_tag = "co2_in";
 	name = "Carbon Dioxide Supply Monitor";
 	output_tag = "co2_out";
-	sensors = list("co2_sensor"="Tank")
+	sensors = list("co2_sensor" = "Tank")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -12992,7 +13006,7 @@
 "kki" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/airlock_sensor{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_sensor";
 	pixel_x = -24;
 	pixel_y = -6
@@ -13002,7 +13016,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
 /obj/machinery/camera/network/intrepid{
@@ -13794,11 +13808,14 @@
 /area/hangar/operations)
 "kKc" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_mining{
-	name = "Spark";
-	req_access = list(48)
-	},
 /obj/structure/plasticflaps/airtight,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "mining_shuttle_dock_doors";
+	req_access = list(13)
+	},
+/obj/effect/shuttle_landmark/mining/hangar,
 /turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "kKz" = (
@@ -13891,6 +13908,11 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 5
+	},
+/obj/machinery/station_map{
+	dir = 2;
+	pixel_x = 0;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
@@ -14316,7 +14338,7 @@
 /obj/machinery/embedded_controller/radio/docking_port_multi{
 	child_names_txt = "West Airlock;Cargo Airlock";
 	child_tags_txt = "intrepid_shuttle_west;intrepid_shuttle_cargo";
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle";
 	pixel_y = 28
 	},
@@ -14486,7 +14508,7 @@
 	input_tag = "h_in";
 	name = "Hydrogen Supply Monitor";
 	output_tag = "h_out";
-	sensors = list("h_sensor"="Tank")
+	sensors = list("h_sensor" = "Tank")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -14558,7 +14580,7 @@
 	name = "Nitrogen Supply Monitor";
 	output_tag = "n_out";
 	pixel_x = -32;
-	sensors = list("n_sensor"="Tank")
+	sensors = list("n_sensor" = "Tank")
 	},
 /obj/machinery/light{
 	dir = 8
@@ -14628,6 +14650,16 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
+"lyY" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/shuttle_landmark/intrepid/hangar,
+/turf/simulated/floor/tiled,
+/area/hangar/intrepid)
 "lzb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -14767,7 +14799,7 @@
 	frequency = 1442;
 	input_tag = "starboard_prop_in";
 	output_tag = "starboard_prop_out";
-	sensors = list("starboard_prop_sensor"="Starboard Propulsion Sensor")
+	sensors = list("starboard_prop_sensor" = "Starboard Propulsion Sensor")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -16742,7 +16774,7 @@
 	name = "Air Supply Monitor";
 	output_tag = "air_out";
 	pixel_x = 32;
-	sensors = list("air_sensor"="Tank")
+	sensors = list("air_sensor" = "Tank")
 	},
 /obj/machinery/light{
 	dir = 4
@@ -19278,7 +19310,7 @@
 	name = "Nitrous Oxide Supply Monitor";
 	output_tag = "n2o_out";
 	pixel_x = 32;
-	sensors = list("n2o_sensor"="Tank")
+	sensors = list("n2o_sensor" = "Tank")
 	},
 /obj/machinery/light{
 	dir = 4
@@ -19367,7 +19399,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_exterior_sensor";
 	pixel_x = -24
 	},
@@ -19967,7 +19999,7 @@
 	input_tag = null;
 	name = "Phoron Supply Monitor";
 	output_tag = "ph_out_engines";
-	sensors = list("ph_sensor"="Tank")
+	sensors = list("ph_sensor" = "Tank")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -20010,7 +20042,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1385;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_cargo_in"
 	},
@@ -21198,6 +21230,15 @@
 	},
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "mining_shuttle_dock";
+	name = "\improper Spark docking port controller";
+	pixel_x = 6;
+	pixel_y = -25;
+	req_one_access = list(31,48,67);
+	tag_door = "mining_shuttle_dock_doors"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -25460,6 +25501,11 @@
 	},
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
+/obj/machinery/station_map{
+	dir = 4;
+	pixel_x = -32;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "ueg" = (
@@ -25699,7 +25745,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/effect/shuttle_landmark/intrepid/hangar,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -26465,6 +26510,9 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
+/obj/structure/sign/securearea{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "uVD" = (
@@ -26930,9 +26978,6 @@
 "vlY" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -27448,15 +27493,7 @@
 	dir = 4
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "mining_shuttle_dock";
-	name = "\improper Spark docking port controller";
-	pixel_x = -39;
-	pixel_y = -25;
-	req_one_access = list(74)
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_dock";
 	name = "\improper Intrepid docking port controller";
 	pixel_x = -26;
@@ -27720,7 +27757,7 @@
 	name = "Oxygen Supply Monitor";
 	output_tag = "o2_out";
 	pixel_x = -32;
-	sensors = list("o2_sensor"="Tank")
+	sensors = list("o2_sensor" = "Tank")
 	},
 /obj/machinery/light{
 	dir = 8
@@ -27816,7 +27853,6 @@
 	id_tag = "mining_shuttle_external";
 	req_access = list(13)
 	},
-/obj/effect/shuttle_landmark/mining/hangar,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
@@ -28257,7 +28293,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1380;
+	frequency = 1385;
 	master_tag = "intrepid_shuttle_cargo";
 	name = "interior access button";
 	pixel_x = -24;
@@ -29074,7 +29110,7 @@
 	name = "Mixed Gas Tank Monitor";
 	output_tag = "mixed_out";
 	pixel_y = -3;
-	sensors = list("mixed_sensor"="Tank")
+	sensors = list("mixed_sensor" = "Tank")
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/atmos)
@@ -29783,7 +29819,7 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1385;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_cargo_out"
 	},
@@ -50056,9 +50092,9 @@ jCK
 jCK
 jCK
 sNH
-faE
+mRc
 hpU
-iFd
+dMa
 qew
 eIS
 suA
@@ -50260,7 +50296,7 @@ iUi
 bDt
 vlY
 jVj
-dMa
+iFd
 mGp
 eIS
 qDK
@@ -51096,7 +51132,7 @@ kEt
 hYy
 apf
 iZk
-dhi
+lyY
 ayq
 xvk
 nyz
@@ -57966,7 +58002,7 @@ aoD
 kAG
 shb
 xtK
-hot
+fEu
 mSq
 adX
 bJa

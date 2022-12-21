@@ -149,7 +149,7 @@
 
 /mob/living/silicon/robot/handle_regular_hud_updates()
 	..()
-	if(stat == DEAD || (XRAY in mutations) || (sight_mode & BORGXRAY))
+	if(stat == DEAD || HAS_FLAG(mutations, XRAY) || (sight_mode & BORGXRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)

@@ -480,11 +480,7 @@
 
 	announce_ghost_joinleave(client, 0)
 
-	// Run this here to null out death timers for the next go.
-
 	var/mob/abstract/new_player/M = new /mob/abstract/new_player()
-
-	M.reset_death_timers()
 
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
@@ -1227,7 +1223,6 @@
 	handle_silent()
 	handle_drugged()
 	handle_slurring()
-	handle_tarded()
 
 /mob/living/proc/handle_stunned()
 	if(stunned)
@@ -1258,11 +1253,6 @@
 	if(slurring)
 		slurring = max(slurring-1, 0)
 	return slurring
-
-/mob/living/proc/handle_tarded()
-	if(tarded)
-		tarded = max(tarded-1, 0)
-	return tarded
 
 /mob/living/proc/handle_paralysed() // Currently only used by simple_animal.dm, treated as a special case in other mobs
 	if(paralysis)
@@ -1427,10 +1417,7 @@
 
 
 /mob/proc/is_clumsy()
-	if(CLUMSY in mutations)
-		return TRUE
-
-	return FALSE
+	return HAS_FLAG(mutations, CLUMSY)
 
 //Helper proc for figuring out if the active hand (or given hand) is usable.
 /mob/proc/can_use_hand()

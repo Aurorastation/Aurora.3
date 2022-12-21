@@ -286,7 +286,7 @@
 	return failed_breath
 
 /obj/item/organ/internal/lungs/proc/handle_temperature_effects(datum/gas_mixture/breath)
-	if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1) && !(COLD_RESISTANCE in owner.mutations))
+	if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1) && NOT_FLAG(owner.mutations, COLD_RESISTANCE))
 
 		if(breath.temperature <= owner.species.cold_level_1)
 			if(prob(20))

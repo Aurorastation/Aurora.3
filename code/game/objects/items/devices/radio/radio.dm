@@ -95,7 +95,6 @@ var/global/list/default_medbay_channels = list(
 
 	wires = new(src)
 	internal_channels = default_internal_channels.Copy()
-	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 	if(frequency < RADIO_LOW_FREQ || frequency > RADIO_HIGH_FREQ)
 		frequency = sanitize_frequency(frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
@@ -458,7 +457,7 @@ var/global/list/default_medbay_channels = list(
 	// If we're here, the signal was never processed. Proceed with mundane broadcast:
 	signal.data["compression"] = 0
 	signal.transmission_method = TRANSMISSION_RADIO
-	signal.levels = list(T.z)
+	signal.levels = GetConnectedZlevels(T.z)
 	signal.broadcast()
 
 /obj/item/device/radio/hear_talk(mob/M as mob, msg, var/verb = "says", var/datum/language/speaking = null)

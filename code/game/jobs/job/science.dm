@@ -19,13 +19,13 @@
 
 	access = list(
 		access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks, access_tox_storage,
-		access_teleporter, access_sec_doors, access_medical, access_engine, access_construction, access_mining, access_mailsorting, access_research,
+		access_teleporter, access_sec_doors, access_medical, access_engine, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
 		access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway,
 		access_xenoarch, access_network, access_maint_tunnels, access_it, access_intrepid
 	)
 	minimal_access = list(
 		access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks, access_tox_storage,
-		access_teleporter, access_sec_doors, access_medical, access_engine, access_construction, access_mining, access_mailsorting, access_research,
+		access_teleporter, access_sec_doors, access_medical, access_engine, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
 		access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway,
 		access_xenoarch, access_network, access_maint_tunnels, access_it, access_intrepid
 	)
@@ -165,7 +165,7 @@
 	)
 
 	access = list(access_tox, access_tox_storage, access_research, access_xenobiology)
-	minimal_access = list(access_research, access_xenobiology, access_tox_storage)
+	minimal_access = list(access_tox, access_research, access_xenobiology, access_tox_storage)
 
 	minimal_player_age = 14
 
@@ -197,7 +197,7 @@
 	)
 
 	access = list(access_tox_storage, access_research, access_xenobotany, access_tox)
-	minimal_access = list(access_tox_storage, access_research, access_xenobotany)
+	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenobotany)
 
 	minimal_player_age = 14
 

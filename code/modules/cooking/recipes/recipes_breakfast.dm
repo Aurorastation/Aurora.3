@@ -97,13 +97,16 @@
 
 /decl/recipe/pancakes
 	appliance = SKILLET
-	fruit = list("berries" = 2)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
 		)
 	result = /obj/item/reagent_containers/food/snacks/pancakes
 	result_quantity = 2
+
+/decl/recipe/pancakes/berry
+	fruit = list("berries" = 2)
+	result = /obj/item/reagent_containers/food/snacks/pancakes/berry
 
 /decl/recipe/waffles
 	appliance = SKILLET
