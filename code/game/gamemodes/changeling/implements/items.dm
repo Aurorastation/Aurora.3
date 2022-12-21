@@ -53,19 +53,16 @@
 		return TRUE
 	return FALSE
 
+/obj/item/melee/arm_blade/pre_attack(var/mob/living/target, var/mob/living/user)
+	if(istype(target))
+		cleave(user, target)
+	return ..()
+
 /obj/item/melee/arm_blade/resolve_attackby(atom/A, mob/living/user, var/click_parameters)
 	if(istype(A,/turf/simulated/floor) && user.a_intent != I_HELP)
 		return
 	else
 		..()
-
-/obj/item/melee/arm_blade/attack(mob/living/target, mob/living/user, var/target_zone = BP_CHEST)
-	. = ..()
-	if(. && ishuman(target) && prob(1))
-		var/mob/living/carbon/human/human_target = target
-		var/obj/item/organ/external/affecting = human_target.get_organ(target_zone)
-		if(affecting)
-			affecting.droplimb(clean = FALSE)
 
 /obj/item/shield/riot/changeling
 	name = "shield-like mass"
