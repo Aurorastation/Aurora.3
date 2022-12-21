@@ -301,7 +301,7 @@
 	desc = "A more formal jacket for bridge staff. Designed in a typical Colettish style."
 	desc_extended= "While not a true Colettish uniform the aiguillette and cuff tabs of this one are obviously based on the real thing. \
 	An actual Civil Guard uniform, commonly known as a rayadillo, is generally of a darker blue and features the wearer’s ranks on the collar."
-	icon = 'icons/contained_items/clothing/topwear/bridge_crew_jacket_sancol.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/bridge_crew_jacket_sancol.dmi'
 	icon_state = "bridge_crew_jacket_sancol"
 	item_state = "bridge_crew_jacket_sancol"
 

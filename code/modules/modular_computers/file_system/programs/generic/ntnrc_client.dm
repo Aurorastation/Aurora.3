@@ -80,10 +80,9 @@
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			if(focused_conv == conv)
 				focused_conv = null
-				listening_objects -= computer
 			else
 				focused_conv = conv
-				listening_objects |= computer
+				computer.become_hearing_sensitive()
 		SSvueui.check_uis_for_change(src)
 	if(href_list["join"])
 		var/datum/ntnet_conversation/conv = locate(href_list["join"]["target"])

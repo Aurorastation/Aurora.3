@@ -11,7 +11,7 @@
 /obj/machinery/computer/slot_machine
 	name = "slot machine"
 	desc = "Gambling for the antisocial."
-	icon = 'icons/obj/machines/slotmachine.dmi'
+	icon = 'icons/obj/machinery/slotmachine.dmi'
 	icon_state = "slots"
 	density = TRUE
 	clicksound = null

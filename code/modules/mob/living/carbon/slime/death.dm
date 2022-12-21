@@ -10,6 +10,7 @@
 		var/mob/living/carbon/slime/M = new /mob/living/carbon/slime(loc, colour)
 		M.rabid = TRUE
 		M.friends = friends.Copy()
+		M.mutation_chance = clamp(mutation_chance + rand(-3, 3), 0, 100)
 		step_away(M, src)
 		is_adult = FALSE
 		maxHealth = 150

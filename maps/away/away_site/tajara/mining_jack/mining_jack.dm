@@ -4,7 +4,7 @@
 	suffix = "away_site/tajara/mining_jack/mining_jack.dmm"
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "tajara_mining_jack"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_mining_jack)
 
@@ -23,6 +23,8 @@
 	initial_restricted_waypoints = list(
 		"Mining Jack" = list("nav_hangar_tajara_mining_jack")
 	)
+	comms_support = TRUE
+	comms_name = "adhomian"
 
 /obj/effect/shuttle_landmark/tajara_mining_jack
 	base_turf = /turf/space
@@ -47,8 +49,8 @@
 	class = "ACV"
 	desc = "A modified skipjack used by Tajaran miners. These models have been modified to mine as much as possible with a small crew. Due to its limited fuel supply, it usually does not go too far from its home base."
 	shuttle = "Mining Jack"
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "shuttle_grey"
+	moving_state = "shuttle_grey_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

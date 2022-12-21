@@ -5,8 +5,8 @@
 	anchored = 1
 	density = 1
 	flags = OPENCONTAINER
-	icon = 'icons/obj/virology.dmi'
-	icon_state = "analyser"
+	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon_state = "spectrometer"
 
 	idle_power_usage = 20
 	active_power_usage = 300

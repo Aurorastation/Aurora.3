@@ -21,6 +21,8 @@
 	process()
 		..()
 
+		if (!loc) return FALSE
+
 		var/datum/gas_mixture/environment = loc.return_air()
 
 		//Get processable air sample and thermal info from environment

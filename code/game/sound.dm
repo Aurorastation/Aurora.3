@@ -120,13 +120,10 @@
 			M.playsound_to(source_turf, S, use_random_freq = use_random_freq, use_pressure = use_pressure, modify_environment = modify_environment)
 
 /proc/playsound_lineofsight(atom/source, sound/S, use_random_freq = FALSE, use_pressure = TRUE, modify_environment = TRUE, required_preferences = 0, required_asfx_toggles = 0)
+	var/list/hearers = get_hearers_in_view(world.view, source)
 	var/turf/source_turf = get_turf(source)
-	var/list/mobs = list()
-	var/list/objs = list()
-	get_mobs_or_objs_in_view(source_turf, world.view, mobs, objs, ONLY_GHOSTS_IN_VIEW)
 
-	for (var/MM in mobs)
-		var/mob/M = MM
+	for (var/mob/M in hearers)
 		if (!M.sound_can_play(required_preferences, required_asfx_toggles))
 			continue
 
@@ -196,7 +193,7 @@
 
 		S.volume -= max(distance - world.view, 0) * 2
 
-		if (use_pressure)
+		if (use_pressure && istype(T))
 			var/datum/gas_mixture/hearer_env = T.return_air()
 			var/datum/gas_mixture/source_env = source_turf.return_air()
 

@@ -1200,6 +1200,8 @@ mob/living/carbon/human/proc/change_monitor()
 	else
 		custom_emote(VISIBLE_MESSAGE, "flicks their tongue out.")
 
+	if(!src.loc) return
+
 	var/datum/gas_mixture/mixture = src.loc.return_air()
 	var/total_moles = mixture.total_moles
 

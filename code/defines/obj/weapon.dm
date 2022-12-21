@@ -309,7 +309,7 @@
 /obj/item/cane/telecane
 	name = "telescopic cane"
 	desc = "A compact cane which can be collapsed for storage."
-	icon = 'icons/obj/contained_items/weapons/telecane.dmi'
+	icon = 'icons/obj/item/telecane.dmi'
 	icon_state = "telecane"
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL

@@ -4,7 +4,7 @@
 	description = "An empty sector."
 	suffix = "away_site/unathi_pirate/unathi_pirate_izharshan.dmm"
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/unathi_pirate_izharshan)
 	sectors = list(SECTOR_NRRAHRAHUL, SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
@@ -23,6 +23,7 @@
 /area/shuttle/unathi_pirate_izharshan
 	name = "Izharshan Freighter"
 	requires_power = TRUE
+	flags = HIDE_FROM_HOLOMAP
 
 /area/shuttle/unathi_pirate_izharshan/operations
 	name = "Izharshan Freighter Operations"
@@ -75,11 +76,14 @@
 	shuttle = "Izharshan Freighter"
 	designation = "Anvil"
 	desc = "Though the sensors identify the engine signature and overall rough profile of the signal as being from an older Hegemonic Brick-class civilian freight shuttle, many modifications are detected, such as possible anti-ship weaponry onboard."
+	icon_state = "shuttle_green"
+	moving_state = "shuttle_green_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 7500 //This truck is too damn big
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
+	comms_name = "modified"
 
 /obj/machinery/computer/shuttle_control/explore/unathi_pirate_izharshan
 	name = "shuttle control console"
