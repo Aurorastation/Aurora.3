@@ -62,7 +62,6 @@
 
 /datum/outfit/admin/serz_voidtamer/captain
 	name = "Serz Clan Voidtamer Captain"
-
 	uniform = /obj/item/clothing/under/unathi/zozo
 	back = /obj/item/storage/backpack/satchel/hegemony
 	id = null
