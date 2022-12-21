@@ -331,6 +331,10 @@
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
+"tY" = (
+/obj/structure/inflatable/door,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship)
 "up" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/wall/diona,
@@ -404,6 +408,7 @@
 /area/ship/diona_rokz_ship)
 "yn" = (
 /obj/effect/shuttle_landmark/diona_rokz_ship_shuttle/hangar,
+/obj/structure/inflatable/door,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "yR" = (
@@ -36313,7 +36318,7 @@ vI
 AA
 rV
 aI
-aI
+tY
 Jd
 HS
 cC
