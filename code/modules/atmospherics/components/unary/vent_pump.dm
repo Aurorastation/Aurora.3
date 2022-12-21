@@ -199,6 +199,8 @@
 	if(!can_pump())
 		return 0
 
+	if(!loc) return FALSE
+
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	var/power_draw = -1
@@ -435,6 +437,7 @@
 		to_chat(user, SPAN_WARNING("You must remove the plating first."))
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
+	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
