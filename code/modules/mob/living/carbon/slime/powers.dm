@@ -164,6 +164,7 @@
 				if(i != 1)
 					step_away(M, src)
 				M.friends = friends.Copy()
+				M.mutation_chance = clamp(mutation_chance + rand(-3, 3), 0, 100)
 				babies += M
 				M.set_content(TRUE)
 				addtimer(CALLBACK(M, .proc/set_content, FALSE), 1200) // You get two minutes of safety

@@ -1340,6 +1340,12 @@
 /obj/structure/inflatable,
 /turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship/Quarters)
+"fpk" = (
+/obj/machinery/cryopod{
+	dir = 2
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/ship/sfa_patrol_ship/Quarters)
 "fpM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/inflatable,
@@ -4135,6 +4141,9 @@
 /turf/simulated/wall,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "rro" = (
+/obj/structure/cable/green{
+	dir = 1
+	},
 /obj/machinery/power/portgen/basic/fusion,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -27670,7 +27679,7 @@ ftC
 cUD
 vGd
 fJh
-bLU
+fpk
 rNB
 wJw
 qGI
@@ -28184,7 +28193,7 @@ pXd
 qgP
 iSy
 fJh
-bLU
+fpk
 hfk
 qDd
 iSI

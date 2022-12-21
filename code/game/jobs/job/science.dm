@@ -165,7 +165,7 @@
 	)
 
 	access = list(access_tox, access_tox_storage, access_research, access_xenobiology)
-	minimal_access = list(access_research, access_xenobiology, access_tox_storage)
+	minimal_access = list(access_tox, access_research, access_xenobiology, access_tox_storage)
 
 	minimal_player_age = 14
 
@@ -197,7 +197,7 @@
 	)
 
 	access = list(access_tox_storage, access_research, access_xenobotany, access_tox)
-	minimal_access = list(access_tox_storage, access_research, access_xenobotany)
+	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenobotany)
 
 	minimal_player_age = 14
 
