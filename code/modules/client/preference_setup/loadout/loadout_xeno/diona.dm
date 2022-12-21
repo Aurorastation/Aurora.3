@@ -37,7 +37,7 @@
 
 /datum/gear/suit/diona/carp
 	display_name = "carp hide poncho"
-	description = "A poncho made up of carp hide"
+	description = "A poncho made up of carp hide."
 	path = /obj/item/clothing/suit/diona/carp
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
