@@ -364,57 +364,33 @@ var/global/list/additional_antag_types = list()
 	discord_text = ""
 
 	var/clients = 0
-	var/surviving_humans = 0
 	var/surviving_total = 0
-	var/ghosts = 0
-	var/escaped_humans = 0
 	var/escaped_total = 0
-	var/escaped_on_pod_1 = 0
-	var/escaped_on_pod_2 = 0
-	var/escaped_on_pod_3 = 0
-	var/escaped_on_shuttle = 0
-
-	var/list/area/escape_locations = list(/area/shuttle/escape, /area/shuttle/escape_pod/pod1, /area/shuttle/escape_pod/pod2, /area/shuttle/escape_pod/pod3)
+	var/ghosts = 0
 
 	for(var/mob/M in player_list)
 		if(M.client)
 			clients++
-			if(ishuman(M))
+			if(M.stat != DEAD && isipc(M))
 				var/mob/living/carbon/human/H = M
-				if(M.stat != DEAD)
-					surviving_humans++
-					if(M.loc && M.loc.loc && (M.loc.loc.type in escape_locations))
-						escaped_humans++
-					if (isipc(H))
-						var/datum/species/machine/machine = H.species
-						machine.update_tag(H, H.client)
+				var/datum/species/machine/machine = H.species
+				machine.update_tag(H, H.client)
 			if(M.stat != DEAD)
+				var/turf/playerTurf = get_turf(M)
+				var/area/playerArea = get_area(playerTurf)
 				surviving_total++
-				if(M.loc && M.loc.loc && (M.loc.loc.type in escape_locations))
+				if(isStationLevel(playerTurf.z) && is_station_area(playerArea))
 					escaped_total++
-
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape)
-					escaped_on_shuttle++
-
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod1)
-					escaped_on_pod_1++
-
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod2)
-					escaped_on_pod_2++
-
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod3)
-					escaped_on_pod_3++
-
 			if(isobserver(M))
 				ghosts++
 
 	var/text = ""
 	if(surviving_total > 0)
 		text += "<br>There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]"
-		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "transferred"]</b>) and <b>[ghosts] ghosts</b>.<br>"
+		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "bluespace jumped"]</b>) and <b>[ghosts] ghosts</b>.<br>"
 
 		discord_text += "There [surviving_total>1 ? "were **[surviving_total] survivors**" : "was **one survivor**"]"
-		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "transferred"]) and **[ghosts] ghosts**."
+		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "bluespace jumped"]) and **[ghosts] ghosts**."
 	else
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>)."
 
@@ -425,25 +401,13 @@ var/global/list/additional_antag_types = list()
 	post_webhook_event(WEBHOOK_ROUNDEND, list("survivours"=surviving_total, "escaped"=escaped_total, "ghosts"=ghosts, "gamemode"=name, "gameid"=game_id, "antags"=antag_text))
 
 	if(clients > 0)
-		feedback_set("round_end_clients",clients)
+		feedback_set("round_end_clients", clients)
 	if(ghosts > 0)
-		feedback_set("round_end_ghosts",ghosts)
-	if(surviving_humans > 0)
-		feedback_set("survived_human",surviving_humans)
+		feedback_set("round_end_ghosts", ghosts)
 	if(surviving_total > 0)
-		feedback_set("survived_total",surviving_total)
-	if(escaped_humans > 0)
-		feedback_set("escaped_human",escaped_humans)
+		feedback_set("survived_total", surviving_total)
 	if(escaped_total > 0)
-		feedback_set("escaped_total",escaped_total)
-	if(escaped_on_shuttle > 0)
-		feedback_set("escaped_on_shuttle",escaped_on_shuttle)
-	if(escaped_on_pod_1 > 0)
-		feedback_set("escaped_on_pod_1",escaped_on_pod_1)
-	if(escaped_on_pod_2 > 0)
-		feedback_set("escaped_on_pod_2",escaped_on_pod_2)
-	if(escaped_on_pod_3 > 0)
-		feedback_set("escaped_on_pod_3",escaped_on_pod_3)
+		feedback_set("escaped_total", escaped_total)
 
 	return 0
 
