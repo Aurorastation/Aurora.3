@@ -42,7 +42,7 @@
 
 /obj/item/clothing/suit/diona/serz
 	name = "reinforced carp hide armor"
-	desc = "A set of antiquated armor reinforced with carphide."
+	desc = "A set of antiquated armor reinforced with carp hide."
 	icon = 'icons/obj/diona_items.dmi'
 	icon_state = "serz_armor"
 	item_state = "serz_armor"
