@@ -22,17 +22,11 @@
 
 /datum/outfit/admin/rokz_voidtamer
 	name = "Rokz Clan Voidtamer"
-
 	uniform = /obj/item/clothing/suit/unathi/robe/kilt
-
 	suit = /obj/item/clothing/suit/diona/rokz
-
 	back = /obj/item/storage/backpack/satchel/leather
-
 	id = null
-
 	l_pocket = /obj/item/device/radio
-
 	backpack_contents = list(/obj/item/device/flashlight/lantern = 1, /obj/item/device/flashlight/survival = 1)
 
 /datum/outfit/admin/serz_voidtamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
