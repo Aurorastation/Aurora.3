@@ -36,7 +36,7 @@
 /datum/ghostspawner/human/rokz_voidtamer/captain
 	short_name = "rokz_voidtamer_captain"
 	name = "Rokz Clan Voidtamer Captain"
-	desc = "Dionae captain of the Rokz ship. Generally will have apperances consistent with Unathi due to most of the clan members coming from in or around Moghes."
+	desc = "Dionae captain of the Rokz ship. Generally will have appearances consistent with Unathi due to most of the clan members coming from in or around Moghes."
 
 	spawnpoints = list("rokz_voidtamer_captain")
 	max_count = 1
