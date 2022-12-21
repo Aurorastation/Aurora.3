@@ -25,7 +25,7 @@
 /obj/effect/overmap/visitable/ship/diona_serz_ship
 	name = "Serz Clan Ship"
 	class = "SCS"
-	desc = "A ship belonging to the Serz voidtamer clan, a group of Dioane who specalize in selling spacefauna."
+	desc = "A ship belonging to the Serz voidtamer clan, a group of dionae who specialize in selling space fauna."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	max_speed = 1/(2 SECONDS)
