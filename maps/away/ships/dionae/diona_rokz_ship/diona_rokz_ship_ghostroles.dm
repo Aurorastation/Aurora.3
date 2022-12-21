@@ -3,7 +3,7 @@
 /datum/ghostspawner/human/rokz_voidtamer
 	short_name = "rokz_voidtamer"
 	name = "Rokz Clan Voidtamer"
-	desc = "A Member of the Rokz clan of Dionae voidtamers, a group known for selling products associated with space xenofauna as well as occasional live specimens. Generally will have apperances consistent with Unathi due to most of the clan members coming from in or around Moghes.(Info on the faction is located in the Dionae minor factions page)"
+	desc = "A Member of the Rokz clan of Dionae voidtamers, a group known for selling products associated with space xenofauna as well as occasional live specimens. Generally will have appearances consistent with Unathi due to most of the clan members coming from in or around Moghes. (Info on the faction is located in the Dionae minor factions page.)"
 	tags = list("External")
 
 	spawnpoints = list("rokz_voidtamer")
