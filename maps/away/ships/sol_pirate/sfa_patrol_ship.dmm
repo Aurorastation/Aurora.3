@@ -149,7 +149,7 @@
 /obj/item/stack/material/tritium,
 /obj/item/stack/material/tritium,
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "ayl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4146,7 +4146,7 @@
 	},
 /obj/machinery/power/portgen/basic/fusion,
 /turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "rvt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
