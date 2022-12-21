@@ -43,14 +43,6 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 
-/datum/gear/suit/diona/carp/emporium
-	display_name = "sun bleached carp hide poncho"
-	description = "A poncho made up of carp hide. This one has been bleached nearly white as a result of being in space for so long."
-	path = /obj/item/clothing/suit/diona/carp/emporium
-	cost = 1
-	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
-	sort_category = "Xenowear - Diona"
-
 //skrell shared things
 
 /datum/gear/accessory/capes/diona
