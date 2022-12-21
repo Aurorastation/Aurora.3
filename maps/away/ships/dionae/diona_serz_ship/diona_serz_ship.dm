@@ -80,7 +80,6 @@
 	name = "shuttle control console"
 	shuttle_tag = "Serz Clan Shuttle"
 
-
 /datum/shuttle/autodock/overmap/diona_serz_ship_shuttle
 	name = "Serz Clan Shuttle"
 	move_time = 20
