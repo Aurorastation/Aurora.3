@@ -97,7 +97,7 @@
 	landmark_tag = "nav_diona_serz_ship_shuttle"
 	docking_controller = "diona_serz_ship_shuttle_dock"
 	base_area = /area/ship/diona_serz_ship
-	base_turf = /turf/simulated/floor/plating
+	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/diona_serz_ship_shuttle/transit
