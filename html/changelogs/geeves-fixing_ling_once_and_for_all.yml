@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Lings now deal heavy damage to all body parts when absorbing DNA, instead of killing and husking. The target now has a chance of surviving."
+  - balance: "Lings now start with 12 genome points instead of 5."
+  - rscadd: "Lings can now involve a bone launcher that contains 15 pieces of bone shrapnel. It deals as much damage as a medium pistol bullet, and the launcher disappears once the shrapnel is used up."
+  - rscadd: "Ling armblades now have a flat 1% chance of delimbing when it hits a limb, regardless of armor. This is added on top of the regular delimb mechanics."

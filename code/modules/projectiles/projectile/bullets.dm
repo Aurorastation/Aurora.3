@@ -127,6 +127,11 @@
 /obj/item/projectile/bullet/pistol/medium
 	damage = 30
 
+/obj/item/projectile/bullet/pistol/medium/bone
+	name = "bone shrapnel"
+	icon_state = "bonedart"
+	shrapnel_type = /obj/item/material/shard/shrapnel/bone
+
 /obj/item/projectile/bullet/pistol/medium/ap
 	armor_penetration = 35
 	penetrating = FALSE

@@ -99,6 +99,9 @@
 /obj/item/material/shard/shrapnel/flechette/Initialize(newloc, material_key)
 	. = ..(loc, MATERIAL_TITANIUM)
 
+/obj/item/material/shard/shrapnel/bone/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_BONE)
+
 /obj/item/material/shard/phoron/Initialize(newloc, material_key)
 	. = ..(loc, MATERIAL_GLASS_PHORON)
 

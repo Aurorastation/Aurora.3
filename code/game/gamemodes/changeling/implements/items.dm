@@ -59,6 +59,14 @@
 	else
 		..()
 
+/obj/item/melee/arm_blade/attack(mob/living/target, mob/living/user, var/target_zone = BP_CHEST)
+	. = ..()
+	if(. && ishuman(target) && prob(1))
+		var/mob/living/carbon/human/human_target = target
+		var/obj/item/organ/external/affecting = human_target.get_organ(target_zone)
+		if(affecting)
+			affecting.droplimb(clean = FALSE)
+
 /obj/item/shield/riot/changeling
 	name = "shield-like mass"
 	desc = "A mass of tough, boney tissue. You can still see the fingers as a twisted pattern in the shield."
@@ -122,3 +130,74 @@
 	edge = FALSE
 	throwforce = 5
 	w_class = ITEMSIZE_SMALL
+
+/obj/item/gun/projectile/changeling
+	name = "bone launcher"
+	desc = "A disgusting arrangement of flesh and tendons that seems to specialize in flinging chunks of sharpened bone."
+	icon = 'icons/obj/guns/bone_launcher.dmi'
+	icon_state = "bone_launcher"
+	item_state = "bone_launcher"
+	caliber = "bone"
+	accuracy = 1
+	offhand_accuracy = 1
+	fire_sound = 'sound/effects/cardboard_break3.ogg'
+	magazine_type = /obj/item/ammo_magazine/bone_mag
+	load_method = MAGAZINE
+	handle_casings = DELETE_CASINGS
+	has_safety = FALSE
+	show_magazine = FALSE
+	needspin = FALSE
+
+	var/mob/living/creator
+
+/obj/item/gun/projectile/changeling/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/gun/projectile/changeling/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/gun/projectile/changeling/dropped(var/mob/living/user)
+	visible_message(SPAN_DANGER("With a sickening crunch, [user] reforms their bone launcher into an arm!"), SPAN_WARNING("You hear organic matter ripping and tearing!"))
+	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
+	QDEL_IN(src, 1)
+
+/obj/item/gun/projectile/changeling/afterattack(atom/A, mob/living/user)
+	..()
+	if(ammo_magazine && !length(ammo_magazine.stored_ammo))
+		creator.drop_from_inventory(src, creator.loc)
+
+/obj/item/gun/projectile/changeling/process()
+	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
+		// Tidy up a bit.
+		if(ishuman(loc))
+			var/mob/living/carbon/human/host = loc
+			if(istype(host))
+				for(var/obj/item/organ/external/organ in host.organs)
+					for(var/obj/item/O in organ.implants)
+						if(O == src)
+							organ.implants -= src
+			host.pinned -= src
+			host.embedded -= src
+			host.drop_from_inventory(src)
+		QDEL_IN(src, 1)
+
+/obj/item/gun/projectile/changeling/load_ammo(var/obj/item/A, mob/user)
+	return
+
+/obj/item/gun/projectile/changeling/unload_ammo(mob/user, var/allow_dump = 1, var/drop_mag = FALSE)
+	return
+
+/obj/item/ammo_magazine/bone_mag
+	name = "bone mag"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/bone_bullet
+	caliber = "bone"
+	max_ammo = 15
+
+/obj/item/ammo_casing/bone_bullet
+	desc = "A bone bullet."
+	caliber = "bone"
+	projectile_type = /obj/item/projectile/bullet/pistol/medium/bone
+	max_stack = 10

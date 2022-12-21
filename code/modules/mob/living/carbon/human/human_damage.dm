@@ -269,10 +269,10 @@
 	return parts
 
 //Returns a list of damageable organs
-/mob/living/carbon/human/proc/get_damageable_organs()
+/mob/living/carbon/human/proc/get_damageable_organs(var/include_robotic = TRUE)
 	var/list/obj/item/organ/external/parts = list()
 	for(var/obj/item/organ/external/O in organs)
-		if(O.is_damageable())
+		if(O.is_damageable() && (include_robotic || !BP_IS_ROBOTIC(O)))
 			parts += O
 	return parts
 

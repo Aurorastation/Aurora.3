@@ -1,8 +1,3 @@
-#define HOLD_CASINGS	0 //do not do anything after firing. Manual action, like pump shotguns, or guns that want to define custom behaviour
-#define EJECT_CASINGS	1 //drop spent casings on the ground after firing
-#define CYCLE_CASINGS 	2 //experimental: cycle casings, like a revolver. Also works for multibarrelled guns
-#define DELETE_CASINGS	3 //deletes the casing, used in caseless ammunition guns or something
-
 /obj/item/gun/projectile
 	name = "gun"
 	desc = "A gun that fires bullets."
@@ -30,6 +25,7 @@
 	var/list/allowed_magazines		//determines list of which magazines will fit in the gun
 	var/auto_eject = 0			//if the magazine should automatically eject itself when empty.
 	var/auto_eject_sound = null
+	var/show_magazine = TRUE
 
 	var/jam_num = 0             //Whether this gun is jammed and how many self-uses until it's unjammed
 	var/unjam_cooldown = 0      //Gives the unjammer some time after spamming unjam to not eject their mag
@@ -259,7 +255,7 @@
 		return
 	if(jam_num)
 		to_chat(user, "<span class='warning'>It looks jammed.</span>")
-	if(ammo_magazine)
+	if(show_magazine && ammo_magazine)
 		to_chat(user, "It has \a [ammo_magazine] loaded.")
 	to_chat(user, "Has [get_ammo()] round\s remaining.")
 	return

@@ -451,6 +451,36 @@
 							"<span class='warning'>We inflate our hand into a robust shield.</span>",
 							"<span class='warning'>You hear organic matter ripping and tearing!</span>")
 
+/mob/living/carbon/human/proc/bone_launcher()
+	set category = "Changeling"
+	set name = "Form Bone Launcher (40)"
+	set desc = "Rupture the flesh and mend the bone of your hand into a deadly bone launcher."
+
+	var/datum/changeling/changeling = changeling_power(20, 0, 0)
+	if(!changeling)
+		return FALSE
+	changeling.chem_charges -= 20
+
+	if(l_hand && r_hand)
+		to_chat(src, SPAN_DANGER("Your hands are full."))
+		return
+
+	if(handcuffed)
+		var/cuffs = handcuffed
+		u_equip(handcuffed)
+		qdel(cuffs)
+
+	if(istype(wear_suit, /obj/item/clothing/suit/straight_jacket))
+		visible_message(SPAN_DANGER("[src] tears through \the [wear_suit] with their grotesque bone launcher!"), SPAN_DANGER("We tear through \the [wear_suit] with our bone launcher!"), SPAN_DANGER("You hear cloth ripping and tearing!"))
+		QDEL_IN(wear_suit, 0)
+		unEquip(wear_suit, force = TRUE)
+
+	var/obj/item/gun/projectile/changeling/bone_launcher = new(src)
+	bone_launcher.creator = src
+	put_in_hands(bone_launcher)
+	playsound(loc, 'sound/weapons/bloodyslice.ogg', 30, 1)
+	visible_message(SPAN_DANGER("A grotesque bone launcher forms around [src]\'s arm!"), SPAN_DANGER("Our arm twists and mutates, transforming it into a deadly bone launcher."), SPAN_DANGER("You hear organic matter ripping and tearing!"))
+
 /mob/proc/horror_form()
 	set category = "Changeling"
 	set name = "Horror Form (40)"

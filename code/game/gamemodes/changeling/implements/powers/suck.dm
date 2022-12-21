@@ -115,6 +115,9 @@
 	var/mob/abstract/hivemind/hivemind = new /mob/abstract/hivemind(src)
 	hivemind.add_to_hivemind(T, src)
 
-	T.death(0)
-	T.Drain()
+	var/list/parts = T.get_damageable_organs(FALSE)
+	var/parts_len = length(parts)
+	for(var/obj/item/organ/external/part as anything in parts)
+		part.take_damage(120 / parts_len, 20 / parts_len, used_weapon = "rapid cellular dehydration")
+
 	return TRUE
