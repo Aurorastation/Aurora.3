@@ -28,10 +28,8 @@ var/global/list/default_medbay_channels = list(
 //
 
 /obj/item/device/radio
+	name = "shortwave radio"
 	icon = 'icons/obj/radio.dmi'
-	name = "station bounced radio"
-	var/radio_desc = ""
-	suffix = "\[3\]"
 	icon_state = "walkietalkie"
 	item_state = "radio"
 	flags = CONDUCT
@@ -40,6 +38,8 @@ var/global/list/default_medbay_channels = list(
 	throw_range = 9
 	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
+	suffix = "\[3\]"
+	var/radio_desc = ""
 	var/const/FREQ_LISTENING = TRUE
 	var/list/internal_channels
 	var/clicksound = /decl/sound_category/button_sound //played sound on usage
