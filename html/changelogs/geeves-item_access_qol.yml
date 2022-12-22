@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Middle-Mouse Clicking a suit with storage slots will now open its inventory, like labcoats for example."
