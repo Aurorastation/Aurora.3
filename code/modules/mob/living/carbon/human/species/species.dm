@@ -22,6 +22,7 @@
 	var/canvas_icon = 'icons/mob/base_32.dmi'                  // Used to blend parts and icons onto this, to avoid clipping issues.
 	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
 	var/deform = 'icons/mob/human_races/human/r_def_human.dmi' // Mutated icon set.
+	var/skeleton_icon = 'icons/mob/human_races/r_skeleton.dmi'
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
 	var/bandages_icon
 
@@ -830,3 +831,10 @@
 
 /datum/species/proc/can_double_fireman_carry()
 	return FALSE
+
+/datum/species/proc/has_stamina_for_pushup(var/mob/living/carbon/human/human)
+	return human.stamina > (human.max_stamina / 10)
+
+/datum/species/proc/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
+	human.stamina -= stamina_cost
+	human.hud_used.move_intent.update_move_icon(human)

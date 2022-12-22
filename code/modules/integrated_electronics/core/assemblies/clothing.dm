@@ -38,6 +38,10 @@
 	max_complexity = IC_COMPLEXITY_BASE * 2
 	w_class = ITEMSIZE_NORMAL
 
+/obj/item/device/electronic_assembly/clothing/rename()
+	var/input_name = ..()
+	if(input_name)
+		clothing.name = input_name
 
 // This is defined higher up, in /clothing to avoid lots of copypasta.
 /obj/item/clothing
@@ -76,7 +80,8 @@
 	// Clothing assemblies can be triggered by clicking on the HUD. This allows that to occur.
 	action_circuit = new(src.IC)
 	IC.force_add_circuit(action_circuit)
-	action_button_name = "Activate [name]"
+	default_action_type = /datum/action/item_action/integrated_circuit
+	action_button_name = "Activate [capitalize_first_letters(name)]"
 
 /obj/item/clothing/Destroy()
 	if(IC)
@@ -131,6 +136,11 @@
 
 /obj/item/clothing/glasses/circuitry/Initialize()
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
+	return ..()
+
+/obj/item/clothing/glasses/circuitry/attack_self(mob/user)
+	if(IC)
+		return IC.attack_self(user)
 	return ..()
 
 /obj/item/clothing/glasses/circuitry/Look(var/atom/A, mob/user, var/proximity)

@@ -249,7 +249,7 @@
 	name = "tqi-qop rifle"
 	desc = "The Tqi-Qop Rifle is the main weapon of the Qukala. Its compact light frame and excellent ammo capacity make it a superb weapon for the Skrell."
 	desc_extended = ""
-	icon = 'icons/obj/contained_items/skrell/skrell_weaponry.dmi'
+	icon = 'icons/obj/item/gun/energy/gun/qukala.dmi'
 	icon_state = "qukalagun"
 	item_state = "qukalagun"
 	fire_sound = 'sound/weapons/Taser.ogg'

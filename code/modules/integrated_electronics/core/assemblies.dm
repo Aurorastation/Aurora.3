@@ -155,12 +155,14 @@
 
 	var/mob/M = usr
 	if(!check_interactivity(M))
-		return
+		return null
 
 	var/input = sanitizeSafe(input("What do you want to name this?", "Rename", src.name) as null|text, MAX_NAME_LEN)
 	if(src && input)
 		to_chat(M, "<span class='notice'>The machine now has a label reading '[input]'.</span>")
 		name = input
+		return input
+	return null
 
 /obj/item/device/electronic_assembly/proc/can_move()
 	return FALSE

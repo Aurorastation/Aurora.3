@@ -179,7 +179,7 @@
 					gender = "m"
 
 			if(skeletal)
-				mob_icon = new /icon('icons/mob/human_races/r_skeleton.dmi', "[icon_name][gender ? "_[gender]" : ""]")
+				mob_icon = new /icon(species.skeleton_icon, "[icon_name][gender ? "_[gender]" : ""]")
 			else if (status & ORGAN_ROBOT && !force_skintone)
 				mob_icon = new /icon('icons/mob/human_races/ipc/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
 			else

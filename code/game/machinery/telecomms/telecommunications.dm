@@ -18,7 +18,7 @@
 */
 
 /obj/machinery/telecomms
-	icon = 'icons/obj/machines/telecomms.dmi'
+	icon = 'icons/obj/machinery/telecomms.dmi'
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 600 // WATTS
@@ -138,6 +138,7 @@
 
 /obj/machinery/telecomms/proc/check_heat()
 	// Checks heat from the environment and applies any integrity damage
+	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 	var/damage_chance = 0                           // Percent based chance of applying 1 integrity damage this tick
 	switch(environment.temperature)

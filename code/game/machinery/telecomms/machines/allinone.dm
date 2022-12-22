@@ -11,7 +11,7 @@
 	idle_power_usage = 0
 	active_power_usage = 0
 	produces_heat = FALSE
-	overmap_range = 2 // AIOs aren't true relays
+	overmap_range = 2
 
 	var/away_aio = FALSE
 	var/list/recent_broadcasts
@@ -69,7 +69,7 @@
 //This goes on the station map so away ships can maintain radio contact.
 /obj/machinery/telecomms/allinone/ship/station_relay
 	name = "external signal receiver"
-	icon = 'icons/obj/machines/telecomms.dmi'
+	icon = 'icons/obj/machinery/telecomms.dmi'
 	icon_state = "ntnet"
 	desc = "This device allows nearby third-party ships to maintain radio contact with their crew that are aboard the %STATIONNAME."
 	desc_info = "This device does not need to be linked to other telecommunications equipment; it will receive and broadcast on its own. It only needs to be powered."

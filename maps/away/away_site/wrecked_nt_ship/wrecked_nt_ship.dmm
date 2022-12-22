@@ -903,7 +903,7 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "su" = (
-/obj/item/storage/bag/slimes,
+/obj/item/storage/slimes,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)

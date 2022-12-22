@@ -540,6 +540,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			continue
 
 		var/turf/T = get_turf(testvent)
+		if(!istype(T)) continue
 
 		//Skip areas that contain turrets
 		var/area/A = T.loc
