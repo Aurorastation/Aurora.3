@@ -31,7 +31,7 @@
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/headmaster_kosmostrelki/get_id_access()
+/datum/outfit/admin/peoples_station_crew/get_id_access()
 	return list(access_pra, access_external_airlocks)
 
 /datum/ghostspawner/human/peoples_station_crew/captain

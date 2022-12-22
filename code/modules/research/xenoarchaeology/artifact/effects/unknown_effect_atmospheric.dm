@@ -162,12 +162,13 @@
 			to_chat(user, SPAN_NOTICE("You detect a decrease in temperature throughout your systems!"))
 		else
 			to_chat(user, SPAN_NOTICE("A chill passes up your spine!"))
+		if(!holder.loc) return
 		var/datum/gas_mixture/env = holder.loc.return_air()
 		if(env)
 			env.temperature = max(env.temperature - rand(5,50), 0)
 
 /datum/artifact_effect/cold/DoEffectAura()
-	if(holder)
+	if(holder && holder.loc)
 		var/datum/gas_mixture/env = holder.loc.return_air()
 		if(env && env.temperature > target_temp)
 			env.temperature -= pick(0, 0, 1)
@@ -186,7 +187,7 @@
 	effect = pick(EFFECT_TOUCH, EFFECT_AURA)
 
 /datum/artifact_effect/heat/DoEffectTouch(var/mob/living/user)
-	if(holder)
+	if(holder && holder.loc)
 		if(user.isSynthetic())
 			to_chat(user, SPAN_WARNING("You detect a wave of heat surging through your systems."))
 		else
@@ -196,7 +197,7 @@
 			env.temperature += rand(5,50)
 
 /datum/artifact_effect/heat/DoEffectAura()
-	if(holder)
+	if(holder && holder.loc)
 		var/datum/gas_mixture/env = holder.loc.return_air()
 		if(env && env.temperature < target_temp)
 			env.temperature += pick(0, 0, 1)

@@ -22,6 +22,7 @@
 	var/canvas_icon = 'icons/mob/base_32.dmi'                  // Used to blend parts and icons onto this, to avoid clipping issues.
 	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
 	var/deform = 'icons/mob/human_races/human/r_def_human.dmi' // Mutated icon set.
+	var/skeleton_icon = 'icons/mob/human_races/r_skeleton.dmi'
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
 	var/bandages_icon
 

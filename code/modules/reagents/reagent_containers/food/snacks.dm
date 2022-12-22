@@ -4209,14 +4209,18 @@
 
 /obj/item/reagent_containers/food/snacks/pancakes
 	name = "pancakes"
-	desc = "Pancakes with berries, delicious."
+	desc = "Pancakes, delicious."
 	icon_state = "pancakes"
 	trash = /obj/item/trash/plate
-	center_of_mass = "x=15;y=11"
 	reagents_to_add = list(/decl/reagent/nutriment = 8)
 	reagent_data = list(/decl/reagent/nutriment = list("pancake" = 8))
 	bitesize = 2
 	filling_color = "#EDF291"
+	
+/obj/item/reagent_containers/food/snacks/pancakes/berry
+	name = "berry pancakes"
+	desc = "Pancakes with berries, delicious."
+	icon_state = "berry_pancakes"
 
 /obj/item/reagent_containers/food/snacks/classichotdog
 	name = "classic hotdog"

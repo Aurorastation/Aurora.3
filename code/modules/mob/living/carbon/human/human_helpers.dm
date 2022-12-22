@@ -320,7 +320,7 @@
 	. = ..() - organs
 
 /mob/living/carbon/human/proc/pressure_resistant()
-	if(COLD_RESISTANCE in mutations)
+	if(HAS_FLAG(mutations, COLD_RESISTANCE))
 		return TRUE
 	var/datum/changeling/changeling = get_antag_datum(MODE_CHANGELING)
 	if(changeling?.space_adapted)

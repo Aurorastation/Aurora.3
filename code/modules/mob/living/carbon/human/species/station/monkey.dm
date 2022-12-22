@@ -6,6 +6,7 @@
 
 	icobase = 'icons/mob/human_races/monkeys/r_monkey.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_monkey.dmi'
+	skeleton_icon = 'icons/mob/human_races/monkeys/monkey_skeleton.dmi'
 	damage_overlays = 'icons/mob/human_races/masks/dam_monkey.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_monkey.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_monkey.dmi'

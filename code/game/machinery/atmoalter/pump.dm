@@ -73,8 +73,9 @@
 		var/datum/gas_mixture/environment
 		if(holding)
 			environment = holding.air_contents
-		else
+		else if(loc)
 			environment = loc.return_air()
+		else return
 
 		var/pressure_delta
 		var/output_volume

@@ -70,7 +70,9 @@
 		stat |= BROKEN
 		return
 	rpm = 0.9* rpm + 0.1 * rpmtarget
+	if(!inturf) return
 	var/datum/gas_mixture/environment = inturf.return_air()
+	if(!environment) return
 	var/transfer_moles = environment.total_moles / 10
 	//var/transfer_moles = rpm/10000*capacity
 	var/datum/gas_mixture/removed = inturf.remove_air(transfer_moles)
