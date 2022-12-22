@@ -1135,7 +1135,6 @@
 
 //Fox Plushies
 
-
 /obj/item/toy/plushie/fox
 	name = "fox plushie"
 	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is red."
@@ -1144,6 +1143,68 @@
 	item_state = "redfox"
 	phrase = "Kekekeke!"
 
+/obj/item/toy/plushie/blackfox
+	name = "fox plushie"
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is black."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "blackfox"
+	item_state = "blackfox"
+	phrase = "Kekekeke!"
+
+/obj/item/toy/plushie/marblefox
+	name = "fox plushie"
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is white."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "marblefox"
+	item_state = "marblefox"
+	phrase = "Kekekeke!"
+
+/obj/item/toy/plushie/bluefox
+	name = "fox plushie"
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is blue."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "bluefox"
+	item_state = "bluefox"
+	phrase = "Kekekeke!"
+
+/obj/item/toy/plushie/orangefox
+	name = "fox plushie"
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is the classic orange."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "orangefox"
+	item_state = "orangefox"
+	phrase = "Kekekeke!"
+
+/obj/item/toy/plushie/coffeefox
+	name = "fox plushie"
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is coffee-cream coloured."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "coffeefox"
+	item_state = "coffeefox"
+	phrase = "Kekekeke!"
+/obj/item/toy/plushie/pinkfox
+	name = "fox plushie"
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is pink."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "pinkfox"
+	item_state = "pinkfox"
+	phrase = "Kekekeke!"
+
+/obj/item/toy/plushie/purplefox
+	name = "fox plushie"
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is purple."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "purplefox"
+	item_state = "purplefox"
+	phrase = "Kekekeke!"
+
+/obj/item/toy/plushie/crimsonfox
+	name = "fox plushie"
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is crimson."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "crimsonfox"
+	item_state = "crimsonfox"
+	phrase = "Kekekeke!"
 /obj/item/toy/plushie/fox/random
 	name = "fox plushie"
 	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is red."
@@ -1161,6 +1222,7 @@
 	item_state = "[colorvar]fox"
 	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is in [colorvar]."
 
+// Squid Plushie Random
 /obj/item/toy/plushie/squidcolour
 	name = "squid plushie"
 	desc = "A small, cute, and loveable squid friend. This one comes in a wide variety of colours."
