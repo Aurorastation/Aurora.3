@@ -477,6 +477,9 @@
 				shatter()
 				return
 
+	if(user.a_intent != I_GRAB)
+		return
+
 	// create a light tube/bulb item and put it in the user's hand
 	if(inserted_light)
 		var/obj/item/light/L = new inserted_light()

@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You now only remove lightbulbs from their fixtures if you click on it with grab intent."
