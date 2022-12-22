@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "You now count as successfully transferring at roundend if you're on the ship's Z-level and in a ship area."
