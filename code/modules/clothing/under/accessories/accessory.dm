@@ -299,6 +299,7 @@
 	icon_state = "golden_crucifix"
 	item_state = "golden_crucifix"
 	contained_sprite = TRUE
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
 
 /obj/item/clothing/accessory/silver_crucifix
 	name = "silver crucifix"
@@ -307,6 +308,7 @@
 	icon_state = "silver_crucifix"
 	item_state = "silver_crucifix"
 	contained_sprite = TRUE
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
 
 /obj/item/clothing/accessory/assunzione
 	name = "luceian amulet"
