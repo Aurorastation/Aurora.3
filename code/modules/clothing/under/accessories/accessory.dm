@@ -292,6 +292,22 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
+/obj/item/clothing/accessory/golden_crucifix
+	name = "golden crucifix"
+	desc = "A small, golden cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
+	icon = 'icons/clothing/accessories/crucifix.dmi'
+	icon_state = "golden_crucifix"
+	item_state = "golden_crucifix"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/silver_crucifix
+	name = "silver crucifix"
+	desc = "A small, silver cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
+	icon = 'icons/clothing/accessories/crucifix.dmi'
+	icon_state = "silver_crucifix"
+	item_state = "silver_crucifix"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/assunzione
 	name = "luceian amulet"
 	desc = "A common symbol of the Luceian faith abroad, this amulet featuring the religion's all-seeing eye and eight-pointed crest \

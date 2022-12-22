@@ -39,6 +39,16 @@
 	path = /obj/item/clothing/accessory/rosary
 	slot = slot_tie
 
+/datum/gear/religion/golden_crucifix
+	display_name = "gold crucifix"
+	path = /obj/item/clothing/accessory/golden_crucifix
+	slot = slot_tie
+
+/datum/gear/religion/silver_crucifix
+	display_name = "silver crucifix"
+	path = /obj/item/clothing/accessory/silver_crucifix
+	slot = slot_tie
+
 /datum/gear/religion/shintorobe
 	display_name = "shrine maiden robe"
 	path = /obj/item/clothing/under/konyangdresstraditional/red
