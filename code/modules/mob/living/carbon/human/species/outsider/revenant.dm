@@ -143,6 +143,31 @@
 		return -1
 	return ..()
 
+/datum/species/revenant/handle_middle_mouse_click(var/mob/living/carbon/human/user, var/atom/target)
+	if(user.incapacitated() || user.last_special + 5 SECONDS > world.time)
+		return FALSE
+	if(!isturf(target))
+		target = get_turf(target)
+	if(!isturf(target))
+		return FALSE
+
+	if(turf_contains_dense_objects(target))
+		return FALSE
+
+	new /obj/effect/overlay/teleport_pulse(user.loc)
+
+	user.last_special = world.time
+	user.visible_message("<b>[user]</b> disappears with a flash!", SPAN_NOTICE("You jump into the nothing."))
+	user.forceMove(target)
+	user.visible_message("<b>[user]</b> appears out of thin air!", SPAN_NOTICE("You successfully step into your destination."))
+
+	user.overlay_fullscreen("teleport", /obj/screen/fullscreen/teleport)
+	user.clear_fullscreen("teleport", 5 SECONDS)
+
+	playsound(user.loc, pick('sound/hallucinations/behind_you1.ogg', 'sound/hallucinations/behind_you2.ogg', 'sound/hallucinations/i_see_you1.ogg', 'sound/hallucinations/i_see_you2.ogg', 'sound/hallucinations/im_here1.ogg', 'sound/hallucinations/im_here2.ogg', 'sound/hallucinations/look_up1.ogg', 'sound/hallucinations/look_up2.ogg', 'sound/hallucinations/over_here1.ogg', 'sound/hallucinations/over_here2.ogg', 'sound/hallucinations/over_here3.ogg', 'sound/hallucinations/turn_around1.ogg', 'sound/hallucinations/turn_around2.ogg'), 50, TRUE)
+
+	return TRUE
+
 /obj/item/organ/internal/eyes/night/revenant
 	name = "spectral eyes"
 	desc = "A pair of glowing eyes. The ocular nerves still slowly writhe."
