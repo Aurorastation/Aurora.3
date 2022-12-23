@@ -1,7 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Turrets now properly reset and close when all targets are lost."
-  - tweak: "Turrets continue to quickly acquire targets until they fully reset."
