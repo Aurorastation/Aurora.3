@@ -49,10 +49,10 @@
 /datum/gear/religion/New()
 	..()
 	var/list/crucifix = list()
-	crucifix["golden crucifix"] = /obj/item/clothing/accessory/crucifix/golden_crucifix
-	crucifix["silver crucifix"] = /obj/item/clothing/accessory/crucifix/silver_crucifix
-	crucifix["golden saint peter crucifix"] = /obj/item/clothing/accessory/crucifix/golden_crucifix/saint_peter
-	crucifix["silver saint peter crucifix"] = /obj/item/clothing/accessory/crucifix/silver_crucifix/saint_peter
+	crucifix["gold crucifix"] = /obj/item/clothing/accessory/crucifix/gold
+	crucifix["silver crucifix"] = /obj/item/clothing/accessory/crucifix/silver
+	crucifix["gold saint peter crucifix"] = /obj/item/clothing/accessory/crucifix/gold/saint_peter
+	crucifix["silver saint peter crucifix"] = /obj/item/clothing/accessory/crucifix/silver/saint_peter
 	gear_tweaks += new /datum/gear_tweak/path(crucifix)
 
 /datum/gear/religion/shintorobe
