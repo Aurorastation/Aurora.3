@@ -1940,6 +1940,7 @@
 #include "code\modules\heavy_vehicle\premade\miner.dm"
 #include "code\modules\heavy_vehicle\premade\misc.dm"
 #include "code\modules\heavy_vehicle\premade\powerloader.dm"
+#include "code\modules\holidays\christmas\props.dm"
 #include "code\modules\holidays\halloween\costumes.dm"
 #include "code\modules\holidays\halloween\props.dm"
 #include "code\modules\holodeck\HolodeckControl.dm"
