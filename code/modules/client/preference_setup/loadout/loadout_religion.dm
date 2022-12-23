@@ -46,7 +46,7 @@
 	slot = slot_tie
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
 
-/datum/gear/religion/New()
+/datum/gear/religion/crucifix/New()
 	..()
 	var/list/crucifix = list()
 	crucifix["gold crucifix"] = /obj/item/clothing/accessory/crucifix/gold
