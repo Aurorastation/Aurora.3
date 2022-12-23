@@ -1,0 +1,10 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - refactor: "Moved a significant portion of machinery processing to on-demand processing, lightening the load on the server."
+  - refactor: "Shifted turret targeting and simple mob targeting to use the spatial grid system for searching."
+  - bugfix: "Telecomms machines will now once again reboot themselves after being EMPed."
+  - bugfix: "Fixed a divide-by-zero runtime with adding reagents to a full container."
+  - bugfix: "Fixed an issue with admin proc call failing on unowned procs."
