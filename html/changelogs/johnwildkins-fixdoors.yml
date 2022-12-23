@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Windoors no longer play a closed deny animation when interacted with while open without access."
