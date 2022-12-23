@@ -16,6 +16,7 @@
 	desc = "A cozy meeting place floating on space."
 	comms_support = TRUE
 	comms_name = "station"
+	use_common = TRUE
 
 /area/space_bar
 	name = "Spacer Bar"

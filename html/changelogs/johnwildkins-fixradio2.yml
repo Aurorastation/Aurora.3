@@ -1,0 +1,8 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Changing the IFF on an away ship no longer bricks comms for any late-joiners."
+  - bugfix: "Away ships with access to the Common channel (casino, etc.) now properly broadcast that channel to crew."
+  - tweak: "Capitalized 'Grand Romanovich Casino' when used as a proper noun (e.g., as a radio channel)."
