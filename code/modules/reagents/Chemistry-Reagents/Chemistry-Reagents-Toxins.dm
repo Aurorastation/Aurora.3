@@ -158,7 +158,7 @@
 
 /decl/reagent/toxin/phoron/kois
 	name = "Phoron"
-	description = "Phoron in its liquid form. Twice as potent when breathed in. Contains unknown biological traces."
+	description = "Phoron in its liquid form. Twice as potent when breathed in. Contains biological traces."
 
 /decl/reagent/toxin/cardox
 	name = "Cardox"

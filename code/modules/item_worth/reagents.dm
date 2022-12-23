@@ -726,7 +726,7 @@
 /decl/reagent/toxin/carpotoxin
 	value = 3
 
-/decl/reagent/toxin/phoron
+/decl/reagent/toxin/phoron/base
 	value = 10
 
 /decl/reagent/toxin/cyanide
