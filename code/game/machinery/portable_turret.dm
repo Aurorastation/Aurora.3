@@ -74,7 +74,7 @@
 	var/last_target			//last target fired at, prevents turrets from erratically firing at all valid targets in range
 	var/list/targets = list()			//list of primary targets
 	var/list/secondarytargets = list()	//targets that are least important
-	var/resetting = FALSE
+	var/resetting
 	var/fast_processing = FALSE
 
 	var/old_angle = 0
@@ -505,6 +505,13 @@
 		popDown()
 		return
 
+	if(auto_repair && (health < maxhealth))
+		use_power_oneoff(20000)
+		health = min(health+1, maxhealth) // 1HP for 20kJ
+
+	if(raising)
+		return // Don't try to do target acquisition while we're resetting
+
 	targets = list()
 	secondarytargets = list()
 
@@ -515,25 +522,34 @@
 			assess_and_assign_living(L, targets, secondarytargets)
 
 		if(targets.len || secondarytargets.len)
-			if(!fast_processing)
-				STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
-				START_PROCESSING(SSfast_process, src)
-				fast_processing = TRUE
+			fastscan(TRUE)
 
 			if(!tryToShootAt(targets))
-				if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
-					if(raised || raising) // we've already reset
-						resetting = TRUE
-						addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
+				tryToShootAt(secondarytargets)
 
-	if(auto_repair && (health < maxhealth))
-		use_power_oneoff(20000)
-		health = min(health+1, maxhealth) // 1HP for 20kJ
+	if(!targets.len && !secondarytargets.len)
+		resetting = addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE) // no valid targets, close the cover
+	else if(resetting)
+		deltimer(resetting)
+		resetting = null
+
+/obj/machinery/porta_turret/proc/fastscan(on)
+	if(on == fast_processing)
+		return
+
+	if(on && !fast_processing)
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		START_PROCESSING(SSfast_process, src)
+	else if(fast_processing)
+		STOP_PROCESSING(SSfast_process, src)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+
+	fast_processing = on
 
 /obj/machinery/porta_turret/proc/reset()
 	if(!targets.len && !secondarytargets.len)
+		fastscan(FALSE)
 		popDown()
-	resetting = FALSE
 
 /obj/machinery/porta_turret/proc/assess_and_assign_living(var/mob/living/L, var/list/targets, var/list/secondarytargets)
 	switch(assess_living(L))
