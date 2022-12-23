@@ -237,18 +237,6 @@
 	desc_extended = "There's a tag that reads: \"Apparition Halloween LLC.\""
 	icon_state = "ghostballoon"
 
-/obj/item/toy/balloon/xmastree
-	name = "giant christmas tree balloon"
-	desc = "Mandatory at inter-generational christmas gatherings and office parties."
-	desc_extended = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
-	icon_state = "xmastreeballoon"
-
-/obj/item/toy/balloon/candycane
-	name = "giant candy cane balloon"
-	desc = "Kris Kringle ain't got nothing on this candied confection."
-	desc_extended = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
-	icon_state = "candycaneballoon"
-
 /obj/item/toy/balloon/color /// To color it, VV the 'color' var with a hex color code with the # included.
 	desc = "It's a plain little balloon. Comes in many colors!"
 	icon_state = "colorballoon"
@@ -1160,16 +1148,6 @@
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
-
-/obj/item/toy/xmastree
-	name = "miniature Christmas tree"
-	desc = "Now with 99% less pine needles."
-	icon_state = "tinyxmastree"
-	w_class = ITEMSIZE_TINY
-	force = 1
-	throwforce = 1
-	drop_sound = 'sound/items/drop/cardboardbox.ogg'
-	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
 /obj/item/toy/aurora
 	name = "aurora miniature"
