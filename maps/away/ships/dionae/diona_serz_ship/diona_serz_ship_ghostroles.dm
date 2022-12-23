@@ -34,7 +34,8 @@
 	)
 
 	id = null
-
+	
+	l_ear = /obj/item/device/radio/headset/ship
 
 	l_pocket = /obj/item/device/radio
 
@@ -66,6 +67,7 @@
 	back = /obj/item/storage/backpack/satchel/hegemony
 	id = null
 	l_pocket = /obj/item/device/radio
+	l_ear = /obj/item/device/radio/headset/ship
 	backpack_contents = list(/obj/item/device/flashlight/lantern = 1, /obj/item/device/flashlight/survival = 1)
 
 /datum/outfit/admin/serz_voidtamer/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
