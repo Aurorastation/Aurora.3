@@ -112,9 +112,6 @@
 
 	admin_attack_log(usr, T, "absorbed the DNA of", "had their DNA absorbed by", "lethally absorbed DNA from")
 
-	var/mob/abstract/hivemind/hivemind = new /mob/abstract/hivemind(src)
-	hivemind.add_to_hivemind(T, src)
-
 	var/list/parts = T.get_damageable_organs(FALSE)
 	var/parts_len = length(parts)
 	for(var/obj/item/organ/external/part as anything in parts)
