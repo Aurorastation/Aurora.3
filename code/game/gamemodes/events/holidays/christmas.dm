@@ -114,3 +114,30 @@
 /obj/structure/sign/christmas/tinsel/white
 	name = "white tinsel"
 	icon_state = "tinsel_w"
+
+/obj/structure/sign/christmas/snowman
+	name = "snowman sticker"
+	desc = "A cheaply made adhesive sticker, looking like a snowman. At least it doesn't melt."
+	icon = 'icons/holidays/christmas/props.dmi'
+	icon_state = "snowman_s"
+
+/obj/structure/sign/christmas/snowman/hat
+	name = "hat snowman sticker"
+	desc = "A cheaply made adhesive sticker, looking like a snowman, but wearing a hat. At least it doesn't melt."
+	icon_state = "snowman_hat"
+
+/obj/structure/sign/christmas/snowflakes
+	name = "snowflake stickers"
+	desc = "Adhesive stickers, sticking really everywhere and looking like a stylized snowflake. Just like the one you are."
+	icon = 'icons/holidays/christmas/props.dmi'
+	icon_state = "snowflakes_1"
+
+/obj/structure/sign/christmas/snowflakes/alt
+	icon_state = "snowflakes_2"
+
+/obj/structure/sign/christmas/snowflakes/alt_2
+	icon_state = "snowflakes_3"
+
+/obj/structure/sign/christmas/snowflakes/alt_3
+	icon_state = "snowflakes_4"
+
