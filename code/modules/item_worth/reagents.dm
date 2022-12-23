@@ -81,7 +81,7 @@
 /decl/reagent/kois
 	value = 0.5
 
-/decl/reagent/phoron/kois
+/decl/reagent/toxin/phoron/kois
 	value = 0.5
 
 /decl/reagent/nutriment
@@ -726,7 +726,7 @@
 /decl/reagent/toxin/carpotoxin
 	value = 3
 
-/decl/reagent/toxin/phoron/base
+/decl/reagent/toxin/phoron
 	value = 10
 
 /decl/reagent/toxin/cyanide
