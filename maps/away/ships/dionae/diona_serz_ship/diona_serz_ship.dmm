@@ -177,6 +177,16 @@
 /obj/effect/shuttle_landmark/diona_serz_ship/nav1,
 /turf/space,
 /area/space)
+"jE" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-9"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278
+	},
+/area/ship/diona_serz_ship)
 "kB" = (
 /turf/space,
 /area/space)
@@ -271,6 +281,11 @@
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship)
+"qb" = (
+/turf/simulated/floor/plating{
+	temperature = 278
+	},
+/area/ship/diona_serz_ship)
 "qc" = (
 /obj/structure/table/diona,
 /obj/item/flag/hegemony/l,
@@ -328,6 +343,12 @@
 /area/ship/diona_serz_ship)
 "rV" = (
 /turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship)
+"sj" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/turf/simulated/floor/plating{
+	temperature = 278
+	},
 /area/ship/diona_serz_ship)
 "sS" = (
 /obj/machinery/shipsensors/weak,
@@ -442,6 +463,12 @@
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_serz_ship_shuttle)
+"Ad" = (
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/plating{
+	temperature = 278
+	},
+/area/ship/diona_serz_ship)
 "Ar" = (
 /obj/structure/window/borosilicate/reinforced{
 	dir = 1
@@ -633,6 +660,13 @@
 /obj/item/trap/animal/large,
 /turf/simulated/floor/diona/airless,
 /area/shuttle/diona_serz_ship_shuttle)
+"Ko" = (
+/obj/machinery/door/airlock/diona/external{
+	name = "Telecomms"
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship)
 "Kp" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -816,6 +850,15 @@
 	name = "igs - serz"
 	},
 /turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship)
+"RP" = (
+/obj/machinery/telecomms/allinone/ship,
+/obj/structure/cable{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278
+	},
 /area/ship/diona_serz_ship)
 "Sb" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -35536,7 +35579,7 @@ rV
 Jd
 Jd
 Jd
-Jd
+Ko
 Jd
 Jd
 Jd
@@ -35793,7 +35836,7 @@ SR
 Jd
 KX
 KX
-KX
+Ad
 KX
 KX
 UP
@@ -36049,11 +36092,11 @@ Ui
 rV
 Jd
 KX
+jE
+qb
+sj
 KX
 KX
-KX
-UP
-UP
 UP
 kB
 kB
@@ -36306,11 +36349,11 @@ rV
 Du
 Jd
 KX
+RP
+qb
+qb
 KX
 KX
-KX
-UP
-UP
 UP
 UP
 kB
