@@ -80,7 +80,12 @@
 	has_safety = FALSE
 
 /obj/item/gun/energy/mountedsmg/mech
+	max_shots = 30
 	projectile_type = /obj/item/projectile/bullet/pistol/medium/mech
+	firemodes = list(
+	list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=list(0)),
+	list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 15, 15)),
+)
 
 /obj/item/gun/energy/crossbow/cyborg
 	name = "mounted energy-crossbow"
