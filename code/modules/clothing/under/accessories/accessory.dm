@@ -319,7 +319,7 @@
 
 /obj/item/clothing/accessory/crucifix/silver/saint_peter
 	name = "silver Saint Peter crucifix"
-	desc = "A small, silver cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symobol \
+	desc = "A small, silver cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symbol \
 	which has been re-purposed as a satanic symbol since the 21st century as well."
 	icon_state = "silver_crucifix_ud"
 	item_state = "silver_crucifix_ud"
