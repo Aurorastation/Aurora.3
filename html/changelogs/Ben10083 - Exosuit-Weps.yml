@@ -38,5 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Exosuit laser gun now uses heavy laser beams, purely aesthetic."
-  - rscdel: "Killed innocent kittens."
+  - balance: "Exosuit laser gun now uses heavy laser beams, damage set to be between a medium and heavy laser."
+  - rscadd: "Exosuit mounted smg now can switch between semi-auto and 3-round burst"
+  - tweak: "Exosuit mounted smg now has a ammo capacity of 30 rounds."
