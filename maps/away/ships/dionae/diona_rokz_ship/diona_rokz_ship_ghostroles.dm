@@ -22,7 +22,7 @@
 
 /datum/outfit/admin/rokz_voidtamer
 	name = "Rokz Clan Voidtamer"
-	uniform = /obj/item/clothing/suit/unathi/robe/kilt
+	uniform = /obj/item/clothing/under/unathi
 	suit = /obj/item/clothing/suit/diona/rokz
 	back = /obj/item/storage/backpack/satchel/leather
 	id = null
