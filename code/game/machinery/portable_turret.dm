@@ -151,6 +151,8 @@
 				SOME_TC.enabled = 0
 			src.setState(SOME_TC)
 
+	add_to_target_grid()
+
 /obj/machinery/porta_turret/Destroy()
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
@@ -161,6 +163,8 @@
 	spark_system = null
 	if(fast_processing)
 		STOP_PROCESSING(SSfast_process, src)
+
+	clear_from_target_grid()
 
 	. = ..()
 
@@ -504,29 +508,23 @@
 	targets = list()
 	secondarytargets = list()
 
-	for(var/v in view(world.view, src))
-		if(isliving(v))
-			assess_and_assign_living(v, targets, secondarytargets)
-		if(istype(v,/obj/structure/closet))
-			assess_and_assign_closet(v, targets, secondarytargets)
+	var/list/potentials = get_targets_in_LOS(world.view, src)
 
+	if(potentials.len)
+		for(var/mob/living/L in potentials)
+			assess_and_assign_living(L, targets, secondarytargets)
 
-	if(!tryToShootAt(targets))
-		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
-			if(raised || raising) // we've already reset
-				resetting = TRUE
-				addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
+		if(targets.len || secondarytargets.len)
+			if(!fast_processing)
+				STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+				START_PROCESSING(SSfast_process, src)
+				fast_processing = TRUE
 
-	if(targets.len || secondarytargets.len)
-		if(!fast_processing)
-			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
-			START_PROCESSING(SSfast_process, src)
-			fast_processing = TRUE
-	else
-		if(fast_processing)
-			STOP_PROCESSING(SSfast_process, src)
-			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
-			fast_processing = FALSE
+			if(!tryToShootAt(targets))
+				if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
+					if(raised || raising) // we've already reset
+						resetting = TRUE
+						addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
 
 	if(auto_repair && (health < maxhealth))
 		use_power_oneoff(20000)
