@@ -1,0 +1,7 @@
+author: KingOfThePing
+
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes broken gift wrapper, krampus gifts and regular presents."

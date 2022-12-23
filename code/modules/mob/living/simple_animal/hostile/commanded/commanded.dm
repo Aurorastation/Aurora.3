@@ -232,7 +232,7 @@
 		if(M.a_intent == I_HURT)
 			audible_emote("[pick(sad_emote)].",0)
 		return
-	if(M.a_intent == I_HELP && prob(40)) //chance that they won't immediately kill anyone who pets them. But only a chance. 
+	if(M.a_intent == I_HELP && prob(40)) //chance that they won't immediately kill anyone who pets them. But only a chance.
 		stance = HOSTILE_STANCE_IDLE
 		target_mob = null
 		audible_emote("growls at [M].")
