@@ -1696,7 +1696,7 @@
 /obj/random/gift
 	name = "random gift"
 	desc = "Contains a randomly sized gift."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "gift1"
 	spawnlist = list(
 		/obj/item/xmasgift = 0.5,
