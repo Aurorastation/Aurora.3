@@ -98,10 +98,10 @@
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engine1)
 "aoS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/red,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Ammo_Closet)
 "atB" = (
 /obj/effect/decal/cleanable/dirt,
