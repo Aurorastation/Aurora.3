@@ -1,6 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed anomaly harvesters disappearing when enabled."
