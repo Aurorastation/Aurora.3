@@ -16,9 +16,13 @@
 		evil_tree.icon_gib = evil_tree.icon_state
 		qdel(xmas)
 
+
+// All Christmas Props, now UNIFIED in one place
+
+// Things in your HAND
 /obj/item/toy/xmas_cracker
 	name = "xmas cracker"
-	icon = 'icons/obj/christmas.dmi'
+	icon = 'icons/holidays/christmas/items.dmi'
 	icon_state = "cracker"
 	desc = "Directions for use: Requires two people, one to pull each end."
 	var/cracked = 0
@@ -51,6 +55,7 @@
 		return 1
 	return ..()
 
+// Things on your HEAD
 /obj/item/clothing/head/festive
 	name = "festive paper hat"
 	icon_state = "xmashat"
@@ -68,3 +73,44 @@
 	desc = "A cheap fabric santa hat, this one with a beard."
 	body_parts_covered = HEAD
 	icon_state = "santahat_alt"
+
+// Things at your PLACE
+/obj/structure/sign/christmas/lights
+	name = "christmas lights"
+	desc = "Flashy."
+	icon = 'icons/holidays/christmas/items.dmi'
+	icon_state = "xmaslights"
+	layer = 4.9
+
+/obj/structure/sign/christmas/wreath
+	name = "wreath"
+	desc = "Prickly and very festive."
+	icon = 'icons/holidays/christmas/items.dmi'
+	icon_state = "doorwreath"
+	layer = 5
+
+/obj/structure/sign/christmas/garland
+	name = "festive garland"
+	desc = "Very festive lights. How nice."
+	icon = 'icons/holidays/christmas/props.dmi'
+	icon_state = "garland_on"
+	layer = 4.9
+
+/obj/structure/sign/christmas/tinsel
+	name = "tinsel"
+	desc = "There used to be more tinsel."
+	icon = 'icons/holidays/christmas/props.dmi'
+	icon_state = "tinsel_g"
+	layer = 5
+
+/obj/structure/sign/christmas/tinsel/red
+	name = "red tinsel"
+	icon_state = "tinsel_r"
+
+/obj/structure/sign/christmas/tinsel/yellow
+	name = "yellow tinsel"
+	icon_state = "tinsel_y"
+
+/obj/structure/sign/christmas/tinsel/white
+	name = "white tinsel"
+	icon_state = "tinsel_w"
