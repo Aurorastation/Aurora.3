@@ -64,7 +64,9 @@
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "cD" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	name = "Telecomms"
+	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "cW" = (
@@ -82,6 +84,18 @@
 /obj/effect/overmap/visitable/ship/landable/diona_rokz_ship_shuttle,
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
+"dN" = (
+/obj/machinery/door/airlock/diona/external{
+	name = "Telecomms"
+	},
+/obj/structure/plasticflaps/airtight,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship)
 "dW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -253,7 +267,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "qa" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	name = "Telecomms"
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "qc" = (
@@ -345,6 +361,12 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/shuttle/diona_rokz_ship_shuttle)
+"vo" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/turf/simulated/floor/plating{
+	temperature = 278
+	},
+/area/ship/diona_rokz_ship)
 "vI" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/diona/airless,
@@ -458,6 +480,15 @@
 "BQ" = (
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship)
+"BZ" = (
+/obj/machinery/telecomms/allinone/ship,
+/obj/structure/cable{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278
+	},
+/area/ship/diona_rokz_ship)
 "Cd" = (
 /obj/machinery/computer/ship/sensors{
 	icon_broken = "computer_diona";
@@ -503,6 +534,11 @@
 	name = "port airlock"
 	},
 /turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship)
+"Ec" = (
+/turf/simulated/floor/plating{
+	temperature = 278
+	},
 /area/ship/diona_rokz_ship)
 "Eh" = (
 /obj/structure/table/diona,
@@ -599,7 +635,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship)
 "Jd" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	name = "Telecomms"
+	},
 /obj/effect/landmark/entry_point/south{
 	name = "fore, bridge"
 	},
@@ -755,6 +793,16 @@
 /obj/item/storage/backpack/rucksack,
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship)
+"OU" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278
+	},
+/area/ship/diona_rokz_ship)
 "Pg" = (
 /obj/effect/landmark/entry_point/fore,
 /obj/machinery/atmospherics/unary/engine{
@@ -784,6 +832,17 @@
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
+"QX" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "1-2"
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/plating{
+	temperature = 278
+	},
+/area/ship/diona_rokz_ship)
 "QY" = (
 /obj/machinery/floodlight{
 	dir = 8
@@ -931,6 +990,16 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship)
+"VT" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278
+	},
 /area/ship/diona_rokz_ship)
 "VY" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -28329,8 +28398,8 @@ Wg
 Wg
 kB
 kB
-kB
-kB
+BQ
+BQ
 kB
 kB
 kB
@@ -28585,10 +28654,10 @@ Wg
 Wg
 Wg
 Wg
-kB
-kB
-kB
-kB
+Wg
+Wg
+BQ
+BQ
 kB
 kB
 kB
@@ -28843,9 +28912,9 @@ wN
 Wg
 Wg
 Wg
-kB
-kB
-kB
+Wg
+Wg
+BQ
 kB
 kB
 kB
@@ -29097,13 +29166,13 @@ gu
 LB
 aI
 aI
-Wg
-Wg
+dN
+QX
+OU
+Ec
 Wg
 BQ
-kB
-kB
-kB
+BQ
 kB
 kB
 kB
@@ -29356,11 +29425,11 @@ Rm
 aI
 Wg
 Wg
+VT
+Ec
 Wg
 BQ
-kB
-kB
-kB
+BQ
 kB
 kB
 kB
@@ -29613,11 +29682,11 @@ JI
 aI
 Wg
 Wg
+BZ
+vo
+Wg
 Wg
 BQ
-BQ
-kB
-kB
 kB
 kB
 kB
@@ -29871,10 +29940,10 @@ rV
 Wg
 Wg
 Wg
+Wg
+Wg
+Wg
 BQ
-BQ
-BQ
-kB
 kB
 kB
 kB
@@ -30130,8 +30199,8 @@ Wg
 Wg
 Wg
 Wg
+Wg
 BQ
-kB
 kB
 kB
 kB
@@ -30387,8 +30456,8 @@ Wg
 Wg
 Wg
 Wg
-kB
-kB
+Wg
+BQ
 kB
 kB
 kB
