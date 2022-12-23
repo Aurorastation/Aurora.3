@@ -294,35 +294,31 @@
 
 /obj/item/clothing/accessory/crucifix
 	name = "crucifix"
-	desc = "A small, cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
+	desc = "A small cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
 	icon = 'icons/clothing/accessories/crucifix.dmi'
-	icon_state = "golden_crucifix"
-	item_state = "golden_crucifix"
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/crucifix/golden_crucifix
-	name = "golden crucifix"
-	desc = "A small, golden cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
-	icon = 'icons/clothing/accessories/crucifix.dmi'
+/obj/item/clothing/accessory/crucifix/gold
+	name = "gold crucifix"
+	desc = "A small, gold cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
 	icon_state = "golden_crucifix"
 	item_state = "golden_crucifix"
 
-/obj/item/clothing/accessory/crucifix/golden_crucifix/saint_peter
-	name = "golden saint peter crucifix"
-	desc = "A small, silver cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symobol \
+/obj/item/clothing/accessory/crucifix/gold/saint_peter
+	name = "gold Saint Peter crucifix"
+	desc = "A small, gold cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symbol \
 	which has been re-purposed as a satanic symbol since the 21st century as well."
 	icon_state = "golden_crucifix_ud"
 	item_state = "golden_crucifix_ud"
 
-/obj/item/clothing/accessory/crucifix/silver_crucifix
+/obj/item/clothing/accessory/crucifix/silver
 	name = "silver crucifix"
 	desc = "A small, silver cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
-	icon = 'icons/clothing/accessories/crucifix.dmi'
 	icon_state = "silver_crucifix"
 	item_state = "silver_crucifix"
 
-/obj/item/clothing/accessory/crucifix/silver_crucifix/saint_peter
-	name = "silver saint peter crucifix"
+/obj/item/clothing/accessory/crucifix/silver/saint_peter
+	name = "silver Saint Peter crucifix"
 	desc = "A small, silver cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symobol \
 	which has been re-purposed as a satanic symbol since the 21st century as well."
 	icon_state = "silver_crucifix_ud"
