@@ -1,5 +1,8 @@
 /obj/item/organ/internal/parasite
 	name = "parasite"
+	icon = 'icons/mob/npc/alien.dmi'
+	icon_state = "burst_lie"
+	dead_icon = "bursted_lie"
 
 	organ_tag = "parasite"
 	var/stage = 1
@@ -25,7 +28,7 @@
 		return
 
 	if(stage < max_stage)
-		stage_ticker += infection_speed 
+		stage_ticker += infection_speed
 
 	if(stage_ticker >= stage*stage_interval)
 		stage = min(stage+1,max_stage)
@@ -87,8 +90,8 @@
 		set_light(1, l_color = "#E6E600")
 		if(prob(10))
 			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
-			owner.reagents.add_reagent(/singleton/reagent/toxin/phoron, 8)
-			owner.reagents.add_reagent(/singleton/reagent/kois, 5)
+			owner.reagents.add_reagent(/decl/reagent/toxin/phoron/kois, 8)
+			owner.reagents.add_reagent(/decl/reagent/kois, 5)
 
 	if(stage >= 4)
 		if(prob(10))
@@ -98,8 +101,8 @@
 			var/turf/T = get_turf(owner)
 
 			var/datum/reagents/R = new/datum/reagents(100)
-			R.add_reagent(/singleton/reagent/kois,10)
-			R.add_reagent(/singleton/reagent/toxin/phoron,10)
+			R.add_reagent(/decl/reagent/kois,10)
+			R.add_reagent(/decl/reagent/toxin/phoron/kois,10)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("koisspore")
 
 			S.attach(T)
@@ -154,7 +157,7 @@
 
 		if(prob(5))
 			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
-			owner.reagents.add_reagent(/singleton/reagent/kois/black, 4)
+			owner.reagents.add_reagent(/decl/reagent/kois/black, 4)
 
 		else if(prob(5))
 			to_chat(owner, "In your struggle, a part of you wishes for the spread to continue.")
@@ -199,7 +202,7 @@
 			var/turf/T = get_turf(owner)
 
 			var/datum/reagents/R = new/datum/reagents(20)
-			R.add_reagent(/singleton/reagent/kois/black,5)
+			R.add_reagent(/decl/reagent/kois/black,5)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("blackkois")
 
 			S.attach(T)
