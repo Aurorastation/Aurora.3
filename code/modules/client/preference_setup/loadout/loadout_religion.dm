@@ -39,15 +39,21 @@
 	path = /obj/item/clothing/accessory/rosary
 	slot = slot_tie
 
-/datum/gear/religion/golden_crucifix
-	display_name = "gold crucifix"
-	path = /obj/item/clothing/accessory/golden_crucifix
+/datum/gear/religion/crucifix
+	display_name = "crucifix selection"
+	description = "A selection of different crucifixes, commonly associated with Christianity."
+	path = /obj/item/clothing/accessory/crucifix
 	slot = slot_tie
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
 
-/datum/gear/religion/silver_crucifix
-	display_name = "silver crucifix"
-	path = /obj/item/clothing/accessory/silver_crucifix
-	slot = slot_tie
+/datum/gear/religion/New()
+	..()
+	var/list/crucifix = list()
+	crucifix["golden crucifix"] = /obj/item/clothing/accessory/crucifix/golden_crucifix
+	crucifix["silver crucifix"] = /obj/item/clothing/accessory/crucifix/silver_crucifix
+	crucifix["golden saint peter crucifix"] = /obj/item/clothing/accessory/crucifix/golden_crucifix/saint_peter
+	crucifix["silver saint peter crucifix"] = /obj/item/clothing/accessory/crucifix/silver_crucifix/saint_peter
+	gear_tweaks += new /datum/gear_tweak/path(crucifix)
 
 /datum/gear/religion/shintorobe
 	display_name = "shrine maiden robe"

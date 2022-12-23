@@ -292,23 +292,41 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
-/obj/item/clothing/accessory/golden_crucifix
+/obj/item/clothing/accessory/crucifix
+	name = "crucifix"
+	desc = "A small, cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
+	icon = 'icons/clothing/accessories/crucifix.dmi'
+	icon_state = "golden_crucifix"
+	item_state = "golden_crucifix"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/crucifix/golden_crucifix
 	name = "golden crucifix"
 	desc = "A small, golden cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
 	icon = 'icons/clothing/accessories/crucifix.dmi'
 	icon_state = "golden_crucifix"
 	item_state = "golden_crucifix"
-	contained_sprite = TRUE
-	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
 
-/obj/item/clothing/accessory/silver_crucifix
+/obj/item/clothing/accessory/crucifix/golden_crucifix/saint_peter
+	name = "golden saint peter crucifix"
+	desc = "A small, silver cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symobol \
+	which has been re-purposed as a satanic symbol since the 21st century as well."
+	icon_state = "golden_crucifix_ud"
+	item_state = "golden_crucifix_ud"
+
+/obj/item/clothing/accessory/crucifix/silver_crucifix
 	name = "silver crucifix"
 	desc = "A small, silver cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
 	icon = 'icons/clothing/accessories/crucifix.dmi'
 	icon_state = "silver_crucifix"
 	item_state = "silver_crucifix"
-	contained_sprite = TRUE
-	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
+
+/obj/item/clothing/accessory/crucifix/silver_crucifix/saint_peter
+	name = "silver saint peter crucifix"
+	desc = "A small, silver cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symobol \
+	which has been re-purposed as a satanic symbol since the 21st century as well."
+	icon_state = "silver_crucifix_ud"
+	item_state = "silver_crucifix_ud"
 
 /obj/item/clothing/accessory/assunzione
 	name = "luceian amulet"
