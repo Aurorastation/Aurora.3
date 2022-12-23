@@ -38,7 +38,7 @@
 	name = "mounted submachinegun"
 	desc = "An exosuit-mounted automatic weapon. Handle with care."
 	icon_state = "mecha_ballistic"
-	holding_type = /obj/item/gun/energy/mountedsmg
+	holding_type = /obj/item/gun/energy/mountedsmg/mech
 
 /obj/item/mecha_equipment/mounted_system/combat/pulse
 	name = "heavy pulse cannon"
@@ -76,11 +76,18 @@
 	self_recharge = TRUE
 	has_safety = FALSE
 
+/obj/item/gun/energy/mountedsmg/mech
+	max_shots = 30
+	firemodes = list(
+		list(mode_name = "semi-automatic", burst = 1, fire_delay = 0,    move_delay = null, burst_accuracy = null,                dispersion=list(0)),
+		list(mode_name = "3-round burst",  burst = 3, fire_delay = null, move_delay = 4,    burst_accuracy = list(0,-1,-1),       dispersion=list(0, 15, 15)),
+	)
+
 /obj/item/gun/energy/laser/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
-	projectile_type = /obj/item/projectile/beam/midlaser/mech
+	projectile_type = /obj/item/projectile/beam/heavylaser/mech
 
 /obj/item/gun/energy/pulse/mounted/mech
 	use_external_power = TRUE
