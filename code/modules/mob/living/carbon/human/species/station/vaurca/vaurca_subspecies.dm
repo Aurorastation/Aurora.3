@@ -189,7 +189,7 @@
 	default_h_style = "Bald"
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.mutations.Add(HULK)
+	H.mutations |= HULK
 	return ..()
 
 /datum/species/bug/type_e

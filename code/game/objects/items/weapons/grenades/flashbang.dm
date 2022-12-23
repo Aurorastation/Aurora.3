@@ -43,7 +43,7 @@
 			var/mob/living/carbon/human/H = M
 			if(H.protected_from_sound())
 				ear_safety += 2
-			if(HULK in H.mutations)
+			if(HAS_FLAG(H.mutations, HULK))
 				ear_safety += 1
 			if(istype(H.head, /obj/item/clothing/head/helmet))
 				ear_safety += 1
@@ -73,7 +73,7 @@
 				if (H.is_listening())
 					if (H.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
 						H.Weaken(5)
-					else 
+					else
 						H.Weaken(2)
 
 	else if(get_dist(M, T) <= 5)

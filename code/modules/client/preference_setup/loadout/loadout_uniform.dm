@@ -5,6 +5,10 @@
 	slot = slot_w_uniform
 	sort_category = "Uniforms and Casual Dress"
 
+/datum/gear/uniform/New()
+	..()
+	gear_tweaks += list(gear_tweak_uniform_rolled_state)
+
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
@@ -394,3 +398,63 @@
 	fetil_dress["fetil dress, red flairs"] = /obj/item/clothing/under/antillean
 	fetil_dress["fetil dress, gold flairs"] = /obj/item/clothing/under/antillean/goldflair
 	gear_tweaks += new /datum/gear_tweak/path(fetil_dress)
+
+/*
+	Uniform Rolled State Adjustment
+*/
+
+#define UNIFORM_UNROLLED "Unrolled"
+#define UNIFORM_ROLLED_SLEEVES "Rolled Sleeves"
+#define UNIFORM_ROLLED_DOWN "Rolled Down"
+
+var/datum/gear_tweak/uniform_rolled_state/gear_tweak_uniform_rolled_state = new()
+
+/datum/gear_tweak/uniform_rolled_state/get_contents(var/metadata)
+	return "Rolled State: [metadata]"
+
+/datum/gear_tweak/uniform_rolled_state/get_default()
+	return UNIFORM_UNROLLED
+
+/datum/gear_tweak/uniform_rolled_state/get_metadata(var/user, var/metadata, var/gear_path)
+	var/list/possible_states = list(UNIFORM_UNROLLED)
+	var/obj/item/clothing/under/uniform = gear_path
+
+	var/rolled_sleeves_state = initial(uniform.rolled_sleeves)
+	var/rolled_down_state = initial(uniform.rolled_down)
+
+	var/icon/under_icon = INV_W_UNIFORM_DEF_ICON
+	if(rolled_sleeves_state == -1 || rolled_down_state == -1)
+		if(initial(uniform.contained_sprite))
+			under_icon = initial(uniform.icon)
+		else if(initial(uniform.icon_override))
+			under_icon = initial(uniform.icon_override)
+
+	if(rolled_sleeves_state != -1 || ("[initial(uniform.icon_state)]_r[initial(uniform.contained_sprite) ? "_un" : "_s"]" in icon_states(under_icon)))
+		possible_states += UNIFORM_ROLLED_SLEEVES
+
+	if(rolled_down_state != -1 || ("[initial(uniform.icon_state)]_d[initial(uniform.contained_sprite) ? "_un" : "_s"]" in icon_states(under_icon)))
+		possible_states += UNIFORM_ROLLED_DOWN
+
+	var/input = input(user, "Choose in which state you want your uniform to spawn in.", "Uniform State", metadata) as null|anything in possible_states
+	if(!input)
+		input = metadata
+	return input
+
+
+/datum/gear_tweak/uniform_rolled_state/tweak_item(var/obj/item/clothing/under/uniform, var/metadata, var/title, var/gear_path)
+	if(!istype(uniform))
+		return
+
+	if(uniform.rolled_sleeves != -1)
+		uniform.rolled_sleeves = metadata == UNIFORM_ROLLED_SLEEVES ? TRUE : FALSE
+	if(uniform.rolled_down != -1)
+		uniform.rolled_down = metadata == UNIFORM_ROLLED_DOWN ? TRUE : FALSE
+
+	if(uniform.rolled_sleeves == 1)
+		uniform.handle_rollsleeves()
+	if(uniform.rolled_down == 1)
+		uniform.handle_rollsuit()
+
+#undef UNIFORM_UNROLLED
+#undef UNIFORM_ROLLED_SLEEVES
+#undef UNIFORM_ROLLED_DOWN

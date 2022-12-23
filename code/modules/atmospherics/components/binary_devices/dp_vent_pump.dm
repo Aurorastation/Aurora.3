@@ -112,6 +112,8 @@
 		broadcast_status()
 		broadcast_status_next_process = FALSE
 
+	if(!loc) return FALSE
+
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	var/power_draw = -1

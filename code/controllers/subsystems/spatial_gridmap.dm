@@ -356,9 +356,6 @@
 ///find the spatial map cell that target belongs to, then add target's important_recusive_contents to it.
 ///make sure to provide the turf new_target is "in"
 /datum/controller/subsystem/spatial_grid/proc/enter_cell(atom/movable/new_target, turf/target_turf)
-	if(init_state != SS_INITSTATE_DONE)
-		return
-
 	if(QDELETED(new_target))
 		CRASH("qdeleted or null target trying to enter the spatial grid!")
 

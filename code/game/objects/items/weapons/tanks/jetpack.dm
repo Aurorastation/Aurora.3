@@ -38,20 +38,12 @@
 	gauge_icon = null
 	w_class = ITEMSIZE_LARGE
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
-	var/datum/effect_system/ion_trail/ion_trail
+	var/ion_trail_type = /obj/effect/effect/ion_trails
 	var/on = 0.0
 	var/stabilization_on = 0
 	var/warned = 0
 	var/volume_rate = 500              //Needed for borg jetpack transfer
 	action_button_name = "Toggle Jetpack"
-
-/obj/item/tank/jetpack/Initialize()
-	. = ..()
-	ion_trail = new(src)
-
-/obj/item/tank/jetpack/Destroy()
-	QDEL_NULL(ion_trail)
-	return ..()
 
 /obj/item/tank/jetpack/examine(mob/user)
 	. = ..()
@@ -81,10 +73,8 @@
 	toggle_rockets_stabilization(user, message_mobs)
 	if(on)
 		icon_state = "[icon_state]-on"
-		ion_trail.start()
 	else
 		icon_state = initial(icon_state)
-		ion_trail.stop()
 
 	user.update_inv_back()
 	user.update_action_buttons()
@@ -95,17 +85,16 @@
 
 /obj/item/tank/jetpack/proc/allow_thrust(num, mob/living/user as mob)
 	if(!(src.on))
-		return 0
+		return FALSE
 
 	if (stabilization_on)
 		num *= 2//gas usage is doubled when stabilising. one burst to start moving, and one to stop
 
 	if((num < 0.005 || src.air_contents.total_moles < num))
-		src.ion_trail.stop()
-		return 0
+		return FALSE
 
 	if (src.air_contents.total_moles < 3 && !warned)
-		warned = 1
+		warned = TRUE
 		playsound(user, 'sound/effects/alert.ogg', 50, 1)
 		to_chat(user, "<span class='danger'>The meter on \the [src] indicates you are almost out of gas and beeps loudly!</span>")
 		addtimer(CALLBACK(src, .proc/reset_warning), 600)
@@ -114,7 +103,12 @@
 
 	var/allgases = G.gas[GAS_CO2] + G.gas[GAS_NITROGEN] + G.gas[GAS_OXYGEN] + G.gas[GAS_PHORON] + G.gas[GAS_HYDROGEN]
 	if(allgases >= 0.005)
-		return 1
+		var/obj/effect/effect/ion_trails/ion_trail = new(user.loc)
+		flick("ion_fade", ion_trail)
+		ion_trail.icon_state = "blank"
+		animate(ion_trail, alpha = 0, time = 18, easing = SINE_EASING | EASE_IN)
+		QDEL_IN(ion_trail, 20)
+		return TRUE
 
 	qdel(G)
 
@@ -167,10 +161,8 @@
 	on = !on
 	if(on)
 		icon_state = "[icon_state]-on"
-		ion_trail.start()
 	else
 		icon_state = initial(icon_state)
-		ion_trail.stop()
 
 	to_chat(usr, SPAN_NOTICE("You toggle the thrusters [on ? "on" : "off"]."))
 	stabilization_on = !stabilization_on
@@ -194,21 +186,25 @@
 /obj/item/tank/jetpack/rig/allow_thrust(num, mob/living/user as mob)
 
 	if(!(src.on))
-		return 0
+		return FALSE
 
 	if(!istype(holder) || !holder.air_supply)
-		return 0
+		return FALSE
 
 	var/obj/item/tank/pressure_vessel = holder.air_supply
 
 	if((num < 0.005 || pressure_vessel.air_contents.total_moles < num))
-		src.ion_trail.stop()
-		return 0
+		return FALSE
 
 	var/datum/gas_mixture/G = pressure_vessel.air_contents.remove(num)
 
 	var/allgases = G.gas[GAS_CO2] + G.gas[GAS_NITROGEN] + G.gas[GAS_OXYGEN] + G.gas[GAS_PHORON] + G.gas[GAS_HYDROGEN]
 	if(allgases >= 0.005)
-		return 1
+		var/obj/effect/effect/ion_trails/ion_trail = new(user.loc)
+		flick("ion_fade", ion_trail)
+		ion_trail.icon_state = "blank"
+		animate(ion_trail, alpha = 0, time = 18, easing = SINE_EASING | EASE_IN)
+		QDEL_IN(ion_trail, 20)
+		return TRUE
+
 	qdel(G)
-	return

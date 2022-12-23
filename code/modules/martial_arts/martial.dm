@@ -104,7 +104,7 @@
 	real_damage *= D.damage_multiplier
 	rand_damage *= D.damage_multiplier
 
-	if(HULK in A.mutations)
+	if(HAS_FLAG(A.mutations, HULK))
 		real_damage *= 2 // Hulks do twice the damage
 		rand_damage *= 2
 	if(A.is_berserk())
