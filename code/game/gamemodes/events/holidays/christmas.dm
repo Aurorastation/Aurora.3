@@ -61,7 +61,7 @@
 /obj/item/a_gift
 	name = "gift"
 	desc = "PRESENTS!!!! eek!"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "gift1"
 	item_state = "gift1"
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
