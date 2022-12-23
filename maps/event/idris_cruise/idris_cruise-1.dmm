@@ -380,6 +380,7 @@
 	icon_state = "open";
 	opacity = 0
 	},
+/obj/structure/sign/christmas/garland,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -630,6 +631,11 @@
 	icon_state = "desert"
 	},
 /area/cruise/jungle)
+"avi" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/turf/unsimulated/floor/plating,
+/area/cruise/pool/sauna1)
 "avp" = (
 /obj/structure/table/standard,
 /obj/item/hand_tele,
@@ -677,6 +683,7 @@
 /obj/machinery/door/airlock{
 	name = "Aft Washroom"
 	},
+/obj/structure/sign/christmas/tinsel/white,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor"
 	},
@@ -1853,6 +1860,11 @@
 	icon_state = "dark"
 	},
 /area/cruise/fore)
+"bjC" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/turf/unsimulated/floor/plating,
+/area/cruise/medical)
 "bkh" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1934,6 +1946,13 @@
 	icon_state = "dark2"
 	},
 /area/cruise/aft)
+"bmq" = (
+/obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel/red,
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/cruise/pool)
 "bny" = (
 /obj/structure/closet/crate/medical,
 /obj/item/roller,
@@ -2157,6 +2176,11 @@
 	name = "lush grass"
 	},
 /area/cruise/jungle)
+"bsi" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_3,
+/turf/unsimulated/floor/plating,
+/area/cruise/fore)
 "bsm" = (
 /obj/machinery/door/airlock{
 	id_tag = "c3";
@@ -2215,6 +2239,8 @@
 /area/cruise/main_bar)
 "bvl" = (
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/garland,
+/obj/structure/sign/christmas/tinsel/red,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -2555,6 +2581,11 @@
 	icon_state = "dark2"
 	},
 /area/cruise/security)
+"bKY" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_3,
+/turf/unsimulated/floor/plating,
+/area/cruise/pool/sauna2)
 "bLx" = (
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -2818,6 +2849,16 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/escort)
+"bYt" = (
+/obj/machinery/door/airlock/glass{
+	name = "Main Bar"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel/red,
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/cruise/main_bar/aft)
 "bZF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/padded/red,
@@ -3258,6 +3299,7 @@
 	name = "Cafe"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/garland,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -3808,6 +3850,11 @@
 	name = "lush grass"
 	},
 /area/cruise/jungle)
+"cLq" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/turf/unsimulated/floor/plating,
+/area/cruise/centerline)
 "cLz" = (
 /obj/item/flame/candle,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3885,6 +3932,7 @@
 	icon_state = "open";
 	opacity = 0
 	},
+/obj/structure/sign/christmas/garland,
 /turf/unsimulated/floor{
 	icon_state = "bar"
 	},
@@ -3973,6 +4021,12 @@
 	icon_state = "carpet13-5"
 	},
 /area/cruise/security)
+"cQz" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/obj/structure/sign/christmas/snowflakes/alt_3,
+/turf/unsimulated/floor/plating,
+/area/cruise/pool/sauna1)
 "cQI" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -4009,6 +4063,7 @@
 	name = "Centerline Entertainment Suites"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/garland,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -4112,6 +4167,11 @@
 	icon_state = "lino_grey"
 	},
 /area/cruise/arcade)
+"cVx" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/turf/unsimulated/floor/plating,
+/area/cruise/aft)
 "cVN" = (
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
@@ -4939,6 +4999,7 @@
 	name = "Beach"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel/red,
 /turf/unsimulated/floor{
 	icon_state = "bar"
 	},
@@ -5447,6 +5508,11 @@
 	icon_state = "dark"
 	},
 /area/cruise/aft_p)
+"dZa" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/turf/unsimulated/floor/plating,
+/area/cruise/arcade)
 "dZt" = (
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/beach/sand{
@@ -5526,6 +5592,11 @@
 	icon_state = "wood_cherry"
 	},
 /area/cruise/dining_hall)
+"efZ" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt,
+/turf/unsimulated/floor/plating,
+/area/cruise/jungle)
 "egb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -5652,6 +5723,11 @@
 	icon_state = "freezerfloor"
 	},
 /area/cruise/beach)
+"ekI" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt,
+/turf/unsimulated/floor/plating,
+/area/cruise/main_bar/aft)
 "ekS" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced/crescent,
@@ -5737,6 +5813,7 @@
 	name = "Centerline Entertainment Suites"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel/red,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -5747,6 +5824,10 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/centerline)
+"eov" = (
+/obj/structure/sign/christmas/snowman/hat,
+/turf/simulated/wall/shuttle/idris/cardinal,
+/area/cruise/main_bar)
 "eoJ" = (
 /obj/effect/decal/fake_object{
 	desc = "A descriptive sign.";
@@ -6449,6 +6530,10 @@
 	name = "gloomy grass"
 	},
 /area/cruise/virtual_reality)
+"eKy" = (
+/obj/structure/sign/christmas/snowman,
+/turf/simulated/wall/shuttle/idris/cardinal,
+/area/cruise/main_bar/aft)
 "eLd" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
@@ -6918,6 +7003,16 @@
 	icon_state = "platebot"
 	},
 /area/template_noop)
+"fdQ" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Medical Care Unit"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel,
+/turf/unsimulated/floor{
+	icon_state = "new_white"
+	},
+/area/cruise/medical)
 "feC" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/unsimulated/floor{
@@ -7071,6 +7166,16 @@
 "fja" = (
 /turf/simulated/floor/tiled/ramp,
 /area/cruise/main_bar)
+"fjE" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass{
+	name = "Fore Midship Hallway"
+	},
+/obj/structure/sign/christmas/tinsel/yellow,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/cruise/central)
 "fjG" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -7438,7 +7543,7 @@
 	name = "Main Bar"
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/sign/christmas/wreath,
+/obj/structure/sign/christmas/tinsel/yellow,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -7956,6 +8061,7 @@
 "fRG" = (
 /obj/item/clothing/suit/snowman_costume,
 /obj/item/clothing/head/snowman_hat,
+/obj/item/toy/balloon/candycane,
 /turf/unsimulated/floor/xmas,
 /area/cruise/centerline)
 "fRP" = (
@@ -8242,6 +8348,11 @@
 	icon_state = "dark"
 	},
 /area/cruise/central)
+"gby" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowman,
+/turf/unsimulated/floor/plating,
+/area/cruise/centerline)
 "gbC" = (
 /obj/structure/sink{
 	dir = 4;
@@ -8938,6 +9049,11 @@
 	icon_state = "carpet5-1"
 	},
 /area/cruise/security)
+"gwp" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/turf/unsimulated/floor/plating,
+/area/cruise/fore_p)
 "gxb" = (
 /obj/item/hullbeacon/red,
 /turf/unsimulated/floor{
@@ -8954,6 +9070,17 @@
 	name = "gloomy grass"
 	},
 /area/cruise/virtual_reality)
+"gyM" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass{
+	name = "Fore Midship Hallway"
+	},
+/obj/structure/sign/christmas/wreath,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/cruise/central)
 "gyN" = (
 /obj/structure/lattice,
 /obj/effect/decal/fake_object{
@@ -10933,6 +11060,7 @@
 	name = "Pool"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -11938,6 +12066,11 @@
 	icon_state = "floor7"
 	},
 /area/cruise/arcade)
+"iPE" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowman/hat,
+/turf/unsimulated/floor/plating,
+/area/cruise/centerline)
 "iQL" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/door/firedoor,
@@ -12262,6 +12395,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Fore Midship Hallway"
 	},
+/obj/structure/sign/christmas/tinsel/red,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -12740,6 +12874,11 @@
 	dir = 1
 	},
 /area/cruise/jungle)
+"jsz" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes,
+/turf/unsimulated/floor/plating,
+/area/cruise/arcade)
 "jsG" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced/crescent,
@@ -13154,6 +13293,11 @@
 	icon_state = "floor7"
 	},
 /area/cruise/aft)
+"jNk" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt,
+/turf/unsimulated/floor/plating,
+/area/cruise/fore)
 "jNT" = (
 /obj/machinery/light{
 	dir = 1
@@ -13236,6 +13380,11 @@
 	icon_state = "wood"
 	},
 /area/cruise/pool/sauna1)
+"jRf" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes,
+/turf/unsimulated/floor/plating,
+/area/cruise/fore_s)
 "jRv" = (
 /obj/structure/flora/pottedplant/random,
 /obj/structure/sign/flag/idris{
@@ -13336,6 +13485,10 @@
 	icon_state = "dark2"
 	},
 /area/cruise/escort)
+"jVv" = (
+/obj/structure/sign/christmas/garland,
+/turf/simulated/wall/shuttle/idris/cardinal,
+/area/cruise/aft)
 "jVy" = (
 /turf/unsimulated/floor{
 	dir = 8;
@@ -14387,6 +14540,11 @@
 	dir = 4
 	},
 /area/cruise/main_bar)
+"kJI" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes,
+/turf/unsimulated/floor/plating,
+/area/cruise/centerline)
 "kKJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -14899,6 +15057,11 @@
 	icon_state = "bar"
 	},
 /area/cruise/beach)
+"ldH" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowman,
+/turf/unsimulated/floor/plating,
+/area/cruise/main_bar/aft)
 "leB" = (
 /turf/unsimulated/floor{
 	icon_state = "wood-broken3"
@@ -15112,10 +15275,16 @@
 /obj/machinery/door/airlock{
 	name = "VR Suite"
 	},
+/obj/structure/sign/christmas/garland,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
 /area/cruise/arcade)
+"lmV" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_3,
+/turf/unsimulated/floor/plating,
+/area/cruise/pool/sauna3)
 "lnT" = (
 /obj/structure/railing/mapped,
 /turf/unsimulated/beach/coastline{
@@ -15966,6 +16135,11 @@
 	icon_state = "wood-broken3"
 	},
 /area/cruise/virtual_reality)
+"lOF" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes,
+/turf/unsimulated/floor/plating,
+/area/cruise/main_bar/aft)
 "lOR" = (
 /obj/structure/sign/christmas/lights,
 /turf/unsimulated/floor{
@@ -16082,6 +16256,10 @@
 	icon_state = "carpetside"
 	},
 /area/cruise/escort)
+"lRU" = (
+/obj/structure/sign/christmas/snowman/hat,
+/turf/simulated/wall/shuttle/idris/cardinal,
+/area/cruise/main_bar/aft)
 "lSq" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -16267,6 +16445,13 @@
 	icon_state = "floor7"
 	},
 /area/cruise/pool)
+"lYD" = (
+/obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel/yellow,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
+/area/cruise/fore_s)
 "lYX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -16502,6 +16687,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Starboard Primary Hall - Midship"
 	},
+/obj/structure/sign/christmas/tinsel,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -16571,6 +16757,11 @@
 /obj/item/xmasgift/medium,
 /turf/unsimulated/floor/xmas,
 /area/cruise/centerline)
+"mly" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/turf/unsimulated/floor/plating,
+/area/cruise/pool)
 "mlC" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
@@ -16672,6 +16863,11 @@
 	icon_state = "new_white"
 	},
 /area/cruise/virtual_reality)
+"mqX" = (
+/obj/item/toy/balloon/candycane,
+/obj/item/toy/balloon/candycane,
+/turf/unsimulated/floor/xmas,
+/area/cruise/centerline)
 "mrn" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/stone/marble,
@@ -16761,6 +16957,11 @@
 	icon_state = "dark2"
 	},
 /area/cruise/centerline)
+"mtT" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt,
+/turf/unsimulated/floor/plating,
+/area/cruise/aft)
 "mub" = (
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Passenger"
@@ -17149,6 +17350,10 @@
 	icon_state = "tiles_small"
 	},
 /area/cruise/central)
+"mJT" = (
+/obj/structure/sign/christmas/garland,
+/turf/simulated/wall/shuttle/idris/cardinal,
+/area/cruise/jungle)
 "mKn" = (
 /obj/machinery/atm{
 	pixel_x = 28;
@@ -17202,6 +17407,11 @@
 	},
 /turf/simulated/floor/tiled/ramp,
 /area/cruise/arcade)
+"mNe" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt,
+/turf/unsimulated/floor/plating,
+/area/cruise/medical)
 "mNq" = (
 /obj/structure/table/rack,
 /obj/item/stack/material/glass/reinforced/full,
@@ -17392,6 +17602,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/structure/sign/christmas/garland,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -17629,6 +17840,13 @@
 	name = "lush grass"
 	},
 /area/cruise/jungle)
+"mYw" = (
+/obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel/yellow,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/centerline)
 "mZn" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/blue{
@@ -17898,6 +18116,7 @@
 	name = "Emergency Supplies Closet"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor7"
 	},
@@ -17926,6 +18145,7 @@
 /area/cruise/escort)
 "npf" = (
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel/yellow,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -20294,9 +20514,6 @@
 "pin" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/sign/christmas/lights{
-	dir = 1
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -21298,6 +21515,10 @@
 	icon_state = "dark2"
 	},
 /area/cruise/fore_p)
+"pVP" = (
+/obj/structure/sign/christmas/snowman,
+/turf/simulated/wall/shuttle/idris/cardinal,
+/area/cruise/fore_s)
 "pWh" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/lava/red,
@@ -21327,6 +21548,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/toy/balloon/xmastree,
+/obj/item/toy/balloon/xmastree,
+/obj/item/toy/balloon/xmastree,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -21403,6 +21627,11 @@
 	icon_state = "dark2"
 	},
 /area/cruise/pool)
+"qaO" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_3,
+/turf/unsimulated/floor/plating,
+/area/cruise/medical)
 "qbd" = (
 /obj/structure/window/reinforced/crescent,
 /turf/unsimulated/floor{
@@ -22454,6 +22683,11 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"qTD" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowman/hat,
+/turf/unsimulated/floor/plating,
+/area/cruise/main_bar/aft)
 "qUf" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -22706,6 +22940,7 @@
 	name = "Public Backup Custodial Closet"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/garland,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -23555,6 +23790,18 @@
 	icon_state = "desert"
 	},
 /area/cruise/beach)
+"rPD" = (
+/obj/structure/curtain/black{
+	icon_state = "open";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/garland,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/cruise/main_bar/aft)
 "rQy" = (
 /obj/structure/sink{
 	dir = 8;
@@ -23625,6 +23872,11 @@
 	},
 /turf/simulated/floor/tiled/ramp,
 /area/cruise/centerline)
+"rUJ" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_3,
+/turf/unsimulated/floor/plating,
+/area/cruise/main_bar)
 "rUT" = (
 /obj/structure/sign/christmas/lights{
 	dir = 4
@@ -23914,6 +24166,8 @@
 /obj/structure/table/wood,
 /obj/machinery/recharger,
 /obj/structure/railing/mapped,
+/obj/item/toy/balloon/candycane,
+/obj/item/toy/balloon/xmastree,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -24390,6 +24644,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/sign/christmas/garland,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -24583,6 +24838,8 @@
 	name = "Main Deck Hydroponics"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/garland,
+/obj/structure/sign/christmas/tinsel,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -25019,6 +25276,11 @@
 	dir = 4
 	},
 /area/cruise/hangar)
+"sZc" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_3,
+/turf/unsimulated/floor/plating,
+/area/cruise/fore_p)
 "sZf" = (
 /turf/unsimulated/floor{
 	icon_state = "platebot"
@@ -25402,6 +25664,11 @@
 	icon_state = "wood"
 	},
 /area/cruise/virtual_reality)
+"tmX" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes,
+/turf/unsimulated/floor/plating,
+/area/cruise/pool)
 "tne" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
@@ -25467,6 +25734,11 @@
 	name = "lush grass"
 	},
 /area/cruise/jungle)
+"tqp" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/turf/unsimulated/floor/plating,
+/area/cruise/pool/sauna3)
 "tqr" = (
 /obj/item/clothing/suit/armor/tactical,
 /obj/item/clothing/suit/armor/tactical,
@@ -25659,6 +25931,11 @@
 	icon_state = "wood"
 	},
 /area/cruise/pool/sauna1)
+"tyw" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_3,
+/turf/unsimulated/floor/plating,
+/area/cruise/main_bar/aft)
 "tyD" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/roller,
@@ -25881,6 +26158,11 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/cruise/arcade)
+"tEp" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes,
+/turf/unsimulated/floor/plating,
+/area/cruise/fore)
 "tEy" = (
 /obj/structure/closet/firecloset/full,
 /turf/unsimulated/floor{
@@ -26330,6 +26612,7 @@
 	name = "Reading Room"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel/white,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -26610,6 +26893,11 @@
 	icon_state = "wood_light"
 	},
 /area/cruise/virtual_reality)
+"ucW" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_3,
+/turf/unsimulated/floor/plating,
+/area/cruise/arcade)
 "udp" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/unsimulated/floor/plating,
@@ -26816,6 +27104,7 @@
 	name = "Garden"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel/red,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -27054,6 +27343,7 @@
 /area/cruise/arcade)
 "uti" = (
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/garland,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -27090,6 +27380,13 @@
 	icon_state = "platebot"
 	},
 /area/cruise/pool/sauna1)
+"uuh" = (
+/obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel/red,
+/turf/unsimulated/floor{
+	icon_state = "new_white"
+	},
+/area/cruise/medical)
 "uum" = (
 /obj/machinery/shieldgen,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -27154,9 +27451,6 @@
 /obj/item/soap/golden_soap,
 /obj/item/towel,
 /obj/item/storage/box/fancy/candle_box,
-/obj/structure/sign/christmas/lights{
-	dir = 1
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -27413,6 +27707,11 @@
 /obj/machinery/light/small,
 /turf/unsimulated/floor/plating,
 /area/cruise/arcade)
+"uFe" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_3,
+/turf/unsimulated/floor/plating,
+/area/cruise/pool/sauna1)
 "uFf" = (
 /obj/structure/bed/stool/padded/red,
 /obj/structure/window/reinforced{
@@ -27547,6 +27846,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Fore Midship Hallway"
 	},
+/obj/structure/sign/christmas/tinsel,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -27578,6 +27878,8 @@
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
 /obj/item/toy/xmas_cracker,
+/obj/item/toy/balloon/candycane,
+/obj/item/toy/balloon/candycane,
 /turf/unsimulated/floor{
 	icon_state = "wood_willow"
 	},
@@ -27822,6 +28124,7 @@
 	name = "Aft Washroom"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel/red,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -28188,6 +28491,11 @@
 "vlW" = (
 /turf/simulated/wall/shuttle/idris/cardinal,
 /area/cruise/medical)
+"vlX" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/turf/unsimulated/floor/plating,
+/area/cruise/jungle)
 "vmx" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -28207,6 +28515,11 @@
 	icon_state = "dark2"
 	},
 /area/cruise/escort)
+"vnt" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/turf/unsimulated/floor/plating,
+/area/cruise/pool/sauna2)
 "vnA" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -28749,6 +29062,16 @@
 	icon_state = "new_white"
 	},
 /area/cruise/virtual_reality)
+"vPg" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock{
+	name = "Aft Washroom"
+	},
+/obj/structure/sign/christmas/tinsel,
+/turf/unsimulated/floor{
+	icon_state = "freezerfloor"
+	},
+/area/cruise/washroom_aft)
 "vPo" = (
 /obj/machinery/light{
 	dir = 8
@@ -29229,6 +29552,11 @@
 	name = "dirt"
 	},
 /area/cruise/jungle)
+"wdk" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_3,
+/turf/unsimulated/floor/plating,
+/area/cruise/fore_s)
 "wdG" = (
 /turf/unsimulated/beach/coastline{
 	dir = 9;
@@ -29506,6 +29834,11 @@
 	icon_state = "asteroidfloor"
 	},
 /area/cruise/beach)
+"wjP" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_3,
+/turf/unsimulated/floor/plating,
+/area/cruise/aft)
 "wkx" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Teleporter Room";
@@ -29581,6 +29914,11 @@
 	icon_state = "desert"
 	},
 /area/cruise/beach)
+"woD" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt,
+/turf/unsimulated/floor/plating,
+/area/cruise/centerline)
 "wpY" = (
 /obj/effect/decal/fake_object{
 	desc = "A descriptive sign.";
@@ -29661,6 +29999,10 @@
 	icon_state = "grass_stalk"
 	},
 /area/cruise/medical)
+"wvN" = (
+/obj/structure/sign/christmas/garland,
+/turf/simulated/wall/shuttle/idris/cardinal,
+/area/cruise/main_bar/aft)
 "wwj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -29686,6 +30028,13 @@
 	icon_state = "new_white"
 	},
 /area/cruise/medical)
+"wxF" = (
+/obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/tinsel/yellow,
+/turf/unsimulated/floor{
+	icon_state = "bar"
+	},
+/area/cruise/beach)
 "wyb" = (
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
@@ -30042,6 +30391,11 @@
 	icon_state = "bcircuit"
 	},
 /area/cruise/arcade)
+"wKj" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_3,
+/turf/unsimulated/floor/plating,
+/area/cruise/centerline)
 "wKt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -30290,6 +30644,11 @@
 	icon_state = "wood"
 	},
 /area/cruise/pool/sauna1)
+"wUH" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/turf/unsimulated/floor/plating,
+/area/cruise/fore_s)
 "wVG" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -30343,6 +30702,11 @@
 	icon_state = "panelscorched"
 	},
 /area/cruise/arcade)
+"wXX" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/turf/unsimulated/floor/plating,
+/area/cruise/main_bar/aft)
 "wXY" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -31128,6 +31492,11 @@
 	icon_state = "tiles_small"
 	},
 /area/cruise/aft)
+"xAy" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes,
+/turf/unsimulated/floor/plating,
+/area/cruise/aft)
 "xAz" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
@@ -31405,6 +31774,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/garland,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -31435,6 +31805,11 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
+"xII" = (
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/structure/sign/christmas/snowflakes/alt_2,
+/turf/unsimulated/floor/plating,
+/area/cruise/fore)
 "xJk" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -53839,9 +54214,9 @@ oSt
 oSt
 cPr
 cPr
+avi
 cul
-cul
-cul
+uFe
 cPr
 cPr
 cPr
@@ -53859,7 +54234,7 @@ fgt
 fgt
 fgt
 fgt
-uJc
+mly
 uJc
 fgt
 fgt
@@ -53868,13 +54243,13 @@ aoL
 fgt
 fgt
 uJc
+tmX
 uJc
-uJc
-uJc
+mly
 fgt
 fgt
 uJc
-uJc
+mly
 rdY
 lIu
 oSt
@@ -54120,8 +54495,8 @@ cqO
 aGo
 oJY
 fgt
-uJc
-uJc
+tmX
+mly
 fgt
 scA
 kQj
@@ -54132,7 +54507,7 @@ iXb
 kYD
 flk
 uJc
-uJc
+mly
 oUA
 oSt
 oSt
@@ -54351,7 +54726,7 @@ oSt
 oSt
 veA
 tsv
-cul
+uFe
 bcl
 qMF
 qMF
@@ -54608,7 +54983,7 @@ oSt
 oSt
 utV
 hLn
-cul
+cQz
 ijF
 qMF
 qMF
@@ -54903,7 +55278,7 @@ ohc
 srw
 srw
 ubo
-uJc
+tmX
 rdY
 lIu
 oSt
@@ -55417,7 +55792,7 @@ mzD
 mzD
 srw
 rpv
-uJc
+mly
 kDO
 lIu
 oSt
@@ -55893,7 +56268,7 @@ oSt
 oSt
 veA
 tsv
-lHn
+bKY
 aaw
 uaU
 uaU
@@ -55931,7 +56306,7 @@ mzD
 vnA
 srw
 rpv
-uJc
+mly
 oUA
 lIu
 oSt
@@ -56188,7 +56563,7 @@ srw
 srw
 srw
 rpv
-uJc
+mly
 rdY
 lIu
 oSt
@@ -56407,7 +56782,7 @@ oSt
 oSt
 veA
 hLn
-lHn
+vnt
 arl
 uaU
 uaU
@@ -57435,7 +57810,7 @@ oSt
 oSt
 pvP
 tsv
-nxF
+lmV
 pXi
 xzN
 xzN
@@ -57692,7 +58067,7 @@ jUO
 gAS
 bwx
 hLn
-nxF
+tqp
 aDi
 xzN
 xzN
@@ -57932,10 +58307,10 @@ uPJ
 wfr
 wfr
 wfr
-uPJ
+sZc
 tlW
 dXN
-uPJ
+gwp
 wfr
 rqB
 gjs
@@ -58682,7 +59057,7 @@ kev
 tdJ
 sUg
 sUg
-ext
+wxF
 xAM
 ijb
 xAM
@@ -59009,7 +59384,7 @@ xdd
 xdd
 xdd
 uQb
-cGI
+bmq
 nYS
 nYS
 hlV
@@ -60558,7 +60933,7 @@ uBc
 iOr
 iOr
 lQy
-lQy
+wjP
 lQy
 iOr
 div
@@ -60566,9 +60941,9 @@ tUT
 kzw
 iOr
 lQy
+mtT
 lQy
-lQy
-lQy
+xAy
 iOr
 tLR
 xDt
@@ -61343,7 +61718,7 @@ qDN
 pES
 pES
 jFJ
-lQy
+xAy
 asj
 fcA
 lIu
@@ -61553,9 +61928,9 @@ aLD
 aLD
 aQy
 dwA
+wKj
 esl
-esl
-esl
+cLq
 esl
 dwA
 ilE
@@ -61773,7 +62148,7 @@ tVt
 tVt
 tVt
 tVt
-iUS
+eov
 knB
 kyu
 iUS
@@ -61857,7 +62232,7 @@ iOr
 sAV
 pES
 jFJ
-lQy
+xAy
 asj
 fcA
 lIu
@@ -62588,11 +62963,11 @@ nhW
 nhW
 cOM
 dwA
-esl
-esl
+kJI
+wKj
 dwA
 esl
-esl
+cLq
 esl
 dwA
 ePu
@@ -62747,7 +63122,7 @@ bUa
 xHw
 soG
 soG
-lAG
+xII
 soG
 soG
 cEJ
@@ -62815,7 +63190,7 @@ kxc
 fQJ
 hXh
 hXh
-kxc
+eKy
 qdk
 wJF
 wJF
@@ -62878,10 +63253,10 @@ iOr
 iOr
 iOr
 iOr
-lQy
+xAy
 jNh
 qcE
-lQy
+mtT
 iOr
 iOr
 iOr
@@ -63263,7 +63638,7 @@ aix
 ist
 feP
 feP
-lAG
+jNk
 lIu
 lIu
 soG
@@ -63372,7 +63747,7 @@ qWZ
 qWZ
 kTu
 kTu
-esl
+woD
 asj
 fcA
 apU
@@ -63572,7 +63947,7 @@ qNr
 vdp
 xBF
 iUS
-osf
+rUJ
 aaU
 kFj
 iUS
@@ -63598,7 +63973,7 @@ nJz
 tKo
 kxc
 tKo
-tKo
+ldH
 tKo
 kxc
 kxc
@@ -63778,8 +64153,8 @@ soG
 hrO
 hrO
 soG
-lAG
-lAG
+bsi
+tEp
 soG
 feP
 ist
@@ -63794,7 +64169,7 @@ feP
 feP
 feP
 feP
-uKQ
+fjE
 qNr
 fvC
 qNr
@@ -63851,7 +64226,7 @@ dek
 lux
 lux
 lux
-fxw
+bYt
 qAV
 sOX
 iWb
@@ -63886,7 +64261,7 @@ qWZ
 anI
 vHO
 vHO
-esl
+cLq
 asj
 fcA
 smV
@@ -64051,7 +64426,7 @@ ist
 ist
 ist
 ist
-iYI
+gyM
 cfr
 cfr
 cfr
@@ -64104,7 +64479,7 @@ xiy
 dcJ
 cXu
 kxc
-kxc
+wvN
 qdj
 lux
 lux
@@ -64129,14 +64504,14 @@ qWZ
 qWZ
 anI
 vHO
-esl
+iPE
 wyX
 bAB
 nLx
 tUe
 fRG
 btP
-esl
+kJI
 ddz
 qWZ
 qWZ
@@ -64161,7 +64536,7 @@ kEk
 emS
 drh
 iOr
-iOr
+jVv
 ftS
 lzI
 gNa
@@ -64317,7 +64692,7 @@ qNr
 fzN
 qNr
 qNr
-uKQ
+fjE
 ajf
 qNr
 qNr
@@ -64365,7 +64740,7 @@ dek
 lux
 lux
 lux
-fxw
+bYt
 qAV
 sUH
 czd
@@ -64386,21 +64761,21 @@ qWZ
 qWZ
 anI
 vHO
-esl
+gby
 wyX
 bAB
 ddf
 uBN
 oZQ
 aaR
-esl
+cLq
 eiV
 qWZ
 qWZ
 anI
 vHO
 vHO
-esl
+woD
 asj
 fcA
 smV
@@ -64610,7 +64985,7 @@ cOY
 rog
 aiT
 aiT
-cXu
+rPD
 shv
 mHB
 mHB
@@ -64626,7 +65001,7 @@ nJz
 kxc
 kxc
 tKo
-tKo
+qTD
 tKo
 kxc
 kxc
@@ -64657,7 +65032,7 @@ qWZ
 anI
 vHO
 vHO
-esl
+woD
 asj
 fcA
 smV
@@ -64904,7 +65279,7 @@ mWW
 yeg
 qWZ
 vXu
-ocH
+mqX
 nLx
 cBs
 dwA
@@ -64914,7 +65289,7 @@ qWZ
 qWZ
 kRt
 kRt
-esl
+kJI
 asj
 fcA
 apU
@@ -65381,7 +65756,7 @@ iKO
 qRy
 fbA
 iUS
-kxc
+lRU
 oBd
 nXh
 nXh
@@ -65448,10 +65823,10 @@ iOr
 iOr
 iOr
 iOr
-lQy
+mtT
 jNh
 oES
-lQy
+wjP
 iOr
 iOr
 iOr
@@ -65673,11 +66048,11 @@ tXV
 tXV
 vZG
 esl
-esl
+cLq
 dwA
+woD
 esl
-esl
-esl
+wKj
 dwA
 eoi
 ohX
@@ -65947,8 +66322,8 @@ eWm
 eWm
 dwA
 dwA
-esl
-esl
+woD
+wKj
 dwA
 dwA
 dwA
@@ -66226,7 +66601,7 @@ eZS
 aCV
 pES
 jFJ
-lQy
+wjP
 asj
 fdx
 lIu
@@ -66420,7 +66795,7 @@ kxc
 kxc
 kxc
 nJz
-kxc
+eKy
 uEI
 uEI
 kxc
@@ -66960,9 +67335,9 @@ vRj
 sPq
 oZo
 dwA
+cLq
 esl
-esl
-esl
+wKj
 dwA
 icW
 fTa
@@ -66970,9 +67345,9 @@ wFX
 cLJ
 dwA
 esl
+kJI
 esl
-esl
-esl
+wKj
 mWW
 dwA
 cco
@@ -67473,7 +67848,7 @@ vZG
 oRK
 sPq
 sPq
-iTH
+mYw
 uby
 uby
 uby
@@ -67511,7 +67886,7 @@ rUT
 rUT
 pES
 jFJ
-lQy
+xAy
 asj
 fcA
 lIu
@@ -67753,17 +68128,17 @@ qhR
 cKw
 iOr
 iOr
-lQy
-lQy
+mtT
+cVx
 lQy
 iOr
 pES
 pES
 kzw
 iOr
-lQy
-lQy
-lQy
+xAy
+wjP
+xAy
 lQy
 iOr
 tLR
@@ -67919,7 +68294,7 @@ jlw
 hUO
 onn
 onn
-onn
+mJT
 dMa
 qQP
 cLb
@@ -67996,13 +68371,13 @@ cpr
 cpr
 cpr
 dqM
+mNe
+nFd
+bjC
 nFd
 nFd
 nFd
-nFd
-nFd
-nFd
-nFd
+qaO
 nFd
 dqM
 aoM
@@ -68216,8 +68591,8 @@ dJt
 gHs
 tKo
 tKo
-tKo
-tKo
+wXX
+tyw
 tKo
 kxc
 sxE
@@ -68465,13 +68840,13 @@ lIu
 oSt
 oSt
 gxb
-tKo
+lOF
 cGU
 lux
 lux
 lux
 lux
-tKo
+ekI
 lIu
 oSt
 oSt
@@ -68947,7 +69322,7 @@ qQP
 hUO
 onn
 onn
-onn
+mJT
 akd
 qQP
 vuG
@@ -68980,11 +69355,11 @@ asj
 oSt
 lIu
 tKo
+wXX
 tKo
+ekI
 tKo
-tKo
-tKo
-tKo
+tyw
 tKo
 lIu
 oSt
@@ -69222,7 +69597,7 @@ nLU
 sVV
 omf
 omf
-omf
+efZ
 soC
 ojt
 xAz
@@ -69531,13 +69906,13 @@ ska
 ska
 ska
 ska
-awo
+vPg
 ska
 ska
 tpw
 bxB
 bxB
-xER
+fdQ
 nWh
 nWh
 nWh
@@ -69794,7 +70169,7 @@ nJS
 bxB
 bxB
 bxB
-aoM
+uuh
 nWh
 nWh
 nWh
@@ -69992,7 +70367,7 @@ klL
 nLU
 sVV
 omf
-omf
+vlX
 omf
 soC
 jRv
@@ -70273,7 +70648,7 @@ oSt
 oSt
 oSt
 gxb
-mUi
+wUH
 nOZ
 nOZ
 nOZ
@@ -70530,7 +70905,7 @@ oSt
 asj
 asj
 asj
-soC
+pVP
 egJ
 egJ
 egJ
@@ -71036,11 +71411,11 @@ kRc
 faM
 soC
 mUi
-mUi
+jRf
 soC
 uWs
 mUi
-mUi
+wdk
 soC
 eDK
 kRc
@@ -71284,7 +71659,7 @@ aBo
 ehQ
 vEp
 asj
-mUi
+wUH
 fpz
 kRc
 kRc
@@ -71548,7 +71923,7 @@ mmt
 kRc
 kRc
 kRc
-egJ
+lYD
 kRc
 kRc
 kRc
@@ -71805,7 +72180,7 @@ uJY
 kRc
 kRc
 oeV
-soC
+pVP
 mmt
 adm
 adm
@@ -73132,7 +73507,7 @@ vfd
 xlm
 iuH
 nDc
-oOq
+dZa
 wSN
 kTh
 vlW
@@ -73389,7 +73764,7 @@ hqW
 hKj
 tVX
 nDc
-oOq
+jsz
 wSN
 uEV
 vlW
@@ -73646,7 +74021,7 @@ vWW
 wqI
 rkC
 nDc
-oOq
+jsz
 wSN
 kTh
 pFI
@@ -74141,7 +74516,7 @@ nnD
 hFF
 tDB
 kTh
-oOq
+dZa
 mOC
 mOC
 mOC
@@ -74912,7 +75287,7 @@ cWB
 hFF
 tDB
 nBK
-oOq
+ucW
 jqa
 jqa
 jqa
@@ -74931,7 +75306,7 @@ jqa
 wqI
 tVX
 nDc
-oOq
+jsz
 wSN
 eAi
 paM
@@ -76200,20 +76575,20 @@ kTh
 kTh
 sjz
 sjz
+dZa
 oOq
-oOq
-oOq
+ucW
 juG
-oOq
+ucW
 oOq
 oOq
 sjz
-oOq
-oOq
+ucW
+dZa
 oOq
 juG
 oOq
-oOq
+dZa
 oOq
 sjz
 sjz
