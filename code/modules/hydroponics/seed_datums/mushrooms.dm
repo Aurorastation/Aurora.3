@@ -68,7 +68,7 @@
 	mutants = null
 	chems = list(
 				/decl/reagent/kois/black = list(4),
-				/decl/reagent/toxin/phoron/kois = list(2))
+				/decl/reagent/toxin/phoron/kois/black = list(2))
 
 /datum/seed/koisspore/black/setup_traits()
 	..()

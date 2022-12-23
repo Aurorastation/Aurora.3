@@ -156,9 +156,57 @@
 	T.assume_gas(GAS_PHORON, amount, T20C)
 	remove_self(amount, holder)
 
-/decl/reagent/toxin/phoron/kois
-	name = "Phoron"
+/decl/reagent/toxin/phoron/kois //and it infects the phoron at a molecular level and its half demon and angel and half werewolf so you cant get rid of it
 	description = "Phoron in its liquid form. Twice as potent when breathed in. Contains biological traces."
+	var/kois_type = 1
+
+/decl/reagent/toxin/phoron/kois/black
+	description = "Phoron in its liquid form. Twice as potent when breathed in. Contains unknown biological traces."
+	var/kois_type = 2
+
+/decl/reagent/toxin/phoron/kois
+	/decl/reagent/toxin/phoron/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+		if(!ishuman(M))
+			return
+		var/is_vaurcalike = (alien == IS_VAURCA)
+		if(!is_vaurcalike)
+			var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
+		if(istype(P) && P.stage >= 3)
+			is_vaurcalike = TRUE
+		if(is_vaurcalike)
+			M.heal_organ_damage(1.4 * removed, 1.6 * removed)
+			M.adjustNutritionLoss(-nutriment_factor * removed)
+		else
+			infect(M, alien, removed)
+
+	/decl/reagent/toxin/phoron/kois/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+		if(ishuman(M))
+			infect(M, alien, removed)
+
+	/decl/reagent/toxin/phoron/kois/affect_chem_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+		var/is_vaurcalike = (alien == IS_VAURCA)
+		if(!is_vaurcalike)
+			var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
+			if(istype(P) && P.stage >= 3)
+				is_vaurcalike = TRUE
+		if(is_vaurcalike)
+			M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
+
+	/decl/reagent/toxin/phoron/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
+		var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
+		if((alien != IS_VAURCA) && !(istype(P) && P.stage >= 3))
+			H.adjustToxLoss(1 * removed)
+			switch(kois_type)
+				if(1) //Normal
+					if(!H.internal_organs_by_name["kois"] && prob(5*removed))
+						var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
+						var/obj/item/organ/internal/parasite/kois/infest = new()
+						infest.replaced(H, affected)
+				if(2) //Modified
+					if(!H.internal_organs_by_name["blackkois"] && prob(10*removed))
+						var/obj/item/organ/external/affected = H.get_organ(BP_HEAD)
+						var/obj/item/organ/internal/parasite/blackkois/infest = new()
+						infest.replaced(H, affected)
 
 /decl/reagent/toxin/cardox
 	name = "Cardox"
