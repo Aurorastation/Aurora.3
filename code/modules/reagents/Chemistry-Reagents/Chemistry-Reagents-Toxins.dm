@@ -164,20 +164,19 @@
 	description = "Phoron in its liquid form. Twice as potent when breathed in. Contains exotic biological traces."
 	var/kois_type = 2
 
-/decl/reagent/toxin/phoron/kois
-	/decl/reagent/toxin/phoron/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
-		if(!ishuman(M))
-			return
-		var/is_vaurcalike = (alien == IS_VAURCA)
-		if(!is_vaurcalike)
-			var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
-		if(istype(P) && P.stage >= 3)
-			is_vaurcalike = TRUE
-		if(is_vaurcalike)
-			M.heal_organ_damage(1.4 * removed, 1.6 * removed)
-			M.adjustNutritionLoss(-nutriment_factor * removed)
-		else
-			infect(M, alien, removed)
+/decl/reagent/toxin/phoron/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(!ishuman(M))
+		return
+	var/is_vaurcalike = (alien == IS_VAURCA)
+	if(!is_vaurcalike)
+		var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
+	if(istype(P) && P.stage >= 3)
+		is_vaurcalike = TRUE
+	if(is_vaurcalike)
+		M.heal_organ_damage(1.4 * removed, 1.6 * removed)
+		M.adjustNutritionLoss(-nutriment_factor * removed)
+	else
+		infect(M, alien, removed)
 
 /decl/reagent/toxin/phoron/kois/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
