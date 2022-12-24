@@ -174,9 +174,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "aA" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light/spot{
 	dir = 8
 	},
@@ -905,6 +903,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
+"ck" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/hangar)
 "cl" = (
 /obj/structure/sign/securearea{
 	pixel_y = 32
@@ -4000,7 +4002,7 @@
 /area/kataphract_chapter/trading_area)
 "ij" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -4181,9 +4183,11 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6
+	dir = 5
+	},
+/obj/structure/railing/mapped{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
@@ -4307,9 +4311,7 @@
 /area/kataphract_chapter/engineering)
 "iM" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "iN" = (
@@ -5712,7 +5714,9 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
 /obj/effect/decal/fake_object{
 	desc = "A panel controlling an SUPB Pod. This one states the pod is currently offline.";
 	icon = 'icons/obj/computer.dmi';
@@ -5720,7 +5724,7 @@
 	name = "SUPB lauching panel"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
@@ -7048,7 +7052,7 @@
 /area/kataphract_chapter/hangar)
 "pj" = (
 /obj/effect/landmark/entry_point/east{
-	name = "aft, canister storage"
+	name = "starbaord, canister storage"
 	},
 /turf/simulated/wall/r_wall,
 /area/kataphract_chapter/hangar)
@@ -7795,7 +7799,7 @@
 	id_tag = "kataphract_dock";
 	name = "kataphract docking port controller";
 	pixel_x = -8;
-	pixel_y = -24
+	pixel_y = 23
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -8482,21 +8486,24 @@
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "Cm" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/fake_object{
+	desc = "A panel controlling an SUPB Pod. This one states the pod is currently offline.";
+	icon = 'icons/obj/computer.dmi';
+	icon_state = "lift";
+	name = "SUPB lauching panel"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'SERVER ROOM'.";
-	name = "TELECOMMS ROOM - COLD!";
-	pixel_y = 32
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
 	},
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/medical)
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/hangar)
 "Cp" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
@@ -8507,9 +8514,7 @@
 /area/space)
 "CE" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/item/wrench,
 /turf/simulated/floor/tiled/dark,
@@ -8888,6 +8893,22 @@
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/janitorial)
+"FW" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'SERVER ROOM'.";
+	name = "TELECOMMS ROOM - COLD!";
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/medical)
 "FX" = (
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -22297,7 +22318,7 @@ zT
 dV
 kr
 Nl
-eq
+ck
 aa
 jF
 pW
@@ -22459,7 +22480,7 @@ iw
 ff
 tk
 hJ
-eq
+ck
 aa
 TP
 hK
@@ -22621,7 +22642,7 @@ iz
 kQ
 es
 GZ
-eq
+ck
 qK
 AY
 RY
@@ -22783,7 +22804,7 @@ oC
 xD
 kr
 id
-eq
+ck
 aa
 ae
 ae
@@ -22945,7 +22966,7 @@ kr
 kr
 kr
 dW
-eq
+ck
 aa
 aa
 Nv
@@ -23588,7 +23609,7 @@ fw
 tM
 kr
 iw
-ix
+Cm
 aw
 aw
 kr
@@ -25879,7 +25900,7 @@ la
 la
 MD
 ly
-Cm
+FW
 ly
 Aa
 PH
