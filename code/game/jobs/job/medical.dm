@@ -18,11 +18,11 @@
 	)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
+			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_ship_weapons, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research, access_mining, access_mailsorting,
 			access_first_responder, access_maint_tunnels, access_intrepid, access_teleporter)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
+			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_ship_weapons, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research, access_mining, access_mailsorting,
 			access_first_responder, access_maint_tunnels, access_intrepid, access_teleporter)
 
@@ -319,12 +319,13 @@
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
+	alt_titles = list("First Responder Intern", "Surgeon Intern")
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#15903a"
-	access = list(access_medical, access_surgery, access_medical_equip)
-	minimal_access = list(access_medical, access_surgery, access_medical_equip)
+	access = list(access_medical, access_medical_equip)
+	minimal_access = list(access_medical, access_medical_equip)
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
 		SPECIES_SKRELL = 50,

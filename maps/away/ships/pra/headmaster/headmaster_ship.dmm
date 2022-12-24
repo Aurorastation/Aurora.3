@@ -868,10 +868,9 @@
 /area/headmaster_ship/bridge)
 "cB" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
+/obj/machinery/door/blast/regular/open{
 	id = "headmaster_gun";
-	icon_state = "pdoor0"
+	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1376,10 +1375,9 @@
 /area/headmaster_ship/bridge)
 "dW" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/open{
 	dir = 2;
-	id = "headmaster_bridge";
-	icon_state = "pdoor0"
+	id = "headmaster_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1610,9 +1608,7 @@
 	},
 /area/headmaster_ship/commissar_quarters)
 "eF" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 1
-	},
+/obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -1756,7 +1752,7 @@
 "fq" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	id_tag = "headmaster_shuttle_dock";
+	id_tag = "headmaster_shuttle";
 	name = "Port docking controller";
 	pixel_x = 6;
 	pixel_y = 28;
@@ -2314,11 +2310,9 @@
 /area/headmaster_ship/engineering)
 "hm" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
-/obj/item/stack/material/uranium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2424,7 +2418,9 @@
 /area/headmaster_ship)
 "hJ" = (
 /obj/structure/table/standard,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/photocopier/faxmachine{
+	req_one_access = list(209)
+	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -3102,13 +3098,12 @@
 /area/headmaster_ship/engineering)
 "jD" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "headmaster_bridge";
-	icon_state = "pdoor0"
-	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "headmaster_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3584,7 +3579,7 @@
 	},
 /area/headmaster_ship/medbay)
 "lk" = (
-/obj/machinery/power/portgen/basic/advanced,
+/obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3671,10 +3666,8 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = 10
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3715,10 +3708,9 @@
 /area/headmaster_ship/engineering)
 "lL" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/regular/open{
 	dir = 8;
-	id = "headmaster_bridge";
-	icon_state = "pdoor0"
+	id = "headmaster_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3795,10 +3787,6 @@
 /area/headmaster_ship/medbay)
 "lX" = (
 /obj/structure/table/steel,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "headmaster_armory"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stamp/denied{
 	pixel_x = 5
@@ -3806,6 +3794,10 @@
 /obj/item/stamp{
 	pixel_x = -5;
 	name = "accepted stamp"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "headmaster_armory"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3831,7 +3823,9 @@
 	},
 /area/headmaster_ship/engineering)
 "ma" = (
-/obj/machinery/computer/ship/sensors,
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -4315,13 +4309,12 @@
 /area/space)
 "pj" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "headmaster_bridge";
-	icon_state = "pdoor0"
-	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "headmaster_bridge"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -4398,7 +4391,9 @@
 	},
 /obj/machinery/light,
 /obj/structure/table/standard,
-/obj/machinery/media/jukebox/phonograph,
+/obj/machinery/media/jukebox/phonograph{
+	anchored = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4743,17 +4738,6 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/bridge)
-"vb" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "headmaster_gun";
-	icon_state = "pdoor0"
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/headmaster_ship/gun_deck)
 "vj" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/red{
@@ -4984,10 +4968,8 @@
 /area/headmaster_ship)
 "yy" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	id = "headmaster_gun";
-	icon_state = "pdoor0";
-	dir = 4
+/obj/machinery/door/blast/regular/open{
+	id = "headmaster_gun"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -5036,6 +5018,16 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/hangar)
+"za" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/portgen/basic/fusion,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/headmaster_ship/engineering)
 "zi" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -5044,13 +5036,17 @@
 /turf/template_noop,
 /area/space)
 "zm" = (
-/obj/machinery/computer/ship/navigation,
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/headmaster_ship/gun_deck)
 "zT" = (
-/obj/machinery/computer/ship/navigation,
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -5747,13 +5743,12 @@
 /area/headmaster_ship)
 "KX" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "headmaster_gun";
-	icon_state = "pdoor0"
-	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, gun deck"
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "headmaster_gun";
+	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -5785,6 +5780,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/bridge)
+"Ls" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/space)
 "LD" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -6068,9 +6069,6 @@
 /obj/item/reagent_containers/food/drinks/carton/fatshouters,
 /obj/item/reagent_containers/food/drinks/carton/fatshouters,
 /obj/item/reagent_containers/food/drinks/carton/fatshouters,
-/obj/machinery/light/small{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -6477,10 +6475,9 @@
 /area/headmaster_ship/armory)
 "Ul" = (
 /obj/structure/viewport,
-/obj/machinery/door/blast/regular{
-	dir = 4;
+/obj/machinery/door/blast/regular/open{
 	id = "headmaster_gun";
-	icon_state = "pdoor0"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6729,19 +6726,21 @@
 /area/headmaster_ship/mess_hall)
 "Ys" = (
 /obj/structure/table/steel,
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "headmaster_armory"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/paper_bin,
 /obj/item/pen/fountain,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "headmaster_armory"
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/headmaster_ship/armory)
 "YE" = (
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	dir = 1
+	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -11216,7 +11215,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -11736,7 +11735,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -13464,7 +13463,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -15424,7 +15423,7 @@ bX
 gH
 ce
 oh
-lk
+za
 jB
 Eh
 so
@@ -16133,7 +16132,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -16434,7 +16433,7 @@ Mm
 jI
 dc
 Mm
-vb
+yy
 yy
 cB
 ll
@@ -18478,7 +18477,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -20183,7 +20182,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -21457,7 +21456,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -22859,7 +22858,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -23564,7 +23563,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB
@@ -24353,7 +24352,7 @@ iB
 iB
 iB
 iB
-iB
+Ls
 iB
 iB
 iB

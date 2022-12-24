@@ -167,7 +167,7 @@
 /obj/structure/foamedmetal/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
-	if ((HULK in user.mutations) || (prob(75 - metal * 25)))
+	if (HAS_FLAG(user.mutations, HULK) || (prob(75 - metal * 25)))
 		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), SPAN_NOTICE("You smash through the metal foam wall."))
 		qdel(src)
 	else

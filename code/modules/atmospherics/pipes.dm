@@ -9,7 +9,7 @@
 	layer = PIPE_LAYER
 	use_power = POWER_USE_OFF
 
-	var/alert_pressure = 80*ONE_ATMOSPHERE
+	var/alert_pressure = ATMOS_DEFAULT_ALERT_PRESSURE
 		//minimum pressure before check_pressure(...) should be called
 
 	can_buckle = 1
@@ -94,8 +94,9 @@
 		to_chat(user, "<span class='warning'>You must remove the plating first.</span>")
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
+	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
+	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
 		if(!istype(W, /obj/item/pipewrench))
 			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 			add_fingerprint(user)
@@ -216,6 +217,7 @@
 		. = PROCESS_KILL
 
 /obj/machinery/atmospherics/pipe/simple/check_pressure(pressure)
+	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	var/pressure_difference = pressure - environment.return_pressure()
@@ -1137,7 +1139,7 @@
 	desc = "A large vessel containing pressurized gas."
 
 	volume = 10000 //in liters, 1 meters by 1 meters by 2 meters ~tweaked it a little to simulate a pressure tank without needing to recode them yet
-	var/start_pressure = 25*ONE_ATMOSPHERE
+	var/start_pressure = PRESSURE_ONE_THOUSAND * 2.5
 
 	level = 1
 	dir = SOUTH

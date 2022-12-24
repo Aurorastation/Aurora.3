@@ -39,6 +39,28 @@
 	display_name = "spaceball booster pack"
 	path = /obj/item/pack/spaceball
 
+/datum/gear/gamehelm
+	display_name = "handheld video game console"
+	description = "A selection of various Game-Helm consoles."
+	cost = 1
+	path = /obj/item/gamehelm
+
+/datum/gear/gamehelm/New()
+	..()
+	var/list/gamehelm = list()
+	gamehelm["red game-helm"] = /obj/item/gamehelm/red
+	gamehelm["blue game-helm"] = /obj/item/gamehelm/blue
+	gamehelm["green game-helm"] = /obj/item/gamehelm/green
+	gamehelm["yellow game-helm"] = /obj/item/gamehelm/yellow
+	gamehelm["pink game-helm"] = /obj/item/gamehelm/pink
+	gamehelm["black game-helm"] = /obj/item/gamehelm/black
+	gamehelm["weathered game-helm"] = /obj/item/gamehelm/weathered
+	gamehelm["brown game-helm"] = /obj/item/gamehelm/brown
+	gamehelm["turquoise game-helm"] = /obj/item/gamehelm/turquoise
+	gamehelm["white game-helm"] = /obj/item/gamehelm
+	gamehelm["purple game-helm"] = /obj/item/gamehelm/purple
+	gear_tweaks += new /datum/gear_tweak/path(gamehelm)
+
 /datum/gear/flask
 	display_name = "flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/barflask
@@ -152,7 +174,7 @@
 	..()
 	var/list/banners = list()
 	banners["banner, Stellar Corporate Conglomerate"] = /obj/item/flag/scc
-	banners["banner, SolGov"] = /obj/item/flag/sol
+	banners["banner, Sol Alliance"] = /obj/item/flag/sol
 	banners["banner, Dominia"] = /obj/item/flag/dominia
 	banners["banner, Elyra"] = /obj/item/flag/elyra
 	banners["banner, Hegemony"] = /obj/item/flag/hegemony
@@ -203,7 +225,7 @@
 	..()
 	var/list/flags = list()
 	flags["flag, Stellar Corporate Conglomerate"] = /obj/item/flag/scc/l
-	flags["flag, SolGov"] = /obj/item/flag/sol/l
+	flags["flag, Sol Alliance"] = /obj/item/flag/sol/l
 	flags["flag, Dominia"] = /obj/item/flag/dominia/l
 	flags["flag, Elyra"] = /obj/item/flag/elyra/l
 	flags["flag, Hegemony"] = /obj/item/flag/hegemony/l
@@ -293,6 +315,14 @@
 	comics["inspector 404 manga"] = /obj/item/toy/comic/inspector
 	comics["stormman manga"] = /obj/item/toy/comic/stormman
 	comics["outlandish tales magazine"] = /obj/item/toy/comic/outlandish_tales
+	comics["az'marian comic, issue 1"] = /obj/item/toy/comic/azmarian/issue_1
+	comics["az'marian comic, issue 2"] = /obj/item/toy/comic/azmarian/issue_2
+	comics["az'marian comic, issue 3"] = /obj/item/toy/comic/azmarian/issue_3
+	comics["az'marian comic, issue 4"] = /obj/item/toy/comic/azmarian/issue_4
+	comics["az'marian comic, issue 5"] = /obj/item/toy/comic/azmarian/issue_5
+	comics["az'marian comic, issue 6"] = /obj/item/toy/comic/azmarian/issue_6
+	comics["az'marian comic, issue 7"] = /obj/item/toy/comic/azmarian/issue_7
+	comics["az'marian comic, issue 8"] = /obj/item/toy/comic/azmarian/issue_8
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste

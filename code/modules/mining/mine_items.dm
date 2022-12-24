@@ -213,7 +213,7 @@
 /obj/item/pickaxe/drill
 	name = "mining drill" // Can dig sand as well!
 	desc = "Yours is the drill that will pierce through the rock walls."
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "miningdrill"
 	item_state = "miningdrill"
 	contained_sprite = TRUE
@@ -244,7 +244,7 @@
 /obj/item/pickaxe/jackhammer
 	name = "sonic jackhammer"
 	desc = "Cracks rocks with sonic blasts, perfect for killing cave lizards."
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
 	contained_sprite = TRUE
@@ -288,7 +288,7 @@
 
 /obj/item/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "diamonddrill"
 	item_state = "diamonddrill"
 	contained_sprite = TRUE
@@ -310,7 +310,7 @@
 
 /obj/item/pickaxe/borgdrill
 	name = "cyborg mining drill"
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "diamonddrill"
 	item_state = "jackhammer"
 	contained_sprite = TRUE
@@ -1173,7 +1173,7 @@ var/list/total_extraction_beacons = list()
 /obj/item/autochisel
 	name = "auto-chisel"
 	desc = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "chisel"
 	item_state = "jackhammer"
 	contained_sprite = TRUE

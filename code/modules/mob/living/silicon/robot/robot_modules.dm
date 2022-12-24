@@ -1,6 +1,6 @@
 var/global/list/robot_modules = list(
-	"Service" 		= /obj/item/robot_module/clerical/butler,
-	"Clerical" 		= /obj/item/robot_module/clerical/general,
+	"Service" 		= /obj/item/robot_module/service/butler,
+	"Clerical" 		= /obj/item/robot_module/service/clerical,
 	"Research" 		= /obj/item/robot_module/research,
 	"Mining" 		= /obj/item/robot_module/miner,
 	"Rescue" 		= /obj/item/robot_module/medical/rescue,
@@ -20,21 +20,21 @@ var/global/list/robot_modules = list(
 	var/channels = list()
 	var/networks = list()
 	var/languages = list( // Any listed language will be understandable. Any set to TRUE will be speakable
-		LANGUAGE_SOL_COMMON =  TRUE,
-		LANGUAGE_ELYRAN_STANDARD = TRUE,
-		LANGUAGE_TRADEBAND =   TRUE,
-		LANGUAGE_UNATHI =      FALSE,
-		LANGUAGE_SIIK_MAAS =   FALSE,
-		LANGUAGE_SKRELLIAN =   FALSE,
-		LANGUAGE_GUTTER =      TRUE,
-		LANGUAGE_VAURCESE =    FALSE,
-		LANGUAGE_ROOTSONG =    FALSE,
-		LANGUAGE_SIGN =        FALSE,
-		LANGUAGE_SIGN_TAJARA = FALSE,
-		LANGUAGE_SIIK_TAJR =   FALSE,
-		LANGUAGE_AZAZIBA =     FALSE,
-		LANGUAGE_DELVAHII =    FALSE,
-		LANGUAGE_YA_SSA =      FALSE
+		LANGUAGE_SOL_COMMON =		TRUE,
+		LANGUAGE_ELYRAN_STANDARD =	TRUE,
+		LANGUAGE_TRADEBAND =		TRUE,
+		LANGUAGE_UNATHI =			FALSE,
+		LANGUAGE_SIIK_MAAS =		FALSE,
+		LANGUAGE_SKRELLIAN =		FALSE,
+		LANGUAGE_GUTTER =			TRUE,
+		LANGUAGE_VAURCESE =			FALSE,
+		LANGUAGE_ROOTSONG =			FALSE,
+		LANGUAGE_SIGN =				FALSE,
+		LANGUAGE_SIGN_TAJARA =		FALSE,
+		LANGUAGE_SIIK_TAJR =		FALSE,
+		LANGUAGE_AZAZIBA =			FALSE,
+		LANGUAGE_DELVAHII =			FALSE,
+		LANGUAGE_YA_SSA =			FALSE
 	)
 	var/sprites = list()
 	var/can_be_pushed = TRUE
@@ -50,6 +50,8 @@ var/global/list/robot_modules = list(
 	// Bookkeeping
 	var/list/original_languages = list()
 	var/list/added_networks = list()
+	var/list/specialized_access_types = list(/datum/job/assistant) // an job we take access from. Used to mirror job's IDs for specific borg modules.
+	var/all_access = FALSE
 
 /obj/item/robot_module/Initialize(mapload, var/mob/living/silicon/robot/R)
 	. = ..()
@@ -70,6 +72,7 @@ var/global/list/robot_modules = list(
 	R.set_module_sprites(sprites)
 	R.icon_selected = FALSE
 	R.choose_icon()
+	R.update_access() // Make sure we do not miss any access changes to the borgs already spawned with a module
 
 /obj/item/robot_module/proc/handle_languages(var/mob/living/silicon/robot/R)
 	return
@@ -209,6 +212,7 @@ var/global/list/robot_modules = list(
 		"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_medi", ROBOT_PANEL = "coolermaster_medi", ROBOT_EYES = "coolermaster"),
 		"Phage" =          list(ROBOT_CHASSIS = "phage_medi", ROBOT_PANEL = "phage_medi", ROBOT_EYES = "phage")
 	)
+	specialized_access_types = list(/datum/job/doctor, /datum/job/surgeon)
 
 /obj/item/robot_module/medical/general/Initialize()
 	. = ..()
@@ -270,6 +274,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/medical/rescue
 	name = "rescue robot module"
+	specialized_access_types = list(/datum/job/med_tech)
 // If anyone wants to make custom rescue robot sprites, be my guest.
 
 /obj/item/robot_module/medical/rescue/Initialize()
@@ -353,6 +358,7 @@ var/global/list/robot_modules = list(
 		"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_engi", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
 		"Phage" =          list(ROBOT_CHASSIS = "phage_engi", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 	)
+	specialized_access_types = list(/datum/job/engineer, /datum/job/atmos)
 
 /obj/item/robot_module/engineering/construction
 	name = "construction robot module"
@@ -551,6 +557,7 @@ var/global/list/robot_modules = list(
 	)
 
 	var/mopping = FALSE
+	specialized_access_types = list(/datum/job/janitor)
 
 /obj/item/robot_module/janitor/Initialize()
 	. = ..()
@@ -578,7 +585,7 @@ var/global/list/robot_modules = list(
 		var/obj/item/reagent_containers/spray/S = emag
 		S.reagents.add_reagent(/decl/reagent/lube, 2 * amount)
 
-/obj/item/robot_module/clerical
+/obj/item/robot_module/service
 	name = "service robot module"
 	channels = list(CHANNEL_SERVICE = TRUE)
 	networks = list(NETWORK_SERVICE)
@@ -621,7 +628,9 @@ var/global/list/robot_modules = list(
 		"Phage" =          list(ROBOT_CHASSIS = "phage_serv", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 	)
 
-/obj/item/robot_module/clerical/butler/Initialize()
+	specialized_access_types = list(/datum/job/bartender, /datum/job/chef, /datum/job/hydro)
+
+/obj/item/robot_module/service/butler/Initialize()
 	. = ..()
 	modules += new /obj/item/gripper/service(src)
 	modules += new /obj/item/reagent_containers/glass/bucket(src)
@@ -667,12 +676,13 @@ var/global/list/robot_modules = list(
 	RG.add_reagent(/decl/reagent/polysomnine/beer2, 50)
 	emag.name = "Mickey Finn's Special Brew"
 
-/obj/item/robot_module/clerical/general
+/obj/item/robot_module/service/clerical
 	name = "clerical robot module"
 	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_COMMAND = TRUE)
 	networks = list(NETWORK_MINE)
+	specialized_access_types = list(/datum/job/janitor) // Janitor is a nice general access without specifics
 
-/obj/item/robot_module/clerical/general/Initialize()
+/obj/item/robot_module/service/clerical/Initialize()
 	. = ..()
 	modules += new /obj/item/pen/robopen(src)
 	modules += new /obj/item/form_printer(src)
@@ -718,6 +728,7 @@ var/global/list/robot_modules = list(
 	)
 
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
+	specialized_access_types = list(/datum/job/mining)
 
 /obj/item/robot_module/miner/Initialize()
 	. = ..()
@@ -783,6 +794,7 @@ var/global/list/robot_modules = list(
 		"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_sci", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
 		"Phage" =          list(ROBOT_CHASSIS = "phage_sci", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 	)
+	specialized_access_types = list(/datum/job/scientist, /datum/job/xenobiologist, /datum/job/xenobotanist)
 
 /obj/item/robot_module/research/Initialize()
 	. = ..()
@@ -876,7 +888,7 @@ var/global/list/robot_modules = list(
 		"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_syndi", ROBOT_PANEL = "coolermaster_syndi", ROBOT_EYES = "coolermaster"),
 		"Phage" =          list(ROBOT_CHASSIS = "phage_syndi", ROBOT_PANEL = "phage_syndi", ROBOT_EYES = "phage")
 	)
-
+	all_access = TRUE
 
 /obj/item/robot_module/combat/Initialize(mapload, mob/living/silicon/robot/R)
 	. = ..()
@@ -914,6 +926,7 @@ var/global/list/robot_modules = list(
 		)
 	can_be_pushed = FALSE
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
+	all_access = TRUE
 
 /obj/item/robot_module/military/Initialize()
 	. = ..()
@@ -932,6 +945,7 @@ var/global/list/robot_modules = list(
 	name = "drone module"
 	no_slip = TRUE
 	networks = list(NETWORK_ENGINEERING)
+	all_access = TRUE
 
 /obj/item/robot_module/drone/Initialize(mapload, mob/living/silicon/robot/robot)
 	. = ..()
@@ -1031,6 +1045,7 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/drone/construction
 	name = "construction drone module"
 	channels = list(CHANNEL_ENGINEERING = TRUE)
+	all_access = TRUE
 
 /obj/item/robot_module/drone/construction/Initialize()
 	. = ..()
@@ -1045,6 +1060,7 @@ var/global/list/robot_modules = list(
 	no_slip = TRUE
 	channels = list(CHANNEL_SUPPLY = TRUE)
 	networks = list(NETWORK_MINE)
+	all_access = TRUE
 
 /obj/item/robot_module/mining_drone/Initialize(mapload, mob/living/silicon/robot/R)
 	. = ..()
@@ -1137,6 +1153,7 @@ var/global/list/robot_modules = list(
 	)
 	sprites = list("Roller" = list(ROBOT_CHASSIS = "droid-combat", ROBOT_PANEL = "heavy_syndi", ROBOT_EYES = "droid-combat")) //TMP // temp my left nut // temp my right nut
 	can_be_pushed = FALSE
+	all_access = TRUE
 
 /obj/item/robot_module/bluespace/Initialize(mapload, mob/living/silicon/robot/R)
 	. = ..()

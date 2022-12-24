@@ -7,15 +7,15 @@
 
 /obj/item/grenade/flashbang/prime()
 	..()
-	for(var/obj/structure/closet/L in hear(7, get_turf(src)))
+	for(var/obj/structure/closet/L in get_hear(7, get_turf(src)))
 		if(locate(/mob/living/carbon/, L))
 			for(var/mob/living/carbon/M in L)
 				bang(get_turf(src), M)
 
-	for(var/mob/living/carbon/M in hear(7, get_turf(src)))
+	for(var/mob/living/carbon/M in get_hear(7, get_turf(src)))
 		bang(get_turf(src), M)
 
-	for(var/obj/effect/blob/B in hear(8,get_turf(src)))       		//Blob damage here
+	for(var/obj/effect/blob/B in get_hear(8,get_turf(src)))       		//Blob damage here
 		var/damage = round(30/(get_dist(B,get_turf(src))+1))
 		B.health -= damage
 		B.update_icon()
@@ -43,7 +43,7 @@
 			var/mob/living/carbon/human/H = M
 			if(H.protected_from_sound())
 				ear_safety += 2
-			if(HULK in H.mutations)
+			if(HAS_FLAG(H.mutations, HULK))
 				ear_safety += 1
 			if(istype(H.head, /obj/item/clothing/head/helmet))
 				ear_safety += 1
@@ -73,7 +73,7 @@
 				if (H.is_listening())
 					if (H.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
 						H.Weaken(5)
-					else 
+					else
 						H.Weaken(2)
 
 	else if(get_dist(M, T) <= 5)

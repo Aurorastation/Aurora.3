@@ -176,11 +176,6 @@
 	new /obj/item/clothing/mask/fakemoustache(src.loc)
 	delete_me = 1
 
-/obj/effect/landmark/costume/plaguedoctor/New()
-	new /obj/item/clothing/suit/bio_suit/plaguedoctorsuit(src.loc)
-	new /obj/item/clothing/head/plaguedoctorhat(src.loc)
-	delete_me = 1
-
 /obj/effect/landmark/costume/nightowl/New()
 	new /obj/item/clothing/under/owl(src.loc)
 	new /obj/item/clothing/mask/gas/owl_mask(src.loc)

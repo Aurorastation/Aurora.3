@@ -309,7 +309,7 @@
 /obj/item/cane/telecane
 	name = "telescopic cane"
 	desc = "A compact cane which can be collapsed for storage."
-	icon = 'icons/obj/contained_items/weapons/telecane.dmi'
+	icon = 'icons/obj/item/telecane.dmi'
 	icon_state = "telecane"
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
@@ -361,7 +361,7 @@
 /obj/item/gift
 	name = "gift"
 	desc = "A wrapped item."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "gift3"
 	var/size = 3.0
 	var/obj/item/gift = null

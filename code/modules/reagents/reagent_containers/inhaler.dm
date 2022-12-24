@@ -46,7 +46,7 @@
 		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
 		return
 
-	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
+	if ( ((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		if(!H.eyes_protected(src, FALSE))
 			eyestab(H,user)

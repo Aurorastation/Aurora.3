@@ -6607,7 +6607,6 @@
 /area/centcom/spawning)
 "aTs" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = -30
 	},
 /turf/simulated/floor/shuttle/tan,
@@ -8463,20 +8462,10 @@
 	},
 /area/shuttle/administration)
 "bHu" = (
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
-/obj/structure/closet/l3closet,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/tank/oxygen/red,
-/obj/item/tank/oxygen/red,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/mask/gas/alt,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
+/obj/structure/closet/hazmat/general,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "bHJ" = (
@@ -8540,17 +8529,7 @@
 	},
 /area/centcom/bar)
 "bJW" = (
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
-/obj/structure/closet/l3closet,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/tank/oxygen/red,
-/obj/item/tank/oxygen/red,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/mask/gas/alt,
+/obj/structure/closet/hazmat/general,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bKj" = (
@@ -11289,7 +11268,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/telecomms/relay/preset/centcom,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -14872,7 +14850,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_x = 5;
 	pixel_y = -22
 	},
@@ -16041,7 +16018,6 @@
 /obj/item/clothing/mask/horsehead,
 /obj/item/clothing/mask/gas/monkeymask,
 /obj/item/clothing/mask/luchador/tecnicos,
-/obj/item/clothing/mask/gas/plaguedoctor,
 /obj/item/clothing/shoes/laceup/brown/all_species,
 /obj/item/clothing/shoes/laceup/brown/all_species,
 /obj/item/clothing/shoes/workboots,
@@ -16819,7 +16795,6 @@
 /obj/item/clothing/mask/horsehead,
 /obj/item/clothing/mask/gas/monkeymask,
 /obj/item/clothing/mask/luchador/tecnicos,
-/obj/item/clothing/mask/gas/plaguedoctor,
 /obj/item/clothing/shoes/laceup/brown/all_species,
 /obj/item/clothing/shoes/laceup/brown/all_species,
 /obj/item/clothing/shoes/workboots,
@@ -20858,9 +20833,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/telecomms/allinone{
-	intercept = 1
-	},
+/obj/machinery/telecomms/allinone,
 /turf/simulated/floor/plating,
 /area/shuttle/mercenary)
 "jxO" = (
@@ -25266,7 +25239,7 @@
 	},
 /obj/effect/decal/fake_object{
 	density = 1;
-	icon = 'icons/obj/contained_items/tools/inflatables.dmi';
+	icon = 'icons/obj/item/inflatables.dmi';
 	icon_state = "wall";
 	layer = 2.3;
 	name = "inflatable wall"

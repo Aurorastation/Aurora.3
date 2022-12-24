@@ -4,6 +4,8 @@
 	var/tmp/isprocessing = 0
 	var/tmp/gcDestroyed //Time when this object was destroyed.
 
+	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
+	var/list/status_traits
 	/// Components attached to this datum
 	/// Lazy associated list in the structure of `type:component/list of components`
 	var/list/datum_components

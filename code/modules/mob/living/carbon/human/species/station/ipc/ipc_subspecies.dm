@@ -363,10 +363,14 @@
 	brute_mod = 0.9
 	grab_mod = 0.9
 	resist_mod = 8
-
-	heat_level_1 = 700
-	heat_level_2 = 1400
-	heat_level_3 = 2800
+	
+	cold_level_1 = -1 //RaceDefault 50 Default -1
+	cold_level_2 = -1 //RaceDefault -1 Default -1
+	cold_level_3 = -1  //RaceDefault -1 Default -1
+	
+	heat_level_1 = 700  //RaceDefault 600 Default 700
+	heat_level_2 = 1400  //RaceDefault 1200 Default 1400
+	heat_level_3 = 2800  //RaceDefault 2400 Default 2800
 
 	heat_discomfort_level = 600
 	slowdown = 3

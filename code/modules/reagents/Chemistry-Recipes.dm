@@ -298,8 +298,8 @@
 	name = "Tricordrazine"
 	id = "tricordrazine"
 	result = /decl/reagent/tricordrazine
-	required_reagents = list(/decl/reagent/inaprovaline = 1, /decl/reagent/dylovene = 1)
-	result_amount = 2
+	required_reagents = list(/decl/reagent/water = 1, /decl/reagent/inaprovaline = 1, /decl/reagent/dylovene = 1)
+	result_amount = 3
 
 /datum/chemical_reaction/alkysine
 	name = "Alkysine"
@@ -1065,6 +1065,9 @@
 		T.visible_message("[icon2html(T, viewers(get_turf(src)))]<span class='notice'>\The [T]'s power is consumed in the reaction.</span>")
 		T.name = "used slime extract"
 		T.desc = "This extract has been used up."
+		if(istype(T.loc, /obj/item/storage))
+			var/obj/item/storage/storage = T.loc
+			storage.update_storage_ui()
 
 //Grey
 /datum/chemical_reaction/slime/spawn
@@ -1105,7 +1108,7 @@
 	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
 
 /datum/chemical_reaction/slime/teleportation/proc/do_reaction(var/datum/reagents/holder)
-	for(var/atom/movable/AM in circlerange(get_turf(holder.my_atom),7))
+	for(var/atom/movable/AM in circle_range(get_turf(holder.my_atom),7))
 		if(AM.anchored)
 			continue
 		var/area/A = random_station_area()
