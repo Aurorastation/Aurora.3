@@ -1331,7 +1331,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/security/investigations)
+/area/horizon/security/investigations_hallway)
 "aAu" = (
 /obj/structure/table/wood,
 /obj/item/flame/candle{
@@ -8515,7 +8515,7 @@
 "elh" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled/ramp,
-/area/security/investigations)
+/area/horizon/security/investigations_hallway)
 "elm" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -11202,6 +11202,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/washroom)
 "fGD" = (
@@ -15067,7 +15068,7 @@
 /area/security/checkpoint2)
 "hps" = (
 /turf/simulated/wall/r_wall,
-/area/security/investigations)
+/area/horizon/security/investigations_hallway)
 "hpw" = (
 /obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - SMES Room 1";
@@ -17661,7 +17662,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/security/investigations)
+/area/horizon/security/investigations_hallway)
 "iJq" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -19174,7 +19175,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled,
-/area/security/investigations)
+/area/horizon/security/investigations_hallway)
 "jrH" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/machinery/door/blast/shutters{
@@ -21710,7 +21711,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/security/investigations)
+/area/horizon/security/investigations_hallway)
 "kOE" = (
 /obj/structure/disposalpipe/sortjunction/flipped{
 	dir = 1;
@@ -28948,7 +28949,7 @@
 /area/horizon/library)
 "oqW" = (
 /turf/simulated/floor/tiled/full,
-/area/security/investigations)
+/area/horizon/security/investigations_hallway)
 "ord" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -33921,7 +33922,7 @@
 /area/horizon/library)
 "qPI" = (
 /turf/simulated/floor/tiled/ramp,
-/area/security/investigations)
+/area/horizon/security/investigations_hallway)
 "qPJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -34137,7 +34138,7 @@
 "qUt" = (
 /obj/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/full,
-/area/security/investigations)
+/area/horizon/security/investigations_hallway)
 "qUz" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
@@ -37524,7 +37525,7 @@
 /area/crew_quarters/heads/hor)
 "sGm" = (
 /turf/simulated/wall,
-/area/security/investigations)
+/area/horizon/security/investigations_hallway)
 "sGn" = (
 /turf/simulated/open,
 /area/horizon/stairwell/bridge)
