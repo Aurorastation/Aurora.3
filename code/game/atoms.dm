@@ -47,8 +47,6 @@
 /atom/proc/return_air()
 	if(loc)
 		return loc.return_air()
-	else
-		return null
 
 // Returns src and all recursive contents in a list.
 /atom/proc/GetAllContents()
