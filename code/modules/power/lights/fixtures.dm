@@ -11,6 +11,7 @@
 	var/base_state = "tube"		// base description and icon_state
 	icon_state = "tube_empty"
 	desc = "A lighting fixture."
+	desc_info = "Use grab intent when interacting with a working light to take it out of it's fixture."
 	anchored = TRUE
 	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
 	use_power = POWER_USE_ACTIVE
@@ -486,7 +487,7 @@
 				shatter()
 				return
 
-	if(user.a_intent != I_GRAB)
+	if(user.a_intent != I_GRAB && status == LIGHT_OK)
 		return
 
 	// create a light tube/bulb item and put it in the user's hand
