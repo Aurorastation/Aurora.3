@@ -173,6 +173,49 @@
 	for(var/obj/item/device/radio/radio in radios)
 		. |= get_hearers_in_LOS(radio.canhear_range, radio, FALSE)
 
+// get_hearers_in_LOS but for anything AIs care to target
+/proc/get_targets_in_LOS(view_radius, atom/source)
+	var/turf/center_turf = get_turf(source)
+	if(!center_turf)
+		return
+
+	if(view_radius <= 0)
+		. = list()
+		for(var/atom/movable/target as anything in center_turf)
+			var/list/tgt_contents = target.important_recursive_contents?[RECURSIVE_CONTENTS_AI_TARGETS]
+			if(tgt_contents)
+				. += tgt_contents
+		return
+
+	. = SSspatial_grid.orthogonal_range_search(source, SPATIAL_GRID_CONTENTS_TYPE_TARGETS, view_radius)
+
+	for(var/mob/target as anything in .)
+		if(!check_los(source, target, view_radius))
+			. -= target
+			continue
+
+/proc/check_los(atom/source, atom/target, view_radius = world.view)
+	var/turf/source_turf = get_turf(source)
+	var/turf/target_turf = get_turf(target)
+
+	var/distance = get_dist(source_turf, target_turf)
+	if(distance > view_radius)
+		return FALSE
+
+	if(distance < 2)
+		return TRUE
+
+	var/turf/mid_turf = source_turf
+
+	for(var/step_counter in 1 to distance)
+		mid_turf = get_step_towards(mid_turf, target_turf)
+		if(mid_turf == target_turf)
+			break
+		if(mid_turf.opacity)
+			return FALSE
+
+	return TRUE
+
 ///Calculate if two atoms are in sight, returns TRUE or FALSE
 /proc/inLineOfSight(X1,Y1,X2,Y2,Z=1,PX1=16.5,PY1=16.5,PX2=16.5,PY2=16.5)
 	var/turf/T
