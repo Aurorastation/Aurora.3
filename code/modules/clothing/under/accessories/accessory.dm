@@ -1042,6 +1042,10 @@
 	icon_state = "apron_chef"
 	item_state = "apron_chef"
 	allowed = list(
+		/obj/item/reagent_containers/food/drinks/shaker,
+		/obj/item/material/kitchen/utensil,
+		/obj/item/reagent_containers/food/condiment,
+		/obj/item/reagent_containers/food/drinks/bottle,
 		/obj/item/material/knife
 	)
 /********** Aprons End **********/

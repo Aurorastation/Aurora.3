@@ -107,31 +107,37 @@
 
 /obj/item/clothing/under/shorts/athletic/colourable
 	name = "athletic shorts"
+	desc = "A pair of athletic shorts."
 	icon_state = "shorts_athletic_colourable"
 	item_state = "shorts_athletic_colourable"
 
 /obj/item/clothing/under/shorts/athletic/black
 	name = "black athletic shorts"
+	desc = "A pair of black athletic shorts."
 	icon_state = "shorts_athletic_black"
 	item_state = "shorts_athletic_black"
 
 /obj/item/clothing/under/shorts/athletic/red
 	name = "red athletic shorts"
+	desc = "A pair of red athletic shorts."
 	icon_state = "shorts_athletic_red"
 	item_state = "shorts_athletic_red"
 
 /obj/item/clothing/under/shorts/athletic/green
 	name = "green athletic shorts"
+	desc = "A pair of green athletic shorts."
 	icon_state = "shorts_athletic_green"
 	item_state = "shorts_athletic_green"
 
 /obj/item/clothing/under/shorts/athletic/blue
 	name = "blue athletic shorts"
+	desc = "A pair of blue athletic shorts."
 	icon_state = "shorts_athletic_blue"
 	item_state = "shorts_athletic_blue"
 
 /obj/item/clothing/under/shorts/athletic/grey
 	name = "grey athletic shorts"
+	desc = "A pair of grey athletic shorts."
 	icon_state = "shorts_athletic_grey"
 	item_state = "shorts_athletic_grey"
 
