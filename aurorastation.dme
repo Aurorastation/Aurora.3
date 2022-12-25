@@ -3273,6 +3273,7 @@
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_hunting.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_minefield.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_village.dm"
+#include "maps\random_ruins\exoplanets\adhomai\adhomai_war_memorial.dm"
 #include "maps\random_ruins\exoplanets\adhomai\ala_cell.dm"
 #include "maps\random_ruins\exoplanets\asteroid\asteroid.dm"
 #include "maps\random_ruins\exoplanets\crashed_pod\crashed_pod.dm"

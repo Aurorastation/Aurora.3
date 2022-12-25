@@ -1,0 +1,153 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"c" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"g" = (
+/obj/item/flame/candle{
+	pixel_x = -9;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"i" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"o" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"s" = (
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"u" = (
+/obj/structure/sign/adhomai_memorial{
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"x" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"A" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"J" = (
+/obj/item/flame/candle{
+	pixel_x = 9;
+	pixel_y = -6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"K" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"N" = (
+/obj/item/seeds/mtearseed,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"P" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"T" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"X" = (
+/obj/item/flame/candle{
+	pixel_y = 11
+	},
+/obj/item/clothing/accessory/dogtags,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+
+(1,1,1) = {"
+P
+c
+c
+c
+K
+"}
+(2,1,1) = {"
+o
+s
+J
+N
+s
+"}
+(3,1,1) = {"
+o
+s
+u
+X
+s
+"}
+(4,1,1) = {"
+o
+s
+g
+N
+A
+"}
+(5,1,1) = {"
+i
+x
+x
+x
+T
+"}
