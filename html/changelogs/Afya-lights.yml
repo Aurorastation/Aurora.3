@@ -1,7 +1,0 @@
-author: Afya
-
-delete-after: True
-
-changes:
-  - tweak: "You can pull out broken lights without grab intent."
-  - tweak: "Added mechanics description to light figures mentioning grab intent."
