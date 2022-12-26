@@ -100,7 +100,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_pipenets(resumed, no_mc_tick)
 		cost_pipenets = MC_AVERAGE(cost_pipenets, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if (state != SS_RUNNING)
+		if (state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_MACHINERY
 		resumed = FALSE
@@ -108,7 +108,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_machinery(resumed, no_mc_tick)
 		cost_machinery = MC_AVERAGE(cost_machinery, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if(state != SS_RUNNING)
+		if(state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_POWERNETS
 		resumed = FALSE
@@ -116,7 +116,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_powernets(resumed, no_mc_tick)
 		cost_powernets = MC_AVERAGE(cost_powernets, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if(state != SS_RUNNING)
+		if(state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_POWER_OBJECTS
 		resumed = FALSE
@@ -124,7 +124,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_power_objects(resumed, no_mc_tick)
 		cost_power_objects = MC_AVERAGE(cost_power_objects, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if (state != SS_RUNNING)
+		if (state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_PIPENETS
 

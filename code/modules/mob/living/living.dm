@@ -896,6 +896,10 @@ default behaviour is:
 	to_chat(src, "<span class='notice'>Remember to stay in character for a mob of this type!</span>")
 	return 1
 
+/mob/living/Initialize()
+	. = ..()
+	add_to_target_grid()
+
 /mob/living/Destroy()
 	if(loc)
 		for(var/mob/M in contents)
@@ -904,6 +908,7 @@ default behaviour is:
 		for(var/mob/M in contents)
 			qdel(M)
 	QDEL_NULL(reagents)
+	clear_from_target_grid()
 
 	return ..()
 
