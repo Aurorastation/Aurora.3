@@ -71,7 +71,7 @@
 	//Perform the connection
 	connected_port = new_port
 	connected_port.connected_device = src
-	connected_port.on = 1 //Activate port updates
+	connected_port.toggle_process()
 
 	anchored = 1 //Prevent movement
 
@@ -95,6 +95,7 @@
 
 	connected_port.connected_device = null
 	connected_port = null
+	connected_port.toggle_process()
 
 	return 1
 

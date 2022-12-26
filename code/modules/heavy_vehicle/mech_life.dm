@@ -21,7 +21,9 @@
 				UNSETEMPTY(pilots)
 
 	if(radio)
-		radio.set_on(head?.radio && head.radio.is_functional() && get_cell())
+		var/radio_check = head?.radio && head.radio.is_functional() && get_cell()
+		if(radio.is_on() != radio_check)
+			radio.set_on(radio_check)
 
 	if(camera)
 		camera.status = (head?.camera && head.camera.is_functional())

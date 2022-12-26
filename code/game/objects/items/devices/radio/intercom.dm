@@ -66,6 +66,7 @@
 	set_frequency(1449)
 
 /obj/item/device/radio/intercom/interrogation/broadcasting/Initialize() // The detainee's side.
+	. = ..()
 	set_broadcasting(TRUE)
 	set_listening(FALSE)
 

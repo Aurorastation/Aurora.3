@@ -1221,20 +1221,25 @@
 	update_rolldown_status()
 
 	rolled_down = !rolled_down
+	handle_rollsuit(usr)
+
+/obj/item/clothing/under/proc/handle_rollsuit(mob/user)
 	if(rolled_down)
 		body_parts_covered &= LOWER_TORSO|LEGS|FEET
 		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = "[initial(item_state)]_d"
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
-		to_chat(usr, SPAN_NOTICE("You roll up \the [src]."))
+		if(user)
+			to_chat(user, SPAN_NOTICE("You roll up \the [src]."))
 	else
 		body_parts_covered = initial(body_parts_covered)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = initial(item_state)
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
-		to_chat(usr, SPAN_NOTICE("You roll down \the [src]."))
+		if(user)
+			to_chat(user, SPAN_NOTICE("You roll down \the [src]."))
 	update_clothing_icon()
 
 /obj/item/clothing/under/proc/rollsleeves()
@@ -1253,20 +1258,25 @@
 	update_rollsleeves_status()
 
 	rolled_sleeves = !rolled_sleeves
+	handle_rollsleeves(usr)
+
+/obj/item/clothing/under/proc/handle_rollsleeves(mob/user)
 	if(rolled_sleeves)
 		body_parts_covered &= ~(ARMS|HANDS)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = "[initial(item_state)]_r"
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_r"
-		to_chat(usr, SPAN_NOTICE("You roll up \the [src]'s sleeves."))
+		if(user)
+			to_chat(user, SPAN_NOTICE("You roll up \the [src]'s sleeves."))
 	else
 		body_parts_covered = initial(body_parts_covered)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = initial(item_state)
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
-		to_chat(usr, SPAN_NOTICE("You roll down \the [src]'s sleeves."))
+		if(user)
+			to_chat(user, SPAN_NOTICE("You roll down \the [src]'s sleeves."))
 	update_clothing_icon()
 
 /obj/item/clothing/under/rank/Initialize()
