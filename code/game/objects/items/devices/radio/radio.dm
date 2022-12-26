@@ -373,7 +373,7 @@ var/global/list/default_medbay_channels = list(
 
 	announcer.PrepareBroadcast(from)
 	var/datum/weakref/speaker_weakref = WEAKREF(announcer)
-	var/datum/signal/subspace/vocal/signal = new(src, frequency, speaker_weakref, announcer.default_language, message, "states")
+	var/datum/signal/subspace/vocal/signal = new(src, connection.frequency, speaker_weakref, announcer.default_language, message, "states")
 	signal.send_to_receivers()
 	announcer.ResetAfterBroadcast()
 
