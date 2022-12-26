@@ -16,3 +16,4 @@
 	density = TRUE
 	anchored = TRUE
 	pixel_x = -16
+	layer = ABOVE_ALL_MOB_LAYER

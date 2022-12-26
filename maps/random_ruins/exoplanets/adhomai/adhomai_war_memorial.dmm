@@ -10,7 +10,8 @@
 "g" = (
 /obj/item/flame/candle{
 	pixel_x = -9;
-	pixel_y = -5
+	pixel_y = -5;
+	start_lit = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 268.15
@@ -56,16 +57,11 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"A" = (
-/obj/structure/railing/mapped,
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
-/area/exoplanet/adhomai)
 "J" = (
 /obj/item/flame/candle{
 	pixel_x = 9;
-	pixel_y = -6
+	pixel_y = -6;
+	start_lit = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 268.15
@@ -81,7 +77,7 @@
 	},
 /area/exoplanet/adhomai)
 "N" = (
-/obj/item/seeds/mtearseed,
+/obj/item/reagent_containers/food/snacks/grown/mtear,
 /turf/simulated/floor/tiled{
 	temperature = 268.15
 	},
@@ -108,9 +104,12 @@
 /area/exoplanet/adhomai)
 "X" = (
 /obj/item/flame/candle{
-	pixel_y = 11
+	pixel_y = 8;
+	start_lit = 1
 	},
-/obj/item/clothing/accessory/dogtags,
+/obj/item/clothing/accessory/dogtags{
+	layer = 2.9
+	},
 /turf/simulated/floor/tiled{
 	temperature = 268.15
 	},
@@ -142,7 +141,7 @@ o
 s
 g
 N
-A
+s
 "}
 (5,1,1) = {"
 i

@@ -9,10 +9,13 @@
 	w_class = ITEMSIZE_TINY
 	light_color = "#E09D37"
 	var/wax = 2000
+	var/start_lit = FALSE
 
 /obj/item/flame/candle/Initialize()
 	. = ..()
 	wax = rand(1600, 2000)
+	if(start_lit)
+		light()
 
 /obj/item/flame/candle/update_icon()
 	var/i
