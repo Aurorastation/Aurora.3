@@ -110,8 +110,7 @@
 	/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_bar,
 	/datum/map_template/ruin/exoplanet/adhomai_war_memorial)
 
-/obj/effect/overmap/visitable/sector/exoplanet/adhomai/Initialize()
-	. = ..()
+/obj/effect/overmap/visitable/sector/exoplanet/adhomai/pre_ruin_preparation()
 	var/landing_faction = pick("pra", "dpra", "nka")
 	switch(landing_faction)
 		if("pra")

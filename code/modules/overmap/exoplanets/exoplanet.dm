@@ -78,6 +78,7 @@
 	forceMove(locate(1,1,world.maxz))
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
+	pre_ruin_preparation()
 	if(LAZYLEN(possible_themes))
 		var/datum/exoplanet_theme/T = pick(possible_themes)
 		theme = new T
@@ -101,6 +102,9 @@
 	generate_daycycle()
 	generate_planet_image()
 	START_PROCESSING(SSprocessing, src)
+
+/obj/effect/overmap/visitable/sector/exoplanet/proc/pre_ruin_preparation()
+	return
 
 //attempt at more consistent history generation for xenoarch finds.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_engravings()
