@@ -87,8 +87,11 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
-	frequency = new_frequency
-	radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
+	if(new_frequency)
+		frequency = new_frequency
+
+	if(listening && on)
+		radio_connection = SSradio.add_object(src, new_frequency, RADIO_CHAT)
 
 /obj/item/device/radio/Initialize()
 	. = ..()
@@ -138,9 +141,13 @@ var/global/list/default_medbay_channels = list(
 		should_be_listening = listening
 
 	if(listening && on)
-		SSradio.add_object(src, frequency, RADIO_CHAT)
+		for(var/channel_name in channels)
+			if(channels[channel_name])
+				secure_radio_connections[channel_name] = SSradio.add_object(src, radiochannels[channel_name], RADIO_CHAT)
+		radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 	else if(!listening)
 		SSradio.remove_object_all(src)
+		radio_connection = null
 
 /**
  * setter for broadcasting that makes us not hearing sensitive if not broadcasting and hearing sensitive if broadcasting
@@ -366,7 +373,7 @@ var/global/list/default_medbay_channels = list(
 
 	announcer.PrepareBroadcast(from)
 	var/datum/weakref/speaker_weakref = WEAKREF(announcer)
-	var/datum/signal/subspace/vocal/signal = new(src, frequency, speaker_weakref, announcer.default_language, message, "states")
+	var/datum/signal/subspace/vocal/signal = new(src, connection.frequency, speaker_weakref, announcer.default_language, message, "states")
 	signal.send_to_receivers()
 	announcer.ResetAfterBroadcast()
 
