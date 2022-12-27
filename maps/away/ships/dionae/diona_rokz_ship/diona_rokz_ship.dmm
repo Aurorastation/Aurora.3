@@ -75,6 +75,12 @@
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
+"dj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/unsimulated/mineral/asteroid,
+/area/ship/diona_rokz_ship/engine)
 "dp" = (
 /obj/structure/table/diona,
 /obj/item/material/sword/longsword,
@@ -236,6 +242,12 @@
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
+"mE" = (
+/obj/structure/fuel_port/phoron{
+	pixel_x = -32
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship/engine)
 "ny" = (
 /mob/living/simple_animal/carp{
 	faction = "neutral"
@@ -279,7 +291,7 @@
 /obj/machinery/floodlight{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/engine)
 "oI" = (
 /obj/structure/table/diona,
@@ -332,7 +344,8 @@
 /area/space)
 "qM" = (
 /obj/machinery/computer/ship/engines,
-/turf/unsimulated/floor/asteroid/ash,
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/engine)
 "qT" = (
 /obj/effect/floor_decal/asteroid{
@@ -377,9 +390,11 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/bridge)
 "sl" = (
-/obj/effect/landmark/entry_point/fore,
-/turf/unsimulated/mineral/asteroid,
-/area/ship/diona_rokz_ship/exterior/south)
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship/engine)
 "sD" = (
 /obj/item/trap/animal/large,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -706,10 +721,11 @@
 /turf/simulated/wall/diona,
 /area/ship/diona_rokz_ship/bridge)
 "FW" = (
-/obj/structure/fuel_port/phoron{
-	pixel_x = -32
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/engine)
 "Gh" = (
 /turf/simulated/wall/diona,
@@ -731,10 +747,8 @@
 /turf/space/transit/north,
 /area/space)
 "GZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/turf/simulated/wall/diona,
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/engine)
 "HS" = (
 /obj/structure/diona/bulb,
@@ -906,6 +920,11 @@
 /obj/structure/table/diona,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/bridge)
+"Ml" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship/engine)
 "Mw" = (
 /obj/machinery/floodlight,
 /turf/unsimulated/floor/asteroid/ash,
@@ -1200,7 +1219,7 @@
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "VG" = (
-/turf/simulated/wall/diona,
+/turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/engine)
 "VO" = (
 /obj/structure/sign/flag/hegemony{
@@ -31722,7 +31741,7 @@ kB
 kB
 kB
 kB
-kB
+Pt
 kB
 kB
 kB
@@ -31978,11 +31997,11 @@ kB
 kB
 kB
 kB
-kB
-kB
-kB
-kB
-kB
+Pt
+Pt
+Pt
+Pt
+Pt
 kB
 kB
 kB
@@ -32235,13 +32254,13 @@ PL
 PL
 kB
 kB
-kB
+Pt
 nK
 Pt
 Pt
 Pt
-kB
-kB
+Pt
+Pt
 kB
 kB
 kB
@@ -32497,9 +32516,9 @@ nK
 Pt
 Pt
 Pt
-kB
-kB
-kB
+Pt
+Pt
+Pt
 kB
 kB
 kB
@@ -32753,10 +32772,10 @@ nK
 Pt
 Pt
 Pt
+gP
+gP
+dj
 sl
-kB
-kB
-kB
 kB
 kB
 kB
@@ -33010,10 +33029,10 @@ Pt
 Pt
 jb
 Pt
-Pt
-kB
-kB
-kB
+GZ
+gP
+wG
+FW
 kB
 kB
 kB
@@ -33267,10 +33286,10 @@ nA
 zf
 Cz
 Pt
-Pt
-kB
-kB
-kB
+VG
+GZ
+SR
+sl
 kB
 kB
 kB
@@ -33524,10 +33543,10 @@ Cz
 Cz
 Cz
 Pt
-Pt
-Pt
-Pt
-Pt
+VG
+VG
+SR
+sl
 kB
 kB
 kB
@@ -33782,9 +33801,9 @@ Cz
 Pt
 Pt
 VG
-VG
-VG
-Pt
+GZ
+SR
+sl
 kB
 kB
 kB
@@ -34037,11 +34056,11 @@ dE
 Cz
 Cz
 ob
-gP
-FW
+mE
+VG
 oF
-GZ
-Nn
+SR
+sl
 kB
 kB
 kB
@@ -34294,11 +34313,11 @@ Cz
 Cz
 bu
 Pt
-rm
-gP
-gP
+Ml
+VG
+VG
 SR
-Nn
+sl
 kB
 kB
 kB
@@ -34552,10 +34571,10 @@ Cz
 zf
 Pt
 rm
-gP
+VG
 qM
 wG
-Nn
+sl
 kB
 kB
 kB
