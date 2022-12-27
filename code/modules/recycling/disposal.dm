@@ -193,7 +193,7 @@
 
 	else if (istype (I, /obj/item/material/ashtray) && user.a_intent != I_HURT)
 		var/obj/item/material/ashtray/A = I
-		if(A.emptyout(get_turf(src)))
+		if(A.emptyout(src))
 			user.visible_message("<b>[user]</b> pours [I] out into [src].", SPAN_NOTICE("You pour [I] out into [src]."))
 		return TRUE
 

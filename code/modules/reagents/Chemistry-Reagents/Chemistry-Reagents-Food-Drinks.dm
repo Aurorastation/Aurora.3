@@ -4598,6 +4598,17 @@
 	glass_name = "glass of veteran's choice"
 	glass_desc = "A cocktail consisting of Messa's Mead and gunpowder."
 
+/decl/reagent/alcohol/eggnog
+	name = "eggnog"
+	color = "#619494"
+	description = "A true Christmas classic, consisting of egg, cream, sugar and of course alcohol."
+	taste_description = "egg and alcohol"
+	strength = 15
+
+	glass_icon_state = "snowwhite"
+	glass_name = "glass of eggnog"
+	glass_desc = "Technically a longdrink, made out of egg, sugar, cream and alcohol. Merry Christmas!"
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species

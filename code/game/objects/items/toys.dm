@@ -237,18 +237,6 @@
 	desc_extended = "There's a tag that reads: \"Apparition Halloween LLC.\""
 	icon_state = "ghostballoon"
 
-/obj/item/toy/balloon/xmastree
-	name = "giant christmas tree balloon"
-	desc = "Mandatory at inter-generational christmas gatherings and office parties."
-	desc_extended = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
-	icon_state = "xmastreeballoon"
-
-/obj/item/toy/balloon/candycane
-	name = "giant candy cane balloon"
-	desc = "Kris Kringle ain't got nothing on this candied confection."
-	desc_extended = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
-	icon_state = "candycaneballoon"
-
 /obj/item/toy/balloon/color /// To color it, VV the 'color' var with a hex color code with the # included.
 	desc = "It's a plain little balloon. Comes in many colors!"
 	icon_state = "colorballoon"
@@ -332,6 +320,64 @@
 	published in magazines or on extranet sites."
 	icon_state = "comicoutlandish"
 	item_state = "comicoutlandish"
+
+/obj/item/toy/comic/azmarian
+	name = "az'marian comic"
+	desc = "A comic book series revolving around a superhero from Az'Mar, popular in the New Kingdom."
+	icon_state = "comicazmarian"
+	item_state = "comicazmarian"
+
+/obj/item/toy/comic/azmarian/issue_1
+	desc_extended = "Issue 1 - The Az'Marian Landing! - In this issue, the would-be hero departs from Az'Mar and lands in a war-torn \
+	town in the outskirts of the Kingdom, witnessing the townspeople terrorised by a Zhan'Khazan maniacal terrorist. After mutilating \
+	his body with alien technology and even cutting off his own arms to replace with robotic equivalents, the cybernetically enhanced \
+	Corporal Khara'zan will not let his reign of terror be stopped easily. Will the visitor from Az'mar manage to stand in his way and prevail?"
+
+/obj/item/toy/comic/azmarian/issue_2
+	desc_extended = "Issue 2 - The Road Towards A Dark Future - In this issue, the Az'Marian meets the local nobility whom he had saved from \
+	terror, learning that the Kingdom is threatened on all fronts. The superhero embarks on a journey through bandit-infested lands towards the \
+	headquarters of evil, meeting an unlikely ally and his band of friends. However, all is not what it seems, and the superhero will soon face \
+	a threat that once welcomed him with open arms. A treacherous plot, an ally destined by S'rendarr, and the darkness encroaching; the superhero \
+	faces the modern threat of depraved Tajara."
+
+/obj/item/toy/comic/azmarian/issue_3
+	desc_extended = "Issue 3 - The Swamp Debacle - In this issue, the Az'Marian and his loyal but dim-witted sidekick Murr'zhul reach a poisonous \
+	swamp polluted by waste-producing factories. A chemical-obsessed scientist looks to experiment and find the perfect poison for his evil deeds, \
+	killing the surrounding nature and turning residents sickly. A lumbering creature hiding in the swamp caves, a mad researcher about to find the \
+	perfect toxin, and the duo seeking to halt his plans. Will they find a way to shut him down?"
+
+/obj/item/toy/comic/azmarian/issue_4
+	desc_extended = "Issue 4 - The Den of Evil! - In this issue, the hero and his loyal but dim-witted sidekick Murr'zhul reach the stronghold of \
+	the retreating Corporal Khara'zan. The superhero uncovers a sinister plot orchestrated by the Corporal's superior to turn all of the local living \
+	beings into cyborgs. The leader, Director Shul'tyz, is not yet aware of the Az'Marian's presence, and the time is ripe. Met with a slumbering horde \
+	of cybernetic ha'rrons, schlorrgos and even Tajara, the superhero encounters a threat that will truly test his mettle."
+
+/obj/item/toy/comic/azmarian/issue_5
+	desc_extended = "Issue 5 - Path to Recovery - In this issue, the hero, who has faced a successful confrontation with Director Shul'tyz, managed to \
+	free the local populace of cybernetic mind control, but at a heavy price. The syringe that was shot into him started coursing through his veins, preventing \
+	him from using his powers in a rapidly degrading state. His loyal sidekick Murr'zhul helps bring the hero to the capital of the ancient Kingdom to seek aid. \
+	Met with internal politics, a mixed reception, sinister plots and a meeting with the King, will the hero find a way to recover from the illness that plagues him?"
+
+/obj/item/toy/comic/azmarian/issue_6
+	desc_extended = "Issue 6 - The Pilgrimage - Steppe Trouble! - In this issue, the hero and his loyal but dim-witted sidekick Murr'zhul embark on a journey \
+	to a sacred shrine in the mountains built by the early Ancient Tajara. Having received a blessing to prevent his state from degrading from the local priests, \
+	the hero has little time to waste before the blessing wanes. A meeting with wandering nomads, an audience with their ruler, and a perilous journey across \
+	the steppes leads the Az'Marian to face many decisions and challenges as the reality of the nomads comes to light. Deprived of his powers, will he and his \
+	trusted Hharar side-kick manage to reach the mountains?"
+
+/obj/item/toy/comic/azmarian/issue_7
+	desc_extended = "Issue 7 - The Pilgrimage Pt. 2 - Mountain Survival - In this issue, the hero and his loyal but dim-witted sidekick Murr'zhul reach \
+	the mountains that contain the ancient shrine of the Suns, where he would be able to recover from his illness caused by Director Shul'tyz. Trailed \
+	by Sham'tyrs, facing freezing winds and snow, the two will trek to reach the shrine in hope of recovery. Bandits encampments, a village in need of help, \
+	a chance encounter with the S'Mara, and a shape-shifting spy amongst the Sham'tyrs, will the heroes make their way in one piece?"
+
+/obj/item/toy/comic/azmarian/issue_8
+	desc_extended = "Issue 8 - The Shrine - In this issue, the hero and his loyal but dim-witted sidekick Murr'zhul meet the Parivara at the ancient shrine. \
+	Tended to by the Sun Sister with the blessing of Messa, the Az'Marian manages to recover from his affliction over the course of a week. He learns of an \
+	evil plan staged by a group of Cae'rrin living in caves nearby to desecrate the shrine and eat its attendants, and the two embark on a journey to put a \
+	stop to this plan. Already aware of the Az'Marian's presence from their spy, they begin to set up traps and occult rituals to prevent him from even reaching \
+	the caves. Forces of Raskara, shape-shifting creatures, dastardly traps and true evil lurking within, the Az'Marian and his sidekick will have to use their \
+	newly regained powers to their fullest."
 
 //
 // Toy Crossbows
@@ -1102,16 +1148,6 @@
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
-
-/obj/item/toy/xmastree
-	name = "miniature Christmas tree"
-	desc = "Now with 99% less pine needles."
-	icon_state = "tinyxmastree"
-	w_class = ITEMSIZE_TINY
-	force = 1
-	throwforce = 1
-	drop_sound = 'sound/items/drop/cardboardbox.ogg'
-	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
 /obj/item/toy/aurora
 	name = "aurora miniature"

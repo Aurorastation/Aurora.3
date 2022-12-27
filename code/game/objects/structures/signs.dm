@@ -60,24 +60,6 @@
 	else ..()
 
 //
-// Christmas
-//
-
-/obj/structure/sign/christmas/lights
-	name = "christmas lights"
-	desc = "Flashy."
-	icon = 'icons/obj/christmas.dmi'
-	icon_state = "xmaslights"
-	layer = 4.9
-
-/obj/structure/sign/christmas/wreath
-	name = "wreath"
-	desc = "Prickly and overrated."
-	icon = 'icons/obj/christmas.dmi'
-	icon_state = "doorwreath"
-	layer = 5
-
-//
 // Generic Signs
 //
 

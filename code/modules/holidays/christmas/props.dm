@@ -1,8 +1,40 @@
-/* Gifts and wrapping paper
- * Contains:
- *		Gifts
- *		X-mas Gifts
- */
+// All Christmas Props, now UNIFIED in one place. Merry Christmas ~KingOfThePing
+
+// Things in your HAND
+/obj/item/toy/xmas_cracker
+	name = "xmas cracker"
+	icon = 'icons/holidays/christmas/items.dmi'
+	icon_state = "cracker"
+	desc = "Directions for use: Requires two people, one to pull each end."
+	var/cracked = 0
+
+/obj/item/toy/xmas_cracker/attack(mob/target, mob/user, var/target_zone)
+	if( !cracked && istype(target,/mob/living/carbon/human) && (target.stat == CONSCIOUS) && !target.get_active_hand() )
+		target.visible_message("<span class='notice'>[user] and [target] pop \an [src]! *pop*</span>", "<span class='notice'>You pull \an [src] with [target]! *pop*</span>", "<span class='notice'>You hear a *pop*.</span>")
+		var/obj/item/paper/Joke = new /obj/item/paper(user.loc)
+		var/title = "[pick("awful","terrible","unfunny")] joke"
+		var/content = pick("What did one snowman say to the other?\n\n<i>'Is it me or can you smell carrots?'</i>",
+			"Why couldn't the snowman get laid?\n\n<i>He was frigid!</i>",
+			"Where are santa's helpers educated?\n\n<i>Nowhere, they're ELF-taught.</i>",
+			"What happened to the man who stole advent calanders?\n\n<i>He got 25 days.</i>",
+			"What does Santa get when he gets stuck in a chimney?\n\n<i>Claus-trophobia.</i>",
+			"Where do you find chili beans?\n\n<i>The north pole.</i>",
+			"What do you get from eating tree decorations?\n\n<i>Tinsilitis!</i>",
+			"What do snowmen wear on their heads?\n\n<i>Ice caps!</i>",
+			"Why is Christmas just like life in NanoTrasen?\n\n<i>You do all the work and the fat guy gets all the credit.</i>",
+			"Why doesn't Santa have any children?\n\n<i>Because he only comes down the chimney.</i>")
+		Joke.set_content_unsafe(title, content)
+		new /obj/item/clothing/head/festive(target.loc)
+		user.update_icon()
+		cracked = 1
+		icon_state = "cracker1"
+		var/obj/item/toy/xmas_cracker/other_half = new /obj/item/toy/xmas_cracker(target)
+		other_half.cracked = 1
+		other_half.icon_state = "cracker2"
+		target.put_in_active_hand(other_half)
+		playsound(user, 'sound/effects/snap.ogg', 50, 1)
+		return 1
+	return ..()
 
 /*
  * Gifts
@@ -10,7 +42,7 @@
 /obj/item/a_gift
 	name = "gift"
 	desc = "PRESENTS!!!! eek!"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "gift1"
 	item_state = "gift1"
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
@@ -118,16 +150,12 @@
 	return
 
 /*
- * Wrapping Paper
- */
-
-/*
  * Xmas Gifts
  */
 /obj/item/xmasgift
 	name = "christmas gift"
 	desc = "PRESENTS!!!! eek!"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "gift1"
 	item_state = "gift"
 	w_class = ITEMSIZE_TINY
@@ -343,3 +371,114 @@
 /obj/item/xmasgift/viscerator
 	gift_type = /mob/living/simple_animal/hostile/viscerator
 	w_class = ITEMSIZE_NORMAL
+
+// Things on your HEAD
+/obj/item/clothing/head/festive
+	name = "festive paper hat"
+	icon_state = "xmashat"
+	desc = "A crappy paper hat that you are REQUIRED to wear."
+	flags_inv = 0
+	body_parts_covered = 0
+	armor = null
+
+/obj/item/clothing/head/festive/santa
+	name = "santa hat"
+	icon_state = "santahat"
+	desc = "A cheap fabric santa hat."
+
+/obj/item/clothing/head/festive/santa/beard
+	desc = "A cheap fabric santa hat, this one with a beard."
+	body_parts_covered = HEAD
+	icon_state = "santahat_alt"
+
+// Things at your PLACE
+/obj/structure/sign/christmas/lights
+	name = "christmas lights"
+	desc = "Flashy."
+	icon = 'icons/holidays/christmas/items.dmi'
+	icon_state = "xmaslights"
+	layer = 4.9
+
+/obj/structure/sign/christmas/wreath
+	name = "wreath"
+	desc = "Prickly and very festive."
+	icon = 'icons/holidays/christmas/items.dmi'
+	icon_state = "doorwreath"
+	layer = 5
+
+/obj/structure/sign/christmas/garland
+	name = "festive garland"
+	desc = "Very festive lights. How nice."
+	icon = 'icons/holidays/christmas/props.dmi'
+	icon_state = "garland_on"
+	layer = 4.9
+
+/obj/structure/sign/christmas/tinsel
+	name = "tinsel"
+	desc = "There used to be more tinsel."
+	icon = 'icons/holidays/christmas/props.dmi'
+	icon_state = "tinsel_g"
+	layer = 5
+
+/obj/structure/sign/christmas/tinsel/red
+	name = "red tinsel"
+	icon_state = "tinsel_r"
+
+/obj/structure/sign/christmas/tinsel/yellow
+	name = "yellow tinsel"
+	icon_state = "tinsel_y"
+
+/obj/structure/sign/christmas/tinsel/white
+	name = "white tinsel"
+	icon_state = "tinsel_w"
+
+/obj/structure/sign/christmas/snowman
+	name = "snowman sticker"
+	desc = "A cheaply made adhesive sticker, looking like a snowman. At least it doesn't melt."
+	icon = 'icons/holidays/christmas/props.dmi'
+	icon_state = "snowman_s"
+
+/obj/structure/sign/christmas/snowman/hat
+	name = "hat snowman sticker"
+	desc = "A cheaply made adhesive sticker, looking like a snowman, but wearing a hat. At least it doesn't melt."
+	icon_state = "snowman_hat"
+
+/obj/structure/sign/christmas/snowflakes
+	name = "snowflake stickers"
+	desc = "Adhesive stickers, sticking really everywhere and looking like a stylized snowflake. Just like the one you are."
+	icon = 'icons/holidays/christmas/props.dmi'
+	icon_state = "snowflakes_1"
+
+/obj/structure/sign/christmas/snowflakes/alt
+	icon_state = "snowflakes_2"
+
+/obj/structure/sign/christmas/snowflakes/alt_2
+	icon_state = "snowflakes_3"
+
+/obj/structure/sign/christmas/snowflakes/alt_3
+	icon_state = "snowflakes_4"
+
+/obj/item/toy/xmastree
+	name = "miniature Christmas tree"
+	desc = "Now with 99% less pine needles."
+	icon = 'icons/holidays/christmas/items.dmi'
+	icon_state = "tinyxmastree"
+	w_class = ITEMSIZE_TINY
+	force = 1
+	throwforce = 1
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+
+/obj/item/toy/balloon/xmastree
+	name = "giant christmas tree balloon"
+	desc = "Mandatory at inter-generational christmas gatherings and office parties."
+	desc_extended = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
+	icon = 'icons/holidays/christmas/items.dmi'
+	icon_state = "xmastreeballoon"
+
+/obj/item/toy/balloon/candycane
+	name = "giant candy cane balloon"
+	desc = "Kris Kringle ain't got nothing on this candied confection."
+	desc_extended = "There's a tag that reads: \"On behalf of employee relations, the CCIA Department wishes you a happy non-denominational holiday season.\""
+	icon = 'icons/holidays/christmas/items.dmi'
+	icon_state = "candycaneballoon"
