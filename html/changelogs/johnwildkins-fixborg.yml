@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fix AI turrets trying to shoot the brains out of cyborgs."
