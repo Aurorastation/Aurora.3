@@ -7,6 +7,8 @@
 	var/obj/machinery/shipsensors/sensors
 	var/obj/machinery/iff_beacon/identification
 	circuit = /obj/item/circuitboard/ship/sensors
+	var/contact_details = null
+	var/contact_name = null
 
 /obj/machinery/computer/ship/sensors/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
@@ -90,6 +92,8 @@
 		data["id_name"] = linked.designation
 		data["can_change_class"] = identification.can_change_class
 		data["can_change_name"] = identification.can_change_name
+		if(contact_details)
+			data["contact_details"] = contact_details
 	else
 		data["id_status"] = "NOBEACON" //Should not really happen.
 
@@ -166,10 +170,18 @@
 			return TOPIC_REFRESH
 
 	if (href_list["scan"])
-		var/obj/effect/overmap/O = locate(href_list["scan"])
-		if(istype(O) && !QDELETED(O) && (O in view(7,linked)))
-			playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
-			new/obj/item/paper/(get_turf(src), O.get_scan_data(usr), "paper (Sensor Scan - [O])")
+		switch(href_list["scan"])
+			if("clear")
+				contact_details = null
+			if("print")
+				if(contact_details)
+					playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
+					new/obj/item/paper/(get_turf(src), contact_details, "paper (Sensor Scan - [contact_name])")
+			else
+				var/obj/effect/overmap/O = locate(href_list["scan"])
+				if(istype(O) && !QDELETED(O) && (O in view(7,linked)))
+					contact_name = O.name
+					contact_details = O.get_scan_data(usr)
 		return TOPIC_HANDLED
 
 	if (href_list["play_message"])
