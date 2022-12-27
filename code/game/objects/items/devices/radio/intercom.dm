@@ -175,6 +175,9 @@
 	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
 
 /obj/item/device/radio/intercom/can_receive(input_frequency, list/levels)
+	if(!listening)
+		return FALSE
+
 	if(levels != RADIO_NO_Z_LEVEL_RESTRICTION)
 		var/turf/position = get_turf(src)
 		if(!istype(position) || !(position.z in levels))
