@@ -301,6 +301,6 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/tajaran/finecoat/blue
-	name = "fine brown coat"
+	name = "fine blue coat"
 	icon_state = "finecoat_blue"
 	item_state = "finecoat_blue"
