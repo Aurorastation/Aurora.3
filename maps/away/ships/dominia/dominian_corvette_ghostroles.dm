@@ -1,90 +1,82 @@
 //elyran naval infantry
 
-/datum/ghostspawner/human/elyran_naval_infantry
-	short_name = "elyran_naval_infantry"
-	name = "Elyran Naval Infantryman"
-	desc = "Crew the Elyran naval infantry interdiction craft. Follow your Ensign's orders. (OOC Note: All characters must be of Elyran ethnic origin and background, this is enforceable by admin/moderator action.)"
+/datum/ghostspawner/human/imperial_fleet_voidsman
+	short_name = "imperial_fleet_voidsman"
+	name = "Imperial Fleet Voidsman"
+	desc = "Crew the Imperial Fleet Corvette. Follow your Ensign's orders. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
 	tags = list("External")
-	mob_name_prefix = "RFLMN. " //Rifleman
+	mob_name_prefix = "VDSMN. " //Voidsman
 
-	spawnpoints = list("elyran_naval_infantry")
+	spawnpoints = list("imperial_fleet_voidsman")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/elyran_naval_infantry
+	outfit = /datum/outfit/admin/imperial_fleet_voidsman
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Elyran Naval Infantryman"
-	special_role = "Elyran Naval Infantryman"
+	assigned_role = "Imperial Fleet Voidsman"
+	special_role = "Imperial Fleet Voidsman"
 	respawn_flag = null
 
 
-/datum/outfit/admin/elyran_naval_infantry
-	name = "Elyran Naval Infantryman"
+/datum/outfit/admin/imperial_fleet_voidsman
+	name = "Imperial Fleet Voidsman"
 
-	uniform = /obj/item/clothing/under/rank/elyran_fatigues
+	uniform = /obj/item/clothing/under/dominia/fleet
+	head = /obj/item/clothing/head/dominia/fleet
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
 
-	id = /obj/item/card/id/elyran_naval_infantry_craft
+	id = /obj/item/card/id/imperial_fleet
 
 	l_ear = /obj/item/device/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/elyran_naval_infantry/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
-		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
-		H.internal = preserve
-		H.internals.icon_state = "internal1"
-		H.equip_or_collect(new /obj/item/reagent_containers/inhaler/phoron_special, slot_in_backpack)
-	if(isoffworlder(H))
-		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+/datum/outfit/admin/imperial_fleet_voidsman/get_id_access()
+	return list(access_imperial_fleet_voidsman_ship, access_external_airlocks)
 
-/datum/outfit/admin/elyran_naval_infantry/get_id_access()
-	return list(access_elyran_naval_infantry_ship, access_external_airlocks)
-
-/datum/ghostspawner/human/elyran_naval_infantry/officer
-	short_name = "elyran_naval_infantry_officer"
-	name = "Elyran Naval Infantry Officer"
-	desc = "Command and pilot the Elyran naval infantry strike craft. (OOC Note: All characters must be of Elyran ethnic origin and background, this is enforceable by admin/moderator action.)"
+/datum/ghostspawner/human/imperial_fleet_voidsman/officer
+	short_name = "imperial_fleet_voidsman_officer"
+	name = "Imperial Fleet Officer"
+	desc = "Command and pilot the Imperial Fleet corvette. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
 	mob_name_prefix = "ENS. "
 
-	spawnpoints = list("elyran_naval_infantry_officer")
+	spawnpoints = list("imperial_fleet_voidsman_officer")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/elyran_naval_infantry/officer
+	outfit = /datum/outfit/admin/imperial_fleet_voidsman/officer
 
-	assigned_role = "Elyran Naval Infantry Officer"
-	special_role = "Elyran Naval Infantry Officer"
-
-
-/datum/outfit/admin/elyran_naval_infantry/officer
-	name = "Elyran Naval Infantry Officer"
-	uniform = /obj/item/clothing/under/rank/elyran_fatigues/commander
+	assigned_role = "Imperial Fleet Officer"
+	special_role = "Imperial Fleet Officer"
 
 
-/datum/ghostspawner/human/elyran_naval_infantry/nco
-	short_name = "elyran_naval_infantry_nco"
+/datum/outfit/admin/imperial_fleet_voidsman/officer
+	name = "Imperial Fleet Officer"
+	head = /obj/item/clothing/head/dominia/fleet/officer
+	uniform = /obj/item/clothing/under/dominia/fleet/officer
+	suit = /obj/item/clothing/suit/storage/dominia/fleet
+
+
+/datum/ghostspawner/human/imperial_fleet_voidsman/nco
+	short_name = "imperial_fleet_voidsman_nco"
 	name = "Elyran Naval Infantry Fireteam Leader"
 	desc = "Lead the Elyran naval infantry strike craft's riflemen. Serve as the Ensign's second-in-command, and follow their orders. (OOC Note: All characters must be of Elyran ethnic origin and background, this is enforceable by admin/moderator action.)"
 	mob_name_prefix = "PO3. "
 
 	max_count = 1
 
-	outfit = /datum/outfit/admin/elyran_naval_infantry/nco
+	outfit = /datum/outfit/admin/imperial_fleet_voidsman/nco
 
 	assigned_role = "Elyran Naval Infantry Fireteam Leader"
 	special_role = "Elyran Naval Infantry Fireteam Leader"
 
 
-/datum/outfit/admin/elyran_naval_infantry/nco
+/datum/outfit/admin/imperial_fleet_voidsman/nco
 	name = "Elyran Naval Infantry Fireteam Leader"
 
 //items
 
-/obj/item/card/id/elyran_naval_infantry_craft
-	name = "elyran naval infantry craft id"
-	access = list(access_elyran_naval_infantry_ship, access_external_airlocks)
+/obj/item/card/id/imperial_fleet
+	name = "imperial fleet id"
+	access = list(access_imperial_fleet, access_external_airlocks)
