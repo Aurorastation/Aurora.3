@@ -18,7 +18,7 @@
 
 	var/list/preview = list()
 	for(var/S in template.get_affected_turfs(T, TRUE))
-		preview += image('icons/turf/overlays.dmi',S,"greenOverlay")
+		preview += image('icons/effects/landmarks.dmi', S, "x3")
 	usr.client.images += preview
 	if(alert(usr,"Confirm location.","Template Confirm","Yes","No") == "Yes")
 		log_and_message_admins("is attempting to place a map template [log_name].")
