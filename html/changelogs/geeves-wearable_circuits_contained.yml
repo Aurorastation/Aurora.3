@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Using an assembly detailer on Wearable Integrated Circuits will now change the green coloring on them."
