@@ -290,6 +290,16 @@
 	plushies["plushie, bear"] = /obj/item/toy/plushie/bear
 	plushies["plushie, firefighter bear"] = /obj/item/toy/plushie/bearfire
 	plushies["plushie, random squid"] = /obj/item/toy/plushie/squid //if someone can figure out how to make color work with these, good luck lmao
+	plushies["plushie, red fox"] = /obj/item/toy/plushie/fox
+	plushies["plushie, black fox"] = /obj/item/toy/plushie/fox/black
+	plushies["plushie, marble fox"] = /obj/item/toy/plushie/fox/marble
+	plushies["plushie, blue fox"] = /obj/item/toy/plushie/fox/blue
+	plushies["plushie, orange fox"] = /obj/item/toy/plushie/fox/orange
+	plushies["plushie, coffee fox"] = /obj/item/toy/plushie/fox/coffee
+	plushies["plushie, pink fox"] = /obj/item/toy/plushie/fox/pink
+	plushies["plushie, purple fox"] = /obj/item/toy/plushie/fox/purple
+	plushies["plushie, crimson fox"] = /obj/item/toy/plushie/fox/crimson
+	plushies["plushie, random fox"] = /obj/item/toy/plushie/fox/random
 	plushies["plushie, bee"] = /obj/item/toy/plushie/bee
 	plushies["plushie, shark"] = /obj/item/toy/plushie/shark
 	plushies["plushie, schlorrgo"] = /obj/item/toy/plushie/schlorrgo
@@ -315,6 +325,14 @@
 	comics["inspector 404 manga"] = /obj/item/toy/comic/inspector
 	comics["stormman manga"] = /obj/item/toy/comic/stormman
 	comics["outlandish tales magazine"] = /obj/item/toy/comic/outlandish_tales
+	comics["az'marian comic, issue 1"] = /obj/item/toy/comic/azmarian/issue_1
+	comics["az'marian comic, issue 2"] = /obj/item/toy/comic/azmarian/issue_2
+	comics["az'marian comic, issue 3"] = /obj/item/toy/comic/azmarian/issue_3
+	comics["az'marian comic, issue 4"] = /obj/item/toy/comic/azmarian/issue_4
+	comics["az'marian comic, issue 5"] = /obj/item/toy/comic/azmarian/issue_5
+	comics["az'marian comic, issue 6"] = /obj/item/toy/comic/azmarian/issue_6
+	comics["az'marian comic, issue 7"] = /obj/item/toy/comic/azmarian/issue_7
+	comics["az'marian comic, issue 8"] = /obj/item/toy/comic/azmarian/issue_8
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste
