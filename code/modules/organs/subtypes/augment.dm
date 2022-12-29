@@ -631,7 +631,8 @@
 	if(!.)
 		return FALSE
 
-	zoom(owner,7,7, FALSE)
+	zoom(owner, 7, 7, FALSE, FALSE)
+	owner.visible_message(zoom ? "<b>[owner]</b>'s pupils narrow..." : "<b>[owner]</b>'s pupils return to normal.", range = 3)
 
 /obj/item/organ/internal/augment/enhanced_vision/emp_act(severity)
 	..()
