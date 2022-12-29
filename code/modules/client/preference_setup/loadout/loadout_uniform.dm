@@ -250,8 +250,8 @@
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
 	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
 	suit["dominia noblewoman dress"] = /obj/item/clothing/under/dominia/dress
-	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/summer))
-		var/obj/item/clothing/under/dominia/dress/summer/D = new dress
+	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/noble))
+		var/obj/item/clothing/under/dominia/dress/noble/D = new dress
 		suit["[D.name]"] = D.type
 	gear_tweaks += new /datum/gear_tweak/path(suit)
 
