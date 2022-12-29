@@ -60,6 +60,8 @@
 	var/open_sound = 'sound/machines/firelockopen.ogg'
 	var/close_sound = 'sound/machines/firelockclose.ogg'
 
+	init_flags = 0
+
 /obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
@@ -355,8 +357,6 @@
 
 // CHECK PRESSURE
 /obj/machinery/door/firedoor/process()
-	..()
-
 	if(density && next_process_time <= world.time)
 		next_process_time = world.time + 100		// 10 second delays between process updates
 		var/changed = 0
@@ -399,6 +399,9 @@
 		if(changed)
 			update_icon()
 
+	else if(!density)
+		return PROCESS_KILL
+
 /obj/machinery/door/firedoor/proc/latetoggle()
 	if(operating || !nextstate)
 		return
@@ -424,6 +427,7 @@
 		return
 	cut_overlays()
 	latetoggle()
+	START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	return ..()
 
 /obj/machinery/door/firedoor/open(forced = 0, user = usr)
