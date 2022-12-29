@@ -627,3 +627,8 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_iac_rescue_ship
 	id = access_iac_rescue_ship
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_nka = 212
+/datum/access/access_nka
+	id = access_nka
+	access_type = ACCESS_TYPE_CENTCOM
