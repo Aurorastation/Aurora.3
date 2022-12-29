@@ -323,16 +323,17 @@
 		remove_mask()
 
 /obj/item/clothing/under/dominia/dress
-	name = "dominian noblewoman dress"
-	desc = "This is a dress in the style of Dominian nobility. It's the latest fashion across Dominian space."
+	name = "dominian noble greatdress"
+	desc = "This is a greatdress in the style of Dominian nobility. Greatdresses are a Dominian fashion fad, distinguished from normal dresses by their colourful palettes \
+			and oversized gowns. More modest nobility would define them as excessively gaudy and unreasonable, but it depends on the individual."
 	icon = 'icons/clothing/under/uniforms/dominia_noble_dress.dmi'
 	icon_state = "dom_dress"
 	item_state = "dom_dress"
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/dominia/dress/summer
-	name = "dominian summer dress"
-	desc = "This is a dress in the style of Dominian nobility. It's the latest fashion across Dominian space."
+	name = "dominian noble dress"
+	desc = "A dress worn by Dominian nobility. This is the most commonly seen variant. While not as gaudy as the greatdress, this dress is luxurious nonetheless."
 	icon = 'icons/clothing/under/uniforms/dominia_summer_dress.dmi'
 	icon_state = "altdress_imperial"
 	item_state = "altdress_imperial"
@@ -349,47 +350,47 @@
 		item_state += "b"
 
 /obj/item/clothing/under/dominia/dress/summer/strelitz
-	name = "strelitz summer dress"
+	name = "strelitz noble dress"
 	house = "strelitz"
 
 /obj/item/clothing/under/dominia/dress/summer/volvalaad
-	name = "volvalaad summer dress"
+	name = "volvalaad noble dress"
 	house = "volvalaad"
 
 /obj/item/clothing/under/dominia/dress/summer/kazhkz
-	name = "kazhkz summer dress"
+	name = "kazhkz noble dress"
 	house = "kazhkz"
 
 /obj/item/clothing/under/dominia/dress/summer/caladius
-	name = "caladius summer dress"
+	name = "caladius noble dress"
 	house = "caladius"
 
 /obj/item/clothing/under/dominia/dress/summer/zhao
-	name = "zhao summer dress"
+	name = "zhao noble dress"
 	house = "zhao"
 
 /obj/item/clothing/under/dominia/dress/summer/black
-	name = "black dominian summer dress"
+	name = "black dominian noble dress"
 	black = TRUE
 
 /obj/item/clothing/under/dominia/dress/summer/black/strelitz
-	name = "black strelitz summer dress"
+	name = "black strelitz noble dress"
 	house = "strelitz"
 
 /obj/item/clothing/under/dominia/dress/summer/black/volvalaad
-	name = "black volvalaad summer dress"
+	name = "black volvalaad noble dress"
 	house = "volvalaad"
 
 /obj/item/clothing/under/dominia/dress/summer/black/kazhkz
-	name = "black kazhkz summer dress"
+	name = "black kazhkz noble dress"
 	house = "kazhkz"
 
 /obj/item/clothing/under/dominia/dress/summer/black/caladius
-	name = "black caladius summer dress"
+	name = "black caladius noble dress"
 	house = "caladius"
 
 /obj/item/clothing/under/dominia/dress/summer/black/zhao
-	name = "black zhao summer dress"
+	name = "black zhao noble dress"
 	house = "zhao"
 
 /obj/item/clothing/accessory/poncho/dominia/red/surcoat

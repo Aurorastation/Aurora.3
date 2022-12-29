@@ -38,8 +38,10 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
+  - tweak: "Renamed the Dominian summer dress to Dominian noble dress."
+  - tweak: "Renamed the Dominian noblewoman dress to Dominian noble greatdress."
   - rscadd: "Added white Dominian cape versions."
-  - rscadd: "Added house variants of the Dominian summer dress."
-  - rscadd: "Added alternate black versions of the Dominian summer dress."
+  - rscadd: "Added house variants of the Dominian noble dress."
+  - rscadd: "Added alternate black versions of the Dominian noble dress."
   - rscadd: "Added house variants of the Dominian suit."
   - tweak: "The Dominian commoner dresses have been resprited. Sleeveless versions have been rolled into the main dress, just use the roll sleeves verb."
