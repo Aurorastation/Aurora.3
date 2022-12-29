@@ -173,7 +173,7 @@
 	item_flags = NOBLUDGEON
 	w_class = ITEMSIZE_SMALL
 	var/detail_color = COLOR_ASSEMBLY_WHITE
-	var/list/color_list = list(
+	var/static/list/color_list = list(
 		"black" = COLOR_ASSEMBLY_BLACK,
 		"machine gray" = COLOR_ASSEMBLY_BGRAY,
 		"white" = COLOR_ASSEMBLY_WHITE,
@@ -204,7 +204,7 @@
 
 /obj/item/device/integrated_electronics/detailer/attack_self(mob/user)
 	var/color_choice = input(user, "Select color.", "Assembly Detailer", detail_color) as null|anything in color_list
-	if(!color_list[color_choice])
+	if(!color_choice)
 		return
 	if(!in_range(src, user))
 		return

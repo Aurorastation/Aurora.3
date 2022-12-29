@@ -89,8 +89,6 @@ var/global/list/default_medbay_channels = list(
 	SSradio.remove_object(src, frequency)
 	if(new_frequency)
 		frequency = new_frequency
-
-	if(listening && on)
 		radio_connection = SSradio.add_object(src, new_frequency, RADIO_CHAT)
 
 /obj/item/device/radio/Initialize()
@@ -475,6 +473,9 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/proc/can_receive(input_frequency, list/levels)
 	// check if the radio can receive on the given frequency
+	if (!listening)
+		return
+
 	if (levels != RADIO_NO_Z_LEVEL_RESTRICTION)
 		var/turf/position = get_turf(src)
 		if (!position || !(position.z in levels))
