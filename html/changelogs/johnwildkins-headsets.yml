@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - tweak: "Headsets no longer reset channel settings when moving them between inventory slots."
+  - bugfix: "Headset channel on/off settings now are taken into account over the frequency of the radio when determining if a radio should hear a channel."
