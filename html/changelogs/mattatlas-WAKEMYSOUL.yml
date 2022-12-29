@@ -40,6 +40,7 @@ delete-after: True
 changes:
   - tweak: "Renamed the Dominian summer dress to Dominian noble dress."
   - tweak: "Renamed the Dominian noblewoman dress to Dominian noble greatdress."
+  - tweak: "Separated the Dominian clothing section into a suit selection and a dress selection."
   - rscadd: "Added white Dominian cape versions."
   - rscadd: "Added house variants of the Dominian noble dress."
   - rscadd: "Added alternate black versions of the Dominian noble dress."

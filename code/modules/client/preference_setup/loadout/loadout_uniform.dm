@@ -231,8 +231,8 @@
 	path = /obj/item/clothing/under/syndicate/tacticool
 
 /datum/gear/uniform/dominia
-	display_name = "dominian clothing selection"
-	description = "A selection of Dominian clothing."
+	display_name = "dominian suit selection"
+	description = "A selection of Dominian suits."
 	path = /obj/item/clothing/under/dominia
 	flags = GEAR_HAS_DESC_SELECTION
 	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
@@ -249,21 +249,21 @@
 	suit["zhao dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/zhao
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
 	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
-	suit["dominia noblewoman dress"] = /obj/item/clothing/under/dominia/dress
-	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/noble))
-		var/obj/item/clothing/under/dominia/dress/noble/D = new dress
-		suit["[D.name]"] = D.type
 	gear_tweaks += new /datum/gear_tweak/path(suit)
 
 /datum/gear/uniform/dominia_dress
 	display_name = "dominian dress selection"
-	description = "A selection of fancy Dominian dresses."
+	description = "A selection of Dominian dresses."
 	path = /obj/item/clothing/under/dominia/dress
 	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/uniform/dominia_dress/New()
 	..()
 	var/list/suit = list()
+	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/noble))
+		var/obj/item/clothing/under/dominia/dress/noble/D = new dress
+		suit["[D.name]"] = D.type
+	suit["dominia noblewoman dress"] = /obj/item/clothing/under/dominia/dress
 	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/fancy))
 		var/obj/item/clothing/under/dominia/dress/D = new dress //I'm not typing all this shit manually. Jesus christ.
 		suit["[D.name]"] = D.type
