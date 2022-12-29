@@ -240,12 +240,19 @@
 /datum/gear/uniform/dominia/New()
 	..()
 	var/list/suit = list()
-	suit["dominia suit, red"] = /obj/item/clothing/under/dominia
-	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
+	suit["dominian suit, red"] = /obj/item/clothing/under/dominia/imperial_suit
+	suit["dominian suit, black"] = /obj/item/clothing/under/dominia/imperial_suit/black
+	suit["strelitz dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/strelitz
+	suit["volvalaad dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/volvalaad
+	suit["kazhkz dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/kazhkz
+	suit["caladius dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/caladius
+	suit["zhao dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/zhao
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
 	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
 	suit["dominia noblewoman dress"] = /obj/item/clothing/under/dominia/dress
-	suit["dominia summer dress"] = /obj/item/clothing/under/dominia/dress/summer
+	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/summer))
+		var/obj/item/clothing/under/dominia/dress/summer/D = new dress
+		suit["[D.name]"] = D.type
 	gear_tweaks += new /datum/gear_tweak/path(suit)
 
 /datum/gear/uniform/dominia_dress
