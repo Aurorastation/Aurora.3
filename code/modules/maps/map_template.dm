@@ -48,6 +48,8 @@
 	var/list/atoms_to_initialise = list()
 	var/shuttle_state = pre_init_shuttles()
 
+	//Since queue_smooth() manually wakes the subsystem, we have to use enable/disable.
+	SSicon_smooth.disable()
 	for (var/mappath in mappaths)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf = no_changeturf)
 		if (M)
@@ -73,6 +75,7 @@
 	for(var/light_z = initial_z to world.maxz)
 		create_lighting_overlays_zlevel(light_z)
 	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
+	SSicon_smooth.enable()
 	loaded++
 
 	return locate(world.maxx/2, world.maxy/2, world.maxz)
@@ -110,6 +113,8 @@
 			LAZYADD(subtemplates_to_spawn, A)
 		if(istype(A, /obj/machinery/power/apc))
 			apcs += A
+		if(isnull(A))
+			atoms -= A
 		if(A.initialized)
 			atoms -= A
 
@@ -155,6 +160,8 @@
 	var/list/atoms_to_initialise = list()
 	var/shuttle_state = pre_init_shuttles()
 
+	//Since queue_smooth() manually wakes the subsystem, we have to use enable/disable.
+	SSicon_smooth.disable()
 	for (var/mappath in mappaths)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE)
 		if (M)
@@ -166,6 +173,7 @@
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state)
 
+	SSicon_smooth.enable()
 	log_game("[name] loaded at [T.x], [T.y], [T.z]")
 	return TRUE
 
