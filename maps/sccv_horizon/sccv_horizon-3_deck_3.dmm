@@ -245,6 +245,11 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/camera/motion{
+	alarm_on = 1;
+	c_tag = "Longbow";
+	network = list("Command,Security")
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
 "ais" = (
@@ -4242,9 +4247,9 @@
 /obj/machinery/anti_bluespace,
 /obj/machinery/camera/motion{
 	alarm_on = 1;
-	c_tag = "Scuttling Device - Motion";
+	c_tag = "Scuttling Device";
 	dir = 4;
-	network = list("Secure")
+	network = list("Command,Security")
 	},
 /obj/structure/sign/flag/scc{
 	pixel_x = -32
@@ -4867,7 +4872,7 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Cryogenics Fore Entrance";
+	c_tag = "Third Deck - Dormitories Entrance";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -6111,7 +6116,7 @@
 	},
 /obj/structure/closet/walllocker/emerglocker/south,
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Starboard Dock Port";
+	c_tag = "Third Deck - Port Dock Starboard";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -13341,6 +13346,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/dormitories)
+"kTg" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Port Main Hallway Starboard";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/central)
 "kTE" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 8
@@ -13370,6 +13385,9 @@
 /obj/structure/sign/directions/security{
 	pixel_y = 41;
 	dir = 1
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Port Main Hallway Port"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
@@ -16830,6 +16848,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Port Dock Port";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "nLc" = (
@@ -19095,6 +19117,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Starboard Dock Port";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "pBE" = (
@@ -54552,7 +54578,7 @@ sVV
 nGI
 eIH
 hnj
-seF
+kTg
 viN
 fSW
 fMW

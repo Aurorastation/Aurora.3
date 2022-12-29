@@ -1747,7 +1747,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/zta)
 "aNp" = (
 /obj/effect/floor_decal/corner/green/full,
@@ -6081,15 +6081,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "cXq" = (
-/obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/porta_turret/stationary{
-	req_access = list(19);
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/zta)
 "cXU" = (
 /obj/structure/cable{
@@ -7347,7 +7343,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/zta)
 "dDO" = (
 /obj/effect/shuttle_landmark/horizon/decktwo/port_fore,
@@ -10337,6 +10333,15 @@
 "fht" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/zta)
+"fhw" = (
+/obj/machinery/camera/motion{
+	alarm_on = 1;
+	c_tag = "ZTA Aft Port";
+	dir = 8;
+	network = list("Command,Security")
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
 "fhD" = (
@@ -16088,6 +16093,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_two/fore)
+"hRK" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/camera/motion{
+	alarm_on = 1;
+	c_tag = "ZTA Fore Starboard";
+	dir = 4;
+	network = list("Command,Security")
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/zta)
 "hRY" = (
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Second Deck Airlock"
@@ -16958,10 +16977,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "ipL" = (
-/obj/machinery/camera/network/command{
-	c_tag = "Command - Deck 2 - Secure Ammunition Storage";
-	dir = 8
-	},
 /obj/structure/cable/green,
 /obj/machinery/power/apc/critical{
 	pixel_y = -24
@@ -16970,6 +16985,12 @@
 /obj/machinery/porta_turret,
 /obj/structure/sign/nosmoking_1{
 	pixel_x = 32
+	},
+/obj/machinery/camera/motion{
+	alarm_on = 1;
+	c_tag = "Secure Ammunition Storage";
+	network = list("Command,Security");
+	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/horizon/secure_ammunition_storage)
@@ -17170,6 +17191,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
@@ -18541,7 +18565,12 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/camera/motion{
+	alarm_on = 1;
+	c_tag = "ZTA Access Fore";
+	network = list("Command,Security")
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/zta)
 "jgm" = (
 /obj/machinery/door/window/eastright,
@@ -19152,15 +19181,11 @@
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload)
 "jsR" = (
-/obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/machinery/porta_turret/stationary{
-	req_access = list(19);
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/zta)
 "jsS" = (
 /obj/machinery/recharger{
@@ -23238,13 +23263,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
-"lFv" = (
-/obj/machinery/light,
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/conference)
 "lFE" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/structure/table/standard,
@@ -24240,6 +24258,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
+"mch" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/zta)
 "mcV" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
@@ -26567,6 +26592,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/camera/motion{
+	alarm_on = 1;
+	c_tag = "ZTA Access Aft";
+	network = list("Command,Security");
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/horizon/zta)
 "nge" = (
@@ -27739,8 +27770,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "nLg" = (
-/obj/structure/girder,
-/turf/simulated/floor/plating,
+/obj/machinery/porta_turret/stationary{
+	req_access = list(19);
+	req_one_access = null
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/zta)
 "nLC" = (
 /obj/machinery/hologram/holopad,
@@ -27855,6 +27890,12 @@
 	},
 /obj/machinery/zta_lever{
 	pixel_x = 28
+	},
+/obj/machinery/camera/motion{
+	alarm_on = 1;
+	c_tag = "ZTA Fore Port";
+	dir = 8;
+	network = list("Command,Security")
 	},
 /turf/simulated/floor/reinforced,
 /area/horizon/zta)
@@ -31518,6 +31559,10 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Meeting Room";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
 "pJE" = (
@@ -33883,6 +33928,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
 "qSa" = (
@@ -36414,6 +36460,7 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
 "scx" = (
@@ -38046,6 +38093,12 @@
 	dir = 1
 	},
 /obj/item/hoist_kit,
+/obj/machinery/camera/motion{
+	alarm_on = 1;
+	c_tag = "ZTA Aft Starboard";
+	dir = 4;
+	network = list("Command,Security")
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
 "sYY" = (
@@ -38295,7 +38348,6 @@
 	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -39652,6 +39704,12 @@
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
+	},
+/obj/machinery/camera/motion{
+	alarm_on = 1;
+	c_tag = "Grauwolf";
+	network = list("Command,Security");
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
@@ -44078,7 +44136,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor" = "Engine Core")
+	sensors = list("engine_sensor"="Engine Core")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
@@ -45049,7 +45107,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/zta)
 "wmT" = (
 /obj/structure/railing/mapped,
@@ -78119,7 +78177,7 @@ jnF
 ouk
 ncA
 wlF
-lFv
+vVL
 dOi
 aTd
 bGp
@@ -83592,7 +83650,7 @@ kwC
 kwC
 dyP
 woe
-kwC
+hRK
 lpK
 aPN
 fmk
@@ -84382,7 +84440,7 @@ aPN
 aPN
 aPN
 jgj
-jgj
+mch
 dDt
 aPN
 kkq
@@ -84995,7 +85053,7 @@ hkt
 yjr
 aPN
 rdZ
-qSN
+fhw
 reZ
 vFr
 qSN
