@@ -333,7 +333,8 @@
 
 /obj/item/clothing/under/dominia/dress/summer
 	name = "dominian noble dress"
-	desc = "A dress worn by Dominian nobility. This is the most commonly seen variant. While not as gaudy as the greatdress, this dress is luxurious nonetheless."
+	desc = "A dress commonly worn by Dominian nobility. While not as gaudy as the greatdress, it is extremely luxurious nonetheless, and a sign of excellent pedigree \
+			and good fortune."
 	icon = 'icons/clothing/under/uniforms/dominia_summer_dress.dmi'
 	icon_state = "altdress_imperial"
 	item_state = "altdress_imperial"
