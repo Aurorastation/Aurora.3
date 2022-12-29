@@ -75,6 +75,7 @@
 	for(var/light_z = initial_z to world.maxz)
 		create_lighting_overlays_zlevel(light_z)
 	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
+	message_admins("Z-level [name] loaded at [x], [y], [world.maxz]")
 	SSicon_smooth.enable()
 	loaded++
 
@@ -174,6 +175,7 @@
 	init_shuttles(shuttle_state)
 
 	SSicon_smooth.enable()
+	message_admins("[name] loaded at [T.x], [T.y], [T.z]")
 	log_game("[name] loaded at [T.x], [T.y], [T.z]")
 	return TRUE
 
