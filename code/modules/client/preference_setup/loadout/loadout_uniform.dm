@@ -263,7 +263,7 @@
 	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/noble))
 		var/obj/item/clothing/under/dominia/dress/noble/D = new dress
 		suit["[D.name]"] = D.type
-	suit["dominia noblewoman dress"] = /obj/item/clothing/under/dominia/dress
+	suit["dominia noble greatdress"] = /obj/item/clothing/under/dominia/dress
 	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/fancy))
 		var/obj/item/clothing/under/dominia/dress/D = new dress //I'm not typing all this shit manually. Jesus christ.
 		suit["[D.name]"] = D.type
