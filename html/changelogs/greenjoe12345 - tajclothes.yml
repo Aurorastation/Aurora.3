@@ -40,4 +40,5 @@ delete-after: True
 changes:
   - rscadd: "Adds a selection of Tajaran clothing, aimed towards New Kingdom nobles, which can be selected in the loadout."
   - tweak: "adjusts some of the existing Tajaran clothing items so that they may be colored better, and so their details are not lost when coloring."
+  - tweak: "adds tajara adjusted earring sprites, now actually on their ears rather then the sides of their head."
   - bugfix: "the fancy jacket is now in the coat section, instead of wrongly in the uniform section."
