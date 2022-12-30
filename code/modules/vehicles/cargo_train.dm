@@ -1,7 +1,12 @@
 /obj/vehicle/train/cargo/engine
 	name = "cargo train tug"
 	desc = "A ridable electric car designed for pulling cargo trolleys."
-	desc_info = "Click resist, or type resist into the red bar below to get off. Use ctrl-click to quickly toggle the engine if you're adjacent (only when vehicle is stationary). Alt-click will grab the keys, if present. If latched, you can use a wrench to unlatch."
+	desc_info = "Click-drag yourself onto the truck to climb onto it.<br>\
+		- CTRL-click the truck to open the ignition and controls menu.<br>\
+		- ALT-click the truck to remove the key from the ignition.<br>\
+		- Click the truck to open a UI menu.<br>\
+		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the truck.<br>\
+		- If latched, you can use a wrench to unlatch."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_engine"
 	on = 0
@@ -10,13 +15,14 @@
 
 	load_item_visible = 1
 	load_offset_x = 0
-	mob_offset_y = 7
+	mob_offset_y = 10
 
 	var/vueui_template = "trainengine"
 
 	var/car_limit = 3		//how many cars an engine can pull before performance degrades
 	active_engines = 1
 	var/obj/item/key/key
+	var/key_type = /obj/item/key/cargo_train
 
 /obj/item/key/cargo_train
 	name = "key"
@@ -36,7 +42,7 @@
 
 	load_item_visible = 1
 	load_offset_x = 0
-	load_offset_y = 4
+	load_offset_y = 5
 	mob_offset_y = 8
 
 //-------------------------------------------
@@ -48,7 +54,8 @@
 
 /obj/vehicle/train/cargo/engine/proc/setup_engine()
 	cell = new /obj/item/cell/high(src)
-	key = new /obj/item/key/cargo_train(src)
+	if(ispath(key_type))
+		key = new key_type(src)
 	var/image/I = new(icon = icon, icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
 	add_overlay(I)
 	turn_off()
@@ -96,10 +103,7 @@
 		return TRUE
 
 	if(href_list["toggle_engine"])
-		if(!on)
-			start_engine(usr)
-		else
-			stop_engine(usr)
+		turn_on(usr)
 	if(href_list["key"])
 		remove_key(usr)
 	if(href_list["unlatch"])
@@ -125,18 +129,19 @@
 /obj/vehicle/train/cargo/trolley/attackby(obj/item/W as obj, mob/user as mob)
 	if(open && W.iswirecutter())
 		passenger_allowed = !passenger_allowed
-		user.visible_message("<span class='notice'>[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src].</span>","<span class='notice'>You [passenger_allowed ? "cut" : "mend"] the load limiter cable.</span>")
+		user.visible_message(SPAN_NOTICE("[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src]."),SPAN_NOTICE("You [passenger_allowed ? "cut" : "mend"] the load limiter cable."))
 	else
 		..()
 
 /obj/vehicle/train/cargo/engine/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/key/cargo_train))
+	if(istype(W, key_type))
 		if(!key)
 			user.drop_from_inventory(W, src)
-			key = W
-			to_chat(user, SPAN_NOTICE("You slide the key into the ignition."))
+			key = W // put the key in the ignition
+			to_chat(user, SPAN_NOTICE("You slide \the [W] into \the [src]'s ignition."))
+			playsound(src, 'sound/machines/vehicles/key_in.ogg', 50, FALSE)
 		else
-			to_chat(user, SPAN_WARNING("\The [src] already has a key inserted."))
+			to_chat(user, SPAN_NOTICE("There is already a key in [src]'s ignition."))
 		return
 	..()
 
@@ -181,13 +186,23 @@
 //-------------------------------------------
 // Train procs
 //-------------------------------------------
-/obj/vehicle/train/cargo/engine/turn_on()
+/obj/vehicle/train/cargo/engine/turn_on(var/mob/user)
 	if(!key)
 		audible_message("\The [src] whirrs, but the lack of a key causes it to shut down.")
 		return
-	else
+	if(!on)
 		..()
-		update_stats()
+		to_chat(user, SPAN_NOTICE("You turn on \the [src]'s ignition."))
+		playsound(src, 'sound/machines/vehicles/button.ogg', 50, FALSE)
+		playsound_in(src, 'sound/machines/vehicles/start.ogg', 50, FALSE, time = 1 SECOND)
+	else
+		turn_off(user)
+	update_stats()
+
+/obj/vehicle/train/cargo/engine/turn_off(var/mob/user)
+	..()
+	to_chat(user, SPAN_NOTICE("You turn off \the [src]'s ignition."))
+	playsound(src, 'sound/machines/vehicles/button.ogg', 50, FALSE)
 
 /obj/vehicle/train/cargo/RunOver(var/mob/living/carbon/human/H)
 	var/list/parts = list(BP_HEAD, BP_CHEST, BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM)
@@ -243,14 +258,22 @@
 	to_chat(user, "The power light is [on ? "on" : "off"].\nThere are[key ? "" : " no"] keys in the ignition.")
 	to_chat(user, "The charge meter reads [cell? round(cell.percent(), 0.01) : 0]%")
 
-/obj/vehicle/train/cargo/engine/CtrlClick(var/mob/user)
-	if(Adjacent(user))
-		if(on)
-			stop_engine(usr)
-		else
-			start_engine(usr)
-	else
-		return ..()
+/obj/vehicle/train/cargo/engine/CtrlClick(mob/user)
+	if(load && load != user)
+		to_chat(user, SPAN_WARNING("You can't interact with \the [src] while its in use."))
+		return
+	var/list/options = list(
+		"Toggle Ignition" = image(src, "train_keys"),
+		"Toggle Latching" = image(src, "cargo_trailer", NORTH)
+	)
+	var/chosen_option = show_radial_menu(user, src, options, radius = 42, require_near = TRUE, tooltips = TRUE)
+	if (!chosen_option)
+		return
+	switch(chosen_option)
+		if("Toggle Ignition")
+			turn_on(user)
+		if("Toggle Latching")
+			tow.unattach(user)
 
 /obj/vehicle/train/cargo/engine/AltClick(var/mob/user)
 	if(Adjacent(user))
@@ -258,33 +281,16 @@
 	else
 		return ..()
 
-/obj/vehicle/train/cargo/engine/proc/start_engine(var/mob/user)
-	if(on)
-		to_chat(user, SPAN_WARNING("The engine is already running."))
-		return
-
-	turn_on()
-	if(on)
-		to_chat(user, SPAN_NOTICE("You start \the [src]'s engine."))
-	else if(cell.charge < charge_use)
-		to_chat(user, SPAN_WARNING("\The [src] is out of power."))
-
-/obj/vehicle/train/cargo/engine/proc/stop_engine(var/mob/user)
-	if(!on)
-		to_chat(user, SPAN_WARNING("The engine is already stopped."))
-		return
-
-	turn_off()
-	if(!on)
-		to_chat(user, SPAN_NOTICE("You stop [src]'s engine."))
 
 /obj/vehicle/train/cargo/engine/proc/remove_key(var/mob/user)
 	if(!key)
 		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a key inserted!"))
 		return
 	if(load && load != usr)
+		to_chat(usr, SPAN_WARNING("You can't remove \the [key] from \the [src] while its in use."))
 		return
-
+	to_chat(user, SPAN_NOTICE("You take out \the [key] out of \the [src]'s ignition."))
+	playsound(src, 'sound/machines/vehicles/key_out.ogg', 50, FALSE)
 	if(on)
 		turn_off()
 
@@ -355,26 +361,6 @@
 		qdel(dummy_load)
 		cut_overlays()
 	..()
-
-//-------------------------------------------
-// Latching/unlatching procs
-//-------------------------------------------
-
-/obj/vehicle/train/cargo/engine/latch(obj/vehicle/train/T, mob/user)
-	if(!istype(T) || !Adjacent(T))
-		return 0
-
-	//if we are attaching a trolley to an engine we don't care what direction
-	// it is in and it should probably be attached with the engine in the lead
-	if(istype(T, /obj/vehicle/train/cargo/trolley))
-		T.attach_to(src, user)
-	else
-		var/T_dir = get_dir(src, T)	//figure out where T is wrt src
-
-		if(dir == T_dir) 	//if car is ahead
-			src.attach_to(T, user)
-		else if(reverse_direction(dir) == T_dir)	//else if car is behind
-			T.attach_to(src, user)
 
 //-------------------------------------------------------
 // Stat update procs
