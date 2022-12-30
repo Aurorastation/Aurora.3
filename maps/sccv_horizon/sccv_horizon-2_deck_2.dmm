@@ -5072,7 +5072,6 @@
 	},
 /obj/machinery/light/small/emergency,
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 2 - Research Substation";
 	dir = 1
 	},
@@ -10337,7 +10336,6 @@
 /area/horizon/zta)
 "fhw" = (
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "ZTA Aft Port";
 	dir = 8;
 	network = list("Command,Security")
@@ -16100,7 +16098,6 @@
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "ZTA Fore Starboard";
 	dir = 4;
 	network = list("Command,Security")
@@ -16141,7 +16138,6 @@
 	dir = 1
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 2 - Engineering Substation Access"
 	},
 /turf/simulated/floor/tiled,
@@ -16987,7 +16983,6 @@
 	pixel_x = 32
 	},
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "Secure Ammunition Storage";
 	network = list("Command,Security");
 	dir = 8
@@ -18566,7 +18561,6 @@
 	dir = 4
 	},
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "ZTA Access Fore";
 	network = list("Command,Security")
 	},
@@ -26593,7 +26587,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "ZTA Access Aft";
 	network = list("Command,Security");
 	dir = 4
@@ -27265,7 +27258,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 2 - Medical Substation"
 	},
 /turf/simulated/floor/plating,
@@ -27892,7 +27884,6 @@
 	pixel_x = 28
 	},
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "ZTA Fore Port";
 	dir = 8;
 	network = list("Command,Security")
@@ -33886,7 +33877,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 2 - Starboard Pod Substation";
 	dir = 1
 	},
@@ -38094,7 +38084,6 @@
 	},
 /obj/item/hoist_kit,
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "ZTA Aft Starboard";
 	dir = 4;
 	network = list("Command,Security")
@@ -39706,7 +39695,6 @@
 	dir = 6
 	},
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "Grauwolf";
 	network = list("Command,Security");
 	dir = 8
@@ -42750,7 +42738,6 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 2 - Engineering Substation";
 	dir = 8
 	},
@@ -43485,7 +43472,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 2 - Port Pod Substation";
 	dir = 1
 	},

@@ -246,7 +246,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "Longbow";
 	network = list("Command,Security")
 	},
@@ -3200,7 +3199,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 3 - Telecommunications Substation";
 	dir = 4
 	},
@@ -4246,7 +4244,6 @@
 "dNF" = (
 /obj/machinery/anti_bluespace,
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "Scuttling Device";
 	dir = 4;
 	network = list("Command,Security")
@@ -5136,7 +5133,6 @@
 	pixel_y = -10
 	},
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "Third Deck - Crew Armoury Starboard";
 	dir = 4;
 	name = "security";
@@ -9177,7 +9173,6 @@
 	pixel_y = -10
 	},
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "Third Deck - Crew Armoury Port";
 	dir = 8;
 	name = "security";
@@ -12060,7 +12055,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 3 - Civilian Substation";
 	dir = 1
 	},
@@ -24862,7 +24856,6 @@
 	},
 /obj/structure/table/steel,
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "Third Deck - Crew Armoury Desk";
 	name = "security";
 	network = list("Command, Security")
@@ -26723,7 +26716,6 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/command{
-	alarm_on = 1;
 	c_tag = "Bridge - Deck 3 - Bunker";
 	network = list("Command","Bunker");
 	dir = 4

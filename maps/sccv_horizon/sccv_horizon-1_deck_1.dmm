@@ -15132,7 +15132,6 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Operations Substation";
 	dir = 4
 	},
@@ -15315,7 +15314,6 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Security Substation";
 	dir = 8
 	},
@@ -17688,7 +17686,6 @@
 	pixel_x = -32
 	},
 /obj/machinery/camera/motion{
-	alarm_on = 1;
 	c_tag = "Engineering - Secure Technical Storage";
 	dir = 4;
 	name = "engineering";
@@ -21074,7 +21071,6 @@
 	dir = 6
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Technical Storage";
 	dir = 8
 	},
@@ -26476,7 +26472,6 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Second Deck Civilian Substation";
 	dir = 8
 	},
@@ -30140,7 +30135,6 @@
 /area/engineering/atmos)
 "xJE" = (
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Hangar Substation";
 	dir = 4
 	},
@@ -30550,7 +30544,6 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Atmospherics Substation";
 	dir = 8
 	},
