@@ -78,50 +78,39 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 
 //handles up-down floaty effect in space and zero-gravity
-/mob/var/is_floating = 0
-/mob/var/floatiness = 0
+/mob/var/is_floating = FALSE
 
-/mob/proc/update_floating(var/dense_object=0)
-
-	if(anchored||buckled_to)
-		make_floating(0)
+/mob/proc/update_floating()
+	if(anchored || buckled_to)
+		set_floating(FALSE)
 		return
 
 	var/turf/turf = get_turf(src)
-	if(!istype(turf,/turf/space))
+	if(!turf?.is_hole)
 		var/area/A = turf.loc
 		if(istype(A) && A.has_gravity())
-			make_floating(0)
-			return
-		else if (Check_Shoegrip())
-			make_floating(0)
+			set_floating(FALSE)
 			return
 		else
-			make_floating(1)
-			return
+			var/shoegrip = Check_Shoegrip()
+			if(shoegrip)
+				set_floating(FALSE)
+				return
 
-	if(dense_object && Check_Shoegrip())
-		make_floating(0)
+	set_floating(TRUE)
+
+/mob/proc/set_floating(var/floating_state)
+	if(buckled_to && is_floating)
+		stop_floating()
 		return
 
-	make_floating(1)
-	return
-
-/mob/proc/make_floating(var/n)
-	if(buckled_to)
-		if(is_floating)
-			stop_floating()
-		return
-	floatiness = n
-
-	if(floatiness && !is_floating)
+	if(floating_state && !is_floating)
 		start_floating()
-	else if(!floatiness && is_floating)
+	else if(!floating_state && is_floating)
 		stop_floating()
 
 /mob/proc/start_floating()
-
-	is_floating = 1
+	is_floating = TRUE
 
 	var/amplitude = 2 //maximum displacement from original position
 	var/period = 36 //time taken for the mob to go up >> down >> original position, in deciseconds. Should be multiple of 4
@@ -138,7 +127,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 /mob/proc/stop_floating()
 	animate(src, pixel_y = get_standard_pixel_y(), time = 5, easing = SINE_EASING | EASE_IN) //halt animation
 	//reset the pixel offsets to defaults
-	is_floating = 0
+	is_floating = FALSE
 
 /atom/movable/proc/do_attack_animation(atom/A, atom/movable/weapon, var/image/attack_image, var/initial_pixel_x = 0, var/initial_pixel_y = 0)
 	var/pixel_x_diff = 0
@@ -198,7 +187,9 @@ note dizziness decrements automatically in the mob's Life() proc.
 	var/initial_pixel_x = get_standard_pixel_x()
 	var/initial_pixel_y = get_standard_pixel_y()
 	..(A, attack_item, attack_image, initial_pixel_x, initial_pixel_y)
-	is_floating = 0 // If we were without gravity, the bouncing animation got stopped, so we make sure we restart the bouncing after the next movement.
+
+	if(is_floating)
+		addtimer(CALLBACK(src, .proc/start_floating), 4)
 
 	if(attack_item == FIST_ATTACK_ANIMATION) // only play the physical movement
 		return
@@ -270,27 +261,30 @@ note dizziness decrements automatically in the mob's Life() proc.
 	return
 
 // Mob Throwing Animation
-/proc/animate_throw(atom/A)
-	var/ipx = A.pixel_x
-	var/ipy = A.pixel_y
+/mob/proc/animate_throw()
+	var/ipx = pixel_x
+	var/ipy = pixel_y
 	var/mpx = 0
 	var/mpy = 0
 
-	if(A.dir & NORTH)
+	if(dir & NORTH)
 		mpy += 3
-	else if(A.dir & SOUTH)
+	else if(dir & SOUTH)
 		mpy -= 3
-	if(A.dir & EAST)
+	if(dir & EAST)
 		mpx += 3
-	else if(A.dir & WEST)
+	else if(dir & WEST)
 		mpx -= 3
 
-	var/x = mpx + ipx
-	var/y = mpy + ipy
+	var/new_x = mpx + ipx
+	var/new_y = mpy + ipy
 
-	animate(A, pixel_x = x, pixel_y = y, time = 0.6, easing = EASE_OUT)
+	animate(src, pixel_x = new_x, pixel_y = new_y, time = 0.6, easing = EASE_OUT)
 
-	var/matrix/M = matrix(A.transform)
-	animate(transform = turn(A.transform, (mpx - mpy) * 4), time = 0.6, easing = EASE_OUT)
+	var/matrix/M = matrix(transform)
+	animate(transform = turn(transform, (mpx - mpy) * 4), time = 0.6, easing = EASE_OUT)
 	animate(pixel_x = ipx, pixel_y = ipy, time = 0.6, easing = EASE_IN)
 	animate(transform = M, time = 0.6, easing = EASE_IN)
+
+	if(is_floating)
+		addtimer(CALLBACK(src, .proc/start_floating), 2.4)

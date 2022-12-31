@@ -6,6 +6,7 @@
 	desc = "A handgun holster."
 	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
 	icon_state = "holster"
+	item_state = "holster"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY
 	var/obj/item/holstered = null
@@ -145,45 +146,54 @@
 	name = "black armpit holster"
 	desc = "A worn-out handgun holster. Mostly seen in cheesy cop flicks, used to keep the actor's face in the shot."
 	icon_state = "holster"
+	item_state = "holster"
 
 /obj/item/clothing/accessory/holster/waist
 	name = "black waist holster"
 	desc = "A handgun holster, made of expensive leather. Can possibly be concealed under a shirt, albeit a little archaic."
 	icon_state = "holster_low"
+	item_state = "holster_low"
 
 /obj/item/clothing/accessory/holster/hip
 	name = "black hip holster"
 	desc = "A black firearm hip holster."
 	icon_state = "holster_hip"
+	item_state = "holster_hip"
 
 /obj/item/clothing/accessory/holster/thigh
 	name = "black thigh holster"
 	desc = "A drop leg holster made of a durable synthetic fiber."
 	icon_state = "holster_thigh"
+	item_state = "holster_thigh"
 	sound_in = 'sound/weapons/holster/tactiholsterin.ogg'
 	sound_out = 'sound/weapons/holster/tactiholsterout.ogg'
 
 /obj/item/clothing/accessory/holster/armpit/brown
 	name = "brown armpit holster"
 	icon_state = "holster_brown"
+	item_state = "holster_brown"
 
 /obj/item/clothing/accessory/holster/waist/brown
 	name = "brown waist holster"
 	icon_state = "holster_brown_low"
+	item_state = "holster_brown_low"
 
 /obj/item/clothing/accessory/holster/hip/brown
 	name = "brown hip holster"
 	icon_state = "holster_brown_hip"
+	item_state = "holster_brown_hip"
 
 /obj/item/clothing/accessory/holster/thigh/brown
 	name = "brown thigh holster"
 	icon_state = "holster_brown_thigh"
+	item_state = "holster_brown_thigh"
 
 /********** Utility Holsters Start **********/
 // Utility Holster
 /obj/item/clothing/accessory/holster/utility
 	name = "utility holster"
 	desc = "A utility holster."
+	icon = 'icons/obj/item/clothing/accessory/utility_holsters.dmi'
 
 	var/list/allowed_items = list() // A list of allowed items.
 
@@ -212,13 +222,13 @@
 /obj/item/clothing/accessory/holster/utility/custodial/armpit
 	name = "brown custodial armpit holster"
 	desc = "A brown utility holster which can't hold actual firearms. This particular one is designed for custodial personnel."
-	icon_state = "holster_brown"
-	item_state = "holster_brown"
+	icon_state = "custodial_brown"
+	item_state = "custodial_brown"
 
 // Brown Custodial Hip Holster
 /obj/item/clothing/accessory/holster/utility/custodial/hip
 	name = "brown custodial hip holster"
 	desc = "A brown utility holster which can't hold actual firearms. This particular one is designed for custodial personnel."
-	icon_state = "holster_brown_hip"
-	item_state = "holster_brown_hip"
+	icon_state = "custodial_brown_hip"
+	item_state = "custodial_brown_hip"
 /********** Utility Holsters End **********/

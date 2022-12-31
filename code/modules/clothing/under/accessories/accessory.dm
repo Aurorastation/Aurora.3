@@ -29,8 +29,8 @@
 	if(!accessory_mob_overlay)
 		get_accessory_mob_overlay(M, force)
 	var/I = accessory_mob_overlay.icon
+	var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 	if(!inv_overlay || force)
-		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 		if(icon_override)
 			if(contained_sprite)
 				tmp_icon_state = "[tmp_icon_state]_w"
@@ -43,7 +43,7 @@
 		inv_overlay.color = color
 	if(build_from_parts)
 		inv_overlay.cut_overlays()
-		inv_overlay.add_overlay(overlay_image(I, "[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		inv_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/M, var/force = FALSE)
@@ -89,7 +89,7 @@
 /obj/item/clothing/accessory/proc/on_removed(var/mob/user)
 	if(!has_suit)
 		return
-	has_suit.cut_overlay(get_inv_overlay())
+	has_suit.cut_overlay(get_inv_overlay(user, TRUE))
 	has_suit = null
 	if(user)
 		usr.put_in_hands(src)
@@ -292,6 +292,38 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
+/obj/item/clothing/accessory/crucifix
+	name = "crucifix"
+	desc = "A small cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
+	icon = 'icons/clothing/accessories/crucifix.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/crucifix/gold
+	name = "gold crucifix"
+	desc = "A small, gold cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
+	icon_state = "golden_crucifix"
+	item_state = "golden_crucifix"
+
+/obj/item/clothing/accessory/crucifix/gold/saint_peter
+	name = "gold Saint Peter crucifix"
+	desc = "A small, gold cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symbol \
+	which has been re-purposed as a satanic symbol since the 21st century as well."
+	icon_state = "golden_crucifix_ud"
+	item_state = "golden_crucifix_ud"
+
+/obj/item/clothing/accessory/crucifix/silver
+	name = "silver crucifix"
+	desc = "A small, silver cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
+	icon_state = "silver_crucifix"
+	item_state = "silver_crucifix"
+
+/obj/item/clothing/accessory/crucifix/silver/saint_peter
+	name = "silver Saint Peter crucifix"
+	desc = "A small, silver cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symbol \
+	which has been re-purposed as a satanic symbol since the 21st century as well."
+	icon_state = "silver_crucifix_ud"
+	item_state = "silver_crucifix_ud"
+
 /obj/item/clothing/accessory/assunzione
 	name = "luceian amulet"
 	desc = "A common symbol of the Luceian faith abroad, this amulet featuring the religion's all-seeing eye and eight-pointed crest \
@@ -311,16 +343,46 @@
 /obj/item/clothing/accessory/scarf
 	name = "scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
-	icon_state = "scarf"
-	item_state = "scarf"
-	overlay_state = "scarf"
-	flippable = 1
+	icon = 'icons/obj/clothing/scarves.dmi'
+	icon_state = "scarf0"
+	item_state = "scarf0"
+	contained_sprite = TRUE
+	var/list/alternatives = list(
+		"drape" = "scarf0",
+		"drape, flipped" = "scarf0_f",
+		"single wrap" = "scarf1",
+		"double wrap" = "scarf2",
+		"parisian" = "scarf3"
+	)
+	var/list/overlay_alternatives = null
+
+/obj/item/clothing/accessory/scarf/attack_self(mob/user)
+	if(alternatives)
+		var/list/options = list()
+		for(var/i in alternatives)
+			var/image/radial_button = image(icon = icon, icon_state = alternatives[i])
+			if(color)
+				radial_button.color = color
+			if(build_from_parts&&worn_overlay)
+				radial_button.cut_overlays()
+				radial_button.add_overlay(overlay_image(icon, "[alternatives[i]]_[worn_overlay]", flags=RESET_COLOR))
+			options[i] = radial_button
+		var/alt = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
+		if(!alt)
+			return
+		icon_state = alternatives[alt]
+		item_state = icon_state
+		update_icon()
+		update_clothing_icon()
+		inv_overlay = null
+		accessory_mob_overlay = null
+		to_chat(user, SPAN_NOTICE("You retie \the [src] as \an [alt]."))
+	return ..()
 
 /obj/item/clothing/accessory/scarf/zebra
 	name = "zebra scarf"
-	icon_state = "zebrascarf"
-	item_state = "zebrascarf"
-	overlay_state = "zebrascarf"
+	build_from_parts = TRUE
+	worn_overlay = "stripes"
 
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"

@@ -401,10 +401,12 @@
 	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 	INVOKE_ASYNC(S, /datum/effect/effect/system/smoke_spread/.proc/start)
 
-	var/datum/gas_mixture/env = src.loc.return_air()
-	if(env)
-		if (reagents.total_volume > 750)
-			env.temperature = 0
-		else if (reagents.total_volume > 500)
-			env.temperature -= 100
-		QDEL_IN(src, 10)
+	if(src.loc)
+		var/datum/gas_mixture/env = src.loc.return_air()
+		if(env)
+			if (reagents.total_volume > 750)
+				env.temperature = 0
+			else if (reagents.total_volume > 500)
+				env.temperature -= 100
+
+	QDEL_IN(src, 10)

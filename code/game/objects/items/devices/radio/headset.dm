@@ -141,6 +141,7 @@
 
 
 /obj/item/device/radio/headset/proc/recalculateChannels(var/setDescription = FALSE)
+	var/list/old_channel_settings = channels.Copy()
 	channels = list()
 	translate_binary = FALSE
 	translate_hivenet = FALSE
@@ -176,6 +177,8 @@
 			independent = TRUE
 
 	for (var/ch_name in channels)
+		if(ch_name in old_channel_settings)
+			channels[ch_name] = old_channel_settings[ch_name]
 		secure_radio_connections[ch_name] = SSradio.add_object(src, radiochannels[ch_name], RADIO_CHAT)
 
 	if(setDescription)

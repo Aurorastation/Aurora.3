@@ -237,14 +237,20 @@ var/const/enterloopsanity = 100
 		var/mob/M = AM
 		if(!M.lastarea)
 			M.lastarea = get_area(M.loc)
-		if(M.lastarea.has_gravity() == 0)
+
+		var/has_gravity = M.lastarea.has_gravity()
+		if(!has_gravity)
 			inertial_drift(M)
 
 		// Footstep SFX logic moved to human_movement.dm - Move().
 
-		else if (type != /turf/space)
+		else if(!is_hole)
 			M.inertia_dir = 0
-			M.make_floating(0)
+
+		if(!M.is_floating && (is_hole || !has_gravity))
+			M.update_floating()
+		else if(M.is_floating && !is_hole && has_gravity)
+			M.update_floating()
 
 	if(does_footprint && footprint_color && ishuman(AM))
 		var/mob/living/carbon/human/H = AM

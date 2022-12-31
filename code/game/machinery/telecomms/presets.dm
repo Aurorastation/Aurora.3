@@ -50,7 +50,7 @@
 		id = "[preset_name] Receiver"
 		network = "tcomm_[name_lower]"
 		freq_listening += list(assign_away_freq(preset_name), HAIL_FREQ)
-		if (use_common)
+		if (use_common || linked.use_common)
 			freq_listening += PUB_FREQ
 		autolinkers = list(
 			"[name_lower]_receiver"
@@ -94,7 +94,7 @@
 		id = "[preset_name] Bus"
 		network = "tcomm_[name_lower]"
 		freq_listening += list(assign_away_freq(preset_name), HAIL_FREQ)
-		if (use_common)
+		if (use_common || linked.use_common)
 			freq_listening += PUB_FREQ
 		autolinkers = list(
 			"[name_lower]_processor",
@@ -205,7 +205,7 @@
 			assign_away_freq(preset_name),
 			HAIL_FREQ
 		)
-		if(use_common)
+		if(use_common || linked.use_common)
 			freq_listening += PUB_FREQ
 		autolinkers = list(
 			"[name_lower]_server"

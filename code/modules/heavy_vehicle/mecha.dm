@@ -230,7 +230,7 @@
 		MR.start_charging(src)
 
 /mob/living/heavy_vehicle/return_air()
-	return (body && body.pilot_coverage >= 100 && hatch_closed) ? body.cockpit : loc.return_air()
+	return (body && body.pilot_coverage >= 100 && hatch_closed) ? body.cockpit : loc?.return_air()
 
 /mob/living/heavy_vehicle/GetIdCard()
 	return access_card

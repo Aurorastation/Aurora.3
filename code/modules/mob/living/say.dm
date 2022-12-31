@@ -96,7 +96,7 @@ proc/get_radio_key_from_channel(var/channel)
 	if(!message_range)
 		message_range = world.view
 
-	if(HULK in mutations)
+	if(HAS_FLAG(mutations, HULK))
 		var/ending = copytext(message, length(message), length(message) + 1)
 		if(ending && correct_punctuation[ending])
 			message = copytext(message, 1, length(message))

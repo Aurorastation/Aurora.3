@@ -731,3 +731,14 @@
 		welding goggles.</li><li>Grasp the emergency welding tool firmly in your hands, turn it on, and start cutting a hole in the floor.</li><li>Wait for \
 		the newly created hole to cool.<li>Use the emergency crowbar to pry away the metal.</li><li>Deploy the emergency ladder.</li><li>Dispose of the used \
 		equipment, if necessary.</li></ol></font></font>"
+		
+// Used on the IAC ship, meant for distribution.
+/obj/item/paper/fluff/iac
+	name = "interstellar aid corps info pamphlet"
+	desc = "A paper. It has an IAC logo stamped right on front of it."
+	info = "<font face=\"Verdana\"><center><b>The Interstellar Aid Corps Needs YOUR Help!</b></center><br>With the crisis in the Wildlands still affecting billions \
+	of people, now more than ever the IAC needs your help to provide relief to those worst affected by Phoron shortages, Warlord attacks, and even a lack of \
+	basic necessities, such as food and water.<br>The IAC and its personnel have been able to provide relief to hundreds of colonies, but this can only happen \
+	with your support. As such, local IAC vessels and stations are accepting donations of non-perishable foods and water, as well as medical supplies of any type. \
+	Additionally, at the behest of the IAC coordinator in your area of space, you can join for a blood drive or apply to volunteer in the IAC. <br> \
+	<center><i>Remember - it's up to all of us to look after our galaxy!</i></center></font>"
