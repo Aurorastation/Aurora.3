@@ -123,6 +123,15 @@
 	qdel(mannequin)
 	mannequins -= ckey
 
+#define STOP_PROCESSING_MOB(MOB) \
+if(MOB.is_processing == SSmobs) {\
+	MOB.is_processing = null;\
+	SSmobs.mob_list -= MOB;\
+}\
+else if (MOB.is_processing) {\
+	crash_with("Failed to stop processing mob. Being processed by [MOB.is_processing] instead.")\
+}
+
 // Helper so PROCESS_KILL works.
 /datum/controller/subsystem/mobs/proc/stop_processing(datum/D)
 	STOP_PROCESSING(src, D)

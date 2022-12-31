@@ -1110,3 +1110,31 @@ var/global/known_proc = new /proc/get_type_ref_bytes
 	while (world.tick_usage > min(TICK_LIMIT_TO_RUN, CURRENT_TICKLIMIT))
 
 #undef DELTA_CALC
+
+GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
+
+//Version of view() which ignores darkness, because BYOND doesn't have it.
+/proc/dview(range = world.view, center, invis_flags = 0)
+	if(!center)
+		return
+
+	GLOB.dview_mob.loc = center
+	GLOB.dview_mob.see_invisible = invis_flags
+	. = view(range, GLOB.dview_mob)
+	GLOB.dview_mob.loc = null
+
+/mob/dview
+	invisibility = 101
+	density = FALSE
+
+	anchored = TRUE
+	simulated = FALSE
+
+	see_in_dark = 1e6
+
+/mob/dview/Destroy(forced)
+	if(forced)
+		GLOB.dview_mob = new/mob/dview()
+		return ..()
+	crash_with("Prevented attempt to delete dview mob: [log_info_line(src)]")
+	return QDEL_HINT_LETMELIVE // Prevents destruction

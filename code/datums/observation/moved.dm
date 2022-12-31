@@ -1,3 +1,17 @@
+GLOBAL_DATUM_INIT(moved_event, /singleton/observ/moved, new)
+
+/singleton/observ/moved
+	name = "Moved"
+	expected_type = /atom/movable
+
+/singleton/observ/moved/register(atom/movable/mover, datum/listener, proc_call)
+	. = ..()
+
+	// Listen to the parent if possible.
+	if(. && istype(mover.loc, expected_type))
+		register(mover.loc, mover, /atom/movable/proc/recursive_move)
+
+
 var/datum/observ/moved/moved_event = new()
 
 /datum/observ/moved

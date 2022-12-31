@@ -1,3 +1,11 @@
+GLOBAL_DATUM_INIT(entered_event, /singleton/observ/entered, new)
+
+/singleton/observ/entered
+	name = "Entered"
+	expected_type = /atom
+
+
+
 //	Observer Pattern Implementation: Entered
 //		Registration type: /atom
 //

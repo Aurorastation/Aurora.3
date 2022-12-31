@@ -218,3 +218,6 @@
 			line += locate(current_x_step, current_y_step, starting_z)
 
 	return line
+
+/// Value or the next integer in a positive direction: Ceil(-1.5) = -1 , Ceil(1.5) = 2
+#define Ceil(value) ( -round(-(value)) )
