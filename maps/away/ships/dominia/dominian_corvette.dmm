@@ -4785,6 +4785,11 @@
 "uOY" = (
 /turf/simulated/floor/plating,
 /area/space)
+"uYh" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor,
+/area/space)
 "uYP" = (
 /turf/simulated/floor,
 /area/space)
@@ -5367,6 +5372,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"xXN" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor,
 /area/space)
 "yaX" = (
 /obj/machinery/door/firedoor/noid,
@@ -36634,7 +36644,7 @@ xRX
 xRX
 fZq
 atj
-awG
+xXN
 aou
 aou
 cMo
@@ -38690,7 +38700,7 @@ xRX
 xRX
 fZq
 inf
-cQs
+uYh
 cMo
 cMo
 cMo

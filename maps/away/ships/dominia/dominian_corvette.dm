@@ -16,6 +16,48 @@
 /area/ship/dominian_corvette
 	name = "Dominian Corvette"
 
+/area/ship/dominian_corvette/hangar
+	name = "Dominian Corvette Hangar"
+
+/area/ship/dominian_corvette/infirmary
+	name = "Dominian Corvette Infirmary"
+
+/area/ship/dominian_corvette/quarters
+	name = "Dominian Corvette Crew Quarters"
+
+/area/ship/dominian_corvette/brig
+	name = "Dominian Corvette Brig"
+
+/area/ship/dominian_corvette/cic
+	name = "Dominian Corvette CIC"
+
+/area/ship/dominian_corvette/bridge
+	name = "Dominian Corvette Bridge"
+
+/area/ship/dominian_corvette/franny
+	name = "Dominian Corvette Francisca Compartment"
+
+/area/ship/dominian_corvette/officer
+	name = "Dominian Corvette Officer Compartment"
+
+/area/ship/dominian_corvette/armory
+	name = "Dominian Corvette Armory"
+
+/area/ship/dominian_corvette/temple
+	name = "Dominian Corvette Temple"
+
+/area/ship/dominian_corvette/cryo
+	name = "Dominian Corvette Cryogenics"
+
+/area/ship/dominian_corvette/engineering
+	name = "Dominian Corvette Engineering"
+
+/area/ship/dominian_corvette/cannon
+	name = "Dominian Corvette Cannon Compartment"
+
+/area/ship/dominian_corvette/exterior
+	name = "Dominian Corvette Exterior"
+
 /area/shuttle/dominian_shuttle
 	name = "Dominian Shuttle"
 	icon_state = "shuttle2"
@@ -67,7 +109,7 @@
 /obj/effect/overmap/visitable/ship/landable/dominian_shuttle
 	name = "Dominian Shuttle"
 	class = "HIMS"
-	designation = "Knight"
+	designation = "Chariot"
 	desc = "Easily mistaken for a Wisp-class (which it is almost identical to), this shuttle is in fact an dominian Dromedary-class, which is an unlicensed copy of the Hephaestus Wisp-class, and one of the designs slated for retirement in the ongoing military modernization program. Hephaestus Industries has attempted to sue the dominian government many times for the navy's unlicensed production of its intellectual property, and dominian courts have, unsurprisingly, always ruled in favor of the government - much to the frustration of the megacorporation, which has no other method of recourse. An inefficient design of ultra-light shuttle. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. This one's transponder identifies it as an dominian Naval Infantry recovery shuttle."
 	shuttle = "Dominian Shuttle"
 	max_speed = 1/(3 SECONDS)
