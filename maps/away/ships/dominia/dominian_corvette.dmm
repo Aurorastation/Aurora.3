@@ -2469,6 +2469,12 @@
 /area/ship/dominian_corvette/temple)
 "jHZ" = (
 /obj/structure/table/steel,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/armory)
 "jPp" = (
@@ -4866,6 +4872,7 @@
 /obj/item/clothing/accessory/badge/passport/dominia,
 /obj/item/gun/projectile/revolver,
 /obj/item/ammo_magazine/a357,
+/obj/item/melee/energy/sword/pirate/generic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/officer)
 "tra" = (
