@@ -922,6 +922,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/officer)
+"dsC" = (
+/obj/effect/shuttle_landmark/dominian_corvette/nav2,
+/turf/template_noop,
+/area/space)
 "dvU" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -2857,7 +2861,7 @@
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/ship/dominian_corvette/cannon)
 "lme" = (
-/obj/effect/shuttle_landmark/automatic,
+/obj/effect/shuttle_landmark/dominian_corvette/nav4,
 /turf/template_noop,
 /area/space)
 "lmk" = (
@@ -3117,6 +3121,10 @@
 "mgC" = (
 /turf/simulated/wall,
 /area/ship/dominian_corvette/hangar)
+"mit" = (
+/obj/effect/shuttle_landmark/dominian_corvette/nav1,
+/turf/template_noop,
+/area/space)
 "miz" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -5143,6 +5151,10 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/shuttle/dominian_shuttle)
+"urz" = (
+/obj/effect/shuttle_landmark/dominian_corvette/nav3,
+/turf/template_noop,
+/area/space)
 "uuh" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -17774,7 +17786,7 @@ xRX
 xRX
 xRX
 xRX
-lme
+urz
 xRX
 xRX
 xRX
@@ -38023,7 +38035,7 @@ xRX
 xRX
 xRX
 xRX
-lme
+xRX
 xRX
 xRX
 xRX
@@ -38126,7 +38138,7 @@ xRX
 xRX
 xRX
 xRX
-lme
+xRX
 xRX
 xRX
 xRX
@@ -38280,7 +38292,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+dsC
 xRX
 xRX
 xRX
@@ -38377,7 +38389,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+mit
 xRX
 xRX
 xRX
