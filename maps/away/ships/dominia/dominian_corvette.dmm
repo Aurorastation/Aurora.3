@@ -83,7 +83,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/dominian_corvette/franny)
 "ajL" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -925,6 +925,14 @@
 "dvU" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/franny)
 "dBq" = (
@@ -1336,7 +1344,7 @@
 /area/ship/dominian_corvette/exterior)
 "flm" = (
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/dominian_corvette/franny)
 "fnE" = (
 /obj/structure/cable/heavyduty{
@@ -3666,7 +3674,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/dominian_corvette/franny)
 "opS" = (
 /obj/structure/window/reinforced{
@@ -3741,7 +3749,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/franny)
 "oAQ" = (
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/dominian_corvette/franny)
 "oBB" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
@@ -3860,6 +3868,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/armory)
+"oYn" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/turf/simulated/floor/tiled/dark,
+/area/ship/dominian_corvette/franny)
 "oYG" = (
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4420,7 +4441,7 @@
 	id = "dom_gunshroud";
 	name = "blast door"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/dominian_corvette/franny)
 "ret" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -44724,7 +44745,7 @@ sNA
 vCu
 hTj
 mEE
-dvU
+oYn
 kkj
 nva
 xFB
