@@ -58,22 +58,44 @@
 	suit = /obj/item/clothing/suit/storage/dominia/fleet
 
 
-/datum/ghostspawner/human/imperial_fleet_voidsman/nco
-	short_name = "imperial_fleet_voidsman_nco"
-	name = "Elyran Naval Infantry Fireteam Leader"
-	desc = "Lead the Elyran naval infantry strike craft's riflemen. Serve as the Ensign's second-in-command, and follow their orders. (OOC Note: All characters must be of Elyran ethnic origin and background, this is enforceable by admin/moderator action.)"
-	mob_name_prefix = "PO3. "
+/datum/ghostspawner/human/imperial_fleet_voidsman/armsman
+	short_name = "imperial_fleet_armsman"
+	name = "Imperial Fleet Armsman"
+	desc = "Protect the Imperial Fleet ship. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
+	mob_name_prefix = "ARMSN. " //Armsman
+
+	max_count = 2
+
+	outfit = /datum/outfit/admin/imperial_fleet_voidsman/armsman
+
+	assigned_role = "Imperial Fleet Armsman"
+	special_role = "Imperial Fleet Armsman"
+
+
+/datum/outfit/admin/imperial_fleet_voidsman/armsman
+	name = "Imperial Fleet Armsman"
+	head = /obj/item/clothing/head/dominia/fleet/armsman
+	uniform = /obj/item/clothing/under/dominia/fleet/armsman
+
+/datum/ghostspawner/human/imperial_fleet_voidsman/priest
+	short_name = "imperial_fleet_priest"
+	name = "Imperial Fleet Priest"
+	desc = "Administer spiritual guidance to the Imperial Fleet corvette. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
+	mob_name_prefix = null
 
 	max_count = 1
 
-	outfit = /datum/outfit/admin/imperial_fleet_voidsman/nco
+	outfit = /datum/outfit/admin/imperial_fleet_voidsman/priest
 
-	assigned_role = "Elyran Naval Infantry Fireteam Leader"
-	special_role = "Elyran Naval Infantry Fireteam Leader"
+	assigned_role = "Imperial Fleet Priest"
+	special_role = "Imperial Fleet Priest"
 
 
-/datum/outfit/admin/imperial_fleet_voidsman/nco
-	name = "Elyran Naval Infantry Fireteam Leader"
+/datum/outfit/admin/imperial_fleet_voidsman/priest
+	name = "Imperial Fleet Priest"
+	head = /obj/item/clothing/head/beret/dominia/priest
+	uniform = /obj/item/clothing/under/dominia/priest
+	accessory = /obj/item/clothing/accessory/poncho/dominia/red/surcoat
 
 //items
 
