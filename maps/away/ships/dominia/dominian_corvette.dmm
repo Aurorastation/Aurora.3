@@ -2546,9 +2546,9 @@
 /obj/item/clothing/accessory/flagpatch/dominia,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/dominia,
-/obj/item/clothing/head/helmet/space/void/dominia,
 /obj/machinery/firealarm/north,
+/obj/item/clothing/suit/space/void/dominia/voidsman,
+/obj/item/clothing/head/helmet/space/void/dominia/voidsman,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/engineering)
 "kAt" = (
@@ -2932,8 +2932,8 @@
 /obj/item/clothing/accessory/flagpatch/dominia,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/dominia,
-/obj/item/clothing/head/helmet/space/void/dominia,
+/obj/item/clothing/suit/space/void/dominia/voidsman,
+/obj/item/clothing/head/helmet/space/void/dominia/voidsman,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/engineering)
 "mcE" = (
