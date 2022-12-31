@@ -42,7 +42,7 @@
 	desc = "Command and pilot the Imperial Fleet corvette. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
 	mob_name_prefix = "ENS. "
 
-	spawnpoints = list("imperial_fleet_voidsman_officer")
+	spawnpoints = list("imperial_fleet_voidsman")
 	max_count = 1
 
 	outfit = /datum/outfit/admin/imperial_fleet_voidsman/officer
