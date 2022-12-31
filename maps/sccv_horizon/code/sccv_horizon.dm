@@ -42,7 +42,7 @@
 	planet_size = list(255,255)
 
 	away_site_budget = 2
-	away_ship_budget = 30
+	away_ship_budget = 2
 	away_variance = 1
 
 	station_networks = list(
