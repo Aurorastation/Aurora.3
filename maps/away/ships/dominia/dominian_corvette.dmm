@@ -4088,7 +4088,7 @@
 	weapon_id = "Lammergeier Cannon"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/ship/dominian_corvette/cannon)
+/area/ship/dominian_corvette/exterior)
 "pUo" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
