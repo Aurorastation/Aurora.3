@@ -121,7 +121,7 @@
 /obj/machinery/computer/shuttle_control/explore/dominian_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Dominian Shuttle"
-	req_access = list(access_dominian_naval_infantry_ship)
+	req_access = list(access_imperial_fleet_voidsman_ship)
 
 /datum/shuttle/autodock/overmap/dominian_shuttle
 	name = "Dominian Shuttle"

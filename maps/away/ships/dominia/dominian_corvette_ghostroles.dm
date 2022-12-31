@@ -101,4 +101,4 @@
 
 /obj/item/card/id/imperial_fleet
 	name = "imperial fleet id"
-	access = list(access_imperial_fleet, access_external_airlocks)
+	access = list(access_imperial_fleet_voidsman_ship, access_external_airlocks)

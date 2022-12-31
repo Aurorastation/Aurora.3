@@ -8,15 +8,15 @@
 	heavy_firing_sound = 'sound/weapons/railgun.ogg'
 	firing_effects = FIRING_EFFECT_FLAG_EXTREMELY_LOUD
 	screenshake_type = SHIP_GUN_SCREENSHAKE_ALL_MOBS
-	caliber = SHIP_CALIBER_lammergeier
+	caliber = SHIP_CALIBER_200MM
 
 /obj/item/ship_ammunition/lammergeier
 	name = "200mm shell"
 	name_override = "200mm cannon shell"
 	desc = "A lammergeier cannon shell."
-	icon = 'icons/obj/ship_ammo_lammergeier.dmi'
-	icon_state = "trodpack-2"
-	caliber = SHIP_CALIBER_lammergeier
+	icon = 'icons/obj/guns/ship/ship_ammo_lammergeier.dmi'
+	icon_state = "shell_ap"
+	caliber = SHIP_CALIBER_200MM
 	overmap_icon_state = "cannon"
 	impact_type = SHIP_AMMO_IMPACT_HE
 
