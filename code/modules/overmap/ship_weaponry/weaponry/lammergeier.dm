@@ -13,7 +13,7 @@
 /obj/item/ship_ammunition/lammergeier
 	name = "200mm shell"
 	name_override = "200mm cannon shell"
-	desc = "A lammergeier cannon shell."
+	desc = "A typhoon cannon shell."
 	icon = 'icons/obj/guns/ship/ship_ammo_lammergeier.dmi'
 	icon_state = "shell_ap"
 	caliber = SHIP_CALIBER_200MM
@@ -21,7 +21,7 @@
 	impact_type = SHIP_AMMO_IMPACT_HE
 
 /obj/item/projectile/ship_ammo/lammergeier
-	name = "lammergeier shell"
+	name = "typhoon shell"
 	icon_state = "heavy"
 	damage = 10000
 	armor_penetration = 1000
@@ -33,6 +33,7 @@
 		var/mob/M = target
 		M.visible_message(SPAN_DANGER("<font size=5>\The [src] blows [M]'s chest apart and punches straight through!</font>"))
 	if(isturf(target) || isobj(target))
-		explosion(target, 6, 8, 10)
+		explosion(target, 4, 6, 8)
 
 /obj/machinery/ammunition_loader/lammergeier
+	name = "typhoon cannon loader"

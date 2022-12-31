@@ -2,7 +2,7 @@
 	name = "Dominian Corvette"
 	description = "One of the most common ships in the Imperial Fleet, Lammergeier-class corvettes are often used as the vanguard of battlefleets entering a system marked for annexation into the glorious Empire as it is tasked to find and scout routes for the larger fleet. Though intended for scouting and screening work the Lammergeier is, like its larger counterparts, quite heavily armed and armored for a typical corvette. Any frontier savages who attempt to meet one with force of arms will soon find themselves staring down the barrels of Zhurong’s finest weaponry, and the Fleet-trained Ma’zals entrusted to operate it. The heavy armament and sensors of the Lammergeier-class come at a cost: it lacks a shield generator and is much larger than a typical Solarian corvette, thus requiring a larger crew. Lammergeier-class captains are generally loyal Ma’zals, such as the citizens of Novi Jadran, and are authorized to take whatever measures are necessary to ensure their crew remains loyal to both Empire and Goddess. This one’s transponder marks it as belonging to the Empire’s First Battlefleet – a battle-hardened formation responsible for patrolling the region of the northern Sparring Sea between the Empire, Hegemony, and Republic of dominia."
 	suffix = "ships/dominia/dominian_corvette.dmm"
-	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
+	sectors = list(SECTOR_BADLANDS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "dominian_corvette"
@@ -68,8 +68,8 @@
 	name = "Dominian Corvette"
 	class = "HIMS"
 	desc = "One of the most common ships in the Imperial Fleet, Lammergeier-class corvettes are often used as the vanguard of battlefleets entering a system marked for annexation into the glorious Empire as it is tasked to find and scout routes for the larger fleet. Though intended for scouting and screening work the Lammergeier is, like its larger counterparts, quite heavily armed and armored for a typical corvette. Any frontier savages who attempt to meet one with force of arms will soon find themselves staring down the barrels of Zhurong’s finest weaponry, and the Fleet-trained Ma’zals entrusted to operate it. The heavy armament and sensors of the Lammergeier-class come at a cost: it lacks a shield generator and is much larger than a typical Solarian corvette, thus requiring a larger crew. Lammergeier-class captains are generally loyal Ma’zals, such as the citizens of Novi Jadran, and are authorized to take whatever measures are necessary to ensure their crew remains loyal to both Empire and Goddess. This one’s transponder marks it as belonging to the Empire’s First Battlefleet – a battle-hardened formation responsible for patrolling the region of the northern Sparring Sea between the Empire, Hegemony, and Republic of dominia."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship_red"
+	moving_state = "ship_red_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -85,7 +85,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/dominian_corvette/New()
-	designation = "[pick("Coleslaw")]"
+	designation = "[pick("Lammergeier", "Eagle", "Hawk", "Owl", "Vulture", "Sparrowhawk", "Falcon", "Peregrine", "Condor", "Harrier", "Kestrel", "Osprey", "Yastr", "Merlin", "Kite", "Seriema", "Caracaras")]"
 	..()
 
 /obj/effect/shuttle_landmark/dominian_corvette/nav1
