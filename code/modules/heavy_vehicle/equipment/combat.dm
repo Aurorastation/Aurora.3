@@ -85,7 +85,7 @@
 	max_shots = 30
 	firemodes = list(
 		list(mode_name = "semi-automatic", burst = 1, fire_delay = 0,    move_delay = null, burst_accuracy = null,                dispersion=list(0)),
-		list(mode_name = "3-round burst",  burst = 3, fire_delay = null, move_delay = 4,    burst_accuracy = list(0,-1,-1),       dispersion=list(0, 15, 15)),
+		list(mode_name = "3-round burst",  burst = 3, fire_delay = null, move_delay = 4,    burst_accuracy = list(0,-1,-1),       dispersion=list(0, 15, 15))
 	)
 
 /obj/item/gun/energy/laser/mounted/mech
