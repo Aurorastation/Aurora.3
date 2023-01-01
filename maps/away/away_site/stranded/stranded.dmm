@@ -1217,7 +1217,7 @@
 /obj/item/bedsheet/brown,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ghostspawpoint{
-	identifier = survivor
+	identifier = "survivor"
 	},
 /turf/unsimulated/floor{
 	footstep_sound = /decl/sound_category/grass_footstep;
@@ -1885,7 +1885,7 @@
 /area/stranded)
 "TR" = (
 /obj/effect/ghostspawpoint{
-	identifier = vannatusk
+	identifier = "vannatusk"
 	},
 /turf/unsimulated/floor{
 	footstep_sound = /decl/sound_category/grass_footstep;
