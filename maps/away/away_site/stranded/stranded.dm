@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/stranded
 	name = "grove planet with escape pods"
 	description = "Automated emergency distress signals are being emitted from this grove planet. They appear to be coming from two escape pods currently landed there."
-	suffix = "generic/stranded.dmm"
+	suffix = "away_site/stranded/stranded.dmm"
 	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_AEMAQ)
 	spawn_weight = 1
 	spawn_cost = 2
