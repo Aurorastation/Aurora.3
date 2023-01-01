@@ -1,0 +1,6 @@
+author: Sniblet
+
+delete-after: True
+
+changes:
+  - tweak: "Unary pumps, outlet injectors, and scrubbers will no longer turn small ventcrawling mobs (borers) into dust on contact."
