@@ -101,33 +101,6 @@
 		T.recalc_atom_opacity()
 		T.reconsider_lights()
 
-
-// Should always be used to change the opacity of an atom.
-// It notifies (potentially) affected light sources so they can update (if needed).
-// /atom/proc/set_opacity(var/new_opacity)
-// 	if (new_opacity == opacity)
-// 		return FALSE
-
-// 	//L_PROF(src, "atom_setopacity")
-
-// 	opacity = new_opacity
-// 	var/turf/T = loc
-// 	if (!isturf(T))
-// 		return FALSE
-
-// 	if (new_opacity == TRUE)
-// 		T.has_opaque_atom = TRUE
-// 		T.reconsider_lights()
-// #ifdef AO_USE_LIGHTING_OPACITY
-// 		T.regenerate_ao()
-// #endif
-// 	else
-// 		var/old_has_opaque_atom = T.has_opaque_atom
-// 		T.recalc_atom_opacity()
-// 		if (old_has_opaque_atom != T.has_opaque_atom)
-// 			T.reconsider_lights()
-// 	return TRUE
-
 /atom/movable/forceMove()
 	. = ..()
 

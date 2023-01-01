@@ -19,7 +19,7 @@
 
 	var/datum/musical_event_manager/event_manager = new
 
-	var/datum/proximity_trigger/square/proxy_listener
+	// var/datum/proximity_trigger/square/proxy_listener
 	var/list/datum/sound_token/instrument/tokens = list()
 	var/list/seen_turfs
 
@@ -28,8 +28,8 @@
 	src.actual_instrument = where
 	src.echo = musical_config.echo_default.Copy()
 	src.env = musical_config.env_default.Copy()
-	src.proxy_listener = new(src.actual_instrument, /datum/sound_player/proc/on_turf_entered_relay, /datum/sound_player/proc/on_turfs_changed_relay, range, proc_owner = src)
-	proxy_listener.register_turfs()
+	// src.proxy_listener = new(src.actual_instrument, /datum/sound_player/proc/on_turf_entered_relay, /datum/sound_player/proc/on_turfs_changed_relay, range, proc_owner = src)
+	// proxy_listener.register_turfs()
 	instrument_synchronizer.register_global(src, .proc/check_wait)
 
 /datum/sound_player/Destroy()
@@ -38,7 +38,7 @@
 	src.instrument = null
 	QDEL_NULL(song)
 	QDEL_NULL(event_manager)
-	QDEL_NULL(proxy_listener)
+	// QDEL_NULL(proxy_listener)
 	seen_turfs.Cut()
 	tokens.Cut()
 	instrument_synchronizer.unregister_global(src, .proc/check_wait)

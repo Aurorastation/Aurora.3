@@ -1,11 +1,3 @@
-// /singleton/observ/entered/entered_event = new()
-
-/singleton/observ/entered
-	name = "Entered"
-	expected_type = /atom
-
-
-
 //	Observer Pattern Implementation: Entered
 //		Registration type: /atom
 //

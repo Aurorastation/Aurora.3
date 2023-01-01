@@ -1,3 +1,14 @@
+/************************************************************************************************************************************************
+
+											!!! WARNING !!!
+
+*			>> This is replaced by the spatial grid system (/code/_helpers/spatial_info.dm) <<
+*
+* It should not be used, any references to it must be ported to use the spatial_info relevant functions or, if missing, additional functions
+* must be written using it in said file, this was left here for reference only
+
+************************************************************************************************************************************************/
+
 /*
 * These calls could easily be setup to be a bunch of call()() with relevant procs and predicates but performance is a concern.
 * BYOND is also a bit inflexible, as some predicates are of the sort /proc/name(host), others host.proc_name(), and some even do host.proc_name(parameter).
@@ -9,37 +20,37 @@
 
 //#define ACQUIRE_VIRTUAL_OR_TURF(A) A = (isvirtualmob(A) ? A : (((istype(A) && A.virtual_mob) ? A.virtual_mob : get_turf(A)))) ; if(!A) return
 
-#define ACQUIRE_VIRTUAL_OR_TURF(A) A = (get_turf(A)) ; if(!A) return
+// #define ACQUIRE_VIRTUAL_OR_TURF(A) A = (get_turf(A)) ; if(!A) return
 
-#define ACQUIRE_VIRTUAL_OR_RETURN(A) A = (isvirtualmob(A) ? A : (((istype(A) && A.virtual_mob) ? A.virtual_mob : null))) ; if(!A) return
+// #define ACQUIRE_VIRTUAL_OR_RETURN(A) A = (isvirtualmob(A) ? A : (((istype(A) && A.virtual_mob) ? A.virtual_mob : null))) ; if(!A) return
 
 /****************
 * Range Helpers *
 ****************/
-/proc/clients_in_range(atom/movable/center_vmob)
-	. = list()
+// /proc/clients_in_range(atom/movable/center_vmob)
+// 	. = list()
 
-	ACQUIRE_VIRTUAL_OR_TURF(center_vmob)
-	for(var/mob/observer/virtual/v_mob in range(world.view, center_vmob))
-		var/client/C = v_mob.get_client()
-		if(C)
-			. |= C
+// 	ACQUIRE_VIRTUAL_OR_TURF(center_vmob)
+// 	for(var/mob/observer/virtual/v_mob in range(world.view, center_vmob))
+// 		var/client/C = v_mob.get_client()
+// 		if(C)
+// 			. |= C
 
-/proc/hearers_in_range(atom/movable/center_vmob, hearing_range = world.view)
-	. = list()
+// /proc/hearers_in_range(atom/movable/center_vmob, hearing_range = world.view)
+// 	. = list()
 
-	ACQUIRE_VIRTUAL_OR_TURF(center_vmob)
-	for(var/mob/observer/virtual/v_mob in range(hearing_range, center_vmob))
-		if(v_mob.abilities & VIRTUAL_ABILITY_HEAR)
-			. |= v_mob.host
+// 	ACQUIRE_VIRTUAL_OR_TURF(center_vmob)
+// 	for(var/mob/observer/virtual/v_mob in range(hearing_range, center_vmob))
+// 		if(v_mob.abilities & VIRTUAL_ABILITY_HEAR)
+// 			. |= v_mob.host
 
-/proc/viewers_in_range(atom/movable/center_vmob)
-	. = list()
+// /proc/viewers_in_range(atom/movable/center_vmob)
+// 	. = list()
 
-	ACQUIRE_VIRTUAL_OR_TURF(center_vmob)
-	for(var/mob/observer/virtual/v_mob in range(world.view, center_vmob))
-		if(v_mob.abilities & VIRTUAL_ABILITY_SEE)
-			. |= v_mob.host
+// 	ACQUIRE_VIRTUAL_OR_TURF(center_vmob)
+// 	for(var/mob/observer/virtual/v_mob in range(world.view, center_vmob))
+// 		if(v_mob.abilities & VIRTUAL_ABILITY_SEE)
+// 			. |= v_mob.host
 
 /***************
 * Hear Helpers *
@@ -49,13 +60,13 @@
 // Thus, unlike viewing hearing is communicative. I.e. if Mob A can hear Mob B then Mob B can also hear Mob A.
 
 // Gets the hosts of all the virtual mobs that can hear the given movable atom (or rather, it's virtual mob or turf in that existence order)
-/proc/all_hearers(atom/movable/heard_vmob, range = world.view)
-	. = list()
+// /proc/all_hearers(atom/movable/heard_vmob, range = world.view)
+// 	. = list()
 
-	ACQUIRE_VIRTUAL_OR_TURF(heard_vmob)
-	for(var/atom/movable/v_mob in hearers(range, heard_vmob))
-		//if(v_mob.abilities & VIRTUAL_ABILITY_HEAR)
-		. |= v_mob
+// 	ACQUIRE_VIRTUAL_OR_TURF(heard_vmob)
+// 	for(var/atom/movable/v_mob in hearers(range, heard_vmob))
+// 		//if(v_mob.abilities & VIRTUAL_ABILITY_HEAR)
+// 		. |= v_mob
 
 /***************
 * View Helpers *
@@ -69,30 +80,30 @@
 //		* The viewing mob has the SEE_MOBS sight flag.
 
 // Gets the hosts of all virtual mobs that can see the given atom movable as well as its turf
-/proc/all_viewers(mob/observer/virtual/viewed_atom)
-	. = list()
+// /proc/all_viewers(mob/observer/virtual/viewed_atom)
+// 	. = list()
 
-	viewed_atom = istype(viewed_atom) ? viewed_atom.host : viewed_atom
-	var/turf/T = get_turf(viewed_atom)
-	if(!T)
-		return
+// 	viewed_atom = istype(viewed_atom) ? viewed_atom.host : viewed_atom
+// 	var/turf/T = get_turf(viewed_atom)
+// 	if(!T)
+// 		return
 
-	for(var/mob/observer/virtual/seeing_v_mob in viewers(world.view, viewed_atom))
-		if(!(seeing_v_mob.abilities & VIRTUAL_ABILITY_SEE))
-			continue
-		var/atom/movable/host = seeing_v_mob.host
-		if(host.virtual_can_see_turf(T))
-			. |= host
+// 	for(var/mob/observer/virtual/seeing_v_mob in viewers(world.view, viewed_atom))
+// 		if(!(seeing_v_mob.abilities & VIRTUAL_ABILITY_SEE))
+// 			continue
+// 		var/atom/movable/host = seeing_v_mob.host
+// 		if(host.virtual_can_see_turf(T))
+// 			. |= host
 
 // This proc returns all hosts of virtual mobs in the given atom's view range (using its turf), ignoring invisibility, VIRUAL_ABILITY_SEE, and most other restrictions.
 // In most cases you actually want the all_* procs above. This helper was designed with LOOC in mind.
-/proc/hosts_in_view_range(atom/movable/viewing_atom)
-	. = list()
+// /proc/hosts_in_view_range(atom/movable/viewing_atom)
+// 	. = list()
 
-	ACQUIRE_VIRTUAL_OR_TURF(viewing_atom)
-	// As per http://www.byond.com/docs/ref/info.html#/proc/view by using a non-mob/client this automatically skips the vast majority of sight checks
-	for(var/mob/observer/virtual/v_mob in viewers(world.view, get_turf(viewing_atom.loc)))
-		. |= v_mob.host
+// 	ACQUIRE_VIRTUAL_OR_TURF(viewing_atom)
+// 	// As per http://www.byond.com/docs/ref/info.html#/proc/view by using a non-mob/client this automatically skips the vast majority of sight checks
+// 	for(var/mob/observer/virtual/v_mob in viewers(world.view, get_turf(viewing_atom.loc)))
+// 		. |= v_mob.host
 
 /*
 	Misc. helper

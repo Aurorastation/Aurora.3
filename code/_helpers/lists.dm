@@ -530,9 +530,6 @@
 			i++
 	return i
 
-// Insert an object A into a sorted list using cmp_proc (/code/_helpers/cmp.dm) for comparison.
-// Use ADD_SORTED(list, A, cmp_proc)
-
 // Return the index using dichotomic search
 /proc/FindElementIndex(atom/A, list/L, cmp)
 	var/i = 1

@@ -85,7 +85,7 @@ var/singleton/sound_player/sound_player = new()
 	var/status = 0     // Paused, muted, running? Global for all listeners
 	var/listener_status// Paused, muted, running? Specific for the given listener.
 
-	var/datum/proximity_trigger/square/proxy_listener
+	// var/datum/proximity_trigger/square/proxy_listener
 	var/list/can_be_heard_from
 
 /datum/sound_token/New(atom/source, sound_id, sound/sound, range = 4, prefer_mute = FALSE)
@@ -118,9 +118,9 @@ var/singleton/sound_player/sound_player = new()
 
 	destroyed_event.register(source, src, /datum/proc/qdel_self)
 
-	if(ismovable(source))
-		proxy_listener = new(source, /datum/sound_token/proc/PrivAddListener, /datum/sound_token/proc/PrivLocateListeners, range, proc_owner = src)
-		proxy_listener.register_turfs()
+	// if(ismovable(source))
+	// 	proxy_listener = new(source, /datum/sound_token/proc/PrivAddListener, /datum/sound_token/proc/PrivLocateListeners, range, proc_owner = src)
+	// 	proxy_listener.register_turfs()
 
 /datum/sound_token/Destroy()
 	Stop()
@@ -158,7 +158,7 @@ var/singleton/sound_player/sound_player = new()
 	listener_status = null
 
 	destroyed_event.unregister(source, src, /datum/proc/qdel_self)
-	QDEL_NULL(proxy_listener)
+	// QDEL_NULL(proxy_listener)
 	source = null
 
 	sound_player.PrivStopSound(src)
@@ -168,7 +168,7 @@ var/singleton/sound_player/sound_player = new()
 		return
 
 	can_be_heard_from = current_turfs
-	var/current_listeners = all_hearers(source, range)
+	var/current_listeners = get_hearers_in_view(range, source)
 	var/former_listeners = listeners - current_listeners
 	var/new_listeners = current_listeners - listeners
 
