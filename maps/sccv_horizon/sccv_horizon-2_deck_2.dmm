@@ -18062,7 +18062,7 @@
 "iTh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Second Deck Relay";
+	c_tag = "Telecommunications - Second Deck Relay";
 	dir = 8
 	},
 /turf/simulated/floor/plating,

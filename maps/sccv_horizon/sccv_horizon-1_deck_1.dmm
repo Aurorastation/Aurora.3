@@ -9162,7 +9162,7 @@
 	dir = 1
 	},
 /obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - First Deck Relay";
+	c_tag = "Telecommunications - First Deck Relay";
 	dir = 8
 	},
 /obj/machinery/light/small{

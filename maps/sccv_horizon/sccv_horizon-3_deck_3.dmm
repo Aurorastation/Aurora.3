@@ -5326,8 +5326,8 @@
 	pixel_x = 28
 	},
 /obj/machinery/camera/motion{
-	c_tag = "Telecomms - Control Room";
-	network = list("Command","Security");
+	c_tag = "Telecommunications - Control Room";
+	network = list("Command","Security","Telecommunications");
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -9147,7 +9147,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Aft Airlock";
+	c_tag = "Telecommunications - Aft Airlock";
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -14162,8 +14162,8 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/camera/motion{
-	c_tag = "Telecomms - Spare Parts Room";
-	network = list("Command","Security")
+	c_tag = "Telecommunications - Spare Parts Room";
+	network = list("Command","Security","Telecommunications")
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
@@ -20323,8 +20323,8 @@
 	dir = 8
 	},
 /obj/machinery/camera/motion{
-	c_tag = "Telecomms - Starboard";
-	network = list("Command","Security");
+	c_tag = "Telecommunications - Starboard";
+	network = list("Command","Security","Telecommunications");
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -22863,7 +22863,7 @@
 	dir = 8
 	},
 /obj/machinery/computer/security/telescreen{
-	name = "Telecomms Cameras";
+	name = "Telecommunications Cameras";
 	network = list("Tcomsat");
 	pixel_x = -32;
 	pixel_y = -4
@@ -24080,8 +24080,8 @@
 	pixel_y = 28
 	},
 /obj/machinery/camera/motion{
-	c_tag = "Telecomms - Port";
-	network = list("Command","Security")
+	c_tag = "Telecommunications - Port";
+	network = list("Command","Security","Telecommunications")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
