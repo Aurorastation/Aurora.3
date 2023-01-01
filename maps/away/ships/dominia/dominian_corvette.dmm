@@ -169,6 +169,10 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
+"aue" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/template_noop,
+/area/space)
 "auV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -19269,7 +19273,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+aue
 xRX
 xRX
 xRX
@@ -20142,7 +20146,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+aue
 xRX
 xRX
 xRX
@@ -54740,7 +54744,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+aue
 xRX
 xRX
 xRX
@@ -56124,7 +56128,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+aue
 xRX
 xRX
 xRX
