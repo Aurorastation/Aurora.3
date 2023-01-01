@@ -426,11 +426,11 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 8;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
-	opacity = 0;
-	dir = 8
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/security/investigations)
@@ -1018,24 +1018,24 @@
 	frequency = 1380;
 	id_tag = "dock_horizon_3_sensor";
 	master_tag = "dock_horizon_3_airlock";
-	pixel_y = -32;
-	pixel_x = 25
+	pixel_x = 25;
+	pixel_y = -32
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "dock_horizon_3_airlock";
+	pixel_x = 26;
 	pixel_y = 0;
 	req_one_access = list(13);
 	tag_airpump = "dock_horizon_3_pump";
 	tag_chamber_sensor = "dock_horizon_3_sensor";
 	tag_exterior_door = "dock_horizon_3_outer";
-	tag_interior_door = "dock_horizon_3_inner";
-	pixel_x = 26
+	tag_interior_door = "dock_horizon_3_inner"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
 	frequency = 1380;
-	id_tag = "dock_horizon_3_pump";
-	dir = 8
+	id_tag = "dock_horizon_3_pump"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -1654,8 +1654,8 @@
 	dir = 5
 	},
 /obj/structure/coatrack{
-	pixel_y = 1;
-	pixel_x = -10
+	pixel_x = -10;
+	pixel_y = 1
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -2302,11 +2302,11 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 2;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/forensics_office{
@@ -2490,8 +2490,8 @@
 	dir = 10
 	},
 /obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
+	dir = 1;
+	pixel_y = -28
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
@@ -2535,11 +2535,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 8;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
-	opacity = 0;
-	dir = 8
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/security_starboard)
@@ -2886,10 +2886,10 @@
 "cBs" = (
 /obj/item/hullbeacon/red,
 /obj/structure/sign/securearea{
-	name = "\improper DANGER: LIVE MUNITIONS sign";
-	pixel_y = 32;
 	desc = "A danger sign which reads 'DANGER: LIVE MUNITIONS'.";
-	pixel_x = -32
+	name = "\improper DANGER: LIVE MUNITIONS sign";
+	pixel_x = -32;
+	pixel_y = 32
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
@@ -3148,9 +3148,9 @@
 	req_one_access = list(1,19)
 	},
 /obj/machinery/door/blast/regular{
+	dir = 2;
 	id = "crew_armoury_desk";
-	name = "Crew Armoury Desk Blast Door";
-	dir = 2
+	name = "Crew Armoury Desk Blast Door"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3496,8 +3496,8 @@
 /area/maintenance/engineering_ladder)
 "dfc" = (
 /obj/structure/coatrack{
-	pixel_y = 1;
-	pixel_x = 10
+	pixel_x = 10;
+	pixel_y = 1
 	},
 /obj/machinery/firealarm/east,
 /obj/machinery/light,
@@ -4696,11 +4696,11 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 8;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
-	opacity = 0;
-	dir = 8
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/forensics_office{
@@ -5336,18 +5336,18 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "dock_horizon_4_airlock";
+	pixel_x = 26;
 	pixel_y = 0;
 	req_one_access = list(13);
 	tag_airpump = "dock_horizon_4_pump";
 	tag_chamber_sensor = "dock_horizon_4_sensor";
 	tag_exterior_door = "dock_horizon_4_outer";
-	tag_interior_door = "dock_horizon_4_inner";
-	pixel_x = 26
+	tag_interior_door = "dock_horizon_4_inner"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
 	frequency = 1380;
-	id_tag = "dock_horizon_4_pump";
-	dir = 1
+	id_tag = "dock_horizon_4_pump"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -5536,12 +5536,12 @@
 	dir = 4
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_y = -30;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = -30
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_y = -40;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = -40
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
@@ -5939,9 +5939,9 @@
 /area/bridge/controlroom)
 "ffO" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
 	frequency = 1380;
-	id_tag = "dock_horizon_4_pump";
-	dir = 1
+	id_tag = "dock_horizon_4_pump"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -6601,11 +6601,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
@@ -6753,9 +6753,9 @@
 /area/horizon/hallway/deck_three/primary/port/docks)
 "fGV" = (
 /obj/structure/sign/directions/all{
-	pixel_y = 32;
+	dir = 4;
 	pixel_x = 32;
-	dir = 4
+	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
@@ -7520,8 +7520,8 @@
 /area/horizon/crew_quarters/fitness/gym)
 "gmF" = (
 /obj/machinery/alarm{
-	pixel_x = 28;
-	dir = 8
+	dir = 8;
+	pixel_x = 28
 	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-33";
@@ -8520,9 +8520,9 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/door/blast/regular/open{
+	dir = 2;
 	id = "shutters_deck3_longbow";
-	name = "Safety Blast Door";
-	dir = 2
+	name = "Safety Blast Door"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/longbow)
@@ -10240,8 +10240,8 @@
 	dir = 10
 	},
 /obj/item/device/radio/intercom{
-	pixel_y = -24;
-	dir = 1
+	dir = 1;
+	pixel_y = -24
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
@@ -10342,8 +10342,8 @@
 /area/security/forensics_morgue)
 "izW" = (
 /obj/machinery/alarm{
-	pixel_x = -28;
-	dir = 4
+	dir = 4;
+	pixel_x = -28
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -10446,20 +10446,20 @@
 	pixel_x = 4
 	},
 /obj/item/ammo_magazine/a556/carbine/practice{
-	pixel_y = 9;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 9
 	},
 /obj/item/ammo_magazine/a556/carbine/practice{
-	pixel_y = 9;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = 9
 	},
 /obj/item/ammo_magazine/a556/carbine/practice{
-	pixel_y = 9;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 9
 	},
 /obj/item/ammo_magazine/a556/carbine/practice{
-	pixel_y = 9;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
@@ -10907,8 +10907,8 @@
 "iVD" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
-	pixel_y = 12;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 12
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/storage/slide_projector,
@@ -11149,12 +11149,12 @@
 /area/horizon/cafeteria)
 "jid" = (
 /obj/machinery/door/airlock/hatch{
+	icon_state = "door_locked";
 	id_tag = "airlocks_bunker";
+	locked = 1;
 	name = "Command Bunker";
 	req_access = list(19);
-	secured_wires = 1;
-	locked = 1;
-	icon_state = "door_locked"
+	secured_wires = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -11165,8 +11165,8 @@
 	},
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	name = "Command Bunker Blast Door";
-	id = "shutters_bunker"
+	id = "shutters_bunker";
+	name = "Command Bunker Blast Door"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
@@ -11197,27 +11197,27 @@
 /area/engineering/break_room)
 "jkC" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
 	frequency = 1380;
-	id_tag = "dock_horizon_1_pump";
-	dir = 8
+	id_tag = "dock_horizon_1_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "dock_horizon_1_airlock";
+	pixel_x = 26;
 	pixel_y = 0;
 	req_one_access = list(13);
 	tag_airpump = "dock_horizon_1_pump";
 	tag_chamber_sensor = "dock_horizon_1_sensor";
 	tag_exterior_door = "dock_horizon_1_outer";
-	tag_interior_door = "dock_horizon_1_inner";
-	pixel_x = 26
+	tag_interior_door = "dock_horizon_1_inner"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
 	id_tag = "dock_horizon_1_sensor";
 	master_tag = "dock_horizon_1_airlock";
-	pixel_y = 32;
-	pixel_x = 25
+	pixel_x = 25;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -11534,8 +11534,8 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	req_one_access = list(24,11,55);
-	pixel_y = 28
+	pixel_y = 28;
+	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/wood,
 /area/security/vacantoffice2)
@@ -11750,8 +11750,8 @@
 	dir = 4
 	},
 /obj/structure/sign/securearea{
-	name = "\improper WARNING: FIRING RANGE sign";
 	desc = "A warning sign which reads 'WARNING: FIRING RANGE'.";
+	name = "\improper WARNING: FIRING RANGE sign";
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11862,16 +11862,16 @@
 	pixel_y = -24
 	},
 /obj/machinery/light_switch{
+	dir = 1;
 	pixel_x = -9;
-	pixel_y = -24;
-	dir = 1
+	pixel_y = -24
 	},
 /obj/machinery/papershredder{
 	pixel_x = -6
 	},
 /obj/structure/filingcabinet/filingcabinet{
-	pixel_y = 1;
-	pixel_x = 10
+	pixel_x = 10;
+	pixel_y = 1
 	},
 /obj/machinery/light{
 	dir = 4
@@ -12459,11 +12459,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
@@ -12561,9 +12561,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
+	dir = 2;
 	id = "crew_armoury_desk";
-	name = "Crew Armoury Desk Blast Door";
-	dir = 2
+	name = "Crew Armoury Desk Blast Door"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew_armoury)
@@ -12691,8 +12691,8 @@
 	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Investigations Office";
-	network = list("Interrogation");
-	name = "interrogation"
+	name = "interrogation";
+	network = list("Interrogation")
 	},
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -12701,8 +12701,8 @@
 /area/security/investigations)
 "kso" = (
 /obj/machinery/light_switch{
-	pixel_x = 9;
 	dir = 1;
+	pixel_x = 9;
 	pixel_y = -24
 	},
 /obj/machinery/disposal/small/north,
@@ -12755,19 +12755,19 @@
 /area/horizon/crew_quarters/fitness/gym)
 "ktq" = (
 /obj/machinery/button/switch/windowtint{
-	id = "investigator_office";
-	pixel_y = -24;
 	dir = 1;
-	pixel_x = -2
+	id = "investigator_office";
+	pixel_x = -2;
+	pixel_y = -24
 	},
 /obj/machinery/light_switch{
+	dir = 1;
 	pixel_x = -9;
-	pixel_y = -24;
-	dir = 1
+	pixel_y = -24
 	},
 /obj/structure/filingcabinet/filingcabinet{
-	pixel_y = 1;
-	pixel_x = 10
+	pixel_x = 10;
+	pixel_y = 1
 	},
 /obj/machinery/papershredder{
 	pixel_x = -6
@@ -13147,9 +13147,9 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/door/blast/regular/open{
+	dir = 2;
 	id = "shutters_deck3_longbow";
-	name = "Safety Blast Door";
-	dir = 2
+	name = "Safety Blast Door"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/longbow)
@@ -13376,8 +13376,8 @@
 	},
 /obj/machinery/firealarm/north,
 /obj/structure/sign/directions/security{
-	pixel_y = 41;
-	dir = 1
+	dir = 1;
+	pixel_y = 41
 	},
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck - Port Main Hallway Port"
@@ -14393,8 +14393,8 @@
 /area/bridge/controlroom)
 "lIN" = (
 /obj/item/device/radio/intercom/interrogation/broadcasting{
-	pixel_y = -24;
-	dir = 1
+	dir = 1;
+	pixel_y = -24
 	},
 /obj/machinery/light/small,
 /obj/effect/floor_decal/corner/red{
@@ -14508,8 +14508,8 @@
 	dir = 9
 	},
 /obj/machinery/alarm{
-	pixel_x = -28;
-	dir = 4
+	dir = 4;
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations_storage)
@@ -14712,9 +14712,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
+	name = "Shield Generator";
 	req_one_access = list(11,24);
-	secured_wires = 1;
-	name = "Shield Generator"
+	secured_wires = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/storage/shields)
@@ -15409,8 +15409,8 @@
 /obj/machinery/requests_console{
 	department = "Investigations";
 	departmentType = 5;
-	pixel_x = 32;
-	name = "Investigation's Office Requests Console"
+	name = "Investigation's Office Requests Console";
+	pixel_x = 32
 	},
 /turf/simulated/floor/lino/grey,
 /area/security/forensics_office{
@@ -16040,9 +16040,9 @@
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/cable/green,
 /obj/machinery/door/blast/regular/open{
+	dir = 2;
 	id = "shutters_deck3_longbow";
-	name = "Safety Blast Door";
-	dir = 2
+	name = "Safety Blast Door"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/longbow)
@@ -16544,16 +16544,16 @@
 	id = "airlocks_bunker";
 	name = "Command Bunker Bolts";
 	pixel_x = -25;
+	pixel_y = 7;
 	req_access = list(19);
-	specialfunctions = 4;
-	pixel_y = 7
+	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
+	id = "shutters_bunker";
+	name = "Command Bunker Blast Door";
 	pixel_x = -35;
 	pixel_y = 7;
-	name = "Command Bunker Blast Door";
-	id = "shutters_bunker";
 	req_access = list(19)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -16737,8 +16737,8 @@
 	dir = 9
 	},
 /obj/structure/coatrack{
-	pixel_y = 24;
-	pixel_x = -10
+	pixel_x = -10;
+	pixel_y = 24
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -17884,8 +17884,8 @@
 	dir = 8
 	},
 /obj/machinery/power/apc{
-	pixel_y = 24;
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -18019,9 +18019,9 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/door/blast/regular/open{
+	dir = 2;
 	id = "shutters_deck3_longbow";
-	name = "Safety Blast Door";
-	dir = 2
+	name = "Safety Blast Door"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/longbow)
@@ -18312,10 +18312,10 @@
 "oRi" = (
 /obj/item/hullbeacon/red,
 /obj/structure/sign/securearea{
-	name = "\improper DANGER: LIVE MUNITIONS sign";
-	pixel_y = 32;
 	desc = "A danger sign which reads 'DANGER: LIVE MUNITIONS'.";
-	pixel_x = 32
+	name = "\improper DANGER: LIVE MUNITIONS sign";
+	pixel_x = 32;
+	pixel_y = 32
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
@@ -18521,8 +18521,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
 /obj/structure/sign/securearea{
-	name = "\improper WARNING: FIRING RANGE sign";
 	desc = "A warning sign which reads 'WARNING: FIRING RANGE'.";
+	name = "\improper WARNING: FIRING RANGE sign";
 	pixel_y = 32
 	},
 /obj/structure/railing/mapped,
@@ -19041,8 +19041,8 @@
 	dir = 8
 	},
 /obj/machinery/light_switch{
-	pixel_x = 24;
 	dir = 8;
+	pixel_x = 24;
 	pixel_y = -9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -19336,13 +19336,13 @@
 /obj/item/clothing/ears/earmuffs,
 /obj/item/clothing/glasses/safety/goggles,
 /obj/structure/sign/securearea{
-	name = "\improper ACTIVE FIRING RANGE sign";
 	desc = "A warning sign which reads 'WARNING: ACTIVE FIRING RANGE'.";
+	name = "\improper ACTIVE FIRING RANGE sign";
 	pixel_y = -32
 	},
 /obj/structure/sign/securearea{
-	name = "\improper WARNING: FIRING RANGE sign";
 	desc = "A warning sign which reads 'WARNING: FIRING RANGE'.";
+	name = "\improper WARNING: FIRING RANGE sign";
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -19431,11 +19431,11 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 8;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
-	opacity = 0;
-	dir = 8
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/investigations)
@@ -19776,9 +19776,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
+	name = "Shield Generator";
 	req_one_access = list(11,24);
-	secured_wires = 1;
-	name = "Shield Generator"
+	secured_wires = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/storage/shields)
@@ -19888,9 +19888,11 @@
 	pixel_y = 28
 	},
 /obj/structure/table/reinforced/wood,
-/obj/machinery/chemical_dispenser/coffee/full,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
+	},
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_y = 7
 	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
@@ -20136,11 +20138,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 8;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
-	opacity = 0;
-	dir = 8
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/security/forensics_office{
@@ -20422,19 +20424,19 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light_switch{
-	pixel_x = -24;
 	dir = 4;
+	pixel_x = -24;
 	pixel_y = -9
 	},
 /obj/machinery/button/switch/windowtint{
-	id = "sec_autopsy";
-	pixel_y = -2;
 	dir = 4;
-	pixel_x = -24
+	id = "sec_autopsy";
+	pixel_x = -24;
+	pixel_y = -2
 	},
 /obj/structure/sink/kitchen{
-	name = "autopsy sink";
 	dir = 4;
+	name = "autopsy sink";
 	pixel_x = -20
 	},
 /turf/simulated/floor/tiled/white,
@@ -20882,8 +20884,8 @@
 "rgp" = (
 /obj/machinery/ringer_button{
 	id = "investigation_ringer";
-	pixel_y = 25;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 25
 	},
 /obj/machinery/firealarm/west,
 /obj/effect/floor_decal/corner/blue/full{
@@ -20907,8 +20909,8 @@
 "rhT" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
-	pixel_y = 2;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 2
 	},
 /obj/item/pen{
 	pixel_x = 4;
@@ -20916,8 +20918,8 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/folder/sec{
-	pixel_y = 2;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 2
 	},
 /turf/simulated/floor/wood,
 /area/security/vacantoffice2)
@@ -22014,8 +22016,8 @@
 	dir = 8
 	},
 /obj/machinery/light_switch{
-	pixel_y = 24;
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = 24
 	},
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark,
@@ -22279,8 +22281,8 @@
 	dir = 4
 	},
 /obj/item/material/ashtray/bronze{
-	pixel_y = 2;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 2
 	},
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_three/primary/port)
@@ -22719,10 +22721,10 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
+	id = "shutters_bunker";
+	name = "Command Bunker Blast Door";
 	pixel_x = -25;
 	pixel_y = -35;
-	name = "Command Bunker Blast Door";
-	id = "shutters_bunker";
 	req_access = list(19)
 	},
 /obj/machinery/button/remote/airlock{
@@ -22730,9 +22732,9 @@
 	id = "airlocks_bunker";
 	name = "Command Bunker Bolts";
 	pixel_x = -25;
+	pixel_y = -25;
 	req_access = list(19);
-	specialfunctions = 4;
-	pixel_y = -25
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/hallway)
@@ -22940,16 +22942,16 @@
 /obj/effect/floor_decal/corner/blue/full,
 /obj/structure/table/standard,
 /obj/item/paper_bin{
-	pixel_y = 2;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 2
 	},
 /obj/item/pen{
-	pixel_y = 4;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 4
 	},
 /obj/item/pen{
-	pixel_y = 8;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 8
 	},
 /obj/item/folder/sec{
 	pixel_x = 7
@@ -23054,9 +23056,9 @@
 /area/horizon/stairwell/bridge)
 "sJm" = (
 /obj/structure/disposalpipe/sortjunction/flipped{
+	dir = 8;
 	name = "Journalist";
-	sortType = "Journalist";
-	dir = 8
+	sortType = "Journalist"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -23642,10 +23644,10 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
-	pixel_y = 7;
-	pixel_x = 25;
+	id = "shutters_deck3_longbow";
 	name = "Safety Blast Doors Control";
-	id = "shutters_deck3_longbow"
+	pixel_x = 25;
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
@@ -23692,8 +23694,8 @@
 /area/horizon/hallway/deck_three/primary/central)
 "tmJ" = (
 /obj/machinery/alarm{
-	pixel_x = 28;
-	dir = 8
+	dir = 8;
+	pixel_x = 28
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -23714,8 +23716,8 @@
 	},
 /obj/structure/table/standard,
 /obj/item/paper_bin{
-	pixel_y = 3;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 3
 	},
 /obj/item/folder/sec{
 	pixel_x = 7;
@@ -23889,9 +23891,9 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/sortjunction{
+	dir = 4;
 	name = "Deck 3 Cafe";
-	sortType = "Deck 3 Cafe";
-	dir = 4
+	sortType = "Deck 3 Cafe"
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -24034,8 +24036,8 @@
 /area/security/forensics_morgue)
 "twu" = (
 /obj/machinery/power/apc{
-	pixel_y = 24;
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/structure/closet/secure_closet/investigator,
 /obj/structure/cable/green{
@@ -25734,8 +25736,8 @@
 /area/bridge)
 "uMq" = (
 /obj/machinery/alarm{
-	pixel_x = 28;
-	dir = 8
+	dir = 8;
+	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
@@ -26713,8 +26715,8 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
-	pixel_x = -24;
-	dir = 4
+	dir = 4;
+	pixel_x = -24
 	},
 /obj/machinery/camera/motion{
 	c_tag = "Bridge - Deck 3 - Bunker";
@@ -27424,8 +27426,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/hatch{
-	locked = 1;
 	lights = 0;
+	locked = 1;
 	name = "Maintenance Hatch"
 	},
 /turf/simulated/floor/tiled/full,
@@ -27706,9 +27708,9 @@
 /area/medical/washroom)
 "wiJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
 	frequency = 1380;
-	id_tag = "dock_horizon_3_pump";
-	dir = 1
+	id_tag = "dock_horizon_3_pump"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -28794,8 +28796,8 @@
 	dir = 1
 	},
 /obj/machinery/power/apc{
-	pixel_y = 24;
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -28940,12 +28942,12 @@
 	dir = 1
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 34;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 34
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 24;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
@@ -29197,8 +29199,8 @@
 	dir = 4
 	},
 /obj/structure/sign/securearea{
-	name = "\improper WARNING: FIRING RANGE sign";
 	desc = "A warning sign which reads 'WARNING: FIRING RANGE'.";
+	name = "\improper WARNING: FIRING RANGE sign";
 	pixel_y = -32
 	},
 /obj/effect/floor_decal/industrial/loading/security{

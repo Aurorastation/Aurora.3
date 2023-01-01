@@ -487,13 +487,13 @@ var/global/list/default_medbay_channels = list(
 	if ((input_frequency in ANTAG_FREQS) && !syndie) //Checks to see if it's allowed on that frequency, based on the encryption keys
 		return FALSE
 
-	if (input_frequency == frequency)
-		return TRUE
-
 	for (var/ch_name in channels)
 		var/datum/radio_frequency/RF = secure_radio_connections[ch_name]
-		if (RF.frequency == input_frequency && (channels[ch_name] & FREQ_LISTENING))
-			return TRUE
+		if (RF.frequency == input_frequency)
+			return channels[ch_name]
+
+	if (input_frequency == frequency)
+		return TRUE
 
 	return FALSE
 
