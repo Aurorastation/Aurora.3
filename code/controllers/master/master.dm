@@ -65,8 +65,6 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		else
 			init_subtypes(/datum/controller/subsystem, subsystems)
 		Master = src
-	if (!GLOB)
-		GLOB = new
 
 /datum/controller/master/Destroy()
 	..()

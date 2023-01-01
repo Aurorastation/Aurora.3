@@ -8,7 +8,7 @@
 //			/old_sight: sight before the change
 //			/new_sight: sight after the change
 
-GLOBAL_DATUM_INIT(sight_set_event, /singleton/observ/sight_set, new)
+var/singleton/observ/sight_set/sight_set_event = new()
 
 /singleton/observ/sight_set
 	name = "Sight Set"
@@ -16,7 +16,7 @@ GLOBAL_DATUM_INIT(sight_set_event, /singleton/observ/sight_set, new)
 
 
 
-var/datum/observ/sight_set/sight_set_event = new()
+// var/datum/observ/sight_set/sight_set_event = new()
 
 /datum/observ/sight_set
 	name = "Sight Set"

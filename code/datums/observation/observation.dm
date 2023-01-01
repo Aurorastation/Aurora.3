@@ -1,4 +1,4 @@
-GLOBAL_LIST_EMPTY(all_observable_events)
+// GLOBAL_LIST_EMPTY(all_observable_events)
 /singleton/observ
 	var/name = "Unnamed Event"          // The name of this event, used mainly for debug/VV purposes. The list of event managers can be reached through the "Debug Controller" verb, selecting the "Observation" entry.
 	var/expected_type = /datum          // The expected event source for this event. register() will CRASH() if it receives an unexpected type.
@@ -6,7 +6,7 @@ GLOBAL_LIST_EMPTY(all_observable_events)
 	var/list/global_listeners = list()  // Associative list of instances that listen to all events of this type (as opposed to events belonging to a specific source) and the proc to call.
 
 /singleton/observ/New()
-	GLOB.all_observable_events += src
+	all_observable_events += src
 	..()
 
 /singleton/observ/proc/is_listening(event_source, datum/listener, proc_call)

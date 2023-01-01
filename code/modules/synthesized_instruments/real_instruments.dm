@@ -14,8 +14,8 @@
 /datum/real_instrument/New(obj/who, datum/sound_player/how, datum/instrument/what)
 	player = how
 	owner = who
-	maximum_lines = GLOB.musical_config.max_lines
-	maximum_line_length = GLOB.musical_config.max_line_length
+	maximum_lines = musical_config.max_lines
+	maximum_line_length = musical_config.max_line_length
 	instruments = what //This can be a list, or it can also not be one
 
 /datum/real_instrument/proc/Topic_call(href, href_list, usr)
@@ -31,7 +31,7 @@
 		if ("play")
 			src.player.song.playing = value
 			if (src.player.song.playing)
-				GLOB.instrument_synchronizer.raise_event(player.actual_instrument)
+				instrument_synchronizer.raise_event(player.actual_instrument)
 				src.player.song.play_song(usr)
 		if ("wait")
 			if(value)
@@ -87,20 +87,20 @@
 		if ("volume")
 			src.player.volume = min(max(min(player.volume+text2num(value), 100), 0), player.max_volume)
 		if ("transposition")
-			src.player.song.transposition = max(min(player.song.transposition+value, GLOB.musical_config.highest_transposition), GLOB.musical_config.lowest_transposition)
+			src.player.song.transposition = max(min(player.song.transposition+value, musical_config.highest_transposition), musical_config.lowest_transposition)
 		if ("min_octave")
-			src.player.song.octave_range_min = max(min(player.song.octave_range_min+value, GLOB.musical_config.highest_octave), GLOB.musical_config.lowest_octave)
+			src.player.song.octave_range_min = max(min(player.song.octave_range_min+value, musical_config.highest_octave), musical_config.lowest_octave)
 			src.player.song.octave_range_max = max(player.song.octave_range_max, player.song.octave_range_min)
 		if ("max_octave")
-			src.player.song.octave_range_max = max(min(player.song.octave_range_max+value, GLOB.musical_config.highest_octave), GLOB.musical_config.lowest_octave)
+			src.player.song.octave_range_max = max(min(player.song.octave_range_max+value, musical_config.highest_octave), musical_config.lowest_octave)
 			src.player.song.octave_range_min = min(player.song.octave_range_max, player.song.octave_range_min)
 		if ("sustain_timer")
-			src.player.song.sustain_timer = max(min(player.song.sustain_timer+value, GLOB.musical_config.longest_sustain_timer), 1)
+			src.player.song.sustain_timer = max(min(player.song.sustain_timer+value, musical_config.longest_sustain_timer), 1)
 		if ("soft_coeff")
-			var/new_coeff = input(usr, "from [GLOB.musical_config.gentlest_drop] to [GLOB.musical_config.steepest_drop]") as num
+			var/new_coeff = input(usr, "from [musical_config.gentlest_drop] to [musical_config.steepest_drop]") as num
 			if(!CanInteractWith(usr, owner, physical_state))
 				return
-			new_coeff = round(min(max(new_coeff, GLOB.musical_config.gentlest_drop), GLOB.musical_config.steepest_drop), 0.001)
+			new_coeff = round(min(max(new_coeff, musical_config.gentlest_drop), musical_config.steepest_drop), 0.001)
 			src.player.song.soft_coeff = new_coeff
 		if ("instrument")
 			if (!islist(instruments))
@@ -129,7 +129,7 @@
 		if ("decay") src.player.song.linear_decay = value
 		if ("echo") src.player.apply_echo = value
 		if ("show_env_editor")
-			if (GLOB.musical_config.env_settings_available)
+			if (musical_config.env_settings_available)
 				if (!src.env_editor)
 					src.env_editor = new (src.player)
 				src.env_editor.ui_interact(usr)
@@ -170,8 +170,8 @@
 			)
 		),
 		"advanced_options" = list(
-			"all_environments" = GLOB.musical_config.all_environments,
-			"selected_environment" = GLOB.musical_config.id_to_environment(src.player.virtual_environment_selected),
+			"all_environments" = musical_config.all_environments,
+			"selected_environment" = musical_config.id_to_environment(src.player.virtual_environment_selected),
 			"apply_echo" = src.player.apply_echo
 		),
 		"sustain" = list(
@@ -181,14 +181,14 @@
 		),
 		"show" = list(
 			"playback" = src.player.song.lines.len > 0,
-			"custom_env_options" = GLOB.musical_config.is_custom_env(src.player.virtual_environment_selected),
-			"env_settings" = GLOB.musical_config.env_settings_available
+			"custom_env_options" = musical_config.is_custom_env(src.player.virtual_environment_selected),
+			"env_settings" = musical_config.env_settings_available
 		),
 		"status" = list(
 			"channels" = src.player.song.available_channels,
 			"events" = src.player.event_manager.events.len,
-			"max_channels" = GLOB.musical_config.channels_per_instrument,
-			"max_events" = GLOB.musical_config.max_events,
+			"max_channels" = musical_config.channels_per_instrument,
+			"max_events" = musical_config.max_events,
 		)
 	)
 

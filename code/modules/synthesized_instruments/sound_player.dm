@@ -26,11 +26,11 @@
 /datum/sound_player/New(datum/real_instrument/where, datum/instrument/what)
 	src.song = new (src, what)
 	src.actual_instrument = where
-	src.echo = GLOB.musical_config.echo_default.Copy()
-	src.env = GLOB.musical_config.env_default.Copy()
+	src.echo = musical_config.echo_default.Copy()
+	src.env = musical_config.env_default.Copy()
 	src.proxy_listener = new(src.actual_instrument, /datum/sound_player/proc/on_turf_entered_relay, /datum/sound_player/proc/on_turfs_changed_relay, range, proc_owner = src)
 	proxy_listener.register_turfs()
-	GLOB.instrument_synchronizer.register_global(src, .proc/check_wait)
+	instrument_synchronizer.register_global(src, .proc/check_wait)
 
 /datum/sound_player/Destroy()
 	src.song.playing = 0
@@ -41,7 +41,7 @@
 	QDEL_NULL(proxy_listener)
 	seen_turfs.Cut()
 	tokens.Cut()
-	GLOB.instrument_synchronizer.unregister_global(src, .proc/check_wait)
+	instrument_synchronizer.unregister_global(src, .proc/check_wait)
 	wait = null
 	. = ..()
 
@@ -80,8 +80,8 @@
 /datum/sound_player/proc/apply_modifications(sound/what, note_num, which_line, which_note) // You don't need to override this
 	what.volume = volume
 	what.falloff = falloff
-	if (GLOB.musical_config.env_settings_available)
-		what.environment = GLOB.musical_config.is_custom_env(src.virtual_environment_selected) ? src.env : src.virtual_environment_selected
+	if (musical_config.env_settings_available)
+		what.environment = musical_config.is_custom_env(src.virtual_environment_selected) ? src.env : src.virtual_environment_selected
 	if (src.apply_echo)
 		what.echo = src.echo
 	return

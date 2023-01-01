@@ -1,4 +1,4 @@
-GLOBAL_DATUM_INIT(entered_event, /singleton/observ/entered, new)
+// /singleton/observ/entered/entered_event = new()
 
 /singleton/observ/entered
 	name = "Entered"

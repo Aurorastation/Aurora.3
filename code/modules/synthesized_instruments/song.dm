@@ -25,10 +25,10 @@
 /datum/synthesized_song/New(datum/sound_player/playing_object, datum/instrument/instrument)
 	src.player = playing_object
 	src.instrument_data = instrument
-	src.octave_range_min = GLOB.musical_config.lowest_octave
-	src.octave_range_max = GLOB.musical_config.highest_octave
+	src.octave_range_min = musical_config.lowest_octave
+	src.octave_range_max = musical_config.highest_octave
 	instrument.create_full_sample_deviation_map()
-	available_channels = GLOB.musical_config.channels_per_instrument
+	available_channels = musical_config.channels_per_instrument
 
 /datum/synthesized_song/Destroy()
 	player.event_manager.deactivate()
@@ -40,17 +40,17 @@
 
 
 /datum/synthesized_song/proc/play_synthesized_note(note, acc, oct, duration, where, which_one)
-	if (oct < GLOB.musical_config.lowest_octave || oct > GLOB.musical_config.highest_octave)	return
+	if (oct < musical_config.lowest_octave || oct > musical_config.highest_octave)	return
 	if (oct < src.octave_range_min || oct > src.octave_range_max)	return
 
 	var/delta1 = acc == "b" ? -1 : acc == "#" ? 1 : acc == "s" ? 1 : acc == "n" ? 0 : 0
 	var/delta2 = 12 * oct
 
-	var/note_num = delta1+delta2+GLOB.musical_config.nn2no[note]
+	var/note_num = delta1+delta2+musical_config.nn2no[note]
 	if (note_num < 0 || note_num > 127)
 		CRASH("play_synthesized note failed because of 0..127 condition, [note], [acc], [oct]")
 
-	var/datum/sample_pair/pair = src.instrument_data.sample_map[GLOB.musical_config.n2t(note_num)]
+	var/datum/sample_pair/pair = src.instrument_data.sample_map[musical_config.n2t(note_num)]
 	#define Q 0.083 // 1/12
 	var/freq = 2**(Q*pair.deviation)
 	#undef Q

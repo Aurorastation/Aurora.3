@@ -8,14 +8,14 @@
 //			/old_see_invisible: see_invisible before the change
 //			/new_see_invisible: see_invisible after the change
 
-GLOBAL_DATUM_INIT(see_invisible_set_event, /singleton/observ/see_invisible_set, new)
+var/singleton/observ/see_invisible_set/see_invisible_set_event = new()
 
 /singleton/observ/see_invisible_set
 	name = "See Invisible Set"
 	expected_type = /mob
 
 
-var/datum/observ/see_invisible_set/see_invisible_set_event = new()
+// var/datum/observ/see_invisible_set/see_invisible_set_event = new()
 
 /datum/observ/see_invisible_set
 	name = "See Invisible Set"

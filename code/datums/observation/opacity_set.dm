@@ -8,7 +8,7 @@
 //			/old_opacity: The opacity before the change.
 //			/new_opacity: The opacity after the change.
 
-GLOBAL_DATUM_INIT(opacity_set_event, /singleton/observ/opacity_set, new)
+var/singleton/observ/opacity_set/opacity_set_event = new()
 
 /singleton/observ/opacity_set
 	name = "Opacity Set"
@@ -27,7 +27,7 @@ GLOBAL_DATUM_INIT(opacity_set_event, /singleton/observ/opacity_set, new)
 	if(new_opacity != opacity)
 		var/old_opacity = opacity
 		opacity = new_opacity
-		GLOB.opacity_set_event.raise_event(src, old_opacity, new_opacity)
+		opacity_set_event.raise_event(src, old_opacity, new_opacity)
 		if (isturf(loc))
 			var/turf/T = loc
 			if (opacity)

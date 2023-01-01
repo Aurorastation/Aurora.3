@@ -1,4 +1,4 @@
-GLOBAL_DATUM_INIT(dir_set_event, /singleton/observ/dir_set, new)
+// /singleton/observ/dir_set/dir_set_event = new()
 
 /singleton/observ/dir_set
 	name = "Direction Set"
@@ -17,12 +17,12 @@ GLOBAL_DATUM_INIT(dir_set_event, /singleton/observ/dir_set, new)
 
 /atom/movable/Entered(atom/movable/am, atom/old_loc)
 	. = ..()
-	if(GLOB.dir_set_event.has_listeners(am))
-		GLOB.dir_set_event.register(src, am, /atom/proc/recursive_dir_set)
+	if(dir_set_event.has_listeners(am))
+		dir_set_event.register(src, am, /atom/proc/recursive_dir_set)
 
 /atom/movable/Exited(atom/movable/am, atom/new_loc)
 	. = ..()
-	GLOB.dir_set_event.unregister(src, am, /atom/proc/recursive_dir_set)
+	dir_set_event.unregister(src, am, /atom/proc/recursive_dir_set)
 
 //	Observer Pattern Implementation: Direction Set
 //		Registration type: /atom

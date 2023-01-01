@@ -24,7 +24,7 @@
 	src.use_env = use_env
 	src.player = player
 
-	var/channel = GLOB.sound_player.PrivGetChannel(src) //Attempt to find a channel
+	var/channel = sound_player.PrivGetChannel(src) //Attempt to find a channel
 	if(!isnum(channel))
 		CRASH("All available sound channels are in active use.")
 	sound.channel = channel
@@ -32,7 +32,7 @@
 	listeners = list()
 	listener_status = list()
 
-	GLOB.destroyed_event.register(source, src, /datum/proc/qdel_self)
+	destroyed_event.register(source, src, /datum/proc/qdel_self)
 
 	player.subscribe(src)
 
@@ -47,17 +47,17 @@
 
 
 /datum/sound_token/instrument/PrivAddListener(atom/listener)
-	var/mob/m = listener
+	//var/mob/m = listener
 	//if(istype(m))
-		// if(m.get_preference_value(/datum/client_preference/play_instruments) != GLOB.PREF_YES)
+		// if(m.get_preference_value(/datum/client_preference/play_instruments) != PREF_YES)
 		// 	return
 	return ..()
 
 
 /datum/sound_token/instrument/PrivUpdateListener(listener)
-	var/mob/m = listener
+	//var/mob/m = listener
 	//if(istype(m))
-		// if(m.get_preference_value(/datum/client_preference/play_instruments) != GLOB.PREF_YES)
+		// if(m.get_preference_value(/datum/client_preference/play_instruments) != PREF_YES)
 		// 	PrivRemoveListener(listener)
 		// 	return
 	return ..()

@@ -13,17 +13,17 @@
 
 
 /datum/nano_module/song_editor/proc/pages()
-	return Ceil(src.song.lines.len / GLOB.musical_config.song_editor_lines_per_page)
+	return Ceil(src.song.lines.len / musical_config.song_editor_lines_per_page)
 
 
 /datum/nano_module/song_editor/proc/current_page()
-	return src.song.current_line > 0 ? Ceil(src.song.current_line / GLOB.musical_config.song_editor_lines_per_page) : min(src.page, pages())
+	return src.song.current_line > 0 ? Ceil(src.song.current_line / musical_config.song_editor_lines_per_page) : min(src.page, pages())
 
 
 /datum/nano_module/song_editor/proc/page_bounds(page_num)
 	return list(
-		max(min(1 + GLOB.musical_config.song_editor_lines_per_page * (page_num-1), src.song.lines.len), 1),
-		min(GLOB.musical_config.song_editor_lines_per_page * page_num, src.song.lines.len))
+		max(min(1 + musical_config.song_editor_lines_per_page * (page_num-1), src.song.lines.len), 1),
+		min(musical_config.song_editor_lines_per_page * page_num, src.song.lines.len))
 
 /datum/nano_module/song_editor/ui_interact(mob/user, ui_key = "song_editor", datum/nanoui/ui = null, force_open = 0)
 	var/list/data = list()
@@ -33,12 +33,12 @@
 
 	data["lines"] = src.song.lines.Copy(line_bounds[1], line_bounds[2]+1)
 	data["active_line"] = src.song.current_line
-	data["max_lines"] = GLOB.musical_config.max_lines
-	data["max_line_length"] = GLOB.musical_config.max_line_length
+	data["max_lines"] = musical_config.max_lines
+	data["max_line_length"] = musical_config.max_line_length
 	data["tick_lag"] = world.tick_lag
 	data["show_help"] = src.show_help
 	data["page_num"] = current_page
-	data["page_offset"] = GLOB.musical_config.song_editor_lines_per_page * (current_page-1)
+	data["page_offset"] = musical_config.song_editor_lines_per_page * (current_page-1)
 
 	ui =  SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
@@ -62,10 +62,10 @@
 			var/newline = html_encode(input(usr, "Enter your line: ") as text|null)
 			if(!newline)
 				return
-			if(src.song.lines.len > GLOB.musical_config.max_lines)
+			if(src.song.lines.len > musical_config.max_lines)
 				return
-			if(length(newline) > GLOB.musical_config.max_line_length)
-				newline = copytext(newline, 1, GLOB.musical_config.max_line_length)
+			if(length(newline) > musical_config.max_line_length)
+				newline = copytext(newline, 1, musical_config.max_line_length)
 			src.song.lines.Add(newline)
 
 		if("deleteline")
@@ -85,8 +85,8 @@
 				return
 			if(!content)
 				return
-			if(length(content) > GLOB.musical_config.max_line_length)
-				content = copytext(content, 1, GLOB.musical_config.max_line_length)
+			if(length(content) > musical_config.max_line_length)
+				content = copytext(content, 1, musical_config.max_line_length)
 			src.song.lines[num] = content
 
 		if ("help")

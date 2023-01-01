@@ -15,9 +15,9 @@
 	for (var/i=1 to 23)
 		var/list/env_data = list()
 		env_data["index"] = i
-		env_data["name"] = GLOB.musical_config.env_param_names[i]
+		env_data["name"] = musical_config.env_param_names[i]
 		env_data["value"] = src.player.env[i]
-		env_data["real"] = GLOB.musical_config.env_params_bounds[i][3]
+		env_data["real"] = musical_config.env_params_bounds[i][3]
 		data["env_params"] += list(env_data)
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -28,7 +28,7 @@
 
 
 /datum/nano_module/env_editor/Topic(href, href_list)
-	if (!GLOB.musical_config.env_settings_available)
+	if (!musical_config.env_settings_available)
 		return 0
 
 	if (..())
@@ -40,10 +40,10 @@
 		to_chat(usr, "Wrong index was provided: [index]")
 		return 0
 
-	var/name = GLOB.musical_config.env_param_names[index]
-	var/desc = GLOB.musical_config.env_param_desc[index]
-	var/default = GLOB.musical_config.env_default[index]
-	var/list/bounds = GLOB.musical_config.env_params_bounds[index]
+	var/name = musical_config.env_param_names[index]
+	var/desc = musical_config.env_param_desc[index]
+	var/default = musical_config.env_default[index]
+	var/list/bounds = musical_config.env_params_bounds[index]
 	var/bound_min = bounds[1]
 	var/bound_max = bounds[2]
 	var/reals_allowed = bounds[3]
@@ -58,7 +58,7 @@
 		if ("reset")
 			src.player.env[index] = default
 		if ("reset_all")
-			src.player.env = GLOB.musical_config.env_default.Copy()
+			src.player.env = musical_config.env_default.Copy()
 		if ("desc")
 			to_chat(usr, "[name]: from [bound_min] to [bound_max] (default: [default])<br>[desc]")
 

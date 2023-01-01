@@ -11,10 +11,10 @@
 /datum/nano_module/usage_info/ui_interact(mob/user, ui_key = "usage_info", datum/nanoui/ui = null, force_open = 0)
 	var/static/list/data = list()
 	data.Cut()
-	data["channels_left"] = GLOB.sound_channels.available_channels.stack.len
+	data["channels_left"] = sound_channels.available_channels.stack.len
 	data["events_active"] = src.player.event_manager.events.len
-	data["max_channels"] = GLOB.sound_channels.channel_ceiling
-	data["max_events"] = GLOB.musical_config.max_events
+	data["max_channels"] = sound_channels.channel_ceiling
+	data["max_events"] = musical_config.max_events
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)

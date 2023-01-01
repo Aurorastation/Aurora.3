@@ -16,9 +16,9 @@
 	for (var/i=1 to 18)
 		var/list/echo_data = list()
 		echo_data["index"] = i
-		echo_data["name"] = GLOB.musical_config.echo_param_names[i]
+		echo_data["name"] = musical_config.echo_param_names[i]
 		echo_data["value"] = src.player.echo[i]
-		echo_data["real"] = GLOB.musical_config.echo_params_bounds[i][3]
+		echo_data["real"] = musical_config.echo_params_bounds[i][3]
 		data["echo_params"] += list(echo_data)
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -38,10 +38,10 @@
 		to_chat(usr, "Wrong index was provided: [index]")
 		return 0
 
-	var/name = GLOB.musical_config.echo_param_names[index]
-	var/desc = GLOB.musical_config.echo_param_desc[index]
-	var/default = GLOB.musical_config.echo_default[index]
-	var/list/bounds = GLOB.musical_config.echo_params_bounds[index]
+	var/name = musical_config.echo_param_names[index]
+	var/desc = musical_config.echo_param_desc[index]
+	var/default = musical_config.echo_default[index]
+	var/list/bounds = musical_config.echo_params_bounds[index]
 	var/bound_min = bounds[1]
 	var/bound_max = bounds[2]
 	var/reals_allowed = bounds[3]
@@ -56,7 +56,7 @@
 		if ("reset")
 			src.player.echo[index] = default
 		if ("reset_all")
-			src.player.echo = GLOB.musical_config.echo_default.Copy()
+			src.player.echo = musical_config.echo_default.Copy()
 		if ("desc")
 			to_chat(usr, "[name]: from [bound_min] to [bound_max] (default: [default])<br>[desc]")
 

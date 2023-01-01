@@ -8,13 +8,13 @@
 //			/old_see_in_dark: see_in_dark before the change
 //			/new_see_in_dark: see_in_dark after the change
 
-GLOBAL_DATUM_INIT(see_in_dark_set_event, /singleton/observ/see_in_dark_set, new)
+var/singleton/observ/see_in_dark_set/see_in_dark_set_event = new()
 
 /singleton/observ/see_in_dark_set
 	name = "See In Dark Set"
 	expected_type = /mob
 
-var/datum/observ/see_in_dark_set/see_in_dark_set_event = new()
+// var/datum/observ/see_in_dark_set/see_in_dark_set_event = new()
 
 /datum/observ/see_in_dark_set
 	name = "See In Dark Set"

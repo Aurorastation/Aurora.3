@@ -49,33 +49,33 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 				name = body.real_name
 			else
 				if(gender == MALE)
-					name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
+					name = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
 				else
-					name = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
+					name = capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
 	else
 		spawn(10) // wait for the observer mob to receive the client's key
 			mind = new /datum/mind(key)
 			mind.current = src
-	if(!T)	T = pick(GLOB.latejoin | GLOB.latejoin_cryo | GLOB.latejoin_gateway)			//Safety in case we cannot find the body's position
+	if(!T)	T = pick(latejoin | latejoin_cryo | latejoin_gateway)			//Safety in case we cannot find the body's position
 	forceMove(T)
 
 	if(!name)							//To prevent nameless ghosts
-		name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
+		name = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
 	real_name = name
 
-	if(GLOB.cult)
-		GLOB.cult.add_ghost_magic(src)
+	if(cult)
+		cult.add_ghost_magic(src)
 
 	ghost_multitool = new(src)
 
-	GLOB.ghost_mobs += src
+	ghost_mobs += src
 
 	..()
 
 /mob/observer/ghost/Destroy()
-	GLOB.ghost_mobs -= src
+	ghost_mobs -= src
 	stop_following()
 	qdel(ghost_multitool)
 	ghost_multitool = null
@@ -365,7 +365,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 
 	var/turf/T = get_turf(src)
-	if(!T || (T.z in GLOB.using_map.admin_levels))
+	if(!T || (T.z in using_map.admin_levels))
 		to_chat(src, SPAN_WARNING("You may not spawn as a mouse on this Z-level."))
 		return
 
