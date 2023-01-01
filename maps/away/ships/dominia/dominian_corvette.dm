@@ -122,7 +122,7 @@
 	name = "Dominian Shuttle"
 	class = "HIMS"
 	designation = "Chariot"
-	desc = "Easily mistaken for a Wisp-class (which it is almost identical to), this shuttle is in fact an dominian Dromedary-class, which is an unlicensed copy of the Hephaestus Wisp-class, and one of the designs slated for retirement in the ongoing military modernization program. Hephaestus Industries has attempted to sue the dominian government many times for the navy's unlicensed production of its intellectual property, and dominian courts have, unsurprisingly, always ruled in favor of the government - much to the frustration of the megacorporation, which has no other method of recourse. An inefficient design of ultra-light shuttle. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. This one's transponder identifies it as an dominian Naval Infantry recovery shuttle."
+	desc = "A light shuttle used by the Imperial Fleet to move small amounts of cargo or personnel between vessels, the Yupmi-class shuttle is a dependable utility craft. Like most Dominian vessels it is relatively well armored for its size but is not a combat vessel by any means. A short operational range means a Yupmi should never stray too far from its vessel of origin as it will soon run out of fuel."
 	shuttle = "Dominian Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
