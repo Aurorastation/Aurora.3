@@ -132,6 +132,7 @@
 	maxHealth = 25
 	health = 25
 	speed = 1
+	meat_amount = 3
 	melee_damage_lower = 1
 	melee_damage_upper = 8
 	attacktext = "gouged"
@@ -143,6 +144,8 @@
 	pass_flags = PASSTABLE
 	density = 0
 	mob_size = 3
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 
 /mob/living/simple_animal/hostile/retaliate/shantak
 	name = "shantak"
