@@ -42189,14 +42189,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "RDStorage";
-	name = "Storage Lockdown";
-	pixel_x = 7;
-	pixel_y = -25;
-	req_access = list(30)
-	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "uTn" = (
