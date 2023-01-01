@@ -247,7 +247,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/motion{
 	c_tag = "Longbow";
-	network = list("Command,Security")
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
@@ -4246,7 +4246,7 @@
 /obj/machinery/camera/motion{
 	c_tag = "Scuttling Device";
 	dir = 4;
-	network = list("Command,Security")
+	network = list("Command","Security")
 	},
 /obj/structure/sign/flag/scc{
 	pixel_x = -32
@@ -5133,10 +5133,9 @@
 	pixel_y = -10
 	},
 /obj/machinery/camera/motion{
-	c_tag = "Third Deck - Crew Armoury Starboard";
+	c_tag = "Deck 3 - Crew Armoury Starboard";
 	dir = 4;
-	name = "security";
-	network = list("Command, Security")
+	network = list("Command","Security")
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -5326,8 +5325,9 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/machinery/camera/network/telecom{
+/obj/machinery/camera/motion{
 	c_tag = "Telecomms - Control Room";
+	network = list("Command","Security");
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -9173,10 +9173,9 @@
 	pixel_y = -10
 	},
 /obj/machinery/camera/motion{
-	c_tag = "Third Deck - Crew Armoury Port";
+	c_tag = "Deck 3 - Crew Armoury Port";
 	dir = 8;
-	name = "security";
-	network = list("Command, Security")
+	network = list("Command","Security")
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -14161,10 +14160,11 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Spare Parts Room"
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/camera/motion{
+	c_tag = "Telecomms - Spare Parts Room";
+	network = list("Command","Security")
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "lzn" = (
@@ -20316,13 +20316,14 @@
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "qDx" = (
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Starboard";
-	dir = 4
-	},
 /obj/machinery/firealarm/west,
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 8
+	},
+/obj/machinery/camera/motion{
+	c_tag = "Telecomms - Starboard";
+	network = list("Command","Security");
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
@@ -24070,14 +24071,15 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "tyQ" = (
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Port"
-	},
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 1
 	},
 /obj/machinery/alarm/tcom{
 	pixel_y = 28
+	},
+/obj/machinery/camera/motion{
+	c_tag = "Telecomms - Port";
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
@@ -24856,9 +24858,8 @@
 	},
 /obj/structure/table/steel,
 /obj/machinery/camera/motion{
-	c_tag = "Third Deck - Crew Armoury Desk";
-	name = "security";
-	network = list("Command, Security")
+	c_tag = "Deck 3 - Crew Armoury Desk";
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
@@ -26715,10 +26716,10 @@
 	pixel_x = -24;
 	dir = 4
 	},
-/obj/machinery/camera/network/command{
+/obj/machinery/camera/motion{
 	c_tag = "Bridge - Deck 3 - Bunker";
-	network = list("Command","Bunker");
-	dir = 4
+	dir = 4;
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)

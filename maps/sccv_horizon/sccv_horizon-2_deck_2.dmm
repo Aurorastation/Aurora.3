@@ -10338,7 +10338,7 @@
 /obj/machinery/camera/motion{
 	c_tag = "ZTA Aft Port";
 	dir = 8;
-	network = list("Command,Security")
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
@@ -16100,7 +16100,7 @@
 /obj/machinery/camera/motion{
 	c_tag = "ZTA Fore Starboard";
 	dir = 4;
-	network = list("Command,Security")
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
@@ -16984,7 +16984,7 @@
 	},
 /obj/machinery/camera/motion{
 	c_tag = "Secure Ammunition Storage";
-	network = list("Command,Security");
+	network = list("Command","Security");
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -18562,7 +18562,7 @@
 	},
 /obj/machinery/camera/motion{
 	c_tag = "ZTA Access Fore";
-	network = list("Command,Security")
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/zta)
@@ -26588,7 +26588,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/camera/motion{
 	c_tag = "ZTA Access Aft";
-	network = list("Command,Security");
+	network = list("Command","Security");
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -27886,7 +27886,7 @@
 /obj/machinery/camera/motion{
 	c_tag = "ZTA Fore Port";
 	dir = 8;
-	network = list("Command,Security")
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/reinforced,
 /area/horizon/zta)
@@ -38086,7 +38086,7 @@
 /obj/machinery/camera/motion{
 	c_tag = "ZTA Aft Starboard";
 	dir = 4;
-	network = list("Command,Security")
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
@@ -39489,8 +39489,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/camera/network/supply{
+/obj/machinery/camera/motion{
 	c_tag = "Operations - Secure Storage";
+	network = list("Command","Security","Operations");
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -39696,7 +39697,7 @@
 	},
 /obj/machinery/camera/motion{
 	c_tag = "Grauwolf";
-	network = list("Command,Security");
+	network = list("Command","Security");
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
