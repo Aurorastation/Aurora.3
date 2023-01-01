@@ -3639,17 +3639,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
-"cSz" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/full,
-/area/maintenance/engineering)
 "cSQ" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -9156,23 +9145,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"gYZ" = (
-/obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
-	},
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecommunications - First Deck Relay";
-	dir = 8
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/yellow/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "gZP" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -14565,9 +14537,8 @@
 /obj/structure/closet/crate/bin,
 /obj/random/loot,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6
+	dir = 4
 	},
-/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "lup" = (
@@ -16548,12 +16519,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"mVX" = (
-/obj/effect/floor_decal/corner_wide/yellow/full{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "mWV" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
@@ -17288,9 +17253,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hangar/intrepid)
-"nyY" = (
-/turf/simulated/wall/r_wall,
-/area/tcommsat/mainlvl_tcomms__relay)
 "nzj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -18941,14 +18903,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
-"paY" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/ramp{
-	dir = 4
-	},
-/area/maintenance/engineering)
 "pbJ" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod4)
@@ -24040,16 +23994,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
-"taF" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "First Deck Telecommunications Relay";
-	req_access = list(61)
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "tbP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -26616,15 +26560,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
-"uZe" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/engineering)
 "uZk" = (
 /obj/random/junk,
 /obj/structure/railing/mapped{
@@ -27026,11 +26961,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/teleporter)
-"vpe" = (
-/obj/machinery/firealarm/south,
-/obj/effect/floor_decal/corner_wide/yellow/full,
-/turf/simulated/floor/tiled/dark/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "vpl" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -29699,19 +29629,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
-"xrE" = (
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24
-	},
-/obj/effect/floor_decal/corner_wide/yellow/full{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "xst" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -46663,10 +46580,10 @@ xYW
 sBd
 gtS
 mMR
-nyY
-nyY
-nyY
-nyY
+jsV
+rNH
+rNH
+rNH
 rNH
 rNH
 nnw
@@ -46865,10 +46782,10 @@ xYW
 nBK
 edm
 mMR
-nyY
-mVX
-vpe
-nyY
+jsV
+rNH
+rNH
+rNH
 rNH
 rNH
 nnw
@@ -47067,10 +46984,10 @@ xYW
 usF
 nNE
 mMR
-nyY
-xrE
-gYZ
-nyY
+jsV
+rNH
+rNH
+rNH
 rNH
 rNH
 nnw
@@ -47269,10 +47186,10 @@ xYW
 ars
 oFx
 vqW
-nyY
-taF
-nyY
-nyY
+jsV
+jsV
+jsV
+jsV
 jsV
 jsV
 nnw
@@ -47472,8 +47389,8 @@ fBg
 nNE
 rQC
 ltM
-paY
-uZe
+dgT
+dgT
 dgT
 dgT
 dgT
@@ -47674,7 +47591,7 @@ pHI
 nTm
 rtJ
 tTT
-cSz
+xhE
 xhE
 xhE
 xhE

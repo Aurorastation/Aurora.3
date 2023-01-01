@@ -490,13 +490,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/security/prison)
-"anb" = (
-/obj/structure/lattice/catwalk/indoor/grate/damaged,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "anJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -10667,16 +10660,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering/tesla)
-"fsF" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "fsL" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -11704,16 +11687,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/office)
-"fRN" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/mainlvl_tcomms__relay/second)
 "fSg" = (
 /obj/effect/floor_decal/spline/plain/corner,
 /obj/effect/floor_decal/spline/fancy{
@@ -11928,10 +11901,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/smes/tesla)
 "fWG" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "fWI" = (
@@ -14137,13 +14110,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics)
 "gRU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "gRY" = (
@@ -18059,14 +18035,6 @@
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/heads/hor)
-"iTh" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecommunications - Second Deck Relay";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/mainlvl_tcomms__relay/second)
 "iTL" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -20222,10 +20190,16 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "jVc" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "jVn" = (
@@ -21691,13 +21665,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
-"kPu" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/mainlvl_tcomms__relay/second)
 "kPz" = (
 /obj/structure/table/stone/marble,
 /obj/item/crowbar/red,
@@ -41917,17 +41884,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
-"uNq" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "Second Deck Telecommunications Relay";
-	req_access = list(61)
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/tcommsat/mainlvl_tcomms__relay/second)
 "uNs" = (
 /obj/structure/kitchenspike,
 /turf/simulated/floor/tiled/freezer{
@@ -42450,16 +42406,6 @@
 	},
 /turf/simulated/open/airless,
 /area/horizon/exterior)
-"vbe" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
-/obj/machinery/power/apc{
-	name = "south bump";
-	pixel_y = -24
-	},
-/obj/machinery/firealarm/west,
-/turf/simulated/floor/plating,
-/area/tcommsat/mainlvl_tcomms__relay/second)
 "vbk" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -45639,9 +45585,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/hydroponics/garden)
-"wBF" = (
-/turf/simulated/wall/r_wall,
-/area/tcommsat/mainlvl_tcomms__relay/second)
 "wCm" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -48023,14 +47966,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "xHX" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -81999,10 +81942,10 @@ lBd
 lBd
 sEu
 vqk
-yjg
-oNE
-oNE
-gRU
+lBd
+lBd
+lBd
+lBd
 xHX
 wrc
 jmj
@@ -82199,13 +82142,13 @@ lBd
 pVs
 pVs
 pVs
-lBd
-wBF
-uNq
-wBF
-wBF
-anb
-yhm
+pVs
+pVs
+pVs
+pVs
+pVs
+pVs
+jVc
 fuu
 vES
 xSP
@@ -82401,13 +82344,13 @@ lBd
 pVs
 pVs
 pVs
-lBd
-wBF
-fRN
-vbe
-wBF
+pVs
+pVs
+pVs
+pVs
+pVs
+pVs
 jVc
-yhm
 wox
 ulr
 auL
@@ -82603,13 +82546,13 @@ ebQ
 hoi
 duk
 pVs
-lBd
-wBF
-iTh
-kPu
-wBF
-fsF
-yhm
+pVs
+pVs
+pVs
+pVs
+pVs
+pVs
+jVc
 lGm
 upS
 gdT
@@ -82805,13 +82748,13 @@ lBd
 pVs
 hoi
 qQs
-lBd
-wBF
-wBF
-wBF
-wBF
+pVs
+pVs
+pVs
+pVs
+pVs
+pVs
 jVc
-yhm
 xpX
 jkC
 wEC
@@ -83011,9 +82954,9 @@ yjg
 jeo
 oNE
 oNE
-oNE
 fWG
-yhm
+fWG
+gRU
 aPN
 aPN
 qMW
