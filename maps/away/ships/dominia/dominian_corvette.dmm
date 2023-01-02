@@ -1077,6 +1077,14 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/dominian_corvette/franny)
+"edF" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "port"
+	},
+/turf/simulated/wall/shuttle/space_ship/cardinal{
+	color = "#E14644"
+	},
+/area/shuttle/dominian_shuttle)
 "egH" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -3086,6 +3094,14 @@
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette)
+"lxU" = (
+/obj/effect/landmark/entry_point/port{
+	name = "starboard"
+	},
+/turf/simulated/wall/shuttle/space_ship/cardinal{
+	color = "#E14644"
+	},
+/area/shuttle/dominian_shuttle)
 "lCA" = (
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/machinery/mech_recharger,
@@ -3502,6 +3518,12 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
+"ndQ" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "fore, cockpit"
+	},
+/turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/shuttle/dominian_shuttle)
 "nke" = (
 /obj/effect/floor_decal/corner/light/full{
@@ -6026,6 +6048,12 @@
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette)
+"xkK" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "aft"
+	},
+/turf/simulated/floor,
+/area/shuttle/dominian_shuttle)
 "xlq" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
@@ -37787,7 +37815,7 @@ aou
 dqJ
 cMo
 cMo
-pJj
+edF
 pJj
 ogz
 mLa
@@ -38553,7 +38581,7 @@ xRX
 xRX
 nZv
 eBK
-cMo
+ndQ
 aou
 aou
 cMo
@@ -38563,7 +38591,7 @@ rnD
 uYP
 uYP
 uYP
-uYP
+xkK
 qDA
 xRk
 jvZ
@@ -39329,7 +39357,7 @@ cMo
 xoc
 cMo
 cMo
-pJj
+lxU
 kzm
 juM
 ncB
