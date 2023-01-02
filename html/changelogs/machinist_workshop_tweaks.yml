@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - maptweak: "Expands the machinist workshop. Gives the machinist workshop a welder fuel tank and tinting windows."
+  - bugfix: "Fixes the machinist workshop ringer terminal not being mounted on the wall."
