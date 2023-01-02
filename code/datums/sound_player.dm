@@ -86,7 +86,7 @@ var/singleton/sound_player/sound_player = new()
 	var/listener_status// Paused, muted, running? Specific for the given listener.
 
 	// var/datum/proximity_trigger/square/proxy_listener
-	var/list/can_be_heard_from
+	// var/list/can_be_heard_from
 
 /datum/sound_token/New(atom/source, sound_id, sound/sound, range = 4, prefer_mute = FALSE)
 	..()
@@ -163,11 +163,11 @@ var/singleton/sound_player/sound_player = new()
 
 	sound_player.PrivStopSound(src)
 
-/datum/sound_token/proc/PrivLocateListeners(list/prior_turfs, list/current_turfs)
+/datum/sound_token/proc/PrivLocateListeners(/*list/prior_turfs, list/current_turfs*/)
 	if(status & SOUND_STOPPED)
 		return
 
-	can_be_heard_from = current_turfs
+	// can_be_heard_from = current_turfs
 	var/current_listeners = get_hearers_in_view(range, source)
 	var/former_listeners = listeners - current_listeners
 	var/new_listeners = current_listeners - listeners
@@ -191,11 +191,11 @@ var/singleton/sound_player/sound_player = new()
 	PrivUpdateListeners()
 
 /datum/sound_token/proc/PrivAddListener(atom/listener)
-	if(isvirtualmob(listener))
-		var/mob/observer/virtual/v = listener
-		if(!(v.abilities & VIRTUAL_ABILITY_HEAR))
-			return
-		listener = v.host
+	// if(isvirtualmob(listener))
+	// 	var/mob/observer/virtual/v = listener
+	// 	if(!(v.abilities & VIRTUAL_ABILITY_HEAR))
+	// 		return
+	// 	listener = v.host
 	if(listener in listeners)
 		return
 
@@ -221,7 +221,7 @@ var/singleton/sound_player/sound_player = new()
 		return
 
 	var/distance = get_dist(source_turf, listener_turf)
-	if(!listener_turf || (distance > range) || !(listener_turf in can_be_heard_from))
+	if(!listener_turf || (distance > range) /*|| !(listener_turf in can_be_heard_from)*/)
 		if(prefer_mute)
 			listener_status[listener] |= SOUND_MUTE
 		else
