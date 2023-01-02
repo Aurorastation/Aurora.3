@@ -336,7 +336,7 @@
 	. = ..()
 	if (.)
 		// Events.
-		if (moved_event.listeners_assoc[src])
+		if (moved_event.global_listeners[src])
 			moved_event.raise_event(src, old_loc, loc)
 
 		// Lighting.
