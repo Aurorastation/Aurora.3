@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscdel: "Properly removes the deprecated mule, floor, ED209, and security assemblies."
