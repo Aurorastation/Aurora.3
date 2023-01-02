@@ -23453,6 +23453,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/rotary)
+"sza" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Elevator Emergency Escape Hatch";
+	req_one_access = list(11,24,67)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/hallway/primary/aft)
 "szM" = (
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
@@ -51281,7 +51291,7 @@ tny
 tny
 tny
 tny
-tny
+sza
 tny
 jvl
 wLL

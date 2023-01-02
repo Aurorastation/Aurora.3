@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - maptweak: "Adds an emergency escape hatch to the main elevator on deck 1."
