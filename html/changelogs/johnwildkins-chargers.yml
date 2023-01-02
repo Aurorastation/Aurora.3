@@ -1,9 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - refactor: "Cleaned up cell charger interaction and processing code."
-  - bugfix: "Cell chargers no longer send 90 kW into the void every time they're unwrenched and moved."
-  - bugfix: "Fixed empty cells not initializing with the proper icon state."
-  - tweak: "Cell chargers now audibly ping when their attached cell has finished charging."
