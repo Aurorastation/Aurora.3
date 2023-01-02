@@ -1,9 +1,16 @@
 //
-// Role Groups and Faction Groups Defines
+// Role and Faction Defines
 //
 
-// Groups
-// Used to know what roles are part of which department or group.
+// Singular Roles
+#define VISITOR_ROLE /datum/job/visitor
+#define REPRESENTATIVE_ROLE /datum/job/representative
+#define CONSULAR_ROLE /datum/job/consular
+#define JOURNALIST_ROLE /datum/job/journalist
+#define CHAPLAIN_ROLE /datum/job/chaplain
+
+// Departments
+// Used to know what roles are part of which department.
 // Notes on COMMAND_SUPPORT_ROLES: HRA is an admin job. Representative is under ALL_FACTION_ROLES. Consular intentionally not included as they are independent.
 #define ADMIN_ROLES list(/datum/job/hra)
 
@@ -21,17 +28,9 @@
 
 #define ALL_ROLES list(COMMAND_ROLES, COMMAND_SUPPORT_ROLES, ENGINEERING_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, NON_CREW_CIVILIAN_ROLES, OPERATIONS_ROLES, MEDICAL_ROLES, SCIENCE_ROLES, SECURITY_ROLES, EQUIPMENT_ROLES)
 
-// Singular Roles
-#define VISITOR_ROLE /datum/job/visitor
-#define REPRESENTATIVE_ROLE /datum/job/representative
-#define CONSULAR_ROLE /datum/job/consular
-#define JOURNALIST_ROLE /datum/job/journalist
-#define CHAPLAIN_ROLE /datum/job/chaplain
-
 // Factions
 // Used to know what what roles are allowed to play as which factions.
-// Note that independent isn't a faction by itself, as faction in this case means a megacorporation.
-#define SCC_ROLES list(COMMAND_ROLES, COMMAND_SUPPORT_ROLES, EQUIPMENT_ROLES, VISITOR_ROLE)
+#define SCC_ROLES list(ADMIN_ROLES, COMMAND_ROLES, COMMAND_SUPPORT_ROLES, EQUIPMENT_ROLES, VISITOR_ROLE)
 #define NT_ROLES list(SCIENCE_ROLES, MEDICAL_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE)
 #define PMC_ROLES list(SECURITY_ROLES, MEDICAL_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE)
 #define IDRIS_ROLES list(SECURITY_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE)
