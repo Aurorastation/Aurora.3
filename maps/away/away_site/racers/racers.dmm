@@ -3158,7 +3158,7 @@
 /area/racers)
 "pvh" = (
 /obj/structure/table/steel,
-/obj/item/storage/box/fancy/tray/robotics,
+/obj/item/storage/box/fancy/tray/machinist,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
