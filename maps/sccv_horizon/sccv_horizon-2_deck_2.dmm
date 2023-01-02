@@ -11392,9 +11392,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 1
 	},
@@ -12250,15 +12247,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/armory)
-"gec" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/rnd/hallway)
 "gei" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -24817,9 +24805,6 @@
 /area/security/lobby)
 "mso" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -24831,6 +24816,15 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "mst" = (
@@ -31909,6 +31903,9 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "pRA" = (
@@ -32810,10 +32807,8 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "qrx" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hor)
 "qrz" = (
@@ -34336,10 +34331,10 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "rbK" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hor)
 "rbL" = (
@@ -38159,9 +38154,6 @@
 /area/operations/office)
 "taf" = (
 /obj/structure/closet/emcloset,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
@@ -38310,9 +38302,6 @@
 /area/maintenance/substation/wing_starboard)
 "tcX" = (
 /obj/structure/bed/stool/chair/padded/black,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
@@ -39751,6 +39740,9 @@
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
@@ -42174,24 +42166,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/garden)
-"uSS" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/hallway)
 "uTn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -44629,13 +44603,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "wbV" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hor)
 "wch" = (
@@ -75606,7 +75578,7 @@ pxt
 tNS
 wbV
 tcX
-uSS
+nnr
 mRl
 uTr
 gnA
@@ -76011,7 +75983,7 @@ aYI
 cer
 gFa
 cda
-gec
+waD
 xWb
 hiq
 aGx
