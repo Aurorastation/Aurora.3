@@ -1,4 +1,4 @@
-// /singleton/observ/moved/moved_event = new()
+var/singleton/observ/moved/moved_event = new()
 
 /singleton/observ/moved
 	name = "Moved"
@@ -11,22 +11,6 @@
 	if(. && istype(mover.loc, expected_type))
 		register(mover.loc, mover, /atom/movable/proc/recursive_move)
 
-
-var/datum/observ/moved/moved_event = new()
-
-/datum/observ/moved
-	name = "Moved"
-	expected_type = /atom/movable
-
-/datum/observ/moved/register(var/eventSource, var/datum/procOwner, var/proc_call)
-	. = ..()
-	var/atom/movable/child = eventSource
-	if(.)
-		var/atom/movable/parent = child.loc
-		while(istype(parent) && !moved_event.is_listening(parent, child))
-			moved_event.register(parent, child, /atom/movable/proc/recursive_move)
-			child = parent
-			parent = child.loc
 
 /********************
 * Movement Handling *

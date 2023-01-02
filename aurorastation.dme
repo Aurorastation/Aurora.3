@@ -2464,7 +2464,7 @@
 #include "code\modules\mob\living\simple_animal\mechanical\mechanical.dm"
 #include "code\modules\mob\observer\virtual\_constants.dm"
 #include "code\modules\mob\observer\virtual\base.dm"
-#include "code\modules\mob\observer\virtual\helpers.dm"
+// #include "code\modules\mob\observer\virtual\helpers.dm"
 #include "code\modules\mob\observer\virtual\mob.dm"
 #include "code\modules\modular_computers\laptop_vendor.dm"
 #include "code\modules\modular_computers\computers\modular_computer\core.dm"

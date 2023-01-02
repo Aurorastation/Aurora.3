@@ -14,14 +14,6 @@ var/singleton/observ/sight_set/sight_set_event = new()
 	name = "Sight Set"
 	expected_type = /mob
 
-
-
-// var/datum/observ/sight_set/sight_set_event = new()
-
-/datum/observ/sight_set
-	name = "Sight Set"
-	expected_type = /mob
-
 /*********************
 * Sight Set Handling *
 *********************/

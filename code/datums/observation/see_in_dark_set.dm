@@ -14,12 +14,6 @@ var/singleton/observ/see_in_dark_set/see_in_dark_set_event = new()
 	name = "See In Dark Set"
 	expected_type = /mob
 
-// var/datum/observ/see_in_dark_set/see_in_dark_set_event = new()
-
-/datum/observ/see_in_dark_set
-	name = "See In Dark Set"
-	expected_type = /mob
-
 /***************************
 * See In Dark Set Handling *
 ***************************/

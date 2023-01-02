@@ -1,16 +1,3 @@
-// /singleton/observ/dir_set/dir_set_event = new()
-
-/singleton/observ/dir_set
-	name = "Direction Set"
-	expected_type = /atom
-
-/singleton/observ/dir_set/register(atom/dir_changer, datum/listener, proc_call)
-	. = ..()
-
-	// Listen to the parent if possible.
-	if(. && istype(dir_changer.loc, /atom/movable))	// We don't care about registering to turfs.
-		register(dir_changer.loc, dir_changer, /atom/proc/recursive_dir_set)
-
 /*********************
 * Direction Handling *
 *********************/
@@ -34,13 +21,13 @@
 //			/old_dir: The dir before the change.
 //			/new_dir: The dir after the change.
 
-var/datum/observ/dir_set/dir_set_event = new()
+var/singleton/observ/dir_set/dir_set_event = new()
 
-/datum/observ/dir_set
+/singleton/observ/dir_set
 	name = "Direction Set"
 	expected_type = /atom
 
-/datum/observ/dir_set/register(var/atom/dir_changer, var/datum/listener, var/proc_call)
+/singleton/observ/dir_set/register(var/atom/dir_changer, var/datum/listener, var/proc_call)
 	. = ..()
 
 	// Listen to the parent if possible.

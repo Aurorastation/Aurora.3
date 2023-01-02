@@ -14,13 +14,6 @@ var/singleton/observ/see_invisible_set/see_invisible_set_event = new()
 	name = "See Invisible Set"
 	expected_type = /mob
 
-
-// var/datum/observ/see_invisible_set/see_invisible_set_event = new()
-
-/datum/observ/see_invisible_set
-	name = "See Invisible Set"
-	expected_type = /mob
-
 /*****************************
 * See Invisible Set Handling *
 *****************************/

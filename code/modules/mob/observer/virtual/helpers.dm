@@ -110,11 +110,11 @@
 */
 
 // Eye mobs technically see everything always, the owner just has an overlay applied, thus this helper
-/atom/movable/proc/virtual_can_see_turf(turf/T)
-	return TRUE // We assume objects have already been filtered using viewers() or similar proc
+// /atom/movable/proc/virtual_can_see_turf(turf/T)
+// 	return TRUE // We assume objects have already been filtered using viewers() or similar proc
 
 // /mob/observer/eye/virtual_can_see_turf(turf/T)
 // 	return visualnet.is_turf_visible(T)
 
-#undef ACQUIRE_VIRTUAL_OR_TURF
-#undef ACQUIRE_VIRTUAL_OR_RETURN
+// #undef ACQUIRE_VIRTUAL_OR_TURF
+// #undef ACQUIRE_VIRTUAL_OR_RETURN

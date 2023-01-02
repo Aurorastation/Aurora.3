@@ -1,7 +1,4 @@
-var/datum/observ/destroyed/destroyed_event = new()
-
-/datum/observ/destroyed
-	name = "Destroyed"
+var/singleton/observ/destroyed/destroyed_event = new()
 
 //	Observer Pattern Implementation: Destroyed
 //		Registration type: /datum
