@@ -47,19 +47,19 @@
 
 
 /datum/sound_token/instrument/PrivAddListener(atom/listener)
-	//var/mob/m = listener
-	//if(istype(m))
-		// if(m.get_preference_value(/datum/client_preference/play_instruments) != PREF_YES)
-		// 	return
+	var/mob/m = listener
+	if(istype(m) && m.client)
+		if(!(m.client.prefs.sfx_toggles & ASFX_MUSIC))
+			return
 	return ..()
 
 
 /datum/sound_token/instrument/PrivUpdateListener(listener)
-	//var/mob/m = listener
-	//if(istype(m))
-		// if(m.get_preference_value(/datum/client_preference/play_instruments) != PREF_YES)
-		// 	PrivRemoveListener(listener)
-		// 	return
+	var/mob/m = listener
+	if(istype(m) && m.client)
+		if(!(m.client.prefs.sfx_toggles & ASFX_MUSIC))
+			PrivRemoveListener(listener)
+			return
 	return ..()
 
 /datum/sound_token/instrument/Stop()
