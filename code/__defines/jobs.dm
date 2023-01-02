@@ -24,6 +24,9 @@
 // Singular Roles
 #define VISITOR_ROLE /datum/job/visitor
 #define REPRESENTATIVE_ROLE /datum/job/representative
+#define CONSULAR_ROLE /datum/job/consular
+#define JOURNALIST_ROLE /datum/job/journalist
+#define CHAPLAIN_ROLE /datum/job/chaplain
 
 // Factions
 // Used to know what what roles are allowed to play as which factions.
@@ -36,4 +39,4 @@
 #define ZENG_ROLES list(SCIENCE_ROLES, MEDICAL_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE)
 #define HEPH_ROLES list(OPERATIONS_ROLES, ENGINEERING_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE)
 #define ORION_ROLES list(OPERATIONS_ROLES, CIVILIAN_ROLES)
-#define INDEP_ROLES list(NON_CREW_CIVILIAN_ROLES, /datum/job/consular, /datum/job/journalist, /datum/job/chaplain)
+#define INDEP_ROLES list(NON_CREW_CIVILIAN_ROLES, CONSULAR_ROLE, JOURNALIST_ROLE, CHAPLAIN_ROLE)
