@@ -245,6 +245,10 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/camera/motion{
+	c_tag = "Longbow";
+	network = list("Command","Security")
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
 "ais" = (
@@ -3195,7 +3199,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 3 - Telecommunications Substation";
 	dir = 4
 	},
@@ -4241,10 +4244,9 @@
 "dNF" = (
 /obj/machinery/anti_bluespace,
 /obj/machinery/camera/motion{
-	alarm_on = 1;
-	c_tag = "Scuttling Device - Motion";
+	c_tag = "Scuttling Device";
 	dir = 4;
-	network = list("Secure")
+	network = list("Command","Security")
 	},
 /obj/structure/sign/flag/scc{
 	pixel_x = -32
@@ -4867,7 +4869,7 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Cryogenics Fore Entrance";
+	c_tag = "Third Deck - Dormitories Entrance";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -5131,11 +5133,9 @@
 	pixel_y = -10
 	},
 /obj/machinery/camera/motion{
-	alarm_on = 1;
-	c_tag = "Third Deck - Crew Armoury Starboard";
+	c_tag = "Deck 3 - Crew Armoury Starboard";
 	dir = 4;
-	name = "security";
-	network = list("Command, Security")
+	network = list("Command","Security")
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -5325,8 +5325,9 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Control Room";
+/obj/machinery/camera/motion{
+	c_tag = "Telecommunications - Control Room";
+	network = list("Command","Security","Telecommunications");
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -6111,7 +6112,7 @@
 	},
 /obj/structure/closet/walllocker/emerglocker/south,
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Starboard Dock Port";
+	c_tag = "Third Deck - Port Dock Starboard";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -9146,7 +9147,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Aft Airlock";
+	c_tag = "Telecommunications - Aft Airlock";
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -9172,11 +9173,9 @@
 	pixel_y = -10
 	},
 /obj/machinery/camera/motion{
-	alarm_on = 1;
-	c_tag = "Third Deck - Crew Armoury Port";
+	c_tag = "Deck 3 - Crew Armoury Port";
 	dir = 8;
-	name = "security";
-	network = list("Command, Security")
+	network = list("Command","Security")
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -12055,7 +12054,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 3 - Civilian Substation";
 	dir = 1
 	},
@@ -13341,6 +13339,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/dormitories)
+"kTg" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Port Main Hallway Starboard";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/central)
 "kTE" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 8
@@ -13370,6 +13378,9 @@
 /obj/structure/sign/directions/security{
 	dir = 1;
 	pixel_y = 41
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Port Main Hallway Port"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
@@ -14149,10 +14160,11 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Spare Parts Room"
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/camera/motion{
+	c_tag = "Telecommunications - Spare Parts Room";
+	network = list("Command","Security","Telecommunications")
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "lzn" = (
@@ -16830,6 +16842,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Port Dock Port";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "nLc" = (
@@ -19095,6 +19111,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Starboard Dock Port";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "pBE" = (
@@ -20298,13 +20318,14 @@
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "qDx" = (
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Starboard";
-	dir = 4
-	},
 /obj/machinery/firealarm/west,
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 8
+	},
+/obj/machinery/camera/motion{
+	c_tag = "Telecommunications - Starboard";
+	network = list("Command","Security","Telecommunications");
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
@@ -22842,7 +22863,7 @@
 	dir = 8
 	},
 /obj/machinery/computer/security/telescreen{
-	name = "Telecomms Cameras";
+	name = "Telecommunications Cameras";
 	network = list("Tcomsat");
 	pixel_x = -32;
 	pixel_y = -4
@@ -24052,14 +24073,15 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "tyQ" = (
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Port"
-	},
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 1
 	},
 /obj/machinery/alarm/tcom{
 	pixel_y = 28
+	},
+/obj/machinery/camera/motion{
+	c_tag = "Telecommunications - Port";
+	network = list("Command","Security","Telecommunications")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
@@ -24838,10 +24860,8 @@
 	},
 /obj/structure/table/steel,
 /obj/machinery/camera/motion{
-	alarm_on = 1;
-	c_tag = "Third Deck - Crew Armoury Desk";
-	name = "security";
-	network = list("Command, Security")
+	c_tag = "Deck 3 - Crew Armoury Desk";
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
@@ -26698,11 +26718,10 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/machinery/camera/network/command{
-	alarm_on = 1;
+/obj/machinery/camera/motion{
 	c_tag = "Bridge - Deck 3 - Bunker";
 	dir = 4;
-	network = list("Command","Bunker")
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -54554,7 +54573,7 @@ sVV
 nGI
 eIH
 hnj
-seF
+kTg
 viN
 fSW
 fMW

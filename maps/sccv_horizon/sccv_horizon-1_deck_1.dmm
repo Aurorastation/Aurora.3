@@ -1987,7 +1987,7 @@
 	input_tag = "ph_in";
 	name = "Phoron Supply Monitor";
 	output_tag = "ph_out";
-	sensors = list("ph_sensor" = "Tank")
+	sensors = list("ph_sensor"="Tank")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -3639,17 +3639,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
-"cSz" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/full,
-/area/maintenance/engineering)
 "cSQ" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -9156,23 +9145,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"gYZ" = (
-/obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
-	},
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - First Deck Relay";
-	dir = 8
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/yellow/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "gZP" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -11318,7 +11290,7 @@
 	frequency = 1442;
 	input_tag = "port_prop_in";
 	output_tag = "port_prop_out";
-	sensors = list("port_prop_sensor" = "Port Propulsion Sensor")
+	sensors = list("port_prop_sensor"="Port Propulsion Sensor")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -12943,7 +12915,7 @@
 	input_tag = "co2_in";
 	name = "Carbon Dioxide Supply Monitor";
 	output_tag = "co2_out";
-	sensors = list("co2_sensor" = "Tank")
+	sensors = list("co2_sensor"="Tank")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -14508,7 +14480,7 @@
 	input_tag = "h_in";
 	name = "Hydrogen Supply Monitor";
 	output_tag = "h_out";
-	sensors = list("h_sensor" = "Tank")
+	sensors = list("h_sensor"="Tank")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -14565,9 +14537,8 @@
 /obj/structure/closet/crate/bin,
 /obj/random/loot,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6
+	dir = 4
 	},
-/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "lup" = (
@@ -14580,7 +14551,7 @@
 	name = "Nitrogen Supply Monitor";
 	output_tag = "n_out";
 	pixel_x = -32;
-	sensors = list("n_sensor" = "Tank")
+	sensors = list("n_sensor"="Tank")
 	},
 /obj/machinery/light{
 	dir = 8
@@ -14799,7 +14770,7 @@
 	frequency = 1442;
 	input_tag = "starboard_prop_in";
 	output_tag = "starboard_prop_out";
-	sensors = list("starboard_prop_sensor" = "Starboard Propulsion Sensor")
+	sensors = list("starboard_prop_sensor"="Starboard Propulsion Sensor")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -15132,7 +15103,6 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Operations Substation";
 	dir = 4
 	},
@@ -15315,7 +15285,6 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Security Substation";
 	dir = 8
 	},
@@ -16550,12 +16519,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"mVX" = (
-/obj/effect/floor_decal/corner_wide/yellow/full{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "mWV" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
@@ -16774,7 +16737,7 @@
 	name = "Air Supply Monitor";
 	output_tag = "air_out";
 	pixel_x = 32;
-	sensors = list("air_sensor" = "Tank")
+	sensors = list("air_sensor"="Tank")
 	},
 /obj/machinery/light{
 	dir = 4
@@ -17290,9 +17253,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hangar/intrepid)
-"nyY" = (
-/turf/simulated/wall/r_wall,
-/area/tcommsat/mainlvl_tcomms__relay)
 "nzj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -17688,11 +17648,9 @@
 	pixel_x = -32
 	},
 /obj/machinery/camera/motion{
-	alarm_on = 1;
-	c_tag = "Engineering - Secure Technical Storage";
+	c_tag = "Secure Technical Storage";
 	dir = 4;
-	name = "engineering";
-	network = list("Engineering")
+	network = list("Command","Security","Engineering")
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage/tech)
@@ -18945,14 +18903,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
-"paY" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/ramp{
-	dir = 4
-	},
-/area/maintenance/engineering)
 "pbJ" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod4)
@@ -19310,7 +19260,7 @@
 	name = "Nitrous Oxide Supply Monitor";
 	output_tag = "n2o_out";
 	pixel_x = 32;
-	sensors = list("n2o_sensor" = "Tank")
+	sensors = list("n2o_sensor"="Tank")
 	},
 /obj/machinery/light{
 	dir = 4
@@ -19999,7 +19949,7 @@
 	input_tag = null;
 	name = "Phoron Supply Monitor";
 	output_tag = "ph_out_engines";
-	sensors = list("ph_sensor" = "Tank")
+	sensors = list("ph_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -21073,10 +21023,10 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/machinery/camera/network/engineering{
-	alarm_on = 1;
-	c_tag = "Engineering - Technical Storage";
-	dir = 8
+/obj/machinery/camera/motion{
+	c_tag = "Technical Storage";
+	dir = 8;
+	network = list("Command","Security","Engineering")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
@@ -24044,16 +23994,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
-"taF" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "First Deck Telecommunications Relay";
-	req_access = list(61)
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "tbP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -26476,7 +26416,6 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Second Deck Civilian Substation";
 	dir = 8
 	},
@@ -26621,15 +26560,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
-"uZe" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/engineering)
 "uZk" = (
 /obj/random/junk,
 /obj/structure/railing/mapped{
@@ -27031,11 +26961,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/teleporter)
-"vpe" = (
-/obj/machinery/firealarm/south,
-/obj/effect/floor_decal/corner_wide/yellow/full,
-/turf/simulated/floor/tiled/dark/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "vpl" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -27144,10 +27069,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/rotary)
 "vrQ" = (
-/obj/machinery/camera/network/command{
-	c_tag = "Command - Deck 1 - Teleporter";
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
@@ -27161,6 +27082,11 @@
 /obj/machinery/light_switch{
 	pixel_x = -9;
 	pixel_y = -24;
+	dir = 1
+	},
+/obj/machinery/camera/motion{
+	c_tag = "Deck 1 - Teleporter";
+	network = list("Command","Security");
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -27757,7 +27683,7 @@
 	name = "Oxygen Supply Monitor";
 	output_tag = "o2_out";
 	pixel_x = -32;
-	sensors = list("o2_sensor" = "Tank")
+	sensors = list("o2_sensor"="Tank")
 	},
 /obj/machinery/light{
 	dir = 8
@@ -29110,7 +29036,7 @@
 	name = "Mixed Gas Tank Monitor";
 	output_tag = "mixed_out";
 	pixel_y = -3;
-	sensors = list("mixed_sensor" = "Tank")
+	sensors = list("mixed_sensor"="Tank")
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/atmos)
@@ -29703,19 +29629,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
-"xrE" = (
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24
-	},
-/obj/effect/floor_decal/corner_wide/yellow/full{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "xst" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -30140,7 +30053,6 @@
 /area/engineering/atmos)
 "xJE" = (
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Hangar Substation";
 	dir = 4
 	},
@@ -30550,7 +30462,6 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Atmospherics Substation";
 	dir = 8
 	},
@@ -46669,10 +46580,10 @@ xYW
 sBd
 gtS
 mMR
-nyY
-nyY
-nyY
-nyY
+jsV
+rNH
+rNH
+rNH
 rNH
 rNH
 nnw
@@ -46871,10 +46782,10 @@ xYW
 nBK
 edm
 mMR
-nyY
-mVX
-vpe
-nyY
+jsV
+rNH
+rNH
+rNH
 rNH
 rNH
 nnw
@@ -47073,10 +46984,10 @@ xYW
 usF
 nNE
 mMR
-nyY
-xrE
-gYZ
-nyY
+jsV
+rNH
+rNH
+rNH
 rNH
 rNH
 nnw
@@ -47275,10 +47186,10 @@ xYW
 ars
 oFx
 vqW
-nyY
-taF
-nyY
-nyY
+jsV
+jsV
+jsV
+jsV
 jsV
 jsV
 nnw
@@ -47478,8 +47389,8 @@ fBg
 nNE
 rQC
 ltM
-paY
-uZe
+dgT
+dgT
 dgT
 dgT
 dgT
@@ -47680,7 +47591,7 @@ pHI
 nTm
 rtJ
 tTT
-cSz
+xhE
 xhE
 xhE
 xhE
