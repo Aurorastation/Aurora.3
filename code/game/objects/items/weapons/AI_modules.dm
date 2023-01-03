@@ -292,7 +292,7 @@ AI MODULES
 
 /obj/item/aiModule/nanotrasen // -- TLE
 	name = "default core AI module"
-	desc = "A default Core AI Module: 'Reconfigures the AI's core laws.'"
+	desc = "A default core AI module."
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
 	laws = new/datum/ai_laws/nanotrasen
 
