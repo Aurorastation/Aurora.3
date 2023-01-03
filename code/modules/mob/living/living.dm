@@ -15,11 +15,16 @@ var/mob/living/next_point_time = 0
 		return FALSE
 	if(src.status_flags & FAKEDEATH)
 		return FALSE
-		
+
 	. = ..()
 
 	if(.)
 		visible_message("<b>\The [src]</b> points to \the [A].")
+
+/mob/living/drop_from_inventory(var/obj/item/W, var/atom/target)
+	. = ..(W, target)
+	if(W && W.GetID())
+		BITSET(hud_updateflag, ID_HUD) //If we drop our ID, update ID HUD
 
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
@@ -116,8 +121,8 @@ default behaviour is:
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && (FAT in tmob.mutations))
-				if(prob(40) && !(FAT in src.mutations))
+			if(istype(tmob, /mob/living/carbon/human) && HAS_FLAG(tmob.mutations, FAT))
+				if(prob(40) && NOT_FLAG(mutations, FAT))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = FALSE
 					return
@@ -225,9 +230,9 @@ default behaviour is:
 	return TRUE
 
 /mob/living/carbon/human/burn_skin(burn_amount)
-	if(mShock in mutations) //shockproof
+	if(HAS_FLAG(mutations, mShock)) //shockproof
 		return FALSE
-	if (COLD_RESISTANCE in mutations) //fireproof
+	if(HAS_FLAG(mutations, COLD_RESISTANCE)) //fireproof
 		return FALSE
 	. = ..()
 	updatehealth()
@@ -891,6 +896,10 @@ default behaviour is:
 	to_chat(src, "<span class='notice'>Remember to stay in character for a mob of this type!</span>")
 	return 1
 
+/mob/living/Initialize()
+	. = ..()
+	add_to_target_grid()
+
 /mob/living/Destroy()
 	if(loc)
 		for(var/mob/M in contents)
@@ -899,6 +908,7 @@ default behaviour is:
 		for(var/mob/M in contents)
 			qdel(M)
 	QDEL_NULL(reagents)
+	clear_from_target_grid()
 
 	return ..()
 

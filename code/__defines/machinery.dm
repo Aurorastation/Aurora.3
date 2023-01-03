@@ -27,6 +27,9 @@
 #define MAINT    0x8  // Under maintenance.
 #define EMPED    0x10 // Temporary broken by EMP pulse.
 
+#define INOPERABLE(machine)  (machine.stat & (BROKEN|NOPOWER|MAINT|EMPED))
+#define OPERABLE(machine)    !INOPERABLE(machine)
+
 // Used by firelocks
 #define FIREDOOR_OPEN 1
 #define FIREDOOR_CLOSED 2
@@ -45,7 +48,7 @@
 #define NETWORK_CIVILIAN_MAIN "Civilian Main"
 #define NETWORK_CIVILIAN_SURFACE "Civilian Surface"
 #define NETWORK_COMMAND "Command"
-#define NETWORK_ENGINE "Engine"
+#define NETWORK_REACTOR "Reactor"
 #define NETWORK_ENGINEERING "Engineering"
 #define NETWORK_ENGINEERING_OUTPOST "Engineering Outpost"
 #define NETWORK_ERT "ZeEmergencyResponseTeam"
@@ -115,15 +118,15 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 // The flow rate/effectiveness of various atmos devices is limited by their internal volume,
 // so for many atmos devices these will control maximum flow rates in L/s.
 #define ATMOS_DEFAULT_VOLUME_PUMP   200 // Liters.
-#define ATMOS_DEFAULT_VOLUME_FILTER 200 // L.
-#define ATMOS_DEFAULT_VOLUME_MIXER  200 // L.
+#define ATMOS_DEFAULT_VOLUME_FILTER 500 // L.
+#define ATMOS_DEFAULT_VOLUME_MIXER  500 // L.
 #define ATMOS_DEFAULT_VOLUME_PIPE   70  // L.
 #define ATMOS_DEFAULT_VOLUME_HE_PIPE 70 // L.
 
 // Default maximum pressure for simple pipes
-#define ATMOS_DEFAULT_MAX_PRESSURE     70*ONE_ATMOSPHERE
-#define ATMOS_DEFAULT_FATIGUE_PRESSURE 55*ONE_ATMOSPHERE
-#define ATMOS_DEFAULT_ALERT_PRESSURE   ATMOS_DEFAULT_FATIGUE_PRESSURE
+#define ATMOS_DEFAULT_MAX_PRESSURE     PRESSURE_ONE_THOUSAND * 20 // 20000 kPa.
+#define ATMOS_DEFAULT_FATIGUE_PRESSURE PRESSURE_ONE_THOUSAND * 15 // 15000 kPa.
+#define ATMOS_DEFAULT_ALERT_PRESSURE   ATMOS_DEFAULT_FATIGUE_PRESSURE // See above.
 
 // Misc process flags.
 #define M_PROCESSES 0x1

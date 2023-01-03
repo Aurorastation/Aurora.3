@@ -419,7 +419,7 @@
 /area/dungeon/skrell_ship)
 "by" = (
 /obj/structure/table/skrell,
-/obj/item/jargontag,
+/obj/item/nralakktag,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "bz" = (
@@ -631,7 +631,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "ce" = (
-/obj/structure/sign/flag/jargon/left{
+/obj/structure/sign/flag/nralakk/left{
 	bound_y = 0;
 	pixel_y = 32
 	},
@@ -670,7 +670,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "cl" = (
-/obj/structure/sign/flag/jargon/right{
+/obj/structure/sign/flag/nralakk/right{
 	pixel_y = 32
 	},
 /turf/simulated/floor/shuttle/skrell,
@@ -683,7 +683,7 @@
 /obj/machinery/light/skrell{
 	dir = 1
 	},
-/obj/structure/sign/flag/jargon{
+/obj/structure/sign/flag/nralakk{
 	pixel_y = 32
 	},
 /turf/simulated/floor/shuttle/skrell/blue,

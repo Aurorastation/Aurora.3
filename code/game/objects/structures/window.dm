@@ -171,16 +171,23 @@
 		return 0
 	return 1
 
-/obj/structure/window/hitby(AM as mob|obj)
+/obj/structure/window/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
 	..()
-	visible_message(SPAN_DANGER("[src] was hit by [AM]."))
 	var/tforce = 0
 	if(ismob(AM))
+		if(isliving(AM))
+			var/mob/living/M = AM
+			M.turf_collision(src, speed, /decl/sound_category/glasscrack_sound)
+			return
+		else
+			visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
 		tforce = 40
 	else if(isobj(AM))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
 		var/obj/item/I = AM
 		tforce = I.throwforce
-	if(reinf) tforce *= 0.25
+	if(reinf)
+		tforce *= 0.25
 	if(health - tforce <= 7 && !reinf)
 		anchored = 0
 		update_nearby_icons()
@@ -189,7 +196,7 @@
 
 /obj/structure/window/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!"))
 		user.visible_message(SPAN_DANGER("[user] smashes through [src]!"))
 		user.do_attack_animation(src)
@@ -641,7 +648,8 @@
 
 /obj/structure/window/full/Destroy()
 	var/obj/structure/window_frame/WF = locate(/obj/structure/window_frame) in get_turf(src)
-	WF.has_glass_installed = FALSE
+	if(WF)
+		WF.has_glass_installed = FALSE
 	return ..()
 
 /obj/structure/window/full/attackby(obj/item/W, mob/user)
@@ -697,18 +705,10 @@
 	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message(SPAN_WARNING("\The [src] shatters!"))
-	if(dir == SOUTHWEST)
-		var/index = null
-		index = 0
-		while(index < 2)
-			new shardtype(loc)
-			if(reinf)
-				new /obj/item/stack/rods(loc)
-			index++
-	else
+	if(reinf)
+		new /obj/item/stack/rods(loc, 4)
+	for(var/i = 1 to 4)
 		new shardtype(loc)
-		if(reinf)
-			new /obj/item/stack/rods(loc)
 
 	qdel(src)
 	return

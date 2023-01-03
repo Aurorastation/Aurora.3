@@ -21,6 +21,8 @@
 #define SPAN_SOGHUN(X) ("<span class='soghun'>" + X + "</span>")
 #define SPAN_VOTE(X) ("<span class='vote'>" + X + "</span>")
 
+#define SPAN_HIGHDANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
+
 #define FONT_SIZE_SMALL 1
 #define FONT_SIZE_NORMAL 2
 #define FONT_SIZE_LARGE 3
@@ -51,6 +53,8 @@
 #define isairlock(A) istype(A, /obj/machinery/door/airlock)
 
 #define isbrain(A) istype(A, /mob/living/carbon/brain)
+
+#define isvirtualmob(A) istype(A, /mob/abstract/observer/virtual)
 
 #define iscarbon(A) istype(A, /mob/living/carbon)
 

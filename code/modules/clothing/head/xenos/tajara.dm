@@ -1,7 +1,7 @@
 /obj/item/clothing/head/tajaran
 	icon = 'icons/obj/tajara_items.dmi'
 	contained_sprite = TRUE
-	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
+	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
@@ -30,7 +30,7 @@
 	desc = "An adorned religious crown used by Mata'ke priests."
 	icon_state = "matakehat"
 	item_state = "matakehat"
-	desc_fluff = "The priesthood of Mata'ke is comprised of only men and strangely enough, hunters. Like their patron, all priests of Mata'ke must prove themselves capable, \
+	desc_extended = "The priesthood of Mata'ke is comprised of only men and strangely enough, hunters. Like their patron, all priests of Mata'ke must prove themselves capable, \
 	practical, strong and masters of Adhomai wilderness. Every clan and temple of Mata'ke has a different way of testing its applicants and these tests are always kept as a strict \
 	secret, the only thing known is that the majority of applicants never return. After they're accepted, priests of Mata'ke dress in furs and carry silver \
 	weapons, usually daggers for ease of transport and to simulate Mata'ke's sword. There is a remarkably low amount of Njarir'Akhran in the Mata'ke priesthood."
@@ -40,9 +40,15 @@
 	desc = "A peaked cap used by Party Commissars attached to kosmostrelki units."
 	icon_state = "space_commissar_hat"
 	item_state = "space_commissar_hat"
-	desc_fluff = "Party Commissars are high ranking members of the Party of the Free Tajara under the Leadership of Hadii attached to army units, who ensures that soldiers and \
+	desc_extended = "Party Commissars are high ranking members of the Party of the Free Tajara under the Leadership of Hadii attached to army units, who ensures that soldiers and \
 	their commanders follow the principles of Hadiism. Their duties are not only limited to enforcing the republican ideals among the troops and reporting possible subversive elements, \
 	they are expected to display bravery in combat and lead by example."
+
+/obj/item/clothing/head/tajaran/orbital_captain
+	name = "orbital fleet captain hat"
+	desc = "A cap used by the Orbital Fleet captains."
+	icon_state = "orbital_captain_hat"
+	item_state = "orbital_captain_hat"
 
 /obj/item/clothing/head/tajaran/raskara
 	name = "raskariim mask"
@@ -90,7 +96,7 @@
 	desc = "A blue beret with a pale-gold twin-suns insignia, signifying a Constable of the NKA's Raakti Shariim."
 	icon_state = "raakti_shariim_beret"
 	item_state = "raakti_shariim_beret"
-	desc_fluff = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \
+	desc_extended = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \
 		peacekeeping force, working closely with both the Royal Constabulary and the Royal Ministry of Intelligence to \
 		seek out internal threats to the Kingdom such as spies, terrorists, and other domestic enemies to the crown. \
 		The Raakti Shariim's uniforms incorporate a dark, navy blue paired with a lilac accent and pale-gold twin-sun \
@@ -137,7 +143,7 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 	allow_hair_covering = FALSE
-	desc_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
+	desc_extended = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
 	single combat in their quests to become the greatest swordsman. Modern Amohda is under the control of the DPRA's Adhomai Liberation Army, further solidified after the defeat \
 	of a Nationalist revolt vying for a truly independent Amohda. The region is still beset by trouble within and without as a deeply divided Amohdan people continue to struggle in the \
 	bloody conflict to stamp out Nationalistic and to a lesser extent, divided Monarchistic sentiments while their rivals from the New Kingdom of Adhomai watch from the seas they rule \

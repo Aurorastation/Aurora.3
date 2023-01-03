@@ -22,6 +22,8 @@
 
 /obj/machinery/optable/Initialize()
 	. = ..()
+	LAZYADD(can_buckle, /mob/living)
+	buckle_delay = 30
 	for(dir in cardinal)
 		computer = locate(/obj/machinery/computer/operating, get_step(src, dir))
 		if(computer)
@@ -47,7 +49,7 @@
 	return
 
 /obj/machinery/optable/attack_hand(mob/user)
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		visible_message(SPAN_DANGER("\The [user] destroys \the [src]!"))
 		density = FALSE
 		qdel(src)
@@ -57,6 +59,9 @@
 		to_chat(user, SPAN_WARNING("There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
 		return TRUE
 
+	if((user.a_intent != I_HELP) && buckled)
+		user_unbuckle(user)
+		return
 	if(user != victim && !use_check_and_message(user)) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
 		user.visible_message(SPAN_WARNING("\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor."))
 		if(!do_after(user, 30, src))
@@ -77,6 +82,7 @@
 /obj/machinery/optable/MouseDrop_T(obj/O, mob/user)
 	if(istype(O, /obj/item))
 		user.drop_from_inventory(O,get_turf(src))
+	..()
 
 /obj/machinery/optable/proc/check_victim()
 	if(!victim || !victim.lying || victim.loc != loc)
@@ -91,6 +97,8 @@
 		if(suppressing && victim.sleeping < 7)
 			victim.Sleeping(7 - victim.sleeping)
 			victim.willfully_sleeping = FALSE
+			if(victim.eye_blurry < 7)
+				victim.eye_blurry = (7 - victim.eye_blurry)
 		icon_state = victim.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
 		if(victim.stat == DEAD || victim.is_asystole() || victim.status_flags & FAKEDEATH)
 			icon_state = "[modify_state]-critical"
@@ -103,7 +111,7 @@
 
 /obj/machinery/optable/proc/take_victim(mob/living/carbon/C, mob/living/carbon/user)
 	if(C == user)
-		user.visible_message("\The [user] climbs on \the [src].","You climb on \the [src].")
+		user.visible_message("\The [user] climbs on \the [src].", "You climb on \the [src].")
 	else
 		visible_message(SPAN_NOTICE("\The [C] has been laid on \the [src] by \the [user]."))
 	if(C.client)
@@ -125,7 +133,7 @@
 	var/mob/living/M = user
 	if(user.stat || user.restrained() || !iscarbon(target))
 		return
-	if(istype(M))
+	if(istype(M) && (get_turf(target) != get_turf(src)))
 		var/mob/living/L = target
 		var/bucklestatus = L.bucklecheck(user)
 		if(!bucklestatus)

@@ -1,34 +1,3 @@
-/**********************Miner Lockers**************************/
-
-/obj/structure/closet/secure_closet/miner
-	name = "shaft miner locker"
-	icon_state = "mining"
-	req_access = list(access_mining)
-
-/obj/structure/closet/secure_closet/miner/fill()
-	..()
-	if(prob(50))
-		new /obj/item/storage/backpack/industrial(src)
-	else
-		new /obj/item/storage/backpack/satchel/eng(src)
-	new /obj/item/device/radio/headset/headset_cargo(src)
-	new /obj/item/clothing/under/rank/miner(src)
-	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/shoes/black(src)
-	new /obj/item/device/analyzer(src)
-	new /obj/item/storage/bag/ore(src)
-	new /obj/item/shovel(src)
-	new /obj/item/pickaxe(src)
-	new /obj/item/gun/custom_ka/frame01/prebuilt(src)
-	new /obj/item/ore_detector(src)
-	new /obj/item/key/minecarts(src)
-	new /obj/item/device/gps/mining(src)
-	new /obj/item/book/manual/ka_custom(src)
-	new /obj/item/clothing/accessory/storage/overalls/mining(src)
-	new /obj/item/clothing/head/bandana/miner(src)
-	new /obj/item/clothing/head/hardhat/orange(src)
-	new /obj/item/device/radio(src)
-
 /******************************Lantern*******************************/
 
 /obj/item/device/flashlight/lantern
@@ -244,7 +213,7 @@
 /obj/item/pickaxe/drill
 	name = "mining drill" // Can dig sand as well!
 	desc = "Yours is the drill that will pierce through the rock walls."
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "miningdrill"
 	item_state = "miningdrill"
 	contained_sprite = TRUE
@@ -275,7 +244,7 @@
 /obj/item/pickaxe/jackhammer
 	name = "sonic jackhammer"
 	desc = "Cracks rocks with sonic blasts, perfect for killing cave lizards."
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
 	contained_sprite = TRUE
@@ -319,7 +288,7 @@
 
 /obj/item/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "diamonddrill"
 	item_state = "diamonddrill"
 	contained_sprite = TRUE
@@ -341,7 +310,7 @@
 
 /obj/item/pickaxe/borgdrill
 	name = "cyborg mining drill"
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "diamonddrill"
 	item_state = "jackhammer"
 	contained_sprite = TRUE
@@ -487,9 +456,6 @@
 	var/obj/item/stack/flag/F = locate() in get_turf(src)
 
 	var/turf/T = get_turf(src)
-	if(!T || !istype(T, /turf/unsimulated/floor/asteroid))
-		to_chat(user, SPAN_WARNING("The beacon won't stand up in this terrain."))
-		return
 
 	if(F?.upright)
 		to_chat(user, SPAN_WARNING("There is already a beacon here."))
@@ -1207,7 +1173,7 @@ var/list/total_extraction_beacons = list()
 /obj/item/autochisel
 	name = "auto-chisel"
 	desc = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "chisel"
 	item_state = "jackhammer"
 	contained_sprite = TRUE

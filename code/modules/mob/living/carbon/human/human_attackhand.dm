@@ -84,7 +84,7 @@
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
 
-			if(HULK in H.mutations || H.is_berserk())
+			if(HAS_FLAG(H.mutations, HULK) || H.is_berserk())
 				damage += 5
 
 			playsound(loc, /decl/sound_category/punch_sound, 25, 1, -1)
@@ -264,7 +264,7 @@
 			real_damage *= damage_multiplier
 			rand_damage *= damage_multiplier
 
-			if(HULK in H.mutations)
+			if(HAS_FLAG(H.mutations, HULK))
 				real_damage *= 2 // Hulks do twice the damage
 				rand_damage *= 2
 			if(H.is_berserk())
@@ -495,7 +495,7 @@
 
 	if(cpr_mode == "Compressions")
 		cpr_compressions(H)
-	
+
 	if(cpr_mode == "Mouth-to-Mouth")
 		cpr_ventilation(H)
 

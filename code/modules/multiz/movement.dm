@@ -52,11 +52,11 @@
 
 	var/turf/start = get_turf(src)
 	if(!start.CanZPass(src, direction))
-		to_chat(src, SPAN_WARNING("\The [start] is in the way."))
+		to_chat(src, SPAN_WARNING("\The [start.GetZPassBlocker()] is in the way."))
 		return FALSE
 
 	if(!destination.CanZPass(src, direction))
-		to_chat(src, SPAN_WARNING("\The [destination] is in the way!"))
+		to_chat(src, SPAN_WARNING("\The [destination.GetZPassBlocker()] is in the way!"))
 		return FALSE
 
 	var/area/area = get_area(src)
@@ -504,9 +504,9 @@
 
 	var/combat_roll = 1
 	if(lying)
-		combat_roll = 0.7 //If you're sleeping, you take less damage because your body is less rigid. It's science 'n shit.
+		combat_roll = 0.8 //If you're sleeping, you take less damage because your body is less rigid. It's science 'n shit.
 		if(!sleeping)
-			combat_roll = 0.2 //Combat roll!
+			combat_roll = 0.6 //Combat roll!
 			visible_message(SPAN_NOTICE("\The [src] tucks into a roll as they hit \the [loc]!"),
 				SPAN_NOTICE("You tuck into a roll as you hit \the [loc], minimizing damage!"))
 

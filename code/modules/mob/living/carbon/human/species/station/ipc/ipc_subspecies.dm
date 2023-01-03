@@ -110,7 +110,6 @@
 		/datum/unarmed_attack/bite/strong)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/leap,
 		/mob/living/carbon/human/proc/self_diagnostics
 		)
 
@@ -160,6 +159,10 @@
 
 	flags = IS_IPC | ACCEPTS_COOLER
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
+
+	maneuvers = list(
+		/decl/maneuver/leap/industrial
+	)
 
 	heat_level_1 = 800
 	heat_level_2 = 1600
@@ -246,10 +249,10 @@
 
 	has_organ = list(
 		BP_BRAIN = /obj/item/organ/internal/mmi_holder/posibrain/terminator,
-		"shielded cell" = /obj/item/organ/internal/cell/terminator,
+		BP_CELL = /obj/item/organ/internal/cell/terminator,
 		BP_EYES = /obj/item/organ/internal/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/internal/data,
-		"surge"   = /obj/item/organ/internal/surge/advanced
+		"surge" = /obj/item/organ/internal/surge/advanced
 	)
 
 	has_limbs = list(
@@ -360,10 +363,14 @@
 	brute_mod = 0.9
 	grab_mod = 0.9
 	resist_mod = 8
-
-	heat_level_1 = 700
-	heat_level_2 = 1400
-	heat_level_3 = 2800
+	
+	cold_level_1 = -1 //RaceDefault 50 Default -1
+	cold_level_2 = -1 //RaceDefault -1 Default -1
+	cold_level_3 = -1  //RaceDefault -1 Default -1
+	
+	heat_level_1 = 700  //RaceDefault 600 Default 700
+	heat_level_2 = 1400  //RaceDefault 1200 Default 1400
+	heat_level_3 = 2800  //RaceDefault 2400 Default 2800
 
 	heat_discomfort_level = 600
 	slowdown = 3
@@ -423,6 +430,7 @@
 	sprint_speed_factor = 0.6
 	sprint_cost_factor = 2
 	move_charge_factor = 2
+	standing_jump_range = 3
 
 	grab_mod = 1.1 // Smooth, fast
 	resist_mod = 4 // Not super strong, but still rather strong
@@ -451,6 +459,9 @@
 		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
+	maneuvers = list(
+		/decl/maneuver/leap/zenghu
+	)
 
 
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)

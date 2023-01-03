@@ -126,8 +126,8 @@
 		/obj/item/surgery/retractor = 1,
 		/obj/item/surgery/scalpel = 1,
 		/obj/item/surgery/surgicaldrill = 1,
-		/obj/item/surgery/bonegel = 1,
-		/obj/item/surgery/FixOVein = 1,
+		/obj/item/surgery/bone_gel = 1,
+		/obj/item/surgery/fix_o_vein = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/reagent_containers/inhaler/soporific = 2
 	)
@@ -154,6 +154,20 @@
 /obj/item/storage/firstaid/brute/fill()
 	..()
 	icon_state = pick("brute","brute2","brute3")
+
+/obj/item/storage/firstaid/marooning_equipment
+	name = "marooning first aid kit"
+	desc = "A first aid kit for marooned personnel."
+	starts_with = list(
+		/obj/item/stack/medical/bruise_pack = 2,
+		/obj/item/stack/medical/ointment = 2,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/reagent_containers/pill/bicaridine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1,
+		/obj/item/storage/pill_bottle/perconol = 1
+	)
 
 /*
  * Pill Bottles

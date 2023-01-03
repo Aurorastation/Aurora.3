@@ -17,10 +17,9 @@
 		if(iscarbon(L))
 			var/mob/living/carbon/C = L
 			C.flash_eyes()
-			if(C.stuttering < 1 && !(HULK in C.mutations))
+			if(C.stuttering < 1 && NOT_FLAG(C.mutations, HULK))
 				C.stuttering = 1
-			if(is_rune)
-				C.Weaken(3)
+			C.Weaken(3)
 			C.confused = 10
 			C.Stun(3)
 			C.silent += 15

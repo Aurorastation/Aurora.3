@@ -6,8 +6,8 @@
 	desc = "A gas circulator turbine and heat exchanger."
 	desc_info = "This generates electricity, depending on the difference in temperature between each side of the machine.  The meter in \
 	the center of the machine gives an indicator of how much elecrtricity is being generated."
-	icon = 'icons/obj/pipes.dmi'
-	icon_state = "circ-off"
+	icon = 'icons/obj/power.dmi'
+	icon_state = "circ-unassembled"
 	anchored = FALSE
 	obj_flags = OBJ_FLAG_ROTATABLE
 
@@ -22,6 +22,7 @@
 	var/last_stored_energy_transferred = 0
 	var/volume_capacity_used = 0
 	var/stored_energy = 0
+	var/temperature_overlay
 
 	density = TRUE
 
@@ -76,17 +77,21 @@
 		update_icon()
 
 /obj/machinery/atmospherics/binary/circulator/update_icon()
-	if(stat & (BROKEN|NOPOWER) || !anchored)
-		icon_state = "circ-p"
-	else if(last_pressure_delta > 0 && recent_moles_transferred > 0)
-		if(last_pressure_delta > 5*ONE_ATMOSPHERE)
-			icon_state = "circ-run"
+	icon_state = anchored ? "circ-assembled" : "circ-unassembled"
+	cut_overlays()
+	if (stat & (BROKEN|NOPOWER) || !anchored)
+		return TRUE
+	if (last_pressure_delta > 0 && recent_moles_transferred > 0)
+		if (temperature_overlay)
+			add_overlay(temperature_overlay)
+		if (last_pressure_delta > 5*ONE_ATMOSPHERE)
+			add_overlay("circ-run")
 		else
-			icon_state = "circ-slow"
+			add_overlay("circ-slow")
 	else
-		icon_state = "circ-off"
+		add_overlay("circ-off")
 
-	return 1
+	return TRUE
 
 /obj/machinery/atmospherics/binary/circulator/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench())
@@ -94,9 +99,10 @@
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
 					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
-					"You hear a ratchet")
+					"You hear a ratchet.")
 
 		if(anchored)
+			temperature_overlay = null
 			if(dir & (NORTH|SOUTH))
 				initialize_directions = NORTH|SOUTH
 			else if(dir & (EAST|WEST))
@@ -120,6 +126,7 @@
 
 			node1 = null
 			node2 = null
+		update_icon()
 
 		return TRUE
 	else

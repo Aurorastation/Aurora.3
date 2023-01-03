@@ -92,13 +92,6 @@
 	taste_description = "food"
 	fallback_specific_heat = 1.25
 
-/decl/reagent/nutriment/synthetic
-	name = "Synthetic Nutriment"
-	description = "A cheaper alternative to actual nutriment."
-	taste_description = "cheap food"
-	nutriment_factor = 6
-	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
-
 /decl/reagent/nutriment/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
 	if(isemptylist(newdata))
 		return
@@ -4449,12 +4442,12 @@
 	name = "The Third Incident"
 	color = "#1936a0"
 	strength = 10
-	description = "A controversial drink popular with the punk youth of the Jargon Federation. Represents blood, eggs, and tears."
+	description = "A controversial drink popular with the punk youth of the Nralakk Federation. Represents blood, eggs, and tears."
 	taste_description = "genophage sadness"
 
 	glass_icon_state = "thirdincident"
 	glass_name = "glass of the Third Incident"
-	glass_desc = "A controversial drink popular with the punk youth of the Jargon Federation. Represents blood, eggs, and tears."
+	glass_desc = "A controversial drink popular with the punk youth of the Nralakk Federation. Represents blood, eggs, and tears."
 
 /decl/reagent/drink/upsidedowncup
 	name = "Upside-Down Cup"
@@ -4609,6 +4602,17 @@
 	glass_icon_state = "veteranschoice_glass"
 	glass_name = "glass of veteran's choice"
 	glass_desc = "A cocktail consisting of Messa's Mead and gunpowder."
+
+/decl/reagent/alcohol/eggnog
+	name = "eggnog"
+	color = "#619494"
+	description = "A true Christmas classic, consisting of egg, cream, sugar and of course alcohol."
+	taste_description = "egg and alcohol"
+	strength = 15
+
+	glass_icon_state = "snowwhite"
+	glass_name = "glass of eggnog"
+	glass_desc = "Technically a longdrink, made out of egg, sugar, cream and alcohol. Merry Christmas!"
 
 // Butanol-based alcoholic drinks
 //=====================================

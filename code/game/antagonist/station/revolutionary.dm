@@ -16,7 +16,7 @@ var/datum/antagonist/revolutionary/revs
 
 	hard_cap = 3
 	hard_cap_round = 4
-	initial_spawn_req = 3
+	initial_spawn_req = 1
 	initial_spawn_target = 4
 
 	// Inround revs.

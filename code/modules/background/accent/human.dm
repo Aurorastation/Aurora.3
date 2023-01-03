@@ -7,10 +7,10 @@
 /datum/accent/coc
 	name = ACCENT_COC
 	description = "The frontier is home to an unknowably vast amount of humans and settlements, covering everything from small outposts of only a few hundred to major planets such as \
-	Xanu Prime. The Frontiersfolk are as diverse as their accents are, but the most common \"frontier accent\" is generally regarded as that of Xanu Prime - the arguable capital of \
-	the massive Coalition of Colonies."
+	Xanu Prime. It is difficult to define a standard \"Coalition accent,\" or dialect due to the diversity and regionalism of the Coalition, along with its lack of a strong central government. \
+	Solarian linguists generally define the Coalition dialect as an umbrella encompassing all Freespeak native speakers not from a major settlement of the Coalition."
 	tag_icon = "coalition"
-	text_tag = "COC"
+	text_tag = "COA"
 
 /datum/accent/elyra
 	name = ACCENT_ELYRA
@@ -100,12 +100,19 @@
 	tag_icon = "luna"
 	text_tag = "LUN"
 
-/datum/accent/gibson
-	name = ACCENT_GIBSON
-	description = "The New Gibsoner accent is very close to the accent of Tau Ceti proper, due to the nature of the planet's colonization. However, New Gibsoners are known for talking \
+/datum/accent/gibson_ovan
+	name = ACCENT_GIBSON_OVAN
+	description = "The New Gibson Ovanstad accent is very close to the accent of Tau Ceti proper, due to the nature of the planet's colonization. However, New Gibsoners are known for talking \
 	with a faster and more clipped accent than those from Biesel and, at times, sound as if they are tripping over their words due to the rapid pace at which they speak."
-	tag_icon = "gibson"
-	text_tag = "GIB"
+	tag_icon = "gibson_ovan"
+	text_tag = "OVA"
+
+/datum/accent/gibson_undir
+	name = ACCENT_GIBSON_UNDIR
+	description = "The New Gibson Undirstad accent is not wildly known or heard outside of New Gibson itself, as those hailing from the Undirstads are quite insular and isolated from the more attractive surface archologies. The Undirstad accent is much slower than the Ovanstad accent, \
+	and keeps more to its cultural roots."
+	tag_icon = "gibson_undir"
+	text_tag = "UND"
 
 /datum/accent/konyang
 	name = ACCENT_KONYAN
@@ -164,6 +171,23 @@
 	tag_icon = "dominia_vulgar"
 	text_tag = "VMR"
 
+/datum/accent/dominia_frontier
+	name = ACCENT_DOMINIA_FRONTIER
+	description = "Resembling more Freespeak than the Vulgar Morozi dialect found in more civilised regions of the Empire, most accents of the Imperial Frontier are looked down upon by those from the Core Worlds. \
+	Many Primaries and Secondaries look down upon the dialects of the Imperial Frontier as rogue, coarse, and often grating to hear compared to their Common-descended dialects. Many from this region who wish to rise \
+	through the ranks of the Empire’s Ma'zals spend great amounts of time learning an ersatz Solarian Common dialect based upon this one which is known as the Refined Imperial Frontier Dialect. While not nearly as \
+	prestigious see its counterparts the Refined Frontier dialect is often viewed as a mark of loyalty and dedication to the Empire."
+	tag_icon = "dominia_frontier"
+	text_tag = "IFR"
+
+/datum/accent/dominia_novijadran
+	name = ACCENT_DOMINIA_NOVIJADRAN
+	description = "Much like the planet itself, the Jadranic dialect of Solarian Common sits between standard Solarian Common-influenced Vulgar Morozi and the more Freespeak-derived accents of the Imperial Frontier. \
+	The dialect possesses grammar and pronunciation similar to Vulgar Morozi but possesses multiple loan words from Freespeak which make it distinct from its Morozian counterpart. Jadraners are valued highly for their \
+	loyalty and this dialect is often regarded as the most common accent of the Imperial Army. More educated Jadraners, such as those from the planet's few urban centers, will often leave the dialect's Freespeak \
+	loan words our while talking with Morozians or other Dominians."
+	tag_icon = "dominia_novijadran"
+	text_tag = "NOV"
 
 /datum/accent/jupiter
 	name = ACCENT_JUPITER
@@ -195,6 +219,14 @@
 	from Luna to Xanu - are, one way or another, descended from this ancient accent."
 	tag_icon = "earth"
 	text_tag = "EAR"
+
+/datum/accent/xanu
+	name = ACCENT_XANU
+	description = "The Xanu Standard dialect is arguably the most notable Freespeak dialect. Xanu Standard first emerged as an informal creole designed to make communication between the various nationalities \
+	who settled the planet more easily and possessed loan words from upwards of a half-dozen languages during this early period. Over time this creole would morph into the Xanu Standard dialect of Freespeak \
+	and is arguably the oldest and most widespread of the 25th century's common Freespeak dialects. Freespeak taught abroad, such as in the Serene Republic of Elyra and Republic of Biesel, is most often based upon the Xanu Standard dialect."
+	tag_icon = "xanu"
+	text_tag = "XAN"
 
 /datum/accent/ncf
 	name = ACCENT_NCF
@@ -242,6 +274,13 @@
 	tag_icon = "visegrad"
 	text_tag = "VIS"
 
+/datum/accent/sancolette
+	name = ACCENT_SANCOLETTE
+	description = "The Colettish dialect belongs to the larger linguistic family of Tradeband but unlike many of its counterparts, it is descended from Earth-based Tradeband dialects rather than Luna-based dialects. \
+	It is easily distinguished from its Lunan contemporaries by its differences in pronunciation and tone, and still retains many of its linguistic roots from Earth."
+	tag_icon = "sancolette"
+	text_tag = "SAN"
+
 /datum/accent/valkyrie
 	name = ACCENT_VALKYRIE
 	description = "The Valkyrian accent is a difficult accent to replicate, mostly due to the cultural melting pot in which it exists. Influences from across the Orion Spur have impacted the development of the accent, with \
@@ -255,6 +294,12 @@
 	some youth may try to sound rebellious and conceal the softness of their voice, this musicality is still prevalent and universally recognizable."
 	tag_icon = "mictlan"
 	text_tag = "MIC"
+
+/datum/accent/antillia
+	name = ACCENT_ANTILLIA
+	description = "There are two distinct dialects present on the planet: one that sees heavy lifting from Tradeband and the other more influenced by Solarian Common. It is relatively easy to identify the differences between the two: Antilleans influenced by Tradeband sound more nasal and rhythmic, whereas those that grew up in regions where Solarian Common is the dominant language are more soft-spoken and enunciated."
+	tag_icon = "antillia"
+	text_tag = "PRT"
 
 /datum/accent/persepolis
 	name = ACCENT_PERSEPOLIS

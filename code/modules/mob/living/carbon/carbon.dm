@@ -62,7 +62,7 @@
 			if(src.hydration)
 				adjustHydrationLoss(hydration_loss*0.1)
 
-		if((FAT in src.mutations) && src.m_intent == M_RUN && src.bodytemperature <= 360)
+		if(HAS_FLAG(mutations, FAT) && src.m_intent == M_RUN && src.bodytemperature <= 360)
 			src.bodytemperature += 2
 
 		// Moving around increases germ_level faster
@@ -381,11 +381,12 @@
 	set category = "IC"
 
 	if(usr.sleeping)
-		to_chat(usr, SPAN_WARNING("You are already sleeping"))
+		to_chat(usr, SPAN_WARNING("You are already asleep."))
 		return
-	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
+	if(alert(src,"Are you sure you want to sleep for a while?", "Sleep", "Yes", "No") == "Yes")
 		willfully_sleeping = TRUE
-		usr.sleeping = 20 //Short nap
+		usr.sleeping = 20 // Short nap.
+		usr.eye_blurry = 20
 
 /mob/living/carbon/Collide(atom/A)
 	if(now_pushing)
@@ -442,7 +443,7 @@
 		return FALSE
 	if (is_berserk())
 		return FALSE
-	if (HULK in mutations)
+	if (HAS_FLAG(mutations, HULK))
 		return FALSE
 	if (analgesic > 100)
 		return FALSE

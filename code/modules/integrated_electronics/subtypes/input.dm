@@ -296,7 +296,7 @@
 	var/turf/T = get_turf(src)
 	var/list/nearby_things = view(radius, T)
 	var/list/valid_things = list()
-	var/I = get_pin_data(IC_INPUT, 1)
+	var/I = get_pin_data(IC_INPUT, 1, FALSE)
 	if(isweakref(I))
 		var/datum/weakref/WR = I
 		var/atom/A = WR.resolve()
@@ -459,10 +459,9 @@
 
 /obj/item/integrated_circuit/input/microphone/Initialize()
 	. = ..()
-	listening_objects |= src
+	become_hearing_sensitive()
 
 /obj/item/integrated_circuit/input/microphone/Destroy()
-	listening_objects -= src
 	return ..()
 
 /obj/item/integrated_circuit/input/microphone/hear_talk(mob/living/M, msg, var/verb="says", datum/language/speaking=null)

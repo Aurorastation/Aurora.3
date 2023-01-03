@@ -232,7 +232,7 @@
 	light_overlay = "helmet_light_banshee"
 	brightness_on = 6
 	light_color = "#7ffbf7"
-	desc_fluff = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
+	desc_extended = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/einstein
@@ -256,7 +256,7 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
-	desc_fluff = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
+	desc_extended = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
 	refittable = FALSE
 
 //Zeng-Hu Pharmaceuticals espionage voidsuit
@@ -282,7 +282,7 @@
 	light_overlay = "helmet_light_dragon"
 	brightness_on = 6
 	light_color = "#7ffbf7"
-	desc_fluff = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit helmet. Its bug-eyed goggle visor design is unique among its class, alongside cutting-edge radiation protection."
+	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit helmet. Its bug-eyed goggle visor design is unique among its class, alongside cutting-edge radiation protection."
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/zenghu
@@ -306,7 +306,7 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
-	desc_fluff = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit. It is relatively fragile but has very apparent radiation shielding. Most often seen in the hands of post-disaster cleanup teams and private military contractors."
+	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit. It is relatively fragile but has very apparent radiation shielding. Most often seen in the hands of post-disaster cleanup teams and private military contractors."
 	refittable = FALSE
 
 //Hephaestus Industries espionage voidsuit
@@ -332,7 +332,7 @@
 	light_overlay = "helmet_light_caiman"
 	brightness_on = 6
 	light_color = "#ffce01"
-	desc_fluff = "An easily recognized Hephaestus terraforming suit helmet. Its low, protruding brow and heavy plating is useful in the event you happen to be cutting down things. Mostly trees. Hopefully trees."
+	desc_extended = "An easily recognized Hephaestus terraforming suit helmet. Its low, protruding brow and heavy plating is useful in the event you happen to be cutting down things. Mostly trees. Hopefully trees."
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/hephaestus
@@ -356,7 +356,7 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
-	desc_fluff = "An easily recognized Hephaestus terraforming suit. Used often on jungle worlds to handle local wildlife and safely deforest areas in hostile environments. It found recent popularity due to its combat effectiveness that resulted in its proliferation in the hands of Hephaestus private military."
+	desc_extended = "An easily recognized Hephaestus terraforming suit. Used often on jungle worlds to handle local wildlife and safely deforest areas in hostile environments. It found recent popularity due to its combat effectiveness that resulted in its proliferation in the hands of Hephaestus private military."
 	refittable = FALSE
 
 //Zavodskoi Interstellar espionage voidsuit
@@ -382,7 +382,7 @@
 	light_overlay = "helmet_light_revenant"
 	brightness_on = 6
 	light_color = "#f65858"
-	desc_fluff = "An ominous helmet of Zavodskoi Interstellar make with its past veiled in mystery, used for high-end corporate backstabbing and secret operations."
+	desc_extended = "An ominous helmet of Zavodskoi Interstellar make with its past veiled in mystery, used for high-end corporate backstabbing and secret operations."
 
 /obj/item/clothing/suit/space/void/zavodskoi
 	name = "revenant combat suit"
@@ -406,7 +406,7 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
-	desc_fluff = "A portable, sleek combat suit utilized in excess by Zavodskoi Interstellar private military contractors. It is known to be utilized by the company's most secretive sectors explicitly for espionage."
+	desc_extended = "A portable, sleek combat suit utilized in excess by Zavodskoi Interstellar private military contractors. It is known to be utilized by the company's most secretive sectors explicitly for espionage."
 
 //Freelancer voidsuit
 /obj/item/clothing/head/helmet/space/void/freelancer
@@ -459,8 +459,8 @@
 	item_state = "rig0-kataphract"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
@@ -520,9 +520,9 @@
 /obj/item/clothing/head/helmet/space/void/dominia
 	name = "dominian prejoroub combat helmet"
 	desc = "A glamorous, decorated helmet with thick plating across its faces. It holds the emblematic markings of the Empire of Dominia, if its design wasn't unmistakable enough."
-	icon = 'icons/obj/clothing/voidsuit/dominia.dmi'
-	icon_state = "prejoroubhelm"
-	item_state = "prejoroubhelm"
+	icon = 'icons/clothing/rig/dominia.dmi'
+	icon_state = "dvoidsuithelm"
+	item_state = "dvoidsuithelm"
 	contained_sprite = 1
 
 	armor = list(
@@ -538,12 +538,19 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	brightness_on = 6
 
+/obj/item/clothing/head/helmet/space/void/dominia/unathi
+	name = "dominian unathi prejoroub combat helmet"
+	icon_state = "una_dvoidsuithelm"
+	item_state = "una_dvoidsuithelm"
+
+	species_restricted = list(BODYTYPE_UNATHI)
+
 /obj/item/clothing/suit/space/void/dominia
 	name = "dominian prejoroub combat suit"
 	desc = "An offshoot of the Coalition's vulture suit design, painted in Dominian colors with portability and maneuverability in mind over its bulkier counterpart."
-	icon = 'icons/obj/clothing/voidsuit/dominia.dmi'
-	icon_state = "prejoroub"
-	item_state = "prejoroub"
+	icon = 'icons/clothing/rig/dominia.dmi'
+	icon_state = "dvoidsuit"
+	item_state = "dvoidsuit"
 	contained_sprite = 1
 	slowdown = 1
 
@@ -561,6 +568,13 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 
+/obj/item/clothing/suit/space/void/dominia/unathi
+	name = "dominian unathi prejoroub combat suit"
+	desc = "An offshoot of the Coalition's vulture suit design, painted in Dominian colors with portability and maneuverability in mind over its bulkier counterpart. This variant is fit for an Unathi."
+	icon_state = "una_dvoidsuit"
+	item_state = "una_dvoidsuit"
+
+	species_restricted = list(BODYTYPE_UNATHI)
 /obj/item/clothing/head/helmet/space/void/golden_deep
 	name = "golden helmet"
 	desc = "A glamorous, decorated helmet plated with gold. Very hefty."
@@ -608,7 +622,7 @@
 /obj/item/clothing/head/helmet/space/void/mining/himeo
 	name = "himeo mining voidsuit helmet"
 	desc = "A rugged polymer and alloy space helmet with a ballistic glass and polycarbonate visor commonly used by astronauts from Himeo."
-	desc_fluff = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life\
+	desc_extended = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life\
 	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors."
 	icon_state = "rig0-himeo"
 	item_state = "rig0-himeo"
@@ -626,7 +640,7 @@
 		slot_r_hand_str = "mining_hardsuit"
 	)
 	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch."
-	desc_fluff = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
+	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet\
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
 	item_state = "rig-himeo"
@@ -635,7 +649,7 @@
 /obj/item/clothing/head/helmet/space/void/engineering/himeo
 	name = "himeo engineering voidsuit helmet"
 	desc = "A rugged polymer and alloy space helmet with a reinforced ballistic glass and polycarbonate goggle-type visor commonly used by astronauts from Himeo."
-	desc_fluff = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life\
+	desc_extended = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life\
 	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors."
 	icon_state = "rig0-himeo-engineering"
 	item_state = "rig0-himeo-engineering"
@@ -653,7 +667,7 @@
 		slot_r_hand_str = "engineering_hardsuit"
 	)
 	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This particular model seems to have lead lining in it."
-	desc_fluff = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
+	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet\
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
 	item_state = "rig-himeo-engineering"
@@ -662,7 +676,7 @@
 /obj/item/clothing/head/helmet/space/void/atmos/himeo
 	name = "himeo atmospherics voidsuit helmet"
 	desc = "A rugged polymer and alloy space helmet with a reinforced ballistic glass and polycarbonate goggle-type visor commonly used by astronauts from Himeo. This particular model appears to have a thicker layer of insulation on it."
-	desc_fluff = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life\
+	desc_extended = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life\
 	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors."
 	icon_state = "rig0-himeo-engineering"
 	item_state = "rig0-himeo-engineering"
@@ -680,7 +694,7 @@
 		slot_r_hand_str = "atmos_hardsuit"
 	)
 	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This particular model seems to have better insulation in it."
-	desc_fluff = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
+	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet\
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
 	item_state = "rig-himeo-engineering"
@@ -689,10 +703,10 @@
 /obj/item/clothing/head/helmet/space/void/mining/himeo/tajara
 	name = "himeo mining voidsuit helmet"
 	desc = "A rugged polymer and alloy space helmet with a ballistic glass and polycarbonate visor commonly used by astronauts from Himeo. This helmet looks fit for a Tajara."
-	desc_fluff = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life\
+	desc_extended = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life\
 	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors. It quickly found purchase among \
 	Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."
-	icon = 'icons/obj/contained_items/voidsuits/himeotaj.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/himeotaj.dmi'
 	icon_state = "rig0-himeotaj"
 	item_state = "rig0-himeotaj"
 	item_state_slots = list(
@@ -705,11 +719,11 @@
 /obj/item/clothing/suit/space/void/mining/himeo/tajara
 	name = "himeo mining voidsuit"
 	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This suit looks fit for a Tajara."
-	desc_fluff = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
+	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet \
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster. They quickly found purchase among Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. \
 	Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."
-	icon = 'icons/obj/contained_items/voidsuits/himeotaj.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/himeotaj.dmi'
 	item_state = "rig-himeotaj"
 	icon_state = "rig-himeotaj"
 	item_state_slots = list(
@@ -722,10 +736,10 @@
 /obj/item/clothing/head/helmet/space/void/engineering/himeo/tajara
 	name = "himeo engineering voidsuit helmet"
 	desc = "A rugged polymer and alloy space helmet with a reinforced ballistic glass and polycarbonate goggle-type visor commonly used by astronauts from Himeo. This helmet looks fit for a Tajara."
-	desc_fluff = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life \
+	desc_extended = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life \
 	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors. It quickly found purchase among \
 	Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."
-	icon = 'icons/obj/contained_items/voidsuits/himeotaj.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/himeotaj.dmi'
 	icon_state = "rig0-himeotaj-engineering"
 	item_state = "rig0-himeotaj-engineering"
 	item_state_slots = list(
@@ -739,11 +753,11 @@
 /obj/item/clothing/suit/space/void/engineering/himeo/tajara
 	name = "himeo engineering voidsuit"
 	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This particular model is fitted for Tajara and seems to have lead lining in it."
-	desc_fluff = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
+	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet \
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster. They quickly found purchase among Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. \
 	Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."
-	icon = 'icons/obj/contained_items/voidsuits/himeotaj.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/himeotaj.dmi'
 	item_state = "rig-himeotaj-engineering"
 	icon_state = "rig-himeotaj-engineering"
 	item_state_slots = list(
@@ -756,10 +770,10 @@
 /obj/item/clothing/head/helmet/space/void/atmos/himeo/tajara
 	name = "himeo atmospherics voidsuit helmet"
 	desc = "A rugged polymer and alloy space helmet with a reinforced ballistic glass and polycarbonate goggle-type visor commonly used by astronauts from Himeo. This particular model is fitted for Tajara and appears to have a thicker layer of insulation on it."
-	desc_fluff = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life \
+	desc_extended = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life \
 	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors. It quickly found purchase among \
 	Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."
-	icon = 'icons/obj/contained_items/voidsuits/himeotaj.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/himeotaj.dmi'
 	icon_state = "rig0-himeotaj-engineering"
 	item_state = "rig0-himeotaj-engineering"
 	item_state_slots = list(
@@ -773,11 +787,11 @@
 /obj/item/clothing/suit/space/void/atmos/himeo/tajara
 	name = "himeo atmospherics voidsuit"
 	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This particular model is fitted for Tajara and seems to have better insulation in it."
-	desc_fluff = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
+	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet \
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster. They quickly found purchase among Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. \
 	Many of the first Tajaran-fitted suits were a product of collaborations between the two species making them all the more sentimental to those who use them."
-	icon = 'icons/obj/contained_items/voidsuits/himeotaj.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/himeotaj.dmi'
 	item_state = "rig-himeotaj-engineering"
 	icon_state = "rig-himeotaj-engineering"
 	item_state_slots = list(
@@ -790,7 +804,7 @@
 /obj/item/clothing/head/helmet/space/void/sol/srf
 	name = "solarian restoration front voidsuit helmet"
 	desc = "An uparmored variant of the gargoyle voidsuit helmet, with a solid visor and redundant comms antenna. Intended for urban combat operations."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "srf_helmet"
 	item_state = "srf_helmet"
 	contained_sprite = TRUE
@@ -799,7 +813,7 @@
 	name = "solarian restoration front voidsuit"
 	desc = "A variant of the Solarian Armed Forces Type-4 \"Gargoyle\" voidsuit, the Type-5 \"Cyclops\" is the urban combat version of the Gargoyle. While practical testing showed it was a marginal improvement over the Type-4 at best, the SRF have taken to using this modification \
 	both on account of its intimidating design and in an effort to distinguish its forces from others using the Type-4, warlord or not. This one has the SRF's flag on the breastplate."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "srf_suit"
 	item_state = "srf_suit"
 	contained_sprite = TRUE
@@ -807,7 +821,7 @@
 /obj/item/clothing/head/helmet/space/void/sol/league
 	name = "anti-corporate league voidsuit helmet"
 	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the League of Independent Corporate-Free Systems to match the colors of the Xanusian \"Vulture\" voidsuit, and also features a modified comms antenna."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "league_helmet"
 	item_state = "league_helmet"
 	contained_sprite = TRUE
@@ -816,7 +830,7 @@
 	name = "anti-corporate league voidsuit"
 	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been modified by the forces of the League of Independent Corporate-Free Systems to match the colors of the Xanusian \
 	\"Vulture\" voidsuit, to make it more easily identified by friendly Coalition forces."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "league_suit"
 	item_state = "league_suit"
 	contained_sprite = TRUE
@@ -824,7 +838,7 @@
 /obj/item/clothing/head/helmet/space/void/sol/fsf
 	name = "free solarian fleets voidsuit helmet"
 	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Free Solarian Fleets to make it more easily identifiable from other forces using the Type-4, warlord or not."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "fsf_helmet"
 	item_state = "fsf_helmet"
 	contained_sprite = TRUE
@@ -833,7 +847,7 @@
 	name = "free solarian fleets voidsuit"
 	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the forces of the Free Solarian Fleets to make it more easily identifiable \
 	from other forces using the Type-4, warlord or not."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "fsf_suit"
 	item_state = "fsf_suit"
 	contained_sprite = TRUE
@@ -841,7 +855,7 @@
 /obj/item/clothing/head/helmet/space/void/sol/ssmd
 	name = "military district voidsuit helmet"
 	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Southern Solarian Military District to make it more easily identifiable from other forces using the Type-4, warlord or not."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "ssmd_helmet"
 	item_state = "ssmd_helmet"
 	contained_sprite = TRUE
@@ -850,7 +864,7 @@
 	name = "military district voidsuit"
 	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the forces of the Southern Solarian Military District to make it more easily identifiable \
 	from other forces using the Type-4, warlord or not."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "ssmd_suit"
 	item_state = "ssmd_suit"
 	contained_sprite = TRUE
@@ -858,7 +872,7 @@
 /obj/item/clothing/head/helmet/space/void/sol/spg
 	name = "provisional government voidsuit helmet"
 	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Solarian Provisional Government to make it more easily identifiable from other forces using the Type-4, warlord or not."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "spg_helmet"
 	item_state = "spg_helmet"
 	contained_sprite = TRUE
@@ -867,7 +881,7 @@
 	name = "provisional government voidsuit"
 	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the forces of the Solarian Provisional Government to make it more easily identifiable \
 	from other forces using the Type-4, warlord or not."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "spg_suit"
 	item_state = "spg_suit"
 	contained_sprite = TRUE
@@ -875,7 +889,7 @@
 /obj/item/clothing/head/helmet/space/void/sol/mrsp
 	name = "shield pact voidsuit helmet"
 	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Middle Ring Shield Pact to make it more easily identifiable from other forces using the Type-4, warlord or not."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "mrsp_helmet"
 	item_state = "mrsp_helmet"
 	contained_sprite = TRUE
@@ -884,7 +898,7 @@
 	name = "shield pact voidsuit"
 	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the scant forces of the Middle Ring Shield Pact to make it more easily identifiable \
 	from other forces using the Type-4, warlord or not."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "mrsp_suit"
 	item_state = "mrsp_suit"
 	contained_sprite = TRUE
@@ -892,7 +906,7 @@
 /obj/item/clothing/head/helmet/space/void/sol/sfa
 	name = "southern fleet administration voidsuit helmet"
 	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Southern Fleet Administration to make it more easily identifiable from other forces using the Type-4, warlord or not."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "sfa_helmet"
 	item_state = "sfa_helmet"
 	contained_sprite = TRUE
@@ -901,7 +915,7 @@
 	name = "southern fleet administration voidsuit"
 	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the scant forces of the Southern Fleet Administration to make it more easily identifiable \
 	from other forces using the Type-4, warlord or not. Due to poor maintenance, the highlights appear to have gone out."
-	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuits/warlordsuit.dmi'
 	icon_state = "sfa_suit"
 	item_state = "sfa_suit"
 	contained_sprite = TRUE

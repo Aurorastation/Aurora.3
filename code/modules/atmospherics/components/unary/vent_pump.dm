@@ -16,7 +16,7 @@
 
 	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
-	power_rating = 7500			//7500 W ~ 10 HP
+	power_rating = 30000			//30000 W ~ 40 HP
 
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY //connects to regular and supply pipes
 
@@ -62,8 +62,8 @@
 	icon_state = "map_vent_in"
 	external_pressure_bound = 0
 	external_pressure_bound_default = 0
-	internal_pressure_bound = 2000
-	internal_pressure_bound_default = 2000
+	internal_pressure_bound = PRESSURE_ONE_THOUSAND * 2
+	internal_pressure_bound_default = PRESSURE_ONE_THOUSAND * 2
 	pressure_checks = 2
 	pressure_checks_default = 2
 
@@ -76,8 +76,8 @@
 	icon_state = "map_vent_in"
 	external_pressure_bound = 0
 	external_pressure_bound_default = 0
-	internal_pressure_bound = 2000
-	internal_pressure_bound_default = 2000
+	internal_pressure_bound = PRESSURE_ONE_THOUSAND * 2
+	internal_pressure_bound_default = PRESSURE_ONE_THOUSAND * 2
 	pressure_checks = 2
 	pressure_checks_default = 2
 
@@ -119,16 +119,16 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume
 	name = "Large Air Vent"
 	power_channel = EQUIP
-	power_rating = 15000	//15 kW ~ 20 HP
+	power_rating = 45000	//45 kW ~ 60 HP
 
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/Initialize()
 	. = ..()
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 800
 
 /obj/machinery/atmospherics/unary/vent_pump/engine
-	name = "Engine Core Vent"
+	name = "Reactor Core Vent"
 	power_channel = ENVIRON
-	power_rating = 30000	//15 kW ~ 20 HP
+	power_rating = 30000	//30 kW ~ 40 HP
 
 /obj/machinery/atmospherics/unary/vent_pump/engine/Initialize()
 	. = ..()
@@ -198,6 +198,8 @@
 		update_use_power(POWER_USE_OFF)
 	if(!can_pump())
 		return 0
+
+	if(!loc) return FALSE
 
 	var/datum/gas_mixture/environment = loc.return_air()
 
@@ -327,7 +329,7 @@
 			internal_pressure_bound = between(
 				0,
 				text2num(signal.data["set_internal_pressure"]),
-				ONE_ATMOSPHERE*50
+				MAX_VENT_PRESSURE
 			)
 
 	if(signal.data["set_external_pressure"] != null)
@@ -337,14 +339,14 @@
 			external_pressure_bound = between(
 				0,
 				text2num(signal.data["set_external_pressure"]),
-				ONE_ATMOSPHERE*50
+				MAX_VENT_PRESSURE
 			)
 
 	if(signal.data["adjust_internal_pressure"] != null)
 		internal_pressure_bound = between(
 			0,
 			internal_pressure_bound + text2num(signal.data["adjust_internal_pressure"]),
-			ONE_ATMOSPHERE*50
+			MAX_VENT_PRESSURE
 		)
 
 	if(signal.data["adjust_external_pressure"] != null)
@@ -353,7 +355,7 @@
 		external_pressure_bound = between(
 			0,
 			external_pressure_bound + text2num(signal.data["adjust_external_pressure"]),
-			ONE_ATMOSPHERE*50
+			MAX_VENT_PRESSURE
 		)
 
 	if(signal.data["init"] != null)
@@ -435,8 +437,9 @@
 		to_chat(user, SPAN_WARNING("You must remove the plating first."))
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
+	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
+	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE

@@ -113,6 +113,7 @@
 	if(wasoff != (stat & POWEROFF))
 		activation_message(user)
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
+	cooking = use_power
 	update_icon()
 
 /obj/machinery/appliance/cooker/proc/activation_message(var/mob/user)
@@ -130,6 +131,7 @@
 	overlays += light
 
 /obj/machinery/appliance/cooker/process()
+	if (!loc) return FALSE
 	var/datum/gas_mixture/loc_air = loc.return_air()
 	if (stat || (use_power != 2)) // if we're not actively heating
 		temperature -= min(loss, temperature - loc_air.temperature)

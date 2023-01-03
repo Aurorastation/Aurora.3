@@ -95,7 +95,7 @@
 	new /obj/item/device/flashlight/pen(src)
 	new /obj/item/clothing/accessory/stethoscope(src)
 	new /obj/item/storage/belt/medical/first_responder(src)
-	new /obj/item/device/gps(src)
+	new /obj/item/device/gps/medical(src)
 	new /obj/item/reagent_containers/hypospray(src)
 	new /obj/item/taperoll/medical(src)
 	new /obj/item/device/radio/med(src)
@@ -108,7 +108,6 @@
 	new /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng(src)
 	new /obj/item/clothing/suit/storage/toggle/fr_jacket/pmc(src)
 
-
 /obj/structure/closet/secure_closet/CMO
 	name = "chief medical officer's locker"
 	req_access = list(access_cmo)
@@ -120,8 +119,6 @@
 	else
 		new /obj/item/storage/backpack/satchel/med(src)
 	new /obj/item/storage/backpack/duffel/med(src)
-	new /obj/item/clothing/suit/bio_suit/cmo(src)
-	new /obj/item/clothing/head/bio_hood/cmo(src)
 	new /obj/item/clothing/shoes/medical(src)
 	new /obj/item/clothing/under/rank/chief_medical_officer(src)
 	new /obj/item/clothing/gloves/latex/nitrile(src)
@@ -137,6 +134,7 @@
 	new /obj/item/storage/box/fancy/keypouch/med(src)
 	new /obj/item/device/advanced_healthanalyzer(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
+	new /obj/item/clothing/accessory/holster/waist(src)
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"
@@ -158,11 +156,9 @@
 	new /obj/item/clothing/shoes/brown	(src)
 	new /obj/item/device/radio/headset/heads/cmo(src)
 
-
 /obj/structure/closet/secure_closet/animal
 	name = "animal control closet"
 	req_access = list(access_surgery)
-
 
 /obj/structure/closet/secure_closet/animal/fill()
 	..()
@@ -170,7 +166,6 @@
 	new /obj/item/device/radio/electropack(src)
 	new /obj/item/device/radio/electropack(src)
 	new /obj/item/device/radio/electropack(src)
-
 
 /obj/structure/closet/secure_closet/chemical
 	name = "chemistry equipment closet"
@@ -193,3 +188,19 @@
 	new /obj/item/storage/box/beakers(src)
 	new /obj/item/storage/bag/chemistry(src)
 	new /obj/item/storage/bag/chemistry(src)
+
+// Psychiatric
+/obj/structure/closet/secure_closet/psychiatric
+	name = "psychiatric supplies locker"
+	desc = "A psychiatric supplies locker."
+	icon_state = "med"
+	req_access = list(access_psychiatrist)
+
+/obj/structure/closet/secure_closet/psychiatric/fill()
+	..()
+	new /obj/item/clothing/suit/straight_jacket(src)
+	new /obj/item/reagent_containers/food/drinks/teapot(src)
+	new /obj/item/toy/plushie/therapy(src)
+	new /obj/item/toy/plushie/slime(src)
+	new /obj/item/toy/plushie/bee(src)
+	new /obj/item/device/flashlight/pen(src)

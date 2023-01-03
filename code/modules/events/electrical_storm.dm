@@ -31,8 +31,10 @@
 	..()
 	valid_apcs = list()
 	for(var/obj/machinery/power/apc/A in SSmachinery.machinery)
-		if(A.z in affecting_z)
+		if(A.z in affecting_z && !A.is_critical)
 			valid_apcs.Add(A)
+	if(!valid_apcs.len)
+		kill(TRUE)
 	endWhen = (severity * 60) + startWhen
 
 /datum/event/electrical_storm/tick()
@@ -57,11 +59,7 @@
 			T.emagged = 1
 			T.update_icon()
 
-		if(T.is_critical)
-			T.energy_fail(10 * severity)
-			continue
-		else
-			T.energy_fail(10 * severity * rand(severity * 2, severity * 4))
+		T.energy_fail(10 * severity * rand(severity * 2, severity * 4))
 
 		// Very tiny chance to completely break the APC. Has a check to ensure we don't break critical APCs such as the Engine room, or AI core. Does not occur on Mundane severity.
 		if(prob((0.2 * severity) - 0.2))

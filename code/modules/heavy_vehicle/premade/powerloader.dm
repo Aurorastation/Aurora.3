@@ -18,6 +18,13 @@
 /mob/living/heavy_vehicle/premade/ripley/cargo
 	h_back = /obj/item/mecha_equipment/autolathe
 
+/mob/living/heavy_vehicle/premade/ripley/loader
+	h_l_hand = /obj/item/mecha_equipment/clamp
+
+/mob/living/heavy_vehicle/premade/ripley/loader/sol
+	name = "solarian powerloader"
+	e_color = COLOR_DARK_GREEN_GRAY
+
 /mob/living/heavy_vehicle/premade/ripley/janitorial
 	name = "janitorial power loader"
 	desc = "A standard cargo-handling power loader converted into a cleaning machine."
@@ -124,6 +131,10 @@
 	..()
 	software = new(src)
 	software.installed_software = list(MECH_SOFTWARE_UTILITY, MECH_SOFTWARE_ENGINEERING)
+
+/mob/living/heavy_vehicle/premade/firefighter/sol
+	name = "solarian firefighting exosuit"
+	e_color = COLOR_DARK_GREEN_GRAY
 
 /mob/living/heavy_vehicle/premade/combatripley
 	name = "combat APLU \"Ripley\""

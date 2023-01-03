@@ -23,6 +23,10 @@ Possible to do for anyone motivated enough:
  * Holopad
  */
 
+#define CAN_HEAR_MASTERS (1<<0)
+#define CAN_HEAR_ACTIVE_HOLOCALLS (1<<1)
+#define CAN_HEAR_ALL_FLAGS (CAN_HEAR_MASTERS|CAN_HEAR_ACTIVE_HOLOCALLS)
+
 #define HOLOPAD_PASSIVE_POWER_USAGE 1
 #define HOLOGRAM_POWER_USAGE 2
 
@@ -58,6 +62,8 @@ Possible to do for anyone motivated enough:
 
 	var/list/linked_pdas = list()
 
+	var/can_hear_flags = NONE
+
 /obj/machinery/hologram/holopad/Initialize()
 	. = ..()
 
@@ -68,7 +74,6 @@ Possible to do for anyone motivated enough:
 	desc += " Its ID is '[holopad_id]'"
 
 	SSmachinery.all_holopads += src
-	listening_objects += src
 
 	light_color = long_range ? rgb(225, 173, 125) : rgb(125, 180, 225)
 
@@ -173,6 +178,33 @@ Possible to do for anyone motivated enough:
 
 	SSvueui.close_user_uis(usr, src)
 
+//setters
+/**
+ * setter for can_hear_flags. handles adding or removing the given flag on can_hear_flags and then adding hearing sensitivity or removing it depending on the final state
+ * this is necessary because holopads are a significant fraction of the hearable atoms on station which increases the cost of procs that iterate through hearables
+ * so we need holopads to not be hearable until it is needed
+ *
+ * * flag - one of the can_hear_flags flag defines
+ * * set_flag - boolean, if TRUE sets can_hear_flags to that flag and might add hearing sensitivity if can_hear_flags was NONE before,
+ * if FALSE unsets the flag and possibly removes hearing sensitivity
+ */
+/obj/machinery/hologram/holopad/proc/set_can_hear_flags(flag, set_flag = TRUE)
+	if(!(flag & CAN_HEAR_ALL_FLAGS))
+		return FALSE //the given flag doesnt exist
+
+	if(set_flag)
+		if(can_hear_flags == NONE)//we couldnt hear before, so become hearing sensitive
+			become_hearing_sensitive()
+
+		can_hear_flags |= flag
+		return TRUE
+
+	else
+		can_hear_flags &= ~flag
+		if(can_hear_flags == NONE)
+			lose_hearing_sensitivity()
+
+		return TRUE
 
 /obj/machinery/hologram/holopad/proc/make_call(var/obj/machinery/hologram/holopad/connected_pad, var/mob/user, forced_call)
 	connected_pad.last_request = world.time
@@ -216,6 +248,7 @@ Possible to do for anyone motivated enough:
 	connected_pad.clear_holos(FALSE)
 	connected_pad.connected_pad = null
 	clear_holos(FALSE)
+	set_can_hear_flags(CAN_HEAR_ACTIVE_HOLOCALLS, FALSE)
 	established_connection = FALSE
 	connected_pad.established_connection = FALSE
 	connected_pad.update_icon()
@@ -330,9 +363,12 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 /obj/machinery/hologram/holopad/proc/create_holo(mob/M)
 	var/obj/effect/overlay/hologram/H = new(get_turf(src))
+	if(isAI(M))
+		set_can_hear_flags(CAN_HEAR_MASTERS)
 	if(!isAI(M) && connected_pad)
 		H.x = src.x - (connected_pad.x - M.x)
 		H.y = src.y - (connected_pad.y - M.y)
+		set_can_hear_flags(CAN_HEAR_ACTIVE_HOLOCALLS)
 	if(!isInSight(H, src))
 		qdel(H)
 		return
@@ -359,6 +395,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	for(var/M in active_holograms)
 		if(!clear_ai && isAI(M))
 			continue
+		else if(isAI(M))
+			set_can_hear_flags(CAN_HEAR_MASTERS, FALSE)
 		clear_holo(M)
 
 /obj/machinery/hologram/holopad/proc/clear_holo(var/mob/M)
@@ -442,8 +480,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/long_range/can_connect(var/obj/machinery/hologram/holopad/HP)
 	if(HP.long_range != long_range)
 		return FALSE
-	if(AreConnectedZLevels(HP.z, z))
-		return FALSE
 	if(current_map.use_overmap)
 		if(!linked || !HP.linked)
 			return FALSE
@@ -483,7 +519,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(connected_pad)
 		end_call()
 	clear_holos(TRUE)
-	listening_objects -= src
 	SSmachinery.all_holopads -= src
 	linked_pdas.Cut()
 	return ..()
@@ -508,3 +543,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 #undef HOLOPAD_PASSIVE_POWER_USAGE
 #undef HOLOGRAM_POWER_USAGE
+#undef CAN_HEAR_MASTERS
+#undef CAN_HEAR_ACTIVE_HOLOCALLS
+#undef CAN_HEAR_ALL_FLAGS

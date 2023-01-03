@@ -46,7 +46,7 @@
 		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
 		return
 
-	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
+	if ( ((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		if(!H.eyes_protected(src, FALSE))
 			eyestab(H,user)
@@ -186,6 +186,17 @@
 /obj/item/reagent_containers/inhaler/hyperzine/Initialize()
 	. =..()
 	reagents.add_reagent(/decl/reagent/hyperzine, volume)
+	update_icon()
+	return
+
+/obj/item/reagent_containers/inhaler/xuxigas
+	name_label = "xu'xi gas"
+	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains xu'xi gas."
+	flags = 0
+
+/obj/item/reagent_containers/inhaler/xuxigas/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/xuxigas, volume)
 	update_icon()
 	return
 

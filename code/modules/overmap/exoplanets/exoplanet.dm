@@ -34,7 +34,7 @@
 	var/repopulate_types = list() // animals which have died that may come back
 
 	var/list/possible_themes = list(/datum/exoplanet_theme)
-	var/list/themes = list()
+	var/datum/exoplanet_theme/theme
 
 	var/list/map_generators = list()
 
@@ -48,6 +48,8 @@
 	var/habitability_class
 
 	var/list/mobs_to_tolerate = list()
+
+	var/list/possible_random_ruins
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
 	var/roll = rand(1,100)
@@ -71,18 +73,19 @@
 
 	world.maxz++
 	forceMove(locate(1,1,world.maxz))
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
 	if(LAZYLEN(possible_themes))
 		var/datum/exoplanet_theme/T = pick(possible_themes)
-		themes += new T
-
-	for(var/T in subtypesof(/datum/map_template/ruin/exoplanet))
-		var/datum/map_template/ruin/exoplanet/ruin = T
-		if(ruin_tags_whitelist && !(ruin_tags_whitelist & initial(ruin.ruin_tags)))
-			continue
-		if(ruin_tags_blacklist & initial(ruin.ruin_tags))
-			continue
-		possible_features += new ruin
+		theme = new T
+	if(possible_random_ruins)
+		for(var/T in possible_random_ruins)
+			var/datum/map_template/ruin/exoplanet/ruin = T
+			if(ruin_tags_whitelist && !(ruin_tags_whitelist & initial(ruin.ruin_tags)))
+				continue
+			if(ruin_tags_blacklist & initial(ruin.ruin_tags))
+				continue
+			possible_features += new ruin
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()
@@ -172,8 +175,9 @@
 		if(length(grasscolors))
 			grass_color = pick(grasscolors)
 
-	for(var/datum/exoplanet_theme/T as anything in themes)
-		T.before_map_generation(src)
+	if(istype(theme))
+		theme.before_map_generation(src)
+
 	for (var/zlevel in map_z)
 		var/list/edges
 		edges += block(locate(1, 1, zlevel), locate(TRANSITIONEDGE, maxy, zlevel))
@@ -185,7 +189,7 @@
 		var/padding = TRANSITIONEDGE
 		for (var/map_type in map_generators)
 			if (ispath(map_type, /datum/random_map/noise/exoplanet))
-				new map_type(null,padding,padding,zlevel,maxx-padding,maxy-padding,0,1,1,planetary_area, plant_colors)
+				new map_type(null,padding,padding,zlevel,maxx-padding,maxy-padding,0,1,1,planetary_area, plant_colors, theme)
 			else
 				new map_type(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area)
 
@@ -227,6 +231,7 @@
 	S.set_trait(TRAIT_HEAT_TOLERANCE,      S.get_trait(TRAIT_HEAT_TOLERANCE) + rand(-5,5),800,70)
 	S.set_trait(TRAIT_LOWKPA_TOLERANCE,    atmosphere.return_pressure() + rand(-5,-50),80,0)
 	S.set_trait(TRAIT_HIGHKPA_TOLERANCE,   atmosphere.return_pressure() + rand(5,50),500,110)
+	S.set_trait(TRAIT_SPREAD,0)
 	if(S.exude_gasses)
 		S.exude_gasses -= badgas
 	if(atmosphere)

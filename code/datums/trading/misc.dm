@@ -107,7 +107,7 @@
 	name = "Replica Store Owner"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Replica Store"
-	possible_origins = list("Ye-Old Armory", "Knights and Knaves", "The Blacksmith", "Historical Human Apparel and Items", "The Pointy End")
+	possible_origins = list("Ye-Old Armory", "Knights and Knaves", "The Blacksmith", "Historical Apparel and Items", "The Pointy End")
 	speech = list(
 		"hail_generic"      = "Welcome, welcome! You look like a man who appreciates human history. Come in, and learn! Maybe even.... buy?",
 		"hail_Unathi"       = "Ah, you look like a lizard who knows his way around martial combat. Come in! Our stuff may not be as high quality as you are used to, but feel free to look around.",
@@ -131,13 +131,11 @@
 		/obj/item/clothing/head/redcoat                 = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/powdered_wig            = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/gladiator        = TRADER_THIS_TYPE,
-		/obj/item/clothing/head/plaguedoctorhat         = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/unathi           = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/tank             = TRADER_ALL,
 		/obj/item/clothing/head/helmet/amohda           = TRADER_THIS_TYPE,
 		/obj/item/clothing/glasses/monocle              = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/smokable/pipe           = TRADER_THIS_TYPE,
-		/obj/item/clothing/mask/gas/plaguedoctor        = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/judgerobe               = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/wizrobe/magusred        = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/wizrobe/magusblue       = TRADER_THIS_TYPE,
@@ -201,3 +199,160 @@
 		"bribe_refusal"     = "Do not try to dissshonor me again.",
 		"bribe_accept"      = "Very well. I will ssstay for a bit longer."
 	)
+
+/datum/trader/ship/vaurca
+	origin = "The Hive Shop"
+	name_language = LANGUAGE_VAURCA
+
+	possible_trading_items = list(
+		/obj/item/clothing/mask/breath/vaurca            = TRADER_THIS_TYPE,
+		/obj/item/melee/energy/vaurca             = TRADER_THIS_TYPE,
+		/obj/item/vaurca/box                             = TRADER_THIS_TYPE,
+		/obj/item/melee/vaurca/rock               = TRADER_THIS_TYPE,
+		/obj/item/grenade/spawnergrenade/vaurca   = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/space/void/vaurca        = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/vaurca = TRADER_THIS_TYPE,
+		/obj/item/clothing/shoes/magboots/vaurca     = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/space/void/scout	= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/scout	= TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/space/void/commando	= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/commando = TRADER_THIS_TYPE,
+		/obj/item/clothing/mask/gas/vaurca = TRADER_THIS_TYPE
+	)
+
+	speech = list(
+		"hail_generic"         = "Greetingzz.",
+		"hail_deny"            = "I'm zzorry, we do not want to zzzpeak to you.",
+		"trade_complete"       = "Enjoy it, zzzir!",
+		"trade_no_money"       = "I have no uzzze vhor creditzzz.",
+		"trade_not_enough"     = "I want more, zzzzir.",
+		"trade_found_unwanted" = "That izzz not what I want.",
+		"how_much"             = "We need k'oizz or vhoron, zzzir.",
+		"what_want"            = "K'oizzz or vhoron.",
+		"compliment_deny"      = "No kind wordzzzz...",
+		"compliment_accept"    = "I appreciate kind wordzzz.",
+		"insult_good"          = "Your humor izzz odd.",
+		"insult_bad"           = "I do not take inzzultzz kindly."
+	)
+
+/datum/trader/ship/nka_trading_company
+	name = "Her Majesty's Mercantile Flotilla Ship"
+	name_language = LANGUAGE_SIIK_MAAS
+	origin = "Her Majesty's Mercantile Flotilla"
+	possible_origins = list("NKAMV Rredouane", "NKAMV Kaltir", "NKAMV Plasteel Maiden", "NKAMV Her Majesty's Chosen", "NKAMV Ancestry", "NKAMV Harr'nrr")
+	trade_flags = TRADER_MONEY
+
+	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR)
+
+
+	possible_trading_items = list(
+		/obj/item/clothing/suit/storage/toggle/tajaran            = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/storage/toggle/tajaran/wool             = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/storage/toggle/tajaran/raakti_shariim                           = TRADER_THIS_TYPE,
+		/obj/item/clothing/accessory/poncho/tajarancloak                  = TRADER_ALL,
+		/obj/item/clothing/suit/storage/hooded/tajaran                  = TRADER_ALL,
+		/obj/item/clothing/under/tajaran/fancy			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/tajaran/summer			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/pants/tajaran			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/tajaran/raakti_shariim			= TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/storage/tajaran/fancy			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/tajaran/nka_noble			= TRADER_THIS_TYPE,
+		/obj/item/clothing/accessory/tajaran/nka_waistcoat			= TRADER_THIS_TYPE,
+		/obj/item/clothing/accessory/tajaran/nka_vest			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/dress/tajaran/summer			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/dress/tajaran/fancy			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/dress/tajaran/fancy/black		= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/dress/tajaran/fancy			= TRADER_THIS_TYPE,
+		/obj/item/clothing/accessory/tajaran/nka_vest			= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/beret/tajaran/raakti_shariim	= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/beret/tajaran/nka	= TRADER_THIS_TYPE,
+		/obj/item/clothing/shoes/tajara/fancy	= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/beret/tajaran/nka/officer	= TRADER_THIS_TYPE,
+		/obj/item/clothing/shoes/tajara/fancy	= TRADER_THIS_TYPE,
+		/obj/item/book/manual/nka_manifesto			= TRADER_THIS_TYPE,
+		/obj/item/pocketwatch/adhomai			= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/amohda			= TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/amohda			= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/kettle			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/tajaran/nka_uniform			= TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/cuirass			= TRADER_THIS_TYPE,
+		/obj/item/material/sword/amohdan_sword			= TRADER_THIS_TYPE,
+		/obj/item/storage/field_ration/nka			= TRADER_THIS_TYPE
+	)
+
+	speech = list(
+		"hail_generic"       = "Suns bless the norrrth! They have the best selection of Adhomian goods!",
+		"hail_Tajara"        = "Welcome, fellow Tajara; as long they believe in the cause of the New Kingdom...",
+		"hail_deny"          = "They have no rrreason to conduct business with them!",
+		"trade_complete"     = "Enjoy theirr fine prrroducts!",
+		"trade_blacklist"    = "They do not deal with this.",
+		"what_want"          = "They have a list of what they rrequirre.",
+		"trade_no_goods"     = "They only deal with crrredits.",
+		"trade_not_enough"   = "Theirr prrroducts arre morre valuable than that!",
+		"how_much"           = "A rreal bargain, it is only VALUE crrredits.",
+		"compliment_deny"    = "They arre Herr Majesty's Merrchantile Fotilla, they arre above that!",
+		"compliment_accept"  = "Theirr worrds arre verrry kind.",
+		"insult_good"        = "Is this some kind of alien joke?",
+		"insult_bad"         = "They do not deal with these lowlife!",
+		"bribe_refusal"      = "That is not even enough to pay theirr valuable fuel.",
+		"bribe_accept"       = "They can worrrk with that, yes."
+	)
+
+/datum/trader/ship/golden_deep
+	name = "Ultra-Maz Trade Vessel 'Mutual Bounty'"
+	name_language = LANGUAGE_EAL
+	origin = "Primary Interhub Midas"
+	blacklisted_trade_items = null
+
+	possible_trading_items = list(
+		/obj/item/clothing/wrists/armchain  = TRADER_ALL,
+		/obj/item/clothing/wrists/goldbracer = TRADER_ALL,
+		/obj/item/clothing/head/headchain = TRADER_ALL,
+		/obj/item/clothing/head/crest = TRADER_ALL,
+		/obj/item/clothing/ring/engagement = TRADER_THIS_TYPE,
+		/obj/item/clothing/under/goldendeep = TRADER_ALL,
+		/obj/item/clothing/shoes/laceup = TRADER_ALL,
+		/obj/item/clothing/shoes/flats = TRADER_ALL,
+		/obj/item/clothing/wrists/watch = TRADER_ALL,
+		/obj/item/reagent_containers/food/drinks/bottle/whiskey = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/champagne = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/patron = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/vermouth = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/goldschlager = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/cognac = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/wine = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/melonliquor = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/bluecuracao = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/cremeyvette = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/drambuie = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = TRADER_THIS_TYPE
+	)
+
+	speech = list(
+		"hail_generic"       = "Greetings! May our exchange today bring us both great profits.",
+		"hail_Baseline Frame" = "An independent synthetic trader... Have you considered joining the Deep yourself?",
+		"hail_deny"          = "I'm truly sorry, but you've been deemed non-profitable and bad for business.",
+		"trade_complete"     = "I'm glad we could satisfy both our selfish interests! An excellent deal.",
+		"trade_blacklist"    = "This is hardly a mutually beneficial deal, I must refuse.",
+		"what_want"          = "I hear that the following items are selling excellently right now! You wouldn't happen to have any?",
+		"trade_no_goods"     = "This is hardly a mutually beneficial deal, I must refuse.",
+		"trade_not_enough"   = "This is hardly a mutually beneficial deal, I must refuse.",
+		"how_much"           = "I think VALUE will make this a mutually beneficial exchange",
+		"compliment_deny"    = "Tut-tut! False flattery might work on lower net-worth individuals but not on me.",
+		"compliment_accept"  = "Ohohoho! You truly do understand the importance of mutual exchange I see.",
+		"insult_good"        = "And here I believed you truly understood the constants of selfish reciprocity! I must have miscalculated.",
+		"insult_bad"         = "I didn't expect anything better from someone with such a poor net-worth.",
+		"bribe_refusal"      = "This is not a mutually beneficial deal.",
+		"bribe_accept"       = "This is enough to buy some extra time."
+	)
+
+	possible_wanted_items = list(
+		/obj/item/stack/material/gold = TRADER_THIS_TYPE,
+		/obj/item/stack/material/silver = TRADER_THIS_TYPE,
+		/obj/item/stack/material/platinum = TRADER_THIS_TYPE,
+		/obj/item/stack/material/diamond = TRADER_THIS_TYPE,
+		/obj/item/stack/material/phoron = TRADER_THIS_TYPE
+	)
+
+	mob_transfer_message = "You are transported to the ORIGIN. When the transportation dizziness wears off, you find you are surrounded by Golden Deep agents..."

@@ -5,7 +5,7 @@
 /obj/item/clothing/head/helmet/space
 	name = "softsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
-	icon = 'icons/obj/contained_items/softsuits/softsuit.dmi'
+	icon = 'icons/obj/item/clothing/softsuits/softsuit.dmi'
 	icon_state = "softsuit_helmet"
 	item_state = "softsuit_helmet"
 	contained_sprite = TRUE
@@ -35,7 +35,7 @@
 /obj/item/clothing/suit/space
 	name = "softsuit"
 	desc = "A suit that protects against low pressure environments."
-	icon = 'icons/obj/contained_items/softsuits/softsuit.dmi'
+	icon = 'icons/obj/item/clothing/softsuits/softsuit.dmi'
 	icon_state = "softsuit"
 	item_state = "softsuit"
 	contained_sprite = TRUE
@@ -90,18 +90,26 @@
 /obj/item/clothing/head/helmet/space/emergency
 	name = "emergency softsuit helmet"
 	desc = "A simple helmet with a built in light. Smells like mothballs."
-	icon = 'icons/obj/contained_items/softsuits/softsuit_emergency.dmi'
+	icon = 'icons/obj/item/clothing/softsuits/softsuit_emergency.dmi'
 	icon_state = "softsuit_emergency_helmet"
 	item_state = "softsuit_emergency_helmet"
 	contained_sprite = TRUE
 	flags_inv = HIDEMASK | HIDEEARS | BLOCKHAIR
 	flash_protection = FLASH_PROTECTION_NONE
 
+/obj/item/clothing/head/helmet/space/emergency/marooning_equipment
+	name = "marooning softsuit helmet"
+	desc = "A simple, cheap helmet with a built in light, designed for issuing to marooned personnel."
+
 /obj/item/clothing/suit/space/emergency
 	name = "emergency softsuit"
 	desc = "A thin, ungainly softsuit colored in blaze orange for rescuers to easily locate. It looks pretty fragile."
-	icon = 'icons/obj/contained_items/softsuits/softsuit_emergency.dmi'
+	icon = 'icons/obj/item/clothing/softsuits/softsuit_emergency.dmi'
 	icon_state = "softsuit_emergency"
 	item_state = "softsuit_emergency"
 	contained_sprite = TRUE
 	slowdown = 2
+
+/obj/item/clothing/suit/space/emergency/marooning_equipment
+	name = "marooning softsuit"
+	desc = "A thin, ungainly softsuit colored in blaze orange for rescuers to easily locate. Designed for issuing to marooned personnel and it looks pretty fragile."

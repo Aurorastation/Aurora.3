@@ -1,8 +1,5 @@
 /obj/item/organ/internal/parasite
 	name = "parasite"
-	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "burst_lie"
-	dead_icon = "bursted_lie"
 
 	organ_tag = "parasite"
 	var/stage = 1
@@ -223,10 +220,10 @@
 	..()
 
 /obj/item/organ/internal/parasite/zombie
-	name = "black tumor"
-	icon = 'icons/obj/surgery.dmi'
-	icon_state = "blacktumor"
-	dead_icon = "blacktumor"
+	name = "black tumour"
+	icon = 'icons/obj/organs/organs.dmi'
+	icon_state = "black_tumour"
+	dead_icon = "black_tumour"
 
 	organ_tag = BP_ZOMBIE_PARASITE
 	parent_organ = BP_HEAD

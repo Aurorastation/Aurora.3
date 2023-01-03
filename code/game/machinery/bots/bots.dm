@@ -15,6 +15,14 @@
 	var/locked = 1
 	//var/emagged = 0 //Urist: Moving that var to the general /bot tree as it's used by most bots
 
+/obj/machinery/bot/Initialize(mapload, d, populate_components, is_internal)
+	. = ..()
+	add_to_target_grid()
+
+/obj/machinery/bot/Destroy()
+	clear_from_target_grid()
+	return ..()
+
 /obj/machinery/bot/proc/turn_on()
 	if(stat)	return 0
 	on = 1

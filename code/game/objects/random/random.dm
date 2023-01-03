@@ -206,7 +206,8 @@
 		/obj/item/seeds/ambrosiadeusseed = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
-		/obj/item/reagent_containers/inhaler/space_drugs = 2
+		/obj/item/reagent_containers/inhaler/space_drugs = 2,
+		/obj/item/reagent_containers/inhaler/xuxigas = 1
 	)
 
 /obj/random/smokable
@@ -434,7 +435,7 @@
 		/obj/item/storage/backpack/cloak = 2,
 		/obj/item/storage/backpack/syndie = 1,
 		/obj/item/storage/backpack/satchel = 3,
-		/obj/item/storage/backpack/satchel/norm = 3,
+		/obj/item/storage/backpack/satchel/leather = 3,
 		/obj/item/storage/backpack/satchel/eng = 3,
 		/obj/item/storage/backpack/satchel/med = 3,
 		/obj/item/storage/backpack/satchel/pharm = 3,
@@ -897,6 +898,24 @@
 		/obj/item/clothing/under/color/darkred
 	)
 
+/obj/random/suit
+	name = "random suit"
+	desc = "This is a random suit."
+	icon = 'icons/obj/clothing/uniforms.dmi'
+	icon_state = "checkered_suit"
+	spawnlist = list(
+		/obj/item/clothing/under/suit_jacket/charcoal,
+		/obj/item/clothing/under/suit_jacket/navy,
+		/obj/item/clothing/under/suit_jacket/burgundy,
+		/obj/item/clothing/under/suit_jacket/checkered,
+		/obj/item/clothing/under/suit_jacket/tan,
+		/obj/item/clothing/under/sl_suit,
+		/obj/item/clothing/under/suit_jacket,
+		/obj/item/clothing/under/suit_jacket/really_black,
+		/obj/item/clothing/under/suit_jacket/red,
+		/obj/item/clothing/under/suit_jacket/white
+	)
+
 /obj/random/loot
 	name = "random maintenance loot items"
 	desc = "Stuff for the maint-dwellers."
@@ -914,7 +933,6 @@
 		/obj/item/clothing/head/hardhat = 1.2,
 		/obj/item/clothing/head/helmet/augment = 0.1,
 		/obj/item/clothing/head/pirate = 0.2,
-		/obj/item/clothing/head/plaguedoctorhat = 0.3,
 		/obj/item/clothing/head/pumpkin/lantern = 0.4,
 		/obj/item/clothing/head/redcoat = 0.2,
 		/obj/item/clothing/head/richard = 0.3,
@@ -944,7 +962,7 @@
 		/obj/item/clothing/shoes/galoshes = 0.6,
 		/obj/item/clothing/shoes/jackboots = 0.5,
 		/obj/item/clothing/shoes/rainbow = 0.5,
-		/obj/item/clothing/shoes/slippers_worn = 0.5,
+		/obj/item/clothing/shoes/slippers/worn = 0.5,
 		/obj/item/clothing/shoes/winter = 0.3,
 		/obj/item/clothing/shoes/workboots = 0.75,
 		/obj/item/clothing/suit/ianshirt = 0.5,
@@ -1134,7 +1152,7 @@
 /obj/random/hoodie
 	name = "random winter coat"
 	desc = "This is a random winter coat."
-	icon = 'icons/obj/hoodies.dmi'
+	icon = 'icons/obj/clothing/hoodies.dmi'
 	icon_state = "coatwinter"
 	problist = list(
 		/obj/item/clothing/suit/storage/hooded/wintercoat = 5,
@@ -1236,7 +1254,7 @@
 		/obj/item/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/rig/military = 0.5,
 		/obj/item/rig/unathi/fancy = 0.5,
-		/obj/item/rig/vaurca/minimal = 0.5,
+		/obj/item/rig/vaurca = 0.5,
 		/obj/item/anomaly_core = 0.5,
 		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = 0.1
 	)
@@ -1250,6 +1268,7 @@
 		/obj/item/anomaly_core = 0.5,
 		/obj/item/rig/military = 0.2,
 		/obj/item/rig/unathi/fancy = 0.2,
+		/obj/item/rig/vaurca = 0.2,
 		/obj/item/stack/material/phoron/full = 0.1,
 		/obj/item/stack/material/plasteel/full = 0.8,
 		/obj/random/voidsuit = 1,
@@ -1259,6 +1278,12 @@
 		/obj/item/device/personal_shield = 0.1,
 		/obj/item/storage/secure/briefcase/money = 0.1
 		)
+
+/obj/random/highvalue/cash
+	problist = list(
+	/obj/item/storage/secure/briefcase/money = 1,
+	/obj/item/stack/material/phoron/full = 0.1
+	)
 
 /obj/random/junk
 	name = "random trash"
@@ -1650,8 +1675,8 @@
 		/obj/item/flag/hegemony/l,
 		/obj/item/flag/heph,
 		/obj/item/flag/heph/l,
-		/obj/item/flag/jargon,
-		/obj/item/flag/jargon/l,
+		/obj/item/flag/nralakk,
+		/obj/item/flag/nralakk/l,
 		/obj/item/flag/nanotrasen,
 		/obj/item/flag/nanotrasen/l,
 		/obj/item/flag/nka,
@@ -1671,7 +1696,7 @@
 /obj/random/gift
 	name = "random gift"
 	desc = "Contains a randomly sized gift."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "gift1"
 	spawnlist = list(
 		/obj/item/xmasgift = 0.5,
@@ -1934,3 +1959,87 @@
 /obj/random/wizard_dressup/post_spawn(obj/thing)
 	var/obj/item/clothing/head/wizard/H = pick(typesof(/obj/item/clothing/head/wizard))
 	new H(loc)
+
+/obj/random/civgun
+	name = "random civilian handgun"
+	desc = "This is a random civilian gun."
+	icon = 'icons/obj/guns/xenoblaster.dmi'
+	icon_state = "random"
+	has_postspawn = TRUE
+	spawnlist = list(
+		/obj/item/gun/projectile/leyon,
+		/obj/item/gun/energy/blaster,
+		/obj/item/gun/energy/pistol,
+		/obj/item/gun/projectile/revolver/detective,
+		/obj/item/gun/projectile/sec/lethal,
+		/obj/item/gun/projectile/colt,
+		/obj/item/gun/projectile/pistol,
+		/obj/item/gun/projectile/pistol/detective,
+		/obj/item/gun/projectile/pistol/adhomai,
+		/obj/item/gun/projectile/pistol/sol,
+		/obj/item/gun/energy/blaster/revolver,
+		/obj/item/gun/projectile/revolver/lemat,
+		/obj/item/gun/projectile/tanto,
+		/obj/item/gun/projectile/automatic/x9,
+		/obj/item/gun/energy/disruptorpistol,
+		/obj/item/gun/energy/retro,
+	)
+
+/obj/random/civgun/post_spawn(var/obj/item/gun/projectile/spawned)
+	if(istype(spawned, /obj/item/gun/energy))
+		return
+
+	else if(istype(spawned, /obj/item/gun/projectile))
+		if(spawned.magazine_type)
+			var/obj/item/ammo_magazine/am = spawned.magazine_type
+			new am(spawned.loc)
+			new am(spawned.loc)
+		else if(istype(spawned, /obj/item/gun/projectile/shotgun) && spawned.caliber == "shotgun")
+			if(istype(spawned.loc, /obj/item/storage/box))
+				spawned.loc.icon_state = "largebox"
+			var/obj/item/storage/box/b = new /obj/item/storage/box(spawned.loc)
+			for(var/i = 0; i < 8; i++)
+				new spawned.ammo_type(b)
+		else if(spawned.ammo_type)
+			var/list/provided_ammo = list()
+			for(var/i = 0; i < (spawned.max_shells * 2); i++)
+				provided_ammo += new spawned.ammo_type(spawned.loc)
+			if(provided_ammo.len)
+				new /obj/item/ammo_pile(spawned.loc, provided_ammo)
+
+/obj/random/civgun/rifle
+	name = "random civilian longarm"
+	desc = "This is a random civilian long gun."
+	icon = 'icons/obj/guns/xenoblaster.dmi'
+	icon_state = "random"
+	has_postspawn = TRUE
+	spawnlist = list(
+		/obj/item/gun/projectile/automatic/mini_uzi,
+		/obj/item/gun/projectile/automatic/c20r,
+		/obj/item/gun/projectile/automatic/wt550/lethal,
+		/obj/item/gun/projectile/automatic/rifle/carbine,
+		/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+		/obj/item/gun/projectile/automatic/tommygun,
+		/obj/item/gun/projectile/shotgun/pump/rifle,
+		/obj/item/gun/projectile/shotgun/pump/rifle/pipegun,
+		/obj/item/gun/projectile/shotgun/pump/rifle/obrez,
+		/obj/item/gun/projectile/contender,
+		/obj/item/gun/projectile/shotgun/pump/rifle/vintage,
+		/obj/item/gun/projectile/gauss,
+		/obj/item/gun/projectile/gauss/carbine,
+		/obj/item/gun/projectile/shotgun/pump,
+		/obj/item/gun/projectile/shotgun/doublebarrel,
+		/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
+		/obj/item/gun/projectile/shotgun/foldable,
+		/obj/item/gun/projectile/revolver,
+		/obj/item/gun/energy/blaster/carbine,
+		/obj/item/gun/energy/laser/shotgun,
+		/obj/item/gun/energy/rifle,
+		/obj/item/gun/energy/rifle/laser,
+		/obj/item/gun/energy/gun,
+		/obj/item/gun/custom_ka/frame04/illegal,
+		/obj/item/gun/projectile/automatic/lebman,
+		/obj/item/gun/projectile/pistol/super_heavy,
+		/obj/item/gun/projectile/deagle,
+		/obj/item/gun/custom_ka/frame01/illegal
+	)
