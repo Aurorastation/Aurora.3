@@ -761,7 +761,7 @@
 	M.adjustToxLoss(0.5 * removed)
 
 /decl/reagent/capsaicin/initial_effect(var/mob/living/carbon/M, var/alien)
-	if(M.species.origin_traits & ORIGIN_TRAIT_IGNORE_CAPSAICIN)
+	if(HAS_TRAIT(M, TRAIT_ORIGIN_IGNORE_CAPSAICIN))
 		return
 	to_chat(M, discomfort_message)
 
@@ -771,10 +771,11 @@
 		if(!H.can_feel_pain())
 			return
 
+		if(HAS_TRAIT(H, TRAIT_ORIGIN_IGNORE_CAPSAICIN))
+			return
+
 	if(M.chem_doses[type] >= agony_dose && prob(5))
 		to_chat(M, discomfort_message)
-		if(M.species.origin_traits & ORIGIN_TRAIT_IGNORE_CAPSAICIN)
-			return
 
 		M.visible_message("<b>[M]</b> [pick("dry heaves!", "coughs!", "splutters!")]")
 		M.apply_effect(agony_amount, PAIN, 0)

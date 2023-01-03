@@ -40,7 +40,7 @@
 	possible_accents = list(ACCENT_AEMAQ)
 	possible_citizenships = list(CITIZENSHIP_ELYRA)
 	possible_religions = RELIGIONS_ELYRA
-	origin_traits = ORIGIN_TRAIT_IGNORE_CAPSAICIN
+	origin_traits = list(TRAIT_ORIGIN_IGNORE_CAPSAICIN)
 
 /decl/origin_item/origin/new_suez
 	name = "New Suez"

@@ -1,3 +1,3 @@
-// A set of constants used to determine which origin quirks to apply to characters.
-#define ORIGIN_TRAIT_IGNORE_CAPSAICIN 1
-#define ORIGIN_TRAIT_ALCOHOL_RESISTANCE 2
+// A set of traits used to determine which origin quirks to apply to characters.
+#define TRAIT_ORIGIN_IGNORE_CAPSAICIN "ignore_capsaicin"
+#define TRAIT_ORIGIN_ALCOHOL_RESISTANCE "alcohol_resistance"

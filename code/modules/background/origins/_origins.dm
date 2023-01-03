@@ -15,5 +15,6 @@
     var/list/datum/accent/possible_accents = list()
     var/list/datum/citizenship/possible_citizenships = list()
     var/list/datum/religion/possible_religions = list()
+    var/list/origin_traits = list()
 
 /decl/origin_item/proc/on_apply(var/mob/living/carbon/human/H)
