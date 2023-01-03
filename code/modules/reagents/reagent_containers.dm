@@ -244,12 +244,20 @@
 			if(blocked)
 				to_chat(user, "<span class='warning'>\The [blocked] is in the way!</span>")
 				return
+			if(H.zone_sel.selecting == BP_MOUTH && H.a_intent == I_GRAB)
+				user.visible_message(SPAN_NOTICE("[user] starts chugging from \the [src]!"))
+				while(reagents.total_volume)
+					if(do_after(H, 1.5 SECONDS))
+						reagents.trans_to_mob(user, min(10,amount_per_transfer_from_this), CHEM_INGEST)
+						feed_sound(user)
+					else
+						return TRUE
 
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //puts a limit on how fast people can eat/drink things
 		self_feed_message(user)
 		reagents.trans_to_mob(user, min(10,amount_per_transfer_from_this), CHEM_INGEST) //A sane limiter. So you don't go drinking 300u all at once.
 		feed_sound(user)
-		return 1
+		return TRUE
 	else
 		if(istype(target, /mob/living/carbon/human))
 			H = target

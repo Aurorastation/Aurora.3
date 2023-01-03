@@ -151,6 +151,23 @@
 
 	return ..()
 
+/obj/structure/table/attack_hand(mob/user)
+	. = ..()
+	if(ishuman(user))
+		if(!use_check_and_message(user))
+			var/mob/living/carbon/human/H = user
+			if((H.zone_sel.selecting in list(BP_R_HAND, BP_L_HAND)))
+				if(H.last_special + 1 SECOND < world.time)
+					H.last_special = world.time
+					switch(H.a_intent)
+						if(I_GRAB)
+							H.visible_message(SPAN_NOTICE("[H] knocks on the table!"))
+							playsound(src, 'sound/effects/table_knock.ogg')
+						if(I_HURT)
+							H.do_attack_animation(src)
+							H.visible_message(SPAN_WARNING("[H] slams [H.get_pronoun("his")] hand on the table!"))
+							playsound(src, 'sound/effects/table_slam.ogg')
+
 /obj/structure/table/attackby(obj/item/W, mob/user, var/click_parameters)
 	if (!W)
 		return
