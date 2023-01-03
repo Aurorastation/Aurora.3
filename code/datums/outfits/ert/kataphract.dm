@@ -9,7 +9,7 @@
 	shoes = /obj/item/clothing/shoes/caligae/grey
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/pistol/hegemony = 1)
-	gloves = /obj/item/clothing/gloves/black/unathi
+	gloves = /obj/item/clothing/gloves/black
 	id = /obj/item/card/id/distress/kataphract
 	back = /obj/item/storage/backpack/satchel/hegemony
 

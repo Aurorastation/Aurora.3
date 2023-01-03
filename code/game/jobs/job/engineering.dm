@@ -48,6 +48,7 @@
 	id = /obj/item/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
 	r_pocket = /obj/item/device/t_scanner
+	gloves = /obj/item/clothing/gloves/black
 
 	headset = /obj/item/device/radio/headset/heads/ce
 	bowman = /obj/item/device/radio/headset/heads/ce/alt
@@ -62,15 +63,6 @@
 	satchel = /obj/item/storage/backpack/satchel/ce
 	dufflebag = /obj/item/storage/backpack/duffel/ce
 	messengerbag = /obj/item/storage/backpack/messenger/ce
-
-/datum/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 
 /datum/job/engineer
 	title = "Engineer"

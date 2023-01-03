@@ -11,7 +11,7 @@
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/clothing/under/rank/janitor(src)
 	new /obj/item/clothing/under/rank/janitor/idris(src)
-	new /obj/item/storage/box/janitorgloves(src)
+	new /obj/item/clothing/gloves/janitor(src)
 	new /obj/item/storage/belt/custodial(src)
 	new /obj/item/clothing/accessory/holster/utility/custodial/hip(src)
 	new /obj/item/clothing/accessory/holster/utility/custodial/armpit(src)
@@ -37,7 +37,7 @@
 	req_access = null
 
 /obj/structure/closet/secure_closet/custodial/offship/fill()
-	new /obj/item/storage/box/janitorgloves(src)
+	new /obj/item/clothing/gloves/janitor(src)
 	new /obj/item/storage/belt/custodial(src)
 	new /obj/item/clothing/shoes/galoshes(src)
 	new /obj/item/device/flashlight(src)

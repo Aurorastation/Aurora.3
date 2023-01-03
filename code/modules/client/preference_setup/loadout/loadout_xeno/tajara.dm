@@ -17,30 +17,11 @@
 	boots["adhomian boots"] = /obj/item/clothing/shoes/tajara/workboots/adhomian_boots
 	gear_tweaks += new /datum/gear_tweak/path(boots)
 
-/datum/gear/gloves/tajara
-	display_name = "tajara gloves selection"
-	description = "A selection of tajaran gloves."
-	path = /obj/item/clothing/gloves/black/tajara
+/datum/gear/gloves/tajara_smithgloves
+	display_name = "machinist gloves"
+	path = /obj/item/clothing/gloves/black/tajara/smithgloves
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
-
-/datum/gear/gloves/tajara/New()
-	..()
-	var/list/taj_gloves = list()
-	taj_gloves["black gloves"] = /obj/item/clothing/gloves/black/tajara
-	taj_gloves["red gloves"] = /obj/item/clothing/gloves/red/tajara
-	taj_gloves["blue gloves"] = /obj/item/clothing/gloves/blue/tajara
-	taj_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/tajara
-	taj_gloves["purple gloves"] = /obj/item/clothing/gloves/purple/tajara
-	taj_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/tajara
-	taj_gloves["light brown gloves"] = /obj/item/clothing/gloves/light_brown/tajara
-	taj_gloves["green gloves"] = /obj/item/clothing/gloves/green/tajara
-	taj_gloves["grey gloves"] = /obj/item/clothing/gloves/grey/tajara
-	taj_gloves["white gloves"] = /obj/item/clothing/gloves/white/tajara
-	taj_gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow/tajara
-	taj_gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather/tajara
-	taj_gloves["machinist gloves"] =  /obj/item/clothing/gloves/black/tajara/smithgloves
-	gear_tweaks += new /datum/gear_tweak/path(taj_gloves)
 
 /datum/gear/suit/tajara_coat
 	display_name = "tajara coat and jacket selection"

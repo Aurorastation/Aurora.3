@@ -86,42 +86,6 @@
 	item_state = "nitrile"
 	balloon = /obj/item/toy/balloon/latex/nitrile
 
-/obj/item/clothing/gloves/latex/nitrile/unathi
-	name = "unathi nitrile gloves"
-	desc = "Sterile nitrile gloves. Designed for Unathi use."
-	icon_state = "nitrile"
-	item_state = "nitrile"
-	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/latex/nitrile/tajara
-	name = "tajaran nitrile gloves"
-	desc = "Sterile nitrile gloves. Designed for Tajara use."
-	icon_state = "nitrile"
-	item_state = "nitrile"
-	species_restricted = list(BODYTYPE_TAJARA)
-
-/obj/item/clothing/gloves/latex/nitrile/vaurca
-	name = "vaurca nitrile gloves"
-	desc = "Sterile nitrile gloves. Designed for Vaurca use."
-	icon_state = "nitrile"
-	item_state = "nitrile"
-	species_restricted = list(BODYTYPE_VAURCA)
-
-/obj/item/clothing/gloves/latex/unathi
-	name = "unathi latex gloves"
-	desc = "Sterile latex gloves. Designed for Unathi use."
-	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/latex/tajara
-	name = "tajaran latex gloves"
-	desc = "Sterile latex gloves. Designed for Tajara use."
-	species_restricted = list(BODYTYPE_TAJARA)
-
-/obj/item/clothing/gloves/latex/vaurca
-	name = "vaurca latex gloves"
-	desc = "Sterile latex gloves. Designed for Vaurca use."
-	species_restricted = list(BODYTYPE_VAURCA)
-
 /obj/item/clothing/gloves/botanic_leather
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
 	name = "leather gloves"
@@ -132,18 +96,6 @@
 	drop_sound = 'sound/items/drop/leather.ogg'
 	pickup_sound = 'sound/items/pickup/leather.ogg'
 
-/obj/item/clothing/gloves/botanic_leather/unathi
-	name = "unathi leather gloves"
-	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/botanic_leather/tajara
-	name = "tajaran leather gloves"
-	species_restricted = list(BODYTYPE_TAJARA)
-
-/obj/item/clothing/gloves/botanic_leather/vaurca
-	name = "vaurca leather gloves"
-	species_restricted = list(BODYTYPE_VAURCA)
-
 /obj/item/clothing/gloves/janitor
 	name = "rubber cleaning gloves"
 	desc = "A pair of thick, long, yellow rubber gloves, designed to protect the wearer from the splash of industrial strength cleaners. Not certified for electrical work."
@@ -153,18 +105,6 @@
 	siemens_coefficient = 0.50
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
-
-/obj/item/clothing/gloves/janitor/unathi
-	name = "unathi cleaning gloves"
-	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/janitor/tajara
-	name = "tajaran cleaning gloves"
-	species_restricted = list(BODYTYPE_TAJARA)
-
-/obj/item/clothing/gloves/janitor/vaurca
-	name = "vaurca cleaning gloves"
-	species_restricted = list(BODYTYPE_VAURCA)
 
 	/*
 	Forcegloves.  They amplify force from melee hits as well as muck up disarm and stuff a little.

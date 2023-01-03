@@ -50,9 +50,6 @@
 	back = /obj/item/gun/projectile/shotgun/pump/combat/sol
 
 	gloves = /obj/item/clothing/gloves/yellow
-	species_gloves = list(
-		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu
-	)
 
 	belt = /obj/item/storage/belt/utility/very_full
 	belt_contents = null
@@ -69,9 +66,6 @@
 	name = "Lance Medic"
 
 	gloves = /obj/item/clothing/gloves/latex/nitrile
-	species_gloves = list(
-		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi
-	)
 
 	belt = /obj/item/storage/belt/medical
 	mask = /obj/item/clothing/mask/surgical

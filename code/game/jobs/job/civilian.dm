@@ -126,6 +126,7 @@
 	head = /obj/item/clothing/head/bandana/hydro/nt
 	shoes = /obj/item/clothing/shoes/black
 	suit_store = /obj/item/device/analyzer/plant_analyzer
+	gloves = new /obj/item/clothing/gloves/botanic_leather
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
@@ -144,15 +145,6 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag = /obj/item/storage/backpack/messenger/hyd
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
-
-/datum/outfit/job/hydro/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_or_collect(new /obj/item/clothing/gloves/botanic_leather/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_or_collect(new /obj/item/clothing/gloves/botanic_leather/unathi(H), slot_gloves)
-	else
-		H.equip_or_collect(new /obj/item/clothing/gloves/botanic_leather(H), slot_gloves)
 
 /datum/job/janitor
 	title = "Janitor"

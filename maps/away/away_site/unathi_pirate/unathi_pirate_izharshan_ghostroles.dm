@@ -64,7 +64,7 @@
 	name = "Izharshan Captain"
 
 	suit = /obj/item/clothing/suit/storage/toggle/asymmetriccoat/izharshan
-	gloves = /obj/item/clothing/gloves/orange/unathi.
+	gloves = /obj/item/clothing/gloves/orange
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/pistol/hegemony = 1)
 	head = /obj/item/clothing/head/bandana/pirate

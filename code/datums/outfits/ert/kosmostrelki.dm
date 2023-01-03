@@ -99,7 +99,7 @@
 /datum/outfit/admin/ert/pra_cosmonaut/medic
 	name = "Kosmostrelki Combat Medic"
 
-	gloves = /obj/item/clothing/gloves/latex/nitrile/tajara
+	gloves = /obj/item/clothing/gloves/latex/nitrile
 
 	glasses = /obj/item/clothing/glasses/hud/health
 
@@ -130,7 +130,7 @@
 /datum/outfit/admin/ert/pra_cosmonaut/engineer
 	name = "Kosmostrelki Sapper"
 
-	gloves = /obj/item/clothing/gloves/yellow/specialt
+	gloves = /obj/item/clothing/gloves/yellow
 
 	glasses = /obj/item/clothing/glasses/welding
 

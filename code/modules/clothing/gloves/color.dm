@@ -91,72 +91,6 @@
 	icon_state = "latex"
 	item_state = "latex"
 
-/obj/item/clothing/gloves/yellow/specialu
-	desc = "These gloves will protect the wearer from electric shock. Made special for Unathi use."
-	name = "unathi electrical gloves"
-	icon_state = "yellow"
-	item_state = "yellow"
-	siemens_coefficient = 0
-	permeability_coefficient = 0.05
-	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/black/unathi
-	name = "black gloves"
-	desc = "Black gloves made for Unathi use."
-	species_restricted = list(BODYTYPE_UNATHI)
-
-//more snowflake gloves for the custom loadout
-
-/obj/item/clothing/gloves/red/unathi
- 	name = "red gloves"
- 	desc = "Red gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/blue/unathi
- 	name = "blue gloves"
- 	desc = "Blue gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/orange/unathi
- 	name = "orange gloves"
- 	desc = "Orange gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/purple/unathi
- 	name = "purple gloves"
- 	desc = "Purple gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/brown/unathi
- 	name = "brown gloves"
- 	desc = "Brown gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/light_brown/unathi
-	name = "light brown gloves"
-	desc = "Light brown gloves made for Unathi use."
-	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/green/unathi
- 	name = "green gloves"
- 	desc = "Green gloves made for Unathi use."
- 	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/grey/unathi
-	name = "grey gloves"
-	desc = "Grey gloves made for Unathi use."
-	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/white/unathi
-	name = "white gloves"
-	desc = "White gloves made for Unathi use."
-	species_restricted = list(BODYTYPE_UNATHI)
-
-/obj/item/clothing/gloves/rainbow/unathi
-	name = "rainbow gloves"
-	desc = "Rainbow gloves made for Unathi use."
-	species_restricted = list(BODYTYPE_UNATHI)
-
 /obj/item/clothing/gloves/evening
 	name = "evening gloves"
 	desc = "A pair of gloves that reach past the elbow."
@@ -167,11 +101,6 @@
 	desc = "A pair of tight-fitting synthleather gloves."
 	icon_state = "black_leather"
 	item_state = "black_leather"
-
-/obj/item/clothing/gloves/black_leather/unathi
-	name = "black leather gloves"
-	desc = "Black leather gloves made for Unathi use."
-	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/black_leather/colour
 	icon_state = "full_leather_colour"

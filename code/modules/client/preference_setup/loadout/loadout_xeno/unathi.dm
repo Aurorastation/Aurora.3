@@ -45,30 +45,6 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 
-/datum/gear/gloves/unathi
-	display_name = "unathi gloves selection"
-	description = "A selection of unathi colored gloves."
-	path = /obj/item/clothing/gloves/black/unathi
-	whitelisted = list(SPECIES_UNATHI)
-	sort_category = "Xenowear - Unathi"
-
-/datum/gear/gloves/unathi/New()
-	..()
-	var/list/un_gloves = list()
-	un_gloves["black gloves"] = /obj/item/clothing/gloves/black/unathi
-	un_gloves["red gloves"] = /obj/item/clothing/gloves/red/unathi
-	un_gloves["blue gloves"] = /obj/item/clothing/gloves/blue/unathi
-	un_gloves["orange gloves"] = /obj/item/clothing/gloves/orange/unathi
-	un_gloves["purple gloves"] = /obj/item/clothing/gloves/purple/unathi
-	un_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/unathi
-	un_gloves["light brown gloves"] = /obj/item/clothing/gloves/light_brown/unathi
-	un_gloves["green gloves"] = /obj/item/clothing/gloves/green/unathi
-	un_gloves["grey gloves"] = /obj/item/clothing/gloves/grey/unathi
-	un_gloves["white gloves"] = /obj/item/clothing/gloves/white/unathi
-	un_gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow/unathi
-	un_gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather/unathi
-	gear_tweaks += new /datum/gear_tweak/path(un_gloves)
-
 /datum/gear/gloves/unathi_handwraps
 	display_name = "cloth handwraps"
 	path = /obj/item/clothing/gloves/unathi
