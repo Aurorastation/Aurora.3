@@ -82,6 +82,9 @@
 		to_chat(usr, "Bad map file: [map]")
 		return
 
+	var/rounded_wtime = round(world.time)
+	rustg_file_write(file2text(map), "data/logs/[diary_date_string]_[rounded_wtime]_[map]")
+
 	var/datum/map_template/M = new(list(map), "[map]")
 
 	log_and_message_admins("is attempting to upload a map template '[map]''.")
