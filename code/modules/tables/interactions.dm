@@ -168,8 +168,10 @@
 							H.visible_message(SPAN_WARNING("[H] slams [H.get_pronoun("his")] hand on the table!"))
 							playsound(src, 'sound/effects/table_slam.ogg')
 							if(material.hardness > 15) //15 wood, 60 steel
-								H.apply_damage(5, BRUTE, H.zone_sel.selecting, armor_pen = 10)
-								to_chat(H, SPAN_WARNING("Ow! That hurt..."))
+								var/obj/item/organ/external/hand/hand = H.zone_sel.selecting
+								if(!BP_IS_ROBOTIC(hand))
+									H.apply_damage(5, BRUTE, H.zone_sel.selecting, armor_pen = 10)
+									to_chat(H, SPAN_WARNING("Ow! That hurt..."))
 							else
 								for(var/obj/item/O in get_turf(src))
 									if(!O.anchored && O.w_class < ITEMSIZE_HUGE)
