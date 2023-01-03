@@ -62,10 +62,10 @@
 				to_chat(user, "<span class='warning'>This section is too damaged to support anything. Use a welder to fix the damage.</span>")
 				return
 			var/obj/item/stack/S = C
-			var/decl/flooring/use_flooring
-			var/list/decls = decls_repository.get_decls_of_subtype(/decl/flooring)
+			var/singleton/flooring/use_flooring
+			var/list/decls = Singletons.GetSubtypeList(/singleton/flooring)
 			for(var/flooring_type in decls)
-				var/decl/flooring/F = decls[flooring_type]
+				var/singleton/flooring/F = decls[flooring_type]
 				if(!F.build_type)
 					continue
 				if(ispath(S.type, F.build_type) || ispath(S.build_type, F.build_type))

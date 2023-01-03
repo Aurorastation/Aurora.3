@@ -983,8 +983,8 @@ var/global/known_proc = new /proc/get_type_ref_bytes
 		return details && show_useless_subtypes ? "regex([D.type])" : "regex"
 	if(istype(D, /sound))
 		return details ? "sound([D.type])" : "sound"
-	if(istype(D, /decl))
-		return details ? "decl([D.type])" : "decl"
+	if(istype(D, /singleton))
+		return details ? "singleton([D.type])" : "singleton"
 	if(isdatum(D))
 		return details ? "datum([D.type])" : "datum"
 	if(istype(D)) // let's future proof ourselves

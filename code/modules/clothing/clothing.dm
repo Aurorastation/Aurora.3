@@ -221,7 +221,7 @@
 			var/obj/item/material/shard/S = material.place_shard(T)
 			M.embed(S)
 
-	playsound(src.loc, /decl/sound_category/glass_break_sound, 70, 1)
+	playsound(src.loc, /singleton/sound_category/glass_break_sound, 70, 1)
 	qdel(src)
 
 /obj/item/clothing/suit/armor/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -1151,7 +1151,7 @@
 	if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_w_uniform()
-		playsound(M, /decl/sound_category/rustle_sound, 15, 1, -5)
+		playsound(M, /singleton/sound_category/rustle_sound, 15, 1, -5)
 
 /obj/item/clothing/under/examine(mob/user)
 	..(user)

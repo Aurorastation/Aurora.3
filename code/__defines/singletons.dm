@@ -4,7 +4,7 @@
 
 /// Get a singleton instance according to path P. Creates it if necessary. Null if abstract or not a singleton.
 #define GET_SINGLETON(P)\
-	(ispath(P, /singleton) ? (Singletons.resolved_instances[P] ? Singletons.instances[P] : Singletons.GetInstance(P)) : null)
+	(ispath(P, /singleton) ? (Singletons.resolved_instances[P] ? Singletons.instances[P] : Singletons.GetInstanceOf(P)) : Singletons.GetInstance(P))
 
 /// Get a (path = instance) map of valid singletons according to typesof(P).
 #define GET_SINGLETON_TYPE_MAP(P)\

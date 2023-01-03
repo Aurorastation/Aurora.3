@@ -37,7 +37,7 @@ var/global/repository/singletons/Singletons = new
 * Get a singleton instance according to path. Creates it if necessary. Null if abstract or not a singleton.
 * Prefer the GET_SINGLETON macro to minimize proc calls.
 */
-/repository/singletons/proc/GetInstance(singleton/path)
+/repository/singletons/proc/GetInstanceOf(singleton/path)
 	if (!ispath(path, /singleton))
 		return
 	if (resolved_instances[path])
@@ -50,12 +50,33 @@ var/global/repository/singletons/Singletons = new
 	result.Initialize()
 	return result
 
+/**
+* Get a singleton instance according to object. Creates it if necessary. Null if abstract or not a singleton.
+* Prefer the GET_SINGLETON macro to minimize proc calls.
+* WARNING: this is NOT the one from Bay, use GetInstanceOf for that!
+*/
+
+/repository/singletons/proc/GetInstance(singleton/decl_type)
+	if (resolved_instances[decl_type.type])
+		return instances[decl_type.type]
+	resolved_instances[decl_type.type] = TRUE
+
+	var/singleton/result = instances[decl_type.type]
+	if(!result)
+		result = new decl_type()
+		instances[decl_type.type] = result
+
+		var/singleton/decl = result
+		if(istype(decl))
+			decl.Initialize()
+	return result
+
 
 /// Get a (path = instance) map of valid singletons according to paths.
 /repository/singletons/proc/GetMap(list/singleton/paths)
 	var/list/result = list()
 	for (var/path in paths)
-		var/singleton/instance = GetInstance(path)
+		var/singleton/instance = GetInstanceOf(path)
 		if (!instance)
 			continue
 		result[path] = instance
@@ -66,7 +87,7 @@ var/global/repository/singletons/Singletons = new
 /repository/singletons/proc/GetList(list/singleton/paths)
 	var/list/result = list()
 	for (var/path in paths)
-		var/singleton/instance = GetInstance(path)
+		var/singleton/instance = GetInstanceOf(path)
 		if (!instance)
 			continue
 		result += instance
@@ -116,12 +137,25 @@ var/global/repository/singletons/Singletons = new
 * Get a list of valid singletons according to subtypesof(path).
 * Prefer the GET_SINGLETON_SUBTYPE_LIST macro to minimize proc calls.
 */
-/repository/singletons/proc/GetSubtypeList(singleton/path)
+/repository/singletons/proc/GetSubtypeListOf(singleton/path)
 	if (resolved_subtype_lists[path])
 		return subtype_lists[path] || list()
 	resolved_subtype_lists[path] = TRUE
 	var/result = GetList(subtypesof(path))
 	subtype_lists[path] = result
+	return result
+
+
+
+/repository/singletons/proc/GetSubtypeList(singleton/decl_prototype) /////////////////
+	if (resolved_subtype_lists[decl_prototype])
+		return subtype_lists[decl_prototype]
+	resolved_subtype_lists[decl_prototype] = TRUE
+
+	var/singleton/result = subtype_lists[decl_prototype]
+	if(!result)
+		result = GetMap(subtypesof(decl_prototype))
+		subtype_lists[decl_prototype] = result
 	return result
 
 

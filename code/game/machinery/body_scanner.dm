@@ -448,12 +448,12 @@
 		VUEUI_SET_CHECK(data["paralysis"], occupant.paralysis, ., data)
 		VUEUI_SET_CHECK(data["bodytemp"], occupant.bodytemperature, ., data)
 		VUEUI_SET_CHECK(data["occupant"], !!occupant, ., data)
-		VUEUI_SET_CHECK(data["norepiAmt"], REAGENT_VOLUME(R, /decl/reagent/inaprovaline), ., data)
-		VUEUI_SET_CHECK(data["soporAmt"], REAGENT_VOLUME(R, /decl/reagent/soporific), ., data)
-		VUEUI_SET_CHECK(data["bicardAmt"], REAGENT_VOLUME(R, /decl/reagent/bicaridine), ., data)
-		VUEUI_SET_CHECK(data["dexAmt"], REAGENT_VOLUME(R, /decl/reagent/dexalin), ., data)
-		VUEUI_SET_CHECK(data["dermAmt"], REAGENT_VOLUME(R, /decl/reagent/dermaline), ., data)
-		VUEUI_SET_CHECK(data["thetaAmt"], REAGENT_VOLUME(R, /decl/reagent/thetamycin), ., data)
+		VUEUI_SET_CHECK(data["norepiAmt"], REAGENT_VOLUME(R, /singleton/reagent/inaprovaline), ., data)
+		VUEUI_SET_CHECK(data["soporAmt"], REAGENT_VOLUME(R, /singleton/reagent/soporific), ., data)
+		VUEUI_SET_CHECK(data["bicardAmt"], REAGENT_VOLUME(R, /singleton/reagent/bicaridine), ., data)
+		VUEUI_SET_CHECK(data["dexAmt"], REAGENT_VOLUME(R, /singleton/reagent/dexalin), ., data)
+		VUEUI_SET_CHECK(data["dermAmt"], REAGENT_VOLUME(R, /singleton/reagent/dermaline), ., data)
+		VUEUI_SET_CHECK(data["thetaAmt"], REAGENT_VOLUME(R, /singleton/reagent/thetamycin), ., data)
 		VUEUI_SET_CHECK(data["otherAmt"], R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"] + data["thetaAmt"]), ., data)
 		has_internal_injuries = FALSE
 		has_external_injuries = FALSE
@@ -662,13 +662,13 @@
 		"paralysis" = H.paralysis,
 		"bodytemp" = H.bodytemperature,
 		"borer_present" = H.has_brain_worms(),
-		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/inaprovaline),
-		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dexalin),
-		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/soporific),
-		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/bicaridine),
-		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dermaline),
-		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/thetamycin),
-		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
+		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/inaprovaline),
+		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dexalin),
+		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/soporific),
+		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/bicaridine),
+		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/thetamycin),
+		"blood_amount" = REAGENT_VOLUME(H.vessel, /singleton/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"lung_ruptured" = H.is_lung_ruptured(),
 		"lung_rescued" = H.is_lung_rescued(),

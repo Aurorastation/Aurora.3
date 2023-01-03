@@ -8,7 +8,7 @@
 	id = "peoples_station"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/peoples_station_fang)
 
-/decl/submap_archetype/peoples_station
+/singleton/submap_archetype/peoples_station
 	map = "People's Space Station"
 	descriptor = "Built in the interwar period, the People's Space Station bears the prestige of being the first space installation designed, constructed, and manned by Tajara."
 

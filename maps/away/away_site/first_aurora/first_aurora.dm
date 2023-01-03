@@ -7,7 +7,7 @@
 	spawn_cost = 2
 	id = "first_aurora"
 
-/decl/submap_archetype/first_aurora
+/singleton/submap_archetype/first_aurora
 	map = "space station derelict"
 	descriptor = "A space derelict."
 
