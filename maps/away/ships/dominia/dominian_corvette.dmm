@@ -4,13 +4,13 @@
 	dir = 6
 	},
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/structure/sign/flag/kazkhz{
-	pixel_x = 32
-	},
 /obj/machinery/firealarm/north,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
+	},
+/obj/structure/sign/flag/caladius{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
@@ -311,9 +311,6 @@
 "aHw" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
-	},
-/obj/structure/sign/flag/diona{
-	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
@@ -2703,9 +2700,6 @@
 "krH" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
-	},
-/obj/structure/sign/flag/caladius{
-	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
