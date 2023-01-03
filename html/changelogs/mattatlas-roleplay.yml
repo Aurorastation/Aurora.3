@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added chugging. Aim for the mouth on grab intent and click yourself with a reagent container."
+  - rscadd: "Added chugging. Aim for the mouth on grab intent and click yourself with a reagent container. Note that you'll lose breath while chugging."
   - rscadd: "Added knocking and slamming your hand on a table. While aiming for right or left hand, grab intent click a table to knock, harm intent to slam."

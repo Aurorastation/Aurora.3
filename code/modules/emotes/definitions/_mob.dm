@@ -94,6 +94,7 @@
 		/decl/emote/visible/shiver,
 		/decl/emote/visible/collapse,
 		/decl/emote/audible/gasp,
+		/decl/emote/audible/choke,
 		/decl/emote/audible/sneeze,
 		/decl/emote/audible/sniff,
 		/decl/emote/audible/snore,

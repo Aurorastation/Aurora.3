@@ -246,11 +246,21 @@
 				return
 			if(H.zone_sel.selecting == BP_MOUTH && H.a_intent == I_GRAB)
 				user.visible_message(SPAN_NOTICE("[user] starts chugging from \the [src]!"))
+				var/chugs = 0
 				while(reagents.total_volume)
 					if(do_after(H, 1.5 SECONDS))
+						chugs++
 						reagents.trans_to_mob(user, min(10,amount_per_transfer_from_this), CHEM_INGEST)
+						if(!(H.species.flags & NO_BREATHE))
+							if(H.losebreath < 14)
+								H.losebreath += 2
+								H.adjustOxyLoss(2)
 						feed_sound(user)
 					else
+						if(chugs > 2)
+							if(!(H.species.flags & NO_BREATHE))
+								user.visible_message(SPAN_NOTICE("[user] finishes chugging, exhausted..."))
+								H.emote("gasp")
 						return TRUE
 
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //puts a limit on how fast people can eat/drink things
