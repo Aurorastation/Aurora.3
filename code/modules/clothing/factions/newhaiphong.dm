@@ -6,8 +6,13 @@
 	item_state = "aodai"
 	contained_sprite = TRUE
 
+/obj/item/clothing/accessory/aodai/masc
+	desc = "A split tunic worn over trousers. This one is in a men's sizing. A common choice for festivals or formal occasions."
+	icon_state = "aodaimasc"
+	item_state = "aodaimasc"
+
 /obj/item/clothing/accessory/aodai/nhp
-	desc = "A split tunic worn over trousers. This one is cropped and sleeveless."
+	desc = "A split tunic worn over trousers. This one is cropped and sleeveless, in the athletic style of New Hai Phong."
 	icon_state = "aodaicrop"
 	item_state = "aodaicrop"
 

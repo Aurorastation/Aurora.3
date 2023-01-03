@@ -572,4 +572,5 @@
 	var/list/aodai = list()
 	aodai["ao dai"] = /obj/item/clothing/accessory/aodai
 	aodai["ao dai, new hai phong cut"] = /obj/item/clothing/accessory/aodai/nhp
+	aodai["ao dai, masculine formalwear"] = /obj/item/clothing/accessory/aodai/masc
 	gear_tweaks += new /datum/gear_tweak/path(aodai)
