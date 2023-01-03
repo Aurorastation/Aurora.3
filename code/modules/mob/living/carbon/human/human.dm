@@ -380,13 +380,9 @@
 	mob_win.open()
 
 // called when something steps onto a human
-// this handles mulebots and vehicles
+// this handles vehicles
 /mob/living/carbon/human/Crossed(var/atom/movable/AM)
 	..()
-	if(istype(AM, /obj/machinery/bot/mulebot))
-		var/obj/machinery/bot/mulebot/MB = AM
-		MB.RunOver(src)
-
 	if(istype(AM, /obj/vehicle))
 		var/obj/vehicle/V = AM
 		V.RunOver(src)
