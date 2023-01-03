@@ -176,7 +176,7 @@
 	name = "cough syrup bottle"
 	desc = "A small bottle of cough syrup. Don't take too much!"
 	icon_state = "bottle-3"
-	reagents_to_add = list(/decl/reagent/coughsyrup = 60)
+	reagents_to_add = list(/decl/reagent/antidexafen = 60)
 
 /obj/item/reagent_containers/glass/bottle/coagzolug
 	name = "coagzolug bottle"

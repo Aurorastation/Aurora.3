@@ -2455,7 +2455,7 @@
 /obj/structure/table/stone/marble,
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/trauma,
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/medbay)
 "jzt" = (

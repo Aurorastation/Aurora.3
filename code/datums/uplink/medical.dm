@@ -45,6 +45,12 @@
 	item_cost = 1
 	path = /obj/item/storage/box/syndie_kit/stimulants
 
+/datum/uplink_item/item/medical/stabilisation
+	name = "Slimline Stabilisation Kit"
+	desc = "A pocket-sized medkit filled with lifesaving equipment."
+	item_cost = 2
+	path = /obj/item/storage/firstaid/sleekstab
+
 /datum/uplink_item/item/medical/berserk_injectors
 	name = "Box of Berserk Injectors"
 	item_cost = 2

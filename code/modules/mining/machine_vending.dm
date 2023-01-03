@@ -39,7 +39,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Item-Warp Pack",				/obj/item/extraction_pack,									25,					600),
 	new /datum/data/mining_equipment("Drone Health Upgrade", 		/obj/item/device/mine_bot_upgrade/health,					20,					600),
 	new /datum/data/mining_equipment("RFD M-Class",             	/obj/item/rfd/mining,										10,					600),
-	new /datum/data/mining_equipment("Brute First-Aid Kit",			/obj/item/storage/firstaid/brute,							30,					600),
+	new /datum/data/mining_equipment("Brute First-Aid Kit",			/obj/item/storage/firstaid/trauma,							30,					600),
 	new /datum/data/mining_equipment("Ore Magnet",					/obj/item/oremagnet,										10,					600),
 	new /datum/data/mining_equipment("Minecart",					/obj/vehicle/train/cargo/trolley/mining,					-1,					600,	1),
 	new /datum/data/mining_equipment("Resonator",					/obj/item/resonator,										10,					700),

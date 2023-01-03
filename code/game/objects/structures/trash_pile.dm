@@ -206,7 +206,7 @@
 		/obj/item/trap = 1,
 		/obj/item/cell/hyper/empty = 1,
 		/obj/item/material/knife/tacknife = 1,
-		/obj/item/storage/firstaid/brute = 1,
+		/obj/item/storage/firstaid/trauma = 1,
 		/obj/item/reagent_containers/pill/dexalin_plus = 1
 		)
 

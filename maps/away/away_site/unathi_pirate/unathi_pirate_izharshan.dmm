@@ -747,7 +747,7 @@
 "Ay" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/syringes,
-/obj/item/storage/firstaid/brute{
+/obj/item/storage/firstaid/trauma{
 	pixel_x = 5;
 	pixel_y = 5
 	},

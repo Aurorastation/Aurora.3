@@ -582,7 +582,7 @@
 
 
 /obj/machinery/vending/wallmed1
-	name = "NanoMed"
+	name = "\improper NanoMed"
 	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
@@ -591,12 +591,13 @@
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
-		/obj/item/stack/medical/bruise_pack = 2,
-		/obj/item/stack/medical/ointment = 2,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 4,
-		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 4,
-		/obj/item/device/healthanalyzer = 1,
-		/obj/item/device/breath_analyzer  = 1
+		/obj/item/stack/medical/bruise_pack = 3,
+		/obj/item/stack/medical/ointment = 3,
+		/obj/item/reagent_containers/pill/perconol = 4,
+		/obj/item/storage/box/fancy/med_pouch/trauma,
+		/obj/item/storage/box/fancy/med_pouch/burn,
+		/obj/item/storage/box/fancy/med_pouch/oxyloss,
+		/obj/item/storage/box/fancy/med_pouch/toxin
 	)
 	contraband = list(
 		/obj/item/reagent_containers/syringe/dylovene = 4,
@@ -611,7 +612,7 @@
 
 
 /obj/machinery/vending/wallmed2
-	name = "NanoMed"
+	name = "\improper NanoMed Mini"
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
 	deny_time = 15
@@ -620,10 +621,13 @@
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
-		/obj/item/reagent_containers/syringe/dylovene = 3,
-		/obj/item/stack/medical/bruise_pack = 3,
-		/obj/item/stack/medical/ointment = 3,
-		/obj/item/device/healthanalyzer = 3
+		/obj/item/stack/medical/bruise_pack = 4,
+		/obj/item/stack/medical/ointment = 4,
+		/obj/item/storage/box/fancy/med_pouch/trauma,
+		/obj/item/storage/box/fancy/med_pouch/burn,
+		/obj/item/storage/box/fancy/med_pouch/oxyloss,
+		/obj/item/storage/box/fancy/med_pouch/toxin,
+		/obj/item/storage/box/fancy/med_pouch/radiation
 	)
 	contraband = list(
 		/obj/item/reagent_containers/pill/tox = 3

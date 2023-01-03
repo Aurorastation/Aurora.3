@@ -612,7 +612,7 @@
 /decl/reagent/thetamycin
 	value = 2.5
 
-/decl/reagent/coughsyrup
+/decl/reagent/antidexafen
 	value = 1.5
 
 /decl/reagent/sterilizine

@@ -41021,7 +41021,7 @@
 	},
 /area/centcom/legion)
 "wMw" = (
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/trauma,
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/o2,
 /obj/item/storage/firstaid/toxin,

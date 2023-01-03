@@ -93,7 +93,7 @@
 	bicaridine	spawn_reagent = /decl/reagent/bicaridine
 	chloral		spawn_reagent = /decl/reagent/polysomnine
 	clonexadone	spawn_reagent = /decl/reagent/clonexadone
-	coughsyrup	spawn_reagent = /decl/reagent/coughsyrup
+	coughsyrup	spawn_reagent = /decl/reagent/antidexafen
 	cryoxadone	spawn_reagent = /decl/reagent/cryoxadone
 	dermaline	spawn_reagent = /decl/reagent/dermaline
 	dexalin		spawn_reagent = /decl/reagent/dexalin

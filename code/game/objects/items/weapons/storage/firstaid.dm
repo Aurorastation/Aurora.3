@@ -1,11 +1,11 @@
-/* First aid storage
+/* first-aid storage
  * Contains:
- *		First Aid Kits
+ *		first-aid Kits
  * 		Pill Bottles
  */
 
 /*
- * First Aid Kits
+ * first-aid Kits
  */
 /obj/item/storage/firstaid
 	name = "first-aid kit"
@@ -17,14 +17,22 @@
 	center_of_mass = list("x" = 13,"y" = 10)
 	throw_speed = 2
 	throw_range = 8
-	var/empty = 0
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	use_sound = 'sound/items/storage/briefcase.ogg'
 
-/obj/item/storage/firstaid/fill()
-	if (empty) return
-	. = ..()
+/obj/item/storage/firstaid/empty
+	name = "empty first-aid kit"
+	desc = "It's an emergency medical kit for people who like wish soup."
+
+/obj/item/storage/firstaid/regular
+	starts_with = list(
+		/obj/item/stack/medical/bruise_pack = 2,
+		/obj/item/stack/medical/ointment = 2,
+		/obj/item/storage/pill_bottle/antidexafen = 1,
+		/obj/item/storage/pill_bottle/perconol = 1,
+		/obj/item/stack/medical/splint = 1
+	)
 
 /obj/item/storage/firstaid/fire
 	name = "fire first-aid kit"
@@ -32,35 +40,20 @@
 	icon_state = "firefirstaid"
 	item_state = "firefirstaid"
 	starts_with = list(
-		/obj/item/reagent_containers/pill/kelotane = 3,
-		/obj/item/stack/medical/ointment = 2,
-		/obj/item/device/healthanalyzer = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
+		/obj/item/storage/box/fancy/med_pouch/burn = 4
 	)
 
 /obj/item/storage/firstaid/fire/fill()
 	. = ..()
 	icon_state = pick("firefirstaid","firefirstaid2","firefirstaid3")
 
-/obj/item/storage/firstaid/regular
-	icon_state = "firstaid"
-	starts_with = list(
-		/obj/item/stack/medical/bruise_pack = 2,
-		/obj/item/stack/medical/ointment = 2,
-		/obj/item/device/healthanalyzer = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1
-	)
-
 /obj/item/storage/firstaid/toxin
-	name = "toxin first aid"
+	name = "toxin first-aid"
 	desc = "Used to treat when you have a high amount of toxins in your body."
 	icon_state = "antitoxinfirstaid"
 	item_state = "antitoxinfirstaid"
 	starts_with = list(
-		/obj/item/reagent_containers/syringe/dylovene = 3,
-		/obj/item/reagent_containers/pill/antitox = 3,
-		/obj/item/device/healthanalyzer = 1
+		/obj/item/storage/box/fancy/med_pouch/toxin = 4
 	)
 
 /obj/item/storage/firstaid/toxin/fill()
@@ -73,9 +66,7 @@
 	icon_state = "o2firstaid"
 	item_state = "o2firstaid"
 	starts_with = list(
-		/obj/item/reagent_containers/inhaler/dexalin = 4,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
-		/obj/item/device/breath_analyzer = 1
+		/obj/item/storage/box/fancy/med_pouch/oxyloss = 4
 	)
 
 /obj/item/storage/firstaid/o2/fill()
@@ -88,7 +79,7 @@
 	icon_state = "advfirstaid"
 	item_state = "advfirstaid"
 	starts_with = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
+		/obj/item/storage/pill_bottle/assorted = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 2,
 		/obj/item/stack/medical/splint = 1
@@ -133,40 +124,84 @@
 	)
 
 /obj/item/storage/firstaid/surgery/fill()
-	..()
-	if(!empty)
-		make_exact_fit()
+	. = ..()
+	make_exact_fit()
 	icon_state = pick("purplefirstaid","purplefirstaid2","purplefirstaid3")
 
-/obj/item/storage/firstaid/brute
-	name = "brute aid kit"
-	desc = "A NanoTrasen care package for moderately injured miners."
-	icon_state = "brute"
-	item_state = "brute"
+/obj/item/storage/firstaid/trauma
+	name = "trauma first-aid kit"
+	desc = "It's an emergency medical kit for when people brought ballistic weapons to a laser fight."
+	icon_state = "traumafirstaid"
+	item_state = "traumafirstaid"
 	starts_with = list(
-		/obj/item/stack/medical/bruise_pack = 2,
-		/obj/item/stack/medical/advanced/bruise_pack = 2,
-		/obj/item/reagent_containers/pill/bicaridine = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1,
-		/obj/item/device/healthanalyzer = 1
+		/obj/item/storage/box/fancy/med_pouch/trauma = 4
 	)
 
-/obj/item/storage/firstaid/brute/fill()
+/obj/item/storage/firstaid/trauma/fill()
 	..()
-	icon_state = pick("brute","brute2","brute3")
+	icon_state = pick("traumafirstaid","traumafirstaid2","traumafirstaid3")
 
-/obj/item/storage/firstaid/marooning_equipment
-	name = "marooning first aid kit"
-	desc = "A first aid kit for marooned personnel."
+/obj/item/storage/firstaid/radiation
+	name = "radiation first-aid kit"
+	desc = "It's an emergency medical kit for when you try to hug the reactor."
+	icon_state = "radfirstaid"
+	item_state = "radfirstaid"
 	starts_with = list(
-		/obj/item/stack/medical/bruise_pack = 2,
-		/obj/item/stack/medical/ointment = 2,
-		/obj/item/device/healthanalyzer = 1,
-		/obj/item/reagent_containers/pill/bicaridine = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
+		/obj/item/storage/box/fancy/med_pouch/radiation = 4
+	)
+
+/obj/item/storage/firstaid/radiation/Initialize()
+	. = ..()
+	icon_state = pick("radfirstaid","radfirstaid2","radfirstaid3")
+
+/obj/item/storage/firstaid/stab // Generic first aid kit for mappers that covers all bases.
+	name = "stabilisation first-aid"
+	desc = "Stocked with medical pouches."
+	icon_state = "firstaid_multi"
+	starts_with = list(
+		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
+		/obj/item/storage/box/fancy/med_pouch/burn = 1,
+		/obj/item/storage/box/fancy/med_pouch/oxyloss = 1,
+		/obj/item/storage/box/fancy/med_pouch/toxin = 1,
+		/obj/item/storage/box/fancy/med_pouch/radiation = 1
+	)
+
+/obj/item/storage/firstaid/sleekstab
+	name = "Slimline stabilisation kit"
+	desc = "A sleek and expensive looking medical kit."
+	icon_state = "firstaid_multi"
+	item_state = "firstaid_multi"
+	w_class = ITEMSIZE_SMALL
+	storage_slots = 7
+	starts_with = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1,
-		/obj/item/storage/pill_bottle/perconol = 1
+		/obj/item/reagent_containers/hypospray/autoinjector/pain = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/oxygen = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1
+	)
+
+
+/obj/item/storage/firstaid/light // For pilot/expedition closets, which we don't have. Yet.
+	name = "light first-aid kit"
+	desc = "It's a small emergency medical kit."
+	icon_state = "fak-light"
+	item_state = "advfirstaid"
+	storage_slots = 5
+	w_class = ITEMSIZE_SMALL
+	max_w_class = ITEMSIZE_SMALL
+	starts_with = list(
+		/obj/item/clothing/gloves/latex/nitrile = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/mortaphenyl = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin = 1,
+		/obj/item/stack/medical/bruise_pack = 1
+	)
+	can_hold = list(
+		/obj/item/clothing/gloves/latex,
+		/obj/item/reagent_containers/hypospray/autoinjector,
+		/obj/item/stack/medical/bruise_pack
 	)
 
 /*
@@ -314,3 +349,21 @@ obj/item/storage/pill_bottle/butazoline
 	name = "bottle of 2u Parvosil pills"
 	desc = "Contains pills used to treat anxiety disorders such as phobias and social anxiety."
 	starts_with = list(/obj/item/reagent_containers/pill/parvosil = 3)
+
+/obj/item/storage/pill_bottle/assorted
+	name = "pill bottle (assorted)"
+	desc = "Commonly found on paramedics, these assorted pill bottles contain all the basics."
+	starts_with = list(
+		/obj/item/reagent_containers/pill/inaprovaline = 6,
+		/obj/item/reagent_containers/pill/dylovene = 6,
+		/obj/item/reagent_containers/pill/sugariron = 2,
+		/obj/item/reagent_containers/pill/mortaphenyl = 2,
+		/obj/item/reagent_containers/pill/dexalin = 2,
+		/obj/item/reagent_containers/pill/kelotane = 2,
+		/obj/item/reagent_containers/pill/hyronalin = 1
+	)
+
+/obj/item/storage/pill_bottle/antidexafen
+	name = "pill bottle (cold medicine)"
+	desc = "All-in-one cold medicine. 15u dose per pill. Safe for babies like you!"
+	starts_with = list(/obj/item/reagent_containers/pill/antidexafen = 21)
