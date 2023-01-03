@@ -235,7 +235,7 @@
 			playsound(src.loc, W.usesound, 75, 1)
 			return 1
 
-		if(istype(W, /obj/item/stack/material) && (W.get_material_name() == "glass" || W.get_material_name() == "rglass"))
+		if(istype(W, /obj/item/stack/material) && (W.get_material_name() == "glass" || W.get_material_name() == MATERIAL_GLASS_REINFORCED))
 			var/obj/item/stack/material/S = W
 			if(S.use(2))
 				glass_type = W.type
