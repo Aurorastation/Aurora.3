@@ -18,3 +18,4 @@
     var/list/origin_traits = list()
 
 /decl/origin_item/proc/on_apply(var/mob/living/carbon/human/H)
+    return
