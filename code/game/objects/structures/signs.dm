@@ -60,24 +60,6 @@
 	else ..()
 
 //
-// Christmas
-//
-
-/obj/structure/sign/christmas/lights
-	name = "christmas lights"
-	desc = "Flashy."
-	icon = 'icons/obj/christmas.dmi'
-	icon_state = "xmaslights"
-	layer = 4.9
-
-/obj/structure/sign/christmas/wreath
-	name = "wreath"
-	desc = "Prickly and overrated."
-	icon = 'icons/obj/christmas.dmi'
-	icon_state = "doorwreath"
-	layer = 5
-
-//
 // Generic Signs
 //
 
@@ -520,18 +502,18 @@
 /obj/structure/sign/flag/sol
 	name = "Sol Alliance flag"
 	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
-	icon_state = "solgov"
+	icon_state = "sol"
 
 /obj/structure/sign/flag/sol/left
-	icon_state = "solgov_l"
+	icon_state = "sol_l"
 
 /obj/structure/sign/flag/sol/right
-	icon_state = "solgov_r"
+	icon_state = "sol_r"
 
 /obj/item/flag/sol
 	name = "Sol Alliance flag"
 	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
-	flag_path = "solgov"
+	flag_path = "sol"
 
 /obj/item/flag/sol/l
 	name = "Large Sol Alliance flag"
@@ -962,14 +944,14 @@
 	They are known for their reformist ideals and scientific prowess."
 	icon_state = "volvalaad"
 
-/obj/item/flag/kazkhz
-	name = "House Kazkhz standard"
+/obj/item/flag/kazhkz
+	name = "House Kazhkz standard"
 	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
 	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
-	flag_path = "kazkhz"
+	flag_path = "kazhkz"
 
-/obj/structure/sign/flag/kazkhz
-	name = "House Kazkhz standard"
+/obj/structure/sign/flag/kazhkz
+	name = "House Kazhkz standard"
 	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
 	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
 	icon_state = "kazkhz"
@@ -1159,6 +1141,20 @@
 	and weaponry, there are no proper rules in creating a flag for ones Unathi fleets... Still, the sheer popularity of Izharshan's flag, and the fact that it was one of the first flags created by a Unathi Pirate fleet made it a model to follow \
 	for many others, with a Sinta (or their head or skull) taking a central place in the picture, and other elements complimenting it, generally in a symmetrical fashion."
 	icon_state = "izharshan"
+
+/obj/item/flag/visegrad
+	name = "\improper Visegrad flag"
+	desc = "The flag of Visegrad."
+	desc_extended = "The blue, white, green and red flag of Visegrad was the original Warsaw Pact-created design for the planet's flag, and even after it acquired independence it was maintained, though with the removal of the socialist emblem and the addition of a Solarian ensign. \
+	It is said that the green represents the forests of the planet, the white the stormclouds, and the blue the sky hidden above, while the red is supposed to represent shared national unity."
+	flag_path = "visegrad"
+
+/obj/structure/sign/flag/visegrad
+	name = "\improper Visegrad flag"
+	desc = "The flag of Visegrad."
+	desc_extended = "The blue, white, green and red flag of Visegrad was the original Warsaw Pact-created design for the planet's flag, and even after it acquired independence it was maintained, though with the removal of the socialist emblem and the addition of a Solarian ensign. \
+	It is said that the green represents the forests of the planet, the white the stormclouds, and the blue the sky hidden above, while the red is supposed to represent shared national unity."
+	icon_state = "visegrad"
 
 /obj/structure/sign/painting_frame
 	name = "empty frame"

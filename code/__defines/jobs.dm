@@ -24,7 +24,7 @@
 // Factions
 // Used to know what what roles are allowed to play as which factions.
 // Note that independent isn't a faction by itself, as faction in this case means a megacorporation.
-#define SCC_ROLES list(COMMAND_ROLES, COMMAND_SUPPORT_ROLES, EQUIPMENT_ROLES, ALL_FACTION_ROLES)
+#define SCC_ROLES list(COMMAND_ROLES, COMMAND_SUPPORT_ROLES, EQUIPMENT_ROLES, /datum/job/visitor)
 #define NT_ROLES list(SCIENCE_ROLES, MEDICAL_ROLES, SERVICE_ROLES, ALL_FACTION_ROLES)
 #define PMC_ROLES list(SECURITY_ROLES, MEDICAL_ROLES, ALL_FACTION_ROLES)
 #define IDRIS_ROLES list(SECURITY_ROLES, SERVICE_ROLES, ALL_FACTION_ROLES)

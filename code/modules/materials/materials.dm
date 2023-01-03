@@ -964,12 +964,6 @@
 	stack_type = /obj/item/stack/material/animalhide/lizard
 	icon_colour = "#34AF10"
 
-/material/hide/xeno
-	name = MATERIAL_HIDE_ALIEN
-	stack_type = /obj/item/stack/material/animalhide/xeno
-	icon_colour = "#525288"
-	protectiveness = 10 // 33%
-
 /material/hide/human
 	name = MATERIAL_HIDE_HUMAN
 	stack_type = /obj/item/stack/material/animalhide/human

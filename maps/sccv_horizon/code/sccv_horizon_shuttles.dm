@@ -170,6 +170,7 @@
 	docking_controller = "intrepid_dock"
 	base_area = /area/hangar/intrepid
 	base_turf = /turf/simulated/floor/plating
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/intrepid/transit
 	name = "In transit"
@@ -194,6 +195,7 @@
 	docking_controller = "mining_shuttle_dock"
 	base_turf = /turf/simulated/floor/airless
 	base_area = /area/hangar/operations
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/mining/transit
 	name = "In transit"

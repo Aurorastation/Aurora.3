@@ -15,7 +15,7 @@
 	)
 
 /turf/simulated/wall/shuttle/Initialize(mapload)
-	. = ..(mapload,"shuttle")
+	. = ..(mapload, "shuttle", "shuttle")
 
 /turf/simulated/wall/shuttle/cardinal
 	smooth = SMOOTH_TRUE
@@ -123,7 +123,7 @@
 		/turf/unsimulated/wall/fakeairlock
 	)
 
-/turf/simulated/wall/shuttle/Initialize(mapload)
+/turf/simulated/wall/shuttle/skrell/Initialize(mapload)
 	. = ..(mapload,"skrell")
 
 /turf/simulated/wall/shuttle/skrell/cardinal

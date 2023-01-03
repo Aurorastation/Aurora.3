@@ -6607,7 +6607,6 @@
 /area/centcom/spawning)
 "aTs" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = -30
 	},
 /turf/simulated/floor/shuttle/tan,
@@ -6642,10 +6641,6 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/tdome)
-"aUq" = (
-/obj/machinery/atmospherics/pipe/vent,
-/turf/simulated/floor/bluegrid,
-/area/tdome)
 "aUs" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -6660,28 +6655,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
-"aUu" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 5
-	},
-/turf/simulated/floor,
-/area/tdome)
-"aUv" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/tdome)
-"aUw" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/turf/simulated/floor,
-/area/tdome)
-"aUz" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor,
-/area/tdome)
 "aVf" = (
 /obj/effect/landmark{
 	name = "Penguin Spawn Random"
@@ -8463,20 +8436,10 @@
 	},
 /area/shuttle/administration)
 "bHu" = (
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
-/obj/structure/closet/l3closet,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/tank/oxygen/red,
-/obj/item/tank/oxygen/red,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/mask/gas/alt,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
+/obj/structure/closet/hazmat/general,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "bHJ" = (
@@ -8540,17 +8503,7 @@
 	},
 /area/centcom/bar)
 "bJW" = (
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
-/obj/structure/closet/l3closet,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/clothing/suit/bio_suit/virology,
-/obj/item/clothing/head/bio_hood/virology,
-/obj/item/tank/oxygen/red,
-/obj/item/tank/oxygen/red,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/mask/gas/alt,
+/obj/structure/closet/hazmat/general,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bKj" = (
@@ -11125,13 +11078,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/supply/dock)
-"drB" = (
-/obj/machinery/atmospherics/valve,
-/obj/effect/floor_decal/corner/orange/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "new_white"
-	},
-/area/tdome/tdomeadmin)
 "drE" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -11289,7 +11235,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/telecomms/relay/preset/centcom,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -14725,19 +14670,6 @@
 	icon_state = "floorscorched2"
 	},
 /area/antag/raider)
-"fIw" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/sleeping_agent{
-	pixel_x = 1
-	},
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/unsimulated/floor{
-	icon_state = "new_white"
-	},
-/area/tdome/tdomeadmin)
 "fIR" = (
 /obj/structure/table/reinforced/wood,
 /obj/effect/decal/fake_object{
@@ -14872,7 +14804,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_x = 5;
 	pixel_y = -22
 	},
@@ -16041,7 +15972,6 @@
 /obj/item/clothing/mask/horsehead,
 /obj/item/clothing/mask/gas/monkeymask,
 /obj/item/clothing/mask/luchador/tecnicos,
-/obj/item/clothing/mask/gas/plaguedoctor,
 /obj/item/clothing/shoes/laceup/brown/all_species,
 /obj/item/clothing/shoes/laceup/brown/all_species,
 /obj/item/clothing/shoes/workboots,
@@ -16819,7 +16749,6 @@
 /obj/item/clothing/mask/horsehead,
 /obj/item/clothing/mask/gas/monkeymask,
 /obj/item/clothing/mask/luchador/tecnicos,
-/obj/item/clothing/mask/gas/plaguedoctor,
 /obj/item/clothing/shoes/laceup/brown/all_species,
 /obj/item/clothing/shoes/laceup/brown/all_species,
 /obj/item/clothing/shoes/workboots,
@@ -17729,11 +17658,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/control)
-"hpC" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/unsimulated/floor/plating,
-/area/tdome/tdomeadmin)
 "hqg" = (
 /turf/simulated/floor/beach/sand{
 	dir = 6;
@@ -20858,9 +20782,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/telecomms/allinone{
-	intercept = 1
-	},
+/obj/machinery/telecomms/allinone,
 /turf/simulated/floor/plating,
 /area/shuttle/mercenary)
 "jxO" = (
@@ -25266,7 +25188,7 @@
 	},
 /obj/effect/decal/fake_object{
 	density = 1;
-	icon = 'icons/obj/contained_items/tools/inflatables.dmi';
+	icon = 'icons/obj/item/inflatables.dmi';
 	icon_state = "wall";
 	layer = 2.3;
 	name = "inflatable wall"
@@ -66576,8 +66498,8 @@ aTX
 aTX
 aTX
 aUm
-aUq
-aUu
+aUm
+aTX
 aTX
 aTX
 rFD
@@ -66834,12 +66756,12 @@ aTX
 aTX
 aUn
 goO
-aUv
-aUz
-aUz
-hpC
-drB
-fIw
+aTX
+aTX
+aTX
+nQZ
+cJB
+bBe
 cJB
 bBe
 lUA
@@ -67090,8 +67012,8 @@ aTX
 aTX
 aTX
 aUm
-aUq
-aUw
+aUm
+aTX
 aTX
 aTX
 rFD

@@ -9,7 +9,7 @@
 	uses_species_whitelist = FALSE
 	respawn_flag = null
 
-	outfit = /datum/outfit/admin/headmaster_kosmostrelki
+	outfit = /datum/outfit/admin/database_freighter_crew
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 

@@ -179,6 +179,7 @@
 
 /proc/air_sound(atom/source, var/required_pressure = SOUND_MINIMUM_PRESSURE)
 	var/turf/T = get_turf(source)
+	if(!istype(T)) return FALSE
 	var/datum/gas_mixture/environment = T.return_air()
 	var/pressure = (environment)? environment.return_pressure() : 0
 	if(pressure < required_pressure)

@@ -2,7 +2,6 @@
 /obj/machinery/button/distress
 	name = "distress beacon launcher"
 	desc = "Press this button to launch a distress beacon."
-	var/listening = FALSE
 	var/recorded_message
 
 /obj/machinery/button/distress/Initialize(mapload, d, populate_components, is_internal)
@@ -16,8 +15,7 @@
 			attempt_hook_up(my_sector)
 
 /obj/machinery/button/distress/hear_talk(mob/M, text, verb, datum/language/speaking)
-	if(listening)
-		recorded_message = text
+	recorded_message = text
 
 /obj/machinery/button/distress/attack_hand(var/mob/user)
 	if(..())
@@ -35,9 +33,9 @@
 		return
 	var/distress_message = input(user, "Enter a distress message that other vessels will receive.", "Distress Beacon")
 	if(distress_message)
-		listening = TRUE
+		become_hearing_sensitive()
 		user.say(distress_message)
-		listening = FALSE
+		lose_hearing_sensitivity()
 	else
 		to_chat(user, SPAN_WARNING("The beacon refuses to launch without a message!"))
 		active = FALSE

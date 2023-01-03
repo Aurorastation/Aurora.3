@@ -80,9 +80,6 @@
 	var/obj/item/device/paicard/personal_ai									// Personal AI, can control the device via a verb when installed
 	var/obj/item/computer_hardware/flashlight/flashlight
 
-	var/listener/listener	//Listener needed for things
-
-	var/listening = FALSE //For listening to mob say.
 	var/registered_message = ""
 
 	charge_failure_message = " does not have a battery installed."

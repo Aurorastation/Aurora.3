@@ -4,7 +4,7 @@
 	suffix = "ships/tcfl_patrol/tcfl_peacekeeper_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "tcfl_peacekeeper_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcfl_shuttle)
 
@@ -26,8 +26,8 @@
 	name = "TCFL Corvette"
 	class = "BLV"
 	desc = "Serving as the very foundation of the SCC's (And more specifically, NanoTrasen's) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design's interdiction counterpart - the Hydrus-class shuttle. This one appears to be a Decanus-class, the Tau Ceti Foreign Legion variation of the design."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship_blue"
+	moving_state = "ship_blue_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -70,6 +70,8 @@
 	class = "Stake"
 	desc = "A large and unusually-shaped shuttle, the Hydrus-class is deceptively fast and is designed to operate out of a Cetus-class corvette's rear hangar bay, interdicting targets that its mothership intercepts. This one appears to be a Velite-class Interceptor - the TCFL designation for this design."
 	shuttle = "TCFL Shuttle"
+	icon_state = "shuttle_blue"
+	moving_state = "shuttle_blue_moving" 
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

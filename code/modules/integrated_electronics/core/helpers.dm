@@ -27,9 +27,9 @@
 		CRASH("Invalid pin ref.")
 	return pin.write_data_to_pin(new_data)
 
-/obj/item/integrated_circuit/proc/get_pin_data(pin_type, pin_number)
+/obj/item/integrated_circuit/proc/get_pin_data(pin_type, pin_number, var/resolve_weakrefs = TRUE)
 	var/datum/integrated_io/pin = get_pin_ref(pin_type, pin_number)
-	return pin.get_data()
+	return pin.get_data(resolve_weakrefs)
 
 /obj/item/integrated_circuit/proc/get_pin_data_as_type(pin_type, pin_number, as_type)
 	var/datum/integrated_io/pin = get_pin_ref(pin_type, pin_number)
@@ -39,8 +39,8 @@
 	var/datum/integrated_io/activate/A = activators[pin_number]
 	A.push_data(pin_number)
 
-/datum/integrated_io/proc/get_data()
-	if(isweakref(data))
+/datum/integrated_io/proc/get_data(var/resolve_weakrefs = TRUE)
+	if(resolve_weakrefs && isweakref(data))
 		return data.resolve()
 	return data
 

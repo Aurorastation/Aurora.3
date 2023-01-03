@@ -77,7 +77,7 @@
 		data["status"] = "MISSING"
 		data["range"] = "N/A"
 		data["on"] = 0
-	
+
 	if(identification)
 		data["id_on"] = identification.use_power
 		if(identification.disabled)
@@ -183,6 +183,14 @@
 		visible_message(SPAN_ITALIC("[accent_icon] <b>[user_name]</b> explains, \"[beacon.distress_message]\""))
 		return TOPIC_HANDLED
 
+	if(href_list["inbound_fire"])
+		var/direction = href_list["inbound_fire"]
+		if(direction != "clear")
+			security_announcement.Announce("Enemy fire inbound, enemy fire inbound! [direction]!", "Brace for shock!", sound('sound/mecha/internaldmgalarm.ogg', volume = 90), 0)
+		else
+			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/misc/announcements/security_level_old.ogg'), 0)
+		return TOPIC_HANDLED
+
 /obj/machinery/computer/ship/sensors/process()
 	..()
 	if(!linked)
@@ -196,7 +204,7 @@
 /obj/machinery/shipsensors
 	name = "sensors suite"
 	desc = "Long range gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/machinery/sensors.dmi'
 	icon_state = "sensors"
 	anchored = 1
 	var/max_health = 200
@@ -237,10 +245,35 @@
 	return 1
 
 /obj/machinery/shipsensors/update_icon()
-	if(use_power)
-		icon_state = "sensors"
+	icon_state = "sensors_off"
+	if(!use_power)
+		cut_overlays()
+		return
+
+	var/overlay = "sensors-effect"
+
+	var/range_percentage = range / world.view * 100
+
+	if(range_percentage < 20)
+		overlay = "[overlay]1"
+	else if(range_percentage < 40)
+		overlay = "[overlay]2"
+	else if(range_percentage < 60)
+		overlay = "[overlay]3"
+	else if(range_percentage < 80)
+		overlay = "[overlay]4"
 	else
-		icon_state = "sensors_off"
+		overlay = "[overlay]5"
+
+	// Check if we are already using this overlay. Since updating is expensive.
+	if(!(overlay in our_overlays))
+		cut_overlays()
+		add_overlay(overlay)
+
+		var/heat_percentage = heat / critical_heat * 100
+
+		if(heat_percentage > 85)
+			add_overlay("sensors-effect-hot")
 
 /obj/machinery/shipsensors/examine(mob/user)
 	. = ..()
@@ -280,6 +313,8 @@
 
 	if (heat > 0)
 		heat = max(0, heat - heat_reduction)
+
+	update_icon()
 
 /obj/machinery/shipsensors/power_change()
 	. = ..()

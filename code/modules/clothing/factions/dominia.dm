@@ -48,6 +48,26 @@
 	item_state = "dominian_cape"
 	icon_override = null
 	contained_sprite = TRUE
+	var/cape_backing_state = "cape_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/white
+	name = "white dominian cape"
+	icon_state = "dominian_capew"
+	item_state = "dominian_capew"
+	cape_backing_state = "capew_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/cape_backing = image(mob_icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
+		I.add_overlay(cape_backing)
+	return I
+
+/obj/item/clothing/accessory/poncho/dominia_cape/get_accessory_mob_overlay(mob/living/carbon/human/human, force)
+	var/image/base = ..()
+	var/image/cape_backing = image(icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
+	base.add_overlay(cape_backing)
+	return base
 
 /obj/item/clothing/accessory/poncho/dominia_cape/strelitz
 	name = "house strelitz cape"
@@ -55,11 +75,23 @@
 	icon_state = "strelitz_cape"
 	item_state = "strelitz_cape"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/strelitz/white
+	name = "white house strelitz cape"
+	icon_state = "strelitz_capew"
+	item_state = "strelitz_capew"
+	cape_backing_state = "capew_backing"
+
 /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad
 	name = "house volvalaad cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Volvalaad."
 	icon_state = "volvalaad_cape"
 	item_state = "volvalaad_cape"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/volvalaad/white
+	name = "white house volvalaad cape"
+	icon_state = "volvalaad_capew"
+	item_state = "volvalaad_capew"
+	cape_backing_state = "capew_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz
 	name = "house kazhkz cape"
@@ -67,17 +99,35 @@
 	icon_state = "kazhkz_cape"
 	item_state = "kazhkz_cape"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/kazhkz/white
+	name = "white house kazhkz cape"
+	icon_state = "kazhkz_capew"
+	item_state = "kazhkz_capew"
+	cape_backing_state = "capew_backing"
+
 /obj/item/clothing/accessory/poncho/dominia_cape/caladius
 	name = "house caladius cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Caladius."
 	icon_state = "caladius_cape"
 	item_state = "caladius_cape"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/caladius/white
+	name = "white house caladius cape"
+	icon_state = "caladius_capew"
+	item_state = "caladius_capew"
+	cape_backing_state = "capew_backing"
+
 /obj/item/clothing/accessory/poncho/dominia_cape/zhao
 	name = "house zhao cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Zhao."
 	icon_state = "zhao_cape"
 	item_state = "zhao_cape"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/zhao/white
+	name = "white house zhao cape"
+	icon_state = "zhao_capew"
+	item_state = "zhao_capew"
+	cape_backing_state = "capew_backing"
 
 /obj/item/clothing/suit/storage/dominia/consular
 	name = "Dominian consular officer's greatcoat"
@@ -125,17 +175,46 @@
 	item_state = "dominia_bomber_long"
 
 /obj/item/clothing/under/dominia
-	name = "dominia suit"
-	desc = "This is a suit in the style of Dominia nobility. It's the latest fashion across Dominian space."
-	icon = 'icons/clothing/under/uniforms/dominia_uniform_red.dmi'
-	icon_state = "dominia_uniform_red"
-	item_state = "dominia_uniform_red"
 	contained_sprite = TRUE
 
-/obj/item/clothing/under/dominia/black
-	icon = 'icons/clothing/under/uniforms/dominia_uniform_black.dmi'
-	icon_state = "dominia_uniform_black"
-	item_state = "dominia_uniform_black"
+/obj/item/clothing/under/dominia/imperial_suit
+	name = "dominian suit"
+	desc = "This is a suit in the style of Dominia nobility. It's the latest fashion across Dominian space."
+	icon = 'icons/clothing/under/uniforms/dominia_suits.dmi'
+	icon_state = "suit_imperial"
+	item_state = "suit_imperial"
+	var/house
+
+/obj/item/clothing/under/dominia/imperial_suit/Initialize()
+	. = ..()
+	if(house)
+		icon_state = "suit_[house]"
+		item_state = "suit_[house]"
+		initial_icon_override = icon_state
+
+/obj/item/clothing/under/dominia/imperial_suit/strelitz
+	name = "house strelitz suit"
+	house = "strelitz"
+
+/obj/item/clothing/under/dominia/imperial_suit/volvalaad
+	name = "house volvalaad suit"
+	house = "volvalaad"
+
+/obj/item/clothing/under/dominia/imperial_suit/kazhkz
+	name = "house kazhkz suit"
+	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/imperial_suit/caladius
+	name = "house caladius suit"
+	house = "caladius"
+
+/obj/item/clothing/under/dominia/imperial_suit/zhao
+	name = "house zhao suit"
+	house = "zhao"
+
+/obj/item/clothing/under/dominia/imperial_suit/black
+	icon_state = "suit_imperial_black"
+	item_state = "suit_imperial_black"
 
 /obj/item/clothing/under/dominia/sweater
 	name = "fisanduhian sweater"
@@ -244,19 +323,76 @@
 		remove_mask()
 
 /obj/item/clothing/under/dominia/dress
-	name = "dominian noblewoman dress"
-	desc = "This is a dress in the style of Dominian nobility. It's the latest fashion across Dominian space."
+	name = "dominian noble greatdress"
+	desc = "This is a greatdress in the style of Dominian nobility. Greatdresses are a Dominian fashion fad, distinguished from normal dresses by their colourful palettes \
+			and oversized gowns. More modest nobility would define them as excessively gaudy and unreasonable, but it depends on the individual."
 	icon = 'icons/clothing/under/uniforms/dominia_noble_dress.dmi'
 	icon_state = "dom_dress"
 	item_state = "dom_dress"
 	contained_sprite = TRUE
 
-/obj/item/clothing/under/dominia/dress/summer
-	name = "dominian summer dress"
-	desc = "This is a dress in the style of Dominian nobility. It's the latest fashion across Dominian space."
+/obj/item/clothing/under/dominia/dress/noble
+	name = "dominian noble dress"
+	desc = "A dress commonly worn by Dominian nobility. While not as gaudy as the greatdress, it is extremely luxurious nonetheless, and a sign of excellent pedigree \
+			and good fortune."
 	icon = 'icons/clothing/under/uniforms/dominia_summer_dress.dmi'
-	icon_state = "dom_dress"
-	item_state = "dom_dress"
+	icon_state = "altdress_imperial"
+	item_state = "altdress_imperial"
+	var/house
+	var/black = FALSE
+
+/obj/item/clothing/under/dominia/dress/noble/Initialize()
+	. = ..()
+	if(house)
+		icon_state = "altdress_[house]"
+		item_state = "altdress_[house]"
+	if(black)
+		icon_state += "b"
+		item_state += "b"
+
+/obj/item/clothing/under/dominia/dress/noble/strelitz
+	name = "strelitz noble dress"
+	house = "strelitz"
+
+/obj/item/clothing/under/dominia/dress/noble/volvalaad
+	name = "volvalaad noble dress"
+	house = "volvalaad"
+
+/obj/item/clothing/under/dominia/dress/noble/kazhkz
+	name = "kazhkz noble dress"
+	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/dress/noble/caladius
+	name = "caladius noble dress"
+	house = "caladius"
+
+/obj/item/clothing/under/dominia/dress/noble/zhao
+	name = "zhao noble dress"
+	house = "zhao"
+
+/obj/item/clothing/under/dominia/dress/noble/black
+	name = "black dominian noble dress"
+	black = TRUE
+
+/obj/item/clothing/under/dominia/dress/noble/black/strelitz
+	name = "black strelitz noble dress"
+	house = "strelitz"
+
+/obj/item/clothing/under/dominia/dress/noble/black/volvalaad
+	name = "black volvalaad noble dress"
+	house = "volvalaad"
+
+/obj/item/clothing/under/dominia/dress/noble/black/kazhkz
+	name = "black kazhkz noble dress"
+	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/dress/noble/black/caladius
+	name = "black caladius noble dress"
+	house = "caladius"
+
+/obj/item/clothing/under/dominia/dress/noble/black/zhao
+	name = "black zhao noble dress"
+	house = "zhao"
 
 /obj/item/clothing/accessory/poncho/dominia/red/surcoat
 	name = "tribunalist surcoat"
@@ -464,79 +600,109 @@
 
 /obj/item/clothing/under/dominia/dress/fancy
 	name = "Morozi dress"
-	desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has sleeves."
+	desc = "Feminine commoner's fashion from the Empire of Dominia."
 	desc_extended = "Dresses such as this one are a common sight in the more developed colonies of the Empire of Dominia, and their origins can be traced back to \
 	the fashion houses of Nova Luxembourg. While both sleeved and sleeveless variants exist, the sleeved one is far more common \
 	due to the often frigid temperatures of Moroz."
 	icon = 'icons/clothing/under/uniforms/dominia_dresses.dmi'
-	icon_state = "morozi_dress"
-	item_state = "morozi_dress"
+	icon_state = "dress_imperial"
+	item_state = "dress_imperial"
 	contained_sprite = TRUE
 	var/house
 
 /obj/item/clothing/under/dominia/dress/fancy/Initialize()
 	. = ..()
 	if(house)
-		desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has sleeves, and a colored sash marking its wearer as \
+		desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has a colored sash marking its wearer as \
 				an affiliate of House [capitalize(house)]."
-		icon_state = "[house]"
-		item_state = "[house]"
-		update_clothing_icon()
-
-/obj/item/clothing/under/dominia/dress/fancy/sleeveless
-	name = "sleeveless Morozi dress"
-	desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has no sleeves."
-	desc_extended = "Dresses such as this one are a common sight in the more developed colonies of the Empire of Dominia, and their origins can be traced back to \
-				the fashion houses of Nova Luxembourg. While both sleeved and sleeveless variants exist, the sleeved one is far more common \
-				due to the often frigid temperatures of Moroz."
-	icon_state = "morozi_dress_rs"
-	item_state = "morozi_dress_rs"
-
-/obj/item/clothing/under/dominia/dress/fancy/sleeveless/Initialize()
-	. = ..()
-	if(house)
-		desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has no sleeves, and a colored sash marking its wearer as \
-				an affiliate of House [house]."
-		icon_state += "_rs"
-		item_state += "_rs"
+		icon_state = "dress_[house]"
+		item_state = "dress_[house]"
+		initial_icon_override = icon_state
 		update_clothing_icon()
 
 /obj/item/clothing/under/dominia/dress/fancy/zhao
 	name = "house zhao Morozi dress"
 	house = "zhao"
 
-/obj/item/clothing/under/dominia/dress/fancy/sleeveless/zhao
-	name = "sleeveless house zhao Morozi dress"
-	house = "zhao"
-
 /obj/item/clothing/under/dominia/dress/fancy/volvalaad
 	name = "house volvalaad Morozi dress"
 	house = "volvalaad"
-
-/obj/item/clothing/under/dominia/dress/fancy/sleeveless/volvalaad
-	name = "sleeveless house volvalaad Morozi dress"
-	house = "volvalaad"
-
 /obj/item/clothing/under/dominia/dress/fancy/strelitz
 	name = "house strelitz Morozi dress"
-	house = "strelitz"
-
-/obj/item/clothing/under/dominia/dress/fancy/sleeveless/strelitz
-	name = "sleeveless house strelitz Morozi dress"
 	house = "strelitz"
 
 /obj/item/clothing/under/dominia/dress/fancy/caladius
 	name = "house caladius Morozi dress"
 	house = "caladius"
 
-/obj/item/clothing/under/dominia/dress/fancy/sleeveless/caladius
-	name = "sleeveless house caladius Morozi dress"
-	house = "caladius"
-
 /obj/item/clothing/under/dominia/dress/fancy/kazhkz
 	name = "house kazhkz Morozi dress"
 	house = "kazhkz"
 
-/obj/item/clothing/under/dominia/dress/fancy/sleeveless/kazhkz
-	name = "sleeveless house kazhkz Morozi dress"
-	house = "kazhkz"
+/obj/item/clothing/under/dominia/fleet
+	name = "fleet voidsman uniform"
+	desc = "The uniform of an enlisted sailor of the Imperial Fleet."
+	desc_extended = "The kerchief of a Fleet voidsman varies from battlefleet to battlefleet, \
+		and its color indicates where the rating originated from. This particular uniform comes from the elite 1st battlefleet, \
+		which is under the command of Grand Admiral Huiling Zhao herself."
+	icon = 'icons/clothing/under/uniforms/dominia_fleet.dmi'
+	icon_state = "voidsman"
+	item_state = "voidsman"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/dominia/fleet/officer
+	name = "fleet officer uniform"
+	desc = "An Imperial Fleet uniform belonging to an Ensign - a junior officer generally in command of a small ship."
+	desc_extended = "The junior officers ranks of the Imperial Fleet are often as high as most Ma'zals rise, \
+		and are often looked down upon by their higher-ranking and typically noble superiors."
+	icon_state = "officer"
+	item_state = "officer"
+	build_from_parts = TRUE
+	worn_overlay = "cord"
+
+/obj/item/clothing/under/dominia/fleet/armsman
+	name = "fleet armsman uniform"
+	desc = "A no-nonsense uniform worn by Imperial Fleet armsmen."
+	desc_extended = "Imperial Fleet armsmen are generally drawn from the Imperial Army and this uniform \
+		has intentionally been designed to resemble that of the Army. Armsmen note it comes in two sizes: too large or too small."
+	icon_state = "armsman"
+	item_state = "armsman"
+	build_from_parts = TRUE
+	worn_overlay = "collar"
+
+/obj/item/clothing/head/dominia/fleet
+	name = "fleet voidsman duty cover"
+	desc = "A garrison cap commonly worn by enlisted sailors of the Imperial Fleet."
+	desc_extended = "Deliberately modest compared to their Officer counterparts, enlisted voidsmen's caps \
+		typically display their vessel of origin on the right side of the cap. \
+		These caps can easily be rolled and stored in the likely event other forms of headwear are required."
+	icon = 'icons/clothing/under/uniforms/dominia_fleet.dmi'
+	icon_state = "voidsmancap"
+	item_state = "voidsmancap"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/dominia/fleet/officer
+	name = "fleet officer peaked cap"
+	desc = "A junior officer's peaked cap. The Grand Admiral's initials - HZ - are stamped on its badge."
+	desc_extended = "The peaked cap of the Imperial Fleet is one of its most enduring symbols. \
+		Noble officers will generally wear an additional badge on the cap indicating their house of origin."
+	icon_state = "officercap"
+	item_state = "officercap"
+
+/obj/item/clothing/head/dominia/fleet/armsman
+	name = "fleet armsman duty cover"
+	desc = "A standard issue cap issued to Imperial Fleet armsmen."
+	desc_extended = "The duty cover of Fleet armsmen is deliberately meant to resemble the same hat worn by Imperial Army enlisted. \
+		Like its Army counterpart it lacks the second button found on officer's caps which indicates one's noble house of origin."
+	icon_state = "armsmancap"
+	item_state = "armsmancap"
+
+/obj/item/clothing/suit/storage/dominia/fleet
+	name = "fleet officer overcoat"
+	desc = "An Imperial Fleet coat belonging to an officer. The single golden band around its wrist indicates it belongs to an Ensign."
+	desc_extended = "Imperial Fleet officer's coats are both a symbol of rank and of social status, \
+		and proudly bear the wearer's rank by the number of golden bands around their sleeves."
+	icon = 'icons/clothing/under/uniforms/dominia_fleet.dmi'
+	icon_state = "officercoat"
+	item_state = "officercoat"
+	contained_sprite = TRUE

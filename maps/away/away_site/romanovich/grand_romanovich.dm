@@ -1,21 +1,26 @@
 /datum/map_template/ruin/away_site/grand_romanovich
-	name = "grand romanovich casino"
+	name = "Grand Romanovich Casino"
 	description = "An adhomian style casino in Tau Ceti's space."
 	suffix = "away_site/romanovich/grand_romanovich.dmm"
 	sectors = list(SECTOR_ROMANOVICH)
 	spawn_weight = 1
-	spawn_cost = 2
+	ship_cost = 2
 	id = "grand_romanovich"
 
 /decl/submap_archetype/grand_romanovich
-	map = "grand romanovich casino"
+	map = "Grand Romanovich Casino"
 	descriptor = "An adhomian style casino in Tau Ceti's space."
 
 /obj/effect/overmap/visitable/sector/grand_romanovich
-	name = "grand romanovich casino"
+	name = "Grand Romanovich Casino"
 	desc = "An adhomian style casino in Tau Ceti's space."
 
+	comms_support = TRUE
+	comms_name = "casino"
+	use_common = TRUE
+
 /area/grand_romanovich
+	flags = HIDE_FROM_HOLOMAP
 	name = "Grand Romanovich Casino"
 	icon_state = "away"
 	requires_power = FALSE

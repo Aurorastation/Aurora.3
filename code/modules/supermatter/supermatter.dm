@@ -371,7 +371,7 @@
 	data = ..() || list()
 	data["integrity_percentage"] = round(get_integrity())
 	var/datum/gas_mixture/env = null
-	if(!istype(src.loc, /turf/space))
+	if(loc && !istype(src.loc, /turf/space))
 		env = src.loc.return_air()
 	data["ambient_temp"] = round(env?.temperature)
 	data["ambient_pressure"] = round(env?.return_pressure())
@@ -384,16 +384,6 @@
 		ui = new(user, src, "machinery-power-supermattercrystal", 500, 300, "Supermatter Crystal")
 		ui.auto_update_content = TRUE
 		ui.open()
-
-/*
-/obj/machinery/power/supermatter/proc/transfer_energy()
-	for(var/obj/machinery/power/rad_collector/R in rad_collectors)
-		var/distance = get_dist(R, src)
-		if(distance <= 15)
-			//for collectors using standard phoron tanks at 1013 kPa, the actual power generated will be this power*POWER_FACTOR*20*29 = power*POWER_FACTOR*580
-			R.receive_pulse(power * POWER_FACTOR * (min(3/distance, 1))**2)
-	return
-*/
 
 /obj/machinery/power/supermatter/attackby(obj/item/W as obj, mob/living/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\

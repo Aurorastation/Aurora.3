@@ -21,6 +21,8 @@
 #define SPAN_SOGHUN(X) ("<span class='soghun'>" + X + "</span>")
 #define SPAN_VOTE(X) ("<span class='vote'>" + X + "</span>")
 
+#define SPAN_HIGHDANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
+
 #define FONT_SIZE_SMALL 1
 #define FONT_SIZE_NORMAL 2
 #define FONT_SIZE_LARGE 3

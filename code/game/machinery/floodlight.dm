@@ -2,7 +2,7 @@
 /obj/machinery/floodlight
 	name = "industrial floodlight"
 	desc = "A series of large LEDs housed in a reflective frame, this is a cheap and easy way of lighting large areas during construction."
-	icon = 'icons/obj/machines/floodlight.dmi'
+	icon = 'icons/obj/machinery/floodlight.dmi'
 	icon_state = "flood00"
 	density = TRUE
 	obj_flags = OBJ_FLAG_ROTATABLE

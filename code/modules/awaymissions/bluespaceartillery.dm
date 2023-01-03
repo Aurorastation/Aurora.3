@@ -3,7 +3,7 @@
 	var/reload = 180
 	name = "bluespace artillery control"
 	icon_state = "control_boxp1"
-	icon = 'icons/obj/machines/particle_accelerator2.dmi'
+	icon = 'icons/obj/machinery/particle_accelerator2.dmi'
 	density = 1
 	anchored = 1
 
@@ -55,7 +55,7 @@
 
 /obj/structure/artilleryplaceholder
 	name = "artillery"
-	icon = 'icons/obj/machines/artillery.dmi'
+	icon = 'icons/obj/machinery/artillery.dmi'
 	anchored = 1
 	density = 1
 

@@ -144,13 +144,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
@@ -265,7 +265,7 @@
 	dir = 4;
 	icon_state = "map-scrubbers"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -901,6 +901,10 @@
 "lw" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner/beige,
+/obj/effect/ghostspawpoint{
+	identifier = "tajaran_scrapper";
+	name = "igs - tajaran_scrapper"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "lA" = (
@@ -1103,9 +1107,6 @@
 	},
 /area/shuttle/scrapper_ship/port_engines)
 "nr" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
@@ -1113,6 +1114,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1180,14 +1184,9 @@
 /area/scrapper_base)
 "ot" = (
 /obj/structure/bed/stool/chair/sofa/right/black,
-/obj/effect/ghostspawpoint{
-	identifier = "tajaran_scrapper";
-	name = "igs - tajaran_scrapper"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "ov" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8;
 	icon_state = "map-scrubbers"
@@ -1202,6 +1201,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1308,14 +1308,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1551,9 +1551,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "tf" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -1561,6 +1558,9 @@
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1754,7 +1754,6 @@
 	},
 /area/shuttle/scrapper_ship/atmos)
 "vD" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1763,6 +1762,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "vI" = (
@@ -1802,7 +1802,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "vT" = (
-/obj/machinery/computer/shuttle_control/explore/tajara_scrapper,
+/obj/machinery/computer/shuttle_control/explore/tajara_scrapper{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
@@ -1948,12 +1950,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "xN" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4;
 	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
@@ -2619,7 +2621,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
 "Hg" = (
-/obj/machinery/computer/ship/sensors,
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
@@ -2675,7 +2679,8 @@
 /area/shuttle/scrapper_ship/workshop)
 "HA" = (
 /obj/machinery/computer/ship/helm{
-	req_access = null
+	req_access = null;
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -2686,6 +2691,10 @@
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner/beige{
 	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "tajaran_scrapper";
+	name = "igs - tajaran_scrapper"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
@@ -2840,7 +2849,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "JH" = (
-/obj/machinery/computer/ship/navigation,
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
 	},
@@ -2902,15 +2913,11 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "Kl" = (
 /obj/structure/bed/stool/chair/sofa/black,
-/obj/effect/ghostspawpoint{
-	identifier = "tajaran_scrapper";
-	name = "igs - tajaran_scrapper"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "Kn" = (
@@ -2996,10 +3003,6 @@
 /area/scrapper_base)
 "LB" = (
 /obj/structure/bed/stool/chair/sofa/left/black,
-/obj/effect/ghostspawpoint{
-	identifier = "tajaran_scrapper";
-	name = "igs - tajaran_scrapper"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "LC" = (
@@ -3171,14 +3174,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3722,6 +3725,10 @@
 /area/scrapper_base/storage)
 "Ue" = (
 /obj/structure/bed/stool/chair/shuttle,
+/obj/effect/ghostspawpoint{
+	identifier = "tajaran_scrapper";
+	name = "igs - tajaran_scrapper"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "Uh" = (
@@ -3757,12 +3764,12 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "UF" = (
@@ -4064,7 +4071,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "Yo" = (
-/obj/machinery/computer/ship/engines,
+/obj/machinery/computer/ship/engines{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
@@ -49497,19 +49506,19 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
 zx
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 Kn
 Kn
 Kn

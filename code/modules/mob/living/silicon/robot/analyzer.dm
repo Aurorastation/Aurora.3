@@ -16,7 +16,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 200)
 
 /obj/item/device/robotanalyzer/attack(mob/living/M, mob/living/user)
-	if((user.is_clumsy() || (DUMB in user.mutations)) && prob(50))
+	if((user.is_clumsy() || HAS_FLAG(user.mutations, DUMB)) && prob(50))
 		to_chat(user, SPAN_WARNING("You try to analyze the floor's vitals!"))
 		visible_message(SPAN_WARNING("\The [user] has analyzed the floor's vitals!"))
 		to_chat(user, SPAN_NOTICE("Analyzing Results for The floor:"))
@@ -116,4 +116,4 @@
 
 /obj/item/device/robotanalyzer/augment/dropped()
 	loc = null
-	qdel(src)	
+	qdel(src)

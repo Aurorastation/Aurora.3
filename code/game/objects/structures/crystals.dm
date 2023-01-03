@@ -49,7 +49,7 @@
 		harvest()
 
 /obj/structure/reagent_crystal/attack_hand(mob/user)
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src] apart!"), SPAN_WARNING("You smash \the [src] apart!"))
 		harvest()
 		return

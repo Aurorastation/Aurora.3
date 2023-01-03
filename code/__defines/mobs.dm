@@ -253,6 +253,12 @@
 #define GHOSTS_ALL_HEAR 1
 #define ONLY_GHOSTS_IN_VIEW 0
 
+// Handle speech problems defines
+#define HSP_MSG 		"message"
+#define HSP_VERB 		"verb"
+#define HSP_MSGMODE 	"message mode"
+#define HSP_MSGRANGE 	"message range"
+
 // Defines mob sizes, used by lockers and to determine what is considered a small sized mob, etc.
 #define MOB_LARGE  		16
 #define MOB_MEDIUM 		9
@@ -449,6 +455,7 @@
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
 
+#define ROBOT_ICON		"iconpath"
 #define ROBOT_CHASSIS	"chassistype"
 #define ROBOT_PANEL		"paneltype"
 #define ROBOT_EYES		"eyetype"

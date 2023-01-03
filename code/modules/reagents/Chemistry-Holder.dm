@@ -115,7 +115,7 @@
 /* Holder-to-chemical */
 
 /datum/reagents/proc/add_reagent(var/rtype, var/amount, var/data = null, var/safety = 0, var/temperature = 0, var/new_thermal_energy = 0)
-	if(amount <= 0)
+	if(amount <= 0 || !REAGENTS_FREE_SPACE(src))
 		return FALSE
 	new_thermal_energy /= amount // Re-multiplied later
 	amount = min(amount, REAGENTS_FREE_SPACE(src))

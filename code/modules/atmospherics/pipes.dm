@@ -9,7 +9,7 @@
 	layer = PIPE_LAYER
 	use_power = POWER_USE_OFF
 
-	var/alert_pressure = 80*ONE_ATMOSPHERE
+	var/alert_pressure = ATMOS_DEFAULT_ALERT_PRESSURE
 		//minimum pressure before check_pressure(...) should be called
 
 	can_buckle = 1
@@ -76,8 +76,6 @@
 /obj/machinery/atmospherics/pipe/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if (istype(src, /obj/machinery/atmospherics/pipe/tank))
 		return ..()
-	if (istype(src, /obj/machinery/atmospherics/pipe/vent))
-		return ..()
 
 	if(istype(W,/obj/item/device/pipe_painter))
 		return FALSE
@@ -94,8 +92,9 @@
 		to_chat(user, "<span class='warning'>You must remove the plating first.</span>")
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
+	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
+	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
 		if(!istype(W, /obj/item/pipewrench))
 			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 			add_fingerprint(user)
@@ -216,6 +215,7 @@
 		. = PROCESS_KILL
 
 /obj/machinery/atmospherics/pipe/simple/check_pressure(pressure)
+	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	var/pressure_difference = pressure - environment.return_pressure()
@@ -429,20 +429,6 @@
 
 /obj/machinery/atmospherics/pipe/simple/hidden/purple
 	color = PIPE_COLOR_PURPLE
-
-/obj/machinery/atmospherics/pipe/simple/insulated
-	desc_info = "This is completely useless, use a normal pipe."
-	icon = 'icons/obj/atmospherics/red_pipe.dmi'
-	icon_state = "intact"
-
-	minimum_temperature_difference = 10000
-	thermal_conductivity = 0
-	maximum_pressure = 1000*ONE_ATMOSPHERE
-	fatigue_pressure = 900*ONE_ATMOSPHERE
-	alert_pressure = 900*ONE_ATMOSPHERE
-
-	level = 2
-
 
 /obj/machinery/atmospherics/pipe/manifold
 	name = "pipe manifold"
@@ -1137,7 +1123,7 @@
 	desc = "A large vessel containing pressurized gas."
 
 	volume = 10000 //in liters, 1 meters by 1 meters by 2 meters ~tweaked it a little to simulate a pressure tank without needing to recode them yet
-	var/start_pressure = 25*ONE_ATMOSPHERE
+	var/start_pressure = PRESSURE_ONE_THOUSAND * 2.5
 
 	level = 1
 	dir = SOUTH
@@ -1306,90 +1292,6 @@
 
 	. = ..()
 	icon_state = "n2o"
-
-/obj/machinery/atmospherics/pipe/vent
-	icon = 'icons/obj/atmospherics/pipe_vent.dmi'
-	icon_state = "intact"
-
-	name = "Vent"
-	desc = "A large air vent"
-
-	level = 1
-
-	volume = 250
-
-	dir = SOUTH
-	initialize_directions = SOUTH
-
-	var/build_killswitch = 1
-
-/obj/machinery/atmospherics/pipe/vent/Initialize()
-	initialize_directions = dir
-	. = ..()
-
-/obj/machinery/atmospherics/pipe/vent/high_volume
-	name = "Larger vent"
-	volume = 1000
-
-/obj/machinery/atmospherics/pipe/vent/process()
-	if(!parent)
-		if(build_killswitch <= 0)
-			. = PROCESS_KILL
-		else
-			build_killswitch--
-		..()
-		return
-	else
-		parent.mingle_with_turf(loc, volume)
-
-/obj/machinery/atmospherics/pipe/vent/Destroy()
-	if(node1)
-		node1.disconnect(src)
-
-	node1 = null
-
-	return ..()
-
-/obj/machinery/atmospherics/pipe/vent/pipeline_expansion()
-	return list(node1)
-
-/obj/machinery/atmospherics/pipe/vent/update_icon()
-	if(node1)
-		icon_state = "intact"
-
-		set_dir(get_dir(src, node1))
-
-	else
-		icon_state = "exposed"
-
-/obj/machinery/atmospherics/pipe/vent/atmos_init()
-	var/connect_direction = dir
-
-	for(var/obj/machinery/atmospherics/target in get_step(src,connect_direction))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node1 = target
-				break
-
-	queue_icon_update()
-
-/obj/machinery/atmospherics/pipe/vent/disconnect(obj/machinery/atmospherics/reference)
-	if(reference == node1)
-		if(istype(node1, /obj/machinery/atmospherics/pipe))
-			QDEL_NULL(parent)
-		node1 = null
-
-	update_icon()
-
-	return null
-
-/obj/machinery/atmospherics/pipe/vent/hide(var/i) //to make the little pipe section invisible, the icon changes.
-	if(node1)
-		icon_state = "[i == 1 && istype(loc, /turf/simulated) ? "h" : "" ]intact"
-		set_dir(get_dir(src, node1))
-	else
-		icon_state = "exposed"
-
 
 /obj/machinery/atmospherics/pipe/simple/visible/universal
 	name = "universal pipe adapter"

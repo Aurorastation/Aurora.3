@@ -12,7 +12,6 @@
 	var/obj/machinery/keycard_auth/event_source
 	var/mob/event_triggered_by
 	var/mob/event_confirmed_by
-	var/listening = FALSE
 	var/recorded_message = ""
 	//1 = select event
 	//2 = authenticate
@@ -120,7 +119,7 @@
 	recorded_message = ""
 
 /obj/machinery/keycard_auth/hear_talk(mob/M, text, verb, datum/language/speaking)
-	if(event == "Distress Beacon" && listening && M == event_triggered_by)
+	if(event == "Distress Beacon" && M == event_triggered_by)
 		recorded_message = text
 
 /obj/machinery/keycard_auth/proc/broadcast_request(var/mob/user)
@@ -128,9 +127,9 @@
 	if(event == "Distress Beacon" && user)
 		distress_message = input(user, "Enter a distress message that other vessels will receive.", "Distress Beacon")
 		if(distress_message)
-			listening = TRUE
+			become_hearing_sensitive()
 			user.say(distress_message)
-			listening = FALSE
+			lose_hearing_sensitivity()
 		else
 			to_chat(user, SPAN_WARNING("The beacon refuses to launch without a message!"))
 			reset()

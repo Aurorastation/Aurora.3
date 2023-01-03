@@ -137,7 +137,7 @@
 
 /obj/item/projectile/bullet/pistol/revolver
 	damage = 40
-	armor_penetration = 10
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
@@ -150,7 +150,7 @@
 
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
-	damage = 65
+	damage = 55
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
@@ -207,23 +207,23 @@
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a762
-	damage = 40
-	armor_penetration = 20
+	damage = 35
+	armor_penetration = 22
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a556
-	damage = 40
-	armor_penetration = 15
+	damage = 30
+	armor_penetration = 26
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a556/ap
-	damage = 35
-	armor_penetration = 40
+	damage = 25
+	armor_penetration = 45
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a556/polymer
-	damage = 25
-	armor_penetration = 30
+	damage = 24
+	armor_penetration = 32
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a145
@@ -276,7 +276,7 @@
 	weaken = 0
 	drowsy = 0
 	eyeblur = 0
-	damage_type = TOX
+	damage_type = BRUTE
 	speed = 0.3
 
 /obj/item/projectile/bullet/rifle/tranq/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
@@ -358,7 +358,7 @@
 /obj/item/projectile/bullet/gauss
 	name = "slug"
 	icon_state = "heavygauss"
-	damage = 50
+	damage = 40
 	armor_penetration = 20
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
 	embed = 0

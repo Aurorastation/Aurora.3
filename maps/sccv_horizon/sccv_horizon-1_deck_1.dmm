@@ -618,7 +618,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -25
 	},
 /obj/effect/floor_decal/corner/purple/full{
@@ -695,9 +694,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
-	},
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -776,7 +772,7 @@
 /area/maintenance/research_port)
 "aHu" = (
 /obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_west_exterior_sensor";
 	pixel_x = -8;
 	pixel_y = 32
@@ -1037,7 +1033,7 @@
 "aRG" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1380;
+	frequency = 1385;
 	master_tag = "intrepid_shuttle_cargo";
 	name = "exterior access button";
 	pixel_x = 8;
@@ -1393,8 +1389,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "ben" = (
-/mob/living/silicon/robot/shell,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/silicon/robot/shell,
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai)
 "beu" = (
@@ -2177,7 +2173,6 @@
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_x = 24;
 	dir = 8
 	},
@@ -2215,7 +2210,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "bHx" = (
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -2732,7 +2727,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -2762,25 +2756,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering/lower)
 "cfY" = (
-/obj/structure/table/steel,
-/obj/machinery/recharger{
-	pixel_x = 6;
-	pixel_y = 6
-	},
-/obj/machinery/light/small,
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
-/obj/item/device/binoculars/high_power{
-	pixel_x = -2;
-	pixel_y = -1
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
 	},
 /obj/effect/floor_decal/corner/blue{
-	dir = 10
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/crew_compartment)
+/area/shuttle/intrepid/cockpit)
 "chW" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/camera/network/engineering{
@@ -2826,6 +2809,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"cjK" = (
+/obj/machinery/door/window/westright,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/intrepid/cockpit)
 "ckb" = (
 /obj/structure/stairs/south,
 /turf/simulated/floor/plating,
@@ -2941,7 +2929,7 @@
 /area/operations/loading)
 "cpn" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1385;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_west_in"
 	},
@@ -3642,17 +3630,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
-"cSz" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/full,
-/area/maintenance/engineering)
 "cSQ" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -3725,14 +3702,14 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "mining_shuttle_dock_doors";
 	req_access = list(13)
 	},
-/obj/structure/plasticflaps/airtight,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "cWd" = (
@@ -4088,12 +4065,15 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/medical_compartment)
 "dnX" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
 /obj/structure/closet/walllocker/emerglocker/east{
 	pixel_x = 0;
 	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -4306,16 +4286,14 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
 /obj/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/door/window/eastright,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/rotary)
 "duN" = (
@@ -4564,7 +4542,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -5125,7 +5102,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1380;
+	frequency = 1385;
 	master_tag = "intrepid_shuttle_west";
 	name = "interior access button";
 	pixel_x = -24;
@@ -5342,11 +5319,11 @@
 /area/engineering/atmos)
 "eog" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(65)
@@ -5392,7 +5369,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/binary/passive_gate/on{
-	name = "Reactor to Mix"
+	name = "Reactor Waste to Mix"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -5556,13 +5533,13 @@
 /area/shuttle/intrepid/crew_compartment)
 "ewy" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1385;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_west_out"
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1380;
+	frequency = 1385;
 	master_tag = "intrepid_shuttle_west";
 	name = "exterior access button";
 	pixel_x = -10;
@@ -5663,7 +5640,7 @@
 	c_tag = "Intrepid - Airlock Starboard"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_west";
 	layer = 3.3;
 	master_tag = "intrepid_shuttle";
@@ -5783,7 +5760,6 @@
 "eDa" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/effect/floor_decal/corner/brown/full{
@@ -6092,14 +6068,12 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmos)
 "eLa" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 6
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/machinery/power/apc/intrepid{
-	dir = 4;
-	pixel_x = 30
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
-/obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "eLb" = (
@@ -6330,11 +6304,11 @@
 /area/rnd/xenoarch_atrium)
 "eWA" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(65)
@@ -6353,7 +6327,6 @@
 /area/rnd/xenoarch_atrium)
 "eWJ" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 25
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -6502,12 +6475,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"faE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos)
 "fbc" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -6583,7 +6550,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/computer/ship/engines{
@@ -6768,7 +6734,7 @@
 	dir = 10
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "fjS" = (
 /obj/structure/ladder/up{
@@ -7233,6 +7199,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
+"fEu" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/station_map{
+	dir = 2;
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/auxiliary)
 "fEy" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -7748,7 +7728,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "fVm" = (
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -8248,7 +8228,7 @@
 "gpR" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo";
 	layer = 3.3;
 	master_tag = "intrepid_shuttle";
@@ -8264,7 +8244,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
 /turf/simulated/floor/plating,
@@ -8454,10 +8434,16 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "gwA" = (
-/obj/structure/shuttle_part{
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "mwr3"
+/obj/machinery/light/small{
+	dir = 8
 	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "gwQ" = (
@@ -8932,10 +8918,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "gOP" = (
-/obj/structure/sign/securearea{
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/corner/green/full,
+/obj/machinery/station_map{
+	dir = 4;
+	pixel_x = -32;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "gPf" = (
@@ -9153,23 +9141,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"gYZ" = (
-/obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
-	},
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - First Deck Relay";
-	dir = 8
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/yellow/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "gZP" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -9184,7 +9155,6 @@
 	dir = 5
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
@@ -9292,7 +9262,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
 /turf/simulated/floor/plating,
@@ -9318,7 +9288,7 @@
 "hfm" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_west_pump"
 	},
 /obj/structure/bed/handrail,
@@ -9577,9 +9547,6 @@
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
 "hpU" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -9589,7 +9556,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/binary/pump{
+	name = "Mix to Connector"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "hqa" = (
 /obj/effect/floor_decal/corner/blue{
@@ -10114,7 +10088,7 @@
 	dir = 6
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "hMr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -10593,7 +10567,7 @@
 /area/horizon/hydroponics/lower)
 "ifw" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1385;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_west_out"
 	},
@@ -10926,11 +10900,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "iwX" = (
-/obj/machinery/door/window/westleft,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/window/westright,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/medical_compartment)
 "ixm" = (
@@ -11235,22 +11209,13 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "iLE" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
-	name = "Station Intercom (General)";
-	pixel_y = -20
-	},
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/shuttle/intrepid/crew_compartment)
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid/cockpit)
 "iMg" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -11387,7 +11352,7 @@
 /area/operations/storage)
 "iQL" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1385;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_west_in"
 	},
@@ -11563,7 +11528,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "iZk" = (
 /obj/machinery/door/blast/regular/open{
@@ -12168,11 +12133,11 @@
 "jyn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_west_pump"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_west_sensor";
 	pixel_y = -23
 	},
@@ -12331,7 +12296,6 @@
 "jDs" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/machinery/camera/network/supply{
@@ -12716,9 +12680,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "jVj" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -12731,10 +12692,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/binary/pump{
-	name = "Mix to Connector"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Mix to Mixed Gas Tank"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "jWE" = (
@@ -12753,14 +12715,31 @@
 /obj/machinery/newscaster{
 	pixel_x = 30
 	},
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 1
-	},
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
-	pixel_y = 25
+	pixel_y = 43;
+	dir = 1
 	},
-/obj/structure/bed/stool/chair/office/bridge,
+/obj/structure/table/steel,
+/obj/item/device/binoculars/high_power{
+	pixel_x = -2;
+	pixel_y = -1
+	},
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/item/device/radio/intercom{
+	dir = 2;
+	name = "Station Intercom (General)";
+	pixel_y = 21
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "jWJ" = (
@@ -12777,7 +12756,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
 /turf/simulated/floor/plating,
@@ -13005,7 +12984,7 @@
 "kki" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/airlock_sensor{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_sensor";
 	pixel_x = -24;
 	pixel_y = -6
@@ -13015,7 +12994,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
 /obj/machinery/camera/network/intrepid{
@@ -13162,13 +13141,6 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
-"kpJ" = (
-/obj/structure/shuttle_part{
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "mwr1"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/intrepid/cockpit)
 "kqk" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -13218,8 +13190,8 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -13279,7 +13251,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/machinery/teleport/pad,
@@ -13352,7 +13323,6 @@
 /area/horizon/custodial/disposals)
 "kxl" = (
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/westright,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -13360,6 +13330,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/window/westleft,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/medical_compartment)
 "kyq" = (
@@ -13550,14 +13521,24 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/bed/stool/chair/office/bridge{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	pixel_x = 7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -13623,10 +13604,12 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/recharger/wallcharger{
-	layer = 3.3;
-	pixel_x = 4;
-	pixel_y = 24
+/obj/machinery/embedded_controller/radio/docking_port_multi{
+	child_names_txt = "West Airlock;Cargo Airlock";
+	child_tags_txt = "intrepid_shuttle_west;intrepid_shuttle_cargo";
+	frequency = 1380;
+	id_tag = "intrepid_shuttle";
+	pixel_y = 33
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -13807,14 +13790,15 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "kKc" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "mining_shuttle_dock_doors";
 	req_access = list(13)
 	},
-/obj/structure/plasticflaps/airtight,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/shuttle_landmark/mining/hangar,
 /turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "kKz" = (
@@ -13907,6 +13891,11 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 5
+	},
+/obj/machinery/station_map{
+	dir = 2;
+	pixel_x = 0;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
@@ -14332,7 +14321,7 @@
 /obj/machinery/embedded_controller/radio/docking_port_multi{
 	child_names_txt = "West Airlock;Cargo Airlock";
 	child_tags_txt = "intrepid_shuttle_west;intrepid_shuttle_cargo";
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle";
 	pixel_y = 28
 	},
@@ -14344,6 +14333,13 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
+	},
+/obj/machinery/computer/ship/sensors{
+	dir = 4;
+	layer = 2.991
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -14559,9 +14555,8 @@
 /obj/structure/closet/crate/bin,
 /obj/random/loot,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6
+	dir = 4
 	},
-/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "lup" = (
@@ -14644,6 +14639,16 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
+"lyY" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/shuttle_landmark/intrepid/hangar,
+/turf/simulated/floor/tiled,
+/area/hangar/intrepid)
 "lzb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -15116,7 +15121,6 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Operations Substation";
 	dir = 4
 	},
@@ -15299,7 +15303,6 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Security Substation";
 	dir = 8
 	},
@@ -15906,19 +15909,10 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "myR" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 6
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/camera/network/intrepid{
-	c_tag = "Intrepid - Cockpit";
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "mzE" = (
@@ -16534,13 +16528,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"mVX" = (
-/obj/machinery/telecomms/relay/preset/station,
-/obj/effect/floor_decal/corner_wide/yellow/full{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "mWV" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
@@ -16943,7 +16930,6 @@
 "nmF" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_x = -24;
 	dir = 4
 	},
@@ -17235,12 +17221,9 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
 "nyl" = (
-/obj/structure/shuttle_part{
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "mwr4"
-	},
+/obj/structure/window/shuttle/scc,
 /turf/simulated/floor/plating,
-/area/shuttle/intrepid/cockpit)
+/area/shuttle/intrepid/crew_compartment)
 "nyp" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass/alt,
@@ -17276,9 +17259,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hangar/intrepid)
-"nyY" = (
-/turf/simulated/wall/r_wall,
-/area/tcommsat/mainlvl_tcomms__relay)
 "nzj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -17674,11 +17654,9 @@
 	pixel_x = -32
 	},
 /obj/machinery/camera/motion{
-	alarm_on = 1;
-	c_tag = "Engineering - Secure Technical Storage";
+	c_tag = "Secure Technical Storage";
 	dir = 4;
-	name = "engineering";
-	network = list("Engineering")
+	network = list("Command","Security","Engineering")
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage/tech)
@@ -18248,7 +18226,7 @@
 "osc" = (
 /obj/machinery/iff_beacon/horizon,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "otX" = (
 /obj/structure/disposalpipe/segment,
@@ -18524,7 +18502,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "oDv" = (
 /obj/machinery/conveyor{
@@ -18755,7 +18733,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "oSD" = (
 /obj/effect/shuttle_landmark/merc_ship/first_deck,
@@ -18819,8 +18797,13 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "oYc" = (
-/obj/machinery/iff_beacon/horizon,
-/obj/structure/railing/mapped,
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "oYp" = (
@@ -18931,14 +18914,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
-"paY" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/ramp{
-	dir = 4
-	},
-/area/maintenance/engineering)
 "pbJ" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod4)
@@ -19385,7 +19360,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_shuttle_cargo_exterior_sensor";
 	pixel_x = -24
 	},
@@ -19495,7 +19470,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -20029,7 +20003,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1385;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_cargo_in"
 	},
@@ -20557,9 +20531,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/door/window/eastright{
-	req_access = list(73)
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -20567,6 +20538,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/door/window/eastleft,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/rotary)
 "qmn" = (
@@ -20952,6 +20924,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/structure/cable/green,
+/obj/machinery/power/apc/intrepid{
+	dir = 4;
+	pixel_x = 28
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/cockpit)
 "qAY" = (
@@ -21060,10 +21037,10 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/machinery/camera/network/engineering{
-	alarm_on = 1;
-	c_tag = "Engineering - Technical Storage";
-	dir = 8
+/obj/machinery/camera/motion{
+	c_tag = "Technical Storage";
+	dir = 8;
+	network = list("Command","Security","Engineering")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
@@ -21129,7 +21106,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -23425,7 +23401,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "sxT" = (
 /obj/structure/sign/directions/cryo{
@@ -23477,6 +23453,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/rotary)
+"sza" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Elevator Emergency Escape Hatch";
+	req_one_access = list(11,24,67)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/hallway/primary/aft)
 "szM" = (
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
@@ -23625,11 +23611,11 @@
 /area/maintenance/substation/hangar)
 "sIQ" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
-/obj/item/clothing/head/bio_hood/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(65)
@@ -23955,7 +23941,7 @@
 /area/storage/eva)
 "sVu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "sVZ" = (
 /obj/effect/landmark/entry_point/aft{
@@ -24032,16 +24018,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
-"taF" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "First Deck Telecommunications Relay";
-	req_access = list(61)
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "tbP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -24458,7 +24434,7 @@
 /turf/simulated/floor/tiled/full,
 /area/maintenance/engineering)
 "tqs" = (
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "tqT" = (
 /obj/structure/cable{
@@ -25267,7 +25243,7 @@
 	dir = 1;
 	pixel_y = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "tWc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
@@ -25361,7 +25337,6 @@
 "tYN" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
 /obj/effect/floor_decal/corner/green{
@@ -25389,14 +25364,30 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/crew_compartment)
-"tZK" = (
+"tZF" = (
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
 /obj/effect/floor_decal/corner/blue{
-	dir = 5
+	dir = 6
+	},
+/obj/machinery/firealarm/south{
+	dir = 4;
+	pixel_y = 0;
+	pixel_x = 30
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid/cockpit)
+"tZK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/teleporter)
@@ -25490,6 +25481,11 @@
 	},
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
+/obj/machinery/station_map{
+	dir = 4;
+	pixel_x = -32;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "ueg" = (
@@ -25636,12 +25632,13 @@
 /turf/simulated/wall,
 /area/hangar/operations)
 "ula" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Cockpit";
+	dir = 1
 	},
-/obj/structure/railing/mapped,
-/obj/machinery/shipsensors/weak,
-/turf/simulated/floor/plating,
+/obj/machinery/door/window/westleft,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "ulc" = (
 /obj/structure/window/reinforced{
@@ -25729,7 +25726,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/effect/shuttle_landmark/intrepid/hangar,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -26442,14 +26438,6 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
 "uSZ" = (
-/obj/effect/floor_decal/corner/blue/full,
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Emergency Weaponry";
-	req_access = list(73)
-	},
-/obj/item/gun/energy/laser/shotgun/research,
-/obj/item/gun/energy/laser/shotgun/research,
-/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "uTz" = (
@@ -26461,13 +26449,25 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Second Deck Civilian Substation";
 	dir = 8
 	},
 /obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
+"uUr" = (
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 31
+	},
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid/cockpit)
 "uUP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/access_button{
@@ -26494,6 +26494,9 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 9
+	},
+/obj/structure/sign/securearea{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -26603,15 +26606,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
-"uZe" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/engineering)
 "uZk" = (
 /obj/random/junk,
 /obj/structure/railing/mapped{
@@ -26834,7 +26828,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "vht" = (
 /obj/machinery/door/blast/regular/open{
@@ -26961,9 +26955,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 10
-	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "vnJ" = (
@@ -27016,11 +27007,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/teleporter)
-"vpe" = (
-/obj/machinery/firealarm/south,
-/obj/effect/floor_decal/corner_wide/yellow/full,
-/turf/simulated/floor/tiled/dark/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "vpl" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -27129,10 +27115,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/rotary)
 "vrQ" = (
-/obj/machinery/camera/network/command{
-	c_tag = "Command - Deck 1 - Teleporter";
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
@@ -27148,6 +27130,11 @@
 	pixel_y = -24;
 	dir = 1
 	},
+/obj/machinery/camera/motion{
+	c_tag = "Deck 1 - Teleporter";
+	network = list("Command","Security");
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "vse" = (
@@ -27160,7 +27147,6 @@
 /obj/effect/floor_decal/corner/green/full,
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
 /obj/structure/bed/stool/chair/office/light{
@@ -27446,7 +27432,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "vIF" = (
 /obj/structure/shuttle_part{
@@ -27479,15 +27465,7 @@
 	dir = 4
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "mining_shuttle_dock";
-	name = "\improper Spark docking port controller";
-	pixel_x = -39;
-	pixel_y = -25;
-	req_one_access = list(74)
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
+	frequency = 1385;
 	id_tag = "intrepid_dock";
 	name = "\improper Intrepid docking port controller";
 	pixel_x = -26;
@@ -27509,7 +27487,6 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -27848,7 +27825,6 @@
 	id_tag = "mining_shuttle_external";
 	req_access = list(13)
 	},
-/obj/effect/shuttle_landmark/mining/hangar,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
@@ -28094,11 +28070,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "wjM" = (
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 4
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Emergency Weaponry";
+	req_access = list(73)
 	},
-/obj/machinery/computer/ship/sensors{
-	dir = 1
+/obj/item/gun/energy/laser/shotgun/research,
+/obj/item/gun/energy/laser/shotgun/research,
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 36;
+	pixel_y = -12
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
@@ -28289,7 +28276,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1380;
+	frequency = 1385;
 	master_tag = "intrepid_shuttle_cargo";
 	name = "interior access button";
 	pixel_x = -24;
@@ -28606,6 +28593,14 @@
 "wEY" = (
 /turf/space/dynamic,
 /area/horizon/exterior)
+"wGa" = (
+/obj/machinery/iff_beacon/horizon,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid/cockpit)
 "wGn" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled,
@@ -29503,7 +29498,6 @@
 	},
 /obj/item/stack/nanopaste,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -29645,7 +29639,7 @@
 "xpX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/handrail,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/mining)
 "xqe" = (
 /obj/structure/cable/green,
@@ -29700,19 +29694,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
-"xrE" = (
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24
-	},
-/obj/effect/floor_decal/corner_wide/yellow/full{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/tcommsat/mainlvl_tcomms__relay)
 "xst" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -29816,7 +29797,7 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1385;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_cargo_out"
 	},
@@ -30137,7 +30118,6 @@
 /area/engineering/atmos)
 "xJE" = (
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Hangar Substation";
 	dir = 4
 	},
@@ -30547,7 +30527,6 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/engineering{
-	alarm_on = 1;
 	c_tag = "Engineering - Deck 1 - Atmospherics Substation";
 	dir = 8
 	},
@@ -30757,9 +30736,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "yfK" = (
-/obj/structure/shuttle_part{
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "mwr2"
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
@@ -46666,10 +46647,10 @@ xYW
 sBd
 gtS
 mMR
-nyY
-nyY
-nyY
-nyY
+jsV
+rNH
+rNH
+rNH
 rNH
 rNH
 nnw
@@ -46868,10 +46849,10 @@ xYW
 nBK
 edm
 mMR
-nyY
-mVX
-vpe
-nyY
+jsV
+rNH
+rNH
+rNH
 rNH
 rNH
 nnw
@@ -47070,10 +47051,10 @@ xYW
 usF
 nNE
 mMR
-nyY
-xrE
-gYZ
-nyY
+jsV
+rNH
+rNH
+rNH
 rNH
 rNH
 nnw
@@ -47272,10 +47253,10 @@ xYW
 ars
 oFx
 vqW
-nyY
-taF
-nyY
-nyY
+jsV
+jsV
+jsV
+jsV
 jsV
 jsV
 nnw
@@ -47475,8 +47456,8 @@ fBg
 nNE
 rQC
 ltM
-paY
-uZe
+dgT
+dgT
 dgT
 dgT
 dgT
@@ -47677,7 +47658,7 @@ pHI
 nTm
 rtJ
 tTT
-cSz
+xhE
 xhE
 xhE
 xhE
@@ -50089,9 +50070,9 @@ jCK
 jCK
 jCK
 sNH
-faE
+mRc
 hpU
-iFd
+dMa
 qew
 eIS
 suA
@@ -50293,7 +50274,7 @@ iUi
 bDt
 vlY
 jVj
-dMa
+iFd
 mGp
 eIS
 qDK
@@ -50941,8 +50922,8 @@ hqg
 rRE
 aoG
 spQ
-iLE
-aEw
+spQ
+nyl
 liI
 djn
 kqZ
@@ -51129,7 +51110,7 @@ kEt
 hYy
 apf
 iZk
-dhi
+lyY
 ayq
 xvk
 nyz
@@ -51310,7 +51291,7 @@ tny
 tny
 tny
 tny
-tny
+sza
 tny
 jvl
 wLL
@@ -51348,9 +51329,9 @@ mJn
 vMd
 aEw
 kEg
-con
+cjK
+ula
 ock
-con
 con
 con
 iRC
@@ -51551,10 +51532,10 @@ mlL
 xPX
 aFx
 uSZ
-ock
+uSZ
 gwA
-yfK
-kpJ
+con
+iRC
 iRC
 cLV
 bSM
@@ -51753,9 +51734,9 @@ nwF
 aEw
 dnX
 cfY
-ock
-nyl
-iRC
+yfK
+oYc
+con
 iRC
 iRC
 cLV
@@ -51955,10 +51936,10 @@ lvI
 aEw
 jWI
 wjM
+uUr
+tZF
 kAX
-oYc
-iRC
-iRC
+iLE
 iRC
 cLV
 bSM
@@ -52158,9 +52139,9 @@ aEw
 ock
 ock
 ock
-ula
-iRC
-iRC
+ock
+con
+wGa
 iRC
 cLV
 bSM
@@ -57999,7 +57980,7 @@ aoD
 kAG
 shb
 xtK
-hot
+fEu
 mSq
 adX
 bJa
