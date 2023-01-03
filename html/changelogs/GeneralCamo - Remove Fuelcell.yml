@@ -1,0 +1,6 @@
+author: GeneralCamo
+
+delete-after: True
+
+changes:
+  - rscdel: "Removed fuel cell augment"
