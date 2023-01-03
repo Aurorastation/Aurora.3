@@ -394,5 +394,3 @@
 	fetil_dress["fetil dress, red flairs"] = /obj/item/clothing/under/antillean
 	fetil_dress["fetil dress, gold flairs"] = /obj/item/clothing/under/antillean/goldflair
 	gear_tweaks += new /datum/gear_tweak/path(fetil_dress)
-
-
