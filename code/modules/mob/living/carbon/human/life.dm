@@ -359,8 +359,15 @@
 		var/relative_density = environment.total_moles / MOLES_CELLSTANDARD
 		bodytemperature += between(BODYTEMP_COOLING_MAX, temp_adj*relative_density, BODYTEMP_HEATING_MAX)
 
+	var/cold_bonus = 0
+	var/hot_bonus = 0
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_COLD_RESISTANCE))
+		cold_bonus = 20
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_HOT_RESISTANCE))
+		hot_bonus = 20
+
 	// +/- 50 degrees from 310.15K is the 'safe' zone, where no damage is dealt.
-	if(bodytemperature >= species.heat_level_1)
+	if(bodytemperature >= (species.heat_level_1 + hot_bonus))
 		//Body temperature is too hot.
 		fire_alert = max(fire_alert, 1)
 		if(status_flags & GODMODE)	return 1	//godmode
@@ -374,7 +381,7 @@
 		take_overall_damage(burn = burn_dam, used_weapon = "extreme heat")
 		fire_alert = max(fire_alert, 2)
 
-	else if(bodytemperature <= species.cold_level_1)
+	else if(bodytemperature <= (species.cold_level_1 + cold_bonus))
 		fire_alert = max(fire_alert, 1)
 		if(status_flags & GODMODE)
 			return 1
@@ -1136,6 +1143,17 @@
 		var/turf/T = loc
 		if (T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_simple(null, pick(scarySounds), 50, TRUE)
+
+		if(HAS_TRAIT(src, TRAIT_ORIGIN_DARK_AFRAID))
+			if(T.get_lumcount() < 0.1)
+				if(prob(2))
+					var/list/assunzione_messages = list(
+						"You feel a bit afraid...",
+						"You feel somewhat nervous...",
+						"You could use a little light here...",
+						"Ennoia be with you, it's a bit too dark..."
+					)
+					to_chat(src, SPAN_WARNING(pick(assunzione_messages)))
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind)

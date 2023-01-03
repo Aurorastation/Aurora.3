@@ -468,6 +468,7 @@ datum/preferences
 	character.origin = decls_repository.get_decl(text2path(origin))
 	character.origin.on_apply(character)
 	character.culture = decls_repository.get_decl(text2path(culture))
+	character.culture.on_apply(character)
 
 	character.skills = skills
 	character.used_skillpoints = used_skillpoints

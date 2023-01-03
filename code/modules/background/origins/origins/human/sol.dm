@@ -8,11 +8,13 @@
 		/decl/origin_item/origin/sol_system,
 		/decl/origin_item/origin/earth,
 		/decl/origin_item/origin/luna,
-		/decl/origin_item/origin/venus,
+		/decl/origin_item/origin/venus_c,
+		/decl/origin_item/origin/venus_j,
 		/decl/origin_item/origin/mars,
 		/decl/origin_item/origin/jupiter,
 		/decl/origin_item/origin/pluto,
 		/decl/origin_item/origin/eridani,
+		/decl/origin_item/origin/eridani_dreg,
 		/decl/origin_item/origin/middle_ring,
 		/decl/origin_item/origin/new_hai_phong,
 		/decl/origin_item/origin/silversun,
@@ -46,10 +48,18 @@
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
 
-/decl/origin_item/origin/venus
-	name = "Venus"
+/decl/origin_item/origin/venus_c
+	name = "Venusian Cytherean"
 	desc = "Venus is the cultural capital of the Alliance, and its residents mostly dwell in floating settlements referred to as \"aerostats.\" While wealthy and culturally rich, Venus is deeply divided between Cythereans, those involved in the cultural industry, and Jintarians, those involved in other industries. Cytherean culture is well known throughout the Orion Spur, and is typically stereotyped as hedonistic."
-	possible_accents = list(ACCENT_VENUS, ACCENT_VENUSJIN)
+	possible_accents = list(ACCENT_VENUS)
+	possible_citizenships = CITIZENSHIPS_SOLARIAN
+	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = list(TRAIT_ORIGIN_ALCOHOL_RESISTANCE, TRAIT_ORIGIN_DRUG_RESISTANCE)
+
+/decl/origin_item/origin/venus_j
+	name = "Venusian Jintarian"
+	desc = "Venus is the cultural capital of the Alliance, and its residents mostly dwell in floating settlements referred to as \"aerostats.\" While wealthy and culturally rich, Venus is deeply divided between Cythereans, those involved in the cultural industry, and Jintarians, those involved in other industries. Jintarian culture can often be defined as the polar opposite of Cytherean culture in many facets, but it borrows as much as it opposes."
+	possible_accents = list(ACCENT_VENUSJIN)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
 
@@ -76,12 +86,21 @@
 	possible_religions = RELIGIONS_SOLARIAN
 
 /decl/origin_item/origin/eridani
-	name = "Eridani Corporate Federation"
+	name = "Eridani Corporate Federation Citizen"
 	desc = "The Eridani Corporate Federation is an autonomous member of the Solarian Alliance that is infamous abroad for its starkly divided society and extreme levels of corporate involvement in daily life. Corporations touch every aspect of Eridani, and its society is divided between corporate \"Suits\" that work for its companies and non-citizen \"Dregs\" that live off the scraps of society. Between the two, \"Reinstated Dregs\" chart an awkward balance: too corporate to be Dregs, but not corporate enough to be Suits."
 	important_information = "<b>Due to Epsilon Eridani being originally settled by colonists of West and Central African descent, human characters born in the Eridani Corporate Federation must have names and appearances consistent with the indigenous peoples of these regions as any human moving to the ECF would assimilate into the dominant cultures and ethnic groups of the federation. Eridani dregs have developed cultures of abstract or unconventional names however and this is tolerated.</b> Only native Eridanians may select the Eridanian accents. This is enforceable by server moderators and admins."
-	possible_accents = list(ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ERIDANIREINSTATED)
+	possible_accents = list(ACCENT_ERIDANI, ACCENT_ERIDANIREINSTATED)
 	possible_citizenships = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
+
+/decl/origin_item/origin/eridani_dreg
+	name = "Eridani Corporate Federation Dreg"
+	desc = "The Eridani Corporate Federation is an autonomous member of the Solarian Alliance that is infamous abroad for its starkly divided society and extreme levels of corporate involvement in daily life. Corporations touch every aspect of Eridani, and its society is divided between corporate \"Suits\" that work for its companies and non-citizen \"Dregs\" that live off the scraps of society. Between the two, \"Reinstated Dregs\" chart an awkward balance: too corporate to be Dregs, but not corporate enough to be Suits."
+	important_information = "<b>Due to Epsilon Eridani being originally settled by colonists of West and Central African descent, human characters born in the Eridani Corporate Federation must have names and appearances consistent with the indigenous peoples of these regions as any human moving to the ECF would assimilate into the dominant cultures and ethnic groups of the federation. Eridani dregs have developed cultures of abstract or unconventional names however and this is tolerated.</b> Only native Eridanians may select the Eridanian accents. This is enforceable by server moderators and admins."
+	possible_accents = list(ACCENT_ERIDANIDREG)
+	possible_citizenships = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
+	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = list(TRAIT_ORIGIN_TOX_RESISTANCE)
 
 /decl/origin_item/origin/middle_ring
 	name = "Middle Ring"
@@ -105,6 +124,7 @@
 	possible_accents = list(ACCENT_SILVERSUN_ORIGINAL, ACCENT_SILVERSUN_EXPATRIATE)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
 
 /decl/origin_item/origin/outer_ring
 	name = "Outer Ring"
@@ -128,6 +148,7 @@
 	possible_accents = list(ACCENT_VISEGRAD)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = list(TRAIT_ORIGIN_IGNORE_CAPSAICIN)
 
 /decl/origin_item/origin/mictlan
 	name = "Mictlan"
@@ -136,6 +157,7 @@
 	possible_accents = list(ACCENT_MICTLAN)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = list(TRAIT_ORIGIN_IGNORE_CAPSAICIN)
 
 /decl/origin_item/origin/antillia
 	name = "Port Antillia"

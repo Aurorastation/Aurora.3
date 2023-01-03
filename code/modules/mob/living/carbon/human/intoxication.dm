@@ -8,6 +8,9 @@
 		intoxication = 0
 		return
 
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_ALCOHOL_RESISTANCE))
+		SR = 1.5
+
 	//Godmode messes some things up, so no more BSTs getting drunk unless they toggle it off
 	if (status_flags & GODMODE)
 		intoxication = 0 //Zero out intoxication but don't return, let the rest of this function run to remove any residual effects

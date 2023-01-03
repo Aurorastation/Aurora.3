@@ -19,6 +19,8 @@
 	M.add_chemical_effect(CE_PULSE, -1)
 
 	var/power = (M.chem_doses[type] + REAGENT_VOLUME(holder, type))/2 //Larger the dose and volume, the more affected you are by the chemical.
+	if(HAS_TRAIT(M, TRAIT_ORIGIN_DRUG_RESISTANCE))
+		power = max(power - 2, 0)
 
 	M.druggy = max(M.druggy, power)
 	M.add_chemical_effect(CE_PAINKILLER, 5 + round(power,5))
@@ -141,6 +143,8 @@
 	M.druggy = max(M.druggy, 30)
 	M.add_chemical_effect(CE_HALLUCINATE, 1)
 	var/dose = M.chem_doses[type]
+	if(HAS_TRAIT(M, TRAIT_ORIGIN_DRUG_RESISTANCE))
+		dose = max(dose - 2, 0)
 	if(dose < 1)
 		M.apply_effect(3, STUTTER)
 		M.make_dizzy(5)
@@ -399,6 +403,8 @@
 	M.add_chemical_effect(CE_PULSE, -1)
 
 	var/power = (M.chem_doses[type] + REAGENT_VOLUME(holder, type))/2 //Larger the dose and volume, the more affected you are by the chemical.
+	if(HAS_TRAIT(M, TRAIT_ORIGIN_DRUG_RESISTANCE))
+		power = max(power - 5, 0)
 
 	M.add_chemical_effect(CE_PAINKILLER, 5 + round(power,5))
 

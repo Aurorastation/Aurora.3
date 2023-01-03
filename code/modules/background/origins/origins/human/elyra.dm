@@ -19,6 +19,7 @@
 	possible_accents = list(ACCENT_PERSEPOLIS)
 	possible_citizenships = list(CITIZENSHIP_ELYRA)
 	possible_religions = RELIGIONS_ELYRA
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
 
 /decl/origin_item/origin/damascus
 	name = "Damascus II"
@@ -26,6 +27,7 @@
 	possible_accents = list(ACCENT_DAMASCUS)
 	possible_citizenships = list(CITIZENSHIP_ELYRA)
 	possible_religions = RELIGIONS_ELYRA
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
 
 /decl/origin_item/origin/medina
 	name = "Medina"
@@ -33,6 +35,7 @@
 	possible_accents = list(ACCENT_MEDINA)
 	possible_citizenships = list(CITIZENSHIP_ELYRA)
 	possible_religions = RELIGIONS_ELYRA
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
 
 /decl/origin_item/origin/aemaq
 	name = "Aemaq"

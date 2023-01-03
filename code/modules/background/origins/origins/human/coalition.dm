@@ -30,6 +30,7 @@
 	possible_accents = list(ACCENT_HIMEO)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = RELIGIONS_COALITION
+	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
 
 /decl/origin_item/origin/vysoka
 	name = "Vysoka"
@@ -74,6 +75,7 @@
 	possible_accents = list(ACCENT_ASSUNZIONE)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = list(RELIGION_LUCEISM)
+	origin_traits = list(TRAIT_ORIGIN_DARK_AFRAID)
 
 /decl/origin_item/origin/non_coalition_frontier
 	name = "Non-Coalition Frontier"

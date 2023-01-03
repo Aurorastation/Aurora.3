@@ -130,6 +130,7 @@
 /// cannot be removed without admin intervention
 #define ROUNDSTART_TRAIT "roundstart"
 #define JOB_TRAIT "job"
+#define CULTURE_TRAIT "culture"
 
 #define INNATE_TRAIT "innate"
 
