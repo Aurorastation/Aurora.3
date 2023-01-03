@@ -720,19 +720,19 @@
 	flag_size = 1
 
 /obj/item/flag/red_coalition
-	name = "Red Coalition flag"
-	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
+	name = "\improper Red Coalition flag"
+	desc = "A high quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
 	mining colony represented in the center by the alchemical symbol for iron."
 	icon_state = "coalition_flag_boxed"
 	flag_path = "redcoalition"
 
 /obj/item/flag/red_coalition/l
-	name = "Large Red Coalition flag"
+	name = "large Red Coalition flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/red_coalition
-	name = "Red Coalition flag"
-	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
+	name = "\improper Red Coalition flag"
+	desc = "A high quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
 	mining colony represented in the center by the alchemical symbol for iron."
 	icon_state = "redcoalition"
 
