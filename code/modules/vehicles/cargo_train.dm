@@ -107,7 +107,8 @@
 	if(href_list["key"])
 		remove_key(usr)
 	if(href_list["unlatch"])
-		tow.unattach(usr)
+		if(tow)
+			tow.unattach(usr)
 	SSvueui.check_uis_for_change(src)
 
 /obj/vehicle/train/cargo/engine/Move(var/turf/destination)
@@ -273,7 +274,8 @@
 		if("Toggle Ignition")
 			turn_on(user)
 		if("Toggle Latching")
-			tow.unattach(user)
+			if(tow)
+				tow.unattach(user)
 
 /obj/vehicle/train/cargo/engine/AltClick(var/mob/user)
 	if(Adjacent(user))

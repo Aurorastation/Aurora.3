@@ -65,7 +65,8 @@
 		if("Toggle Vacuuming")
 			toggle_hoover(user)
 		if("Toggle Latching")
-			tow.unattach(user)
+			if(tow)
+				tow.unattach(user)
 
 /obj/vehicle/train/cargo/engine/pussywagon/turn_off()
 	..()

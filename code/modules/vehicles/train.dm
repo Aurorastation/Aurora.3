@@ -170,8 +170,8 @@
 
 	//if we are attaching a trolley to an engine we don't care what direction
 	// it is in and it should probably be attached with the engine in the lead
-	if(istype(T, /obj/vehicle/train/cargo/trolley))
-		T.attach_to(src, user)
+	if(istype(T, /obj/vehicle/train/cargo/engine))
+		src.attach_to(T, user)
 	else
 		var/T_dir = get_dir(src, T)	//figure out where T is wrt src
 
