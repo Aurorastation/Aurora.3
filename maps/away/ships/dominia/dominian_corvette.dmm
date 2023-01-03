@@ -210,7 +210,6 @@
 	},
 /area/ship/dominian_corvette)
 "aBD" = (
-/obj/structure/cable/heavyduty,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -424,12 +423,6 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering)
-"bci" = (
-/obj/structure/cable/heavyduty{
-	icon_state = "1-2-4-8"
-	},
-/turf/simulated/floor/airless,
-/area/ship/dominian_corvette/exterior)
 "bfj" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -606,7 +599,6 @@
 /area/ship/dominian_corvette/officer)
 "bPE" = (
 /obj/machinery/iff_beacon/name_change,
-/obj/structure/cable/heavyduty,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/bluegrid/airless,
@@ -1422,13 +1414,7 @@
 /turf/simulated/floor/airless,
 /area/ship/dominian_corvette/franny)
 "fnE" = (
-/obj/structure/cable/heavyduty{
-	icon_state = "0-2"
-	},
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/structure/cable{
-	dir = 4
-	},
 /obj/effect/decal/fake_object{
 	name = "Targeting Processor";
 	icon = 'icons/obj/machines/telecomms.dmi';
@@ -2284,16 +2270,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)
 "ive" = (
-/obj/structure/cable/heavyduty{
-	icon_state = "1-2-8"
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/bluegrid/airless,
 /area/ship/dominian_corvette/exterior)
 "iyN" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
@@ -2369,13 +2349,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering)
-"iOV" = (
-/obj/structure/cable/heavyduty{
-	icon_state = "4-8";
-	layer = 2.45
-	},
-/turf/simulated/floor/airless,
-/area/ship/dominian_corvette/exterior)
 "iPH" = (
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -4190,7 +4163,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/officer)
 "pAh" = (
-/obj/structure/cable/heavyduty,
 /obj/machinery/shipsensors/weak,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/floor_decal/industrial/warning{
@@ -4606,15 +4578,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/franny)
 "rdB" = (
-/obj/structure/cable/heavyduty{
-	icon_state = "4-8";
-	layer = 2.45
-	},
-/obj/structure/cable{
-	icon_state = "2-4";
-	dir = 4
-	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/bluegrid/airless,
 /area/ship/dominian_corvette/exterior)
 "rdJ" = (
 /obj/machinery/cryopod{
@@ -5088,16 +5052,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/franny)
 "tpL" = (
-/obj/structure/cable/heavyduty{
-	icon_state = "1-2-4"
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/bluegrid/airless,
 /area/ship/dominian_corvette/exterior)
 "tqX" = (
 /obj/effect/floor_decal/corner/red{
@@ -38604,7 +38562,7 @@ wUJ
 sGi
 gcq
 fnE
-bci
+rdB
 bPE
 wGu
 xRX
@@ -38861,7 +38819,7 @@ dfe
 pfE
 gcq
 sBA
-iOV
+rdB
 eIb
 pXP
 xRX
