@@ -565,6 +565,7 @@
 	description = "A long, split tunic worn over trousers. Traditional on New Hai Phong."
 	path = /obj/item/clothing/accessory/aodai
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/earth, /decl/origin_item/origin/new_hai_phong)
 
 /datum/gear/accessory/aodai/New()
 	..()
