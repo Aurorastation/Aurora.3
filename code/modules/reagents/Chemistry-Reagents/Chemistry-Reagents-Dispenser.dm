@@ -274,11 +274,7 @@
 	fallback_specific_heat = 0.549 //Unknown
 
 /decl/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/obj/item/organ/internal/augment/fuel_cell/aug = M.internal_organs_by_name[BP_AUG_FUEL_CELL]
-	if(aug && !aug.is_broken())
-		M.adjustNutritionLoss(-12 * removed)
-	else
-		M.adjustToxLoss(4 * removed)
+	M.adjustToxLoss(4 * removed)
 
 /decl/reagent/hydrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) // Hydrazine is both toxic and flammable.
 	M.adjust_fire_stacks(removed / 12)

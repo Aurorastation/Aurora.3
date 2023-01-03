@@ -981,7 +981,6 @@
 /area/racers)
 "eJw" = (
 /obj/structure/table/steel,
-/obj/item/organ/internal/augment/fuel_cell,
 /turf/simulated/floor/tiled/white,
 /area/racers)
 "eKi" = (
