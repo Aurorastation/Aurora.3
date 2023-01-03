@@ -1065,6 +1065,9 @@
 		T.visible_message("[icon2html(T, viewers(get_turf(src)))]<span class='notice'>\The [T]'s power is consumed in the reaction.</span>")
 		T.name = "used slime extract"
 		T.desc = "This extract has been used up."
+		if(istype(T.loc, /obj/item/storage))
+			var/obj/item/storage/storage = T.loc
+			storage.update_storage_ui()
 
 //Grey
 /datum/chemical_reaction/slime/spawn
@@ -1164,15 +1167,9 @@
 		/mob/living/simple_animal/hostile/syndicate/melee/space,
 		/mob/living/simple_animal/hostile/syndicate/ranged,
 		/mob/living/simple_animal/hostile/syndicate/ranged/space,
-		/mob/living/simple_animal/hostile/alien/queen/large,
 		/mob/living/simple_animal/hostile/faithless,
 		/mob/living/simple_animal/hostile/retaliate,
 		/mob/living/simple_animal/hostile/retaliate/clown,
-		/mob/living/simple_animal/hostile/alien,
-		/mob/living/simple_animal/hostile/alien/drone,
-		/mob/living/simple_animal/hostile/alien/sentinel,
-		/mob/living/simple_animal/hostile/alien/queen,
-		/mob/living/simple_animal/hostile/alien/queen/large,
 		/mob/living/simple_animal/hostile/true_changeling,
 		/mob/living/simple_animal/hostile/commanded,
 		/mob/living/simple_animal/hostile/commanded/dog,

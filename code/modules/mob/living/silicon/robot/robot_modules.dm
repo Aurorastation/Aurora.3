@@ -72,6 +72,7 @@ var/global/list/robot_modules = list(
 	R.set_module_sprites(sprites)
 	R.icon_selected = FALSE
 	R.choose_icon()
+	R.update_access() // Make sure we do not miss any access changes to the borgs already spawned with a module
 
 /obj/item/robot_module/proc/handle_languages(var/mob/living/silicon/robot/R)
 	return

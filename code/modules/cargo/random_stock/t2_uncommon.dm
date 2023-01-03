@@ -199,26 +199,13 @@ STOCK_ITEM_UNCOMMON(service, 2)
 STOCK_ITEM_UNCOMMON(robot, 2)
 	var/list/bots = list(
 		/mob/living/bot/cleanbot = 2,
-		/mob/living/bot/secbot = 0.7,
 		/mob/living/bot/medbot = 2,
-		/mob/living/bot/floorbot = 2.5,
 		/mob/living/bot/farmbot = 1,
-		/mob/living/bot/secbot/ed209 = 0.3
 	)
 
 	var/type = pickweight(bots)
-	if(type == /mob/living/bot/secbot/ed209)//ED is large and should spawn on the floor
-		L = get_turf(L)
-		if(!turf_clear(L))
-			for(var/turf/U in range(L,1))
-				if(turf_clear(U))
-					L = U
-					break
-
 	var/mob/living/bot/newbot = new type(L)
 	newbot.on = FALSE	//Deactivated
-	if(prob(10))
-		newbot.emag_act(9999, null)
 
 STOCK_ITEM_UNCOMMON(headset, 2)
 	var/list/sets = list(

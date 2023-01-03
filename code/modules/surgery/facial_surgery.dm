@@ -68,9 +68,9 @@
 
 /decl/surgery_step/generic/alter_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/head/head = target.get_organ(target_zone)
-	if(head.disfigured || (HUSK in target.mutations))
+	if(head.disfigured || HAS_FLAG(target.mutations, HUSK))
 		head.disfigured = FALSE
-		target.mutations.Remove(HUSK)
+		target.mutations &= ~HUSK
 		target.update_body()
 		user.visible_message("<b>[user]</b> finishes adjusting the skin [target]'s face.", SPAN_NOTICE("You successfully restore [target]'s appearance."))
 
@@ -215,9 +215,9 @@
 
 /decl/surgery_step/robotics/face/alter_synthface/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/head/head = target.get_organ(target_zone)
-	if(head.disfigured || (HUSK in target.mutations))
+	if(head.disfigured || HAS_FLAG(target.mutations, HUSK))
 		head.disfigured = FALSE
-		target.mutations.Remove(HUSK)
+		target.mutations &= ~HUSK
 		target.update_body()
 		user.visible_message("<b>[user]</b> finishes adjusting [target]'s synthetic face.", \
 							 SPAN_NOTICE("You successfully adjust [target]'s appearance."))

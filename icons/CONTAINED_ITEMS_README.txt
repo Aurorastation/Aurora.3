@@ -1,1 +1,0 @@
-Please use the "contained_items" folder for any future contained item sprites.

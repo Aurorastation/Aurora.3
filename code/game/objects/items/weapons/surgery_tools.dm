@@ -212,7 +212,7 @@
 		/obj/item/surgery/fix_o_vein,
 		/obj/item/stack/medical/advanced/bruise_pack,
 		/obj/item/stack/nanopaste
-		)
+	)
 
 	starts_with = list(
 		/obj/item/surgery/bonesetter = 1,
@@ -224,7 +224,7 @@
 		/obj/item/surgery/surgicaldrill = 1,
 		/obj/item/surgery/bone_gel = 1,
 		/obj/item/surgery/fix_o_vein = 1,
-		/obj/item/stack/medical/advanced/bruise_pack = 1,
+		/obj/item/stack/medical/advanced/bruise_pack = 1
 	)
 
 /obj/item/storage/box/fancy/tray/update_icon()
@@ -325,21 +325,22 @@
 		/obj/item/reagent_containers/syringe
 	)
 
-/obj/item/storage/box/fancy/tray/robotics
-	starts_with = list(
-		/obj/item/surgery/circular_saw = 1,
-		/obj/item/surgery/hemostat = 1,
-		/obj/item/surgery/retractor = 1,
-		/obj/item/surgery/scalpel = 1,
-		/obj/item/surgery/surgicaldrill = 1,
-		/obj/item/surgery/cautery,
-	)
-
+/obj/item/storage/box/fancy/tray/machinist
+	name = "machinist operation tray"
+	desc = "A tray of various tools for use by machinists in repairing robots."
 	can_hold = list(
-		/obj/item/surgery/circular_saw,
+		/obj/item/surgery/cautery,
 		/obj/item/surgery/circular_saw,
 		/obj/item/surgery/hemostat,
 		/obj/item/surgery/retractor,
 		/obj/item/surgery/scalpel,
-		/obj/item/surgery/surgicaldrill
+		/obj/item/stack/nanopaste
+		)
+
+	starts_with = list(
+		/obj/item/surgery/cautery = 1,
+		/obj/item/surgery/circular_saw = 1,
+		/obj/item/surgery/hemostat = 1,
+		/obj/item/surgery/retractor = 1,
+		/obj/item/surgery/scalpel = 1
 	)

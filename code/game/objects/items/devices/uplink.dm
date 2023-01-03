@@ -430,7 +430,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	starting_telecrystals = 3
 
 /obj/item/device/special_uplink/rev
-	name = "station bounced radio"
+	name = "shortwave radio"
 	desc = null // SBRs have no desc
 	icon_state = "walkietalkie" // more incognito
 	starting_telecrystals = DEFAULT_TELECRYSTAL_AMOUNT * 2

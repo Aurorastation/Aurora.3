@@ -1,10 +1,7 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
-
-
 /*
 field_generator power level display
    The icon used for the field_generator need to have 'num_power_levels' number of icon states
-   named 'Field_Gen +p[num]' where 'num' ranges from 1 to 'num_power_levels'
+   named 'field_gen +p[num]' where 'num' ranges from 1 to 'num_power_levels'
 
    The power level is displayed using overlays. The current displayed power level is stored in 'powerlevel'.
    The overlay in use and the powerlevel variable must be kept in sync.  A powerlevel equal to 0 means that
@@ -16,8 +13,8 @@ field_generator power level display
 /obj/machinery/field_generator
 	name = "field generator"
 	desc = "A large thermal battery that projects a high amount of energy when powered."
-	icon = 'icons/obj/machines/field_generator.dmi'
-	icon_state = "Field_Gen"
+	icon = 'icons/obj/machinery/field_generator.dmi'
+	icon_state = "field_gen"
 	anchored = 0
 	density = 1
 	use_power = POWER_USE_OFF

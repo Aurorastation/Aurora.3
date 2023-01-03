@@ -473,7 +473,7 @@
 		else
 			attach_iv(buckled, usr)
 		return
-	if(ishuman(over_object))
+	if(usr != over_object && ishuman(over_object))
 		if(user_buckle(over_object, usr))
 			attach_iv(buckled, usr)
 			return

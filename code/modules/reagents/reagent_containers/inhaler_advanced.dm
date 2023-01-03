@@ -25,7 +25,7 @@
 /obj/item/reagent_containers/personal_inhaler_cartridge/update_icon()
 	cut_overlays()
 	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
-	
+
 	if(reagents.total_volume)
 		var/mutable_appearance/filling = mutable_appearance('icons/obj/syringe.dmi', "[initial(icon_state)][rounded_vol]")
 		filling.color = reagents.get_color()
@@ -137,7 +137,7 @@
 		to_chat(user,"<span class='warning'>\The [src]'s cartridge is empty!</span>")
 		return
 
-	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
+	if (((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		if(M.eyes_protected(src, FALSE))
 			eyestab(M,user)

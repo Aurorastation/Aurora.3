@@ -158,10 +158,10 @@
 	if(istype(target_ladder, target_down))
 		direction = DOWN
 	if(!LAD.CanZPass(M, direction))
-		to_chat(M, "<span class='notice'>\The [LAD] is blocking \the [src].</span>")
+		to_chat(M, "<span class='notice'>\The [LAD.GetZPassBlocker()] is blocking \the [src].</span>")
 		return FALSE
 	if(!T.CanZPass(M, direction))
-		to_chat(M, "<span class='notice'>\The [T] is blocking \the [src].</span>")
+		to_chat(M, "<span class='notice'>\The [T.GetZPassBlocker()] is blocking \the [src].</span>")
 		return FALSE
 	for(var/atom/A in T)
 		if(!isliving(A))

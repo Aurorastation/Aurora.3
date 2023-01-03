@@ -60,24 +60,6 @@
 	else ..()
 
 //
-// Christmas
-//
-
-/obj/structure/sign/christmas/lights
-	name = "christmas lights"
-	desc = "Flashy."
-	icon = 'icons/obj/christmas.dmi'
-	icon_state = "xmaslights"
-	layer = 4.9
-
-/obj/structure/sign/christmas/wreath
-	name = "wreath"
-	desc = "Prickly and overrated."
-	icon = 'icons/obj/christmas.dmi'
-	icon_state = "doorwreath"
-	layer = 5
-
-//
 // Generic Signs
 //
 
@@ -962,14 +944,14 @@
 	They are known for their reformist ideals and scientific prowess."
 	icon_state = "volvalaad"
 
-/obj/item/flag/kazkhz
-	name = "House Kazkhz standard"
+/obj/item/flag/kazhkz
+	name = "House Kazhkz standard"
 	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
 	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
-	flag_path = "kazkhz"
+	flag_path = "kazhkz"
 
-/obj/structure/sign/flag/kazkhz
-	name = "House Kazkhz standard"
+/obj/structure/sign/flag/kazhkz
+	name = "House Kazhkz standard"
 	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
 	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
 	icon_state = "kazkhz"

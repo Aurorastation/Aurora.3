@@ -171,6 +171,23 @@
 	tag_icon = "dominia_vulgar"
 	text_tag = "VMR"
 
+/datum/accent/dominia_frontier
+	name = ACCENT_DOMINIA_FRONTIER
+	description = "Resembling more Freespeak than the Vulgar Morozi dialect found in more civilised regions of the Empire, most accents of the Imperial Frontier are looked down upon by those from the Core Worlds. \
+	Many Primaries and Secondaries look down upon the dialects of the Imperial Frontier as rogue, coarse, and often grating to hear compared to their Common-descended dialects. Many from this region who wish to rise \
+	through the ranks of the Empire’s Ma'zals spend great amounts of time learning an ersatz Solarian Common dialect based upon this one which is known as the Refined Imperial Frontier Dialect. While not nearly as \
+	prestigious see its counterparts the Refined Frontier dialect is often viewed as a mark of loyalty and dedication to the Empire."
+	tag_icon = "dominia_frontier"
+	text_tag = "IFR"
+
+/datum/accent/dominia_novijadran
+	name = ACCENT_DOMINIA_NOVIJADRAN
+	description = "Much like the planet itself, the Jadranic dialect of Solarian Common sits between standard Solarian Common-influenced Vulgar Morozi and the more Freespeak-derived accents of the Imperial Frontier. \
+	The dialect possesses grammar and pronunciation similar to Vulgar Morozi but possesses multiple loan words from Freespeak which make it distinct from its Morozian counterpart. Jadraners are valued highly for their \
+	loyalty and this dialect is often regarded as the most common accent of the Imperial Army. More educated Jadraners, such as those from the planet's few urban centers, will often leave the dialect's Freespeak \
+	loan words our while talking with Morozians or other Dominians."
+	tag_icon = "dominia_novijadran"
+	text_tag = "NOV"
 
 /datum/accent/jupiter
 	name = ACCENT_JUPITER

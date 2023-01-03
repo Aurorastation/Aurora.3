@@ -65,7 +65,7 @@
 
 /obj/machinery/door/window/allowed(mob/M)
 	. = ..()
-	if(inoperable()) // Unpowered windoors can just be slid open
+	if(inoperable() || !density) // Unpowered windoors can just be slid open, open windoors can always be closed
 		return TRUE
 	use_power_oneoff(50) // Just powering the RFID and maybe a weak motor
 	if(operable() && . == FALSE)

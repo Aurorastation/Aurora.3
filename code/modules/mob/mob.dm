@@ -480,11 +480,7 @@
 
 	announce_ghost_joinleave(client, 0)
 
-	// Run this here to null out death timers for the next go.
-
 	var/mob/abstract/new_player/M = new /mob/abstract/new_player()
-
-	M.reset_death_timers()
 
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
@@ -1421,10 +1417,7 @@
 
 
 /mob/proc/is_clumsy()
-	if(CLUMSY in mutations)
-		return TRUE
-
-	return FALSE
+	return HAS_FLAG(mutations, CLUMSY)
 
 //Helper proc for figuring out if the active hand (or given hand) is usable.
 /mob/proc/can_use_hand()

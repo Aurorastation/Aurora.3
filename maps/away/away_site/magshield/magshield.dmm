@@ -2402,8 +2402,8 @@
 /area/magshield/west)
 "hc" = (
 /obj/effect/shuttle_landmark/nav_magshield/nav1,
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/airless,
+/area/magshield/north)
 "hd" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -20670,19 +20670,19 @@ de
 de
 jH
 dw
-dj
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 hc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa

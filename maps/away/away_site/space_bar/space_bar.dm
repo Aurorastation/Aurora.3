@@ -16,11 +16,12 @@
 	desc = "A cozy meeting place floating on space."
 	comms_support = TRUE
 	comms_name = "station"
+	use_common = TRUE
 
 /area/space_bar
 	name = "Spacer Bar"
 	icon_state = "bar"
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
 	requires_power = FALSE
 	base_turf = /turf/simulated/floor/plating
 	no_light_control = TRUE

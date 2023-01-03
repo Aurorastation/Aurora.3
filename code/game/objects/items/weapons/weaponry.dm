@@ -94,7 +94,7 @@
 			health -= rand(10, 20)
 		else
 			health -= rand(1, 3)
-	else if (HULK in user.mutations)
+	else if (HAS_FLAG(user.mutations, HULK))
 		health = 0
 	else
 		health -= rand(5, 8)

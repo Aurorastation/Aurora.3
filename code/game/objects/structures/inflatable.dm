@@ -5,7 +5,7 @@
 	name = "inflatable"
 	desc_info = "Inflate by using it in your hand. The inflatable barrier will inflate on the turf you are standing on. To deflate it, use the 'deflate' verb."
 	w_class = ITEMSIZE_SMALL
-	icon = 'icons/contained_items/items/inflatables.dmi'
+	icon = 'icons/obj/item/inflatables.dmi'
 	var/deploy_path = null
 
 /obj/item/inflatable/attack_self(mob/user)
@@ -34,7 +34,7 @@
 	name = "inflatable"
 	desc = "An inflated membrane. Do not puncture."
 	desc_info = "To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
-	icon = 'icons/contained_objects/objects/inflatables.dmi'
+	icon = 'icons/obj/item/inflatables.dmi'
 	icon_state = "wall"
 
 	density = TRUE
@@ -264,7 +264,7 @@
 /obj/item/inflatable/torn
 	name = "torn inflatable wall"
 	desc = "A folded membrane which rapidly expands into a large cubical shape on activation. It is too torn to be usable."
-	icon_state = "folded_wall_torn"
+	icon_state = "folded_wall-torn"
 
 /obj/item/inflatable/torn/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("The inflatable wall is too torn to be inflated!"))
@@ -273,7 +273,7 @@
 /obj/item/inflatable/door/torn
 	name = "torn inflatable door"
 	desc = "A folded membrane which rapidly expands into a simple door on activation. It is too torn to be usable."
-	icon_state = "folded_door_torn"
+	icon_state = "folded_door-torn"
 
 /obj/item/inflatable/door/torn/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("The inflatable door is too torn to be inflated!"))
@@ -282,7 +282,7 @@
 /obj/item/storage/bag/inflatable
 	name = "inflatable barrier box"
 	desc = "Contains inflatable walls and doors."
-	icon = 'icons/contained_items/items/inflatables_box.dmi'
+	icon = 'icons/obj/item/inflatables.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
 	contained_sprite = TRUE
