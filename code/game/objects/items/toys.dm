@@ -1121,6 +1121,68 @@
 	item_state = "[colorvar]squid"
 	desc = "A small, cute and loveable squid friend. This one is in [colorvar]."
 
+//Fox Plushies
+/obj/item/toy/plushie/fox
+	name = "fox plushie"
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is red."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "redfox"
+	item_state = "redfox"
+	phrase = "Kekekeke!"
+
+/obj/item/toy/plushie/fox/black
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is black."
+	icon_state = "blackfox"
+	item_state = "blackfox"
+
+/obj/item/toy/plushie/fox/marble
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is white."
+	icon_state = "marblefox"
+	item_state = "marblefox"
+
+/obj/item/toy/plushie/fox/blue
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is blue."
+	icon_state = "bluefox"
+	item_state = "bluefox"
+
+/obj/item/toy/plushie/fox/orange
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is the classic orange."
+	icon_state = "orangefox"
+	item_state = "orangefox"
+
+/obj/item/toy/plushie/fox/coffee
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is coffee-cream coloured."
+	icon_state = "coffeefox"
+	item_state = "coffeefox"
+
+/obj/item/toy/plushie/fox/pink
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is pink."
+	icon_state = "pinkfox"
+	item_state = "pinkfox"
+
+/obj/item/toy/plushie/fox/purple
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is purple."
+	icon_state = "purplefox"
+	item_state = "purplefox"
+
+/obj/item/toy/plushie/fox/crimson
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is crimson."
+	icon_state = "crimsonfox"
+	item_state = "crimsonfox"
+
+/obj/item/toy/plushie/fox/random
+	icon_state = "redfox"
+	item_state = "redfox"
+	var/colorvar = "red"
+
+/obj/item/toy/plushie/fox/random/Initialize()
+	. = ..()
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is in [colorvar]."
+	icon_state = "[colorvar]fox"
+	item_state = "[colorvar]fox"
+	colorvar = pick("red", "black", "marble", "blue", "orange", "coffee", "pink", "purple", "crimson")
+
+// Squid Plushie Random
 /obj/item/toy/plushie/squidcolour
 	name = "squid plushie"
 	desc = "A small, cute, and loveable squid friend. This one comes in a wide variety of colours."

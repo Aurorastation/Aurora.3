@@ -309,6 +309,10 @@
 	throwforce = 2
 	slot_flags = SLOT_EARS
 
+	sprite_sheets = list(
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/l_ear.dmi',
+		)
+
 /obj/item/clothing/ears/attack_hand(mob/user as mob)
 	if (!user) return
 
@@ -344,6 +348,10 @@
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "blocked"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
+
+	sprite_sheets = list(
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/r_ear.dmi',
+		)
 
 /obj/item/clothing/ears/offear/proc/copy_ear(var/obj/O)
 	name = O.name
