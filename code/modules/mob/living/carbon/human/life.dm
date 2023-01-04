@@ -1154,6 +1154,17 @@
 						"Ennoia be with you, it's a bit too dark..."
 					)
 					to_chat(src, SPAN_WARNING(pick(assunzione_messages)))
+		
+		if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
+			if(T.get_lumcount() > 0.8)
+				if(prob(1))
+					if(prob(5))
+						var/list/eye_sensitivity_messages = list(
+							"Your eyes tire a bit.",
+							"Your eyes sting a little.",
+							"Your vision feels a bit strained."
+						)
+						to_chat(src, SPAN_WARNING(pick(eye_sensitivity_messages)))
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind)
