@@ -305,11 +305,14 @@
 				chugs++
 				reagents.trans_to_mob(H, min(10, amount_per_transfer_from_this), CHEM_INGEST)
 				if(!(H.species.flags & NO_BREATHE))
-					if(H.losebreath < 14)
-						H.losebreath += 2
-						H.adjustOxyLoss(2)
+					if(chugs > 3)
+						if(H.losebreath < 14)
+							H.losebreath += 1
+							H.adjustOxyLoss(1)
 				feed_sound(H)
-		if(chugs > 2)
+			else
+				break
+		if(chugs > 3)
 			if(!(H.species.flags & NO_BREATHE))
 				H.visible_message(SPAN_NOTICE("[src] finishes chugging, exhausted..."), SPAN_NOTICE("You finish chugging, exhausted..."))
 				H.emote("gasp")
