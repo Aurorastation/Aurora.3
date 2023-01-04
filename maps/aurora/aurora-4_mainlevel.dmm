@@ -58759,14 +58759,8 @@
 /area/maintenance/medbay)
 "coB" = (
 /obj/structure/table/steel,
-/obj/item/storage/firstaid/regular{
-	empty = 1;
-	name = "First-Aid (empty)"
-	},
-/obj/item/storage/firstaid/regular{
-	empty = 1;
-	name = "First-Aid (empty)"
-	},
+/obj/item/storage/firstaid/empty,
+/obj/item/storage/firstaid/empty,
 /obj/item/device/healthanalyzer,
 /obj/item/device/healthanalyzer,
 /obj/machinery/firealarm/south,

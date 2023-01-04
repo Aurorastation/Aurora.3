@@ -6631,14 +6631,10 @@
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/item/storage/firstaid/regular{
-	empty = 1;
-	name = "First-Aid (empty)";
+/obj/item/storage/firstaid/empty{
 	pixel_x = 7
 	},
-/obj/item/storage/firstaid/regular{
-	empty = 1;
-	name = "First-Aid (empty)";
+/obj/item/storage/firstaid/empty{
 	pixel_x = 7
 	},
 /obj/item/device/healthanalyzer{
