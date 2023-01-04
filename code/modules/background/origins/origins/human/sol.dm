@@ -93,6 +93,8 @@
 	possible_accents = list(ACCENT_ERIDANI, ACCENT_ERIDANIREINSTATED)
 	possible_citizenships = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = list(TRAIT_ORIGIN_NO_ANIMAL_PROTEIN)
+	origin_traits_descriptions = list("get sick if they eat animal protein that isn't tofu or seafood")
 
 /decl/origin_item/origin/eridani_dreg
 	name = "Eridani Corporate Federation Dreg"
@@ -101,8 +103,8 @@
 	possible_accents = list(ACCENT_ERIDANIDREG)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
-	origin_traits = list(TRAIT_ORIGIN_TOX_RESISTANCE, TRAIT_ORIGIN_DRUG_RESISTANCE)
-	origin_traits_descriptions = list("have a higher resistance to toxins", "have a higher tolerance to recreative drugs")
+	origin_traits = list(, TRAIT_ORIGIN_NO_ANIMAL_PROTEIN, TRAIT_ORIGIN_TOX_RESISTANCE, TRAIT_ORIGIN_DRUG_RESISTANCE)
+	origin_traits_descriptions = list("get sick if they eat animal protein that isn't tofu or seafood", "have a higher resistance to toxins", "have a higher tolerance to recreative drugs")
 
 /decl/origin_item/origin/middle_ring
 	name = "Middle Ring"

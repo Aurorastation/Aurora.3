@@ -6,3 +6,4 @@
 #define TRAIT_ORIGIN_TOX_RESISTANCE "toxin_resistance"
 #define TRAIT_ORIGIN_COLD_RESISTANCE "cold_resistance"
 #define TRAIT_ORIGIN_HOT_RESISTANCE "hot_resistance"
+#define TRAIT_ORIGIN_NO_ANIMAL_PROTEIN "no_animal_protein"

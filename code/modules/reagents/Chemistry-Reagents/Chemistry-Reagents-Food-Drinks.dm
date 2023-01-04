@@ -213,32 +213,46 @@
 	color = "#440000"
 	blood_factor = 3
 	taste_description = "some sort of protein"
+	var/vegan = FALSE
 
 /decl/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
 		digest(M,removed, holder = holder)
 		return
+	if(HAS_TRAIT(M, TRAIT_ORIGIN_NO_ANIMAL_PROTEIN) && !vegan)
+		if(prob(2))
+			var/list/uncomfortable_messages = list(
+				"You shouldn't have eaten that...",
+				"Your stomach cramps!",
+				"Your stomach hurts a bit...",
+				"You feel a bit sick..."
+			)
+			to_chat(M, SPAN_WARNING(uncomfortable_messages))
 	..()
 
 /decl/reagent/nutriment/protein/tofu //Good for Skrell!
 	name = "Tofu Protein"
 	color = "#fdffa8"
 	taste_description = "tofu"
+	vegan = TRUE
 
 /decl/reagent/nutriment/protein/seafood // Good for Skrell!
 	name = "Seafood Protein"
 	color = "#f5f4e9"
 	taste_description = "fish"
+	vegan = TRUE
 
 /decl/reagent/nutriment/protein/seafood/mollusc
 	name = "Mollusc Protein"
 	taste_description = "cold, bitter slime"
 	hydration_factor = 6
+	vegan = TRUE
 
 /decl/reagent/nutriment/protein/seafood/cosmozoan
 	name = "Cosmozoan Protein"
 	taste_description = "cold, bitter slime"
 	hydration_factor = 8
+	vegan = TRUE
 
 /decl/reagent/nutriment/protein/seafood/cosmozoan/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
