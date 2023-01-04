@@ -306,7 +306,7 @@
 				reagents.trans_to_mob(H, min(10, amount_per_transfer_from_this), CHEM_INGEST)
 				if(!(H.species.flags & NO_BREATHE))
 					if(chugs > 3)
-						if(H.losebreath < 14)
+						if(H.losebreath < 6)
 							H.losebreath += 1
 							H.adjustOxyLoss(1)
 				feed_sound(H)
