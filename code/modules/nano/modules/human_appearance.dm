@@ -134,6 +134,7 @@
 			if(new_culture_id in valid_cultures)
 				var/decl/origin_item/culture/new_culture = valid_cultures[new_culture_id]
 				owner.culture = new_culture
+				owner.culture.on_apply(owner)
 				if(!(owner.origin in new_culture.possible_origins))
 					owner.origin = decls_repository.get_decl(pick(new_culture.possible_origins))
 				clear_and_generate_data()
@@ -144,6 +145,7 @@
 			if(new_origin_id in valid_origins)
 				var/decl/origin_item/origin/new_origin = valid_origins[new_origin_id]
 				owner.origin = new_origin
+				owner.origin.on_apply(owner)
 				if(!(owner.accent in new_origin.possible_accents))
 					owner.accent = new_origin.possible_accents[1]
 				if(!(owner.religion in new_origin.possible_religions))

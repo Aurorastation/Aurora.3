@@ -3,6 +3,9 @@
 	var/desc = "You shouldn't be seeing this."
 	var/important_information //Big red text. Should only be used if not following it would incur a bwoink.
 	var/list/origin_traits = list()
+	/// Format for the following list: "Characters from this origin: [list entry], [list entry]."
+	/// One list item per trait.
+	var/list/origin_traits_descriptions = list()
 
 /decl/origin_item/culture
 	name = "generic culture"

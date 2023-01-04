@@ -381,7 +381,7 @@
 		take_overall_damage(burn = burn_dam, used_weapon = "extreme heat")
 		fire_alert = max(fire_alert, 2)
 
-	else if(bodytemperature <= (species.cold_level_1 + cold_bonus))
+	else if(bodytemperature <= (species.cold_level_1 - cold_bonus))
 		fire_alert = max(fire_alert, 1)
 		if(status_flags & GODMODE)
 			return 1

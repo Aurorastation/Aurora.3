@@ -20,6 +20,7 @@
 	possible_citizenships = list(CITIZENSHIP_ELYRA)
 	possible_religions = RELIGIONS_ELYRA
 	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the heat.")
 
 /decl/origin_item/origin/damascus
 	name = "Damascus II"
@@ -28,6 +29,7 @@
 	possible_citizenships = list(CITIZENSHIP_ELYRA)
 	possible_religions = RELIGIONS_ELYRA
 	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the heat.")
 
 /decl/origin_item/origin/medina
 	name = "Medina"
@@ -36,6 +38,7 @@
 	possible_citizenships = list(CITIZENSHIP_ELYRA)
 	possible_religions = RELIGIONS_ELYRA
 	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the heat.")
 
 /decl/origin_item/origin/aemaq
 	name = "Aemaq"
@@ -43,7 +46,8 @@
 	possible_accents = list(ACCENT_AEMAQ)
 	possible_citizenships = list(CITIZENSHIP_ELYRA)
 	possible_religions = RELIGIONS_ELYRA
-	origin_traits = list(TRAIT_ORIGIN_IGNORE_CAPSAICIN)
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the heat.")
 
 /decl/origin_item/origin/new_suez
 	name = "New Suez"
