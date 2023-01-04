@@ -11,4 +11,4 @@
 	description = "A corporate-owned open space star nursery. The stellar climate here is unbelievably chaotic, leading to some of the most fabulous views one can see in all the galaxy. \
 	The study of these cosmic fields is a lucrative one, as one can see the very moments stars and their systems are born and die here. The wonders outside each viewport are truly humbling."
 	skybox_icon = "star_nursery"
-	starlight_color = RANDOM_RGB
+	starlight_color = COLOR_WHITE

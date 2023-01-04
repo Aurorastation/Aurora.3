@@ -5,7 +5,7 @@
 	but natives aren't known to treat settlements kindly."
 	skybox_icon = "badlands"
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava)
-	starlight_colour = COLOR_RED_LIGHT
+	starlight_color = LIGHT_COLOR_FLARE
 
 /datum/space_sector/valley_hale
 	name = SECTOR_VALLEY_HALE
