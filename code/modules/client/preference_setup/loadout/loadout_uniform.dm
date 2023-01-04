@@ -231,8 +231,8 @@
 	path = /obj/item/clothing/under/syndicate/tacticool
 
 /datum/gear/uniform/dominia
-	display_name = "dominian clothing selection"
-	description = "A selection of Dominian clothing."
+	display_name = "dominian suit selection"
+	description = "A selection of Dominian suits."
 	path = /obj/item/clothing/under/dominia
 	flags = GEAR_HAS_DESC_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
@@ -240,23 +240,30 @@
 /datum/gear/uniform/dominia/New()
 	..()
 	var/list/suit = list()
-	suit["dominia suit, red"] = /obj/item/clothing/under/dominia
-	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
+	suit["dominian suit, red"] = /obj/item/clothing/under/dominia/imperial_suit
+	suit["dominian suit, black"] = /obj/item/clothing/under/dominia/imperial_suit/black
+	suit["strelitz dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/strelitz
+	suit["volvalaad dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/volvalaad
+	suit["kazhkz dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/kazhkz
+	suit["caladius dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/caladius
+	suit["zhao dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/zhao
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
 	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
-	suit["dominia noblewoman dress"] = /obj/item/clothing/under/dominia/dress
-	suit["dominia summer dress"] = /obj/item/clothing/under/dominia/dress/summer
 	gear_tweaks += new /datum/gear_tweak/path(suit)
 
 /datum/gear/uniform/dominia_dress
 	display_name = "dominian dress selection"
-	description = "A selection of fancy Dominian dresses."
+	description = "A selection of Dominian dresses."
 	path = /obj/item/clothing/under/dominia/dress
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/uniform/dominia_dress/New()
 	..()
 	var/list/suit = list()
+	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/noble))
+		var/obj/item/clothing/under/dominia/dress/noble/D = new dress
+		suit["[D.name]"] = D.type
+	suit["dominia noble greatdress"] = /obj/item/clothing/under/dominia/dress
 	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/fancy))
 		var/obj/item/clothing/under/dominia/dress/D = new dress //I'm not typing all this shit manually. Jesus christ.
 		suit["[D.name]"] = D.type
