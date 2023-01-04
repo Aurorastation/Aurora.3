@@ -299,7 +299,7 @@
 /proc/select_recipe(var/obj/obj as obj, var/exact = COOK_CHECK_EXTRA, var/appliance = null)
 	if(!appliance)
 		CRASH("Null appliance flag passed to select_recipe!")
-	var/list/available_recipes = GET_SINGLETON_SUBTYPE_LIST(/singleton/recipe)
+	var/list/available_recipes = GET_SINGLETON_SUBTYPE_MAP(/singleton/recipe)
 	var/list/possible_recipes = list()
 	for (var/R in available_recipes)
 		var/singleton/recipe/recipe = GET_SINGLETON(R)

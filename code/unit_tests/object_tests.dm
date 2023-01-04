@@ -40,7 +40,7 @@
 
 /datum/unit_test/flooring_build_type_conflicts/start_test()
 	var/list/known_types = list()
-	var/list/decls = GET_SINGLETON_SUBTYPE_LIST(/singleton/flooring)
+	var/list/decls = GET_SINGLETON_SUBTYPE_MAP(/singleton/flooring)
 	for(var/flooring_type in decls)
 		var/singleton/flooring/F = decls[flooring_type]
 		if(!isnull(F.build_type))

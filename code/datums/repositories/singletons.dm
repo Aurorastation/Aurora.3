@@ -135,7 +135,7 @@ var/global/repository/singletons/Singletons = new
 
 /**
 * Get a list of valid singletons according to subtypesof(path).
-* Prefer the GET_SINGLETON_SUBTYPE_LIST macro to minimize proc calls.
+* Prefer the GET_SINGLETON_SUBTYPE_MAP macro to minimize proc calls.
 */
 /repository/singletons/proc/GetSubtypeListOf(singleton/path)
 	if (resolved_subtype_lists[path])
@@ -146,16 +146,20 @@ var/global/repository/singletons/Singletons = new
 	return result
 
 
+/**
+* Get a list of valid singletons according to subtypesof(type).
+* Prefer the GET_SINGLETON_SUBTYPE_MAP macro to minimize proc calls.
+* WARNING: this is NOT the one from Bay, use GetSubtypeListOf for that!
+*/
+/repository/singletons/proc/GetSubtypeList(singleton/decl_prototype)
+	if (resolved_subtype_lists[decl_prototype.type])
+		return subtype_lists[decl_prototype.type] || list()
+	resolved_subtype_lists[decl_prototype.type] = TRUE
 
-/repository/singletons/proc/GetSubtypeList(singleton/decl_prototype) /////////////////
-	if (resolved_subtype_lists[decl_prototype])
-		return subtype_lists[decl_prototype]
-	resolved_subtype_lists[decl_prototype] = TRUE
-
-	var/singleton/result = subtype_lists[decl_prototype]
+	var/singleton/result = subtype_lists[decl_prototype.type]
 	if(!result)
-		result = GetMap(subtypesof(decl_prototype))
-		subtype_lists[decl_prototype] = result
+		result = GetList(subtypesof(decl_prototype.type))
+		subtype_lists[decl_prototype.type] = result
 	return result
 
 

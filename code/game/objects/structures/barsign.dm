@@ -187,7 +187,7 @@
 	desc_extended = "City Alive is a high class restaurant chain, dotted all over Eridani I and III. Especially on Eridani I they are also famous for their light shows in the evenings. These lights look like pulsating veins, making the city seem alive, especially when observed from orbit."
 
 /obj/structure/sign/double/barsign/proc/get_sign_choices()
-	var/list/sign_choices = GET_SINGLETON_SUBTYPE_LIST(choice_types)
+	var/list/sign_choices = GET_SINGLETON_SUBTYPE_MAP(choice_types)
 	return sign_choices
 
 /obj/structure/sign/double/barsign/proc/set_sign()

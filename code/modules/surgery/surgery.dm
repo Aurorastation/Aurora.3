@@ -114,7 +114,7 @@ proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/
 
 	// What surgeries does our tool/target enable?
 	var/list/possible_surgeries
-	var/list/all_surgeries = GET_SINGLETON_SUBTYPE_LIST(/singleton/surgery_step)
+	var/list/all_surgeries = GET_SINGLETON_SUBTYPE_MAP(/singleton/surgery_step)
 	for(var/decl in all_surgeries)
 		var/singleton/surgery_step/S = all_surgeries[decl]
 		if(S.tool_quality(tool) && S.can_use(user, M, zone, tool))

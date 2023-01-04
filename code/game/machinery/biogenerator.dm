@@ -380,7 +380,7 @@
 					dat += "<tr><td colspan='2'>Name</td><td colspan='2'>Cost</td><td colspan='4'>Production Amount</td></tr>"
 					var/lastclass = "Commands"
 
-					for (var/k in GET_SINGLETON_SUBTYPE_LIST(/singleton/biorecipe))
+					for (var/k in GET_SINGLETON_SUBTYPE_MAP(/singleton/biorecipe))
 						var/singleton/biorecipe/current_recipe = GET_SINGLETON(k)
 
 						if(emagged || !current_recipe.emag)
