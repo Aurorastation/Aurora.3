@@ -1603,6 +1603,7 @@
 #include "code\modules\clothing\head\misc_special.dm"
 #include "code\modules\clothing\head\pilot_helmet.dm"
 #include "code\modules\clothing\head\soft_caps.dm"
+#include "code\modules\clothing\head\woolen_hats.dm"
 #include "code\modules\clothing\head\xenos\skrell.dm"
 #include "code\modules\clothing\head\xenos\tajara.dm"
 #include "code\modules\clothing\head\xenos\unathi.dm"
