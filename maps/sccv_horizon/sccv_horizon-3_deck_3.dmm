@@ -594,10 +594,6 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
-"axc" = (
-/obj/machinery/telecomms/server/presets/security,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "axw" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -6725,10 +6721,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/chamber)
-"fCr" = (
-/obj/effect/floor_decal/sign/c,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "fCT" = (
 /obj/machinery/porta_turret/stationary,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -6737,10 +6729,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/bridge/selfdestruct)
-"fDd" = (
-/obj/machinery/telecomms/bus/preset_three,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "fDt" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -6906,10 +6894,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
-"fJh" = (
-/obj/machinery/telecomms/processor/preset_three,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "fJy" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -7124,10 +7108,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"fSr" = (
-/obj/machinery/telecomms/server/presets/service,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "fSO" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -7655,10 +7635,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
-"gqE" = (
-/obj/machinery/iff_beacon/horizon,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "gqH" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -8036,10 +8012,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
-"gED" = (
-/obj/machinery/telecomms/server/presets/unused,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "gFS" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -9203,10 +9175,6 @@
 /obj/machinery/telecomms/server/presets/medical,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
-"hwn" = (
-/obj/machinery/telecomms/receiver/preset_right,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "hwp" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 36;
@@ -10117,10 +10085,6 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
-"ioi" = (
-/obj/machinery/telecomms/server/presets/supply,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "ioA" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -10269,10 +10233,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
-"iub" = (
-/obj/machinery/telecomms/server/presets/common,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "ivg" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/bridge)
@@ -11450,22 +11410,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/port/docks)
-"jsv" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 8;
-	external_pressure_bound = 0;
-	external_pressure_bound_default = 0;
-	icon_state = "map_vent_in";
-	initialize_directions = 1;
-	internal_pressure_bound = 4000;
-	internal_pressure_bound_default = 4000;
-	pressure_checks = 2;
-	pressure_checks_default = 2;
-	pump_direction = 0;
-	use_power = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "jvo" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -12543,10 +12487,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/hallway)
-"klm" = (
-/obj/machinery/blackbox_recorder,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "klQ" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -12769,10 +12709,6 @@
 /obj/structure/disposalpipe/junction,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
-"ksd" = (
-/obj/machinery/telecomms/bus/preset_two,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "ksm" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
@@ -14628,10 +14564,6 @@
 "lPz" = (
 /turf/simulated/open,
 /area/horizon/stairwell/bridge)
-"lPA" = (
-/obj/effect/floor_decal/sign/d,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "lPI" = (
 /obj/item/folder/sec,
 /obj/structure/table/glass,
@@ -16441,9 +16373,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/showers)
-"nra" = (
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "nrf" = (
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 1
@@ -16957,10 +16886,6 @@
 /obj/machinery/telecomms/message_server,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
-"nMr" = (
-/obj/machinery/ntnet_relay,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "nMz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -17696,10 +17621,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge)
-"opu" = (
-/obj/machinery/telecomms/bus/preset_four,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "opw" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -19303,10 +19224,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"pIS" = (
-/obj/machinery/telecomms/processor/preset_two,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "pKI" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
@@ -19382,10 +19299,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
-"pPg" = (
-/obj/effect/floor_decal/sign/m,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "pPR" = (
 /obj/structure/cable/green,
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
@@ -19609,10 +19522,6 @@
 "pYC" = (
 /turf/simulated/floor/tiled/ramp,
 /area/horizon/cafeteria)
-"pYT" = (
-/obj/machinery/telecomms/processor/preset_one,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "pZy" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -19784,10 +19693,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
-"qdA" = (
-/obj/effect/floor_decal/sign/a,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "qeu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -19836,10 +19741,6 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
-"qgW" = (
-/obj/machinery/bluespacerelay,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "qhK" = (
 /obj/machinery/light{
 	dir = 8
@@ -20681,10 +20582,6 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/horizon/crew_quarters/fitness/lounge)
-"qNB" = (
-/obj/machinery/telecomms/server/presets/command,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "qOO" = (
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
@@ -23033,10 +22930,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"sEq" = (
-/obj/machinery/telecomms/server/presets/medical,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "sFf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -23643,18 +23536,6 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
-"tdI" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 4;
-	external_pressure_bound = 140;
-	external_pressure_bound_default = 140;
-	icon_state = "map_vent_out";
-	pressure_checks = 0;
-	pressure_checks_default = 0;
-	use_power = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "tel" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/structure/railing/mapped{
@@ -25229,10 +25110,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"uiJ" = (
-/obj/machinery/telecomms/processor/preset_four,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "ujs" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -25629,10 +25506,6 @@
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/bridge/meeting_room)
-"uBX" = (
-/obj/machinery/telecomms/broadcaster/preset_right,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "uCk" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -25849,10 +25722,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
-"uLu" = (
-/obj/machinery/telecomms/message_server,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "uLF" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -26668,10 +26537,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
-"vmO" = (
-/obj/machinery/telecomms/server/presets/engineering,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "vmT" = (
 /obj/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
@@ -26685,10 +26550,6 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/dark,
 /area/medical/smoking)
-"voT" = (
-/obj/machinery/telecomms/server/presets/science,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "vpB" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
@@ -27013,10 +26874,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
-"vAB" = (
-/obj/machinery/telecomms/allinone/ship/station_relay,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "vBl" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -27620,10 +27477,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
-"vYk" = (
-/obj/effect/floor_decal/sign/b,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "vZu" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -28015,10 +27868,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
-"wpg" = (
-/obj/machinery/telecomms/bus/preset_one,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "wpA" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/crew_armoury)
@@ -28346,10 +28195,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
-"wHR" = (
-/obj/machinery/telecomms/hub/preset,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
 "wIr" = (
 /obj/machinery/door/window/brigdoor{
 	base_state = "rightsecure";
@@ -45419,15 +45264,15 @@ vkb
 dSF
 dSF
 dSF
-iub
-gED
 dSF
-sEq
-nra
 dSF
-qgW
-wHR
-hwn
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
 dSF
 dSF
 dSF
@@ -45621,15 +45466,15 @@ vkb
 dSF
 dSF
 dSF
-pYT
-wpg
 dSF
-fJh
-fDd
 dSF
-nMr
-vAB
-uLu
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
 dSF
 dSF
 dSF
@@ -45823,15 +45668,15 @@ vkb
 dSF
 dSF
 dSF
-fSr
-nra
 dSF
-voT
-nra
 dSF
-gqE
-uBX
-klm
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
 dSF
 dSF
 dSF
@@ -46227,15 +46072,15 @@ vkb
 dSF
 dSF
 dSF
-qNB
-nra
 dSF
-vmO
-nra
 dSF
-tdI
-qdA
-lPA
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
 dSF
 dSF
 dSF
@@ -46429,15 +46274,15 @@ vkb
 dSF
 dSF
 dSF
-pIS
-ksd
 dSF
-uiJ
-opu
 dSF
-jsv
-vYk
-pPg
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
 dSF
 dSF
 dSF
@@ -46631,15 +46476,15 @@ vkb
 dSF
 dSF
 dSF
-axc
-nra
 dSF
-ioi
-nra
 dSF
-nra
-fCr
-nra
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
 dSF
 dSF
 dSF
