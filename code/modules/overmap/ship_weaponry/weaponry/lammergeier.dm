@@ -33,7 +33,7 @@
 		var/mob/M = target
 		M.visible_message(SPAN_DANGER("<font size=5>\The [src] blows [M]'s chest apart and punches straight through!</font>"))
 	if(isturf(target) || isobj(target))
-		explosion(target, 0, 2, 4)
+		explosion(target, 3, 6, 8)
 
 /obj/machinery/ammunition_loader/lammergeier
 	name = "typhoon cannon loader"
