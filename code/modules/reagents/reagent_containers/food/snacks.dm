@@ -505,7 +505,7 @@
 	. = ..()
 	reagents.add_reagent(/singleton/reagent/nutriment, 9)
 	reagents.add_reagent(/singleton/reagent/nutriment/protein, 4)
-	var/list/decl_flavors = Singletons.GetSubtypeList(/singleton/proteinbar_flavor)
+	var/list/decl_flavors = GET_SINGLETON_SUBTYPE_LIST(/singleton/proteinbar_flavor)
 	var/singleton/proteinbar_flavor/PB = GET_SINGLETON(pick(decl_flavors))
 	name = "[PB.name] [name]"
 	var/count = length(PB.reagents)

@@ -63,7 +63,7 @@
 				return
 			var/obj/item/stack/S = C
 			var/singleton/flooring/use_flooring
-			var/list/decls = Singletons.GetSubtypeList(/singleton/flooring)
+			var/list/decls = GET_SINGLETON_SUBTYPE_LIST(/singleton/flooring)
 			for(var/flooring_type in decls)
 				var/singleton/flooring/F = decls[flooring_type]
 				if(!F.build_type)

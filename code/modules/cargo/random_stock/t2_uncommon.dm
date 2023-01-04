@@ -85,7 +85,7 @@ STOCK_ITEM_UNCOMMON(mediumcell, 3)
 		new type(L)
 
 STOCK_ITEM_UNCOMMON(chempack, 5)
-	var/list/chems = Singletons.GetSubtypeList(/singleton/reagent/)
+	var/list/chems = GET_SINGLETON_SUBTYPE_LIST(/singleton/reagent/)
 	var/list/exclusion = list(/singleton/reagent/drink, /singleton/reagent, /singleton/reagent/adminordrazine, /singleton/reagent/polysomnine/beer2, /singleton/reagent/azoth, /singleton/reagent/elixir,\
 		/singleton/reagent/liquid_fire, /singleton/reagent/philosopher_stone, /singleton/reagent/toxin/undead, /singleton/reagent/love_potion, /singleton/reagent/shapesand, /singleton/reagent/usolve,\
 		/singleton/reagent/sglue, /singleton/reagent/black_matter, /singleton/reagent/bottle_lightning, /singleton/reagent/toxin/trioxin, /singleton/reagent/toxin/nanites, /singleton/reagent/nitroglycerin, \

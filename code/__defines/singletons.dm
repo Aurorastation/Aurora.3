@@ -20,4 +20,4 @@
 
 /// Get a list of valid singletons according to subtypesof(path).
 #define GET_SINGLETON_SUBTYPE_LIST(P)\
-	(ispath(P, /singleton) ? (Singletons.resolved_subtype_lists[P] ? Singletons.subtype_lists[P] : Singletons.GetSubtypeList(P)) : list())
+	(ispath(P, /singleton) ? (Singletons.resolved_subtype_lists[P] ? Singletons.subtype_lists[P] : Singletons.GetSubtypeList(P)) : Singletons.GetSubtypeListOf(P))

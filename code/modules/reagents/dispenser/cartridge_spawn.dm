@@ -7,7 +7,7 @@
 		return
 
 	var/list/matches
-	for(var/path in Singletons.GetSubtypeList(/singleton/reagent/))
+	for(var/path in GET_SINGLETON_SUBTYPE_LIST(/singleton/reagent/))
 		if(findtext("[path]", rtype))
 			LAZYADD(matches, path)
 

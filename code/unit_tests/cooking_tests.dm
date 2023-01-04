@@ -43,7 +43,7 @@
 				tags_in_use[tag] = FALSE
 			tags_available[tag] += S.type
 
-	var/list/recipes = Singletons.GetSubtypeList(/singleton/recipe)
+	var/list/recipes = GET_SINGLETON_SUBTYPE_LIST(/singleton/recipe)
 	for(var/rtype in recipes)
 		var/singleton/recipe/R = GET_SINGLETON(rtype)
 		if(R.fruit && length(R.fruit))
