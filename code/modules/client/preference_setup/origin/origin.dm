@@ -103,7 +103,7 @@
 	dat += "<i>- [CL.desc]</i><br><br>"
 	if(length(CL.origin_traits_descriptions))
 		dat += "- Characters from this culture "
-		dat += "</b>[english_list(CL.origin_traits_descriptions)]</b>."
+		dat += "<b>[english_list(CL.origin_traits_descriptions)]</b>."
 	if(CL.important_information)
 		dat += "<br><i>- <font color=red>[CL.important_information]</font></i>"
 	dat += "<hr><b>Origin: </b><a href='?src=\ref[src];open_origin_menu=1'>[OR.name]</a><br>"
