@@ -98,12 +98,12 @@
 
 /decl/origin_item/origin/eridani_dreg
 	name = "Eridani Corporate Federation Dreg"
-	desc = "The Eridani Corporate Federation is an autonomous member of the Solarian Alliance that is infamous abroad for its starkly divided society and extreme levels of corporate involvement in daily life. Corporations touch every aspect of Eridani, and its society is divided between corporate \"Suits\" that work for its companies and non-citizen \"Dregs\" that live off the scraps of society. Between the two, \"Reinstated Dregs\" chart an awkward balance: too corporate to be Dregs, but not corporate enough to be Suits."
+	desc = "The Eridani Corporate Federation is an autonomous member of the Solarian Alliance that is infamous abroad for its starkly divided society and extreme levels of corporate involvement in daily life. Referred to as Dregs by the Spur at large, the term has been co-opted by many as a badge of honor rather than a pejorative. Whether an individual was born outside the great Eridanian skyscrapers or sent there following the loss of their job, Dreg society is the polar opposite of their Suit counterpart. Without corporate control or any form of governance from the Eridanian state itself, the Dregs largely inhabit their own sprawling, slum-like conurbations all across the surface of Eridani's terrestrial worlds."
 	important_information = "<b>Due to Epsilon Eridani being originally settled by colonists of West and Central African descent, human characters born in the Eridani Corporate Federation must have names and appearances consistent with the indigenous peoples of these regions as any human moving to the ECF would assimilate into the dominant cultures and ethnic groups of the federation. Eridani dregs have developed cultures of abstract or unconventional names however and this is tolerated.</b> Only native Eridanians may select the Eridanian accents. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_ERIDANIDREG)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
-	origin_traits = list(, TRAIT_ORIGIN_NO_ANIMAL_PROTEIN, TRAIT_ORIGIN_TOX_RESISTANCE, TRAIT_ORIGIN_DRUG_RESISTANCE)
+	origin_traits = list(TRAIT_ORIGIN_NO_ANIMAL_PROTEIN, TRAIT_ORIGIN_TOX_RESISTANCE, TRAIT_ORIGIN_DRUG_RESISTANCE)
 	origin_traits_descriptions = list("get sick if they eat animal protein that isn't tofu or seafood", "have a higher resistance to toxins", "have a higher tolerance to recreative drugs")
 
 /decl/origin_item/origin/middle_ring
