@@ -349,7 +349,7 @@ var/const/enterloopsanity = 100
 
 /turf/proc/AdjacentTurfs(var/check_blockage = TRUE)
 	. = list()
-	for(var/turf/t in oview(src,1))
+	for(var/turf/t in orange(src,1))
 		if(check_blockage)
 			if(!t.density)
 				if(!LinkBlocked(src, t) && !TurfBlockedNonWindow(t))
