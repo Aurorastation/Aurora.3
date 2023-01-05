@@ -2070,7 +2070,7 @@
 /obj/structure/lattice,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
 	layer = 2.6;
 	name = "cable"
@@ -6576,7 +6576,7 @@
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -8086,7 +8086,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -8307,7 +8307,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -8637,7 +8637,7 @@
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -11040,7 +11040,7 @@
 "iam" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
 	layer = 2.6;
 	name = "cable"
@@ -11971,7 +11971,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -14531,7 +14531,7 @@
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -15571,14 +15571,14 @@
 "luP" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
 	layer = 2.6;
 	name = "cable"
@@ -16129,7 +16129,7 @@
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -18558,7 +18558,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -20922,14 +20922,14 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
 	layer = 2.6;
 	name = "cable"
@@ -21205,14 +21205,14 @@
 "pBZ" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
 	layer = 2.6;
 	name = "cable"
@@ -21439,14 +21439,14 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "4-8";
 	layer = 2.6;
 	name = "cable"
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -22495,7 +22495,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -22818,7 +22818,7 @@
 /obj/structure/lattice,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -23783,7 +23783,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -24986,7 +24986,7 @@
 "sIV" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "0-8";
 	name = "cable"
 	},
@@ -26532,7 +26532,7 @@
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -30757,7 +30757,7 @@
 "wSm" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "1-2";
 	layer = 2.6;
 	name = "cable"
@@ -30927,7 +30927,7 @@
 "wYE" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
-	icon = 'icons/obj/power_cond_heavy.dmi';
+	icon = 'icons/obj/power_cond_white.dmi';
 	icon_state = "0-4";
 	name = "cable"
 	},

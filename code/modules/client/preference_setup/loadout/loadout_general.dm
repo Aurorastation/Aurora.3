@@ -210,7 +210,7 @@
 	var/list/standards = list()
 	standards["standard, Strelitz"] = /obj/item/flag/strelitz
 	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
-	standards["standard, Kazkhz"] = /obj/item/flag/kazkhz
+	standards["standard, Kazhkz"] = /obj/item/flag/kazhkz
 	standards["standard, Caladius"] = /obj/item/flag/caladius
 	standards["standard, Zhao"] = /obj/item/flag/zhao
 	gear_tweaks += new /datum/gear_tweak/path(standards)
@@ -290,6 +290,16 @@
 	plushies["plushie, bear"] = /obj/item/toy/plushie/bear
 	plushies["plushie, firefighter bear"] = /obj/item/toy/plushie/bearfire
 	plushies["plushie, random squid"] = /obj/item/toy/plushie/squid //if someone can figure out how to make color work with these, good luck lmao
+	plushies["plushie, red fox"] = /obj/item/toy/plushie/fox
+	plushies["plushie, black fox"] = /obj/item/toy/plushie/fox/black
+	plushies["plushie, marble fox"] = /obj/item/toy/plushie/fox/marble
+	plushies["plushie, blue fox"] = /obj/item/toy/plushie/fox/blue
+	plushies["plushie, orange fox"] = /obj/item/toy/plushie/fox/orange
+	plushies["plushie, coffee fox"] = /obj/item/toy/plushie/fox/coffee
+	plushies["plushie, pink fox"] = /obj/item/toy/plushie/fox/pink
+	plushies["plushie, purple fox"] = /obj/item/toy/plushie/fox/purple
+	plushies["plushie, crimson fox"] = /obj/item/toy/plushie/fox/crimson
+	plushies["plushie, random fox"] = /obj/item/toy/plushie/fox/random
 	plushies["plushie, bee"] = /obj/item/toy/plushie/bee
 	plushies["plushie, shark"] = /obj/item/toy/plushie/shark
 	plushies["plushie, schlorrgo"] = /obj/item/toy/plushie/schlorrgo
