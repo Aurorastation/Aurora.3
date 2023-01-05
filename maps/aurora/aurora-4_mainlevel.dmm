@@ -47092,7 +47092,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/item/clothing/gloves/botanic_leather/vaurca,
+/obj/item/clothing/gloves/botanic_leather,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bHy" = (
@@ -47353,7 +47353,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/item/clothing/gloves/botanic_leather/vaurca,
+/obj/item/clothing/gloves/botanic_leather,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bIm" = (
