@@ -75,7 +75,7 @@
 /proc/cmp_rcon_bbox(obj/machinery/power/breakerbox/BR1, obj/machinery/power/breakerbox/BR2)
 	return sorttext(BR2.RCon_tag, BR1.RCon_tag)
 
-/proc/cmp_recipe_complexity_dsc(singleton/recipe/A, singleton/recipe/B)
+/proc/cmp_recipe_complexity_dsc(decl/recipe/A, decl/recipe/B)
 	var/a_score = LAZYLEN(A.items) + LAZYLEN(A.reagents) + LAZYLEN(A.fruit)
 	var/b_score = LAZYLEN(B.items) + LAZYLEN(B.reagents) + LAZYLEN(B.fruit)
 	return b_score - a_score

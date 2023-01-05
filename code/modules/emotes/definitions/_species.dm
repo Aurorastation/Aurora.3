@@ -5,7 +5,7 @@
 	. = ..(skip_sort=1)
 	if(species)
 		for(var/emote in species.default_emotes)
-			var/singleton/emote/emote_datum = GET_SINGLETON(emote)
+			var/decl/emote/emote_datum = decls_repository.get_decl(emote)
 			if(emote_datum.check_user(src))
 				usable_emotes[emote_datum.key] = emote_datum
 	usable_emotes = sortAssoc(usable_emotes)
@@ -13,88 +13,88 @@
 // Specific defines follow.
 /datum/species/slime
 	default_emotes = list(
-		/singleton/emote/visible/bounce,
-		/singleton/emote/visible/jiggle,
-		/singleton/emote/visible/lightup,
-		/singleton/emote/visible/vibrate
+		/decl/emote/visible/bounce,
+		/decl/emote/visible/jiggle,
+		/decl/emote/visible/lightup,
+		/decl/emote/visible/vibrate
 		)
 
 /datum/species/unathi
 	default_emotes = list(
-		/singleton/emote/human/swish,
-		/singleton/emote/human/wag,
-		/singleton/emote/human/sway,
-		/singleton/emote/human/qwag,
-		/singleton/emote/human/fastsway,
-		/singleton/emote/human/swag,
-		/singleton/emote/human/stopsway,
-		/singleton/emote/visible/tflick,
-		/singleton/emote/audible/lizard_bellow,
-		/singleton/emote/audible/hiss,
-		/singleton/emote/audible/hiss/long,
-		/singleton/emote/audible/growl
+		/decl/emote/human/swish,
+		/decl/emote/human/wag,
+		/decl/emote/human/sway,
+		/decl/emote/human/qwag,
+		/decl/emote/human/fastsway,
+		/decl/emote/human/swag,
+		/decl/emote/human/stopsway,
+		/decl/emote/visible/tflick,
+		/decl/emote/audible/lizard_bellow,
+		/decl/emote/audible/hiss,
+		/decl/emote/audible/hiss/long,
+		/decl/emote/audible/growl
 		)
 	pain_emotes_with_pain_level = list(
-		list(/singleton/emote/audible/roar, /singleton/emote/audible/whimper, /singleton/emote/audible/moan) = 70,
-		list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan, /singleton/emote/audible/moan) = 40,
-		list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan) = 10,
+		list(/decl/emote/audible/roar, /decl/emote/audible/whimper, /decl/emote/audible/moan) = 70,
+		list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/moan) = 40,
+		list(/decl/emote/audible/grunt, /decl/emote/audible/groan) = 10,
 	)
 
 /datum/species/diona
 	default_emotes = list(
-		/singleton/emote/audible/chirp,
-		/singleton/emote/audible/multichirp,
-		/singleton/emote/audible/nymphsqueal,
-		/singleton/emote/audible/painrustle,
-		/singleton/emote/audible/paincreak
+		/decl/emote/audible/chirp,
+		/decl/emote/audible/multichirp,
+		/decl/emote/audible/nymphsqueal,
+		/decl/emote/audible/painrustle,
+		/decl/emote/audible/paincreak
 	)
 	pain_emotes_with_pain_level = list(
-		list(/singleton/emote/audible/painrustle, /singleton/emote/audible/paincreak, /singleton/emote/audible/nymphsqueal) = 70,
-		list(/singleton/emote/audible/painrustle, /singleton/emote/audible/nymphsqueal) = 40,
-		list(/singleton/emote/audible/paincreak) = 10,
+		list(/decl/emote/audible/painrustle, /decl/emote/audible/paincreak, /decl/emote/audible/nymphsqueal) = 70,
+		list(/decl/emote/audible/painrustle, /decl/emote/audible/nymphsqueal) = 40,
+		list(/decl/emote/audible/paincreak) = 10,
 	)
 
 /datum/species/bug
 	default_emotes = list(
-		/singleton/emote/audible/hiss,
-		/singleton/emote/audible/chitter,
-		/singleton/emote/audible/shriek,
-		/singleton/emote/audible/screech,
-		/singleton/emote/audible/click,
-		/singleton/emote/audible/clack
+		/decl/emote/audible/hiss,
+		/decl/emote/audible/chitter,
+		/decl/emote/audible/shriek,
+		/decl/emote/audible/screech,
+		/decl/emote/audible/click,
+		/decl/emote/audible/clack
 	)
 	pain_emotes_with_pain_level = list(
-		list(/singleton/emote/audible/screech, /singleton/emote/audible/shriek) = 70,
-		list(/singleton/emote/audible/shriek, /singleton/emote/audible/hiss) = 40,
-		list(/singleton/emote/audible/hiss) = 10,
+		list(/decl/emote/audible/screech, /decl/emote/audible/shriek) = 70,
+		list(/decl/emote/audible/shriek, /decl/emote/audible/hiss) = 40,
+		list(/decl/emote/audible/hiss) = 10,
 	)
 
 /datum/species/tajaran
 	default_emotes = list(
-		/singleton/emote/audible/howl,
-		/singleton/emote/audible/hiss,
-		/singleton/emote/visible/flick,
-		/singleton/emote/visible/tflick,
-		/singleton/emote/human/swish,
-		/singleton/emote/human/wag,
-		/singleton/emote/human/sway,
-		/singleton/emote/human/qwag,
-		/singleton/emote/human/fastsway,
-		/singleton/emote/human/swag,
-		/singleton/emote/human/stopsway
+		/decl/emote/audible/howl,
+		/decl/emote/audible/hiss,
+		/decl/emote/visible/flick,
+		/decl/emote/visible/tflick,
+		/decl/emote/human/swish,
+		/decl/emote/human/wag,
+		/decl/emote/human/sway,
+		/decl/emote/human/qwag,
+		/decl/emote/human/fastsway,
+		/decl/emote/human/swag,
+		/decl/emote/human/stopsway
 	)
 	pain_emotes_with_pain_level = list(
-		list(/singleton/emote/audible/scream, /singleton/emote/audible/whimper, /singleton/emote/audible/moan, /singleton/emote/audible/cry, /singleton/emote/audible/howl) = 70,
-		list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan, /singleton/emote/audible/moan, /singleton/emote/audible/hiss) = 40,
-		list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan, /singleton/emote/audible/hiss) = 10,
+		list(/decl/emote/audible/scream, /decl/emote/audible/whimper, /decl/emote/audible/moan, /decl/emote/audible/cry, /decl/emote/audible/howl) = 70,
+		list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/moan, /decl/emote/audible/hiss) = 40,
+		list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/hiss) = 10,
 	)
 
 /datum/species/skrell
 	default_emotes = list(
-		/singleton/emote/audible/warble,
-		/singleton/emote/audible/croon,
-		/singleton/emote/audible/lowarble,
-		/singleton/emote/audible/croak
+		/decl/emote/audible/warble,
+		/decl/emote/audible/croon,
+		/decl/emote/audible/lowarble,
+		/decl/emote/audible/croak
 	)
 /mob/living/carbon/human/set_species(var/new_species, var/default_colour = 1)
 	UNLINT(. = ..())

@@ -7,7 +7,7 @@
 	spawn_weight = 1
 	spawn_cost = 1
 
-/singleton/submap_archetype/magshield
+/decl/submap_archetype/magshield
 	map = "magshield"
 	descriptor = "It's an orbital shield station."
 

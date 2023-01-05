@@ -65,7 +65,7 @@
 	myreplacer = new /obj/item/device/lightreplacer(src)
 
 	mybucket = new /obj/structure/mopbucket(src)
-	mybucket.reagents.add_reagent(/singleton/reagent/water, mybucket.bucketsize)
+	mybucket.reagents.add_reagent(/decl/reagent/water, mybucket.bucketsize)
 
 	for(signs, signs < 4, signs++)
 		new /obj/item/clothing/suit/caution(src)

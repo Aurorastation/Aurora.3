@@ -21,7 +21,7 @@
 		/obj/structure/grille,
 		/turf/unsimulated/mineral/asteroid
 	)
-	footstep_sound = /singleton/sound_category/catwalk_footstep
+	footstep_sound = /decl/sound_category/catwalk_footstep
 
 /obj/structure/lattice/Initialize()
 	. = ..()

@@ -124,7 +124,7 @@
 
 		if(should_process_alcohol)
 
-			var/alcohol_volume = REAGENT_VOLUME(ingested, /singleton/reagent/alcohol)
+			var/alcohol_volume = REAGENT_VOLUME(ingested, /decl/reagent/alcohol)
 
 			// Alcohol counts as double volume for the purposes of vomit probability
 			var/effective_volume = ingested.total_volume + alcohol_volume

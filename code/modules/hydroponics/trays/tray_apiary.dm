@@ -90,7 +90,7 @@
 			else
 				to_chat(user, "<span class='notice'>You begin to harvest the honey.</span>")
 			if(O.use_tool(src, user, 50, volume = 50))
-				G.reagents.add_reagent(/singleton/reagent/nutriment/honey,harvestable_honey)
+				G.reagents.add_reagent(/decl/reagent/nutriment/honey,harvestable_honey)
 				harvestable_honey = 0
 				to_chat(user, "<span class='notice'>You successfully harvest the honey.</span>")
 		else
@@ -233,7 +233,7 @@
 		health -= 15
 		var/obj/item/reagent_containers/food/snacks/honeycomb/H = new(src.loc)
 		if(toxic > 0)
-			H.reagents.add_reagent(/singleton/reagent/toxin, toxic)
+			H.reagents.add_reagent(/decl/reagent/toxin, toxic)
 
 	to_chat(usr, "<span class='notice'>You harvest the honeycomb from the hive. There is a wild buzzing!</span>")
 	angry_swarm(usr)

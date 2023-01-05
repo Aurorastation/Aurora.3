@@ -170,7 +170,7 @@
 		if(!isturf(picked)) return
 
 		spark(user, 5)
-		playsound(user.loc, /singleton/sound_category/spark_sound, 50, 1)
+		playsound(user.loc, /decl/sound_category/spark_sound, 50, 1)
 
 		user.forceMove(picked)
 		return PROJECTILE_FORCE_MISS

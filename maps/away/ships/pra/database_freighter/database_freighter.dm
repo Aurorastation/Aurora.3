@@ -8,7 +8,7 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/database_freighter_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 
-/singleton/submap_archetype/database_freighter
+/decl/submap_archetype/database_freighter
 	map = "Database Freighter"
 	descriptor = "Made from adapted designs of the first freighter Tajara ever worked upon, Database freighters are PRA vessels made specially for gathering information on star systems and what passes through them."
 

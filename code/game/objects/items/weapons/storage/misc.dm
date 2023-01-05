@@ -3,7 +3,7 @@
 	desc = "It's a small container with dice inside."
 	icon = 'icons/obj/dice.dmi'
 	icon_state = "dicebag"
-	use_sound = /singleton/sound_category/rustle_sound
+	use_sound = /decl/sound_category/rustle_sound
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
 	starts_with = list(

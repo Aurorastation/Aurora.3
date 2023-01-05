@@ -442,7 +442,7 @@ Class Procs:
 	return 1
 
 /obj/machinery/proc/dismantle()
-	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
+	playsound(loc, /decl/sound_category/crowbar_sound, 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
 	M.state = 3

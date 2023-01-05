@@ -47,7 +47,7 @@
 	layer = 2.9
 	anchored = 1
 	density = 1
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = /decl/sound_category/button_sound
 
 	var/icon_vend //Icon_state when vending
 	var/deny_time // How long the physical icon state lasts, used cut the deny overlay

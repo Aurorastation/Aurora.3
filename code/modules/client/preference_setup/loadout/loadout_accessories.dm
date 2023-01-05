@@ -362,7 +362,7 @@
 	description = "A selection of cadre brassards from Gadpathur."
 	path = /obj/item/clothing/accessory/armband/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/accessory/gadpathur/New()
 	..()
@@ -377,14 +377,14 @@
 	description = "A small metal badge worn by Gadpathurian Section Leaders."
 	path = /obj/item/clothing/accessory/gadpathurian_leader
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/accessory/gadpathur_dogtags
 	display_name = "gadpathurian dogtags"
 	description = "Dogtags issued to Gadpathurians."
 	path = /obj/item/clothing/accessory/dogtags/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/accessory/sash_coloured
 	display_name = "sash (colourable)"

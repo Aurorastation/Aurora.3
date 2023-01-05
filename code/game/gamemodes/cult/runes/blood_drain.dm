@@ -33,7 +33,7 @@
 	if(target && length(lambs) && (get_turf(target) == get_turf(parent)))
 		for(var/mob/living/carbon/human/H in lambs)
 			if(get_turf(H) == get_turf(parent))
-				if(REAGENT_VOLUME(target.vessel, /singleton/reagent/blood) + 10 > H.species.blood_volume)
+				if(REAGENT_VOLUME(target.vessel, /decl/reagent/blood) + 10 > H.species.blood_volume)
 					to_chat(target, SPAN_CULT("You feel refreshed!"))
 					interrupt()
 				target.whisper("Sa'ii, ble-nii...")

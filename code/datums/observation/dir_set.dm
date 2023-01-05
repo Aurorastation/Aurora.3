@@ -8,13 +8,13 @@
 //			/old_dir: The dir before the change.
 //			/new_dir: The dir after the change.
 
-var/singleton/observ/dir_set/dir_set_event = new()
+var/datum/observ/dir_set/dir_set_event = new()
 
-/singleton/observ/dir_set
+/datum/observ/dir_set
 	name = "Direction Set"
 	expected_type = /atom
 
-/singleton/observ/dir_set/register(var/atom/dir_changer, var/datum/listener, var/proc_call)
+/datum/observ/dir_set/register(var/atom/dir_changer, var/datum/listener, var/proc_call)
 	. = ..()
 
 	// Listen to the parent if possible.

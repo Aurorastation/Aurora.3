@@ -8,7 +8,7 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/unathi_pirate_izharshan)
 	sectors = list(SECTOR_NRRAHRAHUL, SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
-/singleton/submap_archetype/unathi_pirate_izharshan
+/decl/submap_archetype/unathi_pirate_izharshan
 	map = "empty sector"
 	descriptor = "An empty sector."
 

@@ -200,15 +200,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
 		src.reagents.set_temperature(T0C + 45)
 		damtype = "fire"
-		if(REAGENT_VOLUME(reagents, /singleton/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
+		if(REAGENT_VOLUME(reagents, /decl/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
 			var/datum/effect/effect/system/reagents_explosion/e = new()
-			e.set_up(round(REAGENT_VOLUME(reagents, /singleton/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
+			e.set_up(round(REAGENT_VOLUME(reagents, /decl/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
 			e.start()
 			qdel(src)
 			return
-		if(REAGENT_VOLUME(reagents, /singleton/reagent/fuel)) // the fuel explodes, too, but much less violently
+		if(REAGENT_VOLUME(reagents, /decl/reagent/fuel)) // the fuel explodes, too, but much less violently
 			var/datum/effect/effect/system/reagents_explosion/e = new()
-			e.set_up(round(REAGENT_VOLUME(reagents, /singleton/reagent/fuel) / 5, 1), get_turf(src), 0, 0)
+			e.set_up(round(REAGENT_VOLUME(reagents, /decl/reagent/fuel) / 5, 1), get_turf(src), 0, 0)
 			e.start()
 			qdel(src)
 			return
@@ -312,8 +312,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	weldermes = "<span class='notice'>USER casually lights the NAME with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME.</span>"
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco = 10,
-		/singleton/reagent/mental/nicotine = 5
+		/decl/reagent/toxin/tobacco = 10,
+		/decl/reagent/mental/nicotine = 5
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/attackby(obj/item/W as obj, mob/user as mob)
@@ -373,15 +373,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/vanilla
 	burn_rate = 0.015
-	reagents_to_add = list(/singleton/reagent/toxin/tobacco = 15)
+	reagents_to_add = list(/decl/reagent/toxin/tobacco = 15)
 
 /obj/item/clothing/mask/smokable/cigarette/acmeco
 	burn_rate = 0.015
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco = 5,
-		/singleton/reagent/mental/nicotine = 5,
-		/singleton/reagent/lexorin = 2,
-		/singleton/reagent/serotrotium = 3
+		/decl/reagent/toxin/tobacco = 5,
+		/decl/reagent/mental/nicotine = 5,
+		/decl/reagent/lexorin = 2,
+		/decl/reagent/serotrotium = 3
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/blank
@@ -391,28 +391,28 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco = 5,
-		/singleton/reagent/mental/nicotine = 10
+		/decl/reagent/toxin/tobacco = 5,
+		/decl/reagent/mental/nicotine = 10
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/nicotine
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco/rich = 5,
-		/singleton/reagent/mental/nicotine = 10
+		/decl/reagent/toxin/tobacco/rich = 5,
+		/decl/reagent/mental/nicotine = 10
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/rugged
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco/fake = 10,
-		/singleton/reagent/mental/nicotine = 5
+		/decl/reagent/toxin/tobacco/fake = 10,
+		/decl/reagent/mental/nicotine = 5
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/adhomai
 	name = "adhomian cigarette"
 	desc = "An adhomian cigarette made from processed S'rendarr's Hand."
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco = 5,
-		/singleton/reagent/mental/nicotine = 5
+		/decl/reagent/toxin/tobacco = 5,
+		/decl/reagent/mental/nicotine = 5
 	)
 
 ////////////
@@ -437,8 +437,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco/rich = 25,
-		/singleton/reagent/mental/nicotine = 5
+		/decl/reagent/toxin/tobacco/rich = 25,
+		/decl/reagent/mental/nicotine = 5
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/havana
@@ -451,9 +451,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
 	chem_volume = 60
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco/rich = 15,
-		/singleton/reagent/mental/nicotine = 5,
-		/singleton/reagent/tricordrazine = 10
+		/decl/reagent/toxin/tobacco/rich = 15,
+		/decl/reagent/mental/nicotine = 5,
+		/decl/reagent/tricordrazine = 10
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
@@ -466,9 +466,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
 	chem_volume = 120
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco/rich = 30,
-		/singleton/reagent/mental/nicotine = 10,
-		/singleton/reagent/tricordrazine = 20
+		/decl/reagent/toxin/tobacco/rich = 30,
+		/decl/reagent/mental/nicotine = 10,
+		/decl/reagent/tricordrazine = 20
 	)
 
 /obj/item/trash/cigbutt
@@ -511,7 +511,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "sausageoff"
 	type_butt = /obj/item/trash/cigbutt/sausagebutt
 	chem_volume = 6
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 6)
 
 /obj/item/trash/cigbutt/sausagebutt
 	name = "sausage butt"

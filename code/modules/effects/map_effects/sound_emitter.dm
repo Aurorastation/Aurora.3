@@ -49,12 +49,12 @@
 	..()
 
 /obj/effect/map_effect/interval/sound_emitter/punching
-	sounds_to_play = list(/singleton/sound_category/punch_sound)
+	sounds_to_play = list(/decl/sound_category/punch_sound)
 	interval_lower_bound = 5
 	interval_upper_bound = 1 SECOND
 
 /obj/effect/map_effect/interval/sound_emitter/explosions
-	sounds_to_play = list(/singleton/sound_category/explosion_sound)
+	sounds_to_play = list(/decl/sound_category/explosion_sound)
 	interval_lower_bound = 5 SECONDS
 	interval_upper_bound = 10 SECONDS
 
@@ -62,15 +62,15 @@
 	sounds_to_play = list('sound/effects/explosionfar.ogg')
 
 /obj/effect/map_effect/interval/sound_emitter/gunfight
-	sounds_to_play = list(/singleton/sound_category/gunshots)
+	sounds_to_play = list(/decl/sound_category/gunshots)
 	interval_lower_bound = 5
 	interval_upper_bound = 2 SECONDS
 
 /obj/effect/map_effect/interval/sound_emitter/gunfight/ballistic
-	sounds_to_play = list(/singleton/sound_category/gunshots/ballistic)
+	sounds_to_play = list(/decl/sound_category/gunshots/ballistic)
 
 /obj/effect/map_effect/interval/sound_emitter/gunfight/energy
-	sounds_to_play = list(/singleton/sound_category/gunshots/energy)
+	sounds_to_play = list(/decl/sound_category/gunshots/energy)
 
 
 // I'm not sorry.

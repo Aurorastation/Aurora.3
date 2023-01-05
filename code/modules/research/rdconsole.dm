@@ -78,7 +78,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	return return_name
 
 /obj/machinery/computer/rdconsole/proc/CallReagentName(ID)
-	var/singleton/reagent/R = GET_SINGLETON(ID)
+	var/decl/reagent/R = decls_repository.get_decl(ID)
 	return R ? R.name : "(none)"
 
 /obj/machinery/computer/rdconsole/proc/SyncRDevices() //Makes sure it is properly sync'ed up with the devices attached to it (if any).
@@ -742,7 +742,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><HR>"
 			dat += "<b><u>Chemical Storage</u></b><BR><HR>"
 			for(var/_R in linked_lathe.reagents.reagent_volumes)
-				var/singleton/reagent/R = GET_SINGLETON(_R)
+				var/decl/reagent/R = decls_repository.get_decl(_R)
 				dat += "Name: [R.name] | Units: [linked_lathe.reagents.reagent_volumes[_R]] "
 				dat += "<A href='?src=\ref[src];disposeP=[_R]'>(Purge)</A><BR>"
 				dat += "<A href='?src=\ref[src];disposeallP=1'><U>Disposal All Chemicals in Storage</U></A><BR>"
@@ -811,7 +811,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];menu=4.1'>Imprinter Menu</A><HR>"
 			dat += "<b><u>Chemical Storage</u></b><BR><HR>"
 			for(var/_R in linked_imprinter.reagents.reagent_volumes)
-				var/singleton/reagent/R = GET_SINGLETON(_R)
+				var/decl/reagent/R = decls_repository.get_decl(_R)
 				dat += "Name: [R.name] | Units: [linked_imprinter.reagents.reagent_volumes[_R]] "
 				dat += "<A href='?src=\ref[src];disposeI=[_R]'>(Purge)</A><BR>"
 				dat += "<A href='?src=\ref[src];disposeallI=1'><U>Disposal All Chemicals in Storage</U></A><BR>"

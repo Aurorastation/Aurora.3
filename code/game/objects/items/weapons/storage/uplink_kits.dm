@@ -118,31 +118,31 @@
 	..()
 	var/obj/item/storage/box/fancy/cigarettes/pack
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list(/singleton/reagent/aluminum = 5, /singleton/reagent/potassium = 5, /singleton/reagent/sulfur = 5))
+	fill_cigarre_package(pack, list(/decl/reagent/aluminum = 5, /decl/reagent/potassium = 5, /decl/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list(/singleton/reagent/aluminum = 5, /singleton/reagent/potassium = 5, /singleton/reagent/sulfur = 5))
+	fill_cigarre_package(pack, list(/decl/reagent/aluminum = 5, /decl/reagent/potassium = 5, /decl/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list(/singleton/reagent/potassium = 5, /singleton/reagent/sugar = 5, /singleton/reagent/phosphorus = 5))
+	fill_cigarre_package(pack, list(/decl/reagent/potassium = 5, /decl/reagent/sugar = 5, /decl/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list(/singleton/reagent/potassium = 5, /singleton/reagent/sugar = 5, /singleton/reagent/phosphorus = 5))
+	fill_cigarre_package(pack, list(/decl/reagent/potassium = 5, /decl/reagent/sugar = 5, /decl/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
 	// Dylovene. Going with 1.5 rather than 1.6666666...
-	fill_cigarre_package(pack, list(/singleton/reagent/potassium = 1.5, /singleton/reagent/ammonia = 1.5, /singleton/reagent/silicon = 1.5))
+	fill_cigarre_package(pack, list(/decl/reagent/potassium = 1.5, /decl/reagent/ammonia = 1.5, /decl/reagent/silicon = 1.5))
 	// Mindbreaker
-	fill_cigarre_package(pack, list(/singleton/reagent/silicon = 4.5, /singleton/reagent/hydrazine = 4.5, /singleton/reagent/dylovene = 4.5))
+	fill_cigarre_package(pack, list(/decl/reagent/silicon = 4.5, /decl/reagent/hydrazine = 4.5, /decl/reagent/dylovene = 4.5))
 
 	pack.desc += " 'MB' has been scribbled on it."
 
 	pack = new /obj/item/storage/box/fancy/cigarettes(src)
-	pack.reagents.add_reagent(/singleton/reagent/tricordrazine, 15 * pack.storage_slots)
+	pack.reagents.add_reagent(/decl/reagent/tricordrazine, 15 * pack.storage_slots)
 	pack.desc += " 'T' has been scribbled on it."
 
 	new /obj/item/flame/lighter/zippo(src)

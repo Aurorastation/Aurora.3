@@ -82,8 +82,8 @@
 // ========
 /datum/medical_effect/headache
 	name = "Headache"
-	triggers = list(/singleton/reagent/cryoxadone = 10, /singleton/reagent/bicaridine = 15, /singleton/reagent/tricordrazine = 15)
-	cures = list(/singleton/reagent/alkysine, /singleton/reagent/mortaphenyl, /singleton/reagent/perconol, /singleton/reagent/oxycomorphine)
+	triggers = list(/decl/reagent/cryoxadone = 10, /decl/reagent/bicaridine = 15, /decl/reagent/tricordrazine = 15)
+	cures = list(/decl/reagent/alkysine, /decl/reagent/mortaphenyl, /decl/reagent/perconol, /decl/reagent/oxycomorphine)
 	cure_message = "Your head stops throbbing..."
 
 /datum/medical_effect/headache/on_life(mob/living/carbon/human/H, strength)
@@ -99,8 +99,8 @@
 // ===========
 /datum/medical_effect/bad_stomach
 	name = "Bad Stomach"
-	triggers = list(/singleton/reagent/kelotane = 30, /singleton/reagent/dermaline = 15)
-	cures = list(/singleton/reagent/dylovene)
+	triggers = list(/decl/reagent/kelotane = 30, /decl/reagent/dermaline = 15)
+	cures = list(/decl/reagent/dylovene)
 	cure_message = "Your stomach feels a little better now..."
 
 /datum/medical_effect/bad_stomach/on_life(mob/living/carbon/human/H, strength)
@@ -116,8 +116,8 @@
 // ======
 /datum/medical_effect/cramps
 	name = "Cramps"
-	triggers = list(/singleton/reagent/dylovene = 30, /singleton/reagent/mortaphenyl = 15)
-	cures = list(/singleton/reagent/inaprovaline)
+	triggers = list(/decl/reagent/dylovene = 30, /decl/reagent/mortaphenyl = 15)
+	cures = list(/decl/reagent/inaprovaline)
 	cure_message = "The cramps let up..."
 
 /datum/medical_effect/cramps/on_life(mob/living/carbon/human/H, strength)
@@ -134,8 +134,8 @@
 // ====
 /datum/medical_effect/itch
 	name = "Itch"
-	triggers = list(/singleton/reagent/space_drugs = 10)
-	cures = list(/singleton/reagent/inaprovaline)
+	triggers = list(/decl/reagent/space_drugs = 10)
+	cures = list(/decl/reagent/inaprovaline)
 	cure_message = "The itching stops..."
 
 /datum/medical_effect/itch/on_life(mob/living/carbon/human/H, strength)

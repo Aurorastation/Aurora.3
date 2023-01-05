@@ -2,7 +2,7 @@
 	name = "carrot"
 	seed_name = "carrot"
 	display_name = "carrots"
-	chems = list(/singleton/reagent/nutriment = list(1,20), /singleton/reagent/oculine = list(3,5), /singleton/reagent/drink/carrotjuice = list(10,20))
+	chems = list(/decl/reagent/nutriment = list(1,20), /decl/reagent/oculine = list(3,5), /decl/reagent/drink/carrotjuice = list(10,20))
 	kitchen_tag = "carrot"
 
 /datum/seed/carrots/setup_traits()
@@ -23,7 +23,7 @@
 	name = "garlic"
 	seed_name = "garlic"
 	display_name = "garlic"
-	chems = list(/singleton/reagent/drink/garlicjuice = list(1,5))
+	chems = list(/decl/reagent/drink/garlicjuice = list(1,5))
 	kitchen_tag = "garlic"
 
 /datum/seed/garlic/setup_traits()
@@ -44,7 +44,7 @@
 	name = "onion"
 	seed_name = "onion"
 	display_name = "onions"
-	chems = list(/singleton/reagent/drink/onionjuice = list(1,5))
+	chems = list(/decl/reagent/drink/onionjuice = list(1,5))
 	kitchen_tag = "onion"
 
 /datum/seed/onion/setup_traits()
@@ -65,7 +65,7 @@
 	name = "potato"
 	seed_name = "potato"
 	display_name = "potatoes"
-	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/potatojuice = list(10,10))
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/drink/potatojuice = list(10,10))
 	kitchen_tag = "potato"
 
 /datum/seed/potato/setup_traits()
@@ -87,7 +87,7 @@
 	name = "whitebeet"
 	seed_name = "white-beet"
 	display_name = "white-beets"
-	chems = list(/singleton/reagent/nutriment = list(0,20), /singleton/reagent/sugar = list(1,5))
+	chems = list(/decl/reagent/nutriment = list(0,20), /decl/reagent/sugar = list(1,5))
 	kitchen_tag = "whitebeet"
 
 /datum/seed/whitebeets/setup_traits()

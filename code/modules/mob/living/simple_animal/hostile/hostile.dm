@@ -316,7 +316,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	Shoot(target, location, user)
 	if(casingtype)
 		new casingtype(loc)
-		playsound(src, /singleton/sound_category/casing_drop_sound, 50, TRUE)
+		playsound(src, /decl/sound_category/casing_drop_sound, 50, TRUE)
 
 /mob/living/simple_animal/hostile/proc/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)

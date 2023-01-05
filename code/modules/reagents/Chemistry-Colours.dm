@@ -2,13 +2,13 @@
 	if(!LAZYLEN(reagent_volumes))
 		return "#ffffffff"
 	if(reagent_volumes.len == 1) // It's pretty common and saves a lot of work
-		var/singleton/reagent/R = GET_SINGLETON(reagent_volumes[1])
+		var/decl/reagent/R = decls_repository.get_decl(reagent_volumes[1])
 		return R.get_color(src)
 
 	var/list/colors = list(0, 0, 0, 0)
 	var/tot_w = 0
 	for(var/rtype in reagent_volumes)
-		var/singleton/reagent/R = GET_SINGLETON(rtype)
+		var/decl/reagent/R = decls_repository.get_decl(rtype)
 		if(R.color_weight <= 0)
 			continue
 		var/hex = uppertext(R.color)
@@ -23,10 +23,10 @@
 
 	return rgb(colors[1] / tot_w, colors[2] / tot_w, colors[3] / tot_w, colors[4] / tot_w)
 
-/singleton/reagent/proc/get_color(var/datum/reagents/holder)
+/decl/reagent/proc/get_color(var/datum/reagents/holder)
 	return color
 
-/singleton/reagent/blood/get_color(var/datum/reagents/holder)
+/decl/reagent/blood/get_color(var/datum/reagents/holder)
 	if(!holder || isemptylist(REAGENT_DATA(holder, type)))
 		return color
 

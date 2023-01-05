@@ -7,7 +7,7 @@
 	seed_noun = SEED_NOUN_SPORES
 	display_name = "chanterelle mushrooms"
 	mutants = list("reishi","amanita","plumphelmet")
-	chems = list(/singleton/reagent/nutriment = list(1,25))
+	chems = list(/decl/reagent/nutriment = list(1,25))
 	splat_type = /obj/effect/plant
 	kitchen_tag = "mushroom"
 
@@ -34,8 +34,8 @@
 	seed_noun = SEED_NOUN_SPORES
 	display_name = "k'ois spores"
 	chems = list(
-				/singleton/reagent/kois = list(4),
-				/singleton/reagent/toxin/phoron = list(8))
+				/decl/reagent/kois = list(4),
+				/decl/reagent/toxin/phoron = list(8))
 	splat_type = /obj/effect/plant
 	kitchen_tag = "koisspore"
 	mutants = null
@@ -67,8 +67,8 @@
 	display_name = "black k'ois spores"
 	mutants = null
 	chems = list(
-				/singleton/reagent/kois/black = list(4),
-				/singleton/reagent/toxin/phoron = list(2))
+				/decl/reagent/kois/black = list(4),
+				/decl/reagent/toxin/phoron = list(2))
 
 /datum/seed/koisspore/black/setup_traits()
 	..()
@@ -108,7 +108,7 @@
 	seed_name = "plump helmet"
 	display_name = "plump helmet mushrooms"
 	mutants = list("walkingmushroom","towercap")
-	chems = list(/singleton/reagent/nutriment = list(2,10))
+	chems = list(/decl/reagent/nutriment = list(2,10))
 	kitchen_tag = "plumphelmet"
 
 /datum/seed/mushroom/plump/setup_traits()
@@ -147,7 +147,7 @@
 	seed_name = "reishi"
 	display_name = "reishi"
 	mutants = list("libertycap","glowshroom")
-	chems = list(/singleton/reagent/nutriment = list(1,50), /singleton/reagent/psilocybin = list(3,5))
+	chems = list(/decl/reagent/nutriment = list(1,50), /decl/reagent/psilocybin = list(3,5))
 
 /datum/seed/mushroom/hallucinogenic/setup_traits()
 	..()
@@ -168,7 +168,7 @@
 	seed_name = "liberty cap"
 	display_name = "liberty cap mushrooms"
 	mutants = list("ghostmushroom")
-	chems = list(/singleton/reagent/nutriment = list(1), /singleton/reagent/soporific = list(3,3), /singleton/reagent/psilocybin = list(1,25))
+	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/soporific = list(3,3), /decl/reagent/psilocybin = list(1,25))
 
 /datum/seed/mushroom/hallucinogenic/strong/setup_traits()
 	..()
@@ -187,7 +187,7 @@
 	seed_name = "fly amanita"
 	display_name = "fly amanita mushrooms"
 	mutants = list("destroyingangel","plastic","panocelium")
-	chems = list(/singleton/reagent/nutriment = list(1), /singleton/reagent/toxin/amatoxin = list(3,3), /singleton/reagent/psilocybin = list(1,25))
+	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/toxin/amatoxin = list(3,3), /decl/reagent/psilocybin = list(1,25))
 
 /datum/seed/mushroom/poison/setup_traits()
 	..()
@@ -208,7 +208,7 @@
 	seed_name = "destroying angel"
 	display_name = "destroying angel mushrooms"
 	mutants = null
-	chems = list(/singleton/reagent/nutriment = list(1,50), /singleton/reagent/toxin/amatoxin = list(13,3), /singleton/reagent/psilocybin = list(1,25))
+	chems = list(/decl/reagent/nutriment = list(1,50), /decl/reagent/toxin/amatoxin = list(13,3), /decl/reagent/psilocybin = list(1,25))
 
 /datum/seed/mushroom/poison/death/setup_traits()
 	..()
@@ -228,7 +228,7 @@
 	seed_name = "panocelium"
 	display_name = "panocelium mushrooms"
 	mutants = null
-	chems = list(/singleton/reagent/nutriment = list(1,50), /singleton/reagent/toxin/panotoxin = list(10,3), /singleton/reagent/psilocybin = list(1,25))
+	chems = list(/decl/reagent/nutriment = list(1,50), /decl/reagent/toxin/panotoxin = list(10,3), /decl/reagent/psilocybin = list(1,25))
 
 /datum/seed/mushroom/poison/panocelium/setup_traits()
 	..()
@@ -247,7 +247,7 @@
 	name = "towercap"
 	seed_name = "tower cap"
 	display_name = "tower caps"
-	chems = list(/singleton/reagent/woodpulp = list(10,1))
+	chems = list(/decl/reagent/woodpulp = list(10,1))
 	mutants = null
 
 /datum/seed/mushroom/towercap/setup_traits()
@@ -266,7 +266,7 @@
 	seed_name = "glowshroom"
 	display_name = "glowshrooms"
 	mutants = null
-	chems = list(/singleton/reagent/radium = list(1,20))
+	chems = list(/decl/reagent/radium = list(1,20))
 
 /datum/seed/mushroom/glowshroom/setup_traits()
 	..()
@@ -289,7 +289,7 @@
 	seed_name = "plastellium"
 	display_name = "plastellium"
 	mutants = null
-	chems = list(/singleton/reagent/toxin/plasticide = list(1,10))
+	chems = list(/decl/reagent/toxin/plasticide = list(1,10))
 
 /datum/seed/mushroom/plastic/setup_traits()
 	..()
@@ -310,7 +310,7 @@
 	seed_name = "ghost mushroom"
 	display_name = "ghost mushroom"
 	mutants = null
-	chems = list(/singleton/reagent/toxin/spectrocybin = list(5,15))
+	chems = list(/decl/reagent/toxin/spectrocybin = list(5,15))
 
 /datum/seed/mushroom/ghost/setup_traits()
 	..()

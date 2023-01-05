@@ -114,7 +114,7 @@
 
 		dat += "<br>This sample contains: "
 		for(var/_R in grown_reagents.reagent_volumes)
-			var/singleton/reagent/R = GET_SINGLETON(_R)
+			var/decl/reagent/R = decls_repository.get_decl(_R)
 			dat += "<br>- [R.name], [REAGENT_VOLUME(grown_reagents, _R)] unit(s)"
 
 	dat += "<h2>Other Data</h2>"

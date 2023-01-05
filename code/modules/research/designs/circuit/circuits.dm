@@ -2,7 +2,7 @@
 	build_type = IMPRINTER
 	req_tech = list(TECH_DATA = 2)
 	materials = list(MATERIAL_GLASS = 2000)
-	chemicals = list(/singleton/reagent/acid = 20)
+	chemicals = list(/decl/reagent/acid = 20)
 
 /datum/design/circuit/AssembleDesignDesc()
 	if(!desc)

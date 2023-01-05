@@ -465,8 +465,8 @@ datum/preferences
 	character.employer_faction = faction
 	character.religion = religion
 	character.accent = accent
-	character.origin = GET_SINGLETON(text2path(origin))
-	character.culture = GET_SINGLETON(text2path(culture))
+	character.origin = decls_repository.get_decl(text2path(origin))
+	character.culture = decls_repository.get_decl(text2path(culture))
 
 	character.skills = skills
 	character.used_skillpoints = used_skillpoints

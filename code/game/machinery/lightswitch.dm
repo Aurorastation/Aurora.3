@@ -41,7 +41,7 @@
 		to_chat(user, "A light switch. It is [on? "on" : "off"].")
 
 /obj/machinery/light_switch/attack_hand(mob/user)
-	playsound(src, /singleton/sound_category/switch_sound, 30)
+	playsound(src, /decl/sound_category/switch_sound, 30)
 	on = !on
 	sync_lights()
 	intent_message(BUTTON_FLICK, 5)

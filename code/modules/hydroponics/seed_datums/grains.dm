@@ -2,7 +2,7 @@
 	name = "wheat"
 	seed_name = "wheat"
 	display_name = "wheat stalks"
-	chems = list(/singleton/reagent/nutriment = list(1,25), /singleton/reagent/nutriment/flour = list(15,15))
+	chems = list(/decl/reagent/nutriment = list(1,25), /decl/reagent/nutriment/flour = list(15,15))
 	kitchen_tag = "wheat"
 
 /datum/seed/wheat/setup_traits()
@@ -25,7 +25,7 @@
 	name = "corn"
 	seed_name = "corn"
 	display_name = "ears of corn"
-	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/nutriment/triglyceride/oil/corn = list(1,10))
+	chems = list(/decl/reagent/nutriment = list(1,10), /decl/reagent/nutriment/triglyceride/oil/corn = list(1,10))
 	kitchen_tag = "corn"
 	trash_type = /obj/item/corncob
 
@@ -50,7 +50,7 @@
 	name = "rice"
 	seed_name = "rice"
 	display_name = "rice stalks"
-	chems = list(/singleton/reagent/nutriment = list(1,25), /singleton/reagent/nutriment/rice = list(10,15))
+	chems = list(/decl/reagent/nutriment = list(1,25), /decl/reagent/nutriment/rice = list(10,15))
 	kitchen_tag = "rice"
 
 /datum/seed/rice/setup_traits()

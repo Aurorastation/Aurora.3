@@ -14,10 +14,10 @@
 	if (istype(O,/obj/item/reagent_containers))
 		var/obj/item/reagent_containers/RC = O
 		if (LAZYLEN(RC.reagents.reagent_volumes) == 1)
-			if (RC.reagents.has_reagent(/singleton/reagent/water, 1))
+			if (RC.reagents.has_reagent(/decl/reagent/water, 1))
 				if (waterlevel < maxWaterLevel)
 					var/amountToRemove = min((maxWaterLevel - waterlevel), RC.reagents.total_volume)
-					RC.reagents.remove_reagent(/singleton/reagent/water, amountToRemove, 1)
+					RC.reagents.remove_reagent(/decl/reagent/water, amountToRemove, 1)
 					waterlevel += amountToRemove
 					user.visible_message("[user] pours [amountToRemove]u of water into the soil."," You pour [amountToRemove]u of water into the soil.")
 				else

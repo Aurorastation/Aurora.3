@@ -8,7 +8,7 @@
 	id = "tirakqi_freighter"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tirakqi_shuttle)
 
-/singleton/submap_archetype/tirakqi_freighter
+/decl/submap_archetype/tirakqi_freighter
 	map = "Ti'Rakqi Freighter"
 	descriptor = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one's transponder identifies it as belonging to an independent freighter."
 

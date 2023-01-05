@@ -51,11 +51,11 @@
 	smoke_at(A)
 
 /obj/item/bee_smoker/proc/get_fuel()
-	return REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
+	return REAGENT_VOLUME(reagents, /decl/reagent/fuel)
 
 /obj/item/bee_smoker/use(var/amount = 1, var/mob/M = null)
 	if(get_fuel() >= amount)
-		reagents.remove_reagent(/singleton/reagent/fuel, amount)
+		reagents.remove_reagent(/decl/reagent/fuel, amount)
 		return TRUE
 	else
 		if(M)

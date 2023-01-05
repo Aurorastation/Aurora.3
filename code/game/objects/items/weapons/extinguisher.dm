@@ -76,7 +76,7 @@
 
 /obj/item/reagent_containers/extinguisher_refill/filled/Initialize()
 	. = ..()
-	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, volume)
+	reagents.add_reagent(/decl/reagent/toxin/fertilizer/monoammoniumphosphate, volume)
 	flags &= ~OPENCONTAINER
 
 /obj/item/extinguisher
@@ -123,7 +123,7 @@
 
 /obj/item/extinguisher/New()
 	create_reagents(max_water)
-	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
+	reagents.add_reagent(/decl/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
 	..()
 
 /obj/item/extinguisher/examine(mob/user)

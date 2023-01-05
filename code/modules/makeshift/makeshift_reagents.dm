@@ -15,14 +15,14 @@
 	var/list/forbidden = list(/obj/item/reagent_containers/inhaler, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/glass, /obj/item/extinguisher)
 	// duplicate from blender code, since it's not really worth a define. also, it has fewer things.
 	var/list/sheet_reagents = list( //have a number of reagents which is a factor of REAGENTS_PER_SHEET (default 20) unless you like decimals
-		/obj/item/stack/material/iron = list(/singleton/reagent/iron),
-		/obj/item/stack/material/uranium = list(/singleton/reagent/uranium),
-		/obj/item/stack/material/phoron = list(/singleton/reagent/toxin/phoron),
-		/obj/item/stack/material/gold = list(/singleton/reagent/gold),
-		/obj/item/stack/material/silver = list(/singleton/reagent/silver),
-		/obj/item/stack/material/steel = list(/singleton/reagent/iron, /singleton/reagent/carbon),
-		/obj/item/stack/material/sandstone = list(/singleton/reagent/silicon, /singleton/reagent/acetone),
-		/obj/item/stack/material/glass = list(/singleton/reagent/silicate),
+		/obj/item/stack/material/iron = list(/decl/reagent/iron),
+		/obj/item/stack/material/uranium = list(/decl/reagent/uranium),
+		/obj/item/stack/material/phoron = list(/decl/reagent/toxin/phoron),
+		/obj/item/stack/material/gold = list(/decl/reagent/gold),
+		/obj/item/stack/material/silver = list(/decl/reagent/silver),
+		/obj/item/stack/material/steel = list(/decl/reagent/iron, /decl/reagent/carbon),
+		/obj/item/stack/material/sandstone = list(/decl/reagent/silicon, /decl/reagent/acetone),
+		/obj/item/stack/material/glass = list(/decl/reagent/silicate),
 		) // removed borosilicate glass, platinum, and plasteel, too tough. just steal a grinder if you need it
 
 /obj/structure/chemkit/Initialize()
@@ -219,13 +219,13 @@
 	if(!reagents?.total_volume) // can't distill nothing
 		return
 	for(var/_R in reagents.reagent_volumes)
-		if(!ispath(_R, /singleton/reagent/alcohol))
+		if(!ispath(_R, /decl/reagent/alcohol))
 			continue
-		var/singleton/reagent/alcohol/AR = GET_SINGLETON(_R)
+		var/decl/reagent/alcohol/AR = decls_repository.get_decl(_R)
 		var/ARvol = REAGENT_VOLUME(reagents, _R)
 		var/alcohol_fraction = AR.strength/100
-		reagents.add_reagent(/singleton/reagent/water, (1-alcohol_fraction)*ARvol)
-		reagents.add_reagent(ispath(_R, /singleton/reagent/alcohol/butanol) ? /singleton/reagent/alcohol/butanol : /singleton/reagent/alcohol, alcohol_fraction*ARvol)
+		reagents.add_reagent(/decl/reagent/water, (1-alcohol_fraction)*ARvol)
+		reagents.add_reagent(ispath(_R, /decl/reagent/alcohol/butanol) ? /decl/reagent/alcohol/butanol : /decl/reagent/alcohol, alcohol_fraction*ARvol)
 		reagents.remove_reagent(_R, ARvol)
 	icon_state = "distillery-off"
 

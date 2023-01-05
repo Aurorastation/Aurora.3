@@ -7,7 +7,7 @@
 	spawn_cost = 1
 	id = "abandoned_bunker"
 
-/singleton/submap_archetype/abandoned_bunker
+/decl/submap_archetype/abandoned_bunker
 	map = "lone asteroid"
 	descriptor = "A lone asteroid. Strange signals are coming from this one."
 

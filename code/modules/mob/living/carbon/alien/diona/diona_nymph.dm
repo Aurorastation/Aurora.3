@@ -9,7 +9,7 @@
 	density = 0
 	mouth_size = 2 //how large of a creature it can swallow at once, and how big of a bite it can take out of larger things
 	eat_types = 0 //This is a bitfield which must be initialised in New(). The valid values for it are in devour.dm
-	composition_reagent = /singleton/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
+	composition_reagent = /decl/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	name = "diona nymph"
 	voice_name = "diona nymph"
 	accent = ACCENT_ROOTSONG
@@ -195,14 +195,14 @@
 	vessel = new/datum/reagents(600)
 	vessel.my_atom = src
 
-	vessel.add_reagent(/singleton/reagent/blood, 560, temperature = species.body_temperature)
+	vessel.add_reagent(/decl/reagent/blood, 560, temperature = species.body_temperature)
 	fixblood()
 
 /mob/living/carbon/alien/diona/proc/fixblood()
-	if(!REAGENT_DATA(vessel, /singleton/reagent/blood))
+	if(!REAGENT_DATA(vessel, /decl/reagent/blood))
 		return
 	var/list/new_blood_data = get_blood_data()
-	vessel.reagent_data[/singleton/reagent/blood] = vessel.reagent_data[/singleton/reagent/blood] ^ new_blood_data | new_blood_data
+	vessel.reagent_data[/decl/reagent/blood] = vessel.reagent_data[/decl/reagent/blood] ^ new_blood_data | new_blood_data
 
 /mob/living/carbon/alien/diona/proc/setup_dionastats()
 	var/MLS = (1.5 / 2.1) //Maximum energy lost per second, in total darkness
