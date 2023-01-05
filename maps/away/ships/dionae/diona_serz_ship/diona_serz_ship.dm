@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/diona_serz_ship
 	name = "Serz Clan Ship"
 	description = "A ship belonging to the Serz voidtamer clan, a group of dionae who specialize in selling space fauna."
-	suffix = "ships/dionae/diona_serz_ship/diona_serz_ship.dmm"
+	suffixes = list("ships/dionae/diona_serz_ship/diona_serz_ship.dmm")
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
 	spawn_weight = 1
 	spawn_cost = 1
