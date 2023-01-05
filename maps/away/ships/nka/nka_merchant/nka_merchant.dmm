@@ -3280,7 +3280,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "merchant_navy_bridge";
 	name = "Bridge Blastdoor";
-	req_access = list(209);
+	req_access = list(212);
 	dir = 8;
 	pixel_x = 32
 	},
@@ -3632,7 +3632,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "merchant_navy_bridge";
 	name = "Bridge Blastdoor";
-	req_access = list(209);
+	req_access = list(212);
 	dir = 4;
 	pixel_x = -32
 	},

@@ -69,7 +69,7 @@
 	spawnpoints = list("nka_merchant_guard")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/nka_merchant_crew/captain
+	outfit = /datum/outfit/admin/nka_merchant_crew/guard
 
 	assigned_role = "NKA Merchant Navy PMCG Guard"
 	special_role = "NKA Merchant Navy PMCG Guard"
