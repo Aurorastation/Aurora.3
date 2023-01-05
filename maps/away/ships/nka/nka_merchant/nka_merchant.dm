@@ -2,7 +2,7 @@
 	name = "Her Majesty's Mercantile Flotilla Ship"
 	id = "nka_merchant"
 	description = "A merchant ship of the New Kingdom's Mercantile Flotilla."
-	suffix = "ships/nka/nka_merchant/nka_merchant.dmm"
+	suffixes = list("ships/nka/nka_merchant/nka_merchant.dmm")
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/nka_merchant_shuttle)
