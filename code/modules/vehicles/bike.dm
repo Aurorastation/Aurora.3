@@ -144,8 +144,9 @@
 
 	update_icon()
 
-	if(pulledby)
-		pulledby.stop_pulling()
+	if(ismob(pulledby)
+		var/mob/M = pulledby
+		M.stop_pulling()
 	..()
 
 /obj/vehicle/bike/turn_off()
