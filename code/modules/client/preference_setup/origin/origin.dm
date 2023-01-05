@@ -118,7 +118,7 @@
 	var/datum/species/S = all_species[pref.species]
 	if(href_list["open_culture_menu"])
 		var/list/options = list()
-		var/list/possible_cultures = Singletons.GetList(S.possible_cultures)
+		var/list/possible_cultures = Singletons.GetMap(S.possible_cultures)
 		for(var/decl_type in possible_cultures)
 			var/singleton/origin_item/culture/CL = possible_cultures[decl_type]
 			options[CL.name] = CL
@@ -131,7 +131,7 @@
 	if(href_list["open_origin_menu"])
 		var/list/options = list()
 		var/singleton/origin_item/culture/our_culture = GET_SINGLETON(text2path(pref.culture)) //plutonians be like
-		var/list/singleton/origin_item/origin/origins_list = Singletons.GetList(our_culture.possible_origins)
+		var/list/singleton/origin_item/origin/origins_list = Singletons.GetMap(our_culture.possible_origins)
 		for(var/decl_type in origins_list)
 			var/singleton/origin_item/origin/OR = origins_list[decl_type]
 			options[OR.name] = OR
