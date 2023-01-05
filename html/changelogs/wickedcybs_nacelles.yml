@@ -1,0 +1,8 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - maptweak: "Big change to Horizon's propulsion areas. Port propulsion doesn't also feed the starboard anymore. They can both be started independently of each other."
+  - maptweak: "To accomplish what was noted above, the starboard room is now a mirror of the portside room essentially. Both propulsion areas were moved up a little, which shouldn't be too noticeable other than having a little more walking space by the atmospheric tanks."
+  - tweak: "The Horizon's mass was tweaked to make it easier to move around. This should allow even a novice engineering team to get it to a decent level of thrust."
