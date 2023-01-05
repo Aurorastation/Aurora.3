@@ -34,12 +34,11 @@
 
 	uniform = /obj/item/clothing/under/tajaran/psis
 	head = /obj/item/clothing/head/tajaran/psis
-	back = /obj/item/gun/projectile/shotgun/pump/rifle
+	back = /obj/item/storage/backpack/satchel
 	shoes = /obj/item/clothing/shoes/tajara/combat
 	belt = /obj/item/storage/belt/military
 	accessory = /obj/item/clothing/accessory/hadii_pin
 	belt_contents = list(
-						/obj/item/ammo_magazine/boltaction = 2,
 						/obj/item/ammo_magazine/mc9mm = 4,
 						/obj/item/gun/projectile/pistol/adhomai = 1,
 						/obj/item/material/knife/trench = 1,
@@ -53,5 +52,5 @@
 	r_pocket = /obj/item/storage/wallet/random
 	l_pocket = /obj/item/device/radio
 
-/datum/outfit/admin/pra_base/get_id_access()
+/datum/outfit/admin/psis_outpost/get_id_access()
 	return list(access_pra)

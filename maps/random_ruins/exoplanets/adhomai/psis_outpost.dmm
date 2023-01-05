@@ -1,1138 +1,1999 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"b" = (
-/obj/effect/decal/remains/xeno,
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/mineral/adhomai,
-/area/exoplanet/adhomai)
-"c" = (
-/turf/simulated/floor/exoplanet/snow{
+"ah" = (
+/obj/structure/toilet/noose{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"k" = (
-/obj/structure/flora/rock/ice,
-/turf/simulated/floor/exoplanet/mineral/adhomai,
-/area/exoplanet/adhomai)
-"m" = (
-/turf/simulated/mineral/adhomai,
-/area/exoplanet/adhomai)
-"s" = (
-/obj/structure/flora/grass/brown,
-/turf/simulated/floor/exoplanet/snow{
+"as" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/flag/pra/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"x" = (
-/obj/structure/flora/bush,
-/turf/simulated/floor/exoplanet/snow{
+"ch" = (
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Outpost"
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"A" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/mineral/adhomai,
-/area/exoplanet/adhomai)
-"C" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/snow{
+"ct" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/turretid/lethal{
+	pixel_y = 32;
+	req_access = list(209)
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"P" = (
-/turf/simulated/floor/exoplanet/mineral/adhomai,
+"dd" = (
+/obj/machinery/porta_turret/ballistic,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/light,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
 /area/exoplanet/adhomai)
-"X" = (
+"dO" = (
+/obj/structure/table/standard,
+/obj/item/melee/baton/stunrod,
+/obj/machinery/recharger,
+/obj/item/reagent_containers/spray/pepper,
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_x = 32
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"dP" = (
+/obj/structure/table/standard,
+/obj/item/device/taperecorder,
+/obj/item/device/camera,
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"el" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"eJ" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "psis_outpost";
+	name = "igs - psis_outpost"
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"ft" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/obj/item/folder/red,
+/obj/item/folder/red,
+/obj/item/folder/red,
+/obj/structure/sign/flag/pra/right{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"gi" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "psis_outpost";
+	name = "igs - psis_outpost"
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"gq" = (
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"hd" = (
+/obj/effect/floor_decal/corner/black/full{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"hQ" = (
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"iI" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/item/stamp{
+	pixel_y = 7
+	},
+/obj/item/stamp/denied{
+	pixel_y = -2
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"jt" = (
+/obj/structure/closet/secure_closet{
+	req_access = list(209)
+	},
+/obj/item/clothing/under/color/orange,
+/obj/item/clothing/under/color/orange,
+/obj/machinery/light,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"jO" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red/full,
+/obj/item/folder/red,
+/obj/item/folder/red,
+/obj/item/folder/red,
+/obj/structure/sign/flag/pra/left{
+	pixel_y = -32
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
+	pixel_y = 5;
+	pixel_x = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"lf" = (
+/obj/machinery/porta_turret/ballistic,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"lg" = (
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"lH" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/structure/sign/flag/pra/left{
+	pixel_y = 32
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
+	pixel_x = 7;
+	pixel_y = 2
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"ml" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/obj/structure/sign/flag/pra/right{
+	pixel_y = -32
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/item/device/binoculars,
+/obj/item/device/binoculars,
+/obj/item/device/binoculars,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"om" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"on" = (
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"oR" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"pa" = (
+/obj/effect/floor_decal/corner/black/full{
+	dir = 8
+	},
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"qx" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"qB" = (
+/obj/structure/sign/securearea{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"qO" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"rM" = (
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Cells"
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"sW" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"to" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"up" = (
+/obj/machinery/button/remote/blast_door{
+	id = "psis_outpost_shutter";
+	name = "Entry";
+	req_access = list(209);
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"uN" = (
+/obj/structure/table/standard,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"vd" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"wx" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/obj/machinery/vending/cigarette,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"wW" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"yD" = (
+/obj/structure/sign/flag/pra{
+	pixel_x = -32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"zx" = (
+/obj/item/storage/box/fancy/tray,
+/obj/structure/table/standard,
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Bh" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Bx" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"BW" = (
+/obj/structure/sink{
+	pixel_y = 28
+	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = 9;
+	pixel_x = 7
+	},
+/obj/item/reagent_containers/glass/rag,
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Cg" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/machinery/light/small/red,
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Cz" = (
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Outpost"
+	},
+/obj/machinery/door/blast/shutters{
+	id = "psis_outpost_shutter"
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"CC" = (
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Fc" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/structure/sign/flag/pra/right{
+	pixel_y = -32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Gq" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/obj/machinery/vending/cola,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Gu" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Hc" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Hg" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Hq" = (
+/turf/simulated/wall/r_wall,
+/area/exoplanet/adhomai)
+"Iy" = (
+/obj/machinery/door/window/brigdoor{
+	dir = 8;
+	req_access = list(209)
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "psis_cell"
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"ID" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"JG" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/syringes,
+/obj/item/clothing/gloves/latex/tajara,
+/obj/item/clothing/gloves/latex/tajara,
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"JI" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/structure/sign/flag/pra{
+	pixel_y = -32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"JZ" = (
+/obj/structure/table/standard,
+/obj/machinery/photocopier/faxmachine{
+	req_one_access = null;
+	req_access = list(209)
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Kl" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(209)
+	},
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/projectile/automatic/tommygun,
+/obj/item/ammo_magazine/submachinedrum,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"KF" = (
+/obj/effect/floor_decal/corner/black/full,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"KR" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/structure/sign/flag/pra{
+	pixel_x = -32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Lo" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/structure/sign/flag/pra{
+	pixel_x = 32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Nf" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 5
+	},
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"NA" = (
+/obj/effect/map_effect/window_spawner/reinforced,
+/obj/machinery/door/blast/regular/open{
+	id = "psis_cell"
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"OX" = (
+/obj/structure/sign/flag/pra/left{
+	pixel_y = 32
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Pk" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"PL" = (
+/obj/effect/floor_decal/corner/black,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"PT" = (
+/obj/structure/table/standard,
+/obj/item/clothing/suit/straight_jacket,
+/obj/item/clothing/mask/muzzle,
+/obj/item/clothing/glasses/sunglasses/blindfold,
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Qq" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Qx" = (
+/obj/effect/floor_decal/corner/red/full,
+/obj/machinery/vending/snack,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Rc" = (
+/obj/effect/floor_decal/corner/black/full{
+	dir = 1
+	},
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"RM" = (
+/obj/machinery/photocopier,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"RO" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/item/device/hand_labeler,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Tn" = (
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Tx" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/obj/item/device/flashlight/lamp,
+/obj/structure/sign/flag/pra/left{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"TJ" = (
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Office"
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"TS" = (
+/obj/structure/closet/secure_closet/freezer{
+	req_access = list(209)
+	},
+/obj/item/reagent_containers/syringe/drugs,
+/obj/item/reagent_containers/syringe/drugs,
+/obj/item/reagent_containers/syringe/drugs,
+/obj/item/reagent_containers/glass/bottle/cyanide,
+/obj/item/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/polysomnine,
+/obj/item/reagent_containers/glass/beaker/vial/random,
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"UM" = (
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Interrogation"
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Vr" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"VE" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/structure/sign/flag/pra/left{
+	pixel_y = -32
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"WA" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"WD" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"WP" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/item/book/manual/pra_manifesto,
+/obj/item/book/manual/pra_manifesto,
+/obj/item/book/manual/pra_manifesto,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"WW" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Xc" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/structure/sign/flag/pra/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Xm" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/obj/machinery/vending/coffee,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"XH" = (
+/obj/machinery/vending/wallmed1{
+	pixel_y = 32;
+	req_access = list(209)
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"XR" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = -32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"XU" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"YB" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"YO" = (
+/obj/structure/closet/secure_closet{
+	req_access = list(209)
+	},
+/obj/item/clothing/under/color/orange,
+/obj/item/clothing/under/color/orange,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"ZG" = (
+/turf/simulated/floor/reinforced{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 
 (1,1,1) = {"
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-X
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-s
-c
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+hQ
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+CC
+Hg
 "}
 (2,1,1) = {"
-c
-X
-c
-c
-c
-c
-c
-c
-c
-c
-X
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-s
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
+Hg
+hQ
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+hQ
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+CC
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
 "}
 (3,1,1) = {"
-c
-c
-c
-c
-c
-c
-x
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-X
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+Hg
+Hg
+Hg
 "}
 (4,1,1) = {"
-c
-c
-c
-c
-X
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-X
-c
-c
-x
-c
-c
-c
-m
-c
-c
-c
-c
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (5,1,1) = {"
-c
-c
-c
-c
-c
-c
-c
-c
-s
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-m
-c
-m
-c
-c
-c
-c
-c
-x
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (6,1,1) = {"
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-x
-c
-c
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (7,1,1) = {"
-c
-c
-c
-c
-c
-x
-c
-c
-c
-X
-c
-c
-c
-c
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-s
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+lg
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+qB
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+CC
+Hg
 "}
 (8,1,1) = {"
-c
-c
-X
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hq
+Tx
+RO
+RM
+JZ
+jO
+Hq
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (9,1,1) = {"
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-m
-m
-m
-m
-m
-P
-P
-m
-m
-m
-c
-c
-c
-s
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hq
+Xc
+eJ
+Tn
+eJ
+Fc
+Hq
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (10,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-P
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hq
+Kl
+Tn
+Tn
+Tn
+Bh
+Hq
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (11,1,1) = {"
-c
-c
-s
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-P
-P
-P
-m
-m
-c
-c
-c
-c
-c
-c
-X
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hq
+lH
+gi
+Tn
+gi
+VE
+Hq
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+hQ
+Hg
 "}
 (12,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-P
-P
-m
-m
-c
-c
-x
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hq
+ft
+iI
+WA
+WP
+ml
+Hq
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (13,1,1) = {"
-x
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-P
-P
-P
-m
-m
-P
-P
-P
-m
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
+WW
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hq
+Hq
+Hq
+Hq
+TJ
+Hq
+Hq
+Hq
+Hq
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (14,1,1) = {"
-c
-c
-c
-m
-m
-m
-m
-m
-P
-P
-P
-P
-P
-b
-P
-P
-m
-P
-P
-P
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
-x
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+lg
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Gq
+el
+KR
+el
+KR
+el
+Qx
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+qB
+Hg
+on
+Hg
+WW
+Hg
 "}
 (15,1,1) = {"
-c
-c
-m
-m
-m
-m
-m
-m
-P
-P
-P
-k
-P
-P
-P
-P
-P
-P
-P
-P
-m
-m
-c
-c
-c
-s
-c
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hq
+lf
+wW
+Tn
+dd
+Hq
+ct
+Tn
+PL
+vd
+YB
+Tn
+WD
+Hq
+dP
+zx
+uN
+PT
+Hq
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (16,1,1) = {"
-c
-c
-m
-m
-m
-m
-P
-P
-P
-P
-P
-P
-P
-P
-P
-P
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
+Hg
+Hg
+lg
+Hq
+Hg
+Hg
+om
+Hq
+Tn
+Tn
+Tn
+Tn
+Hq
+Pk
+PL
+hd
+Hq
+Rc
+YB
+JI
+Hq
+BW
+ZG
+ZG
+ZG
+Hq
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (17,1,1) = {"
-c
-c
-m
-m
-m
-m
-P
-P
-P
-P
-P
-P
-P
-P
-P
-P
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Cz
+Qq
+Tn
+Tn
+Bx
+ch
+ID
+XR
+Hq
+Hq
+Hq
+Nf
+sW
+UM
+ZG
+ZG
+ZG
+Cg
+Hq
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (18,1,1) = {"
-c
-c
-m
-m
-m
-m
-P
-P
-P
-P
-P
-P
-P
-P
-m
-m
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-X
-c
-c
-c
-c
-c
+Hg
+Hg
+lg
+Hq
+Hg
+Hg
+om
+Hq
+up
+Tn
+Tn
+Tn
+Hq
+Pk
+qO
+KF
+Hq
+pa
+Vr
+JI
+Hq
+XH
+ZG
+ZG
+ZG
+Hq
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (19,1,1) = {"
-s
-c
-m
-m
-m
-m
-P
-P
-P
-b
-P
-P
-P
-P
-m
-m
-P
-P
-m
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
-X
+CC
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hq
+lf
+Hc
+Tn
+dd
+Hq
+ID
+Tn
+qO
+Gu
+Vr
+Tn
+WD
+Hq
+TS
+dO
+JG
+oR
+Hq
+Hg
+Hg
+on
+Hg
+Hg
+hQ
 "}
 (20,1,1) = {"
-c
-c
-m
-m
-m
-m
-P
-P
-P
-P
-P
-P
-P
-P
-P
-m
-P
-P
-P
-P
-P
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+lg
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Xm
+WA
+Lo
+WA
+Lo
+WA
+wx
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+qB
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (21,1,1) = {"
-c
-c
-m
-m
-m
-m
-m
-P
-P
-P
-m
-P
-P
-P
-P
-P
-P
-P
-k
-P
-P
-m
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hq
+Hq
+Hq
+Hq
+rM
+Hq
+Hq
+Hq
+Hq
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (22,1,1) = {"
-c
-c
-c
-m
-m
-m
-P
-P
-P
-m
-m
-P
-P
-A
-P
-P
-P
-P
-P
-P
-P
-P
-P
-c
-c
-c
-c
-x
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hq
+XU
+yD
+Tn
+yD
+jt
+Hq
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (23,1,1) = {"
-x
-c
-c
-m
-m
-m
-P
-P
-P
-m
-m
-P
-P
-P
-P
-P
-P
-P
-P
-P
-P
-P
-A
-c
-c
-c
-c
-c
-c
-c
-c
-c
+WW
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hq
+gq
+Tn
+Tn
+Tn
+YO
+Hq
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (24,1,1) = {"
-c
-c
-c
-m
-m
-m
-P
-P
-P
-m
-m
-k
-P
-m
-m
-m
-m
-P
-P
-P
-P
-P
-P
-c
-c
-s
-c
-c
-C
-c
-c
-x
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hq
+Iy
+NA
+NA
+NA
+NA
+Hq
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+WW
 "}
 (25,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-P
-P
-m
-m
-m
-m
-P
-P
-P
-P
-P
-P
-c
-c
-c
-c
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hq
+OX
+ZG
+qx
+ZG
+ZG
+Hq
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (26,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-P
-P
-P
-c
-c
-c
-c
-c
-c
-s
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hq
+as
+ZG
+to
+qx
+ah
+Hq
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+CC
+Hg
+Hg
 "}
 (27,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-c
-c
-c
-x
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+lg
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+qB
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (28,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-k
-c
-c
-c
-c
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (29,1,1) = {"
-c
-s
-c
-x
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-c
-c
-c
-c
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+on
+Hg
+Hg
+Hg
 "}
 (30,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-m
-c
-c
-c
-s
-c
-c
-X
-c
+Hg
+Hg
+Hg
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+on
+Hg
+hQ
+Hg
 "}
 (31,1,1) = {"
-c
-c
-X
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-x
-c
-c
-c
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
 "}
 (32,1,1) = {"
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-s
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
 "}
