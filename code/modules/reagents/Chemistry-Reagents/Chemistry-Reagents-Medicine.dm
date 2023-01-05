@@ -1490,7 +1490,7 @@
 		remove_self(5, holder)
 		if(M.resuscitate())
 			var/obj/item/organ/internal/heart = M.internal_organs_by_name[BP_HEART]
-			M.add_chemical_effect(CE_CARDIOTOXIC, heart.max_damage * 0.15)
+			M.add_chemical_effect(CE_CARDIOTOXIC, heart.max_damage * 0.05)
 
 //Secret Chems
 /decl/reagent/elixir
