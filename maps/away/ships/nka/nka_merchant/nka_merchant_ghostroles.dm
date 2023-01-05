@@ -23,7 +23,7 @@
 	id = /obj/item/card/id
 	shoes = /obj/item/clothing/shoes/tajara/workboots
 
-	uniform = /obj/item/clothing/under/dress/tajaran/nka_merchant_navy
+	uniform = /obj/item/clothing/under/tajaran/nka_merchant_navy
 	head = /obj/item/clothing/head/tajaran/nka_merchant_navy
 	l_ear = /obj/item/device/radio/headset/ship
 
