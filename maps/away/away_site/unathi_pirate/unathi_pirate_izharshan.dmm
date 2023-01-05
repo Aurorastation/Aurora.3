@@ -1521,7 +1521,7 @@
 "YA" = (
 /obj/structure/closet,
 /obj/item/clothing/head/unathi,
-/obj/item/clothing/gloves/botanic_leather/unathi,
+/obj/item/clothing/gloves/botanic_leather,
 /obj/item/clothing/accessory/poncho/unathimantle{
 	color = "#ba650b"
 	},
