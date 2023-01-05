@@ -144,7 +144,7 @@
 
 	update_icon()
 
-	if(ismob(pulledby)
+	if(ismob(pulledby))
 		var/mob/M = pulledby
 		M.stop_pulling()
 	..()
