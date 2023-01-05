@@ -279,3 +279,9 @@
 		lining.appearance_flags = RESET_COLOR
 		I.add_overlay(lining)
 	return I
+
+/obj/item/clothing/under/tajaran/archeologist
+	name = "archeologist uniform"
+	desc = "A rugged uniform used by Adhomian archeologists. It is already covered in dirt and ancient dust."
+	icon_state = "explorer_uniform"
+	item_state = "explorer_uniform"
