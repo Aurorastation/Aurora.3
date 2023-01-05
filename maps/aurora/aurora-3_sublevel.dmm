@@ -21513,8 +21513,8 @@
 "aSK" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/closet/secure_closet/medical3,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/gloves/latex/tajara,
 /obj/item/clothing/gloves/latex/vaurca,
@@ -21523,8 +21523,8 @@
 "aSL" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/closet/secure_closet/medical3,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/gloves/latex/tajara,
 /obj/machinery/light{
@@ -30030,8 +30030,8 @@
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/storage/box/samplebags,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "jOO" = (
@@ -31733,8 +31733,8 @@
 	c_tag = "Research Sublevel - EVA Preparation";
 	dir = 4
 	},
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "nsu" = (
@@ -33369,8 +33369,8 @@
 /obj/machinery/light_switch{
 	pixel_y = -26
 	},
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "qNL" = (
@@ -34909,8 +34909,8 @@
 "ulX" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/closet/secure_closet/medical3,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/gloves/latex/tajara,
 /obj/machinery/camera/network/medbay{

@@ -13343,10 +13343,10 @@
 /obj/structure/closet/secure_closet/scientist,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
 /obj/item/storage/box/gloves,
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 8
@@ -31948,10 +31948,10 @@
 	pixel_y = -24
 	},
 /obj/structure/cable/green,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
@@ -35472,8 +35472,8 @@
 	c_tag = "Medical - CMO's Office"
 	},
 /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
@@ -44868,8 +44868,8 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/RD,
 /obj/item/clothing/mask/gas/half,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
 /turf/simulated/floor/tiled/white,
 /area/rnd/rdoffice)
 "bCw" = (
@@ -71267,10 +71267,10 @@
 /obj/item/device/nanoquikpay{
 	pixel_y = 8
 	},
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28

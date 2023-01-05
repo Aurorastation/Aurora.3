@@ -11039,7 +11039,7 @@
 	pixel_y = 4
 	},
 /obj/item/clothing/glasses/safety/goggles,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},

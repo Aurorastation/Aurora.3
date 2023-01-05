@@ -2123,7 +2123,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/database_freighter/storage)
@@ -3422,7 +3422,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile,
 /obj/machinery/light{
 	dir = 4;
 	status = 2
@@ -3548,7 +3548,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile,
 /turf/simulated/floor/tiled/dark,
 /area/database_freighter/storage)
 "CJ" = (
