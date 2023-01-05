@@ -73,8 +73,9 @@
 				return
 		user.visible_message("\The [user] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
 		playsound(src, 'sound/misc/bike_stand_down.ogg', 50, 1)
-		if(pulledby)
-			pulledby.stop_pulling()
+		if(ismob(pulledby))
+			var/mob/M = pulledby
+			M.stop_pulling()
 
 	kickstand = !kickstand
 	anchored = (kickstand || on)
