@@ -1,4 +1,4 @@
-//electric engine
+//electric engine, should be very rare
 /datum/ship_engine/ion
 	name = "ion thruster"
 	var/obj/machinery/ion_engine/thruster
