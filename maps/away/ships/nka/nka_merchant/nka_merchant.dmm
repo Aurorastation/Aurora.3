@@ -1353,8 +1353,7 @@
 /obj/machinery/conveyor{
 	dir = 6;
 	id = "merchant_navy";
-	layer = 2.9;
-	reversed = 1
+	layer = 2.9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -2011,6 +2010,10 @@
 /area/nka_merchant)
 "ij" = (
 /obj/structure/bed/stool/chair/wood,
+/obj/effect/ghostspawpoint{
+	identifier = "nka_merchant_captain";
+	name = "igs - nka_merchant_captain"
+	},
 /turf/simulated/floor/carpet/lightblue{
 	temperature = 278.15
 	},
@@ -3115,6 +3118,18 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
+"og" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	identifier = "nka_merchant_guard";
+	name = "igs - nka_merchant_guard"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/barracks)
 "oh" = (
 /turf/unsimulated/wall/fakepdoor,
 /area/nka_merchant/hangar)
@@ -3655,6 +3670,10 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	identifier = "nka_merchant_crew";
+	name = "igs - nka_merchant_crew"
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -4041,6 +4060,14 @@
 	},
 /turf/simulated/floor/airless,
 /area/nka_merchant/bridge)
+"GE" = (
+/obj/item/modular_computer/console/preset/merchant/nka{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 278.15
+	},
+/area/nka_merchant/merchant)
 "GG" = (
 /obj/effect/shuttle_landmark/nka_merchant/nav3,
 /turf/template_noop,
@@ -17232,7 +17259,7 @@ Ni
 bA
 br
 rk
-yr
+og
 Hu
 PP
 kw
@@ -19679,7 +19706,7 @@ ei
 lX
 tx
 dK
-TN
+GE
 QW
 QW
 gB
