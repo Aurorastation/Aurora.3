@@ -76,6 +76,7 @@
 	name = "Imperial Fleet Armsman"
 	head = /obj/item/clothing/head/dominia/fleet/armsman
 	uniform = /obj/item/clothing/under/dominia/fleet/armsman
+	accessory = /obj/item/clothing/accessory/poncho/dominia_cape/mantle
 
 /datum/ghostspawner/human/imperial_fleet_voidsman/priest
 	short_name = "imperial_fleet_priest"
