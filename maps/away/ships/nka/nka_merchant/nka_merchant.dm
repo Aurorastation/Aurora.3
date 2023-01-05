@@ -7,6 +7,7 @@
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/nka_merchant_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE, SECTOR_TAU_CETI)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /decl/submap_archetype/nka_merchant
 	map = "Her Majesty's Mercantile Flotilla Ship"

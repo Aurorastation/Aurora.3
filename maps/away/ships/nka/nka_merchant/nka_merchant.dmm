@@ -200,6 +200,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nka{
+	pixel_y = 5;
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -659,6 +663,9 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/warehouse)
+"cd" = (
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/nka_merchant/mess)
 "ce" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -770,6 +777,9 @@
 	desc = "A black stone altar dedicated to Minharrzka, the goddess of the waters and patroness of sailors.";
 	icon_state = "churchaltar";
 	name = "altar"
+	},
+/obj/item/flame/candle{
+	pixel_y = 5
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1203,6 +1213,14 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/captain_quarters)
+"dO" = (
+/obj/structure/sign/vacuum{
+	pixel_x = -32
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/eva)
 "dV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black,
 /turf/simulated/floor/plating{
@@ -1600,6 +1618,9 @@
 	temperature = 278.15
 	},
 /area/nka_merchant)
+"fJ" = (
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/nka_merchant/barracks)
 "fK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -2375,6 +2396,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3189,6 +3211,9 @@
 	temperature = 278.15
 	},
 /area/nka_merchant)
+"pA" = (
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/nka_merchant/engineering)
 "pL" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating{
@@ -3216,6 +3241,14 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/bridge)
+"qm" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/mess)
 "qt" = (
 /obj/machinery/vending/tool{
 	req_access = list(212)
@@ -3341,6 +3374,30 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/hangar)
+"tx" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "merchant_navy";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/merchant)
 "tB" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -3591,6 +3648,9 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/warehouse)
+"yk" = (
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/nka_merchant/captain_quarters)
 "yr" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
@@ -3681,6 +3741,9 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/bridge)
+"AT" = (
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/nka_merchant/engine)
 "AY" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
@@ -3750,6 +3813,9 @@
 "Df" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/nka_merchant_shuttle)
+"Dj" = (
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/nka_merchant/hangar)
 "Do" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -3891,6 +3957,12 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
+"EU" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/mess)
 "Fd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3933,6 +4005,14 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/merchant)
+"FH" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/lino/grey{
+	temperature = 278.15
+	},
+/area/nka_merchant/mess)
 "FU" = (
 /obj/effect/floor_decal/corner/white/full{
 	dir = 4
@@ -4592,6 +4672,9 @@
 "Vj" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/mess)
+"Vp" = (
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/nka_merchant)
 "Vv" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -4654,6 +4737,9 @@
 	temperature = 278.15
 	},
 /area/nka_merchant)
+"WZ" = (
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/nka_merchant/warehouse)
 "Xa" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/structure/cable/green{
@@ -15998,7 +16084,7 @@ iB
 vo
 RS
 Zr
-cR
+AT
 cR
 cR
 vA
@@ -16161,7 +16247,7 @@ YX
 dV
 Zr
 cr
-cR
+AT
 cR
 jA
 vA
@@ -16178,7 +16264,7 @@ yr
 Xf
 lh
 rk
-JO
+yk
 DU
 DU
 DU
@@ -16192,7 +16278,7 @@ aO
 aO
 aO
 aO
-QW
+Vp
 QW
 iB
 iB
@@ -16650,7 +16736,7 @@ Zr
 Zr
 cR
 hx
-Wx
+dO
 Wx
 bI
 Vy
@@ -16679,9 +16765,9 @@ TP
 nA
 cp
 QW
-QW
+Vp
 Tu
-QW
+Vp
 kI
 kF
 Tk
@@ -16833,7 +16919,7 @@ de
 FU
 Vj
 fE
-fY
+FH
 nq
 eV
 gi
@@ -16987,7 +17073,7 @@ rk
 rk
 Hu
 ce
-rk
+fJ
 JO
 JO
 dN
@@ -16996,12 +17082,12 @@ JO
 Vj
 Vj
 Vj
-Vj
-eV
+cd
+qm
 lT
 eV
 eV
-eV
+EU
 QW
 aJ
 xc
@@ -17616,7 +17702,7 @@ iB
 iB
 iB
 cR
-cR
+AT
 aI
 TU
 wQ
@@ -17636,11 +17722,11 @@ rk
 rk
 rk
 rk
-rk
+fJ
 fI
 xc
 ih
-QW
+Vp
 Vj
 Vj
 Vj
@@ -17654,10 +17740,10 @@ QW
 fI
 xc
 ih
+Vp
 QW
 QW
-QW
-QW
+Vp
 pL
 pL
 pL
@@ -17778,7 +17864,7 @@ iB
 iB
 iB
 vo
-dV
+RS
 aI
 gh
 iY
@@ -18102,7 +18188,7 @@ iB
 iB
 iB
 vo
-dV
+fH
 aI
 Zr
 iY
@@ -18117,7 +18203,7 @@ Vy
 Vy
 No
 Vy
-Vy
+pA
 mE
 yc
 ek
@@ -18264,7 +18350,7 @@ iB
 iB
 iB
 cR
-cR
+AT
 aI
 Zr
 Zr
@@ -18283,7 +18369,7 @@ wt
 wt
 wt
 bY
-TH
+Dj
 TH
 CW
 CW
@@ -18302,10 +18388,10 @@ QW
 fI
 xc
 OT
+Vp
 QW
 QW
-QW
-QW
+Vp
 pL
 pL
 pL
@@ -18448,7 +18534,7 @@ iK
 dn
 dq
 CW
-CW
+WZ
 cQ
 CW
 ec
@@ -19271,9 +19357,9 @@ cF
 gc
 fi
 QW
-QW
+Vp
 Wr
-QW
+Vp
 UL
 Xy
 aa
@@ -19562,7 +19648,7 @@ iB
 vo
 TF
 XG
-cR
+AT
 cR
 cR
 hf
@@ -19582,7 +19668,7 @@ jy
 yc
 mj
 CW
-CW
+WZ
 gm
 CW
 aq
@@ -19591,7 +19677,7 @@ cB
 cB
 ei
 lX
-lX
+tx
 dK
 TN
 QW
@@ -19742,7 +19828,7 @@ dA
 yc
 yc
 it
-TH
+Dj
 CW
 CW
 CW
