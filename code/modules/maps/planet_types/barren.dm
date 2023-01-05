@@ -64,6 +64,7 @@
 	rock_colors = list(COLOR_ASTEROID_ROCK)
 	planetary_area = /area/exoplanet/barren/asteroid
 	possible_random_ruins = list(/datum/map_template/ruin/exoplanet/abandoned_mining, /datum/map_template/ruin/exoplanet/carp_nest, /datum/map_template/ruin/exoplanet/hideout, /datum/map_template/ruin/exoplanet/crashed_shuttle_01)
+	place_near_main = list(1, 1)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/generate_planet_image()
 	skybox_image = image('icons/skybox/skybox_rock_128.dmi', "bigrock")

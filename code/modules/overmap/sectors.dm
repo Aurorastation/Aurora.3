@@ -41,6 +41,9 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	/// Whether away ship comms have access to the common channel / PUB_FREQ
 	var/use_common = FALSE
 
+	/// null | num | list. If a num or a (num, num) list, the radius or random bounds for placing this sector near the main map's overmap icon.
+	var/list/place_near_main
+
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)
@@ -51,11 +54,22 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	if(!current_map.overmap_z)
 		build_overmap()
-		
-	start_x = start_x || rand(OVERMAP_EDGE, current_map.overmap_size - OVERMAP_EDGE)
-	start_y = start_y || rand(OVERMAP_EDGE, current_map.overmap_size - OVERMAP_EDGE)
 
-	forceMove(locate(start_x, start_y, current_map.overmap_z))
+	var/map_low = OVERMAP_EDGE
+	var/map_high = current_map.overmap_size - OVERMAP_EDGE
+	var/turf/home
+	if (place_near_main)
+		var/obj/effect/overmap/visitable/main = map_sectors["1"]
+		if (islist(place_near_main))
+			place_near_main = Roundm(Frand(place_near_main[1], place_near_main[2]), 0.1)
+		home = CircularRandomTurfAround(main, abs(place_near_main), map_low, map_low, map_high, map_high)
+		log_debug("place_near_main moving [src] near [main] ([main.x],[main.y]) with radius [place_near_main], got ([home.x],[home.y])")
+	else
+		start_x = start_x || rand(map_low, map_high)
+		start_y = start_y || rand(map_low, map_high)
+		home = locate(start_x, start_y, current_map.overmap_z)
+
+	forceMove(home)
 
 	update_name()
 
@@ -218,3 +232,51 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	testing("Overmap build complete.")
 	return 1
+
+/// A circular random coordinate pair from 0, unit by default, scaled by radius, then rounded if round.
+/proc/CircularRandomCoordinate(radius = 1, round)
+	var/angle = rand(0, 359)
+	var/x = cos(angle) * radius
+	var/y = sin(angle) * radius
+	if (round)
+		x = round(x)
+		y = round(y)
+	return list(x, y)
+
+/**
+* A circular random coordinate with radius on center_x, center_y,
+* reflected into low_x,low_y -> high_x,high_y, clamped in low,high,
+* and rounded if round is set
+*
+* Generally this proc is useful for placement around a point (eg a
+* player) that must stay within map boundaries, or some similar circle
+* in box constraint
+*
+* A "donut" pattern can be achieved by varying the number supplied as
+* radius outside the scope of the proc, eg as BoundedCircularRandomCoordinate(Frand(1, 3), ...)
+*/
+/proc/BoundedCircularRandomCoordinate(radius, center_x, center_y, low_x, low_y, high_x, high_y, round)
+	var/list/xy = CircularRandomCoordinate(radius, round)
+	var/dx = xy[1]
+	var/dy = xy[2]
+	var/x = center_x + dx
+	var/y = center_y + dy
+	if (x < low_x || x > high_x)
+		x = center_x - dx
+	if (y < low_y || y > high_y)
+		y = center_y - dy
+	return list(
+		clamp(x, low_x, high_x),
+		clamp(y, low_y, high_y)
+	)
+
+/// Pick a random turf using BoundedCircularRandomCoordinate about x,y on level z
+/proc/CircularRandomTurf(radius, z, center_x, center_y, low_x = 1, low_y = 1, high_x = world.maxx, high_y = world.maxy)
+	var/list/xy = BoundedCircularRandomCoordinate(radius, center_x, center_y, low_x, low_y, high_x, high_y, TRUE)
+	return locate(xy[1], xy[2], z)
+
+
+/// Pick a random turf using BoundedCircularRandomCoordinate around the turf of target
+/proc/CircularRandomTurfAround(atom/target, radius, low_x = 1, low_y = 1, high_x = world.maxx, high_y = world.maxy)
+	var/turf/turf = get_turf(target)
+	return CircularRandomTurf(radius, turf.z, turf.x, turf.y, low_x, low_y, high_x, high_y)
