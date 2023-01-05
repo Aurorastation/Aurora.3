@@ -54,7 +54,7 @@
 			var/list/data = list()
 			if(reagent_data.len > 1 && potency > 0)
 				rtotal += round(potency/reagent_data[2])
-			if(rid == /singleton/reagent/nutriment)
+			if(rid == /decl/reagent/nutriment)
 				data[seed.seed_name] = max(1,rtotal)
 			reagents.add_reagent(rid,max(1,rtotal),data)
 	update_desc()
@@ -74,33 +74,33 @@
 		desc = SSplants.product_descs["[seed.uid]"]
 	else
 		var/list/descriptors = list()
-		if(reagents.has_reagent(/singleton/reagent/sugar) || reagents.has_reagent(/singleton/reagent/nutriment/cherryjelly) || reagents.has_reagent(/singleton/reagent/nutriment/honey) || reagents.has_reagent(/singleton/reagent/drink/berryjuice))
+		if(reagents.has_reagent(/decl/reagent/sugar) || reagents.has_reagent(/decl/reagent/nutriment/cherryjelly) || reagents.has_reagent(/decl/reagent/nutriment/honey) || reagents.has_reagent(/decl/reagent/drink/berryjuice))
 			descriptors |= "sweet"
-		if(reagents.has_reagent(/singleton/reagent/dylovene))
+		if(reagents.has_reagent(/decl/reagent/dylovene))
 			descriptors |= "astringent"
-		if(reagents.has_reagent(/singleton/reagent/frostoil))
+		if(reagents.has_reagent(/decl/reagent/frostoil))
 			descriptors |= "numbing"
-		if(reagents.has_reagent(/singleton/reagent/nutriment))
+		if(reagents.has_reagent(/decl/reagent/nutriment))
 			descriptors |= "nutritious"
-		if(reagents.has_reagent(/singleton/reagent/capsaicin/condensed) || reagents.has_reagent(/singleton/reagent/capsaicin))
+		if(reagents.has_reagent(/decl/reagent/capsaicin/condensed) || reagents.has_reagent(/decl/reagent/capsaicin))
 			descriptors |= "spicy"
-		if(reagents.has_reagent(/singleton/reagent/nutriment/coco))
+		if(reagents.has_reagent(/decl/reagent/nutriment/coco))
 			descriptors |= "bitter"
-		if(reagents.has_reagent(/singleton/reagent/drink/orangejuice) || reagents.has_reagent(/singleton/reagent/drink/lemonjuice) || reagents.has_reagent(/singleton/reagent/drink/limejuice))
+		if(reagents.has_reagent(/decl/reagent/drink/orangejuice) || reagents.has_reagent(/decl/reagent/drink/lemonjuice) || reagents.has_reagent(/decl/reagent/drink/limejuice))
 			descriptors |= "sweet-sour"
-		if(reagents.has_reagent(/singleton/reagent/radium) || reagents.has_reagent(/singleton/reagent/uranium))
+		if(reagents.has_reagent(/decl/reagent/radium) || reagents.has_reagent(/decl/reagent/uranium))
 			descriptors |= "radioactive"
-		if(reagents.has_reagent(/singleton/reagent/toxin/amatoxin) || reagents.has_reagent(/singleton/reagent/toxin))
+		if(reagents.has_reagent(/decl/reagent/toxin/amatoxin) || reagents.has_reagent(/decl/reagent/toxin))
 			descriptors |= "poisonous"
-		if(reagents.has_reagent(/singleton/reagent/psilocybin) || reagents.has_reagent(/singleton/reagent/ambrosia_extract) || reagents.has_reagent(/singleton/reagent/space_drugs) || reagents.has_reagent(/singleton/reagent/mindbreaker))
+		if(reagents.has_reagent(/decl/reagent/psilocybin) || reagents.has_reagent(/decl/reagent/ambrosia_extract) || reagents.has_reagent(/decl/reagent/space_drugs) || reagents.has_reagent(/decl/reagent/mindbreaker))
 			descriptors |= "hallucinogenic"
-		if(reagents.has_reagent(/singleton/reagent/bicaridine) || reagents.has_reagent(/singleton/reagent/dylovene))
+		if(reagents.has_reagent(/decl/reagent/bicaridine) || reagents.has_reagent(/decl/reagent/dylovene))
 			descriptors |= "medicinal"
-		if(reagents.has_reagent(/singleton/reagent/gold))
+		if(reagents.has_reagent(/decl/reagent/gold))
 			descriptors |= "shiny"
-		if(reagents.has_reagent(/singleton/reagent/lube))
+		if(reagents.has_reagent(/decl/reagent/lube))
 			descriptors |= "slippery"
-		if(reagents.has_reagent(/singleton/reagent/acid/polyacid) || reagents.has_reagent(/singleton/reagent/acid) || reagents.has_reagent(/singleton/reagent/acid/hydrochloric))
+		if(reagents.has_reagent(/decl/reagent/acid/polyacid) || reagents.has_reagent(/decl/reagent/acid) || reagents.has_reagent(/decl/reagent/acid/hydrochloric))
 			descriptors |= "acidic"
 		if(seed.get_trait(TRAIT_JUICY))
 			descriptors |= "juicy"
@@ -194,7 +194,7 @@
 				qdel(src)
 				return
 			else if(seed.chems)
-				if(istype(W,/obj/item/material/hatchet) && !isnull(seed.chems[/singleton/reagent/woodpulp]))
+				if(istype(W,/obj/item/material/hatchet) && !isnull(seed.chems[/decl/reagent/woodpulp]))
 					user.show_message("<span class='notice'>You make planks out of \the [src]!</span>", 1)
 					playsound(loc, 'sound/effects/woodcutting.ogg', 50, 1)
 					var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
@@ -211,17 +211,17 @@
 						to_chat(user, "You add the newly-formed wood to the stack. It now contains [NG.amount] planks.")
 					qdel(src)
 					return
-				else if(!isnull(seed.chems[/singleton/reagent/drink/potatojuice]))
+				else if(!isnull(seed.chems[/decl/reagent/drink/potatojuice]))
 					to_chat(user, "You slice \the [src] into sticks.")
 					new /obj/item/reagent_containers/food/snacks/rawsticks(get_turf(src))
 					qdel(src)
 					return
-				else if(!isnull(seed.chems[/singleton/reagent/drink/carrotjuice]))
+				else if(!isnull(seed.chems[/decl/reagent/drink/carrotjuice]))
 					to_chat(user, "You slice \the [src] into sticks.")
 					new /obj/item/reagent_containers/food/snacks/carrotfries(get_turf(src))
 					qdel(src)
 					return
-				else if(!isnull(seed.chems[/singleton/reagent/drink/milk/soymilk]))
+				else if(!isnull(seed.chems[/decl/reagent/drink/milk/soymilk]))
 					to_chat(user, "You roughly chop up \the [src].")
 					new /obj/item/reagent_containers/food/snacks/soydope(get_turf(src))
 					qdel(src)

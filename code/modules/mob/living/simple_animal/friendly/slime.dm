@@ -15,7 +15,7 @@
 	emote_see = list("jiggles", "bounces in place")
 	var/colour = "grey"
 	mob_size = 3
-	composition_reagent = /singleton/reagent/slimejelly
+	composition_reagent = /decl/reagent/slimejelly
 
 /mob/living/simple_animal/slime/Initialize()
 	. = ..()
@@ -42,7 +42,7 @@
 	emote_see = list("jiggles", "bounces in place")
 	var/colour = "grey"
 	mob_size = 6
-	composition_reagent = /singleton/reagent/slimejelly
+	composition_reagent = /decl/reagent/slimejelly
 
 /mob/living/simple_animal/adultslime/Initialize()
 	. = ..()

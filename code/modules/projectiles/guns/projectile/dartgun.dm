@@ -102,7 +102,7 @@
 		to_chat(user, "<span class='notice'>[src] contains:</span>")
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
 			for(var/_R in B.reagents.reagent_volumes)
-				var/singleton/reagent/R = GET_SINGLETON(_R)
+				var/decl/reagent/R = decls_repository.get_decl(_R)
 				to_chat(user, "<span class='notice'>[B.reagents.reagent_volumes[_R]] units of [R.name]</span>")
 
 /obj/item/gun/projectile/dartgun/attackby(obj/item/I as obj, mob/user as mob)
@@ -138,7 +138,7 @@
 			dat += "Beaker [i] contains: "
 			if(LAZYLEN(B.reagents.reagent_volumes))
 				for(var/_R in B.reagents.reagent_volumes)
-					var/singleton/reagent/R = GET_SINGLETON(_R)
+					var/decl/reagent/R = decls_repository.get_decl(_R)
 					dat += "<br>    [B.reagents.reagent_volumes[_R]] units of [R.name], "
 				if (check_beaker_mixing(B))
 					dat += text("<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> ")

@@ -20,11 +20,11 @@
 
 	var/mob/living/carbon/human/occupant = null
 	var/list/available_chemicals = list(
-		/singleton/reagent/inaprovaline,
-		/singleton/reagent/soporific,
-		/singleton/reagent/perconol,
-		/singleton/reagent/dylovene,
-		/singleton/reagent/dexalin
+		/decl/reagent/inaprovaline,
+		/decl/reagent/soporific,
+		/decl/reagent/perconol,
+		/decl/reagent/dylovene,
+		/decl/reagent/dexalin
 		)
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/filtering = FALSE
@@ -135,7 +135,7 @@
 		var/list/list/blood_reagents
 		for(var/_R in occupant.reagents.reagent_volumes)
 			var/list/blood_reagent = list()
-			var/singleton/reagent/R = GET_SINGLETON(_R)
+			var/decl/reagent/R = decls_repository.get_decl(_R)
 			blood_reagent["name"] = R.name
 			blood_reagent["amount"] = round(REAGENT_VOLUME(occupant.reagents, _R), 0.1)
 			LAZYADD(blood_reagents, list(blood_reagent))
@@ -149,7 +149,7 @@
 			var/list/list/stomach_reagents
 			for(var/_R in S.ingested.reagent_volumes)
 				var/list/stomach_reagent = list()
-				var/singleton/reagent/R = GET_SINGLETON(_R)
+				var/decl/reagent/R = decls_repository.get_decl(_R)
 				stomach_reagent["name"] = R.name
 				stomach_reagent["amount"] = round(REAGENT_VOLUME(S.ingested, _R), 0.1)
 				LAZYADD(stomach_reagents, list(stomach_reagent))
@@ -163,7 +163,7 @@
 		for(var/T in available_chemicals)
 			var/list/reagent = list()
 			reagent["type"] = T
-			var/singleton/reagent/C = T
+			var/decl/reagent/C = T
 			reagent["name"] = initial(C.name)
 			reagents += list(reagent)
 		data["reagents"] = reagents.Copy()
@@ -371,12 +371,12 @@
 
 	if(occupant?.reagents)
 		var/chemical_amount = REAGENT_VOLUME(occupant.reagents, chemical)
-		var/is_dylo = ispath(chemical, /singleton/reagent/dylovene)
-		var/is_inaprov = ispath(chemical, /singleton/reagent/inaprovaline)
+		var/is_dylo = ispath(chemical, /decl/reagent/dylovene)
+		var/is_inaprov = ispath(chemical, /decl/reagent/inaprovaline)
 		if(is_dylo || is_inaprov)
-			var/dylo_amount = REAGENT_VOLUME(occupant.reagents, /singleton/reagent/dylovene)
-			var/inaprov_amount = REAGENT_VOLUME(occupant.reagents, /singleton/reagent/inaprovaline)
-			var/tricord_amount = REAGENT_VOLUME(occupant.reagents, /singleton/reagent/tricordrazine)
+			var/dylo_amount = REAGENT_VOLUME(occupant.reagents, /decl/reagent/dylovene)
+			var/inaprov_amount = REAGENT_VOLUME(occupant.reagents, /decl/reagent/inaprovaline)
+			var/tricord_amount = REAGENT_VOLUME(occupant.reagents, /decl/reagent/tricordrazine)
 			if(tricord_amount > 20)
 				if(is_dylo && inaprov_amount)
 					to_chat(user, SPAN_WARNING("The subject has too much tricordrazine."))

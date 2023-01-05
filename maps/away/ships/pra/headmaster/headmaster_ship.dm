@@ -8,7 +8,7 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/headmaster_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 
-/singleton/submap_archetype/headmaster_ship
+/decl/submap_archetype/headmaster_ship
 	map = "Headmaster Ship"
 	descriptor = "The second heaviest ship created by the People's Republic of Adhomai. As of now, it's the lightest heavy ship ever designed, barely staying above the classification of a cruiser."
 

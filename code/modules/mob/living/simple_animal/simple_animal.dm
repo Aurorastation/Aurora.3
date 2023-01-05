@@ -132,7 +132,7 @@
 
 	var/has_udder = FALSE
 	var/datum/reagents/udder = null
-	var/milk_type = /singleton/reagent/drink/milk
+	var/milk_type = /decl/reagent/drink/milk
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
@@ -422,10 +422,10 @@
 			return
 
 		for(var/_current in reagents.reagent_volumes)
-			var/singleton/reagent/current = GET_SINGLETON(_current)
+			var/decl/reagent/current = decls_repository.get_decl(_current)
 			var/removed = min(current.metabolism*digest_factor, REAGENT_VOLUME(reagents, _current))
-			if (_current == /singleton/reagent/nutriment)//If its food, it feeds us
-				var/singleton/reagent/nutriment/N = current
+			if (_current == /decl/reagent/nutriment)//If its food, it feeds us
+				var/decl/reagent/nutriment/N = current
 				adjustNutritionLoss(-removed*N.nutriment_factor)
 				var/heal_amount = removed*N.regen_factor
 				if (getBruteLoss() > 0)
@@ -876,7 +876,7 @@
 //Todo: add snowflakey shit to it.
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	apply_damage(shock_damage, BURN)
-	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
+	playsound(loc, /decl/sound_category/spark_sound, 50, 1, -1)
 	spark(loc, 5, alldirs)
 	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), SPAN_WARNING("You are shocked by \the [source]!"), SPAN_WARNING("You hear an electrical crack!"))
 
@@ -914,7 +914,7 @@
 			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/get_digestion_product()
-	return /singleton/reagent/nutriment
+	return /decl/reagent/nutriment
 
 /mob/living/simple_animal/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
 	..()

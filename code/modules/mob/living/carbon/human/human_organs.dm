@@ -173,7 +173,7 @@
 /mob/living/carbon/human/proc/handle_trace_chems()
 	//New are added for reagents to random organs.
 	for(var/_A in reagents.reagent_volumes)
-		var/singleton/reagent/A = GET_SINGLETON(_A)
+		var/decl/reagent/A = decls_repository.get_decl(_A)
 		var/obj/item/organ/O = pick(organs)
 		O.trace_chemicals[A.name] = 100
 
@@ -183,7 +183,7 @@
 		O.set_dna(dna)
 
 /mob/living/carbon/human/proc/get_blood_alcohol()
-	return round(intoxication/max(REAGENT_VOLUME(vessel, /singleton/reagent/blood),1),0.01)
+	return round(intoxication/max(REAGENT_VOLUME(vessel, /decl/reagent/blood),1),0.01)
 
 /mob/living/proc/is_asystole()
 	return FALSE

@@ -58,7 +58,7 @@
 /obj/item/clothing/suit/storage/toggle/proc/toggle_open()
 	opened = !opened
 	to_chat(usr, SPAN_NOTICE("You [opened ? "unbutton" : "button up"] \the [src]."))
-	playsound(src, /singleton/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
+	playsound(src, /decl/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
 	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 	item_state = icon_state
 	update_icon()

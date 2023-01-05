@@ -12,7 +12,7 @@
 
 
 /mob/living/carbon/human/proc/setup_gestalt()
-	composition_reagent = /singleton/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
+	composition_reagent = /decl/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	setup_dionastats()
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph

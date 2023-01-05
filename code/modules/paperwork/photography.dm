@@ -106,7 +106,7 @@ var/global/photo_count = 0
 		var/mob/M = usr
 		if(!( istype(over_object, /obj/screen) ))
 			return ..()
-		playsound(loc, /singleton/sound_category/rustle_sound, 50, 1, -5)
+		playsound(loc, /decl/sound_category/rustle_sound, 50, 1, -5)
 		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
 			switch(over_object.name)
 				if("right hand")

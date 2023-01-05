@@ -1,10 +1,10 @@
-/singleton/maneuver/leap
+/decl/maneuver/leap
 	name = "leap"
 	stamina_cost = 10
 	charge_cost = 500
 	reflexive_modifier = 1.5
 
-/singleton/maneuver/leap/perform(var/mob/living/user, var/atom/target, var/strength, var/reflexively = FALSE)
+/decl/maneuver/leap/perform(var/mob/living/user, var/atom/target, var/strength, var/reflexively = FALSE)
 	. = ..()
 	if(.)
 		var/old_pass_flags = user.pass_flags
@@ -18,7 +18,7 @@
 		user.throw_at(get_turf(target), strength, 1, user, FALSE)
 		end_leap(user, target, old_pass_flags)
 
-/singleton/maneuver/leap/proc/end_leap(var/mob/living/user, var/atom/target, var/pass_flag)
+/decl/maneuver/leap/proc/end_leap(var/mob/living/user, var/atom/target, var/pass_flag)
 	user.pass_flags = pass_flag
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -44,10 +44,10 @@
 						to_chat(H, SPAN_DANGER("<font size=4>You land on [rebecca]!</font>")) //since the mob won't be on the turf yet
 	user.post_maneuver()
 
-/singleton/maneuver/leap/show_initial_message(var/mob/living/user, var/atom/target)
+/decl/maneuver/leap/show_initial_message(var/mob/living/user, var/atom/target)
 	user.visible_message(SPAN_WARNING("\The [user] crouches, preparing for a leap!"))
 
-/singleton/maneuver/leap/can_be_used_by(var/mob/living/user, var/atom/target, var/silent = FALSE)
+/decl/maneuver/leap/can_be_used_by(var/mob/living/user, var/atom/target, var/silent = FALSE)
 	. = ..()
 	if(.)
 		var/can_leap_distance = user.get_jump_distance() * user.get_acrobatics_multiplier()
@@ -65,13 +65,13 @@
 			return FALSE
 		return TRUE
 
-/singleton/maneuver/leap/spider
+/decl/maneuver/leap/spider
 	stamina_cost = 0
 
-/singleton/maneuver/leap/spider/show_initial_message(var/mob/living/user, var/atom/target)
+/decl/maneuver/leap/spider/show_initial_message(var/mob/living/user, var/atom/target)
 	user.visible_message(SPAN_WARNING("\The [user] reels back and prepares to launch itself at \the [target]!"))
 
-/singleton/maneuver/leap/grab/end_leap(mob/living/user, atom/target, pass_flag)
+/decl/maneuver/leap/grab/end_leap(mob/living/user, atom/target, pass_flag)
 	. = ..()
 	if(ishuman(user) && !user.lying && ismob(target) && user.Adjacent(target))
 		var/mob/living/carbon/human/H = user
@@ -92,21 +92,21 @@
 		G.icon_state = "grabbed1"
 		G.synch()
 
-/singleton/maneuver/leap/industrial
+/decl/maneuver/leap/industrial
 	cooldown = 8 SECONDS
 
-/singleton/maneuver/leap/zenghu
+/decl/maneuver/leap/zenghu
 	cooldown = 4 SECONDS
 	charge_cost = 1500
 
-/singleton/maneuver/leap/bulwark
+/decl/maneuver/leap/bulwark
 	cooldown = 10 SECONDS //bigger than industrials = more cooldown
 
-/singleton/maneuver/leap/tajara
+/decl/maneuver/leap/tajara
 	cooldown = 4 SECONDS
 	delay = 2 SECONDS
 	stamina_cost = 25
 
-/singleton/maneuver/leap/tajara/msai
+/decl/maneuver/leap/tajara/msai
 	delay = 1 SECOND
 	cooldown = 4 SECONDS

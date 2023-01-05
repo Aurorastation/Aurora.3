@@ -8,9 +8,9 @@
 //			/obj/item/item: The equipped item.
 //			slot:           The slot equipped to.
 
-var/singleton/observ/mob_equipped/mob_equipped_event = new()
+var/datum/observ/mob_equipped/mob_equipped_event = new()
 
-/singleton/observ/mob_equipped
+/datum/observ/mob_equipped
 	name = "Mob Equipped"
 	expected_type = /mob
 
@@ -24,9 +24,9 @@ var/singleton/observ/mob_equipped/mob_equipped_event = new()
 //			/mob/equipper:  The mob that equipped the item.
 //			slot:           The slot equipped to.
 
-var/singleton/observ/item_equipped/item_equipped_event = new()
+var/datum/observ/item_equipped/item_equipped_event = new()
 
-/singleton/observ/item_equipped
+/datum/observ/item_equipped
 	name = "Item Equipped"
 	expected_type = /obj/item
 

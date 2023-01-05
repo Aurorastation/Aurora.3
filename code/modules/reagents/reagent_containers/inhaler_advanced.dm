@@ -212,7 +212,7 @@
 	name = "large inhaler cartridge (hyperzine)"
 	Initialize()
 		. =..()
-		reagents.add_reagent(/singleton/reagent/hyperzine, 30)
+		reagents.add_reagent(/decl/reagent/hyperzine, 30)
 		flags ^= OPENCONTAINER
 		update_icon()
 		return
@@ -221,7 +221,7 @@
 	name = "large inhaler cartridge (inaprovaline)"
 	Initialize()
 		. =..()
-		reagents.add_reagent(/singleton/reagent/inaprovaline, 30)
+		reagents.add_reagent(/decl/reagent/inaprovaline, 30)
 		flags ^= OPENCONTAINER
 		update_icon()
 		return

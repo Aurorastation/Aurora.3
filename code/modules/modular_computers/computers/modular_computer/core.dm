@@ -47,7 +47,7 @@
 	check_update_ui_need()
 
 	if(looping_sound && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
-		playsound(get_turf(src), /singleton/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
+		playsound(get_turf(src), /decl/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
 		ambience_last_played_time = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(preset_type)

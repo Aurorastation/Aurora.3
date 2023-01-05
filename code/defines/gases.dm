@@ -1,4 +1,4 @@
-/singleton/xgm_gas/oxygen
+/decl/xgm_gas/oxygen
 	id = GAS_OXYGEN
 	name = "Oxygen"
 	specific_heat = 20	// J/(mol*K)
@@ -6,19 +6,19 @@
 
 	flags = XGM_GAS_OXIDIZER
 
-/singleton/xgm_gas/nitrogen
+/decl/xgm_gas/nitrogen
 	id = GAS_NITROGEN
 	name = "Nitrogen"
 	specific_heat = 20	// J/(mol*K)
 	molar_mass = 0.028	// kg/mol
 
-/singleton/xgm_gas/carbon_dioxide
+/decl/xgm_gas/carbon_dioxide
 	id = GAS_CO2
 	name = "Carbon Dioxide"
 	specific_heat = 30	// J/(mol*K)
 	molar_mass = 0.044	// kg/mol
 
-/singleton/xgm_gas/phoron
+/decl/xgm_gas/phoron
 	id = GAS_PHORON
 	name = "Phoron"
 
@@ -35,14 +35,14 @@
 	overlay_limit = 0.7
 	flags = XGM_GAS_FUEL | XGM_GAS_CONTAMINANT
 
-/singleton/xgm_gas/hydrogen
+/decl/xgm_gas/hydrogen
 	id = GAS_HYDROGEN
 	name = "Hydrogen"
 	specific_heat = 100
 	molar_mass = 0.002
 	flags = XGM_GAS_FUEL
 
-/singleton/xgm_gas/sleeping_agent
+/decl/xgm_gas/sleeping_agent
 	id = GAS_N2O
 	name = "Nitrous Oxide"
 	specific_heat = 40	// J/(mol*K)
@@ -51,11 +51,11 @@
 	overlay_limit = 1
 	flags = XGM_GAS_OXIDIZER
 
-/singleton/xgm_gas/alium
+/decl/xgm_gas/alium
 	id = GAS_ALIEN
 	name = "Aliether"
 
-/singleton/xgm_gas/alium/New()
+/decl/xgm_gas/alium/New()
 	var/num = rand(100,999)
 	name = "Compound #[num]"
 	specific_heat = rand(1, 400)	// J/(mol*K)
@@ -71,7 +71,7 @@
 		tile_color = RANDOM_RGB
 		overlay_limit = 0.5
 
-/singleton/xgm_gas/vapor
+/decl/xgm_gas/vapor
 	id = GAS_STEAM
 	name = "Steam"
 	tile_overlay = "generic"

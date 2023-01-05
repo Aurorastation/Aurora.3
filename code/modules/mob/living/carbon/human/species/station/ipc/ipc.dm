@@ -119,17 +119,17 @@
 	max_hydration_factor = -1
 	max_nutrition_factor = -1
 
-	bodyfall_sound = /singleton/sound_category/bodyfall_machine_sound
+	bodyfall_sound = /decl/sound_category/bodyfall_machine_sound
 
 	possible_cultures = list(
-		/singleton/origin_item/culture/ipc_sol,
-		/singleton/origin_item/culture/ipc_elyra,
-		/singleton/origin_item/culture/ipc_coalition,
-		/singleton/origin_item/culture/ipc_tau_ceti,
-		/singleton/origin_item/culture/golden_deep,
-		/singleton/origin_item/culture/megacorporate,
-		/singleton/origin_item/culture/scrapper,
-		/singleton/origin_item/culture/orepit_trinary
+		/decl/origin_item/culture/ipc_sol,
+		/decl/origin_item/culture/ipc_elyra,
+		/decl/origin_item/culture/ipc_coalition,
+		/decl/origin_item/culture/ipc_tau_ceti,
+		/decl/origin_item/culture/golden_deep,
+		/decl/origin_item/culture/megacorporate,
+		/decl/origin_item/culture/scrapper,
+		/decl/origin_item/culture/orepit_trinary
 	)
 
 	alterable_internal_organs = list()

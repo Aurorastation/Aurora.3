@@ -57,7 +57,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 			return
 		if(shaken)
 			for(var/_R in reagents.reagent_volumes)
-				var/singleton/reagent/R = GET_SINGLETON(_R)
+				var/decl/reagent/R = decls_repository.get_decl(_R)
 				if(R.carbonated)
 					boom(user)
 					return
@@ -143,7 +143,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	center_of_mass = list("x"=16, "y"=9)
-	reagents_to_add = list(/singleton/reagent/drink/milk = 50)
+	reagents_to_add = list(/decl/reagent/drink/milk = 50)
 
 /obj/item/reagent_containers/food/drinks/soymilk
 	name = "soymilk"
@@ -153,7 +153,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	center_of_mass = list("x"=16, "y"=9)
-	reagents_to_add = list(/singleton/reagent/drink/milk/soymilk = 50)
+	reagents_to_add = list(/decl/reagent/drink/milk/soymilk = 50)
 
 /obj/item/reagent_containers/food/drinks/coffee
 	name = "\improper Martian Dark Roast"
@@ -165,7 +165,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/singleton/reagent/drink/coffee = 30)
+	reagents_to_add = list(/decl/reagent/drink/coffee = 30)
 
 /obj/item/reagent_containers/food/drinks/pslatte
 	name = "seasonal pumpkin spice latte"
@@ -178,7 +178,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/singleton/reagent/drink/coffee/sadpslatte = 30)
+	reagents_to_add = list(/decl/reagent/drink/coffee/sadpslatte = 30)
 
 /obj/item/reagent_containers/food/drinks/tea
 	name = "\improper Sol-III tea"
@@ -190,7 +190,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/singleton/reagent/drink/tea = 30)
+	reagents_to_add = list(/decl/reagent/drink/tea = 30)
 
 /obj/item/reagent_containers/food/drinks/greentea
 	name = "green tea"
@@ -203,7 +203,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/singleton/reagent/drink/tea/greentea = 30)
+	reagents_to_add = list(/decl/reagent/drink/tea/greentea = 30)
 
 /obj/item/reagent_containers/food/drinks/hotcider
 	name = "hot cider"
@@ -216,7 +216,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/singleton/reagent/drink/ciderhot = 30)
+	reagents_to_add = list(/decl/reagent/drink/ciderhot = 30)
 
 /obj/item/reagent_containers/food/drinks/chaitea
 	name = "chai tea"
@@ -229,7 +229,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/singleton/reagent/drink/tea/chaitea = 30)
+	reagents_to_add = list(/decl/reagent/drink/tea/chaitea = 30)
 
 /obj/item/reagent_containers/food/drinks/ice
 	name = "\improper Admiral's ice cup"
@@ -241,7 +241,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=15, "y"=10)
-	reagents_to_add = list(/singleton/reagent/drink/ice = 30)
+	reagents_to_add = list(/decl/reagent/drink/ice = 30)
 
 /obj/item/reagent_containers/food/drinks/h_chocolate
 	name = "\improper Red Gaia hot coco"
@@ -253,7 +253,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=15, "y"=13)
-	reagents_to_add = list(/singleton/reagent/drink/hot_coco = 30)
+	reagents_to_add = list(/decl/reagent/drink/hot_coco = 30)
 
 /obj/item/reagent_containers/food/drinks/dry_ramen
 	name = "cup ramen"
@@ -265,7 +265,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/singleton/reagent/drink/dry_ramen = 30)
+	reagents_to_add = list(/decl/reagent/drink/dry_ramen = 30)
 	is_liquid = FALSE
 
 /obj/item/reagent_containers/food/drinks/dry_ramen/on_reagent_change()
@@ -286,7 +286,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/disk.ogg'
 	pickup_sound = 'sound/items/pickup/disk.ogg'
 
-	reagents_to_add = list(/singleton/reagent/water = 30)
+	reagents_to_add = list(/decl/reagent/water = 30)
 
 //heehoo bottle flipping
 /obj/item/reagent_containers/food/drinks/waterbottle/throw_impact()
@@ -337,55 +337,55 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "Full of vitamins and deliciousness!"
 	icon_state = "orangejuice"
 
-	reagents_to_add = list(/singleton/reagent/drink/orangejuice = 100)
+	reagents_to_add = list(/decl/reagent/drink/orangejuice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/cream
 	name = "milk cream"
 	desc = "It's cream. Made from milk. What else did you think you'd find in there?"
 	icon_state = "cream"
 
-	reagents_to_add = list(/singleton/reagent/drink/milk/cream = 100)
+	reagents_to_add = list(/decl/reagent/drink/milk/cream = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/tomatojuice
 	name = "tomato juice"
 	desc = "Well, at least it LOOKS like tomato juice. You can't tell with all that redness."
 	icon_state = "tomatojuice"
 
-	reagents_to_add = list(/singleton/reagent/drink/tomatojuice = 100)
+	reagents_to_add = list(/decl/reagent/drink/tomatojuice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/limejuice
 	name = "lime juice"
 	desc = "Sweet-sour goodness."
 	icon_state = "limejuice"
 
-	reagents_to_add = list(/singleton/reagent/drink/limejuice = 100)
+	reagents_to_add = list(/decl/reagent/drink/limejuice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/lemonjuice
 	name = "lemon juice"
 	desc = "This juice is VERY sour."
 	icon_state = "lemoncarton"
 
-	reagents_to_add = list(/singleton/reagent/drink/lemonjuice = 100)
+	reagents_to_add = list(/decl/reagent/drink/lemonjuice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/dynjuice
 	name = "dyn juice"
 	desc = "Juice from a Skrell medicinal herb. It's supposed to be diluted."
 	icon_state = "dyncarton"
 
-	reagents_to_add = list(/singleton/reagent/drink/dynjuice = 100)
+	reagents_to_add = list(/decl/reagent/drink/dynjuice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/applejuice
 	name = "apple juice"
 	desc = "Juice from an apple. Yes."
 	icon_state = "applejuice"
 
-	reagents_to_add = list(/singleton/reagent/drink/applejuice = 100)
+	reagents_to_add = list(/decl/reagent/drink/applejuice = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/fatshouters
 	name = "fatshouters milk carton"
 	desc = "Fatty fatshouters milk in a carton."
 
-	reagents_to_add = list(/singleton/reagent/drink/milk/adhomai = 100)
+	reagents_to_add = list(/decl/reagent/drink/milk/adhomai = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/mutthir
 	name = "mutthir carton"
@@ -395,7 +395,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	The drink can also be smoked for flavor. Mutthir is believed to have originated from the worldwide appreciated Fatshouters' fermented milk. Rock Nomads living in the Nomadic Host \
 	were quick to adopt the drink to their diet."
 
-	reagents_to_add = list(/singleton/reagent/drink/milk/adhomai/mutthir = 100)
+	reagents_to_add = list(/decl/reagent/drink/milk/adhomai/mutthir = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/eggnog
 	name = "eggnog carton"
@@ -404,7 +404,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc_extended = "Eggnog, also called Egg flip, is an alcoholic beverage, made out of egg, milk or cream, sugar and alcohol. Eggnog is by principle a longdrink and they can be served \
 	hot or cold. Originally it was served in winter and hot. Every serving uses one egg. It is a classic Christmas beverage, loved by every species, universe-wide. Or so you heard."
 
-	reagents_to_add = list(/singleton/reagent/alcohol/eggnog = 100)
+	reagents_to_add = list(/decl/reagent/alcohol/eggnog = 100)
 
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink
@@ -473,7 +473,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 			user.put_in_hands(cap)
 			flags |= OPENCONTAINER
 			cap = null
-			playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
+			playsound(src.loc, /decl/sound_category/shaker_lid_off, 50, 1)
 			update_icon()
 			return
 		if(top)
@@ -483,7 +483,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		return
 	if(last_shake <= world.time - 10) //Spam limiter.
 		last_shake = world.time
-		playsound(src.loc, /singleton/sound_category/shaker_shaking, 50, 1)
+		playsound(src.loc, /decl/sound_category/shaker_shaking, 50, 1)
 	src.add_fingerprint(user)
 	return
 
@@ -503,7 +503,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		user.drop_from_inventory(W, src)
 		flags ^= OPENCONTAINER
 		cap = W
-		playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
+		playsound(src.loc, /decl/sound_category/shaker_lid_off, 50, 1)
 		update_icon()
 		return TRUE
 	if(istype(W, /obj/item/shaker_top))
@@ -514,7 +514,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		amount_per_transfer_from_this = 10
 		user.drop_from_inventory(W, src)
 		top = W
-		playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
+		playsound(src.loc, /decl/sound_category/shaker_lid_off, 50, 1)
 		update_icon()
 		return TRUE
 	return ..()
@@ -552,7 +552,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	amount_per_transfer_from_this = 120
 	usr.put_in_hands(top)
 	top = null
-	playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
+	playsound(src.loc, /decl/sound_category/shaker_lid_off, 50, 1)
 	update_icon()
 
 /obj/item/shaker_top
@@ -710,7 +710,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/singleton/reagent/drink/milk = 20)
+	reagents_to_add = list(/decl/reagent/drink/milk = 20)
 
 /obj/item/reagent_containers/food/drinks/small_milk_choco
 	name = "small chocolate milk carton"
@@ -720,7 +720,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/singleton/reagent/drink/milk/chocolate = 20)
+	reagents_to_add = list(/decl/reagent/drink/milk/chocolate = 20)
 
 /obj/item/reagent_containers/food/drinks/small_milk_strawberry
 	name = "small strawberry milk carton"
@@ -730,4 +730,4 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/singleton/reagent/drink/milk/strawberry = 20)
+	reagents_to_add = list(/decl/reagent/drink/milk/strawberry = 20)

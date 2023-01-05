@@ -3,7 +3,7 @@
  */
 
 /*
- * As long strings are used in the '/singleton/recipe's, this test is absolutely necessary
+ * As long strings are used in the '/decl/recipe's, this test is absolutely necessary
  */
 /datum/unit_test/cooking_recipes_fruits
 	name = "COOKING: Check recipe fruit tags"
@@ -31,7 +31,7 @@
 		var/list/tags = list(ktag)
 
 		// Fuck you asfaghewqWAFAWE
-		// See /singleton/recipe/proc/check_fruit(...) in recipe.dm for why
+		// See /decl/recipe/proc/check_fruit(...) in recipe.dm for why
 		if(S.get_trait(TRAIT_FLESH_COLOUR))
 			tags += "[ktag] slice"
 			tags += "dried [ktag] slice"
@@ -43,9 +43,9 @@
 				tags_in_use[tag] = FALSE
 			tags_available[tag] += S.type
 
-	var/list/recipes = GET_SINGLETON_SUBTYPE_MAP(/singleton/recipe)
+	var/list/recipes = decls_repository.get_decls_of_subtype(/decl/recipe)
 	for(var/rtype in recipes)
-		var/singleton/recipe/R = GET_SINGLETON(rtype)
+		var/decl/recipe/R = decls_repository.get_decl(rtype)
 		if(R.fruit && length(R.fruit))
 			for(var/tag in R.fruit)
 				if(!(tag in tags_required))

@@ -83,8 +83,8 @@
 	var/displays_maptext = FALSE
 	var/can_ammo_display = TRUE
 	var/obj/item/ammo_display
-	var/empty_sound = /singleton/sound_category/out_of_ammo
-	var/casing_drop_sound = /singleton/sound_category/casing_drop_sound
+	var/empty_sound = /decl/sound_category/out_of_ammo
+	var/casing_drop_sound = /decl/sound_category/casing_drop_sound
 	maptext_x = 22
 	maptext_y = 2
 
@@ -109,7 +109,7 @@
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
-	var/wield_sound = /singleton/sound_category/generic_wield_sound
+	var/wield_sound = /decl/sound_category/generic_wield_sound
 	var/unwield_sound = null
 	var/one_hand_fa_penalty = 0 // Additional accuracy/dispersion penalty for using full auto one-handed
 

@@ -3,7 +3,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
 	var/icon_state_active = "dispenser_active"
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = /decl/sound_category/button_sound
 
 	obj_flags = OBJ_FLAG_ROTATABLE
 
@@ -131,7 +131,7 @@
 	data["beakerCurrentVolume"] = container?.reagents?.total_volume
 	var beakerD[0]
 	for(var/_R in container?.reagents?.reagent_volumes)
-		var/singleton/reagent/R = GET_SINGLETON(_R)
+		var/decl/reagent/R = decls_repository.get_decl(_R)
 		beakerD[++beakerD.len] = list("name" = R.name, "volume" = REAGENT_VOLUME(container.reagents, _R))
 	data["beakerContents"] = beakerD
 	var chemicals[0]

@@ -8,7 +8,7 @@
 	id = "tajara_mining_jack"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_mining_jack)
 
-/singleton/submap_archetype/tajara_mining_jack
+/decl/submap_archetype/tajara_mining_jack
 	map = "adhomian mining outpost"
 	descriptor = "An outpost used by the crew of mining jacks."
 

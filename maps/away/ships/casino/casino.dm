@@ -8,7 +8,7 @@
 	id = "awaysite_casino"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/casino_cutter)
 
-/singleton/submap_archetype/casino
+/decl/submap_archetype/casino
 	map = "Casino"
 	descriptor = "A casino ship!"
 

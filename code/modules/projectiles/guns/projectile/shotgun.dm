@@ -58,7 +58,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
 	var/recentpump = 0 // to prevent spammage
-	var/rack_sound = /singleton/sound_category/shotgun_pump
+	var/rack_sound = /decl/sound_category/shotgun_pump
 	var/rack_verb = "pump"
 
 /obj/item/gun/projectile/shotgun/pump/consume_next_projectile()

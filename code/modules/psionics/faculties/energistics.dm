@@ -108,7 +108,7 @@
 		if(istype(target,/obj/item/clothing/mask/smokable/cigarette))
 			var/obj/item/clothing/mask/smokable/cigarette/S = target
 			S.light(SPAN_NOTICE("\The [user] snaps [user.get_pronoun("his")] fingers and \the [S] lights up."))
-			playsound(S.loc, /singleton/sound_category/spark_sound, 50, 1)
+			playsound(S.loc, /decl/sound_category/spark_sound, 50, 1)
 			return TRUE
 		if(!isturf(target))
 			return FALSE

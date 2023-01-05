@@ -54,7 +54,7 @@
 		return FALSE
 	if(!istype(O))
 		return FALSE
-	if(REAGENT_VOLUME(O.reagents, /singleton/reagent/fuel) >= 750)
+	if(REAGENT_VOLUME(O.reagents, /decl/reagent/fuel) >= 750)
 		return TRUE
 	return FALSE
 

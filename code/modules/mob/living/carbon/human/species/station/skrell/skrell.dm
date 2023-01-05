@@ -87,8 +87,8 @@
 	default_h_style = "Headtails"
 
 	possible_cultures = list(
-		/singleton/origin_item/culture/federation,
-		/singleton/origin_item/culture/non_federation
+		/decl/origin_item/culture/federation,
+		/decl/origin_item/culture/non_federation
 	)
 	
 	inherent_verbs = list(
@@ -96,15 +96,15 @@
 	)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
-	bodyfall_sound = /singleton/sound_category/bodyfall_skrell_sound
-	footsound = /singleton/sound_category/footstep_skrell_sound
+	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound
+	footsound = /decl/sound_category/footstep_skrell_sound
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
 /datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
 	var/list/trail_info = ..()
 	if(!length(trail_info) && !H.shoes)
-		var/list/blood_data = REAGENT_DATA(H.vessel, /singleton/reagent/blood)
+		var/list/blood_data = REAGENT_DATA(H.vessel, /decl/reagent/blood)
 		trail_info["footprint_DNA"] = list(blood_data["blood_DNA"] = blood_data["blood_type"])
 		trail_info["footprint_color"] = rgb(H.r_skin, H.g_skin, H.b_skin, 25)
 		trail_info["footprint_type"] = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot/del_dry // makes skrellprints del on dry

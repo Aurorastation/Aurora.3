@@ -58,7 +58,7 @@
 /obj/item/extinguisher/mech/New()
 	reagents = new/datum/reagents(max_water)
 	reagents.my_atom = src
-	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
+	reagents.add_reagent(/decl/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
 	..()
 
 /obj/item/extinguisher/mech/get_hardpoint_maptext()

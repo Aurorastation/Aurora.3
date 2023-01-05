@@ -5,7 +5,7 @@
 	icon_state = "wm_10"
 	density = 1
 	anchored = 1.0
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = /decl/sound_category/button_sound
 	clickvol = 40
 
 	var/state = 1

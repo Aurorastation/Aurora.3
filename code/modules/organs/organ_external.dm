@@ -723,7 +723,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	germ_level++
 
-	if(germ_level >= INFECTION_LEVEL_TWO && REAGENT_VOLUME(owner.reagents, /singleton/reagent/thetamycin) < 5) //The presence of 5 units of thetamycin will stop infections spreading
+	if(germ_level >= INFECTION_LEVEL_TWO && REAGENT_VOLUME(owner.reagents, /decl/reagent/thetamycin) < 5) //The presence of 5 units of thetamycin will stop infections spreading
 		//SPREADING TO INTERNAL ORGANS
 		if(isnull(infect_target_internal) || QDELETED(infect_target_internal))
 			infect_target_internal = get_infect_target(internal_organs)
@@ -1094,7 +1094,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		owner.emote("scream")
 		owner.flash_strong_pain()
 
-	playsound(src.loc, /singleton/sound_category/fracture_sound, 100, 1, -2)
+	playsound(src.loc, /decl/sound_category/fracture_sound, 100, 1, -2)
 	status |= ORGAN_BROKEN
 	broken_description = pick("Broken","Fracture","Hairline Fracture")
 	perma_injury = brute_dam

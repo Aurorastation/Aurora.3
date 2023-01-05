@@ -29,16 +29,16 @@
 
 /datum/reagents/proc/apply_force(var/force) // applies force to the reagents inside it
 	for (var/_A in reagent_volumes)
-		var/singleton/reagent/A = GET_SINGLETON(_A)
+		var/decl/reagent/A = decls_repository.get_decl(_A)
 		A.apply_force(force, src)
 
 /datum/reagents/proc/get_primary_reagent_name() // Returns the name of the reagent with the biggest volume.
-	var/singleton/reagent/reagent = get_primary_reagent_decl()
+	var/decl/reagent/reagent = get_primary_reagent_decl()
 	if(reagent)
 		. = reagent.name
 
 /datum/reagents/proc/get_primary_reagent_decl()
-	return primary_reagent && GET_SINGLETON(primary_reagent)
+	return primary_reagent && decls_repository.get_decl(primary_reagent)
 
 /datum/reagents/proc/update_total() // Updates volume and temperature.
 	total_volume = 0
@@ -120,7 +120,7 @@
 	new_thermal_energy /= amount // Re-multiplied later
 	amount = min(amount, REAGENTS_FREE_SPACE(src))
 	new_thermal_energy *= amount
-	var/singleton/reagent/newreagent = GET_SINGLETON(rtype)
+	var/decl/reagent/newreagent = decls_repository.get_decl(rtype)
 	LAZYINITLIST(reagent_volumes)
 	if(!reagent_volumes[rtype])	// New reagent
 		reagent_volumes[rtype] = amount
@@ -158,14 +158,14 @@
 	if(!isnum(amount) || old_volume <= 0)
 		return FALSE
 	amount = min(amount, old_volume)
-	var/singleton/reagent/current = GET_SINGLETON(rtype)
+	var/decl/reagent/current = decls_repository.get_decl(rtype)
 	thermal_energy -= current.get_thermal_energy(src) * (amount/old_volume)
 	reagent_volumes[rtype] -= amount
 	update_holder(!safety)
 	return TRUE
 
 /datum/reagents/proc/del_reagent(var/rtype, update = TRUE)
-	var/singleton/reagent/current = GET_SINGLETON(rtype)
+	var/decl/reagent/current = decls_repository.get_decl(rtype)
 	if(REAGENT_VOLUME(src, rtype) > 0)
 		thermal_energy -= current.get_thermal_energy(src)
 	if(ismob(my_atom))
@@ -196,7 +196,7 @@
 /datum/reagents/proc/clear_reagents()
 	if(ismob(my_atom))
 		for(var/_current in reagent_volumes)
-			var/singleton/reagent/current = GET_SINGLETON(_current)
+			var/decl/reagent/current = decls_repository.get_decl(_current)
 			current.final_effect(my_atom, src)
 	LAZYCLEARLIST(reagent_volumes)
 	LAZYCLEARLIST(reagent_data)
@@ -205,14 +205,14 @@
 /datum/reagents/proc/get_reagents()
 	. = list()
 	for(var/_current in reagent_volumes)
-		var/singleton/reagent/current = GET_SINGLETON(_current)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		. += "[current.name] ([reagent_volumes[_current]])"
 	return english_list(., "EMPTY", "", ", ", ", ")
 
 /datum/reagents/proc/get_ids_by_phase(var/phase) // this proc will probably need to be changed if you can have one reagent in multiple states at the same time
 	. = list()
 	for(var/_current in reagent_volumes)
-		var/singleton/reagent/current = GET_SINGLETON(_current)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		if(phase == current.reagent_state)
 			. += _current
 
@@ -227,7 +227,7 @@
 	var/part = amount / total_volume
 
 	for(var/_current in reagent_volumes)
-		var/singleton/reagent/current = GET_SINGLETON(_current)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		var/amount_to_remove = reagent_volumes[_current] * part
 		remove_reagent(current.type, amount_to_remove, 1)
 
@@ -250,7 +250,7 @@
 	var/part = amount / total_volume
 
 	for(var/_current in reagent_volumes)
-		var/singleton/reagent/current = GET_SINGLETON(_current)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		var/amount_to_transfer = reagent_volumes[_current] * part
 		var/energy_to_transfer = current.get_thermal_energy(src) * part
 		target.add_reagent(_current, amount_to_transfer * multiplier, REAGENT_DATA(src, _current), TRUE, new_thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
@@ -296,7 +296,7 @@
 	if (!target)
 		return
 
-	var/singleton/reagent/transfering_reagent = GET_SINGLETON(rtype)
+	var/decl/reagent/transfering_reagent = decls_repository.get_decl(rtype)
 
 	if (istype(target, /atom))
 		var/atom/A = target
@@ -358,7 +358,7 @@
 		target.visible_message(SPAN_DANGER("The freezing liquid burns [target]!"))
 
 	for(var/_current in reagent_volumes)
-		var/singleton/reagent/current = GET_SINGLETON(_current)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		current.touch_mob(target, reagent_volumes[_current], src)
 
 	update_holder()
@@ -368,7 +368,7 @@
 		return
 
 	for(var/_current in reagent_volumes)
-		var/singleton/reagent/current = GET_SINGLETON(_current)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		current.touch_turf(target, reagent_volumes[_current], src)
 
 	update_holder()
@@ -378,7 +378,7 @@
 		return
 
 	for(var/_current in reagent_volumes)
-		var/singleton/reagent/current = GET_SINGLETON(_current)
+		var/decl/reagent/current = decls_repository.get_decl(_current)
 		current.touch_obj(target, reagent_volumes[_current], src)
 
 	update_holder()

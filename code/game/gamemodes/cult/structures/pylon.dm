@@ -429,7 +429,7 @@
 
 /obj/structure/cult/pylon/proc/shatter()
 	visible_message(SPAN_DANGER("The pylon shatters into shards of crystal!"), SPAN_WARNING("You hear a tinkle of crystal shards."))
-	playsound(get_turf(src), /singleton/sound_category/glass_break_sound, 75, 1)
+	playsound(get_turf(src), /decl/sound_category/glass_break_sound, 75, 1)
 	isbroken = TRUE
 	if(pylonmode == PYLON_TURRET)
 		//If the pylon had a soul in it then it plays a creepy evil sound as the soul is released

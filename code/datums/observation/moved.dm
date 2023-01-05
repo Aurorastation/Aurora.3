@@ -1,10 +1,10 @@
-var/singleton/observ/moved/moved_event = new()
+var/datum/observ/moved/moved_event = new()
 
-/singleton/observ/moved
+/datum/observ/moved
 	name = "Moved"
 	expected_type = /atom/movable
 
-/singleton/observ/moved/register(var/eventSource, var/datum/procOwner, var/proc_call)
+/datum/observ/moved/register(var/eventSource, var/datum/procOwner, var/proc_call)
 	. = ..()
 	var/atom/movable/child = eventSource
 	if(.)

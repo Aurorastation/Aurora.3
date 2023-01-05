@@ -240,9 +240,9 @@
 	if(last_accent_sound < world.time && prob(20))
 		var/aggression = min(((damage / 800) * (power / 2500)), 1.0) * 100
 		if(damage >= 300)
-			playsound(src, /singleton/sound_category/supermatter_delam, max(50, aggression), FALSE, 10)
+			playsound(src, /decl/sound_category/supermatter_delam, max(50, aggression), FALSE, 10)
 		else
-			playsound(src, /singleton/sound_category/supermatter_calm, max(50, aggression), FALSE, 10)
+			playsound(src, /decl/sound_category/supermatter_calm, max(50, aggression), FALSE, 10)
 		var/next_sound = round((100 - aggression) * 5)
 		last_accent_sound = world.time + max(SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN, next_sound)
 

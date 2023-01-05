@@ -226,7 +226,7 @@
 				protected = 1
 
 	if(!protected)
-		playsound(src.loc, /singleton/sound_category/spark_sound, 75, 1, -1)
+		playsound(src.loc, /decl/sound_category/spark_sound, 75, 1, -1)
 		to_chat(user, "<span class='warning'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</span>")
 		return*/
 	else  //welp, the guy is protected, we can continue
@@ -252,7 +252,7 @@
 				protected = 1
 
 	if(!protected)
-		playsound(src.loc, /singleton/sound_category/spark_sound, 75, 1, -1)
+		playsound(src.loc, /decl/sound_category/spark_sound, 75, 1, -1)
 		to_chat(user, "<span class='warning'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</span>")
 		return*/
 	else

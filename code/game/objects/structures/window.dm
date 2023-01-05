@@ -71,15 +71,15 @@
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
 			if(message)
 				visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
 			if(message)
 				visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
 			if(message)
 				visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 	return
 
 /obj/structure/window/proc/apply_silicate(var/amount)
@@ -100,7 +100,7 @@
 	add_overlay(img)
 
 /obj/structure/window/proc/shatter(var/display_message = 1)
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message(SPAN_WARNING("\The [src] shatters!"))
 	if(dir == SOUTHWEST)
@@ -177,7 +177,7 @@
 	if(ismob(AM))
 		if(isliving(AM))
 			var/mob/living/M = AM
-			M.turf_collision(src, speed, /singleton/sound_category/glasscrack_sound)
+			M.turf_collision(src, speed, /decl/sound_category/glasscrack_sound)
 			return
 		else
 			visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
@@ -702,7 +702,7 @@
 	return
 
 /obj/structure/window/full/shatter(var/display_message = 1)
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message(SPAN_WARNING("\The [src] shatters!"))
 	if(reinf)
@@ -728,13 +728,13 @@
 			playsound(loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
 			visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
 			visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
 			visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
-			playsound(loc, /singleton/sound_category/glasscrack_sound, 100, 1)
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 	return
 
 /obj/structure/window/full/dismantle_window()

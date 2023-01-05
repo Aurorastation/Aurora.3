@@ -76,7 +76,7 @@
 				sleeping  = max(sleeping, 6 SECONDS)
 				adjustBrainLoss(1,5)
 
-	if (bac > INTOX_DEATH*SR && !src.reagents.has_reagent(/singleton/reagent/ethylredoxrazine)) //Death usually occurs here
+	if (bac > INTOX_DEATH*SR && !src.reagents.has_reagent(/decl/reagent/ethylredoxrazine)) //Death usually occurs here
 		add_chemical_effect(CE_HEPATOTOXIC, 10)
 		adjustOxyLoss(3,100)
 		adjustBrainLoss(1,50)

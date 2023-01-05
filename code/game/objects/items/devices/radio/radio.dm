@@ -42,7 +42,7 @@ var/global/list/default_medbay_channels = list(
 	var/radio_desc = ""
 	var/const/FREQ_LISTENING = TRUE
 	var/list/internal_channels
-	var/clicksound = /singleton/sound_category/button_sound //played sound on usage
+	var/clicksound = /decl/sound_category/button_sound //played sound on usage
 	var/clickvol = 10 //volume
 
 	var/obj/item/cell/cell = /obj/item/cell/device

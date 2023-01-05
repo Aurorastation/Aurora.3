@@ -17,62 +17,62 @@
 	name = "carpet"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
-	initial_flooring = /singleton/flooring/carpet
-	footstep_sound = /singleton/sound_category/carpet_footstep
+	initial_flooring = /decl/flooring/carpet
+	footstep_sound = /decl/sound_category/carpet_footstep
 
 /turf/simulated/floor/holofloor/carpet/rubber
 	name = "rubber carpet"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "rub_carpet"
-	initial_flooring = /singleton/flooring/carpet/rubber
+	initial_flooring = /decl/flooring/carpet/rubber
 
 /turf/simulated/floor/holofloor/tiled
 	name = "floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "steel"
-	initial_flooring = /singleton/flooring/tiling
+	initial_flooring = /decl/flooring/tiling
 
 /turf/simulated/floor/holofloor/tiled/ramp
 	name = "foot ramp"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "ramptop"
-	initial_flooring = /singleton/flooring/reinforced/ramp
+	initial_flooring = /decl/flooring/reinforced/ramp
 
 /turf/simulated/floor/holofloor/tiled/ramp/bottom
 	name = "foot ramp"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "rampbot"
-	initial_flooring = /singleton/flooring/reinforced/ramp/bottom
+	initial_flooring = /decl/flooring/reinforced/ramp/bottom
 
 /turf/simulated/floor/holofloor/tiled/dark
 	name = "dark floor"
 	icon_state = "dark"
-	initial_flooring = /singleton/flooring/tiling/dark
+	initial_flooring = /decl/flooring/tiling/dark
 
 /turf/simulated/floor/holofloor/lino
 	name = "lino"
 	icon = 'icons/turf/flooring/linoleum.dmi'
 	icon_state = "lino_grey"
-	initial_flooring = /singleton/flooring/linoleum/grey
+	initial_flooring = /decl/flooring/linoleum/grey
 
 /turf/simulated/floor/holofloor/wood
 	name = "wooden floor"
 	icon = 'icons/turf/flooring/wood.dmi'
 	icon_state = "wood"
-	initial_flooring = /singleton/flooring/wood
+	initial_flooring = /decl/flooring/wood
 
 /turf/simulated/floor/holofloor/grass
 	name = "lush grass"
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
-	initial_flooring = /singleton/flooring/grass
-	footstep_sound = /singleton/sound_category/grass_footstep
+	initial_flooring = /decl/flooring/grass
+	footstep_sound = /decl/sound_category/grass_footstep
 
 /turf/simulated/floor/holofloor/grass/alt
 	name = "lush grass"
 	icon = 'icons/turf/total_floors.dmi'
 	icon_state = "grass_alt"
-	initial_flooring = /singleton/flooring/grass/alt
+	initial_flooring = /decl/flooring/grass/alt
 
 /turf/simulated/floor/holofloor/snow
 	name = "snow"
@@ -81,14 +81,14 @@
 	base_icon = 'icons/turf/floors.dmi'
 	icon_state = "snow"
 	base_icon_state = "snow"
-	footstep_sound = /singleton/sound_category/snow_footstep
+	footstep_sound = /decl/sound_category/snow_footstep
 
 /turf/simulated/floor/holofloor/reinforced
 	icon = 'icons/turf/flooring/tiles.dmi'
-	initial_flooring = /singleton/flooring/reinforced
+	initial_flooring = /decl/flooring/reinforced
 	name = "reinforced holofloor"
 	icon_state = "reinforced"
-	footstep_sound = /singleton/sound_category/tiles_footstep
+	footstep_sound = /decl/sound_category/tiles_footstep
 
 /turf/simulated/floor/holofloor/space
 	icon = 'icons/turf/space.dmi'
@@ -115,7 +115,7 @@
 	base_icon_state = "sand"
 	base_icon = 'icons/misc/beach.dmi'
 	initial_flooring = null
-	footstep_sound = /singleton/sound_category/sand_footstep
+	footstep_sound = /decl/sound_category/sand_footstep
 
 /turf/simulated/floor/holofloor/beach/sand
 	name = "sand"
@@ -125,13 +125,13 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
 	base_icon_state = "sandwater"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = /decl/sound_category/water_footstep
 
 /turf/simulated/floor/holofloor/beach/water
 	name = "water"
 	icon_state = "seashallow"
 	base_icon_state = "seashallow"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = /decl/sound_category/water_footstep
 
 /turf/simulated/floor/holofloor/desert
 	name = "desert sand"
@@ -143,7 +143,7 @@
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	base_icon = 'icons/turf/flooring/asteroid.dmi'
 	initial_flooring = null
-	footstep_sound = /singleton/sound_category/sand_footstep
+	footstep_sound = /decl/sound_category/sand_footstep
 
 /turf/simulated/floor/holofloor/desert/Initialize()
 	. = ..()
@@ -195,7 +195,7 @@
 	return
 
 /obj/structure/window/reinforced/holowindow/shatter(var/display_message = 1)
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message("[src] fades away as it shatters!")
 	qdel(src)
@@ -237,7 +237,7 @@
 
 /obj/machinery/door/window/holowindoor/shatter(var/display_message = 1)
 	src.density = 0
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message("[src] fades away as it shatters!")
 	qdel(src)
