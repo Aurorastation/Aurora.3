@@ -14,7 +14,7 @@
 	safer parts of the known Frontier. After 2462, the Republic of Elyra has occupied the majority of Valley Hale, now bordering the Republic of Biesel."
 	skybox_icon = "valley_hale"
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava)
-	starlight_color = COLOR_GOLD
+	starlight_color = "#fde497"
 
 /datum/space_sector/new_ankara
 	name = SECTOR_NEW_ANKARA
@@ -23,7 +23,7 @@
 	before and after independence. Commercial and service sector jobs remain the highest employer, second to refineries processing phoron or other minerals transported to the planet's \
 	orbit. This is among the primary locations in Elyra where phoron can be found in abundance."
 	skybox_icon = "valley_hale"
-	starlight_color = COLOR_GOLD
+	starlight_color = "#fde497"
 
 /datum/space_sector/aemag
 	name = SECTOR_AEMAQ
@@ -33,7 +33,7 @@
 	planet well-known for its research into the seas the chemical industry remains the primary employer on Aemaq, and many hopeful immigrants to the Republic find themselves working \
 	in the massive chemical plants of Aemaq to make ends meet."
 	skybox_icon = "valley_hale"
-	starlight_color = COLOR_GOLD
+	starlight_color = "#fde497"
 
 /datum/space_sector/srandmarr
 	name = SECTOR_SRANDMARR
