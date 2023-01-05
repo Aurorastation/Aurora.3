@@ -8,7 +8,7 @@
 	id = "ee_spy_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ee_shuttle)
 
-/decl/submap_archetype/ee_spy_ship
+/singleton/submap_archetype/ee_spy_ship
 	map = "Einstein Engines Research Ship"
 	descriptor = "A research ship belonging to Einstein Engines, the Stellar Corporate Conglomerate's main competitor."
 

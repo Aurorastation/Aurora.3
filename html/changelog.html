@@ -9284,7 +9284,7 @@
 			<ul class="changes bgimages16">
 				<li class="tweak">Wounds are less likely to infect limbs if small or properly treated. Infections should also progress a little less quickly.</li>
 				<li class="rscadd">Added a new medication, Steramycin. If administered before a limb reaches the first infection level, it has a great chance to prevent infection. It has no effect on infections that have progressed to or past level one; it&#x27;s meant to be used as insurance against infections after being wounded. It does not sterilize wounds, so make sure those are treated (Or the limb may re-infect)! Created with a ratio of 2 Thetamycin to 1 Sterilizine to 1 Radium, and produces 2 units.</li>
-				<li class="bugfix">When an RnD machine (Like the circuit imprinter) has insufficient reagents for items in its queue, the machine errors will now use the reagent name instead of the /decl/ path.</li>
+				<li class="bugfix">When an RnD machine (Like the circuit imprinter) has insufficient reagents for items in its queue, the machine errors will now use the reagent name instead of the /singleton/ path.</li>
 			</ul>
 			<h3 class="author">MattAtlas updated:</h3>
 			<ul class="changes bgimages16">
@@ -11343,7 +11343,7 @@
 			</ul>
 			<h3 class="author">MoondancerPony updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="backend">Reagents now use /decl/s instead of /datum/s.</li>
+				<li class="backend">Reagents now use /singleton/s instead of /datum/s.</li>
 				<li class="refactor">Paint no longer has a color of its own and can instead be combined with other reagents to make colours stick to things. Colorific!</li>
 				<li class="rscadd">Blood is now body temperature.</li>
 				<li class="tweak">Injecting incompatible blood now creates a special toxin rather than the actual toxin chemical.</li>

@@ -8,7 +8,7 @@
 	id = "elyran_strike_craft"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/elyran_shuttle)
 
-/decl/submap_archetype/elyran_strike_craft
+/singleton/submap_archetype/elyran_strike_craft
 	map = "Elyran Naval Strike Craft"
 	descriptor = "The Aslan-class Strike Craft is among the oldest designs in the Elyran naval arsenal, and is one of the ship classes slated to be retired in the ongoing Elyran military modernization plan. Not an independent vessel in of itself, it is instead an oversized attack craft designed to be launched from the General Abd Al-Hamid-class Carrier, a type of Elyran capital ship, named after the Republic's foremost national hero. As such, it has limited crew facilities and life support capabilities, and is instead reliant on its mothership for long-term operation. This ship is an interdiction variant, with its torpedo bay and railgun hardpoint replaced by a hangar and a boarding pod launch room, respectively."
 

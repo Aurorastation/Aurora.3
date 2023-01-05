@@ -7,7 +7,7 @@
 	spawn_cost = 2
 	id = "overgrown_mining_station"
 
-/decl/submap_archetype/overgrown_mining_station
+/singleton/submap_archetype/overgrown_mining_station
 	map = "overgrown_mining_station"
 	descriptor = "A derelict mining station."
 

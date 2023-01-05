@@ -28,14 +28,14 @@
 	if(!proximity)
 		return
 	if(user.mind && (user.mind.assigned_role == "Chaplain"))
-		if(A.reagents && A.reagents.has_reagent(/decl/reagent/water)) //blesses all the water in the holder
-			if(REAGENT_VOLUME(A.reagents, /decl/reagent/water) > 60)
+		if(A.reagents && A.reagents.has_reagent(/singleton/reagent/water)) //blesses all the water in the holder
+			if(REAGENT_VOLUME(A.reagents, /singleton/reagent/water) > 60)
 				to_chat(user, SPAN_NOTICE("There's too much water for you to bless at once!"))
 			else
 				to_chat(user, SPAN_NOTICE("You bless the water in [A], turning it into holy water."))
-				var/water2holy = REAGENT_VOLUME(A.reagents, /decl/reagent/water)
-				A.reagents.del_reagent(/decl/reagent/water)
-				A.reagents.add_reagent(/decl/reagent/water/holywater, water2holy)
+				var/water2holy = REAGENT_VOLUME(A.reagents, /singleton/reagent/water)
+				A.reagents.del_reagent(/singleton/reagent/water)
+				A.reagents.add_reagent(/singleton/reagent/water/holywater, water2holy)
 
 /obj/item/storage/bible/attackby(obj/item/W as obj, mob/user as mob)
 	if(src.use_sound)

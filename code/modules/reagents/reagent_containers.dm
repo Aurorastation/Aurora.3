@@ -11,7 +11,7 @@
 	var/filling_states				// List of percentages full that have icons
 	var/accuracy = 1
 	var/fragile = 0        // If nonzero, above what force do we shatter?
-	var/shatter_sound = /decl/sound_category/glass_break_sound
+	var/shatter_sound = /singleton/sound_category/glass_break_sound
 	var/material/shatter_material = MATERIAL_GLASS //slight typecasting abuse here, gets converted to a material in initializee
 	var/can_be_placed_into = list(
 		/obj/machinery/chem_master,
@@ -311,4 +311,4 @@
 	return 1
 
 /obj/item/reagent_containers/proc/on_pour()
-	playsound(src, /decl/sound_category/generic_pour_sound, 25, 1)
+	playsound(src, /singleton/sound_category/generic_pour_sound, 25, 1)

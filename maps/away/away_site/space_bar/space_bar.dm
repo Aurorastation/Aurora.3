@@ -7,7 +7,7 @@
 	ship_cost = 2
 	id = "space_bar"
 
-/decl/submap_archetype/space_bar
+/singleton/submap_archetype/space_bar
 	map = "space bar"
 	descriptor = "A space bar."
 

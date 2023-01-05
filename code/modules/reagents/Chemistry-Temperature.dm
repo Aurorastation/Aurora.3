@@ -5,32 +5,32 @@
 // http://www2.ucdsb.on.ca/tiss/stretton/database/specific_heat_capacity_table.html
 // https://www.nuclear-power.net/radium-specific-heat-latent-heat-vaporization-fusion/
 
-/decl/reagent/proc/get_thermal_fraction(var/datum/reagents/holder)
+/singleton/reagent/proc/get_thermal_fraction(var/datum/reagents/holder)
 	return get_heat_capacity(holder)/holder.get_heat_capacity()
 
-/decl/reagent/proc/get_thermal_energy(var/datum/reagents/holder)
+/singleton/reagent/proc/get_thermal_energy(var/datum/reagents/holder)
 	return (holder.thermal_energy * get_thermal_fraction(holder))
 
-/decl/reagent/proc/set_thermal_energy(amount, var/datum/reagents/holder, safety = FALSE)
+/singleton/reagent/proc/set_thermal_energy(amount, var/datum/reagents/holder, safety = FALSE)
 	var/delta = amount / get_thermal_fraction(holder) - holder.thermal_energy
 	if(!round(delta, 1))
 		return
 	holder.add_thermal_energy(delta, safety) // this handles on_heat_change for us
 
-/decl/reagent/proc/add_thermal_energy(amount, var/datum/reagents/holder, safety = FALSE)
+/singleton/reagent/proc/add_thermal_energy(amount, var/datum/reagents/holder, safety = FALSE)
 	holder.add_thermal_energy(amount, safety)
 
-/decl/reagent/proc/set_temperature(temperature, var/datum/reagents/holder, safety = FALSE)
+/singleton/reagent/proc/set_temperature(temperature, var/datum/reagents/holder, safety = FALSE)
 	set_thermal_energy(temperature * get_heat_capacity(holder), holder, safety = safety)
 
 /datum/reagents/proc/get_heat_capacity()
 	. = 0
 	for(var/_R in reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
+		var/singleton/reagent/R = GET_SINGLETON(_R)
 		. += R.get_heat_capacity(src)
 
-/decl/reagent/proc/get_heat_capacity(var/datum/reagents/holder)
-	return specific_heat * REAGENT_VOLUME(holder, type)
+/singleton/reagent/proc/get_heat_capacity(var/datum/reagents/holder)
+	return src.specific_heat * REAGENT_VOLUME(holder, src.type)
 
 /datum/reagents/proc/get_temperature()
 	var/HC = get_heat_capacity()
@@ -54,11 +54,11 @@
 	var/total_heat_capacity = get_heat_capacity()
 
 	for(var/_R in reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
+		var/singleton/reagent/R = GET_SINGLETON(_R)
 		var/energy_per_reagent = thermal_energy_to_add * (R.get_heat_capacity(src)/total_heat_capacity)
 		if(!safety)
 			R.on_heat_change(energy_per_reagent, src)
 	thermal_energy += thermal_energy_to_add
 
-/decl/reagent/proc/on_heat_change(energy_change, var/datum/reagents/holder)
+/singleton/reagent/proc/on_heat_change(energy_change, var/datum/reagents/holder)
 	return // stub for heat effects
