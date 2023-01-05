@@ -183,6 +183,14 @@
 		visible_message(SPAN_ITALIC("[accent_icon] <b>[user_name]</b> explains, \"[beacon.distress_message]\""))
 		return TOPIC_HANDLED
 
+	if(href_list["inbound_fire"])
+		var/direction = href_list["inbound_fire"]
+		if(direction != "clear")
+			security_announcement.Announce("Enemy fire inbound, enemy fire inbound! [direction]!", "Brace for shock!", sound('sound/mecha/internaldmgalarm.ogg', volume = 90), 0)
+		else
+			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/misc/announcements/security_level_old.ogg'), 0)
+		return TOPIC_HANDLED
+
 /obj/machinery/computer/ship/sensors/process()
 	..()
 	if(!linked)

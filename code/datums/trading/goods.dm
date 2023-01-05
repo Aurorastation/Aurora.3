@@ -278,7 +278,6 @@ Sells devices, odds and ends, and medical stuff
 
 	possible_wanted_items = list(
 		/obj/item/bucket_sensor         = TRADER_THIS_TYPE,
-		/obj/item/toolbox_tiles_sensor  = TRADER_THIS_TYPE,
 		/obj/item/firstaid_arm_assembly = TRADER_THIS_TYPE,
 		/obj/item/stack/material/steel         = TRADER_THIS_TYPE
 
