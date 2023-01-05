@@ -269,6 +269,9 @@
 	if(!check_icon_cache())
 		return
 
+	if(!atmos_initialised)
+		return
+
 	alpha = 255
 
 	cut_overlays()
@@ -316,6 +319,7 @@
 		qdel(src)
 		return
 
+	atmos_initialised = TRUE
 	var/turf/T = loc
 	if(level == 1 && !T.is_plating()) hide(1)
 	queue_icon_update()
@@ -533,6 +537,9 @@
 	if(!check_icon_cache())
 		return
 
+	if(!atmos_initialised)
+		return
+
 	alpha = 255
 
 	if(!node1 && !node2 && !node3)
@@ -613,6 +620,7 @@
 		qdel(src)
 		return
 
+	atmos_initialised = TRUE
 	var/turf/T = get_turf(src)
 	if(level == 1 && !T.is_plating()) hide(1)
 	queue_icon_update()
@@ -810,6 +818,9 @@
 	if(!check_icon_cache())
 		return
 
+	if(!atmos_initialised)
+		return
+
 	alpha = 255
 
 	if(!node1 && !node2 && !node3 && !node4)
@@ -897,6 +908,7 @@
 		qdel(src)
 		return
 
+	atmos_initialised = TRUE
 	var/turf/T = get_turf(src)
 	if(level == 1 && !T.is_plating()) hide(1)
 	queue_icon_update()
@@ -1057,6 +1069,9 @@
 	if(!check_icon_cache())
 		return
 
+	if(!atmos_initialised)
+		return
+
 	alpha = 255
 
 	cut_overlays()
@@ -1069,6 +1084,7 @@
 				node = target
 				break
 
+	atmos_initialised = TRUE
 	var/turf/T = src.loc			// hide if turf is not intact
 	if(level == 1 && !T.is_plating()) hide(1)
 	queue_icon_update()
@@ -1172,6 +1188,7 @@
 				node1 = target
 				break
 
+	atmos_initialised = TRUE
 	update_underlays()
 
 /obj/machinery/atmospherics/pipe/tank/disconnect(obj/machinery/atmospherics/reference)
