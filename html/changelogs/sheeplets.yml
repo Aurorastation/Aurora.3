@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - balance: "Buffed the maximum health of hearts to 60, and the break point to 45."
+  - balance: "Reduced the amount of heart damage that hands-free adrenaline revives do, to a third of the original value."
