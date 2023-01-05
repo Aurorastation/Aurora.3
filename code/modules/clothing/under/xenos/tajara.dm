@@ -285,3 +285,25 @@
 	desc = "A rugged uniform used by Adhomian archeologists. It is already covered in dirt and ancient dust."
 	icon_state = "explorer_uniform"
 	item_state = "explorer_uniform"
+
+/obj/item/clothing/under/tajaran/army_commissar
+	name = "army commissar uniform"
+	desc = "A military uniform used by Party Commissars attached to military units."
+	icon_state = "pracommisar"
+	item_state = "pracommisar"
+	desc_extended = "Party Commissars are high ranking members of the Party of the Free Tajara under the Leadership of Hadii attached to army units, who ensures that soldiers and \
+	their commanders follow the principles of Hadiism. Their duties are not only limited to enforcing the republican ideals among the troops and reporting possible subversive elements, \
+	they are expected to display bravery in combat and lead by example."
+	starting_accessories = (/obj/item/clothing/accessory/holster/hip)
+
+/obj/item/clothing/under/tajaran/psis
+	name = "people's strategic intelligence service uniform"
+	desc = "An uniform used by the agents of the People's Strategic Intelligence Service. The sight of this uniform is feared by most Tajara."
+	icon_state = "pracommisar"
+	item_state = "pracommisar"
+	desc_extended = "The People's Strategic Intelligence service is the main intelligence agency of the People's Republic. In the wake of the revolution that had won the species their independence, \
+	the budding government recognized the need for covert operations. Several agents and informants are employed by the PSIS, both in domestic and foreign theaters. The agency makes use of \
+	espionage, sabotage, assassination, interrogation, blackmail, and all other short of subterfuge, during their operations. Subversive elements within the People's Republican are dealt with \
+	quickly, usually through night raids and abductions conducted with aid of black unmarked cars. Tajara residing in other systems are not truly safe from the Intelligence Service, as they are \
+	known to deploy their agents against off-world targets. Republican spies, enforces and collaborators are present in Mendell City's district six, carrying out orders or watching their fellow Tajara."
+	starting_accessories = (/obj/item/clothing/accessory/holster/hip)

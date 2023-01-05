@@ -258,6 +258,7 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.50
+	allowed = list(/obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/gun/projectile/automatic/rifle/adhomian, /obj/item/device/flashlight)
 
 /obj/item/clothing/suit/storage/tajaran/dpra_jacket
 	name = "al'mariist jacket"
@@ -323,3 +324,4 @@
 	item_state = "explorer_jacket"
 	contained_sprite = TRUE
 	allowed = list(/obj/item/grenade/dynamite, /obj/item/melee/whip, /obj/item/gun/projectile/revolver, /obj/item/pickaxe)
+
