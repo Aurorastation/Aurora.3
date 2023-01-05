@@ -3,6 +3,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass
 	name = "glass"
 	desc = "Your standard drinking glass."
+	desc_info = "To toast with someone, aim for the right or left hand and click them on help intent with the glass in hand. They must be holding a glass in the targeted hand."
 	icon_state = "glass_empty"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',

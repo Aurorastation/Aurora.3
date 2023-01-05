@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - rscadd: "Added chugging. Clickdrag a reagent container you're holding in your hand to your character. Note that you'll lose breath while chugging."
   - rscadd: "Added knocking and slamming your hand on a table. While aiming for right or left hand, grab intent click a table to knock, harm intent to slam."
+  - rscadd: "Added an info description on glasses on how to perform a toast."
