@@ -1,10 +1,6 @@
 /atom/movable/proc/get_mob()
 	return
 
-/obj/machinery/bot/mulebot/get_mob()
-	if(load && istype(load,/mob/living))
-		return load
-
 /obj/vehicle/train/get_mob()
 	return buckled
 

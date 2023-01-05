@@ -76,8 +76,6 @@
 /obj/machinery/atmospherics/pipe/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if (istype(src, /obj/machinery/atmospherics/pipe/tank))
 		return ..()
-	if (istype(src, /obj/machinery/atmospherics/pipe/vent))
-		return ..()
 
 	if(istype(W,/obj/item/device/pipe_painter))
 		return FALSE
@@ -431,20 +429,6 @@
 
 /obj/machinery/atmospherics/pipe/simple/hidden/purple
 	color = PIPE_COLOR_PURPLE
-
-/obj/machinery/atmospherics/pipe/simple/insulated
-	desc_info = "This is completely useless, use a normal pipe."
-	icon = 'icons/obj/atmospherics/red_pipe.dmi'
-	icon_state = "intact"
-
-	minimum_temperature_difference = 10000
-	thermal_conductivity = 0
-	maximum_pressure = 1000*ONE_ATMOSPHERE
-	fatigue_pressure = 900*ONE_ATMOSPHERE
-	alert_pressure = 900*ONE_ATMOSPHERE
-
-	level = 2
-
 
 /obj/machinery/atmospherics/pipe/manifold
 	name = "pipe manifold"
@@ -1308,90 +1292,6 @@
 
 	. = ..()
 	icon_state = "n2o"
-
-/obj/machinery/atmospherics/pipe/vent
-	icon = 'icons/obj/atmospherics/pipe_vent.dmi'
-	icon_state = "intact"
-
-	name = "Vent"
-	desc = "A large air vent"
-
-	level = 1
-
-	volume = 250
-
-	dir = SOUTH
-	initialize_directions = SOUTH
-
-	var/build_killswitch = 1
-
-/obj/machinery/atmospherics/pipe/vent/Initialize()
-	initialize_directions = dir
-	. = ..()
-
-/obj/machinery/atmospherics/pipe/vent/high_volume
-	name = "Larger vent"
-	volume = 1000
-
-/obj/machinery/atmospherics/pipe/vent/process()
-	if(!parent)
-		if(build_killswitch <= 0)
-			. = PROCESS_KILL
-		else
-			build_killswitch--
-		..()
-		return
-	else
-		parent.mingle_with_turf(loc, volume)
-
-/obj/machinery/atmospherics/pipe/vent/Destroy()
-	if(node1)
-		node1.disconnect(src)
-
-	node1 = null
-
-	return ..()
-
-/obj/machinery/atmospherics/pipe/vent/pipeline_expansion()
-	return list(node1)
-
-/obj/machinery/atmospherics/pipe/vent/update_icon()
-	if(node1)
-		icon_state = "intact"
-
-		set_dir(get_dir(src, node1))
-
-	else
-		icon_state = "exposed"
-
-/obj/machinery/atmospherics/pipe/vent/atmos_init()
-	var/connect_direction = dir
-
-	for(var/obj/machinery/atmospherics/target in get_step(src,connect_direction))
-		if(target.initialize_directions & get_dir(target,src))
-			if (check_connect_types(target,src))
-				node1 = target
-				break
-
-	queue_icon_update()
-
-/obj/machinery/atmospherics/pipe/vent/disconnect(obj/machinery/atmospherics/reference)
-	if(reference == node1)
-		if(istype(node1, /obj/machinery/atmospherics/pipe))
-			QDEL_NULL(parent)
-		node1 = null
-
-	update_icon()
-
-	return null
-
-/obj/machinery/atmospherics/pipe/vent/hide(var/i) //to make the little pipe section invisible, the icon changes.
-	if(node1)
-		icon_state = "[i == 1 && istype(loc, /turf/simulated) ? "h" : "" ]intact"
-		set_dir(get_dir(src, node1))
-	else
-		icon_state = "exposed"
-
 
 /obj/machinery/atmospherics/pipe/simple/visible/universal
 	name = "universal pipe adapter"
