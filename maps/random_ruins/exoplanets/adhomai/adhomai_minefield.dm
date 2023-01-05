@@ -6,7 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	sectors = list(SECTOR_SRANDMARR)
-	suffix = "adhomai/adhomai_minefield.dmm"
+	suffixes = list("adhomai/adhomai_minefield.dmm")
 
 /obj/structure/adhomai_minefield
 	name = "siik'maas sign"

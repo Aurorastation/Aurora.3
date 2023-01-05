@@ -6,7 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_SRANDMARR)
-	suffix = "adhomai/adhomai_bar.dmm"
+	suffixes = list("adhomai/adhomai_bar.dmm")
 
 /area/adhomai_bar
 	name = "Adhomian Inn"

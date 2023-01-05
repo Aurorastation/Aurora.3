@@ -6,7 +6,16 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_SRANDMARR)
-	suffix = "adhomai/psis_outpost.dmm"
+	suffixes = list("adhomai/psis_outpost.dmm")
+
+/area/psis_outpost
+	name = "PSIS Military Outpost"
+	icon_state = "bluenew"
+	requires_power = FALSE
+	dynamic_lighting = TRUE
+	no_light_control = FALSE
+	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+	flags = RAD_SHIELDED
 
 //ghost roles
 

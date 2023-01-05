@@ -6,7 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_SRANDMARR)
-	suffix = "adhomai/adhomai_amohdan.dmm"
+	suffixes = list("adhomai/adhomai_amohdan.dmm")
 
 //ghost roles
 

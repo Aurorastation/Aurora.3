@@ -6,7 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_SRANDMARR)
-	suffix = "raskara/raskara_okon.dmm"
+	suffixes = list("raskara/raskara_okon.dmm")
 
 /area/raskara_okon
 	name = "Okon 011"

@@ -6,4 +6,4 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	sectors = list(SECTOR_SRANDMARR)
-	suffix = "raskara/raskara_wreck.dmm"
+	suffixes = list("raskara/raskara_wreck.dmm")

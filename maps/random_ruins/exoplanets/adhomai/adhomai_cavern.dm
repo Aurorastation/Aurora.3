@@ -6,4 +6,4 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	sectors = list(SECTOR_SRANDMARR)
-	suffix = "adhomai/adhomai_cavern.dmm"
+	suffixes = list("adhomai/adhomai_cavern.dmm")

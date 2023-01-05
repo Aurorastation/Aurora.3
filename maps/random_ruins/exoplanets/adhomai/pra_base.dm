@@ -6,7 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_SRANDMARR)
-	suffix = "adhomai/pra_base.dmm"
+	suffixes = list("adhomai/pra_base.dmm")
 
 /area/pra_base
 	name = "PRA Military Outpost"

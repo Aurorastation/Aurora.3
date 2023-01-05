@@ -6,7 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_SRANDMARR)
-	suffix = "adhomai/adhomai_hunting.dmm"
+	suffixes = list("adhomai/adhomai_hunting.dmm")
 
 /area/adhomai_hunting
 	name = "Adhomai Hunting Lodge"

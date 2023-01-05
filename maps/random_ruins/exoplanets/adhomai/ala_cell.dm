@@ -6,4 +6,4 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_SRANDMARR)
-	suffix = "adhomai/ala_cell.dmm"
+	suffixes = list("adhomai/ala_cell.dmm")

@@ -6,7 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	sectors = list(SECTOR_SRANDMARR)
-	suffix = "adhomai/adhomai_war_memorial.dmm"
+	suffixes = list("adhomai/adhomai_war_memorial.dmm")
 
 /obj/structure/sign/adhomai_memorial
 	name = "memorial rock"
