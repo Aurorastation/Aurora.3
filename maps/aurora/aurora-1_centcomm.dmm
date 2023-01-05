@@ -5023,8 +5023,8 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/belt/utility/full,
@@ -23799,8 +23799,8 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
 "lzh" = (
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/box/lights/mixed{
@@ -35635,10 +35635,10 @@
 /obj/item/clothing/gloves/yellow{
 	pixel_y = 18
 	},
-/obj/item/clothing/gloves/yellow/specialt{
+/obj/item/clothing/gloves/yellow{
 	pixel_y = 5
 	},
-/obj/item/clothing/gloves/yellow/specialu{
+/obj/item/clothing/gloves/yellow{
 	pixel_y = 5
 	},
 /obj/item/device/suit_cooling_unit,
@@ -42223,10 +42223,10 @@
 /obj/item/aicard{
 	pixel_y = 8
 	},
-/obj/item/clothing/gloves/yellow/specialu{
+/obj/item/clothing/gloves/yellow{
 	pixel_y = -14
 	},
-/obj/item/clothing/gloves/yellow/specialt{
+/obj/item/clothing/gloves/yellow{
 	pixel_y = -14
 	},
 /obj/item/clothing/gloves/yellow{
@@ -43276,8 +43276,8 @@
 /area/antag/burglar)
 "ygE" = (
 /obj/structure/table/rack,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/utility/very_full,

@@ -21253,8 +21253,8 @@
 /obj/item/clothing/gloves/yellow{
 	pixel_y = 4
 	},
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialt{
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow{
 	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark,

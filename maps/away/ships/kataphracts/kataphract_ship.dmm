@@ -7251,9 +7251,9 @@
 /obj/structure/table/rack,
 /obj/item/inflatable_dispenser,
 /obj/item/storage/bag/inflatable,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "rZ" = (

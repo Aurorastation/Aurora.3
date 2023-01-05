@@ -43,8 +43,8 @@
 	pixel_x = -4;
 	pixel_y = -6
 	},
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
 /turf/unsimulated/floor{
 	dir = 5;
 	icon_state = "vault"

@@ -1778,9 +1778,9 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "iNZ" = (
-/obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/item/clothing/head/bandana/atmos,
 /turf/simulated/floor/plating,

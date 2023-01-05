@@ -33287,8 +33287,8 @@
 	pixel_y = -1
 	},
 /obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
 /obj/item/device/t_scanner,
 /obj/item/device/multitool,
 /turf/simulated/floor/plating,
