@@ -109,6 +109,10 @@
 /obj/item/clothing/accessory/badge/nka_passport,
 /obj/item/clothing/accessory/flagpatch/nka,
 /obj/machinery/light,
+/obj/item/clothing/shoes/tajara/workboots,
+/obj/item/clothing/under/tajaran/nka_merchant_navy,
+/obj/item/clothing/under/tajaran/nka_merchant_navy/alt,
+/obj/item/clothing/head/tajaran/nka_merchant_navy,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -747,6 +751,9 @@
 	},
 /obj/item/flame/lighter/adhomai,
 /obj/item/clothing/mask/smokable/pipe,
+/obj/item/clothing/under/tajaran/nka_merchant_navy/captain,
+/obj/item/clothing/head/tajaran/nka_merchant_navy/captain,
+/obj/item/clothing/suit/storage/tajaran/nka_merchant_navy,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1135,6 +1142,8 @@
 	dir = 1
 	},
 /obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/nka,
+/obj/item/clothing/head/helmet/space/void/nka,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1838,6 +1847,26 @@
 "gY" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/shuttle/nka_merchant_shuttle)
+"hc" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/eastright{
+	dir = 2;
+	req_access = list(212);
+	name = "Voidsuit"
+	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/security,
+/obj/item/clothing/head/helmet/space/void/security,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/eva)
 "hf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1996,6 +2025,8 @@
 	name = "Voidsuit"
 	},
 /obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/nka,
+/obj/item/clothing/head/helmet/space/void/nka,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2700,6 +2731,10 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/badge/nka_passport,
 /obj/item/clothing/accessory/flagpatch/nka,
+/obj/item/clothing/shoes/tajara/workboots,
+/obj/item/clothing/under/tajaran/nka_merchant_navy,
+/obj/item/clothing/under/tajaran/nka_merchant_navy/alt,
+/obj/item/clothing/head/tajaran/nka_merchant_navy,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -4373,6 +4408,8 @@
 	},
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -4619,6 +4656,8 @@
 /obj/item/ammo_magazine/boltaction,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/clothing/accessory/storage/bayonet,
+/obj/item/clothing/accessory/storage/bayonet,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -17896,7 +17935,7 @@ aI
 gh
 iY
 cR
-ig
+hc
 bq
 Do
 gv

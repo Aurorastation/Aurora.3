@@ -57,7 +57,7 @@
 
 	uniform = /obj/item/clothing/under/tajaran/nka_merchant_navy/captain
 	head = /obj/item/clothing/head/tajaran/nka_merchant_navy/captain
-
+	suit = /obj/item/clothing/suit/storage/tajaran/nka_merchant_navy
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/revolver/adhomian = 1)
 
