@@ -9,7 +9,7 @@
 	suffixes = list("adhomai/adhomai_war_memorial.dmm")
 
 /obj/structure/sign/adhomai_memorial
-	name = "memorial rock"
+	name = "memorial monument"
 	desc = "A stone monument engraved with the names of soldiers who fought and died in one of the Tajaran civil wars."
 	icon = 'icons/effects/64x64.dmi'
 	icon_state = "adhomai_memorial"
