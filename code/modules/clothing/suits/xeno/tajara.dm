@@ -277,21 +277,30 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/tajaran/hunting
-	name = "adhomian hunting coat"
-	desc = "A coat made of adhomian pelts. Commonly used by hunters."
+/obj/item/clothing/suit/storage/tajaran/fancycoat
+	name = "fancy black ladies coat"
+	desc = "A long tailed coat, commonly worn by woman in the New Kingdom."
 	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "hunter_coat"
-	item_state = "hunter_coat"
-	contained_sprite = TRUE
+	icon_state = "ladies_coat"
+	item_state = "ladies_coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/material/knife, /obj/item/device/flashlight)
-
-/obj/item/clothing/suit/storage/tajaran/archeologist
-	name = "archeologist jacket"
-	desc = "A leather jacket used by Adhomian archeologists. Perfect to store dynamite sticks."
-	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "explorer_jacket"
-	item_state = "explorer_jacket"
 	contained_sprite = TRUE
-	allowed = list(/obj/item/grenade/dynamite, /obj/item/melee/whip, /obj/item/gun/projectile/revolver, /obj/item/pickaxe)
+
+/obj/item/clothing/suit/storage/tajaran/fancycoat/red
+	name = "fancy red ladies coat"
+	icon_state = "ladies_coat_red"
+	item_state = "ladies_coat_red"
+
+/obj/item/clothing/suit/storage/tajaran/finecoat
+	name = "fine brown coat"
+	desc = "A fancy, warm coat suitable for a noble."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "finecoat"
+	item_state = "finecoat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/tajaran/finecoat/blue
+	name = "fine blue coat"
+	icon_state = "finecoat_blue"
+	item_state = "finecoat_blue"

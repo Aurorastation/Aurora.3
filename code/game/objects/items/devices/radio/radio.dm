@@ -89,8 +89,6 @@ var/global/list/default_medbay_channels = list(
 	SSradio.remove_object(src, frequency)
 	if(new_frequency)
 		frequency = new_frequency
-
-	if(listening && on)
 		radio_connection = SSradio.add_object(src, new_frequency, RADIO_CHAT)
 
 /obj/item/device/radio/Initialize()
@@ -475,6 +473,9 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/proc/can_receive(input_frequency, list/levels)
 	// check if the radio can receive on the given frequency
+	if (!listening)
+		return
+
 	if (levels != RADIO_NO_Z_LEVEL_RESTRICTION)
 		var/turf/position = get_turf(src)
 		if (!position || !(position.z in levels))
@@ -486,13 +487,13 @@ var/global/list/default_medbay_channels = list(
 	if ((input_frequency in ANTAG_FREQS) && !syndie) //Checks to see if it's allowed on that frequency, based on the encryption keys
 		return FALSE
 
-	if (input_frequency == frequency)
-		return TRUE
-
 	for (var/ch_name in channels)
 		var/datum/radio_frequency/RF = secure_radio_connections[ch_name]
-		if (RF.frequency == input_frequency && (channels[ch_name] & FREQ_LISTENING))
-			return TRUE
+		if (RF.frequency == input_frequency)
+			return channels[ch_name]
+
+	if (input_frequency == frequency)
+		return TRUE
 
 	return FALSE
 
