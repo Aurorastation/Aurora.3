@@ -339,15 +339,6 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"AA" = (
-/obj/machinery/door/airlock/security{
-	name = "Barracks";
-	req_access = list(209)
-	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
-/area/exoplanet/adhomai)
 "BZ" = (
 /obj/structure/table/steel,
 /obj/item/trash/liquidfood,
@@ -1535,7 +1526,7 @@ jg
 kO
 ko
 jg
-AA
+qm
 jg
 kB
 nR

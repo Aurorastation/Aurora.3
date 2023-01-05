@@ -8,6 +8,15 @@
 	sectors = list(SECTOR_SRANDMARR)
 	suffix = "adhomai/pra_base.dmm"
 
+/area/pra_base
+	name = "PRA Military Outpost"
+	icon_state = "bluenew"
+	requires_power = FALSE
+	dynamic_lighting = TRUE
+	no_light_control = FALSE
+	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+	flags = RAD_SHIELDED
+
 //ghost roles
 
 /datum/ghostspawner/human/pra_base
@@ -35,18 +44,10 @@
 	uniform = /obj/item/clothing/under/tajaran/pra_uniform
 	head = /obj/item/clothing/head/beret/tajaran/pra
 	suit = /obj/item/clothing/suit/storage/tajaran/pra_jacket/armored
-	suit_store = /obj/item/gun/projectile/automatic/rifle/adhomian
 	back = /obj/item/storage/backpack/rucksack/green
 	shoes = /obj/item/clothing/shoes/tajara/combat
 	belt = /obj/item/storage/belt/military
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
-	belt_contents = list(
-						/obj/item/ammo_magazine/boltaction = 5,
-						/obj/item/grenade/smokebomb = 1,
-						/obj/item/ammo_magazine/mc9mm = 1,
-						/obj/item/gun/projectile/pistol/adhomai = 1
-						)
-
 	l_ear = null
 
 	id = /obj/item/card/id
@@ -78,7 +79,6 @@
 	uniform = /obj/item/clothing/under/tajaran/army_commissar
 	head = /obj/item/clothing/head/beret/tajaran/pra
 	suit = null
-	suit_store = null
 	belt = /obj/item/gun/projectile/deagle/adhomai
 	belt_contents = null
 	back = /obj/item/storage/backpack/satchel/leather

@@ -1,1138 +1,1772 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"b" = (
-/obj/effect/decal/remains/xeno,
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/mineral/adhomai,
-/area/exoplanet/adhomai)
-"c" = (
+"aa" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/shoes/tajara/combat,
+/obj/item/clothing/under/tajaran/pra_uniform,
+/obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
+/obj/item/clothing/head/beret/tajaran/pra,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/book/manual/pra_manifesto,
+/obj/item/clothing/accessory/badge/pra_passport,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"aJ" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"bR" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"bU" = (
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/pra_base)
+"ca" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"fq" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"fw" = (
+/obj/machinery/vending/cola,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"fY" = (
+/obj/structure/sign/flag/pra/left{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/pra_base)
+"gU" = (
+/turf/simulated/wall/iron,
+/area/pra_base)
+"kq" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"kO" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	identifier = "pra_base_soldier";
+	name = "igs - pra_base_soldier"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"lX" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
+	},
+/area/pra_base)
+"mb" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(209);
+	name = "ammunition cabinet (rifle)"
+	},
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"mf" = (
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/pra_base)
+"mj" = (
+/obj/machinery/door/window/brigdoor/northright{
+	dir = 4;
+	req_access = list(209)
+	},
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
+	pixel_y = 10;
+	pixel_x = -5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"mB" = (
+/obj/structure/sign/flag/pra/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/pra_base)
+"nc" = (
+/obj/structure/table/standard,
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/pra_base)
+"oA" = (
+/obj/machinery/door/blast/shutters{
+	id = "pra_camp_entry"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/pra_base)
+"pB" = (
+/obj/structure/sign/painting_frame/hadii{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"qa" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"qP" = (
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"rq" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"tT" = (
+/obj/machinery/door/airlock/security{
+	name = "Meeting Room";
+	req_access = list(209)
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"uO" = (
+/obj/machinery/light,
+/obj/structure/sign/flag/pra{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_base)
+"vi" = (
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"k" = (
-/obj/structure/flora/rock/ice,
-/turf/simulated/floor/exoplanet/mineral/adhomai,
+"vQ" = (
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/ghostspawpoint{
+	identifier = "pra_base_commissar";
+	name = "igs - pra_base_soldier"
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/pra_base)
+"wB" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_base)
+"wC" = (
+/obj/machinery/vending/cigarette,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"xj" = (
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(209);
+	name = "armor cabinet"
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"xN" = (
+/obj/machinery/door/airlock/security{
+	name = "Armory";
+	req_access = list(209)
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"yx" = (
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"yB" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(209);
+	name = "gun cabinet (pistols)"
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"zC" = (
+/obj/item/storage/field_ration/army,
+/obj/item/storage/field_ration/army,
+/obj/item/storage/field_ration/army,
+/obj/item/storage/field_ration/army,
+/obj/item/storage/field_ration/army,
+/obj/item/storage/field_ration/army,
+/obj/structure/closet/crate/freezer,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"zH" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Bm" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/pra_base)
+"BZ" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_base)
+"CO" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"CW" = (
+/obj/effect/floor_decal/spline/plain,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/pra_base)
+"DB" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
+	},
+/area/pra_base)
+"DL" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Ec" = (
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Barracks"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Eo" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothbrush/red,
+/obj/item/reagent_containers/toothbrush/green,
+/obj/item/reagent_containers/toothbrush,
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Et" = (
+/obj/machinery/door/window/brigdoor/northright{
+	dir = 8;
+	req_access = list(209)
+	},
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
+	pixel_y = 10;
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"EK" = (
+/obj/structure/window/reinforced{
+	dir = 8;
+	icon_state = "rwindow"
+	},
+/obj/structure/table/steel,
+/obj/item/material/ashtray/bronze,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
+	},
+/obj/item/handcuffs,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"EP" = (
+/obj/effect/floor_decal/spline/plain,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Fo" = (
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
 /area/exoplanet/adhomai)
-"m" = (
-/turf/simulated/mineral/adhomai,
-/area/exoplanet/adhomai)
-"s" = (
-/obj/structure/flora/grass/brown,
+"FZ" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/obj/structure/sign/flag/pra/left{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Gy" = (
+/obj/structure/table/standard,
+/obj/item/material/ashtray,
+/obj/item/clothing/mask/smokable/cigarette/adhomai,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Jc" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Jg" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/shoes/tajara/combat,
+/obj/item/clothing/under/tajaran/pra_uniform,
+/obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
+/obj/item/clothing/head/beret/tajaran/pra,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/book/manual/pra_manifesto,
+/obj/item/clothing/accessory/badge/pra_passport,
+/obj/structure/sign/flag/pra/right{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Lb" = (
+/obj/machinery/light,
+/obj/structure/sign/flag/pra{
+	pixel_y = -32
+	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"x" = (
-/obj/structure/flora/bush,
+"Md" = (
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Nc" = (
+/obj/machinery/door/airlock/security{
+	name = "Checkpoint";
+	req_access = list(209)
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"NP" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(209);
+	name = "ammunition cabinet (pistols)"
+	},
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/head/helmet/merc,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"NW" = (
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Qx" = (
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Rb" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
-/area/exoplanet/adhomai)
-"A" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/mineral/adhomai,
-/area/exoplanet/adhomai)
-"C" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/snow{
+/area/pra_base)
+"Rg" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/shoes/tajara/combat,
+/obj/item/clothing/under/tajaran/pra_uniform,
+/obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
+/obj/item/clothing/head/beret/tajaran/pra,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/book/manual/pra_manifesto,
+/obj/item/clothing/accessory/badge/pra_passport,
+/obj/structure/sign/flag/pra/left{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled{
 	temperature = 268.15
 	},
-/area/exoplanet/adhomai)
-"P" = (
-/turf/simulated/floor/exoplanet/mineral/adhomai,
-/area/exoplanet/adhomai)
-"X" = (
-/obj/structure/flora/tree/dead,
-/turf/simulated/floor/exoplanet/snow{
+/area/pra_base)
+"Sr" = (
+/turf/simulated/floor/holofloor/tiled/ramp,
+/area/pra_base)
+"St" = (
+/obj/machinery/button/remote/blast_door{
+	id = "pra_camp_entry";
+	name = "Entry";
+	req_access = list(209);
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled{
 	temperature = 268.15
 	},
-/area/exoplanet/adhomai)
+/area/pra_base)
+"Td" = (
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Up" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(209);
+	name = "gun cabinet (icelance)"
+	},
+/obj/item/gun/energy/rifle/icelance,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"UX" = (
+/obj/structure/table/standard,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
+	},
+/obj/item/book/manual/pra_manifesto,
+/turf/simulated/floor/holofloor/tiled/dark{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Vy" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(209);
+	name = "explosive cabinets"
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/landmine,
+/obj/item/landmine,
+/obj/item/landmine,
+/obj/item/landmine,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"VN" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(209);
+	name = "gun cabinet (rifle)"
+	},
+/obj/item/gun/projectile/automatic/rifle/adhomian,
+/obj/item/gun/projectile/automatic/rifle/adhomian,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/gun/projectile/automatic/rifle/adhomian,
+/obj/item/gun/projectile/automatic/rifle/adhomian,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"WG" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"WS" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(209);
+	name = "gun cabinet (rifle)"
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Xb" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	icon_state = "rwindow"
+	},
+/obj/structure/table/steel,
+/obj/item/material/ashtray/bronze,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
+	},
+/obj/item/handcuffs,
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Yr" = (
+/obj/structure/table/standard,
+/obj/item/storage/pill_bottle/dice/tajara,
+/obj/structure/sign/flag/pra/right{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 268.15
+	},
+/area/pra_base)
+"YD" = (
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/structure/sink{
+	pixel_y = 22
+	},
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
+	},
+/area/pra_base)
 
 (1,1,1) = {"
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-X
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-s
-c
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
 "}
 (2,1,1) = {"
-c
-X
-c
-c
-c
-c
-c
-c
-c
-c
-X
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-s
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
 "}
 (3,1,1) = {"
-c
-c
-c
-c
-c
-c
-x
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-X
-c
-c
-c
-c
-c
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
 "}
 (4,1,1) = {"
-c
-c
-c
-c
-X
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-X
-c
-c
-x
-c
-c
-c
-m
-c
-c
-c
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+vi
+vi
+vi
 "}
 (5,1,1) = {"
-c
-c
-c
-c
-c
-c
-c
-c
-s
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-m
-c
-m
-c
-c
-c
-c
-c
-x
-c
-c
-c
+vi
+vi
+vi
+gU
+fq
+yx
+Nc
+mf
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+gU
+vi
+vi
+vi
 "}
 (6,1,1) = {"
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-x
-c
-c
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+St
+bR
+gU
+Bm
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+gU
+vi
+vi
+vi
 "}
 (7,1,1) = {"
-c
-c
-c
-c
-c
-x
-c
-c
-c
-X
-c
-c
-c
-c
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-s
-c
+vi
+vi
+Lb
+gU
+Xb
+mj
+gU
+bU
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+gU
+vi
+vi
+vi
 "}
 (8,1,1) = {"
-c
-c
-X
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
+Fo
+Fo
+Fo
+oA
+mf
+mf
+oA
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+wB
+gU
+gU
+gU
+gU
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (9,1,1) = {"
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-m
-m
-m
-m
-m
-P
-P
-m
-m
-m
-c
-c
-c
-s
-c
-c
-c
-c
+Fo
+Fo
+Fo
+oA
+mf
+mf
+oA
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+wB
+gU
+YD
+DB
+lX
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (10,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-P
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
+Fo
+Fo
+Fo
+oA
+mf
+mf
+oA
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+mf
+Jc
+gU
+YD
+Md
+lX
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (11,1,1) = {"
-c
-c
-s
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-P
-P
-P
-m
-m
-c
-c
-c
-c
-c
-c
-X
-c
+vi
+vi
+Lb
+gU
+EK
+Et
+gU
+bU
+wB
+wB
+wB
+wB
+wB
+BZ
+wB
+wB
+wB
+wB
+mf
+mf
+mf
+wB
+gU
+YD
+Md
+lX
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (12,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-P
-P
-m
-m
-c
-c
-x
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+St
+DL
+gU
+Bm
+wB
+wB
+gU
+gU
+gU
+gU
+gU
+gU
+wB
+wB
+mf
+mf
+mf
+wB
+gU
+Eo
+Md
+lX
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (13,1,1) = {"
-x
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-P
-P
-P
-m
-m
-P
-P
-P
-m
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+rq
+yx
+Nc
+mf
+wB
+gU
+gU
+Up
+yB
+VN
+WS
+gU
+gU
+Rb
+mf
+mf
+mf
+wB
+gU
+gU
+Ec
+gU
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (14,1,1) = {"
-c
-c
-c
-m
-m
-m
-m
-m
-P
-P
-P
-P
-P
-b
-P
-P
-m
-P
-P
-P
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
-x
-c
+vi
+vi
+vi
+gU
+gU
+gU
+gU
+wB
+Jc
+gU
+Vy
+yx
+yx
+yx
+yx
+yx
+xN
+mf
+mf
+mf
+mf
+uO
+gU
+zC
+yx
+Qx
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (15,1,1) = {"
-c
-c
-m
-m
-m
-m
-m
-m
-P
-P
-P
-k
-P
-P
-P
-P
-P
-P
-P
-P
-m
-m
-c
-c
-c
-s
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+wB
+wB
+gU
+gU
+NP
+xj
+mb
+mb
+gU
+gU
+Rb
+mf
+mf
+mf
+mf
+Ec
+yx
+yx
+Td
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (16,1,1) = {"
-c
-c
-m
-m
-m
-m
-P
-P
-P
-P
-P
-P
-P
-P
-P
-P
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+wB
+wB
+wB
+gU
+gU
+gU
+gU
+gU
+gU
+wB
+wB
+mf
+mf
+mf
+uO
+gU
+gU
+yx
+FZ
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (17,1,1) = {"
-c
-c
-m
-m
-m
-m
-P
-P
-P
-P
-P
-P
-P
-P
-P
-P
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+mf
+mf
+mf
+wB
+gU
+kO
+yx
+Jg
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (18,1,1) = {"
-c
-c
-m
-m
-m
-m
-P
-P
-P
-P
-P
-P
-P
-P
-m
-m
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-X
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+wB
+wB
+mf
+mf
+mf
+wB
+gU
+gU
+qa
+Gy
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (19,1,1) = {"
-s
-c
-m
-m
-m
-m
-P
-P
-P
-b
-P
-P
-P
-P
-m
-m
-P
-P
-m
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
-X
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+gU
+fY
+CW
+Sr
+yx
+CO
+yx
+kq
+gU
+wB
+wB
+mf
+mf
+mf
+wB
+gU
+kO
+yx
+aa
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (20,1,1) = {"
-c
-c
-m
-m
-m
-m
-P
-P
-P
-P
-P
-P
-P
-P
-P
-m
-P
-P
-P
-P
-P
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+gU
+mB
+NW
+yx
+Qx
+Qx
+yx
+ca
+gU
+gU
+wB
+mf
+mf
+mf
+wB
+gU
+gU
+yx
+zH
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (21,1,1) = {"
-c
-c
-m
-m
-m
-m
-m
-P
-P
-P
-m
-P
-P
-P
-P
-P
-P
-P
-k
-P
-P
-m
-m
-m
-c
-c
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+gU
+nc
+NW
+yx
+Qx
+Qx
+Qx
+yx
+fw
+gU
+Rb
+mf
+mf
+mf
+wB
+gU
+kO
+yx
+Rg
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (22,1,1) = {"
-c
-c
-c
-m
-m
-m
-P
-P
-P
-m
-m
-P
-P
-A
-P
-P
-P
-P
-P
-P
-P
-P
-P
-c
-c
-c
-c
-x
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+gU
+UX
+vQ
+yx
+Qx
+Qx
+Qx
+yx
+yx
+tT
+mf
+mf
+mf
+mf
+wB
+gU
+gU
+qa
+Yr
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (23,1,1) = {"
-x
-c
-c
-m
-m
-m
-P
-P
-P
-m
-m
-P
-P
-P
-P
-P
-P
-P
-P
-P
-P
-P
-A
-c
-c
-c
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+gU
+nc
+NW
+yx
+Qx
+Qx
+Qx
+yx
+qP
+gU
+Rb
+mf
+mf
+mf
+wB
+gU
+WG
+pB
+aa
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (24,1,1) = {"
-c
-c
-c
-m
-m
-m
-P
-P
-P
-m
-m
-k
-P
-m
-m
-m
-m
-P
-P
-P
-P
-P
-P
-c
-c
-s
-c
-c
-C
-c
-c
-x
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+gU
+fY
+NW
+yx
+Qx
+Qx
+yx
+ca
+gU
+gU
+wB
+mf
+mf
+mf
+wB
+gU
+gU
+gU
+gU
+gU
+wB
+gU
+vi
+vi
+vi
 "}
 (25,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-P
-P
-m
-m
-m
-m
-P
-P
-P
-P
-P
-P
-c
-c
-c
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+gU
+mB
+EP
+Sr
+yx
+aJ
+yx
+wC
+gU
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+gU
+vi
+vi
+vi
 "}
 (26,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-P
-P
-P
-c
-c
-c
-c
-c
-c
-s
-c
-c
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+gU
+vi
+vi
+vi
 "}
 (27,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-c
-c
-c
-x
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+gU
+vi
+vi
+vi
 "}
 (28,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-k
-c
-c
-c
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+wB
+gU
+vi
+vi
+vi
 "}
 (29,1,1) = {"
-c
-s
-c
-x
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-c
-c
-c
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+gU
+vi
+vi
+vi
 "}
 (30,1,1) = {"
-c
-c
-c
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-P
-P
-m
-c
-c
-c
-s
-c
-c
-X
-c
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
 "}
 (31,1,1) = {"
-c
-c
-X
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-x
-c
-c
-c
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
 "}
 (32,1,1) = {"
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-c
-s
-c
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-c
-c
-c
-c
-c
-c
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
 "}
