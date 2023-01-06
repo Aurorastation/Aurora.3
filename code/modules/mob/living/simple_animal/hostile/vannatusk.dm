@@ -45,7 +45,7 @@
 
 	psi_pingable = FALSE
 
-/mob/living/simple_animal/hostile/vannatusk/vannatusk_ghostrole
+/mob/living/simple_animal/hostile/vannatusk/ghostrole
 	name = "vannatusk"
 	desc = "A monstrous interdimensional invader. Its body is protected by a chitin carapace."
 	icon = 'icons/mob/npc/vannatusk.dmi'
