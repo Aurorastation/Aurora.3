@@ -90,7 +90,6 @@ On the map:
 1441 for atmospherics - supply tanks
 1443 for atmospherics - distribution loop/mixed air tank
 1445 for bot nav beacons
-1447 for mulebot, secbot and ed209 control
 1449 for airlock controls, electropack, magnets
 1451 for toxin lab access
 1453 for engineering access

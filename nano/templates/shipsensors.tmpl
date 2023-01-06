@@ -119,6 +119,28 @@
 	</table>
 {{/if}}
 </div>
+
+{{if data.id_name == 'Horizon'}}
+	<h4>Announce Inbound fire</h4>
+	<div class='block'>
+		<div class='item'>
+			{{:helper.link('', 'triangle-1-nw', { 'inbound_fire' : 'Fore-Port' }, null, null)}}
+			{{:helper.link('', 'triangle-1-n', { 'inbound_fire' : 'Fore' }, null, null)}}
+			{{:helper.link('', 'triangle-1-ne', { 'inbound_fire' : 'Fore-Starboard' }, null, null)}}
+		</div>
+		<div class='item'>
+			{{:helper.link('', 'triangle-1-w', { 'inbound_fire' : 'Port' }, null, null)}}
+			{{:helper.link('', 'circle-close', { 'inbound_fire' : 'clear' }, null, null)}}
+			{{:helper.link('', 'triangle-1-e', { 'inbound_fire' : 'Starboard' }, null, null)}}
+		</div>
+		<div class='item'>
+			{{:helper.link('', 'triangle-1-sw', { 'inbound_fire' : 'Bow-Port' }, null, null)}}
+			{{:helper.link('', 'triangle-1-s', { 'inbound_fire' : 'Bow' }, null, null)}}
+			{{:helper.link('', 'triangle-1-se', { 'inbound_fire' : 'Bow-Starboard' }, null, null)}}
+		</div>
+	</div>
+{{/if}}
+
 <h4>Distress Beacons</h4>
 <div class='block'>
 <span class='average'>Press the 'Listen' button to listen to the distress message.</span>

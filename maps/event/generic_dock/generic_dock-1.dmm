@@ -1896,10 +1896,6 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/tdome)
-"aUq" = (
-/obj/machinery/atmospherics/pipe/vent,
-/turf/simulated/floor/bluegrid,
-/area/tdome)
 "aUs" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -1914,28 +1910,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
-"aUu" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 5
-	},
-/turf/simulated/floor,
-/area/tdome)
-"aUv" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/tdome)
-"aUw" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/turf/simulated/floor,
-/area/tdome)
-"aUz" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor,
-/area/tdome)
 "aVo" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/reagent_containers/food/drinks/bottle/cognac{
@@ -3965,13 +3939,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/supply/dock)
-"drB" = (
-/obj/machinery/atmospherics/valve,
-/obj/effect/floor_decal/corner/orange/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "new_white"
-	},
-/area/tdome/tdomeadmin)
 "dtJ" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -5670,19 +5637,6 @@
 	temperature = 278
 	},
 /area/centcom/control)
-"fIw" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/sleeping_agent{
-	pixel_x = 1
-	},
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/unsimulated/floor{
-	icon_state = "new_white"
-	},
-/area/tdome/tdomeadmin)
 "fIR" = (
 /obj/structure/table/reinforced/wood,
 /obj/effect/decal/fake_object{
@@ -7173,11 +7127,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/control)
-"hpC" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/unsimulated/floor/plating,
-/area/tdome/tdomeadmin)
 "hri" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
@@ -50641,8 +50590,8 @@ aTX
 aTX
 aTX
 aUm
-aUq
-aUu
+aUm
+aTX
 aTX
 aTX
 rFD
@@ -50899,12 +50848,12 @@ aTX
 aTX
 aUn
 goO
-aUv
-aUz
-aUz
-hpC
-drB
-fIw
+aTX
+aTX
+aTX
+nQZ
+cJB
+bBe
 cJB
 bBe
 lUA
@@ -51155,8 +51104,8 @@ aTX
 aTX
 aTX
 aUm
-aUq
-aUw
+aUm
+aTX
 aTX
 aTX
 rFD
