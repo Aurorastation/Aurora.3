@@ -1,0 +1,7 @@
+author: atteria
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a Vietnamese ao dai tunic and ao yem."
+  - imageadd: "Resprited the non la hat."
