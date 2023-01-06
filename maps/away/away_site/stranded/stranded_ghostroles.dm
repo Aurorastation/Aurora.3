@@ -44,4 +44,4 @@
 
 	respawn_flag = null
 
-	spawn_mob = /mob/living/simple_animal/hostile/vannatusk_ghostrole
+	spawn_mob = /mob/living/simple_animal/hostile/vannatusk/vannatusk_ghostrole
