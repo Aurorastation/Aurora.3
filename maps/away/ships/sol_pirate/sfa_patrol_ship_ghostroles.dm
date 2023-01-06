@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/sfa_navy_crewman
 	short_name = "sfa_navy_crewman"
 	name = "SFA Navy Crewman"
-	desc = "Crew the Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead."
+	desc = "Crew the Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead. (OOC Note: All characters must be of Solarian origin, this is enforceable by admin/moderator action.)"
 	tags = list("External")
 	mob_name_prefix = "PO3. "
 
@@ -39,7 +39,7 @@
 /datum/ghostspawner/human/sfa_navy_officer
 	short_name = "sfa_navy_officer"
 	name = "SFA Navy Officer"
-	desc = "Pilot and command a Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead."
+	desc = "Pilot and command a Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead. (OOC Note: All characters must be of Solarian origin, this is enforceable by admin/moderator action.)"
 	tags = list("External")
 	mob_name_prefix = "LT. "
 
@@ -76,7 +76,7 @@
 /datum/ghostspawner/human/sfa_marine
 	short_name = "sfa_marine"
 	name = "SFA Marine"
-	desc = "Protect the Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead."
+	desc = "Protect the Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead. (OOC Note: All characters must be of Solarian origin, this is enforceable by admin/moderator action.)"
 	tags = list("External")
 	mob_name_prefix = "Pfc. "
 
