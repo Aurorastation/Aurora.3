@@ -153,3 +153,11 @@
 	to_chat(user, SPAN_NOTICE("You start to meticulously pick up the confetti."))
 	if(do_after(user, 60))
 		qdel(src)
+
+/obj/effect/decal/cleanable/acid_remnants
+	name = "acid remains"
+	desc = "A mixture of mortal remains and acid."
+	density = FALSE
+	anchored = TRUE
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "acid_puddle"

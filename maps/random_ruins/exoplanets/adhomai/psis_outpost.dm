@@ -9,7 +9,7 @@
 	suffixes = list("adhomai/psis_outpost.dmm")
 
 /area/psis_outpost
-	name = "PSIS Military Outpost"
+	name = "PSIS Outpost"
 	icon_state = "bluenew"
 	requires_power = FALSE
 	dynamic_lighting = TRUE
