@@ -106,7 +106,7 @@
 		if(!Adjacent(target_mob))
 			fire_spike(target_mob)
 
-/mob/living/simple_animal/hostile/vannatusk/vannatusk_ghostrole/FoundTarget()
+/mob/living/simple_animal/hostile/vannatusk/ghostrole/FoundTarget()
 	return
 
 /mob/living/simple_animal/hostile/vannatusk/proc/fire_spike(var/mob/living/target_mob)
