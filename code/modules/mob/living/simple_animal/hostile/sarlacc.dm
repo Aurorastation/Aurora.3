@@ -194,9 +194,7 @@
 
 /mob/living/simple_animal/hostile/greatworm/death()
 	..()
-	visible_message("<span class='danger'>With a frenzy of tooth and tendril, \the [src] slides deep into the earth, leaving a gaping hole in its place!</span>")
-	var/turf/T = src.loc
-	T.ChangeTurf(/turf/space)
+	visible_message("<span class='danger'>With a frenzy of tooth and tendril, \the [src] slides deep into the earth!</span>")
 	qdel(src)
 
 /mob/living/simple_animal/hostile/greatworm/proc/Sandman()

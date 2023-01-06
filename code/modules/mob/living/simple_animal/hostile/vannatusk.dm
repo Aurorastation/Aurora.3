@@ -45,6 +45,53 @@
 
 	psi_pingable = FALSE
 
+/mob/living/simple_animal/hostile/vannatusk/ghostrole
+	name = "vannatusk"
+	desc = "A monstrous interdimensional invader. Its body is protected by a chitin carapace."
+	icon = 'icons/mob/npc/vannatusk.dmi'
+	icon_state = "vannatusk"
+	icon_living = "vannatusk"
+	icon_dead = "vannatusk_dead"
+
+	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
+	mob_push_flags = ALLMOBS
+
+	tameable = FALSE
+
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
+	response_help  = "pets"
+	response_disarm = "shoves"
+	response_harm   = "harmlessly punches"
+	maxHealth = 500
+	health = 500
+	harm_intent_damage = 5
+	melee_damage_lower = 30
+	melee_damage_upper = 30
+	armor_penetration = 15
+	resist_mod = 3
+	mob_size = 15
+	environment_smash = 2
+	see_in_dark = 10
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	attacktext = "mangled"
+	attack_emote = "charges toward"
+	attack_sound = 'sound/effects/creatures/vannatusk_attack.ogg'
+	emote_sounds = list('sound/effects/creatures/vannatusk_sound.ogg', 'sound/effects/creatures/vannatusk_sound_2.ogg')
+
+	minbodytemp = 0
+	maxbodytemp = 350
+	min_oxy = 0
+	max_co2 = 0
+	max_tox = 0
+
+	blood_type = "#001126"
+
+	speed = 3
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/vannatusk
+
+	psi_pingable = FALSE
+
 /mob/living/simple_animal/hostile/vannatusk/Initialize()
 	. = ..()
 	set_light(1.2, 3, LIGHT_COLOR_BLUE)
@@ -58,6 +105,9 @@
 		custom_emote(VISIBLE_MESSAGE,"stares alertly at [target_mob]")
 		if(!Adjacent(target_mob))
 			fire_spike(target_mob)
+
+/mob/living/simple_animal/hostile/vannatusk/vannatusk_ghostrole/FoundTarget()
+	return
 
 /mob/living/simple_animal/hostile/vannatusk/proc/fire_spike(var/mob/living/target_mob)
 	visible_message(SPAN_DANGER("\The [src] fires a spike at [target_mob]!"))
