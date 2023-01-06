@@ -135,10 +135,8 @@
 		uneq_all()
 
 	if(common_radio)
-		if(!is_component_functioning("radio"))
-			common_radio.on = FALSE
-		else
-			common_radio.on = TRUE
+		if(common_radio.is_on() != is_component_functioning("radio"))
+			common_radio.set_on(!common_radio.is_on())
 
 	if(is_component_functioning("camera"))
 		blinded = FALSE
@@ -149,7 +147,7 @@
 
 /mob/living/silicon/robot/handle_regular_hud_updates()
 	..()
-	if(stat == DEAD || (XRAY in mutations) || (sight_mode & BORGXRAY))
+	if(stat == DEAD || HAS_FLAG(mutations, XRAY) || (sight_mode & BORGXRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
@@ -333,10 +331,13 @@
 	return TRUE
 
 /mob/living/silicon/robot/update_fire()
-	cut_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
+	cut_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
+	cut_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
+
 	if(on_fire)
-		add_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
+		add_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
+		add_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
 
 /mob/living/silicon/robot/fire_act()
-	if(!on_fire) //Silicons don't gain stacks from hotspots, but hotspots can ignite them
+	if(!on_fire) // Silicons don't gain stacks from hotspots, but hotspots can ignite them.
 		IgniteMob()

@@ -66,6 +66,9 @@
 
 	turfs += src
 
+	if (isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -95,6 +98,11 @@
 	if (z_flags & ZM_MIMIC_BELOW)
 		setup_zmimic(mapload)
 
+	if (current_map.use_overmap && istype(A, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
+
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
@@ -103,6 +111,9 @@
 
 	changing_turf = FALSE
 	turfs -= src
+
+	if (isStationLevel(z))
+		station_turfs -= src
 
 	remove_cleanables()
 	cleanup_roof()
@@ -226,14 +237,20 @@ var/const/enterloopsanity = 100
 		var/mob/M = AM
 		if(!M.lastarea)
 			M.lastarea = get_area(M.loc)
-		if(M.lastarea.has_gravity() == 0)
+
+		var/has_gravity = M.lastarea.has_gravity()
+		if(!has_gravity)
 			inertial_drift(M)
 
 		// Footstep SFX logic moved to human_movement.dm - Move().
 
-		else if (type != /turf/space)
+		else if(!is_hole)
 			M.inertia_dir = 0
-			M.make_floating(0)
+
+		if(!M.is_floating && (is_hole || !has_gravity))
+			M.update_floating()
+		else if(M.is_floating && !is_hole && has_gravity)
+			M.update_floating()
 
 	if(does_footprint && footprint_color && ishuman(AM))
 		var/mob/living/carbon/human/H = AM
@@ -332,7 +349,7 @@ var/const/enterloopsanity = 100
 
 /turf/proc/AdjacentTurfs(var/check_blockage = TRUE)
 	. = list()
-	for(var/turf/t in oview(src,1))
+	for(var/turf/t in orange(src,1))
 		if(check_blockage)
 			if(!t.density)
 				if(!LinkBlocked(src, t) && !TurfBlockedNonWindow(t))

@@ -549,14 +549,13 @@
 	metabolism_min = 0.25
 
 /decl/reagent/ryetalyn/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/needs_update = M.mutations.len > 0
-
-	M.mutations = list()
+	var/needs_mutation_update = M.mutations > 0
+	M.mutations = 0
 	M.disabilities = 0
 	M.sdisabilities = 0
 
 	// Might need to update appearance for hulk etc.
-	if(needs_update && ishuman(M))
+	if(needs_mutation_update && ishuman(M))
 		var/mob/living/carbon/human/H = M
 		H.update_mutations()
 
@@ -1316,6 +1315,9 @@
 	taste_description = "blood"
 	specific_heat = 1
 
+/decl/reagent/sanasomnum/initial_effect(mob/living/carbon/M)
+	to_chat(M, SPAN_WARNING("Your limbs start to feel <b>numb</b> and <b>weak</b>, and your legs wobble as it becomes hard to stand!"))
+
 /decl/reagent/sanasomnum/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(.)
@@ -1341,10 +1343,7 @@
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
-	if (!(CE_UNDEXTROUS in M.chem_effects))
-		to_chat(M, SPAN_WARNING("Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
-		M.confused = max(M.confused, 250)
-		M.eye_blurry = max(M.eye_blurry, 250)
+	M.add_chemical_effect(CE_UNDEXTROUS, 1)
 	if(M.chem_doses[type] > 0.2)
 		M.Weaken(10)
 	if(M.chem_doses[type] > 5)
@@ -1359,6 +1358,9 @@
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & TENDON_CUT && prob(10))
 				E.status &= ~TENDON_CUT
+
+/decl/reagent/sanasomnum/final_effect(mob/living/carbon/M)
+	to_chat(M, SPAN_GOOD("You can feel sensation creeping back into your limbs!"))
 
 /decl/reagent/verunol
 	name = "Verunol Syrup"
@@ -1572,3 +1574,52 @@
 	metabolism_min = 0.5
 	breathe_mul = 0
 	goodmessage = list("You feel strange, in a good way.")
+
+/decl/reagent/kilosemine
+	name = "Kilosemine"
+	description = "An illegal stimulant, known by specialists for its properties that somehow mix the effects of Synaptizine and Hyperzine without the immediate side \
+				   effects. It is unknown how and where this chemical was created; some speculate that it was created in Fisanduh for use by radical terrorist cells."
+	reagent_state = SOLID
+	scannable = TRUE
+	color = "#EE4B2B"
+	overdose = 15
+	metabolism = REM * 3 //0.6 units per tick
+	taste_description = "pure alcohol"
+
+/decl/reagent/kilosemine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.drowsiness = max(M.drowsiness - 5, 0)
+	M.AdjustStunned(-1)
+	M.AdjustWeakened(-1)
+	M.hallucination = max(0, M.hallucination - 10)
+	M.eye_blurry = max(M.eye_blurry - 5, 0)
+	M.confused = max(M.confused - 10, 0)
+
+/decl/reagent/kilosemine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_SPEEDBOOST, 1)
+		M.add_chemical_effect(CE_CLEARSIGHT)
+		M.add_chemical_effect(CE_STRAIGHTWALK)
+		M.add_chemical_effect(CE_PAINKILLER, 30)
+		M.add_chemical_effect(CE_HALLUCINATE, -1)
+		M.add_up_to_chemical_effect(CE_ADRENALINE, 1)
+
+/decl/reagent/kilosemine/overdose(mob/living/carbon/M, alien, removed, scale, datum/reagents/holder)
+	if(!ishuman(M))
+		return
+	var/mob/living/carbon/human/H = M
+	if(prob(H.chem_doses[type] / 2))
+		to_chat(H, SPAN_WARNING(pick("You feel like you're on limited time...", "Something in the left side of your chest feels like it's bursting!",
+									 "You feel like today is your last day, and you should make it count...")))
+	if(prob(H.chem_doses[type] / 3))
+		if(prob(75))
+			H.emote(pick("twitch", "shiver"))
+		else
+			if(prob(50))
+				to_chat(H, SPAN_DANGER("Your joints lock up!"))
+				H.AdjustParalysis(3)
+			else
+				var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
+				if(heart)
+					to_chat(H, SPAN_DANGER("Your heart skips a beat and screams out in pain!"))
+					heart.take_internal_damage(10)

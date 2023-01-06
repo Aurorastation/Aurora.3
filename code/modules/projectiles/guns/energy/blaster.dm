@@ -54,18 +54,9 @@
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	projectile_type = /obj/item/projectile/energy/blaster
 	max_shots = 8
-	w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_SMALL
 
-/obj/item/gun/energy/blaster/revolver/verb/spin_cylinder()
-	set name = "Spin cylinder"
-	set desc = "Fun when you're bored out of your skull."
-	set category = "Object"
-	var/mob/living/carbon/human/user
-	if(istype(usr,/mob/living/carbon/human))
-		user = usr
-	else
-		return
-
+/obj/item/gun/energy/blaster/revolver/unique_action(mob/living/user)
 	user.visible_message(SPAN_WARNING("\The [user] spins the cylinder of \the [src]!"), SPAN_WARNING("You spin the cylinder of \the [src]!"), SPAN_NOTICE("You hear something metallic spin and click."))
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 

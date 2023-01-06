@@ -267,7 +267,12 @@
 	desc = "Station Network"
 	region = ACCESS_REGION_RESEARCH
 
-// /var/const/free_access_id = 43
+/var/const/access_leviathan = 43
+/datum/access/leviathan
+	id = access_leviathan
+	desc = "Leviathan"
+	region = ACCESS_REGION_COMMAND
+
 // /var/const/free_access_id = 44
 
 /var/const/access_surgery = 45
@@ -399,11 +404,7 @@
 	desc = "First Responder Equipment"
 	region = ACCESS_REGION_MEDBAY
 
-/var/const/access_detective = 68
-/datum/access/access_detective
-	id = access_detective
-	desc = "Detective Equipment"
-	region = ACCESS_REGION_SECURITY
+// /var/const/free_access_id = 68
 
 /var/const/access_weapons = 69
 /datum/access/access_weapons
@@ -438,6 +439,12 @@ var/const/access_bridge_crew = 74
 	id = access_bridge_crew
 	desc = "Bridge Crew"
 	region = ACCESS_REGION_COMMAND
+
+/var/const/access_ship_weapons = 75
+/datum/access/access_ship_weapons
+	id = access_ship_weapons
+	desc = "Ship Weapons"
+	region = ACCESS_REGION_SUPPLY
 
 /******************
 * Central Command *
@@ -534,16 +541,6 @@ var/const/access_kataphract_knight = 114
 	id = access_kataphract_knight
 	desc = "Kataphract Knight Access"
 
-var/const/access_kataphract_quartermaster = 115
-/datum/access/kataphract/quartermaster
-	id = access_kataphract_quartermaster
-	desc = "Kataphract Quartermaster Access"
-
-var/const/access_kataphract_trader = 116
-/datum/access/kataphract/trader
-	id = access_kataphract_trader
-	desc = "Kataphract Trader Access"
-
 /***************
 * Antag access *
 ***************/
@@ -560,10 +557,10 @@ var/const/access_kataphract_trader = 116
 /*******
 * Misc *
 *******/
-/var/const/access_synth = 199
-/datum/access/synthetic
-	id = access_synth
-	desc = "Synthetic"
+/var/const/access_equipment = 199
+/datum/access/equipment
+	id = access_equipment
+	desc = "Equipment"
 	access_type = ACCESS_TYPE_NONE
 
 /var/const/access_crate_cash = 200
@@ -614,4 +611,19 @@ var/const/access_kataphract_trader = 116
 /var/const/access_skrell = 208
 /datum/access/access_skrell
 	id = access_skrell
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_pra = 209
+/datum/access/access_pra
+	id = access_pra
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_unathi_pirate = 210
+/datum/access/access_unathi_pirate
+	id = access_unathi_pirate
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_iac_rescue_ship = 211
+/datum/access/access_iac_rescue_ship
+	id = access_iac_rescue_ship
 	access_type = ACCESS_TYPE_CENTCOM

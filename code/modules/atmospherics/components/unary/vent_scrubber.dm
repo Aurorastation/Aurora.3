@@ -8,7 +8,7 @@
 
 	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
-	power_rating = 7500			//7500 W ~ 10 HP
+	power_rating = 30000			//30000 W ~ 40 HP
 
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SCRUBBER //connects to regular and scrubber pipes
 
@@ -172,7 +172,7 @@
 		broadcast_status()
 		broadcast_status_next_process = FALSE
 
-	if(!use_power || (stat & (NOPOWER|BROKEN)))
+	if(!use_power || (stat & (NOPOWER|BROKEN)) || !loc)
 		return 0
 	if(welded)
 		return 0
@@ -305,8 +305,9 @@
 			to_chat(user, SPAN_WARNING("You must remove the plating first."))
 			return TRUE
 		var/datum/gas_mixture/int_air = return_air()
+		if(!loc) return FALSE
 		var/datum/gas_mixture/env_air = loc.return_air()
-		if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
+		if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 			add_fingerprint(user)
 			return TRUE

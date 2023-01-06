@@ -198,8 +198,10 @@
 				if(istype(H, /obj/machinery/portable_atmospherics/hydroponics/soil/invisible))
 					qdel(H)
 
-	var/datum/gas_mixture/environment = T.return_air()
-	environment.adjust_gas(GAS_PHORON,-amount*10)
+	if(istype(T))
+		var/datum/gas_mixture/environment = T.return_air()
+		if(environment)
+			environment.adjust_gas(GAS_PHORON,-amount*10)
 
 /decl/reagent/toxin/cyanide //Fast and Lethal
 	name = "Cyanide"
@@ -455,6 +457,11 @@
 		affect_blood(M, alien, removed, holder)
 
 /decl/reagent/mutagen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(isslime(M)) // destabilize slime mutation by adding unstable mutagen
+		var/mob/living/carbon/slime/slime = M
+		slime.mutation_chance = min(slime.mutation_chance + removed, 100)
+		return
+
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
@@ -479,6 +486,11 @@
 	taste_mult = 1.3
 
 /decl/reagent/slimejelly/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(isslime(M)) // stabilize slime mutation by reintroducing slime jelly into the slime
+		var/mob/living/carbon/slime/slime = M
+		slime.mutation_chance = max(slime.mutation_chance - removed, 0)
+		return
+
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -797,21 +809,20 @@
 	strength = 0
 	taste_description = "danger"
 
+/decl/reagent/toxin/dextrotoxin/initial_effect(mob/living/carbon/M)
+	to_chat(M, SPAN_WARNING("Your limbs start to feel <b>numb</b> and <b>weak</b>, and your legs wobble as it becomes hard to stand!"))
+
 /decl/reagent/toxin/dextrotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
-	if (!(CE_UNDEXTROUS in M.chem_effects))
-		to_chat(M, SPAN_WARNING("Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
-		M.confused = max(M.confused, 250)
 	M.add_chemical_effect(CE_UNDEXTROUS, 1)
 	if(M.chem_doses[type] > 0.2)
 		M.Weaken(10)
 
-/decl/reagent/toxin/dextrotoxin/final_effect(mob/living/carbon/M, datum/reagents/holder)
-	to_chat(M, SPAN_WARNING("You can feel sensation creeping back into your limbs..."))
-	return ..()
+/decl/reagent/toxin/dextrotoxin/final_effect(mob/living/carbon/M)
+	to_chat(M, SPAN_GOOD("You can feel sensation creeping back into your limbs!"))
 
 /decl/reagent/toxin/coagulated_blood
 	name = "Hemoglobin"

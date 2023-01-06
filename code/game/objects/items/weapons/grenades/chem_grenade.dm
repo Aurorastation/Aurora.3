@@ -301,6 +301,27 @@
 	beakers += B2
 	icon_state = initial(icon_state) +"_locked"
 
+/obj/item/grenade/chem_grenade/antifuel
+	name = "antifuel grenade"
+	desc = "This grenade is loaded with a foaming antifuel compound -- the twenty-fifth century standard for eliminating industrial spills."
+	stage = 2
+	path = 1
+
+/obj/item/grenade/chem_grenade/antifuel/Initialize()
+	. = ..()
+	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
+
+	B1.reagents.add_reagent(/decl/reagent/surfactant, 40)
+	B2.reagents.add_reagent(/decl/reagent/water, 40)
+	B2.reagents.add_reagent(/decl/reagent/antifuel, 10)
+
+	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+
+	beakers += B1
+	beakers += B2
+	icon_state = initial(icon_state) +"_locked"
+
 /obj/item/grenade/chem_grenade/large/phoroncleaner
 	name = "large cardox grenade"
 	desc = "A large chemical grenade containing a heavy amount of cardox. Use in case of phoron leaks. Warning: Harmful to Vaurca health."

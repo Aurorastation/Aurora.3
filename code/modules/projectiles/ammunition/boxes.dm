@@ -107,6 +107,7 @@
 
 /obj/item/ammo_magazine/c45m/practice
 	name = "magazine (.45 practice)"
+	icon_state = "45_practice"
 	ammo_type = /obj/item/ammo_casing/c45/practice
 
 /obj/item/ammo_magazine/c45m/flash
@@ -326,6 +327,7 @@
 
 /obj/item/ammo_magazine/a556/carbine/practice
 	name = "carbine magazine (5.56mm practice)"
+	icon_state = "5.56c_practice"
 	ammo_type = /obj/item/ammo_casing/a556/practice
 
 /obj/item/ammo_magazine/a556/carbine/ap
@@ -338,6 +340,11 @@
 	name = "carbine magazine (5.56mm lethal polymer)"
 	icon_state = "5.56APc"
 	ammo_type = /obj/item/ammo_casing/a556/polymer
+
+/obj/item/ammo_magazine/a556/carbine/blank
+	name = "carbine magazine (5.56mm blank)"
+	icon_state = "5.56c_practice"
+	ammo_type = /obj/item/ammo_casing/a556/blank
 
 /obj/item/ammo_magazine/a556/makeshift
 	name = "makeshift magazine (5.56mm)"

@@ -1,6 +1,6 @@
 /obj/item/device/pipe_painter
 	name = "pipe painter"
-	icon = 'icons/obj/contained_items/tools/pipe_painter.dmi'
+	icon = 'icons/obj/item/tools/pipe_painter.dmi'
 	icon_state = "pipe_painter"
 	item_state = "pipe_painter"
 	contained_sprite = TRUE
@@ -19,7 +19,7 @@
 		return
 	if(!in_range(user, A))
 		return
-	else if(is_type_in_list(A, list(/obj/machinery/atmospherics/pipe/tank, /obj/machinery/atmospherics/pipe/vent, /obj/machinery/atmospherics/pipe/simple/heat_exchanging, /obj/machinery/atmospherics/pipe/simple/insulated)))
+	else if(is_type_in_list(A, list(/obj/machinery/atmospherics/pipe/tank, /obj/machinery/atmospherics/pipe/simple/heat_exchanging)))
 		return
 	else if(istype(A,/obj/machinery/atmospherics/pipe))
 		var/obj/machinery/atmospherics/pipe/P = A

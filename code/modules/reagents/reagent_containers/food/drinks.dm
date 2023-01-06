@@ -278,7 +278,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/waterbottle
 	name = "bottled water"
 	desc = "A fresh bottle of water from the finest bottling plants on Silversun."
-	desc_fluff = "Previously introduced to the vending machines by Skrellian request, this water used to come straight from the Martian poles. Ever since the Martian catastrophe, however, an Idris subsidiary has since stepped in to fill the gap in the market \
+	desc_extended = "Previously introduced to the vending machines by Skrellian request, this water used to come straight from the Martian poles. Ever since the Martian catastrophe, however, an Idris subsidiary has since stepped in to fill the gap in the market \
 	and 'Martian Water' has become a prized collector's item."
 	icon_state = "waterbottle"
 	flags = 0 //starts closed
@@ -391,11 +391,20 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	name = "mutthir carton"
 	icon_state = "mutthir"
 	desc = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
-	desc_fluff = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs. Mutthir is usually consumed during meals by both nobles and commoners. \
+	desc_extended = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs. Mutthir is usually consumed during meals by both nobles and commoners. \
 	The drink can also be smoked for flavor. Mutthir is believed to have originated from the worldwide appreciated Fatshouters' fermented milk. Rock Nomads living in the Nomadic Host \
 	were quick to adopt the drink to their diet."
 
 	reagents_to_add = list(/decl/reagent/drink/milk/adhomai/mutthir = 100)
+
+/obj/item/reagent_containers/food/drinks/carton/eggnog
+	name = "eggnog carton"
+	icon_state = "cream"
+	desc = "A beverage, made out of egg, sugar alcohol and in this case, cream."
+	desc_extended = "Eggnog, also called Egg flip, is an alcoholic beverage, made out of egg, milk or cream, sugar and alcohol. Eggnog is by principle a longdrink and they can be served \
+	hot or cold. Originally it was served in winter and hot. Every serving uses one egg. It is a classic Christmas beverage, loved by every species, universe-wide. Or so you heard."
+
+	reagents_to_add = list(/decl/reagent/alcohol/eggnog = 100)
 
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink

@@ -40,19 +40,3 @@ var/global/list/teleportbeacons = list()
 /obj/item/device/radio/beacon/bacon //Probably a better way of doing this, I'm lazy.
 	proc/digest_delay()
 		QDEL_IN(src, 600)
-
-
-// SINGULO BEACON SPAWNER
-
-/obj/item/device/radio/beacon/syndicate
-	name = "suspicious beacon"
-	desc = "A label on it reads: <i>Activate to have a singularity beacon teleported to your location</i>."
-	origin_tech = list(TECH_BLUESPACE = 1, TECH_ILLEGAL = 7)
-
-/obj/item/device/radio/beacon/syndicate/attack_self(mob/user as mob)
-	if(user)
-		to_chat(user, "<span class='notice'>Locked In</span>")
-		new /obj/machinery/power/singularity_beacon/syndicate( user.loc )
-		playsound(src, 'sound/effects/pop.ogg', 100, 1, 1)
-		qdel(src)
-	return

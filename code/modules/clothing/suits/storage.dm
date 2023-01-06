@@ -21,6 +21,12 @@
 	if (pockets.handle_mousedrop(usr, over_object))
 		..(over_object)
 
+/obj/item/clothing/suit/storage/handle_middle_mouse_click(mob/user)
+	if(Adjacent(user))
+		pockets.open(user)
+		return TRUE
+	return FALSE
+
 /obj/item/clothing/suit/storage/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if(istype(W, /obj/item/clothing/accessory))

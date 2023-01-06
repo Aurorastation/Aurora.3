@@ -39,7 +39,6 @@
 /datum/gear/accessory/armband/New()
 	..()
 	var/list/armbands = list()
-	armbands["Stellar Corporate Conglomerate armband"] = /obj/item/clothing/accessory/armband/scc
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["operations armband"] = /obj/item/clothing/accessory/armband/operations
@@ -60,7 +59,8 @@
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer")
+	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer",
+		"Chief Engineer", "Chief Medical Officer", "Research Director", "Operations Manager")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -92,10 +92,18 @@
 	display_name = "horrible tie"
 	path = /obj/item/clothing/accessory/horrible
 
-/datum/gear/accessory/bowtie
-	display_name = "bowtie"
-	path = /obj/item/clothing/accessory/tie/bowtie
+/datum/gear/accessory/neck_accessories_colourable
+	display_name = "neck accessories selection (colourable)"
+	path = /obj/item/clothing/accessory/tie/ribbon
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/neck_accessories_colourable/New()
+	..()
+	var/list/neck_accessories_colourable = list()
+	neck_accessories_colourable["neck ribbon"] = /obj/item/clothing/accessory/tie/ribbon/neck
+	neck_accessories_colourable["neck bow"] = /obj/item/clothing/accessory/tie/ribbon/bow
+	neck_accessories_colourable["bow tie"] = /obj/item/clothing/accessory/tie/ribbon/bow_tie
+	gear_tweaks += new /datum/gear_tweak/path(neck_accessories_colourable)
 
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
@@ -168,7 +176,7 @@
 /datum/gear/accessory/overalls_mining
 	display_name = "overalls, mining"
 	path = /obj/item/clothing/accessory/storage/overalls/mining
-	allowed_roles = list("Shaft Miner, Xenoarchaeologist")
+	allowed_roles = list("Shaft Miner", "Xenoarchaeologist")
 	cost = 2
 
 /datum/gear/accessory/overalls_engineer
@@ -196,15 +204,15 @@
 	sweater["deep v-neck sweater"] = /obj/item/clothing/accessory/sweater/v_neck/deep
 
 	// Argyle Sweaters
-	sweater["argyle sweater"] = /obj/item/clothing/accessory/argyle_sweater
-	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/tubeneck
-	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/turtleneck
-	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/crewneck
-	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/argyle_sweater/v_neck
+	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweater/argyle
+	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweater/argyle/tubeneck
+	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweater/argyle/turtleneck
+	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/sweater/argyle/crewneck
+	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/sweater/argyle/v_neck
 
 	// Sweater Vests
-	sweater["sweater vest"] = /obj/item/clothing/accessory/sweater_vest
-	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/argyle_sweater_vest
+	sweater["sweater vest"] = /obj/item/clothing/accessory/sweater/vest
+	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweater/argyle/vest
 
 	gear_tweaks += new /datum/gear_tweak/path(sweater)
 
@@ -343,11 +351,6 @@
 	display_name = "shoulder sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/accessory/scc_patch
-	display_name = "stellar corporate conglomerate sleeve patch"
-	path = /obj/item/clothing/accessory/sleevepatch/scc
-	flags = 0
 
 /datum/gear/accessory/whalebone
 	display_name = "europan bone charm"
@@ -539,6 +542,7 @@
 	flagpatch_national["flagpatch, visegrad"] = /obj/item/clothing/accessory/flagpatch/visegrad
 	flagpatch_national["flagpatch, silversun"] = /obj/item/clothing/accessory/flagpatch/silversun
 	flagpatch_national["flagpatch, callisto"] = /obj/item/clothing/accessory/flagpatch/callisto
+	flagpatch_national["flagpatch, venus"] = /obj/item/clothing/accessory/flagpatch/venus
 	flagpatch_national["flagpatch, konyang"] = /obj/item/clothing/accessory/flagpatch/konyang
 	flagpatch_national["flagpatch, elyra"] = /obj/item/clothing/accessory/flagpatch/elyra
 	flagpatch_national["flagpatch, coalition"] = /obj/item/clothing/accessory/flagpatch/coalition

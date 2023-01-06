@@ -85,40 +85,42 @@ There are several things that need to be remembered:
 */
 
 // Human Overlays Indexes //
-#define MUTATIONS_LAYER   1
-#define DAMAGE_LAYER      2
-#define SURGERY_LAYER     3
-#define UNDERWEAR_LAYER   4
-#define TAIL_SOUTH_LAYER  5
-#define SHOES_LAYER_ALT   6
-#define UNIFORM_LAYER     7
-#define ID_LAYER          8
-#define SHOES_LAYER       9
-#define GLOVES_LAYER      10
-#define BELT_LAYER        11
-#define WRISTS_LAYER_ALT  12
-#define SUIT_LAYER        13
-#define ID_LAYER_ALT      14
-#define TAIL_NORTH_LAYER  15
-#define GLASSES_LAYER     16
-#define BELT_LAYER_ALT    17
-#define SUIT_STORE_LAYER  18
-#define BACK_LAYER        19
-#define HAIR_LAYER        20
-#define GLASSES_LAYER_ALT 21
-#define L_EAR_LAYER       22
-#define R_EAR_LAYER       23
-#define FACEMASK_LAYER    24
-#define HEAD_LAYER        25
-#define COLLAR_LAYER      26
-#define HANDCUFF_LAYER    27
-#define LEGCUFF_LAYER     28
-#define L_HAND_LAYER      29
-#define R_HAND_LAYER      30
-#define WRISTS_LAYER      31
-#define FIRE_LAYER        32		//If you're on fire
-#define TOTAL_LAYERS      32
-//////////////////////////////////
+// Layer 1 intentionally left empty.
+#define FIRE_LAYER_LOWER  2
+#define MUTATIONS_LAYER   3
+#define DAMAGE_LAYER      4
+#define SURGERY_LAYER     5
+#define UNDERWEAR_LAYER   6
+#define TAIL_SOUTH_LAYER  7
+#define SHOES_LAYER_ALT   8
+#define UNIFORM_LAYER     9
+#define ID_LAYER          10
+#define SHOES_LAYER       11
+#define GLOVES_LAYER      12
+#define BELT_LAYER        13
+#define WRISTS_LAYER_ALT  14
+#define SUIT_LAYER        15
+#define ID_LAYER_ALT      16
+#define TAIL_NORTH_LAYER  17
+#define GLASSES_LAYER     18
+#define BELT_LAYER_ALT    19
+#define SUIT_STORE_LAYER  20
+#define BACK_LAYER        21
+#define HAIR_LAYER        22
+#define GLASSES_LAYER_ALT 23
+#define L_EAR_LAYER       24
+#define R_EAR_LAYER       25
+#define FACEMASK_LAYER    26
+#define HEAD_LAYER        27
+#define COLLAR_LAYER      28
+#define HANDCUFF_LAYER    29
+#define LEGCUFF_LAYER     30
+#define L_HAND_LAYER      31
+#define R_HAND_LAYER      32
+#define WRISTS_LAYER      33
+#define FIRE_LAYER_UPPER  34
+#define TOTAL_LAYERS      34
+////////////////////////////
 
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
 #define GET_TAIL_LAYER (dir == NORTH ? TAIL_NORTH_LAYER : TAIL_SOUTH_LAYER)
@@ -259,7 +261,7 @@ There are several things that need to be remembered:
 		if(worn_overlay_color)
 			M.color = worn_overlay_color
 		. += M
-		
+
 /proc/slot_str_to_contained_flag(var/slot_str)
 	switch(slot_str)
 		if(slot_back_str)
@@ -301,9 +303,9 @@ There are several things that need to be remembered:
 
 	var/husk_color_mod = rgb(96,88,80)
 
-	var/husk = (HUSK in mutations)
-	var/fat = (FAT in mutations)
-	var/skeleton = (SKELETON in mutations)
+	var/husk = HAS_FLAG(mutations, HUSK)
+	var/fat = HAS_FLAG(mutations, FAT)
+	var/skeleton = HAS_FLAG(mutations, SKELETON)
 	var/g = (gender == FEMALE ? "f" : "m")
 
 	pixel_x = species.icon_x_offset
@@ -496,7 +498,7 @@ There are several things that need to be remembered:
 		return
 
 	var/fat
-	if(FAT in mutations)
+	if(HAS_FLAG(mutations, FAT))
 		fat = "fat"
 
 	var/image/standing	= image("icon" = 'icons/effects/genetics.dmi')
@@ -512,11 +514,9 @@ There are several things that need to be remembered:
 			if(underlay)
 				standing.underlays += underlay
 				add_image = 1
-	for(var/mut in mutations)
-		switch(mut)
-			if(LASER_EYES)
-				standing.overlays += "lasereyes_s"
-				add_image = 1
+	if(HAS_FLAG(mutations, LASER_EYES))
+		standing.overlays += "lasereyes_s"
+		add_image = 1
 	if(add_image)
 		overlays_raw[MUTATIONS_LAYER] = standing
 	else
@@ -1282,7 +1282,7 @@ There are several things that need to be remembered:
 
 	var/tail_layer = GET_TAIL_LAYER
 
-	if(species.tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+	if(species.tail && NOT_FLAG(mutations, HUSK) && NOT_FLAG(mutations, SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
 		overlays_raw[tail_layer] = image(tail_s, icon_state = "[species.tail]_s")
 		animate_tail_reset(0)
@@ -1378,14 +1378,16 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_fire(var/update_icons=1)
-	if (QDELING(src))
+// update_fire()
+/mob/living/carbon/human/update_fire(var/update_icons = TRUE)
+	if(QDELING(src))
 		return
 
-	var/image/fire_image = on_fire ? image(species.onfire_overlay, "Standing", layer = FIRE_LAYER) : null
-	if(fire_image)
-		fire_image.appearance_flags = RESET_ALPHA
-	overlays_raw[FIRE_LAYER] = fire_image
+	var/image/fire_image_lower = on_fire ? image(species.onfire_overlay, "lower", layer = FIRE_LAYER_LOWER) : null
+	var/image/fire_image_upper = on_fire ? image(species.onfire_overlay, "upper", layer = FIRE_LAYER_UPPER) : null
+
+	overlays_raw[FIRE_LAYER_LOWER] = fire_image_lower
+	overlays_raw[FIRE_LAYER_UPPER] = fire_image_upper
 
 	if(update_icons)
 		update_icon()
@@ -1513,6 +1515,7 @@ There are several things that need to be remembered:
 		return TRUE
 
 //Human Overlays Indexes/////////
+#undef FIRE_LAYER_LOWER
 #undef MUTATIONS_LAYER
 #undef DAMAGE_LAYER
 #undef SURGERY_LAYER
@@ -1540,7 +1543,7 @@ There are several things that need to be remembered:
 #undef L_HAND_LAYER
 #undef R_HAND_LAYER
 #undef WRISTS_LAYER
-#undef FIRE_LAYER
+#undef FIRE_LAYER_UPPER
 #undef TOTAL_LAYERS
 
 #undef UNDERSCORE_OR_NULL

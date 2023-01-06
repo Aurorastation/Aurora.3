@@ -84,7 +84,7 @@ BREATH ANALYZER
 
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE, var/sound_scan)
 	if(!just_scan)
-		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
+		if (((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(50))
 			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
 			to_chat(user, "<span class='notice'><b>Scan results for the ERROR:</b></span>")
 			if(sound_scan)
@@ -131,7 +131,7 @@ BREATH ANALYZER
 
 	// Brain activity.
 	var/brain_status = H.get_brain_status()
-	dat += "Brain activity: [brain_status]."
+	dat += "Brain activity: [brain_status]"
 	var/brain_result = H.get_brain_result()
 
 	if(sound_scan)
@@ -169,13 +169,14 @@ BREATH ANALYZER
 			pulse_result = "<span class='scan_warning'>[pulse_result]</span>"
 	else
 		pulse_result = "<span class='scan_danger'>0</span>"
-	dat += "Pulse rate: [pulse_result]bpm."
+	dat += "Pulse rate: [pulse_result] bpm"
 
-	// Blood pressure. Based on the idea of a normal blood pressure being 120 over 80.
+	// Blood pressure and blood type. Based on the idea of a normal blood pressure being 120 over 80.
 	if(H.should_have_organ(BP_HEART))
 		if(H.get_blood_volume() <= 70)
 			dat += "<span class='scan_danger'>Severe blood loss detected.</span>"
 		var/oxygenation_string = "<span class='scan_green'>[H.get_blood_oxygenation()]% blood oxygenation</span>"
+		dat += "Blood type: <span class ='scan_green'>[H.dna.b_type]</span>"
 		switch(H.get_blood_oxygenation())
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 				oxygenation_string = "<span class='scan_notice'>[oxygenation_string]</span>"
@@ -194,16 +195,16 @@ BREATH ANALYZER
 				blood_pressure_string = "<span class='scan_warning'>[H.get_blood_pressure()]</span>"
 			if(4)
 				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
-		dat += "[b]Blood pressure:[endb] [blood_pressure_string] ([oxygenation_string])"
+		dat += "Blood pressure: [blood_pressure_string] ([oxygenation_string])"
 	else
-		dat += "[b]Blood pressure:[endb] N/A"
+		dat += "Blood pressure: N/A"
 
-	// Body temperature.
+	// Body temperature. Rounds to one digit after decimal.
 	var/temperature_string
 	if(H.bodytemperature < H.species.cold_level_1 || H.bodytemperature > H.species.heat_level_1)
-		temperature_string = "<span class='scan_warning'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
+		temperature_string = "Body temperature: <span class='scan_warning'>[round(H.bodytemperature-T0C, 0.1)]&deg;C ([round(H.bodytemperature*1.8-459.67, 0.1)]&deg;F)</span>"
 	else
-		temperature_string = "<span class='scan_green'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
+		temperature_string = "Body temperature: <span class='scan_green'>[round(H.bodytemperature-T0C, 0.1)]&deg;C ([round(H.bodytemperature*1.8-459.67, 0.1)]&deg;F)</span>"
 	dat += temperature_string
 
 	// Traumatic shock.
@@ -360,7 +361,7 @@ BREATH ANALYZER
 /obj/item/device/analyzer
 	name = "analyzer"
 	desc = "A hand-held environmental scanner which reports current gas levels."
-	icon = 'icons/obj/contained_items/tools/air_analyzer.dmi'
+	icon = 'icons/obj/item/tools/air_analyzer.dmi'
 	icon_state = "analyzer"
 	item_state = "analyzer"
 	contained_sprite = TRUE
@@ -376,9 +377,9 @@ BREATH ANALYZER
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 
 /obj/item/device/analyzer/atmosanalyze(var/mob/user)
+	if(!user) return
 	var/air = user.return_air()
-	if (!air)
-		return
+	if (!air) return
 
 	return atmosanalyzer_scan(src, air, user)
 
@@ -590,7 +591,7 @@ BREATH ANALYZER
 		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on [H]!</span>")
 		return
 
-	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(20))
+	if ( ((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(20))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		if(!H.eyes_protected(src, FALSE))
 			eyestab(H,user)

@@ -73,7 +73,6 @@
 	var/stuttering = null
 	var/slurring = null
 	var/brokejaw = null
-	var/tarded = null
 	var/real_name = null
 	var/flavor_text = ""
 	var/med_record = ""
@@ -173,7 +172,7 @@
 
 	var/datum/dna/dna = null//Carbon
 
-	var/list/mutations = list() //Carbon -- Doohl
+	var/mutations = 0 //Carbon -- Doohl
 	//see: setup.dm for list of mutations
 
 	var/voice_name = "unidentifiable voice"

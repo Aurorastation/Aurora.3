@@ -316,7 +316,6 @@
 
 	//stop flying
 	on_impact(A, hit_zone)
-
 	qdel(src)
 	return TRUE
 

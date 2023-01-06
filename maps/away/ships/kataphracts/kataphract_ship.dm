@@ -2,16 +2,18 @@
 	name = "kataphract ship"
 	id = "awaysite_kataphract_ship"
 	description = "Ship with lizard knights."
-	suffix = "ships/kataphracts/kataphract_ship.dmm"
-	spawn_cost = 1
+	suffixes = list("ships/kataphracts/kataphract_ship.dmm")
+	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA)
 
 /obj/effect/overmap/visitable/ship/kataphract_ship
 	name = "kataphract chapter ship"
-	desc = "A large corvette manufactured by a Hephaestus sponsered Hegemonic Guild. This is a Kataphract Chapter ship of the venerable 'Voidbreaker' class, a relative of the more common 'Foundation' class used by their counterparts in the Hegemon's navy. These vessels are rarely seen together and strive for maximum self-suffiency as they are the homes and primary means of transportation for questing Kataphracts and their Hopefuls. They carry enough firepower to deter the common pirate as well as a set of boarding pods for offensive actions." 
-	class = "IHKV" //Izweski Hegemony Kataphract Vessel 
+	desc = "A large corvette manufactured by a Hephaestus sponsored Hegemonic Guild. This is a heavily armoured Kataphract Chapter ship of the venerable 'Voidbreaker' class, a relative of the more common 'Foundation' \
+	class used by their counterparts in the Hegemony Navy. These vessels are rarely seen together and strive for maximum self-suffiency as they are the homes and primary means of transportation \
+	for questing Kataphracts and their followers. They usually carry enough firepower to deter the common pirate as well as a set of boarding pods for offensive actions. This ship however has no weapon hardpoints detected. It remains capable due to its sturdy design."
+	class = "IHKV" //Izweski Hegemony Kataphract Vessel
 	icon_state = "ship_green"
 	moving_state = "ship_green_moving"
 	vessel_mass = 10000
@@ -63,20 +65,22 @@
 	name = "Kataphract Ship Starboard Docking"
 	landmark_tag = "nav_kataphract_ship_starboarddock"
 
-/obj/effect/shuttle_landmark/nav_kataphract_ship/dockintrepid // restricted for the intrepid only or else other ships will be able to use this point, and not properly dock 
+/obj/effect/shuttle_landmark/nav_kataphract_ship/dockintrepid // restricted for the intrepid only or else other ships will be able to use this point, and not properly dock
 	name = "Kataphract Ship Intrepid Starboard Docking"
 	landmark_tag = "nav_kataphract_ship_dockintrepid"
 
-//shuttle 
+//shuttle
 /obj/effect/overmap/visitable/ship/landable/kataphract_transport
 	name = "Kataphract Transport"
+	class = "IHKV"
+	designation = "Sasuna"
 	desc = "A small egg shaped shuttle of the 'Spearhead' class, commonly seen carried by Izweski Hegemony vessels. They're never far from their motherships and are a telltale sign of an Unathi presence within a sector. Affectionately called the 'Hatchling' by its operators. The transponder for this vessel identifies it as belonging to a traveling Kataphract Guild of the Hegemony."
 	shuttle = "Kataphract Transport"
 	icon_state = "shuttle_green"
 	moving_state = "shuttle_green_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
-	vessel_mass = 4000 
+	vessel_mass = 6000 //Ship has a lot of thrusters, so if its too low the shuttle goes too fast. Also, imagine a hard egg flying towards you.
 	fore_dir = WEST
 	vessel_size = SHIP_SIZE_TINY
 
@@ -92,8 +96,8 @@
 	current_location = "nav_hangar_kataphract_shuttle"
 	dock_target = "kataphract_transport"
 	landmark_transition = "nav_kataphract_transport_transit"
-	range = 2
-	fuel_consumption = 3
+	range = 2 // It's a big boy
+	fuel_consumption = 4
 	logging_home_tag = "nav_hangar_kataphract_shuttle"
 	defer_initialisation = TRUE
 
@@ -108,4 +112,4 @@
 /obj/effect/shuttle_landmark/kataphract_transport/transit
 	name = "In transit"
 	landmark_tag = "nav_kataphract_transport_transit"
-	base_turf = /turf/space
+	base_turf = /turf/space/transit/east

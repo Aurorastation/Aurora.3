@@ -110,6 +110,12 @@
 	reload_sound = /decl/sound_category/shotgun_reload
 	drop_sound = /decl/sound_category/casing_drop_sound_shotgun
 
+/obj/item/ammo_casing/shotgun/used/Initialize()
+	. = ..()
+	expend()
+	pixel_x = rand(-10, 10)
+	pixel_y = rand(-10, 10)
+
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
 	desc = "A 12-gauge shell."
@@ -117,6 +123,12 @@
 	spent_icon = "gshell-spent"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
+
+/obj/item/ammo_casing/shotgun/pellet/used/Initialize()
+	. = ..()
+	expend()
+	pixel_x = rand(-10, 10)
+	pixel_y = rand(-10, 10)
 
 /obj/item/ammo_casing/shotgun/blank
 	name = "shotgun shell"
@@ -245,6 +257,10 @@
 /obj/item/ammo_casing/a556/polymer
 	desc = "A 5.56mm polymer bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/polymer
+
+/obj/item/ammo_casing/a556/blank
+	desc = "A 5.56mm blank casing."
+	projectile_type = /obj/item/projectile/bullet/blank
 
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"

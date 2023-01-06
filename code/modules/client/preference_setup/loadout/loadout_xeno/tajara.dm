@@ -57,6 +57,11 @@
 	coat["raakti shariim coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/raakti_shariim
 	coat["hadiist surplus jacket"] = /obj/item/clothing/suit/storage/tajaran/pra_jacket
 	coat["al'mariist jacket"] = /obj/item/clothing/suit/storage/tajaran/dpra_jacket
+	coat["fancy black ladies coat"] = /obj/item/clothing/suit/storage/tajaran/fancycoat
+	coat["fancy red ladies coat"] = /obj/item/clothing/suit/storage/tajaran/fancycoat/red
+	coat["fine brown coat"] = /obj/item/clothing/suit/storage/tajaran/finecoat
+	coat["fine blue coat"] = /obj/item/clothing/suit/storage/tajaran/finecoat/blue
+	coat["fancy royalist jacket"] = /obj/item/clothing/suit/storage/tajaran/fancy
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajara_cloak
@@ -128,6 +133,8 @@
 	var/list/uniform = list()
 	uniform["laborer clothes"] = /obj/item/clothing/under/tajaran
 	uniform["fancy uniform"] = /obj/item/clothing/under/tajaran/fancy
+	uniform["fancy uniform, alt 1"] = /obj/item/clothing/under/tajaran/fancy/alt1
+	uniform["fancy uniform, alt 2"] = /obj/item/clothing/under/tajaran/fancy/alt2
 	uniform["nanotrasen overalls"] = /obj/item/clothing/under/tajaran/nt
 	uniform["matake priest garments"] = /obj/item/clothing/under/tajaran/matake
 	uniform["adhomian summerwear"] = /obj/item/clothing/under/tajaran/summer
@@ -136,7 +143,6 @@
 	uniform["raakti shariim uniform"] = /obj/item/clothing/under/tajaran/raakti_shariim
 	uniform["a'lmariist laborer clothes"] = /obj/item/clothing/under/tajaran/dpra
 	uniform["a'lmariist laborer clothes, alternate"] = /obj/item/clothing/under/tajaran/dpra/alt
-	uniform["fancy royalist jacket"] = /obj/item/clothing/suit/storage/tajaran/fancy
 	gear_tweaks += new /datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/nka_colorable_uniform
@@ -180,7 +186,18 @@
 	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
 	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
 	dress["adhomian summer dress"] = /obj/item/clothing/under/dress/tajaran/summer
+	dress["fancy uniform with skirt"] = /obj/item/clothing/under/dress/tajaran/formal
+	dress["fancy uniform with skirt, alt 1"] = /obj/item/clothing/under/dress/tajaran/formal/alt1
+	dress["fancy uniform with skirt, alt 2"] = /obj/item/clothing/under/dress/tajaran/formal/alt2
 	gear_tweaks += new /datum/gear_tweak/path(dress)
+
+/datum/gear/uniform/tajara_long_dress
+	display_name = "tajaran long dress (recolorable)"
+	path = /obj/item/clothing/under/dress/tajaran/long
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 
 /datum/gear/shoes/tajara/flats
 	display_name = "tajaran flats selection"
@@ -380,7 +397,7 @@
 	path = /obj/item/voidsuit_modkit/himeo/tajara
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Cargo Technician", "Shaft Miner", "Quartermaster", "Head of Personnel", "Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Shaft Miner", "Operations Manager", "Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
 	origin_restriction = list(/decl/origin_item/origin/free_council)
 
 /datum/gear/tajaran_tarot
@@ -443,3 +460,22 @@
 	card["zbrojny badge"] = /obj/item/clothing/accessory/tajaran/zbrojny_badge
 	card["golden sun pin"] = /obj/item/clothing/accessory/tajaran/tanker_pin
 	gear_tweaks += new /datum/gear_tweak/path(card)
+
+/datum/gear/accessory/tajaran_portraits
+	display_name = "tajaran leader portrait selection"
+	description = "A selection of tajaran leaders portraits."
+	path = /obj/item/sign/painting_frame/hadii
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajaran_portraits/New()
+	..()
+	var/list/portrait = list()
+	portrait["president hadii portrait"] = /obj/item/sign/painting_frame/hadii
+	portrait["president almari portrait"] = /obj/item/sign/painting_frame/almari
+	portrait["supreme commander nated portrait"] = /obj/item/sign/painting_frame/nated
+	portrait["president harrlala portrait"] = /obj/item/sign/painting_frame/harrlala
+	portrait["king vahzirthaamro portrait"] = /obj/item/sign/painting_frame/vahzirthaamro
+	portrait["queen shumaila portrait"] = /obj/item/sign/painting_frame/shumaila
+	gear_tweaks += new /datum/gear_tweak/path(portrait)

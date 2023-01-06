@@ -56,9 +56,6 @@
 	var/hurt_temperature = T0C-50	// Slime keeps taking damage when its bodytemperature is below this
 	var/die_temperature = 50		// Slime dies instantly when its bodytemperature is below this
 
-	var/co2overloadtime = null
-	var/temperature_resistance = T0C+75
-
 	///////////TIME FOR SUBSPECIES
 
 	var/colour = "grey"
@@ -361,7 +358,7 @@
 
 			attacked += 10
 			if(prob(90))
-				if(HULK in M.mutations)
+				if(HAS_FLAG(M.mutations, HULK))
 					damage += 5
 					if(victim || target)
 						victim = null

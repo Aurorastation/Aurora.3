@@ -35,6 +35,8 @@
 	var/use_to_pickup	//Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
 	var/list/pickup_blacklist = list() // If you click a blacklisted item, it won't try to pick it up if use_to_pickup is true
 	var/display_contents_with_number	//Set this to make the storage item group contents of the same type and display them as a number.
+	/// Set if you want the item's initials to be displayed on the bottom left of the item. only works when display_contents_with_number is true
+	var/display_contents_initials
 	var/allow_quick_empty	//Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.
 	var/allow_quick_gather	//Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
 	var/collection_mode = 1  //0 = pick one at a time, 1 = pick all on tile
@@ -180,6 +182,13 @@
 			LAZYREMOVE(is_seeing, M)
 	return cansee
 
+
+/obj/item/storage/proc/update_storage_ui()
+	for(var/mob/seer as anything in is_seeing)
+		orient2hud(seer)
+		if(seer.s_active)
+			seer.s_active.show_to(seer)
+
 //This proc draws out the inventory and places the items on it. tx and ty are the upper left tile and mx, my are the bottm right.
 //The numbers are calculated from the bottom-left The bottom-left slot being 1,1.
 /obj/item/storage/proc/orient_objs(tx, ty, mx, my)
@@ -207,6 +216,13 @@
 			ND.sample_object.screen_loc = "[cx]:16,[cy]:16"
 			ND.sample_object.maptext = SMALL_FONTS(7, "[(ND.number > 1)? "[ND.number]" : ""]")
 			ND.sample_object.layer = SCREEN_LAYER+0.01
+			if(display_contents_initials)
+				ND.sample_object.cut_overlays() // a limitation of this code is that overlays get blasted off the item, since we need to add one to add the second maptext. woe is me
+				var/object_initials = handle_name_initials(ND.sample_object.name)
+				var/image/name_overlay = image(null)
+				name_overlay.maptext = SMALL_FONTS(7, object_initials)
+				name_overlay.maptext_x = 22 - ((length(object_initials) - 1) * 6)
+				ND.sample_object.add_overlay(name_overlay)
 			cx++
 			if (cx > (4+cols))
 				cx = 4
@@ -221,7 +237,13 @@
 				cx = 4
 				cy--
 	closer.screen_loc = "[4+cols+1]:16,2:16"
-	return
+
+/obj/item/storage/proc/handle_name_initials(var/sample_name)
+	var/name_initials = ""
+	var/list/split_name = splittext(sample_name, " ")
+	for(var/name_section in split_name)
+		name_initials += uppertext(name_section[1])
+	return name_initials
 
 /obj/item/storage/proc/space_orient_objs(list/obj/item/display_contents, defer_overlays = FALSE)
 
@@ -451,6 +473,8 @@
 			usr.s_active.show_to(usr)
 	if(W.maptext)
 		W.maptext = ""
+	if(display_contents_initials)
+		W.cut_overlays()
 	W.on_exit_storage(src)
 	update_icon()
 	return TRUE

@@ -36,7 +36,7 @@
 /obj/item/melee/telebaton
 	name = "telescopic baton"
 	desc = "A compact yet rebalanced personal defense weapon. Can be concealed when folded."
-	icon = 'icons/obj/contained_items/weapons/telebaton.dmi'
+	icon = 'icons/obj/item/melee/telebaton.dmi'
 	icon_state = "telebaton_0"
 	item_state = "telebaton_0"
 	var/state_extended = "telebaton_1"
@@ -109,12 +109,10 @@
 
 /obj/item/melee/telebaton/nlom
 	name = "nlomkala baton"
-	icon = 'icons/obj/contained_items/skrell/skrell_weaponry.dmi'
 	icon_state = "nlom_telebaton_0"
 	item_state = "nlom_telebaton_0"
 	state_extended = "nlom_telebaton_1"
 	force = 5
-	contained_sprite = TRUE
 
 /obj/item/melee/telebaton/nlom/do_special_effects(var/mob/living/carbon/human/H)
 	spark(H, 5)

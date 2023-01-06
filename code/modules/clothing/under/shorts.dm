@@ -36,7 +36,7 @@
 /obj/item/clothing/under/shorts/scc
 	name = "Stellar Corporate Conglomerate shorts"
 	desc = "Shorts displaying the wearer's pride in their assigned corporate entity."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon_state = "sccshorts"
 	item_state = "sccshorts"
 
@@ -117,7 +117,7 @@
 /obj/item/clothing/under/pants
 	name = "jeans"
 	desc = "A nondescript pair of tough blue jeans."
-	icon = 'icons/obj/pants.dmi'
+	icon = 'icons/obj/item/clothing/under/pants.dmi'
 	icon_state = "jeans"
 	item_state = "jeans"
 	contained_sprite = TRUE
@@ -275,7 +275,5 @@
 /obj/item/clothing/under/pants/flared
 	name = "flared pants"
 	desc = "The peak of Biesellite fashion, these pants are flared at the ankle."
-	icon = 'icons/contained_items/clothing/bottomwear/flared_pants.dmi'
 	icon_state = "flaredpants"
 	item_state = "flaredpants"
-	contained_sprite = TRUE

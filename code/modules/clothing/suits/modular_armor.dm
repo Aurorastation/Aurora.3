@@ -125,7 +125,7 @@
 	item_state = "plate_ballistic"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_AP,
+		bullet = ARMOR_BALLISTIC_RIFLE,
 		laser = ARMOR_LASER_MINOR,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
@@ -154,7 +154,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_AP,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	slowdown = 1
@@ -401,6 +401,13 @@
 	it is clear that the moon garners a lot of respect from its inhabitants."
 	icon_state = "flagpatch_callisto"
 	item_state = "flagpatch_callisto"
+
+/obj/item/clothing/accessory/flagpatch/venus
+	name = "venus flagpatch"
+	desc = "A flagpatch representing Venus. While not trendy among people who have use for wearing patches to begin with, the \
+	Venusian flag retains solidarity among Cythereans and Jintarians both."
+	icon_state = "flagpatch_venus"
+	item_state = "flagpatch_venus"
 
 /obj/item/clothing/accessory/flagpatch/coalition
 	name = "coalition flagpatch"

@@ -2,7 +2,7 @@
 	name = "portable air conditioning unit"
 	desc = "A portable air conditioning unit. It can heat or cool a room to your liking."
 	icon = 'icons/obj/atmos.dmi'
-	icon_state = "sheater0"
+	icon_state = "sheater-off"
 	anchored = FALSE
 	density = TRUE
 	use_power = POWER_USE_OFF
@@ -167,7 +167,7 @@
 
 
 /obj/machinery/space_heater/process()
-	if(on)
+	if(on && loc)
 		if(cell && cell.charge)
 			var/datum/gas_mixture/env = loc.return_air()
 			if(env && abs(env.temperature - set_temperature) <= 0.1)

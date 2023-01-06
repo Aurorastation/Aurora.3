@@ -5,7 +5,7 @@
 //////////////////////////////////////////////////////////////////
 
 /decl/surgery_step/face
-	name = "Retract facial incisions"
+	name = "Retract Facial Incisions"
 	priority = 2
 	can_infect = FALSE
 
@@ -48,7 +48,7 @@
 
 
 /decl/surgery_step/generic/alter_face
-	name = "Alter face"
+	name = "Alter Face"
 	allowed_tools = list(
 	/obj/item/surgery/hemostat = 100, 	\
 	/obj/item/stack/cable_coil = 75, 	\
@@ -68,9 +68,9 @@
 
 /decl/surgery_step/generic/alter_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/head/head = target.get_organ(target_zone)
-	if(head.disfigured || (HUSK in target.mutations))
+	if(head.disfigured || HAS_FLAG(target.mutations, HUSK))
 		head.disfigured = FALSE
-		target.mutations.Remove(HUSK)
+		target.mutations &= ~HUSK
 		target.update_body()
 		user.visible_message("<b>[user]</b> finishes adjusting the skin [target]'s face.", SPAN_NOTICE("You successfully restore [target]'s appearance."))
 
@@ -94,7 +94,7 @@
 
 
 /decl/surgery_step/face/cauterize
-	name = "Cauterize face"
+	name = "Cauterize Face"
 	allowed_tools = list(
 	/obj/item/surgery/cautery = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\
@@ -167,7 +167,7 @@
 	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/robotics/face/prepare_face
-	name = "Prepare face"
+	name = "Prepare Face"
 	allowed_tools = list(
 	/obj/item/surgery/retractor = 100,
 	/obj/item/material/knife/tacknife = 75
@@ -195,7 +195,7 @@
 	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/robotics/face/alter_synthface
-	name = "Alter face"
+	name = "Alter Face"
 	allowed_tools = list(
 	/obj/item/device/multitool = 100, 	\
 	/obj/item/stack/cable_coil = 75, 	\
@@ -215,9 +215,9 @@
 
 /decl/surgery_step/robotics/face/alter_synthface/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/head/head = target.get_organ(target_zone)
-	if(head.disfigured || (HUSK in target.mutations))
+	if(head.disfigured || HAS_FLAG(target.mutations, HUSK))
 		head.disfigured = FALSE
-		target.mutations.Remove(HUSK)
+		target.mutations &= ~HUSK
 		target.update_body()
 		user.visible_message("<b>[user]</b> finishes adjusting [target]'s synthetic face.", \
 							 SPAN_NOTICE("You successfully adjust [target]'s appearance."))

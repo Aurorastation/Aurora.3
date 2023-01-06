@@ -298,8 +298,8 @@
 	name = "Tricordrazine"
 	id = "tricordrazine"
 	result = /decl/reagent/tricordrazine
-	required_reagents = list(/decl/reagent/inaprovaline = 1, /decl/reagent/dylovene = 1)
-	result_amount = 2
+	required_reagents = list(/decl/reagent/water = 1, /decl/reagent/inaprovaline = 1, /decl/reagent/dylovene = 1)
+	result_amount = 3
 
 /datum/chemical_reaction/alkysine
 	name = "Alkysine"
@@ -515,6 +515,13 @@
 	id = "cleaner"
 	result = /decl/reagent/spacecleaner
 	required_reagents = list(/decl/reagent/ammonia = 1, /decl/reagent/water = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/antifuel
+	name = "Antifuel"
+	id = "antifuel"
+	result = /decl/reagent/antifuel
+	required_reagents = list(/decl/reagent/spacecleaner = 1, /decl/reagent/sodium = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/plantbgone
@@ -1058,6 +1065,9 @@
 		T.visible_message("[icon2html(T, viewers(get_turf(src)))]<span class='notice'>\The [T]'s power is consumed in the reaction.</span>")
 		T.name = "used slime extract"
 		T.desc = "This extract has been used up."
+		if(istype(T.loc, /obj/item/storage))
+			var/obj/item/storage/storage = T.loc
+			storage.update_storage_ui()
 
 //Grey
 /datum/chemical_reaction/slime/spawn
@@ -1098,7 +1108,7 @@
 	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
 
 /datum/chemical_reaction/slime/teleportation/proc/do_reaction(var/datum/reagents/holder)
-	for(var/atom/movable/AM in circlerange(get_turf(holder.my_atom),7))
+	for(var/atom/movable/AM in circle_range(get_turf(holder.my_atom),7))
 		if(AM.anchored)
 			continue
 		var/area/A = random_station_area()
@@ -1157,15 +1167,9 @@
 		/mob/living/simple_animal/hostile/syndicate/melee/space,
 		/mob/living/simple_animal/hostile/syndicate/ranged,
 		/mob/living/simple_animal/hostile/syndicate/ranged/space,
-		/mob/living/simple_animal/hostile/alien/queen/large,
 		/mob/living/simple_animal/hostile/faithless,
 		/mob/living/simple_animal/hostile/retaliate,
 		/mob/living/simple_animal/hostile/retaliate/clown,
-		/mob/living/simple_animal/hostile/alien,
-		/mob/living/simple_animal/hostile/alien/drone,
-		/mob/living/simple_animal/hostile/alien/sentinel,
-		/mob/living/simple_animal/hostile/alien/queen,
-		/mob/living/simple_animal/hostile/alien/queen/large,
 		/mob/living/simple_animal/hostile/true_changeling,
 		/mob/living/simple_animal/hostile/commanded,
 		/mob/living/simple_animal/hostile/commanded/dog,

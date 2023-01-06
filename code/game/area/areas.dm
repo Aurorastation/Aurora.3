@@ -281,7 +281,7 @@ var/list/mob/living/forced_ambiance_list = new
 	var/area/oldarea = L.lastarea
 	if((oldarea.has_gravity() == FALSE) && (newarea.has_gravity() == TRUE) && (L.m_intent == M_RUN)) // Being ready when you change areas gives you a chance to avoid falling all together.
 		thunk(L)
-		L.update_floating(L.Check_Dense_Object())
+		L.update_floating()
 
 	L.lastarea = newarea
 
@@ -312,7 +312,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 // Play Ambience
 /area/proc/play_ambience(var/mob/living/L)
-	if((world.time >= L.client.ambience_last_played_time + 30 SECONDS) && prob(20))
+	if((world.time >= L.client.ambience_last_played_time + 5 MINUTES) && prob(20))
 		var/picked_ambience = pick(ambience)
 		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = 2)
 		L.client.ambience_last_played_time = world.time
@@ -339,7 +339,7 @@ var/list/mob/living/forced_ambiance_list = new
 			thunk(M)
 		else
 			to_chat(M, SPAN_NOTICE("The sudden lack of gravity makes you feel weightless and float cluelessly."))
-		M.update_floating(M.Check_Dense_Object())
+		M.update_floating()
 
 /area/proc/thunk(mob)
 	if(istype(get_turf(mob), /turf/space)) // Can't fall onto nothing.

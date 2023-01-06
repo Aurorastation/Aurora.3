@@ -2,36 +2,42 @@
 #define PUBLIC_LOW_FREQ 1441
 #define PUBLIC_HIGH_FREQ 1489
 #define RADIO_HIGH_FREQ 1600
+// Reminder: frequencies should only be odd numbers
 
-#define BOT_FREQ 1447
-#define COMM_FREQ 1353
-#define ERT_FREQ 1345
-#define AI_FREQ 1343
-#define DTH_FREQ 1341
+// Public frequencies (no encryption key required), see range above
+#define BOT_FREQ	1447
+#define PEN_FREQ	1451
+#define PUB_FREQ	1459
+#define ENT_FREQ	1461
+#define HAIL_FREQ	1463
+#define SEC_I_FREQ	1475
+#define MED_I_FREQ	1485
+
+// Department / private frequencies
+
 #define SYND_FREQ 1213
 #define BLSP_FREQ 1253
 #define NINJ_FREQ 1255
 #define BURG_FREQ 1257
 #define RAID_FREQ 1277
-#define SHIP_FREQ 1280
-#define ENT_FREQ 1461 //entertainment frequency. This is not a diona exclusive frequency.
+#define DTH_FREQ 1341
+#define AI_FREQ 1343
+#define ERT_FREQ 1345
+#define COMM_FREQ 1353
 
-// department channels
-var/const/PUB_FREQ = 1459
-var/const/PEN_FREQ = 1451
-var/const/SEC_FREQ = 1359
-var/const/ENG_FREQ = 1357
-var/const/MED_FREQ = 1355
-var/const/SCI_FREQ = 1351
-var/const/SRV_FREQ = 1349
-var/const/SUP_FREQ = 1347
+#define SUP_FREQ 1347
+#define SRV_FREQ 1349
+#define SCI_FREQ 1351
+#define MED_FREQ 1355
+#define ENG_FREQ 1357
+#define SEC_FREQ 1359
 
-// internal department channels
-#define MED_I_FREQ 1485
-#define SEC_I_FREQ 1475
+var/list/AWAY_FREQS_UNASSIGNED = list(1491, 1493, 1495, 1497, 1499, 1501, 1503, 1505, 1507, 1509)
+var/list/AWAY_FREQS_ASSIGNED = list("Hailing" = HAIL_FREQ)
 
 var/list/radiochannels = list(
 	"Common"		= PUB_FREQ,
+	"Hailing"		= HAIL_FREQ,
 	"Science"		= SCI_FREQ,
 	"Command"		= COMM_FREQ,
 	"Medical"		= MED_FREQ,
@@ -50,8 +56,31 @@ var/list/radiochannels = list(
 	"AI Private"	= AI_FREQ,
 	"Entertainment" = ENT_FREQ,
 	"Medical (I)"	= MED_I_FREQ,
-	"Security (I)"	= SEC_I_FREQ,
-	"Ship"			= SHIP_FREQ
+	"Security (I)"	= SEC_I_FREQ
+)
+
+var/list/reverseradiochannels = list(
+	"[PUB_FREQ]"	= "Common",
+	"[HAIL_FREQ]"	= "Hailing",
+	"[SCI_FREQ]"	= "Science",
+	"[COMM_FREQ]"	= "Command",
+	"[MED_FREQ]"	= "Medical",
+	"[ENG_FREQ]"	= "Engineering",
+	"[SEC_FREQ]" 	= "Security",
+	"[PEN_FREQ]"	= "Penal",
+	"[ERT_FREQ]"	= "Response Team",
+	"[DTH_FREQ]"	= "Special Ops",
+	"[SYND_FREQ]"	= "Mercenary",
+	"[NINJ_FREQ]"	= "Ninja",
+	"[BLSP_FREQ]"	= "Bluespace",
+	"[BURG_FREQ]"	= "Burglar",
+	"[RAID_FREQ]"	= "Raider",
+	"[SUP_FREQ]"	= "Operations",
+	"[SRV_FREQ]"	= "Service",
+	"[AI_FREQ]"		= "AI Private",
+	"[ENT_FREQ]"	= "Entertainment",
+	"[MED_I_FREQ]"	= "Medical (I)",
+	"[SEC_I_FREQ]"	= "Security (I)"
 )
 
 // The assoc variants are separate lists because they need the keys to be strings, but some code expects numbers.
@@ -80,7 +109,8 @@ var/list/ANTAG_FREQS_ASSOC = list(
 	"[SYND_FREQ]" = TRUE,
 	"[RAID_FREQ]" = TRUE,
 	"[NINJ_FREQ]" = TRUE,
-	"[BURG_FREQ]" = TRUE
+	"[BURG_FREQ]" = TRUE,
+	"[BLSP_FREQ]" = TRUE
 )
 
 //Department channels, arranged lexically
@@ -93,8 +123,7 @@ var/list/DEPT_FREQS = list(
 	SCI_FREQ,
 	SRV_FREQ,
 	SUP_FREQ,
-	ENT_FREQ,
-	SHIP_FREQ
+	ENT_FREQ
 )
 
 var/list/DEPT_FREQS_ASSOC = list(
@@ -110,8 +139,11 @@ var/list/DEPT_FREQS_ASSOC = list(
 )
 
 #define TRANSMISSION_WIRE        0 // Wired transmission, unused at the moment
-#define TRANSMISSION_RADIO       1
-#define TRANSMISSION_SUBSPACE    2
+#define TRANSMISSION_RADIO       1 // Default radiowave transmission
+#define TRANSMISSION_SUBSPACE    2 // Subspace transmission (headsets)
+#define TRANSMISSION_SUPERSPACE  3 // Independent / CentCom radios only
+
+#define RADIO_NO_Z_LEVEL_RESTRICTION 0
 
 /* filters */
 //When devices register with the radio controller, they might register under a certain filter.
@@ -127,8 +159,6 @@ var/list/DEPT_FREQS_ASSOC = list(
 #define RADIO_ATMOSIA "radio_atmos"
 #define RADIO_NAVBEACONS "radio_navbeacon"
 #define RADIO_AIRLOCK "radio_airlock"
-#define RADIO_SECBOT "radio_secbot"
-#define RADIO_MULEBOT "radio_mulebot"
 #define RADIO_MAGNETS "radio_magnet"
 #define RADIO_ARRIVALS "radio_arrvl"
 

@@ -1,7 +1,9 @@
 /obj/machinery/stargazer
 	name = "stargazer system"
-	icon = 'icons/obj/machines/stargazer.dmi'
+	icon = 'icons/obj/machinery/stargazer.dmi'
 	icon_state = "stargazer_off"
+	anchored = TRUE
+	density = TRUE
 	layer = ABOVE_ALL_MOB_LAYER
 	pixel_x = -32
 	pixel_y = -32

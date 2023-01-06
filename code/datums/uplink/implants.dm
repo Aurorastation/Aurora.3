@@ -29,7 +29,7 @@
 
 /datum/uplink_item/item/implants/imp_uplink
 	name = "Uplink Implant"
-	path = /obj/item/storage/box/syndie_kit/imp_uplink
+	path = /obj/item/implanter/uplink
 
 /datum/uplink_item/item/implants/imp_uplink/New()
 	..()

@@ -7,8 +7,8 @@
 #define FIREDOOR_ALERT_COLD     2
 
 /obj/machinery/door/firedoor
-	name = "\improper emergency shutter"
-	desc = "Emergency air-tight shutter, capable of sealing off breached areas."
+	name = "emergency shutter"
+	desc = "An airtight emergency shutter. Capable of sealing off breached areas."
 	icon = 'icons/obj/doors/DoorHazard.dmi'
 	icon_state = "door_open"
 	req_one_access = list(access_atmospherics, access_engine_equip, access_first_responder)
@@ -59,6 +59,8 @@
 
 	var/open_sound = 'sound/machines/firelockopen.ogg'
 	var/close_sound = 'sound/machines/firelockclose.ogg'
+
+	init_flags = 0
 
 /obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
@@ -355,8 +357,6 @@
 
 // CHECK PRESSURE
 /obj/machinery/door/firedoor/process()
-	..()
-
 	if(density && next_process_time <= world.time)
 		next_process_time = world.time + 100		// 10 second delays between process updates
 		var/changed = 0
@@ -399,6 +399,9 @@
 		if(changed)
 			update_icon()
 
+	else if(!density)
+		return PROCESS_KILL
+
 /obj/machinery/door/firedoor/proc/latetoggle()
 	if(operating || !nextstate)
 		return
@@ -424,6 +427,7 @@
 		return
 	cut_overlays()
 	latetoggle()
+	START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	return ..()
 
 /obj/machinery/door/firedoor/open(forced = 0, user = usr)
@@ -496,6 +500,9 @@
 
 	if(do_set_light)
 		set_light(2, 0.5, COLOR_SUN)
+
+/obj/machinery/door/firedoor/noid
+	req_one_access = null
 
 //These are playing merry hell on ZAS.  Sorry fellas :(
 

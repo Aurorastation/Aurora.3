@@ -9,7 +9,7 @@
 	name = "drone fabricator"
 	desc = "A large automated factory for producing maintenance drones."
 
-	icon = 'icons/obj/machines/drone_fab.dmi'
+	icon = 'icons/obj/machinery/drone_fab.dmi'
 	icon_state = "drone_fab_idle"
 
 	density = TRUE

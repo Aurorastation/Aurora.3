@@ -1,6 +1,7 @@
 /obj/machinery/washing_machine
-	name = "Washing Machine"
-	icon = 'icons/obj/machines/washing_machine.dmi'
+	name = "washing machine"
+	desc = "A washing machine with special decontamination procedures. It can fit everything from clothes to even rifles."
+	icon = 'icons/obj/machinery/washing_machine.dmi'
 	icon_state = "wm_10"
 	density = 1
 	anchored = 1.0
@@ -33,11 +34,11 @@
 	if(!istype(usr, /mob/living)) //ew ew ew usr, but it's the only way to check.
 		return
 
-	if( state != 4 )
+	if(state != 4)
 		to_chat(usr, "The washing machine cannot run in this state.")
 		return
 
-	if( locate(/mob,contents) )
+	if(locate(/mob,contents))
 		state = 8
 	else
 		state = 5
@@ -98,25 +99,17 @@
 				state = 3
 		else
 			return ..()
-	else if(is_type_in_list(W, list(/obj/item/stack/material/animalhide/barehide, /obj/item/clothing/under, /obj/item/clothing/mask, /obj/item/clothing/head, /obj/item/clothing/gloves, /obj/item/clothing/shoes, /obj/item/clothing/suit, /obj/item/bedsheet)))
-
-		//YES, it's hardcoded... saves a var/can_be_washed for every single clothing item.
-		if(is_type_in_list(W, list(/obj/item/clothing/suit/space, /obj/item/clothing/suit/syndicatefake, /obj/item/clothing/suit/cyborg_suit, /obj/item/clothing/suit/bomb_suit, /obj/item/clothing/suit/armor, /obj/item/clothing/mask/gas, /obj/item/clothing/mask/smokable/cigarette, /obj/item/clothing/head/syndicatefake, /obj/item/clothing/head/helmet)))
-			to_chat(user, "This item does not fit.")
-			return TRUE
-
+	else
 		if(contents.len < 5)
-			if ( state in list(1, 3) )
+			if (state in list(1, 3))
 				user.drop_from_inventory(W,src)
 				state = 3
 			else
 				to_chat(user, "<span class='notice'>You can't put the item in right now.</span>")
 		else
 			to_chat(user, "<span class='notice'>The washing machine is full.</span>")
-	else
-		return ..()
 	update_icon()
-	return TRUE
+	return ..()
 
 /obj/machinery/washing_machine/attack_hand(mob/user as mob)
 	switch(state)

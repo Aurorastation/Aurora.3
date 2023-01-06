@@ -25,7 +25,7 @@
 	var/default_screen = "general"
 	var/record_prefix = ""
 	var/typechoices = list(
-		"physical_status" = list("Active", "*Deceased*", "*SSD*", "Physically Unfit", "Disabled"),
+		"physical_status" = list("Active", "*Deceased*", "*SSD*", "*Missing*", "Physically Unfit", "Disabled"),
 		"criminal_status" = list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released"),
 		"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*"),
 		"medical" = list(
@@ -39,7 +39,7 @@
 	extended_desc = "Used to view, edit and maintain medical records."
 	record_prefix = "Medical "
 
-	required_access_run = list(access_medical_equip, access_forensics_lockers, access_detective, access_robotics, access_hop)
+	required_access_run = list(access_medical_equip, access_forensics_lockers, access_robotics, access_hop)
 	required_access_download = list(access_heads, access_medical_equip, access_forensics_lockers)
 	available_on_ntnet = TRUE
 

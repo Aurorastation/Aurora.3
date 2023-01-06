@@ -1,7 +1,7 @@
 /datum/job/representative
 	title = "Corporate Liaison"
 	flag = LAWYER
-	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 1
@@ -51,10 +51,6 @@
 		/obj/item/gun/energy/pistol = 1
 	)
 
-	implants = list(
-		/obj/item/implant/mindshield
-	)
-
 /datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H && !visualsOnly)
@@ -95,7 +91,7 @@
 /datum/job/consular
 	title = "Consular Officer"
 	flag = CONSULAR
-	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 1
