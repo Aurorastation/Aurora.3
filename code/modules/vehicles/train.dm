@@ -140,7 +140,7 @@
 	src.lead = T
 	T.tow = src
 	set_dir(get_dir(src, lead))
-	to_chat(user, SPAN_NOTICE("You hitch [src] to [T]."))
+	to_chat(user, SPAN_NOTICE("You hitch \the [src] to \the [T]."))
 	playsound(loc, 'sound/items/wrench.ogg', 70, TRUE)
 
 	update_stats()
