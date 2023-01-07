@@ -1,0 +1,9 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Added corporation themed jackets, available in faction loadout."
+  - rscadd: "Added corporation themed winter coats, available in faction loadout."
+  - rscadd: "Added NanoTrasen and Orion coat loadout selections."
+  - tweak: "Changed a few loadout items from cargo to operations."
