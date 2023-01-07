@@ -139,7 +139,7 @@
 		if(!key)
 			user.drop_from_inventory(W, src)
 			key = W // put the key in the ignition
-			to_chat(user, SPAN_NOTICE("You slide \the [W] into \the [src]'s ignition."))
+			to_chat(user, SPAN_NOTICE("You slide \the [W] into \the [src]\s ignition."))
 			playsound(src, 'sound/machines/vehicles/key_in.ogg', 50, FALSE)
 		else
 			to_chat(user, SPAN_NOTICE("There is already a key in [src]'s ignition."))
