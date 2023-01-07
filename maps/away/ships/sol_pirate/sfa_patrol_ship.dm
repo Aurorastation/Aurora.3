@@ -12,7 +12,7 @@
 	map = "SFA Corvette"
 	descriptor = "A small ship that appears to be, at its core, a Montevideo-class corvette, a Solarian anti-piracy and patrol corvette designed with ample automation and streamlined equipment which allows for it to be manned by a small crew. This one, however, seems to have been host to a myriad of haphazard and radical modifications, and is scarcely identifiable as the original craft. Beyond the changes made to the ship itself, it also appears to have suffered extensive damage and wear, and seems to be near-derelict"
 
-//areas
+//Areas
 /area/ship/sfa_patrol_ship
 	name = "SFA Corvette"
 
