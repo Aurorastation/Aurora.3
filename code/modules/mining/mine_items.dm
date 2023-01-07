@@ -548,7 +548,6 @@
 /obj/vehicle/train/cargo/engine/mining
 	name = "mine cart engine"
 	desc = "A ridable electric minecart designed for pulling other mine carts."
-	icon = 'icons/obj/cart.dmi'
 	icon_state = "mining_engine"
 	on = FALSE
 	powered = TRUE
@@ -568,7 +567,7 @@
 	. = ..()
 	cell = new /obj/item/cell/high(src)
 	key = new /obj/item/key/minecarts(src)
-	var/image/I = new(icon = 'icons/obj/cart.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
+	var/image/I = new(icon = 'icons/obj/vehicles.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
 	add_overlay(I)
 	turn_off()
 
@@ -601,7 +600,6 @@
 /obj/vehicle/train/cargo/trolley/mining
 	name = "mine-cart"
 	desc = "A modern day twist to an ancient classic."
-	icon = 'icons/obj/cart.dmi'
 	icon_state = "mining_trailer"
 	anchored = FALSE
 	passenger_allowed = FALSE

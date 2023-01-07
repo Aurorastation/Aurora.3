@@ -165,14 +165,12 @@
 		if(selection == "Name")
 			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null, MAX_LNAME_LEN)
 			if(input_clean_name)
-				user.visible_message(SPAN_NOTICE("\The [user] labels [src] as \"[input_clean_name]\"."))
 				name = input_clean_name
 			else
 				name = initial(name)
 		else if(selection == "Description")
 			var/input_clean_desc = sanitize(input(user,"What is the description of this food?", "Set Food Description") as text|null, MAX_MESSAGE_LEN)
 			if(input_clean_desc)
-				user.visible_message(SPAN_NOTICE("\The [user] adds a note to [src]."))
 				desc = input_clean_desc
 			else
 				desc = initial(desc)
@@ -4216,7 +4214,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("pancake" = 8))
 	bitesize = 2
 	filling_color = "#EDF291"
-	
+
 /obj/item/reagent_containers/food/snacks/pancakes/berry
 	name = "berry pancakes"
 	desc = "Pancakes with berries, delicious."

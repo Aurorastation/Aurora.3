@@ -30,7 +30,7 @@
 	bandanas["bandana, engineering"] = /obj/item/clothing/head/bandana/engineering
 	bandanas["bandana, atmospherics"] = /obj/item/clothing/head/bandana/atmos
 	bandanas["bandana, hydroponics"] = /obj/item/clothing/head/bandana/hydro
-	bandanas["bandana, cargo"] = /obj/item/clothing/head/bandana/cargo
+	bandanas["bandana, operations"] = /obj/item/clothing/head/bandana/cargo
 	bandanas["bandana, mining"] = /obj/item/clothing/head/bandana/miner
 	bandanas["bandana, janitor"] = /obj/item/clothing/head/bandana/janitor
 
@@ -60,7 +60,7 @@
 	softcaps["softcap, engineering"] = /obj/item/clothing/head/softcap/engineering
 	softcaps["softcap, atmospherics"] = /obj/item/clothing/head/softcap/atmos
 	softcaps["softcap, hydroponics"] = /obj/item/clothing/head/softcap/hydro
-	softcaps["softcap, cargo"] = /obj/item/clothing/head/softcap/cargo
+	softcaps["softcap, operations"] = /obj/item/clothing/head/softcap/cargo
 	softcaps["softcap, mining"] = /obj/item/clothing/head/softcap/miner
 	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/custodian
 	softcaps["softcap, tcfl"] = /obj/item/clothing/head/softcap/tcfl
@@ -90,7 +90,7 @@
 	berets["beret, engineering"] = /obj/item/clothing/head/beret/engineering
 	berets["beret, atmospherics"] = /obj/item/clothing/head/beret/atmos
 	berets["beret, hydroponics"] = /obj/item/clothing/head/beret/hydro
-	berets["beret, cargo"] = /obj/item/clothing/head/beret/cargo
+	berets["beret, operations"] = /obj/item/clothing/head/beret/cargo
 	berets["beret, mining"] = /obj/item/clothing/head/beret/miner
 	berets["beret, janitor"] = /obj/item/clothing/head/beret/janitor
 
