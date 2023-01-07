@@ -202,7 +202,7 @@
 
 /obj/vehicle/train/cargo/engine/turn_off(var/mob/user)
 	..()
-	to_chat(user, SPAN_NOTICE("You turn off \the [src]'s ignition."))
+	to_chat(user, SPAN_NOTICE("You turn off \the [src]\s ignition."))
 	playsound(src, 'sound/machines/vehicles/button.ogg', 50, FALSE)
 
 /obj/vehicle/train/cargo/RunOver(var/mob/living/carbon/human/H)
