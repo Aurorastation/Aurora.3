@@ -261,7 +261,7 @@
 
 /obj/vehicle/train/cargo/engine/CtrlClick(mob/user)
 	if(load && load != user)
-		to_chat(user, SPAN_WARNING("You can't interact with \the [src] while its in use."))
+		to_chat(user, SPAN_WARNING("You can't interact with \the [src] while it's in use."))
 		return
 	var/list/options = list(
 		"Toggle Ignition" = image(src, "train_keys"),
