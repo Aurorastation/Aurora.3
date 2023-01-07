@@ -407,6 +407,12 @@ var/global/list/frozen_crew = list()
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."))
 	playsound(loc, on_store_sound, 25)
 	frozen_crew += occupant
+	if(ishuman(occupant))
+		var/mob/living/carbon/human/H = occupant
+		if(H.ghost_spawner)
+			var/datum/ghostspawner/human/GS = H.ghost_spawner.resolve()
+			GS.count--
+
 
 	// Let SSjobs handle the rest.
 	SSjobs.DespawnMob(occupant)

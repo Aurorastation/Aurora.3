@@ -21,6 +21,11 @@
 	var/special_role = null
 	var/faction = null
 
+	/// Culture restrictions for this spawner. Use types. Make sure that there is at least one culture per allowed species!
+	var/list/culture_restriction = list()
+	/// Origin restrictions for this spawner. Use types. Not required if culture restriction is set. Make sure that there is at least one origin per allowed species!
+	var/list/origin_restriction = list()
+
 	mob_name = null
 
 //Return a error message if the user CANT spawn. Otherwise FALSE
@@ -143,9 +148,24 @@
 
 	//Setup the appearance
 	if(allow_appearance_change)
-		M.change_appearance(allow_appearance_change, M, update_id = TRUE)
+		M.change_appearance(allow_appearance_change, M, culture_restriction = src.culture_restriction, origin_restriction = src.origin_restriction, update_id = TRUE)
 	else //otherwise randomize
-		M.client.prefs.randomize_appearance_for(M, FALSE)
+		M.client.prefs.randomize_appearance_for(M, FALSE, culture_restriction, origin_restriction)
+
+	if(length(culture_restriction))
+		for(var/culture in culture_restriction)
+			var/decl/origin_item/culture/CL = decls_repository.get_decl(culture)
+			if(CL.type in M.species.possible_cultures)
+				M.culture = CL
+				break
+		if(length(origin_restriction))
+			for(var/origin in M.culture.possible_origins)
+				var/decl/origin_item/origin/OI = decls_repository.get_decl(origin)
+				if(!(OI.type in origin_restriction))
+					continue
+				M.origin = OI
+				M.accent = pick(OI.possible_accents)
+				break
 
 	for(var/language in extra_languages)
 		M.add_language(language)
@@ -153,9 +173,18 @@
 	M.force_update_limbs()
 	M.update_eyes()
 	M.regenerate_icons()
+	M.ghost_spawner = WEAKREF(src)
 
 	return M
 
 //Proc executed after someone is spawned in
 /datum/ghostspawner/human/post_spawn(mob/user)
 	. = ..()
+
+/// Used for cryo to free up a slot when a ghost cryos.
+/mob/living/carbon/human
+	var/datum/weakref/ghost_spawner
+
+/mob/living/carbon/human/Destroy()
+	ghost_spawner = null
+	return ..()

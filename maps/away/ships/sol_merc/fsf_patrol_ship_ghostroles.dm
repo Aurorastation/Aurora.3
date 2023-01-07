@@ -16,6 +16,7 @@
 	special_role = "FSF Navy Crewman"
 	respawn_flag = null
 
+	culture_restriction = list(/decl/origin_item/culture/solarian)
 
 /datum/outfit/admin/fsf_navy_crewman
 	name = "FSF Navy Crewman"
@@ -54,6 +55,7 @@
 	special_role = "FSF Navy Officer"
 	respawn_flag = null
 
+	culture_restriction = list(/decl/origin_item/culture/solarian)
 
 /datum/outfit/admin/fsf_navy_officer
 	name = "FSF Navy Officer"
@@ -84,6 +86,8 @@
 
 	assigned_role = "FSF Navy Senior Crewman"
 	special_role = "FSF Navy Senior Crewman"
+
+	culture_restriction = list(/decl/origin_item/culture/solarian)
 
 //items
 
