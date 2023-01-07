@@ -154,6 +154,7 @@
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
 		/obj/item/reagent_containers/food/snacks/meat
 	)
+	recipe_taste_override = list("uncooked dough" = "crispy dough")
 	result = /obj/item/reagent_containers/food/snacks/meatpie
 
 /decl/recipe/tofupie

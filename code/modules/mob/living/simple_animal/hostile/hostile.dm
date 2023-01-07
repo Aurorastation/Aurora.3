@@ -133,7 +133,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	return
 
 /mob/living/simple_animal/hostile/proc/see_target()
-	return (target_mob in view(10, src)) ? (TRUE) : (FALSE)
+	return check_los(src, target_mob)
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
@@ -255,7 +255,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 	switch(stance)
 		if(HOSTILE_STANCE_IDLE)
-			targets = ListTargets(10)
+			targets = get_targets_in_LOS(10, src)
 			target_mob = FindTarget()
 			if(destroy_surroundings && isnull(target_mob))
 				DestroySurroundings()
@@ -269,7 +269,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			if(!AttackTarget() && destroy_surroundings)	//hit a window OR a mob, not both at once
 				DestroySurroundings(TRUE)
 			if(attacked_times >= rand(0, 4))
-				targets = ListTargets(10)
+				targets = get_targets_in_LOS(10, src)
 				target_mob = FindTarget()
 				attacked_times = 0
 

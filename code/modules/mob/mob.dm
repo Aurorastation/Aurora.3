@@ -1311,8 +1311,9 @@
 	if (dest != loc && istype(dest, /atom/movable))
 		AM = dest
 		LAZYADD(AM.contained_mobs, src)
-		if(pulledby)
-			pulledby.stop_pulling()
+		if(ismob(pulledby))
+			var/mob/M = pulledby
+			M.stop_pulling()
 
 	if (istype(loc, /atom/movable))
 		AM = loc
