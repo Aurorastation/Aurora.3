@@ -58,18 +58,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_MASK | SLOT_TIE
 
 
-/obj/item/clothing/accessory/badge/fluff/caleb_badge //Worn Badge - Caleb Greene - notmegatron
-	name = "worn badge"
-	desc = "A simple gold badge denoting the wearer as Head of Security. It is worn and dulled with age, but the name, \"Caleb Greene\", is still clearly legible."
-	icon = 'icons/obj/custom_items/caleb_badge.dmi'
-	icon_override = 'icons/obj/custom_items/caleb_badge.dmi'
-	item_state = "caleb_badge"
-	icon_state = "caleb_badge"
-	stored_name = "Caleb Greene"
-	badge_string = "NOS Apollo Head of Security"
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/under/fluff/ana_uniform //Retired Uniform - Ana Roh'hi'tin - suethecake
 	name = "retired uniform"
 	desc = "A silken blouse paired with dark-colored slacks. It has the words \"Chief Investigator\" embroidered into the shoulder bar."
@@ -197,8 +185,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/reagent_containers/food/drinks/teapot/fluff/brianne_teapot //Ceramic Teapot - Sean Brianne - zelmana
 	name = "ceramic teapot"
 	desc = "A blue ceramic teapot, gilded with the abbreviation for NanoTrasen."
-	icon = 'icons/obj/custom_items/brianne_teapot.dmi'
-	icon_override = 'icons/obj/custom_items/brianne_teapot.dmi'
+	icon = 'icons/obj/custom_items/brianne_items.dmi'
+	icon_override = 'icons/obj/custom_items/brianne_items.dmi'
 	icon_state = "brianne_teapot"
 
 
@@ -326,17 +314,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
 	icon_override = 'icons/obj/custom_items/zilosnish_items.dmi'
 	icon_state = "zilosnish_pen"
-
-
-/obj/item/clothing/head/fluff/qorja_headband //Rebellious Headband - Q'orja Sak'ha - fortport
-	name = "rebellious headband"
-	desc = "A comfortable headband made from a long, soft cloth that's tied into a knot in the back. It is a bright shade of red, slipped through a decorative brass plate. \
-	Upon the metal is an engraving of the People's Republic of Adhomai's insignia, as if straight from their flag."
-	icon = 'icons/obj/custom_items/qorja_headband.dmi'
-	icon_override = 'icons/obj/custom_items/qorja_headband.dmi'
-	icon_state = "qorja_headband"
-	item_state = "qorja_headband"
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/wrists/watch/fluff/rex_watch //Engraved Wristwatch - Rex Winters - tailson
@@ -1179,32 +1156,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "akila_jacket"
 	contained_sprite = TRUE
 
-
-/obj/structure/sign/flag/red_coalition
-	name = "Red Coalition flag"
-	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
-	mining colony represented in the center by the alchemical symbol for iron."
-	icon_state = "redcoalition"
-
-/obj/structure/sign/flag/red_coalition/left
-	icon_state = "redcoalition_l"
-
-/obj/structure/sign/flag/red_coalition/right
-	icon_state = "redcoalition_r"
-
-/obj/item/flag/fluff/nikita_flag //Red Coalition Banner - Nikita Yutani - sycmos
-	name = "Red Coalition flag"
-	icon = 'icons/obj/custom_items/nikita_flag.dmi'
-	icon_override = 'icons/obj/custom_items/nikita_flag.dmi'
-	icon_state = "nikita_flag"
-	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
-	mining colony represented in the center by the alchemical symbol for iron."
-	flag_path = "redcoalition"
-
-/obj/item/flag/fluff/nikita_flag/l
-	flag_size = 1
-
-
 /obj/item/voidsuit_modkit/fluff/rajka_suit
 	name = "HEV-3 voidsuit kit"
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a HEV-3 voidsuit."
@@ -2031,6 +1982,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/ielia_tarot.dmi'
 	icon_state = "ielia_tarot"
 	contained_sprite = TRUE
+	w_class = ITEMSIZE_SMALL
 	var/list/possible_cards = list("Island","Hatching Egg","Star Chanter","Jiu'x'klua","Stormcloud","Gnarled Tree","Poet","Bloated Toad","Void","Qu'Poxii","Fisher","Mountain","Sraso","Nioh")
 	var/activated = FALSE
 	var/first_card
@@ -2113,11 +2065,24 @@ All custom items with worn sprites must follow the contained sprite system: http
 	activated = FALSE
 
 
-/obj/item/clothing/suit/storage/fluff/osborne_suit //Osborne Strelitz - Osborne Strelitz - sirtoast
+/obj/item/clothing/suit/storage/fluff/osborne_suit //Dominian Officers Trench Coat - Osborne Strelitz - sirtoast
 	name = "dominian officer's trench coat"
 	desc = "An Imperial Army trench coat that is used by Dominian officers in colder environments. This one is missing the unit insignia and has the symbol of a military count on its rank collar."
 	icon = 'icons/obj/custom_items/osborne_suit.dmi'
 	icon_override = 'icons/obj/custom_items/osborne_suit.dmi'
 	icon_state = "osborne_suit"
 	item_state = "osborne_suit"
+	contained_sprite = TRUE
+
+
+/obj/item/storage/box/fancy/cigarettes/cigar/brianne_cigarettes //Martian Cigarette Case - Sean Brianne - Zelmana
+	name = "martian cigarette case"
+	desc = "A small, personal cigarette tin. It holds cigarettes similar to a cigarette packet but has some nice flair."
+	icon = 'icons/obj/custom_items/brianne_items.dmi'
+	icon_override = 'icons/obj/custom_items/brianne_items.dmi'
+	icon_state = "brianne_cigarettes"
+	item_state = "brianne_cigarettes"
+	icon_type = "cigarette"
+	can_hold = list(/obj/item/clothing/mask/smokable/cigarette/dromedaryco)
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 	contained_sprite = TRUE
