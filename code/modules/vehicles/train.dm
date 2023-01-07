@@ -88,7 +88,7 @@
 	if(use_check_and_message(user))
 		return
 	if(istype(C, /obj/vehicle/train))
-		latch(C, user) //BANDAID FIX MOMENT. GEEEEVES!!! ALSO GEM YOU DONT NEED TO MAKE A COMMENT TO REMOVE THIS. IT'S NOT LIKE ANYONE'S GOING TO SEE IT ANYWAY. I MEAN. NON PLAYER FACING CHANGES.
+		latch(C, user)
 	else
 		if(!load(C))
 			to_chat(user, SPAN_WARNING("You were unable to load \the [C] on \the [src]."))

@@ -128,7 +128,7 @@
 
 /obj/vehicle/bike/Move(var/turf/destination)
 	if(kickstand)
-		visible_message("The kickstand prevents the bike from moving!") // This nearly tricked me into thinking bikes were broken. Fuck me. -Wezzy
+		visible_message("The kickstand prevents the bike from moving!")
 		return
 
 	//these things like space, not turf. Dragging shouldn't weigh you down.
