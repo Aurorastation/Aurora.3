@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/peoples_station
 	name = "People's Space Station"
 	description = "Built in the interwar period, the People's Space Station bears the prestige of being the first space installation designed, constructed, and manned by Tajara."
-	suffix = "away_site/tajara/peoples_station/peoples_station.dmm"
+	suffixes = list("away_site/tajara/peoples_station/peoples_station.dmm")
 	sectors = list(SECTOR_SRANDMARR)
 	spawn_weight = 1
 	spawn_cost = 1

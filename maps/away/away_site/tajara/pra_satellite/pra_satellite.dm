@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/pra_satellite
 	name = "hadiist satellite"
 	description = "A People's Republic of Adhomai satellite used to survey the system."
-	suffix = "away_site/tajara/pra_satellite/pra_satellite.dmm"
+	suffixes = list("away_site/tajara/pra_satellite/pra_satellite.dmm")
 	sectors = list(SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 	spawn_weight = 1
 	spawn_cost = 1

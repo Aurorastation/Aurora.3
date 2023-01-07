@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/elyran_strike_craft
 	name = "Elyran Naval Strike Craft"
 	description = "The Aslan-class Strike Craft is among the oldest designs in the Elyran naval arsenal, and is one of the ship classes slated to be retired in the ongoing Elyran military modernization plan. Not an independent vessel in of itself, it is instead an oversized attack craft designed to be launched from the General Abd Al-Hamid-class Carrier, a type of Elyran capital ship, named after the Republic's foremost national hero. As such, it has limited crew facilities and life support capabilities, and is instead reliant on its mothership for long-term operation. This ship is an interdiction variant, with its torpedo bay and railgun hardpoint replaced by a hangar and a boarding pod launch room, respectively."
-	suffix = "ships/elyra/elyran_strike_craft.dmm"
+	suffixes = list("ships/elyra/elyran_strike_craft.dmm")
 	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
 	spawn_weight = 1
 	ship_cost = 1

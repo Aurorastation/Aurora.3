@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/tajara_mining_jack
 	name = "adhomian mining outpost"
 	description = "An outpost used by the crew of mining jacks."
-	suffix = "away_site/tajara/mining_jack/mining_jack.dmm"
+	suffixes = list("away_site/tajara/mining_jack/mining_jack.dmm")
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
 	ship_cost = 1

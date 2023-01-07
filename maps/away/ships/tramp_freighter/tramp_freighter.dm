@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/tramp_freighter
 	name = "Tramp Freighter"
 	description = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
-	suffix = "ships/tramp_freighter/tramp_freighter.dmm"
+	suffixes = list("ships/tramp_freighter/tramp_freighter.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ)
 	spawn_weight = 1
 	ship_cost = 1
