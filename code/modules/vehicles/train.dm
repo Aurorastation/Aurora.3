@@ -155,7 +155,7 @@
 	lead.tow = null
 	lead.update_stats()
 
-	to_chat(user, SPAN_NOTICE("You unhitch [src] from [lead]."))
+	to_chat(user, SPAN_NOTICE("You unhitch \the [src] from \the [lead]."))
 	lead = null
 
 	update_stats()
