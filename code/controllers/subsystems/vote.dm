@@ -199,19 +199,30 @@ var/datum/controller/subsystem/vote/SSvote
 						return 0
 		if(vote in choices)
 			if(current_votes[ckey])
-				choices[current_votes[ckey]]["votes"]--
+				choices[current_votes[ckey]]["votes"] -= voted[usr.ckey]
 			var/vote_descriptor = ""
 			if(isnewplayer(usr))
 				vote_descriptor = ", from the lobby"
 			else if(isobserver(usr))
 				vote_descriptor = ", as an observer"
 			log_vote("[ckey] submitted their vote for: [vote][vote_descriptor]")
-			voted += usr.ckey
-			choices[vote]["votes"]++	//check this
+			var/vote_power = get_vote_power(usr)
+			voted[usr.ckey] = vote_power
+			choices[vote]["votes"] += vote_power
 			current_votes[ckey] = vote
 			return 1
 	return 0
 
+/datum/controller/subsystem/vote/proc/get_vote_power(var/mob/user)
+	switch(mode)
+		if("crew_transfer")
+			if(isobserver(user) || isnewplayer(user))
+				return 0.5
+			var/datum/job/job = SSjobs.GetJob(user.job)
+			if(!job || job.faction != "Station")
+				return 0.5
+			return 1
+	return 1
 
 /datum/controller/subsystem/vote/proc/initiate_vote(vote_type, initiator_key, automatic = FALSE)
 	if(!mode)

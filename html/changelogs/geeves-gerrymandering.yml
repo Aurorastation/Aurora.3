@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Crewmembers of the Horizon get a full vote for crew transfers, while everyone else now only gets half a vote."
