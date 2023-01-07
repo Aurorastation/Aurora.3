@@ -395,7 +395,7 @@
 "bSt" = (
 /obj/structure/table/wood,
 /obj/structure/window/basic,
-/obj/structure/sign/flag/kazkhz{
+/obj/structure/sign/flag/kazhkz{
 	pixel_y = 32
 	},
 /obj/item/clothing/head/helmet/space/void/dominia/unathi,

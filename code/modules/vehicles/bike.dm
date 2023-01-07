@@ -76,9 +76,12 @@
 				to_chat(user, SPAN_WARNING("You don't think kickstands work here."))
 				return
 		user.visible_message("\The [user] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
+
 		playsound(src, 'sound/machines/vehicles/bike_stand_down.ogg', 50, 1)
-		if(pulledby)
-			pulledby.stop_pulling()
+		if(ismob(pulledby))
+			var/mob/M = pulledby
+			M.stop_pulling()
+
 
 	kickstand = !kickstand
 	anchored = (kickstand || on)
@@ -149,8 +152,9 @@
 
 	update_icon()
 
-	if(pulledby)
-		pulledby.stop_pulling()
+	if(ismob(pulledby))
+		var/mob/M = pulledby
+		M.stop_pulling()
 	..()
 
 /obj/vehicle/bike/turn_off()
