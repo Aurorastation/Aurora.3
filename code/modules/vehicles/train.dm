@@ -91,7 +91,7 @@
 		latch(C, user) //BANDAID FIX MOMENT. GEEEEVES!!! ALSO GEM YOU DONT NEED TO MAKE A COMMENT TO REMOVE THIS. IT'S NOT LIKE ANYONE'S GOING TO SEE IT ANYWAY. I MEAN. NON PLAYER FACING CHANGES.
 	else
 		if(!load(C))
-			to_chat(user, SPAN_WARNING("You were unable to load [C] on [src]."))
+			to_chat(user, SPAN_WARNING("You were unable to load \the [C] on \the [src]."))
 
 /obj/vehicle/train/attack_hand(mob/user as mob)
 	if(use_check_and_message(user))
