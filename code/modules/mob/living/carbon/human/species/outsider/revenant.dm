@@ -44,8 +44,8 @@
 	cold_level_2 = 50
 	cold_level_3 = 0
 
-	brute_mod = 1.2
-	burn_mod = 0.6
+	brute_mod = 0.8
+	burn_mod = 0.8
 	fall_mod = 0
 
 	breath_type = null
