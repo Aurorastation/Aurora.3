@@ -41,8 +41,8 @@
 	cold_level_2 = 50
 	cold_level_3 = 0
 
-	brute_mod = 0.8
-	burn_mod = 0.8
+	brute_mod = 0.75
+	burn_mod = 0.75
 	fall_mod = 0
 
 	breath_type = null
@@ -133,12 +133,6 @@
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
-
-/datum/species/revenant/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if((istype(P, /obj/item/projectile && prob(20))
-		H.visible_message(SPAN_CULT("The [P.name] gets absorbed by [H]!"), SPAN_CULT("You absorb the [P.name]!"))
-		return -1
-	return ..()
 
 /obj/item/organ/internal/eyes/night/revenant
 	name = "spectral eyes"
