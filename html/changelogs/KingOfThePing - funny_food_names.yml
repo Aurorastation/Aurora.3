@@ -1,6 +1,0 @@
-author: KingOfThePing
-
-delete-after: True
-
-changes:
-  - bugfix: "Removed the leftover chat output when renaming/reflavouring food."
