@@ -117,7 +117,7 @@
 //Note: there is a modified version of this in code\modules\vehicles\cargo_train.dm specifically for cargo train engines
 /obj/vehicle/train/proc/attach_to(obj/vehicle/train/T, mob/user)
 	if (get_dist(src, T) > 1)
-		to_chat(user, SPAN_WARNING("[src] is too far away from [T] to hitch them together."))
+		to_chat(user, SPAN_WARNING("\The [src] is too far away from \the [T] to hitch them together."))
 		return
 
 	if (lead)
