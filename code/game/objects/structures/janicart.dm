@@ -7,8 +7,8 @@
 	</br>You can also use a lightreplacer, spraybottle (of spacecleaner) and four wet-floor signs on the cart to store them"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "cart"
-	anchored = 0
-	density = 1
+	anchored = FALSE
+	density = TRUE
 	climbable = TRUE
 	flags = OPENCONTAINER
 	build_amt = 15
