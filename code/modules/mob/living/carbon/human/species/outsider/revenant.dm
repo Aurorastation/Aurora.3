@@ -34,9 +34,6 @@
 	ethanol_resistance = -1
 	taste_sensitivity = TASTE_NUMB
 
-	speech_sounds = list('sound/species/revenant/grue_growl.ogg')
-	speech_chance = 50
-
 	warning_low_pressure = 50 //immune to pressure, so they can into space/survive breaches without worries
 	hazard_low_pressure = -1
 
