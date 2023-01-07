@@ -1,8 +1,5 @@
 /obj/item/organ/internal/parasite
 	name = "parasite"
-	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "burst_lie"
-	dead_icon = "bursted_lie"
 
 	organ_tag = "parasite"
 	var/stage = 1

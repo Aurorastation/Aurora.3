@@ -341,6 +341,11 @@
 	icon_state = "5.56APc"
 	ammo_type = /obj/item/ammo_casing/a556/polymer
 
+/obj/item/ammo_magazine/a556/carbine/blank
+	name = "carbine magazine (5.56mm blank)"
+	icon_state = "5.56c_practice"
+	ammo_type = /obj/item/ammo_casing/a556/blank
+
 /obj/item/ammo_magazine/a556/makeshift
 	name = "makeshift magazine (5.56mm)"
 	icon_state = "5.56m"

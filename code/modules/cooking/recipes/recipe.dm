@@ -35,6 +35,7 @@
 /decl/recipe
 	var/display_name
 	var/list/reagents // example: = list(/decl/reagent/drink/berryjuice = 5) // do not list same reagent twice
+	var/list/recipe_taste_override // example: = list("uncooked dough" = "crispy dough")
 	var/list/items    // example: = list(/obj/item/crowbar, /obj/item/welder) // place /foo/bar before /foo
 	var/list/fruit    // example: = list("fruit" = 3)
 	var/coating = null//Required coating on all items in the recipe. The default value of null explitly requires no coating
@@ -226,6 +227,21 @@
 		for (var/r in reagents)
 			//Doesnt matter whether or not there's enough, we assume that check is done before
 			container.reagents.trans_type_to(buffer, r, reagents[r])
+
+	// this is the generic list of reagent tastes to change, but the recipe-specific one override this
+	var/list/taste_replacers = list(
+		"uncooked dough" = "cooked dough"
+	)
+	for(var/reagent in buffer.reagent_data)
+		for(var/taste in buffer.reagent_data[reagent])
+			if(taste in recipe_taste_override)
+				buffer.reagent_data[reagent][recipe_taste_override[taste]] = buffer.reagent_data[reagent][taste]
+				buffer.reagent_data[reagent] -= taste
+				continue
+			if(taste in taste_replacers)
+				buffer.reagent_data[reagent][taste_replacers[taste]] = buffer.reagent_data[reagent][taste]
+				buffer.reagent_data[reagent] -= taste
+				continue
 
 	/*
 	Now we've removed all the ingredients that were used and we have the buffer containing the total of
