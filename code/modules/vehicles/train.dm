@@ -149,7 +149,7 @@
 //detaches the train from whatever is towing it
 /obj/vehicle/train/proc/unattach(mob/user)
 	if (!lead)
-		to_chat(user, SPAN_WARNING("[src] is not hitched to anything."))
+		to_chat(user, SPAN_WARNING("\The [src] is not hitched to anything."))
 		return
 
 	lead.tow = null
