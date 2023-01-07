@@ -125,7 +125,7 @@
 		return
 
 	if (T.tow)
-		to_chat(user, SPAN_WARNING("[T] is already towing something."))
+		to_chat(user, SPAN_WARNING("\The [T] is already towing something."))
 		return
 
 	//check for cycles.
