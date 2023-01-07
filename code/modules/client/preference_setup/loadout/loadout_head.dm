@@ -310,7 +310,7 @@
 /datum/gear/head/nonla
 	display_name = "non la hat"
 	path = /obj/item/clothing/head/nonla
-	origin_restriction = list(/decl/origin_item/origin/earth, /decl/origin_item/origin/new_hai_phong)
+	origin_restriction = list(/singleton/origin_item/origin/earth, /singleton/origin_item/origin/new_hai_phong)
 /datum/gear/head/konyang
 	display_name = "gat"
 	path = /obj/item/clothing/head/konyang
