@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/saniorios_smuggler
 	name = "Sani'Orios"
 	description = "A gas giant composed of ammonia, Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
-	suffix = "away_site/tajara/saniorios_smuggler/saniorios_smuggler.dmm"
+	suffixes = list("away_site/tajara/saniorios_smuggler/saniorios_smuggler.dmm")
 	sectors = list(SECTOR_SRANDMARR)
 	spawn_weight = 1
 	spawn_cost = 2
