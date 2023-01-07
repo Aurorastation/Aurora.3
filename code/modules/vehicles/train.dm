@@ -121,7 +121,7 @@
 		return
 
 	if (lead)
-		to_chat(user, SPAN_WARNING("[src] is already hitched to something."))
+		to_chat(user, SPAN_WARNING("\The [src] is already hitched to something."))
 		return
 
 	if (T.tow)
