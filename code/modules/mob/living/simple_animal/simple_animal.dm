@@ -776,8 +776,13 @@
 			sound_chance = prob(50)
 		make_noise(sound_chance)
 
+	speaking = handle_language()
+
 	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
-	..(message, null, verb, ghost_hearing = can_ghosts_hear)
+	..(message, speaking, verb, ghost_hearing = can_ghosts_hear)
+
+/mob/living/simple_animal/proc/handle_language()
+	return null
 
 /mob/living/simple_animal/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, pick(speak), language, small, show_to, duration)

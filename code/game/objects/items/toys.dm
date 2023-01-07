@@ -640,69 +640,67 @@
 /*
  * Mech prizes
  */
-/obj/item/toy/prize
+/obj/item/toy/mech
 	icon_state = "ripleytoy"
 	var/cooldown = 0
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/mecha/mechstep.ogg'
 
-//all credit to skasi for toy mech fun ideas
-/obj/item/toy/prize/attack_self(mob/user)
-	if(cooldown < world.time - 8)
-		to_chat(user, "<span class='notice'>You play with [src].</span>")
-		playsound(user, 'sound/mecha/mechstep.ogg', 20, 1)
-		cooldown = world.time
+/obj/item/toy/mech/attack_self(mob/user)
+	var/turf/user_turf = get_turf(user)
+	user.drop_from_inventory(src, user_turf)
+	new /mob/living/simple_animal/hostile/mech(user_turf, src)
 
-/obj/item/toy/prize/ripley
+/obj/item/toy/mech/ripley
 	name = "toy ripley"
 	desc = "Mini-Mecha action figure! Collect them all! 1/11."
 
-/obj/item/toy/prize/fireripley
+/obj/item/toy/mech/fireripley
 	name = "toy firefighting ripley"
 	desc = "Mini-Mecha action figure! Collect them all! 2/11."
 	icon_state = "fireripleytoy"
 
-/obj/item/toy/prize/deathripley
+/obj/item/toy/mech/deathripley
 	name = "toy deathsquad ripley"
 	desc = "Mini-Mecha action figure! Collect them all! 3/11."
 	icon_state = "deathripleytoy"
 
-/obj/item/toy/prize/gygax
+/obj/item/toy/mech/gygax
 	name = "toy gygax"
 	desc = "Mini-Mecha action figure! Collect them all! 4/11."
 	icon_state = "gygaxtoy"
 
-/obj/item/toy/prize/durand
+/obj/item/toy/mech/durand
 	name = "toy durand"
 	desc = "Mini-Mecha action figure! Collect them all! 5/11."
 	icon_state = "durandprize"
 
-/obj/item/toy/prize/honk
+/obj/item/toy/mech/honk
 	name = "toy H.O.N.K."
 	desc = "Mini-Mecha action figure! Collect them all! 6/11."
 	icon_state = "honkprize"
 
-/obj/item/toy/prize/marauder
+/obj/item/toy/mech/marauder
 	name = "toy marauder"
 	desc = "Mini-Mecha action figure! Collect them all! 7/11."
 	icon_state = "marauderprize"
 
-/obj/item/toy/prize/seraph
+/obj/item/toy/mech/seraph
 	name = "toy seraph"
 	desc = "Mini-Mecha action figure! Collect them all! 8/11."
 	icon_state = "seraphprize"
 
-/obj/item/toy/prize/mauler
+/obj/item/toy/mech/mauler
 	name = "toy mauler"
 	desc = "Mini-Mecha action figure! Collect them all! 9/11."
 	icon_state = "maulerprize"
 
-/obj/item/toy/prize/odysseus
+/obj/item/toy/mech/odysseus
 	name = "toy odysseus"
 	desc = "Mini-Mecha action figure! Collect them all! 10/11."
 	icon_state = "odysseusprize"
 
-/obj/item/toy/prize/phazon
+/obj/item/toy/mech/phazon
 	name = "toy phazon"
 	desc = "Mini-Mecha action figure! Collect them all! 11/11."
 	icon_state = "phazonprize"
