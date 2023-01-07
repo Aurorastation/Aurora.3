@@ -291,7 +291,7 @@
 	if(load && load != usr)
 		to_chat(usr, SPAN_WARNING("You can't remove \the [key] from \the [src] while it's in use."))
 		return
-	to_chat(user, SPAN_NOTICE("You take out \the [key] out of \the [src]'s ignition."))
+	to_chat(user, SPAN_NOTICE("You take out \the [key] out of \the [src]\s ignition."))
 	playsound(src, 'sound/machines/vehicles/key_out.ogg', 50, FALSE)
 	if(on)
 		turn_off()
