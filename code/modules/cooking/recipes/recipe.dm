@@ -34,7 +34,7 @@
 
 /singleton/recipe
 	var/display_name
-	var/list/reagents // example: = list(/decl/reagent/drink/berryjuice = 5) // do not list same reagent twice
+	var/list/reagents // example: = list(/singleton/reagent/drink/berryjuice = 5) // do not list same reagent twice
 	var/list/recipe_taste_override // example: = list("uncooked dough" = "crispy dough")
 	var/list/items    // example: = list(/obj/item/crowbar, /obj/item/welder) // place /foo/bar before /foo
 	var/list/fruit    // example: = list("fruit" = 3)
