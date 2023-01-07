@@ -17,6 +17,8 @@
 	special_role = "IAC Volunteer"
 	respawn_flag = null
 
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/iac_rescue_ship
+
 
 /datum/outfit/admin/iac_volunteer
 	name = "IAC Volunteer"

@@ -35,6 +35,8 @@
 		"nav_tajaran_smuggler_2"
 	)
 
+	has_ghostroles_to_spawn = TRUE
+
 /obj/effect/overmap/visitable/ship/tajaran_smuggler/New()
     designation = "[pick("Brave Ha'rron", "Trickster Farwa", "Legal and Safe Cargo", "Adhomian Trader", "Minharrzka", "Rredouane's Chosen", "Adhomai's Pride")]"
     ..()
@@ -64,7 +66,7 @@
 	desc = "An inefficient and rustic looking shuttle. This one's transponder identifies it as belonging to an independent freighter."
 	shuttle = "Adhomian Freight Shuttle"
 	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving" 
+	moving_state = "shuttle_grey_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
@@ -110,7 +112,7 @@
 	desc = "A floating cargo container."
 	shuttle = "Adhomian Freight Cargo"
 	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving" 
+	moving_state = "shuttle_grey_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

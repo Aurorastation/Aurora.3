@@ -32,6 +32,8 @@
 		"Database Freighter Shuttle" = list("nav_database_freighter_shuttle")
 	)
 
+	has_ghostroles_to_spawn = TRUE
+
 /obj/effect/overmap/visitable/ship/database_freighter/New()
 	if (prob(50))
 		designation = "Hadii"

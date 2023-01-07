@@ -15,6 +15,8 @@
 	special_role = "Freighter Crewman"
 	respawn_flag = null
 
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/tramp_freighter
+
 
 /datum/outfit/admin/freighter_crew
 	name = "Freighter Crewman"

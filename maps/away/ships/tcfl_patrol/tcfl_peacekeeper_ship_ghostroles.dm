@@ -18,6 +18,8 @@
 	special_role = "TCFL Peacekeeper"
 	respawn_flag = null
 
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship
+
 
 /datum/outfit/admin/tcfl_peacekeeper
 	name = "TCFL Peacekeeper"

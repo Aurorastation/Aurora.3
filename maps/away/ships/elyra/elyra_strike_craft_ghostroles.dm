@@ -18,6 +18,8 @@
 	special_role = "Elyran Naval Infantryman"
 	respawn_flag = null
 
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/elyran_strike_craft
+
 
 /datum/outfit/admin/elyran_naval_infantry
 	name = "Elyran Naval Infantryman"

@@ -41,6 +41,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	/// Whether away ship comms have access to the common channel / PUB_FREQ
 	var/use_common = FALSE
 
+	var/has_ghostroles_to_spawn = FALSE
+
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)
@@ -51,11 +53,14 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	if(!current_map.overmap_z)
 		build_overmap()
-		
+
 	start_x = start_x || rand(OVERMAP_EDGE, current_map.overmap_size - OVERMAP_EDGE)
 	start_y = start_y || rand(OVERMAP_EDGE, current_map.overmap_size - OVERMAP_EDGE)
 
-	forceMove(locate(start_x, start_y, current_map.overmap_z))
+	if(has_ghostroles_to_spawn)
+		forceMove(null) // move to nullspace, our ghost roles will move us back
+	else
+		forceMove(locate(start_x, start_y, current_map.overmap_z))
 
 	update_name()
 

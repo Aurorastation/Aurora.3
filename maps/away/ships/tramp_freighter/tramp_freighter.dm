@@ -42,6 +42,8 @@
 		"nav_tramp_freighter_2"
 	)
 
+	has_ghostroles_to_spawn = TRUE
+
 /obj/effect/overmap/visitable/ship/tramp_freighter/New()
     designation = "[pick("Tuckerbag", "Do No Harm", "Volatile Cargo", "Stay Clear", "Entrepreneurial", "Good Things Only", "Worthless", "Skip This One", "Pay No Mind", "Customs-Cleared", "Friendly", "Reactor Leak", "Fool's Gold", "Cursed Cargo", "Guards Aboard")]"
     ..()
@@ -71,7 +73,7 @@
 	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one's transponder identifies it as belonging to an independent freighter."
 	shuttle = "Freight Shuttle"
 	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving" 
+	moving_state = "shuttle_grey_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

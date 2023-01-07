@@ -17,6 +17,8 @@
 	special_role = "Orion Express Courier"
 	respawn_flag = null
 
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/orion_express_ship
+
 
 /datum/outfit/admin/orion_express_courier
 	name = "Orion Express Courier"

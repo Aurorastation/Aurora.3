@@ -42,6 +42,8 @@
 		"nav_militia_ship_2"
 	)
 
+	has_ghostroles_to_spawn = TRUE
+
 /obj/effect/overmap/visitable/ship/militia_ship/New()
     designation = "[pick("Volunteer", "Part-Timer", "Last Line", "Fearless", "Protector", "Minuteman", "Watchdog", "Family Man", "Guardian", "Hoplite", "Home Guard", "Defender")]"
     ..()
@@ -71,7 +73,7 @@
 	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one's transponder identifies it as belonging to an independent militia."
 	shuttle = "Militia Ship"
 	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving" 
+	moving_state = "shuttle_grey_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

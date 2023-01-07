@@ -15,6 +15,8 @@
 	special_role = "Einstein Engines Crewman"
 	respawn_flag = null
 
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/ee_spy_ship
+
 
 /datum/outfit/admin/ee_crewman
 	name = "Einstein Engines Crewman"
@@ -50,6 +52,8 @@
 	assigned_role = "Einstein Engines Research Officer"
 	special_role = "Einstein Engines Research Officer"
 	respawn_flag = null
+
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/ee_spy_ship
 
 
 /datum/outfit/admin/ee_research_officer

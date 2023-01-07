@@ -17,6 +17,8 @@
 	special_role = "Database Freighter Surveyor"
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/database_freighter
+
 /datum/outfit/admin/database_freighter_crew
 	name = "Database Freighter Surveyor"
 

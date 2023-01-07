@@ -93,6 +93,8 @@
 		"nav_ranger_corvette_2"
 	)
 
+	has_ghostroles_to_spawn = TRUE
+
 /obj/effect/overmap/visitable/ship/ranger_corvette/New()
 	designation = "[pick("Argia sa Mar", "Kuenoi", "Xansan", "Greentree", "Rautakaivos Kaupunki", "Dorshafen", "Inverkeithing", "Uusi Viipuri", "Horner Station", "Commander Ashia Patvardhan", "Sevaschaiv", "Rahe", "Czsari", "Suwon", "Kamoga", "Jagalaw", "Dalakyhr", "Gurmori", "Ohdker", "Dainshu", "Boch-Zivir", "Kill Emperor Boleslaw", "Expletive Sol", "Letter of Marque", "Free Fisanduh", "Gaucho", "Treaty of Xansan", "Pirates Beware", "Moroz Here We Come!", "This Ship Kills Privateers", "Lower The Black Flag", "Frontier Spirit", "Freedom", "Independence", "Self-Determination", "Let's Have A Second Collapse", "Send More Solarians", "You Can Run But You Can't Hide", "Frontier Alliance", "Here's To You, Governor Hawkins", "Remember Jamestown", "Good Riddance to Kambiz Entezam", "We're Coming For You In Hell, Terrence Hopper", "Warpway Safari Company", "Badlands Gun Club", "Light's Edge Light Foot", "Now Entering Free Xanu", "Weeping Stars, Weep No More", "Rebel's Reach Outreach Program", "Rugged Individualism", "Don't Tread On Me", "Snake In The Grass", "Konyang Yacht Club", "Ranger Ship")]"
 	..()

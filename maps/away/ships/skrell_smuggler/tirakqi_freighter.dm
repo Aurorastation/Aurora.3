@@ -44,6 +44,8 @@
 		"nav_tirakqi_freighter_4"
 	)
 
+	has_ghostroles_to_spawn = TRUE
+
 /obj/effect/overmap/visitable/ship/tirakqi_freighter/New()
     designation = "[pick("Bigger Squib", "Frightful Whaler", "Star Spanner", "Lu'Kaax", "Star Scamp", "Ocean Ink", "Yippi")]"
     ..()

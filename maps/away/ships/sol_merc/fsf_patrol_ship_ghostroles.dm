@@ -16,6 +16,8 @@
 	special_role = "FSF Navy Crewman"
 	respawn_flag = null
 
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/fsf_patrol_ship
+
 
 /datum/outfit/admin/fsf_navy_crewman
 	name = "FSF Navy Crewman"
@@ -53,6 +55,8 @@
 	assigned_role = "FSF Navy Officer"
 	special_role = "FSF Navy Officer"
 	respawn_flag = null
+
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/fsf_patrol_ship
 
 
 /datum/outfit/admin/fsf_navy_officer

@@ -17,6 +17,8 @@
 
 	uses_species_whitelist = FALSE
 
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/tirakqi_freighter
+
 /datum/outfit/admin/tirakqi_crew
 	name = "Ti'Rakqi Qu'fup"
 
@@ -123,6 +125,8 @@
 
 	uses_species_whitelist = TRUE
 
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/tirakqi_freighter
+
 /datum/outfit/admin/tirakqi_crew/captain
 	name = "Ti'Rakqi Qu'fup"
 
@@ -157,6 +161,8 @@
 
 	uses_species_whitelist = TRUE
 
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/tirakqi_freighter
+
 /datum/outfit/admin/tirakqi_crew/medic
 	name = "Ti'Rakqi Medic"
 
@@ -183,6 +189,8 @@
 	respawn_flag = null
 
 	uses_species_whitelist = TRUE
+
+	visitable_overmap_type = /obj/effect/overmap/visitable/ship/tirakqi_freighter
 
 /datum/outfit/admin/tirakqi_crew/engineer
 	name = "Ti'Rakqi Engineer"
