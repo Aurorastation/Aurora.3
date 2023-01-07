@@ -66,7 +66,7 @@
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -123,7 +123,7 @@
 /area/space)
 "av" = (
 /obj/machinery/door/airlock/mining{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Warehouse"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -172,7 +172,7 @@
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -259,7 +259,7 @@
 /area/nka_merchant)
 "aN" = (
 /obj/machinery/vending/engineering{
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -710,7 +710,7 @@
 /area/nka_merchant/warehouse)
 "ck" = (
 /obj/machinery/door/airlock{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Hangar"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -842,7 +842,7 @@
 /area/nka_merchant/merchant)
 "cG" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Engine"
 	},
 /obj/structure/cable/green{
@@ -1135,7 +1135,7 @@
 	},
 /obj/machinery/door/window/eastright{
 	dir = 2;
-	req_access = list(212);
+	req_access = list(213);
 	name = "Voidsuit"
 	},
 /obj/machinery/light{
@@ -1204,7 +1204,7 @@
 /area/shuttle/nka_merchant_shuttle)
 "dN" = (
 /obj/machinery/door/airlock/command{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Captain's Quarters"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1426,7 +1426,7 @@
 /obj/structure/table/standard,
 /obj/machinery/door/window/eastleft{
 	dir = 1;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
@@ -1655,7 +1655,7 @@
 /area/shuttle/nka_merchant_shuttle)
 "fQ" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Airlock Access"
 	},
 /turf/simulated/floor/tiled{
@@ -1857,7 +1857,7 @@
 	},
 /obj/machinery/door/window/eastright{
 	dir = 2;
-	req_access = list(212);
+	req_access = list(213);
 	name = "Voidsuit"
 	},
 /obj/item/clothing/shoes/magboots,
@@ -1930,7 +1930,7 @@
 /area/nka_merchant/merchant)
 "hM" = (
 /obj/machinery/door/airlock/command{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Bridge"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1947,7 +1947,7 @@
 "hS" = (
 /obj/machinery/door/window/eastright{
 	dir = 1;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /obj/effect/floor_decal/corner/white/full{
 	dir = 1
@@ -2021,7 +2021,7 @@
 	},
 /obj/machinery/door/window/eastright{
 	dir = 2;
-	req_access = list(212);
+	req_access = list(213);
 	name = "Voidsuit"
 	},
 /obj/item/clothing/shoes/magboots,
@@ -2234,7 +2234,7 @@
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
 	req_one_access = null;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /obj/effect/floor_decal/corner/white/full{
 	dir = 4
@@ -2414,7 +2414,7 @@
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2469,7 +2469,7 @@
 /area/nka_merchant/mess)
 "kj" = (
 /obj/machinery/door/airlock/glass_mining{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Merchant Office"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2510,7 +2510,7 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -3032,7 +3032,7 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3076,7 +3076,7 @@
 "nq" = (
 /obj/machinery/door/window/eastright{
 	dir = 2;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/lino/grey{
 	temperature = 278.15
@@ -3135,7 +3135,7 @@
 /area/nka_merchant/mess)
 "nE" = (
 /obj/machinery/door/airlock{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Mess Hall"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3280,7 +3280,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "merchant_navy_bridge";
 	name = "Bridge Blastdoor";
-	req_access = list(212);
+	req_access = list(213);
 	dir = 8;
 	pixel_x = 32
 	},
@@ -3301,7 +3301,7 @@
 /area/nka_merchant/mess)
 "qt" = (
 /obj/machinery/vending/tool{
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3366,7 +3366,7 @@
 /area/nka_merchant/mess)
 "rq" = (
 /obj/machinery/suit_cycler/security{
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3395,7 +3395,7 @@
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3519,7 +3519,7 @@
 /area/nka_merchant/merchant)
 "vV" = (
 /obj/machinery/door/airlock/glass_mining{
-	req_access = list(212);
+	req_access = list(213);
 	name = "EVA Storage"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3549,7 +3549,7 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3632,7 +3632,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "merchant_navy_bridge";
 	name = "Bridge Blastdoor";
-	req_access = list(212);
+	req_access = list(213);
 	dir = 4;
 	pixel_x = -32
 	},
@@ -3692,7 +3692,7 @@
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3756,7 +3756,7 @@
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3772,7 +3772,7 @@
 /area/nka_merchant/hangar)
 "zY" = (
 /obj/machinery/door/airlock/command{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Bridge"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3927,7 +3927,7 @@
 /area/nka_merchant)
 "Ed" = (
 /obj/machinery/door/airlock{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Crew Quarters"
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -4077,7 +4077,7 @@
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4143,7 +4143,7 @@
 /area/nka_merchant/barracks)
 "HR" = (
 /obj/machinery/vending/engivend{
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4222,7 +4222,7 @@
 /area/nka_merchant/eva)
 "JF" = (
 /obj/machinery/door/airlock/mining{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Warehouse"
 	},
 /turf/simulated/floor/tiled{
@@ -4234,7 +4234,7 @@
 /area/nka_merchant/captain_quarters)
 "JX" = (
 /obj/machinery/door/airlock{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Restroom"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4352,7 +4352,7 @@
 /area/nka_merchant/engineering)
 "No" = (
 /obj/machinery/door/airlock/engineering{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Engineering"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4427,7 +4427,7 @@
 /area/nka_merchant/captain_quarters)
 "OD" = (
 /obj/machinery/door/airlock/command{
-	req_access = list(212);
+	req_access = list(213);
 	name = "Bridge"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4550,7 +4550,7 @@
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4647,7 +4647,7 @@
 "Tu" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(212);
+	req_access = list(213);
 	name = "gun cabinet (rifles)"
 	},
 /obj/item/ammo_magazine/boltaction,
@@ -4770,7 +4770,7 @@
 "Wr" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(212);
+	req_access = list(213);
 	name = "gun cabinet (revolver)"
 	},
 /obj/item/ammo_magazine/c38,
@@ -4826,7 +4826,7 @@
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24;
-	req_access = list(212)
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
