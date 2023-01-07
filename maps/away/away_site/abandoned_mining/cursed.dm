@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/cursed
 	name = "lone asteroid"
 	description = "A lone asteroid with a hangar. Latest data from this sector shows it as a Hephaestus mining station, two years ago."
-	suffix = "away_site/abandoned_mining/cursed.dmm"
+	suffixes = list("away_site/abandoned_mining/cursed.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	spawn_cost = 1

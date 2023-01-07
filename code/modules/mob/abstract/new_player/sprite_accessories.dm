@@ -3967,6 +3967,8 @@ Follow by example and make good judgement based on length which list to include 
 	var/is_genetic = TRUE	// If TRUE, the marking is considered genetic and is embedded into DNA.
 	var/is_painted = FALSE	// If TRUE, the marking can be put on prosthetics/robolimbs.
 
+	var/robotize_type_required // if set, this marking will only apply when put on a valid robolimb type
+
 	bandage_head
 		name = "Bandage, head 1"
 		icon_state = "bandage1"
@@ -4403,7 +4405,7 @@ Follow by example and make good judgement based on length which list to include 
 		mechamonoculusbullyoverlay
 			name = "Mecha Monoculus Overlay"
 			icon_state = "mechamonoculusbullyoverlay"
-	
+
 	bullybackmeter
 		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
 		name = "Back Meter (Bulwark)"
@@ -5388,7 +5390,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_blend_mode = ICON_MULTIPLY
 		is_painted = TRUE
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
-		species_allowed = list(/datum/species/machine/bishop)
+		robotize_type_required = PROSTHETIC_BC
 
 		bishop_mask
 			name = "Bishop - Face Mask"
@@ -5425,7 +5427,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_blend_mode = ICON_MULTIPLY
 		is_painted = TRUE
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-		species_allowed = list(/datum/species/machine/industrial)
+		robotize_type_required = PROSTHETIC_IND
 
 		g1_head
 			name = "G1 - Head Panel Colors"
@@ -5452,7 +5454,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_blend_mode = ICON_MULTIPLY
 		is_painted = TRUE
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-		species_allowed = list(/datum/species/machine/industrial/hephaestus)
+		robotize_type_required = PROSTHETIC_HI
 
 		g2_head
 			name = "G2 - Head Panel Colors"
@@ -5479,7 +5481,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_blend_mode = ICON_MULTIPLY
 		is_painted = TRUE
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-		species_allowed = list(/datum/species/machine/zenghu)
+		robotize_type_required = PROSTHETIC_ZH
 
 		zeng_head
 			name = "Zeng-Hu - Head Panel Colors"
@@ -5506,7 +5508,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_blend_mode = ICON_MULTIPLY
 		is_painted = TRUE
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-		species_allowed = list(/datum/species/machine/industrial/xion)
+		robotize_type_required = PROSTHETIC_XMG
 
 		xion_head
 			name = "Xion - Head Panel Colors"
