@@ -18,6 +18,9 @@
 	special_role = "Imperial Fleet Voidsman"
 	respawn_flag = null
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 
 /datum/outfit/admin/imperial_fleet_voidsman
 	name = "Imperial Fleet Voidsman"
@@ -50,6 +53,9 @@
 	assigned_role = "Imperial Fleet Officer"
 	special_role = "Imperial Fleet Officer"
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 
 /datum/outfit/admin/imperial_fleet_voidsman/officer
 	name = "Imperial Fleet Officer"
@@ -71,6 +77,9 @@
 	assigned_role = "Imperial Fleet Armsman"
 	special_role = "Imperial Fleet Armsman"
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 
 /datum/outfit/admin/imperial_fleet_voidsman/armsman
 	name = "Imperial Fleet Armsman"
@@ -90,6 +99,9 @@
 
 	assigned_role = "Imperial Fleet Priest"
 	special_role = "Imperial Fleet Priest"
+
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
 
 
 /datum/outfit/admin/imperial_fleet_voidsman/priest

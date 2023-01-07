@@ -126,6 +126,9 @@
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["name"], G.name, ., data)
 		if(cant_spawn)
 			VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], "[G.desc] ([cant_spawn])", ., data)
+		else if(G.hor_crew_needed_to_spawn || G.hor_crew_needed_per_slot)
+			var/crew_needed = (G.count + 1) * G.hor_crew_needed_per_slot
+			VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], "[G.desc] ([crew_needed > G.hor_crew_needed_to_spawn ? crew_needed : G.hor_crew_needed_to_spawn] Horizon Crew Members Required)", ., data)
 		else
 			VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], G.desc, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["cant_spawn"], cant_spawn, ., data)
@@ -146,9 +149,9 @@
 		var/datum/ghostspawner/S = spawners[spawner]
 		if(!S)
 			return
-		var/cant_spawn = S.cant_spawn(usr)
+		var/cant_spawn = S.cant_spawn(usr, TRUE)
 		if(cant_spawn)
-			to_chat(usr, "Unable to spawn: [cant_spawn]")
+			alert(usr, "Unable to spawn: [cant_spawn]", "Unable to Spawn")
 			return
 		if(isnewplayer(usr))
 			var/mob/abstract/new_player/N = usr

@@ -16,6 +16,9 @@
 	special_role = "FSF Navy Crewman"
 	respawn_flag = null
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 
 /datum/outfit/admin/fsf_navy_crewman
 	name = "FSF Navy Crewman"
@@ -53,6 +56,9 @@
 	assigned_role = "FSF Navy Officer"
 	special_role = "FSF Navy Officer"
 	respawn_flag = null
+
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
 
 
 /datum/outfit/admin/fsf_navy_officer

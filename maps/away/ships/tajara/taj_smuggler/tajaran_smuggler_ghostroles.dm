@@ -20,6 +20,9 @@
 	special_role = "Tajaran Smuggler"
 	respawn_flag = null
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 /datum/outfit/admin/tajaran_smuggler
 	name = "Tajaran Smuggler"
 

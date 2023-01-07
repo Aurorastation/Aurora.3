@@ -16,6 +16,9 @@
 	special_role = "SSMD Navy Crewman"
 	respawn_flag = null
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 
 /datum/outfit/admin/ssmd_navy_crewman
 	name = "SSMD Navy Crewman"
@@ -53,6 +56,9 @@
 	assigned_role = "SSMD Navy Officer"
 	special_role = "SSMD Navy Officer"
 	respawn_flag = null
+
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
 
 
 /datum/outfit/admin/ssmd_navy_officer
@@ -103,6 +109,9 @@
 	special_role = "SSMD Marine Exosuit Pilot"
 	respawn_flag = null
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 
 /datum/outfit/admin/ssmd_marine_pilot
 	name = "SSMD Marine Exosuit Pilot"
@@ -140,6 +149,9 @@
 	assigned_role = "SSMD Military Synthetic"
 	special_role = "SSMD Military Synthetic"
 	respawn_flag = null
+
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
 
 
 /datum/outfit/admin/ssmd_ipc

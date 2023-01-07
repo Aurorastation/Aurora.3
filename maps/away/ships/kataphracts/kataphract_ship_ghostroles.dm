@@ -22,6 +22,9 @@
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	away_site = TRUE
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 /datum/ghostspawner/human/kataphract/klax
 	short_name = "kataphract_hop_klax"
 	name = "Kataphract-Hopeful Klaxan"
@@ -47,7 +50,7 @@
 	spawnpoints = list("kataphract_knight")
 
 	outfit = /datum/outfit/admin/kataphract/knight
-	
+
 
 	assigned_role = "Kataphract Knight Captain"
 	special_role = "Kataphract Knight Captain"
@@ -129,14 +132,14 @@
 
 	suit = /obj/item/clothing/accessory/poncho/red
 	back = /obj/item/storage/backpack/satchel/hegemony
-	
+
 
 /datum/outfit/admin/kataphract/knight/get_id_access()
 	return list(access_kataphract, access_kataphract_knight, access_external_airlocks)
 
 /datum/outfit/admin/kataphract/specialist
 	name = "Kataphract Specialist"
-	
+
 	back = /obj/item/storage/backpack/satchel/hegemony
 
 /datum/outfit/admin/kataphract/quartermaster/get_id_access()

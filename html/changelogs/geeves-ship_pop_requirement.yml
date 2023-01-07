@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "There now needs to be at least 10 crewmembers active on the Horizon before ghosts can spawn into other ship."
+  - rscadd: "Ghostspawner Ship roles require 3 Horizon crew per slot in addition to the 10 crewmember limit, so to fill 5 slots, there has to be 15 Horizon crew."

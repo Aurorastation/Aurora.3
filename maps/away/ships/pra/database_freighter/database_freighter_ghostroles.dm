@@ -17,6 +17,9 @@
 	special_role = "Database Freighter Surveyor"
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 /datum/outfit/admin/database_freighter_crew
 	name = "Database Freighter Surveyor"
 

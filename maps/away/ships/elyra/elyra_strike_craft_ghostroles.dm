@@ -18,6 +18,9 @@
 	special_role = "Elyran Naval Infantryman"
 	respawn_flag = null
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 
 /datum/outfit/admin/elyran_naval_infantry
 	name = "Elyran Naval Infantryman"

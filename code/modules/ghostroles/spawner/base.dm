@@ -40,6 +40,12 @@
 	var/mob_name_suffix = null //The suffix that should be applied to the mob name
 	var/away_site = FALSE
 
+	// Variables that restrict spawning until certain conditions are met //
+	/// Need at least X number of horizon crew before you can spawn in as this at all
+	var/hor_crew_needed_to_spawn = 0
+	/// Multiplies the current slots + 1 by this variable to determine the amount of players required to spawn as this
+	var/hor_crew_needed_per_slot = 0
+
 /datum/ghostspawner/New()
 	. = ..()
 	if(!jobban_job)
@@ -71,7 +77,7 @@
 	return FALSE
 
 //Return a error message if the user CANT spawn. Otherwise FALSE
-/datum/ghostspawner/proc/cant_spawn(mob/user) //If the user can spawn using the spawner
+/datum/ghostspawner/proc/cant_spawn(mob/user, var/deep_check = FALSE) //If the user can spawn using the spawner
 	if(!ROUND_IS_STARTED)
 		return "The round is not started yet."
 	var/cant_see = cant_see(user)
@@ -97,6 +103,18 @@
 	else
 		if(!length(spawn_atoms))
 			return "No mobs are available to spawn."
+	if(deep_check)
+		if(hor_crew_needed_to_spawn || hor_crew_needed_per_slot)
+			var/horizon_crew = 0
+			for(var/mob/living/crew in living_mob_list)
+				var/datum/job/job = SSjobs.GetJob(crew.job)
+				if(job && job.faction == "Station")
+					horizon_crew++
+			if(hor_crew_needed_to_spawn > horizon_crew)
+				return "Sorry, there needs to be at least [hor_crew_needed_to_spawn] crewmembers on the Horizon before you can spawn as this. (Currently: [horizon_crew])"
+			var/crew_needed = (count + 1) * hor_crew_needed_per_slot
+			if(crew_needed > horizon_crew)
+				return "Sorry, there needs to be at least [crew_needed] crewmembers on the Horizon before you can spawn as this. (Currently: [horizon_crew])"
 	return FALSE
 
 //Proc executed before someone is spawned in

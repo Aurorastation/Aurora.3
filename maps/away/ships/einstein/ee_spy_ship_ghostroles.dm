@@ -15,6 +15,9 @@
 	special_role = "Einstein Engines Crewman"
 	respawn_flag = null
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 
 /datum/outfit/admin/ee_crewman
 	name = "Einstein Engines Crewman"
@@ -50,6 +53,9 @@
 	assigned_role = "Einstein Engines Research Officer"
 	special_role = "Einstein Engines Research Officer"
 	respawn_flag = null
+
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
 
 
 /datum/outfit/admin/ee_research_officer

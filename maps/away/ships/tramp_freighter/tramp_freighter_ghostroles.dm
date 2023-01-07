@@ -15,6 +15,9 @@
 	special_role = "Freighter Crewman"
 	respawn_flag = null
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 
 /datum/outfit/admin/freighter_crew
 	name = "Freighter Crewman"

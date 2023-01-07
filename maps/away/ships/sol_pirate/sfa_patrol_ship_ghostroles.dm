@@ -16,6 +16,9 @@
 	special_role = "SFA Navy Crewman"
 	respawn_flag = null
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 
 /datum/outfit/admin/sfa_navy_crewman
 	name = "SFA Navy Crewman"
@@ -54,6 +57,9 @@
 	special_role = "SFA Navy Officer"
 	respawn_flag = null
 
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
+
 
 /datum/outfit/admin/sfa_navy_officer
 	name = "SFA Navy Officer"
@@ -90,6 +96,9 @@
 	assigned_role = "SFA Marine"
 	special_role = "SFA Marine"
 	respawn_flag = null
+
+	hor_crew_needed_to_spawn = 10
+	hor_crew_needed_per_slot = 3
 
 
 /datum/outfit/admin/sfa_marine
