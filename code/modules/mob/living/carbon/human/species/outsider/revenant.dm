@@ -138,7 +138,7 @@
 	return FALSE
 
 /datum/species/revenant/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if((istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam)) && prob(20))
+	if((istype(P, /obj/item/projectile && prob(20))
 		H.visible_message(SPAN_CULT("The [P.name] gets absorbed by [H]!"), SPAN_CULT("You absorb the [P.name]!"))
 		return -1
 	return ..()
