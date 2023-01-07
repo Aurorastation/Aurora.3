@@ -158,14 +158,14 @@
 			if(CL.type in M.species.possible_cultures)
 				M.culture = CL
 				break
-		if(length(origin_restriction))
-			for(var/origin in M.culture.possible_origins)
-				var/decl/origin_item/origin/OI = decls_repository.get_decl(origin)
+		for(var/origin in M.culture.possible_origins)
+			var/decl/origin_item/origin/OI = decls_repository.get_decl(origin)
+			if(length(origin_restriction))
 				if(!(OI.type in origin_restriction))
 					continue
-				M.origin = OI
-				M.accent = pick(OI.possible_accents)
-				break
+			M.origin = OI
+			M.accent = pick(OI.possible_accents)
+			break
 
 	for(var/language in extra_languages)
 		M.add_language(language)

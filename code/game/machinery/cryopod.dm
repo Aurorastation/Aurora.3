@@ -413,7 +413,6 @@ var/global/list/frozen_crew = list()
 			var/datum/ghostspawner/human/GS = H.ghost_spawner.resolve()
 			GS.count--
 
-
 	// Let SSjobs handle the rest.
 	SSjobs.DespawnMob(occupant)
 	occupant = null

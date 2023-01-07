@@ -49,8 +49,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 1
+	dir = 1;
+	icon_state = "1-4"
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
@@ -103,6 +103,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Ammo_Closet)
+"apT" = (
+/obj/effect/ghostspawpoint{
+	identifier = "sfa_navy_crewman";
+	name = "igs - sfa_navy_crewman"
+	},
+/obj/machinery/computer/cryopod{
+	pixel_x = 32
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/ship/sfa_patrol_ship/Quarters)
 "atB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/red{
@@ -299,8 +309,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 8
+	dir = 8;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -450,8 +460,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 8
+	dir = 8;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
@@ -702,8 +712,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 1
+	dir = 1;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Ammo_Closet)
@@ -739,8 +749,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 1
+	dir = 1;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -755,14 +765,14 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 1
+	dir = 1;
+	icon_state = "1-4"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 8
+	dir = 8;
+	icon_state = "1-4"
 	},
 /obj/machinery/power/smes,
 /turf/simulated/floor/tiled/dark,
@@ -788,8 +798,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 1
+	dir = 1;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -837,9 +847,9 @@
 /obj/item/clothing/ears/skrell/band/redjewels,
 /obj/item/clothing/accessory/badge/passcard/sol/visegrad,
 /obj/item/reagent_containers/food/drinks/bottle/holywater{
-	reagents_to_add = null;
 	desc = "A bottle of cologne. It's empty but smells like pine. A reminder of better days.";
-	name = "Cologne"
+	name = "Cologne";
+	reagents_to_add = null
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
@@ -1452,8 +1462,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 8
+	dir = 8;
+	icon_state = "1-4"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1642,8 +1652,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 1
+	dir = 1;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -1667,8 +1677,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 8
+	dir = 8;
+	icon_state = "1-4"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2023,12 +2033,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/freezer{
-	name = "Freezer";
-	req_access = list(28);
-	maxhealth = 40;
-	locked = 1;
 	has_set_boltlight = 1;
-	icon_state = "door_locked"
+	icon_state = "door_locked";
+	locked = 1;
+	maxhealth = 40;
+	name = "Freezer";
+	req_access = list(28)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/sfa_patrol_ship/medbay)
@@ -2260,8 +2270,8 @@
 	icon_state = "tube1"
 	},
 /obj/item/card/id/ranger_ship{
-	name = "coalition ranger ID";
-	desc = "The ID of a coalition ranger. This one reads Pravin Talwar."
+	desc = "The ID of a coalition ranger. This one reads Pravin Talwar.";
+	name = "coalition ranger ID"
 	},
 /obj/item/ammo_casing,
 /obj/item/ammo_casing,
@@ -2825,8 +2835,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 8
+	dir = 8;
+	icon_state = "1-4"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -3275,10 +3285,10 @@
 /area/ship/sfa_patrol_ship/Engine1)
 "nsp" = (
 /obj/machinery/door/airlock/highsecurity{
-	name = "Ship Munitions Storage";
-	locked = 1;
 	has_set_boltlight = 1;
-	icon_state = "door_locked"
+	icon_state = "door_locked";
+	locked = 1;
+	name = "Ship Munitions Storage"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -3509,8 +3519,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 1
+	dir = 1;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engine2)
@@ -3525,8 +3535,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 1
+	dir = 1;
+	icon_state = "1-4"
 	},
 /turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -3602,8 +3612,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 1
+	dir = 1;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/medbay)
@@ -3783,8 +3793,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 8
+	dir = 8;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -4365,8 +4375,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 1
+	dir = 1;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
@@ -4602,8 +4612,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 1
+	dir = 1;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
@@ -5252,10 +5262,10 @@
 /area/ship/sfa_patrol_ship/Bridge)
 "xhi" = (
 /obj/machinery/door/airlock/highsecurity{
-	name = "Ship Munitions Storage";
-	locked = 1;
 	has_set_boltlight = 1;
-	icon_state = "door_locked"
+	icon_state = "door_locked";
+	locked = 1;
+	name = "Ship Munitions Storage"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -5279,8 +5289,8 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 1
+	dir = 1;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -5357,11 +5367,11 @@
 /area/ship/sfa_patrol_ship)
 "xHa" = (
 /obj/machinery/door/airlock/security{
-	name = "Gym";
-	req_access = list(203);
 	has_set_boltlight = 1;
+	icon_state = "door_locked";
 	locked = 1;
-	icon_state = "door_locked"
+	name = "Gym";
+	req_access = list(203)
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/item/tape/engineering,
@@ -28451,7 +28461,7 @@ fqb
 mZv
 fJh
 qKA
-fUi
+apT
 sjG
 qZc
 fUi
