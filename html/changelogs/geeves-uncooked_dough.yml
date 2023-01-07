@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Dough-based pastries no longer have an uncooked dough taste, and meatpies specifically now have a crispy dough taste."
