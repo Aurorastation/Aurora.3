@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Rounds out Revenant damage resistances and gives them equal 20% evasion to all projectiles instead of just energy beams."
+  - balance: "Rounds out Revenant damage resistances to 25% reduction to brute or burn. Removes the evasion mechanic vs. lasers."
   - tweak: "Revenants can now be totally understood by Tau Ceti speakers. Revenants also now have different contextual speaking verbage! This aims to make them seem more ghostly instead of disgusting."
   - rscdel: "Removes the sound effect howl when Revenants speak. It was just annoying."
