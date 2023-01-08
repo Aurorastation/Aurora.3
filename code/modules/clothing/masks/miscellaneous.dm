@@ -211,3 +211,12 @@
 	item_state = "muzzle"
 	down_body_parts_covered = null
 	adjustable = TRUE
+
+/obj/item/clothing/mask/goon_coif
+	name = "tactical coif"
+	desc = "A comfortable tactical coif that goes around the head."
+	icon = 'icons/clothing/masks/goon_coif.dmi'
+	body_parts_covered = HEAD
+	icon_state = "goon_coif"
+	item_state = "goon_coif"
+	contained_sprite = TRUE

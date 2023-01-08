@@ -20,3 +20,12 @@
 	display_name = "cloth mask"
 	path = /obj/item/clothing/mask/cloth
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/mask/goon_coif
+	display_name = "tactical coif"
+	path = /obj/item/clothing/mask/goon_coif
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/mask/goon_coif/New()
+	allowed_roles = security_positions
+	..()
