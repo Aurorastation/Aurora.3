@@ -89,9 +89,11 @@
 	item_state = "advfirstaid"
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
-		/obj/item/stack/medical/advanced/bruise_pack = 3,
-		/obj/item/stack/medical/advanced/ointment = 2,
-		/obj/item/stack/medical/splint = 1
+		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1,
+		/obj/item/stack/medical/advanced/bruise_pack = 2,
+		/obj/item/stack/medical/advanced/ointment = 1,
+		/obj/item/stack/medical/splint = 1,
+		/obj/item/device/healthanalyzer = 1
 	)
 
 /obj/item/storage/firstaid/adv/fill()
@@ -145,9 +147,10 @@
 	item_state = "brute"
 	starts_with = list(
 		/obj/item/stack/medical/bruise_pack = 2,
-		/obj/item/stack/medical/advanced/bruise_pack = 2,
+		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/reagent_containers/pill/bicaridine = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
 		/obj/item/device/healthanalyzer = 1
 	)
 
