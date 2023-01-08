@@ -228,7 +228,7 @@ var/list/gear_datums = list()
 			style = "style='color: #B1B1B1;'"
 		if(ticked)
 			style = "style='color: #FF8000;'"
-		temp_html += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
+		temp_html += "<tr style='vertical-align:top'><td width=25%><a href=\"?src=\ref[src];toggle_gear=[G.display_name]\"><font [style]>[G.display_name]</font></a></td>"
 		temp_html += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
 		temp_html += "<td><font size=2><i>[G.description]</i><br>"
 
