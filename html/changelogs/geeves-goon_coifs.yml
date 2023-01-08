@@ -1,0 +1,6 @@
+author: HappyFox, Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added tactical coifs and goggles to the loadout for Security roles."
