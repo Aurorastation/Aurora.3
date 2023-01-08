@@ -23,7 +23,7 @@
 
 /datum/gear/mask/goon_coif
 	display_name = "tactical coif"
-	path = /obj/item/clothing/mask/goon_coif
+	path = /obj/item/clothing/accessory/goon_coif
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/mask/goon_coif/New()
