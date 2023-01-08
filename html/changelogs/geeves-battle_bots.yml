@@ -5,3 +5,4 @@ delete-after: True
 changes:
   - rscadd: "Moved toys out of the General loadout section and into the Toys section."
   - rscadd: "You can now use toy mechas in-hand to put them on the floor in an active state. Shouting Attack at them will make them seek out other mechas to fight. Click them on help intent to pick them back up."
+  - bugfix: "Simple mobs' overhead text will now match exactly what they're saying."

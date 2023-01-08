@@ -6,6 +6,7 @@
 	speak = list("You're going down!", "I'm taking you to poundtown!", "Die!", "Buy my merch!")
 	var/list/victory_speech = list("HA-HA-HA!", "Six feet under!", "Weak!")
 	speak_chance = 5
+	universal_speak = FALSE
 
 	health = 10
 	maxHealth = 10
@@ -87,12 +88,6 @@
 	if(findtext(lowertext(text), "attack"))
 		seeking_targets = TRUE
 		say(pick(seeking_speech))
-
-/mob/living/simple_animal/hostile/mech/handle_language()
-	return all_languages[LANGUAGE_TCB]
-
-/mob/living/simple_animal/hostile/mech/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 
 /mob/living/simple_animal/hostile/mech/Destroy()
 	QDEL_NULL(contained_mech)
