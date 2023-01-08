@@ -37,4 +37,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Increased the stack size of Advanced Trauma Kits and Advanced Burn Kits to 10. Up from 5."
+  - balance: "Increased the stack size of Advanced Trauma Kits (ATKs) and Advanced Burn Kits (ABKs) to 10. Up from 5."
+  - balance: "Shuffled around the Medical Bay's supply of Advanced Trauma Kits and Advanced Burn Kits, totaling at 90 and 60 respectively. Reduced down from 90 and 75."
+  - balance: "Added an inaprovaline autoinjector to brute medkits. Added a health analyzer and a coagzolug autoinjector to advanced medkits, their total number of ATK's is now 20, up from 15."
