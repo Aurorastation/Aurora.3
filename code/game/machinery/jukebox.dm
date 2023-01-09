@@ -201,13 +201,7 @@ datum/track/New(var/title_name, var/audio)
 	if(!current_track)
 		return
 
-	token = sound_player.PlayLoopingSound(src, "jukebox", current_track.sound, 8, 5, 1)
-
-	// var/area/main_area = get_area(src)
-	// main_area.music = list(current_track.sound)
-	// for(var/mob/living/M in mobs_in_area(main_area))
-	// 	if(M.mind)
-	// 		main_area.play_music(M)
+	token = sound_player.PlayLoopingSound(src, "jukebox", current_track.sound, 30, 7, 1, prefer_mute = TRUE)
 
 	playing = 1
 	update_use_power(POWER_USE_ACTIVE)
