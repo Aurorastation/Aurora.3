@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - refactor: "Refactored /datum/observ into /singleton/observ."
-  - refactor: "Refactored /decl/ into /singleton/."
-  - rscadd: "Added singleton base class and abstract meta-propriety as dependencies."
+  - refactor: "The jukebox now uses the sound player."
+  - rscadd: "Added Bay's sound player and sound tokens."
+  - rscadd: "Added __datastructures\stack data structure, used by the sound player/token."
