@@ -177,7 +177,7 @@ var/list/lunchables_alcohol_reagents_ = list(
 		var/obj/O = lunch
 		.[initial(O.name)] = lunch
 
-	sortTim(., /proc/cmp_text_asc)
+	sortTim(., GLOBAL_PROC_REF(cmp_text_asc))
 
 /proc/init_lunchable_reagent_list(var/list/banned_reagents, var/reagent_types)
 	. = list()
@@ -187,4 +187,4 @@ var/list/lunchables_alcohol_reagents_ = list(
 		var/decl/reagent/reagent = reagent_type
 		.[initial(reagent.name)] = reagent_type
 
-	sortTim(., /proc/cmp_text_asc)
+	sortTim(., GLOBAL_PROC_REF(cmp_text_asc))

@@ -595,7 +595,7 @@ var/list/ai_verbs_default = list(
 		for(var/i in tempnetwork)
 			cameralist[i] = i
 
-	sortTim(cameralist, /proc/cmp_text_asc)
+	sortTim(cameralist, GLOBAL_PROC_REF(cmp_text_asc))
 	return cameralist
 
 /mob/living/silicon/ai/proc/ai_network_change(var/network in get_camera_network_list())

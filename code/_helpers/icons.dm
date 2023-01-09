@@ -761,7 +761,7 @@ proc/ColorTone(rgb, tone)
 						break
 				layers[current] = current_layer
 
-		//sortTim(layers, /proc/cmp_image_layer_asc)
+		//sortTim(layers, GLOBAL_PROC_REF(cmp_image_layer_asc))
 
 		var/icon/add // Icon of overlay being added
 
@@ -998,3 +998,6 @@ proc/percentage_to_colour(var/P)
 	//var/red = 255 - (min(1, P*2)*255)
 
 	return rgb(red,green,0)
+
+/mob/proc/getFlatIcon()
+	return client?.RenderIcon(src)

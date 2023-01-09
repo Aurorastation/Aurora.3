@@ -1232,7 +1232,7 @@ var/list/admin_verbs_cciaa = list(
 		CC.client_color = list(rr,rg,rb, gr,gg,gb, br,bg,bb)
 		CC.priority = priority
 		C.client_colors |= CC
-		sortTim(C.client_colors, /proc/cmp_clientcolor_priority)
+		sortTim(C.client_colors, GLOBAL_PROC_REF(cmp_clientcolor_priority))
 		C.update_client_color()
 
 	log_and_message_admins("<span class='notice'>gave [key_name(C)] a new client color.</span>")

@@ -338,7 +338,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	for(var/dept in ready_job.departments)
 		LAZYDISTINCTADD(ready_player_jobs[dept], prefs.real_name)
 		LAZYSET(ready_player_jobs[dept], prefs.real_name, ready_job.title)
-		sortTim(ready_player_jobs[dept], /proc/cmp_text_asc)
+		sortTim(ready_player_jobs[dept], GLOBAL_PROC_REF(cmp_text_asc))
 		. = TRUE
 
 	if(.)

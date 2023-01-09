@@ -61,7 +61,7 @@
 		C.forceMove(src)
 
 	cartridges[C.label] = C
-	sortTim(cartridges, /proc/cmp_text_asc)
+	sortTim(cartridges, GLOBAL_PROC_REF(cmp_text_asc))
 	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/chemical_dispenser/proc/remove_cartridge(label)
