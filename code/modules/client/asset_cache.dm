@@ -208,7 +208,7 @@ var/list/asset_datums = list()
 
 	var/res_name = "spritesheet_[name].css"
 	var/fname = "data/spritesheets/[res_name]"
-	dll_call(RUST_G, "file_write", generate_css(), fname)
+	dll_call_ext(RUST_G, "file_write", generate_css(), fname)
 	register_asset(res_name, file(fname))
 
 	for(var/size_id in sizes)
@@ -231,7 +231,7 @@ var/list/asset_datums = list()
 
 		var/fname = "data/spritesheets/[name]_[size_id].png"
 		fcopy(size[SPRSZ_ICON], fname)
-		var/error = dll_call(RUST_G, "dmi_strip_metadata", fname)
+		var/error = dll_call_ext(RUST_G, "dmi_strip_metadata", fname)
 		if(length(error))
 			crash_with("Failed to strip [name]_[size_id].png: [error]")
 		size[SPRSZ_STRIPPED] = icon(fname)
