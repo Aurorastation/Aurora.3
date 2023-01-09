@@ -378,6 +378,13 @@
 	desc_extended = "Tajani, also known as 'short people' in basic, are good-willed tiny elder Tajara who serve as guardians of nature and homes. \
 	Hand carved charms of them is considered a symbol of luck and as such many superstitious tajara keeps one around."
 
+/obj/item/clothing/accessory/tajaran/charm/raskariim
+	name = "metal amulet"
+	desc = "An amulet made of some light metal."
+	icon_state = "raskara_amulet"
+	item_state = "raskara_amulet"
+	overlay_state = "raskara_amulet"
+
 /obj/item/clothing/accessory/tajaran/tanker_pin
 	name = "golden sun pin"
 	desc = "Given to all members of the Hro'rammad tank corps is this sun pin. It is considered a symbol of how the tanker corps is the wrath of the God S'rendarr. Its rays are sharp not \

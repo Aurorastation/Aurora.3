@@ -3257,6 +3257,7 @@
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_hunting.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_minefield.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_raskara_ritual.dm"
+#include "maps\random_ruins\exoplanets\adhomai\adhomai_raskariim_hideout.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_village.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_war_memorial.dm"
 #include "maps\random_ruins\exoplanets\adhomai\ala_cell.dm"

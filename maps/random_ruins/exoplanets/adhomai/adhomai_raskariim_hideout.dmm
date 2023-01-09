@@ -1,0 +1,1329 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ah" = (
+/obj/machinery/appliance/cooker/oven/adhomai,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_raskara_ritual)
+"ch" = (
+/obj/structure/table/wood,
+/obj/item/pocketwatch/adhomai,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"cq" = (
+/obj/item/melee/hammer,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"cy" = (
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"cD" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"cW" = (
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "An Adhomian television. Due to bad reception, there is nothing to watch.";
+	icon = 'icons/obj/computer.dmi';
+	icon_state = "television";
+	name = "adhomian television"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"de" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"ds" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"ez" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"fj" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/red,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"fs" = (
+/obj/structure/curtain/black,
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/obj/structure/window/basic{
+	dir = 4
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"iJ" = (
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug{
+	pixel_x = -8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"jX" = (
+/obj/structure/bed/stool/chair/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"ka" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"kt" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomai_raskara_ritual)
+"lj" = (
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"lr" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"lI" = (
+/obj/item/device/flashlight/lamp,
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomai_raskara_ritual)
+"or" = (
+/obj/item/reagent_containers/pill/happy{
+	pixel_y = -5;
+	pixel_x = 3
+	},
+/obj/item/reagent_containers/pill/zoom{
+	pixel_y = 8;
+	pixel_x = -4
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"pR" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_raskara_ritual)
+"rg" = (
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"ri" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"rw" = (
+/obj/structure/bed/stool/chair/sofa/left/beige{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"rA" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"rG" = (
+/obj/structure/window/basic{
+	dir = 8
+	},
+/obj/structure/curtain/black,
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"rK" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/drinkingglass,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"sX" = (
+/obj/structure/table/wood,
+/obj/item/toy/plushie/farwa,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"te" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/storage/tajaran/raskara,
+/obj/item/clothing/head/tajaran/raskara,
+/obj/item/melee/whip,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"tv" = (
+/obj/structure/table/wood,
+/obj/item/material/kitchen/utensil/spoon,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"tY" = (
+/obj/machinery/light/small/red,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"tZ" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"uQ" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"vc" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"vA" = (
+/obj/item/surgery/scalpel,
+/obj/structure/table/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"vD" = (
+/obj/structure/bed/stool/chair/sofa/right/black{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"vI" = (
+/obj/item/clothing/shoes/tajara/footwraps{
+	pixel_x = 9
+	},
+/obj/item/clothing/shoes/tajara/footwraps{
+	pixel_x = -5
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"wq" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomai_raskara_ritual)
+"wx" = (
+/obj/structure/bed/stool/chair/sofa/black{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"xK" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_raskara_ritual)
+"zn" = (
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/adhomai_raskara_ritual)
+"zC" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"Ai" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"CS" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Dg" = (
+/obj/structure/reagent_dispensers/keg/mead,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"Dk" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Dl" = (
+/obj/item/tape_roll{
+	pixel_y = 3
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -5
+	},
+/obj/item/flame/lighter/adhomai,
+/obj/structure/table/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"DD" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/storage/tajaran/raskara,
+/obj/item/clothing/head/tajaran/raskara,
+/obj/machinery/light/small,
+/obj/item/material/knife/raskariim,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"DU" = (
+/obj/item/storage/box/fancy/crayons/chalkbox{
+	pixel_y = 7
+	},
+/obj/item/storage/box/fancy/crayons{
+	pixel_y = -5
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"Ew" = (
+/obj/item/reagent_containers/syringe/drugs{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"Hn" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_raskara_ritual)
+"HE" = (
+/obj/item/handcuffs/cable/random,
+/obj/machinery/light/small/red,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"HG" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze,
+/obj/item/trash/cigbutt,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"Ig" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/chemical_dispenser/coffee/full,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_raskara_ritual)
+"IW" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/storage/tajaran/raskara,
+/obj/item/clothing/head/tajaran/raskara,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"Jk" = (
+/obj/structure/curtain/black,
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
+/obj/structure/window/basic{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"Jq" = (
+/obj/item/stack/dice/tajara/alt{
+	pixel_x = 5
+	},
+/obj/item/stack/dice/tajara{
+	pixel_x = -5
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"LC" = (
+/obj/structure/table/wood,
+/obj/item/material/kitchen/utensil/knife{
+	pixel_x = 7
+	},
+/obj/item/material/kitchen/utensil/knife,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"Ml" = (
+/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater{
+	pixel_y = 9;
+	pixel_x = 5
+	},
+/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater{
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/food/drinks/bottle/treebark_firewater{
+	pixel_x = 8;
+	pixel_y = -5
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"Mo" = (
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"MY" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"MZ" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Nt" = (
+/turf/simulated/wall/wood{
+	can_open = 1
+	},
+/area/adhomai_raskara_ritual)
+"NN" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"NT" = (
+/obj/item/mirror,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"Ol" = (
+/obj/structure/coatrack,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"OF" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/item/material/knife/raskariim,
+/obj/structure/cult/tome{
+	desc = "A stone altar dedicated to Raskara. The blood is still fresh.";
+	icon_state = "churchaltar";
+	name = "altar"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"Pz" = (
+/obj/structure/noose,
+/obj/structure/bed/stool/bar/padded/red,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"PT" = (
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Ru" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"SE" = (
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"Te" = (
+/obj/item/trash/can/adhomian_can,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"UC" = (
+/obj/machinery/appliance/cooker/stove/adhomai,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_raskara_ritual)
+"UQ" = (
+/obj/item/reagent_containers/syringe{
+	pixel_x = -10;
+	pixel_y = -5
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"Vm" = (
+/obj/effect/decal/remains/xeno,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"WM" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"WO" = (
+/turf/simulated/wall/wood,
+/area/adhomai_raskara_ritual)
+"Yu" = (
+/obj/effect/ghostspawpoint{
+	identifier = "raskariim_hideout";
+	name = "igs - raskariim_hideout"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskara_ritual)
+"ZM" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/organ/internal/liver/tajara,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_raskara_ritual)
+
+(1,1,1) = {"
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+ds
+"}
+(2,1,1) = {"
+WM
+WM
+WO
+WO
+WO
+WO
+rG
+WO
+WO
+de
+de
+de
+de
+tZ
+de
+de
+de
+de
+tZ
+de
+de
+de
+de
+Ru
+WM
+"}
+(3,1,1) = {"
+WM
+WM
+WO
+Vm
+Nt
+Dg
+SE
+Pz
+WO
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+ds
+WM
+MZ
+WM
+"}
+(4,1,1) = {"
+PT
+WM
+WO
+WO
+WO
+Dg
+SE
+NT
+WO
+WO
+WO
+rG
+WO
+WO
+WO
+WO
+WO
+rG
+rG
+WO
+WO
+WM
+WM
+MZ
+WM
+"}
+(5,1,1) = {"
+WM
+WM
+Dk
+WM
+WO
+vA
+SE
+SE
+SE
+HE
+WO
+SE
+tv
+LC
+rK
+WO
+rg
+SE
+SE
+HG
+WO
+WM
+PT
+MZ
+WM
+"}
+(6,1,1) = {"
+WM
+WM
+CS
+WM
+WO
+Dl
+SE
+SE
+SE
+cq
+WO
+SE
+SE
+SE
+SE
+WO
+SE
+zn
+zn
+vD
+WO
+WM
+WM
+MZ
+WM
+"}
+(7,1,1) = {"
+WM
+WM
+CS
+WM
+WO
+WO
+WO
+ri
+WO
+WO
+WO
+SE
+SE
+NN
+SE
+WO
+zC
+zn
+zn
+wx
+WO
+WM
+WM
+MZ
+WM
+"}
+(8,1,1) = {"
+WM
+WM
+CS
+WM
+WO
+DU
+SE
+SE
+SE
+Ml
+WO
+zC
+jX
+ez
+ka
+WO
+cW
+zn
+zn
+wx
+WO
+WM
+WM
+MZ
+WM
+"}
+(9,1,1) = {"
+ds
+WM
+CS
+WM
+WO
+or
+SE
+Yu
+SE
+iJ
+WO
+SE
+jX
+ez
+ka
+WO
+SE
+zn
+zn
+wx
+WO
+WM
+WM
+MZ
+WM
+"}
+(10,1,1) = {"
+WM
+WM
+CS
+WM
+ri
+SE
+Yu
+OF
+Yu
+tY
+WO
+SE
+jX
+ez
+ka
+WO
+SE
+zn
+zn
+rw
+WO
+WO
+WO
+WO
+WM
+"}
+(11,1,1) = {"
+WM
+WM
+CS
+WM
+WO
+lj
+SE
+Yu
+SE
+UQ
+WO
+SE
+jX
+ez
+ka
+WO
+SE
+SE
+SE
+SE
+WO
+Ol
+rA
+WO
+WM
+"}
+(12,1,1) = {"
+WM
+WM
+CS
+WM
+Jk
+Te
+SE
+SE
+SE
+SE
+WO
+SE
+SE
+lr
+uQ
+WO
+SE
+SE
+SE
+SE
+ri
+SE
+zn
+ri
+WM
+"}
+(13,1,1) = {"
+WM
+WM
+CS
+WM
+WO
+Jq
+SE
+SE
+Ew
+SE
+ri
+SE
+SE
+SE
+SE
+ri
+SE
+SE
+SE
+uQ
+WO
+cy
+vI
+WO
+WM
+"}
+(14,1,1) = {"
+PT
+WM
+CS
+WM
+WO
+WO
+WO
+ri
+WO
+WO
+WO
+SE
+SE
+SE
+SE
+WO
+SE
+SE
+SE
+ez
+WO
+WO
+WO
+WO
+WM
+"}
+(15,1,1) = {"
+WM
+Mo
+CS
+WM
+WO
+ch
+SE
+SE
+SE
+SE
+WO
+WO
+WO
+WO
+ri
+WO
+WO
+ri
+WO
+WO
+WO
+WM
+WM
+MZ
+WM
+"}
+(16,1,1) = {"
+WM
+WM
+CS
+WM
+WO
+fj
+ka
+SE
+SE
+SE
+SE
+ez
+WO
+Hn
+Hn
+Hn
+Hn
+Hn
+Hn
+WO
+WM
+WM
+WM
+MZ
+WM
+"}
+(17,1,1) = {"
+WM
+WM
+CS
+WM
+WO
+ez
+zn
+zn
+zn
+zn
+SE
+DD
+WO
+Hn
+Hn
+Hn
+Hn
+Hn
+Hn
+WO
+WM
+WM
+Mo
+MZ
+WM
+"}
+(18,1,1) = {"
+WM
+WM
+CS
+WM
+WO
+SE
+zn
+zn
+zn
+zn
+SE
+IW
+WO
+ah
+Ig
+UC
+ZM
+pR
+xK
+WO
+WM
+WM
+WM
+MZ
+WM
+"}
+(19,1,1) = {"
+WM
+WM
+Ai
+WM
+WO
+te
+wq
+kt
+kt
+lI
+SE
+sX
+WO
+WO
+WO
+WO
+fs
+WO
+WO
+WO
+WM
+PT
+WM
+MZ
+WM
+"}
+(20,1,1) = {"
+WM
+WM
+CS
+WM
+WO
+WO
+WO
+WO
+WO
+WO
+fs
+WO
+WO
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+MZ
+WM
+"}
+(21,1,1) = {"
+WM
+WM
+CS
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+ds
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+ds
+MZ
+WM
+"}
+(22,1,1) = {"
+WM
+ds
+MY
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+cD
+vc
+WM
+"}
+(23,1,1) = {"
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+"}
+(24,1,1) = {"
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+PT
+WM
+WM
+WM
+WM
+WM
+WM
+ds
+WM
+WM
+WM
+WM
+WM
+PT
+WM
+Mo
+WM
+PT
+"}
+(25,1,1) = {"
+WM
+WM
+PT
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+"}
