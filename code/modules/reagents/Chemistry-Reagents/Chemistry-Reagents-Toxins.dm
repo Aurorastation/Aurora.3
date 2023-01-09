@@ -569,7 +569,7 @@
 
 	glass_icon_state = "beerglass"
 	glass_name = "glass of beer"
-	glass_desc = "A freezing pint of beer"
+	glass_desc = "A freezing pint of beer."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
 	fallback_specific_heat = 1.2

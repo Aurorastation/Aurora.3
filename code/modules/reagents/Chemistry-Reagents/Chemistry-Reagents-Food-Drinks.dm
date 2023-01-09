@@ -2386,7 +2386,7 @@
 
 	glass_icon_state = "beerglass"
 	glass_name = "glass of beer"
-	glass_desc = "A freezing pint of beer"
+	glass_desc = "A freezing pint of beer."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/alcohol/beer/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
