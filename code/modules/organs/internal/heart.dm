@@ -7,8 +7,8 @@
 	robotic_name = "circulatory pump"
 	toxin_type = CE_CARDIOTOXIC
 
-	max_damage = 45
-	min_broken_damage = 25
+	max_damage = 60
+	min_broken_damage = 45
 	relative_size = 5
 	damage_reduction = 0.7
 

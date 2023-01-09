@@ -129,6 +129,13 @@
 	item_state = "zhao_capew"
 	cape_backing_state = "capew_backing"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/mantle
+	name = "dominian military cape"
+	desc = "Commonly worn by enlisted soldiers of the Imperial military, this is - despite its name - part of a tent. It is generally used to protect oneself from rain or other forms of inclement weather."
+	desc_extended = "Imperial Army half-tents have, since prior to the War of Moroz, been designed to be worn as protection against the elements. Many armsmen carry on this trend in order to maintain their Imperial Army roots, and some go as far to drape these half-tents over their voidsuits."
+	icon_state = "armsman_mantle"
+	item_state = "armsman_mantle"
+
 /obj/item/clothing/suit/storage/dominia/consular
 	name = "Dominian consular officer's greatcoat"
 	desc = "A Dominian greatcoat issued to members of His Majesty's Diplomatic Service, designed in the typical Dominian fashion."
