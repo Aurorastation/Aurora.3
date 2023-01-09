@@ -471,6 +471,12 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	brightness_on = 6
 
+/obj/item/clothing/head/helmet/space/void/dominia/voidsman
+	name = "dominian voidsman helmet"
+	desc = "A Dominian voidsuit helmet issued to imperial fleet voidsmen. Not as flashy as most Dominian equipment tends to be."
+	icon_state = "voidsmanhelm"
+	item_state = "voidsmanhelm"
+
 /obj/item/clothing/head/helmet/space/void/dominia/unathi
 	name = "dominian unathi prejoroub combat helmet"
 	icon_state = "una_dvoidsuithelm"
@@ -500,6 +506,12 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
+
+/obj/item/clothing/suit/space/void/dominia/voidsman
+	name = "dominian voidsman suit"
+	desc = "A Dominian voidsuit helmet issued to imperial fleet voidsmen. Not as flashy as most Dominian equipment tends to be."
+	icon_state = "voidsman"
+	item_state = "voidsman"
 
 /obj/item/clothing/suit/space/void/dominia/unathi
 	name = "dominian unathi prejoroub combat suit"
