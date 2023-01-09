@@ -627,7 +627,7 @@
 	if(!bleeding || previous_bleed_timer <= damage_inflicted)
 		bleeding = TRUE
 		previous_bleed_timer = damage_inflicted
-		addtimer(CALLBACK(src, .proc/stop_bleeding), (damage_inflicted SECONDS) * blood_timer_mod, TIMER_UNIQUE | TIMER_OVERRIDE)
+		addtimer(CALLBACK(src, PROC_REF(stop_bleeding)), (damage_inflicted SECONDS) * blood_timer_mod, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /mob/living/simple_animal/proc/stop_bleeding()
 	bleeding = FALSE
@@ -733,7 +733,7 @@
 	playsound(src, pick(emote_sounds), 75, 1)
 	if(client)
 		sound_time = FALSE
-		addtimer(CALLBACK(src, .proc/reset_sound_time), 2 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(reset_sound_time)), 2 SECONDS)
 
 /mob/living/simple_animal/verb/change_name()
 	set name = "Name Animal"
@@ -780,7 +780,7 @@
 	..(message, null, verb, ghost_hearing = can_ghosts_hear)
 
 /mob/living/simple_animal/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, pick(speak), language, small, show_to, duration)
+	INVOKE_ASYNC(src,TYPE_PROC_REF(/atom/movable, animate_chat), pick(speak), language, small, show_to, duration)
 
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb

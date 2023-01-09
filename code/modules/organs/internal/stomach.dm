@@ -109,7 +109,7 @@
 		if(functioning)
 			for(var/mob/living/M in contents)
 				if(M.stat == DEAD)
-					addtimer(CALLBACK(src, .proc/digest_mob, M), 5 MINUTES, TIMER_UNIQUE)
+					addtimer(CALLBACK(src, PROC_REF(digest_mob), M), 5 MINUTES, TIMER_UNIQUE)
 
 				M.adjustBruteLoss(2)
 				M.adjustFireLoss(2)

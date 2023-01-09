@@ -248,4 +248,4 @@
 		spell_master.closed_state = "morph_closed"
 
 /mob/living/simple_animal/hostile/morph/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, animate_chat), message, language, small, show_to, duration)

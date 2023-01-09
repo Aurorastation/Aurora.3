@@ -457,7 +457,7 @@
 			var/obj/item/ID = new id(H)
 			imprint_idcard(H, ID)
 			if(personal_computer?.card_slot)
-				addtimer(CALLBACK(src, .proc/register_pda, personal_computer, ID), 2 SECOND)
+				addtimer(CALLBACK(src, PROC_REF(register_pda), personal_computer, ID), 2 SECOND)
 			else
 				H.equip_or_collect(ID, slot_wear_id)
 
@@ -555,7 +555,7 @@
 		C.access = get_id_access(H)
 		C.rank = get_id_rank(H)
 		C.assignment = get_id_assignment(H)
-		addtimer(CALLBACK(H, /mob/.proc/set_id_info, C), 1 SECOND)	// Delay a moment to allow an icon update to happen.
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob, set_id_info), C), 1 SECOND)	// Delay a moment to allow an icon update to happen.
 
 		if(H.mind && H.mind.initial_account)
 			C.associated_account_number = H.mind.initial_account.account_number

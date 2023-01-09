@@ -52,7 +52,7 @@
 /mob/living/simple_animal/hostile/viscerator/emp_act(severity)
 	LoseTarget()
 	stance = HOSTILE_STANCE_TIRED
-	addtimer(CALLBACK(src, .proc/wakeup), 150)
+	addtimer(CALLBACK(src, PROC_REF(wakeup)), 150)
 	if(severity == 1.0)
 		apply_damage(5)
 

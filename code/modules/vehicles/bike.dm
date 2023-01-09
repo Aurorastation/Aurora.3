@@ -333,7 +333,7 @@
 		if(!paid)
 			paid = TRUE
 			to_chat(user, SPAN_NOTICE("Payment confirmed, enjoy two minutes of unlimited snowmobile use."))
-			addtimer(CALLBACK(src, .proc/rearm), 2 MINUTES)
+			addtimer(CALLBACK(src, PROC_REF(rearm)), 2 MINUTES)
 		return
 	..()
 

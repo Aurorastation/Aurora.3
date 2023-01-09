@@ -184,7 +184,7 @@ var/list/ai_verbs_default = list(
 
 			on_mob_init()
 
-	addtimer(CALLBACK(src, .proc/create_powersupply), 5)
+	addtimer(CALLBACK(src, PROC_REF(create_powersupply)), 5)
 
 	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, "100")
 	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")

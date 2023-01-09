@@ -821,7 +821,7 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 			// Don't cure being nearsighted
 			if(!(M.disabilities & NEARSIGHTED))
 				M.disabilities |= NEARSIGHTED
-				addtimer(CALLBACK(M, /mob/living/carbon/human/.proc/thermal_reset_blindness), 100)
+				addtimer(CALLBACK(M, TYPE_PROC_REF(/mob/living/carbon/human, thermal_reset_blindness)), 100)
 	..()
 
 /obj/item/clothing/glasses/thermal/Initialize()

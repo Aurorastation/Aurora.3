@@ -168,11 +168,11 @@
 	if(!ai_can_interact(user))
 		return
 	src.add_fingerprint(user)
-	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/item, attack_self), user)
 
 /obj/item/device/radio/intercom/attack_hand(mob/user as mob)
 	src.add_fingerprint(user)
-	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/item, attack_self), user)
 
 /obj/item/device/radio/intercom/can_receive(input_frequency, list/levels)
 	if(!listening)

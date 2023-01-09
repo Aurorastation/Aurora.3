@@ -1105,7 +1105,7 @@
 
 /datum/chemical_reaction/slime/teleportation/on_reaction(var/datum/reagents/holder)
 	..()
-	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
+	addtimer(CALLBACK(src, PROC_REF(do_reaction), holder), 50)
 
 /datum/chemical_reaction/slime/teleportation/proc/do_reaction(var/datum/reagents/holder)
 	for(var/atom/movable/AM in circle_range(get_turf(holder.my_atom),7))
@@ -1287,7 +1287,7 @@
 
 /datum/chemical_reaction/slime/freeze/on_reaction(var/datum/reagents/holder)
 	..()
-	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
+	addtimer(CALLBACK(src, PROC_REF(do_reaction), holder), 50)
 
 /datum/chemical_reaction/slime/freeze/proc/do_reaction(var/datum/reagents/holder)
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
@@ -1315,7 +1315,7 @@
 
 /datum/chemical_reaction/slime/fire/on_reaction(var/datum/reagents/holder)
 	..()
-	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
+	addtimer(CALLBACK(src, PROC_REF(do_reaction), holder), 50)
 
 /datum/chemical_reaction/slime/fire/proc/do_reaction(var/datum/reagents/holder)
 	var/turf/location = get_turf(holder.my_atom)
@@ -1335,7 +1335,7 @@
 
 /datum/chemical_reaction/slime/overload/on_reaction(var/datum/reagents/holder, var/created_volume)
 	..()
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/empulse, get_turf(holder.my_atom), 3, 7), 50)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(empulse), get_turf(holder.my_atom), 3, 7), 50)
 
 /datum/chemical_reaction/slime/cell
 	name = "Slime Powercell"
@@ -1471,7 +1471,7 @@
 
 /datum/chemical_reaction/slime/explosion/on_reaction(var/datum/reagents/holder)
 	..()
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/explosion, get_turf(holder.my_atom), 1, 3, 6), 50)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(explosion), get_turf(holder.my_atom), 1, 3, 6), 50)
 
 /datum/chemical_reaction/slime/plasticglass
 	name = "Slime Plastic & Glass"

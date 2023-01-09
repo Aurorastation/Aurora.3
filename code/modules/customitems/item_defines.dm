@@ -2022,7 +2022,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	icon_state = "card_spin"
 	add_overlay("card_spin_fx")
-	addtimer(CALLBACK(src, .proc/finish_selection, usr), 3 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(finish_selection), usr), 3 SECONDS)
 
 /obj/item/fluff/ielia_tarot/examine(mob/user)
 	if(..(user, 1))

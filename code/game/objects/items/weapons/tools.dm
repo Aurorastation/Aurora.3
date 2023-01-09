@@ -494,7 +494,7 @@
 	if(!welding)
 		return 0
 	else if(welding > 0 && colourChange)
-		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon), 5))
 	if(get_fuel() >= amount)
 		reagents.remove_reagent(/decl/reagent/fuel, amount)
 		if(M)
@@ -598,7 +598,7 @@
 			if(E.is_bruised())
 				to_chat(user, "<span class='danger'>You can't see anymore!</span>")
 				user.disabilities |= NEARSIGHTED
-				addtimer(CALLBACK(user, /mob/.proc/reset_nearsighted), 100)
+				addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, reset_nearsighted)), 100)
 
 // This is on /mob instead of the welder so the timer is stopped when the mob is deleted.
 /mob/proc/reset_nearsighted()
@@ -977,7 +977,7 @@
 		desc += " Watch your hands!"
 		icon_state = "burning_wool"
 		set_light(2, 2, LIGHT_COLOR_LAVA)
-		addtimer(CALLBACK(src, .proc/endburn), 120 SECONDS, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(endburn)), 120 SECONDS, TIMER_UNIQUE)
 
 /obj/item/steelwool/proc/endburn()
 	visible_message(SPAN_NOTICE("The steel wool burns out."))

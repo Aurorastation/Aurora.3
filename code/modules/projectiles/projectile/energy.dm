@@ -160,7 +160,7 @@
 	var/area/A = get_area(target)
 	if(A && A.has_gravity())
 		A.gravitychange(FALSE)
-		addtimer(CALLBACK(src, .proc/turnongravity), 150)
+		addtimer(CALLBACK(src, PROC_REF(turnongravity)), 150)
 
 	if(istype(target, /obj/machinery/gravity_generator/main))
 		var/obj/machinery/gravity_generator/main/T = target

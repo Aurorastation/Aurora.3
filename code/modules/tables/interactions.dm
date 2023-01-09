@@ -75,7 +75,7 @@
 	var/anything_moved = FALSE
 	for (var/obj/item/I in T)
 		if (I.simulated && !I.anchored)
-			INVOKE_ASYNC(I, /atom/movable/.proc/throw_at, pick(targets), 1, 1)
+			INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), pick(targets), 1, 1)
 			anything_moved = TRUE
 		CHECK_TICK
 

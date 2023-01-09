@@ -30,7 +30,7 @@
 		owner.eye_blind = 5
 		owner.eye_blurry = 5
 		owner.disabilities |= NEARSIGHTED
-		addtimer(CALLBACK(owner, /mob/.proc/reset_nearsighted), 100)
+		addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, reset_nearsighted)), 100)
 
 /obj/item/organ/internal/eyes/night/vaurca/robotic_check()
 	return TRUE

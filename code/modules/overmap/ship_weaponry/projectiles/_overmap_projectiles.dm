@@ -20,7 +20,7 @@
 	x = sx
 	y = sy
 	z = current_map.overmap_z
-	addtimer(CALLBACK(src, .proc/move_to), 1)
+	addtimer(CALLBACK(src, PROC_REF(move_to)), 1)
 
 /obj/effect/overmap/projectile/Bump(var/atom/A)
 	if(istype(A, /turf/unsimulated/map/edge))

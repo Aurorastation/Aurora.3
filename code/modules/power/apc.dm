@@ -299,7 +299,7 @@
 	make_terminal()
 
 	if (!mapload)
-		addtimer(CALLBACK(src, .proc/update), 5, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(update)), 5, TIMER_UNIQUE)
 
 /obj/machinery/power/apc/examine(mob/user)
 	if(..(user, 1))
@@ -1052,7 +1052,7 @@
 		for (var/obj/machinery/light/L in area)
 			if (!initial(L.no_emergency))
 				L.no_emergency = emergency_lights	//If there was an override set on creation, keep that override
-				INVOKE_ASYNC(L, /obj/machinery/light/.proc/update, FALSE)
+				INVOKE_ASYNC(L, TYPE_PROC_REF(/obj/machinery/light, update), FALSE)
 			CHECK_TICK
 		return TOPIC_REFRESH
 
@@ -1326,7 +1326,7 @@
 	update()
 	update_icon()
 
-	addtimer(CALLBACK(src, .proc/post_emp_act), 600)
+	addtimer(CALLBACK(src, PROC_REF(post_emp_act)), 600)
 	..()
 
 /obj/machinery/power/apc/proc/post_emp_act()
@@ -1360,7 +1360,7 @@
 /obj/machinery/power/apc/proc/set_broken()
 	// Aesthetically much better!
 	visible_message(SPAN_NOTICE("[src]'s screen flickers with warnings briefly!"))
-	addtimer(CALLBACK(src, .proc/break_timer), rand(2, 5))
+	addtimer(CALLBACK(src, PROC_REF(break_timer)), rand(2, 5))
 
 /obj/machinery/power/apc/proc/break_timer()
 	visible_message(SPAN_NOTICE("[src]'s screen suddenly explodes in rain of sparks and small debris!"))
@@ -1388,7 +1388,7 @@
 /obj/machinery/power/apc/proc/flicker_all()
 	var/offset = 0
 	for (var/obj/machinery/light/L in area)
-		addtimer(CALLBACK(L, /obj/machinery/light/.proc/flicker), offset)
+		addtimer(CALLBACK(L, TYPE_PROC_REF(/obj/machinery/light, flicker)), offset)
 		offset += rand(5, 10)
 
 /obj/machinery/power/apc/proc/toggle_nightlight(var/force = null)

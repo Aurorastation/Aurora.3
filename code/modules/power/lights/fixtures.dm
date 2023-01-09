@@ -439,12 +439,12 @@
 
 	flickering = TRUE
 	var/offset = 1
-	var/thecallback = CALLBACK(src, .proc/handle_flicker)
+	var/thecallback = CALLBACK(src, PROC_REF(handle_flicker))
 	for (var/i = 0; i < amount; i++)
 		addtimer(thecallback, offset)
 		offset += rand(5, 15)
 
-	addtimer(CALLBACK(src, .proc/end_flicker), offset)
+	addtimer(CALLBACK(src, PROC_REF(end_flicker)), offset)
 
 /obj/machinery/light/proc/handle_flicker()
 	if (status == LIGHT_OK)
@@ -600,7 +600,7 @@
 // called when area power state changes
 /obj/machinery/light/power_change()
 	SHOULD_CALL_PARENT(FALSE)
-	addtimer(CALLBACK(src, .proc/handle_power_change), rand(1, 2 SECONDS), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
+	addtimer(CALLBACK(src, PROC_REF(handle_power_change)), rand(1, 2 SECONDS), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
 /obj/machinery/light/proc/handle_power_change()
 	if (has_power())
