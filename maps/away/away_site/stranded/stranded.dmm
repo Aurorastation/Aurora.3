@@ -996,7 +996,7 @@
 	},
 /area/stranded)
 "yA" = (
-/obj/effect/shuttle_landmark/automatic,
+/obj/effect/shuttle_landmark/automatic/ghostrole_activation,
 /turf/simulated/floor/exoplanet/grass,
 /area/stranded)
 "yB" = (

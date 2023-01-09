@@ -151,3 +151,21 @@
 	if(active)
 		icon_state = "bluflare_on"
 		set_light(0.3, 0.1, 6, 2, "85d1ff")
+
+/obj/effect/shuttle_landmark/automatic/ghostrole_activation
+	name = "Navpoint"
+	landmark_tag = "navpoint"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/automatic/ghostrole_activation
+	var/triggered_away_sites = FALSE
+
+/obj/effect/shuttle_landmark/automatic/ghostrole_activation/shuttle_arrived(datum/shuttle/shuttle)
+	. = ..()
+	if(!triggered_away_sites && !isStationLevel(loc.z))
+		for(var/s in SSghostroles.spawners)
+			var/datum/ghostspawner/G = SSghostroles.spawners[s]
+			if(G.away_site)
+				if(!(G.enabled))
+					G.enable()
+		triggered_away_sites = TRUE

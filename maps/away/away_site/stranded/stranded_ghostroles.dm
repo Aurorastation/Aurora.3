@@ -6,6 +6,9 @@
 
 	spawnpoints = list("survivor")
 	max_count = 3
+	enabled = FALSE
+
+	away_site = TRUE
 
 	outfit = /datum/outfit/admin/survivor
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
@@ -38,7 +41,7 @@
 	spawnpoints = list("vannatusk")
 
 	max_count = 1
-	enabled = TRUE
+	enabled = FALSE
 
 	away_site = TRUE
 
