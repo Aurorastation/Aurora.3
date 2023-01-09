@@ -62,7 +62,6 @@
 	name = "Grand People's Army Commissar"
 	desc = "Ensure that the forces in the People's Republic outpost follows the principles of Hadiism."
 
-
 	spawnpoints = list("pra_base_commissar")
 	max_count = 1
 

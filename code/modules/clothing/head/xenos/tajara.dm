@@ -103,10 +103,15 @@
 		insignia."
 
 /obj/item/clothing/head/tajaran/nka_cap
-	name = "service cap"
+	name = "new kingdom service cap"
 	desc = "A simple service cap worn by soldiers of the Adhomai Imperial Army."
 	icon_state = "nkahat"
 	item_state = "nkahat"
+
+/obj/item/clothing/head/tajaran/nka_cap/commander
+	desc = "A fancy service cap worn by officer of the Adhomai Imperial Army."
+	icon_state = "nka_commander_hat"
+	item_state = "nka_commander_hat"
 
 /obj/item/clothing/head/tajaran/consular
 	name = "consular service cap"

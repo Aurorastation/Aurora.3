@@ -127,7 +127,7 @@
 		if("nka")
 			possible_random_ruins = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
 			/datum/map_template/ruin/exoplanet/adhomai_abandoned_village, /datum/map_template/ruin/exoplanet/adhomai_battlefield, /datum/map_template/ruin/exoplanet/adhomai_cavern, /datum/map_template/ruin/exoplanet/adhomai_raskara_ritual, /datum/map_template/ruin/exoplanet/adhomai_bar,
-			/datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_amohdan,  /datum/map_template/ruin/exoplanet/adhomai_archeology)
+			/datum/map_template/ruin/exoplanet/adhomai_war_memorial, /datum/map_template/ruin/exoplanet/adhomai_amohdan,  /datum/map_template/ruin/exoplanet/adhomai_archeology, /datum/map_template/ruin/exoplanet/nka_base)
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_habitability()
 	return HABITABILITY_IDEAL
