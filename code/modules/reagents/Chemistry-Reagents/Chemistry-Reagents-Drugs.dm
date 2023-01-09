@@ -57,7 +57,7 @@
 
 /singleton/reagent/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
-	if(!istype(H) || (istype(H) && (H.species.flags & NO_BLOOD))) //If we're not human OR if we're human but don't have blood. 
+	if(!istype(H) || (istype(H) && (H.species.flags & NO_BLOOD))) //If we're not human OR if we're human but don't have blood.
 		return
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "gasp"))
@@ -442,7 +442,7 @@
 	M.make_dizzy(15)
 	if(M.chem_doses[type] < 1)
 		if(prob(3))
-			to_chat(M, SPAN_GOOD(pick("Stress was an inconvenience that you are now free of.", "You feel somewhat dettached from reality.", "You can feel time passing by and it no longer bothers you.", "You feel so incredibly relaxed.", "You haven't felt this care-free since you were a child...", "Why can't it always be like this?", "You're watching yourself from afar - detached from your physical body.")))	
+			to_chat(M, SPAN_GOOD(pick("Stress was an inconvenience that you are now free of.", "You feel somewhat detached from reality.", "You can feel time passing by and it no longer bothers you.", "You feel so incredibly relaxed.", "You haven't felt this care-free since you were a child...", "Why can't it always be like this?", "You're watching yourself from afar - detached from your physical body.")))
 	if(M.chem_doses[type] >= 1)
 		if(prob(3))
 			to_chat(M, SPAN_GOOD(pick("Stress was an inconvenience that you are now free of.", "You lose all sense of connection to the real world.", "Everything is so tranquil.", "You feel totaly detached from reality.", "Your feel disconnected from your body.", "You are aware of nothing but your conscious thoughts.", "You keep falling... and falling... and falling - never stopping.", "Is this what it feels like to be dead?", "Your memories are hazy... all you have ever known is this feeling.", "You're watching yourself from afar - detached from your physical body.")))
@@ -512,4 +512,4 @@
 	if(prob(25))
 		M.add_chemical_effect(CE_NEPHROTOXIC, 0.5)
 	if(prob(2))
-		to_chat(M, SPAN_WARNING(pick("You can't allow anyone to get between you and your tasks.", "You feel like screaming at the next person who interrupts you.", "No one can stop you!", "You can power through this...")))	
+		to_chat(M, SPAN_WARNING(pick("You can't allow anyone to get between you and your tasks.", "You feel like screaming at the next person who interrupts you.", "No one can stop you!", "You can power through this...")))

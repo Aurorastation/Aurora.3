@@ -75,6 +75,7 @@
 	appliance = SAUCEPAN | POT
 	fruit = list("fjylozyn" = 1)
 	reagents = list(/singleton/reagent/water = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/fjylozynboiled
 
 /singleton/recipe/gnaqmi
