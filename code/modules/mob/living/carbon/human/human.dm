@@ -1756,14 +1756,23 @@
 		return 1
 	return 0
 
+/mob/living/carbon/human/proc/can_drink(var/obj/item/I)
+	if(!check_has_mouth())
+		to_chat(src, SPAN_NOTICE("Where do you intend to put \the [I]? You don't have a mouth!"))
+		return FALSE
+	var/obj/item/blocked = check_mouth_coverage()
+	if(blocked)
+		to_chat(src, SPAN_WARNING("\The [blocked] is in the way!"))
+		return FALSE
+	return TRUE
+
 /mob/living/carbon/human/MouseDrop(var/atom/over_object)
-	var/mob/living/carbon/human/H = over_object
-	if(holder_type && istype(H) && H.a_intent == I_HELP && !H.lying && !issmall(H) && Adjacent(H))
-		get_scooped(H, (usr == src))
-		return
+	if(ishuman(over_object))
+		var/mob/living/carbon/human/H = over_object
+		if(holder_type && istype(H) && H.a_intent == I_HELP && !H.lying && !issmall(H) && Adjacent(H))
+			get_scooped(H, (usr == src))
+			return
 	return ..()
-
-
 
 /mob/living/carbon/human/AltClickOn(var/atom/A)
 	var/doClickAction = 1

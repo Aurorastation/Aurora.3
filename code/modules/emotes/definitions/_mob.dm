@@ -94,6 +94,7 @@
 		/singleton/emote/visible/shiver,
 		/singleton/emote/visible/collapse,
 		/singleton/emote/audible/gasp,
+		/singleton/emote/audible/choke,
 		/singleton/emote/audible/sneeze,
 		/singleton/emote/audible/sniff,
 		/singleton/emote/audible/snore,
