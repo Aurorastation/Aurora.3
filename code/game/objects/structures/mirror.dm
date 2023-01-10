@@ -47,7 +47,7 @@
 	if(shattered)	return
 	shattered = 1
 	icon_state = "mirror_broke"
-	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
+	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
 	desc = "Oh no, seven years of bad luck!"
 
 	var/obj/effect/reflection/reflection = ref.resolve()

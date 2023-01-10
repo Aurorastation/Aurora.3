@@ -20,7 +20,7 @@
 	climb_coeff = 1.1
 
 	maneuvers = list(
-		/decl/maneuver/leap
+		/singleton/maneuver/leap
 	)
 
 	resist_mod = 1.5 // ZHAN POWERRRRRR
@@ -42,8 +42,8 @@
 	hydration_loss_factor = 0.7
 
 	possible_cultures = list(
-		/decl/origin_item/culture/adhomian/zhan,
-		/decl/origin_item/culture/offworld_tajara/zhan
+		/singleton/origin_item/culture/adhomian/zhan,
+		/singleton/origin_item/culture/offworld_tajara/zhan
 	)
 
 /datum/species/tajaran/m_sai
@@ -63,7 +63,7 @@
 	ethanol_resistance = 0.6 // Species Default 0.8
 
 	maneuvers = list(
-		/decl/maneuver/leap/tajara/msai
+		/singleton/maneuver/leap/tajara/msai
 	)
 
 	cold_level_1 = 220 //RaceDefault 200 Default 260
@@ -87,6 +87,6 @@
 	hydration_loss_factor = 0.9
 
 	possible_cultures = list(
-		/decl/origin_item/culture/adhomian/msai,
-		/decl/origin_item/culture/offworld_tajara/msai
+		/singleton/origin_item/culture/adhomian/msai,
+		/singleton/origin_item/culture/offworld_tajara/msai
 	)

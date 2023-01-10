@@ -1218,7 +1218,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/holoconsole/attack_self(mob/user)
 	if(on && !(world.time < last_sound + sound_delay))
-		playsound(loc, /decl/sound_category/quick_arcade, 60)
+		playsound(loc, /singleton/sound_category/quick_arcade, 60)
 		last_sound = world.time
 		return
 	return ..()
@@ -1305,7 +1305,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	var/obj/item/fluff/holoconsole/H = parent_console.resolve()
 	if(H?.on)
-		playsound(H.loc, /decl/sound_category/quick_arcade, 60)
+		playsound(H.loc, /singleton/sound_category/quick_arcade, 60)
 		last_sound = world.time
 
 /obj/item/fluff/holoconsole_controller/r // Holoconsole - Qoi Liuiq - shestrying
@@ -1917,19 +1917,19 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A piece of handmade taffy, rolled up in a cute spiral!"
 	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
 	icon_state = "orange_taffy"
-	reagents_to_add = list(/decl/reagent/nutriment = 3)
-	reagent_data = list(/decl/reagent/nutriment = list("bittersweetness, insect meat and regret" = 1))
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("bittersweetness, insect meat and regret" = 1))
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/fluff/taffy/pink
 	name = "pink taffy"
 	icon_state = "pink_taffy"
-	reagent_data = list(/decl/reagent/nutriment = list("sweetness and a hint of strawberry" = 1))
+	reagent_data = list(/singleton/reagent/nutriment = list("sweetness and a hint of strawberry" = 1))
 
 /obj/item/reagent_containers/food/snacks/fluff/taffy/blue
 	name = "blue taffy"
 	icon_state = "blue_taffy"
-	reagent_data = list(/decl/reagent/nutriment = list("salty-sweet, tangy taffy" = 1))
+	reagent_data = list(/singleton/reagent/nutriment = list("salty-sweet, tangy taffy" = 1))
 
 
 /obj/item/clothing/suit/storage/fluff/aheke_coat //Hengsha Thermal Coat - Aheke Han'san - hawkington
