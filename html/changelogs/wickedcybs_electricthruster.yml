@@ -1,7 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a thruster subtype that only requires electricity to be supplied to it in-game. This is probably something that won't be something that's seen often."
-  - tweak: "The runtime shuttle had its gas thrusters replaced with ion thrusters."
