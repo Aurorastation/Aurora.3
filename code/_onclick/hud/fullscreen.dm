@@ -144,3 +144,6 @@
 /obj/screen/fullscreen/frenzy
 	icon_state = "frenzyoverlay"
 	layer = OBFUSCATION_LAYER
+
+/obj/screen/fullscreen/teleport
+	icon_state = "teleport"
