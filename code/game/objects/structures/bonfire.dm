@@ -158,33 +158,33 @@ var/global/list/total_active_bonfires = list()
 
 
 /obj/structure/bonfire/proc/handle_reagents()
-	var/decl/reagent/R
+	var/singleton/reagent/R
 	var/reagent_level
 	if(reagents.total_volume > 0 && on_fire)
-		if(reagents.has_reagent(/decl/reagent/woodpulp))
-			R = decls_repository.get_decl(/decl/reagent/woodpulp)
+		if(reagents.has_reagent(/singleton/reagent/woodpulp))
+			R = GET_SINGLETON(/singleton/reagent/woodpulp)
 			reagent_level = reagents.reagent_volumes[R.type]
 			fuel = min(max_fuel, fuel + reagent_level * 5)
-		if(reagents.has_reagent(/decl/reagent/fuel))
-			R = decls_repository.get_decl(/decl/reagent/fuel)
+		if(reagents.has_reagent(/singleton/reagent/fuel))
+			R = GET_SINGLETON(/singleton/reagent/fuel)
 			reagent_level = reagents.reagent_volumes[R.type]
 			fuel = min(max_fuel, fuel + reagent_level * 10)
-		if(reagents.has_reagent(/decl/reagent/water))
-			R = decls_repository.get_decl(/decl/reagent/water)
+		if(reagents.has_reagent(/singleton/reagent/water))
+			R = GET_SINGLETON(/singleton/reagent/water)
 			reagent_level = reagents.reagent_volumes[R.type]
 			fuel = max(0, fuel - reagent_level * 10)
-		if(reagents.has_reagent(/decl/reagent/toxin/fertilizer/monoammoniumphosphate))
-			R = decls_repository.get_decl(/decl/reagent/toxin/fertilizer/monoammoniumphosphate)
+		if(reagents.has_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate))
+			R = GET_SINGLETON(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate)
 			reagent_level = reagents.reagent_volumes[R.type]
 			fuel = max(0, fuel - reagent_level * 20)
-		if(reagents.has_reagent(/decl/reagent/toxin/phoron))
-			R = decls_repository.get_decl(/decl/reagent/toxin/phoron)
+		if(reagents.has_reagent(/singleton/reagent/toxin/phoron))
+			R = GET_SINGLETON(/singleton/reagent/toxin/phoron)
 			reagent_level = reagents.reagent_volumes[R.type]
 			fuel = min(max_fuel, fuel + (reagent_level * 25))
 
-		if(reagents.has_reagent(/decl/reagent/alcohol))
-			R = decls_repository.get_decl(/decl/reagent/alcohol)
-			var/decl/reagent/alcohol/A = R
+		if(reagents.has_reagent(/singleton/reagent/alcohol))
+			R = GET_SINGLETON(/singleton/reagent/alcohol)
+			var/singleton/reagent/alcohol/A = R
 			reagent_level = reagents.reagent_volumes[A.type]
 			fuel = min(max_fuel, fuel + (reagent_level * (A.strength/20)))
 

@@ -212,7 +212,7 @@
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
 
-/decl/reagent/fuel/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+/singleton/reagent/fuel/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/structure/bonfire))
 		var/obj/structure/bonfire/B = O
 		B.fuel = max(0, B.fuel + (15 * amount))

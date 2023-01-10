@@ -387,6 +387,11 @@
 		if(S.chem_doses[type] == removed)
 			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the foam touches it!"), SPAN_DANGER("Your flesh burns in the foam!"))
 
+/singleton/reagent/toxin/fertilizer/monoammoniumphosphate/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+	if(istype(O, /obj/structure/bonfire))
+		var/obj/structure/bonfire/B = O
+		B.fuel = max(0, B.fuel - (150 * amount))
+
 /singleton/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
 	description = "A harmful toxic mixture to kill plantlife. Do not ingest!"

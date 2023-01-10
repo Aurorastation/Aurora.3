@@ -79,14 +79,14 @@
 	specific_heat = 30	// J/(mol*K)
 	molar_mass = 0.020	// kg/mol
 
-/decl/xgm_gas/sulfurdioxide
+/singleton/xgm_gas/sulfurdioxide
 	id = GAS_SULFUR
 	name = "Sulfur Dioxide"
 
 	specific_heat = 30	// J/(mol*K)
 	molar_mass = 0.044	// kg/mol
 
-/decl/xgm_gas/chlorine
+/singleton/xgm_gas/chlorine
 	id = GAS_CHLORINE
 	name = "Chlorine"
 	tile_overlay = "chlorine"
