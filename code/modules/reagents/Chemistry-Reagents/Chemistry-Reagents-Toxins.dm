@@ -1,6 +1,6 @@
 /* Toxins, poisons, venoms */
 
-/decl/reagent/toxin
+/singleton/reagent/toxin
 	name = "Toxin"
 	description = "A toxic chemical."
 	reagent_state = LIQUID
@@ -14,7 +14,7 @@
 	var/target_organ // needs to be null by default
 	var/strength = 2 // How much damage it deals per unit
 
-/decl/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(strength && alien != IS_DIONA)
 		var/dam = (strength * removed)
 		if(ishuman(M))
@@ -39,7 +39,7 @@
 			M.adjustToxLoss(target_organ ? (dam * 0.5) : dam)
 			M.add_chemical_effect(CE_TOXIN, removed * strength)
 
-/decl/reagent/toxin/plasticide
+/singleton/reagent/toxin/plasticide
 	name = "Plasticide"
 	description = "Liquid plastic, do not eat."
 	reagent_state = LIQUID
@@ -47,7 +47,7 @@
 	strength = 5
 	taste_description = "plastic"
 
-/decl/reagent/toxin/amatoxin
+/singleton/reagent/toxin/amatoxin
 	name = "Amatoxin"
 	description = "A powerful poison derived from certain species of mushroom."
 	reagent_state = LIQUID
@@ -55,7 +55,7 @@
 	strength = 10
 	taste_description = "mushroom"
 
-/decl/reagent/toxin/carpotoxin
+/singleton/reagent/toxin/carpotoxin
 	name = "Carpotoxin"
 	description = "A deadly neurotoxin produced by the dreaded space carp."
 	reagent_state = LIQUID
@@ -64,12 +64,12 @@
 	taste_description = "fish"
 	target_organ = BP_BRAIN
 
-/decl/reagent/toxin/carpotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/carpotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
 		return
 	..()
 
-/decl/reagent/toxin/panotoxin
+/singleton/reagent/toxin/panotoxin
 	name = "Panotoxin"
 	description = "A strange poison from the strange panocelium mushroom that causes intense pain when injected."
 	reagent_state = LIQUID
@@ -77,10 +77,10 @@
 	strength = 0
 	taste_description = "stinging needles"
 
-/decl/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustHalLoss(removed*15)
 
-/decl/reagent/toxin/phoron
+/singleton/reagent/toxin/phoron
 	name = "Phoron"
 	description = "Phoron in its liquid form. Twice as potent when breathed in."
 	reagent_state = LIQUID
@@ -91,7 +91,7 @@
 	breathe_mul = 2
 	fallback_specific_heat = 12 //Phoron is very dense and can hold a lot of energy.
 
-/decl/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/phoron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 
@@ -123,12 +123,12 @@
 	else
 		..()
 
-/decl/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
+/singleton/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 5)
 
-/decl/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
@@ -139,7 +139,7 @@
 	if(prob(50))
 		M.pl_effects()
 
-/decl/reagent/toxin/phoron/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/phoron/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
@@ -150,13 +150,13 @@
 	if(prob(50))
 		M.pl_effects()
 
-/decl/reagent/toxin/phoron/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/toxin/phoron/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
 	if(!istype(T))
 		return
 	T.assume_gas(GAS_PHORON, amount, T20C)
 	remove_self(amount, holder)
 
-/decl/reagent/toxin/cardox
+/singleton/reagent/toxin/cardox
 	name = "Cardox"
 	description = "Cardox is a mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
 	reagent_state = LIQUID
@@ -164,11 +164,11 @@
 	color = "#EEEEEE"
 	metabolism = 0.3 // 100 seconds for 30 units to metabolise.
 	taste_description = "cherry"
-	conflicting_reagent = /decl/reagent/toxin/phoron
+	conflicting_reagent = /singleton/reagent/toxin/phoron
 	strength = 1
 	touch_mul = 0.75
 
-/decl/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 
@@ -178,11 +178,11 @@
 	else
 		M.add_chemical_effect(CE_TOXIN, removed * strength)
 
-/decl/reagent/toxin/cardox/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/decl/reagent/conflicting, var/datum/reagents/holder)
+/singleton/reagent/toxin/cardox/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/singleton/reagent/conflicting, var/datum/reagents/holder)
 	var/amount = min(removed, REAGENT_VOLUME(holder, conflicting.type))
 	holder.remove_reagent(conflicting.type, amount)
 
-/decl/reagent/toxin/cardox/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/toxin/cardox/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 1)
 		for(var/mob/living/carbon/slime/M in T)
 			M.adjustToxLoss(amount*10)
@@ -203,7 +203,7 @@
 		if(environment)
 			environment.adjust_gas(GAS_PHORON,-amount*10)
 
-/decl/reagent/toxin/cyanide //Fast and Lethal
+/singleton/reagent/toxin/cyanide //Fast and Lethal
 	name = "Cyanide"
 	description = "A highly toxic chemical."
 	reagent_state = LIQUID
@@ -214,14 +214,14 @@
 	taste_mult = 1.5
 	target_organ = BP_HEART
 
-/decl/reagent/toxin/cyanide/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/cyanide/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.adjustOxyLoss(20 * removed)
 
-/decl/reagent/toxin/potassium_chloride
+/singleton/reagent/toxin/potassium_chloride
 	name = "Potassium Chloride"
 	description = "A delicious salt that stops the heart when injected into cardiac muscle."
 	reagent_state = SOLID
@@ -231,7 +231,7 @@
 	od_minimum_dose = 20
 	taste_description = "salt"
 
-/decl/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+/singleton/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
@@ -243,7 +243,7 @@
 		H.adjustOxyLoss(2)
 		H.Weaken(10)
 
-/decl/reagent/toxin/potassium_chlorophoride
+/singleton/reagent/toxin/potassium_chlorophoride
 	name = "Potassium Chlorophoride"
 	description = "Potassium Chlorophoride is an expensive, vastly improved variant of Potassium Chloride. Potassium Chlorophoride, unlike the original drug, acts immediately to block neuromuscular junctions, causing general paralysis."
 	reagent_state = SOLID
@@ -253,7 +253,7 @@
 	od_minimum_dose = 20
 	taste_description = "salt"
 
-/decl/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
@@ -265,7 +265,7 @@
 		H.adjustOxyLoss(2)
 		H.Weaken(10)
 
-/decl/reagent/toxin/zombiepowder
+/singleton/reagent/toxin/zombiepowder
 	name = "Zombie Powder"
 	description = "A strong neurotoxin that puts the subject into a death-like state."
 	reagent_state = SOLID
@@ -276,7 +276,7 @@
 	taste_description = "death"
 	target_organ = BP_BRAIN
 
-/decl/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
@@ -288,12 +288,12 @@
 	M.silent = max(M.silent, 10)
 	M.tod = worldtime2text()
 
-/decl/reagent/toxin/zombiepowder/final_effect(mob/living/carbon/M, datum/reagents/holder)
+/singleton/reagent/toxin/zombiepowder/final_effect(mob/living/carbon/M, datum/reagents/holder)
 	if(istype(M))
 		M.status_flags &= ~FAKEDEATH
 	return ..()
 
-/decl/reagent/toxin/fertilizer //Reagents used for plant fertilizers.
+/singleton/reagent/toxin/fertilizer //Reagents used for plant fertilizers.
 	name = "fertilizer"
 	description = "A chemical mix good for growing plants with."
 	reagent_state = LIQUID
@@ -304,7 +304,7 @@
 	touch_mul = 0
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/toxin/fertilizer/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/fertilizer/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		M.adjustNutritionLoss(-removed*3)
 		//Fertilizer is good for plants
@@ -312,7 +312,7 @@
 		if(prob(15))
 			M.add_chemical_effect(CE_NEPHROTOXIC, 1)
 
-/decl/reagent/toxin/fertilizer/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/fertilizer/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		M.adjustNutritionLoss(-removed*3)
 	else if(REAGENT_VOLUME(holder, type) > 15)
@@ -325,25 +325,25 @@
 		if(prob(5))
 			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something really digusting.", "Your chest doesn't feel so great.")))
 
-/decl/reagent/toxin/fertilizer/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/fertilizer/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!(alien == IS_DIONA))
 		M.adjustFireLoss(10)
 		to_chat(M, SPAN_WARNING(pick("Your skin burns!", "The chemical is melting your skin!", "Wash it off, wash it off!")))
 		remove_self(REAGENT_VOLUME(holder, type), holder)
 
-/decl/reagent/toxin/fertilizer/eznutrient
+/singleton/reagent/toxin/fertilizer/eznutrient
 	name = "EZ Nutrient"
 	color = "#168042"
 
-/decl/reagent/toxin/fertilizer/left4zed
+/singleton/reagent/toxin/fertilizer/left4zed
 	name = "Left-4-Zed"
 	color = "#2A1680"
 
-/decl/reagent/toxin/fertilizer/robustharvest
+/singleton/reagent/toxin/fertilizer/robustharvest
 	name = "Robust Harvest"
 	color = "#801616"
 
-/decl/reagent/toxin/fertilizer/monoammoniumphosphate
+/singleton/reagent/toxin/fertilizer/monoammoniumphosphate
 	name = "Monoammonium Phosphate"
 	strength = 0.25
 	description = "Commonly found in fire extinguishers, also works as a fertilizer."
@@ -353,7 +353,7 @@
 	touch_met = REM * 10
 	breathe_mul = 0
 
-/decl/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/toxin/fertilizer/monoammoniumphosphate/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
 	if(!istype(T))
 		return
 
@@ -370,14 +370,14 @@
 	remove_self(amount_to_remove, holder)
 	return
 
-/decl/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
+/singleton/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	if(istype(L))
 		var/needed = min(L.fire_stacks, amount)
 		L.ExtinguishMob(3* needed) // Foam is 3 times more efficient at extinguishing
 		remove_self(needed, holder)
 
-/decl/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/fertilizer/monoammoniumphosphate/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed, var/datum/reagents/holder)
 	if(istype(S))
 		S.adjustToxLoss( REAGENT_VOLUME(holder, type) * (removed/REM) * 0.23 )
 		if(!S.client)
@@ -387,7 +387,7 @@
 		if(S.chem_doses[type] == removed)
 			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the foam touches it!"), SPAN_DANGER("Your flesh burns in the foam!"))
 
-/decl/reagent/toxin/plantbgone
+/singleton/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
 	description = "A harmful toxic mixture to kill plantlife. Do not ingest!"
 	reagent_state = LIQUID
@@ -397,7 +397,7 @@
 	taste_mult = 1
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/toxin/plantbgone/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/toxin/plantbgone/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(istype(T, /turf/simulated/wall))
 		var/turf/simulated/wall/W = T
 		if(locate(/obj/effect/overlay/wallrot) in W)
@@ -410,21 +410,21 @@
 		F.make_plating()
 		playsound(F, 'sound/species/diona/gestalt_grow.ogg', 30, TRUE)
 
-/decl/reagent/toxin/plantbgone/touch_obj(var/obj/O, var/volume, var/datum/reagents/holder)
+/singleton/reagent/toxin/plantbgone/touch_obj(var/obj/O, var/volume, var/datum/reagents/holder)
 	if(istype(O, /obj/effect/plant))
 		qdel(O)
 
-/decl/reagent/toxin/plantbgone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/plantbgone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	if(alien == IS_DIONA)
 		M.adjustToxLoss(30 * removed)
 
 //Affect touch automatically transfers to affect_blood, so we'll apply the damage there, after accounting for permeability
-/decl/reagent/toxin/plantbgone/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/plantbgone/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	removed *= M.reagent_permeability()
 	affect_blood(M, alien, removed*0.5, holder)
 
-/decl/reagent/lexorin
+/singleton/reagent/lexorin
 	name = "Lexorin"
 	description = "Lexorin is a complex toxin that attempts to induce general hypoxia by weakening the diaphragm to prevent respiration and also by binding to haemoglobins to prevent oxygen molecules from doing the same."
 	reagent_state = LIQUID
@@ -432,7 +432,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "acid"
 
-/decl/reagent/lexorin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/lexorin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -440,7 +440,7 @@
 	if(M.losebreath < 15)
 		M.losebreath++
 
-/decl/reagent/mutagen
+/singleton/reagent/mutagen
 	name = "Unstable Mutagen"
 	description = "Might cause unpredictable mutations. Keep away from children."
 	reagent_state = LIQUID
@@ -448,15 +448,15 @@
 	taste_description = "slime"
 	taste_mult = 0.9
 
-/decl/reagent/mutagen/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/mutagen/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(33))
 		affect_blood(M, alien, removed, holder)
 
-/decl/reagent/mutagen/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/mutagen/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(67))
 		affect_blood(M, alien, removed, holder)
 
-/decl/reagent/mutagen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/mutagen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(isslime(M)) // destabilize slime mutation by adding unstable mutagen
 		var/mob/living/carbon/slime/slime = M
 		slime.mutation_chance = min(slime.mutation_chance + removed, 100)
@@ -477,7 +477,7 @@
 			M.UpdateAppearance()
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0)
 
-/decl/reagent/slimejelly
+/singleton/reagent/slimejelly
 	name = "Slime Jelly"
 	description = "A gooey semi-liquid produced from one of the deadliest lifeforms in existence. SO REAL."
 	reagent_state = LIQUID
@@ -485,7 +485,7 @@
 	taste_description = "slime"
 	taste_mult = 1.3
 
-/decl/reagent/slimejelly/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/slimejelly/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(isslime(M)) // stabilize slime mutation by reintroducing slime jelly into the slime
 		var/mob/living/carbon/slime/slime = M
 		slime.mutation_chance = max(slime.mutation_chance - removed, 0)
@@ -500,7 +500,7 @@
 		M.add_chemical_effect(CE_OXYGENATED, 2) //strength of dexalin plus
 		M.heal_organ_damage(8 * removed, 8 * removed) //strength of butazoline/dermaline
 
-/decl/reagent/soporific
+/singleton/reagent/soporific
 	name = "Soporific"
 	description = "Soporific is highly diluted polysomnine which results in slower and more gradual sedation. This makes the drug ideal at treating insomnia and anxiety disorders, however is generally not reliable for sedation in preparation for surgery except in high doses."
 	reagent_state = LIQUID
@@ -512,7 +512,7 @@
 	breathe_met = REM * 0.5 * 0.33
 	var/total_strength = 0
 
-/decl/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if((istype(H) && (H.species.flags & NO_BLOOD)) || alien == IS_DIONA)
 		return
@@ -531,7 +531,7 @@
 		M.sleeping = max(M.sleeping, 20)
 		M.drowsiness = max(M.drowsiness, 60)
 
-/decl/reagent/polysomnine
+/singleton/reagent/polysomnine
 	name = "Polysomnine"
 	description = "Polysomnine is a complex drug which rapidly induces sedation in preparation for surgery. Polysomnine's sedative effect is fast acting, and sedated individuals wake up with zero amnesia regarding the events leading up to their sedation, however the only downside is how hard the drug is on the liver."
 	reagent_state = SOLID
@@ -542,7 +542,7 @@
 	taste_description = "bitterness"
 	breathe_met = REM * 0.5 * 0.5
 
-/decl/reagent/polysomnine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/polysomnine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -560,7 +560,7 @@
 	if(dose > 1)
 		M.add_chemical_effect(CE_TOXIN, removed)
 
-/decl/reagent/polysomnine/beer2 //disguised as normal beer for use by emagged brobots
+/singleton/reagent/polysomnine/beer2 //disguised as normal beer for use by emagged brobots
 	name = "Beer"
 	description = "An alcoholic beverage made from malted grains, hops, yeast, and water. The fermentation appears to be incomplete." //If the players manage to analyze this, they deserve to know something is wrong.
 	reagent_state = LIQUID
@@ -576,14 +576,14 @@
 
 /* Transformations */
 
-/decl/reagent/aslimetoxin
+/singleton/reagent/aslimetoxin
 	name = "Advanced Mutation Toxin"
 	description = "A transformative toxin isolated from jelly extract from black slimes. The chemical is fundamentally the same as regular Mutation Toxin, however its effect is magnitudes faster, degenerating a body into a grey slime immediately."
 	reagent_state = LIQUID
 	color = "#13BC5E"
 	taste_description = "sludge"
 
-/decl/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) // TODO: check if there's similar code anywhere else
+/singleton/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder) // TODO: check if there's similar code anywhere else
 	if(M.transforming)
 		return
 	to_chat(M, SPAN_DANGER("Your flesh rapidly mutates!"))
@@ -608,7 +608,7 @@
 		new_mob.key = M.key
 	qdel(M)
 
-/decl/reagent/toxin/nanites
+/singleton/reagent/toxin/nanites
 	name = "Nanomachines"
 	description = "Microscopic construction robots."
 	reagent_state = LIQUID
@@ -616,20 +616,20 @@
 	taste_description = "slimey metal"
 	fallback_specific_heat = 3
 
-/decl/reagent/toxin/undead
+/singleton/reagent/toxin/undead
 	name = "Undead Ichor"
 	description = "A wicked liquid with unknown origins and uses."
 	color = "#b2beb5"
 	strength = 25
 	taste_description = "ashes"
 
-/decl/reagent/toxin/undead/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/undead/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNDEAD)
 		M.heal_organ_damage(10 * removed, 15 * removed)
 		return
 	..()
 
-/decl/reagent/toxin/tobacco
+/singleton/reagent/toxin/tobacco
 	name = "Space Tobacco"
 	description = "Low-grade space tobacco."
 	reagent_state = SOLID
@@ -639,22 +639,22 @@
 	taste_mult = 10
 	var/nicotine = 0.2
 
-/decl/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	holder.add_reagent(/decl/reagent/mental/nicotine, removed * nicotine)
+/singleton/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	holder.add_reagent(/singleton/reagent/mental/nicotine, removed * nicotine)
 
-/decl/reagent/toxin/tobacco/rich
+/singleton/reagent/toxin/tobacco/rich
 	name = "Earth Tobacco"
 	description = "Nicknamed 'Earth Tobacco', this plant is much higher quality than its spacefaring counterpart."
 	taste_description = "luxury tobacco"
 	nicotine = 0.5
 
-/decl/reagent/toxin/tobacco/fake
+/singleton/reagent/toxin/tobacco/fake
 	name = "Cheap Tobacco"
 	description = "This actually appears to be mostly ground up leaves masquerading as tobacco. There's maybe some nicotine in there somewhere..."
 	taste_description = "acrid smoke"
 	nicotine = 0.1
 
-/decl/reagent/toxin/tobacco/liquid
+/singleton/reagent/toxin/tobacco/liquid
 	name = "Nicotine Solution"
 	description = "A diluted nicotine solution."
 	reagent_state = LIQUID
@@ -683,7 +683,7 @@
 	to_chat(src, SPAN_DANGER("Your rage fades away and the boiling sensation subsides, your thoughts are clear once more."))
 	remove_client_color(/datum/client_color/berserk)
 
-/decl/reagent/toxin/berserk
+/singleton/reagent/toxin/berserk
 	name = "Red Nightshade"
 	description = "An illegal combat performance enhancer originating from the criminal syndicates of Mars. The drug stimulates regions of the brain responsible for violence and rage, inducing a feral, berserk state in users. It is incredibly hard on the liver."
 	reagent_state = LIQUID
@@ -694,17 +694,17 @@
 	metabolism = REM*0.3 //10u = ~5 minutes of being berserk.
 	unaffected_species = IS_DIONA | IS_MACHINE
 
-/decl/reagent/toxin/berserk/initial_effect(var/mob/living/carbon/human/H, var/alien, var/holder)
+/singleton/reagent/toxin/berserk/initial_effect(var/mob/living/carbon/human/H, var/alien, var/holder)
 	. = ..()
 	if(istype(H))
 		H.berserk_start()
 
-/decl/reagent/toxin/berserk/final_effect(var/mob/living/carbon/human/H, var/alien, var/holder)
+/singleton/reagent/toxin/berserk/final_effect(var/mob/living/carbon/human/H, var/alien, var/holder)
 	. = ..()
 	if(istype(H))
 		H.berserk_stop()
 
-/decl/reagent/toxin/berserk/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/berserk/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -718,11 +718,11 @@
 	if(prob(5))
 		M.emote(pick("twitch_v", "grunt"))
 
-/decl/reagent/toxin/berserk/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
+/singleton/reagent/toxin/berserk/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
 	if(prob(25))
 		M.add_chemical_effect(CE_CARDIOTOXIC, 1)
 
-/decl/reagent/toxin/spectrocybin
+/singleton/reagent/toxin/spectrocybin
 	name = "Spectrocybin"
 	description = "Spectrocybin is a hallucinogenic chemical found in a unique strain of fungi. Little research has been conducted into the hallucinogenic properties of spectrocybin, though many spiritual creeds utilise the drug in rituals and claim it allows people to act as mediums between the living and dead."
 	reagent_state = LIQUID
@@ -735,10 +735,10 @@
 	unaffected_species = IS_DIONA | IS_MACHINE
 	var/berserked = FALSE
 
-/decl/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_HAUNTED, M.chem_doses[type])
 
-/decl/reagent/toxin/spectrocybin/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
+/singleton/reagent/toxin/spectrocybin/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(ishuman(M) && !berserked)
 		H.berserk_start()
@@ -749,13 +749,13 @@
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
 
-/decl/reagent/toxin/spectrocybin/final_effect(mob/living/carbon/human/H, datum/reagents/holder)
+/singleton/reagent/toxin/spectrocybin/final_effect(mob/living/carbon/human/H, datum/reagents/holder)
 	. = ..()
 	if(istype(H) && H.chem_doses[type] >= get_overdose(H, holder = holder))
 		H.berserk_stop()
 		berserked = FALSE
 
-/decl/reagent/toxin/trioxin
+/singleton/reagent/toxin/trioxin
 	name = "Trioxin"
 	description = "A synthetic compound of unknown origins, designated originally as a performance enhancing substance."
 	reagent_state = LIQUID
@@ -766,12 +766,12 @@
 	unaffected_species = IS_DIONA | IS_MACHINE | IS_UNDEAD
 	affects_dead = TRUE
 
-/decl/reagent/toxin/trioxin/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/trioxin/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
 	if(istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 
-		if(H.reagents.has_reagent(/decl/reagent/thetamycin, 15))
+		if(H.reagents.has_reagent(/singleton/reagent/thetamycin, 15))
 			return
 
 		if(!H.internal_organs_by_name[BP_ZOMBIE_PARASITE] && prob(15))
@@ -799,7 +799,7 @@
 			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
 			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
 
-/decl/reagent/toxin/dextrotoxin
+/singleton/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"
 	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."
 	reagent_state = LIQUID
@@ -809,10 +809,10 @@
 	strength = 0
 	taste_description = "danger"
 
-/decl/reagent/toxin/dextrotoxin/initial_effect(mob/living/carbon/M)
+/singleton/reagent/toxin/dextrotoxin/initial_effect(mob/living/carbon/M)
 	to_chat(M, SPAN_WARNING("Your limbs start to feel <b>numb</b> and <b>weak</b>, and your legs wobble as it becomes hard to stand!"))
 
-/decl/reagent/toxin/dextrotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/dextrotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
@@ -821,10 +821,10 @@
 	if(M.chem_doses[type] > 0.2)
 		M.Weaken(10)
 
-/decl/reagent/toxin/dextrotoxin/final_effect(mob/living/carbon/M)
+/singleton/reagent/toxin/dextrotoxin/final_effect(mob/living/carbon/M)
 	to_chat(M, SPAN_GOOD("You can feel sensation creeping back into your limbs!"))
 
-/decl/reagent/toxin/coagulated_blood
+/singleton/reagent/toxin/coagulated_blood
 	name = "Hemoglobin"
 	description = "A protein that works to carry oxygen. If freely floating in the bloodstream, however, it is toxic to the kidneys."
 	reagent_state = SOLID
@@ -835,9 +835,9 @@
 	fallback_specific_heat = 3.617
 	target_organ = BP_KIDNEYS
 
-/decl/reagent/toxin/coagulated_blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/coagulated_blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	return // denatured blood isn't absorbed when eaten
 
-/decl/reagent/toxin/coagulated_blood/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/toxin/coagulated_blood/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.add_chemical_effect(CE_NEPHROTOXIC, 0) // deal no damage, but prevent regeneration
 	..()

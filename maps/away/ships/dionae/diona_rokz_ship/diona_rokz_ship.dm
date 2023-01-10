@@ -8,7 +8,7 @@
 	id = "diona_rokz"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/diona_rokz_ship_shuttle)
 
-/decl/submap_archetype/diona_rokz_ship
+/singleton/submap_archetype/diona_rokz_ship
 	map = "Rokz Clan Ship"
 	descriptor = "A ship belonging to the Rokz voidtamer clan, a group of dionae who specialize in selling space fauna."
 

@@ -247,7 +247,7 @@ var/list/gear_datums = list()
 			temp_html += "</font><font size = 1>(Culture: "
 			var/culture_count = 0
 			for(var/culture in G.culture_restriction)
-				var/decl/origin_item/C = decls_repository.get_decl(culture)
+				var/singleton/origin_item/C = GET_SINGLETON(culture)
 				temp_html += "[C.name]"
 				culture_count++
 				if(culture_count == G.culture_restriction.len)
@@ -259,7 +259,7 @@ var/list/gear_datums = list()
 			temp_html += "</font><font size = 1>(Origin: "
 			var/origin_count = 0
 			for(var/origin in G.origin_restriction)
-				var/decl/origin_item/O = decls_repository.get_decl(origin)
+				var/singleton/origin_item/O = GET_SINGLETON(origin)
 				temp_html += "[O.name]"
 				origin_count++
 				if(origin_count == G.origin_restriction.len)

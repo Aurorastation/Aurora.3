@@ -8,7 +8,7 @@
 	id = "diona_serz"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/diona_serz_ship_shuttle)
 
-/decl/submap_archetype/diona_serz_ship
+/singleton/submap_archetype/diona_serz_ship
 	map = "Serz Clan Ship"
 	descriptor = "A ship belonging to the Serz voidtamer clan, a group of dionae who specialize in selling space fauna."
 
