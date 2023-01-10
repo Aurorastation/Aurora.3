@@ -430,6 +430,12 @@
 	temperature = 268.15
 	},
 /area/adhomai_village)
+"wY" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
+	},
+/area/adhomai_village)
 "xc" = (
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
@@ -1155,7 +1161,7 @@ xc
 xc
 Gu
 Ic
-TQ
+Jr
 fq
 Gu
 xc
@@ -1799,10 +1805,10 @@ TQ
 WK
 DP
 Gu
+wY
 Aq
 Aq
-Aq
-Aq
+wY
 Gu
 xc
 Jb

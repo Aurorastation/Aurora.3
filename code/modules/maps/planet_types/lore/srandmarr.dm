@@ -197,6 +197,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/floor/exoplanet/mineral/adhomai
+	name = "icy rock"
 	icon = 'icons/turf/flooring/ice_cavern.dmi'
 	icon_state = "icy_rock"
 	temperature = T0C - 5
