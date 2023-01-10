@@ -211,8 +211,8 @@
 	infection_chance -= target.get_blocked_ratio(zone, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE, damage = damage)*100
 	if(prob(infection_chance))
 		if(target.reagents)
-			var/trioxin_amount = REAGENT_VOLUME(target.reagents, /decl/reagent/toxin/trioxin)
-			target.reagents.add_reagent(/decl/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN - trioxin_amount))
+			var/trioxin_amount = REAGENT_VOLUME(target.reagents, /singleton/reagent/toxin/trioxin)
+			target.reagents.add_reagent(/singleton/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN - trioxin_amount))
 
 /datum/unarmed_attack/golem
 	attack_verb = list("smashed", "crushed", "rammed")

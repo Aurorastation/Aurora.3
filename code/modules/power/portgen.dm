@@ -481,7 +481,7 @@
 
 	var/coolant_volume = 360
 	var/coolant_use = 0.2
-	var/coolant_reagent = /decl/reagent/coolant
+	var/coolant_reagent = /singleton/reagent/coolant
 
 /obj/machinery/power/portgen/basic/fusion/explode()
 	//a nice burst of radiation
@@ -526,7 +526,7 @@
 	if(istype(O, /obj/item/reagent_containers))
 		var/obj/item/reagent_containers/R = O
 		if(R.standard_pour_into(user, src))
-			if(reagents.has_reagent(/decl/reagent/coolant))
+			if(reagents.has_reagent(/singleton/reagent/coolant))
 				audible_message("<span class='notice'>[src] blips happily!</span>")
 				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
 			else

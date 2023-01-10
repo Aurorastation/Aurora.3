@@ -52,6 +52,9 @@
 	name = "nanotrasen labcoat"
 	icon_state = "labcoat_nt"
 
+/obj/item/clothing/suit/storage/toggle/labcoat/nt/letterman
+	icon_state = "labcoat_letterman_nt"
+
 /obj/item/clothing/suit/storage/toggle/longcoat/nt
 	name = "nanotrasen long labcoat"
 	icon_state = "labcoat_long_nt"
@@ -150,6 +153,19 @@
 	name = "idris long labcoat"
 	icon_state = "labcoat_long_idris"
 	item_state = "labcoat_long_idris"
+
+//Orion
+/obj/item/clothing/suit/storage/toggle/labcoat/orion
+	name = "orion labcoat"
+	icon_state = "labcoat_orion"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/orion/letterman
+	icon_state = "labcoat_letterman_orion"
+
+/obj/item/clothing/suit/storage/toggle/longcoat/orion
+	name = "orion long labcoat"
+	icon_state = "labcoat_long_orion"
+	item_state = "labcoat_long_orion"
 
 //IAC
 /obj/item/clothing/suit/storage/toggle/labcoat/iac

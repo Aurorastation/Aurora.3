@@ -20,7 +20,7 @@
 	fragile = 2
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/on_reagent_change()
-	var/decl/reagent/R = reagents.get_primary_reagent_decl()
+	var/singleton/reagent/R = reagents.get_primary_reagent_decl()
 	if (LAZYLEN(reagents.reagent_volumes) && R)
 		icon_state = R.glass_icon_state || "nothing"
 		name = R.glass_name || "glass of something"
@@ -61,7 +61,7 @@
 
 // for /obj/machinery/vending/sovietsoda
 /obj/item/reagent_containers/food/drinks/drinkingglass/soda
-	reagents_to_add = list(/decl/reagent/drink/sodawater = 50)
+	reagents_to_add = list(/singleton/reagent/drink/sodawater = 50)
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/cola
-	reagents_to_add = list(/decl/reagent/drink/space_cola = 50)
+	reagents_to_add = list(/singleton/reagent/drink/space_cola = 50)
