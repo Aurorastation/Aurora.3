@@ -653,35 +653,6 @@
 /area/adhomai_raskariim_hideout)
 
 (1,1,1) = {"
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-ds
-"}
-(2,1,1) = {"
-WM
-WM
 WO
 WO
 WO
@@ -704,11 +675,8 @@ de
 de
 de
 Ru
-WM
 "}
-(3,1,1) = {"
-WM
-WM
+(2,1,1) = {"
 WO
 Vm
 Nt
@@ -731,11 +699,8 @@ WM
 ds
 WM
 MZ
-WM
 "}
-(4,1,1) = {"
-PT
-WM
+(3,1,1) = {"
 WO
 WO
 WO
@@ -758,11 +723,8 @@ WO
 WM
 WM
 MZ
-WM
 "}
-(5,1,1) = {"
-WM
-WM
+(4,1,1) = {"
 Dk
 WM
 WO
@@ -785,11 +747,8 @@ WO
 WM
 PT
 MZ
-WM
 "}
-(6,1,1) = {"
-WM
-WM
+(5,1,1) = {"
 CS
 WM
 WO
@@ -812,11 +771,8 @@ WO
 WM
 WM
 MZ
-WM
 "}
-(7,1,1) = {"
-WM
-WM
+(6,1,1) = {"
 CS
 WM
 WO
@@ -839,11 +795,8 @@ WO
 WM
 WM
 MZ
-WM
 "}
-(8,1,1) = {"
-WM
-WM
+(7,1,1) = {"
 CS
 WM
 WO
@@ -866,11 +819,8 @@ WO
 WM
 WM
 MZ
-WM
 "}
-(9,1,1) = {"
-ds
-WM
+(8,1,1) = {"
 CS
 WM
 WO
@@ -893,11 +843,8 @@ WO
 WM
 WM
 MZ
-WM
 "}
-(10,1,1) = {"
-WM
-WM
+(9,1,1) = {"
 CS
 WM
 ri
@@ -920,11 +867,8 @@ WO
 WO
 WO
 WO
-WM
 "}
-(11,1,1) = {"
-WM
-WM
+(10,1,1) = {"
 CS
 WM
 WO
@@ -947,11 +891,8 @@ WO
 Ol
 rA
 WO
-WM
 "}
-(12,1,1) = {"
-WM
-WM
+(11,1,1) = {"
 CS
 WM
 Jk
@@ -974,11 +915,8 @@ ri
 SE
 zn
 ri
-WM
 "}
-(13,1,1) = {"
-WM
-WM
+(12,1,1) = {"
 CS
 WM
 WO
@@ -1001,11 +939,8 @@ WO
 cy
 vI
 WO
-WM
 "}
-(14,1,1) = {"
-PT
-WM
+(13,1,1) = {"
 CS
 WM
 WO
@@ -1028,11 +963,8 @@ WO
 WO
 WO
 WO
-WM
 "}
-(15,1,1) = {"
-WM
-Mo
+(14,1,1) = {"
 CS
 WM
 WO
@@ -1055,11 +987,8 @@ WO
 WM
 WM
 MZ
-WM
 "}
-(16,1,1) = {"
-WM
-WM
+(15,1,1) = {"
 CS
 WM
 WO
@@ -1082,11 +1011,8 @@ WM
 WM
 WM
 MZ
-WM
 "}
-(17,1,1) = {"
-WM
-WM
+(16,1,1) = {"
 CS
 WM
 WO
@@ -1109,11 +1035,8 @@ WM
 WM
 Mo
 MZ
-WM
 "}
-(18,1,1) = {"
-WM
-WM
+(17,1,1) = {"
 CS
 WM
 WO
@@ -1136,11 +1059,8 @@ WM
 WM
 WM
 MZ
-WM
 "}
-(19,1,1) = {"
-WM
-WM
+(18,1,1) = {"
 Ai
 WM
 WO
@@ -1163,11 +1083,8 @@ WM
 PT
 WM
 MZ
-WM
 "}
-(20,1,1) = {"
-WM
-WM
+(19,1,1) = {"
 CS
 WM
 WO
@@ -1190,11 +1107,8 @@ WM
 WM
 WM
 MZ
-WM
 "}
-(21,1,1) = {"
-WM
-WM
+(20,1,1) = {"
 CS
 WM
 WM
@@ -1217,11 +1131,8 @@ WM
 WM
 ds
 MZ
-WM
 "}
-(22,1,1) = {"
-WM
-ds
+(21,1,1) = {"
 MY
 cD
 cD
@@ -1244,86 +1155,4 @@ cD
 cD
 cD
 vc
-WM
-"}
-(23,1,1) = {"
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-"}
-(24,1,1) = {"
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-PT
-WM
-WM
-WM
-WM
-WM
-WM
-ds
-WM
-WM
-WM
-WM
-WM
-PT
-WM
-Mo
-WM
-PT
-"}
-(25,1,1) = {"
-WM
-WM
-PT
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
-WM
 "}
