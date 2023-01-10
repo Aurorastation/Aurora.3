@@ -43,8 +43,9 @@
 /turf/simulated/floor/concrete,
 /area/exoplanet/adhomai)
 "N" = (
-/obj/item/reagent_containers/food/snacks/grown/mtear,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
 /area/exoplanet/adhomai)
 "P" = (
 /obj/effect/floor_decal/concrete/large{
@@ -60,37 +61,65 @@
 /area/exoplanet/adhomai)
 
 (1,1,1) = {"
+N
+N
+N
+N
+N
+N
+N
+"}
+(2,1,1) = {"
+N
 P
 c
 c
 c
 K
+N
 "}
-(2,1,1) = {"
+(3,1,1) = {"
+N
 o
 J
 J
-N
+J
 s
+N
 "}
-(3,1,1) = {"
+(4,1,1) = {"
+N
 o
 J
 u
 J
 s
+N
 "}
-(4,1,1) = {"
+(5,1,1) = {"
+N
 o
 J
 J
-N
+J
 s
+N
 "}
-(5,1,1) = {"
+(6,1,1) = {"
+N
 i
 x
 x
 x
 T
+N
+"}
+(7,1,1) = {"
+N
+N
+N
+N
+N
+N
+N
 "}
