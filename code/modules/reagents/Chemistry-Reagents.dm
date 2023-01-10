@@ -1,4 +1,4 @@
-/decl/reagent
+/singleton/reagent
 	var/name = "Reagent"
 	var/description = "A non-descript chemical."
 	var/taste_description = "old rotten bandaids"
@@ -33,47 +33,47 @@
 	var/default_temperature = T0C + 20 //This is its default spawning temperature, if none is provided.
 	var/specific_heat = -1 //The higher, the more difficult it is to change its temperature. 0 or lower values indicate that the specific heat has yet to be assigned.
 	var/fallback_specific_heat = -1 //Setting this value above 0 will set the specific heat to this value only if the system could not find an appropriate specific heat to assign using the recipe system.
-	//Never ever ever ever change this value for decl/reagent. This should only be used for massive, yet specific things like drinks or food where it is infeasible to assign a specific heat value.
+	//Never ever ever ever change this value for singleton/reagent. This should only be used for massive, yet specific things like drinks or food where it is infeasible to assign a specific heat value.
 
 	var/germ_adjust = 0 // for makeshift bandages/disinfectant
 	var/carbonated = FALSE // if it's carbonated or not
 
-/decl/reagent/proc/initialize_data(var/newdata, var/datum/reagents/holder) // Called when the reagent is created.
+/singleton/reagent/proc/initialize_data(var/newdata, var/datum/reagents/holder) // Called when the reagent is created.
 	if(!isnull(newdata))
 		return newdata
 
-/decl/reagent/proc/remove_self(var/amount, var/datum/reagents/holder) // Shortcut
+/singleton/reagent/proc/remove_self(var/amount, var/datum/reagents/holder) // Shortcut
 	holder.remove_reagent(type, amount) // Don't typecheck this, fix anywhere this is called with a null holder.
 	if(ishuman(holder.my_atom))
 		var/mob/living/carbon/human/H = holder.my_atom
-		if(H.vessel && (/decl/reagent/blood in H.vessel.reagent_data))
-			if(H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type])
-				H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type] += amount
+		if(H.vessel && (/singleton/reagent/blood in H.vessel.reagent_data))
+			if(H.vessel.reagent_data[/singleton/reagent/blood]["trace_chem"][type])
+				H.vessel.reagent_data[/singleton/reagent/blood]["trace_chem"][type] += amount
 			else
-				H.vessel.reagent_data[/decl/reagent/blood]["trace_chem"][type] = amount
+				H.vessel.reagent_data[/singleton/reagent/blood]["trace_chem"][type] = amount
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
-/decl/reagent/proc/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
+/singleton/reagent/proc/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
 	return
 
-/decl/reagent/proc/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder) // Acid melting, cleaner cleaning, etc
+/singleton/reagent/proc/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder) // Acid melting, cleaner cleaning, etc
 	return
 
-/decl/reagent/proc/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder) // Cleaner cleaning, lube lubbing, etc, all go here
+/singleton/reagent/proc/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder) // Cleaner cleaning, lube lubbing, etc, all go here
 	return
 
-/decl/reagent/proc/get_overdose(mob/living/carbon/M, location, datum/reagents/holder)
+/singleton/reagent/proc/get_overdose(mob/living/carbon/M, location, datum/reagents/holder)
 	return overdose
 
-/decl/reagent/proc/get_od_min_dose(mob/living/carbon/M, location, datum/reagents/holder)
+/singleton/reagent/proc/get_od_min_dose(mob/living/carbon/M, location, datum/reagents/holder)
 	return od_minimum_dose
 
-/decl/reagent/proc/is_overdosing(mob/living/carbon/M, location, datum/reagents/holder)
+/singleton/reagent/proc/is_overdosing(mob/living/carbon/M, location, datum/reagents/holder)
 	var/OD = get_overdose(M, location, holder)
 	var/OD_min = get_od_min_dose(M, location, holder)
 	return OD && (REAGENT_VOLUME(holder, type) > OD) && (LAZYACCESS(M.chem_doses, type) > OD_min) && (!location || (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
 
-/decl/reagent/proc/on_mob_life(var/mob/living/carbon/M, var/alien, var/location, var/datum/reagents/holder) // Currently, on_mob_life is called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.
+/singleton/reagent/proc/on_mob_life(var/mob/living/carbon/M, var/alien, var/location, var/datum/reagents/holder) // Currently, on_mob_life is called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.
 	if(!istype(M))
 		return
 	if(!affects_dead && M.stat == DEAD)
@@ -105,7 +105,7 @@
 		holder.set_temperature(holder.get_temperature() - round(bodytempchange,REAGENTS_BODYTEMP_MIN))
 
 	for(var/_R in M.bloodstr.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
+		var/singleton/reagent/R = GET_SINGLETON(_R)
 		if(istype(R, conflicting_reagent))
 			affect_conflicting(M,alien,removed,R, holder)
 
@@ -123,22 +123,22 @@
 	remove_self(removed, holder)
 
 // Called when a beaker is thrown or something is hit with it, AND the beaker doesn't break.
-/decl/reagent/proc/apply_force(var/force, var/datum/reagents/holder)
+/singleton/reagent/proc/apply_force(var/force, var/datum/reagents/holder)
 	return force
 
 //Initial effect is called once when the reagent first starts affecting a mob.
-/decl/reagent/proc/initial_effect(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+/singleton/reagent/proc/initial_effect(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	return
 
 //Final effect is called once when the reagent finishes affecting a mob.
-/decl/reagent/proc/final_effect(var/mob/living/carbon/M, var/datum/reagents/holder)
+/singleton/reagent/proc/final_effect(var/mob/living/carbon/M, var/datum/reagents/holder)
 	return
 
-/decl/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	return
 
 // if your chem directly affects other chems, use this to make sure all the chem_effects are applied before the standard chem affect_thing is run
-/decl/reagent/proc/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/proc/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return FALSE
 	if(!affects_dead && M.stat == DEAD)
@@ -147,27 +147,27 @@
 		return FALSE
 	return TRUE
 
-/decl/reagent/proc/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/decl/reagent/conflicting_reagent, var/datum/reagents/holder)
+/singleton/reagent/proc/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/singleton/reagent/conflicting_reagent, var/datum/reagents/holder)
 	M.adjustToxLoss(removed)
 
-/decl/reagent/proc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/proc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ingest_mul)
 		affect_blood(M, alien, removed * ingest_mul, holder)
 
-/decl/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(touch_mul)
 		affect_blood(M, alien, removed * touch_mul, holder)
 
-/decl/reagent/proc/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/proc/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(breathe_mul)
 		affect_blood(M, alien, removed * breathe_mul, holder)
 
-/decl/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1, var/datum/reagents/holder) // Overdose effect. Doesn't happen instantly.
+/singleton/reagent/proc/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1, var/datum/reagents/holder) // Overdose effect. Doesn't happen instantly.
 	M.adjustToxLoss(REM)
 
-/decl/reagent/proc/mix_data(var/newdata, var/newamount, var/datum/reagents/holder) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
+/singleton/reagent/proc/mix_data(var/newdata, var/newamount, var/datum/reagents/holder) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
 	return REAGENT_DATA(holder, type)
 
 //Check to use when seeing if the person has the minimum dose of the reagent. Useful for stopping minimum transfer rate IV drips from applying chem effects
-/decl/reagent/proc/check_min_dose(var/mob/living/carbon/M, var/min_dose = 1)
+/singleton/reagent/proc/check_min_dose(var/mob/living/carbon/M, var/min_dose = 1)
 	return (REAGENT_VOLUME(M.reagents, type) >= min_dose)

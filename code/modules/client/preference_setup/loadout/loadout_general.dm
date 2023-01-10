@@ -198,6 +198,7 @@
 	banners["banner, Gadpathur"] = /obj/item/flag/gadpathur
 	banners["banner, Vysoka"] = /obj/item/flag/vysoka
 	banners["banner, Konyang"] = /obj/item/flag/konyang
+	banners["banner, Red Coalition"] = /obj/item/flag/red_coalition
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -248,6 +249,7 @@
 	flags["flag, Gadpathur"] = /obj/item/flag/gadpathur/l
 	flags["flag, Vysoka"] = /obj/item/flag/vysoka/l
 	flags["flag, Konyang"] = /obj/item/flag/konyang/l
+	flags["flag, Red Coalition"] = /obj/item/flag/red_coalition/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
@@ -372,7 +374,7 @@
 /datum/gear/gadbook
 	display_name = "gadpathurian morale manual"
 	path = /obj/item/device/versebook/gadpathur
-	origin_restriction = list(/decl/origin_item/origin/gadpathur)
+	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/aurora_miniature
 	display_name = "aurora miniature"
