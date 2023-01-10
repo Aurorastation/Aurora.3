@@ -65,7 +65,7 @@
 	planetary_area = /area/exoplanet/barren/raskara
 	possible_themes = list(/datum/exoplanet_theme/mountains)
 	map_generators = list(/datum/random_map/noise/exoplanet/barren/raskara, /datum/random_map/noise/ore)
-	features_budget = 2
+	features_budget = 1
 	surface_color = "#373737"
 	generated_name = FALSE
 	ring_chance = 0

@@ -4,7 +4,7 @@
 	description = "A People's Republic observation outpost on the Moon."
 
 	spawn_weight = 1
-	spawn_cost = 2
+	spawn_cost = 1
 	sectors = list(SECTOR_SRANDMARR)
 	suffixes = list("raskara/raskara_okon.dmm")
 
