@@ -154,12 +154,12 @@
 
 	if(length(culture_restriction))
 		for(var/culture in culture_restriction)
-			var/decl/origin_item/culture/CL = decls_repository.get_decl(culture)
+			var/singleton/origin_item/culture/CL = GET_SINGLETON(culture)
 			if(CL.type in M.species.possible_cultures)
 				M.culture = CL
 				break
 		for(var/origin in M.culture.possible_origins)
-			var/decl/origin_item/origin/OI = decls_repository.get_decl(origin)
+			var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
 			if(length(origin_restriction))
 				if(!(OI.type in origin_restriction))
 					continue

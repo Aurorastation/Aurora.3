@@ -307,20 +307,20 @@
 		valid_facial_hairstyles = owner.generate_valid_facial_hairstyles()
 	if(!length(valid_cultures))
 		for(var/culture in owner.species.possible_cultures)
-			var/decl/origin_item/culture/CI = decls_repository.get_decl(culture)
+			var/singleton/origin_item/culture/CI = GET_SINGLETON(culture)
 			if(length(culture_restrictions))
 				if(!(CI.type in culture_restrictions))
 					continue
 			valid_cultures[CI.name] = CI
 		if(length(culture_restrictions))
 			for(var/culture in culture_restrictions)
-				var/decl/origin_item/culture/CL = decls_repository.get_decl(culture)
+				var/singleton/origin_item/culture/CL = GET_SINGLETON(culture)
 				for(var/origin in CL.possible_origins)
-					var/decl/origin_item/origin/OI = decls_repository.get_decl(origin)
+					var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
 					valid_origins[OI.name] = OI
-		var/decl/origin_item/culture/OC = owner.culture
+		var/singleton/origin_item/culture/OC = owner.culture
 		for(var/origin in OC.possible_origins)
-			var/decl/origin_item/origin/OI = decls_repository.get_decl(origin)
+			var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
 			if(length(origin_restrictions))
 				if(!(OI.type in origin_restrictions))
 					continue

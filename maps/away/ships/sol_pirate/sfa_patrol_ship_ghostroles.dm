@@ -16,7 +16,7 @@
 	special_role = "SFA Navy Crewman"
 	respawn_flag = null
 
-	culture_restriction = list(/decl/origin_item/culture/solarian)
+	culture_restriction = list(/singleton/origin_item/culture/solarian)
 
 
 /datum/outfit/admin/sfa_navy_crewman
@@ -56,7 +56,7 @@
 	special_role = "SFA Navy Officer"
 	respawn_flag = null
 
-	culture_restriction = list(/decl/origin_item/culture/solarian)
+	culture_restriction = list(/singleton/origin_item/culture/solarian)
 
 
 /datum/outfit/admin/sfa_navy_officer
@@ -95,7 +95,7 @@
 	special_role = "SFA Marine"
 	respawn_flag = null
 
-	culture_restriction = list(/decl/origin_item/culture/solarian)
+	culture_restriction = list(/singleton/origin_item/culture/solarian)
 
 
 /datum/outfit/admin/sfa_marine
