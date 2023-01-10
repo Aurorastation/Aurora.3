@@ -1758,11 +1758,11 @@
 
 /mob/living/carbon/human/proc/can_drink(var/obj/item/I)
 	if(!check_has_mouth())
-		to_chat(src, "Where do you intend to put \the [I]? You don't have a mouth!")
+		to_chat(src, SPAN_NOTICE("Where do you intend to put \the [I]? You don't have a mouth!"))
 		return FALSE
 	var/obj/item/blocked = check_mouth_coverage()
 	if(blocked)
-		to_chat(src, "<span class='warning'>\The [blocked] is in the way!</span>")
+		to_chat(src, SPAN_WARNING("\The [blocked] is in the way!"))
 		return FALSE
 	return TRUE
 
