@@ -838,6 +838,3 @@
 /datum/species/proc/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
 	human.stamina -= stamina_cost
 	human.hud_used.move_intent.update_move_icon(human)
-
-/datum/species/proc/handle_middle_mouse_click(var/atom/target)
-	return
