@@ -35,10 +35,50 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">10 January 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Refactored /datum/observ into /singleton/observ.</li>
+				<li class="refactor">Refactored /decl/ into /singleton/.</li>
+				<li class="rscadd">Added singleton base class and abstract meta-propriety as dependencies.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Revenants can now teleport anywhere they can see with the middle mouse button, as long as there isn&#x27;t a dense object on the tile. It has a five second cooldown.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="experiment">Firing guns no longer slows you down.</li>
+				<li class="bugfix">Fixed the pipe dispenser dispensing the wrong pipes.</li>
+				<li class="rscadd">Added chugging. Clickdrag a reagent container you&#x27;re holding in your hand to your character. Note that you&#x27;ll lose breath while chugging.</li>
+				<li class="rscadd">Added knocking and slamming your hand on a table. While aiming for right or left hand, grab intent click a table to knock, harm intent to slam.</li>
+				<li class="rscadd">Added an info description on glasses on how to perform a toast.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a thruster subtype that only requires electricity to be supplied to it in-game. This is probably something that won&#x27;t be something that&#x27;s seen often.</li>
+				<li class="tweak">The runtime shuttle had its gas thrusters replaced with ion thrusters.</li>
+			</ul>
+			<h3 class="author">Yonnimer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds Dionae as a choice to some ghostship roles</li>
+				<li class="rscadd">Adds two new Dionae-themed awayships, the rokz and serz voidtamer ships.</li>
+				<li class="rscadd">Adds new carp ponchos to the dionae loadout.</li>
+			</ul>
+
 			<h2 class="date">09 January 2023</h2>
+			<h3 class="author">Sheeplets updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Boiled fjylozyn is no longer hilariously poisonous.</li>
+			</ul>
 			<h3 class="author">Sniblet updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="spellcheck">Added periods to the ends of the descriptions of both forms of beer.</li>
+				<li class="spellcheck">Fixes some grammar issues in the Joy chemical&#x27;s messages.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Replaced the NanoTrasen logo AI core sprite with an SCC logo version.</li>
 			</ul>
 
 			<h2 class="date">08 January 2023</h2>
@@ -9372,7 +9412,7 @@
 			<ul class="changes bgimages16">
 				<li class="tweak">Wounds are less likely to infect limbs if small or properly treated. Infections should also progress a little less quickly.</li>
 				<li class="rscadd">Added a new medication, Steramycin. If administered before a limb reaches the first infection level, it has a great chance to prevent infection. It has no effect on infections that have progressed to or past level one; it&#x27;s meant to be used as insurance against infections after being wounded. It does not sterilize wounds, so make sure those are treated (Or the limb may re-infect)! Created with a ratio of 2 Thetamycin to 1 Sterilizine to 1 Radium, and produces 2 units.</li>
-				<li class="bugfix">When an RnD machine (Like the circuit imprinter) has insufficient reagents for items in its queue, the machine errors will now use the reagent name instead of the /decl/ path.</li>
+				<li class="bugfix">When an RnD machine (Like the circuit imprinter) has insufficient reagents for items in its queue, the machine errors will now use the reagent name instead of the /singleton/ path.</li>
 			</ul>
 			<h3 class="author">MattAtlas updated:</h3>
 			<ul class="changes bgimages16">
@@ -11431,7 +11471,7 @@
 			</ul>
 			<h3 class="author">MoondancerPony updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="backend">Reagents now use /decl/s instead of /datum/s.</li>
+				<li class="backend">Reagents now use /singleton/s instead of /datum/s.</li>
 				<li class="refactor">Paint no longer has a color of its own and can instead be combined with other reagents to make colours stick to things. Colorific!</li>
 				<li class="rscadd">Blood is now body temperature.</li>
 				<li class="tweak">Injecting incompatible blood now creates a special toxin rather than the actual toxin chemical.</li>

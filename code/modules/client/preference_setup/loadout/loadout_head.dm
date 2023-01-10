@@ -310,7 +310,7 @@
 /datum/gear/head/nonla
 	display_name = "non la hat"
 	path = /obj/item/clothing/head/nonla
-	origin_restriction = list(/decl/origin_item/origin/earth, /decl/origin_item/origin/new_hai_phong)
+	origin_restriction = list(/singleton/origin_item/origin/earth, /singleton/origin_item/origin/new_hai_phong)
 /datum/gear/head/konyang
 	display_name = "gat"
 	path = /obj/item/clothing/head/konyang
@@ -354,7 +354,7 @@
 	display_name = "himean cap"
 	path = /obj/item/clothing/head/softcap/himeo
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/decl/origin_item/origin/himeo, /decl/origin_item/origin/ipc_himeo, /decl/origin_item/origin/free_council)
+	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
 
 /datum/gear/head/vysoka
 	display_name = "vysokan fur cap"
@@ -376,7 +376,7 @@
 	description = "A selection of headgear from Gadpathur."
 	path = /obj/item/clothing/head/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/decl/origin_item/origin/gadpathur)
+	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/head/gadpathur/New()
 	..()

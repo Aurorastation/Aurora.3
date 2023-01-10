@@ -8,7 +8,7 @@
 	id = "fsf_patrol_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/fsf_shuttle)
 
-/decl/submap_archetype/fsf_patrol_ship
+/singleton/submap_archetype/fsf_patrol_ship
 	map = "FSF Corvette"
 	descriptor = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew."
 

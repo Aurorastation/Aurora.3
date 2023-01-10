@@ -1,4 +1,4 @@
-/decl/reagent/blood
+/singleton/reagent/blood
 	name = "Blood"
 	reagent_state = LIQUID
 	metabolism = REM * 5
@@ -12,21 +12,21 @@
 
 	fallback_specific_heat = 3.617
 
-/decl/reagent/blood/initialize_data(newdata, datum/reagents/holder)
+/singleton/reagent/blood/initialize_data(newdata, datum/reagents/holder)
 	. = ..()
 	if(.)
 		LAZYINITLIST(.["trace_chem"])
 
-/decl/reagent/blood/proc/handle_trace_chems(var/datum/reagents/holder)
+/singleton/reagent/blood/proc/handle_trace_chems(var/datum/reagents/holder)
 	var/list/trace_chems = holder.reagent_data[type]["trace_chem"]
 	for(var/chem in trace_chems)
-		var/decl/reagent/R = decls_repository.get_decl(chem)
+		var/singleton/reagent/R = GET_SINGLETON(chem)
 		trace_chems[chem] = trace_chems[chem] - (R.metabolism / 10) // work your way out of the body but at 10th the speed
 		if(trace_chems[chem] < 0)
 			trace_chems -= chem
 	holder.reagent_data[type]["trace_chem"] = trace_chems
 
-/decl/reagent/blood/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
+/singleton/reagent/blood/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
 	var/list/data = ..()
 	if(LAZYACCESS(newdata, "trace_chem"))
 		var/list/other_chems = LAZYACCESS(newdata, "trace_chem")
@@ -44,13 +44,13 @@
 		remove_self(newamount * 0.5, holder) // So the blood isn't *entirely* useless
 		var/mob/living/carbon/human/recipient = holder.my_atom
 		if(istype(recipient) && holder == recipient.vessel)
-			recipient.reagents.add_reagent(/decl/reagent/toxin/coagulated_blood, newamount * 0.5)
+			recipient.reagents.add_reagent(/singleton/reagent/toxin/coagulated_blood, newamount * 0.5)
 			// it has no effect if added to the vessel
 		else
-			holder.add_reagent(/decl/reagent/toxin/coagulated_blood, newamount * 0.5)
+			holder.add_reagent(/singleton/reagent/toxin/coagulated_blood, newamount * 0.5)
 	. = data
 
-/decl/reagent/blood/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/blood/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
 
 	if(!istype(T) || amount < 3)
 		return
@@ -68,7 +68,7 @@
 		if(B)
 			B.blood_DNA["UNKNOWN DNA STRUCTURE"] = "X*"
 
-/decl/reagent/blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/blood/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		if (M.mind && (MODE_VAMPIRE in M.mind.antag_datums))
 			if(LAZYLEN(REAGENT_DATA(holder, type) && M.dna.unique_enzymes == LAZYACCESS(holder.reagent_data[type], "blood_DNA"))) //so vampires can't drink their own blood
@@ -83,16 +83,16 @@
 	else if(dose > 5)
 		M.adjustToxLoss(removed)
 
-/decl/reagent/blood/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/blood/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_MACHINE)
 		return
 
-/decl/reagent/blood/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/blood/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.inject_blood(REAGENT_VOLUME(holder, type), holder)
 	remove_self(REAGENT_VOLUME(holder, type), holder)
 
 #define WATER_LATENT_HEAT 19000 // How much heat is removed when applied to a hot turf, in J/unit (19000 makes 120 u of water roughly equivalent to 4L)
-/decl/reagent/water
+/singleton/reagent/water
 	name = "Water"
 	description = "A ubiquitous chemical substance that is composed of hydrogen and oxygen."
 	reagent_state = LIQUID
@@ -112,12 +112,12 @@
 
 	germ_adjust = 0.05 // i mean, i guess you could try...
 
-/decl/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
 	M.adjustHydrationLoss(-6*removed)
 
-/decl/reagent/water/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/water/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
 	if(!istype(T))
 		return
 
@@ -141,7 +141,7 @@
 	else if(amount >= 10)
 		T.wet_floor(WET_TYPE_WATER,amount)
 
-/decl/reagent/water/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+/singleton/reagent/water/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
 		var/obj/item/reagent_containers/food/snacks/monkeycube/cube = O
 		if(!cube.wrapped)
@@ -150,7 +150,7 @@
 		var/obj/structure/bonfire/B = O
 		B.fuel = max(0, B.fuel - (5 * amount))
 
-/decl/reagent/water/touch_mob(var/mob/M, var/amount, var/datum/reagents/holder)
+/singleton/reagent/water/touch_mob(var/mob/M, var/amount, var/datum/reagents/holder)
 	. = ..()
 	if(istype(M) && isliving(M))
 		var/mob/living/L = M
@@ -161,7 +161,7 @@
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)
 
-/decl/reagent/water/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/water/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed, var/datum/reagents/holder)
 	if(istype(S))
 		S.adjustToxLoss( REAGENT_VOLUME(holder, type) * (removed/REM) * 0.23 )
 		if(!S.client)
@@ -172,7 +172,7 @@
 			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the water touches it!"), SPAN_DANGER("Your flesh burns in the water!"))
 
 
-/decl/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(istype(M, /mob/living/carbon/slime))
 		var/mob/living/carbon/slime/S = M
 		S.adjustToxLoss(12 * removed) // A slime having water forced down its throat would cause much more damage then being splashed on it
@@ -181,7 +181,7 @@
 			++S.discipline
 
 
-/decl/reagent/fuel
+/singleton/reagent/fuel
 	name = "Welding Fuel"
 	description = "Required for welders. Flammable."
 	reagent_state = LIQUID
@@ -195,19 +195,19 @@
 
 	fallback_specific_heat = 0.605
 
-/decl/reagent/fuel/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/fuel/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, amount)
 	remove_self(amount, holder)
 	return
 
-/decl/reagent/fuel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/fuel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/obj/item/organ/internal/augment/fuel_cell/aug = M.internal_organs_by_name[BP_AUG_FUEL_CELL]
 	if(aug && !aug.is_broken())
 		M.adjustNutritionLoss(-8 * removed)
 	else
 		M.adjustToxLoss(2 * removed)
 
-/decl/reagent/fuel/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
+/singleton/reagent/fuel/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
