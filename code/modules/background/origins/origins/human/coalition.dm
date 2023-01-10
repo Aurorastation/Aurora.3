@@ -58,7 +58,7 @@
 	origin_traits = list(TRAIT_ORIGIN_LIGHT_SENSITIVE)
 	origin_traits_descriptions = list("have a small resistance to radiation", "are more sensitive to bright lights")
 
-/decl/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/human/H)
+/singleton/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/human/H)
   H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/gadpathur_exile
@@ -70,7 +70,7 @@
 	origin_traits = list(TRAIT_ORIGIN_LIGHT_SENSITIVE)
 	origin_traits_descriptions = list("have a small resistance to radiation", "are more sensitive to bright lights")
 
-/decl/origin_item/origin/gadpathur_exile/on_apply(var/mob/living/carbon/human/H)
+/singleton/origin_item/origin/gadpathur_exile/on_apply(var/mob/living/carbon/human/H)
   H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/assunzione

@@ -48,8 +48,8 @@
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
 
-/singleton/origin_item/origin/venus
-	name = "Venus"
+/singleton/origin_item/origin/venus_c
+	name = "Venus, Cytherea"
 	desc = "Venus is the cultural capital of the Alliance, and its residents mostly dwell in floating settlements referred to as \"aerostats.\" While wealthy and culturally rich, Venus is deeply divided between Cythereans, those involved in the cultural industry, and Jintarians, those involved in other industries. Cytherean culture is well known throughout the Orion Spur, and is typically stereotyped as hedonistic."
 	possible_accents = list(ACCENT_VENUS)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
@@ -57,7 +57,7 @@
 	origin_traits = list(TRAIT_ORIGIN_ALCOHOL_RESISTANCE, TRAIT_ORIGIN_DRUG_RESISTANCE)
 	origin_traits_descriptions = list("have a higher alcoholic tolerance", "have a higher tolerance to recreative drugs")
 
-/decl/origin_item/origin/venus_j
+/singleton/origin_item/origin/venus_j
 	name = "Venus, Jintaria"
 	desc = "Venus is the cultural capital of the Alliance, and its residents mostly dwell in floating settlements referred to as \"aerostats.\" While wealthy and culturally rich, Venus is deeply divided between Cythereans, those involved in the cultural industry, and Jintarians, those involved in other industries. Jintarian culture can often be defined as the polar opposite of Cytherean culture in many facets, but it borrows as much as it opposes."
 	possible_accents = list(ACCENT_VENUSJIN)
@@ -96,7 +96,7 @@
 	origin_traits = list(TRAIT_ORIGIN_NO_ANIMAL_PROTEIN)
 	origin_traits_descriptions = list("get sick if they eat animal protein that isn't tofu or seafood")
 
-/decl/origin_item/origin/eridani_dreg
+/singleton/origin_item/origin/eridani_dreg
 	name = "Eridani Corporate Federation Dreg"
 	desc = "The Eridani Corporate Federation is an autonomous member of the Solarian Alliance that is infamous abroad for its starkly divided society and extreme levels of corporate involvement in daily life. Referred to as Dregs by the Spur at large, the term has been co-opted by many as a badge of honor rather than a pejorative. Whether an individual was born outside the great Eridanian skyscrapers or sent there following the loss of their job, Dreg society is the polar opposite of their Suit counterpart. Without corporate control or any form of governance from the Eridanian state itself, the Dregs largely inhabit their own sprawling, slum-like conurbations all across the surface of Eridani's terrestrial worlds."
 	important_information = "<b>Due to Epsilon Eridani being originally settled by colonists of West and Central African descent, human characters born in the Eridani Corporate Federation must have names and appearances consistent with the indigenous peoples of these regions as any human moving to the ECF would assimilate into the dominant cultures and ethnic groups of the federation. Eridani dregs have developed cultures of abstract or unconventional names however and this is tolerated.</b> Only native Eridanians may select the Eridanian accents. This is enforceable by server moderators and admins."
