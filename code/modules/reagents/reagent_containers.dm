@@ -292,7 +292,7 @@
 			return
 
 		if(!reagents.total_volume)
-			to_chat(H, SPAN_NOTICE("\The [src] is empty.</span>"))
+			to_chat(H, SPAN_NOTICE("\The [src] is empty."))
 			return
 
 		if(H.isSynthetic() && !isipc(H))
