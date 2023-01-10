@@ -3,9 +3,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
+/turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "g" = (
 /obj/item/flame/candle{
@@ -13,9 +11,7 @@
 	pixel_y = -5;
 	start_lit = 1
 	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
+/turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "i" = (
 /obj/structure/railing/mapped{
@@ -24,38 +20,28 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
+/turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "o" = (
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
+/turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "s" = (
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
+/turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "u" = (
 /obj/structure/sign/adhomai_memorial{
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
+/turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "x" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
+/turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "J" = (
 /obj/item/flame/candle{
@@ -63,24 +49,18 @@
 	pixel_y = -6;
 	start_lit = 1
 	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
+/turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "K" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
+/turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "N" = (
 /obj/item/reagent_containers/food/snacks/grown/mtear,
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
+/turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "P" = (
 /obj/structure/railing/mapped{
@@ -89,18 +69,14 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
+/turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "T" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
+/turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "X" = (
 /obj/item/flame/candle{
@@ -110,9 +86,7 @@
 /obj/item/clothing/accessory/dogtags{
 	layer = 2.9
 	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
+/turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 
 (1,1,1) = {"

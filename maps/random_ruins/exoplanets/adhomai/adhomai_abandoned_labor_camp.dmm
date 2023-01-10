@@ -2,13 +2,13 @@
 "am" = (
 /obj/structure/closet/cabinet,
 /obj/item/shovel,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "cw" = (
 /obj/structure/simple_door,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -28,7 +28,7 @@
 /obj/structure/sign/flag/pra{
 	pixel_y = 32
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -52,20 +52,20 @@
 "eS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/cigbutt,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "eU" = (
 /obj/structure/table/steel,
 /obj/item/trash/can/adhomian_can,
-/turf/simulated/floor/exoplanet/barren{
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "fq" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/exoplanet/barren{
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -93,7 +93,13 @@
 	pixel_x = -32;
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"hm" = (
+/obj/effect/floor_decal/concrete,
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -104,7 +110,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -120,7 +126,7 @@
 	pixel_y = 10;
 	pixel_x = -5
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -132,9 +138,20 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"kI" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "kJ" = (
 /obj/structure/closet/cabinet,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -149,7 +166,7 @@
 	pixel_y = 32
 	},
 /obj/item/handcuffs,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -160,7 +177,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -179,7 +196,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/handcuffs,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -187,7 +204,10 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = -32
 	},
-/turf/simulated/floor/exoplanet/barren{
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -204,12 +224,27 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"ov" = (
+/obj/structure/hadii_statue/stone,
+/obj/effect/floor_decal/concrete/large/full,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"pU" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "qm" = (
 /obj/machinery/door/airlock/security{
 	name = "Checkpoint";
 	req_access = list(209)
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -232,26 +267,56 @@
 /obj/item/reagent_containers/food/snacks/liquidfood,
 /obj/item/reagent_containers/food/snacks/liquidfood,
 /obj/item/reagent_containers/food/snacks/liquidfood,
-/turf/simulated/floor/exoplanet/barren{
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "rM" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"sQ" = (
+/obj/effect/floor_decal/concrete{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "sS" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "uc" = (
 /obj/machinery/vending/coffee,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"uU" = (
+/obj/effect/floor_decal/concrete{
+	dir = 1
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"vB" = (
+/obj/effect/floor_decal/concrete,
+/obj/effect/floor_decal/concrete{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -261,7 +326,7 @@
 	dir = 4
 	},
 /obj/item/storage/bag/ore,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -270,31 +335,34 @@
 /obj/structure/sign/flag/pra{
 	pixel_y = 32
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "wU" = (
 /obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "xc" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 4
-	},
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "xn" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/color/orange,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -306,8 +374,24 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"yA" = (
+/obj/effect/floor_decal/concrete/large/cee{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"yV" = (
+/obj/effect/floor_decal/concrete/large/cee{
+	dir = 1
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "zf" = (
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -318,7 +402,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -330,7 +414,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -339,10 +423,18 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"BP" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "BZ" = (
 /obj/structure/table/steel,
 /obj/item/trash/liquidfood,
-/turf/simulated/floor/exoplanet/barren{
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -355,7 +447,15 @@
 /obj/structure/sign/flag/pra{
 	pixel_y = -32
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Ci" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 1
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -368,7 +468,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/melee/baton/stunrod,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -376,7 +476,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -384,7 +484,10 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/turf/simulated/floor/exoplanet/barren{
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -402,7 +505,10 @@
 	pixel_x = -32;
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/barren{
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -410,7 +516,7 @@
 /obj/structure/table/rack,
 /obj/machinery/light/small,
 /obj/item/device/flashlight/lantern,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -419,14 +525,19 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"HM" = (
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "HX" = (
 /obj/structure/closet/cabinet,
 /obj/item/pickaxe,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -439,17 +550,18 @@
 	},
 /area/exoplanet/adhomai)
 "Iv" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/concrete/large,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "IM" = (
 /obj/item/trash/can/adhomian_can,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -471,7 +583,7 @@
 /obj/structure/sign/flag/pra{
 	pixel_y = 32
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -480,7 +592,16 @@
 	dir = 8;
 	pixel_x = -32
 	},
-/turf/simulated/floor/exoplanet/barren{
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"LT" = (
+/obj/effect/floor_decal/concrete/large,
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -490,7 +611,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -500,7 +621,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -508,7 +629,10 @@
 /obj/machinery/door/blast/shutters{
 	id = "labor_entry"
 	},
-/turf/simulated/floor/exoplanet/barren{
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -517,7 +641,7 @@
 /obj/item/pickaxe,
 /obj/item/pickaxe,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -533,12 +657,15 @@
 /obj/structure/simple_door{
 	initial_lock_value = "labor_barracks"
 	},
-/turf/simulated/floor/tiled/freezer{
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "Rh" = (
-/turf/simulated/floor/exoplanet/barren{
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -553,7 +680,18 @@
 /area/exoplanet/adhomai)
 "Sg" = (
 /obj/structure/bed/stool/bar/padded/brown,
-/turf/simulated/floor/exoplanet/barren{
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"SK" = (
+/obj/effect/floor_decal/concrete{
+	dir = 1
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -563,7 +701,7 @@
 	pixel_y = 32
 	},
 /obj/item/handcuffs,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -581,18 +719,21 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = -32
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "Wa" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "WK" = (
-/turf/simulated/floor/wood{
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -613,11 +754,28 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"XT" = (
+/obj/machinery/door/blast/shutters{
+	id = "labor_entry"
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Yc" = (
+/obj/effect/floor_decal/concrete{
+	dir = 8
+	},
+/obj/effect/floor_decal/concrete,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "Yn" = (
 /obj/structure/simple_door{
 	initial_lock_value = "labor_barracks"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -627,13 +785,19 @@
 	dir = 8;
 	pixel_x = -32
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
 "YV" = (
 /obj/structure/filingcabinet/chestdrawer,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Zf" = (
+/obj/effect/floor_decal/concrete/large/cee,
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -642,7 +806,15 @@
 	req_access = list(209)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"ZL" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -740,11 +912,11 @@ nR
 nR
 nR
 rf
-Rh
+sS
 Lz
 GB
-Rh
-Rh
+sS
+LT
 nR
 kB
 nR
@@ -778,7 +950,7 @@ Sg
 eU
 fq
 Sg
-Rh
+WK
 nR
 kB
 nR
@@ -812,7 +984,7 @@ Sg
 fq
 fq
 Sg
-Rh
+WK
 nR
 kB
 nR
@@ -846,7 +1018,7 @@ Sg
 fq
 fq
 Sg
-Rh
+WK
 Xk
 kB
 nR
@@ -892,13 +1064,13 @@ nR
 nR
 Gu
 Oc
-WK
+zf
 Wa
-WK
+zf
 Yn
-Rh
-Rh
-Rh
+yV
+kI
+LT
 nR
 Gu
 Gu
@@ -914,7 +1086,7 @@ Sg
 fq
 fq
 Sg
-Rh
+WK
 IO
 kB
 nR
@@ -926,18 +1098,18 @@ nR
 nR
 Gu
 Gu
-WK
+zf
 rM
 Gu
 Gu
 Xv
 Rh
-Rh
+WK
 yd
 Gu
 Oa
 Wa
-WK
+zf
 Pa
 Gu
 nR
@@ -948,7 +1120,7 @@ Sg
 fq
 BZ
 Sg
-Rh
+WK
 nR
 kB
 nR
@@ -960,29 +1132,29 @@ nR
 nR
 Gu
 Oc
-WK
-WK
+zf
+zf
 TQ
 Gu
 nR
 Rh
-Rh
-Rh
+vB
+Zf
 cw
-WK
-WK
-WK
+zf
+zf
+zf
 GR
 Gu
 nR
-Rh
-Rh
-Rh
+BP
+sS
+uU
 Sg
 fq
 fq
 Sg
-Rh
+WK
 nR
 kB
 nR
@@ -995,12 +1167,12 @@ nR
 Gu
 Gu
 wx
-WK
+zf
 Gu
 Gu
 nR
 Rh
-Rh
+WK
 yd
 Gu
 wj
@@ -1010,13 +1182,13 @@ Ht
 Gu
 nR
 Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
+hm
+pU
+pU
+pU
+pU
+pU
+ZL
 nR
 kB
 nR
@@ -1029,12 +1201,12 @@ nR
 Gu
 Oc
 Wa
-WK
+zf
 TQ
 Gu
 nR
 Rh
-Rh
+WK
 nR
 Gu
 Gu
@@ -1044,7 +1216,7 @@ Gu
 Gu
 nR
 Rh
-Rh
+WK
 nR
 nR
 nR
@@ -1062,13 +1234,13 @@ nR
 nR
 Gu
 Gu
-WK
+zf
 rM
 Gu
 Gu
 nR
 Rh
-Rh
+WK
 nR
 nR
 Gu
@@ -1078,7 +1250,7 @@ Gu
 nR
 nR
 Rh
-Rh
+WK
 nR
 nR
 nR
@@ -1096,13 +1268,13 @@ nR
 nR
 Gu
 zh
-WK
-WK
+zf
+zf
 TQ
 Gu
 nR
 Rh
-Rh
+WK
 nR
 nR
 nR
@@ -1112,7 +1284,7 @@ nR
 nR
 nR
 Rh
-Rh
+WK
 nR
 nR
 nR
@@ -1136,7 +1308,7 @@ Gu
 Gu
 nR
 Rh
-Rh
+WK
 yd
 Gu
 Gu
@@ -1146,7 +1318,7 @@ Gu
 nR
 nR
 Rh
-Rh
+WK
 nR
 nR
 nR
@@ -1165,13 +1337,13 @@ nR
 Gu
 Oc
 IM
-WK
+zf
 TQ
 Gu
 nR
 Rh
-Rh
-Rh
+Yc
+Zf
 Qe
 Jb
 TD
@@ -1180,7 +1352,7 @@ Gu
 nR
 nR
 Rh
-Rh
+WK
 nR
 nR
 jg
@@ -1198,13 +1370,13 @@ nR
 nR
 Gu
 Gu
-WK
+zf
 rM
 Gu
 Gu
 nR
 Rh
-Rh
+WK
 yd
 Gu
 Gu
@@ -1214,7 +1386,7 @@ Gu
 nR
 nR
 Rh
-Rh
+WK
 nR
 nR
 jg
@@ -1232,13 +1404,13 @@ nR
 nR
 Gu
 Oc
-WK
-WK
+zf
+zf
 TQ
 Gu
 nR
 Rh
-Rh
+WK
 nR
 Gu
 Rw
@@ -1248,7 +1420,7 @@ Gu
 nR
 nR
 Rh
-Rh
+WK
 yd
 jg
 jg
@@ -1267,12 +1439,12 @@ nR
 Gu
 Gu
 Tp
-WK
+zf
 Gu
 Gu
 nR
 Rh
-Rh
+WK
 nR
 Gu
 Gu
@@ -1282,8 +1454,8 @@ Gu
 qI
 nR
 Rh
-Rh
-Rh
+vB
+Zf
 qm
 zf
 zf
@@ -1300,13 +1472,13 @@ nR
 nR
 Gu
 Oc
-WK
+zf
 Wa
 TQ
 Gu
 nR
 Rh
-Rh
+WK
 nR
 Gu
 Rw
@@ -1316,7 +1488,7 @@ Gu
 mC
 nR
 Rh
-Rh
+WK
 yd
 jg
 jg
@@ -1334,13 +1506,13 @@ nR
 nR
 Gu
 Gu
-WK
+zf
 rM
 Gu
 Gu
 nR
 Rh
-Rh
+WK
 nR
 Gu
 Gu
@@ -1350,7 +1522,7 @@ Gu
 nR
 nR
 Rh
-Rh
+WK
 nR
 nR
 jg
@@ -1368,13 +1540,13 @@ nR
 nR
 Gu
 mf
-WK
-WK
+zf
+zf
 TQ
 Gu
 nR
 Rh
-Rh
+WK
 nR
 Gu
 Rw
@@ -1384,7 +1556,7 @@ Gu
 nR
 nR
 Rh
-Rh
+WK
 nR
 nR
 nR
@@ -1403,12 +1575,12 @@ nR
 Gu
 Gu
 ef
+zf
+Gu
+Gu
+nR
+Rh
 WK
-Gu
-Gu
-nR
-Rh
-Rh
 nR
 Gu
 Gu
@@ -1418,7 +1590,7 @@ Gu
 nR
 nR
 Rh
-Rh
+WK
 nR
 jg
 jg
@@ -1436,13 +1608,13 @@ nR
 nR
 Gu
 Oc
-WK
-WK
+zf
+zf
 TQ
 Gu
 nR
 Rh
-Rh
+WK
 nR
 nR
 nR
@@ -1452,7 +1624,7 @@ nR
 nR
 nR
 Rh
-Rh
+WK
 nR
 jg
 YV
@@ -1470,13 +1642,13 @@ nR
 nR
 Gu
 Gu
-WK
+zf
 rM
 Gu
 Gu
 nR
 Rh
-Rh
+WK
 nR
 nR
 nR
@@ -1486,13 +1658,13 @@ nR
 nR
 nR
 Rh
-Rh
+WK
 nR
 jg
 zA
 jr
 eS
-sS
+rM
 jg
 kB
 nR
@@ -1504,23 +1676,23 @@ nR
 nR
 Gu
 Oc
-WK
-WK
+zf
+zf
 TQ
 Gu
 nR
 Rh
+WK
+nR
+nR
+nR
+ov
+nR
+nR
+nR
+nR
 Rh
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-Rh
-Rh
+WK
 nR
 jg
 kO
@@ -1544,7 +1716,7 @@ Gu
 Gu
 nR
 Rh
-Rh
+WK
 nR
 nR
 nR
@@ -1554,13 +1726,13 @@ nR
 nR
 nR
 Rh
-Rh
+WK
 nR
 gm
 xc
 Iv
 ev
-Rh
+yA
 nR
 jg
 Xv
@@ -1578,26 +1750,26 @@ nR
 nR
 nR
 Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-OA
-Rh
+sQ
+sS
+sS
+sS
+sS
+sS
+sS
+sS
+sS
+uU
+sQ
+sS
+sS
+uU
+sQ
+sS
+SK
+sS
+XT
+HM
 "}
 (29,1,1) = {"
 nR
@@ -1611,27 +1783,27 @@ nR
 nR
 nR
 nR
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
-Rh
+Ci
+pU
+pU
+pU
+pU
+pU
+pU
+pU
+pU
+pU
+pU
+pU
+pU
+pU
+pU
+pU
+pU
+pU
+pU
 OA
-Rh
+pU
 "}
 (30,1,1) = {"
 nR

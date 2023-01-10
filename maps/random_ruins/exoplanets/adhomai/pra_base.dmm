@@ -8,7 +8,7 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/book/manual/pra_manifesto,
 /obj/item/clothing/accessory/badge/pra_passport,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -17,7 +17,10 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -25,7 +28,10 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -33,13 +39,27 @@
 /obj/structure/sign/flag/pra{
 	pixel_y = 32
 	},
-/turf/simulated/floor/exoplanet/barren{
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
 "ca" = (
 /obj/machinery/light,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"dH" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -48,13 +68,16 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
 "fw" = (
 /obj/machinery/vending/cola,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -62,7 +85,7 @@
 /obj/structure/sign/flag/pra/left{
 	pixel_y = 32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -75,9 +98,26 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"jF" = (
+/obj/effect/floor_decal/concrete/large/cee{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
 "kq" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete/large,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"kE" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -88,7 +128,29 @@
 	identifier = "pra_base_soldier";
 	name = "igs - pra_base_soldier"
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/pra_base)
+"lC" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"lI" = (
+/obj/effect/floor_decal/concrete/large/cee{
+	dir = 1
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -114,12 +176,7 @@
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
-/area/pra_base)
-"mf" = (
-/turf/simulated/floor/exoplanet/barren{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -135,7 +192,10 @@
 	pixel_y = 10;
 	pixel_x = -5
 	},
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete/large{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -143,16 +203,30 @@
 /obj/structure/sign/flag/pra/right{
 	pixel_y = 32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
+"mN" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "nc" = (
 /obj/structure/table/standard,
 /obj/structure/sign/flag/pra{
 	pixel_y = 32
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/pra_base)
+"nw" = (
+/obj/effect/floor_decal/concrete/large/cee,
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -160,7 +234,7 @@
 /obj/machinery/door/blast/shutters{
 	id = "pra_camp_entry"
 	},
-/turf/simulated/floor/exoplanet/barren{
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -168,21 +242,33 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/pra_base)
+"pS" = (
+/obj/effect/floor_decal/concrete{
+	dir = 8
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 1
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
 "qa" = (
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Barracks"
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
 "qP" = (
 /obj/machinery/vending/coffee,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -192,7 +278,38 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete/large{
+	dir = 1
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"rt" = (
+/obj/machinery/door/blast/shutters{
+	id = "pra_camp_entry"
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"rz" = (
+/obj/effect/floor_decal/concrete{
+	dir = 4
+	},
+/obj/effect/floor_decal/concrete,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"tc" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -201,7 +318,8 @@
 	name = "Meeting Room";
 	req_access = list(209)
 	},
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete/large/full,
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -220,12 +338,11 @@
 	},
 /area/exoplanet/adhomai)
 "vQ" = (
-/obj/effect/floor_decal/spline/plain,
 /obj/effect/ghostspawpoint{
 	identifier = "pra_base_commissar";
 	name = "igs - pra_base_soldier"
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -236,7 +353,16 @@
 /area/pra_base)
 "wC" = (
 /obj/machinery/vending/cigarette,
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete/large{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"wK" = (
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -257,7 +383,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -266,12 +392,7 @@
 	name = "Armory";
 	req_access = list(209)
 	},
-/turf/simulated/floor/tiled{
-	temperature = 268.15
-	},
-/area/pra_base)
-"yx" = (
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -287,7 +408,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -302,7 +423,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -312,7 +433,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -320,7 +441,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/barren{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -337,16 +458,18 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
 "CW" = (
-/obj/effect/floor_decal/spline/plain,
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -362,7 +485,10 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -397,7 +523,16 @@
 	pixel_y = 10;
 	pixel_x = 5
 	},
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete/large,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"EJ" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -412,22 +547,24 @@
 	pixel_y = 32
 	},
 /obj/item/handcuffs,
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
 "EP" = (
-/obj/effect/floor_decal/spline/plain,
 /obj/machinery/light{
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
 "Fo" = (
-/turf/simulated/floor/exoplanet/barren{
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -437,7 +574,13 @@
 /obj/structure/sign/flag/pra/left{
 	pixel_y = -32
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Go" = (
+/obj/effect/floor_decal/concrete/large,
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -445,7 +588,24 @@
 /obj/structure/table/standard,
 /obj/item/material/ashtray,
 /obj/item/clothing/mask/smokable/cigarette/adhomai,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/pra_base)
+"HY" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Iq" = (
+/obj/structure/sign/flag/pra/left{
+	pixel_y = 32
+	},
+/obj/structure/hadii_statue,
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -467,7 +627,14 @@
 /obj/structure/sign/flag/pra/right{
 	pixel_y = -32
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Jw" = (
+/obj/structure/hadii_statue/stone,
+/obj/effect/floor_decal/concrete/large/full,
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -480,6 +647,23 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"Lm" = (
+/obj/effect/floor_decal/concrete,
+/obj/effect/floor_decal/concrete{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Lu" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
 "Md" = (
 /turf/simulated/floor/tiled/freezer{
 	temperature = 268.15
@@ -490,7 +674,8 @@
 	name = "Checkpoint";
 	req_access = list(209)
 	},
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete/large/full,
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -508,19 +693,27 @@
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
 "NW" = (
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Or" = (
+/obj/structure/sign/flag/pra/right{
+	pixel_y = 32
+	},
+/obj/structure/hadii_statue,
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
 "Qx" = (
 /obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -547,12 +740,14 @@
 /obj/structure/sign/flag/pra/left{
 	pixel_y = -32
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
 "Sr" = (
-/turf/simulated/floor/holofloor/tiled/ramp,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
 /area/pra_base)
 "St" = (
 /obj/machinery/button/remote/blast_door{
@@ -561,7 +756,10 @@
 	req_access = list(209);
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -569,7 +767,18 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/pra_base)
+"TZ" = (
+/obj/effect/floor_decal/concrete{
+	dir = 1
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -580,7 +789,7 @@
 	name = "gun cabinet (icelance)"
 	},
 /obj/item/gun/energy/rifle/icelance,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -590,7 +799,7 @@
 	pixel_y = 32
 	},
 /obj/item/book/manual/pra_manifesto,
-/turf/simulated/floor/holofloor/tiled/dark{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -614,7 +823,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -628,14 +837,22 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/item/gun/projectile/automatic/rifle/adhomian,
 /obj/item/gun/projectile/automatic/rifle/adhomian,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Wc" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
 "WG" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -647,7 +864,7 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/shotgun/pump/rifle,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -662,7 +879,21 @@
 	pixel_y = 32
 	},
 /obj/item/handcuffs,
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/concrete/large{
+	dir = 1
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Yb" = (
+/obj/machinery/door/blast/shutters{
+	id = "pra_camp_entry"
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -672,7 +903,7 @@
 /obj/structure/sign/flag/pra/right{
 	pixel_y = -32
 	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -684,6 +915,22 @@
 	pixel_y = 22
 	},
 /turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
+	},
+/area/pra_base)
+"ZR" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 1
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"ZT" = (
+/obj/effect/floor_decal/concrete/large/cee{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -830,9 +1077,9 @@ vi
 vi
 gU
 fq
-yx
+Go
 Nc
-mf
+jF
 wB
 wB
 wB
@@ -866,7 +1113,7 @@ gU
 St
 bR
 gU
-Bm
+lC
 wB
 wB
 wB
@@ -878,7 +1125,7 @@ wB
 wB
 wB
 wB
-wB
+Jw
 wB
 wB
 wB
@@ -927,27 +1174,27 @@ vi
 vi
 "}
 (8,1,1) = {"
-Fo
-Fo
-Fo
-oA
-mf
-mf
-oA
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
+mN
+mN
+mN
+rt
+Lu
+Lu
+rt
+pS
+Lu
+Lu
+Lu
+Lu
+Lu
+Lu
+Lu
+Lu
+Lu
+Lu
+Lu
+Lu
+Go
 wB
 gU
 gU
@@ -965,23 +1212,23 @@ Fo
 Fo
 Fo
 oA
-mf
-mf
+Sr
+Sr
 oA
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
+Sr
+Sr
+Sr
+Sr
+Sr
+Sr
+Sr
+Sr
+Sr
+Sr
+Sr
+Sr
+Sr
+dH
 wB
 gU
 YD
@@ -995,27 +1242,27 @@ vi
 vi
 "}
 (10,1,1) = {"
-Fo
-Fo
-Fo
-oA
-mf
-mf
-oA
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
-mf
+HY
+HY
+HY
+Yb
+EJ
+EJ
+Yb
+rz
+EJ
+EJ
+EJ
+EJ
+EJ
+EJ
+EJ
+EJ
+EJ
+EJ
+Sr
+Sr
+dH
 Jc
 gU
 YD
@@ -1047,9 +1294,9 @@ wB
 wB
 wB
 wB
-mf
-mf
-mf
+Wc
+Sr
+dH
 wB
 gU
 YD
@@ -1070,7 +1317,7 @@ gU
 St
 DL
 gU
-Bm
+lC
 wB
 wB
 gU
@@ -1081,9 +1328,9 @@ gU
 gU
 wB
 wB
-mf
-mf
-mf
+Wc
+Sr
+dH
 wB
 gU
 Eo
@@ -1102,9 +1349,9 @@ vi
 vi
 gU
 rq
-yx
+tc
 Nc
-mf
+ZT
 wB
 gU
 gU
@@ -1115,9 +1362,9 @@ WS
 gU
 gU
 Rb
-mf
-mf
-mf
+Wc
+Sr
+dH
 wB
 gU
 gU
@@ -1142,21 +1389,21 @@ wB
 Jc
 gU
 Vy
-yx
-yx
-yx
-yx
-yx
+NW
+NW
+NW
+NW
+NW
 xN
-mf
-mf
-mf
-mf
+lI
+TZ
+Sr
+dH
 uO
 gU
 zC
-yx
-Qx
+NW
+wK
 gU
 wB
 gU
@@ -1183,13 +1430,13 @@ mb
 gU
 gU
 Rb
-mf
-mf
-mf
-mf
-Ec
-yx
-yx
+Wc
+Sr
+Lm
+nw
+qa
+NW
+NW
 Td
 gU
 wB
@@ -1217,13 +1464,13 @@ gU
 gU
 wB
 wB
-mf
-mf
-mf
+Wc
+Sr
+dH
 uO
 gU
 gU
-yx
+NW
 FZ
 gU
 wB
@@ -1251,13 +1498,13 @@ wB
 wB
 wB
 wB
-mf
-mf
-mf
+Wc
+Sr
+dH
 wB
 gU
 kO
-yx
+NW
 Jg
 gU
 wB
@@ -1285,13 +1532,13 @@ gU
 gU
 wB
 wB
-mf
-mf
-mf
+Wc
+Sr
+dH
 wB
 gU
 gU
-qa
+Bm
 Gy
 gU
 wB
@@ -1311,21 +1558,21 @@ wB
 gU
 fY
 CW
-Sr
-yx
+kE
+Lu
 CO
-yx
+Lu
 kq
 gU
 wB
 wB
-mf
-mf
-mf
+Wc
+Sr
+dH
 wB
 gU
 kO
-yx
+NW
 aa
 gU
 wB
@@ -1343,23 +1590,23 @@ wB
 wB
 wB
 gU
-mB
+Or
 NW
-yx
+Wc
 Qx
 Qx
-yx
+Sr
 ca
 gU
 gU
 wB
-mf
-mf
-mf
+Wc
+Sr
+dH
 wB
 gU
 gU
-yx
+NW
 zH
 gU
 wB
@@ -1379,21 +1626,21 @@ wB
 gU
 nc
 NW
-yx
+Wc
 Qx
 Qx
 Qx
-yx
+Sr
 fw
 gU
 Rb
-mf
-mf
-mf
+Wc
+Sr
+dH
 wB
 gU
 kO
-yx
+NW
 Rg
 gU
 wB
@@ -1413,21 +1660,21 @@ wB
 gU
 UX
 vQ
-yx
+Wc
 Qx
 Qx
 Qx
-yx
-yx
+Sr
+dH
 tT
-mf
-mf
-mf
-mf
+lI
+Sr
+Sr
+dH
 wB
 gU
 gU
-qa
+Bm
 Yr
 gU
 wB
@@ -1447,17 +1694,17 @@ wB
 gU
 nc
 NW
-yx
+Wc
 Qx
 Qx
 Qx
-yx
+Sr
 qP
 gU
 Rb
-mf
-mf
-mf
+Wc
+Sr
+dH
 wB
 gU
 WG
@@ -1479,19 +1726,19 @@ wB
 wB
 wB
 gU
-fY
+Iq
 NW
-yx
+Wc
 Qx
 Qx
-yx
+Sr
 ca
 gU
 gU
 wB
-mf
-mf
-mf
+ZR
+EJ
+tc
 wB
 gU
 gU
@@ -1515,10 +1762,10 @@ wB
 gU
 mB
 EP
-Sr
-yx
+ZR
+EJ
 aJ
-yx
+EJ
 wC
 gU
 wB

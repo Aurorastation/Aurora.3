@@ -618,6 +618,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
+/obj/structure/hadii_statue,
 /turf/simulated/floor/holofloor/tiled/dark{
 	temperature = 268.15
 	},
