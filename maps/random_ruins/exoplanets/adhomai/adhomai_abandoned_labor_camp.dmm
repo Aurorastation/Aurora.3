@@ -225,7 +225,9 @@
 	},
 /area/exoplanet/adhomai)
 "ov" = (
-/obj/structure/hadii_statue/stone,
+/obj/structure/hadii_statue/stone{
+	outside = 1
+	},
 /obj/effect/floor_decal/concrete/large/full,
 /turf/simulated/floor/concrete{
 	temperature = 268.15

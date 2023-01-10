@@ -1,0 +1,96 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"c" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"i" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"o" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"s" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"u" = (
+/obj/structure/hadii_statue/stone{
+	already_toppled = 1
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"x" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"J" = (
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"K" = (
+/obj/effect/floor_decal/concrete/large,
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"N" = (
+/obj/item/reagent_containers/food/snacks/grown/mtear,
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"P" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+"T" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/adhomai)
+
+(1,1,1) = {"
+P
+c
+c
+c
+K
+"}
+(2,1,1) = {"
+o
+J
+J
+N
+s
+"}
+(3,1,1) = {"
+o
+J
+u
+J
+s
+"}
+(4,1,1) = {"
+o
+J
+J
+N
+s
+"}
+(5,1,1) = {"
+i
+x
+x
+x
+T
+"}

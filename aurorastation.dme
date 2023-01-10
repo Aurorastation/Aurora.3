@@ -3258,6 +3258,8 @@
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_chemical_testing.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_hunting.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_minefield.dm"
+#include "maps\random_ruins\exoplanets\adhomai\adhomai_president_hadii_statue.dm"
+#include "maps\random_ruins\exoplanets\adhomai\adhomai_president_hadii_statue_toppled.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_raskara_ritual.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_raskariim_hideout.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_village.dm"
