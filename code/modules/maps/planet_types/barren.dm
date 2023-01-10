@@ -10,8 +10,11 @@
 	features_budget = 6
 	surface_color = "#807d7a"
 	water_color = null
-	possible_random_ruins = list(/datum/map_template/ruin/exoplanet/abandoned_mining, /datum/map_template/ruin/exoplanet/hideout, /datum/map_template/ruin/exoplanet/crashed_shuttle_01)
-
+	possible_random_ruins = list(
+		/datum/map_template/ruin/exoplanet/abandoned_mining, 
+		/datum/map_template/ruin/exoplanet/hideout, 
+		/datum/map_template/ruin/exoplanet/crashed_shuttle_01)
+ 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/generate_habitability()
 	return HABITABILITY_BAD
 

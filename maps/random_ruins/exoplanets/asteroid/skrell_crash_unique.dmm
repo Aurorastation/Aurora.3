@@ -1,0 +1,1943 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
+"ab" = (
+/turf/simulated/open/airless,
+/area/mine/unexplored)
+"ac" = (
+/obj/structure/window/shuttle/skrell,
+/obj/structure/grille/diagonal{
+	icon_state = "grille_diagonal";
+	dir = 8
+	},
+/turf/simulated/open/airless,
+/area/dungeon/skrell_ship)
+"ad" = (
+/obj/structure/window/shuttle/skrell,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/dungeon/skrell_ship)
+"ae" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"af" = (
+/obj/structure/grille/broken,
+/obj/item/stack/rods,
+/obj/item/material/shard/phoron,
+/turf/simulated/floor/plating,
+/area/dungeon/skrell_ship)
+"ag" = (
+/obj/structure/window/shuttle/skrell,
+/obj/structure/grille/diagonal,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"ah" = (
+/obj/structure/bed/stool/chair/office/hover{
+	icon_state = "hover_chair";
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"ai" = (
+/obj/structure/grille,
+/obj/item/material/shard/phoron,
+/turf/simulated/floor/plating,
+/area/dungeon/skrell_ship)
+"aj" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"al" = (
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"am" = (
+/obj/structure/windoor_assembly{
+	dir = 2;
+	icon_state = "l_windoor_assembly01";
+	name = "Command Copula"
+	},
+/turf/simulated/floor/shuttle/skrell/ramp,
+/area/dungeon/skrell_ship)
+"an" = (
+/obj/structure/window/shuttle/skrell,
+/obj/structure/grille/diagonal{
+	icon_state = "grille_diagonal";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"ao" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/skrell,
+/obj/item/paper_scanner,
+/obj/item/pen/black,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"ap" = (
+/turf/simulated/wall/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"aq" = (
+/obj/structure/window/shuttle/skrell,
+/obj/structure/grille/diagonal{
+	icon_state = "grille_diagonal";
+	dir = 1
+	},
+/turf/simulated/open/airless,
+/area/dungeon/skrell_ship)
+"ar" = (
+/obj/structure/table/skrell,
+/obj/item/reagent_containers/food/snacks/skrellsnacks,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"as" = (
+/obj/structure/bed/roller/hover,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"at" = (
+/obj/structure/table/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"au" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/skrell,
+/obj/item/skrell_projector,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"av" = (
+/obj/structure/bed/stool/chair/office/hover/command{
+	icon_state = "hover_command";
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"aw" = (
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/obj/effect/decal/cleanable/blood/tracks/footprints{
+	basecolor = "#0081CD"
+	},
+/obj/effect/decal/remains/human,
+/obj/item/clothing/mask/breath/skrell,
+/obj/item/clothing/under/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"ax" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/skrell,
+/obj/item/stack/rods,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"ay" = (
+/obj/effect/decal/cleanable/blood/tracks/footprints{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"az" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"aA" = (
+/obj/machinery/bodyscanner,
+/turf/simulated/floor/tiled,
+/area/dungeon/skrell_ship)
+"aB" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Bridge"
+	},
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"aC" = (
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"aD" = (
+/obj/structure/blocker/steel,
+/obj/structure/door_assembly/door_assembly_skrell{
+	name = "Bridge"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"aE" = (
+/obj/item/device/breath_analyzer,
+/obj/item/surgery/scalpel,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"aF" = (
+/obj/machinery/body_scanconsole{
+	icon_state = "body_scannerconsole";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/item/storage/firstaid/surgery,
+/turf/simulated/floor/tiled,
+/area/dungeon/skrell_ship)
+"aG" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"aH" = (
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"aI" = (
+/obj/effect/decal/cleanable/blood/tracks/footprints{
+	basecolor = "#0081CD"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"aJ" = (
+/obj/machinery/light/skrell,
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"aK" = (
+/obj/structure/blocker/steel,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"aL" = (
+/obj/item/reagent_containers/food/snacks/skrellsnacks,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"aM" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"aN" = (
+/obj/machinery/bioprinter,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"aO" = (
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"aP" = (
+/obj/structure/table/skrell,
+/obj/item/roller/hover,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"aQ" = (
+/obj/item/device/flashlight/pen,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"aR" = (
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"aS" = (
+/obj/item/stack/rods,
+/obj/structure/grille/broken,
+/obj/item/material/shard/phoron,
+/turf/simulated/floor/plating,
+/area/dungeon/skrell_ship)
+"aT" = (
+/obj/item/material/shard/phoron{
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"aU" = (
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"aV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/skrell_ship)
+"aW" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/obj/item/reagent_containers/blood/empty,
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"aY" = (
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"aZ" = (
+/obj/structure/closet/walllocker/medical{
+	desc = "It's wall-mounted storage unit for medical supplies. It has almost come off its mounts.";
+	name = "Dilapitated medical closet";
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"ba" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/skrell,
+/obj/item/material/shard/phoron,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"bb" = (
+/obj/machinery/door/airlock/skrell/grey,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"bc" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Cryogenics"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"bd" = (
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"be" = (
+/obj/effect/decal/cleanable/blood/tracks/footprints,
+/obj/item/stack/material/steel,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"bf" = (
+/obj/machinery/porta_turret/pulse,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"bg" = (
+/obj/structure/table/skrell,
+/obj/item/device/flashlight/heavy,
+/obj/machinery/cell_charger,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"bh" = (
+/obj/item/storage/box/gloves,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "loadingarea";
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/skrell_ship)
+"bi" = (
+/obj/machinery/porta_turret_construct/dark,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"bj" = (
+/obj/item/stack/material/plasteel,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"bk" = (
+/obj/structure/closet/firecloset/full,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"bl" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"bm" = (
+/obj/structure/closet/radiation,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"bn" = (
+/obj/structure/closet/toolcloset,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"bo" = (
+/obj/machinery/constructable_frame/machine_frame,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"bp" = (
+/obj/item/storage/box/freezer/organcooler,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"bq" = (
+/obj/machinery/autolathe,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"br" = (
+/obj/structure/closet/secure_closet/engineering_welding,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"bs" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"bt" = (
+/obj/structure/closet/skrell,
+/obj/item/clothing/ears/skrell/band/bluejewels,
+/obj/item/clothing/head/helmet/space/void/skrell/white,
+/obj/item/clothing/mask/breath/skrell,
+/obj/item/clothing/suit/space/void/skrell/white,
+/obj/item/clothing/under/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"bu" = (
+/obj/structure/shuttle/engine/heater{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"bv" = (
+/obj/structure/table/skrell,
+/obj/item/storage/box/sharps,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"bw" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Medbay"
+	},
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"by" = (
+/obj/structure/table/skrell,
+/obj/item/nralakktag,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"bz" = (
+/obj/structure/closet/skrell,
+/obj/machinery/light/skrell,
+/obj/item/clothing/ears/skrell/band/ebony,
+/obj/item/clothing/head/helmet/space/void/skrell/black,
+/obj/item/clothing/mask/breath/skrell,
+/obj/item/clothing/suit/space/void/skrell/black,
+/obj/item/clothing/under/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"bA" = (
+/obj/effect/decal/cleanable/blood/tracks/footprints,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"bB" = (
+/obj/machinery/cryopod,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"bC" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Medbay"
+	},
+/obj/item/landmine/emp{
+	deployed = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"bD" = (
+/obj/structure/blocker/steel,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"bE" = (
+/obj/structure/table/skrell,
+/obj/machinery/light/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"bF" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/item/material/shard/phoron,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"bG" = (
+/obj/item/device/t_scanner,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"bH" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/skrell_ship)
+"bI" = (
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"bJ" = (
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/obj/effect/decal/cleanable/blood/tracks/footprints{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"bK" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"bL" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "loadingarea";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/bed/roller/hover,
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/obj/effect/decal/remains/human{
+	desc = "They look like skrell remains. They have a strange aura about them."
+	},
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/obj/item/clothing/under/skrell/qeblak,
+/turf/simulated/floor/tiled,
+/area/dungeon/skrell_ship)
+"bN" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Cryogenics"
+	},
+/obj/item/landmine/emp{
+	deployed = 1
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"bO" = (
+/obj/machinery/door/airlock/skrell/grey,
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"bP" = (
+/obj/structure/bed/stool/chair/office/hover,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"bR" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/skrell,
+/turf/simulated/floor/plating,
+/area/dungeon/skrell_ship)
+"bS" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"bT" = (
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/skrell_ship)
+"bU" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/organ/internal/brain/skrell,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"bV" = (
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"bW" = (
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"bX" = (
+/obj/structure/blocker/steel,
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"bY" = (
+/obj/structure/table/skrell,
+/obj/item/device/healthanalyzer,
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"bZ" = (
+/obj/structure/table/skrell,
+/obj/item/device/mass_spectrometer/adv,
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"ca" = (
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"cb" = (
+/obj/effect/decal/cleanable/blood/tracks/footprints{
+	basecolor = "#0081CD"
+	},
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"cc" = (
+/obj/item/reagent_containers/blood/ripped,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/light/skrell,
+/turf/simulated/floor/tiled,
+/area/dungeon/skrell_ship)
+"cd" = (
+/obj/item/clothing/head/helmet/space/void/skrell/white,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"ce" = (
+/obj/structure/sign/flag/nralakk/left{
+	bound_y = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"cf" = (
+/obj/structure/table/skrell,
+/obj/item/reagent_containers/food/snacks/skrellsnacks,
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"cg" = (
+/obj/machinery/porta_turret/pulse,
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"ch" = (
+/obj/machinery/porta_turret/pulse,
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"ci" = (
+/obj/structure/girder/displaced,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"ck" = (
+/obj/effect/decal/cleanable/blood/xeno,
+/obj/effect/decal/remains/xeno,
+/obj/item/clothing/under/gearharness,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"cl" = (
+/obj/structure/sign/flag/nralakk/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"cm" = (
+/obj/structure/cryofeed{
+	icon_state = "cryo_rear";
+	dir = 2
+	},
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/obj/structure/sign/flag/nralakk{
+	pixel_y = 32
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"co" = (
+/obj/structure/table/skrell,
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/obj/item/trash/semki,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"cp" = (
+/obj/item/clothing/head/helmet/space/void/skrell/black,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"cq" = (
+/obj/structure/table/reinforced/steel{
+	dir = 8;
+	flipped = 1
+	},
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"cr" = (
+/obj/effect/decal/remains/human{
+	desc = "They look like skrell remains. They have a strange aura about them."
+	},
+/obj/item/clothing/under/skrell,
+/obj/item/clothing/suit/space/void/skrell/black,
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"cs" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"ct" = (
+/obj/item/trash/plate,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"cu" = (
+/obj/structure/table/skrell,
+/obj/item/trash/skrellsnacks,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"cv" = (
+/obj/structure/table/skrell,
+/obj/item/trash/snack_bowl,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"cw" = (
+/obj/structure/door_assembly/door_assembly_skrell{
+	name = "Cryogenics"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"cx" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"cy" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Cryogenics"
+	},
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"cz" = (
+/turf/simulated/wall/shuttle/skrell/cardinal,
+/area/dungeon/skrell_ship)
+"cA" = (
+/obj/effect/decal/remains/human,
+/obj/effect/decal/cleanable/blood/tracks/footprints,
+/obj/item/clothing/under/offworlder,
+/obj/random/weapon_and_ammo{
+	chosen_rarity = "Common"
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"cB" = (
+/obj/item/storage/firstaid/adv,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"cC" = (
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/obj/effect/decal/remains/human{
+	desc = "They look like skrell remains. They have a strange aura about them."
+	},
+/obj/item/clothing/under/skrell,
+/obj/item/clothing/suit/space/void/skrell/white,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"cD" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"cH" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"cI" = (
+/obj/item/storage/firstaid,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+"cJ" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/item/plastique,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"cK" = (
+/obj/item/storage/firstaid/fire,
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"cL" = (
+/obj/item/weldingtool/largetank,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"cM" = (
+/obj/item/stack/material/steel,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"cN" = (
+/obj/machinery/door/airlock/skrell/grey{
+	locked = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"cO" = (
+/obj/structure/girder,
+/turf/simulated/floor/plating,
+/area/dungeon/skrell_ship)
+"cP" = (
+/obj/item/stack/material/steel,
+/turf/simulated/floor/plating,
+/area/dungeon/skrell_ship)
+"cQ" = (
+/obj/item/stack/material/plasteel,
+/obj/item/powerdrill,
+/obj/item/landmine/frag{
+	deployed = 1;
+	layer = 2
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
+"fS" = (
+/obj/machinery/light/skrell,
+/turf/simulated/floor/shuttle/skrell,
+/area/dungeon/skrell_ship)
+"OB" = (
+/obj/structure/closet/skrell,
+/obj/random/weapon_and_ammo,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/dungeon/skrell_ship)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+ap
+ad
+cD
+ad
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ap
+ca
+cC
+aR
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ap
+ap
+ap
+ap
+ap
+aS
+cD
+ad
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ap
+ce
+bW
+cd
+aM
+aT
+aH
+aH
+bb
+aH
+cg
+aH
+bO
+aH
+aH
+fS
+ap
+bg
+ap
+ap
+aa
+aa
+"}
+(8,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ap
+cl
+ck
+aL
+cA
+aH
+cb
+aH
+ap
+aH
+aH
+aH
+ap
+aH
+aH
+aH
+cN
+aR
+bl
+cH
+aa
+aa
+"}
+(9,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ap
+ad
+ad
+ap
+aK
+aK
+cz
+cz
+bw
+ap
+ap
+ap
+ap
+bN
+ap
+ap
+ap
+aH
+aH
+ap
+aR
+ap
+ap
+aa
+aa
+"}
+(10,1,1) = {"
+ab
+ab
+ab
+ac
+ad
+ad
+ap
+ap
+bt
+bz
+ap
+bV
+aH
+cz
+aN
+aC
+aZ
+ap
+bK
+co
+bD
+al
+at
+ap
+bV
+bf
+ap
+ca
+bm
+ap
+aa
+aa
+"}
+(11,1,1) = {"
+ab
+ab
+ab
+ad
+ae
+ah
+aO
+al
+al
+al
+aB
+aH
+bf
+ap
+bY
+aG
+aC
+ap
+al
+al
+al
+al
+al
+ap
+bA
+aH
+ap
+aR
+bn
+ap
+ap
+aa
+"}
+(12,1,1) = {"
+ab
+ab
+ac
+ag
+ae
+ah
+al
+al
+al
+ap
+ap
+ap
+ap
+ap
+aP
+aG
+bp
+cz
+cz
+al
+al
+ct
+al
+cy
+bA
+aH
+ap
+aR
+bo
+bl
+cH
+aa
+"}
+(13,1,1) = {"
+ab
+ab
+af
+ax
+ao
+bF
+al
+aw
+al
+ap
+aA
+aF
+aQ
+aC
+aU
+aG
+bh
+bT
+ap
+bB
+al
+bP
+cu
+ap
+be
+aH
+cO
+cx
+bj
+bl
+cH
+aa
+"}
+(14,1,1) = {"
+ab
+ab
+ai
+aj
+av
+aH
+am
+ay
+aJ
+ap
+bL
+aV
+aG
+aC
+aC
+aC
+bH
+cc
+ap
+cm
+cq
+bP
+bE
+ap
+aH
+cL
+cP
+cQ
+cJ
+bu
+ap
+aa
+"}
+(15,1,1) = {"
+ab
+ab
+ad
+ba
+au
+az
+al
+aI
+al
+ap
+aE
+aW
+aC
+bU
+as
+aC
+bS
+aC
+ap
+bK
+cs
+bP
+cv
+ap
+ci
+cM
+ap
+aR
+cK
+bl
+cH
+aa
+"}
+(16,1,1) = {"
+ab
+ab
+aq
+an
+ae
+ah
+al
+ay
+ay
+ap
+ap
+ap
+ap
+ap
+by
+aC
+cB
+cz
+cz
+cp
+al
+cs
+al
+cw
+aH
+aH
+ap
+aR
+bq
+bl
+cH
+aa
+"}
+(17,1,1) = {"
+ab
+ab
+ab
+bR
+ae
+ah
+aY
+al
+aI
+bJ
+aD
+aH
+bi
+ap
+bZ
+aG
+aC
+ap
+al
+al
+cr
+cI
+OB
+ap
+aH
+aH
+ap
+aR
+br
+ap
+ap
+aa
+"}
+(18,1,1) = {"
+ab
+ab
+ab
+aq
+ad
+ad
+ap
+ap
+ar
+bE
+ap
+bV
+aH
+cz
+bv
+aC
+aZ
+ap
+bB
+cf
+al
+al
+at
+ap
+bV
+bf
+ap
+ca
+bs
+ap
+aa
+aa
+"}
+(19,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ap
+ad
+ad
+ap
+aH
+aK
+cz
+cz
+bC
+ap
+ap
+ap
+ap
+bc
+ap
+ap
+ap
+aH
+aH
+ap
+bG
+ap
+ap
+aa
+aa
+"}
+(20,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ap
+ce
+bd
+aH
+aH
+aH
+bW
+aH
+ap
+aH
+aH
+aH
+ap
+aH
+aH
+aH
+cN
+aR
+bl
+cH
+aa
+aa
+"}
+(21,1,1) = {"
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ap
+cl
+bX
+aH
+aH
+aH
+aH
+aH
+bb
+aH
+ch
+aH
+bb
+aH
+bd
+fS
+ap
+bk
+ap
+ap
+aa
+aa
+"}
+(22,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ap
+ap
+ap
+ap
+ap
+ad
+cD
+ad
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ap
+ca
+bI
+aR
+ap
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ap
+ad
+cD
+ad
+ap
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+ab
+aa
+aa
+aa
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+aa
+aa
+aa
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+aa
+aa
+"}
