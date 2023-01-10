@@ -12,10 +12,10 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	var/tmp/list/processing_holders = list()
 	var/list/codex_data = list()
 	var/list/codex_ignored_reaction_path = list(/datum/chemical_reaction/slime)
-	var/list/codex_ignored_result_path = list(/decl/reagent/drink, /decl/reagent/alcohol)
+	var/list/codex_ignored_result_path = list(/singleton/reagent/drink, /singleton/reagent/alcohol)
 
 /datum/controller/subsystem/chemistry/proc/has_valid_specific_heat(var/_R) //Used for unit tests. Same as check_specific_heat but returns a boolean instead.
-	var/decl/reagent/R = decls_repository.get_decl(_R)
+	var/singleton/reagent/R = GET_SINGLETON(_R)
 	if(R.specific_heat > 0)
 		return TRUE
 
@@ -35,7 +35,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			return FALSE
 
 /datum/controller/subsystem/chemistry/proc/check_specific_heat(var/_R)
-	var/decl/reagent/R = decls_repository.get_decl(_R)
+	var/singleton/reagent/R = GET_SINGLETON(_R)
 	if(R.specific_heat > 0)
 		return R.specific_heat
 
@@ -73,7 +73,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			return CR
 
 /datum/controller/subsystem/chemistry/proc/initialize_specific_heats()
-	for(var/_R in subtypesof(/decl/reagent/))
+	for(var/_R in subtypesof(/singleton/reagent/))
 		check_specific_heat(_R)
 
 /datum/controller/subsystem/chemistry/stat_entry()
@@ -140,7 +140,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		cc.id = chemconfig[chemical]["id"]
 		cc.result = text2path(chemconfig[chemical]["result"])
 		cc.result_amount = chemconfig[chemical]["resultamount"]
-		if(!ispath(cc.result, /decl/reagent))
+		if(!ispath(cc.result, /singleton/reagent))
 			log_debug("SSchemistry: Warning: Invalid result [cc.result] in [cc.name] reactions list.")
 			qdel(cc)
 			break
@@ -148,7 +148,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		for(var/key in chemconfig[chemical]["required_reagents"])
 			var/result_chem = text2path(key)
 			LAZYSET(cc.required_reagents, result_chem, chemconfig[chemical]["required_reagents"][key])
-			if(!ispath(result_chem, /decl/reagent))
+			if(!ispath(result_chem, /singleton/reagent))
 				log_debug("SSchemistry: Warning: Invalid chemical [key] in [cc.name] required reagents list.")
 				qdel(cc)
 				break
@@ -162,7 +162,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 //Chemical Reactions - Initialises all /datum/chemical_reaction into a list
 // It is filtered into multiple lists within a list.
 // For example:
-// chemical_reaction_list[/decl/reagent/toxin/phoron] is a list of all reactions relating to phoron
+// chemical_reaction_list[/singleton/reagent/toxin/phoron] is a list of all reactions relating to phoron
 // Note that entries in the list are NOT duplicated. So if a reaction pertains to
 // more than one chemical it will still only appear in only one of the sublists.
 /datum/controller/subsystem/chemistry/proc/initialize_chemical_reactions()
@@ -190,7 +190,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			continue
 		if(codex_ignored_result_path && is_path_in_list(CR.result, codex_ignored_result_path))
 			continue
-		var/decl/reagent/R = decls_repository.get_decl(CR.result)
+		var/singleton/reagent/R = GET_SINGLETON(CR.result)
 		var/reactionData = list(id = CR.id)
 		reactionData["result"] = list(
 			name = R.name,
@@ -200,7 +200,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 		reactionData["reagents"] = list()
 		for(var/reagent in CR.required_reagents)
-			var/decl/reagent/required_reagent = reagent
+			var/singleton/reagent/required_reagent = reagent
 			reactionData["reagents"] += list(list(
 				name = initial(required_reagent.name),
 				amount = CR.required_reagents[reagent]
@@ -208,7 +208,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 		reactionData["catalysts"] = list()
 		for(var/reagent_path in CR.catalysts)
-			var/decl/reagent/required_reagent = reagent_path
+			var/singleton/reagent/required_reagent = reagent_path
 			reactionData["catalysts"] += list(list(
 				name = initial(required_reagent.name),
 				amount = CR.catalysts[reagent_path]
@@ -216,7 +216,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 		reactionData["inhibitors"] = list()
 		for(var/reagent_path in CR.inhibitors)
-			var/decl/reagent/required_reagent = reagent_path
+			var/singleton/reagent/required_reagent = reagent_path
 			var/inhibitor_amount = CR.inhibitors[reagent_path] ? CR.inhibitors[reagent_path] : "Any"
 			reactionData["inhibitors"] += list(list(
 				name = initial(required_reagent.name),

@@ -704,9 +704,9 @@
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
 		handle_trace_chems()
-	if(vessel && (/decl/reagent/blood in vessel.reagent_data))
+	if(vessel && (/singleton/reagent/blood in vessel.reagent_data))
 		// update the trace chems in our blood vessels
-		var/decl/reagent/blood/B = decls_repository.get_decl(/decl/reagent/blood)
+		var/singleton/reagent/blood/B = GET_SINGLETON(/singleton/reagent/blood)
 		B.handle_trace_chems(vessel)
 
 	for(var/_R in chem_doses)

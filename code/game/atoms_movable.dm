@@ -17,7 +17,7 @@
 	var/throw_speed = 2
 	var/throw_range = 7
 	var/moved_recently = 0
-	var/mob/pulledby = null
+	var/atom/movable/pulledby = null
 	var/item_state = null // Base name of the image used for when the item is in someone's hand. Suffixes are added to this. Doubles as legacy overlay_state.
 	var/overlay_state = null // Base name of the image used for when the item is worn. Suffixes are added to this. Important for icon flipping as _flip is added at the end of the value.
 	//Also used on holdable mobs for the same info related to their held version
@@ -53,9 +53,10 @@
 		qdel(AM)
 	loc = null
 	screen_loc = null
-	if (pulledby)
-		if (pulledby.pulling == src)
-			pulledby.pulling = null
+	if(ismob(pulledby))
+		var/mob/M = pulledby
+		if(M.pulling == src)
+			M.pulling = null
 		pulledby = null
 
 	if (bound_overlay)
@@ -336,7 +337,7 @@
 	. = ..()
 	if (.)
 		// Events.
-		if (moved_event.listeners_assoc[src])
+		if (moved_event.global_listeners[src])
 			moved_event.raise_event(src, old_loc, loc)
 
 		// Lighting.

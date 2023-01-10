@@ -10,7 +10,7 @@
 	var/health
 	var/burn_point
 	var/burning
-	var/hitsound = /decl/sound_category/swing_hit_sound//generic hit sound.
+	var/hitsound = /singleton/sound_category/swing_hit_sound//generic hit sound.
 	var/storage_cost
 	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
@@ -54,9 +54,9 @@
 	///Sound used when equipping the item into a valid slot
 	var/equip_sound = null
 	///Sound uses when picking the item up (into your hands)
-	var/pickup_sound = /decl/sound_category/generic_pickup_sound
+	var/pickup_sound = /singleton/sound_category/generic_pickup_sound
 	///Sound uses when dropping the item, or when its thrown.
-	var/drop_sound = /decl/sound_category/generic_drop_sound // drop sound - this is the default
+	var/drop_sound = /singleton/sound_category/generic_drop_sound // drop sound - this is the default
 
 	var/list/armor
 	var/armor_degradation_speed //How fast armor will degrade, multiplier to blocked damage to get armor damage value.
