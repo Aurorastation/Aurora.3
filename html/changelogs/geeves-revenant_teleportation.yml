@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Revenants can now teleport anywhere they can see with the middle mouse button, as long as there isn't a dense object on the tile. It has a five second cooldown."
