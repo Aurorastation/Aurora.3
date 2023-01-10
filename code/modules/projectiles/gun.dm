@@ -312,7 +312,6 @@
 
 	var/shoot_time = max((burst - 1) * burst_delay, burst_delay)
 	user.setClickCooldown(shoot_time)
-	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
 
 	user.face_atom(target, TRUE)
@@ -362,7 +361,6 @@
 	update_held_icon()
 
 	user.setClickCooldown(max(burst_delay+1, fire_delay))
-	user.setMoveCooldown(move_delay)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)

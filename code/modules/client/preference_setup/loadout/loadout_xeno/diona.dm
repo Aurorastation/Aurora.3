@@ -34,7 +34,15 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/narrows)
-	
+
+/datum/gear/suit/diona/carp
+	display_name = "carp hide poncho"
+	description = "A poncho made up of carp hide."
+	path = /obj/item/clothing/suit/diona/carp
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+
 //skrell shared things
 
 /datum/gear/accessory/capes/diona
@@ -112,7 +120,7 @@
 	if(tag)
 		J.species_tag = tag
 	return J
-	
+
 /datum/gear/uniform/work/diona
 	display_name = "dionae work uniforms"
 	path = /obj/item/clothing/under/skrell/nralakk
@@ -144,7 +152,7 @@
 	outfit["iqi service"] = /obj/item/clothing/under/skrell/nralakk/iqi/service
 	outfit["iqi medical"] = /obj/item/clothing/under/skrell/nralakk/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(outfit)
-	
+
 /datum/gear/suit/jacketdiona/
 	display_name = "dionae work jackets"
 	path = /obj/item/clothing/suit/storage/toggle/skrell
@@ -177,7 +185,7 @@
 	jacket["iqi cargo/service"] = /obj/item/clothing/suit/storage/toggle/skrell/iqi/service
 	jacket["iqi medical"] = /obj/item/clothing/suit/storage/toggle/skrell/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
-	
+
 /datum/gear/accessory/diona/poncho
 	display_name = "dionae skrell poncho"
 	path = /obj/item/clothing/accessory/poncho/skrell
@@ -211,7 +219,7 @@
 	workcloak["oqi cloak"] = /obj/item/clothing/accessory/poncho/shouldercape/cloak/oqi
 	workcloak["iqi cloak"] = /obj/item/clothing/accessory/poncho/shouldercape/cloak/iqi
 	gear_tweaks += new /datum/gear_tweak/path(workcloak)
-	
+
 //unathi shared things
 
 /datum/gear/accessory/sinta_hood/diona
@@ -249,7 +257,7 @@
 	mantles["hide mantle, desert"] = /obj/item/clothing/accessory/poncho/unathimantle
 	mantles["hide mantle, mountain"] = /obj/item/clothing/accessory/poncho/unathimantle/mountain
 	gear_tweaks += new /datum/gear_tweak/path(mantles)
-	
+
 /datum/gear/suit/unathi_robe/diona
 	display_name = "dionae roughspun robe"
 	path = /obj/item/clothing/suit/unathi/robe
@@ -293,7 +301,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	origin_restriction = list(/singleton/origin_item/origin/dionae_wasteland)
 	sort_category = "Xenowear - Diona"
-	
+
 /datum/gear/uniform/diona/zozo
 	display_name = "dionae zozo top"
 	path = /obj/item/clothing/under/unathi/zozo
