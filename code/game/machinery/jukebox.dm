@@ -201,7 +201,7 @@ datum/track/New(var/title_name, var/audio)
 	if(!current_track)
 		return
 
-	token = sound_player.PlayLoopingSound(src, "jukebox", current_track.sound, 30, 7, 1, prefer_mute = TRUE)
+	token = sound_player.PlayLoopingSound(src, "jukebox", current_track.sound, 30, 7, 1, prefer_mute = TRUE, sound_type = ASFX_MUSIC)
 
 	playing = 1
 	update_use_power(POWER_USE_ACTIVE)

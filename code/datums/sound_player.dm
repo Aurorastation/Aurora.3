@@ -21,11 +21,11 @@ var/singleton/sound_player/sound_player = new()
 
 
 //This can be called if either we're doing whole sound setup ourselves or it will be as part of from-file sound setup
-/singleton/sound_player/proc/PlaySoundDatum(atom/source, sound_id, sound/sound, range, prefer_mute)
+/singleton/sound_player/proc/PlaySoundDatum(atom/source, sound_id, sound/sound, range, prefer_mute, sound_type = ASFX_AMBIENCE)
 	var/token_type = isnum(sound.environment) ? /datum/sound_token : /datum/sound_token/static_environment
-	return new token_type(source, sound_id, sound, range, prefer_mute)
+	return new token_type(source, sound_id, sound, range, prefer_mute, sound_type)
 
-/singleton/sound_player/proc/PlayLoopingSound(atom/source, sound_id, sound, volume, range, falloff = 1, echo, frequency, prefer_mute)
+/singleton/sound_player/proc/PlayLoopingSound(atom/source, sound_id, sound, volume, range, falloff = 1, echo, frequency, prefer_mute, sound_type = ASFX_AMBIENCE)
 	var/sound/S = istype(sound, /sound) ? sound : new(sound)
 	S.environment = 0 // Ensures a 3D effect even if x/y offset happens to be 0 the first time it's played
 	S.volume  = volume
@@ -34,7 +34,7 @@ var/singleton/sound_player/sound_player = new()
 	S.frequency = frequency
 	S.repeat = TRUE
 
-	return PlaySoundDatum(source, sound_id, S, range, prefer_mute)
+	return PlaySoundDatum(source, sound_id, S, range, prefer_mute, sound_type)
 
 /singleton/sound_player/proc/PrivStopSound(datum/sound_token/sound_token)
 	var/channel = sound_token.sound.channel
@@ -82,9 +82,10 @@ var/singleton/sound_player/sound_player = new()
 	var/sound_id       // The associated sound id, used for cleanup
 	var/status = 0     // Paused, muted, running? Global for all listeners
 	var/listener_status// Paused, muted, running? Specific for the given listener.
+	var/sound_type // Type of sound this token is handling, it's set by default (arbitrarily) as ambience, gets set on init with the actual one if specified.
 
 
-/datum/sound_token/New(atom/source, sound_id, sound/sound, range = 4, prefer_mute = FALSE)
+/datum/sound_token/New(atom/source, sound_id, sound/sound, range = 4, prefer_mute = FALSE, sound_type = ASFX_AMBIENCE)
 	..()
 	if(!istype(source))
 		CRASH("Invalid sound source: [log_info_line(source)]")
@@ -100,6 +101,7 @@ var/singleton/sound_player/sound_player = new()
 	src.source      = source
 	src.sound       = sound
 	src.sound_id    = sound_id
+	src.sound_type  = sound_type
 
 	if(sound.repeat) // Non-looping sounds may not reserve a sound channel due to the risk of not hearing when someone forgets to stop the token
 		var/channel = sound_player.PrivGetChannel(src) //Attempt to find a channel
@@ -170,14 +172,16 @@ var/singleton/sound_player/sound_player = new()
 		return
 
 	var/current_listeners = get_hearers_in_view(range, source)
-	var/former_listeners = listeners - current_listeners
 	var/new_listeners = current_listeners - listeners
 
-	for(var/listener in former_listeners)
-		PrivRemoveListener(listener)
+	if(!prefer_mute)
+		var/former_listeners = listeners - current_listeners
+		for(var/listener in former_listeners)
+			PrivRemoveListener(listener)
 
-	for(var/listener in new_listeners)
-		PrivAddListener(listener)
+	for(var/mob/listener as anything in new_listeners)
+		if(listener.client?.prefs.sfx_toggles & sound_type) //Only give the sound token if the listener has the preference for the type of token active
+			PrivAddListener(listener)
 
 	for(var/listener in current_listeners)
 		PrivUpdateListenerLoc(listener)
@@ -243,12 +247,15 @@ var/singleton/sound_player/sound_player = new()
 	for(var/listener in listeners)
 		PrivUpdateListener(listener)
 
-/datum/sound_token/proc/PrivUpdateListener(listener, update_sound = TRUE)
+/datum/sound_token/proc/PrivUpdateListener(mob/listener, update_sound = TRUE)
 	sound.environment = PrivGetEnvironment(listener)
 	sound.status = status|listener_status[listener]
 	if(update_sound)
 		sound.status |= SOUND_UPDATE
-	sound_to(listener, sound)
+	if(listener.client?.prefs.sfx_toggles & sound_type) //Send the sound only if the preference for the type of sound is set, otherwise remove the listener.
+		sound_to(listener, sound)
+	else
+		PrivRemoveListener(listener)
 
 /datum/sound_token/proc/PrivGetEnvironment(listener)
 	var/area/A = get_area(listener)
