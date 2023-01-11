@@ -382,7 +382,7 @@
 
 /turf/simulated/floor/snow/Initialize()
 	. = ..()
-	icon_state = pick("snow[rand(1,12)]","snow0")
+	icon_state = pick("snow[rand(1,2)]","snow0")
 
 /turf/simulated/floor/plating/snow
 	icon = 'icons/turf/snow.dmi'

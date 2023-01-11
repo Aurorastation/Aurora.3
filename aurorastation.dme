@@ -847,6 +847,7 @@
 #include "code\game\objects\effects\decals\crayon.dm"
 #include "code\game\objects\effects\decals\misc.dm"
 #include "code\game\objects\effects\decals\remains.dm"
+#include "code\game\objects\effects\decals\snow.dm"
 #include "code\game\objects\effects\decals\warning_stripes.dm"
 #include "code\game\objects\effects\decals\Cleanable\aliens.dm"
 #include "code\game\objects\effects\decals\Cleanable\fuel.dm"
