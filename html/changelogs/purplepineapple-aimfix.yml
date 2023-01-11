@@ -1,0 +1,6 @@
+author: PurplePineapple
+
+delete-after: True
+
+changes:
+  - tweak: "Aim mode now does not restrict movement, radio, or item use by default. You can set it yourself instead of accidentally shooting people because you forgot."
