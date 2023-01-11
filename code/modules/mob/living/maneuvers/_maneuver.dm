@@ -1,4 +1,4 @@
-/decl/maneuver
+/singleton/maneuver
 	var/name = "unnamed"
 	var/delay = 2 SECONDS
 	var/cooldown = 5 SECONDS
@@ -6,7 +6,7 @@
 	var/reflexive_modifier = 1
 	var/charge_cost = 0 //Charge cost for robot species.
 
-/decl/maneuver/proc/can_be_used_by(var/mob/living/user, var/atom/target, var/silent = FALSE)
+/singleton/maneuver/proc/can_be_used_by(var/mob/living/user, var/atom/target, var/silent = FALSE)
 	if(!istype(user) || !user.can_do_maneuver(src, silent))
 		return FALSE
 	if(user.buckled_to)
@@ -36,10 +36,10 @@
 		return FALSE
 	return TRUE
 
-/decl/maneuver/proc/show_initial_message(var/mob/user, var/atom/target)
+/singleton/maneuver/proc/show_initial_message(var/mob/user, var/atom/target)
 	return
 
-/decl/maneuver/proc/perform(var/mob/living/user, var/atom/target, var/strength, var/reflexively = FALSE)
+/singleton/maneuver/proc/perform(var/mob/living/user, var/atom/target, var/strength, var/reflexively = FALSE)
 	if(can_be_used_by(user, target))
 		if(!reflexively)
 			show_initial_message(user, target)

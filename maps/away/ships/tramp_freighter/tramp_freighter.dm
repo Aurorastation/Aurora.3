@@ -8,7 +8,7 @@
 	id = "tramp_freighter"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freighter_shuttle)
 
-/decl/submap_archetype/tramp_freighter
+/singleton/submap_archetype/tramp_freighter
 	map = "Tramp Freighter"
 	descriptor = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
 

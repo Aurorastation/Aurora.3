@@ -68,7 +68,7 @@
 			if(O.reagents.total_volume < 1)
 				to_chat(user, "The [O] is empty.")
 			else if(O.reagents.total_volume >= 1)
-				if(O.reagents.has_reagent(/decl/reagent/acid/polyacid, 1))
+				if(O.reagents.has_reagent(/singleton/reagent/acid/polyacid, 1))
 					to_chat(user, "The acid chews through the balloon!")
 					O.reagents.splash(user, reagents.total_volume)
 					qdel(src)
@@ -555,8 +555,8 @@
 	icon_state = "katana"
 	item_state = "katana"
 	drop_sound = 'sound/items/drop/gun.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
-	equip_sound = /decl/sound_category/sword_equip_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 5
@@ -1240,7 +1240,7 @@
 
 /obj/item/toy/desk
 	var/on = FALSE
-	var/activation_sound = /decl/sound_category/switch_sound
+	var/activation_sound = /singleton/sound_category/switch_sound
 
 /obj/item/toy/desk/update_icon()
 	if(on)

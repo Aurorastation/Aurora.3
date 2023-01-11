@@ -132,17 +132,17 @@
 		if(can_change(APPEARANCE_CULTURE))
 			var/new_culture_id = href_list["culture"]
 			if(new_culture_id in valid_cultures)
-				var/decl/origin_item/culture/new_culture = valid_cultures[new_culture_id]
+				var/singleton/origin_item/culture/new_culture = valid_cultures[new_culture_id]
 				owner.culture = new_culture
 				if(!(owner.origin in new_culture.possible_origins))
-					owner.origin = decls_repository.get_decl(pick(new_culture.possible_origins))
+					owner.origin = GET_SINGLETON(pick(new_culture.possible_origins))
 				clear_and_generate_data()
 			return 1
 	if(href_list["origin"])
 		if(can_change(APPEARANCE_CULTURE))
 			var/new_origin_id = href_list["origin"]
 			if(new_origin_id in valid_origins)
-				var/decl/origin_item/origin/new_origin = valid_origins[new_origin_id]
+				var/singleton/origin_item/origin/new_origin = valid_origins[new_origin_id]
 				owner.origin = new_origin
 				if(!(owner.accent in new_origin.possible_accents))
 					owner.accent = new_origin.possible_accents[1]
@@ -302,11 +302,11 @@
 		valid_facial_hairstyles = owner.generate_valid_facial_hairstyles()
 	if(!length(valid_cultures))
 		for(var/culture in owner.species.possible_cultures)
-			var/decl/origin_item/culture/CI = decls_repository.get_decl(culture)
+			var/singleton/origin_item/culture/CI = GET_SINGLETON(culture)
 			valid_cultures[CI.name] = CI
-		var/decl/origin_item/culture/OC = owner.culture
+		var/singleton/origin_item/culture/OC = owner.culture
 		for(var/origin in OC.possible_origins)
-			var/decl/origin_item/origin/OI = decls_repository.get_decl(origin)
+			var/singleton/origin_item/origin/OI = GET_SINGLETON(origin)
 			valid_origins[OI.name] = OI
 		valid_citizenships = owner.origin.possible_citizenships
 		valid_accents = owner.origin.possible_accents

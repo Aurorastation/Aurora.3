@@ -9,7 +9,7 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/iac_shuttle)
 
 
-/decl/submap_archetype/iac_rescue_ship
+/singleton/submap_archetype/iac_rescue_ship
 	map = "IAC Rescue Ship"
 	descriptor = "The Sanctuary-class rescue ship is a fast response medical vessel, based in large part off of the Asclepius-class medical transport, a much older and more widespread clinic ship, designed to operate mainly between planets rather than in open space. Most Sanctuary-class hulls are heavily refitted to accomodate for the new conditions in the Wildlands, sporting additional thrusters and a hangar bay, created from what was originally a waiting room. However, it is still limited by its origins, having only the bare minimum of crew and atmospherics facilities, as well as being rather obviously unarmed, often needing to return to port for repairs or supplies."
 

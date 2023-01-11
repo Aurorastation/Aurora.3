@@ -1156,32 +1156,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "akila_jacket"
 	contained_sprite = TRUE
 
-
-/obj/structure/sign/flag/red_coalition
-	name = "Red Coalition flag"
-	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
-	mining colony represented in the center by the alchemical symbol for iron."
-	icon_state = "redcoalition"
-
-/obj/structure/sign/flag/red_coalition/left
-	icon_state = "redcoalition_l"
-
-/obj/structure/sign/flag/red_coalition/right
-	icon_state = "redcoalition_r"
-
-/obj/item/flag/fluff/nikita_flag //Red Coalition Banner - Nikita Yutani - sycmos
-	name = "Red Coalition flag"
-	icon = 'icons/obj/custom_items/nikita_flag.dmi'
-	icon_override = 'icons/obj/custom_items/nikita_flag.dmi'
-	icon_state = "nikita_flag"
-	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
-	mining colony represented in the center by the alchemical symbol for iron."
-	flag_path = "redcoalition"
-
-/obj/item/flag/fluff/nikita_flag/l
-	flag_size = 1
-
-
 /obj/item/voidsuit_modkit/fluff/rajka_suit
 	name = "HEV-3 voidsuit kit"
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a HEV-3 voidsuit."
@@ -1244,7 +1218,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/holoconsole/attack_self(mob/user)
 	if(on && !(world.time < last_sound + sound_delay))
-		playsound(loc, /decl/sound_category/quick_arcade, 60)
+		playsound(loc, /singleton/sound_category/quick_arcade, 60)
 		last_sound = world.time
 		return
 	return ..()
@@ -1331,7 +1305,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	var/obj/item/fluff/holoconsole/H = parent_console.resolve()
 	if(H?.on)
-		playsound(H.loc, /decl/sound_category/quick_arcade, 60)
+		playsound(H.loc, /singleton/sound_category/quick_arcade, 60)
 		last_sound = world.time
 
 /obj/item/fluff/holoconsole_controller/r // Holoconsole - Qoi Liuiq - shestrying
@@ -1943,19 +1917,19 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A piece of handmade taffy, rolled up in a cute spiral!"
 	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
 	icon_state = "orange_taffy"
-	reagents_to_add = list(/decl/reagent/nutriment = 3)
-	reagent_data = list(/decl/reagent/nutriment = list("bittersweetness, insect meat and regret" = 1))
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("bittersweetness, insect meat and regret" = 1))
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/fluff/taffy/pink
 	name = "pink taffy"
 	icon_state = "pink_taffy"
-	reagent_data = list(/decl/reagent/nutriment = list("sweetness and a hint of strawberry" = 1))
+	reagent_data = list(/singleton/reagent/nutriment = list("sweetness and a hint of strawberry" = 1))
 
 /obj/item/reagent_containers/food/snacks/fluff/taffy/blue
 	name = "blue taffy"
 	icon_state = "blue_taffy"
-	reagent_data = list(/decl/reagent/nutriment = list("salty-sweet, tangy taffy" = 1))
+	reagent_data = list(/singleton/reagent/nutriment = list("salty-sweet, tangy taffy" = 1))
 
 
 /obj/item/clothing/suit/storage/fluff/aheke_coat //Hengsha Thermal Coat - Aheke Han'san - hawkington
