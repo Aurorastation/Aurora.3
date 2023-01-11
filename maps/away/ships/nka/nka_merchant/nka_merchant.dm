@@ -41,19 +41,19 @@
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/nka_merchant/nav1
-	name = "Her Majesty's Mercantile Flotilla Ship Navpoint #1"
+	name = "Her Majesty's Mercantile Flotilla Ship Starboard Navpoint #1"
 	landmark_tag = "nav_nka_merchant_ship_1"
 
 /obj/effect/shuttle_landmark/nka_merchant/nav2
-	name = "Her Majesty's Mercantile Flotilla Ship Navpoint #2"
+	name = "Her Majesty's Mercantile Flotilla Ship Port Navpoint #2"
 	landmark_tag = "nav_nka_merchant_ship_2"
 
 /obj/effect/shuttle_landmark/nka_merchant/nav3
-	name = "Her Majesty's Mercantile Flotilla Ship Navpoint #3"
+	name = "Her Majesty's Mercantile Flotilla Ship Fore Navpoint #3"
 	landmark_tag = "nav_nka_merchant_ship_3"
 
 /obj/effect/shuttle_landmark/nka_merchant/nav4
-	name = "Her Majesty's Mercantile Flotilla Ship Navpoint #4"
+	name = "Her Majesty's Mercantile Flotilla Ship Aft Navpoint #4"
 	landmark_tag = "nav_nka_merchant_ship_4"
 
 //shuttle
