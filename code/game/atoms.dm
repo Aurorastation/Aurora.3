@@ -115,6 +115,9 @@
 /atom/proc/emp_act(var/severity)
 	return
 
+/atom/proc/flash_act(intensity, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash)
+	return
+
 /atom/proc/bullet_act(obj/item/projectile/P, def_zone)
 	P.on_hit(src, 0, def_zone)
 	. = 0

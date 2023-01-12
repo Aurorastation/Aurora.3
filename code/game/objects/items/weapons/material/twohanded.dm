@@ -445,8 +445,9 @@
 		playsound(loc, 'sound/weapons/saw/chainsawloop2.ogg', 25, 0, 30)
 		if(prob(75))
 			spark(src, 3, alldirs)
-			if(prob(25))
-				eyecheck(2,loc)
+			if(prob(25) && isliving(loc))
+				if(loc.flash_act())
+					to_chat(loc, SPAN_DANGER("Some stray sparks fly into your eyes!"))
 	else
 		playsound(loc, 'sound/weapons/saw/chainsawloop1.ogg', 25, 0, 30)
 
@@ -478,20 +479,6 @@
 			playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
 			RemoveFuel(3)
 	. = ..()
-
-/obj/item/material/twohanded/chainsaw/proc/eyecheck(var/multiplier, mob/living/carbon/human/H as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
-
-	if (!istype(H) || H.status_flags & GODMODE)
-		return
-
-	var/obj/item/organ/internal/eyes/E = H.get_eyes()
-	if(!istype(E))
-		return
-
-	var/eye_damage = max(0, (2 - H.eyecheck())*multiplier )
-	E.damage += eye_damage
-	if(eye_damage > 0)
-		to_chat(H, "<span class='danger'>Some stray sparks fly in your eyes!</span>")
 
 /obj/item/material/twohanded/chainsaw/AltClick(mob/user)
 	if(powered)

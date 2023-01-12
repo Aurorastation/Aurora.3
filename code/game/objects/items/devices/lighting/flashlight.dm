@@ -91,8 +91,8 @@
 
 		var/mob/living/carbon/human/H = M	//mob has protective eyewear
 		if(istype(H))
-			if(M:eyecheck())
-				to_chat(user, SPAN_WARNING("You're going to need to remove \The [M]'s eye protection first."))
+			if(H.get_flash_protection())
+				to_chat(user, SPAN_WARNING("You're going to need to remove \the [M]'s eye protection first."))
 				return
 
 			var/obj/item/organ/vision
@@ -127,7 +127,7 @@
 					to_chat(user, SPAN_NOTICE("\The [M]'s pupils narrow."))
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //can be used offensively
-			M.flash_eyes()
+			H.flash_act(length = 1 SECOND)
 	else
 		return ..()
 

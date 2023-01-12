@@ -94,7 +94,7 @@
 /mob/living/announcer/apply_radiation_effects()
 	return FALSE
 
-/mob/living/announcer/flash_eyes()
+/mob/living/announcer/flash_act()
 	return FALSE
 
 /mob/living/announcer/dust()

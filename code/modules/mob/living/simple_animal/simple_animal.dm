@@ -687,7 +687,7 @@
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
-		flash_eyes()
+		flash_act()
 
 	var/damage
 	switch (severity)

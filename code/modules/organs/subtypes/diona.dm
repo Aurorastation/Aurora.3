@@ -177,3 +177,34 @@
 	joint = "structural ligament"
 	amputation_point = "branch"
 	vital = FALSE // Lore team requested this, not vital organ. We can still live without it.
+
+/obj/item/organ/external/head/diona/flash_act(intensity, override_blindness_check, affect_silicon, ignore_inherent, type)
+	if(!owner)
+		return
+
+	var/datum/dionastats/DS = owner.get_dionastats()
+	var/burnthrough = intensity - owner.get_flash_protection(ignore_inherent)
+	if(burnthrough <= 0)
+		return
+
+	DS.stored_energy += 5 * burnthrough
+
+	if(burnthrough == 1)
+		to_chat(owner, SPAN_WARNING("Your light receptors sting."))
+		owner.eye_blurry += rand(5, 10)
+		take_damage(0, rand(1, 2))
+	else if(burnthrough == 2)
+		to_chat(owner, SPAN_WARNING("Your light receptors burn!"))
+		take_damage(0, rand(2, 4))
+	else if(burnthrough >= 3)
+		to_chat(owner, SPAN_DANGER("[FONT_HUGE("Your light receptors are burning up!")]"))
+		take_damage(0, rand(4, max_damage / 5))
+
+	if(burnthrough > 1)
+		owner.Weaken(5 * (burnthrough - 1))
+		if(!(owner.disabilities & NEARSIGHTED))
+			to_chat(owner, SPAN_DANGER("It's getting harder to see!"))
+			owner.disabilities |= NEARSIGHTED
+			addtimer(CALLBACK(owner, /mob/proc/remove_nearsighted), 10 SECONDS)
+
+	return TRUE
