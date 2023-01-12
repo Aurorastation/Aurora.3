@@ -1,6 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - bugfix: "Moved the reef ponytail's right side view down a pixel, to make it equal to every other Skrell hairstyle"
