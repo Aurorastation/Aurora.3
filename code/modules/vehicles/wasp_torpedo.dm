@@ -21,8 +21,8 @@
 	bike_icon = "torpedo"
 	dir = EAST
 
-	land_speed = 1
-	space_speed = 3
+	land_speed = 3
+	space_speed = 5
 
 	storage_type = null
 
@@ -75,8 +75,8 @@
 	visible_message(SPAN_DANGER ("\The [src] begins to beep omnisouly before charging!"))
 	playsound(get_turf(src), 'sound/items/countdown.ogg', 75, 1, -3)
 	primmed = TRUE
-	land_speed = 1
-	space_speed = 1
+	land_speed = 10
+	space_speed = 10
 	START_PROCESSING(SSprocessing, src)
 
 /obj/vehicle/bike/wasp_torpedo/CtrlShiftClick(var/mob/user)
