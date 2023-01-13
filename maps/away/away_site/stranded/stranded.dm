@@ -7,13 +7,13 @@
 	spawn_cost = 2
 	id = "stranded"
 
-/decl/submap_archetype/stranded
+/singleton/submap_archetype/stranded
 	map = "grove planet with escape pods"
-	descriptor = "Automated emergency distress signals are being emitted from this grove planet. They appear to be coming from two escape pods currently landed there. Scans also indicate irregular bluespace activity within the exosphere. "
+	descriptor = "Automated emergency distress signals are being emitted from this grove planet. They appear to be coming from two escape pods currently landed there. Scans also indicate irregular bluespace activity within the exosphere."
 
 /obj/effect/overmap/visitable/sector/stranded
 	name = "grove planet with escape pods"
-	desc = "Automated emergency distress signals are being emitted from this grove planet. They appear to be coming from two escape pods currently landed there. Scans also indicate irregular bluespace activity within the exosphere. "
+	desc = "Automated emergency distress signals are being emitted from this grove planet. They appear to be coming from two escape pods currently landed there. Scans also indicate irregular bluespace activity within the exosphere."
 
 /area/stranded
 	name="survivor planet"
