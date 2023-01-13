@@ -254,11 +254,11 @@
 		oilwork(J, CI)
 
 	for (var/_R in CI.container.reagents.reagent_volumes)
-		if (ispath(_R, /decl/reagent/nutriment))
+		if (ispath(_R, /singleton/reagent/nutriment))
 			CI.max_cookwork += CI.container.reagents.reagent_volumes[_R] *2//Added reagents contribute less than those in food items due to granular form
 
 			//Nonfat reagents will soak oil
-			if (!ispath(_R, /decl/reagent/nutriment/triglyceride))
+			if (!ispath(_R, /singleton/reagent/nutriment/triglyceride))
 				CI.max_oil += CI.container.reagents.reagent_volumes[_R] * 0.25
 		else
 			CI.max_cookwork += CI.container.reagents.reagent_volumes[_R]
@@ -274,11 +274,11 @@
 	var/work = 0
 	if (istype(S) && S.reagents)
 		for (var/_R in S.reagents.reagent_volumes)
-			if (ispath(_R, /decl/reagent/nutriment))
+			if (ispath(_R, /singleton/reagent/nutriment))
 				work += S.reagents.reagent_volumes[_R] *3//Core nutrients contribute much more than peripheral chemicals
 
 				//Nonfat reagents will soak oil
-				if (!ispath(_R, /decl/reagent/nutriment/triglyceride))
+				if (!ispath(_R, /singleton/reagent/nutriment/triglyceride))
 					CI.max_oil += S.reagents.reagent_volumes[_R] * 0.35
 			else
 				work += S.reagents.reagent_volumes[_R]
@@ -328,7 +328,7 @@
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options
-	var/decl/recipe/recipe = null
+	var/singleton/recipe/recipe = null
 	var/atom/C = null
 	var/appliance
 	if (CI.container && CI.container.appliancetype)
@@ -579,7 +579,7 @@
 	if(ishuman(victim))
 		var/mob/living/carbon/human/CH = victim
 		meat_name = CH.species?.name || meat_name
-	if(ispath(digest_product_type, /decl/reagent/nutriment/protein))
+	if(ispath(digest_product_type, /singleton/reagent/nutriment/protein))
 		data = list("[meat_name] meat" = reagent_amount)
 	result.reagents.add_reagent(digest_product_type, reagent_amount, data)
 

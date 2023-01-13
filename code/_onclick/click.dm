@@ -242,6 +242,11 @@
 		return
 	swap_hand()
 
+/mob/living/carbon/human/MiddleClickOn(var/atom/A)
+	if(species.handle_middle_mouse_click(src, A))
+		return
+	return ..()
+
 // In case of use break glass
 /*
 /atom/proc/MiddleClick(var/mob/M as mob)

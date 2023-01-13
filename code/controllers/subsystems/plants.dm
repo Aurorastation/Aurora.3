@@ -68,10 +68,10 @@
 		while(gene_mask in used_masks)
 			gene_mask = "[uppertext(num2hex(rand(0,255), 0))]"
 
-		var/decl/plantgene/G
+		var/singleton/plantgene/G
 
 		for(var/D in gene_datums)
-			var/decl/plantgene/P = gene_datums[D]
+			var/singleton/plantgene/P = gene_datums[D]
 			if(gene_tag == P.gene_tag)
 				G = P
 				gene_datums -=D
@@ -130,8 +130,8 @@
 		if(seed.consume_gasses)
 			seed.consume_gasses[GAS_PHORON] = null
 			seed.consume_gasses[GAS_CO2] = null
-		if(seed.chems && !isnull(seed.chems[/decl/reagent/acid/polyacid]))
-			seed.chems[/decl/reagent/acid/polyacid] = null // Eating through the hull will make these plants completely inviable, albeit very dangerous.
+		if(seed.chems && !isnull(seed.chems[/singleton/reagent/acid/polyacid]))
+			seed.chems[/singleton/reagent/acid/polyacid] = null // Eating through the hull will make these plants completely inviable, albeit very dangerous.
 			seed.chems -= null // Setting to null does not actually remove the entry, which is weird.
 		seed.set_trait(TRAIT_IDEAL_HEAT,293)
 		seed.set_trait(TRAIT_HEAT_TOLERANCE,20)
