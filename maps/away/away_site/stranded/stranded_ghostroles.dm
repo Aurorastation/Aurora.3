@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/survivor
 	short_name = "survivor"
 	name = "Stranded Survivor"
-	desc = "For whatever reason you can think of, you had to abandon your ship using the escape pods and have been surviving on a desolate grove planet since. Today might just be the day you get rescued, but be wary, you could swear you've been hearing strange noises from past the trees during the nights..."
+	desc = "Whether due to system failures, piracy, or whatever reason you can think of, you had to abandon your ship using the escape pods and have been surviving on a seemingly desolate grove planet since. Today might just be the day you get rescued, but be wary, you could swear you've been hearing strange noises from past the trees during the nights..."
 	tags = list("External")
 
 	spawnpoints = list("survivor")

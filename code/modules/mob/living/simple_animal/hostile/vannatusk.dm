@@ -62,8 +62,8 @@
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
-	maxHealth = 500
-	health = 500
+	maxHealth = 650
+	health = 650
 	harm_intent_damage = 5
 	melee_damage_lower = 30
 	melee_damage_upper = 30
@@ -86,7 +86,7 @@
 
 	blood_type = "#001126"
 
-	speed = 3
+	speed = 1.5
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/vannatusk
 

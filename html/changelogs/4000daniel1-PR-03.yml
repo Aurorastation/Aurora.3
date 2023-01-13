@@ -39,5 +39,6 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Added a new unique grove planet away site for the badlands along with some accompanying ghostroles."
+  - bugfix: "Grove planet ambience now properly stops playing upon leaving the area."
   - tweak: "Greatworm mobs no longer spawn a space tile upon dying."
   - tweak: "Diyaabs can now be butchered for some meat."

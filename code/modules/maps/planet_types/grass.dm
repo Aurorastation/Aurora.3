@@ -48,6 +48,11 @@
 	if(L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
 		L.playsound_to(get_turf(L),sound('sound/ambience/jungle.ogg', repeat = 1, wait = 0, volume = 25, channel = 1))
 
+/area/exoplanet/grass/Exited(var/mob/living/L, atom/newarea)
+	if(!istype(newarea, /area/exoplanet/grass))
+		L << sound(null, channel = 1)
+	..()
+
 /datum/random_map/noise/exoplanet/grass
 	descriptor = "grass exoplanet"
 	smoothing_iterations = 2

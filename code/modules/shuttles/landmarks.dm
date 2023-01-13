@@ -152,6 +152,7 @@
 		icon_state = "bluflare_on"
 		set_light(0.3, 0.1, 6, 2, "85d1ff")
 
+//This one activates away site ghostroles on the z-level.
 /obj/effect/shuttle_landmark/automatic/ghostrole_activation
 	name = "Navpoint"
 	landmark_tag = "navpoint"
