@@ -146,7 +146,7 @@
 
 	for(var/mob/living/L in oviewers(3, get_turf(user)))
 		var/dist_intensity = get_dist(L, user) <= 1 ? FLASH_PROTECTION_MAJOR : FLASH_PROTECTION_MODERATE
-		if(flash(L, intensity = dist_intensity) && prob(50))
+		if(flash(L, _intensity = dist_intensity) && prob(50))
 			L.disable_cloaking_device()
 
 /obj/item/device/flash/emp_act(severity)
@@ -165,7 +165,7 @@
 
 	max_charges = 1
 
-/obj/item/device/flash/synthetic/burnout_check(mob/user, _intensity = 1)
+/obj/item/device/flash/synthetic/burnout_check(mob/user, intensity = 1)
 	. = broken // Single-use
 	if(!broken)
 		burnout(user)
