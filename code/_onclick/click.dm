@@ -202,7 +202,7 @@
 	return
 
 /mob/living/UnarmedAttack(var/atom/A, var/proximity_flag)
-	if(!Master.round_started)
+	if(!(Master.current_runlevel & RUNLEVELS_PLAYING))
 		to_chat(src, "You cannot attack people before the game has started.")
 		return 0
 
