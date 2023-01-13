@@ -82,8 +82,8 @@
 /obj/item/clothing/head/beret/tajaran/pvsm
 	name = "people's volunteer spacer militia beret"
 	desc = "A beret issued to people's volunteer spacer militia."
-	icon_state = "alaberet"
-	item_state = "alaberet"
+	icon_state = "alaberetalt"
+	item_state = "alaberetalt"
 
 /obj/item/clothing/head/beret/tajaran/nka
 	name = "new kingdom naval beret"

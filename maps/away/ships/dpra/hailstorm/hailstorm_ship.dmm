@@ -1,10 +1,40 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ag" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/machinery/power/apc/high{
+	name = "south bump";
+	pixel_y = -24;
+	req_access = list(214)
+	},
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"ai" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/eva)
 "am" = (
 /obj/effect/floor_decal/corner/black/full,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
+"at" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "au" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
@@ -16,34 +46,51 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engineering)
 "ax" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(214);
 	name = "Bridge"
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/bridge)
 "aA" = (
-/obj/machinery/computer/ship/engines{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/black/full{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/machinery/computer/ship/targeting{
+	dir = 1
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/bridge)
 "aC" = (
 /obj/structure/table/wood/gamblingtable,
-/obj/item/deck/cards,
+/obj/item/deck/cards{
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/dpra{
+	pixel_x = -6
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
 "aF" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
@@ -64,16 +111,17 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/eva)
 "aJ" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/white/full{
 	dir = 1
 	},
+/obj/item/device/flashlight/lamp,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/barracks)
 "aN" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/structure/bed/stool/chair/shuttle{
@@ -82,22 +130,22 @@
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "aP" = (
 /obj/machinery/hologram/holopad/long_range,
-/obj/effect/overmap/visitable/ship/landable/nka_merchant_shuttle,
+/obj/effect/overmap/visitable/ship/landable/hailstorm_shuttle,
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "bb" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "nka_merchant_shuttle_out"
+	id_tag = "hailstorm_shuttle_out"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "bc" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1;
@@ -109,7 +157,7 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/bridge)
 "bq" = (
 /obj/machinery/iff_beacon,
 /obj/structure/railing/mapped{
@@ -127,7 +175,7 @@
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "br" = (
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
@@ -136,13 +184,13 @@
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "bs" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "bx" = (
 /obj/item/device/radio,
 /obj/item/device/radio,
@@ -151,30 +199,33 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/structure/table/standard,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/eva)
 "bA" = (
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
 "bF" = (
 /obj/structure/bed/stool/bar/padded/black,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
 "bH" = (
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/barracks)
 "bI" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "bJ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -184,10 +235,11 @@
 /obj/item/reagent_containers/glass/bucket{
 	pixel_y = 10
 	},
+/obj/machinery/light,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/atmospherics)
 "bQ" = (
 /obj/machinery/vending/engivend{
 	req_access = list(214)
@@ -196,34 +248,62 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/atmospherics)
 "bR" = (
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(214);
 	name = "EVA Storage"
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/eva)
 "bS" = (
 /obj/machinery/vending/tool{
 	req_access = list(209)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/firealarm/east,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engineering)
 "bV" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Atmos";
 	req_access = list(214)
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engineering)
 "bX" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -233,25 +313,29 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/atmospherics)
 "ca" = (
 /obj/structure/reagent_dispensers/keg/mead,
 /obj/effect/floor_decal/corner/white{
 	dir = 10
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
 "cc" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/floor_decal/corner/white{
 	dir = 10
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
 "cd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -264,7 +348,7 @@
 	icon_state = "rwindow"
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "ce" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -273,56 +357,102 @@
 	name = "aft, engines"
 	},
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "ck" = (
 /obj/effect/floor_decal/corner/white/full{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
 "co" = (
 /obj/effect/map_effect/window_spawner/reinforced,
 /obj/effect/landmark/entry_point/south{
 	name = "fore, bridge"
 	},
 /turf/simulated/wall/shuttle/space_ship,
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "cr" = (
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engine)
 "cs" = (
-/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engineering)
+"cw" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
 "cH" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/brown,
-/obj/structure/curtain/open/bed,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/tajaran/pvsm,
+/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/accessory/badge/dpra_passport,
+/obj/machinery/alarm/cold{
+	req_one_access = list(214);
+	dir = 8;
+	pixel_x = 32
+	},
 /obj/effect/floor_decal/corner/white/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/barracks)
 "cK" = (
 /obj/machinery/door/airlock{
 	req_access = list(214);
 	name = "Barracks"
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/barracks)
 "cM" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -330,16 +460,36 @@
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "cR" = (
 /obj/machinery/door/airlock{
 	req_access = list(214);
-	name = "Crew Quarters"
+	name = "Crew Section"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
+"cW" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "dd" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/storage/pill_bottle/dice/tajara,
@@ -349,10 +499,13 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
 "de" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 9
@@ -360,16 +513,46 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
+"dk" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"du" = (
+/obj/structure/table/standard,
+/obj/item/device/binoculars,
+/obj/item/clothing/ears/earmuffs,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
 "dE" = (
 /obj/machinery/door/airlock/security{
 	name = "Gun Deck";
 	req_access = list(214)
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "dJ" = (
 /obj/structure/table/rack,
 /obj/item/stack/rods,
@@ -381,8 +564,14 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/wood/full,
 /obj/item/storage/box/lights/bulbs,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/hailstorm_ship/atmospherics)
 "dK" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -397,12 +586,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced{
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "dV" = (
-/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
@@ -410,7 +598,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engineering)
 "dZ" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -422,20 +610,25 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/bridge)
 "ex" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(214);
 	name = "gun cabinet (assault rifle)"
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/automatic/rifle/dpra,
+/obj/item/gun/projectile/automatic/rifle/dpra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/armory)
 "ey" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -445,7 +638,7 @@
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/bridge)
 "eA" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -460,15 +653,27 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced{
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "eB" = (
-/turf/simulated/floor/reinforced{
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "eE" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
@@ -476,10 +681,36 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "hailstorm_crew";
+	name = "igs - hailstorm_crew"
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
+/area/hailstorm_ship/barracks)
+"eJ" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, maintenance"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/atmospherics)
+"eK" = (
+/obj/structure/window/reinforced,
+/turf/template_noop,
 /area/space)
+"eN" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
 "eV" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/window/reinforced{
@@ -488,16 +719,49 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced{
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "fc" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
+"fg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/armory)
+"fi" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(214);
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"fk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/armory)
 "fm" = (
 /obj/effect/floor_decal/corner/black/full{
 	dir = 1
@@ -505,15 +769,24 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
 "fq" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
-/turf/simulated/floor/reinforced{
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/gun_deck)
+"ft" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, crew section"
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/crew)
 "fv" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -521,7 +794,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engineering)
 "fC" = (
 /obj/structure/table/standard,
 /obj/machinery/button/distress{
@@ -535,60 +808,84 @@
 /obj/effect/floor_decal/corner/black/full{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/high{
+	dir = 4;
+	name = "north bump";
+	pixel_x = 24;
+	req_access = list(214)
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/bridge)
 "fD" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
 "fK" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/hailstorm_ship/engineering)
 "fQ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/space)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/gun_deck)
 "gg" = (
-/obj/structure/sign/flag/nka{
+/obj/structure/sign/flag/dpra{
 	pixel_y = 32
 	},
-/obj/machinery/computer/shuttle_control/explore/nka_merchant_shuttle{
+/obj/machinery/computer/shuttle_control/explore/hailstorm_shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "gq" = (
 /obj/machinery/pipedispenser,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/hailstorm_ship/engineering)
 "gw" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "nka_merchant_shuttle_out"
+	id_tag = "hailstorm_dock_doors"
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
+/area/shuttle/hailstorm_shuttle)
+"gD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "gU" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
@@ -603,7 +900,7 @@
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "gY" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -613,7 +910,33 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/atmospherics)
+"hd" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"hE" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/high{
+	dir = 8;
+	pixel_x = -24;
+	req_access = list(214)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
 "hM" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
@@ -625,7 +948,7 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/armory)
 "hV" = (
 /obj/structure/closet/crate,
 /obj/item/storage/box/fancy/cigarettes/dpra,
@@ -645,37 +968,53 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
 "ia" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner/white/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/effect/overmap/visitable/ship/hailstorm_ship,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/bridge)
 "ie" = (
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "ig" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
 "ih" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/tajaran/pvsm,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/obj/structure/curtain/open/bed,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
 /obj/effect/floor_decal/corner/white{
 	dir = 6
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "hailstorm_captain";
+	name = "igs - hailstorm_captain"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/barracks)
 "ij" = (
 /obj/effect/floor_decal/corner/black/full{
 	dir = 4
@@ -683,26 +1022,34 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
 "in" = (
-/obj/effect/shuttle_landmark/nka_merchant/nav2,
-/turf/template_noop,
-/area/space)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/engine)
 "io" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "iq" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(214);
-	name = "gun cabinet (marksman)
+	name = "gun cabinet (marksman)"
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/gun/projectile/dragunov,
+/obj/structure/cable/green,
+/obj/machinery/power/apc/high{
+	name = "south bump";
+	pixel_y = -24;
+	req_access = list(214)
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/armory)
 "iv" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
@@ -711,6 +1058,20 @@
 "iB" = (
 /turf/template_noop,
 /area/space)
+"iK" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/high{
+	name = "south bump";
+	pixel_y = -24;
+	req_access = list(214)
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "iT" = (
 /obj/structure/closet/cabinet,
 /obj/item/storage/box/drinkingglasses,
@@ -729,10 +1090,11 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 10
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
 "iU" = (
 /obj/effect/floor_decal/corner/black/full{
 	dir = 8
@@ -740,7 +1102,7 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
 "iW" = (
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8;
@@ -750,7 +1112,7 @@
 	name = "waste canister"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/hailstorm_ship/engineering)
 "je" = (
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/mop,
@@ -759,7 +1121,7 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
 "jg" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -775,10 +1137,21 @@
 	dir = 4;
 	icon_state = "rwindow"
 	},
-/turf/simulated/floor/reinforced{
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/gun_deck)
+"jk" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
 "jt" = (
 /obj/structure/fuel_port/phoron{
 	pixel_x = -32
@@ -789,7 +1162,7 @@
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "ju" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
@@ -800,23 +1173,66 @@
 	icon_state = "rwindow"
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/hailstorm_ship/gun_deck)
+"jw" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/firealarm/west,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
+"jB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "jE" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/shuttle/hailstorm_shuttle)
+"jG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "jJ" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(214);
 	name = "gun cabinet (assault rifle ammo)"
 	},
+/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/c762/dpra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/armory)
+"jQ" = (
+/obj/structure/bed/stool/bar/padded/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/crew)
 "ke" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 9
@@ -824,21 +1240,36 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
 "kf" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
 	req_access = list(214)
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/armory)
 "kg" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced/airless,
-/area/space)
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "kj" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/field_ration/dpra,
@@ -854,7 +1285,7 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
 "kr" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24
@@ -863,33 +1294,47 @@
 	name = "starboard, crew compartment"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "kw" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 6
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
 "kz" = (
-/obj/effect/shuttle_landmark/nka_merchant/nav1,
-/turf/template_noop,
-/area/space)
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/crew)
 "kA" = (
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical,
+/obj/structure/cable/green,
+/obj/machinery/power/apc/high{
+	name = "south bump";
+	pixel_y = -24;
+	req_access = list(214)
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/eva)
 "kI" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/eva)
 "kO" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -901,18 +1346,21 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/turf/simulated/floor/reinforced{
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "kZ" = (
 /obj/structure/table/standard,
 /obj/item/device/binoculars,
 /obj/item/clothing/ears/earmuffs,
-/turf/simulated/floor/reinforced{
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "la" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -921,7 +1369,30 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engineering)
+"li" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"lj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 6
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "lk" = (
 /obj/machinery/computer/ship/sensors,
 /obj/machinery/alarm/cold{
@@ -937,7 +1408,7 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/bridge)
 "lJ" = (
 /obj/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 4;
@@ -946,7 +1417,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engineering)
 "lR" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(209);
@@ -958,10 +1429,15 @@
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
+/obj/machinery/alarm/cold{
+	req_one_access = list(214);
+	dir = 8;
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/armory)
 "lT" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
@@ -969,7 +1445,7 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "lZ" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(214);
@@ -985,7 +1461,7 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/armory)
 "mg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
@@ -993,40 +1469,98 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engineering)
 "mj" = (
 /obj/structure/closet/secure_closet/engineering_welding{
 	req_access = null;
 	req_one_access = list(113)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/power/apc/high{
+	name = "south bump";
+	pixel_y = -24;
+	req_access = list(214)
+	},
+/obj/structure/cable/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engineering)
 "mk" = (
-/obj/effect/shuttle_landmark/nka_merchant/nav4,
+/obj/effect/shuttle_landmark/nav_hailstorm_ship/nav4,
 /turf/template_noop,
 /area/space)
+"mD" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
 "mG" = (
 /obj/machinery/alarm/cold{
 	req_one_access = list(214);
 	dir = 1;
 	pixel_y = -32
 	},
-/turf/simulated/floor/reinforced{
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/gun_deck)
+"mH" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/engine)
 "mO" = (
 /obj/structure/window/reinforced{
 	dir = 1;
 	icon_state = "rwindow"
 	},
+/obj/effect/shuttle_landmark/hailstorm_shuttle,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
+"nd" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/crew)
+"nj" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engineering)
 "ny" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -1039,17 +1573,41 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "nA" = (
 /obj/structure/grille,
 /turf/template_noop,
 /area/space)
 "nE" = (
 /obj/structure/closet/emcloset,
+/obj/machinery/firealarm/east,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/eva)
+"nV" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/structure/window/reinforced{
+	dir = 4;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "og" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -1060,31 +1618,104 @@
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
 "oh" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Power Room";
 	req_access = list(214)
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
+/area/hailstorm_ship/atmospherics)
+"oF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/crew)
+"oJ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/armory)
+"oO" = (
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/turf/template_noop,
 /area/space)
 "pg" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black/full,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/bridge)
+"ph" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
 "pk" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/atmospherics)
+"pC" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
 "qm" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
@@ -1094,7 +1725,29 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/hailstorm_ship/gun_deck)
+"qy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 6
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"qQ" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/firealarm/east,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
 "rk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -1103,7 +1756,25 @@
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
+"rm" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -25
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
 "rp" = (
 /obj/structure/viewport,
 /obj/machinery/door/blast/regular{
@@ -1112,9 +1783,8 @@
 	icon_state = "pdoor0"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "rq" = (
-/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1122,14 +1792,63 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engineering)
 "rs" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/hailstorm_ship/gun_deck)
+"rH" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/armory)
+"rI" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/bridge)
+"sb" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/atmospherics)
+"sg" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/bridge)
+"sn" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"sC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
 "sX" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
@@ -1141,7 +1860,7 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/armory)
 "tw" = (
 /obj/structure/closet/crate/secure/large,
 /obj/item/stack/material/tritium/full,
@@ -1150,20 +1869,111 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
-"vA" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 5
+/area/hailstorm_ship/atmospherics)
+"tC" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"tE" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
+"tF" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 6
+	},
+/obj/structure/cable/green,
+/obj/machinery/power/apc/high{
+	dir = 4;
+	name = "north bump";
+	pixel_x = 24;
+	req_access = list(214)
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/crew)
+"uW" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/high{
+	dir = 4;
+	name = "north bump";
+	pixel_x = 24;
+	req_access = list(214)
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
+"vA" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock{
+	req_access = list(214);
+	name = "Engine"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"vB" = (
+/obj/effect/floor_decal/corner/black/full,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"vJ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"vU" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "wm" = (
 /obj/machinery/pipedispenser/disposal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/hailstorm_ship/engineering)
 "wt" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/table/rack,
@@ -1171,17 +1981,41 @@
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow/specialt,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/high{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = list(214)
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/hailstorm_ship/atmospherics)
+"wz" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/armory)
 "wQ" = (
-/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(214);
+	dir = 1;
+	pixel_y = -32
+	},
+/obj/machinery/light,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engineering)
 "wT" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
@@ -1194,21 +2028,74 @@
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/armory)
 "xc" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/brown,
-/obj/structure/curtain/open/bed,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/tajaran/pvsm,
+/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/accessory/badge/dpra_passport,
 /obj/effect/floor_decal/corner/white{
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/barracks)
+"xq" = (
+/obj/effect/floor_decal/corner/black/full{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"xQ" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
+"yj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "yr" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
@@ -1225,22 +2112,49 @@
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
+"yx" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/atmospherics)
 "yD" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/hailstorm_ship/gun_deck)
+"yF" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
 "yK" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	id_tag = "nka_merchant_shuttle";
+	id_tag = "hailstorm_shuttle";
 	name = "Port docking controller";
 	pixel_x = 6;
 	pixel_y = 28;
-	tag_door = "nka_merchant_shuttle_out"
+	tag_door = "hailstorm_shuttle_out"
 	},
 /obj/machinery/computer/ship/sensors{
 	dir = 8
@@ -1248,7 +2162,48 @@
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
+"zJ" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"zV" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/barracks)
+"Ax" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"AP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "Bv" = (
 /obj/structure/bed/stool/bar/padded/black,
 /obj/item/sign/painting_frame/harrlala{
@@ -1257,10 +2212,63 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
+"Cy" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/atmospherics)
+"CE" = (
+/obj/structure/sign/flag/dpra/left{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"CG" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, armory"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/armory)
+"CR" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/barracks)
 "Dx" = (
 /obj/structure/sign/flag/dpra/right{
 	pixel_y = 32
@@ -1268,10 +2276,60 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
+"DD" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"DF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/barracks)
+"DM" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/atmospherics)
+"DS" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/eva)
 "DU" = (
 /obj/structure/sign/flag/dpra/left{
 	pixel_y = 32
@@ -1279,10 +2337,26 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
 "Ea" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/tajaran/pvsm,
@@ -1290,16 +2364,20 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
+/obj/item/clothing/accessory/badge/dpra_passport,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/barracks)
 "Ed" = (
 /obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
-	weapon_id = "People's Station Grauwolf Flak Battery";
+	weapon_id = "Hailstorm Port Gun";
 	mobile_platform = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1310,7 +2388,36 @@
 	icon_state = "rwindow"
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/hailstorm_ship/gun_deck)
+"Eh" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
+"Er" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
 "Ew" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -1326,10 +2433,10 @@
 	dir = 4;
 	icon_state = "rwindow"
 	},
-/turf/simulated/floor/reinforced{
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/gun_deck)
 "EC" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 1
@@ -1338,36 +2445,92 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/engineering)
 "EP" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/hailstorm_ship/gun_deck)
+"ES" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/atmospherics)
 "FC" = (
 /obj/machinery/door/airlock{
 	req_access = list(214);
 	name = "Hangar"
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
+/area/hailstorm_ship)
+"FD" = (
+/obj/effect/shuttle_landmark/nav_hailstorm_ship/nav1,
+/turf/template_noop,
 /area/space)
 "FU" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/brown,
-/obj/structure/curtain/open/bed,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/tajaran/pvsm/captain,
+/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/head/beret/tajaran/pvsm,
+/obj/item/clothing/accessory/badge/dpra_passport,
+/obj/machinery/light,
 /obj/effect/floor_decal/corner/white/full,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/barracks)
+"Gu" = (
+/obj/effect/map_effect/airlock/s_to_n/long/square,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/engine)
 "GG" = (
-/obj/effect/shuttle_landmark/nka_merchant/nav3,
+/obj/effect/shuttle_landmark/nav_hailstorm_ship/nav3,
 /turf/template_noop,
 /area/space)
+"GR" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
 "GV" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -1375,50 +2538,249 @@
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
+"Hh" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/eva)
+"Hi" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/hailstorm_shuttle)
+"Hm" = (
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engineering)
 "Hr" = (
 /turf/space/transit/north,
 /area/space)
+"Hs" = (
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "Hu" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
-"IZ" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/tajaran/pvsm,
-/obj/item/clothing/shoes/tajara/jackboots,
-/obj/effect/floor_decal/corner/white{
-	dir = 10
+/area/shuttle/hailstorm_shuttle)
+"Hx" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+	start_pressure = 8000.63
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"HY" = (
+/obj/effect/floor_decal/corner/black/full{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
+"Im" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, barracks"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/barracks)
+"IG" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engineering)
+"IK" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"IZ" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/corner/white/full,
+/obj/effect/ghostspawpoint{
+	identifier = "hailstorm_crew";
+	name = "igs - hailstorm_crew"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/barracks)
+"Jp" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
 "Jv" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/cold{
+	req_one_access = list(214);
+	dir = 1;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/eva)
 "JO" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/tajaran/pvsm/captain,
-/obj/item/clothing/shoes/tajara/jackboots,
-/obj/item/clothing/head/beret/tajaran/pvsm,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/obj/structure/curtain/open/bed,
 /obj/effect/floor_decal/corner/white{
 	dir = 10
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "hailstorm_crew";
+	name = "igs - hailstorm_crew"
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/barracks)
+"JS" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"Kd" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/eva)
+"KP" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
 "Ls" = (
 /obj/effect/landmark{
 	name = "carpspawn"
 	},
 /turf/template_noop,
 /area/space)
+"Lt" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"Ml" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "MA" = (
 /obj/structure/closet/walllocker/medical{
 	pixel_x = 32
@@ -1428,10 +2790,41 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
+"MH" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
+"Nb" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "Ni" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -1442,18 +2835,62 @@
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
-"Oa" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
-"Oz" = (
-/obj/effect/floor_decal/corner/white/full{
-	dir = 8
+/area/shuttle/hailstorm_shuttle)
+"Ns" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
+"NC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
+	},
+/obj/machinery/computer/ship/engines{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"Oa" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship)
+"Oz" = (
+/obj/effect/floor_decal/corner/white/full{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/barracks)
 "OD" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(214);
@@ -1463,10 +2900,54 @@
 /obj/item/gun/projectile/silenced,
 /obj/item/gun/projectile/silenced,
 /obj/item/gun/projectile/silenced,
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
+/area/hailstorm_ship/armory)
+"OG" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"OM" = (
+/obj/effect/shuttle_landmark/nav_hailstorm_ship/nav2,
+/turf/template_noop,
 /area/space)
+"OV" = (
+/obj/effect/floor_decal/corner/black/full{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
 "Pb" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
@@ -1477,7 +2958,15 @@
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
+"Pv" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/atmospherics)
+"PC" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/airless,
+/area/hailstorm_ship/engine)
 "PJ" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1487,30 +2976,104 @@
 /obj/item/storage/toolbox/electrical{
 	pixel_y = 10
 	},
-/turf/simulated/floor/reinforced{
-	temperature = 278.15
-	},
-/area/space)
-"PW" = (
-/obj/effect/shuttle_landmark/nka_merchant_shuttle/transit,
-/turf/space/transit/north,
-/area/space)
-"QW" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/brown,
-/obj/structure/curtain/open/bed,
-/obj/effect/floor_decal/corner/white{
-	dir = 10
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
+/area/hailstorm_ship/gun_deck)
+"PT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"PW" = (
+/obj/effect/shuttle_landmark/hailstorm_shuttle/transit,
+/turf/space/transit/north,
 /area/space)
+"QW" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/tajaran/pvsm,
+/obj/item/clothing/shoes/tajara/jackboots,
+/obj/effect/floor_decal/corner/white{
+	dir = 10
+	},
+/obj/item/clothing/accessory/badge/dpra_passport,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/barracks)
+"Rp" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/corner/white{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "hailstorm_advisor";
+	name = "igs - hailstorm_advisor"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/barracks)
+"Ry" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, port"
+	},
+/turf/simulated/floor/airless,
+/area/hailstorm_ship/engine)
+"Sf" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/armory)
 "Sg" = (
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
+"Sv" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"Tt" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"Tu" = (
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/eva)
 "TF" = (
 /obj/structure/bed/stool/bar/padded/black,
 /obj/structure/sign/painting_frame/nated{
@@ -1522,31 +3085,77 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/crew)
+"Uo" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "hailstorm_shuttle_out"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
 "Up" = (
 /obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "People's Station Grauwolf Flak Battery"
+	weapon_id = "Hailstorm Port Gun"
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
 "UD" = (
 /obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "People's Station Grauwolf Flak Battery"
+	weapon_id = "Hailstorm Starboard Gun"
 	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
+"UW" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, starboard"
+	},
+/turf/simulated/floor/airless,
+/area/hailstorm_ship/engine)
 "Vj" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced{
+/obj/structure/sign/painting_frame/nated{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/gun_deck)
+"Vl" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, weapons"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/gun_deck)
+"Vn" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "hailstorm_shuttle_dock";
+	req_one_access = list(31,48,67);
+	tag_door = "hailstorm_dock_doors";
+	pixel_x = 25
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
 "Vv" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(214);
@@ -1555,10 +3164,13 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/armory)
 "Vy" = (
 /obj/machinery/computer/ship/helm{
 	req_access = null
@@ -1566,7 +3178,53 @@
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},
-/area/space)
+/area/shuttle/hailstorm_shuttle)
+"VJ" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/vending/wallmed1{
+	name = "Medical Supplies";
+	pixel_x = -26;
+	pixel_y = -1;
+	req_access = null
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/barracks)
+"VR" = (
+/obj/machinery/power/terminal{
+	dir = 1;
+	icon_state = "term"
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/alarm/cold{
+	req_one_access = list(214);
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/atmospherics)
+"Wd" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
 "Wx" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 6
@@ -1574,22 +3232,134 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
+"WG" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/engineering)
 "WZ" = (
 /obj/machinery/hologram/holopad/long_range,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship)
+"Xk" = (
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+	dir = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"Xx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 "XG" = (
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/space)
+/area/hailstorm_ship/bridge)
+"XH" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "hailstorm_bridge"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/bridge)
+"YA" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
+"YG" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"YM" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, weapons"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/hailstorm_ship/gun_deck)
+"Zj" = (
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/crew)
+"Zy" = (
+/obj/structure/ship_weapon_dummy,
+/obj/machinery/ship_weapon/grauwolf{
+	pixel_x = -32;
+	pixel_y = -192;
+	weapon_id = "Hailstorm Starboard Gun";
+	mobile_platform = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/hailstorm_ship/gun_deck)
+"ZG" = (
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship)
+"ZQ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engine)
 
 (1,1,1) = {"
 iB
@@ -8616,7 +10386,7 @@ iB
 iB
 iB
 iB
-iB
+FD
 iB
 iB
 iB
@@ -9426,7 +11196,7 @@ iB
 iB
 iB
 iB
-kz
+iB
 iB
 iB
 iB
@@ -11033,15 +12803,12 @@ iB
 iB
 iB
 iB
-iB
-iB
-Oa
-Oa
-Oa
-Oa
-iB
-iB
-iB
+in
+in
+in
+in
+in
+in
 iB
 iB
 iB
@@ -11058,12 +12825,15 @@ iB
 iB
 iB
 iB
-Oa
-Oa
-Oa
-Oa
-Oa
-Oa
+iB
+iB
+iB
+fQ
+fQ
+fQ
+Vl
+fQ
+fQ
 iB
 iB
 iB
@@ -11195,37 +12965,37 @@ iB
 iB
 iB
 iB
-iB
-iB
-cr
-cr
-cr
-Oa
-Oa
-Oa
-Oa
-Oa
-Oa
-Oa
-Oa
-iB
-iB
-iB
+PC
+AP
+qy
+Nb
+Hx
+WG
+WG
+WG
+WG
+eJ
+Pv
+Pv
+Pv
 iB
 iB
 iB
 iB
-Oa
-ig
-ig
-ig
-Oa
-Oa
+iB
+iB
+iB
+nd
+kz
+ft
+kz
+nd
+fQ
 fq
-eB
-eB
+hE
+sC
 PJ
-Oa
+fQ
 iB
 iB
 iB
@@ -11357,19 +13127,19 @@ iB
 iB
 iB
 iB
-iB
-iB
-cr
-cr
-cr
-Oa
+UW
+Tt
+vU
+jG
+Xk
+WG
 av
 fK
 iW
-Oa
+Pv
 gY
-cr
-Oa
+sb
+Pv
 iB
 iB
 iB
@@ -11377,14 +13147,14 @@ iB
 iB
 iB
 iB
-Oa
+nd
 hV
 de
 de
 je
-Oa
+fQ
 eA
-eB
+MH
 ny
 qm
 lT
@@ -11519,39 +13289,39 @@ iB
 iB
 iB
 iB
-iB
-iB
+PC
+ZQ
+PT
 cr
 cr
-cr
-Oa
+WG
 EC
 mg
 dV
-Oa
+Pv
 pk
 bJ
-Oa
-Oa
-Oa
-Oa
-Oa
-Oa
-Oa
-Oa
-Oa
+Pv
+DS
+DS
+DS
+CG
+rH
+rH
+rH
+nd
 TF
 bF
-bH
+Zj
 iT
-Oa
+fQ
 kO
-eB
-Ed
+MH
+Zy
 io
 io
 ie
-kg
+io
 iB
 iB
 iB
@@ -11681,34 +13451,34 @@ iB
 iB
 iB
 iB
-iB
-iB
-cr
-cr
-cr
-Oa
+in
+in
+in
+Gu
+tC
+WG
 fv
-cr
+Hm
 cs
-Oa
+Pv
 tw
-cr
-Oa
+Cy
+Pv
 aF
-bH
+Tu
 Jv
-Oa
+rH
 jJ
-bH
+wz
 ex
-Oa
+nd
 dd
 aC
-bH
+Zj
 cc
-Oa
+fQ
 jg
-eB
+MH
 ju
 rs
 rs
@@ -11843,34 +13613,34 @@ iB
 iB
 iB
 iB
-iB
-iB
 cr
 cr
+JS
 cr
-Oa
+Xx
+WG
 lJ
-cr
+Hm
 wQ
-Oa
+Pv
 bX
-cr
-Oa
+VR
+Pv
 aF
-bH
+Tu
 kI
-Oa
+rH
 lZ
-bH
+fk
 Vv
-Oa
+nd
 Bv
-bF
-bH
+jQ
+oF
 ca
-Oa
-kZ
-eB
+fQ
+du
+MH
 UD
 eV
 rp
@@ -12005,37 +13775,37 @@ iB
 iB
 iB
 iB
-iB
-iB
 cr
 cr
 cr
-Oa
+cr
+gD
+WG
 la
-cr
+Hm
 rq
-Oa
+Pv
 dJ
-cr
-Oa
+yx
+Pv
 aF
-bH
+ai
 kA
-Oa
+rH
 wT
-bH
+fg
 OD
-Oa
+nd
 ck
 kw
-kw
+tF
 kj
-Oa
+fQ
 eB
-eB
-eB
+mD
+eN
 Vj
-Oa
+fQ
 dZ
 iB
 iB
@@ -12167,37 +13937,37 @@ iB
 iB
 iB
 iB
-iB
-iB
-cr
-cr
-cr
-Oa
+in
+in
+in
+in
+gD
+WG
 wm
-cr
+nj
 mj
-Oa
+Pv
 wt
-cr
-Oa
+ES
+Pv
 aF
-bH
+Hh
 bx
-Oa
+rH
 hM
-bH
+Sf
 iq
-Oa
+nd
 cR
-Oa
-Oa
-Oa
-Oa
+nd
+nd
+fQ
+fQ
 mG
-Oa
-Oa
-Oa
-Oa
+fQ
+fQ
+fQ
+fQ
 nA
 nA
 iB
@@ -12331,32 +14101,32 @@ iB
 iB
 iB
 iB
-cr
-cr
-cr
-Oa
+in
+nV
+Ml
+WG
 gq
-cr
+IG
 bS
-Oa
+Pv
 bQ
-cr
-Oa
+DM
+Pv
 aF
-bH
+Kd
 nE
-Oa
+rH
 lR
-bH
+oJ
 sX
 Oa
-iU
-em
-am
+OV
+rm
+vB
 dE
-eB
-eB
-Oa
+jw
+KP
+fQ
 dZ
 dZ
 dZ
@@ -12491,35 +14261,35 @@ iB
 iB
 iB
 iB
-iB
-iB
-cr
-cr
-cr
-Oa
-Oa
+in
+in
+in
+in
+tC
+WG
+WG
 bV
-Oa
-Oa
-Oa
+WG
+Pv
+Pv
 oh
-Oa
-Oa
+Pv
+DS
 bR
-Oa
-Oa
-Oa
+DS
+rH
+rH
 kf
+rH
 Oa
-Oa
-DU
-bH
-fD
-Oa
-Oa
-Oa
-Oa
-Oa
+CE
+tE
+ag
+sg
+sg
+sg
+sg
+sg
 iB
 iB
 dZ
@@ -12653,31 +14423,31 @@ iB
 iB
 iB
 iB
-iB
-iB
+in
+at
+at
+cW
 cr
-cr
-cr
+Oa
 iU
+ph
+dk
 ke
 ke
+ph
+dk
+ke
+ph
 ke
 ke
-ke
-ke
-ke
-ke
-ke
-ke
-ke
-ke
-ke
+dk
+ph
 am
 Oa
 Dx
-bH
-fD
-Oa
+ZG
+sn
+sg
 lk
 em
 pg
@@ -12815,35 +14585,35 @@ iB
 iB
 iB
 iB
-iB
-iB
+mH
+kg
 cr
-cr
-cr
+yj
+YA
 vA
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-fD
+cw
+Ns
+Er
+yF
+Er
+Jp
+Er
+Er
+YG
+Er
+li
+Er
+YG
+GR
 FC
-vA
+Lt
 WZ
 fD
 ax
-vA
+rI
 ia
 bc
-ey
+XH
 iB
 iB
 dZ
@@ -12977,31 +14747,31 @@ iB
 iB
 iB
 iB
-iB
-iB
-cr
-cr
-cr
+in
+at
+at
+Sv
+iK
+Oa
 fm
 Wx
+Vn
+zJ
 Wx
 Wx
 Wx
 Wx
 Wx
 Wx
+Wd
 Wx
-Wx
-Wx
-Wx
-Wx
-Wx
+IK
 ij
 Oa
 DU
-bH
-fD
-Oa
+tE
+OG
+sg
 fC
 XG
 aA
@@ -13139,35 +14909,35 @@ iB
 iB
 iB
 iB
-iB
-iB
-cr
-cr
-cr
+in
+in
+in
+in
+tC
 Oa
 Oa
 Oa
 Oa
-Oa
-Oa
-Oa
-mO
-bA
-Oa
-Oa
-Oa
+ig
+ig
+ig
+Uo
+Uo
+ig
+ig
+ig
 Oa
 Oa
 Oa
 Oa
 Dx
-bH
-fD
-Oa
-Oa
-Oa
-Oa
-Oa
+ZG
+fi
+sg
+sg
+sg
+sg
+sg
 iB
 iB
 dZ
@@ -13303,32 +15073,32 @@ iB
 iB
 iB
 iB
-cr
-cr
-cr
-Oa
+in
+nV
+Xx
+in
 iB
 iB
 iB
 iB
 iB
-iB
+eK
 mO
 bA
-iB
+oO
 iB
 iB
 iB
 iB
 iB
 Oa
-fm
+HY
 MA
-ij
+xq
 dE
-eB
-eB
-Oa
+qQ
+Eh
+fQ
 dZ
 dZ
 dZ
@@ -13463,37 +15233,37 @@ iB
 iB
 iB
 iB
-iB
-iB
-cr
-cr
-cr
-Oa
+in
+in
+in
+Gu
+gD
+in
 iB
 bq
 bI
-Oa
-Oa
-Oa
+Hi
+Hi
+Hi
 gw
 bb
-Oa
-Oa
-Oa
-Oa
-Oa
+Hi
+Hi
+Hi
+Hi
+Hi
 iB
-Oa
+CR
 cK
-Oa
-Oa
-Oa
-Oa
+CR
+CR
+fQ
+fQ
 mG
-Oa
-Oa
-Oa
-Oa
+fQ
+fQ
+fQ
+fQ
 nA
 nA
 iB
@@ -13625,15 +15395,15 @@ iB
 iB
 iB
 iB
-iB
-iB
 cr
 cr
 cr
-Oa
+cr
+Ml
+in
 iB
-fQ
-Oa
+iB
+Hi
 bI
 gg
 Pb
@@ -13645,17 +15415,17 @@ yr
 Hu
 jE
 iB
-Oa
+CR
 Oz
-de
-de
+zV
+VJ
 FU
-Oa
-eB
-eB
-eB
+CR
+xQ
+jk
+sC
 PJ
-Oa
+fQ
 dZ
 iB
 iB
@@ -13787,14 +15557,14 @@ iB
 iB
 iB
 iB
-iB
-iB
 cr
 cr
+Hs
 cr
-Oa
+cr
+in
 iB
-fQ
+iB
 co
 Vy
 cM
@@ -13807,14 +15577,14 @@ rk
 Hu
 ce
 iB
-Oa
+CR
 eE
 bH
-bH
+DF
 JO
-Oa
+CR
 kZ
-eB
+pC
 cd
 qm
 lT
@@ -13949,15 +15719,15 @@ iB
 iB
 iB
 iB
+in
+in
+in
+in
+tC
+in
 iB
 iB
-cr
-cr
-cr
-Oa
-iB
-fQ
-Oa
+Hi
 bI
 yK
 GV
@@ -13969,19 +15739,19 @@ og
 Hu
 jE
 iB
-Oa
+CR
 Ea
 bH
-bH
+DF
 QW
-Oa
+CR
 dK
-eB
+pC
 Ed
 io
 io
 ie
-kg
+io
 iB
 iB
 iB
@@ -14111,34 +15881,34 @@ iB
 iB
 iB
 iB
-iB
-iB
+PC
+vJ
+jB
 cr
 cr
-cr
-Oa
+in
 iB
 gU
 bI
-Oa
-Oa
-Oa
-Oa
+Hi
+Hi
+Hi
+Hi
 kr
 bs
-Oa
-Oa
-Oa
-Oa
+Hi
+Hi
+Hi
+Hi
 iB
-Oa
-eE
+CR
+Rp
 bH
-bH
+DF
 IZ
-Oa
+CR
 kO
-eB
+pC
 ju
 rs
 rs
@@ -14273,15 +16043,12 @@ iB
 iB
 iB
 iB
-iB
-iB
-cr
-cr
-cr
-Oa
-iB
-iB
-iB
+Ry
+Tt
+hd
+lj
+Xk
+in
 iB
 iB
 iB
@@ -14293,14 +16060,17 @@ iB
 iB
 iB
 iB
-Oa
+iB
+iB
+iB
+CR
 aJ
 xc
 ih
 cH
-Oa
+CR
 Ew
-eB
+pC
 Up
 eV
 rp
@@ -14435,37 +16205,37 @@ iB
 iB
 iB
 iB
-iB
-iB
-cr
-cr
-cr
-Oa
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-Oa
-Oa
-Oa
-Oa
-Oa
-Oa
+PC
+NC
+Ax
+DD
+Hx
+in
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+dZ
+CR
+CR
+Im
+CR
+CR
+CR
 fq
-eB
-eB
+uW
+eN
 Vj
-Oa
+fQ
 iB
 iB
 iB
@@ -14597,37 +16367,37 @@ iB
 iB
 iB
 iB
+in
+in
+in
+in
+in
+in
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
+nA
 iB
 iB
-Oa
-Oa
-Oa
-Oa
 iB
 iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-iB
-Oa
-Oa
-Oa
-Oa
-Oa
-Oa
+fQ
+fQ
+fQ
+YM
+fQ
+fQ
 iB
 iB
 iB
@@ -17201,7 +18971,7 @@ iB
 iB
 iB
 iB
-iB
+OM
 iB
 iB
 iB
@@ -20925,7 +22695,7 @@ iB
 iB
 iB
 iB
-in
+iB
 iB
 iB
 iB

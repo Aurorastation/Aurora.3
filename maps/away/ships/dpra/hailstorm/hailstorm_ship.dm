@@ -93,8 +93,8 @@
 	name = "Spacer Militia Shuttle Hangar"
 	landmark_tag = "nav_hailstorm_shuttle"
 	docking_controller = "hailstorm_shuttle_dock"
-	base_area = /area/hailstorm_ship/hangar
-	base_turf = /turf/simulated/floor/plating
+	base_area = /area/space
+	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/hailstorm_shuttle/transit
