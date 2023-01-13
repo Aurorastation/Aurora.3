@@ -155,7 +155,7 @@
 /obj/machinery/computer/ship/helm/proc/get_eta()
 	var/ETA = connected.ETA()
 	if(ETA && connected.get_speed())
-		return "[round(ETA/10)] seconds"
+		return "[round(ETA/5)] seconds"
 	else
 		return "N/A"
 

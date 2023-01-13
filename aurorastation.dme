@@ -251,6 +251,7 @@
 #include "code\controllers\subsystems\processing\modifiers.dm"
 #include "code\controllers\subsystems\processing\nanoui.dm"
 #include "code\controllers\subsystems\processing\ntsl2.dm"
+#include "code\controllers\subsystems\processing\overmap.dm"
 #include "code\controllers\subsystems\processing\processing.dm"
 #include "code\controllers\subsystems\processing\projectiles.dm"
 #include "code\controllers\subsystems\processing\psi.dm"
