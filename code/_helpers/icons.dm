@@ -998,6 +998,3 @@ proc/percentage_to_colour(var/P)
 	//var/red = 255 - (min(1, P*2)*255)
 
 	return rgb(red,green,0)
-
-/mob/proc/getFlatIcon()
-	return client?.RenderIcon(src)
