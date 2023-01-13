@@ -165,7 +165,7 @@
 
 	max_charges = 1
 
-/obj/item/device/flash/synthetic/burnout_check()
+/obj/item/device/flash/synthetic/burnout_check(mob/user, _intensity = 1)
 	. = broken // Single-use
 	if(!broken)
-		burnout()
+		burnout(user)

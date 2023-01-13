@@ -823,7 +823,7 @@
 	else
 		. = flash_protection
 
-	if(!flash_protection && HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVITY))
+	if(!flash_protection && HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
 		return species.inherent_eye_protection ? species.inherent_eye_protection - 1 : FLASH_PROTECTION_REDUCED
 
 /mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
