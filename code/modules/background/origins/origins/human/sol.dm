@@ -116,7 +116,7 @@
 /singleton/origin_item/origin/new_hai_phong
 	name = "New Hai Phong"
 	desc = "Originally intended to be a mining colony, New Hai Phong has since become one of the industrial centers of the modern Alliance thanks to Hephaestus Industries. Space on New Hai Phong is at a premium, which has led to a communal style of living centered around blockfams — small organizational units consisting of several families living in close proximity. Corruption is a massive issue on the planet and dissent against Hephaestus has been growing in recent years. Respiratory issues plague many residents of New Hai Phong thanks to the harsh environment of the planet."
-	important_information = "<b>Due to the ethnic make-up of its original settlers and ability for the massive New Hai Phongese population to absorb immigrants into its culture via assimilation, characters born on New Hai Phong must have names and appearances consistent with the peoples of Southeast Asia.</b> Only characters native to New Hai Phong may take the New Hai Phongese accent. This is enforceable by server moderators and admins."
+	important_information = "<b>Due to the ethnic make-up of its original settlers and ability for the massive New Hai Phongese population to absorb immigrants into its culture via assimilation, characters born on New Hai Phong must have names and appearances consistent with the peoples of Vietnam, Hong Kong, and South China.</b> Only characters native to New Hai Phong may take the New Hai Phongese accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_PHONG)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = RELIGIONS_SOLARIAN
