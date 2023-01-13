@@ -818,10 +818,13 @@
 	if (I && I.status & ORGAN_CUT_AWAY)
 		return FLASH_PROTECTION_MAJOR
 
-	if (ignore_inherent)
-		return flash_protection
+	if (!ignore_inherent && species.inherent_eye_protection)
+		. = max(species.inherent_eye_protection, flash_protection)
+	else
+		. = flash_protection
 
-	return species.inherent_eye_protection ? max(species.inherent_eye_protection, flash_protection) : flash_protection
+	if(!flash_protection && HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVITY))
+		return species.inherent_eye_protection ? species.inherent_eye_protection - 1 : FLASH_PROTECTION_REDUCED
 
 /mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
 	if(..())

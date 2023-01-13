@@ -198,7 +198,7 @@
 		take_damage(0, rand(2, 4))
 	else if(burnthrough >= 3)
 		to_chat(owner, SPAN_DANGER("[FONT_HUGE("Your light receptors are burning up!")]"))
-		take_damage(0, rand(4, max_damage / 5))
+		take_damage(0, rand(4, 8))
 
 	if(burnthrough > 1)
 		owner.Weaken(5 * (burnthrough - 1))
