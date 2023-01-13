@@ -35,7 +35,7 @@ var/global/list/bluespace_inhibitors
 
 /obj/machinery/anti_bluespace/emag_act()
 	spark(src, 3)
-	playsound(src, /decl/sound_category/spark_sound, 50, 1)
+	playsound(src, /singleton/sound_category/spark_sound, 50, 1)
 	emp_act(1)
 	return TRUE
 

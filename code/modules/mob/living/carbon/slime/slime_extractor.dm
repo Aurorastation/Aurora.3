@@ -81,6 +81,10 @@
 
 /obj/machinery/slime_extractor/proc/extraction_process(var/slime)
 	var/mob/living/carbon/slime/extracted_slime = extract_slimes[slime]
+	if(!extracted_slime)
+		extract_slimes -= slime
+		update_icon()
+		return
 	for(var/i = 1 to extracted_slime.cores + 1)
 		var/obj/extract = new extracted_slime.coretype(get_turf(src))
 		var/obj/item/storage/slimes/slime_bag = locate() in range(1, get_turf(src))

@@ -151,6 +151,36 @@
 
 	return ..()
 
+/obj/structure/table/attack_hand(mob/user)
+	. = ..()
+	if(ishuman(user))
+		if(!use_check_and_message(user))
+			var/mob/living/carbon/human/H = user
+			if((H.zone_sel.selecting in list(BP_R_HAND, BP_L_HAND)))
+				if(H.last_special + 1 SECOND < world.time)
+					H.last_special = world.time
+					switch(H.a_intent)
+						if(I_GRAB)
+							H.visible_message(SPAN_NOTICE("[H] knocks on the table!"))
+							playsound(src, 'sound/effects/table_knock.ogg')
+						if(I_HURT)
+							H.do_attack_animation(src)
+							H.visible_message(SPAN_WARNING("[H] slams [H.get_pronoun("his")] hand on the table!"))
+							playsound(src, 'sound/effects/table_slam.ogg')
+							if(material.hardness > 15) //15 wood, 60 steel
+								var/obj/item/organ/external/hand/hand = H.zone_sel.selecting
+								if(!BP_IS_ROBOTIC(hand))
+									H.apply_damage(5, BRUTE, H.zone_sel.selecting, armor_pen = 10)
+									to_chat(H, SPAN_WARNING("Ow! That hurt..."))
+							else
+								for(var/obj/item/O in get_turf(src))
+									if(!O.anchored && O.w_class < ITEMSIZE_HUGE)
+										animate(O, pixel_y = 3, time = 2, loop = 1, easing = BOUNCE_EASING)
+										addtimer(CALLBACK(O, /obj/item/.proc/reset_table_position), 2)
+
+/obj/item/proc/reset_table_position()
+	animate(src, pixel_y = 0, time = 2, loop = 1, easing = BOUNCE_EASING)
+
 /obj/structure/table/attackby(obj/item/W, mob/user, var/click_parameters)
 	if (!W)
 		return
@@ -205,7 +235,7 @@
 		var/obj/item/melee/energy/blade/blade = W
 		blade.spark_system.queue()
 		playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-		playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
+		playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
 		user.visible_message("<span class='danger'>\The [src] was sliced apart by [user]!</span>")
 		break_to_parts()
 		return

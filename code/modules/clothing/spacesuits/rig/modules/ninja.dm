@@ -96,7 +96,7 @@
 	if(!M || !T)
 		return
 
-	playsound(T, /decl/sound_category/spark_sound, 50, 1)
+	playsound(T, /singleton/sound_category/spark_sound, 50, 1)
 	new phase_out_visual(T, M.dir)
 
 /obj/item/rig_module/teleporter/engage(atom/target, mob/user, var/notify_ai)

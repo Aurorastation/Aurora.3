@@ -14,7 +14,7 @@
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
 	layer = 2.9
-	clicksound = /decl/sound_category/button_sound
+	clicksound = /singleton/sound_category/button_sound
 
 	var/beaker = null
 	var/obj/item/storage/pill_bottle/loaded_pill_bottle = null
@@ -98,8 +98,8 @@
 			var/dat = ""
 			if(!condi)
 				if(href_list["name"] == "Blood")
-					var/decl/reagent/blood/G = decls_repository.get_decl(/decl/reagent/blood)
-					var/Gdata = REAGENT_DATA(R, /decl/reagent/blood)
+					var/singleton/reagent/blood/G = GET_SINGLETON(/singleton/reagent/blood)
+					var/Gdata = REAGENT_DATA(R, /singleton/reagent/blood)
 					var/A = G.name
 					var/B = Gdata["blood_type"]
 					var/C = Gdata["blood_DNA"]
@@ -264,7 +264,7 @@
 		else
 			dat += "Add to buffer:<BR>"
 			for(var/_G in R.reagent_volumes)
-				var/decl/reagent/G = decls_repository.get_decl(_G)
+				var/singleton/reagent/G = GET_SINGLETON(_G)
 				dat += "[G.name] , [REAGENT_VOLUME(R, _G)] Units - "
 				dat += "<A href='?src=\ref[src];analyze=1;desc=[G.description];name=[G.name]'>(Analyze)</A> "
 				dat += "<A href='?src=\ref[src];add=[_G];amount=1'>(1)</A> "
@@ -278,7 +278,7 @@
 		dat += "<HR>Transfer to <A href='?src=\ref[src];toggle=1'>[(!mode ? "disposal" : "beaker")]:</A><BR>"
 		if(reagents.total_volume)
 			for(var/_N in reagents.reagent_volumes)
-				var/decl/reagent/N = decls_repository.get_decl(_N)
+				var/singleton/reagent/N = GET_SINGLETON(_N)
 				dat += "[N.name] , [REAGENT_VOLUME(reagents, _N)] Units - "
 				dat += "<A href='?src=\ref[src];analyze=1;desc=[N.description];name=[N.name]'>(Analyze)</A> "
 				dat += "<A href='?src=\ref[src];remove=[_N];amount=1'>(1)</A> "
@@ -325,18 +325,18 @@
 	var/limit = 10
 	var/list/holdingitems = list()
 	var/list/sheet_reagents = list( //have a number of reagents which is a factor of REAGENTS_PER_SHEET (default 20) unless you like decimals
-		/obj/item/stack/material/iron = list(/decl/reagent/iron),
-		/obj/item/stack/material/uranium = list(/decl/reagent/uranium),
-		/obj/item/stack/material/phoron = list(/decl/reagent/toxin/phoron),
-		/obj/item/stack/material/gold = list(/decl/reagent/gold),
-		/obj/item/stack/material/silver = list(/decl/reagent/silver),
-		/obj/item/stack/material/platinum = list(/decl/reagent/platinum),
-		/obj/item/stack/material/mhydrogen = list(/decl/reagent/hydrazine), // i guess
-		/obj/item/stack/material/steel = list(/decl/reagent/iron, /decl/reagent/carbon),
-		/obj/item/stack/material/plasteel = list(/decl/reagent/iron, /decl/reagent/iron, /decl/reagent/carbon, /decl/reagent/carbon, /decl/reagent/platinum), //8 iron, 8 carbon, 4 platinum,
-		/obj/item/stack/material/sandstone = list(/decl/reagent/silicon, /decl/reagent/acetone),
-		/obj/item/stack/material/glass = list(/decl/reagent/silicate),
-		/obj/item/stack/material/glass/phoronglass = list(/decl/reagent/platinum, /decl/reagent/silicate, /decl/reagent/silicate, /decl/reagent/silicate), //5 platinum, 15 silicate,
+		/obj/item/stack/material/iron = list(/singleton/reagent/iron),
+		/obj/item/stack/material/uranium = list(/singleton/reagent/uranium),
+		/obj/item/stack/material/phoron = list(/singleton/reagent/toxin/phoron),
+		/obj/item/stack/material/gold = list(/singleton/reagent/gold),
+		/obj/item/stack/material/silver = list(/singleton/reagent/silver),
+		/obj/item/stack/material/platinum = list(/singleton/reagent/platinum),
+		/obj/item/stack/material/mhydrogen = list(/singleton/reagent/hydrazine), // i guess
+		/obj/item/stack/material/steel = list(/singleton/reagent/iron, /singleton/reagent/carbon),
+		/obj/item/stack/material/plasteel = list(/singleton/reagent/iron, /singleton/reagent/iron, /singleton/reagent/carbon, /singleton/reagent/carbon, /singleton/reagent/platinum), //8 iron, 8 carbon, 4 platinum,
+		/obj/item/stack/material/sandstone = list(/singleton/reagent/silicon, /singleton/reagent/acetone),
+		/obj/item/stack/material/glass = list(/singleton/reagent/silicate),
+		/obj/item/stack/material/glass/phoronglass = list(/singleton/reagent/platinum, /singleton/reagent/silicate, /singleton/reagent/silicate, /singleton/reagent/silicate), //5 platinum, 15 silicate,
 		)
 	var/list/beaker_types = list( // also can't be ground
 		/obj/item/reagent_containers/glass,
@@ -439,7 +439,7 @@
 				beaker_contents += "Nothing<br>"
 			else
 				for(var/_R in beaker.reagents.reagent_volumes)
-					var/decl/reagent/R = decls_repository.get_decl(_R)
+					var/singleton/reagent/R = GET_SINGLETON(_R)
 					beaker_contents += "[beaker.reagents.reagent_volumes[_R]] - [R.name]<br>"
 
 		dat = {"

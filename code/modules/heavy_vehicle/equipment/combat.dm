@@ -395,7 +395,7 @@
 			return AURA_FALSE|AURA_CANCEL
 
 		spark(get_turf(src), 5, global.alldirs)
-		playsound(get_turf(src), /decl/sound_category/spark_sound, 25, TRUE)
+		playsound(get_turf(src), /singleton/sound_category/spark_sound, 25, TRUE)
 
 /obj/aura/mechshield/hitby(atom/movable/M, var/speed)
 	. = ..()

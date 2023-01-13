@@ -7,7 +7,7 @@
 	ship_cost = 2
 	id = "grand_romanovich"
 
-/decl/submap_archetype/grand_romanovich
+/singleton/submap_archetype/grand_romanovich
 	map = "Grand Romanovich Casino"
 	descriptor = "An adhomian style casino in Tau Ceti's space."
 

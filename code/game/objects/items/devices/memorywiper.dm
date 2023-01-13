@@ -71,7 +71,7 @@
 	if(attached)
 		to_chat(user, SPAN_NOTICE("You initialize the memory wipe protocols. This procedure will take approximately 30 seconds."))
 		to_chat(attached, SPAN_WARNING("The computer hums to life and you feel your memories bleed away into nothingness."))
-		playsound(src.loc, /decl/sound_category/keyboard_sound, 30, TRUE)
+		playsound(src.loc, /singleton/sound_category/keyboard_sound, 30, TRUE)
 		wiping = TRUE
 		update_icon()
 		if(wipe_bar)

@@ -226,7 +226,7 @@
 				M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
-				playsound(src, /decl/sound_category/swing_hit_sound, 50, 1)
+				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
 				H.apply_damage(20, BRUTE)
 				H.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				H.apply_effect(4, WEAKEN)
@@ -236,7 +236,7 @@
 			else
 				var/mob/living/L = AM
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [L]!"))
-				playsound(src, /decl/sound_category/swing_hit_sound, 50, 1)
+				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
 				L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				L.apply_damage(20, BRUTE)
 				M.setMoveCooldown(10)

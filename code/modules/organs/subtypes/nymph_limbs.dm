@@ -148,10 +148,10 @@
 		nymph_out(E, limb_nymph, forced = TRUE)
 		return FALSE
 
-	var/blood_volume = round(REAGENT_VOLUME(E.owner.vessel, /decl/reagent/blood))
+	var/blood_volume = round(REAGENT_VOLUME(E.owner.vessel, /singleton/reagent/blood))
 	if(blood_volume)
-		if(REAGENT_DATA(E.owner.vessel, /decl/reagent/blood))
-			E.owner.vessel.remove_reagent(/decl/reagent/blood, BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len))
+		if(REAGENT_DATA(E.owner.vessel, /singleton/reagent/blood))
+			E.owner.vessel.remove_reagent(/singleton/reagent/blood, BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len))
 	if(blood_volume <= 0)
 		nymph_out(E, limb_nymph, forced = TRUE)
 

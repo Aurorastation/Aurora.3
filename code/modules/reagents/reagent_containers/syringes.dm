@@ -173,7 +173,7 @@
 				return
 
 			if(ismob(target))//Blood!
-				if(reagents.has_reagent(/decl/reagent/blood))
+				if(reagents.has_reagent(/singleton/reagent/blood))
 					to_chat(user, SPAN_NOTICE("There is already a blood sample in this syringe."))
 					return
 				if(istype(target, /mob/living/carbon))
@@ -387,7 +387,7 @@
 /obj/item/reagent_containers/syringe/inaprovaline
 	name = "Syringe (inaprovaline)"
 	desc = "Contains inaprovaline - used to stabilize patients."
-	reagents_to_add = list(/decl/reagent/inaprovaline = 15)
+	reagents_to_add = list(/singleton/reagent/inaprovaline = 15)
 
 /obj/item/reagent_containers/syringe/inaprovaline/Initialize()
 	. = ..()
@@ -397,7 +397,7 @@
 /obj/item/reagent_containers/syringe/dylovene
 	name = "Syringe (dylovene)"
 	desc = "Contains anti-toxins."
-	reagents_to_add = list(/decl/reagent/dylovene = 15)
+	reagents_to_add = list(/singleton/reagent/dylovene = 15)
 
 /obj/item/reagent_containers/syringe/dylovene/Initialize()
 	. = ..()
@@ -407,7 +407,7 @@
 /obj/item/reagent_containers/syringe/antibiotic
 	name = "Syringe (thetamycin)"
 	desc = "Contains antibiotics."
-	reagents_to_add = list(/decl/reagent/thetamycin = 15)
+	reagents_to_add = list(/singleton/reagent/thetamycin = 15)
 
 /obj/item/reagent_containers/syringe/antibiotic/Initialize()
 	. = ..()
@@ -417,7 +417,7 @@
 /obj/item/reagent_containers/syringe/drugs
 	name = "Syringe (drugs)"
 	desc = "Contains aggressive drugs meant for torture."
-	reagents_to_add = list(/decl/reagent/toxin/panotoxin = 5, /decl/reagent/mindbreaker = 10)
+	reagents_to_add = list(/singleton/reagent/toxin/panotoxin = 5, /singleton/reagent/mindbreaker = 10)
 
 /obj/item/reagent_containers/syringe/drugs/Initialize()
 	. = ..()
@@ -427,7 +427,7 @@
 /obj/item/reagent_containers/syringe/fluvectionem
 	name = "Syringe (fluvectionem)"
 	desc = "Contains purging medicine."
-	reagents_to_add = list(/decl/reagent/fluvectionem = 15)
+	reagents_to_add = list(/singleton/reagent/fluvectionem = 15)
 
 /obj/item/reagent_containers/syringe/fluvectionem/Initialize()
 	. = ..()
@@ -435,7 +435,7 @@
 	update_icon()
 
 /obj/item/reagent_containers/syringe/large/ld50_syringe/chloral
-	reagents_to_add = list(/decl/reagent/polysomnine = 60)
+	reagents_to_add = list(/singleton/reagent/polysomnine = 60)
 
 /obj/item/reagent_containers/syringe/large/ld50_syringe/chloral/Initialize()
 	. = ..()
