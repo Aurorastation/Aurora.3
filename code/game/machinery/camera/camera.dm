@@ -260,7 +260,7 @@
 
 	//sparks
 	spark(loc, 5)
-	playsound(loc, /decl/sound_category/spark_sound, 50, 1)
+	playsound(loc, /singleton/sound_category/spark_sound, 50, 1)
 
 /obj/machinery/camera/proc/set_status(var/newstatus)
 	if (status != newstatus)

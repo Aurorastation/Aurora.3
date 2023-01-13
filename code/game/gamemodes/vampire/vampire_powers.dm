@@ -92,7 +92,7 @@
 		blood_total = vampire.blood_total
 		blood_usable = vampire.blood_usable
 
-		if (!REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
+		if (!REAGENT_VOLUME(T.vessel, /singleton/reagent/blood))
 			to_chat(src, SPAN_DANGER("[T] has no more blood left to give."))
 			break
 
@@ -103,7 +103,7 @@
 
 		// Alive and not of empty mind.
 		if (check_drain_target_state(T))
-			blood = min(15, REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
+			blood = min(15, REAGENT_VOLUME(T.vessel, /singleton/reagent/blood))
 			vampire.blood_total += blood
 			vampire.blood_usable += blood
 
@@ -121,7 +121,7 @@
 				frenzy_lower_chance = 0
 		// SSD/protohuman or dead.
 		else
-			blood = min(5, REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
+			blood = min(5, REAGENT_VOLUME(T.vessel, /singleton/reagent/blood))
 			vampire.blood_usable += blood
 
 			frenzy_lower_chance = 40
@@ -137,7 +137,7 @@
 
 			to_chat(src, SPAN_NOTICE(update_msg))
 		check_vampire_upgrade()
-		T.vessel.remove_reagent(/decl/reagent/blood, 5)
+		T.vessel.remove_reagent(/singleton/reagent/blood, 5)
 
 	vampire.status &= ~VAMP_DRAINING
 
@@ -621,10 +621,10 @@
 			heal_organ_damage(50, 50, FALSE)
 			blood_used += 3
 
-		var/missing_blood = species.blood_volume - REAGENT_VOLUME(vessel, /decl/reagent/blood)
+		var/missing_blood = species.blood_volume - REAGENT_VOLUME(vessel, /singleton/reagent/blood)
 		if(missing_blood)
 			to_heal = min(20, missing_blood)
-			vessel.add_reagent(/decl/reagent/blood, to_heal)
+			vessel.add_reagent(/singleton/reagent/blood, to_heal)
 			blood_used += round(to_heal * 0.1) // gonna need to regen a shitton of blood, since human mobs have around 560 normally
 
 		for(var/A in organs)
@@ -838,8 +838,8 @@
 	to_chat(T, SPAN_NOTICE("You feel pure bliss as [src] touches you."))
 	vampire.use_blood(50)
 
-	T.reagents.add_reagent(/decl/reagent/rezadone, 3)
-	T.reagents.add_reagent(/decl/reagent/oxycomorphine, 0.15) //enough to get back onto their feet
+	T.reagents.add_reagent(/singleton/reagent/rezadone, 3)
+	T.reagents.add_reagent(/singleton/reagent/oxycomorphine, 0.15) //enough to get back onto their feet
 
 // Convert a human into a vampire.
 /mob/living/carbon/human/proc/vampire_embrace()
@@ -911,12 +911,12 @@
 		if(!vampire)
 			to_chat(src, SPAN_WARNING("Your fangs have disappeared!"))
 			return
-		if (!REAGENT_VOLUME(T.vessel, /decl/reagent/blood))
+		if (!REAGENT_VOLUME(T.vessel, /singleton/reagent/blood))
 			to_chat(src, SPAN_NOTICE("[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body."))
 			drained_all_blood = TRUE
 			break
 
-		T.vessel.remove_reagent(/decl/reagent/blood, 50)
+		T.vessel.remove_reagent(/singleton/reagent/blood, 50)
 
 	if(!drained_all_blood)
 		vampire.status &= ~VAMP_DRAINING
