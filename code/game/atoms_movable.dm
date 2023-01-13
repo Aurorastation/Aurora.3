@@ -364,7 +364,7 @@
 	update_grid_location(old_loc, src)
 
 /atom/movable/proc/update_grid_location(atom/old_loc)
-	if(!HAS_SPATIAL_GRID_CONTENTS(src))
+	if(!HAS_SPATIAL_GRID_CONTENTS(src) || SSspatial_grid.init_state < SS_INITSTATE_DONE)
 		return
 
 	var/turf/old_turf = get_turf(old_loc)

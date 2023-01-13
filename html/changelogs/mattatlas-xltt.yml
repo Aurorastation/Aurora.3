@@ -27,7 +27,7 @@
 #################################
 
 # Your name.
-author: FluffyGhost
+author: MattAtlas
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - refactor: "Refactored /datum/observ into /singleton/observ."
-  - refactor: "Refactored /singleton/ into /singleton/."
-  - rscadd: "Added singleton base class and abstract meta-propriety as dependencies."
+  - rscadd: "Added a way for Origins to give the character one or more mechanical traits. Currently only implemented for some human origins: New Hai Phong, Visegrad, Mictlan, most Dominian origins, Assunzione, Himeo, most Elyran origins, to name a few."
+  - tweak: "Split the Venusian Cytherean and Jintarian origins."
+  - tweak: "Split the Eridani Citizen and Dreg origins."

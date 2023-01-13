@@ -520,6 +520,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			comment.posted = "[worldtime2text()]"
 			viewing_story.comments += comment
 			to_chat(usr, "Comment successfully added!")
+			src.viewing_message = viewing_story
 			src.screen = 22
 			src.updateUsrDialog()
 

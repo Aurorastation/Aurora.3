@@ -467,6 +467,8 @@ datum/preferences
 	character.accent = accent
 	character.origin = GET_SINGLETON(text2path(origin))
 	character.culture = GET_SINGLETON(text2path(culture))
+	character.origin.on_apply(character)
+	character.culture.on_apply(character)
 
 	character.skills = skills
 	character.used_skillpoints = used_skillpoints

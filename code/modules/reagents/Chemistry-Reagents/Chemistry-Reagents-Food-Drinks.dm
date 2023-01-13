@@ -213,32 +213,46 @@
 	color = "#440000"
 	blood_factor = 3
 	taste_description = "some sort of protein"
+	var/vegan = FALSE
 
 /singleton/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
 		digest(M,removed, holder = holder)
 		return
+	if(HAS_TRAIT(M, TRAIT_ORIGIN_NO_ANIMAL_PROTEIN) && !vegan)
+		if(prob(2))
+			var/list/uncomfortable_messages = list(
+				"You shouldn't have eaten that...",
+				"Your stomach cramps!",
+				"Your stomach hurts a bit...",
+				"You feel a bit sick..."
+			)
+			to_chat(M, SPAN_WARNING(uncomfortable_messages))
 	..()
 
 /singleton/reagent/nutriment/protein/tofu //Good for Skrell!
 	name = "Tofu Protein"
 	color = "#fdffa8"
 	taste_description = "tofu"
+	vegan = TRUE
 
 /singleton/reagent/nutriment/protein/seafood // Good for Skrell!
 	name = "Seafood Protein"
 	color = "#f5f4e9"
 	taste_description = "fish"
+	vegan = TRUE
 
 /singleton/reagent/nutriment/protein/seafood/mollusc
 	name = "Mollusc Protein"
 	taste_description = "cold, bitter slime"
 	hydration_factor = 6
+	vegan = TRUE
 
 /singleton/reagent/nutriment/protein/seafood/cosmozoan
 	name = "Cosmozoan Protein"
 	taste_description = "cold, bitter slime"
 	hydration_factor = 8
+	vegan = TRUE
 
 /singleton/reagent/nutriment/protein/seafood/cosmozoan/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
@@ -761,6 +775,8 @@
 	M.adjustToxLoss(0.5 * removed)
 
 /singleton/reagent/capsaicin/initial_effect(var/mob/living/carbon/M, var/alien)
+	if(HAS_TRAIT(M, TRAIT_ORIGIN_IGNORE_CAPSAICIN))
+		return
 	to_chat(M, discomfort_message)
 
 /singleton/reagent/capsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -769,8 +785,12 @@
 		if(!H.can_feel_pain())
 			return
 
+		if(HAS_TRAIT(H, TRAIT_ORIGIN_IGNORE_CAPSAICIN))
+			return
+
 	if(M.chem_doses[type] >= agony_dose && prob(5))
 		to_chat(M, discomfort_message)
+
 		M.visible_message("<b>[M]</b> [pick("dry heaves!", "coughs!", "splutters!")]")
 		M.apply_effect(agony_amount, PAIN, 0)
 
@@ -832,7 +852,7 @@
 		if (!mouth_covered && (eyes_covered & EYES_PROTECTED))
 			message = "<span class='warning'>Your [eye_protection] protects your eyes from the pepperspray!</span>"
 		else if (eyes_covered & EYES_MECH)
-			message = "<span class='warning'>Your mechanical eyes are invulnurable to pepperspray!</span>"
+			message = "<span class='warning'>Your mechanical eyes are invulnerable to pepperspray!</span>"
 	else
 		message = "<span class='warning'>The pepperspray gets in your eyes!</span>"
 		if(mouth_covered)

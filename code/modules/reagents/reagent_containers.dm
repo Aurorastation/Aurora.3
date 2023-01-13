@@ -237,19 +237,14 @@
 	if(target == user)
 		if(istype(user, /mob/living/carbon/human))
 			H = user
-			if(!H.check_has_mouth())
-				to_chat(user, "Where do you intend to put \the [src]? You don't have a mouth!")
-				return 1
-			var/obj/item/blocked = H.check_mouth_coverage()
-			if(blocked)
-				to_chat(user, "<span class='warning'>\The [blocked] is in the way!</span>")
+			if(!H.can_drink(src))
 				return
 
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //puts a limit on how fast people can eat/drink things
 		self_feed_message(user)
 		reagents.trans_to_mob(user, min(10,amount_per_transfer_from_this), CHEM_INGEST) //A sane limiter. So you don't go drinking 300u all at once.
 		feed_sound(user)
-		return 1
+		return TRUE
 	else
 		if(istype(target, /mob/living/carbon/human))
 			H = target
@@ -282,6 +277,46 @@
 		reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_INGEST)
 		feed_sound(user)
 		return 1
+
+/obj/item/reagent_containers/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	if(ishuman(over))
+		var/mob/living/carbon/human/H = over
+		if(usr != H)
+			return
+
+		if(!H.can_drink())
+			return
+
+		if(!(H.l_hand == src) && !(H.r_hand == src))
+			return
+
+		if(!reagents.total_volume)
+			to_chat(H, SPAN_NOTICE("\The [src] is empty."))
+			return
+
+		if(H.isSynthetic() && !isipc(H))
+			return
+
+		visible_message(SPAN_NOTICE("[H] starts chugging from \the [src]!"))
+		var/chugs = 0
+		while(reagents.total_volume)
+			if(do_after(H, 1.5 SECONDS))
+				chugs++
+				reagents.trans_to_mob(H, min(10, amount_per_transfer_from_this), CHEM_INGEST)
+				if(!(H.species.flags & NO_BREATHE))
+					if(chugs > 3)
+						if(H.losebreath < 6)
+							H.losebreath += 1
+							H.adjustOxyLoss(1)
+				feed_sound(H)
+			else
+				break
+		if(chugs > 3)
+			if(!(H.species.flags & NO_BREATHE))
+				H.visible_message(SPAN_NOTICE("[src] finishes chugging, exhausted..."), SPAN_NOTICE("You finish chugging, exhausted..."))
+				H.emote("gasp")
+		return
 
 /obj/item/reagent_containers/proc/standard_pour_into(var/mob/user, var/atom/target) // This goes into afterattack and yes, it's atom-level
 	if(!target.reagents)
