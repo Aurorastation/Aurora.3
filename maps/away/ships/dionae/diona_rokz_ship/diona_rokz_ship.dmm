@@ -34,12 +34,6 @@
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
-"bI" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, cargo"
-	},
-/turf/simulated/floor/diona,
-/area/ship/diona_rokz_ship/exterior/south)
 "ca" = (
 /obj/structure/table/diona,
 /obj/item/device/flashlight/lantern,
@@ -650,9 +644,6 @@
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
-"Du" = (
-/turf/simulated/floor/diona,
-/area/ship/diona_rokz_ship/exterior/south)
 "DC" = (
 /obj/item/trap/animal/large,
 /turf/unsimulated/floor/asteroid/ash,
@@ -35606,8 +35597,8 @@ Pt
 Pt
 Pt
 Pt
-bI
-Du
+yR
+PL
 kB
 kB
 kB
