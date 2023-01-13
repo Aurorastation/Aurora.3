@@ -50,7 +50,7 @@
 	desc = "A military uniform used by the forces of the People's Republic of Adhomai orbital fleet."
 	icon_state = "cosmonaut"
 	item_state = "cosmonaut"
-	desc_extended = "The People's Republic of Adhomai enjoys having the only militarized spaceships of all the factions on Adhomai. Initially they relied on contracting outside \
+	desc_extended = "The People's Republic of Adhomai enjoys having the first militarized spaceships of all the factions on Adhomai. Initially they relied on contracting outside \
 	protection from NanoTrasen and the Sol Alliance in order to defend their orbit from raiders. However, the Republican Navy has striven to become independent. With the help of \
 	contracted engineers, access to higher education abroad and training from Sol Alliance naval advisers, the People's Republic has been able to commission and crew some of its own \
 	ships. The Republican Navy's space-arm primarily conducts counter piracy operations in conjunction with fending off raiders."
@@ -295,3 +295,53 @@
 	desc = "An uniform used by the captain of the New Kingdom's merchant space ships. Not as fancy as the ones used in the Royal Navy."
 	icon_state = "nka_merchant_captain"
 	item_state = "nka_merchant_captain"
+
+/obj/item/clothing/under/tajaran/pvsm
+	name = "people's volunteer spacer militia uniform"
+	desc = "A military uniform used by the forces of the People's Volunteer Spacer Militia."
+	icon_state = "pvsm_crewman"
+	item_state = "pvsm_crewman"
+	desc_extended = "Having only recently claimed a space-positioned base alongside Gaka'zaal, the DPRA lacks any sort of trained force when it comes to orbital defense. Not wanting to \
+	rely purely on mercenaries due to the expenses and their scant loyalty, a militia was organized. Members of the Spacer Militia come from a variety of backgrounds: some coming back \
+	after being employed by mega-corporations; others from asteroid belts; some soldiers from Adhomai; and more from the Free Gakal'Zaal Station itself, having worked on it as maintenance."
+	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
+	siemens_coefficient = 0.5
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR)
+
+/obj/item/clothing/under/tajaran/pvsm/captain
+	name = "people's volunteer spacer militia captain uniform"
+	desc = "A military uniform used by the captains of the People's Volunteer Spacer Militia."
+	icon_state = "pvsm_captain"
+	item_state = "pvsm_captain"
+
+/obj/item/clothing/under/tajaran/ala
+	name = "adhomai liberation army uniform"
+	desc = "A military uniform issued to soldiers of the adhomai liberation army."
+	icon_state = "ala-soldier-civ"
+	item_state = "ala-soldier-civ"
+	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
+	siemens_coefficient = 0.7
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR)
+
+/obj/item/clothing/under/tajaran/ala/wraps
+	icon_state = "ala-grunt-wraps"
+	item_state = "ala-grunt-wraps"
+
+/obj/item/clothing/under/tajaran/ala/black
+	icon_state = "ala-soldat"
+	item_state = "ala-soldat"
+
+/obj/item/clothing/under/tajaran/ala/black/dress
+	name = "adhomai liberation army dress uniform"
+	icon_state = "ala-soldatdress"
+	item_state = "ala-soldatdress"
+
+/obj/item/clothing/under/tajaran/ala/black/officer
+	name = "adhomai liberation army officer uniform"
+	desc = "A military uniform issued to officers of the adhomai liberation army."
+	icon_state = "ala-officer"
+	item_state = "ala-officer"
