@@ -49,16 +49,16 @@
 
 	if(burnthrough == 1)
 		to_chat(owner, SPAN_WARNING("Your eyes sting a little."))
-		take_damage(rand(1, max_damage / 5), TRUE)
+		take_damage(rand(1, min_broken_damage / 5), TRUE)
 	else if(burnthrough == 2)
 		to_chat(owner, SPAN_WARNING("Your eyes burn!"))
-		take_damage(rand(4, max_damage / 4), TRUE)
+		take_damage(rand(4, min_broken_damage / 4), TRUE)
 	else if(burnthrough >= 3)
 		to_chat(owner, SPAN_DANGER("[FONT_HUGE("Your eyes are burning!")]"))
-		take_damage(rand(9, max_damage / 3), TRUE)
+		take_damage(rand(9, min_broken_damage / 3), TRUE)
 		owner.eye_blurry += rand(12, 20)
 
-	if(is_bruised() && !is_broken())
+	if(is_bruised() && !is_broken() && !(owner.disabilities & NEARSIGHTED))
 		to_chat(owner, SPAN_DANGER("Your eyes begin to burn badly! It's getting harder to see."))
 		owner.disabilities |= NEARSIGHTED
 		addtimer(CALLBACK(owner, /mob/proc/remove_nearsighted), 10 SECONDS)
