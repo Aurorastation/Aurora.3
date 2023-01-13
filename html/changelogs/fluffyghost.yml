@@ -40,4 +40,3 @@ delete-after: True
 changes:
   - refactor: "The jukebox now uses the sound player."
   - rscadd: "Added Bays sound player and sound tokens."
-  - rscadd: "Added (DOUBLE UNDERSCORE)datastructures(BACKSLASH)stack data structure, used by the sound player and token."

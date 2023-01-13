@@ -116,9 +116,6 @@ var/singleton/sound_player/sound_player = new()
 
 	destroyed_event.register(source, src, /datum/proc/qdel_self)
 
-	// if(ismovable(source))
-	// 	proxy_listener = new(source, /datum/sound_token/proc/PrivAddListener, /datum/sound_token/proc/PrivLocateListeners, range, proc_owner = src)
-	// 	proxy_listener.register_turfs()
 	PrivLocateListeners()
 	START_PROCESSING(SSprocessing, src)
 
@@ -158,7 +155,6 @@ var/singleton/sound_player/sound_player = new()
 	listener_status = null
 
 	destroyed_event.unregister(source, src, /datum/proc/qdel_self)
-	// QDEL_NULL(proxy_listener)
 	source = null
 
 	sound_player.PrivStopSound(src)
@@ -171,7 +167,7 @@ var/singleton/sound_player/sound_player = new()
 	if(status & SOUND_STOPPED)
 		return
 
-	var/current_listeners = get_hearers_in_view(range, source)
+	var/current_listeners = SSspatial_grid.orthogonal_range_search(source, SPATIAL_GRID_CONTENTS_TYPE_HEARING, range)
 	var/new_listeners = current_listeners - listeners
 
 	if(!prefer_mute)
@@ -179,11 +175,11 @@ var/singleton/sound_player/sound_player = new()
 		for(var/listener in former_listeners)
 			PrivRemoveListener(listener)
 
-	for(var/mob/listener as anything in new_listeners)
-		if(listener.client?.prefs.sfx_toggles & sound_type) //Only give the sound token if the listener has the preference for the type of token active
+	for(var/mob/listener in new_listeners)
+		if((listener.client?.prefs.sfx_toggles & sound_type) && (!isdeaf(listener))) //Only give the sound token if the listener has the preference for the type of token active, and is not deaf
 			PrivAddListener(listener)
 
-	for(var/listener in current_listeners)
+	for(var/mob/listener in current_listeners)
 		PrivUpdateListenerLoc(listener)
 
 /datum/sound_token/proc/PrivUpdateStatus(new_status)
@@ -196,11 +192,6 @@ var/singleton/sound_player/sound_player = new()
 	PrivUpdateListeners()
 
 /datum/sound_token/proc/PrivAddListener(atom/listener)
-	// if(isvirtualmob(listener))
-	// 	var/mob/observer/virtual/v = listener
-	// 	if(!(v.abilities & VIRTUAL_ABILITY_HEAR))
-	// 		return
-	// 	listener = v.host
 	if(listener in listeners)
 		return
 
@@ -252,7 +243,7 @@ var/singleton/sound_player/sound_player = new()
 	sound.status = status|listener_status[listener]
 	if(update_sound)
 		sound.status |= SOUND_UPDATE
-	if(listener.client?.prefs.sfx_toggles & sound_type) //Send the sound only if the preference for the type of sound is set, otherwise remove the listener.
+	if((listener.client?.prefs.sfx_toggles & sound_type) && (!isdeaf(listener))) //Send the sound only if the preference for the type of sound is set and is not deaf, otherwise remove the listener.
 		sound_to(listener, sound)
 	else
 		PrivRemoveListener(listener)
@@ -270,10 +261,3 @@ var/singleton/sound_player/sound_player = new()
 
 /datum/sound_token/static_environment/PrivGetEnvironment()
 	return sound.environment
-
-// /obj/sound_test
-// 	var/sound = 'sound/misc/TestLoop1.ogg'
-
-// /obj/sound_test/New()
-// 	..()
-// 	sound_player.PlayLoopingSound(src, /obj/sound_test, sound, 50, 3)

@@ -185,10 +185,6 @@ datum/track/New(var/title_name, var/audio)
 		return 1
 
 /obj/machinery/media/jukebox/proc/StopPlaying()
-	// var/area/main_area = get_area(src)
-	// // Always kill the current sound
-	// for(var/mob/living/M in mobs_in_area(main_area))
-	// 	M << sound(null, channel = 4)
 	QDEL_NULL(token)
 
 	playing = 0
