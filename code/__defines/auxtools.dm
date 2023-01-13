@@ -10,10 +10,10 @@
 	CRASH("auxtools not loaded")
 
 /world/New()
-	call_ext(AUXTOOLS, "auxtools_init")()
+	LIBCALL(AUXTOOLS, "auxtools_init")()
 	enable_debugging()
 	. = ..()
 
 /world/Del()
-	call_ext(AUXTOOLS, "auxtools_shutdown")()
+	LIBCALL(AUXTOOLS, "auxtools_shutdown")()
 	. = ..()
