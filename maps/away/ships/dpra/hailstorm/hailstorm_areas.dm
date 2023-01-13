@@ -1,9 +1,9 @@
 /area/hailstorm_ship
 	name = "Hailstorm Ship"
 	icon_state = "bluenew"
-	requires_power = 1
-	dynamic_lighting = 1
-	no_light_control = 0
+	requires_power = TRUE
+	dynamic_lighting = TRUE
+	no_light_control = FALSE
 	base_turf = /turf/space
 	flags = RAD_SHIELDED
 
@@ -49,3 +49,4 @@
 
 /area/shuttle/hailstorm_shuttle
 	name = "\improper Hailstorm Shuttle"
+	requires_power = TRUE
