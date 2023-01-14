@@ -2,7 +2,7 @@
 	name = "Hailstorm Ship"
 	id = "hailstorm_ship"
 	description = "A People's Volunteer Spacer Militia ship."
-	suffixes = list("ships/pra/hailstorm/hailstorm_ship.dmm")
+	suffixes = list("ships/dpra/hailstorm/hailstorm_ship.dmm")
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hailstorm_shuttle)
