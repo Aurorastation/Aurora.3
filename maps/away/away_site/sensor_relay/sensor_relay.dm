@@ -21,7 +21,7 @@
 	if(on)
 		icon_state = "[initial(icon_state)]_active"
 	else
-		icon_state = initial(linked.icon_state)
+		icon_state = initial(icon_state)
 
 /area/sensor_relay
 	icon = 'maps/away/away_site/sensor_relay/sensor_relay_sprites.dmi'
