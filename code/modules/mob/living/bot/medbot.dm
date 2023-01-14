@@ -4,7 +4,6 @@
 	icon_state = "medibot0"
 	req_one_access = list(access_medical, access_robotics)
 
-	var/skin = null //Set to "tox", "ointment" or "o2" for the other two firstaid kits.
 	botcard_access = list(access_medical, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 
 	//AI vars
@@ -55,11 +54,13 @@
 					if(!path)
 						path = list()
 			if(path.len)
+				icon_state = "medibots"
 				step_to(src, path[1])
 				path -= path[1]
 				++frustration
 			if(get_dist(src, patient) > 7 || frustration > 8)
 				patient = null
+				icon_state = "medibot[on]"
 	else
 		for(var/mob/living/carbon/human/H in view(7, src)) // Time to find a patient!
 			if(valid_healing_target(H))
@@ -99,7 +100,6 @@
 		patient = null
 		return
 
-	icon_state = "medibots"
 	visible_message("<span class='warning'>[src] is trying to inject [H]!</span>")
 	if(declare_treatment)
 		var/area/location = get_area(src)
@@ -116,11 +116,15 @@
 	update_icon()
 
 /mob/living/bot/medbot/update_icon()
-	cut_overlays()
-	if(skin)
-		add_overlay("medskin_[skin]")
+	if(!underlays.len)
+		underlays += image('icons/obj/storage/firstaid.dmi', "firstaid")
+		var/matrix/M = matrix()
+		var/image/ha_image = image('icons/obj/device.dmi', "health")
+		M.Translate(5, 0)
+		ha_image.transform = M
+		underlays += ha_image
 	if(currently_healing)
-		icon_state = "medibots"
+		icon_state = "mediboth"
 	else
 		icon_state = "medibot[on]"
 
@@ -244,7 +248,7 @@
 		if(user)
 			to_chat(user, "<span class='warning'>You short out [src]'s reagent synthesis circuits.</span>")
 		visible_message("<span class='warning'>[src] buzzes oddly!</span>")
-		flick("medibot_spark", src)
+		flick_overlay("medibot_spark", src)
 		patient = null
 		currently_healing = 0
 		emagged = 1
@@ -320,33 +324,24 @@
 		return
 
 	if(contents.len >= 1)
-		to_chat(user, "<span class='notice'>You need to empty [src] out first.</span>")
+		to_chat(user, SPAN_NOTICE("You need to empty [src] out first."))
 		return
 
 	var/obj/item/firstaid_arm_assembly/A = new /obj/item/firstaid_arm_assembly
-	if(istype(src, /obj/item/storage/firstaid/fire))
-		A.skin = "ointment"
-	else if(istype(src, /obj/item/storage/firstaid/toxin))
-		A.skin = "tox"
-	else if(istype(src, /obj/item/storage/firstaid/o2))
-		A.skin = "o2"
-
-	if(A.skin)
-		A.add_overlay("kit_skin_[A.skin]")
+	A.underlays += image(icon, icon_state)
 
 	qdel(S)
 	user.put_in_hands(A)
-	to_chat(user, "<span class='notice'>You add the robot arm to the first aid kit.</span>")
+	to_chat(user, SPAN_NOTICE("You add the robot arm to the first aid kit."))
 	qdel(src)
 
 /obj/item/firstaid_arm_assembly
 	name = "first aid/robot arm assembly"
 	desc = "A first aid kit with a robot arm permanently grafted to it."
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "firstaid_arm"
 	var/build_step = 0
 	var/created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
-	var/skin = null //Same as medbot, set to tox or ointment for the respective kits.
 	w_class = ITEMSIZE_NORMAL
 
 /obj/item/firstaid_arm_assembly/attackby(obj/item/W as obj, mob/user as mob)
@@ -365,20 +360,24 @@
 					user.drop_from_inventory(W,get_turf(src))
 					qdel(W)
 					build_step++
-					to_chat(user, "<span class='notice'>You add the health sensor to [src].</span>")
-					name = "First aid/robot arm/health analyzer assembly"
-					add_overlay("na_scanner")
+					to_chat(user, SPAN_NOTICE("You add the health sensor to [src]."))
+					name = "first-aid/robot arm/health analyzer assembly"
+					var/matrix/M = matrix()
+					var/image/ha_image = image('icons/obj/device.dmi', "health")
+					M.Translate(5, 0)
+					ha_image.transform = M
+					underlays += ha_image
 					return 1
 
 			if(1)
 				if(isprox(W))
 					user.drop_from_inventory(W,get_turf(src))
 					qdel(W)
-					to_chat(user, "<span class='notice'>You complete the Medibot! Beep boop.</span>")
+					to_chat(user, SPAN_NOTICE("You complete the Medibot! Beep boop."))
 					var/turf/T = get_turf(src)
 					var/mob/living/bot/medbot/S = new /mob/living/bot/medbot(T)
-					S.skin = skin
 					S.name = created_name
+					S.underlays = src.underlays
 					S.update_icon()
 					qdel(src)
 					return 1
