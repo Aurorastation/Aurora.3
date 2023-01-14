@@ -1341,7 +1341,7 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/hailstorm_shuttle)
 "jG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -1950,9 +1950,7 @@
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/shuttle/hailstorm_shuttle)
 "qp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2914,9 +2912,7 @@
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor{
-	temperature = 278.15
-	},
+/turf/simulated/floor/airless,
 /area/shuttle/hailstorm_shuttle)
 "Gu" = (
 /obj/effect/map_effect/airlock/s_to_n/long/square,
