@@ -15,7 +15,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "adE" = (
 /turf/space,
@@ -169,7 +169,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "dty" = (
 /obj/machinery/appliance/cooker/oven,
@@ -396,9 +396,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
-"gCT" = (
-/turf/simulated/floor/plating,
-/area/space)
 "gDR" = (
 /obj/effect/map_effect/airlock/s_to_n/long/square/wide,
 /turf/simulated/wall,
@@ -535,7 +532,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "jfI" = (
 /obj/machinery/vending/tool{
@@ -637,7 +634,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "kBU" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -710,7 +707,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "mth" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -818,7 +815,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "nJA" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -869,7 +866,7 @@
 	id = "auxsolarnorth";
 	name = "Fore Solar Control"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "oMD" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -925,7 +922,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "pNw" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -1019,7 +1016,7 @@
 	icon_state = "2-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "reZ" = (
 /obj/machinery/light,
@@ -1147,7 +1144,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "swj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1164,7 +1161,7 @@
 /area/space)
 "sCG" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "sPC" = (
 /obj/machinery/light,
@@ -1180,7 +1177,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "sWu" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -29849,23 +29846,23 @@ xRX
 xRX
 xRX
 fmv
-gCT
-gCT
-gCT
-gCT
-gCT
-gCT
-gCT
-gCT
-gCT
-gCT
-gCT
-gCT
-gCT
-gCT
-gCT
-gCT
-gCT
+qKc
+qKc
+qKc
+qKc
+qKc
+qKc
+qKc
+qKc
+qKc
+qKc
+qKc
+qKc
+qKc
+qKc
+qKc
+qKc
+qKc
 fmv
 fmv
 xRX
@@ -37053,7 +37050,7 @@ qKc
 qKc
 qKc
 qKc
-gCT
+qKc
 qKc
 qKc
 qKc
