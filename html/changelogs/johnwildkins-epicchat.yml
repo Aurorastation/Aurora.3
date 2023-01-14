@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Floating chat messages will now follow you when you speak before exiting an enclosing object (closet, charging unit, sleeper, etc)."
