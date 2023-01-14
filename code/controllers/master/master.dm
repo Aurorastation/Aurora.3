@@ -134,6 +134,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		if(FireHim)
 			Master.subsystems += new BadBoy.type	//NEW_SS_GLOBAL will remove the old one
 		subsystems = Master.subsystems
+		current_runlevel = Master.current_runlevel
 		StartProcessing(10)
 	else
 		to_chat(world, "<span class='danger'><big>The Master Controller is having some issues, we will need to re-initialize EVERYTHING</big></span>")
@@ -202,7 +203,9 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		old_runlevel = "NULL"
 
 	testing("MC: Runlevel changed from [old_runlevel] to [new_runlevel].")
-	current_runlevel = new_runlevel
+	current_runlevel = log(2, new_runlevel) + 1
+	if(current_runlevel < 1)
+		CRASH("Attempted to set invalid runlevel: [new_runlevel]")
 
 // Starts the mc, and sticks around to restart it if the loop ever ends.
 /datum/controller/master/proc/StartProcessing(delay)
@@ -262,9 +265,9 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	//these sort by lower priorities first to reduce the number of loops needed to add subsequent SS's to the queue
 	//(higher subsystems will be sooner in the queue, adding them later in the loop means we don't have to loop thru them next queue add)
 	sortTim(tickersubsystems, /proc/cmp_subsystem_priority)
-	for(var/I in runlevel_sorted_subsystems)
-		sortTim(runlevel_sorted_subsystems, /proc/cmp_subsystem_priority)
-		I += tickersubsystems
+	for(var/level in runlevel_sorted_subsystems)
+		sortTim(level, /proc/cmp_subsystem_priority)
+		level += tickersubsystems
 
 	var/cached_runlevel = current_runlevel
 	var/list/current_runlevel_subsystems = runlevel_sorted_subsystems[cached_runlevel]

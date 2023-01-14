@@ -1094,7 +1094,7 @@ var/global/known_proc = new /proc/get_type_ref_bytes
 /proc/stoplag(initial_delay)
 	// If we're initializing, our tick limit might be over 100 (testing config), but stoplag() penalizes procs that go over.
 	// 	Unfortunately, this penalty slows down init a *lot*. So, we disable it during boot and lobby, when relatively few things should be calling this.
-	if (!Master || !(Master.current_runlevel & RUNLEVELS_DEFAULT))
+	if (!Master || GAME_STATE < RUNLEVEL_SETUP)
 		sleep(world.tick_lag)
 		return 1
 
