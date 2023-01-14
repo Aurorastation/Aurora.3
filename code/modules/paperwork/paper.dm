@@ -731,7 +731,7 @@
 		welding goggles.</li><li>Grasp the emergency welding tool firmly in your hands, turn it on, and start cutting a hole in the floor.</li><li>Wait for \
 		the newly created hole to cool.<li>Use the emergency crowbar to pry away the metal.</li><li>Deploy the emergency ladder.</li><li>Dispose of the used \
 		equipment, if necessary.</li></ol></font></font>"
-		
+
 // Used on the IAC ship, meant for distribution.
 /obj/item/paper/fluff/iac
 	name = "interstellar aid corps info pamphlet"
@@ -742,3 +742,16 @@
 	with your support. As such, local IAC vessels and stations are accepting donations of non-perishable foods and water, as well as medical supplies of any type. \
 	Additionally, at the behest of the IAC coordinator in your area of space, you can join for a blood drive or apply to volunteer in the IAC. <br> \
 	<center><i>Remember - it's up to all of us to look after our galaxy!</i></center></font>"
+
+// Used in the 'stranded' away site. It really should be written in Siik’maas but I can't for the life of me figure out how to make it so without runtiming.
+/obj/item/paper/fluff/cabin
+	name = "journal page"
+	desc = "A journal page. It is covered in dust."
+	info = "<font face=\"GrandHotel\"<b>September 5th, 2453:</b><br><br>The only thing he has ever desired has been a \
+	peaceful, simple life with his family, never did he desire to die for the King. That is why he spent his savings to get them to this desolate place. A desolate place he had \
+	hoped, and still hopes, one day in the distant future will be a better Adhomai. Yet recent times has made him question his choice to flee from the conscription, to flee from  \
+	becoming one of the Alam'ard. Every night this past week he has been awaken by nightmares, nightmares of the single armed one. The S'mara, hunting him and his family <br><br> \
+	And it is not just mere dreams, the noises he hears here aren't natural. They are not the wails of the Sham'tyr, he knows those well. And  \
+	not to mention the strange blue light he's seen moving from far past the trees. He fears S'mara will come for him soon. He only prays for his wife, and his children to be   \
+	spared her vengence. They did not desert.  \
+	It is only because of him they are here, they must not suffer for his disloyalty.</font>"
