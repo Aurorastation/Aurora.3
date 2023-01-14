@@ -1,10 +1,11 @@
 /mob/living/bot/medbot
-	name = "Medbot"
+	name = "Medibot"
 	desc = "A little medical robot. He looks somewhat underwhelmed."
 	icon_state = "medibot0"
 	req_one_access = list(access_medical, access_robotics)
-
 	botcard_access = list(access_medical, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
+
+	var/obj/item/storage/firstaid = /obj/item/storage/firstaid
 
 	//AI vars
 	var/frustration = 0
@@ -100,7 +101,7 @@
 		patient = null
 		return
 
-	visible_message("<span class='warning'>[src] is trying to inject [H]!</span>")
+	visible_message(SPAN_WARNING("[src] is trying to inject [H]!"))
 	if(declare_treatment)
 		var/area/location = get_area(src)
 		broadcast_medical_hud_message("[src] is treating <b>[H]</b> in <b>[location]</b>", src)
@@ -111,13 +112,13 @@
 			reagent_glass.reagents.trans_to_mob(H, injection_amount, CHEM_BLOOD)
 		else
 			H.reagents.add_reagent(t, injection_amount)
-		visible_message("<span class='warning'>[src] injects [H] with the syringe!</span>")
+		visible_message(SPAN_WARNING("[src] injects [H] with the syringe!"))
 	currently_healing = 0
 	update_icon()
 
 /mob/living/bot/medbot/update_icon()
 	if(!underlays.len)
-		underlays += image('icons/obj/storage/firstaid.dmi', "firstaid")
+		underlays += image(firstaid.icon, firstaid.icon_state)
 		var/matrix/M = matrix()
 		var/image/ha_image = image('icons/obj/device.dmi', "health")
 		M.Translate(5, 0)
@@ -130,7 +131,7 @@
 
 /mob/living/bot/medbot/attack_hand(var/mob/user)
 	if (!has_ui_access(user))
-		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
+		to_chat(user, SPAN_WARNING("The unit's interface refuses to unlock!"))
 		return
 
 	var/dat = ""
@@ -171,15 +172,15 @@
 /mob/living/bot/medbot/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/reagent_containers/glass))
 		if(locked)
-			to_chat(user, "<span class='notice'>You cannot insert a beaker because the panel is locked.</span>")
+			to_chat(user, SPAN_NOTICE("You cannot insert a beaker because the panel is locked."))
 			return
 		if(!isnull(reagent_glass))
-			to_chat(user, "<span class='notice'>There is already a beaker loaded.</span>")
+			to_chat(user, SPAN_NOTICE("There is already a beaker loaded."))
 			return
 
 		user.drop_from_inventory(O,src)
 		reagent_glass = O
-		to_chat(user, "<span class='notice'>You insert [O].</span>")
+		to_chat(user, SPAN_NOTICE("You insert [O]."))
 		return 1
 	else
 		..()
@@ -191,7 +192,7 @@
 	add_fingerprint(usr)
 
 	if (!has_ui_access(usr))
-		to_chat(usr, "<span class='warning'>Insufficient permissions.</span>")
+		to_chat(usr, SPAN_WARNING("Insufficient permissions."))
 		return
 
 	if (href_list["power"])
@@ -224,7 +225,7 @@
 			reagent_glass.forceMove(get_turf(src))
 			reagent_glass = null
 		else
-			to_chat(usr, "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>")
+			to_chat(usr, SPAN_NOTICE("You cannot eject the beaker because the panel is locked."))
 
 	else if (href_list["declaretreatment"] && (!locked || issilicon(usr)))
 		declare_treatment = !declare_treatment
@@ -246,8 +247,8 @@
 	. = ..()
 	if(!emagged)
 		if(user)
-			to_chat(user, "<span class='warning'>You short out [src]'s reagent synthesis circuits.</span>")
-		visible_message("<span class='warning'>[src] buzzes oddly!</span>")
+			to_chat(user, SPAN_WARNING("You short out [src]'s reagent synthesis circuits."))
+		visible_message(SPAN_WARNING("[src] buzzes oddly!"))
 		flick_overlay("medibot_spark", src)
 		patient = null
 		currently_healing = 0
@@ -258,11 +259,12 @@
 	ignored |= user
 
 /mob/living/bot/medbot/explode()
-	on = 0
-	visible_message("<span class='danger'>[src] blows apart!</span>")
+	on = FALSE
+	visible_message(SPAN_DANGER("\The [src] blows apart!"))
 	var/turf/Tsec = get_turf(src)
 
-	new /obj/item/storage/firstaid(Tsec)
+	if(ispath(firstaid))
+		new firstaid(Tsec)
 	new /obj/item/device/assembly/prox_sensor(Tsec)
 	new /obj/item/device/healthanalyzer(Tsec)
 	if (prob(50))
@@ -329,6 +331,7 @@
 
 	var/obj/item/firstaid_arm_assembly/A = new /obj/item/firstaid_arm_assembly
 	A.underlays += image(icon, icon_state)
+	A.firstaid = src
 
 	qdel(S)
 	user.put_in_hands(A)
@@ -340,9 +343,10 @@
 	desc = "A first aid kit with a robot arm permanently grafted to it."
 	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "firstaid_arm"
+	w_class = ITEMSIZE_NORMAL
 	var/build_step = 0
 	var/created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
-	w_class = ITEMSIZE_NORMAL
+	var/obj/item/storage/firstaid // store the firstaid type if it blows up
 
 /obj/item/firstaid_arm_assembly/attackby(obj/item/W as obj, mob/user as mob)
 	..()
@@ -379,5 +383,6 @@
 					S.name = created_name
 					S.underlays = src.underlays
 					S.update_icon()
+					S.firstaid = firstaid
 					qdel(src)
 					return 1
