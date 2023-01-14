@@ -4074,9 +4074,9 @@
 	name = "Machinist Workshop Desk"
 	},
 /obj/machinery/door/blast/shutters{
+	dir = 8;
 	id = "shutters_deck2_workshopdesk";
-	name = "Machinist Workshop Desk Shutter";
-	dir = 8
+	name = "Machinist Workshop Desk Shutter"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
@@ -9990,8 +9990,8 @@
 /area/security/prison)
 "fai" = (
 /obj/structure/bed/handrail{
-	dir = 8;
 	buckle_dir = 8;
+	dir = 8;
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -10297,7 +10297,6 @@
 	},
 /obj/machinery/station_map{
 	dir = 1;
-	pixel_x = 0;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -16969,8 +16968,8 @@
 	},
 /obj/machinery/camera/motion{
 	c_tag = "Secure Ammunition Storage";
-	network = list("Command","Security");
-	dir = 8
+	dir = 8;
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/reinforced,
 /area/horizon/secure_ammunition_storage)
@@ -22311,7 +22310,6 @@
 	},
 /obj/machinery/station_map{
 	dir = 1;
-	pixel_x = 0;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -24447,7 +24445,6 @@
 	},
 /obj/machinery/station_map{
 	dir = 1;
-	pixel_x = 0;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -26573,8 +26570,8 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/camera/motion{
 	c_tag = "ZTA Access Aft";
-	network = list("Command","Security");
-	dir = 4
+	dir = 4;
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/plating,
 /area/horizon/zta)
@@ -29118,7 +29115,6 @@
 	},
 /obj/machinery/station_map{
 	dir = 1;
-	pixel_x = 0;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -30362,8 +30358,8 @@
 /area/medical/pharmacy)
 "paL" = (
 /obj/structure/bed/handrail{
-	dir = 4;
 	buckle_dir = 4;
+	dir = 4;
 	pixel_x = -5
 	},
 /turf/simulated/floor/tiled/white,
@@ -37837,10 +37833,10 @@
 "sRC" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/button/switch/windowtint{
-	pixel_x = -25;
 	dir = 4;
-	pixel_y = -4;
-	id = "polarized_deck2_workshop"
+	id = "polarized_deck2_workshop";
+	pixel_x = -25;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
@@ -39513,8 +39509,8 @@
 	},
 /obj/machinery/camera/motion{
 	c_tag = "Operations - Secure Storage";
-	network = list("Command","Security","Operations");
-	dir = 4
+	dir = 4;
+	network = list("Command","Security","Operations")
 	},
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
@@ -39719,8 +39715,8 @@
 	},
 /obj/machinery/camera/motion{
 	c_tag = "Grauwolf";
-	network = list("Command","Security");
-	dir = 8
+	dir = 8;
+	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
@@ -40382,8 +40378,6 @@
 	dir = 5
 	},
 /obj/machinery/station_map{
-	dir = 2;
-	pixel_x = 0;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -42692,6 +42686,30 @@
 /obj/item/clothing/accessory/holster/modular{
 	pixel_x = -6;
 	pixel_y = -6
+	},
+/obj/item/clothing/accessory/goon_coif{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/clothing/accessory/goon_coif{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/clothing/accessory/goon_coif{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/clothing/accessory/goon_coif{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/clothing/accessory/goon_coif{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/clothing/accessory/goon_coif{
+	pixel_x = 6;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled,
 /area/security/armory)

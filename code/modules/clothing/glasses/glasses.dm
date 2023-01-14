@@ -269,9 +269,13 @@ BLIND     // can't see anything
 		icon_state = "[base_icon_state]_up"
 		if(change_item_state_on_flip) item_state = icon_state
 		to_chat(usr, SPAN_NOTICE("You push \the [src] [flip_up]"))
-	update_clothing_icon()
+	handle_additional_changes()
+	update_worn_icon()
 	update_icon()
 	usr.update_action_buttons()
+
+/obj/item/clothing/glasses/safety/goggles/proc/handle_additional_changes()
+	return
 
 /obj/item/clothing/glasses/safety/goggles/prescription
 	name = "prescription safety goggles"
@@ -287,18 +291,9 @@ BLIND     // can't see anything
 	item_state = "wasteland_goggles"
 	off_state = "wasteland_goggles"
 	contained_sprite = TRUE
+	change_item_state_on_flip = TRUE
 	flip_down = "up to protect your eyes."
 	flip_up = "and let it hang around your neck."
-
-/obj/item/clothing/glasses/safety/goggles/wasteland/toggle()
-	..()
-	if(up)
-		item_state = "[base_icon_state]_up"
-	else
-		item_state = base_icon_state
-	update_worn_icon()
-	update_clothing_icon()
-	update_icon()
 
 /obj/item/clothing/glasses/safety/goggles/goon
 	name = "tactical goggles"
@@ -316,6 +311,16 @@ BLIND     // can't see anything
 	. = ..()
 	if(brand_name)
 		desc += " This pair has been made in [brand_name] colors."
+
+/obj/item/clothing/glasses/safety/goggles/goon/security/process_hud(var/mob/M)
+	if(!up)
+		process_sec_hud(M, TRUE)
+
+/obj/item/clothing/glasses/safety/goggles/goon/is_sec_hud()
+	return !up
+
+/obj/item/clothing/glasses/safety/goggles/goon/handle_additional_changes()
+	flash_protection = up ? FLASH_PROTECTION_NONE : FLASH_PROTECTION_MODERATE
 
 /obj/item/clothing/glasses/safety/goggles/goon/pmc
 	sprite_state = "pmc_goggles"
