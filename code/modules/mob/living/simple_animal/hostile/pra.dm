@@ -11,6 +11,7 @@
 	icon_dead = "republicon_dead"
 	blood_type = COLOR_OIL
 	speak_chance = 5
+	universal_speak = FALSE
 	turns_per_move = 3
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help = "pokes"
@@ -59,13 +60,7 @@
 	mob_swap_flags = ROBOT|MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = ~HEAVY
 
-/mob/living/simple_animal/hostile/republicon/Initialize()
-	. = ..()
-	add_language(LANGUAGE_SIIK_MAAS)
-	set_default_language(all_languages[LANGUAGE_SIIK_MAAS])
-
-/mob/living/simple_animal/hostile/republicon/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+	simple_default_language = LANGUAGE_SIIK_MAAS
 
 /mob/living/simple_animal/hostile/republicon/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
