@@ -72,11 +72,32 @@ var/list/floating_chat_colors = list()
 		animate(old, 2, pixel_y = old.pixel_y + 8)
 	LAZYADD(holder.stored_chat_text, I)
 
+	if(attached_holder != holder)
+		attached_holder.RegisterSignal(holder, COMSIG_MOVABLE_MOVED, /atom/movable/proc/give_floating_text)
+		addtimer(CALLBACK(attached_holder, /atom/movable/proc/drop_floating_signal, holder), duration + 2)
+
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_floating_text, holder, I), duration)
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_images_from_clients, I, show_to), duration + 2)
 
 	return I
 
+/atom/movable/proc/give_floating_text(atom/movable/holder)
+	if(!holder)
+		return
+	for(var/image/I in holder.stored_chat_text)
+		if(I.loc == src)
+			I.loc = holder
+
+/atom/movable/proc/drop_floating_signal(atom/movable/holder)
+	if(!holder)
+		return
+	for(var/image/I in holder.stored_chat_text)
+		if(I.loc == src)
+			return
+	UnregisterSignal(holder, COMSIG_MOVABLE_MOVED)
+
 /proc/remove_floating_text(atom/movable/holder, image/I)
 	animate(I, 2, pixel_y = I.pixel_y + 10, alpha = 0)
 	LAZYREMOVE(holder.stored_chat_text, I)
+	if(!length(holder.stored_chat_text))
+		holder.UnregisterSignal(holder, COMSIG_MOVABLE_MOVED)
