@@ -1,7 +1,7 @@
 /datum/gear_tweak/proc/get_contents(var/metadata)
 	return
 
-/datum/gear_tweak/proc/get_metadata(var/user, var/metadata)
+/datum/gear_tweak/proc/get_metadata(var/user, var/metadata, var/title, var/gear_path)
 	return
 
 /datum/gear_tweak/proc/get_default()
@@ -216,7 +216,7 @@ var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 	var/datum/component/base_name/BN = I.GetComponent(/datum/component/base_name)
 	if(BN)
 		BN.rename(metadata)
-	
+
 /*
 Custom Description
 */

@@ -19,7 +19,7 @@
 		/datum/unarmed_attack/bite/sharp
 	)
 	maneuvers = list(
-		/decl/maneuver/leap/tajara
+		/singleton/maneuver/leap/tajara
 	)
 	darksight = 8
 	slowdown = -1
@@ -96,8 +96,8 @@
 	default_h_style = "Tajaran Ears"
 
 	possible_cultures = list(
-		/decl/origin_item/culture/adhomian,
-		/decl/origin_item/culture/offworld_tajara
+		/singleton/origin_item/culture/adhomian,
+		/singleton/origin_item/culture/offworld_tajara
 	)
 
 	inherent_verbs = list(

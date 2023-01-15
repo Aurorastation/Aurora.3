@@ -501,4 +501,4 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 //Ruin map template flags
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it.
 
-#define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets
+#define LANDING_ZONE_RADIUS 25 // Used for autoplacing landmarks on exoplanets

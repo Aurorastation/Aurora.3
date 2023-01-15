@@ -7,8 +7,8 @@
 	</br>You can also use a lightreplacer, spraybottle (of spacecleaner) and four wet-floor signs on the cart to store them"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "cart"
-	anchored = 0
-	density = 1
+	anchored = FALSE
+	density = TRUE
 	climbable = TRUE
 	flags = OPENCONTAINER
 	build_amt = 15
@@ -65,7 +65,7 @@
 	myreplacer = new /obj/item/device/lightreplacer(src)
 
 	mybucket = new /obj/structure/mopbucket(src)
-	mybucket.reagents.add_reagent(/decl/reagent/water, mybucket.bucketsize)
+	mybucket.reagents.add_reagent(/singleton/reagent/water, mybucket.bucketsize)
 
 	for(signs, signs < 4, signs++)
 		new /obj/item/clothing/suit/caution(src)

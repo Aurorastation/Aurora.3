@@ -221,7 +221,7 @@
 			var/obj/item/material/shard/S = material.place_shard(T)
 			M.embed(S)
 
-	playsound(src.loc, /decl/sound_category/glass_break_sound, 70, 1)
+	playsound(src.loc, /singleton/sound_category/glass_break_sound, 70, 1)
 	qdel(src)
 
 /obj/item/clothing/suit/armor/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -309,6 +309,10 @@
 	throwforce = 2
 	slot_flags = SLOT_EARS
 
+	sprite_sheets = list(
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/l_ear.dmi',
+		)
+
 /obj/item/clothing/ears/attack_hand(mob/user as mob)
 	if (!user) return
 
@@ -344,6 +348,10 @@
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "blocked"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
+
+	sprite_sheets = list(
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/r_ear.dmi',
+		)
 
 /obj/item/clothing/ears/offear/proc/copy_ear(var/obj/O)
 	name = O.name
@@ -1015,6 +1023,7 @@
 	var/displays_id = 1
 	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
+	var/initial_icon_override //If set, rolling up sleeves/rolling down will use this icon state instead of initial().
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_GOLEM)
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
@@ -1143,7 +1152,7 @@
 	if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_w_uniform()
-		playsound(M, /decl/sound_category/rustle_sound, 15, 1, -5)
+		playsound(M, /singleton/sound_category/rustle_sound, 15, 1, -5)
 
 /obj/item/clothing/under/examine(mob/user)
 	..(user)
@@ -1221,20 +1230,31 @@
 	update_rolldown_status()
 
 	rolled_down = !rolled_down
+	handle_rollsuit(usr)
+
+/obj/item/clothing/under/proc/handle_rollsuit(mob/user)
 	if(rolled_down)
 		body_parts_covered &= LOWER_TORSO|LEGS|FEET
 		if(contained_sprite || !LAZYLEN(item_state_slots))
-			item_state = "[initial(item_state)]_d"
+			if(initial_icon_override)
+				item_state = "[initial_icon_override]_d"
+			else
+				item_state = "[initial(item_state)]_d"
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
-		to_chat(usr, SPAN_NOTICE("You roll up \the [src]."))
+		if(user)
+			to_chat(user, SPAN_NOTICE("You roll up \the [src]."))
 	else
 		body_parts_covered = initial(body_parts_covered)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
-			item_state = initial(item_state)
+			if(initial_icon_override)
+				item_state = initial_icon_override
+			else
+				item_state = initial(item_state)
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
-		to_chat(usr, SPAN_NOTICE("You roll down \the [src]."))
+		if(user)
+			to_chat(user, SPAN_NOTICE("You roll down \the [src]."))
 	update_clothing_icon()
 
 /obj/item/clothing/under/proc/rollsleeves()
@@ -1253,20 +1273,31 @@
 	update_rollsleeves_status()
 
 	rolled_sleeves = !rolled_sleeves
+	handle_rollsleeves(usr)
+
+/obj/item/clothing/under/proc/handle_rollsleeves(mob/user)
 	if(rolled_sleeves)
 		body_parts_covered &= ~(ARMS|HANDS)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
-			item_state = "[initial(item_state)]_r"
+			if(initial_icon_override)
+				item_state = "[initial_icon_override]_r"
+			else
+				item_state = "[initial(item_state)]_r"
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_r"
-		to_chat(usr, SPAN_NOTICE("You roll up \the [src]'s sleeves."))
+		if(user)
+			to_chat(user, SPAN_NOTICE("You roll up \the [src]'s sleeves."))
 	else
 		body_parts_covered = initial(body_parts_covered)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
-			item_state = initial(item_state)
+			if(initial_icon_override)
+				item_state = initial_icon_override
+			else
+				item_state = initial(item_state)
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
-		to_chat(usr, SPAN_NOTICE("You roll down \the [src]'s sleeves."))
+		if(user)
+			to_chat(user, SPAN_NOTICE("You roll down \the [src]'s sleeves."))
 	update_clothing_icon()
 
 /obj/item/clothing/under/rank/Initialize()

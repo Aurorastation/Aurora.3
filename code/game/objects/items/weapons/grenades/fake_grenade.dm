@@ -6,5 +6,5 @@
 
 /obj/item/grenade/fake/prime()
 	active = 0
-	playsound(src.loc, get_sfx(/decl/sound_category/explosion_sound), 50, 1, 30)
+	playsound(src.loc, get_sfx(/singleton/sound_category/explosion_sound), 50, 1, 30)
 	icon_state = "frag"

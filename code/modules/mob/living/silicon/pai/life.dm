@@ -47,6 +47,3 @@
 		stat(null, "Maintenance Lock: [B.locked ? "Locked" : "Unlocked"]")
 		if(B.emagged)
 			stat(null, "Bot M#$FUN90: MALFUNC--")
-	if(istype(card.loc, /mob/living/bot/floorbot))
-		var/mob/living/bot/floorbot/F = card.loc
-		stat(null, "Metal Count: [F.amount]/[F.maxAmount]")
