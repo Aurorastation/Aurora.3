@@ -455,7 +455,7 @@
 						L.verbs.Add(/mob/living/carbon/proc/echo_eject)
 					BS.mind.transfer_to(D)
 					D.echo = 1
-					D.stat = CONSCIOUS
+					D.set_stat(CONSCIOUS)
 					D.gestalt = L
 					D.sync_languages(D.gestalt)
 					D.update_verbs()
