@@ -24,7 +24,8 @@
 		/singleton/reagent/soporific,
 		/singleton/reagent/perconol,
 		/singleton/reagent/dylovene,
-		/singleton/reagent/dexalin
+		/singleton/reagent/dexalin,
+		/singleton/reagent/tricordrazine
 		)
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/filtering = FALSE
