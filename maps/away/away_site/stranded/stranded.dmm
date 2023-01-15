@@ -2421,21 +2421,6 @@
 	name = "dirt"
 	},
 /area/stranded/cave)
-"Bo" = (
-/obj/structure/flora/tree/jungle{
-	layer = 9.1
-	},
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks1";
-	layer = 2.5;
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -23
-	},
-/turf/simulated/floor/exoplanet/grass,
-/area/stranded/forest)
 "Bz" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree2";
@@ -23004,7 +22989,7 @@ ga
 ga
 ga
 ga
-yA
+ga
 ga
 ga
 ga
@@ -23463,7 +23448,7 @@ ga
 ga
 ga
 ga
-ga
+yA
 ga
 ga
 ga
@@ -32086,7 +32071,7 @@ ga
 ga
 ga
 ga
-ga
+qK
 ga
 ga
 ga
@@ -35265,7 +35250,7 @@ ga
 ga
 ga
 ga
-qK
+ga
 ga
 ga
 ga
@@ -35483,12 +35468,12 @@ ga
 ga
 ga
 ga
-TS
 ga
 ga
 ga
 ga
-kl
+ga
+ga
 ga
 ga
 ga
@@ -35725,7 +35710,7 @@ ga
 ga
 ga
 ga
-Ks
+ga
 ga
 ga
 ga
@@ -35947,7 +35932,6 @@ ga
 ga
 ga
 ga
-MN
 ga
 ga
 ga
@@ -35955,7 +35939,8 @@ ga
 ga
 ga
 ga
-LH
+ga
+ga
 ga
 ga
 ga
@@ -36183,7 +36168,7 @@ ga
 ga
 ga
 ga
-LH
+ga
 ga
 ga
 ga
@@ -36614,7 +36599,6 @@ ga
 ga
 ga
 ga
-sg
 ga
 ga
 ga
@@ -36637,7 +36621,8 @@ ga
 ga
 ga
 ga
-sg
+ga
+ga
 ga
 ga
 ga
@@ -36867,7 +36852,7 @@ ga
 ga
 ga
 ga
-GI
+ga
 ga
 ga
 ga
@@ -37293,7 +37278,7 @@ ga
 ga
 ga
 ga
-IQ
+ga
 ga
 ga
 ga
@@ -37970,7 +37955,6 @@ ga
 ga
 ga
 ga
-TS
 ga
 ga
 ga
@@ -38004,7 +37988,8 @@ ga
 ga
 ga
 ga
-yB
+ga
+ga
 ga
 ga
 ga
@@ -38235,7 +38220,7 @@ ga
 ga
 ga
 ga
-tI
+ga
 ga
 ga
 ga
@@ -38673,7 +38658,7 @@ ga
 ga
 ga
 ga
-ga
+yA
 ga
 ga
 ga
@@ -38895,7 +38880,7 @@ ga
 ga
 ga
 ga
-yA
+ga
 ga
 ga
 ga
@@ -39819,7 +39804,7 @@ ga
 ga
 ga
 ga
-MN
+ga
 ga
 ga
 ga
@@ -40271,7 +40256,7 @@ ga
 ga
 ga
 ga
-LH
+ga
 ga
 ga
 ga
@@ -40699,7 +40684,6 @@ ga
 ga
 ga
 ga
-Bo
 ga
 ga
 ga
@@ -40730,7 +40714,8 @@ ga
 ga
 ga
 ga
-MN
+ga
+ga
 ga
 ga
 ga
@@ -41379,7 +41364,6 @@ ga
 ga
 ga
 ga
-Cn
 ga
 ga
 ga
@@ -41406,7 +41390,8 @@ ga
 ga
 ga
 ga
-Ks
+ga
+ga
 ga
 ga
 ga
@@ -42064,12 +42049,12 @@ ga
 ga
 ga
 ga
-TP
 ga
 ga
 ga
 ga
-tI
+ga
+ga
 ga
 ga
 ga
@@ -42307,7 +42292,7 @@ ga
 ga
 ga
 ga
-Ks
+ga
 ga
 ga
 ga
@@ -42529,7 +42514,7 @@ ga
 ga
 ga
 ga
-Ks
+ga
 ga
 ga
 ga
@@ -46657,7 +46642,6 @@ ga
 ga
 ga
 ga
-TS
 ga
 ga
 ga
@@ -46670,13 +46654,14 @@ ga
 ga
 ga
 ga
-MN
 ga
 ga
 ga
 ga
 ga
-MN
+ga
+ga
+ga
 ga
 ga
 ga
@@ -46891,7 +46876,7 @@ ga
 ga
 ga
 ga
-MN
+ga
 ga
 ga
 ga
@@ -47333,14 +47318,14 @@ ga
 ga
 ga
 ga
-TS
 ga
 ga
 ga
 ga
 ga
 ga
-MN
+ga
+ga
 ga
 ga
 ga
@@ -47585,12 +47570,12 @@ ga
 ga
 ga
 ga
-TS
 ga
 ga
 ga
 ga
-MN
+ga
+ga
 ga
 ga
 ga
@@ -48270,7 +48255,7 @@ ga
 ga
 ga
 ga
-kl
+ga
 ga
 ga
 ga
@@ -48466,7 +48451,7 @@ ga
 ga
 ga
 ga
-Ks
+ga
 ga
 ga
 ga
@@ -48728,7 +48713,7 @@ ga
 ga
 ga
 ga
-TS
+ga
 ga
 ga
 ga
@@ -49372,7 +49357,7 @@ ga
 ga
 ga
 ga
-hC
+ga
 ga
 ga
 ga
@@ -49842,6 +49827,12 @@ ga
 ga
 ga
 ga
+ga
+ga
+ga
+ga
+ga
+ga
 yA
 ga
 ga
@@ -49855,12 +49846,6 @@ ga
 ga
 ga
 ga
-ga
-ga
-ga
-ga
-ga
-yX
 ga
 ga
 ga
@@ -50083,7 +50068,7 @@ ga
 ga
 ga
 ga
-TS
+ga
 ga
 ga
 ga
@@ -50963,7 +50948,7 @@ ga
 ga
 ga
 ga
-TS
+ga
 ga
 ga
 ga
@@ -51451,7 +51436,7 @@ ga
 ga
 ga
 ga
-MN
+ga
 ga
 ga
 ga
@@ -51874,7 +51859,7 @@ ga
 ga
 ga
 ga
-tI
+ga
 ga
 ga
 ga
@@ -52122,7 +52107,7 @@ ga
 ga
 ga
 ga
-IR
+ga
 ga
 ga
 ga
@@ -52333,7 +52318,6 @@ ga
 ga
 ga
 ga
-TS
 ga
 ga
 ga
@@ -52357,7 +52341,8 @@ ga
 ga
 ga
 ga
-Ks
+ga
+ga
 ga
 ga
 ga
@@ -52565,7 +52550,7 @@ ga
 ga
 ga
 ga
-hC
+ga
 ga
 ga
 ga
@@ -53011,9 +52996,6 @@ ga
 ga
 ga
 ga
-IR
-ga
-hb
 ga
 ga
 ga
@@ -53031,7 +53013,10 @@ ga
 ga
 ga
 ga
-MN
+ga
+ga
+ga
+ga
 ga
 ga
 ga
@@ -53252,7 +53237,7 @@ ga
 ga
 ga
 ga
-tI
+ga
 ga
 ga
 ga
@@ -53473,7 +53458,7 @@ ga
 ga
 ga
 ga
-MN
+ga
 ga
 ga
 ga
@@ -53937,7 +53922,7 @@ ga
 ga
 ga
 ga
-Ks
+ga
 ga
 ga
 ga
