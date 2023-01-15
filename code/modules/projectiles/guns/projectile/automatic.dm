@@ -500,10 +500,10 @@
 	..()
 	if(ammo_magazine)
 		icon_state = "mrrazhak"
-		icon_state = "mrrazhak"
+		item_state = "mrrazhak"
 	else
 		icon_state = "mrrazhak_nomag"
-		icon_state = "mrrazhak_nomag"
+		item_state = "mrrazhak_nomag"
 
 /obj/item/gun/projectile/automatic/tommygun
 	name = "submachine gun"
