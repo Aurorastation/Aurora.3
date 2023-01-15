@@ -23,7 +23,7 @@
 	name = "Stranded Survivor"
 
 	uniform = /obj/item/clothing/under/color/brown
-	shoes = /obj/item/clothing/shoes/cult
+	shoes = /obj/item/clothing/shoes/brown
 	back = /obj/item/storage/backpack/satchel/leather
 
 	id = null
@@ -37,6 +37,7 @@
 	short_name = "vannatusk"
 	name = "Vannatusk"
 	desc = "Become a vannatusk. A ferocious creature of mysterious origins."
+	welcome_message = "You are a Vannatusk. A native of bluespace that finds itself stranded in another dimension. Some time ago, a few of the creatures who manipulate your native dimension landed just north of your lair, and you have been observing them setting up shelter just north of where they landed. You decide now is the time for action, whatever that action will be is up to you. But if you choose to attack, try to build some suspense first."
 	tags = list("External")
 	spawnpoints = list("vannatusk")
 
