@@ -4,4 +4,4 @@
 --
 
 ALTER TABLE `ss13_characters`
-	ADD COLUMN `tail_style` varchar(12) DEFAULT NULL AFTER `skin_colour`
+	ADD COLUMN `tail_style` varchar(20) DEFAULT NULL AFTER `skin_colour`
