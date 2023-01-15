@@ -11,11 +11,10 @@
 /obj/machinery/computer/slot_machine
 	name = "slot machine"
 	desc = "Gambling for the antisocial."
-	icon = 'icons/obj/machines/slotmachine.dmi'
+	icon = 'icons/obj/machinery/slotmachine.dmi'
 	icon_state = "slots"
 	density = TRUE
 	clicksound = null
-	use_power = 1
 	idle_power_usage = 250
 	active_power_usage = 500
 	circuit = /obj/item/circuitboard/slot_machine
@@ -87,7 +86,7 @@
 		if(paymode == COIN)
 			if(prob(2))
 				if(!user.drop_from_inventory(C, user.loc))
-					return
+					return TRUE
 				C.throw_at(user, 3, 10)
 				if(prob(10))
 					balance = max(balance - SPIN_PRICE, 0)
@@ -100,6 +99,7 @@
 				qdel(C)
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting credit chips!"))
+		return TRUE
 	else if(istype(I, /obj/item/spacecash))
 		if(paymode == CREDITCHIP)
 			var/obj/item/spacecash/H = I
@@ -110,6 +110,7 @@
 			qdel(H)
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting coins!"))
+		return TRUE
 	else if(I.ismultitool())
 		if(balance > 0)
 			visible_message("<b>[src]</b> says, 'ERROR! Please empty the machine balance before altering paymode'") //Prevents converting coins into credits and vice versa
@@ -120,6 +121,7 @@
 			else
 				paymode = CREDITCHIP
 				visible_message("<b>[src]</b> says, 'This machine now works with CREDITCHIPS!'")
+		return TRUE
 	else
 		return ..()
 
@@ -261,6 +263,7 @@
 
 	if(reels[1][2] + reels[2][2] + reels[3][2] + reels[4][2] + reels[5][2] == "[SEVEN][SEVEN][SEVEN][SEVEN][SEVEN]")
 		visible_message("<b>[src]</b> says, 'JACKPOT! You win [money] credits!'")
+		global_announcer.autosay("Congratulations to [user ? user.real_name : usrname] for winning the jackpot at the slot machine in [get_area(src)]!", "Automated Announcement System")
 		playsound(loc, 'sound/arcade/sloto_jackpot.ogg', 20, 1, required_asfx_toggles = ASFX_ARCADE) // ham it up
 		jackpots += 1
 		balance += money - give_payout(JACKPOT)

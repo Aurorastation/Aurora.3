@@ -8,13 +8,8 @@
 	payment enforced by the infamous Idris Reclamation Units, shell IPCs sent to
 	claim payment from negligent loan takers. In recent years, they have begun
 	diversifying into more service-based industries.
-	</p>
-	<p>Idris Incorporated employees can be in the following departments:
-	<ul>
-	<li><b>Service</b>
-	<li><b>Security</b>
-	</ul></p>"}
-
+	</p>"}
+	departments = {"Security<br>Service"}
 	title_suffix = "Idris"
 
 	allowed_role_types = IDRIS_ROLES
@@ -51,37 +46,58 @@
 		"Hydroponicist" = /datum/outfit/job/hydro/idris,
 		"Janitor" = /datum/outfit/job/janitor/idris,
 		"Librarian" = /datum/outfit/job/librarian/idris,
+		"Curator" = /datum/outfit/job/librarian/idris/curator,
+		"Tech Support" = /datum/outfit/job/librarian/idris/tech_support,
 		"Corporate Liaison" = /datum/outfit/job/representative/idris
 	)
 
 /datum/outfit/job/officer/idris
 	name = "Security Officer - Idris"
 
-	head = /obj/item/clothing/head/beret/security/idris/alt
 	uniform = /obj/item/clothing/under/rank/security/idris
 	id = /obj/item/card/id/idris/sec
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
 /datum/outfit/job/warden/idris
 	name = "Warden - Idris"
 
 	head = /obj/item/clothing/head/warden/idris
 	uniform = /obj/item/clothing/under/rank/warden/idris
+	suit = /obj/item/clothing/suit/storage/toggle/warden/idris
 	id = /obj/item/card/id/idris/sec
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
 /datum/outfit/job/forensics/idris
 	name = "Investigator - Idris"
 
 	uniform = /obj/item/clothing/under/det/idris
-	suit = /obj/item/clothing/suit/storage/det_jacket/idris
+	suit = /obj/item/clothing/suit/storage/security/investigator/idris
 	id = /obj/item/card/id/idris/sec
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
 /datum/outfit/job/intern_sec/idris
 	name = "Security Cadet - Idris"
 
 	uniform = /obj/item/clothing/under/rank/cadet/idris
 	id = /obj/item/card/id/idris/sec
-	suit = null
-	head = /obj/item/clothing/head/beret/security/idris/alt
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
 /datum/outfit/job/bartender/idris
 	name = "Bartender - Idris"
@@ -91,6 +107,11 @@
 	id = /obj/item/card/id/idris
 	suit = /obj/item/clothing/suit/storage/bartender/idris
 
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
+
 /datum/outfit/job/chef/idris
 	name = "Chef - Idris"
 
@@ -99,21 +120,34 @@
 	head = /obj/item/clothing/head/chefhat/idris
 	id = /obj/item/card/id/idris
 
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
+
 /datum/outfit/job/hydro/idris
 	name = "Gardener - Idris"
 
 	uniform = /obj/item/clothing/under/rank/hydroponics/idris
 	head = /obj/item/clothing/head/bandana/hydro/idris
-	suit = null
 	id = /obj/item/card/id/idris
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
 /datum/outfit/job/janitor/idris
 	name = "Janitor - Idris"
 
 	uniform = /obj/item/clothing/under/rank/janitor/idris
-	head = /obj/item/clothing/head/softcap/janitor/idris
-	suit = null
+	head = /obj/item/clothing/head/softcap/idris/custodian
 	id = /obj/item/card/id/idris
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
 /datum/outfit/job/librarian/idris
 	name = "Librarian - Idris"
@@ -121,14 +155,42 @@
 	uniform = /obj/item/clothing/under/librarian/idris
 	id = /obj/item/card/id/idris
 
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
+
+/datum/outfit/job/librarian/idris/curator
+	name = "Curator - Idris"
+	jobtype = /datum/job/librarian
+
+	r_pocket = /obj/item/device/price_scanner
+	l_hand = null
+
+/datum/outfit/job/librarian/idris/tech_support
+	name = "Tech Support - Idris"
+	jobtype = /datum/job/librarian
+
+	l_pocket = /obj/item/modular_computer/handheld/preset
+	r_pocket = /obj/item/card/tech_support
+	r_hand = /obj/item/storage/bag/circuits/basic
+	l_hand = /obj/item/modular_computer/laptop/preset
+	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
+
 /datum/outfit/job/representative/idris
 	name = "Idris Corporate Liaison"
 
-	uniform = /obj/item/clothing/under/rank/idris
-	head = null
-	suit = null
-	implants = null
+	head = /obj/item/clothing/head/beret/corporate/idris
+	uniform = /obj/item/clothing/under/rank/liaison/idris
+	suit = /obj/item/clothing/suit/storage/liaison/idris
 	id = /obj/item/card/id/idris
+	accessory = /obj/item/clothing/accessory/tie/corporate/idris
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate/idris
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
 	backpack_contents = list(
 		/obj/item/device/camera = 1,

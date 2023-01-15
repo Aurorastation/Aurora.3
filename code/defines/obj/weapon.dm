@@ -271,8 +271,9 @@
 		W.forceMove(src)
 		src.concealed_blade = W
 		update_icon()
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/cane/concealed/update_icon()
 	if(concealed_blade)
@@ -308,7 +309,7 @@
 /obj/item/cane/telecane
 	name = "telescopic cane"
 	desc = "A compact cane which can be collapsed for storage."
-	icon = 'icons/obj/contained_items/weapons/telecane.dmi'
+	icon = 'icons/obj/item/telecane.dmi'
 	icon_state = "telecane"
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
@@ -434,6 +435,7 @@
 	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
 	flags = CONDUCT
+	usesound = 'sound/items/Deconstruct.ogg'
 	var/mtype = 1						// 1=electronic 2=hardware
 
 /obj/item/module/card_reader
@@ -453,6 +455,7 @@
 		to_chat(user, SPAN_NOTICE("You modify \the [src] into a makeshift PSU circuitboard."))
 		qdel(src)
 		user.put_in_hands(new_circuit)
+		return TRUE
 
 /obj/item/module/id_auth
 	name = "\improper ID authentication module"
@@ -524,6 +527,7 @@
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)
+		return TRUE
 
 /obj/item/storage/part_replacer
 	name = "rapid part exchange device"

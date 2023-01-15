@@ -5,12 +5,12 @@
 #define SIGNAL_HYDROGEN 16
 
 /obj/machinery/air_sensor
+	name = "gas sensor"
+	desc = "Measures the gas content of the atmosphere around the sensor."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "gsensor1"
-	name = "gas Sensor"
-	desc = "Measures the gas content of the atmosphere around the sensor."
+	anchored = TRUE
 
-	anchored = 1
 	var/state = 0
 
 	var/id_tag
@@ -32,7 +32,7 @@
 /obj/machinery/air_sensor/update_icon()
 	icon_state = "gsensor[on]"
 
-/obj/machinery/air_sensor/machinery_process()
+/obj/machinery/air_sensor/process()
 	if(on)
 		var/datum/signal/signal = new
 		signal.transmission_method = TRANSMISSION_RADIO
@@ -86,8 +86,9 @@ obj/machinery/air_sensor/Destroy()
 /obj/machinery/computer/general_air_control
 	name = "atmosphere monitoring console"
 	desc = "A console that gives an atmospheric condition readout of various sensors connected to it."
-	icon_screen = "engi"
-	light_color = "#ffcc33"
+	icon_screen = "tank"
+	icon_keyboard = "cyan_key"
+	light_color = LIGHT_COLOR_CYAN
 
 	var/frequency = 1439
 	var/list/sensors = list()
@@ -151,15 +152,16 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/list/output_info
 
 	var/default_input_flow_setting = 200
-	var/default_pressure_setting = ONE_ATMOSPHERE * 45
+	var/default_pressure_setting = PRESSURE_ONE_THOUSAND * 2
 	var/max_input_flow_setting = ATMOS_DEFAULT_VOLUME_PUMP + 500
-	var/max_pressure_setting = 50 * ONE_ATMOSPHERE
+	var/max_pressure_setting = MAX_VENT_PRESSURE
 	circuit = /obj/item/circuitboard/air_management/tank_control
 
 /obj/machinery/computer/general_air_control/large_tank_control/wall
 	icon = 'icons/obj/modular_telescreen.dmi'
 	icon_state = "telescreen"
 	icon_screen = "engi"
+	density = FALSE
 
 /obj/machinery/computer/general_air_control/large_tank_control/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
@@ -233,7 +235,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 5) //Just in case we get no new data
 
 /obj/machinery/computer/general_air_control/supermatter_core
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/modular_console.dmi'
 
 	frequency = 1438
 	var/input_tag
@@ -245,7 +247,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/default_input_flow_setting = 700
 	var/default_pressure_setting = 100
 	var/max_input_flow_setting = ATMOS_DEFAULT_VOLUME_PUMP + 500
-	var/max_pressure_setting = 10 * ONE_ATMOSPHERE
+	var/max_pressure_setting = PRESSURE_ONE_THOUSAND
 	circuit = /obj/item/circuitboard/air_management/supermatter_core
 
 /obj/machinery/computer/general_air_control/supermatter_core/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
@@ -319,7 +321,9 @@ obj/machinery/computer/general_air_control/Destroy()
 	addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 5) //Just in case we get no new data
 
 /obj/machinery/computer/general_air_control/fuel_injection
-	icon_screen = "engi_alarm_off"
+	icon_screen = "alert:0"
+	icon_keyboard = "cyan_key"
+	light_color = LIGHT_COLOR_CYAN
 
 	var/device_tag
 	var/list/device_info
@@ -330,7 +334,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/on_temperature = 1200
 	circuit = /obj/item/circuitboard/air_management/injector_control
 
-/obj/machinery/computer/general_air_control/fuel_injection/machinery_process()
+/obj/machinery/computer/general_air_control/fuel_injection/process()
 	if(automation)
 		if(!radio_connection)
 			return 0

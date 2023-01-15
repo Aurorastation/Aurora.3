@@ -83,7 +83,7 @@
 	if(!T)
 		if(length(latejoin))
 			T = pick(latejoin)			//Safety in case we cannot find the body's position
-		else if(length(force_spawnpoints["Anyone"]))
+		else if(current_map.force_spawnpoint && length(force_spawnpoints["Anyone"]))
 			T = pick(force_spawnpoints["Anyone"])
 		else
 			T = locate(1, 1, 1)
@@ -228,6 +228,7 @@ Works together with spawning an observer, noted above.
 
 /mob/proc/ghostize(var/can_reenter_corpse = TRUE, var/should_set_timer = TRUE)
 	if(ckey)
+		cut_overlay(image('icons/effects/effects.dmi', "zzz_glow")) // not very efficient but ghostize isn't called /too/ often.
 		var/mob/abstract/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
 		ghost.can_reenter_corpse = can_reenter_corpse
 		ghost.timeofdeath = src.stat == DEAD ? src.timeofdeath : world.time
@@ -518,7 +519,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	//If we hit the limit without finding a valid one, then the best one we found is selected
 
 	var/list/found_vents = list()
-	for(var/obj/machinery/atmospherics/unary/vent_pump/v in SSmachinery.processing_machines)
+	for(var/obj/machinery/atmospherics/unary/vent_pump/v in SSmachinery.processing)
 		if(!v.welded && v.z == ZLevel)
 			found_vents.Add(v)
 
@@ -539,6 +540,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			continue
 
 		var/turf/T = get_turf(testvent)
+		if(!istype(T)) continue
 
 		//Skip areas that contain turrets
 		var/area/A = T.loc
@@ -860,7 +862,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set category = "Ghost"
 	ghostvision = !(ghostvision)
 	updateghostsight()
-	to_chat(usr, "You [(ghostvision?"now":"no longer")] have ghost vision.")
+	to_chat(usr, "You [(ghostvision ? "now" : "no longer")] have ghost vision.")
 
 /mob/abstract/observer/verb/toggle_darkness()
 	set name = "Toggle Darkness"
@@ -872,21 +874,19 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	//if they are on a restricted level, then set the ghost vision for them.
 	if(on_restricted_level())
 		//On the restricted level they have the same sight as the mob
-		sight &= ~(SEE_TURFS | SEE_MOBS | SEE_OBJS)
-		see_in_dark = 2
-		see_invisible = SEE_INVISIBLE_OBSERVER
+		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
+		set_see_in_dark(2)
+		set_see_invisible(SEE_INVISIBLE_OBSERVER)
 	else
 		//Outside of the restrcited level, they have enhanced vision
-		sight |= (SEE_TURFS | SEE_MOBS | SEE_OBJS)
-		see_in_dark = 100
-		see_invisible = SEE_INVISIBLE_LEVEL_TWO
+		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		set_see_in_dark(100)
+		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 
 		if (!seedarkness)
-			see_invisible = SEE_INVISIBLE_NOLIGHTING
+			set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 		else
-			see_invisible = SEE_INVISIBLE_OBSERVER
-			if (!ghostvision)
-				see_invisible = SEE_INVISIBLE_LIVING
+			set_see_invisible(ghostvision ? SEE_INVISIBLE_OBSERVER : SEE_INVISIBLE_LIVING)
 
 	updateghostimages()
 

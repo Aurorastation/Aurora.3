@@ -229,7 +229,7 @@
 	amount = max_amount
 	update_icon()
 
-//Fuel for MRSPACMAN generator.
+//Fuel for the super portable generator.
 /obj/item/stack/material/tritium
 	name = "tritium"
 	icon_state = "sheet-silver"
@@ -290,12 +290,83 @@
 	amount = max_amount
 	update_icon()
 
+/obj/item/stack/material/shuttle
+	name = "plastitanium"
+	icon_state = "sheet-plastitanium"
+	item_state = "sheet-metal"
+	default_type = MATERIAL_SHUTTLE
+	icon_has_variants = TRUE
+
+/obj/item/stack/material/shuttle/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/wood
 	name = "wooden plank"
 	icon_state = "sheet-wood"
 	default_type = MATERIAL_WOOD
 
 /obj/item/stack/material/wood/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured
+	icon_state = "sheet-woodcolour"
+
+/obj/item/stack/material/wood/coloured/birch
+	color = WOOD_COLOR_BIRCH
+
+/obj/item/stack/material/wood/coloured/birch/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/mahogany
+	color = WOOD_COLOR_RICH
+
+/obj/item/stack/material/wood/coloured/mahogany/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/maple
+	color = WOOD_COLOR_PALE
+
+/obj/item/stack/material/wood/coloured/maple/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/bamboo
+	color = WOOD_COLOR_PALE2
+
+/obj/item/stack/material/wood/coloured/bamboo/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/ebony
+	color = WOOD_COLOR_BLACK
+
+/obj/item/stack/material/wood/coloured/ebony/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/walnut
+	color = WOOD_COLOR_CHOCOLATE
+
+/obj/item/stack/material/wood/coloured/walnut/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/yew
+	color = WOOD_COLOR_YELLOW
+
+/obj/item/stack/material/wood/coloured/yew/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()
@@ -336,7 +407,7 @@
 /obj/item/stack/material/cloth/attackby(obj/item/I, mob/user)
 	if(is_sharp(I))
 		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [I].</span>", "<span class='notice'>You begin cutting up [src] with [I].</span>")
-		if(do_after(user, 20)) // takes less time than bedsheets, a second per rag produced on average
+		if(I.use_tool(src, user, 20, volume = 50)) // takes less time than bedsheets, a second per rag produced on average
 			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
 			for(var/i in 1 to rand(1,3)) // average of 2 per
 				new /obj/item/reagent_containers/glass/rag(get_turf(src))
@@ -448,6 +519,17 @@
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/titanium/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/graphite
+	name = "graphite"
+	icon_state = "sheet-graphite"
+	default_type = MATERIAL_GRAPHITE
+	icon_has_variants = TRUE
+
+/obj/item/stack/material/graphite/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()

@@ -82,9 +82,9 @@
 	name = "Shorts, Zavodskoi Interstellar"
 	icon_state = "shorts_necropolis"
 
-/datum/category_item/underwear/bottom/shorts_epmc
-	name = "Shorts, EPMC"
-	icon_state = "shorts_epmc"
+/datum/category_item/underwear/bottom/shorts_pmc
+	name = "Shorts, PMCG"
+	icon_state = "shorts_pmc"
 
 /datum/category_item/underwear/bottom/midway
 	name = "Midway Briefs"

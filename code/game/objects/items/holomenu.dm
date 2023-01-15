@@ -63,14 +63,14 @@
 			update_icon()
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
-		return
+		return TRUE
 	if(istype(I, /obj/item/paper) && allowed(user))
 		var/obj/item/paper/P = I
 		to_chat(user, SPAN_NOTICE("You scan \the [I.name] into \the [name]."))
 		menu_text = P.info
 		menu_text = replacetext(menu_text, "color=black>", "color=white>")
 		update_icon()
-		return
+		return TRUE
 	return ..()
 
 /obj/item/holomenu/examine(mob/user, distance)

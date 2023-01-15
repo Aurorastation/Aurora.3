@@ -13,7 +13,7 @@
 	desc = "A lighting fixture."
 	anchored = TRUE
 	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
@@ -111,7 +111,7 @@
 	supports_nightmode = FALSE
 
 /obj/machinery/light/spot/weak
-	name = "exterior spotlight"
+	name = "low-intensity spotlight"
 	brightness_range = 12
 	brightness_power = 1.2
 
@@ -219,24 +219,24 @@
 				stat |= BROKEN
 				set_light(0)
 		else
-			use_power = 2
-			active_power_usage = light_range * LIGHTING_POWER_FACTOR
+			update_use_power(POWER_USE_ACTIVE)
+			change_power_consumption(light_range * LIGHTING_POWER_FACTOR, POWER_USE_ACTIVE)
 			if (supports_nightmode && nightmode)
 				set_light(night_brightness_range, night_brightness_power, brightness_color)
 			else
 				set_light(brightness_range, brightness_power, brightness_color)
 	else if (has_emergency_power(LIGHT_EMERGENCY_POWER_USE) && !(stat & POWEROFF))
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 		emergency_mode = TRUE
 		var/new_power = round(max(0.5, 0.75 * (cell.charge / cell.maxcharge)), 0.1)
 		set_light(brightness_range * 0.25, new_power, LIGHT_COLOR_EMERGENCY)
 	else
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 		set_light(0)
 
 	update_icon()
 
-	active_power_usage = ((light_range * light_power) * 10)
+	change_power_consumption((light_range * light_power) * 10, POWER_USE_ACTIVE)
 
 /obj/machinery/light/proc/broken_sparks()
 	if(world.time > next_spark && !(stat & POWEROFF) && has_power())
@@ -244,7 +244,7 @@
 		next_spark = world.time + 1 MINUTE + (rand(-15, 15) SECONDS)
 
 // ehh
-/obj/machinery/light/machinery_process()
+/obj/machinery/light/process()
 	if (cell && cell.charge != cell.maxcharge && has_power())
 		cell.charge = min(cell.maxcharge, cell.charge + 0.2)
 	if (emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
@@ -413,6 +413,7 @@
 		user.visible_message(SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."), SPAN_WARNING("You hit \the [src], but it doesn't break."), SPAN_WARNING("You hear something hitting against glass."))
 
 /obj/machinery/light/bullet_act(obj/item/projectile/P, def_zone)
+	bullet_ping(P)
 	shatter()
 
 // returns whether this light has power

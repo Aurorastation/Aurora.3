@@ -20,6 +20,8 @@ var/global/datum/universal_state/universe = new
 
 var/global/list/global_map = null
 
+var/global/list/cable_list = list()
+
 var/diary               = null
 var/diary_runtime  = null
 var/diary_date_string = null
@@ -32,9 +34,6 @@ var/round_progressing = 1
 var/master_mode       = "extended" // "extended"
 var/secret_force_mode = "secret"   // if this is anything but "secret", the secret rotation will forceably choose this mode.
 
-var/host = null //only here until check @ code\modules\ghosttrap\trap.dm:112 is fixed
-
-var/list/jobMax        = list()
 var/list/bombers       = list()
 var/list/admin_log     = list()
 var/list/signal_log    = list()
@@ -42,8 +41,6 @@ var/list/lastsignalers = list() // Keeps last 100 signals here in format: "[src]
 var/list/lawchanges    = list() // Stores who uploaded laws to which silicon-based lifeform, and what the law was.
 var/list/reg_dna       = list()
 
-var/list/monkeystart     = list()
-var/list/wizardstart     = list()
 var/turf/newplayer_start = null
 
 //Spawnpoints.
@@ -57,16 +54,11 @@ var/list/latejoin_living_quarters_lift     = list()
 var/list/kickoffsloc           = list()
 var/list/virtual_reality_spawn = list()
 
-var/list/prisonwarp         = list() // Prisoners go to these
-var/list/holdingfacility    = list() // Captured people go here
-var/list/xeno_spawn         = list() // Aliens spawn at at these.
 var/list/asteroid_spawn     = list() // Asteroid "Dungeons" spawn at these.
 var/list/tdome1             = list()
 var/list/tdome2             = list()
 var/list/tdomeobserve       = list()
 var/list/tdomeadmin         = list()
-var/list/prisonsecuritywarp = list() // Prison security goes to these.
-var/list/prisonwarped       = list() // List of players already warped.
 var/list/ninjastart         = list()
 
 var/list/cardinal    = list(NORTH, SOUTH, EAST, WEST)

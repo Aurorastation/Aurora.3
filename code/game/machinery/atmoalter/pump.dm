@@ -7,15 +7,15 @@
 
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "psiphon:0"
-	density = 1
+	density = TRUE
 	w_class = ITEMSIZE_NORMAL
 
-	var/on = 0
+	var/on = FALSE
 	var/direction_out = 0 //0 = siphoning, 1 = releasing
 	var/target_pressure = ONE_ATMOSPHERE
 
 	var/pressuremin = 0
-	var/pressuremax = 10 * ONE_ATMOSPHERE
+	var/pressuremax = PRESSURE_ONE_THOUSAND
 
 	volume = 1000
 
@@ -23,7 +23,7 @@
 	power_losses = 150
 
 /obj/machinery/portable_atmospherics/powered/pump/filled
-	start_pressure = 90 * ONE_ATMOSPHERE
+	start_pressure = PRESSURE_ONE_THOUSAND * 5
 
 /obj/machinery/portable_atmospherics/powered/pump/Initialize()
 	. = ..()
@@ -65,7 +65,7 @@
 
 	..(severity)
 
-/obj/machinery/portable_atmospherics/powered/pump/machinery_process()
+/obj/machinery/portable_atmospherics/powered/pump/process()
 	..()
 	var/power_draw = -1
 
@@ -73,8 +73,9 @@
 		var/datum/gas_mixture/environment
 		if(holding)
 			environment = holding.air_contents
-		else
+		else if(loc)
 			environment = loc.return_air()
+		else return
 
 		var/pressure_delta
 		var/output_volume

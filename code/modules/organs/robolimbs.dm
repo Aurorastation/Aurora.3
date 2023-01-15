@@ -111,7 +111,7 @@ var/global/datum/robolimb/basic_robolimb
 	company = PROSTHETIC_SYNTHSKIN
 	desc = "This limb is designed to mimic the Human form. It does so with moderate success."
 	icon = 'icons/mob/human_races/human/r_human.dmi'
-	species_can_use = list(SPECIES_HUMAN)
+	species_can_use = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	linked_frame = SPECIES_IPC_SHELL
 	fabricator_available = TRUE
 	paintable = TRUE

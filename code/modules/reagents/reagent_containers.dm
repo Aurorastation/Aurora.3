@@ -105,8 +105,8 @@
 				visible_message(SPAN_WARNING("[user] smashes [src] with \a [W]!"))
 				user.do_attack_animation(src)
 				shatter(W, user)
-				return
-	..()
+				return TRUE
+	return ..()
 
 /obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)
 	if(can_operate(M) && do_surgery(M, user, src))
@@ -202,13 +202,13 @@
 	return 1
 
 /obj/item/reagent_containers/proc/self_feed_message(var/mob/user)
-	user.visible_message("<b>[user]</b> drinks from \the [src].</span>","<span class='notice'>You drink from \the [src].")
+	user.visible_message(SPAN_NOTICE("\The [user] drinks from \the [src]."), SPAN_NOTICE("You drink from \the [src]."))
 
 /obj/item/reagent_containers/proc/other_feed_message_start(var/mob/user, var/mob/target)
-	user.visible_message("<span class='warning'>[user] is trying to feed [target] \the [src]!</span>")
+	user.visible_message(SPAN_WARNING("\The [user] is trying to feed \the [target] \the [src]!"), SPAN_WARNING("You start trying to feed \the [target] \the [src]!"))
 
 /obj/item/reagent_containers/proc/other_feed_message_finish(var/mob/user, var/mob/target)
-	user.visible_message("<span class='warning'>[user] has fed [target] \the [src]!</span>")
+	user.visible_message(SPAN_WARNING("\The [user] has fed \the [target] \the [src]!"), SPAN_WARNING("You have fed \the [target] \the [src]."))
 
 /obj/item/reagent_containers/proc/feed_sound(var/mob/user)
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
@@ -306,6 +306,9 @@
 		return 1
 
 	var/trans = reagents.trans_to(target, amount_per_transfer_from_this)
-	playsound(src, 'sound/effects/pour.ogg', 25, 1)
 	to_chat(user, "<span class='notice'>You transfer [trans] units of the solution to [target].</span>")
+	on_pour()
 	return 1
+
+/obj/item/reagent_containers/proc/on_pour()
+	playsound(src, /decl/sound_category/generic_pour_sound, 25, 1)

@@ -16,7 +16,7 @@
 
 	var/car_limit = 3		//how many cars an engine can pull before performance degrades
 	active_engines = 1
-	var/obj/item/key/cargo_train/key
+	var/obj/item/key/key
 
 /obj/item/key/cargo_train
 	name = "key"
@@ -48,7 +48,7 @@
 
 /obj/vehicle/train/cargo/engine/proc/setup_engine()
 	cell = new /obj/item/cell/high(src)
-	key = new(src)
+	key = new /obj/item/key/cargo_train(src)
 	var/image/I = new(icon = icon, icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
 	add_overlay(I)
 	turn_off()
@@ -91,8 +91,8 @@
 	if(.)
 		return TRUE
 
-	if(load && usr != load)
-		to_chat(usr, SPAN_WARNING("You can't interact with \the [src] unless you're the driver, or you're adjacent to it while it has no driver."))
+	if(load && load != usr)
+		to_chat(usr, SPAN_WARNING("You can't interact with \the [src] while its in use."))
 		return TRUE
 
 	if(href_list["toggle_engine"])

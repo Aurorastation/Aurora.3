@@ -8,7 +8,7 @@
 		src.forceMove(L.loc)
 		qdel(L)
 
-	return SPECIES_DIONA_COEUS
+	return TRUE
 
 /mob/living/carbon/alien/diona/proc/grow()
 	set name = "Exponential Growth"
@@ -32,8 +32,7 @@
 		return
 
 	// confirm_evolution() handles choices and other specific requirements.
-	var/new_species = confirm_evolution()
-	if(!new_species || !adult_form)
+	if(!confirm_evolution() || !adult_form)
 		return
 
 	stunned = 10 // No more moving or talking for now
@@ -45,7 +44,6 @@
 	SPAN_WARNING("All at once, we consume our stored nutrients to surge with growth, splitting into a tangle of new gestalt. We have attained a new form."))
 
 	var/mob/living/carbon/human/adult = new adult_form(get_turf(src))
-	adult.set_species(new_species)
 	show_evolution_blurb()
 
 	if(mind)

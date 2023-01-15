@@ -145,10 +145,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable
 	name = "smokable item"
 	desc = "You're not sure what this is. You should probably ahelp it."
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
-		)
+	icon = 'icons/obj/smokables.dmi'
+	item_icons = null
+	sprite_sheets = null
+	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
 	body_parts_covered = 0
 	var/lit = 0
 	var/icon_on
@@ -293,12 +295,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "cigarette"
 	desc = "A roll of tobacco and nicotine."
 	icon_state = "cigoff"
-	throw_speed = 0.5
 	item_state = "cigoff"
+	throw_speed = 0.5
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
-	icon_on = "cigon"  //Note - these are in masks.dmi not in cigarette.dmi
+	icon_on = "cigon" 
 	icon_off = "cigoff"
 	has_blood_overlay = FALSE
 	type_butt = /obj/item/trash/cigbutt
@@ -320,7 +322,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/obj/item/melee/energy/sword/S = W
 		if(S.active)
 			light(SPAN_WARNING("[user] swings their [W], barely missing themselves. They light their [name] in the process."))
-	return
+		return TRUE
 
 /obj/item/clothing/mask/smokable/cigarette/catch_fire()
 	if(!lit)
@@ -443,6 +445,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "premium Havanian cigar"
 	desc = "A cigar fit for only the best of the best."
 	icon_state = "cigar2off"
+	item_state = "cigar2off"
 	icon_on = "cigar2on"
 	icon_off = "cigar2off"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
@@ -457,6 +460,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "\improper Cohiba robusto cigar"
 	desc = "There's little more you could want from a cigar."
 	icon_state = "cigar2off"
+	item_state = "cigar2off"
 	icon_on = "cigar2on"
 	icon_off = "cigar2off"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
@@ -470,7 +474,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/trash/cigbutt
 	name = "cigarette butt"
 	desc = "A manky old cigarette butt."
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'icons/obj/smokables.dmi'
 	icon_state = "cigbutt"
 	randpixel = 10
 	w_class = ITEMSIZE_TINY
@@ -498,12 +502,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	user.update_inv_l_hand(0)
 	user.update_inv_r_hand(1)
 
-/obj/item/clothing/mask/smokable/cigarette/rolled/sausage
+/obj/item/clothing/mask/smokable/cigarette/cigar/sausage
 	name = "sausage"
 	desc = "A piece of mixed, long meat, with a smoky scent."
 	icon_state = "sausageoff"
 	item_state = "sausageoff"
 	icon_on = "sausageon"
+	icon_off = "sausageoff"
 	type_butt = /obj/item/trash/cigbutt/sausagebutt
 	chem_volume = 6
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 6)
@@ -521,7 +526,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A pipe, for smoking. Probably made of meerschaum or something."
 	icon_state = "pipeoff"
 	item_state = "pipeoff"
-	icon_on = "pipeon"  //Note - these are in masks.dmi
+	icon_on = "pipeon"
 	icon_off = "pipeoff"
 	burn_rate = 0.015
 	w_class = ITEMSIZE_TINY
@@ -613,14 +618,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A nicotine delivery system popularized by folksy backwoodsmen, kept popular in the modern age and beyond by space hipsters."
 	icon_state = "cobpipeoff"
 	item_state = "cobpipeoff"
-	icon_on = "cobpipeon"  //Note - these are in masks.dmi
+	icon_on = "cobpipeon"
 	icon_off = "cobpipeoff"
 	chem_volume = 30
 
 /obj/item/clothing/mask/smokable/pipe/bonepipe
 	name = "Europan bone pipe"
 	desc = "A smoking pipe made out of the bones of the Europan bone whale."
-	desc_fluff = "While most commonly associated with bone charms, bones from various sea creatures on Europa are used in a variety of goods, such as this smoking pipe. While smoking in submarines is often an uncommon occurrence, due to a lack of available air or space, these pipes are a common sight in the many stations of Europa. Higher-quality pipes typically have scenes etched into their bones, and can tell the story of their owner's time on Europa."
+	desc_extended = "While most commonly associated with bone charms, bones from various sea creatures on Europa are used in a variety of goods, such as this smoking pipe. While smoking in submarines is often an uncommon occurrence, due to a lack of available air or space, these pipes are a common sight in the many stations of Europa. Higher-quality pipes typically have scenes etched into their bones, and can tell the story of their owner's time on Europa."
 	icon_state = "bonepipeoff"
 	item_state = "bonepipeoff"
 	icon_on = "bonepipeon"
@@ -697,21 +702,21 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame/lighter/zippo/dominia
 	name = "\improper Dominian Zippo lighter"
 	desc = "A zippo lighter with a depiction of the Imperial standard of Dominia."
-	desc_fluff = "While never officially endorsed by the Emperor, lighters featuring a stylized Imperial standard are a common sight throughout the Empire. Due to the simplicity with which the standard can be recreated, these lighters are found even in the poorer frontier regions in the Empire and are commonly seen as a sign of patriotism."
+	desc_extended = "While never officially endorsed by the Emperor, lighters featuring a stylized Imperial standard are a common sight throughout the Empire. Due to the simplicity with which the standard can be recreated, these lighters are found even in the poorer frontier regions in the Empire and are commonly seen as a sign of patriotism."
 	icon_state = "dominiazippo"
 	item_state = "dominiazippo"
 
 /obj/item/flame/lighter/zippo/sol
 	name = "\improper Solarian Zippo lighter"
 	desc = "A zippo lighter with a depiction of the flag of the Sol Alliance."
-	desc_fluff = "Zippo lighters with the flag of the Sol Alliance continue a long-standing tradition of Earth. While originally proclaiming patriotism to the nation, in the face of movements for more colonial self-determination, these lighters now push forward a message of unity."
+	desc_extended = "Zippo lighters with the flag of the Sol Alliance continue a long-standing tradition of Earth. While originally proclaiming patriotism to the nation, in the face of movements for more colonial self-determination, these lighters now push forward a message of unity."
 	icon_state = "solzippo"
 	item_state = "solzippo"
 
 /obj/item/flame/lighter/zippo/tcfl
 	name = "\improper Bieselite Zippo lighter"
 	desc = "A zippo lighter with a depiction of the Bieselite flag."
-	desc_fluff = "In their rush to expand the Tau Ceti Foreign Legion, the Republic of Biesel manufactured thousands of Biesel-patterned zippo lighters to compliment the jackets and berets that were so often touted by recruiters. In the wake of Frost's Invasion, the popularity of such lighters has only increased and they serve as a small show of patriotism. A small NanoTrasen logo is stenciled on the base."
+	desc_extended = "In their rush to expand the Tau Ceti Foreign Legion, the Republic of Biesel manufactured thousands of Biesel-patterned zippo lighters to compliment the jackets and berets that were so often touted by recruiters. In the wake of Frost's Invasion, the popularity of such lighters has only increased and they serve as a small show of patriotism. A small NanoTrasen logo is stenciled on the base."
 	icon_state = "tcflzippo"
 	item_state = "tcflzippo"
 
@@ -737,7 +742,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame/lighter/zippo/himeo
 	name = "\improper Himean Zippo lighter"
 	desc = "A zippo with the symbol of the United Syndicates of Himeo on it. This seems to be a model of exceptional make and excessive fuel consumption and temperature."
-	desc_fluff = "Lighters of all kinds are a common sight in the United Syndicates of Himeo, where light sources are required for daily life in its dark tunnels, and its lighters are prized throughout the Coalition for their quality. The common emblem of the planet - a white circle surrounded by red triangles - is often featured on lighters originating from the planet."
+	desc_extended = "Lighters of all kinds are a common sight in the United Syndicates of Himeo, where light sources are required for daily life in its dark tunnels, and its lighters are prized throughout the Coalition for their quality. The common emblem of the planet - a white circle surrounded by red triangles - is often featured on lighters originating from the planet."
 	icon_state = "himeozippo"
 	item_state = "himeozippo"
 	flame_light_range = 2
@@ -745,7 +750,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame/lighter/zippo/coalition
 	name = "\improper Coalition Zippo lighter"
 	desc = "A zippo lighter with a depiction of the Coalition of Colonies flag. This lighter utilizes advanced fuel from Xanu Prime which burns hotter, causing a blue flame."
-	desc_fluff = "As there are hundreds of cultures in the Coalition of Colonies, so too are there hundreds of local variations of zippo lighters. The most prized zippos tend to be those from the industrial colony of Himeo, where a strong work ethic and technological advancements combine to produce high-quality lighters that ignite through the harshest of conditions. Most exported Himean lighters have their logos scratched off, rebranded, and given a fresh coat of paint, much to the chagrin of their manufacturers."
+	desc_extended = "As there are hundreds of cultures in the Coalition of Colonies, so too are there hundreds of local variations of zippo lighters. The most prized zippos tend to be those from the industrial colony of Himeo, where a strong work ethic and technological advancements combine to produce high-quality lighters that ignite through the harshest of conditions. Most exported Himean lighters have their logos scratched off, rebranded, and given a fresh coat of paint, much to the chagrin of their manufacturers."
 	icon_state = "coalitionzippo"
 	item_state = "coalitionzippo"
 	flame_light_color = LIGHT_COLOR_BLUE
@@ -760,7 +765,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame/lighter/zippo/europa
 	name = "\improper Europan Zippo lighter"
 	desc = "A smokeless electrical coil lighter in the style of a zippo with the tricolour of the Jovian moon Europa on the side. Even its outside feels somewhat hot to the touch when it is turned on."
-	desc_fluff = "Traditional lighters are often frowned upon in the various submarines and underwater bases of Europa for the fumes their open flames produce. As a result, flameless lighters using heated metal coils that ignite flammable material upon contact are employed instead. These lighters are often prized personal possessions of those who own them, as with living space, privacy and individual possessions are a luxury in the cramped quarters of Europan vessels and stations. A side effect of having lighters that use electrically heated metal coils as opposed to flames however, is that the exteriors of the lighters themselves can become heated to a point of inflicting superficial burns if left on for relatively short periods of time."
+	desc_extended = "Traditional lighters are often frowned upon in the various submarines and underwater bases of Europa for the fumes their open flames produce. As a result, flameless lighters using heated metal coils that ignite flammable material upon contact are employed instead. These lighters are often prized personal possessions of those who own them, as with living space, privacy and individual possessions are a luxury in the cramped quarters of Europan vessels and stations. A side effect of having lighters that use electrically heated metal coils as opposed to flames however, is that the exteriors of the lighters themselves can become heated to a point of inflicting superficial burns if left on for relatively short periods of time."
 	icon_state = "europazippo"
 	item_state = "europazippo"
 	flame_light_power = 1
@@ -768,7 +773,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame/lighter/zippo/gadpathur
 	name = "\improper Gadpathurian Zippo lighter"
 	desc = "A zippo lighter with a depiction of the flag of the United Planetary Defense Council of Gadpathur. The nozzle seems to be especially small in order to produce a weaker and dimmer flame."
-	desc_fluff = "Owing to the relative poverty of Gadpathur and the ever-present need for gasmasks, smoking is a rare habit on the planet. Still, Gadpathurians who choose to smoke typically keep lighters with smaller nozzles, both to reduce light and thus attention in the confines of a bunker and to conserve on fuel which too is hoarded for their endless war preparations. The Gadpathurian flag emblazoned on the side of the lighter is not a common feature, with most Gadpathurians who stay on the planet preferring to place a symbol of their cadre in its stead."
+	desc_extended = "Owing to the relative poverty of Gadpathur and the ever-present need for gasmasks, smoking is a rare habit on the planet. Still, Gadpathurians who choose to smoke typically keep lighters with smaller nozzles, both to reduce light and thus attention in the confines of a bunker and to conserve on fuel which too is hoarded for their endless war preparations. The Gadpathurian flag emblazoned on the side of the lighter is not a common feature, with most Gadpathurians who stay on the planet preferring to place a symbol of their cadre in its stead."
 	icon_state = "gadpathurzippo"
 	item_state = "gadpathurzippo"
 	flame_light_power = 1
@@ -776,7 +781,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame/lighter/zippo/asoral
 	name = "\improper Asoral jet lighter"
 	desc = "A thin lighter made from a heat-resistant polymer and a nozzle that wouldn't be out of place on a jet. While it might bear the logo of the Asoral Orbital and Suborbital Racing network on it, it utilizes advanced fuel from Xanu Prime which burns hotter, causing a blue flame."
-	desc_fluff = "The Asoral jet lighter began as a publicity stunt by a few intrepid engineers looking to recycle old and underperforming racing probe engines. Although that particular plan ended in disaster, the Asoral Racing network ended up loving the concept and adopting a smaller and safer version of the lighter as a form of advertising. In a pinch, lighters such as these are known to serve as replacement igniters for racers' engines. Until recently, they were produced with a plume similar to that of an afterburner before the merger of Crosk's racing networks with those of Xanu Prime."
+	desc_extended = "The Asoral jet lighter began as a publicity stunt by a few intrepid engineers looking to recycle old and underperforming racing probe engines. Although that particular plan ended in disaster, the Asoral Racing network ended up loving the concept and adopting a smaller and safer version of the lighter as a form of advertising. In a pinch, lighters such as these are known to serve as replacement igniters for racers' engines. Until recently, they were produced with a plume similar to that of an afterburner before the merger of Crosk's racing networks with those of Xanu Prime."
 	icon_state = "lighter-asoral"
 	item_state = "lighter-asoral"
 	flame_light_color = LIGHT_COLOR_BLUE
@@ -792,7 +797,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "\improper Fisanduhian Zippo lighter"
 	desc = "A zippo with a depiction of the flag of the Confederate States of Fisanduh. This is a well crafted model that burns brighter and hotter than \
 	the usual lighter."
-	desc_fluff = "On Moroz it's rather hard to find a Confederate without at least some manner of lighter on their person. Fisanduhians don't \
+	desc_extended = "On Moroz it's rather hard to find a Confederate without at least some manner of lighter on their person. Fisanduhians don't \
 	smoke anymore than the rest of Moroz does, instead they prize these lighters for their utility. From burning loose thread to lighting a \
 	molotov and more. A common adage is that the fire of Fisanduh burns brighter than Dominia's, which seems to be true for their lighters at least. \
 	These have found purchase throughout the Spur due to their reliability and impressive capability to light up various things, causing a \
@@ -804,7 +809,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame/lighter/zippo/luceian
 	name = "\improper Luceian Zippo lighter"
 	desc = "A bright zippo lighter with the all-seeing eye of Ennoia on its front. Clearly Luceian."
-	desc_fluff = "Luceian lighters, sometimes referred to as “Ennoic Fires,” are commonly carried by Assunzionii as an emergency light \
+	desc_extended = "Luceian lighters, sometimes referred to as \"Ennoic Fires,\" are commonly carried by Assunzionii as an emergency light \
 	source. A genuine lighter in the Luceian tradition will have a proving mark stamped upon its base that shows when and where it was \
 	blessed following its construction."
 	icon_state = "luceianzippo"
@@ -961,6 +966,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpaper_generic"
 	w_class = ITEMSIZE_TINY
+	can_fold = FALSE
 
 /obj/item/paper/cig/attackby(obj/item/P as obj, mob/user as mob)
 	if(istype(P, /obj/item/flame) || P.iswelder())
@@ -975,25 +981,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A thin piece of trident branded paper used to make fine smokables."
 	icon_state = "cigpaper_fine"
 
-/obj/item/paper/cig/filter
+/obj/item/cigarette_filter
 	name = "cigarette filter"
 	desc = "A small nub like filter for cigarettes."
+	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigfilter"
 	w_class = ITEMSIZE_TINY
 
-/obj/item/paper/cig/filter/attackby(obj/item/P as obj, mob/user as mob)
-	if(istype(P, /obj/item/flame) || P.iswelder())
-		..()
-	else
-		return //no writing on filters now
+/obj/item/cigarette_filter/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/clothing/mask/smokable/cigarette/rolled))
+		var/obj/item/clothing/mask/smokable/cigarette/rolled/CR = I
+		return CR.attackby(src, user)
+	. = ..()
 
-/obj/item/paper/cig/attack_self(mob/living/user as mob)
-	if(user.a_intent == I_HURT)
-		..()
-		return
-	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
-		user.show_message(SPAN_ALERT("The cigarette paper is too small to fold into a plane."))
-		return
 
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco
@@ -1016,17 +1016,17 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	plantname = "puretobacco"
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/paper/cig/filter))
+	if(istype(I, /obj/item/cigarette_filter))
 		if(filter)
-			to_chat(user, SPAN_WARNING("[src] already has a filter!"))
+			to_chat(user, SPAN_WARNING("\The [src] already has a filter!"))
 			return
 		if(lit)
-			to_chat(user, SPAN_WARNING("[src] is lit already!"))
+			to_chat(user, SPAN_WARNING("\The [src] is lit already!"))
 			return
 		if(user.unEquip(I))
-			to_chat(user, SPAN_NOTICE("You stick [I] into \the [src]"))
+			user.visible_message(SPAN_NOTICE("[user] sticks a cigarette filter into \the [src]."), SPAN_NOTICE("You stick a cigarette filter into \the [src]."))
 			playsound(src, 'sound/items/drop/gloves.ogg', 25, 1)
-			filter = 1
+			filter = TRUE
 			name = "filtered [name]"
 			update_icon()
 			qdel(I)
@@ -1034,15 +1034,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	..()
 
 /obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/I, mob/user)
-	if(is_type_in_list(I, list(/obj/item/paper/cig/, /obj/item/paper/)))
+	if(istype(I, /obj/item/paper))
 		if(!dry)
-			to_chat(user, SPAN_WARNING("You need to dry [src] first!"))
+			to_chat(user, SPAN_WARNING("You need to dry \the [src] first!"))
 			return
 		if(user.unEquip(I))
 			var/obj/item/clothing/mask/smokable/cigarette/rolled/R = new(get_turf(src))
 			R.chem_volume = reagents.total_volume
 			reagents.trans_to_holder(R.reagents, R.chem_volume)
-			to_chat(user, SPAN_NOTICE("You roll \the [src] into \the [I]"))
+			user.visible_message(SPAN_NOTICE("[user] rolls a cigarette in their hands with \the [I] and [src]."), SPAN_NOTICE("You roll a cigarette in your hands with \the [I] and [src]."))
 			playsound(src, 'sound/bureaucracy/paperfold.ogg', 25, 1)
 			user.put_in_active_hand(R)
 			qdel(I)

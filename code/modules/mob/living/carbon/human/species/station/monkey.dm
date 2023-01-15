@@ -6,6 +6,7 @@
 
 	icobase = 'icons/mob/human_races/monkeys/r_monkey.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_monkey.dmi'
+	skeleton_icon = 'icons/mob/human_races/monkeys/monkey_skeleton.dmi'
 	damage_overlays = 'icons/mob/human_races/masks/dam_monkey.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_monkey.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_monkey.dmi'
@@ -21,7 +22,6 @@
 	eyes = "blank_eyes"
 
 	gibbed_anim = "gibbed-m"
-	dusted_anim = "dust-m"
 
 	death_message = "lets out a faint chimper as it collapses and stops moving..."
 	death_message_range = 7
@@ -113,6 +113,7 @@
 	name = SPECIES_MONKEY_SKRELL
 	short_name = "nea"
 	name_plural = "Neaera"
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/neaera
 
 	icobase = 'icons/mob/human_races/monkeys/r_neaera.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_neaera.dmi'
@@ -125,6 +126,16 @@
 	tail = null
 	holder_type = /obj/item/holder/monkey/neaera
 	fall_mod = 0.25
+
+	has_organ = list(
+		BP_HEART =    /obj/item/organ/internal/heart/skrell/neaera,
+		BP_LUNGS =    /obj/item/organ/internal/lungs/skrell/neaera,
+		BP_LIVER =    /obj/item/organ/internal/liver/skrell/neaera,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell/neaera,
+		BP_BRAIN =    /obj/item/organ/internal/brain/skrell/neaera,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
+		BP_EYES =     /obj/item/organ/internal/eyes/skrell/neaera
+		)
 
 /datum/species/monkey/unathi
 	name = SPECIES_MONKEY_UNATHI

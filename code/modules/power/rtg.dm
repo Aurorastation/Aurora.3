@@ -8,7 +8,7 @@
 	icon_state = "rtg"
 	density = TRUE
 	anchored = TRUE
-	use_power = 0
+	use_power = POWER_USE_OFF
 
 	// You can buckle someone to RTG, then open its panel. Fun stuff.
 	can_buckle = list(/mob/living)
@@ -30,7 +30,7 @@
 	. = ..()
 	connect_to_network()
 
-/obj/machinery/power/rtg/machinery_process()
+/obj/machinery/power/rtg/process()
 	..()
 	add_avail(power_gen)
 	if(panel_open && irradiate)

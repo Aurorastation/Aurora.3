@@ -8,7 +8,6 @@
 	density = FALSE
 	anchored = TRUE
 	var/obj/machinery/mineral/stacking_machine/machine
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 
@@ -37,7 +36,7 @@
 	if(!machine)
 		var/area/A = get_area(src)
 		var/best_distance = INFINITY
-		for(var/obj/machinery/mineral/stacking_machine/checked_machine in SSmachinery.all_machines)
+		for(var/obj/machinery/mineral/stacking_machine/checked_machine in SSmachinery.machinery)
 			if(id)
 				if(checked_machine.id == id)
 					machine = checked_machine
@@ -117,7 +116,7 @@
 /obj/machinery/mineral/stacking_machine
 	name = "stacking machine"
 	desc = "A machine which takes loose stacks of finished sheets and packs them together into one easily transportable sheet."
-	icon = 'icons/obj/machines/mining_machines.dmi'
+	icon = 'icons/obj/machinery/mining_machines.dmi'
 	icon_state = "stacker"
 	density = TRUE
 	anchored = TRUE
@@ -127,7 +126,6 @@
 	var/list/stack_storage = list()
 	var/list/stack_paths = list()
 	var/stack_amt = 50 // Amount to stack before releasing
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 
@@ -175,7 +173,7 @@
 		return
 	return ..()
 
-/obj/machinery/mineral/stacking_machine/machinery_process()
+/obj/machinery/mineral/stacking_machine/process()
 	if(!console)
 		return
 	if(stat & BROKEN)

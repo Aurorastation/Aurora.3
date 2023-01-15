@@ -8,7 +8,11 @@
 	supervisors = "yourself and the market"
 	minimal_player_age = 10
 	economic_modifier = 5
-	ideal_character_age = 30
+	ideal_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
 
 	create_record = FALSE
 	account_allowed = TRUE
@@ -56,7 +60,6 @@
 	r_pocket = /obj/item/device/price_scanner
 	belt = /obj/item/storage/belt/utility/full
 	uniform = list(
-		/obj/item/clothing/under/det/black,
 		/obj/item/clothing/under/suit_jacket/charcoal,
 		/obj/item/clothing/under/suit_jacket/tan,
 		)
@@ -81,7 +84,7 @@
 		/obj/item/clothing/suit/storage/toggle/trench,
 		/obj/item/clothing/suit/storage/hooded/wintercoat
 		)
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/wallet/random = 1

@@ -216,6 +216,7 @@
 		qdel(W)
 		has_chopsticks = TRUE
 		update_icon()
+		return TRUE
 
 /obj/item/trash/ricetub/update_icon()
 	if(has_chopsticks)
@@ -241,3 +242,7 @@
 /obj/item/trash/phoroncandy
 	name = "\improper phoron rock candy stick"
 	icon_state = "rock_candy"
+
+/obj/item/trash/proteinbar
+	name = "protein bar wrapper"
+	icon_state = "proteinbar"

@@ -3,7 +3,7 @@ var/datum/antagonist/traitor/traitors
 // Inherits most of its vars from the base datum.
 /datum/antagonist/traitor
 	id = MODE_TRAITOR
-	restricted_jobs = list("Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Executive Officer", "Operations Manager")
+	restricted_jobs = list("Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Executive Officer", "Operations Manager", "AI")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Investigator")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	required_age = 10
@@ -160,7 +160,6 @@ var/datum/antagonist/traitor/traitors
 		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
 		target_radio.hidden_uplink = T
 		target_radio.traitor_frequency = freq
-		R.autodrobe_no_remove = TRUE
 		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
 		traitor_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
 
@@ -170,7 +169,6 @@ var/datum/antagonist/traitor/traitors
 		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
 		R.hidden_uplink = T
 		T.pda_code = pda_pass
-		R.autodrobe_no_remove = TRUE
 		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features.")
 		traitor_mob.mind.store_memory("<B>Uplink Passcode:</B> [pda_pass] ([R.name] [loc]).")
 

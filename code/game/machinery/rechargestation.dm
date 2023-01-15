@@ -5,9 +5,7 @@
 	icon_state = "borgcharger0"
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 75
-	has_special_power_checks = TRUE
 	var/mob/occupant = null
 	var/obj/item/cell/cell = null
 	var/icon_update_tick = 0	// Used to rebuild the overlay only once every 10 ticks
@@ -37,7 +35,7 @@
 /obj/machinery/recharge_station/proc/has_cell_power()
 	return cell && cell.percent() > 0
 
-/obj/machinery/recharge_station/machinery_process()
+/obj/machinery/recharge_station/process()
 	if(stat & (BROKEN))
 		return
 	if(!cell) // Shouldn't be possible, but sanity check
@@ -60,7 +58,9 @@
 		recharge_amount = (occupant ? restore_power_active : restore_power_passive) * CELLRATE
 
 		recharge_amount = cell.give(recharge_amount*charging_efficiency)
-		use_power(recharge_amount / CELLRATE)
+		use_power_oneoff(recharge_amount / CELLRATE)
+	else
+		cell.use(get_power_usage() * CELLRATE)
 
 	if(icon_update_tick >= 10)
 		icon_update_tick = 0
@@ -69,19 +69,6 @@
 
 	if(occupant || recharge_amount)
 		update_icon()
-
-//since the recharge station can still be on even with NOPOWER. Instead it draws from the internal cell.
-/obj/machinery/recharge_station/auto_use_power()
-	if(!(stat & NOPOWER))
-		return ..()
-
-	if(!has_cell_power())
-		return FALSE
-	if(src.use_power == 1)
-		cell.use(idle_power_usage * CELLRATE)
-	else if(src.use_power >= 2)
-		cell.use(active_power_usage * CELLRATE)
-	return TRUE
 
 //Processes the occupant, drawing from the internal power cell if needed.
 /obj/machinery/recharge_station/proc/process_occupant()
@@ -148,21 +135,25 @@
 /obj/machinery/recharge_station/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(!occupant)
 		if(default_deconstruction_screwdriver(user, O))
-			return
+			return TRUE
 		else if(default_deconstruction_crowbar(user, O))
-			return
+			return TRUE
 		else if(default_part_replacement(user, O))
-			return
+			return TRUE
 
 	if(istype(O, /obj/item/grab))
 		var/obj/item/grab/grab = O
 		var/mob/living/L = grab.affecting
 		if(!L.isSynthetic())
-			return
-		
+			return TRUE
+
+		var/bucklestatus = L.bucklecheck(user)
+		if(!bucklestatus)
+			return TRUE
+
 		move_ipc(grab.affecting)
 		qdel(O)
-	..()
+	return ..()
 
 /obj/machinery/recharge_station/RefreshParts()
 	..()
@@ -315,7 +306,7 @@
 		else
 			to_chat(user, SPAN_DANGER("Cancelled loading [C] into the charger. You and [C] must stay still!"))
 		return
-	
+
 	else if(isipc(C)) // IPCs don't take as long
 		var/mob/living/carbon/human/machine/R = C
 		if(!user.Adjacent(R) || !Adjacent(user))
@@ -328,7 +319,6 @@
 		if(bucklestatus == 2)
 			var/obj/structure/LB = R.buckled_to
 			LB.user_unbuckle(user)
-			return
 
 		user.face_atom(src)
 		move_ipc(R)

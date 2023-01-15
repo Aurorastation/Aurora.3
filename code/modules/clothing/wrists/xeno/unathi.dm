@@ -17,10 +17,12 @@
 	name = "Th'akhist wristguards"
 	desc = "A traditional garment worn by Th'akh shamans. Popular adornments include dried and pressed grass and \
 	feathers, as well as precious metals and colorful stones in the cuff itself."
-	desc_fluff = "Wristguards as a part of the maxtatl did not become prevalent until much later in Th'akh \
+	desc_extended = "Wristguards as a part of the maxtatl did not become prevalent until much later in Th'akh \
 	tradition. As time passed and garb was passed down from shaman to shaman, attire became cluttered with \
 	adornments. Bracers were designed as a method of adding more charms to remember previous shamans that \
 	predate the latest to pass away."
 	icon_state = "maxtlatl-wrists"
 	item_state = "maxtlatl-wrists"
+	species_restricted = list(BODYTYPE_UNATHI)
+	contained_sprite = TRUE
 	gender = PLURAL

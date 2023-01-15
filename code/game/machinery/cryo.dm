@@ -26,7 +26,6 @@
 	interact_offline = TRUE
 
 	var/on = 0
-	use_power = 1
 	idle_power_usage = 20
 	active_power_usage = 200
 	clicksound = 'sound/machines/buttonbeep.ogg'
@@ -59,7 +58,7 @@
 			node = target
 			break
 
-/obj/machinery/atmospherics/unary/cryo_cell/machinery_process()
+/obj/machinery/atmospherics/unary/cryo_cell/process()
 	..()
 	if(!node)
 		return
@@ -81,6 +80,8 @@
 	return 1
 
 /obj/machinery/atmospherics/unary/cryo_cell/relaymove(mob/user as mob)
+	if(user != occupant) //Put this in because apparently if you open the ui and press a button, you're counted as user and can trigger relaymove, this checks if you're inside, and if you aren't it ignores you for the purposes of the relaymove. - Risingvaliant
+		return
 	if(user.stat)
 		return
 	go_out()
@@ -182,7 +183,7 @@
 	if(istype(G, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
-			return
+			return TRUE
 
 		beaker =  G
 		user.drop_from_inventory(G,src)
@@ -194,23 +195,20 @@
 		if (!istype(L))
 			return
 
-		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
+		var/bucklestatus = L.bucklecheck(user)
+		if(!bucklestatus)
+			return TRUE
 
+		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 		if(do_mob(user, L, 30, needhand = 0))
-			var/bucklestatus = L.bucklecheck(user)
-			if(!bucklestatus)//incase the patient got buckled_to during the delay
-				return
-			if(bucklestatus == 2)
-				var/obj/structure/LB = L.buckled_to
-				LB.user_unbuckle(user)
 			for(var/mob/living/carbon/slime/M in range(1, L))
 				if(M.victim == L)
 					to_chat(user, SPAN_WARNING("[L] will not fit into the cryo because they have a slime latched onto their head."))
-					return
+					return TRUE
 			if(put_mob(L))
 				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
 				qdel(G)
-	return
+	return TRUE
 
 /obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
 	if(!istype(user))
@@ -224,8 +222,7 @@
 			return
 
 	var/bucklestatus = L.bucklecheck(user)
-
-	if (!bucklestatus)//We must make sure the person is unbuckled before they go in
+	if (!bucklestatus)
 		return
 
 	if(L == user)
@@ -330,7 +327,7 @@
 		occupant.bodytemperature = 261									  // Changed to 70 from 140 by Zuhayr due to reoccurance of bug.
 	occupant = null
 	current_heat_capacity = initial(current_heat_capacity)
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	update_icon()
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/human/M as mob)
@@ -359,7 +356,7 @@
 		to_chat(M, "<span class='notice'><b>You feel a cold liquid surround you. Your skin starts to freeze up.</b></span>")
 	occupant = M
 	current_heat_capacity = HEAT_CAPACITY_HUMAN
-	update_use_power(2)
+	update_use_power(POWER_USE_ACTIVE)
 //	M.metabslow = 1
 	add_fingerprint(usr)
 	update_icon()
@@ -406,8 +403,6 @@
 	//draws from the cryo tube's environment, instead of the cold internal air.
 	if(loc)
 		return loc.return_air()
-	else
-		return null
 
 /datum/data/function/proc/reset()
 	return

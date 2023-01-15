@@ -1,11 +1,13 @@
 /obj/machinery/computer/robotics
 	name = "robotics control console"
 	desc = "Used to remotely lockdown or detonate linked cyborgs."
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/modular_console.dmi'
 
-	icon_screen = "sci"
-	light_color = "#a97faa"
-	req_access = list(access_robotics)
+	icon_screen = "robot"
+	icon_keyboard = "purple_key"
+	light_color = LIGHT_COLOR_PURPLE
+
+	req_one_access = list(access_rd, access_robotics)
 	circuit = /obj/item/circuitboard/robotics
 
 	var/safety = 1
@@ -28,7 +30,7 @@
 
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
+	if(!ui)
 		ui = new(user, src, ui_key, "robot_control.tmpl", "Robotic Control Console", 400, 500)
 		ui.set_initial_data(data)
 		ui.open()
@@ -39,7 +41,7 @@
 		return
 	var/mob/user = usr
 	if(!src.allowed(user))
-		to_chat(user, "Access Denied")
+		to_chat(user, "Access denied.")
 		return
 
 	// Destroys the cyborg
@@ -48,11 +50,11 @@
 		if(!target || !istype(target))
 			return
 		if(isAI(user) && (target.connected_ai != user))
-			to_chat(user, "Access Denied. This robot is not linked to you.")
+			to_chat(user, "Access denied. This robot is not linked to you.")
 			return
 		// Cyborgs may blow up themselves via the console
 		if(isrobot(user) && user != target)
-			to_chat(user, "Access Denied.")
+			to_chat(user, "Access denied.")
 			return
 		var/choice = input("Really detonate [target.name]?") in list ("Yes", "No")
 		if(choice != "Yes")
@@ -67,7 +69,7 @@
 			return
 
 		if(target.emagged)
-			to_chat(user, "Access Denied. Safety protocols are disabled.")
+			to_chat(user, "Access denied. Safety protocols are disabled.")
 			return
 
 		else
@@ -80,17 +82,17 @@
 
 
 	// Locks or unlocks the cyborg
-	else if (href_list["lockdown"])
+	else if(href_list["lockdown"])
 		var/mob/living/silicon/robot/target = get_cyborg_by_name(href_list["lockdown"])
 		if(!target || !istype(target))
 			return
 
 		if(isAI(user) && (target.connected_ai != user))
-			to_chat(user, "Access Denied. This robot is not linked to you.")
+			to_chat(user, "Access denied. This robot is not linked to you.")
 			return
 
 		if(isrobot(user))
-			to_chat(user, "Access Denied.")
+			to_chat(user, "Access denied.")
 			return
 
 		if(target.emagged)
@@ -107,16 +109,45 @@
 		message_admins("[key_name_admin(usr)] [target.lock_charge ? "locked down" : "released"] [target.name]!")
 		log_game("[key_name(usr)] [target.lock_charge ? "locked down" : "released"] [target.name]!",ckey=key_name(usr))
 		to_chat(target, (target.lock_charge ? "You have been locked down!" : "Your lockdown has been lifted!"))
+	
+	// Changes borg's access
+	else if(href_list["access"])
+		var/mob/living/silicon/robot/target = get_cyborg_by_name(href_list["access"])
+		if(!istype(target))
+			return
+
+		if(isAI(user) && (target.connected_ai != user))
+			to_chat(user, "Access denied. This robot is not linked to you.")
+			return
+
+		if(isrobot(user) || target.emagged)
+			to_chat(user, "Access denied.")
+			return
+
+		if(!istype(target))
+			return
+
+		if(!target.module)
+			to_chat(user, "\The [src]\s access protocols are immutable.")
+			return
+		
+		target.module.all_access = !target.module.all_access
+		target.update_access()
+		
+		var/log_message = "[key_name_admin(usr)] changed [target.name] access to [target.module.all_access ? "all access" : "role specific"]."
+		message_admins(log_message)
+		log_game(log_message, ckey = key_name(usr))
+		to_chat(target, ("Your access was changed to: [target.module.all_access ? "all access" : "role specific"]."))
 
 	// Remotely hacks the cyborg. Only antag AIs can do this and only to linked cyborgs.
-	else if (href_list["hack"])
+	else if(href_list["hack"])
 		var/mob/living/silicon/robot/target = get_cyborg_by_name(href_list["hack"])
 		if(!target || !istype(target))
 			return
 
 		// Antag AI checks
 		if(!istype(user, /mob/living/silicon/ai) || !(user.mind.special_role && user.mind.original == user))
-			to_chat(user, "Access Denied")
+			to_chat(user, "Access denied.")
 			return
 
 		if(target.emagged)
@@ -138,7 +169,7 @@
 	// Arms the emergency self-destruct system
 	else if(href_list["arm"])
 		if(istype(user, /mob/living/silicon))
-			to_chat(user, "Access Denied")
+			to_chat(user, "Access denied.")
 			return
 
 		safety = !safety
@@ -147,7 +178,7 @@
 	// Destroys all accessible cyborgs if safety is disabled
 	else if(href_list["nuke"])
 		if(istype(user, /mob/living/silicon))
-			to_chat(user, "Access Denied")
+			to_chat(user, "Access denied.")
 			return
 		if(safety)
 			to_chat(user, "Self-destruct aborted - safety active")
@@ -187,7 +218,7 @@
 		robot["name"] = R.name
 		if(R.stat)
 			robot["status"] = "Not Responding"
-		else if (R.lock_charge) // changed this from !R.canmove to R.lock_charge because of issues with lockdown and chairs
+		else if(R.lock_charge) // changed this from !R.canmove to R.lock_charge because of issues with lockdown and chairs
 			robot["status"] = "Lockdown"
 		else
 			robot["status"] = "Operational"
@@ -203,6 +234,7 @@
 		robot["module"] = R.module ? R.module.name : "None"
 		robot["master_ai"] = R.connected_ai ? R.connected_ai.name : "None"
 		robot["hackable"] = 0
+		robot["access"] = R.module ? R.module.all_access : FALSE
 		// Antag AIs know whether linked cyborgs are hacked or not.
 		if(operator && istype(operator, /mob/living/silicon/ai) && (R.connected_ai == operator) && (operator.mind.special_role && operator.mind.original == operator))
 			robot["hacked"] = R.emagged ? 1 : 0
@@ -214,7 +246,7 @@
 // Parameters: 1 (name - Cyborg we are trying to find)
 // Description: Helper proc for finding cyborg by name
 /obj/machinery/computer/robotics/proc/get_cyborg_by_name(var/name)
-	if (!name)
+	if(!name)
 		return
 	for(var/mob/living/silicon/robot/R in mob_list)
 		if(R.name == name)

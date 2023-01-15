@@ -119,7 +119,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
@@ -206,7 +206,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -265,7 +265,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -315,7 +315,7 @@
 
 /obj/item/clothing/suit/storage/vest/officer
 	name = "officer armor vest"
-	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a security holobadge clipped to the chest."
+	desc = "A simple kevlar plate carrier belonging to the SCC. This one has a security holobadge clipped to the chest."
 	icon_state = "officervest_nobadge"
 	item_state = "officervest_nobadge"
 	icon_badge = "officervest_badge"
@@ -323,7 +323,7 @@
 
 /obj/item/clothing/suit/storage/vest/warden
 	name = "warden armor vest"
-	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a silver badge clipped to the chest."
+	desc = "A simple kevlar plate carrier belonging to the SCC. This one has a silver badge clipped to the chest."
 	icon_state = "wardenvest_nobadge"
 	item_state = "wardenvest_nobadge"
 	icon_badge = "wardenvest_badge"
@@ -331,7 +331,7 @@
 
 /obj/item/clothing/suit/storage/vest/hos
 	name = "commander armor vest"
-	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a gold badge clipped to the chest."
+	desc = "A simple kevlar plate carrier belonging to the SCC. This one has a gold badge clipped to the chest."
 	icon_state = "hosvest_nobadge"
 	item_state = "hosvest_nobadge"
 	icon_badge = "hosvest_badge"
@@ -347,7 +347,7 @@
 
 /obj/item/clothing/suit/storage/vest/detective
 	name = "detective armor vest"
-	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a detective's badge clipped to the chest."
+	desc = "A simple kevlar plate carrier belonging to the SCC. This one has a detective's badge clipped to the chest."
 	icon_state = "detectivevest_nobadge"
 	item_state = "detectivevest_nobadge"
 	icon_badge = "detectivevest_badge"
@@ -355,15 +355,16 @@
 
 /obj/item/clothing/suit/storage/vest/ft
 	name = "forensic technician armor vest"
-	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a forensic technician's badge clipped to the chest."
+	desc = "A simple kevlar plate carrier belonging to the SCC. This one has a forensic technician's badge clipped to the chest."
 	icon_state = "forensictech_nobadge"
 	item_state = "forensictech_nobadge"
 	icon_badge = "forensictech_badge"
 	icon_nobadge = "forensictech_nobadge"
 
-/obj/item/clothing/suit/storage/hazardvest/cadet
+/obj/item/clothing/suit/storage/hazardvest/security
 	name = "cadet hazard vest"
-	desc = "A sturdy high-visibility vest intended for in training security personnel."
+	desc = "A sturdy high-visibility vest intended for training security personnel."
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "hazard_cadet"
 	item_state = "hazard_cadet"
 	allowed = list(/obj/item/gun,/obj/item/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)
@@ -373,10 +374,18 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 		)
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/hazardvest/security/officer
+	name = "officer hazard jacket"
+	desc = "A sturdy high-visibility jacket for the on the beat officer."
+	icon_state = "hazard_officer"
+	item_state = "hazard_officer"
+	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/vest/heavy/officer
 	name = "officer heavy armor vest"
-	desc = "A heavy kevlar plate carrier belonging to Nanotrasen with webbing attached. This one has a security holobadge clipped to the chest."
+	desc = "A heavy kevlar plate carrier belonging to the SCC, with webbing attached. This one has a security holobadge clipped to the chest."
 	icon_state = "officerwebvest_nobadge"
 	item_state = "officerwebvest_nobadge"
 	icon_badge = "officerwebvest_badge"
@@ -384,7 +393,7 @@
 
 /obj/item/clothing/suit/storage/vest/heavy/warden
 	name = "warden heavy armor vest"
-	desc = "A heavy kevlar plate carrier belonging to Nanotrasen with webbing attached. This one has a silver badge clipped to the chest."
+	desc = "A heavy kevlar plate carrier belonging to the SCC, with webbing attached. This one has a silver badge clipped to the chest."
 	icon_state = "wardenwebvest_nobadge"
 	item_state = "wardenwebvest_nobadge"
 	icon_badge = "wardenwebvest_badge"
@@ -392,7 +401,7 @@
 
 /obj/item/clothing/suit/storage/vest/heavy/hos
 	name = "commander heavy armor vest"
-	desc = "A heavy kevlar plate carrier belonging to Nanotrasen with webbing attached. This one has a gold badge clipped to the chest."
+	desc = "A heavy kevlar plate carrier belonging to the SCC, with webbing attached. This one has a gold badge clipped to the chest."
 	icon_state = "hoswebvest_nobadge"
 	item_state = "hoswebvest_nobadge"
 	icon_badge = "hoswebvest_badge"
@@ -424,7 +433,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -457,7 +466,7 @@
 
 /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
 	name = "ERT civil protection plate carrier"
-	desc = "A plate carrier worn by troopers serving civil protection details. Commonly seen on high-profile escorts and Nanotrasen administration centers."
+	desc = "A plate carrier worn by troopers serving civil protection details. Commonly seen on high-profile escorts and SCC administration centers."
 	icon_state = "civilprotection_nobadge"
 	item_state = "civilprotection_nobadge"
 	icon_badge = "civilprotection_badge"
@@ -490,7 +499,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -509,7 +518,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		rad = ARMOR_RAD_RESISTANT
@@ -556,17 +565,32 @@
 /obj/item/clothing/suit/storage/vest/sol
 	name = "sol heavy armor vest"
 	desc = "A high-quality armor vest in a deep green. It is surprisingly flexible and light, even with the added webbing and armor plating."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
 	icon_state = "solwebvest"
 	item_state = "solwebvest"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	contained_sprite = 1
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/vest/kala
+	name = "kala armor vest"
+	desc = "A simple armor vest issued to all of the Kala. It's made of an advanced lightweight alloy."
+	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon_state = "kala_armor"
+	item_state = "kala_armor"
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+	)
+	contained_sprite = TRUE
 
 //All of the armor below is mostly unused
 

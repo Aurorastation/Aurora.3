@@ -1,11 +1,10 @@
 /obj/machinery/station_map
-	name = "station holomap"
-	desc = "A virtual map of the surrounding station."
-	icon = 'icons/obj/machines/stationmap.dmi'
+	name = "holomap"
+	desc = "A virtual map of the surrounding area."
+	icon = 'icons/obj/machinery/stationmap.dmi'
 	icon_state = "station_map"
 	anchored = 1
 	density = 0
-	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 500
 
@@ -36,6 +35,11 @@
 
 /obj/machinery/station_map/Initialize()
 	. = ..()
+	init_map()
+	create_small_map()
+	add_floor_decal()
+
+/obj/machinery/station_map/proc/init_map()
 	holomap_datum = new()
 	original_zLevel = loc.z
 	SSholomap.station_holomaps += src
@@ -51,11 +55,13 @@
 
 	holomap_datum.initialize_holomap(T, reinit = TRUE)
 
+/obj/machinery/station_map/proc/create_small_map()
 	small_station_map = image(SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"], dir = dir)
 	small_station_map.layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	small_station_map.filters = filter(type = "drop_shadow", color = light_color + "F0", size = 1, offset = 1, x = 0, y = 0)
 
-	floor_markings = image('icons/obj/machines/stationmap.dmi', "decal_station_map")
+/obj/machinery/station_map/proc/add_floor_decal()
+	floor_markings = image('icons/obj/machinery/stationmap.dmi', "decal_station_map")
 	floor_markings.dir = src.dir
 	floor_markings.layer = ON_TURF_LAYER
 	update_icon()
@@ -97,7 +103,7 @@
 			watching_mob = user
 			moved_event.register(watching_mob, src, /obj/machinery/station_map/proc/checkPosition)
 			destroyed_event.register(watching_mob, src, /obj/machinery/station_map/proc/stopWatching)
-			update_use_power(2)
+			update_use_power(POWER_USE_ACTIVE)
 
 			if(bogus)
 				to_chat(user, "<span class='warning'>The holomap failed to initialize. This area of space cannot be mapped.</span>")
@@ -108,7 +114,7 @@
 	return // TODO - Implement for AI ~Leshana
 	// user.station_holomap.toggleHolomap(user, isAI(user))
 
-/obj/machinery/station_map/machinery_process()
+/obj/machinery/station_map/process()
 	if((stat & (NOPOWER|BROKEN)) || !anchored)
 		stopWatching()
 
@@ -125,7 +131,7 @@
 		moved_event.unregister(watching_mob, src)
 		destroyed_event.unregister(watching_mob, src)
 	watching_mob = null
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 
 /obj/machinery/station_map/proc/clear_image(mob/M, image/I)
 	if (M.client)
@@ -171,14 +177,6 @@
 	else
 		cut_overlay("station_map-panel")
 
-/*/obj/machinery/station_map/attackby(obj/item/W as obj, mob/user as mob)
-	src.add_fingerprint(user)
-	if(default_deconstruction_screwdriver(user, W))
-		return
-	if(default_deconstruction_crowbar(user, W))
-		return
-	return ..()*/	// Uncomment this if/when this is made constructable.
-
 /obj/machinery/station_map/ex_act(severity)
 	switch(severity)
 		if(1)
@@ -193,6 +191,23 @@
 				set_broken()
 
 // TODO: Make these constructable.
+
+/obj/machinery/station_map/mobile
+	use_power = POWER_USE_OFF
+	idle_power_usage = 0
+	active_power_usage = 0
+
+/obj/machinery/station_map/mobile/Initialize()
+	init_map()
+	return
+
+/obj/machinery/station_map/mobile/startWatching(var/mob/user)
+	if(!user)
+		return
+
+	create_small_map()
+	if(!watching_mob && isliving(user))
+		..()
 
 // Simple datum to keep track of a running holomap. Each machine capable of displaying the holomap will have one.
 /datum/station_holomap

@@ -188,7 +188,7 @@
 	else if(W.iswelder())
 		if(buildstate == 1)
 			var/obj/item/weldingtool/T = W
-			if(T.remove_fuel(0,user))
+			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You weld the pipe into place.</span>")
@@ -196,7 +196,7 @@
 				update_icon()
 		if(buildstate == 3)
 			var/obj/item/weldingtool/T = W
-			if(T.remove_fuel(0,user))
+			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You weld the metal chassis together.</span>")
@@ -204,7 +204,7 @@
 				update_icon()
 		if(buildstate == 5)
 			var/obj/item/weldingtool/T = W
-			if(T.remove_fuel(0,user))
+			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You weld the valve into place.</span>")

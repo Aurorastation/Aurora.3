@@ -24,7 +24,7 @@ var/req_console_information = list()
 var/list/obj/machinery/requests_console/allConsoles = list()
 
 /obj/machinery/requests_console
-	name = "Requests Console"
+	name = "requests console"
 	desc = "A console intended to send requests to different departments on the station."
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp"
@@ -118,7 +118,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	announcement.title = "[department] announcement"
 	announcement.newscast = 1
 
-	name = "[department] Requests Console"
+	name = "[department] requests console"
 	allConsoles += src
 	if (departmentType & RC_ASSIST)
 		req_console_assistance |= department
@@ -215,8 +215,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(reject_bad_text(href_list["write"]))
 		recipient = href_list["write"] //write contains the string of the receiving department's name
 
-		var/new_message = sanitize(input("Write your message:", "Awaiting Input", ""))
-		if(new_message)
+		var/new_message = sanitize(input("Write your message:", "Awaiting Input", null) as null|text)
+		if(new_message && !use_check_and_message(usr))
 			message = new_message
 			screen = RCS_MESSAUTH
 			switch(href_list["priority"])
@@ -227,8 +227,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			reset_message(1)
 
 	if(href_list["writeAnnouncement"])
-		var/new_message = sanitize(input("Write your message:", "Awaiting Input", ""))
-		if(new_message)
+		var/new_message = sanitize(input("Write your message:", "Awaiting Input", null) as null|text)
+		if(new_message && !use_check_and_message(usr))
 			message = new_message
 		else
 			reset_message(1)
@@ -240,13 +240,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	if( href_list["department"] && message )
 		var/log_msg = message
-		var/pass = FALSE
 		screen = RCS_SENTFAIL
-		for(var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
-			if(!MS.active)
-				continue
-			MS.send_rc_message(ckey(href_list["department"]), department, log_msg, msgStamped, msgVerified, priority)
-			pass = TRUE
+		var/pass = FALSE
+		var/datum/data_rc_msg/log = new(href_list["department"], department, log_msg, msgStamped, msgVerified, priority)
+		for (var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+			if (MS.use_power)
+				MS.rc_msgs += log
+				pass = TRUE
 		if(pass)
 			screen = RCS_SENTPASS
 			message_log += "<B>Message sent to [recipient]</B><BR>[message]"
@@ -339,14 +339,14 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			alert("Invalid query. Try again.")
 		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, department, info FROM ss13_forms WHERE id=[whatisid]")
 		query.Execute()
-		var/dat = "<center><b>NanoTrasen Corporate Form</b><br>"
+		var/dat = "<center><b>Stellar Corporate Conglomerate Form</b><br>"
 		while(query.NextRow())
 			var/id = query.item[1]
 			var/name = query.item[2]
 			var/department = query.item[3]
 			var/info = query.item[4]
 
-			dat += "<b>NCF-[id]</b><br><br>"
+			dat += "<b>SCCF-[id]</b><br><br>"
 			dat += "<b>[name]</b><br>"
 			dat += "<b>[department] Department</b><hr>"
 			dat += "[info]"
@@ -364,7 +364,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 					//err... hacking code, which has no reason for existing... but anyway... it was once supposed to unlock priority 3 messanging on that console (EXTREME priority...), but the code for that was removed.
 /obj/machinery/requests_console/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if (istype(O, /obj/item/card/id))
-		if(inoperable(MAINT)) return
+		if(inoperable(MAINT)) return TRUE
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/card/id/T = O
 			msgVerified = text("<font color='green'><b>Verified by [T.registered_name] ([T.assignment])</b></font>")
@@ -378,12 +378,14 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				reset_message()
 				to_chat(user, "<span class='warning'>You are not authorized to send announcements.</span>")
 			updateUsrDialog()
+		return TRUE
 	else if (istype(O, /obj/item/stamp))
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/stamp/T = O
 			msgStamped = text("<span class='notice'><b>Stamped with the [T.name]</b></span>")
 			updateUsrDialog()
+		return TRUE
 	else if (istype(O, /obj/item/paper_bundle))
 		var/obj/item/paper_bundle/C = O
 		if(lid)
@@ -396,6 +398,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			audible_message("<b>The Requests Console</b> beeps, \"Paper added.\"")
 		else if(screen == RCS_MAINMENU)	//Faxing them papers
 			fax_send(O, user)
+		return TRUE
 	else if (istype(O, /obj/item/paper))
 		if(lid)
 			if(alert(user, "Do you want to restock \the [src] with \the [O]?", "Paper Restocking", "Yes", "No") == "No")
@@ -408,10 +411,11 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			audible_message("<b>The Requests Console</b> beeps, \"Paper added.\"")
 		else if(screen == RCS_MAINMENU)	//Faxing them papers
 			fax_send(O, user)
+		return TRUE
 
 /obj/machinery/requests_console/proc/can_send()
-	for(var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
-		if(!MS.active)
+	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+		if(!MS.use_power)
 			continue
 		return TRUE
 	return FALSE
@@ -419,6 +423,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console/proc/fax_send(var/obj/item/O, var/mob/user)
 	var/sendto = input("Select department.", "Send Fax", null, null) as null|anything in allConsoles
 	if(!sendto)
+		return
+	if(use_check_and_message(user))
 		return
 	if(!can_send())
 		var/msg = "NOTICE: No server detected!"

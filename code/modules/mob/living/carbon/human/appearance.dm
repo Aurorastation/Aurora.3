@@ -1,5 +1,5 @@
-/mob/living/carbon/human/proc/change_appearance(var/flags = APPEARANCE_ALL_HAIR, var/mob/user = src, var/check_species_whitelist = TRUE, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/datum/topic_state/ui_state = interactive_state, var/datum/state_object = src)
-	var/datum/vueui_module/appearance_changer/AC = new /datum/vueui_module/appearance_changer(src, check_species_whitelist, species_whitelist, species_blacklist, ui_state, state_object)
+/mob/living/carbon/human/proc/change_appearance(var/flags = APPEARANCE_ALL_HAIR, var/mob/user = src, var/check_species_whitelist = TRUE, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/datum/topic_state/ui_state = interactive_state, var/datum/state_object = src, var/update_id = FALSE)
+	var/datum/vueui_module/appearance_changer/AC = new /datum/vueui_module/appearance_changer(src, check_species_whitelist, species_whitelist, species_blacklist, ui_state, state_object, update_id)
 	AC.flags = flags
 	AC.ui_interact(user)
 

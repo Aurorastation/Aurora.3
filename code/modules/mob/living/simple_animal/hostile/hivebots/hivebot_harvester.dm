@@ -31,7 +31,7 @@
 	flying = 1
 	mob_size = MOB_LARGE
 	see_in_dark = 8
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE|PASSRAILING
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 	var/turf/last_processed_turf
@@ -309,7 +309,7 @@
 			G.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			return
 
-		if(istype(O, /obj/structure/barricade) || istype(O, /obj/structure/closet) || istype(O, /obj/structure/inflatable))
+		if(istype(O, /obj/structure/blocker) || istype(O, /obj/structure/closet) || istype(O, /obj/structure/inflatable))
 			var/obj/structure/S = O
 			rapid = 1
 			OpenFire(S)

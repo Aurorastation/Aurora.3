@@ -9,12 +9,12 @@
 	name = "drone fabricator"
 	desc = "A large automated factory for producing maintenance drones."
 
-	icon = 'icons/obj/machines/drone_fab.dmi'
+	icon = 'icons/obj/machinery/drone_fab.dmi'
 	icon_state = "drone_fab_idle"
 
 	density = TRUE
 	anchored = TRUE
-	use_power = TRUE
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
 	active_power_usage = 5000
 
@@ -43,7 +43,7 @@
 	if(stat & NOPOWER)
 		icon_state = "drone_fab_nopower"
 
-/obj/machinery/drone_fabricator/machinery_process()
+/obj/machinery/drone_fabricator/process()
 	if(!ROUND_IS_STARTED)
 		return
 

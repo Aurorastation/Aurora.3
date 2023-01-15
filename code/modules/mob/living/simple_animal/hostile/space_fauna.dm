@@ -3,7 +3,7 @@
 /mob/living/simple_animal/hostile/carp
 	name = "space carp"
 	desc = "A ferocious, fang-bearing creature that resembles a fish."
-	desc_fluff = "This specimen is a native to the Romanovich Cloud, and possesses a shimmering appearance to its scales. Much like other Cloud-faring creatures, this primarily thrives off of a \
+	desc_extended = "This specimen is a native to the Romanovich Cloud, and possesses a shimmering appearance to its scales. Much like other Cloud-faring creatures, this primarily thrives off of a \
 	diet consisting of raw ores and rock."
 	icon_state = "carp"
 	icon_living = "carp"
@@ -181,15 +181,16 @@
 	icon_dead = "eel"
 	meat_amount = 5
 
-	maxHealth = 250
-	health = 250
+	maxHealth = 150
+	health = 150
 
 	speed = 9
 
-	melee_damage_lower = 40
-	melee_damage_upper = 40
-
-/mob/living/simple_animal/hostile/carp/bloater
+	melee_damage_lower = 20
+	melee_damage_upper = 20
+	armor_penetration = 25
+	
+/mob/living/simple_animal/hostile/carp/bloater	
 	name = "bloater"
 	desc = "A fat, mineral-devouring creature frequently herded for mining expeditions. Its actual ability to dig is less valuable than its volatile nature, however."
 	icon = 'icons/mob/npc/large_space_xenofauna.dmi'
@@ -254,7 +255,7 @@
 /mob/living/simple_animal/hostile/gnat
 	name = "gnat"
 	desc = "A small, obnoxious looking specimen. This is a renowned wire-chewing menace in the Romanovich Cloud, similarly insufferable as an Earth insect."
-	desc_fluff = "This specimen is a native to the Romanovich Cloud, and possesses a shimmering appearance to its scales. Much like other Cloud-faring creatures, this primarily thrives off of a \
+	desc_extended = "This specimen is a native to the Romanovich Cloud, and possesses a shimmering appearance to its scales. Much like other Cloud-faring creatures, this primarily thrives off of a \
 	diet consisting of raw ores and rock."
 	icon_state = "gnat"
 	icon_living = "gnat"

@@ -7,8 +7,8 @@
 	uniform = /obj/item/clothing/under/syndicate
 	back = null
 	backpack = /obj/item/storage/backpack/syndie
-	satchel = /obj/item/storage/backpack/satchel_syndie
-	satchel_alt = /obj/item/storage/backpack/satchel
+	satchel = /obj/item/storage/backpack/satchel/syndie
+	satchel_alt = /obj/item/storage/backpack/satchel/leather
 	dufflebag = /obj/item/storage/backpack/duffel/syndie
 	messengerbag = /obj/item/storage/backpack/messenger/syndie
 	belt = /obj/item/storage/belt/utility/full
@@ -18,7 +18,7 @@
 	id = /obj/item/card/id/syndicate
 	r_pocket = /obj/item/device/radio/uplink
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/device/flashlight = 1,
 		/obj/item/card/emag = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
@@ -59,7 +59,7 @@
 	l_hand = /obj/item/tank/jetpack/void
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1,
 		/obj/item/gun/projectile/automatic/x9 = 1,
 		/obj/item/ammo_magazine/c45m/auto = 1,
@@ -81,7 +81,7 @@
 	r_pocket = null // stop them getting a radio uplink, they get an implant instead
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/device/flashlight = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
@@ -151,9 +151,10 @@
 	gloves = /obj/item/clothing/gloves/swat
 	shoes = /obj/item/clothing/shoes/jackboots
 	pda = /obj/item/modular_computer/handheld/pda/syndicate
+	r_pocket = /obj/item/device/special_uplink/mercenary
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1
 	)
 
@@ -189,8 +190,8 @@
 
 	uniform = list(
 		/obj/item/clothing/under/serviceoveralls,
-		/obj/item/clothing/under/det,
-		/obj/item/clothing/under/brown,
+		/obj/item/clothing/under/det/zavod,
+		/obj/item/clothing/under/color/brown,
 		/obj/item/clothing/under/syndicate/tracksuit,
 		/obj/item/clothing/under/captainformal,
 		/obj/item/clothing/under/dominia,
@@ -205,18 +206,18 @@
 		/obj/item/clothing/under/pants/khaki,
 		/obj/item/clothing/under/pants/musthang,
 		/obj/item/clothing/under/rank/bartender,
-		/obj/item/clothing/under/rank/cargo,
+		/obj/item/clothing/under/rank/hangar_technician/heph,
 		/obj/item/clothing/under/rank/chef,
 		/obj/item/clothing/under/rank/chaplain,
 		/obj/item/clothing/under/rank/engineer,
-		/obj/item/clothing/under/rank/fatigues,
+		/obj/item/clothing/under/rank/sol,
 		/obj/item/clothing/under/rank/miner,
 		/obj/item/clothing/under/skirt/offworlder,
 		/obj/item/clothing/under/suit_jacket/tan,
 		/obj/item/clothing/under/tactical,
 		/obj/item/clothing/under/tajaran,
 		/obj/item/clothing/under/tajaran/nt,
-		/obj/item/clothing/under/rank/hephaestus/tech,
+		/obj/item/clothing/under/rank/engineer/apprentice/heph,
 		/obj/item/clothing/under/unathi,
 		/obj/item/clothing/under/waiter
 		)
@@ -297,7 +298,7 @@
 		/obj/item/clothing/head/hijab,
 		/obj/item/clothing/head/hijab/grey,
 		/obj/item/clothing/head/hijab/red,
-		/obj/item/clothing/head/navy/garrison,
+		/obj/item/clothing/head/sol/garrison,
 		/obj/item/clothing/head/nonla,
 		/obj/item/clothing/head/helmet/bucket,
 		/obj/item/clothing/head/helmet/material/makeshift/plasteel,
@@ -316,8 +317,14 @@
 	back = null
 	belt = null
 	gloves = null
+	glasses = list(
+			/obj/item/clothing/glasses/sunglasses,
+			/obj/item/clothing/glasses/sunglasses/aviator,
+			/obj/item/clothing/glasses/sunglasses/big,
+			/obj/item/clothing/glasses/sunglasses/visor
+			)
 	l_ear = /obj/item/device/radio/headset/raider
-	l_pocket = /obj/item/device/contract_uplink
+	l_pocket = /obj/item/device/special_uplink/raider
 	r_pocket = list(
 			/obj/item/clothing/glasses/eyepatch/hud/thermal,
 			/obj/item/clothing/glasses/thermal,
@@ -393,7 +400,7 @@
 		)
 
 	belt = null
-	suit = /obj/item/clothing/suit/armor/carrier/ballistic
+	suit = null
 
 	shoes = list(
 		/obj/item/clothing/shoes/laceup/all_species,
@@ -438,7 +445,6 @@
 		/obj/item/gun/projectile/silenced,
 		/obj/item/gun/projectile/colt,
 		/obj/item/gun/projectile/colt/super,
-		/obj/item/gun/projectile/revolver/deckard,
 		/obj/item/gun/projectile/revolver/lemat
 		)
 
@@ -687,7 +693,7 @@
 	. = ..()
 	if(visualsOnly)
 		return
-	
+
 	to_chat(H, "<b>You are the Technomancer's apprentice! Your goal is to assist them in their mission at the [station_name()].</b>")
 	to_chat(H, "<b>Your service has not gone unrewarded, however. Studying under them, you have learned how to use a Manipulation Core \
 	of your own.  You also have a catalog, to purchase your own functions and equipment as you see fit.</b>")

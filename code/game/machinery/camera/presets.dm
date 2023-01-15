@@ -1,6 +1,6 @@
 // PRESETS
 var/global/list/engineering_networks = list(
-	NETWORK_ENGINE,
+	NETWORK_REACTOR,
 	NETWORK_ENGINEERING,
 	NETWORK_ENGINEERING_OUTPOST,
 	"Atmosphere Alarms",
@@ -32,8 +32,8 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/command
 	network = list(NETWORK_COMMAND)
 
-/obj/machinery/camera/network/engine
-	network = list(NETWORK_ENGINE)
+/obj/machinery/camera/network/reactor
+	network = list(NETWORK_REACTOR)
 
 /obj/machinery/camera/network/engineering
 	network = list(NETWORK_ENGINEERING)
@@ -190,8 +190,8 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/proc/upgradeMotion()
 	assembly.upgrades.Add(new /obj/item/device/assembly/prox_sensor(assembly))
 	setPowerUsage()
-	if(!(SSmachinery.processing_machines[src]))
-		add_machine(src)
+	if(!(SSmachinery.processing[src]))
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	update_coverage()
 
 /obj/machinery/camera/proc/setPowerUsage()
@@ -200,4 +200,4 @@ var/global/list/engineering_networks = list(
 		mult++
 	if (isMotion())
 		mult++
-	active_power_usage = mult*initial(active_power_usage)
+	change_power_consumption(mult*initial(active_power_usage), POWER_USE_ACTIVE)

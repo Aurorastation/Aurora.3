@@ -27,7 +27,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	add_fingerprint(user)
 	return A.attackby(src, user, click_parameters)
 
-// No comment
+// attackby should return TRUE if all desired actions are resolved from that attack, within attackby. This prevents afterattack being called.
 /atom/proc/attackby(obj/item/W, mob/user, var/click_parameters)
 	return
 
@@ -67,6 +67,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 /mob/living/simple_animal/attackby(obj/item/I, mob/living/user)
 	if(I.damtype == PAIN)
 		playsound(loc, 'sound/weapons/tap.ogg', I.get_clamped_volume(), 1, -1)
+		return TRUE
 	else
 		return ..()
 
@@ -128,8 +129,10 @@ avoid code duplication. This includes items that may sometimes act as a standard
 //Called when a weapon is used to make a successful melee attack on a mob. Returns whether damage was dealt.
 /obj/item/proc/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	var/power = force
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		power *= 2
+	if(user.is_berserk())
+		power *= 1.5
 	if(ishuman(user))
 		var/mob/living/carbon/human/X = user
 		if(ishuman(target))

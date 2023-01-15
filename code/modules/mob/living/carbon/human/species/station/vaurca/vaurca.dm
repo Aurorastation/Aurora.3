@@ -21,6 +21,7 @@
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/palm,
 		/datum/unarmed_attack/bite/sharp
 	)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/bug
@@ -97,11 +98,11 @@
 	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
-		BP_NEURAL_SOCKET        = /obj/item/organ/vaurca/neuralsocket,
+		BP_NEURAL_SOCKET        = /obj/item/organ/internal/vaurca/neuralsocket,
 		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
-		BP_FILTRATION_BIT       = /obj/item/organ/vaurca/filtrationbit,
+		BP_FILTRATION_BIT       = /obj/item/organ/internal/vaurca/filtrationbit,
 		BP_HEART               = /obj/item/organ/internal/heart/vaurca,
-		BP_PHORON_RESERVE  = /obj/item/organ/vaurca/preserve,
+		BP_PHORON_RESERVE  = /obj/item/organ/internal/vaurca/preserve,
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
@@ -128,12 +129,13 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_JARGON)
-	allowed_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE, RELIGION_OTHER)
-	default_citizenship = CITIZENSHIP_NONE
 
-	default_accent = ACCENT_TTS
-	allowed_accents = list(ACCENT_TTS, ACCENT_ZORA, ACCENT_KLAX, ACCENT_CTHUR)
+	possible_cultures = list(
+		/decl/origin_item/culture/zora,
+		/decl/origin_item/culture/klax,
+		/decl/origin_item/culture/cthur
+	)
+
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
 
@@ -141,15 +143,13 @@
 	. = ..()
 	H.gender = NEUTER
 	var/obj/item/clothing/mask/breath/vaurca/filter/M = new /obj/item/clothing/mask/breath/vaurca/filter(H)
-	if(H.equip_to_slot_or_del(M, slot_wear_mask))
-		M.autodrobe_no_remove = 1
+	H.equip_to_slot_or_del(M, slot_wear_mask)
 
 /datum/species/bug/after_equip(var/mob/living/carbon/human/H)
 	if(H.shoes)
 		return
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
-	if(H.equip_to_slot_or_del(S,slot_shoes))
-		S.autodrobe_no_remove = 1
+	H.equip_to_slot_or_del(S,slot_shoes)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
@@ -157,7 +157,7 @@
 
 /datum/species/bug/has_psi_potential()
 	return FALSE
-	
+
 /datum/species/bug/is_naturally_insulated()
 	return TRUE
 

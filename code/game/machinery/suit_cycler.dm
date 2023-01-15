@@ -480,7 +480,7 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/suit_cycler/machinery_process()
+/obj/machinery/suit_cycler/process()
 	if(electrified > 0)
 		electrified = max(electrified - 1, 0)
 

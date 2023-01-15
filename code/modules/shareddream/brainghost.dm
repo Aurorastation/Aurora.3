@@ -1,6 +1,7 @@
 /mob/living/brain_ghost
 	name = "Brain Ghost"
 	desc = "A Telepathic connection."
+	accent = ACCENT_SROM
 
 	alpha = 200
 
@@ -37,11 +38,12 @@
 /mob/living/brain_ghost/proc/awaken_impl(var/force_awaken = FALSE)
 
 	if(body.willfully_sleeping)
-		body.sleeping = max(body.sleeping - 5, 0)
 		body.willfully_sleeping = FALSE
 		if(force_awaken)
+			body.sleeping = 0
 			to_chat(src, "<span class='notice'>You suddenly feel like your connection to the dream is breaking up by the outside force.</span>")
 		else
+			body.sleeping = max(body.sleeping - 5, 0)
 			to_chat(src, "<span class='notice'>You release your concentration on sleep, allowing yourself to wake up.</span>")
 	else
 		to_chat(src, "<span class='warning'>You've already released concentration. Wait to wake up naturally.</span>")
@@ -56,7 +58,8 @@
 		return
 
 	if(body.stat == DEAD) // Body is dead, and won't get a life tick.
-		body.handle_shared_dreaming()
+		awaken_impl(TRUE)
+		body.handle_shared_dreaming(TRUE)
 
 /mob/living/brain_ghost/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(!istype(body) || body.stat!=UNCONSCIOUS)

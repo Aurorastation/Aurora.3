@@ -1,8 +1,7 @@
 /obj/structure/closet/athletic_mixed
 	name = "athletic wardrobe"
 	desc = "It's a storage unit for athletic wear."
-	icon_state = "mixed"
-	icon_closed = "mixed"
+	icon_door = "mixed"
 
 /obj/structure/closet/athletic_mixed/fill()
 	new /obj/item/towel/random(src)
@@ -22,8 +21,6 @@
 	new /obj/item/clothing/shoes/swimmingfins(src)
 	new /obj/item/clothing/shoes/swimmingfins(src)
 
-
-
 /obj/structure/closet/boxinggloves
 	name = "boxing gloves"
 	desc = "It's a storage unit for gloves for use in the boxing ring."
@@ -33,7 +30,6 @@
 	new /obj/item/clothing/gloves/boxing/green(src)
 	new /obj/item/clothing/gloves/boxing/yellow(src)
 	new /obj/item/clothing/gloves/boxing(src)
-
 
 /obj/structure/closet/masks
 	name = "mask closet"

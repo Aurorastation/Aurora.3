@@ -194,7 +194,7 @@
 	reagents = list(/decl/reagent/nutriment/cherryjelly = 5, /decl/reagent/nutriment/peanutbutter = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice,
-		/obj/item/reagent_containers/food/snacks/breadslice	
+		/obj/item/reagent_containers/food/snacks/breadslice
 	)
 	result = /obj/item/reagent_containers/food/snacks/pbjsandwich
 
@@ -218,7 +218,7 @@
 
 /*
 /decl/recipe/neuralbroke
-	items = list(/obj/item/organ/vaurca/neuralsocket)
+	items = list(/obj/item/organ/internal/vaurca/neuralsocket)
 	result = /obj/item/neuralbroke
 */
 

@@ -14,13 +14,13 @@
 	var/use_material_name = TRUE // Does the finished item put the material name in front of it?
 	var/use_material_sound = TRUE
 	var/use_material_shatter = TRUE // If it has a custom shatter message.
-	var/applies_material_colour = 1
+	var/applies_material_colour = TRUE
 	var/unbreakable
 	var/force_divisor = 0.5
 	var/thrown_force_divisor = 0.5
 	var/default_material = DEFAULT_WALL_MATERIAL
 	var/material/material
-	var/drops_debris = 1
+	var/drops_debris = TRUE
 
 /obj/item/material/Initialize(var/newloc, var/material_key)
 	. = ..()

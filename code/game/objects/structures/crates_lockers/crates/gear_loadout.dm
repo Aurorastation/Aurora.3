@@ -1,35 +1,30 @@
 /obj/structure/closet/crate/secure/gear_loadout
 	desc = "A secure gear crate."
 	name = "gear crate"
-	req_access = list(access_syndicate)
 
 /obj/structure/closet/crate/gear_loadout/hephaestus
 	desc = "A sturdy crate with Hephaestus Industries branding."
 	name = "hephaestus drop crate"
-	icon_state = "hephcrate"
-	icon_opened = "hephcrateopen"
-	icon_closed = "hephcrate"
+	icon_state = "heph_crate"
+	door_hinge = 0.5
 
 /obj/structure/closet/crate/gear_loadout/zenghu
 	desc = "A sturdy crate with Zeng-Hu Pharmaceuticals branding."
 	name = "zeng-hu drop crate"
-	icon_state = "zenghucrate"
-	icon_opened = "zenghucrateopen"
-	icon_closed = "zenghucrate"
+	icon_state = "zenghu_crate"
+	door_hinge = 0.5
 
 /obj/structure/closet/crate/gear_loadout/einstein
 	desc = "A sturdy crate with Einstein Engines branding."
 	name = "einstein drop crate"
-	icon_state = "einsteincrate"
-	icon_opened = "einsteincrateopen"
-	icon_closed = "einsteincrate"
+	icon_state = "einstein_crate"
+	door_hinge = 0.5
 
 /obj/structure/closet/crate/gear_loadout/zavodskoi
 	desc = "A sturdy crate with Zavodskoi Interstellar branding."
 	name = "zavodskoi interstellar drop crate"
-	icon_state = "necrocrate"
-	icon_opened = "necrocrateopen"
-	icon_closed = "necrocrate"
+	icon_state = "necro_crate"
+	door_hinge = 0.5
 
 /obj/structure/closet/crate/secure/gear_loadout/coalition/fill()
 	new /obj/item/rig/gunslinger/equipped(src)
@@ -140,12 +135,12 @@
 	new /obj/item/grenade/chem_grenade/large/phoroncleaner(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/sol/fill()
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/rig/military(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
@@ -174,9 +169,16 @@
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/storage/box/srf(src)
+	new /obj/item/storage/box/league(src)
+	new /obj/item/storage/box/fsf(src)
+	new /obj/item/storage/box/ssmd(src)
+	new /obj/item/storage/box/spg(src)
+	new /obj/item/storage/box/mrsp(src)
+	new /obj/item/storage/box/sfa(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/sol_single/fill()
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
 	new /obj/item/clothing/suit/space/void/sol(src)
 	new /obj/item/gun/projectile/automatic/rifle/sol(src)
@@ -184,6 +186,13 @@
 	new /obj/item/ammo_magazine/c762/sol(src)
 	new /obj/item/gun/projectile/pistol/sol(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/storage/box/srf(src)
+	new /obj/item/storage/box/league(src)
+	new /obj/item/storage/box/fsf(src)
+	new /obj/item/storage/box/ssmd(src)
+	new /obj/item/storage/box/spg(src)
+	new /obj/item/storage/box/mrsp(src)
+	new /obj/item/storage/box/sfa(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/syndicate_softsuits
 	req_access = list()
@@ -271,11 +280,15 @@
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
+	new /obj/item/clothing/head/helmet/space/void/dominia/unathi(src)
+	new /obj/item/clothing/head/helmet/space/void/dominia/unathi(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
+	new /obj/item/clothing/suit/space/void/dominia/unathi(src)
+	new /obj/item/clothing/suit/space/void/dominia/unathi(src)
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/melee/energy/sword/pirate(src)
@@ -288,6 +301,12 @@
 /obj/structure/closet/crate/secure/gear_loadout/dominia/single/fill()
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/suit/space/void/dominia(src)
+	new /obj/item/melee/energy/sword/pirate(src)
+	new /obj/item/shield/energy/dominia(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/dominia/single/unathi/fill()
+	new /obj/item/clothing/head/helmet/space/void/dominia/unathi(src)
+	new /obj/item/clothing/suit/space/void/dominia/unathi(src)
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/shield/energy/dominia(src)
 
@@ -365,7 +384,7 @@
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/sol/fill()
 	..()
-	new /obj/item/clothing/under/rank/fatigues/marine(src)
+	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/clothing/accessory/holster/armpit/brown(src)
 	new /obj/item/gun/projectile/pistol/sol(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
@@ -439,10 +458,10 @@
 	new /obj/item/gun/energy/crossbow/largecrossbow(src)
 	new /obj/item/melee/energy/sword/red(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/ninja/techno
-	associated_hardsuit = /obj/item/rig/light/offworlder/techno/ninja
+/obj/structure/closet/crate/secure/gear_loadout/ninja/frontier
+	associated_hardsuit = /obj/item/rig/light/offworlder/frontier/ninja
 
-/obj/structure/closet/crate/secure/gear_loadout/ninja/techno/fill()
+/obj/structure/closet/crate/secure/gear_loadout/ninja/frontier/fill()
 	..()
 	new /obj/item/clothing/accessory/holster/armpit/brown(src)
 	new /obj/item/gun/projectile/pistol(src)

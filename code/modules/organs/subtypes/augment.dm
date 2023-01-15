@@ -116,6 +116,8 @@
 		return
 
 	var/obj/item/M = new augment_type(owner)
+	M.canremove = FALSE
+	M.item_flags |= NOMOVE
 	owner.equip_to_slot(M, aug_slot)
 	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [owner.organs_by_name[parent_organ]]."), SPAN_NOTICE("You deploy \the [M]!"))
 
@@ -132,6 +134,19 @@
 	parent_organ = BP_L_HAND
 	aug_slot = slot_l_hand
 
+/obj/item/organ/internal/augment/tool/drill
+	name = "integrated drill"
+	icon_state = "drill"
+	action_button_name = "Deploy Drill"
+	action_button_icon = "drill"
+	parent_organ = BP_R_HAND
+	organ_tag = BP_AUG_DRILL
+	augment_type = /obj/item/pickaxe/drill/integrated
+
+/obj/item/organ/internal/augment/tool/drill/left
+	parent_organ = BP_L_HAND
+	aug_slot = slot_l_hand
+
 /obj/item/organ/internal/augment/tool/combitool/lighter
 	name = "integrated lighter"
 	icon_state = "lighter-aug"
@@ -141,6 +156,45 @@
 	augment_type = /obj/item/flame/lighter/zippo/augment
 
 /obj/item/organ/internal/augment/tool/combitool/lighter/left
+	parent_organ = BP_L_HAND
+	aug_slot = slot_l_hand
+
+/obj/item/organ/internal/augment/tool/pen
+	name = "retractable pen"
+	icon_state = "combipen"
+	action_button_name = "Deploy Pen"
+	action_button_icon = "combipen"
+	organ_tag = BP_AUG_PEN
+	parent_organ = BP_R_HAND
+	augment_type = /obj/item/pen/augment
+
+/obj/item/organ/internal/augment/tool/pen/left
+	parent_organ = BP_L_HAND
+	aug_slot = slot_l_hand
+
+/obj/item/organ/internal/augment/tool/crayon
+	name = "integrated crayon"
+	icon_state = "crayonaugment"
+	action_button_name = "Deploy Crayon"
+	action_button_icon = "crayonaugment"
+	organ_tag = BP_AUG_CRAYON
+	parent_organ = BP_R_HAND
+	augment_type = /obj/item/pen/crayon/augment
+
+/obj/item/organ/internal/augment/tool/crayon/left
+	parent_organ = BP_L_HAND
+	aug_slot = slot_l_hand
+
+/obj/item/organ/internal/augment/tool/cyborg_analyzer
+	name = "retractable cyborg analyzer"
+	icon_state = "robotanalyzer"
+	action_button_name = "Deploy Analyzer"
+	action_button_icon = "augment-tool"
+	organ_tag = BP_AUG_CYBORG_ANALYZER
+	parent_organ = BP_R_HAND
+	augment_type = /obj/item/device/robotanalyzer/augment
+
+/obj/item/organ/internal/augment/tool/cyborg_analyzer/left
 	parent_organ = BP_L_HAND
 	aug_slot = slot_l_hand
 
@@ -341,6 +395,7 @@
 	min_broken_damage = 20
 	max_damage = 20
 	var/suspension_mod = 0.8
+	var/jump_bonus = 1
 
 /obj/item/organ/internal/augment/suspension/advanced
 	name = "advanced calf suspension"

@@ -1,8 +1,7 @@
 /obj/item/flamethrower
 	name = "flamethrower"
 	desc = "A flamethrower created by modifying a welding tool to fit an external gas tank."
-
-	icon = 'icons/obj/contained_items/weapons/flamethrower.dmi'
+	icon = 'icons/obj/item/flamethrower.dmi'
 	icon_state = "flamethrower1"
 	item_state = "flamethrower_0"
 	contained_sprite = TRUE
@@ -106,7 +105,7 @@
 
 /obj/item/flamethrower/attackby(obj/item/W, mob/user)
 	if(use_check_and_message(user))
-		return
+		return TRUE
 
 	if(W.iswrench() && !secured)//Taking this apart
 		var/turf/T = get_turf(src)
@@ -121,26 +120,26 @@
 			gas_tank = null
 		new /obj/item/stack/rods(T)
 		qdel(src)
-		return
+		return TRUE
 
 	else if(W.isscrewdriver() && igniter && !lit)
 		secured = !secured
 		to_chat(user, SPAN_NOTICE("[igniter] is now [secured ? "secured" : "unsecured"]!"))
 		update_icon()
-		return
+		return TRUE
 
 	else if(isigniter(W))
 		var/obj/item/device/assembly/igniter/I = W
 		if(I.secured)
 			to_chat(user, SPAN_WARNING("\The [I] is not ready to attach yet! Use a screwdriver on it first."))
-			return
+			return TRUE
 		if(igniter)
 			to_chat(user, SPAN_WARNING("\The [src] already has an igniter installed."))
-			return
+			return TRUE
 		user.drop_from_inventory(I, src)
 		igniter = I
 		update_icon()
-		return
+		return TRUE
 
 	else if(istype(W, /obj/item/tank/phoron) || istype(W, /obj/item/tank/hydrogen))
 		if(gas_tank)
@@ -149,18 +148,18 @@
 		user.drop_from_inventory(W, src)
 		gas_tank = W
 		update_icon()
-		return
+		return TRUE
 
 	else if(istype(W, /obj/item/device/analyzer))
 		var/obj/item/device/analyzer/A = W
 		A.analyze_gases(src, user)
-		return
+		return TRUE
 
 	else if(W.isFlameSource()) // you can light it with external input, even without an igniter
 		attempt_lighting(user, TRUE)
 		update_icon()
-		return
-	..()
+		return TRUE
+	return ..()
 
 
 /obj/item/flamethrower/attack_self(mob/user)

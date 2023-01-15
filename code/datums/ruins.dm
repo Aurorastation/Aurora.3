@@ -8,11 +8,12 @@
 	var/spawn_weight = 1
 	var/spawn_cost = 0
 	var/player_cost = 0
+	var/ship_cost = 0
 	var/list/sectors = list() //This ruin can only spawn in the sectors in this list.
 
 	var/prefix = null
 	var/suffix = null
-	template_flags = 0 // No duplicates by default
+	template_flags = TEMPLATE_FLAG_NO_RUINS // Don't let ruins spawn on top of ruins
 
 	// !! Currently only implemented for away sites
 	var/list/force_ruins // Listed ruins are always spawned unless disallowed by flags.

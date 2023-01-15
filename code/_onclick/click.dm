@@ -59,7 +59,7 @@
 	is recieving it.
 	The most common are:
 	* mob/UnarmedAttack(atom,adjacent) - used here only when adjacent, with no item in hand; in the case of humans, checks gloves
-	* atom/attackby(item,user) - used only when adjacent
+	* atom/attackby(item,user) - used only when adjacent, return TRUE to prevent further afterattack procs being called
 	* item/afterattack(atom,user,adjacent,params) - used both ranged and adjacent
 	* mob/RangedAttack(atom,params) - used only ranged, only used for tk and laser eyes but could be changed
 */
@@ -220,7 +220,7 @@
 	animals lunging, etc.
 */
 /mob/proc/RangedAttack(var/atom/A, var/params)
-	if(length(mutations) && (LASER_EYES in mutations) && a_intent == I_HURT)
+	if(HAS_FLAG(mutations, LASER_EYES) && a_intent == I_HURT)
 		LaserEyes(A, params) // moved into a proc below
 		return
 	A.attack_ranged(src, params)
@@ -337,7 +337,7 @@
 	handle_regular_hud_updates()
 
 // Simple helper to face what you clicked on, in case it should be needed in more than one place
-/mob/proc/face_atom(var/atom/A)
+/mob/proc/face_atom(var/atom/A, var/force_face = FALSE)
 	if(!A || !x || !y || !A.x || !A.y) return
 	var/dx = A.x - x
 	var/dy = A.y - y
@@ -359,7 +359,7 @@
 			direction = WEST
 
 	if(direction != dir)
-		facedir(direction, TRUE)
+		facedir(direction, force_face)
 
 var/global/list/click_catchers
 

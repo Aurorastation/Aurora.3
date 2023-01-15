@@ -1,7 +1,7 @@
 /obj/item/material/sword
 	name = "claymore"
 	desc = "What are you standing around staring at this for? Get to killing!"
-	description_cult = "This can be reforged to become a cult blade."
+	desc_antag = "As a Cultist, this item can be reforged to become a cult blade."
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "claymore"
 	item_state = "claymore"
@@ -143,6 +143,10 @@
 	icon_state = "amohdan_sword"
 	item_state = "amohdan_sword"
 	slot_flags = SLOT_BELT
+	use_material_name = FALSE
+	applies_material_colour = FALSE
+	unbreakable = TRUE //amohdan steel is the finest in the spur
+
 
 // improvised sword
 /obj/item/material/sword/improvised_sword

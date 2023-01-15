@@ -323,10 +323,6 @@ GATEWAY_DELAY 18000
 ## Remove the # to give assistants maint access.
 #ASSISTANT_MAINT
 
-## Remove the # to make rounds which end instantly (Rev, Wizard, Malf) to continue until the shuttle is called or the station is nuked.
-## Malf and Rev will let the shuttle be called when the antags/protags are dead.
-#CONTINUOUS_ROUNDS
-
 ## Uncomment to restrict non-admins from using humanoid alien races
 USEALIENWHITELIST
 
@@ -533,7 +529,7 @@ FASTBOOT
 CARGO_LOAD_ITEMS_FROM json
 
 
-# Forces the maploader to load the specified map path. Valid options: aurora, runtime
+# Forces the maploader to load the specified map path. Valid options: sccv_horizon, runtime, aurora, away_sites_testing
 FORCE_MAP runtime
 
 # Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.

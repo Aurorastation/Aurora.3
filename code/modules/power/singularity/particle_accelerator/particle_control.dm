@@ -3,12 +3,12 @@
 /obj/machinery/particle_accelerator/control_box
 	name = "Particle Accelerator Control Computer"
 	desc = "This controls the density of the particles."
-	icon = 'icons/obj/machines/particle_accelerator.dmi'
+	icon = 'icons/obj/machinery/particle_accelerator.dmi'
 	icon_state = "control_box"
 	reference = "control_box"
 	anchored = FALSE
 	density = TRUE
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 500
 	active_power_usage = 70000 //70 kW per unit of strength
 	construction_state = 0
@@ -23,7 +23,7 @@
 /obj/machinery/particle_accelerator/control_box/Initialize()
 	wires = new(src)
 	connected_parts = list()
-	active_power_usage = initial(active_power_usage) * (strength + 1)
+	change_power_consumption(initial(active_power_usage) * (strength + 1), POWER_USE_ACTIVE)
 	. = ..()
 
 /obj/machinery/particle_accelerator/control_box/Destroy()
@@ -41,7 +41,7 @@
 
 /obj/machinery/particle_accelerator/control_box/update_state()
 	if(construction_state < 3)
-		update_use_power(0)
+		update_use_power(POWER_USE_OFF)
 		assembled = 0
 		active = 0
 		for(var/obj/structure/particle_accelerator/part in connected_parts)
@@ -51,7 +51,7 @@
 		connected_parts = list()
 		return
 	if(!part_scan())
-		update_use_power(1)
+		update_use_power(POWER_USE_IDLE)
 		active = 0
 		connected_parts = list()
 
@@ -142,13 +142,13 @@
 	..()
 	if(stat & NOPOWER)
 		active = FALSE
-		update_use_power(0)
+		update_use_power(POWER_USE_OFF)
 	else if(!stat && construction_state == 3)
-		update_use_power(1)
+		update_use_power(POWER_USE_IDLE)
 	return
 
 
-/obj/machinery/particle_accelerator/control_box/machinery_process()
+/obj/machinery/particle_accelerator/control_box/process()
 	if(src.active)
 		//a part is missing!
 		if(length(connected_parts) < 6)
@@ -211,19 +211,19 @@
 	return 0
 
 
-/obj/machinery/particle_accelerator/control_box/proc/toggle_power(mob/user)
+/obj/machinery/particle_accelerator/control_box/toggle_power(mob/user)
 	src.active = !src.active
 	investigate_log("turned [active?"<span class='warning'>ON</span>":"<font color='green'>OFF</font>"] by [user ? user.key : "outside forces"]","singulo")
 	message_admins("PA Control Computer turned [active ?"ON":"OFF"] by [key_name(user, TRUE, highlight_special = TRUE)] in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 	log_game("PA Control Computer turned [active ?"ON":"OFF"] by [key_name(user)] in ([x],[y],[z])",ckey=key_name(user))
 	if(src.active)
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 		for(var/obj/structure/particle_accelerator/part in connected_parts)
 			part.strength = src.strength
 			part.powered = 1
 			part.update_icon()
 	else
-		update_use_power(1)
+		update_use_power(POWER_USE_IDLE)
 		for(var/obj/structure/particle_accelerator/part in connected_parts)
 			part.strength = null
 			part.powered = 0

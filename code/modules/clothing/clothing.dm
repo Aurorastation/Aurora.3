@@ -350,6 +350,8 @@
 	desc = O.desc
 	icon = O.icon
 	icon_state = O.icon_state
+	color = O.color
+	overlays = O.overlays
 	set_dir(O.dir)
 
 /obj/item/clothing/ears/offear/attack_hand(mob/living/carbon/human/H)
@@ -418,7 +420,7 @@
 
 /obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 	..()
-	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
+	if(is_sharp(W))
 		if(clipped)
 			to_chat(user, SPAN_NOTICE("\The [src] have already been clipped!"))
 			update_icon()
@@ -584,8 +586,6 @@
 
 	if(!success)
 		return FALSE
-	else if(success == ALREADY_WEARING_HAT)
-		to_chat(user, SPAN_WARNING("You are already wearing a hat."))
 	else if(success == WEAR_HAT)
 		to_chat(user, SPAN_NOTICE("You crawl under \the [src]."))
 	return TRUE
@@ -1039,13 +1039,24 @@
 	else
 		worn_state = icon_state
 
-	//autodetect rollability
-	if(rolled_down < 0)
-		if (!SSicon_cache.uniform_states)
-			SSicon_cache.setup_uniform_mappings()
+	//autodetect rollability. now working with contained sprites!
+	var/icon/under_icon = INV_W_UNIFORM_DEF_ICON
+	if(rolled_down < 0 || rolled_sleeves < 0)
+		if(contained_sprite)
+			under_icon = icon
+		else if(icon_override)
+			under_icon = icon_override
+		else if(item_icons && item_icons[slot_w_uniform_str])
+			under_icon = item_icons[slot_w_uniform_str]
 
-		if (SSicon_cache.uniform_states["[worn_state]_d_s"])
+	if(rolled_down < 0)
+		if("[worn_state]_d[contained_sprite ? "_un" : "_s"]" in icon_states(under_icon))
 			rolled_down = 0
+			verbs += /obj/item/clothing/under/proc/rollsuit
+	if(rolled_sleeves < 0)
+		if("[worn_state]_r[contained_sprite ? "_un" : "_s"]" in icon_states(under_icon))
+			rolled_sleeves = 0
+			verbs += /obj/item/clothing/under/proc/rollsleeves
 
 /obj/item/clothing/under/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
@@ -1129,9 +1140,10 @@
 	return our_image
 
 /obj/item/clothing/under/update_clothing_icon()
-	if (ismob(src.loc))
+	if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_w_uniform()
+		playsound(M, /decl/sound_category/rustle_sound, 15, 1, -5)
 
 /obj/item/clothing/under/examine(mob/user)
 	..(user)
@@ -1195,19 +1207,18 @@
 	set src in usr
 	set_sensors(usr)
 
-/obj/item/clothing/under/verb/rollsuit()
-	set name = "Roll Down Jumpsuit"
+/obj/item/clothing/under/proc/rollsuit()
+	set name = "Roll Up/Down Jumpsuit"
 	set category = "Object"
 	set src in usr
 	if(!istype(usr, /mob/living)) return
 	if(usr.stat) return
 
-	update_rolldown_status()
 	if(rolled_down == -1)
-		to_chat(usr, SPAN_NOTICE("You cannot roll down [src]!"))
+		to_chat(usr, SPAN_NOTICE("You cannot roll down \the [src]!"))
 	if((rolled_sleeves == 1) && !(rolled_down))
 		rolled_sleeves = 0
-		return
+	update_rolldown_status()
 
 	rolled_down = !rolled_down
 	if(rolled_down)
@@ -1216,28 +1227,30 @@
 			item_state = "[initial(item_state)]_d"
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
+		to_chat(usr, SPAN_NOTICE("You roll up \the [src]."))
 	else
 		body_parts_covered = initial(body_parts_covered)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = initial(item_state)
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
+		to_chat(usr, SPAN_NOTICE("You roll down \the [src]."))
 	update_clothing_icon()
 
-/obj/item/clothing/under/verb/rollsleeves()
-	set name = "Roll Up Sleeves"
+/obj/item/clothing/under/proc/rollsleeves()
+	set name = "Roll Up/Down Sleeves"
 	set category = "Object"
 	set src in usr
 	if(!istype(usr, /mob/living)) return
 	if(usr.stat) return
 
-	update_rollsleeves_status()
 	if(rolled_sleeves == -1)
-		to_chat(usr, SPAN_NOTICE("You cannot roll up your [src]'s sleeves!"))
+		to_chat(usr, SPAN_NOTICE("You cannot roll up \the [src]'s sleeves!"))
 		return
 	if(rolled_down == 1)
-		to_chat(usr, SPAN_NOTICE("You must roll up your [src] first!"))
+		to_chat(usr, SPAN_NOTICE("You must roll up \the [src] first!"))
 		return
+	update_rollsleeves_status()
 
 	rolled_sleeves = !rolled_sleeves
 	if(rolled_sleeves)
@@ -1246,14 +1259,14 @@
 			item_state = "[initial(item_state)]_r"
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_r"
-		to_chat(usr, SPAN_NOTICE("You roll up your [src]'s sleeves."))
+		to_chat(usr, SPAN_NOTICE("You roll up \the [src]'s sleeves."))
 	else
 		body_parts_covered = initial(body_parts_covered)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
 			item_state = initial(item_state)
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
-		to_chat(usr, SPAN_NOTICE("You roll down your [src]'s sleeves."))
+		to_chat(usr, SPAN_NOTICE("You roll down \the [src]'s sleeves."))
 	update_clothing_icon()
 
 /obj/item/clothing/under/rank/Initialize()

@@ -253,7 +253,7 @@
 
 /datum/bounty/item/chef/skrell
 	name = "Federation Delicacies"
-	description = "We're holding a luncheon with some Jargon Federation representatives; send some Skrellian dishes!"
+	description = "We're holding a luncheon with some Nralakk Federation representatives; send some Skrellian dishes!"
 	reward_low = 3700
 	reward_high = 5700
 	required_count = 3
@@ -282,3 +282,10 @@
 	required_count = 3
 	random_count = 1
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/dip)
+
+/datum/bounty/item/chef/reuben
+	name = "Reuben Sandwich"
+	description = "%PERSONNAME had their lunch stolen from the company fridge. Send us a replacement reuben!"
+	reward_low = 3700
+	reward_high = 4600
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/reubensandwich)

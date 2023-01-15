@@ -320,6 +320,7 @@
 
 /obj/item/pickaxe/drill/integrated
 	name = "integrated mining drill"
+	desc = "A integrated mining drill that is installed on the hand of the user, it can retract at the user's command."
 	icon_state = "integrateddrill"
 	item_state = "integrateddrill"
 

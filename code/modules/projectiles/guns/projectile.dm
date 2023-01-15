@@ -213,7 +213,7 @@
 	update_icon()
 
 /obj/item/gun/projectile/attackby(obj/item/A, mob/user)
-	..()
+	. = ..()
 	load_ammo(A, user)
 
 /obj/item/gun/projectile/toggle_firing_mode(mob/user)

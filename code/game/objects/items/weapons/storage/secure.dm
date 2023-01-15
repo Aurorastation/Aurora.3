@@ -42,23 +42,23 @@
 				return
 
 			if (W.isscrewdriver())
-				if (do_after(user, 20/W.toolspeed))
+				if(W.use_tool(src, user, 20, volume = 50))
 					src.open =! src.open
-					user.show_message(text("<span class='notice'>You [] the service panel.</span>", (src.open ? "open" : "close")))
+					to_chat(user, SPAN_NOTICE("You [src.open ? "open" : "close"] the service panel."))
 				return
 			if ((W.ismultitool()) && (src.open == 1)&& (!src.l_hacking))
-				user.show_message("<span class='notice'>Now attempting to reset internal memory, please hold.</span>", 1)
+				to_chat(user, SPAN_NOTICE("Now attempting to reset internal memory, please hold."))
 				src.l_hacking = 1
 				if (do_after(usr, 100))
 					if (prob(40))
 						src.l_setshort = 1
 						src.l_set = 0
-						user.show_message("<span class='notice'>Internal memory reset. Please give it a few seconds to reinitialize.</span>", 1)
+						to_chat(user, SPAN_NOTICE("Internal memory reset. Please give it a few seconds to reinitialize."))
 						sleep(80)
 						src.l_setshort = 0
 						src.l_hacking = 0
 					else
-						user.show_message("<span class='warning'>Unable to reset internal memory.</span>", 1)
+						to_chat(user, SPAN_WARNING("Unable to reset internal memory."))
 						src.l_hacking = 0
 				else	src.l_hacking = 0
 				return
@@ -147,31 +147,28 @@
 // -----------------------------
 /obj/item/storage/secure/briefcase
 	name = "secure briefcase"
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "secure"
-	item_state = "sec-case"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/storage/lefthand_briefcase.dmi',
-		slot_r_hand_str = 'icons/mob/items/storage/righthand_briefcase.dmi'
-		)
 	desc = "A large briefcase with a digital locking system."
+	icon = 'icons/obj/storage/briefcase.dmi'
+	icon_state = "secure"
+	item_state = "secure"
+	contained_sprite = TRUE
 	force = 8.0
 	throw_speed = 1
 	throw_range = 4
 	w_class = ITEMSIZE_LARGE
 
-	attack_hand(mob/user as mob)
-		if ((src.loc == user) && (src.locked == 1))
-			to_chat(usr, "<span class='warning'>[src] is locked and cannot be opened!</span>")
-		else if ((src.loc == user) && (!src.locked))
-			src.open(usr)
-		else
-			..()
-			for(var/mob/M in range(1))
-				if (M.s_active == src)
-					src.close(M)
-		src.add_fingerprint(user)
-		return
+/obj/item/storage/secure/briefcase/attack_hand(mob/user as mob)
+	if((src.loc == user) && (src.locked == 1))
+		to_chat(usr, "<span class='warning'>[src] is locked and cannot be opened!</span>")
+	else if((src.loc == user) && (!src.locked))
+		src.open(usr)
+	else
+		..()
+		for(var/mob/M in range(1))
+			if(M.s_active == src)
+				src.close(M)
+	src.add_fingerprint(user)
+	return
 
 // -----------------------------
 //        Secure Safe
@@ -192,7 +189,7 @@
 	cant_hold = list(/obj/item/storage/secure/briefcase)
 	starts_with = list(/obj/item/paper = 1, /obj/item/pen = 1)
 
-	attack_hand(mob/user as mob)
+/obj/item/storage/secure/safe/attack_hand(mob/user as mob)
 		return attack_self(user)
 
 /*obj/item/storage/secure/safe/HoS/New()

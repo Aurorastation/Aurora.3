@@ -173,7 +173,7 @@
 /obj/item/organ/internal/kidneys,
 /obj/machinery/light/small,
 /obj/item/paper{
-	info = "Taeyang is dead.\[br]Another one of those 'Vannatusk' came out. I don’t know what we were expecting, maybe that things would just go back to routine, hoping another lifeless, ancient relic would pop in. This one was far more aggressive than the other two, practically a raving beast compared to the second one's confused and frightened demeanor. This time I was the one who used the lance and thank God they had the foresight to stock one here. I was not able to save Taeyang though, there was no time at all. The moment the Vannatusk came through, it had already bridged the gap between itself and Taeyang and impaled him several times, killing him quickly. It would have surely gotten Lowell as well had she been in the room, I hardly had enough time to flee into the ready room as it was.";
+	info = "Taeyang is dead.\[br]Another one of those 'Vannatusk' came out. I don't know what we were expecting, maybe that things would just go back to routine, hoping another lifeless, ancient relic would pop in. This one was far more aggressive than the other two, practically a raving beast compared to the second one's confused and frightened demeanor. This time I was the one who used the lance and thank God they had the foresight to stock one here. I was not able to save Taeyang though, there was no time at all. The moment the Vannatusk came through, it had already bridged the gap between itself and Taeyang and impaled him several times, killing him quickly. It would have surely gotten Lowell as well had she been in the room, I hardly had enough time to flee into the ready room as it was.";
 	name = "note"
 	},
 /turf/simulated/floor/tiled/asteroid,
@@ -201,11 +201,11 @@
 /area/dungeon/bluespace_outpost)
 "aK" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aL" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aM" = (
@@ -289,7 +289,7 @@
 "bc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/hazmat/custodial,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bd" = (
@@ -394,11 +394,11 @@
 /area/dungeon/bluespace_outpost)
 "br" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bs" = (
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bt" = (
@@ -411,7 +411,7 @@
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine,
 /obj/item/paper{
-	info = "Another one! Christ, what were the odds that the next thing to come out would be yet another? By no means am I complaining, and such an easier subject this one was.\[br] ...Until it smashed the glass and came screaming out into the lab, being shredded by Taeyang a second later - no energy weapon this time!\[br]Well, at least we got a better specimen for Lowell to examine. For the time it was alive this one was very different than the first. Our second guest seemed...scared? Confused? Nothing at all like the first one who acted somewhat startled but immediately after became hostile. We figured that another could possibly come through again, thus keeping the chamber sealed from then on.\[br]Not like it really mattered it seems, this second Vannatusk smashed down the silicate panel like it was made of plywood. I doubt that I will get a response, but I’ve sent a transmission to the Aurora for replacement chamber paneling, a stronger one at that. Perhaps I should ask Taeyang to head over.";
+	info = "Another one! Christ, what were the odds that the next thing to come out would be yet another? By no means am I complaining, and such an easier subject this one was.\[br] ...Until it smashed the glass and came screaming out into the lab, being shredded by Taeyang a second later - no energy weapon this time!\[br]Well, at least we got a better specimen for Lowell to examine. For the time it was alive this one was very different than the first. Our second guest seemed...scared? Confused? Nothing at all like the first one who acted somewhat startled but immediately after became hostile. We figured that another could possibly come through again, thus keeping the chamber sealed from then on.\[br]Not like it really mattered it seems, this second Vannatusk smashed down the silicate panel like it was made of plywood. I doubt that I will get a response, but I've sent a transmission to the Aurora for replacement chamber paneling, a stronger one at that. Perhaps I should ask Taeyang to head over.";
 	name = "note"
 	},
 /turf/simulated/floor/carpet,
@@ -420,7 +420,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/washing_machine,
 /obj/item/paper{
-	info = "This is becoming obscene. I at first thought it was that fool Fayad’s laziness when they failed to respond about our contact with the Vannatusk. As grossly negligent as that is I can imagine it as so. But no response to Taeyang’s death? No response to the panel request?\[\\br]I am speechless, even now as I write it is hard to find the words for what I am feeling. Did they fucking leave? Did they perish? Neither I nor Lowell has felt any tremors of which came whenever the Tajara carve out another huge cavern for more of the station to be built. Perhaps they’ve made a grievous error in the last one?\[\\br]Could it be something else? My mind is racing with the possibilities, but something must happen soon. Supplies are running low, along with charged cells to power our habitation. As horrible as it is to say, Taeyang’s death has bought some time if things are as my worst fears believe them to be. Nevertheless, something must happen.\[\\br]If we do not hear from the Aurora, or someone in person in the next day or so, either I or Lowell will make the trek to the Aurora.";
+	info = "This is becoming obscene. I at first thought it was that fool Fayad's laziness when they failed to respond about our contact with the Vannatusk. As grossly negligent as that is I can imagine it as so. But no response to Taeyang's death? No response to the panel request?\[\\br]I am speechless, even now as I write it is hard to find the words for what I am feeling. Did they fucking leave? Did they perish? Neither I nor Lowell has felt any tremors of which came whenever the Tajara carve out another huge cavern for more of the station to be built. Perhaps they've made a grievous error in the last one?\[\\br]Could it be something else? My mind is racing with the possibilities, but something must happen soon. Supplies are running low, along with charged cells to power our habitation. As horrible as it is to say, Taeyang's death has bought some time if things are as my worst fears believe them to be. Nevertheless, something must happen.\[\\br]If we do not hear from the Aurora, or someone in person in the next day or so, either I or Lowell will make the trek to the Aurora.";
 	name = "note"
 	},
 /turf/simulated/floor/tiled/asteroid,
@@ -500,7 +500,7 @@
 /obj/machinery/light/small,
 /obj/item/gun/energy/pistol,
 /obj/item/paper{
-	info = "There is nothing more for me to do. I cannot leave this place, Lowell has not returned nor anyone for that matter in over a month. With no suit? An un-programmed hand teleporter? There is no escaping this place. What’s more, there will soon be no more water, no more air, no more power - At least I will not starve? There really is no hope, not that I can see. I am writing this because someone will come, eventually. They’ll find this note.\[br]I do not want to suffer, and I do not want to die at the hands of those bluespace beings. Sorry for the mess.";
+	info = "There is nothing more for me to do. I cannot leave this place, Lowell has not returned nor anyone for that matter in over a month. With no suit? An un-programmed hand teleporter? There is no escaping this place. What's more, there will soon be no more water, no more air, no more power - At least I will not starve? There really is no hope, not that I can see. I am writing this because someone will come, eventually. They'll find this note.\[br]I do not want to suffer, and I do not want to die at the hands of those bluespace beings. Sorry for the mess.";
 	name = "letter"
 	},
 /turf/simulated/floor/tiled/asteroid,
@@ -583,7 +583,7 @@
 /area/dungeon/bluespace_outpost)
 "ha" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /obj/item/material/shard/shrapnel,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)

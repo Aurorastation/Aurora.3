@@ -2,6 +2,16 @@
 #define START_PROCESSING(Processor, Datum) if (!Datum.isprocessing) {Datum.isprocessing = 1;Processor.processing += Datum}
 #define STOP_PROCESSING(Processor, Datum) Datum.isprocessing = 0;Processor.processing -= Datum
 
+/// START specific to SSmachinery
+#define START_PROCESSING_MACHINE(machine, flag)\
+	if(!istype(machine, /obj/machinery)) CRASH("A non-machine [log_info_line(machine)] was queued to process on the machinery subsystem.");\
+	machine.processing_flags |= flag;\
+	START_PROCESSING(SSmachinery, machine)
+
+/// STOP specific to SSmachinery
+#define STOP_PROCESSING_MACHINE(machine, flag)\
+	machine.processing_flags &= ~flag;\
+	if(machine.processing_flags == 0) STOP_PROCESSING(SSmachinery, machine)
 
 // -- SStimer stuff --
 //Don't run if there is an identical unique timer active
@@ -75,11 +85,6 @@
 #define STOP_EFFECT(effect) effect.isprocessing = FALSE; SSeffects.effect_systems -= effect;
 #define STOP_VISUAL(visual)	visual.isprocessing = FALSE; SSeffects.visuals -= visual;
 
-// -- SSzcopy --
-#define TURF_IS_MIMICING(T) (isturf(T) && (T.flags & MIMIC_BELOW))
-#define CHECK_OO_EXISTENCE(OO) if (OO && !TURF_IS_MIMICING(OO.loc)) { qdel(OO); }
-#define UPDATE_OO_IF_PRESENT CHECK_OO_EXISTENCE(bound_overlay); if (bound_overlay) { update_above(); }
-
 // -- SSfalling --
 #define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }
 
@@ -110,22 +115,26 @@
 // - SSjobs --
 // departments
 #define DEPARTMENT_COMMAND "Command"
+#define DEPARTMENT_COMMAND_SUPPORT "Command Support"
 #define DEPARTMENT_SECURITY "Security"
 #define DEPARTMENT_ENGINEERING "Engineering"
 #define DEPARTMENT_MEDICAL "Medical"
 #define DEPARTMENT_SCIENCE "Science"
 #define DEPARTMENT_CARGO "Operations"
 #define DEPARTMENT_SERVICE "Service"
+#define DEPARTMENT_CIVILIAN "Civilian"
 #define DEPARTMENT_EQUIPMENT "Equipment"
 #define DEPARTMENT_MISCELLANEOUS "Miscellaneous"
 #define DEPARTMENTS_LIST_INIT list(\
 	DEPARTMENT_COMMAND = list(),\
+	DEPARTMENT_COMMAND_SUPPORT = list(),\
 	DEPARTMENT_SECURITY = list(),\
 	DEPARTMENT_ENGINEERING = list(),\
 	DEPARTMENT_MEDICAL = list(),\
 	DEPARTMENT_SCIENCE = list(),\
 	DEPARTMENT_CARGO = list(),\
 	DEPARTMENT_SERVICE = list(),\
+	DEPARTMENT_CIVILIAN = list(),\
 	DEPARTMENT_EQUIPMENT = list(),\
 	DEPARTMENT_MISCELLANEOUS = list(),\
 )

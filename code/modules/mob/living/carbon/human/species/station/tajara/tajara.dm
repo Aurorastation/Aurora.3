@@ -18,6 +18,9 @@
 		/datum/unarmed_attack/palm,
 		/datum/unarmed_attack/bite/sharp
 	)
+	maneuvers = list(
+		/decl/maneuver/leap/tajara
+	)
 	darksight = 8
 	slowdown = -1
 
@@ -44,6 +47,7 @@
 	stamina_recovery = 4
 	sprint_speed_factor = 0.65
 	sprint_cost_factor = 0.75
+	standing_jump_range = 3
 	bp_base_systolic = 140 // Default 120
 	bp_base_disatolic = 90 // Default 80
 	low_pulse = 50 // Default 40
@@ -91,12 +95,10 @@
 
 	default_h_style = "Tajaran Ears"
 
-	allowed_citizenships = list(CITIZENSHIP_PRA, CITIZENSHIP_DPRA, CITIZENSHIP_NKA, CITIZENSHIP_FREE_COUNCIL)
-	default_citizenship = CITIZENSHIP_PRA
-	allowed_religions = list(RELIGION_TWINSUNS, RELIGION_MATAKE, RELIGION_RASKARA, RELIGION_NONE, RELIGION_OTHER)
-
-	default_accent = ACCENT_REPUBICLANSIIK
-	allowed_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_CREVAN, ACCENT_DASNRRASIIK, ACCENT_HIGHHARRSIIK, ACCENT_LOWHARRSIIK, ACCENT_AMOHDASIIK, ACCENT_NORTHRASNRR, ACCENT_DINAKK, ACCENT_HARRNRRI, ACCENT_OLDYASSA)
+	possible_cultures = list(
+		/decl/origin_item/culture/adhomian,
+		/decl/origin_item/culture/offworld_tajara
+	)
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/tie_hair)
@@ -130,5 +132,4 @@
 	if(H.shoes)
 		return
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
-	if(H.equip_to_slot_or_del(S,slot_shoes))
-		S.autodrobe_no_remove = TRUE
+	H.equip_to_slot_or_del(S,slot_shoes)

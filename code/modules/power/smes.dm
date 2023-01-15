@@ -25,7 +25,7 @@
 	icon_state = "smes"
 	density = 1
 	anchored = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	clicksound = /decl/sound_category/switch_sound
 
 	var/health = 500
@@ -85,16 +85,21 @@
 	charge -= smes_amt
 	return smes_amt / SMESRATE
 
+/obj/machinery/power/smes/proc/drain_power_simple(var/amount = 0)
+	var/power_drawn = between(0, amount, charge)
+	charge -= power_drawn
+	return power_drawn
+
 /obj/machinery/power/smes/Destroy()
 	QDEL_NULL(big_spark)
 	QDEL_NULL(small_spark)
-	SSpower.smes_units -= src
+	SSmachinery.smes_units -= src
 	QDEL_NULL(terminal)
 	return ..()	// TODO: Properly clean up terminal.
 
 /obj/machinery/power/smes/Initialize()
 	. = ..()
-	SSpower.smes_units += src
+	SSmachinery.smes_units += src
 	big_spark = bind_spark(src, 5, alldirs)
 	small_spark = bind_spark(src, 3)
 	if(!powernet)
@@ -162,22 +167,22 @@
 		return
 
 	if(inputting == 2)
-		add_overlay("smes-oc2")
+		add_overlay("[icon_state]-oc2")
 	else if (inputting == 1)
-		add_overlay("smes-oc1")
+		add_overlay("[icon_state]-oc1")
 	else if (input_attempt)
-		add_overlay("smes-oc0")
+		add_overlay("[icon_state]-oc0")
 
 	var/clevel = chargedisplay()
 	if(clevel)
-		add_overlay("smes-og[clevel]")
+		add_overlay("[icon_state]-og[clevel]")
 
 	if(outputting == 2)
-		add_overlay("smes-op2")
+		add_overlay("[icon_state]-op2")
 	else if (outputting == 1)
-		add_overlay("smes-op1")
+		add_overlay("[icon_state]-op1")
 	else
-		add_overlay("smes-op0")
+		add_overlay("[icon_state]-op0")
 
 /obj/machinery/power/smes/proc/chargedisplay()
 	return round(5.5*charge/(capacity ? capacity : 5e6))
@@ -211,7 +216,7 @@
 		charge_mode = 2
 	last_time = world.time
 
-/obj/machinery/power/smes/machinery_process()
+/obj/machinery/power/smes/process()
 	if(!can_function())
 		return
 	if(failure_timer)	// Disabled by gridcheck.
@@ -326,8 +331,7 @@
 	add_fingerprint(user)
 	ui_interact(user)
 
-
-/obj/machinery/power/smes/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/power/smes/attackby(var/obj/item/W, var/mob/user)
 	if(W.isscrewdriver())
 		if(!open_hatch)
 			if(is_badly_damaged())
@@ -378,8 +382,7 @@
 				to_chat(user, "<span class='warning'>You must remove the floor plating first.</span>")
 			else
 				to_chat(user, "<span class='notice'>You begin to cut the cables...</span>")
-				playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
-				if(do_after(user, 50/W.toolspeed))
+				if(W.use_tool(src, user, 50, volume = 50))
 					if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 						big_spark.queue()
 						building_terminal = 0
@@ -523,9 +526,17 @@
 	output_level = 250000
 	should_be_mapped = 1
 
-/obj/machinery/power/smes/magical/machinery_process()
+/obj/machinery/power/smes/magical/process()
 	charge = 5000000
 	..()
+
+/obj/machinery/power/smes/buildable/superconducting
+	name = "superconducting cryogenic capacitor"
+	desc = "An experimental, extremely high-capacity type of SMES. It uses integrated cryogenic cooling and superconducting cables to break conventional limits on power transfer."
+	icon_state = "cannon_smes"
+	charge = 0
+	max_coils = 12
+	cur_coils = 12
 
 #undef SMES_CLEVEL_1
 #undef SMES_CLEVEL_2

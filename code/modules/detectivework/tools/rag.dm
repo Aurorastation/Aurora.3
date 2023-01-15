@@ -59,7 +59,7 @@
 			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [W]."))
 		else
 			to_chat(user, SPAN_WARNING("You manage to singe \the [src], but fail to light it."))
-
+		return TRUE
 	. = ..()
 	update_name()
 	update_icon()

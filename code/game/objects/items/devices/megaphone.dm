@@ -1,9 +1,9 @@
 /obj/item/device/megaphone
 	name = "megaphone"
 	desc = "Pretend to be a director for a brief moment before someone tackles you to make you shut up."
-	desc_fluff = "Annoy your colleagues! Scare interns! Impress no one!"
+	desc_extended = "Annoy your colleagues! Scare interns! Impress no one!"
 	desc_info = "A device used to project your voice. Loudly."
-	icon = 'icons/obj/contained_items/tools/megaphone.dmi'
+	icon = 'icons/obj/item/tools/megaphone.dmi'
 	icon_state = "megaphone"
 	item_state = "megaphone"
 	contained_sprite = TRUE
@@ -67,49 +67,49 @@
 /obj/item/device/megaphone/red
 	name = "red megaphone"
 	desc = "To make people do your bidding."
-	desc_fluff = "It's in a menacing crimson red."
+	desc_extended = "It's in a menacing crimson red."
 	icon_state = "megaphone_red"
 	item_state = "megaphone_red"
 
 /obj/item/device/megaphone/sec
 	name = "security megaphone"
 	desc = "To stop people from stepping over the police tape."
-	desc_fluff = "Nothing to see here. Move along."
+	desc_extended = "Nothing to see here. Move along."
 	icon_state = "megaphone_sec"
 	item_state = "megaphone_sec"
 
 /obj/item/device/megaphone/med
 	name = "medical megaphone"
 	desc = "To make people leave the ICU."
-	desc_fluff = "Realistcally only used to startle the CMO's cat."
+	desc_extended = "Realistcally only used to startle the CMO's cat."
 	icon_state = "megaphone_med"
 	item_state = "megaphone_med"
 
 /obj/item/device/megaphone/sci
 	name = "science megaphone"
 	desc = "To make people stand clear of the blast zone."
-	desc_fluff = "Something to rival the explosions heard in the science department."
+	desc_extended = "Something to rival the explosions heard in the science department."
 	icon_state = "megaphone_sci"
 	item_state = "megaphone_sci"
 
 /obj/item/device/megaphone/engi
 	name = "engineering megaphone"
 	desc = "To make people get out of construction sites."
-	desc_fluff = "At home in construction sites and road works, it'll stick by you in diverting traffic and dim-witted coworkers."
+	desc_extended = "At home in construction sites and road works, it'll stick by you in diverting traffic and dim-witted coworkers."
 	icon_state = "megaphone_engi"
 	item_state = "megaphone_engi"
 
 /obj/item/device/megaphone/cargo
-	name = "supply megaphone"
+	name = "operations megaphone"
 	desc = "To make people to push crates."
-	desc_fluff = "Only certified forklift operators will be able to handle the sheer power of this megaphone. Either that, or just be the Operations Manager."
+	desc_extended = "Only certified forklift operators will be able to handle the sheer power of this megaphone. Either that, or just be the Operations Manager."
 	icon_state = "megaphone_cargo"
 	item_state = "megaphone_cargo"
 
 /obj/item/device/megaphone/command
 	name = "command megaphone"
 	desc = "To make people to get back to work."
-	desc_fluff = "Exude authority by decree of having the louder voice."
+	desc_extended = "Exude authority by decree of having the louder voice."
 	icon_state = "megaphone_command"
 	item_state = "megaphone_command"
 

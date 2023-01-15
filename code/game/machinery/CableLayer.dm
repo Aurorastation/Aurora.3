@@ -33,7 +33,7 @@
 			to_chat(user, SPAN_WARNING("\The [src]'s cable reel is full."))
 		else
 			to_chat(user, SPAN_NOTICE("You load [result] lengths of cable into \the [src]."))
-		return
+		return TRUE
 
 	if(O.iswirecutter())
 		if(cable && cable.amount)
@@ -47,13 +47,13 @@
 				user.put_in_hands(CC)
 		else
 			to_chat(user, SPAN_WARNING("There's no more cable on the reel."))
-		return
+		return TRUE
 
 	if(O.ismultitool())
 		if(!cable)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any cable loaded!"))
-			return
-		cable.attackby(O, user)
+			return TRUE
+		return cable.attackby(O, user)
 
 /obj/machinery/cablelayer/examine(mob/user)
 	..()

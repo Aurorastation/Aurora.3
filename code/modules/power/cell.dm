@@ -48,7 +48,7 @@
 	return (charge >= amount)
 
 // use power from a cell, returns the amount actually used
-/obj/item/cell/proc/use(var/amount)
+/obj/item/cell/use(var/amount)
 	if (QDELING(src))
 		return 0
 

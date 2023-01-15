@@ -1,13 +1,13 @@
 /obj/item/clothing/head/helmet/space/rig/skrell
-	light_overlay = "helmet_light_jargon_rig"
+	light_overlay = "helmet_light_nralakk_rig"
 	light_color = LIGHT_COLOR_CYAN
 
 /obj/item/rig/skrell
-	name = "jargon suit control module"
-	desc = "A suit control module designed by the Jargon Federation for JFSF operations. It is designed to be sleek and agile, equipped with best protection and technology the Federation has to offer for its elite."
-	icon = 'icons/clothing/rig/jargon.dmi'
-	icon_state = "jargon_rig"
-	suit_type = "jargon suit"
+	name = "nralakk suit control module"
+	desc = "A suit control module designed by the Nralakk Federation for JFSF operations. It is designed to be sleek and agile, equipped with best protection and technology the Federation has to offer for its elite."
+	icon = 'icons/clothing/rig/nralakk.dmi'
+	icon_state = "nralakk_rig"
+	suit_type = "nralakk suit"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_RIFLE,
@@ -47,16 +47,19 @@
 /obj/item/clothing/head/helmet/space/rig/skrell/tup
 	light_overlay = "helmet_light_tadpole"
 
+/obj/item/clothing/head/helmet/space/rig/skrell/tup/modern
+	light_overlay = "tup2_rig_helmetlight"
+
 /obj/item/rig/skrell/tup
-	name = "tup suit control module"
-	desc = "A suit control module designed by the Jargon Federation for Tup operations. The best of the best."
+	name = "outdated tupkala suit control module"
+	desc = "A suit control module designed by the Jargon Federation for Tup operations. The best of the best, albeit outdated now."
 	icon = 'icons/clothing/rig/tup.dmi'
 	icon_state = "tup_rig"
 	suit_type = "tup suit"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_AP,
-		laser = ARMOR_LASER_AP,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_STRONG,
 		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_SHIELDED,
@@ -82,3 +85,9 @@
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
+
+/obj/item/rig/skrell/tup/modern
+	name = "tupkala suit control module"
+	desc = "This is the suit control module for the Tupkala RIG. It's one of the most advanced pieces of technology in the Spur."
+	icon_state = "tup2_rig"
+	helm_type = /obj/item/clothing/head/helmet/space/rig/skrell/tup/modern

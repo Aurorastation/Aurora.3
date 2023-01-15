@@ -159,3 +159,12 @@
 		/obj/item/reagent_containers/food/snacks/dough
 	)
 	result = /obj/item/reagent_containers/food/snacks/rofflewaffles
+
+/decl/recipe/moss_dumplings
+	appliance = OVEN
+	fruit = list("moss" = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough
+	)
+	result = /obj/item/reagent_containers/food/snacks/moss_dumplings
+	result_quantity = 2

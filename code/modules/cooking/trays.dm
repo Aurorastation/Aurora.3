@@ -34,14 +34,14 @@
 
 /obj/item/tray/attackby(obj/item/I, mob/user, var/click_params)
 	if (isrobot(I.loc))//safety to stop robots losing their items
-		return
+		return TRUE
 
 	if(istype(I, /obj/item/material/kitchen/rollingpin))
 		if(cooldown < world.time - 25)
 			user.visible_message(SPAN_DANGER("[user] bashes [src] with [I]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			cooldown = world.time
-		return
+		return TRUE
 	attempt_load_item(I, user, click_params=click_params)
 
 /*

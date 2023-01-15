@@ -59,21 +59,20 @@
 	var/character_id = 0
 	var/obj/machinery/machine = null
 	var/other_mobs = null
-	var/sdisabilities = 0	//Carbon
-	var/disabilities = 0	//Carbon
+	var/sdisabilities = 0				//Carbon
+	var/disabilities = 0				//Carbon
 	var/atom/movable/pulling = null
 	var/next_move = null
-	var/transforming = null	//Carbon
+	var/transforming = null				//Carbon
 	var/other = 0.0
 	var/hand = null
-	var/eye_blind = null	//Carbon
-	var/eye_blurry = null	//Carbon
-	var/ear_deaf = null		//Carbon
-	var/ear_damage = null	//Carbon
+	var/eye_blind = null				//Carbon
+	var/eye_blurry = null				//Carbon
+	var/ear_deaf = null					//Carbon
+	var/ear_damage = null				//Carbon
 	var/stuttering = null
 	var/slurring = null
 	var/brokejaw = null
-	var/tarded = null
 	var/real_name = null
 	var/flavor_text = ""
 	var/med_record = ""
@@ -85,14 +84,15 @@
 	var/list/ccia_actions = list()
 	var/exploit_record = ""
 	var/blinded = null
-	var/bhunger = 0			//Carbon
+	var/bhunger = 0						//Carbon
 	var/ajourn = 0
-	var/druggy = 0			//Carbon
-	var/confused = 0		//Carbon
+	var/druggy = 0						//Carbon
+	var/confused = 0					//Carbon
 	var/antitoxs = null
 	var/phoron = null
-	var/sleeping = 0		//Carbon
-	var/resting = 0			//Carbon
+	var/sleeping = 0					//Carbon
+	var/sleeping_msg_debounce = FALSE	//Carbon - Used to show a message once every time someone falls asleep.
+	var/resting = 0						//Carbon
 	var/lying = 0
 	var/lying_prev = 0
 	var/canmove = 1
@@ -136,7 +136,7 @@
 	var/stunned = 0
 	var/weakened = 0
 	var/losebreath = 0 //Carbon
-	var/intent = null//Living
+	var/intent = null//Living -- Depreciated? (a_intent below is your help/disarm/grab/harm)
 	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
 	var/m_intent = M_WALK //Living
@@ -162,7 +162,6 @@
 	var/inertia_dir = 0
 
 	var/job = null//Living
-	var/megavend = 0		//determines if this ID has claimed their megavend stache
 
 	var/const/blindness = 1//Carbon
 	var/const/deafness = 2//Carbon
@@ -173,7 +172,7 @@
 
 	var/datum/dna/dna = null//Carbon
 
-	var/list/mutations = list() //Carbon -- Doohl
+	var/mutations = 0 //Carbon -- Doohl
 	//see: setup.dm for list of mutations
 
 	var/voice_name = "unidentifiable voice"

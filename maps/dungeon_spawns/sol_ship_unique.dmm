@@ -517,7 +517,7 @@
 	req_access = list(150)
 	},
 /obj/random/weapon_and_ammo,
-/obj/structure/closet/crate/secure/weapon{
+/obj/structure/closet/crate/secure/weapon/alt{
 	req_access = list(150)
 	},
 /obj/item/clothing/accessory/storage/bayonet,
@@ -613,7 +613,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/under/rank/fatigues,
+/obj/item/clothing/under/rank/sol,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0
@@ -627,7 +627,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/clothing/head/dress/officer,
+/obj/item/clothing/head/sol/dress/officer,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0

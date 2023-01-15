@@ -171,8 +171,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 		switch(screen)
 			if(0)
-				dat += "Welcome to Newscasting Unit #[src.unit_no].<BR> Interface & News networks Operational."
-				dat += "<BR><FONT SIZE=1>Property of Nanotransen Inc</font>"
+				dat += "Welcome to Newscasting Unit #[src.unit_no]<BR> Interface & News Networks: Operational"
+				dat += "<BR><FONT SIZE=1>Property of NanoTrasen</font>"
 				if(SSnews.wanted_issue)
 					dat+= "<HR><A href='?src=\ref[src];view_wanted=1'>Read Wanted Issue</A>"
 				dat+= "<HR><BR><A href='?src=\ref[src];create_channel=1'>Create Feed Channel</A>"
@@ -850,7 +850,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		switch(screen)
 			if(0) //Cover
 				dat+="<DIV ALIGN='center'><B><FONT SIZE=6>The Griffon</font></B></div>"
-				dat+="<DIV ALIGN='center'><FONT SIZE=2>[current_map.company_name]-standard newspaper, for use on [current_map.company_name]� Space Facilities</font></div><HR>"
+				dat+="<DIV ALIGN='center'><FONT SIZE=2>[current_map.company_name]-standard newspaper, for use on [current_map.company_name] Vessels.</font></div><HR>"
 				if(isemptylist(src.news_content))
 					if(src.important_message)
 						dat+="Contents:<BR><ul><B><span class='warning'>**</span>Important Security Announcement<span class='warning'>**</span></B> <FONT SIZE=2>\[page [src.pages+2]\]</font><BR></ul>"
@@ -973,7 +973,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			src.scribble_page = src.curr_page
 			src.scribble = s
 			src.attack_self(user)
-		return
+		return TRUE
 
 /obj/item/newspaper/proc/rolled(mob/user)
 	if(ishuman(user) && Adjacent(user) && !user.incapacitated())

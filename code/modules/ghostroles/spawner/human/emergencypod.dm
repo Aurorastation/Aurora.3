@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/rescuepodsurv
 	short_name = "rescuepodsurv"
 	name = "Rescue Pod Survivor"
-	desc = "You managed to get into a rescue pod and landed somewhere on an asteroid."
+	desc = "You managed to get into a rescue pod and landed somewhere on an asteroid in the sector."
 	tags = list("External")
 
 	enabled = FALSE
@@ -68,8 +68,8 @@
 		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_UNATHI)
 
 /datum/ghostspawner/human/rescuepodsurv/select_spawnlocation(var/use=TRUE)
-	//Randomly select a Turf on the asteroid.
-	var/turf/T = pick_area_turf(/area/mine/unexplored)
+	var/list/possible_areas = list(/area/exoplanet/barren/asteroid)
+	var/turf/T = pick_area_turf(pick(possible_areas))
 	if(!use) //If we are just checking if we can get one, return the turf we found
 		return T
 
@@ -105,6 +105,9 @@
 	new /obj/item/pickaxe/drill(H.loc)
 	new /obj/item/device/gps(H.loc)
 	new /obj/item/device/flashlight/flare/mech(H.loc) // spawns an active flare
+	new /obj/item/clothing/suit/space/emergency(H.loc)        // weak softsuit, so if for whatever reason
+	new /obj/item/clothing/head/helmet/space/emergency(H.loc) // the survivor spawns with no EVA gear,
+	new /obj/item/tank/emergency_oxygen/double(H.loc)         // they can use this, and not just die in space
 
 /datum/outfit/admin/pod/star
 	name = "RescuePod - Star"
@@ -149,18 +152,22 @@
 /datum/outfit/admin/pod/rep
 	name = "RescuePod - IdrisRep"
 
-	uniform = /obj/item/clothing/under/rank/idris
+	head = /obj/item/clothing/head/beret/corporate/idris
+	uniform = /obj/item/clothing/under/rank/liaison/idris
+	suit = /obj/item/clothing/suit/storage/liaison/idris
 	id = /obj/item/card/id/idris
 	pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	l_hand =  /obj/item/storage/briefcase
+	accessory = /obj/item/clothing/accessory/tie/corporate/idris
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate/idris
 	backpack_contents = list(
-		/obj/item/clothing/head/beret/centcom/liaison = 1,
 		/obj/item/device/camera = 1,
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/device/oxycandle = 1,
-		/obj/item/airbubble = 1
+		/obj/item/airbubble = 1,
+		/obj/item/stamp/idris = 1
 	)
 
 /datum/outfit/admin/pod/rep/get_id_assignment()
@@ -231,7 +238,7 @@
 
 
 /datum/outfit/admin/pod/pmc
-	name = "RescuePod - EPMC Sergeant"
+	name = "RescuePod - PMCG Sergeant"
 	head = /obj/item/clothing/head/helmet/space/void/cruiser
 	suit = /obj/item/clothing/suit/space/void/cruiser
 	suit_store = /obj/item/tank/oxygen
@@ -239,10 +246,10 @@
 	id = /obj/item/card/id/pmc
 	pda = /obj/item/modular_computer/handheld/pda/security
 	belt = /obj/item/gun/energy/gun/nuclear
-	uniform = /obj/item/clothing/under/rank/security/eridani
+	uniform = /obj/item/clothing/under/rank/security/pmc
 
 /datum/outfit/admin/pod/pmc/get_id_assignment()
-	return "Security Officer (EPMC)"
+	return "Security Officer (PMCG)"
 
 /datum/outfit/admin/pod/pmc/get_id_rank()
 	return "Security Officer"
@@ -281,10 +288,10 @@
 
 /datum/outfit/admin/pod/fsf
 	name = "RescuePod - FSF Crewman"
-	uniform = /obj/item/clothing/under/rank/fatigues/
+	uniform = /obj/item/clothing/under/rank/sol/
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/storage/belt/military
-	back = /obj/item/storage/backpack/satchel_norm
+	back = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/head/helmet/space/void/sol
 	suit = /obj/item/clothing/suit/space/void/sol
 	suit_store = /obj/item/tank/oxygen
@@ -301,7 +308,7 @@
 	)
 
 	backpack_contents = list(
-		/obj/item/clothing/head/navy = 1
+		/obj/item/clothing/head/sol = 1
 	)
 
 /datum/outfit/admin/pod/fsf/get_id_assignment()
@@ -314,11 +321,10 @@
 	name = "RescuePod - SCC"
 
 	uniform = /obj/item/clothing/under/rank/scc
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses
 	l_hand =  /obj/item/storage/briefcase
-	back = /obj/item/storage/backpack/satchel
 	accessory = /obj/item/clothing/accessory/holster/hip/
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
@@ -345,7 +351,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
     	/obj/item/device/camera = 1,
 		/obj/item/clothing/suit/storage/toggle/fib = 1,
@@ -422,7 +428,6 @@
 		/obj/item/gun/energy/retro,
 		/obj/item/gun/projectile/silenced,
 		/obj/item/gun/projectile/colt,
-		/obj/item/gun/projectile/revolver/deckard,
 		/obj/item/gun/projectile/revolver/lemat
 		)
 

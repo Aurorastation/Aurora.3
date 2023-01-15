@@ -77,7 +77,7 @@ Frequency:
 				src.temp += "<B>Located Beacons:</B><BR>"
 
 				for(var/obj/item/device/radio/beacon/W in teleportbeacons)
-					if (W.frequency == src.frequency)
+					if (W.get_frequency() == src.frequency)
 						var/turf/tr = get_turf(W)
 						if (tr.z == sr.z && tr)
 							var/direct = max(abs(tr.x - sr.x), abs(tr.y - sr.y))
@@ -231,7 +231,7 @@ Frequency:
 	if(user == loc)
 		var/turf/current_location = get_turf(src)
 		var/list/teleport_options = list()
-		for(var/obj/machinery/teleport/pad/P in SSmachinery.all_machines)
+		for(var/obj/machinery/teleport/pad/P in SSmachinery.machinery)
 			if(AreConnectedZLevels(current_location.z, P.z))
 				var/area/A = get_area(P)
 				if(P.engaged)

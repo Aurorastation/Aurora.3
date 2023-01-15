@@ -15,16 +15,19 @@
 	var/last_battery_percent = 0							// Used for deciding if battery percentage has chandged
 	var/last_world_time = "00:00"
 	var/list/last_header_icons
+	var/datum/looping_sound/computer/soundloop				// Looping sound for when the computer is on
+	var/looping_sound = TRUE								// Whether or not this modular computer uses the looping sound. Also handles ambience beeps.
 	var/computer_emagged = FALSE							// Whether the computer is emagged.
 	var/apc_powered = FALSE									// Set automatically. Whether the computer used APC power last tick.
 	var/base_active_power_usage = 50						// Power usage when the computer is open (screen is active) and can be interacted with. Remember hardware can use power too.
 	var/base_idle_power_usage = 5							// Power usage when the computer is idle and screen is off (currently only applies to laptops)
 	var/enrolled = 0										// Weather the computer is enrolled in the company device management or not. 0 - unconfigured 1 - enrolled (work device) 2 - unenrolled (private device)
 	var/_app_preset_type									// Used for specifying the software preset of the console
-	var/ambience_last_played								// Last time sound was played
+	var/ambience_last_played_time							// Last time sound was played
 	var/pAI_lock = FALSE									// Toggles whether pAI can interact with the modular computer while installed in it
 	var/obj/item/card/id/registered_id = null 				// ID used for chat client registering
 	var/scan_mode = null									// Mode used for health/reagent scanners
+	var/last_scan = 0										// Used for the PDA analyser spam detection
 	var/silent = FALSE
 	var/doorcode = "smindicate"
 	var/hidden = FALSE
@@ -40,7 +43,9 @@
 	center_of_mass = null
 	var/icon_state_unpowered								// Icon state when the computer is turned off
 	var/icon_state_menu = "menu"							// Icon state overlay when the computer is turned on, but no program is loaded that would override the screen.
+	var/icon_state_menu_key = "black_key"
 	var/icon_state_screensaver
+	var/icon_state_screensaver_key
 	var/icon_state_broken
 	var/screensaver_light_range = 0
 	var/screensaver_light_color
@@ -75,6 +80,6 @@
 	var/obj/item/device/paicard/personal_ai									// Personal AI, can control the device via a verb when installed
 	var/obj/item/computer_hardware/flashlight/flashlight
 
-	var/listener/listener	//Listener needed for things
+	var/registered_message = ""
 
 	charge_failure_message = " does not have a battery installed."

@@ -72,7 +72,7 @@
 		if(prob(75))
 			my_effect.trigger = rand(1,4)
 
-/obj/machinery/artifact/machinery_process()
+/obj/machinery/artifact/process()
 
 	var/turf/L = loc
 	if(isnull(L) || !istype(L)) 	// We're inside a container or on null turf, either way stop processing effects
@@ -95,6 +95,7 @@
 	var/trigger_nitro = 0
 	if( (my_effect.trigger >= TRIGGER_HEAT && my_effect.trigger <= TRIGGER_NITRO) || (my_effect.trigger >= TRIGGER_HEAT && my_effect.trigger <= TRIGGER_NITRO) )
 		var/turf/T = get_turf(src)
+		if(!istype(T)) return
 		var/datum/gas_mixture/env = T.return_air()
 		if(env)
 			if(env.temperature < 225)

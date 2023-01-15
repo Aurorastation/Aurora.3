@@ -1,10 +1,11 @@
 /datum/computer_file/program/chat_client
 	filename = "ntnrc_client"
 	filedesc = "Chat Client"
-	program_icon_state = "generic"
+	program_icon_state = "command"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program allows communication over the NTRC network."
 	size = 2
-	requires_ntnet = TRUE
+	requires_ntnet = FALSE
 	requires_ntnet_feature = NTNET_COMMUNICATION
 	program_type = PROGRAM_TYPE_ALL
 	network_destination = "NTRC server"
@@ -60,6 +61,7 @@
 		return
 	// Following actions require signal
 	if(!get_signal(NTNET_COMMUNICATION))
+		to_chat(usr, FONT_SMALL(SPAN_WARNING("\The [src] displays, \"NETWORK ERROR - Unable to connect to NTNet. Please retry. If problem persists, contact your system administrator.\".")))
 		return
 
 	if(href_list["send"])
@@ -78,10 +80,9 @@
 				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			if(focused_conv == conv)
 				focused_conv = null
-				listening_objects -= computer
 			else
 				focused_conv = conv
-				listening_objects |= computer
+				computer.become_hearing_sensitive()
 		SSvueui.check_uis_for_change(src)
 	if(href_list["join"])
 		var/datum/ntnet_conversation/conv = locate(href_list["join"]["target"])
@@ -172,8 +173,7 @@
 			if((!computer.registered_id && !computer.register_account(src)))
 				return
 	if(service_state == PROGRAM_STATE_DISABLED)
-		if(!computer.enable_service(null, user, src))
-			return
+		computer.enable_service(null, user, src)
 	return ..(user)
 
 /datum/computer_file/program/chat_client/event_registered()

@@ -24,10 +24,10 @@
 //todo: dig site tape
 
 /obj/item/storage/bag/fossils
-	name = "Fossil Satchel"
+	name = "fossil satchel"
 	desc = "Transports delicate fossils in suspension so they don't break during transit."
-	icon = 'icons/obj/mining.dmi'
-	icon_state = "satchel"
+	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon_state = "fossil_satchel"
 	slot_flags = SLOT_BELT | SLOT_POCKET
 	w_class = ITEMSIZE_NORMAL
 	max_storage_space = 100

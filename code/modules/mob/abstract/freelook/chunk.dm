@@ -187,7 +187,7 @@
 	. = list()
 	var/turf/pos = get_turf(source)
 	if(pos)
-		for(var/turf/T in hear(range, pos))
+		for(var/turf/T in get_hear(range, pos))
 			. += T
 
 #undef UPDATE_BUFFER

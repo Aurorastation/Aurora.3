@@ -48,7 +48,7 @@ var/hadevent    = 0
 
 			for (var/obj/structure/closet/secure_closet/brig/temp_closet in A)
 				temp_closet.locked = 0
-				temp_closet.icon_state = temp_closet.icon_closed
+				temp_closet.update_icon()
 
 			for (var/obj/machinery/door/airlock/security/temp_airlock in A)
 				spawn(0) temp_airlock.prison_open()
@@ -97,7 +97,7 @@ var/hadevent    = 0
 				apc.overload_lighting()
 
 	else
-		for(var/obj/machinery/power/apc/apc in SSmachinery.processing_machines)
+		for(var/obj/machinery/power/apc/apc in SSmachinery.processing)
 			apc.overload_lighting()
 
 	return
@@ -208,6 +208,6 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 					M.add_ion_law("THE STATION IS [who2pref] [who2]")
 
 	if(botEmagChance)
-		for(var/obj/machinery/bot/bot in SSmachinery.processing_machines)
+		for(var/obj/machinery/bot/bot in SSmachinery.machinery)
 			if(prob(botEmagChance))
 				bot.emag_act(1)

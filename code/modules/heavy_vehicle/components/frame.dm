@@ -8,7 +8,7 @@
 
 /obj/structure/heavy_vehicle_frame
 	name = "exosuit frame"
-	desc = "The frame for am exosuit, apparently."
+	desc = "The frame for an exosuit, apparently."
 	icon = 'icons/mecha/mech_parts.dmi'
 	icon_state = "backbone"
 	density = 1
@@ -114,6 +114,7 @@
 	if(thing.iscrowbar())
 		if(is_reinforced == FRAME_REINFORCED)
 			user.visible_message(SPAN_NOTICE("\The [user] crowbars the reinforcement off \the [src]."))
+			new /obj/item/stack/material/steel(loc, 15)
 			is_reinforced = 0
 			return
 
@@ -250,7 +251,7 @@
 		if(!WT.isOn())
 			to_chat(user, SPAN_WARNING("Turn \the [WT] on, first."))
 			return
-		if(WT.remove_fuel(1, user))
+		if(WT.use(1, user))
 			visible_message("\The [user] [(is_reinforced == 3) ? "unwelds the reinforcement from" : "welds the reinforcement into"] \the [src].")
 			is_reinforced = (is_reinforced == FRAME_REINFORCED_WELDED) ? FRAME_REINFORCED_SECURE : FRAME_REINFORCED_WELDED
 			playsound(user.loc, thing.usesound, 50, 1)

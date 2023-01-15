@@ -23,7 +23,7 @@
 	return TRUE
 
 /decl/surgery_step/generic/cut_with_laser
-	name = "Make laser incision"
+	name = "Make Laser Incision"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel/laser3 = 95, \
 	/obj/item/surgery/scalpel/laser2 = 85, \
@@ -43,7 +43,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts the bloodless incision on [target]'s [affected.name] with \the [tool].", \
 		"You start the bloodless incision on [target]'s [affected.name] with \the [tool].")
-	target.custom_pain("You feel a horrible, searing pain in your [affected.name]!", 75)
+	target.custom_pain("You feel a horrible, searing pain in your [affected.name]!", 135)
 	..()
 
 /decl/surgery_step/generic/cut_with_laser/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -68,7 +68,7 @@
 	target.apply_damage(12.5, BURN, target_zone, 0, tool)
 
 /decl/surgery_step/generic/incision_manager
-	name = "Make managed incision"
+	name = "Make Managed Incision"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel/manager = 100
 	)
@@ -86,7 +86,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts to construct a prepared incision on and within [target]'s [affected.name] with \the [tool].", \
 		"You start to construct a prepared incision on and within [target]'s [affected.name] with \the [tool].")
-	target.custom_pain("You feel a horrible, searing pain in your [affected.name] as it is pushed apart!", 75)
+	target.custom_pain("You feel a horrible, searing pain in your [affected.name] as it is pushed apart!", 135)
 	..()
 
 /decl/surgery_step/generic/incision_manager/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -110,7 +110,7 @@
 	target.apply_damage(15, BURN, target_zone, 0, tool)
 
 /decl/surgery_step/generic/cut_open
-	name = "Make incision"
+	name = "Make Incision"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel = 100,
 	/obj/item/material/knife = 75,
@@ -133,7 +133,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts the incision on [target]'s [affected.name] with \the [tool].", \
 		SPAN_NOTICE("You start the incision on [target]'s [affected.name] with \the [tool]."))
-	target.custom_pain("You feel a horrible pain as if from a sharp knife in your [affected.name]!", 75)
+	target.custom_pain("You feel a horrible pain as if from a sharp knife in your [affected.name]!", 145)
 	..()
 
 /decl/surgery_step/generic/cut_open/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -155,7 +155,7 @@
 	target.apply_damage(10, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/generic/cut_open_vaurca
-	name = "Cut open vacura"
+	name = "Cut Open Vaurca"
 	allowed_tools = list(
 	/obj/item/surgery/surgicaldrill = 85,
 	/obj/item/pickaxe/ = 15
@@ -177,7 +177,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts drilling into [target]'s [affected.name] carapace with \the [tool].", \
 		"You start drilling into [target]'s [affected.name] carapace with \the [tool].")
-	target.custom_pain("You feel a horrible pain as if from a jackhammer in your [affected.name]!", 75)
+	target.custom_pain("You feel a horrible pain as if from a jackhammer in your [affected.name]!", 145)
 	..()
 
 /decl/surgery_step/generic/cut_open_vaurca/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -198,7 +198,7 @@
 	target.apply_damage(15, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/generic/clamp_bleeders
-	name = "Clamp bleeders"
+	name = "Clamp Bleeders"
 	allowed_tools = list(
 	/obj/item/surgery/hemostat = 100,	\
 	/obj/item/stack/cable_coil = 75, 	\
@@ -219,7 +219,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts clamping bleeders in [target]'s [affected.name] with \the [tool].", \
 		"You start clamping bleeders in [target]'s [affected.name] with \the [tool].")
-	target.custom_pain("The pain in your [affected.name] is maddening!", 75)
+	target.custom_pain("The pain in your [affected.name] is maddening!", 120)
 	..()
 
 /decl/surgery_step/generic/clamp_bleeders/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -237,7 +237,7 @@
 	affected.sever_artery()
 
 /decl/surgery_step/generic/retract_skin
-	name = "Widen incision"
+	name = "Widen Incision"
 	allowed_tools = list(
 	/obj/item/surgery/retractor = 100, 	\
 	/obj/item/crowbar = 75,	\
@@ -265,7 +265,7 @@
 		msg = "<b>[user]</b> starts to pry open the incision and rearrange the organs in [target]'s lower abdomen with \the [tool]."
 		self_msg = "You start to pry open the incision and rearrange the organs in [target]'s lower abdomen with \the [tool]."
 	user.visible_message(msg, SPAN_NOTICE(self_msg))
-	target.custom_pain("It feels like the skin on your [affected.name] is on fire!", 75)
+	target.custom_pain("It feels like the skin on your [affected.name] is on fire!", 175)
 	..()
 
 /decl/surgery_step/generic/retract_skin/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -295,7 +295,7 @@
 	target.apply_damage(12, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/generic/cauterize
-	name = "Cauterize incision"
+	name = "Cauterize Incision"
 	allowed_tools = list(
 	/obj/item/surgery/cautery = 100,
 	/obj/item/clothing/mask/smokable/cigarette = 25,
@@ -317,7 +317,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> is beginning to cauterize the incision on [target]'s [affected.name] with \the [tool]." , \
 		SPAN_NOTICE("You are beginning to cauterize the incision on [target]'s [affected.name] with \the [tool]."))
-	target.custom_pain("Your [affected.name] is being burned!", 75)
+	target.custom_pain("Your [affected.name] is being burned!", 120)
 	..()
 
 /decl/surgery_step/generic/cauterize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

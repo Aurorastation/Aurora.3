@@ -161,7 +161,7 @@
 			user.visible_message(SPAN_NOTICE("\The [user] starts drying \the [src] with \the [WT]."), SPAN_NOTICE("You start drying the wet leather with \the [WT]..."))
 			being_dried = TRUE
 			while(do_after(user, 20, act_target = src) && wetness > 0)
-				if(!WT.remove_fuel(1) || !WT.isOn())
+				if(!WT.use(1) || !WT.isOn())
 					break
 				if(prob(5))
 					var/msg = pick("You run the tool over \the [src]...", "The leather is drying nicely...", "You spread the heat out evenly...", "You continue to dry out \the [src].")
@@ -173,7 +173,7 @@
 				if(!amount || QDELETED(src)) //Safety
 					break
 			being_dried = FALSE
-				
+
 		else
 			to_chat(user, SPAN_NOTICE("\The [WT] dries better when it's lit."))
 			return

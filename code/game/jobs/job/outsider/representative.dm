@@ -1,19 +1,28 @@
 /datum/job/representative
 	title = "Corporate Liaison"
 	flag = LAWYER
-	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "company officials"
 	selection_color = "#6186cf"
-	economic_modifier = 7
+	economic_modifier = 15
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 80,
+		SPECIES_SKRELL_AXIORI = 80
+	)
 
 	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
+	alt_titles = list(
+		"Workplace Liaison",
+		"Corporate Representative",
+		"Corporate Executive"
+		)
 	outfit = /datum/outfit/job/representative
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -22,9 +31,9 @@
 	var/fax_department = "Representative's Office"
 	jobtype = /datum/job/representative
 
-	head = /obj/item/clothing/head/beret/centcom/liaison
+	head = /obj/item/clothing/head/beret/corporate
 	uniform = /obj/item/clothing/under/rank/liaison
-	suit = /obj/item/clothing/suit/storage/toggle/liaison
+	suit = /obj/item/clothing/suit/storage/liaison
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
@@ -34,15 +43,12 @@
 	bowman = /obj/item/device/radio/headset/representative/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
 	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
+	accessory = /obj/item/clothing/accessory/tie/corporate
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate
 
-	l_hand =  /obj/item/storage/briefcase
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
 		/obj/item/gun/energy/pistol = 1
-	)
-
-	implants = list(
-		/obj/item/implant/mindshield
 	)
 
 /datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
@@ -85,16 +91,26 @@
 /datum/job/consular
 	title = "Consular Officer"
 	flag = CONSULAR
-	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
+	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "your embassy"
 	selection_color = "#6186cf"
-	economic_modifier = 7
+	economic_modifier = 15
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 150,
+		SPECIES_SKRELL_AXIORI = 150
+	)
+
+	ideal_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 170,
+		SPECIES_SKRELL_AXIORI = 170
+	)
 
 	access = list(access_consular, access_maint_tunnels)
 	minimal_access = list(access_consular)

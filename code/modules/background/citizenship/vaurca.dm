@@ -38,17 +38,16 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of Nanotrasen being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
+			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
 							"Begin the TCFL enlistment process for an individual, completing an Enlistment form to be turned in by the individual",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Assist Zo'ra Nanotrasen personnel in their avowal process",
-							"Promote [rand(3,6)] amount of Zo'rane products, be it energy drinks or merchandise",
-							"Sell [rand(3,6)] copies of the Tau Ceti Foreign Legion pamphlets, 10 credits each")
+			rep_objectives = pick("Promote [rand(3,6)] amount of Zo'rane products, be it energy drinks or merchandise",
+							"Sell [rand(3,6)] copies of the Tau Ceti Foreign Legion pamphlets 10 credits each")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the Zo'ra hive to all Nanotrasen employees")
+							"Protect and promote the public image of the Zo'ra hive to all SCC employees")
 
 	return rep_objectives
 
@@ -75,11 +74,11 @@
 
 /datum/citizenship/klax
 	name = CITIZENSHIP_KLAX
-	description = "The second Hive discovered by humanity,  Hiveship, Klo’zxera, appeared in the Skrellian system of Glorashi. \
-	K’lax is known as a client state of the Zo’ra, but since the Exodus from Sedantis they have struggled for political independence. \
-	Now parting their own ways, both Hives have developed differently.  the K’lax became the newest vassal of the Izweski Nation, and have largely settled in Tret. \
+	description = "The second Hive discovered by humanity,  Hiveship, Klo'zxera, appeared in the Skrellian system of Glorashi. \
+	K'lax is known as a client state of the Zo'ra, but since the Exodus from Sedantis they have struggled for political independence. \
+	Now parting their own ways, both Hives have developed differently.  the K'lax became the newest vassal of the Izweski Nation, and have largely settled in Tret. \
 	They maintain subtly warm, if terse relations with the Hegemony as a whole, and have committed to its terraforming agenda, being instrumental in the implementation of such a monumental undertaking. \
-	The K’lax are the most technologically developed Hive, and are leading the way in reconstructing the species’ superior technology."
+	The K'lax are the most technologically developed Hive, and are leading the way in reconstructing the species' superior technology."
 	consular_outfit = /datum/outfit/job/representative/consular/klax
 
 	job_species_blacklist = list(
@@ -112,15 +111,14 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of Nanotrasen being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
+			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Assist K'lax Nanotrasen personnel in their avowal process",
-							"Promote [rand(3,6)] amount of K'laxan products, be it energy drinks or merchandise")
+			rep_objectives = pick("Promote [rand(3,6)] amount of K'laxan products, be it energy drinks or merchandise")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the K'lax hive to all Nanotrasen employees")
+							"Protect and promote the public image of the K'lax hive to all [current_map.boss_name] employees")
 
 	return rep_objectives
 
@@ -130,16 +128,16 @@
 	uniform = /obj/item/clothing/under/gearharness
 
 	glasses = null
-	head = /obj/item/clothing/head/klax_breeder
-	shoes = /obj/item/clothing/shoes/vaurca/breeder_klax
+	head = /obj/item/clothing/head/vaurca_breeder/klax
+	shoes = /obj/item/clothing/shoes/vaurca/breeder/klax
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
-	suit = /obj/item/clothing/suit/vaurca/breeder_klax
+	suit = /obj/item/clothing/suit/vaurca/breeder/klax
 
 /datum/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
 
-			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec_klax(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
 
 		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE
@@ -147,10 +145,10 @@
 /datum/citizenship/cthur
 	name = CITIZENSHIP_CTHUR
 	description = "They are the third Hive that has developed relationships with other sophonts of the Orion Spur. \
-	While their arrival was kept in secret by the Jargon Federation, the revelation has reignited diplomatic disputes between K’lax and C’thur, with outright hostility met by the K’lax towards the C’thur. \
-	Unlike all other hives, the C’thur are led by their original Hive Queen, who, with a council of three other Lesser Queens, leads the Hive in this new age. \
+	While their arrival was kept in secret by the Nralakk Federation, the revelation has reignited diplomatic disputes between K'lax and C'thur, with outright hostility met by the K'lax towards the C'thur. \
+	Unlike all other hives, the C'thur are led by their original Hive Queen, who, with a council of three other Lesser Queens, leads the Hive in this new age. \
 	In this effort, the Hive has begun dealing with the multitude of governments and corporations of the galaxy, all under the auspices of their Skrellian saviors. \
-	The C’thur are the most economically developed hive, having stakes in Einstein Engines and Zeng-Hu Pharmaceuticals."
+	The C'thur are the most economically developed hive, having stakes in Einstein Engines and Zeng-Hu Pharmaceuticals."
 	consular_outfit = /datum/outfit/job/representative/consular/cthur
 
 	job_species_blacklist = list(
@@ -183,15 +181,15 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of Nanotrasen being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
+			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Assist C'thur Nanotrasen personnel in their avowal process",
-							"Promote [rand(3,6)] amount of C'thuric products, be it energy drinks or merchandise")
+			rep_objectives = pick("Promote [rand(3,6)] amount of C'thuric products, be it energy drinks or merchandise")
+
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the C'thur hive to all Nanotrasen employees")
+							"Protect and promote the public image of the C'thur hive to all [current_map.boss_name] employees")
 
 	return rep_objectives
 
@@ -201,14 +199,14 @@
 	uniform = /obj/item/clothing/under/gearharness
 
 	glasses = null
-	head = /obj/item/clothing/head/cthur_breeder
-	shoes = /obj/item/clothing/shoes/vaurca/breeder_cthur
+	head = /obj/item/clothing/head/vaurca_breeder/cthur
+	shoes = /obj/item/clothing/shoes/vaurca/breeder/cthur
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
-	suit = /obj/item/clothing/suit/vaurca/breeder_cthur
+	suit = /obj/item/clothing/suit/vaurca/breeder/cthur
 
 /datum/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
-			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec_cthur(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
 		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE

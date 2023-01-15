@@ -28,6 +28,7 @@
 		/decl/emote/human/fastsway,
 		/decl/emote/human/swag,
 		/decl/emote/human/stopsway,
+		/decl/emote/visible/tflick,
 		/decl/emote/audible/lizard_bellow,
 		/decl/emote/audible/hiss,
 		/decl/emote/audible/hiss/long,
@@ -72,6 +73,8 @@
 	default_emotes = list(
 		/decl/emote/audible/howl,
 		/decl/emote/audible/hiss,
+		/decl/emote/visible/flick,
+		/decl/emote/visible/tflick,
 		/decl/emote/human/swish,
 		/decl/emote/human/wag,
 		/decl/emote/human/sway,

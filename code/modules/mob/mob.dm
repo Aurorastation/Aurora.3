@@ -11,7 +11,6 @@
 		for(var/atom/movable/AM in client.screen)
 			qdel(AM)
 		client.screen = list()
-		client.cleanup_parallax_references()
 	if (mind)
 		mind.handle_mob_deletion(src)
 	for(var/infection in viruses)
@@ -67,18 +66,22 @@
 	spell_masters = null
 	zone_sel = null
 
+/mob/var/should_add_to_mob_list = TRUE
 /mob/Initialize()
 	. = ..()
-	mob_list += src
-	if(stat == DEAD)
-		dead_mob_list += src
-	else
-		living_mob_list += src
+	if(should_add_to_mob_list)
+		mob_list += src
+		if(stat == DEAD)
+			dead_mob_list += src
+		else
+			living_mob_list += src
 
 	if (!ckey && mob_thinks)
 		MOB_START_THINKING(src)
 
-/mob/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+	become_hearing_sensitive()
+
+/mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
 	if(!client)	return
 
@@ -111,6 +114,7 @@
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
 /mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
+	set waitfor = FALSE
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
@@ -152,7 +156,11 @@
 		O.see_emote(src, message)
 
 	if(intent_message)
-		intent_message(intent_message, intent_range)
+		intent_message(intent_message, intent_range, messagemobs)
+
+	//Multiz, have shadow do same
+	if(bound_overlay)
+		bound_overlay.visible_message(message, blind_message, range)
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
@@ -190,29 +198,17 @@
 // deaf_message (optional) is what deaf people will see.
 // hearing_distance (optional) is the range, how many tiles away the message can be heard.
 /mob/audible_message(var/message, var/deaf_message, var/hearing_distance, var/self_message, var/ghost_hearing = GHOSTS_ALL_HEAR)
+	if(!hearing_distance)
+		hearing_distance = world.view
 
-	var/range = world.view
-	if(hearing_distance)
-		range = hearing_distance
+	var/list/hearers = get_hearers_in_view(hearing_distance, src)
 
-	var/turf/T = get_turf(src)
-
-	var/list/mobs = list()
-	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, range, mobs, objs, ghost_hearing)
-
-
-	for(var/m in mobs)
-		var/mob/M = m
-		if(self_message && M==src)
-			M.show_message(self_message,2,deaf_message,1)
+	for (var/atom/movable/AM as anything in hearers)
+		if(self_message && AM == src)
+			AM.show_message("[get_accent_icon(null, src)] [self_message]", 2, deaf_message, 1)
 			continue
 
-		M.show_message(message,2,deaf_message,1)
-
-	for(var/o in objs)
-		var/obj/O = o
-		O.show_message(message,2,deaf_message,1)
+		AM.show_message("[get_accent_icon(null, src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -221,6 +217,8 @@
 	return 0
 
 /mob/proc/movement_delay()
+	if(lying) //Crawling, it's slower
+		. += (8 + ((weakened * 3) + (confused * 2)))
 	. = get_pulling_movement_delay()
 
 /mob/proc/get_pulling_movement_delay()
@@ -326,6 +324,23 @@
 
 	face_atom(A)
 	A.examine(src)
+
+/mob/proc/can_examine()
+	if(client?.eye == src)
+		return TRUE
+	return FALSE
+
+/mob/living/silicon/pai/can_examine()
+	. = ..()
+	if(!.)
+		var/atom/our_holder = recursive_loc_turf_check(src, 5)
+		if(isturf(our_holder.loc)) // Are we folded on the ground?
+			return TRUE
+
+/mob/living/simple_animal/borer/can_examine()
+	. = ..()
+	if(!. && iscarbon(loc) && isturf(loc.loc)) // We're inside someone, let us examine still.
+		return TRUE
 
 /mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
 
@@ -465,11 +480,7 @@
 
 	announce_ghost_joinleave(client, 0)
 
-	// Run this here to null out death timers for the next go.
-
 	var/mob/abstract/new_player/M = new /mob/abstract/new_player()
-
-	M.reset_death_timers()
 
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
@@ -664,6 +675,19 @@
 		var/datum/browser/flavor_win = new(usr, name, capitalize_first_letters(name), 500, 250)
 		flavor_win.set_content(replacetext(flavor_text, "\n", "<BR>"))
 		flavor_win.open()
+
+	if(href_list["accent_tag"])
+		var/datum/accent/accent = SSrecords.accents[href_list["accent_tag"]]
+		if(accent && istype(accent))
+			var/datum/browser/accent_win = new(usr, accent.name, capitalize_first_letters(accent.name), 500, 250)
+			var/html = "[accent.description]<br>"
+			var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+			html += "[S.css_tag()]<br>"
+			html += {"[S.icon_tag(accent.tag_icon)]<br>"}
+			html += "([accent.text_tag])<br>"
+			accent_win.set_content(html)
+			accent_win.open()
+
 	if(href_list["flavor_change"])
 		update_flavor_text()
 
@@ -820,7 +844,7 @@
 			stat("Current Space Sector", SSatlas.current_sector.name)
 			var/current_month = text2num(time2text(world.realtime, "MM"))
 			var/current_day = text2num(time2text(world.realtime, "DD"))
-			stat("Current Date", "[current_day]/[current_month]/[game_year]")
+			stat("Current Date", "[game_year]-[current_month]-[current_day]")
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", get_round_duration_formatted())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
@@ -925,7 +949,7 @@
 			lying = 0
 		else
 			lying = incapacitated(INCAPACITATION_KNOCKDOWN)
-			canmove = !incapacitated(INCAPACITATION_DISABLED)
+			canmove = !incapacitated(INCAPACITATION_KNOCKOUT)
 
 	if(lying)
 		density = 0
@@ -955,10 +979,10 @@
 	return canmove
 
 
-/mob/proc/facedir(var/ndir)
+/mob/proc/facedir(var/ndir, var/force_change = FALSE)
 	if(!canface() || (client && client.moving))
 		return 0
-	if(facing_dir != ndir)
+	if((facing_dir != ndir) && force_change)
 		facing_dir = null
 	set_dir(ndir)
 	if(buckled_to && buckled_to.buckle_movable)
@@ -1199,7 +1223,6 @@
 	handle_silent()
 	handle_drugged()
 	handle_slurring()
-	handle_tarded()
 
 /mob/living/proc/handle_stunned()
 	if(stunned)
@@ -1230,11 +1253,6 @@
 	if(slurring)
 		slurring = max(slurring-1, 0)
 	return slurring
-
-/mob/living/proc/handle_tarded()
-	if(tarded)
-		tarded = max(tarded-1, 0)
-	return tarded
 
 /mob/living/proc/handle_paralysed() // Currently only used by simple_animal.dm, treated as a special case in other mobs
 	if(paralysis)
@@ -1293,20 +1311,14 @@
 	if (dest != loc && istype(dest, /atom/movable))
 		AM = dest
 		LAZYADD(AM.contained_mobs, src)
+		if(pulledby)
+			pulledby.stop_pulling()
 
 	if (istype(loc, /atom/movable))
 		AM = loc
 		LAZYREMOVE(AM.contained_mobs, src)
 
 	. = ..()
-
-	if (!contained_mobs)	// If this is true, the parent will have already called the client hook.
-		update_client_hook(loc)
-
-/mob/Move()
-	. = ..()
-	if (. && !contained_mobs && client)
-		update_client_hook(loc)
 
 /mob/verb/northfaceperm()
 	set hidden = 1
@@ -1405,10 +1417,7 @@
 
 
 /mob/proc/is_clumsy()
-	if(CLUMSY in mutations)
-		return TRUE
-
-	return FALSE
+	return HAS_FLAG(mutations, CLUMSY)
 
 //Helper proc for figuring out if the active hand (or given hand) is usable.
 /mob/proc/can_use_hand()

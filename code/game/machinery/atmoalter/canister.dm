@@ -20,10 +20,10 @@
 
 	var/canister_color = "yellow"
 	var/can_label = 1
-	start_pressure = 45 * ONE_ATMOSPHERE
+	start_pressure = PRESSURE_ONE_THOUSAND * 5
 	var/temperature_resistance = 1000 + T0C
 	volume = 1000
-	use_power = 0
+	use_power = POWER_USE_OFF
 	interact_offline = 1 // Allows this to be used when not in powered area.
 	var/release_log = ""
 	var/update_flag = 0
@@ -91,6 +91,11 @@
 /obj/machinery/portable_atmospherics/canister/empty/
 	start_pressure = 0
 	can_label = 1
+
+/obj/machinery/portable_atmospherics/canister/empty/air
+	name = "Canister: \[Air\]"
+	icon_state = "grey"
+	canister_color = "grey"
 
 /obj/machinery/portable_atmospherics/canister/empty/oxygen
 	name = "Canister: \[O2\]"
@@ -226,7 +231,7 @@ update_flag
 	else
 		return 1
 
-/obj/machinery/portable_atmospherics/canister/machinery_process()
+/obj/machinery/portable_atmospherics/canister/process()
 	if (destroyed)
 		return PROCESS_KILL
 
@@ -236,8 +241,9 @@ update_flag
 		var/datum/gas_mixture/environment
 		if(holding)
 			environment = holding.air_contents
-		else
+		else if(loc)
 			environment = loc.return_air()
+		else return
 
 		var/env_pressure = environment.return_pressure()
 		var/pressure_delta = release_pressure - env_pressure
@@ -305,7 +311,7 @@ update_flag
 		return
 	if(!W.iswrench() && !is_type_in_list(W, list(/obj/item/tank, /obj/item/device/analyzer, /obj/item/modular_computer)) && !issignaler(W) && !(W.iswirecutter() && signaler))
 		if(W.flags & NOBLUDGEON)
-			return
+			return TRUE
 		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"), SPAN_NOTICE("You hit \the [src] with \the [W]."))
 		user.do_attack_animation(src, W)
 		playsound(src, 'sound/weapons/smash.ogg', 60, 1)
@@ -313,7 +319,7 @@ update_flag
 		if(!istype(W, /obj/item/forensics))
 			src.add_fingerprint(user)
 		healthcheck()
-		return
+		return TRUE
 
 	if(istype(user, /mob/living/silicon/robot) && istype(W, /obj/item/tank/jetpack))
 		var/datum/gas_mixture/thejetpack = W:air_contents
@@ -326,7 +332,7 @@ update_flag
 			var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
 			thejetpack.merge(removed)
 			to_chat(user, "You pulse-pressurize your jetpack from the tank.")
-		return
+		return TRUE
 
 	..()
 

@@ -120,12 +120,10 @@
 			M.playsound_to(source_turf, S, use_random_freq = use_random_freq, use_pressure = use_pressure, modify_environment = modify_environment)
 
 /proc/playsound_lineofsight(atom/source, sound/S, use_random_freq = FALSE, use_pressure = TRUE, modify_environment = TRUE, required_preferences = 0, required_asfx_toggles = 0)
-	var/list/mobs = get_mobs_or_objects_in_view(world.view, source, include_objects = FALSE)
-
+	var/list/hearers = get_hearers_in_view(world.view, source)
 	var/turf/source_turf = get_turf(source)
 
-	for (var/MM in mobs)
-		var/mob/M = MM
+	for (var/mob/M in hearers)
 		if (!M.sound_can_play(required_preferences, required_asfx_toggles))
 			continue
 
@@ -138,7 +136,7 @@
 	if (required_preferences && (client.prefs.toggles & required_preferences) != required_preferences)
 		return FALSE
 
-	if (required_asfx_toggles && (client.prefs.asfx_togs & required_asfx_toggles) != required_asfx_toggles)
+	if (required_asfx_toggles && (client.prefs.sfx_toggles & required_asfx_toggles) != required_asfx_toggles)
 		return FALSE
 
 	return TRUE
@@ -195,7 +193,7 @@
 
 		S.volume -= max(distance - world.view, 0) * 2
 
-		if (use_pressure)
+		if (use_pressure && istype(T))
 			var/datum/gas_mixture/hearer_env = T.return_air()
 			var/datum/gas_mixture/source_env = source_turf.return_air()
 
@@ -230,6 +228,9 @@
 /mob/proc/playsound_simple(source, soundin, volume, use_random_freq = FALSE, frequency = 0, falloff = 0, use_pressure = TRUE, required_preferences = 0, required_asfx_toggles = 0)
 	var/sound/S = playsound_get_sound(soundin, volume, falloff, frequency)
 	return playsound_to(source ? get_turf(source) : null, S, use_random_freq, use_pressure = use_pressure, required_preferences = required_preferences, required_asfx_toggles = required_asfx_toggles)
+
+/proc/playsound_in(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0, frequency = 0, time)
+	addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, source, soundin, vol, vary, extrarange, falloff, is_global, usepressure, environment, required_preferences, required_asfx_toggles, frequency), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
 
 /client/proc/playtitlemusic()
 	if(!SSticker.login_music)
@@ -537,9 +538,120 @@
 		'sound/items/drop/casing2.ogg',
 		'sound/items/drop/casing3.ogg',
 		'sound/items/drop/casing4.ogg',
-		'sound/items/drop/casing5.ogg'
+		'sound/items/drop/casing5.ogg',
+		'sound/items/drop/casing6.ogg',
+		'sound/items/drop/casing7.ogg',
+		'sound/items/drop/casing8.ogg',
+		'sound/items/drop/casing9.ogg',
+		'sound/items/drop/casing10.ogg',
+		'sound/items/drop/casing11.ogg',
+		'sound/items/drop/casing12.ogg',
+		'sound/items/drop/casing13.ogg',
+		'sound/items/drop/casing15.ogg',
+		'sound/items/drop/casing16.ogg',
+		'sound/items/drop/casing17.ogg',
+		'sound/items/drop/casing18.ogg',
+		'sound/items/drop/casing19.ogg',
+		'sound/items/drop/casing20.ogg',
+		'sound/items/drop/casing21.ogg',
+		'sound/items/drop/casing22.ogg',
+		'sound/items/drop/casing23.ogg',
+		'sound/items/drop/casing24.ogg',
+		'sound/items/drop/casing25.ogg'
 	)
 
+/decl/sound_category/casing_drop_sound_shotgun
+	sounds = list(
+		'sound/items/drop/casing_shotgun1.ogg',
+		'sound/items/drop/casing_shotgun2.ogg',
+		'sound/items/drop/casing_shotgun3.ogg',
+		'sound/items/drop/casing_shotgun4.ogg',
+		'sound/items/drop/casing_shotgun5.ogg'
+	)
+
+/decl/sound_category/out_of_ammo
+	sounds = list(
+		'sound/weapons/empty/empty2.ogg',
+		'sound/weapons/empty/empty3.ogg',
+		'sound/weapons/empty/empty4.ogg',
+		'sound/weapons/empty/empty5.ogg',
+		'sound/weapons/empty/empty6.ogg'
+	)
+
+/decl/sound_category/out_of_ammo_revolver
+	sounds = list(
+		'sound/weapons/empty/empty_revolver.ogg',
+		'sound/weapons/empty/empty_revolver3.ogg'
+	)
+
+/decl/sound_category/out_of_ammo_rifle
+	sounds = list(
+		'sound/weapons/empty/empty_rifle1.ogg',
+		'sound/weapons/empty/empty_rifle2.ogg'
+	)
+
+/decl/sound_category/out_of_ammo_shotgun
+	sounds = list(
+		'sound/weapons/empty/empty_shotgun1.ogg'
+	)
+
+/decl/sound_category/metal_slide_reload
+	sounds = list(
+		'sound/weapons/reloads/pistol_metal_slide1.ogg',
+		'sound/weapons/reloads/pistol_metal_slide2.ogg',
+		'sound/weapons/reloads/pistol_metal_slide3.ogg',
+		'sound/weapons/reloads/pistol_metal_slide4.ogg',
+		'sound/weapons/reloads/pistol_metal_slide5.ogg',
+		'sound/weapons/reloads/pistol_metal_slide6.ogg'
+	)
+
+/decl/sound_category/polymer_slide_reload
+	sounds = list(
+		'sound/weapons/reloads/pistol_polymer_slide1.ogg',
+		'sound/weapons/reloads/pistol_polymer_slide2.ogg',
+		'sound/weapons/reloads/pistol_polymer_slide3.ogg'
+	)
+
+/decl/sound_category/rifle_slide_reload
+	sounds = list(
+		'sound/weapons/reloads/rifle_slide.ogg',
+		'sound/weapons/reloads/rifle_slide2.ogg',
+		'sound/weapons/reloads/rifle_slide3.ogg',
+		'sound/weapons/reloads/rifle_slide4.ogg',
+		'sound/weapons/reloads/rifle_slide5.ogg',
+		'sound/weapons/reloads/rifle_slide6.ogg',
+		'sound/weapons/reloads/rifle_slide7.ogg',
+		'sound/weapons/reloads/rifle_slide8.ogg',
+		'sound/weapons/reloads/rifle_slide9.ogg'
+	)
+
+/decl/sound_category/revolver_reload
+	sounds = list(
+		'sound/weapons/reloads/revolver_reload.ogg'
+	)
+/decl/sound_category/shotgun_pump
+	sounds = list(
+		'sound/weapons/reloads/shotgun_pump2.ogg',
+		'sound/weapons/reloads/shotgun_pump3.ogg',
+		'sound/weapons/reloads/shotgun_pump4.ogg',
+		'sound/weapons/reloads/shotgun_pump5.ogg',
+		'sound/weapons/reloads/shotgun_pump6.ogg'
+	)
+
+/decl/sound_category/shotgun_reload
+	sounds = list(
+		'sound/weapons/reloads/reload_shell.ogg',
+		'sound/weapons/reloads/reload_shell2.ogg',
+		'sound/weapons/reloads/reload_shell3.ogg',
+		'sound/weapons/reloads/reload_shell4.ogg'
+	)
+
+/decl/sound_category/heavy_machine_gun_reload
+	sounds = list(
+		'sound/weapons/reloads/hmg_reload1.ogg',
+		'sound/weapons/reloads/hmg_reload2.ogg',
+		'sound/weapons/reloads/hmg_reload3.ogg'
+	)
 /decl/sound_category/drillhit_sound
 	sounds = list(
 		'sound/weapons/saw/drillhit1.ogg',
@@ -549,19 +661,25 @@
 /decl/sound_category/generic_drop_sound
 	sounds = list(
 		'sound/items/drop/generic1.ogg',
-		'sound/items/drop/generic2.ogg',
+		'sound/items/drop/generic2.ogg'
 	)
 /decl/sound_category/generic_pickup_sound
 	sounds = list(
 		'sound/items/pickup/generic1.ogg',
 		'sound/items/pickup/generic2.ogg',
-		'sound/items/pickup/generic3.ogg',
+		'sound/items/pickup/generic3.ogg'
 	)
 /decl/sound_category/generic_wield_sound
 	sounds = list(
 		'sound/items/wield/generic1.ogg',
 		'sound/items/wield/generic2.ogg',
 		'sound/items/wield/generic3.ogg'
+	)
+
+/decl/sound_category/generic_pour_sound
+	sounds = list(
+		'sound/effects/pour1.ogg',
+		'sound/effects/pour2.ogg'
 	)
 
 /decl/sound_category/wield_generic_sound
@@ -683,6 +801,22 @@
 	'sound/weapons/laserstrong.ogg'
 )
 
+/decl/sound_category/shaker_shaking
+	sounds = list(
+		'sound/items/shaking1.ogg',
+		'sound/items/shaking2.ogg',
+		'sound/items/shaking3.ogg',
+		'sound/items/shaking4.ogg',
+		'sound/items/shaking5.ogg',
+		'sound/items/shaking6.ogg'
+	)
+
+/decl/sound_category/shaker_lid_off
+	sounds = list(
+		'sound/items/shaker_lid_off1.ogg',
+		'sound/items/shaker_lid_off2.ogg'
+	)
+
 /decl/sound_category/quick_arcade // quick punchy arcade sounds
 	sounds = list(
 		'sound/arcade/get_fuel.ogg',
@@ -703,3 +837,90 @@
 		'sound/effects/footstep_skrell5.ogg',
 		'sound/effects/footstep_skrell6.ogg'
 	)
+
+/decl/sound_category/hammer_sound
+	sounds = list(
+		'sound/items/tools/hammer1.ogg',
+		'sound/items/tools/hammer2.ogg',
+		'sound/items/tools/hammer3.ogg',
+		'sound/items/tools/hammer4.ogg'
+	)
+
+/decl/sound_category/shovel_sound
+	sounds = list(
+		'sound/items/tools/shovel1.ogg',
+		'sound/items/tools/shovel2.ogg',
+		'sound/items/tools/shovel3.ogg'
+	)
+
+/decl/sound_category/supermatter_calm
+	sounds = list('sound/machines/sm/accent/normal/1.ogg',
+				  'sound/machines/sm/accent/normal/2.ogg',
+				  'sound/machines/sm/accent/normal/3.ogg',
+				  'sound/machines/sm/accent/normal/4.ogg',
+				  'sound/machines/sm/accent/normal/5.ogg',
+				  'sound/machines/sm/accent/normal/6.ogg',
+				  'sound/machines/sm/accent/normal/7.ogg',
+				  'sound/machines/sm/accent/normal/8.ogg',
+				  'sound/machines/sm/accent/normal/9.ogg',
+				  'sound/machines/sm/accent/normal/10.ogg',
+				  'sound/machines/sm/accent/normal/11.ogg',
+				  'sound/machines/sm/accent/normal/12.ogg',
+				  'sound/machines/sm/accent/normal/13.ogg',
+				  'sound/machines/sm/accent/normal/14.ogg',
+				  'sound/machines/sm/accent/normal/15.ogg',
+				  'sound/machines/sm/accent/normal/16.ogg',
+				  'sound/machines/sm/accent/normal/17.ogg',
+				  'sound/machines/sm/accent/normal/18.ogg',
+				  'sound/machines/sm/accent/normal/19.ogg',
+				  'sound/machines/sm/accent/normal/20.ogg',
+				  'sound/machines/sm/accent/normal/21.ogg',
+				  'sound/machines/sm/accent/normal/22.ogg',
+				  'sound/machines/sm/accent/normal/23.ogg',
+				  'sound/machines/sm/accent/normal/24.ogg',
+				  'sound/machines/sm/accent/normal/25.ogg',
+				  'sound/machines/sm/accent/normal/26.ogg',
+				  'sound/machines/sm/accent/normal/27.ogg',
+				  'sound/machines/sm/accent/normal/28.ogg',
+				  'sound/machines/sm/accent/normal/29.ogg',
+				  'sound/machines/sm/accent/normal/30.ogg',
+				  'sound/machines/sm/accent/normal/31.ogg',
+				  'sound/machines/sm/accent/normal/32.ogg',
+				  'sound/machines/sm/accent/normal/33.ogg'
+				  )
+
+/decl/sound_category/supermatter_delam
+	sounds = list('sound/machines/sm/accent/delam/1.ogg',
+				  'sound/machines/sm/accent/delam/2.ogg',
+				  'sound/machines/sm/accent/delam/3.ogg',
+				  'sound/machines/sm/accent/delam/4.ogg',
+				  'sound/machines/sm/accent/delam/5.ogg',
+				  'sound/machines/sm/accent/delam/6.ogg',
+				  'sound/machines/sm/accent/delam/7.ogg',
+				  'sound/machines/sm/accent/delam/8.ogg',
+				  'sound/machines/sm/accent/delam/9.ogg',
+				  'sound/machines/sm/accent/delam/10.ogg',
+				  'sound/machines/sm/accent/delam/11.ogg',
+				  'sound/machines/sm/accent/delam/12.ogg',
+				  'sound/machines/sm/accent/delam/13.ogg',
+				  'sound/machines/sm/accent/delam/14.ogg',
+				  'sound/machines/sm/accent/delam/15.ogg',
+				  'sound/machines/sm/accent/delam/16.ogg',
+				  'sound/machines/sm/accent/delam/17.ogg',
+				  'sound/machines/sm/accent/delam/18.ogg',
+				  'sound/machines/sm/accent/delam/19.ogg',
+				  'sound/machines/sm/accent/delam/20.ogg',
+				  'sound/machines/sm/accent/delam/21.ogg',
+				  'sound/machines/sm/accent/delam/22.ogg',
+				  'sound/machines/sm/accent/delam/23.ogg',
+				  'sound/machines/sm/accent/delam/24.ogg',
+				  'sound/machines/sm/accent/delam/25.ogg',
+				  'sound/machines/sm/accent/delam/26.ogg',
+				  'sound/machines/sm/accent/delam/27.ogg',
+				  'sound/machines/sm/accent/delam/28.ogg',
+				  'sound/machines/sm/accent/delam/29.ogg',
+				  'sound/machines/sm/accent/delam/30.ogg',
+				  'sound/machines/sm/accent/delam/31.ogg',
+				  'sound/machines/sm/accent/delam/32.ogg',
+				  'sound/machines/sm/accent/delam/33.ogg'
+				  )

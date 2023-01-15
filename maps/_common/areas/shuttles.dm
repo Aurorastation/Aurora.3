@@ -51,7 +51,8 @@
 	name = "Escape pod - 4"
 
 /area/shuttle/mining
-	name = "Mining Shuttle"
+	name = "Spark"
+	requires_power = TRUE
 
 /area/shuttle/transport1
 	icon_state = "shuttle"

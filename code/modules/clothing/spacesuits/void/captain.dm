@@ -17,7 +17,7 @@
 
 /obj/item/clothing/suit/space/void/captain
 	name = "captain voidsuit"
-	desc = "A bulky, heavy-duty piece of exclusive Nanotrasen armor. YOU are in charge!"
+	desc = "A bulky, heavy-duty piece of exclusive SCC armor. YOU are in charge!"
 	icon_state = "capspace"
 	item_state = "capspace"
 	item_state_slots = list(

@@ -88,13 +88,12 @@
 	update_clothing_icon()
 
 /obj/item/storage/belt/utility
-	name = "tool-belt" //Carn: utility belt is nicer, but it bamboozles the text parsing.
-	desc = "A sturdy belt for holding various tools."
+	name = "tool belt"
+	desc = "A sturdy belt for holding various tools and equipment."
 	icon_state = "utilitybelt"
 	item_state = "utility"
 	equip_sound = 'sound/items/equip/toolbelt.ogg'
 	can_hold = list(
-		///obj/item/combitool,
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
 		/obj/item/weldingtool,
@@ -116,8 +115,9 @@
 		/obj/item/powerdrill,
 		/obj/item/device/radio,
 		/obj/item/device/debugger,
-		/obj/item/device/eftpos
-		)
+		/obj/item/device/eftpos,
+		/obj/item/tape_roll
+	)
 	content_overlays = TRUE
 
 /obj/item/storage/belt/utility/ce
@@ -140,7 +140,6 @@
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters/toolbelt = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1,
 		/obj/item/hammer = 1
 	)
 
@@ -388,12 +387,13 @@
 	icon_state = "militarybelt_syndie"
 	item_state = "militarybelt_syndie"
 
-/obj/item/storage/belt/janitor
-	name = "janibelt"
-	desc = "A belt used to hold most janitorial supplies."
-	icon_state = "janibelt"
-	item_state = "janibelt"
-	storage_slots = 8
+/obj/item/storage/belt/custodial
+	name = "custodial belt"
+	desc = "A utility belt designed for custodial use."
+	desc_extended = "A custodial belt is similar to most utility belts, but designed with pockets and attachment points that can hold common custodial tools."
+	icon_state = "custodialbelt"
+	item_state = "custodialbelt"
+	storage_slots = 12
 	w_class = ITEMSIZE_NORMAL
 	max_w_class = ITEMSIZE_NORMAL
 	can_hold = list(
@@ -404,15 +404,17 @@
 		/obj/item/extinguisher/mini,
 		/obj/item/device/radio,
 		/obj/item/clothing/gloves,
-		/obj/item/clothing/glasses/material,
+		/obj/item/clothing/glasses,
 		/obj/item/reagent_containers/spray,
-		/obj/item/grenade/chem_grenade, //if I'm going to be doing a full allowance on one belt, I need to do the other.
+		/obj/item/grenade/chem_grenade,
 		/obj/item/device/lightreplacer,
 		/obj/item/soap,
 		/obj/item/storage/bag/trash,
 		/obj/item/reagent_containers/glass/rag,
-		/obj/item/gun/energy/mousegun
-		)
+		/obj/item/gun/energy/mousegun,
+		/obj/item/device/gps,
+		/obj/item/taperoll/custodial
+	)
 
 /obj/item/storage/belt/mining
 	name = "explorer's belt"
@@ -462,7 +464,8 @@
 		/obj/item/extraction_pack,
 		/obj/item/rfd/mining,
 		/obj/item/gun/custom_ka,
-		/obj/item/device/orbital_dropper
+		/obj/item/device/orbital_dropper,
+		/obj/item/ore_detector
 		)
 
 /obj/item/storage/belt/hydro
@@ -565,7 +568,7 @@
 	contained_sprite = TRUE
 	storage_slots = 1
 	max_w_class = ITEMSIZE_SMALL
-	desc_fluff = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
+	desc_extended = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
 	Holy Village's most important buildings. When Mata'ke's original hunting party had done battle with the King of Rraknarr, her beloved was killed in the fighting. Ever since then \
 	she has resolved to be eternally chaste in dedication to him. She is an M'sai who is depicted wearing modest dresses and carrying a hammer on a belt. She is not known for having \
 	much combat prowess despite her position as head of the town watch but is a capable commander for defensive tactics."

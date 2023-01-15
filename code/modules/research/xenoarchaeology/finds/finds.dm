@@ -24,7 +24,7 @@
 
 //have all strange rocks be cleared away using welders for now
 /obj/item/ore/strangerock
-	name = "Strange rock"
+	name = "strange rock"
 	desc = "Seems to have some unusal strata evident throughout it."
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "strange"
@@ -58,11 +58,11 @@
 					for(var/mob/M in viewers(world.view, user))
 						M.show_message("<span class='info'>[src] burns away into nothing.</span>",1)
 				qdel(src)
-				w.remove_fuel(4)
+				w.use(4)
 			else
 				for(var/mob/M in viewers(world.view, user))
 					M.show_message("<span class='info'>A few sparks fly off [src], but nothing else happens.</span>",1)
-				w.remove_fuel(1)
+				w.use(1)
 			return
 
 	else if(istype(W,/obj/item/device/core_sampler/))
@@ -355,12 +355,12 @@
 				new_gun.desc = "This is an antique energy weapon, you're not sure if it will fire or not."
 
 				//5% chance to explode when first fired
-				//10% chance to have an unchargeable cell
+				//5% chance to have an unchargeable cell
 				//15% chance to gain a random amount of starting energy, otherwise start with an empty cell
 				if(new_gun.power_supply)
 					if(prob(5))
 						new_gun.power_supply.rigged = 1
-					if(prob(10))
+					if(prob(5))
 						new_gun.power_supply.maxcharge = 0
 					if(prob(15))
 						new_gun.power_supply.charge = rand(0, new_gun.power_supply.maxcharge)

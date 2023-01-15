@@ -26,7 +26,6 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	eyes = "blank_eyes"
 
 	bodytype = BODYTYPE_GOLEM
-	default_accent = ACCENT_BLUESPACE
 
 	language = "Ceti Basic"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch)

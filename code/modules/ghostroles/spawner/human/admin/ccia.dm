@@ -20,20 +20,22 @@
 /datum/ghostspawner/human/admin/corporate/ccia_agent
 	short_name = "cciaagent"
 	name = "CCIA Agent"
-	desc = "Board the Aurora, annoy crew with your interviews and get squashed by your own shuttle."
 
 	outfit = /datum/outfit/admin/nt/cciaa
 
 	assigned_role = "CCIA Agent"
 	special_role = "CCIA Agent"
-	
+
 	mob_name_pick_message = "Pick a name."
 
+/datum/ghostspawner/human/admin/corporate/ccia_agent/New()
+	desc = "Board the [current_map.station_name], annoy crew with your interviews and get squashed by your own shuttle."
+	..()
 
 /datum/ghostspawner/human/admin/corporate/ccia_escort
 	short_name = "cciaescort"
 	name = "CCIA Escort"
-	desc = "Escort a CCIA Agent to the station, watch them annoy the crew and prevent them from throwing themselves under their own shuttle."
+	desc = "Escort CCIA agents, watch them annoy the crew and prevent them from throwing themselves under their own shuttle."
 
 	enabled = FALSE
 	landmark_name = "CCIAEscort"
@@ -53,7 +55,6 @@
 /datum/ghostspawner/human/admin/corporate/scc_agent
 	short_name = "sccagent"
 	name = "SCC Agent"
-	desc = "Board the Aurora, annoy crew with your interviews and get squashed by your own shuttle. But this time you're blue."
 
 	outfit = /datum/outfit/admin/scc
 
@@ -63,6 +64,10 @@
 
 	assigned_role = "SCC Agent"
 	special_role = "SCC Agent"
+
+/datum/ghostspawner/human/admin/corporate/scc_agent/New()
+	desc = "Board the [current_map.station_name], annoy crew with your interviews and get squashed by your own shuttle. But this time you're blue."
+	..()
 
 /datum/ghostspawner/human/admin/corporate/scc_bodyguard
 	short_name = "sccbodyguard"

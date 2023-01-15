@@ -4,8 +4,12 @@
 	name = "autoinhaler"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel."
 	icon = 'icons/obj/syringe.dmi'
-	item_state = "autoinjector"
 	icon_state = "autoinhaler"
+	item_state = "autoinhaler"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi'
+		)
 	center_of_mass = list("x" = 16,"y" = 11)
 	unacidable = 1
 	amount_per_transfer_from_this = 5
@@ -42,7 +46,7 @@
 		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
 		return
 
-	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
+	if ( ((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		if(!H.eyes_protected(src, FALSE))
 			eyestab(H,user)
@@ -104,7 +108,7 @@
 	if(is_open_container())
 		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
 		return FALSE
-	
+
 	else
 		inject(M, user, M.Adjacent(user))
 	. = ..()
@@ -127,7 +131,7 @@
 		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler's lid.</span>") // it locks shut after being secured
 		flags |= OPENCONTAINER
 		update_icon()
-		return
+		return TRUE
 	. = ..()
 
 /obj/item/reagent_containers/inhaler/update_icon()
@@ -143,6 +147,7 @@
 		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinhaler_reagents")
 		reagent_overlay.color = reagents.get_color()
 		add_overlay(reagent_overlay)
+	update_held_icon()
 
 /obj/item/reagent_containers/inhaler/examine(mob/user)
 	..(user)
@@ -181,6 +186,17 @@
 /obj/item/reagent_containers/inhaler/hyperzine/Initialize()
 	. =..()
 	reagents.add_reagent(/decl/reagent/hyperzine, volume)
+	update_icon()
+	return
+
+/obj/item/reagent_containers/inhaler/xuxigas
+	name_label = "xu'xi gas"
+	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains xu'xi gas."
+	flags = 0
+
+/obj/item/reagent_containers/inhaler/xuxigas/Initialize()
+	. =..()
+	reagents.add_reagent(/decl/reagent/xuxigas, volume)
 	update_icon()
 	return
 

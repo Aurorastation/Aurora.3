@@ -66,7 +66,7 @@
 								var/safety = M:eyecheck(TRUE)
 								if(!safety)
 									if(!M.blinded)
-										flick("flash", M.flash)
+										M.flash_eyes()
 
 						return 1
 					else
@@ -84,7 +84,7 @@
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
 
-			if(HULK in H.mutations)
+			if(HAS_FLAG(H.mutations, HULK) || H.is_berserk())
 				damage += 5
 
 			playsound(loc, /decl/sound_category/punch_sound, 25, 1, -1)
@@ -264,9 +264,12 @@
 			real_damage *= damage_multiplier
 			rand_damage *= damage_multiplier
 
-			if(HULK in H.mutations)
+			if(HAS_FLAG(H.mutations, HULK))
 				real_damage *= 2 // Hulks do twice the damage
 				rand_damage *= 2
+			if(H.is_berserk())
+				real_damage *= 1.5 // Nightshade increases damage by 50%
+				rand_damage *= 1.5
 
 			real_damage = max(1, real_damage)
 
@@ -286,7 +289,7 @@
 			attack.apply_effects(H, src, rand_damage, hit_zone)
 
 			// Finally, apply damage to target
-			apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags)
+			apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags, armor_pen = attack.armor_penetration)
 
 
 			if(M.resting && src.help_up_offer)
@@ -398,7 +401,7 @@
 					apply_effect(5, WEAKEN)
 					forceMove(GetAbove(z_eye)) //We use GetAbove so people can't cheese it by turning their sprite.
 					return
-						
+
 			if(randn <= 25)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					apply_effect(6, WEAKEN)
@@ -440,12 +443,15 @@
 					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 					return
 
-				//Actually disarm them
+				//Actually disarm them, if possible
 				for(var/obj/item/I in holding)
-					drop_from_inventory(I)
-					visible_message("<span class='danger'>[M] has disarmed [src]!</span>")
-					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-					return
+					if(unEquip(I))
+						visible_message(SPAN_DANGER("\The [M] has disarmed \the [src]!"))
+						playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+						return
+					else
+						to_chat(M, SPAN_WARNING("You cannot disarm \the [I] from \the [src], as it's attached to them!"))
+						//No return here is intentional, as it will then try to disarm other items, and/or play a failed disarm message
 
 			playsound(loc, /decl/sound_category/punchmiss_sound, 25, 1, -1)
 			visible_message("<span class='danger'>[M] attempted to disarm [src]!</span>")
@@ -454,30 +460,48 @@
 /mob/living/carbon/human/proc/cpr(mob/living/carbon/human/H, var/starting = FALSE, var/cpr_mode)
 	var/obj/item/main_hand = H.get_active_hand()
 	var/obj/item/off_hand = H.get_inactive_hand()
-	if (istype(main_hand) || istype(off_hand))
+	if(istype(main_hand) || istype(off_hand))
 		cpr = FALSE
 		to_chat(H, SPAN_NOTICE("You cannot perform CPR with anything in your hands."))
 		return
 	if(!(cpr && H.Adjacent(src) && (is_asystole() || (status_flags & FAKEDEATH) || failed_last_breath))) //Keeps doing CPR unless cancelled, or the target recovers
 		cpr = FALSE
-		to_chat(H, SPAN_NOTICE("You stop performing CPR on \the [src]."))
+		to_chat(H, SPAN_NOTICE("You stop performing [cpr_mode] on \the [src]."))
 		return
 	else if (starting)
 		var/list/options = list(
+			"Full CPR" = image('icons/mob/screen/radial.dmi', "cpro2"),
 			"Compressions" = image('icons/mob/screen/generic.dmi', "cpr"),
-			"Mouth-to-Mouth" = image('icons/mob/screen/radial.dmi', "cpro2")
+			"Mouth-to-Mouth" = image('icons/mob/screen/radial.dmi', "iv_tank")
 		)
 		cpr_mode = show_radial_menu(H, src, options, require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
 		if(!cpr_mode)
 			cpr = FALSE
 			return
-		to_chat(H, SPAN_NOTICE("You begin performing CPR on \the [src]."))
+		to_chat(H, SPAN_NOTICE("You begin performing [cpr_mode] on \the [src]."))
 
 	H.do_attack_animation(src, null, image('icons/mob/screen/generic.dmi', src, "cpr", src.layer + 1))
 	var/starting_pixel_y = pixel_y
 	animate(src, pixel_y = starting_pixel_y + 4, time = 2)
 	animate(src, pixel_y = starting_pixel_y, time = 2)
 
+	if(!do_after(H, 3, FALSE)) //Chest compressions are fast, need to wait for the loading bar to do mouth to mouth
+		to_chat(H, SPAN_NOTICE("You stop performing [cpr_mode] on \the [src]."))
+		cpr = FALSE //If it cancelled, cancel it. Simple.
+
+	if(cpr_mode == "Full CPR")
+		cpr_compressions(H)
+		cpr_ventilation(H)
+
+	if(cpr_mode == "Compressions")
+		cpr_compressions(H)
+
+	if(cpr_mode == "Mouth-to-Mouth")
+		cpr_ventilation(H)
+
+	cpr(H, FALSE, cpr_mode) //Again.
+
+/mob/living/carbon/human/proc/cpr_compressions(mob/living/carbon/human/H)
 	if(is_asystole())
 		if(prob(5 * rand(2, 3)))
 			var/obj/item/organ/external/chest = get_organ(BP_CHEST)
@@ -491,38 +515,32 @@
 		if(stat != DEAD && prob(10 * rand(0.5, 1)))
 			resuscitate()
 
-	if(!do_after(H, 3, FALSE)) //Chest compresssions are fast, need to wait for the loading bar to do mouth to mouth
-		to_chat(H, SPAN_NOTICE("You stop performing CPR on \the [src]."))
-		cpr = FALSE //If it cancelled, cancel it. Simple.
-
-	if(cpr_mode == "Mouth-to-Mouth")
-		if(!H.check_has_mouth())
-			to_chat(H, SPAN_WARNING("You don't have a mouth, you cannot do mouth-to-mouth resuscitation!"))
-			return
-		if(!check_has_mouth())
-			to_chat(H, SPAN_WARNING("They don't have a mouth, you cannot do mouth-to-mouth resuscitation!"))
-			return
-		if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
-			to_chat(H, SPAN_WARNING("You need to remove your mouth covering for mouth-to-mouth resuscitation!"))
-			return 0
-		if((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
-			to_chat(H, SPAN_WARNING("You need to remove \the [src]'s mouth covering for mouth-to-mouth resuscitation!"))
-			return 0
-		if (!H.internal_organs_by_name[H.species.breathing_organ])
-			to_chat(H, SPAN_DANGER("You need lungs for mouth-to-mouth resuscitation!"))
-			return
-		if(!need_breathe())
-			return
-		var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species.breathing_organ]
-		if(L)
-			var/datum/gas_mixture/breath = H.get_breath_from_environment()
-			var/fail = L.handle_breath(breath, 1)
-			if(!fail)
-				if(!L.is_bruised())
-					losebreath = 0
+/mob/living/carbon/human/proc/cpr_ventilation(mob/living/carbon/human/H)
+	if(!H.check_has_mouth())
+		to_chat(H, SPAN_WARNING("You don't have a mouth, you cannot do mouth-to-mouth resuscitation!"))
+		return
+	if(!check_has_mouth())
+		to_chat(H, SPAN_WARNING("They don't have a mouth, you cannot do mouth-to-mouth resuscitation!"))
+		return
+	if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
+		to_chat(H, SPAN_WARNING("You need to remove your mouth covering for mouth-to-mouth resuscitation!"))
+		return 0
+	if((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
+		to_chat(H, SPAN_WARNING("You need to remove \the [src]'s mouth covering for mouth-to-mouth resuscitation!"))
+		return 0
+	if (!H.internal_organs_by_name[H.species.breathing_organ])
+		to_chat(H, SPAN_DANGER("You need lungs for mouth-to-mouth resuscitation!"))
+		return
+	if(!need_breathe())
+		return
+	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species.breathing_organ]
+	if(L)
+		var/datum/gas_mixture/breath = H.get_breath_from_environment()
+		var/fail = L.handle_breath(breath, 1)
+		if(!fail)
+			if(!L.is_bruised() || (L.is_bruised() && L.rescued))
+				losebreath = 0
 				to_chat(src, SPAN_NOTICE("You feel a breath of fresh air enter your lungs. It feels good."))
-
-	cpr(H, FALSE, cpr_mode) //Again.
 
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
 	return
@@ -566,7 +584,7 @@
 	if(!target_zone)
 		return 0
 	var/obj/item/organ/external/organ = get_organ(check_zone(target_zone))
-	if(!organ || organ.is_dislocated() || organ.dislocated == -1)
+	if(!organ || ORGAN_IS_DISLOCATED(organ) || organ.dislocated == -1)
 		return 0
 
 	user.visible_message("<span class='warning'>[user] begins to dislocate [src]'s [organ.joint]!</span>")

@@ -20,6 +20,10 @@
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
 
+/obj/item/gun/projectile/shotgun/pump/rifle/blank
+	desc = "A replica of a traditional adhomian bolt action rifle. It has the seal of the Grand Romanovich Casino on its stock. Uses 7.62mm rounds."
+	ammo_type = /obj/item/ammo_casing/a762/blank
+
 /obj/item/gun/projectile/shotgun/pump/rifle/saw_off(mob/user, obj/item/tool)
 	icon = 'icons/obj/guns/obrez.dmi'
 	icon_state = "obrez"

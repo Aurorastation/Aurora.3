@@ -19,9 +19,17 @@
 	var/list/alt_titles                   // List of alternate titles, if any
 	var/list/title_accesses               // A map of title -> list of accesses to add if the person has this title.
 	var/minimal_player_age = 0            // If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
-	var/minimum_character_age = 17
-	var/list/alt_ages = null              // assoc list of alt titles to minimum character ages
-	var/ideal_character_age = 30
+	var/list/minimum_character_age = list(// Age restriction, assoc list of species define -> age; if species isn't found, defaults to SPECIES_HUMAN entry
+		SPECIES_HUMAN = 17,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
+	var/list/alt_ages = null              // assoc list of alt titles to minimum character ages assoc lists (see above -- yes this is slightly awful)
+	var/list/ideal_character_age = list(  // Ideal character ages (for heads), assoc list of species define -> age, see above
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 100,
+		SPECIES_SKRELL_AXIORI = 100
+	)
 
 	var/latejoin_at_spawnpoints = FALSE   //If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
 
@@ -87,6 +95,7 @@
 			if(ECONOMICALLY_AVERAGE)		econ_status = 1
 			if(ECONOMICALLY_UNDERPAID)		econ_status = 0.75
 			if(ECONOMICALLY_POOR)			econ_status = 0.50
+			if(ECONOMICALLY_DESTITUTE)		econ_status = 0.25
 
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)
@@ -146,6 +155,36 @@
 	var/total = get_total_positions()
 	return (current_positions < total) || (total == -1)
 
+/datum/job/proc/get_minimum_character_age(var/species)
+	if(!species || !(species in minimum_character_age))
+		species = SPECIES_HUMAN
+	return minimum_character_age[species]
+
+/datum/job/proc/get_alt_character_age(var/species, var/title)
+	// call this w/o title to get the most minimum of alt ages, used in occupation.dm:/datum/category_item/player_setup_item/occupation/content
+	if(!species)
+		species = SPECIES_HUMAN
+	var/min_alt_age
+	if(!title)
+		for(var/t in alt_ages)
+			if(species in alt_ages[t])
+				min_alt_age = min(min_alt_age, alt_ages[t][species])
+			else
+				min_alt_age = min(min_alt_age, alt_ages[t][SPECIES_HUMAN])
+		return min_alt_age
+	else if(title in alt_ages)
+		return (species in alt_ages[title]) ? alt_ages[title][species] : alt_ages[title][SPECIES_HUMAN]
+
+/datum/job/proc/get_ideal_character_age(var/species)
+	if(!species)
+		species = SPECIES_HUMAN
+	else if(!(species in ideal_character_age))
+		// try to see if there's a min age set -- ideally this shouldn't happen, but better to take a min age than fall back to human just yet
+		if(species in minimum_character_age) // if there is one, just add 20 and send it
+			return minimum_character_age[species] + 20
+		species = SPECIES_HUMAN // no such luck
+	return ideal_character_age[species]
+
 /datum/job/proc/fetch_age_restriction()
 	if (!config.age_restrictions_from_file)
 		return
@@ -154,45 +193,6 @@
 		minimal_player_age = config.age_restrictions[lowertext(title)]
 	else
 		minimal_player_age = 0
-
-/datum/job/proc/late_equip(var/mob/living/carbon/human/H)
-	if(!H)
-		return 0
-
-	H.species.before_equip(H, FALSE, src)
-
-	var/econ_status = 1
-	if(H.client)
-		switch(H.client.prefs.economic_status)
-			if(ECONOMICALLY_WEALTHY)		econ_status = 3
-			if(ECONOMICALLY_WELLOFF)		econ_status = 2
-			if(ECONOMICALLY_AVERAGE)		econ_status = 1
-			if(ECONOMICALLY_UNDERPAID)		econ_status = -2
-			if(ECONOMICALLY_POOR)			econ_status = -3
-
-	//give them an account in the station database
-	var/species_modifier = min((H.species ? H.species.economic_modifier : 0) - 9, 0)
-
-	var/wealth = (econ_status + economic_modifier + species_modifier)
-
-	switch(wealth)
-		if(-INFINITY to 6)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
-		if(7 to 9)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/red(H), slot_tie)
-		if(10 to 14)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/really_black(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/storage/briefcase(H), slot_l_hand)
-		if(15 to INFINITY)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/red(H), slot_tie)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket(H), slot_wear_suit)
-			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/locket(H), slot_tie)
 
 /datum/job/proc/has_alt_title(var/mob/H, var/supplied_title, var/desired_title)
 	return (supplied_title == desired_title) || (H.mind && H.mind.role_alt_title == desired_title)

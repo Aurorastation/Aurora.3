@@ -9,7 +9,7 @@ var/global/list/rad_collectors = list()
 	anchored = 0
 	density = 1
 	req_access = list(access_engine_equip)
-//	use_power = 0
+//	use_power = POWER_USE_OFF
 	var/obj/item/tank/phoron/P = null
 	var/last_power = 0
 	var/last_power_new = 0
@@ -25,7 +25,7 @@ var/global/list/rad_collectors = list()
 	rad_collectors -= src
 	return ..()
 
-/obj/machinery/power/rad_collector/machinery_process()
+/obj/machinery/power/rad_collector/process()
 	//so that we don't zero out the meter if the SM is processed first.
 	last_power = last_power_new
 	last_power_new = 0
@@ -142,7 +142,7 @@ var/global/list/rad_collectors = list()
 		add_overlay("on")
 
 
-/obj/machinery/power/rad_collector/proc/toggle_power()
+/obj/machinery/power/rad_collector/toggle_power()
 	active = !active
 	if(active)
 		icon_state = "ca_on"
@@ -152,4 +152,3 @@ var/global/list/rad_collectors = list()
 		flick("ca_deactive", src)
 	update_icon()
 	return
-

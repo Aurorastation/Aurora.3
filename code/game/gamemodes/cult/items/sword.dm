@@ -62,6 +62,7 @@
 		var/obj/item/material/sword/blade = new(get_turf(src))
 		blade.force = 15
 		qdel(src)
+		return TRUE
 
 /obj/item/melee/cultblade/mounted
 	name = "daemon doomblade"

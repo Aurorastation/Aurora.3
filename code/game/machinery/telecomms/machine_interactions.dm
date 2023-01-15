@@ -1,12 +1,3 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
-
-
-/*
-
-	All telecommunications interactions:
-
-*/
-
 /obj/machinery/telecomms
 	var/temp = "" // output message
 	var/construct_op = 0
@@ -18,7 +9,7 @@
 	if(I.ismultitool())
 		user.set_machine(src)
 		interact(user, I)
-		return
+		return TRUE
 
 	// REPAIRING: Use Nanopaste to repair half of the system's integrity. At 24 machines, it will take 48 uses of nanopaste to repair the entire array.
 	if(istype(I, /obj/item/stack/nanopaste))
@@ -26,39 +17,44 @@
 		if (integrity < 100)               								//Damaged, let's repair!
 			if (T.use(1))
 				integrity = between(0, initial(integrity) / 2, initial(integrity))
-				to_chat(usr, "You apply the Nanopaste to [src], repairing some of the damage.")
+				to_chat(user, "You apply the Nanopaste to [src], repairing some of the damage.")
 		else
-			to_chat(usr, "This machine is already in perfect condition.")
-		return
+			to_chat(user, "This machine is already in perfect condition.")
+		return TRUE
 
 
 	switch(construct_op)
 		if(0)
 			if(I.isscrewdriver())
-				to_chat(user, "You unfasten the bolts.")
+				to_chat(user, SPAN_NOTICE("You unfasten the bolts."))
 				playsound(src.loc, I.usesound, 50, 1)
 				construct_op ++
+				. = TRUE
 		if(1)
 			if(I.isscrewdriver())
-				to_chat(user, "You fasten the bolts.")
+				to_chat(user, SPAN_NOTICE("You fasten the bolts."))
 				playsound(src.loc, I.usesound, 50, 1)
 				construct_op --
+				. = TRUE
 			if(I.iswrench())
-				to_chat(user, "You dislodge the external plating.")
+				to_chat(user, SPAN_NOTICE("You dislodge the external plating."))
 				playsound(src.loc, I.usesound, 75, 1)
 				construct_op ++
+				. = TRUE
 		if(2)
 			if(I.iswrench())
-				to_chat(user, "You secure the external plating.")
+				to_chat(user, SPAN_NOTICE("You secure the external plating."))
 				playsound(src.loc, I.usesound, 75, 1)
 				construct_op --
+				. = TRUE
 			if(I.iswirecutter())
 				playsound(src.loc, I.usesound, 50, 1)
-				to_chat(user, "You remove the cables.")
+				to_chat(user, SPAN_NOTICE("You remove the cables."))
 				construct_op ++
 				var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( user.loc )
 				A.amount = 5
 				stat |= BROKEN // the machine's been borked!
+				. = TRUE
 		if(3)
 			if(I.iscoil())
 				var/obj/item/stack/cable_coil/A = I
@@ -68,11 +64,11 @@
 					stat &= ~BROKEN // the machine's not borked anymore!
 				else
 					to_chat(user, "<span class='warning'>You need five coils of wire for this.</span>")
+				. = TRUE
 			if(I.iscrowbar())
-				to_chat(user, "You begin prying out the circuit board other components...")
-				playsound(src.loc, I.usesound, 50, 1)
-				if(do_after(user,60/I.toolspeed))
-					to_chat(user, "You finish prying out the components.")
+				to_chat(user, SPAN_NOTICE("You begin prying out the circuit board's components..."))
+				if(I.use_tool(src, user, 60, volume = 50))
+					to_chat(user, SPAN_NOTICE("You finish prying out the components."))
 
 					// Drop all the component stuff
 					if(contents.len > 0)
@@ -90,7 +86,7 @@
 								var/obj/item/s = new newpath
 								s.forceMove(user.loc)
 								if(s.iscoil())
-									var/obj/item/stack/cable_coil/A = I
+									var/obj/item/stack/cable_coil/A = s
 									A.amount = 1
 
 						// Drop a circuit board too
@@ -100,7 +96,7 @@
 					var/obj/machinery/constructable_frame/machine_frame/F = new
 					F.forceMove(src.loc)
 					qdel(src)
-
+				. = TRUE
 	update_icon()
 
 /obj/machinery/telecomms/attack_ai(mob/living/silicon/user)
@@ -113,8 +109,8 @@
 		M = user.get_multitool()
 	var/dat
 	dat += "<br>[temp]<br><br>"
-	dat += "Power Status: <a href='?src=\ref[src];input=toggle'>[src.toggled ? "On" : "Off"]</a>"
-	if(on && toggled)
+	dat += "Power Status: <a href='?src=\ref[src];input=toggle'>[src.use_power ? "On" : "Off"]</a>"
+	if(operable() && use_power)
 		if(id != "" && id)
 			dat += "<br>Identification String: <a href='?src=\ref[src];input=id'>[id]</a>"
 		else
@@ -190,23 +186,6 @@
 		temp = "<font color = #666633>-% Processing mode changed. %-</font>"
 		src.process_mode = !src.process_mode
 */
-
-// RELAY
-
-/obj/machinery/telecomms/relay/Options_Menu()
-	var/dat = ""
-	dat += "<br>Broadcasting: <A href='?src=\ref[src];broadcast=1'>[broadcasting ? "YES" : "NO"]</a>"
-	dat += "<br>Receiving:    <A href='?src=\ref[src];receive=1'>[receiving ? "YES" : "NO"]</a>"
-	return dat
-
-/obj/machinery/telecomms/relay/Options_Topic(href, href_list)
-
-	if(href_list["receive"])
-		receiving = !receiving
-		temp = "<font color = #666633>-% Receiving mode changed. %-</font>"
-	if(href_list["broadcast"])
-		broadcasting = !broadcasting
-		temp = "<font color = #666633>-% Broadcasting mode changed. %-</font>"
 // BUS
 
 /obj/machinery/telecomms/bus/Options_Menu()
@@ -245,9 +224,8 @@
 
 			if("toggle")
 
-				src.toggled = !src.toggled
-				temp = "<font color = #666633>-% [src] has been [src.toggled ? "activated" : "deactivated"].</font>"
-				update_power()
+				toggle_power()
+				temp = "<font color = #666633>-% [src] has been [src.use_power ? "activated" : "deactivated"].</font>"
 
 			/*
 			if("hide")
@@ -270,7 +248,7 @@
 
 					else
 						for(var/obj/machinery/telecomms/T in links)
-							T.links.Remove(src)
+							remove_link(T)
 
 						network = newnet
 						links = list()
@@ -298,27 +276,17 @@
 
 		if(text2num(href_list["unlink"]) <= length(links))
 			var/obj/machinery/telecomms/T = links[text2num(href_list["unlink"])]
-			temp = "<font color = #666633>-% Removed \ref[T] [T.name] from linked entities. %-</font>"
-
-			// Remove link entries from both T and src.
-
-			if(src in T.links)
-				T.links.Remove(src)
-			links.Remove(T)
+			if(T)
+				temp = "<font color = #666633>-% Removed \ref[T] [T.name] from linked entities. %-</font>"
+				remove_link(T)
 
 	if(href_list["link"])
 
 		if(P)
 			var/obj/machinery/telecomms/device = P.get_buffer()
-			if(istype(device) && device != src)
-				if(!(src in device.links))
-					device.links.Add(src)
-
-				if(!(device in src.links))
-					src.links.Add(device)
-
+			if(device)
+				add_new_link(device)
 				temp = "<font color = #666633>-% Successfully linked with \ref[device] [device.name] %-</font>"
-
 			else
 				temp = "<font color = #666633>-% Unable to acquire buffer %-</font>"
 
@@ -340,6 +308,37 @@
 	src.add_fingerprint(usr)
 
 	updateDialog()
+
+// Adds new_connection to src's links list AND vice versa. also updates links_by_telecomms_type
+/obj/machinery/telecomms/proc/add_new_link(obj/machinery/telecomms/new_connection)
+	if (!istype(new_connection) || new_connection == src)
+		return FALSE
+
+	if ((new_connection in links) && (src in new_connection.links))
+		return FALSE
+
+	links |= new_connection
+	new_connection.links |= src
+
+	LAZYADDASSOCLIST(links_by_telecomms_type, new_connection.telecomms_type, new_connection)
+	LAZYADDASSOCLIST(new_connection.links_by_telecomms_type, telecomms_type, src)
+
+	return TRUE
+
+// Removes old_connection from src's links list AND vice versa. also updates links_by_telecomms_type
+/obj/machinery/telecomms/proc/remove_link(obj/machinery/telecomms/old_connection)
+	if (!istype(old_connection) || old_connection == src)
+		return FALSE
+
+	if (old_connection in links)
+		links -= old_connection
+		LAZYREMOVEASSOC(links_by_telecomms_type, old_connection.telecomms_type, old_connection)
+
+	if (src in old_connection.links)
+		old_connection.links -= src
+		LAZYREMOVEASSOC(old_connection.links_by_telecomms_type, telecomms_type, src)
+
+	return TRUE
 
 /obj/machinery/telecomms/proc/canAccess(var/mob/user)
 	if(issilicon(user) || in_range(user, src))

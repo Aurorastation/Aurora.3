@@ -1,12 +1,15 @@
-// Areas.dm
+//
+// Areas
+//
 
+#define VOLUME_AMBIENCE 30
+#define VOLUME_AMBIENT_HUM 35
+#define VOLUME_MUSIC 30
 
-
-// ===
 /area
 	var/global/global_uid = 0
 	var/uid
-	var/holomap_color	// Color of this area on the holomap. Must be a hex color (as string) or null.
+	var/holomap_color // Color of this area on the holomap. Must be a hex color (as string) or null.
 	var/fire = null
 	var/atmosalm = 0
 	var/poweralm = 1
@@ -19,6 +22,10 @@
 	layer = 10
 	luminosity = 0
 	mouse_opacity = 0
+
+	var/obj/machinery/power/apc/apc = null
+	var/turf/base_turf // The base turf type of the area, which can be used to override the z-level's base turf.
+
 	var/lightswitch = FALSE
 
 	var/eject = null
@@ -26,38 +33,41 @@
 	var/requires_power = 1
 	var/always_unpowered = 0	//this gets overriden to 1 for space in area/New()
 
-	var/power_equip = 1
+	var/power_equip = 1 // Status vars
 	var/power_light = 1
 	var/power_environ = 1
-	var/used_equip = 0
+	var/used_equip = 0 // Continuous drain; don't touch these directly.
 	var/used_light = 0
 	var/used_environ = 0
+	var/oneoff_equip 	= 0 // Used once and cleared each tick.
+	var/oneoff_light 	= 0
+	var/oneoff_environ 	= 0
+
+	var/has_gravity = TRUE
 	var/alwaysgravity = 0
 	var/nevergravity = 0
 
-	var/has_gravity = 1
-	var/obj/machinery/power/apc/apc = null
-//	var/list/lights				// list of all lights on this area
-	var/list/all_doors = list()		//Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
-	var/air_doors_activated = 0
+	var/list/all_doors = list() //Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
+	var/air_doors_activated = FALSE
+
 	var/list/ambience = list()
 	var/list/forced_ambience = null
-	var/loop_ambience = TRUE
+	var/list/music = list()
 	var/sound_env = STANDARD_STATION
-	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
-	var/no_light_control = 0		// if 1, lights in area cannot be toggled with light controller
-	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
-	var/emergency_lights = FALSE 
-	var/station_area = 0
-	var/centcomm_area = 0
-	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.
+
+	var/no_light_control = FALSE // If TRUE, lights in area cannot be toggled with light controller.
+	var/allow_nightmode = FALSE // If TRUE, lights in area will be darkened by the night mode controller.
+	var/emergency_lights = FALSE
+
+	var/station_area = FALSE
+	var/centcomm_area = FALSE
 
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
 	// DMMS hook - Required for areas to work properly.
 	if (!areas_by_type[type])
 		areas_by_type[type] = src
-	// Atmos code needs this, so we need to make sure this is done by the time they init.
+	// Atmos code needs this, so we need to make sure this is done by the time they initialize.
 	uid = ++global_uid
 	. = ..()
 
@@ -90,7 +100,7 @@
 		power_environ = 0
 
 	if (!mapload)
-		power_change()		// all machines set to current power level
+		power_change()		// All machines set to current power level.
 
 	. = ..()
 
@@ -117,7 +127,7 @@
 		if (!isturf(C.loc))
 			continue
 
-		if (C.loc.loc == src) //what the fuck is this
+		if (C.loc.loc == src) // What the fuck is this?
 			. += C
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
@@ -257,68 +267,10 @@
 
 #undef DO_PARTY
 
-
-/*
-#define EQUIP 1
-#define LIGHT 2
-#define ENVIRON 3
-*/
-
-/area/proc/powered(var/chan)		// return true if the area has power to given channel
-
-	if(!requires_power)
-		return 1
-	if(always_unpowered)
-		return 0
-	switch(chan)
-		if(EQUIP)
-			return power_equip
-		if(LIGHT)
-			return power_light
-		if(ENVIRON)
-			return power_environ
-
-	return 0
-
-// called when power status changes
-/area/proc/power_change()
-	for(var/obj/machinery/M in src)	// for each machine in the area
-		M.power_change()			// reverify power status (to update icons etc.)
-	if (fire || eject || party)
-		update_icon()
-
-/area/proc/usage(var/chan)
-	var/used = 0
-	switch(chan)
-		if(LIGHT)
-			used += used_light
-		if(EQUIP)
-			used += used_equip
-		if(ENVIRON)
-			used += used_environ
-		if(TOTAL)
-			used += used_light + used_equip + used_environ
-	return used
-
-/area/proc/clear_usage()
-	used_equip = 0
-	used_light = 0
-	used_environ = 0
-
-/area/proc/use_power(var/amount, var/chan)
-	switch(chan)
-		if(EQUIP)
-			used_equip += amount
-		if(LIGHT)
-			used_light += amount
-		if(ENVIRON)
-			used_environ += amount
-
-
 var/list/mob/living/forced_ambiance_list = new
 
 /area/Entered(mob/living/L)
-	if(!istype(L,/mob/living) || !ROUND_IS_STARTED)
+	if(!istype(L, /mob/living) || !ROUND_IS_STARTED)
 		return
 
 	if(!L.ckey)	return
@@ -327,41 +279,57 @@ var/list/mob/living/forced_ambiance_list = new
 		L.lastarea = get_area(L.loc)
 	var/area/newarea = get_area(L.loc)
 	var/area/oldarea = L.lastarea
-	if((oldarea.has_gravity() == 0) && (newarea.has_gravity() == 1) && (L.m_intent == M_RUN)) // Being ready when you change areas gives you a chance to avoid falling all together.
+	if((oldarea.has_gravity() == FALSE) && (newarea.has_gravity() == TRUE) && (L.m_intent == M_RUN)) // Being ready when you change areas gives you a chance to avoid falling all together.
 		thunk(L)
-		L.update_floating( L.Check_Dense_Object() )
+		L.update_floating()
 
 	L.lastarea = newarea
 
-	// Ambience goes down here -- make sure to list each area seperately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
-	if(!(L && L.client && (L.client.prefs.asfx_togs & ASFX_AMBIENCE)))	return
+	// Start playing ambience.
+	if(src.ambience.len && L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
+		play_ambience(L)
+	else
+		stop_ambience(L)
 
-	play_ambience(L)
+	// The dreaded ship ambience hum.
+	// Explanation for the "if" clause: If the area has ambience, the mob exists, has a client, the client has the hum ASFX toggled on, the area the mob is in is a station area,
+	// the mob isn't deaf, and the client doesn't already have the ambient hum playing, then start playing the ambient hum.
+	if(L && L.client && (L.client.prefs.sfx_toggles & ASFX_HUM) && newarea.station_area && !L.ear_deaf)
+		if(!L.client.ambient_hum_playing)
+			L.client.ambient_hum_playing = TRUE
+			L << sound('sound/ambience/shipambience.ogg', repeat = 1, volume = VOLUME_AMBIENT_HUM, channel = 3)
+	// Otherwise, stop playing the ambient hum.
+	else
+		L << sound(null, channel = 3)
+		L.client.ambient_hum_playing = FALSE
 
+	// Start playing music, if it exists.
+	if(src.music.len && L && L.client && (L.client.prefs.sfx_toggles & ASFX_MUSIC))
+		play_music(L)
+	// Stop playing music.
+	else
+		stop_music(L)
+
+// Play Ambience
 /area/proc/play_ambience(var/mob/living/L)
-	// Ambience goes down here -- make sure to list each area seperately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
-	if(!(L && L.client && (L.client.prefs.toggles & SOUND_AMBIENCE)))	return
+	if((world.time >= L.client.ambience_last_played_time + 5 MINUTES) && prob(20))
+		var/picked_ambience = pick(ambience)
+		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = 2)
+		L.client.ambience_last_played_time = world.time
 
-	// If we previously were in an area with force-played ambiance, stop it.
-	if(L in forced_ambiance_list)
-		L << sound(null, channel = 1)
-		forced_ambiance_list -= L
+// Stop Ambience
+/area/proc/stop_ambience(var/mob/living/L)
+	L << sound(null, channel = 2)
 
-	if(!L.client.ambience_playing)
-		L.client.ambience_playing = 1
-		L << sound('sound/ambience/shipambience.ogg', repeat = loop_ambience, wait = 0, volume = 35, channel = 2)
+// Play Music
+/area/proc/play_music(var/mob/living/L)
+	if(src.music.len)
+		var/picked_music = pick(music)
+		L << sound(picked_music, volume = VOLUME_MUSIC, channel = 4)
 
-	if(forced_ambience)
-		if(forced_ambience.len)
-			forced_ambiance_list |= L
-			L << sound(pick(forced_ambience), repeat = loop_ambience, wait = 0, volume = 25, channel = 1)
-		else
-			L << sound(null, channel = 1)
-	else if(src.ambience.len && prob(35))
-		if((world.time >= L.client.played + 600))
-			var/sound = pick(ambience)
-			L << sound(sound, repeat = 0, wait = 0, volume = 25, channel = 1)
-			L.client.played = world.time
+// Stop Music
+/area/proc/stop_music(var/mob/living/L)
+	L << sound(null, channel = 4)
 
 /area/proc/gravitychange(var/gravitystate = 0)
 	has_gravity = gravitystate
@@ -370,8 +338,8 @@ var/list/mob/living/forced_ambiance_list = new
 		if(has_gravity())
 			thunk(M)
 		else
-			to_chat(M, SPAN_NOTICE("The sudden lack of gravity makes you feel weightless and float cluelessly!"))
-		M.update_floating( M.Check_Dense_Object() )
+			to_chat(M, SPAN_NOTICE("The sudden lack of gravity makes you feel weightless and float cluelessly."))
+		M.update_floating()
 
 /area/proc/thunk(mob)
 	if(istype(get_turf(mob), /turf/space)) // Can't fall onto nothing.
@@ -388,7 +356,7 @@ var/list/mob/living/forced_ambiance_list = new
 		else
 			H.AdjustStunned(1)
 			H.AdjustWeakened(1)
-		to_chat(mob, "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>")
+		to_chat(mob, SPAN_WARNING("The sudden appearance of gravity makes you fall to the floor!"))
 
 /area/proc/prison_break()
 	for(var/obj/machinery/power/apc/temp_apc in src)
@@ -442,6 +410,8 @@ var/list/mob/living/forced_ambiance_list = new
 			continue
 		if (istype(A, /area/mine))
 			continue
+		if (istype(A, /area/horizon/exterior))
+			continue
 
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
@@ -492,3 +462,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 	for(var/obj/machinery/M in T)
 		M.shuttle_move(T)
+
+#undef VOLUME_AMBIENCE
+#undef VOLUME_AMBIENT_HUM
+#undef VOLUME_MUSIC

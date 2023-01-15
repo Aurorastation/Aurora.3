@@ -13,11 +13,16 @@
 	name = "MAP TEST template"
 
 /datum/unit_test/map_test/apc_area_test
-	name = "MAP: Area Test APC / Scrubbers / Vents (Station)"
+	name = "MAP: Area Test APC / Scrubbers / Vents / Alarms (Station)"
 
 /datum/unit_test/map_test/apc_area_test/start_test()
-	var/list/bad_areas = list()
 	var/area_test_count = 0
+	var/bad_apc = 0
+	var/bad_airs = 0
+	var/bad_airv = 0
+	var/bad_fire = 0
+
+	var/fail_message = ""
 
 	if (!current_map)
 		return
@@ -27,35 +32,44 @@
 	var/list/exempt_areas = typecacheof(current_map.ut_environ_exempt_areas)
 	var/list/exempt_from_atmos = typecacheof(current_map.ut_atmos_exempt_areas)
 	var/list/exempt_from_apc = typecacheof(current_map.ut_apc_exempt_areas)
+	var/list/exempt_from_fire = typecacheof(current_map.ut_fire_exempt_areas)
 
 	for(var/area/A in typecache_filter_list_reverse(all_areas, exempt_areas))
 		if(isStationLevel(A.z))
 			area_test_count++
-			var/area_good = 1
-			var/bad_msg = "[ascii_red]--------------- [A.name]([A.type])"
-
+			var/bad_msg = "[ascii_red]--------------- [A.name] ([A.type])"
 
 			if(!A.apc && !is_type_in_typecache(A, exempt_from_apc))
 				log_unit_test("[bad_msg] lacks an APC.[ascii_reset]")
-				area_good = 0
+				bad_apc++
 
 			if(!A.air_scrub_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				log_unit_test("[bad_msg] lacks an Air scrubber.[ascii_reset]")
-				area_good = 0
+				log_unit_test("[bad_msg] lacks an air scrubber.[ascii_reset]")
+				bad_airs++
 
 			if(!A.air_vent_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				log_unit_test("[bad_msg] lacks an Air vent.[ascii_reset]")
-				area_good = 0
+				log_unit_test("[bad_msg] lacks an air vent.[ascii_reset]")
+				bad_airv++
 
-			if(!area_good)
-				bad_areas += A
+			if(!(locate(/obj/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
+				log_unit_test("[bad_msg] lacks a fire alarm.[ascii_reset]")
+				bad_fire++
 
-	if(bad_areas.len)
-		fail("\[[bad_areas.len]/[area_test_count]\]Some areas lacked APCs, Air Scrubbers, or Air vents.")
+	if(bad_apc)
+		fail_message += "\[[bad_apc]/[area_test_count]\] areas lacked an APC.\n"
+	if(bad_airs)
+		fail_message += "\[[bad_airs]/[area_test_count]\] areas lacked an air scrubber.\n"
+	if(bad_airv)
+		fail_message += "\[[bad_airv]/[area_test_count]\] areas lacked an air vent.\n"
+	if(bad_fire)
+		fail_message += "\[[bad_fire]/[area_test_count]\] areas lacked a fire alarm.\n"
+
+	if(length(fail_message))
+		fail(fail_message)
 	else
-		pass("All \[[area_test_count]\] areas contained APCs, Air scrubbers, and Air vents.")
+		pass("All \[[area_test_count]\] areas contained APCs, air scrubbers, air vents, and fire alarms.")
 
-	return 1
+	return TRUE
 
 //=======================================================================================
 
@@ -293,7 +307,8 @@
 /datum/unit_test/map_test/all_station_areas_shall_be_on_station_zlevels
 	name = "MAP: Station areas shall be on station z-levels"
 	var/list/exclude = list(
-		/area/holodeck // These are necessarily mapped on a non-station z-level so they can be copied over to the holodeck on the station z-levels
+		/area/holodeck, // These are necessarily mapped on a non-station z-level so they can be copied over to the holodeck on the station z-levels
+		/area/horizon/holodeck
 		)
 
 /datum/unit_test/map_test/all_station_areas_shall_be_on_station_zlevels/start_test()

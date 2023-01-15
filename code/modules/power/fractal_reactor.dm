@@ -20,7 +20,7 @@
 	if(!mapped_in)
 		log_and_message_admins("<b><span class='alert'>WARNING:</span> Map testing power source activated at: X:[src.loc.x] Y:[src.loc.y] Z:[src.loc.z]</b>")
 
-/obj/machinery/power/fractal_reactor/machinery_process()
+/obj/machinery/power/fractal_reactor/process()
 	if(!powernet && !powernet_connection_failed)
 		if(!connect_to_network())
 			powernet_connection_failed = 1

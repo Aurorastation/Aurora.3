@@ -13,6 +13,7 @@
 	ammo_type = /obj/item/ammo_casing/a357
 	magazine_type = /obj/item/ammo_magazine/a357
 	fire_sound = 'sound/weapons/gunshot/gunshot_revolver.ogg'
+	empty_sound = /decl/sound_category/out_of_ammo_revolver
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
 /obj/item/gun/projectile/revolver/verb/spin_cylinder()
@@ -52,8 +53,8 @@
 	magazine_type = /obj/item/ammo_magazine/a454
 
 /obj/item/gun/projectile/revolver/detective
-	name = "revolver"
-	desc = "A cheap Martian knock-off of a Smith & Wesson Model 10. Uses .38-Special rounds."
+	name = "antique revolver"
+	desc = "An old, obsolete revolver. It has no identifying marks. Chambered in the antiquated .38 caliber. Maybe the Tajara made it?"
 	icon = 'icons/obj/guns/detective.dmi'
 	icon_state = "detective"
 	item_state = "detective"
@@ -82,35 +83,6 @@
 		name = input
 		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 		return 1
-
-// Blade Runner pistol.
-/obj/item/gun/projectile/revolver/deckard
-	name = "\improper Deckard .44"
-	desc = "A custom-built revolver, based off the semi-popular Detective Special model."
-	max_shells = 6
-	accuracy = 2
-	icon = 'icons/obj/guns/deckard.dmi'
-	icon_state = "deckard-empty"
-	item_state = "deckard"
-	caliber = "38"
-	ammo_type = /obj/item/ammo_casing/c38
-	magazine_type = null
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
-
-/obj/item/gun/projectile/revolver/deckard/update_icon()
-	..()
-	if(loaded.len)
-		icon_state = "deckard-loaded"
-	else
-		icon_state = "deckard-empty"
-
-/obj/item/gun/projectile/revolver/deckard/load_ammo(var/obj/item/A, mob/user)
-	if(istype(A, /obj/item/ammo_magazine))
-		flick("deckard-reload",src)
-	..()
-
-/obj/item/gun/projectile/revolver/deckard/emp
-	ammo_type = /obj/item/ammo_casing/c38/emp
 
 /obj/item/gun/projectile/revolver/derringer
 	name = "derringer"
@@ -250,7 +222,7 @@
 	ammo_type = /obj/item/ammo_casing/c38
 	magazine_type = null
 
-	desc_fluff = "A simple and reliable double action revolver, favored by the nobility, officers and law enforcement. The design is known for having an outdated reloading \
+	desc_extended = "A simple and reliable double action revolver, favored by the nobility, officers and law enforcement. The design is known for having an outdated reloading \
 	mechanism, with the need to manually eject each of the used cartridges, and reload one cartridge at a time through a loading gate. However, their cheap manufacturing cost has \
 	allowed countless copies to flood the Kingdom's markets."
 

@@ -8,12 +8,18 @@ on:
     branches:
     - master
 
+env:
+  MACRO_COUNT: 0
+  GENDER_COUNT: 6
+  TO_WORLD_COUNT: 204
+  TGM_CHECK: "//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE"
+
 jobs:
   lint:
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install
         run: |
           pip install --user -r ./tools/requirements.txt
@@ -27,10 +33,11 @@ jobs:
           python3 tools/mapmerge2/travis_mapcheck.py
           echo "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml" | md5sum -c -
       - name: Run dreamchecker
+        id: runDreamchecker
         run: ~/dreamchecker > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
       - name: Annotate Lints
-        uses: yogstation13/DreamAnnotate@v1
-        if: always()
+        if: failure() && steps.runDreamchecker.outcome == 'failure'
+        uses: yogstation13/DreamAnnotate@v2
         with:
           outputFile: output-annotations.txt
 
@@ -38,7 +45,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
     strategy:
       matrix:
-        map: [runtime, aurora, sccv_horizon]
+        map: [runtime, aurora, sccv_horizon, away_sites_testing]
       fail-fast: false
     runs-on: ubuntu-20.04
     needs: lint
@@ -53,7 +60,7 @@ jobs:
           MYSQL_DATABASE: game
           MYSQL_ROOT_PASSWORD: root
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install BYOND
         run: |
           source .versions.sh
@@ -91,4 +98,3 @@ jobs:
           $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
-

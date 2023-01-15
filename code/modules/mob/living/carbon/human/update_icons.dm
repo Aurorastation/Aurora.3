@@ -85,42 +85,44 @@ There are several things that need to be remembered:
 */
 
 // Human Overlays Indexes //
-#define MUTATIONS_LAYER       1
-#define DAMAGE_LAYER          2
-#define SURGERY_LAYER         3
-#define UNDERWEAR_LAYER       4
-#define TAIL_SOUTH_LAYER      5
-#define TAIL_SOUTH_ACC_LAYER  6
-#define SHOES_LAYER_ALT       7
-#define UNIFORM_LAYER         8
-#define ID_LAYER              9
-#define SHOES_LAYER           10
-#define GLOVES_LAYER          11
-#define BELT_LAYER            12
-#define WRISTS_LAYER_ALT      13
-#define SUIT_LAYER            14
-#define ID_LAYER_ALT          15
-#define TAIL_NORTH_LAYER      16
-#define TAIL_NORTH_ACC_LAYER  17
-#define GLASSES_LAYER         18
-#define BELT_LAYER_ALT        19
-#define SUIT_STORE_LAYER      20
-#define BACK_LAYER            21
-#define HAIR_LAYER            22
-#define GLASSES_LAYER_ALT     23
-#define L_EAR_LAYER           24
-#define R_EAR_LAYER           25
-#define FACEMASK_LAYER        26
-#define HEAD_LAYER            27
-#define COLLAR_LAYER          28
-#define HANDCUFF_LAYER        29
-#define LEGCUFF_LAYER         30
-#define L_HAND_LAYER          31
-#define R_HAND_LAYER          32
-#define WRISTS_LAYER          33
-#define FIRE_LAYER            34 //If you're on fire
-#define TOTAL_LAYERS          34
-//////////////////////////////////
+// Layer 1 intentionally left empty.
+#define FIRE_LAYER_LOWER      2
+#define MUTATIONS_LAYER       3
+#define DAMAGE_LAYER          4
+#define SURGERY_LAYER         5
+#define UNDERWEAR_LAYER       6
+#define TAIL_SOUTH_LAYER      7
+#define TAIL_SOUTH_ACC_LAYER  8
+#define SHOES_LAYER_ALT       9
+#define UNIFORM_LAYER         10
+#define ID_LAYER              11
+#define SHOES_LAYER           12
+#define GLOVES_LAYER          13
+#define BELT_LAYER            14
+#define WRISTS_LAYER_ALT      15
+#define SUIT_LAYER            16
+#define ID_LAYER_ALT          17
+#define TAIL_NORTH_LAYER      18
+#define TAIL_NORTH_ACC_LAYER  19
+#define GLASSES_LAYER         20
+#define BELT_LAYER_ALT        21
+#define SUIT_STORE_LAYER      22
+#define BACK_LAYER            23
+#define HAIR_LAYER            24
+#define GLASSES_LAYER_ALT     25
+#define L_EAR_LAYER           26
+#define R_EAR_LAYER           27
+#define FACEMASK_LAYER        28
+#define HEAD_LAYER            29
+#define COLLAR_LAYER          30
+#define HANDCUFF_LAYER        31
+#define LEGCUFF_LAYER         32
+#define L_HAND_LAYER          33
+#define R_HAND_LAYER          34
+#define WRISTS_LAYER          35
+#define FIRE_LAYER_UPPER      36
+#define TOTAL_LAYERS          36
+////////////////////////////
 
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
 #define GET_TAIL_LAYER (dir == NORTH ? TAIL_NORTH_LAYER : TAIL_SOUTH_LAYER)
@@ -129,7 +131,7 @@ There are several things that need to be remembered:
 /proc/overlay_image(icon,icon_state,color,flags)
 	var/image/ret = image(icon,icon_state)
 	ret.color = color
-	ret.appearance_flags = flags
+	ret.appearance_flags = PIXEL_SCALE | flags
 	return ret
 
 /mob/living/carbon/human
@@ -262,7 +264,7 @@ There are several things that need to be remembered:
 		if(worn_overlay_color)
 			M.color = worn_overlay_color
 		. += M
-		
+
 /proc/slot_str_to_contained_flag(var/slot_str)
 	switch(slot_str)
 		if(slot_back_str)
@@ -304,9 +306,9 @@ There are several things that need to be remembered:
 
 	var/husk_color_mod = rgb(96,88,80)
 
-	var/husk = (HUSK in mutations)
-	var/fat = (FAT in mutations)
-	var/skeleton = (SKELETON in mutations)
+	var/husk = HAS_FLAG(mutations, HUSK)
+	var/fat = HAS_FLAG(mutations, FAT)
+	var/skeleton = HAS_FLAG(mutations, SKELETON)
 	var/g = (gender == FEMALE ? "f" : "m")
 
 	pixel_x = species.icon_x_offset
@@ -499,7 +501,7 @@ There are several things that need to be remembered:
 		return
 
 	var/fat
-	if(FAT in mutations)
+	if(HAS_FLAG(mutations, FAT))
 		fat = "fat"
 
 	var/image/standing	= image("icon" = 'icons/effects/genetics.dmi')
@@ -515,11 +517,9 @@ There are several things that need to be remembered:
 			if(underlay)
 				standing.underlays += underlay
 				add_image = 1
-	for(var/mut in mutations)
-		switch(mut)
-			if(LASER_EYES)
-				standing.overlays += "lasereyes_s"
-				add_image = 1
+	if(HAS_FLAG(mutations, LASER_EYES))
+		standing.overlays += "lasereyes_s"
+		add_image = 1
 	if(add_image)
 		overlays_raw[MUTATIONS_LAYER] = standing
 	else
@@ -1285,7 +1285,7 @@ There are several things that need to be remembered:
 
 	var/tail_layer = GET_TAIL_LAYER
 
-	if(tail_style && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+	if(species.tail && NOT_FLAG(mutations, HUSK) && NOT_FLAG(mutations, SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
 		overlays_raw[tail_layer] = image(tail_s, icon_state = "[tail_style]_s")
 		animate_tail_reset()
@@ -1405,14 +1405,16 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_fire(var/update_icons=1)
-	if (QDELING(src))
+// update_fire()
+/mob/living/carbon/human/update_fire(var/update_icons = TRUE)
+	if(QDELING(src))
 		return
 
-	var/image/fire_image = on_fire ? image(species.onfire_overlay, "Standing", layer = FIRE_LAYER) : null
-	if(fire_image)
-		fire_image.appearance_flags = RESET_ALPHA
-	overlays_raw[FIRE_LAYER] = fire_image
+	var/image/fire_image_lower = on_fire ? image(species.onfire_overlay, "lower", layer = FIRE_LAYER_LOWER) : null
+	var/image/fire_image_upper = on_fire ? image(species.onfire_overlay, "upper", layer = FIRE_LAYER_UPPER) : null
+
+	overlays_raw[FIRE_LAYER_LOWER] = fire_image_lower
+	overlays_raw[FIRE_LAYER_UPPER] = fire_image_upper
 
 	if(update_icons)
 		update_icon()
@@ -1540,6 +1542,7 @@ There are several things that need to be remembered:
 		return TRUE
 
 //Human Overlays Indexes/////////
+#undef FIRE_LAYER_LOWER
 #undef MUTATIONS_LAYER
 #undef DAMAGE_LAYER
 #undef SURGERY_LAYER
@@ -1567,7 +1570,7 @@ There are several things that need to be remembered:
 #undef L_HAND_LAYER
 #undef R_HAND_LAYER
 #undef WRISTS_LAYER
-#undef FIRE_LAYER
+#undef FIRE_LAYER_UPPER
 #undef TOTAL_LAYERS
 
 #undef UNDERSCORE_OR_NULL

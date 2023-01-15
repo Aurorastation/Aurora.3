@@ -9,7 +9,11 @@
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_bar)
@@ -21,10 +25,10 @@
 	name = "Bartender"
 	jobtype = /datum/job/bartender
 
-	uniform = /obj/item/clothing/under/rank/bartender/nt
-	head = /obj/item/clothing/head/flatcap/bartender/nt
+	head = /obj/item/clothing/head/flatcap/bartender
+	uniform = /obj/item/clothing/under/rank/bartender
 	shoes = /obj/item/clothing/shoes/black
-	suit = /obj/item/clothing/suit/storage/bartender/nt
+	suit = /obj/item/clothing/suit/storage/bartender
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/bartender
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender
@@ -35,6 +39,10 @@
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/job/chef
 	title = "Chef"
@@ -47,10 +55,15 @@
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_kitchen)
+	alt_titles = list("Cook")
 	outfit = /datum/outfit/job/chef
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -72,6 +85,11 @@
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
+
 	backpack_contents = list(
 		/obj/item/storage/box/produce = 1
 	)
@@ -87,7 +105,11 @@
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_hydroponics)
@@ -99,7 +121,7 @@
 	name = "Gardener"
 	jobtype = /datum/job/hydro
 
-	uniform = /obj/item/clothing/under/rank/hydroponics/nt
+	uniform = /obj/item/clothing/under/rank/hydroponics
 //	suit = /obj/item/clothing/suit/apron
 	head = /obj/item/clothing/head/bandana/hydro/nt
 	shoes = /obj/item/clothing/shoes/black
@@ -115,9 +137,13 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
 	backpack = /obj/item/storage/backpack/hydroponics
-	satchel = /obj/item/storage/backpack/satchel_hyd
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel = /obj/item/storage/backpack/satchel/hyd
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
 	dufflebag = /obj/item/storage/backpack/duffel/hyd
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag = /obj/item/storage/backpack/messenger/hyd
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/outfit/job/hydro/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -148,8 +174,8 @@
 	name = "Janitor"
 	jobtype = /datum/job/janitor
 
-	uniform = /obj/item/clothing/under/rank/janitor/nt
-	head = /obj/item/clothing/head/softcap/janitor/nt
+	uniform = /obj/item/clothing/under/rank/janitor
+	head = /obj/item/clothing/head/softcap/nt/custodian
 	shoes = /obj/item/clothing/shoes/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/janitor
@@ -161,6 +187,11 @@
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
+
 /datum/job/journalist
 	title = "Corporate Reporter"
 	flag = JOURNALIST
@@ -169,10 +200,14 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the service managaer"
+	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
-	minimum_character_age = 20
+	minimum_character_age = list(
+		SPECIES_HUMAN = 20,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	access = list(access_journalist, access_maint_tunnels)
 	minimal_access = list(access_journalist, access_maint_tunnels)
@@ -180,7 +215,7 @@
 	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
 	title_accesses = list("Corporate Reporter" = list(access_medical, access_sec_doors, access_research, access_engine))
 	outfit = /datum/outfit/job/journalist
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/journalist
 	name = "Corporate Reporter"
@@ -197,6 +232,11 @@
 	bowman = /obj/item/device/radio/headset/headset_service/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
+
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	backpack_contents = list(
 		/obj/item/clothing/accessory/badge/press = 1
@@ -241,7 +281,7 @@
 	name = "Librarian"
 	jobtype = /datum/job/librarian
 
-	uniform = /obj/item/clothing/under/librarian/nt
+	uniform = /obj/item/clothing/under/librarian
 	shoes = /obj/item/clothing/shoes/black
 	r_pocket = /obj/item/barcodescanner
 	l_hand = /obj/item/storage/bag/books
@@ -254,6 +294,11 @@
 	bowman = /obj/item/device/radio/headset/headset_service/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
+
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/outfit/job/librarian/curator
 	name = "Curator"
@@ -273,6 +318,13 @@
 	r_hand = /obj/item/storage/bag/circuits/basic
 	l_hand = /obj/item/modular_computer/laptop/preset
 	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
+
+/datum/outfit/job/librarian/tech_support/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(visualsOnly)
+		r_hand = null
+	else
+		r_hand = initial(r_hand)
+	return ..()
 
 /datum/job/chaplain
 	title = "Chaplain"
@@ -305,6 +357,11 @@
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/chaplain
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/chaplain
+
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/outfit/job/chaplain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -343,16 +400,24 @@
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#967032"
-	economic_modifier = 5
+	economic_modifier = 10
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 70,
+		SPECIES_SKRELL_AXIORI = 70
+	)
 
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
-						access_sec_doors, access_research, access_medical, access_robotics)
-	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
-						access_sec_doors, access_research, access_medical, access_robotics)
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_ship_weapons, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
+						access_sec_doors, access_research, access_medical, access_robotics, access_engine, access_teleporter, access_eva, access_intrepid)
+	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_ship_weapons, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
+						access_sec_doors, access_research, access_medical, access_robotics, access_engine, access_teleporter, access_eva, access_intrepid)
 
-	ideal_character_age = 40
+	ideal_character_age = list(
+		SPECIES_HUMAN = 40,
+		SPECIES_SKRELL = 90,
+		SPECIES_SKRELL_AXIORI = 90
+	)
 
 	outfit = /datum/outfit/job/operations_manager
 
@@ -368,14 +433,19 @@
 	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
-	tab_pda = /obj/item/modular_computer/handheld/pda/supply/qm
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/qm
-	tablet = /obj/item/modular_computer/handheld/preset/supply/qm
+	tab_pda = /obj/item/modular_computer/handheld/pda/supply/om
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/om
+	tablet = /obj/item/modular_computer/handheld/preset/supply/om
 
 	headset = /obj/item/device/radio/headset/operations_manager
 	bowman = /obj/item/device/radio/headset/operations_manager/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/operations_manager
 	wrist_radio = /obj/item/device/radio/headset/wrist/cargo/operations_manager
+
+	backpack = /obj/item/storage/backpack/om
+	satchel = /obj/item/storage/backpack/satchel/om
+	dufflebag = /obj/item/storage/backpack/duffel/om
+	messengerbag = /obj/item/storage/backpack/messenger/om
 
 
 /datum/job/hangar_tech
@@ -386,13 +456,17 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the supply manager"
+	supervisors = "the operations manager"
 	selection_color = "#7B431C"
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
-	minimal_access = list(access_cargo, access_cargo_bot, access_mailsorting)
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_ship_weapons, access_cargo_bot, access_mining, access_mining_station)
+	minimal_access = list(access_cargo, access_cargo_bot, access_ship_weapons, access_mailsorting)
 	outfit = /datum/outfit/job/hangar_tech
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -414,7 +488,6 @@
 	double_headset = /obj/item/device/radio/headset/alt/double/cargo
 	wrist_radio = /obj/item/device/radio/headset/wrist/cargo
 
-
 /datum/job/mining
 	title = "Shaft Miner"
 	flag = MINER
@@ -423,13 +496,17 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the supply manager"
+	supervisors = "the operations manager"
 	selection_color = "#7B431C"
 	economic_modifier = 5
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_mining, access_mining_station)
 	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
 	outfit = /datum/outfit/job/mining
 
@@ -458,7 +535,7 @@
 	)
 
 	backpack = /obj/item/storage/backpack/industrial
-	satchel = /obj/item/storage/backpack/satchel_eng
+	satchel = /obj/item/storage/backpack/satchel/eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
@@ -471,14 +548,18 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "operations manager"
+	supervisors = "the operations manager"
 	selection_color = "#7B431C"
 	economic_modifier = 5
 
-	minimum_character_age = 25
+	minimum_character_age = list(
+		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 55,
+		SPECIES_SKRELL_AXIORI = 55
+	)
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research, access_mailsorting)
-	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_mailsorting)
+	access = list(access_robotics, access_tech_storage, access_mailsorting)
+	minimal_access = list(access_robotics, access_tech_storage, access_mailsorting)
 
 	minimal_player_age = 7
 
@@ -491,7 +572,7 @@
 	jobtype = /datum/job/machinist
 
 	uniform = /obj/item/clothing/under/rank/machinist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	suit = /obj/item/clothing/suit/storage/machinist
 	shoes = /obj/item/clothing/shoes/black
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/belt/utility

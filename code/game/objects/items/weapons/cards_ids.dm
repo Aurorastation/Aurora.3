@@ -131,6 +131,10 @@ var/const/NO_EMAG_ACT = -50
 	if (..(user, 1))
 		show(user)
 
+/obj/item/card/id/on_slotmove(var/mob/living/user, slot)
+	. = ..(user, slot)
+	BITSET(user.hud_updateflag, ID_HUD) //Update ID HUD if an ID is ever moved
+
 /obj/item/card/id/proc/prevent_tracking()
 	return 0
 
@@ -421,15 +425,26 @@ var/const/NO_EMAG_ACT = -50
 	access = list(access_merchant)
 
 /obj/item/card/id/synthetic
-	name = "\improper Synthetic ID"
-	desc = "Access module for NanoTrasen Synthetics"
+	name = "\improper Equipment ID"
+	desc = "Access module for SCC equipment."
 	icon_state = "id-robot"
 	item_state = "tdgreen"
-	assignment = "Synthetic"
+	assignment = "Equipment"
 
 /obj/item/card/id/synthetic/New()
-	access = get_all_station_access() + access_synth
+	access = get_all_station_access() + access_equipment
 	..()
+
+/obj/item/card/id/synthetic/cyborg
+	name = "\improper Equipment ID"
+	desc = "Access module for SCC equipment."
+	icon_state = "id-robot"
+	item_state = "tdgreen"
+	assignment = "Equipment"
+
+/obj/item/card/id/synthetic/cyborg/New()
+	..()
+	access = list(access_equipment, access_ai_upload, access_external_airlocks) // barebones cyborg access. Job special added in different place
 
 /obj/item/card/id/minedrone
 	name = "\improper Minedrone ID"
@@ -473,7 +488,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "fib"
 
 /obj/item/card/id/ert
-	name = "\improper Nanotrasen Emergency Response Team ID"
+	name = "\improper NanoTrasen Emergency Response Team ID"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Emergency Response Team"
@@ -483,7 +498,7 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/asset_protection
-	name = "\improper Nanotrasen Asset Protection ID"
+	name = "\improper NanoTrasen Asset Protection ID"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Asset Protection"
@@ -521,11 +536,11 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/distress/ap_eridani
-	name = "\improper Eridani identification card"
+	name = "\improper Eridani Private Military Contractor ID"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
 	assignment = "EPMC Asset Protection"
-	icon_state = "erisec_card"
-	overlay_state = "erisec_card"
+	icon_state = "pmc_card"
+	overlay_state = "pmc_card"
 
 /obj/item/card/id/distress/ap_eridani/New()
 	access = get_distress_access()
@@ -574,8 +589,8 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/pmc
 	name = "\improper PMCG identification card"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Private Military Contracting Group."
-	icon_state = "erisec_card"
-	overlay_state = "erisec_card"
+	icon_state = "pmc_card"
+	overlay_state = "pmc_card"
 
 /obj/item/card/id/zeng_hu
 	name = "\improper Zeng-Hu Pharmaceuticals identification card"
@@ -607,9 +622,15 @@ var/const/NO_EMAG_ACT = -50
 	overlay_state = "einstein_card"
 	iff_faction = IFF_EE
 
+/obj/item/card/id/orion
+	name = "\improper Orion Express identification card"
+	desc = "A well-worn identification pass, retrofitted with wireless transmission technology."
+	icon_state = "orion_card"
+	overlay_state = "orion_card"
+
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"
-	desc = "A bizarre imitation of Nanotrasen identification cards. It seems to function normally as well."
+	desc = "A bizarre imitation of NanoTrasen identification cards. It seems to function normally as well."
 	desc_antag = "Access can be copied from other ID cards by clicking on them."
 	icon_state = "crystalid"
 	iff_faction = IFF_BLUESPACE

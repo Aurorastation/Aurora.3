@@ -139,7 +139,6 @@
 
 	var/safe_exhaled_max = 10
 	var/safe_toxins_max = 0.2
-	var/SA_para_min = 1
 	var/SA_sleep_min = 5
 	var/inhaled_gas_used = 0
 
@@ -243,15 +242,10 @@
 	if(breath.gas[GAS_N2O])
 		var/SA_pp = (breath.gas[GAS_N2O] / breath.total_moles) * breath_pressure
 
-		// Enough to make us paralysed for a bit
-		if(SA_pp > SA_para_min)
-
-			// 3 gives them one second to wake up and run away a bit!
-			owner.Paralyse(3)
-
-			// Enough to make us sleep as well
-			if(SA_pp > SA_sleep_min)
-				owner.Sleeping(10)
+		// Enough to make us sleep as well
+		if(SA_pp > SA_sleep_min)
+			owner.Sleeping(10)
+			owner.eye_blurry = 10
 
 		// There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
 		else if(SA_pp > 0.15)
@@ -292,7 +286,7 @@
 	return failed_breath
 
 /obj/item/organ/internal/lungs/proc/handle_temperature_effects(datum/gas_mixture/breath)
-	if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1) && !(COLD_RESISTANCE in owner.mutations))
+	if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1) && NOT_FLAG(owner.mutations, COLD_RESISTANCE))
 
 		if(breath.temperature <= owner.species.cold_level_1)
 			if(prob(20))
@@ -369,6 +363,9 @@
 	. += "[english_list(breathtype)] breathing"
 
 	return english_list(.)
+
+/obj/item/organ/internal/lungs/special_condition()
+	return rescued
 
 /obj/item/organ/internal/lungs/surgical_fix(mob/user)
 	..()

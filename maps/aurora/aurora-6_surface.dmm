@@ -1184,7 +1184,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
 /obj/machinery/light/small/emergency{
@@ -1912,7 +1911,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "byl" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
@@ -2376,7 +2375,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "bPl" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = -32
 	},
 /obj/item/stack/medical/ointment,
@@ -2492,7 +2491,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
 /obj/machinery/door/blast/shutters/open{
@@ -2842,6 +2840,7 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 12
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "ckT" = (
@@ -3253,7 +3252,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/effect/floor_decal/scc_full,
+/obj/effect/floor_decal/big/scc_full,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "cDq" = (
@@ -4130,7 +4129,6 @@
 /area/sconference_room)
 "dvx" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 20
 	},
 /obj/effect/decal/cleanable/cobweb,
@@ -5321,7 +5319,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/shields)
 "eGQ" = (
-/obj/structure/closet/secure_closet/operation_manager,
+/obj/structure/closet/secure_closet/operations_manager,
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "eHi" = (
@@ -5645,6 +5643,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/stairs)
+"eTa" = (
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled/freezer,
+/area/crew_quarters/toilet)
 "eTH" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
@@ -5847,7 +5849,6 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = 26
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5931,7 +5932,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/tiled,
@@ -6728,13 +6728,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
-"fSr" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/tcommsat/chamber)
 "fSV" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
@@ -8237,7 +8230,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -25
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8590,7 +8582,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 8
 	},
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = 31
 	},
 /obj/item/bodybag/cryobag,
@@ -9337,7 +9329,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
 "ibJ" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = 28;
 	pixel_y = -4
 	},
@@ -9665,7 +9657,6 @@
 /area/solar/fore)
 "ioe" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = -29
 	},
 /turf/simulated/floor/wood,
@@ -9805,7 +9796,7 @@
 	},
 /area/mine/explored)
 "iwL" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -10204,6 +10195,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
+"iQw" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/tcommsat/lounge)
 "iQS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -12547,7 +12545,6 @@
 "kWs" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = -20
 	},
 /obj/effect/floor_decal/corner/purple/full{
@@ -15036,8 +15033,6 @@
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/bus,
 /obj/item/circuitboard/telecomms/broadcaster,
-/obj/item/circuitboard/telecomms/relay,
-/obj/item/circuitboard/telecomms/relay,
 /obj/item/circuitboard/telecomms/hub,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
@@ -15080,7 +15075,7 @@
 /area/hallway/secondary/entry/departure_lounge)
 "neq" = (
 /obj/structure/bed/roller,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = 30;
 	pixel_y = -30;
@@ -16667,7 +16662,7 @@
 /turf/simulated/wall,
 /area/security/vacantoffice)
 "oBr" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -18844,7 +18839,6 @@
 /area/quartermaster/qm)
 "qjG" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_x = -29
 	},
 /obj/structure/table/reinforced,
@@ -19147,7 +19141,6 @@
 /obj/item/stock_parts/subspace/amplifier,
 /obj/item/stock_parts/subspace/amplifier,
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_x = 29
 	},
 /obj/machinery/light/small/emergency{
@@ -19236,7 +19229,7 @@
 /turf/simulated/open,
 /area/maintenance/substation/civilian_east)
 "qCa" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating,
@@ -19407,7 +19400,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
 /obj/effect/floor_decal/corner/red,
@@ -19737,13 +19729,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
-"raf" = (
-/obj/machinery/telecomms/relay/preset/station,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/tcommsat/chamber)
 "ras" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -20152,7 +20137,7 @@
 	pixel_x = -6;
 	pixel_y = 12
 	},
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 5;
 	pixel_y = -1
 	},
@@ -20166,6 +20151,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
+"rpG" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/turret_protected/tcomfoyer)
 "rqf" = (
 /obj/machinery/smartfridge/drying_rack,
 /obj/machinery/light{
@@ -21103,11 +21092,11 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/megavendor/vendor,
+/obj/structure/closet/emcloset,
+/obj/item/storage/toolbox/emergency,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "seu" = (
@@ -21348,7 +21337,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
 /obj/machinery/light/small/emergency{
@@ -23412,7 +23400,6 @@
 /obj/item/bedsheet/mime,
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = -28
 	},
 /turf/simulated/floor/wood,
@@ -23465,6 +23452,11 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
+"tZL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/plating,
+/area/store)
 "uaq" = (
 /obj/machinery/status_display{
 	pixel_y = 32
@@ -25203,7 +25195,6 @@
 /area/crew_quarters/fitness/changing)
 "vyU" = (
 /obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
 	pixel_y = -29
 	},
 /turf/simulated/floor/tiled,
@@ -25947,6 +25938,15 @@
 	},
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
+"wiv" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/bluegrid{
+	name = "Mainframe Base";
+	nitrogen = 100;
+	oxygen = 0;
+	temperature = 80
+	},
+/area/tcommsat/chamber)
 "wkD" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -26221,12 +26221,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/closet/secure_closet/freezer{
-	icon_broken = "fridgebroken";
-	icon_closed = "fridge";
-	icon_locked = "fridge1";
-	icon_off = "fridge1";
-	icon_opened = "fridgeopen";
-	icon_state = "fridge1";
+	icon_state = "freezer";
 	name = "cafe fridge"
 	},
 /obj/machinery/button/remote/blast_door{
@@ -26356,7 +26351,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
 /obj/machinery/light/small/emergency{
@@ -26462,7 +26456,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_x = -32
 	},
 /obj/item/stack/medical/bruise_pack,
@@ -26498,7 +26492,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "wHS" = (
@@ -26916,7 +26910,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = -28;
 	pixel_y = -4
 	},
@@ -26969,7 +26962,7 @@
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "wXr" = (
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
@@ -27004,7 +26997,6 @@
 "wZN" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
 /turf/simulated/floor/tiled,
@@ -27578,7 +27570,6 @@
 "xCq" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	name = "Station Intercom (General)";
 	pixel_x = 27
 	},
 /obj/structure/disposalpipe/segment,
@@ -28231,7 +28222,6 @@
 "yeL" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	name = "Station Intercom (General)";
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -39055,7 +39045,7 @@ hlb
 qRF
 rjc
 qys
-xBr
+wiv
 mRI
 uso
 mRI
@@ -39316,7 +39306,7 @@ cmK
 mRI
 gQU
 mRI
-fSr
+mRI
 blE
 mRI
 uvR
@@ -40350,7 +40340,7 @@ mRI
 mRI
 xBr
 qys
-czc
+rpG
 fEH
 scq
 exe
@@ -40858,7 +40848,7 @@ qSE
 mRI
 mRI
 mRI
-raf
+mRI
 blE
 mRI
 ojT
@@ -41099,7 +41089,7 @@ gfY
 bPW
 moB
 odh
-odh
+iQw
 fSf
 pcH
 kii
@@ -52408,7 +52398,7 @@ nZj
 wHS
 mox
 aEx
-tSy
+tZL
 ePX
 tSy
 nvR
@@ -58574,7 +58564,7 @@ pTq
 gqB
 meV
 lOa
-kjO
+eTa
 kjO
 vnh
 alj

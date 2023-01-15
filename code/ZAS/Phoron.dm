@@ -40,12 +40,14 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 
 /obj/var/contaminated = 0
 
-
 /obj/item/proc/can_contaminate()
-	//Clothing and backpacks can be contaminated.
-	if(flags & PHORONGUARD) return 0
-	else if(istype(src,/obj/item/storage/backpack)) return 0 //Cannot be washed :(
-	else if(istype(src,/obj/item/clothing)) return 1
+	if(flags & PHORONGUARD)
+		return FALSE
+	return TRUE
+
+//Clothing can be contaminated.
+/obj/item/storage/backpack/can_contaminate()
+	return FALSE
 
 /obj/item/proc/contaminate()
 	//Do a contamination overlay? Temporary measure to keep contamination less deadly than it was.
@@ -68,10 +70,6 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	if(!pl_head_protected())
 		if(prob(1)) suit_contamination() //Phoron can sometimes get through such an open suit.
 
-//Cannot wash backpacks currently.
-//	if(istype(back,/obj/item/storage/backpack))
-//		back.contaminate()
-
 /mob/proc/pl_effects()
 
 /mob/living/carbon/human/pl_effects()
@@ -90,7 +88,7 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	//Burn skin if exposed.
 	if(vsc.plc.SKIN_BURNS)
 		if(!pl_head_protected() || !pl_suit_protected())
-			burn_skin(2)
+			burn_skin(3)
 			if(prob(20))
 				to_chat(src, SPAN_DANGER("Your skin burns!"))
 			updatehealth()
@@ -171,9 +169,10 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	if(gloves) gloves.contaminate()
 
 
-turf/Entered(obj/item/I)
-	. = ..()
+turf/Entered(atom/movable/thing, turf/oldLoc)
+	. = ..(thing, oldLoc)
 	//Items that are in phoron, but not on a mob, can still be contaminated.
+	var/obj/item/I = thing
 	if(istype(I) && vsc.plc.CLOTH_CONTAMINATION && I.can_contaminate())
 		var/datum/gas_mixture/env = return_air(1)
 		if(!env)

@@ -1,7 +1,6 @@
 /datum/universal_state/bluespace_jump
 	name = "Bluespace Jump"
 	var/list/bluespaced = list()
-	var/list/bluegoasts = list()
 	var/list/affected_levels
 	var/list/old_accessible_z_levels
 
@@ -53,16 +52,9 @@
 
 /datum/universal_state/bluespace_jump/proc/clear_bluespaced(var/mob/living/M)
 	if(M.client)
-		to_chat(M,"<span class='notice'>You feel rooted in material world again.</span>")
+		to_chat(M,"<span class='notice'>You feel rooted in the material world again.</span>")
 		M.clear_fullscreen("bluespace")
 	M.confused = 0
-	for(var/mob/abstract/observer/goast in player_list)
-		goast.mouse_opacity = initial(goast.mouse_opacity)
-		goast.invisibility = goast.invisibility
-		goast.alpha = initial(goast.alpha)
-	for(var/G in bluegoasts)
-		qdel(G)
-	bluegoasts.Cut()
 
 /obj/effect/bluegoast
 	name = "bluespace echo"

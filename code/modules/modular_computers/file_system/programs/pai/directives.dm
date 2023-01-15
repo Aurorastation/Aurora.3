@@ -2,6 +2,7 @@
 	filename = "pai_directives"
 	filedesc = "pAI Directives"
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program is for viewing currently assigned directives."
 	size = 0
 

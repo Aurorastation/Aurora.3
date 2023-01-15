@@ -14,6 +14,27 @@
 		skipitems |= C.flags_inv
 	return skipitems
 
+/mob/living/carbon/human/proc/examine_pulse(mob/user)
+	if(user.stat || user.incapacitated() || !ishuman(user))
+		return
+
+	var/mob/living/carbon/human/H = user
+	if(H.has_stethoscope_active())
+		var/obj/item/organ/organ = src.get_organ(user.zone_sel.selecting)
+		if(organ)
+			user.visible_message("<b>[user]</b> checks [src] with a stethoscope.", "You check [src] with the stethoscope on your person.")
+			to_chat(user, SPAN_NOTICE("You place the stethoscope against [src]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>."))
+		else
+			to_chat(user, SPAN_WARNING("[src] is missing that limb!"))
+
+	else if(src.stat && !(src.species.flags & NO_BLOOD))
+		user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
+		if(do_mob(user, src, 15))
+			if(pulse() == PULSE_NONE || (status_flags & FAKEDEATH))
+				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] no pulse.</span>")
+			else
+				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
+
 /mob/living/carbon/human/examine(mob/user)
 	var/skipbody = get_covered_body_parts()
 	var/skipbody_thick = get_covered_body_parts(TRUE)
@@ -208,6 +229,10 @@
 		else if(jitteriness >= 100)
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] twitching ever so slightly.</span>\n"
 
+	//Red Nightshade
+	if(is_berserk())
+		msg += "<span class='warning'><B>[get_pronoun("He")] [get_pronoun("has")] engorged veins which appear a vibrant red.</B></span>\n"
+
 	//splints
 	for(var/organ in list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_R_FOOT,BP_L_FOOT))
 		var/obj/item/organ/external/o = get_organ(organ)
@@ -217,24 +242,17 @@
 			if(o.applied_pressure == src)
 				msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] applying pressure to [get_pronoun("his")] [o.name]!</span>\n"
 
-	if(mSmallsize in mutations)
+	if(HAS_FLAG(mutations, mSmallsize))
 		msg += "[get_pronoun("He")] [get_pronoun("is")] small halfling!\n"
 
 	var/distance = get_dist(user,src)
 	if(istype(user, /mob/abstract/observer) || user.stat == 2) // ghosts can see anything
 		distance = 1
-	if (src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
+
+	if(src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
 		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")]n't responding to anything around [get_pronoun("him")] and seems to be unconscious.</span>\n"
 		if((stat == DEAD || is_asystole() || src.losebreath) && distance <= 3 || (status_flags & FAKEDEATH))
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("does")] not appear to be breathing.</span>\n"
-		if(istype(user, /mob/living/carbon/human) && !user.stat && Adjacent(user))
-			spawn (0)
-				user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
-				if (do_mob(user, src, 15))
-					if(pulse() == PULSE_NONE || (status_flags & FAKEDEATH))
-						to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] no pulse.</span>")
-					else
-						to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
 
 	else if (src.stat)
 		msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] not responding to anything around [get_pronoun("him")].\n")
@@ -292,7 +310,7 @@
 				continue
 			var/thin_covering = (skipbody & body_part) ? TRUE : FALSE
 			if((temp.status & ORGAN_ASSISTED) && !thin_covering)
-				if(!(temp.brute_dam + temp.burn_dam))
+				if(!(temp.brute_dam + temp.burn_dam) && !(temp.open))
 					continue
 				else
 					wound_flavor_text["[temp.name]"] = "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [temp.get_wounds_desc()] on [get_pronoun("his")] [temp.name].</span><br>"
@@ -377,7 +395,7 @@
 
 	if(src in intent_listener)
 		msg += SPAN_NOTICE("\n[get_pronoun("He")] looks like [get_pronoun("he")] [get_pronoun("is")] listening intently to [get_pronoun("his")] surroundings.")
-	
+
 	var/datum/vampire/V = get_antag_datum(MODE_VAMPIRE)
 	if(V && (V.status & VAMP_DRAINING))
 		var/obj/item/grab/G = get_active_hand()
@@ -389,6 +407,8 @@
 		msg += "\n[get_pronoun("He")] [pose]"
 
 	to_chat(user, msg.Join())
+	if(Adjacent(user))
+		INVOKE_ASYNC(src, .proc/examine_pulse, user)
 
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
 /proc/hasHUD(mob/M, hudtype)

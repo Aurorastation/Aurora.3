@@ -23,7 +23,7 @@ datum/preferences
 	var/list/be_special_role = list()		//Special role selection
 	var/UI_style = "Midnight"
 	var/toggles = TOGGLES_DEFAULT
-	var/asfx_togs = ASFX_DEFAULT
+	var/sfx_toggles = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
 	var/html_UI_style = "Nano"
@@ -42,7 +42,9 @@ datum/preferences
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = OUTFIT_BACKPACK		//backpack type (defines in outfit.dm)
-	var/backbag_style = 1
+	var/backbag_style = OUTFIT_FACTIONSPECIFIC
+	var/backbag_color = OUTFIT_NOTHING
+	var/backbag_strap = OUTFIT_NORMAL
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 	var/primary_radio_slot = "Left Ear"
@@ -91,6 +93,9 @@ datum/preferences
 	var/faction = "None"                //Antag faction/general associated faction.
 	var/religion = "None"               //Religious association.
 	var/accent = "None"               //Character accent.
+
+	var/culture
+	var/origin
 
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/static/list/preview_screen_locs = list(
@@ -151,8 +156,7 @@ datum/preferences
 	var/metadata = ""
 
 	// SPAAAACE
-	var/parallax_speed = 2
-	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
+	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 0
 	var/floating_chat_color
 
@@ -287,7 +291,7 @@ datum/preferences
 	dat += player_setup.content(user)
 	send_theme_resources(user)
 	winshow(user, "preferences_window", TRUE)
-	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 1000, 1000)
+	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 1400, 1000)
 	popup.set_content(dat)
 	popup.open(FALSE) // Skip registering onclose on the browser pane
 	onclose(user, "preferences_window", src) // We want to register on the window itself
@@ -464,6 +468,8 @@ datum/preferences
 	character.employer_faction = faction
 	character.religion = religion
 	character.accent = accent
+	character.origin = decls_repository.get_decl(text2path(origin))
+	character.culture = decls_repository.get_decl(text2path(culture))
 
 	character.skills = skills
 	character.used_skillpoints = used_skillpoints
@@ -485,10 +491,12 @@ datum/preferences
 		else
 			all_underwear -= underwear_category_name
 
-	if(backbag > OUTFIT_CLASSICSATCHEL || backbag < OUTFIT_NOTHING)
+	if(backbag > OUTFIT_POCKETBOOK || backbag < OUTFIT_NOTHING)
 		backbag = OUTFIT_NOTHING //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style
+	character.backbag_color = backbag_color
+	character.backbag_strap = backbag_strap
 
 	if(pda_choice > OUTFIT_WRISTBOUND || pda_choice < OUTFIT_NOTHING)
 		pda_choice = OUTFIT_TAB_PDA
@@ -607,6 +615,8 @@ datum/preferences
 	gen_record = ""
 	exploit_record = ""
 	ccia_record = ""
+
+	gear_list = list() //Dont copy the loadout
 
 	ZeroSkills(1)
 

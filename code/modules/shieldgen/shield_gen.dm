@@ -8,7 +8,7 @@
 /obj/machinery/shield_gen
 	name = "bubble shield generator"
 	desc = "Machine that generates an impenetrable field of energy when activated."
-	icon = 'icons/obj/machines/shielding.dmi'
+	icon = 'icons/obj/machinery/shielding.dmi'
 	icon_state = "generator0"
 	var/active = FALSE
 	var/field_radius = 3
@@ -28,7 +28,7 @@
 	var/max_field_strength = 10
 	var/time_since_fail = 100
 	var/energy_conversion_rate = 0.0002	//how many renwicks per watt?
-	use_power = FALSE	//doesn't use APC power
+	use_power = POWER_USE_OFF	//doesn't use APC power
 	var/multiz = TRUE
 	var/multi_unlocked = TRUE
 	req_one_access = list(access_captain, access_security, access_engine)
@@ -120,7 +120,7 @@
 				break
 	return ui_interact(user)
 
-/obj/machinery/shield_gen/machinery_process()
+/obj/machinery/shield_gen/process()
 	if(active)
 		if(!anchored)
 			toggle()
@@ -142,6 +142,7 @@
 			var/required_energy = field.len * target_renwick_increase / energy_conversion_rate
 			var/assumed_charge = min(owned_capacitor.stored_charge, required_energy)
 			total_renwick_increase = assumed_charge * energy_conversion_rate
+			assumed_charge = max(assumed_charge, 0)
 			owned_capacitor.stored_charge -= assumed_charge
 		else
 			renwick_upkeep_per_field = max(renwick_upkeep_per_field, 0.5)

@@ -86,11 +86,12 @@
 	moving_status = SHUTTLE_WARMUP
 	callHook("shuttle_moved", list(start_location,destination))
 	if(sound_takeoff)
-		if(!fuel_check()) return
+		if(!fuel_check(TRUE)) // Check for fuel, but don't use any.
+			return
 		playsound(current_location, sound_takeoff, 25, 20, is_global = TRUE)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
-			return FALSE	//someone cancelled the launch
+			return	//someone cancelled the launch
 
 		if(!fuel_check()) //fuel error (probably out of fuel) occured, so cancel the launch
 			var/datum/shuttle/autodock/S = src
@@ -111,7 +112,8 @@
 	moving_status = SHUTTLE_WARMUP
 	callHook("shuttle_moved", list(start_location, destination))
 	if(sound_takeoff)
-		if(!fuel_check()) return
+		if(!fuel_check(TRUE)) // Check for fuel, but don't use any.
+			return
 		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
@@ -126,6 +128,7 @@
 		arrive_time = world.time + travel_time*10
 		moving_status = SHUTTLE_INTRANSIT
 		if(attempt_move(interim))
+			on_move_interim()
 			var/fwooshed = 0
 			while (world.time < arrive_time)
 				if(!fwooshed && (arrive_time - world.time) < 100)
@@ -299,3 +302,6 @@
 	process_state = new_state
 	for(var/obj/machinery/computer/shuttle_control/SC as anything in shuttle_computers)
 		SC.update_helmets(src)
+
+/datum/shuttle/proc/on_move_interim()
+	return

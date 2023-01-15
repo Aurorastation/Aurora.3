@@ -127,7 +127,7 @@
 		if(!E || !(E.limb_flags & ORGAN_CAN_GRASP) || (E.status & ORGAN_SPLINTED))
 			continue
 
-		if(E.is_broken() || E.is_dislocated())
+		if(E.is_broken() || ORGAN_IS_DISLOCATED(E))
 			switch(E.body_part)
 				if(HAND_LEFT, ARM_LEFT)
 					if(!l_hand)

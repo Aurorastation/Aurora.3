@@ -20,7 +20,7 @@
 //				CHEST INTERNAL ORGAN SURGERY					//
 //////////////////////////////////////////////////////////////////
 /decl/surgery_step/internal/fix_organ
-	name = "Repair internal organs"
+	name = "Repair Internal Organs"
 	allowed_tools = list(
 	/obj/item/stack/medical/advanced/bruise_pack= 100,		\
 	/obj/item/stack/medical/bruise_pack = 20
@@ -34,8 +34,8 @@
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/is_organ_damaged = FALSE
-	for(var/obj/item/organ/I in affected.internal_organs)
-		if(I.damage > 0)
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I.is_damaged())
 			is_organ_damaged = TRUE
 			break
 	return is_organ_damaged
@@ -52,7 +52,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && (!I.status & ORGAN_DEAD || I.can_recover()))
+		if(I && I.is_damaged() && !BP_IS_ROBOTIC(I) && (~I.status & ORGAN_DEAD || I.can_recover()))
 			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 			"You start treating damage to [target]'s [I.name] with [tool_name]." )
 	target.custom_pain("The pain in your [affected.name] is living hell!",100, affecting = affected)
@@ -71,7 +71,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I))
+		if(I && I.is_damaged() && !BP_IS_ROBOTIC(I))
 			if(I.status & ORGAN_DEAD && I.can_recover())
 				user.visible_message("<span class='notice'>\The [user] treats damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further.</span>", \
 				"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further.</span>" )
@@ -101,15 +101,15 @@
 		target.adjustToxLoss(10)
 		target.apply_damage(5, BRUTE, target_zone, 0, tool)
 
-	for(var/obj/item/organ/I in affected.internal_organs)
-		if(I && I.damage > 0)
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I && I.is_damaged())
 			I.take_damage(dam_amt,0)
 
 /decl/surgery_step/internal/fix_organ_robotic //For artificial organs
-	name = "Repair robotic organ"
+	name = "Repair Robotic Organ"
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
-	/obj/item/surgery/bonegel = 30,
+	/obj/item/surgery/bone_gel = 30,
 	SCREWDRIVER = 70
 	)
 
@@ -122,8 +122,8 @@
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/is_organ_damaged = 0
-	for(var/obj/item/organ/I in affected.internal_organs)
-		if(I.damage > 0 && I.robotic >= 2)
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I.is_damaged() && I.robotic >= 2)
 			is_organ_damaged = TRUE
 			break
 	return is_organ_damaged && IS_ORGAN_FULLY_OPEN
@@ -133,8 +133,8 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	for(var/obj/item/organ/I in affected.internal_organs)
-		if(I && I.damage > 0)
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I && I.is_damaged())
 			if(I.robotic >= 2)
 				user.visible_message("<b>[user]</b> starts mending the damage to [target]'s [I.name]'s mechanisms.", \
 					SPAN_NOTICE("You start mending the damage to [target]'s [I.name]'s mechanisms." ))
@@ -147,12 +147,12 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	for(var/obj/item/organ/I in affected.internal_organs)
-		if(I && I.damage > 0)
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I && I.is_damaged())
 			if(I.robotic >= 2)
 				user.visible_message("<b>[user]</b> repairs [target]'s [I.name] with [tool].", \
 					SPAN_NOTICE("You repair [target]'s [I.name] with [tool].") )
-				I.damage = 0
+				I.surgical_fix(user)
 				if(istype(tool, /obj/item/stack/nanopaste))
 					var/obj/item/stack/nanopaste/nanopaste = tool
 					nanopaste.use(1)
@@ -169,13 +169,13 @@
 	target.adjustToxLoss(5)
 	target.apply_damage(5, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
-	for(var/obj/item/organ/I in affected.internal_organs)
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I)
 			I.take_damage(rand(3,5),0)
 
 
 /decl/surgery_step/internal/detach_organ
-	name = "Separate organ"
+	name = "Separate Organ"
 	priority = 1
 	allowed_tools = list(
 	/obj/item/surgery/scalpel = 100,
@@ -239,7 +239,7 @@
 	target.apply_damage(rand(30, 50), BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/internal/remove_organ
-	name = "Remove organ"
+	name = "Remove Organ"
 	allowed_tools = list(
 	/obj/item/surgery/hemostat = 100,	\
 	WIRECUTTER = 75,	\
@@ -300,7 +300,7 @@
 	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/internal/replace_organ
-	name = "Replace organ"
+	name = "Replace Organ"
 	allowed_tools = list(
 	/obj/item/organ = 100
 	)
@@ -404,9 +404,9 @@
 		I.take_damage(rand(3,5),0)
 
 /decl/surgery_step/internal/attach_organ
-	name = "Attach organ"
+	name = "Attach Organ"
 	allowed_tools = list(
-	/obj/item/surgery/FixOVein = 100, \
+	/obj/item/surgery/fix_o_vein = 100, \
 	/obj/item/stack/cable_coil = 75
 	)
 

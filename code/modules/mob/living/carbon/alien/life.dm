@@ -91,24 +91,24 @@
 	return 1
 
 /mob/living/carbon/alien/handle_regular_hud_updates()
-	if (!..())
-		return//Returns if no client
+	if(!..())
+		return // Returns if no client.
 
-	if (stat == 2 || (XRAY in src.mutations))
-		sight |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_LEVEL_TWO
-	else if (stat != 2 && is_ventcrawling == 0)
-		if (species && species.vision_flags)
+	if(stat == DEAD || HAS_FLAG(mutations, XRAY))
+		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		set_see_in_dark(8)
+		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
+	else if(stat != DEAD && is_ventcrawling == FALSE)
+		if(species && species.vision_flags)
 			sight = species.vision_flags
 		else
-			sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		see_in_dark = 2
-		see_invisible = SEE_INVISIBLE_LIVING
+			set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
+		set_see_in_dark(2)
+		set_see_invisible(SEE_INVISIBLE_LIVING)
 
 	if (healths)
 		if (stat != DEAD)
-			switch((health - getHalLoss()) / maxHealth * 100)//Halloss should be factored in here for displaying
+			switch((health - getHalLoss()) / maxHealth * 100) // Halloss should be factored in here for displaying
 				if(100 to INFINITY)
 					healths.icon_state = "health0"
 				if(80 to 100)

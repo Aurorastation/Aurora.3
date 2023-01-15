@@ -14,9 +14,8 @@
 	var/storage_cost
 	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	var/obj/item/master
-	var/autodrobe_no_remove = 0
 
 	var/heat_protection = 0 //flags which determine which body parts are protected from heat. Use the HEAD, UPPER_TORSO, LOWER_TORSO, etc. flags. See setup.dm
 	var/cold_protection = 0 //flags which determine which body parts are protected from cold. Use the HEAD, UPPER_TORSO, LOWER_TORSO, etc. flags. See setup.dm
@@ -66,9 +65,11 @@
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
 	var/item_state_slots //overrides the default item_state for particular slots.
 
+	var/base_icon // used in furniture for previews. used in material weapons too.
 	var/build_from_parts = FALSE // when it uses coloration and a part of it wants to remain uncolored. e.g., handle of the screwdriver is colored while the head is not.
 	var/worn_overlay = null // used similarly as above, except for inhands.
 	var/worn_overlay_color = null // When you want your worn overlay to have colors. So you can have more than one modular coloring.
+	var/alpha_mask // when you want to slice out a chunk from a sprite
 
 	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
@@ -215,6 +216,8 @@
 		if(!temp)
 			to_chat(user, "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>")
 			return
+	if(!do_additional_pickup_checks(user))
+		return
 	var/obj/item/storage/S
 	var/storage_depth_matters = TRUE
 	if(istype(src.loc, /obj/item/storage))
@@ -227,7 +230,6 @@
 	src.pickup(user)
 	if(S)
 		S.remove_from_storage(src)
-
 	src.throwing = 0
 	if (src.loc == user)
 		if(!user.prepare_for_slotmove(src))
@@ -239,6 +241,9 @@
 	if (!user.put_in_active_hand(src))
 		forceMove(user.loc)
 	return
+
+/obj/item/proc/do_additional_pickup_checks(var/mob/user)
+	return TRUE
 
 /obj/item/attack_ai(mob/user as mob)
 	if (istype(src.loc, /obj/item/robot_module))
@@ -289,6 +294,7 @@
 
 			else if(S.can_be_inserted(src))
 				S.handle_item_insertion(src)
+			return TRUE
 
 //Called when the user alt-clicks on something with this item in their active hand
 //this function is designed to be overridden by individual weapons
@@ -356,6 +362,7 @@
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
 /obj/item/proc/on_exit_storage(obj/item/storage/S as obj)
+	do_drop_animation(S)
 	return
 
 // called when this item is added into a storage item, which is passed on as S. The loc variable is already set to the storage item.
@@ -680,8 +687,14 @@ modules/mob/mob_movement.dm if you move you will be zoomed out
 modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 */
 //Looking through a scope or binoculars should /not/ improve your periphereal vision. Still, increase viewsize a tiny bit so that sniping isn't as restricted to NSEW
-/obj/item/proc/zoom(var/mob/M, var/tileoffset = 14, var/viewsize = 9, var/do_device_check = TRUE) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
+/obj/item/proc/zoom(var/mob/M, var/tileoffset = 14, var/viewsize = 9, var/do_device_check = TRUE, var/show_zoom_message = TRUE) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
 	if (!M)
+		return
+	if(!isliving(M))
+		return
+	var/mob/living/L = M
+	if(L.z_eye)
+		to_chat(L, SPAN_WARNING("You can't do that from here!"))
 		return
 
 	var/devicename
@@ -726,7 +739,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				M.client.pixel_x = -viewoffset
 				M.client.pixel_y = 0
 
-		M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of \the [src.name]" : "[src.name]"].")
+		if(show_zoom_message)
+			M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of \the [src.name]" : "[src.name]"].")
 
 	else
 		M.client.view = world.view
@@ -738,7 +752,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		M.client.pixel_y = 0
 
 		if(!cannotzoom)
-			M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
+			if(show_zoom_message)
+				M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -871,6 +886,82 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return
 	usr.UnarmedAttack(src)
 
+/obj/item/proc/use_tool(atom/target, mob/living/user, delay, amount = 0, volume = 0, datum/callback/extra_checks)
+	// No delay means there is no start message, and no reason to call tool_start_check before use_tool.
+	// Run the start check here so we wouldn't have to call it manually.
+
+	//if(user.is_busy()) to be ported in future if we ever need it
+	//	return
+
+	if(!delay && !tool_start_check(user, amount))
+		return
+
+	delay /= toolspeed
+
+	// Play tool sound at the beginning of tool usage.
+	play_tool_sound(target, volume)
+
+	if(delay)
+		// Create a callback with checks that would be called every tick by do_after.
+		var/datum/callback/tool_check = CALLBACK(src, .proc/tool_check_callback, user, amount, extra_checks)
+
+		if(ismob(target))
+			if(!do_mob(user, target, delay, extra_checks = tool_check))
+				return
+
+		else
+			if(!do_after(user, delay, target, extra_checks = tool_check))
+				return
+	else
+		// Invoke the extra checks once, just in case.
+		if(extra_checks && !extra_checks.Invoke())
+			return
+
+	// Use tool's fuel, stack sheets or charges if amount is set.
+	if(amount && !use(amount))
+		return
+
+	// Play tool sound at the end of tool usage,
+	// but only if the delay between the beginning and the end is not too small
+	if(delay >= MIN_TOOL_SOUND_DELAY)
+		play_tool_sound(target, volume)
+
+	return TRUE
+
+// Called before use_tool if there is a delay, or by use_tool if there isn't.
+// Only ever used by welding tools and stacks, so it's not added on any other use_tool checks.
+/obj/item/proc/tool_start_check(mob/living/user, amount=0)
+	return tool_use_check(user, amount)
+
+// A check called by tool_start_check once, and by use_tool on every tick of delay.
+/obj/item/proc/tool_use_check(mob/living/user, amount)
+	return TRUE
+
+// Plays item's usesound, if any.
+/obj/item/proc/play_tool_sound(atom/target, volume=null) // null, so default value of this proc won't override default value of the playsound.
+	if(target && volume)
+		var/played_sound
+		if(usesound)
+			played_sound = usesound
+			if(islist(usesound))
+				played_sound = pick(usesound)
+		else if(hitsound) // use hitsound if there isn't a use sound.
+			played_sound = hitsound
+			if(islist(usesound))
+				played_sound = pick(hitsound)
+
+		//playsound(target, played_sound, VOL_EFFECTS_MASTER, volume) implement sound channel system in future
+		playsound(target, played_sound, volume, TRUE)
+
+// Generic use proc. Depending on the item, it uses up fuel, charges, sheets, etc.
+// Returns TRUE on success, FALSE on failure.
+/obj/item/proc/use(used, mob/M = null)
+	return !used
+
+// Used in a callback that is passed by use_tool into do_after call. Do not override, do not call manually.
+/obj/item/proc/tool_check_callback(mob/living/user, amount, datum/callback/extra_checks)
+	return tool_use_check(user, amount) && (!extra_checks || extra_checks.Invoke())
+
 /obj/item/proc/catch_fire()
 	return
 
@@ -956,9 +1047,18 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/get_head_examine_text(var/mob/user)
 	return "on [user.get_pronoun("his")] head"
-	
+
 /obj/item/proc/should_equip() // when you press E with an empty hand, will this item be pulled from suit storage / back slot and put into your hand
 	return FALSE
 
 /obj/item/proc/can_swap_hands(var/mob/user)
 	return TRUE
+
+/obj/item/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
+	if(!isturf(loc))
+		return
+	pickup_animation.overlays = overlays
+	. = ..()
+
+/obj/item/proc/throw_fail_consequences(var/mob/living/carbon/C)
+	return

@@ -9,7 +9,7 @@
 	var/datum/vampire/vampire = vampire_power(0, 0)
 	vampire.stealth = !vampire.stealth
 	if(vampire.stealth)
-		to_chat(src, SPAN_NOTICE("Your victims will now forget your interactions, and get paralyzed when you do them."))
+		to_chat(src, SPAN_NOTICE("Your victims will now forget your interactions and become paralyzed. After feeding on them, you can tell them what they should believe happened to them."))
 	else
 		to_chat(src, SPAN_NOTICE("Your victims will now remember your interactions."))
 
@@ -76,7 +76,7 @@
 	admin_attack_log(src, T, "drained blood from [key_name(T)], who [remembrance] the encounter.", "had their blood drained by [key_name(src)] and [remembrance] the encounter.", "is draining blood from")
 
 	if(vampire.stealth)
-		to_chat(T, SPAN_WARNING("You are unable to resist or even move. Your mind blanks as you're being fed upon."))
+		to_chat(T, SPAN_WARNING("You are unable to resist or even move. Your mind blanks completely as you're being fed upon."))
 		T.paralysis = 3400
 	else
 		to_chat(T, SPAN_WARNING("You are unable to resist or even move. Your mind is acutely aware of what's occuring."))
@@ -143,14 +143,14 @@
 
 	var/endsuckmsg = "You extract your fangs from \the [T]'s neck and stop draining them of blood."
 	if(vampire.stealth)
-		endsuckmsg += " They will remember nothing of this occurance, provided they survived."
+		endsuckmsg += " They will only remember about this encounter by what you tell them now. If you don't tell them anything, then they will forget the previous few minutes entirely, provided they survived."
 	visible_message(SPAN_DANGER("[src] stops biting \the [T]'s neck!"), SPAN_NOTICE(endsuckmsg))
 	if(target_aware)
 		T.paralysis = 0
 		T.stunned = 0
 		if(T.stat != DEAD)
 			if(vampire.stealth)
-				to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src]."))
+				to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember nothing about being fed upon. Instead, you remember whatever \the [src] told you after it was over. If \the [src] said nothing, then you have forgotten the entire interaction and the few minutes leading up to it."))
 			else
 				to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember everything about being fed upon. How you react to [src]'s actions is up to you."))
 
@@ -186,7 +186,7 @@
 			L.stuttering = 20
 			L.confused = 10
 			to_chat(L, SPAN_DANGER("You are blinded by [src]'s glare!"))
-			flick("flash", L.flash)
+			L.flash_eyes(FLASH_PROTECTION_MAJOR)
 			victims += L
 		else if(isrobot(L))
 			L.Weaken(rand(3, 6))
@@ -361,11 +361,17 @@
 			T.Stun(5)
 		T.stuttering = 20
 		T.adjustEarDamage(10, 20, TRUE)
-		
+
 		victims += T
 
 	for(var/obj/structure/window/W in view(7))
 		W.shatter()
+
+	for(var/obj/machinery/door/window/WD in view(7))
+		if(get_dist(src, WD) > 5) //Windoors are strong, may only take damage instead of break if far away.
+			WD.take_damage(rand(12, 16) * 10)
+		else
+			WD.shatter()
 
 	for(var/obj/machinery/light/L in view(7))
 		L.broken()
@@ -992,7 +998,7 @@
 
 	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"))
 
-	var/obj/item/grab/G = new(src, T)
+	var/obj/item/grab/G = new(src, src, T)
 	if(use_hand == "left")
 		l_hand = G
 	else

@@ -42,8 +42,9 @@
 	name = "vaurca brain"
 	desc = "The brain of a Vaurca, being similar to that of an insect; and that of a mammal."
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
+	can_prepare = FALSE
 
-/obj/item/organ/vaurca/reservoir
+/obj/item/organ/internal/vaurca/reservoir
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_PHORON_RESERVOIR
 	organ_tag = BP_PHORON_RESERVOIR
@@ -51,7 +52,7 @@
 	icon_state = "phoron_reservoir"
 	robotic = ROBOTIC_ASSISTED
 
-/obj/item/organ/vaurca/filtrationbit
+/obj/item/organ/internal/vaurca/filtrationbit
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_FILTRATION_BIT
 	organ_tag = BP_FILTRATION_BIT
@@ -59,7 +60,7 @@
 	icon_state = "filter"
 	robotic = ROBOTIC_MECHANICAL
 
-/obj/item/organ/vaurca/neuralsocket
+/obj/item/organ/internal/vaurca/neuralsocket
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_NEURAL_SOCKET
 	organ_tag = BP_NEURAL_SOCKET
@@ -79,19 +80,19 @@ obj/item/organ/vaurca/neuralsocket/process()
 			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	..()
 
-/obj/item/organ/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
 	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
 		owner.add_language(LANGUAGE_VAURCA)
 		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	..()
 
-/obj/item/organ/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
 	if(all_languages[LANGUAGE_VAURCA] in target.languages)
 		target.remove_language(LANGUAGE_VAURCA)
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
 	..()
 
-/obj/item/organ/vaurca/preserve
+/obj/item/organ/internal/vaurca/preserve
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_PHORON_RESERVE
 	organ_tag = BP_PHORON_RESERVE
@@ -104,7 +105,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 	var/volume = 50
 	var/manipulated_by = null
 
-/obj/item/organ/vaurca/preserve/Initialize()
+/obj/item/organ/internal/vaurca/preserve/Initialize()
 	. = ..()
 
 	air_contents = new /datum/gas_mixture()
@@ -121,13 +122,13 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 	return
 
-/obj/item/organ/vaurca/preserve/Destroy()
+/obj/item/organ/internal/vaurca/preserve/Destroy()
 	if(air_contents)
 		QDEL_NULL(air_contents)
 
 	return ..()
 
-/obj/item/organ/vaurca/preserve/examine(mob/user)
+/obj/item/organ/internal/vaurca/preserve/examine(mob/user)
 	. = ..(user, 0)
 	if(.)
 		var/celsius_temperature = air_contents.temperature - T0C
@@ -147,7 +148,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 				descriptive = "cold"
 		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
 
-/obj/item/organ/vaurca/preserve/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/organ/internal/vaurca/preserve/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	var/obj/icon = src
 
@@ -172,13 +173,13 @@ obj/item/organ/vaurca/neuralsocket/process()
 		B.blow(src)
 		src.add_fingerprint(user)
 
-/obj/item/organ/vaurca/preserve/attack_self(mob/user as mob)
+/obj/item/organ/internal/vaurca/preserve/attack_self(mob/user as mob)
 	if (!(src.air_contents))
 		return
 
 	ui_interact(user)
 
-/obj/item/organ/vaurca/preserve/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/organ/internal/vaurca/preserve/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/mob/living/carbon/location = null
 
 	var/using_internal
@@ -229,7 +230,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 		// auto update every Master Controller tick
 		ui.set_auto_update(1)
 
-/obj/item/organ/vaurca/preserve/Topic(href, href_list)
+/obj/item/organ/internal/vaurca/preserve/Topic(href, href_list)
 	..()
 	if (usr.stat|| usr.restrained())
 		return 0
@@ -276,19 +277,19 @@ obj/item/organ/vaurca/neuralsocket/process()
 	return 1
 
 
-/obj/item/organ/vaurca/preserve/remove_air(amount)
+/obj/item/organ/internal/vaurca/preserve/remove_air(amount)
 	return air_contents.remove(amount)
 
-/obj/item/organ/vaurca/preserve/return_air()
+/obj/item/organ/internal/vaurca/preserve/return_air()
 	return air_contents
 
-/obj/item/organ/vaurca/preserve/assume_air(datum/gas_mixture/giver)
+/obj/item/organ/internal/vaurca/preserve/assume_air(datum/gas_mixture/giver)
 	air_contents.merge(giver)
 
 	check_status()
 	return 1
 
-/obj/item/organ/vaurca/preserve/proc/remove_air_volume(volume_to_return)
+/obj/item/organ/internal/vaurca/preserve/proc/remove_air_volume(volume_to_return)
 	if(!air_contents)
 		return null
 
@@ -300,14 +301,14 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 	return remove_air(moles_needed)
 
-/obj/item/organ/vaurca/preserve/process()
+/obj/item/organ/internal/vaurca/preserve/process()
 	//Allow for reactions
 	air_contents.react() //cooking up air tanks - add phoron and oxygen, then heat above PHORON_MINIMUM_BURN_TEMPERATURE
 	check_status()
 	..()
 
 
-/obj/item/organ/vaurca/preserve/proc/check_status()
+/obj/item/organ/internal/vaurca/preserve/proc/check_status()
 	//Handle exploding, leaking, and rupturing of the tank
 
 	if(!air_contents)

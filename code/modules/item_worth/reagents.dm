@@ -207,6 +207,9 @@
 /decl/reagent/alcohol/wine
 	value = 0.1
 
+/decl/reagent/alcohol/wine/vintage
+	value = 15
+
 /decl/reagent/alcohol/acid_spit
 	value = 0.15
 
@@ -507,7 +510,7 @@
 /decl/reagent/alcohol/solarian_marine
 	value = 0.2
 
-/decl/reagent/alcohol/cloudyoran
+/decl/reagent/alcohol/cloudyeridani
 	value = 0.12
 
 /decl/reagent/alcohol/djinntea
@@ -649,6 +652,9 @@
 	value = 2
 
 /decl/reagent/rezadone
+	value = 5
+
+/decl/reagent/sanasomnum
 	value = 5
 
 /decl/reagent/verunol

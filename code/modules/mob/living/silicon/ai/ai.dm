@@ -292,7 +292,7 @@ var/list/ai_verbs_default = list(
 		id_card.registered_name = pickedName
 		id_card.assignment = "AI"
 		id_card.access = get_all_station_access()
-		id_card.access += access_synth
+		id_card.access += access_equipment
 		id_card.update_name()
 
 	if(client)
@@ -306,7 +306,7 @@ var/list/ai_verbs_default = list(
 /obj/machinery/ai_powersupply
 	name = "power supply"
 	active_power_usage = 50000 // Station AIs use significant amounts of power. This, when combined with charged SMES should mean AI lasts for 1hr without external power.
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 	power_channel = EQUIP
 	var/mob/living/silicon/ai/powered_ai
 	invisibility = 100
@@ -317,13 +317,13 @@ var/list/ai_verbs_default = list(
 	forceMove(powered_ai.loc)
 
 	..()
-	use_power(1) // Just incase we need to wake up the power system.
+	use_power_oneoff(1) // Just incase we need to wake up the power system.
 
 /obj/machinery/ai_powersupply/Destroy()
 	. = ..()
 	powered_ai = null
 
-/obj/machinery/ai_powersupply/machinery_process()
+/obj/machinery/ai_powersupply/process()
 	if(!powered_ai || powered_ai.stat == DEAD)
 		qdel(src)
 		return
@@ -331,14 +331,14 @@ var/list/ai_verbs_default = list(
 		qdel(src)
 		return
 	if(powered_ai.APU_power)
-		use_power = 0
+		update_use_power(POWER_USE_OFF)
 		return
 	if(!powered_ai.anchored)
 		loc = powered_ai.loc
-		use_power = 0
-		use_power(50000) // Less optimalised but only called if AI is unwrenched. This prevents usage of wrenching as method to keep AI operational without power. Intellicard is for that.
+		update_use_power(POWER_USE_OFF)
+		use_power_oneoff(50000) // Less optimalised but only called if AI is unwrenched. This prevents usage of wrenching as method to keep AI operational without power. Intellicard is for that.
 	if(powered_ai.anchored)
-		use_power = 2
+		update_use_power(POWER_USE_ACTIVE)
 
 /mob/living/silicon/ai/rejuvenate()
 	return 	// TODO: Implement AI rejuvination
@@ -732,7 +732,7 @@ var/list/ai_verbs_default = list(
 	else if(W.iswrench())
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
-			if(!do_after(user, 40/W.toolspeed))
+			if(!W.use_tool(src, user, 40, volume = 50))
 				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
@@ -741,7 +741,7 @@ var/list/ai_verbs_default = list(
 			return
 		else
 			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating.</span>..")
-			if(!do_after(user,40/W.toolspeed))
+			if(!W.use_tool(src, user, 40, volume = 50))
 				user.visible_message("<span class='notice'>\The [user] decides not to bolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")
@@ -788,6 +788,9 @@ var/list/ai_verbs_default = list(
 	set name = "Remote Control Shell"
 	set category = "AI Commands"
 	set desc = "Remotely control any active shells on your AI shell network."
+
+	if(check_unable(AI_CHECK_WIRELESS))
+		return
 	SSvirtualreality.bound_selection(src, REMOTE_AI_ROBOT)
 
 /mob/living/silicon/ai/proc/toggle_hologram_movement()

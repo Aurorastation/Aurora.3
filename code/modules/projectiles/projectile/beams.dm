@@ -1,7 +1,8 @@
 /obj/item/projectile/beam
 	name = "laser"
 	icon_state = "laser"
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	ping_effect = "ping_s"
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 30
 	damage_type = BURN
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
@@ -18,13 +19,9 @@
 
 /obj/item/projectile/beam/practice
 	name = "laser"
-	icon_state = "laser"
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 0
-	damage_type = BURN
-	no_attack_log = 1
-	check_armor = "laser"
-	eyeblur = 2
+	damage = 5
+	damage_type = PAIN
+	eyeblur = 0
 
 /obj/item/projectile/beam/pistol
 	damage = 25
@@ -47,8 +44,28 @@
 	impact_type = /obj/effect/projectile/impact/hegemony
 
 /obj/item/projectile/beam/midlaser
-	damage = 35
-	armor_penetration = 10
+	damage = 30
+	armor_penetration = 15
+
+/obj/item/projectile/beam/midlaser/skrell
+	armor_penetration = 0
+
+/obj/item/projectile/beam/midlaser/skrell/heavy
+	damage = 40
+	armor_penetration = 20
+
+/obj/item/projectile/beam/noctiluca
+	damage = 20
+	armor_penetration = 28
+
+/obj/item/projectile/beam/noctiluca/armor_piercing
+	name = "concentrated laser"
+	damage = 15
+	armor_penetration = 50
+
+	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
+	tracer_type = /obj/effect/projectile/tracer/laser/scc
+	impact_type = /obj/effect/projectile/impact/laser/scc
 
 /obj/item/projectile/beam/midlaser/ice
 	damage = 25
@@ -123,7 +140,7 @@
 /obj/item/projectile/beam/laser_tag
 	name = "lasertag beam"
 	icon_state = "laser"
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 0
 	no_attack_log = 1
 	damage_type = BURN
@@ -301,7 +318,7 @@
 /obj/item/projectile/beam/shotgun
 	name = "diffuse laser"
 	icon_state = "laser"
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 20
 	eyeblur = 4
 
@@ -431,7 +448,7 @@
 	icon_state = "lightning"
 	damage = 10
 	damage_type = BURN
-	pass_flags = PASSTABLE | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
 	range = 40
 	eyeblur = 0
 
@@ -456,7 +473,7 @@
 /obj/item/projectile/beam/freezer
 	name = "freezing ray"
 	icon_state = "bluelaser"
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	damage = 15
 	damage_type = BURN
 	check_armor = "energy"

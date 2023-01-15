@@ -1,7 +1,7 @@
 /obj/machinery/gateway
 	name = "gateway"
 	desc = "A mysterious gateway built by unknown hands, it allows for faster than light travel to far-flung locations."
-	icon = 'icons/obj/machines/gateway.dmi'
+	icon = 'icons/obj/machinery/gateway.dmi'
 	icon_state = "off"
 	density = 1
 	anchored = 1
@@ -27,7 +27,6 @@
 /obj/machinery/gateway/centerstation
 	density = 1
 	icon_state = "offcenter"
-	use_power = 1
 
 	//warping vars
 	var/list/linked_gateways = list()
@@ -56,7 +55,7 @@ obj/machinery/gateway/centerstation/process()
 		return
 
 	if(active)
-		use_power(5000)
+		use_power_oneoff(5000)
 
 
 /obj/machinery/gateway/centerstation/proc/detect()
@@ -129,7 +128,7 @@ obj/machinery/gateway/centerstation/process()
 		if(dest)
 			M.forceMove(dest.loc)
 			M.set_dir(SOUTH)
-			use_power(5000)
+			use_power_oneoff(5000)
 		return
 
 
@@ -144,7 +143,7 @@ obj/machinery/gateway/centerstation/process()
 /obj/machinery/gateway/centeraway
 	density = 1
 	icon_state = "offcenter"
-	use_power = 0
+	use_power = POWER_USE_OFF
 	var/calibrated = 1
 	var/list/linked_gateways = list()	//a list of the connected gateway chunks
 	var/ready = 0

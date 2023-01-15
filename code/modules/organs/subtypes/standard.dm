@@ -68,7 +68,7 @@
 	limb_name = BP_L_ARM
 	name = "left arm"
 	icon_name = "l_arm"
-	max_damage = 75
+	max_damage = 65
 	min_broken_damage = 30
 	w_class = ITEMSIZE_NORMAL
 	body_part = ARM_LEFT
@@ -101,7 +101,7 @@
 	limb_name = BP_L_LEG
 	name = "left leg"
 	icon_name = "l_leg"
-	max_damage = 75
+	max_damage = 65
 	min_broken_damage = 30
 	w_class = ITEMSIZE_NORMAL
 	body_part = LEG_LEFT
@@ -134,7 +134,7 @@
 	limb_name = BP_L_FOOT
 	name = "left foot"
 	icon_name = "l_foot"
-	max_damage = 55
+	max_damage = 50
 	min_broken_damage = 15
 	w_class = ITEMSIZE_SMALL
 	body_part = FOOT_LEFT
@@ -171,7 +171,7 @@
 	limb_name = BP_L_HAND
 	name = "left hand"
 	icon_name = "l_hand"
-	max_damage = 55
+	max_damage = 50
 	min_broken_damage = 15
 	w_class = ITEMSIZE_SMALL
 	body_part = HAND_LEFT
@@ -215,7 +215,7 @@
 	limb_name = BP_HEAD
 	icon_name = "head"
 	name = BP_HEAD
-	max_damage = 125
+	max_damage = 75
 	min_broken_damage = 35
 	w_class = ITEMSIZE_NORMAL
 	body_part = HEAD | FACE

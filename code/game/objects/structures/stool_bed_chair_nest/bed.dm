@@ -28,6 +28,7 @@
 	buckle_lying = 1
 	build_amt = 2
 	var/material/padding_material
+	var/override_material_color = FALSE //If set, material colour won't override the colour.
 
 	var/base_icon = "bed"
 	var/material_alteration = MATERIAL_ALTERATION_ALL
@@ -95,7 +96,7 @@
 		cache_key += "-[cache_type]"
 		if(painted_colour && apply_painted_colour)
 			cache_key += "-[painted_colour]"
-		else if(overlay_material.icon_colour)
+		else if(overlay_material.icon_colour && !override_material_color)
 			cache_key += "-[overlay_material.icon_colour]"
 	if(!furniture_cache[cache_key]) // Check for cache key. Generate if image does not exist yet.
 		var/cache_icon_state = cache_type ? "[base_icon]_[cache_type]" : "[base_icon]" // Modularized. Just change cache_type when calling the proc if you ever wanted to add a different overlay. Not like you'd need to.
@@ -103,7 +104,7 @@
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			if(painted_colour && apply_painted_colour) // apply_painted_color, when you only want the padding to be painted, NOT the chair itself.
 				I.color = painted_colour
-			else if(overlay_material.icon_colour) // Either that, or just fall back on the regular material color.
+			else if(overlay_material.icon_colour && !override_material_color) // Either that, or just fall back on the regular material color.
 				I.color = overlay_material.icon_colour
 		furniture_cache[cache_key] = I
 	add_overlay(furniture_cache[cache_key]) // Use image from cache key!
@@ -241,9 +242,8 @@
 	update_icon()
 
 /obj/structure/bed/dismantle(obj/item/W, mob/user)
-	playsound(src.loc, W.usesound, 50, 1)
 	user.visible_message("<b>[user]</b> begins dismantling \the [src].", SPAN_NOTICE("You begin dismantling \the [src]."))
-	if(do_after(user, 20 / W.toolspeed))
+	if(W.use_tool(src, user, 20, volume = 50))
 		user.visible_message("\The [user] dismantles \the [src].", SPAN_NOTICE("You dismantle \the [src]."))
 		if(padding_material)
 			padding_material.place_sheet(get_turf(src))
@@ -347,14 +347,13 @@
 	item_state = "rollerbed"
 	anchored = FALSE
 	makes_rolling_sound = TRUE
-	var/base_state = "standard"
+	base_icon = "standard"
 	held_item = /obj/item/roller
 	var/obj/item/reagent_containers/beaker
 	var/obj/item/vitals_monitor/vitals
 	var/iv_attached = 0
 	var/iv_stand = TRUE
 	var/patient_shift = 9 //How much are mobs moved up when they are buckled_to.
-	var/bag_strap = "standard_straps"
 	slowdown = 0
 
 /obj/structure/bed/roller/Initialize()
@@ -370,9 +369,9 @@
 	cut_overlays()
 	vis_contents = list()
 	if(density)
-		icon_state = "[base_state]_up"
+		icon_state = "[base_icon]_up"
 	else
-		icon_state = "[base_state]_down"
+		icon_state = "[base_icon]_down"
 	if(beaker)
 		var/image/iv = image(icon, "iv[iv_attached]")
 		var/percentage = round((beaker.reagents.total_volume / beaker.volume) * 100, 25)
@@ -387,8 +386,6 @@
 	if(vitals)
 		vitals.update_monitor()
 		vis_contents += vitals
-	if(bag_strap && istype(buckled, /obj/structure/closet/body_bag))
-		LAZYADD(buckled.overlays, image(icon, bag_strap))
 
 /obj/structure/bed/roller/attackby(obj/item/I, mob/user)
 	if(iswrench(I) || istype(I, /obj/item/stack) || iswirecutter(I))
@@ -476,7 +473,7 @@
 		else
 			attach_iv(buckled, usr)
 		return
-	if(ishuman(over_object))
+	if(usr != over_object && ishuman(over_object))
 		if(user_buckle(over_object, usr))
 			attach_iv(buckled, usr)
 			return
@@ -514,8 +511,6 @@
 			M.old_y = 0
 			if(iv_attached)
 				detach_iv(M, usr)
-		else
-			LAZYREMOVE(MA.overlays, image(icon, bag_strap)) //Remove straps
 		density = FALSE
 		MA.pixel_y = 0
 		update_icon()
@@ -524,11 +519,10 @@
 /obj/structure/bed/roller/hover
 	name = "medical hoverbed"
 	icon_state = "hover_down"
-	base_state = "hover"
+	base_icon = "hover"
 	makes_rolling_sound = FALSE
 	held_item = /obj/item/roller/hover
 	patient_shift = 6
-	bag_strap = null
 
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
@@ -538,12 +532,9 @@
 	name = "roller bed"
 	desc = "A collapsed roller bed that can be carried around."
 	icon = 'icons/obj/rollerbed.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi'
-		)
 	icon_state = "standard_folded"
-	item_state = "rollerbed"
+	item_state = "rbed"
+	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	center_of_mass = list("x" = 17,"y" = 7)
@@ -554,6 +545,7 @@
 	name = "medical hoverbed"
 	desc = "A collapsed hoverbed that can be carried around."
 	icon_state = "hover_folded"
+	item_state = "rbed_hover"
 	origin_type = /obj/structure/bed/roller/hover
 
 /obj/item/roller/attack_self(mob/user)
@@ -575,8 +567,7 @@
 			to_chat(user, SPAN_NOTICE("You collect the roller bed."))
 			src.forceMove(RH)
 			RH.held = src
-			return
-	..()
+		return TRUE
 
 /obj/item/roller/proc/deploy_roller(mob/user, atom/location)
 	var/obj/structure/bed/roller/R = new origin_type(location)

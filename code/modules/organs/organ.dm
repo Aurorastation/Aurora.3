@@ -54,11 +54,6 @@
 		args[1] = TRUE
 		SSatoms.InitAtom(src, args)
 
-	if(max_damage)
-		min_broken_damage = Floor(max_damage / 2)
-	else
-		max_damage = min_broken_damage * 2
-
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	if(!owner)
@@ -140,9 +135,6 @@
 
 /obj/item/organ/proc/bruise()
 	damage = max(damage, min_bruised_damage)
-
-/obj/item/organ/proc/can_feel_pain()
-	return (!BP_IS_ROBOTIC(src) && (!species || !(species.flags & NO_PAIN)))
 
 #define ORGAN_RECOVERY_THRESHOLD (5 MINUTES)
 /obj/item/organ/proc/can_recover()

@@ -1,5 +1,10 @@
 /turf/simulated/wall/r_wall
 	icon_state = "rgeneric"
+	desc_info = "You can deconstruct this by with the following steps:<br>\
+	Cut the outer grill with wirecutters, then unscrew them.<br>\
+	Slice the cover with a welder, then pry it off with a crowbar.<br>\
+	Use a wrench to loosen the anchor bolts, then cut the supports with a welder.<br>\
+	Pry off the sheath with a crowbar to expose the girder. Examine it to see how to deconstruct it."
 
 /turf/simulated/wall/r_wall/Initialize(mapload)
 	. = ..(mapload, "plasteel","plasteel") //3strong
@@ -102,6 +107,41 @@
 /turf/simulated/wall/wood/Initialize(mapload)
 	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_WOOD)
+	canSmoothWith = list(src.type)
+	
+/turf/simulated/wall/birchwood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_BIRCH)
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/mahoganywood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_MAHOGANY)
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/maplewood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_MAPLE)
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/bamboowood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_BAMBOO)
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/ebonywood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_EBONY)
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/walnutwood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_WALNUT)
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/yewwood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_YEW)
 	canSmoothWith = list(src.type)
 
 /turf/simulated/wall/rusty/Initialize(mapload)

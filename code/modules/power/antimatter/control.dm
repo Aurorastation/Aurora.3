@@ -3,12 +3,12 @@
 	desc = "The control unit for an antimatter reactor. Probably safe."
 	desc_info = "Use a wrench to attach the control unit to the ground, then arrange the reactor sections nearby. Reactor sections can only be activated if they are near the control unit, but otherwise are not restricted in how they must be placed."
 	desc_antag = "The antimatter engine will quickly destabilize if the fuel injection rate is set too high, causing a large explosion."
-	icon = 'icons/obj/machines/new_ame.dmi'
+	icon = 'icons/obj/machinery/new_ame.dmi'
 	icon_state = "control"
 	var/icon_mod = "on" // on, critical, or fuck
 	anchored = FALSE
 	density = TRUE
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 100
 	active_power_usage = 1000
 
@@ -43,7 +43,7 @@
 	QDEL_NULL(fueljar)
 	return ..()
 
-/obj/machinery/power/am_control_unit/machinery_process()
+/obj/machinery/power/am_control_unit/process()
 	if(exploding && !exploded)
 		message_admins("AME explosion at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>) - Last touched by [fingerprintslast]",0,1)
 		exploded=1
@@ -199,13 +199,13 @@
 	if(stability <= 0)
 		qdel(src)
 
-/obj/machinery/power/am_control_unit/proc/toggle_power()
+/obj/machinery/power/am_control_unit/toggle_power()
 	active = !active
 	if(active)
-		use_power = 2
+		update_use_power(POWER_USE_ACTIVE)
 		visible_message(SPAN_NOTICE("\The [src] starts up."))
 	else
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 		visible_message(SPAN_NOTICE("\The [src] shuts down."))
 	for(var/obj/machinery/am_shielding/AMS in linked_cores)
 		AMS.update_icon()

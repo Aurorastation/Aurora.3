@@ -5,10 +5,10 @@
 
 	spawn_weight = 1
 	spawn_cost = 2
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffix = "asteroid/mining_base.dmm"
 
-	template_flags = RUIN_HUMAN
+	ruin_tags = RUIN_HUMAN|RUIN_VOID
 
 /datum/map_template/ruin/exoplanet/carp_nest
 	name = "Carp Nest"
@@ -17,7 +17,32 @@
 
 	spawn_weight = 1
 	spawn_cost = 2
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffix = "asteroid/carp_nest.dmm"
 
-	template_flags = RUIN_ALIEN
+	ruin_tags = RUIN_ALIEN|RUIN_VOID
+
+/datum/map_template/ruin/exoplanet/hideout
+	name = "Abandoned Hideout"
+	id = "hideout"
+	description = "An abandoned hideout, seemingly once belonging to a marooned crew."
+
+	spawn_weight = 0.5
+	spawn_cost = 4
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+	suffix = "asteroid/hideout.dmm"
+
+	ruin_tags = RUIN_HUMAN|RUIN_WRECK|RUIN_VOID
+
+/datum/map_template/ruin/exoplanet/crashed_shuttle_01
+	name = "Crashed Shuttle"
+	id = "crashedshuttle01"
+	description = "A crashed shuttle, with some gear left behind."
+
+	spawn_weight = 1
+	spawn_cost = 2
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+	suffix = "asteroid/crashed_shuttle_01.dmm"
+
+	ruin_tags = RUIN_WRECK|RUIN_VOID
+

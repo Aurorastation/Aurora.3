@@ -72,7 +72,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 			to_chat(user, "<span class='warning'>You need at least two rods to do this.</span>")
 			return
 
-		if(WT.remove_fuel(0,user))
+		if(WT.use(0,user))
 			var/obj/item/stack/material/steel/new_item = new(usr.loc)
 			new_item.add_to_stacks(usr)
 			for (var/mob/M in viewers(src))
@@ -95,3 +95,69 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 		return
 
 	..()
+
+/obj/item/stack/barbed_wire
+	name = "barbed wire"
+	desc = "A spiky length of wire."
+	icon = 'icons/obj/barricades.dmi'
+	icon_state = "barbed_wire"
+	singular_name = "length"
+	max_amount = 50
+	w_class = ITEMSIZE_SMALL
+	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	attack_verb = list("hit", "whacked", "sliced")
+
+/obj/item/stack/barbed_wire/half_full
+	amount = 25
+
+/obj/item/stack/barbed_wire/full
+	amount = 50
+
+/obj/item/stack/liquidbags
+	name = "liquid bags"
+	desc = "Bags filled with non-Newtonian liquid for the creation of barricades. These bags feel weird when you touch them: liquid to the gentle touch and the hardest thing you've felt if you smack them."
+	singular_name = "liquid bag"
+	max_amount = 50
+	icon = 'icons/obj/barricades.dmi'
+	icon_state = "liquidbags"
+	w_class = ITEMSIZE_SMALL
+	matter = list(DEFAULT_WALL_MATERIAL = 650, MATERIAL_PHORON = 100, MATERIAL_PLASTEEL = 150)
+
+/obj/item/stack/liquidbags/half_full
+	amount = 25
+
+/obj/item/stack/liquidbags/full
+	amount = 50
+
+/obj/item/stack/liquidbags/attack_self(mob/living/user)
+	..()
+	add_fingerprint(user)
+
+	if(!isturf(user.loc))
+		return
+
+	if(istype(user.loc, /turf/space))
+		to_chat(user, SPAN_WARNING("The liquidbag barricade must be constructed on a proper surface!"))
+		return
+
+	user.visible_message(SPAN_NOTICE("[user] starts assembling a liquidbag barricade."),
+	SPAN_NOTICE("You start assembling a liquidbag barricade."))
+
+	if(!do_after(user, 3 SECONDS))
+		return
+
+	for(var/obj/O in user.loc) //Objects, we don't care about mobs. Turfs are checked elsewhere
+		if(O.density)
+			if(!(O.flags & ON_BORDER) || O.dir == user.dir)
+				return
+
+	var/build_stack = amount
+	if(amount >= 5)
+		build_stack = 5
+
+	var/obj/structure/barricade/liquid/SB = new(user.loc, user, user.dir, build_stack)
+	user.visible_message(SPAN_NOTICE("[user] assembles a liquidbag barricade."),
+	SPAN_NOTICE("You assemble a liquidbag barricade."))
+	SB.set_dir(user.dir)
+	SB.add_fingerprint(user)
+	use(build_stack)

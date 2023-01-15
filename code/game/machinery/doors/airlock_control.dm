@@ -195,7 +195,7 @@
 	radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
 	flick("airlock_sensor_cycle", src)
 
-/obj/machinery/airlock_sensor/machinery_process()
+/obj/machinery/airlock_sensor/process()
 	if(on)
 		var/datum/gas_mixture/air_sample = return_air()
 		var/pressure = round(air_sample.return_pressure(),0.1)
@@ -265,8 +265,8 @@
 	//Swiping ID on the access button
 	if (I.GetID())
 		attack_hand(user)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/machinery/access_button/attack_hand(mob/user)
 	add_fingerprint(usr)

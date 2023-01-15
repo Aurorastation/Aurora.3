@@ -32,7 +32,7 @@
 
 		t1 += "<B>Unrestricted Access Settings</B><br>"
 
-	
+
 		for(var/direction in cardinal)
 			if(direction & unres_dir)
 				t1 += "<a style='color:#00dd12' href='?src=\ref[src];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
@@ -116,15 +116,16 @@
 	if(istype(W, /obj/item/airlock_electronics) &&(!isrobot(user)))
 		if(src.locked)
 			to_chat(user, SPAN_WARNING("\The [src] you're trying to set is locked! Swipe your ID to unlock."))
-			return
+			return TRUE
 		var/obj/item/airlock_electronics/A = W
 		if(A.locked)
 			to_chat(user, SPAN_WARNING("\The [src] you're trying to copy is locked! Swipe your ID to unlock."))
-			return
+			return TRUE
 		src.conf_access = A.conf_access
 		src.one_access = A.one_access
 		src.last_configurator = A.last_configurator
 		to_chat(user, SPAN_NOTICE("Configuration settings copied successfully."))
+		return TRUE
 	else if(W.GetID())
 		var/obj/item/card/id/I = W.GetID()
 		if(check_access(I))
@@ -133,8 +134,9 @@
 			to_chat(user, SPAN_NOTICE("You swipe your ID over \the [src], [locked ? "locking" : "unlocking"] it."))
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/airlock_electronics/secure
 	name = "secure airlock electronics"

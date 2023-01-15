@@ -1,6 +1,7 @@
 //Regular syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate
 	name = "red space helmet"
+	icon = 'icons/obj/clothing/hats.dmi'
 	icon_state = "syndicate"
 	item_state = "syndicate"
 	desc = "A crimson helmet sporting clean lines and durable plating. Engineered to look menacing."
@@ -15,9 +16,11 @@
 	)
 	siemens_coefficient = 0.5
 	brightness_on = 6
+	contained_sprite = FALSE
 
 /obj/item/clothing/suit/space/syndicate
 	name = "red space suit"
+	icon = 'icons/obj/clothing/suits.dmi'
 	icon_state = "syndicate"
 	item_state = "space_suit_syndicate"
 	desc = "A crimson spacesuit sporting clean lines and durable plating. Robust, reliable, and slightly suspicious."
@@ -34,6 +37,7 @@
 		rad = ARMOR_RAD_MINOR
 	)
 	siemens_coefficient = 0.5
+	contained_sprite = FALSE
 
 
 //Green syndicate space suit

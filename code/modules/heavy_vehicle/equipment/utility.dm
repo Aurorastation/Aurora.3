@@ -28,7 +28,6 @@
 
 /obj/item/mecha_equipment/clamp/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
-
 	if(.)
 		if(istype(target, /obj/machinery/door/firedoor))
 			var/obj/machinery/door/firedoor/FD = target
@@ -291,7 +290,7 @@
 
 
 				log_and_message_admins("used [src]'s area throw on [target].", user, owner.loc)
-				
+
 				owner.use_cell_power(active_power_use * CELLRATE * 2) //bit more expensive to throw all
 
 /obj/item/material/drill_head
@@ -559,7 +558,8 @@
 	if(W.isscrewdriver() || W.ismultitool() || W.iswirecutter() || istype(W, /obj/item/storage/part_replacer))
 		lathe.attackby(W, user)
 		update_icon()
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/mecha_equipment/autolathe/update_icon()
 	if(lathe.panel_open)
@@ -669,7 +669,7 @@
 	if(istype(I, /obj/item/anomaly_core))
 		if(AC)
 			to_chat(user, SPAN_WARNING("\The [src] already has an anomaly core installed!"))
-			return
+			return TRUE
 		user.drop_from_inventory(I, src)
 		AC = I
 		to_chat(user, SPAN_NOTICE("You insert \the [AC] into \the [src]."))
@@ -677,11 +677,11 @@
 		anomaly_overlay = image(AC.icon, null, AC.icon_state)
 		anomaly_overlay.pixel_y = 3
 		add_overlay(anomaly_overlay)
-		return
+		return TRUE
 	if(I.iswrench())
 		if(!AC)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an anomaly core installed!"))
-			return
+			return TRUE
 		to_chat(user, SPAN_NOTICE("You remove \the [AC] from \the [src]."))
 		playsound(loc, I.usesound, 50, TRUE)
 		user.put_in_hands(AC)
@@ -690,7 +690,7 @@
 		AC = null
 		if(owner)
 			deactivate()
-		return
+		return TRUE
 	return ..()
 
 /obj/item/mecha_equipment/phazon/attack_self(mob/user)

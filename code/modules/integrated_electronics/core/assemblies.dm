@@ -155,12 +155,14 @@
 
 	var/mob/M = usr
 	if(!check_interactivity(M))
-		return
+		return null
 
 	var/input = sanitizeSafe(input("What do you want to name this?", "Rename", src.name) as null|text, MAX_NAME_LEN)
 	if(src && input)
 		to_chat(M, "<span class='notice'>The machine now has a label reading '[input]'.</span>")
 		name = input
+		return input
+	return null
 
 /obj/item/device/electronic_assembly/proc/can_move()
 	return FALSE
@@ -270,6 +272,7 @@
 		else
 			to_chat(user, "<span class='warning'>\The [src] isn't open, so you can't fiddle with the internal components.  \
 			Try using a crowbar.</span>")
+		return TRUE
 
 	else if(istype(I, /obj/item/cell/device))
 		if(!opened)
@@ -295,6 +298,7 @@
 		var/obj/item/device/integrated_electronics/detailer/D = I
 		detail_color = D.detail_color
 		update_icon()
+		return TRUE
 
 	else
 		for(var/obj/item/integrated_circuit/insert_slot/S in contents)  //Attempt to insert the item into any contained insert_slots

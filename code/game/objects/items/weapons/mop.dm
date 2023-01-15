@@ -54,8 +54,8 @@
 
 /obj/effect/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/mop) || istype(I, /obj/item/soap))
-		return
-	..()
+		return FALSE
+	return ..()
 
 /obj/item/mop/update_icon()
 	icon_state = "[initial(icon_state)][reagents.total_volume > 1 ? "_wet" : null]"

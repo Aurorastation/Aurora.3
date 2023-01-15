@@ -94,7 +94,7 @@
 		return 0
 
 	//Hulk modifier
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		effective_force *= 2
 
 	//Apply weapon damage
@@ -102,11 +102,11 @@
 	apply_damage(effective_force, I.damtype, hit_zone, I, damage_flags, I.armor_penetration)
 
 	//Melee weapon embedded object code.
-	if (I && I.damtype == BRUTE && !I.anchored && !is_robot_module(I))
+	if (I && I.damtype == BRUTE && !I.anchored && !is_robot_module(I) && I.canremove)
 		var/damage = effective_force //just the effective damage used for sorting out embedding, no further damage is applied here
 		damage *= 1 - get_blocked_ratio(hit_zone, I.damtype, I.damage_flags(), I.armor_penetration, I.force)
 
-		if(I.can_embed)//If this weapon is allowed to embed in people
+		if(I.can_embed) //If this weapon is allowed to embed in people.
 			//blunt objects should really not be embedding in things unless a huge amount of force is involved
 			var/sharp = damage_flags & DAM_SHARP
 			var/edge = damage_flags & DAM_EDGE
@@ -137,7 +137,7 @@
 	user.visible_message("<span class='danger'>\The [user] begins to slit [src]'s throat with \the [W]!</span>")
 
 	user.next_move = world.time + 20 //also should prevent user from triggering this repeatedly
-	if(!do_after(user, 20/W.toolspeed))
+	if(!W.use_tool(src, user, 20, volume = 50))
 		return 0
 	if(!(G && G.assailant == user && G.affecting == src)) //check that we still have a grab
 		return 0

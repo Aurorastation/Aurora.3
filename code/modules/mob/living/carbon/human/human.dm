@@ -90,6 +90,8 @@
 		sync_organ_dna()
 	make_blood()
 
+	available_maneuvers = species.maneuvers.Copy()
+
 	pixel_x = species.icon_x_offset
 	pixel_y = species.icon_y_offset
 
@@ -228,7 +230,7 @@
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
-		flick("flash", flash)
+		flash_eyes()
 
 	var/b_loss = null
 	var/f_loss = null
@@ -299,10 +301,6 @@
 	if (istype(wear_suit, /obj/item/clothing/suit/straight_jacket))
 		return 1
 	return 0
-
-/mob/living/carbon/human/var/co2overloadtime = null
-/mob/living/carbon/human/var/temperature_resistance = T0C+75
-
 
 /mob/living/carbon/human/show_inv(mob/user as mob)
 	if(user.incapacitated() || !user.Adjacent(src))
@@ -434,7 +432,7 @@
 //Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when polyacided or when updating a human's name variable
 /mob/living/carbon/human/proc/get_face_name()
 	var/obj/item/organ/external/head = get_organ(BP_HEAD)
-	if(!head || head.disfigured || head.is_stump() || !real_name || (HUSK in mutations) )	//disfigured. use id-name if possible
+	if(!head || head.disfigured || head.is_stump() || !real_name || HAS_FLAG(mutations, HUSK))	//disfigured. use id-name if possible
 		return "Unknown"
 	return real_name
 
@@ -678,7 +676,7 @@
 
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R))
-				var/setmedical = input(usr, "Specify a new medical status for this person.", "Medical HUD", R.physical_status) in list("*SSD*", "*Deceased*", "Physically Unfit", "Active", "Disabled", "Cancel")
+				var/setmedical = input(usr, "Specify a new medical status for this person.", "Medical HUD", R.physical_status) in list("*SSD*", "*Deceased*", "*Missing*", "Physically Unfit", "Active", "Disabled", "Cancel")
 
 				if(hasHUD(usr,"medical"))
 					if(setmedical != "Cancel")
@@ -896,10 +894,12 @@
 
 /mob/living/carbon/human/proc/check_has_mouth()
 	// Todo, check stomach organ when implemented.
-	var/obj/item/organ/external/head/H = get_organ(BP_HEAD)
-	if(!H || !H.can_intake_reagents)
-		return 0
-	return 1
+	var/obj/item/organ/external/E = get_organ(BP_HEAD)
+	if(E && !E.is_stump())
+		var/obj/item/organ/external/head/H = E
+		if(!H.can_intake_reagents)
+			return FALSE
+	return TRUE
 
 /mob/living/proc/empty_stomach()
 	return
@@ -1018,7 +1018,7 @@
 		remoteview_target = null
 		return
 
-	if(!(mMorph in mutations))
+	if(NOT_FLAG(mutations, mMorph))
 		src.verbs -= /mob/living/carbon/human/proc/morph
 		return
 
@@ -1099,7 +1099,7 @@
 		remoteview_target = null
 		return
 
-	if(!(mRemotetalk in src.mutations))
+	if(NOT_FLAG(mutations, mRemotetalk))
 		src.verbs -= /mob/living/carbon/human/proc/remotesay
 		return
 	var/list/creatures = list()
@@ -1113,7 +1113,7 @@
 		return
 
 	var/say = sanitize(input("What do you wish to say"))
-	if(mRemotetalk in target.mutations)
+	if(HAS_FLAG(target.mutations, mRemotetalk))
 		target.show_message(SPAN_NOTICE("You hear [src.real_name]'s voice: [say]"))
 	else
 		target.show_message(SPAN_NOTICE("You hear a voice that seems to echo around the room: [say]"))
@@ -1131,7 +1131,7 @@
 		reset_view(0)
 		return
 
-	if(!(mRemote in src.mutations))
+	if(NOT_FLAG(mutations, mRemote))
 		remoteview_target = null
 		reset_view(0)
 		src.verbs -= /mob/living/carbon/human/proc/remoteobserve
@@ -1216,7 +1216,7 @@
 	shock_stage = 0
 
 	//Fix husks
-	mutations.Remove(HUSK)
+	mutations &= ~HUSK
 	status_flags &= ~DISFIGURED	//Fixes the unknown status
 	if(src.client)
 		SSjobs.EquipAugments(src, src.client.prefs)
@@ -1465,16 +1465,23 @@
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
+	fill_out_culture_data()
+
 	if(change_hair)
 		species.set_default_hair(src)
-
-	if(species.default_accent)
-		accent = species.default_accent
 
 	if(species)
 		return 1
 	else
 		return 0
+
+
+/mob/living/carbon/human/proc/fill_out_culture_data()
+	culture = decls_repository.get_decl(species.possible_cultures[1])
+	origin = decls_repository.get_decl(culture.possible_origins[1])
+	accent = pick(origin.possible_accents)
+	citizenship = origin.possible_citizenships[1]
+	religion = origin.possible_religions[1]
 
 /mob/living/carbon/human/proc/bloody_doodle()
 	set category = "IC"
@@ -1565,7 +1572,7 @@
 			user.visible_message("<b>[user]</b> begins hunting for \the [src]'s injection port.")
 	if(!. && error_msg && user)
 		if(!fail_msg)
-			fail_msg = "There is no exposed flesh or thin material [target_zone == BP_HEAD ? "on their head" : "on their body"] to inject into."
+			fail_msg = "There is no exposed skin nor thin material on \the [affecting.loc]'s [target_zone] to inject into."
 		to_chat(user, SPAN_ALERT("[fail_msg]"))
 
 /mob/living/carbon/human/proc/get_bp_coverage(var/bp)
@@ -1808,7 +1815,7 @@
 	return ..() * (species ? species.metabolism_mod : 1)
 
 /mob/living/carbon/human/is_clumsy()
-	if(CLUMSY in mutations)
+	if(HAS_FLAG(mutations, CLUMSY))
 		return TRUE
 	if(CE_CLUMSY in chem_effects)
 		return TRUE
@@ -1830,15 +1837,15 @@
 	switch(pulse())
 		if(PULSE_NONE)
 			return 0
-		if(PULSE_SLOW)
+		if(PULSE_SLOW to (PULSE_NORM - 0.1))
 			return rand(species.low_pulse, species.norm_pulse)
-		if(PULSE_NORM)
+		if(PULSE_NORM to (PULSE_FAST - 0.1))
 			return rand(species.norm_pulse, species.fast_pulse)
-		if(PULSE_FAST)
+		if(PULSE_FAST to (PULSE_2FAST - 0.1))
 			return rand(species.fast_pulse, species.v_fast_pulse)
-		if(PULSE_2FAST)
+		if(PULSE_2FAST to (PULSE_THREADY - 0.1))
 			return rand(species.v_fast_pulse, species.max_pulse)
-		if(PULSE_THREADY)
+		if(PULSE_THREADY to INFINITY)
 			return PULSE_MAX_BPM
 	return 0
 
@@ -1864,7 +1871,7 @@
 		victim.forceMove(stomach)
 
 /mob/living/carbon/human/need_breathe()
-	if(!(mNobreath in mutations) && species.breathing_organ && species.has_organ[species.breathing_organ])
+	if(NOT_FLAG(mutations, mNobreath) && species.breathing_organ && species.has_organ[species.breathing_organ])
 		return TRUE
 	return FALSE
 
@@ -2045,8 +2052,8 @@
 
 /mob/living/carbon/human/proc/set_accent(var/new_accent)
 	accent = new_accent
-	if(!(accent in species.allowed_accents))
-		accent = species.default_accent
+	if(!(accent in origin.possible_accents))
+		accent = origin.possible_accents[1]
 	return TRUE
 
 /mob/living/carbon/human/proc/add_or_remove_language(var/language)

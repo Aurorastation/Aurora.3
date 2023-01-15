@@ -187,7 +187,7 @@
 		var/obj/item/material/kitchen/utensil/U = W
 		if(istype(W,/obj/item/material/kitchen/utensil/fork)&&(is_liquid))
 			to_chat(user, SPAN_NOTICE("You uselessly pass \the [U] through \the [src]."))
-			playsound(user.loc, 'sound/effects/pour.ogg', 10, 1)
+			playsound(user.loc, /decl/sound_category/generic_pour_sound, 10, 1)
 			return
 		else
 			if(U.scoop_food)
@@ -198,10 +198,7 @@
 					to_chat(user, SPAN_WARNING("You already have \the [src] on \the [U]."))
 					return
 
-				user.visible_message( \
-					"\The [user] scoops up some of \the [src] with \the [U]!", \
-					SPAN_NOTICE("You scoop up some of \the [src] with \the [U]!") \
-				)
+				to_chat(user, SPAN_NOTICE("You scoop up some of \the [src] with \the [U]."))
 
 				bitecount++
 				U.cut_overlays()
@@ -497,6 +494,27 @@
 
 	reagents_to_add = list(/decl/reagent/nutriment = 10, /decl/reagent/sugar = 3)
 
+/obj/item/reagent_containers/food/snacks/proteinbar
+	name = "protein bar"
+	desc = "SwoleMAX brand protein bars, guaranteed to get you feeling perfectly overconfident."
+	icon_state = "proteinbar"
+	trash = /obj/item/trash/proteinbar
+	bitesize = 6
+
+/obj/item/reagent_containers/food/snacks/proteinbar/Initialize()
+	. = ..()
+	reagents.add_reagent(/decl/reagent/nutriment, 9)
+	reagents.add_reagent(/decl/reagent/nutriment/protein, 4)
+	var/list/decl_flavors = decls_repository.get_decls_of_subtype(/decl/proteinbar_flavor)
+	var/decl/proteinbar_flavor/PB = decls_repository.get_decl(pick(decl_flavors))
+	name = "[PB.name] [name]"
+	var/count = length(PB.reagents)
+	if(count)
+		for(var/type in PB.reagents)
+			reagents.add_reagent(type, round(4 / count, 0.1))
+	else
+		reagents.add_reagent(PB.reagents, 4)
+
 /obj/item/reagent_containers/food/snacks/candy_corn
 	name = "candy corn"
 	desc = "It's a handful of candy corn. Cannot be stored in a detective's hat, alas."
@@ -513,8 +531,8 @@
 	icon_state = "chips"
 	trash = /obj/item/trash/chips
 	filling_color = "#E8C31E"
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 3)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chips" = 3))
+	reagents_to_add = list(/decl/reagent/nutriment = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("chips" = 3))
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/cookie
@@ -749,12 +767,12 @@
 
 		if(!(clr in list("blue","green","mime","orange","purple","rainbow","red","yellow")))
 			to_chat(usr, SPAN_NOTICE("The egg refuses to take on this color!"))
-			return
+			return TRUE
 
 		to_chat(usr, SPAN_NOTICE("You color \the [src] [clr]"))
 		icon_state = "egg-[clr]"
-	else
-		..()
+		return TRUE
+	return ..()
 
 /obj/item/reagent_containers/food/snacks/egg
 	var/amount_grown = 0
@@ -813,10 +831,6 @@
 /obj/item/reagent_containers/food/snacks/friedegg/overeasy
 	name = "over-easy fried egg"
 	desc = "A fried egg, with a touch of salt and pepper. The yolk looks a bit runny."
-
-/obj/item/reagent_containers/food/snacks/friedegg/overeasy/Initialize()
-	reagent_data = list(/decl/reagent/nutriment/protein = list(pick("disgustingly runny egg yolk", "slimy egg yolk", "gooey eggs", "near-raw runny eggs") = 3))
-	. = ..()
 
 /obj/item/reagent_containers/food/snacks/boiledegg
 	name = "boiled egg"
@@ -1393,7 +1407,7 @@
 /obj/item/reagent_containers/food/snacks/sosjerky
 	name = "Scaredy's Private Reserve beef jerky"
 	icon_state = "sosjerky"
-	desc = "Beef jerky made from the finest space cows."
+	desc = "Beef jerky. A little oversalted, actually."
 	trash = /obj/item/trash/sosjerky
 	filling_color = "#631212"
 	center_of_mass = list("x"=15, "y"=9)
@@ -1402,42 +1416,42 @@
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 4, /decl/reagent/sodiumchloride = 3)
 
 /obj/item/reagent_containers/food/snacks/no_raisin
-	name = "4no Raisins"
+	name = "Getmore Raisins"
 	icon_state = "4no_raisins"
-	desc = "Best raisins in the universe. Not sure why."
+	desc = "Getmore Raisins. Dry, flavorless, and oversweetened. Sounds about right."
 	trash = /obj/item/trash/raisins
 	filling_color = "#343834"
 	center_of_mass = list("x"=15, "y"=4)
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 6)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("dried raisins" = 6))
+	reagents_to_add = list(/decl/reagent/nutriment = 6)
+	reagent_data = list(/decl/reagent/nutriment = list("dried raisins" = 6))
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/spacetwinkie
-	name = "space twinkie"
+	name = "creamy spongecake"
 	icon_state = "space_twinkie"
-	desc = "Guaranteed to survive longer then you will."
+	desc = "Contrary to popular belief, Getmore's sponge cakes don't last forever. They do, however, leave a plastic-esque film coating the inside of your mouth."
 	trash = /obj/item/trash/space_twinkie
 	filling_color = "#FFE591"
 	center_of_mass = list("x"=15, "y"=11)
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 4)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("cake" = 3, "cream filling" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 4)
+	reagent_data = list(/decl/reagent/nutriment = list("cake" = 3, "cream filling" = 1))
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/cheesiehonkers
 	name = "Cheesie Honkers"
 	icon_state = "cheesie_honkers"
-	desc = "Bite sized cheesie snacks that will honk all over your mouth"
+	desc = "Bite sized cheesie snacks, made with real cheese! A little bit of it, anyway."
 	trash = /obj/item/trash/cheesie
 	filling_color = "#FFA305"
 	center_of_mass = list("x"=15, "y"=9)
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/nutriment/protein/cheese = 3, /decl/reagent/sodiumchloride = 6)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chips" = 2))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/nutriment/protein/cheese = 3, /decl/reagent/sodiumchloride = 6)
+	reagent_data = list(/decl/reagent/nutriment = list("chips" = 2))
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/syndicake
-	name = "Syndi-Cakes"
+	name = "Nutri-Cakes"
 	icon_state = "syndi_cakes"
-	desc = "An extremely moist snack cake that tastes just as good after being nuked."
+	desc = "An extremely moist snack cake."
 	filling_color = "#FF5D05"
 	center_of_mass = list("x"=16, "y"=10)
 	trash = /obj/item/trash/syndi_cakes
@@ -1737,11 +1751,26 @@
 	reagent_data = list(/decl/reagent/nutriment = list("peppermint" = 2, "salad" = 4, "hot stew" = 2))
 	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5, /decl/reagent/drink/dynjuice =2)
 
-/obj/item/reagent_containers/food/snacks/soup/brudet 
+/obj/item/reagent_containers/food/snacks/soup/brudet
 	name = "morozian brudet"
 	desc = "The most popular dish from the Dominian Empire, this stew is a staple of Imperial cuisine."
 	icon_state = "brudet"
 	reagent_data = list(/decl/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2))
+	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5)
+
+/obj/item/reagent_containers/food/snacks/soup/maeuntang
+	name = "maeuntang"
+	desc = "A popular fish soup originating from Korea, this spicy dish has been given a distinctly Konyanger twist by the addition of \
+	moss to the ingredients, and has since proven to be a staple on the planet."
+	icon_state = "maeuntang"
+	reagent_data = list(/decl/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2, "moss" = 2))
+	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5)
+
+/obj/item/reagent_containers/food/snacks/soup/miyeokguk
+	name = "miyeokguk"
+	desc = "A simple soup made from fish broth, beef, seaweed, and moss. It is known for its health properties and commonly eaten on celebrations."
+	icon_state = "miyeokguk"
+	reagent_data = list(/decl/reagent/nutriment = list("hot stew" = 3, "beef" = 1, "seaweed" = 2, "moss" = 2))
 	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5)
 
 /obj/item/reagent_containers/food/snacks/hotchili
@@ -2243,7 +2272,7 @@
 	filling_color = "#BB6A54"
 	reagents_to_add = list(/decl/reagent/nutriment = 2)
 	reagent_data = list(/decl/reagent/nutriment = list("bread" = 2))
-	bitesize = 2	
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/mint
 	name = "mint"
@@ -3796,8 +3825,17 @@
 	trash = /obj/item/trash/tastybread
 	filling_color = "#A66829"
 	center_of_mass = list("x"=17, "y"=16)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("stale bread" = 4))
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 6, /decl/reagent/sodiumchloride = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("stale bread" = 4))
+	reagents_to_add = list(/decl/reagent/nutriment = 6, /decl/reagent/sodiumchloride = 3)
+
+/obj/item/reagent_containers/food/snacks/meatcube
+	name = "cubed meat"
+	desc = "Fried, salted lean meat compressed into a cube. Not very appetizing."
+	icon_state = "meatcube"
+	filling_color = "#7a3d11"
+	center_of_mass = list("x"=16, "y"=16)
+	bitesize = 3
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 15)
 
 /obj/item/reagent_containers/food/snacks/ricetub
 	name = "packed rice bowl"
@@ -3850,7 +3888,7 @@
 	name = "Go-Go Gwok! Authentic Konyanger moss"
 	desc = "Genuine Konyanger moss packaged into a neat bag for easy consumption. A light amount of salt has been applied to this moss, to enhance the natural flavour. The box features Gwok herself on the \
 	box's cover, smiling broadly and giving a thumbs up!"
-	desc_fluff = "Go-Go Gwok! is one of the most unusual brands on Konyang, as it is owned by an IPC rather than a human. Gwok-0783, originally produced by Terraneus Diagnostics as a baseline hydroponicist and now \
+	desc_extended = "Go-Go Gwok! is one of the most unusual brands on Konyang, as it is owned by an IPC rather than a human. Gwok-0783, originally produced by Terraneus Diagnostics as a baseline hydroponicist and now \
 	the shell Go-Go Gwok! lovers throughout the Orion Spur know and love, has - through a series of legal technicalities and loopholes that would make an Eridanian Suit blush with envy - managed to become the CEO \
 	and majority shareholder in this fairly small Solarian corporation.	Through her headquarters on Xanu Prime, Gwok-0783 revels in her existence as one of the Orion Spur's wealthiest IPCs, her image now plastered \
 	on delicious (yet affordable) moss packets consumed across the Orion Spur."
@@ -3889,13 +3927,13 @@
 
 /obj/item/reagent_containers/food/snacks/skrellsnacks
 	name = "\improper SkrellSnax"
-	desc = "Cured eki shipped all the way from Jargon 4, almost like jerky! Almost."
+	desc = "Cured eki shipped all the way from Nralakk IV, almost like jerky! Almost."
 	icon_state = "skrellsnacks"
 	trash = /obj/item/trash/skrellsnacks
 	filling_color = "#A66829"
 	center_of_mass = list("x"=15, "y"=12)
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 10)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("alien fungus" = 10))
+	reagents_to_add = list(/decl/reagent/nutriment = 10)
+	reagent_data = list(/decl/reagent/nutriment = list("alien fungus" = 10))
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/squidmeat
@@ -3961,6 +3999,96 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/nutriment/protein/cheese = 3, /decl/reagent/nutriment/protein/seafood = 3)
 	reagent_data = list(/decl/reagent/nutriment = list("mushroom" = 4))
 	bitesize = 2
+
+//Neaera food
+/obj/item/reagent_containers/food/snacks/stew/neaera
+	name = "neaera stew"
+	desc = "Stew made from neaera meat. It is typically garnished with other foods such as guami, eki, or dyn depending on taste."
+	icon_state = "neaera_stew"
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/nutriment/protein/seafood = 6, /decl/reagent/drink/dynjuice = 4)
+	reagent_data = list(/decl/reagent/nutriment/protein/seafood = list("meaty mushroom" = 2))
+	filling_color = "#7C66DD"
+
+/obj/item/reagent_containers/food/snacks/neaerakabob
+	name = "neaera-kabob"
+	icon_state = "neaera_skewer"
+	desc = "Neaera meat and organs that have been cooked on a skewer. Typical street vendor food in the Nralakk Federation."
+	trash = /obj/item/stack/rods
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 8)
+	reagent_data = list(/decl/reagent/nutriment/protein/seafood = list("fatty meat" = 2))
+	filling_color = "#7C66DD"
+	center_of_mass = list("x"=17, "y"=15)
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/neaeraloaf
+	name = "neaera brain loaf"
+	icon_state = "neaera_brain_loaf"
+	desc = "A neaera brain baked in the oven and glazed with cream. Has a similar consistency to yogurt."
+	trash = /obj/item/trash/tray
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 6, /decl/reagent/nutriment/triglyceride = 2, /decl/reagent/drink/milk/cream = 2)
+	reagent_data = list(/decl/reagent/nutriment/protein/seafood = list("creamy, sweet meat" = 6))
+	filling_color = "#7C66DD"
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/neaeraloaf/update_icon()
+	var/percent = round((reagents.total_volume / 10) * 100)
+	switch(percent)
+		if(0 to 50)
+			icon_state = "neaera_brain_loaf_half"
+		if(51 to INFINITY)
+			icon_state = "neaera_brain_loaf"
+
+/obj/item/reagent_containers/food/snacks/chipplate/neaeracandy
+	name = "plate of candied neaera eyes"
+	desc = "Candied neaera eyes shaped into cubes. The mix of savoury and sweet is generally acceptable for most species, although the dish is not commonly liked due to the use of eyes."
+	icon_state = "neaera_candied_eyes20"
+	trash = /obj/item/trash/candybowl
+	vendingobject = /obj/item/reagent_containers/food/snacks/neaeracandy
+	reagent_data = list(/decl/reagent/nutriment = list("creamy, fatty meat" = 1))
+	bitesize = 1
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 20)
+	unitname = "candied eye"
+	filling_color = "#7C66DD"
+
+/obj/item/reagent_containers/food/snacks/chipplate/neaeracandy/update_icon()
+	switch(reagents.total_volume)
+		if(1)
+			icon_state = "neaera_candied_eyes1"
+		if(2 to 5)
+			icon_state = "neaera_candied_eyes5"
+		if(6 to 10)
+			icon_state = "neaera_candied_eyes10"
+		if(11 to 15)
+			icon_state = "neaera_candied_eyes15"
+		if(20 to INFINITY)
+			icon_state = "neaera_candied_eyes20"
+
+/obj/item/reagent_containers/food/snacks/neaeracandy
+	name = "candied neaera eye"
+	desc = "A candied neaera eye shaped into a cube. The mix of savoury and sweet is generally acceptable for most species, although the dish is not commonly liked due to the use of eyes."
+	icon_state = "neaera_candied_eye"
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 1)
+	reagent_data = list(/decl/reagent/nutriment/protein/seafood = list("creamy, fatty meat" = 3))
+	bitesize = 1
+	filling_color = "#7C66DD"
+
+/obj/item/reagent_containers/food/snacks/fjylozynboiled
+	name = "boiled fjylozyn"
+	desc = "Originating from Fjylo, this red seaweed-like vegetable is a primary source of protein for Skrell who don't eat meat. It is typically boiled, and while it can be eaten on its own, is notably one of the main ingredients in gnaqmi."
+	icon_state = "fjylozyn_boiled"
+	reagents_to_add = list(/decl/reagent/nutriment = 4)
+	reagent_data = list(/decl/reagent/nutriment = list("sweet turnips" = 3))
+	bitesize = 2
+	filling_color = "#7C66DD"
+
+/obj/item/reagent_containers/food/snacks/gnaqmi
+	name = "gnaqmi"
+	desc = "Fried neaera organs stuffed with boiled fjylozyn. It tastes like sweet turnips and meat, and is usually served as an after dinner snack to round off the evening at Skrell gatherings."
+	icon_state = "gnaqmi"
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 4, /decl/reagent/nutriment = 8)
+	reagent_data = list(/decl/reagent/nutriment/protein/seafood = list("fatty meat" = 4), /decl/reagent/nutriment = list("sweet turnips" = 4))
+	bitesize = 3
+	filling_color = "#7C66DD"
 
 /obj/item/reagent_containers/food/snacks/friedkois
 	name = "fried k'ois"
@@ -4058,8 +4186,8 @@
 	trash = /obj/item/trash/meatsnack
 	filling_color = "#631212"
 	bitesize = 5
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 2, /decl/reagent/nutriment/protein = 12, /decl/reagent/sodiumchloride = 4)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("pie crust" = 2))
+	reagents_to_add = list(/decl/reagent/nutriment = 2, /decl/reagent/nutriment/protein = 12, /decl/reagent/sodiumchloride = 4)
+	reagent_data = list(/decl/reagent/nutriment = list("pie crust" = 2))
 
 /obj/item/reagent_containers/food/snacks/maps
 	name = "maps salty ham"
@@ -4081,14 +4209,18 @@
 
 /obj/item/reagent_containers/food/snacks/pancakes
 	name = "pancakes"
-	desc = "Pancakes with berries, delicious."
+	desc = "Pancakes, delicious."
 	icon_state = "pancakes"
 	trash = /obj/item/trash/plate
-	center_of_mass = "x=15;y=11"
 	reagents_to_add = list(/decl/reagent/nutriment = 8)
 	reagent_data = list(/decl/reagent/nutriment = list("pancake" = 8))
 	bitesize = 2
 	filling_color = "#EDF291"
+	
+/obj/item/reagent_containers/food/snacks/pancakes/berry
+	name = "berry pancakes"
+	desc = "Pancakes with berries, delicious."
+	icon_state = "berry_pancakes"
 
 /obj/item/reagent_containers/food/snacks/classichotdog
 	name = "classic hotdog"
@@ -4454,7 +4586,6 @@
 	reagent_data = list(/decl/reagent/nutriment = list("regret" = 6))
 	filling_color = "#B042FF"
 
-// Ligger food and also bacon
 /obj/item/reagent_containers/food/snacks/rawbacon
 	name = "raw bacon"
 	desc = "A very thin piece of raw meat, cut from beef."
@@ -4532,7 +4663,7 @@
 	filling_color = "#FC5647"
 
 /obj/item/reagent_containers/food/snacks/stuffed_meatball
-	name = "stuffed meatball" //YES
+	name = "stuffed meatball"
 	desc = "A meatball loaded with cheese."
 	icon_state = "stuffed_meatball"
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 4)
@@ -4672,6 +4803,14 @@
 	reagent_data = list(/decl/reagent/nutriment = list("flatbread" = 3))
 	filling_color = "#BD8939"
 
+/obj/item/reagent_containers/food/snacks/moss_dumplings
+	name = "moss dumplings"
+	desc = "A relatively common Konyanger dish, this appears to be steamed moss set in steamed dough."
+	icon_state = "moss_dumplings"
+	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/moss = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("steamed dough" = 3, "moss" = 3))
+	filling_color = "#589755"
+
 /obj/item/reagent_containers/food/snacks/fish_taco
 	name = "fish taco"
 	desc = "A questionably cooked fish taco decorated with herbs, spices, and special sauce."
@@ -4745,7 +4884,7 @@
 	desc = "An adhomian clam, native from the sea of Ras'val."
 	icon_state = "clam"
 	bitesize = 2
-	desc_fluff = "Fishing and shellfish has a part in the diet of the population at the coastal areas, even if the ice can be an obstacle to most experienced fisherman. \
+	desc_extended = "Fishing and shellfish has a part in the diet of the population at the coastal areas, even if the ice can be an obstacle to most experienced fisherman. \
 	Spicy Ras'val clams, named after the sea, are a famous treat, being appreciated in other systems besides S'rand'marr."
 	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 2)
 	filling_color = "#FFE7C2"
@@ -4756,7 +4895,7 @@
 	icon_state = "spicy_clams"
 	bitesize = 2
 	trash = /obj/item/trash/snack_bowl
-	desc_fluff = "Fishing and shellfish has a part in the diet of the population at the coastal areas, even if the ice can be an obstacle to most experienced fisherman. \
+	desc_extended = "Fishing and shellfish has a part in the diet of the population at the coastal areas, even if the ice can be an obstacle to most experienced fisherman. \
 	Spicy Ras'val clams, named after the sea, are a famous treat, being appreciated in other system besides S'rand'marr."
 	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 4, /decl/reagent/capsaicin = 1)
 	filling_color = "#FFE7C2"
@@ -4768,7 +4907,7 @@
 	bitesize = 2
 	reagents_to_add = list(/decl/reagent/nutriment = 5)
 	reagent_data = list(/decl/reagent/nutriment = list("bread" = 2))
-	desc_fluff = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
+	desc_extended = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
 	Bread, baked with flour produced from a variation of the Blizzard Ears, is considered an essential part of a worker's breakfast."
 	filling_color = "#BD8939"
 
@@ -4778,7 +4917,7 @@
 	icon_state = "tajaran_soup"
 	bitesize = 2
 	reagents_to_add = list(/decl/reagent/nutriment = 4)
-	desc_fluff = "The Earth-Root soup is a common sight on the tables, of all social sectors, in the Northern Harr'masir. Prepared traditionally with water, Earth-Root and \
+	desc_extended = "The Earth-Root soup is a common sight on the tables, of all social sectors, in the Northern Harr'masir. Prepared traditionally with water, Earth-Root and \
 	other plants, such as the Nif-Berries."
 	filling_color = "#BD8939"
 
@@ -4789,7 +4928,7 @@
 	bitesize = 2
 	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/nutriment/protein = 4, /decl/reagent/water = 4)
 	reagent_data = list(/decl/reagent/nutriment = list("sweetness" = 2))
-	desc_fluff = "Traditional adhomian stews are made with diced vegetables, such as Nif-Berries, and meat, Snow Strider is commonly used by the rural population, while \
+	desc_extended = "Traditional adhomian stews are made with diced vegetables, such as Nif-Berries, and meat, Snow Strider is commonly used by the rural population, while \
 	industrialized Fatshouters's beef is prefered by the city's inhabitants."
 	filling_color = "#BD8939"
 
@@ -4799,7 +4938,7 @@
 	icon_state = "canned"
 	bitesize = 2
 	trash = /obj/item/trash/can/adhomian_can
-	desc_fluff = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
+	desc_extended = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
 	Salt-cured Fatshouters's meat also has been introduced widely, facilitated by the recent advances in the livestock husbandry techniques."
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 5, /decl/reagent/sodiumchloride = 2)
 	filling_color = "#D63C3C"
@@ -4846,7 +4985,7 @@
 	bitesize = 2
 	reagents_to_add = list(/decl/reagent/nutriment = 15)
 	reagent_data = list(/decl/reagent/nutriment = list("Incredible sweetness" = 8, "Cake" = 7))
-	desc_fluff = "A spongy, sugar-coated cake that's baked on a spit shaped like a cone, giving it a signature look. Often sold alongside Azvah due to similar preparation methods, the difference between them being the unique shape, the crisp, flaky outside, and the tooth-aching sweetness of the dish that turns some foreigners away."
+	desc_extended = "A spongy, sugar-coated cake that's baked on a spit shaped like a cone, giving it a signature look. Often sold alongside Azvah due to similar preparation methods, the difference between them being the unique shape, the crisp, flaky outside, and the tooth-aching sweetness of the dish that turns some foreigners away."
 	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/fruit_rikazu
@@ -4856,7 +4995,7 @@
 	bitesize = 2
 	reagents_to_add = list(/decl/reagent/nutriment = 8)
 	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4, "sweet fruit" = 4))
-	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
+	desc_extended = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
 	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/meat_rikazu
@@ -4866,7 +5005,7 @@
 	bitesize = 2
 	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/nutriment/protein = 4)
 	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4), /decl/reagent/nutriment/protein = list("savory meat" = 4))
-	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
+	desc_extended = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
 	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/vegetable_rikazu
@@ -4876,7 +5015,7 @@
 	bitesize = 2
 	reagents_to_add = list(/decl/reagent/nutriment = 8)
 	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4, "crunchy vegetables" = 4))
-	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
+	desc_extended = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
 	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/chocolate_rikazu
@@ -4886,7 +5025,7 @@
 	bitesize = 2
 	reagents_to_add = list(/decl/reagent/nutriment = 8)
 	reagent_data = list(/decl/reagent/nutriment = list("crispy dough" = 4, "smooth chocolate" = 4))
-	desc_fluff = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
+	desc_extended = "Small pies, often hand-sized, usually made by folding dough overstuffing of fruit and cream cheese; commonly served hot. The simple preparation makes it a fast favorite, and the versatility of the ingredients has gained its favor with Tajara of all creeds. Different variations of Rikazu pop up all over Adhomai, some filled with meats, or vegetables, or even imported ingredients, like chocolate filling."
 	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/avah
@@ -4896,7 +5035,7 @@
 	bitesize = 2
 	reagents_to_add = list(/decl/reagent/nutriment = 7, /decl/reagent/nutriment/protein/cheese = 5)
 	reagent_data = list(/decl/reagent/nutriment = list("Oily dough" = 7), /decl/reagent/nutriment/protein/cheese = list("sweet cream cheese" = 5))
-	desc_fluff = "Used to only mean 'sweets' or 'sweet thing', now singularly refers to a particular dessert. The batter is grilled and made into soft, spherical shapes, and then covered with fruit jams, sugar, or sweet cream cheese. These treats are often sold at festivals and celebrations, and foreigners compare them to pancakes."
+	desc_extended = "Used to only mean 'sweets' or 'sweet thing', now singularly refers to a particular dessert. The batter is grilled and made into soft, spherical shapes, and then covered with fruit jams, sugar, or sweet cream cheese. These treats are often sold at festivals and celebrations, and foreigners compare them to pancakes."
 	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/dirt_roast
@@ -4906,7 +5045,7 @@
 	bitesize = 2
 	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/drink/syrup_caramel = 4)
 	reagent_data = list(/decl/reagent/nutriment = list("warm crunchy nuts" = 2, "cinnamon" = 2), /decl/reagent/drink/syrup_caramel = list("caramel" = 5))
-	desc_fluff = "A traditional snack consisting of oven-roasted dirtberries covered in a mixture of spice and caramel. These crunchy fruits are usually sold at outdoor festivals and events and are enjoyed for their warming effect and pleasant taste."
+	desc_extended = "A traditional snack consisting of oven-roasted dirtberries covered in a mixture of spice and caramel. These crunchy fruits are usually sold at outdoor festivals and events and are enjoyed for their warming effect and pleasant taste."
 	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/sliceable/fatshouter_fillet
@@ -4918,7 +5057,7 @@
 	slices_num = 5
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 10, /decl/reagent/nutriment = 10, /decl/reagent/alcohol/messa_mead = 5)
 	reagent_data = list(/decl/reagent/nutriment/protein = list("juicy meat" = 10), /decl/reagent/nutriment = list("flaky dough" = 5, "savoury vegetables" = 5))
-	desc_fluff = "for a time was considered the benchmark by which to rate the abilities of a chef. The production of this exquisite dish is no easy task, the preparation process begins with the aging of a high-grade tenderloin steak acquired from a Fatshouter fed exclusively on dirtberries. The high starch content of the dirtberries ensures that the creature has a high fat percentage and imparts a unique flavour to the meat and traditionally Noble families would keep a raise small herds of Fatshouters specifically for the production of this dish. After 28 days of dry aging, the tenderloin is ready for use. One day prior to serving the dish, a pâté is made by sauteéing thinly sliced pieces of earthenroot soaked in a generous amount of Messa's Mead and then thickened with lard before being ground into a fine paste and left to - chill. On the day that the dish is to be served a flaky pastry dough is made. Next the aged 7 tenderloin is trimmed of accumulated mold and rind and coated in a dryrub after which the chilled pâté is spread across the surface of the meat and it is wrapped in the thinly rolled pastry dough. Next the pastry is washed with a small amount of clarified lard to give the crust a nice shine, after which it is placed into a large oven and cooked at a high heat for around 40 minutes. Though the dish was regarded as a symbol of the blatant excess and overindulgence of the ruling elite, it has since been reintroduced to the public by enterprising chefs seeking to recapture the high-class culinary culture of the past."
+	desc_extended = "for a time was considered the benchmark by which to rate the abilities of a chef. The production of this exquisite dish is no easy task, the preparation process begins with the aging of a high-grade tenderloin steak acquired from a Fatshouter fed exclusively on dirtberries. The high starch content of the dirtberries ensures that the creature has a high fat percentage and imparts a unique flavour to the meat and traditionally Noble families would keep a raise small herds of Fatshouters specifically for the production of this dish. After 28 days of dry aging, the tenderloin is ready for use. One day prior to serving the dish, a pâté is made by sauteéing thinly sliced pieces of earthenroot soaked in a generous amount of Messa's Mead and then thickened with lard before being ground into a fine paste and left to - chill. On the day that the dish is to be served a flaky pastry dough is made. Next the aged 7 tenderloin is trimmed of accumulated mold and rind and coated in a dryrub after which the chilled pâté is spread across the surface of the meat and it is wrapped in the thinly rolled pastry dough. Next the pastry is washed with a small amount of clarified lard to give the crust a nice shine, after which it is placed into a large oven and cooked at a high heat for around 40 minutes. Though the dish was regarded as a symbol of the blatant excess and overindulgence of the ruling elite, it has since been reintroduced to the public by enterprising chefs seeking to recapture the high-class culinary culture of the past."
 	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/fatshouterslice
@@ -4926,7 +5065,7 @@
 	desc = "A medium rare fillet of Fatshouter meat covered in an earthenroot pate and wrapped in a flaky crust."
 	icon_state = "fatshouterfillet_slice"
 	filling_color = "#FF7575"
-	desc_fluff = "for a time was considered the benchmark by which to rate the abilities of a chef. The production of this exquisite dish is no easy task, the preparation process begins with the aging of a high-grade tenderloin steak acquired from a Fatshouter fed exclusively on dirtberries. The high starch content of the dirtberries ensures that the creature has a high fat percentage and imparts a unique flavour to the meat and traditionally Noble families would keep a raise small herds of Fatshouters specifically for the production of this dish. After 28 days of dry aging, the tenderloin is ready for use. One day prior to serving the dish, a pâté is made by sauteéing thinly sliced pieces of earthenroot soaked in a generous amount of Messa's Mead and then thickened with lard before being ground into a fine paste and left to - chill. On the day that the dish is to be served a flaky pastry dough is made. Next the aged 7 tenderloin is trimmed of accumulated mold and rind and coated in a dryrub after which the chilled pâté is spread across the surface of the meat and it is wrapped in the thinly rolled pastry dough. Next the pastry is washed with a small amount of clarified lard to give the crust a nice shine, after which it is placed into a large oven and cooked at a high heat for around 40 minutes. Though the dish was regarded as a symbol of the blatant excess and overindulgence of the ruling elite, it has since been reintroduced to the public by enterprising chefs seeking to recapture the high-class culinary culture of the past."
+	desc_extended = "for a time was considered the benchmark by which to rate the abilities of a chef. The production of this exquisite dish is no easy task, the preparation process begins with the aging of a high-grade tenderloin steak acquired from a Fatshouter fed exclusively on dirtberries. The high starch content of the dirtberries ensures that the creature has a high fat percentage and imparts a unique flavour to the meat and traditionally Noble families would keep a raise small herds of Fatshouters specifically for the production of this dish. After 28 days of dry aging, the tenderloin is ready for use. One day prior to serving the dish, a pâté is made by sauteéing thinly sliced pieces of earthenroot soaked in a generous amount of Messa's Mead and then thickened with lard before being ground into a fine paste and left to - chill. On the day that the dish is to be served a flaky pastry dough is made. Next the aged 7 tenderloin is trimmed of accumulated mold and rind and coated in a dryrub after which the chilled pâté is spread across the surface of the meat and it is wrapped in the thinly rolled pastry dough. Next the pastry is washed with a small amount of clarified lard to give the crust a nice shine, after which it is placed into a large oven and cooked at a high heat for around 40 minutes. Though the dish was regarded as a symbol of the blatant excess and overindulgence of the ruling elite, it has since been reintroduced to the public by enterprising chefs seeking to recapture the high-class culinary culture of the past."
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/fatshouterslice/filled
@@ -4942,7 +5081,7 @@
 	slices_num = 5
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 25)
 	reagent_data = list(/decl/reagent/nutriment/protein = list("salty" = 10, "smoky meat" = 15))
-	desc_fluff = "A canned variety of the Fatshouter Bloodpudding, known for its low-fat content and lighter color. It was created shortly after the First Revolution to ease the food shortage after the conflict. Its low cost and nutritious value allowed it to become a staple of the Hadiist diet."
+	desc_extended = "A canned variety of the Fatshouter Bloodpudding, known for its low-fat content and lighter color. It was created shortly after the First Revolution to ease the food shortage after the conflict. Its low cost and nutritious value allowed it to become a staple of the Hadiist diet."
 	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/zkahnkowaslice
@@ -4950,7 +5089,7 @@
 	desc = "A slice of smoked sausage."
 	icon_state = "zkah'nkowa_slice"
 	filling_color = "#FF7575"
-	desc_fluff = "A canned variety of the Fatshouter Bloodpudding, known for its low-fat content and lighter color. It was created shortly after the First Revolution to ease the food shortage after the conflict. Its low cost and nutritious value allowed it to become a staple of the Hadiist diet."
+	desc_extended = "A canned variety of the Fatshouter Bloodpudding, known for its low-fat content and lighter color. It was created shortly after the First Revolution to ease the food shortage after the conflict. Its low cost and nutritious value allowed it to become a staple of the Hadiist diet."
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/fatshouterslice/filled
@@ -4964,7 +5103,7 @@
 	bitesize = 2
 	reagents_to_add = list(/decl/reagent/nutriment = 8)
 	reagent_data = list(/decl/reagent/nutriment = list("creamy" = 3, "sweet" = 3, "cold" = 2))
-	desc_fluff = "The traditional dessert of Northern Harr'masir is considered by many as being the mixture of ice, Fatshouters's milk, sugar, and Nif-Berries' oil, named Creamice. The popular tales claim it was invented after a famine desolated the land, resulting in the population resorting to eating snow, however, such tale has been classified by most historians as nothing but fiction. Creamice is commonly consumed by the nobility since they are the ones that can afford the luxury of refrigeration."
+	desc_extended = "The traditional dessert of Northern Harr'masir is considered by many as being the mixture of ice, Fatshouters's milk, sugar, and Nif-Berries' oil, named Creamice. The popular tales claim it was invented after a famine desolated the land, resulting in the population resorting to eating snow, however, such tale has been classified by most historians as nothing but fiction. Creamice is commonly consumed by the nobility since they are the ones that can afford the luxury of refrigeration."
 	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/onionrings
@@ -5008,6 +5147,16 @@
 	bitesize = 2
 
 	reagents_to_add = list(/decl/reagent/nutriment/rice = 6, /decl/reagent/nutriment/protein = 4)
+
+/obj/item/reagent_containers/food/snacks/mossbowl
+	name = "moss bowl"
+	desc = "A bowl of fried rice with moss on top."
+	icon_state = "mossbowl"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#FFFBDB"
+	bitesize = 2
+
+	reagents_to_add = list(/decl/reagent/nutriment/moss = 6, /decl/reagent/nutriment/protein/egg = 3)
 
 /obj/item/reagent_containers/food/snacks/mashedpotato
 	name = "mashed potato"
@@ -5078,8 +5227,8 @@
 	filling_color = "#552200"
 	icon_state = "cb01"
 
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 2, "nougat" = 1, "caramel" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "nougat" = 1, "caramel" = 1))
 	bitesize = 2
 	w_class = ITEMSIZE_TINY
 
@@ -5089,8 +5238,8 @@
 	filling_color = "#552200"
 	icon_state = "cb02"
 
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 2, "caramel" = 1, "puffed rice" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "puffed rice" = 1))
 	bitesize = 2
 	w_class = ITEMSIZE_TINY
 
@@ -5099,8 +5248,8 @@
 	desc = "Bubbly milk chocolate."
 	filling_color = "#552200"
 	icon_state = "cb03"
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 4))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 4))
 	bitesize = 2
 	w_class = ITEMSIZE_TINY
 
@@ -5109,8 +5258,8 @@
 	desc = "An almond flake bar covered in milk chocolate."
 	filling_color = "#552200"
 	icon_state = "cb04"
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 3, "almonds" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 3, "almonds" = 1))
 	bitesize = 2
 	w_class = ITEMSIZE_TINY
 
@@ -5120,8 +5269,8 @@
 	filling_color = "#552200"
 	icon_state = "cb05"
 
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 3, /decl/reagent/sugar = 3)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 2, "vomit" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/sugar = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "vomit" = 1))
 	bitesize = 3
 	w_class = ITEMSIZE_TINY
 
@@ -5130,8 +5279,8 @@
 	desc = "A large latte flavored wafer chocolate bar."
 	filling_color = "#552200"
 	icon_state = "cb06"
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 2, "coffee" = 1, "vanilla wafer" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "coffee" = 1, "vanilla wafer" = 1))
 	bitesize = 3
 	w_class = ITEMSIZE_TINY
 
@@ -5140,8 +5289,8 @@
 	desc = "Dark chocolate with a nougat and caramel center. Known as the first chocolate bar grown and produced on Mars."
 	filling_color = "#552200"
 	icon_state = "cb07"
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 2, "caramel" = 1, "nougat" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "nougat" = 1))
 	bitesize = 3
 	w_class = ITEMSIZE_TINY
 
@@ -5150,8 +5299,8 @@
 	desc = "A large puffed rice milk chocolate bar."
 	filling_color = "#552200"
 	icon_state = "cb08"
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 2, "puffed rice" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "puffed rice" = 1))
 	bitesize = 3
 	w_class = ITEMSIZE_TINY
 
@@ -5161,7 +5310,7 @@
 	filling_color = "#552200"
 	icon_state = "cb09"
 
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 6, /decl/reagent/sugar = 1)
+	reagents_to_add = list(/decl/reagent/nutriment = 6, /decl/reagent/sugar = 1)
 	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 3, "caramel" = 1, "peanuts" = 2))
 	bitesize = 3
 	w_class = ITEMSIZE_TINY
@@ -5172,7 +5321,7 @@
 	filling_color = "#552200"
 	icon_state = "cb10"
 
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 5, /decl/reagent/sugar = 1)
+	reagents_to_add = list(/decl/reagent/nutriment = 5, /decl/reagent/sugar = 1)
 	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "peanuts" = 1, "nougat" = 1))
 	bitesize = 3
 	w_class = ITEMSIZE_TINY
@@ -5188,7 +5337,7 @@
 	throwforce = 10
 	w_class = ITEMSIZE_NORMAL
 	filling_color = "#BD8939"
-	desc_fluff = "The adhomian hard bread is type of tajaran bread, made from Blizzard Ears's flour, water and spice, usually basked in the shape of a loaf. \
+	desc_extended = "The adhomian hard bread is type of tajaran bread, made from Blizzard Ears's flour, water and spice, usually basked in the shape of a loaf. \
 	It is known for its hard crust, bland taste and for being long lasting. The hard bread was usually prepared for long journeys, hard winters or military campaigns, \
 	due to its shelf life. Certain folk stories and jokes claim that such food could also be used as an artillery ammunition or thrown at besieging armies during sieges."
 
@@ -5319,7 +5468,7 @@
 /obj/item/storage/box/fancy/vkrexitaffy
 	name = "V'krexi Snax"
 	desc = "A packet of V'krexi taffy. Made from free-range V'krexi!"
-	desc_fluff = "V'krexi, while edible, hold no nutritional value, either for humans or Vaurca. The V'krexi meat was mostly neglected until human food-processing techniques were introduced to the Zo'ra Hive."
+	desc_extended = "V'krexi, while edible, hold no nutritional value, either for humans or Vaurca. The V'krexi meat was mostly neglected until human food-processing techniques were introduced to the Zo'ra Hive."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "vkrexitaffy"
 	item_icons = list(
@@ -5410,7 +5559,7 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 1, /decl/reagent/nutriment/protein = 1, /decl/reagent/blood = 6, /decl/reagent/nutriment/coco = 3)
 	reagent_data = list(/decl/reagent/nutriment = list("iron" = 3))
 	bitesize = 6
-  
+
 /obj/item/reagent_containers/food/snacks/phoroncandy
 	name = "phoron rock candy"
 	desc = "Rock candy popular in Flagsdale. Actually contains phoron."

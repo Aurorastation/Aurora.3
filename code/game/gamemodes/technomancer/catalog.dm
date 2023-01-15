@@ -374,12 +374,12 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	var/turf/T = get_turf(user)
 	if(T.z in current_map.player_levels)
 		to_chat(user, "<span class='danger'>You can only refund at your base, it's too late now!</span>")
-		return
+		return TRUE
 	for(var/datum/technomancer/equipment/E in equipment_instances + assistance_instances)
 		if(AM.type == E.obj_path) // We got a match.
 			if(budget + E.cost > max_budget)
 				to_chat(user, "<span class='warning'>\The [src] will not allow you to overflow your maximum budget by refunding that.</span>")
-				return
+				return TRUE
 			else
 				budget = budget + E.cost
 				to_chat(user, "<span class='notice'>You've refunded \the [AM].</span>")
@@ -395,6 +395,6 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 								core.remove_spell(spell)
 								break
 				qdel(AM)
-				return
+				return TRUE
 	to_chat(user, "<span class='warn'>\The [src] is unable to refund \the [AM].</span>")
 

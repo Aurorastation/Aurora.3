@@ -139,14 +139,17 @@
 #define BP_IPCTAG   "ipc tag"
 
 // Zombie organ
-#define BP_ZOMBIE_PARASITE "zombieparasite"
+#define BP_ZOMBIE_PARASITE "black tumour"
 
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
 #define BP_AUG_TOOL         "retractable combitool"
 #define BP_AUG_PEN          "retractable combipen"
+#define BP_AUG_CRAYON         "retractable crayon"
+#define BP_AUG_CYBORG_ANALYZER    "retractable cyborg analyzer"
 #define BP_AUG_LIGHTER      "retractable lighter"
 #define BP_AUG_HEALTHSCAN   "integrated health scanner"
+#define BP_AUG_DRILL        "integrated mining drill"
 #define BP_AUG_GUSTATORIAL   "integrated gustatorial centre"
 #define BP_AUG_TESLA        "tesla spine"
 #define BP_AUG_EYE_SENSORS  "integrated eyes sensors"
@@ -203,7 +206,7 @@
 #define APPEARANCE_FACIAL_HAIR 				64
 #define APPEARANCE_FACIAL_HAIR_COLOR 		128
 #define APPEARANCE_EYE_COLOR 				256
-#define APPEARANCE_ACCENT					512
+#define APPEARANCE_CULTURE					512
 #define APPEARANCE_LANGUAGE					1024
 #define APPEARANCE_ALL						65535
 #define APPEARANCE_ALL_HAIR					(APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
@@ -242,12 +245,19 @@
 #define ECONOMICALLY_AVERAGE	"Average"
 #define ECONOMICALLY_UNDERPAID	"Underpaid"
 #define ECONOMICALLY_POOR		"Poor"
+#define ECONOMICALLY_DESTITUTE  "Impoverished"
 
-#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR)
+#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR, ECONOMICALLY_DESTITUTE)
 
-// Defines the argument used for get_mobs_and_objs_in_view_fast
+// Defines the argument used for get_mobs_or_objs_in_view
 #define GHOSTS_ALL_HEAR 1
 #define ONLY_GHOSTS_IN_VIEW 0
+
+// Handle speech problems defines
+#define HSP_MSG 		"message"
+#define HSP_VERB 		"verb"
+#define HSP_MSGMODE 	"message mode"
+#define HSP_MSGRANGE 	"message range"
 
 // Defines mob sizes, used by lockers and to determine what is considered a small sized mob, etc.
 #define MOB_LARGE  		16
@@ -445,6 +455,7 @@
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
 
+#define ROBOT_ICON		"iconpath"
 #define ROBOT_CHASSIS	"chassistype"
 #define ROBOT_PANEL		"paneltype"
 #define ROBOT_EYES		"eyetype"

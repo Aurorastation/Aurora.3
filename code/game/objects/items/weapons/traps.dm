@@ -4,7 +4,7 @@
 	throw_speed = 2
 	throw_range = 1
 	gender = PLURAL
-	icon = 'icons/obj/contained_items/weapons/traps.dmi'
+	icon = 'icons/obj/item/traps.dmi'
 	var/icon_base = "beartrap"
 	icon_state = "beartrap0"
 	randpixel = 0
@@ -378,14 +378,14 @@
 
 	else if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
-		if(!WT.welding)
-			to_chat(user, SPAN_WARNING("Your \the [W] is off!"))
+		if(!WT.isOn())
+			to_chat(user, SPAN_WARNING("\The [WT] is off!"))
 			return
 		user.visible_message("<span class='notice'>[user] is trying to slice \the [src] open!</span>",
 							 "<span class='notice'>You are trying to slice \the [src] open!</span>")
 
-		if (do_after(user, 30/W.toolspeed, act_target = src))
-			if(WT.remove_fuel(2, user))
+		if(WT.use_tool(src, user, 60, volume = 50))
+			if(WT.use(2, user))
 				user.visible_message("<span class='notice'>[user] slices \the [src] open!</span>",
 									"<span class='notice'>You slice \the [src] open!</span>")
 				new /obj/item/stack/rods(src.loc, resources["rods"])
@@ -404,7 +404,7 @@
 							 "<span class='notice'>You are trying to [anchored ? "un" : "" ]secure \the [src]!</span>")
 		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
 
-		if (do_after(user, 30/W.toolspeed, act_target = src))
+		if(W.use_tool(src, user, 30, volume = 50))
 			density = !density
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
@@ -573,9 +573,8 @@
 
 		user.visible_message("<span class='notice'>[user] begins [anchored ? "un" : "" ]securing \the [src]!</span>",
 							  "<span class='notice'>You begin [anchored ? "un" : "" ]securing \the [src]!</span>")
-		playsound(src.loc, W.usesound, 50, 1)
 
-		if(do_after(user, 30/W.toolspeed, act_target = src))
+		if(W.use_tool(src, user, 30, volume = 50))
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
 								"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
@@ -614,7 +613,7 @@
 /obj/item/large_trap_foundation
 	name = "large trap foundation"
 	desc = "A metal foundation for large trap, it is missing metals rods to hold the prey."
-	icon = 'icons/obj/contained_items/weapons/traps.dmi'
+	icon = 'icons/obj/item/traps.dmi'
 	icon_state = "large_foundation"
 	throwforce = 4
 	force = 5

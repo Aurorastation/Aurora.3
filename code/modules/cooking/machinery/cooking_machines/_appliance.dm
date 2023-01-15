@@ -14,7 +14,7 @@
 	density = 1
 	anchored = 1
 
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 5			// Power used when turned on, but not processing anything
 	active_power_usage = 1000		// Power used when turned on and actively cooking something
 
@@ -116,7 +116,7 @@
 		return
 
 	stat ^= POWEROFF // Toggles power
-	use_power = (stat & POWEROFF) ? 0 : 2 // If on, use active power, else use no power
+	update_use_power(stat & POWEROFF ? POWER_USE_OFF : POWER_USE_ACTIVE)
 	if(user)
 		user.visible_message("[user] turns [src] [use_power ? "on" : "off"].", "You turn [use_power ? "on" : "off"] [src].")
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
@@ -317,7 +317,7 @@
 
 	return TRUE
 
-/obj/machinery/appliance/machinery_process()
+/obj/machinery/appliance/process()
 	if (cooking_power > 0 && cooking)
 		for (var/i in cooking_objs)
 			do_cooking_tick(i)
@@ -639,6 +639,6 @@
 		if(isscanner(P))
 			scan_rating += P.rating - 1
 
-	active_power_usage = initial(active_power_usage) - scan_rating * 25 // 25W less per tier
+	change_power_consumption(initial(active_power_usage) - scan_rating * 25, POWER_USE_ACTIVE)
 	heating_power = initial(heating_power) + cap_rating * 50 // + 50W per tier
 	cooking_coeff = (1 + (scan_rating + cap_rating) / 20) // +20% per tier

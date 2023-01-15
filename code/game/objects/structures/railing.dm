@@ -79,7 +79,9 @@
 /obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSTABLE))
+	if(!istype(mover) || mover.checkpass(PASSRAILING))
+		return TRUE
+	if(mover.throwing)
 		return TRUE
 	if(get_dir(loc, target) == dir)
 		return !density
@@ -224,9 +226,8 @@
 	// Dismantle
 	if(W.iswrench())
 		if(!anchored)
-			playsound(get_turf(src), W.usesound, 50, TRUE)
 			user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start dismantling \the [src]..."))
-			if(do_after(user, 20, src))
+			if(W.use_tool(src, user, 20, volume = 50))
 				if(anchored)
 					return
 				user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))

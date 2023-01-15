@@ -60,24 +60,24 @@
 
 /obj/machinery/ringer/attackby(obj/item/C as obj, mob/living/user as mob)
 	if(stat & (BROKEN|NOPOWER) || !istype(user,/mob/living))
-		return
+		return TRUE
 
 	if (istype(C, /obj/item/modular_computer))
 		if(!check_access(C))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
-			return
+			return TRUE
 		else if (C in rings_pdas)
 			to_chat(user, "<span class='notice'>You unlink \the [C] from \the [src].</span>")
 			remove_pda(C)
-			return
+			return TRUE
 		to_chat(user, "<span class='notice'>You link \the [C] to \the [src], it will now ring upon someone using \the [src].</span>")
 		rings_pdas += C
 		// WONT FIX: This requires callbacks fuck my dick.
 		destroyed_event.register(C, src, .proc/remove_pda)
 		update_icon()
-
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/machinery/ringer/attack_hand(mob/user as mob)
 	if(..())
@@ -150,8 +150,10 @@
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
+	flick(src, "ringer_on")
+
 	if(use_power)
-		use_power(active_power_usage)
+		use_power_oneoff(active_power_usage)
 
 	for (var/thing in GET_LISTENERS(id))
 		var/listener/L = thing

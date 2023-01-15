@@ -36,6 +36,7 @@
 	var/boss_short    = "Cap'"
 	var/company_name  = "BadMan"
 	var/company_short = "BM"
+	var/station_type  = "station"
 
 	var/command_spawn_enabled = FALSE
 	var/command_spawn_message = "Someone didn't fill this in."
@@ -109,6 +110,8 @@
 	var/list/planet_size  //dimensions of planet zlevel, defaults to world size. Due to how maps are generated, must be (2^n+1) e.g. 17,33,65,129 etc. Map will just round up to those if set to anything other.
 	var/min_offmap_players = 0
 	var/away_site_budget = 0
+	var/away_ship_budget = 0
+	var/away_variance = 0 //how much higher the budgets can randomly go
 
 	var/allow_borgs_to_leave = FALSE //this controls if borgs can leave the station or ship without exploding
 	var/area/warehouse_basearea //this controls where the cargospawner tries to populate warehouse items
@@ -143,6 +146,7 @@
 	if(empty_levels == null)
 		world.maxz++
 		empty_levels = list(world.maxz)
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 	return pick(empty_levels)
 
 /datum/map/proc/setup_shuttles()
@@ -161,8 +165,9 @@
 		log_debug("No valid exoplanets found!")
 		return
 
-	for(var/i = 0, i < num_exoplanets, i++)
-		var/exoplanet_type = pick(possible_exoplanets)
+	var/exoplanets_to_spawn = min(possible_exoplanets.len, num_exoplanets)
+	for(var/i = 0, i < exoplanets_to_spawn, i++)
+		var/exoplanet_type = pick_n_take(possible_exoplanets)
 		log_debug("Building new exoplanet with type: [exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
 		var/obj/effect/overmap/visitable/sector/exoplanet/new_planet = new exoplanet_type(null, planet_size[1], planet_size[2])
 		new_planet.build_level()
@@ -171,19 +176,22 @@
 /proc/resolve_site_selection(datum/map_template/ruin/away_site/site, list/selected, list/available, list/unavailable, list/by_type)
 	var/spawn_cost = 0
 	var/player_cost = 0
+	var/ship_cost = 0
 	if (site in selected)
 		if (!(site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
-			return list(spawn_cost, player_cost)
+			return list(spawn_cost, player_cost, ship_cost)
 	if (!(site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
 		available -= site
 	spawn_cost += site.spawn_cost
 	player_cost += site.player_cost
+	ship_cost += site.ship_cost
 	selected += site
 
 	for (var/forced_type in site.force_ruins)
 		var/list/costs = resolve_site_selection(by_type[forced_type], selected, available, unavailable, by_type)
 		spawn_cost += costs[1]
 		player_cost += costs[2]
+		player_cost += costs[3]
 
 	for (var/banned_type in site.ban_ruins)
 		var/datum/map_template/ruin/away_site/banned = by_type[banned_type]
@@ -203,7 +211,7 @@
 				continue
 		available[allowed] = allowed.spawn_weight
 
-	return list(spawn_cost, player_cost)
+	return list(spawn_cost, player_cost, ship_cost)
 
 /datum/map/proc/build_away_sites()
 #ifdef UNIT_TEST
@@ -218,18 +226,20 @@
 	var/list/unavailable = list()
 	var/list/by_type = list()
 
-	for (var/site_name in SSmapping.away_sites_templates)
-		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_name]
+	for (var/site_id in SSmapping.away_sites_templates)
+		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
 		if (site.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED)
 			guaranteed += site
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight
-		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
+		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (SSatlas.current_sector.name in site.sectors))
 			available[site] = site.spawn_weight
 		by_type[site.type] = site
 
-	var/points = away_site_budget
+	var/points = rand(away_site_budget, away_site_budget + away_variance)
 	var/players = -min_offmap_players
+	var/shippoints = rand(away_ship_budget, away_ship_budget + away_variance)
+	var/totalbudget = shippoints + points
 	for (var/client/C)
 		++players
 
@@ -237,18 +247,20 @@
 		var/list/costs = resolve_site_selection(site, selected, available, unavailable, by_type)
 		points -= costs[1]
 		players -= costs[2]
+		shippoints -= costs[3]
 
-	while (points > 0 && length(available))
+	while ((points > 0 || shippoints > 0) && length(available))
 		var/datum/map_template/ruin/away_site/site = pickweight(available)
-		if (site.spawn_cost && site.spawn_cost > points || site.player_cost && site.player_cost > players)
+		if ((site.spawn_cost && site.spawn_cost > points) || (site.player_cost && site.player_cost > players) || (site.ship_cost && site.ship_cost > shippoints))
 			unavailable += site
 			available -= site
 			continue
 		var/list/costs = resolve_site_selection(site, selected, available, unavailable, by_type)
 		points -= costs[1]
 		players -= costs[2]
+		shippoints -= costs[3]
 
-	log_admin("Finished selecting away sites ([english_list(selected)]) for [away_site_budget - points] cost of [away_site_budget] budget.")
+	log_admin("Finished selecting away sites ([english_list(selected)]) for [totalbudget - (points + shippoints)] cost of [totalbudget] budget.")
 
 	for (var/datum/map_template/template in selected)
 		if (template.load_new_z())

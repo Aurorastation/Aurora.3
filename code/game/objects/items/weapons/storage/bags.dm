@@ -136,20 +136,6 @@
 	can_hold = list(/obj/item/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/grown)
 
 // -----------------------------
-//        Slime core bag
-// -----------------------------
-
-/obj/item/storage/bag/slimes
-	name = "slime core bag"
-	icon = 'icons/mob/npc/slimes.dmi'
-	icon_state = "slimebag"
-	desc = "A pressurized and thermoregulated bag for the storage and transport of slime cores."
-	max_storage_space = 100
-	max_w_class = ITEMSIZE_NORMAL
-	w_class = ITEMSIZE_SMALL
-	can_hold = list(/obj/item/slime_extract)
-
-// -----------------------------
 //        Sheet Snatcher
 // -----------------------------
 // Because it stacks stacks, this doesn't operate normally.
@@ -303,7 +289,10 @@
 	w_class = ITEMSIZE_LARGE
 	can_hold = list(/obj/item/coin,/obj/item/spacecash)
 
-/obj/item/storage/bag/money/vault
+/obj/item/storage/bag/money/Initialize(mapload)
+	. = ..()
+	if(prob(20))
+		icon_state = "moneybagalt"
 
 /obj/item/storage/bag/money/vault/New()
 	..()

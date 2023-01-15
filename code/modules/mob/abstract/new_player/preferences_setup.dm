@@ -201,10 +201,7 @@
 
 	// Determine what job is marked as 'High' priority, and dress them up as such.
 	var/datum/job/previewJob
-	if(job_civilian_low & ASSISTANT)
-		previewJob = SSjobs.GetJob("Assistant")
-	else
-		previewJob = return_chosen_high_job()
+	previewJob = return_chosen_high_job()
 
 	if(previewJob)
 		mannequin.job = previewJob.title
@@ -229,14 +226,20 @@
 
 /datum/preferences/proc/return_chosen_high_job(var/title = FALSE)
 	var/datum/job/chosenJob
-	if(job_civilian_high)
+	if(SSjobs.init_state < SS_INITSTATE_DONE)
+		return
+
+	if(job_civilian_low & ASSISTANT)
+		// Assistant is weird, has to be checked first because it overrides
+		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_low]"]
+	else if(job_civilian_high)
 		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_high]"]
 	else if(job_medsci_high)
 		chosenJob = SSjobs.bitflag_to_job["[MEDSCI]"]["[job_medsci_high]"]
 	else if(job_engsec_high)
 		chosenJob = SSjobs.bitflag_to_job["[ENGSEC]"]["[job_engsec_high]"]
 
-	if(title)
+	if(istype(chosenJob) && title)
 		return chosenJob.title
 	return chosenJob
 

@@ -92,13 +92,6 @@
 	taste_description = "food"
 	fallback_specific_heat = 1.25
 
-/decl/reagent/nutriment/synthetic
-	name = "Synthetic Nutriment"
-	description = "A cheaper alternative to actual nutriment."
-	taste_description = "cheap food"
-	nutriment_factor = 6
-	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
-
 /decl/reagent/nutriment/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
 	if(isemptylist(newdata))
 		return
@@ -156,10 +149,6 @@
 	var/cooked_name = "coating"
 	taste_description = "some sort of frying coating"
 
-/decl/reagent/nutriment/coating/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
-	. = ..()
-	to_chat(M, "Ugh, this raw [name] tastes disgusting.")
-
 /decl/reagent/nutriment/coating/digest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	var/nut_fact = holder.reagent_data[type]["cooked"] ? nutriment_factor : nutriment_factor / 2 // it's the nut fact
 	M.heal_organ_damage(regen_factor * removed, 0)
@@ -199,6 +188,10 @@
 	icon_cooked = "batter_cooked"
 	coated_adj = "battered"
 	taste_description = "batter"
+	condiment_name = "Batter Jar"
+	condiment_desc = "A vat of the most artery clogging frying ingredient around. Pour into beaker before attempting to coat ingredients."
+	condiment_icon_state = "batter"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/nutriment/coating/beerbatter
 	name = "Beer Batter Mix"
@@ -219,7 +212,7 @@
 	name = "Animal Protein"
 	color = "#440000"
 	blood_factor = 3
-	taste_description = "meat"
+	taste_description = "some sort of protein"
 
 /decl/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
@@ -254,6 +247,10 @@
 	name = "Egg Yolk"
 	color = "#FFFFAA"
 	taste_description = "egg"
+	condiment_name = "Egg Yolk Carton"
+	condiment_desc = "A carton full of Egg Yolk."
+	condiment_icon_state = "eggyolkcarton"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/nutriment/egg/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
@@ -276,6 +273,10 @@
 	nutriment_factor = 12
 	color = "#ffdfb0"
 	taste_description = "fat"
+	condiment_name = "Triglyceride"
+	condiment_desc = "A bottle full of Triglyceride. Feel the burn."
+	condiment_icon_state = "triglyceridebottle"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //Unathi can digest fats too
 /decl/reagent/nutriment/triglyceride/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -318,6 +319,15 @@
 		step = (S.heat_level_2 - S.heat_level_1)*1.5
 
 	return min((holder.get_temperature() - threshold)/step, 2.5)
+
+/decl/reagent/nutriment/grapejelly
+	name = "Grape Jelly"
+	description = "A jelly produced from blending grapes."
+	color = "#410083"
+	taste_description = "grapes"
+	condiment_name = "Grape Jelly"
+	condiment_desc = "A jar of jelly derived from grapes. Superior to cherry jelly."
+	condiment_icon_state = "grapejelly"
 
 /decl/reagent/nutriment/triglyceride/oil/corn
 	name = "Corn Oil"
@@ -378,6 +388,40 @@
 	color = "#302000"
 	taste_description = "bitterness"
 	taste_mult = 1.3
+	condiment_name = "Cocoa Powder Can"
+	condiment_icon_state = "cocoapowder"
+	condiment_desc = "A can full of chocolately powder. Try not to think of the calories."
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/decl/reagent/nutriment/instantjuice
+	name = "Juice Powder"
+	description = "Dehydrated, powdered juice of some kind."
+	taste_mult = 1.3
+	nutriment_factor = 1
+
+/decl/reagent/nutriment/instantjuice/grape
+	name = "Grape Juice Powder"
+	description = "Dehydrated, powdered grape juice."
+	taste_description = "dry grapes"
+	color = "#863333"
+
+/decl/reagent/nutriment/instantjuice/orange
+	name = "Orange Juice Powder"
+	description = "Dehydrated, powdered orange juice."
+	taste_description = "dry oranges"
+	color = "#e78108"
+
+/decl/reagent/nutriment/instantjuice/watermelon
+	name = "Watermelon Juice Powder"
+	description = "Dehydrated, powdered watermelon juice."
+	taste_description = "dry sweet watermelon"
+	color = "#b83333"
+
+/decl/reagent/nutriment/instantjuice/apple
+	name = "Apple Juice Powder"
+	description = "Dehydrated, powdered apple juice."
+	taste_description = "dry sweet apples"
+	color = "#c07c40"
 
 /decl/reagent/nutriment/coffeegrounds
 	name = "Coffee Grounds"
@@ -401,6 +445,32 @@
 		//copied from coffee
 
 /decl/reagent/nutriment/coffeegrounds/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	if(alien != IS_DIONA)
+		M.make_jittery(5)
+		//copied from coffee
+
+/decl/reagent/nutriment/darkcoffeegrounds
+	name = "Rich Coffee Grounds"
+	description = "Enjoy the great taste of espresso."
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#5c4a11"
+	taste_description = "earthy gritty coffee"
+	taste_mult = 0.4
+	condiment_name = "rich ground coffee"
+	condiment_icon_state = "coffee"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/decl/reagent/nutriment/darkcoffeegrounds/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	..()
+	if(alien != IS_DIONA)
+		M.dizziness = max(0, M.dizziness - 5)
+		M.drowsiness = max(0, M.drowsiness - 3)
+		M.sleeping = max(0, M.sleeping - 2)
+		M.intoxication = max(0, (M.intoxication - (removed*0.25)))
+		//copied from coffee
+
+/decl/reagent/nutriment/darkcoffeegrounds/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	if(alien != IS_DIONA)
 		M.make_jittery(5)
 		//copied from coffee
@@ -461,6 +531,18 @@
 	taste_mult = 0.4
 	condiment_name = "rice sack"
 	condiment_icon_state = "rice"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/decl/reagent/nutriment/moss
+	name = "Moss"
+	description = "Enjoy the Konyanger taste of nothing."
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#FFFFFF"
+	taste_description = "moss"
+	taste_mult = 0.4
+	condiment_name = "moss sack"
+	condiment_icon_state = "moss"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/nutriment/cherryjelly
@@ -667,14 +749,13 @@
 	taste_mult = 1.5
 	fallback_specific_heat = 2
 	condiment_name = "hotsauce"
-	condiment_desc = "You can almost TASTE the stomach ulcers now!"
+	condiment_desc = "Hot sauce. It's in the name."
 	condiment_icon_state = "hotsauce"
 
-	var/agony_dose = 5
+	var/agony_dose = 15 // Capsaicin required to proc agony. (3 to 5 chilis.)
 	var/agony_amount = 1
-	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
+	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot.</span>"
 	var/slime_temp_adj = 10
-
 
 /decl/reagent/capsaicin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustToxLoss(0.5 * removed)
@@ -687,15 +768,15 @@
 		var/mob/living/carbon/human/H = M
 		if(!H.can_feel_pain())
 			return
-	if(M.chem_doses[type] < agony_dose && prob(5))
+
+	if(M.chem_doses[type] >= agony_dose && prob(5))
 		to_chat(M, discomfort_message)
-	else
+		M.visible_message("<b>[M]</b> [pick("dry heaves!", "coughs!", "splutters!")]")
 		M.apply_effect(agony_amount, PAIN, 0)
-		if(prob(5))
-			M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
-			to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
+
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
+
 	holder.remove_reagent(/decl/reagent/frostoil, 5)
 
 #define EYES_PROTECTED 1
@@ -706,7 +787,7 @@
 	description = "A chemical agent used for self-defense and in police work."
 	taste_mult = 10
 	reagent_state = LIQUID
-	touch_met = 50 // Get rid of it quickly
+	touch_met = 50 // Get rid of it quickly.
 	color = "#B31008"
 	agony_dose = 0.5
 	agony_amount = 4
@@ -852,7 +933,6 @@
 	description = "The raw essence of a banana."
 	color = "#C3AF00"
 	taste_description = "banana"
-
 	glass_icon_state = "banana"
 	glass_name = "glass of banana juice"
 	glass_desc = "The raw essence of a banana. HONK!"
@@ -862,17 +942,107 @@
 	description = "A delicious blend of several different kinds of berries."
 	color = "#990066"
 	taste_description = "berries"
-
 	glass_icon_state = "berryjuice"
 	glass_name = "glass of berry juice"
 	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/dirtberryjuice
+	name = "Dirt Berry Juice"
+	description = "A delicious blend of several dirt berries."
+	color = "#C4AE7A"
+	taste_description = "dirt berries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of dirt berry juice"
+	glass_desc = "Dirt Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/glowberryjuice
+	name = "Glow Berry Juice"
+	description = "A delicious blend of several glow berries."
+	color = "#c9fa16"
+	taste_description = "glow berries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of glow berry juice"
+	glass_desc = "Glowberry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/strawberryjuice
+	name = "Strawberry Juice"
+	description = "A delicious blend of several strawberries."
+	color = "#bb0202"
+	taste_description = "strawberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of strawberry juice"
+	glass_desc = "Strawberry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/blueberryjuice
+	name = "Blueberry Juice"
+	description = "A delicious blend of several blueberries."
+	color = "#1C225C"
+	taste_description = "blueberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of blueberry juice"
+	glass_desc = "Blueberry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/raspberryjuice
+	name = "Raspberry Juice"
+	description = "A delicious blend of several raspberries."
+	color = "#ff0000"
+	taste_description = "raspberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of raspberry juice"
+	glass_desc = "Raspberry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/blueraspberryjuice
+	name = "Blue Raspberry Juice"
+	description = "A delicious blend of several dark raspberries."
+	color = "#030145"
+	taste_description = "blue raspberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of blue raspberry juice"
+	glass_desc = "Blue Raspberry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/blackraspberryjuice
+	name = "Black Raspberry Juice"
+	description = "A delicious blend of several black raspberries."
+	color = "#1a063f"
+	taste_description = "black raspberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of black raspberry juice"
+	glass_desc = "Black Raspberry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/toxin/poisonberryjuice // It has more in common with toxins than drinks... but it's a juice
+	name = "Poison Berry Juice"
+	description = "A tasty juice blended from various kinds of very deadly and toxic berries."
+	color = "#863353"
+	strength = 5
+	taste_description = "berries"
+	glass_icon_state = "poisonberryjuice"
+	glass_name = "glass of berry juice"
+	glass_desc = "Berry juice. Or maybe it's jam. Who cares?."
+
+/decl/reagent/toxin/deathberryjuice
+	name = "Death Berry Juice"
+	description = "A delicious blend of several toxic death berries."
+	color = "#7A5454"
+	strength = 10
+	taste_description = "death and decay"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of berry juice?"
+	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/ylphaberryjuice
+	name = "Ylpha Berry Juice"
+	description = "A delicious blend of several ylpha berries."
+	color = "#d46423"
+	taste_description = "ylpha berries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of ylpha berry juice"
+	glass_desc = "Ylpha berry juice. Or maybe it's jam. Who cares?"
 
 /decl/reagent/drink/carrotjuice
 	name = "Carrot juice"
 	description = "It is just like a carrot but without crunching."
 	color = "#FF8C00" // rgb: 255, 140, 0
 	taste_description = "carrots"
-
 	glass_icon_state = "carrotjuice"
 	glass_name = "glass of carrot juice"
 	glass_desc = "It is just like a carrot but without crunching."
@@ -888,7 +1058,6 @@
 	description = "It's grrrrrape!"
 	color = "#660099"
 	taste_description = "grapes"
-
 	glass_icon_state = "grapejuice"
 	glass_name = "glass of grape juice"
 	glass_desc = "It's grrrrrape!"
@@ -938,17 +1107,6 @@
 	if(alien == IS_DIONA)
 		return
 	M.adjustOxyLoss(-2 * removed)
-
-/decl/reagent/toxin/poisonberryjuice // It has more in common with toxins than drinks... but it's a juice
-	name = "Poison Berry Juice"
-	description = "A tasty juice blended from various kinds of very deadly and toxic berries."
-	color = "#863353"
-	strength = 5
-	taste_description = "berries"
-
-	glass_icon_state = "poisonberryjuice"
-	glass_name = "glass of poison berry juice"
-	glass_desc = "A glass of deadly juice."
 
 /decl/reagent/drink/potatojuice
 	name = "Potato Juice"
@@ -1030,12 +1188,21 @@
 /decl/reagent/drink/applejuice
 	name = "Apple Juice"
 	description = "Juice from an apple. The most basic beverage you can imagine."
-	taste_description = "apple juice"
+	taste_description = "sweet apples"
 	color = "#f2d779"
 
 	glass_icon_state = "glass_apple"
 	glass_name = "glass of apple juice"
 	glass_desc = "Juice from an apple. The most basic beverage you can imagine."
+
+/decl/reagent/drink/pearjuice
+	name = "Pear Juice"
+	description = "Delicious sweet juice made from pears."
+	taste_description = "sweet pears"
+	color = "#ffff66"
+
+	glass_name = "pear juice"
+	glass_desc = "Delicious juice made from pears."
 
 /decl/reagent/drink/dynjuice
 	name = "Dyn Juice"
@@ -1900,7 +2067,7 @@
 	glass_center_of_mass = list("x"=17, "y"=6)
 
 /decl/reagent/drink/space_cola
-	name = "Space Cola"
+	name = "Comet Cola"
 	description = "A refreshing beverage."
 	reagent_state = LIQUID
 	color = "#100800"
@@ -1909,13 +2076,13 @@
 	carbonated = TRUE
 
 	glass_icon_state  = "spacecola"
-	glass_name = "glass of Space Cola"
-	glass_desc = "A glass of refreshing Space Cola"
+	glass_name = "glass of Comet Cola"
+	glass_desc = "A glass of refreshing Comet Cola"
 	glass_center_of_mass = list("x"=17, "y"=6)
 
 /decl/reagent/drink/spacemountainwind
-	name = "Mountain Wind"
-	description = "Blows right through you like a space wind."
+	name = "Stellar Jolt"
+	description = "For those who have a stronger need for caffeine than they have sense."
 	color = "#a2ff8d"
 	adj_drowsy = -7
 	adj_sleepy = -1
@@ -1923,8 +2090,8 @@
 	carbonated = TRUE
 
 	glass_icon_state = "Space_mountain_wind_glass"
-	glass_name = "glass of Space Mountain Wind"
-	glass_desc = "Space Mountain Wind. As you know, there are no mountains in space, only wind."
+	glass_name = "glass of Stellar Jolt"
+	glass_desc = "Stellar Jolt. Lemony and full of sugar."
 
 /decl/reagent/drink/dr_gibb
 	name = "Dr. Gibb"
@@ -1939,27 +2106,27 @@
 	glass_desc = "Dr. Gibb. Not as dangerous as the name might imply."
 
 /decl/reagent/drink/root_beer
-	name = "RnD Root Beer"
-	description = "A classic Earth drink from the United Americas province."
+	name = "Getmore Root Beer"
+	description = "A classic Earth drink, made from various roots."
 	color = "#211100"
 	adj_drowsy = -6
 	taste_description = "sassafras and anise soda"
 	carbonated = TRUE
 
 	glass_icon_state = "root_beer_glass"
-	glass_name = "glass of RnD Root Beer"
-	glass_desc = "A glass of bubbly RnD Root Beer."
+	glass_name = "glass of Getmore Root Beer"
+	glass_desc = "A glass of bubbly Getmore Root Beer."
 
 /decl/reagent/drink/spaceup
-	name = "Space-Up"
+	name = "Vacuum Fizz"
 	description = "Tastes like a hull breach in your mouth."
 	color = "#aee5e4"
 	taste_description = "a hull breach"
 	carbonated = TRUE
 
 	glass_icon_state = "space-up_glass"
-	glass_name = "glass of Space-up"
-	glass_desc = "Space-up. It helps keep your cool."
+	glass_name = "glass of Vacuum Fizz"
+	glass_desc = "Vacuum Fizz. It helps keep your cool."
 
 /decl/reagent/drink/lemon_lime
 	name = "Lemon Lime"
@@ -2406,15 +2573,15 @@
 	glass_desc = "A glass of sake."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
-/decl/reagent/alcohol/cloudyoran
-	name = "Cloudy Oran"
+/decl/reagent/alcohol/cloudyeridani
+	name = "Cloudy Eridani"
 	description = "Reminds Suits of home. Dregs, not so much."
 	color = "#F6F6F6"
 	strength = 15
 	taste_description = "soy milk putting on airs"
 
-	glass_icon_state = "cloudyoranglass"
-	glass_name = "glass of Cloudy Oran"
+	glass_icon_state = "cloudyeridaniglass"
+	glass_name = "glass of Cloudy Eridani"
 	glass_desc = "A frothy white beverage. Reminds Suits of home. Dregs, not so much."
 	glass_center_of_mass = list("x"=16, "y"=5)
 
@@ -2530,6 +2697,15 @@
 	glass_name = "glass of wine"
 	glass_desc = "A very classy looking drink."
 	glass_center_of_mass = list("x"=15, "y"=7)
+
+/decl/reagent/alcohol/wine/vintage
+	name = "Fine Wine"
+	description = "A high-class artisan wine, made in a small batch and aged for decades or centuries."
+	strength = 20
+	taste_description = "rich and full-bodied sweetness unlike anything you've ever had"
+
+	glass_name = "glass of vintage wine"
+	glass_desc = "A very classy and expensive-looking drink."
 
 // Cocktails
 
@@ -4261,12 +4437,12 @@
 	name = "The Third Incident"
 	color = "#1936a0"
 	strength = 10
-	description = "A controversial drink popular with the punk youth of the Jargon Federation. Represents blood, eggs, and tears."
+	description = "A controversial drink popular with the punk youth of the Nralakk Federation. Represents blood, eggs, and tears."
 	taste_description = "genophage sadness"
 
 	glass_icon_state = "thirdincident"
 	glass_name = "glass of the Third Incident"
-	glass_desc = "A controversial drink popular with the punk youth of the Jargon Federation. Represents blood, eggs, and tears."
+	glass_desc = "A controversial drink popular with the punk youth of the Nralakk Federation. Represents blood, eggs, and tears."
 
 /decl/reagent/drink/upsidedowncup
 	name = "Upside-Down Cup"
@@ -4785,19 +4961,27 @@
 	description = "The gooey insides of a slain pumpkin. This day is the greatest..."
 	color = "#f9ab28"
 	taste_description = "gooey pumpkin"
+	condiment_name = "Pumpkin Pulp Jar"
+	condiment_desc = "An orange jar with a picture of a pumpkin on its label. Spooky."
+	condiment_icon_state = "pumpkinpulp"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/spacespice/pumpkinspice
 	name = "Pumpkin Spice"
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
+	condiment_name = "bottle of pumpkin spice"
+	condiment_name = "Pumpkin Spice"
+	condiment_desc = "Every teenager's favorite seasonal ingredient."
+	condiment_icon_state = "pumpkinspice"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/drink/syrup_chocolate
 	name = "Chocolate Syrup"
 	description = "Thick chocolate syrup used to flavor drinks."
 	taste_description = "chocolate"
 	color = "#542a0c"
-
 	glass_name = "chocolate syrup"
 	glass_desc = "Thick chocolate syrup used to flavor drinks."
 
@@ -4806,7 +4990,6 @@
 	description = "Thick caramel syrup used to flavor drinks."
 	taste_description = "caramel"
 	color = "#85461e"
-
 	glass_name = "caramel syrup"
 	glass_desc = "Thick caramel syrup used to flavor drinks."
 
@@ -4815,7 +4998,6 @@
 	description = "Thick vanilla syrup used to flavor drinks."
 	taste_description = "vanilla"
 	color = "#f3e5ab"
-
 	glass_name = "vanilla syrup"
 	glass_desc = "Thick vanilla syrup used to flavor drinks."
 
@@ -4824,9 +5006,97 @@
 	description = "Thick spiced pumpkin syrup used to flavor drinks."
 	taste_description = "spiced pumpkin"
 	color = "#d88b4c"
-
 	glass_name = "pumpkin spice syrup"
 	glass_desc = "Thick spiced pumpkin syrup used to flavor drinks."
+//berry
+/decl/reagent/drink/syrup_berry
+	name = "Berry Syrup"
+	description = "Thick berry syrup used to flavor drinks."
+	taste_description = "berry"
+	color = "#f3e5ab"
+	glass_name = "berry syrup"
+	glass_desc = "Thick berry syrup used to flavor drinks."
+//strawberry
+/decl/reagent/drink/syrup_strawberry
+	name = "Strawberry Syrup"
+	description = "Thick strawberry syrup used to flavor drinks."
+	taste_description = "strawberry"
+	color = "#f3e5ab"
+	glass_name = "strawberry syrup"
+	glass_desc = "Thick strawberry syrup used to flavor drinks."
+//blueberry
+/decl/reagent/drink/syrup_blueberry
+	name = "Blueberry Syrup"
+	description = "Thick blueberry syrup used to flavor drinks."
+	taste_description = "blueberry"
+	color = "#f3e5ab"
+	glass_name = "blueberry syrup"
+	glass_desc = "Thick blueberry syrup used to flavor drinks."
+//rasp
+/decl/reagent/drink/syrup_raspberry
+	name = "Raspberry Syrup"
+	description = "Thick raspberry syrup used to flavor drinks."
+	taste_description = "raspberry"
+	color = "#f3e5ab"
+	glass_name = "raspberry syrup"
+	glass_desc = "Thick raspberry syrup used to flavor drinks."
+//black rasp
+/decl/reagent/drink/syrup_blackraspberry
+	name = "Black Raspberry Syrup"
+	description = "Thick black raspberry syrup used to flavor drinks."
+	taste_description = "black raspberry"
+	color = "#f3e5ab"
+	glass_name = "black raspberry syrup"
+	glass_desc = "Thick black raspberry syrup used to flavor drinks."
+//blue rasp
+/decl/reagent/drink/syrup_blueraspberry
+	name = "Blue Raspberry Syrup"
+	description = "Thick blue raspberry syrup used to flavor drinks."
+	taste_description = "blue raspberry"
+	color = "#f3e5ab"
+	glass_name = "blue raspberry syrup"
+	glass_desc = "Thick blue raspberry syrup used to flavor drinks."
+//glow
+/decl/reagent/drink/syrup_glowberry
+	name = "Glowberry Syrup"
+	description = "Thick glowberry syrup used to flavor drinks."
+	taste_description = "glowberry"
+	color = "#f3e5ab"
+	glass_name = "glowberry syrup"
+	glass_desc = "Thick glowberry syrup used to flavor drinks."
+//poison
+/decl/reagent/drink/syrup_poisonberry
+	name = "Poison Berry Syrup"
+	description = "Thick poison berry syrup used to flavor drinks."
+	taste_description = "something sweet"
+	color = "#f3e5ab"
+	glass_name = "poison berry syrup"
+	glass_desc = "Thick poison berry syrup used to flavor drinks."
+//death
+/decl/reagent/drink/syrup_deathberry
+	name = "Death Berry Syrup"
+	description = "Thick death berry syrup used to flavor drinks."
+	taste_description = "something sweet"
+	color = "#f3e5ab"
+	glass_name = "death berry syrup"
+	glass_desc = "Thick death berry syrup used to flavor drinks."
+//ylpha
+/decl/reagent/drink/syrup_ylphaberry
+	name = "Ylpha Berry Syrup"
+	description = "Thick ylpha berry syrup used to flavor drinks."
+	taste_description = "ylpha berry"
+	color = "#f3e5ab"
+	glass_name = "ylpha berry syrup"
+	glass_desc = "Thick ylpha berry syrup used to flavor drinks."
+//dirt
+/decl/reagent/drink/syrup_dirtberry
+	name = "Dirt Berry Syrup"
+	description = "Thick dirt berry syrup used to flavor drinks."
+	taste_description = "dirt berry"
+	color = "#f3e5ab"
+	glass_name = "dirt berry syrup"
+	glass_desc = "Thick dirt berry syrup used to flavor drinks."
+
 
 /decl/reagent/drink/syrup_simple
 	name = "Simple Syrup"
@@ -4938,14 +5208,14 @@
 
 /decl/reagent/drink/diet_cola
 	name = "Diet Cola"
-	description = "Space Cola! Now in diet!"
+	description = "Comet cola! Now in diet!"
 	color = "#100800"
 	taste_description = "cola and less calories"
 	carbonated = TRUE
 
 	glass_icon_state = "spacecola"
 	glass_name = "glass of diet cola"
-	glass_desc = "Space Cola! Now in diet!"
+	glass_desc = "Comet cola! Now in diet!"
 
 /decl/reagent/drink/milk/chocolate
 	name = "Chocolate milk"

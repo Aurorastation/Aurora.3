@@ -191,6 +191,6 @@
 	name = "Solar Panel Control"
 	icon_state = "yellow"
 
-/area/construction/Storage
+/area/construction/storage
 	name = "Construction Site Storage"
 	icon_state = "yellow"

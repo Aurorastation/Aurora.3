@@ -10,10 +10,12 @@
 	switch(network)
 		if(NETWORK_THUNDER)
 			return FALSE
-		if(NETWORK_ENGINE,NETWORK_ENGINEERING,NETWORK_ENGINEERING_OUTPOST,NETWORK_ALARM_ATMOS,NETWORK_ALARM_FIRE,NETWORK_ALARM_POWER)
+		if(NETWORK_REACTOR,NETWORK_ENGINEERING,NETWORK_ENGINEERING_OUTPOST,NETWORK_ALARM_ATMOS,NETWORK_ALARM_FIRE,NETWORK_ALARM_POWER)
 			return access_engine
 		if(NETWORK_MEDICAL)
 			return access_medical
+		if(NETWORK_SECURITY)
+			return access_security
 		if(NETWORK_RESEARCH,NETWORK_RESEARCH_OUTPOST)
 			return access_research
 		if(NETWORK_MINE,NETWORK_SUPPLY,NETWORK_CIVILIAN_WEST,NETWORK_EXPEDITION,NETWORK_CALYPSO,NETWORK_POD)
@@ -29,7 +31,8 @@
 	filename = "cammon"
 	filedesc = "Camera Monitoring"
 	nanomodule_path = /datum/nano_module/camera_monitor
-	program_icon_state = "sec_alarm"
+	program_icon_state = "cameras"
+	program_key_icon_state = "yellow_key"
 	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements."
 	size = 12
 	available_on_ntnet = TRUE
@@ -84,7 +87,7 @@
 	if(!network_access)
 		return TRUE
 
-	return check_access(user, access_security) || check_access(user, network_access)
+	return (check_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_access(user, network_access)
 
 /datum/nano_module/camera_monitor/Topic(href, href_list)
 	if(..())
@@ -95,6 +98,14 @@
 		if(!C)
 			return
 		if(!(current_network in C.network))
+			return
+
+		var/access_granted = FALSE
+		for(var/network in C.network)
+			if(can_access_network(usr, get_camera_access(network)))
+				access_granted = TRUE //We only need access to one of the networks.
+		if(!access_granted)
+			to_chat(usr, SPAN_WARNING("Access unauthorized."))
 			return
 
 		switch_to_camera(usr, C)
@@ -124,6 +135,10 @@
 		A.eyeobj.setLoc(get_turf(C))
 		A.client.eye = A.eyeobj
 		return TRUE
+
+	if(!is_contact_area(get_area(C)))
+		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
+		return FALSE
 
 	set_current(C)
 	user.machine = ui_host()
@@ -157,12 +172,11 @@
 	current_camera = null
 
 /datum/nano_module/camera_monitor/check_eye(var/mob/user as mob)
-	if(istype(ui_host(), /obj/machinery/computer))
-		var/obj/machinery/computer/C = ui_host()
-		if (C.use_check_and_message(user) || C.inoperable())
+	var/obj/item/modular_computer/MC = user.machine
+	if(istype(MC) && ui_host() == MC)
+		if(!MC.working || user.blinded || user.stat)
+			user.unset_machine()
 			return -1
-	if(user.blinded)
-		return -1
 	if(!current_camera)
 		return 0
 	var/viewflag = current_camera.check_eye(user)

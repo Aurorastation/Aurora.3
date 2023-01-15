@@ -116,7 +116,7 @@
 	var/pda_msg_amt = 0
 	var/rc_msg_amt = 0
 
-	for(var/obj/machinery/message_server/MS in SSmachinery.all_machines)
+	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 		if(MS.pda_msgs.len > pda_msg_amt)
 			pda_msg_amt = MS.pda_msgs.len
 		if(MS.rc_msgs.len > rc_msg_amt)

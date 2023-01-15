@@ -1,5 +1,3 @@
-#define waypoint_sector(waypoint) map_sectors["[waypoint.z]"]
-
 /datum/shuttle/autodock/overmap
 	warmup_time = 10
 
@@ -20,8 +18,8 @@
 			fuel_port_in_area.parent_shuttle = src
 			fuel_ports += fuel_port_in_area
 
-/datum/shuttle/autodock/overmap/fuel_check()
-	if(!src.try_consume_fuel()) //insufficient fuel
+/datum/shuttle/autodock/overmap/fuel_check(var/check_only = FALSE) // "check_only" lets you check the fuel levels without using any.
+	if(!src.try_consume_fuel(check_only)) //insufficient fuel
 		for(var/area/A in shuttle_area)
 			for(var/mob/living/M in A)
 				M.show_message(SPAN_WARNING("You hear the shuttle engines sputter... perhaps it doesn't have enough fuel?"), 2,
@@ -69,7 +67,7 @@
 		return "None"
 	return "[waypoint_sector(next_location)] - [next_location]"
 
-/datum/shuttle/autodock/overmap/proc/try_consume_fuel() //returns 1 if sucessful, returns 0 if error (like insufficient fuel)
+/datum/shuttle/autodock/overmap/proc/try_consume_fuel(var/check_only = FALSE) //returns 1 if sucessful, returns 0 if error (like insufficient fuel)
 	if(!fuel_consumption)
 		return 1 //shuttles with zero fuel consumption are magic and can always launch
 	if(!fuel_ports.len)
@@ -92,6 +90,8 @@
 		var/fuel_available = FT.air_contents.get_by_flag(XGM_GAS_FUEL)
 		if(!fuel_available) // Didn't even have fuel.
 			continue
+		if(check_only)
+			return 1
 		if(fuel_available >= fuel_to_consume)
 			FT.remove_air_by_flag(XGM_GAS_FUEL, fuel_to_consume)
 			return 1 //ALL REQUIRED FUEL HAS BEEN CONSUMED, GO FOR LAUNCH!
@@ -99,7 +99,15 @@
 			fuel_to_consume -= fuel_available
 			FT.remove_air_by_flag(XGM_GAS_FUEL, fuel_available)
 
-/obj/structure/fuel_port
+/datum/shuttle/autodock/overmap/on_move_interim()
+	..()
+	for(var/obj/machinery/computer/shuttle_control/explore/E in shuttle_computers)
+		var/obj/effect/overmap/visitable/ship/S = E.connected
+		if(S)
+			S.halt()
+			S.unhalt()
+
+/obj/structure/fuel_port //empty
 	name = "fuel port"
 	desc = "The fuel input port of the shuttle. Holds one fuel tank. Use a crowbar to open and close it."
 	icon = 'icons/turf/shuttle.dmi'
@@ -111,10 +119,6 @@
 	var/icon_full = "fuel_port_full"
 	var/opened = 0
 	var/parent_shuttle
-
-/obj/structure/fuel_port/Initialize()
-	. = ..()
-	new /obj/item/tank/phoron/shuttle(src) // Enough for four launches (one round trip)
 
 /obj/structure/fuel_port/attack_hand(mob/user)
 	if(!opened)
@@ -155,5 +159,17 @@
 // Walls hide stuff inside them, but we want to be visible.
 /obj/structure/fuel_port/hide()
 	return
+
+/obj/structure/fuel_port/phoron // The best and most expensive fuel. Likely to be in the hands of corporate forces, though the well-off along with military forces throughout the Spur also have a good chance of using it.
+
+/obj/structure/fuel_port/phoron/Initialize()
+	. = ..()
+	new /obj/item/tank/phoron/shuttle(src) 
+
+/obj/structure/fuel_port/hydrogen // The most common and serviceable fuel for a shuttle. It's not as good as phoron, but it will still get you places. It's also not scarce! Used by practically everyone.
+
+/obj/structure/fuel_port/hydrogen/Initialize()
+	. = ..()
+	new /obj/item/tank/hydrogen/shuttle(src) 
 
 #undef waypoint_sector

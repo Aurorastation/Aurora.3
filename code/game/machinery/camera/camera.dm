@@ -3,7 +3,7 @@
 	desc = "It's used to monitor rooms."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "camera"
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 5
 	active_power_usage = 10
 	layer = 5
@@ -66,7 +66,7 @@
 	wires = null
 	return ..()
 
-/obj/machinery/camera/machinery_process()
+/obj/machinery/camera/process()
 	if((stat & EMPED) && world.time >= affected_by_emp_until)
 		stat &= ~EMPED
 		cancelCameraAlarm()
@@ -102,7 +102,7 @@
 
 	..() //and give it the regular chance of being deleted outright
 
-/obj/machinery/camera/hitby(AM as mob|obj)
+/obj/machinery/camera/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
 	..()
 	if (istype(AM, /obj))
 		var/obj/O = AM
@@ -137,9 +137,11 @@
 		user.visible_message("<span class='warning'>[user] screws the camera's panel [panel_open ? "open" : "closed"]!</span>",
 		"<span class='notice'>You screw the camera's panel [panel_open ? "open" : "closed"].</span>")
 		playsound(src.loc, W.usesound, 50, 1)
+		return TRUE
 
 	else if((W.iswirecutter() || W.ismultitool()) && panel_open)
 		interact(user)
+		return TRUE
 
 	else if(W.iswelder() && (wires.CanDeconstruct() || (stat & BROKEN)))
 		if(weld(W, user))
@@ -159,7 +161,7 @@
 					new /obj/item/stack/cable_coil(loc, 2)
 				assembly = null //so qdel doesn't eat it.
 			qdel(src)
-			return
+		return TRUE
 
 	// OTHER
 	else if (can_use() && (istype(W, /obj/item/paper)) && isliving(user))
@@ -187,17 +189,18 @@
 				if (S.current_camera == src)
 					to_chat(O, "[U] holds \a [itemname] up to one of the cameras ...")
 					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname)) //Force people watching to open the page so they can't see it again)
+		return TRUE
 
 	else if (istype(W, /obj/item/camera_bug))
 		if (!src.can_use())
 			to_chat(user, "<span class='warning'>Camera non-functional.</span>")
-			return
-		if (src.bugged)
+		else if (src.bugged)
 			to_chat(user, "<span class='notice'>Camera bug removed.</span>")
 			src.bugged = 0
 		else
 			to_chat(user, "<span class='notice'>Camera bugged.</span>")
 			src.bugged = 1
+		return TRUE
 
 	else if(W.damtype == BRUTE || W.damtype == BURN) //bashing cameras
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -209,9 +212,9 @@
 				if (I.hitsound)
 					playsound(loc, I.hitsound, I.get_clamped_volume(), 1, -1)
 		take_damage(W.force)
-
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/machinery/camera/proc/deactivate(user as mob, var/choice = 1)
 	// The only way for AI to reactivate cameras are malf abilities, this gives them different messages.
@@ -319,7 +322,7 @@
 	if(isXRay())
 		see = range(view_range, pos)
 	else
-		see = hear(view_range, pos)
+		see = get_hear(view_range, pos)
 	return see
 
 /atom/proc/auto_turn()
@@ -366,7 +369,7 @@
 	playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
 	WT.eyecheck(user)
 	busy = 1
-	if(do_after(user, 100/WT.toolspeed))
+	if(WT.use_tool(src, user, 100, volume = 50))
 		busy = 0
 		if(!WT.isOn())
 			return 0

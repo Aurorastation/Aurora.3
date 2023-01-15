@@ -43,4 +43,6 @@
 	// Setup cargo spawn lists.
 	setup_cargo_spawn_lists()
 
+	click_catchers = create_click_catcher()
+
 	..()

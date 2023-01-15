@@ -73,7 +73,7 @@
 	damage_type = BURN
 	check_armor = "laser"
 	range = 5
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE|PASSRAILING
 
 	var/mineral_passes = 2 // amount of mineral turfs it passes through before ending
 

@@ -6,11 +6,16 @@
 	var/datum/state_object
 
 	var/datum/weakref/target_human
+	var/datum/weakref/target_id //Mostly for ghostroles and plastic surgery machines. If there is an ID, update it when we close the UI to ensure the correct info is imprinted.
+	var/change_id = FALSE //Prevents runtimes in vueui_on_close if target_id is null
 	var/list/valid_species = list()
 	var/list/valid_genders = list()
 	var/list/valid_pronouns = list()
 	var/list/valid_hairstyles = list()
 	var/list/valid_facial_hairstyles = list()
+	var/list/valid_cultures = list()
+	var/list/valid_origins = list()
+	var/list/valid_citizenships = list()
 	var/list/valid_accents = list()
 	var/list/valid_languages = list()
 
@@ -18,11 +23,16 @@
 	var/list/whitelist
 	var/list/blacklist
 
-/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/datum/topic_state/set_ui_state = interactive_state, var/datum/set_state_object = null)
+/datum/vueui_module/appearance_changer/New(var/mob/living/carbon/human/H, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/datum/topic_state/set_ui_state = interactive_state, var/datum/set_state_object = null, var/update_id)
 	..()
 	ui_state = set_ui_state
 	state_object = set_state_object
 	target_human = WEAKREF(H)
+	if(istype(H) && update_id)
+		var/obj/item/card/id/idcard = H.GetIdCard()
+		if(idcard)
+			target_id = WEAKREF(idcard)
+			change_id = TRUE
 	src.check_whitelist = check_species_whitelist
 	src.whitelist = species_whitelist
 	src.blacklist = species_blacklist
@@ -118,8 +128,39 @@
 				if(owner.change_eye_color(r_eyes, g_eyes, b_eyes))
 					update_dna()
 					return 1
+	if(href_list["culture"])
+		if(can_change(APPEARANCE_CULTURE))
+			var/new_culture_id = href_list["culture"]
+			if(new_culture_id in valid_cultures)
+				var/decl/origin_item/culture/new_culture = valid_cultures[new_culture_id]
+				owner.culture = new_culture
+				if(!(owner.origin in new_culture.possible_origins))
+					owner.origin = decls_repository.get_decl(pick(new_culture.possible_origins))
+				clear_and_generate_data()
+			return 1
+	if(href_list["origin"])
+		if(can_change(APPEARANCE_CULTURE))
+			var/new_origin_id = href_list["origin"]
+			if(new_origin_id in valid_origins)
+				var/decl/origin_item/origin/new_origin = valid_origins[new_origin_id]
+				owner.origin = new_origin
+				if(!(owner.accent in new_origin.possible_accents))
+					owner.accent = new_origin.possible_accents[1]
+				if(!(owner.religion in new_origin.possible_religions))
+					owner.religion = new_origin.possible_religions[1]
+				if(!(owner.citizenship in new_origin.possible_religions))
+					owner.citizenship = new_origin.possible_citizenships[1]
+				clear_and_generate_data()
+			return 1
+	if(href_list["citizenship"])
+		if(can_change(APPEARANCE_CULTURE))
+			var/new_citizenship = href_list["citizenship"]
+			if(new_citizenship in valid_citizenships)
+				owner.citizenship = new_citizenship
+				clear_and_generate_data()
+			return 1
 	if(href_list["accent"])
-		if(can_change(APPEARANCE_ACCENT) && (href_list["accent"] in valid_accents))
+		if(can_change(APPEARANCE_CULTURE))
 			if(owner.set_accent(href_list["accent"]))
 				clear_and_generate_data()
 			return 1
@@ -157,8 +198,15 @@
 	data["valid_gender"] = valid_genders
 	data["valid_pronouns"] = valid_pronouns
 
+	
+	data["change_culture"] = can_change(APPEARANCE_CULTURE)
+	data["owner_culture"] = owner.culture.name
+	data["valid_cultures"] = valid_cultures
+	data["owner_origin"] = owner.origin.name
+	data["valid_origins"] = valid_origins
+	data["owner_citizenship"] = owner.citizenship
+	data["valid_citizenships"] = valid_citizenships
 	data["owner_accent"] = owner.accent
-	data["change_accent"] = can_change(APPEARANCE_ACCENT)
 	data["valid_accents"] = valid_accents
 
 	var/list/owner_languages = list()
@@ -185,6 +233,14 @@
 	data["change_facial_hair_color"] = can_change(APPEARANCE_FACIAL_HAIR_COLOR)
 
 	return data
+
+/datum/vueui_module/appearance_changer/vueui_on_close(var/datum/vueui/ui)
+	if(change_id)
+		var/mob/living/carbon/human/owner = target_human.resolve()
+		var/obj/item/card/id/I = target_id.resolve()
+		if(!istype(I) || !(istype(owner)))
+			return FALSE
+		owner.set_id_info(I)
 
 /datum/vueui_module/appearance_changer/proc/update_dna()
 	var/mob/living/carbon/human/owner = target_human.resolve()
@@ -223,6 +279,9 @@
 	valid_pronouns = list()
 	valid_hairstyles = list()
 	valid_facial_hairstyles = list()
+	valid_cultures = list()
+	valid_origins = list()
+	valid_citizenships = list()
 	valid_accents = list()
 	valid_languages = list()
 	generate_data()
@@ -241,7 +300,15 @@
 		valid_hairstyles = owner.generate_valid_hairstyles(check_gender = 1)
 	if(!length(valid_facial_hairstyles))
 		valid_facial_hairstyles = owner.generate_valid_facial_hairstyles()
-	if(!length(valid_accents) && length(owner.species.allowed_accents))
-		valid_accents = owner.species.allowed_accents.Copy()
+	if(!length(valid_cultures))
+		for(var/culture in owner.species.possible_cultures)
+			var/decl/origin_item/culture/CI = decls_repository.get_decl(culture)
+			valid_cultures[CI.name] = CI
+		var/decl/origin_item/culture/OC = owner.culture
+		for(var/origin in OC.possible_origins)
+			var/decl/origin_item/origin/OI = decls_repository.get_decl(origin)
+			valid_origins[OI.name] = OI
+		valid_citizenships = owner.origin.possible_citizenships
+		valid_accents = owner.origin.possible_accents
 	if(!length(valid_languages))
 		valid_languages = owner.generate_valid_languages()

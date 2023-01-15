@@ -24,10 +24,12 @@
 	origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
 	modifystate = "floramut"
 	self_recharge = 1
+	var/decl/plantgene/gene = null
 
 	firemodes = list(
 		list(mode_name="induce mutations", projectile_type=/obj/item/projectile/energy/floramut, modifystate="floramut"),
-		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield")
+		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield"),
+		list(mode_name="induce specific mutations", projectile_type=/obj/item/projectile/energy/floramut/gene, modifystate="floramut"),
 		)
 
 	needspin = FALSE
@@ -39,6 +41,22 @@
 		Fire(target,user)
 		return
 	..()
+
+/obj/item/gun/energy/floragun/verb/select_gene()
+	set name = "Select Gene"
+	set category = "Object"
+	set src in view(1)
+
+	var/genemask = input("Choose a gene to modify.") as null|anything in SSplants.plant_gene_datums
+
+	if(!genemask)
+		return
+
+	gene = SSplants.plant_gene_datums[genemask]
+
+	to_chat(usr, SPAN_INFO("You set \the [src]\s targeted genetic area to [genemask]."))
+
+	return
 
 /obj/item/gun/energy/meteorgun
 	name = "meteor gun"
@@ -95,27 +113,6 @@
 	can_turret = 1
 	turret_is_lethal = 0
 	turret_sprite_set = "net"
-
-/obj/item/gun/energy/beegun
-	name = "\improper NanoTrasen Portable Apiary"
-	desc = "An experimental firearm that converts energy into bees, for purely botanical purposes."
-	icon = 'icons/obj/guns/gyrorifle.dmi'
-	icon_state = "gyrorifle"
-	item_state = "gyrorifle"
-	has_item_ratio = FALSE
-	charge_meter = 0
-	w_class = ITEMSIZE_LARGE
-	fire_sound = 'sound/effects/Buzz2.ogg'
-	force = 5
-	projectile_type = /obj/item/projectile/energy/bee
-	slot_flags = SLOT_BACK
-	max_shots = 9
-	sel_mode = 1
-	burst = 3
-	burst_delay = 1
-	move_delay = 3
-	fire_delay = 0
-	dispersion = list(0, 8)
 
 /obj/item/gun/energy/mousegun
 	name = "pest gun"
@@ -177,11 +174,11 @@
 	turret_sprite_set = "net"
 
 /obj/item/gun/energy/net/mounted
-	max_shots = 1
+	max_shots = 2
 	self_recharge = TRUE
 	use_external_power = TRUE
 	has_safety = FALSE
-	recharge_time = 40
+	recharge_time = 30
 	can_turret = FALSE
 
 /* Vaurca Weapons */
@@ -282,7 +279,7 @@
 	accuracy = 1
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster/incendiary
-	max_shots = 6
+	max_shots = 7
 	sel_mode = 1
 	burst = 1
 	burst_delay = 1

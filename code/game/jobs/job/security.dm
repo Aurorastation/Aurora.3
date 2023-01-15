@@ -11,18 +11,22 @@
 	selection_color = "#991818"
 	economic_modifier = 10
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 80,
+		SPECIES_SKRELL_AXIORI = 80
+	)
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
-			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
+			            access_research, access_engine, access_ship_weapons, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-				    access_detective, access_weapons, access_intrepid)
+				    	access_weapons, access_intrepid, access_teleporter)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
-			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
+			            access_research, access_engine, access_ship_weapons, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-				    access_detective, access_weapons, access_intrepid)
+				    	access_weapons, access_intrepid, access_teleporter)
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/hos
 
@@ -33,7 +37,7 @@
 	jobtype = /datum/job/hos
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
-	head = /obj/item/clothing/head/hos/scc
+	head = /obj/item/clothing/head/hos
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/navy
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
@@ -56,20 +60,10 @@
 		/obj/item/implant/mindshield
 	)
 
-	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
-	dufflebag = /obj/item/storage/backpack/duffel/sec
-	messengerbag = /obj/item/storage/backpack/messenger/sec
-
-/datum/outfit/job/hos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
-
+	backpack = /obj/item/storage/backpack/hos
+	satchel = /obj/item/storage/backpack/satchel/hos
+	dufflebag = /obj/item/storage/backpack/duffel/hos
+	messengerbag = /obj/item/storage/backpack/messenger/hos
 
 /datum/job/warden
 	title = "Warden"
@@ -83,7 +77,11 @@
 	selection_color = "#991818"
 	economic_modifier = 5
 
-	minimum_character_age = 25
+	minimum_character_age = list(
+		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_external_airlocks, access_weapons)
@@ -97,8 +95,9 @@
 	jobtype = /datum/job/warden
 
 	uniform = /obj/item/clothing/under/rank/warden
+	suit = /obj/item/clothing/suit/storage/toggle/warden
 	shoes = /obj/item/clothing/shoes/jackboots
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/headset_warden
@@ -111,22 +110,13 @@
 	tablet = /obj/item/modular_computer/handheld/preset/security
 
 	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
+	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
 	backpack_contents = list(
 		/obj/item/handcuffs = 1
 	)
-
-/datum/outfit/job/warden/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 
 /datum/job/investigator
 	title = "Investigator"
@@ -140,7 +130,11 @@
 	selection_color = "#991818"
 	economic_modifier = 5
 
-	minimum_character_age = 25
+	minimum_character_age = list(
+		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
 
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_weapons)
 	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_weapons)
@@ -152,7 +146,7 @@
 	name = "Investigator"
 	jobtype = /datum/job/investigator
 
-	uniform = /obj/item/clothing/under/det/forensics
+	uniform = /obj/item/clothing/under/det
 	shoes = /obj/item/clothing/shoes/laceup
 
 	headset = /obj/item/device/radio/headset/headset_sec
@@ -165,22 +159,13 @@
 	tablet = /obj/item/modular_computer/handheld/preset/security/detective
 
 	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
+	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
 	backpack_contents = list(
 		/obj/item/storage/box/evidence = 1
 	)
-
-/datum/outfit/job/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 
 /datum/job/officer
 	title = "Security Officer"
@@ -194,7 +179,11 @@
 	selection_color = "#991818"
 	economic_modifier = 4
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_external_airlocks, access_weapons)
@@ -221,22 +210,13 @@
 	tablet = /obj/item/modular_computer/handheld/preset/security
 
 	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
+	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
 	backpack_contents = list(
 		/obj/item/handcuffs = 1
 	)
-
-/datum/outfit/job/officer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 
 /datum/job/intern_sec
 	title = "Security Cadet"
@@ -251,7 +231,11 @@
 	access = list(access_security, access_sec_doors, access_maint_tunnels)
 	minimal_access = list(access_security, access_sec_doors)
 	outfit = /datum/outfit/job/intern_sec
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	blacklisted_species = list(SPECIES_IPC_ZENGHU, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
 
@@ -260,7 +244,7 @@
 	jobtype = /datum/job/intern_sec
 
 	uniform = /obj/item/clothing/under/rank/cadet
-	suit = /obj/item/clothing/suit/storage/hazardvest/cadet
+	suit = /obj/item/clothing/suit/storage/hazardvest/security
 	head = /obj/item/clothing/head/beret/security
 	shoes = /obj/item/clothing/shoes/jackboots
 
@@ -270,7 +254,7 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/sec
 
 	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
+	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 

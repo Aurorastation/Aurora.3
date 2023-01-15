@@ -15,7 +15,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	var/nanoui_menu = 0					// The current menu we are in
 	var/list/nanoui_data = new 			// Additional data for NanoUI use
 
-	var/list/purchase_log = new
+	var/list/purchase_log = new			// Assoc list of item to times bought; shared/referenced by child uplinks
 	var/datum/mind/uplink_owner = null
 	var/used_TC = 0
 
@@ -159,8 +159,14 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		for(var/datum/uplink_item/item in category.items)
 			if(item.can_view(src))
 				var/cost = item.cost(uses)
-				if(!cost) cost = "???"
-				items[++items.len] = list("name" = item.name, "description" = replacetext(item.description(), "\n", "<br>"), "can_buy" = item.can_buy(src), "cost" = cost, "ref" = "\ref[item]")
+				items[++items.len] = list(
+					"name" = item.name,
+					"description" = replacetext(item.description(), "\n", "<br>"),
+					"can_buy" = item.can_buy(src),
+					"cost" = cost,
+					"left" = item.items_left(src),
+					"ref" = "\ref[item]"
+				)
 		nanoui_data["items"] = items
 	else if(nanoui_menu == 2)
 		var/permanentData[0]
@@ -411,9 +417,17 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	name = "infiltrator uplink"
 	starting_telecrystals = 15
 
+/obj/item/device/special_uplink/mercenary
+	name = "milspec uplink"
+	starting_telecrystals = 15
+
 /obj/item/device/special_uplink/burglar
 	name = "sponsored uplink"
-	starting_telecrystals = 15
+	starting_telecrystals = 20
+
+/obj/item/device/special_uplink/raider
+	name = "underground uplink"
+	starting_telecrystals = 3
 
 /obj/item/device/special_uplink/rev
 	name = "station bounced radio"

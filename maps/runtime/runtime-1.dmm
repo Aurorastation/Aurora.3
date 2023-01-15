@@ -143,7 +143,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "as" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
 	icon_state = "radiation";
@@ -278,7 +278,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "aH" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/gravity_gen)
 "aI" = (
@@ -361,6 +361,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "aR" = (
@@ -387,6 +388,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Gravity Generator"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "aU" = (
@@ -450,6 +452,7 @@
 	c_tag = "Engineering - Engine Airlock";
 	dir = 4
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "be" = (
@@ -492,6 +495,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "bj" = (
@@ -519,6 +523,7 @@
 	c_tag = "Engineering - Technical Storage";
 	dir = 1
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/engineering)
 "bm" = (
@@ -555,13 +560,14 @@
 "bq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/engineering,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "br" = (
 /turf/simulated/wall/r_wall,
 /area/bridge)
 "bs" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/bridge)
 "bt" = (
@@ -575,6 +581,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering)
 "bv" = (
@@ -606,7 +613,7 @@
 	locked = 0;
 	pixel_y = 23
 	},
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bz" = (
@@ -675,6 +682,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bJ" = (
@@ -771,11 +779,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "bU" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "bV" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
 "bW" = (
@@ -814,7 +822,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bZ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -858,7 +866,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "cd" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -918,6 +926,7 @@
 /area/hallway/secondary/entry)
 "cj" = (
 /obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry)
 "ck" = (
@@ -984,10 +993,12 @@
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "ct" = (
 /obj/machinery/door/airlock/glass,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cu" = (
@@ -1165,10 +1176,11 @@
 /area/construction)
 "cN" = (
 /obj/machinery/door/airlock/glass,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/construction)
 "cO" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/construction)
 "cP" = (
@@ -1188,6 +1200,7 @@
 /area/storage/primary)
 "cS" = (
 /obj/machinery/door/airlock/glass,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "cT" = (
@@ -1354,6 +1367,7 @@
 /area/construction)
 "dr" = (
 /obj/machinery/door/airlock,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "ds" = (
@@ -1440,7 +1454,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/tiled,
@@ -1463,7 +1476,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "ie" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -1576,6 +1589,10 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"qx" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/r_wall,
+/area/shuttle/runtime)
 "tT" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1649,9 +1666,12 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"zQ" = (
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "Bd" = (
@@ -1662,8 +1682,13 @@
 /area/construction)
 "Ct" = (
 /obj/machinery/door/airlock/glass,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"Eu" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/r_wall,
+/area/maintenance/maintcentral)
 "EN" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
@@ -1757,6 +1782,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
+"KE" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "Ly" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1775,6 +1804,13 @@
 /area/maintenance/maintcentral)
 "Qe" = (
 /turf/simulated/wall/r_wall,
+/area/shuttle/runtime)
+"Qn" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
 /area/shuttle/runtime)
 "QV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
@@ -1796,7 +1832,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /obj/machinery/computer/station_alert/all,
@@ -1837,16 +1872,31 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "UP" = (
-/obj/effect/map_effect/wingrille_spawn/full,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "Vm" = (
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
+"WH" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/construction)
 "WS" = (
 /obj/turbolift_map_holder/runtime,
 /turf/simulated/floor/plating,
 /area/turbolift/main_station)
+"XQ" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 8
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry)
 "Yc" = (
 /obj/effect/landmark{
 	name = "carpspawn"
@@ -1871,7 +1921,7 @@
 /turf/template_noop,
 /area/engineering)
 "ZH" = (
-/obj/structure/fuel_port,
+/obj/structure/fuel_port/phoron,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
 
@@ -2118,12 +2168,12 @@ aa
 aa
 cK
 de
-Qe
+qx
 Vm
 lV
 eQ
 Hn
-dH
+Qn
 de
 cK
 aa
@@ -2252,12 +2302,12 @@ aa
 aa
 cK
 de
-Qe
+qx
 fq
 yE
 Tq
 JW
-dH
+Qn
 de
 cK
 aa
@@ -2703,7 +2753,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 af
 af
@@ -2904,7 +2954,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 af
 ak
@@ -3321,9 +3371,9 @@ mn
 br
 cA
 bB
-bB
+zQ
 cK
-cV
+WH
 de
 de
 de
@@ -3842,7 +3892,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 ah
 ap
@@ -3859,7 +3909,7 @@ cx
 bB
 bB
 cP
-da
+KE
 da
 dl
 dc
@@ -4177,7 +4227,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 ai
 at
@@ -4255,7 +4305,7 @@ at
 bv
 bQ
 ch
-uI
+XQ
 uI
 cE
 cF

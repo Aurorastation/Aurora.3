@@ -25,7 +25,7 @@ var/datum/antagonist/revenant/revenants = null
 	revenants.revenant_rift = null
 	revenants.rifts_left--
 	if(revenants.rifts_left <= 0)
-		command_announcement.Announce("Aurora, we aren't detecting any more rift energy signatures. Mop up the rest of the invaders. Good work.", "Bluespace Breach Alert")
+		command_announcement.Announce("[current_map.station_name], we aren't detecting any more rift energy signatures. Mop up the rest of the invaders. Good work.", "Bluespace Breach Alert")
 
 /datum/antagonist/revenant/is_obvious_antag(datum/mind/player)
 	return TRUE

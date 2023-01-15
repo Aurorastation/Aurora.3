@@ -3,16 +3,16 @@
 
 /obj/item/inflatable
 	name = "inflatable"
-	desc_info = "Inflate by using it in your hand.  The inflatable barrier will inflate on your tile.  To deflate it, use the 'deflate' verb."
+	desc_info = "Inflate by using it in your hand. The inflatable barrier will inflate on the turf you are standing on. To deflate it, use the 'deflate' verb."
 	w_class = ITEMSIZE_SMALL
-	icon = 'icons/obj/contained_items/tools/inflatables.dmi'
+	icon = 'icons/obj/item/inflatables.dmi'
 	var/deploy_path = null
 
 /obj/item/inflatable/attack_self(mob/user)
 	if(!deploy_path)
 		return
 	playsound(loc, 'sound/items/zip.ogg', 75, TRUE)
-	to_chat(user, SPAN_NOTICE("You inflate \the [src]."))
+	to_chat(user, SPAN_NOTICE("You press the toggle button on \the [src] and it inflates."))
 	var/obj/structure/inflatable/R = new deploy_path(user.loc)
 	transfer_fingerprints_to(R)
 	R.add_fingerprint(user)
@@ -34,7 +34,7 @@
 	name = "inflatable"
 	desc = "An inflated membrane. Do not puncture."
 	desc_info = "To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
-	icon = 'icons/obj/contained_items/tools/inflatables.dmi'
+	icon = 'icons/obj/item/inflatables.dmi'
 	icon_state = "wall"
 
 	density = TRUE
@@ -44,7 +44,7 @@
 	var/deflating = FALSE
 	var/undeploy_path = null
 	var/torn_path = null
-	var/health = 50.0
+	var/health = 15
 
 /obj/structure/inflatable/wall
 	name = "inflatable wall"
@@ -60,12 +60,18 @@
 	return ..()
 
 /obj/structure/inflatable/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(isprojectile(mover))
+		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"))
+		deflate(TRUE)
+		return TRUE
 	return FALSE
 
 /obj/structure/inflatable/bullet_act(var/obj/item/projectile/Proj)
 	var/proj_damage = Proj.get_structure_damage()
 	if(!proj_damage)
 		return
+
+	bullet_ping(Proj)
 
 	health -= proj_damage
 	..()
@@ -79,11 +85,11 @@
 			qdel(src)
 			return
 		if(2.0)
-			deflate(TRUE)
+			deflate(TRUE, FALSE)
 			return
 		if(3.0)
 			if(prob(50))
-				deflate(TRUE)
+				deflate(TRUE, FALSE)
 				return
 
 /obj/structure/inflatable/attack_hand(mob/user)
@@ -113,7 +119,7 @@
 /obj/structure/inflatable/CtrlClick()
 	hand_deflate()
 
-/obj/structure/inflatable/proc/deflate(var/violent = FALSE)
+/obj/structure/inflatable/proc/deflate(var/violent = FALSE, msg = TRUE)
 	if(deflating)
 		return
 	playsound(loc, 'sound/machines/hiss.ogg', 75, TRUE)
@@ -121,7 +127,8 @@
 		if(!torn_path)
 			return
 		deflating = TRUE
-		visible_message(SPAN_WARNING("\The [src] rapidly deflates!"))
+		if(msg)
+			visible_message(SPAN_WARNING("\The [src] rapidly deflates!"))
 		var/matrix/M = new
 		M.Scale(0.6)
 		M.Turn(pick(-40, 40))
@@ -131,7 +138,8 @@
 		if(!undeploy_path)
 			return
 		deflating = TRUE
-		visible_message(SPAN_NOTICE("\The [src] slowly deflates."))
+		if(msg)
+			visible_message(SPAN_NOTICE("\The [src] slowly deflates."))
 		var/matrix/M = new
 		M.Scale(0.6)
 		animate(src, 2.6 SECONDS, transform = M)
@@ -197,6 +205,10 @@
 		return state
 	if(istype(mover, /obj/effect/beam))
 		return !opacity
+	if(isprojectile(mover))
+		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"))
+		deflate(TRUE)
+		return TRUE
 	return !density
 
 /obj/structure/inflatable/door/proc/TryToSwitchState(mob/user)
@@ -252,7 +264,7 @@
 /obj/item/inflatable/torn
 	name = "torn inflatable wall"
 	desc = "A folded membrane which rapidly expands into a large cubical shape on activation. It is too torn to be usable."
-	icon_state = "folded_wall_torn"
+	icon_state = "folded_wall-torn"
 
 /obj/item/inflatable/torn/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("The inflatable wall is too torn to be inflated!"))
@@ -261,7 +273,7 @@
 /obj/item/inflatable/door/torn
 	name = "torn inflatable door"
 	desc = "A folded membrane which rapidly expands into a simple door on activation. It is too torn to be usable."
-	icon_state = "folded_door_torn"
+	icon_state = "folded_door-torn"
 
 /obj/item/inflatable/door/torn/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("The inflatable door is too torn to be inflated!"))
@@ -270,7 +282,7 @@
 /obj/item/storage/bag/inflatable
 	name = "inflatable barrier box"
 	desc = "Contains inflatable walls and doors."
-	icon = 'icons/obj/contained_items/tools/inflatables.dmi'
+	icon = 'icons/obj/item/inflatables.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
 	contained_sprite = TRUE
@@ -287,6 +299,8 @@
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
 /obj/item/storage/bag/inflatable/emergency
+	name = "emergency inflatable barrier box"
+	desc = "Contains inflatable walls and doors. This box has emergency labelling on it and outlines that there's only enough inflatables within to secure a small area."
 	starts_with = list(/obj/item/inflatable/door = 2, /obj/item/inflatable/wall = 3)
 
 #undef STATE_CLOSED

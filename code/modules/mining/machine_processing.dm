@@ -11,7 +11,6 @@
 	icon_state = "production_console"
 	density = FALSE
 	anchored = TRUE
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 
@@ -47,7 +46,7 @@
 	if(!machine)
 		var/area/A = get_area(src)
 		var/best_distance = INFINITY
-		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.all_machines)
+		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.machinery)
 			if(id)
 				if(checked_machine.id == id)
 					machine = checked_machine
@@ -226,16 +225,16 @@
 
 	printing = TRUE
 
-	var/obj/item/paper/P = new /obj/item/paper(user.loc)
+	var/obj/item/paper/P = new /obj/item/paper(get_turf(src))
 	var/date_string = worlddate2text()
 	idx++
 
 	var/form_title = "Form 0600 - Mining Yield Declaration"
-	var/dat = "<small><center><b>NanoTrasen Inc.<br>"
-	dat += "Civilian Branch of Operation</b><br><br>"
+	var/dat = "<small><center><b>Stellar Corporate Conglomerate<br>"
+	dat += "Operations Department</b><br><br>"
 
 	dat += "Form 0600<br> Mining Yield Declaration</center><hr>"
-	dat += "Facility: NSS Aurora<br>"
+	dat += "Facility: [current_map.station_name]<br>"
 	dat += "Date: [date_string]<br>"
 	dat += "Index: [idx]<br><br>"
 
@@ -292,7 +291,7 @@
 	P.ico += "paper_stamp-cent"
 	P.stamped += /obj/item/stamp
 	P.add_overlay(stampoverlay)
-	P.stamps += "<HR><i>This paper has been stamped by the NT Ore Processing System.</i>"
+	P.stamps += "<HR><i>This paper has been stamped by the SCC Ore Processing System.</i>"
 
 	user.visible_message("\The [src] rattles and prints out a sheet of paper.")
 	playsound(get_turf(src), "sound/bureaucracy/print_short.ogg", 50, 1)
@@ -302,7 +301,8 @@
 	input_mats = list()
 	waste = 0
 
-	user.put_in_hands(P)
+	if(user.Adjacent(src))
+		user.put_in_hands(P)
 
 	printing = FALSE
 	return
@@ -313,7 +313,7 @@
 /obj/machinery/mineral/processing_unit
 	name = "industrial smelter" //This isn't actually a goddamn furnace, we're in space and it's processing platinum and flammable phoron... //lol fuk u bay it is //i'm gay // based and redpilled
 	desc = "A large smelter and compression machine which heats up ore, then applies the process specified within the ore redemption console, outputting the result to the other side."
-	icon = 'icons/obj/machines/mining_machines.dmi'
+	icon = 'icons/obj/machinery/mining_machines.dmi'
 	icon_state = "furnace-off"
 	density = TRUE
 	anchored = TRUE
@@ -326,7 +326,6 @@
 	var/list/ores_stored[0]
 	var/static/list/alloy_data
 	var/active = 0
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 150
 
@@ -383,7 +382,7 @@
 	return ..()
 
 
-/obj/machinery/mineral/processing_unit/machinery_process()
+/obj/machinery/mineral/processing_unit/process()
 	..()
 
 	if(!src.output || !src.input)
@@ -443,7 +442,7 @@
 							if(console)
 								var/ore/Ore = ore_data[needs_metal]
 								console.points += Ore.worth
-							use_power(100)
+							use_power_oneoff(100)
 							ores_stored[needs_metal] -= A.requires[needs_metal]
 							total += A.requires[needs_metal]
 							total = max(1, round(total * A.product_mod)) //Always get at least one sheet.
@@ -467,7 +466,7 @@
 				for(var/i = 0, i < can_make, i += 2)
 					if(console)
 						console.points += O.worth * 2
-					use_power(100)
+					use_power_oneoff(100)
 					ores_stored[metal] -= 2
 					sheets += 2
 					console.output_mats[M] += 1
@@ -483,7 +482,7 @@
 				for(var/i = 0, i < can_make, i++)
 					if(console)
 						console.points += O.worth
-					use_power(100)
+					use_power_oneoff(100)
 					ores_stored[metal] -= 1
 					sheets++
 					if(console)
@@ -492,7 +491,7 @@
 			else
 				if(console)
 					console.points -= O.worth * 3 //reee wasting our materials!
-				use_power(500)
+				use_power_oneoff(500)
 				ores_stored[metal] -= 1
 				sheets++
 				if(console)

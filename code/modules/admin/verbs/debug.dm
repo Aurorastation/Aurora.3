@@ -22,9 +22,9 @@
 	set name = "Cell"
 	if(!mob)
 		return
-	var/turf/T = mob.loc
+	var/turf/T = get_turf(mob)
 
-	if (!( istype(T, /turf) ))
+	if (!istype(T))
 		return
 
 	var/datum/gas_mixture/env = T.return_air()
@@ -108,7 +108,7 @@
 /client/proc/cmd_debug_make_powernets()
 	set category = "Debug"
 	set name = "Make Powernets"
-	makepowernets()
+	SSmachinery.makepowernets()
 	log_admin("[key_name(src)] has remade the powernet. makepowernets() called.",admin_key=key_name(usr))
 	message_admins("[key_name_admin(src)] has remade the powernets. makepowernets() called.", 0)
 	feedback_add_details("admin_verb","MPWN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

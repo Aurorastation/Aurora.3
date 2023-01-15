@@ -15,7 +15,7 @@
 
 /obj/item/reagent_containers/blood
 	name = "blood pack"
-	desc = "Contains blood used for transfusion."
+	desc = "Contains fluids used for transfusions."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "bloodpack"
 	filling_states = "-10;10;25;50;75;80;100"
@@ -57,6 +57,9 @@
 /obj/item/reagent_containers/blood/update_icon()
 	cut_overlays()
 
+	if(blood_type)
+		add_overlay(image('icons/obj/bloodpack.dmi', "[blood_type]"))
+
 	if(attached_mob)
 		add_overlay(image('icons/obj/bloodpack.dmi', "dongle"))
 
@@ -67,10 +70,10 @@
 	if(user == M && (MODE_VAMPIRE in user.mind?.antag_datums))
 		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
 		if (being_feed)
-			to_chat(user, "<span class='notice'>You are already feeding on \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You are already feeding on \the [src]."))
 			return
 		if (REAGENT_VOLUME(reagents, /decl/reagent/blood))
-			user.visible_message("<span class='warning'>[user] raises \the [src] up to their mouth and bites into it.</span>", "<span class='notice'>You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
+			user.visible_message(SPAN_WARNING("[user] raises \the [src] up to their mouth and bites into it."), SPAN_NOTICE("You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still."))
 			being_feed = TRUE
 			vampire_marks = TRUE
 			if (!LAZYLEN(src.other_DNA))
@@ -85,11 +88,11 @@
 				vampire.blood_usable += blood_taken
 
 				if (blood_taken)
-					to_chat(user, "<span class='notice'>You have accumulated [vampire.blood_usable] unit\s of usable blood. It tastes quite stale.</span>")
+					to_chat(user, SPAN_NOTICE("You have accumulated [vampire.blood_usable] unit\s of usable blood. It tastes quite stale."))
 
 				if (REAGENT_VOLUME(reagents, /decl/reagent/blood) < 1)
 					break
-			user.visible_message("<span class='warning'>[user] licks [user.get_pronoun("his")] fangs dry, lowering \the [src].</span>", "<span class='notice'>You lick your fangs clean of the tasteless blood.</span>")
+			user.visible_message(SPAN_WARNING("[user] licks [user.get_pronoun("his")] fangs dry, lowering \the [src]."), SPAN_NOTICE("You lick your fangs clean of the tasteless blood."))
 			being_feed = FALSE
 	else
 		..()
@@ -154,28 +157,39 @@
 
 /obj/item/reagent_containers/blood/examine(mob/user, distance = 2)
 	if (..() && vampire_marks)
-		to_chat(user, "<span class='warning'>There are teeth marks on it.</span>")
+		to_chat(user, SPAN_WARNING("There are teeth marks on it."))
 	return
 
 /obj/item/reagent_containers/blood/attackby(obj/item/P as obj, mob/user as mob)
 	..()
 	if (P.ispen())
 		if (REAGENT_VOLUME(reagents, /decl/reagent/blood) && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
-			to_chat(usr, "<span class='notice'>You can't relabel [name] until it is empty!</span>")
+			to_chat(user, SPAN_NOTICE("You can't relabel [name] until it is empty!"))
 			return
-		var/blood_name = input(usr, "What blood type would you like to label it as?", "Blood Types") in list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Cancel")
-		if (blood_name == "Cancel") return
-		var/obj/item/i = usr.get_active_hand()
-		if (!i.ispen() || !in_range(user, src)) return //Checks to see if pen is still held or bloodback is in range
-		name = "blood pack [blood_name]"
-		desc = "Contains blood used for transfusion."
-		to_chat(usr, "<span class='notice'>You label the blood pack as [blood_name].</span>")
+		var/blood_name = input(user, "What blood type would you like to label it as?", "Blood Types") in list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Saline Plus", "Clear", "Cancel")
+		if(blood_name == "Cancel")
+			return
+		var/obj/item/i = user.get_active_hand()
+		if(!i.ispen() || !in_range(user, src)) //Checks to see if pen is still held or bloodpack is in range
+			return
+		if(blood_name == "Clear")
+			blood_type = null
+			name = initial(name)
+			desc = initial(desc)
+			to_chat(user, SPAN_NOTICE("You clear the blood pack label."))
+			update_icon()
+			return
+		blood_type = blood_name
+		name = "blood pack [blood_type]"
+		desc = "Contains fluids used for transfusions."
+		to_chat(user, SPAN_NOTICE("You label the blood pack as [blood_type]."))
+		update_icon()
 		return
 
 	if (istype(P, /obj/item/) && P.sharp == 1)
 		var/mob/living/carbon/human/H = usr
 		if(LAZYLEN(P.attack_verb))
-			user.visible_message("<span class='danger'>[src] has been [pick(P.attack_verb)] with \the [P] by [user]!</span>")
+			user.visible_message(SPAN_DANGER("[src] has been [pick(P.attack_verb)] with \the [P] by [user]!"))
 		var/atkmsg_filled = null
 		if (REAGENT_VOLUME(reagents, /decl/reagent/blood))
 			atkmsg_filled = " and the contents spray everywhere"
@@ -230,7 +244,7 @@
 		var/obj/item/reagent_containers/I = src.loc != usr ? new/obj/item/reagent_containers/blood/ripped(src.loc) : new/obj/item/reagent_containers/blood/ripped(usr.loc)
 		if (REAGENT_VOLUME(reagents, /decl/reagent/blood))
 			I.add_blood()
-		var/atkmsg = "<span class='warning'>\The [src] rips apart[atkmsg_filled]!</span>"
+		var/atkmsg = SPAN_WARNING("\The [src] rips apart[atkmsg_filled]!")
 		user.visible_message(atkmsg)
 		qdel(src)
 		return
@@ -267,5 +281,5 @@
 	volume = 0
 
 /obj/item/reagent_containers/blood/ripped/attackby(obj/item/P as obj, mob/user as mob)
-	to_chat(user, "<span class='warning'>You can't do anything further with this.</span>")
+	to_chat(user, SPAN_WARNING("You can't do anything further with this."))
 	return

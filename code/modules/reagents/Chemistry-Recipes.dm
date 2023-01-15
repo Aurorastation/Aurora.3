@@ -298,8 +298,8 @@
 	name = "Tricordrazine"
 	id = "tricordrazine"
 	result = /decl/reagent/tricordrazine
-	required_reagents = list(/decl/reagent/inaprovaline = 1, /decl/reagent/dylovene = 1)
-	result_amount = 2
+	required_reagents = list(/decl/reagent/water = 1, /decl/reagent/inaprovaline = 1, /decl/reagent/dylovene = 1)
+	result_amount = 3
 
 /datum/chemical_reaction/alkysine
 	name = "Alkysine"
@@ -515,6 +515,13 @@
 	id = "cleaner"
 	result = /decl/reagent/spacecleaner
 	required_reagents = list(/decl/reagent/ammonia = 1, /decl/reagent/water = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/antifuel
+	name = "Antifuel"
+	id = "antifuel"
+	result = /decl/reagent/antifuel
+	required_reagents = list(/decl/reagent/spacecleaner = 1, /decl/reagent/sodium = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/plantbgone
@@ -754,7 +761,7 @@
 	name = "Red Nightshade"
 	id = "berserk"
 	result = /decl/reagent/toxin/berserk
-	required_reagents = list(/decl/reagent/psilocybin = 1, /decl/reagent/alcohol/moonshine = 1)
+	required_reagents = list(/decl/reagent/toxin/stimm = 1, /decl/reagent/synaptizine = 1, /decl/reagent/toxin/phoron = 0.1)
 	result_amount = 1
 
 /datum/chemical_reaction/joy
@@ -787,13 +794,6 @@
 	result = /decl/reagent/toxin/stimm
 	required_reagents = list(/decl/reagent/fuel = 1, /decl/reagent/drink/rewriter = 5)
 	result_amount = 6
-
-/datum/chemical_reaction/lean
-	name = "Lean"
-	id = "lean"
-	result = /decl/reagent/toxin/lean
-	required_reagents = list(/decl/reagent/drink/spaceup = 2, /decl/reagent/coughsyrup = 2, /decl/reagent/sugar = 1)
-	result_amount = 5
 
 /datum/chemical_reaction/krokjuice
 	name = "Krok Juice"
@@ -1065,6 +1065,9 @@
 		T.visible_message("[icon2html(T, viewers(get_turf(src)))]<span class='notice'>\The [T]'s power is consumed in the reaction.</span>")
 		T.name = "used slime extract"
 		T.desc = "This extract has been used up."
+		if(istype(T.loc, /obj/item/storage))
+			var/obj/item/storage/storage = T.loc
+			storage.update_storage_ui()
 
 //Grey
 /datum/chemical_reaction/slime/spawn
@@ -1096,7 +1099,7 @@
 /datum/chemical_reaction/slime/teleportation
 	name = "Slime Teleportation"
 	id = "slimeteleportation"
-	required_reagents = list(/decl/reagent/toxin/phoron = 1)
+	required_reagents = list(/decl/reagent/toxin/phoron = 5)
 	result_amount = 1
 	required = /obj/item/slime_extract/green
 
@@ -1105,7 +1108,7 @@
 	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
 
 /datum/chemical_reaction/slime/teleportation/proc/do_reaction(var/datum/reagents/holder)
-	for(var/atom/movable/AM in circlerange(get_turf(holder.my_atom),7))
+	for(var/atom/movable/AM in circle_range(get_turf(holder.my_atom),7))
 		if(AM.anchored)
 			continue
 		var/area/A = random_station_area()
@@ -1113,6 +1116,22 @@
 		to_chat(AM, SPAN_WARNING("Bluespace energy teleports you somewhere else!"))
 		do_teleport(AM, target)
 		AM.visible_message("\The [AM] phases in!")
+
+/datum/chemical_reaction/slime/bluespace_crystal
+	name = "Slime Bluespace Crystal"
+	id = "slime_bscrystal"
+	required_reagents = list(/decl/reagent/carbon = 10, /decl/reagent/silver = 10)
+	result_amount = 1
+	required = /obj/item/slime_extract/green
+
+/datum/chemical_reaction/slime/bluespace_crystal/on_reaction(var/datum/reagents/holder)
+	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
+	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
+		if(M.eyecheck(TRUE) <= 0)
+			M.flash_eyes()
+
+	new /obj/item/bluespace_crystal(get_turf(holder.my_atom))
+	..()
 
 //Metal
 /datum/chemical_reaction/slime/metal
@@ -1132,7 +1151,7 @@
 	name = "Slime Crit"
 	id = "m_tele"
 	result = null
-	required_reagents = list(/decl/reagent/toxin/phoron = 5)
+	required_reagents = list(/decl/reagent/toxin/phoron = 10)
 	result_amount = 1
 	required = /obj/item/slime_extract/gold
 
@@ -1390,7 +1409,7 @@
 	name = "Slime Glycerol"
 	id = "m_glycerol"
 	result = /decl/reagent/glycerol
-	required_reagents = list(/decl/reagent/toxin/phoron = 1)
+	required_reagents = list(/decl/reagent/sugar = 1)
 	result_amount = 8
 	required = /obj/item/slime_extract/red
 
@@ -1408,25 +1427,41 @@
 		slime.rabid = TRUE
 		slime.visible_message(SPAN_WARNING("[icon2html(slime, viewers(get_turf(slime)))] \The [slime] is driven into a frenzy!"))
 
+/datum/chemical_reaction/slime/nightshade
+	name = "Slime Nightshade"
+	id = "slime_nightshade"
+	result = /decl/reagent/toxin/berserk
+	required_reagents = list(/decl/reagent/toxin/phoron = 10)
+	result_amount = 1
+	required = /obj/item/slime_extract/red
+
 //Pink
-/datum/chemical_reaction/slime/ppotion
-	name = "Slime Potion"
-	id = "m_potion"
+/datum/chemical_reaction/slime/docility_serum
+	name = "Docility Serum"
+	id = "docility_serum"
 	result = null
-	required_reagents = list(/decl/reagent/blood = 1)
+	required_reagents = list(/decl/reagent/toxin/phoron = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/pink
 
-/datum/chemical_reaction/slime/ppotion/on_reaction(var/datum/reagents/holder)
+/datum/chemical_reaction/slime/docility_serum/on_reaction(var/datum/reagents/holder)
 	..()
-	new /obj/item/slimepotion(get_turf(holder.my_atom))
+	new /obj/item/docility_serum(get_turf(holder.my_atom))
+
+/datum/chemical_reaction/slime/paxazide
+	name = "Slime Paxazide"
+	id = "slime_paxazide"
+	result = /decl/reagent/pacifier
+	required_reagents = list(/decl/reagent/water = 1)
+	result_amount = 5
+	required = /obj/item/slime_extract/pink
 
 //Black
 /datum/chemical_reaction/slime/mutate2
 	name = "Advanced Mutation Toxin"
 	id = "mutationtoxin2"
 	result = /decl/reagent/aslimetoxin
-	required_reagents = list(/decl/reagent/toxin/phoron = 1)
+	required_reagents = list(/decl/reagent/toxin/phoron = 5)
 	result_amount = 1
 	required = /obj/item/slime_extract/black
 
@@ -1444,25 +1479,37 @@
 	..()
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/explosion, get_turf(holder.my_atom), 1, 3, 6), 50)
 
+/datum/chemical_reaction/slime/plasticglass
+	name = "Slime Plastic & Glass"
+	id = "slime_plasticglass"
+	result = null
+	required_reagents = list(/decl/reagent/water = 1)
+	result_amount = 1
+	required = /obj/item/slime_extract/oil
+
+/datum/chemical_reaction/slime/plasticglass/on_reaction(var/datum/reagents/holder)
+	..()
+	new /obj/effect/portal/spawner/plasticglass(get_turf(holder.my_atom))
+
 //Light Pink
-/datum/chemical_reaction/slime/potion2
-	name = "Slime Potion 2"
-	id = "m_potion2"
+/datum/chemical_reaction/slime/advanced_docility_serum
+	name = "Advanced Docility Serum"
+	id = "advanced_docility_serum"
 	result = null
 	result_amount = 1
 	required = /obj/item/slime_extract/lightpink
-	required_reagents = list(/decl/reagent/blood = 1)
+	required_reagents = list(/decl/reagent/toxin/phoron = 5)
 
-/datum/chemical_reaction/slime/potion2/on_reaction(var/datum/reagents/holder)
+/datum/chemical_reaction/slime/advanced_docility_serum/on_reaction(var/datum/reagents/holder)
 	..()
-	new /obj/item/slimepotion2(get_turf(holder.my_atom))
+	new /obj/item/advanced_docility_serum(get_turf(holder.my_atom))
 
 //Adamantine
 /datum/chemical_reaction/slime/golem
 	name = "Slime Golem"
 	id = "m_golem"
 	result = null
-	required_reagents = list(/decl/reagent/toxin/phoron = 1)
+	required_reagents = list(/decl/reagent/toxin/phoron = 5)
 	result_amount = 1
 	required = /obj/item/slime_extract/adamantine
 	mix_message = "A soft fizzle is heard within the slime extract, and mystic runes suddenly appear on the floor beneath it!"
@@ -1470,6 +1517,104 @@
 /datum/chemical_reaction/slime/golem/on_reaction(var/datum/reagents/holder)
 	..()
 	new /obj/effect/golemrune(get_turf(holder.my_atom))
+
+//Sepia
+/datum/chemical_reaction/slime/wood
+	name = "Slime Wood"
+	id = "slime_wood"
+	result = null
+	required_reagents = list(/decl/reagent/water = 1)
+	result_amount = 1
+	required = /obj/item/slime_extract/sepia
+
+/datum/chemical_reaction/slime/wood/on_reaction(var/datum/reagents/holder)
+	..()
+	new /obj/effect/portal/spawner/wood(get_turf(holder.my_atom))
+
+/datum/chemical_reaction/slime/hide
+	name = "Slime Hides"
+	id = "slime_hide"
+	result = null
+	required_reagents = list(/decl/reagent/blood = 1)
+	result_amount = 1
+	required = /obj/item/slime_extract/sepia
+
+/datum/chemical_reaction/slime/hide/on_reaction(var/datum/reagents/holder)
+	..()
+	new /obj/effect/portal/spawner/hide(get_turf(holder.my_atom))
+
+//Pyrite
+/datum/chemical_reaction/slime/pyrite/cryo_to_clonex
+	name = "Pyrite Transmutation: Cryoxadone to Clonexadone"
+	id = "cryo_to_clonex"
+	result = /decl/reagent/clonexadone
+	required_reagents = list(/decl/reagent/cryoxadone = 5)
+	result_amount = 5
+	required = /obj/item/slime_extract/pyrite
+
+/datum/chemical_reaction/slime/pyrite/inap_to_coag
+	name = "Pyrite Transmutation: Inaprovaline to Coagzolug"
+	id = "inap_to_coag"
+	result = /decl/reagent/coagzolug
+	required_reagents = list(/decl/reagent/inaprovaline = 5)
+	result_amount = 10
+	required = /obj/item/slime_extract/pyrite
+
+/datum/chemical_reaction/slime/pyrite/kelo_to_derm
+	name = "Pyrite Transmutation: Kelotane to Dermaline"
+	id = "kelo_to_derm"
+	result = /decl/reagent/dermaline
+	required_reagents = list(/decl/reagent/kelotane = 5)
+	result_amount = 10
+	required = /obj/item/slime_extract/pyrite
+
+/datum/chemical_reaction/slime/pyrite/bica_to_buta
+	name = "Pyrite Transmutation: Bicaridine_to_Butazoline"
+	id = "bica_to_buta"
+	result = /decl/reagent/butazoline
+	required_reagents = list(/decl/reagent/bicaridine = 5)
+	result_amount = 10
+	required = /obj/item/slime_extract/pyrite
+
+/datum/chemical_reaction/slime/pyrite/dex_to_plus
+	name = "Pyrite Transmutation: Dexalin to Dexalin Plus"
+	id = "dex_to_plus"
+	result = /decl/reagent/dexalin/plus
+	required_reagents = list(/decl/reagent/dexalin = 5)
+	result_amount = 10
+	required = /obj/item/slime_extract/pyrite
+
+/datum/chemical_reaction/slime/pyrite/merc_to_dextro
+	name = "Pyrite Transmutation: Mercury to Dextrotoxin"
+	id = "merc_to_dextro"
+	result = /decl/reagent/toxin/dextrotoxin
+	required_reagents = list(/decl/reagent/mercury = 5)
+	result_amount = 1
+	required = /obj/item/slime_extract/pyrite
+
+/datum/chemical_reaction/slime/pyrite/ez_to_diethyl
+	name = "Pyrite Transmutation: EZ Nutrient to Diethylamine"
+	id = "ez_to_diethyl"
+	result = /decl/reagent/diethylamine
+	required_reagents = list(/decl/reagent/toxin/fertilizer/eznutrient = 5)
+	result_amount = 10
+	required = /obj/item/slime_extract/pyrite
+
+/datum/chemical_reaction/slime/pyrite/radium_to_mutagen
+	name = "Pyrite Transmutation: Radium to Mutagen"
+	id = "radium_to_mutagen"
+	result = /decl/reagent/mutagen
+	required_reagents = list(/decl/reagent/radium = 5)
+	result_amount = 10
+	required = /obj/item/slime_extract/pyrite
+
+/datum/chemical_reaction/slime/pyrite/sugar_to_hyperzine
+	name = "Pyrite Transmutation: Sugar to Hyperzine"
+	id = "sugar_to_hyper"
+	result = /decl/reagent/hyperzine
+	required_reagents = list(/decl/reagent/sugar = 5)
+	result_amount = 10
+	required = /obj/item/slime_extract/pyrite
 
 /datum/chemical_reaction/soap_key
 	name = "Soap Key"
@@ -1489,6 +1634,19 @@
 		var/obj/item/key/soap/key = new(get_turf(holder.my_atom), S.key_data)
 		key.uses = strength
 	..()
+
+//Cerulean
+/datum/chemical_reaction/slime/extract_enhancer
+	name = "Extract Enhancer"
+	id = "extract_enhancer"
+	result = null
+	required_reagents = list(/decl/reagent/toxin/phoron = 1)
+	result_amount = 1
+	required = /obj/item/slime_extract/cerulean
+
+/datum/chemical_reaction/slime/extract_enhancer/on_reaction(var/datum/reagents/holder, var/created_volume)
+	..()
+	new /obj/item/extract_enhancer(get_turf(holder.my_atom))
 
 /*
 ====================
@@ -1543,6 +1701,34 @@
 	result = /decl/reagent/drink/hot_coco
 	required_reagents = list(/decl/reagent/water = 5, /decl/reagent/nutriment/coco = 1)
 	result_amount = 5
+
+/datum/chemical_reaction/grapejuice
+	name = "Grape Juice"
+	result = /decl/reagent/drink/grapejuice
+	required_reagents = list(/decl/reagent/water = 3, /decl/reagent/nutriment/instantjuice/grape = 1)
+	result_amount = 3
+	mix_message = "The solution settles into a purplish-red beverage."
+
+/datum/chemical_reaction/orangejuice
+	name = "Orange Juice"
+	result = /decl/reagent/drink/orangejuice
+	required_reagents = list(/decl/reagent/water = 3, /decl/reagent/nutriment/instantjuice/orange = 1)
+	result_amount = 3
+	mix_message = "The solution settles into an orange beverage."
+
+/datum/chemical_reaction/watermelonjuice
+	name = "Watermelon Juice"
+	result = /decl/reagent/drink/watermelonjuice
+	required_reagents = list(/decl/reagent/water = 3, /decl/reagent/nutriment/instantjuice/watermelon = 1)
+	result_amount = 3
+	mix_message = "The solution settles into a red beverage."
+
+/datum/chemical_reaction/applejuice
+	name = "Apple Juice"
+	result = /decl/reagent/drink/applejuice
+	required_reagents = list(/decl/reagent/water = 3, /decl/reagent/nutriment/instantjuice/apple = 1)
+	result_amount = 3
+	mix_message = "The solution settles into a clear brown beverage."
 
 /datum/chemical_reaction/soysauce
 	name = "Soy Sauce"
@@ -1720,7 +1906,7 @@
 	result = /decl/reagent/alcohol/goldschlager
 	required_reagents = list(/decl/reagent/alcohol/vodka = 10, /decl/reagent/gold = 1)
 	mix_message = null
-	reaction_sound = 'sound/effects/pour.ogg'
+	reaction_sound = /decl/sound_category/generic_pour_sound
 	result_amount = 10
 
 /datum/chemical_reaction/drink/patron
@@ -3427,17 +3613,17 @@
 //Coffee expansion
 //=======================
 /datum/chemical_reaction/drink/coffee
-	name = "Latte"
-	id = "latte"
+	name = "Coffee"
+	id = "coffee"
 	result = /decl/reagent/drink/coffee
-	required_reagents = list(/decl/reagent/drink/coffee/espresso = 5, /decl/reagent/water = 5)
-	result_amount = 10
+	required_reagents = list(/decl/reagent/nutriment/coffeegrounds = 1, /decl/reagent/water = 5)
+	result_amount = 5
 
 /datum/chemical_reaction/drink/espresso
-	name = "Latte"
-	id = "latte"
+	name = "Espresso"
+	id = "espresso"
 	result = /decl/reagent/drink/coffee/espresso
-	required_reagents = list(/decl/reagent/nutriment/coffeegrounds = 1, /decl/reagent/water = 5)
+	required_reagents = list(/decl/reagent/nutriment/darkcoffeegrounds = 1, /decl/reagent/water = 5)
 	result_amount = 5
 
 /datum/chemical_reaction/caramelisation
@@ -3506,6 +3692,85 @@
 	required_reagents = list(/decl/reagent/nutriment/mint = 2, /decl/reagent/drink/syrup_simple = 3)
 	result_amount = 5
 
+//
+/datum/chemical_reaction/berrysyrup
+	name = "Berry Syrup"
+	id = "berrysyrup"
+	result = /decl/reagent/drink/syrup_berry
+	required_reagents = list(/decl/reagent/drink/berryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/strawberrysyrup
+	name = "Strawberry Syrup"
+	id = "strawberrysyrup"
+	result = /decl/reagent/drink/syrup_strawberry
+	required_reagents = list(/decl/reagent/drink/strawberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/blueberrysyrup
+	name = "Blueberry Syrup"
+	id = "blueberrysyrup"
+	result = /decl/reagent/drink/syrup_blueberry
+	required_reagents = list(/decl/reagent/drink/blueberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/raspberrysyrup
+	name = "Raspberry Syrup"
+	id = "raspberrysyrup"
+	result = /decl/reagent/drink/syrup_raspberry
+	required_reagents = list(/decl/reagent/drink/raspberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/blueraspberrysyrup
+	name = "Blue Raspberry Syrup"
+	id = "blueraspberrysyrup"
+	result = /decl/reagent/drink/syrup_blueraspberry
+	required_reagents = list(/decl/reagent/drink/blueraspberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/blackraspberrysyrup
+	name = "Black Raspberry Syrup"
+	id = "blackraspberrysyrup"
+	result = /decl/reagent/drink/syrup_blackraspberry
+	required_reagents = list(/decl/reagent/drink/blackraspberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/poisonberrysyrup
+	name = "Poison Berry Syrup"
+	id = "poisonberrysyrup"
+	result = /decl/reagent/drink/syrup_poisonberry
+	required_reagents = list(/decl/reagent/toxin/poisonberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/deathberrysyrup
+	name = "Death Berry Syrup"
+	id = "deathberrysyrup"
+	result = /decl/reagent/drink/syrup_deathberry
+	required_reagents = list(/decl/reagent/toxin/deathberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/glowberrysyrup
+	name = "Glowberry Syrup"
+	id = "glowberrysyrup"
+	result = /decl/reagent/drink/syrup_glowberry
+	required_reagents = list(/decl/reagent/drink/glowberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/ylphaberrysyrup
+	name = "Ylpha Berry Syrup"
+	id = "ylphaberrysyrup"
+	result = /decl/reagent/drink/syrup_ylphaberry
+	required_reagents = list(/decl/reagent/drink/ylphaberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+/datum/chemical_reaction/dirtberrysyrup
+	name = "Dirt Berry Syrup"
+	id = "dirtberrysyrup"
+	result = /decl/reagent/drink/syrup_dirtberry
+	required_reagents = list(/decl/reagent/drink/dirtberryjuice = 2, /decl/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+
+//
 /datum/chemical_reaction/drink/cuba_libre
 	name = "Cuba Libre"
 	id = "cubalibre"
@@ -3527,10 +3792,10 @@
 	required_reagents = list(/decl/reagent/drink/tea/securitea = 1, /decl/reagent/alcohol/whiskey = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/drink/cloudyoran
-	name = "Cloudy Oran"
-	id = "cloudyoran"
-	result = /decl/reagent/alcohol/cloudyoran
+/datum/chemical_reaction/drink/cloudyeridani
+	name = "Cloudy Eridani"
+	id = "cloudyeridani"
+	result = /decl/reagent/alcohol/cloudyeridani
 	required_reagents = list(/decl/reagent/alcohol/sake = 1, /decl/reagent/drink/tea/greentea = 1, /decl/reagent/drink/milk/soymilk = 1)
 	result_amount = 3
 
@@ -3696,7 +3961,7 @@
 	result = /decl/reagent/alcohol/butanol/pulque
 	required_reagents = list(/decl/reagent/alcohol/pulque = 1, /decl/reagent/alcohol/butanol/xuizijuice = 1)
 	result_amount = 2
-	
+
 /datum/chemical_reaction/drink/ichor
 	name = "xsain ichor"
 	id = "ichor"

@@ -5,10 +5,9 @@
 	anchored = 1
 	density = 1
 	flags = OPENCONTAINER
-	icon = 'icons/obj/virology.dmi'
-	icon_state = "analyser"
+	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon_state = "spectrometer"
 
-	use_power = 1			//1 = idle, 2 = active
 	idle_power_usage = 20
 	active_power_usage = 300
 
@@ -163,7 +162,7 @@
 		// auto update every Master Controller tick
 		ui.set_auto_update(1)
 
-/obj/machinery/radiocarbon_spectrometer/machinery_process()
+/obj/machinery/radiocarbon_spectrometer/process()
 	if(scanning)
 		if(!scanned_item || scanned_item.loc != src)
 			scanned_item = null

@@ -5,7 +5,7 @@
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
 	density = 1
 	anchored = 1
-	climbable = 1
+	climbable = TRUE
 	layer = LAYER_TABLE
 	throwpass = 1
 	var/flipped = 0
@@ -37,7 +37,7 @@
 
 	health += maxhealth - old_maxhealth
 
-/obj/structure/table/proc/take_damage(amount)
+/obj/structure/table/proc/take_damage(amount, msg = TRUE)
 	// If the table is made of a brittle material, and is *not* reinforced with a non-brittle material, damage is multiplied by TABLE_BRITTLE_MATERIAL_MULTIPLIER
 	if(material && material.is_brittle())
 		if(reinforced)
@@ -47,7 +47,8 @@
 			amount *= TABLE_BRITTLE_MATERIAL_MULTIPLIER
 	health -= amount
 	if(health <= 0)
-		visible_message(SPAN_WARNING("\The [src] breaks down!"), intent_message = THUNK_SOUND)
+		if(msg)
+			visible_message(SPAN_WARNING("\The [src] breaks down!"), intent_message = THUNK_SOUND)
 		return break_to_parts() // if we break and form shards, return them to the caller to do !FUN! things with
 
 
@@ -57,9 +58,9 @@
 			qdel(src)
 			return
 		if(2.0)
-			take_damage(rand(100,400))
+			take_damage(rand(100,400), FALSE)
 		if(3.0)
-			take_damage(rand(50,150))
+			take_damage(rand(50,150), FALSE)
 
 
 /obj/structure/table/Initialize()
@@ -147,8 +148,7 @@
 		var/obj/item/weldingtool/F = W
 		if(F.welding)
 			to_chat(user, "<span class='notice'>You begin reparing damage to \the [src].</span>")
-			playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
-			if(!do_after(user, 20/W.toolspeed) || !F.remove_fuel(1, user))
+			if(!W.use_tool(src, user, 20, volume = 50) || !F.use(1, user))
 				return
 			user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>",
 			                              "<span class='notice'>You repair some damage to \the [src].</span>")
@@ -263,8 +263,7 @@
 	manipulating = TRUE
 	user.visible_message("<b>[user]</b> begins dismantling \the [src].",
 						SPAN_NOTICE("You begin dismantling \the [src]."))
-	playsound(src, W.usesound, 100, 1)
-	if(!do_after(user, 20 / W.toolspeed))
+	if(!W.use_tool(src, user, 20, volume = 50))
 		manipulating = FALSE
 		return
 	user.visible_message("\The [user] dismantles \the [src].",

@@ -24,6 +24,7 @@
 
 	var/datum/reagents/oil
 	var/optimal_oil = 9000//90 litres of cooking oil
+	var/datum/looping_sound/deep_fryer/fry_loop
 
 /obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
 	. = ..()
@@ -40,13 +41,19 @@
 		//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
 		variance = rand()*0.5
 	oil.add_reagent(/decl/reagent/nutriment/triglyceride/oil/corn, optimal_oil*(1 - variance))
+	fry_loop = new(list(src), FALSE)
+
+/obj/machinery/appliance/cooker/fryer/Destroy()
+	QDEL_NULL(fry_loop)
+	QDEL_NULL(oil)
+	return ..()
 
 /obj/machinery/appliance/cooker/fryer/heat_up()
 	if (..())
 		//Set temperature of oil
 		oil.set_temperature(temperature)
 
-/obj/machinery/appliance/cooker/fryer/machinery_process()
+/obj/machinery/appliance/cooker/fryer/process()
 	. = ..()
 	//Set temperature of oil
 	oil.set_temperature(temperature)
@@ -212,3 +219,11 @@
 			return TRUE
 	//If neither of the above returned, then call parent as normal
 	..()
+
+/obj/machinery/appliance/cooker/fryer/add_content(obj/item/I, mob/user)
+	. = ..()
+	fry_loop.start(src)
+
+/obj/machinery/appliance/cooker/fryer/eject(datum/cooking_item/CI, mob/user)
+	. = ..()
+	fry_loop.stop(src)

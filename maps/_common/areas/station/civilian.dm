@@ -1,10 +1,10 @@
 //Crew
-
 /area/crew_quarters
 	name = "Dormitories"
 	icon_state = "Sleep"
 	flags = RAD_SHIELDED
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/sconference_room
 	name = "Surface - Conference Room"
@@ -20,13 +20,6 @@
 	name = "Dormitories"
 	icon_state = "Sleep"
 	allow_nightmode = 1
-	holomap_color = HOLOMAP_AREACOLOR_DORMS
-
-/area/crew_quarters/sleep/engi_wash
-	name = "Engineering - Washroom"
-	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
-	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/crew_quarters/sleep/bedrooms
 	name = "Dormitory Bedroom One"
@@ -60,24 +53,6 @@
 	name = "Medical Dormitories"
 	icon_state = "Sleep"
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
-
-/area/crew_quarters/sleep_male
-	name = "Male Dorm"
-	icon_state = "Sleep"
-
-/area/crew_quarters/sleep_male/toilet_male
-	name = "Male Toilets"
-	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
-
-/area/crew_quarters/sleep_female
-	name = "Female Dorm"
-	icon_state = "Sleep"
-
-/area/crew_quarters/sleep_female/toilet_female
-	name = "Female Toilets"
-	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
 
 /area/crew_quarters/locker
 	name = "Locker Room"
@@ -144,6 +119,7 @@
 
 /area/chapel
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/chapel/main
 	name = "Chapel"
@@ -160,20 +136,23 @@
 	icon_state = "law"
 	station_area = TRUE
 	sound_env = MEDIUM_SOFTFLOOR
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/lawoffice/consular
 	name = "Consular Office"
 	icon_state = "law_con"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/lawoffice/representative
 	name = "Representative Office"
 	icon_state = "law_rep"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/quartermaster
 	name = "Operations Manager"
 	icon_state = "quart"
 	station_area = 1
-	holomap_color = HOLOMAP_AREACOLOR_CARGO
+	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 
 /area/quartermaster/office
 	name = "Cargo Office"

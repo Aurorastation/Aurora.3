@@ -1,6 +1,8 @@
 /obj/item/device/floor_painter
 	name = "paint gun"
-	icon = 'icons/obj/contained_items/tools/floor_painter.dmi'
+	desc = "A Hephaestus-made paint gun that uses microbes to replenish its paint storage. Very high-tech and fancy too!"
+	desc_info = "Use control-click on a coloured decal on a turf to copy its colour. You can also use shift-click on a turf with the paint gun in hand to clear all decals on it."
+	icon = 'icons/obj/item/tools/floor_painter.dmi'
 	icon_state = "floor_painter"
 	item_state = "floor_painter"
 	contained_sprite = TRUE
@@ -11,6 +13,10 @@
 	var/list/decals = list(
 		"quarter-turf" =      list("path" = /obj/effect/floor_decal/corner, "precise" = 1, "coloured" = 1),
 		"full quarter-turf" = list("path" = /obj/effect/floor_decal/corner_full, "precise" = 1, "coloured" = 1),
+		"light corner" = list("path" = /obj/effect/floor_decal/corner/light, "precise" = 1, "coloured" = 1),
+		"full light corner" = list("path" = /obj/effect/floor_decal/corner/light/full, "precise" = 1, "coloured" = 1),
+		"light, wide corner" = list("path" = /obj/effect/floor_decal/corner_wide/light, "precise" = 1, "coloured" = 1),
+		"full, light, wide corner" = list("path" = /obj/effect/floor_decal/corner_wide/light/full, "precise" = 1, "coloured" = 1),
 		"hazard stripes" =    list("path" = /obj/effect/floor_decal/industrial/warning),
 		"corner, hazard" =    list("path" = /obj/effect/floor_decal/industrial/warning/corner),
 		"hatched marking" =   list("path" = /obj/effect/floor_decal/industrial/hatch, "coloured" = 1),
@@ -160,16 +166,67 @@
 	else if(choice == "Colour")
 		choose_colour()
 
-/obj/item/device/floor_painter/attack_self(var/mob/user)
-	var/choice = input("What do you wish to change?") as null|anything in list("Decal","Direction", "Colour", "Preset Colour")
-	if(choice == "Decal")
-		choose_decal()
-	else if(choice == "Direction")
-		choose_direction()
-	else if(choice == "Colour")
-		choose_colour()
-	else if(choice == "Preset Colour")
-		choose_preset_colour()
+/obj/item/device/floor_painter/proc/change_colour(new_colour, mob/user)
+	if (new_colour)
+		paint_colour = new_colour
+		if (user)
+			add_fingerprint(user)
+			to_chat(user, SPAN_NOTICE("You set \the [src] to paint with <span style='color:[paint_colour]'>a new color</span>."))
+		update_icon()
+		playsound(src, 'sound/weapons/blade_open.ogg', 30, 1)
+		return TRUE
+	return FALSE
+
+/turf/simulated/floor/Click(location, control, params)
+	if(ishuman(usr))
+		var/mob/living/carbon/human/H = usr
+		var/list/modifiers = params2list(params)
+		var/obj/item/device/floor_painter/paint_sprayer = H.get_active_hand()
+		if(istype(paint_sprayer))
+			if(!istype(H.buckled_to))
+				H.face_atom(src)
+			if(modifiers["ctrl"] && paint_sprayer.pick_color(src, H))
+				return
+			if(modifiers["shift"] && paint_sprayer.remove_paint(src, H))
+				return
+	. = ..()
+
+/obj/item/device/floor_painter/proc/pick_color(atom/A, mob/user)
+	if (!user.Adjacent(A) || user.incapacitated())
+		return FALSE
+	var/new_color
+	if (istype(A, /turf/simulated/floor))
+		new_color = pick_color_from_floor(A, user)
+	if (!change_colour(new_color, user))
+		to_chat(user, SPAN_WARNING("\The [A] does not have a colour that you could pick from."))
+	return TRUE // There was an attempt to pick a color.
+
+/obj/item/device/floor_painter/proc/pick_color_from_floor(turf/simulated/floor/F, mob/user)
+	if (!F.decals || !F.decals.len)
+		return FALSE
+	var/list/available_colors = list()
+	for (var/image/I in F.decals)
+		available_colors |= isnull(I.color) ? COLOR_WHITE : I.color
+	var/picked_color = available_colors[1]
+	if (available_colors.len > 1)
+		picked_color = input(user, "Which color do you wish to pick from?") as null|anything in available_colors
+		if (user.incapacitated() || !user.Adjacent(F))
+			return FALSE
+	return picked_color
+
+/obj/item/device/floor_painter/proc/remove_paint(atom/A, mob/user)
+	if(!user.Adjacent(A) || user.incapacitated())
+		return FALSE
+	if (istype(A, /turf/simulated/floor))
+		var/turf/simulated/floor/F = A
+		if (F.decals && F.decals.len > 0)
+			F.decals.len--
+			F.update_icon()
+			. = TRUE
+	if (.)
+		add_fingerprint(user)
+		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
+	return .
 
 /obj/item/device/floor_painter/examine(mob/user)
 	. = ..(user)
@@ -184,10 +241,7 @@
 	if(usr.incapacitated())
 		return
 	var/new_colour = input(usr, "Choose a colour.", "paintgun", paint_colour) as color|null
-	if(new_colour && new_colour != paint_colour)
-		paint_colour = new_colour
-		to_chat(usr, "<span class='notice'>You set \the [src] to paint with <font color='[paint_colour]'>a new colour</font>.</span>")
-
+	change_colour(new_colour, usr)
 
 /obj/item/device/floor_painter/verb/choose_preset_colour()
 	set name = "Choose Preset Colour"

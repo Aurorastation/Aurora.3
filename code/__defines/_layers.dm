@@ -1,7 +1,8 @@
-#define PLANE_SPACE_BACKGROUND -98
-#define PLANE_SPACE_PARALLAX (PLANE_SPACE_BACKGROUND + 1) // -97
+#define PLANE_SPACE_BACKGROUND -99
+#define PLANE_SPACE_PARALLAX (PLANE_SPACE_BACKGROUND + 1) // -98
+#define PLANE_SKYBOX (PLANE_SPACE_PARALLAX + 1) // -97
 #define PLANE_SPACE_DUST (PLANE_SPACE_PARALLAX + 1) // -96
-#define PLANE_ABOVE_PARALLAX (PLANE_SPACE_BACKGROUND + 3) // -95
+#define PLANE_ABOVE_PARALLAX (PLANE_SPACE_DUST + 1) // -95
 #define PLANE_DEFAULT 0
 
 #define LOWER_ON_TURF_LAYER (TURF_LAYER + 0.05)	// under the below
@@ -12,6 +13,7 @@
 #define CABLE_LAYER 2.44
 #define ABOVE_CABLE_LAYER (CABLE_LAYER + 0.1)
 #define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6
+#define BELOW_OBJ_LAYER 2.9
 #define ABOVE_OBJ_LAYER 3.01
 #define UNDERDOOR 3.09		//Just barely under a closed door.
 #define DOOR_CLOSED_LAYER 3.1	//Above most items if closed
@@ -46,4 +48,8 @@
 #define BLOB_NODE_LAYER             4.12
 #define BLOB_CORE_LAYER	            4.13
 
+#define MIMICED_LIGHTING_LAYER      4.21	// Z-Mimic-managed lighting
+
 #define CLICKCATCHER_PLANE -100
+
+#define DEFAULT_APPEARANCE_FLAGS (PIXEL_SCALE)

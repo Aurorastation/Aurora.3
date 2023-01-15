@@ -116,16 +116,6 @@
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/cryotube
 
-/datum/design/circuit/machine/crystelpod
-	name = "Crystal Therapy Pod"
-	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
-	build_path = /obj/item/circuitboard/crystelpod
-
-/datum/design/circuit/machine/crystelpodconsole
-	name = "Crystal Therapy Pod"
-	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
-	build_path = /obj/item/circuitboard/crystelpodconsole
-
 /datum/design/circuit/machine/stove
 	name = "Stove"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
@@ -156,20 +146,20 @@
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/candymachine
 
-/datum/design/circuit/machine/pacman
-	name = "PACMAN-type Generator"
+/datum/design/circuit/machine/portgen
+	name = "portable generator"
 	req_tech = list(TECH_DATA = 3, TECH_PHORON = 3, TECH_POWER = 3, TECH_ENGINEERING = 3)
-	build_path = /obj/item/circuitboard/pacman
+	build_path = /obj/item/circuitboard/portgen
 
-/datum/design/circuit/machine/superpacman
-	name = "SUPERPACMAN-type generator"
+/datum/design/circuit/machine/advancedportgen
+	name = "advanced portable generator"
 	req_tech = list(TECH_DATA = 3, TECH_POWER = 4, TECH_ENGINEERING = 4)
-	build_path = /obj/item/circuitboard/pacman/super
+	build_path = /obj/item/circuitboard/portgen/advanced
 
-/datum/design/circuit/machine/mrspacman
-	name = "MRSPACMAN-type generator"
+/datum/design/circuit/machine/superportgen
+	name = "super portable generator"
 	req_tech = list(TECH_DATA = 3, TECH_POWER = 5, TECH_ENGINEERING = 5)
-	build_path = /obj/item/circuitboard/pacman/mrs
+	build_path = /obj/item/circuitboard/portgen/super
 
 /datum/design/circuit/machine/batteryrack
 	name = "Cell Rack PSU"

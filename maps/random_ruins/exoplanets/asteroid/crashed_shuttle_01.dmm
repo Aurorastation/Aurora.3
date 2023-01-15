@@ -1,0 +1,1579 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless/ceiling,
+/area/exoplanet/barren/asteroid)
+"aL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weldingtool/hugetank,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"ck" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1;
+	pixel_x = 8;
+	pixel_y = 2
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"co" = (
+/obj/item/pipe{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/plushie,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+"dh" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+"dF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard{
+	pixel_y = -10;
+	pixel_x = 10
+	},
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"dQ" = (
+/obj/item/material/shard,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"fE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"gb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"gj" = (
+/obj/item/spacecash/c10,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"gu" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"hw" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/grille/broken,
+/obj/structure/grille/diagonal,
+/obj/item/material/shard{
+	pixel_y = -7;
+	pixel_x = 9
+	},
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+"kU" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 4
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"la" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"lv" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+"lA" = (
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"lR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"nM" = (
+/turf/simulated/wall/shuttle/raider,
+/area/exoplanet/barren/asteroid)
+"pA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/gift,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"qI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/floodlight{
+	dir = 1
+	},
+/obj/random/powercell,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"rE" = (
+/turf/unsimulated/mineral/asteroid,
+/area/exoplanet/barren/asteroid)
+"rK" = (
+/obj/item/pocketwatch,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"rY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"sW" = (
+/turf/simulated/mineral/random/high_chance,
+/area/exoplanet/barren/asteroid)
+"uW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/coin,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+"vo" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/modular_computer/console{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/spacecash/c100,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+"vS" = (
+/mob/living/simple_animal/hostile/gnat,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"xK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	pixel_y = 3;
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_x = -9;
+	pixel_y = 6
+	},
+/obj/item/ammo_magazine/c45m,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"xS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard{
+	pixel_y = 4;
+	pixel_x = 18
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"xX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"AN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+	start_pressure = 1298.5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/random/gift,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"Bu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/shipsensors/weak,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/railing/mapped,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"Du" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/modular_computer/console{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"Dx" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/spacecash/c10,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"Dz" = (
+/obj/item/material/shard,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"DH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/modular_computer/console,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"FF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/spacecash/c100,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+"Hr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/portables_connector{
+	pixel_y = -4;
+	pixel_x = 16;
+	dir = 8
+	},
+/obj/item/storage/field_ration,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"HN" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+"Ik" = (
+/obj/item/pipe{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/gun/energy/plasmacutter,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"Io" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/shovel/gadpathur,
+/obj/item/spacecash/c10,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"Is" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/grille/broken{
+	pixel_y = 23
+	},
+/obj/structure/grille/diagonal{
+	pixel_y = 9;
+	dir = 4
+	},
+/obj/structure/grille/broken,
+/obj/item/material/shard{
+	pixel_y = -3;
+	pixel_x = 16
+	},
+/obj/item/material/shard{
+	icon_state = "small";
+	pixel_y = -10;
+	pixel_x = -14
+	},
+/obj/item/material/shard{
+	icon_state = "small";
+	pixel_x = -2;
+	pixel_y = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+"KH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"Lr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"LE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/wrench,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"MT" = (
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"MX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/field_ration,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"OW" = (
+/obj/item/spacecash/c1,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"Qr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+"QR" = (
+/obj/item/pipe{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/exoplanet/barren/asteroid)
+"RA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/gnat,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"RS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+	start_pressure = 2965.70
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"So" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/coin,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"SG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/exoplanet/barren/asteroid)
+"SP" = (
+/obj/item/clothing/head/helmet/space/santahat,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"Tr" = (
+/obj/machinery/atmospherics/portables_connector{
+	pixel_y = -4;
+	pixel_x = 16;
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/c45,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+"TG" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"VD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/modular_computer/console{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+"VE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/coin,
+/obj/item/spacecash/c10,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+"YL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/exoplanet/barren/asteroid)
+"Zf" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
+/area/exoplanet/barren/asteroid)
+
+(1,1,1) = {"
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+fE
+TG
+TG
+TG
+TG
+TG
+TG
+TG
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+"}
+(2,1,1) = {"
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+sW
+rE
+rE
+rE
+rE
+TG
+YL
+YL
+YL
+YL
+YL
+YL
+TG
+sW
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+"}
+(3,1,1) = {"
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+rE
+sW
+sW
+rE
+rE
+TG
+YL
+YL
+YL
+YL
+YL
+fE
+TG
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+sW
+MT
+MT
+MT
+MT
+"}
+(4,1,1) = {"
+MT
+MT
+MT
+MT
+MT
+MT
+rE
+rE
+sW
+sW
+rE
+MT
+fE
+fE
+fE
+fE
+fE
+fE
+fE
+MT
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+MT
+"}
+(5,1,1) = {"
+MT
+MT
+MT
+MT
+MT
+rE
+rE
+rE
+sW
+rE
+MT
+TG
+TG
+TG
+TG
+TG
+TG
+TG
+TG
+TG
+TG
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+"}
+(6,1,1) = {"
+MT
+MT
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+MT
+TG
+TG
+nM
+kU
+kU
+kU
+kU
+nM
+TG
+TG
+MT
+MT
+MT
+rE
+sW
+sW
+rE
+rE
+MT
+MT
+MT
+"}
+(7,1,1) = {"
+MT
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+TG
+TG
+nM
+QR
+QR
+QR
+QR
+nM
+TG
+TG
+MT
+MT
+MT
+rE
+sW
+sW
+sW
+rE
+MT
+MT
+MT
+"}
+(8,1,1) = {"
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+TG
+TG
+nM
+co
+xK
+ck
+Ik
+nM
+TG
+TG
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+"}
+(9,1,1) = {"
+MT
+MT
+sW
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+TG
+TG
+nM
+AN
+Hr
+Tr
+RS
+nM
+TG
+TG
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+"}
+(10,1,1) = {"
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+sW
+MT
+MT
+MT
+TG
+TG
+HN
+MX
+xX
+pA
+Lr
+nM
+fE
+TG
+TG
+MT
+MT
+rE
+rE
+rE
+sW
+sW
+rE
+sW
+MT
+"}
+(11,1,1) = {"
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+MT
+TG
+TG
+HN
+qI
+uW
+SG
+Qr
+nM
+TG
+TG
+TG
+MT
+sW
+rE
+rE
+sW
+sW
+sW
+rE
+sW
+MT
+"}
+(12,1,1) = {"
+MT
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+MT
+MT
+TG
+TG
+nM
+la
+RA
+So
+KH
+nM
+TG
+rY
+TG
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+"}
+(13,1,1) = {"
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+MT
+TG
+TG
+nM
+aH
+Io
+VE
+gb
+nM
+TG
+TG
+TG
+MT
+MT
+MT
+rE
+rE
+MT
+MT
+MT
+MT
+MT
+"}
+(14,1,1) = {"
+MT
+sW
+rE
+rE
+rE
+sW
+sW
+rE
+MT
+MT
+MT
+TG
+TG
+nM
+DH
+Dx
+FF
+Du
+nM
+TG
+TG
+TG
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+"}
+(15,1,1) = {"
+MT
+SP
+rE
+rE
+rE
+sW
+sW
+rE
+MT
+MT
+MT
+TG
+TG
+nM
+Zf
+vo
+VD
+lv
+nM
+TG
+TG
+TG
+MT
+MT
+MT
+MT
+MT
+MT
+rE
+sW
+sW
+MT
+"}
+(16,1,1) = {"
+MT
+MT
+MT
+rE
+rE
+rE
+MT
+MT
+MT
+MT
+MT
+TG
+fE
+TG
+dh
+Is
+hw
+lv
+lR
+fE
+TG
+TG
+MT
+MT
+MT
+MT
+MT
+rE
+rE
+rE
+sW
+MT
+"}
+(17,1,1) = {"
+MT
+rE
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+TG
+rY
+TG
+xS
+dF
+fE
+aL
+fE
+MT
+MT
+MT
+MT
+MT
+MT
+sW
+sW
+rE
+rE
+rE
+MT
+"}
+(18,1,1) = {"
+MT
+rE
+rE
+MT
+MT
+MT
+MT
+rE
+MT
+MT
+MT
+MT
+vS
+MT
+TG
+TG
+TG
+LE
+Bu
+fE
+TG
+MT
+MT
+MT
+MT
+MT
+sW
+sW
+rE
+rE
+rE
+MT
+"}
+(19,1,1) = {"
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+MT
+MT
+MT
+gj
+MT
+MT
+dQ
+gu
+TG
+MT
+MT
+MT
+MT
+MT
+rE
+sW
+rE
+rE
+rE
+rE
+MT
+"}
+(20,1,1) = {"
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+Dz
+MT
+lA
+TG
+TG
+MT
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+"}
+(21,1,1) = {"
+MT
+sW
+sW
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+OW
+MT
+MT
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+sW
+MT
+MT
+"}
+(22,1,1) = {"
+MT
+sW
+MT
+MT
+rE
+sW
+rE
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+Dz
+MT
+MT
+MT
+MT
+Dz
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+sW
+MT
+MT
+"}
+(23,1,1) = {"
+MT
+MT
+MT
+MT
+MT
+rE
+rE
+MT
+MT
+MT
+sW
+MT
+MT
+OW
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+sW
+rE
+rE
+MT
+MT
+"}
+(24,1,1) = {"
+MT
+MT
+MT
+MT
+rE
+rE
+rE
+MT
+MT
+MT
+rE
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+"}
+(25,1,1) = {"
+MT
+MT
+rE
+MT
+rE
+rE
+rE
+MT
+MT
+rE
+rE
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+sW
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+"}
+(26,1,1) = {"
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+MT
+rE
+rE
+rE
+MT
+MT
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+sW
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+"}
+(27,1,1) = {"
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+MT
+rE
+rE
+rE
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+sW
+sW
+rE
+rE
+sW
+sW
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+"}
+(28,1,1) = {"
+MT
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+MT
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+sW
+sW
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+sW
+MT
+MT
+"}
+(29,1,1) = {"
+MT
+MT
+rE
+rE
+sW
+sW
+rE
+rE
+MT
+rE
+MT
+MT
+rE
+rE
+sW
+sW
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+MT
+MT
+"}
+(30,1,1) = {"
+MT
+MT
+rE
+rE
+rK
+MT
+MT
+MT
+MT
+rE
+sW
+MT
+rE
+rE
+sW
+sW
+rE
+rE
+rE
+rE
+rE
+rE
+rE
+sW
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+"}
+(31,1,1) = {"
+MT
+rE
+rE
+MT
+MT
+rE
+rE
+rE
+rE
+rE
+MT
+MT
+rE
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+"}
+(32,1,1) = {"
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+sW
+rE
+rE
+rE
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+MT
+"}

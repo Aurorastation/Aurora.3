@@ -1,7 +1,7 @@
 /obj/machinery/power/radial_floodlight
 	name = "radial floodlight"
 	desc = "A floodlight that illuminates a wide area around it. It has to be wrenched down on top of a knot to work."
-	icon = 'icons/obj/machines/floodlight.dmi'
+	icon = 'icons/obj/machinery/floodlight.dmi'
 	icon_state = "radial_floodlight"
 	anchored = FALSE
 	density = TRUE
@@ -26,7 +26,7 @@
 		STOP_PROCESSING(SSprocessing, src)
 	update_icon()
 
-/obj/machinery/power/radial_floodlight/machinery_process()
+/obj/machinery/power/radial_floodlight/process()
 	var/actual_load = draw_power(active_power_usage)
 	if(!on || !anchored || (stat & BROKEN) || !powernet || actual_load < active_power_usage)
 		toggle_active(FALSE)

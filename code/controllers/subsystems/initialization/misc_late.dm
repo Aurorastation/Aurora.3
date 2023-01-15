@@ -14,6 +14,8 @@
 		if (area_turfs.len) // Check the area is mapped
 			ghostteleportlocs += AR.name
 			ghostteleportlocs[AR.name] = AR
+	if(current_map.use_overmap)
+		ghostteleportlocs[map_overmap.name] = map_overmap
 
 	sortTim(ghostteleportlocs, /proc/cmp_text_asc)
 
@@ -31,12 +33,6 @@
 
 	if (config.use_forumuser_api)
 		update_admins_from_api(TRUE)
-
-	click_catchers = create_click_catcher()
-
-	current_map.build_away_sites()
-
-	current_map.build_exoplanets()
 
 	..(timeofday)
 

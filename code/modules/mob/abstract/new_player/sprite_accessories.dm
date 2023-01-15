@@ -359,6 +359,12 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "hair bun"
 
+	bun_short2
+		name = "Bun, Short 2"
+		icon_state = "hair_bun_short2"
+		length = 2
+		chatname = "hair bun"
+
 	bun_tight
 		name = "Bun, Tight"
 		icon_state = "hair_bun_tight"
@@ -503,6 +509,16 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "long fringe"
 
+	fade_clean
+		name = "Fade, Clean"
+		icon_state = "hair_fade_clean"
+		chatname = "short hair"
+
+	fade_cleanlow
+		name = "Fade, Clean Low"
+		icon_state = "hair_fade_cleanlow"
+		chatname = "short hair"
+
 	fade_high
 		name = "Fade, High"
 		icon_state = "hair_fade_high"
@@ -511,6 +527,11 @@ Follow by example and make good judgement based on length which list to include 
 	fade_low
 		name = "Fade, Low"
 		icon_state = "hair_fade_low"
+		chatname = "short hair"
+
+	fade_manbun
+		name = "Fade, Manbun"
+		icon_state = "hair_fade_manbun"
 		chatname = "short hair"
 
 	fade_medium
@@ -721,16 +742,19 @@ Follow by example and make good judgement based on length which list to include 
 	messy
 		name = "Messy"
 		icon_state = "hair_messy"
+		length = 2
 		chatname = "messy hair"
 
 	messy2
 		name = "Messy 2"
 		icon_state = "hair_messy2"
+		length = 2
 		chatname = "messy hair"
 
 	messy3
 		name = "Messy 3"
 		icon_state = "hair_messy3"
+		length = 2
 		chatname = "messy hair"
 
 	modern
@@ -991,6 +1015,36 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "ponytail"
 
+	ponytail_short
+		name = "Ponytail, Short"
+		icon_state = "hair_ponytail_short"
+		length = 2
+		chatname = "short ponytail"
+
+	ponytail_short2
+		name = "Ponytail, Short 2"
+		icon_state = "hair_ponytail_short2"
+		length = 2
+		chatname = "short ponytail"
+
+	ponytail_short3
+		name = "Ponytail, Short 3"
+		icon_state = "hair_ponytail_short3"
+		length = 2
+		chatname = "short ponytail"
+
+	ponytail_short4
+		name = "Ponytail, Short 4"
+		icon_state = "hair_ponytail_short4"
+		length = 2
+		chatname = "short ponytail"
+
+	ponytail_short5
+		name = "Ponytail, Short 5"
+		icon_state = "hair_ponytail_short5"
+		length = 2
+		chatname = "short ponytail"
+
 	ponytail_fringetail
 		name = "Ponytail, Fringetail"
 		icon_state = "hair_ponytail_fringetail"
@@ -1045,6 +1099,12 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "ponytail"
 
+	bunlarge2
+		name = "Bun, Large 2"
+		icon_state = "hair_bun_large2"
+		length = 2
+		chatname = "large bun"
+
 	poofy
 		name = "Poofy"
 		icon_state = "hair_poofy"
@@ -1082,18 +1142,23 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_punk_chelseafringe"
 		chatname = "fringe"
 
+	punk_chelseafringealt
+		name = "Punk Shave, Chelsea Fringe Alt"
+		icon_state = "hair_punk_chelseafringe_alt"
+		chatname = "fringe"
+
 	punk_chelseafringe_bighawk
-		name = "Punk Shave, Chelsea Fringe Big Hawk"
+		name = "Punk Shave, Chelsea Big Hawk"
 		icon_state = "hair_punk_chelseafringe_bighawk"
 		chatname = "mohawk"
 
 	punk_chelseafringe_smallhawk
-		name = "Punk Shave, Chelsea Fringe Small Hawk"
+		name = "Punk Shave, Chelsea Small Hawk"
 		icon_state = "hair_punk_chelseafringe_smallhawk"
 		chatname = "mohawk"
 
 	punk_chelseafringe_ponytail
-		name = "Punk Shave, Chelsea Fringe Ponytail"
+		name = "Punk Shave, Chelsea Ponytail"
 		icon_state = "hair_punk_chelseafringe_ponytail"
 		chatname = "ponytail"
 
@@ -1102,9 +1167,20 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_punk_halfshaved"
 		chatname = "unshaved hair"		// grabbing the parts that can be grabbed
 
+	punk_halfshaved_alt
+		name = "Punk Shave, Half-Shaved Alt"
+		icon_state = "hair_punk_halfshaved_alt"
+		chatname = "unshaved hair"
+
 	punk_halfshaved_bun
 		name = "Punk Shave, Half-Shaved Bun"
 		icon_state = "hair_punk_halfshaved_bun"
+		length = 2
+		chatname = "hair bun"
+
+	punk_halfshaved_bun_alt
+		name = "Punk Shave, Half-Shaved Bun Alt"
+		icon_state = "hair_punk_halfshaved_bun_alt"
 		length = 2
 		chatname = "hair bun"
 
@@ -1257,6 +1333,12 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "curls"
 
+	tresshoulderdouble
+		name = "Tress Shoulder Double"
+		icon_state = "hair_tressshoulder_double"
+		length = 2
+		chatname = "curls"
+
 	trimmed
 		name = "Trimmed"
 		icon_state = "hair_trimmed"
@@ -1368,11 +1450,11 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "horny"
 
 		headtails
-			name = "Headtails"
+			name = "Head tails"
 			icon_state = "headtails"
 
 		headtails_2
-			name = "Headtails 2"
+			name = "Head tails 2"
 			icon_state = "headtails2"
 
 		tiny_eye
@@ -1734,7 +1816,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon = 'icons/mob/hair_gradients.dmi'
 	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,
-		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b, /datum/species/unathi,/datum/species/zombie/unathi)
+		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b, /datum/species/unathi, /datum/species/zombie/unathi)
 
 	none
 		name = "None"
@@ -1742,6 +1824,12 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell, /datum/species/bug,
 		/datum/species/bug/type_b)
+
+	none_48
+		name = "None (Vaurca Type C/E)"
+		icon = "icons/mob/base_48.dmi"
+		icon_state = "none"
+		species_allowed = list(/datum/species/bug/type_e, /datum/species/bug/type_c)
 
 	fade_up
 		name = "Fade (Up)"
@@ -1791,13 +1879,16 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "skr_headtail_stripes"
 		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
 
+	skrell_headtail_middle
+		name = "Skrell Headtail Middle"
+		icon_state = "skr_headtail_mid"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
 
+	skrell_headtail_hfade
+		name = "Skrell Headtail Hard Fade"
+		icon_state = "skr_headtail_hfade"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
 
-	bulwark_default
-		name = "Bulwark Horn"
-		icon = "icons/mob/base_48.dmi"
-		icon_state = "blank"
-		species_allowed = list(/datum/species/bug/type_e)
 
 /*
 ///////////////////////////////////
@@ -2279,123 +2370,207 @@ Follow by example and make good judgement based on length which list to include 
 			length = 6
 			chatname = "massive frills"
 
+		una_hornsbusted
+			name = "Unathi Horns-Busted"
+			icon_state = "unathi_simplehornbusted"
+			length = 5
+			chatname = "horns"
+
+		una_ramhornshortbusted
+			name = "Unathi Short Ram Horns-Busted"
+			icon_state = "unathi_ramhornbusted"
+			length = 5
+			chatname = "horns"
+
+		una_shorthornbusted
+			name = "Unathi Short Horns-Busted"
+			icon_state = "unathi_shorthornbusted"
+			length = 5
+			chatname = "horns"
+
+		una_drachornbusted
+			name = "Unathi Draconic Horns-Busted"
+			icon_state = "unathi_drachornbusted"
+			length = 5
+			chatname = "horns"
+
+		una_shortfrill2busted
+			name = "Unathi Short Frills 2-Busted"
+			icon_state = "unathi_shortfrills2busted"
+			length = 0
+			chatname = "frills"
+
+		una_styrahornbusted
+			name = "Unathi Styra Horn-Busted"
+			icon_state = "styrahornbusted"
+			length = 2
+			chatname = "horn stub"
 
 //skrell tentacles
 
 	skr_tentacle_m
 		icon = 'icons/mob/human_face/skrell_hair.dmi'
-		name = "Skrell Short Tentacles"
+		name = "Short Headtails"
 		icon_state = "skrell_hair_m"
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
-		length = 6
-		chatname = "Short Tentacles"
+		length = 2
+		chatname = "short headtails"
 		var/scrunchy_style = "seaweed" // seaweed fits the normal tentacles pretty well
 
 		skr_tentacle_f
-			name = "Skrell Average Tentacles"
+			name = "Headtails"
 			icon_state = "skrell_hair_f"
-			length = 6
-			chatname = "Average Tentacles"
+			length = 4
+			chatname = "headtails"
 
 		skr_tentacle_short
-			name = "Skrell Very Short Tentacles"
+			name = "Very Short Headtails"
 			icon_state = "veryshort_s"
-			length = 6
-			chatname = "Short Tentacles"
+			length = 1
+			chatname = "short headtails"
 
 		skr_tentacle_long
-			name = "Skrell Very Long Tentacles"
+			name = "Long Headtails"
 			icon_state = "verylong_s"
 			length = 6
-			chatname = "Very Long Tentacles"
+			chatname = "long headtails"
 
 		skr_tentacle_doubletail
-			name = "Skrell Hoop Ponytail"
+			name = "Headtails, ponytail (hoop)"
 			icon_state = "skrell_hoop"
-			length = 3
-			chatname = "Ponytail, Hoop"
+			length = 5
+			chatname = "headtails"
 			scrunchy_style = "hoop"
 
 		skr_tentacle_flb
-			name = "Skrell Reef Ponytail"
+			name = "Headtails, ponytail (reef)"
 			icon_state = "skrell_reef"
-			length = 6
-			chatname = "Ponytail, Reef"
+			length = 5
+			chatname = "headtails"
 			scrunchy_style = "reef"
 
 		skr_tentacle_backwater
-			name = "Skrell Backwater"
+			name = "Headtails, ponytail (backwater)"
 			icon_state = "skrell_backwater"
-			length = 6
-			chatname = "Backwater"
+			length = 5
+			chatname = "headtails"
 			scrunchy_style = "backwater"
 
 		skr_tentacle_reserved
-			name = "Skrell Reserved"
+			name = "Expressive Headtails, reserved"
 			icon_state = "skrell_reserved"
 			length = 6
-			chatname = "Reserved"
+			chatname = "headtails"
+
+		skr_tentacle_excited
+			name = "Expressive Headtails, excited"
+			icon_state = "skrell_excited"
+			length = 6
+			chatname = "headtails"
+
+		skr_tentacle_insulted
+			name = "Expressive Headtails, insulted"
+			icon_state = "skrell_insulted"
+			length = 6
+			chatname = "headtails"
 
 		skr_tentacle_tucked
-			name = "Skrell Tucked"
+			name = "Short Headtails, tucked"
 			icon_state = "skrell_tucked"
-			length = 3
-			chatname = "Tucked"
+			length = 2
+			chatname = "short headtails"
 
 		skr_tentacle_tuux_l
-			name = "Skrell Tuux, Long"
+			name = "Headtails, tuux"
 			icon_state = "skrell_long_tuux"
 			length = 5
-			chatname = "Long Tuux"
+			chatname = "headtails"
 
 		skr_tentacle_tuux_s
-			name = "Skrell Tuux, Short"
+			name = "Short Headtails, tuux"
 			icon_state = "skrell_short_tuux"
 			length = 3
-			chatname = "Short Tuux"
+			chatname = "short headtails"
 
 		skr_tentacle_slicked
-			name = "Skrell Slicked"
+			name = "Short Headtails, slicked"
 			icon_state = "skrell_slicked"
-			length = 3
-			chatname = "Slicked"
+			length = 2
+			chatname = "short headtails"
 
 		skr_tentacle_behind_r
-			name = "Skrell Behind, Right"
+			name = "Headtails, behind (right)"
 			icon_state = "skrell_right_behind"
-			length = 6
-			chatname = "Right Behind"
+			length = 4
+			chatname = "headtails"
 
 		skr_tentacle_behind_l
-			name = "Skrell Behind, Left"
+			name = "Headtails, behind (left)"
 			icon_state = "skrell_left_behind"
-			length = 6
-			chatname = "Left Behind"
+			length = 4
+			chatname = "headtails"
 
 		skr_tentacle_behind_b
-			name = "Skrell Behind, Both"
+			name = "Headtails, behind"
 			icon_state = "skrell_both_behind"
-			length = 6
-			chatname = "Average Both Behind"
+			length = 4
+			chatname = "headtails"
 
 		skr_tentacle_behind_b_s
-			name = "Skrell Behind, Both short"
+			name = "Short Headtails, behind"
 			icon_state = "skrell_both_behind_short"
-			length = 6
-			chatname = "Short Both Behind"
+			length = 2
+			chatname = "short headtails"
 
 		skr_tentacle_behind_b_l
-			name = "Skrell Behind, both long"
+			name = "Long Headtails, behind"
 			icon_state = "skrell_both_behind_long"
 			length = 6
-			chatname = "Long Both Behind"
+			chatname = "long headtails"
+
+		skr_tentacle_behind_l_l
+			name = "Long Headtails, behind (left)"
+			icon_state = "skrell_left_behind_long"
+			length = 6
+			chatname = "long headtails"
+
+		skr_tentacle_behind_r_l
+			name = "Long Headtails, behind (right)"
+			icon_state = "skrell_right_behind_long"
+			length = 6
+			chatname = "long headtails"
 
 		skr_tentacle_reef
-			name = "Skrell Reef Ponytail, short"
+			name = "Short Headtails, ponytail (reef)"
 			icon_state = "skrell_reef_short"
+			length = 3
+			chatname = "short headtails"
+			scrunchy_style = "reef_short"
+
+		skr_tentacle_emo_l_l
+			name = "Long Headtails, emo (left)"
+			icon_state = "skrell_left_emo_long"
+			length = 6
+			chatname = "long headtails"
+
+		skr_tentacle_emo_r_l
+			name = "Long Headtails, emo (right)"
+			icon_state = "skrell_right_emo_long"
+			length = 6
+			chatname = "long headtails"
+
+		skr_tentacle_emo_l
+			name = "Headtails, emo (left)"
+			icon_state = "skrell_left_emo"
 			length = 4
-			chatname = "Ponytail, Reef"
-			scrunchy_style = "reef"
+			chatname = "headtails"
+
+		skr_tentacle_emo_r
+			name = "Headtails, emo (right)"
+			icon_state = "skrell_right_emo"
+			length = 4
+			chatname = "headtails"
+
 
 //tajaran hair
 
@@ -2433,6 +2608,12 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_braid
 			name = "Tajara Braid"
 			icon_state = "hair_braid"
+			length = 3
+			chatname = "braid"
+
+		taj_ears_braid_alt
+			name = "Tajara Braid Alt"
+			icon_state = "hair_braid_alt"
 			length = 3
 			chatname = "braid"
 
@@ -2549,25 +2730,31 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Tajara Bun"
 			icon_state = "hair_bun"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
 
 		taj_ears_smallbun
 			name = "Tajara Bun (Small)"
 			icon_state = "hair_bunsmall"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
 
 		taj_ears_lowbun
 			name = "Tajara Bun (Low)"
 			icon_state = "hair_lowbun"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
 
 		taj_ears_smalllowbun
 			name = "Tajara Bun (Low, Small)"
 			icon_state = "hair_lowbunsmall"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
+
+		taj_ears_bunshort
+			name = "Tajara Bun (Short)"
+			icon_state = "hair_bunshort"
+			length = 2
+			chatname = "hair bun"
 
 		taj_ears_wedge
 			name = "Tajara Wedge"
@@ -2709,6 +2896,12 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "braid"
 
+		msai_ears_braid_alt
+			name = "M'sai Braid Alt"
+			icon_state = "msai_braid_alt"
+			length = 3
+			chatname = "braid"
+
 		msai_ears_clean
 			name = "M'sai Clean"
 			icon_state = "msai_clean"
@@ -2822,25 +3015,31 @@ Follow by example and make good judgement based on length which list to include 
 			name = "M'sai Bun"
 			icon_state = "msai_bun"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
 
 		taj_ears_smallbun
 			name = "M'sai Bun (Small)"
 			icon_state = "msai_bunsmall"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
 
 		msai_ears_lowbun
 			name = "M'sai Bun (Low)"
 			icon_state = "msai_lowbun"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
 
 		msai_ears_lowsmallbun
 			name = "M'sai Bun (Low, Small)"
 			icon_state = "msai_lowbunsmall"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
+
+		msai_ears_bunshort
+			name = "M'sai Bun (Short)"
+			icon_state = "msai_bunshort"
+			length = 2
+			chatname = "hair bun"
 
 		msai_ears_wedge
 			name = "M'sai Wedge"
@@ -3094,6 +3293,36 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "antennae"
 			length = 6
 
+//Breeder antennae
+	breeder_standard
+		icon = 'icons/mob/human_face/breeder_hair.dmi'
+		name = "Breeder Standard Antennae"
+		icon_state = "breeder_standard"
+		species_allowed = list(/datum/species/bug/type_c)
+		gender = NEUTER
+		chatname = "antennae"
+		length = 3
+
+		breeder_quad
+			name = "Breeder Quad Antennae"
+			icon_state = "breeder_quad"
+			length = 3
+
+		breeder_crownedcrest
+			name = "Breeder Crowned Crest"
+			icon_state = "breeder_crownedcrest"
+			length = 1
+
+		breeder_hammerhead
+			name = "Breeder Hammerhead"
+			icon_state = "breeder_hammerhead"
+			length = 1
+
+		breeder_princess
+			name = "Breeder Princess Antennae"
+			icon_state = "breeder_princess"
+			length = 2
+
 /datum/sprite_accessory/facial_hair
 	taj_goatee
 		icon = 'icons/mob/human_face/tajara_facial_hair.dmi'
@@ -3324,6 +3553,30 @@ Follow by example and make good judgement based on length which list to include 
 		una_regal
 			name = "Unathi Regal Frills"
 			icon_state = "unathi_regalfrills"
+
+		una_hornsbusted
+			name = "Unathi Horns-Busted"
+			icon_state = "unathi_simplehornbusted"
+
+		una_ramhornshortbusted
+			name = "Unathi Short Ram Horns-Busted"
+			icon_state = "unathi_ramhornbusted"
+
+		una_shorthornbusted
+			name = "Unathi Short Horns-Busted"
+			icon_state = "unathi_shorthornbusted"
+
+		una_drachornbusted
+			name = "Unathi Draconic Horns-Busted"
+			icon_state = "unathi_drachornbusted"
+
+		una_shortfrill2busted
+			name = "Unathi Short Frills 2-Busted"
+			icon_state = "unathi_shortfrills2busted"
+
+		una_styrahornbusted
+			name = "Unathi Styra Horn-Busted"
+			icon_state = "styrahornbusted"
 
 //ipc screens
 
@@ -3574,64 +3827,84 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Glorp"
 			icon_state = "glorp"
 
-	anglerfish
+	tuux_patch
 		icon = 'icons/mob/human_face/skrell_beards.dmi'
-		name = "Anglerfish"
-		icon_state = "Anglerfish"
+		name = "Tuux Chin Patch"
+		icon_state = "Tuux_Patch"
 		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
 		gender = NEUTER
 
-		triton
-			name = "Triton"
-			icon_state = "Triton"
+		tuux_goatee
+			name = "Tuux Goatee"
+			icon_state = "Tuux_Goatee"
 
-		big_triton
-			name = "Big Triton"
-			icon_state = "Big_Triton"
+		tuux_tri_point
+			name = "Tuux Tri-Point"
+			icon_state = "Tuux_Tri-Point"
 
-		ahab
-			name = "Ahab"
-			icon_state = "Ahab"
+		tuux_strap
+			name = "Tuux Chin Strap"
+			icon_state = "Tuux_Strap"
 
-		monotail
-			name = "Monotail"
-			icon_state = "Monotail"
+		tuux_monotail
+			name = "Tuux Monotail"
+			icon_state = "Tuux_Monotail"
 
-		long_monotail
-			name = "Long Monotail"
-			icon_state = "Long_Monotail"
+		tuux_monotail_long
+			name = "Tuux Monotail (Long)"
+			icon_state = "Tuux_Monotail_Long"
 
-		face_adorns
-			name = "Face Adorns"
-			icon_state = "Face_Adorns"
+		tuux_full
+			name = "Tuux Full Beard"
+			icon_state = "Tuux_Full"
 
-		sea_captain
-			name = "Sea Captain"
-			icon_state = "Sea_Captain"
+		tuux_chops
+			name = "Tuux Chops"
+			icon_state = "Tuux_Chops"
 
-		fisherman
-			name = "Fisherman"
-			icon_state = "Fisherman"
+		tuux_chops_big
+			name = "Tuux Chops (Big)"
+			icon_state = "Tuux_Chops_Big"
 
-		sailor
-			name = "Sailor"
-			icon_state = "Sailor"
+		tuux_adorns
+			name = "Tuux Face Adorns"
+			icon_state = "Tuux_Adorns"
 
-		overgrown
-			name = "Overgrown"
-			icon_state = "Overgrown"
+		tuux_handlebar
+			name = "Tuux Handlebar"
+			icon_state = "Tuux_Handlebar"
 
-		marauder_left
-			name = "Marauder (Left)"
-			icon_state = "Marauder_Left"
+		tuux_fumanchu
+			name = "Tuux FuManChu"
+			icon_state = "Tuux_FuManChu"
 
-		marauder_right
-			name = "Marauder (Right)"
-			icon_state = "Marauder_Right"
+		tuux_overeye_left
+			name = "Tuux Overeye (Left)"
+			icon_state = "Tuux_Overeye_Left"
 
-		Pilot
-			name = "Pilot"
-			icon_state = "Pilot"
+		tuux_overeye_right
+			name = "Tuux Overeye (Right)"
+			icon_state = "Tuux_Overeye_Right"
+
+		tuux_mustache
+			name = "Tuux Stache"
+			icon_state = "Tuux_Mustache"
+
+		tuux_overgrown
+			name = "Tuux Overgrown"
+			icon_state = "Tuux_Overgrown"
+
+		tuux_braided
+			name = "Tuux Braided"
+			icon_state = "Tuux_Braided"
+
+		tuux_braided_long
+			name = "Tuux Braided (Long)"
+			icon_state = "Tuux_Braided_Long"
+
+		tuux_braided_double
+			name = "Tuux Braided (Double)"
+			icon_state = "Tuux_Braided_Double"
 
 //Vaurca mandibles
 	clicky
@@ -3997,6 +4270,24 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
+	aug_lowerjaw
+		name = "Augment (Lower Jaw)"
+		icon_state = "aug_lowerjaw"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell,/datum/species/skrell/axiori,/datum/species/unathi)
+
+	aug_headcase
+		name = "Augment (Headcase)"
+		icon_state = "aug_headcase"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	aug_headcaselight
+		name = "Augment (Headcase, Light)"
+		icon_state = "aug_headcaselight"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
 	vaurca_augs
 		name = "Mecha Chest"
 		icon = 'icons/mob/human_races/markings_vaurca.dmi'
@@ -4060,6 +4351,190 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Hand Panel (Left)"
 			icon_state = "hand_panel_l"
 			body_parts = list(BP_L_HAND)
+
+	bulwark_augs
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Mecha Eye L"
+		icon_state = "mechaeyebully_l"
+		do_colouration = FALSE
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/bug/type_e)
+
+		mechaeyebully_r
+			name = "Mecha Eye R"
+			icon_state = "mechaeyebully_r"
+
+		mechaeyeoverlaybully_l
+			name = "Mecha Eye Overlay L"
+			icon_state = "mechaeyeoverlaybully_l"
+
+		mechaeyeoverlaybully_r
+			name = "Mecha Eye Overlay R"
+			icon_state = "mechaeyeoverlaybully_r"
+
+		mechamandiblesbully
+			name = "Mecha Mandibles (Bulwark)"
+			icon_state = "mechamandiblesbully"
+
+		mechamandiblesoverlaybully
+			name = "Mecha Mandibles Overlay"
+			icon_state = "mechamandiblesoverlaybully"
+
+		visorbully
+			name = "Visor"
+			icon_state = "visorbully"
+
+		visorbullyoverlay
+			name = "Visor Overlay"
+			icon_state = "visorbullyoverlay"
+
+		spidereyesbully
+			name = "Spider Eyes"
+			icon_state = "spidereyesbully"
+
+		spidereyesbullyoverlay
+			name = "Spider Eyes Overlay"
+			icon_state = "spidereyesbullyoverlay"
+
+		mechamonoculusbully
+			name = "Mecha Monoculus"
+			icon_state = "mechamonoculusbully"
+
+		mechamonoculusbullyoverlay
+			name = "Mecha Monoculus Overlay"
+			icon_state = "mechamonoculusbullyoverlay"
+	
+	bullybackmeter
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Back Meter (Bulwark)"
+		icon_state = "bullybackmeter"
+		do_colouration = FALSE
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/bug/type_e)
+
+		bullybackmeteroverlay
+			name = "Back Meter Overlay"
+			icon_state = "bullybackmeteroverlay"
+
+		mechahorn_l
+			name = "Mecha Horn L"
+			icon_state = "mechahorn_l"
+
+		mechahorn_r
+			name = "Mecha Horn R"
+			icon_state = "mechahorn_r"
+
+		bullybackwires
+			name = "Back Wires (Bulwark)"
+			icon_state = "bullybackwires"
+
+		bullybacktubes
+			name = "Back Tubes (Bulwark)"
+			icon_state = "bullybacktubes"
+
+		ventsbully
+			name = "Vents (Bulwark)"
+			icon_state = "ventsbully"
+
+		shellpanelbully
+			name = "Shell Panel"
+			icon_state = "shellpanelbully"
+
+	mechakneesbully_l
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Mecha Knees L"
+		icon_state = "mechakneesbully_l"
+		do_colouration = FALSE
+		body_parts = list(BP_L_LEG)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	mechakneesbully_r
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Mecha Knees R"
+		icon_state = "mechakneesbully_r"
+		do_colouration = FALSE
+		body_parts = list(BP_R_LEG)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	mechaabdomenbully
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Mecha Abdomen (Bulwark)"
+		icon_state = "mechaabdomenbully"
+		do_colouration = FALSE
+		body_parts = list(BP_GROIN)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	mechapelvisbully
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Mecha Pelvis (Bulwark)"
+		icon_state = "mechapelvisbully"
+		do_colouration = FALSE
+		body_parts = list(BP_GROIN)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	handpanelbully_l
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Hand Panel L"
+		icon_state = "handpanelbully_l"
+		do_colouration = FALSE
+		body_parts = list(BP_L_HAND)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	handpanelbully_r
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Hand Panel R"
+		icon_state = "handpanelbully_r"
+		do_colouration = FALSE
+		body_parts = list(BP_R_HAND)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	handpanelbully_loverlay
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Hand Panel L Overlay"
+		icon_state = "handpanelbully_loverlay"
+		do_colouration = FALSE
+		body_parts = list(BP_L_HAND)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	handpanelbully_roverlay
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Hand Panel R Overlay"
+		icon_state = "handpanelbully_roverlay"
+		do_colouration = FALSE
+		body_parts = list(BP_R_HAND)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	armwirebully_l
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Arm Wires L"
+		icon_state = "armwirebully_l"
+		do_colouration = FALSE
+		body_parts = list(BP_L_ARM)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	armwirebully_r
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Arm Wires R"
+		icon_state = "armwirebully_r"
+		do_colouration = FALSE
+		body_parts = list(BP_R_ARM)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	armwirebullyhand_l
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Hand Wires L"
+		icon_state = "handwirebully_l"
+		do_colouration = FALSE
+		body_parts = list(BP_L_HAND)
+		species_allowed = list(/datum/species/bug/type_e)
+
+	armwiresbullyhand_r
+		icon = 'icons/mob/human_races/markings_vaurcae.dmi'
+		name = "Hand Wires R"
+		icon_state = "handwirebully_r"
+		do_colouration = FALSE
+		body_parts = list(BP_R_HAND)
+		species_allowed = list(/datum/species/bug/type_e)
 
 	backstripe
 		name = "Back Stripe"
@@ -4257,7 +4732,7 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori)
 
-	lowercheek_left
+	lowercheek_right
 		name = "Lower Cheek Right"
 		icon_state = "lowercheek_r"
 		body_parts = list(BP_HEAD)
@@ -4664,20 +5139,39 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list(/datum/species/bug,/datum/species/bug/type_b)
 
 	skr_tears
-		name = "Tear Stains"
+		name = "Skrell Tear Stains (Xiialt)"
 		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_tears"
 		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
+
+	skr_tears_axiori
+		name = "Skrell Tear Stains (Axiori)"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_tears_axiori"
+		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
-		do_colouration = FALSE
+
+	skr_dart_frog
+		name = "Skrell Dart Frog (Xiialt)"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_dart_frog"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
+
+	skr_dart_frog_axiori
+		name = "Skrell Dart Frog (Axiori)"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_dart_frog_axiori"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 
 	skr_axiori_eyes
 		name = "Axiori Eyes"
 		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_axiori_eyes"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/skrell, /datum/species/zombie/skrell,/datum/species/zombie/skrell)
-		do_colouration = FALSE
+		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
 
 	skr_arms
 		name = "Skrell Arms"
@@ -4718,6 +5212,20 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Skrell Chin"
 		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_chin"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+
+	skr_gills
+		name = "Skrell Gills"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_gills"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+
+	skr_xibus
+		name = "Skrell Xibus"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_beak"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 

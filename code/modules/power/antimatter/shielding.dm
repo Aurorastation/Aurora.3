@@ -13,12 +13,12 @@ proc/cardinalrange(var/center)
 	desc = "A shielding component for an antimatter reactor. Looks delicate."
 	desc_info = "Antimatter shielding sections must be beside an anchored control unit or another shielding section. If either are destroyed, the section will disappear."
 	desc_antag = "Antimatter shielding sections are delicate. Attacking the shielding unit with a damaging object will reduce its stability, as will explosions. If the stability hits zero, the reactor may explode."
-	icon = 'icons/obj/machines/new_ame.dmi'
+	icon = 'icons/obj/machinery/new_ame.dmi'
 	icon_state = "shield"
 	anchored = TRUE
 	density = TRUE
 	dir = NORTH
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 	active_power_usage = 0
 
@@ -42,7 +42,6 @@ proc/cardinalrange(var/center)
 		controllerscan()
 		return
 	link_control(AMC)
-	remove_machine(src, FALSE)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/am_shielding/LateInitialize()
@@ -104,7 +103,7 @@ proc/cardinalrange(var/center)
 		return TRUE
 	return FALSE
 
-/obj/machinery/am_shielding/machinery_process()
+/obj/machinery/am_shielding/process()
 	if(!processing)
 		. = PROCESS_KILL
 	//TODO: core functions and stability
@@ -216,7 +215,7 @@ proc/cardinalrange(var/center)
 	name = "packaged antimatter reactor section"
 	desc = "A section of antimatter reactor shielding. Do not eat."
 	desc_info = "To deploy, drop near an antimatter control unit or an existing deployed section and use your multitool on it."
-	icon = 'icons/obj/machines/antimatter.dmi'
+	icon = 'icons/obj/machinery/antimatter.dmi'
 	icon_state = "box"
 	item_state = "electronic"
 	throwforce = 5

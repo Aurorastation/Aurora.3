@@ -1,7 +1,7 @@
 /obj/machinery/wish_granter
 	name = "Wish Granter"
 	desc = "You are not so sure about this anymore..."
-	icon = 'icons/obj/machines/wishgranter.dmi' //thanks cakeisossim for the sprites
+	icon = 'icons/obj/machinery/wishgranter.dmi' //thanks cakeisossim for the sprites
 	icon_state = "wishgranter"
 
 	light_color = "#458F94"
@@ -11,7 +11,7 @@
 	anchored = 1
 	density = 1
 	layer = 9
-	use_power = 0
+	use_power = POWER_USE_OFF
 
 	var/chargesa = 1
 	var/insistinga = 0
@@ -42,24 +42,23 @@
 			if("I want to rule the station")
 				to_chat(user, "<B>Your wish is granted, but at a terrible cost...</B>")
 				to_chat(user, "The Wish Granter punishes you for your selfishness, claiming your soul and warping your body to match the darkness in your heart.")
-				if (!(HULK in user.mutations))
-					user.mutations.Add(HULK)
-					to_chat(user, "<span class='notice'>Your muscles hurt.</span>")
-				if (!(LASER_EYES in user.mutations))
-					user.mutations.Add(LASER_EYES)
-					to_chat(user, "<span class='notice'>You feel pressure building behind your eyes.</span>")
-				if (!(COLD_RESISTANCE in user.mutations))
-					user.mutations.Add(COLD_RESISTANCE)
-					to_chat(user, "<span class='notice'>Your body feels warm.</span>")
-				if(!(HEAL in user.mutations))
-					user.mutations.Add(HEAL)
-				if (!(XRAY in user.mutations))
-					user.mutations.Add(XRAY)
-					user.sight |= (SEE_MOBS|SEE_OBJS|SEE_TURFS)
-					user.see_invisible = SEE_INVISIBLE_LEVEL_TWO
-					to_chat(user, "<span class='notice'>The walls suddenly disappear.</span>")
-					user.set_species(SPECIES_REVENANT)
-					user.mind.special_role = "Avatar of the Wish Granter"
+				if (NOT_FLAG(user.mutations, HULK))
+					user.mutations |= HULK
+					to_chat(user, SPAN_NOTICE("Your muscles hurt."))
+				if (NOT_FLAG(user.mutations, LASER_EYES))
+					user.mutations |= LASER_EYES
+					to_chat(user, SPAN_NOTICE("You feel pressure building behind your eyes."))
+				if (NOT_FLAG(user.mutations, COLD_RESISTANCE))
+					user.mutations |= COLD_RESISTANCE
+					to_chat(user, SPAN_NOTICE("Your body feels warm."))
+				if (NOT_FLAG(user.mutations, XRAY))
+					user.mutations |= XRAY
+					user.set_sight(user.sight|SEE_MOBS|SEE_OBJS|SEE_TURFS)
+					user.set_see_in_dark(8)
+					user.set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
+					to_chat(user, SPAN_NOTICE("The walls suddenly disappear."))
+				user.set_species(SPECIES_REVENANT)
+				user.mind.special_role = "Avatar of the Wish Granter"
 			if("I want to be rich")
 				to_chat(user, "<B>Your wish is granted, but at a terrible cost...</B>")
 				to_chat(user, "The Wish Granter punishes you for your greediness, claiming your soul and warping your body to match the darkness in your heart.")
@@ -89,7 +88,7 @@
 				for(var/datum/objective/OBJ in user.mind.objectives)
 					to_chat(user, "<B>Objective #[obj_count]</B>: [OBJ.explanation_text]")
 					obj_count++
-				for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.all_machines)
+				for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.machinery)
 					to_chat(user, "<span class='warning'>[N.r_code]...!</span>")
 					user.mind.store_memory("<B>Nuclear Bomb Code</B>: [N.r_code]", 0, 0)
 			if("I want peace")

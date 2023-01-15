@@ -8,8 +8,13 @@
 	name = "underwear wardrobe"
 	desc = "Holds item of clothing you shouldn't be showing off in the hallways."
 	icon = 'icons/obj/closet.dmi'
-	icon_state = "cabinet_closed"
+	icon_state = "cabinet"
 	density = 1
+
+/obj/structure/undies_wardrobe/Initialize(mapload)
+	. = ..()
+	add_overlay("cabinet_door")
+	add_overlay("cabinet_door_alt")
 
 /obj/structure/undies_wardrobe/attack_hand(var/mob/user)
 	if(!human_who_can_use_underwear(user))

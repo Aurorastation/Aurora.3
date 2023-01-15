@@ -4,8 +4,8 @@
 	name_plural = "Unathi"
 	category_name = "Unathi"
 	bodytype = BODYTYPE_UNATHI
-	icobase = 'icons/mob/human_races/unathi/r_lizard.dmi'
-	deform = 'icons/mob/human_races/unathi/r_def_lizard.dmi'
+	icobase = 'icons/mob/human_races/unathi/r_unathi.dmi'
+	deform = 'icons/mob/human_races/unathi/r_def_unathi.dmi'
 	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
 	tail = "Tail"
@@ -123,14 +123,14 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-	allowed_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI)
-	allowed_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_MOROZ, RELIGION_NONE, RELIGION_OTHER)
-	default_citizenship = CITIZENSHIP_IZWESKI
+	possible_cultures = list(
+		/decl/origin_item/culture/izweski,
+		/decl/origin_item/culture/traditionalists,
+		/decl/origin_item/culture/spaceborn,
+		/decl/origin_item/culture/dominian_unathi
+	)
 
 	zombie_type = SPECIES_ZOMBIE_UNATHI
-
-	default_accent = ACCENT_HEGEMON_PEASANT
-	allowed_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR)
 
 	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
 
@@ -139,5 +139,4 @@
 	if(H.shoes)
 		return
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
-	if(H.equip_to_slot_or_del(S,slot_shoes))
-		S.autodrobe_no_remove = TRUE
+	H.equip_to_slot_or_del(S,slot_shoes)

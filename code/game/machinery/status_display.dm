@@ -16,7 +16,6 @@
 	layer = OBJ_LAYER
 	anchored = 1
 	density = 0
-	use_power = 1
 	idle_power_usage = 10
 	var/hears_arrivals = FALSE
 	var/mode = 1	// 0 = Blank
@@ -62,7 +61,7 @@
 		SSradio.add_object(src, frequency)
 
 // timed process
-/obj/machinery/status_display/machinery_process()
+/obj/machinery/status_display/process()
 	if(stat & NOPOWER)
 		remove_display()
 		return

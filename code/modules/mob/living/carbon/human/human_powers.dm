@@ -30,6 +30,31 @@
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
+/mob/living/carbon/human/proc/adjust_headtails()
+	set name = "Adjust Headtails"
+	set desc = "Adjust your headtails."
+	set category = "IC"
+
+	if(!use_check_and_message())
+		to_chat(src, SPAN_WARNING("You can't adjust your headtails when you're incapacitated!"))
+		return
+
+	if(h_style)
+		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[h_style]
+		var/selected_string
+		var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
+		for(var/hair_string in hair_styles_list)
+			var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
+			if(species.type in test.species_allowed)
+				valid_hairstyles.Add(hair_string)
+		selected_string = input("Select a new headtail style", "Your headtail style", hair_style) as null|anything in valid_hairstyles
+		if(selected_string && h_style != selected_string)
+			h_style = selected_string
+			regenerate_icons()
+			visible_message("<span class='notice'>[src] adjusts [src.get_pronoun("his")] headtails.</span>")
+		else
+			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
+
 mob/living/carbon/human/proc/change_monitor()
 	set name = "Change IPC Screen"
 	set desc = "Change the display on your screen."
@@ -1175,6 +1200,8 @@ mob/living/carbon/human/proc/change_monitor()
 	else
 		custom_emote(VISIBLE_MESSAGE, "flicks their tongue out.")
 
+	if(!src.loc) return
+
 	var/datum/gas_mixture/mixture = src.loc.return_air()
 	var/total_moles = mixture.total_moles
 
@@ -1232,8 +1259,13 @@ mob/living/carbon/human/proc/change_monitor()
 	set category = "IC"
 	set src in view(1)
 
-	var/mob/living/M = usr
-	if(!M || usr == src)
+	var/mob/living/carbon/M = usr
+	if(!istype(M))
+		to_chat(usr, SPAN_WARNING("You aren't allowed to rename \the [src]."))
+		return
+	 
+	if(usr == src)
+		to_chat(usr, SPAN_WARNING("You're a simple creature, you can't rename yourself!"))
 		return
 
 	if(can_name(M))

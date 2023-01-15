@@ -10,7 +10,7 @@
 /obj/machinery/turretid
 	name = "turret control panel"
 	desc = "Used to control a room's automated defenses."
-	icon = 'icons/obj/machines/turret_control.dmi'
+	icon = 'icons/obj/machinery/turret_control.dmi'
 	icon_state = "control_standby"
 	anchored = 1
 	density = 0
@@ -103,7 +103,7 @@
 			else
 				locked = !locked
 				to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the panel.</span>")
-		return
+		return TRUE
 	return ..()
 
 /obj/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)

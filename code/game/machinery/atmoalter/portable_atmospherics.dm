@@ -1,6 +1,6 @@
 /obj/machinery/portable_atmospherics
 	name = "atmoalter"
-	use_power = 0
+	use_power = POWER_USE_OFF
 	var/datum/gas_mixture/air_contents = new
 
 	var/obj/machinery/atmospherics/portables_connector/connected_port
@@ -35,7 +35,7 @@
 /obj/machinery/portable_atmospherics/canister/LateInitialize()
 	update_icon()
 
-/obj/machinery/portable_atmospherics/machinery_process()
+/obj/machinery/portable_atmospherics/process()
 	if(!connected_port) //only react when pipe_network will ont it do it for you
 		//Allow for reactions
 		air_contents.react()
@@ -109,40 +109,42 @@
 /obj/machinery/portable_atmospherics/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if ((istype(W, /obj/item/tank) && !( src.destroyed )))
 		if (src.holding)
-			return
+			return TRUE
 		var/obj/item/tank/T = W
 		user.drop_from_inventory(T,src)
 		src.holding = T
 		update_icon()
 		SSvueui.check_uis_for_change(src)
-		return
+		return TRUE
 
 	else if (W.iswrench())
 		if(connected_port)
 			disconnect()
 			to_chat(user, "<span class='notice'>You disconnect \the [src] from the port.</span>")
+			playsound(get_turf(src), W.usesound, 50, 1)
 			update_icon()
 			SSvueui.check_uis_for_change(src)
-			return
+			return TRUE
 		else
 			var/obj/machinery/atmospherics/portables_connector/possible_port = locate(/obj/machinery/atmospherics/portables_connector/) in loc
 			if(possible_port)
 				if(connect(possible_port))
 					to_chat(user, "<span class='notice'>You connect \the [src] to the port.</span>")
+					playsound(get_turf(src), W.usesound, 50, 1)
 					update_icon()
 					SSvueui.check_uis_for_change(src)
-					return
+					return TRUE
 				else
 					to_chat(user, "<span class='notice'>\The [src] failed to connect to the port.</span>")
-					return
+					return TRUE
 			else
 				to_chat(user, "<span class='notice'>Nothing happens.</span>")
-				return
+				return TRUE
 
 	else if ((istype(W, /obj/item/device/analyzer)) && Adjacent(user))
 		var/obj/item/device/analyzer/A = W
 		A.analyze_gases(src, user)
-		return
+		return TRUE
 
 	return ..()
 
@@ -152,7 +154,6 @@
 	var/power_losses
 	var/last_power_draw = 0
 	var/obj/item/cell/cell
-	has_special_power_checks = TRUE
 
 /obj/machinery/portable_atmospherics/powered/powered()
 	if(use_power) //using area power
@@ -165,7 +166,7 @@
 	if(istype(I, /obj/item/cell))
 		if(cell)
 			to_chat(user, "There is already a power cell installed.")
-			return
+			return TRUE
 
 		var/obj/item/cell/C = I
 
@@ -175,12 +176,12 @@
 		user.visible_message("<span class='notice'>[user] opens the panel on [src] and inserts [C].</span>", "<span class='notice'>You open the panel on [src] and insert [C].</span>")
 		power_change()
 		SSvueui.check_uis_for_change(src)
-		return
+		return TRUE
 
 	if(I.isscrewdriver())
 		if(!cell)
 			to_chat(user, "<span class='warning'>There is no power cell installed.</span>")
-			return
+			return TRUE
 
 		user.visible_message("<span class='notice'>[user] opens the panel on [src] and removes [cell].</span>", "<span class='notice'>You open the panel on [src] and remove [cell].</span>")
 		cell.add_fingerprint(user)
@@ -188,8 +189,8 @@
 		cell = null
 		power_change()
 		SSvueui.check_uis_for_change(src)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/machinery/portable_atmospherics/proc/log_open(var/mob/user)
 	if(air_contents.gas.len == 0)

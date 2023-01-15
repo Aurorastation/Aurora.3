@@ -4,7 +4,7 @@
 	icon_state = "teg"
 	anchored = 1
 	density = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 
 	var/obj/machinery/atmospherics/unary/generator_input/input1
 	var/obj/machinery/atmospherics/unary/generator_input/input2
@@ -31,7 +31,7 @@
 #define GENRATE 800		// generator output coefficient from Q
 
 
-/obj/machinery/power/generator_type2/machinery_process()
+/obj/machinery/power/generator_type2/process()
 	if(!input1 || !input2)
 		return
 

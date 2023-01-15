@@ -5,7 +5,7 @@
 /obj/item/reagent_containers/hypospray
 	name = "hypospray"
 	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
-	desc_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
+	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
 	desc_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
 	icon = 'icons/obj/syringe.dmi'
 	item_icons = list(
@@ -41,7 +41,7 @@
 /obj/item/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
 	desc = "A high-end version of the regular hypospray, it allows for a substantially higher rate of drug administration to patients."
-	desc_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
+	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
 	desc_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
 	volume = 30
@@ -112,7 +112,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
-	desc_fluff = "Funded by the Stellar Corporate Conglomerate, produced by Zeng-Hu Pharmaceuticals, this autoinjector system was rebuilt from the ground up from the old variant to provide maximum user feedback."
+	desc_extended = "Funded by the Stellar Corporate Conglomerate, produced by Zeng-Hu Pharmaceuticals, this autoinjector system was rebuilt from the ground up from the old variant to provide maximum user feedback."
 	desc_info = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Use in-hand, or click it while it's in your active hand to prepare it for reuse."
 	icon_state = "autoinjector"
 	item_state = "autoinjector"
@@ -165,7 +165,7 @@
 		to_chat(user, SPAN_NOTICE("Using \the [W], you unsecure the autoinjector's lid.")) // it locks shut after being secured
 		flags |= OPENCONTAINER
 		update_icon()
-		return
+		return TRUE
 	. = ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon()
@@ -181,6 +181,7 @@
 		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinjector_reagents")
 		reagent_overlay.color = reagents.get_color()
 		add_overlay(reagent_overlay)
+	update_held_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
@@ -242,6 +243,14 @@
 
 	reagents_to_add = list(/decl/reagent/tricordrazine = 15, /decl/reagent/inaprovaline = 5, /decl/reagent/dexalin/plus = 5, /decl/reagent/oxycomorphine = 3, /decl/reagent/synaptizine = 2, /decl/reagent/mental/corophenidate = 5)
 
+/obj/item/reagent_containers/hypospray/autoinjector/berserk
+	name_label = "berserk injector"
+	desc = "An injector containing Red Nightshade. Used before fights to induce a berserk state."
+	volume = 5
+	amount_per_transfer_from_this = 5
+
+	reagents_to_add = list(/decl/reagent/toxin/berserk = 5)
+
 /obj/item/reagent_containers/hypospray/autoinjector/trauma
 	name = "trauma hypo-injector"
 	desc = "A special hypospray made to combat most forms of physical trauma."
@@ -299,9 +308,38 @@
 	armorcheck = FALSE
 	time = 0
 
-	reagents_to_add = list(/decl/reagent/oxycomorphine = 5, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5, /decl/reagent/arithrazine = 5)
+	reagents_to_add = list(/decl/reagent/kilosemine = 10)
 
 /obj/item/reagent_containers/hypospray/combat/empty
 	name = "combat hypospray"
 	desc = "A sleek black hypospray. Its needle has the ability to bypass armor."
 	reagents_to_add = FALSE
+
+/obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
+	name = "sanasomnum autoinjector"
+	desc = "A special autoinjector loaded with outlawed biomechanical stem cells, inducing a regenerative coma so intense it can heal almost any injury - even broken bones, organ and brain damage, severed tendons, and arterial damage. Upon use one will fall immediately into a state of unconsciousness lasting roughly three to five minutes, arising completely healed. The only thing it cannot fix are organs that have been destroyed outright, or so much cumulative damage that death is all but certain. The only downside is that Sanasomnum use guarantees extreme cancerous growth months or years down the line, which is invariably fatal in the long-term. However, in the short-term, it will save your life."
+	volume = 20
+	amount_per_transfer_from_this = 20
+
+	reagents_to_add = list(/decl/reagent/sanasomnum = 20)
+
+/obj/item/reagent_containers/hypospray/autoinjector/bicaridine
+	name = "bicaridine autoinjector"
+	desc = "An autoinjector loaded with bicaridine, a chemical used to treat physical trauma."
+	volume = 15
+	amount_per_transfer_from_this = 15
+	reagents_to_add = list(/decl/reagent/bicaridine = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/kelotane
+	name = "kelotane autoinjector"
+	desc = "An autoinjector loaded with kelotane, a chemical used to treat burnt tissue."
+	volume = 15
+	amount_per_transfer_from_this = 15
+	reagents_to_add = list(/decl/reagent/kelotane = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/peridaxon
+	name = "peridaxon autoinjector"
+	desc = "An autoinjector loaded with peridaxon, a chemical used to treat minor organ damage."
+	volume = 10
+	amount_per_transfer_from_this = 10
+	reagents_to_add = list(/decl/reagent/peridaxon = 10)

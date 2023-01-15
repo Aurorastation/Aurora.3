@@ -1,13 +1,10 @@
 /obj/item/storage/toolbox
 	name = "toolbox"
 	desc = "Danger. Very robust."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/toolbox.dmi'
+	contained_sprite = TRUE
 	icon_state = "red"
-	item_state = "toolbox_red"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/storage/lefthand_toolbox.dmi',
-		slot_r_hand_str = 'icons/mob/items/storage/righthand_toolbox.dmi'
-		)
+	item_state = "red"
 	center_of_mass = list("x" = 16,"y" = 11)
 	flags = CONDUCT
 	force = 5
@@ -31,8 +28,6 @@
 
 /obj/item/storage/toolbox/emergency
 	name = "emergency toolbox"
-	icon_state = "red"
-	item_state = "toolbox_red"
 	starts_with = list(
 		/obj/item/crowbar/red = 1,
 		/obj/item/extinguisher/mini = 1,
@@ -52,7 +47,7 @@
 /obj/item/storage/toolbox/mechanical
 	name = "mechanical toolbox"
 	icon_state = "blue"
-	item_state = "toolbox_blue"
+	item_state = "blue"
 	starts_with = list(\
 		/obj/item/screwdriver = 1,\
 		/obj/item/wrench = 1,\
@@ -65,7 +60,7 @@
 /obj/item/storage/toolbox/electrical
 	name = "electrical toolbox"
 	icon_state = "yellow"
-	item_state = "toolbox_yellow"
+	item_state = "yellow"
 	starts_with = list(\
 		/obj/item/screwdriver = 1,\
 		/obj/item/wirecutters = 1,\
@@ -86,7 +81,6 @@
 /obj/item/storage/toolbox/drill
 	name = "drilling kit"
 	desc = "A kit supplied to drill technicians, containing the tools required to set up a basic asteroid drilling operation."
-	icon = 'icons/obj/toolbox/mining.dmi'
 	icon_state = "miningbox"
 	item_state = "miningbox"
 	contained_sprite = TRUE
@@ -101,7 +95,6 @@
 /obj/item/storage/toolbox/ka
 	name = "kinetic accelerator kit"
 	desc = "A kit supplied to shaft miners, containing a few upgrades to standard issue kinetic accelerators."
-	icon = 'icons/obj/toolbox/mining.dmi'
 	icon_state = "miningbox"
 	item_state = "miningbox"
 	contained_sprite = TRUE
@@ -115,7 +108,7 @@
 /obj/item/storage/toolbox/syndicate
 	name = "suspicious looking toolbox"
 	icon_state = "syndicate"
-	item_state = "toolbox_syndi"
+	item_state = "syndicate"
 	origin_tech = list(TECH_COMBAT = 1, TECH_ILLEGAL = 1)
 	force = 7.0
 	starts_with = list(\
@@ -148,16 +141,14 @@
 			update_force()
 			user.visible_message(SPAN_DANGER("[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
 
-
 /obj/item/storage/toolbox/lunchbox
 	name = "rainbow lunchbox"
-	icon = 'icons/obj/lunchbox.dmi'
+	icon = 'icons/obj/storage/lunchbox.dmi'
 	force = 3
 	throwforce = 5
-	contained_sprite = 1
 	icon_state = "lunchbox_rainbow"
 	item_state = "lunchbox_rainbow"
-	desc = "A little lunchbox. This one is the colors of the rainbow."
+	desc = "A little lunchbox. This one is in the colors of the rainbow."
 	attack_verb = list("lunched")
 	w_class = ITEMSIZE_NORMAL
 	max_storage_space = 8
@@ -248,7 +239,7 @@
 /obj/item/storage/toolbox/lunchbox/scc
 	name = "Stellar Corporate Conglomerate lunchbox"
 	desc = "A little lunchbox. This one is branded with the Stellar Corporate Conglomerate logo."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon_state = "lunchbox_scc"
 	item_state = "lunchbox_scc"
 

@@ -59,7 +59,7 @@
 
 /area/turbolift/research/deck_1
 	name = "Research Lift - Deck 1"
-	lift_announce_str = "Arriving at Deck 2."
+	lift_announce_str = "Arriving at Deck 1."
 
 	lift_floor_label = "Deck 1"
 	lift_floor_name = "Lower Deck"
@@ -68,7 +68,7 @@
 
 /area/turbolift/research/deck_2
 	name = "Research Lift - Deck 2"
-	lift_announce_str = "Arriving at Deck 1."
+	lift_announce_str = "Arriving at Deck 2."
 
 	lift_floor_label = "Deck 2"
 	lift_floor_name = "Main Deck"
@@ -143,7 +143,7 @@
 	name = "Robotics Bottom"
 	landmark_tag = "nav_robotics_lift_bottom"
 	flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/hangar/auxiliary
+	base_area = /area/rnd/eva
 	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/scc_ship/robotics_lift

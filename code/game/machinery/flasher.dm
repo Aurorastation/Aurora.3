@@ -13,7 +13,6 @@
 	var/strength = 20 //How weakened targets are when flashed.
 	var/base_state = "mflash"
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 2
 	flags = PROXMOVE
 	var/_wifi_id
@@ -57,6 +56,7 @@
 			user.visible_message("<span class='warning'>[user] has disconnected the [src]'s flashbulb!</span>", "<span class='warning'>You disconnect the [src]'s flashbulb!</span>")
 		if (!src.disable)
 			user.visible_message("<span class='warning'>[user] has connected the [src]'s flashbulb!</span>", "<span class='warning'>You connect the [src]'s flashbulb!</span>")
+		return TRUE
 
 //Let the AI trigger them directly.
 /obj/machinery/flasher/attack_ai(mob/user)
@@ -77,7 +77,7 @@
 	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 	flick("[base_state]_flash", src)
 	src.last_flash = world.time
-	use_power(1500)
+	use_power_oneoff(1500)
 
 	for (var/mob/O in viewers(src, null))
 		if (get_dist(src, O) > src.range)
@@ -100,7 +100,7 @@
 				E.damage += rand(1, 5)
 		else
 			if(!O.blinded)
-				flick("flash", O:flash)
+				O.flash_eyes()
 		O.Weaken(flash_time)
 		O.flash_eyes()
 
@@ -131,6 +131,7 @@
 		else if (src.anchored)
 			user.show_message(text("<span class='warning'>[src] is now secured.</span>"))
 			add_overlay("[base_state]-s")
+		return TRUE
 
 /obj/machinery/button/flasher
 	name = "flasher button"
@@ -141,12 +142,12 @@
 	if(..())
 		return
 
-	use_power(5)
+	use_power_oneoff(5)
 
 	active = 1
 	icon_state = "launcheract"
 
-	for(var/obj/machinery/flasher/M in SSmachinery.all_machines)
+	for(var/obj/machinery/flasher/M in SSmachinery.machinery)
 		if(M.id == src.id)
 			spawn()
 				M.flash()

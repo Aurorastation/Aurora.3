@@ -1,9 +1,9 @@
 /obj/machinery/computer/drone_control
 	name = "Maintenance Drone Control"
 	desc = "Used to monitor the station's drone population and the assembler that services them."
-	light_color = LIGHT_COLOR_ORANGE
-
-	icon_screen = "engi"
+	icon_screen = "power_monitor"
+	icon_keyboard = "yellow_key"
+	light_color = LIGHT_COLOR_YELLOW
 	req_access = list(access_engine_equip)
 	circuit = /obj/item/circuitboard/drone_control
 
@@ -58,8 +58,6 @@
 		to_chat(usr, SPAN_WARNING("Access denied."))
 		return
 
-	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
-		usr.set_machine(src)
 
 	if(href_list["setarea"])
 		if(!call_area_names)

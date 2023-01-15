@@ -6,13 +6,12 @@
 
 	anchored = 1
 	density = 1
-	use_power = 1
 	var/on = 1
 
 	idle_power_usage = 15000
 	active_power_usage = 15000
 
-/obj/machinery/bluespacerelay/machinery_process()
+/obj/machinery/bluespacerelay/process()
 
 	update_power()
 
@@ -31,4 +30,3 @@
 		on = 0
 	else
 		on = 1
-

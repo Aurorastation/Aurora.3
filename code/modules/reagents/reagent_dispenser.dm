@@ -36,7 +36,6 @@
 
 /obj/structure/reagent_dispensers/ex_act(severity)
 	reagents.splash_turf(get_turf(src), reagents.total_volume)
-	visible_message(SPAN_DANGER("\The [src] bursts open, spreading reagents all over the area!"))
 	qdel(src)
 
 /obj/structure/reagent_dispensers/attackby(obj/item/O as obj, mob/user as mob)
@@ -263,6 +262,13 @@
 	amount_per_transfer_from_this = 50
 	reagents_to_add = list(/decl/reagent/luminol = 1000)
 
+/obj/structure/reagent_dispensers/peppertank/spacecleaner
+	name = "cleaner dispenser"
+	desc = "A wall-mounted dispenser filled with cleaner. Used to refill cleaner bottles and cleaner tanks."
+	icon_state = "cleanertank"
+	amount_per_transfer_from_this = 250
+	reagents_to_add = list(/decl/reagent/spacecleaner = 1000)
+
 //Water Cooler
 
 /obj/structure/reagent_dispensers/water_cooler
@@ -395,10 +401,12 @@
 	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 	INVOKE_ASYNC(S, /datum/effect/effect/system/smoke_spread/.proc/start)
 
-	var/datum/gas_mixture/env = src.loc.return_air()
-	if(env)
-		if (reagents.total_volume > 750)
-			env.temperature = 0
-		else if (reagents.total_volume > 500)
-			env.temperature -= 100
-		QDEL_IN(src, 10)
+	if(src.loc)
+		var/datum/gas_mixture/env = src.loc.return_air()
+		if(env)
+			if (reagents.total_volume > 750)
+				env.temperature = 0
+			else if (reagents.total_volume > 500)
+				env.temperature -= 100
+
+	QDEL_IN(src, 10)

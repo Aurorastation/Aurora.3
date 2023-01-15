@@ -52,8 +52,8 @@
 /obj/machinery/computer/guestpass
 	name = "guest pass terminal"
 	desc = "Allows issuing temporary access to an area."
+	icon = 'icons/obj/computer.dmi'
 	icon_state = "guestw"
-
 	light_color = LIGHT_COLOR_BLUE
 	icon_state = "altcomputerw"
 	icon_screen = "guest"
@@ -82,8 +82,8 @@
 			updateUsrDialog()
 		else if(giver)
 			to_chat(user, "<span class='warning'>There is already ID card inside.</span>")
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/machinery/computer/guestpass/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))

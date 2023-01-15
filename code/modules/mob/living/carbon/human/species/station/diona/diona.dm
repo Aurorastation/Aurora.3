@@ -39,6 +39,7 @@
 	taste_sensitivity = TASTE_NUMB
 	mob_size = 12	//Worker gestalts are 150kg
 	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
+	dust_remains_type = /obj/effect/decal/cleanable/ash
 	gluttonous = GLUT_ITEM_ANYTHING|GLUT_SMALLER
 	stomach_capacity = 10 //Big boys.
 	blurb = "A mysterious plant-like race hailing from the depths of space. Dionae (D. Primis) are a rather strange, cryptic species in comparison to the rest found in the \
@@ -110,11 +111,19 @@
 
 	max_hydration_factor = -1
 
-	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_EUM, CITIZENSHIP_NONE)
-	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_KSSHR, RELIGION_SHRKH, RELIGION_NONE, RELIGION_OTHER)
-
-	allowed_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
-	default_accent = ACCENT_ROOTSONG
+	possible_cultures = list(
+		/decl/origin_item/culture/xrim,
+		/decl/origin_item/culture/eum,
+		/decl/origin_item/culture/narrows,
+		/decl/origin_item/culture/diona_biesel,
+		/decl/origin_item/culture/diona_sol,
+		/decl/origin_item/culture/diona_eridani,
+		/decl/origin_item/culture/diona_dominia,
+		/decl/origin_item/culture/dionae_moghes,
+		/decl/origin_item/culture/dionae_nralakk,
+		/decl/origin_item/culture/diona_coalition,
+		/decl/origin_item/culture/deep_space
+	)
 
 	alterable_internal_organs = list()
 
@@ -138,11 +147,12 @@
 		// This proc sleeps. Async it.
 		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
 
-/datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
+/datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)
 // Diona without head can live, but they cannot talk as loud anymore.
 	var/obj/item/organ/external/O = H.organs_by_name[BP_HEAD]
-	current_flags[4] = O.is_stump() ? 3 : world.view
-	return current_flags
+	if(O.is_stump())
+		message_range = 3
+		return list(HSP_MSGRANGE = message_range)
 
 /datum/species/diona/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
 	current_flags = ..()

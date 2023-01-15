@@ -9,7 +9,7 @@
 #define SECBOT_FOLLOW		8		// follows a target
 
 /mob/living/bot/secbot/ed209
-	name = "ED-209 Security Robot"
+	name = "Security Assault Robot"
 	desc = "A security robot. He looks less than thrilled."
 	icon = 'icons/obj/aibots.dmi'
 	icon_state = "ed2090"
@@ -285,12 +285,12 @@
 // Assembly
 
 /obj/item/secbot_assembly/ed209_assembly
-	name = "ED-209 assembly"
+	name = "security assault robot assembly"
 	desc = "Some sort of bizarre assembly."
 	icon = 'icons/obj/aibots.dmi'
 	icon_state = "ed209_frame"
 	item_state = "ed209_frame"
-	created_name = "ED-209 Security Robot"
+	created_name = "Security Assault Robot"
 	var/lasercolor = ""
 
 /obj/item/secbot_assembly/ed209_assembly/attackby(var/obj/item/W as obj, var/mob/user as mob)
@@ -335,7 +335,7 @@
 		if(3)
 			if(W.iswelder())
 				var/obj/item/weldingtool/WT = W
-				if(WT.remove_fuel(0, user))
+				if(WT.use(0, user))
 					build_step++
 					name = "shielded frame assembly"
 					to_chat(user, "<span class='notice'>You welded the armor to [src].</span>")
@@ -369,16 +369,16 @@
 					to_chat(user, "<span class='warning'>You need one coil of wire to wire [src].</span>")
 					return
 				to_chat(user, "<span class='notice'>You start to wire [src].</span>")
-				if(do_after(user, 40) && build_step == 6)
+				if(W.use_tool(src, user, 40, volume = 50) && build_step == 6)
 					if(C.use(1))
 						build_step++
-						to_chat(user, "<span class='notice'>You wire the ED-209 assembly.</span>")
-						name = "wired ED-209 assembly"
+						to_chat(user, "<span class='notice'>You wire the security assault robot assembly.</span>")
+						name = "wired security assault robot assembly"
 				return
 
 		if(7)
 			if(istype(W, /obj/item/gun/energy/disruptorpistol))
-				name = "taser ED-209 assembly"
+				name = "taser security assault robot assembly"
 				build_step++
 				to_chat(user, "<span class='notice'>You add [W] to [src].</span>")
 				item_state = "ed209_taser"
@@ -389,10 +389,9 @@
 
 		if(8)
 			if(W.isscrewdriver())
-				playsound(src.loc, W.usesound, 100, 1)
 				var/turf/T = get_turf(user)
 				to_chat(user, "<span class='notice'>Now attaching the gun to the frame...</span>")
-				sleep(40)
+				if(!W.use_tool(src, user, 40, volume = 50)) return
 				if(get_turf(user) == T && build_step == 8)
 					build_step++
 					name = "armed [name]"
@@ -401,7 +400,7 @@
 		if(9)
 			if(istype(W, /obj/item/cell))
 				build_step++
-				to_chat(user, "<span class='notice'>You complete the ED-209.</span>")
+				to_chat(user, "<span class='notice'>You complete the security assault robot.</span>")
 				var/turf/T = get_turf(src)
 				new /mob/living/bot/secbot/ed209(T,created_name,lasercolor)
 				user.drop_from_inventory(W,get_turf(src))

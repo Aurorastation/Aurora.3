@@ -77,18 +77,18 @@
 	if(istype(W, /obj/item/ammo_casing))
 		if(W.type != ammo_type)
 			to_chat(user, SPAN_WARNING("\The [W] has a different type of ammunition!"))
-			return
+			return TRUE
 		if(length(ammo) >= max_ammo)
 			to_chat(user, SPAN_WARNING("\The [src] is already fully stacked."))
-			return
+			return TRUE
 		var/obj/item/ammo_casing/B = W
 		if(!B.BB)
 			to_chat(user, SPAN_WARNING("\The [B] is spent!"))
-			return
+			return TRUE
 		to_chat(user, SPAN_NOTICE("You add \the [W] to \the [src]."))
 		add_ammo(W)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/ammo_pile/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)

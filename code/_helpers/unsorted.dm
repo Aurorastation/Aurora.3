@@ -19,9 +19,9 @@
 	var/r = hex2num(textr)
 	var/g = hex2num(textg)
 	var/b = hex2num(textb)
-	textr = num2hex(255 - r)
-	textg = num2hex(255 - g)
-	textb = num2hex(255 - b)
+	textr = num2hex(255 - r, 0)
+	textg = num2hex(255 - g, 0)
+	textb = num2hex(255 - b, 0)
 	if (length(textr) < 2)
 		textr = text("0[]", textr)
 	if (length(textg) < 2)
@@ -827,7 +827,7 @@ var/global/list/common_tools = list(
 /proc/can_operate(mob/living/carbon/M) //If it's 2, commence surgery, if it's 1, fail surgery, if it's 0, attack
 	var/surgery_attempt = SURGERY_IGNORE
 	var/located = FALSE
-	if(istype(M.buckled_to, /obj/machinery/stasis_bed) || locate(/obj/machinery/optable, M.loc))
+	if(locate(/obj/machinery/optable, M.loc))
 		located = TRUE
 		surgery_attempt = SURGERY_SUCCESS
 	else if(locate(/obj/structure/bed/roller, M.loc))
@@ -1020,7 +1020,7 @@ var/global/known_proc = new /proc/get_type_ref_bytes
 		colour = pick(list("FF0000","FF7F00","FFFF00","00FF00","0000FF","4B0082","8F00FF"))
 	else
 		for(var/i=1;i<=3;i++)
-			var/temp_col = "[num2hex(rand(lower,upper))]"
+			var/temp_col = "[num2hex(rand(lower,upper), 0)]"
 			if(length(temp_col )<2)
 				temp_col  = "0[temp_col]"
 			colour += temp_col

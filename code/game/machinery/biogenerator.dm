@@ -5,7 +5,6 @@
 	icon_state = "biogen"
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 40
 	var/processing = 0
 	var/obj/item/reagent_containers/glass/beaker = null
@@ -149,7 +148,7 @@
 
 /decl/biorecipe/item/satchel
 	name = "Leather Satchel"
-	object = /obj/item/storage/backpack/satchel
+	object = /obj/item/storage/backpack/satchel/leather
 	cost = 400
 
 /decl/biorecipe/item/cash
@@ -308,11 +307,11 @@
 
 /obj/machinery/biogenerator/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))
-		return
+		return TRUE
 	if(default_deconstruction_crowbar(user, O))
-		return
+		return TRUE
 	if(default_part_replacement(user, O))
-		return
+		return TRUE
 	if(istype(O, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, SPAN_NOTICE("\The [src] is already loaded."))
@@ -321,8 +320,10 @@
 			O.forceMove(src)
 			beaker = O
 			updateUsrDialog()
+		. = TRUE
 	else if(processing)
 		to_chat(user, SPAN_NOTICE("\The [src] is currently processing."))
+		. = TRUE
 	else if(istype(O, /obj/item/storage/bag/plants))
 		var/i = 0
 		var/obj/item/storage/bag/P = O
@@ -342,10 +343,10 @@
 
 			if(i < capacity)
 				to_chat(user, SPAN_NOTICE("You empty \the [O] into \the [src]."))
-
-
+		. = TRUE
 	else if(!istype(O, /obj/item/reagent_containers/food/snacks/grown))
 		to_chat(user, SPAN_NOTICE("You cannot put this in \the [src]."))
+		. = TRUE
 	else
 		var/i = 0
 		for(var/obj/item/reagent_containers/food/snacks/grown/G in contents)
@@ -356,8 +357,8 @@
 			user.remove_from_mob(O)
 			O.forceMove(src)
 			to_chat(user, SPAN_NOTICE("You put \the [O] in \the [src]"))
+			. = TRUE
 	update_icon()
-	return
 
 /obj/machinery/biogenerator/interact(mob/user as mob)
 	if(stat & BROKEN)
@@ -444,7 +445,7 @@
 		updateUsrDialog()
 		playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
 		intent_message(MACHINE_SOUND)
-		use_power(S * 30)
+		use_power_oneoff(S * 30)
 		sleep((S + 1.5 SECONDS) / eat_eff)
 		processing = 0
 		update_icon()
@@ -487,7 +488,7 @@
 			return FALSE
 		else
 			points -= totake
-			use_power(totake * 0.25)
+			use_power_oneoff(totake * 0.25)
 			playsound(src.loc, /decl/sound_category/switch_sound, 50, 1)
 			intent_message(PING_SOUND)
 			if(ispath(recipe.object, /obj/item/reagent_containers/pill))
@@ -500,7 +501,7 @@
 			else if(ispath(recipe.object, /obj/item/stack))
 				var/subtract_amount = totake * (count - 1)
 				points -= subtract_amount
-				use_power(subtract_amount * 0.25)
+				use_power_oneoff(subtract_amount * 0.25)
 				new recipe.object(loc, count)
 				break
 			else

@@ -31,7 +31,7 @@
 		return "Invalid ID card!"
 	var/mob/living/carbon/human/M = C.mob_id.resolve()
 	if( !M )
-		return "ID card not tied to a NanoTrasen Employee!"
+		return "ID card not tied to an SCC Employee!"
 
 	var/list/same_access // The card requires one of these access codes to become this title
 	var/minSeverity = 1

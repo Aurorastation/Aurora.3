@@ -15,6 +15,7 @@
 	is_hole = TRUE
 
 	permit_ao = FALSE
+	z_eventually_space = TRUE
 	var/use_space_appearance = TRUE
 	var/use_starlight = TRUE
 
@@ -24,8 +25,8 @@
 // Copypaste of parent for performance.
 /turf/space/Initialize()
 	if(use_space_appearance)
-		appearance = SSicon_cache.space_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
-	if(config.starlight && use_starlight)
+		appearance = SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
+	if(config.starlight && use_starlight && lighting_overlays_initialized)
 		update_starlight()
 
 	if (initialized)
@@ -34,9 +35,12 @@
 	initialized = TRUE
 
 	for(var/atom/movable/AM as mob|obj in src)
-		src.Entered(AM)
+		src.Entered(AM, AM.loc)
 
 	turfs += src
+
+	if (isStationLevel(z))
+		station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -44,6 +48,14 @@
 		luminosity = 1
 
 	return INITIALIZE_HINT_NORMAL
+
+/turf/space/Destroy()
+	// Cleanup cached z_eventually_space values above us.
+	if (above)
+		var/turf/T = src
+		while ((T = GetAbove(T)))
+			T.z_eventually_space = FALSE
+	return ..()
 
 /turf/space/is_space()
 	return 1
@@ -63,16 +75,12 @@
 	return 0
 
 /turf/space/proc/update_starlight()
-	if(config.starlight)
-		for (var/T in RANGE_TURFS(1, src))
-			if (istype(T, /turf/space))
-				continue
-
-			set_light(config.starlight)
-			return
-
-		if (light_range)
-			set_light(0)
+	if(!config.starlight)
+		return
+	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
+		set_light(1, config.starlight, l_color = SSskybox.background_color)
+	else
+		set_light(0)
 
 /turf/space/attackby(obj/item/C as obj, mob/user as mob)
 
@@ -109,7 +117,7 @@
 	if(movement_disabled)
 		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
-	..()
+	..(A, A.loc)
 	if ((!(A) || src != A.loc))	return
 
 	inertial_drift(A)

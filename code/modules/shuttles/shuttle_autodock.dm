@@ -132,9 +132,9 @@
 		in_use = null
 		return
 	if (get_travel_time() && landmark_transition)
-		. = long_jump(next_location, landmark_transition, get_travel_time())
+		long_jump(next_location, landmark_transition, get_travel_time())
 	else
-		. = short_jump(next_location)
+		short_jump(next_location)
 	set_process_state(WAIT_ARRIVE)
 
 /*

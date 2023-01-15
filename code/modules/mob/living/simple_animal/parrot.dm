@@ -32,7 +32,7 @@
 	icon_state = "parrot_fly"
 	icon_living = "parrot_fly"
 	icon_dead = "parrot_dead"
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	mob_size = MOB_TINY
 
 	speak = list("Hi","Hello!","Cracker?","BAWWWWK george mellons griffing me")
@@ -65,7 +65,6 @@
 	var/list/speech_buffer = list()
 	var/list/available_channels = list()
 
-	//Headset for Poly to yell at engineers :)
 	var/obj/item/device/radio/headset/ears = null
 
 	//The thing the parrot is currently interested in. This gets used for items the parrot wants to pick up, mobs it wants to steal from,
@@ -680,19 +679,6 @@
 					return
 	to_chat(src, "<span class='warning'>There is no perch nearby to sit on.</span>")
 	return
-
-/*
- * Sub-types
- */
-/mob/living/simple_animal/parrot/Poly
-	name = "Poly"
-	desc = "Poly the Parrot. An expert on quantum cracker theory."
-	speak = list("Poly wanna cracker!", ":e Check the singlo, you chucklefucks!",":e Wire the solars, you lazy bums!",":e WHO TOOK THE DAMN VOIDSUITS?",":e OH GOD ITS FREE CALL THE SHUTTLE")
-
-/mob/living/simple_animal/parrot/Poly/Initialize()
-	ears = new /obj/item/device/radio/headset/headset_eng(src)
-	available_channels = list(":e")
-	. = ..()
 
 /mob/living/simple_animal/parrot/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 

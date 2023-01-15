@@ -6,28 +6,30 @@
 
 #define  ARMOR_BALLISTIC_MINOR		10
 #define  ARMOR_BALLISTIC_SMALL		25
-#define  ARMOR_BALLISTIC_PISTOL		30	//Blocks holdout and normal pistol ammo
+#define  ARMOR_BALLISTIC_PISTOL		30
 #define  ARMOR_BALLISTIC_MEDIUM		40
-#define  ARMOR_BALLISTIC_REVOLVER   50	//Blocks antag revolver rounds.
-#define  ARMOR_BALLISTIC_RIFLE		60	//Blocks rifle rounds.
-#define  ARMOR_BALLISTIC_AP			75	//Blocks basically almost every caliber except superheavy ones.
+#define  ARMOR_BALLISTIC_CARBINE    45 //Reduces polymer round damage to 15.3.
+#define  ARMOR_BALLISTIC_REVOLVER   50 //Reduces 357 round damage to 14.
+#define  ARMOR_BALLISTIC_RIFLE		55 //Used by security ballistic armour. Drops 762 down to 18.5 damage.
+#define  ARMOR_BALLISTIC_MAJOR		60
+#define  ARMOR_BALLISTIC_AP			75
 #define  ARMOR_BALLISTIC_HEAVY		100
 
 #define  ARMOR_LASER_MINOR			10
 #define  ARMOR_LASER_SMALL			25
 #define  ARMOR_LASER_KEVLAR			30
-#define  ARMOR_LASER_PISTOL			35	//Minimum required to block e-pistols.
+#define  ARMOR_LASER_PISTOL			35
 #define  ARMOR_LASER_MEDIUM			40
-#define  ARMOR_LASER_RIFLE			45	//Minimum required to block las-rifles.
+#define  ARMOR_LASER_RIFLE			45 //Used by security ablatives. Drops midlasers down to 13.5 damage.
 #define  ARMOR_LASER_MAJOR			55
 #define  ARMOR_LASER_AP				70
 #define  ARMOR_LASER_HEAVY			100
 
 #define  ARMOR_MELEE_MINOR			5
 #define  ARMOR_MELEE_SMALL			10
-#define  ARMOR_MELEE_KNIVES			15	//Blocks most knives
+#define  ARMOR_MELEE_KNIVES			15
 #define  ARMOR_MELEE_KEVLAR			25
-#define  ARMOR_MELEE_RESISTANT		30	//Blocks large weapons like swords and toolboxes
+#define  ARMOR_MELEE_RESISTANT		30
 #define  ARMOR_MELEE_MAJOR			50
 #define  ARMOR_MELEE_VERY_HIGH		70
 #define  ARMOR_MELEE_SHIELDED		100

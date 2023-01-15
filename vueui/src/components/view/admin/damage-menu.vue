@@ -45,6 +45,7 @@
       <vui-button :params="{ target: 'misc', action: 'gigashatter' }">Gigashatter</vui-button>
       <vui-button :params="{ target: 'misc', action: 'kill' }">Kill</vui-button>
       <vui-button :params="{ target: 'misc', action: 'gib' }">Gib</vui-button>
+      <vui-button :params="{ target: 'misc', action: 'dust' }">Dust</vui-button>
     </div>
   </div>
 </template>

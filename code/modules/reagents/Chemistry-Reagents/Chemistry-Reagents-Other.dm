@@ -337,6 +337,43 @@
 		if(prob(25))
 			M.add_chemical_effect(CE_NEPHROTOXIC, 1)
 
+/decl/reagent/antifuel
+	name = "Antifuel"
+	description = "This compound is very specifically designed to react with and break up common combustible fuels."
+	taste_description = "varnish"
+
+/decl/reagent/antifuel/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+	if (istype(O, /obj/effect/decal/cleanable/liquid_fuel))
+		O.clean_blood()
+
+/decl/reagent/antifuel/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(REAGENT_VOLUME(holder, type) > 15)
+		M.add_chemical_effect(CE_EMETIC, 5)
+		if(M.losebreath < 15)
+			M.losebreath++
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "All you can taste is metal!", "Your insides are on fire!", "Your feel a burning pain in your gut!")))
+	else
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something sour.")))
+
+/decl/reagent/antifuel/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(REAGENT_VOLUME(holder, type) > 15)
+		M.add_chemical_effect(CE_EMETIC, 5)
+		if(M.losebreath < 15)
+			M.losebreath++
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "All you can taste is metal!", "Your insides are on fire!", "Your feel a burning pain in your gut!")))
+	else
+		if(prob(5))
+			to_chat(M, SPAN_NOTICE(pick("You get a strong whiff of industrial fumes - careful.")))
+
+/decl/reagent/antifuel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(REAGENT_VOLUME(holder, type) > 15)
+		M.add_chemical_effect(CE_EMETIC, 5)
+		if(prob(25))
+			M.add_chemical_effect(CE_NEPHROTOXIC, 1)
+
 /decl/reagent/lube
 	name = "Space Lube"
 	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them."

@@ -1,4 +1,4 @@
-export MAPROOT="../../maps/aurora/"
+export MAPROOT="../../maps/sccv_horizon/"
 export TGM="1"
 if python3 ../python_version_check.py
 then
@@ -7,7 +7,7 @@ then
 fi
 python3 mapmerge.py
 
-cd ../../maps/aurora
+cd ../../maps/sccv_horizon
 
 for f in *.dmm; do
     unix2dos $f

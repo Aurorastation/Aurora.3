@@ -5,7 +5,7 @@
 /obj/machinery/shield_capacitor
 	name = "shield capacitor"
 	desc = "Machine that charges a shield generator."
-	icon = 'icons/obj/machines/shielding.dmi'
+	icon = 'icons/obj/machinery/shielding.dmi'
 	icon_state = "capacitor"
 	obj_flags = OBJ_FLAG_ROTATABLE
 	var/active = FALSE
@@ -16,7 +16,7 @@
 	var/max_charge = 8e6	//8 MJ
 	var/max_charge_rate = 400000	//400 kW
 	var/locked = FALSE
-	use_power = FALSE //doesn't use APC power
+	use_power = POWER_USE_OFF //doesn't use APC power
 	var/charge_rate = 100000	//100 kW
 	var/obj/machinery/shield_gen/owned_gen
 	req_one_access = list(access_captain, access_security, access_engine)
@@ -99,7 +99,7 @@
 	user << browse(t, "window=shield_capacitor;size=500x400")
 	user.set_machine(src)
 
-/obj/machinery/shield_capacitor/machinery_process()
+/obj/machinery/shield_capacitor/process()
 	if (!anchored)
 		active = FALSE
 

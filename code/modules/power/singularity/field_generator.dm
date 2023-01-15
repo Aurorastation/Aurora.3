@@ -16,11 +16,11 @@ field_generator power level display
 /obj/machinery/field_generator
 	name = "field generator"
 	desc = "A large thermal battery that projects a high amount of energy when powered."
-	icon = 'icons/obj/machines/field_generator.dmi'
+	icon = 'icons/obj/machinery/field_generator.dmi'
 	icon_state = "Field_Gen"
 	anchored = 0
 	density = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	var/const/num_power_levels = 6	// Total number of power level icon has
 	var/Varedit_start = 0
 	var/Varpower = 0
@@ -59,7 +59,7 @@ field_generator power level display
 			lights_image.layer = EFFECTS_ABOVE_LIGHTING_LAYER
 			add_overlay(lights_image)
 
-/obj/machinery/field_generator/machinery_process()
+/obj/machinery/field_generator/process()
 	if(Varedit_start == 1)
 		if(active == 0)
 			active = 1
@@ -128,12 +128,12 @@ field_generator power level display
 				to_chat(user, "<span class='warning'>The [src.name] needs to be wrenched to the floor.</span>")
 				return
 			if(1)
-				if (WT.remove_fuel(0,user))
+				if (WT.use(0,user))
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 					user.visible_message("[user.name] starts to weld the [src.name] to the floor.", \
 						"You start to weld the [src] to the floor.", \
 						"You hear welding")
-					if (do_after(user,20/W.toolspeed, act_target = src))
+					if(W.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn()) return
 						state = 2
 						to_chat(user, "You weld the field generator to the floor.")
@@ -141,12 +141,12 @@ field_generator power level display
 				else
 					return
 			if(2)
-				if (WT.remove_fuel(0,user))
+				if (WT.use(0,user))
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 					user.visible_message("[user.name] starts to cut the [src.name] free from the floor.", \
 						"You start to cut the [src] free from the floor.", \
 						"You hear welding")
-					if (do_after(user,20/W.toolspeed, act_target = src))
+					if(W.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn()) return
 						state = 1
 						to_chat(user, "You cut the [src] free from the floor.")
@@ -323,7 +323,7 @@ field_generator power level display
 	//I want to avoid using global variables.
 	spawn(1)
 		var/temp = 1 //stops spam
-		for(var/obj/singularity/O in SSmachinery.processing_machines)
+		for(var/obj/singularity/O in SScalamity.singularities)
 			if(O.last_warning && temp)
 				if((world.time - O.last_warning) > 50) //to stop message-spam
 					temp = 0

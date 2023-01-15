@@ -18,15 +18,17 @@
 /obj/machinery/gravity_generator
 	name = "gravitational generator"
 	desc = "A device which produces a gravaton field when set up."
-	icon = 'icons/obj/machines/gravity_generator.dmi'
+	icon = 'icons/obj/machinery/gravity_generator.dmi'
 	anchored = 1
 	density = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	unacidable = 1
 	var/sprite_number = 0
 	light_color = LIGHT_COLOR_CYAN
 	light_power = 1
 	light_range = 8
+	var/datum/looping_sound/gravgen/soundloop
+
 /obj/machinery/gravity_generator/ex_act(severity)
 	if(severity == 1) // Very sturdy.
 		set_broken()
@@ -110,7 +112,6 @@
 	active_power_usage = 3000
 	power_channel = ENVIRON
 	sprite_number = 8
-	use_power = 1
 	interact_offline = 1
 	var/on = 1
 	var/breaker = 1
@@ -129,10 +130,12 @@
 	log_debug("Gravity Generator Destroyed")
 	investigate_log("was destroyed!", "gravity")
 	on = 0
+	QDEL_NULL(soundloop)
 	update_list(TRUE)
 	for(var/obj/machinery/gravity_generator/part/O in parts)
 		O.main_part = null
 		qdel(O)
+	linked.gravity_generator = null
 	return ..()
 
 /obj/machinery/gravity_generator/main/proc/eventshutofftoggle() // Used by the gravity event. Bypasses charging and all of that stuff.
@@ -207,7 +210,7 @@
 		if(GRAV_NEEDS_WELDING)
 			if(I.iswelder())
 				var/obj/item/weldingtool/WT = I
-				if(WT.remove_fuel(1, user))
+				if(WT.use(1, user))
 					to_chat(user, "<span class='notice'>You mend the damaged framework.</span>")
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 					broken_state++
@@ -340,7 +343,7 @@
 	charging_state = POWER_IDLE
 	var/gravity_changed = (on != new_state)
 	on = new_state
-	use_power = on ? 2 : 1
+	update_use_power(on ? POWER_USE_ACTIVE : POWER_USE_IDLE)
 	// Sound the alert if gravity was just enabled or disabled.
 	var/alert = 0
 	var/area/area = get_area(src)
@@ -348,12 +351,14 @@
 		if(!area.has_gravity())
 			alert = 1
 			gravity_is_on = 1
+			soundloop.start(src)
 			investigate_log("was brought online and is now producing gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought online. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
 	else
 		if(area.has_gravity())
 			alert = 1
 			gravity_is_on = 0
+			soundloop.stop(src)
 			investigate_log("was brought offline and there is now no gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought offline with no backup generator. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
 
@@ -365,7 +370,7 @@
 
 // Charge/Discharge and turn on/off gravity when you reach 0/100 percent.
 // Also emit radiation and handle the overlays.
-/obj/machinery/gravity_generator/main/machinery_process()
+/obj/machinery/gravity_generator/main/process()
 	if(stat & BROKEN)
 		return
 	if(charging_state != POWER_IDLE)
@@ -444,8 +449,17 @@
 
 /obj/machinery/gravity_generator/main/Initialize()
 	. = ..()
+	soundloop = new(src, start_immediately = FALSE)
 	addtimer(CALLBACK(src, .proc/updateareas), 10)
-	return
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/gravity_generator/main/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
+	if(linked)
+		linked.gravity_generator = src
 
 /obj/machinery/gravity_generator/main/proc/updateareas()
 	for(var/area/A in all_areas)

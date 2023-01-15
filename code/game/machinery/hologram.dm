@@ -23,6 +23,10 @@ Possible to do for anyone motivated enough:
  * Holopad
  */
 
+#define CAN_HEAR_MASTERS (1<<0)
+#define CAN_HEAR_ACTIVE_HOLOCALLS (1<<1)
+#define CAN_HEAR_ALL_FLAGS (CAN_HEAR_MASTERS|CAN_HEAR_ACTIVE_HOLOCALLS)
+
 #define HOLOPAD_PASSIVE_POWER_USAGE 1
 #define HOLOGRAM_POWER_USAGE 2
 
@@ -36,7 +40,6 @@ Possible to do for anyone motivated enough:
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
-	use_power = 1
 
 	var/holopad_id
 
@@ -57,6 +60,10 @@ Possible to do for anyone motivated enough:
 
 	var/max_overmap_call_range = 0
 
+	var/list/linked_pdas = list()
+
+	var/can_hear_flags = NONE
+
 /obj/machinery/hologram/holopad/Initialize()
 	. = ..()
 
@@ -67,7 +74,6 @@ Possible to do for anyone motivated enough:
 	desc += " Its ID is '[holopad_id]'"
 
 	SSmachinery.all_holopads += src
-	listening_objects += src
 
 	light_color = long_range ? rgb(225, 173, 125) : rgb(125, 180, 225)
 
@@ -94,8 +100,9 @@ Possible to do for anyone motivated enough:
 		icon_state = "holopad0[icon_state_suffix]"
 		set_light(0)
 
-/obj/machinery/hologram/holopad/attack_hand(var/mob/user) //Carn: Hologram requests.
-	user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
+/obj/machinery/hologram/holopad/attack_hand(var/mob/user)
+	if(user.Adjacent(src))
+		user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
 	if(incoming_connection)
 		audible_message("The pad hums quietly as it establishes a connection.")
 		take_call()
@@ -171,6 +178,33 @@ Possible to do for anyone motivated enough:
 
 	SSvueui.close_user_uis(usr, src)
 
+//setters
+/**
+ * setter for can_hear_flags. handles adding or removing the given flag on can_hear_flags and then adding hearing sensitivity or removing it depending on the final state
+ * this is necessary because holopads are a significant fraction of the hearable atoms on station which increases the cost of procs that iterate through hearables
+ * so we need holopads to not be hearable until it is needed
+ *
+ * * flag - one of the can_hear_flags flag defines
+ * * set_flag - boolean, if TRUE sets can_hear_flags to that flag and might add hearing sensitivity if can_hear_flags was NONE before,
+ * if FALSE unsets the flag and possibly removes hearing sensitivity
+ */
+/obj/machinery/hologram/holopad/proc/set_can_hear_flags(flag, set_flag = TRUE)
+	if(!(flag & CAN_HEAR_ALL_FLAGS))
+		return FALSE //the given flag doesnt exist
+
+	if(set_flag)
+		if(can_hear_flags == NONE)//we couldnt hear before, so become hearing sensitive
+			become_hearing_sensitive()
+
+		can_hear_flags |= flag
+		return TRUE
+
+	else
+		can_hear_flags &= ~flag
+		if(can_hear_flags == NONE)
+			lose_hearing_sensitivity()
+
+		return TRUE
 
 /obj/machinery/hologram/holopad/proc/make_call(var/obj/machinery/hologram/holopad/connected_pad, var/mob/user, forced_call)
 	connected_pad.last_request = world.time
@@ -182,13 +216,23 @@ Possible to do for anyone motivated enough:
 
 	if(forced_call)
 		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming call with command authorization from [connected_pad.holopad_id].\"")
+		connected_pad.notify_pdas(connected_pad.holopad_id)
 		to_chat(user, SPAN_NOTICE("Establishing forced connection to the holopad in [connected_pad.holopad_id]."))
 		connected_pad.forced = TRUE
 		sleep(80)
 		connected_pad.take_call()
 	else
 		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming communications request from [connected_pad.connected_pad.holopad_id].\"")
+		connected_pad.notify_pdas(connected_pad.connected_pad.holopad_id) //what in the everloving fuck is connected_pad.connected_pad?
 		to_chat(user, SPAN_NOTICE("Trying to establish a connection to the holopad in [connected_pad.holopad_id]... Please await confirmation from recipient."))
+
+/obj/machinery/hologram/holopad/proc/notify_pdas(var/caller)
+	for(var/obj/item/modular_computer/MC in linked_pdas)
+		if(!QDELETED(MC))
+			MC.audible_message("<b>\The [MC]</b> beeps, <i><span class='notice'>\"Incoming communications request from <b>[caller]</b> at <b>[holopad_id]</b>!\"</span></i>")
+			playsound(MC, 'sound/machines/chime.ogg', 25)
+		else
+			linked_pdas -= MC
 
 /obj/machinery/hologram/holopad/proc/take_call()
 	incoming_connection = FALSE
@@ -204,6 +248,7 @@ Possible to do for anyone motivated enough:
 	connected_pad.clear_holos(FALSE)
 	connected_pad.connected_pad = null
 	clear_holos(FALSE)
+	set_can_hear_flags(CAN_HEAR_ACTIVE_HOLOCALLS, FALSE)
 	established_connection = FALSE
 	connected_pad.established_connection = FALSE
 	connected_pad.update_icon()
@@ -226,6 +271,19 @@ Possible to do for anyone motivated enough:
 	if(LAZYISIN(active_holograms, user))
 		return 0
 	return -1
+
+/obj/machinery/hologram/holopad/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/modular_computer))
+		var/obj/item/modular_computer/MC = W
+		if(!(MC in linked_pdas))
+			linked_pdas |= MC
+			to_chat(user, SPAN_NOTICE("You link \the [MC] to \the [src]."))
+			return TRUE
+		else
+			linked_pdas -= MC
+			to_chat(user, SPAN_NOTICE("You unlink \the [MC] from \the [src]."))
+			return TRUE
+	return FALSE
 
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/user)
 	if(!istype(user))
@@ -305,9 +363,12 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 /obj/machinery/hologram/holopad/proc/create_holo(mob/M)
 	var/obj/effect/overlay/hologram/H = new(get_turf(src))
+	if(isAI(M))
+		set_can_hear_flags(CAN_HEAR_MASTERS)
 	if(!isAI(M) && connected_pad)
 		H.x = src.x - (connected_pad.x - M.x)
 		H.y = src.y - (connected_pad.y - M.y)
+		set_can_hear_flags(CAN_HEAR_ACTIVE_HOLOCALLS)
 	if(!isInSight(H, src))
 		qdel(H)
 		return
@@ -334,6 +395,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	for(var/M in active_holograms)
 		if(!clear_ai && isAI(M))
 			continue
+		else if(isAI(M))
+			set_can_hear_flags(CAN_HEAR_MASTERS, FALSE)
 		clear_holo(M)
 
 /obj/machinery/hologram/holopad/proc/clear_holo(var/mob/M)
@@ -343,7 +406,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	LAZYREMOVE(active_holograms, M)
 	update_icon()
 
-/obj/machinery/hologram/holopad/machinery_process()
+/obj/machinery/hologram/holopad/process()
 	for(var/thing in active_holograms)
 		var/mob/M = thing
 		var/is_inactive_ai = FALSE
@@ -358,7 +421,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(!check_connected_pad())
 			return TRUE
 
-	use_power(power_per_hologram * LAZYLEN(active_holograms))
+	use_power_oneoff(power_per_hologram * LAZYLEN(active_holograms))
 
 	if(last_request + 20 SECONDS < world.time && incoming_connection)
 		incoming_connection = FALSE
@@ -417,8 +480,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/long_range/can_connect(var/obj/machinery/hologram/holopad/HP)
 	if(HP.long_range != long_range)
 		return FALSE
-	if(AreConnectedZLevels(HP.z, z))
-		return FALSE
 	if(current_map.use_overmap)
 		if(!linked || !HP.linked)
 			return FALSE
@@ -439,7 +500,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram
 	icon = 'icons/obj/holopad.dmi'
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 5
 	active_power_usage = 100
 
@@ -459,8 +519,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(connected_pad)
 		end_call()
 	clear_holos(TRUE)
-	listening_objects -= src
 	SSmachinery.all_holopads -= src
+	linked_pdas.Cut()
 	return ..()
 
 /obj/effect/overlay/hologram
@@ -483,3 +543,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 #undef HOLOPAD_PASSIVE_POWER_USAGE
 #undef HOLOGRAM_POWER_USAGE
+#undef CAN_HEAR_MASTERS
+#undef CAN_HEAR_ACTIVE_HOLOCALLS
+#undef CAN_HEAR_ALL_FLAGS

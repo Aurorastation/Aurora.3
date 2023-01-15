@@ -2,7 +2,7 @@ var/datum/controller/subsystem/mapping/SSmapping
 
 /datum/controller/subsystem/mapping
 	name = "Mapping"
-	init_order = SS_INIT_MISC
+	init_order = SS_INIT_AWAY_MAPS
 	flags = SS_NO_FIRE
 
 	var/list/map_templates = list()
@@ -20,7 +20,10 @@ var/datum/controller/subsystem/mapping/SSmapping
 	preloadTemplates()
 	for(var/atype in subtypesof(/decl/submap_archetype))
 		submap_archetypes[atype] = new atype
-	. = ..()
+
+	current_map.build_away_sites()
+	current_map.build_exoplanets()
+	. = ..(timeofday)
 
 /datum/controller/subsystem/mapping/Recover()
 	flags |= SS_NO_INIT
@@ -33,7 +36,7 @@ var/datum/controller/subsystem/mapping/SSmapping
 	var/list/filelist = flist(path)
 	for(var/map in filelist)
 		var/datum/map_template/T = new(path = "[path][map]", rename = "[map]")
-		map_templates[T.name] = T
+		map_templates[T.id] = T
 	preloadBlacklistableTemplates()
 
 /datum/controller/subsystem/mapping/proc/preloadBlacklistableTemplates()
@@ -57,17 +60,17 @@ var/datum/controller/subsystem/mapping/SSmapping
 		if (banned_maps)
 			var/mappath = MT.mappath
 			if(list_find(banned_maps, mappath))
-				break
+				continue
 
-		map_templates[MT.name] = MT
+		map_templates[MT.id] = MT
 
 		// This is nasty..
 		if(istype(MT, /datum/map_template/ruin/exoplanet))
-			exoplanet_ruins_templates[MT.name] = MT
+			exoplanet_ruins_templates[MT.id] = MT
 		else if(istype(MT, /datum/map_template/ruin/space))
-			space_ruins_templates[MT.name] = MT
+			space_ruins_templates[MT.id] = MT
 		else if(istype(MT, /datum/map_template/ruin/away_site))
-			away_sites_templates[MT.name] = MT
+			away_sites_templates[MT.id] = MT
 
 /proc/generateMapList(filename)
 	var/list/potentialMaps = list()

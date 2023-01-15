@@ -13,7 +13,6 @@ var/global/list/additional_antag_types = list()
 	var/max_players = 0			 			// Maximum players for round to start for secret voting. 0 means "doesn't matter"
 	var/required_enemies = 0                 // Minimum antagonists for round to start.
 	var/newscaster_announcements = null
-	var/end_on_antag_death = 0               // Round will end when all antagonists are dead.
 	var/ert_disabled = 0                     // ERT cannot be called.
 	var/deny_respawn = 0	                 // Disable respawn during this round.
 
@@ -230,6 +229,7 @@ var/global/list/additional_antag_types = list()
 			EMajor.delay_modifier = event_delay_mod_major
 
 /datum/game_mode/proc/pre_setup()
+	SHOULD_CALL_PARENT(TRUE)
 	for(var/datum/antagonist/antag in antag_templates)
 		antag.update_current_antag_max()
 		antag.update_initial_spawn_target()
@@ -335,17 +335,7 @@ var/global/list/additional_antag_types = list()
 	command_announcement.Announce("The presence of [pick(reasons)] in the region is tying up all available local emergency resources; emergency response teams cannot be called at this time, and post-evacuation recovery efforts will be substantially delayed.","Emergency Transmission")
 
 /datum/game_mode/proc/check_finished()
-	if(evacuation_controller.round_over() || station_was_nuked)
-		return 1
-	if(end_on_antag_death && antag_templates && antag_templates.len)
-		for(var/datum/antagonist/antag in antag_templates)
-			if(!antag.antags_are_dead())
-				return 0
-		if(config.continous_rounds)
-			evacuation_controller.auto_recall(1)
-			return 0
-		return 1
-	return 0
+	return evacuation_controller.round_over() || station_was_nuked
 
 /datum/game_mode/proc/cleanup()	//This is called when the round has ended but not the game, if any cleanup would be necessary in that case.
 	return
@@ -552,7 +542,7 @@ proc/get_logout_report()
 				continue //AFK client
 			if(L.stat)
 				if(L.stat == UNCONSCIOUS)
-					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Dying)\n"
+					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Unconscious)\n"
 					continue //Unconscious
 				if(L.stat == DEAD)
 					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Dead)\n"
@@ -591,15 +581,19 @@ proc/display_logout_report()
 	to_chat(src,get_logout_report())
 
 proc/get_poor()
-	var/list/dudes = list()
-	for(var/mob/living/carbon/human/man in player_list)
-		if(man.client)
-			if(man.client.prefs.economic_status == ECONOMICALLY_POOR)
-				dudes += man
-			else if(man.client.prefs.economic_status == ECONOMICALLY_POOR && prob(50))
-				dudes += man
-	if(dudes.len == 0) return null
-	return pick(dudes)
+	var/list/characters = list()
+
+	for(var/mob/living/carbon/human/character in player_list)
+		if(character.client)
+			if(character.client.prefs.economic_status == ECONOMICALLY_DESTITUTE) // Discrimination.
+				characters += character
+			else if(character.client.prefs.economic_status == ECONOMICALLY_POOR && prob(50)) // 50% discrimination.
+				characters += character
+
+	if(!length(characters))
+		return
+
+	return pick(characters)
 
 //Announces objectives/generic antag text.
 /proc/show_generic_antag_text(var/datum/mind/player)

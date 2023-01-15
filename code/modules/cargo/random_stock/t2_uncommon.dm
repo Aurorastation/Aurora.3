@@ -89,7 +89,7 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 	var/list/exclusion = list(/decl/reagent/drink, /decl/reagent, /decl/reagent/adminordrazine, /decl/reagent/polysomnine/beer2, /decl/reagent/azoth, /decl/reagent/elixir,\
 		/decl/reagent/liquid_fire, /decl/reagent/philosopher_stone, /decl/reagent/toxin/undead, /decl/reagent/love_potion, /decl/reagent/shapesand, /decl/reagent/usolve,\
 		/decl/reagent/sglue, /decl/reagent/black_matter, /decl/reagent/bottle_lightning, /decl/reagent/toxin/trioxin, /decl/reagent/toxin/nanites, /decl/reagent/nitroglycerin, \
-		/decl/reagent/aslimetoxin)
+		/decl/reagent/aslimetoxin, /decl/reagent/sanasomnum, /decl/reagent/rezadone)
 	chems -= exclusion
 	for (var/i in 1 to rand(2, 4))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)
@@ -131,10 +131,6 @@ STOCK_ITEM_UNCOMMON(jetpack, 3)
 	if(prob(40))
 		new /obj/item/tank/emergency_oxygen/double(L)
 
-STOCK_ITEM_UNCOMMON(xenocostume, 1)
-	new /obj/item/clothing/suit/xenos(L)
-	new /obj/item/clothing/head/xenos(L)
-
 STOCK_ITEM_UNCOMMON(inhaler, 1)
 	var/obj/item/reagent_containers/inhaler/I = pick(subtypesof(/obj/item/reagent_containers/inhaler))
 	new I(L)
@@ -171,7 +167,7 @@ STOCK_ITEM_UNCOMMON(violin, 1)
 	new /obj/item/device/violin(L)
 
 STOCK_ITEM_UNCOMMON(atmosfiresuit, 2)
-	new /obj/item/clothing/head/hardhat/red/atmos(L)
+	new /obj/item/clothing/head/hardhat/atmos(L)
 	new /obj/item/clothing/suit/fire/atmos(L)
 
 STOCK_ITEM_UNCOMMON(debugger, 2)
@@ -307,12 +303,6 @@ STOCK_ITEM_UNCOMMON(laserscalpel, 1.3)
 
 STOCK_ITEM_UNCOMMON(electropack, 1)
 	new /obj/item/device/radio/electropack(L)
-
-	if(istype(L, /obj/structure/closet/crate) && prob(40))
-		var/obj/structure/closet/crate/cr = L
-		cr.rigged = TRUE
-		//Boobytrapped crate, will electrocute when you attempt to open it
-		//Can be disarmed with wirecutters or ignored with insulated gloves
 
 STOCK_ITEM_UNCOMMON(randomhide, 0.5)
 	var/obj/item/stack/material/animalhide/spawn_hide = pick(typesof(/obj/item/stack/material/animalhide))

@@ -36,6 +36,7 @@ var/list/gear_datums = list()
 	sort_order = 1
 	var/current_tab = "General"
 	var/gear_reset = FALSE
+	var/search_input_value = ""
 
 /datum/category_item/player_setup_item/loadout/load_character(var/savefile/S)
 	S["gear"] >> pref.gear
@@ -174,38 +175,116 @@ var/list/gear_datums = list()
 	. += "</b></center></td></tr>"
 
 	var/datum/loadout_category/LC = loadout_categories[current_tab]
+
 	. += "<tr><td colspan=3><hr></td></tr>"
-	. += "<tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
+	. += "<tr><td colspan=3>"
+	. += "<div style='left:0;position:absolute;width:10%;margin-left:45%;white-space: nowrap;'><b><center>[LC.category]</center></b></div>"
+	. += "<span style='float:left;'>"
+	. += "<script>function search_onchange() { \
+		var val = document.getElementById('search_input').value; \
+		document.getElementById('search_refresh_link').href='?src=\ref[src];search_input_refresh=' + encodeURIComponent(val) + ''; \
+		document.getElementById('search_refresh_link').click(); \
+		}</script>"
+	. += "Search: "
+	. += "<input type='text' id='search_input' name='search_input' \
+			onchange='search_onchange()' value='[search_input_value]'> "
+	. += "<a href='#' onclick='search_onchange()'>Refresh</a> "
+	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Clear</a> "
+	. += "</span>"
+	. += "</td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
+
+	var/ticked_items_html = "" // to be added to the top/beginning of the list
+	var/available_items_html = "" // to be added to the middle of the list
+	var/unavailable_items_html = "" // to be added to the end/bottom of the list
+
 	var/list/player_valid_gear_choices = valid_gear_choices()
 	for(var/gear_name in LC.gear)
 		if(!(gear_name in player_valid_gear_choices))
 			continue
 		var/datum/gear/G = LC.gear[gear_name]
+		
+		var/temp_html = ""
+		var/datum/job/job = pref.return_chosen_high_job()
+		var/available = (G.check_faction(pref.faction) \
+			&& (job && G.check_role(job.title)) \
+			&& G.check_culture(text2path(pref.culture)) \
+			&& G.check_origin(text2path(pref.origin)))
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
+
+		var/found_searched_text = FALSE
+		if(findtext(G.display_name, search_input_value))
+			found_searched_text = TRUE
+		for(var/datum/gear_tweak/tweak in G.gear_tweaks)
+			var/datum/gear_tweak/path/path = tweak
+			if(path && istype(path) && path.valid_paths)
+				for(var/x in path.valid_paths)
+					if(findtext(x, search_input_value))
+						found_searched_text = TRUE
+		available = available && found_searched_text
+
+		if(!available)
+			style = "style='color: #B1B1B1;'"
 		if(ticked)
 			style = "style='color: #FF8000;'"
-		. += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
-		. += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
-		. += "<td><font size=2><i>[G.description]</i><br>"
+		temp_html += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
+		temp_html += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
+		temp_html += "<td><font size=2><i>[G.description]</i><br>"
+		
 		if(G.allowed_roles)
-			. += "</font><font size = 1>("
+			temp_html += "</font><font size = 1>(Role: "
 			var/role_count = 0
 			for(var/role in G.allowed_roles)
-				. += "[role]"
+				temp_html += "[role]"
 				role_count++
 				if(role_count == G.allowed_roles.len)
-					. += ")"
+					temp_html += ") "
 					break
 				else
-					. += ", "
-		. += "</font></td></tr>"
+					temp_html += ", "
+		if(G.culture_restriction)
+			temp_html += "</font><font size = 1>(Culture: "
+			var/culture_count = 0
+			for(var/culture in G.culture_restriction)
+				var/decl/origin_item/C = decls_repository.get_decl(culture)
+				temp_html += "[C.name]"
+				culture_count++
+				if(culture_count == G.culture_restriction.len)
+					temp_html += ") "
+					break
+				else
+					temp_html += ", "
+		if(G.origin_restriction)
+			temp_html += "</font><font size = 1>(Origin: "
+			var/origin_count = 0
+			for(var/origin in G.origin_restriction)
+				var/decl/origin_item/O = decls_repository.get_decl(origin)
+				temp_html += "[O.name]"
+				origin_count++
+				if(origin_count == G.origin_restriction.len)
+					temp_html += ") "
+					break
+				else
+					temp_html += ", "
+		temp_html += "</font></td></tr>"
+		
 		if(ticked)
-			. += "<tr><td colspan=3>"
+			temp_html += "<tr><td colspan=3>"
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
-				. += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
-			. += "</td></tr>"
+				temp_html += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
+			temp_html += "</td></tr>"
+		
+		if(ticked) 
+			ticked_items_html += temp_html
+		else if(!available)
+			available_items_html += temp_html
+		else
+			unavailable_items_html += temp_html
+	
+	. += ticked_items_html
+	. += unavailable_items_html
+	. += available_items_html
 	. += "</table>"
 	. = jointext(.,null)
 
@@ -281,6 +360,9 @@ var/list/gear_datums = list()
 	else if(href_list["clear_loadout"])
 		pref.gear.Cut()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
+	else if(href_list["search_input_refresh"] != null) // empty str is false
+		search_input_value = sanitize(href_list["search_input_refresh"], 100)
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 	return ..()
 
 /datum/gear
@@ -292,6 +374,8 @@ var/list/gear_datums = list()
 	var/list/allowed_roles //Roles that can spawn with this item.
 	var/whitelisted        //Term to check the whitelist for..
 	var/faction            //Is this item whitelisted for a faction?
+	var/list/culture_restriction //Is this item restricted to certain cultures? The contents are paths.
+	var/list/origin_restriction //Is this item restricted to certain origins? The contents are paths.
 	var/sort_category = "General"
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
 	var/flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
@@ -347,5 +431,29 @@ var/list/gear_datums = list()
 
 /datum/gear/proc/check_species_whitelist(mob/living/carbon/human/H)
 	if(whitelisted && (!(H.species.name in whitelisted)))
+		return FALSE
+	return TRUE
+
+// arg should be a faction name string
+/datum/gear/proc/check_faction(var/faction_)
+	if((faction && faction_ && faction_ != "None" && faction_ != "Stellar Corporate Conglomerate") && (faction != faction_))
+		return FALSE
+	return TRUE
+
+// arg should be a role name string
+/datum/gear/proc/check_role(var/role)
+	if(role && allowed_roles && !(role in allowed_roles))
+		return FALSE
+	return TRUE
+
+// arg should be a culture path
+/datum/gear/proc/check_culture(var/culture)
+	if(culture && culture_restriction && !(culture in culture_restriction))
+		return FALSE
+	return TRUE
+
+// arg should be a origin path
+/datum/gear/proc/check_origin(var/origin)
+	if(origin && origin_restriction && !(origin in origin_restriction))
 		return FALSE
 	return TRUE

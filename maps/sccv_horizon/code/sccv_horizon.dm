@@ -23,26 +23,29 @@
 
 	station_name = "SCCV Horizon"
 	station_short = "Horizon"
-	dock_name = "SCC Shipyard"
-	dock_short = "Shipyard"
+	dock_name = "SCC Sector Liaison Post"
+	dock_short = "Sector Liaison Post"
 	boss_name = "Stellar Corporate Conglomerate"
 	boss_short = "SCC"
 	company_name = "Stellar Corporate Conglomerate"
 	company_short = "SCC"
+	station_type = "ship"
 
 	command_spawn_enabled = TRUE
 	command_spawn_message = "Welcome to the SCCV Horizon!"
 
 	use_overmap = TRUE
 	num_exoplanets = 2
-	overmap_event_areas = 15
+	overmap_event_areas = 34
 	planet_size = list(255,255)
 
-	away_site_budget = 3
+	away_site_budget = 2
+	away_ship_budget = 2
+	away_variance = 1
 
 	station_networks = list(
 		NETWORK_COMMAND,
-		NETWORK_ENGINE,
+		NETWORK_REACTOR,
 		NETWORK_ENGINEERING,
 		NETWORK_MEDICAL,
 		NETWORK_MINE,
@@ -97,7 +100,7 @@
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod2,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod4,
-		/datum/shuttle/autodock/ferry/supply/aurora,
+		/datum/shuttle/autodock/ferry/supply/horizon,
 		/datum/shuttle/autodock/ferry/specops/ert_aurora,
 		/datum/shuttle/autodock/multi/antag/skipjack_ship,
 		/datum/shuttle/autodock/multi/antag/burglar_ship,
@@ -109,18 +112,21 @@
 		/datum/shuttle/autodock/ferry/merchant_aurora,
 		/datum/shuttle/autodock/ferry/autoreturn/ccia,
 		/datum/shuttle/autodock/overmap/orion_express_shuttle,
-		/datum/shuttle/autodock/overmap/orion_express_ship
+		/datum/shuttle/autodock/overmap/sfa_shuttle,
+		/datum/shuttle/autodock/overmap/tcfl_shuttle,
+		/datum/shuttle/autodock/overmap/ee_shuttle,
+		/datum/shuttle/autodock/overmap/fsf_shuttle,
+		/datum/shuttle/autodock/overmap/freighter_shuttle,
+		/datum/shuttle/autodock/overmap/kataphract_transport,
+		/datum/shuttle/autodock/overmap/iac_shuttle
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
+	allowed_spawns = list("Living Quarters Lift", "Cryogenic Storage")
 	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo)
 	default_spawn = "Living Quarters Lift"
 
 	allow_borgs_to_leave = TRUE
 
 	warehouse_basearea = /area/operations/storage
-
-/datum/map/sccv_horizon/finalize_load()
-	// generate an empty space Z
-	world.maxz++

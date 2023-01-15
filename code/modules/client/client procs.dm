@@ -206,8 +206,8 @@ var/list/localhost_addresses = list(
 			// Forum link from various panels.
 			if ("github")
 				if (!config.githuburl)
-					to_chat(src, "<span class='danger'>Github URL not set in the config. Unable to open the site.</span>")
-				else if (alert("This will open the Github page in your browser. Are you sure?",, "Yes", "No") == "Yes")
+					to_chat(src, "<span class='danger'>GitHub URL not set in the config. Unable to open the site.</span>")
+				else if (alert("This will open the GitHub page in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					if (href_list["pr"])
 						var/pr_link = "[config.githuburl]pull/[href_list["pr"]]"
 						send_link(src, pr_link)
@@ -471,7 +471,7 @@ var/list/localhost_addresses = list(
 	ticket_panels -= src
 	if(holder)
 		holder.owner = null
-		staff -= src
+	staff -= src
 	directory -= ckey
 	clients -= src
 	SSassets.handle_disconnect(src)
@@ -609,6 +609,14 @@ var/list/localhost_addresses = list(
 	prefs.toggles_secondary ^= FULLSCREEN_MODE
 	prefs.save_preferences()
 	toggle_fullscreen(prefs.toggles_secondary & FULLSCREEN_MODE)
+
+/client/verb/toggle_accent_tag_text()
+	set name = "Toggle Accent Tag Text"
+	set category = "Preferences"
+	set desc = "Toggles whether accents will be shown as text or images.."
+
+	prefs.toggles_secondary ^= ACCENT_TAG_TEXT
+	prefs.save_preferences()
 
 /client/proc/toggle_fullscreen(new_value)
 	if(new_value)
@@ -793,14 +801,16 @@ var/list/localhost_addresses = list(
 /client/MouseDown(object, location, control, params)
 	var/obj/item/I = mob.get_active_hand()
 	var/obj/O = object
-	if(istype(I, /obj/item/gun))
+	if(istype(I, /obj/item/gun) && !mob.in_throw_mode)
 		var/obj/item/gun/G = I
-		if(G.can_autofire(object, location, params) && O.is_auto_clickable())
-			autofire_aiming_at[1] = object
+		if(G.can_autofire(O, location, params) && O.is_auto_clickable() && !(G.safety()) && !(G == O))
+			autofire_aiming_at[1] = O
 			autofire_aiming_at[2] = params
+			var/accuracy_dec = 0
 			while(autofire_aiming_at[1])
-				G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE)
+				G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE, accuracy_dec)
 				mob.set_dir(get_dir(mob, autofire_aiming_at[1]))
+				accuracy_dec = min(accuracy_dec + 0.25, 2)
 				sleep(G.fire_delay)
 			CHECK_TICK
 

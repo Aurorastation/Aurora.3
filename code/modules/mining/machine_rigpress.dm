@@ -6,7 +6,6 @@
 	icon_state = "coinpress0"
 	density = TRUE
 	anchored = TRUE
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 	var/pressing
@@ -50,14 +49,14 @@
 			src.visible_message(SPAN_NOTICE("\The [src] begins to print out a modsuit."))
 			pressing = TRUE
 			update_icon()
-			use_power(500)
+			use_power_oneoff(500)
 			qdel(W)
 			spawn(300)
 				ping("\The [src] pings, \"Module successfuly produced!\"")
 
 				new outcome_path(get_turf(src))
 
-				use_power(500)
+				use_power_oneoff(500)
 				pressing = FALSE
 				update_icon()
 
