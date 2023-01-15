@@ -482,7 +482,7 @@
 	item_state = "mrrazhak"
 
 	can_bayonet = TRUE
-	knife_x_offset = 23
+	knife_x_offset = 22
 	knife_y_offset = 13
 
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -491,8 +491,7 @@
 	is_wieldable = TRUE
 
 	can_bayonet = TRUE
-	knife_x_offset = 23
-	knife_y_offset = 14
+
 
 	magazine_type = /obj/item/ammo_magazine/c762/dpra
 	allowed_magazines = list(/obj/item/ammo_magazine/c762/dpra)
