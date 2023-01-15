@@ -168,6 +168,8 @@
 	ai_slot = new/obj/item/computer_hardware/ai_slot(src)
 	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
+/obj/item/modular_computer/console/preset/merchant/nka
+	_app_preset_type = /datum/modular_computer_app_presets/merchant/nka
 
 // AI
 /obj/item/modular_computer/console/preset/ai
