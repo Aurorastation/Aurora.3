@@ -23,6 +23,9 @@
 	var/shuttle_restricted
 	var/landmark_flags = 0
 
+	/// Effects that show where the shuttle will land, to prevent unfair squishing
+	var/list/landing_indicators
+
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
 	if(docking_controller)
@@ -74,11 +77,21 @@
 			return FALSE
 	return TRUE
 
+/obj/effect/shuttle_landmark/proc/deploy_landing_indicators(var/datum/shuttle/shuttle)
+	LAZYINITLIST(landing_indicators)
+	for(var/area/A in shuttle.shuttle_area)
+		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
+		for(var/target_turf in list_values(translation))
+			landing_indicators += new /obj/effect/shuttle_warning(target_turf)
+
+/obj/effect/shuttle_landmark/proc/clear_landing_indicators()
+	QDEL_NULL_LIST(landing_indicators) // lazyclear but we delete the effects as well
+
 /obj/effect/shuttle_landmark/proc/cannot_depart(datum/shuttle/shuttle)
 	return FALSE
 
 /obj/effect/shuttle_landmark/proc/shuttle_arrived(datum/shuttle/shuttle)
-	return
+	clear_landing_indicators()
 
 /proc/check_collision(area/target_area, list/target_turfs)
 	for(var/target_turf in target_turfs)

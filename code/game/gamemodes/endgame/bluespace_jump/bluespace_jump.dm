@@ -8,7 +8,7 @@
 	affected_levels = zlevels
 
 /datum/universal_state/bluespace_jump/OnEnter()
-	var/space_zlevel = current_map.get_empty_zlevel() //get a place for stragglers
+	var/space_zlevel = current_map.get_empty_zlevel("blue", "space") //get a place for stragglers
 	for(var/mob/living/M in mob_list)
 		if(M.z in affected_levels)
 			var/area/A = get_area(M)

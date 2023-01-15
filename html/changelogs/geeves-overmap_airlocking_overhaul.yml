@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "If you're linked to a teleport hub via hand-tele and are within the same overmap tile, you can now use the hand-tele to generate portals."
+  - rscadd: "Shuttles now display warning symbols on the area they're going to land in."
+  - tweak: "Objects on the overmap are now layered, with common sectors being on the bottom, important sectors in the middle, with ships on the top."
+  - rscadd: "Added a new sector type for Man Overboard scenarios, it now clearly shows where the crew member went overboard and adds a landing area in the middle of the generated level where any shuttle can land."
+  - rscadd: "Man Overboard now generate unique levels depending on the grid you fell off in, so you can't fall off the ship and end up half a galaxy away in someone else's overboard area."

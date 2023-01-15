@@ -142,12 +142,14 @@
 		return current_z_level
 	return text2num(pickweight(candidates))
 
-/datum/map/proc/get_empty_zlevel()
-	if(empty_levels == null)
+/// Gets an empty z-level that correlates to the overmap X and Y coordinates
+/datum/map/proc/get_empty_zlevel(var/x, var/y)
+	LAZYINITLIST(empty_levels)
+	if(!empty_levels["[x]-[y]"])
 		world.maxz++
-		empty_levels = list(world.maxz)
+		empty_levels["[x]-[y]"] = world.maxz
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
-	return pick(empty_levels)
+	return empty_levels["[x]-[y]"]
 
 /datum/map/proc/setup_shuttles()
 

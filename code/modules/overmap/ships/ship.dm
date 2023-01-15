@@ -17,6 +17,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	obfuscated_name = "unidentified vessel"
 	var/moving_state = "ship_moving"
 
+	layer = OVERMAP_SHIP_LAYER
+
 	var/vessel_mass = 10000             //tonnes, arbitrary number, affects acceleration provided by engines
 	var/vessel_size = SHIP_SIZE_LARGE	//arbitrary number, affects how likely are we to evade meteors
 	var/max_speed = 1/(1 SECOND)        //"speed of light" for the ship, in turfs/tick.

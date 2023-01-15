@@ -20,6 +20,7 @@
 #define BELOW_MOB_LAYER 3.7
 #define ABOVE_MOB_LAYER 4.1
 #define ABOVE_ALL_MOB_LAYER 4.5
+#define INGAME_HUD_EFFECT_LAYER 5
 #define LIGHTING_LAYER 11
 #define EFFECTS_ABOVE_LIGHTING_LAYER 12 // For overlays you want to be above light.
 #define UNDER_HUD_LAYER 19
@@ -31,6 +32,10 @@
 #define LAYER_TABLE 2.8
 #define LAYER_UNDER_TABLE 2.79
 #define LAYER_ABOVE_TABLE 2.81
+
+#define OVERMAP_SECTOR_LAYER 3.01
+#define OVERMAP_IMPORTANT_SECTOR_LAYER 3.02
+#define OVERMAP_SHIP_LAYER 3.03
 
 #define MECH_UNDER_LAYER            4
 #define MECH_BASE_LAYER             4.01

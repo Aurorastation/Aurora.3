@@ -116,6 +116,7 @@
 		return FALSE
 
 /obj/effect/shuttle_landmark/visiting_shuttle/shuttle_arrived(datum/shuttle/shuttle)
+	..()
 	LAZYSET(core_landmark.visitors, src, shuttle)
 	shuttle_moved_event.register(shuttle, src, .proc/shuttle_left)
 

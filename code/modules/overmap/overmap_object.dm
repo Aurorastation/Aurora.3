@@ -4,6 +4,8 @@
 	icon_state = "object"
 	color = "#fffffe"
 
+	layer = OVERMAP_SECTOR_LAYER
+
 	var/list/map_z = list()
 
 	var/known = 0		//shows up on nav computers automatically
@@ -21,7 +23,7 @@
 	. = ..()
 	if(!current_map.use_overmap)
 		return INITIALIZE_HINT_QDEL
-	
+
 	if(known)
 		layer = EFFECTS_ABOVE_LIGHTING_LAYER
 		for(var/obj/machinery/computer/ship/helm/H in SSmachinery.machinery)

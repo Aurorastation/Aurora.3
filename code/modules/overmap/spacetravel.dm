@@ -1,25 +1,35 @@
 //list used to cache empty zlevels to avoid nedless map bloat
+var/man_overboard_counter = 1 // used for naming the man overboard sites in case multiple appear in close proximity
 var/list/cached_space = list()
 
 //Space stragglers go here
 
 /obj/effect/overmap/visitable/sector/temporary
-	name = "Deep Space"
-	invisibility = 101
-	known = 0
+	name = "Man Overboard"
+	known = FALSE
+	layer = OVERMAP_IMPORTANT_SECTOR_LAYER
 
 /obj/effect/overmap/visitable/sector/temporary/New(var/nx, var/ny, var/nz)
+	name = man_overboard_counter > 1 ? "[name] ([man_overboard_counter])" : name
 	loc = locate(nx, ny, current_map.overmap_z)
 	x = nx
 	y = ny
 	map_z += nz
 	map_sectors["[nz]"] = src
 	testing("Temporary sector at [x],[y] was created, corresponding zlevel is [nz].")
+	new /obj/effect/shuttle_landmark/automatic(locate(127, 127, nz))
+	man_overboard_counter++
+	START_PROCESSING(SSslow_process, src)
 
 /obj/effect/overmap/visitable/sector/temporary/Destroy()
+	STOP_PROCESSING(SSslow_process, src)
 	map_sectors["[map_z]"] = null
 	testing("Temporary sector at [x],[y] was deleted.")
 	return ..()
+
+/obj/effect/overmap/visitable/sector/temporary/process()
+	if(can_die())
+		shift_to_cache()
 
 /obj/effect/overmap/visitable/sector/temporary/proc/can_die(var/mob/observer)
 	testing("Checking if sector at [map_z[1]] can die.")
@@ -29,18 +39,28 @@ var/list/cached_space = list()
 			return 0
 	return 1
 
+/// uncache the sector and move it to the specified overmap area
+/obj/effect/overmap/visitable/sector/temporary/proc/uncache(var/x, var/y)
+	cached_space -= "[x]-[y]"
+	forceMove(locate(x, y, current_map.overmap_z))
+	START_PROCESSING(SSslow_process, src)
+
+/obj/effect/overmap/visitable/sector/temporary/proc/shift_to_cache()
+	testing("Caching [src] for future use")
+	forceMove(locate(x, y, pick(map_z))) // move ourselves into our z-level, where we're kept alive but cannot be reached by overmap objects
+	cached_space["[x]-[y]"] = src
+	STOP_PROCESSING(SSslow_process, src)
+
 proc/get_deepspace(x,y)
-	var/obj/effect/overmap/visitable/sector/temporary/res = locate(x,y,current_map.overmap_z)
+	var/obj/effect/overmap/visitable/sector/temporary/res = locate() in locate(x, y, current_map.overmap_z)
 	if(istype(res))
 		return res
-	else if(cached_space.len)
-		res = cached_space[cached_space.len]
-		cached_space -= res
-		res.x = x
-		res.y = y
+	else if(length(cached_space) && cached_space["[x]-[y]"])
+		res = cached_space["[x]-[y]"]
+		res.uncache(x, y)
 		return res
 	else
-		return new /obj/effect/overmap/visitable/sector/temporary(x, y, current_map.get_empty_zlevel())
+		return new /obj/effect/overmap/visitable/sector/temporary(x, y, current_map.get_empty_zlevel(x, y))
 
 /atom/movable/proc/lost_in_space()
 	for(var/atom/movable/AM in contents)
@@ -110,6 +130,5 @@ proc/overmap_spacetravel(var/turf/space/T, var/atom/movable/A)
 	if(istype(M, /obj/effect/overmap/visitable/sector/temporary))
 		var/obj/effect/overmap/visitable/sector/temporary/source = M
 		if (source.can_die())
-			testing("Caching [M] for future use")
-			source.forceMove(null)
-			cached_space += source
+			source.shift_to_cache()
+
