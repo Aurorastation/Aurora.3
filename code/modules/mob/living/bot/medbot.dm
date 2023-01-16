@@ -5,7 +5,7 @@
 	req_one_access = list(access_medical, access_robotics)
 	botcard_access = list(access_medical, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 
-	var/obj/item/storage/firstaid = /obj/item/storage/firstaid
+	var/obj/item/storage/firstaid/firstaid_item
 
 	//AI vars
 	var/frustration = 0
@@ -28,6 +28,13 @@
 	var/treatment_tox = /decl/reagent/tricordrazine
 	var/treatment_emag = /decl/reagent/toxin
 	var/declare_treatment = 0 //When attempting to treat a patient, should it notify everyone wearing medhuds?
+
+/mob/living/bot/medbot/Initialize()
+	var/list/firstaid_types = typesof(/obj/item/storage/firstaid)
+	var/firstaid_to_use = pick(firstaid_types)
+	firstaid_item = new firstaid_to_use(src)
+
+	. = ..()
 
 
 /mob/living/bot/medbot/Destroy()
@@ -118,7 +125,7 @@
 
 /mob/living/bot/medbot/update_icon()
 	if(!underlays.len)
-		underlays += image(firstaid.icon, firstaid.icon_state)
+		underlays += image(firstaid_item.icon, firstaid_item.icon_state)
 		var/matrix/M = matrix()
 		var/image/ha_image = image('icons/obj/device.dmi', "health")
 		M.Translate(5, 0)
@@ -262,9 +269,10 @@
 	on = FALSE
 	visible_message(SPAN_DANGER("\The [src] blows apart!"))
 	var/turf/Tsec = get_turf(src)
-
-	if(ispath(firstaid))
-		new firstaid(Tsec)
+	if(firstaid_item)
+		firstaid_item.forceMove(Tsec)
+		firstaid_item.contents = null
+		firstaid_item = null
 	new /obj/item/device/assembly/prox_sensor(Tsec)
 	new /obj/item/device/healthanalyzer(Tsec)
 	if (prob(50))
@@ -331,7 +339,7 @@
 
 	var/obj/item/firstaid_arm_assembly/A = new /obj/item/firstaid_arm_assembly
 	A.underlays += image(icon, icon_state)
-	A.firstaid = src
+	A.firstaid_item = src
 
 	qdel(S)
 	user.put_in_hands(A)
@@ -346,7 +354,7 @@
 	w_class = ITEMSIZE_NORMAL
 	var/build_step = 0
 	var/created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
-	var/obj/item/storage/firstaid // store the firstaid type if it blows up
+	var/obj/item/storage/firstaid/firstaid_item // store the firstaid type if it blows up
 
 /obj/item/firstaid_arm_assembly/attackby(obj/item/W as obj, mob/user as mob)
 	..()
@@ -383,6 +391,6 @@
 					S.name = created_name
 					S.underlays = src.underlays
 					S.update_icon()
-					S.firstaid = firstaid
+					S.firstaid_item = firstaid_item
 					qdel(src)
 					return 1
