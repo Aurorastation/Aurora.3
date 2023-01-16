@@ -582,7 +582,8 @@
 /obj/item/bedsheet/black,
 /obj/effect/ghostspawpoint{
 	identifier = "fsf_navy_officer";
-	name = "igs - fsf_navy_officer"
+	name = "igs - fsf_navy_officer";
+	antag_valid = 1
 	},
 /obj/structure/curtain/open/bed,
 /obj/effect/floor_decal/carpet/blue{
@@ -1805,7 +1806,8 @@
 	},
 /obj/effect/ghostspawpoint{
 	identifier = "fsf_navy_crewman";
-	name = "igs - fsf_navy_crewman"
+	name = "igs - fsf_navy_crewman";
+	antag_valid = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -1827,7 +1829,8 @@
 	},
 /obj/effect/ghostspawpoint{
 	identifier = "fsf_navy_crewman";
-	name = "igs - fsf_navy_crewman"
+	name = "igs - fsf_navy_crewman";
+	antag_valid = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -1983,7 +1986,8 @@
 /obj/item/bedsheet/black,
 /obj/effect/ghostspawpoint{
 	identifier = "fsf_navy_crewman";
-	name = "igs - fsf_navy_crewman"
+	name = "igs - fsf_navy_crewman";
+	antag_valid = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2611,16 +2615,6 @@
 "uYP" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/ship/fsf_patrol_ship)
-"vcg" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/black,
-/obj/effect/ghostspawpoint{
-	identifier = "fsf_navy_crewman";
-	name = "igs - fsf_navy_crewman";
-	antag_valid = 1
-	},
-/turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "vfY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -38908,7 +38902,7 @@ gnr
 yjk
 pUp
 wUQ
-vcg
+nVi
 nVi
 mgi
 msC
