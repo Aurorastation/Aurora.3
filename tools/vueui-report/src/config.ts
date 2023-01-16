@@ -1,15 +1,17 @@
-module.exports = {
+export default {
   vueui: '../../vueui',
-  themes: ['vueui theme-nano dark-theme', 'vueui theme-nano-light', 'vueui theme-basic', 'vueui theme-basic-dark dark-theme'],
-  template: (theme, data) => `<!DOCTYPE html>
-  <html>
+  assets: {
+    css: 'app.css',
+    js: 'app.js',
+  },
+  template: (initialData, { css, js }) => `<html>
     <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
       <meta charset="UTF-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
       <meta id="vueui:windowId" content="TEST"/>
-      <link rel="stylesheet" type="text/css" href="app.css"/>
+      <link rel="stylesheet" type="text/css" href="${css}"/>
     </head>
-    <body class="${theme}">
+    <body class="vueui theme-nano dark-theme">
       <div id="header">
         <header-default></header-default>
         <header-handles></header-handles>
@@ -28,8 +30,8 @@ module.exports = {
       </noscript>
     </body>
     <script type="application/json" id="initialstate">
-      ${JSON.stringify(data)}
+      ${JSON.stringify(initialData)}
     </script>
-    <script type="text/javascript" src="app.js"></script>
-  </html>`
+    <script type="text/javascript" src="${js}"></script>
+  </html>`,
 }

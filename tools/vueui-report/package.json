@@ -2,20 +2,38 @@
   "name": "vueui-report",
   "version": "1.0.0",
   "description": "Tools for building VueUI BYOND UI framework reports.",
-  "main": "index.js",
   "author": "Karolis K.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "echo 'No building is needed.'",
-    "run": "node ."
+    "build-ts": "tsc",
+    "build": "npm run build-ts && npm run lint",
+    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
+    "run": "node dist/index.js",
+    "dev": "npm run build-ts && npm run run",
+    "watch-ts": "tsc -w"
   },
   "dependencies": {
     "ansi-to-html": "^0.6.14",
-    "express": "^4.18.2",
+    "eslint": "^8.4.1",
+    "express": "^4.17.1",
     "fs-extra": "^9.0.1",
     "klaw": "^3.0.0",
     "puppeteer": "^5.5.0",
     "signale": "^1.4.0",
-    "vue": "^2.6.12",
-    "vue-server-renderer": "^2.6.12"
+    "vue": "^3.2.24"
+  },
+  "devDependencies": {
+    "@babel/types": "^7.16.0",
+    "@types/express": "^4.17.13",
+    "@types/fs-extra": "^9.0.13",
+    "@types/klaw": "^3.0.3",
+    "@types/node": "^16.11.12",
+    "@types/puppeteer": "^5.4.4",
+    "@types/signale": "^1.4.2",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
   }
 }

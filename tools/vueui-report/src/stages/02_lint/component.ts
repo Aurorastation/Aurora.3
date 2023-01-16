@@ -1,7 +1,7 @@
-var Convert = require('ansi-to-html');
-var convert = new Convert();
-module.exports = function (state) {
-  return ({
+import Convert from 'ansi-to-html'
+const convert = new Convert()
+export default function (state) {
+  return {
     template: `<div>
       <pre v-html="lintOut"></pre>
     </div>`,
@@ -10,12 +10,11 @@ module.exports = function (state) {
     },
     computed: {
       lintOut() {
-        if(this.lint)
-        {
+        if (this.lint) {
           return convert.toHtml(this.lint)
         }
         return ''
-      }
-    }
-  })
+      },
+    },
+  }
 }

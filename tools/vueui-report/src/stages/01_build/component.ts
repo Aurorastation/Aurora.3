@@ -1,7 +1,7 @@
-var Convert = require('ansi-to-html');
-var convert = new Convert();
-module.exports = function (state) {
-  return ({
+import Convert from 'ansi-to-html'
+const convert = new Convert()
+export default function (state) {
+  return {
     template: `<div>
       <h3>npm install</h3>
       <pre v-html="installOut"></pre>
@@ -13,19 +13,17 @@ module.exports = function (state) {
     },
     computed: {
       installOut() {
-        if(this.install)
-        {
+        if (this.install) {
           return convert.toHtml(this.install)
         }
         return ''
       },
       buildOut() {
-        if(this.build)
-        {
+        if (this.build) {
           return convert.toHtml(this.build.stdout)
         }
         return ''
-      }
-    }
-  })
+      },
+    },
+  }
 }
