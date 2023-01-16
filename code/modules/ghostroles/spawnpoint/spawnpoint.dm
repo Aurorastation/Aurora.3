@@ -23,6 +23,7 @@
 	var/icon_available = "x2" //Icon to use when available
 	var/icon_recharging = "x2"	//Icon to use when recharging
 	var/icon_used = "x2"	//Icon to use when spwanpoint has been used
+	var/antag_valid = FALSE	// If the spawn point can be used for offmap antags (if the relative mode is selected)
 
 	var/state = STATE_AVAILABLE
 

@@ -103,6 +103,20 @@
 				P.set_spawned()
 			return get_turf(P)
 
+
+/datum/controller/subsystem/ghostroles/proc/get_spawnpoints_antagValid(var/use = TRUE)
+	if(!length(spawnpoints))
+		return null
+
+	for (var/spawnpointKey in spawnpoints)
+		for(var/spawnpoint in spawnpoints[spawnpointKey])
+			var/obj/effect/ghostspawpoint/P = spawnpoint
+			if(P.antag_valid)
+				var/result = spawnpoints[spawnpointKey]
+				if(use)
+					spawnpoints[spawnpointKey] = null //Removes the spawnpoint from the list, as we don't want ghost roles to access the antag ship
+				return result
+
 /datum/controller/subsystem/ghostroles/proc/vui_interact(mob/user,var/spawnpoint=null)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user,src)
 	if(!ui)
