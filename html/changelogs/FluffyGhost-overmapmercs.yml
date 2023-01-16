@@ -39,5 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Added a new gamemode, overmap mercenaries, that seize an overmap ship."
-  - rscadd: "The FSF corvette will be force-spawned in case no other overmap ship to accomodate the mercs has spawned."
+  - rscadd: "The FSF corvette will be force spawned in case no other overmap ship to accomodate the mercs has spawned."
   - maptweak: "Now the FSF corvette accomodates for this mode, in case no other compatible overmap ship is present."
