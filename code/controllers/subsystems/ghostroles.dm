@@ -104,6 +104,7 @@
 			return get_turf(P)
 
 
+// Used by overmap antags, returns all the spawnpoints of a given location that have the "antag_valid" var set and removes them from the pool
 /datum/controller/subsystem/ghostroles/proc/get_spawnpoints_antagValid(var/use = TRUE)
 	if(!length(spawnpoints))
 		return null
