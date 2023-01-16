@@ -151,6 +151,9 @@
 
 		average_field_strength = 0 //recalculate the average field strength
 		for(var/obj/effect/energy_field/E as anything in field)
+			if(!E)
+				field -= E
+				continue
 			var/amount_to_strengthen = renwick_increase_per_field - renwick_upkeep_per_field
 			if(E.ticks_recovering > 0 && amount_to_strengthen > 0)
 				E.Strengthen( min(amount_to_strengthen / 10, 0.1) )

@@ -146,7 +146,7 @@
 		return SPACE
 	else
 		var/area/A = get_area(src)
-		return A.sound_env
+		return A ? A.sound_env : STANDARD_STATION
 
 /mob/living/playsound_get_environment(pressure_factor = 1.0)
 	if (hallucination)

@@ -320,7 +320,7 @@
 			M.losebreath++
 
 	if(REAGENT_VOLUME(M.reagents, /singleton/reagent/oxycomorphine)) //Straight to overdose.
-		overdose(M, alien, holder)
+		overdose(M, alien, removed, holder)
 
 /singleton/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()

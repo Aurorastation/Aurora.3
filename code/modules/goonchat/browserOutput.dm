@@ -103,7 +103,7 @@ var/savefile/iconCache = new("data/tmp/iconCache.sav") //Cache of icons for the 
 
 //Called on chat output done-loading by JS.
 /datum/chatOutput/proc/doneLoading()
-	if(loaded)
+	if(loaded || !owner)
 		return
 
 	loaded = TRUE
