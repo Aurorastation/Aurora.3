@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer'
+import { Page } from 'puppeteer'
 
 export interface RunnerUtils {
   setSize(width: number, height: number): Promise<void>
@@ -8,5 +8,5 @@ export interface RunnerUtils {
 }
 
 export type Runner = {
-  (page: puppeteer.Page, testFile: string, utils: RunnerUtils): Promise<void>
+  (page: Page, testFile: string, utils: RunnerUtils): Promise<void>
 }

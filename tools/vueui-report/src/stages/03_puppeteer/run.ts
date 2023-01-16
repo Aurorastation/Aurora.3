@@ -5,7 +5,7 @@ const vueuiTestsPath = path.resolve(config.vueui, './uitests')
 const vueuiDistPath = path.resolve(config.vueui, './dist')
 import klaw from 'klaw'
 import express from 'express'
-import puppeteer from 'puppeteer'
+import puppeteer, { ConsoleMessage } from 'puppeteer'
 import runners from './runners'
 const app = express()
 
@@ -39,11 +39,12 @@ export default async function (signale) {
     }
   }
 
-  // C:\Projektai\Aurora.3\vueui\tests\manifest.json
+  const options = {
+    headless: process.env.CI ? true : false,
+    args: [process.env.CI ? '--no-sandbox' : ''],
+  }
 
-  // http://localhost:5221/tmpl?test=C:\Projektai\Aurora.3\vueui\tests\manifest.json&theme=vueui%20theme-nano%20dark-theme
-
-  const browser = await puppeteer.launch({ headless: false })
+  const browser = await puppeteer.launch(options)
   const page = await browser.newPage()
 
   const results: TestResult[] = []
@@ -88,10 +89,10 @@ export default async function (signale) {
 
     const screenshots: Screenshot[] = []
 
-    const ConsoleHandler = (message) => {
+    const ConsoleHandler = (message: ConsoleMessage) => {
       const type = message.type().substr(0, 3).toUpperCase()
       if (type == 'ERR') {
-        logError(`${message._text}`)
+        logError(`${message.text()}`)
       }
     }
     const PageErrorHandler = ({ message }) => {
@@ -118,7 +119,7 @@ export default async function (signale) {
         logInfo(message)
       },
       async screenshot(name) {
-        const screen = await page.screenshot({ encoding: 'base64' })
+        const screen = await page.screenshot({ encoding: 'base64' }) as string
         if (name) {
           logInfo(`Screenshot '${name}' taken`)
         }

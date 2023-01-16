@@ -2,7 +2,9 @@
   "compilerOptions": {
     "outDir": "dist",
     "allowJs": true,
-    "target": "es5",
+    "target": "ES2015",
+    "moduleResolution": "Node",
+    "module": "CommonJS",
     "typeRoots": ["node_modules/@types", "types"],
     "sourceMap": true,
     "rootDir": "src",

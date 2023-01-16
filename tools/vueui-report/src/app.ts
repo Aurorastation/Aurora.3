@@ -6,8 +6,7 @@ export default function (states, stages: Stage[]) {
   // const components = stages.map((stage, i) => ({ i, n: stage.name(), c: stage.component(states[i]) }))
   return {
     components,
-    template: `<!doctype html>
-  <html lang="en">
+    template: `<html lang="en">
     <head>
       <!-- Required meta tags -->
       <meta charset="utf-8">

@@ -5,6 +5,6 @@ const stage: Stage = {
   name: () => 'Build',
   run,
   component,
-  ci: false,
+  ci: true,
 }
 export default stage
