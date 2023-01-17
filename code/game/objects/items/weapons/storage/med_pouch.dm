@@ -138,20 +138,20 @@ Single Use Emergency Pouches
 	name = "emergency pill"
 	desc = "An emergency pill from an emergency medical pouch."
 	icon_state = "pill18"
-	var/decl/reagent/chem_type
+	var/singleton/reagent/chem_type
 	var/chem_amount = 15
 
 /obj/item/reagent_containers/pill/pouch_pill/inaprovaline
-	chem_type = /decl/reagent/inaprovaline
+	chem_type = /singleton/reagent/inaprovaline
 
 /obj/item/reagent_containers/pill/pouch_pill/dylovene
-	chem_type = /decl/reagent/dylovene
+	chem_type = /singleton/reagent/dylovene
 
 /obj/item/reagent_containers/pill/pouch_pill/dexalin
-	chem_type = /decl/reagent/dexalin
+	chem_type = /singleton/reagent/dexalin
 
 /obj/item/reagent_containers/pill/pouch_pill/perconol
-	chem_type = /decl/reagent/perconol
+	chem_type = /singleton/reagent/perconol
 
 /obj/item/reagent_containers/pill/pouch_pill/New()
 	..()
@@ -165,21 +165,21 @@ Single Use Emergency Pouches
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline
 	name = "emergency inaprovaline autoinjector"
-	reagents_to_add = list(/decl/reagent/inaprovaline = 5)
+	reagents_to_add = list(/singleton/reagent/inaprovaline = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/mortaphenyl
 	name = "emergency mortaphenyl autoinjector"
-	reagents_to_add = list(/decl/reagent/mortaphenyl = 5)
+	reagents_to_add = list(/singleton/reagent/mortaphenyl = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dylovene
 	name = "emergency dylovene autoinjector"
-	reagents_to_add = list(/decl/reagent/dylovene = 5)
+	reagents_to_add = list(/singleton/reagent/dylovene = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin
 	name = "emergency dexalin autoinjector"
-	reagents_to_add = list(/decl/reagent/dexalin = 5)
+	reagents_to_add = list(/singleton/reagent/dexalin = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline
 	name = "emergency adrenaline autoinjector"
 	amount_per_transfer_from_this = 8
-	reagents_to_add = list(/decl/reagent/adrenaline = 8)
+	reagents_to_add = list(/singleton/reagent/adrenaline = 8)
