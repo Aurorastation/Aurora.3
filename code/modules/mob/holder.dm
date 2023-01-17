@@ -380,6 +380,24 @@ var/list/holder_mob_icon_cache = list()
 	flags_inv ^= BLOCKHEADHAIR
 	to_chat(usr, SPAN_NOTICE("\The [src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
 
+/obj/item/holder/carp/baby/reaver
+	name = "baby reaver"
+	desc = "Awfully creepy! Looks unfriendly!"
+	icon_state = "babyreaver"
+	item_state = "babyreaver"
+	slot_flags = SLOT_HEAD
+	flags_inv = HIDEEARS
+	w_class = ITEMSIZE_TINY
+
+/obj/item/holder/carp/baby/eel
+	name = "baby spectral eel"
+	desc = "It's so adorable... but also horrifying."
+	icon_state = "babyeel"
+	item_state = "babyeel"
+	slot_flags = SLOT_HEAD
+	flags_inv = HIDEEARS
+	w_class = ITEMSIZE_TINY
+
 /obj/item/holder/borer
 	name = "cortical borer"
 	desc = "It's a slimy brain slug. Gross."
