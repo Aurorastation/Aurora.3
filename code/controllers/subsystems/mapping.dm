@@ -18,7 +18,7 @@ var/datum/controller/subsystem/mapping/SSmapping
 /datum/controller/subsystem/mapping/Initialize(timeofday)
 	// Load templates and build away sites.
 	preloadTemplates()
-	for(var/atype in subtypesof(/decl/submap_archetype))
+	for(var/atype in subtypesof(/singleton/submap_archetype))
 		submap_archetypes[atype] = new atype
 
 	current_map.build_away_sites()
@@ -35,7 +35,7 @@ var/datum/controller/subsystem/mapping/SSmapping
 /datum/controller/subsystem/mapping/proc/preloadTemplates(path = "maps/templates/") //see master controller setup
 	var/list/filelist = flist(path)
 	for(var/map in filelist)
-		var/datum/map_template/T = new(path = "[path][map]", rename = "[map]")
+		var/datum/map_template/T = new(paths = list("[path][map]"), rename = "[map]")
 		map_templates[T.id] = T
 	preloadBlacklistableTemplates()
 
@@ -58,8 +58,12 @@ var/datum/controller/subsystem/mapping/SSmapping
 		var/datum/map_template/MT = new map_template_type()
 
 		if (banned_maps)
-			var/mappath = MT.mappath
-			if(list_find(banned_maps, mappath))
+			var/is_banned = FALSE
+			for (var/mappath in MT.mappaths)
+				if(banned_maps.Find(mappath))
+					is_banned = TRUE
+					break
+			if (is_banned)
 				continue
 
 		map_templates[MT.id] = MT

@@ -51,6 +51,9 @@
 		var/mob/living/heavy_vehicle/HV = user
 		if(istype(W, /obj/item/mecha_equipment/clamp))
 			var/obj/item/mecha_equipment/clamp/CL = W
+			if(!length(CL.carrying))
+				to_chat(user, SPAN_WARNING("\The [CL] is empty."))
+				return TRUE
 			if(istype(CL.carrying[1], /obj/item/ship_ammunition))
 				var/obj/item/ship_ammunition/SA = CL.carrying[1]
 				return load_ammo(SA, HV)

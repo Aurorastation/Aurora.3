@@ -58,7 +58,7 @@
 /obj/item/clothing/suit/storage/toggle/proc/toggle_open()
 	opened = !opened
 	to_chat(usr, SPAN_NOTICE("You [opened ? "unbutton" : "button up"] \the [src]."))
-	playsound(src, /decl/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
+	playsound(src, /singleton/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
 	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 	item_state = icon_state
 	update_icon()
@@ -97,3 +97,81 @@
 			to_chat(usr, "\The [src] does not have a vest badge.")
 			return
 		update_clothing_icon()
+
+// Corporate Jackets
+
+/obj/item/clothing/suit/storage/toggle/corp
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/corp/idris
+	name = "idris corporate jacket"
+	desc = "A cozy jacket in Idris' colors, for those who need more merchandise in their life."
+	icon_state = "idris_corp_jacket"
+	item_state = "idris_corp_jacket"
+
+/obj/item/clothing/suit/storage/toggle/corp/idris/alt
+	icon_state = "idris_corp_jacket_alt"
+	item_state = "idris_corp_jacket_alt"
+
+/obj/item/clothing/suit/storage/toggle/corp/zavod
+	name = "zavodskoi corporate jacket"
+	desc = "A cozy jacket in Zavodskoi's colors, professional and intimidating."
+	icon_state = "zavod_corp_jacket"
+	item_state = "zavod_corp_jacket"
+
+/obj/item/clothing/suit/storage/toggle/corp/zavod/alt
+	icon_state = "zavod_corp_jacket_alt"
+	item_state = "zavod_corp_jacket_alt"
+
+/obj/item/clothing/suit/storage/toggle/corp/pmc
+	name = "pmcg corporate jacket"
+	desc = "A cozy jacket in PMCG's colors, made out of military grade material."
+	icon_state = "pmc_corp_jacket"
+	item_state = "pmc_corp_jacket"
+
+/obj/item/clothing/suit/storage/toggle/corp/pmc/alt
+	icon_state = "epmc_corp_jacket"
+	item_state = "epmc_corp_jacket"
+
+/obj/item/clothing/suit/storage/toggle/corp/heph
+	name = "hephaestus corporate jacket"
+	desc = "A cozy jacket in Hepheastus' colors, as heavy duty as they come."
+	icon_state = "heph_corp_jacket"
+	item_state = "heph_corp_jacket"
+
+/obj/item/clothing/suit/storage/toggle/corp/nt
+	name = "nanotrasen corporate jacket"
+	desc = "A cozy jacket in NanoTrasen's colors, perfect if you live for a phoron company."
+	icon_state = "nt_corp_jacket"
+	item_state = "nt_corp_jacket"
+
+/obj/item/clothing/suit/storage/toggle/corp/zeng
+	name = "zeng-hu corporate jacket"
+	desc = "A cozy jacket in Zeng-Hu's colors, optional augmentations not included."
+	icon_state = "zeng_corp_jacket"
+	item_state = "zeng_corp_jacket"
+
+/obj/item/clothing/suit/storage/toggle/corp/zeng/alt
+	icon_state = "zeng_corp_jacket_alt"
+	item_state = "zeng_corp_jacket_alt"
+
+/obj/item/clothing/suit/storage/toggle/corp/orion
+	name = "orion corporate jacket"
+	desc = "A cozy jacket in Orion's colors, perfect for hauling freight day and night."
+	icon_state = "orion_corp_jacket"
+	item_state = "orion_corp_jacket"
+
+/obj/item/clothing/suit/storage/toggle/corp/orion/alt
+	icon_state = "orion_corp_jacket_alt"
+	item_state = "orion_corp_jacket_alt"
+
+/obj/item/clothing/suit/storage/toggle/corp/scc
+	name = "scc corporate jacket"
+	desc = "A cozy jacket in the SCC's colors, the finest jacket of them all."
+	icon_state = "scc_corp_jacket"
+	item_state = "scc_corp_jacket"
+
+/obj/item/clothing/suit/storage/toggle/corp/scc/alt
+	icon_state = "scc_corp_jacket_alt"
+	item_state = "scc_corp_jacket_alt"

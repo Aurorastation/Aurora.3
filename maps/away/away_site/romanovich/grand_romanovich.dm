@@ -1,13 +1,13 @@
 /datum/map_template/ruin/away_site/grand_romanovich
 	name = "Grand Romanovich Casino"
 	description = "An adhomian style casino in Tau Ceti's space."
-	suffix = "away_site/romanovich/grand_romanovich.dmm"
+	suffixes = list("away_site/romanovich/grand_romanovich.dmm")
 	sectors = list(SECTOR_ROMANOVICH)
 	spawn_weight = 1
 	ship_cost = 2
 	id = "grand_romanovich"
 
-/decl/submap_archetype/grand_romanovich
+/singleton/submap_archetype/grand_romanovich
 	map = "Grand Romanovich Casino"
 	descriptor = "An adhomian style casino in Tau Ceti's space."
 

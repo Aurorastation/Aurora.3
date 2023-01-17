@@ -20736,7 +20736,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/toy/prize/deathripley{
+/obj/item/toy/mech/deathripley{
 	desc = "This is Johnny 5. Is he alive?";
 	name = "Johnny 5"
 	},

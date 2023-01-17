@@ -333,7 +333,7 @@
 						to_chat(user, SPAN_WARNING("You cannot make an airlock out of [S]."))
 						return
 					if(S.get_amount() >= 2)
-						playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
+						playsound(src.loc, /singleton/sound_category/crowbar_sound, 100, 1)
 						user.visible_message("<b>[user]</b> starts installing [S] into the airlock assembly.", "You start installing [S] into the airlock assembly.")
 						if(W.use_tool(src, user, 40, volume = 50) && !glass)
 							if (S.use(2))
