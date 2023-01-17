@@ -154,6 +154,8 @@
 	injection_mod = 2
 	has_fine_manipulation = FALSE
 
+	bodyfall_sound = /singleton/sound_category/bodyfall_machine_sound
+
 	has_organ = list(
 		BP_HEART =    /obj/item/organ/internal/heart/tajara/tesla_body,
 		BP_LUNGS =    /obj/item/organ/internal/lungs/tajara,

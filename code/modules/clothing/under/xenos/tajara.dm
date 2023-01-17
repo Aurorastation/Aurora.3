@@ -295,3 +295,12 @@
 	desc = "An uniform used by the captain of the New Kingdom's merchant space ships. Not as fancy as the ones used in the Royal Navy."
 	icon_state = "nka_merchant_captain"
 	item_state = "nka_merchant_captain"
+
+/obj/item/clothing/under/tajaran/tesla_body
+	name = "tesla rejuvenation suit worker uniform"
+	desc = "A massive jumpsuit issued to Tajara grafted in Tesla Rejuvenation Suits."
+	icon_state = "tesla_body_jumpsuit"
+	item_state = "tesla_body_jumpsuit"
+	contained_sprite = FALSE
+	species_restricted = list(BODYTYPE_TESLA_BODY)
+	sprite_sheets = list(BODYTYPE_TESLA_BODY = 'icons/mob/species/tajara/tesla_body_uniform.dmi')
