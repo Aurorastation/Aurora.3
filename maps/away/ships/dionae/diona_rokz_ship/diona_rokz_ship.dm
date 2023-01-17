@@ -70,7 +70,7 @@
     ..()
 
 /obj/effect/shuttle_landmark/diona_rokz_ship/nav1
-	name = "Rokz Clan Ship - Port Airlock"
+	name = "Rokz Clan Ship - Starboard Airlock"
 	landmark_tag = "nav_diona_rokz_ship_1"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
