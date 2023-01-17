@@ -133,6 +133,9 @@
 	desc = "A robust heart capable of helping to preserve body temperature through blood circulation."
 	icon = 'icons/obj/organs/tajara_organs.dmi'
 
+/obj/item/organ/internal/heart/tajara/tesla_body
+	on_mob_icon = 'icons/mob/human_races/tesla_body_augments.dmi'
+
 /obj/item/organ/internal/kidneys/tajara
 	desc = "Alien kidneys adapted to the Tajaran physiology."
 	icon = 'icons/obj/organs/tajara_organs.dmi'

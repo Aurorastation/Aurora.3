@@ -1907,7 +1907,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "bald"
 		gender = NEUTER
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
-		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell,/datum/species/diona,
+		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/tajaran/tesla_body,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell,/datum/species/diona,
 		/datum/species/diona/coeu, /datum/species/bug/type_b)
 
 	threeOclock
@@ -3143,6 +3143,285 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "styled mane"
 
+//tesla rejuvenation suit hair
+	tesla_ears
+		icon = 'icons/mob/human_face/tesla_body_hair.dmi'
+		name = "Tesla Rejuveation Suit Ears"
+		icon_state = "ears_plain"
+		length = 1
+		species_allowed = list(/datum/species/tajaran/tesla_body)
+
+		tesla_ears_bangs
+			name = "Tesla Rejuveation Suit Bangs"
+			icon_state = "hair_bangs"
+			length = 3
+			chatname = "bangs"
+
+		tesla_ears_bangs_alt
+			name = "Tesla Rejuveation Suit Bangs Alt"
+			icon_state = "hair_bangs_alt"
+			length = 3
+			chatname = "short bangs"
+
+		tesla_ears_shortfringe
+			name = "Tesla Rejuveation Suit Short Fringe"
+			icon_state = "hair_shortfringe"
+			length = 2
+			chatname = "short fringe"
+
+		tesla_ears_bob
+			name = "Tesla Rejuveation Suit Bob"
+			icon_state = "hair_bob"
+			length = 2
+			chatname = "groomed short mane"
+
+		tesla_ears_braid
+			name = "Tesla Rejuveation Suit Braid"
+			icon_state = "hair_braid"
+			length = 3
+			chatname = "braid"
+
+		tesla_ears_braid_alt
+			name = "Tesla Rejuveation Suit Braid Alt"
+			icon_state = "hair_braid_alt"
+			length = 3
+			chatname = "braid"
+
+		tesla_ears_clean
+			name = "Tesla Rejuveation Suit Clean"
+			icon_state = "hair_clean"
+			length = 1
+			chatname = "short mane"
+
+		tesla_ears_curls
+			name = "Tesla Rejuveation Suit Curly"
+			icon_state = "hair_curly"
+			length = 3
+			chatname = "curly mane"
+
+		tesla_ears_curlsalt
+			name = "Tesla Rejuveation Suit Curly Alt"
+			icon_state = "hair_curlyalt"
+			length = 3
+			chatname = "curly mane"
+
+		tesla_ears_fingercurl
+			name = "Tesla Rejuveation Suit Finger Curls"
+			icon_state = "hair_fingerwave"
+			length = 2
+			chatname = "curls"
+
+		tesla_ears_housewife
+			name = "Tesla Rejuveation Suit Housewife"
+			icon_state = "hair_housewife"
+			length = 2
+			chatname = "long mane"
+
+		tesla_ears_long
+			name = "Tesla Rejuveation Suit Long"
+			icon_state = "hair_long"
+			length = 3
+			chatname = "long mane"
+
+		tesla_ears_messy
+			name = "Tesla Rejuveation Suit Messy"
+			icon_state = "hair_messy"
+			length = 1
+			chatname = "messy mane"
+
+		tesla_ears_mohawk
+			name = "Tesla Rejuveation Suit Mohawk"
+			icon_state = "hair_mohawk"
+			length = 1
+			chatname = "mohawk"
+
+		tesla_ears_plait
+			name = "Tesla Rejuveation Suit Plait"
+			icon_state = "hair_plait"
+			length = 1
+			chatname = "braid"
+
+		tesla_ears_rattail
+			name = "Tesla Rejuveation Suit Rat Tail"
+			icon_state = "hair_rattail"
+			length = 2
+			chatname = "thin ponytail"
+
+		tesla_ears_shaggy
+			name = "Tesla Rejuveation Suit Shaggy"
+			icon_state = "hair_shaggy"
+			length = 1
+			chatname = "messy mane"
+
+		tesla_ears_straight
+			name = "Tesla Rejuveation Suit Straight"
+			icon_state = "hair_straight"
+			length = 3
+			chatname = "short mane"
+
+		tesla_ears_spiky
+			name = "Tesla Rejuveation Suit Spiky"
+			icon_state = "hair_spiky"
+			length = 1
+			chatname = "spiky mane"
+
+		tesla_ears_victory
+			name = "Tesla Rejuveation Suit Victory Curls"
+			icon_state = "hair_victory"
+			length = 3
+			chatname = "curls"
+
+		tesla_ears_mane
+			name = "Tesla Rejuveation Suit Mane"
+			icon_state = "hair_mane"
+			length = 3
+			gender = MALE
+			chatname = "long mane"
+
+		tesla_ears_sidepony
+			name = "Tesla Rejuveation Suit Side Ponytail"
+			icon_state = "hair_sidepony"
+			length = 3
+			chatname = "sideponytail"
+
+		tesla_ears_governmentman
+			name = "Tesla Rejuveation Suit Government Man"
+			icon_state = "hair_gman"
+			length = 1
+			chatname = "styled mane"
+
+		tesla_ears_bun
+			name = "Tesla Rejuveation Suit Bun"
+			icon_state = "hair_bun"
+			length = 2
+			chatname = "hair bun"
+
+		tesla_ears_smallbun
+			name = "Tesla Rejuveation Suit Bun (Small)"
+			icon_state = "hair_bunsmall"
+			length = 2
+			chatname = "hair bun"
+
+		tesla_ears_lowbun
+			name = "Tesla Rejuveation Suit Bun (Low)"
+			icon_state = "hair_lowbun"
+			length = 2
+			chatname = "hair bun"
+
+		tesla_ears_smalllowbun
+			name = "Tesla Rejuveation Suit Bun (Low, Small)"
+			icon_state = "hair_lowbunsmall"
+			length = 2
+			chatname = "hair bun"
+
+		tesla_ears_bunshort
+			name = "Tesla Rejuveation Suit Bun (Short)"
+			icon_state = "hair_bunshort"
+			length = 2
+			chatname = "hair bun"
+
+		tesla_ears_wedge
+			name = "Tesla Rejuveation Suit Wedge"
+			icon_state = "hair_wedge"
+			length = 2
+			chatname = "styled mane"
+
+		tesla_ears_tresses
+			name = "Tesla Rejuveation Suit Tresses"
+			icon_state = "hair_tresses"
+			length = 3
+			chatname = "styled mane"
+
+		tesla_ears_shoulderparted
+			name = "Tesla Rejuveation Suit Shoulder Parted"
+			icon_state = "hair_shoulderparted"
+			length = 3
+			chatname = "styled mane"
+
+		tesla_ears_shoulderpartedsmall
+			name = "Tesla Rejuveation Suit Shoulder Parted Small"
+			icon_state = "hair_shoulderpartedsmall"
+			length = 3
+			chatname = "styled mane"
+
+		tesla_ears_shoulderpartedlong
+			name = "Tesla Rejuveation Suit Shoulder Parted Long"
+			icon_state = "hair_shoulderpartedlong"
+			length = 3
+			chatname = "styled mane"
+
+		tesla_ears_shoulderlength
+			name = "Tesla Rejuveation Suit Shoulderlength"
+			icon_state = "hair_shoulderlength"
+			length = 2
+			chatname = "styled mane"
+
+		tesla_ears_shoulderlengthalt
+			name = "Tesla Rejuveation Suit Shoulderlength Alt"
+			icon_state = "hair_shoulderlengthalt"
+			length = 2
+			chatname = "styled mane"
+
+		tesla_ears_sidepartedleft
+			name = "Tesla Rejuveation Suit Sideparted Left"
+			icon_state = "hair_sidepartedleft"
+			length = 3
+			chatname = "styled mane"
+
+		tesla_ears_sidepartedright
+			name = "Tesla Rejuveation Suit Sideparted Right"
+			icon_state = "hair_sidepartedright"
+			length = 3
+			chatname = "styled mane"
+
+		tesla_ears_fringeup
+			name = "Tesla Rejuveation Suit Fringe Up"
+			icon_state = "hair_fringeup"
+			length = 2
+			chatname = "styled mane"
+
+		tesla_ears_cascading
+			name = "Tesla Rejuveation Suit Cascading"
+			icon_state = "hair_cascading"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_cascadingalt
+			name = "Tesla Rejuveation Suit Cascading Alt"
+			icon_state = "hair_cascadingalt"
+			length = 3
+			chatname = "styled mane"
+
+		taj_ears_swoop
+			name = "Tesla Rejuveation Suit Swoop"
+			icon_state = "hair_swoop"
+			length = 2
+			chatname = "styled mane"
+
+		tesla_ears_swoop_alt
+			name = "Tesla Rejuveation Suit Swoop Alt"
+			icon_state = "hair_swoop_alt"
+			length = 2
+			chatname = "styled mane"
+
+		tesla_ears_swoop_bangs
+			name = "Tesla Rejuveation Suit Swoop Bangs"
+			icon_state = "hair_swoop_bangs"
+			length = 2
+			chatname = "styled mane"
+
+		tesla_ears_swoop_long
+			name = "Tesla Rejuveation Suit Swoop Long"
+			icon_state = "hair_longswoop"
+			length = 3
+			chatname = "styled mane"
+
+		tesla_ears_swoop_long_alt
+			name = "Tesla Rejuveation Suit Swoop Long Alt"
+			icon_state = "hair_longswoop_alt"
+			length = 3
+			chatname = "styled mane"
+
 //vaurca antennae
 	vaurca_classic
 		icon = 'icons/mob/human_face/vaurca_hair.dmi'
@@ -3352,6 +3631,37 @@ Follow by example and make good judgement based on length which list to include 
 
 		taj_smallstache
 			name = "Tajara Smallsatche"
+			icon_state = "facial_smallstache"
+
+/datum/sprite_accessory/facial_hair
+	tesla_body_goatee
+		icon = 'icons/mob/human_face/tesla_body_facial_hair.dmi'
+		name = "Tesla Rejuveation Suit Goatee"
+		icon_state = "facial_goatee"
+		species_allowed = list(/datum/species/tajaran/tesla_body)
+
+		tesla_body_goatee_faded
+			name = "Tesla Rejuveation Suit Goatee Faded"
+			icon_state = "facial_goatee_faded"
+
+		tesla_body_moustache
+			name = "Tesla Rejuveation Suit Moustache"
+			icon_state = "facial_moustache"
+
+		tesla_body_mutton
+			name = "Tesla Rejuveation Suit Mutton"
+			icon_state = "facial_mutton"
+
+		tesla_body_pencilstache
+			name = "Tesla Rejuveation Suit Pencilstache"
+			icon_state = "facial_pencilstache"
+
+		tesla_body_sideburns
+			name = "Tesla Rejuveation Suit Sideburns"
+			icon_state = "facial_sideburns"
+
+		tesla_body_smallstache
+			name = "Tesla Rejuveation Suit Smallsatche"
 			icon_state = "facial_smallstache"
 
 //unathi horn beards and the like

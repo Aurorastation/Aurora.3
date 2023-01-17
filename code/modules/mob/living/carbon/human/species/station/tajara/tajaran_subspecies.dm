@@ -1,6 +1,6 @@
 /datum/species/tajaran/zhan_khazan
 	name = SPECIES_TAJARA_ZHAN
-	name_plural = "Zhan-Khazan Tajaran"
+	name_plural = "Zhan-Khazan Tajara"
 	blurb = "The Zhan-Khazan are a race of Tajara known for their dark fur and large bulky figures. \
 	They were at one point a race of cave-and-mountain dwelling Tajara that traditionally were \
 	entrusted with physical work like mining, farming, ranching, and logging. Zhan-Khazan make \
@@ -48,7 +48,7 @@
 
 /datum/species/tajaran/m_sai
 	name = SPECIES_TAJARA_MSAI
-	name_plural = "M'sai Tajaran"
+	name_plural = "M'sai Tajara"
 	blurb = "The M'sai are a race of Tajara with slender lithe bodies and \
 	lightly covered fur which blends in with the snowy environments of Adhomai. \
 	They aren't as well-insulated against Adhomai's cold as their brethren. \
@@ -90,3 +90,65 @@
 		/singleton/origin_item/culture/adhomian/msai,
 		/singleton/origin_item/culture/offworld_tajara/msai
 	)
+
+/datum/species/tajaran/tesla_body
+	name = SPECIES_TAJARA_TESLA_BODY
+	name_plural = "Tesla Rejuvenation Suit Tajara"
+	name_plural = "Created as part of the Tesla prosthetics program, the Tesla Rejuvenation Suit is a hulking suit that allows disabled Tajara to regain their vigor. \
+	Its users are surgically grafted in the machine; their limbs are replaced by large, industrial replacements; their organs are placed in a tank full of healing chemicals \
+	located inside their chest, and finally, a big tesla spine is installed. Only the head remains untouched. The suits are bulky and clumsy, restricting their wearers to jobs \
+	involving weight lifting and other menial tasks. Since this invention is still in its early stage, reports of it malfunctioning or causing pain to its user are not unheard off; \
+	however, the government is quick to claim that these are only subversive rumors. Because of extensive augmentation, Tajaran in these suits reports loss of sensations everywhere \
+	except the face. The Rejuvenation Suit is only granted to loyal Hadiist Tajara living in the People's Republic. Tajara wearing it are colloquially called \"steelsuits\"."
+
+	spawn_flags = IS_RESTRICTED
+
+	icon_x_offset = -8
+	healths_x = 22
+	healths_overlay_x = 9
+	floating_chat_x_offset = 6
+
+	slowdown = 2
+	fall_mod = 1.2
+
+	grab_mod = 3
+	resist_mod = 3
+	break_cuffs = TRUE
+	mob_size = 25
+
+	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
+
+	icon_template = 'icons/mob/human_races/tajara/r_tesla_body.dmi'
+	icobase = 'icons/mob/human_races/tajara/r_tesla_body.dmi'
+	deform = 'icons/mob/human_races/tajara/r_tesla_body.dmi'
+	preview_icon = 'icons/mob/human_races/tajara/tesla_body_preview.dmi'
+	canvas_icon = 'icons/mob/base_48.dmi'
+	bandages_icon = null
+	tail = null
+	tail_animation = null
+
+	maneuvers = list(
+		/singleton/maneuver/leap/tesla_body
+	)
+
+	damage_overlays = 'icons/mob/human_races/masks/dam_mask_tesla_body.dmi'
+	damage_mask = 'icons/mob/human_races/masks/dam_mask_tesla_body.dmi'
+	blood_mask = 'icons/mob/human_races/masks/blood_tesla_body.dmi'
+
+	stamina = 30
+	stamina_recovery = 3
+	sprint_speed_factor = 0.25
+	sprint_cost_factor = 0.25
+	standing_jump_range = 1
+
+	has_organ = list(
+		BP_HEART =    /obj/item/organ/internal/heart/tajara/tesla_body,
+		BP_LUNGS =    /obj/item/organ/internal/lungs/tajara,
+		BP_LIVER =    /obj/item/organ/internal/liver/tajara,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/tajara,
+		BP_STOMACH =  /obj/item/organ/internal/stomach/tajara,
+		BP_BRAIN =    /obj/item/organ/internal/brain/tajara,
+		BP_APPENDIX = /obj/item/organ/internal/appendix/tajara,
+		BP_EYES =     /obj/item/organ/internal/eyes/night,
+		BP_AUG_TESLA =     /obj/item/organ/internal/augment/tesla/massive
+		)
