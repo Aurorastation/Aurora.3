@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "af" = (
-/obj/structure/table/diona,
+/obj/structure/ore_box,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/dock)
 "av" = (
@@ -56,18 +56,24 @@
 /obj/machinery/door/airlock/diona/external,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
-"cj" = (
-/turf/simulated/floor/diona/airless,
-/area/shuttle/diona_serz_ship_shuttle)
-"cC" = (
-/obj/effect/shuttle_landmark/diona_serz_ship_shuttle/hangar,
-/turf/simulated/floor/diona/airless,
-/area/ship/diona_serz_ship/engine)
-"cD" = (
+"cf" = (
 /obj/structure/table/diona,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
 /obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/dock)
+"cj" = (
+/turf/simulated/floor/diona/airless,
+/area/shuttle/diona_serz_ship_shuttle)
+"cC" = (
+/obj/effect/shuttle_landmark/diona_serz_ship/nav1,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/engine)
+"cD" = (
+/obj/structure/table/diona,
+/obj/structure/diona/bulb,
+/obj/item/crowbar/red,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
 "cW" = (
@@ -132,11 +138,12 @@
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
 /turf/simulated/floor/diona/airless,
-/area/ship/diona_serz_ship/engine)
+/area/ship/diona_serz_ship/dock)
 "fv" = (
 /obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
+/obj/item/pickaxe,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
 "fQ" = (
@@ -145,7 +152,7 @@
 /area/ship/diona_serz_ship/engine)
 "gu" = (
 /obj/machinery/door/airlock/diona/external,
-/obj/effect/shuttle_landmark/diona_serz_ship/nav1,
+/obj/effect/shuttle_landmark/diona_serz_ship_shuttle/hangar,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/dock)
 "gx" = (
@@ -174,6 +181,10 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/engine)
+"iu" = (
+/obj/machinery/portable_atmospherics/canister/empty/oxygen,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
 "iJ" = (
@@ -234,6 +245,7 @@
 "kY" = (
 /obj/structure/table/diona,
 /obj/item/device/binoculars/spyglass,
+/obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/bridge)
 "le" = (
@@ -294,6 +306,10 @@
 /obj/machinery/shipsensors/weak,
 /turf/simulated/floor/diona/airless,
 /area/shuttle/diona_serz_ship_shuttle)
+"nZ" = (
+/obj/machinery/mining/drill,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/hall)
 "od" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
@@ -301,9 +317,8 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/hall)
 "oF" = (
-/obj/structure/table/diona,
-/obj/item/device/flashlight/lantern,
 /obj/structure/diona/bulb,
+/obj/structure/ore_box,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/dock)
 "oI" = (
@@ -313,7 +328,7 @@
 /turf/simulated/wall/diona,
 /area/ship/diona_serz_ship/dock)
 "oY" = (
-/obj/machinery/autolathe,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
 "pw" = (
@@ -351,6 +366,10 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
 /area/space)
+"qK" = (
+/obj/machinery/door/airlock/diona,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/dock)
 "qM" = (
 /obj/item/storage/toolbox/syndicate,
 /obj/structure/table/diona,
@@ -400,12 +419,23 @@
 "ru" = (
 /turf/simulated/wall/diona,
 /area/ship/diona_serz_ship/warehouse)
+"rw" = (
+/obj/machinery/mining/brace,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/hall)
+"rE" = (
+/obj/machinery/autolathe,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/warehouse)
 "rV" = (
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/lightcontainment)
 "rZ" = (
 /obj/structure/table/diona,
-/obj/structure/diona/bulb,
+/obj/item/melee/baton/stunrod,
+/obj/item/melee/baton/stunrod,
+/obj/item/melee/baton/stunrod,
+/obj/item/melee/baton/stunrod,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/dock)
 "sj" = (
@@ -545,13 +575,13 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/lightcontainment)
 "AA" = (
-/obj/item/pickaxe,
-/obj/structure/table/diona,
-/obj/structure/diona/bulb,
-/obj/item/clothing/head/hardhat/red,
-/obj/item/clothing/head/hardhat/red,
+/obj/machinery/mineral/mint,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
+"AJ" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/dock)
 "AM" = (
 /mob/living/simple_animal/hostile/carp/shark/reaver{
 	faction = "neutral"
@@ -860,6 +890,12 @@
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/bridge)
+"Mf" = (
+/obj/machinery/mining/brace{
+	dir = 1
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/hall)
 "Mw" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -881,12 +917,23 @@
 /area/ship/diona_serz_ship/heavycontainment)
 "NU" = (
 /obj/structure/table/diona,
-/obj/item/melee/baton/stunrod,
-/obj/item/melee/baton/stunrod,
-/obj/item/melee/baton/stunrod,
-/obj/item/melee/baton/stunrod,
+/obj/item/pickaxe,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
+"Og" = (
+/obj/item/pickaxe,
+/obj/structure/table/diona,
+/obj/structure/diona/bulb,
+/obj/item/clothing/head/hardhat/red,
+/obj/item/clothing/head/hardhat/red,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/dock)
+"Ol" = (
+/mob/living/simple_animal/carp/baby/reaver{
+	faction = "neutral"
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/heavycontainment)
 "Oo" = (
 /obj/machinery/door/airlock/diona/external,
 /obj/effect/landmark/entry_point/port{
@@ -912,6 +959,13 @@
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/bridge)
+"Pa" = (
+/obj/item/pickaxe,
+/obj/structure/table/diona,
+/obj/item/clothing/head/hardhat/red,
+/obj/item/clothing/head/hardhat/red,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/dock)
 "Pg" = (
 /turf/simulated/floor/diona,
 /area/shuttle/diona_serz_ship_shuttle)
@@ -1014,16 +1068,19 @@
 /turf/unsimulated/mineral/asteroid,
 /area/ship/diona_serz_ship/asteroid)
 "Sh" = (
-/obj/item/pickaxe,
-/obj/structure/table/diona,
-/obj/item/clothing/head/hardhat/red,
-/obj/item/clothing/head/hardhat/red,
+/obj/machinery/media/jukebox,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
 "SG" = (
 /obj/machinery/floodlight{
 	dir = 4
 	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/engine)
+"SM" = (
+/obj/structure/table/diona,
+/obj/structure/diona/bulb,
+/obj/item/wrench,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
 "SR" = (
@@ -1151,7 +1208,7 @@
 /obj/item/stack/material/steel/full,
 /obj/structure/closet/crate,
 /turf/simulated/floor/diona/airless,
-/area/ship/diona_serz_ship/engine)
+/area/ship/diona_serz_ship/warehouse)
 "VY" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/diona/airless,
@@ -30636,17 +30693,17 @@ KX
 KX
 kB
 kB
-yR
-yR
-yR
-Dh
-zm
-yR
-yR
-yR
-yR
-yR
-yR
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
 kB
 kB
 kB
@@ -30892,18 +30949,18 @@ KX
 KX
 KX
 kB
-nG
-yR
-TJ
-LH
-EF
-Pg
-EF
-Jb
-gx
-JI
-HS
-tA
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
 kB
 kB
 kB
@@ -31149,18 +31206,18 @@ KX
 KX
 KX
 kB
-cj
-yR
-rh
-GZ
-yR
-dp
-Pg
-mt
-Pg
-Pg
-Ji
-tA
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
 kB
 kB
 kB
@@ -31406,18 +31463,18 @@ KX
 KX
 KX
 kB
-cj
-rb
-In
-GZ
-yR
-PU
-Pg
-Pg
-Pg
-Pg
-Fh
-tA
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
 kB
 kB
 kB
@@ -31663,18 +31720,18 @@ LB
 LB
 LB
 kB
-Tm
-yR
-iU
-Pg
-EF
-Pg
-EF
-QY
-Mw
-Ln
-qX
-tA
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
 kB
 kB
 kB
@@ -31921,17 +31978,17 @@ EI
 LB
 kB
 kB
-yR
-yR
-yR
-Dh
-Oo
-yR
-yR
-yR
-yR
-yR
-yR
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
+kB
 kB
 kB
 kB
@@ -32174,7 +32231,7 @@ Qb
 xL
 xL
 xL
-xL
+Ol
 LB
 kB
 kB
@@ -33438,7 +33495,7 @@ qB
 kY
 pw
 pw
-pw
+kq
 CE
 vI
 pw
@@ -33467,7 +33524,7 @@ Sa
 Sa
 Sa
 Sa
-VO
+Sa
 ie
 BK
 kB
@@ -33724,7 +33781,7 @@ AA
 Sa
 LE
 Sa
-eO
+SM
 ie
 BK
 kB
@@ -34235,8 +34292,8 @@ Gh
 YM
 Wg
 Sa
-Sa
 LE
+Sa
 Sa
 zl
 ie
@@ -34471,9 +34528,9 @@ Jx
 Gh
 Gh
 Gh
-Gh
-Gh
-Gh
+rw
+nZ
+Mf
 Gh
 Gh
 Gh
@@ -34493,9 +34550,9 @@ Gh
 Jx
 Vr
 Sa
+iu
 Sa
-Sa
-fo
+eO
 ie
 BK
 kB
@@ -34982,7 +35039,7 @@ BV
 BV
 BV
 pI
-dY
+AJ
 dY
 af
 pI
@@ -35234,11 +35291,11 @@ KX
 KX
 KX
 KX
-KX
-KX
 pI
+Og
+aZ
 rZ
-af
+dY
 aZ
 dY
 oF
@@ -35261,7 +35318,7 @@ Du
 IU
 SR
 Kd
-fQ
+bu
 bu
 Sa
 LE
@@ -35491,14 +35548,14 @@ KX
 KX
 KX
 UP
-UP
-KX
 pI
+Pa
 dY
 dY
 dY
 dY
 dY
+af
 pI
 rm
 YS
@@ -35748,9 +35805,9 @@ kB
 UP
 UP
 UP
-UP
-KX
 pI
+cf
+dY
 aZ
 Jm
 pI
@@ -36005,19 +36062,19 @@ UP
 UP
 UP
 UP
-KX
-KX
 pI
+fo
+dY
 dY
 Jm
 pI
 Uk
 dY
-pI
+qK
 TI
 YS
 TI
-YS
+rE
 lX
 Ry
 lX
@@ -36262,9 +36319,9 @@ UP
 UP
 KX
 KX
-KX
-KX
 pI
+pI
+Qq
 gT
 dY
 aZ
@@ -36274,7 +36331,7 @@ pI
 YS
 YS
 YS
-YS
+VO
 Ry
 Ry
 Ry
@@ -36520,8 +36577,8 @@ UP
 KX
 KX
 KX
-KX
 pI
+Qq
 Qq
 dY
 dY
@@ -36777,7 +36834,7 @@ KX
 KX
 KX
 KX
-KX
+pI
 pI
 pI
 Fd
@@ -38062,17 +38119,17 @@ kB
 kB
 kB
 kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
+yR
+yR
+yR
+Dh
+zm
+yR
+yR
+yR
+yR
+yR
+yR
 kB
 kB
 kB
@@ -38318,18 +38375,18 @@ kB
 kB
 kB
 kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
+nG
+yR
+TJ
+LH
+EF
+Pg
+EF
+Jb
+gx
+JI
+HS
+tA
 kB
 kB
 kB
@@ -38575,18 +38632,18 @@ kB
 kB
 kB
 kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
+cj
+yR
+rh
+GZ
+yR
+dp
+Pg
+mt
+Pg
+Pg
+Ji
+tA
 kB
 kB
 kB
@@ -38832,18 +38889,18 @@ kB
 kB
 kB
 kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
+cj
+rb
+In
+GZ
+yR
+PU
+Pg
+Pg
+Pg
+Pg
+Fh
+tA
 kB
 kB
 kB
@@ -39089,18 +39146,18 @@ kB
 kB
 kB
 kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
+Tm
+yR
+iU
+Pg
+EF
+Pg
+EF
+QY
+Mw
+Ln
+qX
+tA
 kB
 kB
 kB
@@ -39347,17 +39404,17 @@ kB
 kB
 kB
 kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
-kB
+yR
+yR
+yR
+Dh
+Oo
+yR
+yR
+yR
+yR
+yR
+yR
 kB
 kB
 kB
