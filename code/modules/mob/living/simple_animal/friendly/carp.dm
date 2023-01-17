@@ -166,3 +166,29 @@
 /mob/living/simple_animal/carp/baby/death()
 	.=..()
 	desc = "A dead baby space carp, what a tragedy!"
+	
+/mob/living/simple_animal/carp/baby/reaver
+	name = "baby reaver"
+	desc = "Awfully creepy! Looks unfriendly!"
+	icon_state = "babyreaver"
+	item_state = "babyreaver"
+	icon_living = "babyreaver"
+	icon_dead = "babyreaver_dead"
+	icon_gib = null
+	can_nap = TRUE
+	gender = NEUTER
+	mob_size = 3.5
+	holder_type = /obj/item/holder/carp/baby/reaver
+
+/mob/living/simple_animal/carp/baby/eel
+	name = "baby spectral eel"
+	desc = "It's so adorable... but also horrifying."
+	icon_state = "babyeel"
+	item_state = "babyeel"
+	icon_living = "babyeel"
+	icon_dead = "babyeel_dead"
+	icon_gib = null
+	can_nap = TRUE
+	gender = NEUTER
+	mob_size = 3.5
+	holder_type = /obj/item/holder/carp/baby/eel
