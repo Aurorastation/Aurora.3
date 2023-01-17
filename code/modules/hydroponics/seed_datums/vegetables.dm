@@ -5,7 +5,7 @@
 	name = "chili"
 	seed_name = "chili"
 	display_name = "chili plants"
-	chems = list(/decl/reagent/capsaicin = list(3,5), /decl/reagent/nutriment = list(1,25))
+	chems = list(/singleton/reagent/capsaicin = list(3,5), /singleton/reagent/nutriment = list(1,25))
 	mutants = list("icechili")
 	kitchen_tag = "chili"
 
@@ -30,7 +30,7 @@
 	seed_name = "ice pepper"
 	display_name = "ice-pepper plants"
 	mutants = null
-	chems = list(/decl/reagent/frostoil = list(3,5), /decl/reagent/nutriment = list(1,50))
+	chems = list(/singleton/reagent/frostoil = list(3,5), /singleton/reagent/nutriment = list(1,50))
 	kitchen_tag = "icechili"
 
 /datum/seed/chili/ice/setup_traits()
@@ -50,7 +50,7 @@
 	seed_name = "nettle"
 	display_name = "nettles"
 	mutants = list("deathnettle")
-	chems = list(/decl/reagent/nutriment = list(1,50), /decl/reagent/acid = list(0,1))
+	chems = list(/singleton/reagent/nutriment = list(1,50), /singleton/reagent/acid = list(0,1))
 	kitchen_tag = "nettle"
 	kitchen_tag = "nettle"
 
@@ -74,7 +74,7 @@
 	seed_name = "death nettle"
 	display_name = "death nettles"
 	mutants = null
-	chems = list(/decl/reagent/nutriment = list(1,50), /decl/reagent/acid/polyacid = list(0,1))
+	chems = list(/singleton/reagent/nutriment = list(1,50), /singleton/reagent/acid/polyacid = list(0,1))
 	kitchen_tag = "deathnettle"
 
 /datum/seed/nettle/death/setup_traits()
@@ -95,7 +95,7 @@
 	seed_name = "eggplant"
 	display_name = "eggplants"
 	mutants = list("realeggplant")
-	chems = list(/decl/reagent/nutriment = list(1,10))
+	chems = list(/singleton/reagent/nutriment = list(1,10))
 	kitchen_tag = "eggplant"
 
 /datum/seed/eggplant/setup_traits()
@@ -118,7 +118,7 @@
 	name = "huge eggplant"
 	seed_name = "realeggplant"
 	display_name = "eggplants"
-	chems = list(/decl/reagent/nutriment = list(15,30))
+	chems = list(/singleton/reagent/nutriment = list(15,30))
 	kitchen_tag = "realeggplant"
 
 /datum/seed/realeggplant/setup_traits()
@@ -141,7 +141,7 @@
 	name = "peanut"
 	seed_name = "peanut"
 	display_name = "peanut vines"
-	chems = list(/decl/reagent/nutriment = list(1,10))
+	chems = list(/singleton/reagent/nutriment = list(1,10))
 	kitchen_tag = "peanut"
 
 /datum/seed/peanuts/setup_traits()
@@ -163,7 +163,7 @@
 	name = "soybean"
 	seed_name = "soybean"
 	display_name = "soybeans"
-	chems = list(/decl/reagent/nutriment = list(1,20), /decl/reagent/drink/milk/soymilk = list(10,20))
+	chems = list(/singleton/reagent/nutriment = list(1,20), /singleton/reagent/drink/milk/soymilk = list(10,20))
 	kitchen_tag = "soybeans"
 
 /datum/seed/soybean/setup_traits()
@@ -188,7 +188,7 @@
 	name = "cabbage"
 	seed_name = "cabbage"
 	display_name = "cabbages"
-	chems = list(/decl/reagent/nutriment = list(1,10))
+	chems = list(/singleton/reagent/nutriment = list(1,10))
 	kitchen_tag = "cabbage"
 
 /datum/seed/cabbage/setup_traits()

@@ -337,7 +337,7 @@
 	. = ..()
 	if (.)
 		// Events.
-		if (moved_event.listeners_assoc[src])
+		if (moved_event.global_listeners[src])
 			moved_event.raise_event(src, old_loc, loc)
 
 		// Lighting.
@@ -364,7 +364,7 @@
 	update_grid_location(old_loc, src)
 
 /atom/movable/proc/update_grid_location(atom/old_loc)
-	if(!HAS_SPATIAL_GRID_CONTENTS(src))
+	if(!HAS_SPATIAL_GRID_CONTENTS(src) || SSspatial_grid.init_state < SS_INITSTATE_DONE)
 		return
 
 	var/turf/old_turf = get_turf(old_loc)
@@ -392,6 +392,9 @@
 			for (var/atom/movable/location as anything in nested_locs)
 				LAZYREMOVEASSOC(location.important_recursive_contents, channel, gone.important_recursive_contents[channel])
 
+	if(LAZYLEN(gone.stored_chat_text))
+		return_floating_text(gone)
+
 /atom/movable/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 
@@ -400,6 +403,9 @@
 		for (var/channel in arrived.important_recursive_contents)
 			for (var/atom/movable/location as anything in nested_locs)
 				LAZYORASSOCLIST(location.important_recursive_contents, channel, arrived.important_recursive_contents[channel])
+
+	if (LAZYLEN(arrived.stored_chat_text))
+		give_floating_text(arrived)
 
 //allows this movable to hear and adds itself to the important_recursive_contents list of itself and every movable loc its in
 /atom/movable/proc/become_hearing_sensitive(trait_source = TRAIT_GENERIC)
