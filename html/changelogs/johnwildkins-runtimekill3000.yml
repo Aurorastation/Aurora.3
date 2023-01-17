@@ -1,8 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - tweak: "Floating chat messages now follow you in -and- out of the closet! (And all other 'enterable' objects.)."
-  - bugfix: "Sodium chloride now overdoses properly."
-  - backend: "Cleaned up a whole mess of runtime errors related to bad clients, null objects, etc."
