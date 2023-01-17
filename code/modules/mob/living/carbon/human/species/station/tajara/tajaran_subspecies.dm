@@ -120,6 +120,7 @@
 	default_h_style = "Tesla Rejuvenation Suit Ears"
 
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
+	eyes = "eyes_tesla_body"
 
 	icon_template = 'icons/mob/human_races/tajara/r_tesla_body.dmi'
 	icobase = 'icons/mob/human_races/tajara/r_tesla_body.dmi'
@@ -149,6 +150,9 @@
 	sprint_speed_factor = 0.25
 	sprint_cost_factor = 0.25
 	standing_jump_range = 1
+
+	injection_mod = 2
+	has_fine_manipulation = FALSE
 
 	has_organ = list(
 		BP_HEART =    /obj/item/organ/internal/heart/tajara/tesla_body,
