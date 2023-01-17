@@ -6,6 +6,8 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "diona_rokz"
+	icon_state = "ship_green"
+	moving_state = "ship_green_moving"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/diona_rokz_ship_shuttle)
 
 /singleton/submap_archetype/diona_rokz_ship
