@@ -170,7 +170,7 @@
 		if(!isturf(picked)) return
 
 		spark(user, 5)
-		playsound(user.loc, /decl/sound_category/spark_sound, 50, 1)
+		playsound(user.loc, /singleton/sound_category/spark_sound, 50, 1)
 
 		user.forceMove(picked)
 		return PROJECTILE_FORCE_MISS
@@ -364,7 +364,7 @@
 /obj/item/clothing/suit/storage/hazardvest/security
 	name = "cadet hazard vest"
 	desc = "A sturdy high-visibility vest intended for training security personnel."
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "hazard_cadet"
 	item_state = "hazard_cadet"
 	allowed = list(/obj/item/gun,/obj/item/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)

@@ -43,15 +43,23 @@
 		return
 	short_name = input
 
+/mob/living/simple_animal/hostile/commanded/proc/get_command(cmdtext, list/searchnames)
+	searchnames |= list("everyone", "everybody")
+	for(var/name in searchnames)
+		if(dd_hasprefix(cmdtext, name))
+			return copytext(cmdtext, length(name) + 1)
+
 /mob/living/simple_animal/hostile/commanded/think()
 	while(command_buffer.len > 0)
 		var/mob/speaker = command_buffer[1]
 		var/text = command_buffer[2]
 		var/filtered_name = lowertext(html_decode(name))
 		var/filtered_short = lowertext(html_decode(short_name))
-		if(dd_hasprefix(text,filtered_name) || dd_hasprefix(text,filtered_short) || dd_hasprefix(text,"everyone") || dd_hasprefix(text, "everybody")) //in case somebody wants to command 8 bears at once.
-			var/substring = copytext(text,length(filtered_name)+1) //get rid of the name.
-			listen(speaker,substring)
+		var/substring = get_command(text, list(filtered_name, filtered_short))
+
+		if(substring)
+			listen(speaker, substring)
+
 		command_buffer.Remove(command_buffer[1],command_buffer[2])
 	..()
 	switch(stance)
@@ -94,7 +102,7 @@
 	stop_automated_movement = 1
 	if(!target_mob)
 		return
-	if(target_mob in ListTargets(10))
+	if(get_dist(src, target_mob) <= 10)
 		walk_to(src,target_mob,1,move_to_delay)
 
 /mob/living/simple_animal/hostile/commanded/proc/commanded_stop() //basically a proc that runs whenever we are asked to stay put. Probably going to remain unused.
@@ -224,7 +232,7 @@
 		if(M.a_intent == I_HURT)
 			audible_emote("[pick(sad_emote)].",0)
 		return
-	if(M.a_intent == I_HELP && prob(40)) //chance that they won't immediately kill anyone who pets them. But only a chance. 
+	if(M.a_intent == I_HELP && prob(40)) //chance that they won't immediately kill anyone who pets them. But only a chance.
 		stance = HOSTILE_STANCE_IDLE
 		target_mob = null
 		audible_emote("growls at [M].")

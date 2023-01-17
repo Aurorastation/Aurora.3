@@ -8,6 +8,9 @@
 		intoxication = 0
 		return
 
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_ALCOHOL_RESISTANCE))
+		SR = 1.5
+
 	//Godmode messes some things up, so no more BSTs getting drunk unless they toggle it off
 	if (status_flags & GODMODE)
 		intoxication = 0 //Zero out intoxication but don't return, let the rest of this function run to remove any residual effects
@@ -76,7 +79,18 @@
 				sleeping  = max(sleeping, 6 SECONDS)
 				adjustBrainLoss(1,5)
 
-	if (bac > INTOX_DEATH*SR && !src.reagents.has_reagent(/decl/reagent/ethylredoxrazine)) //Death usually occurs here
+	if (bac > INTOX_DEATH*SR && !src.reagents.has_reagent(/singleton/reagent/ethylredoxrazine)) //Death usually occurs here
 		add_chemical_effect(CE_HEPATOTOXIC, 10)
 		adjustOxyLoss(3,100)
 		adjustBrainLoss(1,50)
+
+/mob/living/carbon/human/proc/is_drunk()
+	var/SR = species.ethanol_resistance
+	if(SR == -1)
+		return FALSE
+
+	var/bac = get_blood_alcohol()
+	if(bac > (INTOX_MUSCLEIMP * SR))
+		return TRUE
+
+	return FALSE

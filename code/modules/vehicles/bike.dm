@@ -1,7 +1,11 @@
 /obj/vehicle/bike
 	name = "space-bike"
 	desc = "Space wheelies! Woo!"
-	desc_info = "Click on the bike, click resist, or type resist into the red bar below to get off. Drag yourself onto the bike to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off. Use ctrl-click to quickly toggle the engine if you're adjacent (only when vehicle is stationary). Alt-click will similarly toggle the kickstand."
+	desc_info = "Click-drag yourself onto the bike to climb onto it.<br>\
+		- Click-drag it onto yourself to access its mounted storage.<br>\
+		- CTRL-click the bike to toggle the engine.<br>\
+		- ALT-click to toggle the kickstand which prevents movement by driving and dragging.<br>\
+		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike."
 	icon = 'icons/obj/bike.dmi'
 	icon_state = "bike_off"
 	dir = SOUTH
@@ -47,7 +51,7 @@
 	if(!on)
 		turn_on()
 		src.visible_message("\The [src] rumbles to life.", "You hear something rumble deeply.")
-		playsound(src, 'sound/misc/bike_start.ogg', 100, 1)
+		playsound(src, 'sound/machines/vehicles/bike_start.ogg', 100, 1)
 	else
 		turn_off()
 		src.visible_message("\The [src] putters before turning off.", "You hear something putter slowly.")
@@ -64,17 +68,20 @@
 
 	if(kickstand)
 		user.visible_message("\The [user] puts up \the [src]'s kickstand.", "You put up \the [src]'s kickstand.", "You hear a thunk.")
-		playsound(src, 'sound/misc/bike_stand_up.ogg', 50, 1)
+		playsound(src, 'sound/machines/vehicles/bike_stand_up.ogg', 50, 1)
 	else
 		if(isturf(loc))
 			var/turf/T = loc
 			if (T.is_hole)
-				to_chat(user, "<span class='warning'>You don't think kickstands work here.</span>")
+				to_chat(user, SPAN_WARNING("You don't think kickstands work here."))
 				return
 		user.visible_message("\The [user] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
-		playsound(src, 'sound/misc/bike_stand_down.ogg', 50, 1)
-		if(pulledby)
-			pulledby.stop_pulling()
+
+		playsound(src, 'sound/machines/vehicles/bike_stand_down.ogg', 50, 1)
+		if(ismob(pulledby))
+			var/mob/M = pulledby
+			M.stop_pulling()
+
 
 	kickstand = !kickstand
 	anchored = (kickstand || on)
@@ -93,7 +100,7 @@
 
 /obj/vehicle/bike/MouseDrop_T(var/atom/movable/C, mob/user as mob)
 	if(!load(C))
-		to_chat(user, "<span class='warning'>You were unable to load \the [C] onto \the [src].</span>")
+		to_chat(user, SPAN_WARNING("You were unable to load \the [C] onto \the [src]."))
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
@@ -120,7 +127,9 @@
 		return FALSE
 
 /obj/vehicle/bike/Move(var/turf/destination)
-	if(kickstand) return
+	if(kickstand)
+		visible_message("The kickstand prevents the bike from moving!")
+		return
 
 	//these things like space, not turf. Dragging shouldn't weigh you down.
 	var/is_on_space = check_destination(destination)
@@ -143,8 +152,9 @@
 
 	update_icon()
 
-	if(pulledby)
-		pulledby.stop_pulling()
+	if(ismob(pulledby))
+		var/mob/M = pulledby
+		M.stop_pulling()
 	..()
 
 /obj/vehicle/bike/turn_off()
@@ -216,7 +226,7 @@
 				M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
-				playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
+				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
 				H.apply_damage(20, BRUTE)
 				H.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				H.apply_effect(4, WEAKEN)
@@ -226,7 +236,7 @@
 			else
 				var/mob/living/L = AM
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [L]!"))
-				playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
+				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
 				L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				L.apply_damage(20, BRUTE)
 				M.setMoveCooldown(10)

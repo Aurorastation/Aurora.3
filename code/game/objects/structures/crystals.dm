@@ -6,7 +6,7 @@
 	anchored = TRUE
 	density = FALSE
 	layer = ABOVE_CABLE_LAYER
-	var/decl/reagent/reagent_id
+	var/singleton/reagent/reagent_id
 	var/state = 0
 	var/health = 100
 	var/mine_rate = 1 // how fast you can mine it
@@ -16,7 +16,7 @@
 /obj/structure/reagent_crystal/Initialize(mapload, var/reagent_i = null, var/our_creator = null)
 	. = ..()
 	if(!reagent_i)
-		var/list/chems = list(/decl/reagent/acetone, /decl/reagent/aluminum, /decl/reagent/ammonia, /decl/reagent/carbon, /decl/reagent/copper, /decl/reagent/iron, /decl/reagent/lithium, /decl/reagent/mercury, /decl/reagent/potassium, /decl/reagent/radium, /decl/reagent/sodium)
+		var/list/chems = list(/singleton/reagent/acetone, /singleton/reagent/aluminum, /singleton/reagent/ammonia, /singleton/reagent/carbon, /singleton/reagent/copper, /singleton/reagent/iron, /singleton/reagent/lithium, /singleton/reagent/mercury, /singleton/reagent/potassium, /singleton/reagent/radium, /singleton/reagent/sodium)
 		reagent_i = pick(chems)
 	reagent_id = reagent_i
 	name = replacetext(name, "chemical", lowertext(initial(reagent_id.name)))
@@ -49,7 +49,7 @@
 		harvest()
 
 /obj/structure/reagent_crystal/attack_hand(mob/user)
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src] apart!"), SPAN_WARNING("You smash \the [src] apart!"))
 		harvest()
 		return
@@ -160,7 +160,7 @@
 	. = ..()
 	create_reagents(max(5, amount))
 	reagents.add_reagent(reagent_i, amount)
-	var/decl/reagent/R = decls_repository.get_decl(reagent_i)
+	var/singleton/reagent/R = GET_SINGLETON(reagent_i)
 	name = "[lowertext(R.name)] crystal"
 	desc = "A [lowertext(R.name)] crystal. It looks rough, unprocessed."
 	desc_info = "This crystal can be ground to obtain the chemical material locked within."

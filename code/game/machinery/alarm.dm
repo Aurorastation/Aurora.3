@@ -41,7 +41,7 @@
 	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
 	power_channel = ENVIRON
 	req_one_access = list(access_atmospherics, access_engine_equip)
-	clicksound = /decl/sound_category/button_sound
+	clicksound = /singleton/sound_category/button_sound
 	clickvol = 30
 
 	var/alarm_id = null
@@ -500,6 +500,7 @@
 
 /obj/machinery/alarm/proc/populate_status(var/data)
 	var/turf/location = get_turf(src)
+	if(!istype(location)) return
 	var/datum/gas_mixture/environment = location.return_air()
 	var/total = environment.total_moles
 

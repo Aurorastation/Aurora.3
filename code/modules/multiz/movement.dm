@@ -52,11 +52,11 @@
 
 	var/turf/start = get_turf(src)
 	if(!start.CanZPass(src, direction))
-		to_chat(src, SPAN_WARNING("\The [start] is in the way."))
+		to_chat(src, SPAN_WARNING("\The [start.GetZPassBlocker()] is in the way."))
 		return FALSE
 
 	if(!destination.CanZPass(src, direction))
-		to_chat(src, SPAN_WARNING("\The [destination] is in the way!"))
+		to_chat(src, SPAN_WARNING("\The [destination.GetZPassBlocker()] is in the way!"))
 		return FALSE
 
 	var/area/area = get_area(src)
@@ -455,7 +455,7 @@
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /decl/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
 		return FALSE
 
 	visible_message("\The [src] falls and lands on \the [loc]!",
@@ -477,7 +477,7 @@
 			if(51 to INFINITY)
 				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, /decl/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
@@ -499,7 +499,7 @@
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /decl/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
 		return FALSE
 
 	var/combat_roll = 1
@@ -634,11 +634,11 @@
 			if(-INFINITY to 10)
 				playsound(src.loc, "sound/weapons/bladeslice.ogg", 50, 1)
 			if(11 to 50)
-				playsound(src.loc, /decl/sound_category/punch_sound, 75, 1)
+				playsound(src.loc, /singleton/sound_category/punch_sound, 75, 1)
 			if(51 to INFINITY)
 				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, /decl/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 

@@ -12,7 +12,7 @@
 
 /obj/item/clothing/under/tajaran/fancy
 	name = "fancy uniform"
-	desc = "Worn by princess, barons and lords of Adhomai, now in stores near you!"
+	desc = "Worn by princes, barons and lords of Adhomai, now in stores near you!"
 	icon_state = "male_taj_fancy"
 	item_state = "male_taj_fancy"
 	desc_extended = "While money and riches are at an all time low, the New Kingdom is symbolized by one thing, hope. While the often attacked, poor and shaggy nation is compared to \
@@ -20,6 +20,14 @@
 	nobles and peasants live in the same streets, drink the same water and eat the same food and thus even wear the same clothes. On the streets they look very similar to PRA Tajara, \
 	overcoats, white shirts, pants although often in poorer state. However jewelry, tail adornments and veils are in rich abundance, often showing off small and intricate details of \
 	individual personalities. But where the NKA really shines are their parties and special events."
+
+/obj/item/clothing/under/tajaran/fancy/alt1
+	icon_state = "male_taj_fancy_alt1"
+	item_state = "male_taj_fancy_alt1"
+
+/obj/item/clothing/under/tajaran/fancy/alt2
+	icon_state = "male_taj_fancy_alt2"
+	item_state = "male_taj_fancy_alt2"
 
 /obj/item/clothing/under/tajaran/nt
 	name = "NanoTrasen overalls"
@@ -151,6 +159,40 @@
 	icon_state = "taj_dress_fancy_dark"
 	item_state = "taj_dress_fancy_dark"
 
+/obj/item/clothing/under/dress/tajaran/long
+	name = "adhomian dress"
+	desc = "A prim and proper dress, covers from neck to ankle."
+	icon_state = "longdress"
+	item_state = "longdress"
+
+/obj/item/clothing/under/dress/tajaran/long/update_icon()
+	cut_overlays()
+	var/image/buttons = image(icon, null, "longdress_buttons")
+	buttons.appearance_flags = RESET_COLOR
+	add_overlay(buttons)
+
+/obj/item/clothing/under/dress/tajaran/long/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_w_uniform_str)
+		var/image/buttons = image(mob_icon, null, "longdress_un_buttons")
+		buttons.appearance_flags = RESET_COLOR
+		I.add_overlay(buttons)
+	return I
+
+/obj/item/clothing/under/dress/tajaran/formal
+	name = "fancy uniform with skirt"
+	desc = "Formal Tajaran clothing with a skirt."
+	icon_state = "female_taj_fancy"
+	item_state = "female_taj_fancy"
+
+/obj/item/clothing/under/dress/tajaran/formal/alt1
+	icon_state = "female_taj_fancy_alt1"
+	item_state = "female_taj_fancy_alt1"
+
+/obj/item/clothing/under/dress/tajaran/formal/alt2
+	icon_state = "female_taj_fancy_alt2"
+	item_state = "female_taj_fancy_alt2"
+
 /obj/item/clothing/under/dress/tajaran/summer
 	name = "adhomian summer dress"
 	desc = "An Adhomian dress usually worn during the summer."
@@ -223,3 +265,33 @@
 	desc = "Clothes frequently worn by the New Kingdom's nobles. Likely a hand-me-down."
 	icon_state = "nka_noble_uniform"
 	item_state = "nka_noble_uniform"
+
+/obj/item/clothing/under/tajaran/nka_noble/update_icon()
+	cut_overlays()
+	var/image/lining = image(icon, null, "nka_noble_uniform_lining")
+	lining.appearance_flags = RESET_COLOR
+	add_overlay(lining)
+
+/obj/item/clothing/under/tajaran/nka_noble/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_w_uniform_str)
+		var/image/lining = image(mob_icon, null, "nka_noble_uniform_un_lining")
+		lining.appearance_flags = RESET_COLOR
+		I.add_overlay(lining)
+	return I
+
+/obj/item/clothing/under/tajaran/nka_merchant_navy
+	name = "her majesty's mercantile flotilla crew uniform"
+	desc = "An uniform used by the crew of the New Kingdom's merchant space ships. It is clearly inspired on the ones used back in Adhomai."
+	icon_state = "nka_merchant_navy"
+	item_state = "nka_merchant_navy"
+
+/obj/item/clothing/under/tajaran/nka_merchant_navy/alt
+	icon_state = "nka_merchant_navy_alt"
+	item_state = "nka_merchant_navy_alt"
+
+/obj/item/clothing/under/tajaran/nka_merchant_navy/captain
+	name = "her majesty's mercantile flotilla captain uniform"
+	desc = "An uniform used by the captain of the New Kingdom's merchant space ships. Not as fancy as the ones used in the Royal Navy."
+	icon_state = "nka_merchant_captain"
+	item_state = "nka_merchant_captain"

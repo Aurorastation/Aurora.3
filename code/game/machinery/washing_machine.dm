@@ -1,11 +1,11 @@
 /obj/machinery/washing_machine
 	name = "washing machine"
 	desc = "A washing machine with special decontamination procedures. It can fit everything from clothes to even rifles."
-	icon = 'icons/obj/machines/washing_machine.dmi'
+	icon = 'icons/obj/machinery/washing_machine.dmi'
 	icon_state = "wm_10"
 	density = 1
 	anchored = 1.0
-	clicksound = /decl/sound_category/button_sound
+	clicksound = /singleton/sound_category/button_sound
 	clickvol = 40
 
 	var/state = 1
@@ -99,7 +99,7 @@
 				state = 3
 		else
 			return ..()
-	else 
+	else
 		if(contents.len < 5)
 			if (state in list(1, 3))
 				user.drop_from_inventory(W,src)

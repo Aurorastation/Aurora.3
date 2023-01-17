@@ -127,7 +127,7 @@
 		return FALSE
 
 	//Hulk modifier
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		effective_force *= 2
 
 	//Apply weapon damage
@@ -280,6 +280,10 @@
 	return fire_stacks
 
 /mob/living/proc/handle_fire()
+	if(!loc)
+		ExtinguishMobCompletely()
+		return TRUE
+
 	if(fire_stacks < 0)
 		fire_stacks = min(0, ++fire_stacks) //If we've doused ourselves in water to avoid fire, dry off slowly
 

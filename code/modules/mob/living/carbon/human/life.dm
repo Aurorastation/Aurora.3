@@ -206,9 +206,8 @@
 	if(InStasis())
 		return
 
-	if(getFireLoss())
-		if((COLD_RESISTANCE in mutations) || (prob(1)))
-			heal_organ_damage(0,1)
+	if(getFireLoss() && (HAS_FLAG(mutations, COLD_RESISTANCE) || prob(1)))
+		heal_organ_damage(0,1)
 
 	// DNA2 - Gene processing.
 	// The HULK stuff that was here is now in the hulk gene.
@@ -360,8 +359,15 @@
 		var/relative_density = environment.total_moles / MOLES_CELLSTANDARD
 		bodytemperature += between(BODYTEMP_COOLING_MAX, temp_adj*relative_density, BODYTEMP_HEATING_MAX)
 
+	var/cold_bonus = 0
+	var/hot_bonus = 0
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_COLD_RESISTANCE))
+		cold_bonus = 20
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_HOT_RESISTANCE))
+		hot_bonus = 20
+
 	// +/- 50 degrees from 310.15K is the 'safe' zone, where no damage is dealt.
-	if(bodytemperature >= species.heat_level_1)
+	if(bodytemperature >= (species.heat_level_1 + hot_bonus))
 		//Body temperature is too hot.
 		fire_alert = max(fire_alert, 1)
 		if(status_flags & GODMODE)	return 1	//godmode
@@ -375,7 +381,7 @@
 		take_overall_damage(burn = burn_dam, used_weapon = "extreme heat")
 		fire_alert = max(fire_alert, 2)
 
-	else if(bodytemperature <= species.cold_level_1)
+	else if(bodytemperature <= (species.cold_level_1 - cold_bonus))
 		fire_alert = max(fire_alert, 1)
 		if(status_flags & GODMODE)
 			return 1
@@ -534,7 +540,7 @@
 	return thermal_protection_flags
 
 /mob/living/carbon/human/get_cold_protection(temperature)
-	if(COLD_RESISTANCE in mutations)
+	if(HAS_FLAG(mutations, COLD_RESISTANCE))
 		return 1 //Fully protected from the cold.
 
 	temperature = max(temperature, 2.7) //There is an occasional bug where the temperature is miscalculated in ares with a small amount of gas on them, so this is necessary to ensure that that bug does not affect this calculation. Space's temperature is 2.7K and most suits that are intended to protect against any cold, protect down to 2.0K.
@@ -698,9 +704,9 @@
 	// TODO: stomach and bloodstream organ.
 	if(!isSynthetic())
 		handle_trace_chems()
-	if(vessel && (/decl/reagent/blood in vessel.reagent_data))
+	if(vessel && (/singleton/reagent/blood in vessel.reagent_data))
 		// update the trace chems in our blood vessels
-		var/decl/reagent/blood/B = decls_repository.get_decl(/decl/reagent/blood)
+		var/singleton/reagent/blood/B = GET_SINGLETON(/singleton/reagent/blood)
 		B.handle_trace_chems(vessel)
 
 	for(var/_R in chem_doses)
@@ -825,10 +831,16 @@
 	var/tmp/last_frenzy_state
 	var/tmp/last_oxy_overlay
 
+	var/list/status_overlays = null
+
 /mob/living/carbon/human/can_update_hud()
 	if((!client && !bg) || QDELETED(src))
 		return FALSE
 	return TRUE
+
+// corresponds with the status overlay in hud_status.dmi
+#define DRUNK_STRING "drunk"
+#define BLEEDING_STRING "bleeding"
 
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
@@ -1064,7 +1076,55 @@
 			if (bodytemp.icon_state != new_temp)
 				bodytemp.icon_state = new_temp
 
+		if(client)
+			var/has_drunk_status = LAZYISIN(status_overlays, DRUNK_STRING)
+			if(is_drunk())
+				if(!has_drunk_status)
+					add_status_to_hud(DRUNK_STRING, SPAN_GOOD("You are drunk. Your words are slurred, and your movements are uncoordinated."))
+			else if(has_drunk_status)
+				qdel(status_overlays[DRUNK_STRING])
+				status_overlays -= DRUNK_STRING
+
+			var/has_bleeding_limb = FALSE
+			var/has_bleeding_status = LAZYISIN(status_overlays, BLEEDING_STRING)
+			for(var/obj/item/organ/external/damaged_limb as anything in bad_external_organs)
+				if(damaged_limb.status & ORGAN_BLEEDING)
+					has_bleeding_limb = TRUE
+					break
+			if(has_bleeding_limb)
+				if(!has_bleeding_status)
+					add_status_to_hud(BLEEDING_STRING, SPAN_HIGHDANGER("Blood gushes from one of your bodyparts, inspect yourself and seal the wound."))
+			else if(has_bleeding_status)
+				qdel(status_overlays[BLEEDING_STRING])
+				status_overlays -= BLEEDING_STRING
+
+			UNSETEMPTY(status_overlays)
+		else
+			for(var/status in status_overlays)
+				qdel(status_overlays[status])
+			status_overlays = null
 	return 1
+
+#undef DRUNK_STRING
+#undef BLEEDING_STRING
+
+/mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
+	var/obj/screen/status/new_status = new /obj/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
+	new_status.alpha = client.prefs.UI_style_alpha
+	new_status.color = client.prefs.UI_style_color
+	new_status.screen_loc = get_status_loc(status_overlays ? LAZYLEN(status_overlays) + 1 : 1)
+	client.screen += new_status
+	LAZYSET(status_overlays, set_overlay, new_status)
+
+/mob/living/carbon/human/proc/get_status_loc(var/placement)
+	var/col = ((placement - 1)%(13)) + 1
+	var/coord_col = "-[col-1]"
+	var/coord_col_offset = "-[4+2*col]"
+
+	var/row = round((placement-1)/13)
+	var/coord_row = "[-1 - row]"
+	var/coord_row_offset = 8
+	return "EAST[coord_col]:[coord_col_offset],NORTH[coord_row]:[coord_row_offset]"
 
 /mob/living/carbon/human/handle_random_events()
 	if(InStasis())
@@ -1083,6 +1143,28 @@
 		var/turf/T = loc
 		if (T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
 			playsound_simple(null, pick(scarySounds), 50, TRUE)
+
+		if(HAS_TRAIT(src, TRAIT_ORIGIN_DARK_AFRAID))
+			if(T.get_lumcount() < 0.1)
+				if(prob(2))
+					var/list/assunzione_messages = list(
+						"You feel a bit afraid...",
+						"You feel somewhat nervous...",
+						"You could use a little light here...",
+						"Ennoia be with you, it's a bit too dark..."
+					)
+					to_chat(src, SPAN_WARNING(pick(assunzione_messages)))
+		
+		if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
+			if(T.get_lumcount() > 0.8)
+				if(prob(1))
+					if(prob(5))
+						var/list/eye_sensitivity_messages = list(
+							"Your eyes tire a bit.",
+							"Your eyes sting a little.",
+							"Your vision feels a bit strained."
+						)
+						to_chat(src, SPAN_WARNING(pick(eye_sensitivity_messages)))
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind)
@@ -1312,7 +1394,7 @@
 		var/isRemoteObserve = 0
 		if(z_eye && client?.eye == z_eye && !is_physically_disabled())
 			isRemoteObserve = 1
-		if((mRemote in mutations) && remoteview_target)
+		if(HAS_FLAG(mutations, mRemote) && remoteview_target)
 			if(remoteview_target.stat==CONSCIOUS)
 				isRemoteObserve = 1
 		if(!isRemoteObserve && client && !client.adminobs)
@@ -1340,7 +1422,7 @@
 	..()
 	if(stat == DEAD)
 		return
-	if(XRAY in mutations)
+	if(HAS_FLAG(mutations, XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 
 /mob/living/carbon/human/proc/handle_stamina()

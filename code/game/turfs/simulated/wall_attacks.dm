@@ -65,7 +65,7 @@
 	add_fingerprint(user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	var/rotting = (locate(/obj/effect/overlay/wallrot) in src)
-	if (HULK in user.mutations)
+	if (HAS_FLAG(user.mutations, HULK))
 		if (rotting || !prob(material.hardness))
 			success_smash(user)
 		else
@@ -158,7 +158,7 @@
 
 			spark(EB, 5)
 			to_chat(user, SPAN_NOTICE("You slash \the [src] with \the [EB], igniting the thermite!"))
-			playsound(src, /decl/sound_category/spark_sound, 50, 1)
+			playsound(src, /singleton/sound_category/spark_sound, 50, 1)
 			playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 
 			thermitemelt(user)
@@ -211,14 +211,14 @@
 		else if(istype(W,/obj/item/melee/energy))
 			var/obj/item/melee/energy/WT = W
 			if(WT.active)
-				dismantle_sound = /decl/sound_category/spark_sound
+				dismantle_sound = /singleton/sound_category/spark_sound
 				dismantle_verb = "slicing"
 				cut_delay *= 0.5
 			else
 				to_chat(user, SPAN_NOTICE("You need to activate the weapon to do that!"))
 				return
 		else if(istype(W,/obj/item/melee/energy/blade))
-			dismantle_sound = /decl/sound_category/spark_sound
+			dismantle_sound = /singleton/sound_category/spark_sound
 			dismantle_verb = "slicing"
 			cut_delay *= 0.5
 		else if(istype(W,/obj/item/melee/chainsword))
@@ -236,7 +236,7 @@
 			dismantle_sound = P.drill_sound
 			cut_delay -= P.digspeed
 		else if(istype(W,/obj/item/melee/arm_blade/))
-			dismantle_sound = /decl/sound_category/pickaxe_sound
+			dismantle_sound = /singleton/sound_category/pickaxe_sound
 			dismantle_verb = "slicing and stabbing"
 			cut_delay *= 1.5
 

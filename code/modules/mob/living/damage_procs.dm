@@ -23,7 +23,7 @@
 		if(BRUTE)
 			adjustBruteLoss(damage)
 		if(BURN)
-			if(COLD_RESISTANCE in mutations)
+			if(HAS_FLAG(mutations, COLD_RESISTANCE))
 				damage = 0
 			adjustFireLoss(damage)
 		if(TOX)

@@ -21,7 +21,7 @@
 		/obj/structure/grille,
 		/turf/unsimulated/mineral/asteroid
 	)
-	footstep_sound = /decl/sound_category/catwalk_footstep
+	footstep_sound = /singleton/sound_category/catwalk_footstep
 
 /obj/structure/lattice/Initialize()
 	. = ..()
@@ -31,6 +31,15 @@
 	for(var/obj/structure/lattice/LAT in loc)
 		if(LAT != src)
 			qdel(LAT)
+	if(isturf(loc))
+		var/turf/turf = loc
+		turf.is_hole = FALSE
+
+/obj/structure/lattice/Destroy()
+	if(isturf(loc))
+		var/turf/turf = loc
+		turf.is_hole = initial(turf.is_hole)
+	return ..()
 
 /obj/structure/lattice/ex_act(severity)
 	switch(severity)

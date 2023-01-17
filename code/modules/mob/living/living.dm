@@ -15,7 +15,7 @@ var/mob/living/next_point_time = 0
 		return FALSE
 	if(src.status_flags & FAKEDEATH)
 		return FALSE
-		
+
 	. = ..()
 
 	if(.)
@@ -121,8 +121,8 @@ default behaviour is:
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && (FAT in tmob.mutations))
-				if(prob(40) && !(FAT in src.mutations))
+			if(istype(tmob, /mob/living/carbon/human) && HAS_FLAG(tmob.mutations, FAT))
+				if(prob(40) && NOT_FLAG(mutations, FAT))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = FALSE
 					return
@@ -230,9 +230,9 @@ default behaviour is:
 	return TRUE
 
 /mob/living/carbon/human/burn_skin(burn_amount)
-	if(mShock in mutations) //shockproof
+	if(HAS_FLAG(mutations, mShock)) //shockproof
 		return FALSE
-	if (COLD_RESISTANCE in mutations) //fireproof
+	if(HAS_FLAG(mutations, COLD_RESISTANCE)) //fireproof
 		return FALSE
 	. = ..()
 	updatehealth()
@@ -630,9 +630,9 @@ default behaviour is:
 											location.add_blood(M)
 											if(ishuman(M))
 												var/mob/living/carbon/human/H = M
-												var/total_blood = round(REAGENT_VOLUME(H.vessel, /decl/reagent/blood))
+												var/total_blood = round(REAGENT_VOLUME(H.vessel, /singleton/reagent/blood))
 												if(total_blood > 0)
-													H.vessel.remove_reagent(/decl/reagent/blood, 1)
+													H.vessel.remove_reagent(/singleton/reagent/blood, 1)
 
 
 						step(pulling, get_dir(pulling.loc, T))
@@ -896,6 +896,10 @@ default behaviour is:
 	to_chat(src, "<span class='notice'>Remember to stay in character for a mob of this type!</span>")
 	return 1
 
+/mob/living/Initialize()
+	. = ..()
+	add_to_target_grid()
+
 /mob/living/Destroy()
 	if(loc)
 		for(var/mob/M in contents)
@@ -904,6 +908,7 @@ default behaviour is:
 		for(var/mob/M in contents)
 			qdel(M)
 	QDEL_NULL(reagents)
+	clear_from_target_grid()
 
 	return ..()
 
@@ -929,9 +934,9 @@ default behaviour is:
 	if (!composition_reagent)//if no reagent has been set, then we'll set one
 		var/type = find_type(src)
 		if (type & TYPE_SYNTHETIC)
-			src.composition_reagent = /decl/reagent/iron
+			src.composition_reagent = /singleton/reagent/iron
 		else
-			src.composition_reagent = /decl/reagent/nutriment/protein
+			src.composition_reagent = /singleton/reagent/nutriment/protein
 
 	//if the mob is a simple animal with a defined meat quantity
 	if (istype(src, /mob/living/simple_animal))

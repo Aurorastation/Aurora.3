@@ -1,13 +1,13 @@
 /datum/map_template/ruin/away_site/shady
 	name = "shady asteroid"
 	description = "An asteroid with a hangar carved out inside it. Scans detect an unregistered structure within, with multiple lifeforms present."
-	suffix = "away_site/shady/shady.dmm"
+	suffixes = list("away_site/shady/shady.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "shady"
 
-/decl/submap_archetype/shady
+/singleton/submap_archetype/shady
 	map = "shady asteroid"
 	descriptor = "An asteroid with a hangar carved out inside it. Scans detect an unregistered structure within, with multiple lifeforms present."
 
@@ -17,6 +17,7 @@
 	icon_state = "object"
 
 /area/hideout
+	flags = HIDE_FROM_HOLOMAP
 	name = "hideout outpost"
 	icon_state = "outpost_mine_main"
 	requires_power = FALSE

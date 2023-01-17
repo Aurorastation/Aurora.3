@@ -2,14 +2,14 @@
 	name = "SSMD Corvette"
 	description = "A long-range reconnaissance corvette design in use by the Solarian Navy, the Uhlan-class is a relatively costly and somewhat uncommon ship to be seen in the Alliance's fleets, and is typically reserved for more elite (or at least better equipped and trained) units. Designed to operate alone or as part of a small task force with minimal support in unfriendly space, it is most commonly seen assigned to probing, surveillance, harassment, and strike operations. \
 	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
-	suffix = "ships/sol_ssmd/ssmd_ship.dmm"
+	suffixes = list("ships/sol_ssmd/ssmd_ship.dmm")
 	sectors = list(SECTOR_BADLANDS)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "ssmd_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ssmd_shuttle)
 
-/decl/submap_archetype/ssmd_corvette
+/singleton/submap_archetype/ssmd_corvette
 	map = "SSMD Corvette"
 	descriptor = "A long-range reconnaissance corvette design in use by the Solarian Navy, the Uhlan-class is a relatively costly and somewhat uncommon ship to be seen in the Alliance's fleets, and is typically reserved for more elite (or at least better equipped and trained) units. Designed to operate alone or as part of a small task force with minimal support in unfriendly space, it is most commonly seen assigned to probing, surveillance, harassment, and strike operations. \
 	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
@@ -90,8 +90,8 @@
 	class = "SSMDV"
 	desc = "A long-range reconnaissance corvette design in use by the Solarian Navy, the Uhlan-class is a relatively costly and somewhat uncommon ship to be seen in the Alliance's fleets, and is typically reserved for more elite (or at least better equipped and trained) units. Designed to operate alone or as part of a small task force with minimal support in unfriendly space, it is most commonly seen assigned to probing, surveillance, harassment, and strike operations. \
 	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship_green"
+	moving_state = "ship_green_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -134,6 +134,8 @@
 	designation = "Vizsla"
 	desc = "A modestly sized shuttle design used by the Solarian armed forces, the Destrier is well-armored but somewhat slow, and was explicitly designed to be as survivable as possible for operations during combat. Notably features a fast-deployment exosuit catapult."
 	shuttle = "SSMD Shuttle"
+	icon_state = "shuttle_green"
+	moving_state = "shuttle_green_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

@@ -210,7 +210,7 @@
 /obj/item/weldingtool
 	name = "welding tool"
 	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
-	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
+	icon = 'icons/obj/item/tools/welding_tools.dmi'
 	icon_state = "welder"
 	item_state = "welder"
 	var/welding_state = "welding_sparks"
@@ -295,7 +295,7 @@
 	var/datum/reagents/R = new/datum/reagents(max_fuel)
 	reagents = R
 	R.my_atom = src
-	R.add_reagent(/decl/reagent/fuel, max_fuel)
+	R.add_reagent(/singleton/reagent/fuel, max_fuel)
 	update_icon()
 
 /obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
@@ -487,7 +487,7 @@
 
 //Returns the amount of fuel in the welder
 /obj/item/weldingtool/proc/get_fuel()
-	return REAGENT_VOLUME(reagents, /decl/reagent/fuel)
+	return REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 
 //Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob.
 /obj/item/weldingtool/use(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
@@ -496,7 +496,7 @@
 	else if(welding > 0 && colourChange)
 		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
 	if(get_fuel() >= amount)
-		reagents.remove_reagent(/decl/reagent/fuel, amount)
+		reagents.remove_reagent(/singleton/reagent/fuel, amount)
 		if(M)
 			eyecheck(M)
 		return 1
@@ -507,7 +507,7 @@
 
 /obj/item/weldingtool/use_resource(mob/user, var/use_amount)
 	if(get_fuel() >= use_amount)
-		reagents.remove_reagent(/decl/reagent/fuel, use_amount)
+		reagents.remove_reagent(/singleton/reagent/fuel, use_amount)
 
 //Returns whether or not the welding tool is currently on.
 /obj/item/weldingtool/proc/isOn()
@@ -554,7 +554,7 @@
 		damtype = BRUTE
 		w_class = initial(w_class)
 		welding = FALSE
-		hitsound = /decl/sound_category/swing_hit_sound
+		hitsound = /singleton/sound_category/swing_hit_sound
 		attack_verb = list("hit", "bludgeoned", "whacked")
 		set_processing(FALSE)
 		update_icon()
@@ -673,7 +673,7 @@
 		var/gen_amount = ((world.time-last_gen) / fuelgen_delay)
 		var/remainder = max_fuel - get_fuel()
 		gen_amount = min(gen_amount, remainder)
-		reagents.add_reagent(/decl/reagent/fuel, gen_amount)
+		reagents.add_reagent(/singleton/reagent/fuel, gen_amount)
 		if(get_fuel() >= max_fuel)
 			set_processing(0)
 	else
@@ -688,13 +688,13 @@
 /obj/item/weldingtool/experimental/use(amount, mob/M, colourChange)
 	. = ..(overcap ? amount * 3 : amount, M, colourChange)
 	if(!. && welding && overcap) // to ensure that the fuel gets used even if the amount is high
-		reagents.remove_reagent(/decl/reagent/fuel, get_fuel())
+		reagents.remove_reagent(/singleton/reagent/fuel, get_fuel())
 
 /obj/item/eyeshield
 	name = "experimental eyeshield"
 	desc = "An advanced eyeshield capable of dampening the welding glare produced when working on modern super-materials, removing the need for user-worn welding gear."
 	desc_info = "This can be attached to an experimental welder to give it welding protection, removing the need for welding goggles or masks."
-	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
+	icon = 'icons/obj/item/tools/welding_tools.dmi'
 	icon_state = "eyeshield"
 	item_state = "eyeshield"
 	contained_sprite = TRUE
@@ -703,7 +703,7 @@
 	name = "experimental overcapacitor"
 	desc = "An advanced capacitor that injects a current into the welding stream, doubling the speed of welding tasks without sacrificing quality. Excess current burns up welding fuel, reducing fuel efficiency, however."
 	desc_info = "This can be attached to an experimental welder to double the speed it works at, at the cost of tripling the fuel cost of using it."
-	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
+	icon = 'icons/obj/item/tools/welding_tools.dmi'
 	icon_state = "overcap"
 	item_state = "overcap"
 	contained_sprite = TRUE
@@ -730,7 +730,7 @@
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
-	usesound = /decl/sound_category/crowbar_sound
+	usesound = /singleton/sound_category/crowbar_sound
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
@@ -865,7 +865,7 @@
 /obj/item/powerdrill
 	name = "impact wrench"
 	desc = "The screwdriver's big brother."
-	icon = 'icons/obj/contained_items/tools/impact_wrench.dmi'
+	icon = 'icons/obj/item/tools/impact_wrench.dmi'
 	icon_state = "impact_wrench-screw"
 	item_state = "impact_wrench"
 	contained_sprite = TRUE
@@ -1017,7 +1017,7 @@
 	attack_verb = list("smashed", "hammered")
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
-	usesound = /decl/sound_category/hammer_sound
+	usesound = /singleton/sound_category/hammer_sound
 
 /obj/item/hammer/Initialize()
 	. = ..()
