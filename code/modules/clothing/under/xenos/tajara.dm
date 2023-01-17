@@ -301,6 +301,5 @@
 	desc = "A massive jumpsuit issued to Tajara grafted in Tesla Rejuvenation Suits."
 	icon_state = "tesla_body_jumpsuit"
 	item_state = "tesla_body_jumpsuit"
-	contained_sprite = FALSE
 	species_restricted = list(BODYTYPE_TESLA_BODY)
 	sprite_sheets = list(BODYTYPE_TESLA_BODY = 'icons/mob/species/tajaran/tesla_body/uniform.dmi')
