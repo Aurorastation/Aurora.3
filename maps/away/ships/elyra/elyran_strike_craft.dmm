@@ -201,6 +201,9 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
 "aFo" = (

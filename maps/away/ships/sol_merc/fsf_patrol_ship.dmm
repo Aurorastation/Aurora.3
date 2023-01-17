@@ -1605,6 +1605,9 @@
 	pixel_y = 7
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
 "kYY" = (

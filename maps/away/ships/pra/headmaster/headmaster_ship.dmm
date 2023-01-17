@@ -3921,6 +3921,9 @@
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/storage/pill_bottle/dylovene,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},

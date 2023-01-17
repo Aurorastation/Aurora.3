@@ -834,6 +834,9 @@
 /obj/item/reagent_containers/blood/OMinus{
 	pixel_x = -8
 	},
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "hAg" = (

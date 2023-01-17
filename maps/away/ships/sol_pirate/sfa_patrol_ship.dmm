@@ -464,6 +464,9 @@
 "brS" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/stone/marble,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/medbay)
 "bBo" = (
@@ -3558,6 +3561,7 @@
 	name = "Crew Quarters";
 	req_access = list(203)
 	},
+/obj/item/device/healthanalyzer,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "oZk" = (
@@ -4097,6 +4101,11 @@
 /obj/structure/inflatable,
 /turf/space,
 /area/ship/sfa_patrol_ship/Quarters)
+"rbz" = (
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
+/turf/simulated/wall/shuttle/raider,
+/area/ship/sfa_patrol_ship)
 "rdq" = (
 /obj/structure/sign/vacuum{
 	pixel_y = 32
@@ -4464,6 +4473,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engine1)
+"sWD" = (
+/obj/item/device/healthanalyzer,
+/turf/template_noop,
+/area/space)
 "sXe" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
@@ -4513,6 +4526,10 @@
 /obj/machinery/stasis_bed,
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/unsimulated/floor,
+/area/ship/sfa_patrol_ship)
+"tru" = (
+/obj/item/device/healthanalyzer,
+/turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship)
 "ttY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4900,6 +4917,11 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
+"vrj" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/item/device/healthanalyzer,
+/turf/simulated/floor/tiled/white,
+/area/ship/sfa_patrol_ship/medbay)
 "vtl" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -24622,7 +24644,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+sWD
 xRX
 xRX
 xRX
@@ -24879,7 +24901,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+sWD
 xRX
 xRX
 xRX
@@ -28207,8 +28229,8 @@ qDd
 iSI
 bLU
 hcW
-yjk
-yjk
+tru
+rbz
 cwy
 wzk
 wzk
@@ -28465,7 +28487,7 @@ qZc
 fUi
 vus
 mYQ
-jGx
+vrj
 els
 fzB
 jGx

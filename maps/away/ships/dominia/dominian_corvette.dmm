@@ -99,6 +99,9 @@
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/infirmary)
 "amn" = (

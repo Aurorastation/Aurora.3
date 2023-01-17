@@ -4209,6 +4209,9 @@
 	pixel_x = -1
 	},
 /obj/effect/floor_decal/corner_wide/green/full,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "tUu" = (

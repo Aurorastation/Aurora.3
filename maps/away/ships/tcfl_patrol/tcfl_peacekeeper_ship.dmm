@@ -1172,6 +1172,9 @@
 /obj/item/roller,
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/regular,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
 /turf/simulated/floor/shuttle/white,
 /area/ship/tcfl_peacekeeper_ship)
 "hxm" = (
