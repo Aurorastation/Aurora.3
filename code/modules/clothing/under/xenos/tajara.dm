@@ -279,3 +279,19 @@
 		lining.appearance_flags = RESET_COLOR
 		I.add_overlay(lining)
 	return I
+
+/obj/item/clothing/under/tajaran/nka_merchant_navy
+	name = "her majesty's mercantile flotilla crew uniform"
+	desc = "An uniform used by the crew of the New Kingdom's merchant space ships. It is clearly inspired on the ones used back in Adhomai."
+	icon_state = "nka_merchant_navy"
+	item_state = "nka_merchant_navy"
+
+/obj/item/clothing/under/tajaran/nka_merchant_navy/alt
+	icon_state = "nka_merchant_navy_alt"
+	item_state = "nka_merchant_navy_alt"
+
+/obj/item/clothing/under/tajaran/nka_merchant_navy/captain
+	name = "her majesty's mercantile flotilla captain uniform"
+	desc = "An uniform used by the captain of the New Kingdom's merchant space ships. Not as fancy as the ones used in the Royal Navy."
+	icon_state = "nka_merchant_captain"
+	item_state = "nka_merchant_captain"

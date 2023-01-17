@@ -304,3 +304,12 @@
 	name = "fine blue coat"
 	icon_state = "finecoat_blue"
 	item_state = "finecoat_blue"
+
+/obj/item/clothing/suit/storage/tajaran/nka_merchant_navy
+	name = "her majesty's mercantile flotilla captain coat"
+	desc = "A fancy coat worn by captains of the New Kingdom's mercantile navy. It offers extra protection against space wind."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "capjacket"
+	item_state = "capjacket"
+	contained_sprite = TRUE
+	contained_sprite = TRUE

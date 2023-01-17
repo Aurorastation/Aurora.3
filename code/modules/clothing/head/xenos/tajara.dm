@@ -164,3 +164,15 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
+
+/obj/item/clothing/head/tajaran/nka_merchant_navy
+	name = "her majesty's mercantile flotilla cap"
+	desc = "A cap worn by the crew of the New Kingdom's space merchant navy. It is an essential part of any respectable sailor's uniform."
+	icon_state = "nka_merchant_navy_hat"
+	item_state = "nka_merchant_navy_hat"
+
+/obj/item/clothing/head/tajaran/nka_merchant_navy/captain
+	name = "her majesty's mercantile flotilla captain cap"
+	desc = "A cap worn by the captain of the New Kingdom's space merchant navy. A fancier version of the sailor cap."
+	icon_state = "nka_merchant_navy_captain_hat"
+	item_state = "nka_merchant_navy_captain_hat"

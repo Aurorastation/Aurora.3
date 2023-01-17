@@ -57,7 +57,7 @@
 			var/newitem = pick(typesof(/obj/item/toy/balloon) - /obj/item/toy/balloon)
 			new newitem(src)
 		if(55 to 56)
-			var/newitem = pick(typesof(/obj/item/toy/prize) - /obj/item/toy/prize)
+			var/newitem = pick(typesof(/obj/item/toy/mech) - /obj/item/toy/mech)
 			new newitem(src)
 		if(57 to 58)
 			new /obj/item/toy/balloon/syndicate(src)

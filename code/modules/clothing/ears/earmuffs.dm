@@ -29,7 +29,7 @@
 	if(use_check_and_message(usr))
 		return
 
-	playsound(src, /decl/sound_category/button_sound, 10)
+	playsound(src, /singleton/sound_category/button_sound, 10)
 	if(on)
 		cut_overlays()
 		worn_overlay = null
