@@ -175,6 +175,9 @@
 			skip_blend = TRUE
 		if ("skrell")
 			skip_blend = TRUE
+		if ("concrete")
+			wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
+			skip_blend = TRUE
 		else
 			world.log <<  "materials: [src] has unknown icon_base [icon_base]."
 
@@ -373,6 +376,13 @@
 	golem = SPECIES_GOLEM_MARBLE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
+
+/material/stone/concrete
+	name = MATERIAL_CONCRETE
+	icon_base = "concrete"
+	icon_colour = "#D2D1CD"
+	stack_type = null
+	golem = null
 
 /material/steel
 	name = DEFAULT_WALL_MATERIAL
@@ -716,7 +726,7 @@
 	weapon_hitsound = 'sound/weapons/woodenhit.ogg'
 	shatter_sound = /singleton/sound_category/wood_break_sound
 
-/material/wood/birch 
+/material/wood/birch
 	name = MATERIAL_BIRCH
 	stack_type = /obj/item/stack/material/wood/coloured/birch
 	icon_colour = WOOD_COLOR_BIRCH
@@ -727,7 +737,7 @@
 	icon_colour = WOOD_COLOR_RICH
 
 /material/wood/maple
-	name = MATERIAL_MAPLE  
+	name = MATERIAL_MAPLE
 	stack_type = /obj/item/stack/material/wood/coloured/maple
 	icon_colour = WOOD_COLOR_PALE
 

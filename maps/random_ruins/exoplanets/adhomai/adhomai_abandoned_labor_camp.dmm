@@ -104,7 +104,7 @@
 	},
 /area/exoplanet/adhomai)
 "jg" = (
-/turf/simulated/wall/iron,
+/turf/simulated/wall/concrete,
 /area/exoplanet/adhomai)
 "jr" = (
 /obj/structure/bed/stool/chair/office/dark{

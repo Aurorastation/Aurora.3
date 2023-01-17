@@ -154,3 +154,8 @@
 	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_CLOTH)
 	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/concrete/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_CONCRETE)
+	canSmoothWith = list(src.type)

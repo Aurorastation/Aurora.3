@@ -90,7 +90,7 @@
 	},
 /area/pra_base)
 "gU" = (
-/turf/simulated/wall/iron,
+/turf/simulated/wall/concrete,
 /area/pra_base)
 "hT" = (
 /obj/structure/flora/bush,
