@@ -118,7 +118,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	. = ..(mapload, SPECIES_TAJARA_ZHAN)
 
 /mob/living/carbon/human/tesla_body_tajara/Initialize(mapload)
-	h_style = "Tesla Rejuveation Suit Ears"
+	h_style = "Tesla Rejuvenation Suit Ears"
 	. = ..(mapload, SPECIES_TAJARA_TESLA_BODY)
 
 /mob/living/carbon/human/industrial/Initialize(mapload)

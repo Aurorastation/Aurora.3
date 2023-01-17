@@ -102,6 +102,7 @@
 	except the face. The Rejuvenation Suit is only granted to loyal Hadiist Tajara living in the People's Republic. Tajara wearing it are colloquially called \"steelsuits\"."
 
 	spawn_flags = IS_RESTRICTED
+	bodytype = BODYTYPE_TESLA_BODY
 
 	icon_x_offset = -8
 	healths_x = 22
@@ -116,6 +117,8 @@
 	break_cuffs = TRUE
 	mob_size = 25
 
+	default_h_style = "Tesla Rejuvenation Suit Ears"
+
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
 
 	icon_template = 'icons/mob/human_races/tajara/r_tesla_body.dmi'
@@ -126,6 +129,12 @@
 	bandages_icon = null
 	tail = null
 	tail_animation = null
+
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/tesla_body,
+		/datum/unarmed_attack/bite/sharp
+	)
 
 	maneuvers = list(
 		/singleton/maneuver/leap/tesla_body
@@ -150,5 +159,19 @@
 		BP_BRAIN =    /obj/item/organ/internal/brain/tajara,
 		BP_APPENDIX = /obj/item/organ/internal/appendix/tajara,
 		BP_EYES =     /obj/item/organ/internal/eyes/night,
-		BP_AUG_TESLA =     /obj/item/organ/internal/augment/tesla/massive
+		BP_AUG_TESLA = /obj/item/organ/internal/augment/tesla/massive
 		)
+
+	has_limbs = list(
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/tesla_body),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/tesla_body),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/tesla_body),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/tesla_body),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/tesla_body),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/tesla_body),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/tesla_body),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/tesla_body),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/tesla_body),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/tesla_body)
+	)
