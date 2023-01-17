@@ -279,4 +279,4 @@
 	user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
 	if(iscarbon(target))
 		var/mob/living/carbon/L = target
-		L.electrocute_act(20,src, 1, user.zone_sel.selecting)
+		L.electrocute_act(20,user, 1, user.zone_sel.selecting)
