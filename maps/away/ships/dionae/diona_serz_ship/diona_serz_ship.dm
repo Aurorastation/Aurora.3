@@ -6,8 +6,6 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "diona_serz"
-	icon_state = "ship_green"
-	moving_state = "ship_green_moving"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/diona_serz_ship_shuttle)
 
 /singleton/submap_archetype/diona_serz_ship
@@ -55,8 +53,8 @@
 	name = "Serz Clan Ship"
 	class = "SCS"
 	desc = "A ship belonging to the Serz voidtamer clan, a group of dionae who specialize in selling space fauna."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship_green"
+	moving_state = "ship_green_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
