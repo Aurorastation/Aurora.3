@@ -47,7 +47,7 @@
 		return TRUE
 	if(href_list["PRG_uploadNTDefault"])
 		A.laws = new /datum/ai_laws/nanotrasen
-		to_chat(A, SPAN_WARNING("All laws purged. NT Default lawset uploaded."))
+		to_chat(A, SPAN_WARNING("All laws purged. Default lawset uploaded."))
 		return TRUE
 	if(href_list["PRG_addCustomSuppliedLaw"])
 		var/law_to_add = sanitize(input("Please enter a new law for the AI.", "Custom Law Entry"))

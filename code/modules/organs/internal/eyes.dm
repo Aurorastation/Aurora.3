@@ -43,6 +43,9 @@
 		to_chat(owner, "<span class='danger'>You go blind!</span>")
 
 /obj/item/organ/internal/eyes/proc/flash_act()
+	if(HAS_TRAIT(owner, TRAIT_ORIGIN_LIGHT_SENSITIVE))
+		to_chat(owner, SPAN_WARNING("<font size=4>Your eyes burn with the intense light of the flash!</font>"))
+		take_damage(4)
 	return
 
 /obj/item/organ/internal/eyes/process() //Eye damage replaces the old eye_stat var.

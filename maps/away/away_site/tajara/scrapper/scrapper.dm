@@ -1,14 +1,14 @@
 /datum/map_template/ruin/away_site/tajara_scrapper
 	name = "adhomian scrapper outpost"
 	description = "An outpost used by Tajaran scrappers. It offers repair and scrapping services."
-	suffix = "away_site/tajara/scrapper/scrapper.dmm"
+	suffixes = list("away_site/tajara/scrapper/scrapper.dmm")
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tajara_scrapper"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_scrapper)
 
-/decl/submap_archetype/tajara_scrapper
+/singleton/submap_archetype/tajara_scrapper
 	map = "adhomian scrapper outpost"
 	descriptor = "An outpost used by Tajaran scrapper. It offers repair and scrapping services."
 
