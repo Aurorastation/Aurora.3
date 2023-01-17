@@ -924,3 +924,18 @@
 				  'sound/machines/sm/accent/delam/32.ogg',
 				  'sound/machines/sm/accent/delam/33.ogg'
 				  )
+
+/singleton/sound_category/rip_sound
+	sounds = list(
+		'sound/items/rip1.ogg',
+		'sound/items/rip2.ogg',
+		'sound/items/rip3.ogg',
+		'sound/items/rip4.ogg'
+	)
+
+/singleton/sound_category/ointment_sound
+	sounds = list(
+		'sound/items/ointment1.ogg',
+		'sound/items/ointment2.ogg',
+		'sound/items/ointment3.ogg'
+	)
