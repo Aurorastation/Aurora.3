@@ -151,10 +151,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
 "gu" = (
-/obj/machinery/door/airlock/diona/external,
 /obj/effect/shuttle_landmark/diona_serz_ship_shuttle/hangar,
-/turf/simulated/floor/diona/airless,
-/area/ship/diona_serz_ship/dock)
+/turf/space,
+/area/space)
 "gx" = (
 /obj/structure/diona/bulb,
 /obj/item/material/twohanded/pike/flag/hegemony,
@@ -37865,7 +37864,7 @@ kB
 kB
 kB
 oI
-gu
+Fd
 Fd
 pI
 kB
@@ -40692,7 +40691,7 @@ kB
 kB
 kB
 kB
-kB
+gu
 kB
 kB
 kB
