@@ -103,6 +103,7 @@
 
 	spawn_flags = IS_RESTRICTED
 	bodytype = BODYTYPE_TESLA_BODY
+	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	icon_x_offset = -8
 	healths_x = 22
@@ -181,6 +182,10 @@
 		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/tesla_body),
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/tesla_body)
 	)
+
+	bump_flag = HEAVY
+	swap_flags = ~HEAVY
+	push_flags = (~HEAVY) ^ ROBOT
 
 /datum/species/tajaran/tesla_body/New()
 	..()
