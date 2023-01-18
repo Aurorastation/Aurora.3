@@ -9,12 +9,10 @@
 
 /singleton/origin_item/culture
 	name = "generic culture"
-	desc = DESC_PARENT
 	var/list/singleton/origin_item/origin/possible_origins = list()
 
 /singleton/origin_item/origin
 	name = "generic origin"
-	desc = DESC_PARENT
 	var/list/datum/accent/possible_accents = list()
 	var/list/datum/citizenship/possible_citizenships = list()
 	var/list/datum/religion/possible_religions = list()
