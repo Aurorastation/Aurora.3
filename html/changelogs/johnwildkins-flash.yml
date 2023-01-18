@@ -1,0 +1,12 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - balance: "All flash effects (flashbang, flashes, welding w.o protection, etc.) now deal damage to eyes relative to their effect intensity."
+  - balance: "Handheld flashes are now significantly more powerful, no longer stopped by sunglasses, etc."
+  - balance: "Handheld flashes' AOE flash can now be performed by using them in-hand with harm intent."
+  - refactor: "Backend code for flash effects now unified under flash_act. Stunning sonic effects (e.g. flashbangs) now unified under soundbang_act."
+  - refactor: "Significantly cleaned up handheld flash code."
+  - tweak: "Vaurcae and Tajarans will now only take extra damage from flashes when their night vision is active, and when they do not have flash protection."
+  - tweak: "Dionae now take flash damage from all sorts of flashes, and are weakened by major sources (welding, flashes). They also gain energy equal to the intensity of the flash."
