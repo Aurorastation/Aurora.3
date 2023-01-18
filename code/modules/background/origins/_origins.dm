@@ -1,6 +1,6 @@
 /singleton/origin_item
 	var/name = "generic origin item"
-	var/desc = "You shouldn't be seeing this."
+	var/desc = DESC_PARENT
 	var/important_information //Big red text. Should only be used if not following it would incur a bwoink.
 	var/list/origin_traits = list()
 	/// Format for the following list: "Characters from this origin: [list entry], [list entry]."
@@ -9,12 +9,12 @@
 
 /singleton/origin_item/culture
 	name = "generic culture"
-	desc = "You shouldn't be seeing this."
+	desc = DESC_PARENT
 	var/list/singleton/origin_item/origin/possible_origins = list()
 
 /singleton/origin_item/origin
 	name = "generic origin"
-	desc = "You shouldn't be seeing this."
+	desc = DESC_PARENT
 	var/list/datum/accent/possible_accents = list()
 	var/list/datum/citizenship/possible_citizenships = list()
 	var/list/datum/religion/possible_religions = list()
