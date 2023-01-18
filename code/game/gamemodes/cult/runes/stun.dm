@@ -15,7 +15,7 @@
 		if(iscultist(L))
 			continue
 		if(iscarbon(L))
-			L.stuttering = TRUE
+			L.stuttering = max(L.stuttering, 1)
 			L.confused = 10
 			L.Weaken(3)
 			L.Stun(3)
