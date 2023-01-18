@@ -42,11 +42,28 @@
 	if(is_broken() && !oldbroken && owner && !owner.stat)
 		to_chat(owner, "<span class='danger'>You go blind!</span>")
 
-/obj/item/organ/internal/eyes/proc/flash_act()
-	if(HAS_TRAIT(owner, TRAIT_ORIGIN_LIGHT_SENSITIVE))
-		to_chat(owner, SPAN_WARNING("<font size=4>Your eyes burn with the intense light of the flash!</font>"))
-		take_damage(4)
-	return
+/obj/item/organ/internal/eyes/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+	var/burnthrough = intensity - owner.get_flash_protection(ignore_inherent)
+	if(burnthrough <= 0)
+		return
+
+	if(burnthrough == 1)
+		to_chat(owner, SPAN_WARNING("Your eyes sting a little."))
+		take_damage(rand(1, 3), TRUE)
+	else if(burnthrough == 2)
+		to_chat(owner, SPAN_WARNING("Your eyes burn!"))
+		take_damage(rand(3, 5), TRUE)
+	else if(burnthrough >= 3)
+		to_chat(owner, SPAN_DANGER("[FONT_HUGE("Your eyes burn from the intense light of the flash!")]"))
+		take_damage(rand(5, 9), TRUE)
+		owner.eye_blurry += rand(12, 20)
+
+	if(is_bruised() && !is_broken() && !(owner.disabilities & NEARSIGHTED))
+		to_chat(owner, SPAN_DANGER("The intense light is making it harder to see..."))
+		owner.disabilities |= NEARSIGHTED
+		addtimer(CALLBACK(owner, /mob/proc/remove_nearsighted), 10 SECONDS)
+
+	return TRUE
 
 /obj/item/organ/internal/eyes/process() //Eye damage replaces the old eye_stat var.
 	..()

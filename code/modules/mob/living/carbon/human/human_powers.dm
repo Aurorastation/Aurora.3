@@ -632,7 +632,7 @@ mob/living/carbon/human/proc/change_monitor()
 	visible_message("<span class='danger'>\The [src] shrieks!</span>")
 	playsound(src.loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
-		if(T.protected_from_sound())
+		if(T.get_hearing_protection())
 			continue
 		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
 			earpain(2, TRUE, 1)
@@ -829,7 +829,7 @@ mob/living/carbon/human/proc/change_monitor()
 	var/list/victims = list()
 
 	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
-		if(T.protected_from_sound())
+		if(T.get_hearing_protection())
 			continue
 		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
 			earpain(3, TRUE, 1)
@@ -837,7 +837,7 @@ mob/living/carbon/human/proc/change_monitor()
 			earpain(2, TRUE, 2)
 
 	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
-		if(T.protected_from_sound())
+		if(T.get_hearing_protection())
 			continue
 
 		to_chat(T, SPAN_DANGER("You hear an ear piercing shriek and feel your senses go dull!"))

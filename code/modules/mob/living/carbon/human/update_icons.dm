@@ -104,24 +104,25 @@ There are several things that need to be remembered:
 #define ID_LAYER_ALT          17
 #define TAIL_NORTH_LAYER      18
 #define TAIL_NORTH_ACC_LAYER  19
-#define GLASSES_LAYER         20
-#define BELT_LAYER_ALT        21
-#define SUIT_STORE_LAYER      22
-#define BACK_LAYER            23
-#define HAIR_LAYER            24
-#define GLASSES_LAYER_ALT     25
-#define L_EAR_LAYER           26
-#define R_EAR_LAYER           27
-#define FACEMASK_LAYER        28
-#define HEAD_LAYER            29
-#define COLLAR_LAYER          30
-#define HANDCUFF_LAYER        31
-#define LEGCUFF_LAYER         32
-#define L_HAND_LAYER          33
-#define R_HAND_LAYER          34
-#define WRISTS_LAYER          35
-#define FIRE_LAYER_UPPER      36
-#define TOTAL_LAYERS          36
+#define HAIR_LAYER_ALT        20
+#define GLASSES_LAYER         21
+#define BELT_LAYER_ALT        22
+#define SUIT_STORE_LAYER      23
+#define BACK_LAYER            24
+#define HAIR_LAYER            25
+#define GLASSES_LAYER_ALT     26
+#define L_EAR_LAYER           27
+#define R_EAR_LAYER           28
+#define FACEMASK_LAYER        29
+#define HEAD_LAYER            30
+#define COLLAR_LAYER          31
+#define HANDCUFF_LAYER        32
+#define LEGCUFF_LAYER         33
+#define L_HAND_LAYER          34
+#define R_HAND_LAYER          35
+#define WRISTS_LAYER          36
+#define FIRE_LAYER_UPPER      37
+#define TOTAL_LAYERS          37
 ////////////////////////////
 
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
@@ -466,6 +467,7 @@ There are several things that need to be remembered:
 
 	//Reset our hair
 	overlays_raw[HAIR_LAYER] = null
+	overlays_raw[HAIR_LAYER_ALT] = null
 
 	var/obj/item/organ/external/head/head_organ = get_organ(BP_HEAD)
 	if(!head_organ || head_organ.is_stump() )
@@ -491,7 +493,8 @@ There are several things that need to be remembered:
 		else
 			set_light(0)
 
-	overlays_raw[HAIR_LAYER] = hair_icon
+	var/hair_layer = species.use_alt_hair_layer ? HAIR_LAYER_ALT : HAIR_LAYER
+	overlays_raw[hair_layer] = hair_icon
 
 	if(update_icons)
 		update_icon()
