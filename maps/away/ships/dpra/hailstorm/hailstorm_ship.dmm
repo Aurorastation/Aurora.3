@@ -2481,10 +2481,10 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
-/obj/structure/plasticflaps/mining,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines"
 	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/airless,
 /area/shuttle/hailstorm_shuttle)
 "zJ" = (
