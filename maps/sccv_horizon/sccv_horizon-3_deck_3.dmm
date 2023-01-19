@@ -7707,7 +7707,7 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/white,
-/area/security/forensics_morgue)
+/area/horizon/security/forensic_laboratory)
 "guk" = (
 /obj/machinery/telecomms/server/presets/common,
 /turf/simulated/floor/bluegrid,
