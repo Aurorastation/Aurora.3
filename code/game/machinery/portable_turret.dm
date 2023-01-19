@@ -592,6 +592,9 @@
 	if(!emagged && !target_borgs && issilicon(L))	// Don't target silica
 		return TURRET_NOT_TARGET
 
+	if(isbrain(L) && !isturf(L.loc)) // Don't target cyborg brains / MMIs
+		return TURRET_NOT_TARGET
+
 	if(L.stat && !emagged)		//if the perp is dead/dying, no need to bother really
 		return TURRET_NOT_TARGET	//move onto next potential victim!
 

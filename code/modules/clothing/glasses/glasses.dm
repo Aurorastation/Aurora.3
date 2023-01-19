@@ -57,7 +57,7 @@ BLIND     // can't see anything
 	if(stabbed && (body_parts_covered & EYES) && !(item_flags & THICKMATERIAL) && shatter_material && prob(stab_item.force * 5))
 		var/mob/M = loc
 		M.visible_message(SPAN_WARNING("\The [src] [M] is wearing gets shattered!"))
-		playsound(loc, /decl/sound_category/glass_break_sound, 70, TRUE)
+		playsound(loc, /singleton/sound_category/glass_break_sound, 70, TRUE)
 		new shatter_material(M.loc)
 		qdel(src)
 		return FALSE
@@ -453,7 +453,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/sunglasses/Initialize()
 	. = ..()
-	desc += " Enhanced shielding blocks many flashes."
+	desc += " Enhanced shielding blocks some flashes."
 
 /obj/item/clothing/glasses/sunglasses/aviator
 	name = "aviators"

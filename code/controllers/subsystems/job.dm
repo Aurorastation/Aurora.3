@@ -832,9 +832,9 @@
 			var/permitted = !G.allowed_roles || (rank.title in G.allowed_roles)
 			permitted = permitted && G.check_species_whitelist(H)
 			permitted = permitted && (!G.faction || (G.faction == H.employer_faction || H.employer_faction == "Stellar Corporate Conglomerate"))
-			var/decl/origin_item/culture/our_culture = decls_repository.get_decl(text2path(prefs.culture))
+			var/singleton/origin_item/culture/our_culture = GET_SINGLETON(text2path(prefs.culture))
 			permitted = permitted && (!G.culture_restriction || (our_culture in G.culture_restriction))
-			var/decl/origin_item/origin/our_origin = decls_repository.get_decl(text2path(prefs.origin))
+			var/singleton/origin_item/origin/our_origin = GET_SINGLETON(text2path(prefs.origin))
 			permitted = permitted && (!G.origin_restriction || (our_origin in G.origin_restriction))
 
 			if(!permitted)
@@ -880,7 +880,8 @@
 /proc/fade_location_blurb(client/C, obj/T)
 	animate(T, alpha = 0, time = 5)
 	sleep(5)
-	C.screen -= T
+	if(C)
+		C.screen -= T
 	qdel(T)
 
 /datum/controller/subsystem/jobs/proc/UniformReturn(mob/living/carbon/human/H, datum/preferences/prefs, datum/job/job)

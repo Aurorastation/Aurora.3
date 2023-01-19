@@ -77,6 +77,20 @@ var/list/floating_chat_colors = list()
 
 	return I
 
+/// Gives floating text to src upon holder entering
+/atom/movable/proc/give_floating_text(atom/movable/holder)
+	if(!holder)
+		return
+	for(var/image/I in holder.stored_chat_text)
+		I.loc = src
+
+/// Returns floating text to holder upon leaving src
+/atom/movable/proc/return_floating_text(atom/movable/holder)
+	if(!holder)
+		return
+	for(var/image/I in holder.stored_chat_text)
+		I.loc = holder
+
 /proc/remove_floating_text(atom/movable/holder, image/I)
 	animate(I, 2, pixel_y = I.pixel_y + 10, alpha = 0)
 	LAZYREMOVE(holder.stored_chat_text, I)

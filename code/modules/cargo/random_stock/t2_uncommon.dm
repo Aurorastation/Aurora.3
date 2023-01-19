@@ -85,20 +85,20 @@ STOCK_ITEM_UNCOMMON(mediumcell, 3)
 		new type(L)
 
 STOCK_ITEM_UNCOMMON(chempack, 5)
-	var/list/chems = decls_repository.get_decls_of_subtype(/decl/reagent/)
-	var/list/exclusion = list(/decl/reagent/drink, /decl/reagent, /decl/reagent/adminordrazine, /decl/reagent/polysomnine/beer2, /decl/reagent/azoth, /decl/reagent/elixir,\
-		/decl/reagent/liquid_fire, /decl/reagent/philosopher_stone, /decl/reagent/toxin/undead, /decl/reagent/love_potion, /decl/reagent/shapesand, /decl/reagent/usolve,\
-		/decl/reagent/sglue, /decl/reagent/black_matter, /decl/reagent/bottle_lightning, /decl/reagent/toxin/trioxin, /decl/reagent/toxin/nanites, /decl/reagent/nitroglycerin, \
-		/decl/reagent/aslimetoxin, /decl/reagent/sanasomnum, /decl/reagent/rezadone)
+	var/list/chems = GET_SINGLETON_SUBTYPE_MAP(/singleton/reagent/)
+	var/list/exclusion = list(/singleton/reagent/drink, /singleton/reagent, /singleton/reagent/adminordrazine, /singleton/reagent/polysomnine/beer2, /singleton/reagent/azoth, /singleton/reagent/elixir,\
+		/singleton/reagent/liquid_fire, /singleton/reagent/philosopher_stone, /singleton/reagent/toxin/undead, /singleton/reagent/love_potion, /singleton/reagent/shapesand, /singleton/reagent/usolve,\
+		/singleton/reagent/sglue, /singleton/reagent/black_matter, /singleton/reagent/bottle_lightning, /singleton/reagent/toxin/trioxin, /singleton/reagent/toxin/nanites, /singleton/reagent/nitroglycerin, \
+		/singleton/reagent/aslimetoxin, /singleton/reagent/sanasomnum, /singleton/reagent/rezadone)
 	chems -= exclusion
 	for (var/i in 1 to rand(2, 4))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)
 		var/rname = pick(chems)
 		//If we get a drink, reroll it once.
 		//Should result in a higher chance of getting medicines and chemicals
-		if (ispath(rname, /decl/reagent/drink) || ispath(rname, /decl/reagent/alcohol))
+		if (ispath(rname, /singleton/reagent/drink) || ispath(rname, /singleton/reagent/alcohol))
 			rname = pick(chems)
-		var/decl/reagent/R = decls_repository.get_decl(rname)
+		var/singleton/reagent/R = GET_SINGLETON(rname)
 		C.reagents.add_reagent(rname, C.volume)
 		C.setLabel(R.name)
 
@@ -199,26 +199,13 @@ STOCK_ITEM_UNCOMMON(service, 2)
 STOCK_ITEM_UNCOMMON(robot, 2)
 	var/list/bots = list(
 		/mob/living/bot/cleanbot = 2,
-		/mob/living/bot/secbot = 0.7,
 		/mob/living/bot/medbot = 2,
-		/mob/living/bot/floorbot = 2.5,
 		/mob/living/bot/farmbot = 1,
-		/mob/living/bot/secbot/ed209 = 0.3
 	)
 
 	var/type = pickweight(bots)
-	if(type == /mob/living/bot/secbot/ed209)//ED is large and should spawn on the floor
-		L = get_turf(L)
-		if(!turf_clear(L))
-			for(var/turf/U in range(L,1))
-				if(turf_clear(U))
-					L = U
-					break
-
 	var/mob/living/bot/newbot = new type(L)
 	newbot.on = FALSE	//Deactivated
-	if(prob(10))
-		newbot.emag_act(9999, null)
 
 STOCK_ITEM_UNCOMMON(headset, 2)
 	var/list/sets = list(

@@ -135,10 +135,8 @@
 		uneq_all()
 
 	if(common_radio)
-		if(!is_component_functioning("radio"))
-			common_radio.set_on(FALSE)
-		else
-			common_radio.set_on(TRUE)
+		if(common_radio.is_on() != is_component_functioning("radio"))
+			common_radio.set_on(!common_radio.is_on())
 
 	if(is_component_functioning("camera"))
 		blinded = FALSE

@@ -12,7 +12,7 @@
 
 /obj/item/clothing/under/tajaran/fancy
 	name = "fancy uniform"
-	desc = "Worn by princess, barons and lords of Adhomai, now in stores near you!"
+	desc = "Worn by princes, barons and lords of Adhomai, now in stores near you!"
 	icon_state = "male_taj_fancy"
 	item_state = "male_taj_fancy"
 	desc_extended = "While money and riches are at an all time low, the New Kingdom is symbolized by one thing, hope. While the often attacked, poor and shaggy nation is compared to \
@@ -20,6 +20,14 @@
 	nobles and peasants live in the same streets, drink the same water and eat the same food and thus even wear the same clothes. On the streets they look very similar to PRA Tajara, \
 	overcoats, white shirts, pants although often in poorer state. However jewelry, tail adornments and veils are in rich abundance, often showing off small and intricate details of \
 	individual personalities. But where the NKA really shines are their parties and special events."
+
+/obj/item/clothing/under/tajaran/fancy/alt1
+	icon_state = "male_taj_fancy_alt1"
+	item_state = "male_taj_fancy_alt1"
+
+/obj/item/clothing/under/tajaran/fancy/alt2
+	icon_state = "male_taj_fancy_alt2"
+	item_state = "male_taj_fancy_alt2"
 
 /obj/item/clothing/under/tajaran/nt
 	name = "NanoTrasen overalls"
@@ -42,7 +50,7 @@
 	desc = "A military uniform used by the forces of the People's Republic of Adhomai orbital fleet."
 	icon_state = "cosmonaut"
 	item_state = "cosmonaut"
-	desc_extended = "The People's Republic of Adhomai enjoys having the only militarized spaceships of all the factions on Adhomai. Initially they relied on contracting outside \
+	desc_extended = "The People's Republic of Adhomai enjoys having the first militarized spaceships of all the factions on Adhomai. Initially they relied on contracting outside \
 	protection from NanoTrasen and the Sol Alliance in order to defend their orbit from raiders. However, the Republican Navy has striven to become independent. With the help of \
 	contracted engineers, access to higher education abroad and training from Sol Alliance naval advisers, the People's Republic has been able to commission and crew some of its own \
 	ships. The Republican Navy's space-arm primarily conducts counter piracy operations in conjunction with fending off raiders."
@@ -151,6 +159,40 @@
 	icon_state = "taj_dress_fancy_dark"
 	item_state = "taj_dress_fancy_dark"
 
+/obj/item/clothing/under/dress/tajaran/long
+	name = "adhomian dress"
+	desc = "A prim and proper dress, covers from neck to ankle."
+	icon_state = "longdress"
+	item_state = "longdress"
+
+/obj/item/clothing/under/dress/tajaran/long/update_icon()
+	cut_overlays()
+	var/image/buttons = image(icon, null, "longdress_buttons")
+	buttons.appearance_flags = RESET_COLOR
+	add_overlay(buttons)
+
+/obj/item/clothing/under/dress/tajaran/long/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_w_uniform_str)
+		var/image/buttons = image(mob_icon, null, "longdress_un_buttons")
+		buttons.appearance_flags = RESET_COLOR
+		I.add_overlay(buttons)
+	return I
+
+/obj/item/clothing/under/dress/tajaran/formal
+	name = "fancy uniform with skirt"
+	desc = "Formal Tajaran clothing with a skirt."
+	icon_state = "female_taj_fancy"
+	item_state = "female_taj_fancy"
+
+/obj/item/clothing/under/dress/tajaran/formal/alt1
+	icon_state = "female_taj_fancy_alt1"
+	item_state = "female_taj_fancy_alt1"
+
+/obj/item/clothing/under/dress/tajaran/formal/alt2
+	icon_state = "female_taj_fancy_alt2"
+	item_state = "female_taj_fancy_alt2"
+
 /obj/item/clothing/under/dress/tajaran/summer
 	name = "adhomian summer dress"
 	desc = "An Adhomian dress usually worn during the summer."
@@ -223,3 +265,83 @@
 	desc = "Clothes frequently worn by the New Kingdom's nobles. Likely a hand-me-down."
 	icon_state = "nka_noble_uniform"
 	item_state = "nka_noble_uniform"
+
+/obj/item/clothing/under/tajaran/nka_noble/update_icon()
+	cut_overlays()
+	var/image/lining = image(icon, null, "nka_noble_uniform_lining")
+	lining.appearance_flags = RESET_COLOR
+	add_overlay(lining)
+
+/obj/item/clothing/under/tajaran/nka_noble/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_w_uniform_str)
+		var/image/lining = image(mob_icon, null, "nka_noble_uniform_un_lining")
+		lining.appearance_flags = RESET_COLOR
+		I.add_overlay(lining)
+	return I
+
+/obj/item/clothing/under/tajaran/nka_merchant_navy
+	name = "her majesty's mercantile flotilla crew uniform"
+	desc = "An uniform used by the crew of the New Kingdom's merchant space ships. It is clearly inspired on the ones used back in Adhomai."
+	icon_state = "nka_merchant_navy"
+	item_state = "nka_merchant_navy"
+
+/obj/item/clothing/under/tajaran/nka_merchant_navy/alt
+	icon_state = "nka_merchant_navy_alt"
+	item_state = "nka_merchant_navy_alt"
+
+/obj/item/clothing/under/tajaran/nka_merchant_navy/captain
+	name = "her majesty's mercantile flotilla captain uniform"
+	desc = "An uniform used by the captain of the New Kingdom's merchant space ships. Not as fancy as the ones used in the Royal Navy."
+	icon_state = "nka_merchant_captain"
+	item_state = "nka_merchant_captain"
+
+/obj/item/clothing/under/tajaran/pvsm
+	name = "people's volunteer spacer militia uniform"
+	desc = "A military uniform used by the forces of the People's Volunteer Spacer Militia."
+	icon_state = "pvsm_crewman"
+	item_state = "pvsm_crewman"
+	desc_extended = "Having only recently claimed a space-positioned base alongside Gaka'zaal, the DPRA lacks any sort of trained force when it comes to orbital defense. Not wanting to \
+	rely purely on mercenaries due to the expenses and their scant loyalty, a militia was organized. Members of the Spacer Militia come from a variety of backgrounds: some coming back \
+	after being employed by mega-corporations; others from asteroid belts; some soldiers from Adhomai; and more from the Free Gakal'Zaal Station itself, having worked on it as maintenance."
+	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
+	siemens_coefficient = 0.5
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR)
+
+/obj/item/clothing/under/tajaran/pvsm/captain
+	name = "people's volunteer spacer militia captain uniform"
+	desc = "A military uniform used by the captains of the People's Volunteer Spacer Militia."
+	icon_state = "pvsm_captain"
+	item_state = "pvsm_captain"
+
+/obj/item/clothing/under/tajaran/ala
+	name = "adhomai liberation army uniform"
+	desc = "A military uniform issued to soldiers of the adhomai liberation army."
+	icon_state = "ala-soldier-civ"
+	item_state = "ala-soldier-civ"
+	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
+	siemens_coefficient = 0.7
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR)
+
+/obj/item/clothing/under/tajaran/ala/wraps
+	icon_state = "ala-grunt-wraps"
+	item_state = "ala-grunt-wraps"
+
+/obj/item/clothing/under/tajaran/ala/black
+	icon_state = "ala-soldat"
+	item_state = "ala-soldat"
+
+/obj/item/clothing/under/tajaran/ala/black/dress
+	name = "adhomai liberation army dress uniform"
+	icon_state = "ala-soldatdress"
+	item_state = "ala-soldatdress"
+
+/obj/item/clothing/under/tajaran/ala/black/officer
+	name = "adhomai liberation army officer uniform"
+	desc = "A military uniform issued to officers of the adhomai liberation army."
+	icon_state = "ala-officer"
+	item_state = "ala-officer"
