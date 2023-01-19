@@ -479,9 +479,8 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
-/area/security/prison)
+/area/horizon/security/brig)
 "anJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -8367,6 +8366,13 @@
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "armory";
+	name = "Armoury Shutters";
+	req_access = list(58);
+	pixel_x = -25;
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -8652,14 +8658,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
-"eoR" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/highsecurity{
-	name = "Armoury";
-	req_access = list(3)
-	},
-/turf/simulated/floor/tiled/full,
-/area/horizon/security/armoury)
 "epe" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -10607,7 +10605,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/security/security_office)
+/area/horizon/security/office)
 "fqg" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -12254,7 +12252,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/horizon/security/armoury)
 "gei" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -13104,7 +13102,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/horizon/security/armoury)
 "guj" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 5
@@ -17881,11 +17879,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
-"iNf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/security/prison)
 "iNl" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/floor_decal/industrial/warning{
@@ -24412,11 +24405,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
-	pixel_y = 34
+	pixel_y = 23
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
-	pixel_y = 23
+	pixel_y = 34
 	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Armoury";
@@ -44113,8 +44106,8 @@
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "vPj" = (
-/turf/simulated/wall/r_wall,
-/area/security/armory)
+/turf/simulated/floor/tiled,
+/area/horizon/security/lobby)
 "vPk" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -45626,7 +45619,7 @@
 	pixel_y = -30
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/horizon/security/head_of_security)
 "wwR" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /obj/effect/floor_decal/industrial/warning{
@@ -72543,7 +72536,7 @@ bOR
 acz
 tIQ
 ukV
-alg
+vPj
 lTQ
 tGX
 gMA
@@ -74560,7 +74553,7 @@ dev
 kaT
 cNU
 sgl
-ibU
+xKY
 hrC
 erH
 oZB
@@ -74762,7 +74755,7 @@ uTr
 uTr
 emN
 sgl
-ibU
+xKY
 ljm
 aVf
 jno
@@ -75166,7 +75159,7 @@ dYe
 uTr
 kaT
 qPP
-vNG
+vgu
 lLj
 unV
 aHj
@@ -75368,7 +75361,7 @@ dYe
 uTr
 tCY
 kjO
-vNG
+vgu
 kep
 wjU
 qjh
@@ -75570,7 +75563,7 @@ oGK
 uTr
 veG
 kjO
-vNG
+vgu
 xMV
 fpj
 tdv
@@ -78209,7 +78202,7 @@ ouo
 fqS
 baJ
 pMf
-eoR
+pMf
 lAv
 pMf
 pMf

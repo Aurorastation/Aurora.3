@@ -11588,7 +11588,7 @@
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/wood,
-/area/security/vacantoffice2)
+/area/horizon/security/meeting_room)
 "jzc" = (
 /obj/structure/sign/electricshock,
 /turf/simulated/wall/r_wall,
@@ -12511,19 +12511,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/hallway)
 "klQ" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
-	},
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/turf/simulated/floor/plating,
-/area/security/investigations)
+/turf/simulated/wall,
+/area/horizon/security/interrogation/monitoring)
 "kms" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass/alt,
@@ -19548,7 +19537,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/security/investigations)
+/area/horizon/security/investigations_hallway)
 "pUC" = (
 /obj/machinery/telecomms/processor/preset_two,
 /turf/simulated/floor/bluegrid,
@@ -19773,7 +19762,7 @@
 	name = "Investigator"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/vacantoffice2)
+/area/horizon/security/meeting_room)
 "qeu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -22239,7 +22228,7 @@
 	name = "evidence storage locker A"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/investigations_storage)
+/area/horizon/security/evidence_storage)
 "sdc" = (
 /obj/machinery/telecomms/hub/preset,
 /turf/simulated/floor/bluegrid,
@@ -26967,7 +26956,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/investigations)
+/area/horizon/security/firing_range)
 "vBl" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -27047,7 +27036,7 @@
 	name = "Security Officer"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/vacantoffice2)
+/area/horizon/security/meeting_room)
 "vEP" = (
 /obj/effect/floor_decal/sign/c{
 	pixel_x = -10;
@@ -55226,7 +55215,7 @@ bXZ
 rQb
 tAY
 iji
-fSg
+klQ
 mEf
 hmC
 dNi
@@ -56034,7 +56023,7 @@ bXZ
 rQb
 ojX
 nne
-fSg
+klQ
 ksm
 uoc
 dNi
@@ -56236,7 +56225,7 @@ nkF
 rQb
 fRO
 bFG
-fSg
+klQ
 csh
 xDg
 dNi
