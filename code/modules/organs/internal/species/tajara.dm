@@ -63,7 +63,9 @@
 	if(!owner)
 		return
 
-	if(night_vision)
+	. = ..()
+
+	if(. && night_vision)
 		to_chat(owner, SPAN_WARNING("Your eyes burn with the intense light of the flash!"))
 		owner.Weaken(5)
 		disable_night_vision()
