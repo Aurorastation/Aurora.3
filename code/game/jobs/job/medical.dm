@@ -67,8 +67,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "the chief medical officer"
 	selection_color = "#15903a"
 	economic_modifier = 7
@@ -320,8 +320,8 @@
 	department_flag = MEDSCI
 	faction = "Station"
 	alt_titles = list("First Responder Intern", "Surgeon Intern")
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#15903a"
 	access = list(access_medical, access_medical_equip)
