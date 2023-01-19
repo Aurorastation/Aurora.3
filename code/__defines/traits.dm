@@ -119,17 +119,10 @@
 // common trait sources
 #define TRAIT_GENERIC "generic"
 #define GENERIC_ITEM_TRAIT "generic_item"
-#define UNCONSCIOUS_TRAIT "unconscious"
-#define EYE_DAMAGE "eye_damage"
-#define EAR_DAMAGE "ear_damage"
-#define GENETIC_MUTATION "genetic"
-#define OBESITY "obesity"
-#define MAGIC_TRAIT "magic"
-#define TRAUMA_TRAIT "trauma"
 
 /// cannot be removed without admin intervention
 #define ROUNDSTART_TRAIT "roundstart"
-#define JOB_TRAIT "job"
+#define CULTURE_TRAIT "culture"
 
 #define INNATE_TRAIT "innate"
 

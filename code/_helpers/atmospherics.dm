@@ -1,14 +1,15 @@
-/obj/proc/analyze_gases(var/obj/A, var/mob/user)
+/obj/proc/analyze_gases(var/atom/A, var/mob/user)
 	if(src != A)
 		user.visible_message("<span class='notice'>\The [user] has used \an [src] on \the [A]</span>")
 
-	A.add_fingerprint(user)
-	var/list/result = A.atmosanalyze(user)
-	if(result && result.len)
-		to_chat(user, "<span class='notice'>Results of the analysis[src == A ? "" : " of [A]"]</span>")
-		for(var/line in result)
-			to_chat(user, "<span class='notice'>[line]</span>")
-		return 1
+	if(istype(A))
+		A.add_fingerprint(user)
+		var/list/result = A.atmosanalyze(user)
+		if(result && result.len)
+			to_chat(user, "<span class='notice'>Results of the analysis[src == A ? "" : " of [A]"]</span>")
+			for(var/line in result)
+				to_chat(user, "<span class='notice'>[line]</span>")
+			return 1
 
 	to_chat(user, "<span class='warning'>Your [src] flashes a red light as it fails to analyze \the [A].</span>")
 	return 0
@@ -29,7 +30,7 @@
 
 	return results
 
-/obj/proc/atmosanalyze(var/mob/user)
+/atom/proc/atmosanalyze(var/mob/user)
 	return
 
 /obj/item/tank/atmosanalyze(var/mob/user)

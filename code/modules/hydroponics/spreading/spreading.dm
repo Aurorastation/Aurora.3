@@ -172,9 +172,9 @@
 			last_biolum = null
 
 /obj/effect/plant/proc/refresh_icon()
-	if(!growth_threshold)
-		growth_threshold = max_health/seed.growth_stages
-	var/growth = min(max_growth,round(health/growth_threshold))
+	var/growth = 0
+	if(growth_threshold)
+		growth = min(max_growth,round(health/growth_threshold))
 	var/at_fringe = get_dist(src,parent)
 	if(spread_distance > 5)
 		if(at_fringe >= (spread_distance-3))

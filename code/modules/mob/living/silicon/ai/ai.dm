@@ -398,7 +398,7 @@ var/list/ai_verbs_default = list(
 	set category = "AI Commands"
 	set name = "Examine"
 
-	if((is_blind(src) || usr.stat) && !isobserver(src))
+	if((is_blind() || usr.stat) && !isobserver(src))
 		to_chat(src, "<span class='notice'>Your optical sensors appear to be malfunctioning.</span>")
 		return 1
 
