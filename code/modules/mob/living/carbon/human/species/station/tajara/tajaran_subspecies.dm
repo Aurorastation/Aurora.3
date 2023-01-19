@@ -110,11 +110,11 @@
 	healths_overlay_x = 9
 	floating_chat_x_offset = 6
 
-	slowdown = 2
+	slowdown = 1
 	fall_mod = 1.2
 
 	grab_mod = 3
-	resist_mod = 3
+	resist_mod = 10
 	break_cuffs = TRUE
 	mob_size = 25
 
