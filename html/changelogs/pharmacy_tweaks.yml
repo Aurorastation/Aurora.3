@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - rscadd: "Tweaks the pharmacy's layout."
+  - maptweak: "Tweaks the pharmacy's layout."
