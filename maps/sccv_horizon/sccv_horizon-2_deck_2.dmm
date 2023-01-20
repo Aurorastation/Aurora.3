@@ -14673,7 +14673,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair/padded/red{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -16470,7 +16470,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/structure/bed/stool/chair/padded/red{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -18414,7 +18414,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "jaK" = (
-/obj/structure/bed/stool/chair/padded/red{
+/obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/red,
@@ -45845,7 +45845,7 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/kitchen/hallway)
 "wDv" = (
-/obj/structure/bed/stool/chair/padded/red,
+/obj/structure/bed/stool/chair/padded/brown,
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
 "wDG" = (
