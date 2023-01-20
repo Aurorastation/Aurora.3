@@ -862,6 +862,11 @@
 /obj/structure/closet/secure_closet/medical_fr,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
+"auo" = (
+/obj/structure/table/wood,
+/obj/item/toy/desk/newtoncradle,
+/turf/simulated/floor/carpet/red,
+/area/horizon/library)
 "auG" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/service{
@@ -8960,6 +8965,7 @@
 /area/operations/office)
 "ewk" = (
 /obj/structure/table/wood,
+/obj/item/toy/desk/officetoy,
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
 "ewx" = (
@@ -15827,7 +15833,6 @@
 	pixel_y = 20;
 	dir = 4
 	},
-/obj/item/deck/cards,
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "hGx" = (
@@ -35145,6 +35150,10 @@
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
+	},
+/obj/item/toy/desk/fan{
+	pixel_x = -6;
+	pixel_y = 15
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
@@ -70416,7 +70425,7 @@ ryi
 rQh
 gqY
 pea
-ewk
+auo
 evl
 ewk
 fqn
