@@ -24417,11 +24417,9 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "armory";
-	name = "Armory Blast Doors";
-	pixel_y = 26;
-	req_access = list(3)
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 34
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
