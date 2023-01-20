@@ -100,3 +100,79 @@
 /obj/item/clothing/head/helmet/space/void/okon/yellow
 	icon_state = "okonhelmet-yellow"
 	item_state = "okonhelmet-yellow"
+
+/obj/item/clothing/suit/space/void/nka
+	name = "new kingdom mercantile voidsuit"
+	desc = "An amalgamation of old civilian voidsuits and diving suits. This bulky space suit is used by the crew of the New Kingdom's mercantile navy."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "nkavoid"
+	item_state = "nkavoid"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+	species_restricted = list(BODYTYPE_TAJARA)
+	refittable = FALSE
+
+/obj/item/clothing/head/helmet/space/void/nka
+	name = "new kingdom mercantile voidsuit helmet"
+	desc = "An amalgamation of old civilian voidsuits and diving suits. This bulky space suit is used by the crew of the New Kingdom's mercantile navy."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "nkavoidhelm"
+	item_state = "nkavoidhelm"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+	species_restricted = list(BODYTYPE_TAJARA)
+	refittable = FALSE
+
+/obj/item/clothing/suit/space/void/dpra
+	name = "people's volunteer spacer militia voidsuit"
+	desc = "A refitted, sturdy voidsuit created from corporate models acquired during the liberation of Gaka'zaal. These armored models are issued to the People's volunteer spacer militia."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "DPRA_voidsuit"
+	item_state = "DPRA_voidsuit"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+	species_restricted = list(BODYTYPE_TAJARA)
+	refittable = FALSE
+
+/obj/item/clothing/head/helmet/space/void/dpra
+	name = "people's volunteer spacer militia voidsuit helmet"
+	desc = "A refitted, sturdy voidsuit created from corporate models acquired during the liberation of Gaka'zaal. These armored models are issued to the People's volunteer spacer militia."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "DPRA_voidsuit_helmet"
+	item_state = "DPRA_voidsuit_helmet"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+	species_restricted = list(BODYTYPE_TAJARA)
+	refittable = FALSE
