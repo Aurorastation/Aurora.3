@@ -8,6 +8,7 @@
 	ranged = TRUE
 	rapid = TRUE
 	speak_chance = 5
+	universal_speak = FALSE
 	turns_per_move = 3
 	response_help = "pokes"
 	response_disarm = "gently pushes aside"
@@ -64,7 +65,7 @@
 	. = ..()
 
 	set_light(1.2, 3, LIGHT_COLOR_BLUE)
-	
+
 	if(prob(5))
 		projectiletype = /obj/item/projectile/beam/pulse/drone
 		projectilesound = 'sound/weapons/pulse2.ogg'
@@ -105,9 +106,6 @@
 			to_chat(user, SPAN_WARNING("It's completely lit up, and its targetting vanes are deployed."))
 		else
 			to_chat(user, SPAN_WARNING("Most of its lights are off, and its targetting vanes are retracted."))
-
-/mob/living/simple_animal/hostile/icarus_drone/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 
 /mob/living/simple_animal/hostile/icarus_drone/Allow_Spacemove(var/check_drift = 0)
 	return TRUE
@@ -158,13 +156,13 @@
 /mob/living/simple_animal/hostile/icarus_drone/Life()
 	//emps and lots of damage can temporarily shut us down
 	if(disabled > 0)
-		stat = UNCONSCIOUS
+		set_stat(UNCONSCIOUS)
 		icon_state = "drone_dead"
 		disabled--
 		wander = FALSE
 		speak_chance = 0
 	else
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 		icon_state = "drone0"
 		wander = TRUE
 		speak_chance = 5
@@ -221,7 +219,7 @@
 
 	if(!exploding && !disabled && prob(explode_chance))
 		exploding = TRUE
-		stat = UNCONSCIOUS
+		set_stat(UNCONSCIOUS)
 		wander = 1
 		walk(src, 0)
 		spawn(rand(50, 150))

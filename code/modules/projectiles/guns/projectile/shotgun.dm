@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/shotgun
 	name = "strange shotgun"
-	desc = "A strange shotgun that doesn't seem to belong anywhere. You feel like you shouldn't be able to see this and should... submit an issue?"
+	desc = DESC_PARENT
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE

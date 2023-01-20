@@ -10,7 +10,7 @@
 	anchored = FALSE
 
 	flags = ON_BORDER
-	obj_flags = OBJ_FLAG_ROTATABLE
+	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 
 	build_amt = 2
 	var/broken = FALSE

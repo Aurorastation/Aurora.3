@@ -2,7 +2,8 @@
 	name = "Ping"
 	priority = SS_PRIORITY_PING
 	wait = 3 SECONDS
-	flags = SS_NO_INIT | SS_FIRE_IN_LOBBY
+	flags = SS_NO_INIT
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
 	var/list/currentrun = list()
 

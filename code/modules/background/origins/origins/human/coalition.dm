@@ -30,6 +30,8 @@
 	possible_accents = list(ACCENT_HIMEO)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = RELIGIONS_COALITION
+	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE, TRAIT_ORIGIN_LIGHT_SENSITIVE)
+	origin_traits_descriptions = list("are more acclimatised to the cold.", "are more sensitive to bright lights")
 
 /singleton/origin_item/origin/vysoka
 	name = "Vysoka"
@@ -53,6 +55,11 @@
 	possible_accents = list(ACCENT_GADPATHUR)
 	possible_citizenships = list(CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER)
+	origin_traits = list(TRAIT_ORIGIN_LIGHT_SENSITIVE)
+	origin_traits_descriptions = list("have a small resistance to radiation", "are more sensitive to bright lights")
+
+/singleton/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/human/H)
+  H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/gadpathur_exile
 	name = "Gadpathurian Exile"
@@ -60,6 +67,11 @@
 	possible_accents = list(ACCENT_GADPATHUR)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_COALITION
+	origin_traits = list(TRAIT_ORIGIN_LIGHT_SENSITIVE)
+	origin_traits_descriptions = list("have a small resistance to radiation", "are more sensitive to bright lights")
+
+/singleton/origin_item/origin/gadpathur_exile/on_apply(var/mob/living/carbon/human/H)
+  H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/assunzione
 	name = "Republic of Assunzione"
@@ -68,6 +80,8 @@
 	possible_accents = list(ACCENT_ASSUNZIONE)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = list(RELIGION_LUCEISM)
+	origin_traits = list(TRAIT_ORIGIN_DARK_AFRAID)
+	origin_traits_descriptions = list("tend to feel nervous in the dark")
 
 /singleton/origin_item/origin/non_coalition_frontier
 	name = "Non-Coalition Frontier"

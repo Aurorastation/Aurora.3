@@ -50,7 +50,7 @@
 	desc = "A military uniform used by the forces of the People's Republic of Adhomai orbital fleet."
 	icon_state = "cosmonaut"
 	item_state = "cosmonaut"
-	desc_extended = "The People's Republic of Adhomai enjoys having the only militarized spaceships of all the factions on Adhomai. Initially they relied on contracting outside \
+	desc_extended = "The People's Republic of Adhomai enjoys having the first militarized spaceships of all the factions on Adhomai. Initially they relied on contracting outside \
 	protection from NanoTrasen and the Sol Alliance in order to defend their orbit from raiders. However, the Republican Navy has striven to become independent. With the help of \
 	contracted engineers, access to higher education abroad and training from Sol Alliance naval advisers, the People's Republic has been able to commission and crew some of its own \
 	ships. The Republican Navy's space-arm primarily conducts counter piracy operations in conjunction with fending off raiders."
@@ -232,13 +232,6 @@
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 	armor = list(melee = ARMOR_MELEE_SMALL)
 
-/obj/item/clothing/under/tajaran/nka_uniform/commander
-	name = "imperial adhomian army officer uniform"
-	desc = "A military uniform used by the officers of the New Kingdom of Adhomai's army."
-	icon_state = "nka_commander"
-	item_state = "nka_commander"
-	starting_accessories = null
-
 /obj/item/clothing/under/tajaran/consular
 	name = "people's republic consular uniform"
 	desc = "An olive uniform used by the diplomatic service of the People's Republic of Adhomai."
@@ -287,30 +280,76 @@
 		I.add_overlay(lining)
 	return I
 
-/obj/item/clothing/under/tajaran/archeologist
-	name = "archeologist uniform"
-	desc = "A rugged uniform used by Adhomian archeologists. It is already covered in dirt and ancient dust."
-	icon_state = "explorer_uniform"
-	item_state = "explorer_uniform"
+/obj/item/clothing/under/tajaran/nka_merchant_navy
+	name = "her majesty's mercantile flotilla crew uniform"
+	desc = "An uniform used by the crew of the New Kingdom's merchant space ships. It is clearly inspired on the ones used back in Adhomai."
+	icon_state = "nka_merchant_navy"
+	item_state = "nka_merchant_navy"
 
-/obj/item/clothing/under/tajaran/army_commissar
-	name = "army commissar uniform"
-	desc = "A military uniform used by Party Commissars attached to military units."
-	icon_state = "pracommisar"
-	item_state = "pracommisar"
-	desc_extended = "Party Commissars are high ranking members of the Party of the Free Tajara under the Leadership of Hadii attached to army units, who ensures that soldiers and \
-	their commanders follow the principles of Hadiism. Their duties are not only limited to enforcing the republican ideals among the troops and reporting possible subversive elements, \
-	they are expected to display bravery in combat and lead by example."
-	starting_accessories = (/obj/item/clothing/accessory/holster/hip)
+/obj/item/clothing/under/tajaran/nka_merchant_navy/alt
+	icon_state = "nka_merchant_navy_alt"
+	item_state = "nka_merchant_navy_alt"
 
-/obj/item/clothing/under/tajaran/psis
-	name = "people's strategic intelligence service uniform"
-	desc = "An uniform used by the agents of the People's Strategic Intelligence Service. The sight of this uniform is feared by most Tajara."
-	icon_state = "psis"
-	item_state = "psis"
-	desc_extended = "The People's Strategic Intelligence service is the main intelligence agency of the People's Republic. In the wake of the revolution that had won the species their independence, \
-	the budding government recognized the need for covert operations. Several agents and informants are employed by the PSIS, both in domestic and foreign theaters. The agency makes use of \
-	espionage, sabotage, assassination, interrogation, blackmail, and all other short of subterfuge, during their operations. Subversive elements within the People's Republican are dealt with \
-	quickly, usually through night raids and abductions conducted with aid of black unmarked cars. Tajara residing in other systems are not truly safe from the Intelligence Service, as they are \
-	known to deploy their agents against off-world targets. Republican spies, enforces and collaborators are present in Mendell City's district six, carrying out orders or watching their fellow Tajara."
-	starting_accessories = (/obj/item/clothing/accessory/holster/hip)
+/obj/item/clothing/under/tajaran/nka_merchant_navy/captain
+	name = "her majesty's mercantile flotilla captain uniform"
+	desc = "An uniform used by the captain of the New Kingdom's merchant space ships. Not as fancy as the ones used in the Royal Navy."
+	icon_state = "nka_merchant_captain"
+	item_state = "nka_merchant_captain"
+
+/obj/item/clothing/under/tajaran/pvsm
+	name = "people's volunteer spacer militia uniform"
+	desc = "A military uniform used by the forces of the People's Volunteer Spacer Militia."
+	icon_state = "pvsm_crewman"
+	item_state = "pvsm_crewman"
+	desc_extended = "Having only recently claimed a space-positioned base alongside Gaka'zaal, the DPRA lacks any sort of trained force when it comes to orbital defense. Not wanting to \
+	rely purely on mercenaries due to the expenses and their scant loyalty, a militia was organized. Members of the Spacer Militia come from a variety of backgrounds: some coming back \
+	after being employed by mega-corporations; others from asteroid belts; some soldiers from Adhomai; and more from the Free Gakal'Zaal Station itself, having worked on it as maintenance."
+	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
+	siemens_coefficient = 0.5
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR)
+
+/obj/item/clothing/under/tajaran/pvsm/captain
+	name = "people's volunteer spacer militia captain uniform"
+	desc = "A military uniform used by the captains of the People's Volunteer Spacer Militia."
+	icon_state = "pvsm_captain"
+	item_state = "pvsm_captain"
+
+/obj/item/clothing/under/tajaran/ala
+	name = "adhomai liberation army uniform"
+	desc = "A military uniform issued to soldiers of the adhomai liberation army."
+	icon_state = "ala-soldier-civ"
+	item_state = "ala-soldier-civ"
+	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
+	siemens_coefficient = 0.7
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR)
+
+/obj/item/clothing/under/tajaran/ala/wraps
+	icon_state = "ala-grunt-wraps"
+	item_state = "ala-grunt-wraps"
+
+/obj/item/clothing/under/tajaran/ala/black
+	icon_state = "ala-soldat"
+	item_state = "ala-soldat"
+
+/obj/item/clothing/under/tajaran/ala/black/dress
+	name = "adhomai liberation army dress uniform"
+	icon_state = "ala-soldatdress"
+	item_state = "ala-soldatdress"
+
+/obj/item/clothing/under/tajaran/ala/black/officer
+	name = "adhomai liberation army officer uniform"
+	desc = "A military uniform issued to officers of the adhomai liberation army."
+	icon_state = "ala-officer"
+	item_state = "ala-officer"
+
+/obj/item/clothing/under/tajaran/tesla_body
+	name = "tesla rejuvenation suit worker uniform"
+	desc = "A massive jumpsuit issued to Tajara grafted in Tesla Rejuvenation Suits."
+	icon_state = "tesla_body_jumpsuit"
+	item_state = "tesla_body_jumpsuit"
+	species_restricted = list(BODYTYPE_TESLA_BODY)
+	sprite_sheets = list(BODYTYPE_TESLA_BODY = 'icons/mob/species/tajaran/tesla_body/uniform.dmi')

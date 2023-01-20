@@ -12,6 +12,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	wait = 1
 	flags = SS_NO_INIT | SS_BACKGROUND | SS_POST_FIRE_TIMING
 	priority = SS_PRIORITY_EXPLOSIVES
+	runlevels = RUNLEVELS_PLAYING
 
 	suspended = TRUE	// Start disabled, explosions will wake us if need be.
 

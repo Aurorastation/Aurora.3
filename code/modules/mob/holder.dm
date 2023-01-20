@@ -3,7 +3,7 @@ var/list/holder_mob_icon_cache = list()
 //Helper object for picking dionaea (and other creatures) up.
 /obj/item/holder
 	name = "holder"
-	desc = "You shouldn't ever see this."
+	desc = DESC_PARENT
 	icon = 'icons/mob/npc/held_mobs.dmi'
 	randpixel = 0
 	center_of_mass = null

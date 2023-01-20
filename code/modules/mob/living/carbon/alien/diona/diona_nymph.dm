@@ -11,6 +11,7 @@
 	eat_types = 0 //This is a bitfield which must be initialised in New(). The valid values for it are in devour.dm
 	composition_reagent = /singleton/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	name = "diona nymph"
+	desc = "A diona nymph."
 	voice_name = "diona nymph"
 	accent = ACCENT_ROOTSONG
 	adult_form = /mob/living/carbon/human/diona/coeus
@@ -288,16 +289,16 @@
 		if(paralysis && paralysis > 0)
 			handle_paralysed()
 			blinded = TRUE
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 
 		if(sleeping)
 			if(mind)
 				if(mind.active && client)
 					sleeping = max(sleeping-1, 0)
 			blinded = TRUE
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 		else if(!resting)
-			stat = CONSCIOUS
+			set_stat(CONSCIOUS)
 
 		// Eyes and blindness.
 		if(!has_eyes())

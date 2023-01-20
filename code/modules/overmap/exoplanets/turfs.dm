@@ -4,6 +4,7 @@
 	icon_state = "desert"
 	has_resources = 1
 	footstep_sound = /singleton/sound_category/asteroid_footstep
+	turf_flags = TURF_FLAG_BACKGROUND
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
 	var/has_edge_icon = TRUE
@@ -104,6 +105,9 @@
 /turf/simulated/floor/exoplanet/ice/update_icon()
 	return
 
+/turf/simulated/floor/exoplanet/ice/dark
+	icon_state = "icedark"
+
 //Snow
 /turf/simulated/floor/exoplanet/snow
 	name = "snow"
@@ -114,7 +118,7 @@
 
 /turf/simulated/floor/exoplanet/snow/Initialize()
 	. = ..()
-	icon_state = pick("snow[rand(1,12)]","snow0")
+	icon_state = pick("snow[rand(1,2)]","snow0")
 
 /turf/simulated/floor/exoplanet/snow/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	melt()

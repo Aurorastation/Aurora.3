@@ -9,6 +9,7 @@
 	anchored = TRUE
 	w_class = ITEMSIZE_NORMAL
 	layer = UNDER_PIPE_LAYER //under pipes
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/restrict_placement = TRUE
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(

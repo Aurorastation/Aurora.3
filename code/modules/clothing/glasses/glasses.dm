@@ -453,7 +453,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/sunglasses/Initialize()
 	. = ..()
-	desc += " Enhanced shielding blocks many flashes."
+	desc += " Enhanced shielding blocks some flashes."
 
 /obj/item/clothing/glasses/sunglasses/aviator
 	name = "aviators"

@@ -79,6 +79,12 @@
 	icon_state = "alaberetalt"
 	item_state = "alaberetalt"
 
+/obj/item/clothing/head/beret/tajaran/pvsm
+	name = "people's volunteer spacer militia beret"
+	desc = "A beret issued to people's volunteer spacer militia."
+	icon_state = "alaberetalt"
+	item_state = "alaberetalt"
+
 /obj/item/clothing/head/beret/tajaran/nka
 	name = "new kingdom naval beret"
 	desc = "A formal black beret with a blue band. This is worn by NKA naval servicemen and crewmen such as the Imperial Marines."
@@ -103,15 +109,10 @@
 		insignia."
 
 /obj/item/clothing/head/tajaran/nka_cap
-	name = "new kingdom service cap"
+	name = "service cap"
 	desc = "A simple service cap worn by soldiers of the Adhomai Imperial Army."
 	icon_state = "nkahat"
 	item_state = "nkahat"
-
-/obj/item/clothing/head/tajaran/nka_cap/commander
-	desc = "A fancy service cap worn by officer of the Adhomai Imperial Army."
-	icon_state = "nka_commander_hat"
-	item_state = "nka_commander_hat"
 
 /obj/item/clothing/head/tajaran/consular
 	name = "consular service cap"
@@ -129,12 +130,6 @@
 	desc = "A fancy hat worn by the diplomatic service of the New Kingdom of Adhomai."
 	icon_state = "nka_consularhat"
 	item_state = "nka_consularhat"
-
-/obj/item/clothing/head/tajaran/archeologist
-	name = "archeologist hat"
-	desc = "A well-worn fedora favored by Adhomian explorers and archeologists. Not very protective but still very stylish."
-	icon_state = "explorer_hat"
-	item_state = "explorer_hat"
 
 /obj/item/clothing/head/helmet/amohda
 	name = "amohdan swordsman helmet"
@@ -176,22 +171,29 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 
-/obj/item/clothing/head/tajaran/cosmonaut_commissar
-	name = "army commissar hat"
-	desc = "A peaked cap used by Party Commissars attached to military units."
-	icon_state = "pracommisar_hat"
-	item_state = "pracommisar_hat"
-	desc_extended = "Party Commissars are high ranking members of the Party of the Free Tajara under the Leadership of Hadii attached to army units, who ensures that soldiers and \
-	their commanders follow the principles of Hadiism. Their duties are not only limited to enforcing the republican ideals among the troops and reporting possible subversive elements, \
-	they are expected to display bravery in combat and lead by example."
+/obj/item/clothing/head/tajaran/nka_merchant_navy
+	name = "her majesty's mercantile flotilla cap"
+	desc = "A cap worn by the crew of the New Kingdom's space merchant navy. It is an essential part of any respectable sailor's uniform."
+	icon_state = "nka_merchant_navy_hat"
+	item_state = "nka_merchant_navy_hat"
 
-/obj/item/clothing/head/tajaran/psis
-	name = "people's strategic intelligence service cap"
-	desc = "A hat issued to the agents of the People's Strategic Intelligence Service."
-	icon_state = "psis_hat"
-	item_state = "psis_hat"
-	desc_extended = "The People's Strategic Intelligence service is the main intelligence agency of the People's Republic. In the wake of the revolution that had won the species their independence, \
-	the budding government recognized the need for covert operations. Several agents and informants are employed by the PSIS, both in domestic and foreign theaters. The agency makes use of \
-	espionage, sabotage, assassination, interrogation, blackmail, and all other short of subterfuge, during their operations. Subversive elements within the People's Republican are dealt with \
-	quickly, usually through night raids and abductions conducted with aid of black unmarked cars. Tajara residing in other systems are not truly safe from the Intelligence Service, as they are \
-	known to deploy their agents against off-world targets. Republican spies, enforces and collaborators are present in Mendell City's district six, carrying out orders or watching their fellow Tajara."
+/obj/item/clothing/head/tajaran/nka_merchant_navy/captain
+	name = "her majesty's mercantile flotilla captain cap"
+	desc = "A cap worn by the captain of the New Kingdom's space merchant navy. A fancier version of the sailor cap."
+	icon_state = "nka_merchant_navy_captain_hat"
+	item_state = "nka_merchant_navy_captain_hat"
+
+/obj/item/clothing/head/tajaran/ala_officer
+	name = "adhomai liberation army officer hat"
+	desc = "A cap issued to adhomai liberation army officers."
+	icon_state = "ala-officer_hat"
+	item_state = "ala-officer_hat"
+
+/obj/item/clothing/head/tajaran/ala_wraps
+	name = "adhomai liberation army face wraps"
+	desc = "Face wraps used by soldier and guerilla forces of the adhomai liberation army."
+	icon_state = "ala-grunt-wraps-hood"
+	item_state = "ala-grunt-wraps-hood"
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	species_restricted = list(BODYTYPE_TAJARA)

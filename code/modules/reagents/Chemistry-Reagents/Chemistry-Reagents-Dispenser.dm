@@ -117,7 +117,7 @@
 
 /singleton/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
 	name = null	// This null name should prevent alcohol from being added to global lists.
-	description = "An abstract type you shouldn't be able to see."
+	description = DESC_PARENT
 	reagent_state = LIQUID
 	color = "#404030"
 	ingest_met = REM * 5

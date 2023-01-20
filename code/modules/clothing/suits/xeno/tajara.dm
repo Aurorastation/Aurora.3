@@ -258,7 +258,6 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.50
-	allowed = list(/obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/gun/projectile/automatic/rifle/adhomian, /obj/item/device/flashlight)
 
 /obj/item/clothing/suit/storage/tajaran/dpra_jacket
 	name = "al'mariist jacket"
@@ -306,22 +305,11 @@
 	icon_state = "finecoat_blue"
 	item_state = "finecoat_blue"
 
-/obj/item/clothing/suit/storage/tajaran/hunting
-	name = "adhomian hunting coat"
-	desc = "A coat made of adhomian pelts. Commonly used by hunters."
+/obj/item/clothing/suit/storage/tajaran/nka_merchant_navy
+	name = "her majesty's mercantile flotilla captain coat"
+	desc = "A fancy coat worn by captains of the New Kingdom's mercantile navy. It offers extra protection against space wind."
 	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "hunter_coat"
-	item_state = "hunter_coat"
+	icon_state = "capjacket"
+	item_state = "capjacket"
 	contained_sprite = TRUE
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/material/knife, /obj/item/device/flashlight)
-
-/obj/item/clothing/suit/storage/tajaran/archeologist
-	name = "archeologist jacket"
-	desc = "A leather jacket used by Adhomian archeologists. Perfect to store dynamite sticks."
-	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "explorer_jacket"
-	item_state = "explorer_jacket"
 	contained_sprite = TRUE
-	allowed = list(/obj/item/grenade/dynamite, /obj/item/melee/whip, /obj/item/gun/projectile/revolver, /obj/item/pickaxe)
-

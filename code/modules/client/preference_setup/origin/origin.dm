@@ -100,11 +100,17 @@
 	var/singleton/origin_item/culture/CL = GET_SINGLETON(text2path(pref.culture))
 	var/singleton/origin_item/origin/OR = GET_SINGLETON(text2path(pref.origin))
 	dat += "<b>Culture: </b><a href='?src=\ref[src];open_culture_menu=1'>[CL.name]</a><br>"
-	dat += "<i>- [CL.desc]</i>"
+	dat += "<i>- [CL.desc]</i><br><br>"
+	if(length(CL.origin_traits_descriptions))
+		dat += "- Characters from this culture "
+		dat += "<b>[english_list(CL.origin_traits_descriptions)]</b>."
 	if(CL.important_information)
 		dat += "<br><i>- <font color=red>[CL.important_information]</font></i>"
 	dat += "<hr><b>Origin: </b><a href='?src=\ref[src];open_origin_menu=1'>[OR.name]</a><br>"
-	dat += "<i>- [OR.desc]</i>"
+	dat += "<i>- [OR.desc]</i><br>"
+	if(length(OR.origin_traits_descriptions))
+		dat += "- Characters from this origin "
+		dat += "<b>[english_list(OR.origin_traits_descriptions)]</b>."
 	if(OR.important_information)
 		dat += "<br><i>- <font color=red>[OR.important_information]</font></i>"
 	dat += "<hr>"

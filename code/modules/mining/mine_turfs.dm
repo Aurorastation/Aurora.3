@@ -636,6 +636,7 @@ var/list/mineral_can_smooth_with = list(
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 
 	roof_type = null
+	turf_flags = TURF_FLAG_BACKGROUND
 
 // Same as the other, this is a global so we don't have a lot of pointless lists floating around.
 // Basalt is explicitly omitted so ash will spill onto basalt turfs.

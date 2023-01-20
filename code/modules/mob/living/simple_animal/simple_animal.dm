@@ -31,6 +31,9 @@
 	var/previous_bleed_timer = 0	// they only bleed for as many seconds as force damage was applied to them
 	var/blood_timer_mod = 0.25		// tweak to change the amount of seconds a mob will bleed
 
+	var/simple_default_language = LANGUAGE_TCB
+	universal_speak = TRUE // since most mobs verbalize sounds, this is the better option, just set this to false on mobs that don't make noise
+
 	var/list/speak = list()
 	var/speak_chance = 0
 	var/list/emote_hear = list()	//Hearable emotes
@@ -171,6 +174,10 @@
 
 	if(LAZYLEN(natural_armor))
 		AddComponent(armor_type, natural_armor)
+
+	if(simple_default_language)
+		add_language(simple_default_language)
+		set_default_language(all_languages[simple_default_language])
 
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()
@@ -687,7 +694,7 @@
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
-		flash_eyes()
+		flash_act()
 
 	var/damage
 	switch (severity)
@@ -777,10 +784,7 @@
 		make_noise(sound_chance)
 
 	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
-	..(message, null, verb, ghost_hearing = can_ghosts_hear)
-
-/mob/living/simple_animal/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, pick(speak), language, small, show_to, duration)
+	..(message, speaking, verb, ghost_hearing = can_ghosts_hear)
 
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
@@ -836,7 +840,7 @@
 /mob/living/simple_animal/proc/fall_asleep()
 	if (stat != DEAD)
 		resting = 1
-		stat = UNCONSCIOUS
+		set_stat(UNCONSCIOUS)
 		canmove = 0
 		wander = 0
 		walk_to(src,0)
@@ -846,7 +850,7 @@
 //Wakes the mob up from sleeping
 /mob/living/simple_animal/proc/wake_up()
 	if (stat != DEAD)
-		stat = CONSCIOUS
+		set_stat(UNCONSCIOUS)
 		resting = 0
 		canmove = 1
 		wander = 1
