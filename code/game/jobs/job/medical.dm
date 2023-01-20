@@ -320,8 +320,8 @@
 	department_flag = MEDSCI
 	faction = "Station"
 	alt_titles = list("First Responder Intern", "Surgeon Intern")
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#15903a"
 	access = list(access_medical, access_medical_equip)
