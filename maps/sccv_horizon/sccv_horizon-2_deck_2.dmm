@@ -2695,7 +2695,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "biZ" = (
-/obj/structure/bed/stool/chair/sofa/right/black{
+/obj/structure/bed/stool/chair/sofa/right/red{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/red,
@@ -5232,6 +5232,15 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/security/main)
+"cxZ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/simulated/floor/wood,
+/area/horizon/library)
 "cyG" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -5909,7 +5918,9 @@
 /area/engineering/lobby)
 "cSi" = (
 /obj/structure/table/wood,
-/obj/machinery/librarypubliccomp,
+/obj/machinery/librarypubliccomp{
+	pixel_y = 7
+	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
@@ -10616,7 +10627,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "fqn" = (
-/obj/structure/bed/stool/chair/sofa/left/black{
+/obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/red,
@@ -14656,7 +14667,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair/padded/black{
+/obj/structure/bed/stool/chair/padded/red{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -15816,6 +15827,7 @@
 	pixel_y = 20;
 	dir = 4
 	},
+/obj/item/deck/cards,
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "hGx" = (
@@ -16453,7 +16465,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/structure/bed/stool/chair/padded/black{
+/obj/structure/bed/stool/chair/padded/red{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -18397,7 +18409,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "jaK" = (
-/obj/structure/bed/stool/chair/padded/black{
+/obj/structure/bed/stool/chair/padded/red{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/red,
@@ -20237,7 +20249,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "jUG" = (
-/obj/structure/bed/stool/chair/sofa/corner/black{
+/obj/structure/bed/stool/chair/sofa/corner/red{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/red,
@@ -21092,7 +21104,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/table/wood,
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = -9;
+	density = 0
+	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "kuS" = (
@@ -30498,7 +30513,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "pea" = (
-/obj/structure/bed/stool/chair/sofa/left/black,
+/obj/structure/bed/stool/chair/sofa/left/red,
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
 "pef" = (
@@ -35128,9 +35143,6 @@
 /area/security/prison)
 "ruv" = (
 /obj/structure/table/wood,
-/obj/machinery/librarycomp{
-	pixel_y = -3
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
@@ -35639,7 +35651,6 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/kitchen/hallway)
 "rHd" = (
-/obj/structure/filingcabinet/chestdrawer,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
@@ -35649,6 +35660,10 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	pixel_x = 24
+	},
+/obj/structure/table/wood,
+/obj/machinery/librarycomp{
+	pixel_y = 7
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
@@ -42396,8 +42411,33 @@
 /area/horizon/crew_quarters/lounge/bar)
 "uZs" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger,
+/obj/machinery/recharger{
+	pixel_x = -15
+	},
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/item/board,
+/obj/item/board{
+	pixel_y = 4
+	},
+/obj/item/storage/pill_bottle/dice/tajara{
+	pixel_x = 8
+	},
+/obj/item/storage/pill_bottle/dice/gaming{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/item/storage/pill_bottle/dice{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/item/deck/cards{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/deck/cards{
+	pixel_x = -4;
+	pixel_y = 10
+	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "uZt" = (
@@ -43849,7 +43889,7 @@
 /turf/simulated/wall,
 /area/horizon/bar/backroom)
 "vNX" = (
-/obj/structure/bed/stool/chair/sofa/left/black{
+/obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/red,
@@ -45796,7 +45836,7 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/kitchen/hallway)
 "wDv" = (
-/obj/structure/bed/stool/chair/padded/black,
+/obj/structure/bed/stool/chair/padded/red,
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
 "wDG" = (
@@ -46024,7 +46064,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "wKa" = (
-/obj/structure/bed/stool/chair/sofa/corner/black{
+/obj/structure/bed/stool/chair/sofa/corner/red{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/red,
@@ -71186,7 +71226,7 @@ ruv
 xQD
 kuG
 dWA
-kuG
+cxZ
 gjl
 laV
 pWx
