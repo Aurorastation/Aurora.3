@@ -45665,6 +45665,12 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/garden)
 "wCm" = (
