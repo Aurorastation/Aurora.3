@@ -1,0 +1,1890 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"az" = (
+/obj/structure/bed/stool/padded/black,
+/obj/machinery/button/remote/blast_door{
+	id = "ala_camp_entry";
+	name = "Entry";
+	req_access = list(214);
+	pixel_y = 32
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"cn" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"dg" = (
+/obj/structure/table/steel,
+/obj/machinery/door/window/brigdoor/northright{
+	dir = 8;
+	req_access = list(214)
+	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/dpra{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"eh" = (
+/obj/machinery/door/blast/shutters{
+	id = "ala_garage";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"gU" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"gV" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/under/tajaran/ala,
+/obj/item/clothing/head/beret/tajaran/dpra/alt,
+/obj/item/clothing/accessory/badge/dpra_passport,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"gW" = (
+/obj/structure/sign/flag/dpra/left{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"hT" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"iP" = (
+/obj/structure/sign/flag/dpra{
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/ala_base)
+"iY" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"jH" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"mB" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/storage/pill_bottle/dice/tajara,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"mC" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"nc" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(214);
+	name = "gun cabinet (rifle)"
+	},
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"ne" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	identifier = "ala_base_officer";
+	name = "igs - ala_base_officer"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"nE" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"om" = (
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"oA" = (
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"pB" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"qa" = (
+/obj/structure/railing/fence,
+/obj/structure/bed/stool/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"qA" = (
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/ala_base)
+"qF" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(214);
+	name = "ammunition cabinet (rifle)"
+	},
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"rp" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/ala_base)
+"th" = (
+/obj/structure/trash_pile,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"tO" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(214);
+	name = "ammunition cabinet (pistol)"
+	},
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"tT" = (
+/obj/machinery/button/remote/blast_door{
+	id = "ala_garage";
+	name = "Garage Door";
+	req_access = list(214);
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"ui" = (
+/obj/vehicle/bike/snow{
+	dir = 4
+	},
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"uw" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(214);
+	name = "gun cabinet (pistols)"
+	},
+/obj/item/gun/projectile/silenced,
+/obj/item/gun/projectile/silenced,
+/obj/item/gun/projectile/silenced,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"uI" = (
+/obj/structure/table/steel,
+/obj/structure/window/reinforced{
+	dir = 8;
+	icon_state = "rwindow"
+	},
+/obj/item/handcuffs,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"uO" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/reagent_dispensers/keg/mead,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"vi" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"vH" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(214);
+	name = "ammunition cabinet (automatic rifle)"
+	},
+/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/c762/dpra,
+/obj/item/ammo_magazine/c762/dpra,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"vJ" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(214);
+	name = "gun cabinet (automatic rifle)"
+	},
+/obj/item/gun/projectile/automatic/rifle/dpra,
+/obj/item/gun/projectile/automatic/rifle/dpra,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"vP" = (
+/obj/machinery/door/blast/shutters{
+	id = "ala_camp_entry"
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/ala_base)
+"vT" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"wf" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/ala_base)
+"wB" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/structure/sign/flag/dpra/right{
+	pixel_y = 32
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "ala_base_soldier";
+	name = "igs - ala_base_soldier"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"wC" = (
+/obj/structure/bed/stool/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"wH" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(214);
+	name = "gun cabinet (marksman)"
+	},
+/obj/item/gun/projectile/dragunov,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"xy" = (
+/obj/structure/bed/stool/bar/padded/black,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"xN" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"yB" = (
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/ala_base)
+"yO" = (
+/obj/structure/closet/crate,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/flame/lighter/adhomai,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"zp" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	identifier = "ala_base_soldier";
+	name = "igs - ala_base_soldier"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"zA" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(214);
+	name = "ammunition cabinet (marksman)"
+	},
+/obj/item/ammo_magazine/d762,
+/obj/item/ammo_magazine/d762,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"zC" = (
+/obj/structure/railing/fence,
+/obj/structure/closet/crate/freezer,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"zJ" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Am" = (
+/obj/structure/table/steel,
+/obj/structure/window/reinforced{
+	dir = 4;
+	icon_state = "rwindow"
+	},
+/obj/item/handcuffs,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Av" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(214);
+	name = "armor cabinet"
+	},
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/head/helmet/merc,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Bi" = (
+/obj/structure/table/standard,
+/obj/item/storage/belt/utility,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Bl" = (
+/obj/structure/simple_door/iron,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Cj" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/ala_base)
+"CW" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"DB" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/ala_base)
+"DG" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"DL" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/under/tajaran/ala,
+/obj/item/clothing/head/beret/tajaran/dpra/alt,
+/obj/item/clothing/accessory/badge/dpra_passport,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Ec" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Ex" = (
+/obj/structure/table/standard,
+/obj/machinery/cell_charger,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"EK" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/deck/cards,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"EN" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"EP" = (
+/obj/structure/blocker/steel/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/ala_base)
+"ES" = (
+/obj/structure/simple_door/iron,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Fc" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Fg" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(214);
+	name = "explosive cabinets"
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/landmine,
+/obj/item/landmine,
+/obj/item/landmine,
+/obj/item/landmine,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Fo" = (
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Hq" = (
+/turf/simulated/wall/iron,
+/area/ala_base)
+"IO" = (
+/obj/structure/table/standard,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 8
+	},
+/obj/item/storage/toolbox/electrical,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"JT" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"KV" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/structure/sign/flag/dpra/left{
+	pixel_y = 32
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "ala_base_soldier";
+	name = "igs - ala_base_soldier"
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Lg" = (
+/obj/machinery/door/airlock/security{
+	name = "Armory";
+	req_access = list(214)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Ma" = (
+/obj/structure/sign/flag/dpra/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Md" = (
+/obj/structure/table/standard,
+/obj/item/device/binoculars,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"OG" = (
+/obj/machinery/light,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Rg" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"RD" = (
+/obj/structure/table/steel,
+/obj/machinery/door/window/brigdoor/northright{
+	dir = 4;
+	req_access = list(214)
+	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/dpra{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Sr" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/closet/crate/freezer,
+/obj/item/storage/box/drinkingglasses,
+/obj/item/storage/box/drinkingglasses,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"St" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"SQ" = (
+/obj/structure/sign/painting_frame/nated{
+	pixel_y = 32
+	},
+/obj/item/book/manual/dpra_manifesto,
+/obj/structure/table/standard,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"SY" = (
+/obj/structure/bed/stool/padded/black,
+/obj/machinery/button/remote/blast_door{
+	id = "ala_camp_entry";
+	name = "Entry";
+	req_access = list(214);
+	pixel_y = 32
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Vc" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/ala_base)
+"VN" = (
+/obj/structure/table/wood/gamblingtable,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"Wl" = (
+/obj/structure/sign/painting_frame/nated{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/ala_base)
+"XN" = (
+/obj/structure/sign/flag/dpra{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Yr" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/reagent_dispensers/keg/mead,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+"YI" = (
+/obj/structure/table/standard,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/ala_base)
+
+(1,1,1) = {"
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+hT
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+hT
+vi
+vi
+vi
+vi
+vi
+vi
+"}
+(2,1,1) = {"
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+hT
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+"}
+(3,1,1) = {"
+vi
+vi
+hT
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+hT
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+"}
+(4,1,1) = {"
+vi
+vi
+vi
+Hq
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+Hq
+hT
+vi
+"}
+(5,1,1) = {"
+vi
+vi
+vi
+EP
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+EP
+vi
+vi
+"}
+(6,1,1) = {"
+hT
+vi
+vi
+EP
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+DB
+Hq
+Hq
+Hq
+Hq
+Hq
+DB
+EP
+vi
+vi
+"}
+(7,1,1) = {"
+vi
+vi
+vi
+EP
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+Hq
+KV
+Rg
+zp
+Md
+ne
+gV
+DL
+DL
+DL
+Hq
+DB
+Hq
+Av
+Wl
+Fg
+Hq
+DB
+EP
+vi
+vi
+"}
+(8,1,1) = {"
+vi
+vi
+vi
+EP
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+Hq
+Ma
+oA
+oA
+oA
+oA
+oA
+oA
+oA
+OG
+Hq
+DB
+Hq
+qF
+om
+nc
+Hq
+DB
+EP
+vi
+vi
+"}
+(9,1,1) = {"
+vi
+vi
+vi
+Hq
+Hq
+Hq
+Hq
+DB
+DB
+DB
+DB
+Hq
+SQ
+oA
+oA
+oA
+oA
+oA
+oA
+oA
+oA
+Hq
+DB
+Hq
+vH
+om
+vJ
+Hq
+DB
+EP
+vi
+vi
+"}
+(10,1,1) = {"
+vi
+vi
+wf
+Hq
+SY
+oA
+ES
+DB
+DB
+DB
+DB
+Hq
+gW
+oA
+oA
+oA
+oA
+oA
+xy
+oA
+OG
+Hq
+DB
+Hq
+tO
+om
+uw
+Hq
+DB
+EP
+vi
+hT
+"}
+(11,1,1) = {"
+vi
+vi
+XN
+Hq
+RD
+Am
+Hq
+Vc
+DB
+DB
+DB
+Hq
+wB
+YI
+zp
+zJ
+jH
+yO
+Fc
+xy
+oA
+Hq
+DB
+Hq
+zA
+om
+wH
+Hq
+DB
+EP
+vi
+vi
+"}
+(12,1,1) = {"
+Fo
+Fo
+Fo
+vP
+qA
+qA
+vP
+qA
+qA
+qA
+DB
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+nE
+Hq
+DB
+Hq
+Hq
+Lg
+Hq
+Hq
+DB
+EP
+vi
+vi
+"}
+(13,1,1) = {"
+Fo
+Fo
+Fo
+vP
+qA
+qA
+vP
+qA
+qA
+qA
+DB
+DB
+rp
+DB
+DB
+DB
+DB
+DB
+DB
+rp
+qA
+DB
+DB
+rp
+iP
+qA
+iP
+rp
+DB
+EP
+vi
+vi
+"}
+(14,1,1) = {"
+vi
+vi
+XN
+Hq
+dg
+uI
+Hq
+Vc
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+DB
+DB
+EP
+vi
+vi
+"}
+(15,1,1) = {"
+vi
+vi
+wf
+Hq
+az
+oA
+ES
+DB
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+DB
+DB
+EP
+vi
+vi
+"}
+(16,1,1) = {"
+vi
+vi
+vi
+Hq
+Hq
+Hq
+Hq
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+Cj
+DB
+DB
+Cj
+DB
+DB
+DB
+qA
+DB
+DB
+DB
+EP
+vi
+vi
+"}
+(17,1,1) = {"
+vi
+vi
+vi
+EP
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+Hq
+Hq
+Hq
+Hq
+Hq
+Hq
+Bl
+Hq
+DB
+pB
+CW
+oA
+CW
+xN
+DB
+EP
+vi
+vi
+"}
+(18,1,1) = {"
+vi
+vi
+vi
+EP
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+Hq
+om
+ui
+om
+ui
+om
+om
+Hq
+Vc
+St
+oA
+oA
+oA
+Ec
+DB
+EP
+vi
+vi
+"}
+(19,1,1) = {"
+vi
+hT
+vi
+EP
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+Hq
+vT
+om
+cn
+om
+om
+DG
+Hq
+DB
+St
+oA
+wC
+wC
+Ec
+wf
+Hq
+vi
+vi
+"}
+(20,1,1) = {"
+vi
+vi
+vi
+EP
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+wf
+Hq
+Bi
+om
+om
+om
+om
+JT
+Hq
+DB
+St
+wC
+mB
+VN
+qa
+DB
+EP
+vi
+vi
+"}
+(21,1,1) = {"
+vi
+vi
+vi
+EP
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+Hq
+Ex
+om
+om
+om
+om
+th
+Hq
+DB
+St
+wC
+VN
+VN
+qa
+DB
+EP
+vi
+vi
+"}
+(22,1,1) = {"
+vi
+vi
+vi
+EP
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+Hq
+IO
+iY
+iY
+iY
+tT
+mC
+Hq
+DB
+St
+wC
+VN
+EK
+qa
+DB
+EP
+vi
+vi
+"}
+(23,1,1) = {"
+vi
+vi
+vi
+Hq
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+Hq
+Hq
+eh
+eh
+eh
+Hq
+Hq
+Hq
+Vc
+St
+oA
+wC
+wC
+Ec
+DB
+EP
+vi
+vi
+"}
+(24,1,1) = {"
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+rp
+EN
+EN
+EN
+rp
+vi
+EP
+DB
+St
+oA
+oA
+oA
+Ec
+DB
+EP
+vi
+vi
+"}
+(25,1,1) = {"
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+EP
+DB
+Yr
+oA
+oA
+oA
+zC
+wf
+Hq
+vi
+vi
+"}
+(26,1,1) = {"
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+EP
+DB
+uO
+gU
+oA
+gU
+Sr
+DB
+EP
+vi
+vi
+"}
+(27,1,1) = {"
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+EP
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+EP
+vi
+vi
+"}
+(28,1,1) = {"
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+EP
+DB
+DB
+DB
+DB
+DB
+DB
+DB
+EP
+vi
+hT
+"}
+(29,1,1) = {"
+vi
+hT
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+Hq
+yB
+yB
+yB
+yB
+yB
+yB
+yB
+Hq
+vi
+vi
+"}
+(30,1,1) = {"
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+hT
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+"}
+(31,1,1) = {"
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+hT
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+hT
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+hT
+vi
+vi
+vi
+vi
+"}
+(32,1,1) = {"
+vi
+vi
+vi
+vi
+hT
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+vi
+"}

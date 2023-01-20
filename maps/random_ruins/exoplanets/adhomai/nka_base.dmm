@@ -22,7 +22,7 @@
 /area/nka_base)
 "bU" = (
 /obj/structure/simple_door/wood{
-	lock = "nka_commander"
+	initial_lock_value = "nka_commander"
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -339,7 +339,7 @@
 /area/nka_base)
 "DB" = (
 /obj/structure/simple_door/iron{
-	lock = "nka_armory"
+	initial_lock_value = "nka_armory"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 268.15

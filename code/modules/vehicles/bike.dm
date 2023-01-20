@@ -320,11 +320,12 @@
 /obj/vehicle/bike/casino
 	name = "retrofitted snowmobile"
 	desc = "A modified snowmobile. There is a coin slot on the panel."
-	icon_state = "snowmobile_on"
+	icon_state = "snow_on"
 
-	bike_icon = "snowmobile"
+	bike_icon = "snow"
 	land_speed = 3
 	protection_percent = 10
+	can_hover = FALSE
 	var/paid = FALSE
 
 /obj/vehicle/bike/casino/Move(var/turf/destination)
@@ -351,3 +352,14 @@
 		return TRUE
 	else
 		return FALSE
+
+/obj/vehicle/bike/snow
+	name = "snowmobile"
+	desc = "A vehicle adapted to travel on snow."
+	icon_state = "snow_on"
+
+	bike_icon = "snow"
+	land_speed = 3
+	space_speed = 0
+	protection_percent = 10
+	can_hover = FALSE

@@ -340,7 +340,7 @@
 "vQ" = (
 /obj/effect/ghostspawpoint{
 	identifier = "pra_base_commissar";
-	name = "igs - pra_base_soldier"
+	name = "igs - pra_base_commissar"
 	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -683,7 +683,7 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(209);
-	name = "ammunition cabinet (pistols)"
+	name = "armor cabinet"
 	},
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/suit/armor/carrier/heavy,
@@ -830,7 +830,7 @@
 "VN" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(209);
-	name = "gun cabinet (rifle)"
+	name = "gun cabinet (automatic rifle)"
 	},
 /obj/item/gun/projectile/automatic/rifle/adhomian,
 /obj/item/gun/projectile/automatic/rifle/adhomian,
