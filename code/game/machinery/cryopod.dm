@@ -24,6 +24,7 @@ var/global/list/frozen_crew = list()
 	icon_screen = "cryo"
 	icon_scanline = "altcomputerw-scanline"
 	light_color = LIGHT_COLOR_GREEN
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/mode = null
 

@@ -19,6 +19,7 @@
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
 	var/brightness_power = 0.45
 	var/night_brightness_range = 6

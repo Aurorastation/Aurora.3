@@ -4,6 +4,7 @@
 #define LAZYREMOVE(L, I) if(L) { L -= I; if(!length(L)) { L = null; } }
 #define LAZYADD(L, I) if(!L) { L = list(); } L += I;
 #define LAZYACCESS(L, I) (L ? (isnum(I) ? (I > 0 && I <= L.len ? L[I] : null) : L[I]) : null)
+#define LAZYINSERT(L, I, X) if(!L) { L = list(); } L.Insert(X, I);
 #define LAZYLEN(L) length(L)
 #define LAZYCLEARLIST(L) if(L) L.Cut()
 #define LAZYSET(L, K, V) if (!L) { L = list(); } L[K] = V;

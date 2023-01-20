@@ -345,3 +345,11 @@
 	desc = "A military uniform issued to officers of the adhomai liberation army."
 	icon_state = "ala-officer"
 	item_state = "ala-officer"
+
+/obj/item/clothing/under/tajaran/tesla_body
+	name = "tesla rejuvenation suit worker uniform"
+	desc = "A massive jumpsuit issued to Tajara grafted in Tesla Rejuvenation Suits."
+	icon_state = "tesla_body_jumpsuit"
+	item_state = "tesla_body_jumpsuit"
+	species_restricted = list(BODYTYPE_TESLA_BODY)
+	sprite_sheets = list(BODYTYPE_TESLA_BODY = 'icons/mob/species/tajaran/tesla_body/uniform.dmi')

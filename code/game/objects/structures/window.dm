@@ -13,7 +13,7 @@
 	layer = 3.2 // Just above doors.
 	anchored = TRUE
 	flags = ON_BORDER
-	obj_flags = OBJ_FLAG_ROTATABLE
+	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 	var/hitsound = 'sound/effects/glass_hit.ogg'
 	var/maxhealth = 14
 	var/maximal_heat = T0C + 100 // Maximal heat before this window begins taking damage from fire

@@ -16,6 +16,7 @@
 	name = "emergency closet"
 	desc = "It's a storage unit for emergency breathmasks and oxygen tanks."
 	icon_state = "emergency"
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 /obj/structure/closet/emcloset/fill()
 	switch (pickweight(list("small" = 50, "aid" = 20, "tank" = 10, "seal" = 10, "all" = 10)))

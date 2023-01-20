@@ -9,6 +9,7 @@
 	density = 1
 	layer = ABOVE_CABLE_LAYER
 	w_class = ITEMSIZE_HUGE
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/state = 0
 	var/health = 200
 	var/cover = 50 //how much cover the girder provides against projectiles.

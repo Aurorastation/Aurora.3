@@ -139,8 +139,8 @@
 
 	return turf_map
 
-
-/proc/translate_turfs(var/list/translation, var/area/base_area = null, var/turf/base_turf)
+/proc/translate_turfs(var/list/translation, var/area/base_area = null, var/turf/base_turf, var/ignore_background)
+	. = list()
 	for(var/turf/source in translation)
 
 		var/turf/target = translation[source]
@@ -148,33 +148,55 @@
 		if(target)
 			if(base_area)
 				ChangeArea(target, get_area(source))
-				transport_turf_contents(source, target)
+				. += transport_turf_contents(source, target, ignore_background)
 				ChangeArea(source, base_area)
 			else
-				transport_turf_contents(source, target)
-
+				. += transport_turf_contents(source, target, ignore_background)
 	//change the old turfs
 	for(var/turf/source in translation)
-		source.ChangeTurf(base_turf ? base_turf : get_base_turf_by_area(source), 1, 1)
+		if(ignore_background && (source.turf_flags & TURF_FLAG_BACKGROUND))
+			continue
+		var/old_turf = base_turf || get_base_turf_by_area(source)
+		source.ChangeTurf(old_turf)
+
 
 //Transports a turf from a source turf to a target turf, moving all of the turf's contents and making the target a copy of the source.
-/proc/transport_turf_contents(turf/source, turf/target)
+//If ignore_background is set to true, turfs with TURF_FLAG_BACKGROUND set will only translate anchored contents.
+//Returns the new turf, or list(new turf, source) if a background turf was ignored and things may have been left behind.
+/proc/transport_turf_contents(turf/source, turf/target, ignore_background)
+	var/turf/new_turf
 
-	var/turf/new_turf = target.ChangeTurf(source.type, 1, 1)
-	new_turf.transport_properties_from(source)
+	var/is_background = ignore_background && (source.turf_flags & TURF_FLAG_BACKGROUND)
+	var/supported = FALSE // Whether or not there's an object in the turf which can support other objects.
+	if(is_background)
+		new_turf = target
+	else	
+		new_turf = target.ChangeTurf(source.type, 1, 1)
+		new_turf.transport_properties_from(source)
 
 	for(var/obj/O in source)
-		if(O.simulated)
+		if(O.obj_flags & OBJ_FLAG_NOFALL)
+			supported = TRUE
+			break
+
+	for(var/obj/O in source)
+		if(O.simulated && (!is_background || supported || O.obj_flags & OBJ_FLAG_MOVES_UNSUPPORTED))
 			O.forceMove(new_turf)
-		else if(istype(O,/obj/effect))
+		else if(istype(O,/obj/effect)) // This is used for non-game objects like spawnpoints, so ignore the background check.
 			var/obj/effect/E = O
 			if(E.movable_flags & MOVABLE_FLAG_EFFECTMOVE)
 				E.forceMove(new_turf)
 
 	for(var/mob/M in source)
-		if(isEye(M)) continue // If we need to check for more mobs, I'll add a variable
+		if(is_background && !supported)
+			continue
+		if(isEye(M))
+			continue // If we need to check for more mobs, I'll add a variable
 		M.forceMove(new_turf)
 
+	if(is_background)
+		return list(new_turf, source)
+	
 	return new_turf
 
 /proc/air_sound(atom/source, var/required_pressure = SOUND_MINIMUM_PRESSURE)
