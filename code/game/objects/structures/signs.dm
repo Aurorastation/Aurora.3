@@ -11,6 +11,7 @@
 	opacity = FALSE
 	layer = 3.5
 	w_class = ITEMSIZE_NORMAL
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 /obj/structure/sign/ex_act(severity)
 	qdel(src)

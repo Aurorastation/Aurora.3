@@ -7,6 +7,7 @@
 	idle_power_usage = 5
 	active_power_usage = 10
 	layer = 5
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/list/network = list(NETWORK_STATION)
 	var/c_tag = null
