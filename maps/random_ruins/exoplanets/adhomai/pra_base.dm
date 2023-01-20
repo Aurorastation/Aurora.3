@@ -76,7 +76,7 @@
 	name = "Grand People's Army Commissar"
 
 	uniform = /obj/item/clothing/under/tajaran/army_commissar
-	head = /obj/item/clothing/head/beret/tajaran/pra
+	head = /obj/item/clothing/head/tajaran/army_commissar
 	suit = null
 	belt = /obj/item/gun/projectile/deagle/adhomai
 	belt_contents = null

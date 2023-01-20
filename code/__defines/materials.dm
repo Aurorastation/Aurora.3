@@ -34,7 +34,6 @@
 #define MATERIAL_RUST                       "rust"
 #define MATERIAL_CARDBOARD                  "cardboard"
 #define MATERIAL_GRAPHITE                   "graphite"
-#define MATERIAL_CONCRETE					"concrete"
 
 // Leathers and related.
 #define MATERIAL_RESIN                   "resin"

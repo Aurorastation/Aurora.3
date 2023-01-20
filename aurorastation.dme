@@ -3285,6 +3285,7 @@
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_raskariim_hideout.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_village.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_war_memorial.dm"
+#include "maps\random_ruins\exoplanets\adhomai\ala_base.dm"
 #include "maps\random_ruins\exoplanets\adhomai\ala_cell.dm"
 #include "maps\random_ruins\exoplanets\adhomai\nka_base.dm"
 #include "maps\random_ruins\exoplanets\adhomai\pra_base.dm"
