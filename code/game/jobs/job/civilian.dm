@@ -336,9 +336,9 @@
 	spawn_positions = 1
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	access = list(access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
-	minimal_access = list(access_morgue, access_chapel_office, access_crematorium)
-	alt_titles = list("Presbyter","Rabbi","Imam","Priest","Shaman","Counselor")
+	access = list(access_chapel_office, access_maint_tunnels)
+	minimal_access = list(access_chapel_office)
+	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Shaman", "Counselor")
 	outfit = /datum/outfit/job/chaplain
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
