@@ -1057,7 +1057,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
 	if(!isturf(loc))
 		return
-	pickup_animation.overlays = overlays
+	if(overlays.len)
+		pickup_animation.overlays = overlays
+	if(underlays.len)
+		pickup_animation.underlays = underlays
 	. = ..()
 
 /obj/item/proc/throw_fail_consequences(var/mob/living/carbon/C)
