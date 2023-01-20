@@ -1,0 +1,6 @@
+author: listerla
+
+delete-after: True
+
+changes:
+  - bugfix: "Dionae ships, the SSMD ship, and the IAC ship now are in the ship pool rather than away site pool."
