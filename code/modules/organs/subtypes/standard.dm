@@ -53,7 +53,7 @@
 /obj/item/organ/external/groin/Destroy()
 	if(owner?.species.tail)
 		QDEL_NULL(tail_storage)
-		return ..()
+	return ..()
 
 /obj/item/organ/external/groin/removed()
 	. = ..()
