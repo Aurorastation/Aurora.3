@@ -75,7 +75,7 @@ STOCK_ITEM_LARGE(vendor, 6)
 	new /obj/random/vendor(L, 1)
 
 STOCK_ITEM_LARGE(piano, 2)
-	new /obj/structure/device/piano(L)
+	new /obj/structure/synthesized_instrument/synthesizer/piano(L)
 
 //Xenoarch suspension field generator, they need a spare
 STOCK_ITEM_LARGE(suspension, 2)
