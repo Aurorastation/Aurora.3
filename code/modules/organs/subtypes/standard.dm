@@ -47,16 +47,19 @@
 
 /obj/item/organ/external/groin/Initialize()
 	. = ..()
-	tail_storage = new /obj/item/storage/internal/tail(src)
+	if(owner.species.tail)
+		tail_storage = new /obj/item/storage/internal/tail(src)
 
 /obj/item/organ/external/groin/Destroy()
-	QDEL_NULL(tail_storage)
-	return ..()
+	if(owner?.species.tail)
+		QDEL_NULL(tail_storage)
+		return ..()
 
 /obj/item/organ/external/groin/removed()
 	. = ..()
-	for(var/thing in tail_storage)
-		tail_storage.remove_from_storage(thing, get_turf(src))
+	if(owner?.species.tail)
+		for(var/thing in tail_storage)
+			tail_storage.remove_from_storage(thing, get_turf(src))
 
 /obj/item/organ/external/groin/body_part_class()
 	return UPPER_TORSO
