@@ -1,7 +1,7 @@
 /datum/map_template/ruin/exoplanet/adhomai_cavern_geist
 	name = "Cavern Geist Den"
 	id = "adhomai_cavern_geist"
-	description = "An Amohdan swordsman waiting for a challenge."
+	description = "The den of a cavern geist."
 
 	spawn_weight = 0.5
 	spawn_cost = 2

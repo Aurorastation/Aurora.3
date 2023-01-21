@@ -58,7 +58,7 @@
 		return
 
 	if(!health)
-		to_chat(src, SPAN_NOTICE("You are dead, you cannot use any abilities!</span>"))
+		to_chat(src, SPAN_NOTICE("You are dead, you cannot use any abilities!"))
 		return
 
 	if(last_special > world.time)
@@ -71,7 +71,7 @@
 	target.adjustBruteLoss(35)
 
 	if(!do_after(src,150))
-		to_chat(src, SPAN_WARNING("You need to wait longer to devour \the [target]!</span>"))
+		to_chat(src, SPAN_WARNING("You need to wait longer to devour \the [target]!"))
 		src.is_devouring = FALSE
 		return FALSE
 
@@ -84,7 +84,7 @@
 		is_devouring = FALSE
 		return FALSE
 
-	visible_message(SPAN_WARNING("[target] is completely devoured by [src]!</span>"), \
+	visible_message(SPAN_WARNING("[target] is completely devoured by [src]!"), \
 						SPAN_WARNING("You completely devour \the [target]!"))
 	target.gib()
 	rejuvenate()
