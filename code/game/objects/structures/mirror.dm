@@ -5,6 +5,7 @@
 	icon_state = "mirror"
 	density = 0
 	anchored = 1
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/shattered = 0
 
 	/// Visual object for handling the viscontents

@@ -752,7 +752,7 @@
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
 			if(sleeping)
-				stat = UNCONSCIOUS
+				set_stat(UNCONSCIOUS)
 				if(!sleeping_msg_debounce)
 					sleeping_msg_debounce = TRUE
 					to_chat(src, SPAN_NOTICE(FONT_LARGE("You are now unconscious.<br>You will not remember anything you \"see\" happening around you until you regain consciousness.")))
@@ -778,7 +778,7 @@
 
 		//CONSCIOUS
 		else if(!InStasis())
-			stat = CONSCIOUS
+			set_stat(CONSCIOUS)
 			sleeping_msg_debounce = FALSE
 			willfully_sleeping = FALSE
 

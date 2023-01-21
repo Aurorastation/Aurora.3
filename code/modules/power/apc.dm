@@ -135,6 +135,7 @@
 	req_access = list(access_engine_equip)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	clicksound = /singleton/sound_category/switch_sound
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/area/area
 	var/areastring = null
 	var/obj/item/cell/cell

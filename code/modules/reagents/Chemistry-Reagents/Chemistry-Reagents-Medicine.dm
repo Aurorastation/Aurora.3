@@ -1508,7 +1508,7 @@
 		if(M && M.stat == DEAD)
 			M.adjustOxyLoss(-rand(15,20))
 			M.visible_message(SPAN_DANGER("\The [M] shudders violently!"))
-			M.stat = 0
+			M.set_stat(CONSCIOUS)
 
 /singleton/reagent/pacifier
 	name = "Paxazide"
