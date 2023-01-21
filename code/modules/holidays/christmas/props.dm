@@ -322,7 +322,9 @@
 		/obj/item/device/dociler,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/megaphone,
-		/obj/item/device/synthesized_instrument/violin)
+		/obj/item/device/synthesized_instrument/violin,
+		/obj/item/device/synthesized_instrument/guitar,
+		/obj/item/device/synthesized_instrument/trumpet)
 
 	return picked_gift_type
 

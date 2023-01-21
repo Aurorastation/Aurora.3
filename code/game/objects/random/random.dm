@@ -1079,7 +1079,10 @@
 		/obj/random/toolbox = 1,
 		/obj/random_produce = 0.25,
 		/obj/random/watches = 1,
-		/obj/random/wizard_dressup = 0.25
+		/obj/random/wizard_dressup = 0.25,
+		/obj/item/device/synthesized_instrument/violin = 0.1,
+		/obj/item/device/synthesized_instrument/guitar = 1,
+		/obj/item/device/synthesized_instrument/trumpet = 0.25
 	)
 
 

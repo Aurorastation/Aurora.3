@@ -5,7 +5,7 @@
 
 /obj/structure/synthesized_instrument/synthesizer
 	name = "The Synthesizer 3.0"
-	desc = "This thing emits shockwaves as it plays. This is not good for your hearing."
+	desc = "A sound synthesizer."
 	icon_state = "synthesizer"
 	anchored = TRUE
 	density = TRUE
