@@ -411,7 +411,7 @@
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/ghostspawpoint{
 	identifier = "adhomai_pra_miner";
-	name = "igs -adhomai_pra_miner
+	name = "igs -adhomai_pra_miner"
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
