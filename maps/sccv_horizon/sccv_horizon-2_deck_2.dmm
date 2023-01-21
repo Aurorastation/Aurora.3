@@ -29008,22 +29008,8 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/investigations_hallway)
 "ord" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_two/fore/port)
+/turf/simulated/floor/carpet/red,
+/area/horizon/library)
 "orm" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
@@ -36147,6 +36133,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
+"rPI" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/horizon/library)
 "rPY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -70627,7 +70619,7 @@ fqn
 fQS
 pWx
 wDv
-hPt
+ord
 mHh
 slm
 uZs
@@ -71430,7 +71422,7 @@ ruv
 xQD
 kuG
 dWA
-cxZ
+rPI
 gjl
 laV
 pWx
