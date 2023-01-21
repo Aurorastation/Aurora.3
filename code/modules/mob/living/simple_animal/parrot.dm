@@ -41,6 +41,7 @@
 	emote_see = list("flutters its wings")
 
 	speak_chance = 1//1% (1 in 100) chance every tick; So about once per 150 seconds, assuming an average tick is 1.5s
+	universal_speak = FALSE
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/cracker/
 
@@ -120,9 +121,6 @@
 /mob/living/simple_animal/parrot/Stat()
 	..()
 	stat("Held Item", held_item)
-
-/mob/living/simple_animal/parrot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 
 /*
  * Inventory

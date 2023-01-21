@@ -261,7 +261,7 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 		setOxyLoss(0)
 	else
 		health = maxHealth - getFireLoss() - getBruteLoss() // Oxyloss is not part of health as it represents AIs backup power. AI is immune against ToxLoss as it is machine.
@@ -292,7 +292,7 @@ var/list/ai_verbs_default = list(
 		id_card.registered_name = pickedName
 		id_card.assignment = "AI"
 		id_card.access = get_all_station_access()
-		id_card.access += access_synth
+		id_card.access += access_equipment
 		id_card.update_name()
 
 	if(client)
@@ -398,7 +398,7 @@ var/list/ai_verbs_default = list(
 	set category = "AI Commands"
 	set name = "Examine"
 
-	if((is_blind(src) || usr.stat) && !isobserver(src))
+	if((is_blind() || usr.stat) && !isobserver(src))
 		to_chat(src, "<span class='notice'>Your optical sensors appear to be malfunctioning.</span>")
 		return 1
 

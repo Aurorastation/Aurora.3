@@ -3,7 +3,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
 	var/icon_state_active = "dispenser_active"
-	clicksound = /decl/sound_category/button_sound
+	clicksound = /singleton/sound_category/button_sound
 
 	obj_flags = OBJ_FLAG_ROTATABLE
 
@@ -131,7 +131,7 @@
 	data["beakerCurrentVolume"] = container?.reagents?.total_volume
 	var beakerD[0]
 	for(var/_R in container?.reagents?.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
+		var/singleton/reagent/R = GET_SINGLETON(_R)
 		beakerD[++beakerD.len] = list("name" = R.name, "volume" = REAGENT_VOLUME(container.reagents, _R))
 	data["beakerContents"] = beakerD
 	var chemicals[0]
@@ -144,7 +144,7 @@
 /obj/machinery/chemical_dispenser/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "machinery-chemdisp", 390, 680, ui_title, state = interactive_state)
+		ui = new(user, src, "machinery-chemdisp", 400, 680, ui_title, state = interactive_state)
 	ui.open()
 
 /obj/machinery/chemical_dispenser/Topic(href, href_list)

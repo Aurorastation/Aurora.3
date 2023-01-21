@@ -5,7 +5,7 @@
 /obj/item/reagent_containers/hypospray
 	name = "hypospray"
 	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
-	desc_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
+	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
 	desc_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
 	icon = 'icons/obj/syringe.dmi'
 	item_icons = list(
@@ -41,7 +41,7 @@
 /obj/item/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
 	desc = "A high-end version of the regular hypospray, it allows for a substantially higher rate of drug administration to patients."
-	desc_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
+	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
 	desc_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
 	volume = 30
@@ -112,7 +112,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
-	desc_fluff = "Funded by the Stellar Corporate Conglomerate, produced by Zeng-Hu Pharmaceuticals, this autoinjector system was rebuilt from the ground up from the old variant to provide maximum user feedback."
+	desc_extended = "Funded by the Stellar Corporate Conglomerate, produced by Zeng-Hu Pharmaceuticals, this autoinjector system was rebuilt from the ground up from the old variant to provide maximum user feedback."
 	desc_info = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Use in-hand, or click it while it's in your active hand to prepare it for reuse."
 	icon_state = "autoinjector"
 	item_state = "autoinjector"
@@ -193,15 +193,15 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
 	name_label = "inaprovaline"
-	reagents_to_add = list(/decl/reagent/inaprovaline = 5)
+	reagents_to_add = list(/singleton/reagent/inaprovaline = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/dylovene
 	name_label = "dylovene"
-	reagents_to_add = list(/decl/reagent/dylovene = 5)
+	reagents_to_add = list(/singleton/reagent/dylovene = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/emergency
 	name_label = "emergency"
-	reagents_to_add = list(/decl/reagent/inaprovaline = 2.5, /decl/reagent/dexalin = 2.5)
+	reagents_to_add = list(/singleton/reagent/inaprovaline = 2.5, /singleton/reagent/dexalin = 2.5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/emergency/Initialize()
 	. = ..()
@@ -212,12 +212,12 @@
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel. This one contains coagzolug, a quick-acting blood coagulant that will slow bleeding for as long as it's within the bloodstream."
 	volume = 5
 	flags = 0
-	reagents_to_add = list(/decl/reagent/coagzolug = 5)
+	reagents_to_add = list(/singleton/reagent/coagzolug = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/hyronalin
 	name_label = "hyronalin"
 	flags = 0
-	reagents_to_add = list(/decl/reagent/hyronalin = 5)
+	reagents_to_add = list(/singleton/reagent/hyronalin = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone
 	name_label = "sideeffects-be-gone!"
@@ -225,7 +225,7 @@
 	volume = 30
 	amount_per_transfer_from_this = 15
 
-	reagents_to_add = list(/decl/reagent/synaptizine = 5, /decl/reagent/cetahydramine = 10, /decl/reagent/oculine = 5, /decl/reagent/ethylredoxrazine = 10)
+	reagents_to_add = list(/singleton/reagent/synaptizine = 5, /singleton/reagent/cetahydramine = 10, /singleton/reagent/oculine = 5, /singleton/reagent/ethylredoxrazine = 10)
 
 /obj/item/reagent_containers/hypospray/autoinjector/stimpack
 	name = "stimpack"
@@ -233,7 +233,7 @@
 	volume = 20
 	amount_per_transfer_from_this = 20
 
-	reagents_to_add = list(/decl/reagent/hyperzine = 12, /decl/reagent/mortaphenyl = 6, /decl/reagent/synaptizine = 2)
+	reagents_to_add = list(/singleton/reagent/hyperzine = 12, /singleton/reagent/mortaphenyl = 6, /singleton/reagent/synaptizine = 2)
 
 /obj/item/reagent_containers/hypospray/autoinjector/survival
 	name = "survival autoinjector"
@@ -241,7 +241,7 @@
 	volume = 35
 	amount_per_transfer_from_this = 35
 
-	reagents_to_add = list(/decl/reagent/tricordrazine = 15, /decl/reagent/inaprovaline = 5, /decl/reagent/dexalin/plus = 5, /decl/reagent/oxycomorphine = 3, /decl/reagent/synaptizine = 2, /decl/reagent/mental/corophenidate = 5)
+	reagents_to_add = list(/singleton/reagent/tricordrazine = 15, /singleton/reagent/inaprovaline = 5, /singleton/reagent/dexalin/plus = 5, /singleton/reagent/oxycomorphine = 3, /singleton/reagent/synaptizine = 2, /singleton/reagent/mental/corophenidate = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/berserk
 	name_label = "berserk injector"
@@ -249,7 +249,7 @@
 	volume = 5
 	amount_per_transfer_from_this = 5
 
-	reagents_to_add = list(/decl/reagent/toxin/berserk = 5)
+	reagents_to_add = list(/singleton/reagent/toxin/berserk = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/trauma
 	name = "trauma hypo-injector"
@@ -257,7 +257,7 @@
 	volume = 15
 	amount_per_transfer_from_this = 15
 
-	reagents_to_add = list(/decl/reagent/butazoline = 15)
+	reagents_to_add = list(/singleton/reagent/butazoline = 15)
 
 /obj/item/reagent_containers/hypospray/autoinjector/burn
 	name = "burn hypo-injector"
@@ -265,7 +265,7 @@
 	volume = 15
 	amount_per_transfer_from_this = 15
 
-	reagents_to_add = list(/decl/reagent/dermaline = 15)
+	reagents_to_add = list(/singleton/reagent/dermaline = 15)
 
 /obj/item/reagent_containers/hypospray/autoinjector/oxygen
 	name = "oxygenation hypo-injector"
@@ -273,7 +273,7 @@
 	volume = 15
 	amount_per_transfer_from_this = 15
 
-	reagents_to_add = list(/decl/reagent/dexalin/plus = 15)
+	reagents_to_add = list(/singleton/reagent/dexalin/plus = 15)
 
 /obj/item/reagent_containers/hypospray/autoinjector/purity
 	name = "purity hypo-injector"
@@ -281,7 +281,7 @@
 	volume = 15
 	amount_per_transfer_from_this = 15
 
-	reagents_to_add = list(/decl/reagent/thetamycin = 10, /decl/reagent/ryetalyn = 5)
+	reagents_to_add = list(/singleton/reagent/thetamycin = 10, /singleton/reagent/ryetalyn = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/organ
 	name = "organ hypo-injector"
@@ -289,7 +289,7 @@
 	volume = 15
 	amount_per_transfer_from_this = 15
 
-	reagents_to_add = list(/decl/reagent/peridaxon = 10, /decl/reagent/oculine = 5)
+	reagents_to_add = list(/singleton/reagent/peridaxon = 10, /singleton/reagent/oculine = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pain
 	name = "numbing hypo-injector"
@@ -297,7 +297,7 @@
 	volume = 15
 	amount_per_transfer_from_this = 5
 
-	reagents_to_add = list(/decl/reagent/oxycomorphine = 15)
+	reagents_to_add = list(/singleton/reagent/oxycomorphine = 15)
 
 /obj/item/reagent_containers/hypospray/combat
 	name = "combat hypospray"
@@ -308,7 +308,7 @@
 	armorcheck = FALSE
 	time = 0
 
-	reagents_to_add = list(/decl/reagent/oxycomorphine = 5, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5, /decl/reagent/arithrazine = 5)
+	reagents_to_add = list(/singleton/reagent/kilosemine = 10)
 
 /obj/item/reagent_containers/hypospray/combat/empty
 	name = "combat hypospray"
@@ -321,4 +321,25 @@
 	volume = 20
 	amount_per_transfer_from_this = 20
 
-	reagents_to_add = list(/decl/reagent/sanasomnum = 20)
+	reagents_to_add = list(/singleton/reagent/sanasomnum = 20)
+
+/obj/item/reagent_containers/hypospray/autoinjector/bicaridine
+	name = "bicaridine autoinjector"
+	desc = "An autoinjector loaded with bicaridine, a chemical used to treat physical trauma."
+	volume = 15
+	amount_per_transfer_from_this = 15
+	reagents_to_add = list(/singleton/reagent/bicaridine = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/kelotane
+	name = "kelotane autoinjector"
+	desc = "An autoinjector loaded with kelotane, a chemical used to treat burnt tissue."
+	volume = 15
+	amount_per_transfer_from_this = 15
+	reagents_to_add = list(/singleton/reagent/kelotane = 15)
+
+/obj/item/reagent_containers/hypospray/autoinjector/peridaxon
+	name = "peridaxon autoinjector"
+	desc = "An autoinjector loaded with peridaxon, a chemical used to treat minor organ damage."
+	volume = 10
+	amount_per_transfer_from_this = 10
+	reagents_to_add = list(/singleton/reagent/peridaxon = 10)

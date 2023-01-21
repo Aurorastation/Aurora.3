@@ -2,7 +2,9 @@
 	name = "Elevator Door"
 	desc = "Ding."
 	req_access = list(access_maint_tunnels)
+	opacity = FALSE
 	autoclose = FALSE
+	glass = TRUE
 	icon = 'icons/obj/doors/doorlift.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_lift
 	hashatch = FALSE

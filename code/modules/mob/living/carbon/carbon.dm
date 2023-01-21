@@ -62,7 +62,7 @@
 			if(src.hydration)
 				adjustHydrationLoss(hydration_loss*0.1)
 
-		if((FAT in src.mutations) && src.m_intent == M_RUN && src.bodytemperature <= 360)
+		if(HAS_FLAG(mutations, FAT) && src.m_intent == M_RUN && src.bodytemperature <= 360)
 			src.bodytemperature += 2
 
 		// Moving around increases germ_level faster
@@ -143,7 +143,7 @@
 		return 0
 
 	src.apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
-	playsound(loc, /decl/sound_category/spark_sound, 50, 1, -1)
+	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
 	if(shock_damage > 15 || tesla_shock)
 		src.visible_message(
 			SPAN_WARNING("[src] was shocked by the [source]!"), \
@@ -326,9 +326,6 @@
 
 			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
-/mob/living/carbon/proc/eyecheck()
-	return 0
-
 // ++++ROCKDTBEN++++ MOB PROCS -- Ask me before touching.
 // Stop! ... Hammertime! ~Carn
 
@@ -443,7 +440,7 @@
 		return FALSE
 	if (is_berserk())
 		return FALSE
-	if (HULK in mutations)
+	if (HAS_FLAG(mutations, HULK))
 		return FALSE
 	if (analgesic > 100)
 		return FALSE
@@ -483,10 +480,6 @@
 	for(var/source in stasis_sources)
 		stasis_value += stasis_sources[source]
 	stasis_sources.Cut()
-
-/mob/living/carbon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
-	if(eyecheck() < intensity || override_blindness_check)
-		return ..()
 
 /mob/living/carbon/get_contained_external_atoms()
 	. = contents - internal_organs

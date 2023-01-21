@@ -46,8 +46,8 @@
 	working = hard_drive && processor_unit && damage < broken_damage && computer_use_power()
 	check_update_ui_need()
 
-	if(!is_portable && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
-		playsound(get_turf(src), /decl/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
+	if(looping_sound && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
+		playsound(get_turf(src), /singleton/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
 		ambience_last_played_time = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(preset_type)
@@ -86,13 +86,14 @@
 
 /obj/item/modular_computer/Initialize()
 	. = ..()
-	listener = new(LISTENER_MODULAR_COMPUTER, src)
 	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)
 		install_default_programs()
 	handle_verbs()
 	update_icon()
+	if(looping_sound)
+		soundloop = new(src, enabled)
 	initial_name = name
 
 /obj/item/modular_computer/Destroy()
@@ -102,9 +103,8 @@
 	for(var/obj/item/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
 		qdel(CH)
-	listening_objects -= src
 	STOP_PROCESSING(SSprocessing, src)
-	QDEL_NULL(listener)
+	QDEL_NULL(soundloop)
 	return ..()
 
 /obj/item/modular_computer/CouldUseTopic(var/mob/user)
@@ -231,10 +231,14 @@
 		visible_message(SPAN_NOTICE("\The [src] shuts down."))
 	SSvueui.close_uis(src)
 	enabled = FALSE
+	if(looping_sound)
+		soundloop.stop(src)
 	update_icon()
 
 /obj/item/modular_computer/proc/enable_computer(var/mob/user, var/ar_forced=FALSE)
 	enabled = TRUE
+	if(looping_sound)
+		soundloop.start(src)
 	update_icon()
 
 	// Autorun feature
@@ -492,3 +496,7 @@
 	silent = !silent
 	for (var/datum/computer_file/program/P in hard_drive.stored_files)
 		P.event_silentmode()
+
+/obj/item/modular_computer/on_slotmove(var/mob/living/user, slot)
+	. = ..(user, slot)
+	BITSET(user.hud_updateflag, ID_HUD) //Same reasoning as for IDs

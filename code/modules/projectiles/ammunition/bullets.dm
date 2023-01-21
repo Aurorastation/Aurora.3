@@ -107,8 +107,14 @@
 	caliber = "shotgun"
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
-	reload_sound = /decl/sound_category/shotgun_reload
-	drop_sound = /decl/sound_category/casing_drop_sound_shotgun
+	reload_sound = /singleton/sound_category/shotgun_reload
+	drop_sound = /singleton/sound_category/casing_drop_sound_shotgun
+
+/obj/item/ammo_casing/shotgun/used/Initialize()
+	. = ..()
+	expend()
+	pixel_x = rand(-10, 10)
+	pixel_y = rand(-10, 10)
 
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
@@ -117,6 +123,12 @@
 	spent_icon = "gshell-spent"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
+
+/obj/item/ammo_casing/shotgun/pellet/used/Initialize()
+	. = ..()
+	expend()
+	pixel_x = rand(-10, 10)
+	pixel_y = rand(-10, 10)
 
 /obj/item/ammo_casing/shotgun/blank
 	name = "shotgun shell"
@@ -246,6 +258,10 @@
 	desc = "A 5.56mm polymer bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/polymer
 
+/obj/item/ammo_casing/a556/blank
+	desc = "A 5.56mm blank casing."
+	projectile_type = /obj/item/projectile/bullet/blank
+
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"
 	desc = "A high explosive designed to be fired from a launcher."
@@ -342,7 +358,7 @@
 	slot_flags = null
 	max_stack = 1
 	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
-	drop_sound = /decl/sound_category/generic_drop_sound
+	drop_sound = /singleton/sound_category/generic_drop_sound
 
 /obj/item/ammo_casing/cannon/explosive
 	name = "explosive cannonball"
@@ -363,7 +379,7 @@
 	slot_flags = null
 	desc = "A miniaturized version of a nuclear bomb."
 	projectile_type = /obj/item/projectile/bullet/nuke
-	drop_sound = /decl/sound_category/generic_drop_sound
+	drop_sound = /singleton/sound_category/generic_drop_sound
 	max_stack = 2
 
 /obj/item/ammo_casing/musket

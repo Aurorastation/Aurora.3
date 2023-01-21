@@ -5,8 +5,8 @@
 	anchored = 1
 	density = 1
 	flags = OPENCONTAINER
-	icon = 'icons/obj/virology.dmi'
-	icon_state = "analyser"
+	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon_state = "spectrometer"
 
 	idle_power_usage = 20
 	active_power_usage = 300
@@ -47,18 +47,18 @@
 /obj/machinery/radiocarbon_spectrometer/Initialize()
 	. = ..()
 	create_reagents(500)
-	coolant_reagents_purity[/decl/reagent/water] = 0.5
-	coolant_reagents_purity[/decl/reagent/drink/coffee/icecoffee] = 0.6
-	coolant_reagents_purity[/decl/reagent/drink/icetea] = 0.6
-	coolant_reagents_purity[/decl/reagent/drink/milkshake] = 0.6
-	coolant_reagents_purity[/decl/reagent/leporazine] = 0.7
-	coolant_reagents_purity[/decl/reagent/kelotane] = 0.7
-	coolant_reagents_purity[/decl/reagent/sterilizine] = 0.7
-	coolant_reagents_purity[/decl/reagent/dermaline] = 0.7
-	coolant_reagents_purity[/decl/reagent/hyperzine] = 0.8
-	coolant_reagents_purity[/decl/reagent/cryoxadone] = 0.9
-	coolant_reagents_purity[/decl/reagent/coolant] = 1
-	coolant_reagents_purity[/decl/reagent/adminordrazine] = 2
+	coolant_reagents_purity[/singleton/reagent/water] = 0.5
+	coolant_reagents_purity[/singleton/reagent/drink/coffee/icecoffee] = 0.6
+	coolant_reagents_purity[/singleton/reagent/drink/icetea] = 0.6
+	coolant_reagents_purity[/singleton/reagent/drink/milkshake] = 0.6
+	coolant_reagents_purity[/singleton/reagent/leporazine] = 0.7
+	coolant_reagents_purity[/singleton/reagent/kelotane] = 0.7
+	coolant_reagents_purity[/singleton/reagent/sterilizine] = 0.7
+	coolant_reagents_purity[/singleton/reagent/dermaline] = 0.7
+	coolant_reagents_purity[/singleton/reagent/hyperzine] = 0.8
+	coolant_reagents_purity[/singleton/reagent/cryoxadone] = 0.9
+	coolant_reagents_purity[/singleton/reagent/coolant] = 1
+	coolant_reagents_purity[/singleton/reagent/adminordrazine] = 2
 
 /obj/machinery/radiocarbon_spectrometer/attack_hand(var/mob/user as mob)
 	ui_interact(user)
@@ -104,7 +104,7 @@
 	coolant_purity = 0
 	var/num_reagent_types = 0
 	for (var/_current_reagent in reagents.reagent_volumes)
-		var/decl/reagent/current_reagent = decls_repository.get_decl(_current_reagent)
+		var/singleton/reagent/current_reagent = GET_SINGLETON(_current_reagent)
 		if (!current_reagent)
 			continue
 		var/cur_purity = coolant_reagents_purity[_current_reagent]

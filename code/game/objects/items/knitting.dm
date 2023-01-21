@@ -1,14 +1,14 @@
 /obj/item/knittingneedles
 	name = "knitting needles"
 	desc = "Silver knitting needles used for stitching yarn."
-	icon = 'icons/obj/contained_items/tools/knitting.dmi'
+	icon = 'icons/obj/item/tools/knitting.dmi'
 	icon_state = "knittingneedles"
 	item_state = "knittingneedles"
 	w_class = ITEMSIZE_SMALL
 	contained_sprite = TRUE
 	var/working = FALSE
 	var/obj/item/yarn/ball
-	var/static/list/knitables = list(/obj/item/clothing/accessory/sweater, /obj/item/clothing/suit/storage/toggle/cardigan, /obj/item/clothing/suit/storage/toggle/cardigan/sweater, /obj/item/clothing/suit/storage/toggle/cardigan/argyle, /obj/item/clothing/accessory/sweatervest, /obj/item/clothing/accessory/sweaterturtleneck, /obj/item/clothing/gloves/fingerless/colour/knitted, /obj/item/clothing/gloves/knitted, /obj/item/clothing/accessory/bandanna/colorable/knitted, /obj/item/clothing/accessory/scarf)
+	var/static/list/knitables = list(/obj/item/clothing/accessory/sweater, /obj/item/clothing/suit/storage/toggle/cardigan, /obj/item/clothing/suit/storage/toggle/cardigan/sweater, /obj/item/clothing/suit/storage/toggle/cardigan/argyle, /obj/item/clothing/accessory/sweater/vest, /obj/item/clothing/accessory/sweater/turtleneck, /obj/item/clothing/gloves/fingerless/colour/knitted, /obj/item/clothing/gloves/knitted, /obj/item/clothing/accessory/bandanna/colorable/knitted, /obj/item/clothing/accessory/scarf)
 	var/static/list/name2knit
 
 /obj/item/knittingneedles/verb/remove_yarn()
@@ -118,29 +118,29 @@
 /obj/item/yarn
 	name = "ball of yarn"
 	desc = "A ball of yarn, this one is white."
-	icon = 'icons/obj/contained_items/tools/knitting.dmi'
+	icon = 'icons/obj/item/tools/knitting.dmi'
 	icon_state = "white_ball"
 	w_class = ITEMSIZE_TINY
 
 /obj/item/yarn/red
 	desc = "A ball of yarn, this one is red."
-	color = "#ff0000"
+	color = "#a03a53"
 
 /obj/item/yarn/blue
 	desc = "A ball of yarn, this one is blue."
-	color = "#0000FF"
+	color = "#3a5591"
 
 /obj/item/yarn/green
 	desc = "A ball of yarn, this one is green."
-	color = "#00ff00"
+	color = "#69a03c"
 
 /obj/item/yarn/purple
 	desc = "A ball of yarn, this one is purple."
-	color = "#800080"
+	color = "#533079"
 
 /obj/item/yarn/yellow
 	desc = "A ball of yarn, this one is yellow."
-	color = "#FFFF00"
+	color = "#f0bd77"
 
 /obj/item/storage/box/knitting //a bunch of things, so it goes into the box
 	name = "knitting supplies"

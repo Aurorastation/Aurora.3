@@ -10,7 +10,7 @@
 	var/health
 	var/burn_point
 	var/burning
-	var/hitsound = /decl/sound_category/swing_hit_sound//generic hit sound.
+	var/hitsound = /singleton/sound_category/swing_hit_sound//generic hit sound.
 	var/storage_cost
 	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
@@ -54,9 +54,9 @@
 	///Sound used when equipping the item into a valid slot
 	var/equip_sound = null
 	///Sound uses when picking the item up (into your hands)
-	var/pickup_sound = /decl/sound_category/generic_pickup_sound
+	var/pickup_sound = /singleton/sound_category/generic_pickup_sound
 	///Sound uses when dropping the item, or when its thrown.
-	var/drop_sound = /decl/sound_category/generic_drop_sound // drop sound - this is the default
+	var/drop_sound = /singleton/sound_category/generic_drop_sound // drop sound - this is the default
 
 	var/list/armor
 	var/armor_degradation_speed //How fast armor will degrade, multiplier to blocked damage to get armor damage value.
@@ -69,6 +69,7 @@
 	var/build_from_parts = FALSE // when it uses coloration and a part of it wants to remain uncolored. e.g., handle of the screwdriver is colored while the head is not.
 	var/worn_overlay = null // used similarly as above, except for inhands.
 	var/worn_overlay_color = null // When you want your worn overlay to have colors. So you can have more than one modular coloring.
+	var/alpha_mask // when you want to slice out a chunk from a sprite
 
 	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
@@ -215,6 +216,8 @@
 		if(!temp)
 			to_chat(user, "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>")
 			return
+	if(!do_additional_pickup_checks(user))
+		return
 	var/obj/item/storage/S
 	var/storage_depth_matters = TRUE
 	if(istype(src.loc, /obj/item/storage))
@@ -227,7 +230,6 @@
 	src.pickup(user)
 	if(S)
 		S.remove_from_storage(src)
-
 	src.throwing = 0
 	if (src.loc == user)
 		if(!user.prepare_for_slotmove(src))
@@ -239,6 +241,9 @@
 	if (!user.put_in_active_hand(src))
 		forceMove(user.loc)
 	return
+
+/obj/item/proc/do_additional_pickup_checks(var/mob/user)
+	return TRUE
 
 /obj/item/attack_ai(mob/user as mob)
 	if (istype(src.loc, /obj/item/robot_module))
@@ -682,8 +687,14 @@ modules/mob/mob_movement.dm if you move you will be zoomed out
 modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 */
 //Looking through a scope or binoculars should /not/ improve your periphereal vision. Still, increase viewsize a tiny bit so that sniping isn't as restricted to NSEW
-/obj/item/proc/zoom(var/mob/M, var/tileoffset = 14, var/viewsize = 9, var/do_device_check = TRUE) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
+/obj/item/proc/zoom(var/mob/M, var/tileoffset = 14, var/viewsize = 9, var/do_device_check = TRUE, var/show_zoom_message = TRUE) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
 	if (!M)
+		return
+	if(!isliving(M))
+		return
+	var/mob/living/L = M
+	if(L.z_eye)
+		to_chat(L, SPAN_WARNING("You can't do that from here!"))
 		return
 
 	var/devicename
@@ -728,7 +739,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				M.client.pixel_x = -viewoffset
 				M.client.pixel_y = 0
 
-		M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of \the [src.name]" : "[src.name]"].")
+		if(show_zoom_message)
+			M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of \the [src.name]" : "[src.name]"].")
 
 	else
 		M.client.view = world.view
@@ -740,7 +752,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		M.client.pixel_y = 0
 
 		if(!cannotzoom)
-			M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
+			if(show_zoom_message)
+				M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -1044,5 +1057,11 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
 	if(!isturf(loc))
 		return
-	pickup_animation.overlays = overlays
+	if(overlays.len)
+		pickup_animation.overlays = overlays
+	if(underlays.len)
+		pickup_animation.underlays = underlays
 	. = ..()
+
+/obj/item/proc/throw_fail_consequences(var/mob/living/carbon/C)
+	return

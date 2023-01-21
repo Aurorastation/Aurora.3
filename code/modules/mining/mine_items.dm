@@ -1,35 +1,3 @@
-/**********************Miner Lockers**************************/
-
-/obj/structure/closet/secure_closet/miner
-	name = "shaft miner locker"
-	icon_state = "mining"
-	req_access = list(access_mining)
-
-/obj/structure/closet/secure_closet/miner/fill()
-	..()
-	if(prob(50))
-		new /obj/item/storage/backpack/industrial(src)
-	else
-		new /obj/item/storage/backpack/satchel/eng(src)
-	new /obj/item/device/radio/headset/headset_cargo(src)
-	new /obj/item/clothing/under/rank/miner(src)
-	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/shoes/black(src)
-	new /obj/item/device/analyzer(src)
-	new /obj/item/storage/bag/ore(src)
-	new /obj/item/shovel(src)
-	new /obj/item/pickaxe(src)
-	new /obj/item/gun/custom_ka/frame01/prebuilt(src)
-	new /obj/item/ore_detector(src)
-	new /obj/item/key/minecarts(src)
-	new /obj/item/device/gps/mining(src)
-	new /obj/item/book/manual/ka_custom(src)
-	new /obj/item/clothing/accessory/storage/overalls/mining(src)
-	new /obj/item/clothing/head/bandana/miner(src)
-	new /obj/item/clothing/head/hardhat/orange(src)
-	new /obj/item/device/radio(src)
-	new /obj/item/device/flashlight/lantern(src)
-
 /******************************Lantern*******************************/
 
 /obj/item/device/flashlight/lantern
@@ -68,7 +36,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
 	hitsound = 'sound/weapons/rapidslice.ogg'
-	var/drill_sound = /decl/sound_category/pickaxe_sound
+	var/drill_sound = /singleton/sound_category/pickaxe_sound
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
 	sharp = TRUE
@@ -77,7 +45,7 @@
 
 	var/excavation_amount = 40
 	var/wielded = FALSE
-	var/wield_sound = /decl/sound_category/generic_wield_sound
+	var/wield_sound = /singleton/sound_category/generic_wield_sound
 	var/unwield_sound = null
 	var/force_unwielded = 5.0
 	var/force_wielded = 15.0
@@ -245,7 +213,7 @@
 /obj/item/pickaxe/drill
 	name = "mining drill" // Can dig sand as well!
 	desc = "Yours is the drill that will pierce through the rock walls."
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "miningdrill"
 	item_state = "miningdrill"
 	contained_sprite = TRUE
@@ -276,7 +244,7 @@
 /obj/item/pickaxe/jackhammer
 	name = "sonic jackhammer"
 	desc = "Cracks rocks with sonic blasts, perfect for killing cave lizards."
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
 	contained_sprite = TRUE
@@ -320,7 +288,7 @@
 
 /obj/item/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "diamonddrill"
 	item_state = "diamonddrill"
 	contained_sprite = TRUE
@@ -342,7 +310,7 @@
 
 /obj/item/pickaxe/borgdrill
 	name = "cyborg mining drill"
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "diamonddrill"
 	item_state = "jackhammer"
 	contained_sprite = TRUE
@@ -383,7 +351,7 @@
 	edge = TRUE
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
-	usesound = /decl/sound_category/shovel_sound
+	usesound = /singleton/sound_category/shovel_sound
 
 /obj/item/shovel/spade
 	name = "spade"
@@ -580,7 +548,6 @@
 /obj/vehicle/train/cargo/engine/mining
 	name = "mine cart engine"
 	desc = "A ridable electric minecart designed for pulling other mine carts."
-	icon = 'icons/obj/cart.dmi'
 	icon_state = "mining_engine"
 	on = FALSE
 	powered = TRUE
@@ -600,7 +567,7 @@
 	. = ..()
 	cell = new /obj/item/cell/high(src)
 	key = new /obj/item/key/minecarts(src)
-	var/image/I = new(icon = 'icons/obj/cart.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
+	var/image/I = new(icon = 'icons/obj/vehicles.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
 	add_overlay(I)
 	turn_off()
 
@@ -633,7 +600,6 @@
 /obj/vehicle/train/cargo/trolley/mining
 	name = "mine-cart"
 	desc = "A modern day twist to an ancient classic."
-	icon = 'icons/obj/cart.dmi'
 	icon_state = "mining_trailer"
 	anchored = FALSE
 	passenger_allowed = FALSE
@@ -1205,7 +1171,7 @@ var/list/total_extraction_beacons = list()
 /obj/item/autochisel
 	name = "auto-chisel"
 	desc = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
-	icon = 'icons/obj/contained_items/tools/drills.dmi'
+	icon = 'icons/obj/item/tools/drills.dmi'
 	icon_state = "chisel"
 	item_state = "jackhammer"
 	contained_sprite = TRUE
@@ -1256,13 +1222,13 @@ var/list/total_extraction_beacons = list()
 		if(prob(25))
 			playsound(loc, 'sound/items/screwdriver.ogg', 20, TRUE)
 		else
-			playsound(loc, /decl/sound_category/pickaxe_sound, 20, TRUE)
+			playsound(loc, /singleton/sound_category/pickaxe_sound, 20, TRUE)
 
 		var/successfully_sculpted = FALSE
 		while(do_after(user, 2 SECONDS) && sculpture_process_check(choice, user))
 			if(times_carved <= 9)
 				times_carved++
-				playsound(loc, /decl/sound_category/pickaxe_sound, 20, TRUE)
+				playsound(loc, /singleton/sound_category/pickaxe_sound, 20, TRUE)
 				continue
 			successfully_sculpted = TRUE
 			break
@@ -1390,7 +1356,7 @@ var/list/total_extraction_beacons = list()
 /obj/structure/punching_bag/attack_hand(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	flick("[icon_state]2", src)
-	playsound(get_turf(src), /decl/sound_category/swing_hit_sound, 25, 1, -1)
+	playsound(get_turf(src), /singleton/sound_category/swing_hit_sound, 25, 1, -1)
 
 /obj/structure/weightlifter
 	name = "weight machine"

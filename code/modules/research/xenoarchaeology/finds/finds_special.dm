@@ -8,7 +8,7 @@
 /obj/item/reagent_containers/glass/replenishing/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
-	spawning_id = pick(/decl/reagent/blood,/decl/reagent/water/holywater,/decl/reagent/lube,/decl/reagent/soporific,/decl/reagent/alcohol,/decl/reagent/drink/ice,/decl/reagent/glycerol,/decl/reagent/fuel,/decl/reagent/spacecleaner)
+	spawning_id = pick(/singleton/reagent/blood,/singleton/reagent/water/holywater,/singleton/reagent/lube,/singleton/reagent/soporific,/singleton/reagent/alcohol,/singleton/reagent/drink/ice,/singleton/reagent/glycerol,/singleton/reagent/fuel,/singleton/reagent/spacecleaner)
 
 
 /obj/item/reagent_containers/glass/replenishing/process()
@@ -27,11 +27,10 @@
 /obj/item/clothing/mask/gas/poltergeist/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
-	listening_objects += src
+	become_hearing_sensitive()
 
 /obj/item/clothing/mask/gas/poltergeist/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	listening_objects -= src
 	return ..()
 
 /obj/item/clothing/mask/gas/poltergeist/process()
@@ -67,11 +66,10 @@
 /obj/item/vampiric/New()
 	..()
 	START_PROCESSING(SSprocessing, src)
-	listening_objects += src
+	become_hearing_sensitive()
 
 /obj/item/vampiric/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	listening_objects -= src
 	return ..()
 
 /obj/item/vampiric/process()
@@ -150,7 +148,7 @@
 		B.target_turf = pick(seen_turfs_in_range(src, 1))
 		B.blood_DNA = list()
 		B.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-		M.vessel.remove_reagent(/decl/reagent/blood,rand(25,50))
+		M.vessel.remove_reagent(/singleton/reagent/blood,rand(25,50))
 
 //animated blood 2 SPOOKY
 /obj/effect/decal/cleanable/blood/splatter/animated

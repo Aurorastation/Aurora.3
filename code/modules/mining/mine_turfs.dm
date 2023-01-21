@@ -71,6 +71,9 @@ var/list/mineral_can_smooth_with = list(
 
 	turfs += src
 
+	if(isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -88,6 +91,17 @@ var/list/mineral_can_smooth_with = list(
 		queue_smooth_neighbors(src)
 
 	rock_health = rand(10,20)
+
+	var/area/A = loc
+
+	if(!baseturf)
+		// Hard-coding this for performance reasons.
+		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
+
+	if (current_map.use_overmap && istype(A, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -186,6 +200,9 @@ var/list/mineral_can_smooth_with = list(
 
 	turfs += src
 
+	if(isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -201,6 +218,11 @@ var/list/mineral_can_smooth_with = list(
 
 	if(!mapload)
 		queue_smooth_neighbors(src)
+
+	if (current_map.use_overmap && istype(loc, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -396,8 +418,8 @@ var/list/mineral_can_smooth_with = list(
 	if(prob(25))
 		var/datum/reagents/R = new/datum/reagents(20)
 		R.my_atom = src
-		R.add_reagent(/decl/reagent/stone_dust,20)
-		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/decl/reagent/stone_dust) // have to explicitly say the type to avoid issues with warnings
+		R.add_reagent(/singleton/reagent/stone_dust,20)
+		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/singleton/reagent/stone_dust) // have to explicitly say the type to avoid issues with warnings
 		S.show_log = 0
 		S.set_up(R, 10, 0, src, 40)
 		S.start()
@@ -596,9 +618,10 @@ var/list/mineral_can_smooth_with = list(
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
 	has_resources = 1
-	footstep_sound = /decl/sound_category/asteroid_footstep
+	footstep_sound = /singleton/sound_category/asteroid_footstep
 
 	roof_type = null
+	turf_flags = TURF_FLAG_BACKGROUND
 
 // Same as the other, this is a global so we don't have a lot of pointless lists floating around.
 // Basalt is explicitly omitted so ash will spill onto basalt turfs.
@@ -622,6 +645,9 @@ var/list/asteroid_floor_smooth = list(
 
 	turfs += src
 
+	if(isStationLevel(z))
+		station_turfs += src
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
@@ -641,6 +667,11 @@ var/list/asteroid_floor_smooth = list(
 
 	if(light_range && light_power)
 		update_light()
+
+	if (current_map.use_overmap && istype(loc, /area/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if (istype(E) && istype(E.theme))
+			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 

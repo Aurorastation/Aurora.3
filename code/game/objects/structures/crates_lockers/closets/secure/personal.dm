@@ -8,7 +8,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack(src)
 	else
-		new /obj/item/storage/backpack/satchel/norm(src)
+		new /obj/item/storage/backpack/satchel(src)
 	new /obj/item/device/radio/headset(src)
 	new /obj/item/device/radio/headset/alt(src)
 
@@ -33,7 +33,7 @@
 	double_doors = TRUE
 
 /obj/structure/closet/secure_closet/personal/cabinet/fill()
-	new /obj/item/storage/backpack/satchel/withwallet(src)
+	new /obj/item/storage/backpack/satchel/leather/withwallet(src)
 	new /obj/item/device/radio/headset(src)
 	new /obj/item/device/radio/headset/alt(src)
 
@@ -70,7 +70,7 @@
 		if(emag_act(INFINITY, user, "The locker has been sliced open by [user] with \an [blade]!", "You hear metal being sliced and sparks flying."))
 			blade.spark_system.queue()
 			playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
-			playsound(loc, /decl/sound_category/spark_sound, 50, 1)
+			playsound(loc, /singleton/sound_category/spark_sound, 50, 1)
 	else
 		to_chat(user, "<span class='warning'>Access Denied</span>")
 	return

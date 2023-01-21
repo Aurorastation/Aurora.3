@@ -30,9 +30,7 @@ Credit dupes that require a lot of manual work shouldn't be removed, unless they
 	var/sold_str = ""
 	var/cost = 0
 
-	var/list/contents = list()
-	contents += AM //Also add the container object
-	contents += AM.GetAllContents()
+	var/list/contents = AM.GetAllContents()
 
 	// We go backwards, so it'll be innermost objects sold first
 	for(var/i in reverseRange(contents))

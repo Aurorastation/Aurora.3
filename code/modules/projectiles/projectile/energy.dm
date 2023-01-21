@@ -22,13 +22,11 @@
 		return
 
 	//blind adjacent people
-	for(var/mob/living/carbon/M in viewers(T, flash_range))
-		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
-			M.confused = rand(5,15)
-			M.flash_eyes()
+	for(var/mob/living/M in viewers(T, flash_range))
+		if(M.flash_act(ignore_inherent = TRUE))
+			M.confused = rand(5, 15)
 		else if(affected_limb && M == A)
 			M.confused = rand(2, 7)
-			M.flash_eyes()
 
 	//snap pop
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
@@ -184,6 +182,11 @@
 	damage = 20
 	pass_flags = PASSTABLE | PASSRAILING
 
+/obj/item/projectile/energy/blaster/disruptor/practice
+	damage = 5
+	damage_type = PAIN
+	eyeblur = 0
+
 /obj/item/projectile/energy/disruptorstun
 	name = "disruptor bolt"
 	icon_state = "blue_laser"
@@ -194,6 +197,11 @@
 	eyeblur = TRUE
 	pass_flags = PASSTABLE | PASSRAILING
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
+
+/obj/item/projectile/energy/disruptorstun/practice
+	damage = 5
+	damage_type = PAIN
+	eyeblur = 0
 
 /obj/item/projectile/energy/blaster/heavy
 	damage = 35

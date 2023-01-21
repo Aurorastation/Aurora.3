@@ -3,7 +3,8 @@ var/datum/controller/subsystem/vote/SSvote
 /datum/controller/subsystem/vote
 	name = "Voting"
 	wait = 1 SECOND
-	flags = SS_KEEP_TIMING | SS_FIRE_IN_LOBBY | SS_NO_TICK_CHECK
+	flags = SS_KEEP_TIMING | SS_NO_TICK_CHECK
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	priority = SS_PRIORITY_VOTE
 
 	var/next_transfer_time
@@ -299,7 +300,7 @@ var/datum/controller/subsystem/vote/SSvote
 		to_world("<span class='vote'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</span>")
 		for(var/cc in clients)
 			var/client/C = cc
-			if(C.prefs.asfx_togs & ASFX_VOTE) //Personal mute
+			if(C.prefs.sfx_toggles & ASFX_VOTE) //Personal mute
 				switch(vote_type)
 					if("crew_transfer")
 						sound_to(C, sound('sound/effects/vote.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))

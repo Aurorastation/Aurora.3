@@ -44,16 +44,18 @@
 		/mob/living/carbon/human/proc/tie_hair)
 
 	possible_cultures = list(
-		/decl/origin_item/culture/biesellite,
-		/decl/origin_item/culture/solarian,
-		/decl/origin_item/culture/dominia,
-		/decl/origin_item/culture/coalition,
-		/decl/origin_item/culture/elyran
+		/singleton/origin_item/culture/biesellite,
+		/singleton/origin_item/culture/solarian,
+		/singleton/origin_item/culture/dominia,
+		/singleton/origin_item/culture/coalition,
+		/singleton/origin_item/culture/elyran
 	)
 
 	zombie_type = SPECIES_ZOMBIE
 	base_color = "#25032"
 	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")
+
+	onfire_overlay = 'icons/mob/burning/burning_human.dmi'
 
 /datum/species/human/handle_npc(var/mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)

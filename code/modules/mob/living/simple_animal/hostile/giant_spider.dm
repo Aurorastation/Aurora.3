@@ -8,7 +8,7 @@
 /mob/living/simple_animal/hostile/giant_spider
 	name = "greimorian warrior"
 	desc = "A deep purple carapace covers this vicious Greimorian warrior."
-	desc_fluff = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
+	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
 	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
 	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
 	icon = 'icons/mob/npc/greimorian.dmi'
@@ -38,7 +38,7 @@
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
 	var/poison_per_bite = 5
-	var/poison_type = /decl/reagent/toxin
+	var/poison_type = /singleton/reagent/toxin
 	faction = "spiders"
 	var/busy = 0
 	pass_flags = PASSTABLE
@@ -65,7 +65,7 @@
 	armor_penetration = 20
 	poison_per_bite = 10
 	var/atom/cocoon_target
-	poison_type = /decl/reagent/soporific
+	poison_type = /singleton/reagent/soporific
 	var/fed = 0
 
 //hunters have the most poison and move the fastest, so they can find prey
@@ -95,7 +95,7 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	armor_penetration = 15
-	poison_type = /decl/reagent/perconol // mildly beneficial for organics
+	poison_type = /singleton/reagent/perconol // mildly beneficial for organics
 	poison_per_bite = 2
 	move_to_delay = 5
 
@@ -108,7 +108,7 @@
 	if(isliving(.))
 		var/mob/living/L = .
 		if(L.reagents)
-			L.reagents.add_reagent(/decl/reagent/toxin, poison_per_bite)
+			L.reagents.add_reagent(/singleton/reagent/toxin, poison_per_bite)
 			if(prob(poison_per_bite) && (!issilicon(L) && !isipc(L)))
 				to_chat(L, "<span class='warning'>You feel a tiny prick.</span>")
 				L.reagents.add_reagent(poison_type, 5)

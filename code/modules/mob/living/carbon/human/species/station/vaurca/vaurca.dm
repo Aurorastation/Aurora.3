@@ -21,6 +21,7 @@
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/palm,
 		/datum/unarmed_attack/bite/sharp
 	)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/bug
@@ -130,9 +131,9 @@
 
 
 	possible_cultures = list(
-		/decl/origin_item/culture/zora,
-		/decl/origin_item/culture/klax,
-		/decl/origin_item/culture/cthur
+		/singleton/origin_item/culture/zora,
+		/singleton/origin_item/culture/klax,
+		/singleton/origin_item/culture/cthur
 	)
 
 

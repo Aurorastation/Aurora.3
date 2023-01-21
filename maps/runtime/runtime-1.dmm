@@ -1442,7 +1442,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "dH" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/machinery/ion_engine{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -1454,15 +1454,10 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"eQ" = (
-/obj/machinery/atmospherics/binary/pump,
-/turf/simulated/floor/shuttle,
-/area/shuttle/runtime)
 "fq" = (
 /obj/machinery/computer/shuttle_control/explore/runtime,
 /turf/simulated/floor/shuttle,
@@ -1524,11 +1519,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering)
-"lV" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/phoron,
-/turf/simulated/floor/shuttle,
-/area/shuttle/runtime)
 "mn" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1590,6 +1580,10 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"qx" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/r_wall,
+/area/shuttle/runtime)
 "tT" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1663,7 +1657,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /turf/simulated/floor/tiled,
@@ -1683,12 +1676,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/storage/primary)
-"EN" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle,
-/area/shuttle/runtime)
+"Eu" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/r_wall,
+/area/maintenance/maintcentral)
 "ES" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/shipsensors,
@@ -1714,12 +1705,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"Hn" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle,
-/area/shuttle/runtime)
 "HB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -1760,12 +1745,6 @@
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
-"JW" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10
-	},
-/turf/simulated/floor/shuttle,
-/area/shuttle/runtime)
 "Kz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 4
@@ -1799,6 +1778,13 @@
 "Qe" = (
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"Qn" = (
+/obj/machinery/ion_engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
+/area/shuttle/runtime)
 "QV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
@@ -1819,7 +1805,6 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	name = "Station Intercom (General)";
 	pixel_y = -21
 	},
 /obj/machinery/computer/station_alert/all,
@@ -1909,7 +1894,7 @@
 /turf/template_noop,
 /area/engineering)
 "ZH" = (
-/obj/structure/fuel_port,
+/obj/structure/fuel_port/phoron,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
 
@@ -2156,12 +2141,12 @@ aa
 aa
 cK
 de
-Qe
+qx
 Vm
-lV
-eQ
-Hn
-dH
+Vm
+Vm
+Vm
+Qn
 de
 cK
 aa
@@ -2227,7 +2212,7 @@ Qe
 Vm
 Jx
 wL
-EN
+Vm
 dH
 de
 cK
@@ -2290,12 +2275,12 @@ aa
 aa
 cK
 de
-Qe
+qx
 fq
 yE
 Tq
-JW
-dH
+Vm
+Qn
 de
 cK
 aa
@@ -2741,7 +2726,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 af
 af
@@ -2942,7 +2927,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 af
 ak
@@ -3880,7 +3865,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 ah
 ap
@@ -4215,7 +4200,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 ai
 at

@@ -29,6 +29,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	desc = "A flexible superconducting cable for heavy-duty power transfer."
 	icon = 'icons/obj/power_cond_white.dmi'
 	icon_state = "0-1"
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/d1 = 0
 	var/d2 = 1
 	layer = CABLE_LAYER //Just below unary stuff, which is at 2.45 and above pipes, which are at 2.4
@@ -66,16 +67,16 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/cable/white
 	color = COLOR_WHITE
 
+// Needs to run before init or we have sad cable knots on away sites
+/obj/structure/cable/New()
+	. = ..()
+	// ensure d1 & d2 reflect the icon_state for entering and exiting cable
+	var/dash = findtext(icon_state, "-")
+	d1 = text2num(copytext(icon_state, 1, dash))
+	d2 = text2num(copytext(icon_state, dash + 1))
+
 /obj/structure/cable/Initialize(mapload)
 	. = ..()
-
-	// ensure d1 & d2 reflect the icon_state for entering and exiting cable
-
-	var/dash = findtext(icon_state, "-")
-
-	d1 = text2num( copytext( icon_state, 1, dash ) )
-
-	d2 = text2num( copytext( icon_state, dash+1 ) )
 
 	var/turf/T = src.loc			// hide if turf is not intact
 	if(level == 1 && !T.is_hole)

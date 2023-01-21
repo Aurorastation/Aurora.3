@@ -10,7 +10,7 @@
 	anchored = FALSE
 
 	flags = ON_BORDER
-	obj_flags = OBJ_FLAG_ROTATABLE
+	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 
 	build_amt = 2
 	var/broken = FALSE
@@ -80,6 +80,8 @@
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
 	if(!istype(mover) || mover.checkpass(PASSRAILING))
+		return TRUE
+	if(mover.throwing)
 		return TRUE
 	if(get_dir(loc, target) == dir)
 		return !density

@@ -280,9 +280,13 @@
 		to_chat(user, SPAN_NOTICE("You switch to \the [src]'s [HA.fullScan ? "full body" : "basic"] scan mode."))
 
 /obj/item/device/healthanalyzer/mech/attack(mob/living/M, var/mob/living/heavy_vehicle/user)
+	sound_scan = FALSE
+	if(last_scan <= world.time - 20) //Spam limiter.
+		last_scan = world.time
+		sound_scan = TRUE
 	if(!fullScan)
 		for(var/mob/pilot in user.pilots)
-			health_scan_mob(M, pilot, TRUE, TRUE)
+			health_scan_mob(M, pilot, TRUE, TRUE, sound_scan = sound_scan)
 	else
 		user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
 		if(do_after(user, 7 SECONDS, TRUE))
@@ -319,13 +323,13 @@
 		"paralysis" = H.paralysis,
 		"bodytemp" = H.bodytemperature,
 		"borer_present" = H.has_brain_worms(),
-		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/inaprovaline),
-		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dexalin),
-		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/soporific),
-		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/bicaridine),
-		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dermaline),
-		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/thetamycin),
-		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
+		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/inaprovaline),
+		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dexalin),
+		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/soporific),
+		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/bicaridine),
+		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/thetamycin),
+		"blood_amount" = REAGENT_VOLUME(H.vessel, /singleton/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"lung_ruptured" = H.is_lung_ruptured(),
 		"lung_rescued" = H.is_lung_rescued(),

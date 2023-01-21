@@ -339,7 +339,7 @@
 /mob/living/simple_animal/spiderbot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
-/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
+/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	switch(message_mode)
 		if("whisper")
 			if(!whisper)
@@ -356,9 +356,6 @@
 	if(message_mode)
 		radio.talk_into(src, message, message_mode, verb, speaking)
 		used_radios += radio
-
-/mob/living/simple_animal/spiderbot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 
 /mob/living/simple_animal/spiderbot/proc/control_integrated_radio()
 	set name = "Radio Settings"

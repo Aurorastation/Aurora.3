@@ -189,6 +189,9 @@
 			slab_count = critter.meat_amount
 		if(critter.meat_type)
 			slab_type = critter.meat_type
+	else if(istype(occupant, /mob/living/carbon/alien))
+		var/mob/living/carbon/alien/A = occupant
+		slab_type = A.meat_type
 	else if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
 		slab_type = H.species.meat_type
@@ -199,7 +202,7 @@
 	for(var/i=1 to slab_count)
 		var/obj/item/reagent_containers/food/snacks/meat/new_meat = new slab_type(src, rand(3,8))
 		if(istype(new_meat))
-			new_meat.reagents.add_reagent(/decl/reagent/nutriment,slab_nutrition)
+			new_meat.reagents.add_reagent(/singleton/reagent/nutriment,slab_nutrition)
 			if(occupant.reagents)
 				occupant.reagents.trans_to_obj(new_meat, round(occupant.reagents.total_volume/slab_count,1))
 

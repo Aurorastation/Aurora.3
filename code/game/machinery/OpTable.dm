@@ -22,6 +22,8 @@
 
 /obj/machinery/optable/Initialize()
 	. = ..()
+	LAZYADD(can_buckle, /mob/living)
+	buckle_delay = 30
 	for(dir in cardinal)
 		computer = locate(/obj/machinery/computer/operating, get_step(src, dir))
 		if(computer)
@@ -47,7 +49,7 @@
 	return
 
 /obj/machinery/optable/attack_hand(mob/user)
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		visible_message(SPAN_DANGER("\The [user] destroys \the [src]!"))
 		density = FALSE
 		qdel(src)
@@ -57,6 +59,9 @@
 		to_chat(user, SPAN_WARNING("There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
 		return TRUE
 
+	if((user.a_intent != I_HELP) && buckled)
+		user_unbuckle(user)
+		return
 	if(user != victim && !use_check_and_message(user)) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
 		user.visible_message(SPAN_WARNING("\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor."))
 		if(!do_after(user, 30, src))
@@ -66,7 +71,7 @@
 
 		suppressing = !suppressing
 		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."), intent_message = BUTTON_FLICK)
-		playsound(loc, /decl/sound_category/switch_sound, 50, 1)
+		playsound(loc, /singleton/sound_category/switch_sound, 50, 1)
 
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)
 	if(air_group || (height == 0))
@@ -77,6 +82,7 @@
 /obj/machinery/optable/MouseDrop_T(obj/O, mob/user)
 	if(istype(O, /obj/item))
 		user.drop_from_inventory(O,get_turf(src))
+	..()
 
 /obj/machinery/optable/proc/check_victim()
 	if(!victim || !victim.lying || victim.loc != loc)
@@ -127,7 +133,7 @@
 	var/mob/living/M = user
 	if(user.stat || user.restrained() || !iscarbon(target))
 		return
-	if(istype(M))
+	if(istype(M) && (get_turf(target) != get_turf(src)))
 		var/mob/living/L = target
 		var/bucklestatus = L.bucklecheck(user)
 		if(!bucklestatus)

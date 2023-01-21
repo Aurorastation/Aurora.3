@@ -71,7 +71,7 @@
 	//Perform the connection
 	connected_port = new_port
 	connected_port.connected_device = src
-	connected_port.on = 1 //Activate port updates
+	connected_port.toggle_process()
 
 	anchored = 1 //Prevent movement
 
@@ -92,8 +92,10 @@
 		network.gases -= air_contents
 
 	anchored = 0
+	if(connected_port)
+		connected_port.toggle_process()
+		connected_port.connected_device = null
 
-	connected_port.connected_device = null
 	connected_port = null
 
 	return 1
@@ -121,6 +123,7 @@
 		if(connected_port)
 			disconnect()
 			to_chat(user, "<span class='notice'>You disconnect \the [src] from the port.</span>")
+			playsound(get_turf(src), W.usesound, 50, 1)
 			update_icon()
 			SSvueui.check_uis_for_change(src)
 			return TRUE
@@ -129,6 +132,7 @@
 			if(possible_port)
 				if(connect(possible_port))
 					to_chat(user, "<span class='notice'>You connect \the [src] to the port.</span>")
+					playsound(get_turf(src), W.usesound, 50, 1)
 					update_icon()
 					SSvueui.check_uis_for_change(src)
 					return TRUE

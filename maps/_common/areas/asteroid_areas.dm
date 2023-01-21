@@ -2,7 +2,7 @@
 
 /area/mine
 	icon_state = "mining"
-	ambience = list('sound/music/ambimine.ogg', 'sound/music/song_game.ogg')
+	music = list('sound/music/ambimine.ogg', 'sound/music/song_game.ogg')
 	sound_env = ASTEROID
 
 /area/mine/explored
@@ -34,7 +34,7 @@
 /area/outpost/mining_main
 	icon_state = "outpost_mine_main"
 	station_area = 1
-	holomap_color = HOLOMAP_AREACOLOR_CARGO
+	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 
 /area/outpost/mining_main/dorms
 	name = "Mining Dormitory"

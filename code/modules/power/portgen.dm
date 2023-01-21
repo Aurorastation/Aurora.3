@@ -13,9 +13,15 @@
 	var/open = FALSE
 	var/power_output = 1
 	var/portgen_lightcolour = "#000000"
+	var/datum/looping_sound/generator/soundloop
 
 /obj/machinery/power/portgen/Initialize()
 	. = ..()
+	soundloop = new(list(src), active)
+
+/obj/machinery/power/portgen/Destroy()
+	QDEL_NULL(soundloop)
+	return ..()
 
 /obj/machinery/power/portgen/proc/IsBroken()
 	return (stat & (BROKEN|EMPED))
@@ -42,6 +48,7 @@
 	else
 		set_light(0)
 		active = FALSE
+		soundloop.stop(src)
 		icon_state = initial(icon_state)
 		handleInactive()
 
@@ -199,6 +206,7 @@
 		Gives traitors more opportunities to sabotage the generator or allows enterprising engineers to build additional
 		cooling in order to get more power out.
 	*/
+	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
 		var/ratio = min(environment.return_pressure()/ONE_ATMOSPHERE, 1)
@@ -329,8 +337,11 @@
 	data["temperature_max"] = max_temperature
 	data["temperature_overheat"] = overheating
 
-	var/datum/gas_mixture/environment = loc.return_air()
-	data["temperature_min"] = Floor(environment.temperature - T0C)
+	if(loc)
+		var/datum/gas_mixture/environment = loc.return_air()
+		if(environment)
+			data["temperature_min"] = Floor(environment.temperature - T0C)
+
 	data["output_min"] = initial(power_output)
 	data["is_broken"] = IsBroken()
 	data["is_ai"] = (isAI(user) || (isrobot(user) && !Adjacent(user)))
@@ -341,6 +352,11 @@
 		"fuel_usage" = active ? round((power_output / time_per_sheet) * 1000) : FALSE,
 		"fuel_type" = sheet_name
 		)
+
+	//coolant stuff
+	data["uses_coolant"] = !!reagents
+	data["coolant_stored"] = reagents?.total_volume
+	data["coolant_capacity"] = reagents?.maximum_volume
 
 	LAZYINITLIST(data["fuel"])
 	data["fuel"] = fuel
@@ -364,10 +380,12 @@
 			if(!active && HasFuel() && !IsBroken())
 				active = TRUE
 				update_icon()
+				soundloop.start(src)
 		if(href_list["action"] == "disable")
 			if (active)
 				active = FALSE
 				update_icon()
+				soundloop.stop(src)
 		if(href_list["action"] == "eject")
 			if(!active)
 				DropFuel()
@@ -421,7 +439,7 @@
 //
 /obj/machinery/power/portgen/basic/super
 	name = "super portable generator"
-	desc = "An advanced portable generator that runs on tritium. Runs even more efficiently than the uranium-driven model due to the higher energy density of tritium. " + SPAN_WARNING("Rated for 500 kW max safe output.")
+	desc = "An advanced portable generator that runs on tritium. Runs even more efficiently than the uranium-driven model due to the higher energy density of tritium. " + SPAN_WARNING("Rated for 400 kW max safe output.")
 	icon_state = "portgen2_0"
 	base_icon = "portgen2"
 	portgen_lightcolour = "#476ACC"
@@ -430,13 +448,89 @@
 	sheet_path = /obj/item/stack/material/tritium
 	board_path = "/obj/item/circuitboard/portgen/super"
 
-	power_gen = 125000 // 500 kW = safe max, 750 kW = unsafe max
-	max_power_output = 10
-	max_safe_output = 8
+	power_gen = 80000 // 400 kW = safe max, 640 kW = unsafe max
+	max_power_output = 8
+	max_safe_output = 5
 	time_per_sheet = 576
 	max_temperature = 720
-	temperature_gain = 80
+	temperature_gain = 90
 
 /obj/machinery/power/portgen/basic/super/explode()
 	explosion(loc, 3, 6, 12, 16, 1) // No special effects, but the explosion is pretty big (same as a supermatter shard).
 	qdel(src)
+
+/obj/machinery/power/portgen/basic/fusion
+	name = "minature fusion reactor"
+	desc = "The RT7-0, an industrial all-in-one nuclear fusion power plant created by Hephaestus. It uses tritium as a fuel source and relies on coolant to keep the reactor cool. Rated for 500 kW max safe output."
+	power_gen =  100000
+	icon_state = "reactor"
+	base_icon = "reactor"
+	portgen_lightcolour = "#458943"
+	max_safe_output = 5
+	max_power_output = 8	//The maximum power setting without emagging.
+	temperature_gain = 70	//how much the temperature increases per power output level, in degrees per level
+	max_temperature = 450
+	time_per_sheet = 400
+
+	sheet_name = "tritium sheets"
+	sheet_path = /obj/item/stack/material/tritium
+	board_path = "/obj/item/circuitboard/portgen/fusion"
+
+	anchored = TRUE
+	flags = OPENCONTAINER
+
+	var/coolant_volume = 360
+	var/coolant_use = 0.2
+	var/coolant_reagent = /singleton/reagent/coolant
+
+/obj/machinery/power/portgen/basic/fusion/explode()
+	//a nice burst of radiation
+	var/rads = 50 + (sheets + sheet_left)*1.5
+	for (var/mob/living/L in range(src, 10))
+		//should really fall with the square of the distance, but that makes the rads value drop too fast
+		//I dunno, maybe physics works different when you live in 2D -- SM radiation also works like this, apparently
+		L.apply_damage(max(20, round(rads/get_dist(L,src))), IRRADIATE, damage_flags = DAM_DISPERSED)
+
+	explosion(loc, 3, 6, 12, 16, 1)
+	qdel(src)
+
+/obj/machinery/power/portgen/basic/fusion/New()
+	create_reagents(coolant_volume)
+	..()
+
+/obj/machinery/power/portgen/basic/fusion/examine(mob/user)
+	. = ..()
+	to_chat(user, "The auxilary tank shows [reagents.total_volume]u of liquid in it.")
+
+/obj/machinery/power/portgen/basic/fusion/UseFuel()
+	if(reagents.has_reagent(coolant_reagent))
+		temperature_gain = 60
+		reagents.remove_any(coolant_use)
+		if(prob(2))
+			audible_message("<span class='notice'>[src] churns happily.</span>")
+	else
+		temperature_gain = initial(temperature_gain)
+	..()
+	if (prob(2 * power_output))
+		for (var/mob/living/L in range(src, 5))
+			L.apply_damage(1, IRRADIATE, damage_flags = DAM_DISPERSED) //should amount to ~5 rads per minute at max safe power
+	..()
+
+/obj/machinery/power/portgen/basic/fusion/update_icon()
+	if(..())
+		return 1
+	if(power_output > max_safe_output)
+		icon_state = "reactordanger"
+
+/obj/machinery/power/portgen/basic/fusion/attackby(var/obj/item/O, var/mob/user)
+	if(istype(O, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/R = O
+		if(R.standard_pour_into(user, src))
+			if(reagents.has_reagent(/singleton/reagent/coolant))
+				audible_message("<span class='notice'>[src] blips happily!</span>")
+				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
+			else
+				audible_message("<span class='warning'>[src] blips in disappointment!</span>")
+				playsound(get_turf(src), 'sound/machines/synth_no.ogg', 50, 0)
+		return
+	..()

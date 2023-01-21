@@ -119,7 +119,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
@@ -170,7 +170,7 @@
 		if(!isturf(picked)) return
 
 		spark(user, 5)
-		playsound(user.loc, /decl/sound_category/spark_sound, 50, 1)
+		playsound(user.loc, /singleton/sound_category/spark_sound, 50, 1)
 
 		user.forceMove(picked)
 		return PROJECTILE_FORCE_MISS
@@ -206,7 +206,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -265,7 +265,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -364,7 +364,7 @@
 /obj/item/clothing/suit/storage/hazardvest/security
 	name = "cadet hazard vest"
 	desc = "A sturdy high-visibility vest intended for training security personnel."
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "hazard_cadet"
 	item_state = "hazard_cadet"
 	allowed = list(/obj/item/gun,/obj/item/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)
@@ -433,7 +433,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -499,7 +499,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
@@ -518,7 +518,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		rad = ARMOR_RAD_RESISTANT
@@ -571,8 +571,23 @@
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED
+	)
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/vest/kala
+	name = "kala armor vest"
+	desc = "A simple armor vest issued to all of the Kala. It's made of an advanced lightweight alloy."
+	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon_state = "kala_armor"
+	item_state = "kala_armor"
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
 	contained_sprite = TRUE

@@ -9,6 +9,7 @@
 	idle_power_usage = 6
 	active_power_usage = 45 KILOWATTS
 	pass_flags = PASSTABLE
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/charging_efficiency = 1.3
 	//Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging
@@ -22,7 +23,8 @@
 		/obj/item/device/flashlight/survival,
 		/obj/item/clothing/mask/smokable/ecig,
 		/obj/item/inductive_charger/handheld,
-		/obj/item/auto_cpr
+		/obj/item/auto_cpr,
+		/obj/item/device/personal_shield
 	)
 	var/icon_state_charged = "recharger100"
 	var/icon_state_charging = "recharger"

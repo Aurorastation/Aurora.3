@@ -24,12 +24,12 @@
 	possible_wanted_items = list(
 		/obj/item/toy/figure     = TRADER_THIS_TYPE,
 		/obj/item/toy/figure/ert = TRADER_THIS_TYPE,
-		/obj/item/toy/prize/honk = TRADER_THIS_TYPE
+		/obj/item/toy/mech/honk = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
-		/obj/item/toy/prize                   = TRADER_SUBTYPES_ONLY,
-		/obj/item/toy/prize/honk              = TRADER_BLACKLIST,
+		/obj/item/toy/mech                   = TRADER_SUBTYPES_ONLY,
+		/obj/item/toy/mech/honk              = TRADER_BLACKLIST,
 		/obj/item/toy/figure                  = TRADER_SUBTYPES_ONLY,
 		/obj/item/toy/figure/ert              = TRADER_BLACKLIST,
 		/obj/item/toy/plushie                 = TRADER_SUBTYPES_ONLY,
@@ -182,9 +182,14 @@
 		/obj/item/clothing/gloves/swat/bst              = TRADER_BLACKLIST,
 		/obj/item/clothing/wrists/watch/fluff           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/fluff                 = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/gloves/powerfist             = TRADER_BLACKLIST,
+		/obj/item/clothing/gloves/claws                 = TRADER_BLACKLIST,
+		/obj/item/clothing/gloves/brassknuckles         = TRADER_BLACKLIST,
+		/obj/item/clothing/gloves/ballistic             = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/gloves/tesla                 = TRADER_BLACKLIST,
 		/obj/item/clothing/head                         = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/head/beret/centcom           = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/bio_hood                = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/head/hazmat                  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/bomb_hood               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/caphat                  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/centhat                 = TRADER_BLACKLIST,
@@ -269,11 +274,10 @@ Sells devices, odds and ends, and medical stuff
 	name = "Robot Seller"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Robot Store"
-	possible_origins = list("AI for the Straight Guy", "Mechanical Buddies", "Bot Chop Shop", "Omni Consumer Projects")
+	possible_origins = list("AI for the Straight Guy", "Mechanical Buddies", "Bot Chop Shop", "Omni Consumer Projects", "Hephaestus Industries Robotic Shop")
 
 	possible_wanted_items = list(
 		/obj/item/bucket_sensor         = TRADER_THIS_TYPE,
-		/obj/item/toolbox_tiles_sensor  = TRADER_THIS_TYPE,
 		/obj/item/firstaid_arm_assembly = TRADER_THIS_TYPE,
 		/obj/item/stack/material/steel         = TRADER_THIS_TYPE
 

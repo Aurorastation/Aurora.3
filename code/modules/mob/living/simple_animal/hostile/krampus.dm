@@ -125,7 +125,7 @@
 /mob/living/simple_animal/hostile/gift
 	name = "christmas gift"
 	desc = "PRESENTS!!!!...OH SHIT!"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "gift1_evil"
 	icon_living = "gift1_evil"
 	icon_dead = "gift1"

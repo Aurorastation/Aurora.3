@@ -2,7 +2,7 @@
 /obj/machinery/floodlight
 	name = "industrial floodlight"
 	desc = "A series of large LEDs housed in a reflective frame, this is a cheap and easy way of lighting large areas during construction."
-	icon = 'icons/obj/machines/floodlight.dmi'
+	icon = 'icons/obj/machinery/floodlight.dmi'
 	icon_state = "flood00"
 	density = TRUE
 	obj_flags = OBJ_FLAG_ROTATABLE
@@ -134,3 +134,11 @@
 				to_chat(user, SPAN_NOTICE("You insert the power cell."))
 		return TRUE
 	update_icon()
+
+/obj/machinery/floodlight/randomcharge
+	// Intentionally left empty as it's the same as the parent, but the cell is randomized.
+
+/obj/machinery/floodlight/randomcharge/Initialize()
+	. = ..()
+	if(cell)
+		cell.charge = rand(1, cell.maxcharge)

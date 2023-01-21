@@ -2,7 +2,7 @@ var/list/floor_light_cache = list()
 
 /obj/machinery/floor_light
 	name = "floor light"
-	icon = 'icons/obj/machines/floor_light.dmi'
+	icon = 'icons/obj/machinery/floor_light.dmi'
 	icon_state = "base"
 	desc = "A backlit floor panel."
 	layer = TURF_LAYER+0.001
@@ -67,7 +67,7 @@ var/list/floor_light_cache = list()
 	if(user.a_intent == I_HURT && !issmall(user))
 		if(!isnull(damaged) && !(stat & BROKEN))
 			visible_message("<span class='danger'>\The [user] smashes \the [src]!</span>")
-			playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
+			playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
 			update_icon()
 			stat |= BROKEN
 		else

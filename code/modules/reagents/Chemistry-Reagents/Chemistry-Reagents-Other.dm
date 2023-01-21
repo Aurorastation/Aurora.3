@@ -1,6 +1,6 @@
 /* Paint and crayons */
 
-/decl/reagent/crayon_dust
+/singleton/reagent/crayon_dust
 	name = "Crayon Dust"
 	description = "Intensely coloured powder obtained by grinding crayons."
 	reagent_state = LIQUID
@@ -9,47 +9,47 @@
 	taste_description = "the back of class"
 	fallback_specific_heat = 0.4
 
-/decl/reagent/crayon_dust/red
+/singleton/reagent/crayon_dust/red
 	name = "Red Crayon Dust"
 	color = "#FE191A"
 	taste_description = "chalky strawberry wax"
 
-/decl/reagent/crayon_dust/orange
+/singleton/reagent/crayon_dust/orange
 	name = "Orange Crayon Dust"
 	color = "#FFBE4F"
 	taste_description = "chalky orange peels"
 
-/decl/reagent/crayon_dust/yellow
+/singleton/reagent/crayon_dust/yellow
 	name = "Yellow Crayon Dust"
 	color = "#FDFE7D"
 	taste_description = "chalky lemon rinds"
 
-/decl/reagent/crayon_dust/green
+/singleton/reagent/crayon_dust/green
 	name = "Green Crayon Dust"
 	color = "#18A31A"
 	taste_description = "chalky lime rinds"
 
-/decl/reagent/crayon_dust/blue
+/singleton/reagent/crayon_dust/blue
 	name = "Blue Crayon Dust"
 	color = "#247CFF"
 	taste_description = "chalky blueberry skins"
 
-/decl/reagent/crayon_dust/purple
+/singleton/reagent/crayon_dust/purple
 	name = "Purple Crayon Dust"
 	color = "#CC0099"
 	taste_description = "chalky grape skins"
 
-/decl/reagent/crayon_dust/grey //Mime
+/singleton/reagent/crayon_dust/grey //Mime
 	name = "Grey Crayon Dust"
 	color = "#808080"
 	taste_description = "chalky crushed dreams"
 
-/decl/reagent/crayon_dust/brown //Rainbow
+/singleton/reagent/crayon_dust/brown //Rainbow
 	name = "Brown Crayon Dust"
 	color = "#846F35"
 	taste_description = "raw, powerful creativity"
 
-/decl/reagent/paint
+/singleton/reagent/paint
 	name = "Paint"
 	description = "This paint will stick to almost any object."
 	reagent_state = LIQUID
@@ -60,15 +60,15 @@
 	fallback_specific_heat = 0.2
 	var/unpaintable_types = list(/obj/item/reagent_containers, /obj/machinery/chem_master, /obj/machinery/chemical_dispenser, /obj/machinery/chem_heater)
 
-/decl/reagent/paint/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/paint/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(istype(T) && !istype(T, /turf/space))
 		T.color = holder.get_color()
 
-/decl/reagent/paint/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
+/singleton/reagent/paint/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
 	if(istype(M))
 		M.color = holder.get_color()
 
-/decl/reagent/paint/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+/singleton/reagent/paint/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	//special checks for special items
 	var/setcolor = holder.get_color()
 	if(is_type_in_list(O, unpaintable_types))
@@ -86,7 +86,7 @@
 
 /* Things that didn't fit anywhere else */
 
-/decl/reagent/adminordrazine //An OP chemical for admins
+/singleton/reagent/adminordrazine //An OP chemical for admins
 	name = "Adminordrazine"
 	description = "It's magic, I ain't gotta explain shit."
 	reagent_state = LIQUID
@@ -101,10 +101,10 @@
 	fallback_specific_heat = 10 //Magical.
 
 
-/decl/reagent/adminordrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/adminordrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	affect_blood(M, alien, removed, holder)
 
-/decl/reagent/adminordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/adminordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.setCloneLoss(0)
 	M.setOxyLoss(0)
 	M.total_radiation = 0
@@ -128,7 +128,7 @@
 	M.jitteriness = 0
 	M.intoxication = 0
 
-/decl/reagent/gold
+/singleton/reagent/gold
 	name = "Gold"
 	description = "Gold is a dense, soft, shiny metal and the most malleable and ductile metal known."
 	reagent_state = SOLID
@@ -136,7 +136,7 @@
 	taste_description = "expensive metal"
 	fallback_specific_heat = 2.511
 
-/decl/reagent/silver
+/singleton/reagent/silver
 	name = "Silver"
 	description = "A soft, white, lustrous transition metal, it has the highest electrical conductivity of any element and the highest thermal conductivity of any metal."
 	reagent_state = SOLID
@@ -144,7 +144,7 @@
 	taste_description = "expensive yet reasonable metal"
 	fallback_specific_heat = 0.241
 
-/decl/reagent/uranium
+/singleton/reagent/uranium
 	name = "Uranium"
 	description = "A silvery-white metallic chemical element in the actinide series, weakly radioactive."
 	reagent_state = SOLID
@@ -152,13 +152,13 @@
 	taste_description = "the inside of a reactor"
 	fallback_specific_heat = 2.286
 
-/decl/reagent/uranium/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/uranium/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	affect_ingest(M, alien, removed, holder)
 
-/decl/reagent/uranium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/uranium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.apply_effect(5 * removed, IRRADIATE, blocked = 0)
 
-/decl/reagent/uranium/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/uranium/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 3)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
@@ -166,7 +166,7 @@
 				new /obj/effect/decal/cleanable/greenglow(T)
 			return
 
-/decl/reagent/platinum
+/singleton/reagent/platinum
 	name ="Platinum"
 	description = "Platinum is a naturally occuring silvery metalic element."
 	reagent_state = SOLID
@@ -174,7 +174,7 @@
 	taste_description = "salty metalic miner tears"
 	fallback_specific_heat = 0.2971
 
-/decl/reagent/water/holywater
+/singleton/reagent/water/holywater
 	name = "Holy Water"
 	description = "An ashen-obsidian-water mix, this solution will alter certain sections of the brain's rationality."
 	color = "#E0E8EF"
@@ -183,7 +183,7 @@
 	glass_name = "glass of holy water"
 	glass_desc = "An ashen-obsidian-water mix, this solution will alter certain sections of the brain's rationality."
 
-/decl/reagent/water/holywater/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/water/holywater/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	if(ishuman(M))
 		if(M.mind)
@@ -196,38 +196,38 @@
 		M.adjust_fire_stacks(10)
 		M.IgniteMob()
 
-/decl/reagent/water/holywater/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/water/holywater/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 5)
 		T.holy = 1
 	return
 
-/decl/reagent/water/holywater/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/water/holywater/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNDEAD)
 		M.adjust_fire_stacks(5)
 		M.IgniteMob()
 
-/decl/reagent/diethylamine
+/singleton/reagent/diethylamine
 	name = "Diethylamine"
 	description = "A secondary amine, mildly corrosive."
 	reagent_state = LIQUID
 	color = "#604030"
 	taste_description = "iron"
 
-/decl/reagent/surfactant // Foam precursor
+/singleton/reagent/surfactant // Foam precursor
 	name = "Azosurfactant"
 	description = "A isocyanate liquid that forms a foam when mixed with water."
 	reagent_state = LIQUID
 	color = "#9E6B38"
 	taste_description = "metal"
 
-/decl/reagent/foaming_agent // Metal foaming agent. This is lithium hydride. Add other recipes (e.g. LiH + H2O -> LiOH + H2) eventually.
+/singleton/reagent/foaming_agent // Metal foaming agent. This is lithium hydride. Add other recipes (e.g. LiH + H2O -> LiOH + H2) eventually.
 	name = "Foaming Agent"
 	description = "A agent that yields metallic foam when mixed with light metal and a strong acid."
 	reagent_state = SOLID
 	color = "#664B63"
 	taste_description = "metal"
 
-/decl/reagent/thermite
+/singleton/reagent/thermite
 	name = "Thermite"
 	description = "Thermite produces an aluminothermic reaction known as a thermite reaction. Can be used to melt walls."
 	reagent_state = SOLID
@@ -235,7 +235,7 @@
 	touch_met = 50
 	taste_description = "sweet tasting metal"
 
-/decl/reagent/thermite/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/thermite/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	. = ..()
 	if(amount >= 5)
 		if(istype(T, /turf/simulated/wall))
@@ -245,15 +245,15 @@
 			remove_self(5, holder)
 	return
 
-/decl/reagent/thermite/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
+/singleton/reagent/thermite/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 5)
 
-/decl/reagent/thermite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/thermite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustFireLoss(3 * removed)
 
-/decl/reagent/spacecleaner
+/singleton/reagent/spacecleaner
 	name = "Space Cleaner"
 	description = "A compound used to clean things. Now with 50% more sodium hypochlorite!"
 	reagent_state = LIQUID
@@ -262,17 +262,17 @@
 	taste_description = "sourness"
 	germ_adjust = 10
 
-/decl/reagent/spacecleaner/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+/singleton/reagent/spacecleaner/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	O.clean_blood()
 
-/decl/reagent/spacecleaner/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/spacecleaner/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 1)
 		if(istype(T, /turf/simulated))
 			var/turf/simulated/S = T
 			S.dirt = 0
 		T.clean_blood()
 
-/decl/reagent/spacecleaner/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/spacecleaner/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.r_hand)
 		M.r_hand.clean_blood()
 	if(M.l_hand)
@@ -309,7 +309,7 @@
 		if(M.chem_doses[type] == removed)
 			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the space cleaner touches it!"), SPAN_DANGER("Your flesh burns in the space cleaner!"))
 	
-/decl/reagent/spacecleaner/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/spacecleaner/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(REAGENT_VOLUME(holder, type) > 15)
 		M.add_chemical_effect(CE_EMETIC, 5)
 		if(M.losebreath < 15)
@@ -320,7 +320,7 @@
 		if(prob(5))
 			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something sour.")))
 
-/decl/reagent/spacecleaner/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/spacecleaner/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(REAGENT_VOLUME(holder, type) > 15)
 		M.add_chemical_effect(CE_EMETIC, 5)
 		if(M.losebreath < 15)
@@ -331,26 +331,63 @@
 		if(prob(5))
 			to_chat(M, SPAN_NOTICE(pick("You get a strong whiff of space cleaner fumes - careful.")))
 
-/decl/reagent/spacecleaner/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/spacecleaner/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(REAGENT_VOLUME(holder, type) > 15)
 		M.add_chemical_effect(CE_EMETIC, 5)
 		if(prob(25))
 			M.add_chemical_effect(CE_NEPHROTOXIC, 1)
 
-/decl/reagent/lube
+/singleton/reagent/antifuel
+	name = "Antifuel"
+	description = "This compound is very specifically designed to react with and break up common combustible fuels."
+	taste_description = "varnish"
+
+/singleton/reagent/antifuel/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+	if (istype(O, /obj/effect/decal/cleanable/liquid_fuel))
+		O.clean_blood()
+
+/singleton/reagent/antifuel/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(REAGENT_VOLUME(holder, type) > 15)
+		M.add_chemical_effect(CE_EMETIC, 5)
+		if(M.losebreath < 15)
+			M.losebreath++
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "All you can taste is metal!", "Your insides are on fire!", "Your feel a burning pain in your gut!")))
+	else
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something sour.")))
+
+/singleton/reagent/antifuel/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(REAGENT_VOLUME(holder, type) > 15)
+		M.add_chemical_effect(CE_EMETIC, 5)
+		if(M.losebreath < 15)
+			M.losebreath++
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "All you can taste is metal!", "Your insides are on fire!", "Your feel a burning pain in your gut!")))
+	else
+		if(prob(5))
+			to_chat(M, SPAN_NOTICE(pick("You get a strong whiff of industrial fumes - careful.")))
+
+/singleton/reagent/antifuel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(REAGENT_VOLUME(holder, type) > 15)
+		M.add_chemical_effect(CE_EMETIC, 5)
+		if(prob(25))
+			M.add_chemical_effect(CE_NEPHROTOXIC, 1)
+
+/singleton/reagent/lube
 	name = "Space Lube"
 	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them."
 	reagent_state = LIQUID
 	color = "#009CA8"
 	taste_description = "cherry"
 
-/decl/reagent/lube/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/lube/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
 	if(!istype(T))
 		return
 	if(amount >= 1)
 		T.wet_floor(WET_TYPE_LUBE,amount)
 
-/decl/reagent/silicate
+/singleton/reagent/silicate
 	name = "Silicate"
 	description = "A compound that can be used to reinforce glass."
 	reagent_state = LIQUID
@@ -358,18 +395,18 @@
 	taste_description = "plastic"
 	ingest_mul = 0
 
-/decl/reagent/silicate/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+/singleton/reagent/silicate/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/structure/window))
 		var/obj/structure/window/W = O
 		W.apply_silicate(amount)
 		remove_self(amount, holder)
 	return
 
-/decl/reagent/silicate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/silicate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustToxLoss(2 * removed)
 	M.add_chemical_effect(CE_ITCH, M.chem_doses[type])
 
-/decl/reagent/silicate/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/silicate/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(H, 5))
 		if(prob(50))
 			H.visible_message("<b>[H]</b> splutters.", "You cough up a bunch of silicate.")
@@ -378,21 +415,21 @@
 			H.adjustOxyLoss(2)
 			H.add_chemical_effect(CE_PNEUMOTOXIC, 0.2)
 
-/decl/reagent/glycerol
+/singleton/reagent/glycerol
 	name = "Glycerol"
 	description = "Glycerol is a simple polyol compound. Glycerol is sweet-tasting and of low toxicity."
 	reagent_state = LIQUID
 	color = "#808080"
 	taste_description = "sweetness"
 
-/decl/reagent/nitroglycerin
+/singleton/reagent/nitroglycerin
 	name = "Nitroglycerin"
 	description = "Nitroglycerin is a heavy, colorless, oily, explosive liquid obtained by nitrating glycerol."
 	reagent_state = LIQUID
 	color = "#808080"
 	taste_description = "oil"
 
-/decl/reagent/nitroglycerin/proc/explode(var/datum/reagents/holder)
+/singleton/reagent/nitroglycerin/proc/explode(var/datum/reagents/holder)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
 	e.set_up(round (REAGENT_VOLUME(holder, type)/2, 1), holder.my_atom, 0, 0)
 	if(isliving(holder.my_atom))
@@ -403,30 +440,30 @@
 	e.start()
 	holder.clear_reagents()
 
-/decl/reagent/nitroglycerin/on_heat_change(var/added_energy, var/datum/reagents/holder)
+/singleton/reagent/nitroglycerin/on_heat_change(var/added_energy, var/datum/reagents/holder)
 	. = ..()
 	if(added_energy > (specific_heat * 5 * REAGENT_VOLUME(holder, type))) // heat shock
 		explode(holder)
 
-/decl/reagent/nitroglycerin/apply_force(var/force, var/datum/reagents/holder)
+/singleton/reagent/nitroglycerin/apply_force(var/force, var/datum/reagents/holder)
 	..()
 	if(prob(force * 6))
 		explode(holder)
 
-/decl/reagent/nitroglycerin/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/nitroglycerin/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	. = ..()
 	explode(holder)
 
-/decl/reagent/nitroglycerin/touch_mob(var/mob/M, var/amount, var/datum/reagents/holder)
+/singleton/reagent/nitroglycerin/touch_mob(var/mob/M, var/amount, var/datum/reagents/holder)
 	. = ..()
 	explode(holder)
 
-/decl/reagent/nitroglycerin/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/nitroglycerin/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(H) || alien == IS_DIONA)
 		return
 	H.add_chemical_effect(CE_PULSE, 2)
 
-/decl/reagent/coolant
+/singleton/reagent/coolant
 	name = "Coolant"
 	description = "Industrial cooling substance."
 	reagent_state = LIQUID
@@ -434,14 +471,14 @@
 	taste_description = "sourness"
 	taste_mult = 1.1
 
-/decl/reagent/ultraglue
+/singleton/reagent/ultraglue
 	name = "Ultra Glue"
 	description = "An extremely powerful bonding agent."
 	color = "#FFFFCC"
 	taste_description = "a special education class"
 	fallback_specific_heat = 1.5
 
-/decl/reagent/woodpulp
+/singleton/reagent/woodpulp
 	name = "Wood Pulp"
 	description = "A mass of wood fibers."
 	reagent_state = LIQUID
@@ -449,21 +486,21 @@
 	taste_description = "wood"
 	fallback_specific_heat = 1.9
 
-/decl/reagent/luminol
+/singleton/reagent/luminol
 	name = "Luminol"
 	description = "A compound that interacts with blood on the molecular level."
 	reagent_state = LIQUID
 	color = "#F2F3F4"
 	taste_description = "metal"
 
-/decl/reagent/luminol/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+/singleton/reagent/luminol/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	O.reveal_blood()
 
-/decl/reagent/luminol/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
+/singleton/reagent/luminol/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	L.reveal_blood()
 
-/decl/reagent/pyrosilicate
+/singleton/reagent/pyrosilicate
 	name = "Pyrosilicate"
 	description = "A bright orange powder consisting of strange self-heating properties that reacts when exposed to sodium chloride."
 	reagent_state = SOLID
@@ -471,7 +508,7 @@
 	taste_description = "chalk"
 	default_temperature = 600 //Kelvin
 
-/decl/reagent/cryosurfactant
+/singleton/reagent/cryosurfactant
 	name = "Cryosurfactant"
 	description = "A bright cyan liquid consisting of strange self-cooling properties that reacts when exposed to water."
 	reagent_state = LIQUID
@@ -479,7 +516,7 @@
 	taste_description = "needles"
 	default_temperature = 100 //Kelvin
 
-/decl/reagent/venenum
+/singleton/reagent/venenum
 	name = "Venenum"
 	description = "A thick tar like liquid that seems to move around on it's own every now and then. Limited data shows it only works when injected into the bloodstream."
 	reagent_state = LIQUID
@@ -494,12 +531,12 @@
 	var/stored_value = 0
 	var/datum/dna/stored_dna
 
-/decl/reagent/venenum/initial_effect(var/mob/living/carbon/M, var/alien)
+/singleton/reagent/venenum/initial_effect(var/mob/living/carbon/M, var/alien)
 	stored_value = metabolism
 	stored_dna = M.dna.Clone()
 	to_chat(M, SPAN_WARNING("Your skin starts crawling..."))
 
-/decl/reagent/venenum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/venenum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	stored_value += removed
 	if(stored_value >= 1)
 		M.visible_message(\
@@ -514,7 +551,7 @@
 		M.real_name = M.dna.real_name
 		stored_value -= 1
 
-/decl/reagent/venenum/final_effect(var/mob/living/carbon/M)
+/singleton/reagent/venenum/final_effect(var/mob/living/carbon/M)
 	if(stored_dna)
 		M.dna = stored_dna.Clone()
 		M.real_name = M.dna.real_name
@@ -522,7 +559,7 @@
 
 	to_chat(M, SPAN_WARNING("You seem back to your normal self."))
 
-/decl/reagent/fuel/zoragel
+/singleton/reagent/fuel/zoragel
 	name = "Inert Gel"
 	description = "A particularly adhesive but otherwise inert and harmless gel."
 	reagent_state = LIQUID
@@ -530,7 +567,7 @@
 	touch_met = 50
 	taste_description = "plhegm"
 
-/decl/reagent/fuel/napalm
+/singleton/reagent/fuel/napalm
 	name = "Zo'rane Fire"
 	description = "A highly flammable and cohesive gel once used commonly in the tunnels of Sedantis. Napalm sticks to kids."
 	reagent_state = LIQUID
@@ -538,14 +575,14 @@
 	touch_met = 50
 	taste_description = "fiery death"
 
-/decl/reagent/fuel/napalm/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/fuel/napalm/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, amount/3)
 	for(var/mob/living/L in T)
 		L.adjust_fire_stacks(amount / 10)
 	remove_self(amount, holder)
 	return
 
-/decl/reagent/fuel/napalm/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
+/singleton/reagent/fuel/napalm/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
@@ -555,7 +592,7 @@
 
 //Secret chems.
 //Shhh don't tell no one.
-/decl/reagent/estus
+/singleton/reagent/estus
 	name = "Liquid Light"
 	description = "This impossible substance slowly converts from a liquid into actual light."
 	reagent_state = LIQUID
@@ -566,27 +603,27 @@
 	fallback_specific_heat = 2.75
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/estus/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+/singleton/reagent/estus/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
 	. = ..()
 	M.set_light(REAGENT_VOLUME(holder, type), 4, LIGHT_COLOR_FIRE)
 
-/decl/reagent/estus/final_effect(mob/living/carbon/M, datum/reagents/holder)
+/singleton/reagent/estus/final_effect(mob/living/carbon/M, datum/reagents/holder)
 	. = ..()
 	M.set_light(FALSE)
 
-/decl/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
+/singleton/reagent/estus/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
-/decl/reagent/estus/affect_ingest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
+/singleton/reagent/estus/affect_ingest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
-/decl/reagent/estus/affect_touch(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
+/singleton/reagent/estus/affect_touch(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	if(isundead(M))
 		M.heal_organ_damage(10 * removed, 15 * removed)
 
-/decl/reagent/liquid_fire
+/singleton/reagent/liquid_fire
 	name = "Liquid Fire"
 	description = "A dangerous flammable chemical, capable of causing fires when in contact with organic matter."
 	reagent_state = LIQUID
@@ -596,19 +633,19 @@
 	fallback_specific_heat = 20 //This holds a ton of heat.
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(istype(M))
 		M.adjust_fire_stacks(10)
 		M.IgniteMob()
 
-/decl/reagent/liquid_fire/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
+/singleton/reagent/liquid_fire/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(10)
 		L.IgniteMob()
 
-/decl/reagent/black_matter
+/singleton/reagent/black_matter
 	name = "Unstable Black Matter"
 	description = "A pitch black blend of cosmic origins, handle with care."
 	color = "#000000"
@@ -616,7 +653,7 @@
 	fallback_specific_heat = 100 //Yeah...
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/black_matter/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/singleton/reagent/black_matter/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	var/obj/effect/portal/P = new /obj/effect/portal(T)
 	P.creator = null
 	P.icon = 'icons/obj/objects.dmi'
@@ -632,7 +669,7 @@
 	remove_self(amount, holder)
 	return
 
-/decl/reagent/bluespace_dust
+/singleton/reagent/bluespace_dust
 	name = "Bluespace Dust"
 	description = "A dust composed of microscopic bluespace crystals."
 	color = "#1f8999"
@@ -640,7 +677,7 @@
 	fallback_specific_heat = 0.1
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(25))
 		M.make_jittery(5)
 		to_chat(M, SPAN_WARNING("You feel unstable..."))
@@ -648,18 +685,18 @@
 	if(prob(10))
 		do_teleport(M, get_turf(M), 5, asoundin = 'sound/effects/phasein.ogg')
 
-/decl/reagent/bluespace_dust/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
+/singleton/reagent/bluespace_dust/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
 	. = ..()
 	do_teleport(L, get_turf(L), amount, asoundin = 'sound/effects/phasein.ogg')
 
-/decl/reagent/philosopher_stone
+/singleton/reagent/philosopher_stone
 	name = "Philosopher's Stone"
 	description = "A mythical compound, rumored to be the catalyst of fantastic reactions."
 	color = "#f4c430"
 	taste_description = "heavenly knowledge"
 	fallback_specific_heat = 1.25
 
-/decl/reagent/sglue
+/singleton/reagent/sglue
 	name = "Sovereign Glue"
 	description = "A very potent adhesive which can be applied to inanimate surfaces."
 	reagent_state = LIQUID
@@ -667,7 +704,7 @@
 	taste_description = "horses"
 	fallback_specific_heat = 1.25
 
-/decl/reagent/sglue/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+/singleton/reagent/sglue/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (amount >= 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = 0
@@ -675,7 +712,7 @@
 		remove_self(10*I.w_class, holder)
 		I.visible_message(SPAN_NOTICE("[I] begins to glisten with some gluey substance."))
 
-/decl/reagent/usolve
+/singleton/reagent/usolve
 	name = "Universal Solvent"
 	description = "A very potent solvent which can be applied to inanimate surfaces."
 	reagent_state = LIQUID
@@ -683,7 +720,7 @@
 	taste_description = "alcohol"
 	fallback_specific_heat = 1.75
 
-/decl/reagent/usolve/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+/singleton/reagent/usolve/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (amount >= 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = initial(I.canremove)
@@ -691,7 +728,7 @@
 		I.visible_message(SPAN_NOTICE("A thin shell of glue cracks off of [I]."))
 		remove_self(10*I.w_class, holder)
 
-/decl/reagent/shapesand
+/singleton/reagent/shapesand
 	name = "Shapesand"
 	description = "A strangely animate clump of sand which can shift its color and consistency."
 	reagent_state = SOLID
@@ -699,7 +736,7 @@
 	taste_description = "sand"
 	fallback_specific_heat = 0.75
 
-/decl/reagent/shapesand/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
+/singleton/reagent/shapesand/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (amount >= 10*O.w_class))
 		var/obj/item/shapesand/mimic = new /obj/item/shapesand(O.loc)
 		mimic.name = O.name
@@ -727,7 +764,7 @@
 	qdel(src)
 	return
 
-/decl/reagent/love_potion
+/singleton/reagent/love_potion
 	name = "Philter of Love"
 	description = "A sickly sweet compound that induces chemical dependency on the first person the subject sees."
 	reagent_state = LIQUID
@@ -735,13 +772,13 @@
 	taste_description = "sickly sweet candy"
 	fallback_specific_heat = 2 //Thicc
 
-/decl/reagent/love_potion/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/love_potion/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 
 	if(!istype(H))
 		return
 
 
-/decl/reagent/bottle_lightning
+/singleton/reagent/bottle_lightning
 	name = "Bottled Lightning"
 	description = "A mysterious compound capable of producing electrical discharges."
 	reagent_state = LIQUID
@@ -750,11 +787,11 @@
 	fallback_specific_heat = 10
 	unaffected_species = IS_MACHINE
 
-/decl/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(25))
 		tesla_zap(M, 6, 1500)
 
-/decl/reagent/stone_dust
+/singleton/reagent/stone_dust
 	name = "Stone Dust"
 	description = "Crystalline silica dust, harmful when inhaled."
 	reagent_state = SOLID
@@ -762,7 +799,7 @@
 	taste_description = "dust"
 	specific_heat = 1
 
-/decl/reagent/stone_dust/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/stone_dust/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(istype(H))
 		if(prob(15))
@@ -770,7 +807,7 @@
 			if(istype(L) && !L.robotic)
 				L.take_damage(0.5*removed)
 
-/decl/reagent/gunpowder
+/singleton/reagent/gunpowder
 	name = "Gunpowder"
 	description = "A primitive explosive chemical."
 	reagent_state = SOLID

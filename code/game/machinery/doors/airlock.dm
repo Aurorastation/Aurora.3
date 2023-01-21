@@ -556,6 +556,18 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 /obj/machinery/door/airlock/skrell/grey
 	icon = 'icons/obj/doors/grey_skrell_door.dmi'
 
+/obj/machinery/door/airlock/diona
+	name = "biomass airlock"
+	icon = 'icons/obj/doors/Door_dionae_airlock.dmi'
+	explosion_resistance = 20
+	secured_wires = TRUE
+	maxhealth = 600
+	insecure = FALSE
+	hashatch = FALSE
+
+/obj/machinery/door/airlock/diona/external
+	icon = 'icons/obj/doors/Door_dionae_external.dmi'
+
 //---Uranium doors
 /obj/machinery/door/airlock/uranium
 	name = "Uranium Airlock"
@@ -1042,7 +1054,7 @@ About the new airlock wires panel:
 		cutting = TRUE
 	else if(istype(tool,/obj/item/melee/energy/blade) || istype(tool,/obj/item/melee/energy/sword))
 		cut_verb = "slicing"
-		cut_sound = /decl/sound_category/spark_sound
+		cut_sound = /singleton/sound_category/spark_sound
 		cut_delay *= 1
 		cutting = TRUE
 	else if(istype(tool,/obj/item/surgery/circular_saw))

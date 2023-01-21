@@ -36,6 +36,7 @@ var/list/gear_datums = list()
 	sort_order = 1
 	var/current_tab = "General"
 	var/gear_reset = FALSE
+	var/search_input_value = ""
 
 /datum/category_item/player_setup_item/loadout/load_character(var/savefile/S)
 	S["gear"] >> pref.gear
@@ -174,38 +175,116 @@ var/list/gear_datums = list()
 	. += "</b></center></td></tr>"
 
 	var/datum/loadout_category/LC = loadout_categories[current_tab]
+
 	. += "<tr><td colspan=3><hr></td></tr>"
-	. += "<tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
+	. += "<tr><td colspan=3>"
+	. += "<div style='left:0;position:absolute;width:10%;margin-left:45%;white-space: nowrap;'><b><center>[LC.category]</center></b></div>"
+	. += "<span style='float:left;'>"
+	. += "<script>function search_onchange() { \
+		var val = document.getElementById('search_input').value; \
+		document.getElementById('search_refresh_link').href='?src=\ref[src];search_input_refresh=' + encodeURIComponent(val) + ''; \
+		document.getElementById('search_refresh_link').click(); \
+		}</script>"
+	. += "Search: "
+	. += "<input type='text' id='search_input' name='search_input' \
+			onchange='search_onchange()' value='[search_input_value]'> "
+	. += "<a href='#' onclick='search_onchange()'>Refresh</a> "
+	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Clear</a> "
+	. += "</span>"
+	. += "</td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
+
+	var/ticked_items_html = "" // to be added to the top/beginning of the list
+	var/available_items_html = "" // to be added to the middle of the list
+	var/unavailable_items_html = "" // to be added to the end/bottom of the list
+
 	var/list/player_valid_gear_choices = valid_gear_choices()
 	for(var/gear_name in LC.gear)
 		if(!(gear_name in player_valid_gear_choices))
 			continue
 		var/datum/gear/G = LC.gear[gear_name]
+
+		var/temp_html = ""
+		var/datum/job/job = pref.return_chosen_high_job()
+		var/available = (G.check_faction(pref.faction) \
+			&& (job && G.check_role(job.title)) \
+			&& G.check_culture(text2path(pref.culture)) \
+			&& G.check_origin(text2path(pref.origin)))
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
+
+		var/found_searched_text = FALSE
+		if(findtext(G.display_name, search_input_value))
+			found_searched_text = TRUE
+		for(var/datum/gear_tweak/tweak in G.gear_tweaks)
+			var/datum/gear_tweak/path/path = tweak
+			if(path && istype(path) && path.valid_paths)
+				for(var/x in path.valid_paths)
+					if(findtext(x, search_input_value))
+						found_searched_text = TRUE
+		available = available && found_searched_text
+
+		if(!available)
+			style = "style='color: #B1B1B1;'"
 		if(ticked)
 			style = "style='color: #FF8000;'"
-		. += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
-		. += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
-		. += "<td><font size=2><i>[G.description]</i><br>"
+		temp_html += "<tr style='vertical-align:top'><td width=25%><a href=\"?src=\ref[src];toggle_gear=[G.display_name]\"><font [style]>[G.display_name]</font></a></td>"
+		temp_html += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
+		temp_html += "<td><font size=2><i>[G.description]</i><br>"
+
 		if(G.allowed_roles)
-			. += "</font><font size = 1>("
+			temp_html += "</font><font size = 1>(Role: "
 			var/role_count = 0
 			for(var/role in G.allowed_roles)
-				. += "[role]"
+				temp_html += "[role]"
 				role_count++
 				if(role_count == G.allowed_roles.len)
-					. += ")"
+					temp_html += ") "
 					break
 				else
-					. += ", "
-		. += "</font></td></tr>"
+					temp_html += ", "
+		if(G.culture_restriction)
+			temp_html += "</font><font size = 1>(Culture: "
+			var/culture_count = 0
+			for(var/culture in G.culture_restriction)
+				var/singleton/origin_item/C = GET_SINGLETON(culture)
+				temp_html += "[C.name]"
+				culture_count++
+				if(culture_count == G.culture_restriction.len)
+					temp_html += ") "
+					break
+				else
+					temp_html += ", "
+		if(G.origin_restriction)
+			temp_html += "</font><font size = 1>(Origin: "
+			var/origin_count = 0
+			for(var/origin in G.origin_restriction)
+				var/singleton/origin_item/O = GET_SINGLETON(origin)
+				temp_html += "[O.name]"
+				origin_count++
+				if(origin_count == G.origin_restriction.len)
+					temp_html += ") "
+					break
+				else
+					temp_html += ", "
+		temp_html += "</font></td></tr>"
+
 		if(ticked)
-			. += "<tr><td colspan=3>"
+			temp_html += "<tr><td colspan=3>"
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
-				. += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
-			. += "</td></tr>"
+				temp_html += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
+			temp_html += "</td></tr>"
+
+		if(ticked)
+			ticked_items_html += temp_html
+		else if(!available)
+			available_items_html += temp_html
+		else
+			unavailable_items_html += temp_html
+
+	. += ticked_items_html
+	. += unavailable_items_html
+	. += available_items_html
 	. += "</table>"
 	. = jointext(.,null)
 
@@ -244,7 +323,7 @@ var/list/gear_datums = list()
 		var/datum/gear_tweak/tweak = locate(href_list["tweak"])
 		if(!tweak || !istype(gear) || !(tweak in gear.gear_tweaks))
 			return TOPIC_NOACTION
-		var/metadata = tweak.get_metadata(user, get_tweak_metadata(gear, tweak))
+		var/metadata = tweak.get_metadata(user, get_tweak_metadata(gear, tweak), null, gear.path)
 		if(!metadata || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		set_tweak_metadata(gear, tweak, metadata)
@@ -280,6 +359,9 @@ var/list/gear_datums = list()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	else if(href_list["clear_loadout"])
 		pref.gear.Cut()
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+	else if(href_list["search_input_refresh"] != null) // empty str is false
+		search_input_value = sanitize(href_list["search_input_refresh"], 100)
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	return ..()
 
@@ -318,13 +400,38 @@ var/list/gear_datums = list()
 /datum/gear_data
 	var/path
 	var/location
+	var/faction_requirement
 
-/datum/gear_data/New(var/path, var/location)
+/datum/gear_data/New(var/path, var/location, var/faction)
 	src.path = path
 	src.location = location
+	src.faction_requirement = faction
+
+/datum/gear/proc/cant_spawn_item_reason(var/location, var/metadata, var/mob/living/carbon/human/human, var/datum/job/job, var/datum/preferences/prefs)
+	var/datum/gear_data/gd = new(path, location, faction)
+	for(var/datum/gear_tweak/gt in gear_tweaks)
+		if(metadata["[gt]"])
+			gt.tweak_gear_data(metadata["[gt]"], gd, human)
+		else
+			gt.tweak_gear_data(gt.get_default(), gd, human)
+
+	var/obj/spawning_item = gd.path
+	if(length(allowed_roles) && !(job.title in allowed_roles))
+		return "You cannot spawn with the [initial(spawning_item.name)] with your current job!"
+	if(!check_species_whitelist(human))
+		return "You cannot spawn with the [initial(spawning_item.name)] with your current species!"
+	if(gd.faction_requirement && (human.employer_faction != "Stellar Corporate Conglomerate" && gd.faction_requirement != human.employer_faction))
+		return "You cannot spawn with the [initial(spawning_item.name)] with your current faction!"
+	var/our_culture = text2path(prefs.culture)
+	if(culture_restriction && !(our_culture in culture_restriction))
+		return "You cannot spawn with the [initial(spawning_item.name)] with your current culture!"
+	var/our_origin = text2path(prefs.origin)
+	if(origin_restriction && !(our_origin in origin_restriction))
+		return "You cannot spawn with the [initial(spawning_item.name)] with your current origin!"
+	return null
 
 /datum/gear/proc/spawn_item(var/location, var/metadata, var/mob/living/carbon/human/H)
-	var/datum/gear_data/gd = new(path, location)
+	var/datum/gear_data/gd = new(path, location, faction)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		if(metadata["[gt]"])
 			gt.tweak_gear_data(metadata["[gt]"], gd, H)
@@ -349,5 +456,29 @@ var/list/gear_datums = list()
 
 /datum/gear/proc/check_species_whitelist(mob/living/carbon/human/H)
 	if(whitelisted && (!(H.species.name in whitelisted)))
+		return FALSE
+	return TRUE
+
+// arg should be a faction name string
+/datum/gear/proc/check_faction(var/faction_)
+	if((faction && faction_ && faction_ != "None" && faction_ != "Stellar Corporate Conglomerate") && (faction != faction_))
+		return FALSE
+	return TRUE
+
+// arg should be a role name string
+/datum/gear/proc/check_role(var/role)
+	if(role && allowed_roles && !(role in allowed_roles))
+		return FALSE
+	return TRUE
+
+// arg should be a culture path
+/datum/gear/proc/check_culture(var/culture)
+	if(culture && culture_restriction && !(culture in culture_restriction))
+		return FALSE
+	return TRUE
+
+// arg should be a origin path
+/datum/gear/proc/check_origin(var/origin)
+	if(origin && origin_restriction && !(origin in origin_restriction))
 		return FALSE
 	return TRUE

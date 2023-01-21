@@ -79,18 +79,29 @@
 	name = "silversun flower pin"
 	desc = "A Silversun dawnflower pin, named after the same flower. This particular version is an artificial recreation, and lacks the distinctive bioluminescence of the original."
 
-/obj/item/clothing/head/pin/bow
+/obj/item/clothing/head/pin/ribbon
+	name = "hair ribbon parent item"
+	desc = DESC_PARENT
+	icon = 'icons/obj/item/clothing/accessory/hair_ribbons.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/pin/ribbon/head
+	name = "hair ribbon"
+	desc = "A length of ribbon acting as a headband."
+	icon_state = "ribbon"
+	item_state = "ribbon"
+
+/obj/item/clothing/head/pin/ribbon/back
+	name = "hair bow"
+	desc = "A hair bow with a small removable clip on the back, so it can be attached to hair or tied into it."
 	icon_state = "bow"
 	item_state = "bow"
-	name = "hair bow"
-	desc = "A ribbon tied into a bow with a clip on the back to attach to hair."
-	item_state_slots = list(slot_r_hand_str = "pill", slot_l_hand_str = "pill")
 
-/obj/item/clothing/head/pin/bow/hairband
-	icon_state = "hairribbon"
-	item_state = "hairribbon"
-	name = "hair ribbon"
-	desc = "A glorified length of ribbon acting as a hairband."
+/obj/item/clothing/head/pin/ribbon/small
+	name = "small hair bow"
+	desc = "A ribbon tied into a small bow with a clip on the back to attach to hair."
+	icon_state = "bow_small"
+	item_state = "bow_small"
 
 /obj/item/clothing/head/powdered_wig
 	name = "powdered wig"
@@ -114,13 +125,6 @@
 	name = "station cap"
 	icon_state = "mailman"
 	desc = "<i>Choo-choo</i>!"
-
-/obj/item/clothing/head/plaguedoctorhat
-	name = "plague doctor's hat"
-	desc = "These were once used by Plague doctors. They're pretty much useless."
-	icon_state = "plaguedoctor"
-	permeability_coefficient = 0.01
-	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/nursehat
 	name = "nurse's hat"
@@ -178,7 +182,7 @@
 /obj/item/clothing/head/flatcap
 	name = "flat cap"
 	desc = "A working man's hat."
-	icon = 'icons/contained_items/clothing/hats/flat_cap.dmi'
+	icon = 'icons/obj/item/clothing/head/flat_cap.dmi'
 	icon_state = "flat_cap"
 	item_state = "flat_cap"
 	contained_sprite = TRUE
@@ -222,8 +226,17 @@
 
 /obj/item/clothing/head/feathertrilby
 	name = "feather trilby"
+	icon = 'icons/obj/item/clothing/head/feather_trilby.dmi'
 	icon_state = "feather_trilby"
+	item_state = "feather_trilby"
+	contained_sprite = TRUE
 	desc = "A sharp, stylish hat with a feather."
+
+/obj/item/clothing/head/feathertrilby/colourable
+	icon_state = "feather_trilby_grayscale"
+	item_state = "feather_trilby_grayscale"
+	build_from_parts = TRUE
+	worn_overlay = "feather"
 
 /obj/item/clothing/head/fez
 	name = "fez"
@@ -277,8 +290,8 @@
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
 	icon = 'icons/obj/clothing/hijabs.dmi'
-	icon_state = "hijab_black"
-	item_state = "hijab_black"
+	icon_state = "hijab_white"
+	item_state = "hijab_white"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 	contained_sprite = 1
@@ -312,10 +325,10 @@
 	icon_state = "hijab_blue"
 	item_state = "hijab_blue"
 
-/obj/item/clothing/head/hijab/white
-	name = "white hijab"
-	icon_state = "hijab_white"
-	item_state = "hijab_white"
+/obj/item/clothing/head/hijab/black
+	name = "black hijab"
+	icon_state = "hijab_black"
+	item_state = "hijab_black"
 
 /obj/item/clothing/head/cowboy
 	name = "cowboy hat"
@@ -579,17 +592,11 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
 	contained_sprite = TRUE
-
-/obj/item/clothing/head/nonla
-	name = "non la"
-	desc = "A conical straw hat enjoyed particularly by residents of New Hai Phong, to protect the head from sweltering suns and heavy rains."
-	icon_state = "nonla"
-	item_state = "nonla"
 
 /obj/item/clothing/head/padded
 	name = "padded cap"

@@ -1,23 +1,24 @@
 /mob/living/carbon/alien
-
-	name = "alien"
-	desc = "What IS that?"
+	name = "La Creatura"
+	desc = "La creatura. Huh wuh?"
 	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "alien_s"
+	icon_state = "la_creatura"
 	pass_flags = PASSTABLE
-	health = 100
-	maxHealth = 100
+	health = 50
+	maxHealth = 50
 	mob_size = 4
 
 	var/adult_form
-	var/dead_icon
+	var/icon_dead
 	var/amount_grown = 0
 	var/max_grown = 200
 	var/time_of_birth
 	var/language
-	var/death_msg = "lets out a waning guttural screech, green blood bubbling from its maw."
+	var/death_msg = "lets out a waning guttural screech!"
 	var/meat_amount = 0
-	var/meat_type
+	var/meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
+
+	icon_dead = "la_creatura_dead"
 
 /mob/living/carbon/alien/Initialize()
 	. = ..()
@@ -47,9 +48,7 @@
 	return 0
 
 /mob/living/carbon/alien/show_inv(mob/user as mob)
-	return //Consider adding cuffs and hats to this, for the sake of fun.
+	return // Consider adding cuffs and hats to this, for the sake of fun.
 
 /mob/living/carbon/alien/cannot_use_vents()
 	return
-
-

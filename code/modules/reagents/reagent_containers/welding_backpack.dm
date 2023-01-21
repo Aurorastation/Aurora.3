@@ -2,13 +2,13 @@
 	name = "welding kit"
 	desc = "A heavy-duty, portable welding fluid carrier."
 	slot_flags = SLOT_BACK
-	icon = 'icons/obj/contained_items/tools/welderpack.dmi'
+	icon = 'icons/obj/item/tools/welderpack.dmi'
 	icon_state = "welderpack"
 	item_state = "welderpack"
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE
 	volume = 350
-	reagents_to_add = list(/decl/reagent/fuel = 350)
+	reagents_to_add = list(/singleton/reagent/fuel = 350)
 	amount_per_transfer_from_this = 30
 	possible_transfer_amounts = list(30, 60, 120, 350)
 	recyclable = FALSE
@@ -20,7 +20,7 @@
 	if(ishuman(loc) && user != loc) // what if we want to sneak some reagents out of somewhere?
 		return
 	if(reagents.total_volume)
-		var/fuel_volume = REAGENT_VOLUME(reagents, /decl/reagent/fuel)
+		var/fuel_volume = REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 		if(!fuel_volume)
 			fuel_volume = 0
 		to_chat(user, SPAN_NOTICE("\The [src] has [reagents.total_volume]u of reagents in it, <b>[fuel_volume]u</b> of which is fuel."))
@@ -38,11 +38,11 @@
 		return
 	else if(W.iswelder())
 		var/obj/item/weldingtool/T = W
-		var/fuel_volume = REAGENT_VOLUME(reagents, /decl/reagent/fuel)
+		var/fuel_volume = REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 		if(!fuel_volume)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any fuel in it!"))
 			return
-		var/tool_fuel_volume = REAGENT_VOLUME(T.reagents, /decl/reagent/fuel)
+		var/tool_fuel_volume = REAGENT_VOLUME(T.reagents, /singleton/reagent/fuel)
 		if(!tool_fuel_volume)
 			tool_fuel_volume = 0
 		else if(tool_fuel_volume >= T.reagents.maximum_volume)
@@ -57,7 +57,7 @@
 		else
 			if(T.welding)
 				to_chat(user, SPAN_DANGER("That was close!"))
-			reagents.trans_type_to(W, /decl/reagent/fuel, min(fuel_volume, T.reagents.maximum_volume - tool_fuel_volume))
+			reagents.trans_type_to(W, /singleton/reagent/fuel, min(fuel_volume, T.reagents.maximum_volume - tool_fuel_volume))
 			to_chat(user, SPAN_NOTICE("Welder refilled!"))
 			playsound(loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return

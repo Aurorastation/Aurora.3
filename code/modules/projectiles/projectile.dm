@@ -208,7 +208,7 @@
 			if(!point_blank)
 				if(!silenced)
 					target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
-					playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
+					playsound(target_mob, /singleton/sound_category/bulletflyby_sound, 50, 1)
 				return FALSE
 		if(PROJECTILE_DODGED)
 			return FALSE
@@ -316,7 +316,6 @@
 
 	//stop flying
 	on_impact(A, hit_zone)
-
 	qdel(src)
 	return TRUE
 

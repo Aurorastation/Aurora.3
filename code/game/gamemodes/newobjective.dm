@@ -1081,7 +1081,7 @@ datum
 						return 0
 
 			drugs
-				steal_target = /decl/reagent/space_drugs
+				steal_target = /singleton/reagent/space_drugs
 				explanation_text = "Steal some space drugs."
 				weight = 40
 
@@ -1110,7 +1110,7 @@ datum
 
 
 			pacid
-				steal_target = /decl/reagent/acid/polyacid
+				steal_target = /singleton/reagent/acid/polyacid
 				explanation_text = "Steal some polytrinic acid."
 				weight = 40
 
@@ -1149,25 +1149,25 @@ datum
 					target_name = pick(items)
 					switch(target_name)
 						if("Sulphuric acid")
-							steal_target = /decl/reagent/acid
+							steal_target = /singleton/reagent/acid
 						if("Polytrinic acid")
-							steal_target = /decl/reagent/acid/polyacid
+							steal_target = /singleton/reagent/acid/polyacid
 						if("Space Lube")
-							steal_target = /decl/reagent/lube
+							steal_target = /singleton/reagent/lube
 						if("Unstable mutagen")
-							steal_target = /decl/reagent/mutagen
+							steal_target = /singleton/reagent/mutagen
 						if("Leporazine")
-							steal_target = /decl/reagent/leporazine
+							steal_target = /singleton/reagent/leporazine
 						if("Cryptobiolin")
-							steal_target =/decl/reagent/cryptobiolin
+							steal_target =/singleton/reagent/cryptobiolin
 						if("Lexorin")
-							steal_target = /decl/reagent/lexorin
+							steal_target = /singleton/reagent/lexorin
 						if("Kelotane")
-							steal_target = /decl/reagent/kelotane
+							steal_target = /singleton/reagent/kelotane
 						if("Dexalin")
-							steal_target = /decl/reagent/dexalin
+							steal_target = /singleton/reagent/dexalin
 						if("Tricordrazine")
-							steal_target = /decl/reagent/tricordrazine
+							steal_target = /singleton/reagent/tricordrazine
 
 					explanation_text = "Steal a container filled with [target_name]."
 
@@ -1431,11 +1431,6 @@ datum
 					captured_amount+=1
 				for(var/mob/living/carbon/monkey/M in A)//Monkeys are almost worthless, you failure.
 					captured_amount+=0.1
-				for(var/mob/living/carbon/alien/larva/M in A)//Larva are important for research.
-					if(M.stat==2)
-						captured_amount+=0.5
-						continue
-					captured_amount+=1
 				for(var/mob/living/carbon/alien/humanoid/M in A)//Aliens are worth twice as much as humans.
 					if(istype(M, /mob/living/carbon/alien/humanoid/queen))//Queens are worth three times as much as humans.
 						if(M.stat==2)

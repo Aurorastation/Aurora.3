@@ -23,7 +23,7 @@ datum/preferences
 	var/list/be_special_role = list()		//Special role selection
 	var/UI_style = "Midnight"
 	var/toggles = TOGGLES_DEFAULT
-	var/asfx_togs = ASFX_DEFAULT
+	var/sfx_toggles = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
 	var/html_UI_style = "Nano"
@@ -42,7 +42,9 @@ datum/preferences
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = OUTFIT_BACKPACK		//backpack type (defines in outfit.dm)
-	var/backbag_style = 1
+	var/backbag_style = OUTFIT_FACTIONSPECIFIC
+	var/backbag_color = OUTFIT_NOTHING
+	var/backbag_strap = OUTFIT_NORMAL
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 	var/primary_radio_slot = "Left Ear"
@@ -407,8 +409,10 @@ datum/preferences
 	character.employer_faction = faction
 	character.religion = religion
 	character.accent = accent
-	character.origin = decls_repository.get_decl(text2path(origin))
-	character.culture = decls_repository.get_decl(text2path(culture))
+	character.origin = GET_SINGLETON(text2path(origin))
+	character.culture = GET_SINGLETON(text2path(culture))
+	character.origin.on_apply(character)
+	character.culture.on_apply(character)
 
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)
@@ -427,10 +431,12 @@ datum/preferences
 		else
 			all_underwear -= underwear_category_name
 
-	if(backbag > OUTFIT_CLASSICSATCHEL || backbag < OUTFIT_NOTHING)
+	if(backbag > OUTFIT_POCKETBOOK || backbag < OUTFIT_NOTHING)
 		backbag = OUTFIT_NOTHING //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style
+	character.backbag_color = backbag_color
+	character.backbag_strap = backbag_strap
 
 	if(pda_choice > OUTFIT_WRISTBOUND || pda_choice < OUTFIT_NOTHING)
 		pda_choice = OUTFIT_TAB_PDA

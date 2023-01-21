@@ -8,13 +8,14 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
 	slowdown = 0
 
-	brute_mod = 0.7
-	burn_mod = 1.2
+	brute_mod = 0.8
 	oxy_mod = 1
 	radiation_mod = 0.5
-
+	standing_jump_range = 3
+	bleed_mod = 1.5
+	burn_mod = 1.0
 	grab_mod = 1.25
-	resist_mod = 1.75
+	resist_mod = 2.5 //Most are weaker then a Unathi, but have an evolutionary disposition towards close-combat.
 
 	mob_size = 10 //fairly lighter than the worker type.
 	taste_sensitivity = TASTE_DULL
@@ -34,10 +35,15 @@
 	sprint_cost_factor = 0.40
 	stamina_recovery = 3
 
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/palm,
+		/datum/unarmed_attack/bite/warrior
+	)
 
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
-		)
+
 
 /datum/species/bug/type_c
 	name = SPECIES_VAURCA_BREEDER
@@ -88,9 +94,9 @@
 	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
 
 	possible_cultures = list(
-		/decl/origin_item/culture/zora_breeder,
-		/decl/origin_item/culture/klax_breeder,
-		/decl/origin_item/culture/cthur_breeder
+		/singleton/origin_item/culture/zora_breeder,
+		/singleton/origin_item/culture/klax_breeder,
+		/singleton/origin_item/culture/cthur_breeder
 	)
 
 	inherent_verbs = list(
@@ -144,7 +150,6 @@
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	blood_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
-	onfire_overlay = 'icons/mob/OnFire_large.dmi'
 
 
 	stamina = 200
@@ -184,7 +189,7 @@
 	default_h_style = "Bald"
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.mutations.Add(HULK)
+	H.mutations |= HULK
 	return ..()
 
 /datum/species/bug/type_e
@@ -209,7 +214,6 @@
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
 	blood_mask = 'icons/mob/human_races/masks/dam_mask_bulwark.dmi'
-	onfire_overlay = 'icons/mob/OnFire_bulwark.dmi'
 
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
 	eyes = "bulwark_eyes"
@@ -217,6 +221,9 @@
 	slowdown = 2
 
 	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
+	maneuvers = list(
+		/singleton/maneuver/leap/bulwark
+	)
 
 	natural_armor = list(
 		melee = ARMOR_MELEE_SMALL

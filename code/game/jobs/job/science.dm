@@ -19,13 +19,13 @@
 
 	access = list(
 		access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks, access_tox_storage,
-		access_teleporter, access_sec_doors, access_medical, access_engine, access_construction, access_mining, access_mailsorting, access_research,
+		access_teleporter, access_sec_doors, access_medical, access_engine, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
 		access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway,
 		access_xenoarch, access_network, access_maint_tunnels, access_it, access_intrepid
 	)
 	minimal_access = list(
 		access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks, access_tox_storage,
-		access_teleporter, access_sec_doors, access_medical, access_engine, access_construction, access_mining, access_mailsorting, access_research,
+		access_teleporter, access_sec_doors, access_medical, access_engine, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
 		access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway,
 		access_xenoarch, access_network, access_maint_tunnels, access_it, access_intrepid
 	)
@@ -58,11 +58,10 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	tablet = /obj/item/modular_computer/handheld/preset/research/rd
 
-	backpack = /obj/item/storage/backpack/toxins
-	satchel = /obj/item/storage/backpack/satchel/tox
-	dufflebag = /obj/item/storage/backpack/duffel/tox
-	messengerbag = /obj/item/storage/backpack/messenger/tox
-
+	backpack = /obj/item/storage/backpack/rd
+	satchel = /obj/item/storage/backpack/satchel/rd
+	dufflebag = /obj/item/storage/backpack/duffel/rd
+	messengerbag = /obj/item/storage/backpack/messenger/rd
 
 /datum/job/scientist
 	title = "Scientist"
@@ -82,7 +81,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_intrepid)
+	access = list(access_tox, access_tox_storage, access_research, access_intrepid)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_intrepid)
 
 	minimal_player_age = 14
@@ -108,9 +107,13 @@
 	tablet = /obj/item/modular_computer/handheld/preset/research
 
 	backpack = /obj/item/storage/backpack/toxins
+	backpack_faction = /obj/item/storage/backpack/nt
 	satchel = /obj/item/storage/backpack/satchel/tox
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
 	dufflebag = /obj/item/storage/backpack/duffel/tox
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag = /obj/item/storage/backpack/messenger/tox
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/job/xenoarchaeologist
 	title = "Xenoarchaeologist"
@@ -130,7 +133,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenoarch, access_intrepid)
+	access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_intrepid)
 	minimal_access = list(access_research, access_xenoarch, access_tox, access_tox_storage, access_intrepid)
 
 	minimal_player_age = 14
@@ -161,8 +164,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology)
-	minimal_access = list(access_research, access_xenobiology, access_tox_storage)
+	access = list(access_tox, access_tox_storage, access_research, access_xenobiology)
+	minimal_access = list(access_tox, access_research, access_xenobiology, access_tox_storage)
 
 	minimal_player_age = 14
 
@@ -193,8 +196,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_tox_storage, access_research, access_xenobotany, access_robotics, access_tox)
-	minimal_access = list(access_tox_storage, access_research, access_xenobotany)
+	access = list(access_tox_storage, access_research, access_xenobotany, access_tox)
+	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenobotany)
 
 	minimal_player_age = 14
 
@@ -235,9 +238,13 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/sci
 
 	backpack = /obj/item/storage/backpack/toxins
+	backpack_faction = /obj/item/storage/backpack/nt
 	satchel = /obj/item/storage/backpack/satchel/tox
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
 	dufflebag = /obj/item/storage/backpack/duffel/tox
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag = /obj/item/storage/backpack/messenger/tox
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research

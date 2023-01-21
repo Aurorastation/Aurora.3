@@ -46,7 +46,7 @@
 		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
 		return
 
-	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(10))
+	if ( ((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		if(!H.eyes_protected(src, FALSE))
 			eyestab(H,user)
@@ -163,7 +163,7 @@
 
 /obj/item/reagent_containers/inhaler/dexalin/Initialize()
 	. =..()
-	reagents.add_reagent(/decl/reagent/dexalin, volume)
+	reagents.add_reagent(/singleton/reagent/dexalin, volume)
 	update_icon()
 	return
 
@@ -174,7 +174,7 @@
 
 /obj/item/reagent_containers/inhaler/peridaxon/Initialize()
 	. =..()
-	reagents.add_reagent(/decl/reagent/peridaxon, volume)
+	reagents.add_reagent(/singleton/reagent/peridaxon, volume)
 	update_icon()
 	return
 
@@ -185,7 +185,18 @@
 
 /obj/item/reagent_containers/inhaler/hyperzine/Initialize()
 	. =..()
-	reagents.add_reagent(/decl/reagent/hyperzine, volume)
+	reagents.add_reagent(/singleton/reagent/hyperzine, volume)
+	update_icon()
+	return
+
+/obj/item/reagent_containers/inhaler/xuxigas
+	name_label = "xu'xi gas"
+	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains xu'xi gas."
+	flags = 0
+
+/obj/item/reagent_containers/inhaler/xuxigas/Initialize()
+	. =..()
+	reagents.add_reagent(/singleton/reagent/xuxigas, volume)
 	update_icon()
 	return
 
@@ -196,7 +207,7 @@
 
 /obj/item/reagent_containers/inhaler/phoron/Initialize()
 	. =..()
-	reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
+	reagents.add_reagent(/singleton/reagent/toxin/phoron, volume)
 	update_icon()
 	return
 
@@ -210,7 +221,7 @@
 
 /obj/item/reagent_containers/inhaler/phoron_special/Initialize()
 	. =..()
-	reagents.add_reagent(/decl/reagent/toxin/phoron, volume)
+	reagents.add_reagent(/singleton/reagent/toxin/phoron, volume)
 	update_icon()
 	return
 
@@ -222,7 +233,7 @@
 
 /obj/item/reagent_containers/inhaler/soporific/Initialize()
 	. =..()
-	reagents.add_reagent(/decl/reagent/soporific, volume)
+	reagents.add_reagent(/singleton/reagent/soporific, volume)
 	update_icon()
 	return
 
@@ -233,7 +244,7 @@
 
 /obj/item/reagent_containers/inhaler/space_drugs/Initialize()
 	. =..()
-	reagents.add_reagent(/decl/reagent/space_drugs, volume)
+	reagents.add_reagent(/singleton/reagent/space_drugs, volume)
 	update_icon()
 	return
 
@@ -244,7 +255,7 @@
 
 /obj/item/reagent_containers/inhaler/ammonia/Initialize()
 	. =..()
-	reagents.add_reagent(/decl/reagent/ammonia, volume)
+	reagents.add_reagent(/singleton/reagent/ammonia, volume)
 	update_icon()
 	return
 
@@ -255,7 +266,7 @@
 
 /obj/item/reagent_containers/inhaler/pulmodeiectionem/Initialize()
 	. =..()
-	reagents.add_reagent(/decl/reagent/pulmodeiectionem, volume)
+	reagents.add_reagent(/singleton/reagent/pulmodeiectionem, volume)
 	update_icon()
 	return
 
@@ -267,6 +278,6 @@
 
 /obj/item/reagent_containers/inhaler/pneumalin/Initialize()
 	. =..()
-	reagents.add_reagent(/decl/reagent/pneumalin, volume)
+	reagents.add_reagent(/singleton/reagent/pneumalin, volume)
 	update_icon()
 	return

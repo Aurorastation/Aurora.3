@@ -4,16 +4,16 @@
 //					ITEM PLACEMENT SURGERY						//
 //////////////////////////////////////////////////////////////////
 
-/decl/surgery_step/cavity
+/singleton/surgery_step/cavity
 	priority = 1
 
-/decl/surgery_step/cavity/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && IS_ORGAN_FULLY_OPEN && !(affected.status & ORGAN_BLEEDING)
 
-/decl/surgery_step/cavity/proc/get_max_wclass(var/obj/item/organ/external/affected)
+/singleton/surgery_step/cavity/proc/get_max_wclass(var/obj/item/organ/external/affected)
 	switch(affected.name)
 		if(BP_HEAD)
 			return ITEMSIZE_TINY
@@ -23,7 +23,7 @@
 			return ITEMSIZE_SMALL
 	return 0
 
-/decl/surgery_step/cavity/proc/get_cavity(var/obj/item/organ/external/affected)
+/singleton/surgery_step/cavity/proc/get_cavity(var/obj/item/organ/external/affected)
 	switch(affected.name)
 		if(BP_HEAD)
 			return "cranial"
@@ -33,14 +33,14 @@
 			return "abdominal"
 	return ""
 
-/decl/surgery_step/cavity/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, scraping around inside [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, scraping around inside [target]'s [affected.name] with \the [tool]!"))
 	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
-/decl/surgery_step/cavity/make_space
-	name = "Hollow out cavity"
+/singleton/surgery_step/cavity/make_space
+	name = "Hollow Out Cavity"
 	allowed_tools = list(
 	/obj/item/surgery/surgicaldrill = 100,	\
 	/obj/item/pen = 75,	\
@@ -50,13 +50,13 @@
 	min_duration = 60
 	max_duration = 80
 
-/decl/surgery_step/cavity/make_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/make_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && !affected.cavity
 
-/decl/surgery_step/cavity/make_space/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/make_space/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].", \
 		"You start making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool]." )
@@ -65,13 +65,13 @@
 	playsound(target.loc, 'sound/effects/squelch1.ogg', 25, 1)
 	..()
 
-/decl/surgery_step/cavity/make_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/make_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> pushes apart some organs inside [target]'s [get_cavity(affected)] cavity with \the [tool].", \
 		SPAN_NOTICE("You make some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].") )
 
-/decl/surgery_step/cavity/close_space
-	name = "Close cavity"
+/singleton/surgery_step/cavity/close_space
+	name = "Close Cavity"
 	priority = 2
 	allowed_tools = list(
 	/obj/item/surgery/cautery = 100,			\
@@ -83,13 +83,13 @@
 	min_duration = 60
 	max_duration = 80
 
-/decl/surgery_step/cavity/close_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/close_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && affected.cavity
 
-/decl/surgery_step/cavity/close_space/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/close_space/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts mending [target]'s [get_cavity(affected)] cavity wall with \the [tool].", \
 		"You start mending [target]'s [get_cavity(affected)] cavity wall with \the [tool]." )
@@ -97,20 +97,20 @@
 	affected.cavity = CAVITY_CLOSED
 	..()
 
-/decl/surgery_step/cavity/close_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/close_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> mends [target]'s [get_cavity(affected)] cavity walls with \the [tool].", \
 		SPAN_NOTICE("You mend [target]'s [get_cavity(affected)] cavity walls with \the [tool].") )
 
-/decl/surgery_step/cavity/place_item
-	name = "Place item in cavity"
+/singleton/surgery_step/cavity/place_item
+	name = "Place Item in Cavity"
 	priority = 0
 	allowed_tools = list(/obj/item = 100)
 
 	min_duration = 80
 	max_duration = 100
 
-/decl/surgery_step/cavity/place_item/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/place_item/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -124,7 +124,7 @@
 			total_volume += I.w_class
 		return total_volume <= get_max_wclass(affected)
 
-/decl/surgery_step/cavity/place_item/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/place_item/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts putting \the [tool] inside [target]'s [get_cavity(affected)] cavity.", \
 		SPAN_NOTICE("You start putting \the [tool] inside [target]'s [get_cavity(affected)] cavity." ))
@@ -132,7 +132,7 @@
 	playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
 	..()
 
-/decl/surgery_step/cavity/place_item/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/place_item/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 
 	user.visible_message("<b>[user]</b> puts \the [tool] inside [target]'s [get_cavity(affected)] cavity.", \
@@ -154,8 +154,8 @@
 //					IMPLANT/ITEM REMOVAL SURGERY						//
 //////////////////////////////////////////////////////////////////
 
-/decl/surgery_step/cavity/implant_removal
-	name = "Remove foreign body"
+/singleton/surgery_step/cavity/implant_removal
+	name = "Remove Foreign Body"
 	allowed_tools = list(
 	/obj/item/surgery/hemostat = 100,	\
 	WIRECUTTER = 75,	\
@@ -165,21 +165,21 @@
 	min_duration = 80
 	max_duration = 100
 
-/decl/surgery_step/cavity/implant_removal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/implant_removal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected
 
-/decl/surgery_step/cavity/implant_removal/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/implant_removal/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts poking around inside [target]'s [affected.name] with \the [tool].", \
 		"You start poking around inside [target]'s [affected.name] with \the [tool]." )
 	target.custom_pain("The pain in your [affected.name] is living hell!", 50)
 	..()
 
-/decl/surgery_step/cavity/implant_removal/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/implant_removal/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 
 	var/find_prob = 0
@@ -226,7 +226,7 @@
 		user.visible_message("<b>[user]</b> could not find anything inside [target]'s [affected.name], and pulls \the [tool] out.", \
 			SPAN_NOTICE("You could not find anything inside [target]'s [affected.name].") )
 
-/decl/surgery_step/cavity/implant_removal/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/singleton/surgery_step/cavity/implant_removal/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	..()
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user] loses their grip and stabs [target] with \the [tool]!"), SPAN_WARNING("You lose your grip on \the [tool] and stab [target]!"))

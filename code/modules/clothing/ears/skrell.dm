@@ -1,7 +1,7 @@
 /obj/item/clothing/ears/skrell
 	name = "skrell tentacle wear"
 	desc = "Some stuff worn by skrell to adorn their head tentacles."
-	icon = 'icons/obj/contained_items/skrell/chains.dmi'
+	icon = 'icons/obj/item/clothing/ears/skrell/chains.dmi'
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_HEAD | SLOT_EARS
@@ -16,7 +16,7 @@
 /obj/item/clothing/ears/skrell/chain
 	name = "gold headtail chains"
 	desc = "A delicate golden chain worn by skrell to decorate their head tails."
-	icon = 'icons/obj/contained_items/skrell/chains.dmi'
+	icon = 'icons/obj/item/clothing/ears/skrell/chains.dmi'
 	icon_state = "skrell_chain"
 	item_state = "skrell_chain"
 	drop_sound = 'sound/items/drop/accessory.ogg'
@@ -119,7 +119,7 @@
 /obj/item/clothing/ears/skrell/band
 	name = "gold headtail bands"
 	desc = "Golden metallic bands worn by skrell to adorn their head tails."
-	icon = 'icons/obj/contained_items/skrell/bands.dmi'
+	icon = 'icons/obj/item/clothing/ears/skrell/bands.dmi'
 	icon_state = "skrell_band"
 	item_state = "skrell_band"
 	drop_sound = 'sound/items/drop/accessory.ogg'
@@ -152,7 +152,7 @@
 /obj/item/clothing/ears/skrell/cloth
 	name = "headtail cloth"
 	desc = "A cloth shawl worn by skrell draped around their head tails."
-	icon = 'icons/obj/contained_items/skrell/headtail_cloth.dmi'
+	icon = 'icons/obj/item/clothing/ears/skrell/headtail_cloth.dmi'
 	icon_state = "skrell_cloth"
 	item_state = "skrell_cloth"
 
@@ -163,7 +163,7 @@
 /obj/item/clothing/ears/skrell/goop
 	name = "glowing algae"
 	desc = "A mixture of glowing algae applied by skrell on their head tails."
-	icon = 'icons/obj/contained_items/skrell/algae.dmi'
+	icon = 'icons/obj/item/clothing/ears/skrell/algae.dmi'
 	icon_state = "skrell_dots"
 	item_state = "skrell_dots"
 
@@ -195,7 +195,7 @@
 /obj/item/clothing/ears/skrell/scrunchy
 	name = "skrell tentacle tie"
 	desc = "A self-powered hard-light 'scrunchy' used to comfortably tie back the tentacles."
-	icon = 'icons/obj/contained_items/skrell/scrunchies.dmi'
+	icon = 'icons/obj/item/clothing/ears/skrell/scrunchies.dmi'
 	icon_state = "skrellhairtie"
 	item_state = "scrunchy_seaweed"
 
@@ -211,7 +211,7 @@
 /obj/item/clothing/ears/skrell/workcap
 	name = "Worker's Cap"
 	desc = "A simple clothing item used by Skrell to cover their headtails. It comes with a main sleeve for the middle headtail, with smaller sleeves for the outer headtails to help keep it in place."
-	icon = 'icons/obj/contained_items/skrell/jargon_caps.dmi'
+	icon = 'icons/obj/item/clothing/ears/skrell/nralakk_caps.dmi'
 	item_state = "skrell_cap"
 	icon_state = "skrell_cap_item"
 
@@ -223,7 +223,7 @@
 /obj/item/clothing/ears/skrell/tailband
 	name = "ox tailband"
 	desc = "A band meant to be worn on a Skrell's main headtail. This one has the ox symbol on it."
-	icon = 'icons/obj/contained_items/skrell/tailband.dmi'
+	icon = 'icons/obj/item/clothing/ears/skrell/tailband.dmi'
 	item_state = "ox"
 	icon_state = "tailband"
 

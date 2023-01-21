@@ -34,16 +34,8 @@
 		if((!speaker || (src.sdisabilities & BLIND || src.blinded) || !(speaker in view(src))) && !isobserver(src))
 			message = stars(message)
 
-	if(!(language && (language.flags & INNATE))) // skip understanding checks for INNATE languages
-		if(!say_understands(speaker,language))
-			if(istype(speaker,/mob/living/simple_animal))
-				var/mob/living/simple_animal/S = speaker
-				message = pick(S.speak)
-			else
-				if(language)
-					message = language.scramble(message, languages)
-				else
-					message = stars(message)
+	if(!(language && (language.flags & INNATE)) && !say_understands(speaker, language)) // skip understanding checks for INNATE languages
+		message = language ? language.scramble(message, languages) : stars(message)
 
 	var/accent_icon = speaker.get_accent_icon(language, src)
 	var/speaker_name = speaker.name
@@ -127,7 +119,7 @@
 	if(vr_mob)
 		to_chat(vr_mob, "[time] [message]")
 
-/mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
+/mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
 	if(!client && !vr_mob)
 		return
 
@@ -165,13 +157,8 @@
 	else
 		speaker_name = "Unknown"
 
-	if(istype(speaker, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = speaker
-		if(H.voice)
-			speaker_name = H.voice
-
-	if(vname)
-		speaker_name = vname
+	if(ishuman(speaker))
+		speaker_name = speaker.GetVoice()
 
 	if(hard_to_hear)
 		speaker_name = "Unknown"

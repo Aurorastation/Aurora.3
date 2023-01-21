@@ -273,6 +273,13 @@
 	playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
 	tesla_zap(owner, 7, 1500)
 
+/obj/item/organ/internal/augment/tesla/massive
+	name = "massive tesla spine"
+	icon_state = "tesla_spine"
+	organ_tag = BP_AUG_TESLA
+	on_mob_icon = 'icons/mob/human_races/tesla_body_augments.dmi'
+	species_restricted = list(SPECIES_TAJARA_TESLA_BODY)
+
 /obj/item/organ/internal/augment/eye_sensors
 	name = "integrated HUD sensors"
 	icon_state = "augment_eyes"
@@ -395,6 +402,7 @@
 	min_broken_damage = 20
 	max_damage = 20
 	var/suspension_mod = 0.8
+	var/jump_bonus = 1
 
 /obj/item/organ/internal/augment/suspension/advanced
 	name = "advanced calf suspension"
@@ -630,7 +638,8 @@
 	if(!.)
 		return FALSE
 
-	zoom(owner,7,7, FALSE)
+	zoom(owner, 7, 7, FALSE, FALSE)
+	owner.visible_message(zoom ? "<b>[owner]</b>'s pupils narrow..." : "<b>[owner]</b>'s pupils return to normal.", range = 3)
 
 /obj/item/organ/internal/augment/enhanced_vision/emp_act(severity)
 	..()

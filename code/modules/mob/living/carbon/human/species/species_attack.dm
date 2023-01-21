@@ -209,8 +209,8 @@
 	infection_chance -= target.get_blocked_ratio(zone, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE, damage = damage)*100
 	if(prob(infection_chance))
 		if(target.reagents)
-			var/trioxin_amount = REAGENT_VOLUME(target.reagents, /decl/reagent/toxin/trioxin)
-			target.reagents.add_reagent(/decl/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN - trioxin_amount))
+			var/trioxin_amount = REAGENT_VOLUME(target.reagents, /singleton/reagent/toxin/trioxin)
+			target.reagents.add_reagent(/singleton/reagent/toxin/trioxin, min(10, ZOMBIE_MAX_TRIOXIN - trioxin_amount))
 
 /datum/unarmed_attack/golem
 	attack_verb = list("smashed", "crushed", "rammed")
@@ -256,3 +256,25 @@
 	damage = 7.5
 	attack_door = 20
 	crowbar_door = TRUE
+
+/datum/unarmed_attack/bite/warrior
+	attack_name = "warrior bite"
+	attack_verb = list("mauled", "lacerated")
+	damage = 10
+	desc = "Rip into an opponent with your warrior mandibles. Only possible if you aren't wearing a muzzle. Next to useless against someone in armour but the vicious attacks will shred someone without it into ribbons."
+
+/datum/unarmed_attack/tesla_body
+	attack_verb = list("pulverized", "crushed", "pounded", "squeezed")
+	attack_noun = list("industrial claw")
+	desc = "Smashes your enemy with your tesla powered industrial claws."
+	damage = 10
+	attack_sound = 'sound/weapons/beartrap_shut.ogg'
+	attack_name = "industrial claw"
+	shredding = TRUE
+
+/datum/unarmed_attack/tesla_body/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
+	..()
+	user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
+	if(iscarbon(target))
+		var/mob/living/carbon/L = target
+		L.electrocute_act(20,user, 1, user.zone_sel.selecting)

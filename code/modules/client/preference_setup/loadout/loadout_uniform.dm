@@ -5,6 +5,10 @@
 	slot = slot_w_uniform
 	sort_category = "Uniforms and Casual Dress"
 
+/datum/gear/uniform/New()
+	..()
+	gear_tweaks += list(gear_tweak_uniform_rolled_state)
+
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
@@ -103,6 +107,7 @@
 	scrubs["scrubs, nanotrasen navy blue"] = /obj/item/clothing/under/rank/medical/surgeon
 	scrubs["scrubs, zeng-hu purple"] = /obj/item/clothing/under/rank/medical/surgeon/zeng
 	scrubs["scrubs, PMCG blue"] = /obj/item/clothing/under/rank/medical/surgeon/pmc
+	scrubs["scrubs, PMCG grey"] = /obj/item/clothing/under/rank/medical/surgeon/pmc/alt
 	scrubs["scrubs, zavodskoi black"] = /obj/item/clothing/under/rank/medical/surgeon/zavod
 	scrubs["scrubs, idris green"] = /obj/item/clothing/under/rank/medical/surgeon/idris
 
@@ -138,6 +143,20 @@
 	display_name = "uniform, captain dress"
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
+
+/datum/gear/uniform/bridge_crew
+	display_name = "bridge crew uniform selection"
+	path = /obj/item/clothing/under/rank/bridge_crew/alt
+	allowed_roles = list("Bridge Crew", "Captain", "Executive Officer")
+
+/datum/gear/uniform/bridge_crew/New()
+	..()
+	var/list/bridgecrew = list()
+	bridgecrew["bridge crew uniform, skirt"] = /obj/item/clothing/under/rank/bridge_crew/alt
+	bridgecrew["bridge crew uniform, skirt, white"] = /obj/item/clothing/under/rank/bridge_crew/alt/white
+	bridgecrew["bridge crew uniform, san colettish"] = /obj/item/clothing/under/rank/bridge_crew/sancolette
+	bridgecrew["bridge crew uniform, san colettish, blue"] = /obj/item/clothing/under/rank/bridge_crew/sancolette/alt
+	gear_tweaks += new /datum/gear_tweak/path(bridgecrew)
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
@@ -212,32 +231,39 @@
 	path = /obj/item/clothing/under/syndicate/tacticool
 
 /datum/gear/uniform/dominia
-	display_name = "dominian clothing selection"
-	description = "A selection of Dominian clothing."
+	display_name = "dominian suit selection"
+	description = "A selection of Dominian suits."
 	path = /obj/item/clothing/under/dominia
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/uniform/dominia/New()
 	..()
 	var/list/suit = list()
-	suit["dominia suit, red"] = /obj/item/clothing/under/dominia
-	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
+	suit["dominian suit, red"] = /obj/item/clothing/under/dominia/imperial_suit
+	suit["dominian suit, black"] = /obj/item/clothing/under/dominia/imperial_suit/black
+	suit["strelitz dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/strelitz
+	suit["volvalaad dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/volvalaad
+	suit["kazhkz dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/kazhkz
+	suit["caladius dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/caladius
+	suit["zhao dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/zhao
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
 	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
-	suit["dominia noblewoman dress"] = /obj/item/clothing/under/dominia/dress
-	suit["dominia summer dress"] = /obj/item/clothing/under/dominia/dress/summer
 	gear_tweaks += new /datum/gear_tweak/path(suit)
 
 /datum/gear/uniform/dominia_dress
 	display_name = "dominian dress selection"
-	description = "A selection of fancy Dominian dresses."
+	description = "A selection of Dominian dresses."
 	path = /obj/item/clothing/under/dominia/dress
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/uniform/dominia_dress/New()
 	..()
 	var/list/suit = list()
+	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/noble))
+		var/obj/item/clothing/under/dominia/dress/noble/D = new dress
+		suit["[D.name]"] = D.type
+	suit["dominia noble greatdress"] = /obj/item/clothing/under/dominia/dress
 	for(var/dress in typesof(/obj/item/clothing/under/dominia/dress/fancy))
 		var/obj/item/clothing/under/dominia/dress/D = new dress //I'm not typing all this shit manually. Jesus christ.
 		suit["[D.name]"] = D.type
@@ -248,7 +274,7 @@
 	description = "A selection of Dominian clothing belonging to the Diplomatic Service."
 	path = /obj/item/clothing/under/dominia/consular
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
 
 /datum/gear/uniform/dominia_consular/New()
 	..()
@@ -261,7 +287,7 @@
 	display_name = "fisanduhian sweater"
 	path = /obj/item/clothing/under/dominia/sweater
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/uniform/elyra_holo
 	display_name = "elyran holographic suit selection"
@@ -353,7 +379,7 @@
 	display_name = "gadpathurian fatigues"
 	path = /obj/item/clothing/under/uniform/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/decl/origin_item/origin/gadpathur)
+	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/uniform/miscellaneous/qipao
 	display_name = "qipao"
@@ -366,3 +392,76 @@
 	qipao["qipao"] = /obj/item/clothing/under/qipao
 	qipao["slim qipao"] = /obj/item/clothing/under/qipao2
 	gear_tweaks += new /datum/gear_tweak/path(qipao)
+
+/datum/gear/uniform/miscellaneous/fetil_dress
+	display_name = "fetil dress"
+	description = "A flowing dress from the Fetil islands on Port Antillia, usually in either white or muted dark shades. Great for dancing."
+	path = /obj/item/clothing/under/antillean
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/uniform/miscellaneous/fetil_dress/New()
+	..()
+	var/list/fetil_dress = list()
+	fetil_dress["fetil dress, red flairs"] = /obj/item/clothing/under/antillean
+	fetil_dress["fetil dress, gold flairs"] = /obj/item/clothing/under/antillean/goldflair
+	gear_tweaks += new /datum/gear_tweak/path(fetil_dress)
+
+/*
+	Uniform Rolled State Adjustment
+*/
+
+#define UNIFORM_UNROLLED "Unrolled"
+#define UNIFORM_ROLLED_SLEEVES "Rolled Sleeves"
+#define UNIFORM_ROLLED_DOWN "Rolled Down"
+
+var/datum/gear_tweak/uniform_rolled_state/gear_tweak_uniform_rolled_state = new()
+
+/datum/gear_tweak/uniform_rolled_state/get_contents(var/metadata)
+	return "Rolled State: [metadata]"
+
+/datum/gear_tweak/uniform_rolled_state/get_default()
+	return UNIFORM_UNROLLED
+
+/datum/gear_tweak/uniform_rolled_state/get_metadata(var/user, var/metadata, var/gear_path)
+	var/list/possible_states = list(UNIFORM_UNROLLED)
+	var/obj/item/clothing/under/uniform = gear_path
+
+	var/rolled_sleeves_state = initial(uniform.rolled_sleeves)
+	var/rolled_down_state = initial(uniform.rolled_down)
+
+	var/icon/under_icon = INV_W_UNIFORM_DEF_ICON
+	if(rolled_sleeves_state == -1 || rolled_down_state == -1)
+		if(initial(uniform.contained_sprite))
+			under_icon = initial(uniform.icon)
+		else if(initial(uniform.icon_override))
+			under_icon = initial(uniform.icon_override)
+
+	if(rolled_sleeves_state != -1 || ("[initial(uniform.icon_state)]_r[initial(uniform.contained_sprite) ? "_un" : "_s"]" in icon_states(under_icon)))
+		possible_states += UNIFORM_ROLLED_SLEEVES
+
+	if(rolled_down_state != -1 || ("[initial(uniform.icon_state)]_d[initial(uniform.contained_sprite) ? "_un" : "_s"]" in icon_states(under_icon)))
+		possible_states += UNIFORM_ROLLED_DOWN
+
+	var/input = input(user, "Choose in which state you want your uniform to spawn in.", "Uniform State", metadata) as null|anything in possible_states
+	if(!input)
+		input = metadata
+	return input
+
+
+/datum/gear_tweak/uniform_rolled_state/tweak_item(var/obj/item/clothing/under/uniform, var/metadata, var/title, var/gear_path)
+	if(!istype(uniform))
+		return
+
+	if(uniform.rolled_sleeves != -1)
+		uniform.rolled_sleeves = metadata == UNIFORM_ROLLED_SLEEVES ? TRUE : FALSE
+	if(uniform.rolled_down != -1)
+		uniform.rolled_down = metadata == UNIFORM_ROLLED_DOWN ? TRUE : FALSE
+
+	if(uniform.rolled_sleeves == 1)
+		uniform.handle_rollsleeves()
+	if(uniform.rolled_down == 1)
+		uniform.handle_rollsuit()
+
+#undef UNIFORM_UNROLLED
+#undef UNIFORM_ROLLED_SLEEVES
+#undef UNIFORM_ROLLED_DOWN

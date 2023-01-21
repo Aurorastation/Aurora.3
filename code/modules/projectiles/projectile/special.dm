@@ -140,6 +140,14 @@
 	nodamage = 1
 	check_armor = "energy"
 
+/obj/item/projectile/energy/floramut/gene
+	name = "gamma somatoray"
+	icon_state = "energy2"
+	damage = 0
+	damage_type = TOX
+	nodamage = TRUE
+	var/singleton/plantgene/gene = null
+
 /obj/item/projectile/energy/floramut/on_hit(var/atom/target, var/blocked = 0)
 	var/mob/living/M = target
 	if(ishuman(target))
@@ -257,7 +265,7 @@
 /obj/item/projectile/magic/teleport/on_hit(var/atom/hit_atom)
 	var/turf/T = get_turf(hit_atom)
 	single_spark(T)
-	playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
+	playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
 	if(isliving(hit_atom))
 		blink_mob(hit_atom)
 	return ..()
@@ -268,17 +276,18 @@
 /obj/item/projectile/plasma
 	name = "plasma slug"
 	icon_state = "plasma_bolt"
-	damage = 25
+	damage = 20
 	damage_type = BRUTE
+	damage_flags = DAM_LASER
 	check_armor = "energy"
 	incinerate = 10
-	armor_penetration = 20
+	armor_penetration = 60
 	penetrating = 1
 
 /obj/item/projectile/plasma/light
 	name = "plasma bolt"
-	damage = 20
-	armor_penetration = 10
+	damage = 15
+	armor_penetration = 60
 	incinerate = 8
 
 /obj/item/missile

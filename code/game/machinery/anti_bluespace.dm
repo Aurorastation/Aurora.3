@@ -35,7 +35,7 @@ var/global/list/bluespace_inhibitors
 
 /obj/machinery/anti_bluespace/emag_act()
 	spark(src, 3)
-	playsound(src, /decl/sound_category/spark_sound, 50, 1)
+	playsound(src, /singleton/sound_category/spark_sound, 50, 1)
 	emp_act(1)
 	return TRUE
 
@@ -122,7 +122,7 @@ var/global/list/bluespace_inhibitors
 		if(temp_apc)
 			temp_apc.drain_power(0,TRUE,100000)
 
-	for(var/atom/movable/AM in circlerange(get_turf(src),20))
+	for(var/atom/movable/AM in circle_range(get_turf(src),20))
 		if(AM.anchored)
 			continue
 		var/area/A = random_station_area()

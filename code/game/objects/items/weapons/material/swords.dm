@@ -1,7 +1,7 @@
 /obj/item/material/sword
 	name = "claymore"
 	desc = "What are you standing around staring at this for? Get to killing!"
-	desc_cult = "This can be reforged to become a cult blade."
+	desc_antag = "As a Cultist, this item can be reforged to become a cult blade."
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "claymore"
 	item_state = "claymore"
@@ -17,8 +17,8 @@
 	can_embed = 0
 	var/parry_chance = 40
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
-	equip_sound = /decl/sound_category/sword_equip_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
 
 /obj/item/material/sword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	var/parry_bonus = 1

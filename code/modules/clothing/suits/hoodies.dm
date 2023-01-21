@@ -35,7 +35,7 @@
 /obj/item/clothing/suit/storage/hooded/wintercoat
 	name = "winter coat"
 	desc = "A heavy jacket made from animal furs."
-	icon = 'icons/obj/hoodies.dmi'
+	icon = 'icons/obj/clothing/hoodies.dmi'
 	icon_state = "coatwinter"
 	item_state = "coatwinter"
 	contained_sprite = TRUE
@@ -50,7 +50,7 @@
 /obj/item/clothing/head/winterhood
 	name = "winter hood"
 	desc = "A hood attached to a heavy winter jacket."
-	icon = 'icons/obj/hoodies.dmi'
+	icon = 'icons/obj/clothing/hoodies.dmi'
 	icon_state = "coatwinter_hood"
 	contained_sprite = TRUE
 	body_parts_covered = HEAD
@@ -184,6 +184,79 @@
 	icon_state = "coatminer"
 	item_state = "coatminer"
 
+/obj/item/clothing/suit/storage/hooded/wintercoat/idris
+	name = "idris winter coat"
+	icon_state = "coatidris"
+	item_state = "coatidris"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/idris/alt
+	icon_state = "coatidris_alt"
+	item_state = "coatidris_alt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/zavod
+	name = "zavodskoi winter coat"
+	icon_state = "coatzavod"
+	item_state = "coatzavod"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/zavod/alt
+	icon_state = "coatzavod_alt"
+	item_state = "coatzavod_alt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/pmc
+	name = "pmcg winter coat"
+	icon_state = "coatpmc"
+	item_state = "coatpmc"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/pmc/alt
+	name = "epmc winter coat"
+	icon_state = "coatepmc"
+	item_state = "coatepmc"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/heph
+	name = "hephaestus winter coat"
+	icon_state = "coatheph"
+	item_state = "coatheph"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/heph/alt
+	icon_state = "coatheph_alt"
+	item_state = "coatheph_alt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/nt
+	name = "nanotrasen winter coat"
+	icon_state = "coatnt"
+	item_state = "coatnt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/nt/alt
+	icon_state = "coatnt_alt"
+	item_state = "coatnt_alt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/zeng
+	name = "zeng-hu winter coat"
+	icon_state = "coatzeng"
+	item_state = "coatzeng"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/zeng/alt
+	icon_state = "coatzeng_alt"
+	item_state = "coatzeng_alt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/orion
+	name = "orion winter coat"
+	icon_state = "coatorion"
+	item_state = "coatorion"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/orion/alt
+	icon_state = "coatorion_alt"
+	item_state = "coatorion_alt"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/scc
+	name = "scc winter coat"
+	icon_state = "coatscc"
+	item_state = "coatscc"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/scc/alt
+	icon_state = "coatscc_alt"
+	item_state = "coatscc_alt"
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/corgi
 	name = "corgi costume"
 	desc = "A corgi costume made of legit corgi hide."
@@ -263,7 +336,7 @@
 	name = "martian hoodie"
 	desc = "An orange hoodie jacket featuring the face of Warrant Officer August 'Gus' Maldarth, typically worn as a symbol of both solidarity with Mars, and a sign of protest against the Sol Alliance government. \
 	Strangely, Maldarth seems to be mispelled as 'Maldrath' on this garment. Additionally, #GusticeForGus can be seen written on the back. It seems to have typeface issues."
-	desc_fluff = "In November 2462, the planet of Mars was devastated by a phoron explosion widely believed to be\
+	desc_extended = "In November 2462, the planet of Mars was devastated by a phoron explosion widely believed to be\
 	caused by experiments the Solarian government was conducting on the planet. As a result, an earlier whistleblower,\
 	Gus Maldarth was regarded as a martyr after being silenced by operatives allegedly working on the behalf of Sol."
 	icon_state = "hoodie_mars"

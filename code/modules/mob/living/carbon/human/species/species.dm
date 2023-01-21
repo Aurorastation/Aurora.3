@@ -22,6 +22,7 @@
 	var/canvas_icon = 'icons/mob/base_32.dmi'                  // Used to blend parts and icons onto this, to avoid clipping issues.
 	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
 	var/deform = 'icons/mob/human_races/human/r_def_human.dmi' // Mutated icon set.
+	var/skeleton_icon = 'icons/mob/human_races/r_skeleton.dmi'
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
 	var/bandages_icon
 
@@ -31,7 +32,7 @@
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
 	var/damage_mask = 'icons/mob/human_races/masks/dam_mask_human.dmi'
 	var/blood_mask = 'icons/mob/human_races/masks/blood_human.dmi'
-	var/onfire_overlay = 'icons/mob/OnFire.dmi'
+	var/onfire_overlay = 'icons/mob/burning/burning_generic.dmi'
 
 	var/prone_icon                                       // If set, draws this from icobase when mob is prone.
 	var/icon_x_offset = 0
@@ -55,8 +56,11 @@
 	var/show_ssd = "fast asleep"
 	var/short_sighted
 	var/bald = 0
-	var/light_range
-	var/light_power
+
+	// Light
+	var/light_range = null
+	var/light_power = null
+	var/light_color = null
 
 	// Language/culture vars.
 	var/default_language = "Ceti Basic"		 // Default language is used when 'say' is used without modifiers.
@@ -72,8 +76,11 @@
 	var/list/unarmed_types = list(           // Possible unarmed attacks that the mob will use in combat,
 		/datum/unarmed_attack,
 		/datum/unarmed_attack/bite
-		)
+	)
 	var/list/unarmed_attacks = null          // For empty hand harm-intent attack
+	var/standing_jump_range = 2
+	var/list/maneuvers = list(/singleton/maneuver/leap)
+
 	var/pain_mod =      1                    // Pain multiplier
 	var/brute_mod =     1                    // Physical damage multiplier.
 	var/burn_mod =      1                    // Burn damage multiplier.
@@ -163,9 +170,9 @@
 
 	// Order matters, higher pain level should be higher up
 	var/list/pain_emotes_with_pain_level = list(
-		list(/decl/emote/audible/scream, /decl/emote/audible/whimper, /decl/emote/audible/moan, /decl/emote/audible/cry) = 70,
-		list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/moan) = 40,
-		list(/decl/emote/audible/grunt, /decl/emote/audible/groan) = 10,
+		list(/singleton/emote/audible/scream, /singleton/emote/audible/whimper, /singleton/emote/audible/moan, /singleton/emote/audible/cry) = 70,
+		list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan, /singleton/emote/audible/moan) = 40,
+		list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan) = 10,
 	)
 
 	// HUD data vars.
@@ -269,16 +276,18 @@
 	var/default_g_style = "None"
 
 	var/list/possible_cultures = list(
-		/decl/origin_item/culture/unknown
+		/singleton/origin_item/culture/unknown
 	)
 
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
-	var/bodyfall_sound = /decl/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
-	var/footsound = /decl/sound_category/blank_footsteps //same as above but for footsteps without shoes
+	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
+	var/footsound = /singleton/sound_category/blank_footsteps //same as above but for footsteps without shoes
 
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
+
+	var/use_alt_hair_layer = FALSE
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -682,8 +691,8 @@
 /datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	return 0
 
-/datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
-	return current_flags
+/datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)
+	return
 
 /datum/species/proc/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
 	if(speech_sounds && prob(speech_chance))
@@ -713,7 +722,7 @@
 	return FALSE
 
 /datum/species/proc/get_digestion_product()
-	return /decl/reagent/nutriment
+	return /singleton/reagent/nutriment
 
 /datum/species/proc/can_commune()
 	return FALSE
@@ -737,7 +746,7 @@
 		var/pain_level = pain_emotes_with_pain_level[pain_emotes]
 		if(pain_power >= pain_level)
 			// This assumes that if a pain-level has been defined it also has a list of emotes to go with it
-			var/decl/emote/E = decls_repository.get_decl(pick(pain_emotes))
+			var/singleton/emote/E = GET_SINGLETON(pick(pain_emotes))
 			return E.key
 
 /datum/species/proc/get_injection_modifier()
@@ -824,3 +833,13 @@
 
 /datum/species/proc/can_double_fireman_carry()
 	return FALSE
+
+/datum/species/proc/has_stamina_for_pushup(var/mob/living/carbon/human/human)
+	return human.stamina > (human.max_stamina / 10)
+
+/datum/species/proc/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
+	human.stamina -= stamina_cost
+	human.hud_used.move_intent.update_move_icon(human)
+
+/datum/species/proc/handle_middle_mouse_click(var/atom/target)
+	return

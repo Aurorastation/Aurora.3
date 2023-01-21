@@ -5,7 +5,8 @@
 #define NONE 0
 
 // Turf-only flags.
-#define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define TURF_FLAG_NOJAUNT 		1
+#define TURF_FLAG_BACKGROUND 	2 // Used by shuttle movement to determine if it should be ignored by turf translation.
 
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 #define RUIN_MAP_EDGE_PAD 15
@@ -67,7 +68,8 @@
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | SOUND_LOBBY | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
 
-//Sound effects toggles
+// ASFX and SFX Toggles
+// (ASFX = Ambient Sound Effects; SFX = Sound Effects)
 #define ASFX_AMBIENCE	1
 #define ASFX_FOOTSTEPS	2
 #define ASFX_VOTE		4
@@ -77,8 +79,9 @@
 #define ASFX_RADIO		64
 #define ASFX_INSTRUMENT 128
 #define ASFX_HUM 256
+#define ASFX_MUSIC 512
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE | ASFX_FOOTSTEPS | ASFX_VOTE | ASFX_VOX | ASFX_DROPSOUND | ASFX_ARCADE | ASFX_RADIO | ASFX_INSTRUMENT | ASFX_HUM)
+#define ASFX_DEFAULT (ASFX_AMBIENCE | ASFX_FOOTSTEPS | ASFX_VOTE | ASFX_VOX | ASFX_DROPSOUND | ASFX_ARCADE | ASFX_RADIO | ASFX_INSTRUMENT | ASFX_HUM | ASFX_MUSIC)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line reading the pulse.
@@ -499,4 +502,4 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 //Ruin map template flags
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it.
 
-#define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets
+#define LANDING_ZONE_RADIUS 25 // Used for autoplacing landmarks on exoplanets

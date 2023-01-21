@@ -15,7 +15,7 @@
 	)
 
 /turf/simulated/wall/shuttle/Initialize(mapload)
-	. = ..(mapload,"shuttle")
+	. = ..(mapload, "shuttle", "shuttle")
 
 /turf/simulated/wall/shuttle/cardinal
 	smooth = SMOOTH_TRUE
@@ -123,7 +123,7 @@
 		/turf/unsimulated/wall/fakeairlock
 	)
 
-/turf/simulated/wall/shuttle/Initialize(mapload)
+/turf/simulated/wall/shuttle/skrell/Initialize(mapload)
 	. = ..(mapload,"skrell")
 
 /turf/simulated/wall/shuttle/skrell/cardinal
@@ -140,6 +140,13 @@
 	icon = 'icons/turf/smooth/scc_shuttle.dmi'
 
 /turf/simulated/wall/shuttle/scc/cardinal
+	smooth = SMOOTH_MORE
+
+//Corporate shuttle and ship walls//
+/turf/simulated/wall/shuttle/idris
+	icon = 'icons/turf/smooth/idris_ship.dmi'
+
+/turf/simulated/wall/shuttle/idris/cardinal
 	smooth = SMOOTH_MORE
 
 /turf/simulated/wall/shuttle/space_ship
@@ -418,62 +425,62 @@
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "floor"
 	permit_ao = 0
-	initial_flooring = /decl/flooring/shuttle
-	footstep_sound = /decl/sound_category/plating_footstep
+	initial_flooring = /singleton/flooring/shuttle
+	footstep_sound = /singleton/sound_category/plating_footstep
 
 /turf/simulated/floor/shuttle/yellow
 	icon_state = "floor2"
-	initial_flooring = /decl/flooring/shuttle/yellow
+	initial_flooring = /singleton/flooring/shuttle/yellow
 
 /turf/simulated/floor/shuttle/white
 	icon_state = "floor3"
-	initial_flooring = /decl/flooring/shuttle/white
+	initial_flooring = /singleton/flooring/shuttle/white
 
 /turf/simulated/floor/shuttle/red
 	icon_state = "floor4"
-	initial_flooring = /decl/flooring/shuttle/red
+	initial_flooring = /singleton/flooring/shuttle/red
 
 /turf/simulated/floor/shuttle/dark_red
 	icon_state = "floor6"
-	initial_flooring = /decl/flooring/shuttle/dark_red
+	initial_flooring = /singleton/flooring/shuttle/dark_red
 
 /turf/simulated/floor/shuttle/black
 	icon_state = "floor7"
-	initial_flooring = /decl/flooring/shuttle/black
+	initial_flooring = /singleton/flooring/shuttle/black
 
 /turf/simulated/floor/shuttle/tan
 	icon_state = "floor8"
-	initial_flooring = /decl/flooring/shuttle/tan
+	initial_flooring = /singleton/flooring/shuttle/tan
 
 /turf/simulated/floor/shuttle/dark_blue
 	icon_state = "floor9"
-	initial_flooring = /decl/flooring/shuttle/dark_blue
+	initial_flooring = /singleton/flooring/shuttle/dark_blue
 
 /turf/simulated/floor/shuttle/advanced
 	icon_state = "advanced_plating"
-	initial_flooring = /decl/flooring/shuttle/advanced
+	initial_flooring = /singleton/flooring/shuttle/advanced
 
 /turf/simulated/floor/shuttle/advanced/alt
 	icon_state = "advanced_plating_alt"
-	initial_flooring = /decl/flooring/shuttle/advanced/alt
+	initial_flooring = /singleton/flooring/shuttle/advanced/alt
 
 /turf/simulated/floor/shuttle/skrell
 	icon_state = "skrell_purple"
-	initial_flooring = /decl/flooring/shuttle/skrell
-	footstep_sound = /decl/sound_category/sand_footstep
+	initial_flooring = /singleton/flooring/shuttle/skrell
+	footstep_sound = /singleton/sound_category/sand_footstep
 
 /turf/simulated/floor/shuttle/skrell/blue
 	icon_state = "skrell_blue"
-	initial_flooring = /decl/flooring/shuttle/skrell/blue
+	initial_flooring = /singleton/flooring/shuttle/skrell/blue
 
 /turf/simulated/floor/shuttle/skrell/ramp
 	name = "footramp"
 	icon_state = "skrellramp-bottom"
-	initial_flooring = /decl/flooring/shuttle/skrell/ramp
+	initial_flooring = /singleton/flooring/shuttle/skrell/ramp
 
 /turf/simulated/floor/shuttle/skrell/ramp/top
 	icon_state = "skrellramp-top"
-	initial_flooring = /decl/flooring/shuttle/skrell/ramp/top
+	initial_flooring = /singleton/flooring/shuttle/skrell/ramp/top
 
 //--Roofs--//
 

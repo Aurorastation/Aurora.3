@@ -146,9 +146,13 @@
 	else
 		to_chat(user, SPAN_WARNING("\The [src] does not have a card or item stored in the card slot."))
 
-/obj/item/modular_computer/attack(mob/living/M, mob/living/user)
+/obj/item/modular_computer/attack(mob/living/M, mob/living/user, var/sound_scan)
+	sound_scan = FALSE
+	if(last_scan <= world.time - 20) //Spam limiter.
+		last_scan = world.time
+		sound_scan = TRUE
 	if(scan_mode == SCANNER_MEDICAL)
-		health_scan_mob(M, user, TRUE)
+		health_scan_mob(M, user, TRUE, sound_scan = sound_scan)
 
 /obj/item/modular_computer/afterattack(atom/A, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -161,7 +165,7 @@
 		if(reagents_length)
 			to_chat(user, SPAN_NOTICE("[reagents_length] chemical agent[reagents_length > 1 ? "s" : ""] found."))
 			for(var/_re in A.reagents.reagent_volumes)
-				var/decl/reagent/re = decls_repository.get_decl(_re)
+				var/singleton/reagent/re = GET_SINGLETON(_re)
 				to_chat(user, SPAN_NOTICE("    [re.name]"))
 		else
 			to_chat(user, SPAN_NOTICE("No active chemical agents found in [A]."))
@@ -330,3 +334,4 @@
 			return
 		if(P.focused_conv)
 			P.focused_conv.cl_send(P, text, M)
+	registered_message = text
