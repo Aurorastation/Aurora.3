@@ -84,12 +84,15 @@
 /turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "X" = (
+/obj/item/clothing/accessory/dogtags/adhomai{
+	layer = 2.9;
+	icon_state = "adhomai_dogtags_single";
+	item_state = "adhomai_dogtags_single";
+	separated = 1
+	},
 /obj/item/flame/candle{
 	pixel_y = 8;
 	start_lit = 1
-	},
-/obj/item/clothing/accessory/dogtags{
-	layer = 2.9
 	},
 /turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)

@@ -838,9 +838,31 @@
 	overlay_state = "tags"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	var/can_be_broken = FALSE
+	var/separated = FALSE
+	var/tag_type = /obj/item/dogtag
 
 /obj/item/clothing/accessory/dogtags/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
+
+/obj/item/clothing/accessory/dogtags/attack_self(mob/user)
+	if(can_be_broken)
+		if(!separated)
+			if (user.a_intent == I_HURT)
+				user.visible_message(SPAN_NOTICE("[user] yanks apart \the [src]!"))
+				separated = TRUE
+				var/obj/item/dogtag/tag = new tag_type(get_turf(user))
+				user.put_in_hands(tag)
+				separated = TRUE
+				update_icon()
+
+/obj/item/clothing/accessory/dogtags/update_icon()
+	if(separated)
+		icon_state = "[icon_state]_single"
+		item_state = "[item_state]_single"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
 
 /obj/item/clothing/accessory/badge/namepin
 	name = "pin tag"

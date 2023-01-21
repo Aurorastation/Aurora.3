@@ -539,3 +539,18 @@
 	buttons.appearance_flags = RESET_COLOR
 	base.add_overlay(buttons)
 	return base
+
+/obj/item/clothing/accessory/dogtags/adhomai
+	name = "adhomian dogtags"
+	desc = "Dogtags issued to the Tajaran soldiers of all Adhomian factions. Veterans usually bring them back home."
+	icon_state = "adhomai_dogtags"
+	item_state = "adhomai_dogtags"
+	can_be_broken = TRUE
+	tag_type = /obj/item/dogtag/adhomai_tag
+
+/obj/item/dogtag/adhomai_tag
+	name = "adhomian dogtag"
+	desc = "Dogtags issued to the Tajaran soldiers of all Adhomian factions. Veterans usually bring them back home."
+	icon = 'icons/clothing/accessories/dogtags.dmi'
+	icon_state = "adhomai_tag"
+	w_class = ITEMSIZE_SMALL

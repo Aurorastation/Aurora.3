@@ -3290,6 +3290,7 @@
 #include "maps\random_ruins\exoplanets\adhomai\ala_cell.dm"
 #include "maps\random_ruins\exoplanets\adhomai\nka_base.dm"
 #include "maps\random_ruins\exoplanets\adhomai\pra_base.dm"
+#include "maps\random_ruins\exoplanets\adhomai\pra_mining_camp.dm"
 #include "maps\random_ruins\exoplanets\adhomai\psis_outpost.dm"
 #include "maps\random_ruins\exoplanets\asteroid\asteroid.dm"
 #include "maps\random_ruins\exoplanets\crashed_pod\crashed_pod.dm"
