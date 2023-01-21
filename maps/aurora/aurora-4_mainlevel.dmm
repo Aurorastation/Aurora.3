@@ -6693,9 +6693,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/device/piano{
-	broken = 1;
-	force_piano = 1;
+/obj/structure/synthesized_instrument/synthesizer/piano{
 	pixel_x = 6;
 	pixel_y = -6
 	},
@@ -50991,7 +50989,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bRW" = (
-/obj/structure/device/piano,
+/obj/structure/synthesized_instrument/synthesizer/piano,
 /obj/structure/table/wood{
 	pixel_x = -2;
 	pixel_y = -1
@@ -67064,7 +67062,7 @@
 /area/maintenance/cargo)
 "ruO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/violin,
+/obj/item/device/synthesized_instrument/violin,
 /obj/structure/table/wood{
 	pixel_x = -2;
 	pixel_y = -1
