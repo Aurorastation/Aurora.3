@@ -50,7 +50,7 @@
 	if(HAS_FLAG(mutations, mRun))
 		tally = 0
 
-	tally = max(0, tally + move_delay_mod)
+	tally += move_delay_mod
 
 	var/obj/item/I = get_active_hand()
 	if(istype(I))
