@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - rscdel: "Removes the skills tab from the character setup screen."
+  - rscdel: "Removes the decrepit, unused skills in the loadout."
