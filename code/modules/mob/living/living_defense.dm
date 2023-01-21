@@ -50,6 +50,12 @@
 	bullet_impact_visuals(P, def_zone, damage, .)
 	P.on_hit(src, ., def_zone)
 
+/mob/living/proc/get_flash_protection(ignore_inherent = FALSE)
+	return FLASH_PROTECTION_NONE
+
+/mob/living/proc/get_hearing_protection()
+	return FALSE
+
 /mob/living/proc/aura_check(var/type)
 	if(!auras)
 		return TRUE
@@ -104,6 +110,21 @@
 	for(var/obj/O in L)
 		O.emp_act(severity)
 	..()
+
+/mob/living/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+	if(is_blind() && !(override_blindness_check || affect_silicon))
+		return FALSE
+
+	if(get_flash_protection(ignore_inherent) >= intensity)
+		return FALSE
+
+	overlay_fullscreen("flash", type)
+	addtimer(CALLBACK(src, /mob/proc/clear_fullscreen, "flash", length), length)
+	return TRUE
+
+/// Called when the mob receives a loud bang
+/mob/living/proc/soundbang_act()
+	return FALSE
 
 /mob/living/proc/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	return src

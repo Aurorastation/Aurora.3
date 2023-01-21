@@ -278,7 +278,7 @@
 			return
 		occupant.bodytemperature += 2*(air_contents.temperature - occupant.bodytemperature)*current_heat_capacity/(current_heat_capacity + air_contents.heat_capacity())
 		occupant.bodytemperature = max(occupant.bodytemperature, air_contents.temperature) // this is so ugly i'm sorry for doing it i'll fix it later i promise
-		occupant.stat = 1
+		occupant.set_stat(UNCONSCIOUS)
 		if(occupant.bodytemperature < T0C)
 			//severe damage should heal waaay slower without proper chemicals
 			if(occupant.bodytemperature < 225)
@@ -288,8 +288,8 @@
 					occupant.heal_organ_damage(heal_brute,heal_fire)
 				else
 					occupant.adjustFireLoss(3)//Cryopods kill diona. This damage combines with the normal cold temp damage, and their disabled regen
-		var/has_cryo = REAGENT_VOLUME(occupant.reagents, /decl/reagent/cryoxadone) >= 1
-		var/has_clonexa = REAGENT_VOLUME(occupant.reagents, /decl/reagent/clonexadone) >= 1
+		var/has_cryo = REAGENT_VOLUME(occupant.reagents, /singleton/reagent/cryoxadone) >= 1
+		var/has_clonexa = REAGENT_VOLUME(occupant.reagents, /singleton/reagent/clonexadone) >= 1
 		var/has_cryo_medicine = has_cryo || has_clonexa
 		if(beaker && !has_cryo_medicine)
 			beaker.reagents.trans_to_mob(occupant, 1, CHEM_BLOOD)

@@ -632,7 +632,7 @@ mob/living/carbon/human/proc/change_monitor()
 	visible_message("<span class='danger'>\The [src] shrieks!</span>")
 	playsound(src.loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
-		if(T.protected_from_sound())
+		if(T.get_hearing_protection())
 			continue
 		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
 			earpain(2, TRUE, 1)
@@ -829,7 +829,7 @@ mob/living/carbon/human/proc/change_monitor()
 	var/list/victims = list()
 
 	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
-		if(T.protected_from_sound())
+		if(T.get_hearing_protection())
 			continue
 		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
 			earpain(3, TRUE, 1)
@@ -837,7 +837,7 @@ mob/living/carbon/human/proc/change_monitor()
 			earpain(2, TRUE, 2)
 	
 	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
-		if(T.protected_from_sound())
+		if(T.get_hearing_protection())
 			continue
 
 		to_chat(T, SPAN_DANGER("You hear an ear piercing shriek and feel your senses go dull!"))
@@ -895,7 +895,7 @@ mob/living/carbon/human/proc/change_monitor()
 			D.create_reagents(200)
 			if(!src)
 				return
-			D.reagents.add_reagent(/decl/reagent/fuel/napalm, 200)
+			D.reagents.add_reagent(/singleton/reagent/fuel/napalm, 200)
 			D.set_color()
 			D.set_up(my_target, rand(6,8), 1, 50)
 	return
@@ -940,7 +940,7 @@ mob/living/carbon/human/proc/change_monitor()
 			adjustBruteLoss(-10*O.amount)
 			adjustFireLoss(-10*O.amount)
 			if(!(species.flags & NO_BLOOD))
-				vessel.add_reagent(/decl/reagent/blood,20*O.amount, temperature = species.body_temperature)
+				vessel.add_reagent(/singleton/reagent/blood,20*O.amount, temperature = species.body_temperature)
 			qdel(O)
 			last_special = world.time + 50
 

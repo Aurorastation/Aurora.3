@@ -101,8 +101,7 @@ var/list/global/random_stock_large = list()
 		/mob/living/simple_animal/rat = 1,
 		/mob/living/simple_animal/lizard = 0.5,
 		/mob/living/simple_animal/yithian = 0.7,
-		/mob/living/simple_animal/tindalos = 0.6,
-		/mob/living/bot/secbot = 0.1)
+		/mob/living/simple_animal/tindalos = 0.6)
 
 	var/list/infest_mobs_moderate = list(
 		/mob/living/simple_animal/bee/standalone = 1,

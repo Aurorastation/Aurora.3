@@ -68,7 +68,7 @@
 			if(O.reagents.total_volume < 1)
 				to_chat(user, "The [O] is empty.")
 			else if(O.reagents.total_volume >= 1)
-				if(O.reagents.has_reagent(/decl/reagent/acid/polyacid, 1))
+				if(O.reagents.has_reagent(/singleton/reagent/acid/polyacid, 1))
 					to_chat(user, "The acid chews through the balloon!")
 					O.reagents.splash(user, reagents.total_volume)
 					qdel(src)
@@ -555,8 +555,8 @@
 	icon_state = "katana"
 	item_state = "katana"
 	drop_sound = 'sound/items/drop/gun.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
-	equip_sound = /decl/sound_category/sword_equip_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 5
@@ -640,69 +640,67 @@
 /*
  * Mech prizes
  */
-/obj/item/toy/prize
+/obj/item/toy/mech
 	icon_state = "ripleytoy"
 	var/cooldown = 0
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/mecha/mechstep.ogg'
 
-//all credit to skasi for toy mech fun ideas
-/obj/item/toy/prize/attack_self(mob/user)
-	if(cooldown < world.time - 8)
-		to_chat(user, "<span class='notice'>You play with [src].</span>")
-		playsound(user, 'sound/mecha/mechstep.ogg', 20, 1)
-		cooldown = world.time
+/obj/item/toy/mech/attack_self(mob/user)
+	var/turf/user_turf = get_turf(user)
+	user.drop_from_inventory(src, user_turf)
+	new /mob/living/simple_animal/hostile/mech(user_turf, src)
 
-/obj/item/toy/prize/ripley
+/obj/item/toy/mech/ripley
 	name = "toy ripley"
 	desc = "Mini-Mecha action figure! Collect them all! 1/11."
 
-/obj/item/toy/prize/fireripley
+/obj/item/toy/mech/fireripley
 	name = "toy firefighting ripley"
 	desc = "Mini-Mecha action figure! Collect them all! 2/11."
 	icon_state = "fireripleytoy"
 
-/obj/item/toy/prize/deathripley
+/obj/item/toy/mech/deathripley
 	name = "toy deathsquad ripley"
 	desc = "Mini-Mecha action figure! Collect them all! 3/11."
 	icon_state = "deathripleytoy"
 
-/obj/item/toy/prize/gygax
+/obj/item/toy/mech/gygax
 	name = "toy gygax"
 	desc = "Mini-Mecha action figure! Collect them all! 4/11."
 	icon_state = "gygaxtoy"
 
-/obj/item/toy/prize/durand
+/obj/item/toy/mech/durand
 	name = "toy durand"
 	desc = "Mini-Mecha action figure! Collect them all! 5/11."
 	icon_state = "durandprize"
 
-/obj/item/toy/prize/honk
+/obj/item/toy/mech/honk
 	name = "toy H.O.N.K."
 	desc = "Mini-Mecha action figure! Collect them all! 6/11."
 	icon_state = "honkprize"
 
-/obj/item/toy/prize/marauder
+/obj/item/toy/mech/marauder
 	name = "toy marauder"
 	desc = "Mini-Mecha action figure! Collect them all! 7/11."
 	icon_state = "marauderprize"
 
-/obj/item/toy/prize/seraph
+/obj/item/toy/mech/seraph
 	name = "toy seraph"
 	desc = "Mini-Mecha action figure! Collect them all! 8/11."
 	icon_state = "seraphprize"
 
-/obj/item/toy/prize/mauler
+/obj/item/toy/mech/mauler
 	name = "toy mauler"
 	desc = "Mini-Mecha action figure! Collect them all! 9/11."
 	icon_state = "maulerprize"
 
-/obj/item/toy/prize/odysseus
+/obj/item/toy/mech/odysseus
 	name = "toy odysseus"
 	desc = "Mini-Mecha action figure! Collect them all! 10/11."
 	icon_state = "odysseusprize"
 
-/obj/item/toy/prize/phazon
+/obj/item/toy/mech/phazon
 	name = "toy phazon"
 	desc = "Mini-Mecha action figure! Collect them all! 11/11."
 	icon_state = "phazonprize"
@@ -1121,6 +1119,68 @@
 	item_state = "[colorvar]squid"
 	desc = "A small, cute and loveable squid friend. This one is in [colorvar]."
 
+//Fox Plushies
+/obj/item/toy/plushie/fox
+	name = "fox plushie"
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is red."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "redfox"
+	item_state = "redfox"
+	phrase = "Kekekeke!"
+
+/obj/item/toy/plushie/fox/black
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is black."
+	icon_state = "blackfox"
+	item_state = "blackfox"
+
+/obj/item/toy/plushie/fox/marble
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is white."
+	icon_state = "marblefox"
+	item_state = "marblefox"
+
+/obj/item/toy/plushie/fox/blue
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is blue."
+	icon_state = "bluefox"
+	item_state = "bluefox"
+
+/obj/item/toy/plushie/fox/orange
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is the classic orange."
+	icon_state = "orangefox"
+	item_state = "orangefox"
+
+/obj/item/toy/plushie/fox/coffee
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is coffee-cream coloured."
+	icon_state = "coffeefox"
+	item_state = "coffeefox"
+
+/obj/item/toy/plushie/fox/pink
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is pink."
+	icon_state = "pinkfox"
+	item_state = "pinkfox"
+
+/obj/item/toy/plushie/fox/purple
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is purple."
+	icon_state = "purplefox"
+	item_state = "purplefox"
+
+/obj/item/toy/plushie/fox/crimson
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is crimson."
+	icon_state = "crimsonfox"
+	item_state = "crimsonfox"
+
+/obj/item/toy/plushie/fox/random
+	icon_state = "redfox"
+	item_state = "redfox"
+	var/colorvar = "red"
+
+/obj/item/toy/plushie/fox/random/Initialize()
+	. = ..()
+	desc = "A small, very soft and handsome fox, ready to receive your cuddles. This one is in [colorvar]."
+	icon_state = "[colorvar]fox"
+	item_state = "[colorvar]fox"
+	colorvar = pick("red", "black", "marble", "blue", "orange", "coffee", "pink", "purple", "crimson")
+
+// Squid Plushie Random
 /obj/item/toy/plushie/squidcolour
 	name = "squid plushie"
 	desc = "A small, cute, and loveable squid friend. This one comes in a wide variety of colours."
@@ -1178,7 +1238,7 @@
 
 /obj/item/toy/desk
 	var/on = FALSE
-	var/activation_sound = /decl/sound_category/switch_sound
+	var/activation_sound = /singleton/sound_category/switch_sound
 
 /obj/item/toy/desk/update_icon()
 	if(on)

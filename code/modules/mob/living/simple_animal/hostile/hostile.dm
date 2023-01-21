@@ -34,6 +34,9 @@
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
+	setup_target_type_validators()
+
+/mob/living/simple_animal/hostile/proc/setup_target_type_validators()
 	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/validator_living)
 	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, .proc/validator_bot)
 	target_type_validator_map[/obj/machinery/porta_turret] = CALLBACK(src, .proc/validator_turret)
@@ -316,7 +319,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	Shoot(target, location, user)
 	if(casingtype)
 		new casingtype(loc)
-		playsound(src, /decl/sound_category/casing_drop_sound, 50, TRUE)
+		playsound(src, /singleton/sound_category/casing_drop_sound, 50, TRUE)
 
 /mob/living/simple_animal/hostile/proc/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)
