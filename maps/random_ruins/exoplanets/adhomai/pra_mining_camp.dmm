@@ -1,0 +1,1779 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"as" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "pra_mining_base";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"ch" = (
+/obj/structure/table/standard,
+/obj/item/deck/cards,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"ct" = (
+/obj/machinery/vending/cola,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"dd" = (
+/obj/structure/plasticflaps,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/machinery/conveyor{
+	id = "pra_mining_base";
+	layer = 2.9
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"dO" = (
+/obj/machinery/mineral/processing_unit_console{
+	pixel_y = 28
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"dP" = (
+/obj/structure/table/steel,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"eJ" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"ft" = (
+/obj/structure/table/standard,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 7
+	},
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"gi" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/heavy_vehicle/premade/miner,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"gq" = (
+/obj/structure/bed/stool/bar/padded/red,
+/obj/effect/ghostspawpoint{
+	identifier = "adhomai_pra_miner_teslabody";
+	name = "igs -adhomai_pra_miner_teslabody"
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"hd" = (
+/obj/structure/sign/flag/nanotrasen{
+	pixel_y = 32
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"hQ" = (
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"iI" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"jt" = (
+/obj/structure/bed/stool/bar/padded/red,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"jO" = (
+/obj/structure/table/steel,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"lH" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/drill,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"ml" = (
+/obj/structure/table/standard,
+/obj/machinery/cell_charger,
+/obj/machinery/light,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"om" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "pra_mining_base";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"on" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"oR" = (
+/obj/structure/sign/flag/nanotrasen{
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"pa" = (
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"qx" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"qB" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"qO" = (
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"rM" = (
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"up" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"uN" = (
+/obj/machinery/vending/cigarette,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"vd" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "pra_mining_base";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"wx" = (
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/structure/closet/toolcloset/empty,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"wW" = (
+/obj/structure/table/steel,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"yD" = (
+/obj/machinery/door/airlock{
+	name = "Mining Smelter"
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"zx" = (
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Bh" = (
+/obj/structure/table/steel,
+/obj/item/storage/belt/mining,
+/obj/item/storage/belt/mining,
+/obj/item/storage/belt/mining,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Bx" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "pra_mining_base";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Cg" = (
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_y = 32
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"CC" = (
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Fc" = (
+/turf/simulated/wall/concrete,
+/area/pra_mining_camp)
+"Gq" = (
+/obj/machinery/vending/snack,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Gu" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ore_box,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Hg" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Hq" = (
+/obj/machinery/mineral/stacking_machine{
+	dir = 8
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "pra_mining_base";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Iy" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "pra_mining_base";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"ID" = (
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"JG" = (
+/obj/structure/bed/stool/bar/padded/red,
+/obj/effect/ghostspawpoint{
+	identifier = "adhomai_pra_miner";
+	name = "igs -adhomai_pra_miner
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"JZ" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Kl" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"KR" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Lo" = (
+/obj/machinery/mineral/processing_unit{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "pra_mining_base";
+	layer = 2.9
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Mq" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Nf" = (
+/obj/structure/table/steel,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"NA" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "pra_mining_base";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/mineral/unloading_machine{
+	dir = 1
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"OX" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"PL" = (
+/obj/structure/table/steel,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"PT" = (
+/obj/structure/sign/flag/pra{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Qq" = (
+/obj/structure/table/standard,
+/obj/item/trash/liquidfood,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Qx" = (
+/obj/machinery/door/airlock{
+	name = "Equipment Storage"
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Rc" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"RM" = (
+/obj/structure/table/steel,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Tn" = (
+/obj/machinery/conveyor{
+	dir = 10;
+	id = "pra_mining_base";
+	layer = 2.9;
+	reversed = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Tx" = (
+/obj/structure/sign/flag/nanotrasen{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"TJ" = (
+/obj/structure/sign/flag/pra{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"TS" = (
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/structure/closet/toolcloset/empty,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"UM" = (
+/obj/machinery/conveyor{
+	dir = 9;
+	id = "pra_mining_base";
+	layer = 2.9;
+	reversed = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"Vr" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ore_box,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"WA" = (
+/obj/machinery/light,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"WP" = (
+/obj/structure/sign/flag/pra{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"WW" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"XU" = (
+/obj/structure/table/standard,
+/obj/item/material/ashtray/plastic,
+/obj/item/clothing/mask/smokable/cigarette/adhomai,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"YB" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+"ZG" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "pra_mining_base"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_mining_camp)
+
+(1,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+hQ
+Hg
+Hg
+Hg
+Hg
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+CC
+Hg
+"}
+(2,1,1) = {"
+Hg
+hQ
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+hQ
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+CC
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(3,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+Fc
+Fc
+Fc
+Fc
+Hg
+Hg
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(4,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+CC
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+TS
+up
+wW
+Fc
+iI
+Hg
+zx
+zx
+Hg
+Hg
+CC
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(5,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+wx
+zx
+Nf
+Fc
+WP
+Hg
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(6,1,1) = {"
+Hg
+CC
+Hg
+Hg
+Hg
+Hg
+Hg
+hQ
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+PL
+zx
+zx
+Qx
+zx
+zx
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(7,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+zx
+pa
+JG
+zx
+zx
+Hg
+Hg
+Hg
+Fc
+dP
+zx
+Bh
+Fc
+Tx
+Hg
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+CC
+Hg
+"}
+(8,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+jt
+ch
+Qq
+pa
+WA
+Fc
+Hg
+Hg
+Fc
+RM
+JZ
+jO
+Fc
+iI
+Hg
+zx
+zx
+Hg
+CC
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(9,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+hQ
+Hg
+JG
+KR
+KR
+gq
+zx
+Hg
+Hg
+Hg
+Fc
+Fc
+Fc
+Fc
+Fc
+Hg
+Hg
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(10,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+jt
+XU
+KR
+pa
+WA
+Fc
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(11,1,1) = {"
+Hg
+Hg
+hQ
+Hg
+Hg
+Hg
+OX
+zx
+JG
+pa
+zx
+zx
+OX
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+hQ
+Hg
+"}
+(12,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(13,1,1) = {"
+WW
+Hg
+Hg
+Hg
+Hg
+Hg
+hQ
+Kl
+zx
+zx
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(14,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Mq
+zx
+uN
+ct
+Gq
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+zx
+zx
+Hg
+Hg
+on
+zx
+on
+Hg
+WW
+Hg
+"}
+(15,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+zx
+zx
+PT
+Hg
+lH
+zx
+lH
+Hg
+Hg
+Hg
+"}
+(16,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+CC
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+Fc
+Fc
+Fc
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+zx
+WA
+Fc
+iI
+qB
+zx
+qB
+zx
+ft
+Hg
+"}
+(17,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+ID
+qO
+Fc
+Hg
+Hg
+Hg
+Hg
+CC
+Hg
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+ml
+Fc
+"}
+(18,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+Fc
+Fc
+Fc
+qO
+qO
+Fc
+Vr
+zx
+Vr
+Hg
+Hg
+Hg
+zx
+WA
+Fc
+iI
+on
+zx
+on
+zx
+eJ
+Hg
+"}
+(19,1,1) = {"
+CC
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+Tn
+dd
+Rc
+zx
+zx
+Fc
+Gu
+zx
+Vr
+Hg
+Hg
+Hg
+zx
+zx
+oR
+Hg
+lH
+zx
+lH
+Hg
+Hg
+hQ
+"}
+(20,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+Hq
+Fc
+Cg
+zx
+WA
+Fc
+Vr
+zx
+Vr
+Hg
+Hg
+Hg
+zx
+zx
+Hg
+Hg
+qB
+zx
+qB
+Hg
+Hg
+Hg
+"}
+(21,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+CC
+Hg
+Hg
+Fc
+as
+zx
+zx
+zx
+zx
+Fc
+rM
+zx
+zx
+Hg
+Hg
+Hg
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(22,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+hQ
+Hg
+Hg
+Hg
+Hg
+Fc
+vd
+zx
+zx
+zx
+zx
+yD
+zx
+zx
+zx
+Hg
+Hg
+Hg
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(23,1,1) = {"
+WW
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+as
+Fc
+dO
+zx
+zx
+Fc
+hd
+zx
+zx
+zx
+zx
+zx
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(24,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+UM
+Lo
+Iy
+Bx
+Iy
+NA
+om
+Rc
+zx
+zx
+zx
+zx
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+WW
+"}
+(25,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Fc
+Fc
+Fc
+Fc
+Fc
+Fc
+Fc
+qx
+ZG
+zx
+Hg
+Hg
+Hg
+Hg
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(26,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+zx
+Hg
+Hg
+Hg
+CC
+Hg
+CC
+Hg
+Hg
+"}
+(27,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+CC
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+CC
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+YB
+zx
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(28,1,1) = {"
+CC
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+TJ
+Fc
+qx
+gi
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(29,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+hQ
+Hg
+Hg
+Hg
+Hg
+OX
+zx
+zx
+zx
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(30,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+hQ
+Hg
+Hg
+Hg
+Hg
+Hg
+hQ
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+hQ
+Hg
+"}
+(31,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+CC
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
+(32,1,1) = {"
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+CC
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+Hg
+"}
