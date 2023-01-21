@@ -28,6 +28,9 @@
 /proc/Floor(x)
 	return round(x)
 
+/// Value or the next integer in a positive direction: Ceil(-1.5) = -1 , Ceil(1.5) = 2
+#define Ceil(value) ( -round(-(value)) )
+
 /proc/Ceiling(x, y=1)
 	return -round(-x / y) * y
 
