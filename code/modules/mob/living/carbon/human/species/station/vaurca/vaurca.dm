@@ -131,9 +131,9 @@
 
 
 	possible_cultures = list(
-		/decl/origin_item/culture/zora,
-		/decl/origin_item/culture/klax,
-		/decl/origin_item/culture/cthur
+		/singleton/origin_item/culture/zora,
+		/singleton/origin_item/culture/klax,
+		/singleton/origin_item/culture/cthur
 	)
 
 

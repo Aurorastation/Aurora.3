@@ -151,7 +151,7 @@
 	updatename(mod_type)
 
 	if(!client)
-		stat = UNCONSCIOUS
+		set_stat(UNCONSCIOUS)
 
 	if(mmi?.brainobj)
 		mmi.brainobj.prepared = TRUE

@@ -40,7 +40,7 @@
 	if (prob(20))
 		//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
 		variance = rand()*0.5
-	oil.add_reagent(/decl/reagent/nutriment/triglyceride/oil/corn, optimal_oil*(1 - variance))
+	oil.add_reagent(/singleton/reagent/nutriment/triglyceride/oil/corn, optimal_oil*(1 - variance))
 	fry_loop = new(list(src), FALSE)
 
 /obj/machinery/appliance/cooker/fryer/Destroy()
@@ -62,7 +62,7 @@
 	..()//In addition to parent temperature calculation
 	//Fryer efficiency also drops when oil levels arent optimal
 	var/oil_level = 0
-	var/decl/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
+	var/singleton/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
 	if (OL && istype(OL))
 		oil_level = oil.reagent_volumes[OL.type]
 
@@ -100,12 +100,12 @@
 	var/total_oil = 0
 	var/total_our_oil = 0
 	var/total_removed = 0
-	var/decl/reagent/our_oil = oil.get_primary_reagent_decl()
+	var/singleton/reagent/our_oil = oil.get_primary_reagent_decl()
 
 	for (var/obj/item/I in CI.container)
 		if (I.reagents && I.reagents.total_volume)
 			for (var/_R in I.reagents.reagent_volumes)
-				if (ispath(_R, /decl/reagent/nutriment/triglyceride/oil))
+				if (ispath(_R, /singleton/reagent/nutriment/triglyceride/oil))
 					total_oil += I.reagents.reagent_volumes[_R]
 					if (_R != our_oil.type)
 						total_removed += I.reagents.reagent_volumes[_R]
@@ -151,7 +151,7 @@
 	var/damage = rand(7,13)
 	//Though this damage seems reduced, some hot oil is transferred to the victim and will burn them for a while after
 
-	var/decl/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
+	var/singleton/reagent/nutriment/triglyceride/oil/OL = oil.get_primary_reagent_decl()
 	if(istype(OL))
 		damage *= OL.heatdamage(victim, oil)
 
@@ -208,7 +208,7 @@
 	//So for now, restrict to oil only
 		var/amount = 0
 		for (var/_R in I.reagents.reagent_volumes)
-			if (ispath(_R, /decl/reagent/nutriment/triglyceride/oil))
+			if (ispath(_R, /singleton/reagent/nutriment/triglyceride/oil))
 				var/delta = REAGENTS_FREE_SPACE(oil)
 				delta = min(delta, I.reagents.reagent_volumes[_R])
 				oil.add_reagent(_R, delta)

@@ -442,3 +442,4 @@
 	buckle_lying = FALSE
 	can_dismantle = FALSE
 	override_material_color = TRUE
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
