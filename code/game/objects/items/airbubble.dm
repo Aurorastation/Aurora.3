@@ -580,8 +580,7 @@
 /obj/structure/closet/airbubble/proc/get_turf_air()
 	var/turf/T = get_turf(src)
 	if(T)
-		. = T.return_air()
-	return
+		return T.return_air()
 
 /obj/structure/closet/airbubble/proc/return_pressure()
 	. = 0

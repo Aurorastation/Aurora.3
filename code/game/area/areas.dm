@@ -281,7 +281,7 @@ var/list/mob/living/forced_ambiance_list = new
 	var/area/oldarea = L.lastarea
 	if((oldarea.has_gravity() == FALSE) && (newarea.has_gravity() == TRUE) && (L.m_intent == M_RUN)) // Being ready when you change areas gives you a chance to avoid falling all together.
 		thunk(L)
-		L.update_floating(L.Check_Dense_Object())
+		L.update_floating()
 
 	L.lastarea = newarea
 
@@ -301,7 +301,8 @@ var/list/mob/living/forced_ambiance_list = new
 	// Otherwise, stop playing the ambient hum.
 	else
 		L << sound(null, channel = 3)
-		L.client.ambient_hum_playing = FALSE
+		if(L.client)
+			L.client.ambient_hum_playing = FALSE
 
 	// Start playing music, if it exists.
 	if(src.music.len && L && L.client && (L.client.prefs.sfx_toggles & ASFX_MUSIC))
@@ -339,7 +340,7 @@ var/list/mob/living/forced_ambiance_list = new
 			thunk(M)
 		else
 			to_chat(M, SPAN_NOTICE("The sudden lack of gravity makes you feel weightless and float cluelessly."))
-		M.update_floating(M.Check_Dense_Object())
+		M.update_floating()
 
 /area/proc/thunk(mob)
 	if(istype(get_turf(mob), /turf/space)) // Can't fall onto nothing.

@@ -40,7 +40,7 @@
 	var/allow_quick_empty	//Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.
 	var/allow_quick_gather	//Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
 	var/collection_mode = 1  //0 = pick one at a time, 1 = pick all on tile
-	var/use_sound = /decl/sound_category/rustle_sound	//sound played when used. null for no sound.
+	var/use_sound = /singleton/sound_category/rustle_sound	//sound played when used. null for no sound.
 	var/list/starts_with // for pre-filled items
 	var/empty_delay = 0 SECOND // time it takes to empty bag. this is multiplies by number of objects stored
 
@@ -181,6 +181,13 @@
 		else
 			LAZYREMOVE(is_seeing, M)
 	return cansee
+
+
+/obj/item/storage/proc/update_storage_ui()
+	for(var/mob/seer as anything in is_seeing)
+		orient2hud(seer)
+		if(seer.s_active)
+			seer.s_active.show_to(seer)
 
 //This proc draws out the inventory and places the items on it. tx and ty are the upper left tile and mx, my are the bottm right.
 //The numbers are calculated from the bottom-left The bottom-left slot being 1,1.

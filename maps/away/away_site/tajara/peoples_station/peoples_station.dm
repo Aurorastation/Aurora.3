@@ -1,14 +1,14 @@
 /datum/map_template/ruin/away_site/peoples_station
 	name = "People's Space Station"
 	description = "Built in the interwar period, the People's Space Station bears the prestige of being the first space installation designed, constructed, and manned by Tajara."
-	suffix = "away_site/tajara/peoples_station/peoples_station.dmm"
+	suffixes = list("away_site/tajara/peoples_station/peoples_station.dmm")
 	sectors = list(SECTOR_SRANDMARR)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "peoples_station"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/peoples_station_fang)
 
-/decl/submap_archetype/peoples_station
+/singleton/submap_archetype/peoples_station
 	map = "People's Space Station"
 	descriptor = "Built in the interwar period, the People's Space Station bears the prestige of being the first space installation designed, constructed, and manned by Tajara."
 
@@ -49,8 +49,10 @@
 /obj/effect/overmap/visitable/ship/landable/peoples_station_fang
 	name = "Orbital Fleet Fang"
 	class = "PRAMV" //People's Republic of Adhomai Vessel
-	desc = "An interceptors used by Orbital Fleet in its carriers and stations."
+	desc = "An interceptor used by the Orbital Fleet in its carriers and stations."
 	shuttle = "Orbital Fleet Fang"
+	icon_state = "shuttle"
+	moving_state = "shuttle_red_moving"
 	max_speed = 1/(1 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 3000

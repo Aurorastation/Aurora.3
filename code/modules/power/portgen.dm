@@ -206,6 +206,7 @@
 		Gives traitors more opportunities to sabotage the generator or allows enterprising engineers to build additional
 		cooling in order to get more power out.
 	*/
+	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
 		var/ratio = min(environment.return_pressure()/ONE_ATMOSPHERE, 1)
@@ -336,8 +337,11 @@
 	data["temperature_max"] = max_temperature
 	data["temperature_overheat"] = overheating
 
-	var/datum/gas_mixture/environment = loc.return_air()
-	data["temperature_min"] = Floor(environment.temperature - T0C)
+	if(loc)
+		var/datum/gas_mixture/environment = loc.return_air()
+		if(environment)
+			data["temperature_min"] = Floor(environment.temperature - T0C)
+
 	data["output_min"] = initial(power_output)
 	data["is_broken"] = IsBroken()
 	data["is_ai"] = (isAI(user) || (isrobot(user) && !Adjacent(user)))
@@ -477,7 +481,7 @@
 
 	var/coolant_volume = 360
 	var/coolant_use = 0.2
-	var/coolant_reagent = /decl/reagent/coolant
+	var/coolant_reagent = /singleton/reagent/coolant
 
 /obj/machinery/power/portgen/basic/fusion/explode()
 	//a nice burst of radiation
@@ -522,7 +526,7 @@
 	if(istype(O, /obj/item/reagent_containers))
 		var/obj/item/reagent_containers/R = O
 		if(R.standard_pour_into(user, src))
-			if(reagents.has_reagent(/decl/reagent/coolant))
+			if(reagents.has_reagent(/singleton/reagent/coolant))
 				audible_message("<span class='notice'>[src] blips happily!</span>")
 				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
 			else

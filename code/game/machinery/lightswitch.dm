@@ -7,6 +7,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "light-p"
 	anchored = 1.0
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/on = 1
 	var/area/area = null
 	var/otherarea = null
@@ -41,7 +42,7 @@
 		to_chat(user, "A light switch. It is [on? "on" : "off"].")
 
 /obj/machinery/light_switch/attack_hand(mob/user)
-	playsound(src, /decl/sound_category/switch_sound, 30)
+	playsound(src, /singleton/sound_category/switch_sound, 30)
 	on = !on
 	sync_lights()
 	intent_message(BUTTON_FLICK, 5)

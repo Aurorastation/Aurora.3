@@ -5,19 +5,22 @@
 
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 		return
 
 	health = maxHealth - getBrainLoss()
 
 	if(stat == DEAD)
-		var/fire_dmg = getFireLoss()
-		if(fire_dmg > maxHealth * 3)
-			ChangeToSkeleton()
-			real_name = "Unknown"
-			name = real_name
-		else if(fire_dmg > maxHealth * 1.5)
-			ChangeToHusk()
+		var/genetic_damage = getCloneLoss()
+		if(genetic_damage > 100)
+			visible_message(SPAN_WARNING("\The [src]'s flesh sloughs off [get_pronoun("his")] body into a puddle of viscera and goop."), SPAN_WARNING("Your flesh sloughs off your body into a puddle of viscera and goop."), range = 5)
+			ChangeToSkeleton(FALSE)
+		else
+			var/fire_dmg = getFireLoss()
+			if(fire_dmg > maxHealth * 3)
+				ChangeToSkeleton(FALSE)
+			else if(fire_dmg > maxHealth * 1.5)
+				ChangeToHusk()
 
 	UpdateDamageIcon() // to fix that darn overlay bug
 
@@ -94,17 +97,17 @@
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/Stun(amount)
-	if(HULK in mutations)
+	if(HAS_FLAG(mutations, HULK))
 		return
 	..()
 
 /mob/living/carbon/human/Weaken(amount)
-	if(HULK in mutations)
+	if(HAS_FLAG(mutations, HULK))
 		return
 	..()
 
 /mob/living/carbon/human/Paralyse(amount)
-	if(HULK in mutations)
+	if(HAS_FLAG(mutations, HULK))
 		return
 	// Notify our AI if they can now control the suit.
 	if(wearing_rig?.ai_override_enabled && !stat && paralysis < amount) //We are passing out right this second.
@@ -356,8 +359,8 @@ This function restores the subjects blood to max.
 */
 /mob/living/carbon/human/proc/restore_blood()
 	if(!(species.flags & NO_BLOOD))
-		var/total_blood = REAGENT_VOLUME(vessel, /decl/reagent/blood)
-		vessel.add_reagent(/decl/reagent/blood,560.0-total_blood, temperature = species.body_temperature)
+		var/total_blood = REAGENT_VOLUME(vessel, /singleton/reagent/blood)
+		vessel.add_reagent(/singleton/reagent/blood,560.0-total_blood, temperature = species.body_temperature)
 
 
 /*
@@ -434,7 +437,7 @@ This function restores all organs.
 		return FALSE
 
 	if(damage > 15 && prob(damage*4) && ORGAN_CAN_FEEL_PAIN(organ))
-		if(REAGENT_VOLUME(reagents, /decl/reagent/adrenaline) < 15)
+		if(REAGENT_VOLUME(reagents, /singleton/reagent/adrenaline) < 15)
 			make_adrenaline(round(damage/10))
 
 	switch(damagetype)
@@ -476,4 +479,4 @@ This function restores all organs.
 
 /mob/living/carbon/human/remove_blood_simple(var/blood)
 	if(should_have_organ(BP_HEART))
-		vessel.remove_reagent(/decl/reagent/blood, blood)
+		vessel.remove_reagent(/singleton/reagent/blood, blood)

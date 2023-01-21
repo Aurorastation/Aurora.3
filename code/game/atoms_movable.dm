@@ -17,7 +17,7 @@
 	var/throw_speed = 2
 	var/throw_range = 7
 	var/moved_recently = 0
-	var/mob/pulledby = null
+	var/atom/movable/pulledby = null
 	var/item_state = null // Base name of the image used for when the item is in someone's hand. Suffixes are added to this. Doubles as legacy overlay_state.
 	var/overlay_state = null // Base name of the image used for when the item is worn. Suffixes are added to this. Important for icon flipping as _flip is added at the end of the value.
 	//Also used on holdable mobs for the same info related to their held version
@@ -53,9 +53,10 @@
 		qdel(AM)
 	loc = null
 	screen_loc = null
-	if (pulledby)
-		if (pulledby.pulling == src)
-			pulledby.pulling = null
+	if(ismob(pulledby))
+		var/mob/M = pulledby
+		if(M.pulling == src)
+			M.pulling = null
 		pulledby = null
 
 	if (bound_overlay)
@@ -137,9 +138,8 @@
 	src.thrower = thrower
 	src.throw_source = get_turf(src)	//store the origin turf
 
-	if(usr)
-		if(HULK in usr.mutations)
-			src.throwing = 2 // really strong throw!
+	if(usr && HAS_FLAG(usr.mutations, HULK))
+		src.throwing = 2 // really strong throw!
 
 	var/dist_travelled = 0
 	var/dist_since_sleep = 0
@@ -337,7 +337,7 @@
 	. = ..()
 	if (.)
 		// Events.
-		if (moved_event.listeners_assoc[src])
+		if (moved_event.global_listeners[src])
 			moved_event.raise_event(src, old_loc, loc)
 
 		// Lighting.
@@ -364,7 +364,7 @@
 	update_grid_location(old_loc, src)
 
 /atom/movable/proc/update_grid_location(atom/old_loc)
-	if(!HAS_SPATIAL_GRID_CONTENTS(src))
+	if(!HAS_SPATIAL_GRID_CONTENTS(src) || SSspatial_grid.init_state < SS_INITSTATE_DONE)
 		return
 
 	var/turf/old_turf = get_turf(old_loc)
@@ -392,6 +392,9 @@
 			for (var/atom/movable/location as anything in nested_locs)
 				LAZYREMOVEASSOC(location.important_recursive_contents, channel, gone.important_recursive_contents[channel])
 
+	if(LAZYLEN(gone.stored_chat_text))
+		return_floating_text(gone)
+
 /atom/movable/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 
@@ -400,6 +403,9 @@
 		for (var/channel in arrived.important_recursive_contents)
 			for (var/atom/movable/location as anything in nested_locs)
 				LAZYORASSOCLIST(location.important_recursive_contents, channel, arrived.important_recursive_contents[channel])
+
+	if (LAZYLEN(arrived.stored_chat_text))
+		give_floating_text(arrived)
 
 //allows this movable to hear and adds itself to the important_recursive_contents list of itself and every movable loc its in
 /atom/movable/proc/become_hearing_sensitive(trait_source = TRAIT_GENERIC)
@@ -480,6 +486,28 @@
 
 	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
 		LAZYREMOVEASSOC(movable_loc.important_recursive_contents, RECURSIVE_CONTENTS_CLIENT_MOBS, former_client.mob)
+
+// This proc adds atom/movables to the AI targetable list, i.e. things that the AI (turrets, hostile animals) will attempt to target
+/atom/movable/proc/add_to_target_grid()
+	for (var/atom/movable/location as anything in get_nested_locs(src) + src)
+		LAZYADDASSOCLIST(location.important_recursive_contents, RECURSIVE_CONTENTS_AI_TARGETS, src)
+
+	var/turf/our_turf = get_turf(src)
+	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
+		SSspatial_grid.enter_cell(src, our_turf)
+
+	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)//SSspatial_grid isnt init'd yet, add ourselves to the queue
+		SSspatial_grid.enter_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
+
+/atom/movable/proc/clear_from_target_grid()
+	var/turf/our_turf = get_turf(src)
+	if(our_turf && SSspatial_grid.init_state == SS_INITSTATE_DONE)
+		SSspatial_grid.exit_cell(src, our_turf)
+	else if(our_turf && SSspatial_grid.init_state != SS_INITSTATE_DONE)
+		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
+
+	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		LAZYREMOVEASSOC(location.important_recursive_contents, RECURSIVE_CONTENTS_AI_TARGETS, src)
 
 /atom/movable/proc/do_simple_ranged_interaction(var/mob/user)
 	return FALSE

@@ -127,7 +127,7 @@
 			for(var/id in carried_reagents)
 				F.reagents.add_reagent(id, 1, safety = 1) //makes a safety call because all reagents should have already reacted anyway
 		else
-			F.reagents.add_reagent(/decl/reagent/water, 1, safety = 1)
+			F.reagents.add_reagent(/singleton/reagent/water, 1, safety = 1)
 
 // wall formed by metal foams, dense and opaque, but easy to break
 
@@ -167,7 +167,7 @@
 /obj/structure/foamedmetal/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
-	if ((HULK in user.mutations) || (prob(75 - metal * 25)))
+	if (HAS_FLAG(user.mutations, HULK) || (prob(75 - metal * 25)))
 		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), SPAN_NOTICE("You smash through the metal foam wall."))
 		qdel(src)
 	else

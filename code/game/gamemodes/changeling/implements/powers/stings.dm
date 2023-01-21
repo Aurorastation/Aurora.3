@@ -85,7 +85,7 @@
 /datum/changeling_sting/hallucinate/do_sting(mob/living/target)
 	..()
 	if(target.reagents)
-		addtimer(target.reagents.add_reagent(/decl/reagent/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
+		addtimer(target.reagents.add_reagent(/singleton/reagent/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
 
 /mob/proc/changeling_silence_sting()
 	set category = "Changeling"
@@ -196,7 +196,7 @@
 /datum/changeling_sting/transformation/can_sting(mob/living/target)
 	. = ..()
 	if(.)
-		if((HUSK in target.mutations) || (!ishuman(target) && !issmall(target)))
+		if(HAS_FLAG(target.mutations, HUSK) || (!ishuman(target) && !issmall(target)))
 			to_chat(owner, SPAN_WARNING("Our sting appears ineffective against its DNA."))
 			return FALSE
 		if(islesserform(target))
@@ -228,7 +228,7 @@
 	target.Paralyse(10)
 	target.make_jittery(1000)
 	if(target.reagents)
-		target.reagents.add_reagent(/decl/reagent/toxin/cyanide, 5)
+		target.reagents.add_reagent(/singleton/reagent/toxin/cyanide, 5)
 
 /mob/proc/changeling_extract_dna_sting()
 	set category = "Changeling"

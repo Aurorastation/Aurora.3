@@ -26,6 +26,7 @@
 		strike_thing(target_turf)
 
 /obj/item/projectile/kinetic/proc/do_damage(var/turf/T, var/living_damage = 1, var/mineral_damage = 1)
+	if(!istype(T)) return
 	var/datum/gas_mixture/environment = T.return_air()
 	living_damage *= max(1 - (environment.return_pressure() / 100) * 0.75, 0)
 	new /obj/effect/overlay/temp/kinetic_blast(T)

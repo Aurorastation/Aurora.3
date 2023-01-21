@@ -11,6 +11,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	icon_state = "newscaster"
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/isbroken = 0  //1 if someone banged it with something heavy
 	var/ispowered = 1 //starts powered, changes with power_change()
 	//var/list/datum/feed_channel/channel_list = list() //This list will contain the names of the feed channels. Each name will refer to a data region where the messages of the feed channels are stored.
@@ -520,6 +521,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			comment.posted = "[worldtime2text()]"
 			viewing_story.comments += comment
 			to_chat(usr, "Comment successfully added!")
+			src.viewing_message = viewing_story
 			src.screen = 22
 			src.updateUsrDialog()
 
@@ -758,7 +760,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] smashes the [src.name]!" )
 					src.isbroken=1
-					playsound(src.loc, /decl/sound_category/glass_break_sound, 100, 1)
+					playsound(src.loc, /singleton/sound_category/glass_break_sound, 100, 1)
 				else
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] forcefully slams the [src.name] with the [I.name]!" )
@@ -937,7 +939,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				if(curr_page == 0) //We're at the start, get to the middle
 					src.screen=1
 			src.curr_page++
-			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 
 		else if(href_list["prev_page"])
 			if(curr_page == 0)
@@ -949,7 +951,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				if(curr_page == src.pages+1) //we're at the end, let's go back to the middle.
 					src.screen = 1
 			src.curr_page--
-			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
+			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 
 		if (istype(src.loc, /mob))
 			src.attack_self(src.loc)

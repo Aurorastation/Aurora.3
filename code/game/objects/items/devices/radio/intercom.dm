@@ -10,6 +10,7 @@
 	w_class = ITEMSIZE_LARGE
 	canhear_range = 2
 	flags = CONDUCT | NOBLOODY
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/number = 0
 	var/obj/machinery/abstract/intercom_listener/power_interface
 	var/global/list/screen_overlays
@@ -66,6 +67,7 @@
 	set_frequency(1449)
 
 /obj/item/device/radio/intercom/interrogation/broadcasting/Initialize() // The detainee's side.
+	. = ..()
 	set_broadcasting(TRUE)
 	set_listening(FALSE)
 
@@ -174,6 +176,9 @@
 	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
 
 /obj/item/device/radio/intercom/can_receive(input_frequency, list/levels)
+	if(!listening)
+		return FALSE
+
 	if(levels != RADIO_NO_Z_LEVEL_RESTRICTION)
 		var/turf/position = get_turf(src)
 		if(!istype(position) || !(position.z in levels))
