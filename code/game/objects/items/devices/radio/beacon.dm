@@ -2,7 +2,7 @@ var/global/list/teleportbeacons = list()
 
 /obj/item/device/radio/beacon
 	name = "tracking beacon"
-	desc = "A sophisticated beacon with integrated bluespace circuitry, capable of being targetted by a teleportation hub for local teleportation."
+	desc = "A sophisticated beacon with integrated bluespace circuitry, capable of being targetted by a teleportation hub for localized jumps."
 	icon_state = "beacon"
 	item_state = "signaler"
 	show_modify_on_examine = FALSE
