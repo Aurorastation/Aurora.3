@@ -20736,7 +20736,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/toy/prize/deathripley{
+/obj/item/toy/mech/deathripley{
 	desc = "This is Johnny 5. Is he alive?";
 	name = "Johnny 5"
 	},
@@ -60947,9 +60947,7 @@
 /turf/simulated/wall,
 /area/security/brig)
 "gaR" = (
-/obj/machinery/power/singularity_beacon/emergency{
-	name = "emergency tesla beacon"
-	},
+/obj/machinery/power/tesla_beacon,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "gbQ" = (

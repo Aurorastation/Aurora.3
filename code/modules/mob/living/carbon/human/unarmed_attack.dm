@@ -7,8 +7,8 @@ var/global/list/sparring_attack_cache = list()
 	var/desc = "A simple unarmed attack."
 	var/damage = 0						// Extra empty hand attack damage.
 	var/armor_penetration = 0
-	var/attack_sound = /decl/sound_category/punch_sound
-	var/miss_sound = /decl/sound_category/punchmiss_sound
+	var/attack_sound = /singleton/sound_category/punch_sound
+	var/miss_sound = /singleton/sound_category/punchmiss_sound
 	var/shredding = 0 // Calls the old attack_alien() behavior on objects/mobs when on harm intent.
 	var/attack_door = 0 // Whether the attack can damage airlocks and how much damage it does
 	var/crowbar_door = FALSE
@@ -213,7 +213,7 @@ var/global/list/sparring_attack_cache = list()
 	attack_name = "palm"
 
 /datum/unarmed_attack/palm/unathi // only one more damage, pretty much just for show
-	attack_sound = /decl/sound_category/punch_bassy_sound
+	attack_sound = /singleton/sound_category/punch_bassy_sound
 	desc = "Striking your opponent with your palm. A method of dishing out damage without risking your claws or shredding your opponent to ribbons. This method of attack showcases some more restraint, the damage output is more stable, too."
 	damage = 3
 
@@ -224,7 +224,7 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack/kick
 	attack_verb = list("kicked", "kicked", "kicked", "kneed")
 	attack_noun = list("kick", "kick", "kick", "knee strike")
-	attack_sound = /decl/sound_category/swing_hit_sound
+	attack_sound = /singleton/sound_category/swing_hit_sound
 	desc = "A high risk, pretty low reward move. It could be useful if your shoes has a knife sticking out the front, or if you're a trained martial arts master. Make sure to target the lower parts of the body, or else you won't be able to reach!"
 	damage = 0
 	attack_name = "kick"
@@ -270,7 +270,7 @@ var/global/list/sparring_attack_cache = list()
 /datum/unarmed_attack/stomp
 	attack_verb = null
 	attack_noun = list("stomp")
-	attack_sound = /decl/sound_category/swing_hit_sound
+	attack_sound = /singleton/sound_category/swing_hit_sound
 	desc = "An incredible tactic for turning a downed opponent into tenderized meat! Stomping is a safe and sound method of dispatching downed enemies, but it only works if they're already lying down."
 	damage = 0
 	attack_name = "stomp"
@@ -332,4 +332,4 @@ var/global/list/sparring_attack_cache = list()
 	desc = "Sparring: A heavy strike to your opponent. With poise and precision, no evidence will be left behind! They WILL ABSOLUTELY feel this, but will suffer no dangerous side effect, unless you punch them into cardiac arrest! Show off your might!"
 	damage = 4
 	attack_name = "heavy hit"
-	attack_sound = /decl/sound_category/punch_bassy_sound
+	attack_sound = /singleton/sound_category/punch_bassy_sound

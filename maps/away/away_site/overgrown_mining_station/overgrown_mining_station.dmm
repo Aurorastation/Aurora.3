@@ -743,12 +743,6 @@
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
 /area/space)
-"AW" = (
-/obj/machinery/constructable_frame/temp_deco{
-	icon_state = "box_2"
-	},
-/turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
 "Be" = (
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/tiled/airless,
@@ -1170,7 +1164,7 @@
 /obj/machinery/constructable_frame/temp_deco{
 	icon_state = "box_2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "QR" = (
 /obj/machinery/floodlight,
@@ -30763,7 +30757,7 @@ gV
 gV
 gV
 ky
-AW
+rl
 jm
 jm
 jm

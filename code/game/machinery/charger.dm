@@ -8,6 +8,7 @@
 	idle_power_usage = 5
 	active_power_usage = 1 KILOWATT
 	pass_flags = PASSTABLE
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/charge_rate = 50000
 	var/obj/item/charging
 

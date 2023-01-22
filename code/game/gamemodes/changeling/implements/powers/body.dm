@@ -179,7 +179,7 @@
 	O.adjustBruteLoss(C.getBruteLoss())
 	O.setOxyLoss(C.getOxyLoss())
 	O.adjustFireLoss(C.getFireLoss())
-	O.stat = C.stat
+	O.set_stat(C.stat)
 	for (var/obj/item/implant/I in implants)
 		I.forceMove(O)
 		I.implanted = O
@@ -257,14 +257,14 @@
 	changeling.chem_charges -= 30
 
 	var/mob/living/carbon/human/C = src
-	C.stat = 0
+	C.set_stat(0)
 	C.SetParalysis(0)
 	C.SetStunned(0)
 	C.SetWeakened(0)
 	C.lying = FALSE
-	C.reagents.add_reagent(/decl/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
-	C.reagents.add_reagent(/decl/reagent/oxycomorphine, 0.10)
-	C.reagents.add_reagent(/decl/reagent/synaptizine, 0.5) //To counter oxycomorphine's side-effects.
+	C.reagents.add_reagent(/singleton/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
+	C.reagents.add_reagent(/singleton/reagent/oxycomorphine, 0.10)
+	C.reagents.add_reagent(/singleton/reagent/synaptizine, 0.5) //To counter oxycomorphine's side-effects.
 	C.update_canmove()
 
 	src.verbs -= /mob/proc/changeling_unstun

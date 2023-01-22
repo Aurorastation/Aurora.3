@@ -2,7 +2,7 @@
 
 /obj/item/mecha_equipment/mounted_system/combat
 	name = "combat thing"
-	desc = "You shouldn't be seeing this."
+	desc = DESC_PARENT
 	icon_state = "mecha_taser"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
@@ -395,7 +395,7 @@
 			return AURA_FALSE|AURA_CANCEL
 
 		spark(get_turf(src), 5, global.alldirs)
-		playsound(get_turf(src), /decl/sound_category/spark_sound, 25, TRUE)
+		playsound(get_turf(src), /singleton/sound_category/spark_sound, 25, TRUE)
 
 /obj/aura/mechshield/hitby(atom/movable/M, var/speed)
 	. = ..()
