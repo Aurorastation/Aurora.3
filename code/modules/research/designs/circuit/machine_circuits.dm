@@ -56,7 +56,7 @@
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
 	build_path = /obj/item/circuitboard/mechfab
 
-/datum/design/circuit/machine/mech_recharger
+/datum/design/circuit/machine/mech_charger
 	name = "Mech Charger"
 	req_tech = list(TECH_DATA = 2, TECH_POWER = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/mech_charger

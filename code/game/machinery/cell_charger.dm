@@ -14,10 +14,6 @@
 	var/obj/item/cell/charging = null
 	var/chargelevel = -1
 
-	var/obj/item/cell/charging = null
-	var/charge_level = -1
-	var/const/CHARGE_EFFICIENCY = 1.38
-
 /obj/machinery/cell_charger/proc/update_charge_level()
 	if(!charging)
 		charge_level = -1
