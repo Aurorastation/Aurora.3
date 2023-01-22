@@ -40,4 +40,4 @@ delete-after: True
 changes:
   - maptweak: "all ghost ships now have GPS units"
   - maptweak: "adds a amaged solarian powerloader and adds it to the sfa ship"
-  - maptweak: "replaces the FSF corvette's powerloader with a solarian powerloader"
+  - maptweak: "Replaces the FSF corvette's powerloader with a Solarian powerloader."
