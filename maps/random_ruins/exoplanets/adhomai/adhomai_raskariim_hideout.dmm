@@ -528,6 +528,18 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"Nl" = (
+/obj/item/reagent_containers/inhaler/raskara_dust{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/inhaler/raskara_dust{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_raskariim_hideout)
 "Nt" = (
 /turf/simulated/wall/wood{
 	can_open = 1
@@ -900,7 +912,7 @@ Te
 SE
 SE
 SE
-SE
+Nl
 WO
 SE
 SE
