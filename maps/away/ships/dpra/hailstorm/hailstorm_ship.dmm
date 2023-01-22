@@ -10,10 +10,10 @@
 	dir = 8
 	},
 /obj/item/ship_ammunition/grauwolf_bundle{
-	step_x = 1
+	pixel_x = 1
 	},
 /obj/item/ship_ammunition/grauwolf_bundle{
-	step_x = 1
+	pixel_x = 1
 	},
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
@@ -66,10 +66,10 @@
 	dir = 8
 	},
 /obj/item/ship_ammunition/grauwolf_bundle{
-	step_x = 1
+	pixel_x = 1
 	},
 /obj/item/ship_ammunition/grauwolf_bundle{
-	step_x = 1
+	pixel_x = 1
 	},
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
