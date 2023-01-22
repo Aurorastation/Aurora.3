@@ -11,8 +11,8 @@
 	power_channel = EQUIP
 	update_icon_on_init = TRUE
 	var/charge_rate = 100000
+	var/charge_level = -1
 	var/obj/item/cell/charging = null
-	var/chargelevel = -1
 
 /obj/machinery/cell_charger/proc/update_charge_level()
 	if(!charging)
