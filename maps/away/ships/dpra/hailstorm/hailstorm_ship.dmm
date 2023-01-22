@@ -942,7 +942,7 @@
 /area/hailstorm_ship)
 "fq" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1555,7 +1555,7 @@
 /area/hailstorm_ship/engineering)
 "lh" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled{
 	temperature = 278.15

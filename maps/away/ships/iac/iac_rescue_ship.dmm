@@ -2636,7 +2636,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/bridge)
 "pDO" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";

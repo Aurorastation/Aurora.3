@@ -2435,7 +2435,7 @@
 	dir = 8
 	},
 /mob/living/heavy_vehicle/premade/ripley/loader,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/franny)
 "jhJ" = (
@@ -3084,7 +3084,7 @@
 /area/shuttle/dominian_shuttle)
 "lCA" = (
 /mob/living/heavy_vehicle/premade/ripley/loader,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1";

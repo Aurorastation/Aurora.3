@@ -59464,7 +59464,7 @@
 /obj/item/circuitboard/autolathe,
 /obj/item/circuitboard/rtg,
 /obj/item/circuitboard/robot_charger,
-/obj/item/circuitboard/mech_recharger,
+/obj/item/circuitboard/mech_charger,
 /obj/item/circuitboard/optable,
 /obj/item/circuitboard/security/engineering,
 /obj/item/circuitboard/grill,

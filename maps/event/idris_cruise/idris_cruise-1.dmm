@@ -6014,7 +6014,7 @@
 	},
 /area/cruise/main_bar/aft)
 "erL" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/machinery/light{
 	dir = 4
 	},
