@@ -24415,7 +24415,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 4;
 	pixel_y = 34
 	},

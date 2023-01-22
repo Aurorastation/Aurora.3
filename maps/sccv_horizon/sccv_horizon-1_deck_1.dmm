@@ -12863,7 +12863,7 @@
 	pixel_x = -2;
 	pixel_y = -1
 	},
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -28307,7 +28307,7 @@
 	},
 /obj/item/gun/energy/laser/shotgun/research,
 /obj/item/gun/energy/laser/shotgun/research,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	layer = 3.3;
 	pixel_x = 36;
 	pixel_y = -12

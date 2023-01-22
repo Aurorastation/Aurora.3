@@ -1455,7 +1455,7 @@
 	},
 /area/nka_merchant/warehouse)
 "fc" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -3274,7 +3274,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /obj/machinery/button/remote/blast_door{
@@ -3316,7 +3316,7 @@
 	},
 /area/nka_merchant/engineering)
 "qV" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /obj/effect/landmark/entry_point/west{
@@ -3626,7 +3626,7 @@
 /obj/effect/floor_decal/corner/white/full{
 	dir = 8
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /obj/machinery/button/remote/blast_door{

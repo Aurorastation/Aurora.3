@@ -456,7 +456,7 @@
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/ship/iac_rescue_ship/hangar)
 "bFk" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /turf/simulated/wall/shuttle/space_ship/cardinal,
@@ -1297,7 +1297,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
 "gxW" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /obj/effect/landmark/entry_point/west{
