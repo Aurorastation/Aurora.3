@@ -42,7 +42,7 @@
 	name = "wormhole"
 	icon_state = "wormhole"
 	spawn_amount = 3
-	spawn_chance = 100
+	spawn_chance = 5
 	var/datum/weakref/paired_wormhole
 
 /obj/effect/overmap/trigger/wormhole/handle_spawn(var/list/candidate_turfs)
