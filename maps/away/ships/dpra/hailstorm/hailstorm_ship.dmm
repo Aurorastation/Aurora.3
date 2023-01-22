@@ -114,6 +114,7 @@
 /obj/item/clothing/suit/space/void/dpra,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/dpra,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

@@ -25,6 +25,10 @@
 	name = "solarian powerloader"
 	e_color = COLOR_DARK_GREEN_GRAY
 
+/mob/living/heavy_vehicle/premade/ripley/loader/sol/fucked
+	name = "damaged solarian powerloader"
+	h_l_hand = null
+
 /mob/living/heavy_vehicle/premade/ripley/janitorial
 	name = "janitorial power loader"
 	desc = "A standard cargo-handling power loader converted into a cleaning machine."
