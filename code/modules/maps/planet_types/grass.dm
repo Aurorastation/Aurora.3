@@ -50,7 +50,7 @@
 
 /area/exoplanet/grass/Exited(var/mob/living/L, atom/newarea)
 	if(!istype(newarea, /area/exoplanet/grass))
-		L << sound(null, channel = 1)
+		sound_to(L, sound(null, channel = 1))
 	..()
 
 /datum/random_map/noise/exoplanet/grass

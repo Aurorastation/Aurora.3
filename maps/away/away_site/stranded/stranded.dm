@@ -32,11 +32,11 @@
 
 /area/stranded/forest/Exited(var/mob/living/L, atom/newarea)
 	if(!istype(newarea, /area/stranded/forest))
-		L << sound(null, channel = 1)
+		sound_to(L, sound(null, channel = 1))
 	..()
 
 /area/stranded/forest/Entered(var/mob/abstract/observer/O) //This stops people from having to hear the ambience in case they die and observe.
-	O << sound(null, channel = 1)
+	sound_to(O, sound(null, channel = 1))
 	..()
 
 area/stranded/hut

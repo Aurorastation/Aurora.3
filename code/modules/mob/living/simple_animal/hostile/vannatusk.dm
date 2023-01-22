@@ -46,51 +46,12 @@
 	psi_pingable = FALSE
 
 /mob/living/simple_animal/hostile/vannatusk/ghostrole
-	name = "vannatusk"
-	desc = "A monstrous interdimensional invader. Its body is protected by a chitin carapace."
-	icon = 'icons/mob/npc/vannatusk.dmi'
-	icon_state = "vannatusk"
-	icon_living = "vannatusk"
-	icon_dead = "vannatusk_dead"
-
-	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
-	mob_push_flags = ALLMOBS
-
-	tameable = FALSE
-
-	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
-	response_help  = "pets"
-	response_disarm = "shoves"
-	response_harm   = "harmlessly punches"
 	maxHealth = 650
 	health = 650
-	harm_intent_damage = 5
-	melee_damage_lower = 30
-	melee_damage_upper = 30
-	armor_penetration = 15
-	resist_mod = 3
-	mob_size = 15
-	environment_smash = 2
 	see_in_dark = 10
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
-	attacktext = "mangled"
-	attack_emote = "charges toward"
-	attack_sound = 'sound/effects/creatures/vannatusk_attack.ogg'
-	emote_sounds = list('sound/effects/creatures/vannatusk_sound.ogg', 'sound/effects/creatures/vannatusk_sound_2.ogg')
-
-	minbodytemp = 0
-	maxbodytemp = 350
-	min_oxy = 0
-	max_co2 = 0
-	max_tox = 0
-
-	blood_type = "#001126"
 
 	speed = 1.5
-
-	meat_type = /obj/item/reagent_containers/food/snacks/meat/vannatusk
-
-	psi_pingable = FALSE
 
 /mob/living/simple_animal/hostile/vannatusk/Initialize()
 	. = ..()

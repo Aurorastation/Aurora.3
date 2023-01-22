@@ -154,19 +154,18 @@
 
 //This one activates away site ghostroles on the z-level.
 /obj/effect/shuttle_landmark/automatic/ghostrole_activation
-	name = "Navpoint"
-	landmark_tag = "navpoint"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
-
-/obj/effect/shuttle_landmark/automatic/ghostrole_activation
 	var/triggered_away_sites = FALSE
+	var/landmark_position
 
 /obj/effect/shuttle_landmark/automatic/ghostrole_activation/shuttle_arrived(datum/shuttle/shuttle)
 	. = ..()
 	if(!triggered_away_sites && !isStationLevel(loc.z))
 		for(var/s in SSghostroles.spawners)
 			var/datum/ghostspawner/G = SSghostroles.spawners[s]
-			if(G.away_site)
-				if(!(G.enabled))
-					G.enable()
+			for(var/obj/effect/ghostspawpoint/L in SSghostroles.spawnpoints[s])
+				landmark_position = L.loc.z
+			if(landmark_position == src.loc.z)
+				if(G.away_site)
+					if(!(G.enabled))
+						G.enable()
 		triggered_away_sites = TRUE
