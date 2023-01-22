@@ -156,7 +156,7 @@
 		var/current_month = text2num(time2text(world.realtime, "MM"))
 		var/current_day = text2num(time2text(world.realtime, "DD"))
 		var/adhomian_day
-		var/adhomian_month = src.months[Ceiling(current_month/3)]
+		var/adhomian_month = src.months[Ceil(current_month/3)]
 		switch(current_month)
 			if(2, 5, 8, 11)
 				current_day += 31

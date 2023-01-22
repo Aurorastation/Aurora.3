@@ -18,9 +18,9 @@ mob/var/next_pain_time = 0
 	// Excessive halloss is horrible, just give them enough to make it visible.
 	if(!nohalloss && power)
 		if(!affecting)
-			adjustHalLoss(Ceiling(power/2))
+			adjustHalLoss(Ceil(power/2))
 		else
-			affecting.add_pain(Ceiling(power/2))
+			affecting.add_pain(Ceil(power/2))
 
 	flash_pain(min(round(2*power)+55, 255))
 

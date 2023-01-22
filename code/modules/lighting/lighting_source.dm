@@ -355,7 +355,7 @@
 	var/test_x
 	var/test_y
 
-	FOR_DVIEW(T, Ceiling(actual_range), source_turf, 0)
+	FOR_DVIEW(T, Ceil(actual_range), source_turf, 0)
 		check_t:
 
 		if (light_angle && !facing_opaque)	// Directional lighting coordinate filter.

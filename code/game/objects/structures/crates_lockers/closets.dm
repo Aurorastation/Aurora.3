@@ -72,7 +72,7 @@
 	// adjust locker size to hold all items with 5 units of free store room
 	var/content_size = 0
 	for(I in contents)
-		content_size += Ceiling(I.w_class/2)
+		content_size += Ceil(I.w_class/2)
 	if(content_size > storage_capacity-5)
 		storage_capacity = content_size + 5
 
@@ -105,7 +105,7 @@
 		var/content_size = 0
 		for(var/obj/item/I in contents)
 			if(!I.anchored)
-				content_size += Ceiling(I.w_class/2)
+				content_size += Ceil(I.w_class/2)
 		content_info(user, content_size)
 
 	if(!src.opened && isobserver(user))
@@ -118,7 +118,7 @@
 	var/content_size = 0
 	for(var/obj/item/I in contents)
 		if(!I.anchored)
-			content_size += Ceiling(I.w_class/2)
+			content_size += Ceil(I.w_class/2)
 	return content_size
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -220,7 +220,7 @@
 /obj/structure/closet/proc/store_items(var/stored_units)
 	var/added_units = 0
 	for(var/obj/item/I in loc)
-		var/item_size = Ceiling(I.w_class / 2)
+		var/item_size = Ceil(I.w_class / 2)
 		if(stored_units + added_units + item_size > storage_capacity)
 			continue
 		if(!I.anchored)

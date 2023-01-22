@@ -27,7 +27,7 @@ proc/stutter(phrase, str = 1)
 	if(str < 1)
 		return phrase
 	else
-		str = Ceiling(str/5)
+		str = Ceil(str/5)
 
 	var/list/split_phrase = text2list(phrase," ") //Split it up into words.
 	var/list/unstuttered_words = split_phrase.Copy()

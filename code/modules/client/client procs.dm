@@ -579,7 +579,7 @@ var/list/localhost_addresses = list(
 	var/static/next_external_rsc = 0
 	var/list/external_rsc_urls = config.external_rsc_urls
 	if(length(external_rsc_urls))
-		next_external_rsc = Wrap(next_external_rsc+1, 1, external_rsc_urls.len+1)
+		next_external_rsc = WrapNumber(next_external_rsc+1, 1, external_rsc_urls.len+1)
 		preload_rsc = external_rsc_urls[next_external_rsc]
 #endif
 

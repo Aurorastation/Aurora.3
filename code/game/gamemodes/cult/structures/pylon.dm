@@ -102,7 +102,7 @@
 			mindist = d
 
 	mindist = min(150, mindist)
-	process_interval = Ceiling(mindist*0.1)
+	process_interval = Ceil(mindist*0.1)
 	process_interval = max(1, process_interval)
 
 

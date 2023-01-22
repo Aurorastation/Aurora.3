@@ -424,13 +424,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 //		mob_list.Add(M)
 	return moblist
 
-//Forces a variable to be posative
-/proc/modulus(var/M)
-	if(M >= 0)
-		return M
-	if(M < 0)
-		return -M
-
 // returns the turf located at the map edge in the specified direction relative to A
 // used for mass driver
 /proc/get_edge_target_turf(var/atom/A, var/direction)
@@ -1104,7 +1097,7 @@ var/global/known_proc = new /proc/get_type_ref_bytes
 	. = 0
 	var/i = DS2TICKS(initial_delay)
 	do
-		. += Ceiling(i*DELTA_CALC)
+		. += Ceil(i*DELTA_CALC)
 		sleep(i*world.tick_lag*DELTA_CALC)
 		i *= 2
 	while (world.tick_usage > min(TICK_LIMIT_TO_RUN, CURRENT_TICKLIMIT))

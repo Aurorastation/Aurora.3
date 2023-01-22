@@ -990,7 +990,7 @@
 			if(isSynthetic())
 				var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
 				if(istype(IC) && IC.is_usable())
-					var/chargeNum = Clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
+					var/chargeNum = Clamp(Ceil(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 					cells.icon_state = "charge[chargeNum]"
 				else
 					cells.icon_state = "charge-empty"

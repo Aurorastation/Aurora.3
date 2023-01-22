@@ -1,41 +1,44 @@
-// min is inclusive, max is exclusive
-/proc/Wrap(val, min, max)
-	var/d = max - min
-	var/t = Floor((val - min) / d)
-	return val - (t * d)
+#define Default(a, b) (a ? a : b)
 
-/proc/Default(a, b)
-	return a ? a : b
+// /proc/Default(a, b)
+// 	return a ? a : b
 
 // Trigonometric functions.
-/proc/Tan(x)
-	return sin(x) / cos(x)
 
-/proc/Csc(x)
-	return 1 / sin(x)
+/// The cosecant of degrees
+#define Csc(degrees) (1 / sin(degrees))
 
-/proc/Sec(x)
-	return 1 / cos(x)
+/// The secant of degrees
+#define Sec(degrees) (1 / cos(degrees))
 
-/proc/Cot(x)
-	return 1 / Tan(x)
+/// The cotangent of degrees
+#define Cot(degrees) (1 / tan(degrees))
 
-/proc/Atan2(x, y)
-	if(!x && !y) return 0
-	var/a = arccos(x / sqrt(x*x + y*y))
-	return y >= 0 ? a : -a
+/// The 2-argument arctangent of x and y
+#define Atan2(x,y) ((!x && !y) ? 0 : (y >= 0 ? arccos(x / sqrt(x*x + y*y)) : -(arccos(x / sqrt(x*x + y*y)))))
 
-/proc/Floor(x)
-	return round(x)
+/// Value or the next integer in a negative direction: Floor(-1.5) = -2 , Floor(1.5) = 1
+#define Floor(value) round(value)
 
-/proc/Ceiling(x, y=1)
-	return -round(-x / y) * y
+/// Same as Floor but rounds A to the nearest multiple of B.
+#define Floorm(value, divisor) round(value)
 
-/proc/Modulus(x, y)
-	return ( (x) - (y) * round((x) / (y)) )
+/// Value or the next integer in a positive direction: Ceil(-1.5) = -1 , Ceil(1.5) = 2
+#define Ceil(value) ( -round(-(value)) )
 
-/proc/Percent(current_value, max_value, rounding = 1)
-	return round((current_value / max_value) * 100, rounding)
+/// Value or the next multiple of divisor in a positive direction. Ceilm(-1.5, 0.3) = -1.5 , Ceilm(-1.5, 0.4) = -1.2
+#define Ceilm(value, divisor) ( -round(-(value) / (divisor)) * (divisor) )
+
+#define WrapNumber(value, minimum, maximum) (value - ((Floor((value - minimum) / (maximum - minimum))) * (maximum - minimum)))
+
+#define Modulus(x, y) ( (x) - (y) * round((x) / (y)) )
+
+#define Percent(value, maximum) (round((value / maximum) * 100))
+
+#define PercentRounding(value, maximum, rounding) (round((value / maximum) * 100, rounding))
+
+// /proc/Percent(current_value, max_value, rounding = 1)
+// 	return round((current_value / max_value) * 100, rounding)
 
 // Greatest Common Divisor: Euclid's algorithm.
 /proc/Gcd(a, b)
@@ -46,41 +49,36 @@
 		b %= a
 
 // Least Common Multiple. The formula is a consequence of: a*b = LCM*GCD.
-/proc/Lcm(a, b)
-	return abs(a) * abs(b) / Gcd(a, b)
+#define Lcm(a, b) (abs(a) * abs(b) / Gcd(a, b))
 
 // Useful in the cases when x is a large expression, e.g. x = 3a/2 + b^2 + Function(c)
-/proc/Square(x)
-	return x*x
+#define Square(x) (x*x)
 
-/proc/Inverse(x)
-	return 1 / x
+#define Inverse(x) (1 / x)
 
 // Condition checks.
-/proc/IsAboutEqual(a, b, delta = 0.1)
-	return abs(a - b) <= delta
+#define IsAboutEqual(a, b) (abs(a - b) <= 0.1)
+
+#define IsAboutEqualDelta(a, b, delta) (abs(a - b) <= delta)
 
 // Returns true if val is from min to max, inclusive.
-/proc/IsInRange(val, min, max)
-	return (min <= val && val <= max)
+#define IsInRange(val, min, max) (min <= val && val <= max)
 
 // Same as above, exclusive.
-/proc/IsInRange_Ex(val, min, max)
-	return (min < val && val < max)
+#define IsInRange_Ex(val, min, max) (min < val && val < max)
 
-/proc/IsInteger(x)
-	return Floor(x) == x
+/// True if value is an integer number.
+#define IsInteger(value) (round(value) == (value))
 
-/proc/IsMultiple(x, y)
-	return x % y == 0
+/// True if value is a multiple of divisor
+#define IsMultiple(value, divisor) ((value) % (divisor) == 0)
 
 #define ISEVEN(x) (x % 2 == 0)
 #define ISODD(x) (x % 2 != 0)
 
 // Performs a linear interpolation between a and b.
 // Note: weight=0 returns a, weight=1 returns b, and weight=0.5 returns the mean of a and b.
-/proc/Interpolate(a, b, weight = 0.5)
-	return a + (b - a) * weight // Equivalent to: a*(1 - weight) + b*weight
+#define Interpolate(a, b, weight) (a + (b - a) * weight) // Equivalent to: a*(1 - weight) + b*weight
 
 /proc/Mean(...)
 	var/sum = 0
@@ -89,8 +87,7 @@
 	return sum / args.len
 
 // Returns the nth root of x.
-/proc/Root(n, x)
-	return x ** (1 / n)
+#define Root(n, x) (x ** (1 / n))
 
 // The quadratic formula. Returns a list with the solutions, or an empty list
 // if they are imaginary.
@@ -112,26 +109,18 @@
 	if(discriminant != 0)
 		. += (-b - root) / bottom
 
-/proc/ToDegrees(radians)
-	// 180 / Pi ~ 57.2957795
-	return radians * 57.2957795
+#define ToDegrees(radians) (radians * 57.2957795) // 180 / Pi ~ 57.2957795
 
-/proc/ToRadians(degrees)
-	// Pi / 180 ~ 0.0174532925
-	return degrees * 0.0174532925
+#define ToRadians(degrees) (degrees * 0.0174532925) // Pi / 180 ~ 0.0174532925
 
 // Vector algebra.
-/proc/squaredNorm(x, y)
-	return x*x + y*y
+#define squaredNorm(x, y) (x*x + y*y)
 
-/proc/norm(x, y)
-	return sqrt(squaredNorm(x, y))
+#define norm(x, y) (sqrt(squaredNorm(x, y)))
 
-/proc/IsPowerOfTwo(var/val)
-	return (val & (val-1)) == 0
+#define IsPowerOfTwo(val) ((val & (val-1)) == 0)
 
-/proc/RoundUpToPowerOfTwo(var/val)
-	return 2 ** -round(-log(2,val))
+#define RoundUpToPowerOfTwo(val) (2 ** -round(-log(2,val)))
 
 //Returns the cube root of the input number
 /proc/cubert(var/num, var/iterations = 10)
@@ -140,16 +129,14 @@
 		. = (1/3) * (num/(.**2)+2*.)
 
 
-// Old scripting functions used by all over place.
-// Round down
-/proc/n_floor(var/num)
-	if(isnum(num))
-		return round(num)
+// Round up
+#define n_ceil(number) ( (isnum(number)) ? (round(number)+1) : (null))
+
 
 // Round up
-/proc/n_ceil(var/num)
-	if(isnum(num))
-		return round(num)+1
+// /proc/n_ceil(var/num)
+// 	if(isnum(num))
+// 		return round(num)+1
 
 // Round to nearest integer
 /proc/n_round(var/num)
@@ -168,9 +155,6 @@
 // Will filter out extra rotations and negative rotations
 // E.g: 540 becomes 180. -180 becomes 180.
 #define SIMPLIFY_DEGREES(degrees) (MODULUS_FLOAT((degrees), 360))
-
-/// Value or the next multiple of divisor in a positive direction. Ceilm(-1.5, 0.3) = -1.5 , Ceilm(-1.5, 0.4) = -1.2
-#define Ceilm(value, divisor) ( -round(-(value) / (divisor)) * (divisor) )
 
 /**
  * Get a list of turfs in a line from `starting_atom` to `ending_atom`.
