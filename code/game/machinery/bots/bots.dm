@@ -1,7 +1,7 @@
 // AI (i.e. game AI, not the AI player) controlled bots
 
 /obj/machinery/bot
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	layer = MOB_LAYER
 	light_range = 3
 	use_power = POWER_USE_OFF

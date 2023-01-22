@@ -165,6 +165,7 @@
 
 	anchored = 1
 	power_channel = ENVIRON
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/id_tag
 	var/master_tag
@@ -242,6 +243,7 @@
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "access_button_standby"
 	layer = OBJ_LAYER
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	anchored = 1
 	power_channel = ENVIRON

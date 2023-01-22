@@ -7,7 +7,7 @@
 /mob/living/bot/farmbot
 	name = "Farmbot"
 	desc = "The botanist's best friend. Various farming equipment seems haphazardly attached to it."
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "farmbot0"
 	health = 50
 	maxHealth = 50
@@ -176,7 +176,7 @@
 						target = source
 						frustration = 0
 						break
-				
+
 
 /mob/living/bot/farmbot/proc/pathfind(var/atom/A)
 	var/t = get_dir(A, src) // Turf with the tray is impassable, so a* can't navigate directly to it
@@ -324,7 +324,7 @@
 /obj/item/farmbot_arm_assembly
 	name = "water tank/robot arm assembly"
 	desc = "A water tank with a robot arm permanently grafted to it."
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "water_arm"
 	var/build_step = 0
 	var/created_name = "Farmbot"

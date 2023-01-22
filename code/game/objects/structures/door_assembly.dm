@@ -10,7 +10,7 @@
 	density = 1
 	w_class = ITEMSIZE_HUGE
 	build_amt = 4
-	obj_flags = OBJ_FLAG_ROTATABLE
+	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 	var/state = STATE_UNWIRED
 	var/base_icon_state = ""
 	var/base_name = "Airlock"

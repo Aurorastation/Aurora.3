@@ -360,7 +360,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 /obj/item/bucket_sensor
 	name = "proxy bucket"
 	desc = "It's a bucket. With a sensor attached."
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "bucket_proxy"
 	force = 3
 	throwforce = 10

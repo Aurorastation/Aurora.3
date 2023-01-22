@@ -138,6 +138,8 @@
 	var/sprint_temperature_factor = 1.15
 	var/move_charge_factor = 1
 
+	use_alt_hair_layer = TRUE
+
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)

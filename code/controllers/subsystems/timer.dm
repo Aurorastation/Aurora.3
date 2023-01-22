@@ -22,6 +22,7 @@ var/datum/controller/subsystem/timer/SStimer
 	name = "Timer"
 	wait = 1 //SS_TICKER subsystem, so wait is in ticks
 	priority = SS_PRIORITY_TIMER
+	runlevels = RUNLEVELS_PLAYING
 
 	flags = SS_TICKER|SS_NO_INIT
 

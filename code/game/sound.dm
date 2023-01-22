@@ -146,7 +146,7 @@
 		return SPACE
 	else
 		var/area/A = get_area(src)
-		return A.sound_env
+		return A ? A.sound_env : STANDARD_STATION
 
 /mob/living/playsound_get_environment(pressure_factor = 1.0)
 	if (hallucination)
@@ -163,7 +163,7 @@
 		return ..()
 
 /mob/living/carbon/human/playsound_get_environment(pressure_factor = 1.0)
-	if(protected_from_sound())
+	if(get_hearing_protection())
 		return PADDED_CELL
 	return ..()
 
@@ -171,7 +171,7 @@
 	return 1
 
 /mob/living/carbon/human/check_sound_equipment_volume()
-	if(protected_from_sound())
+	if(get_hearing_protection())
 		return 0.6
 	return 1
 

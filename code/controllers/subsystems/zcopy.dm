@@ -11,7 +11,7 @@
 	wait = 1
 	init_order = SS_INIT_ZCOPY
 	priority = SS_PRIORITY_ZCOPY
-	flags = SS_FIRE_IN_LOBBY
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
 	var/list/queued_turfs = list()
 	var/qt_idex = 1

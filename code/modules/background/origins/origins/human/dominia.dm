@@ -6,7 +6,7 @@
 	possible_origins = list(
 		/singleton/origin_item/origin/moroz,
 		/singleton/origin_item/origin/fisanduh,
-		/singleton/origin_item/origin/imperial_core_worlds,
+		/singleton/origin_item/origin/core_worlds,
 		/singleton/origin_item/origin/novi_jadran,
 		/singleton/origin_item/origin/imperial_frontier,
 		/singleton/origin_item/origin/dominian_exile
@@ -15,7 +15,7 @@
 /singleton/origin_item/origin/moroz
 	name = "Moroz"
 	desc = "Morozians represent the peak of Imperial society. They are the nearest to the Emperor, the Goddess, and live upon the Imperial capital planet. But Morozians themselves are not a homogenous group: they are divided between typical Morozians - both Secondaries and Primaries - rebellious Fisanduhians, which still fight to liberate what is left of their mountainous home from the wider Empire, and the nomadic Lyodii that call Moroz's icecaps home."
-	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH, ACCENT_FISANDUH)
+	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH, ACCENT_FISANDUH, ACCENT_DOMINIA_LYODII)
 	possible_citizenships = CITIZENSHIPS_DOMINIA
 	possible_religions = list(RELIGION_MOROZ)
 	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
@@ -30,7 +30,7 @@
 	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
 	origin_traits_descriptions = list("are more acclimatised to the cold.")
 
-/singleton/origin_item/origin/imperial_core_worlds
+/singleton/origin_item/origin/core_worlds
 	name = "Imperial Core Worlds"
 	desc = "The Imperial Core consists of worlds colonized mostly by Morozians with little involvement by Ma'zals such as Sparta, Alterim Obrirava, and Alterim Balteulis. Much of the culture of these planets is shared with the Imperial capital of Moroz, and the pomp-and-circumstance of Dominian noble life is well alive on these worlds as well. Much of the wealth of Dominians living in the Imperial Core has been built off of resources extracted from worlds conquered by the Empire. In the Empire, to be Morozian is to bear a badge of honor - yet with that honor comes an understanding that one must act as a Morozian, and not debase oneself to the level of a Ma'zal."
 	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH)
@@ -57,7 +57,7 @@
 	name = "Dominian Exile"
 	desc = "Made up of the worst of Imperial society, these Edict Breakers and assorted ne'er-do-wells have been banished or fled from the Empire for a variety of reasons. Some are criminals and deserters, others have more noble reasons, such as fleeing due to religious persecution or political oppression. One thing is common among them: they cannot go home again without facing the judgment of the Empire's courts."
 	important_information = "This origin is for the purposes of playing Edict Breakers that have fled the Empire of Dominia's justice. It is <b>NOT</b> an excuse to play a character with a Dominian accent that is totally divorced from the Empire."
-	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH)
+	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_NOVIJADRAN, ACCENT_DOMINIA_FRONTIER, ACCENT_DOMINIA_LYODII)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_MOROZ, RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SHINTO, RELIGION_OTHER)
 	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE) //they're all Morozi anyway

@@ -688,27 +688,21 @@
 			if(G.augment) //augments are handled somewhere else
 				continue
 
-			var/permitted = !G.allowed_roles || (job.title in G.allowed_roles)
-			permitted = permitted && G.check_species_whitelist(H)
-			permitted = permitted && (!G.faction || (G.faction == H.employer_faction || H.employer_faction == "Stellar Corporate Conglomerate"))
-			var/our_culture = text2path(prefs.culture)
-			permitted = permitted && (!G.culture_restriction || (our_culture in G.culture_restriction))
-			var/our_origin = text2path(prefs.origin)
-			permitted = permitted && (!G.origin_restriction || (our_origin in G.origin_restriction))
+			var/metadata
+			var/list/gear_test = prefs.gear[G.display_name]
+			if(gear_test?.len)
+				metadata = gear_test
+			else
+				metadata = list()
 
-			if(!permitted)
-				to_chat(H, "<span class='warning'>Your current job, culture, origin or whitelist status does not permit you to spawn with [thing]!</span>")
+			var/cant_spawn_reason = G.cant_spawn_item_reason(null, metadata, H, job, prefs)
+			if(cant_spawn_reason)
+				to_chat(H, SPAN_WARNING(cant_spawn_reason))
 				continue
 
 			if(G.slot && !(G.slot in custom_equip_slots))
 				// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
-				var/metadata
-				var/list/gear_test = prefs.gear[G.display_name]
-				if(gear_test?.len)
-					metadata = gear_test
-				else
-					metadata = list()
 				var/obj/item/CI = G.spawn_item(null,metadata, H)
 				if (H.equip_to_slot_or_del(CI, G.slot))
 					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
@@ -880,7 +874,8 @@
 /proc/fade_location_blurb(client/C, obj/T)
 	animate(T, alpha = 0, time = 5)
 	sleep(5)
-	C.screen -= T
+	if(C)
+		C.screen -= T
 	qdel(T)
 
 /datum/controller/subsystem/jobs/proc/UniformReturn(mob/living/carbon/human/H, datum/preferences/prefs, datum/job/job)

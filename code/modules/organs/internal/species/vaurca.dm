@@ -16,21 +16,16 @@
 	if(!owner)
 		return
 
-	to_chat(owner, SPAN_WARNING("Your eyes burn with the intense light of the flash!"))
-	disable_night_vision()
-	owner.last_special = world.time + 10 SECONDS
-	owner.Weaken(10)
-	take_damage(rand(10, 11))
-	if(damage > 12)
-		owner.eye_blurry += rand(3,6)
+	. = ..()
 
-	if(damage >= min_broken_damage)
-		owner.sdisabilities |= BLIND
-	else if(damage >= min_bruised_damage)
-		owner.eye_blind = 5
-		owner.eye_blurry = 5
-		owner.disabilities |= NEARSIGHTED
-		addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, reset_nearsighted)), 100)
+	if(. && night_vision)
+		to_chat(owner, SPAN_WARNING("Your eyes burn with the intense light of the flash!"))
+		disable_night_vision()
+		owner.last_special = world.time + 10 SECONDS
+		owner.Weaken(10)
+		take_damage(rand(10, 11))
+		if(damage > 12)
+			owner.eye_blurry += rand(3,6)
 
 /obj/item/organ/internal/eyes/night/vaurca/robotic_check()
 	return TRUE

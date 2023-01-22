@@ -7,6 +7,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "light-p"
 	anchored = 1.0
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/on = 1
 	var/area/area = null
 	var/otherarea = null

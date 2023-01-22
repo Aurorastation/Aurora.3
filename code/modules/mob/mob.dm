@@ -81,6 +81,11 @@
 
 	become_hearing_sensitive()
 
+/mob/proc/set_stat(var/new_stat)
+	. = stat != new_stat
+	if(.)
+		stat = new_stat
+
 /mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
 	if(!client)	return
@@ -318,7 +323,7 @@
 	if(!A)
 		return
 
-	if((is_blind(src) || usr.stat) && !isobserver(src))
+	if((is_blind() || usr.stat) && !isobserver(src))
 		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
 		return 1
 

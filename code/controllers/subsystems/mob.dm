@@ -4,6 +4,7 @@
 	name = "Mobs - Life"
 	init_order = SS_INIT_MISC	// doesn't really matter when we init
 	priority = SS_PRIORITY_MOB
+	runlevels = RUNLEVELS_PLAYING
 
 	var/list/slept = list()
 

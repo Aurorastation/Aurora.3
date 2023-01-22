@@ -34,6 +34,9 @@
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
+	setup_target_type_validators()
+
+/mob/living/simple_animal/hostile/proc/setup_target_type_validators()
 	target_type_validator_map[/mob/living] = CALLBACK(src, PROC_REF(validator_living))
 	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, PROC_REF(validator_bot))
 	target_type_validator_map[/obj/machinery/porta_turret] = CALLBACK(src, PROC_REF(validator_turret))

@@ -144,7 +144,7 @@
 /obj/machinery/chemical_dispenser/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "machinery-chemdisp", 390, 680, ui_title, state = interactive_state)
+		ui = new(user, src, "machinery-chemdisp", 400, 680, ui_title, state = interactive_state)
 	ui.open()
 
 /obj/machinery/chemical_dispenser/Topic(href, href_list)

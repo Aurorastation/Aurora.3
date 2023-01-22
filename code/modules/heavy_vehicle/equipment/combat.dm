@@ -2,7 +2,7 @@
 
 /obj/item/mecha_equipment/mounted_system/combat
 	name = "combat thing"
-	desc = "You shouldn't be seeing this."
+	desc = DESC_PARENT
 	icon_state = "mecha_taser"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)

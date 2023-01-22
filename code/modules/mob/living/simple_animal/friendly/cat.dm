@@ -150,7 +150,7 @@
 
 /mob/living/simple_animal/cat/death()
 	.=..()
-	stat = DEAD
+	set_stat(DEAD)
 
 /mob/living/simple_animal/cat/Life()
 	. = ..()

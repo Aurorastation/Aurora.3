@@ -752,7 +752,7 @@
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
 			if(sleeping)
-				stat = UNCONSCIOUS
+				set_stat(UNCONSCIOUS)
 				if(!sleeping_msg_debounce)
 					sleeping_msg_debounce = TRUE
 					to_chat(src, SPAN_NOTICE(FONT_LARGE("You are now unconscious.<br>You will not remember anything you \"see\" happening around you until you regain consciousness.")))
@@ -778,7 +778,7 @@
 
 		//CONSCIOUS
 		else if(!InStasis())
-			stat = CONSCIOUS
+			set_stat(CONSCIOUS)
 			sleeping_msg_debounce = FALSE
 			willfully_sleeping = FALSE
 
@@ -1412,7 +1412,7 @@
 		if(ear_deaf <= 1 && (sdisabilities & DEAF) && has_hearing_aid())
 			setEarDamage(-1, max(ear_deaf-1, 0))
 
-		if(protected_from_sound())	// resting your ears make them heal faster
+		if(get_hearing_protection())	// resting your ears make them heal faster
 			adjustEarDamage(-0.15, 0)
 			setEarDamage(-1)
 		else if(ear_damage < HEARING_DAMAGE_SLOW_HEAL)	//ear damage heals slowly under this threshold. otherwise you'll need earmuffs

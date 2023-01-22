@@ -43,7 +43,7 @@ var/global/universe_has_ended = 0
 	sound_to(world, ('sound/effects/cascade.ogg'))
 
 	for(var/mob/M in player_list)
-		M.flash_eyes()
+		M.flash_act()
 
 	if(evacuation_controller.cancel_evacuation())
 		priority_announcement.Announce("The evacuation has been aborted due to bluespace distortion.")
@@ -137,8 +137,8 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		if(!istype(M.current,/mob/living))
 			continue
 		if(M.current.stat!=2)
-			M.current.Weaken(10)
-			M.current.flash_eyes()
+			if(M.current.flash_act())
+				M.current.Weaken(10)
 
 		clear_antag_roles(M)
 		CHECK_TICK
