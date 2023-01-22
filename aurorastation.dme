@@ -1031,6 +1031,7 @@
 #include "code\game\objects\items\weapons\circuitboards\machinery\chem_heater.dm"
 #include "code\game\objects\items\weapons\circuitboards\machinery\cloning.dm"
 #include "code\game\objects\items\weapons\circuitboards\machinery\commsantenna.dm"
+#include "code\game\objects\items\weapons\circuitboards\machinery\mech_charger.dm"
 #include "code\game\objects\items\weapons\circuitboards\machinery\mining_drill.dm"
 #include "code\game\objects\items\weapons\circuitboards\machinery\mining_machines.dm"
 #include "code\game\objects\items\weapons\circuitboards\machinery\miscboards.dm"
