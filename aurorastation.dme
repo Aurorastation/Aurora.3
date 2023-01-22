@@ -3296,6 +3296,7 @@
 #include "maps\random_ruins\exoplanets\adhomai\psis_outpost.dm"
 #include "maps\random_ruins\exoplanets\asteroid\asteroid.dm"
 #include "maps\random_ruins\exoplanets\crashed_pod\crashed_pod.dm"
+#include "maps\random_ruins\exoplanets\raskara\pra_exploration_drone.dm"
 #include "maps\random_ruins\exoplanets\raskara\raskara_okon.dm"
 #include "maps\random_ruins\exoplanets\raskara\raskara_ritual.dm"
 #include "maps\random_ruins\exoplanets\raskara\raskara_wreck.dm"

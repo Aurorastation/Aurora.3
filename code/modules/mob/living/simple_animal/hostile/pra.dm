@@ -62,6 +62,8 @@
 
 	simple_default_language = LANGUAGE_SIIK_MAAS
 
+	psi_pingable = FALSE
+
 /mob/living/simple_animal/hostile/republicon/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
@@ -125,3 +127,115 @@
 		projectilesound = 'sound/effects/Explosion1.ogg'
 		rapid = FALSE
 		casingtype = null
+
+/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone
+	name = "hadiist exploration drone"
+	desc = "A reconnaissance drone used by the People's Republic of Adhomai to explore space and collect information on planets."
+
+	icon = 'icons/mob/npc/republicon.dmi'
+	icon_state = "exploration_drone"
+	icon_living = "exploration_drone"
+	icon_dead = "exploration_drone"
+
+	blood_type = COLOR_OIL
+	smart_ranged = TRUE
+	turns_per_move = 3
+	organ_names = list("body", "probes", "antenna")
+
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
+	a_intent = I_HURT
+	stop_automated_movement_when_pulled = 0
+
+	speak_emote = list("beeps")
+	emote_hear = list("buzzes","beeps")
+	speak = list("Hadii's grace, comrades.","The stars belongs to the People's Republic of Adhoomai!", "The quest for knowledge must continue!")
+	emote_see = list("beeps curiously","whirrs softly","scans its surroundings")
+
+	destroy_surroundings = FALSE
+	universal_speak = TRUE
+	universal_understand = TRUE
+
+	mob_size = 3
+
+	health = 100
+	maxHealth = 100
+
+
+	melee_damage_lower = 5
+	melee_damage_upper = 5
+	attacktext = "smashed"
+	attack_sound = 'sound/weapons/genhit1.ogg'
+
+	speed = 1
+	ranged = TRUE
+	projectiletype = /obj/item/projectile/beam/pistol
+	projectilesound = 'sound/weapons/laser1.ogg'
+
+
+	emote_see = list("examines","hovers","blinks")
+
+	min_oxy = 0
+	max_oxy = 0
+	min_tox = 0
+	max_tox = 0
+	min_co2 = 0
+	max_co2 = 0
+	min_n2 = 0
+	max_n2 = 0
+	minbodytemp = 0
+
+
+	faction = "PRA"
+
+	tameable = FALSE
+	flying = TRUE
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
+	emote_sounds = list('sound/effects/creatures/PRA_drone.ogg')
+
+	var/datum/effect_system/ion_trail/ion_trail
+
+/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/Allow_Spacemove(var/check_drift = 0)
+	return TRUE
+
+/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/isSynthetic()
+	return TRUE
+
+/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/get_bullet_impact_effect_type(var/def_zone)
+	return BULLET_IMPACT_METAL
+
+/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/death()
+	..(null, "blows apart!")
+	var/T = get_turf(src)
+	new /obj/effect/gibspawner/robot(T)
+	spark(T, 1, alldirs)
+	qdel(src)
+
+/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/Initialize()
+	. = ..()
+
+	set_light(1.2, 3, LIGHT_COLOR_RED)
+
+	ion_trail = new(src)
+	ion_trail.start()
+
+/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/Destroy()
+	QDEL_NULL(ion_trail)
+	return ..()
+
+/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/FoundTarget()
+	if(!ishuman(target_mob))
+		say("Hostile xenofauna detected!")
+	else if(istajara(target_mob))
+		say("Subversive element detected!")
+	else
+		say("Foreign invader detected!")
+	playsound(src, 'sound/effects/creatures/PRA_drone_aggro.ogg', 75, 1)
+	return
+
+/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/LostTarget()
+	say("Returning to data gathering.")
+	return

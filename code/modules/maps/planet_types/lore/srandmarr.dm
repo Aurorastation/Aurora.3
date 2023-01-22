@@ -6,10 +6,11 @@
 	rock_colors = list(COLOR_GRAY80)
 	possible_themes = list(/datum/exoplanet_theme/mountains)
 	map_generators = list(/datum/random_map/noise/exoplanet/barren, /datum/random_map/noise/ore)
-	features_budget = 2
+	features_budget = 1
 	surface_color = "#B1A69B"
 	generated_name = FALSE
 	ring_chance = 0
+	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/generate_atmosphere()
 	..()
@@ -31,10 +32,11 @@
 	rock_colors = list("#4a3f41")
 	possible_themes = list(/datum/exoplanet_theme/mountains)
 	map_generators = list(/datum/random_map/noise/exoplanet/barren, /datum/random_map/noise/ore)
-	features_budget = 2
+	features_budget = 1
 	surface_color = "#4a3f41"
 	generated_name = FALSE
 	ring_chance = 0
+	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/get_surface_color()
 	return "#4a3f41"
@@ -69,7 +71,7 @@
 	surface_color = "#373737"
 	generated_name = FALSE
 	ring_chance = 0
-	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/raskara_ritual, /datum/map_template/ruin/exoplanet/raskara_okon, /datum/map_template/ruin/exoplanet/raskara_wreck)
+	possible_random_ruins = list (/datum/map_template/ruin/exoplanet/raskara_ritual, /datum/map_template/ruin/exoplanet/raskara_okon, /datum/map_template/ruin/exoplanet/raskara_wreck, /datum/map_template/ruin/exoplanet/pra_exploration_drone)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/get_surface_color()
 	return "#373737"
