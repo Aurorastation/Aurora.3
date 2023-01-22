@@ -1874,7 +1874,7 @@
 	pixel_x = 24;
 	req_access = list(113)
 	},
-/mob/living/heavy_vehicle/premade/ripley/loader/sol/fucked,
+/mob/living/heavy_vehicle/premade/ripley/loader/sol/damaged,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Ammo_Closet)
 "hnw" = (
