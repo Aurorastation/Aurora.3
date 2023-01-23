@@ -33,23 +33,23 @@
 			var/obj/machinery/door/firedoor/FD = target
 			if(FD.blocked)
 				FD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [FD]!"))
-				if(do_after(user, 10 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, FD, FD.loc)) && FD.blocked)
+				if(do_after(user, 10 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), FD, FD.loc)) && FD.blocked)
 					playsound(FD, 'sound/effects/meteorimpact.ogg', 100, 1)
 					playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
 					FD.blocked = FALSE
-					INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/open)
+					INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/machinery/door/firedoor, open))
 					FD.visible_message(SPAN_WARNING("\The [owner] tears \the [FD] open!"))
 			else
 				FD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [FD]!"))
-				if(do_after(user, 4 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, FD, FD.loc)) && !FD.blocked)
+				if(do_after(user, 4 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), FD, FD.loc)) && !FD.blocked)
 					if(FD.density)
 						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] open!"))
 						playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
-						INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/open)
+						INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/machinery/door/firedoor, open))
 					else
 						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] closed!"))
 						playsound(FD, 'sound/machines/airlock_close_force.ogg', 100, 1)
-						INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/close)
+						INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/machinery/door/firedoor, close))
 			return
 		else if(istype(target, /obj/machinery/door/airlock))
 			if(istype(target, /obj/machinery/door/airlock/centcom))
@@ -62,23 +62,23 @@
 					var/time_to_open = 15 SECONDS
 					if(AD.welded && AD.locked)
 						time_to_open = 30 SECONDS
-					if(do_after(user, time_to_open, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, AD, AD.loc)))
+					if(do_after(user, time_to_open, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), AD, AD.loc)))
 						AD.welded = FALSE
 						AD.locked = FALSE
 						AD.update_icon()
 						playsound(AD, 'sound/effects/meteorimpact.ogg', 100, 1)
 						playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
 						AD.visible_message(SPAN_WARNING("\The [owner] tears \the [AD] open!"))
-						INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/open)
+						INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open))
 				else
 					AD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [AD]!"))
-					if(do_after(user, 5 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, AD, AD.loc)) && !(AD.operating || AD.welded || AD.locked))
+					if(do_after(user, 5 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), AD, AD.loc)) && !(AD.operating || AD.welded || AD.locked))
 						if(AD.density)
-							INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/open)
+							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open))
 							playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
 							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] open!"))
 						else
-							INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/close)
+							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, close))
 							playsound(AD, 'sound/machines/airlock_close_force.ogg', 100, 1)
 							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] closed!"))
 			return
@@ -100,7 +100,7 @@
 
 
 			owner.visible_message(SPAN_NOTICE("\The [owner] begins loading \the [O]."), intent_message = MACHINE_SOUND)
-			if(do_after(user, 2 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, O, O.loc)))
+			if(do_after(user, 2 SECONDS, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), O, O.loc)))
 				O.forceMove(src)
 				carrying += O
 				owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [O] into its cargo compartment."))
@@ -378,7 +378,7 @@
 		//Better materials = faster drill!
 		var/delay = max(5, 20 - drill_head.material.protectiveness)
 		owner.setClickCooldown(delay) //Don't spamclick!
-		if(do_after(user, delay, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, .proc/atom_maintain_position, target, target.loc)) && drill_head)
+		if(do_after(user, delay, act_target = owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), target, target.loc)) && drill_head)
 			if(src == owner.selected_system)
 				if(drill_head.durability <= 0)
 					drill_head.shatter()
@@ -465,7 +465,7 @@
 	if(proj < 1) return null
 	var/obj/item/device/flashlight/flare/mech/g = new (src)
 	proj--
-	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(regen_proj)), proj_gen_time, TIMER_UNIQUE)
 	return g
 
 /obj/item/device/flashlight/flare/mech/Initialize()

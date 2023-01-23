@@ -12,7 +12,7 @@
 
 /datum/hallucination/mindread/activate()
 	..()
-	addtimer(CALLBACK(src, .proc/mind_give), rand(30, 50))
+	addtimer(CALLBACK(src, PROC_REF(mind_give)), rand(30, 50))
 
 //set duration, foreshadow powers
 /datum/hallucination/mindread/start()
@@ -25,7 +25,7 @@
 		if(2)
 			sound_to(holder, 'sound/hallucinations/behind_you1.ogg')
 			to_chat(holder, SPAN_GOOD("You hear a whispering in your mind. A promise of [pick("power", "enlightenment", "sight beyond sight", "knowledge terrible but true")]. Your vision goes white for a moment; when it returns, you feel... different."))
-			holder.flash_eyes()
+			holder.flash_act(ignore_inherent = TRUE)
 		if(3)
 			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
 			holder.visible_message("<b>[holder]</b> winces.")
@@ -100,7 +100,7 @@
 
 /datum/hallucination/telepathy/activate()
 	..()
-	addtimer(CALLBACK(src, .proc/tele_give), rand(30, 50))
+	addtimer(CALLBACK(src, PROC_REF(tele_give)), rand(30, 50))
 
 /datum/hallucination/telepathy/start()
 	duration = rand(2, 4) MINUTES
@@ -112,7 +112,7 @@
 		if(2)
 			sound_to(holder, 'sound/hallucinations/behind_you1.ogg')
 			to_chat(holder, SPAN_GOOD("You hear a whispering in your mind. A promise of [pick("power", "enlightenment", "sight beyond sight", "knowledge terrible but true")]. Your vision goes white for a moment; when it returns, you feel... different."))
-			holder.flash_eyes()
+			holder.flash_act(ignore_inherent = TRUE)
 		if(3)
 			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
 			holder.visible_message("<b>[holder]</b> winces.")

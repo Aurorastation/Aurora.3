@@ -2,7 +2,7 @@
 /obj/effect/spresent
 	name = "strange present"
 	desc = "It's a ... present?"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "strangepresent"
 	density = 1
 	anchored = 0
@@ -51,7 +51,7 @@
 	delay = build_delay // so the variables transfer over between procs.
 	status = mode
 	if(status == 3)
-		addtimer(CALLBACK(src, /atom/.proc/update_icon), 11)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 11)
 		delay -= 11
 		icon_state = "rfd_end_reverse"
 	else
@@ -73,7 +73,7 @@
 		end()
 	else
 		icon_state = "rfd_end"
-		addtimer(CALLBACK(src, .proc/end), 15)
+		addtimer(CALLBACK(src, PROC_REF(end)), 15)
 
 /obj/effect/constructing_effect/proc/end()
 	qdel(src)

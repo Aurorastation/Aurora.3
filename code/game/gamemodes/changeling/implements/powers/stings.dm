@@ -85,7 +85,7 @@
 /datum/changeling_sting/hallucinate/do_sting(mob/living/target)
 	..()
 	if(target.reagents)
-		addtimer(target.reagents.add_reagent(/decl/reagent/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
+		addtimer(target.reagents.add_reagent(/singleton/reagent/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
 
 /mob/proc/changeling_silence_sting()
 	set category = "Changeling"
@@ -119,7 +119,7 @@
 	target.disabilities |= NEARSIGHTED
 	target.eye_blind = 10
 	target.eye_blurry = 20
-	addtimer(CALLBACK(target, /mob.proc/remove_nearsighted), 30 SECONDS)
+	addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, remove_nearsighted)), 30 SECONDS)
 
 /mob/proc/changeling_deaf_sting()
 	set category = "Changeling"
@@ -136,7 +136,7 @@
 	..()
 	to_chat(target, SPAN_DANGER("Your ears pop and begin ringing loudly!"))
 	target.sdisabilities |= DEAF
-	addtimer(CALLBACK(target, /mob.proc/remove_deaf), 30 SECONDS)
+	addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, remove_deaf)), 30 SECONDS)
 
 /mob/proc/changeling_paralysis_sting()
 	set category = "Changeling"
@@ -228,7 +228,7 @@
 	target.Paralyse(10)
 	target.make_jittery(1000)
 	if(target.reagents)
-		target.reagents.add_reagent(/decl/reagent/toxin/cyanide, 5)
+		target.reagents.add_reagent(/singleton/reagent/toxin/cyanide, 5)
 
 /mob/proc/changeling_extract_dna_sting()
 	set category = "Changeling"

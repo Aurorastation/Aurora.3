@@ -86,7 +86,7 @@
 
 	if(stat != DEAD)
 		if(paralysis || stunned || weakened || !has_power) //Stunned etc.
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 			if(stunned > 0)
 				AdjustStunned(-1)
 			if(weakened > 0)
@@ -98,11 +98,11 @@
 				blinded = FALSE
 
 		else //Not stunned.
-			stat = CONSCIOUS
+			set_stat(CONSCIOUS)
 
 	else //Dead.
 		blinded = TRUE
-		stat = DEAD
+		set_stat(DEAD)
 
 	if(stuttering)
 		stuttering--
@@ -135,10 +135,8 @@
 		uneq_all()
 
 	if(common_radio)
-		if(!is_component_functioning("radio"))
-			common_radio.set_on(FALSE)
-		else
-			common_radio.set_on(TRUE)
+		if(common_radio.is_on() != is_component_functioning("radio"))
+			common_radio.set_on(!common_radio.is_on())
 
 	if(is_component_functioning("camera"))
 		blinded = FALSE

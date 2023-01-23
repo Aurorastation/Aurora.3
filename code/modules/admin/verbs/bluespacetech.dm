@@ -117,8 +117,8 @@
 	bst.add_language(LANGUAGE_CHANGELING)
 	bst.add_language(LANGUAGE_BORER)
 
-	addtimer(CALLBACK(src, .proc/bst_post_spawn, bst), 5)
-	addtimer(CALLBACK(src, .proc/bst_spawn_cooldown), 5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(bst_post_spawn), bst), 5)
+	addtimer(CALLBACK(src, PROC_REF(bst_spawn_cooldown)), 5 SECONDS)
 
 	log_debug("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
 

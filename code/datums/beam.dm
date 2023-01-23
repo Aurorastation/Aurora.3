@@ -34,7 +34,7 @@
 	icon_state = beam_icon_state
 	beam_type = btype
 	if(time != -1)
-		addtimer(CALLBACK(src,.proc/End), time)
+		addtimer(CALLBACK(src, PROC_REF(End), time))
 
 /datum/beam/proc/Start()
 	recalculate()
@@ -64,12 +64,12 @@
 	return
 
 /datum/beam/proc/recalculate_in(time)
-	timing_id = addtimer(CALLBACK(src, .proc/recalculate), time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
+	timing_id = addtimer(CALLBACK(src, PROC_REF(recalculate)), time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
 
 /datum/beam/proc/after_calculate()
 	if((sleep_time == null) || finished)	//Does not automatically recalculate.
 		return
-	timing_id = addtimer(CALLBACK(src, .proc/recalculate), sleep_time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
+	timing_id = addtimer(CALLBACK(src, PROC_REF(recalculate)), sleep_time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
 /datum/beam/proc/End(destroy_self = TRUE)
 	finished = TRUE
@@ -209,5 +209,5 @@
 		crash_with("Tried to create beam with infinite time!")
 		return null
 	var/datum/beam/newbeam = new beam_datum_type(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type,beam_sleep_time)
-	INVOKE_ASYNC(newbeam, /datum/beam/.proc/Start)
+	INVOKE_ASYNC(newbeam, TYPE_PROC_REF(/datum/beam, Start))
 	return newbeam

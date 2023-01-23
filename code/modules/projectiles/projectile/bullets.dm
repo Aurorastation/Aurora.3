@@ -151,6 +151,7 @@
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
 	damage = 55
+	armor_penetration = 5
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
@@ -213,7 +214,7 @@
 
 /obj/item/projectile/bullet/rifle/a556
 	damage = 30
-	armor_penetration = 26
+	armor_penetration = 28
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a556/ap
@@ -222,8 +223,8 @@
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a556/polymer
-	damage = 24
-	armor_penetration = 32
+	damage = 25
+	armor_penetration = 34
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a145
@@ -289,14 +290,14 @@
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
-						if(L.reagents)	L.reagents.add_reagent(/decl/reagent/soporific, 10)
+						if(L.reagents)	L.reagents.add_reagent(/singleton/reagent/soporific, 10)
 				if(def_zone == BP_HEAD && blocked < 100)
-					if(L.reagents)	L.reagents.add_reagent(/decl/reagent/soporific, 15)
+					if(L.reagents)	L.reagents.add_reagent(/singleton/reagent/soporific, 15)
 				if(def_zone != "torso" && def_zone != BP_HEAD)
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
-						if(L.reagents)	L.reagents.add_reagent(/decl/reagent/soporific, 5)
+						if(L.reagents)	L.reagents.add_reagent(/singleton/reagent/soporific, 5)
 
 	if(isanimal(target))
 		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
@@ -431,10 +432,10 @@
 	name = "anti-tank warhead"
 	icon_state = "missile"
 	damage = 30
-	anti_materiel_potential = 3
+	armor_penetration = 30
+	anti_materiel_potential = 4
 	embed = FALSE
 	penetrating = FALSE
-	armor_penetration = 10
 	var/heavy_impact_range = 1
 
 /obj/item/projectile/bullet/recoilless_rifle/on_impact(var/atom/A)
@@ -444,6 +445,8 @@
 /obj/item/projectile/bullet/recoilless_rifle/peac
 	name = "anti-tank missile"
 	icon_state = "peac"
-	damage = 45
+	damage = 25
+	armor_penetration = 35
+	anti_materiel_potential = 6
 	penetrating = TRUE
 	heavy_impact_range = -1

@@ -146,7 +146,7 @@
 		return SPACE
 	else
 		var/area/A = get_area(src)
-		return A.sound_env
+		return A ? A.sound_env : STANDARD_STATION
 
 /mob/living/playsound_get_environment(pressure_factor = 1.0)
 	if (hallucination)
@@ -163,7 +163,7 @@
 		return ..()
 
 /mob/living/carbon/human/playsound_get_environment(pressure_factor = 1.0)
-	if(protected_from_sound())
+	if(get_hearing_protection())
 		return PADDED_CELL
 	return ..()
 
@@ -171,7 +171,7 @@
 	return 1
 
 /mob/living/carbon/human/check_sound_equipment_volume()
-	if(protected_from_sound())
+	if(get_hearing_protection())
 		return 0.6
 	return 1
 
@@ -242,21 +242,21 @@
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
 
 /proc/get_sfx(var/sound_category)
-	var/decl/sound_category/SC = decls_repository.get_decl(sound_category)
+	var/singleton/sound_category/SC = GET_SINGLETON(sound_category)
 	if(!istype(SC))
 		CRASH("Non-decl path in get_sfx: [sound_category]")
 	return SC.get_sound()
 
-/decl/sound_category
+/singleton/sound_category
 	var/list/sounds = list()
 
-/decl/sound_category/proc/get_sound()
+/singleton/sound_category/proc/get_sound()
 	return pick(sounds)
 
-/decl/sound_category/blank_footsteps
+/singleton/sound_category/blank_footsteps
 	sounds = list('sound/effects/footstep/blank.ogg')
 
-/decl/sound_category/catwalk_footstep
+/singleton/sound_category/catwalk_footstep
 	sounds = list(
 		'sound/effects/footstep/catwalk1.ogg',
 		'sound/effects/footstep/catwalk2.ogg',
@@ -265,7 +265,7 @@
 		'sound/effects/footstep/catwalk5.ogg'
 	)
 
-/decl/sound_category/wood_footstep
+/singleton/sound_category/wood_footstep
 	sounds = list(
 		'sound/effects/footstep/wood1.ogg',
 		'sound/effects/footstep/wood2.ogg',
@@ -274,7 +274,7 @@
 		'sound/effects/footstep/wood5.ogg'
 	)
 
-/decl/sound_category/tiles_footstep
+/singleton/sound_category/tiles_footstep
 	sounds = list(
 		'sound/effects/footstep/floor1.ogg',
 		'sound/effects/footstep/floor2.ogg',
@@ -283,7 +283,7 @@
 		'sound/effects/footstep/floor5.ogg'
 	)
 
-/decl/sound_category/plating_footstep
+/singleton/sound_category/plating_footstep
 	sounds = list(
 		'sound/effects/footstep/plating1.ogg',
 		'sound/effects/footstep/plating2.ogg',
@@ -292,7 +292,7 @@
 		'sound/effects/footstep/plating5.ogg'
 	)
 
-/decl/sound_category/carpet_footstep
+/singleton/sound_category/carpet_footstep
 	sounds = list(
 		'sound/effects/footstep/carpet1.ogg',
 		'sound/effects/footstep/carpet2.ogg',
@@ -301,7 +301,7 @@
 		'sound/effects/footstep/carpet5.ogg'
 	)
 
-/decl/sound_category/asteroid_footstep
+/singleton/sound_category/asteroid_footstep
 	sounds = list(
 		'sound/effects/footstep/asteroid1.ogg',
 		'sound/effects/footstep/asteroid2.ogg',
@@ -310,7 +310,7 @@
 		'sound/effects/footstep/asteroid5.ogg'
 	)
 
-/decl/sound_category/grass_footstep
+/singleton/sound_category/grass_footstep
 	sounds = list(
 		'sound/effects/footstep/grass1.ogg',
 		'sound/effects/footstep/grass2.ogg',
@@ -318,7 +318,7 @@
 		'sound/effects/footstep/grass4.ogg'
 	)
 
-/decl/sound_category/water_footstep
+/singleton/sound_category/water_footstep
 	sounds = list(
 		'sound/effects/footstep/water1.ogg',
 		'sound/effects/footstep/water2.ogg',
@@ -326,14 +326,14 @@
 		'sound/effects/footstep/water4.ogg'
 	)
 
-/decl/sound_category/lava_footstep
+/singleton/sound_category/lava_footstep
 	sounds = list(
 		'sound/effects/footstep/lava1.ogg',
 		'sound/effects/footstep/lava2.ogg',
 		'sound/effects/footstep/lava3.ogg'
 	)
 
-/decl/sound_category/snow_footstep
+/singleton/sound_category/snow_footstep
 	sounds = list(
 		'sound/effects/footstep/snow1.ogg',
 		'sound/effects/footstep/snow2.ogg',
@@ -342,7 +342,7 @@
 		'sound/effects/footstep/snow5.ogg'
 	)
 
-/decl/sound_category/sand_footstep
+/singleton/sound_category/sand_footstep
 	sounds = list(
 		'sound/effects/footstep/sand1.ogg',
 		'sound/effects/footstep/sand2.ogg',
@@ -350,34 +350,34 @@
 		'sound/effects/footstep/sand4.ogg'
 	)
 
-/decl/sound_category/glass_break_sound
+/singleton/sound_category/glass_break_sound
 	sounds = list(
 		'sound/effects/glass_break1.ogg',
 		'sound/effects/glass_break2.ogg',
 		'sound/effects/glass_break3.ogg'
 	)
 
-/decl/sound_category/cardboard_break_sound
+/singleton/sound_category/cardboard_break_sound
 	sounds = list(
 		'sound/effects/cardboard_break1.ogg',
 		'sound/effects/cardboard_break2.ogg',
 		'sound/effects/cardboard_break3.ogg',
 	)
 
-/decl/sound_category/wood_break_sound
+/singleton/sound_category/wood_break_sound
 	sounds = list(
 		'sound/effects/wood_break1.ogg',
 		'sound/effects/wood_break2.ogg',
 		'sound/effects/wood_break3.ogg'
 	)
 
-/decl/sound_category/explosion_sound
+/singleton/sound_category/explosion_sound
 	sounds = list(
 		'sound/effects/Explosion1.ogg',
 		'sound/effects/Explosion2.ogg'
 	)
 
-/decl/sound_category/spark_sound
+/singleton/sound_category/spark_sound
 	sounds = list(
 		'sound/effects/sparks1.ogg',
 		'sound/effects/sparks2.ogg',
@@ -385,7 +385,7 @@
 		'sound/effects/sparks4.ogg'
 	)
 
-/decl/sound_category/rustle_sound
+/singleton/sound_category/rustle_sound
 	sounds = list(
 		'sound/items/storage/rustle1.ogg',
 		'sound/items/storage/rustle2.ogg',
@@ -394,7 +394,7 @@
 		'sound/items/storage/rustle5.ogg'
 	)
 
-/decl/sound_category/punch_sound
+/singleton/sound_category/punch_sound
 	sounds = list(
 		'sound/weapons/punch1.ogg',
 		'sound/weapons/punch2.ogg',
@@ -402,7 +402,7 @@
 		'sound/weapons/punch4.ogg'
 	)
 
-/decl/sound_category/punch_bassy_sound
+/singleton/sound_category/punch_bassy_sound
 	sounds = list(
 		'sound/weapons/punch1_bass.ogg',
 		'sound/weapons/punch2_bass.ogg',
@@ -410,20 +410,20 @@
 		'sound/weapons/punch4_bass.ogg'
 	)
 
-/decl/sound_category/punchmiss_sound
+/singleton/sound_category/punchmiss_sound
 	sounds = list(
 		'sound/weapons/punchmiss1.ogg',
 		'sound/weapons/punchmiss2.ogg'
 	)
 
-/decl/sound_category/swing_hit_sound
+/singleton/sound_category/swing_hit_sound
 	sounds = list(
 		'sound/weapons/genhit1.ogg',
 		'sound/weapons/genhit2.ogg',
 		'sound/weapons/genhit3.ogg'
 	)
 
-/decl/sound_category/hiss_sound
+/singleton/sound_category/hiss_sound
 	sounds = list(
 		'sound/voice/hiss1.ogg',
 		'sound/voice/hiss2.ogg',
@@ -431,14 +431,14 @@
 		'sound/voice/hiss4.ogg'
 	)
 
-/decl/sound_category/page_sound
+/singleton/sound_category/page_sound
 	sounds = list(
 		'sound/effects/pageturn1.ogg',
 		'sound/effects/pageturn2.ogg',
 		'sound/effects/pageturn3.ogg'
 	)
 
-/decl/sound_category/fracture_sound
+/singleton/sound_category/fracture_sound
 	sounds = list(
 		'sound/effects/bonebreak1.ogg',
 		'sound/effects/bonebreak2.ogg',
@@ -446,7 +446,7 @@
 		'sound/effects/bonebreak4.ogg'
 	)
 
-/decl/sound_category/button_sound
+/singleton/sound_category/button_sound
 	sounds = list(
 		'sound/machines/button1.ogg',
 		'sound/machines/button2.ogg',
@@ -454,7 +454,7 @@
 		'sound/machines/button4.ogg'
 	)
 
-/decl/sound_category/computerbeep_sound
+/singleton/sound_category/computerbeep_sound
 	sounds = list(
 		'sound/machines/compbeep1.ogg',
 		'sound/machines/compbeep2.ogg',
@@ -463,7 +463,7 @@
 		'sound/machines/compbeep5.ogg'
 	)
 
-/decl/sound_category/switch_sound
+/singleton/sound_category/switch_sound
 	sounds = list(
 		'sound/machines/switch1.ogg',
 		'sound/machines/switch2.ogg',
@@ -471,7 +471,7 @@
 		'sound/machines/switch4.ogg'
 	)
 
-/decl/sound_category/keyboard_sound
+/singleton/sound_category/keyboard_sound
 	sounds = list(
 		'sound/machines/keyboard/keyboard1.ogg',
 		'sound/machines/keyboard/keyboard2.ogg',
@@ -480,7 +480,7 @@
 		'sound/machines/keyboard/keyboard5.ogg'
 	)
 
-/decl/sound_category/pickaxe_sound
+/singleton/sound_category/pickaxe_sound
 	sounds = list(
 		'sound/weapons/mine/pickaxe1.ogg',
 		'sound/weapons/mine/pickaxe2.ogg',
@@ -488,7 +488,7 @@
 		'sound/weapons/mine/pickaxe4.ogg'
 	)
 
-/decl/sound_category/glasscrack_sound
+/singleton/sound_category/glasscrack_sound
 	sounds = list(
 		'sound/effects/glass_crack1.ogg',
 		'sound/effects/glass_crack2.ogg',
@@ -496,7 +496,7 @@
 		'sound/effects/glass_crack4.ogg'
 	)
 
-/decl/sound_category/bodyfall_sound
+/singleton/sound_category/bodyfall_sound
 	sounds = list(
 		'sound/effects/bodyfall1.ogg',
 		'sound/effects/bodyfall2.ogg',
@@ -504,7 +504,7 @@
 		'sound/effects/bodyfall4.ogg'
 	)
 
-/decl/sound_category/bodyfall_skrell_sound
+/singleton/sound_category/bodyfall_skrell_sound
 	sounds = list(
 		'sound/effects/bodyfall_skrell1.ogg',
 		'sound/effects/bodyfall_skrell2.ogg',
@@ -512,19 +512,19 @@
 		'sound/effects/bodyfall_skrell4.ogg'
 	)
 
-/decl/sound_category/bodyfall_machine_sound
+/singleton/sound_category/bodyfall_machine_sound
 	sounds = list(
 		'sound/effects/bodyfall_machine1.ogg',
 		'sound/effects/bodyfall_machine2.ogg'
 	)
-/decl/sound_category/bulletflyby_sound
+/singleton/sound_category/bulletflyby_sound
 		sounds = list(
 		'sound/effects/bulletflyby1.ogg',
 		'sound/effects/bulletflyby2.ogg',
 		'sound/effects/bulletflyby3.ogg'
 	)
 
-/decl/sound_category/crowbar_sound
+/singleton/sound_category/crowbar_sound
 	sounds = list(
 		'sound/items/crowbar1.ogg',
 		'sound/items/crowbar2.ogg',
@@ -532,7 +532,7 @@
 		'sound/items/crowbar4.ogg'
 	)
 
-/decl/sound_category/casing_drop_sound
+/singleton/sound_category/casing_drop_sound
 	sounds = list(
 		'sound/items/drop/casing1.ogg',
 		'sound/items/drop/casing2.ogg',
@@ -560,7 +560,7 @@
 		'sound/items/drop/casing25.ogg'
 	)
 
-/decl/sound_category/casing_drop_sound_shotgun
+/singleton/sound_category/casing_drop_sound_shotgun
 	sounds = list(
 		'sound/items/drop/casing_shotgun1.ogg',
 		'sound/items/drop/casing_shotgun2.ogg',
@@ -569,7 +569,7 @@
 		'sound/items/drop/casing_shotgun5.ogg'
 	)
 
-/decl/sound_category/out_of_ammo
+/singleton/sound_category/out_of_ammo
 	sounds = list(
 		'sound/weapons/empty/empty2.ogg',
 		'sound/weapons/empty/empty3.ogg',
@@ -578,24 +578,24 @@
 		'sound/weapons/empty/empty6.ogg'
 	)
 
-/decl/sound_category/out_of_ammo_revolver
+/singleton/sound_category/out_of_ammo_revolver
 	sounds = list(
 		'sound/weapons/empty/empty_revolver.ogg',
 		'sound/weapons/empty/empty_revolver3.ogg'
 	)
 
-/decl/sound_category/out_of_ammo_rifle
+/singleton/sound_category/out_of_ammo_rifle
 	sounds = list(
 		'sound/weapons/empty/empty_rifle1.ogg',
 		'sound/weapons/empty/empty_rifle2.ogg'
 	)
 
-/decl/sound_category/out_of_ammo_shotgun
+/singleton/sound_category/out_of_ammo_shotgun
 	sounds = list(
 		'sound/weapons/empty/empty_shotgun1.ogg'
 	)
 
-/decl/sound_category/metal_slide_reload
+/singleton/sound_category/metal_slide_reload
 	sounds = list(
 		'sound/weapons/reloads/pistol_metal_slide1.ogg',
 		'sound/weapons/reloads/pistol_metal_slide2.ogg',
@@ -605,14 +605,14 @@
 		'sound/weapons/reloads/pistol_metal_slide6.ogg'
 	)
 
-/decl/sound_category/polymer_slide_reload
+/singleton/sound_category/polymer_slide_reload
 	sounds = list(
 		'sound/weapons/reloads/pistol_polymer_slide1.ogg',
 		'sound/weapons/reloads/pistol_polymer_slide2.ogg',
 		'sound/weapons/reloads/pistol_polymer_slide3.ogg'
 	)
 
-/decl/sound_category/rifle_slide_reload
+/singleton/sound_category/rifle_slide_reload
 	sounds = list(
 		'sound/weapons/reloads/rifle_slide.ogg',
 		'sound/weapons/reloads/rifle_slide2.ogg',
@@ -625,11 +625,11 @@
 		'sound/weapons/reloads/rifle_slide9.ogg'
 	)
 
-/decl/sound_category/revolver_reload
+/singleton/sound_category/revolver_reload
 	sounds = list(
 		'sound/weapons/reloads/revolver_reload.ogg'
 	)
-/decl/sound_category/shotgun_pump
+/singleton/sound_category/shotgun_pump
 	sounds = list(
 		'sound/weapons/reloads/shotgun_pump2.ogg',
 		'sound/weapons/reloads/shotgun_pump3.ogg',
@@ -638,7 +638,7 @@
 		'sound/weapons/reloads/shotgun_pump6.ogg'
 	)
 
-/decl/sound_category/shotgun_reload
+/singleton/sound_category/shotgun_reload
 	sounds = list(
 		'sound/weapons/reloads/reload_shell.ogg',
 		'sound/weapons/reloads/reload_shell2.ogg',
@@ -646,87 +646,87 @@
 		'sound/weapons/reloads/reload_shell4.ogg'
 	)
 
-/decl/sound_category/heavy_machine_gun_reload
+/singleton/sound_category/heavy_machine_gun_reload
 	sounds = list(
 		'sound/weapons/reloads/hmg_reload1.ogg',
 		'sound/weapons/reloads/hmg_reload2.ogg',
 		'sound/weapons/reloads/hmg_reload3.ogg'
 	)
-/decl/sound_category/drillhit_sound
+/singleton/sound_category/drillhit_sound
 	sounds = list(
 		'sound/weapons/saw/drillhit1.ogg',
 		'sound/weapons/saw/drillhit2.ogg'
 	)
 
-/decl/sound_category/generic_drop_sound
+/singleton/sound_category/generic_drop_sound
 	sounds = list(
 		'sound/items/drop/generic1.ogg',
 		'sound/items/drop/generic2.ogg'
 	)
-/decl/sound_category/generic_pickup_sound
+/singleton/sound_category/generic_pickup_sound
 	sounds = list(
 		'sound/items/pickup/generic1.ogg',
 		'sound/items/pickup/generic2.ogg',
 		'sound/items/pickup/generic3.ogg'
 	)
-/decl/sound_category/generic_wield_sound
+/singleton/sound_category/generic_wield_sound
 	sounds = list(
 		'sound/items/wield/generic1.ogg',
 		'sound/items/wield/generic2.ogg',
 		'sound/items/wield/generic3.ogg'
 	)
 
-/decl/sound_category/generic_pour_sound
+/singleton/sound_category/generic_pour_sound
 	sounds = list(
 		'sound/effects/pour1.ogg',
 		'sound/effects/pour2.ogg'
 	)
 
-/decl/sound_category/wield_generic_sound
+/singleton/sound_category/wield_generic_sound
 	sounds = list(
 		'sound/items/wield/generic1.ogg',
 		'sound/items/wield/generic2.ogg',
 		'sound/items/wield/generic3.ogg'
 	)
 
-/decl/sound_category/sword_pickup_sound
+/singleton/sound_category/sword_pickup_sound
 	sounds = list(
 		'sound/items/pickup/sword1.ogg',
 		'sound/items/pickup/sword2.ogg',
 		'sound/items/pickup/sword3.ogg'
 	)
 
-/decl/sound_category/sword_equip_sound
+/singleton/sound_category/sword_equip_sound
 	sounds = list(
 		'sound/items/equip/sword1.ogg',
 		'sound/items/equip/sword2.ogg'
 	)
 
-/decl/sound_category/gauss_fire_sound
+/singleton/sound_category/gauss_fire_sound
 	sounds = list(
 		'sound/weapons/gaussrifle1.ogg',
 		'sound/weapons/gaussrifle2.ogg'
 	)
 
-/decl/sound_category/bottle_hit_intact_sound
+/singleton/sound_category/bottle_hit_intact_sound
 	sounds = list(
 		'sound/weapons/bottlehit_intact1.ogg',
 		'sound/weapons/bottlehit_intact2.ogg',
 		'sound/weapons/bottlehit_intact3.ogg'
 	)
-/decl/sound_category/bottle_hit_broken
+/singleton/sound_category/bottle_hit_broken
 	sounds = list(
 		'sound/weapons/bottlehit_broken1.ogg',
 		'sound/weapons/bottlehit_broken2.ogg',
 		'sound/weapons/bottlehit_broken3.ogg'
 	)
-/decl/sound_category/tray_hit_sound
+/singleton/sound_category/tray_hit_sound
 	sounds = list(
 		'sound/items/trayhit1.ogg',
 		'sound/items/trayhit2.ogg'
 	)
 
-/decl/sound_category/grab_sound
+/singleton/sound_category/grab_sound
 	sounds = list(
 	'sound/weapons/grab/grab1.ogg',
 	'sound/weapons/grab/grab2.ogg',
@@ -735,7 +735,7 @@
 	'sound/weapons/grab/grab5.ogg'
 )
 
-/decl/sound_category/gunshots
+/singleton/sound_category/gunshots
 	sounds = list(
 	'sound/weapons/gunshot/bolter.ogg',
 	'sound/weapons/laser1.ogg',
@@ -766,7 +766,7 @@
 	'sound/weapons/gunshot/slammer.ogg'
 )
 
-/decl/sound_category/gunshots/ballistic
+/singleton/sound_category/gunshots/ballistic
 	sounds = list(
 	'sound/weapons/gunshot/gunshot_dmr.ogg',
 	'sound/weapons/gunshot/gunshot_light.ogg',
@@ -789,7 +789,7 @@
 	'sound/weapons/gunshot/slammer.ogg'
 )
 
-/decl/sound_category/gunshots/energy
+/singleton/sound_category/gunshots/energy
 	sounds = list(
 	'sound/weapons/gunshot/bolter.ogg',
 	'sound/weapons/laser1.ogg',
@@ -801,7 +801,7 @@
 	'sound/weapons/laserstrong.ogg'
 )
 
-/decl/sound_category/shaker_shaking
+/singleton/sound_category/shaker_shaking
 	sounds = list(
 		'sound/items/shaking1.ogg',
 		'sound/items/shaking2.ogg',
@@ -811,13 +811,13 @@
 		'sound/items/shaking6.ogg'
 	)
 
-/decl/sound_category/shaker_lid_off
+/singleton/sound_category/shaker_lid_off
 	sounds = list(
 		'sound/items/shaker_lid_off1.ogg',
 		'sound/items/shaker_lid_off2.ogg'
 	)
 
-/decl/sound_category/quick_arcade // quick punchy arcade sounds
+/singleton/sound_category/quick_arcade // quick punchy arcade sounds
 	sounds = list(
 		'sound/arcade/get_fuel.ogg',
 		'sound/arcade/heal.ogg',
@@ -828,7 +828,7 @@
 		'sound/arcade/steal.ogg'
 	)
 
-/decl/sound_category/footstep_skrell_sound
+/singleton/sound_category/footstep_skrell_sound
 	sounds = list(
 		'sound/effects/footstep_skrell1.ogg',
 		'sound/effects/footstep_skrell2.ogg',
@@ -838,7 +838,7 @@
 		'sound/effects/footstep_skrell6.ogg'
 	)
 
-/decl/sound_category/hammer_sound
+/singleton/sound_category/hammer_sound
 	sounds = list(
 		'sound/items/tools/hammer1.ogg',
 		'sound/items/tools/hammer2.ogg',
@@ -846,14 +846,14 @@
 		'sound/items/tools/hammer4.ogg'
 	)
 
-/decl/sound_category/shovel_sound
+/singleton/sound_category/shovel_sound
 	sounds = list(
 		'sound/items/tools/shovel1.ogg',
 		'sound/items/tools/shovel2.ogg',
 		'sound/items/tools/shovel3.ogg'
 	)
 
-/decl/sound_category/supermatter_calm
+/singleton/sound_category/supermatter_calm
 	sounds = list('sound/machines/sm/accent/normal/1.ogg',
 				  'sound/machines/sm/accent/normal/2.ogg',
 				  'sound/machines/sm/accent/normal/3.ogg',
@@ -889,7 +889,7 @@
 				  'sound/machines/sm/accent/normal/33.ogg'
 				  )
 
-/decl/sound_category/supermatter_delam
+/singleton/sound_category/supermatter_delam
 	sounds = list('sound/machines/sm/accent/delam/1.ogg',
 				  'sound/machines/sm/accent/delam/2.ogg',
 				  'sound/machines/sm/accent/delam/3.ogg',
@@ -924,3 +924,18 @@
 				  'sound/machines/sm/accent/delam/32.ogg',
 				  'sound/machines/sm/accent/delam/33.ogg'
 				  )
+
+/singleton/sound_category/rip_sound
+	sounds = list(
+		'sound/items/rip1.ogg',
+		'sound/items/rip2.ogg',
+		'sound/items/rip3.ogg',
+		'sound/items/rip4.ogg'
+	)
+
+/singleton/sound_category/ointment_sound
+	sounds = list(
+		'sound/items/ointment1.ogg',
+		'sound/items/ointment2.ogg',
+		'sound/items/ointment3.ogg'
+	)

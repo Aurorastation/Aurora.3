@@ -120,7 +120,7 @@ var/list/GPS_list = list()
 
 /obj/item/device/gps/emp_act(severity)
 	emped = TRUE
-	addtimer(CALLBACK(src, .proc/post_emp), 30 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(post_emp)), 30 SECONDS)
 	update_icon()
 	update_position()
 

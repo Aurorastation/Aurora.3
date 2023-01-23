@@ -17,8 +17,8 @@
 		if((locate(/obj/effect/plant) in floor.contents) || (locate(/obj/effect/dead_plant) in floor.contents) )
 			continue
 		if(floor.density)
-			if(seed && seed.chems[/decl/reagent/acid/polyacid])
-				addtimer(CALLBACK(floor, /atom/.proc/ex_act, 3), rand(5, 25))
+			if(seed && seed.chems[/singleton/reagent/acid/polyacid])
+				addtimer(CALLBACK(floor, TYPE_PROC_REF(/atom, ex_act), 3), rand(5, 25))
 			continue
 		if(!Adjacent(floor) || !floor.Enter(src))
 			continue
@@ -39,7 +39,7 @@
 		return 0
 
 	for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))
-		if(smoke.reagents.has_reagent(/decl/reagent/toxin/plantbgone))
+		if(smoke.reagents.has_reagent(/singleton/reagent/toxin/plantbgone))
 			die_off()
 			return
 
@@ -104,7 +104,7 @@
 			var/turf/target_turf = pick(neighbors)
 			var/obj/effect/plant/child = new(get_turf(src),seed,parent)
 			// This should do a little bit of animation.
-			addtimer(CALLBACK(src, .proc/do_move, target_turf, child), 1)
+			addtimer(CALLBACK(src, PROC_REF(do_move), target_turf, child), 1)
 			// Update neighboring squares.
 			for(var/obj/effect/plant/neighbor in range(1,target_turf))
 				neighbor.neighbors -= target_turf
