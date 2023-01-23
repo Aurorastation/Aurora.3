@@ -432,7 +432,8 @@
 	name = "anti-tank warhead"
 	icon_state = "missile"
 	damage = 30
-	anti_materiel_potential = 3
+	armor_penetration = 30
+	anti_materiel_potential = 4
 	embed = FALSE
 	penetrating = FALSE
 	armor_penetration = 10
@@ -446,7 +447,7 @@
 	name = "anti-tank missile"
 	icon_state = "peac"
 	damage = 25
-	armor_penetration = 30
+	armor_penetration = 35
 	anti_materiel_potential = 6
 	penetrating = TRUE
 	heavy_impact_range = -1
