@@ -1,19 +1,19 @@
 /datum/map_template/ruin/away_site/blueriver
 	name = "Bluespace River"
-	id = "awaysite_blue"
+	id = "blueriver"
 	spawn_cost = 1
 	spawn_weight = 1
 	description = "An arctic planet and an alien underground surface."
-	suffix = list("blueriver/blueriver-1.dmm", "blueriver/blueriver-2.dmm")
+	suffixes = list("blueriver/blueriver-1.dmm","blueriver/blueriver-2.dmm")
 	generate_mining_by_z = 2
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_GAKAL)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
-/decl/submap_archetype/blueriver
+/singleton/submap_archetype/blueriver
 	map = "bluespace river"
 	descriptor = "An arctic planet and an alien underground surface."
 
-/obj/effect/overmap/visitable/sector/arcticplanet
+/obj/effect/overmap/visitable/sector/blueriver
 	name = "arctic planetoid"
 	desc = "Sensor array detects an arctic planet with a small vessel on the planet's surface. Scans further indicate strange energy emissions from below the planet's surface."
 	in_space = FALSE
@@ -25,7 +25,7 @@
 		"nav_blueriv_antag"
 	)
 
-/obj/effect/overmap/visitable/sector/arcticplanet/New(nloc, max_x, max_y)
+/obj/effect/overmap/visitable/sector/blueriver/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [name]"
 	..()
 
@@ -34,7 +34,7 @@
 /mob/living/simple_animal/hostile/hive_alien/defender
 	name = "hive defender"
 	desc = "A terrifying monster resembling a massive, bloated tick in shape. Hundreds of blades are hidden underneath its rough shell."
-	icon = 'maps/away/generic/blueriver/blueriver.dmi'
+	icon = 'maps/away/away_site/blueriver/blueriver.dmi'
 	icon_state = "hive_executioner_move"
 	icon_living = "hive_executioner_move"
 	icon_dead = "hive_executioner_dead"
@@ -99,7 +99,7 @@
 /turf/simulated/floor/away/blueriver/alienfloor
 	name = "glowing floor"
 	desc = "The floor glows without any apparent reason."
-	icon = 'maps/away/generic/blueriver/riverturfs.dmi'
+	icon = 'maps/away/away_site/blueriver/riverturfs.dmi'
 	icon_state = "floor"
 	temperature = 233
 
@@ -111,7 +111,7 @@
 /turf/unsimulated/wall/away/blueriver/livingwall
 	name = "alien wall"
 	desc = "You feel a sense of dread from just looking at this wall. Its surface seems to be constantly moving, as if it were breathing."
-	icon = 'maps/away/generic/blueriver/riverturfs.dmi'
+	icon = 'maps/away/away_site/blueriver/riverturfs.dmi'
 	icon_state = "evilwall_1"
 	opacity = 1
 	density = TRUE
@@ -126,7 +126,7 @@
 /turf/unsimulated/wall/supermatter/no_spread
 	name = "weird liquid"
 	desc = "The viscous liquid glows and moves as if it were alive."
-	icon = 'maps/away/generic/blueriver/blueriver.dmi'
+	icon = 'maps/away/away_site/blueriver/blueriver.dmi'
 	icon_state = "bluespacecrystal1"
 	opacity = 0
 	dynamic_lighting = 0

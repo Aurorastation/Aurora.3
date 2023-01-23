@@ -3173,6 +3173,8 @@
 #include "maps\away\away_sites.dm"
 #include "maps\away\away_site\abandoned_mining\cursed.dm"
 #include "maps\away\away_site\big_derelict\bigderelict.dm"
+#include "maps\away\away_site\blueriver\blueriver.dm"
+#include "maps\away\away_site\blueriver\blueriver_areas.dm"
 #include "maps\away\away_site\civ_station\civilian_station.dm"
 #include "maps\away\away_site\civ_station\civilian_station_ghostroles.dm"
 #include "maps\away\away_site\crashed_elyran_tanker\crashed_elyran_tanker.dm"
