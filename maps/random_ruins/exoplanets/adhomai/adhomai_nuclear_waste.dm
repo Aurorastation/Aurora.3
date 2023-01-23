@@ -1,7 +1,7 @@
 /datum/map_template/ruin/exoplanet/adhomai_nuclear_waste
 	name = "Radioactive Waste Disposal Site"
 	id = "adhomai_nuclear_waste"
-	description = "A site used by the Adhomian factions to store radioactive waste."
+	description = "A site used by the PRA to store radioactive waste."
 
 	spawn_weight = 1
 	spawn_cost = 1
