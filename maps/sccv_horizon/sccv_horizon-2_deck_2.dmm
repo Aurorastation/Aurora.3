@@ -11044,6 +11044,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/automatic/rifle/jingya,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "fCd" = (
@@ -30537,6 +30538,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "pdv" = (

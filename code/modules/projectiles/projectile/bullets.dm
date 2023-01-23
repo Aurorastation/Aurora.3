@@ -151,6 +151,7 @@
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
 	damage = 55
+	armor_penetration = 5
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
@@ -213,7 +214,7 @@
 
 /obj/item/projectile/bullet/rifle/a556
 	damage = 30
-	armor_penetration = 26
+	armor_penetration = 28
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a556/ap
@@ -222,8 +223,8 @@
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a556/polymer
-	damage = 24
-	armor_penetration = 32
+	damage = 25
+	armor_penetration = 34
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a145
@@ -431,7 +432,8 @@
 	name = "anti-tank warhead"
 	icon_state = "missile"
 	damage = 30
-	anti_materiel_potential = 3
+	armor_penetration = 30
+	anti_materiel_potential = 4
 	embed = FALSE
 	penetrating = FALSE
 	armor_penetration = 10
@@ -444,6 +446,8 @@
 /obj/item/projectile/bullet/recoilless_rifle/peac
 	name = "anti-tank missile"
 	icon_state = "peac"
-	damage = 45
+	damage = 25
+	armor_penetration = 35
+	anti_materiel_potential = 6
 	penetrating = TRUE
 	heavy_impact_range = -1

@@ -518,7 +518,7 @@
 	if(length(firemodes))
 		F = firemodes[sel_mode]
 	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
-		P.accuracy -= one_hand_fa_penalty/2
+		P.accuracy -= one_hand_fa_penalty * 0.5
 		P.dispersion -= one_hand_fa_penalty * 0.5
 
 //does the actual launching of the projectile
