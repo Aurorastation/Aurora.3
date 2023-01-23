@@ -22,8 +22,8 @@
 /// Value or the next integer in a negative direction: Floor(-1.5) = -2 , Floor(1.5) = 1
 #define Floor(value) round(value)
 
-/// Same as Floor but rounds A to the nearest multiple of B.
-#define Floorm(value, divisor) round(value)
+/// Value or the next multiple of divisor in a negative direction: Floorm(-1.5, 0.3) = -1.5 , Floorm(-1.5, 0.4) = -1.6
+#define Floorm(value, divisor) ( round((value) / (divisor)) * (divisor) )
 
 /// Value or the next integer in a positive direction: Ceil(-1.5) = -1 , Ceil(1.5) = 2
 #define Ceil(value) ( -(round(-(value))) )
