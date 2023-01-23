@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes the internal armoury blast doors button being set to HoS access instead of general armoury access."
