@@ -11,7 +11,7 @@
 	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
 	var/current_range_counter = 0
 	var/speed = 0 //A projectile with 0 speed does not move. Note that this is the 'lag' variable on walk_towards! Lower speed is better.
-	
+
 	var/moving = FALSE //Is the projectile actively moving on the overmap?
 	var/entering = FALSE //Are we entering an entry point?
 
@@ -27,7 +27,7 @@
 		handle_wraparound()
 	..()
 
-/obj/effect/overmap/projectile/proc/handle_wraparound()
+/obj/effect/overmap/projectile/handle_wraparound()
 	var/nx = x
 	var/ny = y
 	var/low_edge = 1

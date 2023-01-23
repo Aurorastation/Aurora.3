@@ -27,11 +27,11 @@
 	if (location)
 		var/obj/effect/visual/sparks/S = new(location, src, 0) //Trigger one on the tile it's on
 		S.start()
-		playsound(location, /decl/sound_category/spark_sound, 100, 1)
+		playsound(location, /singleton/sound_category/spark_sound, 100, 1)
 		QUEUE_VISUAL(S)	// Queue it.
 
 		while (total_sparks <= src.amount)
-			playsound(location, /decl/sound_category/spark_sound, 100, 1)
+			playsound(location, /singleton/sound_category/spark_sound, 100, 1)
 			var/direction = 0
 
 			if (LAZYLEN(src.spread))

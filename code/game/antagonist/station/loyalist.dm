@@ -27,7 +27,7 @@ var/datum/antagonist/loyalists/loyalists
 	faction_indicator = "fellowship"
 	faction_invisible = FALSE
 
-	restricted_jobs = list("AI", "Cyborg")
+	restricted_jobs = list("AI", "Cyborg", "Merchant")
 	protected_jobs = list("Lab Assistant", "Medical Intern", "Engineering Apprentice", "Assistant", "Security Cadet")
 	required_age = 31
 

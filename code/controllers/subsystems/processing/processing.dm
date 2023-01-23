@@ -41,4 +41,4 @@ var/datum/controller/subsystem/processing/SSprocessing
 	suspend()
 
 /datum/controller/subsystem/processing/ExplosionEnd()
-	wake() 
+	wake()

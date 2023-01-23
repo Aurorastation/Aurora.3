@@ -79,7 +79,7 @@
 	if(targetIsHuman && targetashuman == user)
 		wasselfattack = 1
 
-	if (user.intent == I_HURT)
+	if (user.a_intent == I_HURT)
 		target_zone = get_zone_with_miss_chance(target_zone, target) //Vary the attack
 		damagetype = BRUTE
 
