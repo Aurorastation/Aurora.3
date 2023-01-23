@@ -403,6 +403,7 @@
 #define PROSTHETIC_DIONA "Unknown Model"
 #define PROSTHETIC_AUTAKH "Aut'akh Manufactured"
 #define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
+#define PROSTHETIC_TESLA_BODY "Industrial Tesla Powered Prosthetics"
 #define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
 
 //Brain Damage defines

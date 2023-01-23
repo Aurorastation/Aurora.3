@@ -3,11 +3,11 @@
 	id = "magshield"
 	description = "It's an orbital shield station."
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
-	suffix = "away_site/magshield/magshield.dmm"
+	suffixes = list("away_site/magshield/magshield.dmm")
 	spawn_weight = 1
 	spawn_cost = 1
 
-/decl/submap_archetype/magshield
+/singleton/submap_archetype/magshield
 	map = "magshield"
 	descriptor = "It's an orbital shield station."
 

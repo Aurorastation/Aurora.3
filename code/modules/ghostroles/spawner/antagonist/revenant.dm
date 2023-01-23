@@ -44,8 +44,8 @@
 	if(R.client)
 		to_chat(R, FONT_LARGE(SPAN_CULT("You can now speak with all revenants in the game world by using \"[R.client.prefs.language_prefixes[1]]rs\" before a message.")))
 	if(!has_fired)
-		INVOKE_ASYNC(src, .proc/play_ambience, R)
-	INVOKE_ASYNC(src, .proc/check_rift)
+		INVOKE_ASYNC(src, PROC_REF(play_ambience), R)
+	INVOKE_ASYNC(src, PROC_REF(check_rift))
 
 	return R
 

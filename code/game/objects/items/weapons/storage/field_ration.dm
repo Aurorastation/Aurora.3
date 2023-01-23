@@ -40,7 +40,7 @@
 	preset_ration = "NanoTrasen Sponsored"
 
 /obj/item/storage/field_ration/nka
-	icon_state = "bigbox"
+	icon_state = "bigbox_nka"
 	desc_extended = "The early Alam'ardii forces relied on the landed nobility to provide them food, with the resources being taken from the private properties of their contractors. \
 	Their rations were composed mainly of salt-cured Snow Strider's meat, Blizzard Ears's flour and Fatshouters's milk. The defection of many officers from the Republican navy to the \
 	imperial side introduced the concept of canned goods, a luxury at the time, being used as rations. Large shipments of supplements, included food, were smuggled by the officers and \

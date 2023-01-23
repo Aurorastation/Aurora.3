@@ -110,7 +110,7 @@
 				<br>
 				<h2>OPERATING PRINCIPLES</h2>
 				<br>
-				<li>The supermatter crystal serves as the fundamental power source of the engine. Upon being charged, it begins to emit large amounts of heat and radiation, as well and oxygen and phoron gas. As oxygen accelerates the reaction, and phoron carries the risk of fire, these must be filtered out. NOTE: Supermatter radiation will not charge radiation collectors.</li>
+				<li>The supermatter crystal serves as the fundamental power source of the engine. Upon being charged, it begins to emit large amounts of heat and radiation, as well and oxygen and phoron gas. As oxygen accelerates the reaction, and phoron carries the risk of fire, these must be filtered out.</li>
 				<br>
 				<li>Air in the reactor chamber housing the supermatter is circulated through the reactor loop, which passes through the filters and thermoelectric generators. The thermoelectric generators transfer heat from the reactor loop to the colder radiator loop, thereby generating power. Additional power is generated from internal turbines in the circulators.</li>
 				<br>
@@ -1012,7 +1012,6 @@
 				<ol>
 					<li><a href="#Foreword">Author's Foreword</a></li>
 					<li><a href="#Basic">Basic Piping</a></li>
-					<li><a href="#Insulated">Insulated Pipes</a></li>
 					<li><a href="#Devices">Atmospherics Devices</a></li>
 					<li><a href="#HES">Heat Exchange Systems</a></li>
 					<li><a href="#Final">Final Checks</a></li>
@@ -1045,19 +1044,7 @@
 				</ul>
 
 				An important note here is that pipes are now done in three distinct lines - general, supply, and scrubber. You can move gases between these with a universal adapter. Use the correct position for the correct location.
-				Connecting scrubbers to a supply position pipe makes you an idiot who gives everyone a difficult job. Insulated and HE pipes don't go through these positions.
-
-				<h1><a name="Insulated"><B>Insulated Pipes</B></a></h1>
-				<li><I>Bent pipes:</I> Pipes with a 90 degree bend at the half-meter mark. My goodness.</li>
-				<li><I>Pipe manifolds:</I> Pipes that are essentially a "T" shape, allowing you to connect three things at one point.</li>
-				<li><I>4-way manifold:</I> A four-way junction.</li>
-				<li><I>Pipe cap:</I> Caps off the end of a pipe. Open ends don't actually vent air, because of the way the pipes are assembled, so, uh. Use them to decorate your house or something.</li>
-				<li><I>Manual Valve:</I> A valve that will block off airflow when turned. Can't be used by the AI or cyborgs, because they don't have hands.</li>
-				<li><I>Manual T-Valve:</I> Like a manual valve, but at the center of a manifold instead of a straight pipe.</li><BR><BR>
-
-				<h1><a name="Insulated"><B>Insulated Pipes</B></a></h1><BR>
-				<I>Special Public Service Announcement.</I><BR>
-				Our regular pipes are already insulated. These are completely worthless. Punch anyone who uses them.<BR><BR>
+				Connecting scrubbers to a supply position pipe makes you an idiot who gives everyone a difficult job. HE pipes don't go through these positions.
 
 				<h1><a name="Devices"><B>Devices: </B></a></h1>
 				<I>They actually do something.</I><BR>

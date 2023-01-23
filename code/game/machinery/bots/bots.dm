@@ -1,7 +1,7 @@
 // AI (i.e. game AI, not the AI player) controlled bots
 
 /obj/machinery/bot
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	layer = MOB_LAYER
 	light_range = 3
 	use_power = POWER_USE_OFF
@@ -132,7 +132,7 @@
 
 	if (on)
 		turn_off()
-	addtimer(CALLBACK(src, .proc/post_emp, was_on), severity * 300)
+	addtimer(CALLBACK(src, PROC_REF(post_emp), was_on), severity * 300)
 
 /obj/machinery/bot/proc/post_emp(was_on)
 	stat &= ~EMPED

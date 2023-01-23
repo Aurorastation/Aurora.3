@@ -184,7 +184,7 @@ var/list/ai_verbs_default = list(
 
 			on_mob_init()
 
-	addtimer(CALLBACK(src, .proc/create_powersupply), 5)
+	addtimer(CALLBACK(src, PROC_REF(create_powersupply)), 5)
 
 	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, "100")
 	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
@@ -261,7 +261,7 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 		setOxyLoss(0)
 	else
 		health = maxHealth - getFireLoss() - getBruteLoss() // Oxyloss is not part of health as it represents AIs backup power. AI is immune against ToxLoss as it is machine.
@@ -398,7 +398,7 @@ var/list/ai_verbs_default = list(
 	set category = "AI Commands"
 	set name = "Examine"
 
-	if((is_blind(src) || usr.stat) && !isobserver(src))
+	if((is_blind() || usr.stat) && !isobserver(src))
 		to_chat(src, "<span class='notice'>Your optical sensors appear to be malfunctioning.</span>")
 		return 1
 
@@ -595,7 +595,7 @@ var/list/ai_verbs_default = list(
 		for(var/i in tempnetwork)
 			cameralist[i] = i
 
-	sortTim(cameralist, /proc/cmp_text_asc)
+	sortTim(cameralist, GLOBAL_PROC_REF(cmp_text_asc))
 	return cameralist
 
 /mob/living/silicon/ai/proc/ai_network_change(var/network in get_camera_network_list())

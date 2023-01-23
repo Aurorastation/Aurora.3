@@ -5,6 +5,7 @@
 	icon_state = "mirror"
 	density = 0
 	anchored = 1
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/shattered = 0
 
 	/// Visual object for handling the viscontents
@@ -47,7 +48,7 @@
 	if(shattered)	return
 	shattered = 1
 	icon_state = "mirror_broke"
-	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
+	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
 	desc = "Oh no, seven years of bad luck!"
 
 	var/obj/effect/reflection/reflection = ref.resolve()

@@ -163,7 +163,7 @@
 				if(E.operating)
 					E.nextstate = FIREDOOR_CLOSED
 				else if(!E.density)
-					INVOKE_ASYNC(E, /obj/machinery/door/.proc/close)
+					INVOKE_ASYNC(E, TYPE_PROC_REF(/obj/machinery/door, close))
 
 /area/proc/air_doors_open()
 	if(air_doors_activated)
@@ -173,7 +173,7 @@
 				if(E.operating)
 					E.nextstate = FIREDOOR_OPEN
 				else if(E.density)
-					INVOKE_ASYNC(E, /obj/machinery/door/.proc/open)
+					INVOKE_ASYNC(E, TYPE_PROC_REF(/obj/machinery/door, open))
 
 /area/proc/fire_alert()
 	if(!fire)
@@ -185,7 +185,7 @@
 				if(D.operating)
 					D.nextstate = FIREDOOR_CLOSED
 				else if(!D.density)
-					INVOKE_ASYNC(D, /obj/machinery/door/.proc/close)
+					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door, close))
 
 /area/proc/fire_reset()
 	if (fire)
@@ -197,7 +197,7 @@
 				if(D.operating)
 					D.nextstate = FIREDOOR_OPEN
 				else if(D.density)
-					INVOKE_ASYNC(D, /obj/machinery/door/.proc/open)
+					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door, open))
 
 /area/proc/readyalert()
 	if(!eject)
@@ -225,7 +225,7 @@
 				if(D.operating)
 					D.nextstate = FIREDOOR_OPEN
 				else if(D.density)
-					INVOKE_ASYNC(D, /obj/machinery/door/.proc/open)
+					INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door, open))
 
 #define DO_PARTY(COLOR) animate(color = COLOR, time = 0.5 SECONDS, easing = QUAD_EASING)
 
@@ -301,7 +301,8 @@ var/list/mob/living/forced_ambiance_list = new
 	// Otherwise, stop playing the ambient hum.
 	else
 		L << sound(null, channel = 3)
-		L.client.ambient_hum_playing = FALSE
+		if(L.client)
+			L.client.ambient_hum_playing = FALSE
 
 	// Start playing music, if it exists.
 	if(src.music.len && L && L.client && (L.client.prefs.sfx_toggles & ASFX_MUSIC))

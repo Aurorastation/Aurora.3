@@ -42,7 +42,7 @@ var/global/list/default_medbay_channels = list(
 	var/radio_desc = ""
 	var/const/FREQ_LISTENING = TRUE
 	var/list/internal_channels
-	var/clicksound = /decl/sound_category/button_sound //played sound on usage
+	var/clicksound = /singleton/sound_category/button_sound //played sound on usage
 	var/clickvol = 10 //volume
 
 	var/obj/item/cell/cell = /obj/item/cell/device
@@ -452,7 +452,7 @@ var/global/list/default_medbay_channels = list(
 		return
 
 	// Non-subspace radios will check in a couple of seconds, and if the signal was never received, we send a mundane broadcast
-	addtimer(CALLBACK(src, .proc/backup_transmission, signal), 2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(backup_transmission), signal), 2 SECONDS)
 
 /obj/item/device/radio/proc/backup_transmission(datum/signal/subspace/vocal/signal)
 	var/turf/T = get_turf(src)

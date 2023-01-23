@@ -1,10 +1,7 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
-
-
 /*
 field_generator power level display
    The icon used for the field_generator need to have 'num_power_levels' number of icon states
-   named 'Field_Gen +p[num]' where 'num' ranges from 1 to 'num_power_levels'
+   named 'field_gen +p[num]' where 'num' ranges from 1 to 'num_power_levels'
 
    The power level is displayed using overlays. The current displayed power level is stored in 'powerlevel'.
    The overlay in use and the powerlevel variable must be kept in sync.  A powerlevel equal to 0 means that
@@ -17,7 +14,7 @@ field_generator power level display
 	name = "field generator"
 	desc = "A large thermal battery that projects a high amount of energy when powered."
 	icon = 'icons/obj/machinery/field_generator.dmi'
-	icon_state = "Field_Gen"
+	icon_state = "field_gen"
 	anchored = 0
 	density = 1
 	use_power = POWER_USE_OFF
@@ -174,7 +171,7 @@ field_generator power level display
 
 /obj/machinery/field_generator/proc/turn_off()
 	active = 0
-	addtimer(CALLBACK(src, .proc/cleanup), 1)
+	addtimer(CALLBACK(src, PROC_REF(cleanup)), 1)
 	update_icon()
 
 /obj/machinery/field_generator/proc/turn_on()
@@ -239,10 +236,10 @@ field_generator power level display
 	if(!src.state == 2 || !anchored)
 		turn_off()
 		return
-	addtimer(CALLBACK(src, .proc/setup_field, 1), 1)
-	addtimer(CALLBACK(src, .proc/setup_field, 2), 2)
-	addtimer(CALLBACK(src, .proc/setup_field, 4), 3)
-	addtimer(CALLBACK(src, .proc/setup_field, 8), 4)
+	addtimer(CALLBACK(src, PROC_REF(setup_field), 1), 1)
+	addtimer(CALLBACK(src, PROC_REF(setup_field), 2), 2)
+	addtimer(CALLBACK(src, PROC_REF(setup_field), 4), 3)
+	addtimer(CALLBACK(src, PROC_REF(setup_field), 8), 4)
 	src.active = 2
 
 /obj/machinery/field_generator/proc/setup_field(var/NSEW)

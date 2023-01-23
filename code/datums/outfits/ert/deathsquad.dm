@@ -67,4 +67,4 @@
 	if(mercrig)
 		H.put_in_hands(mercrig)
 		H.equip_to_slot_or_del(mercrig, slot_back)
-		addtimer(CALLBACK(mercrig, /obj/item/rig/.proc/toggle_seals, H, TRUE), 2 SECONDS)
+		addtimer(CALLBACK(mercrig, TYPE_PROC_REF(/obj/item/rig, toggle_seals), H, TRUE), 2 SECONDS)

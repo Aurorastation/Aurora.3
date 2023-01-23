@@ -35,7 +35,7 @@ var/global/list/bluespace_inhibitors
 
 /obj/machinery/anti_bluespace/emag_act()
 	spark(src, 3)
-	playsound(src, /decl/sound_category/spark_sound, 50, 1)
+	playsound(src, /singleton/sound_category/spark_sound, 50, 1)
 	emp_act(1)
 	return TRUE
 
@@ -112,7 +112,7 @@ var/global/list/bluespace_inhibitors
 	playsound(src.loc, 'sound/magic/lightning_chargeup.ogg', 100, 1, extrarange = 20)
 	visible_message(SPAN_DANGER("\The [src] goes haywire!"))
 	do_break()
-	addtimer(CALLBACK(src, .proc/haywire_teleport), 10 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(haywire_teleport)), 10 SECONDS)
 
 /obj/machinery/anti_bluespace/proc/haywire_teleport()
 
