@@ -8369,7 +8369,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "armory";
 	name = "Armoury Shutters";
-	req_access = list(58);
+	req_access = list(3);
 	pixel_x = -25;
 	dir = 4
 	},
