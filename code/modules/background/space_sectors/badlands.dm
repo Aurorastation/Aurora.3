@@ -45,6 +45,7 @@
 //								/obj/effect/overmap/visitable/sector/exoplanet/barren/azmar, /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul, /obj/effect/overmap/visitable/sector/exoplanet/adhomai)
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/adhomai, /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara)
 	cargo_price_coef = list("nt" = 1.2, "hpi" = 1.2, "zhu" = 1.2, "een" = 1.2, "get" = 1.2, "arz" = 1.2, "blm" = 1.2, "iac" = 1.2, "zsc" = 0.5, "vfc" = 1.2, "bis" = 1.2, "xmg" = 1.2, "npi" = 1.2)
+	starlight_color = "#b9e8ea"
 
 /datum/space_sector/nrrahrahul
 	name = SECTOR_NRRAHRAHUL
