@@ -445,8 +445,8 @@
 /obj/item/projectile/bullet/recoilless_rifle/peac
 	name = "anti-tank missile"
 	icon_state = "peac"
-	damage = 45
+	damage = 25
 	armor_penetration = 30
-	anti_materiel_potential = 4
+	anti_materiel_potential = 6
 	penetrating = TRUE
 	heavy_impact_range = -1
