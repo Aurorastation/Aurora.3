@@ -1,9 +1,11 @@
+/// If A, then A, otherwise B
 #define Default(a, b) ((a) ? (a) : (b))
 
-// /proc/Default(a, b)
-// 	return a ? a : b
+/// Convert radiants to degrees
+#define ToDegrees(radians) ( (radians) * 57.2957795) // 180 / Pi ~ 57.2957795
 
-// Trigonometric functions.
+/// Converts degrees to radiants
+#define ToRadians(degrees) ( (degrees) * 0.0174532925) // Pi / 180 ~ 0.0174532925
 
 /// The cosecant of degrees
 #define Csc(degrees) (1 / sin(degrees))
@@ -31,14 +33,14 @@
 
 #define WrapNumber(value, minimum, maximum) ( (value) - ((Floor(((value) - (minimum)) / ((maximum) - (minimum)))) * ((maximum) - (minimum))) )
 
+/// Modulus of two numbers
 #define Modulus(x, y) ( (x) - (y) * round((x) / (y)) )
 
+/// Percentage of a value
 #define Percent(value, maximum) ( round( ( (value) / (maximum) ) * 100 ) )
 
+/// Percentage of a value, with rounding
 #define PercentRounding(value, maximum, rounding) ( round( ( (value) / (maximum) ) * 100, (rounding) ) )
-
-// /proc/Percent(current_value, max_value, rounding = 1)
-// 	return round((current_value / max_value) * 100, rounding)
 
 // Greatest Common Divisor: Euclid's algorithm.
 /proc/Gcd(a, b)
@@ -54,11 +56,13 @@
 // Useful in the cases when x is a large expression, e.g. x = 3a/2 + b^2 + Function(c)
 #define Square(x) ( (x) * (x) )
 
+/// Inverse number, aka reciprocal fraction
 #define Inverse(x) ( 1 / (x) )
 
 // Condition checks.
 #define IsAboutEqual(a, b) ( abs( (a) - (b) ) <= 0.1 )
 
+/// If the number difference is less than delta
 #define IsAboutEqualDelta(a, b, delta) ( abs( (a) - (b) ) <= (delta) )
 
 // Returns true if val is from min to max, inclusive.
@@ -73,8 +77,14 @@
 /// True if value is a multiple of divisor
 #define IsMultiple(value, divisor) ( ( (value) % (divisor) ) == 0 )
 
+/// Is the number even?
 #define ISEVEN(x) ( (x) % 2 == 0 )
+
+/// Is the number odd?
 #define ISODD(x) ( (x) % 2 != 0 )
+
+/// Is it a power of two?
+#define IsPowerOfTwo(val) ( ( (val) & ( (val)-1 ) ) == 0 )
 
 // Performs a linear interpolation between a and b.
 // Note: weight=0 returns a, weight=1 returns b, and weight=0.5 returns the mean of a and b.
@@ -109,17 +119,13 @@
 	if(discriminant != 0)
 		. += (-b - root) / bottom
 
-#define ToDegrees(radians) ( (radians) * 57.2957795) // 180 / Pi ~ 57.2957795
-
-#define ToRadians(degrees) ( (degrees) * 0.0174532925) // Pi / 180 ~ 0.0174532925
-
 // Vector algebra.
 #define squaredNorm(x, y) ( (x) * (x) + (y) * (y) )
 
+/// Norm
 #define norm(x, y) (sqrt(squaredNorm(x, y)))
 
-#define IsPowerOfTwo(val) ( ( (val) & ( (val)-1 ) ) == 0 )
-
+/// Round value up to a power of two
 #define RoundUpToPowerOfTwo(val) ( 2 ** -round(-log(2,(val))) )
 
 //Returns the cube root of the input number
