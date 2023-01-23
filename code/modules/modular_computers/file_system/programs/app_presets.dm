@@ -160,28 +160,6 @@
 	)
 	return _prg_list
 
-/datum/modular_computer_app_presets/research/robotics
-	name = "research_robotics"
-	display_name = "Research - Robotics"
-	description = "Contains the most common research programs and medical record software."
-	available = TRUE
-
-/datum/modular_computer_app_presets/research/robotics/return_install_programs(obj/item/modular_computer/comp)
-	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(comp),
-		new /datum/computer_file/program/newsbrowser(comp),
-		new /datum/computer_file/program/manifest(comp),
-		new /datum/computer_file/program/filemanager(comp),
-		new /datum/computer_file/program/chat_client(comp),
-		new /datum/computer_file/program/civilian/cargoorder(comp),
-		new /datum/computer_file/program/ntnetmonitor(comp),
-		new /datum/computer_file/program/aidiag(comp),
-		new /datum/computer_file/program/records/medical(comp),
-		new /datum/computer_file/program/scanner/science(comp),
-		new /datum/computer_file/program/scanner/gas(comp)
-	)
-	return _prg_list
-
 /datum/modular_computer_app_presets/research/rd
 	name = "research_head"
 	display_name = "Research - RD"
@@ -510,6 +488,27 @@
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargodelivery(comp)
+	)
+	return _prg_list
+
+/datum/modular_computer_app_presets/supply/robotics
+	name = "operations_robotics"
+	display_name = "Operations - Robotics"
+	description = "Contains the most common supply programs and medical record software."
+	available = TRUE
+
+/datum/modular_computer_app_presets/supply/robotics/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/civilian/cargoorder(comp),
+		new /datum/computer_file/program/aidiag(comp),
+		new /datum/computer_file/program/records/medical(comp),
+		new /datum/computer_file/program/scanner/science(comp),
+		new /datum/computer_file/program/scanner/gas(comp)
 	)
 	return _prg_list
 
