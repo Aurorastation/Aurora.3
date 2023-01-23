@@ -156,11 +156,11 @@
 	..()
 	if(source)
 		to_chat(user, "<span class='notice'>\The [src] snaps back onto \the [source].</span>")
-		INVOKE_ASYNC(source, /obj/item/minigunpack/.proc/remove_gun)
+		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/minigunpack, remove_gun))
 		source.update_icon()
 		user.update_inv_back()
 
 /obj/item/gun/projectile/automatic/rifle/minigun/Move()
 	..()
 	if(loc != source.loc)
-		INVOKE_ASYNC(source, /obj/item/minigunpack/.proc/remove_gun)
+		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/minigunpack, remove_gun))

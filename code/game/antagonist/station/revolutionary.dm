@@ -69,7 +69,7 @@ var/datum/antagonist/revolutionary/revs
 	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player, player.mind), slot_in_backpack)
 
 	give_codewords(player)
-	INVOKE_ASYNC(src, .proc/alert_revolutionary_status, player)
+	INVOKE_ASYNC(src, PROC_REF(alert_revolutionary_status), player)
 	return TRUE
 
 /datum/antagonist/revolutionary/proc/alert_revolutionary_status(var/mob/living/carbon/human/player) //This is so dumb.

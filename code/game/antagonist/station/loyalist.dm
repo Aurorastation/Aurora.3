@@ -58,7 +58,7 @@ var/datum/antagonist/loyalists/loyalists
 	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player, player.mind), slot_in_backpack)
 
 	give_codewords(player)
-	INVOKE_ASYNC(src, .proc/alert_loyalist_status, player)
+	INVOKE_ASYNC(src, PROC_REF(alert_loyalist_status), player)
 	return TRUE
 
 /datum/antagonist/loyalists/proc/alert_loyalist_status(var/mob/living/carbon/human/player) //This is still dumb but it works

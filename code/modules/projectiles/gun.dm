@@ -326,7 +326,7 @@
 		var/obj/item/gun/SG = user.get_inactive_hand()
 		if(istype(SG))
 			var/decreased_accuracy = (SG.w_class * 2) - SG.offhand_accuracy
-			addtimer(CALLBACK(SG, .proc/Fire, target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 5)
+			addtimer(CALLBACK(SG, PROC_REF(Fire), target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 5)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -403,7 +403,7 @@
 
 			if (muzzle_flash)
 				set_light(muzzle_flash)
-				addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2, TIMER_UNIQUE | TIMER_OVERRIDE)
+				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 2, TIMER_UNIQUE | TIMER_OVERRIDE)
 			update_icon()
 
 		if(i < burst)
@@ -460,7 +460,7 @@
 
 		if(muzzle_flash)
 			set_light(muzzle_flash)
-			addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 2)
 
 	if(recoil)
 		shake_camera(user, recoil + 1, recoil)
@@ -790,7 +790,7 @@
 /obj/item/gun/pickup(mob/user)
 	..()
 	queue_icon_update()
-	addtimer(CALLBACK(src, .proc/update_maptext), 1)
+	addtimer(CALLBACK(src, PROC_REF(update_maptext)), 1)
 	if(is_wieldable)
 		unwield()
 
