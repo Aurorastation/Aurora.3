@@ -1278,19 +1278,6 @@ window "rpane"
 		is-checked = true
 		group = "rpanemode"
 		button-type = pushbox
-	elem "browseb"
-		type = BUTTON
-		pos = 0,560
-		size = 60x16
-		anchor1 = none
-		anchor2 = none
-		background-color = none
-		is-visible = false
-		saved-params = "is-checked"
-		text = "Browser"
-		command = ".winset \"rpanewindow.left=browserwindow\""
-		group = "rpanemode"
-		button-type = pushbox
 	elem "infob"
 		type = BUTTON
 		pos = 64,0
