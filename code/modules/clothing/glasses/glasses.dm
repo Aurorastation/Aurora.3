@@ -303,6 +303,7 @@ BLIND     // can't see anything
 	var/sprite_state = "security_goggles"
 	contained_sprite = TRUE
 	change_item_state_on_flip = TRUE
+	normal_layer = FALSE
 
 /obj/item/clothing/glasses/safety/goggles/goon/Initialize(mapload, material_key)
 	icon_state = sprite_state
