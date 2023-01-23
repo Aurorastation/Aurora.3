@@ -33,7 +33,7 @@
 	if(req_access.len || req_one_access.len)
 		req_access = list()
 		req_one_access = list()
-		playsound(src.loc, /singleton/sound_category/spark_sound, 100, 1)
+		playsound(src.loc, /decl/sound_category/spark_sound, 100, 1)
 		return 1
 
 /obj/machinery/button/remote/attack_hand(mob/user as mob)
@@ -196,7 +196,7 @@
 	for(var/obj/machinery/door/blast/M in SSmachinery.machinery)
 		if (M.id == src.id)
 			same_id += M
-			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/door/blast, open))
+			INVOKE_ASYNC(M, /obj/machinery/door/blast/.proc/open)
 
 	sleep(20)
 
@@ -207,7 +207,7 @@
 	sleep(50)
 
 	for(var/mm in same_id)
-		INVOKE_ASYNC(mm, TYPE_PROC_REF(/obj/machinery/door/blast, close))
+		INVOKE_ASYNC(mm, /obj/machinery/door/blast/.proc/close)
 
 	icon_state = "launcherbtt"
 	active = 0

@@ -1,6 +1,6 @@
 /obj/machinery/ship_weapon
 	name = "ship weapon"
-	desc = DESC_PARENT
+	desc = "You shouldn't be seeing this."
 	icon = 'icons/obj/machinery/ship_guns/longbow.dmi'
 	idle_power_usage = 1500
 	active_power_usage = 50000

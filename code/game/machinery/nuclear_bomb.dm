@@ -430,7 +430,7 @@ var/bomb_set
 
 /obj/machinery/nuclearbomb/station/LateInitialize()
 	for(var/turf/simulated/floor/T in RANGE_TURFS(1, src))
-		T.set_flooring(GET_SINGLETON(/singleton/flooring/reinforced/circuit/red))
+		T.set_flooring(decls_repository.get_decl(/decl/flooring/reinforced/circuit/red))
 		flash_tiles += T
 	update_icon()
 
@@ -459,7 +459,7 @@ var/bomb_set
 	if(!last_turf_state || target_icon_state != last_turf_state)
 		for(var/thing in flash_tiles)
 			var/turf/simulated/floor/T = thing
-			if(!istype(T.flooring, /singleton/flooring/reinforced/circuit/red))
+			if(!istype(T.flooring, /decl/flooring/reinforced/circuit/red))
 				flash_tiles -= T
 				continue
 			T.icon_state = target_icon_state

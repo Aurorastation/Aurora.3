@@ -137,4 +137,4 @@
 	if (!delay)
 		delay = move_delay
 
-	move_timer = addtimer(CALLBACK(src, PROC_REF(handle_movement)), delay, TIMER_STOPPABLE | TIMER_UNIQUE)
+	move_timer = addtimer(CALLBACK(src, .proc/handle_movement), delay, TIMER_STOPPABLE | TIMER_UNIQUE)

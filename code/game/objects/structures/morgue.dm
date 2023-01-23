@@ -18,7 +18,6 @@
 	dir = EAST
 	density = TRUE
 	anchored = TRUE
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/locked = FALSE
 	var/obj/structure/m_tray/connected = null
 	var/tray = /obj/structure/m_tray
@@ -144,7 +143,6 @@
 	anchored = TRUE
 	throwpass = TRUE
 	layer = TURF_LAYER
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/obj/structure/morgue/connected = null
 
 /obj/structure/m_tray/Destroy()

@@ -123,7 +123,7 @@
 
 	if (!SSjobs.safe_to_sanitize)
 		if (!SSjobs.deferred_preference_sanitizations[src])
-			SSjobs.deferred_preference_sanitizations[src] = CALLBACK(src, PROC_REF(late_sanitize), sql_load)
+			SSjobs.deferred_preference_sanitizations[src] = CALLBACK(src, .proc/late_sanitize, sql_load)
 	else
 		late_sanitize(sql_load)
 

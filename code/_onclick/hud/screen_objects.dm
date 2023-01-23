@@ -65,7 +65,7 @@
 	var/old_color = color
 	color = set_color
 	color_changed = TRUE
-	addtimer(CALLBACK(src, PROC_REF(set_color_to), old_color), set_time)
+	addtimer(CALLBACK(src, .proc/set_color_to, old_color), set_time)
 
 /obj/screen/inventory/proc/set_color_to(var/set_color)
 	color = set_color
@@ -317,7 +317,7 @@
 					up_image.plane = LIGHTING_LAYER + 1
 					up_image.layer = LIGHTING_LAYER + 1
 					usr << up_image
-					addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), up_image), 12)
+					addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, up_image), 12)
 				return
 			var/turf/T = GetAbove(usr)
 			if (!T)

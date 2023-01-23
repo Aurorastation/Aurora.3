@@ -1,8 +1,10 @@
+//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
+
 /obj/machinery/containment_field
-	name = "containment field"
+	name = "Containment Field"
 	desc = "An energy field."
-	icon = 'icons/obj/machinery/field_generator.dmi'
-	icon_state = "contain_f"
+	icon = 'icons/obj/singularity.dmi'
+	icon_state = "Contain_F"
 	anchored = 1
 	density = 0
 	unacidable = 1

@@ -270,7 +270,7 @@
 			CS.item_state = initial(ID.item_state)
 			CS.name = initial(ID.name) + " - " + initial(ID.icon_state)
 			id_card_states += CS
-		sortTim(id_card_states, GLOBAL_PROC_REF(cmp_cardstate), FALSE)
+		sortTim(id_card_states, /proc/cmp_cardstate, FALSE)
 
 	return id_card_states
 

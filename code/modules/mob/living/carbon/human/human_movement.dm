@@ -50,18 +50,14 @@
 	if(HAS_FLAG(mutations, mRun))
 		tally = 0
 
-	tally = max(-2, tally + move_delay_mod)
+	tally += move_delay_mod
 
 	var/obj/item/I = get_active_hand()
 	if(istype(I))
 		tally += I.slowdown
-	
-	if(isitem(pulling))
-		var/obj/item/P = pulling
-		tally += P.slowdown
 
 	if(tally > 0 && (CE_SPEEDBOOST in chem_effects))
-		tally = max(-2, tally - 3)
+		tally = max(0, tally-3)
 
 	var/turf/T = get_turf(src)
 	if(T) // changelings don't get movement costs

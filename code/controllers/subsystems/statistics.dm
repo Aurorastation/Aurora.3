@@ -45,7 +45,7 @@
 
 		simple_statistics[S.key] = S
 
-	sortTim(simple_statistics, GLOBAL_PROC_REF(cmp_name_asc), TRUE)
+	sortTim(simple_statistics, /proc/cmp_name_asc, TRUE)
 
 /datum/controller/subsystem/statistics/fire()
 	// Handle AFK.

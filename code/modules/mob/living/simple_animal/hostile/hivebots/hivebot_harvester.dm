@@ -94,9 +94,9 @@
 	if(!stat)
 		if(stance == HOSTILE_STANCE_IDLE)
 			if(last_processed_turf == src.loc)
-				INVOKE_ASYNC(src, PROC_REF(prospect))
+				INVOKE_ASYNC(src, .proc/prospect)
 			else
-				INVOKE_ASYNC(src, PROC_REF(process_turf))
+				INVOKE_ASYNC(src, .proc/process_turf)
 		else if(busy)
 			busy = 0
 			update_icon()
@@ -209,7 +209,7 @@
 			update_icon()
 			if(do_after(src, 32))
 				src.visible_message(SPAN_WARNING("[src] rips up \the [T]."))
-				playsound(src.loc, /singleton/sound_category/crowbar_sound, 100, 1)
+				playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
 				T.make_plating(1)
 			busy = 0
 			update_icon()

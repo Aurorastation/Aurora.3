@@ -19,7 +19,8 @@
 		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
 		if (flash)
 			for(var/mob/living/carbon/human/M in viewers(T, null))
-				M.flash_act(ignore_inherent = TRUE)
+				if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
+					M.flash_eyes()
 		else
 			spark(T, 3, alldirs) //give spawning some flair if there's no flash
 

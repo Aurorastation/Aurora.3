@@ -83,7 +83,7 @@
 
 /obj/item/inductive_charger/proc/message_and_use(mob/user, var/others_message, var/self_message)
 	user.visible_message(others_message, self_message, range = 3)
-	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
+	addtimer(CALLBACK(src, .proc/recharge), recharge_time)
 	ready_to_use = FALSE
 	check_maptext(SMALL_FONTS(6, "Charge"))
 

@@ -76,7 +76,7 @@
 				spawn(current_map.lobby_transitions)
 					Update()
 			else
-				addtimer(CALLBACK(src, PROC_REF(Update)), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
+				addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
 		else
 			icon_state = pick(current_map.lobby_screens)
 	else //This should basically never happen.
@@ -96,7 +96,7 @@
 		spawn(current_map.lobby_transitions)
 			Update()
 	else
-		addtimer(CALLBACK(src, PROC_REF(Update)), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
+		addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
 
 /obj/screen/new_player/selection/New(var/datum/hud/H)
 	color = null

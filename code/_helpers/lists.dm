@@ -305,21 +305,21 @@
 	if (!L)
 		return
 	var/list/target = L.Copy()
-	return sortTim(target, order ? GLOBAL_PROC_REF(cmp_ckey_asc) : GLOBAL_PROC_REF(cmp_ckey_dsc), FALSE)
+	return sortTim(target, order ? /proc/cmp_ckey_asc : /proc/cmp_ckey_dsc, FALSE)
 
 //Mergesort: divides up the list into halves to begin the sort
 /proc/sortAtom(var/list/atom/L, var/order = 1)
 	if (!L)
 		return
 	var/list/target = L.Copy()
-	return sortTim(target, order ? GLOBAL_PROC_REF(cmp_name_asc) : GLOBAL_PROC_REF(cmp_name_dsc), FALSE)
+	return sortTim(target, order ? /proc/cmp_name_asc : /proc/cmp_name_dsc, FALSE)
 
 //Mergesort: Specifically for record datums in a list.
 /proc/sortRecord(var/list/datum/record/L, var/order = 1)
 	if (!L)
 		return
 	var/list/target = L.Copy()
-	sortTim(target, order ? GLOBAL_PROC_REF(cmp_records_asc) : GLOBAL_PROC_REF(cmp_records_dsc), FALSE)
+	sortTim(target, order ? /proc/cmp_records_asc : /proc/cmp_records_dsc, FALSE)
 	return target
 
 //Mergesort: any value in a list
@@ -327,14 +327,14 @@
 	if (!L)
 		return
 	var/list/target = L.Copy()
-	return sortTim(target, GLOBAL_PROC_REF(cmp_text_asc))
+	return sortTim(target, /proc/cmp_text_asc)
 
 //Mergsorge: uses sortList() but uses the var's name specifically. This should probably be using mergeAtom() instead
 /proc/sortNames(var/list/L)
 	if (!L)
 		return
 	var/list/target = L.Copy()
-	return sortTim(target, GLOBAL_PROC_REF(cmp_name_asc), FALSE)
+	return sortTim(target, /proc/cmp_name_asc, FALSE)
 
 // List of lists, sorts by element[key] - for things like crew monitoring computer sorting records by name.
 /proc/sortByKey(var/list/L, var/key)
@@ -364,7 +364,7 @@
 //Mergesort: any value in a list, preserves key=value structure
 /proc/sortAssoc(var/list/L)
 	var/list/ret = L.Copy()
-	sortTim(ret, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
+	sortTim(ret, /proc/cmp_text_asc, FALSE)
 	return ret
 
 // Macros to test for bits in a bitfield. Note, that this is for use with indexes, not bit-masks!

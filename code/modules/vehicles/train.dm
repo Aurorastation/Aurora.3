@@ -60,13 +60,13 @@
 	if(emagged)
 		if(isliving(A))
 			var/mob/living/M = A
-			visible_message(SPAN_WARNING("[src] knocks over [M]!"))
+			visible_message("<span class='warning'>[src] knocks over [M]!</span>")
 			var/def_zone = ran_zone()
 			M.apply_effects(5, 5)				//knock people down if you hit them
 			M.apply_damage(22 / move_delay, BRUTE, def_zone,)	// and do damage according to how fast the train is going
 			if(isliving(load))
 				var/mob/living/D = load
-				to_chat(D, SPAN_WARNING("You hit [M]!"))
+				to_chat(D, "<span class='warning'>You hit [M]!</span>")
 				msg_admin_attack("[D.name] ([D.ckey]) hit [M.name] ([M.ckey]) with [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(M))
 
 
@@ -83,18 +83,35 @@
 //-------------------------------------------
 // Interaction procs
 //-------------------------------------------
+/obj/vehicle/train/relaymove(mob/user, direction)
+	var/turf/T = get_step_to(src, get_step(src, direction))
+	if(!T)
+		to_chat(user, "You can't find a clear area to step onto.")
+		return 0
+
+	if(user != load)
+		if(user in src)		//for handling players stuck in src - this shouldn't happen - but just in case it does
+			user.forceMove(T)
+			return 1
+		return 0
+
+	unload(user, direction)
+
+	to_chat(user, "<span class='notice'>You climb down from [src].</span>")
+
+	return 1
 
 /obj/vehicle/train/MouseDrop_T(var/atom/movable/C, mob/user as mob)
-	if(use_check_and_message(user))
+	if(user.buckled_to || user.stat || user.restrained() || !Adjacent(user) || !user.Adjacent(C) || !istype(C) || (user == C && !user.canmove))
 		return
 	if(istype(C, /obj/vehicle/train))
-		latch(C, user)
+		attach_to(C, user)
 	else
 		if(!load(C))
-			to_chat(user, SPAN_WARNING("You were unable to load \the [C] on \the [src]."))
+			to_chat(user, "<span class='warning'>You were unable to load [C] on [src].</span>")
 
 /obj/vehicle/train/attack_hand(mob/user as mob)
-	if(use_check_and_message(user))
+	if(user.stat || user.restrained() || !Adjacent(user))
 		return 0
 
 	if(user != load && (user in src))
@@ -117,31 +134,32 @@
 //Note: there is a modified version of this in code\modules\vehicles\cargo_train.dm specifically for cargo train engines
 /obj/vehicle/train/proc/attach_to(obj/vehicle/train/T, mob/user)
 	if (get_dist(src, T) > 1)
-		to_chat(user, SPAN_WARNING("\The [src] is too far away from \the [T] to hitch them together."))
+		to_chat(user, "<span class='warning'>[src] is too far away from [T] to hitch them together.</span>")
 		return
 
 	if (lead)
-		to_chat(user, SPAN_WARNING("\The [src] is already hitched to something."))
+		to_chat(user, "<span class='warning'>[src] is already hitched to something.</span>")
 		return
 
 	if (T.tow)
-		to_chat(user, SPAN_WARNING("\The [T] is already towing something."))
+		to_chat(user, "<span class='warning'>[T] is already towing something.</span>")
 		return
 
 	//check for cycles.
 	var/obj/vehicle/train/next_car = T
 	while (next_car)
 		if (next_car == src)
-			to_chat(user, SPAN_WARNING("That seems very silly."))
+			to_chat(user, "<span class='warning'>That seems very silly.</span>")
 			return
 		next_car = next_car.lead
 
 	//latch with src as the follower
-	src.lead = T
+	lead = T
 	T.tow = src
-	set_dir(get_dir(src, lead))
-	to_chat(user, SPAN_NOTICE("You hitch \the [src] to \the [T]."))
-	playsound(loc, 'sound/items/wrench.ogg', 70, TRUE)
+	set_dir(lead.dir)
+
+	if(user)
+		to_chat(user, "<span class='notice'>You hitch [src] to [T].</span>")
 
 	update_stats()
 
@@ -149,36 +167,27 @@
 //detaches the train from whatever is towing it
 /obj/vehicle/train/proc/unattach(mob/user)
 	if (!lead)
-		to_chat(user, SPAN_WARNING("\The [src] is not hitched to anything."))
+		to_chat(user, "<span class='warning'>[src] is not hitched to anything.</span>")
 		return
 
 	lead.tow = null
 	lead.update_stats()
 
-	to_chat(user, SPAN_NOTICE("You unhitch \the [src] from \the [lead]."))
+	to_chat(user, "<span class='notice'>You unhitch [src] from [lead].</span>")
 	lead = null
 
 	update_stats()
-
-//-------------------------------------------
-// Latching/unlatching procs
-//-------------------------------------------
 
 /obj/vehicle/train/proc/latch(obj/vehicle/train/T, mob/user)
 	if(!istype(T) || !Adjacent(T))
 		return 0
 
-	//if we are attaching a trolley to an engine we don't care what direction
-	// it is in and it should probably be attached with the engine in the lead
-	if(istype(T, /obj/vehicle/train/cargo/engine))
-		src.attach_to(T, user)
-	else
-		var/T_dir = get_dir(src, T)	//figure out where T is wrt src
+	var/T_dir = get_dir(src, T)	//figure out where T is wrt src
 
-		if(dir == T_dir) 	//if car is ahead
-			src.attach_to(T, user)
-		else if(reverse_direction(dir) == T_dir)	//else if car is behind
-			T.attach_to(src, user)
+	if(dir == T_dir) 	//if car is ahead
+		src.attach_to(T, user)
+	else if(reverse_direction(dir) == T_dir)	//else if car is behind
+		T.attach_to(src, user)
 
 //returns 1 if this is the lead car of the train
 /obj/vehicle/train/proc/is_train_head()

@@ -232,7 +232,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	signal.data["sigtype"] = "command"
 	radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
 
-	addtimer(CALLBACK(SSvueui, TYPE_PROC_REF(/datum/controller/subsystem/processing/vueui, check_uis_for_change), src), 5) //Just in case we get no new data
+	addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 5) //Just in case we get no new data
 
 /obj/machinery/computer/general_air_control/supermatter_core
 	icon = 'icons/obj/modular_console.dmi'
@@ -318,7 +318,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	signal.data["sigtype"]="command"
 	radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
 
-	addtimer(TYPE_PROC_REF(/datum/controller/subsystem/processing/vueui, check_uis_for_change), src, 5) //Just in case we get no new data
+	addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 5) //Just in case we get no new data
 
 /obj/machinery/computer/general_air_control/fuel_injection
 	icon_screen = "alert:0"

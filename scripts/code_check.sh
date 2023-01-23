@@ -22,7 +22,7 @@ else
 fi
 
 echo "Checking for step_x and step_y in maps:" >> code_error.log
-grep -r 'step_[xy]' --include \*.dmm maps >> code_error.log
+grep 'step_[xy]' maps/**/*.dmm >> code_error.log
 if [ $? -eq 0 ]; then
     ERROR_COUNT=$(($ERROR_COUNT+1))
     echo "FAIL: Found step_x or step_y in maps" >> code_error.log

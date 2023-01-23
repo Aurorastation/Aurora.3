@@ -5,7 +5,6 @@ var/datum/controller/subsystem/sun/sun
 	flags = SS_NO_INIT | SS_POST_FIRE_TIMING | SS_BACKGROUND
 	wait = 1 MINUTE
 	priority = SS_PRIORITY_SUN
-	runlevels = RUNLEVELS_PLAYING
 
 	var/angle
 	var/dx

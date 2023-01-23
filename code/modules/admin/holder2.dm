@@ -25,7 +25,7 @@ var/list/admin_datums = list()
 		return
 
 	if (!current_map)
-		SSatlas.OnMapload(CALLBACK(src, PROC_REF(update_newscaster_sig)))
+		SSatlas.OnMapload(CALLBACK(src, .proc/update_newscaster_sig))
 	else
 		update_newscaster_sig()
 

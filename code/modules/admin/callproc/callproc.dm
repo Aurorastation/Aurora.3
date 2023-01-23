@@ -163,13 +163,8 @@
 		else
 			returnval = call(target, procname)()
 	else
-		var/procpath = text2path("/proc/[procname]")
-		if(!procpath)
-			to_chat(usr, "Invalid proc path /proc/[procname].")
-			return
-
 		log_admin("[key_name(src)] called [procname]() with [arguments.len ? "the arguments [list2params(arguments)]" : "no arguments"].",admin_key=key_name(src))
-		returnval = call(procpath)(arglist(arguments))
+		returnval = call(procname)(arglist(arguments))
 
 	to_chat(usr, "<span class='info'>[procname]() returned: [isnull(returnval) ? "null" : returnval]</span>")
 	feedback_add_details("admin_verb","APC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

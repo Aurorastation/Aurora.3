@@ -51,11 +51,11 @@
 			to_chat(user, SPAN_WARNING("\The [src] is already full of gunpowder."))
 			return
 		var/obj/item/reagent_containers/C = W
-		if(C.reagents.has_reagent(/singleton/reagent/gunpowder, 5))
+		if(C.reagents.has_reagent(/decl/reagent/gunpowder, 5))
 			if(do_after(user, 15))
 				if(has_powder)
 					return
-				C.reagents.remove_reagent(/singleton/reagent/gunpowder, 5)
+				C.reagents.remove_reagent(/decl/reagent/gunpowder, 5)
 				has_powder = TRUE
 				to_chat(user, SPAN_NOTICE("You fill \the [src] with gunpowder."))
 
@@ -69,4 +69,4 @@
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5)
 	volume = 30
-	reagents_to_add = list(/singleton/reagent/gunpowder = 30)
+	reagents_to_add = list(/decl/reagent/gunpowder = 30)

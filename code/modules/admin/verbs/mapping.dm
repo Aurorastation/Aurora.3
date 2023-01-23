@@ -136,6 +136,7 @@ var/list/debug_verbs = list (
 	,/client/proc/count_objects_all
 	,/client/proc/cmd_assume_direct_control
 	,/client/proc/jump_to_dead_group
+	,/client/proc/startSinglo
 	,/client/proc/ticklag
 	,/client/proc/cmd_admin_grantfullaccess
 	,/client/proc/kaboom

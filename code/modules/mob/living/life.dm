@@ -72,11 +72,11 @@
 	updatehealth()
 	if(stat != DEAD)
 		if(paralysis)
-			set_stat(UNCONSCIOUS)
+			stat = UNCONSCIOUS
 		else if (status_flags & FAKEDEATH)
-			set_stat(UNCONSCIOUS)
+			stat = UNCONSCIOUS
 		else
-			set_stat(CONSCIOUS)
+			stat = CONSCIOUS
 		return 1
 
 /mob/living/proc/handle_status_effects()

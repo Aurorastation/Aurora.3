@@ -115,9 +115,6 @@
 /atom/proc/emp_act(var/severity)
 	return
 
-/atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
-	return
-
 /atom/proc/bullet_act(obj/item/projectile/P, def_zone)
 	P.on_hit(src, 0, def_zone)
 	. = 0
@@ -520,14 +517,14 @@
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
 		if(istype(inject_reagents) && inject_reagents.total_volume)
 			inject_reagents.trans_to_obj(this, min(15, inject_reagents.total_volume))
-			this.reagents.add_reagent(/singleton/reagent/acid/stomach, 5)
+			this.reagents.add_reagent(/decl/reagent/acid/stomach, 5)
 
 		// Make toxins related vomit look different.
 		if(toxvomit)
 			this.icon_state = "vomittox_[pick(1,4)]"
 
 /mob/living/proc/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
-	vomit.reagents.add_reagent(/singleton/reagent/acid/stomach, 5)
+	vomit.reagents.add_reagent(/decl/reagent/acid/stomach, 5)
 
 /atom/proc/clean_blood()
 	if(!simulated)

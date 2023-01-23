@@ -1,6 +1,6 @@
 /* SURGERY STEPS */
 
-/singleton/surgery_step
+/decl/surgery_step
 	var/name
 	var/priority = 0	//steps with higher priority would be attempted first
 
@@ -22,7 +22,7 @@
 	var/requires_surgery_compatibility = TRUE
 
 	//returns how well tool is suited for this step
-/singleton/surgery_step/proc/tool_quality(obj/item/tool)
+/decl/surgery_step/proc/tool_quality(obj/item/tool)
 	for(var/T in allowed_tools)
 		var/return_value = check_tool_quality(tool, T, allowed_tools[T], requires_surgery_compatibility)
 		if(return_value)
@@ -32,7 +32,7 @@
 	return FALSE
 
 	// Checks if this step applies to the user mob at all
-/singleton/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
+/decl/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
 	if(!ishuman(target))
 		return FALSE
 
@@ -50,13 +50,13 @@
 
 
 // checks whether this step can be applied with the given user and target
-/singleton/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/decl/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
 		return FALSE
 	return TRUE
 
 // does stuff to begin the step, usually just printing messages. Moved germs transfering and bloodying here too
-/singleton/surgery_step/proc/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/decl/surgery_step/proc/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(can_infect && affected)
 		spread_germs_to_organ(affected, user)
@@ -69,11 +69,11 @@
 	return
 
 // does stuff to end the step, which is normally print a message + do whatever this step changes
-/singleton/surgery_step/proc/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/decl/surgery_step/proc/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return FALSE
 
 // stuff that happens when the step fails
-/singleton/surgery_step/proc/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/decl/surgery_step/proc/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return null
 
 proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/human/user)
@@ -114,14 +114,14 @@ proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/
 
 	// What surgeries does our tool/target enable?
 	var/list/possible_surgeries
-	var/list/all_surgeries = GET_SINGLETON_SUBTYPE_MAP(/singleton/surgery_step)
+	var/list/all_surgeries = decls_repository.get_decls_of_subtype(/decl/surgery_step)
 	for(var/decl in all_surgeries)
-		var/singleton/surgery_step/S = all_surgeries[decl]
+		var/decl/surgery_step/S = all_surgeries[decl]
 		if(S.tool_quality(tool) && S.can_use(user, M, zone, tool))
 			LAZYSET(possible_surgeries, S, TRUE)
 
 	// Which surgery, if any, do we actually want to do?
-	var/singleton/surgery_step/S
+	var/decl/surgery_step/S
 	if(LAZYLEN(possible_surgeries) == 1)
 		S = possible_surgeries[1]
 	else if(LAZYLEN(possible_surgeries) >= 1)

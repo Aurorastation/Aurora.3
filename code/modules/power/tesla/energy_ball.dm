@@ -157,7 +157,7 @@
 		energy_to_raise = energy_to_raise * 1.25
 
 		playsound(src.loc, 'sound/magic/lightning_chargeup.ogg', 100, 1, extrarange = 30)
-		addtimer(CALLBACK(src, PROC_REF(new_mini_ball)), 100)
+		addtimer(CALLBACK(src, .proc/new_mini_ball), 100)
 
 	else if(energy < energy_to_lower && orbiting_balls.len)
 		energy_to_raise = energy_to_raise / 1.25
@@ -314,8 +314,8 @@
 	var/beam_range = zap_range + 2
 	for(var/A in typecache_filter_multi_list_exclusion(oview(source, beam_range), things_to_shock, blacklisted_types))
 
-		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/machinery/power/tesla_beacon))
-			var/obj/machinery/power/tesla_beacon/E = A
+		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/machinery/power/singularity_beacon/emergency))
+			var/obj/machinery/power/singularity_beacon/emergency/E = A
 			var/obj/singularity/energy_ball/B = source
 			if(!E.active)
 				return

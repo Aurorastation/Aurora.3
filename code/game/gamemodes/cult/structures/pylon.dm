@@ -327,7 +327,7 @@
 	A.launch_projectile(target)
 	next_shot = world.time + shot_delay
 	A = null //So projectiles can GC
-	addtimer(CALLBACK(src, PROC_REF(handle_firing)), shot_delay + 1)
+	addtimer(CALLBACK(src, .proc/handle_firing), shot_delay + 1)
 
 /obj/structure/cult/pylon/attack_hand(mob/M)
 	if (M.a_intent == "help")
@@ -429,7 +429,7 @@
 
 /obj/structure/cult/pylon/proc/shatter()
 	visible_message(SPAN_DANGER("The pylon shatters into shards of crystal!"), SPAN_WARNING("You hear a tinkle of crystal shards."))
-	playsound(get_turf(src), /singleton/sound_category/glass_break_sound, 75, 1)
+	playsound(get_turf(src), /decl/sound_category/glass_break_sound, 75, 1)
 	isbroken = TRUE
 	if(pylonmode == PYLON_TURRET)
 		//If the pylon had a soul in it then it plays a creepy evil sound as the soul is released

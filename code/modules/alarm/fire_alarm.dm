@@ -8,6 +8,4 @@
 			A.fire_alert()
 		else
 			A.fire_reset()
-
-	SEND_SIGNAL(A, COMSIG_AREA_FIRE_ALARM, A.fire)
 	..()

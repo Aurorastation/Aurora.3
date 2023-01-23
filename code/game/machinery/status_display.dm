@@ -17,7 +17,6 @@
 	anchored = 1
 	density = 0
 	idle_power_usage = 10
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/hears_arrivals = FALSE
 	var/mode = 1	// 0 = Blank
 					// 1 = Shuttle timer

@@ -131,7 +131,7 @@
 			H.apply_effect(2, WEAKEN)
 		on = FALSE
 		update_icon()
-		addtimer(CALLBACK(src, PROC_REF(rearm)), reset_time SECONDS)
+		addtimer(CALLBACK(src, .proc/rearm), reset_time SECONDS)
 		if(isrobot(user))
 			var/mob/living/silicon/robot/R = user
 			if(R.cell)

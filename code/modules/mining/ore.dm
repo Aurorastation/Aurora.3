@@ -1,7 +1,7 @@
 /obj/item/ore
 	name = "rock"
-	icon = 'icons/obj/item/ore.dmi'
-	icon_state = "ore"
+	icon = 'icons/obj/mining.dmi'
+	icon_state = "ore1"
 	randpixel = 8
 	w_class = ITEMSIZE_SMALL
 	throwforce = 10
@@ -32,7 +32,7 @@
 
 /obj/item/ore/coal
 	name = "raw carbon"
-	icon_state = "slag"
+	icon_state = "ore_coal"
 	origin_tech = list(TECH_MATERIAL = 1)
 	material = ORE_COAL
 
@@ -94,6 +94,11 @@
 	desc = "Someone screwed up..."
 	icon_state = "slag"
 	material = null
+
+/obj/item/ore/Initialize()
+	. = ..()
+	if((randpixel_xy()) && icon_state == "ore1")
+		icon_state = "ore[pick(1,2,3)]"
 
 /obj/item/ore/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/device/core_sampler))

@@ -39,29 +39,29 @@
 #endif
 
 /// Gets the version of rust_g
-/proc/rustg_get_version() return LIBCALL(RUST_G, "get_version")()
+/proc/rustg_get_version() return call(RUST_G, "get_version")()
 
-#define rustg_dmi_strip_metadata(fname) LIBCALL(RUST_G, "dmi_strip_metadata")(fname)
-#define rustg_dmi_create_png(path, width, height, data) LIBCALL(RUST_G, "dmi_create_png")(path, width, height, data)
-#define rustg_dmi_resize_png(path, width, height, resizetype) LIBCALL(RUST_G, "dmi_resize_png")(path, width, height, resizetype)
+#define rustg_dmi_strip_metadata(fname) call(RUST_G, "dmi_strip_metadata")(fname)
+#define rustg_dmi_create_png(path, width, height, data) call(RUST_G, "dmi_create_png")(path, width, height, data)
+#define rustg_dmi_resize_png(path, width, height, resizetype) call(RUST_G, "dmi_resize_png")(path, width, height, resizetype)
 
-#define rustg_file_read(fname) LIBCALL(RUST_G, "file_read")(fname)
-#define rustg_file_exists(fname) LIBCALL(RUST_G, "file_exists")(fname)
-#define rustg_file_write(text, fname) LIBCALL(RUST_G, "file_write")(text, fname)
-#define rustg_file_append(text, fname) LIBCALL(RUST_G, "file_append")(text, fname)
+#define rustg_file_read(fname) call(RUST_G, "file_read")(fname)
+#define rustg_file_exists(fname) call(RUST_G, "file_exists")(fname)
+#define rustg_file_write(text, fname) call(RUST_G, "file_write")(text, fname)
+#define rustg_file_append(text, fname) call(RUST_G, "file_append")(text, fname)
 
 #ifdef RUSTG_OVERRIDE_BUILTINS
 	#define file2text(fname) rustg_file_read("[fname]")
 	#define text2file(text, fname) rustg_file_append(text, "[fname]")
 #endif
 
-#define rustg_git_revparse(rev) LIBCALL(RUST_G, "rg_git_revparse")(rev)
-#define rustg_git_commit_date(rev) LIBCALL(RUST_G, "rg_git_commit_date")(rev)
+#define rustg_git_revparse(rev) call(RUST_G, "rg_git_revparse")(rev)
+#define rustg_git_commit_date(rev) call(RUST_G, "rg_git_commit_date")(rev)
 
-#define rustg_hash_string(algorithm, text) LIBCALL(RUST_G, "hash_string")(algorithm, text)
-#define rustg_hash_file(algorithm, fname) LIBCALL(RUST_G, "hash_file")(algorithm, fname)
-#define rustg_hash_generate_totp(seed) LIBCALL(RUST_G, "generate_totp")(seed)
-#define rustg_hash_generate_totp_tolerance(seed, tolerance) LIBCALL(RUST_G, "generate_totp_tolerance")(seed, tolerance)
+#define rustg_hash_string(algorithm, text) call(RUST_G, "hash_string")(algorithm, text)
+#define rustg_hash_file(algorithm, fname) call(RUST_G, "hash_file")(algorithm, fname)
+#define rustg_hash_generate_totp(seed) call(RUST_G, "generate_totp")(seed)
+#define rustg_hash_generate_totp_tolerance(seed, tolerance) call(RUST_G, "generate_totp_tolerance")(seed, tolerance)
 
 #define RUSTG_HASH_MD5 "md5"
 #define RUSTG_HASH_SHA1 "sha1"
@@ -80,25 +80,25 @@
 #define RUSTG_HTTP_METHOD_PATCH "patch"
 #define RUSTG_HTTP_METHOD_HEAD "head"
 #define RUSTG_HTTP_METHOD_POST "post"
-#define rustg_http_request_blocking(method, url, body, headers, options) LIBCALL(RUST_G, "http_request_blocking")(method, url, body, headers, options)
-#define rustg_http_request_async(method, url, body, headers, options) LIBCALL(RUST_G, "http_request_async")(method, url, body, headers, options)
-#define rustg_http_check_request(req_id) LIBCALL(RUST_G, "http_check_request")(req_id)
+#define rustg_http_request_blocking(method, url, body, headers, options) call(RUST_G, "http_request_blocking")(method, url, body, headers, options)
+#define rustg_http_request_async(method, url, body, headers, options) call(RUST_G, "http_request_async")(method, url, body, headers, options)
+#define rustg_http_check_request(req_id) call(RUST_G, "http_check_request")(req_id)
 
 #define RUSTG_JOB_NO_RESULTS_YET "NO RESULTS YET"
 #define RUSTG_JOB_NO_SUCH_JOB "NO SUCH JOB"
 #define RUSTG_JOB_ERROR "JOB PANICKED"
 
-#define rustg_log_write(fname, text, format) LIBCALL(RUST_G, "log_write")(fname, text, format)
-/proc/rustg_log_close_all() return LIBCALL(RUST_G, "log_close_all")()
+#define rustg_log_write(fname, text, format) call(RUST_G, "log_write")(fname, text, format)
+/proc/rustg_log_close_all() return call(RUST_G, "log_close_all")()
 
-#define rustg_time_microseconds(id) text2num(LIBCALL(RUST_G, "time_microseconds")(id))
-#define rustg_time_milliseconds(id) text2num(LIBCALL(RUST_G, "time_milliseconds")(id))
-#define rustg_time_reset(id) LIBCALL(RUST_G, "time_reset")(id)
+#define rustg_time_microseconds(id) text2num(call(RUST_G, "time_microseconds")(id))
+#define rustg_time_milliseconds(id) text2num(call(RUST_G, "time_milliseconds")(id))
+#define rustg_time_reset(id) call(RUST_G, "time_reset")(id)
 
-#define rustg_udp_send(addr, text) LIBCALL(RUST_G, "udp_send")(addr, text)
+#define rustg_udp_send(addr, text) call(RUST_G, "udp_send")(addr, text)
 
-#define rustg_url_encode(text) LIBCALL(RUST_G, "url_encode")("[text]")
-#define rustg_url_decode(text) LIBCALL(RUST_G, "url_decode")(text)
+#define rustg_url_encode(text) call(RUST_G, "url_encode")("[text]")
+#define rustg_url_decode(text) call(RUST_G, "url_decode")(text)
 
 #ifdef RUSTG_OVERRIDE_BUILTINS
 	#define url_encode(text) rustg_url_encode(text)

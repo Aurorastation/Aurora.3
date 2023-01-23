@@ -135,7 +135,6 @@
 	name = "diamond"
 	icon_state = "sheet-diamond"
 	default_type = MATERIAL_DIAMOND
-	icon_has_variants = TRUE
 
 /obj/item/stack/material/diamond/full/Initialize()
 	. = ..()
@@ -146,7 +145,6 @@
 	name = "uranium"
 	icon_state = "sheet-uranium"
 	default_type = MATERIAL_URANIUM
-	icon_has_variants = TRUE
 
 /obj/item/stack/material/uranium/full/Initialize()
 	. = ..()
@@ -223,7 +221,7 @@
 //Extremely valuable to Research.
 /obj/item/stack/material/mhydrogen
 	name = "metallic hydrogen"
-	icon_state = "sheet-metalhydrogen"
+	icon_state = "sheet-mythril"
 	default_type = MATERIAL_HYDROGEN_METALLIC
 
 /obj/item/stack/material/mhydrogen/full/Initialize()
@@ -308,7 +306,6 @@
 	name = "wooden plank"
 	icon_state = "sheet-wood"
 	default_type = MATERIAL_WOOD
-	icon_has_variants = TRUE
 
 /obj/item/stack/material/wood/full/Initialize()
 	. = ..()
@@ -343,7 +340,7 @@
 	update_icon()
 
 /obj/item/stack/material/wood/coloured/bamboo
-	icon_state = "sheet-bamboo"
+	color = WOOD_COLOR_PALE2
 
 /obj/item/stack/material/wood/coloured/bamboo/Initialize()
 	. = ..()
@@ -422,7 +419,6 @@
 	name = "cardboard"
 	icon_state = "sheet-card"
 	default_type = MATERIAL_CARDBOARD
-	icon_has_variants = TRUE
 
 /obj/item/stack/material/cardboard/full/Initialize()
 	. = ..()
@@ -459,7 +455,7 @@
 
 /obj/item/stack/material/glass/wired
 	name = "wired glass"
-	icon = 'icons/obj/item/stacks/tiles.dmi'
+	icon = 'icons/obj/stacks/tiles.dmi'
 	icon_state = "glass_wire"
 	default_type = MATERIAL_GLASS_WIRED
 
@@ -483,7 +479,7 @@
 	name = "borosilicate glass"
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures"
 	singular_name = "borosilicate glass sheet"
-	icon_state = "sheet-pglass"
+	icon_state = "sheet-phoronglass"
 	item_state = "sheet-pglass"
 	default_type = MATERIAL_GLASS_PHORON
 
@@ -496,7 +492,7 @@
 	name = "reinforced borosilicate glass"
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
 	singular_name = "reinforced borosilicate glass sheet"
-	icon_state = "sheet-prglass"
+	icon_state = "sheet-phoronrglass"
 	item_state = "sheet-prglass"
 	default_type = MATERIAL_GLASS_REINFORCED_PHORON
 

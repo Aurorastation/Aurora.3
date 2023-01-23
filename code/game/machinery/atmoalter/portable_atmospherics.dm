@@ -71,7 +71,7 @@
 	//Perform the connection
 	connected_port = new_port
 	connected_port.connected_device = src
-	connected_port.toggle_process()
+	connected_port.on = 1 //Activate port updates
 
 	anchored = 1 //Prevent movement
 
@@ -92,10 +92,8 @@
 		network.gases -= air_contents
 
 	anchored = 0
-	if(connected_port)
-		connected_port.toggle_process()
-		connected_port.connected_device = null
 
+	connected_port.connected_device = null
 	connected_port = null
 
 	return 1

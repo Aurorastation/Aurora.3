@@ -15,7 +15,7 @@
 	w_class = ITEMSIZE_NORMAL
 	max_amount = 60
 	recyclable = TRUE
-	icon = 'icons/obj/item/stacks/tiles.dmi'
+	icon = 'icons/obj/stacks/tiles.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_tiles.dmi',
 		slot_r_hand_str = 'icons/mob/items/stacks/righthand_tiles.dmi',
@@ -80,7 +80,7 @@
 
 /obj/item/stack/tile/wood/coloured/birch
 	name = "birch wood floor tile"
-	color = WOOD_COLOR_BIRCH
+	color = WOOD_COLOR_BIRCH 
 	build_type = /obj/item/stack/tile/wood/coloured/birch
 
 /obj/item/stack/tile/wood/coloured/mahogany

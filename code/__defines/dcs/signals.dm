@@ -30,7 +30,6 @@
 // /atom signals
 
 // /area signals
-#define COMSIG_AREA_FIRE_ALARM "fire_alarm"
 
 // /turf signals
 

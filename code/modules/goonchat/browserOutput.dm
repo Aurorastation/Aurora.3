@@ -103,7 +103,7 @@ var/savefile/iconCache = new("data/tmp/iconCache.sav") //Cache of icons for the 
 
 //Called on chat output done-loading by JS.
 /datum/chatOutput/proc/doneLoading()
-	if(loaded || !owner)
+	if(loaded)
 		return
 
 	loaded = TRUE
@@ -275,7 +275,7 @@ var/savefile/iconCache = new("data/tmp/iconCache.sav") //Cache of icons for the 
 
 /proc/to_chat(target, message, handle_whitespace = TRUE, trailing_newline = TRUE)
 	set waitfor = FALSE
-	if(GAME_STATE == RUNLEVEL_INIT || !SSchat)
+	if(Master.initializing || !SSchat)
 		to_chat_immediate(target, message, handle_whitespace, trailing_newline)
 		return
 	SSchat.queue(target, message, handle_whitespace, trailing_newline)

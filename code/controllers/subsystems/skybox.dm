@@ -12,8 +12,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 	var/star_path = 'icons/skybox/skybox.dmi'
 	var/star_state = "stars"
 	var/list/skybox_cache = list()
-	var/list/space_appearance_cache
-
+	var/list/space_appearance_cache	
 
 /datum/controller/subsystem/skybox/proc/build_space_appearances()
 	space_appearance_cache = new(26)
@@ -29,7 +28,6 @@ var/datum/controller/subsystem/skybox/SSskybox
 		space.icon_state = "white"
 		space.overlays += dust
 		space_appearance_cache[i + 1] = space.appearance
-		background_color = SSatlas.current_sector.starlight_color
 
 /datum/controller/subsystem/skybox/New()
 	NEW_SS_GLOBAL(SSskybox)

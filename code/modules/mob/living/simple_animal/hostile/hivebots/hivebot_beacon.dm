@@ -63,7 +63,7 @@
 		S.start()
 		visible_message(SPAN_DANGER("[src] warps in!"))
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
-		addtimer(CALLBACK(src, PROC_REF(activate_beacon)), 450)
+		addtimer(CALLBACK(src, .proc/activate_beacon), 450)
 	latest_area = get_area(src)
 	icon_state = "hivebotbeacon_off"
 	generate_warp_destinations()
@@ -160,7 +160,7 @@
 		stance = HOSTILE_STANCE_TIRED
 		icon_state = "hivebotbeacon_off"
 		activated = -1
-		addtimer(CALLBACK(src, PROC_REF(wakeup)), 900)
+		addtimer(CALLBACK(src, .proc/wakeup), 900)
 
 	var/area/random_area = random_station_area(TRUE)
 	var/turf/random_turf = random_area.random_space()
@@ -248,7 +248,7 @@
 
 	if(bot_amt>0 && linked_bots.len < max_bots)
 		calc_spawn_delay()
-		addtimer(CALLBACK(src, PROC_REF(warpbots)), spawn_delay)
+		addtimer(CALLBACK(src, .proc/warpbots), spawn_delay)
 	else
 		max_bots_reached = 1
 
@@ -264,7 +264,7 @@
 	if(max_bots_reached && activated == 1 && linked_bots.len < max_bots)
 		max_bots_reached = 0
 		calc_spawn_delay()
-		addtimer(CALLBACK(src, PROC_REF(warpbots)), spawn_delay)
+		addtimer(CALLBACK(src, .proc/warpbots), spawn_delay)
 
 #undef NORMAL
 #undef RANGED

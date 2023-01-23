@@ -17273,6 +17273,10 @@
 /obj/structure/window/shuttle/scc,
 /turf/simulated/floor/plating,
 /area/supply/dock)
+"aQZ" = (
+/obj/machinery/atmospherics/pipe/vent,
+/turf/simulated/floor/bluegrid,
+/area/tdome)
 "aRa" = (
 /obj/machinery/camera/network/thunder{
 	c_tag = "Thunderdome Arena";
@@ -17326,6 +17330,24 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"aRj" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/tdome)
+"aRk" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/tdome)
+"aRl" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/tdome)
 "aRm" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/toilet{
@@ -17392,6 +17414,10 @@
 "aRr" = (
 /turf/simulated/floor,
 /area/tdome/tdome2)
+"aRs" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor,
+/area/tdome)
 "aRt" = (
 /turf/simulated/floor,
 /area/tdome/tdome1)
@@ -17509,6 +17535,11 @@
 	icon_state = "new_white"
 	},
 /area/tdome/tdomeadmin)
+"aRT" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/unsimulated/floor/plating,
+/area/tdome/tdomeadmin)
 "aRU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/disposalpipe/segment,
@@ -17585,6 +17616,13 @@
 	icon_state = "new_white"
 	},
 /area/tdome/tdomeadmin)
+"aSk" = (
+/obj/machinery/atmospherics/valve,
+/obj/effect/floor_decal/corner/orange/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "new_white"
+	},
+/area/tdome/tdomeadmin)
 "aSl" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -17618,6 +17656,19 @@
 "aSp" = (
 /obj/machinery/computer/security/telescreen,
 /obj/effect/floor_decal/corner/orange/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "new_white"
+	},
+/area/tdome/tdomeadmin)
+"aSq" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/sleeping_agent{
+	pixel_x = 1
+	},
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -52676,8 +52727,8 @@ aPA
 aPA
 aPA
 aQN
-aQN
-aPA
+aQZ
+aRj
 aPA
 aPA
 aRS
@@ -52934,12 +52985,12 @@ aPA
 aPA
 aQO
 aRa
-aPA
-aPA
-aPA
-aRR
-aSg
-aSw
+aRk
+aRs
+aRs
+aRT
+aSk
+aSq
 aSg
 aSw
 aSo
@@ -53190,8 +53241,8 @@ aPA
 aPA
 aPA
 aQN
-aQN
-aPA
+aQZ
+aRl
 aPA
 aPA
 aRS

@@ -56,10 +56,10 @@
 
 		if(success == 2)
 			playsound(loc, 'sound/machines/weapons_analyzer_finish.ogg', 75, 1)
-			addtimer(CALLBACK(src, PROC_REF(reset)), 32)
+			addtimer(CALLBACK(src, .proc/reset), 32)
 		else
 			playsound(loc, 'sound/machines/weapons_analyzer.ogg', 75, 1)
-			addtimer(CALLBACK(src, PROC_REF(reset)), 15)
+			addtimer(CALLBACK(src, .proc/reset), 15)
 		process = TRUE
 		update_icon()
 	else if(I)

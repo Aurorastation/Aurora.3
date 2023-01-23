@@ -96,7 +96,7 @@
 	if(!M || !T)
 		return
 
-	playsound(T, /singleton/sound_category/spark_sound, 50, 1)
+	playsound(T, /decl/sound_category/spark_sound, 50, 1)
 	new phase_out_visual(T, M.dir)
 
 /obj/item/rig_module/teleporter/engage(atom/target, mob/user, var/notify_ai)
@@ -303,7 +303,7 @@
 	playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
 	holder.cell.give(generation_amount)
 	cooldown = 1
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/rig_module/emergency_powergenerator, reset_cooldown)), 2 MINUTES)
+	addtimer(CALLBACK(src, /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown), 2 MINUTES)
 	return TRUE
 
 /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown()

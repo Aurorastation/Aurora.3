@@ -465,10 +465,6 @@
 	name = "Cell F"
 	id = "cell_6"
 
-/obj/machinery/door_timer/isolation_cell
-	name = "Isolation Cell"
-	id = "cell_isolation"
-
 #undef FONT_SIZE
 #undef FONT_COLOR
 #undef FONT_STYLE

@@ -3,8 +3,6 @@
 	desc = "Used to unlock things."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "keys"
-	drop_sound = 'sound/items/drop/ring.ogg'
-	pickup_sound = 'sound/items/pickup/ring.ogg'
 	w_class = ITEMSIZE_TINY
 	var/key_data = ""
 

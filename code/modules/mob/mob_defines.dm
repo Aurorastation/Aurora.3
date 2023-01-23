@@ -136,6 +136,7 @@
 	var/stunned = 0
 	var/weakened = 0
 	var/losebreath = 0 //Carbon
+	var/intent = null//Living -- Depreciated? (a_intent below is your help/disarm/grab/harm)
 	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
 	var/m_intent = M_WALK //Living

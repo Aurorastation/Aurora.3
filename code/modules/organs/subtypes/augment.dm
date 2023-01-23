@@ -239,7 +239,7 @@
 	if(owner)
 		to_chat(owner, FONT_LARGE(SPAN_DANGER("You feel your [src.name] surge with energy!")))
 		spark(get_turf(owner), 3)
-		addtimer(CALLBACK(src, PROC_REF(disarm)), recharge_time MINUTES)
+		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
 		if(is_bruised() && prob(50))
 			owner.electrocute_act(40, owner)
 
@@ -248,7 +248,7 @@
 		return
 	actual_charges = min(actual_charges - 1, max_charges)
 	if(actual_charges > 0)
-		addtimer(CALLBACK(src, PROC_REF(disarm)), recharge_time MINUTES)
+		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
 	if(is_broken())
 		owner.visible_message(SPAN_DANGER("\The [owner] crackles with energy!"))
 		playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
@@ -272,13 +272,6 @@
 	owner.visible_message(SPAN_DANGER("\The [owner] crackles with energy!"))
 	playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
 	tesla_zap(owner, 7, 1500)
-
-/obj/item/organ/internal/augment/tesla/massive
-	name = "massive tesla spine"
-	icon_state = "tesla_spine"
-	organ_tag = BP_AUG_TESLA
-	on_mob_icon = 'icons/mob/human_races/tesla_body_augments.dmi'
-	species_restricted = list(SPECIES_TAJARA_TESLA_BODY)
 
 /obj/item/organ/internal/augment/eye_sensors
 	name = "integrated HUD sensors"
@@ -638,8 +631,7 @@
 	if(!.)
 		return FALSE
 
-	zoom(owner, 7, 7, FALSE, FALSE)
-	owner.visible_message(zoom ? "<b>[owner]</b>'s pupils narrow..." : "<b>[owner]</b>'s pupils return to normal.", range = 3)
+	zoom(owner,7,7, FALSE)
 
 /obj/item/organ/internal/augment/enhanced_vision/emp_act(severity)
 	..()

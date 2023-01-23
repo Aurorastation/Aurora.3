@@ -11,9 +11,6 @@
 #define SPATIAL_GRID_CONTENTS_TYPE_HEARING RECURSIVE_CONTENTS_HEARING_SENSITIVE
 // Every movable that has a client in it is stored in this channel
 #define SPATIAL_GRID_CONTENTS_TYPE_CLIENTS RECURSIVE_CONTENTS_CLIENT_MOBS
-// Every /mob is stored in this channel
-#define SPATIAL_GRID_CONTENTS_TYPE_TARGETS	RECURSIVE_CONTENTS_AI_TARGETS
 
 // Whether movable is itself or containing something which should be in one of the spatial grid channels
-#define HAS_SPATIAL_GRID_CONTENTS(movable) (movable.important_recursive_contents && \
-	(movable.important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE] || movable.important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS] || movable.important_recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS]))
+#define HAS_SPATIAL_GRID_CONTENTS(movable) (movable.important_recursive_contents && (movable.important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE] || movable.important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS]))

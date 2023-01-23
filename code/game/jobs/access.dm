@@ -89,7 +89,7 @@
 /proc/get_all_access_datums()
 	if(!priv_all_access_datums)
 		priv_all_access_datums = init_subtypes(/datum/access)
-		sortTim(priv_all_access_datums, GLOBAL_PROC_REF(cmp_access), FALSE)
+		sortTim(priv_all_access_datums, /proc/cmp_access, FALSE)
 
 	return priv_all_access_datums
 

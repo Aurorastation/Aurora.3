@@ -68,7 +68,6 @@ Class Procs:
 	priority = SS_PRIORITY_AIR
 	init_order = SS_INIT_AIR
 	flags = SS_POST_FIRE_TIMING
-	runlevels = RUNLEVELS_PLAYING
 
 	//Geometry lists
 	var/list/zones = list()

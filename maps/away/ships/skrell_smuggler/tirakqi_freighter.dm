@@ -1,14 +1,14 @@
 /datum/map_template/ruin/away_site/tirakqi_freighter
 	name = "Ti'Rakqi Freighter"
 	description = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one's transponder identifies it as belonging to an independent freighter."
-	suffixes = list("ships/skrell_smuggler/tirakqi_freighter.dmm")
+	suffix = "ships/skrell_smuggler/tirakqi_freighter.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tirakqi_freighter"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tirakqi_shuttle)
 
-/singleton/submap_archetype/tirakqi_freighter
+/decl/submap_archetype/tirakqi_freighter
 	map = "Ti'Rakqi Freighter"
 	descriptor = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one's transponder identifies it as belonging to an independent freighter."
 

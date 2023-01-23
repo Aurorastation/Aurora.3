@@ -42,7 +42,7 @@
 	..()
 	START_PROCESSING(SScalamity, src)
 	SScalamity.singularities += src
-	for(var/obj/machinery/power/tesla_beacon/singubeacon in SSmachinery.processing)
+	for(var/obj/machinery/power/singularity_beacon/singubeacon in SSmachinery.processing)
 		if(singubeacon.active)
 			target = singubeacon
 			break
@@ -94,6 +94,7 @@
 
 	if (current_size >= STAGE_THREE)
 		move()
+		pulse()
 
 		if (prob(event_chance)) //Chance for it to run a special event TODO: Come up with one or two more that fit.
 			event()
@@ -478,6 +479,11 @@
 			to_chat(M, "<span class=\"danger\">You don't even have a moment to react as you are reduced to ashes by the intense radiation.</span>")
 			M.dust()
 	return
+
+/obj/singularity/proc/pulse()
+	for(var/obj/machinery/power/rad_collector/R in rad_collectors)
+		if (get_dist(R, src) <= 15) //Better than using orange() every process.
+			R.receive_pulse(energy)
 
 /obj/singularity/proc/on_capture()
 	chained = 1

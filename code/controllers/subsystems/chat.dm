@@ -3,7 +3,7 @@ var/datum/controller/subsystem/chat/SSchat
 /datum/controller/subsystem/chat
 	name = "Chat"
 	wait = 1
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	flags = SS_FIRE_IN_LOBBY
 	priority = SS_PRIORITY_CHAT
 	init_order = SS_INIT_CHAT
 	var/list/payload = list()

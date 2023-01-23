@@ -41,7 +41,7 @@
 
 	wet_amount += amount
 
-	unwet_timer = addtimer(CALLBACK(src, PROC_REF(unwet_floor)), 120 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
+	unwet_timer = addtimer(CALLBACK(src, .proc/unwet_floor), 120 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /turf/simulated/proc/unwet_floor()
 	wet_amount = 0

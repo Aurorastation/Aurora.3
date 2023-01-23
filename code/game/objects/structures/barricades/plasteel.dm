@@ -176,7 +176,7 @@
 		SPAN_NOTICE("You flip [src] open."))
 		open(src)
 		recentlyflipped = TRUE
-		addtimer(CALLBACK(src, PROC_REF(remove_cooldown)), 1 SECOND)
+		addtimer(CALLBACK(src, .proc/remove_cooldown), 1 SECOND)
 
 	else
 		if(recentlyflipped)
@@ -186,7 +186,7 @@
 		SPAN_NOTICE("You flip [src] closed."))
 		close(src)
 		recentlyflipped = TRUE
-		addtimer(CALLBACK(src, PROC_REF(remove_cooldown)), 1 SECOND)
+		addtimer(CALLBACK(src, .proc/remove_cooldown), 1 SECOND)
 
 /obj/structure/barricade/plasteel/proc/remove_cooldown()
 	recentlyflipped = !recentlyflipped

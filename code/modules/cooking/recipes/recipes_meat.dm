@@ -1,25 +1,25 @@
-/singleton/recipe/cutlet
+/decl/recipe/cutlet
 	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/rawcutlet
 	)
 	result = /obj/item/reagent_containers/food/snacks/cutlet
 
-/singleton/recipe/meatball
+/decl/recipe/meatball
 	appliance = SKILLET | SAUCEPAN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/rawmeatball
 	)
 	result = /obj/item/reagent_containers/food/snacks/meatball
 
-/singleton/recipe/bacon
+/decl/recipe/bacon
 	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/rawbacon
 	)
 	result = /obj/item/reagent_containers/food/snacks/bacon
 
-/singleton/recipe/bacon_oven
+/decl/recipe/bacon_oven
 	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/rawbacon,
@@ -34,7 +34,7 @@
 	result_quantity = 6
 
 //Bacon
-/singleton/recipe/bacon_pan
+/decl/recipe/bacon_pan
 	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/rawbacon,
@@ -48,19 +48,19 @@
 	result = /obj/item/reagent_containers/food/snacks/bacon/pan
 	result_quantity = 6
 
-/singleton/recipe/meatsteak
+/decl/recipe/meatsteak
 	appliance = SKILLET
-	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1)
+	reagents = list(/decl/reagent/sodiumchloride = 1, /decl/reagent/blackpepper = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/meatsteak
 
-/singleton/recipe/syntisteak
+/decl/recipe/syntisteak
 	appliance = SKILLET
-	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1)
+	reagents = list(/decl/reagent/sodiumchloride = 1, /decl/reagent/blackpepper = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat/syntiflesh)
 	result = /obj/item/reagent_containers/food/snacks/meatsteak
 
-/singleton/recipe/sausage
+/decl/recipe/sausage
 	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meatball,
@@ -69,16 +69,16 @@
 	result = /obj/item/reagent_containers/food/snacks/sausage
 	result_quantity = 2
 
-/singleton/recipe/nugget
+/decl/recipe/nugget
 	appliance = FRYER
-	reagents = list(/singleton/reagent/nutriment/flour = 5)
+	reagents = list(/decl/reagent/nutriment/flour = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/chicken
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/nugget
 
-/singleton/recipe/fishandchips
+/decl/recipe/fishandchips
 	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fries,
@@ -86,7 +86,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/fishandchips
 
-/singleton/recipe/lasagna
+/decl/recipe/lasagna
 	appliance = OVEN
 	fruit = list("tomato" = 2, "eggplant" = 1)
 	items = list(

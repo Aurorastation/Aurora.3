@@ -40,7 +40,7 @@
 	if(!holder)
 		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
 	cooldown = 2
-	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 1 SECOND)
+	addtimer(CALLBACK(src, .proc/process_cooldown), 1 SECOND)
 
 /obj/item/device/assembly/timer/process()
 	if(timing)

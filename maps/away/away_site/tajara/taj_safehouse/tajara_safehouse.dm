@@ -1,14 +1,14 @@
 /datum/map_template/ruin/away_site/tajara_safehouse
 	name = "abandoned outpost"
 	description = "A derelict space outpost."
-	suffixes = list("away_site/taj_safehouse/tajara_safehouse.dmm")
+	suffix = "away_site/taj_safehouse/tajara_safehouse.dmm"
 	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	ship_cost = 2
 	id = "tajara_safehouse"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_safehouse_shuttle)
 
-/singleton/submap_archetype/tajara_safehouse
+/decl/submap_archetype/tajara_safehouse
 	map = "abandoned outpost"
 	descriptor = "A derelict space outpost."
 

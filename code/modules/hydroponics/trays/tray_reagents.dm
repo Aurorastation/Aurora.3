@@ -59,8 +59,8 @@
 	update_icon()
 	if(reagents.total_volume)
 		var/fraction = reagents.total_volume / volume
-		force = max(5 * fraction, 1)
-		throwforce = max(5 * fraction, 1)
+		force = max(10 * fraction, 1)
+		throwforce = max(8 * fraction, 1)
 		hitsound = 'sound/weapons/jug_filled_impact.ogg'
 		drop_sound = 'sound/weapons/jug_filled_impact.ogg'
 	else
@@ -78,14 +78,14 @@
 /obj/item/reagent_containers/glass/fertilizer/ez
 	name = "jug of E-Z-Nutrient"
 	icon_state = "plastic_jug_ez"
-	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/eznutrient = 80)
+	reagents_to_add = list(/decl/reagent/toxin/fertilizer/eznutrient = 80)
 
 /obj/item/reagent_containers/glass/fertilizer/l4z
 	name = "jug of Left-4-Zed"
 	icon_state = "plastic_jug_l4z"
-	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/left4zed = 80)
+	reagents_to_add = list(/decl/reagent/toxin/fertilizer/left4zed = 80)
 
 /obj/item/reagent_containers/glass/fertilizer/rh
 	name = "jug of Robust Harvest"
 	icon_state = "plastic_jug_rh"
-	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/robustharvest = 80)
+	reagents_to_add = list(/decl/reagent/toxin/fertilizer/robustharvest = 80)

@@ -14,7 +14,6 @@
 	icon_state = "control_standby"
 	anchored = 1
 	density = 0
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/enabled = 0
 	var/lethal = 0
 	var/locked = 1

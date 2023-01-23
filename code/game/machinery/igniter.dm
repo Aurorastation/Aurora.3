@@ -159,7 +159,7 @@
 
 	for(var/obj/machinery/sparker/M in SSmachinery.machinery)
 		if (M.id == id)
-			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/sparker, ignite))
+			INVOKE_ASYNC(M, /obj/machinery/sparker/proc/ignite)
 
 	for(var/obj/machinery/igniter/M in SSmachinery.machinery)
 		if(M.id == id)

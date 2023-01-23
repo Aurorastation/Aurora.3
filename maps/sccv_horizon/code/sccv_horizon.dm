@@ -4,7 +4,7 @@
 	path = "sccv_horizon"
 
 	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/Vaurca.dmi')
-	lobby_transitions = 10 SECONDS
+	lobby_transitions = 25 SECONDS
 
 	station_levels = list(1, 2, 3)
 	admin_levels = list(4)
@@ -12,7 +12,6 @@
 	player_levels = list(1, 2, 3, 5, 6)
 	restricted_levels = list()
 	accessible_z_levels = list(1, 2, 3)
-	empty_levels = list(6)
 	base_turf_by_z = list(
 		"1" = /turf/space,
 		"2" = /turf/space,
@@ -37,7 +36,6 @@
 
 	use_overmap = TRUE
 	num_exoplanets = 2
-	overmap_size = 35
 	overmap_event_areas = 34
 	planet_size = list(255,255)
 

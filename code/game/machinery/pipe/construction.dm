@@ -13,44 +13,46 @@ Buildable meters
 #define PIPE_MVALVE				8
 #define PIPE_PUMP				9
 #define PIPE_SCRUBBER			10
-#define PIPE_GAS_FILTER			11
-#define PIPE_GAS_MIXER			12
-#define PIPE_PASSIVE_GATE       13
-#define PIPE_VOLUME_PUMP        14
-#define PIPE_HEAT_EXCHANGE      15
-#define PIPE_MTVALVE			16
-#define PIPE_MANIFOLD4W			17
-#define PIPE_CAP				18
+#define PIPE_INSULATED_STRAIGHT	11
+#define PIPE_INSULATED_BENT		12
+#define PIPE_GAS_FILTER			13
+#define PIPE_GAS_MIXER			14
+#define PIPE_PASSIVE_GATE       15
+#define PIPE_VOLUME_PUMP        16
+#define PIPE_HEAT_EXCHANGE      17
+#define PIPE_MTVALVE			18
+#define PIPE_MANIFOLD4W			19
+#define PIPE_CAP				20
 ///// Z-Level stuff
-#define PIPE_UP					19
-#define PIPE_DOWN				20
+#define PIPE_UP					21
+#define PIPE_DOWN				22
 ///// Z-Level stuff
-#define PIPE_GAS_FILTER_M		21
-#define PIPE_GAS_MIXER_T		22
-#define PIPE_GAS_MIXER_M		23
-#define PIPE_OMNI_MIXER			24
-#define PIPE_OMNI_FILTER		25
+#define PIPE_GAS_FILTER_M		23
+#define PIPE_GAS_MIXER_T		24
+#define PIPE_GAS_MIXER_M		25
+#define PIPE_OMNI_MIXER			26
+#define PIPE_OMNI_FILTER		27
 ///// Supply, scrubbers and universal pipes
-#define PIPE_UNIVERSAL				26
-#define PIPE_SUPPLY_STRAIGHT		27
-#define PIPE_SUPPLY_BENT			28
-#define PIPE_SCRUBBERS_STRAIGHT		29
-#define PIPE_SCRUBBERS_BENT			30
-#define PIPE_SUPPLY_MANIFOLD		31
-#define PIPE_SCRUBBERS_MANIFOLD		32
-#define PIPE_SUPPLY_MANIFOLD4W		33
-#define PIPE_SCRUBBERS_MANIFOLD4W	34
-#define PIPE_SUPPLY_UP				35
-#define PIPE_SCRUBBERS_UP			36
-#define PIPE_SUPPLY_DOWN			37
-#define PIPE_SCRUBBERS_DOWN			38
-#define PIPE_SUPPLY_CAP				39
-#define PIPE_SCRUBBERS_CAP			40
+#define PIPE_UNIVERSAL				28
+#define PIPE_SUPPLY_STRAIGHT		29
+#define PIPE_SUPPLY_BENT			30
+#define PIPE_SCRUBBERS_STRAIGHT		31
+#define PIPE_SCRUBBERS_BENT			32
+#define PIPE_SUPPLY_MANIFOLD		33
+#define PIPE_SCRUBBERS_MANIFOLD		34
+#define PIPE_SUPPLY_MANIFOLD4W		35
+#define PIPE_SCRUBBERS_MANIFOLD4W	36
+#define PIPE_SUPPLY_UP				37
+#define PIPE_SCRUBBERS_UP			38
+#define PIPE_SUPPLY_DOWN			39
+#define PIPE_SCRUBBERS_DOWN			40
+#define PIPE_SUPPLY_CAP				41
+#define PIPE_SCRUBBERS_CAP			42
 ///// Mirrored T-valve ~ because I couldn't be bothered re-sorting all of the defines
-#define PIPE_MTVALVEM				41
+#define PIPE_MTVALVEM				43
 
-#define PIPE_PASSIVE_GATE_SCRUBBER  42
-#define PIPE_PASSIVE_GATE_SUPPLY    43
+#define PIPE_PASSIVE_GATE_SCRUBBER  44
+#define PIPE_PASSIVE_GATE_SUPPLY    45
 
 /obj/item/pipe
 	name = "pipe"
@@ -68,7 +70,7 @@ Buildable meters
 	level = 2
 	obj_flags = OBJ_FLAG_ROTATABLE
 
-/obj/item/pipe/New(var/loc, var/pipe_type, var/dir, var/obj/machinery/atmospherics/make_from)
+/obj/item/pipe/New(var/loc, var/pipe_type as num, var/dir as num, var/obj/machinery/atmospherics/make_from = null)
 	..()
 	if (make_from)
 		src.set_dir(make_from.dir)
@@ -85,6 +87,8 @@ Buildable meters
 		else if(istype(make_from, /obj/machinery/atmospherics/pipe/simple/heat_exchanging))
 			src.pipe_type = PIPE_HE_STRAIGHT + is_bent
 			connect_types = CONNECT_TYPE_HE
+		else if(istype(make_from, /obj/machinery/atmospherics/pipe/simple/insulated))
+			src.pipe_type = PIPE_INSULATED_STRAIGHT + is_bent
 		else if(istype(make_from, /obj/machinery/atmospherics/pipe/simple/visible/supply) || istype(make_from, /obj/machinery/atmospherics/pipe/simple/hidden/supply))
 			src.pipe_type = PIPE_SUPPLY_STRAIGHT + is_bent
 			connect_types = CONNECT_TYPE_SUPPLY
@@ -118,6 +122,16 @@ Buildable meters
 			src.pipe_type = PIPE_VOLUME_PUMP
 		else if(istype(make_from, /obj/machinery/atmospherics/binary/pump))
 			src.pipe_type = PIPE_PUMP
+		else if(istype(make_from, /obj/machinery/atmospherics/trinary/filter/m_filter))
+			src.pipe_type = PIPE_GAS_FILTER_M
+		else if(istype(make_from, /obj/machinery/atmospherics/trinary/mixer/t_mixer))
+			src.pipe_type = PIPE_GAS_MIXER_T
+		else if(istype(make_from, /obj/machinery/atmospherics/trinary/mixer/m_mixer))
+			src.pipe_type = PIPE_GAS_MIXER_M
+		else if(istype(make_from, /obj/machinery/atmospherics/trinary/filter))
+			src.pipe_type = PIPE_GAS_FILTER
+		else if(istype(make_from, /obj/machinery/atmospherics/trinary/mixer))
+			src.pipe_type = PIPE_GAS_MIXER
 		else if(istype(make_from, /obj/machinery/atmospherics/unary/vent_scrubber))
 			src.pipe_type = PIPE_SCRUBBER
 		else if(istype(make_from, /obj/machinery/atmospherics/binary/passive_gate/scrubbers))
@@ -183,17 +197,17 @@ Buildable meters
 	else
 		src.pipe_type = pipe_type
 		src.set_dir(dir)
-		if (pipe_type == 27 || pipe_type == 28 || pipe_type == 31 || pipe_type == 33 || pipe_type == 35 || pipe_type == 37 || pipe_type == 39)
+		if (pipe_type == 29 || pipe_type == 30 || pipe_type == 33 || pipe_type == 35 || pipe_type == 37 || pipe_type == 39 || pipe_type == 41)
 			connect_types = CONNECT_TYPE_SUPPLY
 			src.color = PIPE_COLOR_BLUE
-		else if (pipe_type == 29 || pipe_type == 30 || pipe_type == 32 || pipe_type == 34 || pipe_type == 36 || pipe_type == 38 || pipe_type == 40)
+		else if (pipe_type == 31 || pipe_type == 32 || pipe_type == 34 || pipe_type == 36 || pipe_type == 38 || pipe_type == 40 || pipe_type == 42)
 			connect_types = CONNECT_TYPE_SCRUBBER
 			src.color = PIPE_COLOR_RED
 		else if (pipe_type == 2 || pipe_type == 3)
 			connect_types = CONNECT_TYPE_HE
 		else if (pipe_type == 6)
 			connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_HE
-		else if (pipe_type == 26)
+		else if (pipe_type == 28)
 			connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER
 	//src.pipe_dir = get_pipe_dir()
 	update()
@@ -214,6 +228,8 @@ Buildable meters
 		"mvalve",
 		"pump",
 		"scrubber",
+		"insulated pipe",
+		"bent insulated pipe",
 		"gas filter",
 		"gas mixer",
 		"pressure regulator",
@@ -264,6 +280,8 @@ Buildable meters
 		"mvalve",
 		"pump",
 		"scrubber",
+		"insulated",
+		"insulated",
 		"filter",
 		"mixer",
 		"passivegate",
@@ -318,7 +336,7 @@ Buildable meters
 	sanitize_dir()
 
 /obj/item/pipe/proc/sanitize_dir()
-	if(pipe_type in list(PIPE_SIMPLE_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_UNIVERSAL, PIPE_HE_STRAIGHT, PIPE_MVALVE))
+	if(pipe_type in list(PIPE_SIMPLE_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_UNIVERSAL, PIPE_HE_STRAIGHT, PIPE_INSULATED_STRAIGHT, PIPE_MVALVE))
 		if(dir == 2)
 			set_dir(1)
 		else if(dir == 8)
@@ -328,10 +346,10 @@ Buildable meters
 
 /obj/item/pipe/Move()
 	..()
-	if ((pipe_type in list (PIPE_SIMPLE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT, PIPE_HE_BENT)) \
+	if ((pipe_type in list (PIPE_SIMPLE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT, PIPE_HE_BENT, PIPE_INSULATED_BENT)) \
 		&& (src.dir in cardinal))
 		src.set_dir(src.dir|turn(src.dir, 90))
-	else if (pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_UNIVERSAL, PIPE_HE_STRAIGHT, PIPE_MVALVE))
+	else if (pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_UNIVERSAL, PIPE_HE_STRAIGHT, PIPE_INSULATED_STRAIGHT, PIPE_MVALVE))
 		if(dir==2)
 			set_dir(1)
 		else if(dir==8)
@@ -349,6 +367,7 @@ Buildable meters
 
 	switch(pipe_type)
 		if(	PIPE_SIMPLE_STRAIGHT,
+			PIPE_INSULATED_STRAIGHT,
 			PIPE_HE_STRAIGHT,
 			PIPE_JUNCTION ,
 			PIPE_PUMP ,
@@ -362,7 +381,7 @@ Buildable meters
 			PIPE_UNIVERSAL
 		)
 			return dir|flip
-		if(PIPE_SIMPLE_BENT, PIPE_HE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT)
+		if(PIPE_SIMPLE_BENT, PIPE_INSULATED_BENT, PIPE_HE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT)
 			return dir //dir|acw
 		if(PIPE_CONNECTOR,PIPE_UVENT,PIPE_SCRUBBER,PIPE_HEAT_EXCHANGE)
 			return dir
@@ -469,7 +488,7 @@ Buildable meters
 
 	if (!isturf(src.loc))
 		return TRUE
-	if (pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_HE_STRAIGHT, PIPE_MVALVE))
+	if (pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_HE_STRAIGHT, PIPE_INSULATED_STRAIGHT, PIPE_MVALVE))
 		if(dir==2)
 			set_dir(1)
 		else if(dir==8)
@@ -811,6 +830,106 @@ Buildable meters
 				P.node2.atmos_init()
 				P.node2.build_network()
 
+		if(PIPE_GAS_FILTER)		//gas filter
+			var/obj/machinery/atmospherics/trinary/filter/P = new(src.loc)
+			P.set_dir(dir)
+			P.initialize_directions = pipe_dir
+			if (pipename)
+				P.name = pipename
+			var/turf/T = P.loc
+			P.level = !T.is_plating() ? 2 : 1
+			P.atmos_init()
+			P.build_network()
+			if (P.node1)
+				P.node1.atmos_init()
+				P.node1.build_network()
+			if (P.node2)
+				P.node2.atmos_init()
+				P.node2.build_network()
+			if (P.node3)
+				P.node3.atmos_init()
+				P.node3.build_network()
+
+		if(PIPE_GAS_MIXER)		//gas mixer
+			var/obj/machinery/atmospherics/trinary/mixer/P = new(src.loc)
+			P.set_dir(dir)
+			P.initialize_directions = pipe_dir
+			if (pipename)
+				P.name = pipename
+			var/turf/T = P.loc
+			P.level = !T.is_plating() ? 2 : 1
+			P.atmos_init()
+			P.build_network()
+			if (P.node1)
+				P.node1.atmos_init()
+				P.node1.build_network()
+			if (P.node2)
+				P.node2.atmos_init()
+				P.node2.build_network()
+			if (P.node3)
+				P.node3.atmos_init()
+				P.node3.build_network()
+
+		if(PIPE_GAS_FILTER_M)		//gas filter mirrored
+			var/obj/machinery/atmospherics/trinary/filter/m_filter/P = new(src.loc)
+			P.set_dir(dir)
+			P.initialize_directions = pipe_dir
+			if (pipename)
+				P.name = pipename
+			var/turf/T = P.loc
+			P.level = !T.is_plating() ? 2 : 1
+			P.atmos_init()
+			P.build_network()
+			if (P.node1)
+				P.node1.atmos_init()
+				P.node1.build_network()
+			if (P.node2)
+				P.node2.atmos_init()
+				P.node2.build_network()
+			if (P.node3)
+				P.node3.atmos_init()
+				P.node3.build_network()
+
+		if(PIPE_GAS_MIXER_T)		//gas mixer-t
+			var/obj/machinery/atmospherics/trinary/mixer/t_mixer/P = new(src.loc)
+			P.set_dir(dir)
+			P.initialize_directions = pipe_dir
+			if (pipename)
+				P.name = pipename
+			var/turf/T = P.loc
+			P.level = !T.is_plating() ? 2 : 1
+			P.atmos_init()
+			P.build_network()
+			if (P.node1)
+				P.node1.atmos_init()
+				P.node1.build_network()
+			if (P.node2)
+				P.node2.atmos_init()
+				P.node2.build_network()
+			if (P.node3)
+				P.node3.atmos_init()
+				P.node3.build_network()
+
+		if(PIPE_GAS_MIXER_M)		//gas mixer mirrored
+			var/obj/machinery/atmospherics/trinary/mixer/m_mixer/P = new(src.loc)
+			P.set_dir(dir)
+			P.initialize_directions = pipe_dir
+			if (pipename)
+				P.name = pipename
+			var/turf/T = P.loc
+			P.level = !T.is_plating() ? 2 : 1
+			P.atmos_init()
+			P.build_network()
+			if (P.node1)
+				P.node1.atmos_init()
+				P.node1.build_network()
+			if (P.node2)
+				P.node2.atmos_init()
+				P.node2.build_network()
+			if (P.node3)
+				P.node3.atmos_init()
+				P.node3.build_network()
+
 		if(PIPE_SCRUBBER)		//scrubber
 			var/obj/machinery/atmospherics/unary/vent_scrubber/S = new(src.loc)
 			S.set_dir(dir)
@@ -824,6 +943,24 @@ Buildable meters
 			if (S.node)
 				S.node.atmos_init()
 				S.node.build_network()
+
+		if(PIPE_INSULATED_STRAIGHT, PIPE_INSULATED_BENT)
+			var/obj/machinery/atmospherics/pipe/simple/insulated/P = new( src.loc )
+			P.set_dir(src.dir)
+			P.initialize_directions = pipe_dir
+			var/turf/T = P.loc
+			P.level = !T.is_plating() ? 2 : 1
+			P.atmos_init()
+			if (QDELETED(P))
+				to_chat(usr, pipefailtext)
+				return TRUE
+			P.build_network()
+			if (P.node1)
+				P.node1.atmos_init()
+				P.node1.build_network()
+			if (P.node2)
+				P.node2.atmos_init()
+				P.node2.build_network()
 
 		if(PIPE_MTVALVE)		//manual t-valve
 			var/obj/machinery/atmospherics/tvalve/V = new(src.loc)
@@ -1132,6 +1269,8 @@ Buildable meters
 #undef PIPE_MVALVE
 #undef PIPE_PUMP
 #undef PIPE_SCRUBBER
+#undef PIPE_INSULATED_STRAIGHT
+#undef PIPE_INSULATED_BENT
 #undef PIPE_GAS_FILTER
 #undef PIPE_GAS_MIXER
 #undef PIPE_PASSIVE_GATE

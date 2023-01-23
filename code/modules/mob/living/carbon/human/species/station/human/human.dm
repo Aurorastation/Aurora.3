@@ -44,11 +44,11 @@
 		/mob/living/carbon/human/proc/tie_hair)
 
 	possible_cultures = list(
-		/singleton/origin_item/culture/biesellite,
-		/singleton/origin_item/culture/solarian,
-		/singleton/origin_item/culture/dominia,
-		/singleton/origin_item/culture/coalition,
-		/singleton/origin_item/culture/elyran
+		/decl/origin_item/culture/biesellite,
+		/decl/origin_item/culture/solarian,
+		/decl/origin_item/culture/dominia,
+		/decl/origin_item/culture/coalition,
+		/decl/origin_item/culture/elyran
 	)
 
 	zombie_type = SPECIES_ZOMBIE

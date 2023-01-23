@@ -45,7 +45,7 @@
 	see_in_dark = 100
 	verbs += /mob/abstract/observer/proc/dead_tele
 
-	set_stat(DEAD)
+	stat = DEAD
 
 	ghostimage = image(src.icon,src,src.icon_state)
 	SSmob.ghost_darkness_images |= ghostimage
@@ -276,9 +276,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/abstract/observer/is_active()
 	return FALSE
-
-/mob/abstract/observer/set_stat()
-	stat = DEAD // They are also always dead
 
 /mob/abstract/observer/Stat()
 	..()

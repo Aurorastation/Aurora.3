@@ -45,7 +45,7 @@
 
 /obj/item/projectile/beam/midlaser
 	damage = 30
-	armor_penetration = 25
+	armor_penetration = 15
 
 /obj/item/projectile/beam/midlaser/skrell
 	armor_penetration = 0
@@ -56,11 +56,11 @@
 
 /obj/item/projectile/beam/noctiluca
 	damage = 20
-	armor_penetration = 40
+	armor_penetration = 28
 
 /obj/item/projectile/beam/noctiluca/armor_piercing
 	name = "concentrated laser"
-	damage = 20
+	damage = 15
 	armor_penetration = 50
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
@@ -88,7 +88,7 @@
 	name = "xray beam"
 	icon_state = "xray"
 	damage = 15
-	armor_penetration = 50
+	armor_penetration = 35
 
 	muzzle_type = /obj/effect/projectile/muzzle/xray
 	tracer_type = /obj/effect/projectile/tracer/xray

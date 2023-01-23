@@ -9,9 +9,9 @@
 //			/atom/old_loc: The atom the enterer came from
 //
 
-var/singleton/observ/entered/entered_event = new()
+var/datum/observ/entered/entered_event = new()
 
-/singleton/observ/entered
+/datum/observ/entered
 	name = "Entered"
 	expected_type = /atom
 

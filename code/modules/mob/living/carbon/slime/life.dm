@@ -115,19 +115,19 @@
 		if(src.paralysis || src.stunned || src.weakened || (status_flags && FAKEDEATH)) //Stunned etc.
 			if(src.stunned > 0)
 				AdjustStunned(-1)
-				set_stat(CONSCIOUS)
+				src.stat = CONSCIOUS
 			if(src.weakened > 0)
 				AdjustWeakened(-1)
 				src.lying = FALSE
-				set_stat(CONSCIOUS)
+				src.stat = FALSE
 			if(src.paralysis > 0)
 				AdjustParalysis(-1)
 				src.blinded = FALSE
 				src.lying = FALSE
-				set_stat(CONSCIOUS)
+				src.stat = FALSE
 		else
 			src.lying = FALSE
-			set_stat(CONSCIOUS)
+			src.stat = FALSE
 
 	if(src.stuttering)
 		src.stuttering = FALSE

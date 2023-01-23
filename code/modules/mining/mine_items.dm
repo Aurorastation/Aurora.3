@@ -36,7 +36,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
 	hitsound = 'sound/weapons/rapidslice.ogg'
-	var/drill_sound = /singleton/sound_category/pickaxe_sound
+	var/drill_sound = /decl/sound_category/pickaxe_sound
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
 	sharp = TRUE
@@ -45,7 +45,7 @@
 
 	var/excavation_amount = 40
 	var/wielded = FALSE
-	var/wield_sound = /singleton/sound_category/generic_wield_sound
+	var/wield_sound = /decl/sound_category/generic_wield_sound
 	var/unwield_sound = null
 	var/force_unwielded = 5.0
 	var/force_wielded = 15.0
@@ -351,7 +351,7 @@
 	edge = TRUE
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
-	usesound = /singleton/sound_category/shovel_sound
+	usesound = /decl/sound_category/shovel_sound
 
 /obj/item/shovel/spade
 	name = "spade"
@@ -548,6 +548,7 @@
 /obj/vehicle/train/cargo/engine/mining
 	name = "mine cart engine"
 	desc = "A ridable electric minecart designed for pulling other mine carts."
+	icon = 'icons/obj/cart.dmi'
 	icon_state = "mining_engine"
 	on = FALSE
 	powered = TRUE
@@ -567,7 +568,7 @@
 	. = ..()
 	cell = new /obj/item/cell/high(src)
 	key = new /obj/item/key/minecarts(src)
-	var/image/I = new(icon = 'icons/obj/vehicles.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
+	var/image/I = new(icon = 'icons/obj/cart.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
 	add_overlay(I)
 	turn_off()
 
@@ -600,6 +601,7 @@
 /obj/vehicle/train/cargo/trolley/mining
 	name = "mine-cart"
 	desc = "A modern day twist to an ancient classic."
+	icon = 'icons/obj/cart.dmi'
 	icon_state = "mining_trailer"
 	anchored = FALSE
 	passenger_allowed = FALSE
@@ -771,7 +773,7 @@
 				L.Weaken(3)
 				if(ishuman(L))
 					shake_camera(L, 20, 1)
-					addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living/carbon/human, vomit), 20))
+					addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
 
 /**********************Lazarus Injector**********************/
 
@@ -1079,7 +1081,7 @@ var/list/total_extraction_beacons = list()
 		name = "strong resonance field"
 		resonance_damage = 60
 
-	addtimer(CALLBACK(src, PROC_REF(burst), loc), timetoburst)
+	addtimer(CALLBACK(src, .proc/burst, loc), timetoburst)
 
 /obj/effect/resonance/Destroy()
 	if(res)
@@ -1222,13 +1224,13 @@ var/list/total_extraction_beacons = list()
 		if(prob(25))
 			playsound(loc, 'sound/items/screwdriver.ogg', 20, TRUE)
 		else
-			playsound(loc, /singleton/sound_category/pickaxe_sound, 20, TRUE)
+			playsound(loc, /decl/sound_category/pickaxe_sound, 20, TRUE)
 
 		var/successfully_sculpted = FALSE
 		while(do_after(user, 2 SECONDS) && sculpture_process_check(choice, user))
 			if(times_carved <= 9)
 				times_carved++
-				playsound(loc, /singleton/sound_category/pickaxe_sound, 20, TRUE)
+				playsound(loc, /decl/sound_category/pickaxe_sound, 20, TRUE)
 				continue
 			successfully_sculpted = TRUE
 			break
@@ -1356,7 +1358,7 @@ var/list/total_extraction_beacons = list()
 /obj/structure/punching_bag/attack_hand(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	flick("[icon_state]2", src)
-	playsound(get_turf(src), /singleton/sound_category/swing_hit_sound, 25, 1, -1)
+	playsound(get_turf(src), /decl/sound_category/swing_hit_sound, 25, 1, -1)
 
 /obj/structure/weightlifter
 	name = "weight machine"
@@ -1443,9 +1445,9 @@ var/list/total_extraction_beacons = list()
 					L.Weaken(3)
 					shake_camera(L, 20, 1)
 					if(!isipc(L) && ishuman(L))
-						addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living/carbon/human, vomit)), 20)
+						addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
 
-		addtimer(CALLBACK(src, PROC_REF(drill), location), 2)
+		addtimer(CALLBACK(src, .proc/drill, location), 2)
 
 	qdel(src)
 

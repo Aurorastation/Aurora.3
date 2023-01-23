@@ -38,7 +38,7 @@
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
 	var/poison_per_bite = 5
-	var/poison_type = /singleton/reagent/toxin
+	var/poison_type = /decl/reagent/toxin
 	faction = "spiders"
 	var/busy = 0
 	pass_flags = PASSTABLE
@@ -65,7 +65,7 @@
 	armor_penetration = 20
 	poison_per_bite = 10
 	var/atom/cocoon_target
-	poison_type = /singleton/reagent/soporific
+	poison_type = /decl/reagent/soporific
 	var/fed = 0
 
 //hunters have the most poison and move the fastest, so they can find prey
@@ -95,7 +95,7 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	armor_penetration = 15
-	poison_type = /singleton/reagent/perconol // mildly beneficial for organics
+	poison_type = /decl/reagent/perconol // mildly beneficial for organics
 	poison_per_bite = 2
 	move_to_delay = 5
 
@@ -108,7 +108,7 @@
 	if(isliving(.))
 		var/mob/living/L = .
 		if(L.reagents)
-			L.reagents.add_reagent(/singleton/reagent/toxin, poison_per_bite)
+			L.reagents.add_reagent(/decl/reagent/toxin, poison_per_bite)
 			if(prob(poison_per_bite) && (!issilicon(L) && !isipc(L)))
 				to_chat(L, "<span class='warning'>You feel a tiny prick.</span>")
 				L.reagents.add_reagent(poison_type, 5)
@@ -153,7 +153,7 @@
 					move_targets.Add(T)*/
 				stop_automated_movement = 1
 				walk_to(src, pick(orange(20, src)), 1, move_to_delay)
-				addtimer(CALLBACK(src, PROC_REF(stop_walking)), 50, TIMER_UNIQUE)
+				addtimer(CALLBACK(src, .proc/stop_walking), 50, TIMER_UNIQUE)
 
 /mob/living/simple_animal/hostile/giant_spider/proc/stop_walking()
 	stop_automated_movement = 0
@@ -172,7 +172,7 @@
 						busy = MOVING_TO_TARGET
 						walk_to(src, C, 1, move_to_delay)
 						//give up if we can't reach them after 10 seconds
-						addtimer(CALLBACK(src, PROC_REF(GiveUp), C), 100, TIMER_UNIQUE)
+						addtimer(CALLBACK(src, .proc/GiveUp, C), 100, TIMER_UNIQUE)
 						return
 
 				//second, spin a sticky spiderweb on this tile
@@ -181,7 +181,7 @@
 					busy = SPINNING_WEB
 					src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance.</span>")
 					stop_automated_movement = 1
-					addtimer(CALLBACK(src, PROC_REF(finalize_web)), 40, TIMER_UNIQUE)
+					addtimer(CALLBACK(src, .proc/finalize_web), 40, TIMER_UNIQUE)
 				else
 					//third, lay an egg cluster there
 					var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
@@ -189,7 +189,7 @@
 						busy = LAYING_EGGS
 						src.visible_message("<span class='notice'>\The [src] begins to lay a cluster of eggs.</span>")
 						stop_automated_movement = 1
-						addtimer(CALLBACK(src, PROC_REF(finalize_eggs)), 50, TIMER_UNIQUE)
+						addtimer(CALLBACK(src, .proc/finalize_eggs), 50, TIMER_UNIQUE)
 					else
 						//fourthly, cocoon any nearby items so those pesky pinkskins can't use them
 						for(var/obj/O in view(src, world.view))
@@ -210,7 +210,7 @@
 					src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance around \the [cocoon_target].</span>")
 					stop_automated_movement = 1
 					walk(src,0)
-					addtimer(CALLBACK(src, PROC_REF(finalize_cocoon)), 50, TIMER_UNIQUE)
+					addtimer(CALLBACK(src, .proc/finalize_cocoon), 50, TIMER_UNIQUE)
 
 		else
 			busy = 0

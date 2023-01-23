@@ -17,7 +17,7 @@
 	var/locked =    0          // Have we locked on?
 	var/lock_time = 0          // When -will- we lock on?
 	var/active =    0          // Is our owner intending to take hostages?
-	var/target_permissions = TARGET_CAN_MOVE | TARGET_CAN_CLICK | TARGET_CAN_RADIO // Permission bitflags.
+	var/target_permissions = 0 // Permission bitflags.
 	var/aimcooldown			   // How long untill we can re-aim?
 /obj/aiming_overlay/New(var/newowner)
 	..()

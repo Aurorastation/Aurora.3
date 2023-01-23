@@ -792,6 +792,7 @@
 	SearchVar(admin_departments)
 	SearchVar(photo_count)
 	SearchVar(possible_cable_coil_colours)
+	SearchVar(rad_collectors)
 	SearchVar(blacklisted_tesla_types)
 	SearchVar(random_maps)
 	SearchVar(map_count)

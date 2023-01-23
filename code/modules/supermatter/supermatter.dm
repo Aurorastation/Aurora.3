@@ -240,9 +240,9 @@
 	if(last_accent_sound < world.time && prob(20))
 		var/aggression = min(((damage / 800) * (power / 2500)), 1.0) * 100
 		if(damage >= 300)
-			playsound(src, /singleton/sound_category/supermatter_delam, max(50, aggression), FALSE, 10)
+			playsound(src, /decl/sound_category/supermatter_delam, max(50, aggression), FALSE, 10)
 		else
-			playsound(src, /singleton/sound_category/supermatter_calm, max(50, aggression), FALSE, 10)
+			playsound(src, /decl/sound_category/supermatter_calm, max(50, aggression), FALSE, 10)
 		var/next_sound = round((100 - aggression) * 5)
 		last_accent_sound = world.time + max(SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN, next_sound)
 
@@ -384,6 +384,16 @@
 		ui = new(user, src, "machinery-power-supermattercrystal", 500, 300, "Supermatter Crystal")
 		ui.auto_update_content = TRUE
 		ui.open()
+
+/*
+/obj/machinery/power/supermatter/proc/transfer_energy()
+	for(var/obj/machinery/power/rad_collector/R in rad_collectors)
+		var/distance = get_dist(R, src)
+		if(distance <= 15)
+			//for collectors using standard phoron tanks at 1013 kPa, the actual power generated will be this power*POWER_FACTOR*20*29 = power*POWER_FACTOR*580
+			R.receive_pulse(power * POWER_FACTOR * (min(3/distance, 1))**2)
+	return
+*/
 
 /obj/machinery/power/supermatter/attackby(obj/item/W as obj, mob/living/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\

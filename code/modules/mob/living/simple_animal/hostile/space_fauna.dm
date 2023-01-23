@@ -219,7 +219,7 @@
 		icon_state = "bloater_bloating"
 		icon_living = "bloater_bloating"
 		has_exploded = TRUE
-		addtimer(CALLBACK(src, PROC_REF(explode)), 5)
+		addtimer(CALLBACK(src, .proc/explode), 5)
 
 /mob/living/simple_animal/hostile/carp/bloater/bullet_act(var/obj/item/projectile/Proj)
 	if(!has_exploded)

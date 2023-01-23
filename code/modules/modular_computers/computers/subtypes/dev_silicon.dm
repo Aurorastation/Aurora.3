@@ -56,7 +56,7 @@
 	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
 	hard_drive.store_file(new /datum/computer_file/program/chat_client(src))
 	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))
-	addtimer(CALLBACK(src, PROC_REF(register_chat)), 1 SECOND)
+	addtimer(CALLBACK(src, .proc/register_chat), 1 SECOND)
 
 /obj/item/modular_computer/silicon/proc/register_chat()
 	set_autorun("ntnrc_client")

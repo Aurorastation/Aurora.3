@@ -12,4 +12,4 @@
 	possible_transfer_amounts = list(20, 40)
 	unacidable = 1
 
-	spawn_reagent = /singleton/reagent/drink/coffee/espresso
+	spawn_reagent = /decl/reagent/drink/coffee/espresso

@@ -12,14 +12,14 @@
 
 	if (!name_unlabel)
 		to_chat(usr, SPAN_NOTICE("You look again, unable to find the label! Perhaps your eyes need checking?"))
-		src.verbs -= PROC_REF(remove_label)
+		src.verbs -= .proc/remove_label
 		return FALSE
 
 	var/mob/living/carbon/human/H = usr
 
 	name = name_unlabel
 	name_unlabel = ""
-	src.verbs -= PROC_REF(remove_label)
+	src.verbs -= .proc/remove_label
 
 	H.visible_message(SPAN_NOTICE("\The [H] removes the label from \the [src]."),
 		SPAN_NOTICE("You remove the label from \the [src]."))

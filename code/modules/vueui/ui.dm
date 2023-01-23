@@ -100,7 +100,7 @@ main ui datum.
 	send_resources_and_assets(user.client, load_asset)
 	user << browse(generate_html(load_asset?.css_tag()), params)
 	winset(user, "mapwindow.map", "focus=true")
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/vueui, setclose)), 1)
+	addtimer(CALLBACK(src, /datum/vueui/proc/setclose), 1)
 
 /datum/vueui/proc/setclose()
 	winset(user, windowid, "on-close=\"vueuiclose \ref[src]\"")

@@ -27,7 +27,7 @@
 	health = 30
 
 	has_udder = TRUE
-	milk_type = /singleton/reagent/drink/milk/schlorrgo
+	milk_type = /decl/reagent/drink/milk/schlorrgo
 
 	friendly = "bumped"
 

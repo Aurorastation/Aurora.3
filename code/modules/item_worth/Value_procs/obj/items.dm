@@ -10,7 +10,7 @@
 	. = ..()
 	if(reagents)
 		for(var/a in reagents.reagent_volumes)
-			var/singleton/reagent/reg = GET_SINGLETON(a)
+			var/decl/reagent/reg = decls_repository.get_decl(a)
 			. += reg.value * reagents.reagent_volumes[a]
 	. = round(.)
 

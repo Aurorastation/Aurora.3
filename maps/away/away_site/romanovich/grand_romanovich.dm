@@ -1,23 +1,22 @@
 /datum/map_template/ruin/away_site/grand_romanovich
-	name = "Grand Romanovich Casino"
+	name = "grand romanovich casino"
 	description = "An adhomian style casino in Tau Ceti's space."
-	suffixes = list("away_site/romanovich/grand_romanovich.dmm")
+	suffix = "away_site/romanovich/grand_romanovich.dmm"
 	sectors = list(SECTOR_ROMANOVICH)
 	spawn_weight = 1
 	ship_cost = 2
 	id = "grand_romanovich"
 
-/singleton/submap_archetype/grand_romanovich
-	map = "Grand Romanovich Casino"
+/decl/submap_archetype/grand_romanovich
+	map = "grand romanovich casino"
 	descriptor = "An adhomian style casino in Tau Ceti's space."
 
 /obj/effect/overmap/visitable/sector/grand_romanovich
-	name = "Grand Romanovich Casino"
+	name = "grand romanovich casino"
 	desc = "An adhomian style casino in Tau Ceti's space."
 
 	comms_support = TRUE
-	comms_name = "casino"
-	use_common = TRUE
+	comms_name = "grand romanovich"
 
 /area/grand_romanovich
 	flags = HIDE_FROM_HOLOMAP
@@ -61,7 +60,7 @@
 			color="black"
 	else
 		color="red"
-	addtimer(CALLBACK(src, PROC_REF(give_result), n, color), 5 SECONDS)
+	addtimer(CALLBACK(src, .proc/give_result, n, color), 5 SECONDS)
 
 
 /obj/structure/casino/roulette/proc/give_result(var/n, var/color)

@@ -39,11 +39,11 @@
 
 	// EXPAND
 	if(!istype(T,type))
-		addtimer(CALLBACK(src, PROC_REF(after_tick), T), 10)
+		addtimer(CALLBACK(src, .proc/after_tick, T), 10)
 		if(A && !istype(A,type))
-			addtimer(CALLBACK(src, PROC_REF(after_tick), A), 10)
+			addtimer(CALLBACK(src, .proc/after_tick, A), 10)
 		if(B && !istype(B,type))
-			addtimer(CALLBACK(src, PROC_REF(after_tick), B), 10)
+			addtimer(CALLBACK(src, .proc/after_tick, B), 10)
 	if((spawned & (NORTH|SOUTH|EAST|WEST)) == (NORTH|SOUTH|EAST|WEST))
 		STOP_PROCESSING(SScalamity, src)
 

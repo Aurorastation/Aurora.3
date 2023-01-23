@@ -28,7 +28,7 @@
 #define BIOGEN_MEDICAL "Medical"
 #define BIOGEN_ILLEGAL "!@#$%^&*()"
 
-/singleton/biorecipe
+/decl/biorecipe
 	var/name = "fixme"
 	var/class = BIOGEN_ITEMS
 	var/object
@@ -36,46 +36,46 @@
 	var/amount = list(1, 2, 3, 4, 5)
 	var/emag = FALSE
 
-/singleton/biorecipe/food
+/decl/biorecipe/food
 	name = "Meat Substitute"
 	class = BIOGEN_FOOD
 	object = /obj/item/reagent_containers/food/snacks/meat/biogenerated
 	cost = 50
 
-/singleton/biorecipe/food/fishfillet
+/decl/biorecipe/food/fishfillet
 	name = "Fish Fillet"
 	object = /obj/item/reagent_containers/food/snacks/fish/fishfillet
 
-/singleton/biorecipe/food/syntiflesh
+/decl/biorecipe/food/syntiflesh
 	name = "Synthetic Meat"
 	object = /obj/item/reagent_containers/food/snacks/meat/syntiflesh
 
-/singleton/biorecipe/food/soywafers
+/decl/biorecipe/food/soywafers
 	name = "Soy Wafers"
 	object = /obj/item/reagent_containers/food/snacks/soywafers
 	cost = 150
 
-/singleton/biorecipe/food/bio_vitamin
+/decl/biorecipe/food/bio_vitamin
 	name = "Flavored Vitamin"
 	object = /obj/item/reagent_containers/pill/bio_vitamin
 	amount = list(1,5,10,25,50)
 
-/singleton/biorecipe/food/liquidfood
+/decl/biorecipe/food/liquidfood
 	name = "Food Ration"
 	object = /obj/item/reagent_containers/food/snacks/liquidfood
 	cost = 30
 
-/singleton/biorecipe/food/milk
+/decl/biorecipe/food/milk
 	name = "Space Milk (50u)"
 	object = /obj/item/reagent_containers/food/drinks/milk
 	cost = 100
 
-/singleton/biorecipe/food/nutrispread
+/decl/biorecipe/food/nutrispread
 	name = "Nutri-spread"
 	object = /obj/item/reagent_containers/food/snacks/spreads
 	cost = 80
 
-/singleton/biorecipe/food/enzyme
+/decl/biorecipe/food/enzyme
 	name = "Universal Enzyme (50u)"
 	object = /obj/item/reagent_containers/food/condiment/enzyme
 
@@ -83,18 +83,18 @@
  FERTILIZER
 */
 
-/singleton/biorecipe/fertilizer
+/decl/biorecipe/fertilizer
 	name = "E-Z-Nutrient (60u)"
 	class = BIOGEN_FERTILIZER
 	object = /obj/item/reagent_containers/glass/fertilizer/ez
 	cost = 60
 
-/singleton/biorecipe/fertilizer/l4z
+/decl/biorecipe/fertilizer/l4z
 	name = "Left 4 Zed (60u)"
 	object = /obj/item/reagent_containers/glass/fertilizer/l4z
 	cost = 120
 
-/singleton/biorecipe/fertilizer/rh
+/decl/biorecipe/fertilizer/rh
 	name = "Robust Harvest (60u)"
 	object = /obj/item/reagent_containers/glass/fertilizer/rh
 	cost = 180
@@ -102,66 +102,66 @@
 /*
  ITEMS
 */
-/singleton/biorecipe/item
+/decl/biorecipe/item
 	name = "Towel"
 	class = BIOGEN_ITEMS
 	object = /obj/item/towel/random
 	cost = 300
 
-/singleton/biorecipe/item/jug
+/decl/biorecipe/item/jug
 	name = "Empty Jug"
 	object = /obj/item/reagent_containers/glass/fertilizer
 	cost = 100
 
-/singleton/biorecipe/item/custom_cigarettes
+/decl/biorecipe/item/custom_cigarettes
 	name = "Empty Cigarettes (x6)"
 	object = /obj/item/storage/box/fancy/cigarettes/blank
 	cost = 500
 
-/singleton/biorecipe/item/tape_roll
+/decl/biorecipe/item/tape_roll
 	name = "Tape Roll"
 	object = /obj/item/tape_roll
 	cost = 250
 
-/singleton/biorecipe/item/botanic_leather
+/decl/biorecipe/item/botanic_leather
 	name = "Botanical Gloves"
 	object = /obj/item/clothing/gloves/botanic_leather
 	cost = 250
 
-/singleton/biorecipe/item/utility
+/decl/biorecipe/item/utility
 	name = "Utility Belt"
 	object = /obj/item/storage/belt/utility
 
-/singleton/biorecipe/item/hydrobelt
+/decl/biorecipe/item/hydrobelt
 	name = "Hydroponic Belt"
 	object = /obj/item/storage/belt/hydro
 
-/singleton/biorecipe/item/plantbag
+/decl/biorecipe/item/plantbag
 	name = "Plant Bag"
 	object = /obj/item/storage/bag/plants
 	cost = 500
 
-/singleton/biorecipe/item/wallet
+/decl/biorecipe/item/wallet
 	name = "Leather Wallet"
 	object = /obj/item/storage/wallet
 	cost = 100
 
-/singleton/biorecipe/item/satchel
+/decl/biorecipe/item/satchel
 	name = "Leather Satchel"
 	object = /obj/item/storage/backpack/satchel/leather
 	cost = 400
 
-/singleton/biorecipe/item/cash
+/decl/biorecipe/item/cash
 	name = "Money Bag"
 	object = /obj/item/storage/bag/money
 	cost = 400
 
-/singleton/biorecipe/item/soap
+/decl/biorecipe/item/soap
 	name = "Soap"
 	object = /obj/item/soap/plant
 	cost = 200
 
-/singleton/biorecipe/item/crayon_box
+/decl/biorecipe/item/crayon_box
 	name = "Crayon Box"
 	object = /obj/item/storage/box/fancy/crayons
 	cost = 600
@@ -170,32 +170,32 @@
  CONSTRUCTION
 */
 
-/singleton/biorecipe/construction
+/decl/biorecipe/construction
 	name = "Animal Hide"
 	class = BIOGEN_CONSTRUCTION
 	object = /obj/item/stack/material/animalhide
 	cost = 100
 	amount = list(1,5,10,25,50)
 
-/singleton/biorecipe/construction/leather
+/decl/biorecipe/construction/leather
 	name = "Leather"
 	object = /obj/item/stack/material/leather
 
-/singleton/biorecipe/construction/cloth
+/decl/biorecipe/construction/cloth
 	name = "Cloth"
 	object = /obj/item/stack/material/cloth
 	cost = 50
 
-/singleton/biorecipe/construction/cardboard
+/decl/biorecipe/construction/cardboard
 	name = "Cardboard"
 	object = /obj/item/stack/material/cardboard
 	cost = 50
 
-/singleton/biorecipe/construction/wax
+/decl/biorecipe/construction/wax
 	name = "Wax"
 	object = /obj/item/stack/wax
 
-/singleton/biorecipe/construction/plastic
+/decl/biorecipe/construction/plastic
 	name = "Plastic"
 	object = /obj/item/stack/material/plastic
 
@@ -203,79 +203,79 @@
  SPECIAL
 */
 
-/singleton/biorecipe/mushroom
+/decl/biorecipe/mushroom
 	name = "Pet Mushroom"
 	class = BIOGEN_SPECIAL
 	object = /mob/living/simple_animal/mushroom
 	cost = 1000
 
-/singleton/biorecipe/cube
+/decl/biorecipe/cube
 	name = "Monkey Cube"
 	class = BIOGEN_SPECIAL
 	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped
 
-/singleton/biorecipe/cube/stok
+/decl/biorecipe/cube/stok
 	name = "Stok Cube"
 	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/stokcube
 
-/singleton/biorecipe/cube/farwa
+/decl/biorecipe/cube/farwa
 	name = "Farwa Cube"
 	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube
 
-/singleton/biorecipe/cube/neaera
+/decl/biorecipe/cube/neaera
 	name = "Neaera Cube"
 	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube
 
-/singleton/biorecipe/cube/cazador
+/decl/biorecipe/cube/cazador
 	name = "V'krexi Cube"
 	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube
 	cost = 500
 
-/singleton/biorecipe/medical
+/decl/biorecipe/medical
 	name = "Bruise Pack"
 	class = BIOGEN_MEDICAL
 	object = /obj/item/stack/medical/bruise_pack
 	cost = 400
 
-/singleton/biorecipe/medical/ointment
+/decl/biorecipe/medical/ointment
 	name = "Burn Ointment"
 	object = /obj/item/stack/medical/ointment
 
-/singleton/biorecipe/medical/perconol_pill
+/decl/biorecipe/medical/perconol_pill
 	name = "Perconol Pill"
 	object = /obj/item/reagent_containers/pill/perconol
 	cost = 250
 	amount = list(1,2,3,5,7)
 
-/singleton/biorecipe/illegal
+/decl/biorecipe/illegal
 	name = "Advanced Trauma Kit"
 	class = BIOGEN_ILLEGAL
 	object = /obj/item/stack/medical/advanced/bruise_pack
 	cost = 600
 	emag = TRUE
 
-/singleton/biorecipe/illegal/adv_burn_kit
+/decl/biorecipe/illegal/adv_burn_kit
 	name = "Advanced Burn Kit"
 	object = /obj/item/stack/medical/advanced/ointment
 
 		// Antag Items (Emag)
-/singleton/biorecipe/illegal/humanhide
+/decl/biorecipe/illegal/humanhide
 	name = "Human Hide"
 	object = /obj/item/stack/material/animalhide/human
 	cost = 50
 	amount = list(1,5,10,25,50)
 
-/singleton/biorecipe/illegal/syndie
+/decl/biorecipe/illegal/syndie
 	name = "Red Soap"
 	object = /obj/item/soap/syndie
 	cost = 200
 
-/singleton/biorecipe/illegal/buckler
+/decl/biorecipe/illegal/buckler
 	name = "Buckler"
 	object = /obj/item/shield/buckler
 	cost = 500
 
-/singleton/biorecipe/illegal/tree
+/decl/biorecipe/illegal/tree
 	name = "Tree"
 	object = /mob/living/simple_animal/hostile/tree
 	cost = 1000
@@ -380,8 +380,8 @@
 					dat += "<tr><td colspan='2'>Name</td><td colspan='2'>Cost</td><td colspan='4'>Production Amount</td></tr>"
 					var/lastclass = "Commands"
 
-					for (var/k in GET_SINGLETON_SUBTYPE_MAP(/singleton/biorecipe))
-						var/singleton/biorecipe/current_recipe = GET_SINGLETON(k)
+					for (var/k in decls_repository.get_decls_of_subtype(/decl/biorecipe))
+						var/decl/biorecipe/current_recipe = decls_repository.get_decl(k)
 
 						if(emagged || !current_recipe.emag)
 							if(lastclass != current_recipe.class)
@@ -434,9 +434,9 @@
 	var/S = 0
 	for(var/obj/item/reagent_containers/food/snacks/grown/I in contents)
 		S += 5
-		if(REAGENT_VOLUME(I.reagents, /singleton/reagent/nutriment) < 0.1)
+		if(REAGENT_VOLUME(I.reagents, /decl/reagent/nutriment) < 0.1)
 			points += 1
-		else points += REAGENT_VOLUME(I.reagents, /singleton/reagent/nutriment) * 10 * eat_eff
+		else points += REAGENT_VOLUME(I.reagents, /decl/reagent/nutriment) * 10 * eat_eff
 		qdel(I)
 		CHECK_TICK
 	if(S)
@@ -454,12 +454,12 @@
 	return
 
 /obj/machinery/biogenerator/proc/create_product(var/itemtype, var/count)
-	if (!ispath(itemtype, /singleton/biorecipe))
+	if (!ispath(itemtype, /decl/biorecipe))
 		return FALSE
 
-	var/singleton/biorecipe/recipe = GET_SINGLETON(itemtype)
+	var/decl/biorecipe/recipe = decls_repository.get_decl(itemtype)
 
-	if (!ispath(recipe.object)) // this shouldn't happen unless someone tries to create /singleton/biorecipe with href hacking
+	if (!ispath(recipe.object)) // this shouldn't happen unless someone tries to create /decl/biorecipe with href hacking
 		return FALSE
 
 	if (recipe.emag && !emagged)
@@ -489,7 +489,7 @@
 		else
 			points -= totake
 			use_power_oneoff(totake * 0.25)
-			playsound(src.loc, /singleton/sound_category/switch_sound, 50, 1)
+			playsound(src.loc, /decl/sound_category/switch_sound, 50, 1)
 			intent_message(PING_SOUND)
 			if(ispath(recipe.object, /obj/item/reagent_containers/pill))
 				if(!made_container)

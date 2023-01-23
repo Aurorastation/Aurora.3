@@ -5,7 +5,7 @@
 	icon_state = "wm_10"
 	density = 1
 	anchored = 1.0
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = /decl/sound_category/button_sound
 	clickvol = 40
 
 	var/state = 1
@@ -128,7 +128,7 @@
 			crayon = null
 			state = 1
 		if(5)
-			to_chat(user, "<span class='warning'>\The [src] is busy.</span>")
+			to_chat(user, "<span class='warning'>The [src] is busy.</span>")
 		if(6)
 			state = 7
 		if(7)

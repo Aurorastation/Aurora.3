@@ -44,7 +44,7 @@
 	// If the cell is almost empty rarely "flicker" the light. Aesthetic only.
 	if((cell.percent() < 10) && prob(5))
 		set_light(brightness_on/3, 0.5)
-		addtimer(CALLBACK(src, PROC_REF(stop_flicker)), 5, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, .proc/stop_flicker), 5, TIMER_UNIQUE)
 
 	cell.use(use*CELLRATE)
 

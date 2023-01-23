@@ -87,7 +87,7 @@
 		return FALSE
 	if(!istype(O))
 		return FALSE
-	if(REAGENT_VOLUME(O.reagents, /singleton/reagent/capsaicin/condensed) >= 25)
+	if(REAGENT_VOLUME(O.reagents, /decl/reagent/capsaicin/condensed) >= 25)
 		return TRUE
 	return FALSE
 

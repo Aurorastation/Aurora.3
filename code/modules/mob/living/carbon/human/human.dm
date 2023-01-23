@@ -230,7 +230,7 @@
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
-		flash_act()
+		flash_eyes()
 
 	var/b_loss = null
 	var/f_loss = null
@@ -380,9 +380,13 @@
 	mob_win.open()
 
 // called when something steps onto a human
-// this handles vehicles
+// this handles mulebots and vehicles
 /mob/living/carbon/human/Crossed(var/atom/movable/AM)
 	..()
+	if(istype(AM, /obj/machinery/bot/mulebot))
+		var/obj/machinery/bot/mulebot/MB = AM
+		MB.RunOver(src)
+
 	if(istype(AM, /obj/vehicle))
 		var/obj/vehicle/V = AM
 		V.RunOver(src)
@@ -519,7 +523,7 @@
 
 		apply_damage(shock_damage, BURN, area, used_weapon="Electrocution")
 		shock_damage *= 0.4
-		playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
+		playsound(loc, /decl/sound_category/spark_sound, 50, 1, -1)
 
 	if (shock_damage > 15)
 		visible_message(
@@ -810,7 +814,7 @@
 
 ///eyecheck()
 ///Returns a number between -1 to 2
-/mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
+/mob/living/carbon/human/eyecheck(ignore_inherent = FALSE)
 	if(!species.vision_organ || !species.has_organ[species.vision_organ]) //No eyes, can't hurt them.
 		return FLASH_PROTECTION_MAJOR
 
@@ -818,22 +822,10 @@
 	if (I && I.status & ORGAN_CUT_AWAY)
 		return FLASH_PROTECTION_MAJOR
 
-	if (!ignore_inherent && species.inherent_eye_protection)
-		. = max(species.inherent_eye_protection, flash_protection)
-	else
-		. = flash_protection
+	if (ignore_inherent)
+		return flash_protection
 
-	if(!flash_protection && HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
-		return species.inherent_eye_protection ? species.inherent_eye_protection - 1 : FLASH_PROTECTION_REDUCED
-
-/mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
-	if(..())
-		var/obj/item/organ/E = get_eyes()
-		if(istype(E))
-			return E.flash_act(intensity, override_blindness_check, affect_silicon, ignore_inherent, type, length)
-	else if(intensity == get_flash_protection(ignore_inherent))
-		if(prob(20))
-			to_chat(src, SPAN_NOTICE("Something bright flashes in the corner of your vision!"))
+	return species.inherent_eye_protection ? max(species.inherent_eye_protection, flash_protection) : flash_protection
 
 //Used by various things that knock people out by applying blunt trauma to the head.
 //Checks that the species has a BP_HEAD (brain containing organ) and that hit_zone refers to it.
@@ -1196,7 +1188,7 @@
 /mob/living/carbon/human/revive(reset_to_roundstart = TRUE)
 
 	if(species && !(species.flags & NO_BLOOD))
-		vessel.add_reagent(/singleton/reagent/blood,560-vessel.total_volume, temperature = species.body_temperature)
+		vessel.add_reagent(/decl/reagent/blood,560-vessel.total_volume, temperature = species.body_temperature)
 		fixblood()
 
 	// Fix up all organs.
@@ -1485,8 +1477,8 @@
 
 
 /mob/living/carbon/human/proc/fill_out_culture_data()
-	culture = GET_SINGLETON(species.possible_cultures[1])
-	origin = GET_SINGLETON(culture.possible_origins[1])
+	culture = decls_repository.get_decl(species.possible_cultures[1])
+	origin = decls_repository.get_decl(culture.possible_origins[1])
 	accent = pick(origin.possible_accents)
 	citizenship = origin.possible_citizenships[1]
 	religion = origin.possible_religions[1]
@@ -1740,11 +1732,11 @@
 	if(self)
 		U.visible_message(SPAN_DANGER("[U] pops their [current_limb.joint] back in!"), \
 		SPAN_DANGER("You pop your [current_limb.joint] back in!"))
-		playsound(src.loc, /singleton/sound_category/fracture_sound, 50, 1, -2)
+		playsound(src.loc, /decl/sound_category/fracture_sound, 50, 1, -2)
 	else
 		U.visible_message(SPAN_DANGER("[U] pops [S]'s [current_limb.joint] back in!"), \
 		SPAN_DANGER("You pop [S]'s [current_limb.joint] back in!"))
-		playsound(src.loc, /singleton/sound_category/fracture_sound, 50, 1, -2)
+		playsound(src.loc, /decl/sound_category/fracture_sound, 50, 1, -2)
 	current_limb.undislocate()
 
 /mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
@@ -1768,23 +1760,14 @@
 		return 1
 	return 0
 
-/mob/living/carbon/human/proc/can_drink(var/obj/item/I)
-	if(!check_has_mouth())
-		to_chat(src, SPAN_NOTICE("Where do you intend to put \the [I]? You don't have a mouth!"))
-		return FALSE
-	var/obj/item/blocked = check_mouth_coverage()
-	if(blocked)
-		to_chat(src, SPAN_WARNING("\The [blocked] is in the way!"))
-		return FALSE
-	return TRUE
-
 /mob/living/carbon/human/MouseDrop(var/atom/over_object)
-	if(ishuman(over_object))
-		var/mob/living/carbon/human/H = over_object
-		if(holder_type && istype(H) && H.a_intent == I_HELP && !H.lying && !issmall(H) && Adjacent(H))
-			get_scooped(H, (usr == src))
-			return
+	var/mob/living/carbon/human/H = over_object
+	if(holder_type && istype(H) && H.a_intent == I_HELP && !H.lying && !issmall(H) && Adjacent(H))
+		get_scooped(H, (usr == src))
+		return
 	return ..()
+
+
 
 /mob/living/carbon/human/AltClickOn(var/atom/A)
 	var/doClickAction = 1
@@ -1981,7 +1964,7 @@
 
 /mob/living/carbon/human/proc/make_adrenaline(var/amount)
 	if(stat == CONSCIOUS)
-		reagents.add_reagent(/singleton/reagent/adrenaline, amount)
+		reagents.add_reagent(/decl/reagent/adrenaline, amount)
 
 /mob/living/carbon/human/proc/gigashatter()
 	for(var/obj/item/organ/external/E in organs)

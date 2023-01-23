@@ -25,7 +25,7 @@
 /datum/computer_file/program/ntsl2_interpreter/run_program(mob/user)
 	. = ..()
 	if(.)
-		running = SSntsl2.new_program_computer(CALLBACK(src, PROC_REF(buffer_callback_handler)))
+		running = SSntsl2.new_program_computer(CALLBACK(src, .proc/buffer_callback_handler))
 
 /datum/computer_file/program/ntsl2_interpreter/Topic(href, href_list)
 	if(..())
@@ -51,7 +51,7 @@
 		if(istype(running))
 			running.kill()
 			// Prepare for next execution
-			running = SSntsl2.new_program_computer(CALLBACK(src, PROC_REF(buffer_callback_handler)))
+			running = SSntsl2.new_program_computer(CALLBACK(src, .proc/buffer_callback_handler))
 			is_running = FALSE
 
 	if(href_list["edit_file"])

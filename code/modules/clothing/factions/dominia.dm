@@ -48,24 +48,17 @@
 	item_state = "dominian_cape"
 	icon_override = null
 	contained_sprite = TRUE
-	var/cape_backing_state = "cape_backing"
-
-/obj/item/clothing/accessory/poncho/dominia_cape/white
-	name = "white dominian cape"
-	icon_state = "dominian_capew"
-	item_state = "dominian_capew"
-	cape_backing_state = "capew_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
-		var/image/cape_backing = image(mob_icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
+		var/image/cape_backing = image(mob_icon, null, "cape_backing", human ? human.layer - 0.01 : MOB_LAYER - 0.01)
 		I.add_overlay(cape_backing)
 	return I
 
 /obj/item/clothing/accessory/poncho/dominia_cape/get_accessory_mob_overlay(mob/living/carbon/human/human, force)
 	var/image/base = ..()
-	var/image/cape_backing = image(icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
+	var/image/cape_backing = image(icon, null, "cape_backing", human ? human.layer - 0.01 : MOB_LAYER - 0.01)
 	base.add_overlay(cape_backing)
 	return base
 
@@ -75,23 +68,11 @@
 	icon_state = "strelitz_cape"
 	item_state = "strelitz_cape"
 
-/obj/item/clothing/accessory/poncho/dominia_cape/strelitz/white
-	name = "white house strelitz cape"
-	icon_state = "strelitz_capew"
-	item_state = "strelitz_capew"
-	cape_backing_state = "capew_backing"
-
 /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad
 	name = "house volvalaad cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Volvalaad."
 	icon_state = "volvalaad_cape"
 	item_state = "volvalaad_cape"
-
-/obj/item/clothing/accessory/poncho/dominia_cape/volvalaad/white
-	name = "white house volvalaad cape"
-	icon_state = "volvalaad_capew"
-	item_state = "volvalaad_capew"
-	cape_backing_state = "capew_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz
 	name = "house kazhkz cape"
@@ -99,23 +80,11 @@
 	icon_state = "kazhkz_cape"
 	item_state = "kazhkz_cape"
 
-/obj/item/clothing/accessory/poncho/dominia_cape/kazhkz/white
-	name = "white house kazhkz cape"
-	icon_state = "kazhkz_capew"
-	item_state = "kazhkz_capew"
-	cape_backing_state = "capew_backing"
-
 /obj/item/clothing/accessory/poncho/dominia_cape/caladius
 	name = "house caladius cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Caladius."
 	icon_state = "caladius_cape"
 	item_state = "caladius_cape"
-
-/obj/item/clothing/accessory/poncho/dominia_cape/caladius/white
-	name = "white house caladius cape"
-	icon_state = "caladius_capew"
-	item_state = "caladius_capew"
-	cape_backing_state = "capew_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/zhao
 	name = "house zhao cape"
@@ -123,67 +92,32 @@
 	icon_state = "zhao_cape"
 	item_state = "zhao_cape"
 
-/obj/item/clothing/accessory/poncho/dominia_cape/zhao/white
-	name = "white house zhao cape"
-	icon_state = "zhao_capew"
-	item_state = "zhao_capew"
-	cape_backing_state = "capew_backing"
-
-/obj/item/clothing/accessory/poncho/dominia_cape/mantle
-	name = "dominian military cape"
-	desc = "Commonly worn by enlisted soldiers of the Imperial military, this is - despite its name - part of a tent. It is generally used to protect oneself from rain or other forms of inclement weather."
-	desc_extended = "Imperial Army half-tents have, since prior to the War of Moroz, been designed to be worn as protection against the elements. Many armsmen carry on this trend in order to maintain their Imperial Army roots, and some go as far to drape these half-tents over their voidsuits."
-	icon_state = "armsman_mantle"
-	item_state = "armsman_mantle"
-
-/obj/item/clothing/suit/storage/dominia
-	name = "dominian great coat"
-	desc = "This is a great coat in the style of Dominian nobility. It's the latest fashion across Dominian space."
-	icon = 'icons/clothing/suits/coats/dominia_noble_coats.dmi'
-	icon_state = "greatcoat_red"
-	item_state = "greatcoat_red"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/dominia/gold
-	icon_state = "greatcoat_gold"
-	item_state = "greatcoat_gold"
-
-/obj/item/clothing/suit/storage/dominia/black
-	icon_state = "greatcoat_black"
-	item_state = "greatcoat_black"
-
-/obj/item/clothing/suit/storage/dominia/coat
-	name = "dominian coat"
-	desc = "This is a coat in the style of Dominia nobility. It's the latest fashion across Dominian space."
-	icon_state = "coat_red"
-	item_state = "coat_red"
-
-/obj/item/clothing/suit/storage/dominia/coat/gold
-	icon_state = "coat_gold"
-	item_state = "coat_gold"
-
-/obj/item/clothing/suit/storage/dominia/coat/black
-	icon_state = "coat_black"
-	item_state = "coat_black"
-
 /obj/item/clothing/suit/storage/dominia/consular
-	name = "dominian consular's greatcoat"
+	name = "Dominian consular officer's greatcoat"
 	desc = "A Dominian greatcoat issued to members of His Majesty's Diplomatic Service, designed in the typical Dominian fashion."
 	desc_extended = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though \
 	the Service also employs many commoners - as long as they can pass the rigorous examinations required to become a full member."
-	icon_state = "dominia_consular_greatcoat"
-	item_state = "dominia_consular_greatcoat"
-
-/obj/item/clothing/suit/storage/dominia/consular/coat
-	name = "dominian consular's coat"
-	desc = "A Dominian coat issued to members of His Majesty's Diplomatic Service, designed in the typical Dominian fashion."
-	desc_extended = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though \
-	the Service also employs many commoners - as long as they can pass the rigorous examinations required to become a full member."
+	icon = 'icons/clothing/suits/coats/dominia_consular_coat.dmi'
 	icon_state = "dominia_consular_coat"
 	item_state = "dominia_consular_coat"
 
 /obj/item/clothing/suit/storage/toggle/dominia
+	name = "dominia great coat"
+	desc = "This is a great coat in the style of Dominia nobility. It's the latest fashion across Dominian space."
+	icon = 'icons/clothing/suits/coats/dominia_noble_red.dmi'
+	icon_state = "dominia_noble_red"
+	item_state = "dominia_noble_red"
 	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/dominia/gold
+	icon = 'icons/clothing/suits/coats/dominia_noble_gold.dmi'
+	icon_state = "dominia_noble_gold"
+	item_state = "dominia_noble_gold"
+
+/obj/item/clothing/suit/storage/toggle/dominia/black
+	icon = 'icons/clothing/suits/coats/dominia_noble_black.dmi'
+	icon_state = "dominia_noble_black"
+	item_state = "dominia_noble_black"
 
 /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	name = "fisanduhian bomber jacket"
@@ -204,46 +138,17 @@
 	item_state = "dominia_bomber_long"
 
 /obj/item/clothing/under/dominia
+	name = "dominia suit"
+	desc = "This is a suit in the style of Dominia nobility. It's the latest fashion across Dominian space."
+	icon = 'icons/clothing/under/uniforms/dominia_uniform_red.dmi'
+	icon_state = "dominia_uniform_red"
+	item_state = "dominia_uniform_red"
 	contained_sprite = TRUE
 
-/obj/item/clothing/under/dominia/imperial_suit
-	name = "dominian suit"
-	desc = "This is a suit in the style of Dominia nobility. It's the latest fashion across Dominian space."
-	icon = 'icons/clothing/under/uniforms/dominia_suits.dmi'
-	icon_state = "suit_imperial"
-	item_state = "suit_imperial"
-	var/house
-
-/obj/item/clothing/under/dominia/imperial_suit/Initialize()
-	. = ..()
-	if(house)
-		icon_state = "suit_[house]"
-		item_state = "suit_[house]"
-		initial_icon_override = icon_state
-
-/obj/item/clothing/under/dominia/imperial_suit/strelitz
-	name = "house strelitz suit"
-	house = "strelitz"
-
-/obj/item/clothing/under/dominia/imperial_suit/volvalaad
-	name = "house volvalaad suit"
-	house = "volvalaad"
-
-/obj/item/clothing/under/dominia/imperial_suit/kazhkz
-	name = "house kazhkz suit"
-	house = "kazhkz"
-
-/obj/item/clothing/under/dominia/imperial_suit/caladius
-	name = "house caladius suit"
-	house = "caladius"
-
-/obj/item/clothing/under/dominia/imperial_suit/zhao
-	name = "house zhao suit"
-	house = "zhao"
-
-/obj/item/clothing/under/dominia/imperial_suit/black
-	icon_state = "suit_imperial_black"
-	item_state = "suit_imperial_black"
+/obj/item/clothing/under/dominia/black
+	icon = 'icons/clothing/under/uniforms/dominia_uniform_black.dmi'
+	icon_state = "dominia_uniform_black"
+	item_state = "dominia_uniform_black"
 
 /obj/item/clothing/under/dominia/sweater
 	name = "fisanduhian sweater"
@@ -352,76 +257,19 @@
 		remove_mask()
 
 /obj/item/clothing/under/dominia/dress
-	name = "dominian noble greatdress"
-	desc = "This is a greatdress in the style of Dominian nobility. Greatdresses are a Dominian fashion fad, distinguished from normal dresses by their colourful palettes \
-			and oversized gowns. More modest nobility would define them as excessively gaudy and unreasonable, but it depends on the individual."
+	name = "dominian noblewoman dress"
+	desc = "This is a dress in the style of Dominian nobility. It's the latest fashion across Dominian space."
 	icon = 'icons/clothing/under/uniforms/dominia_noble_dress.dmi'
 	icon_state = "dom_dress"
 	item_state = "dom_dress"
 	contained_sprite = TRUE
 
-/obj/item/clothing/under/dominia/dress/noble
-	name = "dominian noble dress"
-	desc = "A dress commonly worn by Dominian nobility. While not as gaudy as the greatdress, it is extremely luxurious nonetheless, and a sign of excellent pedigree \
-			and good fortune."
+/obj/item/clothing/under/dominia/dress/summer
+	name = "dominian summer dress"
+	desc = "This is a dress in the style of Dominian nobility. It's the latest fashion across Dominian space."
 	icon = 'icons/clothing/under/uniforms/dominia_summer_dress.dmi'
-	icon_state = "altdress_imperial"
-	item_state = "altdress_imperial"
-	var/house
-	var/black = FALSE
-
-/obj/item/clothing/under/dominia/dress/noble/Initialize()
-	. = ..()
-	if(house)
-		icon_state = "altdress_[house]"
-		item_state = "altdress_[house]"
-	if(black)
-		icon_state += "b"
-		item_state += "b"
-
-/obj/item/clothing/under/dominia/dress/noble/strelitz
-	name = "strelitz noble dress"
-	house = "strelitz"
-
-/obj/item/clothing/under/dominia/dress/noble/volvalaad
-	name = "volvalaad noble dress"
-	house = "volvalaad"
-
-/obj/item/clothing/under/dominia/dress/noble/kazhkz
-	name = "kazhkz noble dress"
-	house = "kazhkz"
-
-/obj/item/clothing/under/dominia/dress/noble/caladius
-	name = "caladius noble dress"
-	house = "caladius"
-
-/obj/item/clothing/under/dominia/dress/noble/zhao
-	name = "zhao noble dress"
-	house = "zhao"
-
-/obj/item/clothing/under/dominia/dress/noble/black
-	name = "black dominian noble dress"
-	black = TRUE
-
-/obj/item/clothing/under/dominia/dress/noble/black/strelitz
-	name = "black strelitz noble dress"
-	house = "strelitz"
-
-/obj/item/clothing/under/dominia/dress/noble/black/volvalaad
-	name = "black volvalaad noble dress"
-	house = "volvalaad"
-
-/obj/item/clothing/under/dominia/dress/noble/black/kazhkz
-	name = "black kazhkz noble dress"
-	house = "kazhkz"
-
-/obj/item/clothing/under/dominia/dress/noble/black/caladius
-	name = "black caladius noble dress"
-	house = "caladius"
-
-/obj/item/clothing/under/dominia/dress/noble/black/zhao
-	name = "black zhao noble dress"
-	house = "zhao"
+	icon_state = "dom_dress"
+	item_state = "dom_dress"
 
 /obj/item/clothing/accessory/poncho/dominia/red/surcoat
 	name = "tribunalist surcoat"
@@ -629,43 +477,81 @@
 
 /obj/item/clothing/under/dominia/dress/fancy
 	name = "Morozi dress"
-	desc = "Feminine commoner's fashion from the Empire of Dominia."
+	desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has sleeves."
 	desc_extended = "Dresses such as this one are a common sight in the more developed colonies of the Empire of Dominia, and their origins can be traced back to \
 	the fashion houses of Nova Luxembourg. While both sleeved and sleeveless variants exist, the sleeved one is far more common \
 	due to the often frigid temperatures of Moroz."
 	icon = 'icons/clothing/under/uniforms/dominia_dresses.dmi'
-	icon_state = "dress_imperial"
-	item_state = "dress_imperial"
+	icon_state = "morozi_dress"
+	item_state = "morozi_dress"
 	contained_sprite = TRUE
 	var/house
 
 /obj/item/clothing/under/dominia/dress/fancy/Initialize()
 	. = ..()
 	if(house)
-		desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has a colored sash marking its wearer as \
+		desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has sleeves, and a colored sash marking its wearer as \
 				an affiliate of House [capitalize(house)]."
-		icon_state = "dress_[house]"
-		item_state = "dress_[house]"
-		initial_icon_override = icon_state
+		icon_state = "[house]"
+		item_state = "[house]"
+		update_clothing_icon()
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless
+	name = "sleeveless Morozi dress"
+	desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has no sleeves."
+	desc_extended = "Dresses such as this one are a common sight in the more developed colonies of the Empire of Dominia, and their origins can be traced back to \
+				the fashion houses of Nova Luxembourg. While both sleeved and sleeveless variants exist, the sleeved one is far more common \
+				due to the often frigid temperatures of Moroz."
+	icon_state = "morozi_dress_rs"
+	item_state = "morozi_dress_rs"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/Initialize()
+	. = ..()
+	if(house)
+		desc = "Feminine commoner's fashion from the Empire of Dominia. This particular variant has no sleeves, and a colored sash marking its wearer as \
+				an affiliate of House [house]."
+		icon_state += "_rs"
+		item_state += "_rs"
 		update_clothing_icon()
 
 /obj/item/clothing/under/dominia/dress/fancy/zhao
 	name = "house zhao Morozi dress"
 	house = "zhao"
 
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/zhao
+	name = "sleeveless house zhao Morozi dress"
+	house = "zhao"
+
 /obj/item/clothing/under/dominia/dress/fancy/volvalaad
 	name = "house volvalaad Morozi dress"
 	house = "volvalaad"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/volvalaad
+	name = "sleeveless house volvalaad Morozi dress"
+	house = "volvalaad"
+
 /obj/item/clothing/under/dominia/dress/fancy/strelitz
 	name = "house strelitz Morozi dress"
+	house = "strelitz"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/strelitz
+	name = "sleeveless house strelitz Morozi dress"
 	house = "strelitz"
 
 /obj/item/clothing/under/dominia/dress/fancy/caladius
 	name = "house caladius Morozi dress"
 	house = "caladius"
 
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/caladius
+	name = "sleeveless house caladius Morozi dress"
+	house = "caladius"
+
 /obj/item/clothing/under/dominia/dress/fancy/kazhkz
 	name = "house kazhkz Morozi dress"
+	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/dress/fancy/sleeveless/kazhkz
+	name = "sleeveless house kazhkz Morozi dress"
 	house = "kazhkz"
 
 /obj/item/clothing/under/dominia/fleet

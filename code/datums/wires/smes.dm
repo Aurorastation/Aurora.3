@@ -45,7 +45,7 @@ var/const/SMES_WIRE_FAILSAFES = 16	// Cut to disable failsafes, mend to reenable
 		if(SMES_WIRE_RCON)
 			if(S.RCon)
 				S.RCon = 0
-				addtimer(CALLBACK(S, TYPE_PROC_REF(/obj/machinery/power/smes/buildable, reset_rcon)), 10)
+				addtimer(CALLBACK(S, /obj/machinery/power/smes/buildable/.proc/reset_rcon), 10)
 		if(SMES_WIRE_INPUT)
 			S.toggle_input()
 		if(SMES_WIRE_OUTPUT)
@@ -55,7 +55,7 @@ var/const/SMES_WIRE_FAILSAFES = 16	// Cut to disable failsafes, mend to reenable
 		if(SMES_WIRE_FAILSAFES)
 			if(S.safeties_enabled)
 				S.safeties_enabled = 0
-				addtimer(CALLBACK(S, TYPE_PROC_REF(/obj/machinery/power/smes/buildable, reset_safeties)), 10)
+				addtimer(CALLBACK(S, /obj/machinery/power/smes/buildable/.proc/reset_safeties), 10)
 
 /obj/machinery/power/smes/buildable/proc/reset_safeties()
 	safeties_enabled = TRUE

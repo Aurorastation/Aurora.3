@@ -306,9 +306,9 @@ var/list/diona_banned_languages = list(
 										/obj/item/organ/external/leg/right/diona = /obj/item/organ/external/foot/right/diona
 										)
 			if(path in special_case)
-				DS.regen_extra = CALLBACK(src, PROC_REF(diona_regen_callback), special_case[path], DS)
+				DS.regen_extra = CALLBACK(src, .proc/diona_regen_callback, special_case[path], DS)
 			if(!bypass)
-				DS.regen_limb = CALLBACK(src, PROC_REF(diona_regen_callback), path, DS)
+				DS.regen_limb = CALLBACK(src, .proc/diona_regen_callback, path, DS)
 			else
 				diona_regen_callback(path, DS)
 				diona_regen_callback(special_case[path], DS)
@@ -612,9 +612,9 @@ var/list/diona_banned_languages = list(
 	if(do_mob(user, H, 40, needhand = FALSE))
 		var/remove_amount = H.species.blood_volume * 0.05
 		if(remove_amount > 0)
-			H.vessel.remove_reagent(/singleton/reagent/blood, remove_amount, TRUE)
+			H.vessel.remove_reagent(/decl/reagent/blood, remove_amount, TRUE)
 			user.adjustNutritionLoss(-remove_amount * 0.5)
-		var/list/data = REAGENT_DATA(H.vessel, /singleton/reagent/blood)
+		var/list/data = REAGENT_DATA(H.vessel, /decl/reagent/blood)
 		var/newDNA = data["blood_DNA"]
 
 		if(!newDNA) //Fallback. Adminspawned mobs, and possibly some others, have null dna.
@@ -623,9 +623,9 @@ var/list/diona_banned_languages = list(
 		H.adjustBruteLoss(4)
 		user.visible_message(SPAN_NOTICE("[user] sucks some blood from \the [H].") , SPAN_NOTICE("You extract a delicious mouthful of blood from \the [H]!"))
 		to_chat(H, SPAN_NOTICE("You feel some liquid being injected at the bite site."))
-		H.reagents.add_reagent(/singleton/reagent/mortaphenyl/aphrodite, 5)
+		H.reagents.add_reagent(/decl/reagent/mortaphenyl/aphrodite, 5)
 		if(H.client)
-			INVOKE_ASYNC(src, PROC_REF(memory_transfer), user, H)
+			INVOKE_ASYNC(src, .proc/memory_transfer, user, H)
 		if(newDNA in sampled_DNA)
 			to_chat(user, SPAN_DANGER("You have already sampled the DNA of this creature before, you can learn nothing new. Move onto something else."))
 			return

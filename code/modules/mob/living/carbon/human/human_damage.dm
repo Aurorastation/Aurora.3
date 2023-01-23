@@ -5,7 +5,7 @@
 
 	if(status_flags & GODMODE)
 		health = maxHealth
-		set_stat(CONSCIOUS)
+		stat = CONSCIOUS
 		return
 
 	health = maxHealth - getBrainLoss()
@@ -359,8 +359,8 @@ This function restores the subjects blood to max.
 */
 /mob/living/carbon/human/proc/restore_blood()
 	if(!(species.flags & NO_BLOOD))
-		var/total_blood = REAGENT_VOLUME(vessel, /singleton/reagent/blood)
-		vessel.add_reagent(/singleton/reagent/blood,560.0-total_blood, temperature = species.body_temperature)
+		var/total_blood = REAGENT_VOLUME(vessel, /decl/reagent/blood)
+		vessel.add_reagent(/decl/reagent/blood,560.0-total_blood, temperature = species.body_temperature)
 
 
 /*
@@ -437,7 +437,7 @@ This function restores all organs.
 		return FALSE
 
 	if(damage > 15 && prob(damage*4) && ORGAN_CAN_FEEL_PAIN(organ))
-		if(REAGENT_VOLUME(reagents, /singleton/reagent/adrenaline) < 15)
+		if(REAGENT_VOLUME(reagents, /decl/reagent/adrenaline) < 15)
 			make_adrenaline(round(damage/10))
 
 	switch(damagetype)
@@ -479,4 +479,4 @@ This function restores all organs.
 
 /mob/living/carbon/human/remove_blood_simple(var/blood)
 	if(should_have_organ(BP_HEART))
-		vessel.remove_reagent(/singleton/reagent/blood, blood)
+		vessel.remove_reagent(/decl/reagent/blood, blood)

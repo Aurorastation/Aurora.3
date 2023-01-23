@@ -119,17 +119,17 @@
 	max_hydration_factor = -1
 	max_nutrition_factor = -1
 
-	bodyfall_sound = /singleton/sound_category/bodyfall_machine_sound
+	bodyfall_sound = /decl/sound_category/bodyfall_machine_sound
 
 	possible_cultures = list(
-		/singleton/origin_item/culture/ipc_sol,
-		/singleton/origin_item/culture/ipc_elyra,
-		/singleton/origin_item/culture/ipc_coalition,
-		/singleton/origin_item/culture/ipc_tau_ceti,
-		/singleton/origin_item/culture/golden_deep,
-		/singleton/origin_item/culture/megacorporate,
-		/singleton/origin_item/culture/scrapper,
-		/singleton/origin_item/culture/orepit_trinary
+		/decl/origin_item/culture/ipc_sol,
+		/decl/origin_item/culture/ipc_elyra,
+		/decl/origin_item/culture/ipc_coalition,
+		/decl/origin_item/culture/ipc_tau_ceti,
+		/decl/origin_item/culture/golden_deep,
+		/decl/origin_item/culture/megacorporate,
+		/decl/origin_item/culture/scrapper,
+		/decl/origin_item/culture/orepit_trinary
 	)
 
 	alterable_internal_organs = list()
@@ -137,8 +137,6 @@
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
 	var/move_charge_factor = 1
-
-	use_alt_hair_layer = TRUE
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
@@ -175,7 +173,7 @@
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
 	H.f_style = ""
-	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, update_hair)), 100)
+	addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/update_hair), 100)
 
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)

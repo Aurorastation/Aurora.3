@@ -1,14 +1,14 @@
 /datum/map_template/ruin/away_site/ranger_corvette
 	name = "Ranger Gunboat"
 	description = "The Xansan-class is not, in fact, a distinct design in of itself. It is instead Xanu Prime’s variant of the Lagos-class gunboat, a Solarian light attack ship design. While the Lagos-class has been out of service with the Alliance’s navy for centuries, the blueprints were captured during the Interstellar war by Xanu Prime militiamen from a regional naval shipyard during the opening stages of the conflict, and were immediately used to construct ships of the class for use by Xanu Prime’s burgeoning military. While the Xansan-class has been retired from Xanu service, the leftover ships were donated en masse to the Frontier Marshal Bureau, and the Rangers make use of the craft to this day, in spite of their advanced age."
-	suffixes = list("ships/coc_ranger/coc_ship.dmm")
+	suffix = "ships/coc_ranger/coc_ship.dmm"
 	sectors = list(SECTOR_BADLANDS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "ranger_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ranger_shuttle)
 
-/singleton/submap_archetype/ranger_corvette
+/decl/submap_archetype/ranger_corvette
 	map = "Ranger Gunboat"
 	descriptor = "The Xansan-class is not, in fact, a distinct design in of itself. It is instead Xanu Prime’s variant of the Lagos-class gunboat, a Solarian light attack ship design. While the Lagos-class has been out of service with the Alliance’s navy for centuries, the blueprints were captured during the Interstellar war by Xanu Prime militiamen from a regional naval shipyard during the opening stages of the conflict, and were immediately used to construct ships of the class for use by Xanu Prime’s burgeoning military. While the Xansan-class has been retired from Xanu service, the leftover ships were donated en masse to the Frontier Marshal Bureau, and the Rangers make use of the craft to this day, in spite of their advanced age."
 

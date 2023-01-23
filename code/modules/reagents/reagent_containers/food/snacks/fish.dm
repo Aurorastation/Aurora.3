@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/food/snacks/fish
 	icon_state = "fishfillet"
 	filling_color = "#FFDEFE"
-	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 3)
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 3)
 	bitesize = 6
 	var/fish_type = "fish"
 
@@ -16,7 +16,7 @@
 /obj/item/reagent_containers/food/snacks/fish/carpmeat
 	name = "carp fillet"
 	desc = "A fillet of space carp meat."
-	reagents_to_add = list(/singleton/reagent/toxin/carpotoxin = 3, /singleton/reagent/nutriment/protein/seafood = 3)
+	reagents_to_add = list(/decl/reagent/toxin/carpotoxin = 3, /decl/reagent/nutriment/protein/seafood = 3)
 	fish_type = "space carp"
 
 /obj/item/reagent_containers/food/snacks/fish/fishfillet
@@ -28,13 +28,13 @@
 	desc = "A fleshy organ filled with fish eggs."
 	icon_state = "roesack"
 	fish_type = "fish"
-	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 3)
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 3)
 
 /obj/item/reagent_containers/food/snacks/fish/mollusc
 	name = "slimy meat"
 	desc = "Some slimy meat from clams or molluscs."
 	fish_type = "mollusc"
-	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood/mollusc = 3)
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood/mollusc = 3)
 
 /obj/item/reagent_containers/food/snacks/fish/mollusc/clam
 	fish_type = "clam"
@@ -47,7 +47,7 @@
 	desc = "A piece of slimy meat that could only come from a space jellyfish, a cosmozoan."
 	icon_state = "cozmofillet"
 	fish_type = "cosmozoan"
-	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood/cosmozoan = 3)
+	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood/cosmozoan = 3)
 
 // Molluscs!
 /obj/item/trash/mollusc_shell
@@ -89,7 +89,7 @@
 	shell_type = /obj/item/trash/mollusc_shell/clam
 
 /obj/item/mollusc/proc/crack_shell(var/mob/user)
-	playsound(loc, /singleton/sound_category/pickaxe_sound, 40, TRUE)
+	playsound(loc, /decl/sound_category/pickaxe_sound, 40, TRUE)
 	if(user && loc == user)
 		user.drop_from_inventory(src)
 	if(meat_type)

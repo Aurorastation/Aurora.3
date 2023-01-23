@@ -50,7 +50,7 @@
 		to_chat(B.host, SPAN_DANGER("You feel the captive mind of [src] begin to resist your control."))
 
 		var/resist_time = rand(40 SECONDS, 1 MINUTE)
-		addtimer(CALLBACK(src, PROC_REF(eject_borer), B, H), resist_time)
+		addtimer(CALLBACK(src, .proc/eject_borer, B, H), resist_time)
 		resist_bar = new /datum/progressbar/autocomplete(src, resist_time, B.host)
 		resist_start_time = world.time
 		resist_bar.update(0)

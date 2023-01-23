@@ -56,7 +56,7 @@
 		act = copytext(tempstr,1,splitpoint)
 		message = copytext(tempstr,splitpoint+1,0)
 
-	var/singleton/emote/use_emote = usable_emotes[act]
+	var/decl/emote/use_emote = usable_emotes[act]
 	if(!use_emote)
 		to_chat(src, "<span class='warning'>Unknown emote '[act]'. Type <b>say *help</b> for a list of usable emotes.</span>")
 		return

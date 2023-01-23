@@ -8,7 +8,7 @@
 		host_spawner_type = "diona_nymph"
 
 	SSghostroles.add_spawn_atom(host_spawner_type, host)
-	addtimer(CALLBACK(src, PROC_REF(kill_living_product), WEAKREF(host), host_spawner_type), 3 MINUTES)
+	addtimer(CALLBACK(src, .proc/kill_living_product, WEAKREF(host), host_spawner_type), 3 MINUTES)
 
 /datum/seed/proc/kill_living_product(var/datum/weakref/host_ref, var/product_spawner_type = "living_plant")
 	var/mob/living/host = host_ref.resolve()

@@ -26,7 +26,7 @@ var/datum/controller/subsystem/nightlight/SSnightlight
 		suspend()
 		deactivate(FALSE)
 		if (time > 0)
-			addtimer(CALLBACK(src, PROC_REF(end_temp_disable)), time, TIMER_UNIQUE | TIMER_OVERRIDE)
+			addtimer(CALLBACK(src, .proc/end_temp_disable), time, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /datum/controller/subsystem/nightlight/proc/end_temp_disable()
 	if (disable_type == NL_TEMPORARY_DISABLE)

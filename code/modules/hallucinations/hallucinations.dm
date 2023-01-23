@@ -48,7 +48,7 @@
 		return
 	holder.hallucinations += src
 	start()
-	addtimer(CALLBACK(src, PROC_REF(end)), duration)
+	addtimer(CALLBACK(src, .proc/end), duration)
 
 //You emoting to others involuntarily. This happens mostly in end()
 /datum/hallucination/proc/hallucination_emote()	
