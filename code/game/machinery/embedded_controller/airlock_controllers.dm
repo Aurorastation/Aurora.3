@@ -1,6 +1,5 @@
 //base type for controllers of two-door systems
 /obj/machinery/embedded_controller/radio/airlock
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	// Setup parameters only
 	radio_filter = RADIO_AIRLOCK
 	var/tag_exterior_door

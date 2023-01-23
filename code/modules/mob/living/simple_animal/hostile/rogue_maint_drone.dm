@@ -7,7 +7,6 @@
 	speak = list("Removing organic waste.", "Pest control in progress.", "Engaging self-preservation protocols.", "Moving to eject unauthorized personnel.")
 	speak_emote = list("blares", "buzzes", "beeps")
 	speak_chance = 1
-	universal_speak = FALSE
 	density = FALSE
 	health = 50
 	maxHealth = 50

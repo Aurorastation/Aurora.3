@@ -2,7 +2,7 @@
 
 /obj/item/modular_computer
 	name = "Modular Computer"
-	desc = DESC_PARENT
+	desc = "A modular computer. You shouldn't see this."
 
 	var/lexical_name = "computer"
 	var/enabled = FALSE										// Whether the computer is turned on.

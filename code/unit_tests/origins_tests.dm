@@ -3,8 +3,8 @@
 
 /datum/unit_test/cultures/start_test()
 	var/failures = 0
-	var/list/singleton/origin_item/culture/all_cultures = GET_SINGLETON_SUBTYPE_MAP(/singleton/origin_item/culture)
-	for(var/singleton/origin_item/culture/OC in all_cultures)
+	var/list/decl/origin_item/culture/all_cultures = decls_repository.get_decls_of_subtype(/decl/origin_item/culture)
+	for(var/decl/origin_item/culture/OC in all_cultures)
 		if(!istext(OC.name))
 			log_unit_test("Culture [OC.name] does not have a name!")
 			failures++
@@ -28,8 +28,8 @@
 
 /datum/unit_test/origins/start_test()
 	var/failures = 0
-	var/list/singleton/origin_item/origin/all_origins = GET_SINGLETON_SUBTYPE_MAP(/singleton/origin_item/origin)
-	for(var/singleton/origin_item/origin/OI in all_origins)
+	var/list/decl/origin_item/origin/all_origins = decls_repository.get_decls_of_subtype(/decl/origin_item/origin)
+	for(var/decl/origin_item/origin/OI in all_origins)
 		if(!istext(OI.name))
 			log_unit_test("Origin [OI.name] does not have a name!")
 			failures++

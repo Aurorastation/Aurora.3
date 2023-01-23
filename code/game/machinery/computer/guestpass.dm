@@ -39,7 +39,7 @@
 /obj/item/card/id/guest/Initialize(mapload, duration)
 	. = ..(mapload)
 	expiration_time = duration + world.time
-	addtimer(CALLBACK(src, PROC_REF(expire)), duration)
+	addtimer(CALLBACK(src, .proc/expire), duration)
 
 /obj/item/card/id/guest/proc/expire()
 	icon_state += "_invalid"

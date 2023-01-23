@@ -5,7 +5,6 @@
 #define SHIP_CALIBER_ZTA "zero-point warp beam"
 #define SHIP_CALIBER_178MM "178mm"
 #define SHIP_CALIBER_COILGUN "tungsten rod"
-#define SHIP_CALIBER_200MM "200mm"
 
 #define SHIP_GUN_FIRING_SUCCESSFUL "firing sequence completed"
 #define SHIP_GUN_ERROR_NO_AMMO "no ammunition loaded"

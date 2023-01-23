@@ -63,7 +63,7 @@
 
 	exit_vr()
 
-	set_stat(DEAD)
+	stat = DEAD
 
 	update_canmove()
 

@@ -125,7 +125,7 @@
 	spread_chance = seed.get_trait(TRAIT_POTENCY)
 	spread_distance = ((growth_type > 0) ? round(spread_chance * 0.6) : round(spread_chance * 0.3))
 	update_icon()
-	addtimer(CALLBACK(src, PROC_REF(post_initialize)), 1)
+	addtimer(CALLBACK(src, .proc/post_initialize), 1)
 
 // Plants will sometimes be spawned in the turf adjacent to the one they need to end up in, for the sake of correct dir/etc being set.
 /obj/effect/plant/proc/post_initialize()
@@ -133,7 +133,7 @@
 	update_icon()
 	SSplants.add_plant(src)
 	// Some plants eat through plating.
-	if(islist(seed.chems) && !isnull(seed.chems[/singleton/reagent/acid/polyacid]))
+	if(islist(seed.chems) && !isnull(seed.chems[/decl/reagent/acid/polyacid]))
 		var/turf/T = get_turf(src)
 		T.ex_act(prob(80) ? 3 : 2)
 
@@ -172,9 +172,9 @@
 			last_biolum = null
 
 /obj/effect/plant/proc/refresh_icon()
-	var/growth = 0
-	if(growth_threshold)
-		growth = min(max_growth,round(health/growth_threshold))
+	if(!growth_threshold)
+		growth_threshold = max_health/seed.growth_stages
+	var/growth = min(max_growth,round(health/growth_threshold))
 	var/at_fringe = get_dist(src,parent)
 	if(spread_distance > 5)
 		if(at_fringe >= (spread_distance-3))
@@ -198,7 +198,7 @@
 	if(growth>2 && growth == max_growth)
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
 		opacity = 1
-		if(islist(seed.chems) && !isnull(seed.chems[/singleton/reagent/woodpulp]))
+		if(islist(seed.chems) && !isnull(seed.chems[/decl/reagent/woodpulp]))
 			density = 1
 	else
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
@@ -264,7 +264,7 @@
 		health -= (rand(3,5)*5)
 		sampled = 1
 	else
-		playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
+		playsound(loc, /decl/sound_category/wood_break_sound, 50, TRUE)
 		var/damage = W.force ? W.force : 1 //always do at least a little damage
 		if(W.edge || W.sharp)
 			damage *= 2

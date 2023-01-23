@@ -80,7 +80,7 @@
 	has_dropped++
 	if(does_explosion)
 		addtimer(CALLBACK(GLOBAL_PROC, /proc/explosion, targloc, 1, 2, 4, 6), 100) //YEEHAW
-	addtimer(CALLBACK(src, PROC_REF(orbital_drop), targloc, user), 105)
+	addtimer(CALLBACK(src, .proc/orbital_drop, targloc, user), 105)
 
 	flick_overlay(I, showto, 20) //2 seconds of the red dot appearing
 	icon_state = "drillpointer"

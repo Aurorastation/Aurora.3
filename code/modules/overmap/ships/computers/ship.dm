@@ -8,7 +8,6 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	var/extra_view = 0 // how much the view is increased by when the mob is in overmap mode.
 	var/obj/effect/overmap/visitable/ship/connected //The ship we're attached to. This is a typecheck for linked, to ensure we're linked to a ship and not a sector
 	var/targeting = FALSE //Are we targeting anything right now?
-	var/linked_type = /obj/effect/overmap/visitable/ship
 
 /obj/machinery/computer/ship/proc/display_reconnect_dialog(var/mob/user, var/flavor)
 	var/datum/browser/popup = new (user, "[src]", "[src]")
@@ -42,7 +41,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 
 /obj/machinery/computer/ship/sync_linked()
 	. = ..()
-	if(istype(linked, linked_type))
+	if(istype(linked, /obj/effect/overmap/visitable/ship))
 		connected = linked
 
 // Management of mob view displacement. look to shift view to the ship on the overmap; unlook to shift back.
@@ -123,14 +122,13 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	. = ..()
 
 	if(.)
-		if(istype(linked, linked_type))
+		if(istype(linked, /obj/effect/overmap/visitable/ship)) //Only ships get ship computers
 			connected = linked
-			if(istype(connected)) // we do a little type abuse
-				LAZYSET(connected.consoles, src, TRUE)
+			LAZYSET(connected.consoles, src, TRUE)
 
 /obj/machinery/computer/ship/Initialize()
 	. = ..()
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
-		if(istype(my_sector, linked_type))
+		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)

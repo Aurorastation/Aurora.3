@@ -112,17 +112,17 @@
 	max_hydration_factor = -1
 
 	possible_cultures = list(
-		/singleton/origin_item/culture/xrim,
-		/singleton/origin_item/culture/eum,
-		/singleton/origin_item/culture/narrows,
-		/singleton/origin_item/culture/diona_biesel,
-		/singleton/origin_item/culture/diona_sol,
-		/singleton/origin_item/culture/diona_eridani,
-		/singleton/origin_item/culture/diona_dominia,
-		/singleton/origin_item/culture/dionae_moghes,
-		/singleton/origin_item/culture/dionae_nralakk,
-		/singleton/origin_item/culture/diona_coalition,
-		/singleton/origin_item/culture/deep_space
+		/decl/origin_item/culture/xrim,
+		/decl/origin_item/culture/eum,
+		/decl/origin_item/culture/narrows,
+		/decl/origin_item/culture/diona_biesel,
+		/decl/origin_item/culture/diona_sol,
+		/decl/origin_item/culture/diona_eridani,
+		/decl/origin_item/culture/diona_dominia,
+		/decl/origin_item/culture/dionae_moghes,
+		/decl/origin_item/culture/dionae_nralakk,
+		/decl/origin_item/culture/diona_coalition,
+		/decl/origin_item/culture/deep_space
 	)
 
 	alterable_internal_organs = list()
@@ -145,7 +145,7 @@
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
 		// This proc sleeps. Async it.
-		INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/human, diona_split_into_nymphs))
+		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
 
 /datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)
 // Diona without head can live, but they cannot talk as loud anymore.

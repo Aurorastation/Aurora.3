@@ -38,7 +38,7 @@
 		installed_gun = gun
 		size += gun.w_class
 		to_chat(user, "<span class='notice'>You slide \the [gun] into the firing mechanism.</span>")
-		playsound(src.loc, /singleton/sound_category/crowbar_sound, 50, 1)
+		playsound(src.loc, /decl/sound_category/crowbar_sound, 50, 1)
 	else
 		..()
 
@@ -47,7 +47,7 @@
 		installed_gun.forceMove(get_turf(src))
 		to_chat(user, "<span class='notice'>You slide \the [installed_gun] out of the firing mechanism.</span>")
 		size = initial(size)
-		playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
+		playsound(loc, /decl/sound_category/crowbar_sound, 50, 1)
 		installed_gun = null
 	else
 		to_chat(user, "<span class='notice'>There's no weapon to remove from the mechanism.</span>")
@@ -169,7 +169,7 @@
 // These procs do not relocate the grenade, that's the callers responsibility
 /obj/item/integrated_circuit/manipulation/grenade/proc/attach_grenade(var/obj/item/grenade/G)
 	attached_grenade = G
-	destroyed_event.register(attached_grenade, src, PROC_REF(detach_grenade))
+	destroyed_event.register(attached_grenade, src, .proc/detach_grenade)
 	size += G.w_class
 	desc += " \An [attached_grenade] is attached to it!"
 

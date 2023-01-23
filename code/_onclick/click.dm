@@ -202,7 +202,7 @@
 	return
 
 /mob/living/UnarmedAttack(var/atom/A, var/proximity_flag)
-	if(!(GAME_STATE & RUNLEVELS_PLAYING))
+	if(!Master.round_started)
 		to_chat(src, "You cannot attack people before the game has started.")
 		return 0
 
@@ -241,11 +241,6 @@
 	if(A.handle_middle_mouse_click(src))
 		return
 	swap_hand()
-
-/mob/living/carbon/human/MiddleClickOn(var/atom/A)
-	if(species.handle_middle_mouse_click(src, A))
-		return
-	return ..()
 
 // In case of use break glass
 /*

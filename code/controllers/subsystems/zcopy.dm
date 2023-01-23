@@ -11,7 +11,7 @@
 	wait = 1
 	init_order = SS_INIT_ZCOPY
 	priority = SS_PRIORITY_ZCOPY
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	flags = SS_FIRE_IN_LOBBY
 
 	var/list/queued_turfs = list()
 	var/qt_idex = 1
@@ -417,7 +417,7 @@
 				D.plane = T.shadower.plane
 			found_oo += D
 
-	sortTim(found_oo, GLOBAL_PROC_REF(cmp_planelayer))
+	sortTim(found_oo, /proc/cmp_planelayer)
 
 	var/list/atoms_list_list = list()
 	for (var/thing in found_oo)

@@ -83,7 +83,7 @@
 ]*/
 
 /datum/ntsl2_program/tcomm/proc/retrieve_messages(callback = null)
-	SSntsl2.send_task("tcom/get", callback = CALLBACK(src, PROC_REF(_finish_retrieve_messages), callback))
+	SSntsl2.send_task("tcom/get", callback = CALLBACK(src, .proc/_finish_retrieve_messages, callback))
 
 /datum/ntsl2_program/tcomm/proc/_finish_retrieve_messages(callback = null, data)
 	if(data)

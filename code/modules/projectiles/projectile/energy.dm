@@ -22,11 +22,13 @@
 		return
 
 	//blind adjacent people
-	for(var/mob/living/M in viewers(T, flash_range))
-		if(M.flash_act(ignore_inherent = TRUE))
-			M.confused = rand(5, 15)
+	for(var/mob/living/carbon/M in viewers(T, flash_range))
+		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
+			M.confused = rand(5,15)
+			M.flash_eyes()
 		else if(affected_limb && M == A)
 			M.confused = rand(2, 7)
+			M.flash_eyes()
 
 	//snap pop
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
@@ -158,7 +160,7 @@
 	var/area/A = get_area(target)
 	if(A && A.has_gravity())
 		A.gravitychange(FALSE)
-		addtimer(CALLBACK(src, PROC_REF(turnongravity)), 150)
+		addtimer(CALLBACK(src, .proc/turnongravity), 150)
 
 	if(istype(target, /obj/machinery/gravity_generator/main))
 		var/obj/machinery/gravity_generator/main/T = target

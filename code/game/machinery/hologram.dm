@@ -169,7 +169,7 @@ Possible to do for anyone motivated enough:
 			to_chat(usr, SPAN_DANGER("Could not locate that holopad, this is a bug!"))
 			return
 		connected_pad = HP
-		INVOKE_ASYNC(src, PROC_REF(make_call), connected_pad, usr, forcing_call)
+		INVOKE_ASYNC(src, .proc/make_call, connected_pad, usr, forcing_call)
 
 	if(href_list["toggle_command"])
 		forcing_call = !forcing_call

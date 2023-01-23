@@ -1442,7 +1442,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "dH" = (
-/obj/machinery/ion_engine{
+/obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -1458,6 +1458,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"eQ" = (
+/obj/machinery/atmospherics/binary/pump,
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
 "fq" = (
 /obj/machinery/computer/shuttle_control/explore/runtime,
 /turf/simulated/floor/shuttle,
@@ -1519,6 +1523,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering)
+"lV" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/phoron,
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
 "mn" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1680,6 +1689,12 @@
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
 /area/maintenance/maintcentral)
+"EN" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
 "ES" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/shipsensors,
@@ -1705,6 +1720,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"Hn" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
 "HB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -1745,6 +1766,12 @@
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
+"JW" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
 "Kz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 4
@@ -1779,7 +1806,7 @@
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
 "Qn" = (
-/obj/machinery/ion_engine{
+/obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /obj/effect/landmark/entry_point/fore,
@@ -2143,9 +2170,9 @@ cK
 de
 qx
 Vm
-Vm
-Vm
-Vm
+lV
+eQ
+Hn
 Qn
 de
 cK
@@ -2212,7 +2239,7 @@ Qe
 Vm
 Jx
 wL
-Vm
+EN
 dH
 de
 cK
@@ -2279,7 +2306,7 @@ qx
 fq
 yE
 Tq
-Vm
+JW
 Qn
 de
 cK

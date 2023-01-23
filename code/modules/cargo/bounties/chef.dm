@@ -201,9 +201,9 @@
 	reward_high = 3200
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/boiledspaghetti,
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/boiledspagetti,
 				/obj/item/reagent_containers/food/snacks/pastatomato,
-				/obj/item/reagent_containers/food/snacks/meatballspaghetti)
+				/obj/item/reagent_containers/food/snacks/meatballspagetti)
 
 /datum/bounty/item/chef/dumplings
 	name = "Meat Buns or Momo"

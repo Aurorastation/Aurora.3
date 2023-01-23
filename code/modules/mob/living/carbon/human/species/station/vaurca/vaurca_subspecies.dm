@@ -94,9 +94,9 @@
 	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
 
 	possible_cultures = list(
-		/singleton/origin_item/culture/zora_breeder,
-		/singleton/origin_item/culture/klax_breeder,
-		/singleton/origin_item/culture/cthur_breeder
+		/decl/origin_item/culture/zora_breeder,
+		/decl/origin_item/culture/klax_breeder,
+		/decl/origin_item/culture/cthur_breeder
 	)
 
 	inherent_verbs = list(
@@ -222,7 +222,7 @@
 
 	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
 	maneuvers = list(
-		/singleton/maneuver/leap/bulwark
+		/decl/maneuver/leap/bulwark
 	)
 
 	natural_armor = list(

@@ -5,8 +5,7 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 	init_order = SS_INIT_SMOOTHING
 	wait = 1
 	priority = SS_PRIORITY_SMOOTHING
-	flags = SS_TICKER
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	flags = SS_TICKER | SS_FIRE_IN_LOBBY
 
 	var/list/smooth_queue = list()
 	var/list/typecachecache = list()

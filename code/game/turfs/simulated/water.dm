@@ -2,7 +2,7 @@
 	name = "beach"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "sand"
-	footstep_sound = /singleton/sound_category/sand_footstep
+	footstep_sound = /decl/sound_category/sand_footstep
 
 /turf/simulated/floor/beach/sand
 	name = "sand"
@@ -18,12 +18,12 @@
 	name = "coastline"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = /decl/sound_category/water_footstep
 
 /turf/simulated/floor/beach/water
 	name = "water"
 	icon_state = "water"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = /decl/sound_category/water_footstep
 	movement_cost = 2
 	var/watertype = "water5"
 	var/obj/effect/water_effect/water_overlay
@@ -99,7 +99,7 @@
 /turf/simulated/floor/beach/water/Entered(atom/movable/AM, atom/oldloc)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		return
-	reagents.add_reagent(/singleton/reagent/water, 2)
+	reagents.add_reagent(/decl/reagent/water, 2)
 	clean(src)
 	START_PROCESSING(SSprocessing, src)
 	if(istype(AM, /obj))
@@ -115,7 +115,7 @@
 /turf/simulated/floor/beach/water/Exited(atom/movable/AM, atom/newloc)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		return
-	reagents.add_reagent(/singleton/reagent/water, 2)
+	reagents.add_reagent(/decl/reagent/water, 2)
 	clean(src)
 	if(istype(AM, /obj) && numobjects)
 		numobjects -= 1
@@ -128,7 +128,7 @@
 	..()
 
 /turf/simulated/floor/beach/water/process()
-	reagents.add_reagent(/singleton/reagent/water, 2)
+	reagents.add_reagent(/decl/reagent/water, 2)
 	clean(src)
 	for(var/mob/living/L in src)
 		wash(L)
@@ -148,7 +148,7 @@
 
 	var/obj/effect/effect/water/W = new(O)
 	W.create_reagents(100)
-	W.reagents.add_reagent(/singleton/reagent/water, 100)
+	W.reagents.add_reagent(/decl/reagent/water, 100)
 	W.set_up(O, 100)
 
 	if(iscarbon(O))

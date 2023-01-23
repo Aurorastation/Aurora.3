@@ -10,7 +10,7 @@
 	density = 1
 	w_class = ITEMSIZE_HUGE
 	build_amt = 4
-	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/state = STATE_UNWIRED
 	var/base_icon_state = ""
 	var/base_name = "Airlock"
@@ -333,7 +333,7 @@
 						to_chat(user, SPAN_WARNING("You cannot make an airlock out of [S]."))
 						return
 					if(S.get_amount() >= 2)
-						playsound(src.loc, /singleton/sound_category/crowbar_sound, 100, 1)
+						playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
 						user.visible_message("<b>[user]</b> starts installing [S] into the airlock assembly.", "You start installing [S] into the airlock assembly.")
 						if(W.use_tool(src, user, 40, volume = 50) && !glass)
 							if (S.use(2))
@@ -378,7 +378,7 @@
 				SPAN_NOTICE("You start cutting \the [src] apart..."), \
 				SPAN_WARNING("You hear a loud buzzing sound and metal grinding on metal...") \
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), W)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, W)))
 				user.visible_message(\
 					SPAN_DANGER("[user] finishes cutting \the [src] apart with the [W]."), \
 					SPAN_NOTICE("You finish cutting \the [src] apart."), \

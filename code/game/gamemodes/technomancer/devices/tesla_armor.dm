@@ -43,7 +43,7 @@
 		//Deal with protecting our wearer now.
 		if(ready)
 			ready = FALSE
-			addtimer(CALLBACK(src, PROC_REF(recharge), user), cooldown_to_charge)
+			addtimer(CALLBACK(src, .proc/recharge, user), cooldown_to_charge)
 			visible_message("<span class='danger'>\The [user]'s [src.name] blocks [attack_text]!</span>")
 			update_icon()
 			return PROJECTILE_STOPPED

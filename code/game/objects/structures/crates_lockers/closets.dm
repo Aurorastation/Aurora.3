@@ -337,7 +337,7 @@
 					"You hear a welding torch on metal."
 				)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
-				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, PROC_REF(is_open))))
+				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
 					return
 				if(!WT.use(0,user))
 					to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
@@ -391,7 +391,7 @@
 				"You hear a welding torch on metal."
 			)
 			playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
-			if(!W.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
+			if(!W.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_closed)))
 				return
 			if(!WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
@@ -455,7 +455,7 @@
 				SPAN_WARNING("You start cutting the [src]..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), W)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, W)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting open \the [src] with the [W]."),\
 					SPAN_WARNING("You finish cutting open the [src]."),\
@@ -600,7 +600,7 @@
 			animate(door_obj, transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
 		else
 			animate(transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag)
-	addtimer(CALLBACK(src, PROC_REF(end_door_animation)),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
+	addtimer(CALLBACK(src,.proc/end_door_animation),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
 
 /obj/structure/closet/proc/end_door_animation()
 	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
@@ -631,7 +631,7 @@
 			animate(door_obj_alt, transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
 		else
 			animate(transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag)
-	addtimer(CALLBACK(src, PROC_REF(end_door_animation_alt)),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
+	addtimer(CALLBACK(src,.proc/end_door_animation_alt),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
 
 /obj/structure/closet/proc/end_door_animation_alt()
 	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon

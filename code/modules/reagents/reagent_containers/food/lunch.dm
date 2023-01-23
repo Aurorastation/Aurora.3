@@ -102,30 +102,30 @@ var/list/lunchables_utensil_ = list(
 
 // This default list is a bit different, it contains items we don't want
 var/list/lunchables_drink_reagents_ = list(
-	/singleton/reagent/drink/nothing,
-	/singleton/reagent/drink/doctorsdelight,
-	/singleton/reagent/drink/dry_ramen,
-	/singleton/reagent/drink/hell_ramen,
-	/singleton/reagent/drink/hot_ramen,
-	/singleton/reagent/drink/nuka_cola
+	/decl/reagent/drink/nothing,
+	/decl/reagent/drink/doctorsdelight,
+	/decl/reagent/drink/dry_ramen,
+	/decl/reagent/drink/hell_ramen,
+	/decl/reagent/drink/hot_ramen,
+	/decl/reagent/drink/nuka_cola
 )
 
 // This default list is a bit different, it contains items we don't want
 var/list/lunchables_alcohol_reagents_ = list(
-	/singleton/reagent/alcohol,
-	/singleton/reagent/alcohol/acid_spit,
-	/singleton/reagent/alcohol/atomicbomb,
-	/singleton/reagent/alcohol/beepsky_smash,
-	/singleton/reagent/alcohol/coffee,
-	/singleton/reagent/alcohol/hippiesdelight,
-	/singleton/reagent/alcohol/hooch,
-	/singleton/reagent/alcohol/thirteenloko,
-	/singleton/reagent/alcohol/manhattan_proj,
-	/singleton/reagent/alcohol/neurotoxin,
-	/singleton/reagent/alcohol/pwine,
-	/singleton/reagent/alcohol/threemileisland,
-	/singleton/reagent/alcohol/toxins_special,
-	/singleton/reagent/alcohol/nmshaan_liquor/darmadhirbrew
+	/decl/reagent/alcohol,
+	/decl/reagent/alcohol/acid_spit,
+	/decl/reagent/alcohol/atomicbomb,
+	/decl/reagent/alcohol/beepsky_smash,
+	/decl/reagent/alcohol/coffee,
+	/decl/reagent/alcohol/hippiesdelight,
+	/decl/reagent/alcohol/hooch,
+	/decl/reagent/alcohol/thirteenloko,
+	/decl/reagent/alcohol/manhattan_proj,
+	/decl/reagent/alcohol/neurotoxin,
+	/decl/reagent/alcohol/pwine,
+	/decl/reagent/alcohol/threemileisland,
+	/decl/reagent/alcohol/toxins_special,
+	/decl/reagent/alcohol/nmshaan_liquor/darmadhirbrew
 )
 
 /proc/lunchables_lunches()
@@ -160,12 +160,12 @@ var/list/lunchables_alcohol_reagents_ = list(
 
 /proc/lunchables_drink_reagents()
 	if(!(lunchables_drink_reagents_[lunchables_drink_reagents_[1]]))
-		lunchables_drink_reagents_ = init_lunchable_reagent_list(lunchables_drink_reagents_, /singleton/reagent/drink)
+		lunchables_drink_reagents_ = init_lunchable_reagent_list(lunchables_drink_reagents_, /decl/reagent/drink)
 	return lunchables_drink_reagents_
 
 /proc/lunchables_alcohol_reagents()
 	if(!(lunchables_alcohol_reagents_[lunchables_alcohol_reagents_[1]]))
-		lunchables_alcohol_reagents_ = init_lunchable_reagent_list(lunchables_alcohol_reagents_, /singleton/reagent/alcohol)
+		lunchables_alcohol_reagents_ = init_lunchable_reagent_list(lunchables_alcohol_reagents_, /decl/reagent/alcohol)
 	return lunchables_alcohol_reagents_
 
 /proc/lunchables_all_drink_reagents()
@@ -177,14 +177,14 @@ var/list/lunchables_alcohol_reagents_ = list(
 		var/obj/O = lunch
 		.[initial(O.name)] = lunch
 
-	sortTim(., GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(., /proc/cmp_text_asc)
 
 /proc/init_lunchable_reagent_list(var/list/banned_reagents, var/reagent_types)
 	. = list()
 	for(var/reagent_type in subtypesof(reagent_types))
 		if(reagent_type in banned_reagents)
 			continue
-		var/singleton/reagent/reagent = reagent_type
+		var/decl/reagent/reagent = reagent_type
 		.[initial(reagent.name)] = reagent_type
 
-	sortTim(., GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(., /proc/cmp_text_asc)

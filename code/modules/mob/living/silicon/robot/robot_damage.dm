@@ -1,7 +1,7 @@
 /mob/living/silicon/robot/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		set_stat(CONSCIOUS)
+		stat = CONSCIOUS
 		return
 	health = maxHealth - (getBruteLoss() + getFireLoss())
 	return
@@ -176,6 +176,3 @@
 		else
 			to_chat(src, SPAN_WARNING("Warning: Power surge detected, source - EMP. Surge prevention module is depleted and requires replacement!"))
 	..()
-
-/mob/living/silicon/robot/get_flash_protection(ignore_inherent)
-	return (flash_resistant || overclocked) ? FLASH_PROTECTION_MODERATE : FLASH_PROTECTION_NONE

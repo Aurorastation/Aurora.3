@@ -151,7 +151,7 @@
 	updatename(mod_type)
 
 	if(!client)
-		set_stat(UNCONSCIOUS)
+		stat = UNCONSCIOUS
 
 	if(mmi?.brainobj)
 		mmi.brainobj.prepared = TRUE
@@ -1046,7 +1046,7 @@
 	else
 		say("WARNING! Self-destruct initiated. Unit [src] will self destruct in five seconds.")
 
-	addtimer(CALLBACK(src, PROC_REF(self_destruct_warning), 1), 2 SECONDS, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, .proc/self_destruct_warning, 1), 2 SECONDS, TIMER_UNIQUE)
 
 /mob/living/silicon/robot/proc/self_destruct_warning(var/warning_level)
 	if(!process_level_restrictions()) // Robot has returned to a turf where it is safe
@@ -1057,10 +1057,10 @@
 	switch(warning_level)
 		if(1)
 			playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
-			addtimer(CALLBACK(src, PROC_REF(self_destruct_warning), 2), 2 SECONDS, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, .proc/self_destruct_warning, 2), 2 SECONDS, TIMER_UNIQUE)
 		if(2)
 			playsound(get_turf(src), 'sound/effects/alert.ogg', 125, TRUE)
-			addtimer(CALLBACK(src, PROC_REF(self_destruct_warning), 3), 1 SECONDS, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, .proc/self_destruct_warning, 3), 1 SECONDS, TIMER_UNIQUE)
 		if(3)
 			self_destruct()
 

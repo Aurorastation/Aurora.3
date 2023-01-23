@@ -119,7 +119,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		visible_message(SPAN_WARNING("Some bloody gibs fall out of [src]..."))
 		var/obj/effect/decal/cleanable/blood/gibs/gib = new /obj/effect/decal/cleanable/blood/gibs(get_turf(src))
 		ignorelist += gib
-		addtimer(CALLBACK(src, PROC_REF(remove_from_ignore), gib), 600)
+		addtimer(CALLBACK(src, .proc/remove_from_ignore, gib), 600)
 
 /mob/living/bot/cleanbot/think()
 	..()
@@ -213,7 +213,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	D.being_cleaned = TRUE
 	update_icon()
 	var/clean_time = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
-	INVOKE_ASYNC(src, PROC_REF(do_clean), D, clean_time)
+	INVOKE_ASYNC(src, .proc/do_clean, D, clean_time)
 
 /mob/living/bot/cleanbot/proc/do_clean(var/obj/effect/decal/cleanable/D, var/clean_time)
 	if(D && do_after(src, clean_time))
@@ -360,7 +360,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 /obj/item/bucket_sensor
 	name = "proxy bucket"
 	desc = "It's a bucket. With a sensor attached."
-	icon = 'icons/mob/npc/aibots.dmi'
+	icon = 'icons/obj/aibots.dmi'
 	icon_state = "bucket_proxy"
 	force = 3
 	throwforce = 10

@@ -14,7 +14,6 @@
 	roof_type = null
 	footstep_sound = null
 	z_flags = ZM_MIMIC_DEFAULTS | ZM_MIMIC_OVERWRITE | ZM_MIMIC_NO_AO | ZM_ALLOW_ATMOS
-	turf_flags = TURF_FLAG_BACKGROUND
 
 	// A lazy list to contain a list of mobs who are currently scaling
 	// up this turf. Used in human/can_fall.

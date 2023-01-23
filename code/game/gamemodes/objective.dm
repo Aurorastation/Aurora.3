@@ -578,6 +578,13 @@ datum/objective/capture
 				continue
 			captured_amount += worth
 
+		for(var/mob/living/carbon/alien/larva/M in A)//Larva are important for research.
+			if(M.stat==2)
+				captured_amount+=0.5
+				continue
+			captured_amount+=1
+
+
 		if(captured_amount<target_amount)
 			return 0
 		return 1

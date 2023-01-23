@@ -114,7 +114,6 @@
 	icon_state = "fuel_port"
 	density = 0
 	anchored = 1
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/icon_closed = "fuel_port"
 	var/icon_empty = "fuel_port_empty"
 	var/icon_full = "fuel_port_full"

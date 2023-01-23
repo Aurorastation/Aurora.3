@@ -6,7 +6,7 @@
 	anchored = FALSE
 	density = TRUE
 	use_power = POWER_USE_OFF
-	clicksound = /singleton/sound_category/switch_sound
+	clicksound = /decl/sound_category/switch_sound
 	var/on = FALSE
 	var/active = 0
 	var/heating_power = 40 KILOWATTS

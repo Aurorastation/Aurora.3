@@ -1,37 +1,37 @@
-/singleton/recipe/friedkois
+/decl/recipe/friedkois
 	appliance = SKILLET
 	fruit = list("koisspore" = 1)
 	result = /obj/item/reagent_containers/food/snacks/friedkois
 
-/singleton/recipe/koiswaffles
+/decl/recipe/koiswaffles
 	appliance = SKILLET
 	items = list(/obj/item/reagent_containers/food/snacks/soup/kois)
 	result = /obj/item/reagent_containers/food/snacks/koiswaffles
 
-/singleton/recipe/koisjelly
+/decl/recipe/koisjelly
 	appliance = SAUCEPAN
 	fruit = list("koisspore" = 2)
 	items = list(/obj/item/reagent_containers/food/snacks/soup/kois)
 	result = /obj/item/reagent_containers/food/snacks/koisjelly
 
-/singleton/recipe/koissteak
+/decl/recipe/koissteak
 	appliance = SKILLET
 	items = list(/obj/item/reagent_containers/food/snacks/friedkois)
 	result = /obj/item/reagent_containers/food/snacks/koissteak
 
-/singleton/recipe/koismuffin
+/decl/recipe/koismuffin
 	appliance = OVEN
 	items = list(/obj/item/reagent_containers/food/snacks/soup/kois)
 	result = /obj/item/reagent_containers/food/snacks/koismuffin
 
-/singleton/recipe/koisburger
+/decl/recipe/koisburger
 	items = list(
 				/obj/item/reagent_containers/food/snacks/friedkois,
 				/obj/item/reagent_containers/food/snacks/friedkois
 	)
 	result = /obj/item/reagent_containers/food/snacks/koisburger
 
-/singleton/recipe/koisdonut
+/decl/recipe/koisdonut
 	appliance = FRYER
 	items = list(/obj/item/reagent_containers/food/snacks/friedkois)
 	result = /obj/item/reagent_containers/food/snacks/donut/kois

@@ -1848,9 +1848,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "hkY" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(203)
-	},
+/obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/gun/projectile/pistol/sol,
@@ -2205,9 +2203,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/sfa_shuttle)
 "iLq" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(203)
-	},
+/obj/structure/closet/secure_closet/guncabinet,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
@@ -3438,9 +3434,7 @@
 /turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship)
 "omG" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(203)
-	},
+/obj/structure/closet/secure_closet/guncabinet,
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/grenade/frag,
@@ -4494,9 +4488,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
 "sYQ" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(203)
-	},
+/obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/projectile/automatic/rifle/sol,
 /obj/item/gun/projectile/automatic/rifle/sol,
 /obj/effect/floor_decal/corner/red{

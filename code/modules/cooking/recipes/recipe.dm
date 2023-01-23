@@ -1,18 +1,18 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * *
- * /singleton/recipe by rastaf0            13 apr 2011 *
+ * /decl/recipe by rastaf0            13 apr 2011 *
  * * * * * * * * * * * * * * * * * * * * * * * * * *
  * This is powerful and flexible recipe system.
  * It exists not only for food.
  * supports both reagents and objects as prerequisites.
- * In order to use this system you have to define a deriative from /singleton/recipe
+ * In order to use this system you have to define a deriative from /decl/recipe
  * * reagents are reagents. Acid, milc, booze, etc.
  * * items are objects. Fruits, tools, circuit boards.
  * * result is type to create as new object
  * * time is optional parameter, you shall use in in your machine,
-	 default /singleton/recipe/ procs does not rely on this parameter.
+	 default /decl/recipe/ procs does not rely on this parameter.
  *
  *  Functions you need:
- *  /singleton/recipe/proc/make(var/obj/container as obj)
+ *  /decl/recipe/proc/make(var/obj/container as obj)
  *    Creates result inside container,
  *    deletes prerequisite reagents,
  *    transfers reagents from prerequisite objects,
@@ -25,17 +25,16 @@
  *
  *
  *  Functions you do not need to call directly but could:
- *  /singleton/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
- *  /singleton/recipe/proc/check_items(var/obj/container as obj)
+ *  /decl/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
+ *  /decl/recipe/proc/check_items(var/obj/container as obj)
  *
  * */
 
 
 
-/singleton/recipe
+/decl/recipe
 	var/display_name
-	var/list/reagents // example: = list(/singleton/reagent/drink/berryjuice = 5) // do not list same reagent twice
-	var/list/recipe_taste_override // example: = list("uncooked dough" = "crispy dough")
+	var/list/reagents // example: = list(/decl/reagent/drink/berryjuice = 5) // do not list same reagent twice
 	var/list/items    // example: = list(/obj/item/crowbar, /obj/item/welder) // place /foo/bar before /foo
 	var/list/fruit    // example: = list("fruit" = 3)
 	var/coating = null//Required coating on all items in the recipe. The default value of null explitly requires no coating
@@ -69,7 +68,7 @@
 	*/
 	//This is a bitfield, more than one type can be used
 
-/singleton/recipe/proc/get_appliance_names()
+/decl/recipe/proc/get_appliance_names()
 	var/list/appliance_names
 	if(appliance & GRILL) // this comes first in the proc because it's the most important - geeves
 		LAZYADD(appliance_names, "a grill")
@@ -87,7 +86,7 @@
 		LAZYADD(appliance_names, "a pot")
 	return english_list(appliance_names, and_text = " or ")
 
-/singleton/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
+/decl/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
 	if (isemptylist(reagents))
 		return avail_reagents?.total_volume ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
 
@@ -107,7 +106,7 @@
 		return COOK_CHECK_EXTRA
 	return .
 
-/singleton/recipe/proc/check_fruit(var/obj/container)
+/decl/recipe/proc/check_fruit(var/obj/container)
 	if (isemptylist(fruit))
 		var/obj/item/reagent_containers/food/snacks/grown/G = locate() in container
 		return G ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
@@ -139,7 +138,7 @@
 				break
 	return .
 
-/singleton/recipe/proc/check_items(var/obj/container as obj)
+/decl/recipe/proc/check_items(var/obj/container as obj)
 	if (isemptylist(items))
 		return container?.contents.len ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
 	. = COOK_CHECK_EXACT
@@ -166,7 +165,7 @@
 	return .
 
 //This is called on individual items within the container.
-/singleton/recipe/proc/check_coating(var/obj/item/reagent_containers/food/snacks/S)
+/decl/recipe/proc/check_coating(var/obj/item/reagent_containers/food/snacks/S)
 	if(!istype(S))
 		return TRUE//Only snacks can be battered
 
@@ -176,7 +175,7 @@
 	return !coating || (S.coating == coating)
 
 //general version
-/singleton/recipe/proc/make(var/obj/container as obj)
+/decl/recipe/proc/make(var/obj/container as obj)
 	var/obj/result_obj = new result(container)
 	for (var/obj/O in (container.contents-result_obj))
 		O.reagents.trans_to_obj(result_obj, O.reagents.total_volume)
@@ -187,7 +186,7 @@
 
 // food-related
 //This proc is called under the assumption that the container has already been checked and found to contain the necessary ingredients
-/singleton/recipe/proc/make_food(var/obj/container as obj)
+/decl/recipe/proc/make_food(var/obj/container as obj)
 	if(!result)
 		return
 
@@ -227,21 +226,6 @@
 		for (var/r in reagents)
 			//Doesnt matter whether or not there's enough, we assume that check is done before
 			container.reagents.trans_type_to(buffer, r, reagents[r])
-
-	// this is the generic list of reagent tastes to change, but the recipe-specific one override this
-	var/list/taste_replacers = list(
-		"uncooked dough" = "cooked dough"
-	)
-	for(var/reagent in buffer.reagent_data)
-		for(var/taste in buffer.reagent_data[reagent])
-			if(taste in recipe_taste_override)
-				buffer.reagent_data[reagent][recipe_taste_override[taste]] = buffer.reagent_data[reagent][taste]
-				buffer.reagent_data[reagent] -= taste
-				continue
-			if(taste in taste_replacers)
-				buffer.reagent_data[reagent][taste_replacers[taste]] = buffer.reagent_data[reagent][taste]
-				buffer.reagent_data[reagent] -= taste
-				continue
 
 	/*
 	Now we've removed all the ingredients that were used and we have the buffer containing the total of
@@ -315,10 +299,10 @@
 /proc/select_recipe(var/obj/obj as obj, var/exact = COOK_CHECK_EXTRA, var/appliance = null)
 	if(!appliance)
 		CRASH("Null appliance flag passed to select_recipe!")
-	var/list/available_recipes = GET_SINGLETON_SUBTYPE_MAP(/singleton/recipe)
+	var/list/available_recipes = decls_repository.get_decls_of_subtype(/decl/recipe)
 	var/list/possible_recipes = list()
 	for (var/R in available_recipes)
-		var/singleton/recipe/recipe = GET_SINGLETON(R)
+		var/decl/recipe/recipe = decls_repository.get_decl(R)
 		if(!(appliance & recipe.appliance))
 			continue
 		if((recipe.check_reagents(obj.reagents) < exact) || (recipe.check_items(obj) < exact) || (recipe.check_fruit(obj) < exact))
@@ -326,5 +310,5 @@
 		possible_recipes |= recipe
 	if (isemptylist(possible_recipes))
 		return null
-	sortTim(possible_recipes, GLOBAL_PROC_REF(cmp_recipe_complexity_dsc)) // Select the most complex recipe
+	sortTim(possible_recipes, /proc/cmp_recipe_complexity_dsc) // Select the most complex recipe
 	return possible_recipes[1]

@@ -10,7 +10,7 @@
  */
 /obj/item/surgery
 	name = "surgery tool parent item"
-	desc = DESC_PARENT
+	desc = "This is a parent item. If you have this, please submit an issue report."
 	icon = 'icons/obj/surgery.dmi'
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
@@ -67,7 +67,7 @@
 	desc = "A drill specialized for surgical use, capable of creating surgical cavities and safely breaching through Vaurcae carapace for initial incisions."
 	icon_state = "drill"
 	item_state = "drill"
-	hitsound = /singleton/sound_category/drillhit_sound
+	hitsound = /decl/sound_category/drillhit_sound
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
 	flags = CONDUCT
 	force = 15
@@ -212,7 +212,7 @@
 		/obj/item/surgery/fix_o_vein,
 		/obj/item/stack/medical/advanced/bruise_pack,
 		/obj/item/stack/nanopaste
-	)
+		)
 
 	starts_with = list(
 		/obj/item/surgery/bonesetter = 1,
@@ -224,7 +224,7 @@
 		/obj/item/surgery/surgicaldrill = 1,
 		/obj/item/surgery/bone_gel = 1,
 		/obj/item/surgery/fix_o_vein = 1,
-		/obj/item/stack/medical/advanced/bruise_pack = 1
+		/obj/item/stack/medical/advanced/bruise_pack = 1,
 	)
 
 /obj/item/storage/box/fancy/tray/update_icon()
@@ -290,7 +290,7 @@
 /obj/item/storage/box/fancy/tray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 	if(..() && contents.len)
 		spill(3, get_turf(M))
-		playsound(M, /singleton/sound_category/tray_hit_sound, 50, 1)  //sound playin' again
+		playsound(M, /decl/sound_category/tray_hit_sound, 50, 1)  //sound playin' again
 		user.visible_message(SPAN_DANGER("[user] smashes \the [src] into [M], causing it to spill its contents across the area!"))
 
 /obj/item/storage/box/fancy/tray/throw_impact(atom/hit_atom)
@@ -325,22 +325,21 @@
 		/obj/item/reagent_containers/syringe
 	)
 
-/obj/item/storage/box/fancy/tray/machinist
-	name = "machinist operation tray"
-	desc = "A tray of various tools for use by machinists in repairing robots."
-	can_hold = list(
+/obj/item/storage/box/fancy/tray/robotics
+	starts_with = list(
+		/obj/item/surgery/circular_saw = 1,
+		/obj/item/surgery/hemostat = 1,
+		/obj/item/surgery/retractor = 1,
+		/obj/item/surgery/scalpel = 1,
+		/obj/item/surgery/surgicaldrill = 1,
 		/obj/item/surgery/cautery,
+	)
+
+	can_hold = list(
+		/obj/item/surgery/circular_saw,
 		/obj/item/surgery/circular_saw,
 		/obj/item/surgery/hemostat,
 		/obj/item/surgery/retractor,
 		/obj/item/surgery/scalpel,
-		/obj/item/stack/nanopaste
-		)
-
-	starts_with = list(
-		/obj/item/surgery/cautery = 1,
-		/obj/item/surgery/circular_saw = 1,
-		/obj/item/surgery/hemostat = 1,
-		/obj/item/surgery/retractor = 1,
-		/obj/item/surgery/scalpel = 1
+		/obj/item/surgery/surgicaldrill
 	)

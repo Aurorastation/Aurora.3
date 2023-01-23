@@ -9,7 +9,6 @@
 	anchored = TRUE
 	w_class = ITEMSIZE_NORMAL
 	layer = UNDER_PIPE_LAYER //under pipes
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/restrict_placement = TRUE
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
@@ -22,7 +21,7 @@
 		/obj/structure/grille,
 		/turf/unsimulated/mineral/asteroid
 	)
-	footstep_sound = /singleton/sound_category/catwalk_footstep
+	footstep_sound = /decl/sound_category/catwalk_footstep
 
 /obj/structure/lattice/Initialize()
 	. = ..()

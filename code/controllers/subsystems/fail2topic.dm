@@ -3,8 +3,7 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 /datum/controller/subsystem/fail2topic
 	name = "Fail2Topic"
 	init_order = SS_INIT_MISC_FIRST
-	flags = SS_BACKGROUND
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY | RUNLEVEL_INIT
+	flags = SS_FIRE_IN_LOBBY | SS_BACKGROUND
 
 	var/list/rate_limiting = list()
 	var/list/fail_counts = list()

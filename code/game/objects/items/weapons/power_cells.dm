@@ -44,7 +44,6 @@
 /obj/item/cell/crap/empty/Initialize()
 	. = ..()
 	charge = 0
-	update_icon()
 
 /obj/item/cell/crap/cig
 	name = "\improper rechargable mini-battery"
@@ -60,7 +59,6 @@
 /obj/item/cell/secborg/empty/Initialize()
 	. = ..()
 	charge = 0
-	update_icon()
 
 /obj/item/cell/apc
 	name = "heavy-duty power cell"
@@ -85,7 +83,6 @@
 /obj/item/cell/high/empty/Initialize()
 	. = ..()
 	charge = 0
-	update_icon()
 
 /obj/item/cell/super
 	name = "super-capacity power cell"
@@ -97,7 +94,6 @@
 /obj/item/cell/super/empty/Initialize()
 	. = ..()
 	charge = 0
-	update_icon()
 
 /obj/item/cell/hyper
 	name = "hyper-capacity power cell"
@@ -109,7 +105,6 @@
 /obj/item/cell/hyper/empty/Initialize()
 	. = ..()
 	charge = 0
-	update_icon()
 
 /obj/item/cell/infinite
 	name = "infinite-capacity power cell!"
@@ -168,7 +163,6 @@
 /obj/item/cell/device/emergency_light/empty/Initialize()
 	. = ..()
 	charge = 0
-	update_icon()
 
 /obj/item/cell/proto
 	name = "proto power cell"
@@ -180,4 +174,3 @@
 /obj/item/cell/proto/empty/Initialize()
 	. = ..()
 	charge = 0
-	update_icon()

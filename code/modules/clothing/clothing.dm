@@ -221,7 +221,7 @@
 			var/obj/item/material/shard/S = material.place_shard(T)
 			M.embed(S)
 
-	playsound(src.loc, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src.loc, /decl/sound_category/glass_break_sound, 70, 1)
 	qdel(src)
 
 /obj/item/clothing/suit/armor/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -309,10 +309,6 @@
 	throwforce = 2
 	slot_flags = SLOT_EARS
 
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/l_ear.dmi',
-		)
-
 /obj/item/clothing/ears/attack_hand(mob/user as mob)
 	if (!user) return
 
@@ -348,10 +344,6 @@
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "blocked"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
-
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/r_ear.dmi',
-		)
 
 /obj/item/clothing/ears/offear/proc/copy_ear(var/obj/O)
 	name = O.name
@@ -395,7 +387,7 @@
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
-	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK,BODYTYPE_TESLA_BODY)
+	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
@@ -482,12 +474,12 @@
 
 /obj/item/clothing/gloves/dropped()
 	..()
-	INVOKE_ASYNC(src, PROC_REF(update_wearer))
+	INVOKE_ASYNC(src, .proc/update_wearer)
 
 /obj/item/clothing/gloves/mob_can_unequip()
 	. = ..()
 	if (.)
-		INVOKE_ASYNC(src, PROC_REF(update_wearer))
+		INVOKE_ASYNC(src, .proc/update_wearer)
 
 /obj/item/clothing/gloves/clothing_class()
 	return "gloves"
@@ -505,12 +497,10 @@
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_SMALL
 	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM, BODYTYPE_TESLA_BODY)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
-
-	valid_accessory_slots = list(ACCESSORY_SLOT_HEAD)
 
 	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 
@@ -642,14 +632,6 @@
 
 /obj/item/clothing/head/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
-		for(var/obj/item/clothing/accessory/A in accessories)
-			A.accessory_mob_overlay.cut_overlays()
-	else
-		for(var/obj/item/clothing/accessory/A in accessories)
-			var/image/accessory_image = A.get_accessory_mob_overlay(H)
-			I.add_overlay(accessory_image)
-
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(H.species.blood_mask, icon_state = "helmetblood")
 		bloodsies.color = blood_color
@@ -699,7 +681,7 @@
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/mask.dmi'
 		)
 
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK, BODYTYPE_TESLA_BODY)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 	var/voicechange = 0
 	var/list/say_messages
@@ -816,7 +798,7 @@
 	permeability_coefficient = 0.50
 	force = 0
 	var/overshoes = 0
-	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM, BODYTYPE_TESLA_BODY)
+	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	var/silent = 0
 	var/last_trip = 0
 
@@ -962,7 +944,7 @@
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = ITEMSIZE_NORMAL
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM, BODYTYPE_TESLA_BODY)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
 
@@ -1033,8 +1015,7 @@
 	var/displays_id = 1
 	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
-	var/initial_icon_override //If set, rolling up sleeves/rolling down will use this icon state instead of initial().
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_GOLEM, BODYTYPE_TESLA_BODY)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_GOLEM)
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.
@@ -1162,7 +1143,7 @@
 	if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_w_uniform()
-		playsound(M, /singleton/sound_category/rustle_sound, 15, 1, -5)
+		playsound(M, /decl/sound_category/rustle_sound, 15, 1, -5)
 
 /obj/item/clothing/under/examine(mob/user)
 	..(user)
@@ -1246,10 +1227,7 @@
 	if(rolled_down)
 		body_parts_covered &= LOWER_TORSO|LEGS|FEET
 		if(contained_sprite || !LAZYLEN(item_state_slots))
-			if(initial_icon_override)
-				item_state = "[initial_icon_override]_d"
-			else
-				item_state = "[initial(item_state)]_d"
+			item_state = "[initial(item_state)]_d"
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
 		if(user)
@@ -1257,10 +1235,7 @@
 	else
 		body_parts_covered = initial(body_parts_covered)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
-			if(initial_icon_override)
-				item_state = initial_icon_override
-			else
-				item_state = initial(item_state)
+			item_state = initial(item_state)
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
 		if(user)
@@ -1289,10 +1264,7 @@
 	if(rolled_sleeves)
 		body_parts_covered &= ~(ARMS|HANDS)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
-			if(initial_icon_override)
-				item_state = "[initial_icon_override]_r"
-			else
-				item_state = "[initial(item_state)]_r"
+			item_state = "[initial(item_state)]_r"
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]_r"
 		if(user)
@@ -1300,10 +1272,7 @@
 	else
 		body_parts_covered = initial(body_parts_covered)
 		if(contained_sprite || !LAZYLEN(item_state_slots))
-			if(initial_icon_override)
-				item_state = initial_icon_override
-			else
-				item_state = initial(item_state)
+			item_state = initial(item_state)
 		else
 			item_state_slots[slot_w_uniform_str] = "[worn_state]"
 		if(user)

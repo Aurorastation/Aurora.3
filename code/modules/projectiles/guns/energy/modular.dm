@@ -170,7 +170,7 @@
 	if(!capacitor)
 		return null
 	if (self_recharge)
-		addtimer(CALLBACK(src, PROC_REF(try_recharge)), recharge_time * 2 SECONDS, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 	var/obj/item/projectile/beam/A = new projectile_type(src)
 	A.damage = capacitor.damage
 	var/damage_coeff = 1

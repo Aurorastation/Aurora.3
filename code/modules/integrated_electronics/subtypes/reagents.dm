@@ -283,7 +283,7 @@
 /obj/item/integrated_circuit/reagent/storage/scan/do_work()
 	var/list/cont = list()
 	for(var/_RE in reagents.reagent_volumes)
-		var/singleton/reagent/RE = GET_SINGLETON(_RE)
+		var/decl/reagent/RE = decls_repository.get_decl(_RE)
 		cont += RE.name
 	set_pin_data(IC_OUTPUT, 3, cont)
 	set_pin_data(IC_OUTPUT, 4, reagents.generate_taste_message(src))
@@ -338,7 +338,7 @@
 		if(!REAGENTS_FREE_SPACE(target.reagents))
 			return
 		for(var/_G in source.reagents.reagent_volumes)
-			var/singleton/reagent/G = GET_SINGLETON(_G)
+			var/decl/reagent/G = decls_repository.get_decl(_G)
 			if (!direc)
 				if(lowertext(G.name) in demand)
 					source.reagents.trans_type_to(target, _G, transfer_amount)

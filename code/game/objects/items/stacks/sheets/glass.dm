@@ -118,7 +118,7 @@
 	name = "wired glass tile"
 	singular_name = "wired glass floor tile"
 	desc = "A glass tile, which is wired, somehow."
-	icon = 'icons/obj/item/stacks/tiles.dmi'
+	icon = 'icons/obj/stacks/tiles.dmi'
 	icon_state = "glass_wire"
 	created_window = null
 	default_type = "wired glass"

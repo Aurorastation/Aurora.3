@@ -339,8 +339,7 @@
 		//Wheelchair pushing goes here for now.
 		//TODO: Fuck wheelchairs.
 		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/janitorialcart))
-			var/obj/structure/S = mob.pulledby
-			move_delay += S.slowdown
+			move_delay += 1
 			return mob.pulledby.relaymove(mob, direct)
 
 		var/old_loc = mob.loc
@@ -455,7 +454,7 @@
 						L.verbs.Add(/mob/living/carbon/proc/echo_eject)
 					BS.mind.transfer_to(D)
 					D.echo = 1
-					D.set_stat(CONSCIOUS)
+					D.stat = CONSCIOUS
 					D.gestalt = L
 					D.sync_languages(D.gestalt)
 					D.update_verbs()

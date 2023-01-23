@@ -167,7 +167,7 @@
 	item_state = "plate_military"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -181,7 +181,7 @@
 	item_state = "plate_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -229,7 +229,7 @@
 	item_state = "plate_sec_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
@@ -263,7 +263,7 @@
 	item_state = "helm_sec_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -278,7 +278,7 @@
 	item_state = "helm_military"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,

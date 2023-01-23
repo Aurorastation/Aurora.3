@@ -108,17 +108,6 @@ Path adjustment
 	gear_data.path = valid_paths[metadata]
 
 /*
-Faction-based Path adjustment
-Same as the adjustment above, but the associated value is a list with the first value containing the path and the second the faction requirement
-*/
-
-/datum/gear_tweak/path/faction/tweak_gear_data(var/metadata, var/datum/gear_data/gear_data)
-	if(!(metadata in valid_paths))
-		return
-	gear_data.path = valid_paths[metadata][1]
-	gear_data.faction_requirement = valid_paths[metadata][2]
-
-/*
 Content adjustment
 */
 

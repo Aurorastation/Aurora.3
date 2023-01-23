@@ -268,7 +268,7 @@
 	var/time = 360 * breakout_time * 2
 	breakout = TRUE
 
-	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, PROC_REF(breakout_callback), escapee)))
+	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, .proc/breakout_callback, escapee)))
 		breakout = FALSE
 		return
 
@@ -430,7 +430,7 @@
 		"<span class='notice'>You begin putting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/weapons/cablecuff.ogg', 50, 1)
-		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
+		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 			return TRUE
 		zipped = !zipped
 		update_icon()
@@ -452,7 +452,7 @@
 		"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
-		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
+		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 			return TRUE
 		zipped = !zipped
 		update_icon()

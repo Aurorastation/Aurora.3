@@ -6,7 +6,6 @@
 	cargo_price_coef = list("nt" = 0.8, "hpi" = 0.8, "zhu" = 0.8, "een" = 1, "get" = 0.8, "arz" = 1, "blm" = 1,
 								"iac" = 1, "zsc" = 1, "vfc" = 1, "bis" = 0,8, "xmg" = 0.8, "npi" = 0.8)
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/barren)
-	starlight_color = "#96bcde"
 
 /datum/space_sector/romanovich
 	name = SECTOR_ROMANOVICH
@@ -15,7 +14,6 @@
 	sources of Phoron, a volatile but highly-sought after compound, known for its uses in the biomedical and energy industries. Most of the sources of Phoron within the Romanovich \
 	Cloud are under control of NanoTrasen, which has consequently established many high-tech research facilities in the area in the past few years."
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/romanovich)
-	starlight_color = "#96bcde"
 
 	meteors_minor = list(
 		/obj/effect/meteor/medium     = 80,
@@ -106,4 +104,3 @@
 	two factors: the presence of the lingering Stellar Corporate Conglomerate, and the federal authority of the Republic of Biesel backing them up. Warlords and major antagonistic \
 	factions (to Biesel) generally refrain from entering these territories to avoid the ire of the Conglomerate, much less the repercussions of engaging its allies."
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove)
-	starlight_color = COLOR_BLUE_LIGHT

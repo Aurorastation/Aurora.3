@@ -1,5 +1,5 @@
 /mob/living
-	var/singleton/maneuver/prepared_maneuver
+	var/decl/maneuver/prepared_maneuver
 	var/list/available_maneuvers = list()
 
 /mob/living/begin_falling(var/lastloc, var/below)
@@ -15,7 +15,7 @@
 			if(!can_fall(check))
 				break
 		if(check && check != loc)
-			addtimer(CALLBACK(src, TYPE_PROC_REF(/mob/living, reflexive_maneuver_callback), lastloc, check), 0)
+			addtimer(CALLBACK(src, /mob/living/proc/reflexive_maneuver_callback, lastloc, check), 0)
 		return
 	. = ..()
 
@@ -36,7 +36,7 @@
 
 	var/list/maneuvers = list()
 	for(var/maneuver in available_maneuvers)
-		maneuvers += GET_SINGLETON(maneuver)
+		maneuvers += decls_repository.get_decl(maneuver)
 
 	var/next_maneuver = input(src, "Select a maneuver.") as null|anything in maneuvers
 	if(next_maneuver)
@@ -47,14 +47,14 @@
 		to_chat(src, SPAN_NOTICE("You are no longer preparing to perform a maneuver."))
 
 /mob/living/proc/perform_maneuver(var/maneuver, var/atom/target)
-	var/singleton/maneuver/performing_maneuver = ispath(maneuver) ? GET_SINGLETON(maneuver) : maneuver
+	var/decl/maneuver/performing_maneuver = ispath(maneuver) ? decls_repository.get_decl(maneuver) : maneuver
 	if(istype(performing_maneuver))
 		. = performing_maneuver.perform(src, target, get_acrobatics_multiplier(performing_maneuver))
 
-/mob/living/proc/get_acrobatics_multiplier(var/singleton/maneuver/attempting_maneuver)
+/mob/living/proc/get_acrobatics_multiplier(var/decl/maneuver/attempting_maneuver)
 	return 1
 
-/mob/living/proc/can_do_maneuver(var/singleton/maneuver/maneuver, var/silent = FALSE)
+/mob/living/proc/can_do_maneuver(var/decl/maneuver/maneuver, var/silent = FALSE)
 	. = ((istype(maneuver) ? maneuver.type : maneuver) in available_maneuvers)
 
 /mob/living/proc/get_jump_distance()

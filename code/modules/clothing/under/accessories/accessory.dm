@@ -292,38 +292,6 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
-/obj/item/clothing/accessory/crucifix
-	name = "crucifix"
-	desc = "A small cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
-	icon = 'icons/clothing/accessories/crucifix.dmi'
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/crucifix/gold
-	name = "gold crucifix"
-	desc = "A small, gold cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
-	icon_state = "golden_crucifix"
-	item_state = "golden_crucifix"
-
-/obj/item/clothing/accessory/crucifix/gold/saint_peter
-	name = "gold Saint Peter crucifix"
-	desc = "A small, gold cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symbol \
-	which has been re-purposed as a satanic symbol since the 21st century as well."
-	icon_state = "golden_crucifix_ud"
-	item_state = "golden_crucifix_ud"
-
-/obj/item/clothing/accessory/crucifix/silver
-	name = "silver crucifix"
-	desc = "A small, silver cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
-	icon_state = "silver_crucifix"
-	item_state = "silver_crucifix"
-
-/obj/item/clothing/accessory/crucifix/silver/saint_peter
-	name = "silver Saint Peter crucifix"
-	desc = "A small, silver cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symbol \
-	which has been re-purposed as a satanic symbol since the 21st century as well."
-	icon_state = "silver_crucifix_ud"
-	item_state = "silver_crucifix_ud"
-
 /obj/item/clothing/accessory/assunzione
 	name = "luceian amulet"
 	desc = "A common symbol of the Luceian faith abroad, this amulet featuring the religion's all-seeing eye and eight-pointed crest \
@@ -1034,19 +1002,3 @@
 	contained_sprite = TRUE
 	icon_override = null
 	body_parts_covered = UPPER_TORSO
-
-/obj/item/clothing/accessory/goon_coif
-	name = "tactical coif"
-	desc = "A comfortable tactical coif that goes around the head."
-	icon = 'icons/clothing/accessories/goon_coif.dmi'
-	body_parts_covered = HEAD
-	icon_state = "goon_coif"
-	item_state = "goon_coif"
-	contained_sprite = TRUE
-	slot_flags = SLOT_MASK | SLOT_EARS | SLOT_TIE
-
-/obj/item/clothing/accessory/goon_coif/get_ear_examine_text(var/mob/user, var/ear_text = "left")
-	return "on [user.get_pronoun("his")] head"
-
-/obj/item/clothing/accessory/goon_coif/get_mask_examine_text(var/mob/user)
-	return "on [user.get_pronoun("his")] head"

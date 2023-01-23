@@ -203,7 +203,7 @@
 		return
 	var/list/target = L.Copy()
 	// sortTim sorts in-place, but returns a ref to the list anyways.
-	return sortTim(target, GLOBAL_PROC_REF(cmp_camera), FALSE)
+	return sortTim(target, /proc/cmp_camera, FALSE)
 
 mob/living/proc/near_camera()
 	if (!isturf(loc))

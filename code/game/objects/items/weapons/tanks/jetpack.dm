@@ -97,7 +97,7 @@
 		warned = TRUE
 		playsound(user, 'sound/effects/alert.ogg', 50, 1)
 		to_chat(user, "<span class='danger'>The meter on \the [src] indicates you are almost out of gas and beeps loudly!</span>")
-		addtimer(CALLBACK(src, PROC_REF(reset_warning)), 600)
+		addtimer(CALLBACK(src, .proc/reset_warning), 600)
 
 	var/datum/gas_mixture/G = src.air_contents.remove(num)
 

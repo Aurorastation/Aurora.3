@@ -3,8 +3,7 @@
 /datum/controller/subsystem/assets
 	name = "Assets"
 	init_order = SS_INIT_ASSETS
-	flags = SS_BACKGROUND
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	flags = SS_BACKGROUND | SS_FIRE_IN_LOBBY
 	wait = 1
 	var/list/cache = list()
 	var/list/target_clients = list()

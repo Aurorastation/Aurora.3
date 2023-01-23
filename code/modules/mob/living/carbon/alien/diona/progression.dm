@@ -68,13 +68,13 @@
 	for(var/mob/living/carbon/alien/diona/D in contents)
 		D.forceMove(adult)
 		D.gestalt = adult
-		D.set_stat(CONSCIOUS)
+		D.stat = CONSCIOUS
 
 	//Finally we put ourselves into the gestalt, NOT delete ourself
 	//Our mind is already in the gestalt, this is really just transferring our empty body
 	src.nutrition = 0
 	src.forceMove(adult)
-	set_stat(CONSCIOUS)
+	src.stat = CONSCIOUS
 	gestalt = adult
 
 	//What do you call a person with no arms or no legs?

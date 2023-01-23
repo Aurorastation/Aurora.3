@@ -7,10 +7,12 @@
 	material_alteration = MATERIAL_ALTERATION_DESC
 	held_item = /obj/item/material/stool/chair/wheelchair
 	withdraw_verb = "fold"
+
 	can_dismantle = FALSE
-	slowdown = 1
 
 	var/bloodiness
+
+	slowdown = 0
 
 /obj/structure/bed/stool/chair/office/wheelchair/New(var/newloc) // Colorable wheelchairs? 
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)

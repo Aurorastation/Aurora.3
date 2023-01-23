@@ -134,7 +134,7 @@
 
 	if(seenby.len)
 		updating = TRUE
-		addtimer(CALLBACK(src, PROC_REF(update)), UPDATE_BUFFER)
+		addtimer(CALLBACK(src, .proc/update), UPDATE_BUFFER)
 	else
 		dirty = TRUE
 

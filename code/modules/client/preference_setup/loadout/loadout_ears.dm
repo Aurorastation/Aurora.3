@@ -9,11 +9,6 @@
 	path = /obj/item/clothing/ears/earmuffs
 	slot = null
 
-/datum/gear/ears/double/ear_warmers
-	display_name = "ear warmers, colourable"
-	path = /obj/item/clothing/accessory/ear_warmers
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/ears/double/headphones
 	display_name = "headphone selection"
 	description = "A selection of headphones."

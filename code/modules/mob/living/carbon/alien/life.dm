@@ -55,7 +55,7 @@
 		if(paralysis && paralysis > 0)
 			handle_paralysed()
 			blinded = 1
-			set_stat(UNCONSCIOUS)
+			stat = UNCONSCIOUS
 			if(getHalLoss() > 0)
 				adjustHalLoss(-3)
 
@@ -65,13 +65,13 @@
 				if(mind.active && client != null)
 					sleeping = max(sleeping-1, 0)
 			blinded = 1
-			set_stat(UNCONSCIOUS)
+			stat = UNCONSCIOUS
 		else if(resting)
 			if(getHalLoss() > 0)
 				adjustHalLoss(-3)
 
 		else
-			set_stat(CONSCIOUS)
+			stat = CONSCIOUS
 			if(getHalLoss() > 0)
 				adjustHalLoss(-1)
 

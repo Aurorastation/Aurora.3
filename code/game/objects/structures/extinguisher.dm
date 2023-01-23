@@ -6,7 +6,6 @@
 	icon_state = "cabinet"
 	anchored = 1
 	density = 0
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/obj/item/extinguisher/has_extinguisher
 	var/opened = 0
 

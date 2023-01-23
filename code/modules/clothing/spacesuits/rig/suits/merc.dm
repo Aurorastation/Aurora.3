@@ -12,7 +12,7 @@
 	suit_type = "crimson hardsuit"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -77,7 +77,7 @@
 	suit_type = "rhino hardsuit"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,

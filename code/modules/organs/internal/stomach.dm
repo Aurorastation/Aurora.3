@@ -109,7 +109,7 @@
 		if(functioning)
 			for(var/mob/living/M in contents)
 				if(M.stat == DEAD)
-					addtimer(CALLBACK(src, PROC_REF(digest_mob), M), 5 MINUTES, TIMER_UNIQUE)
+					addtimer(CALLBACK(src, .proc/digest_mob, M), 5 MINUTES, TIMER_UNIQUE)
 
 				M.adjustBruteLoss(2)
 				M.adjustFireLoss(2)
@@ -124,7 +124,7 @@
 
 		if(should_process_alcohol)
 
-			var/alcohol_volume = REAGENT_VOLUME(ingested, /singleton/reagent/alcohol)
+			var/alcohol_volume = REAGENT_VOLUME(ingested, /decl/reagent/alcohol)
 
 			// Alcohol counts as double volume for the purposes of vomit probability
 			var/effective_volume = ingested.total_volume + alcohol_volume

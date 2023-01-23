@@ -4,7 +4,7 @@
 //   gender-appropriate version of the same.
 // - Impaired messages do not do any substitutions.
 
-/singleton/emote
+/decl/emote
 
 	var/key                            // Command to use emote ie. '*[key]'
 	var/emote_message_1p               // First person message ('You do a flip!')
@@ -20,22 +20,22 @@
 	var/conscious = 1				   // Do we need to be awake to emote this?
 	var/emote_range = 0                // If >0, restricts emote visibility to viewers within range.
 
-/singleton/emote/proc/get_emote_message_1p(var/atom/user, var/atom/target, var/extra_params)
+/decl/emote/proc/get_emote_message_1p(var/atom/user, var/atom/target, var/extra_params)
 	if(target)
 		return emote_message_1p_target
 	return emote_message_1p
 
-/singleton/emote/proc/get_emote_message_3p(var/atom/user, var/atom/target, var/extra_params)
+/decl/emote/proc/get_emote_message_3p(var/atom/user, var/atom/target, var/extra_params)
 	if(target)
 		return emote_message_3p_target
 	return emote_message_3p
 
-/singleton/emote/proc/can_do_emote(var/mob/user)
+/decl/emote/proc/can_do_emote(var/mob/user)
 	if(conscious && user.stat != CONSCIOUS)
 		return FALSE
 	return TRUE
 
-/singleton/emote/proc/do_emote(var/atom/user, var/extra_params)
+/decl/emote/proc/do_emote(var/atom/user, var/extra_params)
 	if(ismob(user) && check_restraints)
 		var/mob/M = user
 		if(M.restrained())
@@ -95,17 +95,17 @@
 
 	do_extra(user, target)
 
-/singleton/emote/proc/do_extra(var/atom/user, var/atom/target)
+/decl/emote/proc/do_extra(var/atom/user, var/atom/target)
 	return
 
-/singleton/emote/proc/check_user(var/atom/user)
+/decl/emote/proc/check_user(var/atom/user)
 	return TRUE
 
-/singleton/emote/proc/target_check(var/atom/user, var/atom/target)
+/decl/emote/proc/target_check(var/atom/user, var/atom/target)
 	return TRUE
 
-/singleton/emote/proc/can_target()
+/decl/emote/proc/can_target()
 	return (emote_message_1p_target || emote_message_3p_target)
 
-/singleton/emote/dd_SortValue()
+/decl/emote/dd_SortValue()
 	return key

@@ -1,3 +1,18 @@
+/obj/item/organ/pariah_brain
+	name = "brain remnants"
+	desc = "Did someone tread on this? It looks useless for cloning or cyborgification."
+	organ_tag = "brain"
+	parent_organ = BP_HEAD
+	icon = 'icons/mob/npc/alien.dmi'
+	icon_state = "chitin"
+	vital = TRUE
+
+/obj/item/organ/internal/brain/xeno
+	name = "thinkpan"
+	desc = "It looks kind of like an enormous wad of purple bubblegum."
+	icon = 'icons/mob/npc/alien.dmi'
+	icon_state = "chitin"
+
 /obj/item/organ/internal/brain/slime
 	name = "slime core"
 	desc = "A complex, organic knot of jelly and crystalline particles."

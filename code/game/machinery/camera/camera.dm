@@ -7,7 +7,6 @@
 	idle_power_usage = 5
 	active_power_usage = 10
 	layer = 5
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/list/network = list(NETWORK_STATION)
 	var/c_tag = null
@@ -261,7 +260,7 @@
 
 	//sparks
 	spark(loc, 5)
-	playsound(loc, /singleton/sound_category/spark_sound, 50, 1)
+	playsound(loc, /decl/sound_category/spark_sound, 50, 1)
 
 /obj/machinery/camera/proc/set_status(var/newstatus)
 	if (status != newstatus)
@@ -368,7 +367,7 @@
 	// Do after stuff here
 	to_chat(user, "<span class='notice'>You start to weld the [src]..</span>")
 	playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
-	user.flash_act(FLASH_PROTECTION_MAJOR)
+	WT.eyecheck(user)
 	busy = 1
 	if(WT.use_tool(src, user, 100, volume = 50))
 		busy = 0

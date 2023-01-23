@@ -24,10 +24,10 @@ var/list/gear_datums = list()
 		gear_datums[use_name] = new geartype
 		LC.gear[use_name] = gear_datums[use_name]
 
-	sortTim(loadout_categories, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
+	sortTim(loadout_categories, /proc/cmp_text_asc, FALSE)
 	for(var/loadout_category in loadout_categories)
 		var/datum/loadout_category/LC = loadout_categories[loadout_category]
-		sortTim(LC.gear, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
+		sortTim(LC.gear, /proc/cmp_text_asc, FALSE)
 
 	return TRUE
 
@@ -228,7 +228,7 @@ var/list/gear_datums = list()
 			style = "style='color: #B1B1B1;'"
 		if(ticked)
 			style = "style='color: #FF8000;'"
-		temp_html += "<tr style='vertical-align:top'><td width=25%><a href=\"?src=\ref[src];toggle_gear=[G.display_name]\"><font [style]>[G.display_name]</font></a></td>"
+		temp_html += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
 		temp_html += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
 		temp_html += "<td><font size=2><i>[G.description]</i><br>"
 
@@ -247,7 +247,7 @@ var/list/gear_datums = list()
 			temp_html += "</font><font size = 1>(Culture: "
 			var/culture_count = 0
 			for(var/culture in G.culture_restriction)
-				var/singleton/origin_item/C = GET_SINGLETON(culture)
+				var/decl/origin_item/C = decls_repository.get_decl(culture)
 				temp_html += "[C.name]"
 				culture_count++
 				if(culture_count == G.culture_restriction.len)
@@ -259,7 +259,7 @@ var/list/gear_datums = list()
 			temp_html += "</font><font size = 1>(Origin: "
 			var/origin_count = 0
 			for(var/origin in G.origin_restriction)
-				var/singleton/origin_item/O = GET_SINGLETON(origin)
+				var/decl/origin_item/O = decls_repository.get_decl(origin)
 				temp_html += "[O.name]"
 				origin_count++
 				if(origin_count == G.origin_restriction.len)
@@ -400,38 +400,13 @@ var/list/gear_datums = list()
 /datum/gear_data
 	var/path
 	var/location
-	var/faction_requirement
 
-/datum/gear_data/New(var/path, var/location, var/faction)
+/datum/gear_data/New(var/path, var/location)
 	src.path = path
 	src.location = location
-	src.faction_requirement = faction
-
-/datum/gear/proc/cant_spawn_item_reason(var/location, var/metadata, var/mob/living/carbon/human/human, var/datum/job/job, var/datum/preferences/prefs)
-	var/datum/gear_data/gd = new(path, location, faction)
-	for(var/datum/gear_tweak/gt in gear_tweaks)
-		if(metadata["[gt]"])
-			gt.tweak_gear_data(metadata["[gt]"], gd, human)
-		else
-			gt.tweak_gear_data(gt.get_default(), gd, human)
-
-	var/obj/spawning_item = gd.path
-	if(length(allowed_roles) && !(job.title in allowed_roles))
-		return "You cannot spawn with the [initial(spawning_item.name)] with your current job!"
-	if(!check_species_whitelist(human))
-		return "You cannot spawn with the [initial(spawning_item.name)] with your current species!"
-	if(gd.faction_requirement && (human.employer_faction != "Stellar Corporate Conglomerate" && gd.faction_requirement != human.employer_faction))
-		return "You cannot spawn with the [initial(spawning_item.name)] with your current faction!"
-	var/our_culture = text2path(prefs.culture)
-	if(culture_restriction && !(our_culture in culture_restriction))
-		return "You cannot spawn with the [initial(spawning_item.name)] with your current culture!"
-	var/our_origin = text2path(prefs.origin)
-	if(origin_restriction && !(our_origin in origin_restriction))
-		return "You cannot spawn with the [initial(spawning_item.name)] with your current origin!"
-	return null
 
 /datum/gear/proc/spawn_item(var/location, var/metadata, var/mob/living/carbon/human/H)
-	var/datum/gear_data/gd = new(path, location, faction)
+	var/datum/gear_data/gd = new(path, location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		if(metadata["[gt]"])
 			gt.tweak_gear_data(metadata["[gt]"], gd, H)

@@ -86,7 +86,6 @@
 #define ACCENT_DOMINIA_VULGAR "Vulgar Morozi"
 #define ACCENT_DOMINIA_FRONTIER "Imperial Frontier"
 #define ACCENT_DOMINIA_NOVIJADRAN "Novi Jadranic"
-#define ACCENT_DOMINIA_LYODII "Lyodii"
 #define ACCENT_JUPITER "Jovian"
 #define ACCENT_CALLISTO "Callistean"
 #define ACCENT_EUROPA "Europan"

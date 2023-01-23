@@ -32,7 +32,7 @@
 	spikes++
 	update_icon()
 	if (spikes < max_spikes)
-		addtimer(CALLBACK(src, PROC_REF(regen_spike)), spike_gen_time, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, .proc/regen_spike), spike_gen_time, TIMER_UNIQUE)
 
 /obj/item/gun/launcher/spikethrower/examine(mob/user)
 	..(user)
@@ -57,7 +57,7 @@
 /obj/item/gun/launcher/spikethrower/consume_next_projectile()
 	if(spikes < 1) return null
 	spikes--
-	addtimer(CALLBACK(src, PROC_REF(regen_spike)), spike_gen_time, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, .proc/regen_spike), spike_gen_time, TIMER_UNIQUE)
 	return new /obj/item/spike(src)
 
 //This gun only functions for vaurca warriors. The on-sprite is too huge to render properly on other sprites.

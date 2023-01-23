@@ -209,6 +209,27 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		. = 0
 	. = max(CEILING(., 1),0)
 
+/obj/effect/overmap/visitable/ship/proc/handle_wraparound()
+	var/nx = x
+	var/ny = y
+	var/low_edge = 1
+	var/high_edge = current_map.overmap_size - 1
+
+	if((dir & WEST) && x == low_edge)
+		nx = high_edge
+	else if((dir & EAST) && x == high_edge)
+		nx = low_edge
+	if((dir & SOUTH)  && y == low_edge)
+		ny = high_edge
+	else if((dir & NORTH) && y == high_edge)
+		ny = low_edge
+	if((x == nx) && (y == ny))
+		return //we're not flying off anywhere
+
+	var/turf/T = locate(nx,ny,z)
+	if(T)
+		forceMove(T)
+
 /obj/effect/overmap/visitable/ship/proc/halt()
 	adjust_speed(-speed[1], -speed[2])
 	halted = 1

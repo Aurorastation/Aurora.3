@@ -17,7 +17,7 @@
 	if(current_map.use_overmap)
 		ghostteleportlocs[map_overmap.name] = map_overmap
 
-	sortTim(ghostteleportlocs, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(ghostteleportlocs, /proc/cmp_text_asc)
 
 	setupgenetics()
 
@@ -39,4 +39,4 @@
 /proc/sorted_add_area(area/A)
 	all_areas += A
 
-	sortTim(all_areas, GLOBAL_PROC_REF(cmp_name_asc))
+	sortTim(all_areas, /proc/cmp_name_asc)

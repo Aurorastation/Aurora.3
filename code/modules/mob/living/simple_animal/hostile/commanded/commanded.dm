@@ -102,7 +102,7 @@
 	stop_automated_movement = 1
 	if(!target_mob)
 		return
-	if(get_dist(src, target_mob) <= 10)
+	if(target_mob in ListTargets(10))
 		walk_to(src,target_mob,1,move_to_delay)
 
 /mob/living/simple_animal/hostile/commanded/proc/commanded_stop() //basically a proc that runs whenever we are asked to stay put. Probably going to remain unused.
@@ -232,7 +232,7 @@
 		if(M.a_intent == I_HURT)
 			audible_emote("[pick(sad_emote)].",0)
 		return
-	if(M.a_intent == I_HELP && prob(40)) //chance that they won't immediately kill anyone who pets them. But only a chance.
+	if(M.a_intent == I_HELP && prob(40)) //chance that they won't immediately kill anyone who pets them. But only a chance. 
 		stance = HOSTILE_STANCE_IDLE
 		target_mob = null
 		audible_emote("growls at [M].")

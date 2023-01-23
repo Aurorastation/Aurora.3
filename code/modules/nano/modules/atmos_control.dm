@@ -23,7 +23,7 @@
 			if(alarm.alarm_id && (alarm.alarm_id in monitored_alarm_ids))
 				monitored_alarms += alarm
 		// machines may not yet be ordered at this point
-		sortTim(monitored_alarms, GLOBAL_PROC_REF(cmp_alarm), FALSE)
+		sortTim(monitored_alarms, /proc/cmp_alarm, FALSE)
 
 /datum/nano_module/atmos_control/Topic(href, href_list)
 	if(..())

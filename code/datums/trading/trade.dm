@@ -58,7 +58,7 @@
 
 //If this hits 0 then they decide to up and leave.
 /datum/trader/proc/tick()
-	addtimer(CALLBACK(src, PROC_REF(do_after_tick)), 1)
+	addtimer(CALLBACK(src, .proc/do_after_tick), 1)
 	return 1
 
 /datum/trader/proc/do_after_tick()

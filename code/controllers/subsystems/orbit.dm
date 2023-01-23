@@ -5,7 +5,6 @@ var/datum/controller/subsystem/orbit/SSorbit
 	priority = SS_PRIORITY_ORBIT
 	wait = 2
 	flags = SS_NO_INIT|SS_TICKER
-	runlevels = RUNLEVELS_PLAYING
 
 	var/list/currentrun = list()
 	var/list/processing = list()

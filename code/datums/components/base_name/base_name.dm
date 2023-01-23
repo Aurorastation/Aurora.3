@@ -6,8 +6,8 @@
 
 /datum/component/base_name/Initialize(var/name)
 	base_name = name
-	RegisterSignal(parent, COMSIG_BASENAME_RENAME, PROC_REF(rename))
-	RegisterSignal(parent, COMSIG_BASENAME_SETNAME, PROC_REF(change_base_name))
+	RegisterSignal(parent, COMSIG_BASENAME_RENAME, .proc/rename)
+	RegisterSignal(parent, COMSIG_BASENAME_SETNAME, .proc/change_base_name)
 
 /datum/component/base_name/proc/rename(var/name)
 	base_name = name

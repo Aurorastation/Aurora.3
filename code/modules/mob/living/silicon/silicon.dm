@@ -116,7 +116,7 @@
 		if(2)
 			src.take_organ_damage(0, 10, emp = TRUE)
 			Stun(rand(1, 5))
-	flash_act(affect_silicon = TRUE)
+	flash_eyes(affect_silicon = 1)
 	to_chat(src, SPAN_DANGER("BZZZT"))
 	to_chat(src, SPAN_WARNING("Warning: Electromagnetic pulse detected."))
 	..()
@@ -276,7 +276,7 @@
 
 /mob/living/silicon/ex_act(severity)
 	if(!blinded)
-		flash_act(affect_silicon = TRUE)
+		flash_eyes()
 
 	var/brute
 	var/burn
@@ -361,13 +361,6 @@
 /mob/living/silicon/proc/is_malf_or_traitor()
 	return is_traitor() || is_malf()
 
-/mob/living/silicon/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
-	if(affect_silicon)
-		return ..()
-
-/mob/living/silicon/is_blind()
-	return FALSE
-
 /mob/living/silicon/adjustEarDamage()
 	return
 
@@ -379,8 +372,12 @@
 	if(cameraFollow)
 		cameraFollow = null
 
+/mob/living/silicon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	if(affect_silicon)
+		return ..()
+
 /mob/living/silicon/seizure()
-	flash_act(affect_silicon = TRUE)
+	flash_eyes(affect_silicon = TRUE)
 
 /mob/living/silicon/Move(newloc, direct)
 	. = ..()

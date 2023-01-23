@@ -34,7 +34,7 @@
 	cooldown--
 	if(cooldown <= 0)
 		return FALSE
-	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 1 SECOND)
+	addtimer(CALLBACK(src, .proc/process_cooldown), 1 SECOND)
 	return TRUE
 
 // Called when another assembly acts on this one, var/radio will determine where it came from for wire calcs
@@ -57,7 +57,7 @@
 	if(!secured || cooldown)
 		return FALSE
 	cooldown = 2
-	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 1 SECOND)
+	addtimer(CALLBACK(src, .proc/process_cooldown), 1 SECOND)
 	return TRUE
 
 /obj/item/device/assembly/proc/toggle_secure()

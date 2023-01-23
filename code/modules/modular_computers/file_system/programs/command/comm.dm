@@ -181,7 +181,7 @@
 				var/affected_zlevels = GetConnectedZlevels(GET_Z(program.computer))
 				crew_announcement.Announce(program.computer.registered_message, zlevels = affected_zlevels)
 				set_announcement_cooldown(TRUE)
-				addtimer(CALLBACK(src, PROC_REF(set_announcement_cooldown), FALSE), 600) //One minute cooldown
+				addtimer(CALLBACK(src, .proc/set_announcement_cooldown, FALSE), 600) //One minute cooldown
 		if("message")
 			if(href_list["target"] == "emagged")
 				if(program)
@@ -198,7 +198,7 @@
 						to_chat(usr, SPAN_NOTICE("Message successfully transmitted."))
 						log_say("[key_name(usr)] has sent a message to the syndicate: [input]", ckey = key_name(usr))
 						centcomm_message_cooldown = TRUE
-						addtimer(CALLBACK(src, PROC_REF(set_centcomm_message_cooldown), FALSE), 300) // thirty second cooldown
+						addtimer(CALLBACK(src, .proc/set_centcomm_message_cooldown, FALSE), 300) // thirty second cooldown
 			else if(href_list["target"] == "regular")
 				if(is_authenticated(user) && !issilicon(usr) && ntn_comm)
 					if(centcomm_message_cooldown)
@@ -217,7 +217,7 @@
 					to_chat(usr, SPAN_NOTICE("Message successfully transmitted."))
 					log_say("[key_name(usr)] has sent a message to [current_map.boss_short]: [input]", ckey = key_name(usr))
 					centcomm_message_cooldown = TRUE
-					addtimer(CALLBACK(src, PROC_REF(set_centcomm_message_cooldown), FALSE), 300) // thirty second cooldown
+					addtimer(CALLBACK(src, .proc/set_centcomm_message_cooldown, FALSE), 300) // thirty second cooldown
 		if("evac")
 			if(is_authenticated(user))
 				var/datum/evacuation_option/selected_evac_option = evacuation_controller.evacuation_options[href_list["target"]]
@@ -432,7 +432,7 @@ Command action procs
 		return
 
 	if(current_map.shuttle_call_restarts)
-		current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reboot_world)), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
+		current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, .proc/reboot_world), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
 		log_game("[user? key_name(user) : "Autotransfer"] has called the 'shuttle' round restart.")
 		message_admins("[user? key_name_admin(user) : "Autotransfer"] has called the 'shuttle' round restart.", 1)
 		to_world(FONT_LARGE(SPAN_VOTE(current_map.shuttle_called_message)))

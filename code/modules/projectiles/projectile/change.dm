@@ -75,7 +75,7 @@
 				H.name += " [pick(last_names)]"
 				H.real_name = H.name
 
-				INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/human, set_species), randomize)
+				INVOKE_ASYNC(H, /mob/living/carbon/human.proc/set_species, randomize)
 				H.universal_speak = 1
 
 		if(new_mob)

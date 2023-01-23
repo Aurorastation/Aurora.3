@@ -12389,6 +12389,9 @@
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "awk" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
@@ -25322,6 +25325,7 @@
 /turf/simulated/open/airless,
 /area/rnd/mixing)
 "bkz" = (
+/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/firealarm/west,
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
@@ -25416,6 +25420,7 @@
 /turf/simulated/open/airless,
 /area/rnd/mixing)
 "bkM" = (
+/obj/machinery/atmospherics/trinary/filter/m_filter,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -25530,6 +25535,10 @@
 	req_one_access = list(8)
 	},
 /turf/simulated/open/airless,
+/area/rnd/mixing)
+"ble" = (
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
 "blf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -25652,10 +25661,23 @@
 /turf/simulated/floor/plating,
 /area/rnd/mixing)
 "blx" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
+"bly" = (
+/obj/machinery/atmospherics/trinary/mixer/t_mixer/north,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/mixing)
 "blz" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
@@ -55062,9 +55084,9 @@ avZ
 bjW
 bki
 bkA
-aVi
-aVi
-blz
+bkN
+ble
+bly
 aQq
 aba
 aba

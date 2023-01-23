@@ -30,7 +30,7 @@
 	bandanas["bandana, engineering"] = /obj/item/clothing/head/bandana/engineering
 	bandanas["bandana, atmospherics"] = /obj/item/clothing/head/bandana/atmos
 	bandanas["bandana, hydroponics"] = /obj/item/clothing/head/bandana/hydro
-	bandanas["bandana, operations"] = /obj/item/clothing/head/bandana/cargo
+	bandanas["bandana, cargo"] = /obj/item/clothing/head/bandana/cargo
 	bandanas["bandana, mining"] = /obj/item/clothing/head/bandana/miner
 	bandanas["bandana, janitor"] = /obj/item/clothing/head/bandana/janitor
 
@@ -60,7 +60,7 @@
 	softcaps["softcap, engineering"] = /obj/item/clothing/head/softcap/engineering
 	softcaps["softcap, atmospherics"] = /obj/item/clothing/head/softcap/atmos
 	softcaps["softcap, hydroponics"] = /obj/item/clothing/head/softcap/hydro
-	softcaps["softcap, operations"] = /obj/item/clothing/head/softcap/cargo
+	softcaps["softcap, cargo"] = /obj/item/clothing/head/softcap/cargo
 	softcaps["softcap, mining"] = /obj/item/clothing/head/softcap/miner
 	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/custodian
 	softcaps["softcap, tcfl"] = /obj/item/clothing/head/softcap/tcfl
@@ -90,7 +90,7 @@
 	berets["beret, engineering"] = /obj/item/clothing/head/beret/engineering
 	berets["beret, atmospherics"] = /obj/item/clothing/head/beret/atmos
 	berets["beret, hydroponics"] = /obj/item/clothing/head/beret/hydro
-	berets["beret, operations"] = /obj/item/clothing/head/beret/cargo
+	berets["beret, cargo"] = /obj/item/clothing/head/beret/cargo
 	berets["beret, mining"] = /obj/item/clothing/head/beret/miner
 	berets["beret, janitor"] = /obj/item/clothing/head/beret/janitor
 
@@ -231,7 +231,6 @@
 	var/list/hats_colourable = list()
 	hats_colourable["hat, flatcap"] = /obj/item/clothing/head/flatcap/colourable
 	hats_colourable["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby/colourable
-	hats_colourable["hat, woolen"] = /obj/item/clothing/head/wool
 	gear_tweaks += new /datum/gear_tweak/path(hats_colourable)
 
 /datum/gear/head/hijab
@@ -311,7 +310,7 @@
 /datum/gear/head/nonla
 	display_name = "non la hat"
 	path = /obj/item/clothing/head/nonla
-	origin_restriction = list(/singleton/origin_item/origin/earth, /singleton/origin_item/origin/new_hai_phong)
+
 /datum/gear/head/konyang
 	display_name = "gat"
 	path = /obj/item/clothing/head/konyang
@@ -355,7 +354,7 @@
 	display_name = "himean cap"
 	path = /obj/item/clothing/head/softcap/himeo
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
+	origin_restriction = list(/decl/origin_item/origin/himeo, /decl/origin_item/origin/ipc_himeo, /decl/origin_item/origin/free_council)
 
 /datum/gear/head/vysoka
 	display_name = "vysokan fur cap"
@@ -377,7 +376,7 @@
 	description = "A selection of headgear from Gadpathur."
 	path = /obj/item/clothing/head/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/head/gadpathur/New()
 	..()

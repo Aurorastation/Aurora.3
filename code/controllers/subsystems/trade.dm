@@ -4,7 +4,6 @@
 	name = "Trade"
 	wait = 1 MINUTE
 	flags = SS_NO_TICK_CHECK
-	runlevels = RUNLEVELS_PLAYING
 	var/list/traders = list() //List of all nearby traders
 
 /datum/controller/subsystem/trade/New()

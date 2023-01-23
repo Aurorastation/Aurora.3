@@ -8,4 +8,3 @@
 #define ACCESSORY_SLOT_ARM_GUARDS		"arm guards"
 #define ACCESSORY_SLOT_ARMOR_PIN		"armor pin"
 #define ACCESSORY_SLOT_ARMOR_POCKETS 	"armor pockets"
-#define ACCESSORY_SLOT_HEAD             "head"

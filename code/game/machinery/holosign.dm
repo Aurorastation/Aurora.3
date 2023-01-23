@@ -67,6 +67,6 @@
 	update_icon()
 	for(var/obj/machinery/holosign/M in SSmachinery.machinery)
 		if (M.id == src.id)
-			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/holosign, toggle))
+			INVOKE_ASYNC(M, /obj/machinery/holosign/proc/toggle)
 
 	return

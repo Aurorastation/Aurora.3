@@ -2,8 +2,7 @@ var/datum/controller/subsystem/overlays/SSoverlays
 
 /datum/controller/subsystem/overlays
 	name = "Overlay"
-	flags = SS_TICKER
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	flags = SS_TICKER|SS_FIRE_IN_LOBBY
 	wait = 1
 	priority = SS_PRIORITY_OVERLAY
 	init_order = SS_INIT_OVERLAY

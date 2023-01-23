@@ -113,7 +113,7 @@
 
 /obj/machinery/teleport/pad/proc/start_recalibration()
 	audible_message(SPAN_NOTICE("Recalibrating..."))
-	addtimer(CALLBACK(src, PROC_REF(recalibrate)), 5 SECONDS, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, .proc/recalibrate), 5 SECONDS, TIMER_UNIQUE)
 
 /obj/machinery/teleport/pad/proc/recalibrate()
 	calibration = 0

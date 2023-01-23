@@ -22,7 +22,7 @@ var/datum/admin_secrets/admin_secrets = new()
 		items += item
 
 	for (var/datum/admin_secret_category/category in categories)
-		sortTim(category.items, GLOBAL_PROC_REF(cmp_text_dsc))
+		sortTim(category.items, /proc/cmp_text_dsc)
 
 /datum/admin_secret_category
 	var/name = ""

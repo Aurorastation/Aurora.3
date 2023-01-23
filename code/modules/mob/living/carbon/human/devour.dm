@@ -80,7 +80,7 @@
 						but you can interrupt feeding anytime and leave with what you've already eaten.</span>")
 
 	for (var/i = 0 to num_bites_needed)
-		if(do_mob(src, victim, bite_delay * 10, extra_checks = CALLBACK(src, PROC_REF(devouring_equals), victim)))
+		if(do_mob(src, victim, bite_delay * 10, extra_checks = CALLBACK(src, .proc/devouring_equals, victim)))
 			face_atom(victim)
 			victim.apply_damage(damage_dealt, BRUTE)
 			var/obj/item/organ/internal/stomach/S = internal_organs_by_name[BP_STOMACH]

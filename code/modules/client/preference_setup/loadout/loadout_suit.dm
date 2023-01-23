@@ -224,7 +224,7 @@ datum/gear/suit/colorvest
 	wintercoat["winter coat, engineering"] = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
 	wintercoat["winter coat, atmospherics"] = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
 	wintercoat["winter coat, hydroponics"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
-	wintercoat["winter coat, operations"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
+	wintercoat["winter coat, cargo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
 	wintercoat["winter coat, mining"] = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	gear_tweaks += new /datum/gear_tweak/path(wintercoat)
 
@@ -244,23 +244,17 @@ datum/gear/suit/colorvest
 	display_name = "dominian cape"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
 
 /datum/gear/suit/dominia_cape/New()
 	..()
 	var/list/dominiacape = list()
 	dominiacape["dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape
-	dominiacape["white dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/white
 	dominiacape["dominian cape, strelitz"] = /obj/item/clothing/accessory/poncho/dominia_cape/strelitz
-	dominiacape["white dominian cape, strelitz"] = /obj/item/clothing/accessory/poncho/dominia_cape/strelitz/white
 	dominiacape["dominian cape, volvalaad"] = /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad
-	dominiacape["white dominian cape, volvalaad"] = /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad/white
 	dominiacape["dominian cape, kazhkz"] = /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz
-	dominiacape["white dominian cape, kazhkz"] = /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz/white
 	dominiacape["dominian cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius
-	dominiacape["white dominian cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius/white
 	dominiacape["dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao
-	dominiacape["white dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/white
 	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
 
 /datum/gear/suit/dominia
@@ -268,40 +262,28 @@ datum/gear/suit/colorvest
 	description = "A selection of Dominian coats and jackets."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
 
 /datum/gear/suit/dominia/New()
 	..()
 	var/list/coat = list()
-	coat["dominian coat, red"] = /obj/item/clothing/suit/storage/dominia/coat
-	coat["dominian coat, gold"] = /obj/item/clothing/suit/storage/dominia/coat/gold
-	coat["dominian coat, black"] = /obj/item/clothing/suit/storage/dominia/coat/black
-	coat["dominian great coat, red"] = /obj/item/clothing/suit/storage/dominia
-	coat["dominian great coat, gold"] = /obj/item/clothing/suit/storage/dominia/gold
-	coat["dominian great coat, black"] = /obj/item/clothing/suit/storage/dominia/black
+	coat["dominia great coat, red"] = /obj/item/clothing/suit/storage/toggle/dominia
+	coat["dominia great coat, gold"] = /obj/item/clothing/suit/storage/toggle/dominia/gold
+	coat["dominia great coat, black"] = /obj/item/clothing/suit/storage/toggle/dominia/black
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
-/datum/gear/suit/dominia_consular
-	display_name = "dominian consular officer coat selection"
-	description = "A selection of coats belonging to the Diplomatic Service."
+/datum/gear/suit/dominia/consular
+	display_name = "dominian consular officer greatcoat"
+	description = "A Dominian great coat belonging to the Diplomatic Service."
 	path = /obj/item/clothing/suit/storage/dominia/consular
 	allowed_roles = list("Consular Officer")
-	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
-
-/datum/gear/suit/dominia_consular/New()
-	..()
-	var/list/coat = list()
-	coat["dominian consular's greatcoat"] = /obj/item/clothing/suit/storage/dominia/consular
-	coat["dominian consular's coat"] = /obj/item/clothing/suit/storage/dominia/consular/coat
-	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/fisanduhian_bomber
 	display_name = "fisanduhian bomber jacket selection"
 	description = "A selection of Fisanduhian jackets."
 	path = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/fisanduhian_bomber/New()
 	..()
@@ -392,7 +374,7 @@ datum/gear/suit/colorvest
 	display_name = "himean coat selection"
 	path = /obj/item/clothing/suit/storage/toggle/himeo
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
+	origin_restriction = list(/decl/origin_item/origin/himeo, /decl/origin_item/origin/ipc_himeo, /decl/origin_item/origin/free_council)
 
 /datum/gear/suit/himeo/New()
 	..()
@@ -406,7 +388,7 @@ datum/gear/suit/colorvest
 	description = "A selection of Vysokan chokhas."
 	path = /obj/item/clothing/suit/storage/vysoka
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
+	origin_restriction = list(/decl/origin_item/origin/vysoka, /decl/origin_item/origin/ipc_vysoka)
 
 /datum/gear/suit/vysoka/New()
 	..()
@@ -441,7 +423,7 @@ datum/gear/suit/colorvest
 	display_name = "gadpathurian coat selection"
 	path = /obj/item/clothing/suit/storage/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/suit/gadpathur/New()
 	..()

@@ -43,7 +43,7 @@
 	for (var/area/A in world)
 		all_areas += A
 
-	sortTim(all_areas, GLOBAL_PROC_REF(cmp_name_asc))
+	sortTim(all_areas, /proc/cmp_name_asc)
 
 /datum/controller/subsystem/finalize/proc/select_ruin()
 	//Get all the folders in dynamic maps and check if they contain a config.json

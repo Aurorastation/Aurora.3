@@ -12,7 +12,7 @@
 	var/list/current_async
 	var/stage = 0
 	wait = 2 SECONDS
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY | RUNLEVEL_INIT
+	flags = SS_FIRE_IN_LOBBY
 
 /datum/controller/subsystem/unit_tests/Initialize(timeofday)
 	log_unit_test("Initializing Unit Testing")

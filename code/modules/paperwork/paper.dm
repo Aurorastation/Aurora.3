@@ -55,7 +55,7 @@
 		if (mapload)
 			update_icon()
 		else
-			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1)
+			addtimer(CALLBACK(src, /atom/.proc/update_icon), 1)
 
 /obj/item/paper/proc/set_content(title, text)
 	if(title)
@@ -369,7 +369,7 @@
 		else
 			flick("paper_onfire", src)
 
-		addtimer(CALLBACK(src, PROC_REF(burnpaper_callback), P, user, class), 20, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, .proc/burnpaper_callback, P, user, class), 20, TIMER_UNIQUE)
 
 /obj/item/paper/proc/burnpaper_callback(obj/item/P, mob/user, class = "warning")
 	if (QDELETED(user) || QDELETED(src))

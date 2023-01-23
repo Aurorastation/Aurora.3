@@ -103,7 +103,7 @@
 /obj/item/organ/internal/lungs/proc/enable_rupture()
 	rupture_imminent = TRUE
 	checking_rupture = TRUE
-	addtimer(CALLBACK(src, PROC_REF(disable_rupture)), 5 SECONDS, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, .proc/disable_rupture), 5 SECONDS, TIMER_UNIQUE)
 
 /obj/item/organ/internal/lungs/proc/disable_rupture()
 	rupture_imminent = FALSE
@@ -130,7 +130,7 @@
 				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel vast amounts of air force itself into your lungs!")))
 			else
 				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel as if your lungs are about to blow!")))
-			addtimer(CALLBACK(src, PROC_REF(enable_rupture)), 2 SECONDS, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, .proc/enable_rupture), 2 SECONDS, TIMER_UNIQUE)
 			checking_rupture = FALSE
 
 	var/safe_pressure_min = owner.species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
@@ -232,7 +232,7 @@
 	if(toxins_pp > safe_toxins_max)
 		var/ratio = (poison/safe_toxins_max) * 10
 		if(reagents)
-			reagents.add_reagent(/singleton/reagent/toxin, Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
+			reagents.add_reagent(/decl/reagent/toxin, Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 			breath.adjust_gas(poison_type, -poison/6, update = 0) //update after
 		owner.phoron_alert = max(owner.phoron_alert, 1)
 	else

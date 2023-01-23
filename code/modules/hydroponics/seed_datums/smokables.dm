@@ -6,7 +6,7 @@
 	seed_name = "tobacco"
 	display_name = "tobacco leaves"
 	mutants = list("finetobacco", "puretobacco", "badtobacco")
-	chems = list(/singleton/reagent/toxin/tobacco = list(1,10))
+	chems = list(/decl/reagent/toxin/tobacco = list(1,10))
 
 /datum/seed/tobacco/setup_traits()
 	..()
@@ -29,7 +29,7 @@
 	name = "finetobacco"
 	seed_name = "fine tobacco"
 	display_name = "fine tobacco leaves"
-	chems = list(/singleton/reagent/toxin/tobacco/rich = list(1,10))
+	chems = list(/decl/reagent/toxin/tobacco/rich = list(1,10))
 
 /datum/seed/tobacco/finetobacco/setup_traits()
 	..()
@@ -45,7 +45,7 @@
 	name = "puretobacco"
 	seed_name = "succulent tobacco"
 	display_name = "succulent tobacco leaves"
-	chems = list(/singleton/reagent/mental/nicotine = list(1,10))
+	chems = list(/decl/reagent/mental/nicotine = list(1,10))
 
 /datum/seed/tobacco/puretobacco/setup_traits()
 	..()
@@ -60,7 +60,7 @@
 	seed_name = "low-grade tobacco"
 	display_name = "low-grade tobacco leaves"
 	mutants = list("tobacco")
-	chems = list(/singleton/reagent/toxin/tobacco/fake = list(1,10))
+	chems = list(/decl/reagent/toxin/tobacco/fake = list(1,10))
 
 ////////////////
 //  Ambrosia  //
@@ -70,7 +70,7 @@
 	seed_name = "ambrosia vulgaris"
 	display_name = "ambrosia vulgaris"
 	mutants = list("ambrosiadeus")
-	chems = list(/singleton/reagent/nutriment = list(1), /singleton/reagent/ambrosia_extract = list(4,8), /singleton/reagent/kelotane = list(1,8,1), /singleton/reagent/bicaridine = list(1,10,1), /singleton/reagent/toxin = list(1,10))
+	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/ambrosia_extract = list(4,8), /decl/reagent/kelotane = list(1,8,1), /decl/reagent/bicaridine = list(1,10,1), /decl/reagent/toxin = list(1,10))
 	kitchen_tag = "ambrosia"
 
 /datum/seed/ambrosia/setup_traits()
@@ -93,7 +93,7 @@
 	seed_name = "ambrosia deus"
 	display_name = "ambrosia deus"
 	mutants = null
-	chems = list(/singleton/reagent/nutriment = list(1), /singleton/reagent/bicaridine = list(1,8), /singleton/reagent/synaptizine = list(1,8,1), /singleton/reagent/ambrosia_extract = list(4,10))
+	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/bicaridine = list(1,8), /decl/reagent/synaptizine = list(1,8,1), /decl/reagent/ambrosia_extract = list(4,10))
 	kitchen_tag = "ambrosiadeus"
 
 /datum/seed/ambrosia/deus/setup_traits()

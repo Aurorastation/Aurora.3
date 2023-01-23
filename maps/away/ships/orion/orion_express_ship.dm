@@ -1,14 +1,14 @@
 /datum/map_template/ruin/away_site/orion_express_ship
 	name = "Orion Express Mobile Station"
 	description = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation's fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it."
-	suffixes = list("ships/orion/orion_express_ship.dmm")
+	suffix = "ships/orion/orion_express_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "orion_express_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/orion_express_shuttle)
 
-/singleton/submap_archetype/orion_express_ship
+/decl/submap_archetype/orion_express_ship
 	map = "Orion Express Mobile Station"
 	descriptor = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation's fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it."
 

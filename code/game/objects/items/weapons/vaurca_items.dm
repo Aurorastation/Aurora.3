@@ -207,7 +207,8 @@
 		var/turf/T = get_turf(src)
 		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
 		for(var/mob/living/carbon/human/M in viewers(T, null))
-			M.flash_act(ignore_inherent = TRUE)
+			if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
+				M.flash_eyes()
 
 		for(var/i=1, i<=deliveryamt, i++)
 			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new seed())
@@ -420,7 +421,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "gaussrifle"
 	item_state = "gaussrifle"
-	fire_sound = /singleton/sound_category/gauss_fire_sound
+	fire_sound = /decl/sound_category/gauss_fire_sound
 	fire_sound_text = "a subdued boom"
 	fire_delay = 12
 	slot_flags = SLOT_BACK

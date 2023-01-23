@@ -182,7 +182,7 @@
 
 /obj/effect/landmark/engine_setup
 	name = "Engine Setup Marker"
-	desc = DESC_PARENT
+	desc = "You shouldn't see this."
 	invisibility = 101
 	anchored = 1
 	density = 0

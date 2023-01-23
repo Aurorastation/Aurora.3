@@ -119,7 +119,7 @@
 		var/obj/O = locate() in contents
 		return . + O.name //Just append the name of the first object
 	else if (reagents.total_volume > 0)
-		var/singleton/reagent/R = reagents.get_primary_reagent_decl()
+		var/decl/reagent/R = reagents.get_primary_reagent_decl()
 		return . + R.name//Append name of most voluminous reagent
 	return . + "empty"
 
@@ -268,7 +268,7 @@
 		return ..()
 	if(!(length(contents) || reagents?.total_volume))
 		return ..()
-	var/singleton/recipe/recipe = select_recipe(src, appliance = appliancetype)
+	var/decl/recipe/recipe = select_recipe(src, appliance = appliancetype)
 	if(!recipe)
 		return
 	var/list/obj/results = recipe.make_food(src)

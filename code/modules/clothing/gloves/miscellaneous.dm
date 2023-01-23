@@ -215,7 +215,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
 
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	pickup_sound = /decl/sound_category/sword_pickup_sound
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
@@ -384,7 +384,7 @@
 				charged = FALSE
 				update_icon()
 				user.update_inv_gloves()
-				addtimer(CALLBACK(src, PROC_REF(rearm)), 10 SECONDS)
+				addtimer(CALLBACK(src, .proc/rearm), 10 SECONDS)
 
 		else
 			var/turf/T = get_turf(user)
@@ -396,7 +396,7 @@
 			charged = FALSE
 			update_icon()
 			user.update_inv_gloves()
-			addtimer(CALLBACK(src, PROC_REF(rearm)), 30 SECONDS)
+			addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
 
 /obj/item/clothing/gloves/tesla/proc/rearm()
 	visible_message(SPAN_NOTICE("\The [src] surges back with energy!"))

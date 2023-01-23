@@ -68,7 +68,7 @@
 	to_chat(user, "Bomb has been planted. Timer counting down from [timer].")
 
 	detonate_time = world.time + (timer * 10)
-	addtimer(CALLBACK(src, PROC_REF(explode), get_turf(target)), timer * 10)
+	addtimer(CALLBACK(src, .proc/explode, get_turf(target)), timer * 10)
 
 /obj/item/plastique/proc/explode(turf/location)
 	if(!target)
@@ -126,8 +126,8 @@
 	to_chat(user, SPAN_NOTICE("Bomb has been planted. Timer counting down from [C4.timer]."))
 
 	C4.detonate_time = world.time + (timer * 10)
-	addtimer(CALLBACK(C4, PROC_REF(explode), get_turf(target)), timer * 10)
-	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
+	addtimer(CALLBACK(C4, .proc/explode, get_turf(target)), timer * 10)
+	addtimer(CALLBACK(src, .proc/recharge), recharge_time)
 	can_deploy = FALSE
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>"
 

@@ -41,9 +41,8 @@
 	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
 	power_channel = ENVIRON
 	req_one_access = list(access_atmospherics, access_engine_equip)
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = /decl/sound_category/button_sound
 	clickvol = 30
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/alarm_id = null
 	var/breach_detection = 1 // Whether to use automatic breach detection or not

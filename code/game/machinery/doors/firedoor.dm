@@ -60,8 +60,6 @@
 	var/open_sound = 'sound/machines/firelockopen.ogg'
 	var/close_sound = 'sound/machines/firelockclose.ogg'
 
-	init_flags = 0
-
 /obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
@@ -247,7 +245,7 @@
 		close()
 
 	if(needs_to_close)
-		addtimer(CALLBACK(src, PROC_REF(do_close)), 50)
+		addtimer(CALLBACK(src, .proc/do_close), 50)
 
 /obj/machinery/door/firedoor/proc/do_close()
 	var/alarmed = FALSE
@@ -275,7 +273,7 @@
 				SPAN_ITALIC("You hear a welding torch on metal.")
 			)
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
-			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, PROC_REF(is_open), src.density)))
+			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
 				return
 			if(!WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
@@ -357,6 +355,8 @@
 
 // CHECK PRESSURE
 /obj/machinery/door/firedoor/process()
+	..()
+
 	if(density && next_process_time <= world.time)
 		next_process_time = world.time + 100		// 10 second delays between process updates
 		var/changed = 0
@@ -399,9 +399,6 @@
 		if(changed)
 			update_icon()
 
-	else if(!density)
-		return PROCESS_KILL
-
 /obj/machinery/door/firedoor/proc/latetoggle()
 	if(operating || !nextstate)
 		return
@@ -427,7 +424,6 @@
 		return
 	cut_overlays()
 	latetoggle()
-	START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	return ..()
 
 /obj/machinery/door/firedoor/open(forced = 0, user = usr)

@@ -15,7 +15,7 @@ var/global/list/minor_air_alarms = list()
 
 /obj/machinery/computer/atmos_alert/Initialize()
 	. = ..()
-	atmosphere_alarm.register_alarm(src, TYPE_PROC_REF(/atom, update_icon))
+	atmosphere_alarm.register_alarm(src, /atom/.proc/update_icon)
 
 /obj/machinery/computer/atmos_alert/Destroy()
     atmosphere_alarm.unregister_alarm(src)

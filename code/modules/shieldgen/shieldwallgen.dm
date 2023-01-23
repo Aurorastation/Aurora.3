@@ -94,10 +94,10 @@
 		if(!wrenched)
 			power_state = POWER_INACTIVE
 			return
-		addtimer(CALLBACK(src, PROC_REF(setup_field), 1), 1)
-		addtimer(CALLBACK(src, PROC_REF(setup_field), 2), 2)
-		addtimer(CALLBACK(src, PROC_REF(setup_field), 3), 4)
-		addtimer(CALLBACK(src, PROC_REF(setup_field), 4), 8)
+		addtimer(CALLBACK(src, .proc/setup_field, 1), 1)
+		addtimer(CALLBACK(src, .proc/setup_field, 2), 2)
+		addtimer(CALLBACK(src, .proc/setup_field, 3), 4)
+		addtimer(CALLBACK(src, .proc/setup_field, 4), 8)
 		power_state = POWER_ACTIVE
 
 	if(power_state >= POWER_STARTING)

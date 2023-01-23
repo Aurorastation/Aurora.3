@@ -50,7 +50,7 @@
 			spark(L, 5, cardinal)
 			spark(user, 5, cardinal)
 			L.throw_at(get_step(get_turf(src), get_dir(src, L)), 4, 1, src)
-			addtimer(CALLBACK(src, PROC_REF(seize_mob), L, user), 1 SECOND)
+			addtimer(CALLBACK(src, .proc/seize_mob, L, user), 1 SECOND)
 			user.drop_item(src)
 			src.loc = null
 

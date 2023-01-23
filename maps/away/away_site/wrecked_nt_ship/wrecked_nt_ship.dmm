@@ -1969,7 +1969,7 @@
 /area/wrecked_nt_ship)
 "RB" = (
 /obj/structure/table/reinforced,
-/obj/item/toy/mech/phazon,
+/obj/item/toy/prize/phazon,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "RS" = (

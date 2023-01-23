@@ -43,7 +43,7 @@ var/global/universe_has_ended = 0
 	sound_to(world, ('sound/effects/cascade.ogg'))
 
 	for(var/mob/M in player_list)
-		M.flash_act()
+		M.flash_eyes()
 
 	if(evacuation_controller.cancel_evacuation())
 		priority_announcement.Announce("The evacuation has been aborted due to bluespace distortion.")
@@ -64,8 +64,8 @@ var/global/universe_has_ended = 0
 	var/time = rand(30, 60)
 	log_debug("universal_state/cascade: Announcing to world in [time] seconds.")
 	log_debug("universal_state/cascade: Ending universe in [(time SECONDS + 5 MINUTES)/10] seconds.")
-	addtimer(CALLBACK(src, PROC_REF(announce_to_world)), time SECONDS)
-	addtimer(CALLBACK(src, PROC_REF(end_universe)), time SECONDS + 5 MINUTES)
+	addtimer(CALLBACK(src, .proc/announce_to_world), time SECONDS)
+	addtimer(CALLBACK(src, .proc/end_universe), time SECONDS + 5 MINUTES)
 
 /datum/universal_state/supermatter_cascade/proc/announce_to_world()
 	var/txt = {"
@@ -137,8 +137,8 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		if(!istype(M.current,/mob/living))
 			continue
 		if(M.current.stat!=2)
-			if(M.current.flash_act())
-				M.current.Weaken(10)
+			M.current.Weaken(10)
+			M.current.flash_eyes()
 
 		clear_antag_roles(M)
 		CHECK_TICK

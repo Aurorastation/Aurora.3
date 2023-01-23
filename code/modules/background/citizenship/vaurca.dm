@@ -69,7 +69,7 @@
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
 			H.equip_to_slot_or_del(new /obj/item/storage/box/tcfl_pamphlet(H), slot_in_backpack)
 
-		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
+		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE
 
 /datum/citizenship/klax
@@ -139,7 +139,7 @@
 
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
 
-		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
+		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE
 
 /datum/citizenship/cthur
@@ -208,5 +208,5 @@
 	if(H && !visualsOnly)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
-		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
+		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE

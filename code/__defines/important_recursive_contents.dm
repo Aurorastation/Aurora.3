@@ -5,5 +5,3 @@
 // the client mobs channel of the important_recursive_contents list, everything in here will be a mob with an attached client
 // this is given to both a clients mob, and a clients eye, both point to the clients mob
 #define RECURSIVE_CONTENTS_CLIENT_MOBS "recursive_contents_client_mobs"
-// List of everything AI should evalulate as targets: all /mob/living, /obj/machinery/porta_turret, /obj/machinery/bot
-#define RECURSIVE_CONTENTS_AI_TARGETS "recursive_contents_ai_targets"

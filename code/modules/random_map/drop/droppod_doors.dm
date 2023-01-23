@@ -13,7 +13,7 @@
 /obj/structure/droppod_door/Initialize(mapload, var/autoopen)
 	. = ..(mapload)
 	if(autoopen)
-		addtimer(CALLBACK(src, PROC_REF(deploy)), 100)
+		addtimer(CALLBACK(src, .proc/deploy), 100)
 
 /obj/structure/droppod_door/attack_ai(var/mob/user)
 	if(!Adjacent(user))

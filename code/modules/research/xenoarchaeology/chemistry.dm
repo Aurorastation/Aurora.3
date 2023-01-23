@@ -40,21 +40,21 @@ obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/
 	name = "beaker 'tungsten'"
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/singleton/reagent/tungsten,50)
+		reagents.add_reagent(/decl/reagent/tungsten,50)
 		update_icon()
 
 /obj/item/reagent_containers/glass/beaker/oxygen
 	name = "beaker 'oxygen'"
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/singleton/reagent/acetone,50)
+		reagents.add_reagent(/decl/reagent/acetone,50)
 		update_icon()
 
 /obj/item/reagent_containers/glass/beaker/sodium
 	name = "beaker 'sodium'"
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/singleton/reagent/sodium,50)
+		reagents.add_reagent(/decl/reagent/sodium,50)
 		update_icon()
 
 /obj/item/reagent_containers/glass/beaker/lithium
@@ -62,7 +62,7 @@ obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/singleton/reagent/lithium,50)
+		reagents.add_reagent(/decl/reagent/lithium,50)
 		update_icon()
 
 /obj/item/reagent_containers/glass/beaker/water
@@ -70,7 +70,7 @@ obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/singleton/reagent/water,50)
+		reagents.add_reagent(/decl/reagent/water,50)
 		update_icon()
 
 /obj/item/reagent_containers/glass/beaker/fuel
@@ -78,5 +78,5 @@ obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/
 
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/singleton/reagent/fuel,50)
+		reagents.add_reagent(/decl/reagent/fuel,50)
 		update_icon()

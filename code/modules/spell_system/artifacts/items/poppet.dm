@@ -69,7 +69,7 @@
 			H.confused += 10
 			H.stuttering += 5
 			to_chat(H, "<span class='danger'>You suddenly feel as if your head was hit by something!</span>")
-			playsound(get_turf(H), /singleton/sound_category/punch_sound, 50, 1, -1)
+			playsound(get_turf(H), /decl/sound_category/punch_sound, 50, 1, -1)
 
 		cooldown = world.time + cooldown_time
 
@@ -91,7 +91,8 @@
 		if(istype(W, /obj/item/device/flashlight))
 			to_chat(H, "<span class='warning'>You direct \the [W] towards \the [src]'s eyes!</span>")
 			playsound(get_turf(H), 'sound/items/flashlight.ogg', 50, 1, -1)
-			H.flash_act()
+			H.flash_eyes()
+			H.eye_blurry = 5
 			return TRUE
 
 		if(W.iscoil())

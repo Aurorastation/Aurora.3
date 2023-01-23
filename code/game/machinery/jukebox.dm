@@ -17,7 +17,6 @@ datum/track/New(var/title_name, var/audio)
 	idle_power_usage = 10
 	active_power_usage = 100
 	clicksound = 'sound/machines/buttonbeep.ogg'
-	var/token = null
 
 	var/playing = 0
 
@@ -90,7 +89,7 @@ datum/track/New(var/title_name, var/audio)
 			for(var/mob/living/carbon/M in ohearers(6, src))
 				if(istype(M, /mob/living/carbon/human))
 					var/mob/living/carbon/human/H = M
-					if(H.get_hearing_protection())
+					if(H.protected_from_sound())
 						continue
 				M.sleeping = 0
 				M.stuttering += 20
@@ -185,8 +184,10 @@ datum/track/New(var/title_name, var/audio)
 		return 1
 
 /obj/machinery/media/jukebox/proc/StopPlaying()
-	QDEL_NULL(token)
-
+	var/area/main_area = get_area(src)
+	// Always kill the current sound
+	for(var/mob/living/M in mobs_in_area(main_area))
+		M << sound(null, channel = 4)
 	playing = 0
 	update_use_power(POWER_USE_IDLE)
 	update_icon()
@@ -197,7 +198,11 @@ datum/track/New(var/title_name, var/audio)
 	if(!current_track)
 		return
 
-	token = sound_player.PlayLoopingSound(src, "jukebox", current_track.sound, 30, 7, 1, prefer_mute = TRUE, sound_type = ASFX_MUSIC)
+	var/area/main_area = get_area(src)
+	main_area.music = list(current_track.sound)
+	for(var/mob/living/M in mobs_in_area(main_area))
+		if(M.mind)
+			main_area.play_music(M)
 
 	playing = 1
 	update_use_power(POWER_USE_ACTIVE)

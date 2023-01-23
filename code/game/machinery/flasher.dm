@@ -1,12 +1,11 @@
 // It is a gizmo that flashes a small area
 
 /obj/machinery/flasher
-	name = "mounted flash"
-	desc = "A mounted flash. Disorientates anyone caught in its range."
+	name = "Mounted flash"
+	desc = "A wall-mounted flashbulb device."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mflash1"
 	layer = OBJ_LAYER
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/id = null
 	var/range = 2 //this is roughly the size of brig cell
 	var/disable = 0
@@ -80,16 +79,30 @@
 	src.last_flash = world.time
 	use_power_oneoff(1500)
 
-	for (var/mob/O in viewers(range, get_turf(src)))
-		if(!O.flash_act(ignore_inherent = TRUE))
+	for (var/mob/O in viewers(src, null))
+		if (get_dist(src, O) > src.range)
 			continue
 
 		var/flash_time = strength
 		if (istype(O, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = O
+			if(!H.eyecheck(TRUE) <= 0)
+				continue
 			flash_time *= H.species.flash_mod
+			var/obj/item/organ/internal/eyes/E = H.get_eyes()
+			if(!E)
+				return
 
+			E.flash_act()
+
+			if(E.is_bruised() && prob(E.damage + 50))
+				flick("e_flash", O:flash)
+				E.damage += rand(1, 5)
+		else
+			if(!O.blinded)
+				O.flash_eyes()
 		O.Weaken(flash_time)
+		O.flash_eyes()
 
 /obj/machinery/flasher/emp_act(severity)
 	if(stat & (BROKEN|NOPOWER))

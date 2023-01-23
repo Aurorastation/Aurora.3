@@ -133,7 +133,7 @@
 		M.Scale(0.6)
 		M.Turn(pick(-40, 40))
 		animate(src, 0.2 SECONDS, transform = M)
-		addtimer(CALLBACK(src, PROC_REF(post_tear)), 0.2 SECONDS)
+		addtimer(CALLBACK(src, .proc/post_tear), 0.2 SECONDS)
 	else
 		if(!undeploy_path)
 			return
@@ -143,7 +143,7 @@
 		var/matrix/M = new
 		M.Scale(0.6)
 		animate(src, 2.6 SECONDS, transform = M)
-		addtimer(CALLBACK(src, PROC_REF(post_deflate)), 2.6 SECONDS)
+		addtimer(CALLBACK(src, .proc/post_deflate), 2.6 SECONDS)
 
 /obj/structure/inflatable/proc/post_deflate()
 	var/obj/item/inflatable/R = new undeploy_path(loc)
@@ -171,7 +171,7 @@
 	user.do_attack_animation(src)
 	if(health <= 0)
 		user.visible_message(SPAN_DANGER("[user] [attack_verb] open the [src]!"))
-		INVOKE_ASYNC(src, PROC_REF(deflate), TRUE)
+		INVOKE_ASYNC(src, .proc/deflate, TRUE)
 	else
 		user.visible_message(SPAN_DANGER("[user] [attack_verb] at [src]!"))
 	return TRUE
@@ -234,7 +234,7 @@
 	density = FALSE
 	state = STATE_OPEN
 	flick("door_opening",src)
-	addtimer(CALLBACK(src, PROC_REF(ResetOpen)), 1 SECOND)
+	addtimer(CALLBACK(src, .proc/ResetOpen), 1 SECOND)
 
 /obj/structure/inflatable/door/proc/ResetOpen()
 	update_icon()
@@ -247,7 +247,7 @@
 		return
 	isSwitchingStates = TRUE
 	flick("door_closing", src)
-	addtimer(CALLBACK(src, PROC_REF(ResetClose)), 1 SECOND)
+	addtimer(CALLBACK(src, .proc/ResetClose), 1 SECOND)
 
 /obj/structure/inflatable/door/proc/ResetClose()
 	density = TRUE

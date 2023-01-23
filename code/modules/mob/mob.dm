@@ -81,11 +81,6 @@
 
 	become_hearing_sensitive()
 
-/mob/proc/set_stat(var/new_stat)
-	. = stat != new_stat
-	if(.)
-		stat = new_stat
-
 /mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
 	if(!client)	return
@@ -323,7 +318,7 @@
 	if(!A)
 		return
 
-	if((is_blind() || usr.stat) && !isobserver(src))
+	if((is_blind(src) || usr.stat) && !isobserver(src))
 		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
 		return 1
 
@@ -365,11 +360,11 @@
 			end_pointing_effect()
 		pointing_effect = new /obj/effect/decal/point(A)
 		pointing_effect.invisibility = invisibility
-		addtimer(CALLBACK(src, PROC_REF(end_pointing_effect), pointing_effect), 2 SECONDS)
+		addtimer(CALLBACK(src, .proc/end_pointing_effect, pointing_effect), 2 SECONDS)
 	else if(!invisibility)
 		var/atom/movable/M = A
 		M.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
-		addtimer(CALLBACK(M, TYPE_PROC_REF(/atom/movable, remove_filter), "pointglow"), 2 SECONDS)
+		addtimer(CALLBACK(M, /atom/movable.proc/remove_filter, "pointglow"), 2 SECONDS)
 	return TRUE
 
 /mob/proc/end_pointing_effect()
@@ -798,7 +793,7 @@
 			visible_message(SPAN_WARNING("\The [src] leans down and grips \the [H]'s arms."), SPAN_NOTICE("You lean down and grip \the [H]'s arms."))
 		else //Otherwise we're probably just holding their arm to lead them somewhere
 			visible_message(SPAN_WARNING("\The [src] grips \the [H]'s arm."), SPAN_NOTICE("You grip \the [H]'s arm."))
-		playsound(loc, /singleton/sound_category/grab_sound, 25, FALSE, -1) //Quieter than hugging/grabbing but we still want some audio feedback
+		playsound(loc, /decl/sound_category/grab_sound, 25, FALSE, -1) //Quieter than hugging/grabbing but we still want some audio feedback
 		if(H.pull_damage())
 			to_chat(src, "<span class='danger'>Pulling \the [H] in their current condition would probably be a bad idea.</span>")
 
@@ -1110,7 +1105,7 @@
 /mob/living/carbon/human/flash_strong_pain()
 	if(can_feel_pain())
 		overlay_fullscreen("strong_pain", /obj/screen/fullscreen/strong_pain)
-		addtimer(CALLBACK(src, PROC_REF(clear_strong_pain)), 10, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, .proc/clear_strong_pain), 10, TIMER_UNIQUE)
 
 /mob/living/proc/clear_strong_pain()
 	clear_fullscreen("strong_pain", 10)
@@ -1316,9 +1311,8 @@
 	if (dest != loc && istype(dest, /atom/movable))
 		AM = dest
 		LAZYADD(AM.contained_mobs, src)
-		if(ismob(pulledby))
-			var/mob/M = pulledby
-			M.stop_pulling()
+		if(pulledby)
+			pulledby.stop_pulling()
 
 	if (istype(loc, /atom/movable))
 		AM = loc

@@ -189,15 +189,6 @@
 	tag_icon = "dominia_novijadran"
 	text_tag = "NOV"
 
-/datum/accent/dominia_lyodii
-	name = ACCENT_DOMINIA_LYODII
-	description = "Most commonly associated with Lyodii, otherwise known as the People of the Lyod, Lyodic Morozi is a variation of the common Vulgar Morozi dialect which is most notable for its sing-song pace of speech \
-	which makes it distinctive from standard Vulgar Morozi and its higher-pitched counterpart in Fisanduh. Lyodic Morozi is uncommon to hear in the broader Empire, or abroad, due to the isolation of the Lyodii in the Morozian \
-	poles, and contains slight variations between the Northern and Southern Lyod. Those who speak the dialect are sometimes looked down upon as backwards savages by their Morozian counterparts. Those who hear the dialect \
-	spoken or sing during Lyodic rituals often state it has an eerie beauty, as the sounds of these rituals can carry for kilometers across the barren landscape of the Lyod."
-	tag_icon = "dominia_lyodii"
-	text_tag = "LYD"
-
 /datum/accent/jupiter
 	name = ACCENT_JUPITER
 	description = "The Jovian accent is an odd mish-mash of accents from Jupiter's various moons, and has heavy variation on each of the moons. On Europa, the Jovian accent often takes on traces of \

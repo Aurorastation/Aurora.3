@@ -33,7 +33,7 @@
 	else
 		set_max_damage(200)
 	if(!mapload)
-		addtimer(CALLBACK(src, PROC_REF(clear_screen)), 5)
+		addtimer(CALLBACK(src, .proc/clear_screen), 5)
 
 /obj/item/organ/internal/brain/Destroy()
 	if(brainmob)

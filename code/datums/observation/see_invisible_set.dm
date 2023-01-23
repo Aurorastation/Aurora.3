@@ -8,9 +8,9 @@
 //			/old_see_invisible: see_invisible before the change
 //			/new_see_invisible: see_invisible after the change
 
-var/singleton/observ/see_invisible_set/see_invisible_set_event = new()
+var/datum/observ/see_invisible_set/see_invisible_set_event = new()
 
-/singleton/observ/see_invisible_set
+/datum/observ/see_invisible_set
 	name = "See Invisible Set"
 	expected_type = /mob
 
