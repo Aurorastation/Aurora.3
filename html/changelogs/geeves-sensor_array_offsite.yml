@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added sensor array away sites, one is guaranteed to spawn on every map. They have a strong sensor suite that can support 4 tiles of illumination, but need to be set up before they can be made operational."
