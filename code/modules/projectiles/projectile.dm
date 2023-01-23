@@ -671,12 +671,12 @@
 	rotate.Turn(angle)
 	I.transform = rotate
 	// Need to do this in order to prevent the ping from being deleted
-	addtimer(CALLBACK(I, /image/.proc/flick_overlay, src, 3), 1)
+	addtimer(CALLBACK(I, TYPE_PROC_REF(/image, flick_overlay), src, 3), 1)
 
 
 /image/proc/flick_overlay(var/atom/A, var/duration)
 	A.overlays.Add(src)
-	addtimer(CALLBACK(src, .proc/flick_remove_overlay, A), duration)
+	addtimer(CALLBACK(src, PROC_REF(flick_remove_overlay), A), duration)
 
 /image/proc/flick_remove_overlay(var/atom/A)
 	if(A)

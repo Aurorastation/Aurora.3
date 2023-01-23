@@ -326,5 +326,5 @@
 		possible_recipes |= recipe
 	if (isemptylist(possible_recipes))
 		return null
-	sortTim(possible_recipes, /proc/cmp_recipe_complexity_dsc) // Select the most complex recipe
+	sortTim(possible_recipes, GLOBAL_PROC_REF(cmp_recipe_complexity_dsc)) // Select the most complex recipe
 	return possible_recipes[1]

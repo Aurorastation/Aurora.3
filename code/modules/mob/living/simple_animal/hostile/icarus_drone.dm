@@ -72,7 +72,7 @@
 	ion_trail = new(src)
 	ion_trail.start()
 	if(!malfunctioning)
-		addtimer(CALLBACK(src, .proc/beam_out), 15 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(beam_out)), 15 MINUTES)
 
 	// warp in effect
 	var/matrix/M = matrix()

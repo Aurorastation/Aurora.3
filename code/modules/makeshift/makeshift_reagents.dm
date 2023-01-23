@@ -248,7 +248,7 @@
 		return
 	if(W.isFlameSource() && istype(welder))
 		to_chat(user, SPAN_NOTICE("You light \the [src] and begin the distillation process."))
-		addtimer(CALLBACK(src, .proc/distill), 60 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(distill)), 60 SECONDS)
 		src.icon_state = "distillery-active"
 		return
 	. = ..()
