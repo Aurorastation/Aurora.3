@@ -1,0 +1,8 @@
+author: Sniblet
+
+delete-after: True
+
+changes:
+  - backend: "/reagent/toxin/phoron no longer spawns in-game, replaced with three new types."
+  - rscadd: "Phoron can be phoron/base, which is the one the SCC is looking for, phoron/kois, which spawns in unfiltered k'ois bars and k'ois fungus and is only useful for Vaurca, and phoron/kois/black, which is useful for bioterrorism."
+  - bugfix: "This means that you can no longer solve the phoron crisis with k'ois. For now?"
