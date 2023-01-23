@@ -76,6 +76,11 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/get_surface_color()
 	return "#373737"
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/generate_planet_image()
+	skybox_image = image('icons/skybox/lore_planets.dmi', "raskara")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+
 /datum/random_map/noise/exoplanet/barren/raskara
 	land_type = /turf/simulated/floor/exoplanet/barren/raskara
 
