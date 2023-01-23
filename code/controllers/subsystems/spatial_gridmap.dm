@@ -52,6 +52,8 @@
 	var/list/hearing_contents
 	///every client possessed mob inside this cell
 	var/list/client_contents
+	///every mob inside this cell
+	var/list/tgt_contents
 
 /datum/spatial_grid_cell/New(cell_x, cell_y, cell_z)
 	. = ..()
@@ -67,6 +69,7 @@
 
 	hearing_contents = dummy_list
 	client_contents = dummy_list
+	tgt_contents = dummy_list
 
 /datum/spatial_grid_cell/Destroy(force, ...)
 	if(force)//the response to someone trying to qdel this is a right proper fuck you
@@ -102,7 +105,7 @@
 	///list of the spatial_grid_cell datums per z level, arranged in the order of y index then x index
 	var/list/grids_by_z_level = list()
 	///everything that spawns before us is added to this list until we initialize
-	var/list/waiting_to_add_by_type = list(RECURSIVE_CONTENTS_HEARING_SENSITIVE = list(), RECURSIVE_CONTENTS_CLIENT_MOBS = list())
+	var/list/waiting_to_add_by_type = list(RECURSIVE_CONTENTS_HEARING_SENSITIVE = list(), RECURSIVE_CONTENTS_CLIENT_MOBS = list(), RECURSIVE_CONTENTS_AI_TARGETS = list())
 
 	var/cells_on_x_axis = 0
 	var/cells_on_y_axis = 0
@@ -140,12 +143,12 @@
 
 	pregenerate_more_oranges_ears(NUMBER_OF_PREGENERATED_ORANGES_EARS)
 
-	RegisterSignal(SSdcs, COMSIG_GLOB_NEW_Z, .proc/propogate_spatial_grid_to_new_z)
-	RegisterSignal(SSdcs, COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, .proc/after_world_bounds_expanded)
+	RegisterSignal(SSdcs, COMSIG_GLOB_NEW_Z, PROC_REF(propogate_spatial_grid_to_new_z))
+	RegisterSignal(SSdcs, COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, PROC_REF(after_world_bounds_expanded))
 
 ///add a movable to the pre init queue for whichever type is specified so that when the subsystem initializes they get added to the grid
 /datum/controller/subsystem/spatial_grid/proc/enter_pre_init_queue(atom/movable/waiting_movable, type)
-	RegisterSignal(waiting_movable, COMSIG_PARENT_PREQDELETED, .proc/queued_item_deleted, override = TRUE)
+	RegisterSignal(waiting_movable, COMSIG_PARENT_PREQDELETED, PROC_REF(queued_item_deleted), override = TRUE)
 	//override because something can enter the queue for two different types but that is done through unrelated procs that shouldnt know about eachother
 	waiting_to_add_by_type[type] += waiting_movable
 
@@ -316,6 +319,12 @@
 
 					. += grid_level[row][x_index].hearing_contents
 
+		if(SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
+			for(var/row in BOUNDING_BOX_MIN(center_y) to BOUNDING_BOX_MAX(center_y, cells_on_y_axis))
+				for(var/x_index in BOUNDING_BOX_MIN(center_x) to BOUNDING_BOX_MAX(center_x, cells_on_x_axis))
+
+					. += grid_level[row][x_index].tgt_contents
+
 	return .
 
 ///get the grid cell encomapassing targets coordinates
@@ -369,7 +378,7 @@
 	var/datum/spatial_grid_cell/intersecting_cell = grids_by_z_level[z_index][y_index][x_index]
 
 	if(new_target.important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS])
-		GRID_CELL_SET(intersecting_cell.client_contents, new_target.important_recursive_contents[SPATIAL_GRID_CONTENTS_TYPE_CLIENTS])
+		GRID_CELL_SET(intersecting_cell.client_contents, new_target.important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS])
 
 		SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(RECURSIVE_CONTENTS_CLIENT_MOBS), new_target)
 
@@ -377,6 +386,12 @@
 		GRID_CELL_SET(intersecting_cell.hearing_contents, new_target.important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE])
 
 		SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(RECURSIVE_CONTENTS_HEARING_SENSITIVE), new_target)
+
+	if(new_target.important_recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+		GRID_CELL_SET(intersecting_cell.tgt_contents, new_target.important_recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+
+		SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(RECURSIVE_CONTENTS_AI_TARGETS), new_target)
+
 
 /**
  * find the spatial map cell that target used to belong to, then subtract target's important_recusive_contents from it.
@@ -389,9 +404,6 @@
 /datum/controller/subsystem/spatial_grid/proc/exit_cell(atom/movable/old_target, turf/target_turf, exclusive_type)
 	if(init_state != SS_INITSTATE_DONE)
 		return
-
-	if(QDELETED(old_target))
-		CRASH("qdeleted or null target trying to enter the spatial grid")
 
 	if(!target_turf || !old_target?.important_recursive_contents)
 		CRASH("/datum/controller/subsystem/spatial_grid/proc/exit_cell() was given null arguments or a new_target without important_recursive_contents!")
@@ -411,6 +423,9 @@
 			if(RECURSIVE_CONTENTS_HEARING_SENSITIVE)
 				GRID_CELL_REMOVE(intersecting_cell.hearing_contents, old_target.important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE])
 
+			if(RECURSIVE_CONTENTS_AI_TARGETS)
+				GRID_CELL_REMOVE(intersecting_cell.tgt_contents, old_target.important_recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+
 		SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_EXITED(exclusive_type), old_target)
 		return
 
@@ -423,6 +438,11 @@
 		GRID_CELL_REMOVE(intersecting_cell.hearing_contents, old_target.important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE])
 
 		SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_EXITED(RECURSIVE_CONTENTS_HEARING_SENSITIVE), old_target)
+
+	if(old_target.important_recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+		GRID_CELL_REMOVE(intersecting_cell.hearing_contents, old_target.important_recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+
+		SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_EXITED(RECURSIVE_CONTENTS_AI_TARGETS), old_target)
 
 ///find the cell this movable is associated with and removes it from all lists
 /datum/controller/subsystem/spatial_grid/proc/force_remove_from_cell(atom/movable/to_remove, datum/spatial_grid_cell/input_cell)

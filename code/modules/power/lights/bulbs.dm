@@ -66,7 +66,7 @@
 
 		to_chat(user, SPAN_NOTICE("You inject the solution into \the [src]."))
 
-		if(S.reagents.has_reagent(/decl/reagent/toxin/phoron, 5))
+		if(S.reagents.has_reagent(/singleton/reagent/toxin/phoron, 5))
 
 			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.",ckey=key_name(user))
 			message_admins("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")

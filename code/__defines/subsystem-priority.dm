@@ -76,10 +76,20 @@
 //#define SS_PRIORITY_DEFAULT     50	// This is defined somewhere else.
 #define SS_PRIORITY_PSYCHICS      30
 #define SS_PRIORITY_EVAC          30   // Processes the evac controller.
-#define SS_PRIORITY_EXPLOSIVES    20	// Explosion processor. Doesn't have much effect on explosion tick-checking.
+#define SS_PRIORITY_EXPLOSIVES    20	// TODO: MOVE TO SS_TICKER
 #define SS_PRIORITY_DISPOSALS     20	// Disposal holder movement.
 #define SS_PRIORITY_MODIFIER      10
 #define SS_PRIORITY_NIGHT         10	// Nightmode.
 #define SS_PRIORITY_STATISTICS    10	// Player population polling & AFK kick.
 #define SS_PRIORITY_SUN           10	// Sun movement & Solar tracking.
 #define SS_PRIORITY_GARBAGE        5	// Garbage collection.
+
+// SS runlevels
+#define RUNLEVEL_INIT		0
+#define RUNLEVEL_LOBBY		1
+#define RUNLEVEL_SETUP		2
+#define RUNLEVEL_GAME 		4
+#define RUNLEVEL_POSTGAME 	8
+
+#define RUNLEVELS_DEFAULT (RUNLEVEL_SETUP | RUNLEVEL_GAME | RUNLEVEL_POSTGAME)
+#define RUNLEVELS_PLAYING (RUNLEVEL_GAME | RUNLEVEL_POSTGAME)

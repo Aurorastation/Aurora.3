@@ -90,7 +90,6 @@ On the map:
 1441 for atmospherics - supply tanks
 1443 for atmospherics - distribution loop/mixed air tank
 1445 for bot nav beacons
-1447 for mulebot, secbot and ed209 control
 1449 for airlock controls, electropack, magnets
 1451 for toxin lab access
 1453 for engineering access
@@ -216,6 +215,34 @@ var/datum/controller/subsystem/radio/SSradio
 			return "shipradio"
 
 	return "radio"
+
+/proc/update_away_freq(old_channel, new_channel)
+	if(!old_channel || !new_channel || !(old_channel in AWAY_FREQS_ASSIGNED))
+		return FALSE
+
+	var/freq = AWAY_FREQS_ASSIGNED[old_channel]
+	var/datum/radio_frequency/RF = SSradio.return_frequency(freq)
+
+	if(old_channel == new_channel)
+		return istype(RF) ? RF : assign_away_freq(new_channel)
+
+	LAZYREPLACEKEY(AWAY_FREQS_ASSIGNED, old_channel, new_channel)
+	LAZYREPLACEKEY(radiochannels, old_channel, new_channel)
+	LAZYREPLACEKEY(ALL_RADIO_CHANNELS, old_channel, new_channel)
+	reverseradiochannels["[freq]"] = new_channel
+
+	for(var/obj/item/device/radio/R in RF.devices[RADIO_CHAT])
+		var/obj/item/device/radio/headset/H = R
+		if(istype(H))
+			for(var/obj/item/device/encryptionkey/EK in list(H.keyslot1, H.keyslot2))
+				if(old_channel in EK.channels)
+					LAZYREPLACEKEY(EK.channels, old_channel, new_channel)
+
+			H.recalculateChannels(TRUE)
+
+		else if(old_channel in R.channels)
+			LAZYREPLACEKEY(R.channels, old_channel, new_channel)
+			LAZYREPLACEKEY(R.secure_radio_connections, old_channel, new_channel)
 
 /proc/assign_away_freq(channel)
 	if (!AWAY_FREQS_UNASSIGNED.len)

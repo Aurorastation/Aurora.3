@@ -1,14 +1,14 @@
 /datum/map_template/ruin/away_site/ee_spy_ship
 	name = "Einstein Engines Research Ship"
 	description = "A research ship belonging to Einstein Engines, the Stellar Corporate Conglomerate's main competitor."
-	suffix = "ships/einstein/ee_spy_ship.dmm"
+	suffixes = list("ships/einstein/ee_spy_ship.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "ee_spy_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ee_shuttle)
 
-/decl/submap_archetype/ee_spy_ship
+/singleton/submap_archetype/ee_spy_ship
 	map = "Einstein Engines Research Ship"
 	descriptor = "A research ship belonging to Einstein Engines, the Stellar Corporate Conglomerate's main competitor."
 

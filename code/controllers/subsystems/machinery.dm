@@ -100,7 +100,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_pipenets(resumed, no_mc_tick)
 		cost_pipenets = MC_AVERAGE(cost_pipenets, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if (state != SS_RUNNING)
+		if (state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_MACHINERY
 		resumed = FALSE
@@ -108,7 +108,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_machinery(resumed, no_mc_tick)
 		cost_machinery = MC_AVERAGE(cost_machinery, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if(state != SS_RUNNING)
+		if(state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_POWERNETS
 		resumed = FALSE
@@ -116,7 +116,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_powernets(resumed, no_mc_tick)
 		cost_powernets = MC_AVERAGE(cost_powernets, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if(state != SS_RUNNING)
+		if(state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_POWER_OBJECTS
 		resumed = FALSE
@@ -124,7 +124,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_power_objects(resumed, no_mc_tick)
 		cost_power_objects = MC_AVERAGE(cost_power_objects, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if (state != SS_RUNNING)
+		if (state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_PIPENETS
 
@@ -143,7 +143,6 @@ if(Datum.isprocessing) {\
 		propagate_network(cable, cable.powernet)
 
 /datum/controller/subsystem/machinery/proc/setup_atmos_machinery(list/machines)
-	set background = TRUE
 	var/list/atmos_machines = list()
 	for (var/obj/machinery/atmospherics/machine in machines)
 		atmos_machines += machine
@@ -269,8 +268,8 @@ if(Datum.isprocessing) {\
 			rcon_breaker_units += breaker
 			rcon_breaker_units_by_tag[breaker.RCon_tag] = breaker
 
-	sortTim(rcon_smes_units, /proc/cmp_rcon_smes)
-	sortTim(rcon_breaker_units, /proc/cmp_rcon_bbox)
+	sortTim(rcon_smes_units, GLOBAL_PROC_REF(cmp_rcon_smes))
+	sortTim(rcon_breaker_units, GLOBAL_PROC_REF(cmp_rcon_bbox))
 
 #undef SSMACHINERY_PIPENETS
 #undef SSMACHINERY_MACHINERY

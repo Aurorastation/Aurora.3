@@ -248,14 +248,14 @@ BREATH ANALYZER
 				var/is_bandaged = org.is_bandaged()
 				var/is_salved = org.is_salved()
 				if(is_bandaged && is_salved)
-					var/icon/B = icon('icons/obj/stacks/medical.dmi', "bandaged")
-					var/icon/S = icon('icons/obj/stacks/medical.dmi', "salved")
+					var/icon/B = icon('icons/obj/item/stacks/medical.dmi', "bandaged")
+					var/icon/S = icon('icons/obj/item/stacks/medical.dmi', "salved")
 					limb_result = "[limb_result] \[[icon2html(B, user)] | [icon2html(S, user)]\]"
 				else if(is_bandaged)
-					var/icon/B = icon('icons/obj/stacks/medical.dmi', "bandaged")
+					var/icon/B = icon('icons/obj/item/stacks/medical.dmi', "bandaged")
 					limb_result = "[limb_result] \[[icon2html(B, user)]\]"
 				else if(is_salved)
-					var/icon/S = icon('icons/obj/stacks/medical.dmi', "salved")
+					var/icon/S = icon('icons/obj/item/stacks/medical.dmi', "salved")
 					limb_result = "[limb_result] \[[icon2html(S, user)]\]"
 				dat += limb_result
 		else
@@ -305,7 +305,7 @@ BREATH ANALYZER
 		var/unknown = 0
 		var/reagentdata[0]
 		for(var/_R in H.reagents.reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(_R)
+			var/singleton/reagent/R = GET_SINGLETON(_R)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
 				reagentdata["[_R]"] = "<span class='notice'>    [round(REAGENT_VOLUME(H.reagents, _R), 1)]u [R.name]</span>"
@@ -324,7 +324,7 @@ BREATH ANALYZER
 	if(ingested && ingested.total_volume)
 		var/unknown = 0
 		for(var/_R in ingested.reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(_R)
+			var/singleton/reagent/R = GET_SINGLETON(_R)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
 				dat += "<span class='notice'>[R.name] found in subject's stomach.</span>"
@@ -438,13 +438,13 @@ BREATH ANALYZER
 		if(LAZYLEN(reagents.reagent_volumes) > 1)
 			to_chat(user, SPAN_WARNING("There isn't enough blood in the sample!"))
 			return
-		if(!REAGENT_DATA(reagents, /decl/reagent/blood))
+		if(!REAGENT_DATA(reagents, /singleton/reagent/blood))
 			to_chat(user, SPAN_WARNING("The sample was contaminated with non-blood reagents!"))
 			return
-		var/list/blood_traces = reagents.reagent_data[/decl/reagent/blood]["trace_chem"]
+		var/list/blood_traces = reagents.reagent_data[/singleton/reagent/blood]["trace_chem"]
 		var/list/output_text = list("Trace Chemicals Found:")
 		for(var/_C in blood_traces)
-			var/decl/reagent/C = decls_repository.get_decl(_C)
+			var/singleton/reagent/C = GET_SINGLETON(_C)
 			if(C.spectro_hidden && !details)
 				continue
 			if(details)
@@ -498,7 +498,7 @@ BREATH ANALYZER
 	var/dat = ""
 	var/one_percent = O.reagents.total_volume / 100
 	for (var/_R in O.reagents.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
+		var/singleton/reagent/R = GET_SINGLETON(_R)
 		dat += "\n \t [R][details ? ": [O.reagents.reagent_volumes[_R] / one_percent]%" : ""]"
 	to_chat(user, SPAN_NOTICE("Chemicals found: [dat]"))
 
@@ -669,7 +669,7 @@ BREATH ANALYZER
 	if(H.breathing && H.breathing.total_volume)
 		var/unknown = 0
 		for(var/_R in H.breathing.reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(_R)
+			var/singleton/reagent/R = GET_SINGLETON(_R)
 			if(R.scannable)
 				to_chat(user,"<span class='notice'>[R.name] found in subject's respiratory system.</span>")
 			else
@@ -739,13 +739,13 @@ BREATH ANALYZER
 		"paralysis" = H.paralysis,
 		"bodytemp" = H.bodytemperature,
 		"borer_present" = H.has_brain_worms(),
-		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/inaprovaline),
-		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dexalin),
-		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/soporific),
-		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/bicaridine),
-		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/dermaline),
-		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /decl/reagent/thetamycin),
-		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
+		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/inaprovaline),
+		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dexalin),
+		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/soporific),
+		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/bicaridine),
+		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/thetamycin),
+		"blood_amount" = REAGENT_VOLUME(H.vessel, /singleton/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"lung_ruptured" = H.is_lung_ruptured(),
 		"lung_rescued" = H.is_lung_rescued(),

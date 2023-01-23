@@ -34,8 +34,12 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/obj/machinery/leviathan_safeguard/levi_safeguard
 	var/obj/machinery/gravity_generator/main/gravity_generator
 
-	var/comms_support = FALSE		// Whether ghostroles attached to this overmap object spawn with comms
-	var/comms_name = "shipboard"	// Snowflake name to apply to comms equipment ("shipboard radio headset", "intercom (shipboard)", "shipboard telecommunications mainframe"), etc.
+	/// Whether ghostroles attached to this overmap object spawn with comms
+	var/comms_support = FALSE
+	/// Snowflake name to apply to comms equipment ("shipboard radio headset", "intercom (shipboard)", "shipboard telecommunications mainframe"), etc.
+	var/comms_name = "shipboard"
+	/// Whether away ship comms have access to the common channel / PUB_FREQ
+	var/use_common = FALSE
 
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
@@ -47,7 +51,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	if(!current_map.overmap_z)
 		build_overmap()
-		
+
 	start_x = start_x || rand(OVERMAP_EDGE, current_map.overmap_size - OVERMAP_EDGE)
 	start_y = start_y || rand(OVERMAP_EDGE, current_map.overmap_size - OVERMAP_EDGE)
 
@@ -158,6 +162,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		return
 	if(obfuscated)
 		return
+	if(comms_support)
+		update_away_freq(name, get_real_name())
 	name = get_real_name()
 
 /obj/effect/overmap/visitable/proc/get_real_name()
@@ -212,3 +218,6 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	testing("Overmap build complete.")
 	return 1
+
+/obj/effect/overmap/visitable/proc/handle_sensor_state_change(var/on)
+	return

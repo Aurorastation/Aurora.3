@@ -4,6 +4,7 @@
 	icon = 'icons/obj/turbolift.dmi'
 	anchored = 1
 	density = 0
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/datum/turbolift/lift
 
@@ -78,7 +79,7 @@
 	pressed(user)
 	if(floor == lift.current_floor)
 		lift.open_doors()
-		addtimer(CALLBACK(src, .proc/reset), 3)
+		addtimer(CALLBACK(src, PROC_REF(reset)), 3)
 		return
 	lift.queue_move_to(floor)
 

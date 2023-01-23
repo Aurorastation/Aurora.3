@@ -99,7 +99,7 @@
 	if(iscarbon(target))
 		if(user.zone_sel.selecting == BP_EYES)
 			var/mob/living/carbon/C = target
-			if(C.eyecheck() <= 0 && prob(30))
+			if(prob(30) && C.flash_act())
 				selfmsg = "<span class='notice'>You blind \the [C] with \the [src].</span>"
 				othermsg = "<b>[user]</b> shines \the [src] at \the [C]'s eyes'."
 				C.eye_blind = 3

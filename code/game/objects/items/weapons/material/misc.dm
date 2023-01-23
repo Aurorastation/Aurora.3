@@ -17,7 +17,7 @@
 
 /obj/item/material/harpoon/explosive/prime()
 	playsound(get_turf(src), 'sound/items/countdown.ogg', 125, 1)
-	addtimer(CALLBACK(src, .proc/detonate), 3 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(detonate)), 3 SECONDS)
 	return
 
 /obj/item/material/harpoon/explosive/proc/detonate()
