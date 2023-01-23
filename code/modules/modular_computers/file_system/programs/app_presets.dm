@@ -492,8 +492,8 @@
 	return _prg_list
 
 /datum/modular_computer_app_presets/supply/robotics
-	name = "operations_robotics"
-	display_name = "Operations - Robotics"
+	name = "operations_machinist"
+	display_name = "Operations - Machinist"
 	description = "Contains the most common supply programs and medical record software."
 	available = TRUE
 
