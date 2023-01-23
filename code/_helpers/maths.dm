@@ -1,4 +1,4 @@
-#define Default(a, b) (a ? a : b)
+#define Default(a, b) ((a) ? (a) : (b))
 
 // /proc/Default(a, b)
 // 	return a ? a : b
@@ -15,7 +15,7 @@
 #define Cot(degrees) (1 / tan(degrees))
 
 /// The 2-argument arctangent of x and y
-#define Atan2(x,y) ((!x && !y) ? 0 : (y >= 0 ? arccos(x / sqrt(x*x + y*y)) : -(arccos(x / sqrt(x*x + y*y)))))
+#define Atan2(x,y) ((!(x) && !(y)) ? 0 : (((y) >= 0) ? (arccos(((x) / (sqrt(((x)*(x)) + ((y)*(y))))))) : (-(arccos((x) / sqrt((x)*(x) + (y)*(y)))))))
 
 /// Value or the next integer in a negative direction: Floor(-1.5) = -2 , Floor(1.5) = 1
 #define Floor(value) round(value)
@@ -24,18 +24,18 @@
 #define Floorm(value, divisor) round(value)
 
 /// Value or the next integer in a positive direction: Ceil(-1.5) = -1 , Ceil(1.5) = 2
-#define Ceil(value) ( -round(-(value)) )
+#define Ceil(value) ( -(round(-(value))) )
 
 /// Value or the next multiple of divisor in a positive direction. Ceilm(-1.5, 0.3) = -1.5 , Ceilm(-1.5, 0.4) = -1.2
 #define Ceilm(value, divisor) ( -round(-(value) / (divisor)) * (divisor) )
 
-#define WrapNumber(value, minimum, maximum) (value - ((Floor((value - minimum) / (maximum - minimum))) * (maximum - minimum)))
+#define WrapNumber(value, minimum, maximum) ( (value) - ((Floor(((value) - (minimum)) / ((maximum) - (minimum)))) * ((maximum) - (minimum))) )
 
 #define Modulus(x, y) ( (x) - (y) * round((x) / (y)) )
 
-#define Percent(value, maximum) (round((value / maximum) * 100))
+#define Percent(value, maximum) ( round( ( (value) / (maximum) ) * 100 ) )
 
-#define PercentRounding(value, maximum, rounding) (round((value / maximum) * 100, rounding))
+#define PercentRounding(value, maximum, rounding) ( round( ( (value) / (maximum) ) * 100, (rounding) ) )
 
 // /proc/Percent(current_value, max_value, rounding = 1)
 // 	return round((current_value / max_value) * 100, rounding)
@@ -49,36 +49,36 @@
 		b %= a
 
 // Least Common Multiple. The formula is a consequence of: a*b = LCM*GCD.
-#define Lcm(a, b) (abs(a) * abs(b) / Gcd(a, b))
+#define Lcm(a, b) ( abs(a) * abs(b) / Gcd(a, b) )
 
 // Useful in the cases when x is a large expression, e.g. x = 3a/2 + b^2 + Function(c)
-#define Square(x) (x*x)
+#define Square(x) ( (x) * (x) )
 
-#define Inverse(x) (1 / x)
+#define Inverse(x) ( 1 / (x) )
 
 // Condition checks.
-#define IsAboutEqual(a, b) (abs(a - b) <= 0.1)
+#define IsAboutEqual(a, b) ( abs( (a) - (b) ) <= 0.1 )
 
-#define IsAboutEqualDelta(a, b, delta) (abs(a - b) <= delta)
+#define IsAboutEqualDelta(a, b, delta) ( abs( (a) - (b) ) <= (delta) )
 
 // Returns true if val is from min to max, inclusive.
-#define IsInRange(val, min, max) (min <= val && val <= max)
+#define IsInRange(val, min, max) ( ( (min) <= (val) ) && ( (val) <= (max) ) )
 
 // Same as above, exclusive.
-#define IsInRange_Ex(val, min, max) (min < val && val < max)
+#define IsInRange_Ex(val, min, max) ( ( (min) < (val) ) && ( (val) < (max) ) )
 
 /// True if value is an integer number.
-#define IsInteger(value) (round(value) == (value))
+#define IsInteger(value) ( round(value) == (value) )
 
 /// True if value is a multiple of divisor
-#define IsMultiple(value, divisor) ((value) % (divisor) == 0)
+#define IsMultiple(value, divisor) ( ( (value) % (divisor) ) == 0 )
 
-#define ISEVEN(x) (x % 2 == 0)
-#define ISODD(x) (x % 2 != 0)
+#define ISEVEN(x) ( (x) % 2 == 0 )
+#define ISODD(x) ( (x) % 2 != 0 )
 
 // Performs a linear interpolation between a and b.
 // Note: weight=0 returns a, weight=1 returns b, and weight=0.5 returns the mean of a and b.
-#define Interpolate(a, b, weight) (a + (b - a) * weight) // Equivalent to: a*(1 - weight) + b*weight
+#define Interpolate(a, b, weight) ( (a) + ( (b) - (a) ) * weight ) // Equivalent to: a*(1 - weight) + b*weight
 
 /proc/Mean(...)
 	var/sum = 0
@@ -87,7 +87,7 @@
 	return sum / args.len
 
 // Returns the nth root of x.
-#define Root(n, x) (x ** (1 / n))
+#define Root(n, x) ( (x) ** ( 1 / (n) ))
 
 // The quadratic formula. Returns a list with the solutions, or an empty list
 // if they are imaginary.
@@ -109,18 +109,18 @@
 	if(discriminant != 0)
 		. += (-b - root) / bottom
 
-#define ToDegrees(radians) (radians * 57.2957795) // 180 / Pi ~ 57.2957795
+#define ToDegrees(radians) ( (radians) * 57.2957795) // 180 / Pi ~ 57.2957795
 
-#define ToRadians(degrees) (degrees * 0.0174532925) // Pi / 180 ~ 0.0174532925
+#define ToRadians(degrees) ( (degrees) * 0.0174532925) // Pi / 180 ~ 0.0174532925
 
 // Vector algebra.
-#define squaredNorm(x, y) (x*x + y*y)
+#define squaredNorm(x, y) ( (x) * (x) + (y) * (y) )
 
 #define norm(x, y) (sqrt(squaredNorm(x, y)))
 
-#define IsPowerOfTwo(val) ((val & (val-1)) == 0)
+#define IsPowerOfTwo(val) ( ( (val) & ( (val)-1 ) ) == 0 )
 
-#define RoundUpToPowerOfTwo(val) (2 ** -round(-log(2,val)))
+#define RoundUpToPowerOfTwo(val) ( 2 ** -round(-log(2,(val))) )
 
 //Returns the cube root of the input number
 /proc/cubert(var/num, var/iterations = 10)
@@ -130,7 +130,7 @@
 
 
 // Round up
-#define n_ceil(number) ( (isnum(number)) ? (round(number)+1) : (null))
+#define n_ceil(number) ( (isnum(number)) ? (round(number)+1) : (null) )
 
 
 // Round up
@@ -154,7 +154,7 @@
 
 // Will filter out extra rotations and negative rotations
 // E.g: 540 becomes 180. -180 becomes 180.
-#define SIMPLIFY_DEGREES(degrees) (MODULUS_FLOAT((degrees), 360))
+#define SIMPLIFY_DEGREES(degrees) ( MODULUS_FLOAT( (degrees), 360 ) )
 
 /**
  * Get a list of turfs in a line from `starting_atom` to `ending_atom`.
