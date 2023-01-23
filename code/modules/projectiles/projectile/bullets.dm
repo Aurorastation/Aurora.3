@@ -436,7 +436,6 @@
 	anti_materiel_potential = 4
 	embed = FALSE
 	penetrating = FALSE
-	armor_penetration = 10
 	var/heavy_impact_range = 1
 
 /obj/item/projectile/bullet/recoilless_rifle/on_impact(var/atom/A)
