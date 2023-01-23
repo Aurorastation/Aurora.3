@@ -574,6 +574,7 @@ BLIND     // can't see anything
 	item_flags = THICKMATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
+	normal_layer = FALSE
 
 /obj/item/clothing/glasses/welding/attack_self()
 	toggle()
