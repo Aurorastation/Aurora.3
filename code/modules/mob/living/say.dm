@@ -315,14 +315,14 @@ proc/get_radio_key_from_channel(var/channel)
 	var/speech_bubble_test = say_test(message)
 	var/image/speech_bubble = image(get_talk_bubble(),src,"h[speech_bubble_test]")
 	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
-	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, hear_clients, 30)
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, hear_clients, 30)
 	do_animate_chat(message, speaking, italics, hear_clients, 30)
 
 	var/bypass_listen_obj = (speaking && (speaking.flags & PASSLISTENOBJ))
 	if(!bypass_listen_obj)
 		for(var/obj/O as anything in listening)
 			if(O) //It's possible that it could be deleted in the meantime.
-				INVOKE_ASYNC(O, /obj/.proc/hear_talk, src, message, verb, speaking)
+				INVOKE_ASYNC(O, TYPE_PROC_REF(/obj, hear_talk), src, message, verb, speaking)
 
 	if(mind)
 		mind.last_words = message
@@ -335,7 +335,7 @@ proc/get_radio_key_from_channel(var/channel)
 	return 1
 
 /mob/living/proc/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, animate_chat), message, language, small, show_to, duration)
 
 /proc/animate_speechbubble(image/I, list/show_to, duration)
 	var/matrix/M = matrix()

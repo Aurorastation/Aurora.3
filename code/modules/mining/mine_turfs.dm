@@ -327,7 +327,7 @@ var/list/mineral_can_smooth_with = list(
 					O = new /obj/item/ore(src)
 				if(istype(O))
 					O.geologic_data = get_geodata()
-				addtimer(CALLBACK(O, /atom/movable/.proc/forceMove, user.loc), 1)
+				addtimer(CALLBACK(O, TYPE_PROC_REF(/atom/movable, forceMove), user.loc), 1)
 
 			if(finds?.len)
 				var/datum/find/F = finds[1]

@@ -109,7 +109,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	log_ss("lighting", "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
 
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
-	SSticker.OnRoundstart(CALLBACK(src, .proc/handle_roundstart))
+	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(handle_roundstart)))
 #endif
 
 	..()

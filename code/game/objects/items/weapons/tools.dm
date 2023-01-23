@@ -495,7 +495,7 @@
 	if(!welding)
 		return 0
 	else if(welding > 0 && colourChange)
-		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon), 5))
 	if(get_fuel() >= amount)
 		reagents.remove_reagent(/singleton/reagent/fuel, amount)
 		if(M && produces_flash)
@@ -937,7 +937,7 @@
 		desc += " Watch your hands!"
 		icon_state = "burning_wool"
 		set_light(2, 2, LIGHT_COLOR_LAVA)
-		addtimer(CALLBACK(src, .proc/endburn), 120 SECONDS, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(endburn)), 120 SECONDS, TIMER_UNIQUE)
 
 /obj/item/steelwool/proc/endburn()
 	visible_message(SPAN_NOTICE("The steel wool burns out."))

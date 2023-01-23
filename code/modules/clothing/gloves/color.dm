@@ -215,3 +215,12 @@
 	icon_state = "kala_gloves"
 	item_state = "kala_gloves"
 	contained_sprite = TRUE
+
+/obj/item/clothing/gloves/mittens
+	name = "mittens"
+	desc = "These wool mittens are very warm, if you can handle the impracticality of them lacking individual fingers. They also accomodate most hands, clawed or not."
+	icon = 'icons/obj/item/clothing/gloves/mittens.dmi'
+	icon_state = "mittens"
+	item_state = "mittens"
+	contained_sprite = TRUE
+	species_restricted = list("exclude", null)

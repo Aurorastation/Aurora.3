@@ -1,4 +1,115 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/ship_ammunition/grauwolf_bundle{
+	pixel_x = 1
+	},
+/obj/item/ship_ammunition/grauwolf_bundle{
+	pixel_x = 1
+	},
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
+"ab" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
+"ac" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	icon_state = "rwindow"
+	},
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck)
+"ad" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/ship_ammunition/grauwolf_bundle{
+	pixel_x = 1
+	},
+/obj/item/ship_ammunition/grauwolf_bundle{
+	pixel_x = 1
+	},
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck/second)
+"ae" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck/second)
+"af" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	icon_state = "rwindow"
+	},
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/gun_deck/second)
 "ag" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 10
@@ -658,24 +769,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/hailstorm_ship/atmospherics)
-"dK" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/hailstorm_ship/gun_deck/second)
 "dV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
@@ -725,24 +818,6 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship/bridge)
-"eA" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/hailstorm_ship/gun_deck)
 "eB" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -817,7 +892,7 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock{
-	start_pressure = 1000.975
+	start_pressure = 1000.97
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled{
@@ -1251,25 +1326,6 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship/crew)
-"jg" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/hailstorm_ship/gun_deck)
 "jk" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1477,21 +1533,6 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship/eva)
-"kO" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/hailstorm_ship/gun_deck)
 "kZ" = (
 /obj/structure/table/standard,
 /obj/item/device/binoculars,
@@ -2797,25 +2838,6 @@
 	temperature = 278.15
 	},
 /area/shuttle/hailstorm_shuttle)
-"Ew" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/hailstorm_ship/gun_deck/second)
 "EC" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 1
@@ -3611,21 +3633,6 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship/engine)
-"Sw" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/hailstorm_ship/gun_deck/second)
 "SK" = (
 /obj/machinery/light{
 	dir = 4;
@@ -13837,7 +13844,7 @@ de
 de
 je
 fQ
-eA
+aa
 MH
 ny
 qm
@@ -13999,7 +14006,7 @@ bF
 Zj
 iT
 fQ
-kO
+ab
 MH
 Zy
 io
@@ -14161,7 +14168,7 @@ aC
 Zj
 cc
 fQ
-jg
+ac
 MH
 ju
 rs
@@ -16429,7 +16436,7 @@ bH
 DF
 QW
 CR
-dK
+ad
 pC
 Ed
 UT
@@ -16591,7 +16598,7 @@ bH
 DF
 IZ
 CR
-Sw
+ae
 pC
 nS
 fs
@@ -16753,7 +16760,7 @@ xc
 ih
 cH
 CR
-Ew
+af
 pC
 Up
 YP

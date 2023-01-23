@@ -45,7 +45,7 @@
 	LAZYADD(recent_broadcasts, signal_message)
 
 	if(signal.data["slow"] > 0)
-		addtimer(CALLBACK(signal, /datum/signal/subspace/proc/broadcast), signal.data["slow"]) // network lag
+		addtimer(TYPE_PROC_REF(/datum/signal/subspace, broadcast), signal.data["slow"]) // network lag
 	else
 		signal.broadcast()
 

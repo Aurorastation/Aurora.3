@@ -65,7 +65,7 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/nralakk(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
 		else
-			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
 /datum/citizenship/epsilon

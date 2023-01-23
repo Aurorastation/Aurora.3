@@ -1056,3 +1056,19 @@
 	contained_sprite = TRUE
 	icon_override = null
 	body_parts_covered = UPPER_TORSO
+
+/obj/item/clothing/accessory/goon_coif
+	name = "tactical coif"
+	desc = "A comfortable tactical coif that goes around the head."
+	icon = 'icons/clothing/accessories/goon_coif.dmi'
+	body_parts_covered = HEAD
+	icon_state = "goon_coif"
+	item_state = "goon_coif"
+	contained_sprite = TRUE
+	slot_flags = SLOT_MASK | SLOT_EARS | SLOT_TIE
+
+/obj/item/clothing/accessory/goon_coif/get_ear_examine_text(var/mob/user, var/ear_text = "left")
+	return "on [user.get_pronoun("his")] head"
+
+/obj/item/clothing/accessory/goon_coif/get_mask_examine_text(var/mob/user)
+	return "on [user.get_pronoun("his")] head"

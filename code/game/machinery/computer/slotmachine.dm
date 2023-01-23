@@ -214,9 +214,9 @@
 	update_icon()
 	updateUsrDialog()
 
-	INVOKE_ASYNC(src, .proc/do_spin)
+	INVOKE_ASYNC(src, PROC_REF(do_spin))
 
-	addtimer(CALLBACK(src, .proc/finish_spinning, user, the_name), SPIN_TIME - (REEL_DEACTIVATE_DELAY * reels.len)) //WARNING: no sanity checking for user since it's not needed and would complicate things (machine should still spin even if user is gone), be wary of this if you're changing this code.
+	addtimer(CALLBACK(src, PROC_REF(finish_spinning), user, the_name), SPIN_TIME - (REEL_DEACTIVATE_DELAY * reels.len)) //WARNING: no sanity checking for user since it's not needed and would complicate things (machine should still spin even if user is gone), be wary of this if you're changing this code.
 
 /obj/machinery/computer/slot_machine/proc/do_spin(mob/user, the_name)
 	while(working)
