@@ -42475,7 +42475,7 @@
 /area/horizon/crew_quarters/lounge/bar)
 "uZs" = (
 /obj/structure/table/wood,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = -15
 	},
 /obj/effect/floor_decal/spline/fancy/wood,

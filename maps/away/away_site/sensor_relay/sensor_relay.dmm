@@ -1049,7 +1049,7 @@
 /area/sensor_relay)
 "rpa" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 8;
 	pixel_y = 5
 	},
