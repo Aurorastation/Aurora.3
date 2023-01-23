@@ -230,7 +230,7 @@
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
-		flash_eyes()
+		flash_act()
 
 	var/b_loss = null
 	var/f_loss = null
@@ -810,7 +810,7 @@
 
 ///eyecheck()
 ///Returns a number between -1 to 2
-/mob/living/carbon/human/eyecheck(ignore_inherent = FALSE)
+/mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
 	if(!species.vision_organ || !species.has_organ[species.vision_organ]) //No eyes, can't hurt them.
 		return FLASH_PROTECTION_MAJOR
 
@@ -818,10 +818,22 @@
 	if (I && I.status & ORGAN_CUT_AWAY)
 		return FLASH_PROTECTION_MAJOR
 
-	if (ignore_inherent)
-		return flash_protection
+	if (!ignore_inherent && species.inherent_eye_protection)
+		. = max(species.inherent_eye_protection, flash_protection)
+	else
+		. = flash_protection
 
-	return species.inherent_eye_protection ? max(species.inherent_eye_protection, flash_protection) : flash_protection
+	if(!flash_protection && HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
+		return species.inherent_eye_protection ? species.inherent_eye_protection - 1 : FLASH_PROTECTION_REDUCED
+
+/mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+	if(..())
+		var/obj/item/organ/E = get_eyes()
+		if(istype(E))
+			return E.flash_act(intensity, override_blindness_check, affect_silicon, ignore_inherent, type, length)
+	else if(intensity == get_flash_protection(ignore_inherent))
+		if(prob(20))
+			to_chat(src, SPAN_NOTICE("Something bright flashes in the corner of your vision!"))
 
 //Used by various things that knock people out by applying blunt trauma to the head.
 //Checks that the species has a BP_HEAD (brain containing organ) and that hit_zone refers to it.
