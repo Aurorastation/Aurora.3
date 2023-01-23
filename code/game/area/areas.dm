@@ -301,7 +301,8 @@ var/list/mob/living/forced_ambiance_list = new
 	// Otherwise, stop playing the ambient hum.
 	else
 		L << sound(null, channel = 3)
-		L.client.ambient_hum_playing = FALSE
+		if(L.client)
+			L.client.ambient_hum_playing = FALSE
 
 	// Start playing music, if it exists.
 	if(src.music.len && L && L.client && (L.client.prefs.sfx_toggles & ASFX_MUSIC))

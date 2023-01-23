@@ -241,6 +241,7 @@
 	var/status = TRUE		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
 	var/max_fuel = 20 	//The max amount of fuel the welder can hold
 	var/change_icons = TRUE
+	var/produces_flash = TRUE
 
 /obj/item/weldingtool/iswelder()
 	return TRUE
@@ -295,7 +296,7 @@
 	var/datum/reagents/R = new/datum/reagents(max_fuel)
 	reagents = R
 	R.my_atom = src
-	R.add_reagent(/decl/reagent/fuel, max_fuel)
+	R.add_reagent(/singleton/reagent/fuel, max_fuel)
 	update_icon()
 
 /obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
@@ -487,7 +488,7 @@
 
 //Returns the amount of fuel in the welder
 /obj/item/weldingtool/proc/get_fuel()
-	return REAGENT_VOLUME(reagents, /decl/reagent/fuel)
+	return REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 
 //Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob.
 /obj/item/weldingtool/use(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
@@ -496,9 +497,9 @@
 	else if(welding > 0 && colourChange)
 		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
 	if(get_fuel() >= amount)
-		reagents.remove_reagent(/decl/reagent/fuel, amount)
-		if(M)
-			eyecheck(M)
+		reagents.remove_reagent(/singleton/reagent/fuel, amount)
+		if(M && produces_flash)
+			M.flash_act(FLASH_PROTECTION_MAJOR)
 		return 1
 	else
 		if(M)
@@ -507,7 +508,7 @@
 
 /obj/item/weldingtool/use_resource(mob/user, var/use_amount)
 	if(get_fuel() >= use_amount)
-		reagents.remove_reagent(/decl/reagent/fuel, use_amount)
+		reagents.remove_reagent(/singleton/reagent/fuel, use_amount)
 
 //Returns whether or not the welding tool is currently on.
 /obj/item/weldingtool/proc/isOn()
@@ -554,7 +555,7 @@
 		damtype = BRUTE
 		w_class = initial(w_class)
 		welding = FALSE
-		hitsound = /decl/sound_category/swing_hit_sound
+		hitsound = /singleton/sound_category/swing_hit_sound
 		attack_verb = list("hit", "bludgeoned", "whacked")
 		set_processing(FALSE)
 		update_icon()
@@ -565,44 +566,6 @@
 		START_PROCESSING(SSprocessing, src)
 	else
 		STOP_PROCESSING(SSprocessing, src)
-
-//Decides whether or not to damage a player's eyes based on what they're wearing as protection
-//Note: This should probably be moved to mob
-/obj/item/weldingtool/proc/eyecheck(mob/user)
-	if(!iscarbon(user))
-		return 1
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/internal/eyes/E = H.get_eyes()
-		if(!E)
-			return
-		if(H.status_flags & GODMODE)
-			return
-		var/safety = H.eyecheck()
-		var/damage_to_take = 0
-		switch(safety)
-			if(FLASH_PROTECTION_MODERATE)
-				damage_to_take = E.max_damage / 6
-				to_chat(user, "<span class='warning'>Your eyes sting a little.</span>")
-				E.take_damage(damage_to_take)
-			if(FLASH_PROTECTION_NONE)
-				damage_to_take = E.max_damage / 5
-				to_chat(user, "<span class='warning'>Your eyes burn!</span>")
-				E.take_damage(damage_to_take)
-			if(FLASH_PROTECTION_REDUCED)
-				damage_to_take = E.max_damage / 3
-				to_chat(user, "<span class='danger'><font size=4>Your eyes are burning!</font></span>")
-				user.eye_blurry += rand(12, 20)
-				E.take_damage(damage_to_take)
-		if(safety < FLASH_PROTECTION_MAJOR)
-			if(E.is_bruised())
-				to_chat(user, "<span class='danger'>You can't see anymore!</span>")
-				user.disabilities |= NEARSIGHTED
-				addtimer(CALLBACK(user, /mob/.proc/reset_nearsighted), 100)
-
-// This is on /mob instead of the welder so the timer is stopped when the mob is deleted.
-/mob/proc/reset_nearsighted()
-	disabilities &= ~NEARSIGHTED
 
 /obj/item/weldingtool/Destroy()
 	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions
@@ -616,6 +579,7 @@
 		user.drop_from_inventory(I, src)
 		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
 		eyeshield = I
+		produces_flash = FALSE
 		add_overlay("eyeshield_attached", TRUE)
 		return TRUE
 	if(istype(I, /obj/item/overcapacitor))
@@ -644,6 +608,7 @@
 			if("Eye Shield")
 				remove_accessory = eyeshield
 				eyeshield = null
+				produces_flash = TRUE
 			if("Overcapacitor")
 				remove_accessory = overcap
 				overcap = null
@@ -673,22 +638,17 @@
 		var/gen_amount = ((world.time-last_gen) / fuelgen_delay)
 		var/remainder = max_fuel - get_fuel()
 		gen_amount = min(gen_amount, remainder)
-		reagents.add_reagent(/decl/reagent/fuel, gen_amount)
+		reagents.add_reagent(/singleton/reagent/fuel, gen_amount)
 		if(get_fuel() >= max_fuel)
 			set_processing(0)
 	else
 		set_processing(0)
 	last_gen = world.time
 
-/obj/item/weldingtool/experimental/eyecheck(mob/user)
-	if(eyeshield)
-		return
-	return ..()
-
 /obj/item/weldingtool/experimental/use(amount, mob/M, colourChange)
 	. = ..(overcap ? amount * 3 : amount, M, colourChange)
 	if(!. && welding && overcap) // to ensure that the fuel gets used even if the amount is high
-		reagents.remove_reagent(/decl/reagent/fuel, get_fuel())
+		reagents.remove_reagent(/singleton/reagent/fuel, get_fuel())
 
 /obj/item/eyeshield
 	name = "experimental eyeshield"
@@ -730,7 +690,7 @@
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
-	usesound = /decl/sound_category/crowbar_sound
+	usesound = /singleton/sound_category/crowbar_sound
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
@@ -1017,7 +977,7 @@
 	attack_verb = list("smashed", "hammered")
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
-	usesound = /decl/sound_category/hammer_sound
+	usesound = /singleton/sound_category/hammer_sound
 
 /obj/item/hammer/Initialize()
 	. = ..()

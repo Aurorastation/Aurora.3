@@ -250,3 +250,7 @@
 			if(href_list["PRG_bribe"])
 				. = 1
 				bribe(T, text2num(href_list["PRG_bribe"]))
+
+/datum/computer_file/program/merchant/nka
+	required_access_run = list(access_nka)
+	required_access_download = list(access_nka)

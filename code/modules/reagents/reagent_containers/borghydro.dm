@@ -17,24 +17,24 @@
 	var/charge_tick = 0
 	var/recharge_time = 5 //Time it takes for shots to recharge (in seconds)
 
-	var/list/reagent_ids = list(/decl/reagent/tricordrazine, /decl/reagent/inaprovaline)
+	var/list/reagent_ids = list(/singleton/reagent/tricordrazine, /singleton/reagent/inaprovaline)
 	var/list/reagent_volumes = list()
 	var/list/reagent_names = list()
 
 	center_of_mass = null
 
 /obj/item/reagent_containers/hypospray/borghypo/medical
-	reagent_ids = list(/decl/reagent/bicaridine, /decl/reagent/kelotane, /decl/reagent/dexalin, /decl/reagent/inaprovaline, /decl/reagent/dylovene, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/thetamycin)
+	reagent_ids = list(/singleton/reagent/bicaridine, /singleton/reagent/kelotane, /singleton/reagent/dexalin, /singleton/reagent/inaprovaline, /singleton/reagent/dylovene, /singleton/reagent/perconol, /singleton/reagent/mortaphenyl, /singleton/reagent/thetamycin)
 
 /obj/item/reagent_containers/hypospray/borghypo/rescue
-	reagent_ids = list(/decl/reagent/tricordrazine, /decl/reagent/dexalin, /decl/reagent/inaprovaline, /decl/reagent/dylovene, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/adrenaline, /decl/reagent/coagzolug)
+	reagent_ids = list(/singleton/reagent/tricordrazine, /singleton/reagent/dexalin, /singleton/reagent/inaprovaline, /singleton/reagent/dylovene, /singleton/reagent/perconol, /singleton/reagent/mortaphenyl, /singleton/reagent/adrenaline, /singleton/reagent/coagzolug)
 
 /obj/item/reagent_containers/hypospray/borghypo/Initialize()
 	. = ..()
 
 	for(var/T in reagent_ids)
 		reagent_volumes[T] = volume
-		var/decl/reagent/R = decls_repository.get_decl(T)
+		var/singleton/reagent/R = GET_SINGLETON(T)
 		reagent_names += R.name
 
 	update_icon()
@@ -44,7 +44,7 @@
 	cut_overlays()
 
 	var/rid = reagent_ids[mode]
-	var/decl/reagent/R = decls_repository.get_decl(rid)
+	var/singleton/reagent/R = GET_SINGLETON(rid)
 	if(reagent_volumes[rid])
 		filling = image(icon, src, "[initial(icon_state)][reagent_volumes[rid]]")
 		filling.color = R.get_color()
@@ -122,7 +122,7 @@
 		if(t)
 			playsound(loc, 'sound/effects/pop.ogg', 50, 0)
 			mode = t
-			var/decl/reagent/R = decls_repository.get_decl(reagent_ids[mode])
+			var/singleton/reagent/R = GET_SINGLETON(reagent_ids[mode])
 			to_chat(usr, SPAN_NOTICE("Synthesizer is now producing '[R.name]'."))
 			update_icon()
 
@@ -130,7 +130,7 @@
 	if(!..(user, 2))
 		return
 
-	var/decl/reagent/R = decls_repository.get_decl(reagent_ids[mode])
+	var/singleton/reagent/R = GET_SINGLETON(reagent_ids[mode])
 	to_chat(user, SPAN_NOTICE("It is currently producing [R.name] and has [reagent_volumes[reagent_ids[mode]]] out of [volume] units left."))
 
 /obj/item/reagent_containers/hypospray/borghypo/service
@@ -142,14 +142,14 @@
 	recharge_time = 3
 	volume = 60
 	possible_transfer_amounts = list(5, 10, 20, 30)
-	reagent_ids = list(/decl/reagent/alcohol/beer, /decl/reagent/alcohol/coffee/kahlua, /decl/reagent/alcohol/whiskey, /decl/reagent/alcohol/wine, /decl/reagent/alcohol/vodka, /decl/reagent/alcohol/gin, /decl/reagent/alcohol/rum, /decl/reagent/alcohol/tequila, /decl/reagent/alcohol/vermouth, /decl/reagent/alcohol/cognac, /decl/reagent/alcohol/ale, /decl/reagent/alcohol/mead, /decl/reagent/water, /decl/reagent/sugar, /decl/reagent/drink/ice, /decl/reagent/drink/tea, /decl/reagent/drink/icetea, /decl/reagent/drink/space_cola, /decl/reagent/drink/spacemountainwind, /decl/reagent/drink/dr_gibb, /decl/reagent/drink/spaceup, /decl/reagent/drink/tonic, /decl/reagent/drink/sodawater, /decl/reagent/drink/lemon_lime, /decl/reagent/drink/orangejuice, /decl/reagent/drink/limejuice, /decl/reagent/drink/watermelonjuice, /decl/reagent/drink/coffee, /decl/reagent/drink/coffee/espresso)
+	reagent_ids = list(/singleton/reagent/alcohol/beer, /singleton/reagent/alcohol/coffee/kahlua, /singleton/reagent/alcohol/whiskey, /singleton/reagent/alcohol/wine, /singleton/reagent/alcohol/vodka, /singleton/reagent/alcohol/gin, /singleton/reagent/alcohol/rum, /singleton/reagent/alcohol/tequila, /singleton/reagent/alcohol/vermouth, /singleton/reagent/alcohol/cognac, /singleton/reagent/alcohol/ale, /singleton/reagent/alcohol/mead, /singleton/reagent/water, /singleton/reagent/sugar, /singleton/reagent/drink/ice, /singleton/reagent/drink/tea, /singleton/reagent/drink/icetea, /singleton/reagent/drink/space_cola, /singleton/reagent/drink/spacemountainwind, /singleton/reagent/drink/dr_gibb, /singleton/reagent/drink/spaceup, /singleton/reagent/drink/tonic, /singleton/reagent/drink/sodawater, /singleton/reagent/drink/lemon_lime, /singleton/reagent/drink/orangejuice, /singleton/reagent/drink/limejuice, /singleton/reagent/drink/watermelonjuice, /singleton/reagent/drink/coffee, /singleton/reagent/drink/coffee/espresso)
 
 /obj/item/reagent_containers/hypospray/borghypo/service/update_icon()
 	underlays.Cut()
 	cut_overlays()
 
 	var/rid = reagent_ids[mode]
-	var/decl/reagent/R = decls_repository.get_decl(rid)
+	var/singleton/reagent/R = GET_SINGLETON(rid)
 	if(reagent_volumes[rid])
 		var/mutable_appearance/filling = mutable_appearance('icons/obj/shaker.dmi', "[icon_state]-0")
 		var/percent = round((reagent_volumes[rid] / volume) * 100)
@@ -183,18 +183,18 @@
 		return
 
 	var/rid = reagent_ids[mode]
-	var/decl/reagent/R = decls_repository.get_decl(rid)
+	var/singleton/reagent/R = GET_SINGLETON(rid)
 	var/temp = R.default_temperature
 	var/amt = min(amount_per_transfer_from_this, reagent_volumes[rid])
 	target.reagents.add_reagent(rid, amt, temperature = temp)
 	reagent_volumes[rid] -= amt
 	to_chat(user, SPAN_NOTICE("You transfer [amt] units of [R.name] to [target]."))
-	playsound(src.loc, /decl/sound_category/generic_pour_sound, 50, 1)
+	playsound(src.loc, /singleton/sound_category/generic_pour_sound, 50, 1)
 	dispense()
 	return
 
 /obj/item/reagent_containers/hypospray/borghypo/service/proc/dispense()
-	var/decl/reagent/R = decls_repository.get_decl(reagent_ids[mode])
+	var/singleton/reagent/R = GET_SINGLETON(reagent_ids[mode])
 	var/mutable_appearance/reagent_overlay = mutable_appearance('icons/obj/shaker.dmi', "disp")
 	reagent_overlay.color = R.get_color()
 	underlays += reagent_overlay
