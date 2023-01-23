@@ -303,6 +303,7 @@ BLIND     // can't see anything
 	var/sprite_state = "security_goggles"
 	contained_sprite = TRUE
 	change_item_state_on_flip = TRUE
+	normal_layer = FALSE
 
 /obj/item/clothing/glasses/safety/goggles/goon/Initialize(mapload, material_key)
 	icon_state = sprite_state
@@ -573,6 +574,7 @@ BLIND     // can't see anything
 	item_flags = THICKMATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
+	normal_layer = FALSE
 
 /obj/item/clothing/glasses/welding/attack_self()
 	toggle()
