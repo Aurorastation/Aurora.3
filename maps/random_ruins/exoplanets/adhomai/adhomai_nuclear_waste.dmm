@@ -1,0 +1,1351 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"b" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"c" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"e" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/radioactive_waste,
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"f" = (
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"g" = (
+/obj/machinery/porta_turret/ballistic,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"h" = (
+/obj/structure/sign/radiation{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"i" = (
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"j" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"l" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"p" = (
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"q" = (
+/obj/machinery/door/airlock/highsecurity{
+	req_access = list(209);
+	name = "Compound"
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"s" = (
+/obj/machinery/door/blast/shutters{
+	id = "radiation_waste"
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"t" = (
+/obj/machinery/porta_turret/ballistic,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"u" = (
+/obj/structure/sign/radiation{
+	pixel_y = -32
+	},
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"v" = (
+/obj/structure/sign/radiation{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"A" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"B" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret/ballistic,
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"E" = (
+/obj/machinery/door/airlock/highsecurity{
+	req_access = list(209);
+	name = "Entry";
+	locked = 1;
+	icon_state = "door_locked"
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"F" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"G" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"H" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"I" = (
+/turf/simulated/wall/r_wall,
+/area/adhomai_nuclear_waste)
+"J" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"M" = (
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"O" = (
+/obj/structure/blocker/steel/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"S" = (
+/obj/machinery/porta_turret/ballistic,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"T" = (
+/obj/machinery/turretid/lethal{
+	pixel_y = -32;
+	req_access = list(209);
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "radiation_waste";
+	name = "Entry";
+	req_access = list(209);
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"V" = (
+/obj/machinery/door/airlock/highsecurity{
+	req_access = list(209);
+	name = "Storage"
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"W" = (
+/obj/structure/sign/radiation{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"X" = (
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+"Y" = (
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste)
+
+(1,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(2,1,1) = {"
+c
+c
+v
+I
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+I
+h
+"}
+(3,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(4,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(5,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(6,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(7,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+j
+J
+J
+j
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(8,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+S
+I
+I
+I
+I
+S
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(9,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+I
+I
+e
+e
+I
+I
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(10,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+I
+I
+I
+M
+b
+I
+I
+I
+j
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(11,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+I
+I
+S
+I
+M
+e
+I
+S
+I
+I
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(12,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+I
+I
+M
+M
+I
+M
+H
+I
+M
+e
+I
+I
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(13,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+j
+I
+I
+e
+i
+b
+I
+M
+e
+I
+M
+M
+e
+I
+I
+j
+J
+J
+J
+J
+J
+O
+c
+"}
+(14,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+I
+I
+I
+e
+M
+M
+I
+X
+M
+I
+i
+M
+H
+I
+I
+I
+J
+J
+J
+J
+J
+O
+c
+"}
+(15,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+B
+I
+I
+S
+I
+e
+M
+M
+I
+M
+M
+I
+M
+M
+e
+I
+M
+I
+I
+B
+J
+J
+J
+O
+c
+"}
+(16,1,1) = {"
+c
+c
+c
+O
+J
+J
+u
+I
+I
+M
+b
+I
+I
+V
+I
+I
+V
+I
+I
+I
+V
+I
+I
+M
+t
+I
+I
+a
+J
+J
+O
+c
+"}
+(17,1,1) = {"
+c
+c
+c
+s
+J
+J
+J
+E
+M
+M
+M
+q
+M
+M
+M
+p
+M
+M
+M
+F
+M
+M
+V
+M
+M
+T
+I
+J
+J
+J
+O
+c
+"}
+(18,1,1) = {"
+c
+c
+c
+O
+J
+J
+W
+I
+I
+M
+b
+I
+I
+V
+I
+I
+I
+V
+I
+I
+V
+I
+I
+M
+g
+I
+I
+a
+J
+J
+O
+c
+"}
+(19,1,1) = {"
+c
+c
+c
+O
+J
+J
+G
+B
+I
+I
+S
+I
+e
+M
+M
+I
+M
+i
+I
+M
+M
+e
+I
+M
+I
+I
+B
+J
+J
+J
+O
+c
+"}
+(20,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+I
+I
+I
+e
+M
+M
+I
+A
+M
+I
+i
+M
+H
+I
+I
+I
+J
+J
+J
+J
+J
+O
+c
+"}
+(21,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+l
+I
+I
+e
+M
+f
+I
+e
+M
+I
+M
+M
+e
+I
+I
+l
+J
+J
+J
+J
+J
+O
+c
+"}
+(22,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+I
+I
+M
+M
+I
+e
+M
+I
+M
+e
+I
+I
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(23,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+I
+I
+S
+I
+e
+M
+I
+S
+I
+I
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(24,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+l
+I
+I
+I
+M
+b
+I
+I
+I
+l
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(25,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+I
+I
+e
+e
+I
+I
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(26,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+S
+I
+I
+I
+I
+S
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(27,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+l
+J
+J
+l
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(28,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(29,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(30,1,1) = {"
+c
+c
+c
+O
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+J
+O
+c
+"}
+(31,1,1) = {"
+c
+c
+v
+I
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+I
+h
+"}
+(32,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}

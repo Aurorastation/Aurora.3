@@ -171,6 +171,14 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
+"jx" = (
+/obj/structure/blocker/steel/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "jO" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/red/full,
@@ -985,6 +993,7 @@ Hg
 Hg
 Hg
 Hg
+Hq
 on
 on
 on
@@ -1009,8 +1018,7 @@ on
 on
 on
 on
-on
-on
+Hq
 Hg
 Hg
 Hg
@@ -1019,7 +1027,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1044,7 +1052,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1053,7 +1061,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1078,7 +1086,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1087,7 +1095,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1112,7 +1120,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1121,7 +1129,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1146,7 +1154,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 CC
 Hg
@@ -1155,7 +1163,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1180,7 +1188,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1189,7 +1197,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1214,7 +1222,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1223,7 +1231,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1248,7 +1256,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1257,7 +1265,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1282,7 +1290,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 hQ
 Hg
@@ -1291,7 +1299,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1316,7 +1324,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1325,7 +1333,7 @@ Hg
 WW
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1350,7 +1358,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1359,7 +1367,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 lg
@@ -1384,7 +1392,7 @@ Mq
 Mq
 qB
 Hg
-on
+jx
 Hg
 WW
 Hg
@@ -1393,7 +1401,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1418,7 +1426,7 @@ PT
 Mq
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1452,7 +1460,7 @@ ZG
 Mq
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1486,7 +1494,7 @@ Cg
 Mq
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1520,7 +1528,7 @@ ZG
 Mq
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1529,7 +1537,7 @@ Hg
 CC
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1554,7 +1562,7 @@ oR
 Mq
 Hg
 Hg
-on
+jx
 Hg
 Hg
 hQ
@@ -1563,7 +1571,7 @@ hQ
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 lg
@@ -1588,7 +1596,7 @@ Mq
 Mq
 qB
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1597,7 +1605,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1622,7 +1630,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1631,7 +1639,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1656,7 +1664,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1665,7 +1673,7 @@ Hg
 WW
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1690,7 +1698,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1699,7 +1707,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1724,7 +1732,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 WW
@@ -1733,7 +1741,7 @@ WW
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1758,7 +1766,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1767,7 +1775,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1792,7 +1800,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 CC
 Hg
 Hg
@@ -1801,7 +1809,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1826,7 +1834,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1835,7 +1843,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1860,7 +1868,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1869,7 +1877,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1894,7 +1902,7 @@ Hg
 Hg
 Hg
 Hg
-on
+jx
 Hg
 Hg
 Hg
@@ -1903,6 +1911,7 @@ Hg
 Hg
 Hg
 Hg
+Hq
 on
 on
 on
@@ -1927,8 +1936,7 @@ on
 on
 on
 on
-on
-on
+Hq
 Hg
 hQ
 Hg
