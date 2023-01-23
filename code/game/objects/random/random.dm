@@ -140,7 +140,7 @@
 /obj/random/medical
 	name = "Random Medicine"
 	desc = "This is a random medical item."
-	icon = 'icons/obj/stacks/medical.dmi'
+	icon = 'icons/obj/item/stacks/medical.dmi'
 	icon_state = "brutepack"
 	spawn_nothing_percentage = 25
 	problist = list(

@@ -634,7 +634,7 @@
 	if(!bleeding || previous_bleed_timer <= damage_inflicted)
 		bleeding = TRUE
 		previous_bleed_timer = damage_inflicted
-		addtimer(CALLBACK(src, .proc/stop_bleeding), (damage_inflicted SECONDS) * blood_timer_mod, TIMER_UNIQUE | TIMER_OVERRIDE)
+		addtimer(CALLBACK(src, PROC_REF(stop_bleeding)), (damage_inflicted SECONDS) * blood_timer_mod, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /mob/living/simple_animal/proc/stop_bleeding()
 	bleeding = FALSE
@@ -740,7 +740,7 @@
 	playsound(src, pick(emote_sounds), 75, 1)
 	if(client)
 		sound_time = FALSE
-		addtimer(CALLBACK(src, .proc/reset_sound_time), 2 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(reset_sound_time)), 2 SECONDS)
 
 /mob/living/simple_animal/verb/change_name()
 	set name = "Name Animal"

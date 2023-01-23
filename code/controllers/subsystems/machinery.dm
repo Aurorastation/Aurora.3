@@ -268,8 +268,8 @@ if(Datum.isprocessing) {\
 			rcon_breaker_units += breaker
 			rcon_breaker_units_by_tag[breaker.RCon_tag] = breaker
 
-	sortTim(rcon_smes_units, /proc/cmp_rcon_smes)
-	sortTim(rcon_breaker_units, /proc/cmp_rcon_bbox)
+	sortTim(rcon_smes_units, GLOBAL_PROC_REF(cmp_rcon_smes))
+	sortTim(rcon_breaker_units, GLOBAL_PROC_REF(cmp_rcon_bbox))
 
 #undef SSMACHINERY_PIPENETS
 #undef SSMACHINERY_MACHINERY

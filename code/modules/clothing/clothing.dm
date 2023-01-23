@@ -482,12 +482,12 @@
 
 /obj/item/clothing/gloves/dropped()
 	..()
-	INVOKE_ASYNC(src, .proc/update_wearer)
+	INVOKE_ASYNC(src, PROC_REF(update_wearer))
 
 /obj/item/clothing/gloves/mob_can_unequip()
 	. = ..()
 	if (.)
-		INVOKE_ASYNC(src, .proc/update_wearer)
+		INVOKE_ASYNC(src, PROC_REF(update_wearer))
 
 /obj/item/clothing/gloves/clothing_class()
 	return "gloves"
@@ -509,6 +509,8 @@
 
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
+
+	valid_accessory_slots = list(ACCESSORY_SLOT_HEAD)
 
 	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 
@@ -640,6 +642,14 @@
 
 /obj/item/clothing/head/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
+	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
+		for(var/obj/item/clothing/accessory/A in accessories)
+			A.accessory_mob_overlay.cut_overlays()
+	else
+		for(var/obj/item/clothing/accessory/A in accessories)
+			var/image/accessory_image = A.get_accessory_mob_overlay(H)
+			I.add_overlay(accessory_image)
+
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(H.species.blood_mask, icon_state = "helmetblood")
 		bloodsies.color = blood_color
