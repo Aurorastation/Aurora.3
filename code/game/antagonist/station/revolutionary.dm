@@ -26,7 +26,7 @@ var/datum/antagonist/revolutionary/revs
 	faction_indicator = "contender"
 	faction_invisible = FALSE
 
-	restricted_jobs = list("AI", "Cyborg")
+	restricted_jobs = list("AI", "Cyborg", "Merchant")
 	protected_jobs = list("Lab Assistant", "Medical Intern", "Engineering Apprentice", "Assistant", "Security Cadet", "Captain", "Head of Security")
 	required_age = 31
 
