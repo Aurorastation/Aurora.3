@@ -130,25 +130,13 @@
 
 
 // Round up
-#define n_ceil(number) ( (isnum(number)) ? (round(number)+1) : (null) )
-
-
-// Round up
-// /proc/n_ceil(var/num)
-// 	if(isnum(num))
-// 		return round(num)+1
+#define n_ceil(number) ( round(number)+1 )
 
 // Round to nearest integer
-/proc/n_round(var/num)
-	if(isnum(num))
-		if(num-round(num)<0.5)
-			return round(num)
-		return n_ceil(num)
+#define n_round(number) ( ( (number)-round(number)<0.5 ) ? ( round(number) ) : ( n_ceil(number) ) )
 
 // Returns 1 if N is inbetween Min and Max
-/proc/n_inrange(var/num, var/min=-1, var/max=1)
-	if(isnum(num)&&isnum(min)&&isnum(max))
-		return ((min <= num) && (num <= max))
+#define n_inrange(number, min, max) ( (min <= number) && (number <= max) )
 
 #define MODULUS_FLOAT(X, Y) ( (X) - (Y) * round((X) / (Y)) )
 
