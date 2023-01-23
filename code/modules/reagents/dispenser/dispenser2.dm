@@ -61,7 +61,7 @@
 		C.forceMove(src)
 
 	cartridges[C.label] = C
-	sortTim(cartridges, /proc/cmp_text_asc)
+	sortTim(cartridges, GLOBAL_PROC_REF(cmp_text_asc))
 	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/chemical_dispenser/proc/remove_cartridge(label)
@@ -161,7 +161,7 @@
 			var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
 			playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
 			C.reagents.trans_to(container, amount)
-			addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 2 SECONDS) //Just in case we get no new data
+			addtimer(CALLBACK(SSvueui, TYPE_PROC_REF(/datum/controller/subsystem/processing/vueui, check_uis_for_change), src), 2 SECONDS) //Just in case we get no new data
 
 	else if(href_list["ejectBeaker"])
 		if(container)

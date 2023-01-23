@@ -287,7 +287,7 @@ datum/gear/suit/colorvest
 	path = /obj/item/clothing/suit/storage/dominia/consular
 	allowed_roles = list("Consular Officer")
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi, /singleton/origin_item/culture/diona_dominia)
 
 /datum/gear/suit/dominia_consular/New()
 	..()

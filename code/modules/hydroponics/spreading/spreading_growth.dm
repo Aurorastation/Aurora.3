@@ -18,7 +18,7 @@
 			continue
 		if(floor.density)
 			if(seed && seed.chems[/singleton/reagent/acid/polyacid])
-				addtimer(CALLBACK(floor, /atom/.proc/ex_act, 3), rand(5, 25))
+				addtimer(CALLBACK(floor, TYPE_PROC_REF(/atom, ex_act), 3), rand(5, 25))
 			continue
 		if(!Adjacent(floor) || !floor.Enter(src))
 			continue
@@ -104,7 +104,7 @@
 			var/turf/target_turf = pick(neighbors)
 			var/obj/effect/plant/child = new(get_turf(src),seed,parent)
 			// This should do a little bit of animation.
-			addtimer(CALLBACK(src, .proc/do_move, target_turf, child), 1)
+			addtimer(CALLBACK(src, PROC_REF(do_move), target_turf, child), 1)
 			// Update neighboring squares.
 			for(var/obj/effect/plant/neighbor in range(1,target_turf))
 				neighbor.neighbors -= target_turf
