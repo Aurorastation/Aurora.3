@@ -125,3 +125,11 @@
 /obj/structure/closet/skrell
 	icon_state = "alien"
 	layer = BELOW_OBJ_LAYER
+
+/obj/structure/closet/outhouse
+	name = "outhouse"
+	desc = "A rustic sanitation structure."
+	icon_state = "outhouse"
+	anchored = TRUE
+	open_sound = 'sound/machines/wooden_closet_open.ogg'
+	close_sound = 'sound/machines/wooden_closet_close.ogg'

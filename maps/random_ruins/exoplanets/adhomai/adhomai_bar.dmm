@@ -1104,6 +1104,12 @@
 "Xv" = (
 /turf/simulated/wall/wood,
 /area/adhomai_bar)
+"XG" = (
+/obj/structure/closet/outhouse,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "Yn" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -2137,7 +2143,7 @@ nR
 (29,1,1) = {"
 nR
 nR
-nR
+XG
 FM
 nR
 nR

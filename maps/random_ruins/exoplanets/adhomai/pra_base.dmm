@@ -360,6 +360,15 @@
 	temperature = 268.15
 	},
 /area/pra_base)
+"wE" = (
+/obj/machinery/door/airlock{
+	req_access = list(209);
+	name = "Restroom"
+	},
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
+	},
+/area/pra_base)
 "wK" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/concrete/square{
@@ -725,6 +734,17 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/pra_base)
+"Rd" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -1128,9 +1148,9 @@ wB
 Jw
 wB
 wB
-wB
-wB
-wB
+gU
+gU
+gU
 wB
 wB
 wB
@@ -1162,9 +1182,9 @@ wB
 wB
 wB
 wB
-wB
-wB
-wB
+gU
+Rd
+gU
 wB
 wB
 wB
@@ -1197,7 +1217,7 @@ Lu
 Go
 wB
 gU
-gU
+wE
 gU
 gU
 gU

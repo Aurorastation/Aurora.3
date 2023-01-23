@@ -6,6 +6,16 @@
 	temperature = 278.15
 	},
 /area/adhomai_raskariim_hideout)
+"bk" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/closet/outhouse,
+/obj/item/organ/internal/liver/tajara,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "ch" = (
 /obj/structure/table/wood,
 /obj/item/pocketwatch/adhomai,
@@ -1097,7 +1107,7 @@ WM
 MZ
 "}
 (19,1,1) = {"
-CS
+bk
 WM
 WO
 WO

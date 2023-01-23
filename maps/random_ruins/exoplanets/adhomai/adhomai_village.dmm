@@ -101,6 +101,12 @@
 	temperature = 268.15
 	},
 /area/adhomai_village)
+"fD" = (
+/obj/structure/closet/outhouse,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/adhomai_village)
 "fZ" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -1107,7 +1113,7 @@ xc
 xc
 xc
 xc
-xc
+fD
 xc
 xc
 "}

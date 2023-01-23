@@ -487,6 +487,12 @@
 	temperature = 268.15
 	},
 /area/ala_base)
+"AW" = (
+/obj/structure/closet/outhouse,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/ala_base)
 "Bi" = (
 /obj/structure/table/standard,
 /obj/item/storage/belt/utility,
@@ -1422,7 +1428,7 @@ DB
 DB
 DB
 DB
-DB
+AW
 DB
 DB
 DB

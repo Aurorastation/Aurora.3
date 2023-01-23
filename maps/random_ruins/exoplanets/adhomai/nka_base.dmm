@@ -392,6 +392,12 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"IG" = (
+/obj/structure/closet/outhouse,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/nka_base)
 "Jc" = (
 /obj/structure/closet/cabinet,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
@@ -1072,7 +1078,7 @@ DL
 DL
 DL
 DL
-DL
+IG
 DL
 DL
 yB

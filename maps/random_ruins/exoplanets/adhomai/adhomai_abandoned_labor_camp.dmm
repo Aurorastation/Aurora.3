@@ -313,6 +313,12 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"vw" = (
+/obj/structure/closet/outhouse,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "vB" = (
 /obj/effect/floor_decal/concrete,
 /obj/effect/floor_decal/concrete{
@@ -928,7 +934,7 @@ nR
 kB
 nR
 nR
-nR
+vw
 nR
 nR
 nR
