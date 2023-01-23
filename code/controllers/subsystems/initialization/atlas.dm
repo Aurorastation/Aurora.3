@@ -11,14 +11,11 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	var/list/known_maps = list()
 	var/dmm_suite/maploader
-	var/list/height_markers = list()
 
 	var/list/mapload_callbacks = list()
 	var/map_override	// If set, SSatlas will forcibly load this map. If the map does not exist, mapload will fail and SSatlas will panic.
 	var/list/spawn_locations = list()
 
-	var/list/list/connected_z_cache = list()
-	var/z_levels = 0	// Each bit represents a connection between adjacent levels.  So the first bit means levels 1 and 2 are connected.
 	var/datum/space_sector/current_sector
 	var/list/possible_sectors = list()
 	//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
@@ -191,8 +188,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 	if (!maps_loaded)
 		world.map_panic("No maps loaded!")
 
-	setup_multiz()
-
 	QDEL_NULL(maploader)
 
 	InitializeSectors()
@@ -252,14 +247,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 		.++
 		CHECK_TICK
-
-/datum/controller/subsystem/atlas/proc/setup_multiz()
-	for (var/thing in height_markers)
-		var/obj/effect/landmark/map_data/marker = thing
-		log_debug("atlas: setting up Z marker on level [marker.z] with height [marker.height].")
-		marker.setup()
-
-	connected_z_cache.Cut()
 
 /datum/controller/subsystem/atlas/proc/get_selected_map()
 	if (config.override_map)

@@ -4,7 +4,7 @@
 	spawn_cost = 1
 	spawn_weight = 1
 	description = "An arctic planet and an alien underground surface."
-	suffixes = list("blueriver/blueriver-1.dmm","blueriver/blueriver-2.dmm")
+	suffixes = list("away_site/blueriver/blueriver-1.dmm","away_site/blueriver/blueriver-2.dmm")
 	generate_mining_by_z = 2
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_GAKAL)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
