@@ -11,7 +11,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	name = "Ticker"
 
 	priority = SS_PRIORITY_TICKER
-	flags = SS_NO_TICK_CHECK | SS_FIRE_IN_LOBBY
+	flags = SS_NO_TICK_CHECK
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	init_order = SS_INIT_LOBBY
 
 	wait = 1 SECOND
@@ -152,11 +153,13 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if (pregame_timeleft <= 0 || current_state == GAME_STATE_SETTING_UP)
 		current_state = GAME_STATE_SETTING_UP
+		Master.SetRunLevel(RUNLEVEL_SETUP)
 		wait = 2 SECONDS
 		switch (setup())
 			if (SETUP_REVOTE)
 				wait = 1 SECOND
 				is_revote = TRUE
+				Master.SetRunLevel(RUNLEVEL_LOBBY)
 				pregame()
 			if (SETUP_REATTEMPT)
 				pregame_timeleft = 1 SECOND
@@ -179,6 +182,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if(!mode.explosion_in_progress && game_finished && (mode_finished || post_game))
 		current_state = GAME_STATE_FINISHED
+		Master.SetRunLevel(RUNLEVEL_POSTGAME)
 
 		declare_completion()
 
@@ -233,24 +237,25 @@ var/datum/controller/subsystem/ticker/SSticker
 		if(Player.mind && !isnewplayer(Player))
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
+				var/area/playerArea = get_area(playerTurf)
 				if(evacuation_controller.round_over() && evacuation_controller.emergency_evacuation)
-					if(isNotAdminLevel(playerTurf.z))
-						to_chat(Player, "<span class='notice'><b>You managed to survive, but were marooned on [station_name()] as [Player.real_name]...</b></span>")
+					if(isStationLevel(playerTurf.z) && is_station_area(playerArea))
+						to_chat(Player, SPAN_GOOD(SPAN_BOLD("You managed to survive the events on [station_name()] as [Player.real_name].")))
 					else
-						to_chat(Player, "<span class='good'><b>You managed to survive the events on [station_name()] as [Player.real_name].</b></span>")
-				else if(isAdminLevel(playerTurf.z))
-					to_chat(Player, "<span class='good'><b>You successfully underwent crew transfer after events on [station_name()] as [Player.real_name].</b></span>")
+						to_chat(Player, SPAN_NOTICE(SPAN_BOLD("You managed to survive, but were marooned as [Player.real_name]...")))
+				else if(isStationLevel(playerTurf.z) && is_station_area(playerArea))
+					to_chat(Player, SPAN_GOOD(SPAN_BOLD("You successfully underwent the bluespace jump after the events on [station_name()] as [Player.real_name].")))
 				else if(issilicon(Player))
-					to_chat(Player, "<span class='good'><b>You remain operational after the events on [station_name()] as [Player.real_name].</b></span>")
+					to_chat(Player, SPAN_GOOD(SPAN_BOLD("You remain operational after the events on [station_name()] as [Player.real_name].")))
 				else
-					to_chat(Player, "<span class='notice'><b>You missed the crew transfer after the events on [station_name()] as [Player.real_name].</b></span>")
+					to_chat(Player, SPAN_NOTICE(SPAN_BOLD("You missed the crew transfer after the events on [station_name()] as [Player.real_name].")))
 			else
 				if(istype(Player,/mob/abstract/observer))
 					var/mob/abstract/observer/O = Player
 					if(!O.started_as_observer)
-						to_chat(Player, "<span class='warning'><b>You did not survive the events on [station_name()]...</b></span>")
+						to_chat(Player, SPAN_WARNING(SPAN_BOLD("You did not survive the events on [station_name()]...")))
 				else
-					to_chat(Player, "<span class='warning'><b>You did not survive the events on [station_name()]...</b></span>")
+					to_chat(Player, SPAN_WARNING(SPAN_BOLD("You did not survive the events on [station_name()]...")))
 	to_world("<br>")
 
 	for (var/mob/living/silicon/ai/aiPlayer in mob_list)
@@ -535,7 +540,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	equip_characters()
 	SSrecords.build_records()
 
-	Master.RoundStart()
+	Master.SetRunLevel(RUNLEVEL_GAME)
 	real_round_start_time = REALTIMEOFDAY
 	round_start_time = world.time
 

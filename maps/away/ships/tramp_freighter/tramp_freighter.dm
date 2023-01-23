@@ -1,14 +1,14 @@
 /datum/map_template/ruin/away_site/tramp_freighter
 	name = "Tramp Freighter"
 	description = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
-	suffix = "ships/tramp_freighter/tramp_freighter.dmm"
+	suffixes = list("ships/tramp_freighter/tramp_freighter.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "tramp_freighter"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freighter_shuttle)
 
-/decl/submap_archetype/tramp_freighter
+/singleton/submap_archetype/tramp_freighter
 	map = "Tramp Freighter"
 	descriptor = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
 
@@ -26,8 +26,8 @@
 	name = "Tramp Freighter"
 	class = "ICV"
 	desc = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship_grey"
+	moving_state = "ship_grey_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -70,6 +70,8 @@
 	designation = "Dame"
 	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one's transponder identifies it as belonging to an independent freighter."
 	shuttle = "Freight Shuttle"
+	icon_state = "shuttle_grey"
+	moving_state = "shuttle_grey_moving" 
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

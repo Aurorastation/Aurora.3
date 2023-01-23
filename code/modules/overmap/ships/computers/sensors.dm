@@ -77,7 +77,7 @@
 		data["status"] = "MISSING"
 		data["range"] = "N/A"
 		data["on"] = 0
-	
+
 	if(identification)
 		data["id_on"] = identification.use_power
 		if(identification.disabled)
@@ -183,6 +183,14 @@
 		visible_message(SPAN_ITALIC("[accent_icon] <b>[user_name]</b> explains, \"[beacon.distress_message]\""))
 		return TOPIC_HANDLED
 
+	if(href_list["inbound_fire"])
+		var/direction = href_list["inbound_fire"]
+		if(direction != "clear")
+			security_announcement.Announce("Enemy fire inbound, enemy fire inbound! [direction]!", "Brace for shock!", sound('sound/mecha/internaldmgalarm.ogg', volume = 90), 0)
+		else
+			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/misc/announcements/security_level_old.ogg'), 0)
+		return TOPIC_HANDLED
+
 /obj/machinery/computer/ship/sensors/process()
 	..()
 	if(!linked)
@@ -196,7 +204,7 @@
 /obj/machinery/shipsensors
 	name = "sensors suite"
 	desc = "Long range gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
-	icon = 'icons/obj/machines/sensors.dmi'
+	icon = 'icons/obj/machinery/sensors.dmi'
 	icon_state = "sensors"
 	anchored = 1
 	var/max_health = 200
@@ -305,7 +313,7 @@
 
 	if (heat > 0)
 		heat = max(0, heat - heat_reduction)
-	
+
 	update_icon()
 
 /obj/machinery/shipsensors/power_change()

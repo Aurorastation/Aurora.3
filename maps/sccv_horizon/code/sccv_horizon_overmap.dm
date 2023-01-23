@@ -3,7 +3,7 @@
 	designation = "Horizon"
 	desc = "A line without compare, the Venator-series consists of one vessel so far: the SCCV Horizon, the lead ship of its class. Designed to be an entirely self-sufficient general-purpose surveying ship and to carry multiple replacement crews simultaneously, the Venator is equipped with both a bluespace and a warp drive and two different engines. Defying typical cruiser dimensions, the Venator is home to a sizable residential deck below the operations deck of the ship, where the crew is housed. It also features weapon hardpoints in its prominent wing nacelles. This one's transponder identifies it, obviously, as the SCCV Horizon."
 	fore_dir = SOUTH
-	vessel_mass = 100000
+	vessel_mass = 70000
 	burn_delay = 2 SECONDS
 	base = TRUE
 
@@ -18,6 +18,7 @@
 	"nav_dock_horizon_1",
 	"nav_dock_horizon_2",
 	"nav_dock_horizon_3",
+	"nav_dock_horizon_4",
 	"deck_one_fore_of_horizon",
 	"deck_one_starboard_side",
 	"deck_one_port_side",
@@ -87,6 +88,7 @@
 /obj/effect/shuttle_landmark/horizon/dock1
 	name = "Starboard Primary Docking Arm"
 	landmark_tag = "nav_dock_horizon_1"
+	docking_controller = "dock_horizon_1_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
@@ -100,6 +102,13 @@
 	name = "Starboard Primary Docking Arm-Fore"
 	landmark_tag = "nav_dock_horizon_3"
 	docking_controller = "dock_horizon_3_airlock"
+	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/horizon/dock4
+	name = "Port Primary Docking Arm-Fore"
+	landmark_tag = "nav_dock_horizon_4"
+	docking_controller = "dock_horizon_4_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 

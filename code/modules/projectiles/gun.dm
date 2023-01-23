@@ -83,8 +83,8 @@
 	var/displays_maptext = FALSE
 	var/can_ammo_display = TRUE
 	var/obj/item/ammo_display
-	var/empty_sound = /decl/sound_category/out_of_ammo
-	var/casing_drop_sound = /decl/sound_category/casing_drop_sound
+	var/empty_sound = /singleton/sound_category/out_of_ammo
+	var/casing_drop_sound = /singleton/sound_category/casing_drop_sound
 	maptext_x = 22
 	maptext_y = 2
 
@@ -109,7 +109,7 @@
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
-	var/wield_sound = /decl/sound_category/generic_wield_sound
+	var/wield_sound = /singleton/sound_category/generic_wield_sound
 	var/unwield_sound = null
 	var/one_hand_fa_penalty = 0 // Additional accuracy/dispersion penalty for using full auto one-handed
 
@@ -218,7 +218,7 @@
 
 	var/mob/living/M = user
 
-	if(HULK in M.mutations)
+	if(HAS_FLAG(M.mutations, HULK))
 		to_chat(M, SPAN_DANGER("Your fingers are much too large for the trigger guard!"))
 		return FALSE
 
@@ -312,7 +312,6 @@
 
 	var/shoot_time = max((burst - 1) * burst_delay, burst_delay)
 	user.setClickCooldown(shoot_time)
-	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
 
 	user.face_atom(target, TRUE)
@@ -362,7 +361,6 @@
 	update_held_icon()
 
 	user.setClickCooldown(max(burst_delay+1, fire_delay))
-	user.setMoveCooldown(move_delay)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)

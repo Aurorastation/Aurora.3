@@ -28,10 +28,8 @@ var/global/list/default_medbay_channels = list(
 //
 
 /obj/item/device/radio
+	name = "shortwave radio"
 	icon = 'icons/obj/radio.dmi'
-	name = "station bounced radio"
-	var/radio_desc = ""
-	suffix = "\[3\]"
 	icon_state = "walkietalkie"
 	item_state = "radio"
 	flags = CONDUCT
@@ -40,9 +38,11 @@ var/global/list/default_medbay_channels = list(
 	throw_range = 9
 	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
+	suffix = "\[3\]"
+	var/radio_desc = ""
 	var/const/FREQ_LISTENING = TRUE
 	var/list/internal_channels
-	var/clicksound = /decl/sound_category/button_sound //played sound on usage
+	var/clicksound = /singleton/sound_category/button_sound //played sound on usage
 	var/clickvol = 10 //volume
 
 	var/obj/item/cell/cell = /obj/item/cell/device
@@ -87,15 +87,15 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
-	frequency = new_frequency
-	radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
+	if(new_frequency)
+		frequency = new_frequency
+		radio_connection = SSradio.add_object(src, new_frequency, RADIO_CHAT)
 
 /obj/item/device/radio/Initialize()
 	. = ..()
 
 	wires = new(src)
 	internal_channels = default_internal_channels.Copy()
-	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
 	if(frequency < RADIO_LOW_FREQ || frequency > RADIO_HIGH_FREQ)
 		frequency = sanitize_frequency(frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
@@ -139,9 +139,13 @@ var/global/list/default_medbay_channels = list(
 		should_be_listening = listening
 
 	if(listening && on)
-		SSradio.add_object(src, frequency, RADIO_CHAT)
+		for(var/channel_name in channels)
+			if(channels[channel_name])
+				secure_radio_connections[channel_name] = SSradio.add_object(src, radiochannels[channel_name], RADIO_CHAT)
+		radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 	else if(!listening)
 		SSradio.remove_object_all(src)
+		radio_connection = null
 
 /**
  * setter for broadcasting that makes us not hearing sensitive if not broadcasting and hearing sensitive if broadcasting
@@ -367,7 +371,7 @@ var/global/list/default_medbay_channels = list(
 
 	announcer.PrepareBroadcast(from)
 	var/datum/weakref/speaker_weakref = WEAKREF(announcer)
-	var/datum/signal/subspace/vocal/signal = new(src, frequency, speaker_weakref, announcer.default_language, message, "states")
+	var/datum/signal/subspace/vocal/signal = new(src, connection.frequency, speaker_weakref, announcer.default_language, message, "states")
 	signal.send_to_receivers()
 	announcer.ResetAfterBroadcast()
 
@@ -458,7 +462,7 @@ var/global/list/default_medbay_channels = list(
 	// If we're here, the signal was never processed. Proceed with mundane broadcast:
 	signal.data["compression"] = 0
 	signal.transmission_method = TRANSMISSION_RADIO
-	signal.levels = list(T.z)
+	signal.levels = GetConnectedZlevels(T.z)
 	signal.broadcast()
 
 /obj/item/device/radio/hear_talk(mob/M as mob, msg, var/verb = "says", var/datum/language/speaking = null)
@@ -469,6 +473,9 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/proc/can_receive(input_frequency, list/levels)
 	// check if the radio can receive on the given frequency
+	if (!listening)
+		return
+
 	if (levels != RADIO_NO_Z_LEVEL_RESTRICTION)
 		var/turf/position = get_turf(src)
 		if (!position || !(position.z in levels))
@@ -480,13 +487,13 @@ var/global/list/default_medbay_channels = list(
 	if ((input_frequency in ANTAG_FREQS) && !syndie) //Checks to see if it's allowed on that frequency, based on the encryption keys
 		return FALSE
 
-	if (input_frequency == frequency)
-		return TRUE
-
 	for (var/ch_name in channels)
 		var/datum/radio_frequency/RF = secure_radio_connections[ch_name]
-		if (RF.frequency == input_frequency && (channels[ch_name] & FREQ_LISTENING))
-			return TRUE
+		if (RF.frequency == input_frequency)
+			return channels[ch_name]
+
+	if (input_frequency == frequency)
+		return TRUE
 
 	return FALSE
 

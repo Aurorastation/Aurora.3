@@ -81,6 +81,11 @@
 
 	become_hearing_sensitive()
 
+/mob/proc/set_stat(var/new_stat)
+	. = stat != new_stat
+	if(.)
+		stat = new_stat
+
 /mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
 	if(!client)	return
@@ -318,7 +323,7 @@
 	if(!A)
 		return
 
-	if((is_blind(src) || usr.stat) && !isobserver(src))
+	if((is_blind() || usr.stat) && !isobserver(src))
 		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
 		return 1
 
@@ -480,11 +485,7 @@
 
 	announce_ghost_joinleave(client, 0)
 
-	// Run this here to null out death timers for the next go.
-
 	var/mob/abstract/new_player/M = new /mob/abstract/new_player()
-
-	M.reset_death_timers()
 
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
@@ -797,7 +798,7 @@
 			visible_message(SPAN_WARNING("\The [src] leans down and grips \the [H]'s arms."), SPAN_NOTICE("You lean down and grip \the [H]'s arms."))
 		else //Otherwise we're probably just holding their arm to lead them somewhere
 			visible_message(SPAN_WARNING("\The [src] grips \the [H]'s arm."), SPAN_NOTICE("You grip \the [H]'s arm."))
-		playsound(loc, /decl/sound_category/grab_sound, 25, FALSE, -1) //Quieter than hugging/grabbing but we still want some audio feedback
+		playsound(loc, /singleton/sound_category/grab_sound, 25, FALSE, -1) //Quieter than hugging/grabbing but we still want some audio feedback
 		if(H.pull_damage())
 			to_chat(src, "<span class='danger'>Pulling \the [H] in their current condition would probably be a bad idea.</span>")
 
@@ -1227,7 +1228,6 @@
 	handle_silent()
 	handle_drugged()
 	handle_slurring()
-	handle_tarded()
 
 /mob/living/proc/handle_stunned()
 	if(stunned)
@@ -1258,11 +1258,6 @@
 	if(slurring)
 		slurring = max(slurring-1, 0)
 	return slurring
-
-/mob/living/proc/handle_tarded()
-	if(tarded)
-		tarded = max(tarded-1, 0)
-	return tarded
 
 /mob/living/proc/handle_paralysed() // Currently only used by simple_animal.dm, treated as a special case in other mobs
 	if(paralysis)
@@ -1321,8 +1316,9 @@
 	if (dest != loc && istype(dest, /atom/movable))
 		AM = dest
 		LAZYADD(AM.contained_mobs, src)
-		if(pulledby)
-			pulledby.stop_pulling()
+		if(ismob(pulledby))
+			var/mob/M = pulledby
+			M.stop_pulling()
 
 	if (istype(loc, /atom/movable))
 		AM = loc
@@ -1427,10 +1423,7 @@
 
 
 /mob/proc/is_clumsy()
-	if(CLUMSY in mutations)
-		return TRUE
-
-	return FALSE
+	return HAS_FLAG(mutations, CLUMSY)
 
 //Helper proc for figuring out if the active hand (or given hand) is usable.
 /mob/proc/can_use_hand()

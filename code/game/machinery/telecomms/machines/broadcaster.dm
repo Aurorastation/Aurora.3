@@ -15,6 +15,7 @@
 	produces_heat = FALSE
 	delay = 7
 	circuitboard = "/obj/item/circuitboard/telecomms/broadcaster"
+	overmap_range = 2
 	var/list/recent_broadcasts
 
 /obj/machinery/telecomms/broadcaster/Initialize(mapload)

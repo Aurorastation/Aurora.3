@@ -94,9 +94,9 @@
 	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
 
 	possible_cultures = list(
-		/decl/origin_item/culture/zora_breeder,
-		/decl/origin_item/culture/klax_breeder,
-		/decl/origin_item/culture/cthur_breeder
+		/singleton/origin_item/culture/zora_breeder,
+		/singleton/origin_item/culture/klax_breeder,
+		/singleton/origin_item/culture/cthur_breeder
 	)
 
 	inherent_verbs = list(
@@ -189,7 +189,7 @@
 	default_h_style = "Bald"
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.mutations.Add(HULK)
+	H.mutations |= HULK
 	return ..()
 
 /datum/species/bug/type_e
@@ -222,7 +222,7 @@
 
 	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
 	maneuvers = list(
-		/decl/maneuver/leap/bulwark
+		/singleton/maneuver/leap/bulwark
 	)
 
 	natural_armor = list(

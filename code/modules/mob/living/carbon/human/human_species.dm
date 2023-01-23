@@ -1,7 +1,6 @@
 /mob/living/carbon/human/dummy
 	real_name = "Test Dummy"
 	status_flags = GODMODE|CANPUSH
-	virtual_mob = null
 
 /mob/living/carbon/human/dummy/mannequin
 	mob_thinks = FALSE
@@ -93,7 +92,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/type_big/Initialize(mapload)
 	. = ..(mapload, SPECIES_VAURCA_WARFORM)
 	src.gender = NEUTER
-	src.mutations.Add(HULK)
+	src.mutations |= HULK
 
 /mob/living/carbon/human/type_big
 	layer = 5
@@ -117,6 +116,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/zhankhazan_tajara/Initialize(mapload)
 	h_style = "Tajaran Ears"
 	. = ..(mapload, SPECIES_TAJARA_ZHAN)
+
+/mob/living/carbon/human/tesla_body_tajara/Initialize(mapload)
+	h_style = "Tesla Rejuvenation Suit Ears"
+	. = ..(mapload, SPECIES_TAJARA_TESLA_BODY)
 
 /mob/living/carbon/human/industrial/Initialize(mapload)
 	. = ..(mapload, SPECIES_IPC_G1)

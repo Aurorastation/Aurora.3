@@ -9,6 +9,7 @@
 	density = 1
 	layer = ABOVE_CABLE_LAYER
 	w_class = ITEMSIZE_HUGE
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/state = 0
 	var/health = 200
 	var/cover = 50 //how much cover the girder provides against projectiles.
@@ -275,7 +276,7 @@
 	reinforcing = 0
 
 /obj/structure/girder/attack_hand(mob/user as mob)
-	if (HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		visible_message("<span class='danger'>[user] smashes [src] apart!</span>")
 		dismantle()
 		return

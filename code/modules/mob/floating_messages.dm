@@ -23,11 +23,11 @@ var/list/floating_chat_colors = list()
 		limit = 30
 		style += "font-weight: bold;"
 
-	if(istype(language, /datum/language/noise))
-		message = "<font color='#7F7F7F'>*</font> " + uncapitalize(message)
-
 	if(length(message) > limit)
 		message = "[copytext(message, 1, limit)]..."
+
+	if(istype(language, /datum/language/noise))
+		message = "<font color='#7F7F7F'>*</font> " + uncapitalize(message)
 
 	if(!floating_chat_colors[name])
 		floating_chat_colors[name] = get_floating_chat_color()
@@ -76,6 +76,20 @@ var/list/floating_chat_colors = list()
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_images_from_clients, I, show_to), duration + 2)
 
 	return I
+
+/// Gives floating text to src upon holder entering
+/atom/movable/proc/give_floating_text(atom/movable/holder)
+	if(!holder)
+		return
+	for(var/image/I in holder.stored_chat_text)
+		I.loc = src
+
+/// Returns floating text to holder upon leaving src
+/atom/movable/proc/return_floating_text(atom/movable/holder)
+	if(!holder)
+		return
+	for(var/image/I in holder.stored_chat_text)
+		I.loc = holder
 
 /proc/remove_floating_text(atom/movable/holder, image/I)
 	animate(I, 2, pixel_y = I.pixel_y + 10, alpha = 0)

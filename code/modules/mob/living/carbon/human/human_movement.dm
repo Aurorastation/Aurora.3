@@ -41,23 +41,27 @@
 		tally += 6
 
 	if (!(species.flags & IS_MECHANICAL))	// Machines don't move slower when cold.
-		if(FAT in src.mutations)
+		if(HAS_FLAG(mutations, FAT))
 			tally += 1.5
 		if (bodytemperature < 283.222)
 			tally += (283.222 - bodytemperature) / 10 * 1.75
 
 	tally += max(2 * stance_damage, 0) //damaged/missing feet or legs is slow
-	if(mRun in mutations)
+	if(HAS_FLAG(mutations, mRun))
 		tally = 0
 
-	tally += move_delay_mod
+	tally = max(-2, tally + move_delay_mod)
 
 	var/obj/item/I = get_active_hand()
 	if(istype(I))
 		tally += I.slowdown
+	
+	if(isitem(pulling))
+		var/obj/item/P = pulling
+		tally += P.slowdown
 
 	if(tally > 0 && (CE_SPEEDBOOST in chem_effects))
-		tally = max(0, tally-3)
+		tally = max(-2, tally - 3)
 
 	var/turf/T = get_turf(src)
 	if(T) // changelings don't get movement costs

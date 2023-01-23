@@ -16,12 +16,6 @@
 	path = /obj/item/grenade/spawnergrenade/manhacks/lubed
 	desc = "A grenade that deploys five lubed viscerator combat drones. Deadly in numbers, will not attack you or your allies. Works best when killed."
 
-/datum/uplink_item/item/grenades/anti_photon
-	name = "5xPhoton Disruption Grenades"
-	item_cost = 1
-	path = /obj/item/storage/box/anti_photons
-	desc = "A box of five grenades that cause total darkness in the area they explode in. Circumvented by vision altering headgear. Useful for get-aways."
-
 /datum/uplink_item/item/grenades/smoke
 	name = "5xSmoke Grenades"
 	item_cost = 1

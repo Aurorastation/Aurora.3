@@ -1,14 +1,14 @@
 /datum/map_template/ruin/away_site/militia_ship
 	name = "Militia Ship"
 	description = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus."
-	suffix = "ships/wildlands_milita/militia_ship.dmm"
+	suffixes = list("ships/wildlands_milita/militia_ship.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "militia_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/militia_shuttle)
 
-/decl/submap_archetype/militia_ship
+/singleton/submap_archetype/militia_ship
 	map = "Militia Ship"
 	descriptor = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus."
 
@@ -26,8 +26,8 @@
 	name = "Militia Ship"
 	class = "IPV"
 	desc = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship_grey"
+	moving_state = "ship_grey_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -70,6 +70,8 @@
 	designation = "Boulevard"
 	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one's transponder identifies it as belonging to an independent militia."
 	shuttle = "Militia Ship"
+	icon_state = "shuttle_grey"
+	moving_state = "shuttle_grey_moving" 
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

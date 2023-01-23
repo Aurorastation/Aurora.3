@@ -17273,10 +17273,6 @@
 /obj/structure/window/shuttle/scc,
 /turf/simulated/floor/plating,
 /area/supply/dock)
-"aQZ" = (
-/obj/machinery/atmospherics/pipe/vent,
-/turf/simulated/floor/bluegrid,
-/area/tdome)
 "aRa" = (
 /obj/machinery/camera/network/thunder{
 	c_tag = "Thunderdome Arena";
@@ -17330,24 +17326,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"aRj" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 5
-	},
-/turf/simulated/floor,
-/area/tdome)
-"aRk" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/tdome)
-"aRl" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/turf/simulated/floor,
-/area/tdome)
 "aRm" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/toilet{
@@ -17414,10 +17392,6 @@
 "aRr" = (
 /turf/simulated/floor,
 /area/tdome/tdome2)
-"aRs" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor,
-/area/tdome)
 "aRt" = (
 /turf/simulated/floor,
 /area/tdome/tdome1)
@@ -17535,11 +17509,6 @@
 	icon_state = "new_white"
 	},
 /area/tdome/tdomeadmin)
-"aRT" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/unsimulated/floor/plating,
-/area/tdome/tdomeadmin)
 "aRU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/disposalpipe/segment,
@@ -17616,13 +17585,6 @@
 	icon_state = "new_white"
 	},
 /area/tdome/tdomeadmin)
-"aSk" = (
-/obj/machinery/atmospherics/valve,
-/obj/effect/floor_decal/corner/orange/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "new_white"
-	},
-/area/tdome/tdomeadmin)
 "aSl" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -17656,19 +17618,6 @@
 "aSp" = (
 /obj/machinery/computer/security/telescreen,
 /obj/effect/floor_decal/corner/orange/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "new_white"
-	},
-/area/tdome/tdomeadmin)
-"aSq" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/sleeping_agent{
-	pixel_x = 1
-	},
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -28638,7 +28587,7 @@
 	},
 /obj/effect/decal/fake_object{
 	density = 1;
-	icon = 'icons/obj/contained_items/tools/inflatables.dmi';
+	icon = 'icons/obj/item/inflatables.dmi';
 	icon_state = "wall";
 	layer = 2.3;
 	name = "inflatable wall"
@@ -37045,7 +36994,17 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
 "pTp" = (
-/obj/effect/shuttle_landmark/intrepid/transit,
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/obj/effect/shuttle_landmark/mining/transit,
 /turf/space/transit/north,
 /area/template_noop)
 "qlw" = (
@@ -37067,7 +37026,17 @@
 /turf/simulated/floor/holofloor/grass/alt,
 /area/horizon/holodeck/source_wildlife)
 "reg" = (
-/obj/effect/shuttle_landmark/mining/transit,
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
+/obj/effect/shuttle_landmark/intrepid/transit,
 /turf/space/transit/north,
 /area/template_noop)
 "rkZ" = (
@@ -52707,8 +52676,8 @@ aPA
 aPA
 aPA
 aQN
-aQZ
-aRj
+aQN
+aPA
 aPA
 aPA
 aRS
@@ -52965,12 +52934,12 @@ aPA
 aPA
 aQO
 aRa
-aRk
-aRs
-aRs
-aRT
-aSk
-aSq
+aPA
+aPA
+aPA
+aRR
+aSg
+aSw
 aSg
 aSw
 aSo
@@ -53221,8 +53190,8 @@ aPA
 aPA
 aPA
 aQN
-aQZ
-aRl
+aQN
+aPA
 aPA
 aPA
 aRS
@@ -67954,7 +67923,7 @@ aac
 aac
 aac
 aac
-aab
+reg
 aac
 aac
 aac
@@ -67966,7 +67935,7 @@ aac
 aac
 aac
 aac
-pTp
+aac
 aac
 aac
 aac
@@ -81261,8 +81230,8 @@ aac
 aac
 aac
 aac
-aab
-reg
+pTp
+aac
 aac
 aac
 aac

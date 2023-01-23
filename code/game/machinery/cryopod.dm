@@ -24,6 +24,7 @@ var/global/list/frozen_crew = list()
 	icon_screen = "cryo"
 	icon_scanline = "altcomputerw-scanline"
 	light_color = LIGHT_COLOR_GREEN
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/mode = null
 
@@ -524,6 +525,7 @@ var/global/list/frozen_crew = list()
 	if(occupant.client)
 		occupant.client.eye = src.occupant.client.mob
 		occupant.client.perspective = MOB_PERSPECTIVE
+		occupant.reset_death_timers()
 
 	occupant.forceMove(get_turf(src))
 	occupant = null
@@ -538,6 +540,7 @@ var/global/list/frozen_crew = list()
 		occupant.client.perspective = EYE_PERSPECTIVE
 		occupant.client.eye = src
 		time_entered = world.time
+		occupant.set_respawn_time()
 	update_icon()
 
 /obj/machinery/cryopod/update_icon()

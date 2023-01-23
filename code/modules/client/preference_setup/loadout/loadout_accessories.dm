@@ -92,10 +92,19 @@
 	display_name = "horrible tie"
 	path = /obj/item/clothing/accessory/horrible
 
-/datum/gear/accessory/bowtie
-	display_name = "bowtie"
-	path = /obj/item/clothing/accessory/tie/bowtie
+/datum/gear/accessory/neck_accessories_colourable
+	display_name = "neck accessories selection (colourable)"
+	description = "A selection of various neck accessories, such as ribbons and bows."
+	path = /obj/item/clothing/accessory/tie/ribbon
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/neck_accessories_colourable/New()
+	..()
+	var/list/neck_accessories_colourable = list()
+	neck_accessories_colourable["neck ribbon"] = /obj/item/clothing/accessory/tie/ribbon/neck
+	neck_accessories_colourable["neck bow"] = /obj/item/clothing/accessory/tie/ribbon/bow
+	neck_accessories_colourable["bow tie"] = /obj/item/clothing/accessory/tie/ribbon/bow_tie
+	gear_tweaks += new /datum/gear_tweak/path(neck_accessories_colourable)
 
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
@@ -196,15 +205,15 @@
 	sweater["deep v-neck sweater"] = /obj/item/clothing/accessory/sweater/v_neck/deep
 
 	// Argyle Sweaters
-	sweater["argyle sweater"] = /obj/item/clothing/accessory/argyle_sweater
-	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/tubeneck
-	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/turtleneck
-	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/crewneck
-	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/argyle_sweater/v_neck
+	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweater/argyle
+	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweater/argyle/tubeneck
+	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweater/argyle/turtleneck
+	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/sweater/argyle/crewneck
+	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/sweater/argyle/v_neck
 
 	// Sweater Vests
-	sweater["sweater vest"] = /obj/item/clothing/accessory/sweater_vest
-	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/argyle_sweater_vest
+	sweater["sweater vest"] = /obj/item/clothing/accessory/sweater/vest
+	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweater/argyle/vest
 
 	gear_tweaks += new /datum/gear_tweak/path(sweater)
 
@@ -354,7 +363,7 @@
 	description = "A selection of cadre brassards from Gadpathur."
 	path = /obj/item/clothing/accessory/armband/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/decl/origin_item/origin/gadpathur)
+	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/accessory/gadpathur/New()
 	..()
@@ -369,14 +378,14 @@
 	description = "A small metal badge worn by Gadpathurian Section Leaders."
 	path = /obj/item/clothing/accessory/gadpathurian_leader
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/decl/origin_item/origin/gadpathur)
+	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/accessory/gadpathur_dogtags
 	display_name = "gadpathurian dogtags"
 	description = "Dogtags issued to Gadpathurians."
 	path = /obj/item/clothing/accessory/dogtags/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/decl/origin_item/origin/gadpathur)
+	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/accessory/sash_coloured
 	display_name = "sash (colourable)"
@@ -551,3 +560,18 @@
 	flagpatch_national["flagpatch, nralakk"] = /obj/item/clothing/accessory/flagpatch/nralakk
 	flagpatch_national["flagpatch, hegemony"] = /obj/item/clothing/accessory/flagpatch/hegemony
 	gear_tweaks += new /datum/gear_tweak/path(flagpatch_national)
+
+/datum/gear/accessory/aodai
+	display_name = "ao dai"
+	description = "A long, split tunic worn over trousers. Traditional on New Hai Phong."
+	path = /obj/item/clothing/accessory/aodai
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/earth, /singleton/origin_item/origin/new_hai_phong)
+
+/datum/gear/accessory/aodai/New()
+	..()
+	var/list/aodai = list()
+	aodai["ao dai"] = /obj/item/clothing/accessory/aodai
+	aodai["ao dai, new hai phong cut"] = /obj/item/clothing/accessory/aodai/nhp
+	aodai["ao dai, masculine formalwear"] = /obj/item/clothing/accessory/aodai/masc
+	gear_tweaks += new /datum/gear_tweak/path(aodai)

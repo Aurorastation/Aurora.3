@@ -4,7 +4,7 @@
 	path = "sccv_horizon"
 
 	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/Vaurca.dmi')
-	lobby_transitions = 25 SECONDS
+	lobby_transitions = 10 SECONDS
 
 	station_levels = list(1, 2, 3)
 	admin_levels = list(4)
@@ -12,6 +12,7 @@
 	player_levels = list(1, 2, 3, 5, 6)
 	restricted_levels = list()
 	accessible_z_levels = list(1, 2, 3)
+	empty_levels = list(6)
 	base_turf_by_z = list(
 		"1" = /turf/space,
 		"2" = /turf/space,
@@ -36,10 +37,13 @@
 
 	use_overmap = TRUE
 	num_exoplanets = 2
+	overmap_size = 35
 	overmap_event_areas = 34
 	planet_size = list(255,255)
 
-	away_site_budget = 3
+	away_site_budget = 2
+	away_ship_budget = 2
+	away_variance = 1
 
 	station_networks = list(
 		NETWORK_COMMAND,
@@ -115,7 +119,8 @@
 		/datum/shuttle/autodock/overmap/ee_shuttle,
 		/datum/shuttle/autodock/overmap/fsf_shuttle,
 		/datum/shuttle/autodock/overmap/freighter_shuttle,
-		/datum/shuttle/autodock/overmap/kataphract_transport
+		/datum/shuttle/autodock/overmap/kataphract_transport,
+		/datum/shuttle/autodock/overmap/iac_shuttle
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship

@@ -11,6 +11,7 @@
 	flags = CONDUCT
 	explosion_resistance = 1
 	layer = 2.98
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/health = 10
 	var/destroyed = 0
 
@@ -44,7 +45,7 @@
 	if(shock(user, 70))
 		return
 
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		damage_dealt += 5
 	else
 		damage_dealt += 1

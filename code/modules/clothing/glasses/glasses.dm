@@ -57,7 +57,7 @@ BLIND     // can't see anything
 	if(stabbed && (body_parts_covered & EYES) && !(item_flags & THICKMATERIAL) && shatter_material && prob(stab_item.force * 5))
 		var/mob/M = loc
 		M.visible_message(SPAN_WARNING("\The [src] [M] is wearing gets shattered!"))
-		playsound(loc, /decl/sound_category/glass_break_sound, 70, TRUE)
+		playsound(loc, /singleton/sound_category/glass_break_sound, 70, TRUE)
 		new shatter_material(M.loc)
 		qdel(src)
 		return FALSE
@@ -234,10 +234,16 @@ BLIND     // can't see anything
 	icon_state = "goggles_standard"
 	item_state = "goggles_standard"
 	off_state = "goggles_standard"
+	var/base_icon_state
 	action_button_name = "Flip Goggles"
+	var/change_item_state_on_flip = FALSE
 	var/flip_down = "down to protect your eyes."
 	var/flip_up = "up out of your face."
 	var/up = 0
+
+/obj/item/clothing/glasses/safety/goggles/Initialize(mapload, material_key)
+	. = ..()
+	base_icon_state = icon_state
 
 /obj/item/clothing/glasses/safety/goggles/attack_self()
 	toggle()
@@ -253,17 +259,23 @@ BLIND     // can't see anything
 		src.up = !src.up
 		flags_inv |= HIDEEYES
 		body_parts_covered |= EYES
-		icon_state = initial(item_state)
+		icon_state = base_icon_state
+		if(change_item_state_on_flip) item_state = icon_state
 		to_chat(usr, SPAN_NOTICE("You flip \the [src] [flip_down]"))
 	else
 		src.up = !src.up
 		flags_inv &= ~HIDEEYES
 		body_parts_covered &= ~EYES
-		icon_state = "[initial(icon_state)]_up"
+		icon_state = "[base_icon_state]_up"
+		if(change_item_state_on_flip) item_state = icon_state
 		to_chat(usr, SPAN_NOTICE("You push \the [src] [flip_up]"))
-	update_clothing_icon()
+	handle_additional_changes()
+	update_worn_icon()
 	update_icon()
 	usr.update_action_buttons()
+
+/obj/item/clothing/glasses/safety/goggles/proc/handle_additional_changes()
+	return
 
 /obj/item/clothing/glasses/safety/goggles/prescription
 	name = "prescription safety goggles"
@@ -279,19 +291,48 @@ BLIND     // can't see anything
 	item_state = "wasteland_goggles"
 	off_state = "wasteland_goggles"
 	contained_sprite = TRUE
+	change_item_state_on_flip = TRUE
 	flip_down = "up to protect your eyes."
 	flip_up = "and let it hang around your neck."
 
-/obj/item/clothing/glasses/safety/goggles/wasteland/toggle()
-	..()
-	icon_state = initial(icon_state)
-	if(up)
-		item_state = "[initial(item_state)]_up"
-	else
-		item_state = initial(icon_state)
-	update_worn_icon()
-	update_clothing_icon()
-	update_icon()
+/obj/item/clothing/glasses/safety/goggles/goon
+	name = "tactical goggles"
+	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals."
+	var/brand_name
+	icon = 'icons/clothing/eyes/goon_goggles.dmi'
+	var/sprite_state = "security_goggles"
+	contained_sprite = TRUE
+	change_item_state_on_flip = TRUE
+
+/obj/item/clothing/glasses/safety/goggles/goon/Initialize(mapload, material_key)
+	icon_state = sprite_state
+	item_state = sprite_state
+	off_state = sprite_state
+	. = ..()
+	if(brand_name)
+		desc += " This pair has been made in [brand_name] colors."
+
+/obj/item/clothing/glasses/safety/goggles/goon/security/process_hud(var/mob/M)
+	if(!up)
+		process_sec_hud(M, TRUE)
+
+/obj/item/clothing/glasses/safety/goggles/goon/is_sec_hud()
+	return !up
+
+/obj/item/clothing/glasses/safety/goggles/goon/handle_additional_changes()
+	flash_protection = up ? FLASH_PROTECTION_NONE : FLASH_PROTECTION_MODERATE
+
+/obj/item/clothing/glasses/safety/goggles/goon/pmc
+	sprite_state = "pmc_goggles"
+	brand_name = "PMCG"
+
+/obj/item/clothing/glasses/safety/goggles/goon/zavod
+	sprite_state = "zavod_goggles"
+	brand_name = "Zavodskoi"
+
+/obj/item/clothing/glasses/safety/goggles/goon/idris
+	sprite_state = "idris_goggles"
+	brand_name = "Idris"
 
 /obj/item/clothing/glasses/eyepatch
 	name = "eyepatch"
@@ -453,7 +494,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/sunglasses/Initialize()
 	. = ..()
-	desc += " Enhanced shielding blocks many flashes."
+	desc += " Enhanced shielding blocks some flashes."
 
 /obj/item/clothing/glasses/sunglasses/aviator
 	name = "aviators"

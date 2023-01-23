@@ -164,11 +164,6 @@
 	icon_state = "setup_drone_arms"
 	desc = "It's a case, for building mobile electronics with. This one is armed and dangerous."
 
-/obj/item/device/electronic_assembly/drone/secbot
-	name = "type-c electronic drone"
-	icon_state = "setup_drone_secbot"
-	desc = "It's a case, for building mobile electronics with. This one resembles a Securitron."
-
 /obj/item/device/electronic_assembly/drone/medbot
 	name = "type-d electronic drone"
 	icon_state = "setup_drone_medbot"

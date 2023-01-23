@@ -77,7 +77,7 @@
 // Holder object used for dimming openspaces & copying lighting of below turf.
 /atom/movable/openspace/multiplier
 	name = "openspace multiplier"
-	desc = "You shouldn't see this."
+	desc = DESC_PARENT
 	icon = 'icons/effects/lighting_overlay.dmi'
 	icon_state = "dark"
 	plane = OPENTURF_MAX_PLANE

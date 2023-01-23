@@ -34,6 +34,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	max_amount = 60
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	lock_picking_level = 3
+	stacktype = /obj/item/stack/rods
 
 /obj/item/stack/rods/full/Initialize()
 	. = ..()

@@ -9,12 +9,11 @@
 	invisibility = 101
 
 	density = 0
-	stat = 2
+	stat = DEAD
 	canmove = 0
 
 	anchored = 1	//  don't get pushed around
 	simulated = FALSE
-	virtual_mob = null // Hear no evil, speak no evil
 
 	var/last_ready_name // This has to be saved because the client is nulled prior to Logout()
 

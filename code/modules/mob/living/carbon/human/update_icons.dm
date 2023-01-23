@@ -102,24 +102,25 @@ There are several things that need to be remembered:
 #define SUIT_LAYER        15
 #define ID_LAYER_ALT      16
 #define TAIL_NORTH_LAYER  17
-#define GLASSES_LAYER     18
-#define BELT_LAYER_ALT    19
-#define SUIT_STORE_LAYER  20
-#define BACK_LAYER        21
-#define HAIR_LAYER        22
-#define GLASSES_LAYER_ALT 23
-#define L_EAR_LAYER       24
-#define R_EAR_LAYER       25
-#define FACEMASK_LAYER    26
-#define HEAD_LAYER        27
-#define COLLAR_LAYER      28
-#define HANDCUFF_LAYER    29
-#define LEGCUFF_LAYER     30
-#define L_HAND_LAYER      31
-#define R_HAND_LAYER      32
-#define WRISTS_LAYER      33
-#define FIRE_LAYER_UPPER  34
-#define TOTAL_LAYERS      34
+#define HAIR_LAYER_ALT    18
+#define GLASSES_LAYER     19
+#define BELT_LAYER_ALT    20
+#define SUIT_STORE_LAYER  21
+#define BACK_LAYER        22
+#define HAIR_LAYER        23
+#define GLASSES_LAYER_ALT 24
+#define L_EAR_LAYER       25
+#define R_EAR_LAYER       26
+#define FACEMASK_LAYER    27
+#define HEAD_LAYER        28
+#define COLLAR_LAYER      29
+#define HANDCUFF_LAYER    30
+#define LEGCUFF_LAYER     31
+#define L_HAND_LAYER      32
+#define R_HAND_LAYER      33
+#define WRISTS_LAYER      34
+#define FIRE_LAYER_UPPER  35
+#define TOTAL_LAYERS      35
 ////////////////////////////
 
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
@@ -261,7 +262,7 @@ There are several things that need to be remembered:
 		if(worn_overlay_color)
 			M.color = worn_overlay_color
 		. += M
-		
+
 /proc/slot_str_to_contained_flag(var/slot_str)
 	switch(slot_str)
 		if(slot_back_str)
@@ -303,9 +304,9 @@ There are several things that need to be remembered:
 
 	var/husk_color_mod = rgb(96,88,80)
 
-	var/husk = (HUSK in mutations)
-	var/fat = (FAT in mutations)
-	var/skeleton = (SKELETON in mutations)
+	var/husk = HAS_FLAG(mutations, HUSK)
+	var/fat = HAS_FLAG(mutations, FAT)
+	var/skeleton = HAS_FLAG(mutations, SKELETON)
 	var/g = (gender == FEMALE ? "f" : "m")
 
 	pixel_x = species.icon_x_offset
@@ -463,6 +464,7 @@ There are several things that need to be remembered:
 
 	//Reset our hair
 	overlays_raw[HAIR_LAYER] = null
+	overlays_raw[HAIR_LAYER_ALT] = null
 
 	var/obj/item/organ/external/head/head_organ = get_organ(BP_HEAD)
 	if(!head_organ || head_organ.is_stump() )
@@ -488,7 +490,8 @@ There are several things that need to be remembered:
 		else
 			set_light(0)
 
-	overlays_raw[HAIR_LAYER] = hair_icon
+	var/hair_layer = species.use_alt_hair_layer ? HAIR_LAYER_ALT : HAIR_LAYER
+	overlays_raw[hair_layer] = hair_icon
 
 	if(update_icons)
 		update_icon()
@@ -498,7 +501,7 @@ There are several things that need to be remembered:
 		return
 
 	var/fat
-	if(FAT in mutations)
+	if(HAS_FLAG(mutations, FAT))
 		fat = "fat"
 
 	var/image/standing	= image("icon" = 'icons/effects/genetics.dmi')
@@ -514,11 +517,9 @@ There are several things that need to be remembered:
 			if(underlay)
 				standing.underlays += underlay
 				add_image = 1
-	for(var/mut in mutations)
-		switch(mut)
-			if(LASER_EYES)
-				standing.overlays += "lasereyes_s"
-				add_image = 1
+	if(HAS_FLAG(mutations, LASER_EYES))
+		standing.overlays += "lasereyes_s"
+		add_image = 1
 	if(add_image)
 		overlays_raw[MUTATIONS_LAYER] = standing
 	else
@@ -1284,7 +1285,7 @@ There are several things that need to be remembered:
 
 	var/tail_layer = GET_TAIL_LAYER
 
-	if(species.tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+	if(species.tail && NOT_FLAG(mutations, HUSK) && NOT_FLAG(mutations, SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
 		overlays_raw[tail_layer] = image(tail_s, icon_state = "[species.tail]_s")
 		animate_tail_reset(0)

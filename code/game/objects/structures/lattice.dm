@@ -9,6 +9,7 @@
 	anchored = TRUE
 	w_class = ITEMSIZE_NORMAL
 	layer = UNDER_PIPE_LAYER //under pipes
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/restrict_placement = TRUE
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
@@ -21,7 +22,7 @@
 		/obj/structure/grille,
 		/turf/unsimulated/mineral/asteroid
 	)
-	footstep_sound = /decl/sound_category/catwalk_footstep
+	footstep_sound = /singleton/sound_category/catwalk_footstep
 
 /obj/structure/lattice/Initialize()
 	. = ..()
@@ -31,6 +32,15 @@
 	for(var/obj/structure/lattice/LAT in loc)
 		if(LAT != src)
 			qdel(LAT)
+	if(isturf(loc))
+		var/turf/turf = loc
+		turf.is_hole = FALSE
+
+/obj/structure/lattice/Destroy()
+	if(isturf(loc))
+		var/turf/turf = loc
+		turf.is_hole = initial(turf.is_hole)
+	return ..()
 
 /obj/structure/lattice/ex_act(severity)
 	switch(severity)

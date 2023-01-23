@@ -1,14 +1,14 @@
 /datum/map_template/ruin/away_site/tajara_mining_jack
 	name = "adhomian mining outpost"
 	description = "An outpost used by the crew of mining jacks."
-	suffix = "away_site/tajara/mining_jack/mining_jack.dmm"
+	suffixes = list("away_site/tajara/mining_jack/mining_jack.dmm")
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "tajara_mining_jack"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_mining_jack)
 
-/decl/submap_archetype/tajara_mining_jack
+/singleton/submap_archetype/tajara_mining_jack
 	map = "adhomian mining outpost"
 	descriptor = "An outpost used by the crew of mining jacks."
 
@@ -49,8 +49,8 @@
 	class = "ACV"
 	desc = "A modified skipjack used by Tajaran miners. These models have been modified to mine as much as possible with a small crew. Due to its limited fuel supply, it usually does not go too far from its home base."
 	shuttle = "Mining Jack"
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "shuttle_grey"
+	moving_state = "shuttle_grey_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
