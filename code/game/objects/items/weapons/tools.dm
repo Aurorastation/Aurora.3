@@ -241,6 +241,7 @@
 	var/status = TRUE		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
 	var/max_fuel = 20 	//The max amount of fuel the welder can hold
 	var/change_icons = TRUE
+	var/produces_flash = TRUE
 
 /obj/item/weldingtool/iswelder()
 	return TRUE
@@ -494,11 +495,11 @@
 	if(!welding)
 		return 0
 	else if(welding > 0 && colourChange)
-		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon), 5))
 	if(get_fuel() >= amount)
 		reagents.remove_reagent(/singleton/reagent/fuel, amount)
-		if(M)
-			eyecheck(M)
+		if(M && produces_flash)
+			M.flash_act(FLASH_PROTECTION_MAJOR)
 		return 1
 	else
 		if(M)
@@ -566,44 +567,6 @@
 	else
 		STOP_PROCESSING(SSprocessing, src)
 
-//Decides whether or not to damage a player's eyes based on what they're wearing as protection
-//Note: This should probably be moved to mob
-/obj/item/weldingtool/proc/eyecheck(mob/user)
-	if(!iscarbon(user))
-		return 1
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/internal/eyes/E = H.get_eyes()
-		if(!E)
-			return
-		if(H.status_flags & GODMODE)
-			return
-		var/safety = H.eyecheck()
-		var/damage_to_take = 0
-		switch(safety)
-			if(FLASH_PROTECTION_MODERATE)
-				damage_to_take = E.max_damage / 6
-				to_chat(user, "<span class='warning'>Your eyes sting a little.</span>")
-				E.take_damage(damage_to_take)
-			if(FLASH_PROTECTION_NONE)
-				damage_to_take = E.max_damage / 5
-				to_chat(user, "<span class='warning'>Your eyes burn!</span>")
-				E.take_damage(damage_to_take)
-			if(FLASH_PROTECTION_REDUCED)
-				damage_to_take = E.max_damage / 3
-				to_chat(user, "<span class='danger'><font size=4>Your eyes are burning!</font></span>")
-				user.eye_blurry += rand(12, 20)
-				E.take_damage(damage_to_take)
-		if(safety < FLASH_PROTECTION_MAJOR)
-			if(E.is_bruised())
-				to_chat(user, "<span class='danger'>You can't see anymore!</span>")
-				user.disabilities |= NEARSIGHTED
-				addtimer(CALLBACK(user, /mob/.proc/reset_nearsighted), 100)
-
-// This is on /mob instead of the welder so the timer is stopped when the mob is deleted.
-/mob/proc/reset_nearsighted()
-	disabilities &= ~NEARSIGHTED
-
 /obj/item/weldingtool/Destroy()
 	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions
 	return ..()
@@ -616,6 +579,7 @@
 		user.drop_from_inventory(I, src)
 		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
 		eyeshield = I
+		produces_flash = FALSE
 		add_overlay("eyeshield_attached", TRUE)
 		return TRUE
 	if(istype(I, /obj/item/overcapacitor))
@@ -644,6 +608,7 @@
 			if("Eye Shield")
 				remove_accessory = eyeshield
 				eyeshield = null
+				produces_flash = TRUE
 			if("Overcapacitor")
 				remove_accessory = overcap
 				overcap = null
@@ -679,11 +644,6 @@
 	else
 		set_processing(0)
 	last_gen = world.time
-
-/obj/item/weldingtool/experimental/eyecheck(mob/user)
-	if(eyeshield)
-		return
-	return ..()
 
 /obj/item/weldingtool/experimental/use(amount, mob/M, colourChange)
 	. = ..(overcap ? amount * 3 : amount, M, colourChange)
@@ -977,7 +937,7 @@
 		desc += " Watch your hands!"
 		icon_state = "burning_wool"
 		set_light(2, 2, LIGHT_COLOR_LAVA)
-		addtimer(CALLBACK(src, .proc/endburn), 120 SECONDS, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(endburn)), 120 SECONDS, TIMER_UNIQUE)
 
 /obj/item/steelwool/proc/endburn()
 	visible_message(SPAN_NOTICE("The steel wool burns out."))

@@ -24,10 +24,10 @@ var/list/gear_datums = list()
 		gear_datums[use_name] = new geartype
 		LC.gear[use_name] = gear_datums[use_name]
 
-	sortTim(loadout_categories, /proc/cmp_text_asc, FALSE)
+	sortTim(loadout_categories, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
 	for(var/loadout_category in loadout_categories)
 		var/datum/loadout_category/LC = loadout_categories[loadout_category]
-		sortTim(LC.gear, /proc/cmp_text_asc, FALSE)
+		sortTim(LC.gear, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
 
 	return TRUE
 
@@ -400,13 +400,38 @@ var/list/gear_datums = list()
 /datum/gear_data
 	var/path
 	var/location
+	var/faction_requirement
 
-/datum/gear_data/New(var/path, var/location)
+/datum/gear_data/New(var/path, var/location, var/faction)
 	src.path = path
 	src.location = location
+	src.faction_requirement = faction
+
+/datum/gear/proc/cant_spawn_item_reason(var/location, var/metadata, var/mob/living/carbon/human/human, var/datum/job/job, var/datum/preferences/prefs)
+	var/datum/gear_data/gd = new(path, location, faction)
+	for(var/datum/gear_tweak/gt in gear_tweaks)
+		if(metadata["[gt]"])
+			gt.tweak_gear_data(metadata["[gt]"], gd, human)
+		else
+			gt.tweak_gear_data(gt.get_default(), gd, human)
+
+	var/obj/spawning_item = gd.path
+	if(length(allowed_roles) && !(job.title in allowed_roles))
+		return "You cannot spawn with the [initial(spawning_item.name)] with your current job!"
+	if(!check_species_whitelist(human))
+		return "You cannot spawn with the [initial(spawning_item.name)] with your current species!"
+	if(gd.faction_requirement && (human.employer_faction != "Stellar Corporate Conglomerate" && gd.faction_requirement != human.employer_faction))
+		return "You cannot spawn with the [initial(spawning_item.name)] with your current faction!"
+	var/our_culture = text2path(prefs.culture)
+	if(culture_restriction && !(our_culture in culture_restriction))
+		return "You cannot spawn with the [initial(spawning_item.name)] with your current culture!"
+	var/our_origin = text2path(prefs.origin)
+	if(origin_restriction && !(our_origin in origin_restriction))
+		return "You cannot spawn with the [initial(spawning_item.name)] with your current origin!"
+	return null
 
 /datum/gear/proc/spawn_item(var/location, var/metadata, var/mob/living/carbon/human/H)
-	var/datum/gear_data/gd = new(path, location)
+	var/datum/gear_data/gd = new(path, location, faction)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		if(metadata["[gt]"])
 			gt.tweak_gear_data(metadata["[gt]"], gd, H)

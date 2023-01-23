@@ -886,22 +886,14 @@
 /datum/chemical_reaction/flash_powder/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	spark(location, 2, alldirs)
-	for(var/mob/living/carbon/M in viewers(world.view, location))
+	for(var/mob/living/M in viewers(world.view, location))
+		if(!M.flash_act())
+			continue
+
 		switch(get_dist(M, location))
 			if(0 to 3)
-				if(hasvar(M, "glasses"))
-					if(istype(M:glasses, /obj/item/clothing/glasses/sunglasses))
-						continue
-
-				M.flash_eyes()
 				M.Weaken(15)
-
 			if(4 to 5)
-				if(hasvar(M, "glasses"))
-					if(istype(M:glasses, /obj/item/clothing/glasses/sunglasses))
-						continue
-
-				M.flash_eyes()
 				M.Stun(5)
 
 /datum/chemical_reaction/emp_pulse
@@ -1105,7 +1097,7 @@
 
 /datum/chemical_reaction/slime/teleportation/on_reaction(var/datum/reagents/holder)
 	..()
-	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
+	addtimer(CALLBACK(src, PROC_REF(do_reaction), holder), 50)
 
 /datum/chemical_reaction/slime/teleportation/proc/do_reaction(var/datum/reagents/holder)
 	for(var/atom/movable/AM in circle_range(get_turf(holder.my_atom),7))
@@ -1125,10 +1117,10 @@
 	required = /obj/item/slime_extract/green
 
 /datum/chemical_reaction/slime/bluespace_crystal/on_reaction(var/datum/reagents/holder)
-	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
-	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
-		if(M.eyecheck(TRUE) <= 0)
-			M.flash_eyes()
+	var/turf/location = get_turf(holder.my_atom)
+	playsound(location, 'sound/effects/phasein.ogg', 100, 1)
+	for(var/mob/living/M in viewers(world.view, location))
+		M.flash_act()
 
 	new /obj/item/bluespace_crystal(get_turf(holder.my_atom))
 	..()
@@ -1191,16 +1183,16 @@
 	)
 	//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
-	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
-	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
-		if(M.eyecheck(TRUE) <= 0)
-			M.flash_eyes()
+	var/turf/location = get_turf(holder.my_atom)
+	playsound(location, 'sound/effects/phasein.ogg', 100, 1)
+	for(var/mob/living/M in viewers(world.view, location))
+		M.flash_act(ignore_inherent = TRUE)
 
 	for(var/i = 1, i <= 5, i++)
 		var/chosen = pick(critters)
 		var/mob/living/simple_animal/hostile/C = new chosen
 		C.faction = "slimesummon"
-		C.forceMove(get_turf(holder.my_atom))
+		C.forceMove(location)
 		if(prob(50))
 			for(var/j = 1, j <= rand(1, 3), j++)
 				step(C, pick(NORTH,SOUTH,EAST,WEST))
@@ -1251,10 +1243,10 @@
 	/obj/item/reagent_containers/food/snacks/pineappleslice
 	)
 	var/list/borks = typesof(/obj/item/reagent_containers/food/snacks) - blocked
-	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
-	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
-		if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
-			M.flash_eyes()
+	var/turf/location = get_turf(holder.my_atom)
+	playsound(location, 'sound/effects/phasein.ogg', 100, 1)
+	for(var/mob/living/M in viewers(world.view, location))
+		M.flash_act(ignore_inherent = TRUE)
 
 	for(var/i = 1, i <= 4 + rand(1,2), i++)
 		var/chosen = pick(borks)
@@ -1287,7 +1279,7 @@
 
 /datum/chemical_reaction/slime/freeze/on_reaction(var/datum/reagents/holder)
 	..()
-	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
+	addtimer(CALLBACK(src, PROC_REF(do_reaction), holder), 50)
 
 /datum/chemical_reaction/slime/freeze/proc/do_reaction(var/datum/reagents/holder)
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
@@ -1315,7 +1307,7 @@
 
 /datum/chemical_reaction/slime/fire/on_reaction(var/datum/reagents/holder)
 	..()
-	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
+	addtimer(CALLBACK(src, PROC_REF(do_reaction), holder), 50)
 
 /datum/chemical_reaction/slime/fire/proc/do_reaction(var/datum/reagents/holder)
 	var/turf/location = get_turf(holder.my_atom)
@@ -1335,7 +1327,7 @@
 
 /datum/chemical_reaction/slime/overload/on_reaction(var/datum/reagents/holder, var/created_volume)
 	..()
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/empulse, get_turf(holder.my_atom), 3, 7), 50)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(empulse), get_turf(holder.my_atom), 3, 7), 50)
 
 /datum/chemical_reaction/slime/cell
 	name = "Slime Powercell"
@@ -1471,7 +1463,7 @@
 
 /datum/chemical_reaction/slime/explosion/on_reaction(var/datum/reagents/holder)
 	..()
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/explosion, get_turf(holder.my_atom), 1, 3, 6), 50)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(explosion), get_turf(holder.my_atom), 1, 3, 6), 50)
 
 /datum/chemical_reaction/slime/plasticglass
 	name = "Slime Plastic & Glass"

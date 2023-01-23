@@ -146,7 +146,7 @@
 		return SPACE
 	else
 		var/area/A = get_area(src)
-		return A.sound_env
+		return A ? A.sound_env : STANDARD_STATION
 
 /mob/living/playsound_get_environment(pressure_factor = 1.0)
 	if (hallucination)
@@ -163,7 +163,7 @@
 		return ..()
 
 /mob/living/carbon/human/playsound_get_environment(pressure_factor = 1.0)
-	if(protected_from_sound())
+	if(get_hearing_protection())
 		return PADDED_CELL
 	return ..()
 
@@ -171,7 +171,7 @@
 	return 1
 
 /mob/living/carbon/human/check_sound_equipment_volume()
-	if(protected_from_sound())
+	if(get_hearing_protection())
 		return 0.6
 	return 1
 
@@ -924,3 +924,18 @@
 				  'sound/machines/sm/accent/delam/32.ogg',
 				  'sound/machines/sm/accent/delam/33.ogg'
 				  )
+
+/singleton/sound_category/rip_sound
+	sounds = list(
+		'sound/items/rip1.ogg',
+		'sound/items/rip2.ogg',
+		'sound/items/rip3.ogg',
+		'sound/items/rip4.ogg'
+	)
+
+/singleton/sound_category/ointment_sound
+	sounds = list(
+		'sound/items/ointment1.ogg',
+		'sound/items/ointment2.ogg',
+		'sound/items/ointment3.ogg'
+	)

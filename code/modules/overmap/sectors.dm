@@ -51,7 +51,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	if(!current_map.overmap_z)
 		build_overmap()
-		
+
 	start_x = start_x || rand(OVERMAP_EDGE, current_map.overmap_size - OVERMAP_EDGE)
 	start_y = start_y || rand(OVERMAP_EDGE, current_map.overmap_size - OVERMAP_EDGE)
 
@@ -218,3 +218,6 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	testing("Overmap build complete.")
 	return 1
+
+/obj/effect/overmap/visitable/proc/handle_sensor_state_change(var/on)
+	return

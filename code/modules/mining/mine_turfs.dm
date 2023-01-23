@@ -327,7 +327,7 @@ var/list/mineral_can_smooth_with = list(
 					O = new /obj/item/ore(src)
 				if(istype(O))
 					O.geologic_data = get_geodata()
-				addtimer(CALLBACK(O, /atom/movable/.proc/forceMove, user.loc), 1)
+				addtimer(CALLBACK(O, TYPE_PROC_REF(/atom/movable, forceMove), user.loc), 1)
 
 			if(finds?.len)
 				var/datum/find/F = finds[1]
@@ -621,6 +621,7 @@ var/list/mineral_can_smooth_with = list(
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 
 	roof_type = null
+	turf_flags = TURF_FLAG_BACKGROUND
 
 // Same as the other, this is a global so we don't have a lot of pointless lists floating around.
 // Basalt is explicitly omitted so ash will spill onto basalt turfs.

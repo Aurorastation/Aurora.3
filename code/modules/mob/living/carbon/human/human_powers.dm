@@ -632,7 +632,7 @@ mob/living/carbon/human/proc/change_monitor()
 	visible_message("<span class='danger'>\The [src] shrieks!</span>")
 	playsound(src.loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
-		if(T.protected_from_sound())
+		if(T.get_hearing_protection())
 			continue
 		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
 			earpain(2, TRUE, 1)
@@ -657,7 +657,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	src.set_light(4,-20)
 
-	addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 30 SECONDS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 30 SECONDS)
 
 /mob/living/carbon/human/proc/darkness_eyes()
 	set category = "Abilities"
@@ -778,7 +778,7 @@ mob/living/carbon/human/proc/change_monitor()
 		playsound(src,'sound/mecha/mechstep.ogg',25,1)
 		if (brokesomething)
 			src.visible_message("<span class='danger'>[src.name] breaks through!</span>")
-		addtimer(CALLBACK(src, .proc/trampling), 1)
+		addtimer(CALLBACK(src, PROC_REF(trampling)), 1)
 
 	else
 		target = get_step(src, dir)
@@ -829,7 +829,7 @@ mob/living/carbon/human/proc/change_monitor()
 	var/list/victims = list()
 
 	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
-		if(T.protected_from_sound())
+		if(T.get_hearing_protection())
 			continue
 		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
 			earpain(3, TRUE, 1)
@@ -837,7 +837,7 @@ mob/living/carbon/human/proc/change_monitor()
 			earpain(2, TRUE, 2)
 	
 	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
-		if(T.protected_from_sound())
+		if(T.get_hearing_protection())
 			continue
 
 		to_chat(T, SPAN_DANGER("You hear an ear piercing shriek and feel your senses go dull!"))
@@ -973,7 +973,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 		var/mob/living/carbon/human/G = new(src.loc)
 		G.key = O.brainmob.key
-		INVOKE_ASYNC(G, /mob/living/carbon/human.proc/set_species, O.dna.species)
+		INVOKE_ASYNC(G, TYPE_PROC_REF(/mob/living/carbon/human, set_species), O.dna.species)
 		to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
 		qdel(O)
 		last_special = world.time + 200
@@ -1153,7 +1153,7 @@ mob/living/carbon/human/proc/change_monitor()
 		ping_image.pixel_x = (T.x - src.x) * WORLD_ICON_SIZE
 		ping_image.pixel_y = (T.y - src.y) * WORLD_ICON_SIZE
 		src << ping_image
-		addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, ping_image), 8)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), ping_image), 8)
 		var/direction = num2text(get_dir(src, L))
 		var/dist
 		if(text2num(direction))

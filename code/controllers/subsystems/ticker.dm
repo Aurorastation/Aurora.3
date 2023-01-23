@@ -11,7 +11,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	name = "Ticker"
 
 	priority = SS_PRIORITY_TICKER
-	flags = SS_NO_TICK_CHECK | SS_FIRE_IN_LOBBY
+	flags = SS_NO_TICK_CHECK
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	init_order = SS_INIT_LOBBY
 
 	wait = 1 SECOND
@@ -152,11 +153,13 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if (pregame_timeleft <= 0 || current_state == GAME_STATE_SETTING_UP)
 		current_state = GAME_STATE_SETTING_UP
+		Master.SetRunLevel(RUNLEVEL_SETUP)
 		wait = 2 SECONDS
 		switch (setup())
 			if (SETUP_REVOTE)
 				wait = 1 SECOND
 				is_revote = TRUE
+				Master.SetRunLevel(RUNLEVEL_LOBBY)
 				pregame()
 			if (SETUP_REATTEMPT)
 				pregame_timeleft = 1 SECOND
@@ -179,6 +182,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if(!mode.explosion_in_progress && game_finished && (mode_finished || post_game))
 		current_state = GAME_STATE_FINISHED
+		Master.SetRunLevel(RUNLEVEL_POSTGAME)
 
 		declare_completion()
 
@@ -338,7 +342,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	for(var/dept in ready_job.departments)
 		LAZYDISTINCTADD(ready_player_jobs[dept], prefs.real_name)
 		LAZYSET(ready_player_jobs[dept], prefs.real_name, ready_job.title)
-		sortTim(ready_player_jobs[dept], /proc/cmp_text_asc)
+		sortTim(ready_player_jobs[dept], GLOBAL_PROC_REF(cmp_text_asc))
 		. = TRUE
 
 	if(.)
@@ -536,12 +540,12 @@ var/datum/controller/subsystem/ticker/SSticker
 	equip_characters()
 	SSrecords.build_records()
 
-	Master.RoundStart()
+	Master.SetRunLevel(RUNLEVEL_GAME)
 	real_round_start_time = REALTIMEOFDAY
 	round_start_time = world.time
 
 	callHook("roundstart")
-	INVOKE_ASYNC(src, .proc/roundstart)
+	INVOKE_ASYNC(src, PROC_REF(roundstart))
 
 	log_debug("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
 	run_callback_list(roundstart_callbacks)

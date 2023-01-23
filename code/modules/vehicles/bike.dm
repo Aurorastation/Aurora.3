@@ -26,14 +26,15 @@
 	var/storage_type = /obj/item/storage/toolbox/bike_storage
 	var/obj/item/storage/storage_compartment
 	var/datum/effect_system/ion_trail/ion
+	var/ion_type = /datum/effect_system/ion_trail
 	var/kickstand = TRUE
 	var/can_hover = TRUE
 
 /obj/vehicle/bike/setup_vehicle()
 	..()
-	ion = new(src)
+	ion = new ion_type(src)
 	turn_off()
-	add_overlay(image('icons/obj/bike.dmi', "[icon_state]_off_overlay", MOB_LAYER + 1))
+	add_overlay(image(icon, "[icon_state]_off_overlay", MOB_LAYER + 1))
 	icon_state = "[bike_icon]_off"
 	if(storage_type)
 		storage_compartment = new storage_type(src)
@@ -178,10 +179,10 @@
 	cut_overlays()
 
 	if(on)
-		add_overlay(image('icons/obj/bike.dmi', "[bike_icon]_on_overlay", MOB_LAYER + 1))
+		add_overlay(image(icon, "[bike_icon]_on_overlay", MOB_LAYER + 1))
 		icon_state = "[bike_icon]_on"
 	else
-		add_overlay(image('icons/obj/bike.dmi', "[bike_icon]_off_overlay", MOB_LAYER + 1))
+		add_overlay(image(icon, "[bike_icon]_off_overlay", MOB_LAYER + 1))
 		icon_state = "[bike_icon]_off"
 
 	..()
@@ -194,6 +195,9 @@
 
 /obj/vehicle/bike/Collide(var/atom/movable/AM)
 	. = ..()
+	collide_act(AM)
+
+/obj/vehicle/bike/proc/collide_act(var/atom/movable/AM)
 	var/mob/living/M
 	if(!buckled)
 		return
@@ -333,7 +337,7 @@
 		if(!paid)
 			paid = TRUE
 			to_chat(user, SPAN_NOTICE("Payment confirmed, enjoy two minutes of unlimited snowmobile use."))
-			addtimer(CALLBACK(src, .proc/rearm), 2 MINUTES)
+			addtimer(CALLBACK(src, PROC_REF(rearm)), 2 MINUTES)
 		return
 	..()
 

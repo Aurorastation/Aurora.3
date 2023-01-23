@@ -19,6 +19,7 @@
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
 	var/brightness_power = 0.45
 	var/night_brightness_range = 6
@@ -439,12 +440,12 @@
 
 	flickering = TRUE
 	var/offset = 1
-	var/thecallback = CALLBACK(src, .proc/handle_flicker)
+	var/thecallback = CALLBACK(src, PROC_REF(handle_flicker))
 	for (var/i = 0; i < amount; i++)
 		addtimer(thecallback, offset)
 		offset += rand(5, 15)
 
-	addtimer(CALLBACK(src, .proc/end_flicker), offset)
+	addtimer(CALLBACK(src, PROC_REF(end_flicker)), offset)
 
 /obj/machinery/light/proc/handle_flicker()
 	if (status == LIGHT_OK)
@@ -600,7 +601,7 @@
 // called when area power state changes
 /obj/machinery/light/power_change()
 	SHOULD_CALL_PARENT(FALSE)
-	addtimer(CALLBACK(src, .proc/handle_power_change), rand(1, 2 SECONDS), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
+	addtimer(CALLBACK(src, PROC_REF(handle_power_change)), rand(1, 2 SECONDS), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
 /obj/machinery/light/proc/handle_power_change()
 	if (has_power())

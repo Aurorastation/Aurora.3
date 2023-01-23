@@ -7,6 +7,7 @@
 	var/obj/machinery/shipsensors/sensors
 	var/obj/machinery/iff_beacon/identification
 	circuit = /obj/item/circuitboard/ship/sensors
+	linked_type = /obj/effect/overmap/visitable
 
 /obj/machinery/computer/ship/sensors/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
@@ -198,8 +199,10 @@
 	if(sensors && sensors.use_power && sensors.powered())
 		var/sensor_range = round(sensors.range*1.5) + 1
 		linked.set_light(sensor_range, sensor_range+1, light_color)
+		linked.handle_sensor_state_change(TRUE)
 	else
 		linked.set_light(0)
+		linked.handle_sensor_state_change(FALSE)
 
 /obj/machinery/shipsensors
 	name = "sensors suite"
@@ -214,6 +217,12 @@
 	var/heat = 0
 	var/range = 1
 	idle_power_usage = 5000
+
+	var/base_icon_state
+
+/obj/machinery/shipsensors/Initialize(mapload, d, populate_components, is_internal)
+	base_icon_state = icon_state
+	return ..()
 
 /obj/machinery/shipsensors/attackby(obj/item/W, mob/user)
 	var/damage = max_health - health
@@ -245,12 +254,12 @@
 	return 1
 
 /obj/machinery/shipsensors/update_icon()
-	icon_state = "sensors_off"
+	icon_state = "[base_icon_state]_off"
 	if(!use_power)
 		cut_overlays()
 		return
 
-	var/overlay = "sensors-effect"
+	var/overlay = "[base_icon_state]-effect"
 
 	var/range_percentage = range / world.view * 100
 
@@ -265,15 +274,11 @@
 	else
 		overlay = "[overlay]5"
 
-	// Check if we are already using this overlay. Since updating is expensive.
-	if(!(overlay in our_overlays))
-		cut_overlays()
-		add_overlay(overlay)
-
-		var/heat_percentage = heat / critical_heat * 100
-
-		if(heat_percentage > 85)
-			add_overlay("sensors-effect-hot")
+	cut_overlays()
+	add_overlay(overlay)
+	var/heat_percentage = heat / critical_heat * 100
+	if(heat_percentage > 85)
+		add_overlay("sensors-effect-hot")
 
 /obj/machinery/shipsensors/examine(mob/user)
 	. = ..()
@@ -340,3 +345,9 @@
 /obj/machinery/shipsensors/weak
 	heat_reduction = 0.35 // Can sustain range 1
 	desc = "Miniturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
+
+/obj/machinery/shipsensors/strong
+	name = "sensors suite"
+	desc = "An upgrade to the standard ship-mounted sensor array, this beast has massive cooling systems running beneath it, allowing it to run hotter for much longer. Can only run in vacuum to protect delicate quantum BS elements."
+	icon_state = "sensor_suite"
+	heat_reduction = 1.6 // can sustain range 4
