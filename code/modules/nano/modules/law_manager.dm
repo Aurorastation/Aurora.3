@@ -21,7 +21,7 @@
 		player_laws = new()
 
 		init_subtypes(/datum/ai_laws, admin_laws)
-		sortTim(admin_laws, /proc/cmp_name_asc)
+		sortTim(admin_laws, GLOBAL_PROC_REF(cmp_name_asc))
 
 		for(var/datum/ai_laws/laws in admin_laws)
 			if(laws.selectable)

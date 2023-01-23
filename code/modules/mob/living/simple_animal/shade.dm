@@ -51,9 +51,6 @@
 /mob/living/simple_animal/shade/can_name(var/mob/living/M)
 	return FALSE
 
-/mob/living/simple_animal/shade/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
-
 /mob/living/simple_animal/shade/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
 	if(istype(O, /obj/item/device/soulstone))
 		var/obj/item/device/soulstone/S = O;
@@ -364,4 +361,4 @@
 	gender = PLURAL
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "blectoplasm"
-	reagents_to_add = list(/decl/reagent/bluespace_dust = 8)
+	reagents_to_add = list(/singleton/reagent/bluespace_dust = 8)

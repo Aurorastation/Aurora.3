@@ -87,7 +87,7 @@
 	setup_parts()
 	middle.add_overlay("activated")
 	update_list(TRUE)
-	addtimer(CALLBACK(src, .proc/round_startset), 100)
+	addtimer(CALLBACK(src, PROC_REF(round_startset)), 100)
 
 /obj/machinery/gravity_generator/main/station/proc/round_startset()
 	if(round_start >= 1)
@@ -147,7 +147,7 @@
 	charging_state = POWER_UP
 	set_power()
 	eventon = !eventon
-	addtimer(CALLBACK(src, .proc/reset_event), 100) // Because it takes 100 seconds for it to recharge. And we need to make sure we resen this var
+	addtimer(CALLBACK(src, PROC_REF(reset_event)), 100) // Because it takes 100 seconds for it to recharge. And we need to make sure we resen this var
 
 /obj/machinery/gravity_generator/main/proc/reset_event()
 	eventon = !eventon
@@ -450,7 +450,7 @@
 /obj/machinery/gravity_generator/main/Initialize()
 	. = ..()
 	soundloop = new(src, start_immediately = FALSE)
-	addtimer(CALLBACK(src, .proc/updateareas), 10)
+	addtimer(CALLBACK(src, PROC_REF(updateareas)), 10)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/gravity_generator/main/LateInitialize()

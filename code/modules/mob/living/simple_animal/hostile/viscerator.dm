@@ -52,12 +52,12 @@
 /mob/living/simple_animal/hostile/viscerator/emp_act(severity)
 	LoseTarget()
 	stance = HOSTILE_STANCE_TIRED
-	addtimer(CALLBACK(src, .proc/wakeup), 150)
+	addtimer(CALLBACK(src, PROC_REF(wakeup)), 150)
 	if(severity == 1.0)
 		apply_damage(5)
 
 /mob/living/simple_animal/hostile/viscerator/lube
-	reagents_to_add = list(/decl/reagent/lube = 30)
+	reagents_to_add = list(/singleton/reagent/lube = 30)
 
 /mob/living/simple_animal/hostile/viscerator/lube/death()
 	reagents.splash(get_turf(src), 30)

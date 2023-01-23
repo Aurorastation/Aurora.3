@@ -36,7 +36,7 @@
 		)
 
 	if(use_common)
-		channels += list(CHANNEL_COMMON, TRUE)
+		channels += list(CHANNEL_COMMON = TRUE)
 
 /obj/item/device/encryptionkey/ship/common
 	use_common = TRUE

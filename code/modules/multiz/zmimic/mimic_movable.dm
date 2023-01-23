@@ -77,7 +77,7 @@
 // Holder object used for dimming openspaces & copying lighting of below turf.
 /atom/movable/openspace/multiplier
 	name = "openspace multiplier"
-	desc = "You shouldn't see this."
+	desc = DESC_PARENT
 	icon = 'icons/effects/lighting_overlay.dmi'
 	icon_state = "dark"
 	plane = OPENTURF_MAX_PLANE
@@ -184,12 +184,12 @@
 			deltimer(destruction_timer)
 			destruction_timer = null
 	else if (!destruction_timer)
-		destruction_timer = addtimer(CALLBACK(src, /datum/.proc/qdel_self), 10 SECONDS, TIMER_STOPPABLE)
+		destruction_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, qdel_self)), 10 SECONDS, TIMER_STOPPABLE)
 
 // Called when the turf we're on is deleted/changed.
 /atom/movable/openspace/mimic/proc/owning_turf_changed()
 	if (!destruction_timer)
-		destruction_timer = addtimer(CALLBACK(src, /datum/.proc/qdel_self), 10 SECONDS, TIMER_STOPPABLE)
+		destruction_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, qdel_self)), 10 SECONDS, TIMER_STOPPABLE)
 
 // -- TURF PROXY --
 

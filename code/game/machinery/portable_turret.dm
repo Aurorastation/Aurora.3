@@ -74,7 +74,7 @@
 	var/last_target			//last target fired at, prevents turrets from erratically firing at all valid targets in range
 	var/list/targets = list()			//list of primary targets
 	var/list/secondarytargets = list()	//targets that are least important
-	var/resetting = FALSE
+	var/resetting
 	var/fast_processing = FALSE
 
 	var/old_angle = 0
@@ -151,6 +151,8 @@
 				SOME_TC.enabled = 0
 			src.setState(SOME_TC)
 
+	add_to_target_grid()
+
 /obj/machinery/porta_turret/Destroy()
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
@@ -161,6 +163,8 @@
 	spark_system = null
 	if(fast_processing)
 		STOP_PROCESSING(SSfast_process, src)
+
+	clear_from_target_grid()
 
 	. = ..()
 
@@ -304,7 +308,7 @@
 	if(powered())
 		queue_icon_update()
 	else
-		addtimer(CALLBACK(src, .proc/lose_power), rand(1, 15))
+		addtimer(CALLBACK(src, PROC_REF(lose_power)), rand(1, 15))
 
 /obj/machinery/porta_turret/proc/lose_power()
 	stat |= NOPOWER
@@ -404,7 +408,7 @@
 		if(I.force * 0.5 > 1) //if the force of impact dealt at least 1 damage, the turret gets pissed off
 			if(!attacked && !emagged)
 				attacked = 1
-				addtimer(CALLBACK(src, .proc/reset_attacked), 1 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+				addtimer(CALLBACK(src, PROC_REF(reset_attacked)), 1 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 		return ..()
 
 /obj/machinery/porta_turret/proc/reset_attacked()
@@ -446,7 +450,7 @@
 	if(enabled)
 		if(!attacked && !emagged)
 			attacked = 1
-			addtimer(CALLBACK(src, .proc/reset_attacked), 60, TIMER_UNIQUE | TIMER_OVERRIDE)
+			addtimer(CALLBACK(src, PROC_REF(reset_attacked)), 60, TIMER_UNIQUE | TIMER_OVERRIDE)
 	..()
 
 	take_damage(damage)
@@ -464,7 +468,7 @@
 			emagged = TRUE
 
 		enabled = FALSE
-		addtimer(CALLBACK(src, .proc/post_emp_act), rand(60, 600))
+		addtimer(CALLBACK(src, PROC_REF(post_emp_act)), rand(60, 600))
 
 	..()
 
@@ -501,41 +505,51 @@
 		popDown()
 		return
 
-	targets = list()
-	secondarytargets = list()
-
-	for(var/v in view(world.view, src))
-		if(isliving(v))
-			assess_and_assign_living(v, targets, secondarytargets)
-		if(istype(v,/obj/structure/closet))
-			assess_and_assign_closet(v, targets, secondarytargets)
-
-
-	if(!tryToShootAt(targets))
-		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
-			if(raised || raising) // we've already reset
-				resetting = TRUE
-				addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
-
-	if(targets.len || secondarytargets.len)
-		if(!fast_processing)
-			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
-			START_PROCESSING(SSfast_process, src)
-			fast_processing = TRUE
-	else
-		if(fast_processing)
-			STOP_PROCESSING(SSfast_process, src)
-			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
-			fast_processing = FALSE
-
 	if(auto_repair && (health < maxhealth))
 		use_power_oneoff(20000)
 		health = min(health+1, maxhealth) // 1HP for 20kJ
 
+	if(raising)
+		return // Don't try to do target acquisition while we're resetting
+
+	targets = list()
+	secondarytargets = list()
+
+	var/list/potentials = get_targets_in_LOS(world.view, src)
+
+	if(potentials.len)
+		for(var/mob/living/L in potentials)
+			assess_and_assign_living(L, targets, secondarytargets)
+
+		if(targets.len || secondarytargets.len)
+			fastscan(TRUE)
+
+			if(!tryToShootAt(targets))
+				tryToShootAt(secondarytargets)
+
+	if(!targets.len && !secondarytargets.len)
+		resetting = addtimer(CALLBACK(src, PROC_REF(reset)), 6 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE) // no valid targets, close the cover
+	else if(resetting)
+		deltimer(resetting)
+		resetting = null
+
+/obj/machinery/porta_turret/proc/fastscan(on)
+	if(on == fast_processing)
+		return
+
+	if(on && !fast_processing)
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		START_PROCESSING(SSfast_process, src)
+	else if(fast_processing)
+		STOP_PROCESSING(SSfast_process, src)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+
+	fast_processing = on
+
 /obj/machinery/porta_turret/proc/reset()
 	if(!targets.len && !secondarytargets.len)
+		fastscan(FALSE)
 		popDown()
-	resetting = FALSE
 
 /obj/machinery/porta_turret/proc/assess_and_assign_living(var/mob/living/L, var/list/targets, var/list/secondarytargets)
 	switch(assess_living(L))
@@ -576,6 +590,9 @@
 		return TURRET_NOT_TARGET
 
 	if(!emagged && !target_borgs && issilicon(L))	// Don't target silica
+		return TURRET_NOT_TARGET
+
+	if(isbrain(L) && !isturf(L.loc)) // Don't target cyborg brains / MMIs
 		return TURRET_NOT_TARGET
 
 	if(L.stat && !emagged)		//if the perp is dead/dying, no need to bother really
@@ -752,7 +769,7 @@
 	//Shooting Code:
 	A.launch_projectile(target, def_zone)
 	last_fired = TRUE
-	addtimer(CALLBACK(src, .proc/reset_last_fired), shot_delay, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(reset_last_fired)), shot_delay, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /datum/turret_checks
 	var/enabled

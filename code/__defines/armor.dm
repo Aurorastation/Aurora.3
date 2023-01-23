@@ -9,9 +9,8 @@
 #define  ARMOR_BALLISTIC_PISTOL		30
 #define  ARMOR_BALLISTIC_MEDIUM		40
 #define  ARMOR_BALLISTIC_CARBINE    45 //Reduces polymer round damage to 15.3.
-#define  ARMOR_BALLISTIC_REVOLVER   50 //Reduces 357 round damage to 14.
-#define  ARMOR_BALLISTIC_RIFLE		55 //Used by security ballistic armour. Drops 762 down to 18.5 damage.
-#define  ARMOR_BALLISTIC_MAJOR		60
+#define  ARMOR_BALLISTIC_MAJOR      55 //Reduces 762 round damage to 18.
+#define  ARMOR_BALLISTIC_RIFLE		60 //Used by security ballistic armour. Drops 762 down to 11.2 damage.
 #define  ARMOR_BALLISTIC_AP			75
 #define  ARMOR_BALLISTIC_HEAVY		100
 
