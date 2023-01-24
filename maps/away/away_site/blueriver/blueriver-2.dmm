@@ -5,74 +5,72 @@
 	},
 /area/bluespaceriver/ground)
 "ab" = (
-/turf/unsimulated/mask{
-	temperature = 230
-	},
+/turf/simulated/mineral/planet,
 /area/bluespaceriver/ground)
 "ac" = (
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "ad" = (
 /obj/structure/flora/grass/brown,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "ae" = (
 /obj/structure/flora/tree/pine,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "af" = (
 /obj/structure/flora/bush,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "ag" = (
 /obj/structure/flora/bush,
 /obj/structure/flora/grass/both,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "ah" = (
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "ai" = (
 /obj/structure/flora/grass/both,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "aj" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "ak" = (
 /obj/effect/shuttle_landmark/nav_blueriv/nav3,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "al" = (
 /obj/effect/overmap/visitable/sector/blueriver,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "am" = (
 /obj/effect/shuttle_landmark/nav_blueriv/nav1,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "an" = (
@@ -98,7 +96,7 @@
 "as" = (
 /obj/machinery/light,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ship)
 "at" = (
@@ -106,10 +104,7 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_y = -24
 	},
-/obj/item/storage/pill_bottle/antitox,
-/obj/item/paper{
-	info = "We've landed, and aside from the permafrost, there's not a lot to mention on this rock. The readings are strongest in the middle of an open field near the ship, but there's nothing there, meaning we really only have one choice. Digging down. One of the others thinks theres a good chance that it's underground, so we might as well see if they're onto something. We don't have any other decent plans, and we need this find. Fortunate we brought the larger scale excavation equipment."
-	},
+/obj/item/paper/blueriver/expedition_log_1,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "au" = (
@@ -138,6 +133,7 @@
 /area/bluespaceriver/ship)
 "aB" = (
 /obj/machinery/door/airlock/command,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "aC" = (
@@ -162,6 +158,7 @@
 /area/bluespaceriver/ship)
 "aG" = (
 /obj/machinery/door/airlock/science,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "aH" = (
@@ -177,10 +174,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/paper{
-	info = "Well, it didn't take the three days I was betting on, so i'm out twenty bucks, but we managed to punch through into a cave of some sort with the drilling equipment. We're lowering a ladder down now and sending one of the guards down to check that there's no spiders in there or anything. Once they report back, we'll Move the whole basecamp down there, and- SO, We've moved down into the cave now, and what we've found is astounding! It looks a LOT like a lake or river of blue goo, but... not? I took some scans, but couldn't pick anything up aside from radiation spikes from the pool. I also lowered a swab into the fluid to take a sample, but when I touched the swab to the surface of the... Fluid? the Swab just... Ceased And yes, that's the best way to describe it. it just stopped existing in my hand. We figure it's best we DON'T touch the blue stuff for now. one of our help has started moving supplies down into the cave to build a bridge of sorts though across the pool. We spotted some sort of structure on the far side, and the bridge is the only way to get to it, so now we wait."
-	},
 /obj/structure/table/wood,
+/obj/item/paper/blueriver/expedition_log_3,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "aJ" = (
@@ -199,9 +194,7 @@
 /area/bluespaceriver/ship)
 "aM" = (
 /obj/machinery/r_n_d/protolathe,
-/obj/item/paper{
-	info = "Well, it only took three weeks... this trip... but we finally found something worth investigating! An energy signature, just on or under the planet's surface. It's bizarre, similar to a bluespace signature, but... not. I'll need to get down there to really get a reading on it, but this could be the kind of discovery that makes a career. We've identified a landing site, so our pilot is setting the ship down there in the next couple of hours. it'll take some more time after that to set up a base camp and such."
-	},
+/obj/item/paper/blueriver/expedition_log_4,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "aO" = (
@@ -214,6 +207,7 @@
 /area/bluespaceriver/ship)
 "aR" = (
 /obj/structure/table/steel,
+/obj/item/paper/blueriver/expedition_log_5,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "aS" = (
@@ -268,9 +262,6 @@
 "bb" = (
 /obj/machinery/r_n_d/circuit_imprinter,
 /obj/item/device/ano_scanner,
-/obj/item/paper{
-	info = "I don't understand where they could have gone, but one of the researchers and a guard disappeared last night. We've started looking for them, figuring maybe they got trapped somewhere in the ruins, maybe a booby trap or something that was still functioning, but we haven't seen any sign of them. Their equipment, both of their equipment, is still in the ship, and there's no signs of anything grabbing them in the night, they're just... Gone.  Tomorrow morning we head back into space to go resupply and submit what we've found so far, but when we come back we'll have more than enough manpower to really dig into this place."
-	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bc" = (
@@ -327,7 +318,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bi" = (
@@ -383,7 +373,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ship)
 "bq" = (
@@ -406,6 +396,7 @@
 /area/bluespaceriver/ship)
 "bt" = (
 /obj/machinery/door/airlock,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
 "bv" = (
@@ -431,9 +422,7 @@
 /obj/item/pen,
 /obj/item/form_printer,
 /obj/item/rig/hazmat/equipped,
-/obj/item/paper{
-	info = "We've finished the bridge and began our initial investigation into the site. Thus far, we're finding a lot of structures clearly made by a sapient species, one that from all indications was relatively advanced, but no signs of what actually happened to them. There's clear signs of habitation, but no signs of what caused abandonment. We're setting up camp in the ruins tonight so that we can continue studying as long as possible before our scheduled departure for refueling, but I feel confident we'll have enough to secure funds for the forseeable future at least!"
-	},
+/obj/item/paper/blueriver/expedition_log_2,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bB" = (
@@ -441,7 +430,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ship)
 "bC" = (
@@ -458,6 +447,7 @@
 "bE" = (
 /obj/machinery/door/airlock,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
 "bF" = (
@@ -499,6 +489,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/sign/flag/sol{
+	pixel_y = 31
+	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bM" = (
@@ -511,13 +504,14 @@
 /area/bluespaceriver/ship)
 "bN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/power/terminal,
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -553,9 +547,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/cable,
-/obj/machinery/power/smes/buildable{
-	RCon_tag = "Solar - Port"
+/obj/machinery/power/smes/buildable/third_party_shuttle{
+	charge = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -595,10 +591,10 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bZ" = (
-/obj/random/energy,
 /obj/item/storage/pill_bottle/happy,
 /obj/random/contraband,
 /obj/structure/table/wood,
+/obj/item/gun/energy/pistol,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "ca" = (
@@ -613,13 +609,16 @@
 /area/bluespaceriver/ship)
 "cc" = (
 /obj/structure/closet/excavation,
+/obj/structure/sign/flag/sol{
+	pixel_y = 31
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "cd" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/closet/wardrobe/science_white,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "ce" = (
@@ -644,8 +643,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "cj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/shieldwallgen,
+/obj/structure/sign/flag/sol{
+	pixel_y = 31
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "ck" = (
@@ -654,7 +654,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "cn" = (
-/obj/structure/closet/secure_closet/scientist,
+/obj/item/clothing/suit/space/void/einstein,
+/obj/item/clothing/head/helmet/space/void/einstein{
+	pixel_x = -11;
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "co" = (
@@ -684,6 +688,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/shieldwallgen,
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "cs" = (
@@ -701,19 +706,19 @@
 "cv" = (
 /obj/machinery/mining/brace,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "cw" = (
 /obj/machinery/mining/drill,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "cx" = (
 /obj/effect/shuttle_landmark/nav_blueriv/nav4,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "cy" = (
@@ -724,20 +729,20 @@
 /obj/structure/flora/grass/both,
 /obj/structure/flora/grass/both,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "cB" = (
 /obj/structure/flora/grass/both,
 /obj/structure/flora/bush,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "cC" = (
 /obj/effect/shuttle_landmark/nav_blueriv/nav2,
 /turf/simulated/floor/exoplanet/snow{
-	temperature = 240
+	temperature = 250
 	},
 /area/bluespaceriver/ground)
 "cD" = (
@@ -748,24 +753,80 @@
 	temperature = 233
 	},
 /area/bluespaceriver/ground)
+"dT" = (
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/high{
+	name = "south bump";
+	pixel_y = -24
+	},
+/turf/simulated/floor/tiled/white,
+/area/bluespaceriver/ship)
 "hN" = (
 /obj/machinery/door/airlock/science,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "iI" = (
 /obj/structure/inflatable/door,
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
+"lm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/sign/flag/sol{
+	pixel_y = 31
+	},
+/turf/simulated/floor/tiled/white,
+/area/bluespaceriver/ship)
+"nG" = (
+/obj/item/device/flashlight/flare/glowstick/random{
+	fuel = 100000
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 250
+	},
+/area/bluespaceriver/ground)
+"rI" = (
+/obj/item/clothing/suit/space/void/einstein,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 250
+	},
+/area/bluespaceriver/ground)
 "Co" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/turf/simulated/wall/titanium,
+/obj/structure/closet/secure_closet/scientist{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bluespaceriver/ship)
+"JT" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Lk" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/bed/stool/padded/red,
+/turf/simulated/floor/tiled/white,
+/area/bluespaceriver/ship)
+"Sn" = (
+/obj/structure/bed/stool/chair/office/dark,
+/turf/simulated/floor/tiled/white,
+/area/bluespaceriver/ship)
+"Tn" = (
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/white,
+/area/bluespaceriver/ship)
+"Vh" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 
@@ -2138,9 +2199,9 @@ ac
 ac
 ac
 ac
-ba
 ay
-bC
+ay
+ay
 ac
 ac
 ac
@@ -2241,7 +2302,7 @@ ac
 ac
 an
 ba
-aF
+Tn
 ay
 bC
 ac
@@ -2644,9 +2705,9 @@ ac
 ac
 ac
 an
-an
+ay
 aD
-aF
+Sn
 aF
 be
 br
@@ -2963,7 +3024,7 @@ bJ
 ay
 ce
 ch
-cn
+ch
 cr
 cu
 ac
@@ -3051,9 +3112,9 @@ ac
 ac
 an
 ap
-av
+Vh
 az
-aH
+lm
 aH
 aW
 bg
@@ -3064,14 +3125,14 @@ bR
 aH
 ca
 cf
-cj
+cf
 co
-ch
+Co
 cu
 ac
 ac
 cy
-ac
+nG
 ac
 ac
 ac
@@ -3153,7 +3214,7 @@ ac
 ac
 an
 aq
-aF
+JT
 ay
 aI
 aQ
@@ -3471,8 +3532,8 @@ bH
 ay
 bZ
 ay
-ch
-ch
+cj
+cn
 cq
 ct
 iI
@@ -3562,7 +3623,7 @@ ac
 ac
 ac
 an
-an
+ay
 aL
 aR
 Lk
@@ -3767,13 +3828,13 @@ ac
 ac
 ac
 ac
-an
-an
+ay
+ay
 ay
 bm
 hN
-Co
-aF
+ay
+dT
 bU
 ay
 bC
@@ -4076,9 +4137,9 @@ ac
 ac
 ac
 ac
-an
 ay
-bC
+ay
+ay
 ac
 ac
 ac
@@ -4793,7 +4854,7 @@ ac
 ac
 ac
 ac
-ac
+rI
 ac
 ac
 ac

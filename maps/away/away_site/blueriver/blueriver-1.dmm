@@ -40,10 +40,6 @@
 /obj/item/device/depth_scanner,
 /turf/simulated/floor/exoplanet/barren,
 /area/bluespaceriver/underground)
-"m" = (
-/mob/living/simple_animal/hostile/hive_alien/defender,
-/turf/simulated/floor/away/blueriver/alienfloor,
-/area/bluespaceriver/underground)
 "n" = (
 /obj/item/roller,
 /turf/simulated/floor/exoplanet/barren,
@@ -53,8 +49,10 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/bluespaceriver/underground)
 "p" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
+/obj/structure/table/standard,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/turf/simulated/floor/exoplanet/barren,
 /area/bluespaceriver/underground)
 "q" = (
 /obj/item/crowbar,
@@ -63,20 +61,29 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/bluespaceriver/underground)
+"r" = (
+/obj/item/device/flashlight/flare/glowstick/random{
+	fuel = 100000
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/bluespaceriver/underground)
 "s" = (
 /obj/item/cell/infinite{
 	alpha = 130;
 	color = "BLUE";
-	desc = "This looks like an alien power cell. You can make out both of the connections relatively clearly though.";
+	desc = "This looks like a power cell. You can make out both of the connections relatively clearly.";
 	icon = 'icons/obj/grenade.dmi';
 	icon_state = "delivery";
-	name = "alien power cell"
+	name = "strange power cell"
 	},
 /turf/simulated/floor/away/blueriver/alienfloor,
 /area/bluespaceriver/underground)
 "t" = (
 /obj/item/stack/material/wood{
 	amount = 6
+	},
+/obj/item/device/flashlight/flare/glowstick/random{
+	fuel = 100000
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/bluespaceriver/underground)
@@ -102,6 +109,7 @@
 /area/bluespaceriver/underground)
 "w" = (
 /obj/structure/closet/excavation,
+/obj/item/storage/box/flares,
 /turf/simulated/floor/exoplanet/barren,
 /area/bluespaceriver/underground)
 "x" = (
@@ -120,6 +128,51 @@
 	color = "BLUE"
 	},
 /turf/simulated/floor/away/blueriver/alienfloor,
+/area/bluespaceriver/underground)
+"B" = (
+/obj/machinery/artifact_analyser,
+/obj/structure/table/standard,
+/turf/simulated/floor/exoplanet/barren,
+/area/bluespaceriver/underground)
+"C" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/regular,
+/obj/item/rig_module/device/anomaly_scanner,
+/turf/simulated/floor/exoplanet/barren,
+/area/bluespaceriver/underground)
+"D" = (
+/obj/structure/anomaly_container,
+/turf/simulated/floor/exoplanet/barren,
+/area/bluespaceriver/underground)
+"F" = (
+/obj/machinery/artifact_scanpad,
+/turf/simulated/floor/exoplanet/barren,
+/area/bluespaceriver/underground)
+"M" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/bluespaceriver/underground)
+"P" = (
+/obj/item/device/camera,
+/turf/simulated/floor/exoplanet/barren,
+/area/bluespaceriver/underground)
+"U" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/device/flashlight/flare/glowstick/random{
+	fuel = 100000
+	},
+/turf/simulated/floor/plating,
+/area/bluespaceriver/underground)
+"V" = (
+/obj/item/device/flashlight/flare/glowstick/random{
+	fuel = 100000
+	},
+/turf/simulated/floor/away/blueriver/alienfloor,
+/area/bluespaceriver/underground)
+"W" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/exoplanet/barren,
 /area/bluespaceriver/underground)
 
 (1,1,1) = {"
@@ -2424,7 +2477,7 @@ a
 a
 x
 o
-x
+r
 x
 a
 a
@@ -2728,7 +2781,7 @@ b
 b
 b
 b
-b
+x
 x
 x
 x
@@ -2833,8 +2886,8 @@ b
 b
 x
 x
-b
-b
+x
+x
 b
 b
 b
@@ -2933,8 +2986,8 @@ b
 b
 b
 b
-p
-b
+M
+M
 b
 b
 b
@@ -3035,8 +3088,8 @@ b
 b
 b
 b
-p
-b
+M
+M
 b
 b
 b
@@ -3137,8 +3190,8 @@ c
 b
 b
 b
-p
-b
+U
+M
 b
 b
 b
@@ -3239,8 +3292,8 @@ c
 b
 b
 b
-p
-b
+M
+M
 b
 b
 b
@@ -3341,8 +3394,8 @@ b
 b
 b
 b
-p
-b
+M
+M
 b
 b
 b
@@ -3443,8 +3496,8 @@ b
 b
 b
 b
-p
-b
+M
+M
 b
 b
 b
@@ -3545,8 +3598,8 @@ b
 b
 b
 b
-p
-b
+M
+M
 b
 b
 b
@@ -3647,8 +3700,8 @@ b
 b
 b
 b
-p
-b
+M
+M
 b
 b
 b
@@ -3749,8 +3802,8 @@ b
 b
 b
 b
-p
-b
+M
+M
 b
 b
 b
@@ -3851,8 +3904,8 @@ b
 b
 b
 b
-p
-b
+M
+U
 b
 b
 b
@@ -3953,8 +4006,8 @@ b
 a
 b
 b
-p
-b
+M
+M
 b
 b
 b
@@ -4055,8 +4108,8 @@ a
 a
 b
 b
-p
-b
+M
+M
 b
 b
 b
@@ -4356,6 +4409,7 @@ f
 f
 x
 x
+r
 x
 x
 x
@@ -4365,10 +4419,9 @@ x
 x
 x
 x
+r
 x
 x
-x
-a
 a
 a
 a
@@ -4463,15 +4516,15 @@ x
 x
 x
 n
+r
 x
 x
 x
 x
 x
 x
+P
 x
-a
-a
 a
 a
 a
@@ -4570,10 +4623,10 @@ x
 a
 a
 a
-a
-a
-a
-a
+x
+x
+x
+x
 a
 a
 a
@@ -4657,7 +4710,7 @@ f
 f
 f
 f
-f
+V
 f
 f
 c
@@ -4671,11 +4724,11 @@ x
 x
 a
 a
-a
-a
-a
-a
-a
+p
+x
+x
+x
+D
 a
 a
 a
@@ -4773,11 +4826,11 @@ x
 x
 a
 a
-a
-a
-a
-a
-a
+C
+x
+x
+x
+D
 a
 a
 a
@@ -4876,9 +4929,9 @@ x
 a
 a
 a
-a
-a
-a
+B
+F
+W
 a
 a
 a
@@ -5991,7 +6044,7 @@ a
 a
 c
 f
-m
+f
 f
 s
 v

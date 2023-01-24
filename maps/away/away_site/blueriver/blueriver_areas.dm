@@ -13,6 +13,6 @@
 	sound_env = ASTEROID
 
 /area/bluespaceriver/ship
-	name = "\improper NSV Eureka"
+	name = "\improper EERV Eureka"
 	icon_state = "ship"
 	icon = 'maps/away/away_site/blueriver/blueriver.dmi'
