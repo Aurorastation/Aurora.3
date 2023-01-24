@@ -718,9 +718,7 @@
 /area/bluespaceriver/ground)
 "cy" = (
 /obj/structure/ladder/away,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 240
-	},
+/turf/simulated/open,
 /area/bluespaceriver/ground)
 "cA" = (
 /obj/structure/flora/grass/both,
@@ -756,6 +754,10 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
+/area/bluespaceriver/ship)
+"iI" = (
+/obj/structure/inflatable/door,
+/turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "Co" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
@@ -2759,7 +2761,7 @@ cc
 ch
 ch
 ch
-ch
+iI
 ac
 ac
 cv
@@ -3371,7 +3373,7 @@ ci
 ch
 ch
 ch
-ch
+iI
 ac
 ac
 ac
@@ -3473,7 +3475,7 @@ ch
 ch
 cq
 ct
-ch
+iI
 ac
 ac
 ac
