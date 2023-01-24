@@ -430,10 +430,10 @@
 /obj/structure/table/glass,
 /obj/item/pen,
 /obj/item/form_printer,
-/obj/item/paper/blueriver/expedition_log_2,
 /obj/item/rig/hazmat/equipped{
 	pixel_x = 10
 	},
+/obj/item/paper/blueriver/expedition_log_2,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bB" = (
@@ -783,12 +783,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
-"hp" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced,
-/area/bluespaceriver/ship)
 "hN" = (
 /obj/machinery/door/airlock/science,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -800,6 +794,12 @@
 "iI" = (
 /obj/structure/inflatable/door,
 /turf/simulated/floor/tiled/dark,
+/area/bluespaceriver/ship)
+"ll" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
 /area/bluespaceriver/ship)
 "lm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2640,7 +2640,7 @@ aF
 bd
 bq
 ay
-hp
+ll
 bQ
 ay
 ay
