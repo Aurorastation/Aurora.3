@@ -30,7 +30,7 @@
 
 /obj/item/reagent_containers/food/snacks/meat/bug
 	filling_color = "#E6E600"
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/toxin/phoron = 27)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/toxin/phoron/base = 27)
 	bitesize = 1.5
 
 /obj/item/reagent_containers/food/snacks/meat/monkey

@@ -35,7 +35,7 @@
 	display_name = "k'ois spores"
 	chems = list(
 				/singleton/reagent/kois = list(4),
-				/singleton/reagent/toxin/phoron = list(8))
+				/singleton/reagent/toxin/phoron/kois = list(8))
 	splat_type = /obj/effect/plant
 	kitchen_tag = "koisspore"
 	mutants = null
@@ -68,7 +68,7 @@
 	mutants = null
 	chems = list(
 				/singleton/reagent/kois/black = list(4),
-				/singleton/reagent/toxin/phoron = list(2))
+				/singleton/reagent/toxin/phoron/kois/black = list(2))
 
 /datum/seed/koisspore/black/setup_traits()
 	..()

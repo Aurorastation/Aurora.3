@@ -158,6 +158,15 @@
 	T.assume_gas(GAS_PHORON, amount, T20C)
 	remove_self(amount, holder)
 
+/singleton/reagent/toxin/phoron/kois
+	name = "Phoron"
+	description = "Phoron in its liquid form. Twice as potent when breathed in. Contains biological traces."
+	fallback_specific_heat = 1 //Contaminated phoron loses its cool energetic properties.
+
+/singleton/reagent/toxin/phoron/kois/black
+	name = "Phoron"
+	description = "Phoron in its liquid form. Twice as potent when breathed in. Contains exotic biological traces."
+
 /singleton/reagent/toxin/cardox
 	name = "Cardox"
 	description = "Cardox is a mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."

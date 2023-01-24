@@ -319,7 +319,7 @@
 		list("synaptizine",		"synaptizine",		/singleton/reagent/synaptizine,		30),
 		list("hyperzine",		"hyperzine",		/singleton/reagent/hyperzine,		30),
 		list("oxycomorphine",	"oxycomorphine",	/singleton/reagent/oxycomorphine,	30),
-		list("phoron",			"phoron",			/singleton/reagent/toxin/phoron,	60),
+		list("phoron",			"phoron",			/singleton/reagent/toxin/phoron/base,	60),
 		list("kois",			"k'ois paste",		/singleton/reagent/kois,			80)
 		)
 
