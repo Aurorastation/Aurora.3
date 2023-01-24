@@ -204,7 +204,7 @@
 					if(is_adult || prob(5))
 						UnarmedAttack(AM)
 						Atkcool = TRUE
-						addtimer(CALLBACK(src, .proc/reset_atkcooldown), 45)
+						addtimer(CALLBACK(src, PROC_REF(reset_atkcooldown)), 45)
 
 	if(ismob(AM))
 		var/mob/tmob = AM

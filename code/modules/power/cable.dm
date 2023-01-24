@@ -452,7 +452,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(first)
 			first = FALSE
 			continue
-		addtimer(CALLBACK(O, .proc/auto_propagate_cut_cable, O), 0)
+		addtimer(CALLBACK(O, PROC_REF(auto_propagate_cut_cable), O), 0)
 		// prevents rebuilding the powernet X times when an explosion cuts X cables
 
 ///////////////////////////////////////////////

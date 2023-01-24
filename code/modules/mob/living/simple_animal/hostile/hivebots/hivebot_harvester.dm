@@ -94,9 +94,9 @@
 	if(!stat)
 		if(stance == HOSTILE_STANCE_IDLE)
 			if(last_processed_turf == src.loc)
-				INVOKE_ASYNC(src, .proc/prospect)
+				INVOKE_ASYNC(src, PROC_REF(prospect))
 			else
-				INVOKE_ASYNC(src, .proc/process_turf)
+				INVOKE_ASYNC(src, PROC_REF(process_turf))
 		else if(busy)
 			busy = 0
 			update_icon()

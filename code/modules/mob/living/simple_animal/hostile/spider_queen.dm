@@ -97,7 +97,7 @@
 		M.update_icon()
 		M.pass_flags = PASSTABLE | PASSMOB
 		M.layer = BELOW_MOB_LAYER
-		addtimer(CALLBACK(src, .proc/do_landing, M), 1 MINUTE)
+		addtimer(CALLBACK(src, PROC_REF(do_landing), M), 1 MINUTE)
 		return TRUE
 	else
 		return FALSE

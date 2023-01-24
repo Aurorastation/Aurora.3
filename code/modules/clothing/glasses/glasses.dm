@@ -303,6 +303,7 @@ BLIND     // can't see anything
 	var/sprite_state = "security_goggles"
 	contained_sprite = TRUE
 	change_item_state_on_flip = TRUE
+	normal_layer = FALSE
 
 /obj/item/clothing/glasses/safety/goggles/goon/Initialize(mapload, material_key)
 	icon_state = sprite_state
@@ -573,6 +574,7 @@ BLIND     // can't see anything
 	item_flags = THICKMATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
+	normal_layer = FALSE
 
 /obj/item/clothing/glasses/welding/attack_self()
 	toggle()
@@ -862,7 +864,7 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 			// Don't cure being nearsighted
 			if(!(M.disabilities & NEARSIGHTED))
 				M.disabilities |= NEARSIGHTED
-				addtimer(CALLBACK(M, /mob/living/carbon/human/.proc/thermal_reset_blindness), 100)
+				addtimer(CALLBACK(M, TYPE_PROC_REF(/mob/living/carbon/human, thermal_reset_blindness)), 100)
 	..()
 
 /obj/item/clothing/glasses/thermal/Initialize()

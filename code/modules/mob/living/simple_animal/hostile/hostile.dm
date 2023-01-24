@@ -37,9 +37,9 @@
 	setup_target_type_validators()
 
 /mob/living/simple_animal/hostile/proc/setup_target_type_validators()
-	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/validator_living)
-	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, .proc/validator_bot)
-	target_type_validator_map[/obj/machinery/porta_turret] = CALLBACK(src, .proc/validator_turret)
+	target_type_validator_map[/mob/living] = CALLBACK(src, PROC_REF(validator_living))
+	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, PROC_REF(validator_bot))
+	target_type_validator_map[/obj/machinery/porta_turret] = CALLBACK(src, PROC_REF(validator_turret))
 
 /mob/living/simple_animal/hostile/Destroy()
 	friends = null
@@ -214,7 +214,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if(target)
 		face_atom(target)
 		if(!ranged && smart_melee)
-			addtimer(CALLBACK(src, .proc/PostAttack, target), 0.6 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 0.6 SECONDS)
 		return target
 
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
@@ -287,7 +287,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] fires at \the [target]!"))
 
 	if(rapid)
-		var/datum/callback/shoot_cb = CALLBACK(src, .proc/shoot_wrapper, target, loc, src)
+		var/datum/callback/shoot_cb = CALLBACK(src, PROC_REF(shoot_wrapper), target, loc, src)
 		addtimer(shoot_cb, 1)
 		addtimer(shoot_cb, 4)
 		addtimer(shoot_cb, 6)
