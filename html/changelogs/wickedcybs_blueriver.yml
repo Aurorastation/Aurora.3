@@ -1,0 +1,7 @@
+author: WickedCybs, MattAtlas
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the blue river away site. That might be familiar to those coming from other baycode servers. It still has its stuff and some changes for the Aurora"
+  - bugfix: "Multi-Z away sites are fixed as part of this PR. There was some issue involving them that Matt handled."
