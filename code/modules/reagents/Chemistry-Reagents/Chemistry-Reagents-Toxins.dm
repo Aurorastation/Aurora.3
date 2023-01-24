@@ -168,7 +168,7 @@
 	name = "Phoron"
 	description = "Phoron in its liquid form. Twice as potent when breathed in. Contains exotic biological traces."
 	fallback_specific_heat = 0.5 //same as black k'ois
-	var/kois_type = 2
+	kois_type = 2
 
 /singleton/reagent/toxin/phoron/kois/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!ishuman(M))
