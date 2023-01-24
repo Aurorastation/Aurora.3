@@ -122,15 +122,15 @@
 	if(prob(80))
 		icon_state = "evilwall_[rand(1,8)]"
 
-/turf/unsimulated/wall/supermatter/no_spread
-	name = "weird liquid"
+/turf/unsimulated/wall/supermatter/no_spread/blueriver
+	name = "blue liquid"
 	desc = "The viscous liquid glows and moves as if it were alive."
 	icon = 'maps/away/away_site/blueriver/blueriver.dmi'
 	icon_state = "bluespacecrystal1"
 	opacity = 0
 	dynamic_lighting = 0
 
-/turf/unsimulated/wall/supermatter/no_spread/Initialize()
+/turf/unsimulated/wall/supermatter/no_spread/blueriver/Initialize()
 	.=..()
 	icon_state = "bluespacecrystal[rand(1,3)]"
 	set_light(0.7, 1, 5, l_color = "#0066ff")
@@ -162,7 +162,7 @@
 
 /obj/item/paper/blueriver/expedition_log_3
 	name = "expedition log #3"
-	info = "Well, it didn't take the three days I was betting on, so i'm out twenty bucks, but we managed to punch through into a cave of some sort with the drilling equipment. We're lowering a ladder down now and sending one of the guards down to check that there's no greimorians in there or anything. Once they report back, we'll move the whole basecamp down there. Coincidentally they just did as I finished this paragraph, so I'll continue this shortly! We've moved down into the cave now, and what we've found is astounding! It looks a LOT like a lake or river of blue goo, but... not? I took some scans, but couldn't pick anything up aside from radiation spikes from the pool. I also lowered a swab into the fluid to take a sample, but when I touched the swab to the surface of the... Fluid? the Swab just... ceased to exist. Yes, that's the best way I can describe it. It just stopped existing in my hand. We figure it's best we DON'T touch the blue stuff for now. one of our help has started moving supplies down into the cave to build a bridge of sorts though across the pool. We spotted some sort of structure on the far side, and the bridge is the only way to get to it, so now we wait. I don't want to think of what might happen if a person touches this blue river, so we're taking it nice and slow."
+	info = "Well, it didn't take the three days I was betting on, so i'm out twenty bucks, but we managed to punch through into a cave of some sort with the drilling equipment. We're lowering a ladder down now and sending one of the guards down to check that there's no greimorians in there or anything. Once they report back, we'll move the whole basecamp down there. Coincidentally they just did as I finished this paragraph, so I'll continue this shortly! We've moved down into the cave now, and what we've found is astounding! It looks a LOT like a lake or river of bluespace, which doesn't make sense does it? I took some scans, but couldn't pick anything up aside from radiation spikes from the pool. I also lowered a swab into the pool to take a sample, but when I touched the swab to the surface of the... fluid? the Swab just... ceased to exist. Yes, that's the best way I can describe it. It just stopped existing in my hand. We figure it's best we DON'T touch it for now. one of our help has started moving supplies down into the cave to build a bridge of sorts though across the pool. We spotted some sort of structure on the far side, and the bridge is the only way to get to it, so now we wait. I don't want to think of what might happen if a person touches this blue river, so we're taking it nice and slow."
 
 /obj/item/paper/blueriver/expedition_log_4
 	name = "expedition log #4"
@@ -170,4 +170,4 @@
 
 /obj/item/paper/blueriver/expedition_log_5
 	name = "expedition log #5"
-	info = "One of the researchers and a guard disappeared last night. We've started looking for them, figuring maybe they got trapped somewhere in the ruins, maybe a booby trap or something that was still functioning, but we haven't seen any sign of them. Their equipment, both of their equipment, is still in the ship, and there's no signs of anything grabbing them in the night, they're just... Gone. The implication here is not lost on me and my colleagues seem to be reaching the same conclusion. We all need to set this aside for now though. Tomorrow morning we have to head back into space to go resupply and submit what we've found so far, but when we come back we'll have more than enough manpower to really dig into this place."
+	info = "One of the researchers and a guard disappeared last night. We've started looking for them, figuring maybe they got trapped somewhere in the ruins, maybe a booby trap or something that was still functioning, but we haven't seen any sign of them. Their equipment, both of their equipment, is still in the ship, and there's no signs of anything grabbing them in the night, they're just... Gone. The implication here is not lost on me. My colleagues seem to be reaching the same conclusion. If we don't find them, well... Tomorrow morning we have to head back into space to go resupply and submit what we've found so far, but when we come back we'll have more than enough manpower to secure the area and dig into this place, I hope."

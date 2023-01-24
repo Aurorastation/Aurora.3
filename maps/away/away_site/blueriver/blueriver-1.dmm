@@ -7,7 +7,10 @@
 "b" = (
 /turf/unsimulated/wall/supermatter/no_spread{
 	temperature = 250;
-	light_range = 7
+	light_range = 6;
+	name = "bluespace river";
+	desc = "A flowing river of bluespace.";
+	opacity = 0
 	},
 /area/bluespaceriver/underground)
 "c" = (
@@ -2966,7 +2969,7 @@ b
 b
 b
 b
-b
+a
 "}
 (28,1,1) = {"
 a
@@ -3068,7 +3071,7 @@ b
 b
 b
 b
-b
+a
 "}
 (29,1,1) = {"
 a
@@ -3170,7 +3173,7 @@ b
 b
 b
 b
-b
+a
 "}
 (30,1,1) = {"
 a
@@ -3272,7 +3275,7 @@ b
 b
 b
 b
-b
+a
 "}
 (31,1,1) = {"
 a
@@ -3374,10 +3377,10 @@ b
 b
 b
 b
-b
+a
 "}
 (32,1,1) = {"
-b
+a
 b
 b
 b
@@ -3476,10 +3479,10 @@ b
 b
 b
 b
-b
+a
 "}
 (33,1,1) = {"
-b
+a
 b
 b
 b
@@ -3578,10 +3581,10 @@ b
 b
 b
 b
-b
+a
 "}
 (34,1,1) = {"
-b
+a
 b
 b
 b
@@ -3683,7 +3686,7 @@ a
 a
 "}
 (35,1,1) = {"
-b
+a
 b
 b
 b
