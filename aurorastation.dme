@@ -26,6 +26,7 @@
 #include "code\__defines\antagonist.dm"
 #include "code\__defines\armor.dm"
 #include "code\__defines\atmos.dm"
+#include "code\__defines\auxtools.dm"
 #include "code\__defines\battle_monsters.dm"
 #include "code\__defines\byond_compat.dm"
 #include "code\__defines\callback.dm"
