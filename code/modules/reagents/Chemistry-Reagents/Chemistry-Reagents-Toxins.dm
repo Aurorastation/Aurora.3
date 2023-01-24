@@ -187,8 +187,6 @@
 		var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 		if(istype(P) && P.stage >= 3)
 			is_vaurcalike = TRUE
-	if(is_vaurcalike)
-		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 
 /singleton/reagent/toxin/phoron/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
 	var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
