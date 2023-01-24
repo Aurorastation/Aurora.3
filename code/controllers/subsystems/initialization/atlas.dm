@@ -220,7 +220,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	var/static/regex/mapregex = new(".+\\.dmm$")
 	var/list/files = flist(directory)
-	sortTim(files, /proc/cmp_text_asc)
+	sortTim(files, GLOBAL_PROC_REF(cmp_text_asc))
 	var/mfile
 	var/first_dmm = TRUE
 	var/time

@@ -41,7 +41,7 @@
 			var/datum/progressbar/progbar = new(user, C.maxcharge, src)
 			progbar.update(C.charge)
 			LAZYADD(chargebars, progbar)
-			chargebars[progbar] = addtimer(CALLBACK(src, .proc/remove_bar, progbar, null), 3 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
+			chargebars[progbar] = addtimer(CALLBACK(src, PROC_REF(remove_bar), progbar, null), 3 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 
 /obj/machinery/recharger/proc/remove_bar(datum/progressbar/bar, timerid)
 	if (!timerid || deltimer(timerid))

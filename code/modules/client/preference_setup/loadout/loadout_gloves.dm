@@ -10,6 +10,11 @@
 	path = /obj/item/clothing/gloves/fingerless/colour
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/gloves/mittens
+	display_name = "mittens, colourable"
+	path = /obj/item/clothing/gloves/mittens
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/gloves/color
 	display_name = "gloves selection"
 	path = /obj/item/clothing/gloves/black

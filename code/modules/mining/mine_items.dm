@@ -771,7 +771,7 @@
 				L.Weaken(3)
 				if(ishuman(L))
 					shake_camera(L, 20, 1)
-					addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
+					addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living/carbon/human, vomit), 20))
 
 /**********************Lazarus Injector**********************/
 
@@ -1079,7 +1079,7 @@ var/list/total_extraction_beacons = list()
 		name = "strong resonance field"
 		resonance_damage = 60
 
-	addtimer(CALLBACK(src, .proc/burst, loc), timetoburst)
+	addtimer(CALLBACK(src, PROC_REF(burst), loc), timetoburst)
 
 /obj/effect/resonance/Destroy()
 	if(res)
@@ -1443,9 +1443,9 @@ var/list/total_extraction_beacons = list()
 					L.Weaken(3)
 					shake_camera(L, 20, 1)
 					if(!isipc(L) && ishuman(L))
-						addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
+						addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living/carbon/human, vomit)), 20)
 
-		addtimer(CALLBACK(src, .proc/drill, location), 2)
+		addtimer(CALLBACK(src, PROC_REF(drill), location), 2)
 
 	qdel(src)
 

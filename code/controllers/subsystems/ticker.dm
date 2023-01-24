@@ -342,7 +342,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	for(var/dept in ready_job.departments)
 		LAZYDISTINCTADD(ready_player_jobs[dept], prefs.real_name)
 		LAZYSET(ready_player_jobs[dept], prefs.real_name, ready_job.title)
-		sortTim(ready_player_jobs[dept], /proc/cmp_text_asc)
+		sortTim(ready_player_jobs[dept], GLOBAL_PROC_REF(cmp_text_asc))
 		. = TRUE
 
 	if(.)
@@ -545,7 +545,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	round_start_time = world.time
 
 	callHook("roundstart")
-	INVOKE_ASYNC(src, .proc/roundstart)
+	INVOKE_ASYNC(src, PROC_REF(roundstart))
 
 	log_debug("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
 	run_callback_list(roundstart_callbacks)

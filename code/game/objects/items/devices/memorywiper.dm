@@ -79,7 +79,7 @@
 			return
 
 		var/wipe_time = rand(20 SECONDS, 40 SECONDS)
-		addtimer(CALLBACK(src, .proc/memorywipe), wipe_time)
+		addtimer(CALLBACK(src, PROC_REF(memorywipe)), wipe_time)
 		wipe_bar = new /datum/progressbar/autocomplete(src, wipe_time, attached)
 		wipe_start_time = world.time
 		wipe_bar.update(0)
