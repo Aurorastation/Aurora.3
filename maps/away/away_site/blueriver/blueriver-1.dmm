@@ -6,14 +6,23 @@
 /area/bluespaceriver/underground)
 "b" = (
 /turf/unsimulated/wall/supermatter/no_spread{
-	temperature = 250
+	temperature = 250;
+	light_range = 7
 	},
 /area/bluespaceriver/underground)
 "c" = (
 /turf/unsimulated/wall/away/blueriver/livingwall,
 /area/bluespaceriver/underground)
+"e" = (
+/obj/machinery/artifact_scanpad,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
+/area/bluespaceriver/underground)
 "f" = (
-/turf/simulated/floor/away/blueriver/alienfloor,
+/turf/simulated/floor/away/blueriver/alienfloor{
+	light_range = 5
+	},
 /area/bluespaceriver/underground)
 "g" = (
 /obj/machinery/replicator{
@@ -21,15 +30,28 @@
 	anchored = 1;
 	color = "BLUE"
 	},
-/turf/simulated/floor/away/blueriver/alienfloor,
+/turf/simulated/floor/away/blueriver/alienfloor{
+	light_range = 5
+	},
+/area/bluespaceriver/underground)
+"h" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "i" = (
 /obj/item/device/measuring_tape,
-/turf/simulated/floor/away/blueriver/alienfloor,
+/turf/simulated/floor/away/blueriver/alienfloor{
+	light_range = 5
+	},
 /area/bluespaceriver/underground)
 "j" = (
 /obj/item/device/camera,
-/turf/simulated/floor/away/blueriver/alienfloor,
+/turf/simulated/floor/away/blueriver/alienfloor{
+	light_range = 5
+	},
 /area/bluespaceriver/underground)
 "k" = (
 /obj/structure/barricade/wooden{
@@ -47,11 +69,11 @@
 	},
 /area/bluespaceriver/underground)
 "m" = (
-/obj/structure/table/standard,
-/obj/item/clothing/suit/hazmat/anomaly,
-/obj/item/clothing/head/hazmat/anomaly,
-/turf/simulated/floor/exoplanet/barren{
-	temperature = 250
+/obj/item/device/flashlight/flare/glowstick/random{
+	fuel = 100000
+	},
+/turf/simulated/floor/away/blueriver/alienfloor{
+	light_range = 5
 	},
 /area/bluespaceriver/underground)
 "n" = (
@@ -92,7 +114,9 @@
 	icon_state = "delivery";
 	name = "strange power cell"
 	},
-/turf/simulated/floor/away/blueriver/alienfloor,
+/turf/simulated/floor/away/blueriver/alienfloor{
+	light_range = 5
+	},
 /area/bluespaceriver/underground)
 "t" = (
 /obj/item/stack/material/wood{
@@ -122,7 +146,9 @@
 	desc = "A strange unerganomic pistol clearly not designed for a human hand. You are surprised that it actually has a trigger.";
 	name = "strange gun"
 	},
-/turf/simulated/floor/away/blueriver/alienfloor,
+/turf/simulated/floor/away/blueriver/alienfloor{
+	light_range = 5
+	},
 /area/bluespaceriver/underground)
 "w" = (
 /obj/structure/closet/excavation,
@@ -141,59 +167,48 @@
 	alpha = 129;
 	color = "BLUE"
 	},
-/turf/simulated/floor/away/blueriver/alienfloor,
+/turf/simulated/floor/away/blueriver/alienfloor{
+	light_range = 5
+	},
 /area/bluespaceriver/underground)
 "z" = (
 /obj/machinery/artifact{
 	alpha = 123;
 	color = "BLUE"
 	},
-/turf/simulated/floor/away/blueriver/alienfloor,
-/area/bluespaceriver/underground)
-"A" = (
-/obj/item/device/flashlight/flare/glowstick/random{
-	fuel = 100000
-	},
-/turf/simulated/floor/away/blueriver/alienfloor,
-/area/bluespaceriver/underground)
-"B" = (
-/obj/structure/anomaly_container,
-/turf/simulated/floor/exoplanet/barren{
-	temperature = 250
+/turf/simulated/floor/away/blueriver/alienfloor{
+	light_range = 5
 	},
 /area/bluespaceriver/underground)
-"G" = (
+"D" = (
 /obj/machinery/artifact_analyser,
 /obj/structure/table/standard,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
 /area/bluespaceriver/underground)
-"M" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
-/area/bluespaceriver/underground)
-"Q" = (
-/obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/exoplanet/barren{
-	temperature = 250
-	},
-/area/bluespaceriver/underground)
-"S" = (
+"K" = (
 /obj/item/device/camera,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
 /area/bluespaceriver/underground)
-"U" = (
+"M" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating{
 	temperature = 250
 	},
 /area/bluespaceriver/underground)
-"V" = (
-/obj/machinery/artifact_scanpad,
+"P" = (
+/obj/structure/anomaly_container,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
+/area/bluespaceriver/underground)
+"Z" = (
+/obj/structure/table/standard,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
@@ -4031,7 +4046,7 @@ a
 b
 b
 M
-U
+M
 b
 b
 b
@@ -4547,7 +4562,7 @@ x
 x
 x
 x
-S
+K
 x
 a
 a
@@ -4734,7 +4749,7 @@ f
 f
 f
 f
-A
+m
 f
 f
 c
@@ -4748,11 +4763,11 @@ x
 x
 a
 a
-m
+Z
 x
 x
 x
-B
+P
 a
 a
 a
@@ -4854,7 +4869,7 @@ p
 x
 x
 x
-B
+P
 a
 a
 a
@@ -4953,9 +4968,9 @@ x
 a
 a
 a
-G
-V
-Q
+D
+e
+h
 a
 a
 a
