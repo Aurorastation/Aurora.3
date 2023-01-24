@@ -37537,7 +37537,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
-/obj/item/modular_computer/console/preset/supply/robotics,
+/obj/item/modular_computer/console/preset/supply/machinist,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "sGR" = (
