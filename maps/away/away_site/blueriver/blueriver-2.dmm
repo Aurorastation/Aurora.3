@@ -5,7 +5,7 @@
 	},
 /area/bluespaceriver/ground)
 "ab" = (
-/turf/simulated/mineral/planet{
+/turf/simulated/mineral/random/exoplanet{
 	temperature = 250
 	},
 /area/bluespaceriver/ground)
@@ -123,15 +123,15 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "ay" = (
-/turf/simulated/wall/titanium,
+/turf/simulated/wall,
 /area/bluespaceriver/ship)
 "az" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall,
 /area/bluespaceriver/ship)
 "aA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall,
 /area/bluespaceriver/ship)
 "aB" = (
 /obj/machinery/door/airlock/command,
@@ -142,7 +142,7 @@
 /obj/machinery/vending/boozeomat{
 	req_access = list()
 	},
-/turf/simulated/wall/titanium,
+/turf/simulated/wall,
 /area/bluespaceriver/ship)
 "aD" = (
 /obj/machinery/computer/rdconsole,
@@ -201,7 +201,7 @@
 /area/bluespaceriver/ship)
 "aO" = (
 /obj/machinery/smartfridge/chemistry,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall,
 /area/bluespaceriver/ship)
 "aQ" = (
 /obj/structure/table/wood,
@@ -242,14 +242,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
-"aY" = (
-/obj/item/device/flashlight/flare/glowstick/random{
-	fuel = 100000
-	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 250
-	},
-/area/bluespaceriver/ground)
 "aZ" = (
 /obj/structure/table/steel,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -307,7 +299,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/wall/titanium,
+/turf/simulated/wall,
 /area/bluespaceriver/ship)
 "bg" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -361,7 +353,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/wall/titanium,
+/turf/simulated/wall,
 /area/bluespaceriver/ship)
 "bn" = (
 /obj/structure/bed/padded,
@@ -442,7 +434,7 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
-/turf/simulated/wall/titanium,
+/turf/simulated/wall,
 /area/bluespaceriver/ship)
 "bD" = (
 /obj/machinery/door/window/northright,
@@ -522,7 +514,7 @@
 /area/bluespaceriver/ship)
 "bP" = (
 /obj/structure/fuel_port,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall,
 /area/bluespaceriver/ship)
 "bQ" = (
 /obj/machinery/artifact_scanpad,
@@ -564,13 +556,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/wall/titanium,
+/turf/simulated/wall,
 /area/bluespaceriver/ship)
 "bV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/turf/simulated/wall/titanium,
+/turf/simulated/wall,
 /area/bluespaceriver/ship)
 "bW" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -3129,7 +3121,7 @@ cu
 ac
 ac
 cy
-aY
+ac
 ac
 ac
 ac

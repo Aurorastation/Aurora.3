@@ -23,13 +23,6 @@
 	},
 /turf/simulated/floor/away/blueriver/alienfloor,
 /area/bluespaceriver/underground)
-"h" = (
-/obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/exoplanet/barren{
-	temperature = 250
-	},
-/area/bluespaceriver/underground)
 "i" = (
 /obj/item/device/measuring_tape,
 /turf/simulated/floor/away/blueriver/alienfloor,
@@ -53,6 +46,14 @@
 	temperature = 250
 	},
 /area/bluespaceriver/underground)
+"m" = (
+/obj/structure/table/standard,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
+/area/bluespaceriver/underground)
 "n" = (
 /obj/item/roller,
 /turf/simulated/floor/exoplanet/barren{
@@ -67,8 +68,8 @@
 /area/bluespaceriver/underground)
 "p" = (
 /obj/structure/table/standard,
-/obj/item/clothing/suit/hazmat/anomaly,
-/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/storage/firstaid/regular,
+/obj/item/rig_module/device/anomaly_scanner,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
@@ -78,12 +79,6 @@
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/barren{
-	temperature = 250
-	},
-/area/bluespaceriver/underground)
-"r" = (
-/obj/structure/anomaly_container,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
@@ -102,9 +97,6 @@
 "t" = (
 /obj/item/stack/material/wood{
 	amount = 6
-	},
-/obj/item/device/flashlight/flare/glowstick/random{
-	fuel = 100000
 	},
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
@@ -159,15 +151,20 @@
 /turf/simulated/floor/away/blueriver/alienfloor,
 /area/bluespaceriver/underground)
 "A" = (
-/obj/structure/table/standard,
-/obj/item/storage/firstaid/regular,
-/obj/item/rig_module/device/anomaly_scanner,
+/obj/item/device/flashlight/flare/glowstick/random{
+	fuel = 100000
+	},
+/turf/simulated/floor/away/blueriver/alienfloor,
+/area/bluespaceriver/underground)
+"B" = (
+/obj/structure/anomaly_container,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
 /area/bluespaceriver/underground)
-"J" = (
-/obj/machinery/artifact_scanpad,
+"G" = (
+/obj/machinery/artifact_analyser,
+/obj/structure/table/standard,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
@@ -176,45 +173,30 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/bluespaceriver/underground)
-"N" = (
+"Q" = (
+/obj/structure/table/standard,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
+/area/bluespaceriver/underground)
+"S" = (
 /obj/item/device/camera,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},
 /area/bluespaceriver/underground)
-"P" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/item/device/flashlight/flare/glowstick/random{
-	fuel = 100000
-	},
-/turf/simulated/floor/plating,
-/area/bluespaceriver/underground)
-"Q" = (
-/obj/item/device/flashlight/flare/glowstick/random{
-	fuel = 100000
-	},
-/turf/simulated/floor/exoplanet/barren{
-	temperature = 250
-	},
-/area/bluespaceriver/underground)
-"T" = (
-/obj/machinery/artifact_analyser,
-/obj/structure/table/standard,
-/turf/simulated/floor/exoplanet/barren{
-	temperature = 250
-	},
-/area/bluespaceriver/underground)
-"V" = (
+"U" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating{
 	temperature = 250
 	},
 /area/bluespaceriver/underground)
-"X" = (
-/obj/item/device/flashlight/flare/glowstick/random{
-	fuel = 100000
+"V" = (
+/obj/machinery/artifact_scanpad,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
 	},
-/turf/simulated/floor/away/blueriver/alienfloor,
 /area/bluespaceriver/underground)
 
 (1,1,1) = {"
@@ -2519,7 +2501,7 @@ a
 a
 x
 o
-Q
+x
 x
 a
 a
@@ -3232,7 +3214,7 @@ c
 b
 b
 b
-P
+M
 M
 b
 b
@@ -3947,7 +3929,7 @@ b
 b
 b
 M
-P
+M
 b
 b
 b
@@ -4049,7 +4031,7 @@ a
 b
 b
 M
-V
+U
 b
 b
 b
@@ -4451,7 +4433,6 @@ f
 f
 x
 x
-Q
 x
 x
 x
@@ -4461,7 +4442,8 @@ x
 x
 x
 x
-Q
+x
+x
 x
 x
 a
@@ -4558,14 +4540,14 @@ x
 x
 x
 n
-Q
 x
 x
 x
 x
 x
 x
-N
+x
+S
 x
 a
 a
@@ -4752,7 +4734,7 @@ f
 f
 f
 f
-X
+A
 f
 f
 c
@@ -4766,11 +4748,11 @@ x
 x
 a
 a
-p
+m
 x
 x
 x
-r
+B
 a
 a
 a
@@ -4868,11 +4850,11 @@ x
 x
 a
 a
-A
+p
 x
 x
 x
-r
+B
 a
 a
 a
@@ -4971,9 +4953,9 @@ x
 a
 a
 a
-T
-J
-h
+G
+V
+Q
 a
 a
 a
