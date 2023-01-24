@@ -6,8 +6,7 @@
 	description = "An arctic planet and an alien underground surface."
 	suffixes = list("away_site/blueriver/blueriver-1.dmm","away_site/blueriver/blueriver-2.dmm")
 	generate_mining_by_z = 2
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_GAKAL)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 
 /singleton/submap_archetype/blueriver
 	map = "bluespace river"

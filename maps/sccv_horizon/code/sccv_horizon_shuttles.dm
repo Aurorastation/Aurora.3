@@ -160,7 +160,7 @@
 	dock_target = "intrepid_shuttle"
 	current_location = "nav_hangar_intrepid"
 	landmark_transition = "nav_transit_intrepid"
-	range = 100
+	range = 2
 	fuel_consumption = 4
 	logging_home_tag = "nav_hangar_intrepid"
 
