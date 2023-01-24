@@ -5,7 +5,9 @@
 	},
 /area/bluespaceriver/ground)
 "ab" = (
-/turf/simulated/mineral/planet,
+/turf/simulated/mineral/planet{
+	temperature = 250
+	},
 /area/bluespaceriver/ground)
 "ac" = (
 /turf/simulated/floor/exoplanet/snow{
@@ -783,14 +785,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
-"nG" = (
-/obj/item/device/flashlight/flare/glowstick/random{
-	fuel = 100000
-	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 250
-	},
-/area/bluespaceriver/ground)
 "rI" = (
 /obj/item/clothing/suit/space/void/einstein,
 /turf/simulated/floor/exoplanet/snow{
@@ -814,6 +808,14 @@
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
+"Ox" = (
+/obj/item/device/flashlight/flare/glowstick/random{
+	fuel = 100000
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 250
+	},
+/area/bluespaceriver/ground)
 "Sn" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/white,
@@ -3132,7 +3134,7 @@ cu
 ac
 ac
 cy
-nG
+Ox
 ac
 ac
 ac

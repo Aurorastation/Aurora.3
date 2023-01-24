@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/unsimulated/mineral{
-	temperature = 233
+	temperature = 250
 	},
 /area/bluespaceriver/underground)
 "b" = (
@@ -9,6 +9,20 @@
 /area/bluespaceriver/underground)
 "c" = (
 /turf/unsimulated/wall/away/blueriver/livingwall,
+/area/bluespaceriver/underground)
+"d" = (
+/obj/item/device/flashlight/flare/glowstick/random{
+	fuel = 100000
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
+/area/bluespaceriver/underground)
+"e" = (
+/obj/item/device/camera,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "f" = (
 /turf/simulated/floor/away/blueriver/alienfloor,
@@ -20,6 +34,12 @@
 	color = "BLUE"
 	},
 /turf/simulated/floor/away/blueriver/alienfloor,
+/area/bluespaceriver/underground)
+"h" = (
+/obj/machinery/artifact_scanpad,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "i" = (
 /obj/item/device/measuring_tape,
@@ -33,39 +53,48 @@
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "l" = (
 /obj/item/gun/energy/plasmacutter,
 /obj/item/device/depth_scanner,
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "n" = (
 /obj/item/roller,
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "o" = (
 /obj/structure/ladder/up,
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "p" = (
 /obj/structure/table/standard,
-/obj/item/clothing/suit/hazmat/anomaly,
-/obj/item/clothing/head/hazmat/anomaly,
-/turf/simulated/floor/exoplanet/barren,
+/obj/item/storage/firstaid/regular,
+/obj/item/rig_module/device/anomaly_scanner,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "q" = (
 /obj/item/crowbar,
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "r" = (
-/obj/item/device/flashlight/flare/glowstick/random{
-	fuel = 100000
-	},
-/turf/simulated/floor/exoplanet/barren,
+/turf/space,
 /area/bluespaceriver/underground)
 "s" = (
 /obj/item/cell/infinite{
@@ -85,14 +114,18 @@
 /obj/item/device/flashlight/flare/glowstick/random{
 	fuel = 100000
 	},
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "u" = (
 /obj/item/pickaxe/drill,
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "v" = (
 /obj/structure/deity{
@@ -110,10 +143,14 @@
 "w" = (
 /obj/structure/closet/excavation,
 /obj/item/storage/box/flares,
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "x" = (
-/turf/simulated/floor/exoplanet/barren,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "y" = (
 /obj/machinery/giga_drill{
@@ -130,49 +167,49 @@
 /turf/simulated/floor/away/blueriver/alienfloor,
 /area/bluespaceriver/underground)
 "B" = (
-/obj/machinery/artifact_analyser,
-/obj/structure/table/standard,
-/turf/simulated/floor/exoplanet/barren,
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/device/flashlight/flare/glowstick/random{
+	fuel = 100000
+	},
+/turf/simulated/floor/plating,
 /area/bluespaceriver/underground)
 "C" = (
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/regular,
-/obj/item/rig_module/device/anomaly_scanner,
-/turf/simulated/floor/exoplanet/barren,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
-"D" = (
-/obj/structure/anomaly_container,
-/turf/simulated/floor/exoplanet/barren,
-/area/bluespaceriver/underground)
-"F" = (
-/obj/machinery/artifact_scanpad,
-/turf/simulated/floor/exoplanet/barren,
+"E" = (
+/obj/machinery/artifact_analyser,
+/obj/structure/table/standard,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 "M" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/bluespaceriver/underground)
-"P" = (
-/obj/item/device/camera,
-/turf/simulated/floor/exoplanet/barren,
-/area/bluespaceriver/underground)
-"U" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/item/device/flashlight/flare/glowstick/random{
-	fuel = 100000
-	},
-/turf/simulated/floor/plating,
-/area/bluespaceriver/underground)
-"V" = (
+"S" = (
 /obj/item/device/flashlight/flare/glowstick/random{
 	fuel = 100000
 	},
 /turf/simulated/floor/away/blueriver/alienfloor,
 /area/bluespaceriver/underground)
-"W" = (
+"U" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/exoplanet/barren,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
+/area/bluespaceriver/underground)
+"Z" = (
+/obj/structure/anomaly_container,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 250
+	},
 /area/bluespaceriver/underground)
 
 (1,1,1) = {"
@@ -2477,7 +2514,7 @@ a
 a
 x
 o
-r
+d
 x
 a
 a
@@ -3190,7 +3227,7 @@ c
 b
 b
 b
-U
+B
 M
 b
 b
@@ -3905,7 +3942,7 @@ b
 b
 b
 M
-U
+B
 b
 b
 b
@@ -4409,7 +4446,7 @@ f
 f
 x
 x
-r
+d
 x
 x
 x
@@ -4419,7 +4456,7 @@ x
 x
 x
 x
-r
+d
 x
 x
 a
@@ -4516,14 +4553,14 @@ x
 x
 x
 n
-r
+d
 x
 x
 x
 x
 x
 x
-P
+e
 x
 a
 a
@@ -4710,7 +4747,7 @@ f
 f
 f
 f
-V
+S
 f
 f
 c
@@ -4724,11 +4761,11 @@ x
 x
 a
 a
-p
+U
 x
 x
 x
-D
+Z
 a
 a
 a
@@ -4826,11 +4863,11 @@ x
 x
 a
 a
-C
+p
 x
 x
 x
-D
+Z
 a
 a
 a
@@ -4925,13 +4962,13 @@ a
 a
 a
 x
-x
+r
 a
 a
 a
-B
-F
-W
+E
+h
+C
 a
 a
 a
