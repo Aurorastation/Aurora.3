@@ -199,7 +199,7 @@
 	icon_state = "ladder11"
 
 // Stairs
-/obj/structure/ladder/away //looks like its going down without the need to have a hole or anything.
+/obj/structure/ladder/away //a ladder that just looks like it's going down
 	icon_state = "ladderawaydown"
 
 /obj/structure/stairs
