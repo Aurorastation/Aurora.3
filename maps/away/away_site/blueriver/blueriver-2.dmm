@@ -243,10 +243,13 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "aY" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor,
-/area/bluespaceriver/ship)
+/obj/item/device/flashlight/flare/glowstick/random{
+	fuel = 100000
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 250
+	},
+/area/bluespaceriver/ground)
 "aZ" = (
 /obj/structure/table/steel,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -808,14 +811,6 @@
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
-"Ox" = (
-/obj/item/device/flashlight/flare/glowstick/random{
-	fuel = 100000
-	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 250
-	},
-/area/bluespaceriver/ground)
 "Sn" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/white,
@@ -3134,7 +3129,7 @@ cu
 ac
 ac
 cy
-Ox
+aY
 ac
 ac
 ac
@@ -3418,7 +3413,7 @@ ac
 ac
 ac
 ac
-aY
+an
 an
 aF
 aB
