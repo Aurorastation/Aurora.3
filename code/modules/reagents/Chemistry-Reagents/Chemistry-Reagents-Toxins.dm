@@ -170,10 +170,6 @@
 	fallback_specific_heat = 0.5 //same as black k'ois
 	var/kois_type = 2
 
-/singleton/reagent/toxin/phoron/kois/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(ishuman(M))
-		infect(M, alien, removed)
-
 /singleton/reagent/toxin/phoron/kois/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!ishuman(M))
 		return
@@ -182,8 +178,6 @@
 		var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 		if(istype(P) && P.stage >= 3)
 			is_vaurcalike = TRUE
-	if(is_vaurcalike)
-		return
 	else
 		infect(M, alien, removed)
 
