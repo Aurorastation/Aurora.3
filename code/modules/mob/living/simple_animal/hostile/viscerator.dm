@@ -47,11 +47,11 @@
 			return FALSE
 
 /mob/living/simple_animal/hostile/viscerator/proc/wakeup()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
 
 /mob/living/simple_animal/hostile/viscerator/emp_act(severity)
 	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
+	change_stance(HOSTILE_STANCE_TIRED)
 	addtimer(CALLBACK(src, PROC_REF(wakeup)), 150)
 	if(severity == 1.0)
 		apply_damage(5)

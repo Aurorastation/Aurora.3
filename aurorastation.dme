@@ -201,6 +201,7 @@
 #include "code\controllers\subsystems\materials.dm"
 #include "code\controllers\subsystems\mob.dm"
 #include "code\controllers\subsystems\mob_ai.dm"
+#include "code\controllers\subsystems\mob_fast_ai.dm"
 #include "code\controllers\subsystems\news.dm"
 #include "code\controllers\subsystems\night_lighting.dm"
 #include "code\controllers\subsystems\orbit.dm"

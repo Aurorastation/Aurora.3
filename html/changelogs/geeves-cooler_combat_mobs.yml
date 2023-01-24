@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Hostile mobs now think and react faster while in a combat state."
+  - tweak: "Hostile mobs now attack the target nearest to them."

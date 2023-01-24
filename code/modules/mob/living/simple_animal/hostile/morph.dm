@@ -209,12 +209,6 @@
 			return
 	return ..()
 
-/mob/living/simple_animal/hostile/bullet_act(obj/item/projectile/P, def_zone)
-	..()
-	if (ismob(P.firer) && target_mob != P.firer)
-		target_mob = P.firer
-		stance = HOSTILE_STANCE_ATTACK
-
 /mob/living/simple_animal/hostile/morph/attackby(obj/item/O, mob/user)
 	..()
 	if(morphed && user != src)

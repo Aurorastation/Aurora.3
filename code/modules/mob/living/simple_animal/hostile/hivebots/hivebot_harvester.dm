@@ -42,7 +42,7 @@
 	mob_bump_flag = HEAVY
 	mob_swap_flags = ~HEAVY
 	mob_push_flags = 0
-	
+
 	psi_pingable = FALSE
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
@@ -83,7 +83,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/emp_act(severity)
 	LoseTarget()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
 	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 	var/turf/random_turf = get_turf(pick(orange(src,7)))
