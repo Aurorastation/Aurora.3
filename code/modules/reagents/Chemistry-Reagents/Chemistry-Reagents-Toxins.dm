@@ -17,6 +17,8 @@
 /singleton/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(strength && alien != IS_DIONA)
 		var/dam = (strength * removed)
+		if(HAS_TRAIT(M, TRAIT_ORIGIN_TOX_RESISTANCE))
+			dam = max(dam - 1, 1)
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(target_organ)
@@ -620,7 +622,7 @@
 
 	glass_icon_state = "beerglass"
 	glass_name = "glass of beer"
-	glass_desc = "A freezing pint of beer"
+	glass_desc = "A freezing pint of beer."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
 	fallback_specific_heat = 1.2
