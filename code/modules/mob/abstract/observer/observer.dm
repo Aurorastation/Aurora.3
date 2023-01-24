@@ -337,7 +337,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(src, SPAN_WARNING("You aren't following anything!"))
 		return
 
-	if(ishuman(following))
+	if(isipc(following) || isrobot(following))
+		robotic_analyze_mob(following, usr, TRUE)
+	else if(ishuman(following))
 		health_scan_mob(following, usr, TRUE, TRUE)
 	else
 		to_chat(src, SPAN_WARNING("This isn't a scannable target."))
