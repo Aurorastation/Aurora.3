@@ -98,7 +98,8 @@
 /area/adhomai_nuclear_waste)
 "s" = (
 /obj/machinery/door/blast/shutters{
-	id = "radiation_waste"
+	id = "radiation_waste";
+	dir = 2
 	},
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
