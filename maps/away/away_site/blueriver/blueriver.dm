@@ -28,53 +28,6 @@
 	name = "[generate_planet_name()], \a [name]"
 	..()
 
-
-//Ported from bay who ported it from vg and let's just say it was extremely buggy and strange. I chopped it up into a shell of its former self. It has cool movements, but the sprite is very oudated so it is unused at the moment.
-/mob/living/simple_animal/hostile/hive_alien/defender
-	name = "hive defender"
-	desc = "A terrifying monster resembling a massive, bloated tick in shape. Hundreds of blades are hidden underneath its rough shell."
-	icon = 'maps/away/away_site/blueriver/blueriver.dmi'
-	icon_state = "hive_executioner_move"
-	icon_living = "hive_executioner_move"
-	icon_dead = "hive_executioner_dead"
-	move_to_delay = 5
-	speed = -1
-	health = 150
-	maxHealth = 150
-	melee_damage_lower = 15
-	melee_damage_upper = 30
-	armor_penetration = 15
-
-	harm_intent_damage = 8
-	var/attack_mode = FALSE
-
-	var/transformation_delay_min = 4
-	var/transformation_delay_max = 8
-
-/mob/living/simple_animal/hostile/hive_alien/defender/proc/mode_movement() //Slightly broken, but it's alien and unpredictable so w/e
-	set waitfor = 0
-	icon_state = "hive_executioner_move"
-	flick("hive_executioner_movemode", src)
-	sleep(rand(transformation_delay_min, transformation_delay_max))
-	anchored = FALSE
-	speed = -1
-	move_to_delay = 8
-	. = FALSE
-
-/mob/living/simple_animal/hostile/hive_alien/defender/proc/mode_attack()
-	set waitfor = 0
-	icon_state = "hive_executioner_attack"
-	flick("hive_executioner_attackmode", src)
-	sleep(rand(transformation_delay_min, transformation_delay_max))
-	anchored = TRUE
-	speed = 0
-	attack_mode = TRUE
-	walk(src, 0)
-
-/mob/living/simple_animal/hostile/hive_alien/defender/wounded
-	name = "wounded hive defender"
-	health = 80
-
 /obj/effect/shuttle_landmark/nav_blueriv/nav1
 	name = "Arctic Planet Landing Point #1"
 	landmark_tag = "nav_blueriv_1"
