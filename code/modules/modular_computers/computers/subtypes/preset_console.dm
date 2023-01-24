@@ -133,12 +133,12 @@
 	nano_printer.stored_paper = 20
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
 
-/obj/item/modular_computer/console/preset/supply/robotics
+/obj/item/modular_computer/console/preset/supply/machinist
 	name = "machinist console"
-	_app_preset_type = /datum/modular_computer_app_presets/supply/robotics
+	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
 	enrolled = 1
 
-/obj/item/modular_computer/console/preset/research/install_default_hardware()
+/obj/item/modular_computer/console/preset/supply/machinist/install_default_hardware()
 	..()
 	ai_slot = new /obj/item/computer_hardware/ai_slot(src)
 

@@ -577,9 +577,9 @@
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/belt/utility
 
-	tab_pda = /obj/item/modular_computer/handheld/pda/supply/robotics
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/robotics
-	tablet = /obj/item/modular_computer/handheld/preset/supply/robotics
+	tab_pda = /obj/item/modular_computer/handheld/pda/supply/machinist
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/machinist
+	tablet = /obj/item/modular_computer/handheld/preset/supply/machinist
 
 	headset = /obj/item/device/radio/headset/headset_cargo
 	bowman = /obj/item/device/radio/headset/headset_cargo/alt

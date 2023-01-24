@@ -157,8 +157,8 @@
 /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/miner
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
-/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/robotics
-	_app_preset_type = /datum/modular_computer_app_presets/supply/robotics
+/obj/item/modular_computer/handheld/wristbound/preset/pda/supply/machinist
+	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
 
 // Medical
 

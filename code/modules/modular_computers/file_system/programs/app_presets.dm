@@ -491,13 +491,13 @@
 	)
 	return _prg_list
 
-/datum/modular_computer_app_presets/supply/robotics
+/datum/modular_computer_app_presets/supply/machinist
 	name = "operations_machinist"
 	display_name = "Operations - Machinist"
 	description = "Contains the most common supply programs and medical record software."
 	available = TRUE
 
-/datum/modular_computer_app_presets/supply/robotics/return_install_programs(obj/item/modular_computer/comp)
+/datum/modular_computer_app_presets/supply/machinist/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
 		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/newsbrowser(comp),

@@ -77,8 +77,8 @@
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain
 
-/obj/item/modular_computer/handheld/preset/supply/robotics
-	_app_preset_type = /datum/modular_computer_app_presets/supply/robotics
+/obj/item/modular_computer/handheld/preset/supply/machinist
+	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
 
 // Cargo Delivery
 /obj/item/modular_computer/handheld/preset/supply/cargo_delivery
