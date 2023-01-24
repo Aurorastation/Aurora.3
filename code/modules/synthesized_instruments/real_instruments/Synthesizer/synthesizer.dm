@@ -22,7 +22,7 @@
 					user.visible_message( \
 						"[user] tightens \the [src]'s casters.", \
 						SPAN_NOTICE(" You tighten \the [src]'s casters. Now it can be played again."), \
-						SPAN_CLASS("italics", "You hear ratchet."))
+						span("italics", "You hear ratchet."))
 					src.anchored = TRUE
 		else if(anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -32,7 +32,7 @@
 					user.visible_message( \
 						"[user] loosens \the [src]'s casters.", \
 						SPAN_NOTICE(" You loosen \the [src]. Now it can be pulled somewhere else."), \
-						SPAN_CLASS("italics", "You hear ratchet."))
+						span("italics", "You hear ratchet."))
 					src.anchored = FALSE
 	else
 		..()
