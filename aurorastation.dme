@@ -2044,7 +2044,6 @@
 #include "code\modules\law\laws\med_severity.dm"
 #include "code\modules\library\lib_items.dm"
 #include "code\modules\library\lib_machines.dm"
-#include "code\modules\library\lib_readme.dm"
 #include "code\modules\lighting\_lighting_defs.dm"
 #include "code\modules\lighting\lighting_area.dm"
 #include "code\modules\lighting\lighting_atom.dm"
