@@ -172,7 +172,7 @@
 	name = "Emergency NanoMed";
 	pixel_y = 29
 	},
-/obj/item/pizzabox,
+/obj/item/pizzabox/meat,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -244,6 +244,9 @@
 /area/bluespaceriver/ship)
 "aY" = (
 /obj/structure/bookcase/manuals/medical,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "aZ" = (
@@ -395,6 +398,9 @@
 /obj/structure/sink{
 	pixel_y = 27
 	},
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/bluespaceriver/ship)
 "bt" = (
@@ -424,8 +430,10 @@
 /obj/structure/table/glass,
 /obj/item/pen,
 /obj/item/form_printer,
-/obj/item/rig/hazmat/equipped,
 /obj/item/paper/blueriver/expedition_log_2,
+/obj/item/rig/hazmat/equipped{
+	pixel_x = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bB" = (
@@ -467,6 +475,9 @@
 /area/bluespaceriver/ship)
 "bH" = (
 /obj/structure/bookcase/manuals/research_and_development,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "bI" = (
@@ -598,6 +609,9 @@
 /obj/random/contraband,
 /obj/structure/table/wood,
 /obj/item/gun/energy/pistol,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "ca" = (
@@ -657,10 +671,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "cn" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/einstein,
 /obj/item/clothing/head/helmet/space/void/einstein{
-	pixel_x = -11;
-	pixel_y = 11
+	pixel_x = -8;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
@@ -767,6 +783,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
+"hp" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/bluespaceriver/ship)
 "hN" = (
 /obj/machinery/door/airlock/science,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -794,6 +816,9 @@
 /area/bluespaceriver/ground)
 "vc" = (
 /obj/structure/bookcase/libraryspawn/reference,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Co" = (
@@ -2615,7 +2640,7 @@ aF
 bd
 bq
 ay
-bG
+hp
 bQ
 ay
 ay

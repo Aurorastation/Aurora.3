@@ -7,10 +7,11 @@
 "b" = (
 /turf/unsimulated/wall/supermatter/no_spread{
 	temperature = 250;
-	light_range = 6;
+	light_range = 2.1;
 	name = "bluespace river";
 	desc = "A flowing river of bluespace.";
-	opacity = 0
+	opacity = 0;
+	light_power = 4
 	},
 /area/bluespaceriver/underground)
 "c" = (
