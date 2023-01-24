@@ -49,13 +49,15 @@
 
 	if(burnthrough == 1)
 		to_chat(owner, SPAN_WARNING("Your eyes sting a little."))
-		take_damage(rand(1, 3), TRUE)
+		owner.eye_blurry = max(owner.eye_blurry, 6)
+		take_damage(1, TRUE)
 	else if(burnthrough == 2)
 		to_chat(owner, SPAN_WARNING("Your eyes burn!"))
-		take_damage(rand(3, 5), TRUE)
+		owner.eye_blurry = max(owner.eye_blurry, rand(6, 12))
+		take_damage(rand(2, 3), TRUE)
 	else if(burnthrough >= 3)
 		to_chat(owner, SPAN_DANGER("[FONT_HUGE("Your eyes burn from the intense light of the flash!")]"))
-		take_damage(rand(5, 9), TRUE)
+		take_damage(rand(3, 5), TRUE)
 		owner.eye_blurry += rand(12, 20)
 
 	if(is_bruised() && !is_broken() && !(owner.disabilities & NEARSIGHTED))

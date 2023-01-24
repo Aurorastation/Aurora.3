@@ -1412,9 +1412,13 @@
 		if(ear_deaf <= 1 && (sdisabilities & DEAF) && has_hearing_aid())
 			setEarDamage(-1, max(ear_deaf-1, 0))
 
-		if(get_hearing_protection())	// resting your ears make them heal faster
+		var/ear_safety = get_hearing_protection()
+
+		if(ear_safety >= EAR_PROTECTION_MAJOR)	// resting your ears make them heal faster
 			adjustEarDamage(-0.15, 0)
 			setEarDamage(-1)
+		else if(ear_safety > EAR_PROTECTION_NONE)
+			adjustEarDamage(-0.10, 0)
 		else if(ear_damage < HEARING_DAMAGE_SLOW_HEAL)	//ear damage heals slowly under this threshold. otherwise you'll need earmuffs
 			adjustEarDamage(-0.05, 0)
 

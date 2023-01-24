@@ -303,18 +303,18 @@
 	return species.icon_y_offset
 
 /mob/living/carbon/human/get_hearing_protection()
-	return (l_ear?.item_flags & SOUNDPROTECTION) || (r_ear?.item_flags & SOUNDPROTECTION) || (head?.item_flags & SOUNDPROTECTION)
+	. = EAR_PROTECTION_NONE
 
-/mob/living/carbon/human/soundbang_act(intensity = 1, stun_pwr = 20, damage_pwr = 5, deafen_pwr = 15)
-	// First, increase intensity for sensitive hearing
-	intensity *= (1 + 0.25 * get_hearing_sensitivity())
-	if(!intensity || get_hearing_protection())
-		return FALSE
+	if ((l_ear?.item_flags & SOUNDPROTECTION) || (r_ear?.item_flags & SOUNDPROTECTION) || (head?.item_flags & SOUNDPROTECTION))
+		return EAR_PROTECTION_MAJOR
 
-	if(istype(head, /obj/item/clothing/head/helmet))
-		intensity -= 0.5
-	if(HAS_FLAG(mutations, HULK))
-		intensity -= 0.5
+	if(istype(head, /obj/item/clothing/head/helmet) || HAS_FLAG(mutations, HULK))
+		. = EAR_PROTECTION_MODERATE
+
+	return max(EAR_PROTECTION_REDUCED, . - (get_hearing_sensitivity() / 2))
+
+/mob/living/carbon/human/noise_act(intensity = EAR_PROTECTION_MODERATE, stun_pwr = 0, damage_pwr = 0, deafen_pwr = 0)
+	intensity -= get_hearing_protection()
 
 	if(intensity <= 0)
 		return FALSE
@@ -325,7 +325,7 @@
 	if(deafen_pwr || damage_pwr)
 		var/ear_damage = damage_pwr * intensity
 		var/deaf = deafen_pwr * intensity
-		adjustEarDamage(ear_damage, deaf, TRUE)
+		adjustEarDamage(rand(1, ear_damage), deaf, TRUE)
 		sound_to(src, sound('sound/weapons/flash_ring.ogg',0,1,0,100))
 
 	return intensity

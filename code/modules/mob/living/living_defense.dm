@@ -122,8 +122,9 @@
 	addtimer(CALLBACK(src, /mob/proc/clear_fullscreen, "flash", length), length)
 	return TRUE
 
-/// Called when the mob receives a loud bang
-/mob/living/proc/soundbang_act()
+/// Called when the mob hears a very loud noise!
+/// Intensity can be an EAR_PROTECTION_X define or an arbitrary/computed value between -1 and 2 (or more if you're insane)
+/mob/living/proc/noise_act()
 	return FALSE
 
 /mob/living/proc/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
