@@ -387,6 +387,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "br" = (
+/obj/structure/table/standard,
 /obj/machinery/artifact_analyser,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
