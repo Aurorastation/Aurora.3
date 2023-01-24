@@ -139,7 +139,7 @@
 	if(stat & EMPED || !prob(100/severity))
 		return
 	stat |= EMPED
-	addtimer(CALLBACK(src, .proc/post_emp_act), (300 SECONDS) / severity)
+	addtimer(CALLBACK(src, PROC_REF(post_emp_act)), (300 SECONDS) / severity)
 
 /obj/machinery/telecomms/proc/post_emp_act()
 	stat &= ~EMPED

@@ -17,11 +17,32 @@
 /obj/effect/overmap/proc/get_scan_data(mob/user)
 	return desc
 
+/obj/effect/overmap/proc/handle_wraparound()
+	var/nx = x
+	var/ny = y
+	var/low_edge = 1
+	var/high_edge = current_map.overmap_size - 1
+
+	if((dir & WEST) && x == low_edge)
+		nx = high_edge
+	else if((dir & EAST) && x == high_edge)
+		nx = low_edge
+	if((dir & SOUTH)  && y == low_edge)
+		ny = high_edge
+	else if((dir & NORTH) && y == high_edge)
+		ny = low_edge
+	if((x == nx) && (y == ny))
+		return //we're not flying off anywhere
+
+	var/turf/T = locate(nx,ny,z)
+	if(T)
+		forceMove(T)
+
 /obj/effect/overmap/Initialize()
 	. = ..()
 	if(!current_map.use_overmap)
 		return INITIALIZE_HINT_QDEL
-	
+
 	if(known)
 		layer = EFFECTS_ABOVE_LIGHTING_LAYER
 		for(var/obj/machinery/computer/ship/helm/H in SSmachinery.machinery)
