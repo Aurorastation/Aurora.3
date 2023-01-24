@@ -170,11 +170,24 @@
 	fallback_specific_heat = 0.5 //same as black k'ois
 	var/kois_type = 2
 
-/decl/reagent/toxin/phoron/kois/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/phoron/kois/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		infect(M, alien, removed)
 
-/decl/reagent/toxin/phoron/kois/affect_chem_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/toxin/phoron/kois/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(!ishuman(M))
+		return
+	var/is_vaurcalike = (alien == IS_VAURCA)
+	if(!is_vaurcalike)
+		var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
+		if(istype(P) && P.stage >= 3)
+			is_vaurcalike = TRUE
+	if(is_vaurcalike)
+		return
+	else
+		infect(M, alien, removed)
+
+/singleton/reagent/toxin/phoron/kois/affect_chem_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	var/is_vaurcalike = (alien == IS_VAURCA)
 	if(!is_vaurcalike)
 		var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
@@ -183,7 +196,7 @@
 	if(is_vaurcalike)
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 
-/decl/reagent/toxin/phoron/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
+/singleton/reagent/toxin/phoron/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
 	var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
 	if((alien != IS_VAURCA) && !(istype(P) && P.stage >= 3))
 		H.adjustToxLoss(1 * removed)
