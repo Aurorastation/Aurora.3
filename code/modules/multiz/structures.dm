@@ -229,7 +229,7 @@
 	var/obj/structure/stairs/staircase = locate() in target
 	var/target_dir = get_dir(mover, target)
 	if(!staircase && (target_dir != dir && target_dir != reverse_dir[dir]))
-		INVOKE_ASYNC(src, .proc/mob_fall, mover)
+		INVOKE_ASYNC(src, PROC_REF(mob_fall), mover)
 
 	return ..()
 

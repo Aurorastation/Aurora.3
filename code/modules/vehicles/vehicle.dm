@@ -162,7 +162,7 @@
 	if(on)
 		turn_off()
 
-	addtimer(CALLBACK(src, .proc/post_emp, was_on), severity * 300)
+	addtimer(CALLBACK(src, PROC_REF(post_emp), was_on), severity * 300)
 
 /obj/vehicle/proc/post_emp(was_on)
 	stat &= ~EMPED

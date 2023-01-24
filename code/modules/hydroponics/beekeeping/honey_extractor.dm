@@ -27,7 +27,7 @@
 		user.drop_from_inventory(H, src)
 		contained_frame = H
 		icon_state = "centrifuge_moving"
-		addtimer(CALLBACK(src, .proc/do_process), 100)
+		addtimer(CALLBACK(src, PROC_REF(do_process)), 100)
 	else if(istype(I, /obj/item/reagent_containers/glass))
 		if(!honey)
 			to_chat(user, SPAN_NOTICE("There is no honey in \the [src]."))

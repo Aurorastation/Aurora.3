@@ -171,7 +171,7 @@ field_generator power level display
 
 /obj/machinery/field_generator/proc/turn_off()
 	active = 0
-	addtimer(CALLBACK(src, .proc/cleanup), 1)
+	addtimer(CALLBACK(src, PROC_REF(cleanup)), 1)
 	update_icon()
 
 /obj/machinery/field_generator/proc/turn_on()
@@ -236,10 +236,10 @@ field_generator power level display
 	if(!src.state == 2 || !anchored)
 		turn_off()
 		return
-	addtimer(CALLBACK(src, .proc/setup_field, 1), 1)
-	addtimer(CALLBACK(src, .proc/setup_field, 2), 2)
-	addtimer(CALLBACK(src, .proc/setup_field, 4), 3)
-	addtimer(CALLBACK(src, .proc/setup_field, 8), 4)
+	addtimer(CALLBACK(src, PROC_REF(setup_field), 1), 1)
+	addtimer(CALLBACK(src, PROC_REF(setup_field), 2), 2)
+	addtimer(CALLBACK(src, PROC_REF(setup_field), 4), 3)
+	addtimer(CALLBACK(src, PROC_REF(setup_field), 8), 4)
 	src.active = 2
 
 /obj/machinery/field_generator/proc/setup_field(var/NSEW)
