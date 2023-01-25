@@ -1,9 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - tweak: "The sound component of flashbangs no longer stuns unless you have sensitive and unprotected hearing."
-  - tweak: "Eye damage from flashes has been significantly reduced."
-  - bugfix: "You can no longer use a flash that isn't in your hand to AOE flash."
-  - backend: "soundbang_act renamed to noise_act; ear protection now uses defines for preset values like flash/eye protection"
