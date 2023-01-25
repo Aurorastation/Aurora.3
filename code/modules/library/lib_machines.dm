@@ -187,8 +187,8 @@
 			<a href='?src=\ref[src];editbook=1'>\[Edit\]</a><br>
 			Recipient: [src.buffer_mob]
 			<a href='?src=\ref[src];editmob=1'>\[Edit\]</a><br>
-			Checkout Date: [worlddate2text()] [worldtime2text()]<br>
-			Due Date: [worlddate2text()] [worldtime2text(time = world.time + checkoutperiod)]<br>
+			Checkout Date: [world.time / 600]<br>
+			Due Date: [(world.time + checkoutperiod) / 600]<br>
 			(Checkout Period: [checkoutperiod] minutes) (<a href='?src=\ref[src];increasetime=1'>+</a>/<a href='?src=\ref[src];decreasetime=1'>-</a>)<br>
 			<a href='?src=\ref[src];checkout=1'>(Commit Entry)</a><br>
 			<a href='?src=\ref[src];switchscreen=0'>(<-- Return to Main Menu)</a><br>"}
