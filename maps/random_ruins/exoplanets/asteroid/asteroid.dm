@@ -4,7 +4,7 @@
 	description = "An abandoned mining site. Some tools and materials were left behind."
 
 	spawn_weight = 1
-	spawn_cost = 2
+	spawn_cost = 1
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	suffixes = list("asteroid/mining_base/mining_base.dmm")
 
