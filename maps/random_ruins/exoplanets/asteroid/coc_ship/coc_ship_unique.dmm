@@ -52,10 +52,7 @@
 "bB" = (
 /obj/structure/lattice,
 /obj/item/material/shard,
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/template_noop)
 "bH" = (
 /obj/structure/shuttle_part/raider{
@@ -82,7 +79,6 @@
 "bQ" = (
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/inflatable/door,
 /turf/simulated/floor/plating{
 	nitrogen = 0;
 	oxygen = 0
@@ -464,7 +460,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "16,16"
 	},
-/turf/simulated/mineral,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/template_noop)
 "jZ" = (
 /obj/structure/shuttle_part/raider{
@@ -1030,9 +1026,6 @@
 	icon_state = "7,1"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
-/area/template_noop)
-"vB" = (
-/turf/simulated/mineral,
 /area/template_noop)
 "vE" = (
 /obj/structure/shuttle_part/raider{
@@ -1692,11 +1685,6 @@
 	oxygen = 0
 	},
 /area/template_noop)
-"Kn" = (
-/obj/structure/lattice,
-/obj/structure/inflatable/wall,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/template_noop)
 "KN" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/sink{
@@ -1725,13 +1713,6 @@
 	},
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
-"PK" = (
-/obj/structure/lattice,
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
 /area/template_noop)
 "Qe" = (
 /obj/effect/landmark/clear,
@@ -1899,8 +1880,8 @@
 /area/template_noop)
 
 (1,1,1) = {"
-vB
-vB
+pP
+Od
 bO
 hv
 xW
@@ -1919,7 +1900,7 @@ RO
 tw
 "}
 (2,1,1) = {"
-vB
+pP
 jU
 RK
 hg
@@ -1939,8 +1920,8 @@ dG
 Hc
 "}
 (3,1,1) = {"
-vB
-Kn
+pP
+uw
 bB
 sf
 sf
@@ -1962,7 +1943,7 @@ hN
 tw
 bQ
 Tc
-PK
+uw
 Kk
 nS
 hz
