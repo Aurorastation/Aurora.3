@@ -90,7 +90,7 @@ datum/track/New(var/title_name, var/audio)
 			for(var/mob/living/carbon/M in ohearers(6, src))
 				if(istype(M, /mob/living/carbon/human))
 					var/mob/living/carbon/human/H = M
-					if(H.get_hearing_protection())
+					if(H.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 						continue
 				M.sleeping = 0
 				M.stuttering += 20
