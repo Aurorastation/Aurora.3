@@ -6,17 +6,26 @@
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/remains/human,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "c" = (
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/template_noop)
 "d" = (
 /obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "e" = (
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "f" = (
 /obj/structure/grille,
@@ -31,18 +40,27 @@
 /area/template_noop)
 "i" = (
 /obj/item/arrow/rod,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "j" = (
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "k" = (
 /obj/item/arrow/rod,
 /mob/living/simple_animal/hostile/carp/shark{
 	wander = 0
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "l" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -50,7 +68,10 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/remains/human,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "m" = (
 /obj/item/material/shard{
@@ -100,19 +121,31 @@
 /area/template_noop)
 "u" = (
 /obj/structure/closet/crate/secure/loot,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "v" = (
 /obj/random/loot,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "w" = (
 /obj/random/voidsuit,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "x" = (
 /obj/item/device/gps,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "y" = (
 /obj/structure/grille/broken,
@@ -125,7 +158,10 @@
 	locked = 1
 	},
 /obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "A" = (
 /mob/living/simple_animal/hostile/carp{
@@ -140,7 +176,10 @@
 "C" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "D" = (
 /obj/machinery/door/airlock/external{
@@ -148,19 +187,28 @@
 	locked = 1
 	},
 /obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "E" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "F" = (
 /obj/effect/decal/cleanable/blood/drip,
 /mob/living/simple_animal/hostile/carp{
 	wander = 0
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "G" = (
 /obj/structure/grille,

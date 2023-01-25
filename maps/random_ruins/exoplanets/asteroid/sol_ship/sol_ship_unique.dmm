@@ -381,7 +381,10 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/ramp,
+/turf/simulated/floor/tiled/ramp{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/dungeon/crashed_ship)
 "Ah" = (
 /obj/effect/decal/cleanable/dirt,
@@ -476,7 +479,10 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/ramp,
+/turf/simulated/floor/tiled/ramp{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/crashed_ship)
 "Lc" = (
 /obj/structure/computerframe,

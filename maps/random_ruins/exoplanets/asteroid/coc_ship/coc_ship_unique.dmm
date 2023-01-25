@@ -52,7 +52,10 @@
 "bB" = (
 /obj/structure/lattice,
 /obj/item/material/shard,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/plating{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/template_noop)
 "bH" = (
 /obj/structure/shuttle_part/raider{
@@ -428,6 +431,10 @@
 	icon_state = "0,9"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"jg" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "jk" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1010,7 +1017,7 @@
 /area/template_noop)
 "uV" = (
 /obj/structure/lattice/catwalk,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "vo" = (
 /obj/structure/shuttle_part/raider{
@@ -1044,10 +1051,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /mob/living/simple_animal/carp/baby,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "vQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -1059,7 +1063,7 @@
 	pixel_x = -2;
 	pixel_y = 5
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "wt" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -1072,7 +1076,7 @@
 "wy" = (
 /obj/structure/lattice/catwalk,
 /obj/vehicle/bike/speeder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "wB" = (
 /obj/structure/shuttle_part/raider{
@@ -1117,18 +1121,12 @@
 	wander = 0
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "xj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "xL" = (
 /obj/structure/shuttle_part/raider{
@@ -1233,7 +1231,7 @@
 "zM" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/small/emergency,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "zW" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1349,10 +1347,7 @@
 	wander = 0
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "CY" = (
 /obj/structure/shuttle_part/raider{
@@ -1459,10 +1454,7 @@
 "EX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "Fd" = (
 /obj/random/booze,
@@ -1504,10 +1496,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "GM" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1737,6 +1726,13 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
+"PK" = (
+/obj/structure/lattice,
+/turf/simulated/floor/plating{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
 "Qe" = (
 /obj/effect/landmark/clear,
 /obj/effect/landmark/clear,
@@ -1770,10 +1766,7 @@
 	name = "supply shipment";
 	quantity = 4
 	},
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "RK" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1860,10 +1853,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/phoron,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "VT" = (
 /obj/structure/shuttle_part/raider{
@@ -1880,10 +1870,7 @@
 "XI" = (
 /obj/structure/girder,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "XY" = (
 /obj/item/material/shard/shrapnel,
@@ -1975,7 +1962,7 @@ hN
 tw
 bQ
 Tc
-uw
+PK
 Kk
 nS
 hz
@@ -2216,12 +2203,12 @@ tw
 tw
 pP
 tw
-HY
+jg
 xi
 RI
 CD
 RI
-HY
+jg
 Hz
 mU
 sk
@@ -2256,7 +2243,7 @@ pP
 tw
 tw
 tw
-HY
+jg
 uw
 EX
 CI

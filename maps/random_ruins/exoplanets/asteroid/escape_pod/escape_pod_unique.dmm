@@ -6,7 +6,10 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "c" = (
 /obj/structure/window/shuttle/unique/escape_pod{
@@ -24,7 +27,10 @@
 /obj/structure/door_assembly/door_assembly_ext{
 	anchored = 1
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "f" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
@@ -82,7 +88,10 @@
 /obj/random/smalltank,
 /obj/item/device/gps,
 /obj/item/archaeological_find,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
 /area/template_noop)
 "R" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
