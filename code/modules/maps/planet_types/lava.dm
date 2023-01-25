@@ -7,9 +7,15 @@
 	possible_themes = list(/datum/exoplanet_theme/mountains)
 	map_generators = list(/datum/random_map/noise/exoplanet/lava, /datum/random_map/noise/ore)
 	ruin_tags_blacklist = RUIN_HABITAT|RUIN_WATER
-	features_budget = 3
+	features_budget = 4
 	surface_color = "#575d5e"
 	water_color = null
+
+	possible_random_ruins = list(
+		/datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01,
+		/datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01,
+		/datum/map_template/ruin/exoplanet/mystery_ship_1,
+		/datum/map_template/ruin/exoplanet/drill_site)
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/generate_habitability()
 	return HABITABILITY_BAD

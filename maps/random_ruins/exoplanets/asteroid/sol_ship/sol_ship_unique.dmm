@@ -20,9 +20,6 @@
 	oxygen = 0
 	},
 /area/dungeon/crashed_ship)
-"aV" = (
-/turf/unsimulated/floor/asteroid/ash,
-/area/mine/unexplored)
 "bj" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
@@ -61,13 +58,7 @@
 /area/dungeon/crashed_ship)
 "fT" = (
 /obj/machinery/light/colored/red,
-/obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/porta_turret/ballistic{
-	check_arrest = 0;
-	check_records = 0;
-	check_wildlife = 0
-	},
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0
@@ -168,13 +159,6 @@
 	},
 /turf/simulated/wall/shuttle/dark/cardinal,
 /area/dungeon/crashed_ship)
-"kV" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/dark_blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/mine/unexplored)
 "lG" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -207,14 +191,6 @@
 	req_access = list(150)
 	},
 /turf/simulated/floor/shuttle/black,
-/area/dungeon/crashed_ship)
-"oZ" = (
-/obj/effect/decal/remains/human,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/dark_blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
 /area/dungeon/crashed_ship)
 "qD" = (
 /obj/structure/extinguisher_cabinet,
@@ -317,14 +293,6 @@
 	oxygen = 0
 	},
 /area/dungeon/crashed_ship)
-"tL" = (
-/obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/viscerator{
-	destroy_surroundings = 0;
-	wander = 0
-	},
-/turf/simulated/floor/shuttle/black,
-/area/dungeon/crashed_ship)
 "uf" = (
 /obj/structure/extinguisher_cabinet{
 	dir = 8
@@ -350,18 +318,6 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/dark_blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/dungeon/crashed_ship)
-"wk" = (
-/obj/effect/decal/remains/human,
-/obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/viscerator{
-	destroy_surroundings = 0;
-	wander = 0
-	},
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0
@@ -402,8 +358,13 @@
 /turf/simulated/wall/shuttle/dark/cardinal,
 /area/dungeon/crashed_ship)
 "yr" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
 "yX" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -416,21 +377,17 @@
 	},
 /area/dungeon/crashed_ship)
 "zm" = (
-/obj/structure/railing{
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ramp,
 /area/dungeon/crashed_ship)
 "Ah" = (
-/mob/living/simple_animal/hostile/viscerator{
-	destroy_surroundings = 0;
-	wander = 0
-	},
-/turf/simulated/floor/shuttle/dark_blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret/net,
+/turf/simulated/floor/shuttle/black,
 /area/dungeon/crashed_ship)
 "Ak" = (
 /obj/effect/decal/cleanable/dirt,
@@ -446,9 +403,6 @@
 	oxygen = 0
 	},
 /area/dungeon/crashed_ship)
-"BF" = (
-/turf/simulated/open/airless,
-/area/mine/unexplored)
 "BJ" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
@@ -458,16 +412,9 @@
 	},
 /area/dungeon/crashed_ship)
 "Ck" = (
-/obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/viscerator{
-	destroy_surroundings = 0;
-	wander = 0
-	},
-/turf/simulated/floor/shuttle/dark_blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/dungeon/crashed_ship)
+/obj/effect/floor_decal/asteroid,
+/turf/template_noop,
+/area/template_noop)
 "DB" = (
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/shuttle/dark_blue{
@@ -477,11 +424,8 @@
 /area/dungeon/crashed_ship)
 "DN" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret/ballistic{
-	check_arrest = 0;
-	check_records = 0;
-	check_wildlife = 0
-	},
+/obj/structure/railing/mapped,
+/obj/machinery/porta_turret_construct/dark,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/derelict/ship)
 "Ex" = (
@@ -507,29 +451,9 @@
 	},
 /area/dungeon/crashed_ship)
 "Hv" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/window{
-	dir = 4;
-	req_access = list(150)
-	},
-/obj/random/weapon_and_ammo,
-/obj/structure/closet/crate/secure/weapon/alt{
-	req_access = list(150)
-	},
-/obj/item/clothing/accessory/storage/bayonet,
-/turf/simulated/floor/shuttle/black,
-/area/dungeon/crashed_ship)
-"If" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/dark_blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/derelict/ship)
+/turf/template_noop,
+/area/template_noop)
 "Iw" = (
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
@@ -548,10 +472,10 @@
 	},
 /area/dungeon/crashed_ship)
 "JP" = (
-/obj/structure/railing{
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ramp,
 /area/dungeon/crashed_ship)
 "Lc" = (
@@ -563,9 +487,6 @@
 	oxygen = 0
 	},
 /area/dungeon/crashed_ship)
-"Lx" = (
-/turf/simulated/mineral/random/higher_chance,
-/area/mine/unexplored)
 "Mx" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -575,22 +496,6 @@
 	pixel_x = -4;
 	pixel_y = 2
 	},
-/turf/simulated/floor/shuttle/dark_blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/dungeon/crashed_ship)
-"Nk" = (
-/obj/effect/decal/remains/human,
-/turf/simulated/floor/shuttle/dark_blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/dungeon/crashed_ship)
-"Ny" = (
-/obj/effect/decal/remains/human,
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0
@@ -610,15 +515,9 @@
 	},
 /area/dungeon/crashed_ship)
 "Oz" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/decal/remains/human,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/under/rank/sol,
-/turf/simulated/floor/shuttle/dark_blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/dungeon/crashed_ship)
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "Qq" = (
 /turf/simulated/wall/shuttle/dark/cardinal,
 /area/derelict/ship)
@@ -649,10 +548,6 @@
 	oxygen = 0
 	},
 /area/dungeon/crashed_ship)
-"Ti" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "Tj" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/black,
@@ -700,41 +595,41 @@
 	},
 /area/dungeon/crashed_ship)
 "UF" = (
-/obj/effect/floor_decal/asteroid,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
-"VP" = (
-/turf/simulated/mineral/random/high_chance,
-/area/mine/unexplored)
-"VR" = (
-/obj/machinery/porta_turret/xray{
-	check_arrest = 0;
-	check_records = 0;
-	check_wildlife = 0
-	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"VP" = (
+/turf/template_noop,
+/area/template_noop)
+"Xs" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window{
+	dir = 4;
+	req_access = list(150)
+	},
+/obj/item/clothing/accessory/storage/bayonet,
 /turf/simulated/floor/shuttle/black,
 /area/dungeon/crashed_ship)
-"Xs" = (
-/turf/simulated/mineral/surface,
-/area/mine/unexplored)
 "XI" = (
-/mob/living/simple_animal/hostile/viscerator{
-	destroy_surroundings = 0;
-	wander = 0
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/under/rank/sol,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
 	},
-/turf/unsimulated/floor/asteroid/ash,
-/area/mine/unexplored)
+/area/dungeon/crashed_ship)
 "Yb" = (
-/obj/structure/railing,
-/obj/structure/railing,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret/ballistic{
-	check_arrest = 0;
-	check_records = 0;
-	check_wildlife = 0
-	},
+/obj/structure/railing/mapped,
+/obj/machinery/porta_turret_construct/dark,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0
@@ -760,367 +655,122 @@
 	oxygen = 0
 	},
 /area/dungeon/crashed_ship)
-"ZF" = (
-/mob/living/simple_animal/hostile/viscerator{
-	destroy_surroundings = 0;
-	wander = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/dark_blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/dungeon/crashed_ship)
 
 (1,1,1) = {"
-yr
-Xs
-yr
-yr
-Xs
-Xs
-yr
-yr
-BF
-Xs
-Xs
-Lx
-Xs
-aV
-Lx
-Xs
-yr
-Xs
-Xs
-yr
-yr
-Xs
-Xs
-yr
-Xs
-yr
-Xs
-Xs
-yr
-Xs
-Xs
-Xs
+VP
+VP
+VP
+VP
+VP
+VP
+Ck
+VP
+VP
+VP
+VP
+VP
+VP
+Oz
+Oz
+Oz
+Oz
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
 "}
 (2,1,1) = {"
-Xs
-Lx
-Lx
-Lx
-Lx
-Xs
-Xs
-yr
-Xs
-Xs
-Xs
-yr
-Xs
-Xs
-Lx
-Lx
-Xs
-yr
-Xs
-Xs
-yr
-Xs
-Xs
-Xs
-Xs
-yr
-Lx
-Lx
-Xs
-Lx
-Xs
-yr
+VP
+VP
+Oz
+Oz
+Oz
+VP
+VP
+VP
+VP
+VP
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
 "}
 (3,1,1) = {"
-Xs
-Xs
-Xs
-Lx
-Lx
-Xs
-yr
-yr
-Xs
-Xs
-yr
-yr
-Xs
-Lx
-Xs
-Lx
-Lx
-Xs
-yr
-yr
-yr
-yr
-Xs
-Xs
-Xs
-Xs
-Lx
-Lx
-Xs
-Lx
-Lx
-Xs
-"}
-(4,1,1) = {"
-yr
-yr
-yr
-Xs
-Xs
-yr
-UF
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-Xs
-Lx
-Lx
-Xs
-yr
-UF
-yr
-yr
-yr
-BF
-Xs
-Xs
-Lx
-Lx
-Lx
-Lx
-Xs
-yr
-"}
-(5,1,1) = {"
-yr
-Xs
-yr
-yr
-yr
-yr
-yr
-yr
-Xs
-yr
-Xs
-Xs
-yr
-BF
-yr
-Xs
-Xs
-yr
-yr
-yr
-Xs
-Xs
-BF
-yr
-yr
-Xs
-Xs
-Xs
-Xs
-Xs
-UF
-yr
-"}
-(6,1,1) = {"
-Xs
-Xs
-Xs
-yr
-yr
-yr
-yr
-Xs
-Xs
-Xs
-Xs
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-Xs
-Xs
-Lx
-Xs
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-Xs
-yr
-Xs
-"}
-(7,1,1) = {"
-Xs
-Xs
-yr
-yr
-yr
-BF
-Xs
-Xs
-VP
-Xs
-Xs
-Xs
-UF
-yr
-BF
-yr
-aV
-Xs
-Lx
-Lx
-Xs
-Xs
-Xs
-yr
-yr
-yr
-yr
-Xs
-Xs
-Xs
-Xs
-Xs
-"}
-(8,1,1) = {"
-yr
-yr
-yr
-Xs
-yr
-Xs
-Xs
-Xs
 VP
 VP
-Xs
-Xs
-yr
-aV
-aV
-aV
-BF
-aV
-Xs
-Xs
-dB
-Lx
-aV
-aV
-BF
-yr
-Xs
-yr
-yr
-yr
-Xs
-Xs
-"}
-(9,1,1) = {"
-yr
-yr
-Xs
-Xs
-Xs
-yr
-Xs
 VP
-Xs
-Xs
-BF
-Xs
+Oz
+Oz
+Oz
 dB
 dB
 dB
-BF
-BF
-Xs
-BF
-BF
-BF
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
 dB
 dB
 dB
 Qq
-Xs
-Xs
-Xs
-yr
-yr
-yr
-yr
+Oz
+Oz
+Oz
+VP
+VP
+VP
+VP
 "}
-(10,1,1) = {"
-yr
-Xs
-Lx
-Xs
-yr
-Xs
+(4,1,1) = {"
 VP
 VP
-Xs
+VP
 dB
 dB
 dB
 dB
 dB
-GM
+yr
 DN
-BF
-BF
-BF
-kV
+Oz
+Oz
+Oz
+UF
 Tp
-GM
+yr
 Uz
 dB
 vQ
 dB
 dB
-Xs
-Xs
-UF
-yr
-yr
-"}
-(11,1,1) = {"
-yr
-Xs
-Lx
-Lx
-Xs
-Xs
+Oz
+Oz
 VP
-Xs
+VP
+VP
+"}
+(5,1,1) = {"
+VP
+VP
 dB
 dB
 dB
@@ -1130,29 +780,23 @@ Ex
 vf
 zm
 wR
-BF
-BF
-BF
-ZF
-oZ
+Oz
+Oz
+Oz
+GM
+GM
 sa
 dB
 Sc
 dX
 Ak
 dB
-Xs
-yr
-Xs
-yr
-"}
-(12,1,1) = {"
-yr
-Xs
-Lx
-Xs
-Xs
+Oz
+Oz
+Oz
 VP
+"}
+(6,1,1) = {"
 VP
 dB
 rA
@@ -1161,69 +805,57 @@ TT
 Mx
 dO
 mi
-Ck
+GM
 dB
 dB
-BF
-BF
-BF
+Oz
+Oz
+Oz
 dB
 Iw
 BJ
 dB
 wV
-Nk
-ZF
+Iw
+GM
 aK
-yr
-Xs
-Xs
-yr
+Oz
+Oz
+VP
+VP
 "}
-(13,1,1) = {"
-yr
-Xs
-Xs
-yr
-Xs
-Xs
+(7,1,1) = {"
 VP
 Lc
 mD
 GJ
-Oz
+XI
 fW
-Ah
+Iw
 qV
 GM
 iB
 Iw
-BF
-BF
+Oz
+Oz
 jt
 dB
-aV
-If
+Oz
+GM
 DB
 Iw
-Ah
+Iw
 rf
 tC
-Xs
-Xs
-Xs
-yr
+Oz
+Oz
+VP
+VP
 "}
-(14,1,1) = {"
-yr
-yr
-Xs
-yr
-Xs
-Xs
+(8,1,1) = {"
 sK
 su
-Nk
+Iw
 GM
 Yu
 qQ
@@ -1231,10 +863,10 @@ Zd
 yk
 wb
 fo
+yr
 GM
-GM
-BF
-BF
+Oz
+Oz
 qD
 GM
 fT
@@ -1243,52 +875,40 @@ dB
 fo
 dB
 dB
-Xs
-Xs
-yr
-Xs
+Oz
+Oz
+Oz
+VP
 "}
-(15,1,1) = {"
-yr
-Xs
-yr
-yr
-Xs
-yr
+(9,1,1) = {"
 hk
 Rg
 tD
 QY
 bj
 xv
-wk
+GM
 qV
 GM
 kr
-XI
+Oz
 hT
-aV
-BF
+Oz
+Oz
 dB
 GM
-oZ
+GM
 dB
 rK
 Ut
-Hv
+Xs
 dB
-Xs
-Xs
-Xs
-Xs
+Oz
+Oz
+Oz
+Oz
 "}
-(16,1,1) = {"
-yr
-yr
-yr
-yr
-yr
-Xs
+(10,1,1) = {"
 dB
 dB
 Rg
@@ -1299,31 +919,25 @@ jj
 mi
 GM
 dB
-aV
-BF
+Oz
+Oz
 GM
 dB
-BF
-XI
-GM
-dB
-tL
-Tj
-Tj
-dB
-Xs
+Oz
+Oz
 yr
-Xs
-Xs
+dB
+Tj
+Tj
+Tj
+dB
+Oz
+Oz
+Oz
+Oz
 "}
-(17,1,1) = {"
-yr
-yr
-Xs
-yr
-Xs
-Xs
-yr
+(11,1,1) = {"
+VP
 dB
 dB
 dB
@@ -1331,34 +945,28 @@ dB
 il
 yX
 Ex
-Ny
+vf
 JP
 wR
-BF
-BF
-XI
-BF
-aV
+Oz
+Oz
+Oz
+Oz
+Oz
 GM
 oz
 Tj
 Tj
-VR
+Ah
 dB
-Xs
-Xs
-Xs
-Xs
+Oz
+Oz
+Oz
+Oz
 "}
-(18,1,1) = {"
-yr
-yr
-BF
-Xs
-Xs
-Xs
-Xs
-BF
+(12,1,1) = {"
+VP
+Oz
 dB
 dB
 dB
@@ -1367,496 +975,104 @@ dB
 dB
 GM
 Yb
-aV
-aV
-Xs
-BF
-BF
-BF
-XI
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
 dB
-tL
 Tj
 Tj
+Tj
 dB
 dB
+Oz
+Oz
 VP
-Xs
-yr
 "}
-(19,1,1) = {"
-yr
-yr
-Xs
-Xs
-Xs
-Xs
-yr
-Xs
-Xs
-VP
-Xs
+(13,1,1) = {"
+Oz
+Oz
+Oz
+Oz
+Oz
 dB
 dB
 dB
 uf
-Xs
-Xs
-Xs
-aV
-BF
-BF
-BF
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
 dB
 dB
 dB
 dB
 dB
 dB
-Xs
+Oz
+Oz
+Oz
 VP
-Xs
-Xs
 "}
-(20,1,1) = {"
-yr
-BF
-Xs
-Xs
-BF
-yr
-yr
-yr
-Xs
-Xs
-VP
-Xs
-yr
-BF
-yr
-Xs
-Xs
-Xs
-Xs
-aV
-BF
-BF
-BF
-BF
-Ti
-Xs
-VP
-Xs
-Xs
-Xs
-Xs
-Xs
-"}
-(21,1,1) = {"
-BF
-yr
-UF
-yr
-yr
-yr
-Xs
-Xs
-yr
-Xs
-Xs
-Xs
-Xs
-yr
-Xs
-Xs
-Xs
-Xs
-BF
-yr
-yr
-BF
-BF
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
-yr
-Xs
-Xs
-"}
-(22,1,1) = {"
-yr
-BF
-yr
-yr
-BF
-Xs
-Xs
-Xs
-yr
-Xs
-UF
-yr
-yr
-yr
-yr
-Xs
-BF
-yr
-BF
-BF
-Xs
-yr
-yr
-Xs
-yr
-Xs
-Xs
-Xs
-Xs
-UF
-Xs
-yr
-"}
-(23,1,1) = {"
-yr
-BF
-yr
-yr
-yr
-Xs
-Xs
-Xs
-yr
-yr
-yr
-Xs
-Xs
-yr
-Xs
-yr
-yr
-Xs
-Xs
-Xs
-Xs
-yr
-UF
-yr
-BF
-yr
-yr
-yr
-yr
-BF
-BF
-yr
-"}
-(24,1,1) = {"
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-Xs
-Xs
-yr
-yr
-BF
-Xs
-yr
-yr
-yr
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
-yr
-yr
-yr
-yr
-BF
-BF
-yr
-Xs
-Xs
-yr
-"}
-(25,1,1) = {"
-yr
-yr
-BF
-yr
-yr
-BF
-Xs
-Lx
-Lx
-Lx
-yr
-Xs
-yr
-yr
-yr
-BF
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
-yr
-yr
-yr
-yr
-yr
-Xs
-Xs
-Xs
-Xs
-"}
-(26,1,1) = {"
-yr
-yr
-yr
-Xs
-Xs
-Xs
-yr
-Lx
-Lx
-BF
-yr
-yr
-yr
-yr
-Xs
-yr
-yr
-Xs
-Xs
-Xs
-Xs
-yr
-yr
-yr
-Xs
-yr
-BF
-Xs
-Xs
-Xs
-Xs
-Xs
-"}
-(27,1,1) = {"
-yr
-BF
-Lx
-Lx
-Xs
-yr
-BF
-UF
-BF
-yr
-yr
-yr
-Xs
-Xs
-Xs
-yr
-BF
-yr
-Xs
-Xs
-Xs
-yr
-yr
-BF
-yr
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
-"}
-(28,1,1) = {"
-yr
-Xs
-Lx
-Xs
-Xs
-yr
-Xs
-yr
-yr
-yr
-yr
-Xs
-VP
-Xs
-Xs
-Xs
-yr
-yr
-UF
-Xs
-yr
-yr
-yr
-yr
-yr
-Xs
-Xs
-Xs
-Xs
-BF
-Xs
-Xs
-"}
-(29,1,1) = {"
-yr
-Xs
-Lx
-Lx
-Lx
-Xs
-yr
-yr
-Lx
-Xs
-Xs
-Xs
-VP
-Xs
-VP
-Xs
-Xs
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-Xs
-Xs
-yr
-Xs
-yr
-Xs
-"}
-(30,1,1) = {"
-yr
-BF
-Lx
-Lx
-Xs
-Xs
-Xs
-Xs
-Lx
-Xs
-Xs
-VP
-Xs
+(14,1,1) = {"
+Oz
+Oz
+Oz
 VP
 VP
-Xs
-yr
-yr
-yr
-yr
-BF
-yr
-yr
-yr
-BF
-yr
-yr
-UF
-BF
-Xs
-Xs
-yr
-"}
-(31,1,1) = {"
-yr
-BF
-Xs
-Xs
-Xs
-BF
-yr
-Xs
-Xs
-Xs
-Lx
-Lx
-Lx
-Xs
 VP
-Xs
-yr
-yr
-BF
-BF
-BF
-yr
-yr
-yr
-yr
-yr
-BF
-Xs
-Xs
-Xs
-BF
-yr
+VP
+VP
+VP
+VP
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+Hv
+VP
+Oz
+Oz
+Oz
+VP
+VP
+VP
 "}
-(32,1,1) = {"
-yr
-yr
-yr
-Xs
-yr
-yr
-BF
-yr
-Xs
-yr
-yr
-yr
-Xs
-Xs
-Xs
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-BF
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
-yr
+(15,1,1) = {"
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+Oz
+Oz
+Oz
+VP
+VP
+VP
+VP
+VP
+VP
+VP
 "}
