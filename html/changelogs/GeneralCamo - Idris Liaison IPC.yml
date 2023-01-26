@@ -1,0 +1,6 @@
+author: GeneralCamo
+
+delete-after: True
+
+changes:
+  - rscdel: "Idris liaisons can no longer be IPCs"
