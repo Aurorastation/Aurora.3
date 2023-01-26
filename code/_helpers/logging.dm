@@ -31,6 +31,7 @@
 
 /proc/error(msg)
 	world.log <<  "## ERROR: [msg][log_end]"
+	game_log("ERROR", msg)
 
 /proc/shutdown_logging()
 	dll_call(RUST_G, "log_close_all")
