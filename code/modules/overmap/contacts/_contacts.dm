@@ -83,11 +83,10 @@
 	if(pinged)
 		return
 	pinged = TRUE
+	effect.opacity = 1
 	show()
 	animate(marker, alpha=255, 0.5 SECOND, 1, LINEAR_EASING)
 	addtimer(CALLBACK(src, PROC_REF(unping)), 1 SECOND)
-
-	effect.opacity = 1
 
 /datum/overmap_contact/proc/unping()
 	animate(marker, alpha=75, 2 SECOND, 1, LINEAR_EASING)
