@@ -10259,7 +10259,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/visitor)
+/area/peoples_station/bridge)
 "UQ" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -47758,7 +47758,7 @@ EN
 Gk
 Ns
 FS
-UP
+tK
 Mc
 wY
 TN
@@ -47974,7 +47974,7 @@ Ox
 bL
 sA
 bs
-DJ
+UP
 Gz
 DJ
 Mx
