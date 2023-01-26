@@ -2,6 +2,7 @@
 	var/name = "Reagent"
 	var/description = "A non-descript chemical."
 	var/taste_description = "old rotten bandaids"
+	var/list/species_taste_description
 	var/taste_mult = 1 //how this taste compares to others. Higher values means it is more noticable
 	var/reagent_state = SOLID
 	var/metabolism = REM // This would be 0.2 normally

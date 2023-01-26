@@ -4638,6 +4638,9 @@
 	color = "#91de47"
 	strength = 5
 	taste_description = "water"
+	species_taste_description = list(
+		SPECIES_UNATHI = "a bit of watermelon and strawberry with a hint of salt"
+	)
 
 	glass_icon_state = "xuiziglass"
 	glass_name = "glass of Xuizi Juice"

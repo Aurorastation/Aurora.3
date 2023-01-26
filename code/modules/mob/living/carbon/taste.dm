@@ -45,7 +45,7 @@ calculate text size per text.
 					else
 						tastes[taste] = taste_data[taste]
 			else
-				var/taste_desc = R.taste_description
+				var/taste_desc = taster.species?.name && (taster.species?.name in R.species_taste_description) ? R.species_taste_description[taster.species.name] : R.taste_description
 				var/taste_amount = REAGENT_VOLUME(src, _R) * R.taste_mult
 				if(R.taste_description in tastes)
 					tastes[taste_desc] += taste_amount
