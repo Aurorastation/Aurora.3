@@ -521,6 +521,7 @@
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 4,
 		/obj/item/reagent_containers/glass/bottle/perconol = 3,
 		/obj/item/reagent_containers/glass/bottle/toxin = 1,
+		/obj/item/reagent_containers/glass/bottle/stoxin = 1,
 		/obj/item/reagent_containers/glass/bottle/coagzolug = 2,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/syringe = 12,
@@ -541,10 +542,10 @@
 		/obj/item/reagent_containers/spray/sterilizine = 2
 	)
 	contraband = list(
-		/obj/item/reagent_containers/inhaler/space_drugs = 2,
-		/obj/item/reagent_containers/pill/tox = 3,
-		/obj/item/reagent_containers/pill/stox = 4
-	)
+		/obj/item/reagent_containers/glass/bottle/dermaline = 2,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 2,
+		/obj/item/reagent_containers/glass/bottle/mortaphenyl = 2
+	) //Actually unlocks the good stuff when hacked. No dexalin plus because phoron shortage.
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
 	temperature_setting = -1
