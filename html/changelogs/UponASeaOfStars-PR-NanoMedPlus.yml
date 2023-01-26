@@ -38,5 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "NanoMed Plus vendors now provide two bottles each of dermaline, mortaphenyl and butazoline when hacked, as well as one bottle of soporific normally."
-  - rscdel: "NanoMed Plus vendors no longer provide soporific and toxin pills and drug syringes when hacked."
+  - rscadd: "NanoMed Plus vendors now provide two bottles each of dermaline, mortaphenyl and butazoline. Your cries have been answered, medics."
