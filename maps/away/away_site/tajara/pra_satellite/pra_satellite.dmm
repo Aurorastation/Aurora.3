@@ -314,6 +314,15 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
+"fa" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/hadii_statue,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
 "fm" = (
 /obj/structure/table/standard,
 /obj/item/material/ashtray/bronze,
@@ -717,11 +726,11 @@
 	},
 /area/pra_satellite)
 "oP" = (
-/obj/item/modular_computer/console/preset/civilian{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
+	},
+/obj/machinery/computer/ship/sensors{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1582,6 +1591,21 @@
 /turf/simulated/floor{
 	temperature = 278.15
 	},
+/area/pra_satellite)
+"Qo" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/shipsensors/strong,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
 /area/pra_satellite)
 "Qv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -28658,7 +28682,7 @@ Kn
 Kn
 Kn
 lu
-Kn
+bu
 Kn
 Kn
 Kn
@@ -28913,7 +28937,7 @@ Kn
 Kn
 Kn
 Kn
-bu
+Qo
 lu
 lu
 lu
@@ -28938,8 +28962,8 @@ qy
 oP
 gb
 Kn
-gb
-iR
+wc
+fa
 Zr
 Qv
 ww
@@ -29172,7 +29196,7 @@ Kn
 Kn
 Kn
 lu
-Kn
+bu
 Kn
 Kn
 Kn
