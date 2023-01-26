@@ -5977,11 +5977,11 @@
 /area/engineering/lobby)
 "cSi" = (
 /obj/structure/table/wood,
-/obj/machinery/librarypubliccomp{
-	pixel_y = 7
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
+	},
+/obj/machinery/librarycomp/public{
+	pixel_y = 7
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
@@ -23906,15 +23906,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research)
-"lRC" = (
-/obj/effect/floor_decal/corner/beige/full{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/medical/gen_treatment)
 "lRO" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
