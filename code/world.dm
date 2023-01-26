@@ -12,7 +12,6 @@
 
 */
 var/global/datum/global_init/init = new ()
-var/global/db_last_fail
 
 /*
 	Pre-map initialization stuff should go here.
