@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added temperature pack accessories to the loadout menu, with heat and cold cooling/warming by 5 degrees celsius, and volcano and blizzard cooling/warming by 10 degrees celsius."
+  - tweak: "Temperature discomfort messages are now based off body temperature instead of the temperature of the air your breath."

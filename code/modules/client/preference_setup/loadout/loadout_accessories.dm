@@ -575,3 +575,17 @@
 	aodai["ao dai, new hai phong cut"] = /obj/item/clothing/accessory/aodai/nhp
 	aodai["ao dai, masculine formalwear"] = /obj/item/clothing/accessory/aodai/masc
 	gear_tweaks += new /datum/gear_tweak/path(aodai)
+
+/datum/gear/accessory/temperature
+	display_name = "temperature packs"
+	description = "A nice little pack that heats/cools you when worn under your clothes!"
+	path = /obj/item/clothing/accessory/temperature
+	flags = 0
+
+/datum/gear/accessory/temperature/New()
+	..()
+	var/list/temperature = list()
+	for(var/temp_path in subtypesof(/obj/item/clothing/accessory/temperature))
+		var/obj/item/clothing/accessory/temperature/temp_pack = temp_path
+		temperature[initial(temp_pack.name)] = temp_path
+	gear_tweaks += new /datum/gear_tweak/path(temperature)

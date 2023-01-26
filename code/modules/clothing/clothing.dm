@@ -31,6 +31,9 @@
 
 	var/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints
 
+	/// Measured in Celsius, when worn, the clothing modifies the baseline temperature by this much
+	var/body_temperature_change = 0
+
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
 	. = ..(mapload)
 	if(!material_key)
@@ -299,6 +302,11 @@
 		if(accessory)
 			return accessory
 	return null
+
+/obj/item/clothing/proc/recalculate_body_temperature_change()
+	body_temperature_change = initial(body_temperature_change)
+	for(var/obj/item/clothing/accessory/accessory as anything in accessories)
+		body_temperature_change += accessory.body_temperature_change
 
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects

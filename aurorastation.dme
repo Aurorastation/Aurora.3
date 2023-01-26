@@ -1691,6 +1691,7 @@
 #include "code\modules\clothing\under\accessories\medal.dm"
 #include "code\modules\clothing\under\accessories\shirts.dm"
 #include "code\modules\clothing\under\accessories\storage.dm"
+#include "code\modules\clothing\under\accessories\temperature.dm"
 #include "code\modules\clothing\under\accessories\xeno\diona.dm"
 #include "code\modules\clothing\under\accessories\xeno\skrell.dm"
 #include "code\modules\clothing\under\accessories\xeno\tajara.dm"

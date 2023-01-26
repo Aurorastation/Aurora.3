@@ -431,13 +431,19 @@
 	if (is_diona())
 		diona_handle_temperature(DS)
 
+/mob/living/carbon/human/proc/get_baseline_body_temperature()
+	var/baseline = species.body_temperature
+	for(var/obj/item/clothing/clothing in list(w_uniform, wear_suit))
+		baseline += clothing.body_temperature_change
+	return baseline
+
 /mob/living/carbon/human/proc/stabilize_body_temperature()
 	if (species.passive_temp_gain) // We produce heat naturally.
 		bodytemperature += species.passive_temp_gain
 	if (species.body_temperature == null)
 		return //this species doesn't have metabolic thermoregulation
 
-	var/body_temperature_difference = species.body_temperature - bodytemperature
+	var/body_temperature_difference = get_baseline_body_temperature() - bodytemperature
 
 	if (abs(body_temperature_difference) < 0.5)
 		return //fuck this precision
@@ -1154,7 +1160,7 @@
 						"Ennoia be with you, it's a bit too dark..."
 					)
 					to_chat(src, SPAN_WARNING(pick(assunzione_messages)))
-		
+
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
 			if(T.get_lumcount() > 0.8)
 				if(prob(1))
