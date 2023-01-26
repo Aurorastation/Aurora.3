@@ -14,8 +14,12 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	name = "generic ship"
 	desc = "Space faring vessel."
 	icon_state = "ship"
+	requires_contact = TRUE
 	obfuscated_name = "unidentified vessel"
 	var/moving_state = "ship_moving"
+
+	var/list/known_ships = list()		//List of ships known at roundstart - put types here.
+	var/base_sensor_visibility
 
 	var/vessel_mass = 10000             //tonnes, arbitrary number, affects acceleration provided by engines
 	var/vessel_size = SHIP_SIZE_LARGE	//arbitrary number, affects how likely are we to evade meteors
@@ -39,11 +43,14 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 	comms_support = TRUE
 
+	var/list/navigation_viewers // list of weakrefs to people viewing the overmap via this ship
+
 /obj/effect/overmap/visitable/ship/Initialize()
 	. = ..()
 	glide_size = world.icon_size
 	min_speed = round(min_speed, SHIP_MOVE_RESOLUTION)
 	max_speed = round(max_speed, SHIP_MOVE_RESOLUTION)
+	base_sensor_visibility = round((vessel_mass/SENSOR_COEFFICENT),1)
 	SSshuttle.ships += src
 
 /obj/effect/overmap/visitable/ship/find_z_levels(var/fore_direction)
@@ -68,8 +75,11 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 /obj/effect/overmap/visitable/ship/get_scan_data(mob/user)
 	. = ..()
+	. += "<br>Mass: [vessel_mass] tons."
 	if(!is_still())
 		. += "<br>Heading: [dir2angle(get_heading())], speed [get_speed() * 1000]"
+	if(instant_contact)
+		. += "<br>It is broadcasting a distress signal."
 
 //Projected acceleration based on information from engines
 /obj/effect/overmap/visitable/ship/proc/get_acceleration()
@@ -165,6 +175,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		if(newloc && loc != newloc)
 			Move(newloc)
 			handle_wraparound()
+	sensor_visibility = min(round(base_sensor_visibility + get_speed_sensor_increase(), 1), 100)
 
 /obj/effect/overmap/visitable/ship/update_icon()
 	pixel_x = position[1] * (world.icon_size/2)
@@ -305,6 +316,9 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship/signal_hit(var/list/hit_data)
 	for(var/obj/machinery/computer/ship/targeting/TR in consoles)
 		TR.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(TR)))] Hit confirmed on [hit_data["target_name"]] in [hit_data["target_area"]] at coordinates [hit_data["coordinates"]]."), range = 2)
+
+/obj/effect/overmap/visitable/ship/proc/get_speed_sensor_increase()
+	return min(get_speed() * 1000, 50) //Engines should never increase sensor visibility by more than 50.
 
 #undef MOVING
 #undef SANITIZE_SPEED

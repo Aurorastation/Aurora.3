@@ -9,6 +9,16 @@
 	circuit = /obj/item/circuitboard/ship/sensors
 	linked_type = /obj/effect/overmap/visitable
 
+	var/working_sound = 'sound/machines/sensors/dradis.ogg'
+	var/datum/sound_token/sound_token
+	var/sound_id
+
+	var/datum/weakref/sensor_ref
+	var/list/last_scan
+
+/obj/machinery/computer/ship/sensors/proc/get_sensors()
+	return sensors
+
 /obj/machinery/computer/ship/sensors/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
 	if(!.)
@@ -27,6 +37,21 @@
 			identification = IB
 			break
 
+/obj/machinery/computer/ship/sensors/proc/update_sound()
+	if(!working_sound)
+		return
+	if(!sound_id)
+		sound_id = "[type]_[sequential_id(/obj/machinery/computer/ship/sensors)]"
+
+	var/obj/machinery/shipsensors/sensors = get_sensors()
+	if(linked && sensors?.use_power && !(sensors.stat & NOPOWER))
+		var/volume = 10
+		if(!sound_token)
+			sound_token = sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10)
+		sound_token.SetVolume(volume)
+	else if(sound_token)
+		QDEL_NULL(sound_token)
+
 /obj/machinery/computer/ship/sensors/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!linked)
 		display_reconnect_dialog(user, "sensors")
@@ -35,6 +60,7 @@
 	var/data[0]
 
 	data["viewing"] = viewing_overmap(user)
+	data["muted"] = muted
 	if(sensors)
 		data["on"] = sensors.use_power
 		data["range"] = sensors.range
@@ -62,8 +88,22 @@
 			distress_beacons.Add(list(list("caller" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
 		if(length(distress_beacons))
 			data["distress_beacons"] = distress_beacons
+
+
 		var/list/contacts = list()
-		for(var/obj/effect/overmap/O in view(7,linked))
+		var/list/potential_contacts = list()
+
+		for(var/obj/effect/overmap/nearby in view(7,linked))
+			if(nearby.requires_contact) // Some ships require.
+				continue
+			potential_contacts |= nearby
+
+		// Effects that require contact are only added to the contacts if they have been identified.
+		// Allows for coord tracking out of range of the player's view.
+		for(var/obj/effect/overmap/visitable/identified_contact in contact_datums)
+			potential_contacts |= identified_contact
+
+		for(var/obj/effect/overmap/O in potential_contacts)
 			if(linked == O)
 				continue
 			if(!O.scannable)
@@ -74,6 +114,7 @@
 			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing)))
 		if(length(contacts))
 			data["contacts"] = contacts
+		data["last_scan"] = last_scan
 	else
 		data["status"] = "MISSING"
 		data["range"] = "N/A"
@@ -168,10 +209,15 @@
 
 	if (href_list["scan"])
 		var/obj/effect/overmap/O = locate(href_list["scan"])
-		if(istype(O) && !QDELETED(O) && (O in view(7,linked)))
-			playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
-			new/obj/item/paper/(get_turf(src), O.get_scan_data(usr), "paper (Sensor Scan - [O])")
-		return TOPIC_HANDLED
+		if(istype(O) && !QDELETED(O))
+			if((O in view(7,linked))|| (O in contact_datums))
+				playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
+				LAZYSET(last_scan, "data", O.get_scan_data(usr))
+				LAZYSET(last_scan, "location", "[O.x],[O.y]")
+				LAZYSET(last_scan, "name", "[O]")
+				to_chat(usr, SPAN_NOTICE("Successfully scanned [O]."))
+				new/obj/item/paper/(get_turf(src), O.get_scan_data(usr), "paper (Sensor Scan - [O])")
+			return TOPIC_HANDLED
 
 	if (href_list["play_message"])
 		var/caller = href_list["play_message"]
@@ -216,6 +262,7 @@
 	var/heat_reduction = 0.5 // mitigates this much heat per tick - can sustain range 2
 	var/heat = 0
 	var/range = 1
+	var/sensor_strength = 5//used for detecting ships via contacts
 	idle_power_usage = 5000
 
 	var/base_icon_state
@@ -335,6 +382,11 @@
 		return
 	take_damage(20/severity)
 	toggle()
+
+// /obj/machinery/shipsensors/RefreshParts()
+// 	..()
+// 	//sensor_strength = clamp(total_component_rating_of_type(/obj/item/stock_parts/manipulator), 0, 5)
+// 	sensor_strength = 5
 
 /obj/machinery/shipsensors/proc/take_damage(value)
 	health = min(max(health - value, 0),max_health)
