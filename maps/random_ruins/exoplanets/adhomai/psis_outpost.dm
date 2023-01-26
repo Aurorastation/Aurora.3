@@ -16,6 +16,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	flags = RAD_SHIELDED
+	ambience = AMBIENCE_HIGHSEC
 
 //ghost roles
 

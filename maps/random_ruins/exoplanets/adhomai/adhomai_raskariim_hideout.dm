@@ -17,6 +17,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	flags = RAD_SHIELDED
 	turf_initializer = new /datum/turf_initializer/maintenance/raskariim()
+	ambience = AMBIENCE_GHOSTLY
 
 /datum/turf_initializer/maintenance/raskariim/initialize(var/turf/simulated/T)
 	..()
