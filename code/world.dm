@@ -12,6 +12,7 @@
 
 */
 var/global/datum/global_init/init = new ()
+var/global/db_last_fail
 
 /*
 	Pre-map initialization stuff should go here.
@@ -414,13 +415,15 @@ var/list/world_api_rate_limit = list()
 		con.failed_connections = 0	//If this connection succeeded, reset the failed connections counter.
 	else
 		con.failed_connections++		//If it failed, increase the failed connections counter.
+		con.last_fail = world.timeofday
 
 #ifdef UNIT_TEST
 		// UTs are presumed public. Change this to hide your shit.
 		error("Database connection failed with message:")
 		error(con.ErrorMsg())
 #else
-		world.log <<  con.ErrorMsg()
+		error("[time2text(con.last_fail, "hh:mm:ss")]: Database connection failed (try #[con.failed_connections]/[FAILED_DB_CONNECTION_CUTOFF])")
+		error(con.ErrorMsg())
 #endif
 
 	return .
@@ -435,8 +438,11 @@ var/list/world_api_rate_limit = list()
 		return FALSE
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)
-		error("DB connection cutoff exceeded for a database object in establish_db_connection().")
-		return FALSE
+		if(world.timeofday < con.last_fail + 100) // 10 seconds
+			error("DB connection cutoff exceeded for a database object in establish_db_connection().")
+			return FALSE
+
+		con.failed_connections = 0
 
 	if (!con.IsConnected())
 		return setup_database_connection(con)

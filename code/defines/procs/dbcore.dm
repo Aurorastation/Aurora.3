@@ -41,6 +41,7 @@
 	var/con_port = 3306
 	var/con_database = ""
 	var/failed_connections = 0
+	var/last_fail
 
 /DBConnection/New(server, port = 3306, database, username, password_handler, cursor_handler = Default_Cursor, dbi_handler)
 	con_user = username
