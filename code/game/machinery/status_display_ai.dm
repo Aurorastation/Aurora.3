@@ -23,6 +23,7 @@ var/list/ai_status_emotions = list(
 	"Dorfy" 					= new /datum/ai_emotion("ai_urist"),
 	"Facepalm" 					= new /datum/ai_emotion("ai_facepalm"),
 	"Friend Computer" 			= new /datum/ai_emotion("ai_friend"),
+	"Diagnostics"				= new /datum/ai_emotion("ai_diagnostics"),
 	"Tribunal" 					= new /datum/ai_emotion("ai_tribunal", "serithi"),
 	"Tribunal Malfunctioning"	= new /datum/ai_emotion("ai_tribunal_malf", "serithi")
 	)
