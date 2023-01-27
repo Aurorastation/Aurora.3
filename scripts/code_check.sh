@@ -103,7 +103,7 @@ else
 fi
 
 echo "Checking for 515 proc syntax" >> code_error.log
-grep '\.proc/' $code_x_515 >> code_error.log
+grep '\.proc/' >> code_error.log
 if [ $? -eq 0 ]; then
     ERROR_COUNT=$(($ERROR_COUNT+1))
     echo -e "FAIL: Outdated proc reference use detected in code, please use proc reference helpers."
