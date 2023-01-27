@@ -88,7 +88,7 @@
 		return FALSE
 
 	known_targets.Insert(1, target)	// Insert the newly hacked target first,
-	destroyed_event.register(target, src, /obj/item/device/multitool/hacktool/proc/on_target_destroy)
+	destroyed_event.register(target, src, PROC_REF(on_target_destroy))
 	return TRUE
 
 /obj/item/device/multitool/hacktool/proc/sanity_check()
