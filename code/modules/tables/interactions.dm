@@ -176,7 +176,7 @@
 								for(var/obj/item/O in get_turf(src))
 									if(!O.anchored && O.w_class < ITEMSIZE_HUGE)
 										animate(O, pixel_y = 3, time = 2, loop = 1, easing = BOUNCE_EASING)
-										addtimer(CALLBACK(O, PROC_REF(reset_table_position), 2))
+										addtimer(CALLBACK(O, TYPE_PROC_REF(/obj/item, reset_table_position), 2)
 
 /obj/item/proc/reset_table_position()
 	animate(src, pixel_y = 0, time = 2, loop = 1, easing = BOUNCE_EASING)
