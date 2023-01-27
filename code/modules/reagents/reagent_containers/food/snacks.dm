@@ -818,6 +818,13 @@
 	volume = 20
 	hatchling = /mob/living/simple_animal/schlorrgo/baby
 
+/obj/item/reagent_containers/food/snacks/egg/schlorrgo
+	name = "ice tunneler egg"
+	desc = "An egg laid by an Adhomian animal."
+	icon_state = "tunneler_egg"
+	filling_color = "#eff5e9"
+	hatchling = /mob/living/simple_animal/ice_tunneler/baby
+
 /obj/item/reagent_containers/food/snacks/friedegg
 	name = "fried egg"
 	desc = "A fried egg, with a touch of salt and pepper."
