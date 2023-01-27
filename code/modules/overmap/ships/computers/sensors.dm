@@ -238,18 +238,6 @@
 			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/misc/announcements/security_level_old.ogg'), 0)
 		return TOPIC_HANDLED
 
-/obj/machinery/computer/ship/sensors/process()
-	..()
-	if(!linked)
-		return
-	if(sensors && sensors.use_power && sensors.powered())
-		var/sensor_range = round(sensors.range*1.5) + 1
-		linked.set_light(sensor_range, sensor_range+1, light_color)
-		linked.handle_sensor_state_change(TRUE)
-	else
-		linked.set_light(0)
-		linked.handle_sensor_state_change(FALSE)
-
 /obj/machinery/shipsensors
 	name = "sensors suite"
 	desc = "Long range gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."

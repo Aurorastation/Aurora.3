@@ -97,17 +97,27 @@
 
 /datum/overmap_contact/Destroy()
 	if(owner)
-		owner.connected.detarget(effect, owner)
+		// If we have a lock on what was lost, remove the lock from the targeting consoles
+		if(owner.connected.targeting == effect)
+			for(var/obj/machinery/computer/ship/targeting/console in owner.connected.consoles)
+				owner.connected.detarget(effect, console)
+
+		// Removes the client images from the client of the mobs that are looking at this contact
 		var/list/showing = owner.linked?.navigation_viewers || owner.viewers
 		if(length(showing))
 			for(var/datum/weakref/W in showing)
 				var/mob/M = W.resolve()
 				if(istype(M) && M.client)
 					M.client.images -= images
+
+		// Removes the effect from the contact datums of the owner, and null the owner
 		if(effect)
 			owner.contact_datums -= effect
 		owner = null
+
+	// Remove the effect opacity and null the effect
 	effect.opacity = 0
 	effect = null
+
 	QDEL_NULL_LIST(images)
 	. = ..()
