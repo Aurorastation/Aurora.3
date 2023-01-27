@@ -818,7 +818,7 @@
 	volume = 20
 	hatchling = /mob/living/simple_animal/schlorrgo/baby
 
-/obj/item/reagent_containers/food/snacks/egg/schlorrgo
+/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
 	name = "ice tunneler egg"
 	desc = "An egg laid by an Adhomian animal."
 	icon_state = "tunneler_egg"

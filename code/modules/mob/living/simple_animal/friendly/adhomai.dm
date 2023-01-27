@@ -44,7 +44,7 @@
 	if(!stat && prob(3) && eggsleft > 0 && (gender = FEMALE))
 		visible_message("[src] lays an egg.")
 		eggsleft--
-		new /obj/item/reagent_containers/food/snacks/egg/schlorrgo(get_turf(src))
+		new /obj/item/reagent_containers/food/snacks/egg/ice_tunnelers(get_turf(src))
 
 /mob/living/simple_animal/ice_tunneler/male
 	icon_state = "tunneler_m"

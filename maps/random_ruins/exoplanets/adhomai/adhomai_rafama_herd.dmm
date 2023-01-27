@@ -1,0 +1,331 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"c" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"f" = (
+/mob/living/simple_animal/hostile/retaliate/rafama,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"n" = (
+/mob/living/simple_animal/hostile/retaliate/rafama/male,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"s" = (
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"E" = (
+/mob/living/simple_animal/hostile/retaliate/rafama/baby,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"H" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"X" = (
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+
+(1,1,1) = {"
+c
+c
+c
+c
+c
+c
+X
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(2,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(3,1,1) = {"
+s
+c
+c
+f
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(4,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+s
+c
+c
+c
+"}
+(5,1,1) = {"
+c
+c
+c
+c
+c
+c
+f
+c
+s
+c
+c
+c
+c
+c
+c
+c
+"}
+(6,1,1) = {"
+c
+c
+c
+f
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(7,1,1) = {"
+c
+E
+c
+c
+c
+E
+c
+c
+f
+c
+c
+c
+c
+c
+c
+c
+"}
+(8,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+X
+c
+c
+c
+c
+"}
+(9,1,1) = {"
+c
+c
+s
+c
+s
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(10,1,1) = {"
+c
+c
+c
+f
+c
+c
+n
+c
+c
+s
+c
+c
+c
+c
+c
+c
+"}
+(11,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+f
+c
+c
+c
+c
+c
+"}
+(12,1,1) = {"
+c
+c
+c
+c
+c
+E
+c
+c
+H
+c
+c
+c
+c
+c
+c
+c
+"}
+(13,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(14,1,1) = {"
+c
+X
+c
+c
+c
+f
+c
+c
+c
+c
+f
+c
+c
+c
+c
+s
+"}
+(15,1,1) = {"
+c
+c
+c
+E
+c
+c
+c
+c
+c
+c
+c
+c
+X
+c
+c
+c
+"}
+(16,1,1) = {"
+c
+c
+s
+c
+c
+c
+c
+f
+c
+H
+c
+c
+c
+c
+c
+c
+"}
