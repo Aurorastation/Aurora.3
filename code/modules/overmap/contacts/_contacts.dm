@@ -69,6 +69,9 @@
 			if(istype(M) && M.client)
 				M.client.images |= images
 
+/// This function checks if the shield is active, as we likely will need to rework the shields to be anything useful and gameplay-wise engaging this is currently not used, but left here for when
+/// it will happen
+
 // /datum/overmap_contact/proc/check_effect_shield()
 // 	var/obj/effect/overmap/visitable/visitable_effect = effect
 // 	if(!visitable_effect || !istype(visitable_effect))
@@ -94,6 +97,7 @@
 
 /datum/overmap_contact/Destroy()
 	if(owner)
+		owner.connected.detarget(effect, owner)
 		var/list/showing = owner.linked?.navigation_viewers || owner.viewers
 		if(length(showing))
 			for(var/datum/weakref/W in showing)
