@@ -19,8 +19,8 @@
 	reflection.setup_visuals(src)
 	ref = WEAKREF(reflection)
 
-	entered_event.register(loc, reflection, /obj/effect/reflection/proc/check_vampire_enter)
-	exited_event.register(loc, reflection, /obj/effect/reflection/proc/check_vampire_exit)
+	entered_event.register(loc, reflection, TYPE_PROC_REF(/obj/effect/reflection, check_vampire_enter))
+	exited_event.register(loc, reflection, TYPE_PROC_REF(/obj/effect/reflection, check_vampire_exit))
 
 /obj/structure/mirror/Destroy()
 	var/obj/effect/reflection/reflection = ref.resolve()

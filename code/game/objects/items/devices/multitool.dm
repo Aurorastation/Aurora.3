@@ -65,7 +65,7 @@
 			unregister_buffer(buffer_object)
 			buffer_object = buffer
 			if(buffer_object)
-				destroyed_event.register(buffer_object, src, /obj/item/device/multitool/proc/unregister_buffer)
+				destroyed_event.register(buffer_object, src, PROC_REF(unregister_buffer))
 		update_icon()
 
 /obj/item/device/multitool/proc/unregister_buffer(var/atom/buffer_to_unregister)
