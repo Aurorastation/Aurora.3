@@ -1,5 +1,5 @@
 --
--- Implemented in PR #numberhere.
+-- Implemented in PR #15577.
 -- Adds the ability for players to select their species' tail, instead of each species only having one stock type of tail.
 --
 

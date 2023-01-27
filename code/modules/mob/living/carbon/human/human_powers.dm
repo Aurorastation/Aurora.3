@@ -1331,7 +1331,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(usr, SPAN_WARNING("You have no tail!"))
 		return
 	if(!G.tail_storage)
-		to_chat(usr, SPAN_WARNING("Something went wrong with your tail storage, it's missing! (Report this on Github)"))
+		to_chat(usr, SPAN_WARNING("Your tail storage is missing!"))
 		return
 
 	G.tail_storage.open(usr)

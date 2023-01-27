@@ -98,7 +98,6 @@
 	. = ..()
 	name = initial(name)
 
-
 /obj/item/storage/internal/tail
 	name = "tail storage"
 	storage_slots = 1

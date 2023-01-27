@@ -1,6 +1,6 @@
 /obj/item/clothing/tail_accessory
 	name = "tail accessory"
-	desc = "If you're seeing this, something went wrong! Please report it on Github."
+	desc = DESC_PARENT
 	w_class = ITEMSIZE_SMALL
 
 	var/list/compatible_species_type = list()
