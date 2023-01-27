@@ -371,11 +371,6 @@
 	take_damage(20/severity)
 	toggle()
 
-// /obj/machinery/shipsensors/RefreshParts()
-// 	..()
-// 	//sensor_strength = clamp(total_component_rating_of_type(/obj/item/stock_parts/manipulator), 0, 5)
-// 	sensor_strength = 5
-
 /obj/machinery/shipsensors/proc/take_damage(value)
 	health = min(max(health - value, 0),max_health)
 	if(use_power && health == 0)

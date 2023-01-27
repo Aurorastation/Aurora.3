@@ -69,18 +69,6 @@
 			if(istype(M) && M.client)
 				M.client.images |= images
 
-/// This function checks if the shield is active, as we likely will need to rework the shields to be anything useful and gameplay-wise engaging this is currently not used, but left here for when
-/// it will happen
-
-// /datum/overmap_contact/proc/check_effect_shield()
-// 	var/obj/effect/overmap/visitable/visitable_effect = effect
-// 	if(!visitable_effect || !istype(visitable_effect))
-// 		return FALSE
-// 	for(var/thing in visitable_effect.get_linked_machines_of_type(/obj/machinery/shield_gen/external))
-// 		var/obj/machinery/shield_gen/external/S = thing
-// 		if(S.active)
-// 			return TRUE
-// 	return FALSE
 
 /datum/overmap_contact/proc/ping()
 	if(pinged)
