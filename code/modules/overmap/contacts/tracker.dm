@@ -17,7 +17,6 @@
 	update_icon()
 
 /obj/item/ship_tracker/proc/on_update_icon()
-	. = ..()
 	icon_state = enabled ? "enabled" : "disabled"
 
 /obj/item/ship_tracker/examine(var/mob/user)

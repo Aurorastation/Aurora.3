@@ -42,6 +42,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/use_common = FALSE
 
 	var/list/associated_machinery
+	var/list/navigation_viewers // list of weakrefs to people viewing the overmap via this ship
+	var/list/consoles
 
 /obj/effect/overmap/visitable/proc/get_linked_machines_of_type(var/base_type)
 	ASSERT(ispath(base_type, /obj/machinery))
