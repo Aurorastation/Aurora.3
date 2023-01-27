@@ -96,6 +96,13 @@ note dizziness decrements automatically in the mob's Life() proc.
 			if(shoegrip)
 				set_floating(FALSE)
 				return
+	else
+		if(CanAvoidGravity())
+			set_floating(TRUE)
+			return
+		else
+			set_floating(FALSE)
+			return
 
 	set_floating(TRUE)
 
