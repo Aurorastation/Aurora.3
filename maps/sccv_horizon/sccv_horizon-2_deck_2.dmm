@@ -5174,11 +5174,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
-"ctz" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/stool,
-/turf/simulated/floor/tiled/white,
-/area/medical/reception)
 "cua" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/o2{
@@ -68724,7 +68719,7 @@ fAk
 clz
 eqR
 hiz
-ctz
+bPs
 bzY
 gDq
 fOp
