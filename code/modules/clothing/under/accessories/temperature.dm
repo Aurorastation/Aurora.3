@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory/temperature
 	name = "temperature pack"
 	desc = "A nice little pack that heats/cools you when worn under your clothes!"
-	icon = 'icons/obj/item/clothing/accessory/sweaters.dmi'
+	icon = 'icons/obj/item/clothing/accessory/temperature.dmi'
 	icon_state = "pack"
 	contained_sprite = TRUE
 
