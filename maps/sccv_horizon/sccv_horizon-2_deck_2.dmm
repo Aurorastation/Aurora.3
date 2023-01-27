@@ -22996,7 +22996,9 @@
 	dir = 1;
 	pixel_y = -32
 	},
-/mob/living/bot/farmbot,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "ltG" = (
@@ -40843,8 +40845,6 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/reagent_containers/glass/bucket,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
