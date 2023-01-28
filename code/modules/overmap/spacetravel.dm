@@ -1,5 +1,4 @@
 //list used to cache empty zlevels to avoid nedless map bloat
-var/man_overboard_counter = 1 // used for naming the man overboard sites in case multiple appear in close proximity
 var/list/cached_space = list()
 
 //Space stragglers go here
@@ -10,7 +9,7 @@ var/list/cached_space = list()
 	layer = OVERMAP_IMPORTANT_SECTOR_LAYER
 
 /obj/effect/overmap/visitable/sector/temporary/New(var/nx, var/ny, var/nz)
-	name = man_overboard_counter > 1 ? "[name] ([man_overboard_counter])" : name
+	name = "[name] ([sequential_id(type)])"
 	loc = locate(nx, ny, current_map.overmap_z)
 	x = nx
 	y = ny
@@ -18,7 +17,7 @@ var/list/cached_space = list()
 	map_sectors["[nz]"] = src
 	testing("Temporary sector at [x],[y] was created, corresponding zlevel is [nz].")
 	new /obj/effect/shuttle_landmark/automatic(locate(127, 127, nz))
-	man_overboard_counter++
+
 	START_PROCESSING(SSslow_process, src)
 
 /obj/effect/overmap/visitable/sector/temporary/Destroy()
@@ -40,14 +39,13 @@ var/list/cached_space = list()
 	return 1
 
 /// uncache the sector and move it to the specified overmap area
-/obj/effect/overmap/visitable/sector/temporary/proc/uncache(var/x, var/y)
+/obj/effect/overmap/visitable/sector/temporary/proc/uncache()
 	cached_space -= "[x]-[y]"
-	forceMove(locate(x, y, current_map.overmap_z))
+	z = current_map.overmap_z
 	START_PROCESSING(SSslow_process, src)
 
 /obj/effect/overmap/visitable/sector/temporary/proc/shift_to_cache()
-	testing("Caching [src] for future use")
-	forceMove(locate(x, y, pick(map_z))) // move ourselves into our z-level, where we're kept alive but cannot be reached by overmap objects
+	z = pick(map_z) // move ourselves into our z-level, where we're kept alive but cannot be reached by overmap objects
 	cached_space["[x]-[y]"] = src
 	STOP_PROCESSING(SSslow_process, src)
 
@@ -57,7 +55,7 @@ proc/get_deepspace(x,y)
 		return res
 	else if(length(cached_space) && cached_space["[x]-[y]"])
 		res = cached_space["[x]-[y]"]
-		res.uncache(x, y)
+		res.uncache()
 		return res
 	else
 		return new /obj/effect/overmap/visitable/sector/temporary(x, y, current_map.get_empty_zlevel(x, y))

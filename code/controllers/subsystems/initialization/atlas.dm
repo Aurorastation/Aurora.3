@@ -216,6 +216,10 @@ var/datum/controller/subsystem/atlas/SSatlas
 	else
 		current_sector = selected_sector
 
+	if(current_map.use_overmap)
+		current_map.get_empty_zlevel("blue", "space")
+		admin_notice(SPAN_DANGER("Loaded transfer bluespace level."))
+
 	..()
 
 /datum/controller/subsystem/atlas/proc/load_map_directory(directory, overwrite_default_z = FALSE)
