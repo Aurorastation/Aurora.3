@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added some permanent teleporter beacons around the map, specifically the bridge. Replaced a couple movable beacons with permanent ones, like in xenoarchaelogy and the engineering break room."
-  - rscadd: "Added three movable teleporter beacons, a first aid, and a box of flares to the teleporter room."
-  - rscadd: "Teleporter beacons can now be anchored to the floor by using a screwdriver on them."
