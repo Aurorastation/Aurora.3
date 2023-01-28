@@ -62,6 +62,8 @@
 	for (var/atom/A in targets)
 		if(A == src)
 			continue
+		if(!isturf(A.loc))
+			A = A.loc
 		var/datum/callback/cb = null
 		for (var/type in target_type_validator_map)
 			if (istype(A, type))

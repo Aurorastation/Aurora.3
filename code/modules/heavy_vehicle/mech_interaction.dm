@@ -368,6 +368,7 @@
 					remote_network = RM.mech_remote_network
 					does_hardpoint_lock = RM.hardpoint_lock
 					dummy_type = RM.dummy_path
+					remote_type = RM.type
 					become_remote()
 					qdel(thing)
 			else if(thing.ismultitool())
@@ -388,7 +389,7 @@
 				return
 
 			else if(thing.iswrench())
-				if(length(pilots))
+				if(!remote && length(pilots))
 					to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
 					return
 				if(!maintenance_protocols)
@@ -396,13 +397,21 @@
 					return
 				user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start disassembling \the [src]..."))
 				if(do_after(user, 30, TRUE, src))
-					if(length(pilots))
+					if(!remote && length(pilots))
 						to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
 						return
 					if(!maintenance_protocols)
 						to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
 						return
 					user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You disassemble \the [src]."))
+					if(remote)
+						for(var/mob/pilot in pilots)
+							if(pilot.client)
+								pilot.body_return()
+							hatch_locked = FALSE
+							eject(pilot, TRUE)
+							qdel(pilot)
+							new remote_type(get_turf(src))
 					dismantle()
 					return
 			else if(thing.iswelder())

@@ -254,40 +254,38 @@
 /obj/item/mecha_equipment/catapult/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
 	if(.)
-
+		equipment_delay = initial(equipment_delay)
 		switch(mode)
 			if(CATAPULT_SINGLE)
 				if(!locked)
+					equipment_delay = 5
 					var/atom/movable/AM = target
 					if(!istype(AM) || AM.anchored || !AM.simulated)
-						to_chat(user, "<span class='notice'>Unable to lock on [target].</span>")
+						to_chat(user, SPAN_NOTICE("Unable to lock on [target]."))
 						return
 					locked = AM
-					to_chat(user, "<span class='notice'>Locked on [AM].</span>")
+					to_chat(user, SPAN_NOTICE("Locked onto \the [AM]."))
 					return
 				else if(target != locked)
 					if(locked in view(owner))
-						locked.throw_at(target, 14, 1.5, owner)
+						INVOKE_ASYNC(locked, TYPE_PROC_REF(/atom/movable, throw_at), target, 14, 1.5, owner)
 						log_and_message_admins("used [src] to throw [locked] at [target].", user, owner.loc)
 						locked = null
-
 						owner.use_cell_power(active_power_use * CELLRATE)
-
 					else
 						locked = null
-						to_chat(user, "<span class='notice'>Lock on [locked] disengaged.</span>")
+						to_chat(user, SPAN_NOTICE("Lock on \the [locked] disengaged."))
 			if(CATAPULT_AREA)
-
 				var/list/atoms = list()
 				if(isturf(target))
 					atoms = range(target,3)
 				else
 					atoms = orange(target,3)
 				for(var/atom/movable/A in atoms)
-					if(A.anchored || !A.simulated) continue
-					var/dist = 5-get_dist(A,target)
-					A.throw_at(get_edge_target_turf(A,get_dir(target, A)),dist,0.7)
-
+					if(A.anchored || !A.simulated)
+						continue
+					var/dist = 5 - get_dist(A, target)
+					INVOKE_ASYNC(A, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(A,get_dir(target, A)), dist, 0.7, owner)
 
 				log_and_message_admins("used [src]'s area throw on [target].", user, owner.loc)
 
