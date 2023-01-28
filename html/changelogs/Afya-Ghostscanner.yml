@@ -1,0 +1,6 @@
+author: Afya
+
+delete-after: True
+
+changes:
+  - rscadd: "Ghost can now medscan IPCs/Robots."
