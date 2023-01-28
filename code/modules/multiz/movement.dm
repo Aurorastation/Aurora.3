@@ -493,8 +493,7 @@
 	if (istype(rig))
 		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
 			if (A.active && rig.check_power_cost(src, 10, A, 0))
-				visible_message(SPAN_NOTICE("\The [src] lands flawlessly with [src.get_pronoun("his")] [rig]."),
-					SPAN_NOTICE("You hear an electric <i>*whirr*</i> right after the slam!"))
+				visible_message(SPAN_NOTICE("\The [src] lands flawlessly with [src.get_pronoun("his")] [rig.name]."), SPAN_NOTICE("You land flawlessly with your [rig.name]."), SPAN_NOTICE("You hear an electric <i>*whirr*</i> right after a loud slam!"))
 				return FALSE
 
 	if(status_flags & GODMODE) // Godmode

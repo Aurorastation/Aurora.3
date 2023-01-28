@@ -84,7 +84,7 @@
 	name = "Leg Actuators"
 	desc = "A set of electromechanical actuators, for safe traversal of multilevelled areas."
 	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_POWER = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 85000, MATERIAL_GLASS = 1250, MATERIAL_SILVER = 5250, MATERIAL_GOLD = 2750)
+	materials = list(DEFAULT_WALL_MATERIAL = 85000, MATERIAL_GLASS = 1250)
 	build_path = /obj/item/rig_module/actuators
 
 /datum/design/hardsuitmodules/taser_module
