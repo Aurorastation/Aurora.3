@@ -251,7 +251,7 @@
 	soundloop = new(src, FALSE)
 
 	var/area/A = get_area(src)
-	RegisterSignal(A, COMSIG_AREA_FIRE_ALARM, /atom/.proc/update_icon)
+	RegisterSignal(A, COMSIG_AREA_FIRE_ALARM, TYPE_PROC_REF(/atom, update_icon))
 
 /obj/machinery/firealarm/Destroy()
 	QDEL_NULL(soundloop)

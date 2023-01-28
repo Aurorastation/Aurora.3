@@ -199,7 +199,7 @@
 	if(prob(climb_chance))
 		will_succeed = TRUE
 
-	if(do_after(src, climb_speed, extra_checks  = CALLBACK(src, .proc/climb_check, will_succeed, climb_chance, climb_speed, direction, destination)))
+	if(do_after(src, climb_speed, extra_checks  = CALLBACK(src, PROC_REF(climb_check), will_succeed, climb_chance, climb_speed, direction, destination)))
 		if(will_succeed)
 			visible_message(SPAN_NOTICE("\The [src] climbs [(direction == UP) ? "upwards" : "downwards"]."),
 				SPAN_NOTICE("You climb [(direction == UP) ? "upwards" : "downwards"]."))
@@ -644,7 +644,7 @@
 
 	// Stats.
 	SSfeedback.IncrementSimpleStat("openturf_human_falls")
-	addtimer(CALLBACK(src, .proc/post_fall_death_check), 2 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(post_fall_death_check)), 2 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 	return TRUE
 
@@ -795,7 +795,7 @@
 		forceMove(T)
 		tile_shifted = TRUE
 	follow()
-	moved_event.register(owner, src, /atom/movable/z_observer/proc/follow)
+	moved_event.register(owner, src, PROC_REF(follow))
 
 /atom/movable/z_observer/proc/follow()
 
@@ -803,7 +803,7 @@
 	forceMove(get_step(owner, UP))
 	if(isturf(src.loc))
 		var/turf/T = src.loc
-		if(T.z_flags & ZM_MIMIC_BELOW)
+		if(T && TURF_IS_MIMICING(T))
 			return
 	owner.reset_view(null)
 	owner.z_eye = null
@@ -812,14 +812,14 @@
 /atom/movable/z_observer/z_down/follow()
 	forceMove(get_step(tile_shifted ? src : owner, DOWN))
 	var/turf/T = get_turf(tile_shifted ? get_step(owner, owner.dir) : owner)
-	if(T && (T.z_flags & ZM_MIMIC_BELOW))
+	if(T && TURF_IS_MIMICING(T))
 		return
 	owner.reset_view(null)
 	owner.z_eye = null
 	qdel(src)
 
 /atom/movable/z_observer/Destroy()
-	moved_event.unregister(owner, src, /atom/movable/z_observer/proc/follow)
+	moved_event.unregister(owner, src, PROC_REF(follow))
 	owner = null
 	. = ..()
 

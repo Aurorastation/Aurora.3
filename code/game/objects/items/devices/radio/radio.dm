@@ -453,7 +453,7 @@ var/global/list/default_medbay_channels = list(
 		return
 
 	// Non-subspace radios will check in a couple of seconds, and if the signal was never received, we send a mundane broadcast
-	addtimer(CALLBACK(src, .proc/backup_transmission, signal), 2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(backup_transmission), signal), 2 SECONDS)
 
 /obj/item/device/radio/proc/backup_transmission(datum/signal/subspace/vocal/signal)
 	var/turf/T = get_turf(src)

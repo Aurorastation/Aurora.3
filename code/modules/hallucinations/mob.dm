@@ -62,7 +62,7 @@
 //This is called on every end() so usually occurs a few times. Grants a thought to the user from thoughts list.
 /mob/living/carbon/proc/hallucination_thought()
 	if(prob(min(hallucination/2, 50)))
-		addtimer(CALLBACK(src, .proc/hal_thought_give), rand(30,90))
+		addtimer(CALLBACK(src, PROC_REF(hal_thought_give)), rand(30,90))
 
 /mob/living/carbon/proc/hal_thought_give()
 	to_chat(src, "<I>[pick(SShallucinations.hallucinated_thoughts)]</I>")

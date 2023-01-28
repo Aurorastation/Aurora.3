@@ -25,7 +25,7 @@
 		name = "light switch ([area.name])"
 
 	src.on = src.area.lightswitch
-	addtimer(CALLBACK(src, .proc/sync_lights), 25)
+	addtimer(CALLBACK(src, PROC_REF(sync_lights)), 25)
 	update_icon()
 
 /obj/machinery/light_switch/update_icon()

@@ -145,7 +145,7 @@ var/datum/discord_bot/discord_bot = null
 			queue.Add(list(list(message, A - sent)))
 
 			// Schedule a push.
-			addtimer(CALLBACK(src, .proc/push_queue), 10 SECONDS, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, PROC_REF(push_queue)), 10 SECONDS, TIMER_UNIQUE)
 
 			// And exit.
 			return
@@ -258,7 +258,7 @@ var/datum/discord_bot/discord_bot = null
 		for (var/B in destinations)
 			var/datum/discord_channel/channel = B
 			if (channel.send_message_to(auth_token, message) == SEND_TIMEOUT)
-				addtimer(CALLBACK(src, .proc/push_queue), 10 SECONDS, TIMER_UNIQUE)
+				addtimer(CALLBACK(src, PROC_REF(push_queue)), 10 SECONDS, TIMER_UNIQUE)
 
 				return
 			else

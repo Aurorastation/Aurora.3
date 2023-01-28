@@ -68,7 +68,7 @@
 /obj/item/storage/slide_projector/proc/stop_projecting()
 	if(projection)
 		QDEL_NULL(projection)
-	moved_event.unregister(src, src, .proc/check_projections)
+	moved_event.unregister(src, src, PROC_REF(check_projections))
 	set_light(0)
 	update_icon()
 	
@@ -83,7 +83,7 @@
 			break
 	projection = new projection_type(target)
 	projection.set_source(current_slide)
-	moved_event.register(src, src, .proc/check_projections)
+	moved_event.register(src, src, PROC_REF(check_projections))
 	set_light(1.4, 0.1, COLOR_WHITE) //Bit of light
 	update_icon()
 
