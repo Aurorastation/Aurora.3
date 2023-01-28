@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Lowers the prices of a few ling abilities by one. Affects arm blade, blind sting, silence sting."
+  - tweak: "In the horror form help text, I added that dying in the true form is permanent."

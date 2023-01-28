@@ -112,7 +112,7 @@ var/list/datum/power/changeling/powerinstances = list()
 /datum/power/changeling/blind_sting
 	name = "Blind Sting"
 	desc = "We sting a human, completely blinding them for a short time."
-	genomecost = 2
+	genomecost = 1
 	allowduringlesserform = TRUE
 	verbpath = /mob/proc/changeling_blind_sting
 
@@ -120,7 +120,7 @@ var/list/datum/power/changeling/powerinstances = list()
 	name = "Silence Sting"
 	desc = "We silently sting a human, completely silencing them for a short time."
 	helptext = "Does not provide a warning to a victim that they have been stung, until they try to speak and cannot."
-	genomecost = 3
+	genomecost = 2
 	allowduringlesserform = TRUE
 	verbpath = /mob/proc/changeling_silence_sting
 
@@ -204,7 +204,7 @@ var/list/datum/power/changeling/powerinstances = list()
 /datum/power/changeling/armblades
 	name = "Mutate Armblades"
 	desc = "Permits us to reshape our arms into a deadly blade."
-	genomecost = 4
+	genomecost = 3
 	verbpath = /mob/proc/armblades
 
 /datum/power/changeling/shield
@@ -216,7 +216,7 @@ var/list/datum/power/changeling/powerinstances = list()
 /datum/power/changeling/horror_form
 	name = "Horror Form"
 	desc = "We tear apart our human disguise, revealing our true form."
-	helptext = "We will return to our current form after ten minutes."
+	helptext = "We will return to our current form after ten minutes. Death in our true form is permanent."
 	genomecost = 15
 	verbpath = /mob/proc/horror_form
 
