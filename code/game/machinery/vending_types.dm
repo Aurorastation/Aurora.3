@@ -522,7 +522,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 3,
 		/obj/item/reagent_containers/glass/bottle/dermaline = 2,
 		/obj/item/reagent_containers/glass/bottle/butazoline = 2,
-		/obj/item/reagent_containers/glass/bottle/mortaphenyl = 2
+		/obj/item/reagent_containers/glass/bottle/mortaphenyl = 2,
 		/obj/item/reagent_containers/glass/bottle/coagzolug = 2,
 		/obj/item/reagent_containers/glass/bottle/toxin = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
