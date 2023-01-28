@@ -16,8 +16,6 @@
 	special_role = "SFA Navy Crewman"
 	respawn_flag = null
 
-	visitable_overmap_type = /obj/effect/overmap/visitable/ship/sfa_patrol_ship
-
 
 /datum/outfit/admin/sfa_navy_crewman
 	name = "SFA Navy Crewman"
@@ -56,8 +54,6 @@
 	special_role = "SFA Navy Officer"
 	respawn_flag = null
 
-	visitable_overmap_type = /obj/effect/overmap/visitable/ship/sfa_patrol_ship
-
 
 /datum/outfit/admin/sfa_navy_officer
 	name = "SFA Navy Officer"
@@ -94,8 +90,6 @@
 	assigned_role = "SFA Marine"
 	special_role = "SFA Marine"
 	respawn_flag = null
-
-	visitable_overmap_type = /obj/effect/overmap/visitable/ship/sfa_patrol_ship
 
 
 /datum/outfit/admin/sfa_marine

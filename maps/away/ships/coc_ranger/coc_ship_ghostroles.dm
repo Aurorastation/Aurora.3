@@ -17,8 +17,6 @@
 	special_role = "Coalition Ranger"
 	respawn_flag = null
 
-	visitable_overmap_type = /obj/effect/overmap/visitable/ship/ranger_corvette
-
 
 /datum/outfit/admin/ranger
 	name = "Coalition Ranger"

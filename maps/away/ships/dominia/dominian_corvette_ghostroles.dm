@@ -18,8 +18,6 @@
 	special_role = "Imperial Fleet Voidsman"
 	respawn_flag = null
 
-	visitable_overmap_type = /obj/effect/overmap/visitable/ship/dominian_corvette
-
 
 /datum/outfit/admin/imperial_fleet_voidsman
 	name = "Imperial Fleet Voidsman"

@@ -84,7 +84,7 @@
 		"nav_dominian_corvette_2"
 	)
 
-	has_ghostroles_to_spawn = TRUE
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/dominian_corvette/New()
 	designation = "[pick("Lammergeier", "Eagle", "Hawk", "Owl", "Vulture", "Sparrowhawk", "Falcon", "Peregrine", "Condor", "Harrier", "Kestrel", "Osprey", "Yastr", "Merlin", "Kite", "Seriema", "Caracaras")]"

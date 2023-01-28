@@ -42,7 +42,7 @@
 		"nav_fsf_patrol_ship_2"
 	)
 
-	has_ghostroles_to_spawn = TRUE
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/fsf_patrol_ship/New()
 	designation = "[pick("Varangian", "Swiss Guard", "Free Company", "Praetorian", "Gurkha", "Roland", "Whispering Death", "Gordon Ingram", "Jungle Work", "Habiru", "Francs-Tireurs", "Catalan", "Navarrese", "Breton", "Corsair", "Landsknecht", "Hessian")]"

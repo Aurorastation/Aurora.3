@@ -81,7 +81,7 @@
 		"nav_sfa_patrol_ship_2"
 	)
 
-	has_ghostroles_to_spawn = TRUE
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/sfa_patrol_ship/New()
 	designation = "[pick("Brigand", "Zheng Yi Sao", "Corruption", "Edward Teach", "Beauchamp's Revenge", "Blackguard", "Viking", "Despoiler", "Wayward Son", "Black Sheep", "Gluttony", "Pride", "Avarice", "Greed", "Envy", "Sloth", "Wrath", "We're The Good Ones", "Reformed", "Repentant", "Recidivist", "Just Following Orders", "Habitual Offender", "Felon", "Misdemeanor", "Conscientious Objector")]"

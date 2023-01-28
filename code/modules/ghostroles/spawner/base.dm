@@ -164,6 +164,15 @@
 	if(welcome_message)
 		to_chat(user, SPAN_NOTICE(welcome_message))
 	universe.OnPlayerLatejoin(user)
+	if(current_map.use_overmap)
+		var/obj/effect/overmap/visitable/sector = map_sectors["[user.z]"]
+		if(sector?.invisible_until_ghostrole_spawn)
+			sector.alpha = 0
+			sector.x = sector.start_x
+			sector.y = sector.start_y
+			sector.z = current_map.overmap_z
+			animate(sector, alpha = 255, time = 2 SECONDS, easing = QUAD_EASING)
+			sector.invisible_until_ghostrole_spawn = FALSE
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)

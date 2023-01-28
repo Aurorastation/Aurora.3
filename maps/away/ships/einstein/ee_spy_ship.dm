@@ -42,7 +42,7 @@
 		"nav_ee_spy_ship_2"
 	)
 
-	has_ghostroles_to_spawn = TRUE
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/ee_spy_ship/New()
 	designation = "[pick("Brilliance", "Oppenheimer", "Fermi", "Slingshot", "Shanghai", "Bern", "Hadron", "Positron", "Invention", "Nikola Tesla", "Quark")]"

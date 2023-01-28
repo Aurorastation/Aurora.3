@@ -20,8 +20,6 @@
 	special_role = "Tajaran Smuggler"
 	respawn_flag = null
 
-	visitable_overmap_type = /obj/effect/overmap/visitable/ship/tajaran_smuggler
-
 /datum/outfit/admin/tajaran_smuggler
 	name = "Tajaran Smuggler"
 

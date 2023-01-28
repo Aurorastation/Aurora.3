@@ -15,8 +15,6 @@
 	special_role = "Militiaman"
 	respawn_flag = null
 
-	visitable_overmap_type = /obj/effect/overmap/visitable/ship/militia_ship
-
 
 /datum/outfit/admin/militia_crew
 	name = "Militiaman"

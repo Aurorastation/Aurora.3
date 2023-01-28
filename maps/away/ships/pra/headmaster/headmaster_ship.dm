@@ -32,7 +32,7 @@
 		"Orbital Fleet Shuttle" = list("nav_headmaster_shuttle")
 	)
 
-	has_ghostroles_to_spawn = TRUE
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/headmaster_ship/New()
 	if (prob(50))

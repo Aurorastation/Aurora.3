@@ -17,8 +17,6 @@
 	special_role = "Headmaster Kosmostrelki"
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
-	visitable_overmap_type = /obj/effect/overmap/visitable/ship/headmaster_ship
-
 /datum/outfit/admin/headmaster_kosmostrelki
 	name = "Kosmostrelki"
 

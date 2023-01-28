@@ -22,8 +22,6 @@
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	away_site = TRUE
 
-	visitable_overmap_type = /obj/effect/overmap/visitable/ship/kataphract_ship
-
 /datum/ghostspawner/human/kataphract/klax
 	short_name = "kataphract_hop_klax"
 	name = "Kataphract-Hopeful Klaxan"

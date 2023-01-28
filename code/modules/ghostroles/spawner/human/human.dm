@@ -23,9 +23,6 @@
 
 	mob_name = null
 
-	/// When set, will check map sectors to find this type and warp it onto the overmap if it hasn't been yet
-	var/visitable_overmap_type
-
 //Return a error message if the user CANT spawn. Otherwise FALSE
 /datum/ghostspawner/human/cant_spawn(mob/user)
 	//If whitelist is required, check if user can spawn in ANY of the possible species
@@ -158,18 +155,3 @@
 	M.regenerate_icons()
 
 	return M
-
-//Proc executed after someone is spawned in
-/datum/ghostspawner/human/post_spawn(mob/user)
-	. = ..()
-	if(visitable_overmap_type)
-		for(var/z_level in map_sectors)
-			if(istype(map_sectors[z_level], visitable_overmap_type))
-				var/obj/effect/overmap/visitable/visitable = map_sectors[z_level]
-				if(visitable.has_ghostroles_to_spawn)
-					visitable.alpha = 0
-					visitable.forceMove(locate(visitable.start_x, visitable.start_y, current_map.overmap_z))
-					animate(visitable, alpha = 255, time = 2 SECONDS, easing = QUAD_EASING)
-					visitable.has_ghostroles_to_spawn = FALSE
-				visitable_overmap_type = null
-				break
