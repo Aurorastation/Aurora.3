@@ -42,19 +42,19 @@
 /obj/item/clothing/head/helmet/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(has_storage && slot == slot_head_str && length(hold.contents))
-		for(var/obj/item/thing as anything in hold.contents)
+		for(var/obj/item/thing in hold.contents)
 			var/icon_type = hold.helmet_storage_types[thing.type]
 			var/thing_state = icon_type == HELMET_GARB_PASS_ICON ? initial(thing.icon_state) : icon_type
 			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, thing_state))
 		I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
 	return I
 
-/obj/item/clothing/head/helmet/attack_hand(mob/user as mob)
+/obj/item/clothing/head/helmet/attack_hand(mob/user)
 	if(has_storage && !hold.handle_attack_hand(user))
 		return
 	return ..(user)
 
-/obj/item/clothing/head/helmet/MouseDrop(obj/over_object as obj)
+/obj/item/clothing/head/helmet/MouseDrop(obj/over_object)
 	if(has_storage && !hold.handle_mousedrop(usr, over_object))
 		return
 	return ..(over_object)
@@ -65,7 +65,7 @@
 		return TRUE
 	return FALSE
 
-/obj/item/clothing/head/helmet/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/head/helmet/attackby(obj/item/W, mob/user)
 	. = ..()
 	if(!has_storage || istype(W, /obj/item/clothing/accessory))
 		return
