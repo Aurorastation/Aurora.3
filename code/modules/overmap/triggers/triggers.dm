@@ -60,7 +60,7 @@
 	ship.forceMove(get_turf(sibling_wormhole))
 	ship.update_icon()
 
-	for(var/mob/living/carbon/human/human as anything in human_mob_list)
+	for(var/mob/living/carbon/human/human in human_mob_list)
 		if(human.z in ship.map_z)
 			to_chat(human, SPAN_DANGER("<font size=4>Your legs buckle as the ground shakes beneath you!</font>"))
 			shake_camera(human, 10, 5)
