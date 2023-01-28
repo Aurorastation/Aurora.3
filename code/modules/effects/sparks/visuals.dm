@@ -21,7 +21,7 @@
 
 /obj/effect/visual/sparks/start(var/direction)
 	if (direction)
-		addtimer(CALLBACK(src, .proc/do_step, direction), 5)
+		addtimer(CALLBACK(src, PROC_REF(do_step), direction), 5)
 
 /obj/effect/visual/sparks/proc/do_step(direction)
 	step(src, direction)

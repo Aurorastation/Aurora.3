@@ -6852,6 +6852,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "pf" = (
@@ -8121,6 +8122,7 @@
 /obj/item/clothing/head/helmet/unathi/klax,
 /obj/item/clothing/shoes/magboots/hegemony,
 /obj/item/clothing/glasses/sunglasses/blinders,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "AG" = (
@@ -10258,6 +10260,7 @@
 	dir = 4;
 	pixel_x = 32
 	},
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "TP" = (
@@ -10373,6 +10376,7 @@
 /obj/item/clothing/head/helmet/space/void/kataphract,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/shoes/magboots/hegemony,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "VG" = (

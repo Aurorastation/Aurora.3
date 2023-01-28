@@ -16,7 +16,7 @@
 	if(loc)
 		MakeConveyor()
 	else
-		addtimer(CALLBACK(src, .proc/MakeConveyor), 5)
+		addtimer(CALLBACK(src, PROC_REF(MakeConveyor)), 5)
 
 /obj/machinery/transformer/proc/MakeConveyor()
 	if (!loc)
@@ -59,7 +59,7 @@
 		to_chat(H, "<span class='danger'> You lose consciousness for a brief moment before waking up with a whole new body...</span>")
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 		canuse = FALSE
-		addtimer(CALLBACK(src, .proc/rearm), 120 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(rearm)), 120 SECONDS)
 		H.Robotize()
 	else
 		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)

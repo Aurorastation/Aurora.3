@@ -245,7 +245,7 @@ Frequency:
 		var/old_pad = linked_pad
 		linked_pad = teleport_options[teleport_choice]
 		if(linked_pad)
-			destroyed_event.register(linked_pad, src, /obj/item/hand_tele/proc/pad_destroyed)
+			destroyed_event.register(linked_pad, src, PROC_REF(pad_destroyed))
 		if(old_pad && linked_pad != old_pad)
 			destroyed_event.unregister(old_pad, src)
 		return

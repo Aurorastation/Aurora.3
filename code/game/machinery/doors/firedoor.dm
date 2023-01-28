@@ -247,7 +247,7 @@
 		close()
 
 	if(needs_to_close)
-		addtimer(CALLBACK(src, .proc/do_close), 50)
+		addtimer(CALLBACK(src, PROC_REF(do_close)), 50)
 
 /obj/machinery/door/firedoor/proc/do_close()
 	var/alarmed = FALSE
@@ -275,7 +275,7 @@
 				SPAN_ITALIC("You hear a welding torch on metal.")
 			)
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
-			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
+			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, PROC_REF(is_open), src.density)))
 				return
 			if(!WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
