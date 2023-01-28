@@ -8,6 +8,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	scannable = TRUE
 	var/designation //Actual name of the object.
 	var/class //Imagine a ship or station's class. "NTCC" Odin, "SCCV" Horizon, ...
+	var/unknown_id = "Bogey"
 	var/obfuscated_name = "unidentified object"
 	var/obfuscated_desc = "This object is not displaying its IFF signature."
 	var/obfuscated = FALSE //Whether we hide our name and class or not.
@@ -40,33 +41,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/comms_name = "shipboard"
 	/// Whether away ship comms have access to the common channel / PUB_FREQ
 	var/use_common = FALSE
-
-	var/list/associated_machinery
 	var/list/navigation_viewers // list of weakrefs to people viewing the overmap via this ship
 	var/list/consoles
-
-/obj/effect/overmap/visitable/proc/get_linked_machines_of_type(var/base_type)
-	ASSERT(ispath(base_type, /obj/machinery))
-	for(var/thing in LAZYACCESS(associated_machinery, base_type))
-		var/datum/weakref/machine_ref = thing
-		var/obj/machinery/machine = machine_ref.resolve()
-		if(istype(machine, base_type) && !QDELETED(machine))
-			LAZYDISTINCTADD(., machine)
-		else
-			LAZYREMOVE(associated_machinery[base_type], thing)
-
-/obj/effect/overmap/visitable/proc/unregister_machine(var/obj/machinery/machine, var/base_type)
-	ASSERT(istype(machine))
-	base_type = base_type || machine.type
-	if(islist(associated_machinery) && associated_machinery[base_type])
-		LAZYREMOVE(associated_machinery[base_type], WEAKREF(machine))
-
-/obj/effect/overmap/visitable/proc/register_machine(var/obj/machinery/machine, var/base_type)
-	ASSERT(istype(machine))
-	if(!QDELETED(machine))
-		base_type = base_type || machine.type
-		LAZYINITLIST(associated_machinery)
-		LAZYDISTINCTADD(associated_machinery[base_type], WEAKREF(machine))
 
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()

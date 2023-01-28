@@ -111,7 +111,6 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 
 /obj/machinery/computer/ship/Destroy()
 	if(linked)
-		linked.unregister_machine(src, /obj/machinery/computer/ship)
 		linked = null
 	if(connected)
 		LAZYREMOVE(connected.consoles, src)
