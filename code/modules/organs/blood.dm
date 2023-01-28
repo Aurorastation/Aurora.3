@@ -43,45 +43,48 @@
 	var/spraydir = pick(alldirs)
 	amt = Ceiling(amt/BLOOD_SPRAY_DISTANCE)
 	var/bled = 0
-	spawn(0)
-		for(var/i = 1 to BLOOD_SPRAY_DISTANCE)
-			sprayloc = get_step(sprayloc, spraydir)
-			if(!istype(sprayloc) || (sprayloc.density && !iswall(sprayloc)))
-				break
-			var/hit_mob
-			for(var/thing in sprayloc)
-				var/atom/A = thing
-				if(!A.simulated)
-					continue
-
-				if(ishuman(A))
-					var/mob/living/carbon/human/H = A
-					if(!H.lying)
-						H.bloody_body(src)
-						H.bloody_hands(src)
-						var/blinding = FALSE
-						if(ran_zone(BP_HEAD, 75))
-							blinding = TRUE
-							for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
-								if(I && (I.body_parts_covered & EYES))
-									blinding = FALSE
-									break
-						if(blinding)
-							H.eye_blurry = max(H.eye_blurry, 10)
-							H.eye_blind = max(H.eye_blind, 5)
-							to_chat(H, "<span class='danger'>You are blinded by a spray of blood!</span>")
-						else
-							to_chat(H, "<span class='danger'>You are hit by a spray of blood!</span>")
-						hit_mob = TRUE
-
-				if(!(A.CanPass(src, sprayloc)) || hit_mob)
-					continue
-
-			drip(amt, sprayloc, spraydir)
-			bled += amt
-			if(hit_mob || iswall(sprayloc))
-				break
+	for(var/i = 1 to BLOOD_SPRAY_DISTANCE)
+		addtimer(CALLBACK(src, PROC_REF(HandleBloodSquirt), sprayloc, spraydir), 0)
+		drip(amt, sprayloc, spraydir)
+		bled += amt
 	return bled
+
+/mob/living/carbon/human/proc/HandleBloodSquirt(var/turf/sprayloc, var/spraydir)
+//for(var/i = 1 to BLOOD_SPRAY_DISTANCE)
+	sprayloc = get_step(sprayloc, spraydir)
+	if(!istype(sprayloc) || (sprayloc.density && !iswall(sprayloc)))
+		return
+	var/hit_mob
+	for(var/thing in sprayloc)
+		var/atom/A = thing
+		if(!A.simulated)
+			continue
+
+		if(ishuman(A))
+			var/mob/living/carbon/human/H = A
+			if(!H.lying)
+				H.bloody_body(src)
+				H.bloody_hands(src)
+				var/blinding = FALSE
+				if(ran_zone(BP_HEAD, 75))
+					blinding = TRUE
+					for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
+						if(I && (I.body_parts_covered & EYES))
+							blinding = FALSE
+							break
+				if(blinding)
+					H.eye_blurry = max(H.eye_blurry, 10)
+					H.eye_blind = max(H.eye_blind, 5)
+					to_chat(H, "<span class='danger'>You are blinded by a spray of blood!</span>")
+				else
+					to_chat(H, "<span class='danger'>You are hit by a spray of blood!</span>")
+				hit_mob = TRUE
+
+		if(!(A.CanPass(src, sprayloc)) || hit_mob)
+			continue
+
+	if(hit_mob || iswall(sprayloc))
+		return
 #undef BLOOD_SPRAY_DISTANCE
 
 /mob/living/carbon/human/proc/get_blood_volume()

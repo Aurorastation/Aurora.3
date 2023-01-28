@@ -66,8 +66,7 @@
 		code = round(code)
 
 	if(href_list["send"])
-		spawn( 0 )
-			signal(usr)
+		addtimer(CALLBACK(src, PROC_REF(signal), usr), 0)
 
 	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
 	ui.check_for_change()

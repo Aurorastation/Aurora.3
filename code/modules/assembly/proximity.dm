@@ -72,8 +72,7 @@
 	SSvueui.check_uis_for_change(src)
 
 /obj/item/device/assembly/prox_sensor/dropped()
-	spawn(0)
-		sense()
+	addtimer(CALLBACK(src, PROC_REF(sense)), 0)
 
 /obj/item/device/assembly/prox_sensor/proc/toggle_scan()
 	if(!secured)

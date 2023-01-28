@@ -52,5 +52,7 @@
 	/* --- Do a snazzy animation! --- */
 	flick("broadcaster_send", src)
 
-	spawn(10)
-		recent_broadcasts -= signal_message
+	addtimer(CALLBACK(src, PROC_REF(RemoveMessageFromRecentBroadcasts), signal_message), 10)
+
+/obj/machinery/telecomms/broadcaster/proc/RemoveMessageFromRecentBroadcasts(var/signal_message)
+	recent_broadcasts -= signal_message

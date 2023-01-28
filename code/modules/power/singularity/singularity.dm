@@ -301,6 +301,9 @@
 	src.energy += A.singularity_act(src, current_size)
 	return
 
+/obj/singularity/proc/HandleStep(var/movement_dir)
+	step(src, movement_dir)
+
 /obj/singularity/proc/move(var/force_move = 0)
 	if(!move_self)
 		return 0
@@ -322,15 +325,12 @@
 			visible_message("<span class='danger'>\The [src] appears from below.</span>")
 
 	if(current_size >= 9)//The superlarge one does not care about things in its way
-		spawn(0)
-			step(src, movement_dir)
-		spawn(1)
-			step(src, movement_dir)
+		addtimer(CALLBACK(src, PROC_REF(HandleStep), movement_dir), 0)
+		addtimer(CALLBACK(src, PROC_REF(HandleStep), movement_dir), 1)
 		return 1
 	else if(check_turfs_in(movement_dir))
 		last_failed_movement = 0//Reset this because we moved
-		spawn(0)
-			step(src, movement_dir)
+		addtimer(CALLBACK(src, PROC_REF(HandleStep), movement_dir), 0)
 		return 1
 	else
 		if(current_size >= STAGE_FIVE)

@@ -398,7 +398,7 @@
 	src.health -= damage
 	if(prob(10))
 		new /obj/effect/decal/cleanable/blood/oil(src.loc)
-	spawn(1) healthcheck()
+	addtimer(CALLBACK(src, PROC_REF(healthcheck)), 1)
 	return 1
 
 /obj/vehicle/can_fall(turf/below, turf/simulated/open/dest = src.loc)

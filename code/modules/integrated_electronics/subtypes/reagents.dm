@@ -38,10 +38,13 @@
 	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
 	var/datum/effect/effect/system/smoke_spread/chem/smoke_system = new()
 	smoke_system.set_up(reagents, 10, 0, get_turf(src))
-	spawn(0)
-		for(var/i = 1 to 8)
-			smoke_system.start()
-		reagents.clear_reagents()
+	addtimer(CALLBACK(src, PROC_REF(HandleSmoking), smoke_system), 0)
+
+
+/obj/item/integrated_circuit/reagent/smoke/proc/HandleSmoking(var/datum/effect/effect/system/smoke_spread/chem/smoke_system)
+	for(var/i = 1 to 8)
+		smoke_system.start()
+	reagents.clear_reagents()
 
 /obj/item/integrated_circuit/reagent/injector
 	name = "integrated hypo-injector"

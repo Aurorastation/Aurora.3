@@ -224,8 +224,7 @@
 		nloc.hotspot_expose(1000,125)
 		set_light(0.5, 1, 4)
 	set_dir(ndir)
-	spawn(20)
-		qdel(src)
+	addtimer(CALLBACK(src, GLOBAL_PROC_REF(qdel), src), 20)
 
 /obj/item/circuitboard/unary_atmos/engine//why don't we move this elsewhere?
 	name = T_BOARD("gas thruster")

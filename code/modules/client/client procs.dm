@@ -450,11 +450,7 @@ var/list/localhost_addresses = list(
 
 	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
 	// (but turn them off first, since sometimes BYOND doesn't turn them on properly otherwise)
-	spawn(5) // And wait a half-second, since it sounds like you can do this too fast.
-		if(src)
-			winset(src, null, "command=\".configure graphics-hwmode off\"")
-			sleep(2) // wait a bit more, possibly fixes hardware mode not re-activating right
-			winset(src, null, "command=\".configure graphics-hwmode on\"")
+	addtimer(CALLBACK(src, PROC_REF(ForceHWMode)), 5)
 
 	send_resources()
 
@@ -463,6 +459,12 @@ var/list/localhost_addresses = list(
 	fetch_unacked_warning_count()
 
 	is_initialized = TRUE
+
+/client/proc/ForceHWMode()
+	if(src)
+		winset(src, null, "command=\".configure graphics-hwmode off\"")
+		sleep(2) // wait a bit more, possibly fixes hardware mode not re-activating right
+		winset(src, null, "command=\".configure graphics-hwmode on\"")
 
 //////////////
 //DISCONNECT//

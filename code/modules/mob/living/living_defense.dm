@@ -257,7 +257,7 @@
 	if (attack_message)
 		src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
 	user.do_attack_animation(src)
-	spawn(1) updatehealth()
+	addtimer(CALLBACK(src, PROC_REF(updatehealth)), 1)
 	return 1
 
 /mob/living/proc/IgniteMob(var/fire_stacks_to_add = 0)

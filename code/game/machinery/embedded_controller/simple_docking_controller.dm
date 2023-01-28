@@ -60,9 +60,7 @@
 
 		tag_door = controller.tag_door? controller.tag_door : "[id_tag]_hatch"
 
-		spawn(10)
-			signal_door("update")		//signals connected doors to update their status
-
+		addtimer(CALLBACK(src, PROC_REF(signal_door), "update"), 10)
 
 /datum/computer/file/embedded_program/docking/simple/receive_signal(datum/signal/signal, receive_method, receive_param)
 	var/receive_tag = signal.data["tag"]

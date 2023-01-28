@@ -483,9 +483,7 @@
 	if( flush_count >= flush_every_ticks )
 		if( contents.len )
 			if(mode == 2)
-				spawn(0)
-					feedback_inc("disposal_auto_flush",1)
-					flush()
+				addtimer(CALLBACK(src, PROC_REF(AutoFlushProcess)), 0)
 		flush_count = 0
 
 	src.updateDialog()
@@ -500,6 +498,10 @@
 		update()
 	else
 		src.pressurize() //otherwise charge
+
+/obj/machinery/disposal/proc/AutoFlushProcess()
+	feedback_inc("disposal_auto_flush",1)
+	flush()
 
 /obj/machinery/disposal/proc/pressurize()
 	if(stat & NOPOWER)			// won't charge if no power

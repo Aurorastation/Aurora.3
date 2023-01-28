@@ -384,7 +384,6 @@
 		if(pulling.loc == src.loc)
 			pulling.forceMove(T)
 		else
-			spawn(0)
 			if(get_dist(src, pulling) > 1)
 				pulling = null
 				user.pulledby = null

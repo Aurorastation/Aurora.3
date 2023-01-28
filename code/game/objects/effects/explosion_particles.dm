@@ -28,12 +28,15 @@
 /datum/effect/system/expl_particles/proc/start()
 	var/i = 0
 	for(i=0, i<src.number, i++)
-		spawn(0)
-			var/obj/effect/expl_particles/expl = new /obj/effect/expl_particles(src.location)
-			var/direct = pick(alldirs)
-			for(i=0, i<pick(1;25,2;50,3,4;200), i++)
-				sleep(1)
-				step(expl,direct)
+		addtimer(CALLBACK(src, PROC_REF(ExplosionParticleHandler)), 0)
+
+
+/datum/effect/system/expl_particles/proc/ExplosionParticleHandler()
+	var/obj/effect/expl_particles/expl = new /obj/effect/expl_particles(src.location)
+	var/direct = pick(alldirs)
+	for(var/i=0, i<pick(1;25,2;50,3,4;200), i++)
+		sleep(1)
+		step(expl,direct)
 
 /obj/effect/explosion
 	name = "explosive particles"
@@ -62,7 +65,10 @@
 	var/datum/effect/system/expl_particles/P = new/datum/effect/system/expl_particles()
 	P.set_up(10,location)
 	P.start()
-	spawn(5)
-		var/datum/effect/effect/system/smoke_spread/S = new/datum/effect/effect/system/smoke_spread()
-		S.set_up(5,0,location,null)
-		S.start()
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/effect/system/expl_particles, HandleSmokeSpread)), 5)
+
+
+/datum/effect/system/expl_particles/proc/HandleSmokeSpread()
+	var/datum/effect/effect/system/smoke_spread/S = new/datum/effect/effect/system/smoke_spread()
+	S.set_up(5,0,location,null)
+	S.start()

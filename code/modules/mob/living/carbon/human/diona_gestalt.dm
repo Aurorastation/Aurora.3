@@ -19,27 +19,30 @@
 	verbs += /mob/living/carbon/human/proc/diona_detach_nymph
 	verbs += /mob/living/carbon/human/proc/pause_regen_process
 
-	spawn(10)
 	//This is delayed after a gestalt is spawned, to allow nymphs to be added to it before extras are created
 	//These initial nymphs are the nymph which grows into a gestalt, and any others it had inside it
 	//There are no initial nymphs for a newly spawned diona player
+	addtimer(CALLBACK(src, PROC_REF(GestaltLateSetup)), 10)
 
-		if (mind?.name && mind.name != real_name)
-			verbs += /mob/living/carbon/human/proc/gestalt_set_name
-			var/datum/language/L = locate(/datum/language/diona) in languages
-			var/newname
-			if (L)
-				newname = L.get_random_name()
-			else
-				newname = "Diona Gestalt ([rand(100,999)])"
-			real_name = newname
-			name = newname
-			to_chat(src, "<span class=notice>We are named [real_name] for now, but we can choose a new name for our gestalt. (Check the Abilities Tab)</span>")
-			//This allows a gestalt to rename itself -once- upon reforming
 
-		verbs.Add(/mob/living/carbon/proc/absorb_nymph)
 
-		topup_nymphs()
+/mob/living/carbon/human/proc/GestaltLateSetup()
+	if (mind?.name && mind.name != real_name)
+		verbs += /mob/living/carbon/human/proc/gestalt_set_name
+		var/datum/language/L = locate(/datum/language/diona) in languages
+		var/newname
+		if (L)
+			newname = L.get_random_name()
+		else
+			newname = "Diona Gestalt ([rand(100,999)])"
+		real_name = newname
+		name = newname
+		to_chat(src, "<span class=notice>We are named [real_name] for now, but we can choose a new name for our gestalt. (Check the Abilities Tab)</span>")
+		//This allows a gestalt to rename itself -once- upon reforming
+
+	verbs.Add(/mob/living/carbon/proc/absorb_nymph)
+
+	topup_nymphs()
 
 /mob/living/carbon/human/proc/topup_nymphs()
 	var/added = 0

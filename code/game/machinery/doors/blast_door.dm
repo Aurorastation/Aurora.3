@@ -152,8 +152,7 @@
 		return
 	force_open()
 	if(autoclose)
-		spawn(150)
-			close()
+		addtimer(CALLBACK(src, PROC_REF(close)), 150)
 	return 1
 
 // Proc: close()

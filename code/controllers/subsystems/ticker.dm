@@ -186,48 +186,52 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		declare_completion()
 
-		spawn(50)
-			callHook("roundend")
+		addtimer(CALLBACK(src, PROC_REF(RoundEnded)), 50)
 
-			if (universe_has_ended)
-				if(mode.station_was_nuked)
-					feedback_set_details("end_proper","nuke")
-				else
-					feedback_set_details("end_proper","universe destroyed")
-				if(!delay_end)
-					to_world("<span class='notice'><b>Rebooting due to destruction of station in [restart_timeout/10] seconds</b></span>")
-			else
-				feedback_set_details("end_proper","proper completion")
-				if(!delay_end)
-					to_world("<span class='notice'><b>Restarting in [restart_timeout/10] seconds</b></span>")
-
-			var/wait_for_tickets
-			var/delay_notified = 0
-			do
-				wait_for_tickets = 0
-				for(var/datum/ticket/ticket in tickets)
-					if(ticket.is_active())
-						wait_for_tickets = 1
-						break
-				if(wait_for_tickets)
-					if(!delay_notified)
-						delay_notified = 1
-						message_admins("<span class='warning'><b>Automatically delaying restart due to active tickets.</b></span>")
-						to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
-					sleep(15 SECONDS)
-				else if(delay_notified)
-					message_admins("<span class='warning'><b>No active tickets remaining, restarting in [restart_timeout/10] seconds if an admin has not delayed the round end.</b></span>")
-			while(wait_for_tickets)
-
-			if(!delay_end)
-				sleep(restart_timeout)
-				if(!delay_end)
-					world.Reboot()
-				else if(!delay_notified)
-					to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
-			else if(!delay_notified)
-				to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
 	return 1
+
+/datum/controller/subsystem/ticker/proc/RoundEnded(var/force_end = FALSE)
+	callHook("roundend")
+
+	if (universe_has_ended)
+		if(mode.station_was_nuked)
+			feedback_set_details("end_proper","nuke")
+		else
+			feedback_set_details("end_proper","universe destroyed")
+		if(!delay_end)
+			to_world("<span class='notice'><b>Rebooting due to destruction of station in [restart_timeout/10] seconds</b></span>")
+	else
+		feedback_set_details("end_proper","proper completion")
+		if(!delay_end)
+			to_world("<span class='notice'><b>Restarting in [restart_timeout/10] seconds</b></span>")
+
+	var/wait_for_tickets
+	var/delay_notified = 0
+	do
+		wait_for_tickets = 0
+		for(var/datum/ticket/ticket in tickets)
+			if(ticket.is_active())
+				wait_for_tickets = 1
+				break
+		if(wait_for_tickets)
+			if(!delay_notified)
+				delay_notified = 1
+				message_admins("<span class='warning'><b>Automatically delaying restart due to active tickets.</b></span>")
+				to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+			sleep(15 SECONDS)
+		else if(delay_notified)
+			message_admins("<span class='warning'><b>No active tickets remaining, restarting in [restart_timeout/10] seconds if an admin has not delayed the round end.</b></span>")
+	while(wait_for_tickets)
+
+	if(!delay_end)
+		sleep(restart_timeout)
+		if(!delay_end)
+			world.Reboot()
+		else if(!delay_notified)
+			to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+	else if(!delay_notified)
+		to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	set waitfor = FALSE

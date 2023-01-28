@@ -53,8 +53,7 @@
 	icon_state = "doorctrl1"
 	desiredstate = !desiredstate
 	trigger(user)
-	spawn(15)
-		update_icon()
+	update_icon()
 
 /obj/machinery/button/remote/proc/trigger()
 	return

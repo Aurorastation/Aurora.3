@@ -178,8 +178,7 @@
 
 	//whatever we were doing with docking: stop it, then redock
 	force_undock()
-	spawn(1 SECOND)
-		dock()
+	addtimer(CALLBACK(src, PROC_REF(dock)), 1 SECOND)
 
 //returns 1 if the shuttle is getting ready to move, but is not in transit yet
 /datum/shuttle/autodock/proc/is_launching()

@@ -48,9 +48,8 @@
 		tag_shuttle_mech_sensor = controller.tag_shuttle_mech_sensor? controller.tag_shuttle_mech_sensor : "[id_tag]_shuttle_mech"
 		memory["secure"] = controller.tag_secure
 
-		spawn(10)
-			signalDoor(tag_exterior_door, "update")		//signals connected doors to update their status
-			signalDoor(tag_interior_door, "update")
+		addtimer(CALLBACK(src, PROC_REF(signalDoor), tag_exterior_door, "update"), 10)
+		addtimer(CALLBACK(src, PROC_REF(signalDoor), tag_interior_door, "update"), 10)
 
 /datum/computer/file/embedded_program/airlock/receive_signal(datum/signal/signal, receive_method, receive_param)
 	var/receive_tag = signal.data["tag"]
@@ -216,7 +215,7 @@
 					memory["target_pressure"] = memory["internal_sensor_pressure"]
 					state = STATE_PREPARE
 					target_state = TARGET_NONE
-				
+
 				else if(memory["pump_status"] != "off")
 					signalPump(tag_airpump, 0)
 				else

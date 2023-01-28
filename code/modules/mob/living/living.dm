@@ -54,123 +54,130 @@ default behaviour is:
 	var/tmp/last_push_notif
 
 /mob/living/Collide(atom/movable/AM)
-	spawn
-		if (now_pushing || !loc)
+	addtimer(CALLBACK(src, PROC_REF(HandleCollide), AM), 0)
+	. = ..()
+
+
+
+
+/mob/living/proc/HandleCollide(atom/movable/AM)
+	if (now_pushing || !loc)
+		return
+
+	now_pushing = TRUE
+	if (istype(AM, /mob/living))
+		var/mob/living/tmob = AM
+
+		for(var/mob/living/M in range(tmob, 1))
+			if(tmob.pinned.len || ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/grab, tmob.grabbed_by.len)) )
+				if (last_push_notif + 0.5 SECONDS <= world.time)
+					to_chat(src, "<span class='warning'>[tmob] is restrained, you cannot push past</span>")
+					last_push_notif = world.time
+
+				now_pushing = FALSE
+				return
+			if( tmob.pulling == M && ( M.restrained() && !( tmob.restrained() ) && tmob.stat == 0) )
+				if (last_push_notif + 0.5 SECONDS <= world.time)
+					to_chat(src, "<span class='warning'>[tmob] is restraining [M], you cannot push past</span>")
+					last_push_notif = world.time
+
+				now_pushing = FALSE
+				return
+
+		//Leaping mobs just land on the tile, no pushing, no anything.
+		if(status_flags & LEAPING)
+			forceMove(tmob.loc)
+			status_flags &= ~LEAPING
+			now_pushing = FALSE
 			return
 
-		now_pushing = TRUE
-		if (istype(AM, /mob/living))
-			var/mob/living/tmob = AM
-
-			for(var/mob/living/M in range(tmob, 1))
-				if(tmob.pinned.len || ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/grab, tmob.grabbed_by.len)) )
-					if (last_push_notif + 0.5 SECONDS <= world.time)
-						to_chat(src, "<span class='warning'>[tmob] is restrained, you cannot push past</span>")
-						last_push_notif = world.time
-
-					now_pushing = FALSE
-					return
-				if( tmob.pulling == M && ( M.restrained() && !( tmob.restrained() ) && tmob.stat == 0) )
-					if (last_push_notif + 0.5 SECONDS <= world.time)
-						to_chat(src, "<span class='warning'>[tmob] is restraining [M], you cannot push past</span>")
-						last_push_notif = world.time
-
-					now_pushing = FALSE
-					return
-
-			//Leaping mobs just land on the tile, no pushing, no anything.
-			if(status_flags & LEAPING)
-				forceMove(tmob.loc)
-				status_flags &= ~LEAPING
-				now_pushing = FALSE
-				return
-
-			if(can_swap_with(tmob)) // mutual brohugs all around!
-				var/turf/tmob_oldloc = get_turf(tmob)
-				var/turf/src_oldloc = get_turf(src)
-				if(pulling?.density)
-					tmob.forceMove(pulling.loc)
-					forceMove(tmob_oldloc)
+		if(can_swap_with(tmob)) // mutual brohugs all around!
+			var/turf/tmob_oldloc = get_turf(tmob)
+			var/turf/src_oldloc = get_turf(src)
+			if(pulling?.density)
+				tmob.forceMove(pulling.loc)
+				forceMove(tmob_oldloc)
+				pulling.forceMove(src_oldloc)
+			else if(tmob.pulling?.density)
+				forceMove(tmob.pulling.loc)
+				tmob.forceMove(src_oldloc)
+				tmob.pulling.forceMove(tmob_oldloc)
+			else
+				forceMove(tmob_oldloc)
+				if(pulling)
 					pulling.forceMove(src_oldloc)
-				else if(tmob.pulling?.density)
-					forceMove(tmob.pulling.loc)
-					tmob.forceMove(src_oldloc)
+				tmob.forceMove(src_oldloc)
+				if(tmob.pulling)
 					tmob.pulling.forceMove(tmob_oldloc)
-				else
-					forceMove(tmob_oldloc)
-					if(pulling)
-						pulling.forceMove(src_oldloc)
-					tmob.forceMove(src_oldloc)
-					if(tmob.pulling)
-						tmob.pulling.forceMove(tmob_oldloc)
-				for(var/obj/item/grab/G in list(l_hand, r_hand))
-					G.affecting.forceMove(loc)
-				for(var/obj/item/grab/G in list(tmob.l_hand, tmob.r_hand))
-					G.affecting.forceMove(tmob.loc)
+			for(var/obj/item/grab/G in list(l_hand, r_hand))
+				G.affecting.forceMove(loc)
+			for(var/obj/item/grab/G in list(tmob.l_hand, tmob.r_hand))
+				G.affecting.forceMove(tmob.loc)
+			now_pushing = FALSE
+			for(var/mob/living/carbon/slime/slime in view(2, tmob))
+				if(slime.victim == tmob)
+					slime.UpdateFeed()
+			return
+
+		if(!can_move_mob(tmob, 0, 0))
+			now_pushing = FALSE
+			return
+
+		if(a_intent == I_HELP || src.restrained())
+			now_pushing = FALSE
+			return
+
+		if(istype(tmob, /mob/living/carbon/human) && HAS_FLAG(tmob.mutations, FAT))
+			if(prob(40) && NOT_FLAG(mutations, FAT))
+				to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 				now_pushing = FALSE
-				for(var/mob/living/carbon/slime/slime in view(2, tmob))
-					if(slime.victim == tmob)
-						slime.UpdateFeed()
 				return
 
-			if(!can_move_mob(tmob, 0, 0))
+		if(istype(tmob.r_hand, /obj/item/shield/riot))
+			if(prob(99))
 				now_pushing = FALSE
 				return
 
-			if(a_intent == I_HELP || src.restrained())
+		if(istype(tmob.l_hand, /obj/item/shield/riot))
+			if(prob(99))
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && HAS_FLAG(tmob.mutations, FAT))
-				if(prob(40) && NOT_FLAG(mutations, FAT))
-					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
+		if(!(tmob.status_flags & CANPUSH))
+			now_pushing = FALSE
+			return
+
+		tmob.LAssailant = WEAKREF(src)
+
+	now_pushing = FALSE
+	addtimer(CALLBACK(src, PROC_REF(HandleCollide2), AM, now_pushing), 0)
+
+/mob/living/proc/HandleCollide2(atom/movable/AM, var/now_pushing)
+	if (!istype(AM, /atom/movable))
+		return
+	if (!now_pushing)
+		now_pushing = TRUE
+
+		if (!AM.anchored)
+			if(isobj(AM))
+				var/obj/O = AM
+				if ((can_pull_size == 0) || (can_pull_size < O.w_class))
 					now_pushing = FALSE
 					return
 
-			if(istype(tmob.r_hand, /obj/item/shield/riot))
-				if(prob(99))
+			var/t = get_dir(src, AM)
+			if (istype(AM, /obj/structure/window))
+				for(var/obj/structure/window/win in get_step(AM,t))
 					now_pushing = FALSE
 					return
 
-			if(istype(tmob.l_hand, /obj/item/shield/riot))
-				if(prob(99))
-					now_pushing = FALSE
-					return
-
-			if(!(tmob.status_flags & CANPUSH))
-				now_pushing = FALSE
-				return
-
-			tmob.LAssailant = WEAKREF(src)
+			step(AM, t)
+			if(ishuman(AM) && AM:grabbed_by)
+				for(var/obj/item/grab/G in AM:grabbed_by)
+					step(G:assailant, get_dir(G:assailant, AM))
+					G.adjust_position()
 
 		now_pushing = FALSE
-		spawn(0)
-			. = ..()
-			if (!istype(AM, /atom/movable))
-				return
-			if (!now_pushing)
-				now_pushing = TRUE
-
-				if (!AM.anchored)
-					if(isobj(AM))
-						var/obj/O = AM
-						if ((can_pull_size == 0) || (can_pull_size < O.w_class))
-							now_pushing = FALSE
-							return
-
-					var/t = get_dir(src, AM)
-					if (istype(AM, /obj/structure/window))
-						for(var/obj/structure/window/win in get_step(AM,t))
-							now_pushing = FALSE
-							return
-
-					step(AM, t)
-					if(ishuman(AM) && AM:grabbed_by)
-						for(var/obj/item/grab/G in AM:grabbed_by)
-							step(G:assailant, get_dir(G:assailant, AM))
-							G.adjust_position()
-
-				now_pushing = FALSE
 
 /proc/swap_density_check(var/mob/swapper, var/mob/swapee)
 	var/turf/T = get_turf(swapper)
@@ -675,7 +682,7 @@ default behaviour is:
 
 	//unbuckling yourself
 	if(buckled_to)
-		spawn() escape_buckle()
+		addtimer(CALLBACK(src, PROC_REF(escape_buckle)), 0)
 
 	//Breaking out of a locker?
 	if( src.loc && istype(src.loc, /obj/structure/closet) )

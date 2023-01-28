@@ -57,19 +57,14 @@ var/const/AALARM_WIRE_AALARM = 16
 				A.shorted = 1
 				A.update_icon()
 
-			spawn(12000)
-				if(A.shorted == 1)
-					A.shorted = 0
-					A.update_icon()
+			addtimer(CALLBACK(src, PROC_REF(ClearShorted), A), 12000)
 
 
 		if (AALARM_WIRE_AI_CONTROL)
 			if (A.aidisabled == 0)
 				A.aidisabled = 1
 			A.updateDialog()
-			spawn(100)
-				if (A.aidisabled == 1)
-					A.aidisabled = 0
+			addtimer(CALLBACK(src, PROC_REF(ClearAIDisabled), A), 100)
 
 		if(AALARM_WIRE_SYPHON)
 			if(A.mode == 1) // AALARM_MODE_SCRUB
@@ -82,3 +77,12 @@ var/const/AALARM_WIRE_AALARM = 16
 			if (A.alarm_area.atmosalert(0, A))
 				A.post_alert(0)
 			A.update_icon()
+
+/datum/wires/alarm/proc/ClearShorted(var/obj/machinery/alarm/A)
+	if(A.shorted == 1)
+		A.shorted = 0
+		A.update_icon()
+
+/datum/wires/alarm/proc/ClearAIDisabled(var/obj/machinery/alarm/A)
+	if (A.aidisabled == 1)
+		A.aidisabled = 0

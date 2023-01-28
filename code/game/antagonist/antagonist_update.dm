@@ -13,15 +13,17 @@
 			qdel(holder)
 	player.original = player.current
 	if(!preserve_appearance && (flags & ANTAG_SET_APPEARANCE))
-		spawn(3)
-			var/mob/living/carbon/human/H = player.current
-			if(istype(H))
-				H.change_appearance(APPEARANCE_ALL, H, valid_species, update_id = TRUE)
-				H.rejuvenate() //So that things like disabilities and stuff get cleared.
+		addtimer(CALLBACK(src, PROC_REF(HandleAntagPlayerAppearance), player), 3)
 	if((flags & ANTAG_NO_FLAVORTEXT) && ishuman(player.current))
 		var/mob/living/carbon/human/H = player.current
 		H.scrub_flavor_text()
 	return player.current
+
+/datum/antagonist/proc/HandleAntagPlayerAppearance(var/datum/mind/player)
+	var/mob/living/carbon/human/H = player.current
+	if(istype(H))
+		H.change_appearance(APPEARANCE_ALL, H, valid_species, update_id = TRUE)
+		H.rejuvenate() //So that things like disabilities and stuff get cleared.
 
 /datum/antagonist/proc/update_access(var/mob/living/player)
 	for(var/obj/item/card/id/id in player.contents)

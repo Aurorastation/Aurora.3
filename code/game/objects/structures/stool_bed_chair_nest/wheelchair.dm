@@ -12,7 +12,7 @@
 
 	var/bloodiness
 
-/obj/structure/bed/stool/chair/office/wheelchair/New(var/newloc) // Colorable wheelchairs? 
+/obj/structure/bed/stool/chair/office/wheelchair/New(var/newloc) // Colorable wheelchairs?
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
 
 /obj/structure/bed/stool/chair/office/wheelchair/set_dir()
@@ -72,7 +72,6 @@
 		if(pulling.loc == src.loc) // We moved onto the wheelchair? Revert!
 			pulling.forceMove(T)
 		else
-			spawn(0)
 			if(get_dist(src, pulling) > 1) // We are too far away? Losing control.
 				pulling = null
 				user.pulledby = null
