@@ -232,7 +232,7 @@
 
 /datum/record/char_infraction/proc/saveToDB()
 	if(!establish_db_connection(dbcon))
-		error("SQL database connection failed. Infractions Datum failed to save information")
+		log_error("SQL database connection failed. Infractions Datum failed to save information")
 		return
 
 	//Dont save the infraction to the db if the char id is 0
@@ -280,7 +280,7 @@
 
 /datum/record/char_infraction/proc/deleteFromDB(var/deleted_by)
 	if(!establish_db_connection(dbcon))
-		error("SQL database connection failed. Infractions Datum failed to save information")
+		log_error("SQL database connection failed. Infractions Datum failed to save information")
 		return
 
 	//Dont save the infraction to the db if the char id is 0

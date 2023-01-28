@@ -97,8 +97,7 @@
 		var/DBQuery/query = dbcon.NewQuery(query_text)
 		query.Execute(arg_list)
 		if (query.ErrorMsg())
-			error("SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
-			log_debug("SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
+			log_error("SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
 			log_debug("SQL CHARACTER LOAD: query args: [json_encode(arg_list)]")
 
 			continue
@@ -119,8 +118,7 @@
 					else
 						cc.preferences.vars[layers[1]][layers[2]] = query.item[i]
 				catch(var/exception/e)
-					error("SQL CHARACTER LOAD: bad variable name: [e.name]")
-					log_debug("SQL CHARACTER LOAD: bad variable name: [e.name]")
+					log_error("SQL CHARACTER LOAD: bad variable name: [e.name]")
 					log_debug("SQL CHARACTER LOAD: var name: [var_names[i]]")
 
 /datum/category_group/player_setup_category/proc/gather_load_parameters()
@@ -217,8 +215,7 @@
 		query.Execute(arg_list)
 
 		if (query.ErrorMsg())
-			error("SQL CHARACTER SAVE: SQL query error: [query.ErrorMsg()]")
-			log_debug("SQL CHARACTER SAVE: SQL query error: [query.ErrorMsg()]")
+			log_error("SQL CHARACTER SAVE: SQL query error: [query.ErrorMsg()]")
 			log_debug("SQL CHARACTER SAVE: query args: [json_encode(arg_list)]")
 
 			continue
@@ -244,8 +241,7 @@
 #endif
 
 			else
-				error("SQL CHARACTER SAVE: New ID was not recovered.")
-				log_debug("SQL CHARACTER SAVE: New ID was not recovered.")
+				log_error("SQL CHARACTER SAVE: New ID was not recovered.")
 				if (query.ErrorMsg())
 					error("SQL CHARACTER SAVE: SQL query error from last_insert_id: [query.ErrorMsg()]")
 					log_debug("SQL CHARACTER SAVE: SQL query error from last_insert_id: [query.ErrorMsg()]")

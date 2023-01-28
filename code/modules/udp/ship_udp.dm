@@ -47,7 +47,7 @@
 	. = rustg_udp_send(addr, data)
 
 	if (.)
-		error("UDP Sender error: [.]")
+		log_error("UDP Sender error: [.]")
 
 #else
 	return

@@ -890,7 +890,7 @@ var/list/gamemode_cache = list()
 
 				if("fastboot")
 					fastboot = TRUE
-					world.log <<  "Fastboot is ENABLED."
+					log_debug("Fastboot is ENABLED.")
 
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)

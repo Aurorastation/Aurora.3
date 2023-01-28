@@ -36,7 +36,7 @@
 		return
 
 	if (!establish_db_connection(dbcon))
-		error("SQL connection failed while attempting to delete a note!")
+		log_error("SQL connection failed while attempting to delete a note!")
 		return
 
 	var/count = 0 //failsafe from unban procs
@@ -52,12 +52,12 @@
 
 	if (count == 0)
 		to_chat(usr, "<span class='warning'>Database update failed due to a note id not being present in the database.</span>")
-		error("Database update failed due to a note id not being present in the database.")
+		log_error("Database update failed due to a note id not being present in the database.")
 		return
 
 	if (count > 1)
 		to_chat(usr, "<span class='warning'>Database update failed due to multiple notes having the same ID. Contact the database admin.</span>")
-		error("Database update failed due to multiple notes having the same ID. Contact the database admin.")
+		log_error("Database update failed due to multiple notes having the same ID. Contact the database admin.")
 		return
 
 	switch (note_edit)
@@ -92,7 +92,7 @@
 	admin_ckey = ckey(admin_ckey)
 
 	if (!establish_db_connection(dbcon))
-		error("SQL connection failed while attempting to view a player's notes!")
+		log_error("SQL connection failed while attempting to view a player's notes!")
 		return
 
 	var/dat = "<div align='center'><h3>Notes Look-up Panel</h3><br>"
