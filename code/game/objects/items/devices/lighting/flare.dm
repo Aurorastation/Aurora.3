@@ -24,9 +24,10 @@
 	fuel = rand(400, 600)
 
 /obj/item/device/flashlight/flare/process()
-	var/turf/pos = get_turf(src)
-	if(pos)
-		pos.hotspot_expose(produce_heat, 5)
+	if(produce_heat)
+		var/turf/pos = get_turf(src)
+		if(pos)
+			pos.hotspot_expose(produce_heat, 5)
 	fuel = max(fuel - 1, 0)
 	if(!fuel || !on)
 		turn_off()
@@ -65,6 +66,44 @@
 		src.damtype = "fire"
 		START_PROCESSING(SSprocessing, src)
 		update_icon()
+
+
+/obj/item/device/flashlight/flare/chem
+	name = "chem-flare"
+	desc = "A flare that produces light by repeatedly combining chemicals that emit more light than heat inside its capsule. It has an internal reservoir for reagents to change the output of its color."
+	icon_state = "chem_flare"
+	flags = OPENCONTAINER
+
+	activation_sound = 'sound/items/glowstick.ogg'
+	overrides_activation_message = TRUE
+
+	produce_heat = 0
+	brightness_on = 4
+
+	color = LIGHT_COLOR_PURPLE
+	light_color = LIGHT_COLOR_PURPLE
+
+/obj/item/device/flashlight/flare/chem/Initialize()
+	. = ..()
+	fuel = rand(1000, 1500)
+	create_reagents(15)
+
+/obj/item/device/flashlight/flare/glowstick/attack_self(var/mob/living/user)
+	. = ..()
+	if(.)
+		user.visible_message(SPAN_NOTICE("\The [user] cracks and shakes \the [src]."), SPAN_NOTICE("You crack and shake \the [src], turning it on!"))
+
+/obj/item/device/flashlight/flare/chem/on_reagent_change()
+	if(reagents.total_volume)
+		var/reagents_color = reagents.get_color()
+		color = reagents_color
+		light_color = reagents_color
+	else
+		color = initial(color)
+		light_color = initial(light_color)
+	update_held_icon()
+	if(on)
+		update_light()
 
 /obj/item/device/flashlight/flare/torch
 	name = "torch"

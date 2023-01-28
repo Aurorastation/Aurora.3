@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added chem flares to the protolathe, which act like flares but can have their color changed by injecting reagents into them."

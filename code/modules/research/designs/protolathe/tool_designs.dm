@@ -175,3 +175,8 @@ datum/design/item/tool/advanced_light_replacer
 /datum/design/item/tool/inductive_charger/engineering
 	name = "Inductive Charger (Engineering)"
 	build_path = /obj/item/inductive_charger/handheld/engineering
+
+/datum/design/item/tool/chem_flare
+	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 1)
+	materials = list(MATERIAL_GLASS = 200)
+	build_path = /obj/item/device/flashlight/flare/chem
