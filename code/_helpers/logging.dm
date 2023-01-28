@@ -184,7 +184,7 @@
 	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_ALERT, "FAILSAFE")
 
 /proc/log_tgs(text, severity = SEVERITY_INFO)
-	game_log("TGS", text)
+	game_log("TGS[SEVERITY_INFO]", text)
 	send_gelf_log(
 		short_message = text,
 		long_message="[time_stamp()]: [text]",

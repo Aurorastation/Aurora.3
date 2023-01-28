@@ -243,8 +243,7 @@
 			else
 				log_error("SQL CHARACTER SAVE: New ID was not recovered.")
 				if (query.ErrorMsg())
-					error("SQL CHARACTER SAVE: SQL query error from last_insert_id: [query.ErrorMsg()]")
-					log_debug("SQL CHARACTER SAVE: SQL query error from last_insert_id: [query.ErrorMsg()]")
+					log_error("SQL CHARACTER SAVE: SQL query error from last_insert_id: [query.ErrorMsg()]")
 
 /datum/category_group/player_setup_category/proc/gather_save_parameters()
 	var/list/arg_list = list()
