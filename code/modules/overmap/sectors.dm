@@ -8,7 +8,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	scannable = TRUE
 	var/designation //Actual name of the object.
 	var/class //Imagine a ship or station's class. "NTCC" Odin, "SCCV" Horizon, ...
-	var/unknown_id = "Bogey"
+	unknown_id = "Bogey"
 	var/obfuscated_name = "unidentified object"
 	var/obfuscated_desc = "This object is not displaying its IFF signature."
 	var/obfuscated = FALSE //Whether we hide our name and class or not.
