@@ -1,0 +1,352 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/mineral,
+/area/template_noop)
+"b" = (
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/remains/human,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"c" = (
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"d" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"e" = (
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"f" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/template_noop)
+"i" = (
+/obj/item/arrow/rod,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"j" = (
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"k" = (
+/obj/item/arrow/rod,
+/mob/living/simple_animal/hostile/carp/shark{
+	wander = 0
+	},
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"l" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/remains/human,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"m" = (
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"n" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/item/material/shard,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"o" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"p" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"q" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"t" = (
+/turf/simulated/wall/shuttle/cardinal,
+/area/template_noop)
+"u" = (
+/obj/structure/closet/crate/secure/loot,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"v" = (
+/obj/random/loot,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"w" = (
+/obj/random/voidsuit,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"x" = (
+/obj/item/device/gps,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"y" = (
+/obj/structure/grille/broken,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"z" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"A" = (
+/mob/living/simple_animal/hostile/carp{
+	wander = 0
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"B" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"C" = (
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"D" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"E" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"F" = (
+/obj/effect/decal/cleanable/blood/drip,
+/mob/living/simple_animal/hostile/carp{
+	wander = 0
+	},
+/turf/simulated/floor/shuttle/dark_blue{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"G" = (
+/obj/structure/grille,
+/obj/item/material/shard,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/template_noop)
+"H" = (
+/obj/random/loot,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"I" = (
+/turf/template_noop,
+/area/template_noop)
+"K" = (
+/obj/item/arrow/rod,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+
+(1,1,1) = {"
+B
+B
+B
+I
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+A
+B
+B
+B
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+c
+c
+B
+B
+t
+b
+a
+a
+a
+a
+"}
+(4,1,1) = {"
+c
+H
+t
+t
+t
+b
+k
+a
+a
+a
+"}
+(5,1,1) = {"
+c
+c
+y
+j
+G
+d
+w
+a
+a
+a
+"}
+(6,1,1) = {"
+K
+c
+z
+d
+D
+E
+d
+u
+a
+a
+"}
+(7,1,1) = {"
+o
+m
+n
+i
+y
+e
+F
+v
+a
+a
+"}
+(8,1,1) = {"
+o
+c
+t
+t
+t
+C
+x
+l
+t
+a
+"}
+(9,1,1) = {"
+c
+o
+B
+B
+t
+b
+e
+l
+t
+a
+"}
+(10,1,1) = {"
+c
+o
+B
+B
+t
+q
+p
+f
+t
+I
+"}
