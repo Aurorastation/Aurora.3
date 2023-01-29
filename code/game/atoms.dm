@@ -672,3 +672,9 @@
 
 /atom/proc/handle_middle_mouse_click(var/mob/user)
 	return FALSE
+
+/atom/proc/get_standard_pixel_x()
+	return initial(pixel_x)
+
+/atom/proc/get_standard_pixel_y()
+	return initial(pixel_y)

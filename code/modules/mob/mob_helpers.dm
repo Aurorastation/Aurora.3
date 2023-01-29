@@ -1193,12 +1193,6 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	resting = FALSE // ghosting sets resting to true
 	return src
 
-/mob/proc/get_standard_pixel_x()
-	return initial(pixel_x)
-
-/mob/proc/get_standard_pixel_y()
-	return initial(pixel_y)
-
 /mob/proc/remove_nearsighted()
 	disabilities &= ~NEARSIGHTED
 

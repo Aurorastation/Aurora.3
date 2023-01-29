@@ -815,6 +815,12 @@
 		'sound/items/shaker_lid_off2.ogg'
 	)
 
+/singleton/sound_category/boops
+	sounds = list(
+		'sound/machines/boop1.ogg',
+		'sound/machines/boop2.ogg'
+	)
+
 /singleton/sound_category/quick_arcade // quick punchy arcade sounds
 	sounds = list(
 		'sound/arcade/get_fuel.ogg',

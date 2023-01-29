@@ -8,103 +8,131 @@
 	desc_info = "You can ALT-click the game-helm to open it up and turn it on. Click on the open device to play."
 	icon = 'icons/obj/gamehelm.dmi'
 	w_class = ITEMSIZE_SMALL
-	var/open = "open_white"
-	var/closed = "closed_white"
+	update_icon_on_init = TRUE
 
-/obj/item/gamehelm/Initialize()
-	. = ..()
-	icon_state = closed
-	add_overlay("buttons_closed")
+	var/case_color = "white"
+	var/open = FALSE
 
-/obj/item/gamehelm/AltClick()
-	if(use_check(usr))
-		return
-	if(icon_state == open) //Toggle the lid, turn it off.
-		icon_state = closed
-		cut_overlays()
-		add_overlay("buttons_closed")
-	else if(icon_state == closed) //Otherwise open it up
-		icon_state = open
-		cut_overlays()
+	var/playing_game = FALSE
+	var/current_screen_state = null
+	var/static/game_type_to_state = list(
+		"anime game" = "screen_anime",
+		"shooter game" = "screen_shooter",
+		"strategy game" = "screen_strategy",
+		"piloting game" = "screen_pilot",
+		"horror game" = "screen_dread",
+		"simulation game" = "screen_emotive",
+		"exploration game" = "screen_exploration",
+		"music service" = "screen_music",
+		"video service" = "screen_video",
+		"turn off the system" = null
+	)
+	var/static/non_game_states = list(
+		"screen_music",
+		"screen_video"
+	)
+
+	var/static/game_actions = list(
+		"hits all the buttons at the same time" = "hit all the buttons at the same time",
+		"rapidly hits a bunch of buttons" = "rapidly hit a bunch of buttons",
+		"tilts the InUs Game-Helm to the right" = "tilt the InUs Game-Helm to the right",
+		"tilts the InUs Game-Helm to the left" = "tilt the InUs Game-Helm to the left",
+		"swipes across the InUs Game-Helm's screen" = "swipe across the InUs Game-Helm's screen"
+	)
+
+/obj/item/gamehelm/update_icon()
+	cut_overlays()
+	if(open)
+		icon_state = "open_[case_color]"
 		add_overlay("buttons_open")
+	else
+		icon_state = "closed_[case_color]"
+		add_overlay("buttons_closed")
+	if(current_screen_state)
+		add_overlay(current_screen_state)
+
+/obj/item/gamehelm/process()
+	if(playing_game)
+		playsound(loc, /singleton/sound_category/quick_arcade, 45)
+		if(ismob(loc))
+			var/picked_action = pick(game_actions)
+			var/self_action = game_actions[picked_action]
+			loc.visible_message("<b>[loc]</b> [picked_action]!", SPAN_NOTICE("You [self_action]!"), range = 3)
+			loc.quick_jitter(5)
+	else
+		playsound(loc, /singleton/sound_category/computerbeep_sound, 45)
+
+/obj/item/gamehelm/AltClick(mob/user)
+	if(use_check(user))
+		return
+	toggle_state(user)
+
+/obj/item/gamehelm/proc/toggle_state(mob/user)
+	open = !open
+	update_icon()
+	if(open)
+		user.visible_message("<b>[user]</b> flips open \the [src] with a satisfying snap!", SPAN_NOTICE("You flip open \the [src] with a satisfying snap!"), range = 3)
+	else
+		user.visible_message("<b>[user]</b> flips \the [src] shut with a satisfying snap!", SPAN_NOTICE("You flip \the [src] shut with a satisfying snap!"), range = 3)
+		set_game(null)
+	playsound(user, 'sound/items/penclick.ogg', 25)
+
+/obj/item/gamehelm/proc/set_game(var/screen_type)
+	current_screen_state = screen_type
+	playing_game = !(current_screen_state in non_game_states)
+	update_icon()
+	if(current_screen_state)
+		START_PROCESSING(SSprocessing, src)
+	else
+		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/gamehelm/attack_self(mob/user)
-	if(icon_state == open)
-		var/choice = input("What do you want to play?") as null|anything in list("anime game", "shooter game", "simulation game", "strategy game", "piloting game", "horror game", "exploration game", "video service", "music service", "turn off the system")
-		cut_overlays()
-		add_overlay("buttons_open")
-		if(choice != "turn off the system")
-			to_chat(user, "You start the application on your Game-Helm and begin playing.")
+	if(open)
+		var/choice = input("What do you want to play?") as null|anything in game_type_to_state
+		if(choice == "turn off the system")
+			user.visible_message("<b>[user]</b> hits the power button on \the [src] and it quickly shuts down.", SPAN_NOTICE("You hit the power button on \the [src] and it quickly shuts down."), range = 3)
+			playsound(loc, 'sound/machines/softbeep.ogg', 40)
+			set_game(null)
+			return
+		if(current_screen_state)
+			user.visible_message("<b>[user]</b> taps on a few buttons and \the [src] swaps to a different application!", SPAN_NOTICE("You tap on a few buttons and \the [src] swaps to a different application!"), range = 3)
 		else
-			to_chat(user, "You turn the Game-Helm off.")
-		if(choice == "anime game")
-			add_overlay("screen_anime")
-		if(choice == "shooter game")
-			add_overlay("screen_shooter")
-		if(choice == "strategy game")
-			add_overlay("screen_strategy")
-		if(choice == "piloting game")
-			add_overlay("screen_pilot")
-		if(choice == "horror game")
-			add_overlay("screen_dread")
-		if(choice == "simulation game")
-			add_overlay("screen_emotive")
-		if(choice == "exploration game")
-			add_overlay("screen_exploration")
-		if(choice == "music service")
-			add_overlay("screen_music")
-		if(choice == "video service")
-			add_overlay("screen_video")
-	else
-		..()
+			user.visible_message("<b>[user]</b> taps on a few buttons and \the [src] springs to life!", SPAN_NOTICE("You tap on a few buttons and \the [src] springs to life!"), range = 3)
+		playsound(loc, /singleton/sound_category/boops, 45)
+		set_game(game_type_to_state[choice])
+	return ..()
+
+/obj/item/gamehelm/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
 
 //The colours!
 /obj/item/gamehelm/blue
-	open = "open_blue"
-	closed = "closed_blue"
-	icon_state = "closed_blue"
+	case_color = "blue"
 
 /obj/item/gamehelm/red
-	open = "open_red"
-	closed = "closed_red"
-	icon_state = "closed_red"
+	case_color = "red"
 
 /obj/item/gamehelm/black
-	open = "open_black"
-	closed = "closed_black"
-	icon_state = "closed_black"
+	case_color = "black"
 
 /obj/item/gamehelm/pink
-	open = "open_pink"
-	closed = "closed_pink"
-	icon_state = "closed_pink"
+	case_color = "pink"
 
 /obj/item/gamehelm/purple
-	open = "open_purple"
-	closed = "closed_purple"
-	icon_state = "closed_purple"
+	case_color = "purple"
 
 /obj/item/gamehelm/brown
-	open = "open_brown"
-	closed = "closed_brown"
-	icon_state = "closed_brown"
+	case_color = "brown"
 
 /obj/item/gamehelm/green
-	open = "open_green"
-	closed = "closed_green"
-	icon_state = "closed_green"
+	case_color = "green"
 
 /obj/item/gamehelm/yellow
-	open = "open_yellow"
-	closed = "closed_yellow"
-	icon_state = "closed_yellow"
+	case_color = "yellow"
 
 /obj/item/gamehelm/turquoise
-	open = "open_turquoise"
-	closed = "closed_turquoise"
-	icon_state = "closed_turquoise"
+	case_color = "turqoise"
 
 /obj/item/gamehelm/weathered
-	open = "open_weathered"
-	closed = "closed_weathered"
-	icon_state = "closed_weathered"
+	case_color = "weathered"

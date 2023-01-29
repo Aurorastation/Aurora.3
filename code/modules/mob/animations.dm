@@ -295,3 +295,14 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 	if(is_floating)
 		addtimer(CALLBACK(src, PROC_REF(start_floating)), 2.4)
+
+/atom/proc/quick_jitter(var/jitter_time = 5)
+	set waitfor = 0
+
+	jitter_time--
+
+	pixel_x = jitter_time ? get_standard_pixel_x() + rand(-3, 3) : get_standard_pixel_x()
+	pixel_y = jitter_time ? get_standard_pixel_y() + rand(-1, 1) : get_standard_pixel_y()
+
+	if(jitter_time)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, quick_jitter), jitter_time), 1)
