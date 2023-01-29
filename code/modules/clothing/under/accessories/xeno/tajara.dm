@@ -554,3 +554,83 @@
 	icon = 'icons/clothing/accessories/dogtags.dmi'
 	icon_state = "adhomai_tag"
 	w_class = ITEMSIZE_SMALL
+
+//medals
+
+/obj/item/clothing/accessory/medal/pra_courage
+	name = "president hadii medal for courage"
+	desc = "A medal awarded to the soldiers and PSIS agents who performed acts of bravery during the war, security operations, or during military duties."
+	icon_state = "hadii_courage"
+	overlay_state = "iron"
+
+/obj/item/clothing/accessory/medal/pra_hero
+	name = "hero of the people's republic medal"
+	desc = "The highest distinction in the People's Republic of Adhomai, awarded for great service or heroic act while in duty to the nation. It can be bestowed to civilian and military recipients."
+	icon_state = "pra_hero"
+	overlay_state = "iron"
+
+/obj/item/clothing/accessory/medal/messa_virtue
+	name = "messa's virtue medal"
+	desc = "A posthumous award bestowed to Tajara who lost their lives while serving the People's Republic."
+	icon_state = "messa_virtue"
+	overlay_state = "bronze"
+
+/obj/item/clothing/accessory/medal/dasnrra_evac
+	name = "medal for the evacuation of das'nrra"
+	desc = "A medal given to anyone who participated in the evacuation of the Republican Army from Das'nrra in 2460."
+	icon_state = "dasnrra_evac"
+	overlay_state = "iron"
+
+/obj/item/clothing/accessory/medal/homeland_defense
+	name = "medal for the evacuation of das'nrra"
+	desc = "A medal awarded to those who fought alongside the S'rand'marr Coalition in 2461. This was the last medal issued concerning the Second Revolution."
+	icon_state = "homeland_defense"
+	overlay_state = "gold"
+
+/obj/item/clothing/accessory/medal/dpra_liberation
+	name = "adhomai hero of the liberation medal"
+	desc = "The highest decoration given to any Al'mariist citizen for their service to the Democratic People's Republic."
+	icon_state = "dpra_liberation"
+	overlay_state = "gold"
+
+/obj/item/clothing/accessory/medal/ala_martyr
+	name = "al'mariist martyr medal"
+	desc = "An award granted to those who perished or were gravely wounded while fighting for the Liberation Army."
+	icon_state = "ala_martyr"
+	overlay_state = "gold"
+
+/obj/item/clothing/accessory/medal/dasnrra_liberation
+	name = "medal for the liberation of das'nrra"
+	desc = "Awarded to the Liberation Army soldiers who fought to expel the People's Republic army from the continent of Das'nrra."
+	icon_state = "dasnrra_liberation"
+	overlay_state = "silver"
+
+/obj/item/clothing/accessory/medal/gakalzaal_liberation
+	name = "medal for the liberation of gakal'zaal"
+	desc = "The first medal to be created after the Second Revolution. Tt was awarded to the Tajara who took part in the liberation of Gakal'zaal."
+	icon_state = "gakalzaal_liberation"
+	overlay_state = "gold"
+
+/obj/item/clothing/accessory/medal/victorius_sun
+	name = "order of the victorious sun"
+	desc = "The highest order in the New Kingdom, granted for exceptional service to the Royalist cause or for leading the military to victory."
+	icon_state = "victorius_sun"
+	overlay_state = "gold"
+
+/obj/item/clothing/accessory/medal/order_heart
+	name = "order of the blue heart"
+	desc = "A decoration awarded to those killed while serving the Kingdom's military."
+	icon_state = "order_heart"
+	overlay_state = "silver"
+
+/obj/item/clothing/accessory/medal/kingdom_defense
+	name = "medal for the defense of the kingdom"
+	desc = "A medal awarded to those who participated in the defense of Northern Harr'masir during the Hadiist offensive of 2458."
+	icon_state = "kingdom_defense"
+	overlay_state = "iron"
+
+/obj/item/clothing/accessory/medal/kingdom_defense
+	name = "medal for the harr'masir offensive"
+	desc = "An award bestowed to the military personnel who took part in the final offensive to liberate Harr'masir from Hadiist occupation in 2461."
+	icon_state = "harrmasir_offensive"
+	overlay_state = "iron"
