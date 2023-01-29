@@ -429,7 +429,10 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/railing/mapped,
 /obj/machinery/porta_turret_construct/dark,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/derelict/ship)
 "Ex" = (
 /obj/structure/sign/flag/sol,
