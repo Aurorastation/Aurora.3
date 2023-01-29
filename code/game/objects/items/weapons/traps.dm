@@ -249,7 +249,7 @@
 	var/time = 360 * time_to_escape * 2
 	breakout = TRUE
 
-	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, .proc/breakout_callback, escapee)))
+	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, PROC_REF(breakout_callback), escapee)))
 		breakout = FALSE
 		return
 
@@ -546,7 +546,7 @@
 	. = ..()
 	allowed_mobs = list(
 						/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/cow, /mob/living/simple_animal/corgi/fox,
-						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/alien, /mob/living/simple_animal/hostile/giant_spider,
+						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/giant_spider,
 						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/human,
 						/mob/living/simple_animal/pig)
 

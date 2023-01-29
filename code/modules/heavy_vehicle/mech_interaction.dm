@@ -153,6 +153,10 @@
 	if(A == src)
 		setClickCooldown(5)
 		return attack_self(user)
+	else if(istype(A, /obj/structure/inflatable/door) && a_intent == I_HELP) //allow mech to open inflatables
+		var/obj/structure/inflatable/door/D = A
+		D.TryToSwitchState(user)
+		return
 	else if(adj)
 		setClickCooldown(arms ? arms.action_delay : 15)
 		playsound(src.loc, arms.punch_sound, 45 + 25 * (arms.melee_damage / 50), -1 )
@@ -173,7 +177,7 @@
 		if(H)
 			H.color = "#FF0000"
 	if(next_move > old_next_move) // TIMER_OVERRIDE would not work here, because the smaller delays tend to be called after the longer ones
-		addtimer(CALLBACK(src, .proc/reset_hardpoint_color), timeout)
+		addtimer(CALLBACK(src, PROC_REF(reset_hardpoint_color)), timeout)
 
 /mob/living/heavy_vehicle/proc/reset_hardpoint_color()
 	for(var/hardpoint in hardpoint_hud_elements)
@@ -562,7 +566,7 @@
 
 /mob/living/heavy_vehicle/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if(can_listen())
-		addtimer(CALLBACK(src, .proc/handle_hear_say, speaker, message), 0.5 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(handle_hear_say), speaker, message), 0.5 SECONDS)
 	return ..()
 
 // heavily commented so it doesn't look like one fat chunk of code, which it still does - Geeves
@@ -665,7 +669,7 @@
 				if(toggle_lock())
 					say("Hatch [hatch_locked ? "locked" : "unlocked"].")
 				return
-			
+
 			// unlink the leader to get a new one
 			if(findtext(text, "unlink"))
 				if(!maintenance_protocols) // Can't lock yourself out
@@ -675,7 +679,7 @@
 				unassign_leader()
 				say("Leader dropped, awaiting new leader.")
 				return
-			
+
 			// stop following who you were assigned to follow
 			if(findtext(text, "stop"))
 				unassign_following()

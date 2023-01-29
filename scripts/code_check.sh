@@ -22,7 +22,7 @@ else
 fi
 
 echo "Checking for step_x and step_y in maps:" >> code_error.log
-grep 'step_[xy]' maps/**/*.dmm >> code_error.log
+grep -r 'step_[xy]' --include \*.dmm maps >> code_error.log
 if [ $? -eq 0 ]; then
     ERROR_COUNT=$(($ERROR_COUNT+1))
     echo "FAIL: Found step_x or step_y in maps" >> code_error.log
@@ -100,6 +100,15 @@ if [ $? -eq 0 ]; then
     echo "FAIL: Found edge = 0/1 in code" >> code_error.log
 else
     echo "PASS: Did not find edge = 0/1 in code:" >> code_error.log
+fi
+
+echo "Checking for 515 proc syntax" >> code_error.log
+grep '\.proc/' >> code_error.log
+if [ $? -eq 0 ]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo -e "FAIL: Outdated proc reference use detected in code, please use proc reference helpers."
+else
+    echo "PASS: Did not find outdated proc references."
 fi
 
 echo "Found $ERROR_COUNT errors while performing code check"

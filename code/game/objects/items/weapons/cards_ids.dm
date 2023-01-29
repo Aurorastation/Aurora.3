@@ -454,8 +454,8 @@ var/const/NO_EMAG_ACT = -50
 	desc = "An ID straight from CentCom. Internal Affairs."
 	icon_state = "ccia"
 	overlay_state = "ccia"
-	drop_sound = /decl/sound_category/generic_drop_sound
-	pickup_sound = /decl/sound_category/generic_pickup_sound
+	drop_sound = /singleton/sound_category/generic_drop_sound
+	pickup_sound = /singleton/sound_category/generic_pickup_sound
 
 /obj/item/card/id/ccia/id_flash(var/mob/user)
     var/add_text = "Done with prejudice and professionalism, [user.get_pronoun("he")] means business."

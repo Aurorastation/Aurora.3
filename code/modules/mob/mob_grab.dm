@@ -295,7 +295,7 @@
 		if(isslime(affecting))
 			assailant.visible_message(SPAN_WARNING("[assailant] tries to squeeze [affecting], but [assailant.get_pronoun("his")] hands sink right through!"), SPAN_WARNING("You try to squeeze [affecting], but your hands sink right through!"))
 			return
-		playsound(loc, /decl/sound_category/grab_sound, 50, FALSE, -1)
+		playsound(loc, /singleton/sound_category/grab_sound, 50, FALSE, -1)
 		assailant.visible_message(SPAN_DANGER("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck!"), SPAN_DANGER("You reinforce your grip on [affecting]'s neck!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
@@ -314,7 +314,7 @@
 		hud.icon_state = "kill1"
 		hud.name = "loosen"
 		state = GRAB_KILL
-		playsound(loc, /decl/sound_category/grab_sound, 50, FALSE, -1)
+		playsound(loc, /singleton/sound_category/grab_sound, 50, FALSE, -1)
 		assailant.visible_message(SPAN_DANGER("[assailant] starts strangling [affecting]!"), SPAN_DANGER("You start strangling [affecting]!"))
 
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>is being strangled by [assailant.name] ([assailant.ckey])</font>"
@@ -419,7 +419,7 @@
 			affecting.buckled_to = null
 			affecting.update_canmove()
 			affecting.anchored = FALSE
-		moved_event.unregister(assailant, src, /obj/item/grab/proc/move_affecting)
+		moved_event.unregister(assailant, src, PROC_REF(move_affecting))
 
 	animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
 	affecting.layer = initial(affecting.layer)
@@ -476,7 +476,7 @@
 	affecting.buckled_to = assailant
 	affecting.forceMove(H.loc)
 	adjust_position()
-	moved_event.register(assailant, src, /obj/item/grab/proc/move_affecting)
+	moved_event.register(assailant, src, PROC_REF(move_affecting))
 
 /obj/item/grab/proc/set_wielding()
 	wielded = TRUE

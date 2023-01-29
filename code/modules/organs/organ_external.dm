@@ -723,7 +723,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	germ_level++
 
-	if(germ_level >= INFECTION_LEVEL_TWO && REAGENT_VOLUME(owner.reagents, /decl/reagent/thetamycin) < 5) //The presence of 5 units of thetamycin will stop infections spreading
+	if(germ_level >= INFECTION_LEVEL_TWO && REAGENT_VOLUME(owner.reagents, /singleton/reagent/thetamycin) < 5) //The presence of 5 units of thetamycin will stop infections spreading
 		//SPREADING TO INTERNAL ORGANS
 		if(isnull(infect_target_internal) || QDELETED(infect_target_internal))
 			infect_target_internal = get_infect_target(internal_organs)
@@ -970,7 +970,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(!clean)
 				 //Throw limb around.
 				if(src && istype(loc,/turf))
-					INVOKE_ASYNC(src, /atom/movable/.proc/throw_at, get_edge_target_turf(src,pick(alldirs)), rand(1,3), 30)
+					INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src,pick(alldirs)), rand(1,3), 30)
 				dir = 2
 		if(DROPLIMB_BURN)
 			new /obj/effect/decal/cleanable/ash(get_turf(victim))
@@ -985,12 +985,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(victim.species.blood_color)
 				gore.basecolor = victim.species.blood_color
 			gore.update_icon()
-			INVOKE_ASYNC(gore, /atom/movable/.proc/throw_at, get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
+			INVOKE_ASYNC(gore, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
 
 			for(var/obj/item/organ/I in internal_organs)
 				I.removed()
 				if(istype(loc,/turf))
-					INVOKE_ASYNC(I, /atom/movable/.proc/throw_at, get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
+					INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
 
 			var/turf/Tloc = get_turf(src)
 			for(var/obj/item/I in src)
@@ -998,7 +998,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 					qdel(I)
 					continue
 				I.forceMove(Tloc)
-				INVOKE_ASYNC(I, /atom/movable/.proc/throw_at, get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
+				INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
 
 			qdel(src)
 
@@ -1094,7 +1094,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		owner.emote("scream")
 		owner.flash_strong_pain()
 
-	playsound(src.loc, /decl/sound_category/fracture_sound, 100, 1, -2)
+	playsound(src.loc, /singleton/sound_category/fracture_sound, 100, 1, -2)
 	status |= ORGAN_BROKEN
 	broken_description = pick("Broken","Fracture","Hairline Fracture")
 	perma_injury = brute_dam

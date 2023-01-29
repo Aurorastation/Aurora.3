@@ -28,10 +28,8 @@ var/global/list/default_medbay_channels = list(
 //
 
 /obj/item/device/radio
+	name = "shortwave radio"
 	icon = 'icons/obj/radio.dmi'
-	name = "station bounced radio"
-	var/radio_desc = ""
-	suffix = "\[3\]"
 	icon_state = "walkietalkie"
 	item_state = "radio"
 	flags = CONDUCT
@@ -40,9 +38,11 @@ var/global/list/default_medbay_channels = list(
 	throw_range = 9
 	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
+	suffix = "\[3\]"
+	var/radio_desc = ""
 	var/const/FREQ_LISTENING = TRUE
 	var/list/internal_channels
-	var/clicksound = /decl/sound_category/button_sound //played sound on usage
+	var/clicksound = /singleton/sound_category/button_sound //played sound on usage
 	var/clickvol = 10 //volume
 
 	var/obj/item/cell/cell = /obj/item/cell/device
@@ -75,6 +75,7 @@ var/global/list/default_medbay_channels = list(
 	var/traitor_frequency = 0 //tune to frequency to unlock traitor supplies
 	var/mob/living/announcer/announcer = null // used in autosay, held by the radio for re-use
 	var/datum/wires/radio/wires = null
+	var/show_modify_on_examine = TRUE
 	var/b_stat = 0
 
 	var/list/channels = list() //see communications.dm for full list. First non-common, non-entertainment channel is a "default" for :h
@@ -87,8 +88,9 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
-	frequency = new_frequency
-	radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
+	if(new_frequency)
+		frequency = new_frequency
+		radio_connection = SSradio.add_object(src, new_frequency, RADIO_CHAT)
 
 /obj/item/device/radio/Initialize()
 	. = ..()
@@ -138,9 +140,13 @@ var/global/list/default_medbay_channels = list(
 		should_be_listening = listening
 
 	if(listening && on)
-		SSradio.add_object(src, frequency, RADIO_CHAT)
+		for(var/channel_name in channels)
+			if(channels[channel_name])
+				secure_radio_connections[channel_name] = SSradio.add_object(src, radiochannels[channel_name], RADIO_CHAT)
+		radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 	else if(!listening)
 		SSradio.remove_object_all(src)
+		radio_connection = null
 
 /**
  * setter for broadcasting that makes us not hearing sensitive if not broadcasting and hearing sensitive if broadcasting
@@ -366,7 +372,7 @@ var/global/list/default_medbay_channels = list(
 
 	announcer.PrepareBroadcast(from)
 	var/datum/weakref/speaker_weakref = WEAKREF(announcer)
-	var/datum/signal/subspace/vocal/signal = new(src, frequency, speaker_weakref, announcer.default_language, message, "states")
+	var/datum/signal/subspace/vocal/signal = new(src, connection.frequency, speaker_weakref, announcer.default_language, message, "states")
 	signal.send_to_receivers()
 	announcer.ResetAfterBroadcast()
 
@@ -447,7 +453,7 @@ var/global/list/default_medbay_channels = list(
 		return
 
 	// Non-subspace radios will check in a couple of seconds, and if the signal was never received, we send a mundane broadcast
-	addtimer(CALLBACK(src, .proc/backup_transmission, signal), 2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(backup_transmission), signal), 2 SECONDS)
 
 /obj/item/device/radio/proc/backup_transmission(datum/signal/subspace/vocal/signal)
 	var/turf/T = get_turf(src)
@@ -468,6 +474,9 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/proc/can_receive(input_frequency, list/levels)
 	// check if the radio can receive on the given frequency
+	if (!listening)
+		return
+
 	if (levels != RADIO_NO_Z_LEVEL_RESTRICTION)
 		var/turf/position = get_turf(src)
 		if (!position || !(position.z in levels))
@@ -479,13 +488,13 @@ var/global/list/default_medbay_channels = list(
 	if ((input_frequency in ANTAG_FREQS) && !syndie) //Checks to see if it's allowed on that frequency, based on the encryption keys
 		return FALSE
 
-	if (input_frequency == frequency)
-		return TRUE
-
 	for (var/ch_name in channels)
 		var/datum/radio_frequency/RF = secure_radio_connections[ch_name]
-		if (RF.frequency == input_frequency && (channels[ch_name] & FREQ_LISTENING))
-			return TRUE
+		if (RF.frequency == input_frequency)
+			return channels[ch_name]
+
+	if (input_frequency == frequency)
+		return TRUE
 
 	return FALSE
 
@@ -498,12 +507,11 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/examine(mob/user)
 	. = ..()
-	if ((in_range(src, user) || loc == user))
+	if(show_modify_on_examine && (in_range(src, user) || loc == user))
 		if (b_stat)
 			user.show_message("<span class='notice'>\The [src] can be attached and modified!</span>")
 		else
 			user.show_message("<span class='notice'>\The [src] can not be modified or attached!</span>")
-	return
 
 /obj/item/device/radio/attackby(obj/item/W as obj, mob/user as mob)
 	..()

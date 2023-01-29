@@ -17,7 +17,7 @@
 /obj/machinery/disposal
 	name = "disposal unit"
 	desc = "A pneumatic waste disposal unit."
-	icon = 'icons/obj/pipes/disposal.dmi'
+	icon = 'icons/obj/disposals.dmi'
 	icon_state = "disposal"
 	anchored = 1
 	density = 1
@@ -587,7 +587,7 @@
 			AM.forceMove(src.loc)
 			AM.pipe_eject(0)
 			if(!istype(AM,/mob/living/silicon/robot/drone)) //Poor drones kept smashing windows and taking system damage being fired out of disposals. ~Z
-				addtimer(CALLBACK(AM, /atom/movable/.proc/throw_at, target, 5, 1), 1)
+				addtimer(CALLBACK(AM, TYPE_PROC_REF(/atom/movable, throw_at), target, 5, 1), 1)
 
 		H.vent_gas(loc)
 		qdel(H)
@@ -775,7 +775,7 @@
 // Disposal pipes
 
 /obj/structure/disposalpipe
-	icon = 'icons/obj/pipes/disposal.dmi'
+	icon = 'icons/obj/disposals.dmi'
 	name = "disposal pipe"
 	desc = "An underfloor disposal pipe."
 	anchored = 1
@@ -895,7 +895,7 @@
 				AM.forceMove(T)
 				AM.pipe_eject(direction)
 				// addtimer will check AM for null.
-				addtimer(CALLBACK(AM, /atom/movable/.proc/throw_at, target, 100, 1), 1)
+				addtimer(CALLBACK(AM, TYPE_PROC_REF(/atom/movable, throw_at), target, 100, 1), 1)
 			H.vent_gas(T)
 			qdel(H)
 
@@ -907,7 +907,7 @@
 
 				AM.forceMove(T)
 				AM.pipe_eject(0)
-				addtimer(CALLBACK(AM, /atom/movable/.proc/throw_at, target, 5, 1), 1)
+				addtimer(CALLBACK(AM, TYPE_PROC_REF(/atom/movable, throw_at), target, 5, 1), 1)
 
 			H.vent_gas(T)	// all gas vent to turf
 			qdel(H)
@@ -1520,7 +1520,7 @@
 /obj/structure/disposaloutlet
 	name = "disposal outlet"
 	desc = "An outlet for the pneumatic disposal system."
-	icon = 'icons/obj/pipes/disposal.dmi'
+	icon = 'icons/obj/disposals.dmi'
 	icon_state = "outlet"
 	density = 1
 	anchored = 1
@@ -1577,8 +1577,8 @@
 	flick("outlet-open", src)
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
 	disposal_log("[src] (\ref[src]) registering timers.")
-	addtimer(CALLBACK(src, .proc/post_expel, H), 20, TIMER_UNIQUE|TIMER_CLIENT_TIME)			// Sound + gas.
-	addtimer(CALLBACK(src, .proc/post_post_expel, H), 20 + 5, TIMER_UNIQUE|TIMER_CLIENT_TIME)	// Actually throwing the items.
+	addtimer(CALLBACK(src, PROC_REF(post_expel, H)), 20, TIMER_UNIQUE|TIMER_CLIENT_TIME)			// Sound + gas.
+	addtimer(CALLBACK(src, PROC_REF(post_post_expel, H)), 20 + 5, TIMER_UNIQUE|TIMER_CLIENT_TIME)	// Actually throwing the items.
 
 /obj/structure/disposaloutlet/proc/post_expel(obj/structure/disposalholder/H)
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)

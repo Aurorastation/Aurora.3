@@ -1,16 +1,16 @@
-var/datum/observ/moved/moved_event = new()
+var/singleton/observ/moved/moved_event = new()
 
-/datum/observ/moved
+/singleton/observ/moved
 	name = "Moved"
 	expected_type = /atom/movable
 
-/datum/observ/moved/register(var/eventSource, var/datum/procOwner, var/proc_call)
+/singleton/observ/moved/register(var/eventSource, var/datum/procOwner, var/proc_call)
 	. = ..()
 	var/atom/movable/child = eventSource
 	if(.)
 		var/atom/movable/parent = child.loc
 		while(istype(parent) && !moved_event.is_listening(parent, child))
-			moved_event.register(parent, child, /atom/movable/proc/recursive_move)
+			moved_event.register(parent, child, TYPE_PROC_REF(/atom/movable, recursive_move))
 			child = parent
 			parent = child.loc
 
@@ -33,9 +33,9 @@ var/datum/observ/moved/moved_event = new()
 /atom/movable/Entered(var/atom/movable/am, atom/old_loc)
 	..()
 	if(moved_event.has_listeners(am) && !moved_event.is_listening(src, am))
-		moved_event.register(src, am, /atom/movable/proc/recursive_move)
+		moved_event.register(src, am, TYPE_PROC_REF(/atom/movable, recursive_move))
 
 /atom/movable/Exited(var/atom/movable/am, atom/old_loc)
 	..()
-	if(moved_event.is_listening(src, am, /atom/movable/proc/recursive_move))
+	if(moved_event.is_listening(src, am, TYPE_PROC_REF(/atom/movable, recursive_move)))
 		moved_event.unregister(src, am)

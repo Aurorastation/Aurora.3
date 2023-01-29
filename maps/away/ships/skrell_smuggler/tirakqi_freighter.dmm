@@ -447,6 +447,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "eMT" = (
@@ -1807,6 +1809,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
+"rQN" = (
+/obj/item/device/gps,
+/turf/space/transit/north,
+/area/space)
 "rXT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -2144,6 +2150,8 @@
 /obj/item/clothing/suit/space/void/skrell/black,
 /obj/item/clothing/head/helmet/space/void/skrell/black,
 /obj/item/clothing/head/helmet/space/void/skrell/black,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "yiR" = (
@@ -7024,7 +7032,7 @@ etL
 etL
 etL
 etL
-etL
+rQN
 que
 etL
 etL

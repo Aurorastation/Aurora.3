@@ -156,6 +156,8 @@
 			for(var/BP in mark_datum.body_parts)
 				var/obj/item/organ/external/O = organs_by_name[BP]
 				if(O)
+					if(mark_datum.robotize_type_required && O.robotize_type != mark_datum.robotize_type_required)
+						continue
 					var/list/attr = list("color" = mark_color, "datum" = mark_datum)
 					if (mark_datum.is_genetic)
 						LAZYINITLIST(O.genetic_markings)
@@ -201,7 +203,7 @@
 		custom_pain(SPAN_DANGER("<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
 		set_psi_rank(pick_n_take(faculties), allow_latency ? PSI_RANK_LATENT : PSI_RANK_OPERANT) // if set to latent, it spikes anywhere from OPERANT to PARAMOUNT
 		sleep(30)
-	addtimer(CALLBACK(psi, /datum/psi_complexus/.proc/check_latency_trigger, 100, source, TRUE), 4.5 SECONDS)
+	addtimer(CALLBACK(psi, TYPE_PROC_REF(/datum/psi_complexus, check_latency_trigger), 100, source, TRUE), 4.5 SECONDS)
 
 /mob/living/carbon/human/get_resist_power()
 	return species.resist_mod
@@ -300,8 +302,33 @@
 /mob/living/carbon/human/get_standard_pixel_y()
 	return species.icon_y_offset
 
-/mob/living/carbon/human/proc/protected_from_sound()
-	return (l_ear?.item_flags & SOUNDPROTECTION) || (r_ear?.item_flags & SOUNDPROTECTION) || (head?.item_flags & SOUNDPROTECTION)
+/mob/living/carbon/human/get_hearing_protection()
+	. = EAR_PROTECTION_NONE
+
+	if ((l_ear?.item_flags & SOUNDPROTECTION) || (r_ear?.item_flags & SOUNDPROTECTION) || (head?.item_flags & SOUNDPROTECTION))
+		return EAR_PROTECTION_MAJOR
+
+	if(istype(head, /obj/item/clothing/head/helmet) || HAS_FLAG(mutations, HULK))
+		. = EAR_PROTECTION_MODERATE
+
+	return max(EAR_PROTECTION_REDUCED, . - (get_hearing_sensitivity() / 2))
+
+/mob/living/carbon/human/noise_act(intensity = EAR_PROTECTION_MODERATE, stun_pwr = 0, damage_pwr = 0, deafen_pwr = 0)
+	intensity -= get_hearing_protection()
+
+	if(intensity <= 0)
+		return FALSE
+
+	if(stun_pwr)
+		Weaken(stun_pwr * intensity)
+
+	if(deafen_pwr || damage_pwr)
+		var/ear_damage = damage_pwr * intensity
+		var/deaf = deafen_pwr * intensity
+		adjustEarDamage(rand(1, ear_damage), deaf, TRUE)
+		sound_to(src, sound('sound/weapons/flash_ring.ogg',0,1,0,100))
+
+	return intensity
 
 /mob/living/carbon/human/get_antag_datum(var/antag_role)
 	if(!mind)
@@ -347,7 +374,7 @@
 			return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/get_hearing_sensitivity()
+/mob/living/carbon/human/get_hearing_sensitivity()
 	return species.hearing_sensitivity
 
 /mob/living/carbon/human/proc/is_listening()

@@ -3,100 +3,39 @@
 	icon_state = "flashbang"
 	item_state = "flashbang"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 1)
-	var/banglet = 0
 
 /obj/item/grenade/flashbang/prime()
 	..()
-	for(var/obj/structure/closet/L in get_hear(7, get_turf(src)))
-		if(locate(/mob/living/carbon/, L))
-			for(var/mob/living/carbon/M in L)
-				bang(get_turf(src), M)
+	var/turf/T = get_turf(src)
+	for(var/mob/living/L in get_hearers_in_view(7, src))
+		bang(T, L)
 
-	for(var/mob/living/carbon/M in get_hear(7, get_turf(src)))
-		bang(get_turf(src), M)
-
-	for(var/obj/effect/blob/B in get_hear(8,get_turf(src)))       		//Blob damage here
+	// Damage blobs
+	for(var/obj/effect/blob/B in get_hear(8,get_turf(src)))
 		var/damage = round(30/(get_dist(B,get_turf(src))+1))
 		B.health -= damage
 		B.update_icon()
 
-	single_spark(src.loc)
-	new/obj/effect/effect/smoke/illumination(src.loc, brightness=15)
+	single_spark(T)
+	new/obj/effect/effect/smoke/illumination(T, brightness=15)
 	qdel(src)
-	return
 
-/obj/item/grenade/flashbang/proc/bang(var/turf/T , var/mob/living/carbon/M)  // Added a new proc called 'bang' that takes a location and a person to be banged.
-	if (locate(/obj/item/cloaking_device, M))								// Called during the loop that bangs people in lockers/containers and when banging
-		for(var/obj/item/cloaking_device/S in M)								// people in normal view.  Could theroetically be called during other explosions.
-			S.active = 0															// -- Polymorph
-			S.icon_state = "shield0"
+/obj/item/grenade/flashbang/proc/bang(turf/T, mob/living/M)
+	to_chat(M, SPAN_DANGER("BANG!"))
+	playsound(T, 'sound/weapons/flashbang.ogg', 50, 1, 3, 0.5, 1)
 
-	to_chat(M, "<span class='danger'>BANG</span>")
-	playsound(src.loc, 'sound/weapons/flashbang.ogg', 50, 1, 3, 0.5, 1)
-
-//Checking for protections
-	var/eye_safety = 0
-	var/ear_safety = 0
-	if(iscarbon(M))
-		eye_safety = M.eyecheck(TRUE)
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
-			if(H.protected_from_sound())
-				ear_safety += 2
-			if(HAS_FLAG(H.mutations, HULK))
-				ear_safety += 1
-			if(istype(H.head, /obj/item/clothing/head/helmet))
-				ear_safety += 1
-
-//Flashing everyone
-	if(eye_safety < FLASH_PROTECTION_MODERATE)
-		M.flash_eyes()
+	if(M.flash_act(ignore_inherent = TRUE))
 		M.Weaken(10)
-			//Vaurca damage 15/01/16
-		var/mob/living/carbon/human/H = M
-		if(isvaurca(H))
-			var/obj/item/organ/internal/eyes/E = H.get_eyes()
-			if(!E)
-				return
 
-			E.flash_act()
+	// 1 - 9x/70 gives us 100% at zero, 87% at 1 turf, all the way to 10% at 7
+	var/bang_intensity = 1 - (9 * get_dist(T, M) / 70)
+	M.noise_act(intensity = EAR_PROTECTION_MAJOR, damage_pwr = 10 * bang_intensity, deafen_pwr = 15 * (1 - bang_intensity))
 
-//Now applying sound
-	if((get_dist(M, T) <= 2 || src.loc == M.loc || src.loc == M))
-		if(!(ear_safety > 0))
-			if ((prob(14) || (M == src.loc && prob(70))))
-				M.adjustEarDamage(rand(1, 10), 0, TRUE)
-			else
-				M.adjustEarDamage(rand(0, 5), 15, TRUE)
-			if(ishuman(M))
-				var/mob/living/carbon/human/H = M
-				if (H.is_listening())
-					if (H.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
-						H.Weaken(5)
-					else
-						H.Weaken(2)
+	if(M.get_hearing_sensitivity()) // we only stun if they've got sensitive ears
+		// checking for protection is handled by noise_act
+		M.noise_act(intensity = EAR_PROTECTION_MAJOR, stun_pwr = 2)
 
-	else if(get_dist(M, T) <= 5)
-		if(!ear_safety)
-			sound_to(M, sound('sound/weapons/flash_ring.ogg',0,1,0,100))
-			M.adjustEarDamage(rand(0, 3), 10, TRUE)
-			if(ishuman(M))
-				var/mob/living/carbon/human/H = M
-				if (H.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
-					H.Weaken(2)
-
-	else if(!ear_safety)
-		M.adjustEarDamage(rand(0, 1), 5, TRUE)
-
-//This really should be in mob not every check
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
-		if (E && E.damage >= E.min_bruised_damage)
-			to_chat(M, "<span class='danger'>Your eyes start to burn badly!</span>")
-			if(!banglet && !(istype(src , /obj/item/grenade/flashbang/clusterbang)))
-				if (E.damage >= E.min_broken_damage)
-					to_chat(M, "<span class='danger'>You can't see anything!</span>")
+	M.disable_cloaking_device()
 	M.update_icon()
 
 /obj/item/grenade/flashbang/clusterbang//Created by Polymorph, fixed by Sieve
@@ -134,12 +73,11 @@
 
 	icon_state = "clusterbang_segment_active"
 	active = 1
-	banglet = 1
 	var/stepdist = rand(1,4)//How far to step
 	var/temploc = src.loc//Saves the current location to know where to step away from
 	walk_away(src,temploc,stepdist)//I must go, my people need me
 	var/dettime = rand(15,60)
-	addtimer(CALLBACK(src, .proc/prime), dettime)
+	addtimer(CALLBACK(src, PROC_REF(prime)), dettime)
 	..()
 
 /obj/item/grenade/flashbang/clusterbang/segment/prime()
@@ -159,10 +97,9 @@
 	set waitfor = FALSE
 	icon_state = "flashbang_active"
 	active = 1
-	banglet = 1
 	var/stepdist = rand(1,3)
 	var/temploc = src.loc
 	walk_away(src,temploc,stepdist)
 	var/dettime = rand(15,60)
-	addtimer(CALLBACK(src, .proc/prime), dettime)
+	addtimer(CALLBACK(src, PROC_REF(prime)), dettime)
 	..()

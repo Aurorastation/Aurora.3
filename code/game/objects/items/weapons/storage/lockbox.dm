@@ -42,7 +42,7 @@
 			var/obj/item/melee/energy/blade/blade = W
 			blade.spark_system.queue()
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-			playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
+			playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
 	if(!locked)
 		..()
 	else

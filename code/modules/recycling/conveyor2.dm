@@ -92,7 +92,7 @@
 		affecting = items
 	conveying = TRUE
 
-	addtimer(CALLBACK(src,.proc/post_process, affecting),1)
+	addtimer(CALLBACK(src, PROC_REF(post_process), affecting),1)
 
 /obj/machinery/conveyor/proc/post_process(var/list/affecting)
 	for(var/af in affecting)

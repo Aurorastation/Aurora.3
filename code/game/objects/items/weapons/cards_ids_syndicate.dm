@@ -83,7 +83,7 @@
 	unset_registered_user()
 	registered_user = user
 	user.set_id_info(src)
-	destroyed_event.register(user, src, /obj/item/card/id/syndicate/proc/unset_registered_user)
+	destroyed_event.register(user, src, PROC_REF(unset_registered_user))
 	return TRUE
 
 /obj/item/card/id/syndicate/proc/unset_registered_user(var/mob/user)
@@ -262,7 +262,7 @@
 			CS.item_state = initial(ID.item_state)
 			CS.name = initial(ID.name) + " - " + initial(ID.icon_state)
 			id_card_states += CS
-		sortTim(id_card_states, /proc/cmp_cardstate, FALSE)
+		sortTim(id_card_states, GLOBAL_PROC_REF(cmp_cardstate), FALSE)
 
 	return id_card_states
 

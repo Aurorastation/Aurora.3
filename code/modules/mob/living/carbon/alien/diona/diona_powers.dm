@@ -127,7 +127,7 @@
 				D.drop_from_inventory(O)
 			D.hat = null
 			D.forceMove(src)
-			D.stat = CONSCIOUS
+			D.set_stat(CONSCIOUS)
 			status_flags |= PASSEMOTES
 			return TRUE
 	else
@@ -162,7 +162,7 @@
 
 	split_languages(gestalt)
 	forceMove(get_turf(src))
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 	gestalt = null
 	update_verbs()
 

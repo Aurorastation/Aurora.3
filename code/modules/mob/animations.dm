@@ -96,6 +96,13 @@ note dizziness decrements automatically in the mob's Life() proc.
 			if(shoegrip)
 				set_floating(FALSE)
 				return
+	else
+		if(CanAvoidGravity())
+			set_floating(TRUE)
+			return
+		else
+			set_floating(FALSE)
+			return
 
 	set_floating(TRUE)
 
@@ -189,7 +196,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 	..(A, attack_item, attack_image, initial_pixel_x, initial_pixel_y)
 
 	if(is_floating)
-		addtimer(CALLBACK(src, .proc/start_floating), 4)
+		addtimer(CALLBACK(src, PROC_REF(start_floating)), 4)
 
 	if(attack_item == FIST_ATTACK_ANIMATION) // only play the physical movement
 		return
@@ -287,4 +294,4 @@ note dizziness decrements automatically in the mob's Life() proc.
 	animate(transform = M, time = 0.6, easing = EASE_IN)
 
 	if(is_floating)
-		addtimer(CALLBACK(src, .proc/start_floating), 2.4)
+		addtimer(CALLBACK(src, PROC_REF(start_floating)), 2.4)

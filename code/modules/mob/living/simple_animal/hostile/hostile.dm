@@ -34,9 +34,12 @@
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
-	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/validator_living)
-	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, .proc/validator_bot)
-	target_type_validator_map[/obj/machinery/porta_turret] = CALLBACK(src, .proc/validator_turret)
+	setup_target_type_validators()
+
+/mob/living/simple_animal/hostile/proc/setup_target_type_validators()
+	target_type_validator_map[/mob/living] = CALLBACK(src, PROC_REF(validator_living))
+	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, PROC_REF(validator_bot))
+	target_type_validator_map[/obj/machinery/porta_turret] = CALLBACK(src, PROC_REF(validator_turret))
 
 /mob/living/simple_animal/hostile/Destroy()
 	friends = null
@@ -133,7 +136,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	return
 
 /mob/living/simple_animal/hostile/proc/see_target()
-	return (target_mob in view(10, src)) ? (TRUE) : (FALSE)
+	return check_los(src, target_mob)
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
@@ -211,7 +214,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if(target)
 		face_atom(target)
 		if(!ranged && smart_melee)
-			addtimer(CALLBACK(src, .proc/PostAttack, target), 0.6 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 0.6 SECONDS)
 		return target
 
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
@@ -255,7 +258,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 	switch(stance)
 		if(HOSTILE_STANCE_IDLE)
-			targets = ListTargets(10)
+			targets = get_targets_in_LOS(10, src)
 			target_mob = FindTarget()
 			if(destroy_surroundings && isnull(target_mob))
 				DestroySurroundings()
@@ -269,7 +272,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			if(!AttackTarget() && destroy_surroundings)	//hit a window OR a mob, not both at once
 				DestroySurroundings(TRUE)
 			if(attacked_times >= rand(0, 4))
-				targets = ListTargets(10)
+				targets = get_targets_in_LOS(10, src)
 				target_mob = FindTarget()
 				attacked_times = 0
 
@@ -284,7 +287,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] fires at \the [target]!"))
 
 	if(rapid)
-		var/datum/callback/shoot_cb = CALLBACK(src, .proc/shoot_wrapper, target, loc, src)
+		var/datum/callback/shoot_cb = CALLBACK(src, PROC_REF(shoot_wrapper), target, loc, src)
 		addtimer(shoot_cb, 1)
 		addtimer(shoot_cb, 4)
 		addtimer(shoot_cb, 6)
@@ -316,7 +319,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	Shoot(target, location, user)
 	if(casingtype)
 		new casingtype(loc)
-		playsound(src, /decl/sound_category/casing_drop_sound, 50, TRUE)
+		playsound(src, /singleton/sound_category/casing_drop_sound, 50, TRUE)
 
 /mob/living/simple_animal/hostile/proc/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)

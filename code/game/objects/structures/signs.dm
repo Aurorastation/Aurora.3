@@ -11,6 +11,7 @@
 	opacity = FALSE
 	layer = 3.5
 	w_class = ITEMSIZE_NORMAL
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 /obj/structure/sign/ex_act(severity)
 	qdel(src)
@@ -58,24 +59,6 @@
 		to_chat(user, "You fasten \the [S] with your [tool].")
 		qdel(src)
 	else ..()
-
-//
-// Christmas
-//
-
-/obj/structure/sign/christmas/lights
-	name = "christmas lights"
-	desc = "Flashy."
-	icon = 'icons/obj/christmas.dmi'
-	icon_state = "xmaslights"
-	layer = 4.9
-
-/obj/structure/sign/christmas/wreath
-	name = "wreath"
-	desc = "Prickly and overrated."
-	icon = 'icons/obj/christmas.dmi'
-	icon_state = "doorwreath"
-	layer = 5
 
 //
 // Generic Signs
@@ -737,6 +720,29 @@
 	name = "Large Old World flag"
 	flag_size = 1
 
+/obj/item/flag/red_coalition
+	name = "\improper Red Coalition flag"
+	desc = "A high quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
+	mining colony represented in the center by the alchemical symbol for iron."
+	icon_state = "coalition_flag_boxed"
+	flag_path = "redcoalition"
+
+/obj/item/flag/red_coalition/l
+	name = "large Red Coalition flag"
+	flag_size = 1
+
+/obj/structure/sign/flag/red_coalition
+	name = "\improper Red Coalition flag"
+	desc = "A high quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
+	mining colony represented in the center by the alchemical symbol for iron."
+	icon_state = "redcoalition"
+
+/obj/structure/sign/flag/red_coalition/left
+	icon_state = "redcoalition_l"
+
+/obj/structure/sign/flag/red_coalition/right
+	icon_state = "redcoalition_r"
+
 /obj/item/flag/dpra
 	name = "Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
@@ -962,14 +968,14 @@
 	They are known for their reformist ideals and scientific prowess."
 	icon_state = "volvalaad"
 
-/obj/item/flag/kazkhz
-	name = "House Kazkhz standard"
+/obj/item/flag/kazhkz
+	name = "House Kazhkz standard"
 	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
 	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
-	flag_path = "kazkhz"
+	flag_path = "kazhkz"
 
-/obj/structure/sign/flag/kazkhz
-	name = "House Kazkhz standard"
+/obj/structure/sign/flag/kazhkz
+	name = "House Kazhkz standard"
 	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
 	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
 	icon_state = "kazkhz"

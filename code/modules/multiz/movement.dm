@@ -199,7 +199,7 @@
 	if(prob(climb_chance))
 		will_succeed = TRUE
 
-	if(do_after(src, climb_speed, extra_checks  = CALLBACK(src, .proc/climb_check, will_succeed, climb_chance, climb_speed, direction, destination)))
+	if(do_after(src, climb_speed, extra_checks  = CALLBACK(src, PROC_REF(climb_check), will_succeed, climb_chance, climb_speed, direction, destination)))
 		if(will_succeed)
 			visible_message(SPAN_NOTICE("\The [src] climbs [(direction == UP) ? "upwards" : "downwards"]."),
 				SPAN_NOTICE("You climb [(direction == UP) ? "upwards" : "downwards"]."))
@@ -455,7 +455,7 @@
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /decl/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
 		return FALSE
 
 	visible_message("\The [src] falls and lands on \the [loc]!",
@@ -477,7 +477,7 @@
 			if(51 to INFINITY)
 				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, /decl/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
@@ -499,7 +499,7 @@
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /decl/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
 		return FALSE
 
 	var/combat_roll = 1
@@ -634,17 +634,17 @@
 			if(-INFINITY to 10)
 				playsound(src.loc, "sound/weapons/bladeslice.ogg", 50, 1)
 			if(11 to 50)
-				playsound(src.loc, /decl/sound_category/punch_sound, 75, 1)
+				playsound(src.loc, /singleton/sound_category/punch_sound, 75, 1)
 			if(51 to INFINITY)
 				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, /decl/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
 	// Stats.
 	SSfeedback.IncrementSimpleStat("openturf_human_falls")
-	addtimer(CALLBACK(src, .proc/post_fall_death_check), 2 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(post_fall_death_check)), 2 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 	return TRUE
 
@@ -795,7 +795,7 @@
 		forceMove(T)
 		tile_shifted = TRUE
 	follow()
-	moved_event.register(owner, src, /atom/movable/z_observer/proc/follow)
+	moved_event.register(owner, src, PROC_REF(follow))
 
 /atom/movable/z_observer/proc/follow()
 
@@ -803,7 +803,7 @@
 	forceMove(get_step(owner, UP))
 	if(isturf(src.loc))
 		var/turf/T = src.loc
-		if(T.z_flags & ZM_MIMIC_BELOW)
+		if(T && TURF_IS_MIMICING(T))
 			return
 	owner.reset_view(null)
 	owner.z_eye = null
@@ -812,14 +812,14 @@
 /atom/movable/z_observer/z_down/follow()
 	forceMove(get_step(tile_shifted ? src : owner, DOWN))
 	var/turf/T = get_turf(tile_shifted ? get_step(owner, owner.dir) : owner)
-	if(T && (T.z_flags & ZM_MIMIC_BELOW))
+	if(T && TURF_IS_MIMICING(T))
 		return
 	owner.reset_view(null)
 	owner.z_eye = null
 	qdel(src)
 
 /atom/movable/z_observer/Destroy()
-	moved_event.unregister(owner, src, /atom/movable/z_observer/proc/follow)
+	moved_event.unregister(owner, src, PROC_REF(follow))
 	owner = null
 	. = ..()
 

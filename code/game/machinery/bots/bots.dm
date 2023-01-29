@@ -1,7 +1,7 @@
 // AI (i.e. game AI, not the AI player) controlled bots
 
 /obj/machinery/bot
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	layer = MOB_LAYER
 	light_range = 3
 	use_power = POWER_USE_OFF
@@ -14,6 +14,14 @@
 	var/open = 0//Maint panel
 	var/locked = 1
 	//var/emagged = 0 //Urist: Moving that var to the general /bot tree as it's used by most bots
+
+/obj/machinery/bot/Initialize(mapload, d, populate_components, is_internal)
+	. = ..()
+	add_to_target_grid()
+
+/obj/machinery/bot/Destroy()
+	clear_from_target_grid()
+	return ..()
 
 /obj/machinery/bot/proc/turn_on()
 	if(stat)	return 0
@@ -124,7 +132,7 @@
 
 	if (on)
 		turn_off()
-	addtimer(CALLBACK(src, .proc/post_emp, was_on), severity * 300)
+	addtimer(CALLBACK(src, PROC_REF(post_emp), was_on), severity * 300)
 
 /obj/machinery/bot/proc/post_emp(was_on)
 	stat &= ~EMPED

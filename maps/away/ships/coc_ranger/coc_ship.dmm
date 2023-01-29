@@ -377,6 +377,7 @@
 /obj/item/clothing/suit/space/void/coalition,
 /obj/item/clothing/head/helmet/space/void/coalition,
 /obj/item/tank/emergency_oxygen/double,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "bIQ" = (
@@ -395,7 +396,7 @@
 "bSt" = (
 /obj/structure/table/wood,
 /obj/structure/window/basic,
-/obj/structure/sign/flag/kazkhz{
+/obj/structure/sign/flag/kazhkz{
 	pixel_y = 32
 	},
 /obj/item/clothing/head/helmet/space/void/dominia/unathi,
@@ -898,6 +899,7 @@
 	req_one_access = null
 	},
 /obj/item/tank/emergency_oxygen/double,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "eFH" = (
@@ -1488,6 +1490,7 @@
 	icon_state = "tube1"
 	},
 /obj/item/tank/emergency_oxygen/double,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "hwT" = (
@@ -1975,7 +1978,7 @@
 	},
 /obj/item/reagent_containers/food/drinks/pitcher{
 	pixel_x = -5;
-	reagents_to_add = list(/decl/reagent/drink/coffee=30)
+	reagents_to_add = list(/singleton/reagent/drink/coffee=30)
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
 	pixel_x = 6

@@ -11,6 +11,7 @@
 	var/base_state = "tube"		// base description and icon_state
 	icon_state = "tube_empty"
 	desc = "A lighting fixture."
+	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
 	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
 	use_power = POWER_USE_ACTIVE
@@ -18,6 +19,7 @@
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
 	var/brightness_power = 0.45
 	var/night_brightness_range = 6
@@ -54,6 +56,7 @@
 		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
 		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
 	)
+	init_flags = 0
 
 /obj/machinery/light/skrell
 	base_state = "skrell"
@@ -238,6 +241,11 @@
 
 	change_power_consumption((light_range * light_power) * 10, POWER_USE_ACTIVE)
 
+	if((status == LIGHT_BROKEN) || emergency_mode || (cell && !cell.fully_charged() && has_power()))
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+	else if(processing_flags)
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+
 /obj/machinery/light/proc/broken_sparks()
 	if(world.time > next_spark && !(stat & POWEROFF) && has_power())
 		spark(src, 3, alldirs)
@@ -245,10 +253,13 @@
 
 // ehh
 /obj/machinery/light/process()
-	if (cell && cell.charge != cell.maxcharge && has_power())
-		cell.charge = min(cell.maxcharge, cell.charge + 0.2)
+	if (cell && has_power())
+		cell.give(0.2)
+		if(cell.fully_charged())
+			return PROCESS_KILL
 	if (emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
 		update(FALSE)
+		return PROCESS_KILL
 	if(status == LIGHT_BROKEN)
 		broken_sparks()
 
@@ -429,12 +440,12 @@
 
 	flickering = TRUE
 	var/offset = 1
-	var/thecallback = CALLBACK(src, .proc/handle_flicker)
+	var/thecallback = CALLBACK(src, PROC_REF(handle_flicker))
 	for (var/i = 0; i < amount; i++)
 		addtimer(thecallback, offset)
 		offset += rand(5, 15)
 
-	addtimer(CALLBACK(src, .proc/end_flicker), offset)
+	addtimer(CALLBACK(src, PROC_REF(end_flicker)), offset)
 
 /obj/machinery/light/proc/handle_flicker()
 	if (status == LIGHT_OK)
@@ -476,6 +487,9 @@
 				H.visible_message(SPAN_WARNING("\The [user] completely shatters \the [src]!"), SPAN_WARNING("You shatter \the [src] completely!"), SPAN_WARNING("You hear the tinkle of breaking glass."))
 				shatter()
 				return
+
+	if(user.a_intent != I_GRAB && status == LIGHT_OK)
+		return
 
 	// create a light tube/bulb item and put it in the user's hand
 	if(inserted_light)
@@ -587,7 +601,7 @@
 // called when area power state changes
 /obj/machinery/light/power_change()
 	SHOULD_CALL_PARENT(FALSE)
-	addtimer(CALLBACK(src, .proc/handle_power_change), rand(1, 2 SECONDS), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
+	addtimer(CALLBACK(src, PROC_REF(handle_power_change)), rand(1, 2 SECONDS), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
 /obj/machinery/light/proc/handle_power_change()
 	if (has_power())

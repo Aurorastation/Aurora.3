@@ -11,7 +11,7 @@
 /*
  * Borrowbook datum
  */
-datum/borrowbook // Datum used to keep track of who has borrowed what when and for how long.
+/datum/borrowbook // Datum used to keep track of who has borrowed what when and for how long.
 	var/bookname
 	var/mobname
 	var/getdate
@@ -21,32 +21,33 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
  * Library Public Computer
  */
 /obj/machinery/librarypubliccomp
-	name = "visitor computer"
+	name = "public library computer"
+	desc = "A computer."
 	icon = 'icons/obj/library.dmi'
 	icon_state = "computer"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	var/screenstate = 0
 	var/title
 	var/category = "Any"
 	var/author
 	var/SQLquery
 
-/obj/machinery/librarypubliccomp/attack_hand(var/mob/user as mob)
+/obj/machinery/librarypubliccomp/attack_hand(var/mob/user)
 	usr.set_machine(src)
 	var/dat = "<HEAD><TITLE>Library Visitor</TITLE></HEAD><BODY>\n" // <META HTTP-EQUIV='Refresh' CONTENT='10'>
 	switch(screenstate)
 		if(0)
 			dat += {"<h2>Search Settings</h2><br>
-			<A href='?src=\ref[src];settitle=1'>Filter by Title: [title]</A><BR>
-			<A href='?src=\ref[src];setcategory=1'>Filter by Category: [category]</A><BR>
-			<A href='?src=\ref[src];setauthor=1'>Filter by Author: [author]</A><BR>
-			<A href='?src=\ref[src];search=1'>\[Start Search\]</A><BR>"}
+			<a href='?src=\ref[src];settitle=1'>Filter by Title: [title]</a><br>
+			<a href='?src=\ref[src];setcategory=1'>Filter by Category: [category]</a><br>
+			<a href='?src=\ref[src];setauthor=1'>Filter by Author: [author]</a><br>
+			<a href='?src=\ref[src];search=1'>\[Start Search\]</a><br>"}
 		if(1)
 			if(!establish_db_connection(dbcon))
-				dat += "<font color=red><b>ERROR</b>: Unable to contact External Archive. Please contact your system administrator for assistance.</font><BR>"
+				dat += "<font color=red><b>ERROR</b>: Unable to contact External Archive. Please contact your system administrator for assistance.</font><br>"
 			else if(!SQLquery)
-				dat += "<font color=red><b>ERROR</b>: Malformed search request. Please contact your system administrator for assistance.</font><BR>"
+				dat += "<font color=red><b>ERROR</b>: Malformed search request. Please contact your system administrator for assistance.</font><br>"
 			else
 				dat += {"<table>
 				<tr><td>AUTHOR</td><td>TITLE</td><td>CATEGORY</td><td>SS<sup>13</sup>BN</td></tr>"}
@@ -60,8 +61,8 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 					var/category = query.item[3]
 					var/id = query.item[4]
 					dat += "<tr><td>[author]</td><td>[title]</td><td>[category]</td><td>[id]</td></tr>"
-				dat += "</table><BR>"
-			dat += "<A href='?src=\ref[src];back=1'>\[Go Back\]</A><BR>"
+				dat += "</table><br>"
+			dat += "<a href='?src=\ref[src];back=1'>\[Go Back\]</a><br>"
 	user << browse(dat, "window=publiclibrary")
 	onclose(user, "publiclibrary")
 
@@ -79,7 +80,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 			title = null
 		title = sanitizeSQL(title)
 	if(href_list["setcategory"])
-		var/newcategory = input("Choose a category to search for:") in list("Any", "Fiction", "Non-Fiction", "Adult", "Reference", "Religion")
+		var/newcategory = input("Choose a category to search for:") in list("Any", "Fiction", "Non-Fiction", "Reference", "Religion")
 		if(newcategory)
 			category = sanitize(newcategory)
 		else
@@ -107,20 +108,18 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 	src.updateUsrDialog()
 	return
 
-
 /*
  * Library Computer
  */
-// TODO: Make this an actual /obj/machinery/computer that can be crafted from circuit boards and such
-// It is August 22nd, 2012... This TODO has already been here for months.. I wonder how long it'll last before someone does something about it.
 /obj/machinery/librarycomp
-	name = "Check-In/Out Computer"
+	name = "library computer"
+	desc = "A computer."
 	icon = 'icons/obj/library.dmi'
 	icon_state = "computer"
-	anchored = 1
-	density = 1
-	var/arcanecheckout = 0
-	var/screenstate = 0 // 0 - Main Menu, 1 - Inventory, 2 - Checked Out, 3 - Check Out a Book
+	anchored = TRUE
+	density = TRUE
+	var/arcanecheckout = FALSE
+	var/screenstate = 0 // 0: Main Menu - 1: Inventory - 2: Checked Out - 3: Check Out
 	var/sortby = "author"
 	var/buffer_book
 	var/buffer_mob
@@ -128,38 +127,44 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 	var/list/checkouts = list()
 	var/list/inventory = list()
 	var/checkoutperiod = 5 // In minutes
+	var/bibledelay = 0
+	var/is_public = FALSE
 	var/obj/machinery/libraryscanner/scanner // Book scanner that will be used when uploading books to the Archive
 
-	var/bibledelay = 0 // LOL NO SPAM (1 minute delay) -- Doohl
-
-/obj/machinery/librarycomp/attack_hand(var/mob/user as mob)
-	usr.set_machine(src)
-	var/dat = "<HEAD><TITLE>Book Inventory Management</TITLE></HEAD><BODY>\n" // <META HTTP-EQUIV='Refresh' CONTENT='10'>
+/obj/machinery/librarycomp/attack_hand(var/mob/user)
+	user.set_machine(src)
+	var/dat
+	// Public Related Code
+	if(!is_public)
+		dat = "<head><title>[current_map.station_name] Library Management</title></head><body>\n"
+	else
+		dat = "<head><title>[current_map.station_name] Library</title></head><body>\n"
 	switch(screenstate)
 		if(0)
 			// Main Menu
-			dat += {"<A href='?src=\ref[src];switchscreen=1'>1. View General Inventory</A><BR>
-			<A href='?src=\ref[src];switchscreen=2'>2. View Checked Out Inventory</A><BR>
-			<A href='?src=\ref[src];switchscreen=3'>3. Check out a Book</A><BR>
-			<A href='?src=\ref[src];switchscreen=4'>4. Connect to External Archive</A><BR>
-			<A href='?src=\ref[src];switchscreen=5'>5. Upload New Title to Archive</A><BR>
-			<A href='?src=\ref[src];switchscreen=6'>6. Print a Bible</A><BR>"}
-			if(src.emagged)
-				dat += "<A href='?src=\ref[src];switchscreen=7'>7. Access the Forbidden Lore Vault</A><BR>"
-			if(src.arcanecheckout)
-				new /obj/item/book/tome(src.loc)
+			dat += "<a href='?src=\ref[src];switchscreen=1'>View Stock</a><br>"
+			dat += "<a href='?src=\ref[src];switchscreen=2'>View Checked Out Books</a><br>"
+			dat += "<a href='?src=\ref[src];switchscreen=3'>Check out a Book</a><br>"
+			dat += "<a href='?src=\ref[src];switchscreen=4'>Order From Library Database</a><br>"
+			if(!is_public)
+				dat += "<a href='?src=\ref[src];switchscreen=5'>Upload New Title to Library Database</a><br>"
+			dat += "<a href='?src=\ref[src];switchscreen=6'>Print a Bible</a><br>"
+			if(emagged)
+				dat += "<a href='?src=\ref[src];switchscreen=7'>7. Access the Forbidden Lore Vault</a><br>"
+			if(arcanecheckout)
+				new /obj/item/book/tome(get_turf(src))
 				to_chat(user, "<span class='warning'>Your sanity barely endures the seconds spent in the vault's browsing window. The only thing to remind you of this when you stop browsing is a dusty old tome sitting on the desk. You don't really remember printing it.</span>")
 				user.visible_message("<span class='notice'>\The [user] stares at the blank screen for a few moments, [user.get_pronoun("his")] expression frozen in fear. When [user.get_pronoun("he")] finally awakens from it, [user.get_pronoun("he")] looks a lot older.</span>", range = 2)
-				src.arcanecheckout = 0
+				arcanecheckout = FALSE
 		if(1)
 			// Inventory
-			dat += "<H3>Inventory</H3><BR>"
+			dat += "<H3>Inventory</H3><br>"
 			for(var/obj/item/book/b in inventory)
-				dat += "[b.name] <A href='?src=\ref[src];delbook=\ref[b]'>(Delete)</A><BR>"
-			dat += "<A href='?src=\ref[src];switchscreen=0'>(Return to main menu)</A><BR>"
+				dat += "[b.name] <a href='?src=\ref[src];delbook=\ref[b]'>(Delete)</a><br>"
+			dat += "<a href='?src=\ref[src];switchscreen=0'>(<-- Return to Main Menu)</a><br>"
 		if(2)
 			// Checked Out
-			dat += "<h3>Checked Out Books</h3><BR>"
+			dat += "<h3>Checked Out Books</h3><br>"
 			for(var/datum/borrowbook/b in checkouts)
 				var/timetaken = world.time - b.getdate
 				//timetaken *= 10
@@ -172,29 +177,29 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 					timedue = "<font color=red><b>(OVERDUE)</b> [timedue]</font>"
 				else
 					timedue = round(timedue)
-				dat += {"\"[b.bookname]\", Checked out to: [b.mobname]<BR>--- Taken: [timetaken] minutes ago, Due: in [timedue] minutes<BR>
-				<A href='?src=\ref[src];checkin=\ref[b]'>(Check In)</A><BR><BR>"}
-			dat += "<A href='?src=\ref[src];switchscreen=0'>(Return to main menu)</A><BR>"
+				dat += {"\"[b.bookname]\", Checked out to: [b.mobname]<br>--- Taken: [timetaken] minutes ago, Due: in [timedue] minutes<br>
+				<a href='?src=\ref[src];checkin=\ref[b]'>(Check In)</a><br><br>"}
+			dat += "<a href='?src=\ref[src];switchscreen=0'>(<-- Return to Main Menu)</a><br>"
 		if(3)
 			// Check Out a Book
-			dat += {"<h3>Check Out a Book</h3><BR>
+			dat += {"<h3>Check Out a Book</h3><br>
 			Book: [src.buffer_book]
-			<A href='?src=\ref[src];editbook=1'>\[Edit\]</A><BR>
+			<a href='?src=\ref[src];editbook=1'>\[Edit\]</a><br>
 			Recipient: [src.buffer_mob]
-			<A href='?src=\ref[src];editmob=1'>\[Edit\]</A><BR>
-			Checkout Date : [world.time/600]<BR>
-			Due Date: [(world.time + checkoutperiod)/600]<BR>
-			(Checkout Period: [checkoutperiod] minutes) (<A href='?src=\ref[src];increasetime=1'>+</A>/<A href='?src=\ref[src];decreasetime=1'>-</A>)
-			<A href='?src=\ref[src];checkout=1'>(Commit Entry)</A><BR>
-			<A href='?src=\ref[src];switchscreen=0'>(Return to main menu)</A><BR>"}
+			<a href='?src=\ref[src];editmob=1'>\[Edit\]</a><br>
+			Checkout Date: [world.time / 600]<br>
+			Due Date: [(world.time + checkoutperiod) / 600]<br>
+			(Checkout Period: [checkoutperiod] minutes) (<a href='?src=\ref[src];increasetime=1'>+</a>/<a href='?src=\ref[src];decreasetime=1'>-</a>)<br>
+			<a href='?src=\ref[src];checkout=1'>(Commit Entry)</a><br>
+			<a href='?src=\ref[src];switchscreen=0'>(<-- Return to Main Menu)</a><br>"}
 		if(4)
 			dat += "<h3>External Archive</h3>"
 			if(!establish_db_connection(dbcon))
 				dat += "<font color=red><b>ERROR</b>: Unable to contact External Archive. Please contact your system administrator for assistance.</font>"
 			else
-				dat += {"<A href='?src=\ref[src];orderbyid=1'>(Order book by SS<sup>13</sup>BN)</A><BR><BR>
+				dat += {"<a href='?src=\ref[src];orderbyid=1'>(Order Book by ISBN)</a><br><br>
 				<table>
-				<tr><td><A href='?src=\ref[src];sort=author>AUTHOR</A></td><td><A href='?src=\ref[src];sort=title>TITLE</A></td><td><A href='?src=\ref[src];sort=category>CATEGORY</A></td><td></td></tr>"}
+				<tr><td><a href='?src=\ref[src];sort=author>AUTHOR</a></td><td><a href='?src=\ref[src];sort=title>TITLE</a></td><td><a href='?src=\ref[src];sort=category>CATEGORY</a></td><td></td></tr>"}
 				var/DBQuery/query = dbcon.NewQuery("SELECT id, author, title, category FROM ss13_library ORDER BY [sortby]")
 				query.Execute()
 
@@ -203,9 +208,9 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 					var/author = query.item[2]
 					var/title = query.item[3]
 					var/category = query.item[4]
-					dat += "<tr><td>[author]</td><td>[title]</td><td>[category]</td><td><A href='?src=\ref[src];targetid=[id]'>\[Order\]</A></td></tr>"
+					dat += "<tr><td>[author]</td><td>[title]</td><td>[category]</td><td><a href='?src=\ref[src];targetid=[id]'>\[Order\]</a></td></tr>"
 				dat += "</table>"
-			dat += "<BR><A href='?src=\ref[src];switchscreen=0'>(Return to main menu)</A><BR>"
+			dat += "<br><a href='?src=\ref[src];switchscreen=0'>(<-- Return to Main Menu)</a><br>"
 		if(5)
 			dat += "<H3>Upload a New Title</H3>"
 			if(!scanner)
@@ -214,25 +219,25 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 						scanner = S
 						break
 			if(!(scanner?.anchored))
-				dat += "<FONT color=red>No scanner found within wireless network range.</FONT><BR>"
+				dat += "<FONT color=red>No scanner found within wireless network range.</FONT><br>"
 			else if(!scanner.cache)
-				dat += "<FONT color=red>No data found in scanner memory.</FONT><BR>"
+				dat += "<FONT color=red>No data found in scanner memory.</FONT><br>"
 			else
-				dat += {"<TT>Data marked for upload...</TT><BR>
-				<TT>Title: </TT>[scanner.cache.name]<BR>"}
+				dat += {"<TT>Data marked for upload...</TT><br>
+				<TT>Title: </TT>[scanner.cache.name]<br>"}
 				if(!scanner.cache.author)
 					scanner.cache.author = "Anonymous"
-				dat += {"<TT>Author: </TT><A href='?src=\ref[src];setauthor=1'>[scanner.cache.author]</A><BR>
-				<TT>Category: </TT><A href='?src=\ref[src];setcategory=1'>[upload_category]</A><BR>
-				<A href='?src=\ref[src];upload=1'>\[Upload\]</A><BR>"}
-			dat += "<A href='?src=\ref[src];switchscreen=0'>(Return to main menu)</A><BR>"
+				dat += {"<TT>Author: </TT><a href='?src=\ref[src];setauthor=1'>[scanner.cache.author]</a><br>
+				<TT>Category: </TT><a href='?src=\ref[src];setcategory=1'>[upload_category]</a><br>
+				<a href='?src=\ref[src];upload=1'>\[Upload\]</a><br>"}
+			dat += "<a href='?src=\ref[src];switchscreen=0'>(<-- Return to Main Menu)</a><br>"
 		if(7)
 			dat += {"<h3>Accessing Forbidden Lore Vault v 1.3</h3>
 			Are you absolutely sure you want to proceed? EldritchTomes Inc. takes no responsibilities for loss of sanity resulting from this action.<p>
-			<A href='?src=\ref[src];arccheckout=1'>Yes.</A><BR>
-			<A href='?src=\ref[src];switchscreen=0'>No.</A><BR>"}
+			<a href='?src=\ref[src];arccheckout=1'>Yes.</a><br>
+			<a href='?src=\ref[src];switchscreen=0'>No.</a><br>"}
 
-	//dat += "<A HREF='?src=\ref[user];mach_close=library'>Close</A><br><br>"
+	//dat += "<a HREF='?src=\ref[user];mach_close=library'>Close</a><br><br>"
 	user << browse(dat, "window=library")
 	onclose(user, "library")
 
@@ -322,7 +327,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 		if(newauthor)
 			scanner.cache.author = newauthor
 	if(href_list["setcategory"])
-		var/newcategory = input("Choose a category: ") in list("Fiction", "Non-Fiction", "Adult", "Reference", "Religion")
+		var/newcategory = input("Choose a category: ") in list("Fiction", "Non-Fiction", "Reference", "Religion")
 		if(newcategory)
 			upload_category = newcategory
 	if(href_list["upload"])
@@ -336,12 +341,6 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 						if(!establish_db_connection(dbcon))
 							alert("Connection to Archive has been severed. Aborting.")
 						else
-							/*
-							var/sqltitle = dbcon.Quote(scanner.cache.name)
-							var/sqlauthor = dbcon.Quote(scanner.cache.author)
-							var/sqlcontent = dbcon.Quote(scanner.cache.dat)
-							var/sqlcategory = dbcon.Quote(upload_category)
-							*/
 							var/sqltitle = sanitizeSQL(scanner.cache.name)
 							var/sqlauthor = sanitizeSQL(scanner.cache.author)
 							var/sqlcontent = sanitizeSQL(scanner.cache.dat)
@@ -379,7 +378,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 				B.author = author
 				B.dat = content
 				B.icon_state = "book[rand(1,7)]"
-				src.visible_message("[src]'s printer hums as it produces a completely bound book. How did it do that?")
+				src.visible_message("\The [src]\s printer hums as it produces a book.")
 				break
 	if(href_list["orderbyid"])
 		var/orderid = input("Enter your order:") as num|null
@@ -393,11 +392,16 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 	src.updateUsrDialog()
 	return
 
+// Public Related Code
+/obj/machinery/librarycomp/public
+	name = "public library computer"
+	is_public = TRUE
+
 /*
  * Library Scanner
  */
 /obj/machinery/libraryscanner
-	name = "upload scanner"
+	name = "book scanner"
 	desc = "A machine that scans books for upload to the library database."
 	icon = 'icons/obj/library.dmi'
 	icon_state = "bigscanner"
@@ -424,18 +428,18 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 				SPAN_WARNING("You hear a ratcheting noise."))
 		anchored = !anchored
 
-/obj/machinery/libraryscanner/attack_hand(var/mob/user as mob)
+/obj/machinery/libraryscanner/attack_hand(var/mob/user)
 	usr.set_machine(src)
 	var/dat = "<HEAD><TITLE>Scanner Control Interface</TITLE></HEAD><BODY>\n" // <META HTTP-EQUIV='Refresh' CONTENT='10'>
 	if(cache)
-		dat += "<FONT color=#005500>Data stored in memory.</FONT><BR>"
+		dat += "<FONT color=#005500>Data stored in memory.</FONT><br>"
 	else
-		dat += "No data stored in memory.<BR>"
-	dat += "<A href='?src=\ref[src];scan=1'>\[Scan\]</A>"
+		dat += "No data stored in memory.<br>"
+	dat += "<a href='?src=\ref[src];scan=1'>\[Scan\]</a>"
 	if(cache)
-		dat += "       <A href='?src=\ref[src];clear=1'>\[Clear Memory\]</A><BR><BR><A href='?src=\ref[src];eject=1'>\[Remove Book\]</A>"
+		dat += "       <a href='?src=\ref[src];clear=1'>\[Clear Memory\]</a><br><br><a href='?src=\ref[src];eject=1'>\[Remove Book\]</a>"
 	else
-		dat += "<BR>"
+		dat += "<br>"
 	user << browse(dat, "window=scanner")
 	onclose(user, "scanner")
 
@@ -459,7 +463,6 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 	src.add_fingerprint(usr)
 	src.updateUsrDialog()
 	return
-
 
 /*
  * Book binder
@@ -497,7 +500,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 		playsound(T, 'sound/bureaucracy/print.ogg', 75, 1)
 		var/obj/item/book/b = new(T)
 		b.dat = O:info
-		b.name = "Print Job #" + "[rand(100, 999)]"
+		b.name = "blank book"
 		b.icon_state = "book[rand(1,7)]"
 		qdel(O)
 		return

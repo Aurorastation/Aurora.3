@@ -304,6 +304,11 @@
 #define FLASH_PROTECTION_MODERATE 1
 #define FLASH_PROTECTION_MAJOR 2
 
+#define EAR_PROTECTION_REDUCED -1
+#define EAR_PROTECTION_NONE		0
+#define EAR_PROTECTION_MODERATE 1
+#define EAR_PROTECTION_MAJOR	2
+
 #define ANIMAL_SPAWN_DELAY round(config.respawn_delay / 6)
 #define DRONE_SPAWN_DELAY  round(config.respawn_delay / 3)
 
@@ -403,6 +408,7 @@
 #define PROSTHETIC_DIONA "Unknown Model"
 #define PROSTHETIC_AUTAKH "Aut'akh Manufactured"
 #define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
+#define PROSTHETIC_TESLA_BODY "Industrial Tesla Powered Prosthetics"
 #define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
 
 //Brain Damage defines

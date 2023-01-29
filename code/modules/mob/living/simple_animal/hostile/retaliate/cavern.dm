@@ -92,7 +92,7 @@
 	melee_damage_lower = 0
 	melee_damage_upper = 0
 	attacktext = "barrels into"
-	attack_sound = /decl/sound_category/punch_sound
+	attack_sound = /singleton/sound_category/punch_sound
 	a_intent = I_HURT
 	speak_emote = list("chirps","buzzes","whirrs")
 	emote_hear = list("chirps cheerfully","buzzes","whirrs","hums placidly","chirps","hums")
@@ -119,6 +119,8 @@
 	var/ore_message = 0
 	var/target_ore
 	var/ore_count = 0
+	var/list/found_turfs = list()
+	var/scan_timer = 0
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/Initialize()
 	. = ..()
@@ -140,35 +142,62 @@
 	..()
 	if(ore_count<20)
 		FindOre()
+	else if(!scan_timer)
+		// reusing vars is funny
+		visible_message(SPAN_WARNING("\The [src] pings, \"Mineral hopper full.\""))
+		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+		scan_timer = rand(90, 150) // Life() ticks, so 3-5 minutes
+	else
+		scan_timer--
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/proc/FindOre()
-	if(!enemies.len)
-		setClickCooldown(attack_delay)
-		if(!(target_ore in ListTargets(10)))
+	if(enemies.len)
+		return
+
+	setClickCooldown(attack_delay)
+	if(target_ore && !(get_dist(src, target_ore) <= 10))
+		target_ore = null
+
+	for(var/obj/item/ore/O in oview(1, src))
+		O.forceMove(src)
+		loot += O
+		ore_count++
+		if(target_ore == O)
 			target_ore = null
-		for(var/obj/item/ore/O in oview(1,src))
-			O.forceMove(src)
-			loot += O
-			ore_count ++
-			if(target_ore == O)
-				target_ore = null
-			if(!ore_message)
-				ore_message = 1
-		if(ore_message)
-			visible_message("<span class='notice'>\The [src] collects the ore into a metallic hopper.</span>")
-			ore_message = 0
-		for(var/obj/item/ore/O in oview(7,src))
+		if(!ore_message)
+			ore_message = TRUE
+
+	if(ore_message)
+		visible_message(SPAN_NOTICE("\The [src] collects the ore into a metallic hopper."))
+		ore_message = FALSE
+
+	if(!target_ore)
+		for(var/obj/item/ore/O in oview(7, src))
 			target_ore = O
 			break
-		if(target_ore)
-			walk_to(src, target_ore, 1, move_to_delay)
-		else
-			for(var/turf/simulated/mineral/M in orange(7,src))
-				if(M.mineral)
-					rapid = 1
-					OpenFire(M)
-					rapid = 0
-					break
+
+	if(target_ore)
+		walk_to(src, target_ore, 1, move_to_delay)
+	else if(found_turfs.len)
+		for(var/turf/simulated/mineral/M in found_turfs)
+			if(!QDELETED(M) || !M.mineral)
+				found_turfs -= M
+			else
+				rapid = TRUE
+				OpenFire(M)
+				rapid = FALSE
+				break
+
+	if(!found_turfs.len && !scan_timer) // we do a little caching, it's called we do a little caching
+		for(var/turf/simulated/mineral/M in oview(7, src))
+			if(M.mineral)
+				found_turfs |= M
+
+		if(!found_turfs.len) // there's no ore left, let's not waste processing for a bit
+			scan_timer = 30 // Life() ticks
+
+	else if(scan_timer)
+		scan_timer--
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/adjustToxLoss(var/damage)
 	return
