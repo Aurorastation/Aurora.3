@@ -366,7 +366,7 @@
 	new /obj/item/ammo_magazine/mc9mm(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/einstein/fill()
-    new /obj/item/rig/merc/einstein/equipped(src)
+    new /obj/item/rig/merc/einstein(src)
     new /obj/item/clothing/head/helmet/space/void/einstein(src)
     new /obj/item/clothing/head/helmet/space/void/einstein(src)
     new /obj/item/clothing/head/helmet/space/void/einstein(src)
