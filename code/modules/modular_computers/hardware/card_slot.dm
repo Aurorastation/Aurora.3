@@ -11,7 +11,10 @@
 
 	// Storing Items
 	var/list/allowed_items = list(
-		/obj/item/pen
+		/obj/item/pen,
+		/obj/item/lipstick,
+		/obj/item/device/flashlight/pen,
+		/obj/item/clothing/mask/smokable/cigarette
 	)
 	var/obj/item/stored_item // Used for pen insertion and removal.
 
