@@ -660,6 +660,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "eTq" = (
@@ -1342,6 +1343,7 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/clothing/suit/space/void/sol/fsf,
 /obj/item/clothing/head/helmet/space/void/sol/fsf,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "iQy" = (
@@ -1675,6 +1677,7 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/clothing/suit/space/void/sol/fsf,
 /obj/item/clothing/head/helmet/space/void/sol/fsf,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "lBQ" = (
@@ -2563,7 +2566,7 @@
 "uvX" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/red,
-/mob/living/heavy_vehicle/premade/ripley/loader,
+/mob/living/heavy_vehicle/premade/ripley/loader/sol,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "uBC" = (
@@ -2619,6 +2622,7 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/clothing/suit/space/void/sol/fsf,
 /obj/item/clothing/head/helmet/space/void/sol/fsf,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "vgc" = (

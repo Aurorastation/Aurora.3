@@ -1058,7 +1058,6 @@
 	frequency = 1380;
 	id_tag = "dock_horizon_3_airlock";
 	pixel_x = 26;
-	pixel_y = 0;
 	req_one_access = list(13);
 	tag_airpump = "dock_horizon_3_pump";
 	tag_chamber_sensor = "dock_horizon_3_sensor";
@@ -5376,8 +5375,8 @@
 	},
 /obj/machinery/camera/motion{
 	c_tag = "Telecommunications - Control Room";
-	network = list("Command","Security","Telecommunications");
-	dir = 8
+	dir = 8;
+	network = list("Command","Security","Telecommunications")
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
@@ -5386,7 +5385,6 @@
 	frequency = 1380;
 	id_tag = "dock_horizon_4_airlock";
 	pixel_x = 26;
-	pixel_y = 0;
 	req_one_access = list(13);
 	tag_airpump = "dock_horizon_4_pump";
 	tag_chamber_sensor = "dock_horizon_4_sensor";
@@ -9724,11 +9722,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
@@ -10031,8 +10029,8 @@
 	},
 /obj/machinery/camera/motion{
 	c_tag = "Telecommunications - Port";
-	network = list("Command","Security","Telecommunications");
-	dir = 8
+	dir = 8;
+	network = list("Command","Security","Telecommunications")
 	},
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/carpet/rubber,
@@ -11265,7 +11263,6 @@
 	frequency = 1380;
 	id_tag = "dock_horizon_1_airlock";
 	pixel_x = 26;
-	pixel_y = 0;
 	req_one_access = list(13);
 	tag_airpump = "dock_horizon_1_pump";
 	tag_chamber_sensor = "dock_horizon_1_sensor";
@@ -12741,6 +12738,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/interrogation)
+"ksn" = (
+/obj/effect/floor_decal/spline/plain,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/bluespace_beacon,
+/turf/simulated/floor/tiled,
+/area/bridge/controlroom)
 "kso" = (
 /obj/machinery/light_switch{
 	dir = 1;
@@ -14707,11 +14715,10 @@
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "lWa" = (
-/obj/item/device/radio/beacon,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/machinery/bluespace_beacon,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "lWE" = (
@@ -16464,7 +16471,6 @@
 	},
 /obj/machinery/station_map{
 	dir = 1;
-	pixel_x = 0;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -17642,11 +17648,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
@@ -19108,7 +19114,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/station_map{
 	dir = 1;
-	pixel_x = 0;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -20399,8 +20404,8 @@
 "qDx" = (
 /obj/machinery/camera/motion{
 	c_tag = "Telecommunications - Starboard";
-	network = list("Command","Security","Telecommunications");
-	dir = 4
+	dir = 4;
+	network = list("Command","Security","Telecommunications")
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -24102,7 +24107,6 @@
 	},
 /obj/machinery/station_map{
 	dir = 1;
-	pixel_x = 0;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -27959,8 +27963,8 @@
 	icon_state = "2-8"
 	},
 /obj/effect/floor_decal/sign/m{
-	pixel_y = 4;
-	pixel_x = -10
+	pixel_x = -10;
+	pixel_y = 4
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -50402,7 +50406,7 @@ kSF
 tYp
 mim
 vcu
-wVS
+ksn
 cTN
 mVg
 qMa
@@ -51348,7 +51352,7 @@ feY
 feY
 hBq
 iTU
-lWa
+eFf
 bpd
 cEY
 gHu
@@ -51753,7 +51757,7 @@ mjb
 aTd
 jjy
 hUQ
-qyo
+lWa
 qyo
 qyo
 qyo
