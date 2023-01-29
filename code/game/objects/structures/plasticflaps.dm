@@ -25,24 +25,24 @@
 	material = SSmaterials.get_material_by_name(MATERIAL_PLASTIC)
 
 /obj/structure/plasticflaps/Destroy()
-	if (airtight)
+	if(airtight)
 		clear_airtight()
 	. = ..()
 
 /obj/structure/plasticflaps/proc/become_airtight()
 	airtight = TRUE
 	var/turf/simulated/floor/T = get_turf(loc)
-	if (istype(T))
+	if(istype(T))
 		update_nearby_tiles()
 
 /obj/structure/plasticflaps/proc/clear_airtight()
 	airtight = FALSE
 	var/turf/simulated/floor/T = get_turf(loc)
-	if (istype(T))
+	if(istype(T))
 		update_nearby_tiles()
 
 /obj/structure/plasticflaps/c_airblock()
-	if (airtight == TRUE)
+	if(airtight)
 		return AIR_BLOCKED
 	return FALSE
 
