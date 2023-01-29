@@ -674,11 +674,11 @@
 	illustration = "lightmixed"
 	starts_with = list(/obj/item/light/tube = 14, /obj/item/light/bulb = 7)
 
-/obj/item/storage/box/lights/coloredmixed
+/obj/item/storage/box/lights/colouredmixed
 	name = "box of colored lights"
 	illustration = "lightmixed"
 
-/obj/item/storage/box/lights/coloredmixed/fill() // too lazy for this one
+/obj/item/storage/box/lights/colouredmixed/fill() // too lazy for this one
 	..()
 	var/static/list/tube_colors = list(
 		/obj/item/light/tube/coloured/red,
@@ -689,12 +689,12 @@
 		/obj/item/light/tube/coloured/cyan
 	)
 	var/static/list/bulbs_colors = list(
-		/obj/item/light/bulb/colored/red,
-		/obj/item/light/bulb/colored/green,
-		/obj/item/light/bulb/colored/blue,
-		/obj/item/light/bulb/colored/magenta,
-		/obj/item/light/bulb/colored/yellow,
-		/obj/item/light/bulb/colored/cyan
+		/obj/item/light/bulb/coloured/red,
+		/obj/item/light/bulb/coloured/green,
+		/obj/item/light/bulb/coloured/blue,
+		/obj/item/light/bulb/coloured/magenta,
+		/obj/item/light/bulb/coloured/yellow,
+		/obj/item/light/bulb/coloured/cyan
 	)
 	for(var/i = 0, i < 14, i++)
 		var/type = pick(tube_colors)
@@ -703,35 +703,35 @@
 		var/type = pick(bulbs_colors)
 		new type(src)
 
-/obj/item/storage/box/lights/colored/red
+/obj/item/storage/box/lights/coloured/red
 	name = "box of red lights"
 	illustration = "lightmixed"
-	starts_with = list(/obj/item/light/tube/coloured/red = 14, /obj/item/light/bulb/colored/red = 7)
+	starts_with = list(/obj/item/light/tube/coloured/red = 14, /obj/item/light/bulb/coloured/red = 7)
 
-/obj/item/storage/box/lights/colored/green
+/obj/item/storage/box/lights/coloured/green
 	name = "box of green lights"
 	illustration = "lightmixed"
-	starts_with = list(/obj/item/light/tube/coloured/green = 14, /obj/item/light/bulb/colored/green = 7)
+	starts_with = list(/obj/item/light/tube/coloured/green = 14, /obj/item/light/bulb/coloured/green = 7)
 
-/obj/item/storage/box/lights/colored/blue
+/obj/item/storage/box/lights/coloured/blue
 	name = "box of blue lights"
 	illustration = "lightmixed"
-	starts_with = list(/obj/item/light/tube/coloured/blue = 14, /obj/item/light/bulb/colored/blue = 7)
+	starts_with = list(/obj/item/light/tube/coloured/blue = 14, /obj/item/light/bulb/coloured/blue = 7)
 
-/obj/item/storage/box/lights/colored/cyan
+/obj/item/storage/box/lights/coloured/cyan
 	name = "box of cyan lights"
 	illustration = "lightmixed"
-	starts_with = list(/obj/item/light/tube/coloured/cyan = 14, /obj/item/light/bulb/colored/cyan = 7)
+	starts_with = list(/obj/item/light/tube/coloured/cyan = 14, /obj/item/light/bulb/coloured/cyan = 7)
 
-/obj/item/storage/box/lights/colored/yellow
+/obj/item/storage/box/lights/coloured/yellow
 	name = "box of yellow lights"
 	illustration = "lightmixed"
-	starts_with = list(/obj/item/light/tube/coloured/yellow = 14, /obj/item/light/bulb/colored/yellow = 7)
+	starts_with = list(/obj/item/light/tube/coloured/yellow = 14, /obj/item/light/bulb/coloured/yellow = 7)
 
-/obj/item/storage/box/lights/colored/magenta
+/obj/item/storage/box/lights/coloured/magenta
 	name = "box of magenta lights"
 	illustration = "lightmixed"
-	starts_with = list(/obj/item/light/tube/coloured/magenta = 14, /obj/item/light/bulb/colored/magenta = 7)
+	starts_with = list(/obj/item/light/tube/coloured/magenta = 14, /obj/item/light/bulb/coloured/magenta = 7)
 
 /obj/item/storage/box/freezer
 	name = "portable freezer"

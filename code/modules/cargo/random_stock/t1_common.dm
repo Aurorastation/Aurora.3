@@ -71,15 +71,15 @@ STOCK_ITEM_COMMON(sterile, 2)
 STOCK_ITEM_COMMON(light, 1.8)
 	new /obj/item/storage/box/lights/mixed(L)
 	if(prob(25))
-		new /obj/item/storage/box/lights/coloredmixed(L)
+		new /obj/item/storage/box/lights/colouredmixed(L)
 	if(prob(15))
 		var/type = pick( \
-			/obj/item/storage/box/lights/colored/red, \
-			/obj/item/storage/box/lights/colored/green, \
-			/obj/item/storage/box/lights/colored/blue, \
-			/obj/item/storage/box/lights/colored/cyan, \
-			/obj/item/storage/box/lights/colored/yellow, \
-			/obj/item/storage/box/lights/colored/magenta \
+			/obj/item/storage/box/lights/coloured/red, \
+			/obj/item/storage/box/lights/coloured/green, \
+			/obj/item/storage/box/lights/coloured/blue, \
+			/obj/item/storage/box/lights/coloured/cyan, \
+			/obj/item/storage/box/lights/coloured/yellow, \
+			/obj/item/storage/box/lights/coloured/magenta \
 		)
 		new type(L)
 

@@ -134,30 +134,30 @@
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	light_type = "bulb"
 
-/obj/item/light/bulb/colored
+/obj/item/light/bulb/coloured
 	randomize_colour = FALSE
 
-/obj/item/light/bulb/colored/red
+/obj/item/light/bulb/coloured/red
 	name = "red LED light bulb"
 	brightness_color = LIGHT_COLOR_SCARLET
 
-/obj/item/light/bulb/colored/green
+/obj/item/light/bulb/coloured/green
 	name = "green LED light bulb"
 	brightness_color = LIGHT_COLOR_GREEN
 
-/obj/item/light/bulb/colored/blue
+/obj/item/light/bulb/coloured/blue
 	name = "blue LED light bulb"
 	brightness_color = LIGHT_COLOR_BLUE
 
-/obj/item/light/bulb/colored/magenta
+/obj/item/light/bulb/coloured/magenta
 	name = "magenta LED light bulb"
 	brightness_color = LIGHT_COLOR_VIOLET
 
-/obj/item/light/bulb/colored/yellow
+/obj/item/light/bulb/coloured/yellow
 	name = "yellow LED light bulb"
 	brightness_color = LIGHT_COLOR_YELLOW
 
-/obj/item/light/bulb/colored/cyan
+/obj/item/light/bulb/coloured/cyan
 	name = "cyan LED light bulb"
 	brightness_color = LIGHT_COLOR_CYAN
 

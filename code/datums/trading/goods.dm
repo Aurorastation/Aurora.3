@@ -83,7 +83,7 @@
 		/obj/item/circuitboard/unary_atmos                = TRADER_BLACKLIST,
 		/obj/item/circuitboard/arcade                     = TRADER_BLACKLIST,
 		/obj/item/trash/broken_electronics                     = TRADER_BLACKLIST,
-		/obj/item/storage/box/lights/colored              = TRADER_SUBTYPES_ONLY,
+		/obj/item/storage/box/lights/coloured              = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil                               = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil/cyborg                        = TRADER_BLACKLIST,
 		/obj/item/stack/cable_coil/random                        = TRADER_BLACKLIST,
