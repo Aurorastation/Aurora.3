@@ -158,6 +158,12 @@
 	item_state = "tailcoat"
 	body_parts_covered = UPPER_TORSO|ARMS
 
+/obj/item/clothing/suit/storage/leathercoat/crosk
+	name = "crosk racing jacket"
+	desc = "A heavily stylized racing jacket covered in various logos and brands. Popular with Crosk racers and among Croskian racing enthusiasts."
+	icon_state = "crosk"
+	item_state = "crosk"
+
 /obj/item/clothing/suit/storage/toggle/bomber
 	name = "bomber jacket"
 	desc = "A thick, well-worn WW2 leather bomber jacket."
@@ -191,6 +197,12 @@
 	desc = "A thick, black leather jacket with silver zippers and buttons, crafted to evoke the image of rebellious space-biker gangs."
 	icon_state = "biker"
 	item_state = "biker"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/midriff
+	name = "cropped leather jacket"
+	desc = "A thick leather jacket that doesn't actually cover the waist. Rebel against what's expected of your jacket!"
+	icon_state = "mid"
+	item_state = "mid"
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer
 	name = "designer leather jacket"

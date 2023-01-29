@@ -31,6 +31,7 @@ datum/gear/suit/colorvest
 	jackets["black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket
 	jackets["brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket
 	jackets["biker jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/biker
+	jackets["midriff leather jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/midriff
 	jackets["designer leather jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/designer
 	jackets["designer leather jacket, black"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black
 	jackets["designer leather jacket, red"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red
@@ -41,6 +42,7 @@ datum/gear/suit/colorvest
 	jackets["military jacket, tan"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan
 	jackets["old military jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old
 	jackets["old military jacket, badge"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt
+	jackets["crosk racing jacket"] = /obj/item/clothing/suit/storage/leathercoat/crosk
 	jackets["flannel jacket, green"] = /obj/item/clothing/suit/storage/toggle/flannel
 	jackets["flannel jacket, red"] = /obj/item/clothing/suit/storage/toggle/flannel/red
 	jackets["flannel jacket, blue"] = /obj/item/clothing/suit/storage/toggle/flannel/blue
