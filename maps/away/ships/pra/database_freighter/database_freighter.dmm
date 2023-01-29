@@ -3923,6 +3923,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
+/obj/item/device/gps/science,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

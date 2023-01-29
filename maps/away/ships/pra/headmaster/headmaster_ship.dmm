@@ -454,6 +454,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/mask/breath,
 /obj/machinery/light,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2249,6 +2250,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/mask/breath,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3223,6 +3225,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/mask/breath,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3936,6 +3939,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/mask/breath,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

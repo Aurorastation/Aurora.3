@@ -377,6 +377,7 @@
 /obj/item/clothing/suit/space/void/coalition,
 /obj/item/clothing/head/helmet/space/void/coalition,
 /obj/item/tank/emergency_oxygen/double,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "bIQ" = (
@@ -898,6 +899,7 @@
 	req_one_access = null
 	},
 /obj/item/tank/emergency_oxygen/double,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "eFH" = (
@@ -1488,6 +1490,7 @@
 	icon_state = "tube1"
 	},
 /obj/item/tank/emergency_oxygen/double,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "hwT" = (

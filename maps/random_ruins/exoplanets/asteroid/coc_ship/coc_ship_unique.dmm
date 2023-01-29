@@ -1,0 +1,2350 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,10"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"aB" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "19,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"aS" = (
+/obj/structure/reagent_dispensers/fueltank{
+	reagents_to_add = null
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"aT" = (
+/obj/item/storage/firstaid/regular{
+	pixel_x = 3;
+	pixel_y = -21
+	},
+/obj/random/medical,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"ba" = (
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 8;
+	name = "shuttle airlock pressure regulator";
+	target_pressure = 50;
+	unlocked = 1
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/structure/closet/walllocker/firecloset{
+	pixel_y = 30
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"bA" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"bB" = (
+/obj/structure/lattice,
+/obj/item/material/shard,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"bH" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "5,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"bI" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "9,1"
+	},
+/obj/effect/map_effect/airlock/long{
+	door_name = "ship airlock";
+	required_access = null
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"bO" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,15"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"bQ" = (
+/obj/structure/grille/broken,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"bW" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,4";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"cc" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"ci" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,6"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"cq" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,11"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"cv" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "16,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"cx" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,12";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"cD" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "20,4";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"cE" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,7"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"cT" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/random,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt,
+/turf/simulated/floor/carpet,
+/area/template_noop)
+"dl" = (
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = -9;
+	pixel_y = 7
+	},
+/obj/item/mop,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"dG" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "1,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"ee" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "14,4";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"ef" = (
+/obj/structure/table/steel,
+/obj/item/material/knife{
+	pixel_x = -5
+	},
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = 6;
+	pixel_y = -1
+	},
+/obj/item/storage/box/drinkingglasses,
+/obj/item/reagent_containers/glass/beaker,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"eh" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "15,0"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"eo" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"ew" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"eP" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "15,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"eQ" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "20,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"eV" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "4,16";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"fc" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet,
+/area/template_noop)
+"fg" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "20,0"
+	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"fl" = (
+/obj/structure/closet/toolcloset,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/item/clothing/gloves/yellow,
+/obj/item/storage/belt/utility/full,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"fm" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"fw" = (
+/obj/machinery/recharge_station,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"fx" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/accessory/dogtags{
+	desc = "A pair of engraved metal identification tags. These belonging to a Coalition of Colonies ranger.";
+	name = "ranger dogtags";
+	pixel_x = -16
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"fP" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "7,4";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"fT" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "15,9";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"fZ" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "3,7";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"gg" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "6,3";
+	outside_part = 0
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"go" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "15,14"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"gp" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "14,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"gr" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,3";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"gB" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "2,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"gF" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,7";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"gH" = (
+/obj/structure/shuttle_part/raider,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"gQ" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A no longer functional cryogenic freezer.";
+	icon = 'icons/obj/sleeper.dmi';
+	icon_state = "body_scanner";
+	name = "dilapitated cryogenic freezer";
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/dirt{
+	layer = 3.1
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"hg" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,14";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"hh" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,12"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"hv" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,14"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"hz" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"hE" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/standard,
+/obj/item/stack/nanopaste{
+	pixel_y = 2
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"hN" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "2,0"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"hP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/loot{
+	desc = "A container for supplies.";
+	name = "supply shipment";
+	quantity = 4
+	},
+/turf/simulated/floor/wood,
+/area/template_noop)
+"in" = (
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"ir" = (
+/obj/structure/closet/walllocker/medical/secure{
+	name = "blood closet";
+	pixel_y = 32;
+	req_access = null;
+	store_mobs = 0
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"iw" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "8,4";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"iD" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,9"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"jg" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"jk" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/colored/red{
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/template_noop)
+"jl" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"jI" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "6,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"jQ" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "16,0"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"jU" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "16,16"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"jZ" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "21,3"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"km" = (
+/obj/item/reagent_containers/hypospray/autoinjector/survival{
+	pixel_y = 8
+	},
+/obj/random/medical,
+/obj/random/medical,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"kv" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "9,3";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"kz" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,5";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"kB" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "13,3"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"kG" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"kQ" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "5,0"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"li" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "12,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"lm" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "3,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"lv" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"lG" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "19,0"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"lL" = (
+/obj/structure/window/shuttle/unique/raider{
+	icon_state = "11,16";
+	name = "skipjack cockpit"
+	},
+/turf/simulated/floor/plating{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"lP" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "7,7";
+	outside_part = 0
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"mi" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "2,3";
+	outside_part = 0
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"mr" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,11";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"mu" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,8"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"mA" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "5,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"mG" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "6,3";
+	layer = 3.5;
+	outside_part = 0
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"mU" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/meter,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"mV" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,13";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"mY" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "20,16"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"ns" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "2,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"nB" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "9,4";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"nC" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "12,3";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"nF" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "17,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"nG" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/item/device/suit_cooling_unit/no_cell,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"nH" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "13,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"nI" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"nS" = (
+/obj/machinery/door/airlock/sac{
+	electrified_until = 0;
+	icon_state = "door_locked";
+	locked = 1;
+	welded = 1
+	},
+/obj/structure/inflatable/wall,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"nX" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/accessory/poncho,
+/obj/random/melee,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"nY" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"oe" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/melee,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"oh" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "15,12"
+	},
+/obj/structure/lattice/catwalk,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"oq" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "7,3";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"ow" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "14,3";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"oE" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "20,7";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"oO" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "17,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"pl" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "5,15";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"ps" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "6,15"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"pv" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "15,3";
+	layer = 3.5;
+	outside_part = 0
+	},
+/obj/structure/table/steel,
+/obj/item/weldingtool{
+	pixel_x = 11
+	},
+/obj/item/stack/cable_coil/random,
+/obj/item/cell,
+/obj/item/device/flashlight/lamp{
+	pixel_x = -6;
+	pixel_y = 14
+	},
+/obj/machinery/cell_charger{
+	pixel_x = 8;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"pw" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "13,2"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"pA" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "20,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"pK" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "17,0"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"pP" = (
+/turf/template_noop,
+/area/template_noop)
+"pS" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "4,12";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"qd" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "4,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"qn" = (
+/obj/structure/bed/stool/chair/padded/red,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"qo" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/random,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet,
+/area/template_noop)
+"qu" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "17,13";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"qH" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,8";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"qM" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "20,14";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"ra" = (
+/obj/machinery/washing_machine,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/colored/red,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"ri" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "21,7"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"ru" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "5,14";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"rF" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "6,14"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"rV" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,2"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"sf" = (
+/obj/structure/computerframe,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"sk" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"st" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,5"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"sx" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "18,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"sA" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "5,13";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"sM" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "6,13"
+	},
+/obj/structure/railing/mapped,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"sW" = (
+/obj/structure/lattice,
+/mob/living/simple_animal/hostile/carp{
+	destroy_surroundings = 0;
+	wander = 0
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"tf" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "16,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"tu" = (
+/obj/structure/railing/mapped,
+/turf/template_noop,
+/area/template_noop)
+"tw" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"tA" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,10";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"tT" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/machinery/floodlight,
+/obj/machinery/recharger/wallcharger{
+	charging_efficiency = 0.5;
+	name = "worn wall recharger";
+	pixel_x = 4;
+	pixel_y = 23
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"tU" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "20,5";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"uf" = (
+/obj/item/bedsheet/medical,
+/obj/structure/bed,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"un" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "15,13"
+	},
+/obj/structure/railing/mapped,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"uw" = (
+/obj/structure/lattice,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"uL" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "20,15";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"uO" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "21,15"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"uV" = (
+/obj/structure/lattice/catwalk,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"vo" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,4"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"vy" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "7,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"vE" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "3,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"vL" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "6,12"
+	},
+/obj/structure/lattice/catwalk,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"vO" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/mob/living/simple_animal/carp/baby,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"vQ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"vY" = (
+/obj/structure/lattice/catwalk,
+/obj/item/pickaxe/jackhammer{
+	pixel_x = -2;
+	pixel_y = 5
+	},
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"wt" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"wy" = (
+/obj/structure/lattice/catwalk,
+/obj/vehicle/bike/speeder,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"wB" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "21,2"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"wG" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "16,12";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"wH" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "19,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"wR" = (
+/obj/machinery/autolathe{
+	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
+	hacked = 1;
+	name = "modified autolathe";
+	pixel_y = 2
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"wV" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "3,0"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"xi" = (
+/mob/living/simple_animal/hostile/carp{
+	destroy_surroundings = 0;
+	dir = 1;
+	wander = 0
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"xj" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"xL" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "21,14"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"xN" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "7,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"xW" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,13"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"xX" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "21,5"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"ye" = (
+/obj/structure/lattice,
+/obj/structure/closet/crate/secure/loot,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"ym" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "13,10";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"yw" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "14,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"yy" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "21,6"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"yD" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"yH" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "15,7";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"yY" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "5,11";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"zm" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"zq" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "21,13"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"zx" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "6,11"
+	},
+/obj/structure/lattice/catwalk,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"zF" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "5,12";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"zK" = (
+/mob/living/simple_animal/hostile/carp,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"zM" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"zW" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "20,3";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"AI" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "15,11"
+	},
+/obj/structure/lattice/catwalk,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"Ba" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "20,13";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Bc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/device/binoculars,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"Bf" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/head/helmet/space/void/coalition{
+	pixel_x = -5;
+	pixel_y = 12
+	},
+/obj/item/clothing/suit/space/void/coalition,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Bi" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 6
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"BJ" = (
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"BS" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "6,10";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"BU" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "7,10";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Ca" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "8,10";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Cg" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "12,10";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Ci" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "14,10";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"CB" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "15,10";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"CD" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light/colored/red{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"CI" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/simple_animal/hostile/carp{
+	destroy_surroundings = 0;
+	dir = 8;
+	wander = 0
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"CY" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "19,3";
+	layer = 3.5;
+	outside_part = 0
+	},
+/obj/item/ammo_casing/gauss,
+/obj/item/ammo_casing/gauss,
+/obj/item/ammo_casing/gauss,
+/obj/item/ammo_casing/gauss,
+/obj/item/ammo_casing/gauss,
+/obj/item/ammo_casing/gauss,
+/obj/item/ammo_casing/gauss,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/gauss{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"DB" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
+	},
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A no longer functional cryogenic freezer.";
+	icon = 'icons/obj/sleeper.dmi';
+	icon_state = "body_scanner";
+	name = "dilapitated cryogenic freezer";
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/dirt{
+	layer = 3.1
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"DE" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "20,10";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"DK" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "21,10"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"DL" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "6,0"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"DQ" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "13,4";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Eo" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "5,9";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Er" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "6,9";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Ev" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "7,9";
+	outside_part = 0
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Ex" = (
+/obj/structure/table/steel,
+/obj/item/stack/material/phoron/full{
+	pixel_x = 12
+	},
+/obj/item/clothing/head/welding,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"EJ" = (
+/obj/structure/bed/stool/chair/padded/brown,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"ES" = (
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"EX" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"Fd" = (
+/obj/random/booze,
+/obj/structure/table/wood,
+/obj/structure/sign/flag/coalition/left{
+	pixel_x = -16;
+	pixel_y = 29
+	},
+/obj/structure/sign/flag/coalition/right{
+	pixel_x = 16;
+	pixel_y = 29
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Fm" = (
+/obj/structure/bedsheetbin{
+	pixel_y = 6
+	},
+/obj/structure/table/wood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"FF" = (
+/obj/structure/shuttle_part/raider{
+	density = 0;
+	icon_state = "21,1"
+	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"FT" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "16,9";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Gj" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"GM" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,6";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"GN" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "20,9";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"GS" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "21,9"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"GZ" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Hc" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "1,0"
+	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"Hp" = (
+/obj/structure/table/steel,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/rods/full,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Hq" = (
+/obj/random/keg,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"Hu" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "6,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"Hz" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "4,7";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"HD" = (
+/obj/structure/sink{
+	pixel_y = 28
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"HN" = (
+/obj/machinery/door/airlock/hatch{
+	icon_state = "door_locked";
+	locked = 1;
+	welded = 1
+	},
+/obj/structure/inflatable/wall,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"HO" = (
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/reagent_containers/food/snacks/meat/adhomai,
+/obj/item/reagent_containers/food/snacks/meat/adhomai,
+/obj/structure/closet/secure_closet/freezer/fridge{
+	desc = "It looks like it has not been used for some time.";
+	name = "dust-covered refrigerator"
+	},
+/obj/machinery/light/colored/red,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"HY" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"Id" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "20,8";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Ie" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,9";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Iv" = (
+/obj/machinery/door/airlock/sac{
+	electrified_until = 0
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"Iw" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"IE" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "21,8"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"IT" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "12,4";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"IY" = (
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"Ja" = (
+/obj/machinery/door/airlock/hatch,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Jk" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "15,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"Jl" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "21,4"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"Jn" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Jy" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Kf" = (
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Kk" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"KN" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/sink{
+	pixel_y = 28
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Mx" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "2,12";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Od" = (
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"Po" = (
+/obj/item/reagent_containers/cooking_container/plate/bowl{
+	pixel_y = 8
+	},
+/obj/item/storage/box/fancy/cigarettes,
+/obj/item/deck/cards{
+	pixel_y = 17
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Qe" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"QL" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "20,6";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"QZ" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "16,10";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Rr" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "18,0"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"RI" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/loot{
+	desc = "A container for supplies.";
+	name = "supply shipment";
+	quantity = 4
+	},
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"RK" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "1,15";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"RO" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,1"
+	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"Sc" = (
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Sm" = (
+/obj/structure/shuttle_part/raider{
+	density = 0;
+	icon_state = "7,0"
+	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"Sw" = (
+/obj/structure/lattice,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"Tc" = (
+/turf/simulated/floor/tiled/dark{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"TE" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "4,0"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"TJ" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "18,2";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"TK" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "14,9";
+	outside_part = 0
+	},
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Ue" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "0,3"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"Ui" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "5,10";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Uz" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "8,3"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"Vn" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "16,11";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"VR" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"VT" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "8,2"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"Xd" = (
+/obj/structure/shuttle_part/raider{
+	icon_state = "8,1"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"XI" = (
+/obj/structure/girder,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating/asteroid{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/template_noop)
+"XY" = (
+/obj/item/material/shard/shrapnel,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"Yb" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "19,13";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Yd" = (
+/turf/simulated/wall/shuttle/unique/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
+	icon_state = "7,5";
+	name = "Skipjack"
+	},
+/area/template_noop)
+"Zd" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+
+(1,1,1) = {"
+pP
+Od
+bO
+hv
+xW
+hh
+cq
+aa
+iD
+mu
+cE
+ci
+st
+vo
+Ue
+rV
+RO
+tw
+"}
+(2,1,1) = {"
+pP
+jU
+RK
+hg
+mV
+cx
+mr
+tA
+Ie
+qH
+gF
+GM
+kz
+bW
+gr
+eo
+dG
+Hc
+"}
+(3,1,1) = {"
+pP
+uw
+bB
+sf
+sf
+Mx
+nX
+Hq
+Fm
+fw
+fZ
+hE
+dl
+in
+mi
+gB
+ns
+hN
+"}
+(4,1,1) = {"
+tw
+bQ
+Tc
+uw
+Kk
+nS
+hz
+jl
+jl
+hP
+fZ
+gQ
+Bf
+zm
+Zd
+lm
+vE
+wV
+"}
+(5,1,1) = {"
+tw
+lL
+sf
+lv
+HY
+pS
+jk
+fc
+fc
+hz
+fZ
+DB
+fx
+yD
+ra
+qd
+gH
+TE
+"}
+(6,1,1) = {"
+tw
+eV
+IY
+oe
+Bc
+pS
+cT
+qo
+qo
+jl
+fZ
+ir
+zm
+wt
+km
+mA
+bH
+kQ
+"}
+(7,1,1) = {"
+tw
+mY
+pl
+ru
+sA
+zF
+yY
+Ui
+Eo
+Iv
+fZ
+KN
+uf
+aT
+mG
+jI
+Hu
+DL
+"}
+(8,1,1) = {"
+Qe
+tw
+ps
+rF
+sM
+vL
+zx
+BS
+Er
+Kf
+lP
+Ja
+Yd
+fP
+oq
+xN
+vy
+Sm
+"}
+(9,1,1) = {"
+tw
+Qe
+tw
+tw
+tu
+vY
+uV
+BU
+Ev
+Kf
+Kf
+Kf
+kG
+iw
+Uz
+VT
+Xd
+tw
+"}
+(10,1,1) = {"
+pP
+tw
+tw
+tw
+tw
+uV
+uV
+Ca
+EJ
+Kf
+Kf
+Kf
+ES
+nB
+kv
+qu
+bI
+tw
+"}
+(11,1,1) = {"
+pP
+tw
+pP
+zK
+tw
+uV
+zM
+Cg
+Fd
+Po
+Sc
+Bi
+vQ
+Jy
+Jy
+Jy
+Jy
+tw
+"}
+(12,1,1) = {"
+pP
+tw
+tw
+tw
+tw
+uV
+uV
+ym
+BJ
+BJ
+Kf
+nY
+HO
+IT
+nC
+qu
+li
+tw
+"}
+(13,1,1) = {"
+pP
+tw
+tw
+tw
+tu
+wy
+wy
+Ci
+TK
+Kf
+Kf
+nY
+ef
+DQ
+kB
+pw
+nH
+tw
+"}
+(14,1,1) = {"
+tw
+tw
+tw
+go
+un
+oh
+AI
+CB
+fT
+HD
+gg
+nI
+Yd
+ee
+ow
+yw
+gp
+Od
+"}
+(15,1,1) = {"
+tw
+tw
+tw
+XI
+wG
+wG
+Vn
+QZ
+FT
+HN
+yH
+Jn
+fl
+wR
+pv
+eP
+Jk
+eh
+"}
+(16,1,1) = {"
+tw
+tw
+pP
+tw
+jg
+xi
+RI
+CD
+RI
+jg
+Hz
+mU
+sk
+qn
+Ex
+tf
+cv
+jQ
+"}
+(17,1,1) = {"
+tw
+tw
+tw
+XY
+Sw
+xj
+xj
+Od
+uw
+vO
+Hz
+ba
+nG
+bA
+Hp
+oO
+nF
+pK
+"}
+(18,1,1) = {"
+pP
+tw
+tw
+tw
+jg
+uw
+EX
+CI
+RI
+RI
+Hz
+tT
+Iw
+cc
+aS
+TJ
+sx
+Rr
+"}
+(19,1,1) = {"
+pP
+tw
+tw
+tw
+Od
+ye
+sW
+RI
+Gj
+VR
+Yb
+fm
+GZ
+ew
+CY
+wH
+aB
+lG
+"}
+(20,1,1) = {"
+pP
+tw
+pP
+tw
+uL
+qM
+Ba
+DE
+GN
+Id
+oE
+QL
+tU
+cD
+zW
+eQ
+pA
+fg
+"}
+(21,1,1) = {"
+pP
+pP
+pP
+tw
+uO
+xL
+zq
+DK
+GS
+IE
+ri
+yy
+xX
+Jl
+jZ
+wB
+FF
+tw
+"}

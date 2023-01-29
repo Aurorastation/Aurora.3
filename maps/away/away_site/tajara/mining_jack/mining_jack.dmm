@@ -783,6 +783,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/device/gps/mining,
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
 	},
@@ -1035,6 +1036,7 @@
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/machinery/light,
+/obj/item/device/gps/mining,
 /turf/simulated/floor/tiled/steel{
 	temperature = 278.15
 	},

@@ -2763,6 +2763,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/engineering)
 "kAt" = (
@@ -3215,6 +3216,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/dominia/voidsman,
 /obj/item/clothing/head/helmet/space/void/dominia/voidsman,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/engineering)
 "mcE" = (

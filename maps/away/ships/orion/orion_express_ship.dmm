@@ -2575,6 +2575,8 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "sJD" = (
@@ -2895,6 +2897,8 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "uzX" = (
