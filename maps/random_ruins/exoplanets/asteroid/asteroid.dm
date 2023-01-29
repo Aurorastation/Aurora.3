@@ -55,7 +55,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
-	suffixes = list("asteroid/sol_ship/sol_ship_unique")
+	suffixes = list("asteroid/sol_ship/sol_ship_unique.dmm")
 
 	ruin_tags = RUIN_HUMAN|RUIN_WRECK|RUIN_VOID
 
