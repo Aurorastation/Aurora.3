@@ -71,7 +71,7 @@ STOCK_ITEM_COMMON(sterile, 2)
 STOCK_ITEM_COMMON(light, 1.8)
 	new /obj/item/storage/box/lights/mixed(L)
 	if(prob(25))
-		new /obj/item/storage/box/lights/colouredmixed(L)
+		new /obj/item/storage/box/lights/coloured/mixed(L)
 	if(prob(15))
 		var/type = pick( \
 			/obj/item/storage/box/lights/coloured/red, \

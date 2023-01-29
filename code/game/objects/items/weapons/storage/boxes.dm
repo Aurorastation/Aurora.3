@@ -674,11 +674,11 @@
 	illustration = "lightmixed"
 	starts_with = list(/obj/item/light/tube = 14, /obj/item/light/bulb = 7)
 
-/obj/item/storage/box/lights/colouredmixed
+/obj/item/storage/box/lights/coloured/mixed
 	name = "box of colored lights"
 	illustration = "lightmixed"
 
-/obj/item/storage/box/lights/colouredmixed/fill() // too lazy for this one
+/obj/item/storage/box/lights/coloured/mixed/fill() // too lazy for this one
 	..()
 	var/static/list/tube_colors = list(
 		/obj/item/light/tube/coloured/red,

@@ -1039,7 +1039,7 @@
 		/obj/item/storage/box/lights/coloured/magenta = 0.1,
 		/obj/item/storage/box/lights/coloured/red = 0.1,
 		/obj/item/storage/box/lights/coloured/yellow = 0.1,
-		/obj/item/storage/box/lights/colouredmixed = 0.2,
+		/obj/item/storage/box/lights/coloured/mixed = 0.2,
 		/obj/item/storage/box/masks = 0.5,
 		/obj/item/storage/box/mousetraps = 0.3,
 		/obj/item/storage/box/pineapple = 0.1,
