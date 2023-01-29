@@ -80,3 +80,12 @@
 	desc = "A crate containing gear for a single individual.The voidsuit is only usable by Tajara."
 	path = /obj/structure/closet/crate/secure/gear_loadout/kosmostrelki/single
 	item_cost = 10
+
+/datum/uplink_item/item/gear_loadout/einstein
+	name = "Einstein Engines Assets (Group)"
+	path = /obj/structure/closet/crate/secure/gear_loadout/einstein
+
+/datum/uplink_item/item/gear_loadout/einstein_single
+	name = "Einstein Engines Assets (Single)"
+	path = /obj/structure/closet/crate/secure/gear_loadout/einstein/single
+	item_cost = 10
