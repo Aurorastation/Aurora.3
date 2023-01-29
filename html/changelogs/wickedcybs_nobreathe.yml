@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Added an upgrade to changelings that disables their need to breathe in order to survive. Useful for those who don't intend on getting full space adapation."
