@@ -1,0 +1,1087 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ac" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"aK" = (
+/obj/structure/closet/secure_closet/engineering_electrical{
+	req_access = null
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"bj" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"dB" = (
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/dungeon/crashed_ship)
+"dO" = (
+/obj/structure/window/reinforced,
+/obj/structure/bed/stool/chair/office/bridge{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"dX" = (
+/obj/machinery/autolathe,
+/obj/machinery/light/colored/red{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"fo" = (
+/obj/structure/closet/walllocker/emerglocker,
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/dungeon/crashed_ship)
+"fT" = (
+/obj/machinery/light/colored/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"fW" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/random/junk,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"ga" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"hk" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"hT" = (
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"il" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"iB" = (
+/obj/structure/sign/directions/medical{
+	dir = 8;
+	pixel_y = 4
+	},
+/obj/structure/sign/directions/engineering{
+	dir = 8;
+	pixel_y = -4
+	},
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/dungeon/crashed_ship)
+"jj" = (
+/obj/structure/window/reinforced,
+/obj/structure/bed/stool/chair/office/bridge,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"jt" = (
+/obj/structure/closet/crate/secure/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"kr" = (
+/obj/structure/sign/directions/security{
+	dir = 4;
+	pixel_y = 4
+	},
+/obj/structure/sign/directions/civ{
+	dir = 4;
+	pixel_y = -4
+	},
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/dungeon/crashed_ship)
+"lG" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"mi" = (
+/obj/structure/sign/securearea,
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/dungeon/crashed_ship)
+"mD" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"oz" = (
+/obj/machinery/door/airlock/highsecurity{
+	req_access = list(150)
+	},
+/turf/simulated/floor/shuttle/black,
+/area/dungeon/crashed_ship)
+"qD" = (
+/obj/structure/extinguisher_cabinet,
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/dungeon/crashed_ship)
+"qH" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"qQ" = (
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"qV" = (
+/obj/machinery/door/airlock/hatch,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"rf" = (
+/obj/random/powercell,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"rA" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/structure/computerframe,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"rK" = (
+/obj/structure/closet/sol/navy,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/black,
+/area/dungeon/crashed_ship)
+"sa" = (
+/obj/random/toolbox,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"su" = (
+/obj/structure/computerframe,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"sK" = (
+/obj/structure/grille/broken,
+/obj/structure/window/reinforced,
+/obj/item/material/shard,
+/turf/simulated/floor/plating{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"tC" = (
+/obj/structure/mech_wreckage,
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"tD" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 4
+	},
+/obj/item/clothing/accessory/sol_pin,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"uf" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/dungeon/crashed_ship)
+"vf" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"vQ" = (
+/turf/simulated/floor/plating{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"wb" = (
+/obj/machinery/light/colored/red{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"wR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"wV" = (
+/obj/structure/table/rack,
+/obj/random/tool,
+/obj/random/voidsuit/no_nanotrasen,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"xv" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"yk" = (
+/obj/structure/sign/directions/com{
+	dir = 1
+	},
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/dungeon/crashed_ship)
+"yr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"yX" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"zm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/ramp{
+	oxygen = 0;
+	nitrogen = 0
+	},
+/area/dungeon/crashed_ship)
+"Ah" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret/net,
+/turf/simulated/floor/shuttle/black,
+/area/dungeon/crashed_ship)
+"Ak" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = -2
+	},
+/obj/item/stack/material/glass/full,
+/obj/item/material/shard,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"BJ" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"Ck" = (
+/obj/effect/floor_decal/asteroid,
+/turf/template_noop,
+/area/template_noop)
+"DB" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"DN" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/railing/mapped,
+/obj/machinery/porta_turret_construct/dark,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/derelict/ship)
+"Ex" = (
+/obj/structure/sign/flag/sol,
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/dungeon/crashed_ship)
+"GJ" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/gun/projectile/pistol/sol,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"GM" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"Hv" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/template_noop,
+/area/template_noop)
+"Iw" = (
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"II" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/paper/crumpled/bloody,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"JP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/ramp{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"Lc" = (
+/obj/structure/computerframe,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"Mx" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/stamp/sol{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"Oi" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"Oz" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"Qq" = (
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict/ship)
+"QY" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/head/sol/dress/officer,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"Rg" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"Sc" = (
+/obj/structure/closet/secure_closet/engineering_welding{
+	req_access = null
+	},
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"Tj" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/black,
+/area/dungeon/crashed_ship)
+"Tp" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"TT" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"Ut" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window{
+	dir = 4;
+	req_access = list(150)
+	},
+/obj/item/clothing/suit/space/void/sol,
+/obj/item/clothing/head/helmet/space/void/sol,
+/turf/simulated/floor/shuttle/black,
+/area/dungeon/crashed_ship)
+"Uz" = (
+/obj/item/material/shard,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"UF" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"VP" = (
+/turf/template_noop,
+/area/template_noop)
+"Xs" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window{
+	dir = 4;
+	req_access = list(150)
+	},
+/obj/item/clothing/accessory/storage/bayonet,
+/turf/simulated/floor/shuttle/black,
+/area/dungeon/crashed_ship)
+"XI" = (
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/under/rank/sol,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"Yb" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/railing/mapped,
+/obj/machinery/porta_turret_construct/dark,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"Yu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret/xray{
+	check_arrest = 0;
+	check_records = 0;
+	check_wildlife = 0
+	},
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+"Zd" = (
+/obj/machinery/light/colored/red,
+/turf/simulated/floor/shuttle/dark_blue{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/dungeon/crashed_ship)
+
+(1,1,1) = {"
+VP
+VP
+VP
+VP
+VP
+VP
+Ck
+VP
+VP
+VP
+VP
+VP
+VP
+Oz
+Oz
+Oz
+Oz
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+"}
+(2,1,1) = {"
+VP
+VP
+Oz
+Oz
+Oz
+VP
+VP
+VP
+VP
+VP
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+"}
+(3,1,1) = {"
+VP
+VP
+VP
+Oz
+Oz
+Oz
+dB
+dB
+dB
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+dB
+dB
+dB
+Qq
+Oz
+Oz
+Oz
+VP
+VP
+VP
+VP
+"}
+(4,1,1) = {"
+VP
+VP
+VP
+dB
+dB
+dB
+dB
+dB
+yr
+DN
+Oz
+Oz
+Oz
+UF
+Tp
+yr
+Uz
+dB
+vQ
+dB
+dB
+Oz
+Oz
+VP
+VP
+VP
+"}
+(5,1,1) = {"
+VP
+VP
+dB
+dB
+dB
+lG
+qH
+Ex
+vf
+zm
+wR
+Oz
+Oz
+Oz
+GM
+GM
+sa
+dB
+Sc
+dX
+Ak
+dB
+Oz
+Oz
+Oz
+VP
+"}
+(6,1,1) = {"
+VP
+dB
+rA
+ga
+TT
+Mx
+dO
+mi
+GM
+dB
+dB
+Oz
+Oz
+Oz
+dB
+Iw
+BJ
+dB
+wV
+Iw
+GM
+aK
+Oz
+Oz
+VP
+VP
+"}
+(7,1,1) = {"
+VP
+Lc
+mD
+GJ
+XI
+fW
+Iw
+qV
+GM
+iB
+Iw
+Oz
+Oz
+jt
+dB
+Oz
+GM
+DB
+Iw
+Iw
+rf
+tC
+Oz
+Oz
+VP
+VP
+"}
+(8,1,1) = {"
+sK
+su
+Iw
+GM
+Yu
+qQ
+Zd
+yk
+wb
+fo
+yr
+GM
+Oz
+Oz
+qD
+GM
+fT
+dB
+dB
+fo
+dB
+dB
+Oz
+Oz
+Oz
+VP
+"}
+(9,1,1) = {"
+hk
+Rg
+tD
+QY
+bj
+xv
+GM
+qV
+GM
+kr
+Oz
+hT
+Oz
+Oz
+dB
+GM
+GM
+dB
+rK
+Ut
+Xs
+dB
+Oz
+Oz
+Oz
+Oz
+"}
+(10,1,1) = {"
+dB
+dB
+Rg
+Oi
+ac
+II
+jj
+mi
+GM
+dB
+Oz
+Oz
+GM
+dB
+Oz
+Oz
+yr
+dB
+Tj
+Tj
+Tj
+dB
+Oz
+Oz
+Oz
+Oz
+"}
+(11,1,1) = {"
+VP
+dB
+dB
+dB
+dB
+il
+yX
+Ex
+vf
+JP
+wR
+Oz
+Oz
+Oz
+Oz
+Oz
+GM
+oz
+Tj
+Tj
+Ah
+dB
+Oz
+Oz
+Oz
+Oz
+"}
+(12,1,1) = {"
+VP
+Oz
+dB
+dB
+dB
+dB
+dB
+dB
+GM
+Yb
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+dB
+Tj
+Tj
+Tj
+dB
+dB
+Oz
+Oz
+VP
+"}
+(13,1,1) = {"
+Oz
+Oz
+Oz
+Oz
+Oz
+dB
+dB
+dB
+uf
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+dB
+dB
+dB
+dB
+dB
+dB
+Oz
+Oz
+Oz
+VP
+"}
+(14,1,1) = {"
+Oz
+Oz
+Oz
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+Oz
+Hv
+VP
+Oz
+Oz
+Oz
+VP
+VP
+VP
+"}
+(15,1,1) = {"
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+Oz
+Oz
+Oz
+VP
+VP
+VP
+VP
+VP
+VP
+VP
+"}
