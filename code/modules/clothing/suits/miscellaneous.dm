@@ -161,8 +161,10 @@
 /obj/item/clothing/suit/storage/leathercoat/crosk
 	name = "crosk racing jacket"
 	desc = "A heavily stylized racing jacket covered in various logos and brands. Popular with Crosk racers and among Croskian racing enthusiasts."
+	icon = 'icons/clothing/suits/coats/crosk_racing_jacket.dmi'
 	icon_state = "crosk"
 	item_state = "crosk"
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/bomber
 	name = "bomber jacket"
@@ -200,9 +202,11 @@
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/midriff
 	name = "cropped leather jacket"
+	icon = 'icons/clothing/suits/coats/cropped_leather_jacket.dmi'
 	desc = "A thick leather jacket that doesn't actually cover the waist. Rebel against what's expected of your jacket!"
 	icon_state = "mid"
 	item_state = "mid"
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer
 	name = "designer leather jacket"
