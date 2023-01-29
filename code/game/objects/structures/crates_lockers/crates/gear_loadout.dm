@@ -377,7 +377,7 @@
     new /obj/item/clothing/suit/space/void/einstein(src)
     new /obj/item/clothing/suit/space/void/einstein(src)
     new /obj/item/clothing/suit/space/void/einstein(src)
-    new /obj/item/projectile/energy/blaster/heavy(src)
+    new /obj/item/gun/energy/laser/shotgun(src)
     new /obj/item/gun/energy/rifle(src)
     new /obj/item/gun/energy/rifle(src)
     new /obj/item/gun/projectile/pistol(src)
