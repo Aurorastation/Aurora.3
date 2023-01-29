@@ -582,7 +582,7 @@
 	overlay_state = "iron"
 
 /obj/item/clothing/accessory/medal/homeland_defense
-	name = "medal for the evacuation of das'nrra"
+	name = "medal for the defense of the homeland"
 	desc = "A medal awarded to those who fought alongside the S'rand'marr Coalition in 2461. This was the last medal issued concerning the Second Revolution."
 	icon_state = "homeland_defense"
 	overlay_state = "gold"
@@ -629,7 +629,7 @@
 	icon_state = "kingdom_defense"
 	overlay_state = "iron"
 
-/obj/item/clothing/accessory/medal/kingdom_defense
+/obj/item/clothing/accessory/medal/harrmasir_offensive
 	name = "medal for the harr'masir offensive"
 	desc = "An award bestowed to the military personnel who took part in the final offensive to liberate Harr'masir from Hadiist occupation in 2461."
 	icon_state = "harrmasir_offensive"
