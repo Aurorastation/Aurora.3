@@ -337,7 +337,7 @@
 	icon_state = "phoron_punch"
 	center_of_mass = list("x"=16, "y"=8)
 	can_size_overrides = list("x" = 1)
-	reagents_to_add = list(/singleton/reagent/kois/clean = 10, /singleton/reagent/toxin/phoron/base = 5)
+	reagents_to_add = list(/singleton/reagent/kois/clean = 10, /singleton/reagent/toxin/phoron/pure = 5)
 
 /obj/item/reagent_containers/food/drinks/cans/root_beer
 	name = "\improper RnD Root Beer"

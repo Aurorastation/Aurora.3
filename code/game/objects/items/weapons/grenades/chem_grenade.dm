@@ -224,7 +224,7 @@
 
 	B1.reagents.add_reagent(/singleton/reagent/aluminum, 15)
 	B1.reagents.add_reagent(/singleton/reagent/fuel,20)
-	B2.reagents.add_reagent(/singleton/reagent/toxin/phoron/base, 15)
+	B2.reagents.add_reagent(/singleton/reagent/toxin/phoron/pure, 15)
 	B2.reagents.add_reagent(/singleton/reagent/acid, 15)
 	B1.reagents.add_reagent(/singleton/reagent/fuel,20)
 

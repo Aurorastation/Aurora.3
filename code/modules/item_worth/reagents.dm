@@ -726,7 +726,7 @@
 /singleton/reagent/toxin/carpotoxin
 	value = 3
 
-/singleton/reagent/toxin/phoron/base
+/singleton/reagent/toxin/phoron/pure
 	value = 10
 
 /singleton/reagent/toxin/cyanide

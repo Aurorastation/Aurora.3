@@ -438,7 +438,7 @@
 	trash = /obj/item/trash/koisbar
 	filling_color = "#dcd9cd"
 	bitesize = 5
-	reagents_to_add = list(/singleton/reagent/kois/clean = 10, /singleton/reagent/toxin/phoron/base = 15)
+	reagents_to_add = list(/singleton/reagent/kois/clean = 10, /singleton/reagent/toxin/phoron/pure = 15)
 
 /obj/item/reagent_containers/food/snacks/koisbar
 	name = "organic k'ois bar"
@@ -656,7 +656,7 @@
 		if(4)
 			reagents.add_reagent(/singleton/reagent/nutriment/sprinkles, 3)
 		if(5)
-			reagents.add_reagent(/singleton/reagent/toxin/phoron/base, 3)
+			reagents.add_reagent(/singleton/reagent/toxin/phoron/pure, 3)
 		if(6)
 			reagents.add_reagent(/singleton/reagent/nutriment/coco, 3)
 		if(7)
@@ -5563,7 +5563,7 @@
 	desc = "Rock candy popular in Flagsdale. Actually contains phoron."
 	icon_state = "rock_candy"
 	filling_color = "#ff22d9"
-	reagents_to_add = list(/singleton/reagent/toxin/phoron/base = 25)
+	reagents_to_add = list(/singleton/reagent/toxin/phoron/pure = 25)
 	bitesize = 5
 	trash = /obj/item/trash/phoroncandy
 

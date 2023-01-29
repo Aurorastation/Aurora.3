@@ -327,7 +327,7 @@
 	var/list/sheet_reagents = list( //have a number of reagents which is a factor of REAGENTS_PER_SHEET (default 20) unless you like decimals
 		/obj/item/stack/material/iron = list(/singleton/reagent/iron),
 		/obj/item/stack/material/uranium = list(/singleton/reagent/uranium),
-		/obj/item/stack/material/phoron = list(/singleton/reagent/toxin/phoron/base),
+		/obj/item/stack/material/phoron = list(/singleton/reagent/toxin/phoron/pure),
 		/obj/item/stack/material/gold = list(/singleton/reagent/gold),
 		/obj/item/stack/material/silver = list(/singleton/reagent/silver),
 		/obj/item/stack/material/platinum = list(/singleton/reagent/platinum),

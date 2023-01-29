@@ -207,7 +207,7 @@
 
 /obj/item/reagent_containers/inhaler/phoron/Initialize()
 	. =..()
-	reagents.add_reagent(/singleton/reagent/toxin/phoron/base, volume)
+	reagents.add_reagent(/singleton/reagent/toxin/phoron/pure, volume)
 	update_icon()
 	return
 
@@ -221,7 +221,7 @@
 
 /obj/item/reagent_containers/inhaler/phoron_special/Initialize()
 	. =..()
-	reagents.add_reagent(/singleton/reagent/toxin/phoron/base, volume)
+	reagents.add_reagent(/singleton/reagent/toxin/phoron/pure, volume)
 	update_icon()
 	return
 
