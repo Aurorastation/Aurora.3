@@ -5175,7 +5175,7 @@
 /area/maintenance/interstitial_cargo)
 "nx" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/storage/box/lights/coloredmixed,
+/obj/item/storage/box/lights/coloured/mixed,
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/bag/inflatable,
 /obj/item/device/floor_painter,
