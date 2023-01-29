@@ -120,14 +120,12 @@
 /obj/item/rig/merc/einstein //For the Einstein Merc kit
     name = "paragon suit control module"
     desc = "A back mounted control mechanism of an Einstein Engines hardsuit. This model is issued to the leaders of security teams in the corporation."
-    suit_type = "apotheosis"
+    suit_type = "paragon"
     icon = 'icons/clothing/rig/apotheosis.dmi'
     icon_state = "apotheosis"
-
     allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
-
     species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
-
+	icon_supported_species_tags = list()
     initial_modules = list(
         /obj/item/rig_module/power_sink,
         /obj/item/rig_module/mounted/ion,
