@@ -137,9 +137,9 @@
 
 	ruin_tags = RUIN_HUMAN
 
-/datum/map_template/ruin/exoplanet/crashed_pod
+/datum/map_template/ruin/exoplanet/crashed_pod_1
 	name = "Crashed Pod"
-	id = "crashed_pod"
+	id = "crashed_pod_1"
 	description = "A crashed pod."
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS|TEMPLATE_FLAG_NO_RUINS
 

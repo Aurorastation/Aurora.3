@@ -22,7 +22,7 @@
 		/datum/map_template/ruin/exoplanet/abandoned_listening_post,
 		/datum/map_template/ruin/exoplanet/crashed_escape_pod_1,
 		/datum/map_template/ruin/exoplanet/digsite,
-		/datum/map_template/ruin/exoplanet/crashed_pod,
+		/datum/map_template/ruin/exoplanet/crashed_pod_1,
 		/datum/map_template/ruin/exoplanet/crashed_coc_skipjack,
 		/datum/map_template/ruin/exoplanet/drill_site)
  
@@ -89,7 +89,7 @@
 		/datum/map_template/ruin/exoplanet/abandoned_listening_post,
 		/datum/map_template/ruin/exoplanet/crashed_escape_pod_1,
 		/datum/map_template/ruin/exoplanet/digsite,
-		/datum/map_template/ruin/exoplanet/crashed_pod,
+		/datum/map_template/ruin/exoplanet/crashed_pod_1,
 		/datum/map_template/ruin/exoplanet/crashed_coc_skipjack,
 		/datum/map_template/ruin/exoplanet/carp_nest,
 		/datum/map_template/ruin/exoplanet/drill_site)
