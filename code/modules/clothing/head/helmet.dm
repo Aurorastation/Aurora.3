@@ -25,10 +25,59 @@
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 
+	var/has_storage = TRUE
+	var/obj/item/storage/internal/helmet/hold
+	var/slots = 1
+
 /obj/item/clothing/head/helmet/Initialize()
 	. = ..()
 	if(camera)
 		verbs += /obj/item/clothing/head/helmet/proc/toggle_camera
+	if(has_storage)
+		hold = new /obj/item/storage/internal/helmet(src)
+		hold.storage_slots = slots
+		hold.max_storage_space = slots * ITEMSIZE_SMALL
+		hold.max_w_class = ITEMSIZE_SMALL
+
+/obj/item/clothing/head/helmet/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(has_storage && slot == slot_head_str && length(hold.contents))
+		for(var/obj/item/thing in hold.contents)
+			var/icon_type = hold.helmet_storage_types[thing.type]
+			var/thing_state = icon_type == HELMET_GARB_PASS_ICON ? initial(thing.icon_state) : icon_type
+			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, thing_state))
+		I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
+	return I
+
+/obj/item/clothing/head/helmet/attack_hand(mob/user)
+	if(has_storage && !hold.handle_attack_hand(user))
+		return
+	return ..(user)
+
+/obj/item/clothing/head/helmet/MouseDrop(obj/over_object)
+	if(has_storage && !hold.handle_mousedrop(usr, over_object))
+		return
+	return ..(over_object)
+
+/obj/item/clothing/head/helmet/handle_middle_mouse_click(mob/user)
+	if(has_storage && Adjacent(user))
+		hold.open(user)
+		return TRUE
+	return FALSE
+
+/obj/item/clothing/head/helmet/attackby(obj/item/W, mob/user)
+	. = ..()
+	if(!has_storage || istype(W, /obj/item/clothing/accessory))
+		return
+	hold.attackby(W, user)
+
+/obj/item/clothing/head/helmet/emp_act(severity)
+	if(has_storage) hold.emp_act(severity)
+	return ..()
+
+/obj/item/clothing/head/helmet/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
+	if(has_storage) hold.hear_talk(M, msg, verb, speaking)
+	return ..()
 
 /obj/item/clothing/head/helmet/proc/toggle_camera()
 	set name = "Toggle Helmet Camera"
@@ -64,18 +113,21 @@
 	name = "dermal armor patch"
 	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
 	icon_state = "dermal"
+	has_storage = FALSE
 	allow_hair_covering = FALSE
 
 /obj/item/clothing/head/helmet/hop
 	name = "crew resource's hat"
 	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
 	icon_state = "hopcap"
+	has_storage = FALSE
 	flags_inv = 0
 
 /obj/item/clothing/head/helmet/formalcaptain
 	name = "parade hat"
 	desc = "No one in a commanding position should be without a perfect, white hat of ultimate authority."
 	icon_state = "officercap"
+	has_storage = FALSE
 	flags_inv = 0
 
 /obj/item/clothing/head/helmet/riot
@@ -229,6 +281,7 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
 	body_parts_covered = HEAD|FACE
 	siemens_coefficient = 1
+	has_storage = FALSE
 
 /obj/item/clothing/head/helmet/tactical
 	name = "tactical helmet"
@@ -337,6 +390,7 @@
 		melee = ARMOR_MELEE_KNIVES
 	)
 	siemens_coefficient = 0.75
+	has_storage = FALSE
 
 /obj/item/clothing/head/helmet/tank/olive
 	color = "#727c58"

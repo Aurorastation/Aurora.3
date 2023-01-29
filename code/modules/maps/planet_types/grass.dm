@@ -7,6 +7,12 @@
 	plant_colors = list("#0e1e14","#1a3e38","#5a7467","#9eab88","#6e7248", "RANDOM")
 	map_generators = list(/datum/random_map/noise/exoplanet/grass)
 
+	possible_random_ruins = list(
+		/datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01,
+		/datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01,
+		/datum/map_template/ruin/exoplanet/mystery_ship_1,
+		/datum/map_template/ruin/exoplanet/hut)
+
 /obj/effect/overmap/visitable/sector/exoplanet/grass/generate_map()
 	if(prob(40))
 		lightlevel = rand(1,7)/10	//give a chance of twilight jungle

@@ -132,8 +132,8 @@
 					var/mob_type = pick(repopulate_types)
 					var/mob/S = new mob_type(T)
 					animals += S
-					death_event.register(S, src, /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal)
-					destroyed_event.register(S, src, /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal)
+					death_event.register(S, src, PROC_REF(remove_animal))
+					destroyed_event.register(S, src, PROC_REF(remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
 				repopulating = 0
@@ -212,8 +212,8 @@
 	for(var/mob/living/simple_animal/A in living_mob_list)
 		if(A.z in map_z)
 			animals += A
-			death_event.register(A, src, /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal)
-			destroyed_event.register(A, src, /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal)
+			death_event.register(A, src, PROC_REF(remove_animal))
+			destroyed_event.register(A, src, PROC_REF(remove_animal))
 	max_animal_count = animals.len
 	for(var/type in random_map.fauna_types)
 		mobs_to_tolerate[type] = TRUE
