@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - rscadd: "The stargazer light's color now matches the space sector starlight's color."
