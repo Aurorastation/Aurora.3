@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "Forgot to properly point to the right suffix for the new ruins added."
+  - bugfix: "Hopefully fixed the active edges runtime thing regarding the ruins too."
