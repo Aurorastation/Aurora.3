@@ -4,4 +4,5 @@ delete-after: True
 
 changes:
   - bugfix: "Added cryo to the Haildstorm."
+  - bugfix: "The hailstorm now has the proper ship guns, two rotatory guns."
   - bugfix: "The NKA merchant shuttle can now dock back with its mothership."
