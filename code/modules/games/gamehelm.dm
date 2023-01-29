@@ -15,7 +15,7 @@
 
 	var/playing_game = FALSE
 	var/current_screen_state = null
-	var/static/game_type_to_state = list(
+	var/static/list/game_type_to_state = list(
 		"anime game" = "screen_anime",
 		"shooter game" = "screen_shooter",
 		"strategy game" = "screen_strategy",
@@ -27,12 +27,12 @@
 		"video service" = "screen_video",
 		"turn off the system" = null
 	)
-	var/static/non_game_states = list(
+	var/static/list/non_game_states = list(
 		"screen_music",
 		"screen_video"
 	)
 
-	var/static/game_actions = list(
+	var/static/list/game_actions = list(
 		"hits all the buttons at the same time" = "hit all the buttons at the same time",
 		"rapidly hits a bunch of buttons" = "rapidly hit a bunch of buttons",
 		"tilts the InUs Game-Helm to the right" = "tilt the InUs Game-Helm to the right",
