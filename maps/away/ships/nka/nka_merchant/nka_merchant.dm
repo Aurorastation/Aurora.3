@@ -29,7 +29,7 @@
 		"nka_merchant_ship_4"
 	)
 	initial_restricted_waypoints = list(
-		"Orbital Fleet Shuttle" = list("nav_nka_merchant_shuttle")
+		"Her Majesty's Mercantile Flotilla Shuttle" = list("nav_nka_merchant_shuttle")
 	)
 
 /obj/effect/overmap/visitable/ship/nka_merchant/New()
