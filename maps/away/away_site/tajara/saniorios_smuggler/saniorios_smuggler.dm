@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/saniorios_smuggler
 	name = "Sani'Orios"
-	description = "A gas giant composed of ammonia, Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
+	description = "A gas giant composed of ammonia. Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
 	suffixes = list("away_site/tajara/saniorios_smuggler/saniorios_smuggler.dmm")
 	sectors = list(SECTOR_SRANDMARR)
 	spawn_weight = 1
@@ -9,16 +9,15 @@
 
 /singleton/submap_archetype/saniorios_smuggler
 	map = "Sani'Orios"
-	descriptor = "A gas giant composed of ammonia, Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
+	descriptor = "A gas giant composed of ammonia. Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
 
 /obj/effect/overmap/visitable/sector/saniorios_smuggler
 	name = "Sani'Orios"
-	desc = "A gas giant composed of ammonia, Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
+	desc = "A gas giant composed of ammonia. Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
 	icon_state = "globe"
 	color = COLOR_DARK_BLUE_GRAY
 
 /obj/effect/overmap/visitable/sector/saniorios_smuggler/get_skybox_representation()
-
 	var/image/skybox_image = image('icons/skybox/planet.dmi', "")
 
 	var/image/base = image('icons/skybox/planet.dmi', "base[pick(1,2,3)]")
