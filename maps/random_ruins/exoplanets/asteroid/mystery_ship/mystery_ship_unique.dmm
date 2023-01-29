@@ -378,11 +378,11 @@
 /area/ship/mystery_ship/equipment)
 "aY" = (
 /obj/structure/mech_wreckage/powerloader,
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/equipment)
 "aZ" = (
-/obj/machinery/mech_recharger,
+/obj/machinery/mech_charger,
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/equipment)
 "ba" = (
