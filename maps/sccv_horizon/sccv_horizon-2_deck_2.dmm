@@ -2311,11 +2311,8 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
-/obj/structure/closet/wardrobe/pharmacy_white,
-/obj/item/storage/box/gloves,
 /obj/effect/floor_decal/industrial/outline/medical,
-/obj/item/clothing/glasses/safety/goggles,
-/obj/item/clothing/glasses/safety/goggles,
+/obj/structure/closet/secure_closet/chemical,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "aYE" = (
@@ -5177,11 +5174,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
-"ctz" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/tiled/white,
-/area/medical/reception)
 "cua" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/o2{
@@ -22990,9 +22982,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "ltv" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/reagent_containers/glass/bucket,
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
@@ -23002,6 +22991,9 @@
 	dir = 1;
 	pixel_y = -32
 	},
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "ltG" = (
@@ -25327,8 +25319,11 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
-/obj/structure/closet/secure_closet/chemical,
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/structure/closet/wardrobe/pharmacy_white,
+/obj/item/storage/box/gloves,
+/obj/item/clothing/glasses/safety/goggles,
+/obj/item/clothing/glasses/safety/goggles,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "mCE" = (
@@ -38610,13 +38605,15 @@
 /obj/structure/closet/walllocker/medical{
 	pixel_x = -32
 	},
-/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
-/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
 /obj/item/stack/medical/ointment,
 /obj/item/stack/medical/ointment,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/bruise_pack,
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
+/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "tiD" = (
@@ -40840,12 +40837,12 @@
 /area/rnd/research)
 "ulS" = (
 /obj/structure/table/rack,
-/obj/item/storage/toolbox/mechanical,
-/obj/item/storage/toolbox/mechanical,
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "ulV" = (
@@ -48827,10 +48824,12 @@
 /area/operations/lobby)
 "xWa" = (
 /obj/item/rig/medical/equipped{
-	pixel_y = -2
+	pixel_y = -2;
+	pixel_x = 4
 	},
 /obj/item/rig/medical/equipped{
-	pixel_y = -2
+	pixel_y = -2;
+	pixel_x = -5
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -68721,7 +68720,7 @@ fAk
 clz
 eqR
 hiz
-ctz
+bPs
 bzY
 gDq
 fOp
