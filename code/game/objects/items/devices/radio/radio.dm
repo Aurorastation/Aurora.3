@@ -75,6 +75,7 @@ var/global/list/default_medbay_channels = list(
 	var/traitor_frequency = 0 //tune to frequency to unlock traitor supplies
 	var/mob/living/announcer/announcer = null // used in autosay, held by the radio for re-use
 	var/datum/wires/radio/wires = null
+	var/show_modify_on_examine = TRUE
 	var/b_stat = 0
 
 	var/list/channels = list() //see communications.dm for full list. First non-common, non-entertainment channel is a "default" for :h
@@ -452,7 +453,7 @@ var/global/list/default_medbay_channels = list(
 		return
 
 	// Non-subspace radios will check in a couple of seconds, and if the signal was never received, we send a mundane broadcast
-	addtimer(CALLBACK(src, .proc/backup_transmission, signal), 2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(backup_transmission), signal), 2 SECONDS)
 
 /obj/item/device/radio/proc/backup_transmission(datum/signal/subspace/vocal/signal)
 	var/turf/T = get_turf(src)
@@ -506,12 +507,11 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/examine(mob/user)
 	. = ..()
-	if ((in_range(src, user) || loc == user))
+	if(show_modify_on_examine && (in_range(src, user) || loc == user))
 		if (b_stat)
 			user.show_message("<span class='notice'>\The [src] can be attached and modified!</span>")
 		else
 			user.show_message("<span class='notice'>\The [src] can not be modified or attached!</span>")
-	return
 
 /obj/item/device/radio/attackby(obj/item/W as obj, mob/user as mob)
 	..()

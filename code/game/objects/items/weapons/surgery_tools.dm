@@ -10,7 +10,7 @@
  */
 /obj/item/surgery
 	name = "surgery tool parent item"
-	desc = "This is a parent item. If you have this, please submit an issue report."
+	desc = DESC_PARENT
 	icon = 'icons/obj/surgery.dmi'
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/weldingtool.ogg'

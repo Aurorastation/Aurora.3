@@ -22,7 +22,7 @@
 
 /obj/item/organ/external/head/skrell/Initialize(mapload)
 	. = ..()
-	addtimer(CALLBACK(src, .proc/setup_storage), 3 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(setup_storage)), 3 SECONDS)
 
 /obj/item/organ/external/head/skrell/Destroy()
 	QDEL_NULL(storage)

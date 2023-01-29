@@ -61,7 +61,7 @@
 	SB.det_time = 1
 	SB.prime()
 
-	addtimer(CALLBACK(src, .proc/recharge), recharge_time)
+	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
 	can_deploy = FALSE
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>"
 

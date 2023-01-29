@@ -17,6 +17,7 @@
 	icon = 'icons/obj/storage.dmi'
 	w_class = ITEMSIZE_NORMAL
 	var/list/can_hold  //List of objects which this item can store (if set, it can't store anything else)
+	var/can_hold_strict = FALSE // if strict, the exact path has to be matched
 	var/list/cant_hold //List of objects which this item can't store (in effect only if can_hold isn't set)
 	var/list/is_seeing //List of mobs which are currently seeing the contents of this item's storage
 	var/max_w_class = ITEMSIZE_NORMAL //Max size of objects that this object can store (in effect only if can_hold isn't set)
@@ -354,7 +355,8 @@
 		return 0
 
 	if(LAZYLEN(can_hold))
-		if(!is_type_in_list(W, can_hold))
+		var/can_hold_item = can_hold_strict ? (W.type in can_hold) : is_type_in_list(W, can_hold)
+		if(!can_hold_item)
 			if(!stop_messages && ! istype(W, /obj/item/device/hand_labeler))
 				to_chat(usr, "<span class='notice'>[src] cannot hold \the [W].</span>")
 			return 0
@@ -683,7 +685,7 @@
 	orient2hud(null, mapload)
 
 	if (defer_shrinkwrap)	// Caller wants to defer shrinkwrapping until after the current callstack; probably putting something in.
-		INVOKE_ASYNC(src, .proc/shrinkwrap)
+		INVOKE_ASYNC(src, PROC_REF(shrinkwrap))
 	else
 		shrinkwrap()
 

@@ -1,11 +1,12 @@
 // It is a gizmo that flashes a small area
 
 /obj/machinery/flasher
-	name = "Mounted flash"
-	desc = "A wall-mounted flashbulb device."
+	name = "mounted flash"
+	desc = "A mounted flash. Disorientates anyone caught in its range."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mflash1"
 	layer = OBJ_LAYER
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/id = null
 	var/range = 2 //this is roughly the size of brig cell
 	var/disable = 0

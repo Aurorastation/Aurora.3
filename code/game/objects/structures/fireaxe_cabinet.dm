@@ -6,6 +6,7 @@
 	anchored = TRUE
 	density = FALSE
 	req_access = null
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/damage_threshold = 10 // Damage needed to break the glass.
 	var/open

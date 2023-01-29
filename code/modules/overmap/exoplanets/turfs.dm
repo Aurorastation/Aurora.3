@@ -4,6 +4,7 @@
 	icon_state = "desert"
 	has_resources = 1
 	footstep_sound = /singleton/sound_category/asteroid_footstep
+	turf_flags = TURF_FLAG_BACKGROUND
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
 	var/has_edge_icon = TRUE

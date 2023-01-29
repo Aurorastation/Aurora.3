@@ -24,15 +24,15 @@
 
 		if(APC_WIRE_IDSCAN)
 			set_locked(A, FALSE)
-			addtimer(CALLBACK(src, .proc/set_locked, A, TRUE), 30 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(set_locked), A, TRUE), 30 SECONDS)
 
 		if (APC_WIRE_MAIN_POWER1, APC_WIRE_MAIN_POWER2)
 			set_short_out(A, TRUE)
-			addtimer(CALLBACK(src, .proc/set_short_out, A, FALSE), 120 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(set_short_out), A, FALSE), 120 SECONDS)
 
 		if (APC_WIRE_AI_CONTROL)
 			set_ai_control(A, TRUE)
-			addtimer(CALLBACK(src, .proc/set_ai_control, A, FALSE), 1 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(set_ai_control), A, FALSE), 1 SECONDS)
 
 
 /datum/wires/apc/proc/set_locked(var/obj/machinery/power/apc/A, var/setting)

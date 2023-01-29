@@ -5,7 +5,8 @@
 #define NONE 0
 
 // Turf-only flags.
-#define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define TURF_FLAG_NOJAUNT 		1
+#define TURF_FLAG_BACKGROUND 	2 // Used by shuttle movement to determine if it should be ignored by turf translation.
 
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 #define RUIN_MAP_EDGE_PAD 15
@@ -310,8 +311,8 @@
 // This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
 #define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref || (D:weakref = new/datum/weakref(D))) : null)
 
-#define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
-#define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(the_atom, /atom/.proc/add_verb, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+#define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(the_atom, TYPE_PROC_REF(/atom, add_verb), verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+#define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(the_atom, TYPE_PROC_REF(/atom, add_verb), verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 
 // Maploader bounds indices
 #define MAP_MINX 1

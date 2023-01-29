@@ -638,3 +638,8 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_nka
 	id = access_nka
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_dpra = 214
+/datum/access/access_dpra
+	id = access_dpra
+	access_type = ACCESS_TYPE_CENTCOM

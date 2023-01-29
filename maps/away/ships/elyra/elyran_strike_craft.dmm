@@ -488,6 +488,7 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/suit/space/void/valkyrie,
 /obj/item/clothing/head/helmet/space/void/valkyrie,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "cWy" = (
@@ -531,6 +532,7 @@
 /obj/item/ammo_magazine/c45m,
 /obj/item/gun/projectile/plasma/bolter,
 /obj/item/ammo_magazine/plasma/light,
+/obj/item/device/gps,
 /turf/simulated/floor/carpet,
 /area/ship/elyran_strike_craft)
 "dqM" = (
@@ -1783,6 +1785,7 @@
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
+/obj/item/device/gps,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "rBF" = (

@@ -361,7 +361,7 @@
 
 	if(forced)
 		nymph.can_attach = FALSE
-		addtimer(CALLBACK(nymph, /datum/component/nymph_limb/.proc/can_attach, nymph), 5 MINUTES, TIMER_UNIQUE)
+		addtimer(CALLBACK(nymph, TYPE_PROC_REF(/datum/component/nymph_limb, can_attach), nymph), 5 MINUTES, TIMER_UNIQUE)
 
 	E.removed(E.owner)
 	qdel(E)

@@ -101,8 +101,8 @@
 			user.client.images |= holomap_datum.station_map
 
 			watching_mob = user
-			moved_event.register(watching_mob, src, /obj/machinery/station_map/proc/checkPosition)
-			destroyed_event.register(watching_mob, src, /obj/machinery/station_map/proc/stopWatching)
+			moved_event.register(watching_mob, src, PROC_REF(checkPosition))
+			destroyed_event.register(watching_mob, src, PROC_REF(stopWatching))
 			update_use_power(POWER_USE_ACTIVE)
 
 			if(bogus)
@@ -127,7 +127,7 @@
 		if(watching_mob.client)
 			animate(holomap_datum.station_map, alpha = 0, time = 5, easing = LINEAR_EASING)
 			var/mob/M = watching_mob
-			addtimer(CALLBACK(src, .proc/clear_image, M, holomap_datum.station_map), 5, TIMER_CLIENT_TIME)//we give it time to fade out
+			addtimer(CALLBACK(src, PROC_REF(clear_image), M, holomap_datum.station_map), 5, TIMER_CLIENT_TIME)//we give it time to fade out
 		moved_event.unregister(watching_mob, src)
 		destroyed_event.unregister(watching_mob, src)
 	watching_mob = null

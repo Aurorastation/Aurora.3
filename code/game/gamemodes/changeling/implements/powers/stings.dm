@@ -119,7 +119,7 @@
 	target.disabilities |= NEARSIGHTED
 	target.eye_blind = 10
 	target.eye_blurry = 20
-	addtimer(CALLBACK(target, /mob.proc/remove_nearsighted), 30 SECONDS)
+	addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, remove_nearsighted)), 30 SECONDS)
 
 /mob/proc/changeling_deaf_sting()
 	set category = "Changeling"
@@ -136,7 +136,7 @@
 	..()
 	to_chat(target, SPAN_DANGER("Your ears pop and begin ringing loudly!"))
 	target.sdisabilities |= DEAF
-	addtimer(CALLBACK(target, /mob.proc/remove_deaf), 30 SECONDS)
+	addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, remove_deaf)), 30 SECONDS)
 
 /mob/proc/changeling_paralysis_sting()
 	set category = "Changeling"

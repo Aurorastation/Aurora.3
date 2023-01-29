@@ -79,6 +79,12 @@
 	icon_state = "alaberetalt"
 	item_state = "alaberetalt"
 
+/obj/item/clothing/head/beret/tajaran/pvsm
+	name = "people's volunteer spacer militia beret"
+	desc = "A beret issued to people's volunteer spacer militia."
+	icon_state = "alaberetalt"
+	item_state = "alaberetalt"
+
 /obj/item/clothing/head/beret/tajaran/nka
 	name = "new kingdom naval beret"
 	desc = "A formal black beret with a blue band. This is worn by NKA naval servicemen and crewmen such as the Imperial Marines."
@@ -150,6 +156,8 @@
 	and the People's Republic of Adhomai looms over the southern end of the island..."
 	siemens_coefficient = 0.35
 
+	has_storage = FALSE
+
 /obj/item/clothing/head/helmet/kettle
 	name = "kettle helmet"
 	desc = "A kettle helmet used by the forces of the new Kingdom of Adhomai."
@@ -164,6 +172,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
+	has_storage = FALSE
 
 /obj/item/clothing/head/tajaran/nka_merchant_navy
 	name = "her majesty's mercantile flotilla cap"
@@ -176,3 +185,18 @@
 	desc = "A cap worn by the captain of the New Kingdom's space merchant navy. A fancier version of the sailor cap."
 	icon_state = "nka_merchant_navy_captain_hat"
 	item_state = "nka_merchant_navy_captain_hat"
+
+/obj/item/clothing/head/tajaran/ala_officer
+	name = "adhomai liberation army officer hat"
+	desc = "A cap issued to adhomai liberation army officers."
+	icon_state = "ala-officer_hat"
+	item_state = "ala-officer_hat"
+
+/obj/item/clothing/head/tajaran/ala_wraps
+	name = "adhomai liberation army face wraps"
+	desc = "Face wraps used by soldier and guerilla forces of the adhomai liberation army."
+	icon_state = "ala-grunt-wraps-hood"
+	item_state = "ala-grunt-wraps-hood"
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	species_restricted = list(BODYTYPE_TAJARA)

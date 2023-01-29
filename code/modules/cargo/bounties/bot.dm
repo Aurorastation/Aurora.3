@@ -14,10 +14,10 @@
 	required_count = 3
 	random_count = 1
 	wanted_types = list(/mob/living/bot/farmbot)
-	
+
 /datum/bounty/item/bot/medbot
-	name = "Medbot"
-	description = "We were unable to recruit a sufficient number of qualified medical professionals this month. Ship us a few medbots to fill the void."
+	name = "Medibot"
+	description = "We were unable to recruit a sufficient number of qualified medical professionals this month. Ship us a few medibots to fill the void."
 	reward_low = 5500
 	reward_high = 6000
 	required_count = 2

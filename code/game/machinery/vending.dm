@@ -606,12 +606,12 @@
 				to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course
 				if(exclusive_screen)
 					cut_overlays()
-					addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
+					addtimer(CALLBACK(src, PROC_REF(add_screen_overlay)), deny_time ? deny_time : 15)
 				add_screen_overlay(deny = TRUE)
-				addtimer(CALLBACK(src, /atom/.proc/cut_overlay, screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
+				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
 				set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
-				addtimer(CALLBACK(src, .proc/reset_light), deny_time ? deny_time : 15)
-				addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
+				addtimer(CALLBACK(src, PROC_REF(reset_light)), deny_time ? deny_time : 15)
+				addtimer(CALLBACK(src, PROC_REF(add_screen_overlay)), deny_time ? deny_time : 15)
 				return
 
 			var/key = text2num(href_list["vendItem"])
@@ -660,11 +660,11 @@
 		to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
 		if(exclusive_screen)
 			cut_overlays()
-			addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
+			addtimer(CALLBACK(src, PROC_REF(add_screen_overlay)), deny_time ? deny_time : 15)
 		add_screen_overlay(deny = TRUE)
-		addtimer(CALLBACK(src, /atom/.proc/cut_overlay, screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
 		set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
-		addtimer(CALLBACK(src, .proc/reset_light), deny_time ? deny_time : 15)
+		addtimer(CALLBACK(src, PROC_REF(reset_light)), deny_time ? deny_time : 15)
 		return
 	src.vend_ready = 0 //One thing at a time!!
 	src.status_message = "Vending..."
@@ -707,7 +707,7 @@
 		flick(src.icon_vend,src)
 	playsound(src.loc, vending_sound, 100, 1)
 	intent_message(MACHINE_SOUND)
-	addtimer(CALLBACK(src, .proc/vend_product, R, user), vend_delay)
+	addtimer(CALLBACK(src, PROC_REF(vend_product), R, user), vend_delay)
 
 /obj/machinery/vending/proc/vend_product(var/datum/data/vending_product/R, mob/user)
 
@@ -825,7 +825,7 @@
 		return FALSE
 	intent_message(MACHINE_SOUND)
 	throw_item.vendor_action(src)
-	INVOKE_ASYNC(throw_item, /atom/movable.proc/throw_at, target, rand(3, 10), rand(1, 3), src)
+	INVOKE_ASYNC(throw_item, TYPE_PROC_REF(/atom/movable, throw_at), target, rand(3, 10), rand(1, 3), src)
 	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
 	return 1
 
