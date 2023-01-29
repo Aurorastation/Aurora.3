@@ -253,7 +253,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "fw" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/template_noop)
@@ -968,7 +968,7 @@
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/machinery/floodlight,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	charging_efficiency = 0.5;
 	name = "worn wall recharger";
 	pixel_x = 4;
@@ -1669,7 +1669,7 @@
 	},
 /area/template_noop)
 "IY" = (
-/obj/machinery/recharger{
+/obj/machinery/charger{
 	pixel_x = 6;
 	pixel_y = 5
 	},

@@ -25555,7 +25555,7 @@
 	},
 /area/cruise/aft_s)
 "urH" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},

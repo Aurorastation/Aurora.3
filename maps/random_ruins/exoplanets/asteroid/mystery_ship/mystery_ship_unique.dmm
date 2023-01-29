@@ -195,7 +195,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/crew_seating)
 "aD" = (
-/obj/machinery/recharge_station,
+/obj/machinery/robot_charger,
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/equipment)
 "aE" = (
@@ -621,7 +621,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/armoury)
 "cF" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = 32;
 	pixel_y = 2
 	},
@@ -1407,7 +1407,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/power)
 "OY" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_x = -32;
 	pixel_y = 2
 	},
