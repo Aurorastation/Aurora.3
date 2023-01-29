@@ -1,5 +1,5 @@
 /obj/machinery/robot_charger
-	name = "robot charging station"
+	name = "robot charger"
 	desc = "A heavy-duty rapid charging system, designed to quickly recharge robots' power reserves."
 	icon = 'icons/obj/robot_charger.dmi'
 	icon_state = "borgcharger0"

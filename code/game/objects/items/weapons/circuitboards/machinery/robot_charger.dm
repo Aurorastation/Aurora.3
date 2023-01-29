@@ -3,7 +3,7 @@
 #endif
 
 /obj/item/circuitboard/robot_charger
-	name = T_BOARD("robot recharging station")
+	name = T_BOARD("robot charger")
 	build_path = /obj/machinery/robot_charger
 	board_type = "machine"
 	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
