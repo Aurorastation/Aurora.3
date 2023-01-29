@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Added cryo to the Haildstorm."
+  - bugfix: "The NKA merchant shuttle can now dock back with its mothership."
