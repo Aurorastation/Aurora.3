@@ -618,7 +618,7 @@
 	icon_state = "3,21";
 	name = "military corvette"
 	},
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	icon_state = "tube1";
@@ -696,7 +696,7 @@
 	icon_state = "12,21";
 	name = "military corvette"
 	},
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	icon_state = "tube1";
@@ -1035,7 +1035,7 @@
 "adh" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 4;
@@ -1156,7 +1156,7 @@
 "adu" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 8;
@@ -3636,7 +3636,7 @@
 /turf/unsimulated/floor,
 /area/centcom/bar)
 "aim" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spotlight/weak,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
@@ -4281,7 +4281,7 @@
 "ajG" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 8;
@@ -5013,7 +5013,7 @@
 	},
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 1;
@@ -5078,7 +5078,7 @@
 	},
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 1;
@@ -14475,7 +14475,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 1;
 	name = "adjusted spotlight";
 	pixel_x = -16
@@ -18989,7 +18989,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1;
 	icon_state = "tube1"
 	},
@@ -19633,7 +19633,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "aWo" = (
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1;
 	icon_state = "tube1"
 	},
@@ -19680,7 +19680,7 @@
 /obj/item/device/magnetic_lock/security/legion,
 /obj/item/device/magnetic_lock/security/legion,
 /obj/item/device/magnetic_lock/security/legion,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1;
 	icon_state = "tube1"
 	},
@@ -19710,7 +19710,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "aWw" = (
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1;
 	icon_state = "tube1"
 	},
@@ -22156,7 +22156,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bbI" = (
-/obj/machinery/light/spot,
+/obj/machinery/light/spotlight,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bbJ" = (

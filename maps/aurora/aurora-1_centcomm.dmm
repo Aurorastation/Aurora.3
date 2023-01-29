@@ -5565,7 +5565,7 @@
 	icon_state = "3,21";
 	name = "military corvette"
 	},
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	icon_state = "tube1";
@@ -6647,7 +6647,7 @@
 	icon_state = "12,21";
 	name = "military corvette"
 	},
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	icon_state = "tube1";
@@ -8090,7 +8090,7 @@
 "bxU" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 4;
@@ -9210,7 +9210,7 @@
 "ckf" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 8;
@@ -13599,7 +13599,7 @@
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "faD" = (
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1;
 	icon_state = "tube1"
 	},
@@ -13794,7 +13794,7 @@
 /turf/space/dynamic,
 /area/shuttle/skipjack)
 "ffm" = (
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1;
 	icon_state = "tube1"
 	},
@@ -18259,7 +18259,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 1;
 	name = "adjusted spotlight";
 	pixel_x = -16
@@ -21320,7 +21320,7 @@
 	},
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 1;
@@ -22243,7 +22243,7 @@
 	},
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 1;
@@ -26315,7 +26315,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1;
 	icon_state = "tube1"
 	},
@@ -29812,7 +29812,7 @@
 "ppR" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 8;
@@ -30803,7 +30803,7 @@
 /obj/item/device/magnetic_lock/security/legion,
 /obj/item/device/magnetic_lock/security/legion,
 /obj/item/device/magnetic_lock/security/legion,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1;
 	icon_state = "tube1"
 	},
@@ -35178,7 +35178,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
 "tdp" = (
-/obj/machinery/light/spot,
+/obj/machinery/light/spotlight,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "tdV" = (
@@ -40996,7 +40996,7 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "wNC" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spotlight/weak,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},

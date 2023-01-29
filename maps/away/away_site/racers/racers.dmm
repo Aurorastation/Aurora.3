@@ -141,7 +141,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
@@ -220,7 +220,7 @@
 	dir = 8
 	},
 /obj/item/tank/jetpack/void,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/coloured/blue{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -317,7 +317,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "aOU" = (
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 1
 	},
 /turf/template_noop,
@@ -387,7 +387,7 @@
 "bhm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/coloured/blue{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -570,7 +570,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /obj/effect/decal/cleanable/flour,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/coloured/blue{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -706,7 +706,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -890,7 +890,7 @@
 /area/racers)
 "ehn" = (
 /obj/machinery/floodlight,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -950,7 +950,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship/cardinal,
@@ -1135,7 +1135,7 @@
 /obj/item/reagent_containers/food/drinks/soymilk,
 /obj/item/reagent_containers/food/drinks/milk,
 /obj/item/reagent_containers/food/drinks/milk,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -1269,7 +1269,7 @@
 	dir = 8
 	},
 /obj/item/tank/jetpack/rig,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/coloured/blue{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -1280,7 +1280,7 @@
 "gcE" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/colored/blue,
+/obj/machinery/light/coloured/blue,
 /turf/simulated/floor/plating,
 /area/racers)
 "gdy" = (
@@ -1710,7 +1710,7 @@
 /obj/machinery/door/window{
 	dir = 4
 	},
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/coloured/blue{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -1724,7 +1724,7 @@
 /turf/simulated/floor/wood,
 /area/racers)
 "ixi" = (
-/obj/machinery/light/colored/red,
+/obj/machinery/light/coloured/red,
 /turf/template_noop,
 /area/space)
 "iCP" = (
@@ -1901,7 +1901,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "jiB" = (
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
@@ -2289,7 +2289,7 @@
 "kWr" = (
 /obj/structure/grille,
 /obj/structure/shuttle/window,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/coloured/blue{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -2417,7 +2417,7 @@
 /area/racers)
 "lHr" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -2451,7 +2451,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/red,
@@ -2593,7 +2593,7 @@
 /area/racers)
 "mBP" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light/colored/red,
+/obj/machinery/light/coloured/red,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/steel,
 /area/racers)
@@ -2642,7 +2642,7 @@
 /obj/machinery/door/window{
 	dir = 4
 	},
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
@@ -2711,7 +2711,7 @@
 /area/racers)
 "nhS" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
@@ -2789,7 +2789,7 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/coloured/blue{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -2813,7 +2813,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/space_ship/cardinal,
@@ -3013,7 +3013,7 @@
 /area/racers)
 "oDe" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light/colored/red,
+/obj/machinery/light/coloured/red,
 /turf/simulated/floor/tiled/steel,
 /area/racers)
 "oFS" = (
@@ -3202,7 +3202,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/racers)
 "pMW" = (
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3315,7 +3315,7 @@
 /obj/machinery/door/window{
 	dir = 8
 	},
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/coloured/blue{
 	dir = 8
 	},
 /obj/item/reagent_containers/hypospray/autoinjector/emergency,
@@ -3657,7 +3657,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -3757,7 +3757,7 @@
 /obj/machinery/door/window{
 	dir = 4
 	},
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/coloured/blue{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -3919,7 +3919,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/racers)
 "sZx" = (
-/obj/machinery/light/colored/blue,
+/obj/machinery/light/coloured/blue,
 /turf/simulated/floor/tiled/white,
 /area/racers)
 "taa" = (
@@ -4031,7 +4031,7 @@
 /area/racers)
 "tIl" = (
 /obj/structure/closet/secure_closet/miner,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel/airless,
@@ -4105,7 +4105,7 @@
 "tYI" = (
 /obj/structure/grille,
 /obj/structure/shuttle/window,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/coloured/blue{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4203,10 +4203,10 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 8
 	},
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 4
 	},
 /obj/item/device/gps,
@@ -4264,7 +4264,7 @@
 /area/racers)
 "uFX" = (
 /obj/machinery/floodlight,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4276,7 +4276,7 @@
 "uKR" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/coloured/blue{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -4396,7 +4396,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
@@ -4413,7 +4413,7 @@
 "vtq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/airless,
@@ -4424,7 +4424,7 @@
 /turf/simulated/floor/wood,
 /area/racers)
 "vvs" = (
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/airless,
@@ -4512,7 +4512,7 @@
 	dir = 8
 	},
 /obj/item/tank/jetpack/void,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/red,
@@ -4929,7 +4929,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/racers)
 "xNM" = (
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
@@ -4945,7 +4945,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
@@ -5010,7 +5010,7 @@
 /turf/simulated/floor/tiled/white,
 /area/racers)
 "xVP" = (
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,

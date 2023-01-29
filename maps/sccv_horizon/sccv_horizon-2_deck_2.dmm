@@ -1009,7 +1009,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -9504,7 +9504,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 9
 	},
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spotlight/weak,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "eMT" = (
@@ -14452,7 +14452,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "hax" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /obj/structure/sign/electricshock/tesla{
@@ -18009,7 +18009,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -21310,7 +21310,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
 	},
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spotlight/weak,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "kzr" = (
@@ -27395,7 +27395,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "nzn" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 1
 	},
 /obj/structure/sign/electricshock/tesla{
@@ -30280,7 +30280,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -31408,7 +31408,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/terminal,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /obj/machinery/power/sensor{
@@ -31940,7 +31940,7 @@
 /obj/structure/cable/orange{
 	icon_state = "2-4"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -34496,7 +34496,7 @@
 /obj/structure/cable/orange{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -34756,7 +34756,7 @@
 /obj/structure/cable/orange{
 	icon_state = "2-8"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -39192,7 +39192,7 @@
 /area/horizon/security/hallway)
 "tzw" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spotlight/weak,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "tzF" = (
@@ -48129,7 +48129,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "xGT" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{

@@ -3372,7 +3372,7 @@
 	dir = 4
 	},
 /obj/machinery/porta_turret/stationary,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/coloured/blue{
 	dir = 8;
 	tag = "icon-tube_empty (WEST)"
 	},
@@ -3383,7 +3383,7 @@
 	dir = 8
 	},
 /obj/machinery/porta_turret/stationary,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/coloured/blue{
 	dir = 4;
 	tag = "icon-tube_empty (EAST)"
 	},
@@ -6725,7 +6725,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site/zone_2)
 "xa" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spotlight/weak,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "xi" = (

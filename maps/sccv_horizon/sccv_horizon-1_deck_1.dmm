@@ -668,7 +668,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8;
 	must_start_working = 1
 	},
@@ -1154,7 +1154,7 @@
 /area/maintenance/wing/port/deck1)
 "aVU" = (
 /obj/structure/reagent_dispensers/extinguisher,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 1
 	},
 /obj/structure/extinguisher_cabinet{
@@ -3015,7 +3015,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /obj/machinery/firealarm/east,
@@ -3628,7 +3628,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /obj/structure/sign/emergency/evacuation/pods{
@@ -3942,7 +3942,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
@@ -4318,7 +4318,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage/tech)
 "dtN" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4673,7 +4673,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4;
 	must_start_working = 1
 	},
@@ -8441,7 +8441,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spotlight/weak,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -10829,7 +10829,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /obj/structure/railing/mapped{
@@ -11613,7 +11613,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
@@ -12665,7 +12665,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 1
 	},
 /obj/machinery/alarm{
@@ -12940,7 +12940,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /obj/structure/sign/emergency/evacuation{
@@ -16401,7 +16401,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -19123,7 +19123,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -23171,7 +23171,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "skS" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spotlight/weak,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -24628,7 +24628,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "trW" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -25099,7 +25099,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "tJR" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 1
 	},
 /obj/structure/sign/crush{
@@ -25458,7 +25458,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/green{
@@ -25703,7 +25703,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "ufR" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -25921,7 +25921,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /obj/structure/sign/emergency/evacuation/pods{
@@ -28058,7 +28058,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "vZT" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -28860,7 +28860,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/green{
@@ -29004,7 +29004,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -29448,7 +29448,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/green{

@@ -576,7 +576,7 @@
 "mA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1183,7 +1183,7 @@
 	desc = "It looks like it has not been used for some time.";
 	name = "dust-covered refrigerator"
 	},
-/obj/machinery/light/colored/red,
+/obj/machinery/light/coloured/red,
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "xW" = (
@@ -1383,7 +1383,7 @@
 /obj/machinery/washing_machine,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/colored/red,
+/obj/machinery/light/coloured/red,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/crashed_ship)
 "Ci" = (
@@ -1498,7 +1498,7 @@
 /area/dungeon/crashed_ship)
 "Ex" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,

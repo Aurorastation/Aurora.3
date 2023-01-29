@@ -544,7 +544,7 @@
 	},
 /area/space)
 "lC" = (
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel/airless{
@@ -600,7 +600,7 @@
 /area/wrecked_nt_ship)
 "mF" = (
 /obj/structure/table/reinforced,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 8
 	},
 /obj/item/reagent_containers/food/snacks/soup/kois,
@@ -694,7 +694,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "oz" = (
-/obj/machinery/light/colored/red,
+/obj/machinery/light/coloured/red,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "oM" = (
@@ -1846,7 +1846,7 @@
 /area/space)
 "OQ" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 4
 	},
 /obj/random/seed,
@@ -1894,7 +1894,7 @@
 /area/space)
 "PK" = (
 /obj/structure/table/reinforced,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 8
 	},
 /obj/item/seeds/koisspore,

@@ -44,7 +44,7 @@
 /area/dungeon/crashed_ship)
 "dX" = (
 /obj/machinery/autolathe,
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue{
@@ -57,7 +57,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal,
 /area/dungeon/crashed_ship)
 "fT" = (
-/obj/machinery/light/colored/red,
+/obj/machinery/light/coloured/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
@@ -314,7 +314,7 @@
 	},
 /area/dungeon/crashed_ship)
 "wb" = (
-/obj/machinery/light/colored/red{
+/obj/machinery/light/coloured/red{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -658,7 +658,7 @@
 	},
 /area/dungeon/crashed_ship)
 "Zd" = (
-/obj/machinery/light/colored/red,
+/obj/machinery/light/coloured/red,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0

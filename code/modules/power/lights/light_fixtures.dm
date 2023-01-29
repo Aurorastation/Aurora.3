@@ -594,17 +594,17 @@
 
 /********** Light Fixtures Start **********/
 // Light Fixture with Blue Light Tube
-/obj/machinery/light/colored/blue
+/obj/machinery/light/coloured/blue
 	brightness_color = LIGHT_COLOR_BLUE
 	randomize_color = FALSE
 
 // Light Fixture with Red Light Tube
-/obj/machinery/light/colored/red
+/obj/machinery/light/coloured/red
 	brightness_color = LIGHT_COLOR_RED
 	randomize_color = FALSE
 
 // Spotlight Fixture
-/obj/machinery/light/spot
+/obj/machinery/light/spotlight
 	name = "\improper LED spotlight fixture"
 	fitting = "large tube"
 	light_type = /obj/item/light/tube/large
@@ -614,7 +614,7 @@
 	supports_nightmode = FALSE
 
 // Weak Spotlight Fixture
-/obj/machinery/light/spot/weak
+/obj/machinery/light/spotlight/weak
 	name = "low-intensity spotlight"
 	brightness_range = 12
 	brightness_power = 1.2

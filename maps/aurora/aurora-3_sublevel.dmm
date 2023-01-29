@@ -2067,7 +2067,7 @@
 /area/engineering/atmos)
 "aeW" = (
 /obj/structure/window/borosilicate/reinforced,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -3703,7 +3703,7 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -5157,7 +5157,7 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "alP" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -20292,7 +20292,7 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spotlight/weak,
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/test_area)
 "aPE" = (
@@ -20882,7 +20882,7 @@
 	dir = 8
 	},
 /obj/structure/window/borosilicate/reinforced,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -20894,7 +20894,7 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -24389,7 +24389,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
 "bgd" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -24523,7 +24523,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /turf/simulated/floor/airless{

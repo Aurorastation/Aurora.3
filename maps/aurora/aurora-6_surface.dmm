@@ -15150,7 +15150,7 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8
 	},
 /obj/machinery/airlock_sensor{

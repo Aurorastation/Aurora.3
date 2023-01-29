@@ -1353,7 +1353,7 @@
 	icon_state = "3,21";
 	name = "military corvette"
 	},
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	icon_state = "tube1";
@@ -1902,7 +1902,7 @@
 	icon_state = "12,21";
 	name = "military corvette"
 	},
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	icon_state = "tube1";
@@ -2488,7 +2488,7 @@
 "bxU" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 4;
@@ -3075,7 +3075,7 @@
 "ckf" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 8;
@@ -7421,7 +7421,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 1;
 	name = "adjusted spotlight";
 	pixel_x = -16
@@ -9070,7 +9070,7 @@
 	},
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 1;
@@ -9543,7 +9543,7 @@
 	},
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 1;
@@ -13067,7 +13067,7 @@
 "ppR" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	brightness_color = "#fa8282";
 	color = "#fa8282";
 	dir = 8;
@@ -17581,7 +17581,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape)
 "wNC" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spotlight/weak,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},

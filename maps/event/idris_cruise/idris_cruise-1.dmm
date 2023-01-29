@@ -10901,7 +10901,7 @@
 /area/cruise/fore_p)
 "iDL" = (
 /obj/structure/closet/firecloset/full,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -10924,7 +10924,7 @@
 	},
 /area/cruise/e_supplies)
 "iGh" = (
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -14315,7 +14315,7 @@
 /area/cruise/security)
 "ltB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/spot,
+/obj/machinery/light/spotlight,
 /turf/unsimulated/floor/plating,
 /area/cruise/hangar)
 "lux" = (
@@ -16829,13 +16829,13 @@
 /area/cruise/fore_s)
 "nmc" = (
 /obj/structure/closet/crate/large,
-/obj/machinery/light/spot,
+/obj/machinery/light/spotlight,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
 /area/cruise/hangar)
 "nnD" = (
-/obj/machinery/light/spot,
+/obj/machinery/light/spotlight,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -17220,7 +17220,7 @@
 /area/cruise/aft)
 "nCl" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -17322,7 +17322,7 @@
 /area/cruise/pool)
 "nIV" = (
 /obj/machinery/mech_recharger,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -18510,7 +18510,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -20083,7 +20083,7 @@
 /area/cruise/main_bar/aft)
 "pTD" = (
 /obj/effect/floor_decal/spline/fancy,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -20918,7 +20918,7 @@
 /area/cruise/library)
 "qHg" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/spot,
+/obj/machinery/light/spotlight,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -21248,7 +21248,7 @@
 /area/cruise/e_supplies)
 "qXh" = (
 /obj/structure/closet/crate/large,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -22620,7 +22620,7 @@
 /area/cruise/pool)
 "sfD" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/spot{
+/obj/machinery/light/spotlight{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
@@ -23891,7 +23891,7 @@
 /area/cruise/beach_cave)
 "tjk" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/light/spot,
+/obj/machinery/light/spotlight,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
@@ -29864,7 +29864,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
-/obj/machinery/light/spot,
+/obj/machinery/light/spotlight,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},

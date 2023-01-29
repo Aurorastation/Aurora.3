@@ -6754,7 +6754,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "ans" = (
-/obj/machinery/light/spot,
+/obj/machinery/light/spotlight,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/bridge)
 "ant" = (
@@ -52540,7 +52540,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "bVE" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4;
 	must_start_working = 1
 	},
@@ -56713,7 +56713,7 @@
 /obj/structure/track{
 	icon_state = "track12"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/asteroid/airless,
@@ -57430,7 +57430,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid/airless,
@@ -60522,7 +60522,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 8;
 	must_start_working = 1
 	},
@@ -62660,7 +62660,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "jcx" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spotlight/weak{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid/airless,
