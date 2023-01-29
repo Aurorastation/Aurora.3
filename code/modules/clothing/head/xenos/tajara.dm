@@ -166,6 +166,7 @@
 	bloody conflict to stamp out Nationalistic and to a lesser extent, divided Monarchistic sentiments while their rivals from the New Kingdom of Adhomai watch from the seas they rule \
 	and the People's Republic of Adhomai looms over the southern end of the island..."
 	siemens_coefficient = 0.35
+	has_storage = FALSE
 
 /obj/item/clothing/head/helmet/kettle
 	name = "kettle helmet"
@@ -181,6 +182,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
+	has_storage = FALSE
 
 /obj/item/clothing/head/tajaran/nka_merchant_navy
 	name = "her majesty's mercantile flotilla cap"
