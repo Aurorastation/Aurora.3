@@ -156,6 +156,8 @@
 	and the People's Republic of Adhomai looms over the southern end of the island..."
 	siemens_coefficient = 0.35
 
+	has_storage = FALSE
+
 /obj/item/clothing/head/helmet/kettle
 	name = "kettle helmet"
 	desc = "A kettle helmet used by the forces of the new Kingdom of Adhomai."
@@ -170,6 +172,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
+	has_storage = FALSE
 
 /obj/item/clothing/head/tajaran/nka_merchant_navy
 	name = "her majesty's mercantile flotilla cap"
