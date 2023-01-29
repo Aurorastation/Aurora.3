@@ -2099,6 +2099,12 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/hailstorm_ship/gun_deck)
+"rt" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/airless,
+/area/hailstorm_ship/bridge)
 "rx" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -3462,6 +3468,12 @@
 /obj/effect/shuttle_landmark/nav_hailstorm_ship/nav2,
 /turf/template_noop,
 /area/space)
+"OS" = (
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/airless,
+/area/hailstorm_ship/bridge)
 "OT" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 8
@@ -14822,7 +14834,7 @@ dE
 jw
 KP
 fQ
-dZ
+OS
 dZ
 dZ
 dZ
@@ -15794,7 +15806,7 @@ NM
 qQ
 Eh
 hc
-dZ
+rt
 dZ
 dZ
 dZ
