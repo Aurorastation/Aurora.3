@@ -4,5 +4,5 @@ delete-after: True
 
 changes:
   - rscadd: "Added the Crosk racing jacket and cropped leather jacket to the loadout. Both are just standard with new icons."
-  - imgadd: "Crosk jacket icons, courtesy of @𝙈𝙊𝙉𝙊𝙇𝙄𝙏𝙃#2051."
-  - imgadd: "Cropped leather jacket icons, originally made by @GeneralPantsu#4529 for SojournStation13. Edited slightly to fit Aurora icons."
+  - imageadd: "Crosk jacket icons, courtesy of @𝙈𝙊𝙉𝙊𝙇𝙄𝙏𝙃#2051."
+  - imageadd: "Cropped leather jacket icons, originally made by @GeneralPantsu#4529 for SojournStation13. Edited slightly to fit Aurora icons."
