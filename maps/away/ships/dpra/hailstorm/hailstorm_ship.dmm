@@ -1080,6 +1080,12 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship/engine)
+"gI" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/airless,
+/area/hailstorm_ship/bridge)
 "gP" = (
 /obj/machinery/computer/shuttle_control/explore/hailstorm_shuttle{
 	dir = 4
@@ -2141,6 +2147,12 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
+/area/hailstorm_ship/bridge)
+"rV" = (
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/airless,
 /area/hailstorm_ship/bridge)
 "sb" = (
 /obj/structure/cable/green{
@@ -14819,7 +14831,7 @@ dE
 jw
 KP
 fQ
-dZ
+gI
 dZ
 dZ
 dZ
@@ -15791,7 +15803,7 @@ NM
 qQ
 Eh
 hc
-dZ
+rV
 dZ
 dZ
 dZ
