@@ -161,7 +161,7 @@
 /singleton/reagent/toxin/phoron/kois
 	name = "Phoron"
 	description = "Phoron in its liquid form. Twice as potent when breathed in. Contains biological traces."
-	fallback_specific_heat = 1 //contaminated phoron acts more like k'ois than phoron
+	fallback_specific_heat = 0.75 //contaminated phoron acts more like k'ois than phoron
 	var/kois_type = 1
 
 /singleton/reagent/toxin/phoron/kois/black
