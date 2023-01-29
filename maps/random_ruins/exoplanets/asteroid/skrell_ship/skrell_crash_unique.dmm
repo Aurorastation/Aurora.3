@@ -185,6 +185,7 @@
 /obj/structure/door_assembly/door_assembly_skrell{
 	name = "Bridge"
 	},
+/obj/structure/inflatable/door,
 /turf/simulated/floor/shuttle/skrell/blue{
 	nitrogen = 0;
 	oxygen = 0
@@ -872,13 +873,6 @@
 /obj/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
-"iz" = (
-/obj/machinery/porta_turret_construct/dark,
-/turf/simulated/floor/shuttle/skrell{
-	oxygen = 0;
-	nitrogen = 0
-	},
-/area/dungeon/skrell_ship)
 "Dz" = (
 /obj/structure/table/skrell,
 /obj/machinery/light/skrell,
@@ -892,17 +886,6 @@
 	nitrogen = 0;
 	oxygen = 0
 	},
-/area/dungeon/skrell_ship)
-"Ld" = (
-/obj/structure/inflatable/door,
-/turf/simulated/floor/shuttle/skrell,
-/area/dungeon/skrell_ship)
-"MY" = (
-/obj/machinery/light/skrell{
-	dir = 1
-	},
-/obj/structure/inflatable/door,
-/turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "OB" = (
 /obj/structure/closet/skrell,
@@ -1408,8 +1391,8 @@ IN
 aI
 bJ
 aD
-Th
-iz
+aH
+bi
 ap
 bZ
 aG
@@ -1442,8 +1425,8 @@ ap
 ar
 Dz
 ap
-MY
-Ld
+bV
+aH
 cz
 bv
 aC

@@ -68,7 +68,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
-	suffixes = list("asteroid/skrell_ship/skrell_crash_unique")
+	suffixes = list("asteroid/skrell_ship/skrell_crash_unique.dmm")
 
 	ruin_tags = RUIN_WRECK|RUIN_VOID|RUIN_ALIEN
 
@@ -81,20 +81,20 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
-	suffixes = list("asteroid/mystery_ship/mystery_ship_unique")
+	suffixes = list("asteroid/mystery_ship/mystery_ship_unique.dmm")
 
 	ruin_tags = RUIN_HUMAN|RUIN_VOID
 
-/datum/map_template/ruin/exoplanet/crashed_satelite
-	name = "Crashed Satelite"
+/datum/map_template/ruin/exoplanet/crashed_satellite 
+	name = "Crashed satellite "
 	id = "crashed_satelite"
-	description = "A crashed satelite."
+	description = "A crashed satellite ."
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS|TEMPLATE_FLAG_NO_RUINS
 
 	spawn_weight = 1
 	spawn_cost = 1
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
-	suffixes = list("asteroid/satelite_crash/satelite_crash_unique")
+	suffixes = list("asteroid/satellite _crash/satellite_crash_unique.dmm")
 
 	ruin_tags = RUIN_WRECK|RUIN_VOID
 
@@ -107,7 +107,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
-	suffixes = list("asteroid/listening_post/listening_post_unique")
+	suffixes = list("asteroid/listening_post/listening_post_unique.dmm")
 
 	ruin_tags = RUIN_HUMAN|RUIN_WRECK|RUIN_VOID
 
@@ -120,7 +120,7 @@
 	spawn_weight = 1
 	spawn_cost = 0.5
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
-	suffixes = list("asteroid/escape_pod/escape_pod_unique")
+	suffixes = list("asteroid/escape_pod/escape_pod_unique.dmm")
 
 	ruin_tags = RUIN_HUMAN|RUIN_WRECK|RUIN_VOID
 
@@ -133,7 +133,7 @@
 	spawn_weight = 1
 	spawn_cost = 0.5
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
-	suffixes = list("asteroid/digsite/digsite_unique")
+	suffixes = list("asteroid/digsite/digsite_unique.dmm")
 
 	ruin_tags = RUIN_HUMAN
 
@@ -146,7 +146,7 @@
 	spawn_weight = 1
 	spawn_cost = 0.5
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
-	suffixes = list("asteroid/crashed_pod/crashed_pod_unique")
+	suffixes = list("asteroid/crashed_pod/crashed_pod_unique.dmm")
 
 	ruin_tags = RUIN_HUMAN|RUIN_WRECK|RUIN_VOID
 
@@ -159,6 +159,6 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
-	suffixes = list("asteroid/coc_ship/coc_ship_unique")
+	suffixes = list("asteroid/coc_ship/coc_ship_unique.dmm")
 
 	ruin_tags = RUIN_HUMAN|RUIN_WRECK|RUIN_VOID

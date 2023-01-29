@@ -186,7 +186,7 @@
 /obj/structure/sign/vacuum{
 	pixel_x = -32
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "aA" = (
 /obj/structure/computerframe,
@@ -202,7 +202,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/northright,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "aC" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
