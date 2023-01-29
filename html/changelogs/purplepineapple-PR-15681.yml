@@ -1,0 +1,7 @@
+author: ChangeMe
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a variant of the mercenary hardsuit using the Apotheosis sprite for the Einstein group gear crate."
+  - rscadd: "Added gear crates for antagonists wishing to play as Einstein to allow for a more unique set of weapons from other group antagonists."
