@@ -85,16 +85,16 @@
 
 	ruin_tags = RUIN_HUMAN|RUIN_VOID
 
-/datum/map_template/ruin/exoplanet/crashed_satellite 
-	name = "Crashed satellite "
+/datum/map_template/ruin/exoplanet/crashed_satellite
+	name = "Crashed Satellite"
 	id = "crashed_satelite"
-	description = "A crashed satellite ."
+	description = "A crashed satellite."
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS|TEMPLATE_FLAG_NO_RUINS
 
 	spawn_weight = 1
 	spawn_cost = 1
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
-	suffixes = list("asteroid/satellite _crash/satellite_crash_unique.dmm")
+	suffixes = list("asteroid/satellite_crash/satellite_crash_unique.dmm")
 
 	ruin_tags = RUIN_WRECK|RUIN_VOID
 
