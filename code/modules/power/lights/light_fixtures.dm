@@ -554,7 +554,7 @@
 
 /obj/machinery/light/proc/explode()
 	set waitfor = FALSE
-	var/turf/T = get_turf(get_turf(src))
+	var/turf/T = get_turf(src)
 	broken()	// break it first to give a warning
 	sleep(2)
 	explosion(T, 0, 0, 2, 2)
