@@ -9,15 +9,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/ship_ammunition/grauwolf_bundle{
-	pixel_x = 1
-	},
-/obj/item/ship_ammunition/grauwolf_bundle{
-	pixel_x = 1
-	},
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -29,10 +25,11 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -48,9 +45,11 @@
 	dir = 4;
 	icon_state = "rwindow"
 	},
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -65,14 +64,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/ship_ammunition/grauwolf_bundle{
-	pixel_x = 1
-	},
-/obj/item/ship_ammunition/grauwolf_bundle{
-	pixel_x = 1
-	},
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -84,10 +80,11 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -103,9 +100,11 @@
 	dir = 4;
 	icon_state = "rwindow"
 	},
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1016,8 +1015,8 @@
 	},
 /area/hailstorm_ship)
 "fJ" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/hailstorm_ship/gun_deck/second)
@@ -1190,11 +1189,10 @@
 	},
 /area/hailstorm_ship/bridge)
 "ie" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
+/turf/simulated/floor/tiled{
+	temperature = 278.15
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/hailstorm_ship/gun_deck)
+/area/hailstorm_ship/gun_deck/second)
 "ig" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor{
@@ -1232,7 +1230,12 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/engine)
 "io" = (
-/obj/structure/ship_weapon_dummy,
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/hailstorm_ship/gun_deck)
 "iq" = (
@@ -1363,6 +1366,11 @@
 /obj/structure/window/reinforced{
 	dir = 1;
 	icon_state = "rwindow"
+	},
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "Hailstorm Starboard Gun"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/hailstorm_ship/gun_deck)
@@ -1613,7 +1621,6 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "lM" = (
-/obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -1811,6 +1818,11 @@
 /obj/structure/window/reinforced{
 	dir = 1;
 	icon_state = "rwindow"
+	},
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "Hailstorm Port Gun"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/hailstorm_ship/gun_deck/second)
@@ -2099,6 +2111,12 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/hailstorm_ship/gun_deck)
+"rt" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/airless,
+/area/hailstorm_ship/bridge)
 "rx" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -2478,9 +2496,8 @@
 	},
 /area/hailstorm_ship/atmospherics)
 "yD" = (
-/obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/hailstorm_ship/gun_deck)
@@ -2586,13 +2603,6 @@
 "AU" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/hailstorm_ship/engine)
-"Bs" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/hailstorm_ship/gun_deck/second)
 "Bv" = (
 /obj/structure/bed/stool/bar/padded/black,
 /obj/item/sign/painting_frame/harrlala{
@@ -2789,22 +2799,10 @@
 	},
 /area/hailstorm_ship/barracks)
 "Ed" = (
-/obj/structure/ship_weapon_dummy,
-/obj/machinery/ship_weapon/grauwolf{
-	pixel_x = -32;
-	pixel_y = -192;
-	weapon_id = "Hailstorm Port Gun";
-	mobile_platform = 1
+/turf/simulated/floor/tiled{
+	temperature = 278.15
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/hailstorm_ship/gun_deck/second)
+/area/hailstorm_ship/gun_deck)
 "Eh" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2849,7 +2847,6 @@
 	},
 /area/hailstorm_ship/engineering)
 "EP" = (
-/obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -2907,13 +2904,13 @@
 /turf/template_noop,
 /area/space)
 "FU" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/tajaran/pvsm/captain,
-/obj/item/clothing/shoes/tajara/jackboots,
-/obj/item/clothing/head/beret/tajaran/pvsm,
-/obj/item/clothing/accessory/badge/dpra_passport,
-/obj/machinery/light,
 /obj/effect/floor_decal/corner/white/full,
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/obj/machinery/computer/cryopod{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3123,10 +3120,12 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
 /obj/structure/curtain/open/bed,
-/obj/effect/floor_decal/corner/white/full,
 /obj/effect/ghostspawpoint{
 	identifier = "hailstorm_crew";
 	name = "igs - hailstorm_crew"
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 10
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3185,6 +3184,7 @@
 	identifier = "hailstorm_crew";
 	name = "igs - hailstorm_crew"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3459,6 +3459,12 @@
 /obj/effect/shuttle_landmark/nav_hailstorm_ship/nav2,
 /turf/template_noop,
 /area/space)
+"OS" = (
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/airless,
+/area/hailstorm_ship/bridge)
 "OT" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 8
@@ -3731,7 +3737,12 @@
 	},
 /area/hailstorm_ship/gun_deck)
 "UT" = (
-/obj/structure/ship_weapon_dummy,
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/hailstorm_ship/gun_deck/second)
 "UW" = (
@@ -4022,23 +4033,6 @@
 	temperature = 278.15
 	},
 /area/hailstorm_ship/crew)
-"Zy" = (
-/obj/structure/ship_weapon_dummy,
-/obj/machinery/ship_weapon/grauwolf{
-	pixel_x = -32;
-	pixel_y = -192;
-	weapon_id = "Hailstorm Starboard Gun";
-	mobile_platform = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/hailstorm_ship/gun_deck)
 "ZG" = (
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -13847,11 +13841,11 @@ je
 fQ
 aa
 MH
-ny
-qm
-lT
-lT
-yD
+Ed
+Ed
+fQ
+iB
+iB
 iB
 iB
 iB
@@ -14009,10 +14003,10 @@ iT
 fQ
 ab
 MH
-Zy
-io
-io
-ie
+ny
+qm
+lT
+lT
 io
 iB
 iB
@@ -14173,8 +14167,8 @@ ac
 MH
 ju
 rs
-rs
-rs
+yD
+yD
 EP
 iB
 iB
@@ -14819,7 +14813,7 @@ dE
 jw
 KP
 fQ
-dZ
+OS
 dZ
 dZ
 dZ
@@ -15791,7 +15785,7 @@ NM
 qQ
 Eh
 hc
-dZ
+rt
 dZ
 dZ
 dZ
@@ -16277,11 +16271,11 @@ JO
 CR
 kZ
 pC
-cd
-FX
-Fx
-Fx
-Bs
+ie
+ie
+hc
+iB
+iB
 iB
 iB
 iB
@@ -16439,10 +16433,10 @@ QW
 CR
 ad
 pC
-Ed
-UT
-UT
-fJ
+cd
+FX
+Fx
+Fx
 UT
 iB
 iB
@@ -16603,8 +16597,8 @@ ae
 pC
 nS
 fs
-fs
-fs
+fJ
+fJ
 lM
 iB
 iB
