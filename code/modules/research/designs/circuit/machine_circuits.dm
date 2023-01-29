@@ -61,13 +61,13 @@
 	req_tech = list(TECH_DATA = 2, TECH_POWER = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/mech_charger
 
-/datum/design/circuit/machine/heph_mech_recharger
-	name = "Hephaestus Mech Recharger"
+/datum/design/circuit/machine/heph_mech_charger
+	name = "Hephaestus Mech Charger"
 	req_tech = list(TECH_DATA = 3, TECH_POWER = 3, TECH_ENGINEERING = 4)
 	build_path = /obj/item/circuitboard/mech_charger/hephaestus
 
-/datum/design/circuit/machine/recharge_station
-	name = "Robot Charging Station"
+/datum/design/circuit/machine/robot_charger
+	name = "Robot Charger"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/robot_charger
 
