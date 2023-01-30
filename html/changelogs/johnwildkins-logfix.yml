@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed an issue where wall icons and other smoothed icons would fail to update."
+  - backend: "Potentially fixed an issue with the server failing to reboot / launch correctly."
