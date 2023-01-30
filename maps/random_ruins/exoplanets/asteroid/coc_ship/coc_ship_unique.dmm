@@ -3,7 +3,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,10"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "aB" = (
 /obj/structure/shuttle_part/raider{
@@ -52,7 +52,7 @@
 "bB" = (
 /obj/structure/lattice,
 /obj/item/material/shard,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "bH" = (
 /obj/structure/shuttle_part/raider{
@@ -64,13 +64,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "9,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "bO" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,15"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "bQ" = (
 /obj/structure/grille/broken,
@@ -96,13 +96,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,6"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "cq" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,11"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "cv" = (
 /obj/structure/shuttle_part/raider{
@@ -128,7 +128,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,7"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "cT" = (
 /obj/structure/bed/padded,
@@ -151,7 +151,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "1,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "ee" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -177,7 +177,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "eo" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -292,13 +292,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,14"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "gp" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "14,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "gr" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -351,13 +351,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,12"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "hv" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,14"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "hz" = (
 /obj/effect/decal/cleanable/dirt,
@@ -377,7 +377,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "2,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "hP" = (
 /obj/effect/decal/cleanable/dirt,
@@ -419,7 +419,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,9"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "jg" = (
 /obj/effect/decal/cleanable/dirt,
@@ -447,19 +447,19 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "16,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "jU" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "16,16"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "jZ" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,3"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "km" = (
 /obj/item/reagent_containers/hypospray/autoinjector/survival{
@@ -492,7 +492,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "13,3"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "kG" = (
 /obj/structure/table/steel,
@@ -518,13 +518,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "5,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "li" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "12,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "lm" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -544,7 +544,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "19,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "lL" = (
 /obj/structure/window/shuttle/unique/raider{
@@ -603,7 +603,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,8"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "mA" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -646,7 +646,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "20,16"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "ns" = (
 /obj/structure/shuttle_part/raider{
@@ -683,7 +683,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "13,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "nI" = (
 /obj/machinery/door/airlock/hatch,
@@ -769,7 +769,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "6,15"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "pv" = (
 /obj/structure/shuttle_part/raider{
@@ -797,19 +797,19 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "13,2"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "pA" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "20,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "pK" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "17,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "pP" = (
 /turf/template_noop,
@@ -871,7 +871,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,7"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "ru" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -884,13 +884,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "6,14"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "rV" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,2"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "sf" = (
 /obj/structure/computerframe,
@@ -905,7 +905,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,5"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "sx" = (
 /obj/structure/shuttle_part/raider{
@@ -925,7 +925,7 @@
 	icon_state = "6,13"
 	},
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "sW" = (
 /obj/structure/lattice,
@@ -933,7 +933,7 @@
 	destroy_surroundings = 0;
 	wander = 0
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "tf" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -944,6 +944,7 @@
 /area/template_noop)
 "tu" = (
 /obj/structure/railing/mapped,
+/obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "tw" = (
@@ -990,11 +991,11 @@
 	icon_state = "15,13"
 	},
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "uw" = (
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "uL" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1007,7 +1008,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,15"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "uV" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1017,13 +1018,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,4"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "vy" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "7,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "vE" = (
 /obj/structure/shuttle_part/raider{
@@ -1083,7 +1084,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,2"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "wG" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1113,7 +1114,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "3,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "xi" = (
 /mob/living/simple_animal/hostile/carp{
@@ -1136,7 +1137,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,14"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "xN" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1149,18 +1150,18 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,13"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "xX" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,5"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "ye" = (
 /obj/structure/lattice,
 /obj/structure/closet/crate/secure/loot,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "ym" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1180,7 +1181,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,6"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "yD" = (
 /obj/machinery/iv_drip,
@@ -1212,7 +1213,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,13"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "zx" = (
 /obj/structure/shuttle_part/raider{
@@ -1229,7 +1230,7 @@
 /area/template_noop)
 "zK" = (
 /mob/living/simple_animal/hostile/carp,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "zM" = (
 /obj/machinery/light/small/emergency,
@@ -1405,13 +1406,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,10"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "DL" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "6,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "DQ" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1523,7 +1524,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,9"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "GZ" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -1637,7 +1638,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,8"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "IT" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1670,7 +1671,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "21,4"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "Jn" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -1706,7 +1707,7 @@
 	},
 /area/template_noop)
 "Od" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "Po" = (
 /obj/item/reagent_containers/cooking_container/plate/bowl{
@@ -1742,7 +1743,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "18,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "RI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1807,7 +1808,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "4,0"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "TJ" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1828,7 +1829,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "0,3"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "Ui" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1841,7 +1842,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "8,3"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "Vn" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1860,13 +1861,13 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "8,2"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "Xd" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "8,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "XI" = (
 /obj/structure/girder,
@@ -2105,7 +2106,7 @@ tw
 (11,1,1) = {"
 pP
 tw
-pP
+tw
 zK
 tw
 uV
