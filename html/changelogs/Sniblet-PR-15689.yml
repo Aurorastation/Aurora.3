@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - tweak: "Zeng-Hu Emotion Manipulators now give you SPAN_GOOD instead of SPAN_NOTICE messages. This means they are green."
-  - spellcheck (typo fixes): "Added punctuation to "feeling" artifact effects."
+  - spellcheck (typo fixes): "Added punctuation to 'feeling' artifact effects."
