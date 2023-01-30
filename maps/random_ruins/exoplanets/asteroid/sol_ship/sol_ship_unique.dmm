@@ -616,19 +616,6 @@
 	oxygen = 0
 	},
 /area/template_noop)
-"Yu" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret/xray{
-	check_arrest = 0;
-	check_records = 0;
-	check_wildlife = 0
-	},
-/turf/simulated/floor/shuttle/dark_blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/template_noop)
 "Zd" = (
 /obj/machinery/light/colored/red,
 /turf/simulated/floor/shuttle/dark_blue{
@@ -838,7 +825,7 @@ sK
 su
 Iw
 UF
-Yu
+UF
 qQ
 Zd
 yk
