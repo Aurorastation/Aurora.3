@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "You now take fall damage if you move down z-levels without proper propulsion."

@@ -36,7 +36,9 @@
 		return eyeobj.zMove(direction)
 
 	// Check if we can actually travel a Z-level.
-	if (!can_ztravel(direction))
+	var/can_z_travel = can_ztravel(direction, FALSE)
+	var/turf/current_turf = loc
+	if(can_z_travel == 0 && !(direction == DOWN && isopenturf(current_turf)))
 		to_chat(src, SPAN_WARNING("You lack means of travel in that direction."))
 		return FALSE
 
@@ -78,8 +80,18 @@
 		if(car.flying)
 			buckled_to.Move(destination)
 			return TRUE
+
 	// Actually move.
 	Move(destination)
+	if(direction == DOWN && can_z_travel != 1 && isturf(destination))
+		var/turf/destination_turf = destination
+		if(destination_turf.is_hole)
+			ADD_FALLING_ATOM(src)
+			SSfalling.falling[src] = 1
+		else
+			fall_impact(1, TRUE)
+			fall_collateral(1, TRUE)
+
 	return TRUE
 
 /mob/living/carbon/human/zMove(direction)
@@ -125,7 +137,7 @@
  * @return	TRUE if the mob can move a Z-level of its own volition.
  *			FALSE otherwise.
  */
-/mob/proc/can_ztravel(var/direction)
+/mob/proc/can_ztravel(var/direction, var/check_magboots = TRUE)
 	if(incorporeal_move == INCORPOREAL_BSTECH)
 		return TRUE
 	return FALSE
@@ -133,20 +145,23 @@
 /mob/abstract/observer/can_ztravel(var/direction)
 	return TRUE
 
-/mob/living/carbon/human/can_ztravel(var/direction)
+/mob/living/carbon/human/can_ztravel(var/direction, var/check_magboots = TRUE)
 	if(incapacitated())
 		return FALSE
 
 	if(incorporeal_move == INCORPOREAL_BSTECH)
 		return TRUE
 
-	if(Allow_Spacemove())
+	if(Allow_Spacemove() == 1)
 		return TRUE
 
-	for(var/turf/simulated/T in RANGE_TURFS(1,src))
-		if(T.density)
-			if(Check_Shoegrip(FALSE))
-				return TRUE
+	if(check_magboots)
+		for(var/turf/simulated/T in RANGE_TURFS(1,src))
+			if(T.density)
+				if(Check_Shoegrip(FALSE))
+					return TRUE
+
+	return FALSE
 
 /mob/living/carbon/human/proc/climb(var/direction, var/turf/source, var/climb_bonus)
 	var/turf/destination
@@ -224,16 +239,19 @@
 			return 0
 	return 1
 
-/mob/living/silicon/robot/can_ztravel(var/direction)
+/mob/living/silicon/robot/can_ztravel(var/direction, var/check_magboots = TRUE)
 	if(incapacitated() || is_dead())
 		return FALSE
 
 	if(Allow_Spacemove()) //Checks for active jetpack
 		return TRUE
 
-	for(var/turf/simulated/T in RANGE_TURFS(1,src)) //Robots get "magboots"
-		if(T.density)
-			return TRUE
+	if(check_magboots)
+		for(var/turf/simulated/T in RANGE_TURFS(1,src)) //Robots get "magboots"
+			if(T.density)
+				return TRUE
+
+	return FALSE
 
 /**
  * Used to determine whether or not a given mob can override gravity when
