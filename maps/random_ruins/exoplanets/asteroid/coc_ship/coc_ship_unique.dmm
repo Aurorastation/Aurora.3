@@ -707,6 +707,7 @@
 "nS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/hatch,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "nX" = (
