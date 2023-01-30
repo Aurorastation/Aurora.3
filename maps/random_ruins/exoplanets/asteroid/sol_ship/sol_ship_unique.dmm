@@ -96,10 +96,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless,
 /area/template_noop)
 "hT" = (
 /obj/effect/decal/cleanable/blood,
@@ -268,10 +265,7 @@
 /obj/structure/grille/broken,
 /obj/structure/window/reinforced,
 /obj/item/material/shard,
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless,
 /area/template_noop)
 "tC" = (
 /obj/structure/mech_wreckage,
@@ -308,10 +302,7 @@
 	},
 /area/template_noop)
 "vQ" = (
-/turf/simulated/floor/plating{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless,
 /area/template_noop)
 "wb" = (
 /obj/machinery/light/colored/red{

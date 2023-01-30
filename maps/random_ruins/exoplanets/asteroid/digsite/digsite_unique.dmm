@@ -36,10 +36,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "af" = (
 /obj/machinery/atmospherics/unary/vent_pump{
@@ -56,19 +53,12 @@
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
-"ah" = (
-/obj/structure/inflatable/wall,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/template_noop)
 "ai" = (
 /obj/machinery/floodlight,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "aj" = (
 /obj/machinery/artifact,
@@ -76,19 +66,13 @@
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "ak" = (
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "al" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "am" = (
 /obj/structure/inflatable/wall,
@@ -98,19 +82,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "ao" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "ap" = (
 /obj/machinery/floodlight,
@@ -121,10 +99,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "ar" = (
 /obj/effect/landmark/clear,
@@ -151,10 +126,7 @@
 /area/template_noop)
 "av" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "aw" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -178,10 +150,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "az" = (
 /turf/simulated/wall,
@@ -503,11 +472,11 @@ aa
 ar
 ar
 al
-ah
-ah
 am
-ah
-ah
+am
+am
+am
+am
 ae
 ar
 ar
@@ -522,11 +491,11 @@ aa
 ar
 al
 ar
-ah
+am
 aD
 ad
 ac
-ah
+am
 ar
 ae
 ar
@@ -560,11 +529,11 @@ aa
 ar
 an
 ar
-ah
+am
 at
 Vd
 au
-ah
+am
 ar
 ao
 ar
@@ -579,11 +548,11 @@ aa
 ar
 ar
 an
-ah
-ah
 am
-ah
-ah
+am
+am
+am
+am
 ao
 ar
 ar
