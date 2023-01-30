@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed airtight plastic flaps stopping working after shuttles moves."
