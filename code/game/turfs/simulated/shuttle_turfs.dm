@@ -457,6 +457,10 @@
 	icon_state = "floor9"
 	initial_flooring = /singleton/flooring/shuttle/dark_blue
 
+/turf/simulated/floor/shuttle/dark_blue/airless
+	oxygen = 0
+	nitrogen = 0
+
 /turf/simulated/floor/shuttle/advanced
 	icon_state = "advanced_plating"
 	initial_flooring = /singleton/flooring/shuttle/advanced
@@ -470,9 +474,17 @@
 	initial_flooring = /singleton/flooring/shuttle/skrell
 	footstep_sound = /singleton/sound_category/sand_footstep
 
+/turf/simulated/floor/shuttle/skrell/airless
+	oxygen = 0
+	nitrogen = 0
+
 /turf/simulated/floor/shuttle/skrell/blue
 	icon_state = "skrell_blue"
 	initial_flooring = /singleton/flooring/shuttle/skrell/blue
+
+/turf/simulated/floor/shuttle/skrell/blue/airless
+	oxygen = 0
+	nitrogen = 0
 
 /turf/simulated/floor/shuttle/skrell/ramp
 	name = "footramp"

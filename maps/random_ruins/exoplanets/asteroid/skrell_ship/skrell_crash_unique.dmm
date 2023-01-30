@@ -18,10 +18,7 @@
 /area/template_noop)
 "ae" = (
 /obj/structure/computerframe,
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "af" = (
 /obj/structure/grille/broken,
@@ -32,17 +29,14 @@
 "ag" = (
 /obj/structure/window/shuttle/skrell,
 /obj/structure/grille/diagonal,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "ah" = (
 /obj/structure/bed/stool/chair/office/hover{
 	icon_state = "hover_chair";
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "ai" = (
 /obj/structure/grille,
@@ -76,7 +70,7 @@
 	icon_state = "grille_diagonal";
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "ao" = (
 /obj/structure/window/reinforced{
@@ -99,10 +93,7 @@
 "ar" = (
 /obj/structure/table/skrell,
 /obj/item/reagent_containers/food/snacks/skrellsnacks,
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "as" = (
 /obj/structure/bed/roller/hover,
@@ -152,10 +143,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	basecolor = "#0081CD"
 	},
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "az" = (
 /obj/structure/window/reinforced{
@@ -186,10 +174,7 @@
 	name = "Bridge"
 	},
 /obj/structure/inflatable/door,
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "aE" = (
 /obj/item/device/breath_analyzer,
@@ -221,20 +206,14 @@
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
 	},
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "aJ" = (
 /obj/machinery/light/skrell,
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
 	},
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "aK" = (
 /obj/structure/blocker/steel,
@@ -257,10 +236,7 @@
 /obj/machinery/light/skrell{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "aP" = (
 /obj/structure/table/skrell,
@@ -311,10 +287,7 @@
 /obj/machinery/light/skrell{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "aZ" = (
 /obj/structure/closet/walllocker/medical{
@@ -447,10 +420,7 @@
 /obj/item/clothing/mask/breath/skrell,
 /obj/item/clothing/suit/space/void/skrell/white,
 /obj/item/clothing/under/skrell,
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "bu" = (
 /obj/structure/shuttle/engine/heater{
@@ -482,10 +452,7 @@
 /obj/item/clothing/mask/breath/skrell,
 /obj/item/clothing/suit/space/void/skrell/black,
 /obj/item/clothing/under/skrell,
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "bA" = (
 /obj/effect/decal/cleanable/blood/tracks/footprints,
@@ -494,15 +461,6 @@
 "bB" = (
 /obj/machinery/cryopod,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
-"bC" = (
-/obj/machinery/door/airlock/skrell{
-	name = "Medbay"
-	},
-/obj/item/landmine/emp{
-	deployed = 1
-	},
-/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "bD" = (
 /obj/structure/blocker/steel,
@@ -550,10 +508,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	basecolor = "#0081CD"
 	},
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "bK" = (
 /obj/machinery/cryopod{
@@ -692,10 +647,7 @@
 	},
 /obj/item/clothing/mask/breath/skrell,
 /obj/item/clothing/under/skrell,
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "ci" = (
 /obj/structure/girder/displaced,
@@ -876,10 +828,7 @@
 "Dz" = (
 /obj/structure/table/skrell,
 /obj/machinery/light/skrell,
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "IN" = (
 /turf/simulated/floor/shuttle/skrell/blue{
@@ -897,6 +846,9 @@
 	oxygen = 0;
 	nitrogen = 0
 	},
+/area/template_noop)
+"Ug" = (
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "Vf" = (
 /obj/structure/window/shuttle/skrell,
@@ -1183,9 +1135,9 @@ ad
 ae
 ah
 aO
-IN
-IN
-IN
+Ug
+Ug
+Ug
 aB
 aH
 aH
@@ -1216,9 +1168,9 @@ ab
 ag
 ae
 ah
-IN
-IN
-IN
+Ug
+Ug
+Ug
 ap
 ap
 ap
@@ -1250,9 +1202,9 @@ af
 ax
 ao
 bF
-IN
+Ug
 ch
-IN
+Ug
 ap
 aA
 aF
@@ -1320,7 +1272,7 @@ au
 az
 IN
 aI
-IN
+Ug
 ap
 aE
 aW
@@ -1352,7 +1304,7 @@ cy
 an
 ae
 ah
-IN
+Ug
 ay
 ay
 ap
@@ -1387,7 +1339,7 @@ bR
 ae
 ah
 aY
-IN
+Ug
 aI
 bJ
 aD
@@ -1463,7 +1415,7 @@ aH
 aK
 cz
 cz
-bC
+bw
 ap
 ap
 ap
