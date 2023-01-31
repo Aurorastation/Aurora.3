@@ -44,6 +44,9 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/list/navigation_viewers // list of weakrefs to people viewing the overmap via this ship
 	var/list/consoles
 
+	var/list/datalink_requests = list()// A list of datalink requests that we received
+	var/list/datalinked        = list()// Other effects that we are datalinked with
+
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)

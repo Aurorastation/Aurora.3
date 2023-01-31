@@ -114,6 +114,20 @@
 			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing)))
 		if(length(contacts))
 			data["contacts"] = contacts
+
+		// Add datalink requests
+		if(length(connected.datalink_requests))
+			var/list/local_datalink_requests = list()
+			for(var/obj/effect/overmap/visitable/requestor in connected.datalink_requests)
+				local_datalink_requests.Add(list(list("name"=requestor.name, "ref"="\ref[requestor]")))
+			data["datalink_requests"]  = local_datalink_requests
+
+		if(length(connected.datalinked))
+			var/list/local_datalinked = list()
+			for(var/obj/effect/overmap/visitable/datalinked_ship in connected.datalinked)
+				local_datalinked.Add(list(list("name"=datalinked_ship.name, "ref"="\ref[datalinked_ship]")))
+			data["datalinked"]  = local_datalinked
+
 		data["last_scan"] = last_scan
 	else
 		data["status"] = "MISSING"
@@ -218,6 +232,35 @@
 				to_chat(usr, SPAN_NOTICE("Successfully scanned [O]."))
 				new/obj/item/paper/(get_turf(src), O.get_scan_data(usr), "paper (Sensor Scan - [O])")
 			return TOPIC_HANDLED
+
+	if (href_list["request_datalink"])
+		var/obj/effect/overmap/visitable/O = locate(href_list["request_datalink"])
+		if(istype(O) && !QDELETED(O))
+			if((O in view(7,linked)) || (O in contact_datums))
+
+				for(var/obj/machinery/computer/ship/sensors/sensor_console in O.consoles)
+					sensor_console.connected.datalink_requests |= src.connected
+					return TOPIC_HANDLED
+
+	if (href_list["accept_datalink_requests"])
+		var/obj/effect/overmap/visitable/O = locate(href_list["accept_datalink_requests"])
+		O.datalinked |= src.connected			// Add our ship as datalinked to the requestor
+		src.connected.datalinked |= O			// Add the requestor as a datalink to our ship
+		src.connected.datalink_requests -= O	// Remove the request
+
+	if (href_list["decline_datalink_requests"])
+		var/obj/effect/overmap/visitable/O = locate(href_list["decline_datalink_requests"])
+		src.connected.datalink_requests -= O	// Remove the request
+
+	if (href_list["remove_datalink"])
+		var/obj/effect/overmap/visitable/O = locate(href_list["remove_datalink"])
+		O.datalinked -= src.connected	// Remove our ship from the datalinked of whom we rescinded with
+		src.connected.datalinked -= O	// Remove out ship from the rescinder's datalinked
+
+		for(var/obj/machinery/computer/ship/sensors/rescinder_sensor_console in src.connected.consoles)	// Get sensor console from the rescinder
+			for(var/obj/machinery/computer/ship/sensors/rescinded_sensor_console in O.consoles)			// Get sensor console from the rescinded
+				rescinder_sensor_console.datalink_remove_all_contacts_of_console(rescinded_sensor_console, O)
+				rescinded_sensor_console.datalink_remove_all_contacts_of_console(rescinder_sensor_console, src.connected)
 
 	if (href_list["play_message"])
 		var/caller = href_list["play_message"]
