@@ -158,14 +158,6 @@
 	item_state = "tailcoat"
 	body_parts_covered = UPPER_TORSO|ARMS
 
-/obj/item/clothing/suit/storage/leathercoat/crosk
-	name = "crosk racing jacket"
-	desc = "A heavily stylized racing jacket covered in various logos and brands. Popular with Crosk racers and among Croskian racing enthusiasts."
-	icon = 'icons/clothing/suits/coats/crosk_racing_jacket.dmi'
-	icon_state = "crosk"
-	item_state = "crosk"
-	contained_sprite = TRUE
-
 /obj/item/clothing/suit/storage/toggle/bomber
 	name = "bomber jacket"
 	desc = "A thick, well-worn WW2 leather bomber jacket."
