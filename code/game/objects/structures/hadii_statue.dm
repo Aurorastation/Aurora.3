@@ -68,4 +68,8 @@
 		return
 	if(!Proj)
 		return
+	if(!damage)
+		visible_message(SPAN_WARNING("\The [Proj] bounces off \the [src]!"))
+		return
+	visible_message(SPAN_WARNING("\The [Proj] hits \the [src][W]!"))
 	do_integrity_check(Proj.damage)
