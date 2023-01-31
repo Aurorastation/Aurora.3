@@ -1,0 +1,6 @@
+author: Azlan, Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a new AI emotion for the status displays, Diagnostics."
