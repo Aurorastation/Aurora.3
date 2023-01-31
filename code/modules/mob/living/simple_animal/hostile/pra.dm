@@ -150,7 +150,7 @@
 
 	speak_emote = list("beeps")
 	emote_hear = list("buzzes","beeps")
-	speak = list("Hadii's grace, comrades.","The stars belongs to the People's Republic of Adhoomai!", "The quest for knowledge must continue!")
+	speak = list("Hadii's grace, comrades.","The stars belong to the People's Republic of Adhoomai!", "The quest for knowledge must continue!")
 	emote_see = list("beeps curiously","whirrs softly","scans its surroundings")
 
 	destroy_surroundings = FALSE
