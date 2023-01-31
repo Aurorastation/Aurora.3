@@ -44,8 +44,8 @@
 
 //---- Bookcase
 
-/obj/structure/bookcase/manuals/xenoarchaeology
-	name = "Xenoarchaeology Manuals bookcase"
+/obj/structure/bookcase/manuals/surveyor
+	name = "Surveyor Manuals bookcase"
 
 	New()
 		..()
@@ -59,12 +59,12 @@
 
 //---- Lockers and closets
 
-/obj/structure/closet/secure_closet/xenoarchaeologist
-	name = "xenoarchaeologist's locker"
-	req_access = list(access_xenoarch)
+/obj/structure/closet/secure_closet/surveyor
+	name = "surveyor's locker"
+	req_access = list(access_surveyor)
 	icon_state = "science"
 
-/obj/structure/closet/secure_closet/xenoarchaeologist/fill()
+/obj/structure/closet/secure_closet/surveyor/fill()
 	new /obj/item/clothing/under/rank/scientist(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/shoes/science(src)
@@ -74,6 +74,7 @@
 	new /obj/item/storage/box/excavation(src)
 	new /obj/item/taperoll/science(src)
 	new /obj/item/clothing/head/hardhat(src)
+	new /obj/item/melee/energy/sword/knife/surveyor(src)
 
 /obj/structure/closet/excavation
 	name = "excavation tools"

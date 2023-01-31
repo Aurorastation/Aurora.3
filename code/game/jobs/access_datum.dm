@@ -386,10 +386,10 @@
 	desc = "Psychiatrist's Office"
 	region = ACCESS_REGION_MEDBAY
 
-/var/const/access_xenoarch = 65
-/datum/access/xenoarch
-	id = access_xenoarch
-	desc = "Xenoarchaeology"
+/var/const/access_surveyor = 65
+/datum/access/surveyor
+	id = access_surveyor
+	desc = "Surveyor"
 	region = ACCESS_REGION_RESEARCH
 
 /var/const/access_medical_equip = 66

@@ -3250,7 +3250,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoarchaeology 3";
+	c_tag = "Research - Surveying Bay 3";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -3889,7 +3889,10 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/machinery/washing_machine,
+/obj/structure/closet/secure_closet/surveyor{
+	req_access = null;
+	req_one_access = list(7,47)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "ddJ" = (
@@ -6993,7 +6996,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_research{
-	name = "Xenoarchaeology and Anomalous Materials";
+	name = "Surveying and Anomalous Materials";
 	req_access = list(47)
 	},
 /obj/structure/cable/green{
@@ -10045,7 +10048,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/bookcase/manuals/xenoarchaeology,
+/obj/structure/bookcase/manuals/surveyor,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "hHk" = (
@@ -10389,7 +10392,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
 /obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoarchaeology 1";
+	c_tag = "Research - Surveying Bay 1";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -10468,7 +10471,7 @@
 /area/shuttle/intrepid/medical_compartment)
 "hXX" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - Xenoarchaeology"
+	RCon_tag = "Substation - Surveying Bay"
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -13775,7 +13778,7 @@
 	dir = 4
 	},
 /obj/machinery/door/window/westleft{
-	name = "Xenoarchaeology Platform Access";
+	name = "Surveying Bay Platform Access";
 	req_access = list(65)
 	},
 /obj/structure/railing/mapped,
@@ -19795,7 +19798,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "pEF" = (
-/obj/structure/closet/secure_closet/xenoarchaeologist{
+/obj/structure/closet/secure_closet/surveyor{
 	req_access = null;
 	req_one_access = list(7,47)
 	},
@@ -20518,7 +20521,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoarchaeology 2"
+	c_tag = "Research - Surveying Bay 2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -21965,7 +21968,7 @@
 /area/engineering/atmos)
 "rlW" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Xenoarchaeology Maintenance Access";
+	name = "Surveying Bay Maintenance Access";
 	req_access = list(65)
 	},
 /obj/structure/cable/green{
@@ -25988,7 +25991,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoarchaeology Entrance";
+	c_tag = "Research - Surveying Bay Entrance";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -27869,7 +27872,7 @@
 	dir = 4
 	},
 /obj/machinery/door/window/eastright{
-	name = "Xenoarchaeology Platform Access";
+	name = "Surveying Bay Platform Access";
 	req_access = list(65)
 	},
 /obj/structure/railing/mapped,
@@ -28344,7 +28347,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoarchaeology Suits";
+	c_tag = "Research - Surveying Suits";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -28683,7 +28686,7 @@
 /area/maintenance/wing/starboard/deck1)
 "wtV" = (
 /obj/machinery/door/window/eastleft{
-	name = "Xenoarchaeology Platform Access";
+	name = "Surveying Bay Platform Access";
 	req_access = list(65)
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -28787,7 +28790,7 @@
 /area/engineering/atmos/propulsion/starboard)
 "wAk" = (
 /obj/machinery/door/window/westright{
-	name = "Xenoarchaeology Platform Access";
+	name = "Surveying Bay Platform Access";
 	req_access = list(65)
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -29096,7 +29099,7 @@
 /area/maintenance/research_port)
 "wRa" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "Xenoarchaeology Substation"
+	RCon_tag = "Surveying Bay Substation"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)

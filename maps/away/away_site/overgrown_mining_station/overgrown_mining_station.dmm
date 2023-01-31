@@ -831,7 +831,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/overgrown_mining_station)
 "Fb" = (
-/obj/structure/closet/secure_closet/xenoarchaeologist,
+/obj/structure/closet/secure_closet/surveyor,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Fh" = (

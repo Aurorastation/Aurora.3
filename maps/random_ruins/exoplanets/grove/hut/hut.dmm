@@ -51,7 +51,7 @@
 /turf/template_noop,
 /area/template_noop)
 "o" = (
-/obj/structure/bookcase/manuals/xenoarchaeology,
+/obj/structure/bookcase/manuals/surveyor,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "p" = (

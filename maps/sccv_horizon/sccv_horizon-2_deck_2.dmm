@@ -10467,7 +10467,7 @@
 	dir = 9
 	},
 /obj/effect/landmark/start{
-	name = "Xenoarchaeologist"
+	name = "Surveyor"
 	},
 /obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/wood,
@@ -26098,11 +26098,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/effect/landmark/start{
-	name = "Xenoarchaeologist"
-	},
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Surveyor"
 	},
 /turf/simulated/floor/wood,
 /area/rnd/conference)
@@ -30596,13 +30596,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_eva)
 "pfr" = (
-/obj/effect/landmark/start{
-	name = "Lab Assistant"
-	},
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/landmark/start{
+	name = "Scientist"
+	},
 /turf/simulated/floor/wood,
 /area/rnd/conference)
 "pfB" = (
@@ -39840,12 +39840,12 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "tNT" = (
-/obj/effect/landmark/start{
-	name = "Lab Assistant"
-	},
-/obj/structure/bed/stool/chair/office/light,
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/structure/bed/stool/chair/office/light{
 	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/landmark/start{
+	name = "Surveyor"
 	},
 /turf/simulated/floor/wood,
 /area/rnd/conference)
@@ -42026,6 +42026,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Lab Assistant"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
@@ -48824,12 +48827,12 @@
 /area/operations/lobby)
 "xWa" = (
 /obj/item/rig/medical/equipped{
-	pixel_y = -2;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = -2
 	},
 /obj/item/rig/medical/equipped{
-	pixel_y = -2;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = -2
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -78006,7 +78009,7 @@ bSD
 gqz
 jjl
 ncA
-wlF
+tNT
 vVL
 dOi
 bzh
@@ -78610,7 +78613,7 @@ qNm
 rnA
 bSD
 jnF
-tNT
+ouk
 ncA
 pfr
 vVL

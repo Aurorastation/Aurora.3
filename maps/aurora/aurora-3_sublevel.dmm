@@ -1702,7 +1702,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/xenoarchaeologist{
+/obj/structure/closet/secure_closet/surveyor{
 	req_access = null;
 	req_one_access = list(7,47)
 	},
@@ -1884,7 +1884,7 @@
 /turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos)
 "aev" = (
-/obj/structure/closet/secure_closet/xenoarchaeologist{
+/obj/structure/closet/secure_closet/surveyor{
 	req_access = null;
 	req_one_access = list(7,47)
 	},
@@ -3391,7 +3391,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/bookcase/manuals/xenoarchaeology,
+/obj/structure/bookcase/manuals/surveyor,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "ahY" = (

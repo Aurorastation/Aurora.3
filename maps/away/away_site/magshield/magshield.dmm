@@ -2368,7 +2368,7 @@
 /turf/simulated/floor/tiled,
 /area/magshield/west)
 "gV" = (
-/obj/structure/bookcase/manuals/xenoarchaeology,
+/obj/structure/bookcase/manuals/surveyor,
 /turf/simulated/floor/tiled,
 /area/magshield/west)
 "gW" = (

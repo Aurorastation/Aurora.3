@@ -1148,7 +1148,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "xQ" = (
-/obj/structure/closet/secure_closet/xenoarchaeologist,
+/obj/structure/closet/secure_closet/surveyor,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "yd" = (

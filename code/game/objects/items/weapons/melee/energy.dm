@@ -137,7 +137,7 @@
 	active_force = 40
 	active_throwforce = 60
 	active_w_class = ITEMSIZE_HUGE
-	armor_penetration = 20 
+	armor_penetration = 20
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_HUGE
@@ -327,6 +327,30 @@
 /obj/item/melee/energy/sword/knife/sol/activate(mob/living/user)
 	..()
 	icon_state = "sol_edagger1"
+
+/obj/item/melee/energy/sword/knife/surveyor
+	name = "surveyor energy dagger"
+	desc = "A small energy dagger provided to surveyors, which they can use to defend themselves and clear out vegetation that stands in their way."
+	desc_info = "A piece of tech borne out of cooperation between the Zavodskoi Interstellar and NanoTrasen Research and Development teams, this blade has a tiny sliver of phoron that drastically reduces the cost of manufactoring by replacing the original miniaturized power generation. The only drawback is a slightly weaker energy field, but at least the purple glow looks good."
+	icon = 'icons/obj/surveyor_knife.dmi'
+	icon_state = "surveyor_dagger0"
+	item_state = "surveyor_dagger0"
+	contained_sprite = TRUE
+	base_reflectchance = 10
+	base_block_chance = 10
+	active_force = 15
+	force = 10
+	origin_tech = list(TECH_MAGNET = 3)
+
+/obj/item/melee/energy/sword/knife/surveyor/activate(mob/living/user)
+	..()
+	icon_state = "surveyor_dagger1"
+	item_state = "surveyor_dagger1"
+
+/obj/item/melee/energy/sword/knife/surveyor/deactivate(mob/living/user)
+	..()
+	icon_state = "surveyor_dagger0"
+	item_state = "surveyor_dagger0"
 
 /*
 *Power Sword

@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Replaced xenoarchaeologists with surveyors."
+  - rscadd: "Added a surveyor energy dagger to the surveyor's closets. It isn't strong enough to cut through walls."

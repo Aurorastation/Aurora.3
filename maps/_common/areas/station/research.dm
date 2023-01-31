@@ -144,11 +144,11 @@
 	icon_state = "blue"
 
 /area/rnd/xenoarch_atrium
-	name = "Research - Xenoarchaeology Atrium"
+	name = "Research - Surveying Bay Atrium"
 	icon_state = "research"
 
 /area/rnd/xenoarch_storage
-	name = "Research - Xenoarchaeology Storage"
+	name = "Research - Surveying Bay Storage"
 	icon_state = "purple"
 
 /area/rnd/isolation_a

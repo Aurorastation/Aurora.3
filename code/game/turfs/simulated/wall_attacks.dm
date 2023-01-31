@@ -217,7 +217,7 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need to activate the weapon to do that!"))
 				return
-		else if(istype(W,/obj/item/melee/energy/blade))
+		else if(istype(W,/obj/item/melee/energy/blade) && W.force > 15)
 			dismantle_sound = /singleton/sound_category/spark_sound
 			dismantle_verb = "slicing"
 			cut_delay *= 0.5

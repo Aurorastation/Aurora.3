@@ -170,7 +170,7 @@
 /datum/outfit/job/scientist/xenoarchaeologist/zeng_hu
 	name = "Xenoarchaeologist - Zeng-Hu"
 
-	uniform = /obj/item/clothing/under/rank/scientist/xenoarchaeologist/zeng
+	uniform = /obj/item/clothing/under/rank/scientist/surveyor/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
 
