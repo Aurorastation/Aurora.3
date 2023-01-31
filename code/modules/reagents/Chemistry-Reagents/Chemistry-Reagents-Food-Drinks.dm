@@ -5176,14 +5176,14 @@
 
 /singleton/reagent/drink/toothpaste/caprician_coffee
 	name = "Caprician Coffee"
-	description = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
+	description = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra Hive."
 	color = "#C00000"
 	taste_description = "minty coffee"
 	strength = 15
 
 	glass_icon_state = "caprician_coffee"
 	glass_name = "glass of caprician coffee"
-	glass_desc = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra hive."
+	glass_desc = "A Vaurcesian take on liqueur coffee, quickly becoming a favorite of the Zo'ra Hive."
 
 /singleton/reagent/drink/toothpaste/ichor
 	name = "Xsain Ichor"
