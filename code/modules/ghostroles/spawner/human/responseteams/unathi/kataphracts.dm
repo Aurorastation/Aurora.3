@@ -16,7 +16,7 @@
 /datum/ghostspawner/human/ert/kataphract/klax
 	name = "Kataphract-Hopeful Klaxan"
 	short_name = "katklax"
-	desc = "A Zo'saa (squire) from the K'lax hive, here to learn from Unathi Knights what it means to be honourable."
+	desc = "A Zo'saa (squire) from the K'lax Hive, here to learn from Unathi Knights what it means to be honourable."
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/kataphract/klax
 	mob_name_prefix = "Zosaa "

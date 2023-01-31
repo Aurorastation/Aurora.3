@@ -118,7 +118,7 @@
 			rep_objectives = pick("Promote [rand(3,6)] amount of K'laxan products, be it energy drinks or merchandise")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the K'lax hive to all [current_map.boss_name] employees")
+							"Protect and promote the public image of the K'lax Hive to all [current_map.boss_name] employees")
 
 	return rep_objectives
 
@@ -189,7 +189,7 @@
 
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the C'thur hive to all [current_map.boss_name] employees")
+							"Protect and promote the public image of the C'thur Hive to all [current_map.boss_name] employees")
 
 	return rep_objectives
 
