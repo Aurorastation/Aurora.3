@@ -68,7 +68,7 @@
 		return
 	if(!Proj)
 		return
-	if(!damage)
+	if(!Proj.damage)
 		visible_message(SPAN_WARNING("\The [Proj] bounces off \the [src]!"))
 		return
 	visible_message(SPAN_WARNING("\The [Proj] hits \the [src]!"))
