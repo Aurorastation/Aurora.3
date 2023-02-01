@@ -87,6 +87,13 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 85000, MATERIAL_GLASS = 1250, MATERIAL_SILVER = 5250, MATERIAL_GOLD = 2750)
 	build_path = /obj/item/rig_module/actuators
 
+/datum/design/hardsuitmodules/springstep_module
+	name = "Springstep Module"
+	desc = "A mix of electric stimulators and metallic actuators, this module detects a footfall and sends a signal to the muscle to contract to increase baseline moving speed."
+	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_POWER = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 40000, MATERIAL_GLASS = 30000)
+	build_path = /obj/item/rig_module/springstep
+
 /datum/design/hardsuitmodules/taser_module
 	name = "Mounted Taser"
 	desc = "A palm-mounted non-lethal energy projector."

@@ -739,6 +739,48 @@
 		H.forceMove(leapEnd)
 		return TRUE
 
+/obj/item/rig_module/springstep
+	name = "springstep module"
+	desc = "A mix of electric stimulators and metallic actuators, this module detects a footfall and sends a signal to the muscle to contract to increase baseline moving speed."
+	icon_state = "actuators"
+
+	interface_name = "springstep module"
+	interface_desc = "Allows you to move faster than normal."
+
+	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, MATERIAL_GLASS = 1250)
+	construction_time = 300
+
+	disruptive = FALSE
+
+	use_power_cost = 0
+	module_cooldown = 5
+	var/step_power_cost = 15
+
+	toggleable = TRUE
+
+	engage_string = "Toggle Springstep Module"
+	activate_string = "Enable Springstep Module"
+	deactivate_string = "Disable Springstep Module"
+
+	category = MODULE_GENERAL
+
+/obj/item/rig_module/springstep/activate(mob/user)
+	. = ..()
+	if(!.)
+		return
+	RegisterSignal(user, COMSIG_ADJUST_MOVE_DELAY, PROC_REF(handle_move_delay))
+
+/obj/item/rig_module/springstep/deactivate(mob/user)
+	. = ..()
+	if(!.)
+		return
+	UnregisterSignal(user, COMSIG_ADJUST_MOVE_DELAY)
+
+/obj/item/rig_module/springstep/proc/handle_move_delay(var/mob/mob, list/move_data)
+	SIGNAL_HANDLER
+
+	if(holder.cell && holder.cell.use(step_power_cost))
+		move_data["move_delay"] -= 1
 
 /obj/item/rig_module/cooling_unit
 	name = "mounted cooling unit"

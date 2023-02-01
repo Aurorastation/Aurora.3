@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the springstep module to the machinist mechfab. It goes into hardsuits and increase walk and running speed, at the cost of power."

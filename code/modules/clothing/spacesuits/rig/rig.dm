@@ -403,7 +403,7 @@
 		crushing = FALSE
 		if(offline == 1)
 			for(var/obj/item/rig_module/module in installed_modules)
-				module.deactivate()
+				module.deactivate(wearer)
 			offline = 2
 			slowdown = offline_slowdown
 		return
@@ -457,7 +457,7 @@
 	if(mod && mod.disruptive)
 		for(var/obj/item/rig_module/module in (installed_modules - mod))
 			if(module.active && module.disruptable)
-				module.deactivate()
+				module.deactivate(wearer)
 
 	cell.use(cost*10)
 	return 1
@@ -845,7 +845,7 @@
 			to_chat(wearer, "<span class='danger'>The [source] has disabled your [dam_module.interface_name]!</span>")
 		else
 			to_chat(wearer, "<span class='warning'>The [source] has damaged your [dam_module.interface_name]!</span>")
-	dam_module.deactivate()
+	dam_module.deactivate(wearer)
 
 /obj/item/rig/proc/malfunction_check(var/mob/living/carbon/human/user)
 	if(malfunction_delay)
