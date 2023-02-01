@@ -31,7 +31,7 @@ datum/gear/suit/colorvest
 	jackets["black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket
 	jackets["brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket
 	jackets["biker jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/biker
-	jackets["midriff leather jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/midriff
+	jackets["cropped leather jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/midriff
 	jackets["designer leather jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/designer
 	jackets["designer leather jacket, black"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black
 	jackets["designer leather jacket, red"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red
