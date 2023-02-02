@@ -21,13 +21,13 @@
 	name = "Ti'Rakqi Qu'fup"
 
 	uniform = list(
-		/obj/item/clothing/under/serviceoveralls,
+		/obj/item/clothing/under/service_overalls,
 		/obj/item/clothing/under/color/brown,
 		/obj/item/clothing/under/syndicate/tracksuit,
-		/obj/item/clothing/under/pants,
+		/obj/item/clothing/under/pants/jeans,
 		/obj/item/clothing/under/pants/camo,
 		/obj/item/clothing/under/pants/khaki,
-		/obj/item/clothing/under/pants/musthang,
+		/obj/item/clothing/under/pants/mustang,
 		/obj/item/clothing/under/rank/miner,
 		/obj/item/clothing/under/suit_jacket/tan,
 		/obj/item/clothing/under/tactical,
@@ -38,7 +38,7 @@
 		/obj/item/clothing/suit/pirate,
 		/obj/item/clothing/suit/storage/toggle/bomber,
 		/obj/item/clothing/accessory/poncho,
-		/obj/item/clothing/suit/apron/overalls/random,
+		/obj/item/clothing/accessory/overalls/random,
 		/obj/item/clothing/suit/ianshirt,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
 		/obj/item/clothing/suit/storage/hooded/wintercoat,
@@ -127,12 +127,12 @@
 	name = "Ti'Rakqi Qu'fup"
 
 	uniform = list(
-		/obj/item/clothing/under/serviceoveralls,
+		/obj/item/clothing/under/service_overalls,
 		/obj/item/clothing/under/captainformal,
-		/obj/item/clothing/under/pants,
+		/obj/item/clothing/under/pants/jeans,
 		/obj/item/clothing/under/pants/camo,
 		/obj/item/clothing/under/pants/khaki,
-		/obj/item/clothing/under/pants/musthang,
+		/obj/item/clothing/under/pants/mustang,
 		/obj/item/clothing/under/suit_jacket/tan,
 		/obj/item/clothing/under/tactical
 		)
@@ -187,7 +187,7 @@
 /datum/outfit/admin/tirakqi_crew/engineer
 	name = "Ti'Rakqi Engineer"
 
-	uniform = /obj/item/clothing/under/serviceoveralls
+	uniform = /obj/item/clothing/under/service_overalls
 	suit = /obj/item/clothing/accessory/storage/overalls
 	belt = /obj/item/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/yellow
