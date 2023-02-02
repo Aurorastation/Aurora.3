@@ -1,7 +1,7 @@
 /obj/machinery/biogenerator
 	name = "biogenerator"
 	desc = "An advanced machine that can be used to convert grown plantlike biological material into various other bio-goods."
-	icon = 'icons/obj/biogenerator.dmi'
+	icon = 'icons/obj/machinery/biogenerator.dmi'
 	icon_state = "biogen"
 	density = 1
 	anchored = 1
@@ -13,6 +13,7 @@
 	var/build_eff = 1
 	var/eat_eff = 1
 	var/capacity = 50
+	var/max_visual_biomass = 5000
 
 	component_types = list(
 		/obj/item/circuitboard/biogenerator,
@@ -298,12 +299,28 @@
 	update_icon()
 
 /obj/machinery/biogenerator/update_icon()
-	if(!beaker)
-		icon_state = "[initial(icon_state)]-empty"
-	else if(!processing)
-		icon_state = "[initial(icon_state)]-stand"
-	else
-		icon_state = "[initial(icon_state)]-work"
+	. = ..()
+
+	if(panel_open)
+		. += mutable_appearance(icon, "[icon_state]_o_panel")
+
+	if(beaker)
+		. += mutable_appearance(icon, "[icon_state]_o_container")
+
+	if(points > 0)
+		// Get current biomass volume adjusted with sine function (more biomass = less frequent icon changes)
+		var/biomass_volume_sin = sin(min(points/max_visual_biomass, 1) * 90)
+		// Round up to get the corresponding overlay icon
+		var/biomass_level = ROUND_UP(biomass_volume_sin * 7)
+		. += mutable_appearance(icon, "[icon_state]_o_biomass_[biomass_level]")
+
+	if(stat & (NOPOWER|BROKEN))
+		return
+
+	if(processing)
+		. += mutable_appearance(icon, "[icon_state]_o_process")
+
+	. += mutable_appearance(icon, "[icon_state]_o_screen")
 
 /obj/machinery/biogenerator/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))

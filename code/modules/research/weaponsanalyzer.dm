@@ -8,6 +8,9 @@
 	idle_power_usage = 60
 	active_power_usage = 2000
 
+	var/gun_overlay_x = 7
+	var/gun_overlay_y = 8
+
 	var/obj/item/item = null
 	var/process = FALSE
 
@@ -122,18 +125,18 @@
 	if(istype(item, /obj/item/device/laser_assembly))
 		var/obj/item/device/laser_assembly/A = item
 		A.update_icon()
-		icon_state = process ?  "[icon_state]_working" : "[icon_state]_on"
+		icon_state = process ?  "[icon_state]_working" : "[icon_state]"
 		Icon_used = new /icon(item.icon, item.icon_state)
 	else if(item)
-		icon_state = "[icon_state]_on"
+		icon_state = "[icon_state]"
 		Icon_used = new /icon(item.icon, item.icon_state)
 
 	if(Icon_used)
 		// Making gun sprite smaller and centering it where we want, cause dang they are thicc
 		Icon_used.Scale(round(Icon_used.Width() * 0.75), round(Icon_used.Height() * 0.75))
 		var/image/gun_overlay = image(Icon_used)
-		gun_overlay.pixel_x += 7
-		gun_overlay.pixel_y += 8
+		gun_overlay.pixel_x += gun_overlay_x
+		gun_overlay.pixel_y += gun_overlay_y
 		add_overlay(gun_overlay)
 
 /obj/machinery/weapons_analyzer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
