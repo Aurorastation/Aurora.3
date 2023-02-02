@@ -281,3 +281,14 @@
 	reagents.add_reagent(/singleton/reagent/pneumalin, volume)
 	update_icon()
 	return
+
+/obj/item/reagent_containers/inhaler/raskara_dust
+	name_label = "unmarked autoinhaler"
+	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one is unmarked."
+	flags = 0
+
+/obj/item/reagent_containers/inhaler/raskara_dust/Initialize()
+	. =..()
+	reagents.add_reagent(/singleton/reagent/raskara_dust, volume)
+	update_icon()
+	return
