@@ -23,6 +23,10 @@
 /obj/item/clothing/head/helmet/space/void/pra
 	name = "kosmostrelki voidsuit helmet"
 	desc = "A tajaran helmet used by the crew of the Republican Orbital Fleet."
+	desc_extended = "The People's Republic of Adhomai enjoys having the only militarized spaceships of all the factions on Adhomai. Initially they relied on contracting outside \
+	protection from NanoTrasen and the Sol Alliance in order to defend their orbit from raiders. However, the Republican Navy has striven to become independent. With the help of \
+	contracted engineers, access to higher education abroad and training from Sol Alliance naval advisers, the People's Republic has been able to commission and crew some of its own \
+	ships. The Republican Navy's space-arm primarily conducts counter piracy operations in conjunction with fending off raiders."
 	icon_state = "cosmo_suit"
 	item_state = "cosmo_suit"
 	armor = list(
@@ -36,10 +40,6 @@
 	)
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
-	desc_extended = "The People's Republic of Adhomai enjoys having the only militarized spaceships of all the factions on Adhomai. Initially they relied on contracting outside \
-	protection from NanoTrasen and the Sol Alliance in order to defend their orbit from raiders. However, the Republican Navy has striven to become independent. With the help of \
-	contracted engineers, access to higher education abroad and training from Sol Alliance naval advisers, the People's Republic has been able to commission and crew some of its own \
-	ships. The Republican Navy's space-arm primarily conducts counter piracy operations in conjunction with fending off raiders."
 
 //okon suits
 
