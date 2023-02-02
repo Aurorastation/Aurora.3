@@ -318,6 +318,9 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety/goggles/tactical/handle_additional_changes()
 	flash_protection = up ? FLASH_PROTECTION_NONE : FLASH_PROTECTION_MODERATE
 
+/obj/item/clothing/glasses/safety/goggles/tactical/generic
+	sprite_state = "security_goggles"
+
 //security hud
 /obj/item/clothing/glasses/safety/goggles/goon
 	name = "tactical goggles"
