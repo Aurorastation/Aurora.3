@@ -51,8 +51,13 @@
 	src.adding += using
 
 /obj/screen/new_player
-	icon = 'icons/misc/hudmenu.dmi'
+	icon = 'icons/misc/hudmenu/hudmenu.dmi'
 	layer = HUD_LAYER
+
+/obj/screen/new_player/Initialize()
+	if(SSatlas.current_sector.sector_hud_menu)
+		icon = SSatlas.current_sector.sector_hud_menu
+	. = ..()
 
 /obj/screen/new_player/title
 	name = "Title"
@@ -60,7 +65,9 @@
 	var/lobby_index = 1
 
 /obj/screen/new_player/title/Initialize()
-	if(!current_map.lobby_icon)
+	if(SSatlas.current_sector.sector_lobby_art)
+		current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
+	else if(!current_map.lobby_icon)
 		current_map.lobby_icon = pick(current_map.lobby_icons)
 	if(!length(current_map.lobby_screens))
 		var/list/known_icon_states = icon_states(current_map.lobby_icon)
@@ -98,20 +105,31 @@
 	else
 		addtimer(CALLBACK(src, PROC_REF(Update)), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
 
+/obj/screen/new_player/selection
+	var/click_sound = 'sound/effects/menu_click.ogg'
+
 /obj/screen/new_player/selection/New(var/datum/hud/H)
 	color = null
 	hud = H
+	if(SSatlas.current_sector.sector_hud_menu_sound)
+		click_sound = SSatlas.current_sector.sector_hud_menu_sound
 	..()
 
 /obj/screen/new_player/selection/MouseEntered(location, control, params)
-	var/matrix/M = matrix()
-	M.Scale(1.1, 1)
-	animate(src, color = color_rotation(30), transform = M, time = 3, easing = CUBIC_EASING)
+	if(SSatlas.current_sector.sector_hud_arrow)
+		add_overlay(SSatlas.current_sector.sector_hud_arrow)
+	else
+		var/matrix/M = matrix()
+		M.Scale(1.1, 1)
+		animate(src, color = color_rotation(30), transform = M, time = 3, easing = CUBIC_EASING)
 	return ..()
 
 /obj/screen/new_player/selection/MouseExited(location,control,params)
-	animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
-	return ..()
+	if(SSatlas.current_sector.sector_hud_arrow)
+		cut_overlays()
+	else
+		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+		return ..()
 
 /obj/screen/new_player/selection/join_game
 	name = "Join Game"
@@ -155,7 +173,7 @@
 
 /obj/screen/new_player/selection/join_game/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
 			player.ready(FALSE)
@@ -176,7 +194,7 @@
 
 /obj/screen/new_player/selection/manifest/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	if(SSticker.current_state < GAME_STATE_PLAYING)
 		to_chat(player, SPAN_WARNING("The game hasn't started yet!"))
 		return
@@ -184,17 +202,17 @@
 
 /obj/screen/new_player/selection/observe/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.new_player_observe()
 
 /obj/screen/new_player/selection/settings/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.setupcharacter()
 
 /obj/screen/new_player/selection/changelog/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.client.changes()
 
 /obj/screen/new_player/selection/polls/Initialize()
@@ -211,12 +229,12 @@
 
 /obj/screen/new_player/selection/polls/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.handle_player_polling()
 
 /obj/screen/new_player/selection/lore_summary/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/menu_click.ogg')
+	sound_to(player, click_sound)
 	player.show_lore_summary()
 
 /mob/abstract/new_player/proc/setupcharacter()
