@@ -52,6 +52,13 @@
 	ammo_type = /obj/item/ammo_casing/a454
 	magazine_type = /obj/item/ammo_magazine/a454
 
+/obj/item/gun/projectile/revolver/mateba/captain_revolver
+	name = "captain revolver"
+	desc = "cap revolver until schwea rwrites lore ."
+	icon = 'icons/obj/guns/captain_revolver.dmi'
+	icon_state = "captain_revolver"
+	item_state = "captain_revolver"
+
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
 	desc = "An old, obsolete revolver. It has no identifying marks. Chambered in the antiquated .38 caliber. Maybe the Tajara made it?"
