@@ -55,9 +55,12 @@
 	layer = HUD_LAYER
 
 /obj/screen/new_player/Initialize()
+	set_sector_things()
+	. = ..()
+
+/obj/screen/new_player/proc/set_sector_things()
 	if(SSatlas.current_sector.sector_hud_menu)
 		icon = SSatlas.current_sector.sector_hud_menu
-	. = ..()
 
 /obj/screen/new_player/title
 	name = "Title"
@@ -65,11 +68,11 @@
 	var/lobby_index = 1
 
 /obj/screen/new_player/title/Initialize()
-	if(!current_map.lobby_icon)
-		if(SSatlas.current_sector.sector_lobby_art)
-			current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
-		else
-			current_map.lobby_icon = pick(current_map.lobby_icons)
+	if(SSatlas.current_sector.sector_lobby_art)
+		current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
+	else if(!current_map.lobby_icon)
+		current_map.lobby_icon = pick(current_map.lobby_icons)
+
 	if(!length(current_map.lobby_screens))
 		var/list/known_icon_states = icon_states(current_map.lobby_icon)
 		for(var/screen in known_icon_states)
@@ -92,7 +95,12 @@
 
 	. = ..()
 
+/obj/screen/new_player/title/set_sector_things()
+	return
+
 /obj/screen/new_player/title/proc/Update()
+	if(!current_map.lobby_transitions && SSatlas.current_sector.sector_lobby_transitions)
+		return
 	if(!istype(hud) || !isnewplayer(hud.mymob))
 		return
 	lobby_index += 1
