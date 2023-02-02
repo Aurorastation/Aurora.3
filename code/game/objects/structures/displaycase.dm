@@ -116,4 +116,4 @@
 	spawn_contained_type = /obj/item/gun/energy/captain
 
 /obj/structure/displaycase/captain_revolver
-	spawn_contained_type = /obj/item/gun/projectile/revolver/mateba/captain_revolver
+	spawn_contained_type = /obj/item/gun/projectile/revolver/mateba/captain
