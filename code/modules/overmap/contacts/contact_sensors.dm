@@ -56,6 +56,7 @@
 
 	// Update our 'sensor range' (ie. overmap lighting)
 	if(!sensors || !sensors.use_power || (stat & (NOPOWER|BROKEN)))
+		datalink_remove_all_ships_datalink()
 		for(var/key in contact_datums)
 			var/datum/overmap_contact/record = contact_datums[key]
 			if(record.effect == linked)
@@ -182,20 +183,33 @@
 
 			// If it's a known datalink, compute the lost contacts to remove
 			if(datalink_contacts[datalink_ship])
-				diff_datalink_contacts = datalink_contacts[datalink_ship] - sensor_console.objects_in_view
+				diff_datalink_contacts = datalink_contacts[datalink_ship] - (sensor_console.objects_in_view + list(datalink_ship))
 
 			for(var/obj/effect/overmap/datalink_contact in diff_datalink_contacts)
 				datalink_remove_contact(datalink_contact, datalink_ship)
 			continue
 
+		// Handle the datalinked ship's own contact
+		var/datum/overmap_contact/ship_contact_record = contact_datums[datalink_ship]
+
+		if(!ship_contact_record)
+			datalink_add_contact(datalink_ship, datalink_ship, force = TRUE)
+			ship_contact_record = contact_datums[datalink_ship]
+
+		ship_contact_record.ping()
+		ship_contact_record.update_marker_icon()
+
 /obj/machinery/computer/ship/sensors/proc/datalink_process_all_contacts_of_console(var/obj/machinery/computer/ship/sensors/sensor_console, var/obj/effect/overmap/visitable/datalink_ship)
-	for(var/obj/effect/overmap/datalink_contact in sensor_console.objects_in_view)								// Pick one contact that the sensor console has
+	for(var/obj/effect/overmap/datalink_contact in sensor_console.objects_in_view) // Pick one contact that the sensor console has
 		if(datalink_contact != src.connected)
-			if(!(datalink_contact in datalink_contacts[datalink_ship]) || !(contact_datums[datalink_contact]))											// This is a new datalink contact
-				datalink_add_contact(datalink_contact, datalink_ship)
+			if(!(datalink_contact in datalink_contacts[datalink_ship]))		// This is a new datalink contact
+				if(!(contact_datums[datalink_contact]))
+					datalink_add_contact(datalink_contact, datalink_ship)
 			else
 				var/datum/overmap_contact/datalink_contact_record = contact_datums[datalink_contact]
-				datalink_contact_record.ping()
+
+				if(datalink_contact_record && !QDELING(datalink_contact_record))
+					datalink_contact_record.ping()
 
 
 /obj/machinery/computer/ship/sensors/proc/datalink_remove_all_contacts_of_console(var/obj/machinery/computer/ship/sensors/sensor_console, var/obj/effect/overmap/visitable/datalink_ship)
@@ -204,8 +218,8 @@
 			datalink_remove_contact(datalink_contact, datalink_ship)
 
 
-/obj/machinery/computer/ship/sensors/proc/datalink_add_contact(var/obj/effect/overmap/datalink_contact, var/obj/effect/overmap/visitable/datalink_ship)
-	if(!(datalink_contact in datalink_contacts[datalink_ship]) && !(objects_in_view[datalink_contact]))			// This is a new datalink contact
+/obj/machinery/computer/ship/sensors/proc/datalink_add_contact(var/obj/effect/overmap/datalink_contact, var/obj/effect/overmap/visitable/datalink_ship, var/force = FALSE)
+	if(!(datalink_contact in datalink_contacts[datalink_ship]) && !(objects_in_view[datalink_contact]) || force)			// This is a new datalink contact
 
 		var/datum/overmap_contact/datalink_contact_record = contact_datums[datalink_contact]					// Is it already in the contact_datums?
 		if(!datalink_contact_record)																			// If not, create it
@@ -213,14 +227,17 @@
 			contact_datums[datalink_contact] = datalink_contact_record											// And add it with its associated effect
 
 
-		// Show the new contact
-		datalink_contact_record.show()
-		datalink_contact_record.ping()
-		//animate(datalink_contact_record.marker, alpha=255, 2 SECOND, 1, LINEAR_EASING)
-		datalink_contact_record.update_marker_icon()
+		if(!QDELING(datalink_contact_record))
+			// Show the new contact
+			datalink_contact_record.show()
+			datalink_contact_record.ping()
+			animate(datalink_contact_record.marker, alpha=255, 2 SECOND, 1, LINEAR_EASING)
+			datalink_contact_record.update_marker_icon()
 
-		// Add it to the contact datum
-		datalink_contacts[datalink_ship] |= list(datalink_contact)
+			// Add it to the contact datum
+			if(!datalink_contacts[datalink_ship])
+				datalink_contacts[datalink_ship] = list()
+			datalink_contacts[datalink_ship] |= list(datalink_contact)
 
 
 /obj/machinery/computer/ship/sensors/proc/datalink_remove_contact(var/obj/effect/overmap/datalink_contact, var/obj/effect/overmap/visitable/datalink_ship)
@@ -228,7 +245,48 @@
 	if(!datalink_contact_record)
 		return
 	animate(datalink_contact_record.marker, alpha=0, 2 SECOND, 1, LINEAR_EASING)
-	datalink_contacts[datalink_ship] -= list(datalink_contact)
 	QDEL_IN(datalink_contact_record, 2 SECOND)
+
+	if(datalink_contacts[datalink_ship])
+		datalink_contacts[datalink_ship] -= list(datalink_contact)
+
+
+/obj/machinery/computer/ship/sensors/proc/datalink_add_ship_datalink(var/obj/effect/overmap/visitable/datalink_ship)
+	datalink_ship.datalinked |= src.connected
+	src.connected.datalinked |= datalink_ship
+
+/obj/machinery/computer/ship/sensors/proc/datalink_remove_ship_datalink(var/obj/effect/overmap/visitable/datalink_ship)
+	if(datalink_contacts[datalink_ship])
+		for(var/obj/machinery/computer/ship/sensors/sensor_console in datalink_ship.consoles)
+			// Remove the two ships from each other's datalinked list
+			src.connected.datalinked -= datalink_ship
+			datalink_ship.datalinked -= src.connected
+
+			// Removes the ship contact itself from the contacts
+
+			var/datum/overmap_contact/ship_contact_record = contact_datums[datalink_ship]
+
+			if(ship_contact_record)
+				animate(ship_contact_record.marker, alpha=0, 2 SECOND, 1, LINEAR_EASING)
+				QDEL_IN(ship_contact_record, 2 SECOND)
+				//contact_datums[datalink_ship] -= ship_contact_record
+
+			// Remove all contacts
+			datalink_remove_all_contacts_of_console(sensor_console, datalink_ship)
+
+
+			datalink_contacts.Remove(datalink_ship)
+
+			// Recurse the function on the other ship's instance
+			sensor_console.datalink_remove_ship_datalink(src.connected)
+		visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"A datalink contact was sewered! Recalibration...\""))
+
+
+/obj/machinery/computer/ship/sensors/proc/datalink_remove_all_ships_datalink()
+	for(var/obj/effect/overmap/visitable/datalink_ship in linked.datalinked)
+		for(var/obj/machinery/computer/ship/sensors/sensor_console in datalink_ship.consoles)
+			sensor_console.datalink_remove_ship_datalink(linked)
+			break
+
 
 #undef SENSORS_DISTANCE_COEFFICIENT

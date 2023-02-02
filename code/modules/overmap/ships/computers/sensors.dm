@@ -244,9 +244,11 @@
 
 	if (href_list["accept_datalink_requests"])
 		var/obj/effect/overmap/visitable/O = locate(href_list["accept_datalink_requests"])
-		O.datalinked |= src.connected			// Add our ship as datalinked to the requestor
-		src.connected.datalinked |= O			// Add the requestor as a datalink to our ship
+		for(var/obj/machinery/computer/ship/sensors/sensor_console in src.connected.consoles)
+			sensor_console.datalink_add_ship_datalink(O)
+			break
 		src.connected.datalink_requests -= O	// Remove the request
+		return TOPIC_HANDLED
 
 	if (href_list["decline_datalink_requests"])
 		var/obj/effect/overmap/visitable/O = locate(href_list["decline_datalink_requests"])
@@ -254,13 +256,9 @@
 
 	if (href_list["remove_datalink"])
 		var/obj/effect/overmap/visitable/O = locate(href_list["remove_datalink"])
-		O.datalinked -= src.connected	// Remove our ship from the datalinked of whom we rescinded with
-		src.connected.datalinked -= O	// Remove out ship from the rescinder's datalinked
-
 		for(var/obj/machinery/computer/ship/sensors/rescinder_sensor_console in src.connected.consoles)	// Get sensor console from the rescinder
-			for(var/obj/machinery/computer/ship/sensors/rescinded_sensor_console in O.consoles)			// Get sensor console from the rescinded
-				rescinder_sensor_console.datalink_remove_all_contacts_of_console(rescinded_sensor_console, O)
-				rescinded_sensor_console.datalink_remove_all_contacts_of_console(rescinder_sensor_console, src.connected)
+			rescinder_sensor_console.datalink_remove_ship_datalink(O)
+			return TOPIC_HANDLED
 
 	if (href_list["play_message"])
 		var/caller = href_list["play_message"]
