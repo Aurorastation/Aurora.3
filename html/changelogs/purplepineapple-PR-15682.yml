@@ -1,0 +1,7 @@
+author: PurplePineapple
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a cropped leather jacket to the loadout. It's just the standard toggle jacket with new icons."
+  - imageadd: "Cropped leather jacket icons, originally made by GeneralPantsu for SojournStation13. Edited slightly to fit Aurora icons."
