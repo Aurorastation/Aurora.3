@@ -175,7 +175,7 @@
 			skip_blend = TRUE
 		if ("skrell")
 			skip_blend = TRUE
-		if ("concrete")
+		if("concrete")
 			wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
 			skip_blend = TRUE
 		else

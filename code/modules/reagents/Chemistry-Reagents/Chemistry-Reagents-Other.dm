@@ -168,10 +168,10 @@
 
 /singleton/reagent/radioactive_waste
 	name = "Radioactive Waste"
-	description = "The byproduct of a nuclear reaction, highly radioactive."
+	description = "The byproduct of a nuclear reaction. " + SPAN_DANGER("Highly radioactive.")
 	reagent_state = SOLID
 	color = "#E0FF66"
-	taste_description = "the inside of a melting reactor"
+	taste_description = "warm, tingly imminent death"
 	fallback_specific_heat = 2.286
 
 /singleton/reagent/radioactive_waste/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)

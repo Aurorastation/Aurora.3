@@ -759,8 +759,7 @@
 	icon = 'icons/turf/decals/big/sol_5x5.dmi'
 	icon_state = "0,0"
 
-//Concreate decals
-
+// Concrete Decals
 /obj/effect/floor_decal/concrete
 	icon_state = "corner_concrete"
 

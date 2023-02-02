@@ -150,8 +150,8 @@
 
 	speak_emote = list("beeps")
 	emote_hear = list("buzzes","beeps")
-	speak = list("Hadii's grace, comrades.","The stars belong to the People's Republic of Adhoomai!", "The quest for knowledge must continue!")
-	emote_see = list("beeps curiously","whirrs softly","scans its surroundings")
+	speak = list("Hadii's grace, comrades.", "The stars belong to the People's Republic of Adhomai!", "The quest for knowledge must continue!")
+	emote_see = list("beeps curiously", "whirrs softly", "scans its surroundings")
 
 	destroy_surroundings = FALSE
 	universal_speak = TRUE
@@ -162,7 +162,6 @@
 	health = 100
 	maxHealth = 100
 
-
 	melee_damage_lower = 5
 	melee_damage_upper = 5
 	attacktext = "smashed"
@@ -172,7 +171,6 @@
 	ranged = TRUE
 	projectiletype = /obj/item/projectile/beam/pistol
 	projectilesound = 'sound/weapons/laser1.ogg'
-
 
 	emote_see = list("examines","hovers","blinks")
 
@@ -185,7 +183,6 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-
 
 	faction = "PRA"
 

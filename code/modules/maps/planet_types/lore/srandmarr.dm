@@ -94,7 +94,7 @@
 	overlays.Cut()
 
 /area/exoplanet/barren/raskara
-	name = "\improper Raskara Surface"
+	name = "Raskara Surface"
 	ambience = AMBIENCE_OTHERWORLDLY
 	base_turf = /turf/simulated/floor/exoplanet/barren/raskara
 
@@ -208,7 +208,7 @@
 
 /area/exoplanet/adhomai
 	name = "Adhomian Wilderness"
-	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')
+	ambience = list('sound/effects/wind/tundra0.ogg', 'sound/effects/wind/tundra1.ogg', 'sound/effects/wind/tundra2.ogg', 'sound/effects/wind/spooky0.ogg', 'sound/effects/wind/spooky1.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/floor/exoplanet/mineral/adhomai

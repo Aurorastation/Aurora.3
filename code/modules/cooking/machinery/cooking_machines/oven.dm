@@ -127,8 +127,8 @@
 	icon_state = "adhomai_oven_open"
 
 /obj/machinery/appliance/cooker/oven/adhomai/update_icon()
-	if (!open)
-		if (!stat)
+	if(!open)
+		if(!stat)
 			icon_state = "adhomai_ovenclosed_on"
 		else
 			icon_state = "adhomai_ovenclosed_off"

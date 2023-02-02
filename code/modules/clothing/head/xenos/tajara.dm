@@ -138,7 +138,7 @@
 
 /obj/item/clothing/head/tajaran/archeologist
 	name = "archeologist hat"
-	desc = "A well-worn fedora favored by Adhomian explorers and archeologists. Not very protective but still very stylish."
+	desc = "A well-worn fedora favored by Adhomian explorers and archaeologists. Not very protective but still very stylish."
 	icon_state = "explorer_hat"
 	item_state = "explorer_hat"
 

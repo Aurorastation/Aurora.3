@@ -4,6 +4,8 @@
 	light_color = COLOR_ORANGE
 	icon = 'icons/effects/32x96.dmi'
 	icon_state = "rustlamp_l"
+	anchored = TRUE
+	density = TRUE
 	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_HALOGEN
 	light_range = 8

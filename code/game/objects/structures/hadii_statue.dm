@@ -1,10 +1,10 @@
 /obj/structure/hadii_statue
-	name = "president hadii statue"
+	name = "president Hadii statue"
 	desc = "A statue of the current president of the People's Republic of Adhomai, Njadrasanukii Hadii."
 	icon = 'icons/obj/hadii_statue.dmi'
 	icon_state = "bronze"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	layer = ABOVE_ALL_MOB_LAYER
 	var/toppled = FALSE
 	var/outside = FALSE

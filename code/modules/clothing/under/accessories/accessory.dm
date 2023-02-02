@@ -848,7 +848,7 @@
 /obj/item/clothing/accessory/dogtags/attack_self(mob/user)
 	if(can_be_broken)
 		if(!separated)
-			if (user.a_intent == I_HURT)
+			if(user.a_intent == I_HURT)
 				user.visible_message(SPAN_NOTICE("[user] yanks apart \the [src]!"))
 				separated = TRUE
 				var/obj/item/dogtag/tag = new tag_type(get_turf(user))

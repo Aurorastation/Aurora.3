@@ -131,5 +131,6 @@
 	desc = "A rustic sanitation structure."
 	icon_state = "outhouse"
 	anchored = TRUE
+	canbemoved = FALSE
 	open_sound = 'sound/machines/wooden_closet_open.ogg'
 	close_sound = 'sound/machines/wooden_closet_close.ogg'

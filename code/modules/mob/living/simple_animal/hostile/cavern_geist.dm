@@ -35,7 +35,6 @@
 	pixel_x = -16
 	speed = -1
 
-
 	var/is_devouring = FALSE
 
 /mob/living/simple_animal/hostile/cavern_geist/death(gibbed)
@@ -79,7 +78,7 @@
 
 	target.adjustBruteLoss(35)
 
-	if(!do_after(src,150))
+	if(!do_after(src, 150))
 		to_chat(src, SPAN_WARNING("You need to wait longer to devour \the [target]!"))
 		is_devouring = FALSE
 		return FALSE

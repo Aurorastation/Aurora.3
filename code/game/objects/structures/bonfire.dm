@@ -303,10 +303,10 @@ var/global/list/total_active_bonfires = list()
 		return
 	if(M && prob((fuel / max_fuel) * 100))
 		if(entered)
-			to_chat(M, "<span class='warning'>You are covered by fire and heat from entering \the [src]!</span>")
+			to_chat(M, SPAN_WARNING("You are covered by fire and heat from entering \the [src]!"))
 		if(isanimal(M))
 			var/mob/living/simple_animal/H = M
-			if(H.flying) //flying mobs will ignore the lava
+			if(H.flying) // Flying mobs will ignore the fire.
 				return
 			else
 				M.bodytemperature = min(M.bodytemperature + 150, 1000)
@@ -325,7 +325,7 @@ var/global/list/total_active_bonfires = list()
 		if(fuel / max_fuel <= 0.25)
 			message_picks += list("The embers shift as a piece of wood falls into them.", "The glow of the fire pulses weakly.", "Ash dances upward with a few sparks.")
 		var/message = "<I>[pick(message_picks)]</I>"
-		visible_message(SPAN_GOOD(message))
+		visible_message(SPAN_NOTICE(message))
 		last_ambient_message = world.time
 
 /obj/structure/bonfire/light_up/Initialize()
