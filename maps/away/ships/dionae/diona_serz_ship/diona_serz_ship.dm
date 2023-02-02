@@ -4,7 +4,7 @@
 	suffixes = list("ships/dionae/diona_serz_ship/diona_serz_ship.dmm")
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
 	spawn_weight = 1
-	ship_cost = 1
+	spawn_cost = 1
 	id = "diona_serz"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/diona_serz_ship_shuttle)
 
@@ -53,8 +53,8 @@
 	name = "Serz Clan Ship"
 	class = "SCS"
 	desc = "A ship belonging to the Serz voidtamer clan, a group of dionae who specialize in selling space fauna."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
+	icon_state = "ship_green"
+	moving_state = "ship_green_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -76,7 +76,7 @@
     ..()
 
 /obj/effect/shuttle_landmark/diona_serz_ship/nav1
-	name = "Serz Clan Ship - Port Airlock"
+	name = "Serz Clan Ship - Starboard Airlock"
 	landmark_tag = "nav_diona_serz_ship_1"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
