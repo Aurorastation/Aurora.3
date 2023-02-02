@@ -137,7 +137,7 @@
 	item_state = "nka_consularhat"
 
 /obj/item/clothing/head/tajaran/archeologist
-	name = "archeologist hat"
+	name = "archaeologist hat"
 	desc = "A well-worn fedora favored by Adhomian explorers and archaeologists. Not very protective but still very stylish."
 	icon_state = "explorer_hat"
 	item_state = "explorer_hat"
