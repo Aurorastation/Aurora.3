@@ -78,6 +78,10 @@ var/list/banned_ruin_ids = list()
 		var/turf/T = i
 		for(var/mob/living/simple_animal/monster in T)
 			qdel(monster)
+		for(var/obj/structure/S in T)
+			qdel(S)
+		for(var/obj/machinery/M in T)
+			qdel(M)
 	template.load(central_turf, TRUE)
 	var/datum/map_template/ruin = template
 	if(istype(ruin))
