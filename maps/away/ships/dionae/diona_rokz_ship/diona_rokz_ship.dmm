@@ -432,6 +432,12 @@
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
+"sV" = (
+/mob/living/simple_animal/carp/baby/eel{
+	faction = "neutral"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/ship/diona_rokz_ship/warehouse)
 "tc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -671,6 +677,9 @@
 /obj/structure/diona/bulb,
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
+"Du" = (
+/turf/simulated/floor/diona,
+/area/ship/diona_rokz_ship/exterior/south)
 "DC" = (
 /obj/item/trap/animal/large,
 /turf/unsimulated/floor/asteroid/ash,
@@ -755,7 +764,7 @@
 /obj/structure/table/diona,
 /obj/item/melee/baton/stunrod,
 /obj/item/melee/baton/stunrod,
-/turf/simulated/floor/diona/airless,
+/turf/simulated/floor/diona,
 /area/ship/diona_rokz_ship/exterior/south)
 "FD" = (
 /turf/simulated/wall/diona,
@@ -1138,7 +1147,7 @@
 /obj/machinery/door/airlock/diona/external{
 	name = "Telecomms"
 	},
-/turf/simulated/floor/diona/airless,
+/turf/unsimulated/mineral/asteroid,
 /area/ship/diona_rokz_ship/warehouse)
 "Sb" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -1355,6 +1364,10 @@
 /obj/structure/diona/bulb,
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
+"Zb" = (
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/diona,
+/area/ship/diona_rokz_ship/exterior/south)
 
 (1,1,1) = {"
 kB
@@ -36917,8 +36930,8 @@ EF
 VP
 xl
 PL
-PL
-xl
+Du
+Zb
 kB
 kB
 kB
@@ -37174,7 +37187,7 @@ Lw
 VP
 VP
 xS
-PL
+Du
 kB
 kB
 kB
@@ -37430,9 +37443,9 @@ aI
 aI
 In
 VP
-PL
-PL
-PL
+Du
+Du
+Du
 FB
 FB
 kB
@@ -37688,8 +37701,8 @@ VP
 VP
 VP
 Pt
-PL
-PL
+Du
+Du
 xS
 PL
 kB
@@ -40759,7 +40772,7 @@ CB
 CB
 CB
 px
-px
+sV
 LM
 CB
 CB
