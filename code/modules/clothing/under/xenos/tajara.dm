@@ -370,11 +370,11 @@
 /obj/item/clothing/under/tajaran/army_commissar
 	name = "army commissar uniform"
 	desc = "A military uniform used by Party Commissars attached to military units."
-	icon_state = "pracommisar"
-	item_state = "pracommisar"
 	desc_extended = "Party Commissars are high ranking members of the Party of the Free Tajara under the Leadership of Hadii attached to army units, who ensures that soldiers and \
 	their commanders follow the principles of Hadiism. Their duties are not only limited to enforcing the republican ideals among the troops and reporting possible subversive elements, \
 	they are expected to display bravery in combat and lead by example."
+	icon_state = "pracommisar"
+	item_state = "pracommisar"
 	starting_accessories = (/obj/item/clothing/accessory/holster/hip)
 
 /obj/item/clothing/under/tajaran/psis
