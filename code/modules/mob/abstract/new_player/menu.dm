@@ -65,10 +65,11 @@
 	var/lobby_index = 1
 
 /obj/screen/new_player/title/Initialize()
-	if(SSatlas.current_sector.sector_lobby_art)
-		current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
-	else if(!current_map.lobby_icon)
-		current_map.lobby_icon = pick(current_map.lobby_icons)
+	if(!current_map.lobby_icon)
+		if(SSatlas.current_sector.sector_lobby_art)
+			current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
+		else
+			current_map.lobby_icon = pick(current_map.lobby_icons)
 	if(!length(current_map.lobby_screens))
 		var/list/known_icon_states = icon_states(current_map.lobby_icon)
 		for(var/screen in known_icon_states)

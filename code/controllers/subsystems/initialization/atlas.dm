@@ -177,24 +177,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 	if (!current_map)
 		world.map_panic("Selected map does not exist!")
 
-	load_map_meta()
-	setup_spawnpoints()
-
-	world.update_status()
-
-	// Begin loading the maps.
-	var/maps_loaded = load_map_directory("maps/[current_map.path]/", TRUE)
-
-	log_ss("atlas", "Loaded [maps_loaded] maps.")
-	admin_notice("<span class='danger'>Loaded [maps_loaded] levels.</span>")
-
-	if (!maps_loaded)
-		world.map_panic("No maps loaded!")
-
-	setup_multiz()
-
-	QDEL_NULL(maploader)
-
 	InitializeSectors()
 
 	var/chosen_sector
@@ -215,6 +197,25 @@ var/datum/controller/subsystem/atlas/SSatlas
 		log_debug("atlas: Unable to select [chosen_sector] as a valid space sector. Tau Ceti will be used instead.")
 	else
 		current_sector = selected_sector
+
+	load_map_meta()
+	setup_spawnpoints()
+
+	world.update_status()
+
+	// Begin loading the maps.
+	var/maps_loaded = load_map_directory("maps/[current_map.path]/", TRUE)
+
+	log_ss("atlas", "Loaded [maps_loaded] maps.")
+	admin_notice("<span class='danger'>Loaded [maps_loaded] levels.</span>")
+
+	if (!maps_loaded)
+		world.map_panic("No maps loaded!")
+
+	setup_multiz()
+
+	QDEL_NULL(maploader)
+
 
 	..()
 
