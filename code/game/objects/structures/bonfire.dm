@@ -156,7 +156,6 @@ var/global/list/total_active_bonfires = list()
 		heat_range = 0
 	return heat_range
 
-
 /obj/structure/bonfire/proc/handle_reagents()
 	var/singleton/reagent/R
 	var/reagent_level
