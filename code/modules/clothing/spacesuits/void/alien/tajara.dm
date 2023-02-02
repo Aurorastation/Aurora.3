@@ -46,15 +46,15 @@
 /obj/item/clothing/suit/space/void/okon
 	name = "okon voidsuit"
 	desc = "A colorful tajaran voidsuit used by the crew of Okon 001."
+	desc_extended = "The first observation post built on the moon, originally constructed by the Nralakk Federation and named Site B2134. Its original purpose was to observe the Tajara people, \
+	but after their rapid ascension to space age technology, the observation post was abandoned and sold to the PRA for a suspiciously low price. It was subsequently renamed to Okon 001, \
+	which translates to Eye in Siik'maas."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "okonsuit-red"
 	item_state = "okonsuit-red"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
-	desc_extended = "The first observation post built on the moon, originally constructed by the Nralakk Federation and named Site B2134. Its original purpose was to observe the Tajara people, \
-	but after their rapid ascension to space-age technology, the observation post was abandoned and sold to the PRA for a suspiciously low price. It was subsequently renamed to Okon 001, \
-	which translates to Eye in Siik'maas."
 
 /obj/item/clothing/head/helmet/space/void/okon
 	name = "okon voidsuit helmet"
