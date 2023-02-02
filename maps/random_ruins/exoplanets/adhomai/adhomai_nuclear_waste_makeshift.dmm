@@ -1,0 +1,579 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"b" = (
+/obj/structure/simple_door/wood{
+	initial_lock_value = "dpra_nuclear_shack"
+	},
+/obj/structure/barricade/wooden{
+	dir = 4;
+	layer = 2.95
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste_makeshift)
+"c" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"e" = (
+/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste_makeshift)
+"f" = (
+/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste_makeshift)
+"g" = (
+/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/machinery/light/small,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste_makeshift)
+"j" = (
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste_makeshift)
+"k" = (
+/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/machinery/light/small,
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste_makeshift)
+"q" = (
+/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/structure/sign/painting_frame/nated{
+	pixel_x = -32
+	},
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste_makeshift)
+"w" = (
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste_makeshift)
+"H" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/table/wood,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/mask/gas,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste_makeshift)
+"I" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/stack/medical/bruise_pack{
+	pixel_y = -4;
+	pixel_x = 7
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste_makeshift)
+"J" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"M" = (
+/obj/structure/reagent_dispensers/radioactive_waste,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste_makeshift)
+"O" = (
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"P" = (
+/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_nuclear_waste_makeshift)
+"S" = (
+/turf/simulated/wall/wood,
+/area/adhomai_nuclear_waste_makeshift)
+"Y" = (
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+
+(1,1,1) = {"
+c
+c
+c
+c
+J
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(2,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+O
+c
+J
+c
+c
+Y
+c
+O
+c
+c
+c
+J
+c
+"}
+(3,1,1) = {"
+c
+c
+c
+Y
+c
+c
+Y
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(4,1,1) = {"
+c
+J
+c
+c
+c
+J
+c
+c
+c
+Y
+c
+c
+c
+c
+c
+J
+c
+c
+c
+c
+"}
+(5,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+O
+c
+"}
+(6,1,1) = {"
+c
+J
+c
+c
+c
+c
+c
+c
+S
+S
+S
+S
+S
+c
+c
+c
+c
+c
+c
+c
+"}
+(7,1,1) = {"
+c
+c
+c
+Y
+c
+c
+c
+S
+S
+f
+q
+f
+S
+S
+c
+Y
+c
+J
+c
+c
+"}
+(8,1,1) = {"
+Y
+c
+c
+c
+J
+c
+c
+S
+P
+j
+j
+w
+M
+S
+c
+c
+c
+c
+c
+c
+"}
+(9,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+S
+e
+j
+M
+j
+k
+S
+c
+c
+c
+c
+c
+c
+"}
+(10,1,1) = {"
+c
+c
+J
+c
+c
+c
+O
+S
+M
+j
+M
+w
+M
+S
+c
+c
+c
+Y
+c
+c
+"}
+(11,1,1) = {"
+c
+c
+c
+c
+O
+c
+c
+S
+M
+w
+M
+j
+M
+S
+c
+c
+c
+c
+c
+c
+"}
+(12,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+S
+e
+j
+M
+j
+g
+S
+c
+c
+J
+c
+O
+c
+"}
+(13,1,1) = {"
+c
+c
+c
+c
+c
+J
+c
+S
+M
+w
+j
+j
+P
+S
+c
+c
+c
+c
+c
+c
+"}
+(14,1,1) = {"
+c
+O
+c
+c
+c
+c
+c
+S
+S
+H
+j
+I
+S
+S
+c
+c
+c
+c
+c
+c
+"}
+(15,1,1) = {"
+c
+c
+J
+c
+c
+c
+c
+c
+S
+S
+b
+S
+S
+c
+c
+O
+c
+c
+J
+c
+"}
+(16,1,1) = {"
+c
+c
+c
+c
+c
+O
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(17,1,1) = {"
+c
+c
+c
+c
+c
+J
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+Y
+c
+c
+c
+"}
+(18,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+Y
+c
+c
+c
+c
+c
+c
+c
+c
+"}
+(19,1,1) = {"
+c
+J
+c
+c
+J
+c
+c
+Y
+c
+c
+c
+c
+c
+c
+c
+J
+c
+c
+c
+c
+"}
+(20,1,1) = {"
+c
+c
+c
+c
+c
+c
+c
+c
+c
+J
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+"}
