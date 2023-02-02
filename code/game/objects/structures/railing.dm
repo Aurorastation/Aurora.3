@@ -330,7 +330,6 @@
 	if(get_turf(user) == . || !(get_dir(src, user) & dir)) // if the user's inside our turf or behind us, go in front of us
 		. = get_step(src, dir)
 
-
 //fence
 
 /obj/structure/railing/fence
