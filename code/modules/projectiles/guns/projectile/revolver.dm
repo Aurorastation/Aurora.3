@@ -55,9 +55,9 @@
 /obj/item/gun/projectile/revolver/mateba/captain_revolver
 	name = "SCC command revolver"
 	desc = "A ludicrously powerful .454 revolver with equally ludicrous recoil which is issued by the Conglomerate to the administrators of critical facilities and vessels. While revolvers may be a thing of the past, the stopping power displayed by this weapon is second to none."
-	desc_extended = "A Zavodskoi Interstellar design from the mid-2450s intended for export to the Eridani Corporate Federation and Republic of Biesel, the Zashchitnik \
+	desc_extended = "A Zavodskoi Interstellar design from the mid-2450s intended for export to the Eridani Corporate Federation and Republic of Biesel, the Protektor \
 	Revolver was never designed with practicality in mind. The .454 rounds fired from this weapon are liable to snap the wrist of an unprepared shooter and \
-	any following shots will be difficult to place onto a human-sized target due to the recoil, let alone a skrell. But nobody buys a Zashchitnik for the purpose of \
+	any following shots will be difficult to place onto a human-sized target due to the recoil, let alone a skrell. But nobody buys a Protektor for the purpose of \
 	practicality: they buy it due to having too much money and wanting a revolver large enough for their ego. Isn't that why you're holding it right now, captain?"
 	icon = 'icons/obj/guns/captain_revolver.dmi'
 	icon_state = "captain_revolver"
