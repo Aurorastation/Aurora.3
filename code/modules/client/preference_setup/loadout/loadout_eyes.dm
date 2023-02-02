@@ -134,7 +134,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(blindfold)
 
 /datum/gear/eyes/goon_goggles
-	display_name = "tactical goggles selection"
+	display_name = "tactical goggles selection (security)"
 	description = "A selection of tactical eyewear. Note that factional ones can only be taken by members of that faction."
 	path = /obj/item/clothing/glasses/safety/goggles/goon
 
@@ -146,4 +146,18 @@
 	goggles["goggles, tactical (PMCG)"] = list(/obj/item/clothing/glasses/safety/goggles/goon/pmc, "Private Military Contracting Group")
 	goggles["goggles, tactical (Zavodskoi)"] = list(/obj/item/clothing/glasses/safety/goggles/goon/zavod, "Zavodskoi Interstellar")
 	goggles["goggles, tactical (Idris)"] = list(/obj/item/clothing/glasses/safety/goggles/goon/idris, "Idris Incorporated")
+	gear_tweaks += new /datum/gear_tweak/path/faction(goggles)
+
+/datum/gear/eyes/medical_goggles
+	display_name = "goggles selection (medical)"
+	description = "A selection of medical goggles. Note that factional ones can only be taken by members of that faction."
+	path = /obj/item/clothing/glasses/safety/goggles/medical
+
+/datum/gear/eyes/medical_goggles/New()
+	allowed_roles = list("First Responder")
+	..()
+	var/list/goggles = list()
+	goggles["goggles, medical"] = list(/obj/item/clothing/glasses/safety/goggles/medical, null)
+	goggles["goggles, medical (PMCG)"] = list(/obj/item/clothing/glasses/safety/goggles/medical/pmc, "Private Military Contracting Group")
+	goggles["goggles, medical (Zeng-Hu)"] = list(/obj/item/clothing/glasses/safety/goggles/medical/zeng, "Zeng-Hu Pharmaceuticals")
 	gear_tweaks += new /datum/gear_tweak/path/faction(goggles)

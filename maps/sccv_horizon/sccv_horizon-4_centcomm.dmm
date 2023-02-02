@@ -27866,6 +27866,30 @@
 	pixel_x = -6;
 	pixel_y = 8
 	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = 6;
+	pixel_y = 6
+	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
