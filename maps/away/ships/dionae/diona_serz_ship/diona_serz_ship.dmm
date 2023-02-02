@@ -182,6 +182,11 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
+"ii" = (
+/obj/structure/diona/bulb,
+/obj/structure/inflatable/door,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/dock)
 "iu" = (
 /obj/machinery/portable_atmospherics/canister/empty/oxygen,
 /turf/simulated/floor/diona/airless,
@@ -478,6 +483,14 @@
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/armory)
+"uw" = (
+/obj/structure/inflatable/door,
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_serz_ship/dock)
+"uK" = (
+/obj/machinery/door/airlock/diona/external,
+/turf/simulated/floor/diona,
+/area/ship/diona_serz_ship/dock)
 "vl" = (
 /obj/structure/table/diona,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -37601,8 +37614,8 @@ kB
 kB
 kB
 pI
-aZ
-dY
+ii
+uw
 pI
 kB
 kB
@@ -37858,8 +37871,8 @@ kB
 kB
 kB
 oI
-Fd
-Fd
+uK
+uK
 pI
 kB
 kB
