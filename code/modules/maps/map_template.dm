@@ -56,6 +56,7 @@
 			bounds = extend_bounds_if_needed(bounds, M.bounds)
 			atoms_to_initialise += M.atoms_to_initialise
 		else
+			SSicon_smooth.enable()
 			return FALSE
 
 	for (var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
@@ -168,6 +169,7 @@
 		if (M)
 			atoms_to_initialise += M.atoms_to_initialise
 		else
+			SSicon_smooth.enable()
 			return FALSE
 	
 	//initialize things that are normally initialized after map load
