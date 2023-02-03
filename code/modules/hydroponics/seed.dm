@@ -440,7 +440,7 @@
 			/singleton/reagent/mindbreaker,
 			/singleton/reagent/inaprovaline,
 			/singleton/reagent/peridaxon,
-			/singleton/reagent/toxin/phoron,
+			/singleton/reagent/toxin/phoron/kois,
 			/singleton/reagent/toxin/plasticide,
 			/singleton/reagent/potassium,
 			/singleton/reagent/radium,
