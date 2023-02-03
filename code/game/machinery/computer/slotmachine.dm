@@ -346,7 +346,7 @@
 		if(value <= 0)
 			CRASH("Coin value of zero, refusing to payout in dispenser")
 		while(amount >= value)
-			var/obj/item/coin/C = new cointype(loc) //DOUBLE THE PAIN
+			var/obj/item/coin/C = new cointype(loc) //DOUBLE THE DAMAGE_PAIN
 			amount -= value
 			if(throwit && target)
 				C.throw_at(target, 3, 10)

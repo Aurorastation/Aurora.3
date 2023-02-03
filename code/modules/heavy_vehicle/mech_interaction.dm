@@ -541,7 +541,7 @@
 				attack_log += text("\[[time_stamp()]\] <span class='warning'>trampled [D.name] ([D.ckey]) with \the [src].</span>")
 				msg_admin_attack("[src] trampled [key_name(D)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)" )
 				src.visible_message("<span class='danger'>\The [src] runs over \the [D]!</span>")
-				D.apply_damage(legs.trample_damage, BRUTE)
+				D.apply_damage(legs.trample_damage, DAMAGE_BRUTE)
 				return TRUE
 
 		else
@@ -551,7 +551,7 @@
 				if(issmall(L) && (L.stat == DEAD))
 					L.gib()
 					return TRUE
-			L.apply_damage(legs.trample_damage, BRUTE)
+			L.apply_damage(legs.trample_damage, DAMAGE_BRUTE)
 			return TRUE
 
 /mob/living/heavy_vehicle/proc/ToggleLockdown()

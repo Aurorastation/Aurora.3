@@ -38,7 +38,7 @@
 		hider = user
 		if(ishuman(user) && prob(5))
 			var/mob/living/carbon/human/H = user
-			H.take_overall_damage(5, 0, DAM_SHARP, src)
+			H.take_overall_damage(5, 0, DAMAGE_FLAG_SHARP, src)
 			to_chat(user, SPAN_WARNING("You cut yourself while climbing into \the [src]!"))
 
 /obj/structure/trash_pile/relaymove(mob/user)

@@ -99,7 +99,7 @@
 	else if(istype(tool, /obj/item/stack/medical/bruise_pack))
 		dam_amt = 5
 		target.adjustToxLoss(10)
-		target.apply_damage(5, BRUTE, target_zone, 0, tool)
+		target.apply_damage(5, DAMAGE_BRUTE, target_zone, 0, tool)
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I && I.is_damaged())
@@ -167,7 +167,7 @@
 		SPAN_WARNING("Your hand slips, gumming up the mechanisms inside of [target]'s [affected.name] with \the [tool]!"))
 
 	target.adjustToxLoss(5)
-	target.apply_damage(5, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(5, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I)
@@ -236,7 +236,7 @@
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"))
 	affected.sever_artery()
-	target.apply_damage(rand(30, 50), BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(rand(30, 50), DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/internal/remove_organ
 	name = "Remove Organ"
@@ -297,7 +297,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, damaging [target]'s [affected.name] with \the [tool]!"))
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/internal/replace_organ
 	name = "Replace Organ"
@@ -454,7 +454,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"))
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/internal/prepare
 	name = "Prepare Brain"
@@ -499,4 +499,4 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"))
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
