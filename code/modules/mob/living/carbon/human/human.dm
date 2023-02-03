@@ -2165,7 +2165,7 @@
 			adjustEarDamage(5, 0, FALSE)
 			stop_listening()
 		if (5)
-			custom_pain("YOUR EARS ARE DEAFENED BY THE DAMAGE_PAIN!", 110, TRUE, E, FALSE)
+			custom_pain("YOUR EARS ARE DEAFENED BY THE PAIN!", 110, TRUE, E, FALSE)
 			adjustEarDamage(5, 5, FALSE)
 			stop_listening()
 

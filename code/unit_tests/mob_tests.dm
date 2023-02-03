@@ -117,14 +117,6 @@ datum/unit_test/human_breath/check_result()
 
 // ============================================================================
 
-//#define DAMAGE_BRUTE     "brute"
-//#define DAMAGE_BURN      "fire"
-//#define DAMAGE_TOXIN       "tox"
-//#define DAMAGE_OXY       "oxy"
-//#define DAMAGE_CLONE     "clone"
-//#define DAMAGE_PAIN   "halloss"
-
-
 proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/carbon/human, var/add_to_playerlist = FALSE)
 	var/list/test_result = list("result" = FAILURE, "msg"    = "", "mobref" = null)
 

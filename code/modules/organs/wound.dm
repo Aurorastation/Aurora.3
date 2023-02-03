@@ -38,7 +38,7 @@
 	var/list/stages
 	// maximum stage at which bleeding should still happen. Beyond this stage bleeding is prevented.
 	var/max_bleeding_stage = 0
-	// one of CUT, BRUISE, PIERCE , DAMAGE_BURN
+	// one of CUT, BRUISE, PIERCE, BURN
 	var/damage_type = CUT
 	// whether this wound needs a bandage/salve to heal at all
 	// the maximum amount of damage that this wound can have and still autoheal

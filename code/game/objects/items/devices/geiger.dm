@@ -1,9 +1,3 @@
-//Geiger counter
-//Rewritten version of TG's geiger counter
-//I opted to show exact radiation levels
-
-// Sound obtained then edited from here : https://freesound.org/people/leonelmail/sounds/328381/ -- Under creative commons 0
-
 /obj/item/device/geiger
 	name = "geiger counter"
 	desc = "A handheld device used for detecting and measuring radiation in an area."
