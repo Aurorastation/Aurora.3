@@ -324,7 +324,7 @@ BLIND     // can't see anything
 //security hud
 /obj/item/clothing/glasses/safety/goggles/goon
 	name = "tactical goggles"
-	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes."
+	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes. Comes with a security HUD."
 	var/brand_name
 	icon = 'icons/clothing/eyes/goon_goggles.dmi'
 	var/sprite_state = "security_goggles"
@@ -365,7 +365,7 @@ BLIND     // can't see anything
 //medical hud
 /obj/item/clothing/glasses/safety/goggles/medical
 	name = "medical goggles"
-	desc = "A stylish pair of medical goggles that protect the eyes from aerosolized chemicals and debris."
+	desc = "A stylish pair of medical goggles that protect the eyes from aerosolized chemicals and debris. Comes with a medical HUD."
 	var/brand_name
 	icon = 'icons/clothing/eyes/goon_goggles.dmi'
 	var/sprite_state = "security_goggles"
