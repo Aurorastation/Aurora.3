@@ -6608,7 +6608,7 @@
 /turf/simulated/floor/plating,
 /area/medical/washroom)
 "fxV" = (
-/obj/effect/shuttle_landmark/horizon/deckthree/port,
+/obj/effect/shuttle_landmark/horizon/deckthree/portfore,
 /turf/template_noop,
 /area/template_noop)
 "fyz" = (
@@ -23825,7 +23825,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/shields)
 "tmK" = (
-/obj/effect/shuttle_landmark/horizon/deckthree/starboard,
+/obj/effect/shuttle_landmark/horizon/deckthree/starboardfore,
 /turf/template_noop,
 /area/template_noop)
 "tmU" = (
@@ -29284,6 +29284,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"xsC" = (
+/obj/effect/shuttle_landmark/horizon/deckthree/portaft,
+/turf/template_noop,
+/area/template_noop)
 "xtA" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -36280,7 +36284,7 @@ dSF
 dSF
 dSF
 dSF
-tmK
+dSF
 dSF
 dSF
 dSF
@@ -38304,7 +38308,7 @@ dSF
 dSF
 dSF
 dSF
-dSF
+tmK
 dSF
 dSF
 dSF
@@ -51443,18 +51447,18 @@ dSF
 dSF
 dSF
 dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
 ubP
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
 dSF
 dSF
 dSF
@@ -51916,15 +51920,15 @@ dSF
 dSF
 dSF
 dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
-dSF
 dOV
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
+dSF
 dSF
 dSF
 dSF
@@ -61126,7 +61130,7 @@ dSF
 dSF
 dSF
 jJq
-dSF
+fxV
 dSF
 dSF
 dSF
@@ -62439,7 +62443,7 @@ dSF
 dSF
 dSF
 dSF
-dSF
+xsC
 dSF
 dSF
 dSF
@@ -65281,7 +65285,7 @@ dSF
 dSF
 dSF
 dSF
-fxV
+dSF
 dSF
 dSF
 dSF
