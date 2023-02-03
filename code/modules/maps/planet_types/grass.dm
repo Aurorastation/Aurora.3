@@ -8,9 +8,6 @@
 	map_generators = list(/datum/random_map/noise/exoplanet/grass)
 
 	possible_random_ruins = list(
-		/datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01,
-		/datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01,
-		/datum/map_template/ruin/exoplanet/mystery_ship_1,
 		/datum/map_template/ruin/exoplanet/hut)
 
 /obj/effect/overmap/visitable/sector/exoplanet/grass/generate_map()
