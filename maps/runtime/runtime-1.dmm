@@ -1810,9 +1810,6 @@
 /obj/machinery/computer/station_alert/all,
 /turf/simulated/floor/tiled,
 /area/bridge)
-"RM" = (
-/turf/space,
-/area/space)
 "Tq" = (
 /obj/effect/overmap/visitable/ship/landable/runtime,
 /turf/simulated/floor/shuttle,
@@ -66923,8 +66920,8 @@ fX
 fX
 "}
 (254,1,1) = {"
-RM
-RM
+fX
+fX
 fX
 fX
 fX
@@ -67180,8 +67177,8 @@ fX
 fX
 "}
 (255,1,1) = {"
-RM
-RM
+fX
+fX
 fX
 fX
 fX
