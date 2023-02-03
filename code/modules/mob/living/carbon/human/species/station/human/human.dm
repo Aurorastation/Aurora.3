@@ -28,6 +28,7 @@
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
 	mob_size = 9
 	spawn_flags = CAN_JOIN
+	flags = CAN_SWEAT
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS | HAS_SKIN_PRESET
 	remains_type = /obj/effect/decal/remains/human
 	dust_remains_type = /obj/effect/decal/remains/human/burned
