@@ -1918,6 +1918,26 @@
 	glass_name = "cup of Martian Special"
 	glass_desc = "Just by the pungent, sharp smell, you figure you probably don't want to drink that..."
 
+/singleton/reagent/drink/coffee/plus
+	name = "Coffee Plus"
+	description = "\"Plus what?\" \"Yes.\""
+	color = "#3c1b00" // rgb: 60, 27, 0
+	adj_dizzy = -25
+	adj_drowsy = -15
+	adj_sleepy = -10
+	caffeine = 1.5 //Five times stronger than normal coffee- marginally weaker than the sum of its components.
+	taste_description = "exceedingly strong coffee and just a hint of poor life choices"
+	taste_mult = 5
+
+	glass_icon_state = "hot_coffee"
+	glass_name = "shot of coffee plus"
+	glass_desc = "Warning: do not consume."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
+/singleton/reagent/drink/coffee/plus/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+    ..()
+    M.heal_organ_damage(0.1 * removed, 0)
+
 /singleton/reagent/drink/hot_coco
 	name = "Hot Chocolate"
 	description = "Made with love! And cocoa beans."

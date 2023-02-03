@@ -2439,6 +2439,13 @@
 	required_reagents = list(/singleton/reagent/drink/coffee/flat_white = 1, /singleton/reagent/drink/syrup_chocolate = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/drink/coffeeplus
+	name = "Coffee Plus"
+	id = "coffeeplus"
+	result = /singleton/reagent/drink/coffee/plus
+	required_reagents = list(/singleton/reagent/drink/coffee/cafe_latte = 1, /singleton/reagent/drink/coffee/soy_latte = 1, /singleton/reagent/drink/coffee/flat_white = 1, /singleton/reagent/drink/coffee/caffe_americano = 1, /singleton/reagent/drink/coffee/espresso = 1, /singleton/reagent/drink/coffee = 1)
+	result_amount = 6
+
 /datum/chemical_reaction/drink/acidspit
 	name = "Acid Spit"
 	id = "acidspit"
