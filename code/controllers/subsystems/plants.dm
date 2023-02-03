@@ -6,6 +6,7 @@
 	wait = 75
 	init_order = SS_INIT_SEEDS
 	priority = SS_PRIORITY_PLANTS
+	runlevels = RUNLEVELS_PLAYING
 
 	var/list/product_descs = list()         // Stores generated fruit descs.
 	var/list/seeds = list()                 // All seed data stored here.

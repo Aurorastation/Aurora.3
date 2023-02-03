@@ -695,7 +695,7 @@
 	M.adjustHydrationLoss(2*removed)
 
 /singleton/reagent/sodiumchloride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	overdose(M, alien, holder)
+	overdose(M, alien, removed, holder)
 
 /singleton/reagent/sodiumchloride/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.intoxication -= min(M.intoxication,removed*20)
@@ -2069,7 +2069,6 @@
 /singleton/reagent/drink/nuka_cola/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	if(alien != IS_DIONA)
-		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		M.make_jittery(20)
 		M.druggy = max(M.druggy, 30)
 		M.dizziness += 5
@@ -4639,6 +4638,9 @@
 	color = "#91de47"
 	strength = 5
 	taste_description = "water"
+	species_taste_description = list(
+		SPECIES_UNATHI = "a bit of watermelon and strawberry with a hint of salt"
+	)
 
 	glass_icon_state = "xuiziglass"
 	glass_name = "glass of Xuizi Juice"

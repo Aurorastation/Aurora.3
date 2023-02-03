@@ -9,11 +9,11 @@
 		/singleton/origin_item/origin/xanu_free_league,
 		/singleton/origin_item/origin/himeo,
 		/singleton/origin_item/origin/vysoka,
-		/singleton/origin_item/origin/coalition_offworlder,
+		/singleton/origin_item/origin/coa_spacer,
 		/singleton/origin_item/origin/gadpathur,
 		/singleton/origin_item/origin/gadpathur_exile,
 		/singleton/origin_item/origin/assunzione,
-		/singleton/origin_item/origin/non_coalition_frontier,
+		/singleton/origin_item/origin/ncf,
 		/singleton/origin_item/origin/other_coalition
 	)
 
@@ -41,7 +41,7 @@
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER)
 
-/singleton/origin_item/origin/coalition_offworlder
+/singleton/origin_item/origin/coa_spacer
 	name = "Coalition Offworlders"
 	desc = "The offworlders of the Coalition of Colonies are an odd mix of nomadic or semi-nomadic peoples that do not call any planet home, and instead opt to live in spaceborne fleets. The most notable offworlder group in the Coalition is the Scarabs, though many more are present in the Coalition's borders."
 	possible_accents = list(ACCENT_NCF, ACCENT_SCARAB, ACCENT_COC)
@@ -83,7 +83,7 @@
 	origin_traits = list(TRAIT_ORIGIN_DARK_AFRAID)
 	origin_traits_descriptions = list("tend to feel nervous in the dark")
 
-/singleton/origin_item/origin/non_coalition_frontier
+/singleton/origin_item/origin/ncf
 	name = "Non-Coalition Frontier"
 	desc = "The frontier beyond the Coalition of Colonies before unexplored \"deadspace,\" has seen limited human colonization, but still dwells mostly outside of the influence of any government. Most residents of this distant frontier that drift back to the more populated Orion Spur eventually claim citizenship with the Coalition of Colonies due to its ease of acquisition."
 	possible_accents = list(ACCENT_NCF)

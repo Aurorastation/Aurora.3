@@ -66,7 +66,7 @@
 			MK.forceMove(loc)
 			// Will help make emagging the console not so easy to get away with.
 			MK.info += "<br><br><span class='warning'>£%@%(*$%&(£&?*(%&£/{}</span>"
-			addtimer(CALLBACK(src, .proc/UnmagConsole), 100 * length(linkedServer.decryptkey))
+			addtimer(CALLBACK(src, PROC_REF(UnmagConsole)), 100 * length(linkedServer.decryptkey))
 			message = rebootmsg
 			update_icon()
 			return TRUE

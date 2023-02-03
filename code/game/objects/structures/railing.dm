@@ -10,7 +10,7 @@
 	anchored = FALSE
 
 	flags = ON_BORDER
-	obj_flags = OBJ_FLAG_ROTATABLE
+	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 
 	build_amt = 2
 	var/broken = FALSE
@@ -329,3 +329,18 @@
 	. = get_turf(src) // by default, we pop into the turf the railing's on
 	if(get_turf(user) == . || !(get_dir(src, user) & dir)) // if the user's inside our turf or behind us, go in front of us
 		. = get_step(src, dir)
+
+//fence
+
+/obj/structure/railing/fence
+	name = "fence"
+	color = "#824B28"
+	anchored = TRUE
+
+/obj/structure/railing/fence/Initialize()
+	. = ..()
+	color = "#824B28"
+
+/obj/structure/railing/fence/New(var/newloc, var/material_key = MATERIAL_WOOD)
+	material = material_key
+	..(newloc)

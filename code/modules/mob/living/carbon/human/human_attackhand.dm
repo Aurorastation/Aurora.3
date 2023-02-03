@@ -63,10 +63,7 @@
 								M.apply_damage(rand(1,5), BURN)
 
 							for(M in viewers(3, null))
-								var/safety = M:eyecheck(TRUE)
-								if(!safety)
-									if(!M.blinded)
-										M.flash_eyes()
+								M.flash_act(ignore_inherent = TRUE)
 
 						return 1
 					else

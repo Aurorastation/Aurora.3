@@ -7,7 +7,7 @@
 // Root type for cooking machines. See following files for specific implementations.
 /obj/machinery/appliance
 	name = "cooker"
-	desc = "You shouldn't be seeing this!"
+	desc = DESC_PARENT
 	desc_info = "Control-click this to change its temperature."
 	icon = 'icons/obj/cooking_machines.dmi'
 	var/appliancetype = 0

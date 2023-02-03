@@ -308,7 +308,7 @@
 	if(powered())
 		queue_icon_update()
 	else
-		addtimer(CALLBACK(src, .proc/lose_power), rand(1, 15))
+		addtimer(CALLBACK(src, PROC_REF(lose_power)), rand(1, 15))
 
 /obj/machinery/porta_turret/proc/lose_power()
 	stat |= NOPOWER
@@ -408,7 +408,7 @@
 		if(I.force * 0.5 > 1) //if the force of impact dealt at least 1 damage, the turret gets pissed off
 			if(!attacked && !emagged)
 				attacked = 1
-				addtimer(CALLBACK(src, .proc/reset_attacked), 1 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+				addtimer(CALLBACK(src, PROC_REF(reset_attacked)), 1 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 		return ..()
 
 /obj/machinery/porta_turret/proc/reset_attacked()
@@ -450,7 +450,7 @@
 	if(enabled)
 		if(!attacked && !emagged)
 			attacked = 1
-			addtimer(CALLBACK(src, .proc/reset_attacked), 60, TIMER_UNIQUE | TIMER_OVERRIDE)
+			addtimer(CALLBACK(src, PROC_REF(reset_attacked)), 60, TIMER_UNIQUE | TIMER_OVERRIDE)
 	..()
 
 	take_damage(damage)
@@ -468,7 +468,7 @@
 			emagged = TRUE
 
 		enabled = FALSE
-		addtimer(CALLBACK(src, .proc/post_emp_act), rand(60, 600))
+		addtimer(CALLBACK(src, PROC_REF(post_emp_act)), rand(60, 600))
 
 	..()
 
@@ -528,7 +528,7 @@
 				tryToShootAt(secondarytargets)
 
 	if(!targets.len && !secondarytargets.len)
-		resetting = addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE) // no valid targets, close the cover
+		resetting = addtimer(CALLBACK(src, PROC_REF(reset)), 6 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE) // no valid targets, close the cover
 	else if(resetting)
 		deltimer(resetting)
 		resetting = null
@@ -769,7 +769,7 @@
 	//Shooting Code:
 	A.launch_projectile(target, def_zone)
 	last_fired = TRUE
-	addtimer(CALLBACK(src, .proc/reset_last_fired), shot_delay, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(reset_last_fired)), shot_delay, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /datum/turret_checks
 	var/enabled

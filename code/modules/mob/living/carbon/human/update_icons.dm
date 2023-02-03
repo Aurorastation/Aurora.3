@@ -102,24 +102,25 @@ There are several things that need to be remembered:
 #define SUIT_LAYER        15
 #define ID_LAYER_ALT      16
 #define TAIL_NORTH_LAYER  17
-#define GLASSES_LAYER     18
-#define BELT_LAYER_ALT    19
-#define SUIT_STORE_LAYER  20
-#define BACK_LAYER        21
-#define HAIR_LAYER        22
-#define GLASSES_LAYER_ALT 23
-#define L_EAR_LAYER       24
-#define R_EAR_LAYER       25
-#define FACEMASK_LAYER    26
-#define HEAD_LAYER        27
-#define COLLAR_LAYER      28
-#define HANDCUFF_LAYER    29
-#define LEGCUFF_LAYER     30
-#define L_HAND_LAYER      31
-#define R_HAND_LAYER      32
-#define WRISTS_LAYER      33
-#define FIRE_LAYER_UPPER  34
-#define TOTAL_LAYERS      34
+#define HAIR_LAYER_ALT    18
+#define GLASSES_LAYER     19
+#define BELT_LAYER_ALT    20
+#define SUIT_STORE_LAYER  21
+#define BACK_LAYER        22
+#define HAIR_LAYER        23
+#define GLASSES_LAYER_ALT 24
+#define L_EAR_LAYER       25
+#define R_EAR_LAYER       26
+#define FACEMASK_LAYER    27
+#define HEAD_LAYER        28
+#define COLLAR_LAYER      29
+#define HANDCUFF_LAYER    30
+#define LEGCUFF_LAYER     31
+#define L_HAND_LAYER      32
+#define R_HAND_LAYER      33
+#define WRISTS_LAYER      34
+#define FIRE_LAYER_UPPER  35
+#define TOTAL_LAYERS      35
 ////////////////////////////
 
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
@@ -463,6 +464,7 @@ There are several things that need to be remembered:
 
 	//Reset our hair
 	overlays_raw[HAIR_LAYER] = null
+	overlays_raw[HAIR_LAYER_ALT] = null
 
 	var/obj/item/organ/external/head/head_organ = get_organ(BP_HEAD)
 	if(!head_organ || head_organ.is_stump() )
@@ -488,7 +490,8 @@ There are several things that need to be remembered:
 		else
 			set_light(0)
 
-	overlays_raw[HAIR_LAYER] = hair_icon
+	var/hair_layer = species.use_alt_hair_layer ? HAIR_LAYER_ALT : HAIR_LAYER
+	overlays_raw[hair_layer] = hair_icon
 
 	if(update_icons)
 		update_icon()
@@ -1337,7 +1340,7 @@ There are several things that need to be remembered:
 
 	tail_overlay = set_tail_state(mob_state)
 	if(tail_overlay)
-		addtimer(CALLBACK(src, .proc/end_animate_tail_once, tail_overlay), 20, TIMER_CLIENT_TIME)
+		addtimer(CALLBACK(src, PROC_REF(end_animate_tail_once), tail_overlay), 20, TIMER_CLIENT_TIME)
 
 /mob/living/carbon/human/proc/end_animate_tail_once(image/tail_overlay)
 	//check that the animation hasn't changed in the meantime

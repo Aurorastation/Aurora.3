@@ -9,18 +9,6 @@
 	if(!(effecttype in list(PAIN, STUTTER, EYE_BLUR, DROWSY, STUN, WEAKEN)))
 		. = ..()
 
-/mob/living/heavy_vehicle/proc/attacked_by(var/obj/item/I, var/mob/living/user, var/def_zone)
-
-	if(!I.force)
-		user.visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly with \the [I].</span>")
-		return
-
-	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage)))
-		var/mob/living/pilot = pick(pilots)
-		return pilot.resolve_item_attack(I, user, def_zone)
-
-	return def_zone
-
 /mob/living/heavy_vehicle/hitby(atom/movable/AM, speed)
 	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage)))
 		var/mob/living/pilot = pick(pilots)
@@ -29,10 +17,15 @@
 
 /mob/living/heavy_vehicle/get_armors_by_zone(def_zone, damage_type, damage_flags)
 	. = ..()
-	if(body && body.mech_armor)
-		var/body_armor = body.mech_armor.GetComponent(/datum/component/armor)
-		if(body_armor)
-			. += body_armor
+	if(body)
+		if(body.mech_armor)
+			var/body_armor = body.mech_armor.GetComponent(/datum/component/armor)
+			if(body_armor)
+				. += body_armor
+		else
+			var/chassis_armor = body.GetComponent(/datum/component/armor)
+			if(chassis_armor)
+				. += chassis_armor
 
 /mob/living/heavy_vehicle/updatehealth()
 	maxHealth = body.mech_health

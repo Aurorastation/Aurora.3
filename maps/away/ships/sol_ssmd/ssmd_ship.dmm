@@ -231,6 +231,7 @@
 /obj/machinery/light/colored/blue{
 	dir = 8
 	},
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "aHC" = (
@@ -471,6 +472,7 @@
 /obj/machinery/light/colored/blue{
 	dir = 8
 	},
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "bdq" = (
@@ -2640,6 +2642,7 @@
 /obj/item/clothing/suit/space/void/sol/ssmd,
 /obj/item/clothing/head/helmet/space/void/sol/ssmd,
 /obj/item/tank/emergency_oxygen/double,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "gKp" = (
@@ -2883,6 +2886,7 @@
 /obj/machinery/light/colored/blue{
 	dir = 4
 	},
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "hBs" = (

@@ -110,3 +110,8 @@
 /singleton/maneuver/leap/tajara/msai
 	delay = 1 SECOND
 	cooldown = 4 SECONDS
+
+/singleton/maneuver/leap/tesla_body
+	cooldown = 20 SECONDS
+	delay = 4 SECONDS
+	stamina_cost = 30

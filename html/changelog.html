@@ -35,6 +35,370 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">03 February 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">The ship sensors now work as a sonar or radar, obscuring the view when the first object is pinged, otherwise the things not in range will not be seen.</li>
+				<li class="rscadd">The ships now need to be scanned before they appear and are identified, which takes a little of time.</li>
+				<li class="rscadd">New instruments implementation, using a mostly a synthesizer.</li>
+				<li class="tweak">Trader and maintenance can now have a guitar, violin or trumpeth</li>
+				<li class="backend">Sound synthesizer based on sound tokens and player.</li>
+				<li class="rscdel">Old instruments implementation.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added temperature pack accessories to the loadout menu, with heat and cold cooling/warming by 5 degrees celsius, and volcano and blizzard cooling/warming by 10 degrees celsius.</li>
+				<li class="tweak">Temperature discomfort messages are now based off body temperature instead of the temperature of the air your breath.</li>
+				<li class="rscadd">Humans now sweat to get rid of heat.</li>
+				<li class="rscadd">Hostile mobs now think and react faster while in a combat state.</li>
+				<li class="tweak">Hostile mobs now attack the target nearest to them.</li>
+				<li class="rscadd">Exosuit chassis now have a baseline level of medium armor, so even mechs without dedicated armor can resist blows.</li>
+				<li class="tweak">The gravity generator now recovers faster after locking on, and the throws have been made asynchronous so recharging starts faster.</li>
+				<li class="rscadd">Remote controlled exosuits can now be disassembled for repair, just use a wrench on them while the maintenance protocols are active.</li>
+				<li class="bugfix">Examining exosuits now properly state when the component is completely broken.</li>
+				<li class="bugfix">Roundstart Ripley exosuits now properly spawn with armor.</li>
+				<li class="bugfix">Fixed a bug that caused exosuit and simple mobs attacks to ignore exosuit armor.</li>
+				<li class="bugfix">Fixed a bug that caused simple mobs to aggro on people inside exosuits and attack them directly, bypassing the exosuit.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="experiment">Overmap processing is now on a priority subsystem. This means that ships will now be REALLY fast, and should keep being fast even when the server is lagging.</li>
+				<li class="bugfix">You can no longer combat roll/turn more than once at a time.</li>
+				<li class="bugfix">Maneuvers can no longer throw you into deep space.</li>
+				<li class="tweak">Lowered Physician slots to 2.</li>
+				<li class="tweak">Lowered Medical Intern slots to 2.</li>
+			</ul>
+			<h3 class="author">Nope63 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Adds a power knot to Xenoarchaeology for powering emitters.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Tweaks the kitchen foyer wall mountable layout slightly. Gives hydroponics a window so they can listen to kitchen conversations.</li>
+			</ul>
+			<h3 class="author">Sniblet updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Zeng-Hu Emotion Manipulators now give you SPAN_GOOD instead of SPAN_NOTICE messages. This means they are green.</li>
+				<li class="spellcheck">Added punctuation to &#x27;feeling&#x27; artifact effects.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed some navpoints on the outside of the Horizon. The upper deck had duplicated navpoints that were not set properly. Few of the navpoints were too close to the map border too. Should make it safer to go to those and reduce ahelps.</li>
+			</ul>
+
+			<h2 class="date">02 February 2023</h2>
+			<h3 class="author">Alberyk, Atteria, Canon35, Wowzewow (Wezzy), NiennaB, Kyres1, KingOfThePing updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the S&#x27;rand&#x27;marr space sector, including its lore planets as visitable exoplanets with their own unique ruins.</li>
+			</ul>
+			<h3 class="author">PurplePineapple updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a cropped leather jacket to the loadout. It&#x27;s just the standard toggle jacket with new icons.</li>
+				<li class="imageadd">Cropped leather jacket icons, originally made by GeneralPantsu for SojournStation13. Edited slightly to fit Aurora icons.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a high back and X-shaped back version of the overalls.</li>
+				<li class="rscadd">Adds a shorts and skirt version of the overalls and its variants.</li>
+				<li class="tweak">Turns the loadout overalls into an accessory to allow for layering and lets them be worn as both overwear and an accessory.</li>
+				<li class="tweak">Turns the shorts into a contained sprite and cleans up the code.</li>
+			</ul>
+
+			<h2 class="date">31 January 2023</h2>
+			<h3 class="author">Azlan, Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new AI emotion for the status displays, Diagnostics.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Unathi now get a unique flavour description for Xuizi Juice.</li>
+			</ul>
+
+			<h2 class="date">30 January 2023</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed airtight plastic flaps stopping working after shuttles moves.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed an issue where wall icons and other smoothed icons would fail to update.</li>
+				<li class="backend">Potentially fixed an issue with the server failing to reboot / launch correctly.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Removes invisible hitbox from rollerbeds so buckling bodybags will be easier.</li>
+			</ul>
+
+			<h2 class="date">29 January 2023</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Added cryo to the Haildstorm.</li>
+				<li class="bugfix">The hailstorm now has the proper ship guns, two rotatory guns.</li>
+				<li class="bugfix">The NKA merchant shuttle can now dock back with its mothership.</li>
+				<li class="rscadd">The stargazer light&#x27;s color now matches the space sector starlight&#x27;s color.</li>
+				<li class="rscadd">Added a new away site: the Sani&#x27;Orios smuggling outpost.</li>
+			</ul>
+			<h3 class="author">FlamingLily updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Given machinists access to medical records again, along various other programs they had access to when they were called roboticists.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">You can now store cigarette packets in helmets.</li>
+			</ul>
+			<h3 class="author">Sheeplets updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Minor mapping changes to the Medical Bay.</li>
+			</ul>
+			<h3 class="author">Sniblet updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Unary pumps, outlet injectors, and scrubbers will no longer turn small ventcrawling mobs (borers) into dust on contact.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Ports a lot of the old Aurora asteroid ruins to the exoplanets the Horizon will encounter. Most of the content is on barren exos/asteroids unfortunately.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes window clipping.</li>
+			</ul>
+
+			<h2 class="date">28 January 2023</h2>
+			<h3 class="author">Afya updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Ghost can now medscan IPCs/Robots.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added some permanent teleporter beacons around the map, specifically the bridge. Replaced a couple movable beacons with permanent ones, like in xenoarchaelogy and the engineering break room.</li>
+				<li class="rscadd">Added three movable teleporter beacons, a first aid, and a box of flares to the teleporter room.</li>
+				<li class="rscadd">Teleporter beacons can now be anchored to the floor by using a screwdriver on them.</li>
+			</ul>
+
+			<h2 class="date">27 January 2023</h2>
+			<h3 class="author">Afya updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Wands of nothing can now be recharged.</li>
+				<li class="tweak">Wands of nothing have 10 shots instead of 20.</li>
+				<li class="tweak">Wands no longer use firing pins.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed look up/look down verbs being buggy.</li>
+			</ul>
+
+			<h2 class="date">26 January 2023</h2>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Idris liaisons can no longer be IPCs</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes mobs floating on holes.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Adds a proper public library computer.</li>
+			</ul>
+
+			<h2 class="date">25 January 2023</h2>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The sound component of flashbangs no longer stuns unless you have sensitive and unprotected hearing.</li>
+				<li class="tweak">Eye damage from flashes has been significantly reduced.</li>
+				<li class="bugfix">You can no longer use a flash that isn&#x27;t in your hand to AOE flash.</li>
+				<li class="backend">soundbang_act renamed to noise_act; ear protection now uses defines for preset values like flash/eye protection</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed skin.dmf weirdness on 515.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">All ghost ships now have GPSes.</li>
+				<li class="maptweak">Adds a damaged Solarian powerloader and adds it to the SFA away ship.</li>
+				<li class="maptweak">Replaces the FSF corvette&#x27;s powerloader with a Solarian powerloader.</li>
+			</ul>
+
+			<h2 class="date">23 January 2023</h2>
+			<h3 class="author">Drawsstuff, atteria, Cerebulon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Added a variety of new tattoos to the markings selection.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes decls merged from PR 15549.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added sensor array away sites, one is guaranteed to spawn on every map. They have a strong sensor suite that can support 4 tiles of illumination, but need to be set up before they can be made operational.</li>
+				<li class="rscadd">Carp shoals and schools now a 5 percent to be a movable event, which means it&#x27;ll move across the overmap.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Heavy armour and ballistic armour bullet resist have been buffed by 5 points.</li>
+				<li class="balance">Security now gets a second burst rifle.</li>
+				<li class="balance">The PEAC now actually has armour penetration, meaning it will actually do damage. It is not very good against organic targets, however.</li>
+				<li class="balance">Increased PEAC anti-materiel coefficient to 6.</li>
+				<li class="balance">Full auto now globally has a 0.5s fire delay, instead of a 0.1s delay.</li>
+				<li class="balance">Adjusted most other calibers&#x27; AP to compensate for armour buffs.</li>
+				<li class="bugfix">Fixes shuttles not bringing shuttle parts with them.</li>
+				<li class="experiment">The server has been updated to BYOND 515.</li>
+			</ul>
+			<h3 class="author">MattAtlas, DasFox, Azlan updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Resprited dominian greatcoats, consular greatcoats and consular uniforms.</li>
+				<li class="rscadd">Added shorter versions of the dominian greatcoat to the loadout.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Makes merchants unable to be antagonists round-start.</li>
+				<li class="bugfix">Fixes the internal armoury blast doors button being set to HoS access instead of general armoury access.</li>
+				<li class="bugfix">Fixes the anti-tank warhead having &quot;armor_penetration&quot; defined twice.</li>
+				<li class="maptweak">Overhauls the library.</li>
+				<li class="maptweak">Tweaks the pharmacy&#x27;s layout.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added woolen hats to the colourable hat selection in the loadout.</li>
+				<li class="rscadd">Added corporate woolen hats to the relevant faction headwear selections.</li>
+				<li class="rscadd">Added NanoTrasen and Orion berets to the loadout in their faction headwear selections.</li>
+				<li class="rscadd">Added ear warmers to the earwear section of the loadout. These can be worn like earmuffs or attached to headwear.</li>
+				<li class="rscadd">Added mittens to the gloves section of the loadout. These can be worn by all species.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">LARP has been enhanced. The tactical goggles and welding goggles layer above hair as they likely should.</li>
+			</ul>
+			<h3 class="author">Wowzewow(Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Adds new material and medical stack sprites.</li>
+				<li class="soundadd">Adjusts application sounds for medical stacks.</li>
+			</ul>
+
+			<h2 class="date">22 January 2023</h2>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes some more origins not saving.</li>
+				<li class="bugfix">Pulling heavy objects now properly applies slowdown.</li>
+				<li class="bugfix">Slowdown for human mobs is now capped at -2, fixing unathi and tajara going slower than they should be.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Removes chaplain&#x27;s leftover accesses.</li>
+			</ul>
+
+			<h2 class="date">21 January 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">The jukebox now uses the sound player.</li>
+				<li class="rscadd">Added Bays sound player and sound tokens.</li>
+			</ul>
+			<h3 class="author">HappyFox, Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added tactical goggles to the loadout for Security roles, they have integrated security HUDs and flash protection.</li>
+				<li class="rscadd">Added tactical coifs to the Security armory, they can go in the mask, ear, or clothing accessory slots.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fix slowdown being applied twice.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Adds a isolation cell to the brig.</li>
+				<li class="maptweak">Adds brig lockdown blast doors to the windows in the communal area.</li>
+				<li class="maptweak">Tweaks the communal layout.</li>
+				<li class="maptweak">Replaces the security areas with relative areas.</li>
+				<li class="tweak">Makes reinforced windows and window panes need a weapon with 8 or higher force to inflict damage.</li>
+				<li class="tweak">Tweaks the plastic jug&#x27;s force to be more believable.</li>
+				<li class="tweak">Makes tools not attack windows unless on harm intent.</li>
+				<li class="rscadd">Adds a unique communal emergency closet with the bare necessities.</li>
+				<li class="bugfix">Removes a duplicate intercom from the warden&#x27;s office.</li>
+				<li class="spellcheck">Fixes the mounted flash&#x27;s name being capitalized.</li>
+			</ul>
+
+			<h2 class="date">20 January 2023</h2>
+			<h3 class="author">Alberyk, Atteria updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the tesla rejuvenation suit as a currently unplayable species.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes drinks allowing you to go into negative speed values.</li>
+				<li class="tweak">Shuttles will no longer bring background turfs like space or exoplanet turfs with them.</li>
+			</ul>
+			<h3 class="author">Ramke updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Dispenser (coffee, chem, alcohol, etc.) UIs no longer open with a single row of reagents.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Replaced the Francisca ammo on the Hailstorm ship with Grauwolf ammo.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">Fixes washing machine typo.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Added a button inside the armoury that controls the blast doors. The warden and the HoS can use this. It replaces the bottom wall charger.</li>
+			</ul>
+			<h3 class="author">Wowzewow(Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds new sprites and updates sprite generation for medbots.</li>
+			</ul>
+			<h3 class="author">listerla updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Dionae ships, the SSMD ship, and the IAC ship now are in the ship pool rather than away site pool.</li>
+			</ul>
+
+			<h2 class="date">19 January 2023</h2>
+			<h3 class="author">Alberyk, Atteria, Canon35, Wowzewow (Wezzy), CaptainGecko updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new ship: the DPRA Hailstorm.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Adds missing description for the &quot;neck accessories selection (colourable)&quot; entry in the loadout.</li>
+			</ul>
+			<h3 class="author">atteria updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">Repaths spaghetti, tweaks the description of spaghetti with tomato sauce.</li>
+			</ul>
+
+			<h2 class="date">18 January 2023</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Baseline screens now render under glasses.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">All flash effects (flashbang, flashes, welding w.o protection, etc.) now deal damage to eyes relative to their effect intensity.</li>
+				<li class="balance">Handheld flashes are now significantly more powerful, no longer stopped by sunglasses, etc.</li>
+				<li class="balance">Handheld flashes&#x27; AOE flash can now be performed by using them in-hand with harm intent.</li>
+				<li class="refactor">Backend code for flash effects now unified under flash_act. Stunning sonic effects (e.g. flashbangs) now unified under soundbang_act.</li>
+				<li class="refactor">Significantly cleaned up handheld flash code.</li>
+				<li class="tweak">Vaurcae and Tajarans will now only take extra damage from flashes when their night vision is active, and when they do not have flash protection.</li>
+				<li class="tweak">Dionae now take flash damage from all sorts of flashes, and are weakened by major sources (welding, flashes). They also gain energy equal to the intensity of the flash.</li>
+			</ul>
+
+			<h2 class="date">17 January 2023</h2>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Floating chat messages now follow you in -and- out of the closet! (And all other &#x27;enterable&#x27; objects.).</li>
+				<li class="bugfix">Sodium chloride now overdoses properly.</li>
+				<li class="backend">Cleaned up a whole mess of runtime errors related to bad clients, null objects, etc.</li>
+			</ul>
+			<h3 class="author">The Stryker, NewOriginalSchwann updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Lyodii accent to Morozi and Exile origins. Description done by Schwann.</li>
+				<li class="tweak">Adds Novi Jadran to Imperial Exile origins.</li>
+			</ul>
+			<h3 class="author">atteria updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Resprited the modular laptop to three-quarters perspective.</li>
+			</ul>
+
 			<h2 class="date">15 January 2023</h2>
 			<h3 class="author">MattAtlas updated:</h3>
 			<ul class="changes bgimages16">

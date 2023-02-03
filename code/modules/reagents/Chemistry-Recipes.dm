@@ -176,7 +176,7 @@
 	id = "oxycomorphine"
 	result = /singleton/reagent/oxycomorphine
 	required_reagents = list(/singleton/reagent/alcohol = 1, /singleton/reagent/mortaphenyl = 1)
-	catalysts = list(/singleton/reagent/toxin/phoron = 5)
+	catalysts = list(/singleton/reagent/toxin/phoron/pure = 5)
 	result_amount = 1
 
 /datum/chemical_reaction/sterilizine
@@ -269,7 +269,7 @@
 	id = "peridaxon"
 	result = /singleton/reagent/peridaxon
 	required_reagents = list(/singleton/reagent/bicaridine = 1, /singleton/reagent/clonexadone = 1)
-	catalysts = list(/singleton/reagent/toxin/phoron = 5)
+	catalysts = list(/singleton/reagent/toxin/phoron/pure = 5)
 	result_amount = 1
 
 /datum/chemical_reaction/virus_food
@@ -284,7 +284,7 @@
 	id = "leporazine"
 	result = /singleton/reagent/leporazine
 	required_reagents = list(/singleton/reagent/silicon = 1, /singleton/reagent/copper = 1)
-	catalysts = list(/singleton/reagent/toxin/phoron = 5)
+	catalysts = list(/singleton/reagent/toxin/phoron/pure = 5)
 	result_amount = 2
 
 /datum/chemical_reaction/cryptobiolin
@@ -313,7 +313,7 @@
 	id = "dexalin"
 	result = /singleton/reagent/dexalin
 	required_reagents = list(/singleton/reagent/acetone = 2, /singleton/reagent/toxin/phoron = 0.1)
-	catalysts = list(/singleton/reagent/toxin/phoron = 1)
+	catalysts = list(/singleton/reagent/toxin/phoron/pure = 1)
 	inhibitors = list(/singleton/reagent/water = 1) // Messes with cryox
 	result_amount = 1
 
@@ -371,8 +371,8 @@
 	name = "Clonexadone"
 	id = "clonexadone"
 	result = /singleton/reagent/clonexadone
-	required_reagents = list(/singleton/reagent/cryoxadone = 1, /singleton/reagent/sodium = 1, /singleton/reagent/toxin/phoron = 0.1)
-	catalysts = list(/singleton/reagent/toxin/phoron = 5)
+	required_reagents = list(/singleton/reagent/cryoxadone = 1, /singleton/reagent/sodium = 1, /singleton/reagent/toxin/phoron/pure = 0.1)
+	catalysts = list(/singleton/reagent/toxin/phoron/pure = 5)
 	result_amount = 2
 
 /datum/chemical_reaction/thetamycin
@@ -458,7 +458,7 @@
 	name = "Potassium Chlorophoride"
 	id = "potassium_chlorophoride"
 	result = /singleton/reagent/toxin/potassium_chlorophoride
-	required_reagents = list(/singleton/reagent/toxin/potassium_chloride = 1, /singleton/reagent/toxin/phoron = 1, /singleton/reagent/polysomnine = 1)
+	required_reagents = list(/singleton/reagent/toxin/potassium_chloride = 1, /singleton/reagent/toxin/phoron/pure = 1, /singleton/reagent/polysomnine = 1)
 	result_amount = 4
 
 /datum/chemical_reaction/zombiepowder
@@ -472,7 +472,7 @@
 	name = "Dextrotoxin"
 	id = "dextrotoxin"
 	result = /singleton/reagent/toxin/dextrotoxin
-	required_reagents = list(/singleton/reagent/toxin/carpotoxin = 3, /singleton/reagent/soporific = 10, /singleton/reagent/toxin/phoron = 5)
+	required_reagents = list(/singleton/reagent/toxin/carpotoxin = 3, /singleton/reagent/soporific = 10, /singleton/reagent/toxin/phoron/pure = 5)
 	result_amount = 5
 
 /datum/chemical_reaction/mindbreaker
@@ -574,7 +574,7 @@
 	id = "condensedcapsaicin"
 	result = /singleton/reagent/capsaicin/condensed
 	required_reagents = list(/singleton/reagent/capsaicin = 2)
-	catalysts = list(/singleton/reagent/toxin/phoron = 5)
+	catalysts = list(/singleton/reagent/toxin/phoron/pure = 5)
 	result_amount = 1
 
 /datum/chemical_reaction/coolant
@@ -597,7 +597,7 @@
 	id = "lexorin"
 	result = /singleton/reagent/lexorin
 	required_reagents = list(/singleton/reagent/tungsten = 1, /singleton/reagent/hydrazine = 1, /singleton/reagent/ammonia = 1)
-	catalysts = list(/singleton/reagent/toxin/phoron = 5)
+	catalysts = list(/singleton/reagent/toxin/phoron/pure = 5)
 	result_amount = 3
 
 /datum/chemical_reaction/fluvectionem
@@ -655,14 +655,14 @@
 	id = "saline"
 	result = /singleton/reagent/saline
 	required_reagents = list(/singleton/reagent/water = 2, /singleton/reagent/sugar = 0.5, /singleton/reagent/sodiumchloride = 1)
-	catalysts = list(/singleton/reagent/toxin/phoron = 5)
+	catalysts = list(/singleton/reagent/toxin/phoron/pure = 5)
 	result_amount = 2
 
 /datum/chemical_reaction/cataleptinol
 	name = "Cataleptinol"
 	id = "cataleptinol"
 	result = /singleton/reagent/cataleptinol
-	required_reagents = list(/singleton/reagent/toxin/phoron = 0.1, /singleton/reagent/alkysine = 1, /singleton/reagent/cryoxadone = 0.1)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 0.1, /singleton/reagent/alkysine = 1, /singleton/reagent/cryoxadone = 0.1)
 	result_amount = 1
 
 /datum/chemical_reaction/coughsyrup
@@ -747,7 +747,7 @@
 	name = "Truthserum"
 	id = "truthserum"
 	result = /singleton/reagent/mental/truthserum
-	required_reagents = list(/singleton/reagent/mindbreaker = 1, /singleton/reagent/synaptizine = 1, /singleton/reagent/toxin/phoron = 0.1)
+	required_reagents = list(/singleton/reagent/mindbreaker = 1, /singleton/reagent/synaptizine = 1, /singleton/reagent/toxin/phoron/pure = 0.1)
 	result_amount = 2
 
 /datum/chemical_reaction/pacifier
@@ -761,7 +761,7 @@
 	name = "Red Nightshade"
 	id = "berserk"
 	result = /singleton/reagent/toxin/berserk
-	required_reagents = list(/singleton/reagent/toxin/stimm = 1, /singleton/reagent/synaptizine = 1, /singleton/reagent/toxin/phoron = 0.1)
+	required_reagents = list(/singleton/reagent/toxin/stimm = 1, /singleton/reagent/synaptizine = 1, /singleton/reagent/toxin/phoron/pure = 0.1)
 	result_amount = 1
 
 /datum/chemical_reaction/joy
@@ -824,7 +824,7 @@
 	name = "Solid Phoron"
 	id = "solidphoron"
 	result = null
-	required_reagents = list(/singleton/reagent/iron = 5, /singleton/reagent/frostoil = 5, /singleton/reagent/toxin/phoron = 20)
+	required_reagents = list(/singleton/reagent/iron = 5, /singleton/reagent/frostoil = 5, /singleton/reagent/toxin/phoron/pure = 20)
 	result_amount = 1
 
 /datum/chemical_reaction/phoronsolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
@@ -886,22 +886,14 @@
 /datum/chemical_reaction/flash_powder/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	spark(location, 2, alldirs)
-	for(var/mob/living/carbon/M in viewers(world.view, location))
+	for(var/mob/living/M in viewers(world.view, location))
+		if(!M.flash_act())
+			continue
+
 		switch(get_dist(M, location))
 			if(0 to 3)
-				if(hasvar(M, "glasses"))
-					if(istype(M:glasses, /obj/item/clothing/glasses/sunglasses))
-						continue
-
-				M.flash_eyes()
 				M.Weaken(15)
-
 			if(4 to 5)
-				if(hasvar(M, "glasses"))
-					if(istype(M:glasses, /obj/item/clothing/glasses/sunglasses))
-						continue
-
-				M.flash_eyes()
 				M.Stun(5)
 
 /datum/chemical_reaction/emp_pulse
@@ -930,7 +922,7 @@
 	name = "Napalm"
 	id = "napalm"
 	result = null
-	required_reagents = list(/singleton/reagent/aluminum = 1, /singleton/reagent/toxin/phoron = 1, /singleton/reagent/acid = 1 )
+	required_reagents = list(/singleton/reagent/aluminum = 1, /singleton/reagent/toxin/phoron/pure = 1, /singleton/reagent/acid = 1 )
 	result_amount = 1
 
 /datum/chemical_reaction/napalm/on_reaction(var/datum/reagents/holder, var/created_volume)
@@ -952,7 +944,7 @@
 	name = "Zo'rane Fire"
 	id = "greekfire"
 	result = /singleton/reagent/fuel/napalm
-	required_reagents = list(/singleton/reagent/nitroglycerin = 2, /singleton/reagent/pyrosilicate = 2, /singleton/reagent/toxin/phoron = 3, /singleton/reagent/fuel/zoragel = 3)
+	required_reagents = list(/singleton/reagent/nitroglycerin = 2, /singleton/reagent/pyrosilicate = 2, /singleton/reagent/toxin/phoron/pure = 3, /singleton/reagent/fuel/zoragel = 3)
 	result_amount = 1
 	log_is_important = 1
 
@@ -1074,7 +1066,7 @@
 	name = "Slime Spawn"
 	id = "m_spawn"
 	result = null
-	required_reagents = list(/singleton/reagent/toxin/phoron = 1)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/grey
 
@@ -1099,13 +1091,13 @@
 /datum/chemical_reaction/slime/teleportation
 	name = "Slime Teleportation"
 	id = "slimeteleportation"
-	required_reagents = list(/singleton/reagent/toxin/phoron = 5)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 5)
 	result_amount = 1
 	required = /obj/item/slime_extract/green
 
 /datum/chemical_reaction/slime/teleportation/on_reaction(var/datum/reagents/holder)
 	..()
-	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
+	addtimer(CALLBACK(src, PROC_REF(do_reaction), holder), 50)
 
 /datum/chemical_reaction/slime/teleportation/proc/do_reaction(var/datum/reagents/holder)
 	for(var/atom/movable/AM in circle_range(get_turf(holder.my_atom),7))
@@ -1125,10 +1117,10 @@
 	required = /obj/item/slime_extract/green
 
 /datum/chemical_reaction/slime/bluespace_crystal/on_reaction(var/datum/reagents/holder)
-	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
-	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
-		if(M.eyecheck(TRUE) <= 0)
-			M.flash_eyes()
+	var/turf/location = get_turf(holder.my_atom)
+	playsound(location, 'sound/effects/phasein.ogg', 100, 1)
+	for(var/mob/living/M in viewers(world.view, location))
+		M.flash_act()
 
 	new /obj/item/bluespace_crystal(get_turf(holder.my_atom))
 	..()
@@ -1138,7 +1130,7 @@
 	name = "Slime Metal"
 	id = "m_metal"
 	result = null
-	required_reagents = list(/singleton/reagent/toxin/phoron = 1)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/metal
 
@@ -1191,16 +1183,16 @@
 	)
 	//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
-	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
-	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
-		if(M.eyecheck(TRUE) <= 0)
-			M.flash_eyes()
+	var/turf/location = get_turf(holder.my_atom)
+	playsound(location, 'sound/effects/phasein.ogg', 100, 1)
+	for(var/mob/living/M in viewers(world.view, location))
+		M.flash_act(ignore_inherent = TRUE)
 
 	for(var/i = 1, i <= 5, i++)
 		var/chosen = pick(critters)
 		var/mob/living/simple_animal/hostile/C = new chosen
 		C.faction = "slimesummon"
-		C.forceMove(get_turf(holder.my_atom))
+		C.forceMove(location)
 		if(prob(50))
 			for(var/j = 1, j <= rand(1, 3), j++)
 				step(C, pick(NORTH,SOUTH,EAST,WEST))
@@ -1211,7 +1203,7 @@
 	name = "Slime Bork"
 	id = "m_tele2"
 	result = null
-	required_reagents = list(/singleton/reagent/toxin/phoron = 1)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/silver
 
@@ -1251,10 +1243,10 @@
 	/obj/item/reagent_containers/food/snacks/pineappleslice
 	)
 	var/list/borks = typesof(/obj/item/reagent_containers/food/snacks) - blocked
-	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
-	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
-		if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
-			M.flash_eyes()
+	var/turf/location = get_turf(holder.my_atom)
+	playsound(location, 'sound/effects/phasein.ogg', 100, 1)
+	for(var/mob/living/M in viewers(world.view, location))
+		M.flash_act(ignore_inherent = TRUE)
 
 	for(var/i = 1, i <= 4 + rand(1,2), i++)
 		var/chosen = pick(borks)
@@ -1287,7 +1279,7 @@
 
 /datum/chemical_reaction/slime/freeze/on_reaction(var/datum/reagents/holder)
 	..()
-	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
+	addtimer(CALLBACK(src, PROC_REF(do_reaction), holder), 50)
 
 /datum/chemical_reaction/slime/freeze/proc/do_reaction(var/datum/reagents/holder)
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
@@ -1308,14 +1300,14 @@
 	name = "Slime fire"
 	id = "m_fire"
 	result = null
-	required_reagents = list(/singleton/reagent/toxin/phoron = 1)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/orange
 	mix_message = "The slime extract begins to vibrate violently!"
 
 /datum/chemical_reaction/slime/fire/on_reaction(var/datum/reagents/holder)
 	..()
-	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
+	addtimer(CALLBACK(src, PROC_REF(do_reaction), holder), 50)
 
 /datum/chemical_reaction/slime/fire/proc/do_reaction(var/datum/reagents/holder)
 	var/turf/location = get_turf(holder.my_atom)
@@ -1335,7 +1327,7 @@
 
 /datum/chemical_reaction/slime/overload/on_reaction(var/datum/reagents/holder, var/created_volume)
 	..()
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/empulse, get_turf(holder.my_atom), 3, 7), 50)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(empulse), get_turf(holder.my_atom), 3, 7), 50)
 
 /datum/chemical_reaction/slime/cell
 	name = "Slime Powercell"
@@ -1368,7 +1360,7 @@
 	name = "Slime Steroid"
 	id = "m_steroid"
 	result = null
-	required_reagents = list(/singleton/reagent/toxin/phoron = 1)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/purple
 
@@ -1390,7 +1382,7 @@
 	name = "Slime Rare Metal"
 	id = "rm_metal"
 	result = null
-	required_reagents = list(/singleton/reagent/toxin/phoron = 1)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/darkpurple
 
@@ -1425,7 +1417,7 @@
 	name = "Slime Nightshade"
 	id = "slime_nightshade"
 	result = /singleton/reagent/toxin/berserk
-	required_reagents = list(/singleton/reagent/toxin/phoron = 10)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 10)
 	result_amount = 1
 	required = /obj/item/slime_extract/red
 
@@ -1434,7 +1426,7 @@
 	name = "Docility Serum"
 	id = "docility_serum"
 	result = null
-	required_reagents = list(/singleton/reagent/toxin/phoron = 1)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/pink
 
@@ -1455,7 +1447,7 @@
 	name = "Advanced Mutation Toxin"
 	id = "mutationtoxin2"
 	result = /singleton/reagent/aslimetoxin
-	required_reagents = list(/singleton/reagent/toxin/phoron = 5)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 5)
 	result_amount = 1
 	required = /obj/item/slime_extract/black
 
@@ -1464,14 +1456,14 @@
 	name = "Slime Explosion"
 	id = "m_explosion"
 	result = null
-	required_reagents = list(/singleton/reagent/toxin/phoron = 1)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/oil
 	mix_message = "The slime extract begins to vibrate violently!"
 
 /datum/chemical_reaction/slime/explosion/on_reaction(var/datum/reagents/holder)
 	..()
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/explosion, get_turf(holder.my_atom), 1, 3, 6), 50)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(explosion), get_turf(holder.my_atom), 1, 3, 6), 50)
 
 /datum/chemical_reaction/slime/plasticglass
 	name = "Slime Plastic & Glass"
@@ -1492,7 +1484,7 @@
 	result = null
 	result_amount = 1
 	required = /obj/item/slime_extract/lightpink
-	required_reagents = list(/singleton/reagent/toxin/phoron = 5)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 5)
 
 /datum/chemical_reaction/slime/advanced_docility_serum/on_reaction(var/datum/reagents/holder)
 	..()
@@ -1503,7 +1495,7 @@
 	name = "Slime Golem"
 	id = "m_golem"
 	result = null
-	required_reagents = list(/singleton/reagent/toxin/phoron = 5)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 5)
 	result_amount = 1
 	required = /obj/item/slime_extract/adamantine
 	mix_message = "A soft fizzle is heard within the slime extract, and mystic runes suddenly appear on the floor beneath it!"
@@ -1634,7 +1626,7 @@
 	name = "Extract Enhancer"
 	id = "extract_enhancer"
 	result = null
-	required_reagents = list(/singleton/reagent/toxin/phoron = 1)
+	required_reagents = list(/singleton/reagent/toxin/phoron/pure = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/cerulean
 
@@ -2149,7 +2141,7 @@
 	name = "Toxins Special"
 	id = "phoronspecial"
 	result = /singleton/reagent/alcohol/toxins_special
-	required_reagents = list(/singleton/reagent/alcohol/rum = 2, /singleton/reagent/alcohol/vermouth = 2, /singleton/reagent/toxin/phoron = 2)
+	required_reagents = list(/singleton/reagent/alcohol/rum = 2, /singleton/reagent/alcohol/vermouth = 2, /singleton/reagent/toxin/phoron/pure = 2)
 	result_amount = 6
 
 /datum/chemical_reaction/drink/beepsky_smash

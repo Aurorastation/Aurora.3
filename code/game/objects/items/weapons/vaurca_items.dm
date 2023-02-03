@@ -207,8 +207,7 @@
 		var/turf/T = get_turf(src)
 		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
 		for(var/mob/living/carbon/human/M in viewers(T, null))
-			if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
-				M.flash_eyes()
+			M.flash_act(ignore_inherent = TRUE)
 
 		for(var/i=1, i<=deliveryamt, i++)
 			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new seed())

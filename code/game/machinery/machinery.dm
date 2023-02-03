@@ -465,7 +465,7 @@ Class Procs:
 		message = "\The [src] rattles to life and spits out a paper titled [paper]."
 	visible_message(SPAN_NOTICE(message))
 
-	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
+	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper), print_delay)
 
 	return 1
 

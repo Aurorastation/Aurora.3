@@ -133,10 +133,10 @@
 	return ..()
 
 /obj/machinery/door/proc/close_door_in(var/time = 5 SECONDS)
-	addtimer(CALLBACK(src, .proc/close), time, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(close)), time, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /obj/machinery/door/proc/close_hatch_in(var/time = 3 SECONDS)
-	addtimer(CALLBACK(src, .proc/close_hatch), time, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(close_hatch)), time, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /obj/machinery/door/proc/can_open()
 	if(!density || operating || !ROUND_IS_STARTED)
@@ -537,7 +537,7 @@
 		if (autoclose)
 			for (var/atom/movable/M in get_turf(src))
 				if (M.density && M != src)
-					addtimer(CALLBACK(src, .proc/autoclose), 60, TIMER_UNIQUE)
+					addtimer(CALLBACK(src, PROC_REF(autoclose)), 60, TIMER_UNIQUE)
 					break
 	operating = TRUE
 

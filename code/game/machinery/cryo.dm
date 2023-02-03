@@ -278,7 +278,7 @@
 			return
 		occupant.bodytemperature += 2*(air_contents.temperature - occupant.bodytemperature)*current_heat_capacity/(current_heat_capacity + air_contents.heat_capacity())
 		occupant.bodytemperature = max(occupant.bodytemperature, air_contents.temperature) // this is so ugly i'm sorry for doing it i'll fix it later i promise
-		occupant.stat = 1
+		occupant.set_stat(UNCONSCIOUS)
 		if(occupant.bodytemperature < T0C)
 			//severe damage should heal waaay slower without proper chemicals
 			if(occupant.bodytemperature < 225)

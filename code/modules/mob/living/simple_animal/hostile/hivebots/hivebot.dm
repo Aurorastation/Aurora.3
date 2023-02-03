@@ -94,13 +94,13 @@
 /mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()
 	..()
 	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
+	change_stance(HOSTILE_STANCE_TIRED)
 	stop_automated_movement = 1
 	wander = 0
 	if(!has_exploded)
 		playsound(src.loc, 'sound/items/countdown.ogg', 125, 1)
 		has_exploded = TRUE
-		addtimer(CALLBACK(src, .proc/burst), 20)
+		addtimer(CALLBACK(src, PROC_REF(burst)), 20)
 
 /mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
@@ -167,12 +167,12 @@
 
 /mob/living/simple_animal/hostile/hivebot/emp_act(severity)
 	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
-	addtimer(CALLBACK(src, .proc/wakeup), 50)
+	change_stance(HOSTILE_STANCE_TIRED)
+	addtimer(CALLBACK(src, PROC_REF(wakeup)), 50)
 	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 	var/turf/random_turf = get_turf(pick(orange(src,7)))
 	do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebot/proc/wakeup()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)

@@ -4,6 +4,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	name = "Chemistry"
 	priority = SS_PRIORITY_CHEMISTRY
 	init_order = SS_INIT_MISC_FIRST
+	runlevels = RUNLEVELS_PLAYING
 
 	var/list/active_holders = list()
 	var/list/chemical_reactions

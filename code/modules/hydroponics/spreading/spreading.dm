@@ -125,7 +125,7 @@
 	spread_chance = seed.get_trait(TRAIT_POTENCY)
 	spread_distance = ((growth_type > 0) ? round(spread_chance * 0.6) : round(spread_chance * 0.3))
 	update_icon()
-	addtimer(CALLBACK(src, .proc/post_initialize), 1)
+	addtimer(CALLBACK(src, PROC_REF(post_initialize)), 1)
 
 // Plants will sometimes be spawned in the turf adjacent to the one they need to end up in, for the sake of correct dir/etc being set.
 /obj/effect/plant/proc/post_initialize()
@@ -172,9 +172,9 @@
 			last_biolum = null
 
 /obj/effect/plant/proc/refresh_icon()
-	if(!growth_threshold)
-		growth_threshold = max_health/seed.growth_stages
-	var/growth = min(max_growth,round(health/growth_threshold))
+	var/growth = 0
+	if(growth_threshold)
+		growth = min(max_growth,round(health/growth_threshold))
 	var/at_fringe = get_dist(src,parent)
 	if(spread_distance > 5)
 		if(at_fringe >= (spread_distance-3))

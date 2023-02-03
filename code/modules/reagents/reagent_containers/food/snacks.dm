@@ -438,7 +438,7 @@
 	trash = /obj/item/trash/koisbar
 	filling_color = "#dcd9cd"
 	bitesize = 5
-	reagents_to_add = list(/singleton/reagent/kois/clean = 10, /singleton/reagent/toxin/phoron = 15)
+	reagents_to_add = list(/singleton/reagent/kois/clean = 10, /singleton/reagent/toxin/phoron/pure = 15)
 
 /obj/item/reagent_containers/food/snacks/koisbar
 	name = "organic k'ois bar"
@@ -447,7 +447,7 @@
 	trash = /obj/item/trash/koisbar
 	filling_color = "#dcd9cd"
 	bitesize = 5
-	reagents_to_add = list(/singleton/reagent/kois = 10, /singleton/reagent/toxin/phoron = 15)
+	reagents_to_add = list(/singleton/reagent/kois = 10, /singleton/reagent/toxin/phoron/kois = 15)
 
 /obj/item/reagent_containers/food/snacks/salad/aesirsalad
 	name = "aesir salad"
@@ -656,7 +656,7 @@
 		if(4)
 			reagents.add_reagent(/singleton/reagent/nutriment/sprinkles, 3)
 		if(5)
-			reagents.add_reagent(/singleton/reagent/toxin/phoron, 3)
+			reagents.add_reagent(/singleton/reagent/toxin/phoron/pure, 3)
 		if(6)
 			reagents.add_reagent(/singleton/reagent/nutriment/coco, 3)
 		if(7)
@@ -817,6 +817,13 @@
 	filling_color = "#e9ffd1"
 	volume = 20
 	hatchling = /mob/living/simple_animal/schlorrgo/baby
+
+/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
+	name = "ice tunneler egg"
+	desc = "An egg laid by an Adhomian animal."
+	icon_state = "tunneler_egg"
+	filling_color = "#eff5e9"
+	hatchling = /mob/living/simple_animal/ice_tunneler/baby
 
 /obj/item/reagent_containers/food/snacks/friedegg
 	name = "fried egg"
@@ -1511,10 +1518,10 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("soy" = 2))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/spagetti
+/obj/item/reagent_containers/food/snacks/spaghetti
 	name = "spaghetti"
 	desc = "A bundle of raw spaghetti."
-	icon_state = "spagetti"
+	icon_state = "spaghetti"
 	filling_color = "#EDDD00"
 	center_of_mass = list("x"=16, "y"=16)
 	reagents_to_add = list(/singleton/reagent/nutriment = 1)
@@ -2111,10 +2118,10 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("soy" = 4, "tomato" = 4))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/boiledspagetti
+/obj/item/reagent_containers/food/snacks/boiledspaghetti
 	name = "boiled spaghetti"
 	desc = "A plain dish of noodles, this sucks."
-	icon_state = "spagettiboiled"
+	icon_state = "spaghettiboiled"
 	trash = /obj/item/trash/plate
 	filling_color = "#FCEE81"
 	center_of_mass = list("x"=16, "y"=10)
@@ -2156,7 +2163,7 @@
 
 /obj/item/reagent_containers/food/snacks/pastatomato
 	name = "spaghetti"
-	desc = "Spaghetti and crushed tomatoes. Just like your abusive father used to make!"
+	desc = "Spaghetti and crushed tomatoes."
 	icon_state = "pastatomato"
 	trash = /obj/item/trash/plate
 	filling_color = "#DE4545"
@@ -2165,10 +2172,10 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("tomato" = 3, "noodles" = 3))
 	bitesize = 4
 
-/obj/item/reagent_containers/food/snacks/meatballspagetti
+/obj/item/reagent_containers/food/snacks/meatballspaghetti
 	name = "spaghetti and meatballs"
 	desc = "Now thats a nic'e meatball!"
-	icon_state = "meatballspagetti"
+	icon_state = "meatballspaghetti"
 	trash = /obj/item/trash/plate
 	filling_color = "#DE4545"
 	center_of_mass = list("x"=16, "y"=10)
@@ -3597,7 +3604,7 @@
 	desc = "A building block of an impressive dish."
 	icon = 'icons/obj/food_ingredients.dmi'
 	icon_state = "doughslice"
-	slice_path = /obj/item/reagent_containers/food/snacks/spagetti
+	slice_path = /obj/item/reagent_containers/food/snacks/spaghetti
 	slices_num = 1
 	bitesize = 2
 	center_of_mass = list("x"=17, "y"=19)
@@ -4094,7 +4101,7 @@
 	icon_state = "friedkois"
 	filling_color = "#E6E600"
 	bitesize = 5
-	reagents_to_add = list(/singleton/reagent/kois = 6, /singleton/reagent/toxin/phoron = 9)
+	reagents_to_add = list(/singleton/reagent/kois = 6, /singleton/reagent/toxin/phoron/kois = 9)
 
 /obj/item/reagent_containers/food/snacks/friedkois/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack/rods))
@@ -4114,7 +4121,7 @@
 	trash = /obj/item/stack/rods
 	filling_color = "#E6E600"
 	bitesize = 3
-	reagents_to_add = list(/singleton/reagent/kois = 8, /singleton/reagent/toxin/phoron = 12)
+	reagents_to_add = list(/singleton/reagent/kois = 8, /singleton/reagent/toxin/phoron/kois = 12)
 
 /obj/item/reagent_containers/food/snacks/koiskebab1/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/reagent_containers/food/snacks/friedkois))
@@ -4130,7 +4137,7 @@
 	trash = /obj/item/stack/rods
 	filling_color = "#E6E600"
 	bitesize = 6
-	reagents_to_add = list(/singleton/reagent/kois = 12, /singleton/reagent/toxin/phoron = 16)
+	reagents_to_add = list(/singleton/reagent/kois = 12, /singleton/reagent/toxin/phoron/kois = 16)
 
 /obj/item/reagent_containers/food/snacks/koiskebab2/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/reagent_containers/food/snacks/friedkois))
@@ -4146,7 +4153,7 @@
 	trash = /obj/item/stack/rods
 	filling_color = "#E6E600"
 	bitesize = 9
-	reagents_to_add = list(/singleton/reagent/kois = 16, /singleton/reagent/toxin/phoron = 20)
+	reagents_to_add = list(/singleton/reagent/kois = 16, /singleton/reagent/toxin/phoron/kois = 20)
 
 /obj/item/reagent_containers/food/snacks/soup/kois
 	name = "k'ois paste"
@@ -4155,7 +4162,7 @@
 	filling_color = "#4E6E600"
 	bitesize = 6
 
-	reagents_to_add = list(/singleton/reagent/kois = 15, /singleton/reagent/toxin/phoron = 15)
+	reagents_to_add = list(/singleton/reagent/kois = 15, /singleton/reagent/toxin/phoron/kois = 15)
 
 /obj/item/reagent_containers/food/snacks/koiswaffles
 	name = "k'ois waffles"
@@ -4165,7 +4172,7 @@
 	drop_sound = /singleton/sound_category/tray_hit_sound
 	filling_color = "#E6E600"
 	bitesize = 8
-	reagents_to_add = list(/singleton/reagent/kois = 25, /singleton/reagent/toxin/phoron = 15)
+	reagents_to_add = list(/singleton/reagent/kois = 25, /singleton/reagent/toxin/phoron/kois = 15)
 
 /obj/item/reagent_containers/food/snacks/koisjelly
 	name = "k'ois jelly"
@@ -4173,7 +4180,7 @@
 	icon_state = "koisjelly"
 	filling_color = "#E6E600"
 	bitesize = 10
-	reagents_to_add = list(/singleton/reagent/kois = 25, /singleton/reagent/oculine = 20, /singleton/reagent/toxin/phoron = 25)
+	reagents_to_add = list(/singleton/reagent/kois = 25, /singleton/reagent/oculine = 20, /singleton/reagent/toxin/phoron/kois = 25)
 
 //unathi snacks - sprites by Araskael
 
@@ -5435,7 +5442,7 @@
 	desc = "Some well-done k'ois, grilled to perfection."
 	icon_state = "kois_steak"
 	filling_color = "#dcd9cd"
-	reagents_to_add = list(/singleton/reagent/kois = 20, /singleton/reagent/toxin/phoron = 15)
+	reagents_to_add = list(/singleton/reagent/kois = 20, /singleton/reagent/toxin/phoron/kois = 15)
 	bitesize = 7
 
 /obj/item/reagent_containers/food/snacks/donut/kois
@@ -5444,7 +5451,7 @@
 	icon_state = "kois_donut"
 	filling_color = "#dcd9cd"
 	overlay_state = "box-kois_donut"
-	reagents_to_add = list(/singleton/reagent/kois = 15, /singleton/reagent/toxin/phoron = 10)
+	reagents_to_add = list(/singleton/reagent/kois = 15, /singleton/reagent/toxin/phoron/kois = 10)
 	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/koismuffin
@@ -5452,7 +5459,7 @@
 	desc = "Baked k'ois goop, molded into a little cake."
 	icon_state = "kois_muffin"
 	filling_color = "#dcd9cd"
-	reagents_to_add = list(/singleton/reagent/kois = 10, /singleton/reagent/toxin/phoron = 15)
+	reagents_to_add = list(/singleton/reagent/kois = 10, /singleton/reagent/toxin/phoron/kois = 15)
 	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/koisburger
@@ -5460,7 +5467,7 @@
 	desc = "K'ois inside k'ois. Peak Vaurcesian cuisine."
 	icon_state = "kois_burger"
 	filling_color = "#dcd9cd"
-	reagents_to_add = list(/singleton/reagent/kois = 20, /singleton/reagent/toxin/phoron = 20)
+	reagents_to_add = list(/singleton/reagent/kois = 20, /singleton/reagent/toxin/phoron/kois = 20)
 	bitesize = 8
 
 /obj/item/storage/box/fancy/vkrexitaffy
@@ -5563,7 +5570,7 @@
 	desc = "Rock candy popular in Flagsdale. Actually contains phoron."
 	icon_state = "rock_candy"
 	filling_color = "#ff22d9"
-	reagents_to_add = list(/singleton/reagent/toxin/phoron = 25)
+	reagents_to_add = list(/singleton/reagent/toxin/phoron/pure = 25)
 	bitesize = 5
 	trash = /obj/item/trash/phoroncandy
 

@@ -3,6 +3,7 @@
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire0"
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/detecting = 1
 	var/working = 1
 	var/time = 10
@@ -250,7 +251,7 @@
 	soundloop = new(src, FALSE)
 
 	var/area/A = get_area(src)
-	RegisterSignal(A, COMSIG_AREA_FIRE_ALARM, /atom/.proc/update_icon)
+	RegisterSignal(A, COMSIG_AREA_FIRE_ALARM, TYPE_PROC_REF(/atom, update_icon))
 
 /obj/machinery/firealarm/Destroy()
 	QDEL_NULL(soundloop)

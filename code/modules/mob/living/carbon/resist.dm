@@ -24,13 +24,13 @@
 	..()
 
 	if (handcuffed)
-		INVOKE_ASYNC(src, .proc/escape_handcuffs)
+		INVOKE_ASYNC(src, PROC_REF(escape_handcuffs))
 	else if (legcuffed)
-		INVOKE_ASYNC(src, .proc/escape_legcuffs)
+		INVOKE_ASYNC(src, PROC_REF(escape_legcuffs))
 
 /mob/living/carbon/human/process_resist()
 	if (istype(wear_suit, /obj/item/clothing/suit/straight_jacket))
-		INVOKE_ASYNC(src, .proc/escape_jacket)
+		INVOKE_ASYNC(src, PROC_REF(escape_jacket))
 		return
 	..()
 

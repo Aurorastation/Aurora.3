@@ -111,7 +111,7 @@ steam.start() -- spawns the effect
 	..()
 	if (duration)
 		time_to_live = duration
-	addtimer(CALLBACK(src, .proc/kill), time_to_live)
+	addtimer(CALLBACK(src, PROC_REF(kill)), time_to_live)
 
 /obj/effect/effect/smoke/proc/kill()
 	animate(src, alpha = 0, time = 2 SECONDS, easing = QUAD_EASING)

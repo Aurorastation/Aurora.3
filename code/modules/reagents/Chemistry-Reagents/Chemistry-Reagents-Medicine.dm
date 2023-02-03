@@ -320,7 +320,7 @@
 			M.losebreath++
 
 	if(REAGENT_VOLUME(M.reagents, /singleton/reagent/oxycomorphine)) //Straight to overdose.
-		overdose(M, alien, holder)
+		overdose(M, alien, removed, holder)
 
 /singleton/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
@@ -1508,7 +1508,7 @@
 		if(M && M.stat == DEAD)
 			M.adjustOxyLoss(-rand(15,20))
 			M.visible_message(SPAN_DANGER("\The [M] shudders violently!"))
-			M.stat = 0
+			M.set_stat(CONSCIOUS)
 
 /singleton/reagent/pacifier
 	name = "Paxazide"

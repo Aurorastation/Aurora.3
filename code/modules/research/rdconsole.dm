@@ -306,7 +306,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			to_chat(usr, "<span class='notice'>You must connect to the network first.</span>")
 		else
 			griefProtection() //Putting this here because I dont trust the sync process
-			addtimer(CALLBACK(src, .proc/SyncTechs), 30)
+			addtimer(CALLBACK(src, PROC_REF(SyncTechs)), 30)
 
 	else if(href_list["togglesync"]) //Prevents the console from being synced by other consoles. Can still send data.
 		sync = !sync

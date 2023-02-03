@@ -76,7 +76,7 @@
 			user.visible_message(SPAN_NOTICE("\The user loads \the [slimey] into \the [src]."), SPAN_NOTICE("You load \the [slimey] into \the [src]."))
 			slimey.forceMove(src)
 			extract_slimes[slimey] = slimey
-			addtimer(CALLBACK(src, .proc/extraction_process, slimey), extraction_speed)
+			addtimer(CALLBACK(src, PROC_REF(extraction_process), slimey), extraction_speed)
 			update_icon()
 
 /obj/machinery/slime_extractor/proc/extraction_process(var/slime)

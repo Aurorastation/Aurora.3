@@ -327,7 +327,7 @@ var/list/mineral_can_smooth_with = list(
 					O = new /obj/item/ore(src)
 				if(istype(O))
 					O.geologic_data = get_geodata()
-				addtimer(CALLBACK(O, /atom/movable/.proc/forceMove, user.loc), 1)
+				addtimer(CALLBACK(O, TYPE_PROC_REF(/atom/movable, forceMove), user.loc), 1)
 
 			if(finds?.len)
 				var/datum/find/F = finds[1]
@@ -527,6 +527,11 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/random/exoplanet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
+/turf/simulated/mineral/random/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+
 /turf/simulated/mineral/random/high_chance
 	mineralSpawnChanceList = list(
 		ORE_URANIUM = 2,
@@ -552,6 +557,11 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/random/high_chance/exoplanet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
+/turf/simulated/mineral/random/high_chance/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/random/higher_chance
 	mineralSpawnChanceList = list(
@@ -597,6 +607,11 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/planet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
+/turf/simulated/mineral/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+
 /**********************Asteroid**************************/
 
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
@@ -621,6 +636,7 @@ var/list/mineral_can_smooth_with = list(
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 
 	roof_type = null
+	turf_flags = TURF_FLAG_BACKGROUND
 
 // Same as the other, this is a global so we don't have a lot of pointless lists floating around.
 // Basalt is explicitly omitted so ash will spill onto basalt turfs.

@@ -5,7 +5,7 @@
 	suffixes = list("ships/sol_ssmd/ssmd_ship.dmm")
 	sectors = list(SECTOR_BADLANDS)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "ssmd_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ssmd_shuttle)
 
