@@ -3,6 +3,4 @@ author: WickedCybs
 delete-after: True
 
 changes:
-  - bugfix: "Forgot to properly point to the right suffix for the new ruins added."
-  - bugfix: "Hopefully fixed the active edges runtime thing regarding the ruins too."
-  - tweak: "Fixed a few random ruins that wouldn't change their rock colour to that of the exoplanet they occupy."
+  - bugfix: "Removed most of the new ruins from spawning, so there should be no more runtimes."
