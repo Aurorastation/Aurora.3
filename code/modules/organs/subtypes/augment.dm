@@ -607,9 +607,9 @@
 	if(world.time > (last_emotion + 5 MINUTES))
 		switch(set_emotion)
 			if("happiness")
-				to_chat(owner, SPAN_NOTICE("You feel happy."))
+				to_chat(owner, SPAN_GOOD("You feel happy."))
 			if("calmness")
-				to_chat(owner, SPAN_NOTICE("You feel calm."))
+				to_chat(owner, SPAN_GOOD("You feel calm."))
 		last_emotion = world.time
 
 		if(is_broken())

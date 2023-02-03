@@ -8,6 +8,14 @@
 
 	var/known = 0		//shows up on nav computers automatically
 	var/scannable       //if set to TRUE will show up on ship sensors for detailed scans
+	var/unknown_id                      // A unique identifier used when this entity is scanned. Assigned in Initialize().
+	var/requires_contact = TRUE //whether or not the effect must be identified by ship sensors before being seen.
+	var/instant_contact  = FALSE //do we instantly identify ourselves to any ship in sensors range?
+
+	var/sensor_visibility = 10	 //how likely it is to increase identification process each scan.
+	var/vessel_mass = 10000             // metric tonnes, very rough number, affects acceleration provided by engines
+
+
 	var/image/targeted_overlay
 
 //Overlay of how this object should look on other skyboxes
@@ -48,6 +56,9 @@
 		for(var/obj/machinery/computer/ship/helm/H in SSmachinery.machinery)
 			H.get_known_sectors()
 	update_icon()
+
+	if(requires_contact)
+		invisibility = INVISIBILITY_OVERMAP // Effects that require identification have their images cast to the client via sensors.
 
 /obj/effect/overmap/Crossed(var/obj/effect/overmap/visitable/other)
 	if(istype(other))
