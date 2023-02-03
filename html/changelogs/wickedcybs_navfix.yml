@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed some navpoints on the outside of the Horizon. The upper deck had duplicated navpoints that were not set properly. Few of the navpoints were too close to the map border too. Should make it safer to go to those and reduce ahelps."
