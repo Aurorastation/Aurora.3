@@ -331,9 +331,9 @@
 		if (temp_adj < BODYTEMP_COOLING_MAX) temp_adj = BODYTEMP_COOLING_MAX
 		owner.bodytemperature += temp_adj
 
-	else if(breath.temperature >= owner.species.heat_discomfort_level)
+	else if(owner.bodytemperature >= owner.species.heat_discomfort_level)
 		owner.species.get_environment_discomfort(owner,"heat")
-	else if(breath.temperature <= owner.species.cold_discomfort_level)
+	else if(owner.bodytemperature <= owner.species.cold_discomfort_level)
 		owner.species.get_environment_discomfort(owner,"cold")
 
 /obj/item/organ/internal/lungs/listen()

@@ -1,16 +1,10 @@
 // Suit slot
 /datum/gear/suit
-	display_name = "apron, botanist"
-	path = /obj/item/clothing/suit/apron
+	display_name = "san colette bridge crew jacket"
+	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc/sancol
 	slot = slot_wear_suit
 	sort_category = "Suits and Overwear"
 	cost = 1
-
-/datum/gear/suit/colorapron
-	display_name = "apron, multipurpose"
-	path = /obj/item/clothing/suit/apron/colored
-	slot = slot_wear_suit
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 datum/gear/suit/colorvest
 	display_name = "colorable vest"
@@ -31,6 +25,7 @@ datum/gear/suit/colorvest
 	jackets["black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket
 	jackets["brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket
 	jackets["biker jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/biker
+	jackets["cropped leather jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/midriff
 	jackets["designer leather jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/designer
 	jackets["designer leather jacket, black"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black
 	jackets["designer leather jacket, red"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red
@@ -56,10 +51,6 @@ datum/gear/suit/colorvest
 	jackets["puffer vest"] = /obj/item/clothing/suit/jacket/puffer/vest
 
 	gear_tweaks += new /datum/gear_tweak/path(jackets)
-
-/datum/gear/suit/sancolette
-	display_name = "san colette bridge crew jacket"
-	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc/sancol
 
 /datum/gear/suit/hazard_vest
 	display_name = "hazard vest selection"
@@ -102,15 +93,9 @@ datum/gear/suit/colorvest
 	path = /obj/item/clothing/suit/storage/toggle/labcoat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/suit/overalls
-	display_name = "overalls"
-	path = /obj/item/clothing/suit/apron/overalls
-	cost = 1
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/suit/surgeryapron
 	display_name = "surgical apron"
-	path = /obj/item/clothing/suit/apron/surgery
+	path = /obj/item/clothing/accessory/apron/surgery
 	cost = 1
 	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
 
@@ -451,3 +436,36 @@ datum/gear/suit/colorvest
 	gadpathur_coat["gadpathurian leather coat"] = /obj/item/clothing/suit/storage/toggle/trench/gadpathur/leather
 	gadpathur_coat["thermal coat"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/gadpathur
 	gear_tweaks += new /datum/gear_tweak/path(gadpathur_coat)
+
+// Apron
+/datum/gear/suit/apron_colourable
+	display_name = "apron (colourable)"
+	path = /obj/item/clothing/accessory/apron
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+// Overalls Selection
+/datum/gear/suit/overalls
+	display_name = "overalls selection (colourable)"
+	path = /obj/item/clothing/accessory/overalls
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/overalls/New()
+	..()
+	var/list/overalls = list()
+
+	// Overalls
+	overalls["overalls"] = /obj/item/clothing/accessory/overalls
+	overalls["overalls, high back"] = /obj/item/clothing/accessory/overalls/high_back
+	overalls["overalls, x-shaped back"] = /obj/item/clothing/accessory/overalls/x_shaped_back
+
+	// Overall Shorts
+	overalls["overall shorts"] = /obj/item/clothing/accessory/overalls/shorts
+	overalls["overall shorts, high back"] = /obj/item/clothing/accessory/overalls/shorts/high_back
+	overalls["overall shorts, x-shaped back"] = /obj/item/clothing/accessory/overalls/shorts/x_shaped_back
+
+	// Overall Skirts
+	overalls["overall skirt"] = /obj/item/clothing/accessory/overalls/skirt
+	overalls["overall skirt, high back"] = /obj/item/clothing/accessory/overalls/skirt/high_back
+	overalls["overall skirt, x-shaped back"] = /obj/item/clothing/accessory/overalls/skirt/x_shaped_back
+
+	gear_tweaks += new /datum/gear_tweak/path(overalls)

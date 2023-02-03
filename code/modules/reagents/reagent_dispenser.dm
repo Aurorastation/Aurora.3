@@ -410,3 +410,18 @@
 				env.temperature -= 100
 
 	QDEL_IN(src, 10)
+
+//acid barrel
+
+/obj/structure/reagent_dispensers/acid_barrel
+	name = "chemical barrel"
+	desc = "A metal barrel containing some unknown chemical."
+	icon_state = "acid_barrel"
+	amount_per_transfer_from_this = 300
+
+/obj/structure/reagent_dispensers/radioactive_waste
+	name = "radioactive waste barrel"
+	desc = "A metal barrel containing radioactive waste."
+	icon_state = "chemical_barrel"
+	amount_per_transfer_from_this = 300
+	reagents_to_add = list(/singleton/reagent/radioactive_waste = 1000)
