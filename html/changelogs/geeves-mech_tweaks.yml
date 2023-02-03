@@ -1,0 +1,12 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Exosuit chassis now have a baseline level of medium armor, so even mechs without dedicated armor can resist blows."
+  - tweak: "The gravity generator now recovers faster after locking on, and the throws have been made asynchronous so recharging starts faster."
+  - rscadd: "Remote controlled exosuits can now be disassembled for repair, just use a wrench on them while the maintenance protocols are active."
+  - bugfix: "Examining exosuits now properly state when the component is completely broken."
+  - bugfix: "Roundstart Ripley exosuits now properly spawn with armor."
+  - bugfix: "Fixed a bug that caused exosuit and simple mobs attacks to ignore exosuit armor."
+  - bugfix: "Fixed a bug that caused simple mobs to aggro on people inside exosuits and attack them directly, bypassing the exosuit."
