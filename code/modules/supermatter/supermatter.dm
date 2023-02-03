@@ -324,7 +324,7 @@
 		if(l.is_diona())
 			l.adjustToxLoss(-rads)
 			if(last_message_time + 800 < world.time) // Not to spam message
-				to_chat(l, "<span class='notice'>You can feel an extreme level of energy which flows throught your body and makes you regenerate very fast.</span>")
+				to_chat(l, "<span class='notice'>You can feel an extreme level of energy which flows through your body and makes you regenerate very fast.</span>")
 	last_message_time = world.time
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
@@ -429,7 +429,7 @@
 
 		//Some poor sod got eaten, go ahead and irradiate people nearby.
 	for(var/mob/living/L in view(10))
-		to_chat(L, SPAN_WARNING("As \the [src] slowly stops resonating, you find your skin covered in new radiation burns.</span>"))
+		to_chat(L, SPAN_WARNING("As \the [src] slowly stops resonating, you find your skin covered in new radiation burns."))
 	SSradiation.radiate(src, 500)
 
 /obj/machinery/power/supermatter/proc/supermatter_pull()
