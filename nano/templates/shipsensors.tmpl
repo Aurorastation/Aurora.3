@@ -112,7 +112,38 @@
 	<tr>
 	<div class='item'>
 		<td>{{:helper.link('Scan', 'search' ,{ 'scan' : value.ref }, null, null)}}</td>
+    <td>{{:helper.link('Datalink', 'search' ,{ 'request_datalink' : value.ref }, null, null)}}</td>
 		<td><span class='white'>{{:value.name}}</span>, bearing {{:value.bearing}}</td>
+	</div>
+	</tr>
+	{{/for}}
+	</table>
+{{/if}}
+</div>
+
+<h4>Datalinks</h4>
+<div class='block'>
+{{if data.datalink_requests}}
+	<table>
+	{{for data.datalink_requests}}
+	<tr>
+	<div class='item'>
+		<td>{{:helper.link('Accept', 'search' ,{ 'accept_datalink_requests' : value.ref }, null, null)}}</td>
+    <td>{{:helper.link('Decline', 'search' ,{ 'decline_datalink_requests' : value.ref }, null, null)}}</td>
+		<td><span class='white'>{{:value.name}}</span></td>
+	</div>
+	</tr>
+	{{/for}}
+	</table>
+{{/if}}
+{{if data.datalinked}}
+  <h4>Connected Datalinks</h4>
+	<table>
+	{{for data.datalinked}}
+	<tr>
+	<div class='item'>
+    <td>{{:helper.link('Rescind', 'search' ,{ 'remove_datalink' : value.ref }, null, null)}}</td>
+		<td><span class='white'>{{:value.name}}</span></td>
 	</div>
 	</tr>
 	{{/for}}

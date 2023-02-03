@@ -65,7 +65,7 @@
 /mob/living/simple_animal/hostile/carp/MoveToTarget()
 	stop_automated_movement = 1
 	if(istype(target_mob, /obj/effect/energy_field) && !QDELETED(target_mob) && (target_mob in targets))
-		stance = HOSTILE_STANCE_ATTACKING
+		change_stance(HOSTILE_STANCE_ATTACKING)
 		walk_to(src, target_mob, 1, move_to_delay)
 		return 1
 	..()
@@ -100,7 +100,7 @@
 				visible_message("<span class='danger'>\the [src] bites \the [e]!</span>")
 				src.do_attack_animation(e)
 				target_mob = e
-				stance = HOSTILE_STANCE_ATTACKING
+				change_stance(HOSTILE_STANCE_ATTACKING)
 				return 1
 			for(var/obj/structure/window/obstacle in get_step(src, dir))
 				if(obstacle.dir == reverse_dir[dir]) // So that windows get smashed in the right order
@@ -189,8 +189,8 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	armor_penetration = 25
-	
-/mob/living/simple_animal/hostile/carp/bloater	
+
+/mob/living/simple_animal/hostile/carp/bloater
 	name = "bloater"
 	desc = "A fat, mineral-devouring creature frequently herded for mining expeditions. Its actual ability to dig is less valuable than its volatile nature, however."
 	icon = 'icons/mob/npc/large_space_xenofauna.dmi'
@@ -212,7 +212,7 @@
 /mob/living/simple_animal/hostile/carp/bloater/AttackingTarget()
 	..()
 	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
+	change_stance(HOSTILE_STANCE_TIRED)
 	stop_automated_movement = 1
 	wander = 0
 	if(!has_exploded)
