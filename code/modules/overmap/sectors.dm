@@ -63,7 +63,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	LAZYADD(SSshuttle.sectors_to_initialize, src) //Queued for further init. Will populate the waypoint lists; waypoints not spawned yet will be added in as they spawn.
 	SSshuttle.clear_init_queue()
-	START_PROCESSING(SSprocessing, src)
+	START_PROCESSING(SSovermap, src)
 
 /obj/effect/overmap/visitable/process()
 	if(get_dist(src, targeting) > 7)
@@ -85,7 +85,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	targeting = null
 	levi_safeguard = null
 	gravity_generator = null
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSovermap, src)
 	. = ..()
 
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.

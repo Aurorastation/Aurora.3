@@ -1538,8 +1538,8 @@
 	},
 /obj/machinery/door/blast/shutters{
 	dir = 8;
-	name = "Desk Shutter";
-	id = "shutters_deck2_librarydesk"
+	id = "shutters_deck2_librarydesk";
+	name = "Desk Shutter"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/library)
@@ -2311,11 +2311,8 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
-/obj/structure/closet/wardrobe/pharmacy_white,
-/obj/item/storage/box/gloves,
 /obj/effect/floor_decal/industrial/outline/medical,
-/obj/item/clothing/glasses/safety/goggles,
-/obj/item/clothing/glasses/safety/goggles,
+/obj/structure/closet/secure_closet/chemical,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "aYE" = (
@@ -3627,10 +3624,10 @@
 /area/engineering/engine_monitoring)
 "bFU" = (
 /obj/machinery/door/airlock/glass_security{
+	autoclose = 0;
 	id_tag = "cell_2";
 	name = "Cell B";
-	req_access = list(2);
-	autoclose = 0
+	req_access = list(2)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
@@ -5177,11 +5174,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
-"ctz" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/tiled/white,
-/area/medical/reception)
 "cua" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/o2{
@@ -5322,17 +5314,17 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/door/blast/shutters/open{
-	id = "shutters_deck1_security_cell_isolation";
 	dir = 4;
+	id = "shutters_deck1_security_cell_isolation";
 	name = "Isolation Cell Window Shutter"
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 2;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/brig)
@@ -5977,11 +5969,11 @@
 /area/engineering/lobby)
 "cSi" = (
 /obj/structure/table/wood,
-/obj/machinery/librarypubliccomp{
-	pixel_y = 7
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
+	},
+/obj/machinery/librarycomp/public{
+	pixel_y = 7
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
@@ -7408,8 +7400,8 @@
 	name = "Pharmacy Desk Shutter"
 	},
 /obj/machinery/door/window/westleft{
-	req_access = list(33);
-	name = "Pharmacy Desk"
+	name = "Pharmacy Desk";
+	req_access = list(33)
 	},
 /obj/machinery/door/window/eastright{
 	name = "Pharmacy Desk"
@@ -8409,11 +8401,11 @@
 	dir = 8
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 4;
 	id = "armory";
 	name = "Armoury Shutters";
-	req_access = list(3);
 	pixel_x = -25;
-	dir = 4
+	req_access = list(3)
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -8651,8 +8643,8 @@
 /area/operations/lower/machinist)
 "enw" = (
 /obj/structure/disposalpipe/sortjunction/flipped{
-	sortType = "Library Office";
-	name = "Library Office"
+	name = "Library Office";
+	sortType = "Library Office"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -15857,9 +15849,9 @@
 	dir = 4
 	},
 /obj/machinery/light_switch{
+	dir = 4;
 	pixel_x = -21;
-	pixel_y = 20;
-	dir = 4
+	pixel_y = 20
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
@@ -18628,11 +18620,11 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 2;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/brig)
@@ -18644,8 +18636,8 @@
 	dir = 9
 	},
 /obj/item/device/radio/intercom{
-	pixel_x = -24;
-	dir = 4
+	dir = 4;
+	pixel_x = -24
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
@@ -19061,11 +19053,11 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 2;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/brig)
@@ -19468,11 +19460,11 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -19483,8 +19475,8 @@
 	opacity = 0
 	},
 /obj/machinery/door/blast/shutters/open{
-	id = "shutters_deck1_security_cell_isolation";
 	dir = 2;
+	id = "shutters_deck1_security_cell_isolation";
 	name = "Isolation Cell Window Shutter"
 	},
 /obj/structure/cable/green{
@@ -19509,10 +19501,10 @@
 "jAp" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_security{
+	autoclose = 0;
 	id_tag = "cell_3";
 	name = "Cell C";
-	req_access = list(2);
-	autoclose = 0
+	req_access = list(2)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
@@ -20269,11 +20261,11 @@
 /obj/structure/cable/green,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -21136,8 +21128,8 @@
 	dir = 8
 	},
 /obj/structure/filingcabinet/filingcabinet{
-	pixel_x = -9;
-	density = 0
+	density = 0;
+	pixel_x = -9
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
@@ -21959,11 +21951,11 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/brig)
@@ -22990,9 +22982,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "ltv" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/reagent_containers/glass/bucket,
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
@@ -23002,6 +22991,9 @@
 	dir = 1;
 	pixel_y = -32
 	},
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "ltG" = (
@@ -23629,10 +23621,10 @@
 "lKN" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_security{
-	name = "Isolation Cell";
-	req_access = list(2);
+	autoclose = 0;
 	id_tag = "cell_isolation";
-	autoclose = 0
+	name = "Isolation Cell";
+	req_access = list(2)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -23906,15 +23898,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research)
-"lRC" = (
-/obj/effect/floor_decal/corner/beige/full{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/medical/gen_treatment)
 "lRO" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -25336,8 +25319,11 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
-/obj/structure/closet/secure_closet/chemical,
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/structure/closet/wardrobe/pharmacy_white,
+/obj/item/storage/box/gloves,
+/obj/item/clothing/glasses/safety/goggles,
+/obj/item/clothing/glasses/safety/goggles,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "mCE" = (
@@ -27333,8 +27319,8 @@
 /area/engineering/atmos/storage)
 "nxk" = (
 /obj/structure/sink/kitchen{
-	name = "sink";
 	dir = 8;
+	name = "sink";
 	pixel_x = 21
 	},
 /obj/effect/floor_decal/corner/green{
@@ -27505,6 +27491,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/machinery/bluespace_beacon,
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "nBn" = (
@@ -30875,11 +30862,11 @@
 /obj/structure/cable/green,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/warden)
@@ -35882,11 +35869,11 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/brig)
@@ -36364,9 +36351,9 @@
 /area/maintenance/wing/starboard)
 "rWq" = (
 /obj/machinery/door/blast/shutters/open{
+	dir = 4;
 	id = "CHE2shutters";
-	name = "Window Shutter";
-	dir = 4
+	name = "Window Shutter"
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -37543,10 +37530,10 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_two/fore)
 "sGG" = (
-/obj/structure/table/standard,
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
+/obj/item/modular_computer/console/preset/supply/machinist,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "sGR" = (
@@ -37687,15 +37674,15 @@
 	dir = 8;
 	id = "cell_isolation";
 	name = "Isolation Cell Bolts";
-	req_access = list(19);
-	specialfunctions = 4;
 	pixel_x = 25;
-	pixel_y = 7
+	pixel_y = 7;
+	req_access = list(19);
+	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "shutters_deck1_security_cell_isolation";
 	name = "Isolation Cell Window Shutters";
-	dir = 8;
 	pixel_x = 35;
 	pixel_y = 7
 	},
@@ -38618,13 +38605,15 @@
 /obj/structure/closet/walllocker/medical{
 	pixel_x = -32
 	},
-/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
-/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
 /obj/item/stack/medical/ointment,
 /obj/item/stack/medical/ointment,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/bruise_pack,
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
+/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "tiD" = (
@@ -39968,11 +39957,11 @@
 /obj/structure/cable/green,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/brig)
@@ -40848,12 +40837,12 @@
 /area/rnd/research)
 "ulS" = (
 /obj/structure/table/rack,
-/obj/item/storage/toolbox/mechanical,
-/obj/item/storage/toolbox/mechanical,
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "ulV" = (
@@ -42278,9 +42267,9 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
+	dir = 2;
 	id = "shutters_deck1_security_cell_3";
-	name = "Cell Door";
-	dir = 2
+	name = "Cell Door"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -45154,11 +45143,11 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 2;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/brig)
@@ -45956,9 +45945,9 @@
 /area/horizon/zta)
 "wEc" = (
 /obj/machinery/door/blast/shutters/open{
+	dir = 2;
 	id = "CHE2shutters";
-	name = "Window Shutter";
-	dir = 2
+	name = "Window Shutter"
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -47194,20 +47183,20 @@
 "xeR" = (
 /obj/structure/table/standard,
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "CHE2shutters";
 	name = "Window Shutter Control";
 	pixel_x = 6;
 	pixel_y = 7;
-	req_access = list(33);
-	dir = 1
+	req_access = list(33)
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "CHE3shutters";
 	name = "Desk Shutter Control";
 	pixel_x = 6;
 	pixel_y = -3;
-	req_access = list(33);
-	dir = 1
+	req_access = list(33)
 	},
 /obj/effect/floor_decal/corner_wide/orange/full{
 	dir = 4
@@ -47826,10 +47815,10 @@
 "xxc" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_security{
+	autoclose = 0;
 	id_tag = "cell_1";
 	name = "Cell A";
-	req_access = list(2);
-	autoclose = 0
+	req_access = list(2)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
@@ -48644,11 +48633,11 @@
 	dir = 8
 	},
 /obj/machinery/button/remote/blast_door{
-	pixel_y = 22;
 	dir = 4;
-	pixel_x = -22;
+	id = "shutters_deck2_librarydesk";
 	name = "Desk Shutter";
-	id = "shutters_deck2_librarydesk"
+	pixel_x = -22;
+	pixel_y = 22
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
@@ -48785,11 +48774,11 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -48800,8 +48789,8 @@
 	opacity = 0
 	},
 /obj/machinery/door/blast/shutters/open{
-	id = "shutters_deck1_security_cell_isolation";
 	dir = 2;
+	id = "shutters_deck1_security_cell_isolation";
 	name = "Isolation Cell Window Shutter"
 	},
 /obj/structure/cable/green{
@@ -48835,10 +48824,12 @@
 /area/operations/lobby)
 "xWa" = (
 /obj/item/rig/medical/equipped{
-	pixel_y = -2
+	pixel_y = -2;
+	pixel_x = 4
 	},
 /obj/item/rig/medical/equipped{
-	pixel_y = -2
+	pixel_y = -2;
+	pixel_x = -5
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -68729,7 +68720,7 @@ fAk
 clz
 eqR
 hiz
-ctz
+bPs
 bzY
 gDq
 fOp

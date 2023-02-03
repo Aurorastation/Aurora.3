@@ -10,7 +10,7 @@ var/singleton/observ/moved/moved_event = new()
 	if(.)
 		var/atom/movable/parent = child.loc
 		while(istype(parent) && !moved_event.is_listening(parent, child))
-			moved_event.register(parent, child, /atom/movable/proc/recursive_move)
+			moved_event.register(parent, child, TYPE_PROC_REF(/atom/movable, recursive_move))
 			child = parent
 			parent = child.loc
 

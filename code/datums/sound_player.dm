@@ -114,7 +114,7 @@ var/singleton/sound_player/sound_player = new()
 	listeners = list()
 	listener_status = list()
 
-	destroyed_event.register(source, src, /datum/proc/qdel_self)
+	destroyed_event.register(source, src, TYPE_PROC_REF(/datum/, qdel))
 
 	PrivLocateListeners()
 	START_PROCESSING(SSprocessing, src)
@@ -154,7 +154,7 @@ var/singleton/sound_player/sound_player = new()
 	listeners = null
 	listener_status = null
 
-	destroyed_event.unregister(source, src, /datum/proc/qdel_self)
+	destroyed_event.unregister(source, src, TYPE_PROC_REF(/datum, qdel_self))
 	source = null
 
 	sound_player.PrivStopSound(src)
@@ -197,16 +197,16 @@ var/singleton/sound_player/sound_player = new()
 
 	listeners += listener
 
-	moved_event.register(listener, src, /datum/sound_token/proc/PrivUpdateListenerLoc)
-	destroyed_event.register(listener, src, /datum/sound_token/proc/PrivRemoveListener)
+	moved_event.register(listener, src, PROC_REF(PrivUpdateListenerLoc))
+	destroyed_event.register(listener, src, PROC_REF(PrivRemoveListener))
 
 	PrivUpdateListenerLoc(listener, FALSE)
 
 /datum/sound_token/proc/PrivRemoveListener(atom/listener, sound/null_sound)
 	null_sound = null_sound || new(channel = sound.channel)
 	sound_to(listener, null_sound)
-	moved_event.unregister(listener, src, /datum/sound_token/proc/PrivUpdateListenerLoc)
-	destroyed_event.unregister(listener, src, /datum/sound_token/proc/PrivRemoveListener)
+	moved_event.unregister(listener, src, PROC_REF(PrivUpdateListenerLoc))
+	destroyed_event.unregister(listener, src, PROC_REF(PrivRemoveListener))
 	listeners -= listener
 
 /datum/sound_token/proc/PrivUpdateListenerLoc(atom/listener, update_sound = TRUE)

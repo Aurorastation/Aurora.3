@@ -27,10 +27,13 @@
 	if(M.flash_act(ignore_inherent = TRUE))
 		M.Weaken(10)
 
-	// 1 - 9x/70 gives us an intensity of 100% at zero,
-	// 87% at one turf, all the way to 10% at 7 tiles
-	var/bang_intensity = 1 - (9 * get_dist(T,M) / 70)
-	M.soundbang_act(bang_intensity, 3, 10, 15)
+	// 1 - 9x/70 gives us 100% at zero, 87% at 1 turf, all the way to 10% at 7
+	var/bang_intensity = 1 - (9 * get_dist(T, M) / 70)
+	M.noise_act(intensity = EAR_PROTECTION_MAJOR, damage_pwr = 10 * bang_intensity, deafen_pwr = 15 * (1 - bang_intensity))
+
+	if(M.get_hearing_sensitivity()) // we only stun if they've got sensitive ears
+		// checking for protection is handled by noise_act
+		M.noise_act(intensity = EAR_PROTECTION_MAJOR, stun_pwr = 2)
 
 	M.disable_cloaking_device()
 	M.update_icon()

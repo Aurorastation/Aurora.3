@@ -126,13 +126,13 @@
 
 	if(!active_hazards.len)
 		hazard_by_turf -= T
-		entered_event.unregister(T, src, /singleton/overmap_event_handler/proc/on_turf_entered)
-		exited_event.unregister(T, src, /singleton/overmap_event_handler/proc/on_turf_exited)
+		entered_event.unregister(T, src, PROC_REF(on_turf_entered))
+		exited_event.unregister(T, src, PROC_REF(on_turf_exited))
 	else
 		hazard_by_turf |= T
 		hazard_by_turf[T] = active_hazards
-		entered_event.register(T, src,/singleton/overmap_event_handler/proc/on_turf_entered)
-		exited_event.register(T, src, /singleton/overmap_event_handler/proc/on_turf_exited)
+		entered_event.register(T, src, PROC_REF(on_turf_entered))
+		exited_event.register(T, src, PROC_REF(on_turf_exited))
 
 	for(var/obj/effect/overmap/visitable/ship/ship in T)
 		var/list/active_ship_events = ship_events[ship]

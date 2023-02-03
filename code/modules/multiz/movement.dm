@@ -795,7 +795,7 @@
 		forceMove(T)
 		tile_shifted = TRUE
 	follow()
-	moved_event.register(owner, src, /atom/movable/z_observer/proc/follow)
+	moved_event.register(owner, src, PROC_REF(follow))
 
 /atom/movable/z_observer/proc/follow()
 
@@ -803,7 +803,7 @@
 	forceMove(get_step(owner, UP))
 	if(isturf(src.loc))
 		var/turf/T = src.loc
-		if(T.z_flags & ZM_MIMIC_BELOW)
+		if(T && TURF_IS_MIMICING(T))
 			return
 	owner.reset_view(null)
 	owner.z_eye = null
@@ -812,14 +812,14 @@
 /atom/movable/z_observer/z_down/follow()
 	forceMove(get_step(tile_shifted ? src : owner, DOWN))
 	var/turf/T = get_turf(tile_shifted ? get_step(owner, owner.dir) : owner)
-	if(T && (T.z_flags & ZM_MIMIC_BELOW))
+	if(T && TURF_IS_MIMICING(T))
 		return
 	owner.reset_view(null)
 	owner.z_eye = null
 	qdel(src)
 
 /atom/movable/z_observer/Destroy()
-	moved_event.unregister(owner, src, /atom/movable/z_observer/proc/follow)
+	moved_event.unregister(owner, src, PROC_REF(follow))
 	owner = null
 	. = ..()
 

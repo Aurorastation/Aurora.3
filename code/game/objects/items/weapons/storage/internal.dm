@@ -97,3 +97,36 @@
 /obj/item/storage/internal/skrell/Initialize()
 	. = ..()
 	name = initial(name)
+
+// Helmet Slots
+/obj/item/storage/internal/helmet
+	var/list/helmet_storage_types = list(
+		/obj/item/storage/box/fancy/cigarettes = HELMET_GARB_PASS_ICON,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = HELMET_GARB_PASS_ICON,
+		/obj/item/storage/box/fancy/cigarettes/blank = HELMET_GARB_PASS_ICON,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = HELMET_GARB_PASS_ICON,
+		/obj/item/storage/box/fancy/cigarettes/nicotine = HELMET_GARB_PASS_ICON,
+		/obj/item/storage/box/fancy/cigarettes/rugged = HELMET_GARB_PASS_ICON,
+		/obj/item/storage/box/fancy/cigarettes/pra = HELMET_GARB_PASS_ICON,
+		/obj/item/storage/box/fancy/cigarettes/dpra = HELMET_GARB_PASS_ICON,
+		/obj/item/storage/box/fancy/cigarettes/nka = HELMET_GARB_PASS_ICON
+	)
+	can_hold_strict = TRUE
+
+/obj/item/storage/internal/helmet/Initialize(mapload, defer_shrinkwrap)
+	. = ..()
+	can_hold = list()
+	for(var/thing_type in helmet_storage_types)
+		can_hold += thing_type
+
+/obj/item/storage/internal/helmet/handle_item_insertion(obj/item/W, prevent_messages)
+	. = ..()
+	if(. && istype(loc, /obj/item/clothing/head/helmet))
+		var/obj/item/clothing/head/helmet/helmet = loc
+		helmet.update_clothing_icon()
+
+/obj/item/storage/internal/helmet/remove_from_storage(obj/item/W, atom/new_location)
+	. = ..()
+	if(. && istype(loc, /obj/item/clothing/head/helmet))
+		var/obj/item/clothing/head/helmet/helmet = loc
+		helmet.update_clothing_icon()

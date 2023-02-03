@@ -101,8 +101,8 @@
 			user.client.images |= holomap_datum.station_map
 
 			watching_mob = user
-			moved_event.register(watching_mob, src, /obj/machinery/station_map/proc/checkPosition)
-			destroyed_event.register(watching_mob, src, /obj/machinery/station_map/proc/stopWatching)
+			moved_event.register(watching_mob, src, PROC_REF(checkPosition))
+			destroyed_event.register(watching_mob, src, PROC_REF(stopWatching))
 			update_use_power(POWER_USE_ACTIVE)
 
 			if(bogus)

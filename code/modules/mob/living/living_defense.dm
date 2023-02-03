@@ -56,6 +56,9 @@
 /mob/living/proc/get_hearing_protection()
 	return FALSE
 
+/mob/living/proc/get_hearing_sensitivity()
+	return FALSE
+
 /mob/living/proc/aura_check(var/type)
 	if(!auras)
 		return TRUE
@@ -122,8 +125,9 @@
 	addtimer(CALLBACK(src, /mob/proc/clear_fullscreen, "flash", length), length)
 	return TRUE
 
-/// Called when the mob receives a loud bang
-/mob/living/proc/soundbang_act()
+/// Called when the mob hears a very loud noise!
+/// Intensity can be an EAR_PROTECTION_X define or an arbitrary/computed value between -1 and 2 (or more if you're insane)
+/mob/living/proc/noise_act(intensity = EAR_PROTECTION_MODERATE, stun_pwr = 0, damage_pwr = 0, deafen_pwr = 0)
 	return FALSE
 
 /mob/living/proc/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
