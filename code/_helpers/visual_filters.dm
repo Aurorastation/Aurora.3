@@ -9,6 +9,10 @@
 /proc/cmp_filter_data_priority(list/A, list/B)
 	return A["priority"] - B["priority"]
 
+// Defining this for future proofing and ease of searching for erroneous usage.
+/image/proc/add_filter(filter_name, priority, list/params)
+	filters += filter(arglist(params))
+
 /atom/movable/proc/add_filter(filter_name, priority, list/params)
 	LAZYINITLIST(filter_data)
 	var/list/p = params.Copy()
@@ -46,9 +50,9 @@
 	var/list/monkeypatched_params = params.Copy()
 	monkeypatched_params.Insert(1, null)
 	var/index = filter_data.Find(filter_name)
-	
+
 	// First, animate ourselves.
-	monkeypatched_params[1] = filters[index]   
+	monkeypatched_params[1] = filters[index]
 	animate(arglist(monkeypatched_params))
 
 	// If we're being copied by Z-Mimic, update mimics too.

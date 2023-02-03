@@ -9,6 +9,16 @@
 	circuit = /obj/item/circuitboard/ship/sensors
 	linked_type = /obj/effect/overmap/visitable
 
+	var/working_sound = 'sound/machines/sensors/dradis.ogg'
+	var/datum/sound_token/sound_token
+	var/sound_id
+
+	var/datum/weakref/sensor_ref
+	var/list/last_scan
+
+/obj/machinery/computer/ship/sensors/proc/get_sensors()
+	return sensors
+
 /obj/machinery/computer/ship/sensors/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
 	if(!.)
@@ -27,6 +37,21 @@
 			identification = IB
 			break
 
+/obj/machinery/computer/ship/sensors/proc/update_sound()
+	if(!working_sound)
+		return
+	if(!sound_id)
+		sound_id = "[type]_[sequential_id(/obj/machinery/computer/ship/sensors)]"
+
+	var/obj/machinery/shipsensors/sensors = get_sensors()
+	if(linked && sensors?.use_power && !(sensors.stat & NOPOWER))
+		var/volume = 10
+		if(!sound_token)
+			sound_token = sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10)
+		sound_token.SetVolume(volume)
+	else if(sound_token)
+		QDEL_NULL(sound_token)
+
 /obj/machinery/computer/ship/sensors/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!linked)
 		display_reconnect_dialog(user, "sensors")
@@ -35,6 +60,7 @@
 	var/data[0]
 
 	data["viewing"] = viewing_overmap(user)
+	data["muted"] = muted
 	if(sensors)
 		data["on"] = sensors.use_power
 		data["range"] = sensors.range
@@ -62,8 +88,22 @@
 			distress_beacons.Add(list(list("caller" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
 		if(length(distress_beacons))
 			data["distress_beacons"] = distress_beacons
+
+
 		var/list/contacts = list()
-		for(var/obj/effect/overmap/O in view(7,linked))
+		var/list/potential_contacts = list()
+
+		for(var/obj/effect/overmap/nearby in view(7,linked))
+			if(nearby.requires_contact) // Some ships require.
+				continue
+			potential_contacts |= nearby
+
+		// Effects that require contact are only added to the contacts if they have been identified.
+		// Allows for coord tracking out of range of the player's view.
+		for(var/obj/effect/overmap/visitable/identified_contact in contact_datums)
+			potential_contacts |= identified_contact
+
+		for(var/obj/effect/overmap/O in potential_contacts)
 			if(linked == O)
 				continue
 			if(!O.scannable)
@@ -74,6 +114,21 @@
 			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing)))
 		if(length(contacts))
 			data["contacts"] = contacts
+
+		// Add datalink requests
+		if(length(connected.datalink_requests))
+			var/list/local_datalink_requests = list()
+			for(var/obj/effect/overmap/visitable/requestor in connected.datalink_requests)
+				local_datalink_requests.Add(list(list("name"=requestor.name, "ref"="\ref[requestor]")))
+			data["datalink_requests"]  = local_datalink_requests
+
+		if(length(connected.datalinked))
+			var/list/local_datalinked = list()
+			for(var/obj/effect/overmap/visitable/datalinked_ship in connected.datalinked)
+				local_datalinked.Add(list(list("name"=datalinked_ship.name, "ref"="\ref[datalinked_ship]")))
+			data["datalinked"]  = local_datalinked
+
+		data["last_scan"] = last_scan
 	else
 		data["status"] = "MISSING"
 		data["range"] = "N/A"
@@ -168,10 +223,42 @@
 
 	if (href_list["scan"])
 		var/obj/effect/overmap/O = locate(href_list["scan"])
-		if(istype(O) && !QDELETED(O) && (O in view(7,linked)))
-			playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
-			new/obj/item/paper/(get_turf(src), O.get_scan_data(usr), "paper (Sensor Scan - [O])")
+		if(istype(O) && !QDELETED(O))
+			if((O in view(7,linked))|| (O in contact_datums))
+				playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
+				LAZYSET(last_scan, "data", O.get_scan_data(usr))
+				LAZYSET(last_scan, "location", "[O.x],[O.y]")
+				LAZYSET(last_scan, "name", "[O]")
+				to_chat(usr, SPAN_NOTICE("Successfully scanned [O]."))
+				new/obj/item/paper/(get_turf(src), O.get_scan_data(usr), "paper (Sensor Scan - [O])")
+			return TOPIC_HANDLED
+
+	if (href_list["request_datalink"])
+		var/obj/effect/overmap/visitable/O = locate(href_list["request_datalink"])
+		if(istype(O) && !QDELETED(O))
+			if((O in view(7,linked)) || (O in contact_datums))
+
+				for(var/obj/machinery/computer/ship/sensors/sensor_console in O.consoles)
+					sensor_console.connected.datalink_requests |= src.connected
+					return TOPIC_HANDLED
+
+	if (href_list["accept_datalink_requests"])
+		var/obj/effect/overmap/visitable/O = locate(href_list["accept_datalink_requests"])
+		for(var/obj/machinery/computer/ship/sensors/sensor_console in src.connected.consoles)
+			sensor_console.datalink_add_ship_datalink(O)
+			break
+		src.connected.datalink_requests -= O	// Remove the request
 		return TOPIC_HANDLED
+
+	if (href_list["decline_datalink_requests"])
+		var/obj/effect/overmap/visitable/O = locate(href_list["decline_datalink_requests"])
+		src.connected.datalink_requests -= O	// Remove the request
+
+	if (href_list["remove_datalink"])
+		var/obj/effect/overmap/visitable/O = locate(href_list["remove_datalink"])
+		for(var/obj/machinery/computer/ship/sensors/rescinder_sensor_console in src.connected.consoles)	// Get sensor console from the rescinder
+			rescinder_sensor_console.datalink_remove_ship_datalink(O)
+			return TOPIC_HANDLED
 
 	if (href_list["play_message"])
 		var/caller = href_list["play_message"]
@@ -192,18 +279,6 @@
 			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/misc/announcements/security_level_old.ogg'), 0)
 		return TOPIC_HANDLED
 
-/obj/machinery/computer/ship/sensors/process()
-	..()
-	if(!linked)
-		return
-	if(sensors && sensors.use_power && sensors.powered())
-		var/sensor_range = round(sensors.range*1.5) + 1
-		linked.set_light(sensor_range, sensor_range+1, light_color)
-		linked.handle_sensor_state_change(TRUE)
-	else
-		linked.set_light(0)
-		linked.handle_sensor_state_change(FALSE)
-
 /obj/machinery/shipsensors
 	name = "sensors suite"
 	desc = "Long range gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
@@ -216,6 +291,7 @@
 	var/heat_reduction = 0.5 // mitigates this much heat per tick - can sustain range 2
 	var/heat = 0
 	var/range = 1
+	var/sensor_strength = 5//used for detecting ships via contacts
 	idle_power_usage = 5000
 
 	var/base_icon_state
