@@ -55,6 +55,7 @@
 /obj/item/gun/projectile/revolver/mateba/captain_revolver
 	name = "SCC command autorevolver"
 	desc = "A ludicrously powerful .454 autorevolver with equally ludicrous recoil which is issued by the Conglomerate to the administrators of critical facilities and vessels. While revolvers may be a thing of the past, the stopping power displayed by this weapon is second to none."
+	desc_info = "To accurately shoot this revolver, you need to wield it. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
 	desc_extended = "A Zavodskoi Interstellar design from the mid-2450s intended for export to the Eridani Corporate Federation and Republic of Biesel, the Protektor \
 	Revolver was never designed with practicality in mind. The .454 rounds fired from this weapon are liable to snap the wrist of an unprepared shooter and \
 	any following shots will be difficult to place onto a human-sized target due to the recoil, let alone a skrell. But nobody buys a Protektor for the purpose of \
@@ -69,8 +70,8 @@
 	fire_delay = 18
 	fire_delay_wielded = 18
 	force = 10
-	recoil = 5
-	recoil_wielded = 3
+	recoil = 10
+	recoil_wielded = 5
 
 /obj/item/gun/projectile/revolver/mateba/captain_revolver/handle_post_fire(mob/user)
 	..()
@@ -82,7 +83,7 @@
 			if(H.mob_size <10)
 				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
-				src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 4, 4)
+				src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 2, 2)
 
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
