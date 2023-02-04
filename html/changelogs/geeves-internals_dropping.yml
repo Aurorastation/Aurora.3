@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "You will no longer lose internals if you drop a mask/helmet and have an airtight helmet/mask to spare."
+  - bugfix: "You will now lose internals if you drop a helmet and don't have an airtight mask to spare."
