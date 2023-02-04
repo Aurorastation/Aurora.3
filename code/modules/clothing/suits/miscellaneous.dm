@@ -192,6 +192,14 @@
 	icon_state = "biker"
 	item_state = "biker"
 
+/obj/item/clothing/suit/storage/toggle/leather_jacket/midriff
+	name = "cropped leather jacket"
+	icon = 'icons/clothing/suits/coats/cropped_leather_jacket.dmi'
+	desc = "A thick leather jacket that doesn't actually cover the waist. Rebel against what's expected of your jacket!"
+	icon_state = "mid"
+	item_state = "mid"
+	contained_sprite = TRUE
+
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer
 	name = "designer leather jacket"
 	desc = "A sophisticated, stylish leather jacket. It doesn't look cheap."

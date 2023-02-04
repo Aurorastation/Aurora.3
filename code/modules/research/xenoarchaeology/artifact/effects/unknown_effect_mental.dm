@@ -18,7 +18,7 @@
 		"The light seems to flicker.",\
 		"The shadows seem to lengthen.",\
 		"The walls are getting closer.",\
-		"Something is wrong")
+		"Something is wrong.")
 
 	var/list/drastic_messages = list("You've got to get out of here!",\
 		"Someone's trying to kill you!",\
@@ -76,8 +76,8 @@
 	effecttype = "goodfeeling"
 	effect_type = 2
 	var/list/messages = list("You feel good.",\
-		"Everything seems to be going alright",\
-		"You've got a good feeling about this",\
+		"Everything seems to be going alright.",\
+		"You've got a good feeling about this.",\
 		"Your instincts tell you everything is going to be getting better.",\
 		"There's a good feeling in the air.",\
 		"Something smells... good.",\

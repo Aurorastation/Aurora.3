@@ -14,14 +14,7 @@
 			if(C.internals)
 				C.internals.icon_state = "internal0"
 		else
-
-			var/no_mask
-			if(!(C.wear_mask && C.wear_mask.item_flags & AIRTIGHT))
-				var/mob/living/carbon/human/H = C
-				if(!(H.head && H.head.item_flags & AIRTIGHT))
-					no_mask = 1
-
-			if(no_mask)
+			if(!has_internals_mask(C))
 				to_chat(C, "<span class='notice'>You are not wearing a suitable mask or helmet.</span>")
 				return 1
 			else
@@ -150,3 +143,14 @@
 						C.internals.icon_state = "internal1"
 				else
 					to_chat(C, "<span class='notice'>You don't have a[breathes==GAS_OXYGEN ? "n oxygen" : addtext(" ",breathes)] tank.</span>")
+
+/obj/screen/internals/proc/lose_internals(var/mob/living/carbon/human/user)
+	icon_state = "internal0"
+	user.internal = null
+
+/obj/screen/internals/proc/has_internals_mask(var/mob/living/carbon/human/user)
+	if(user.wear_mask && HAS_FLAG(user.wear_mask.item_flags, AIRTIGHT))
+		return TRUE
+	if(user.head && HAS_FLAG(user.head.item_flags, AIRTIGHT))
+		return TRUE
+	return FALSE

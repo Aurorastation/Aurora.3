@@ -32,9 +32,10 @@
 	"deck_two_port_aft",
 	"deck_two_starboard_aft",
 	"deck_three_fore_of_horizon",
-	"deck_three_starboard_of_horizon",
-	"deck_three_port_of_horizon",
-	"deck_three_aft_of_horizon"
+	"deck_three_fore_starboard_of_horizon",
+	"deck_three_fore_port_of_horizon",
+	"deck_three_aft_of_horizon",
+	"deck_three_aft_port_of_horizon"
 	)
 
 /obj/effect/overmap/visitable/ship/landable/intrepid
@@ -182,12 +183,16 @@
 	name = "Deck Three, Fore of Horizon"
 	landmark_tag = "deck_three_fore_of_horizon"
 
-/obj/effect/shuttle_landmark/horizon/deckthree/starboard
+/obj/effect/shuttle_landmark/horizon/deckthree/starboardfore
 	name = "Deck Three, Starboard of Horizon"
-	landmark_tag = "deck_three_starboard_of_horizon"
+	landmark_tag = "deck_three_fore_starboard_of_horizon"
 
-/obj/effect/shuttle_landmark/horizon/deckthree/port
-	name = "Deck Three, Port of Horizon"
+/obj/effect/shuttle_landmark/horizon/deckthree/portfore
+	name = "Deck Three, Starboard of Horizon"
+	landmark_tag = "deck_three_port_fore_of_horizon"
+
+/obj/effect/shuttle_landmark/horizon/deckthree/portaft
+	name = "Deck Three, Aft Port of Horizon"
 	landmark_tag = "deck_three_port_of_horizon"
 
 /obj/effect/shuttle_landmark/horizon/deckthree/aft

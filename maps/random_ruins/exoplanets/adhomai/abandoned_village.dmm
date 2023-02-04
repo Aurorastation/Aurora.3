@@ -1,0 +1,1569 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"am" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"cw" = (
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/exoplanet/adhomai)
+"ef" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/green,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"ev" = (
+/obj/structure/bed/stool/chair/sofa/left/brown,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"ew" = (
+/obj/structure/railing/fence,
+/obj/item/material/shard/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"eS" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/plastic,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"eU" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/effect/decal/fake_object{
+	color = "#8bbbd5";
+	icon = 'icons/obj/decals.dmi';
+	icon_state = "twin_suns";
+	name = "Twins Suns Symbol";
+	pixel_y = 32;
+	desc = "An ancient icon representing Adhomai's suns."
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"fq" = (
+/obj/structure/bed/stool/chair/sofa/right/beige{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"fZ" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"gm" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"gz" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"jg" = (
+/obj/structure/light_pole,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"jr" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"ko" = (
+/obj/item/trash/grease,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"kB" = (
+/obj/item/trash/can/adhomian_can,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"kJ" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/cooking_container/plate,
+/obj/item/reagent_containers/cooking_container/plate,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"kO" = (
+/obj/structure/window/basic,
+/obj/structure/curtain/black,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"mf" = (
+/obj/item/trash/cigbutt,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"mF" = (
+/obj/structure/bed/padded,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/exoplanet/adhomai)
+"nR" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"qm" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/exoplanet/adhomai)
+"rf" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"rM" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"sS" = (
+/obj/item/trash/broken_electronics,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"uc" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"wj" = (
+/obj/structure/sink{
+	pixel_y = 28
+	},
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"wx" = (
+/obj/item/material/shard/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"xc" = (
+/obj/structure/closet/crate/trashcart,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"xn" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"yd" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"zf" = (
+/obj/item/bedsheet/black,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"zh" = (
+/obj/structure/window/basic{
+	dir = 1
+	},
+/obj/structure/curtain/black,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"zA" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Aq" = (
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"BZ" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Cc" = (
+/obj/structure/bed/stool/chair/sofa/beige{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Cw" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/exoplanet/adhomai)
+"DP" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Fz" = (
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"FM" = (
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Gu" = (
+/turf/simulated/wall/wood,
+/area/exoplanet/adhomai)
+"GR" = (
+/obj/structure/weapon_rack/double_pellet{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Ht" = (
+/obj/item/material/shard,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"HX" = (
+/obj/structure/bed/stool/chair/sofa/right/brown,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Ic" = (
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"IM" = (
+/obj/item/trash/can/adhomian_can,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"IO" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Jb" = (
+/obj/item/material/shard/wood,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"KV" = (
+/obj/item/material/shard/wood,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Oa" = (
+/obj/structure/reagent_dispensers/keg/mead,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Oc" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"OA" = (
+/obj/structure/railing/fence,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Pa" = (
+/obj/structure/table/wood,
+/obj/item/toy/plushie/farwa,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Qe" = (
+/obj/structure/bed/stool/chair/sofa/left/beige{
+	dir = 1
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Rh" = (
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Rw" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Sg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/exoplanet/adhomai)
+"TD" = (
+/obj/structure/curtain/black,
+/obj/structure/window/basic{
+	dir = 4
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"TQ" = (
+/obj/item/material/shard,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Wa" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"WK" = (
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Xk" = (
+/obj/structure/sink/kitchen{
+	pixel_y = 26
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Xv" = (
+/obj/structure/light_pole/r,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Yn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/exoplanet/adhomai)
+"YQ" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"YV" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"Zi" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+
+(1,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+Rh
+Rh
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(2,1,1) = {"
+nR
+Gu
+Gu
+Gu
+nR
+nR
+nR
+nR
+nR
+nR
+Rh
+FM
+nR
+Gu
+Gu
+Gu
+Gu
+Gu
+nR
+YV
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+FM
+nR
+nR
+nR
+"}
+(3,1,1) = {"
+nR
+Gu
+HX
+WK
+nR
+nR
+nR
+nR
+nR
+nR
+Rh
+nR
+nR
+Gu
+Ic
+WK
+fq
+Gu
+nR
+nR
+nR
+nR
+nR
+FM
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(4,1,1) = {"
+nR
+Gu
+ev
+WK
+WK
+nR
+nR
+nR
+uc
+nR
+Rh
+nR
+Gu
+Gu
+WK
+WK
+Cc
+kO
+nR
+nR
+nR
+nR
+KV
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(5,1,1) = {"
+nR
+zh
+Rw
+WK
+WK
+KV
+nR
+nR
+ew
+nR
+Rh
+nR
+Gu
+Oa
+WK
+wx
+Qe
+Gu
+nR
+nR
+ko
+nR
+nR
+YV
+nR
+nR
+FM
+nR
+nR
+nR
+nR
+nR
+"}
+(6,1,1) = {"
+nR
+Gu
+kJ
+WK
+WK
+WK
+WK
+WK
+WK
+Rh
+Rh
+Rh
+rf
+WK
+WK
+WK
+eS
+Gu
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+FM
+nR
+"}
+(7,1,1) = {"
+nR
+Gu
+WK
+WK
+WK
+WK
+Gu
+eU
+gz
+nR
+Rh
+nR
+Gu
+WK
+WK
+WK
+Gu
+Gu
+Gu
+Gu
+nR
+FM
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(8,1,1) = {"
+nR
+Gu
+Xk
+WK
+WK
+Oc
+Gu
+nR
+nR
+nR
+Rh
+nR
+Gu
+wx
+WK
+DP
+Gu
+WK
+ef
+Gu
+nR
+nR
+jg
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(9,1,1) = {"
+nR
+Gu
+Gu
+WK
+WK
+rM
+Gu
+nR
+nR
+nR
+Rh
+nR
+Gu
+WK
+TQ
+nR
+sS
+nR
+WK
+Gu
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(10,1,1) = {"
+nR
+nR
+Gu
+yd
+WK
+WK
+nR
+nR
+nR
+nR
+Rh
+nR
+Gu
+WK
+WK
+nR
+kB
+nR
+nR
+Gu
+Rh
+nR
+nR
+nR
+Rh
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(11,1,1) = {"
+nR
+Gu
+Gu
+Gu
+nR
+nR
+nR
+YV
+nR
+nR
+Rh
+nR
+Gu
+Oc
+nR
+nR
+nR
+Ht
+nR
+Gu
+Rh
+nR
+nR
+nR
+Rh
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(12,1,1) = {"
+nR
+Gu
+Oc
+WK
+nR
+nR
+nR
+nR
+nR
+nR
+Rh
+nR
+Gu
+Gu
+nR
+nR
+nR
+nR
+nR
+Gu
+Rh
+nR
+nR
+nR
+Rh
+nR
+nR
+nR
+FM
+nR
+nR
+nR
+"}
+(13,1,1) = {"
+nR
+Gu
+WK
+WK
+WK
+nR
+nR
+nR
+nR
+nR
+Rh
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+Rh
+nR
+nR
+nR
+Jb
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(14,1,1) = {"
+nR
+Gu
+WK
+cw
+cw
+nR
+nR
+nR
+nR
+nR
+Rh
+nR
+nR
+YV
+nR
+Ht
+nR
+nR
+Rh
+Rh
+Rh
+nR
+YV
+nR
+Rh
+Rh
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(15,1,1) = {"
+nR
+Gu
+Rw
+mF
+qm
+WK
+nR
+nR
+FM
+nR
+Rh
+nR
+nR
+nR
+nR
+Rh
+nR
+nR
+Rh
+nR
+nR
+nR
+nR
+nR
+nR
+Rh
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(16,1,1) = {"
+nR
+Gu
+Gu
+Gu
+Gu
+nR
+nR
+nR
+nR
+nR
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+"}
+(17,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+FM
+nR
+Rh
+nR
+nR
+YV
+nR
+nR
+nR
+nR
+Rh
+nR
+nR
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+nR
+nR
+nR
+nR
+"}
+(18,1,1) = {"
+nR
+FM
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+Rh
+nR
+nR
+nR
+nR
+xc
+nR
+nR
+Rh
+nR
+nR
+WK
+BZ
+Wa
+WK
+Wa
+Gu
+nR
+nR
+nR
+FM
+"}
+(19,1,1) = {"
+nR
+nR
+FM
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+Rh
+nR
+nR
+Wa
+BZ
+WK
+WK
+zf
+Gu
+nR
+nR
+nR
+nR
+"}
+(20,1,1) = {"
+Rh
+Rh
+Rh
+Rh
+nR
+nR
+nR
+nR
+nR
+nR
+Xv
+Rh
+nR
+Gu
+nR
+nR
+nR
+nR
+nR
+Rh
+rf
+WK
+WK
+rf
+WK
+Wa
+Wa
+Gu
+WK
+nR
+nR
+nR
+"}
+(21,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+nR
+Gu
+Gu
+Gu
+Gu
+Gu
+rf
+Gu
+Gu
+wj
+Aq
+Aq
+nR
+nR
+Rh
+Gu
+Wa
+Wa
+BZ
+WK
+Wa
+WK
+Gu
+WK
+WK
+nR
+nR
+"}
+(22,1,1) = {"
+nR
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+Ic
+WK
+WK
+WK
+WK
+Gu
+Aq
+Aq
+Aq
+Aq
+nR
+nR
+Rh
+Gu
+Wa
+WK
+BZ
+Wa
+WK
+Oc
+Gu
+WK
+nR
+nR
+nR
+"}
+(23,1,1) = {"
+nR
+Gu
+WK
+am
+fZ
+fZ
+WK
+WK
+WK
+WK
+WK
+WK
+rf
+Aq
+Aq
+Aq
+nR
+nR
+nR
+Rh
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+nR
+nR
+nR
+"}
+(24,1,1) = {"
+nR
+zh
+WK
+WK
+WK
+Rw
+xn
+WK
+TQ
+WK
+WK
+Gu
+Gu
+Gu
+Gu
+Gu
+nR
+nR
+nR
+Rh
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+kB
+nR
+"}
+(25,1,1) = {"
+nR
+zh
+WK
+WK
+WK
+Rw
+WK
+IM
+WK
+TQ
+WK
+Gu
+WK
+WK
+WK
+Gu
+nR
+nR
+nR
+Rh
+YQ
+zA
+jr
+zA
+jr
+zA
+jr
+zA
+nR
+nR
+nR
+nR
+"}
+(26,1,1) = {"
+nR
+Gu
+WK
+TQ
+WK
+WK
+WK
+WK
+WK
+mf
+WK
+Gu
+GR
+WK
+WK
+Gu
+nR
+nR
+Fz
+Rh
+Zi
+Rh
+gm
+Rh
+gm
+Rh
+gm
+nR
+nR
+nR
+nR
+nR
+"}
+(27,1,1) = {"
+nR
+Gu
+WK
+WK
+WK
+WK
+WK
+WK
+WK
+Gu
+Gu
+Gu
+WK
+WK
+nR
+Gu
+nR
+nR
+nR
+Rh
+Zi
+Rh
+gm
+Rh
+gm
+Rh
+gm
+nR
+nR
+nR
+nR
+nR
+"}
+(28,1,1) = {"
+nR
+nR
+nR
+nR
+Cw
+Cw
+Cw
+Cw
+rM
+Gu
+Pa
+WK
+WK
+WK
+nR
+nR
+nR
+nR
+nR
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+nR
+nR
+nR
+nR
+Rh
+Rh
+"}
+(29,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+Cw
+Cw
+Cw
+WK
+rf
+WK
+WK
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+Rh
+Zi
+Rh
+gm
+Rh
+gm
+Rh
+nR
+nR
+gm
+Rh
+OA
+nR
+"}
+(30,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+nR
+Sg
+Yn
+WK
+Gu
+WK
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+Zi
+Rh
+gm
+Rh
+gm
+Rh
+gm
+Rh
+gm
+Rh
+OA
+nR
+"}
+(31,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+Gu
+Gu
+Gu
+TD
+Gu
+Gu
+Gu
+nR
+nR
+nR
+nR
+nR
+YV
+nR
+nR
+Zi
+Rh
+gm
+Rh
+gm
+Rh
+gm
+Rh
+gm
+Rh
+OA
+nR
+"}
+(32,1,1) = {"
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+nR
+FM
+IO
+IO
+IO
+IO
+IO
+IO
+IO
+IO
+IO
+IO
+IO
+nR
+"}
