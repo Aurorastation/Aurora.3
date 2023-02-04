@@ -24,7 +24,7 @@
 		/datum/map_template/ruin/exoplanet/crashed_escape_pod_1,
 		/datum/map_template/ruin/exoplanet/digsite,
 		/datum/map_template/ruin/exoplanet/crashed_pod_1,
-		/datum/map_template/ruin/exoplanet/crashed_coc_skipjack,)
+		/datum/map_template/ruin/exoplanet/crashed_coc_skipjack)
  
 /obj/effect/overmap/visitable/sector/exoplanet/barren/generate_habitability()
 	return HABITABILITY_BAD
