@@ -3,4 +3,4 @@ author: WickedCybs
 delete-after: True
 
 changes:
-  - bugfix: "Adds minor fixes and mapping improvements to the ruin spawns and actually allows them to spawn."
+  - bugfix: "Adds minor fixes and mapping improvements to the ruin spawns and actually allows them to spawn. No vanishing walls, hopefully."
