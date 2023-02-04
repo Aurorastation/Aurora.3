@@ -55,8 +55,8 @@
 	explosion(loc, 0, 2, 2, 3)
 	qdel(src)
 
-/obj/item/landmine/Crossed(AM as mob|obj)
-	if(deployed)
+/obj/item/landmine/Crossed(AM as mob|obj, var/ignore_deployment = FALSE)
+	if(deployed || ignore_deployment)
 		if(ishuman(AM))
 			var/mob/living/carbon/human/H = AM
 			if(H.shoes?.item_flags & LIGHTSTEP)

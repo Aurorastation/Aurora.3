@@ -89,6 +89,9 @@
 	can_embed = 0
 	w_class = ITEMSIZE_NORMAL
 
+/obj/item/material/knife/bayonet/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
+
 /obj/item/material/knife/tacknife
 	name = "tactical knife"
 	desc = "You'd be killing loads of people if this was Medal of Valor: Heroes of Tau Ceti."
@@ -109,6 +112,9 @@
 	w_class = ITEMSIZE_NORMAL
 	applies_material_colour = 0
 	slot_flags = SLOT_BELT
+
+/obj/item/material/knife/trench/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
 
 //Butterfly knives stab your eyes out too!
 

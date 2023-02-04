@@ -1,0 +1,900 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/template_noop,
+/area/template_noop)
+"ab" = (
+/turf/simulated/mineral,
+/area/template_noop)
+"ac" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+"ad" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+"ae" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/plating/asteroid{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"af" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4;
+	frequency = 1353;
+	id_tag = "digsite_vent"
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"ag" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+"ah" = (
+/obj/structure/inflatable/wall,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"ai" = (
+/obj/machinery/floodlight,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating/asteroid{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"aj" = (
+/obj/machinery/artifact,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+"ak" = (
+/turf/simulated/floor/plating/asteroid{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"al" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/plating/asteroid{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"am" = (
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+"an" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/plating/asteroid{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"ao" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/plating/asteroid{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"ap" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+"aq" = (
+/obj/machinery/floodlight,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating/asteroid{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"ar" = (
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/template_noop)
+"as" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+"at" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+"au" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+"av" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating/asteroid{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"aw" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	frequency = 1353;
+	id_tag = "digsite_airlock";
+	pixel_y = -25;
+	tag_airpump = "digsite_vent";
+	tag_chamber_sensor = "digsite_sensor";
+	tag_exterior_door = "digsite_exterior";
+	tag_interior_door = "digsite_interior"
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4;
+	frequency = 1353;
+	id_tag = "digsite_vent"
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"ax" = (
+/obj/machinery/floodlight,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating/asteroid{
+	nitrogen = 0;
+	oxygen = 0
+	},
+/area/template_noop)
+"az" = (
+/turf/simulated/wall,
+/area/dungeon/anomaly_outpost)
+"aA" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aB" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aC" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aD" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+"aE" = (
+/obj/machinery/access_button/airlock_exterior{
+	frequency = 1353;
+	master_tag = "digsite_airlock";
+	pixel_x = 25
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/dungeon/anomaly_outpost)
+"aF" = (
+/obj/structure/table/standard,
+/obj/machinery/recharger,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aG" = (
+/obj/structure/table/standard,
+/obj/item/device/gps,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aH" = (
+/obj/structure/table/standard,
+/obj/item/pickaxe/drill{
+	pixel_y = -3
+	},
+/obj/item/stack/nanopaste{
+	pixel_y = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aI" = (
+/obj/machinery/artifact_scanpad,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aJ" = (
+/obj/machinery/artifact_analyser,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aL" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1353;
+	icon_state = "door_locked";
+	id_tag = "digsite_exterior";
+	locked = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aM" = (
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aO" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1353;
+	icon_state = "door_locked";
+	id_tag = "digsite_interior";
+	locked = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aP" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aQ" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aR" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aS" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/vending/wallmed2{
+	pixel_x = 25;
+	pixel_y = 30;
+	req_access = null
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aT" = (
+/obj/machinery/atmospherics/pipe/tank/air,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aU" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1353;
+	id_tag = "digsite_sensor";
+	pixel_y = -25
+	},
+/obj/machinery/light{
+	status = 2
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aW" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aX" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aY" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = 6;
+	pixel_y = -3
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 8;
+	target_pressure = 80;
+	unlocked = 1;
+	use_power = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"ba" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/structure/closet/crate/freezer/rations,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"bb" = (
+/obj/structure/inflatable/door,
+/turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+"bc" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/dungeon/anomaly_outpost)
+"bd" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/access_button/airlock_interior{
+	frequency = 1353;
+	master_tag = "digsite_airlock";
+	pixel_x = -25
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"be" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"bf" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/northright,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/anomaly,
+/obj/item/clothing/head/helmet/space/anomaly,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"bg" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/northright,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/anomaly,
+/obj/item/clothing/head/helmet/space/anomaly,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"bh" = (
+/obj/machinery/radiocarbon_spectrometer,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"bi" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"Vd" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+
+(1,1,1) = {"
+aa
+aa
+aa
+ar
+ar
+ar
+ar
+ar
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+ar
+ar
+al
+ai
+ae
+ar
+ar
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+ar
+ar
+al
+ar
+ak
+ar
+ae
+ar
+ar
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+ar
+ar
+al
+ah
+ah
+am
+ah
+ah
+ae
+ar
+ar
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+ar
+al
+ar
+ah
+aD
+ad
+ac
+ah
+ar
+ae
+ar
+ar
+ar
+ar
+ar
+ap
+ar
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+ar
+ax
+ak
+am
+ag
+aj
+as
+bb
+ak
+av
+ak
+ak
+ak
+ak
+ak
+ar
+ar
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+ar
+an
+ar
+ah
+at
+Vd
+au
+ah
+ar
+ao
+ar
+ar
+aE
+ak
+ak
+bc
+ar
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+ar
+ar
+an
+ah
+ah
+am
+ah
+ah
+ao
+ar
+ar
+ar
+az
+aL
+aL
+az
+ab
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+ar
+ar
+an
+ar
+ak
+ar
+ao
+ar
+ar
+ar
+ar
+aA
+aM
+aU
+az
+ab
+ab
+aa
+aa
+"}
+(10,1,1) = {"
+aa
+aa
+ar
+ar
+an
+aq
+ao
+ar
+ar
+ar
+ar
+ar
+aC
+af
+aw
+az
+ab
+ab
+ab
+aa
+"}
+(11,1,1) = {"
+aa
+aa
+aa
+ar
+ar
+ar
+ar
+ar
+ar
+ar
+ar
+az
+az
+aO
+aO
+az
+az
+ab
+ab
+ab
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+ar
+ar
+ar
+ar
+ar
+ar
+ar
+aA
+aF
+aP
+aW
+bd
+az
+ab
+ab
+ab
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+ar
+ar
+ar
+ar
+ar
+ar
+aB
+aG
+aQ
+aX
+be
+az
+ab
+ab
+ab
+"}
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+ar
+ar
+ar
+ar
+ar
+aB
+aH
+aR
+aX
+bf
+az
+ab
+ab
+ab
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+ar
+ar
+ar
+ar
+ar
+aB
+aI
+aR
+aX
+bg
+az
+ab
+ab
+ab
+"}
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ar
+ar
+ar
+ar
+aC
+aJ
+aS
+aY
+bh
+az
+ab
+ab
+ab
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ar
+ar
+ar
+ar
+az
+az
+bi
+aZ
+az
+az
+ab
+ab
+ab
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+az
+aT
+ba
+az
+ab
+ab
+ab
+ab
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+az
+az
+az
+az
+ab
+ab
+ab
+ab
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+"}

@@ -42,8 +42,8 @@
 		NETWORK_ENGINEERING,
 	)
 
-	num_exoplanets = 3
-	planet_size = list(65, 65)
+	num_exoplanets = 1
+	planet_size = list(255, 255)
 
 	away_site_budget = 2
 	away_ship_budget = 2

@@ -12,6 +12,7 @@
 #define NO_CHUBBY           BITFLAG(11)   // Cannot be visibly fat from nutrition type.
 #define NO_ARTERIES         BITFLAG(12)   // This species does not have arteries.
 #define PHORON_IMMUNE       BITFLAG(13)   // species doesn't suffer the negative effects of phoron contamination
+#define CAN_SWEAT           BITFLAG(14)   // Forgive me.
 // unused: 0x8000(32768) - higher than this will overflow
 
 // Base flags for IPCs.
