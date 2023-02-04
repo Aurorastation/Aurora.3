@@ -102,9 +102,9 @@
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	
-/datum/gear/head/skrandana
+/datum/gear/head/skrell
 	display_name = "skrell bandana"
-	path = /obj/item/clothing/head/skrandana
+	path = /obj/item/clothing/head/skrell
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
