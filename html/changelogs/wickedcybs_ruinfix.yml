@@ -3,4 +3,4 @@ author: WickedCybs
 delete-after: True
 
 changes:
-  - bugfix: "Removed most of the new ruins from spawning, so there should be no more runtimes."
+  - bugfix: "Adds minor fixes and mapping improvements to the ruin spawns and actually allows them to spawn."
