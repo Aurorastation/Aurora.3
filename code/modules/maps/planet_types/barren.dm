@@ -14,7 +14,17 @@
 	possible_random_ruins = list(
 		/datum/map_template/ruin/exoplanet/abandoned_mining, 
 		/datum/map_template/ruin/exoplanet/hideout, 
-		/datum/map_template/ruin/exoplanet/drill_site)
+		/datum/map_template/ruin/exoplanet/drill_site
+		/datum/map_template/ruin/exoplanet/crashed_shuttle_01,
+		/datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01,
+		/datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01,
+		/datum/map_template/ruin/exoplanet/mystery_ship_1,
+		/datum/map_template/ruin/exoplanet/crashed_satelite,
+		/datum/map_template/ruin/exoplanet/abandoned_listening_post,
+		/datum/map_template/ruin/exoplanet/crashed_escape_pod_1,
+		/datum/map_template/ruin/exoplanet/digsite,
+		/datum/map_template/ruin/exoplanet/crashed_pod,
+		/datum/map_template/ruin/exoplanet/crashed_coc_skipjack,)
  
 /obj/effect/overmap/visitable/sector/exoplanet/barren/generate_habitability()
 	return HABITABILITY_BAD
@@ -72,6 +82,16 @@
 		/datum/map_template/ruin/exoplanet/abandoned_mining, 
 		/datum/map_template/ruin/exoplanet/hideout, 
 		/datum/map_template/ruin/exoplanet/carp_nest,
+		/datum/map_template/ruin/exoplanet/crashed_shuttle_01,
+		/datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01,
+		/datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01,
+		/datum/map_template/ruin/exoplanet/mystery_ship_1,
+		/datum/map_template/ruin/exoplanet/crashed_satelite,
+		/datum/map_template/ruin/exoplanet/abandoned_listening_post,
+		/datum/map_template/ruin/exoplanet/crashed_escape_pod_1,
+		/datum/map_template/ruin/exoplanet/digsite,
+		/datum/map_template/ruin/exoplanet/crashed_pod,
+		/datum/map_template/ruin/exoplanet/crashed_coc_skipjack,
 		/datum/map_template/ruin/exoplanet/drill_site)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/generate_planet_image()
