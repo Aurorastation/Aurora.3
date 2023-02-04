@@ -224,16 +224,21 @@
 		var/ndir = text2num(href_list["roll"])
 		if(ishuman(usr))
 			var/mob/living/carbon/human/H = usr
-			visible_message(SPAN_DANGER("[H] starts tilting the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
-			if(do_after(H, 1 SECOND))
+			var/dir_to_move = turn(connected.dir, ndir == WEST ? 90 : -90)
+			var/turf/new_turf = get_step(connected, dir_to_move)
+			if(new_turf.x > current_map.overmap_size || new_turf.y > current_map.overmap_size)
+				to_chat(H, SPAN_WARNING("Automated piloting safeties prevent you from going into deep space."))
+				return
+			if(do_after(H, 1 SECOND) && connected.can_combat_roll())
+				visible_message(SPAN_DANGER("[H] tilts the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 				connected.combat_roll(ndir)
 
 	if (href_list["turn"])
 		var/ndir = text2num(href_list["turn"])
 		if(ishuman(usr))
 			var/mob/living/carbon/human/H = usr
-			visible_message(SPAN_DANGER("[H] starts twisting the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
-			if(do_after(H, 1 SECOND))
+			if(do_after(H, 1 SECOND) && connected.can_combat_turn())
+				visible_message(SPAN_DANGER("[H] twists the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 				connected.combat_turn(ndir)
 
 	if (href_list["manual"])
