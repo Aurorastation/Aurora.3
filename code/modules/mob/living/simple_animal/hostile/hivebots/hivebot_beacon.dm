@@ -157,7 +157,7 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/emp_act()
 	if(activated != -1)
 		LoseTarget()
-		stance = HOSTILE_STANCE_TIRED
+		change_stance(HOSTILE_STANCE_TIRED)
 		icon_state = "hivebotbeacon_off"
 		activated = -1
 		addtimer(CALLBACK(src, PROC_REF(wakeup)), 900)
@@ -174,7 +174,7 @@
 		do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/wakeup()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)
 	activated = 0
 	activate_beacon()
 

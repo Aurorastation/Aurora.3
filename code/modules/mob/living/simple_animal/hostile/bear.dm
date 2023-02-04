@@ -91,6 +91,7 @@
 	var/previous = stance
 	stance = input
 	if (stance != previous)
+		change_stance(stance)
 		stance_step = 0
 
 /mob/living/simple_animal/hostile/bear/think()
