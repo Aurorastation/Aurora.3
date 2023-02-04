@@ -29,6 +29,5 @@
 
 /singleton/origin_item/origin/autakh/hidden
 	name = "Unknown Aut'akh Commune"
-	desc = "Peasants comprise the largest part of the population in the Hegemony. Around them are the Guwan, who are the \"untouchables\" at the bottom of the caste system, and small-time merchants working for their lords. The Contact War saw some Traditionalists ally with and migrate to the Hegemony that were too stubborn to fully integrate into society there. With permission from the owner of the land they work, the noble clan, one can leave their plot and traverse the stars— provided proper tithes are sent back home on behalf of their own clan. It is not uncommon for people to leave and seek education or better circumstances abroad, where they have a higher chance of moving up in the world."
-	important_information = "Should one run away and stop paying tithes back home, especially if they have renounced their Izweski citizenship, they are at risk of having a bounty put on them or being found out and deported."
+	desc = "TO-DO get a writer to write this"
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI)
