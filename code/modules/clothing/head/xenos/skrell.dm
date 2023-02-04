@@ -16,3 +16,4 @@
 	icon_state = "skrandana"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_SKRELL)
+	flags_inv = BLOCKHAIR
