@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes the Zeng-Hu surgical apron being invisible."
+  - bugfix: "Fixes the overalls sprites missing their shoulder straps."
