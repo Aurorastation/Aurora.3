@@ -176,7 +176,8 @@
 
 		if(B && !B.prepared)
 			to_chat(owner, "<span class='danger'>As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains...</span>")
-			to_chat(owner, "<b>You have been lobotomized by K'ois infection. All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive.</b>")
+			to_chat(owner, "<span class='highdanger'>You have been lobotomized by K'ois infection.</span>
+			to_chat(owner, "<b>All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive.</b>")
 
 			B.prepared = 1
 
