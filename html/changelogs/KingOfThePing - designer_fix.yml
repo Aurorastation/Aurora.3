@@ -1,0 +1,6 @@
+author: KingOfThePing
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed a missing item state of the cropped designer jacket."
