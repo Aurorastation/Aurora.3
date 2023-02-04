@@ -38,3 +38,15 @@
 	Sinta'Unathi and Sinta'Azaziba."
 	tag_icon = "deep_wastelander"
 	text_tag = "WAS"
+
+/datum/accent/autakh
+	name = ACCENT_AUTAKH
+	description = "TO-DO get an actual writer to expand on this A crude mix of Hegemonic, Traditionalist and Wastelander dialects owing to Sinta from all walks of life living in a commune together."
+	tag_icon = "autakh_valley"
+	text_tag = "AUT"
+
+/datum/accent/unathi_dreg
+	name = ACCENT_UNATHI_DREG
+	description = "TO-DO get an actual writer to do this"
+	tag_icon = "unathi_dreg"
+	text_tag = "ERI"
