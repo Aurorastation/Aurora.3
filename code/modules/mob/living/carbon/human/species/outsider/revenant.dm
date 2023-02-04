@@ -34,9 +34,6 @@
 	ethanol_resistance = -1
 	taste_sensitivity = TASTE_NUMB
 
-	speech_sounds = list('sound/species/revenant/grue_growl.ogg')
-	speech_chance = 50
-
 	warning_low_pressure = 50 //immune to pressure, so they can into space/survive breaches without worries
 	hazard_low_pressure = -1
 
@@ -44,8 +41,8 @@
 	cold_level_2 = 50
 	cold_level_3 = 0
 
-	brute_mod = 1.2
-	burn_mod = 0.6
+	brute_mod = 0.75
+	burn_mod = 0.75
 	fall_mod = 0
 
 	breath_type = null
@@ -136,12 +133,6 @@
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
-
-/datum/species/revenant/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if((istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam)) && prob(20))
-		H.visible_message(SPAN_CULT("The [P.name] gets absorbed by [H]!"), SPAN_CULT("You absorb the [P.name]!"))
-		return -1
-	return ..()
 
 /datum/species/revenant/handle_middle_mouse_click(var/mob/living/carbon/human/user, var/atom/target)
 	if(user.incapacitated() || user.last_special + 5 SECONDS > world.time)

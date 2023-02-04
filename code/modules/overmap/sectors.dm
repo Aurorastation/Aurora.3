@@ -8,6 +8,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	scannable = TRUE
 	var/designation //Actual name of the object.
 	var/class //Imagine a ship or station's class. "NTCC" Odin, "SCCV" Horizon, ...
+	unknown_id = "Bogey"
 	var/obfuscated_name = "unidentified object"
 	var/obfuscated_desc = "This object is not displaying its IFF signature."
 	var/obfuscated = FALSE //Whether we hide our name and class or not.
@@ -40,6 +41,11 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/comms_name = "shipboard"
 	/// Whether away ship comms have access to the common channel / PUB_FREQ
 	var/use_common = FALSE
+	var/list/navigation_viewers // list of weakrefs to people viewing the overmap via this ship
+	var/list/consoles
+
+	var/list/datalink_requests = list()// A list of datalink requests that we received
+	var/list/datalinked        = list()// Other effects that we are datalinked with
 
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()

@@ -8506,6 +8506,11 @@
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
+"gwG" = (
+/obj/structure/cable/green,
+/obj/effect/floor_decal/industrial/hatch,
+/turf/simulated/floor,
+/area/rnd/xenoarch_atrium)
 "gwQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -25824,6 +25829,9 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/clothing/head/welding,
 /obj/item/storage/toolbox/mechanical,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "ulE" = (
@@ -28768,6 +28776,27 @@
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
+"wyN" = (
+/obj/effect/floor_decal/corner_wide/purple{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/purple{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "wzl" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -34247,7 +34276,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+jbS
 eSV
 eSV
 eSV
@@ -37084,7 +37113,7 @@ eSV
 eSV
 eSV
 eSV
-jbS
+eSV
 eSV
 eSV
 eSV
@@ -39626,21 +39655,21 @@ eSV
 eSV
 eSV
 eSV
+eSV
+eSV
+eSV
+eSV
+eSV
+eSV
+eSV
+eSV
+eSV
+eSV
+eSV
+eSV
+eSV
+eSV
 cPq
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
 eSV
 eSV
 eSV
@@ -51335,7 +51364,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+rDi
 eSV
 eSV
 eSV
@@ -51731,7 +51760,7 @@ eSV
 eSV
 eSV
 eSV
-rDi
+eSV
 eSV
 eSV
 eSV
@@ -54081,11 +54110,11 @@ eSV
 eSV
 eSV
 eSV
+eSV
+eSV
+eSV
+eSV
 nhU
-eSV
-eSV
-eSV
-eSV
 eSV
 eSV
 eSV
@@ -58463,9 +58492,9 @@ gQj
 wIM
 xtK
 nkE
-gWC
+wyN
 ulc
-jrJ
+gwG
 jrJ
 kVv
 qbu
@@ -61649,7 +61678,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+xaf
 eSV
 eSV
 eSV
@@ -62860,7 +62889,7 @@ eSV
 eSV
 eSV
 eSV
-xaf
+eSV
 eSV
 eSV
 eSV
