@@ -177,7 +177,7 @@
 		if(B && !B.prepared)
 			to_chat(owner, SPAN_GOOD("As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains..."))
 			to_chat(owner, SPAN_HIGHDANGER("You have been lobotomized by K'ois infection."))
-			to_chat(owner, "<span class='notice'><b>All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive.</b></span>")
+			to_chat(owner, SPAN_NOTICE("All of your previous memories up until this point are gone, and all of your ambitions are nothing. You live for only one purpose; to serve the Lii'dra hive."))
 
 			B.prepared = 1
 
