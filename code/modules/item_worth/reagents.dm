@@ -81,9 +81,6 @@
 /singleton/reagent/kois
 	value = 0.5
 
-/singleton/reagent/phoron/kois
-	value = 0.5
-
 /singleton/reagent/nutriment
 	value = 0.1
 
@@ -726,7 +723,7 @@
 /singleton/reagent/toxin/carpotoxin
 	value = 3
 
-/singleton/reagent/toxin/phoron/pure
+/singleton/reagent/toxin/phoron
 	value = 10
 
 /singleton/reagent/toxin/cyanide

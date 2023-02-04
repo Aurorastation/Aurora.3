@@ -158,52 +158,6 @@
 	T.assume_gas(GAS_PHORON, amount, T20C)
 	remove_self(amount, holder)
 
-/singleton/reagent/toxin/phoron/kois
-	name = "Phoron"
-	description = "Phoron in its liquid form. Twice as potent when breathed in. Contains biological traces."
-	fallback_specific_heat = 0.75 //contaminated phoron acts more like k'ois than phoron
-	var/kois_type = 1
-
-/singleton/reagent/toxin/phoron/kois/black
-	name = "Phoron"
-	description = "Phoron in its liquid form. Twice as potent when breathed in. Contains exotic biological traces."
-	fallback_specific_heat = 0.5 //same as black k'ois
-	kois_type = 2
-
-/singleton/reagent/toxin/phoron/kois/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(!ishuman(M))
-		return
-	var/is_vaurcalike = (alien == IS_VAURCA)
-	if(!is_vaurcalike)
-		var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
-		if(istype(P) && P.stage >= 3)
-			is_vaurcalike = TRUE
-	else
-		infect(M, alien, removed)
-
-/singleton/reagent/toxin/phoron/kois/affect_chem_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
-	var/is_vaurcalike = (alien == IS_VAURCA)
-	if(!is_vaurcalike)
-		var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
-		if(istype(P) && P.stage >= 3)
-			is_vaurcalike = TRUE
-
-/singleton/reagent/toxin/phoron/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
-	var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
-	if((alien != IS_VAURCA) && !(istype(P) && P.stage >= 3))
-		H.adjustToxLoss(1 * removed)
-		switch(kois_type)
-			if(1) //Normal
-				if(!H.internal_organs_by_name["kois"] && prob(5*removed))
-					var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
-					var/obj/item/organ/internal/parasite/kois/infest = new()
-					infest.replaced(H, affected)
-			if(2) //Modified
-				if(!H.internal_organs_by_name["blackkois"] && prob(10*removed))
-					var/obj/item/organ/external/affected = H.get_organ(BP_HEAD)
-					var/obj/item/organ/internal/parasite/blackkois/infest = new()
-					infest.replaced(H, affected)
-
 /singleton/reagent/toxin/cardox
 	name = "Cardox"
 	description = "Cardox is a mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
