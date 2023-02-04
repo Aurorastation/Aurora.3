@@ -198,8 +198,6 @@
 	/// Ticks up each process until move speed is matched, at which point the event will move
 	var/ship_delay_counter = 0
 
-	var/list/colors = list() //Pick a color from this list on init
-
 /obj/effect/overmap/event/Initialize()
 	. = ..()
 	icon_state = pick(event_icon_states)
@@ -208,8 +206,6 @@
 		start_moving()
 	else if(prob(movable_event_chance))
 		make_movable()
-	if(LAZYLEN(colors))
-		color = pick(colors)
 
 /obj/effect/overmap/event/proc/make_movable()
 	movable_event = TRUE
@@ -266,7 +262,6 @@
 	events = list(/datum/event/meteor_wave/overmap)
 	event_icon_states = list("meteor1", "meteor2", "meteor3", "meteor4")
 	difficulty = EVENT_LEVEL_MAJOR
-	colors = list("#fc1100", "#b5251b", "#be1e12")
 
 /obj/effect/overmap/event/electric
 	name = "electrical storm"
@@ -275,7 +270,6 @@
 	event_icon_states = list("electrical1", "electrical2")
 	difficulty = EVENT_LEVEL_MAJOR
 	can_be_destroyed = FALSE
-	colors = list("#f5ed0c", "#d9d323", "#faf450")
 
 /obj/effect/overmap/event/dust
 	name = "dust cloud"
@@ -290,7 +284,6 @@
 	event_icon_states = list("ion1", "ion2", "ion3", "ion4")
 	difficulty = EVENT_LEVEL_MAJOR
 	can_be_destroyed = FALSE
-	colors = list("#02faee", "#34d1c9", "#1b9ce7")
 
 /obj/effect/overmap/event/carp
 	name = "carp shoal"
@@ -299,12 +292,10 @@
 	difficulty = EVENT_LEVEL_MODERATE
 	event_icon_states = list("carp")
 	movable_event_chance = 5
-	colors = list("#c25bc7", "#ea50f2", "#f67efc")
 
 /obj/effect/overmap/event/carp/major
 	name = "carp school"
 	difficulty = EVENT_LEVEL_MAJOR
-	colors = list("#a709db", "#c228c7", "#c444e4")
 
 /obj/effect/overmap/event/gravity
 	name = "dark matter influx"
