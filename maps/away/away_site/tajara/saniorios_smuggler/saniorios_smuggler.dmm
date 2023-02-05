@@ -914,7 +914,7 @@
 	},
 /area/saniorios_smuggler)
 "JA" = (
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = 24
 	},
 /turf/simulated/wall/shuttle/raider,

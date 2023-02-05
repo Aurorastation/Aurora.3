@@ -48,7 +48,7 @@
 "dO" = (
 /obj/structure/table/standard,
 /obj/item/melee/baton/stunrod,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/item/reagent_containers/spray/pepper,
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_x = 32

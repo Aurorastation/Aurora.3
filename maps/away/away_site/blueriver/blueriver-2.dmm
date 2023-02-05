@@ -103,7 +103,7 @@
 /area/bluespaceriver/ship)
 "at" = (
 /obj/structure/table/reinforced,
-/obj/machinery/recharger/wallcharger{
+/obj/machinery/charger/wall{
 	pixel_y = -24
 	},
 /obj/item/paper/blueriver/expedition_log_1,

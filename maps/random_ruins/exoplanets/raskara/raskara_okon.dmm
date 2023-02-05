@@ -370,7 +370,7 @@
 /area/raskara_okon/mess_hall)
 "eQ" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/item/melee/baton/loaded,
 /obj/item/reagent_containers/dropper{
 	pixel_y = -4
@@ -1138,7 +1138,7 @@
 /area/raskara_okon/mining)
 "ow" = (
 /obj/structure/table/standard,
-/obj/machinery/recharger,
+/obj/machinery/charger,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
