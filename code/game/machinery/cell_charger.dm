@@ -10,7 +10,6 @@
 	active_power_usage = 2 KILOWATTS
 	power_channel = EQUIP
 	update_icon_on_init = TRUE
-	var/charge_rate = 2000
 	var/charge_level = -1
 	var/obj/item/cell/charging = null
 
@@ -124,7 +123,7 @@
 	if (charging && !charging.fully_charged())
 		if(use_power < POWER_USE_ACTIVE)
 			update_use_power(POWER_USE_ACTIVE)
-		charging.give(charge_rate * CELLRATE)
+		charging.give(active_power_usage * CELLRATE)
 		update_icon()
 	else
 		update_use_power(POWER_USE_IDLE)

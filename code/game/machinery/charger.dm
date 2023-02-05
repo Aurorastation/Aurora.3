@@ -5,11 +5,15 @@
 	icon_state = "recharger_off"
 	anchored = TRUE
 	density = FALSE
-	idle_power_usage = 5
-	active_power_usage = 1 KILOWATTS
 	pass_flags = PASSTABLE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/charge_rate = 1000
+	idle_power_usage = 5
+	active_power_usage = 1 KILOWATTS
+	var/icon_state_charged = "recharger100"
+	var/icon_state_charging = "recharger"
+	var/icon_state_idle = "recharger_off" //also when unpowered
+	var/portable = 1
+	var/list/chargebars
 	var/obj/item/charging
 
 	var/list/allowed_devices = list(
@@ -24,11 +28,6 @@
 		/obj/item/auto_cpr,
 		/obj/item/device/personal_shield
 	)
-	var/icon_state_charged = "recharger100"
-	var/icon_state_charging = "recharger"
-	var/icon_state_idle = "recharger_off" //also when unpowered
-	var/portable = 1
-	var/list/chargebars
 
 /obj/machinery/charger/examine(mob/user)
 	. = ..(user, 3)
@@ -126,7 +125,7 @@
 					icon_state = icon_state_charging + "60"
 				else
 					icon_state = icon_state_charging + "80"
-				C.give(charge_rate * CELLRATE)
+				C.give(active_power_usage * CELLRATE)
 
 				update_use_power(POWER_USE_ACTIVE)
 			else
@@ -175,7 +174,6 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger_off"
 	active_power_usage = 2 KILOWATTS
-	charge_rate = 2000
 	allowed_devices = list(
 		/obj/item/gun/energy,
 		/obj/item/melee/baton
