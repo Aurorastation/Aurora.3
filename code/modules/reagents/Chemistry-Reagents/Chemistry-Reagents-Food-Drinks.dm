@@ -2002,15 +2002,15 @@
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 /singleton/reagent/drink/brownstar
-	name = "Brown Star"
-	description = "It's not what it sounds like..."
+	name = "Orange Starshine"
+	description = "A citrusy orange soda."
 	color = "#9F3400"
 	taste_description = "orange and cola soda"
 	carbonated = TRUE
 
 	glass_icon_state = "brownstar"
-	glass_name = "glass of Brown Star"
-	glass_desc = "It's not what it sounds like..."
+	glass_name = "glass of Orange Starshine"
+	glass_desc = "A citrusy orange soda."
 
 /singleton/reagent/drink/mintsyrup
 	name = "Mint Syrup"
@@ -2629,7 +2629,7 @@
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 /singleton/reagent/alcohol/thirteenloko
-	name = "Thirteen Loko"
+	name = "Getmore Energy"
 	description = "A potent mixture of caffeine and alcohol."
 	color = "#ffb928"
 	strength = 10
@@ -2639,8 +2639,8 @@
 	carbonated = TRUE
 
 	glass_icon_state = "thirteen_loko_glass"
-	glass_name = "glass of Thirteen Loko"
-	glass_desc = "This is a glass of Thirteen Loko, it appears to be of the highest quality. The drink, not the glass."
+	glass_name = "glass of Getmore Energy"
+	glass_desc = "This is a glass of Getmore Energy, a potent mixture of caffeine and alcohol."
 
 /singleton/reagent/alcohol/thirteenloko/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
@@ -3813,19 +3813,19 @@
 
 // Snowflake drinks
 /singleton/reagent/drink/dr_gibb_diet
-	name = "Diet Dr. Gibb"
+	name = "Getmore Root-Cola"
 	description = "A delicious blend of 42 different flavours, one of which is water."
 	color = "#93230b"
 	taste_description = "watered down liquid sunshine"
 	carbonated = TRUE
 
 	glass_icon_state = "dr_gibb_glass"
-	glass_name = "glass of Diet Dr. Gibb"
-	glass_desc = "Regular Dr.Gibb is probably healthier than this cocktail of artificial flavors."
+	glass_name = "glass of Diet Getmore Root Cola"
+	glass_desc = "Regular Root Cola is probably healthier than this cocktail of artificial flavors."
 
 /singleton/reagent/alcohol/drdaniels
 	name = "Dr. Daniels"
-	description = "A limited edition tallboy of Dr. Gibb's Infusions."
+	description = "A limited edition tallboy of Getmore Root Cola's Infusions."
 	color = "#35240f"
 	caffeine = 0.2
 	overdose = 80
@@ -3836,7 +3836,7 @@
 
 	glass_icon_state = "drdaniels"
 	glass_name = "glass of Dr. Daniels"
-	glass_desc = "A tall glass of honey, whiskey, and diet Dr. Gibb. The perfect blend of throat-soothing liquid."
+	glass_desc = "A tall glass of honey, whiskey, and diet Getmore Root Cola. The perfect blend of throat-soothing liquid."
 
 //aurora unique drinks
 
@@ -5229,15 +5229,15 @@
 	glass_desc = "Prepared just like in Silversun."
 
 /singleton/reagent/drink/gibbfloats
-	name = "Gibb Floats"
-	description = "A floating soda of icecream and Dr. Gibb."
+	name = "Root-Cola Floats"
+	description = "A floating soda of icecream and Getmore Root-Cola."
 	color = "#93230b"
 	taste_description = "cherry soda and icecream"
 	carbonated = TRUE
 
 	glass_icon_state = "gibbfloats"
-	glass_name = "glass of gibb floats"
-	glass_desc = "A floating soda of icecream and Dr. Gibb."
+	glass_name = "glass of root-cola floats"
+	glass_desc = "A floating soda of icecream and Getmore Root-Cola."
 
 /singleton/reagent/drink/diet_cola
 	name = "Diet Cola"
