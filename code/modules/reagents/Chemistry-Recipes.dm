@@ -2373,7 +2373,7 @@
     name = "Ration Coffee"
     id = "ration_coffee"
     result = /singleton/reagent/drink/coffee/ration_coffee
-    equired_reagents = list(/singleton/reagent/drink/coffee = 2, /singleton/reagent/drink/water = 1)
+    required_reagents = list(/singleton/reagent/drink/coffee = 2, /singleton/reagent/water = 1)
     result_amount = 3
 
 /datum/chemical_reaction/drink/soy_latte
