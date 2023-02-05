@@ -6,7 +6,7 @@
 	anchored = TRUE
 	density = FALSE
 	idle_power_usage = 5
-	active_power_usage = 1 KILOWATT
+	active_power_usage = 1 KILOWATTS
 	pass_flags = PASSTABLE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/charge_rate = 50000
