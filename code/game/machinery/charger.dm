@@ -175,7 +175,7 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger_off"
 	active_power_usage = 2 KILOWATTS
-	charge_rate = 100000
+	charge_rate = 2000
 	allowed_devices = list(
 		/obj/item/gun/energy,
 		/obj/item/melee/baton
