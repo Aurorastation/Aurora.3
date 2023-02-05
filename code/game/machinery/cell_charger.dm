@@ -10,7 +10,7 @@
 	active_power_usage = 2 KILOWATTS
 	power_channel = EQUIP
 	update_icon_on_init = TRUE
-	var/charge_rate = 100000
+	var/charge_rate = 2000
 	var/charge_level = -1
 	var/obj/item/cell/charging = null
 

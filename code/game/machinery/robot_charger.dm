@@ -5,7 +5,7 @@
 	icon_state = "borgcharger0"
 	density = 1
 	anchored = 1
-	idle_power_usage = 75
+	idle_power_usage = 50
 	var/mob/occupant = null
 	var/obj/item/cell/cell = null
 	var/icon_update_tick = 0	// Used to rebuild the overlay only once every 10 ticks

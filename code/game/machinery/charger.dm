@@ -9,7 +9,7 @@
 	active_power_usage = 1 KILOWATTS
 	pass_flags = PASSTABLE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/charge_rate = 50000
+	var/charge_rate = 1000
 	var/obj/item/charging
 
 	var/list/allowed_devices = list(
