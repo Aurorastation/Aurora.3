@@ -16,6 +16,7 @@
 		if(current_species.appearance_flags & HAS_SKIN_COLOR)
 			randomize_skin_color(current_species)
 
+	tail_style = length(current_species.selectable_tails) ? pick(current_species.selectable_tails) : null
 	h_style = random_hair_style(gender, species)
 	f_style = random_facial_hair_style(gender, species)
 	randomize_hair_color("hair")
