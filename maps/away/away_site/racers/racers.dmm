@@ -1224,7 +1224,7 @@
 /area/racers)
 "fRA" = (
 /obj/machinery/iv_drip,
-/obj/machinery/light/colored,
+/obj/machinery/light/coloured,
 /turf/simulated/floor/tiled/white,
 /area/racers)
 "fSX" = (
@@ -4716,7 +4716,7 @@
 /turf/simulated/floor/wood,
 /area/racers)
 "wQj" = (
-/obj/machinery/light/colored,
+/obj/machinery/light/coloured,
 /turf/simulated/floor/carpet/art,
 /area/racers)
 "wRv" = (
@@ -4733,7 +4733,7 @@
 /area/racers)
 "wUg" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
-/obj/machinery/light/colored{
+/obj/machinery/light/coloured{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -4780,7 +4780,7 @@
 /obj/vehicle/bike/monowheel,
 /obj/item/clothing/glasses/fakesunglasses/aviator,
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/machinery/light/colored,
+/obj/machinery/light/coloured,
 /turf/simulated/floor/plating,
 /area/racers)
 "xjB" = (
