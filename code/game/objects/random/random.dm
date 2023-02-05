@@ -423,7 +423,6 @@
 	name = "random backpack"
 	problist = list(
 		/obj/item/storage/backpack = 3,
-		/obj/item/storage/backpack/holding = 0.5,
 		/obj/item/storage/backpack/cultpack = 2,
 		/obj/item/storage/backpack/medic = 3,
 		/obj/item/storage/backpack/security = 3,
