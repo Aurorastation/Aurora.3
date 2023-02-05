@@ -232,7 +232,7 @@ var/list/global/random_stock_large = list()
 		if (turfs.len)
 			T = pick(turfs)
 
-		var/ctype = pickweight(infest_mobs_severe)
+			var/ctype = pickweight(infest_mobs_severe)
 
 			new ctype(T)
 			msg_admin_attack("Rare cargo warehouse critter [ctype] spawned coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>JMP</a>)")
