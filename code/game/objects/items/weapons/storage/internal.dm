@@ -130,3 +130,47 @@
 	if(. && istype(loc, /obj/item/clothing/head/helmet))
 		var/obj/item/clothing/head/helmet/helmet = loc
 		helmet.update_clothing_icon()
+
+/obj/item/storage/internal/tail
+	name = "tail storage"
+	storage_slots = 1
+	max_storage_space = 2
+	max_w_class = ITEMSIZE_SMALL
+	use_sound = null
+
+/obj/item/storage/internal/tail/can_be_inserted(obj/item/clothing/tail_accessory/TA, stop_messages)
+	if(!istype(TA))
+		return FALSE
+	. = ..()
+	if(!.)
+		return
+
+	var/obj/item/organ/external/E = loc
+	if(!istype(E))
+		return FALSE
+
+	var/mob/living/carbon/human/H = E.owner
+	if(!istype(H))
+		return FALSE
+
+	if(!TA.compatible_with_human(H))
+		return FALSE
+
+	return TRUE
+
+// we can generally assume user has all the proper groin stuff here, otherwise the above block of code is busted
+/obj/item/storage/internal/tail/handle_item_insertion(obj/item/W, prevent_warning, mob/living/carbon/human/user)
+	. = ..()
+	if(.)
+		user.update_tail_showing()
+
+/obj/item/storage/internal/tail/remove_from_storage(obj/item/W, atom/new_location)
+	. = ..()
+	if(.)
+		var/obj/item/organ/external/E = loc
+		if(!istype(E))
+			return
+		var/mob/living/carbon/human/H = E.owner
+		if(!istype(H))
+			return
+		H.update_tail_showing()

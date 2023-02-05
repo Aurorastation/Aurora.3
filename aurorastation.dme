@@ -1567,6 +1567,7 @@
 #include "code\modules\clothing\chameleon.dm"
 #include "code\modules\clothing\clothing.dm"
 #include "code\modules\clothing\clothing_accessories.dm"
+#include "code\modules\clothing\tail_accessory.dm"
 #include "code\modules\clothing\ears\antennae.dm"
 #include "code\modules\clothing\ears\bandanna.dm"
 #include "code\modules\clothing\ears\bulwark.dm"

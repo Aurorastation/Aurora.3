@@ -24,6 +24,10 @@
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(setup_storage)), 3 SECONDS)
 
+/obj/item/organ/external/head/skrell/Destroy()
+	QDEL_NULL(storage)
+	return ..()
+
 /obj/item/organ/external/head/skrell/proc/setup_storage()
 	storage = new /obj/item/storage/internal/skrell(src)
 	if(owner)
