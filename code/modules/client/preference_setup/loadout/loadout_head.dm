@@ -316,6 +316,11 @@
 	display_name = "gat"
 	path = /obj/item/clothing/head/konyang
 
+/datum/gear/head/hachimaki
+	display_name = "konyanger hachimaki"
+	path = /obj/item/clothing/head/hachimaki
+	flags = GEAR_HAS_DESC_SELECTION
+
 /datum/gear/head/iac
 	display_name = "IAC headgear selection"
 	description = "A selection of hats worn by Interstellar Aid Corps volunteers."
