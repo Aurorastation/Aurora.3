@@ -152,10 +152,12 @@
 	emote_hear = list("buzzes","beeps")
 	speak = list("Hadii's grace, comrades.", "The stars belong to the People's Republic of Adhomai!", "The quest for knowledge must continue!")
 	emote_see = list("beeps curiously", "whirrs softly", "scans its surroundings")
+	attack_emote = "beeps menacingly at"
 
 	destroy_surroundings = FALSE
 	universal_speak = TRUE
 	universal_understand = TRUE
+	speak_chance = 5
 	simple_default_language = LANGUAGE_SIIK_MAAS
 
 	mob_size = 3
