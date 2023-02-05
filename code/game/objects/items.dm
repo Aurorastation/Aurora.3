@@ -357,7 +357,7 @@
 	pixel_x = 0
 	pixel_y = 0
 	if(flags & HELDMAPTEXT)
-		addtimer(CALLBACK(src, .proc/check_maptext), 1) // invoke async does not work here
+		addtimer(CALLBACK(src, PROC_REF(check_maptext)), 1) // invoke async does not work here
 	do_pickup_animation(user)
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
@@ -903,7 +903,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	if(delay)
 		// Create a callback with checks that would be called every tick by do_after.
-		var/datum/callback/tool_check = CALLBACK(src, .proc/tool_check_callback, user, amount, extra_checks)
+		var/datum/callback/tool_check = CALLBACK(src, PROC_REF(tool_check_callback), user, amount, extra_checks)
 
 		if(ismob(target))
 			if(!do_mob(user, target, delay, extra_checks = tool_check))

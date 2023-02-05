@@ -61,7 +61,7 @@
 				open()
 		else
 			open()
-			addtimer(CALLBACK(src, .proc/close), check_access(null) ? 5 SECONDS : 2 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(close)), check_access(null) ? 5 SECONDS : 2 SECONDS)
 
 /obj/machinery/door/window/allowed(mob/M)
 	. = ..()

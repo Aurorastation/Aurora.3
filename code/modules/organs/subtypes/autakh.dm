@@ -205,8 +205,8 @@
 		owner.change_eye_color(250, 130, 130)
 		owner.update_eyes()
 		online = TRUE
-		addtimer(CALLBACK(src, .proc/add_warning), 5 MINUTES)
-		addtimer(CALLBACK(src, .proc/add_warning), 6 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(add_warning)), 5 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(add_warning)), 6 MINUTES)
 	else
 		turn_off()
 

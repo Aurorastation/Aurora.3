@@ -64,8 +64,8 @@ var/global/universe_has_ended = 0
 	var/time = rand(30, 60)
 	log_debug("universal_state/cascade: Announcing to world in [time] seconds.")
 	log_debug("universal_state/cascade: Ending universe in [(time SECONDS + 5 MINUTES)/10] seconds.")
-	addtimer(CALLBACK(src, .proc/announce_to_world), time SECONDS)
-	addtimer(CALLBACK(src, .proc/end_universe), time SECONDS + 5 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(announce_to_world)), time SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(end_universe)), time SECONDS + 5 MINUTES)
 
 /datum/universal_state/supermatter_cascade/proc/announce_to_world()
 	var/txt = {"

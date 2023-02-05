@@ -12,7 +12,7 @@
 
 /datum/hallucination/mindread/activate()
 	..()
-	addtimer(CALLBACK(src, .proc/mind_give), rand(30, 50))
+	addtimer(CALLBACK(src, PROC_REF(mind_give)), rand(30, 50))
 
 //set duration, foreshadow powers
 /datum/hallucination/mindread/start()
@@ -100,7 +100,7 @@
 
 /datum/hallucination/telepathy/activate()
 	..()
-	addtimer(CALLBACK(src, .proc/tele_give), rand(30, 50))
+	addtimer(CALLBACK(src, PROC_REF(tele_give)), rand(30, 50))
 
 /datum/hallucination/telepathy/start()
 	duration = rand(2, 4) MINUTES

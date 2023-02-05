@@ -111,9 +111,9 @@ var/global/list/intent_listener = list()
 				hair_styles_male_list += H.name
 				hair_styles_female_list += H.name
 
-	sortTim(hair_styles_list, /proc/cmp_text_asc)
-	sortTim(hair_styles_male_list, /proc/cmp_text_asc)
-	sortTim(hair_styles_female_list, /proc/cmp_text_asc)
+	sortTim(hair_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(hair_styles_male_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(hair_styles_female_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//Gradients - Initialise all /datum/sprite_accessory/hair_gradients into an list indexed by hairgradient-style name
 	paths = subtypesof(/datum/sprite_accessory/hair_gradients)
@@ -121,7 +121,7 @@ var/global/list/intent_listener = list()
 		var/datum/sprite_accessory/hair_gradients/H = new path()
 		hair_gradient_styles_list[H.name] = H
 
-	sortTim(hair_gradient_styles_list, /proc/cmp_text_asc)
+	sortTim(hair_gradient_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//Facial Hair - Initialise all /datum/sprite_accessory/facial_hair into an list indexed by facialhair-style name
 	paths = subtypesof(/datum/sprite_accessory/facial_hair)
@@ -135,9 +135,9 @@ var/global/list/intent_listener = list()
 				facial_hair_styles_male_list += H.name
 				facial_hair_styles_female_list += H.name
 
-	sortTim(facial_hair_styles_list, /proc/cmp_text_asc)
-	sortTim(facial_hair_styles_male_list, /proc/cmp_text_asc)
-	sortTim(facial_hair_styles_female_list, /proc/cmp_text_asc)
+	sortTim(facial_hair_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(facial_hair_styles_male_list, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(facial_hair_styles_female_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//Body markings
 	paths = subtypesof(/datum/sprite_accessory/marking)
@@ -145,7 +145,7 @@ var/global/list/intent_listener = list()
 		var/datum/sprite_accessory/marking/M = new path()
 		body_marking_styles_list[M.name] = M
 
-	sortTim(body_marking_styles_list, /proc/cmp_text_asc)
+	sortTim(body_marking_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//Disability datums
 	paths = subtypesof(/datum/character_disabilities)
@@ -153,7 +153,7 @@ var/global/list/intent_listener = list()
 		var/datum/character_disabilities/T = new path()
 		chargen_disabilities_list[T.name] = T
 
-	sortTim(chargen_disabilities_list, /proc/cmp_text_asc)
+	sortTim(chargen_disabilities_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//List of job. I can't believe this was calculated multiple times per tick!
 	paths = subtypesof(/datum/job)
@@ -183,7 +183,7 @@ var/global/list/intent_listener = list()
 			S.has_autohiss = TRUE
 		all_species[S.name] = S
 
-	sortTim(all_species, /proc/cmp_text_asc)
+	sortTim(all_species, GLOBAL_PROC_REF(cmp_text_asc))
 
 	// The other lists are generated *after* we sort the main one so they don't need sorting too.
 	for (var/thing in all_species)

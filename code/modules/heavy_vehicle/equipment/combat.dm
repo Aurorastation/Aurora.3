@@ -164,7 +164,7 @@
 /obj/item/gun/launcher/mech/proc/regen_proj()
 	proj++
 	if (proj< max_proj)
-		addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(regen_proj)), proj_gen_time, TIMER_UNIQUE)
 
 /obj/item/gun/launcher/mech/mountedrl
 	name = "mounted rocket launcher"
@@ -183,7 +183,7 @@
 	var/obj/item/missile/M = new (src)
 	M.primed = 1
 	proj--
-	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(regen_proj)), proj_gen_time, TIMER_UNIQUE)
 	return M
 
 /obj/item/gun/launcher/mech/mountedgl
@@ -210,7 +210,7 @@
 	g.det_time = 10
 	g.activate(null)
 	proj--
-	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(regen_proj)), proj_gen_time, TIMER_UNIQUE)
 	return g
 
 /obj/item/gun/launcher/mech/mountedgl/fl

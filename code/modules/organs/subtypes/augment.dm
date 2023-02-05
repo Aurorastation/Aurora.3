@@ -239,7 +239,7 @@
 	if(owner)
 		to_chat(owner, FONT_LARGE(SPAN_DANGER("You feel your [src.name] surge with energy!")))
 		spark(get_turf(owner), 3)
-		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(disarm)), recharge_time MINUTES)
 		if(is_bruised() && prob(50))
 			owner.electrocute_act(40, owner)
 
@@ -248,7 +248,7 @@
 		return
 	actual_charges = min(actual_charges - 1, max_charges)
 	if(actual_charges > 0)
-		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(disarm)), recharge_time MINUTES)
 	if(is_broken())
 		owner.visible_message(SPAN_DANGER("\The [owner] crackles with energy!"))
 		playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
@@ -607,9 +607,9 @@
 	if(world.time > (last_emotion + 5 MINUTES))
 		switch(set_emotion)
 			if("happiness")
-				to_chat(owner, SPAN_NOTICE("You feel happy."))
+				to_chat(owner, SPAN_GOOD("You feel happy."))
 			if("calmness")
-				to_chat(owner, SPAN_NOTICE("You feel calm."))
+				to_chat(owner, SPAN_GOOD("You feel calm."))
 		last_emotion = world.time
 
 		if(is_broken())

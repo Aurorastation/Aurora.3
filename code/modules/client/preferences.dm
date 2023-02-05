@@ -48,6 +48,7 @@ datum/preferences
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 	var/primary_radio_slot = "Left Ear"
+	var/tail_style = null
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
@@ -383,6 +384,8 @@ datum/preferences
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
 	character.b_eyes = b_eyes
+
+	character.set_tail_style(tail_style)
 
 	character.h_style = h_style
 	character.r_hair = r_hair

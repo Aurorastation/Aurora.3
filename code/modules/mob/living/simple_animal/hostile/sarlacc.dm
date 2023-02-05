@@ -38,7 +38,7 @@
 			attack_mob(L)
 			originator.eating = 1
 			to_chat(L, "<span class='danger'>\The [src] begins digesting your upper body!</span>")
-			addtimer(CALLBACK(src, .proc/devour, L), 50 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(devour), L), 50 SECONDS)
 	..()
 
 /obj/item/trap/sarlacc/proc/devour(var/mob/living/C)
@@ -280,7 +280,7 @@
 
 /mob/living/simple_animal/hostile/lesserworm/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, .proc/Penetrate), 6)
+	addtimer(CALLBACK(src, PROC_REF(Penetrate)), 6)
 	QDEL_IN(src, 15)
 
 /mob/living/simple_animal/hostile/lesserworm/Destroy()

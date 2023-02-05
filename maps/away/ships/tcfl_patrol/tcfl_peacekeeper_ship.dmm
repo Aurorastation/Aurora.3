@@ -475,6 +475,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ehg" = (
@@ -3770,6 +3772,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "yiy" = (

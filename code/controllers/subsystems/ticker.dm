@@ -41,8 +41,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/delay_end = 0	//if set to nonzero, the round will not restart on it's own
 
 	var/triai = 0	//Global holder for Triumvirate
-	var/tipped = FALSE						//Did we broadcast the tip of the day yet?
-	var/selected_tip						// What will be the tip of the day?
+	var/tipped = FALSE	//Did we broadcast the tip of the day yet?
 	var/testmerges_printed = FALSE
 
 	var/round_end_announced = 0 // Spam Prevention. Announce round end only once.
@@ -113,8 +112,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	delay_end = SSticker.delay_end
 
 	triai = SSticker.triai
-	tipped = SSticker.tipped
-	selected_tip = SSticker.selected_tip
 
 	round_end_announced = SSticker.round_end_announced
 
@@ -342,7 +339,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	for(var/dept in ready_job.departments)
 		LAZYDISTINCTADD(ready_player_jobs[dept], prefs.real_name)
 		LAZYSET(ready_player_jobs[dept], prefs.real_name, ready_job.title)
-		sortTim(ready_player_jobs[dept], /proc/cmp_text_asc)
+		sortTim(ready_player_jobs[dept], GLOBAL_PROC_REF(cmp_text_asc))
 		. = TRUE
 
 	if(.)
@@ -397,18 +394,17 @@ var/datum/controller/subsystem/ticker/SSticker
 		if(NP.ready)
 			update_ready_list(NP)
 
-/datum/controller/subsystem/ticker/proc/send_tip_of_the_round()
-	var/m
-	if(selected_tip)
-		m = selected_tip
+/datum/controller/subsystem/ticker/proc/send_tip_of_the_round(var/tip_override)
+	var/message
+	if(tip_override)
+		message = tip_override
 	else
-		var/list/randomtips = file2list("config/tips.txt")
-		if(randomtips.len)
-			m = pick(randomtips)
+		var/chosen_tip_category = pick(tips_by_category)
+		var/datum/tip/tip_datum = tips_by_category[chosen_tip_category]
+		message = pick(tip_datum.messages)
 
-	if(m)
-		to_world("<span class='vote'><b>Tip of the round: \
-			</b>[html_encode(m)]</span>")
+	if(message)
+		to_world(SPAN_VOTE(SPAN_BOLD("Tip of the round:") + " [html_encode(message)]"))
 
 /datum/controller/subsystem/ticker/proc/print_testmerges()
 	var/data = revdata.testmerge_overview()
@@ -545,7 +541,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	round_start_time = world.time
 
 	callHook("roundstart")
-	INVOKE_ASYNC(src, .proc/roundstart)
+	INVOKE_ASYNC(src, PROC_REF(roundstart))
 
 	log_debug("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
 	run_callback_list(roundstart_callbacks)

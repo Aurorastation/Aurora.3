@@ -720,6 +720,7 @@
 	in the past been given the privilege of working within or in collaboration with the Nralakk Federation\
 	 as a show of goodwill between the corporation and federation."
 	icon = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
+	icon_override = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
 	icon_state = "ZH_cape"
 	item_state = "ZH_cape"
 	flippable = FALSE
@@ -838,9 +839,31 @@
 	overlay_state = "tags"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	var/can_be_broken = FALSE
+	var/separated = FALSE
+	var/tag_type = /obj/item/dogtag
 
 /obj/item/clothing/accessory/dogtags/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
+
+/obj/item/clothing/accessory/dogtags/attack_self(mob/user)
+	if(can_be_broken)
+		if(!separated)
+			if(user.a_intent == I_HURT)
+				user.visible_message(SPAN_NOTICE("[user] yanks apart \the [src]!"))
+				separated = TRUE
+				var/obj/item/dogtag/tag = new tag_type(get_turf(user))
+				user.put_in_hands(tag)
+				separated = TRUE
+				update_icon()
+
+/obj/item/clothing/accessory/dogtags/update_icon()
+	if(separated)
+		icon_state = "[icon_state]_single"
+		item_state = "[item_state]_single"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
 
 /obj/item/clothing/accessory/badge/namepin
 	name = "pin tag"
@@ -1050,3 +1073,160 @@
 
 /obj/item/clothing/accessory/goon_coif/get_mask_examine_text(var/mob/user)
 	return "on [user.get_pronoun("his")] head"
+
+/********** Aprons Start **********/
+// Apron
+/obj/item/clothing/accessory/apron
+	name = "apron"
+	desc = "An apron."
+	icon = 'icons/obj/item/clothing/accessory/aprons.dmi'
+	icon_state = "apron"
+	item_state = "apron"
+	contained_sprite = TRUE
+	slot_flags = SLOT_OCLOTHING | SLOT_TIE
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO
+	no_overheat = TRUE
+	allowed = list(
+		/obj/item/reagent_containers/food/drinks/shaker,
+		/obj/item/material/kitchen/utensil,
+		/obj/item/reagent_containers/food/condiment,
+		/obj/item/reagent_containers/food/drinks/bottle
+	)
+
+// Random Colour Apron
+/obj/item/clothing/accessory/apron/random/Initialize() // Random colour.
+	. = ..()
+	color = get_random_colour(lower = 150)
+
+// Hydroponics Apron
+/obj/item/clothing/accessory/apron/blue // Used for hydroponics.
+	color = "#3429d1"
+	allowed = list(
+		/obj/item/reagent_containers/spray/plantbgone,
+		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/seeds,
+		/obj/item/reagent_containers/glass/fertilizer,
+		/obj/item/material/minihoe
+	)
+
+// Surgical Apron
+/obj/item/clothing/accessory/apron/surgery
+	name = "surgical apron"
+	desc = "A surgical apron."
+	icon_state = "apron_surgeon"
+	item_state = "apron_surgeon"
+	allowed = list(
+		/obj/item/stack/medical,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/reagent_containers/hypospray,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/device/healthanalyzer,
+		/obj/item/device/flashlight,
+		/obj/item/device/radio,
+		/obj/item/tank/emergency_oxygen,
+		/obj/item/device/breath_analyzer,
+		/obj/item/reagent_containers/blood
+	)
+
+// Zeng-Hu Surgical Apron
+/obj/item/clothing/accessory/apron/surgery/zeng
+	name = "zeng-hu vinyl apron"
+	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. \
+	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
+	icon_state = "apron_surgeon_zeng"
+	item_state = "apron_surgeon_zeng"
+
+// Chef Apron
+/obj/item/clothing/accessory/apron/chef
+	name = "chef apron"
+	desc = "A basic, dull, white chef apron."
+	icon_state = "apron_chef"
+	item_state = "apron_chef"
+	allowed = list(
+		/obj/item/reagent_containers/food/drinks/shaker,
+		/obj/item/material/kitchen/utensil,
+		/obj/item/reagent_containers/food/condiment,
+		/obj/item/reagent_containers/food/drinks/bottle,
+		/obj/item/material/knife
+	)
+/********** Aprons End **********/
+
+/********** Overalls Start **********/
+// Overalls
+/obj/item/clothing/accessory/overalls
+	name = "overalls"
+	desc = "A set of denim overalls."
+	icon = 'icons/obj/item/clothing/accessory/overalls.dmi'
+	icon_state = "overalls"
+	item_state = "overalls"
+	contained_sprite = TRUE
+	slot_flags = SLOT_OCLOTHING | SLOT_TIE
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS
+
+// Random Colour Overalls
+/obj/item/clothing/accessory/overalls/random/Initialize() // Random colour.
+	. = ..()
+	color = get_random_colour(lower = 150)
+
+// Hydroponics Overalls
+/obj/item/clothing/accessory/overalls/blue // Used for hydroponics.
+	color = "#3429d1"
+
+// High Back Overalls
+/obj/item/clothing/accessory/overalls/high_back
+	name = "high back overalls"
+	desc = "A set of denim overalls with a high back."
+	icon_state = "overalls_high"
+	item_state = "overalls_high"
+
+// X-shaped Back Overalls
+/obj/item/clothing/accessory/overalls/x_shaped_back
+	name = "\improper X-shaped back overalls"
+	desc = "A set of denim overalls with a high back."
+	icon_state = "overalls_x"
+	item_state = "overalls_x"
+
+// Overall Shorts
+/obj/item/clothing/accessory/overalls/shorts
+	name = "overall shorts"
+	desc = "A set of denim overall shorts."
+	icon_state = "overall_shorts"
+	item_state = "overall_shorts"
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO
+
+// High Back Overall Shorts
+/obj/item/clothing/accessory/overalls/shorts/high_back
+	name = "high back overall shorts"
+	desc = "A set of denim overall shorts with a high back."
+	icon_state = "overall_shorts_high"
+	item_state = "overall_shorts_high"
+
+// X-shaped Back Overall Shorts
+/obj/item/clothing/accessory/overalls/shorts/x_shaped_back
+	name = "\improper X-shaped back overall shorts"
+	desc = "A set of denim overall shorts with a high back."
+	icon_state = "overall_shorts_x"
+	item_state = "overall_shorts_x"
+
+// Overall Skirt
+/obj/item/clothing/accessory/overalls/skirt
+	name = "overall skirt"
+	desc = "A denim overall skirt."
+	icon_state = "overall_skirt"
+	item_state = "overall_skirt"
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO
+
+// High Back Overall Skirt
+/obj/item/clothing/accessory/overalls/skirt/high_back
+	name = "high back overall skirt"
+	desc = "A denim overall skirt with a high back."
+	icon_state = "overall_skirt_high"
+	item_state = "overall_skirt_high"
+
+// X-shaped Back Overall Skirt
+/obj/item/clothing/accessory/overalls/skirt/x_shaped_back
+	name = "\improper X-shaped back overall skirt"
+	desc = "A denim overall skirt with a high back."
+	icon_state = "overall_skirt_x"
+	item_state = "overall_skirt_x"
+/********** Overalls End **********/

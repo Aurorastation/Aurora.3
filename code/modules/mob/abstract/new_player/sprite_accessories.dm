@@ -5283,7 +5283,7 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
-		tat_silverburgh_left
+	tat_silverburgh_left
 		name = "Tattoo (Silverburgh, Left Leg)"
 		icon_state = "tat_silverburgh"
 		body_parts = list(BP_L_LEG)
@@ -5370,6 +5370,189 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "tat_wingsback"
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell)
+
+		big
+			name = "Tattoo (Wings, Full Back)"
+			icon_state = "tat_wingsbig"
+
+	tat_face_ridge
+		name = "Tattoo (Nose Ridge, Face)"
+		icon_state = "tat_face_ridge"
+		body_parts = list(BP_HEAD)
+
+	tat_face_hunter
+		name = "Tattoo (Hunter Marks, Face)"
+		icon_state = "tat_face_hunter"
+		body_parts = list(BP_HEAD)
+
+	tat_armband
+		name = "Tattoo (Forearm Band, R. Arm)"
+		icon_state = "tat_armband"
+		body_parts = list(BP_R_ARM)
+
+		left_arm
+			name = "Tattoo (Forearm Band, L. Arm)"
+			body_parts = list(BP_L_ARM)
+
+	tat_knuckle
+		name = "Tattoo (Knuckle Tats, R. Hand)"
+		icon_state = "tat_knuckle"
+		body_parts = list(BP_R_HAND)
+
+		left_hand
+			name = "Tattoo (Knuckle Tats, L. Hand)"
+			body_parts = list(BP_L_HAND)
+
+	tat_collarbone
+		name = "Tattoo (Collarbone, Chest)"
+		icon_state = "tat_laurel"
+		body_parts = list(BP_CHEST)
+
+	tat_pecs
+		name = "Tattoo (Pectoral Lines, Chest)"
+		icon_state = "tat_pecs"
+		body_parts = list(BP_CHEST)
+
+	tat_barcode
+		name = "Tattoo (Barcode, Neck)"
+		icon_state = "tat_neckcode"
+		body_parts = list(BP_CHEST, BP_HEAD)
+		species_allowed = list(/datum/species/machine/shell)
+
+		left_leg
+			name = "Tattoo (Barcode, Left Leg)"
+			icon_state = "tat_legcode"
+			body_parts = list(BP_L_LEG)
+
+		right_leg
+			name = "Tattoo (Barcode, Right Leg)"
+			icon_state = "tat_legcode"
+			body_parts = list(BP_R_LEG)
+
+	tat_moon
+		name = "Tattoo (Moon, Left Chest)"
+		icon_state = "tat_moonleft"
+		body_parts = list(BP_CHEST)
+
+		right
+			name = "Tattoo (Moon, Right Chest)"
+			icon_state = "tat_moonright"
+
+	tat_gang
+		name = "Tattoo (Gang Mark, Upper Back)"
+		icon_state = "tat_gang1"
+		body_parts = list(BP_CHEST)
+
+		middle
+			name = "Tattoo (Gang Mark, Middle Back)"
+			icon_state = "tat_gang2"
+
+		right
+			name = "Tattoo (Gang Mark, Right Back)"
+			icon_state = "tat_gang3"
+
+	tat_snake
+		name = "Tattoo (Snake Colorable, R. Arm)"
+		icon_state = "tat_snake_col"
+		body_parts = list(BP_R_ARM)
+
+		green
+			name = "Tattoo (Snake Green, R. Arm)"
+			icon_state = "tat_snake"
+			do_colouration = FALSE
+
+		left
+			name = "Tattoo (Snake Colorable, L. Arm)"
+			icon_state = "tat_snake_col"
+			body_parts = list(BP_L_ARM)
+
+			green
+				name = "Tattoo (Snake Green, L. Arm)"
+				icon_state = "tat_snake"
+				do_colouration = FALSE
+
+	tat_serpent
+		name = "Tattoo (Red Serpent, Chest)"
+		icon_state = "tat_serpent"
+		body_parts = list(BP_CHEST, BP_GROIN)
+		do_colouration = FALSE
+
+	tat_rose
+		name = "Tattoo (Roses, L. Leg)"
+		icon_state = "tat_rose"
+		body_parts = list(BP_L_LEG)
+		do_colouration = FALSE
+
+		right_leg
+			name = "Tattoo (Roses, R. Leg)"
+			icon_state = "tat_rose"
+			body_parts = list(BP_R_LEG)
+
+		left_arm
+			name = "Tattoo (Roses, L. Arm)"
+			icon_state = "tat_rose"
+			body_parts = list(BP_L_ARM)
+
+		right_arm
+			name = "Tattoo (Roses, R. Arm)"
+			icon_state = "tat_rose"
+			body_parts = list(BP_R_ARM)
+
+	tat_nanotrasen
+		name = "Tattoo (NanoTrasen, Chest)"
+		icon_state = "tat_nt"
+		body_parts = list(BP_CHEST)
+		do_colouration = FALSE
+
+	tat_heartbreak
+		name = "Tattoo (Heart and Sword, Back)"
+		icon_state = "tat_heartbreaker"
+		body_parts = list(BP_CHEST, BP_GROIN)
+		do_colouration = FALSE
+
+	tat_heartthorn
+		name = "Tattoo (Heart and Thorns, Back)"
+		icon_state = "tat_thornheart"
+		body_parts = list(BP_CHEST)
+		do_colouration = FALSE
+
+	tat_koi
+		name = "Tattoo (Koi, Full Torso)"
+		icon_state = "tat_koi"
+		body_parts = list(BP_CHEST, BP_GROIN)
+		do_colouration = FALSE
+
+		back
+			name = "Tattoo (Koi, Back)"
+			icon_state = "tat_koi_back"
+
+		left_leg
+			name = "Tattoo (Koi, L. Leg)"
+			body_parts = list(BP_L_LEG)
+
+		right_leg
+			name = "Tattoo (Koi, R. Leg)"
+			body_parts = list(BP_R_LEG)
+
+		left_arm
+			name = "Tattoo (Koi, L. Arm)"
+			body_parts = list(BP_L_ARM)
+
+		right_arm
+			name = "Tattoo (Koi, R. Arm)"
+			body_parts = list(BP_R_ARM)
+
+	tat_sol
+		name = "Tattoo (Solarian Flag)"
+		icon_state = "tat_sol"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell)
+
+	tat_biesel
+		name = "Tattoo (Biesellite Flag)"
+		icon_state = "tat_biesel"
+		body_parts = list(BP_CHEST)
+		do_colouration = FALSE
 
 	tigerhead
 		name = "Tiger Stripes (Head, Minor)"

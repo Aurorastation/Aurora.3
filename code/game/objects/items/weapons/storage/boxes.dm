@@ -1006,6 +1006,7 @@
 	desc = "An ordinary wooden crate."
 	icon_state = "dynamite"
 	foldable = null
+	illustration = null
 	use_sound = 'sound/effects/doorcreaky.ogg'
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	pickup_sound = 'sound/items/pickup/wooden.ogg'

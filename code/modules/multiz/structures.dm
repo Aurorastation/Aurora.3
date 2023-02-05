@@ -199,6 +199,9 @@
 	icon_state = "ladder11"
 
 // Stairs
+/obj/structure/ladder/away //a ladder that just looks like it's going down
+	icon_state = "ladderawaydown"
+
 /obj/structure/stairs
 	name = "stairs"
 	desc = "Stairs leading to another floor. Not too useful if the gravity goes out."
@@ -226,7 +229,7 @@
 	var/obj/structure/stairs/staircase = locate() in target
 	var/target_dir = get_dir(mover, target)
 	if(!staircase && (target_dir != dir && target_dir != reverse_dir[dir]))
-		INVOKE_ASYNC(src, .proc/mob_fall, mover)
+		INVOKE_ASYNC(src, PROC_REF(mob_fall), mover)
 
 	return ..()
 

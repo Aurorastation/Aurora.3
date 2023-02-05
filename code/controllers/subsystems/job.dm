@@ -318,7 +318,7 @@
 		to_chat(H, SSatlas.current_sector.get_chat_description())
 
 	if("Arrivals Shuttle" in current_map.allowed_spawns && spawning_at == "Arrivals Shuttle")
-		H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
+		H.centcomm_despawn_timer = addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living, centcomm_timeout)), 10 MINUTES, TIMER_STOPPABLE)
 		to_chat(H,SPAN_NOTICE("You have ten minutes to reach the station before you will be forced there."))
 
 	var/datum/job/job = GetJob(rank)
@@ -416,7 +416,7 @@
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 
-	INVOKE_ASYNC(GLOBAL_PROC, .proc/show_location_blurb, H.client, 30)
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(show_location_blurb), H.client, 30)
 
 	if(spawning_at == "Arrivals Shuttle")
 		to_chat(H, "<b>[current_map.command_spawn_message]</b>")
@@ -869,7 +869,7 @@
 		T.maptext = "<span style=\"[style]\">[copytext(text,1,i)] </span>"
 		sleep(1)
 
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/fade_location_blurb, C, T), duration)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(fade_location_blurb), C, T), duration)
 
 /proc/fade_location_blurb(client/C, obj/T)
 	animate(T, alpha = 0, time = 5)

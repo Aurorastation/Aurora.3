@@ -378,7 +378,7 @@
 				SPAN_NOTICE("You start cutting \the [src] apart..."), \
 				SPAN_WARNING("You hear a loud buzzing sound and metal grinding on metal...") \
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, W)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), W)))
 				user.visible_message(\
 					SPAN_DANGER("[user] finishes cutting \the [src] apart with the [W]."), \
 					SPAN_NOTICE("You finish cutting \the [src] apart."), \

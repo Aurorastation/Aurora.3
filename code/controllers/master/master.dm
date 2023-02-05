@@ -157,7 +157,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	initializing = TRUE
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
-	sortTim(subsystems, /proc/cmp_subsystem_init)
+	sortTim(subsystems, GLOBAL_PROC_REF(cmp_subsystem_init))
 
 	var/start_timeofday = REALTIMEOFDAY
 	// Initialize subsystems.
@@ -181,7 +181,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	SetRunLevel(RUNLEVEL_LOBBY)
 
 	// Sort subsystems by display setting for easy access.
-	sortTim(subsystems, /proc/cmp_subsystem_display)
+	sortTim(subsystems, GLOBAL_PROC_REF(cmp_subsystem_display))
 	// Set world options.
 #ifndef UNIT_TEST
 	world.sleep_offline = 1
@@ -264,9 +264,9 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	queue_tail = null
 	//these sort by lower priorities first to reduce the number of loops needed to add subsequent SS's to the queue
 	//(higher subsystems will be sooner in the queue, adding them later in the loop means we don't have to loop thru them next queue add)
-	sortTim(tickersubsystems, /proc/cmp_subsystem_priority)
+	sortTim(tickersubsystems, GLOBAL_PROC_REF(cmp_subsystem_priority))
 	for(var/level in runlevel_sorted_subsystems)
-		sortTim(level, /proc/cmp_subsystem_priority)
+		sortTim(level, GLOBAL_PROC_REF(cmp_subsystem_priority))
 		level += tickersubsystems
 
 	var/cached_runlevel = current_runlevel

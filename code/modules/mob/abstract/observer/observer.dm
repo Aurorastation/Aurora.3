@@ -337,7 +337,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(src, SPAN_WARNING("You aren't following anything!"))
 		return
 
-	if(ishuman(following))
+	if(isipc(following) || isrobot(following))
+		robotic_analyze_mob(following, usr, TRUE)
+	else if(ishuman(following))
 		health_scan_mob(following, usr, TRUE, TRUE)
 	else
 		to_chat(src, SPAN_WARNING("This isn't a scannable target."))
@@ -426,8 +428,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	stop_following()
 	following = target
-	moved_event.register(following, src, /atom/movable/proc/move_to_destination)
-	destroyed_event.register(following, src, /mob/abstract/observer/proc/stop_following)
+	moved_event.register(following, src, TYPE_PROC_REF(/atom/movable, move_to_destination))
+	destroyed_event.register(following, src, PROC_REF(stop_following))
 
 	to_chat(src, SPAN_NOTICE("Now following \the <b>[following]</b>."))
 	move_to_destination(following, following.loc, following.loc)

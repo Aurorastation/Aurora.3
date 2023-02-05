@@ -103,6 +103,8 @@ Protectiveness | Armor %
 	)
 	contained_sprite = 1
 
+	has_storage = FALSE
+
 /obj/item/clothing/head/helmet/bucket/wood
 	name = "wooden bucket helmet"
 	icon = 'icons/obj/clothing/material_armor.dmi'
@@ -129,6 +131,7 @@ Protectiveness | Armor %
 	name = "helmet"
 	flags_inv = HIDEEARS|HIDEEYES|BLOCKHAIR
 	default_material = DEFAULT_WALL_MATERIAL
+	has_storage = FALSE
 
 /obj/item/clothing/head/helmet/material/makeshift
 	name = "bucket helmet"

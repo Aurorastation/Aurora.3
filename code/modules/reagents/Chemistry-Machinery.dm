@@ -514,7 +514,7 @@
 	inuse = TRUE
 
 	// Reset the machine.
-	addtimer(CALLBACK(src, .proc/grind_reset), 60)
+	addtimer(CALLBACK(src, PROC_REF(grind_reset)), 60)
 
 	// Process.
 	for (var/obj/item/O in holdingitems)

@@ -103,7 +103,7 @@
 /obj/item/organ/internal/lungs/proc/enable_rupture()
 	rupture_imminent = TRUE
 	checking_rupture = TRUE
-	addtimer(CALLBACK(src, .proc/disable_rupture), 5 SECONDS, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(disable_rupture)), 5 SECONDS, TIMER_UNIQUE)
 
 /obj/item/organ/internal/lungs/proc/disable_rupture()
 	rupture_imminent = FALSE
@@ -130,7 +130,7 @@
 				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel vast amounts of air force itself into your lungs!")))
 			else
 				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel as if your lungs are about to blow!")))
-			addtimer(CALLBACK(src, .proc/enable_rupture), 2 SECONDS, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, PROC_REF(enable_rupture)), 2 SECONDS, TIMER_UNIQUE)
 			checking_rupture = FALSE
 
 	var/safe_pressure_min = owner.species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
@@ -331,9 +331,9 @@
 		if (temp_adj < BODYTEMP_COOLING_MAX) temp_adj = BODYTEMP_COOLING_MAX
 		owner.bodytemperature += temp_adj
 
-	else if(breath.temperature >= owner.species.heat_discomfort_level)
+	else if(owner.bodytemperature >= owner.species.heat_discomfort_level)
 		owner.species.get_environment_discomfort(owner,"heat")
-	else if(breath.temperature <= owner.species.cold_discomfort_level)
+	else if(owner.bodytemperature <= owner.species.cold_discomfort_level)
 		owner.species.get_environment_discomfort(owner,"cold")
 
 /obj/item/organ/internal/lungs/listen()

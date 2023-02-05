@@ -416,7 +416,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	for(var/i in 1 to 5)
 		var/obj/item/material/shard/T = new meat_type(H.loc)
 		var/turf/landing = get_step(H, pick(alldirs))
-		INVOKE_ASYNC(T, /atom/movable/.proc/throw_at, landing, 30, 5)
+		INVOKE_ASYNC(T, TYPE_PROC_REF(/atom/movable, throw_at), landing, 30, 5)
 	qdel(H)
 
 /datum/species/golem/glass/handle_post_spawn(var/mob/living/carbon/human/H)

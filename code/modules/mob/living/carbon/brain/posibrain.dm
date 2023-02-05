@@ -49,7 +49,7 @@
 	searching = FALSE
 	update_icon()
 
-	INVOKE_ASYNC(src, .proc/update_name)
+	INVOKE_ASYNC(src, PROC_REF(update_name))
 
 	to_chat(brainmob, "<b>You are a positronic brain, brought into existence on [station_name()].</b>")
 	to_chat(brainmob, "<b>As a synthetic intelligence, you answer to all crewmembers, as well as the AI.</b>")

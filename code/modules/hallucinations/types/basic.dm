@@ -52,8 +52,8 @@
 		if(9)
 			sound_to(holder, 'sound/effects/nuclearsiren.ogg')
 			to_chat(holder, "<span class='radio'><b>Supermatter Monitor</b> states, \"WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT.\"</span>")
-			addtimer(CALLBACK(src, .proc/delam_call), 20)
-			addtimer(CALLBACK(src, .proc/delam_call), 35)
+			addtimer(CALLBACK(src, PROC_REF(delam_call)), 20)
+			addtimer(CALLBACK(src, PROC_REF(delam_call)), 35)
 
 		if(10 to 15)    //Announcements that would be made by a player instead of random event
 			var/list/body = list(
@@ -284,7 +284,7 @@
 	to_chat(holder, SPAN_DANGER("A sudden realization surges to the forefront of your mind. [message]"))
 	holder.disabilities |= PACIFIST
 	for(var/i = 1; i <= 2; i++)
-		addtimer(CALLBACK(src, .proc/calm_feeling), rand(80, 150)*i)
+		addtimer(CALLBACK(src, PROC_REF(calm_feeling)), rand(80, 150)*i)
 
 /datum/hallucination/passive/end()
 	if(holder.disabilities & PACIFIST)
@@ -451,7 +451,7 @@
 
 	repeats -= 1
 	if(repeats)	//And we do it all over again, one or two more times.
-		addtimer(CALLBACK(src, .proc/start), rand(50, 100))
+		addtimer(CALLBACK(src, PROC_REF(start)), rand(50, 100))
 	else
 		end()
 

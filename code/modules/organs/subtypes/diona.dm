@@ -4,12 +4,12 @@
 	if(!diona)
 		return 0
 
-	INVOKE_ASYNC(src, .proc/create_diona_nymph)
+	INVOKE_ASYNC(src, PROC_REF(create_diona_nymph))
 
 /turf/proc/create_diona_nymph()
 	var/mob/living/carbon/alien/diona/D = new(src)
 	SSghostroles.add_spawn_atom("diona_nymph", D)
-	addtimer(CALLBACK(src, .proc/kill_diona_nymph, WEAKREF(D)), 3 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(kill_diona_nymph), WEAKREF(D)), 3 MINUTES)
 
 /turf/proc/kill_diona_nymph(var/datum/weakref/diona_ref)
 	var/mob/living/carbon/alien/diona/D = diona_ref.resolve()
