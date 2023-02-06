@@ -1,4 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ah" = (
+/obj/item/mop,
+/obj/item/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "am" = (
 /obj/structure/simple_door/wood{
 	name = "room five";
@@ -84,6 +91,15 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
+"df" = (
+/obj/structure/closet/crate/trashcart,
+/obj/item/trash/can/adhomian_can,
+/obj/item/storage/bag/trash,
+/obj/item/storage/bag/trash,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "eu" = (
 /obj/structure/simple_door/wood{
 	name = "room one";
@@ -99,25 +115,7 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
-"eO" = (
-/obj/structure/closet/cabinet,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/fancy/candle_box,
-/obj/item/storage/box/fancy/candle_box,
-/obj/item/flame/lighter/adhomai,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/adhomai_bar)
 "eS" = (
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/adhomai_bar)
-"fb" = (
-/obj/structure/closet/crate/bin,
-/obj/item/storage/bag/trash,
-/obj/item/trash/can/adhomian_can,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -322,18 +320,19 @@
 	},
 /turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
-"np" = (
-/obj/machinery/washing_machine,
-/obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/adhomai_bar)
 "nR" = (
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"oq" = (
+/obj/structure/coatrack,
+/obj/item/clothing/suit/storage/tajaran/hunting,
+/obj/item/clothing/accessory/storage/bandolier,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "ow" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/plain{
@@ -414,6 +413,14 @@
 	temperature = 253.15
 	},
 /area/adhomai_bar)
+"rn" = (
+/obj/structure/closet/crate/bin,
+/obj/item/storage/bag/trash,
+/obj/item/trash/can/adhomian_can,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "rM" = (
 /obj/structure/railing/fence{
 	dir = 8
@@ -431,6 +438,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/lino/grey{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"sv" = (
+/obj/machinery/washing_machine,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/wood{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -538,15 +552,6 @@
 /obj/structure/bed/stool,
 /turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
-"xR" = (
-/obj/structure/table/wood,
-/obj/structure/bedsheetbin{
-	pixel_y = 10
-	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/adhomai_bar)
 "xS" = (
 /obj/machinery/atm{
 	pixel_y = 32
@@ -577,9 +582,6 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
-"Aa" = (
-/turf/simulated/floor/carpet/fancybrown,
-/area/adhomai_bar)
 "Ag" = (
 /obj/machinery/computer/slot_machine,
 /turf/simulated/floor/wood{
@@ -606,6 +608,13 @@
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
+/area/adhomai_bar)
+"BW" = (
+/obj/item/fossil/skull/horned{
+	desc = "It's a horned skull.";
+	name = "horned skull"
+	},
+/turf/simulated/wall/wood,
 /area/adhomai_bar)
 "BZ" = (
 /obj/structure/table/wood,
@@ -635,9 +644,11 @@
 	temperature = 253.15
 	},
 /area/adhomai_bar)
-"CY" = (
-/obj/item/mop,
-/obj/item/reagent_containers/glass/bucket/wood,
+"Dn" = (
+/obj/structure/table/wood,
+/obj/structure/bedsheetbin{
+	pixel_y = 10
+	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -687,16 +698,6 @@
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/adhomai_bar)
-"Fo" = (
-/obj/structure/largecrate,
-/obj/item/reagent_containers/food/drinks/cans/adhomai_milk{
-	pixel_x = 8;
-	pixel_y = 17
-	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
 /area/adhomai_bar)
 "Fy" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -817,6 +818,9 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
+"Kg" = (
+/turf/simulated/floor/carpet/fancybrown,
+/area/adhomai_bar)
 "Kq" = (
 /obj/machinery/computer/slot_machine,
 /obj/machinery/light/small,
@@ -871,13 +875,6 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"On" = (
-/obj/item/fossil/skull/horned{
-	desc = "It's a horned skull.";
-	name = "horned skull"
-	},
-/turf/simulated/wall/wood,
-/area/adhomai_bar)
 "Ow" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/deck/cards,
@@ -903,13 +900,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/adhomai_bar)
-"Qn" = (
-/obj/structure/table/wood,
-/obj/item/flame/candle,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/adhomai_bar)
 "Qp" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
@@ -929,20 +919,21 @@
 	},
 /turf/simulated/floor/carpet/fancybrown,
 /area/adhomai_bar)
-"QA" = (
-/obj/structure/simple_door/wood{
-	name = "storeroom";
-	initial_lock_value = "storeroom"
-	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/adhomai_bar)
 "Rh" = (
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"RR" = (
+/obj/structure/closet/cabinet,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/flame/lighter/adhomai,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "Sp" = (
 /obj/structure/curtain/open/bed,
 /obj/structure/bed/padded,
@@ -1018,18 +1009,18 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
-"Tv" = (
-/obj/structure/closet/crate/trashcart,
-/obj/item/trash/can/adhomian_can,
-/obj/item/storage/bag/trash,
-/obj/item/storage/bag/trash,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/exoplanet/adhomai)
 "TA" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
+"TB" = (
+/obj/structure/simple_door/wood{
+	name = "storeroom";
+	initial_lock_value = "storeroom"
+	},
+/turf/simulated/floor/wood{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -1079,6 +1070,16 @@
 "Vi" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet/fancybrown,
+/area/adhomai_bar)
+"VB" = (
+/obj/structure/largecrate,
+/obj/item/reagent_containers/food/drinks/cans/adhomai_milk{
+	pixel_x = 8;
+	pixel_y = 17
+	},
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
 /area/adhomai_bar)
 "VS" = (
 /obj/structure/closet/crate/hydroponics,
@@ -1151,6 +1152,13 @@
 	temperature = 253.15
 	},
 /area/adhomai_bar)
+"WR" = (
+/obj/structure/table/wood,
+/obj/item/flame/candle,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
+/area/adhomai_bar)
 "WS" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray,
@@ -1202,14 +1210,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/adhomai_bar)
-"YN" = (
-/obj/structure/coatrack,
-/obj/item/clothing/suit/storage/tajaran/hunting,
-/obj/item/clothing/accessory/storage/bandolier,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
 /area/adhomai_bar)
 "YY" = (
 /obj/structure/table/rack,
@@ -1440,7 +1440,7 @@ Xv
 Xv
 Xv
 Xv
-Tv
+df
 nR
 nR
 FM
@@ -1858,21 +1858,21 @@ nR
 nR
 Xv
 Sp
-Aa
+Kg
 Vi
 Xv
 Sp
-Aa
+Kg
 Vi
 Xv
 Sp
-Aa
+Kg
 Vi
 Xv
-fb
+rn
 eS
 xc
-Qn
+WR
 Zm
 ev
 eS
@@ -1897,15 +1897,15 @@ nR
 nR
 Xv
 sE
-Aa
+Kg
 MM
 Xv
 sE
-Aa
+Kg
 MM
 Xv
 sE
-Aa
+Kg
 MM
 Xv
 eS
@@ -1936,15 +1936,15 @@ nR
 nR
 Xv
 xE
-Aa
+Kg
 ix
 Xv
 xE
-Aa
+Kg
 ix
 Xv
 xE
-Aa
+Kg
 ix
 Xv
 Wr
@@ -2009,9 +2009,9 @@ nR
 nR
 nR
 Xv
-np
+sv
 eS
-xR
+Dn
 Xv
 pr
 eS
@@ -2047,11 +2047,11 @@ nR
 (21,1,1) = {"
 nR
 nR
-On
-eO
+BW
+RR
 eS
 eS
-QA
+TB
 eS
 eS
 eS
@@ -2087,9 +2087,9 @@ nR
 nR
 nR
 Xv
-Fo
-YN
-CY
+VB
+oq
+ah
 Xv
 Xv
 Eg
@@ -2131,15 +2131,15 @@ Xv
 Xv
 Xv
 xE
-Aa
+Kg
 fC
 Xv
 xE
-Aa
+Kg
 fC
 Xv
 xE
-Aa
+Kg
 fC
 Xv
 Tb
@@ -2170,15 +2170,15 @@ nR
 nR
 Xv
 sE
-Aa
+Kg
 MM
 Xv
 sE
-Aa
+Kg
 MM
 Xv
 sE
-Aa
+Kg
 MM
 Xv
 WS
@@ -2209,15 +2209,15 @@ nR
 nR
 Xv
 Sp
-Aa
+Kg
 Vi
 Xv
 Sp
-Aa
+Kg
 Vi
 Xv
 Sp
-Aa
+Kg
 Vi
 Xv
 zA
