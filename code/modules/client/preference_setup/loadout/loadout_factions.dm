@@ -197,7 +197,7 @@
 	slot = slot_wear_suit
 	faction = "Zavodskoi Interstellar"
 	allowed_roles = list("Head of Security", "Warden")
-	
+
 /datum/gear/faction/zavod_warden_coat/New()
 	..()
 	var/list/zavod_warden_coat = list()
@@ -330,7 +330,7 @@
 	pmcg_sec_uniforms["EPMC uniform"] = /obj/item/clothing/under/rank/security/pmc/epmc
 	pmcg_sec_uniforms["EPMC uniform, alt"] = /obj/item/clothing/under/rank/security/pmc/epmc/alt
 	pmcg_sec_uniforms["EPMC detective uniform"] = /obj/item/clothing/under/det/pmc/alt
-	pmcg_sec_uniforms["Wildlands Squadron uniform"] = /obj/item/clothing/under/wildlands_uniform
+	pmcg_sec_uniforms["Wildlands Squadron uniform"] = /obj/item/clothing/under/rank/security/pmc/wildlands_squadron
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
 
 /datum/gear/faction/erisec_patch
@@ -567,7 +567,7 @@
 	orion_headwear["orion woolen hat"] = /obj/item/clothing/head/wool/orion
 	orion_headwear["orion woolen hat, alt"] = /obj/item/clothing/head/wool/orion/alt
 	gear_tweaks += new /datum/gear_tweak/path(orion_headwear)
-	
+
 //SCC
 /datum/gear/faction/scc_armband
 	display_name = "SCC armband"
