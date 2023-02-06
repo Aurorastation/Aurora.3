@@ -121,13 +121,13 @@
 					keyslot2 = null
 
 			recalculateChannels(TRUE)
-			to_chat(user, SPAN_NOTICE("You pop out the encryption keys in the headset!"))
+			to_chat(user, SPAN_NOTICE("You pop out the encryption keys in \the [src]!"))
 		else
-			to_chat(user, SPAN_WARNING("This headset doesn't have any encryption keys!"))
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have any encryption keys!"))
 
 	else if(istype(W, /obj/item/device/encryptionkey))
 		if(keyslot1 && keyslot2)
-			to_chat(user, SPAN_WARNING("The headset can't hold another key!"))
+			to_chat(user, SPAN_WARNING("\The [src] can't hold another key!"))
 			return
 
 		if(!keyslot1)

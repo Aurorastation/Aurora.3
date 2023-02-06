@@ -44,6 +44,8 @@ var/global/list/default_medbay_channels = list(
 	var/list/internal_channels
 	var/clicksound = /singleton/sound_category/button_sound //played sound on usage
 	var/clickvol = 10 //volume
+	var/transign = 0 //Can it translate sign language?
+	var/transign_active = 0 //Is it actively translating, right now, this very moment?
 
 	var/obj/item/cell/cell = /obj/item/cell/device
 	var/last_radio_sound = -INFINITY
@@ -398,7 +400,7 @@ var/global/list/default_medbay_channels = list(
 	// If we were to send to a channel we don't have, drop it.
 	return null
 
-/obj/item/device/radio/talk_into(mob/living/M, message, channel, var/say_verb = "says", var/datum/language/speaking = null, var/ignore_restrained)
+/obj/item/device/radio/talk_into(mob/living/M, message, channel, var/say_verb = null, var/datum/language/speaking = null, var/ignore_restrained)
 	if(!on)
 		return FALSE
 	if(!M || !message)
@@ -417,7 +419,7 @@ var/global/list/default_medbay_channels = list(
 
 	if(istype(M))
 		if(M.restrained() && !ignore_restrained)
-			to_chat(M, SPAN_WARNING("You can't speak into \the [src.name] while restrained."))
+			to_chat(M, SPAN_WARNING("You can't use \the [src.name] while restrained."))
 			return FALSE
 		M.trigger_aiming(TARGET_CAN_RADIO)
 

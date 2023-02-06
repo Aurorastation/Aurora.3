@@ -102,6 +102,10 @@
 	path = /obj/item/material/stool/chair/wheelchair
 	cost = 4
 
+/datum/gear/utility/stsgloves
+	display_name = "sign-to-speech gloves"
+	path = /obj/item/device/radio/gloves/sign
+
 /datum/gear/utility/business_card_holder
 	display_name = "business card holder"
 	description = "Comes in different materials."

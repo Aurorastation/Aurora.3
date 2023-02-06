@@ -2037,6 +2037,11 @@
 /mob/living/carbon/human/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	var/used_accent = accent //starts with the mob's default accent
 
+	if(istype(gloves,/obj/item/device/radio/gloves/sign)) //checks for sign-to-speech
+		var/obj/item/device/radio/gloves/sign/S = gloves
+		if(S.transign == 1 && S.transign_active == 1)
+			used_accent = ACCENT_TTS
+
 	if(mind)
 		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 		if(changeling?.mimiced_accent)
