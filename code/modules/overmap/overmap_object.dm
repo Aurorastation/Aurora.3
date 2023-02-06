@@ -71,9 +71,6 @@
 		for(var/obj/effect/overmap/visitable/O in loc)
 			SSskybox.rebuild_skyboxes(O.map_z)
 
-/obj/effect/overmap/update_icon()
-	filters = filter(type="drop_shadow", color = color + "F0", size = 2, offset = 1, x = 0, y = 0)
-
 /obj/effect/overmap/proc/signal_hit(var/list/hit_data)
 	return
 
