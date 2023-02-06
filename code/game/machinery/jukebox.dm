@@ -259,8 +259,8 @@ datum/track/New(var/title_name, var/audio)
 	name = "gramophone"
 	desc = "Play that vintage music!"
 	icon = 'icons/obj/jukebox.dmi'
-	icon_state = "record"
-	state_base = "record"
+	icon_state = "gramophone"
+	state_base = "gramophone"
 	anchored = 0
 	tracks = list(
 		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
