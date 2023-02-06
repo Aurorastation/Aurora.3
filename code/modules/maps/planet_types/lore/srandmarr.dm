@@ -147,7 +147,7 @@
 	return HABITABILITY_IDEAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_map()
-	if(prob(50))
+	if(prob(75))
 		lightlevel = rand(3,10)/10
 	..()
 
