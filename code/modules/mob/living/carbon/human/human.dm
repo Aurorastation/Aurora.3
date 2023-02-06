@@ -1478,6 +1478,8 @@
 	if(change_hair)
 		species.set_default_hair(src)
 
+	species.set_default_tail(src)
+
 	if(species)
 		return 1
 	else
