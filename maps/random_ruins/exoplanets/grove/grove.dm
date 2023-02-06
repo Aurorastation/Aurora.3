@@ -7,3 +7,13 @@
 	spawn_cost = 0.5
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS|TEMPLATE_FLAG_NO_RUINS
 	ruin_tags = RUIN_HUMAN|RUIN_HABITAT
+
+/datum/map_template/ruin/exoplanet/crashsurvivors
+	name = "crashsurvivors"
+	id = "crashsurvivors"
+	description = "A crashed shuttle, with survivors."
+	suffixes = list("grove/crashsurvivors/crashsurvivors.dmm")
+	spawn_weight = 3
+	spawn_cost = 0.5
+	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS|TEMPLATE_FLAG_NO_RUINS
+	ruin_tags = RUIN_HUMAN|RUIN_HABITAT
