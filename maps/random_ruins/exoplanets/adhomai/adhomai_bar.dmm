@@ -333,6 +333,7 @@
 /obj/structure/coatrack,
 /obj/item/clothing/suit/storage/tajaran/hunting,
 /obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/head/tajaran/fur,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
