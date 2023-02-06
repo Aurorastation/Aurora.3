@@ -126,7 +126,9 @@
 	pixel_y = -3
 	},
 /obj/structure/closet/crate/bin,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
 /area/adhomai_bar)
 "gm" = (
 /turf/simulated/floor/lino/grey{
@@ -182,7 +184,9 @@
 	pixel_y = -3
 	},
 /obj/structure/closet/crate/bin,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
 /area/adhomai_bar)
 "jp" = (
 /obj/structure/railing/fence,
@@ -451,7 +455,9 @@
 "sE" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
 /area/adhomai_bar)
 "sS" = (
 /obj/structure/bed/stool/chair/wood{
@@ -550,7 +556,9 @@
 /area/adhomai_bar)
 "xE" = (
 /obj/structure/bed/stool,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
 /area/adhomai_bar)
 "xS" = (
 /obj/machinery/atm{
@@ -818,9 +826,6 @@
 	temperature = 268.15
 	},
 /area/adhomai_bar)
-"Kg" = (
-/turf/simulated/floor/carpet/fancybrown,
-/area/adhomai_bar)
 "Kq" = (
 /obj/machinery/computer/slot_machine,
 /obj/machinery/light/small,
@@ -854,7 +859,9 @@
 /obj/item/paper_bin,
 /obj/item/pen/black,
 /obj/machinery/light/small,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
 /area/adhomai_bar)
 "NA" = (
 /obj/machinery/appliance/cooker/fryer,
@@ -939,7 +946,9 @@
 /obj/structure/curtain/open/bed,
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
 /area/adhomai_bar)
 "SN" = (
 /obj/structure/table/stone/marble,
@@ -1070,7 +1079,9 @@
 /area/adhomai_bar)
 "Vi" = (
 /obj/structure/closet/cabinet,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/wood{
+	temperature = 268.15
+	},
 /area/adhomai_bar)
 "VB" = (
 /obj/structure/largecrate,
@@ -1859,15 +1870,15 @@ nR
 nR
 Xv
 Sp
-Kg
+eS
 Vi
 Xv
 Sp
-Kg
+eS
 Vi
 Xv
 Sp
-Kg
+eS
 Vi
 Xv
 rn
@@ -1898,15 +1909,15 @@ nR
 nR
 Xv
 sE
-Kg
+eS
 MM
 Xv
 sE
-Kg
+eS
 MM
 Xv
 sE
-Kg
+eS
 MM
 Xv
 eS
@@ -1937,15 +1948,15 @@ nR
 nR
 Xv
 xE
-Kg
+eS
 ix
 Xv
 xE
-Kg
+eS
 ix
 Xv
 xE
-Kg
+eS
 ix
 Xv
 Wr
@@ -2132,15 +2143,15 @@ Xv
 Xv
 Xv
 xE
-Kg
+eS
 fC
 Xv
 xE
-Kg
+eS
 fC
 Xv
 xE
-Kg
+eS
 fC
 Xv
 Tb
@@ -2171,15 +2182,15 @@ nR
 nR
 Xv
 sE
-Kg
+eS
 MM
 Xv
 sE
-Kg
+eS
 MM
 Xv
 sE
-Kg
+eS
 MM
 Xv
 WS
@@ -2210,15 +2221,15 @@ nR
 nR
 Xv
 Sp
-Kg
+eS
 Vi
 Xv
 Sp
-Kg
+eS
 Vi
 Xv
 Sp
-Kg
+eS
 Vi
 Xv
 zA
