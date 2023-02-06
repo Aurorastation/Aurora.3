@@ -37,7 +37,7 @@
 	shoes = /obj/item/clothing/shoes/tajara/combat
 	belt = /obj/item/material/sword/amohdan_sword
 	accessory = /obj/item/clothing/accessory/storage/bayonet
-
+	suit_contents =  list(/obj/item/stack/medical/bruise_pack = 2)
 	l_ear = null
 
 	id = null
