@@ -1628,7 +1628,7 @@
 /area/hailstorm_ship/gun_deck/second)
 "lR" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(209);
+	req_access = list(214);
 	name = "gun cabinet (bayonets)"
 	},
 /obj/effect/floor_decal/industrial/outline/security,
