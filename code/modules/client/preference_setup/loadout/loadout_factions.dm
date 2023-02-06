@@ -136,6 +136,8 @@
 	zavodskoi_headwear["zavodskoi cap, alt"] = /obj/item/clothing/head/softcap/zavod/alt
 	zavodskoi_headwear["zavodskoi woolen hat"] = /obj/item/clothing/head/wool/zavod
 	zavodskoi_headwear["zavodskoi woolen hat, alt"] = /obj/item/clothing/head/wool/zavod/alt
+	zavodskoi_headwear["zavodskoi pilotka cap"] = /obj/item/clothing/head/sidecap/zavod
+	zavodskoi_headwear["zavodskoi pilotka cap, alt"] = /obj/item/clothing/head/sidecap/zavod/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoi_headwear)
 
 /datum/gear/faction/zavod_sec_uniforms
@@ -305,6 +307,7 @@
 	pmcg_headwear["EPMC softcap"] = /obj/item/clothing/head/softcap/pmc/epmc
 	pmcg_headwear["PMCG woolen hat"] = /obj/item/clothing/head/wool/pmc
 	pmcg_headwear["EPMC woolen hat"] = /obj/item/clothing/head/wool/pmc/alt
+	pmcg_headwear["PMCG garrison cap"] = /obj/item/clothing/head/sidecap/pmcg
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_headwear)
 
 /datum/gear/faction/pmc_modsuit
@@ -484,6 +487,7 @@
 	var/list/heph_headwear = list()
 	heph_headwear["beret, hephaestus"] = /obj/item/clothing/head/beret/corporate/heph
 	heph_headwear["hephaestus woolen hat"] = /obj/item/clothing/head/wool/heph
+	heph_headwear["hephaestus side cap"] = /obj/item/clothing/head/sidecap/heph
 	gear_tweaks += new /datum/gear_tweak/path(heph_headwear)
 
 /datum/gear/faction/heph_passcard

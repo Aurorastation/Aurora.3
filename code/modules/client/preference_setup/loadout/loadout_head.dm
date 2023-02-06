@@ -101,6 +101,11 @@
 	path = /obj/item/clothing/head/beret/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/head/sidecap
+	display_name = "side cap"
+	path = /obj/item/clothing/head/sidecap
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/warden
 	display_name = "headwear, security (warden)"
 	description = "A selection of warden headwear."
