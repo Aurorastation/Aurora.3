@@ -92,7 +92,7 @@
 	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
 	icon_state = "corvette"
 	moving_state = "corvette_moving"
-	colors = list("#23331a", "#3a6138")
+	colors = list("#9dc04c", "#52c24c")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -137,7 +137,7 @@
 	shuttle = "SSMD Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
-	colors = list("#23331a", "#3a6138")
+	colors = list("#9dc04c", "#52c24c")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

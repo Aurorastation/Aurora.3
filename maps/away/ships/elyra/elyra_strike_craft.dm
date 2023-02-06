@@ -28,7 +28,7 @@
 	desc = "The Aslan-class Strike Craft is among the oldest designs in the Elyran naval arsenal, and is one of the ship classes slated to be retired in the ongoing Elyran military modernization plan. Not an independent vessel in of itself, it is instead an oversized attack craft designed to be launched from the General Abd Al-Hamid-class Carrier, a type of Elyran capital ship, named after the Republic's foremost national hero. As such, it has limited crew facilities and life support capabilities, and is instead reliant on its mothership for long-term operation. This ship is an interdiction variant, with its torpedo bay and railgun hardpoint replaced by a hangar and a boarding pod launch room, respectively."
 	icon_state = "corvette"
 	moving_state = "corvette_moving"
-	colors = list("#e89d13", "#ffcd70")
+	colors = list("#ffae17", "#ffcd70")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -73,7 +73,7 @@
 	shuttle = "Elyran Naval Shuttle"
 	icon_state = "pod"
 	moving_state = "pod_moving"
-	colors = list("#e89d13", "#ffcd70")
+	colors = list("#ffae17", "#ffcd70")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

@@ -18,7 +18,7 @@
 	class = "NKAMV" //New Kingdom of Adhomai Vessel
 	icon_state = "hmatrra"
 	moving_state = "hmatrra_moving"
-	colors = list("#3e9af0", "#2955e6")
+	colors = list("#3e9af0", "#2b5cff")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH

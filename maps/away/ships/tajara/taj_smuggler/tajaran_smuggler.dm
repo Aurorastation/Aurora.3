@@ -20,7 +20,7 @@
 	desc = "Built with reliability in mind, the Zhsram Freighter is one of the most common Adhomian designs. This vessel is cheap and has a sizeable cargo storage. It is frequently used by Tajaran traders and smugglers."
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
-	colors = list("#3c3f59", "#252842")
+	colors = list("#c3c7eb", "#a0a8ec")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -66,7 +66,7 @@
 	shuttle = "Adhomian Freight Shuttle"
 	icon_state = "pod"
 	moving_state = "pod_moving"
-	colors = list("#3c3f59", "#252842")
+	colors = list("#c3c7eb", "#a0a8ec")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

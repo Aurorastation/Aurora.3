@@ -26,10 +26,10 @@
 	name = "Orion Express Mobile Station"
 	class = "OEV"
 	desc = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation's fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it."
-	icon = '/obj/overmap/overmap_stationary.dmi'
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "waystation"
 	moving_state = "waystation"
-	colors = list("#3c3f59", "#252842")
+	colors = list("#a1a8e2", "#818be0")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -82,7 +82,7 @@
 	shuttle = "Orion Express Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
-	colors = list("#3c3f59", "#252842")
+	colors = list("#a1a8e2", "#818be0")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

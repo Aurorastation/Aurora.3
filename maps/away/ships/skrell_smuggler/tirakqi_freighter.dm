@@ -27,7 +27,7 @@
 	desc = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one's transponder identifies it as belonging to an independent freighter."
 	icon_state = "tirakqi"
 	moving_state = "tirakqi_moving"
-	colors = list("#1ea1a8", "#3fd4aa")
+	colors = list("#27e4ee", "#4febbf")
 	class = "ISV"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
@@ -87,7 +87,7 @@
 	shuttle = "Ti'Rakqi Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
-	colors = list("#1ea1a8", "#3fd4aa")
+	colors = list("#27e4ee", "#4febbf")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000

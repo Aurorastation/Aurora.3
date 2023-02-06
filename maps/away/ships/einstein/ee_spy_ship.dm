@@ -28,7 +28,7 @@
 	desc = "A research ship belonging to Einstein Engines, the Stellar Corporate Conglomerate's main competitor."
 	icon_state = "light_cruiser"
 	moving_state = "light_cruiser_moving"
-	colors = list("#0da17c", "#0c5946")
+	colors = list("#18e9b5", "#6aa9dd")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -73,7 +73,7 @@
 	shuttle = "Einstein Engines Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
-	colors = list("#0da17c", "#0c5946")
+	colors = list("#18e9b5", "#6aa9dd")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

@@ -13,7 +13,7 @@
 	class = "IPV"
 	icon_state = "generic"
 	moving_state = "generic_moving"
-	colors = list("#3c3f59", "#252842")
+	colors = list("#c3c7eb", "#a0a8ec")
 	vessel_mass = 3000
 	max_speed = 1/(2 SECONDS)
 	initial_generic_waypoints = list(

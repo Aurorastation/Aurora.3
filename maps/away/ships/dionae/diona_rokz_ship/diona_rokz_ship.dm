@@ -49,7 +49,7 @@
 	desc = "A ship belonging to the Rokz voidtamer clan, a group of dionae who specialize in selling space fauna."
 	icon_state = "diona"
 	moving_state = "diona_moving"
-	colors = list("#28701d", "#30593a")
+	colors = list("#5cc04c", "#78f898")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -113,7 +113,7 @@
 	vessel_size = SHIP_SIZE_TINY
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
-	colors = list("#28701d", "#30593a")
+	colors = list("#5cc04c", "#78f898")
 
 /obj/machinery/computer/shuttle_control/explore/diona_rokz_ship
 	name = "shuttle control console"

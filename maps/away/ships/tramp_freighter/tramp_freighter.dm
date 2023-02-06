@@ -28,7 +28,7 @@
 	desc = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
-	colors = list("#3c3f59", "#252842")
+	colors = list("#c3c7eb", "#a0a8ec")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -73,7 +73,7 @@
 	shuttle = "Freight Shuttle"
 	icon_state = "pod"
 	moving_state = "pod_moving"
-	colors = list("#3c3f59", "#252842")
+	colors = list("#c3c7eb", "#a0a8ec")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
