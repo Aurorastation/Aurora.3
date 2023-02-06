@@ -255,8 +255,8 @@ datum/track/New(var/title_name, var/audio)
 	density = FALSE
 	anchored = TRUE
 
-/obj/machinery/media/jukebox/gramaphone
-	name = "gramaphone"
+/obj/machinery/media/jukebox/gramophone
+	name = "gramophone"
 	desc = "Play that vintage music!"
 	icon = 'icons/obj/jukebox.dmi'
 	icon_state = "record"
@@ -270,7 +270,7 @@ datum/track/New(var/title_name, var/audio)
 		new/datum/track("Posin'", 'sound/music/phonograph/posin.ogg')
 	)
 
-/obj/machinery/media/jukebox/gramaphone/update_icon()
+/obj/machinery/media/jukebox/gramophone/update_icon()
 	cut_overlays()
 	icon_state = state_base
 	if(playing)
