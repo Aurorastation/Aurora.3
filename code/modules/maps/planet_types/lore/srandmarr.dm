@@ -108,7 +108,7 @@
 	plant_colors = null
 	possible_themes = list(/datum/exoplanet_theme/mountains/adhomai)
 	map_generators = list(/datum/random_map/noise/exoplanet/snow/adhomai, /datum/random_map/noise/ore/rich)
-	features_budget = 3
+	features_budget = 4
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
 	generated_name = FALSE
